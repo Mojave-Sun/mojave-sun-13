@@ -1,0 +1,78 @@
+//7.62
+/obj/projectile/bullet/ms13/a762
+	icon_state = "bigroilfe_bullet"
+	damage = 0
+	armour_penetration = 0
+	wound_bonus = 0
+
+/obj/projectile/bullet/ms13/a762/junk
+	damage = -5
+
+/obj/projectile/bullet/ms13/a762/ap
+	armour_penetration = 10
+	wound_bonus = 2
+
+/obj/projectile/bullet/ms13/a762/fmj
+	damage = 5
+
+/obj/projectile/bullet/ms13/a762/hv
+	speed = 0.4
+	wound_bonus = 2
+
+//.308
+/obj/projectile/bullet/ms13/a308
+	icon_state = "bigroilfe_bullet"
+	damage = 0
+	armour_penetration = 0
+	wound_bonus = -6
+
+/obj/projectile/bullet/ms13/a308/junk
+	damage = -5
+
+/obj/projectile/bullet/ms13/a308/ap
+	armour_penetration = 10
+	wound_bonus = -4
+
+/obj/projectile/bullet/ms13/a308/fmj
+	damage = 5
+
+/obj/projectile/bullet/ms13/a308/hv
+	speed = 0.4
+	wound_bonus = -4
+
+//5.56
+/obj/projectile/bullet/ms13/a556
+	icon_state = "medium_bullet"
+	damage = 0
+	armour_penetration = 0
+	wound_bonus = 5
+
+/obj/projectile/bullet/ms13/a556/junk
+	damage = -5
+
+/obj/projectile/bullet/ms13/a556/ap
+	armour_penetration = 10
+	wound_bonus = 8
+
+/obj/projectile/bullet/ms13/a556/fmj
+	damage = 5
+
+/obj/projectile/bullet/ms13/a556/hv
+	speed = 0.4
+	wound_bonus = 8
+
+//50 BMG
+/obj/projectile/bullet/ms13/a50MG
+	icon_state = "lightfifty_bullet"
+	damage = 0
+	armour_penetration = 0
+	wound_bonus = 0
+
+/obj/projectile/bullet/ms13/a50MG/ap
+	armour_penetration = 5
+
+/obj/projectile/bullet/ms13/a50MG/fmj
+	damage = 5
+
+/obj/projectile/bullet/ms13/a50MG/hv
+	speed = 0.4

@@ -1,7 +1,7 @@
-/obj/item/ammo_casing/proc/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from)
+/obj/item/ammo_casing/proc/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from, extra_damage, extra_penetration)
 	distro += variance
 	var/targloc = get_turf(target)
-	ready_proj(target, user, quiet, zone_override, fired_from)
+	ready_proj(target, user, quiet, zone_override, fired_from, extra_damage, extra_penetration)
 	if(pellets == 1)
 		if(distro) //We have to spread a pixel-precision bullet. throw_proj was called before so angles should exist by now...
 			if(randomspread)
@@ -24,7 +24,7 @@
 	update_appearance()
 	return TRUE
 
-/obj/item/ammo_casing/proc/ready_proj(atom/target, mob/living/user, quiet, zone_override = "", atom/fired_from)
+/obj/item/ammo_casing/proc/ready_proj(atom/target, mob/living/user, quiet, zone_override = "", atom/fired_from, extra_damage = 0, extra_penetration = 0)
 	if (!loaded_projectile)
 		return
 	loaded_projectile.original = target
@@ -40,6 +40,8 @@
 		var/obj/item/gun/G = fired_from
 		loaded_projectile.damage *= G.projectile_damage_multiplier
 		loaded_projectile.stamina *= G.projectile_damage_multiplier
+		loaded_projectile.damage += G.extra_damage
+		loaded_projectile.armour_penetration += G.extra_penetration
 
 	if(reagents && loaded_projectile.reagents)
 		reagents.trans_to(loaded_projectile, reagents.total_volume, transfered_by = user) //For chemical darts/bullets
