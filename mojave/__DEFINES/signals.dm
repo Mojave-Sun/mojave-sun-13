@@ -1,0 +1,7 @@
+/////////////////////////////////////////////////////////////
+/////////////// MOJAVE SUN SIGNALS DIRECTORY ////////////////
+/////////////////////////////////////////////////////////////
+
+///for any crafting behaviors: (mob/living/user, obj/item/I, list/recipes)
+#define COMSIG_CRAFTING_ATTACKBY "atom_craft_with"
+	#define COMPONENT_BLOCK_CRAFTING_ATTACK (1<<0)
