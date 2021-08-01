@@ -7,6 +7,10 @@
 	righthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_right.dmi'
 	worn_icon = 'mojave/icons/mob/worn_guns.dmi'
 
+/obj/item/gun/ballistic/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/guns/guns_inventory.dmi')
+
 //Mojave Sun version for shotguns
 /obj/item/gun/ballistic/shotgun/ms13
 	name = "generic ms13 gun"
@@ -17,6 +21,10 @@
 	inhand_x_dimension = 32
 	inhand_y_dimension = 32
 	force = 20
+
+/obj/item/gun/ballistic/shotgun/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/guns/guns_inventory.dmi')
 
 //Automatic shotguns
 /obj/item/gun/ballistic/shotgun/automatic/ms13
@@ -29,6 +37,10 @@
 	inhand_y_dimension = 32
 	force = 15
 
+/obj/item/gun/ballistic/shotgun/automatic/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/guns/guns_inventory.dmi')
+
 //Revolvers
 /obj/item/gun/ballistic/revolver/ms13
 	name = "generic ms13 gun"
@@ -37,6 +49,10 @@
 	righthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_right.dmi'
 	worn_icon = 'mojave/icons/mob/worn_guns.dmi'
 	force = 10
+
+/obj/item/gun/ballistic/revolver/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/guns/guns_inventory.dmi')
 
 /obj/item/gun/ballistic/revolver/ms13/update_icon_state()
 	worn_icon_state = "[initial(icon_state)]"
@@ -56,6 +72,10 @@
 	righthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_right.dmi'
 	worn_icon = 'mojave/icons/mob/worn_guns.dmi'
 	force = 15
+
+/obj/item/gun/ballistic/automatic/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/guns/guns_inventory.dmi')
 
 /obj/item/gun/ballistic/automatic/ms13/update_icon_state()
 	worn_icon_state = "[initial(icon_state)]"
@@ -84,6 +104,10 @@
 	righthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_right.dmi'
 	worn_icon = 'mojave/icons/mob/worn_guns.dmi'
 	force = 10
+
+/obj/item/gun/ballistic/automatic/pistol/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/guns/guns_inventory.dmi')
 
 /obj/item/gun/ballistic/automatic/pistol/ms13/update_icon_state()
 	worn_icon_state = "[initial(icon_state)]"
@@ -115,6 +139,10 @@
 	internal_magazine = FALSE
 	tac_reloads = TRUE
 	force = 15
+
+/obj/item/gun/ballistic/rifle/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/guns/guns_inventory.dmi')
 
 /obj/item/gun/ballistic/rifle/ms13/update_icon_state()
 	worn_icon_state = "[initial(icon_state)]"

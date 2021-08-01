@@ -90,6 +90,10 @@
 		return
 	return ..()
 
+/obj/item/gun/energy/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/guns/guns_inventory.dmi')
+
 /obj/item/gun/energy/ms13/laser/aer9
 	name = "AER9 Laser Rifle"
 	desc = "A sturdy and advanced military grade pre-war service laser rifle"
@@ -280,6 +284,10 @@
 	w_class = WEIGHT_CLASS_TINY
 	var/base_icon = ""
 	var/multiple_states = FALSE
+
+/obj/item/stock_parts/cell/ammo/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/ammo/ammo.dmi')
 
 /obj/item/stock_parts/cell/ammo/New()
 	..()
