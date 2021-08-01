@@ -28,12 +28,15 @@
 	extra_damage = 25
 	extra_penetration = 0
 	internal_magazine = TRUE
+
 /obj/item/gun/ballistic/automatic/pistol/ms13/m10mm/chinese/update_icon_state()
 	if(!chambered && internal_magazine == TRUE && magazine.stored_ammo == 0) //this makes the pistol have the chinese pistol update when empty, code can be copied to similar pistols
 		icon_state = "[initial(icon_state)]_empty"
 
 	if(chambered && internal_magazine == TRUE) //this makes the chinese pistol or subtypes appear loaded as long as it's chambered
 		icon_state = "[initial(icon_state)]"
+	return ..()
+
 /obj/item/gun/ballistic/automatic/pistol/ms13/m10mm/chinese/v420
 	name = "v420 Chinese pistol"
 	desc = "A prototype Chinese pistol with a slower fire rate but much higher damage, also sporting some much better looks."

@@ -27,11 +27,13 @@
 	automatic_charge_overlays = FALSE
 	extra_damage = 10
 	fire_delay = 6
+
 /obj/item/gun/energy/ms13/update_icon()
 	if(!cell)
 		icon_state = "[base_icon_state]_empty"
 	else
 		icon_state = "[base_icon_state]"
+	return ..()
 
 /obj/item/gun/energy/ms13/proc/insert_magazine(mob/user, var/obj/item/stock_parts/cell/ammo/AM, display_message = TRUE)
 	if(!istype(AM, cell_type))
@@ -301,6 +303,7 @@
 			icon_state = "[base_icon]_empty"
 		else
 			icon_state = "[base_icon]"
+	return ..()
 
 /obj/item/stock_parts/cell/ammo/mfc
 	name = "microfusion cell"

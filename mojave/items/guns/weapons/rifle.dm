@@ -63,6 +63,8 @@
 
 	if(chambered && magazine && bolt_locked == TRUE) //this makes all our rifles full state when chambered and they have a magazine
 		icon_state = "[initial(icon_state)]_mag_empty"
+	return ..()
+
 /obj/item/gun/ballistic/rifle/ms13/varmint/ratslayer
 	name = "\improper Ratslayer"
 	desc = "A uniquely modified varmint rifle with improved rifling, a scope, and supressor attached."
@@ -74,6 +76,7 @@
 	zoom_amt = 10
 	zoom_out_amt = 13
 	suppressed = 1
+
 /obj/item/gun/ballistic/rifle/ms13/hunting/scoped/amr
 	name = "anti-material rifle"
 	desc = "An extremely heavy duty .50 caliber sniper rifle. Have you seen what this can do to a Deathclaw?"
@@ -83,6 +86,7 @@
 	fire_sound = 'mojave/sound/ms13weapons/amrfire.ogg'
 	fire_delay = 8
 	extra_damage = 60
+
 /obj/item/gun/ballistic/rifle/ms13/hunting/scoped/amr/update_icon_state()
 	worn_icon_state = "[initial(icon_state)]"
 	if(!chambered && magazine) //this makes all our rifles empty, the state with a magazine, rifle not necassarily empty just not chambered
@@ -109,6 +113,7 @@
 	if(chambered && magazine && bolt_locked == TRUE) //this makes all our rifles full state when chambered and they have a magazine, bolt open
 		icon_state = "[initial(icon_state)]_mag_empty"
 		////yes this has extensive ammounts, some might be unecassary but are in place as a failsafe
+	return ..()
 
 /obj/item/gun/ballistic/rifle/ms13/hunting/chinese
 	name = "\improper Chinese hunting rifle"
@@ -154,6 +159,7 @@
 	fire_sound = 'mojave/sound/ms13weapons/battlerifle.ogg'
 	empty_alarm_sound = 'mojave/sound/ms13weapons/battlerifleunload.ogg'
 	extra_damage = 45
+
 //Magazines
 /obj/item/ammo_box/magazine/ms13/r10
 	name = "10 round magazine (5.56mm)"

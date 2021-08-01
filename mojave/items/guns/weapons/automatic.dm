@@ -234,6 +234,7 @@
 
 	if(chambered && magazine) //this makes the sks full state when chambered and they have a magazine
 		icon_state = "[initial(icon_state)]"
+	return ..()
 
 /obj/item/gun/ballistic/automatic/ms13/marksman/battle/rangemaster
 	name = "\improper Rangemaster"

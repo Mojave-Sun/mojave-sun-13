@@ -64,6 +64,8 @@
 		icon_state = "[initial(icon_state)]_empty"
 	else
 		icon_state = "[initial(icon_state)]"
+	return ..()
+
 //Automatics
 /obj/item/gun/ballistic/automatic/ms13
 	name = "generic ms13 gun"
@@ -95,6 +97,7 @@
 	if(chambered && magazine) //this makes all our rifles full state when chambered and they have a magazine
 		icon_state = "[initial(icon_state)]"
 		//note this also applies to the SMG's
+	return ..()
 
 /obj/item/gun/ballistic/automatic/pistol/ms13
 	name = "generic ms13 gun"
@@ -128,6 +131,7 @@
 
 	if(!chambered && !magazine && bolt_locked == FALSE) //this makes the pistol bolt be back when you unchamber a round, the state with no magazine
 		icon_state = "[initial(icon_state)]_cham_empty"
+	return ..()
 
 //Bolt-actions
 /obj/item/gun/ballistic/rifle/ms13
@@ -157,6 +161,7 @@
 
 	if(chambered && bolt_locked == TRUE) //this makes all our rifles chambered, bolt open
 		icon_state = "[initial(icon_state)]_empty"
+	return ..()
 
 //Loaders/Ammo boxes
 /obj/item/ammo_box/ms13
