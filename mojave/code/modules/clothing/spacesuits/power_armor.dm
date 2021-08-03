@@ -39,29 +39,48 @@
 	worn_x_dimension = 32
 	worn_y_dimension = 20
 	helmettype = null //no helmet; default PA is frame = /obj/item/clothing/head/helmet/space/hardsuit/power_armor
-	var/original_pilot_footstep //Footsteps that the equipping pilot used to have, so we can replace the component's footsteps with a mecha move
+	var/footstep = 1
+	var/mob/listeningTo
 
 /obj/item/clothing/suit/space/hardsuit/power_armor/Initialize()
 	. = ..()
 	interaction_flags_item &= ~INTERACT_ITEM_ATTACK_HAND_PICKUP
 	ADD_TRAIT(src, TRAIT_NODROP, STICKY_NODROP) //Somehow it's stuck to your body, no questioning.
 
-//It's a suit of armor, it ain't going to fall over just because the pilot is dead
+//Hardcode goes brrr; borrowed from ancient hardsuits
+/obj/item/clothing/suit/space/hardsuit/power_armor/proc/on_mob_move()
+	SIGNAL_HANDLER
+	var/mob/living/carbon/human/H = loc
+	if(!istype(H) || H.wear_suit != src)
+		return
+	if(footstep > 1)
+		playsound(src, 'sound/mecha/mechstep.ogg', 100, TRUE)
+		footstep = 0
+	else
+		footstep++
+
 /obj/item/clothing/suit/space/hardsuit/power_armor/equipped(mob/user, slot)
 	. = ..()
-	ADD_TRAIT(user, TRAIT_FORCED_STANDING, "power_armor")
-	if(slot == ITEM_SLOT_OCLOTHING)
-		var/datum/component/footstep/C = user?.GetComponent(/datum/component/footstep)
-		if(C)
-			original_pilot_footstep = C.footstep_sounds //Yes, this means light_step quirk will somewhat silence power armor, go figure
-			C.footstep_sounds = 'sound/mecha/mechstep.ogg'
+	ADD_TRAIT(user, TRAIT_FORCED_STANDING, "power_armor") //It's a suit of armor, it ain't going to fall over just because the pilot is dead
+	if(slot != ITEM_SLOT_OCLOTHING)
+		if(listeningTo)
+			UnregisterSignal(listeningTo, COMSIG_MOVABLE_MOVED)
+		return
+	if(listeningTo == user)
+		return
+	if(listeningTo)
+		UnregisterSignal(listeningTo, COMSIG_MOVABLE_MOVED)
+	RegisterSignal(user, COMSIG_MOVABLE_MOVED, .proc/on_mob_move)
+	listeningTo = user
 
 /obj/item/clothing/suit/space/hardsuit/power_armor/dropped(mob/user)
 	. = ..()
-	REMOVE_TRAIT(user, TRAIT_FORCED_STANDING, "power_armor")
-	var/datum/component/footstep/C = user?.GetComponent(/datum/component/footstep)
-	if(C)
-		C.footstep_sounds = original_pilot_footstep
+	if(listeningTo)
+		UnregisterSignal(listeningTo, COMSIG_MOVABLE_MOVED)
+
+/obj/item/clothing/suit/space/hardsuit/power_armor/Destroy()
+	listeningTo = null
+	return ..()
 
 //No helmet toggles for now when helmet is up
 /obj/item/clothing/suit/space/hardsuit/power_armor/ToggleHelmet()

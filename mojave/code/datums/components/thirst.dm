@@ -1,3 +1,5 @@
+//NOTE: KEEPING THIS DISABLED FOR NOW
+
 //Makes you request water or die, this could be made more generic with support of more reagents but that's going into "refactor addiction" territory
 
 //Amount of seconds a unit of water will provide life for, modify this for balancing purposes
