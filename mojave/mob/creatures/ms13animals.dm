@@ -53,7 +53,7 @@
 	turns_per_move = 3
 	melee_damage_lower = 0
 	melee_damage_upper = 0
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab = 1)
+	butcher_results = list(/obj/item/food/meat/slab = 1)
 	health = 50
 	maxHealth = 50
 	is_young = TRUE
@@ -130,8 +130,8 @@
 	turns_per_move = 5
 	butcher_results = list(/obj/item/ms13/hide/slepnir = 1, /obj/item/ms13/carcass/large/slepnir/front = 1, /obj/item/ms13/carcass/large/slepnir/back = 1, /obj/item/ms13/animalitem/slepnir/hooves = 2)//slepnir hide, hooves, hair, meat
 	attack_sound = 'mojave/sound/ms13weapons/meleesounds/slam.ogg'
-	health = 400
-	maxHealth = 400
+	health = 250
+	maxHealth = 250
 	melee_damage_lower = 5
 	melee_damage_upper = 20 //getting kicked by a horse should hurt
 	speed = 1.5
@@ -190,7 +190,7 @@
 	melee_damage_lower = 0
 	melee_damage_upper = 0
 	speed = 1
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab = 1)
+	butcher_results = list(/obj/item/food/meat/slab = 1)
 	health = 30
 	maxHealth = 30
 	is_young = TRUE
@@ -246,7 +246,7 @@
 	melee_damage_lower = 0
 	melee_damage_upper = 0
 	speed = 1.5
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab = 1)
+	butcher_results = list(/obj/item/food/meat/slab = 1)
 	health = 10
 	maxHealth = 10
 	is_young = TRUE
@@ -350,7 +350,7 @@
 	melee_damage_lower = 20
 	melee_damage_upper = 25
 	speed = 3
-	//food_type = list(/obj/item/reagent_containers/food/snacks/meat)
+	food_type = list(/obj/item/food/meat/slab)
 	tame_chance = 5
 	bonus_tame_chance = 5
 	rideable = TRUE
@@ -386,6 +386,7 @@
 	melee_damage_lower = 5
 	melee_damage_upper = 30
 	speed = 2
+	footstep_type = FOOTSTEP_MOB_CLAW
 	//food_type = list(/obj/item/reagent_containers/food/snacks/grown/ms13/punga, /obj/item/reagent_containers/food/snacks/grown/ms13/geigpunga)
 	tame_chance = 5
 	bonus_tame_chance = 5
@@ -415,7 +416,8 @@
 	melee_damage_lower = 20
 	melee_damage_upper = 40
 	speed = 1
-	//food_type = list(/obj/item/reagent_containers/food/snacks/meat)
+	footstep_type = FOOTSTEP_MOB_CLAW
+	food_type = list(/obj/item/food/meat/slab)
 	tame_chance = 2
 	bonus_tame_chance = 2 //this things a jack of all tame trades
 	rideable = TRUE
@@ -458,16 +460,18 @@
 	melee_damage_lower = 5
 	melee_damage_upper = 10
 	speed = 3
+	footstep_type = FOOTSTEP_MOB_CLAW
 	//food_type = list(/obj/item/reagent_containers/food/snacks/grown/ms13/pricklypear)
 	tame_chance = 5
 	bonus_tame_chance = 20
 	milkable = TRUE
 	extract = null//honey
-	var/bee_type = /mob/living/simple_animal/hostile/poison/bees/short
+	ranged = TRUE
+	var/bee_type = /mob/living/simple_animal/hostile/bee
 
 /mob/living/simple_animal/hostile/ms13/honeybeast/OpenFire(the_target)
 	if(world.time >= ranged_cooldown)
-		var/mob/living/simple_animal/hostile/ms13/honeybeast/A = new bee_type(src.loc)
+		var/mob/living/simple_animal/hostile/bee/A = new bee_type(src.loc)
 
 		A.flags_1 |= (flags_1 & ADMIN_SPAWNED_1)
 		A.GiveTarget(target)
@@ -480,13 +484,14 @@
 /mob/living/simple_animal/hostile/ms13/radscorpion
 	name = "radscorpion"
 	desc = "A large mutated scorpion, found across the wastes, extremely lethal with not only its menacing pincers but toxic stinger to boot."
-	icon_state = "blackscorpion"
+	icon = 'mojave/icons/mob/48x48.dmi'
+	icon_state = "radscorpion"
 	speak = list("ckkkckkckc","snapsnapsnap","chcthchthcthcthh")
 	speak_emote = list("hisses")
 	emote_hear = list("clicks")
 	emote_see = list("dances")
-	attack_verb_continuous = "claws"
-	attack_verb_simple = "claw"
+	attack_verb_continuous = "stings"
+	attack_verb_simple = "sting"
 	speak_chance = 20
 	turns_per_move = 4
 	butcher_results = list()//radscoprion meat, radscorpion tail, chitin
@@ -495,7 +500,9 @@
 	maxHealth = 200
 	melee_damage_lower = 30
 	melee_damage_upper = 40
+	base_pixel_x = -8
 	speed = 2
+	footstep_type = FOOTSTEP_MOB_CLAW
 	//food_type = list(/obj/item/reagent_containers/food/snacks/grown/ms13/soot, /obj/item/reagent_containers/food/snacks/grown/ms13/toxicsoot)
 	tame_chance = 5
 	bonus_tame_chance = 5
@@ -513,11 +520,8 @@
 	if(poison_type && istype(L) && L.reagents)
 		L.reagents.add_reagent(poison_type, poison_per_bite)
 
-/mob/living/simple_animal/hostile/ms13/radscorpion/ice
-	icon_state = "bluescorpion"
-
-/mob/living/simple_animal/hostile/ms13/radscorpion/cave
-	icon_state = "brownscorpion"
+/mob/living/simple_animal/hostile/ms13/radscorpion/desert
+	icon_state = "radscorpion_bark"
 
 //radstag - hunting animal, runs from the user, gotta use binoculars/scope to get it before it runs
 
@@ -581,7 +585,7 @@
 	melee_damage_lower = 0
 	melee_damage_upper = 0
 	speed = 1.5
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab = 1)
+	butcher_results = list(/obj/item/food/meat/slab = 1)
 	health = 50
 	maxHealth = 50
 	is_young = TRUE
@@ -608,7 +612,7 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 30
 	speed = 1.5
-	//food_type = list(/obj/item/reagent_containers/food/snacks/meat)
+	food_type = list(/obj/item/food/meat/slab)
 	tame_chance = 10
 	bonus_tame_chance = 10
 	breedable = TRUE
@@ -633,7 +637,7 @@
 	melee_damage_lower = 0
 	melee_damage_upper = 0
 	speed = 1.5
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab = 1)//mungrel meat
+	butcher_results = list(/obj/item/food/meat/slab = 1)//mungrel meat
 	health = 50
 	maxHealth = 50
 	is_young = TRUE
@@ -660,7 +664,7 @@
 	melee_damage_lower = 30
 	melee_damage_upper = 40
 	speed = 1.5
-	//food_type = list(/obj/item/reagent_containers/food/snacks/meat)
+	food_type = list(/obj/item/food/meat/slab)
 	tame_chance = 5
 	bonus_tame_chance = 5
 
@@ -715,7 +719,7 @@
 	melee_damage_lower = 50
 	melee_damage_upper = 60
 	speed = 4
-	//food_type = list(/obj/item/reagent_containers/food/snacks/meat/slab/human)
+	food_type = list(/obj/item/food/meat/slab/human)
 	tame_chance = 5
 	bonus_tame_chance = 2
 	rideable = TRUE
@@ -746,11 +750,11 @@
 	melee_damage_lower = 40
 	melee_damage_upper = 60
 	speed = 2
-	//food_type = list(/obj/item/reagent_containers/food/snacks/meat/slab/human)
+	food_type = list(/obj/item/food/meat/slab/human)
 	tame_chance = 1
 	bonus_tame_chance = 1
 	rideable = TRUE
-	base_pixel_x = -48
+	base_pixel_x = -64
 	status_flags = null
 	offsetx = 6
 	offsety = 32

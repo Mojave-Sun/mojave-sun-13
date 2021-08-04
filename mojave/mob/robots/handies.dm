@@ -42,11 +42,11 @@
 	stat_attack = HARD_CRIT
 	ranged = TRUE
 	projectiletype = /obj/projectile/beam/ms13/laser/handy
-	projectilesound = 'mojave/sound/ms13weapons/gunsounds/laspistol/laspistol_1.ogg'
+	projectilesound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_2.ogg'
 
 /mob/living/simple_animal/hostile/ms13/robot/handy/gutsy
-	name = "mr. handy"
-	desc = "A work model Mr. Handy unit, armed with a horrifyingly sharp saw. It's long lost any rational wires in its circuits."
+	name = "mr. Gutsy"
+	desc = "A militarized version of the Handy model. Equiped with a compact plasma rifle, it's a dangerous foe."
 	icon_state = "mrhandy_gutsy"
 	icon_living = "mrhandy_gutsy"
 	attack_verb_continuous = "pinches"

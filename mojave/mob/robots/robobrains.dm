@@ -10,14 +10,13 @@
 	attack_verb_simple = "slam"
 	speak_emote = list("says", "whines", "crackles")
 	mob_size = MOB_SIZE_LARGE
-	footstep_type = null
-	loot = list(/obj/item/stack/sheet/ms13/scrap/twentyfive, /obj/effect/decal/cleanable/robot_debris)
+	footstep_type = FOOTSTEP_OBJ_ROBOT
+//	loot = list(/obj/item/stack/sheet/ms13/scrap/twentyfive, /obj/effect/decal/cleanable/robot_debris)
 	dextrous = TRUE
 	held_items = list(null, null)
-	possible_a_intents = list(INTENT_HELP, INTENT_GRAB, INTENT_DISARM, INTENT_HARM)
 	ranged = TRUE
 	ranged_cooldown_time = 10 SECONDS
-	projectilesound = 'mojave/sound/ms13weapons/gunsounds/laspistol_6.ogg'
+	projectilesound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_5.ogg'
 	projectiletype = /obj/projectile/beam/ms13/laser/robobrain
 	bot_type = "RB"
 

@@ -49,9 +49,6 @@
 	maxHealth = 100
 	speed = 2
 	blood_volume = BLOOD_VOLUME_NORMAL
-	food_type = list()
-	tame_chance = 25
-	bonus_tame_chance = 15
 	footstep_type = FOOTSTEP_MOB_HEAVY
 	status_flags = CANSTUN
 	environment_smash = ENVIRONMENT_SMASH_NONE
@@ -59,6 +56,10 @@
 	stop_automated_movement_when_pulled = 1
 	wound_bonus = -5
 	bare_wound_bonus = 5
+	var/food_type = list()
+	var/tame_chance = 10
+	var/bonus_tame_chance = 15
+	var/tame = FALSE
 	//does the homie have chemss/chems to extract? Poison, Milk, Other :flushed:
 	var/milkable = FALSE
 	//Chems that the creature makes
@@ -99,6 +100,7 @@
 
 /mob/living/simple_animal/ms13/Initialize()
 	. = ..()
+	AddComponent(/datum/component/tameable, tame_chance = 25, bonus_tame_chance = 15, after_tame = CALLBACK(src, .proc/tamed))
 	icon_dead = "[icon_state]_dead"
 	var/matrix/bambinoscale = matrix()
 	if(is_young == TRUE)
@@ -113,6 +115,10 @@
 			chems = new()
 		if(eggable == TRUE)
 			eggsleft = 0
+
+/mob/living/simple_animal/ms13/proc/tamed(mob/living/tamer)
+	faction = list("neutral")
+	tame = TRUE
 
 /mob/living/simple_animal/ms13/Destroy()
 	if(milkable == TRUE)
@@ -174,7 +180,6 @@
 		add_overlay("[icon_state]_saddled")
 		var/datum/component/riding/D = LoadComponent(/datum/component/riding)
 		D.set_riding_offsets(RIDING_OFFSET_ALL, list(TEXT_NORTH = list(0, 8 + offsety), TEXT_SOUTH = list(0, 8 + offsety), TEXT_EAST = list(-2 - offsetx, 8 + offsety), TEXT_WEST = list(2 + offsetx, 8 + offsety)))
-		D.drive_verb = "ride"
 		D.vehicle_move_delay = speedmodifier
 
 /mob/living/simple_animal/ms13/proc/bogged()
@@ -216,7 +221,7 @@
 					qdel(O)
 			else if(hunger >= maxhunger)
 				user.visible_message("<span class='notice'>The [src] rejects the [O] they dont seem to be hungry right now.</span>")
-		if(baggable == TRUE)
+/*		if(baggable == TRUE)
 			if(istype(O, /obj/item/storage/ms13/sack) && !bagged)
 				if(tame && do_after(user,55,target=src))
 					playsound(get_turf(src), "rustle", 50, TRUE)
@@ -225,7 +230,7 @@
 					bagged = TRUE
 					bogged()
 					egg_type = null
-					return
+					return */
 		if(rideable == TRUE)
 			if(istype(O, /obj/item/saddle) && !saddled)
 				if(tame && do_after(user,55,target=src))
@@ -305,11 +310,7 @@
 	maxHealth = 100
 	speed = 2
 	blood_volume = BLOOD_VOLUME_NORMAL
-	food_type = list()
-	tame_chance = 10
-	bonus_tame_chance = 15
 	aggro_vision_range = 10
-	a_intent = INTENT_HARM
 	see_in_dark = 8
 	obj_damage = 10
 	footstep_type = FOOTSTEP_MOB_HEAVY
@@ -319,6 +320,10 @@
 	stop_automated_movement_when_pulled = 1
 	wound_bonus = -5
 	bare_wound_bonus = 5
+	var/food_type = list()
+	var/tame_chance = 10
+	var/bonus_tame_chance = 15
+	var/tame = FALSE
 	var/milkable = FALSE
 	var/extract = null
 	var/obj/item/ms13/animalchem/chems = null
@@ -345,6 +350,7 @@
 
 /mob/living/simple_animal/hostile/ms13/Initialize()
 	. = ..()
+	AddComponent(/datum/component/tameable, tame_chance = 10, bonus_tame_chance = 15, after_tame = CALLBACK(src, .proc/tamed))
 	icon_dead = "[icon_state]_dead"
 	var/matrix/bambinoscale = matrix()
 	if(is_young == TRUE)
@@ -359,6 +365,10 @@
 			chems = new()
 		if(eggable == TRUE)
 			eggsleft = 0
+
+/mob/living/simple_animal/hostile/ms13/proc/tamed(mob/living/tamer)
+	faction = list("neutral")
+	tame = TRUE
 
 //hunger and baby grow/birth/speed shitcode
 /mob/living/simple_animal/hostile/ms13/Life()
@@ -421,7 +431,6 @@
 		var/datum/component/riding/D = LoadComponent(/datum/component/riding)
 		D.set_riding_offsets(RIDING_OFFSET_ALL, list(TEXT_NORTH = list(0, 8 + offsety), TEXT_SOUTH = list(0, 8 + offsety), TEXT_EAST = list(-2 - offsetx, 8 + offsety), TEXT_WEST = list(2 + offsetx, 8 + offsety)))
 		D.keytype = /obj/item/key/lasso
-		D.drive_verb = "ride"
 		D.vehicle_move_delay = speedmodifier
 
 /mob/living/simple_animal/hostile/ms13/proc/bogged()
@@ -463,7 +472,7 @@
 					qdel(O)
 			else if(hunger >= maxhunger)
 				user.visible_message("<span class='notice'>The [src] rejects the [O] they dont seem to be hungry right now.</span>")
-		if(baggable == TRUE)
+/*		if(baggable == TRUE)
 			if(istype(O, /obj/item/storage/ms13/sack) && !bagged)
 				if(tame && do_after(user,55,target=src))
 					playsound(get_turf(src), "rustle", 50, TRUE)
@@ -472,7 +481,7 @@
 					bagged = TRUE
 					bogged()
 					egg_type = null
-					return
+					return */
 		if(rideable == TRUE)
 			if(istype(O, /obj/item/saddle) && !saddled)
 				if(tame && do_after(user,55,target=src))
@@ -525,15 +534,16 @@
 	maxHealth = 100
 	speed = 2
 	blood_volume = BLOOD_VOLUME_NORMAL
-	food_type = list()
-	tame_chance = 10
-	bonus_tame_chance = 15
 	footstep_type = FOOTSTEP_MOB_HEAVY
 	status_flags = CANSTUN
 	mob_size = MOB_SIZE_LARGE
 	stop_automated_movement_when_pulled = 1
 	wound_bonus = -5
 	bare_wound_bonus = 5
+	var/food_type = list()
+	var/tame_chance = 10
+	var/bonus_tame_chance = 15
+	var/tame = FALSE
 	var/milkable = FALSE
 	var/extract = null
 	var/obj/item/ms13/animalchem/chems = null
@@ -560,6 +570,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/ms13/Initialize()
 	. = ..()
+	AddComponent(/datum/component/tameable, tame_chance = 10, bonus_tame_chance = 15, after_tame = CALLBACK(src, .proc/tamed))
 	icon_dead = "[icon_state]_dead"
 	var/matrix/bambinoscale = matrix()
 	if(is_young == TRUE)
@@ -574,6 +585,10 @@
 			chems = new()
 		if(eggable == TRUE)
 			eggsleft = 0
+
+/mob/living/simple_animal/hostile/retaliate/ms13/proc/tamed(mob/living/tamer)
+	faction = list("neutral")
+	tame = TRUE
 
 //hunger and baby grow/birth/speed shitcode
 /mob/living/simple_animal/hostile/retaliate/ms13/Life()
@@ -639,7 +654,6 @@
 		add_overlay("[icon_state]_saddled")
 		var/datum/component/riding/D = LoadComponent(/datum/component/riding)
 		D.set_riding_offsets(RIDING_OFFSET_ALL, list(TEXT_NORTH = list(0, 8 + offsety), TEXT_SOUTH = list(0, 8 + offsety), TEXT_EAST = list(-2 - offsetx, 8 + offsety), TEXT_WEST = list(2 + offsetx, 8 + offsety)))
-		D.drive_verb = "ride"
 		D.vehicle_move_delay = speedmodifier
 
 /mob/living/simple_animal/hostile/retaliate/ms13/proc/bogged()
@@ -685,7 +699,7 @@
 					qdel(O)
 			else if(hunger >= maxhunger)
 				user.visible_message("<span class='notice'>The [src] rejects the [O] they dont seem to be hungry right now.</span>")
-		if(baggable == TRUE)
+/*		if(baggable == TRUE)
 			if(istype(O, /obj/item/storage/ms13/sack) && !bagged)
 				if(tame && do_after(user,55,target=src))
 					playsound(get_turf(src), "rustle", 50, TRUE)
@@ -694,7 +708,7 @@
 					bagged = TRUE
 					bogged()
 					egg_type = null
-					return
+					return */
 		if(rideable == TRUE)
 			if(istype(O, /obj/item/saddle) && !saddled)
 				if(tame && do_after(user,55,target=src))
@@ -726,16 +740,16 @@
 	turns_per_move = 5
 	see_in_dark = 7
 	deathmessage = "blows apart!"
-	loot = list(/obj/item/stack/sheet/ms13/scrap, /obj/effect/decal/cleanable/robot_debris)
+//	loot = list(/obj/item/stack/sheet/ms13/scrap, /obj/effect/decal/cleanable/robot_debris)
 	speak_emote = list("states", "buzzes", "crackles")
 	blood_volume = null
 	food_type = null
 	tame_chance = 0
 	aggro_vision_range = 12
-	a_intent = INTENT_HARM
 	stat_attack = HARD_CRIT
 	status_flags = null
 	mob_size = MOB_SIZE_HUMAN
+	footstep_type = FOOTSTEP_OBJ_ROBOT
 	stop_automated_movement_when_pulled = 0
 	wound_bonus = -5
 	bare_wound_bonus = 5
@@ -750,19 +764,19 @@
 	wander = TRUE
 	faction = list("robots")
 	check_friendly_fire = TRUE
-	mob_biotypes = MOB_ROBOTIC
+	footstep_type = FOOTSTEP_MOB_HEAVY
 	turns_per_move = 5
 	see_in_dark = 7
 	deathmessage = "blows apart!"
-	loot = list(/obj/item/stack/sheet/ms13/scrap, /obj/effect/decal/cleanable/robot_debris)
+//	loot = list(/obj/item/stack/sheet/ms13/scrap, /obj/effect/decal/cleanable/robot_debris)
 	speak_emote = list("states", "buzzes", "crackles")
 	blood_volume = null
 	food_type = null
 	tame_chance = 0
 	aggro_vision_range = 12
-	a_intent = INTENT_HARM
 	status_flags = null
 	mob_size = MOB_SIZE_HUMAN
+	footstep_type = FOOTSTEP_MOB_HEAVY
 	stop_automated_movement_when_pulled = 0
 	wound_bonus = -5
 	bare_wound_bonus = 5
