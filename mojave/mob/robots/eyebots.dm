@@ -17,7 +17,6 @@
 	retreat_distance = 12
 	speed = 2
 	attack_sound = "slam"
-	a_intent = "harm"
 	status_flags = CANPUSH
 	vision_range = 20
 	aggro_vision_range = 10
@@ -30,7 +29,7 @@
 	bare_wound_bonus = 0
 	ranged = TRUE
 	projectiletype = /obj/projectile/beam/ms13/laser/eyebot
-	projectilesound = 'mojave/sound/ms13weapons/gunsounds/laspistol/laspistol_1.ogg'
+	projectilesound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_1.ogg'
 	bot_type = "ED" // Literally just for naming
 	shadow_type = "shadow_small"
 
@@ -62,7 +61,6 @@
 	retreat_distance = 12
 	speed = 2
 	attack_sound = "slam"
-	a_intent = "harm"
 	status_flags = CANPUSH
 	vision_range = 20
 	aggro_vision_range = 10
@@ -75,7 +73,7 @@
 	bare_wound_bonus = 0
 	ranged = TRUE
 	projectiletype = /obj/projectile/beam/ms13/laser/eyebot
-	projectilesound = 'mojave/sound/ms13weapons/gunsounds/laspistol/laspistol_1.ogg'
+	projectilesound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_1.ogg'
 	bot_type = "ED" // Literally just for naming
 	shadow_type = "shadow_small"
 

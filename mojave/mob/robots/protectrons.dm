@@ -19,7 +19,7 @@
 	stat_attack = SOFT_CRIT
 	ranged = TRUE
 	projectiletype = /obj/projectile/beam/ms13/laser/protectron
-	projectilesound = 'mojave/sound/ms13weapons/gunsounds/laspistol_3.ogg'
+	projectilesound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_3.ogg'
 
 /mob/living/simple_animal/hostile/ms13/robot/protectron/fire
 	desc = "A pre-war protectron, assigned to a firefighting role apparently. Has a strong swing with a very sharp axe head, beware!"
@@ -54,6 +54,10 @@
 		bare_wound_bonus = 5
 
 	else
+		icon_state = "protectron_police_baton"
+		icon_living = "protectron_police_baton"
+		melee_damage_lower = 10
+		melee_damage_upper = 15
 		desc = "A protectron given the duty of upholding law. This one is equipped with a baton and incapacitation unit."
 		projectiletype = /obj/projectile/energy/electrode/ms13
 		projectilesound = 'mojave/sound/ms13weapons/gunsounds/bb/wpn_bbgun_fire_2d.ogg'
