@@ -51,7 +51,6 @@
 	desc = "It's full of sugary lollipops, perfect for well-behaved patients in a clinic."
 	icon = 'mojave/icons/objects/storage.dmi'
 	icon_state = "lollijar"
-	fancy_open = TRUE
 
 /obj/item/storage/fancy/lollijar/ComponentInitialize()
     . = ..()
@@ -63,8 +62,7 @@
     SEND_SIGNAL(src, COMSIG_TRY_STORAGE_FILL_TYPE, /obj/item/reagent_containers/food/snacks/chewable/lollipop/noheal)
 
 /obj/item/storage/fancy/lollijar/update_icon_state()
-	if(fancy_open || !contents.len)
-		if(!contents.len)
-			icon_state = "[initial(icon_state)]_empty"
-		else
-			icon_state = initial(icon_state)
+	if(!contents.len)
+		icon_state = "[initial(icon_state)]_empty"
+	else
+		icon_state = initial(icon_state)

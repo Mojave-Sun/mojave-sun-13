@@ -71,7 +71,7 @@
 	lefthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_left.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_right.dmi'
 	worn_icon = 'mojave/icons/mob/worn_guns.dmi'
-	automatic = 2 //2 decisecond delay
+	//automatic = 2 //2 decisecond delay
 	force = 15
 
 /obj/item/gun/ballistic/automatic/ms13/Initialize()

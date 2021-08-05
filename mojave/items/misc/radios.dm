@@ -1,3 +1,7 @@
+#define RADIOSTATIC_LIGHT 1
+#define RADIOSTATIC_MEDIUM 10
+#define RADIOSTATIC_HEAVY 16
+
 /obj/item/radio/ms13
 	icon = 'mojave/icons/objects/hamradio.dmi'
 	name = "hand Radio"

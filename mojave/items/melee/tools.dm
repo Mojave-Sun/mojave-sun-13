@@ -12,7 +12,7 @@
 	wound_bonus = 10
 	attack_verb_continuous = list("smacks", "deconstructs", "pounds", "beats", "bonks", "hammers", "nails")
 	attack_verb_simple = list("smack", "deconstruct", "pound", "beat", "bonk", "hammer", "nail")
-	sharpness = SHARP_NONE
+	sharpness = NONE
 	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/ms13/hammer/Initialize()
@@ -32,7 +32,7 @@
 	armour_penetration = 5
 	attack_verb_continuous = list("smacks", "slashes", "jabs", "slaps", "pounds", "beats", "bonks", "digs")
 	attack_verb_simple = list("smack", "slash", "jab", "slap", "pound", "beat", "bonk", "dig")
-	sharpness = SHARP_NONE
+	sharpness = NONE
 	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/shovel/ms13/Initialize()
@@ -47,7 +47,7 @@
 	force = 15
 	armour_penetration = 5
 	toolspeed = 0.5
-	sharpness = SHARP_NONE
+	sharpness = NONE
 	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/shovel/ms13/snow
@@ -84,7 +84,7 @@
 	attack_verb_continuous = list("clonks", "smacks", "clocks", "nails", "bludgeons", "whacks", "bonks")
 	attack_verb_simple = list("clonk", "smack", "clock", "nail", "bludgeon", "whack", "bonk")
 	force = 10
-	sharpness = SHARP_NONE
+	sharpness = NONE
 	w_class = WEIGHT_CLASS_NORMAL
 	throwforce = 15 //brick
 

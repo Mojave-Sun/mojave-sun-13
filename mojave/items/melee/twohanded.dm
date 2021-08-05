@@ -84,7 +84,7 @@
 	wound_bonus = 10
 	throwforce = 5
 	throw_range = 2
-	sharpness = SHARP_NONE
+	sharpness = NONE
 
 /obj/item/ms13/twohanded/hammer/rebar
 	name = "rebar club"

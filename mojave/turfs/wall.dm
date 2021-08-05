@@ -152,35 +152,17 @@
 	can_displace = FALSE
 	girderpasschance = 100
 	icon = 'mojave/icons/turf/walls/girder.dmi'
+	var/climbing_time = 3 SECONDS
 	var/list/material_used
 	var/wall_type = /turf/closed/wall/ms13/craftable
+
+/obj/structure/girder/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/climbable, climb_time = climbing_time, climb_stun = 0)
 
 /obj/structure/girder/ms13/bars
 	name = "rebar supports"
 	desc = "Quick and cheap building supports for ghetto constructions."
 	icon_state = "rebar"
-	climbable = TRUE //you can weave through these things
-	climb_time = 3 SECONDS
 	material_used = list(/obj/item/stack/sheet/ms13/scrap)
 	wall_type = /turf/closed/wall/ms13/craftable/scrap
-
-/obj/structure/girder/ms13/bars/climb_structure(mob/living/user)
-	src.add_fingerprint(user)
-	user.visible_message("<span class='warning'>[user] starts weaving through [src].</span>", \
-								"<span class='notice'>You start weaving through [src]...</span>")
-	var/adjusted_climb_time = climb_time
-	if(HAS_TRAIT(user, TRAIT_HANDS_BLOCKED))
-		adjusted_climb_time *= 2
-	if(HAS_TRAIT(user, TRAIT_FREERUNNING))
-		adjusted_climb_time *= 0.8
-	structureclimber = user
-	if(do_mob(user, user, adjusted_climb_time))
-		if(src.loc)
-			if(do_climb(user))
-				user.visible_message("<span class='warning'>[user] weaves through [src].</span>", \
-									"<span class='notice'>You weave through [src].</span>")
-				log_combat(user, src, "weaves through")
-				. = 1
-			else
-				to_chat(user, "<span class='warning'>You fail to weave through [src].</span>")
-	structureclimber = null

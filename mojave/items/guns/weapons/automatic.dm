@@ -106,7 +106,7 @@
 	zoom_out_amt = 13
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
 	spread = 4
-	automatic = null
+	//automatic = null
 
 /obj/item/gun/ballistic/automatic/ms13/assaultrifle/chinese
 	name = "\improper Chinese assault rifle"
@@ -135,7 +135,7 @@
 	zoom_amt = 10
 	zoom_out_amt = 13
 	spread = 6
-	automatic = null
+	//automatic = null
 
 /obj/item/gun/ballistic/automatic/ms13/marksman
 	name = "marksman carbine"
@@ -154,7 +154,7 @@
 	zoom_amt = 10
 	zoom_out_amt = 13
 	weapon_weight = WEAPON_HEAVY
-	automatic = null
+	//automatic = null
 
 /obj/item/gun/ballistic/automatic/ms13/marksman/american
 	name = "\improper All-American"

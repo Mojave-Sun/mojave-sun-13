@@ -60,7 +60,7 @@
 	force = 25
 	armour_penetration = 5
 	wound_bonus = 5
-	sharpness = SHARP_NONE
+	sharpness = NONE
 
 /obj/item/claymore/ms13/machete/pipe/tireiron
 	name = "tire iron"
@@ -77,7 +77,7 @@
 	force = 25
 	armour_penetration = 5
 	wound_bonus = 5
-	sharpness = SHARP_NONE
+	sharpness = NONE
 
 /obj/item/claymore/ms13/machete/shishkebab
 	name = "shishkebab"
