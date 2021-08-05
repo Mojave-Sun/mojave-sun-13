@@ -15,6 +15,24 @@
 	icon_state = "laser"
 	icon = 'mojave/icons/objects/projectiles/projectiles_tracer.dmi'
 
+/obj/effect/projectile/impact/ms13/laser/blue
+	icon_state = "institute_impact"
+
+/obj/effect/projectile/muzzle/ms13/laser/blue
+	icon_state = "institute_muzzle"
+
+/obj/effect/projectile/tracer/ms13/laser/blue
+	icon_state = "institute"
+
+/obj/effect/projectile/impact/ms13/laser/yellow
+	icon_state = "recharger_impact"
+
+/obj/effect/projectile/muzzle/ms13/laser/yellow
+	icon_state = "recharger_muzzle"
+
+/obj/effect/projectile/tracer/ms13/laser/yellow
+	icon_state = "recharger"
+
 ////guns
 /obj/item/gun/energy/ms13
 	name = "generic ms13 gun"
