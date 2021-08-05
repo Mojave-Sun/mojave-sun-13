@@ -19,7 +19,6 @@
 		icon_state = "[initial(icon_state)]_empty"
 	if(chambered) //round in the chamber and ready to fire, normal state
 		icon_state = "[initial(icon_state)]"
-	return ..()
 
 /obj/item/gun/ballistic/shotgun/ms13/huntingshot
 	name = "hunting shotgun"
@@ -41,7 +40,6 @@
 		icon_state = "[initial(icon_state)]_empty"
 	if(chambered) //round in the chamber and ready to fire, normal state
 		icon_state = "[initial(icon_state)]"
-	return ..()
 
 /obj/item/gun/ballistic/shotgun/ms13/lever/trail
 	name = "trail carbine"
@@ -111,7 +109,6 @@
 		icon_state = "[initial(icon_state)]_empty"
 	if(chambered) //round in the chamber and ready to fire, normal state
 		icon_state = "[initial(icon_state)]"
-	return ..()
 
 /obj/item/gun/ballistic/shotgun/automatic/ms13/sks/scoped
 	name = "scoped European battle rifle"
