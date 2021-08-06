@@ -90,6 +90,12 @@
 	desc = "Scream at the coders if you see this."
 	icon = 'mojave/icons/structure/chairs.dmi'
 	color = null
+	var/armrest_icon
+
+/obj/structure/chair/comfy/ms13/GetArmrest()
+	if(armrest_icon)
+		return mutable_appearance('icons/obj/chairs.dmi', armrest_icon)
+	return mutable_appearance('icons/obj/chairs.dmi', "comfychair_armrest")
 
 /obj/structure/chair/comfy/ms13/armchair
 	name = "armchair"

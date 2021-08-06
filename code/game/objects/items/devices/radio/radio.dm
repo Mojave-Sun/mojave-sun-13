@@ -44,6 +44,8 @@
 	var/list/channels = list()  // Map from name (see communications.dm) to on/off. First entry is current department (:h)
 	var/list/secure_radio_connections
 
+	var/radio_broadcast = FALSE //MOJAVE EDIT: if this radio can be used for broadcasting messages or not
+
 /obj/item/radio/suicide_act(mob/living/user)
 	user.visible_message(span_suicide("[user] starts bouncing [src] off [user.p_their()] head! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return BRUTELOSS
@@ -167,9 +169,17 @@
 		if("listen")
 			listening = !listening
 			. = TRUE
+		/* ORIGINAL BROADCAST CDODE
 		if("broadcast")
 			broadcasting = !broadcasting
 			. = TRUE
+		*/
+		if("broadcast") //MOJAVE EDIT START
+			if (radio_broadcast == FALSE)
+				. = FALSE
+			else
+				broadcasting = !broadcasting
+				. = TRUE //MOJAVE EDIT END
 		if("channel")
 			var/channel = params["channel"]
 			if(!(channel in channels))
@@ -199,14 +209,27 @@
 			var/obj/item/clothing/gloves/radio/G = mute.get_item_by_slot(ITEM_SLOT_GLOVES)
 			if(!istype(G))
 				return FALSE
-			if(length(empty_indexes) == 1)
+			/*
+			if(length(empty_indexes) == 1) MOJAVE EDIT: moved below
 				message = stars(message)
+			*/
 			if(length(empty_indexes) == 0) //Due to the requirement of gloves, the arm check for normal speech would be redundant here.
 				return FALSE
 			if(mute.handcuffed)//Would be weird if they couldn't sign but their words still went over the radio
 				return FALSE
 			if(HAS_TRAIT(mute, TRAIT_HANDS_BLOCKED) || HAS_TRAIT(mute, TRAIT_EMOTEMUTE))
 				return FALSE
+			if(length(empty_indexes) == 1) //MOJAVE EDIT: Where the code belongs now
+				message = stars(message)
+
+	//MOJAVE: START EDIT
+	if (radio_broadcast)
+		if (radio_broadcast == FALSE)
+			return FALSE
+		if (radio_broadcast > 0)
+			message = stars(message, radio_broadcast)
+	//MOJAVE: END EDIT
+
 	if(!spans)
 		spans = list(M.speech_span)
 	if(!language)

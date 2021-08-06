@@ -36,10 +36,10 @@
 	if(manifest)
 		tear_manifest(user)
 
-/obj/structure/closet/crate/ms13/woodcrate/proc/deconstruction_hints(mob/user)
+/obj/structure/closet/crate/ms13/woodcrate/proc/deconstruction_hints(mob/living/user)
 	return "<span class='notice'>The [src] is tightly sealed, but you could use a <b>crowbar<b> to <b>open</b> it.</span>"
 
-/obj/structure/closet/crate/ms13/woodcrate/attackby(obj/item/W, mob/user, params)
+/obj/structure/closet/crate/ms13/woodcrate/attackby(obj/item/W, mob/living/user, params)
 	if(W.tool_behaviour == TOOL_CROWBAR && breakable)
 		if(manifest)
 			tear_manifest(user)
@@ -67,7 +67,7 @@
 			prying = FALSE
 			return
 	else
-		if(!user.a_intent == INTENT_HARM && W.tool_behaviour == TOOL_CROWBAR)
+		if(!user.combat_mode && W.tool_behaviour == TOOL_CROWBAR)
 			return FALSE
 	. = ..()
 

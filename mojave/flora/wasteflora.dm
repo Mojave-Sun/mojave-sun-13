@@ -67,7 +67,6 @@
 	attack_verb_continuous = list("slashes", "slices", "cuts")
 	attack_verb_simple = list("slashed", "sliced", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	item_flags = EYE_STAB
 	sharpness = SHARP_POINTY
 
 /obj/item/secateurs/shears/Initialize()
@@ -91,7 +90,6 @@
 	attack_verb_continuous = list("slashes", "slices", "cuts")
 	attack_verb_simple = list("slashed", "sliced", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	item_flags = EYE_STAB
 	sharpness = SHARP_POINTY
 
 /obj/item/geneshears/shears/Initialize()
@@ -262,7 +260,7 @@
 
 	return 0
 
-/obj/structure/rustic_extractor/attackby(obj/item/O, mob/user, params)
+/obj/structure/rustic_extractor/attackby(obj/item/O, mob/living/user, params)
 
 	if(default_unfasten_wrench(user, O)) //So we can move them around
 		return
@@ -419,7 +417,7 @@
 	reagents.add_reagent(/datum/reagent/plantnutriment/ms13/fertilizer, 50) //Half filled nutrient trays for dirt trays to have more to grow with in prison/lavaland.
 	. = ..()
 
-/obj/machinery/hydroponics/ms13/soil/update_icon_lights()
+/obj/machinery/hydroponics/ms13/soil/update_status_light_overlays()
 	return // Has no lights
 
 /obj/machinery/hydroponics/ms13/soil/CtrlClick(mob/user)

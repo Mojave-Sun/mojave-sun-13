@@ -8,7 +8,6 @@
 	desc = "A simple identification tag. This is a base class and you shouldn't be seeing it."
 	icon = 'mojave/icons/objects/dogtags.dmi'
 	icon_state = "bos_holotag"
-	uses_overlays = FALSE
 	var/datum/bank_account = null
 
 /obj/item/card/id/ms13/bos
