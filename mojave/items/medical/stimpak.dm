@@ -16,6 +16,7 @@
 	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/medical/medical_inventory.dmi')
 
 /obj/item/reagent_containers/hypospray/medipen/stimpak/update_icon_state()
+	. = ..()
 	if(reagents.total_volume > 0)
 		icon_state = initial(inhand_icon_state)
 	else

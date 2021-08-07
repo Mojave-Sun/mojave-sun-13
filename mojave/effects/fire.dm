@@ -36,6 +36,10 @@
 
 			if(C.IgniteMob())
 				C.visible_message("<span class='danger'>[C] bursts into flames!</span>","<span class='highdanger'>You burst into flames!</span>")
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = .proc/on_entered,
+	)
+	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/ms13/fire/Destroy()
 	STOP_PROCESSING(SSobj, src)
@@ -45,8 +49,8 @@
 	qdel(src)
 	return
 
-/obj/ms13/fire/Crossed(mob/living/M) //Only way to get it to reliable do it when you walk into it.
-	. = ..()
+/obj/ms13/fire/on_entered(datum/source, mob/living/M) //Only way to get it to reliable do it when you walk into it.
+	SIGNAL_HANDLER
 	if(istype(M))
 		M.flamer_fire_crossed(burnlevel, firelevel)
 

@@ -62,6 +62,7 @@
     SEND_SIGNAL(src, COMSIG_TRY_STORAGE_FILL_TYPE, /obj/item/reagent_containers/food/snacks/chewable/lollipop/noheal)
 
 /obj/item/storage/fancy/lollijar/update_icon_state()
+	. = ..()
 	if(!contents.len)
 		icon_state = "[initial(icon_state)]_empty"
 	else
