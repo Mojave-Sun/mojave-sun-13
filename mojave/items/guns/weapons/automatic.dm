@@ -106,7 +106,6 @@
 	zoom_out_amt = 13
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
 	spread = 4
-	automatic = null
 
 /obj/item/gun/ballistic/automatic/ms13/assaultrifle/chinese
 	name = "\improper Chinese assault rifle"
@@ -135,7 +134,6 @@
 	zoom_amt = 10
 	zoom_out_amt = 13
 	spread = 6
-	automatic = null
 
 /obj/item/gun/ballistic/automatic/ms13/marksman
 	name = "marksman carbine"
@@ -154,7 +152,6 @@
 	zoom_amt = 10
 	zoom_out_amt = 13
 	weapon_weight = WEAPON_HEAVY
-	automatic = null
 
 /obj/item/gun/ballistic/automatic/ms13/marksman/american
 	name = "\improper All-American"
@@ -237,6 +234,7 @@
 
 	if(chambered && magazine) //this makes the sks full state when chambered and they have a magazine
 		icon_state = "[initial(icon_state)]"
+	return ..()
 
 /obj/item/gun/ballistic/automatic/ms13/marksman/battle/rangemaster
 	name = "\improper Rangemaster"
