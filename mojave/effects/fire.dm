@@ -49,7 +49,7 @@
 	qdel(src)
 	return
 
-/obj/ms13/fire/on_entered(datum/source, mob/living/M) //Only way to get it to reliable do it when you walk into it.
+/obj/ms13/fire/proc/on_entered(datum/source, mob/living/M) //Only way to get it to reliable do it when you walk into it.
 	SIGNAL_HANDLER
 	if(istype(M))
 		M.flamer_fire_crossed(burnlevel, firelevel)
