@@ -5,7 +5,7 @@
 
 /datum/map_config
 	// Metadata
-	var/config_filename = "_maps/metastation.json"
+	var/config_filename = "_maps/sunlightDebug.json"
 	var/defaulted = TRUE  // set to FALSE by LoadConfig() succeeding
 	// Config from maps.txt
 	var/config_max_users = 0
@@ -14,9 +14,9 @@
 	var/votable = FALSE
 
 	// Config actually from the JSON - should default to Meta
-	var/map_name = "Meta Station"
-	var/map_path = "map_files/MetaStation"
-	var/map_file = "MetaStation.dmm"
+	var/map_name = "Sunlight Debug"
+	var/map_path = "map_files/sunlightDebug"
+	var/map_file = "sunlightDebug.dmm"
 
 	var/traits = null
 	var/space_ruin_levels = 7
@@ -83,7 +83,7 @@
 	map_path = json["map_path"]
 
 	map_file = json["map_file"]
-	// "map_file": "MetaStation.dmm"
+	// "map_file": "sunlightDebug.dmm"
 	if (istext(map_file))
 		if (!fexists("_maps/[map_path]/[map_file]"))
 			log_world("Map file ([map_path]/[map_file]) does not exist!")
