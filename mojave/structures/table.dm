@@ -70,11 +70,8 @@
 	icon_state = "tableframe_metal"
 	density = TRUE
 	anchored = FALSE
+	climbable = TRUE
 	max_integrity = 20
-
-/obj/structure/table_frame/ms13/Initialize(mapload, _buildstack)
-	. = ..()
-	AddElement(/datum/element/climbable)
 
 /obj/structure/table_frame/ms13/wood
 	desc = "Four wooden legs with four framing wooden rods for a wooden table. You could easily pass through this."
