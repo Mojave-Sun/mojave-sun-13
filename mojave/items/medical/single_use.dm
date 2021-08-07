@@ -12,7 +12,7 @@
 	heal_brute = 0
 	stop_bleeding = 1
 	grind_results = null
-	merge_type = null
+	merge_type = /obj/item/stack/medical/suture/ms13/tourniquet
 
 /obj/item/stack/medical/suture/ms13/tourniquet/belt
 	name = "belt"
@@ -24,6 +24,7 @@
 	self_delay = 7 SECONDS
 	other_delay = 4 SECONDS
 	stop_bleeding = 0.6
+	merge_type = /obj/item/stack/medical/suture/ms13/tourniquet/belt
 
 /obj/item/stack/medical/suture/ms13/tourniquet/snakebite
 	name = "snakebite tourniquet"
@@ -31,3 +32,4 @@
 	singular_name = "tourniquet"
 	icon_state = "torniquet_sb"
 	stop_bleeding = 0.6
+	merge_type = /obj/item/stack/medical/suture/ms13/tourniquet/snakebite
