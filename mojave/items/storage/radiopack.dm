@@ -1,7 +1,3 @@
-#define RADIOSTATIC_LIGHT 1
-#define RADIOSTATIC_MEDIUM 10
-#define RADIOSTATIC_HEAVY 16
-
 /obj/item/ms13/storage/backpack/radiopack
 	icon = 'mojave/icons/objects/clothing/backpack.dmi'
 	name = "radiopack"

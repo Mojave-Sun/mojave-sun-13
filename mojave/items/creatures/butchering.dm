@@ -144,7 +144,7 @@
 	righthand_file = 'mojave/icons/mob/inhands/misc/butchering_righthand.dmi'
 	throw_range = 2
 	w_class = WEIGHT_CLASS_BULKY
-	var/item_butcher_results = list(/obj/item/food/meat/slab = 4) //placeholder meat
+	var/item_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab = 4) //placeholder meat
 	var/butcher_difficulty = 0
 	drop_sound = 'mojave/sound/ms13items/ms13handling/meat_drop.ogg'
 	pickup_sound =  'mojave/sound/ms13items/ms13handling/meat_pickup.ogg'
@@ -161,7 +161,7 @@
 	inhand_icon_state = "clucker_carcass"
 	throw_range = 4
 	w_class = WEIGHT_CLASS_NORMAL
-	item_butcher_results = list(/obj/item/food/meat/slab = 1)
+	item_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab = 1)
 	butcher_difficulty = -20
 
 /obj/item/ms13/carcass/gecko
@@ -170,7 +170,7 @@
 	icon_state = "gecko_carcass"
 	inhand_icon_state = "gecko_carcass"
 	throw_range = 2
-	item_butcher_results = list(/obj/item/food/meat/slab = 3)
+	item_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab = 3)
 	butcher_difficulty = -20
 
 /obj/item/ms13/carcass/wolf
@@ -179,7 +179,7 @@
 	icon_state = "dog_carcass"
 	inhand_icon_state = "dog_carcass"
 	throw_range = 2
-	item_butcher_results = list(/obj/item/food/meat/slab = 2)
+	item_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab = 2)
 	butcher_difficulty = -20
 
 /obj/item/ms13/carcass/mongrel
@@ -188,7 +188,7 @@
 	icon_state = "dog_carcass"
 	inhand_icon_state = "dog_carcass"
 	throw_range = 2
-	item_butcher_results = list(/obj/item/food/meat/slab = 2)
+	item_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab = 2)
 	butcher_difficulty = -20
 
 /obj/item/ms13/carcass/molerat
@@ -197,7 +197,7 @@
 	icon_state = "rat_carcass"
 	inhand_icon_state = "rat_carcass"
 	throw_range = 2
-	item_butcher_results = list(/obj/item/food/meat/slab = 2)
+	item_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab = 2)
 	butcher_difficulty = -20
 
 //large
@@ -210,7 +210,7 @@
 	inhand_icon_state = "rat_carcass"
 	throw_range = 1
 	w_class = WEIGHT_CLASS_HUGE
-	item_butcher_results = list(/obj/item/food/meat/slab = 3)
+	item_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab = 3)
 
 /obj/item/ms13/carcass/large/radstag
 	name = "radstag carcass"
@@ -219,7 +219,7 @@
 	inhand_icon_state = "radstag_carcass"
 	throw_range = 1
 	w_class = WEIGHT_CLASS_HUGE
-	item_butcher_results = list(/obj/item/food/meat/slab = 5)
+	item_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab = 5)
 
 /obj/item/ms13/carcass/large/tunneller
 	name = "tunneler carcass"
@@ -228,7 +228,7 @@
 	inhand_icon_state = "tunneller_carcass"
 	throw_range = 1
 	w_class = WEIGHT_CLASS_HUGE
-	item_butcher_results = list(/obj/item/food/meat/slab = 4)
+	item_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab = 4)
 
 /obj/item/ms13/carcass/large/nightstalker
 	name = "nightstalker carcass"
@@ -237,7 +237,7 @@
 	inhand_icon_state = "nightstalker_carcass"
 	throw_range = 1
 	w_class = WEIGHT_CLASS_HUGE
-	item_butcher_results = list(/obj/item/food/meat/slab = 4)
+	item_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab = 4)
 	butcher_difficulty = 15
 
 /obj/item/ms13/carcass/large/brahmiluff
@@ -247,7 +247,7 @@
 	inhand_icon_state = "brahmiluff_carcass"
 	throw_range = 1
 	w_class = WEIGHT_CLASS_HUGE
-	item_butcher_results = list(/obj/item/food/meat/slab = 4)
+	item_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab = 4)
 
 /obj/item/ms13/carcass/large/brahmiluff/front
 	icon_state = "cowbeastfront_carcass"
@@ -264,7 +264,7 @@
 	inhand_icon_state = "brahmin_carcass"
 	throw_range = 1
 	w_class = WEIGHT_CLASS_HUGE
-	item_butcher_results = list(/obj/item/food/meat/slab = 3)
+	item_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab = 3)
 
 /obj/item/ms13/carcass/large/brahmin/front
 	icon_state = "cowbeastfront_carcass"
@@ -279,7 +279,7 @@
 	desc = "A skinned body section of a yaoguai."
 	throw_range = 1
 	w_class = WEIGHT_CLASS_HUGE
-	item_butcher_results = list(/obj/item/food/meat/slab = 4)
+	item_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab = 4)
 	butcher_difficulty = 20
 
 /obj/item/ms13/carcass/large/yaoguai/front
@@ -295,7 +295,7 @@
 	desc = "A skinned body section of a slepnir."
 	throw_range = 1
 	w_class = WEIGHT_CLASS_HUGE
-	item_butcher_results = list(/obj/item/food/meat/slab = 4)
+	item_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab = 4)
 	butcher_difficulty = 25
 
 /obj/item/ms13/carcass/large/slepnir/front
@@ -311,7 +311,7 @@
 	desc = "A skinned body section of a hellpig."
 	throw_range = 1
 	w_class = WEIGHT_CLASS_HUGE
-	item_butcher_results = list(/obj/item/food/meat/slab = 6)
+	item_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab = 6)
 	butcher_difficulty = 30
 
 /obj/item/ms13/carcass/large/hellpig/front
@@ -465,7 +465,7 @@
 /datum/component/itembutchering/proc/onItemAttack(obj/item/source, atom/movable/target, mob/living/user)
 	SIGNAL_HANDLER
 
-	if(!user.combat_mode) //Probably not appropriate but oh well
+	if(user.a_intent != INTENT_HARM)
 		return
 	if(istype(target, /obj/item/ms13/carcass))
 		if(source.get_sharpness())
@@ -482,7 +482,7 @@
 	var/turf/T = E.drop_location()
 	var/final_effectiveness = effectiveness - E.butcher_difficulty //previous butchering code was wack, this just means that if you dont have the correct butchering tools you botch the harvest.
 	for(var/V in E.item_butcher_results)
-		var/obj/item/food/meat/meatamount = V
+		var/obj/item/reagent_containers/food/snacks/meat/meatamount = V
 		if(final_effectiveness < 80)
 			to_chat(U, "<span class='warning'>You botch the harvest of the [initial(meatamount.name)] from [E].</span>")
 		else

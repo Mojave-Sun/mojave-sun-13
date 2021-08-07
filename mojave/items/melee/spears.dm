@@ -75,7 +75,7 @@
 	attack_verb_simple = list("whack", "jab", "smack", "poke")
 	icon_state = "spear_thunder"
 	icon_prefix = "spear_thunder"
-	sharpness = NONE // the end is a god damn explosive charge
+	sharpness = SHARP_NONE // the end is a god damn explosive charge
 
 /obj/item/spear/explosive/ms13/Initialize(mapload)
 	. = ..()

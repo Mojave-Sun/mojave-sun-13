@@ -70,10 +70,6 @@
 	item_flags = EYE_STAB
 	sharpness = SHARP_POINTY
 
-/obj/item/secateurs/shears/Initialize()
-	. = ..()
-	AddElement(/datum/element/eyestab)
-
 /obj/item/geneshears/shears
 	name = "shears"
 	desc = "It's a tool for delicately removing grafts or harshly cutting off plant parts to control a plants genetic growth."
@@ -93,10 +89,6 @@
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	item_flags = EYE_STAB
 	sharpness = SHARP_POINTY
-
-/obj/item/geneshears/shears/Initialize()
-	. = ..()
-	AddElement(/datum/element/eyestab)
 
 /obj/item/secateurs/shears/ms13/attack_self(mob/user)
 	var/obj/item/geneshears/shears/gene = new /obj/item/geneshears/shears(drop_location())
@@ -270,7 +262,7 @@
 	else if(seedify(O,-1, src, user))
 		to_chat(user, "<span class='notice'>You extract some seeds.</span>")
 		return
-	else if(!user.combat_mode)
+	else if(user.a_intent != INTENT_HARM)
 		to_chat(user, "<span class='warning'>You can't extract any seeds from \the [O.name]!</span>")
 	else
 		return ..()

@@ -120,7 +120,7 @@
 		hitsound = 'sound/weapons/genhit.ogg'
 		force = 5
 		throwforce = 2
-		sharpness = NONE
+		sharpness = SHARP_NONE
 
 /obj/item/switchblade/ms13/razor
 	name = "razor knife"

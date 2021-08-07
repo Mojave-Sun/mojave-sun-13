@@ -28,7 +28,7 @@
 		/obj/item/ammo_box/magazine/ms13/m12mm,
 		/obj/item/ammo_box/ms13/cpistol,
 		/obj/item/gun/ballistic/revolver,
-		/obj/item/gun/ballistic/automatic/pistol/toy,
+		/obj/item/gun/ballistic/automatic/toy/pistol,
 		/obj/item/ammo_box/magazine/toy/pistol,
 		/obj/item/gun/energy/e_gun/mini,
 		/obj/item/gun/energy/disabler,

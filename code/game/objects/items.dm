@@ -203,8 +203,6 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	/// Used in obj/item/examine to determines whether or not to detail an item's statistics even if it does not meet the force requirements
 	var/override_notes = FALSE
 
-	var/log_pickup_and_drop = FALSE //MOJAVE EDIT: LOGS WHENEVER YOU INTERACT WITH THIS ITEM
-
 /obj/item/Initialize()
 
 	if(attack_verb_continuous)
