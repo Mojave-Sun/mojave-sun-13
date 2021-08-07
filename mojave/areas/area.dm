@@ -21,7 +21,6 @@
 /area/ms13/underground
 	requires_power = FALSE
 	outdoors = FALSE
-	roofType = /turf/open/floor/plating/ground/mountain
 
 /area/ms13/underground/bos
 	name = "BoS"
@@ -72,7 +71,6 @@
 	name = "Klamat"
 	icon_state = "klamat"
 	requires_power = TRUE
-	roofType = /turf/open/floor/plating/ground/mountain
 
 /area/ms13/klamat/mine
 	name = "Klamat mine"
@@ -98,7 +96,7 @@
 	name = "Power Plant"
 	icon_state = "powerplant"
 	requires_power = TRUE
-	ambientsounds = ENGINEERING
+	ambientsounds = AMBIENCE_ENGI
 
 /area/ms13/factory
 	name = "Factory"
