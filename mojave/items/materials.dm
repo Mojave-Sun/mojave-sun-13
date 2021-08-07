@@ -23,7 +23,10 @@
 	merge_type = /obj/item/stack/sheet/ms13/scrap
 	matter_amount = 4
 	max_amount = 50
+//ma44 mojave edit: UNCOMMENT WHEN STRUCTURES PORTED
+/*
 	walltype = /turf/closed/wall/ms13/craftable/scrap
+*/
 
 /obj/item/stack/sheet/ms13/scrap/five
 	amount = 5
@@ -37,13 +40,19 @@
 /obj/item/stack/sheet/ms13/scrap/fifty
 	amount = 50
 
+//ma44 mojave edit: UNCOMMENT WHEN STRUCTURES PORTED
+/*
 GLOBAL_LIST_INIT(scrap_recipes, list ( \
 	new/datum/stack_recipe("rebar struts", /obj/structure/girder/ms13/bars, 2, time = 10 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 ))
+*/
 
 /obj/item/stack/sheet/ms13/scrap/get_main_recipes()
 	. = ..()
+//ma44 mojave edit: UNCOMMENT WHEN STRUCTURES PORTED
+/*
 	. += GLOB.scrap_recipes
+*/
 
 /datum/material/ms13/scrap
 	name = "scrap"

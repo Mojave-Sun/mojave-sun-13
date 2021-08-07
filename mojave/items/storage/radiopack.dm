@@ -89,7 +89,7 @@
 	inhand_icon_state = "handradio_"
 	desc = "The important bit of the radiopack, this broadcasts and recieves radio messages in decent quality."
 
-	flags_1 = CONDUCT_1 | HEAR_1
+	flags_1 = CONDUCT_1
 	canhear_range = 3
 	freerange = TRUE
 	w_class = WEIGHT_CLASS_SMALL
@@ -103,6 +103,8 @@
 
 	else
 		return INITIALIZE_HINT_QDEL
+
+	become_hearing_sensitive()
 
 	return ..()
 
