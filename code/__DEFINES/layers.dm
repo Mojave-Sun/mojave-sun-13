@@ -113,6 +113,12 @@
 #define FRILL_MASK_RENDER_TARGET "*FRILL_MASK_PLANE"
 
 //---------- LIGHTING -------------
+#define WEATHER_PLANE 98
+#define WEATHER_RENDER_TARGET "*WEATHER_PLANE"
+
+#define SUNLIGHTING_PLANE 99
+#define SUNLIGHTING_RENDER_TARGET "*SUNLIGHT_PLANE"
+
 ///Normal 1 per turf dynamic lighting underlays
 #define LIGHTING_PLANE 100
 #define LIGHTING_RENDER_TARGET "LIGHT_PLANE"

@@ -193,3 +193,41 @@
 	plane = LIGHTING_PLANE
 	blend_mode = BLEND_ADD
 	show_when_dead = TRUE
+
+
+
+
+/* our sunny version - I will need to figure out a less shit way of copying this */
+/atom/movable/screen/fullscreen/lighting_backdrop/Sunlight
+	icon_state  = ""
+	screen_loc = "CENTER"
+	transform = null
+	plane = LIGHTING_PLANE
+	blend_mode = BLEND_ADD
+	show_when_dead = TRUE
+
+/atom/movable/screen/fullscreen/lighting_backdrop/Sunlight/Initialize()
+	. = ..()
+	filters += filter(type="layer", render_source=SUNLIGHTING_RENDER_TARGET)
+	SSsunlight.sunlighting_planes |= src
+
+/atom/movable/screen/fullscreen/lighting_backdrop/Sunlight/Destroy()
+	. = ..()
+	SSsunlight.sunlighting_planes -= src
+
+
+/atom/movable/screen/fullscreen/weather
+	screen_loc = "CENTER"
+	transform = null
+	plane = WEATHER_PLANE
+	show_when_dead = TRUE
+	var/weatherEffect
+
+/atom/movable/screen/fullscreen/weather/Initialize()
+	. = ..()
+	filters += filter(type="layer", render_source=WEATHER_RENDER_TARGET)
+	SSsunlight.weather_planes_need_vis |= src
+
+/atom/movable/screen/fullscreen/lighting_backdrop/Sunlight/Destroy()
+	. = ..()
+	SSsunlight.weather_planes_need_vis -= src
