@@ -9,17 +9,17 @@
 /obj/machinery/door/unpowered/ms13/do_animate(animation)
 	switch(animation)
 		if("opening")
-			flick("(door_type)_opening", src)
+			flick("[door_type]_opening", src)
 		if("closing")
-			flick("(door_type)_closing", src)
+			flick("[door_type]_closing", src)
 
 
 /obj/machinery/door/unpowered/ms13/update_icon()
 	. = ..()
 	if(density)
-		icon_state = "(door_type)_closed"
+		icon_state = "[door_type]_closed"
 	else
-		icon_state = "(door_type)_open"
+		icon_state = "[door_type]_open"
 
 // Wooden door PLACEHOLDER //
 
