@@ -31,16 +31,16 @@
 	labelled = 1
 	blood_type = null
 	volume = 200
-	list_reagents = list(/datum/reagent/medicine/radaway = 200)
+	list_reagents = list(/datum/reagent/ms13/medicine/radaway = 200)
 
-/datum/reagent/medicine/radaway
+/datum/reagent/ms13/medicine/radaway
 	name = "Radaway"
 	description = "A potent anti-toxin drug."
 	reagent_state = LIQUID
 	color = "#ff7200"
 	metabolization_rate = 2 * REAGENTS_METABOLISM
 
-/datum/reagent/medicine/radaway/on_mob_life(mob/living/carbon/M)
+/datum/reagent/ms13/medicine/radaway/on_mob_life(mob/living/carbon/M)
 	M.adjustToxLoss(-3*REM)
 	M.radiation -= min(M.radiation, 16)
 	. = 1
