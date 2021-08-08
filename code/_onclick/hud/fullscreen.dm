@@ -219,15 +219,15 @@
 /atom/movable/screen/fullscreen/weather
 	screen_loc = "CENTER"
 	transform = null
-	plane = WEATHER_PLANE
+	plane = WEATHER_PLANE+1
 	show_when_dead = TRUE
 	var/weatherEffect
 
 /atom/movable/screen/fullscreen/weather/Initialize()
 	. = ..()
-	filters += filter(type="layer", render_source=WEATHER_RENDER_TARGET)
+	filters += filter(type="alpha", render_source=WEATHER_RENDER_TARGET)
 	SSsunlight.weather_planes_need_vis |= src
 
-/atom/movable/screen/fullscreen/lighting_backdrop/Sunlight/Destroy()
+/atom/movable/screen/fullscreen/weather/Destroy()
 	. = ..()
 	SSsunlight.weather_planes_need_vis -= src

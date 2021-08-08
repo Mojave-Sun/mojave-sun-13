@@ -58,7 +58,7 @@ SUBSYSTEM_DEF(sunlight)
 	var/list/atom/movable/screen/fullscreen/weather/weather_planes_need_vis = list()
 	var/sunlight_color = LIGHTING_BASE_MATRIX
 	var/list/cornerColour = list()
-	var/weatherEffect
+	var/obj/weatherEffect
 	var/currentTime
 	var/list/datum/time_of_day/time_cycle_steps = list(new /datum/time_of_day/morning(), new /datum/time_of_day/day(), \
 														new /datum/time_of_day/evening(), new /datum/time_of_day/night())
@@ -108,10 +108,27 @@ SUBSYSTEM_DEF(sunlight)
 	if(next_step > time_cycle_steps.len)
 		next_step = 1
 	next_step_datum = time_cycle_steps[next_step]
+/particles/rain
+	width = 1000	 // 500 x 500 image to cover a moderately sized map
+	height = 1000
+	count = 2500	// 2500 particles
+	spawning = 12	// 12 new particles per 0.1s
+	bound1 = list(-1000, -300, -1000)   // end particles at Y=-300
+	lifespan = 600  // live for 60s max
+	fade = 50	   // fade out over the last 5s if still on screen
+	// spawn within a certain x,y,z space
+	position = generator("box", list(-700, 600,0), list(700,700,100))
+	// control how the snow falls
+	gravity = list(0.3, -1, -1)
+	friction = 0.3  // shed 30% of velocity and drift every 0.1s
+	icon 			  = 'icons/effects/weather_effects.dmi'
+	icon_state 		  = "particle_drop"
 
 /datum/controller/subsystem/sunlight/proc/getweatherEffect()
 	if(!weatherEffect)
 		weatherEffect = new /obj()
+		weatherEffect.particles = new /particles/rain
+		weatherEffect.filters += filter(type="alpha", render_source=WEATHER_RENDER_TARGET)
 	return weatherEffect
 
 
@@ -254,7 +271,8 @@ SUBSYSTEM_DEF(sunlight)
 
 	SO.sunlight_overlay = MA
 	//get weather overlay if we aren't indoors
-	SO.overlays = SO.state = SUNLIGHT_INDOOR ? list(SO.sunlight_overlay) : list(SO.sunlight_overlay, getWeatherOverlay())
+	SO.overlays = SO.state == SUNLIGHT_INDOOR ? list(SO.sunlight_overlay) : list(SO.sunlight_overlay, getWeatherOverlay())
+	// SO.vis_contents = SO.state == SUNLIGHT_INDOOR ? list() : list(getweatherEffect())
 	SO.luminosity = MA.luminosity
 
 //Retrieve an overlay from the list - create if necessary
@@ -272,8 +290,9 @@ SUBSYSTEM_DEF(sunlight)
 	MA.blend_mode   	  = BLEND_OVERLAY
 	MA.icon 			  = 'icons/hud/screen_gen.dmi'
 	MA.icon_state 		  = "flash"
-	MA.plane        	  = WEATHER_PLANE /* we put this on a lower level than lighting so we dont multiply anything */
+	MA.plane			  = WEATHER_PLANE /* we put this on a lower level than lighting so we dont multiply anything */
 	MA.invisibility 	  = INVISIBILITY_LIGHTING
+	return MA
 
 //Create an overlay appearance from corner values
 /datum/controller/subsystem/sunlight/proc/CreateOverlay(fr, fg, fb, fa)
@@ -281,9 +300,9 @@ SUBSYSTEM_DEF(sunlight)
 	var/mutable_appearance/MA = new /mutable_appearance()
 
 	MA.blend_mode   = BLEND_OVERLAY
-	MA.icon         = LIGHTING_ICON
+	MA.icon		 = LIGHTING_ICON
 	MA.icon_state   = null
-	MA.plane        = SUNLIGHTING_PLANE /* we put this on a lower level than lighting so we dont multiply anything */
+	MA.plane		= SUNLIGHTING_PLANE /* we put this on a lower level than lighting so we dont multiply anything */
 	MA.invisibility = INVISIBILITY_LIGHTING
 
 

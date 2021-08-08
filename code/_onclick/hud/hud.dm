@@ -96,6 +96,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 		plane_master_controllers[controller_instance.name] = controller_instance
 
 	owner.overlay_fullscreen("see_through_darkness", /atom/movable/screen/fullscreen/see_through_darkness)
+	owner.overlay_fullscreen("weather_obj", /atom/movable/screen/fullscreen/weather)
 
 /datum/hud/Destroy()
 	if(mymob.hud_used == src)
