@@ -3,7 +3,7 @@
 	desc = "You shouldn't be seeing this. It do be lookin' kinda clean doe."
 	icon = 'mojave/icons/objects/clothing/suits.dmi'
 	worn_icon = 'mojave/icons/mob/clothing/suit.dmi'
-	allowed = list(/obj/item/pen,/obj/item/paper,/obj/item/stamp,/obj/item/reagent_containers/food/drinks/flask,/obj/item/melee,/obj/item/storage/box/matches,/obj/item/lighter,/obj/item/clothing/mask/cigarette,/obj/item/storage/fancy/cigarettes,/obj/item/flashlight,/obj/item/ammo_box,/obj/item/ammo_casing,/obj/item/scalpel,/obj/item/surgical_drapes,/obj/item/cautery,/obj/item/hemostat,/obj/item/retractor,/obj/item/storage/pill_bottle/dice,/obj/item/dice)
+	allowed = list(/obj/item/pen,/obj/item/paper,/obj/item/stamp,/obj/item/reagent_containers/food/drinks/flask,/obj/item/storage/box/matches,/obj/item/lighter,/obj/item/clothing/mask/cigarette,/obj/item/storage/fancy/cigarettes,/obj/item/flashlight,/obj/item/gun,/obj/item/ammo_box,/obj/item/ammo_casing)
 	body_parts_covered = CHEST|ARMS|LEGS|GROIN
 	///Icon file for left hand inhand overlays
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
@@ -12,25 +12,26 @@
 
 // wasteland //
 
-/obj/item/clothing/suit/ms13/vest/cowboy
-	name = "cowboy vest"
-	desc = "A brown vest, typically worn by wannabe cowboys and prospectors."
-	icon_state = "cowboybvest"
-	inhand_icon_state = "bos_jumpsuit"
-
-/obj/item/clothing/suit/ms13/vest/grey
-	name = "grey vest"
-	desc = "A grey, fancy looking vest."
-	icon_state = "cowboygvest"
-	inhand_icon_state = "bos_jumpsuit_o"
-
 /obj/item/clothing/suit/ms13/vest
 	name = "leather vest"
 	desc = "A vest made of tanned leather."
-	icon_state = "tanleather"
+	icon_state = "leather_vest"
 	inhand_icon_state = "duster"
-	armor = list(melee = 15, bullet = 10, laser = 5, energy = 5, bomb = 10, bio = 0, rad = 0, fire = 0, acid = 0)
-	allowed = list(/obj/item/pen,/obj/item/paper,/obj/item/stamp,/obj/item/reagent_containers/food/drinks/flask,/obj/item/storage/box/matches,/obj/item/lighter,/obj/item/clothing/mask/cigarette,/obj/item/storage/fancy/cigarettes,/obj/item/flashlight,/obj/item/gun,/obj/item/ammo_box,/obj/item/ammo_casing)
+	armor = list(melee = 30, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
+
+/obj/item/clothing/suit/ms13/vest/brown
+	name = "brown vest"
+	desc = "A brown vest, commonly worn by wannabe cowboys and prospectors."
+	icon_state = "brown_vest"
+	inhand_icon_state = "bos_jumpsuit"
+	armor = list(melee = 20, bullet = 15, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
+
+/obj/item/clothing/suit/ms13/vest/black
+	name = "black vest"
+	desc = "A black, fancy looking vest."
+	icon_state = "black_vest"
+	inhand_icon_state = "bos_jumpsuit_o"
+	armor = list(melee = 20, bullet = 15, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
 
 /obj/item/clothing/suit/ms13/toga
 	name = "sheet wrap"
@@ -40,37 +41,31 @@
 
 /obj/item/clothing/suit/ms13/shawl
 	name = "leather shawl"
-	desc = "A hard wearing leather shawl for embracing the wastelands elements."
+	desc = "A well worn but somewhat protective leather shawl."
 	icon_state = "shawl"
 	inhand_icon_state = "duster"
-	armor = list(melee = 15, bullet = 10, laser = 5, energy = 5, bomb = 10, bio = 0, rad = 0, fire = 0, acid = 0)
-
-/obj/item/clothing/suit/ms13/ljacket/veteran
-	name = "merc veteran coat"
-	desc = "A blue leather coat adorned with war medals. Commonly used by mercenaries."
-	icon_state = "veteran"
-	inhand_icon_state = "leatherjacket"
-
-/obj/item/clothing/suit/ms13/ljacket/veteran/black
-	desc = "A black leather coat adorned with war medals. Commonly used by mercenaries."
-	icon_state = "veteranb"
-	inhand_icon_state = "leatherjacket"
+	armor = list(melee = 30, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
 
 /obj/item/clothing/suit/ms13/ljacket
 	name = "leather jacket"
-	desc = "A typical leather jacket. It's pretty thick, originally designed to protect from road rash."
+	desc = "A typical leather jacket. Nothing too special about it."
 	icon_state = "leatherjacket"
 	inhand_icon_state = "leatherjacket"
-	armor = list(melee = 25, bullet = 20, laser = 5, energy = 5, bomb = 10, bio = 5, rad = 5, fire = 5, acid = 5)
-	allowed = list(/obj/item/pen,/obj/item/paper,/obj/item/stamp,/obj/item/reagent_containers/food/drinks/flask,/obj/item/storage/box/matches,/obj/item/lighter,/obj/item/clothing/mask/cigarette,/obj/item/storage/fancy/cigarettes,/obj/item/flashlight,/obj/item/gun,/obj/item/ammo_box,/obj/item/ammo_casing)
+	armor = list(melee = 20, bullet = 15, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
+
+/obj/item/clothing/suit/ms13/veteran_coat
+	name = "merc veteran coat"
+	desc = "A blue padded coat adorned with war medals. Common attire for mercenaries."
+	icon_state = "veteran_coat"
+	inhand_icon_state = "leatherjacket"
+	armor = list(melee = 15, bullet = 20, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
 
 /obj/item/clothing/suit/ms13/ljacket/reinforced
 	name = "reinforced leather jacket"
-	desc = "An atypical leather jacket. Someone decided to strap more leather onto the already existing leather. A genious approach of becoming more resilient to hostile forces."
-	icon_state = "reinforcedjacket"
+	desc = "An atypical leather jacket reinforced with extra leather padding to make it into an actual makeshift suit of armor."
+	icon_state = "reinfljacket"
 	inhand_icon_state = "reinforcedjacket"
-	armor = list(melee = 35, bullet = 25, laser = 10, energy = 5, bomb = 15, bio = 5, rad = 10, fire = 10, acid = 5)
-	allowed = list(/obj/item/pen,/obj/item/paper,/obj/item/stamp,/obj/item/reagent_containers/food/drinks/flask,/obj/item/storage/box/matches,/obj/item/lighter,/obj/item/clothing/mask/cigarette,/obj/item/storage/fancy/cigarettes,/obj/item/flashlight,/obj/item/gun,/obj/item/ammo_box,/obj/item/ammo_casing)
+	armor = list(melee = 30, bullet = 25, laser = 15, energy = 15, bomb = 15, bio = 10, rad = 10, fire = 10, acid = 10)
 
 // winter jackets //
 
@@ -169,12 +164,13 @@
 /obj/item/clothing/suit/ms13/ljacket/moleskin
 	name = "moleskin jacket"
 	desc = "A durable moleskin jacket."
-	icon_state = "moleskin"
+	icon_state = "moleskinjacket"
 	inhand_icon_state = "duster"
+	armor = list(melee = 30, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
 
 /obj/item/clothing/suit/ms13/ljacket/wanderer
 	name = "wanderer jacket"
-	desc = "A jacket made from tanned leather."
+	desc = "An old, worn jacket that has no doubt seen it's fair share of places."
 	icon_state = "wanderer"
 	inhand_icon_state = "duster"
 
@@ -183,18 +179,21 @@
 	desc = "An old school military jacket."
 	icon_state = "militaryjacket"
 	inhand_icon_state = "greenjump"
+	armor = list(melee = 15, bullet = 20, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
 
 /obj/item/clothing/suit/ms13/ljacket/musty
-	name = "worn-out jacket"
-	desc = "An old worn out, musty jacket, it has seen better days."
+	name = "musty jacket"
+	desc = "A musty, old jacket full of holes. Will barely protect from much of anything."
 	icon_state = "mustyjacket"
 	inhand_icon_state = "duster"
+	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
 
 /obj/item/clothing/suit/ms13/ljacket/biker
 	name = "biker jacket"
 	desc = "A classic tough and durable leather jacket, for riding the highways in badass style."
 	icon_state = "bikerjacket"
 	inhand_icon_state = "leatherjacket"
+	armor = list(melee = 30, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
 
 /obj/item/clothing/suit/ms13/vest/letterman
 	name = "letterman jacket"
@@ -210,55 +209,52 @@
 // trenchcoats //
 
 /obj/item/clothing/suit/ms13/trench
-	name = "tan trenchcoat"
-	desc = "A heavy tan trenchcoat."
+	name = "padded tan trenchcoat"
+	desc = "A heavy, padded tan trenchcoat."
 	icon_state = "tantrench"
 	inhand_icon_state = "duster"
-	armor = list(melee = 25, bullet = 20, laser = 5, energy = 5, bomb = 10, bio = 5, rad = 5, fire = 5, acid = 5)
-	allowed = list(/obj/item/pen,/obj/item/paper,/obj/item/stamp,/obj/item/reagent_containers/food/drinks/flask,/obj/item/storage/box/matches,/obj/item/lighter,/obj/item/clothing/mask/cigarette,/obj/item/storage/fancy/cigarettes,/obj/item/flashlight,/obj/item/gun,/obj/item/ammo_box,/obj/item/ammo_casing)
+	armor = list(melee = 30, bullet = 25, laser = 15, energy = 15, bomb = 15, bio = 10, rad = 10, fire = 10, acid = 10)
 
 /obj/item/clothing/suit/ms13/trench/detective
 	name = "detective's trenchcoat"
 	desc = "A trenchcoat normally worn by pre-war detectives."
 	icon_state = "detective"
 	inhand_icon_state = "duster"
+	armor = list(melee = 15, bullet = 20, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
 
 /obj/item/clothing/suit/ms13/trench/brown
 	name = "brown overcoat"
 	desc = "A slightly dirty brown overcoat."
 	icon_state = "brownover"
 	inhand_icon_state = "duster"
-
-/obj/item/clothing/suit/ms13/trench/brown
-	name = "bruiser trenchcoat"
-	desc = "A huge beefy black trenchcoat, certified ass-kickers only."
-	icon_state = "bruiser"
-	inhand_icon_state = "duster"
-
-/obj/item/clothing/suit/ms13/trench/bum
-	name = "worn trenchcoat"
-	desc = "An old stinking well-used trenchcoat, for the roamer on the roam."
-	icon_state = "bum"
-	inhand_icon_state = "duster"
+	armor = list(melee = 20, bullet = 15, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
 
 /obj/item/clothing/suit/ms13/trench/black
-	name = "black trenchcoat"
-	desc = "An imposing black trenchcoat."
+	name = "padded black trenchcoat"
+	desc = "An imposing, padded black trenchcoat."
 	icon_state = "blacktrench"
 	inhand_icon_state = "leatherjacket"
+	armor = list(melee = 30, bullet = 25, laser = 15, energy = 15, bomb = 15, bio = 10, rad = 10, fire = 10, acid = 10)
 
-/obj/item/clothing/suit/ms13/trench/battle/black
+/obj/item/clothing/suit/ms13/trench/black/bruiser
+	name = "bruiser trenchcoat"
+	desc = "A beefy black trenchcoat."
+	icon_state = "bruisercoat"
+	inhand_icon_state = "duster"
+
+/obj/item/clothing/suit/ms13/trench/black/reinf
 	name = "reinforced black trenchcoat"
-	desc = "A black trenchcoat with some minor additional armorings for added protection."
-	icon_state = "reinforcedblacktrench"
+	desc = "A black trenchcoat the addition of some reinforcements and armor for added protection."
+	icon_state = "reinfblacktrench"
 	inhand_icon_state = "leatherjacket"
+	armor = list(melee = 40, bullet = 35, laser = 25, energy = 25, bomb = 30, bio = 10, rad = 10, fire = 25, acid = 10)
 
 /obj/item/clothing/suit/ms13/trench/black/armored
 	name = "armored black trenchcoat"
-	desc = "An intimidating black trenchcoat with a lot of armor, padding, and a spiked pauldron for making sure that fear is instilled."
-	icon_state = "armoredblacktrench"
+	desc = "A heavily armored black trenchcoat that is a near perfect balance between maximum style and maximum protection."
+	icon_state = "armorblacktrench"
 	inhand_icon_state = "leatherjacket"
-	armor = list(melee = 50, bullet = 35, laser = 25, energy = 25, bomb = 30, bio = 10, rad = 10, fire = 25, acid = 10)
+	armor = list(melee = 50, bullet = 40, laser = 30, energy = 30, bomb = 40, bio = 20, rad = 20, fire = 50, acid = 20)
 
 /obj/item/clothing/suit/ms13/trench/battle
 	name = "battle trenchcoat"
@@ -271,32 +267,17 @@
 
 /obj/item/clothing/suit/ms13/duster
 	name = "duster"
-	desc = "A long brown leather overcoat."
+	desc = "A typical leather duster."
 	icon_state = "duster"
 	inhand_icon_state = "duster"
-	armor = list(melee = 20, bullet = 15, laser = 5, energy = 5, bomb = 10, bio = 5, rad = 5, fire = 5, acid = 5)
-	allowed = list(/obj/item/pen,/obj/item/paper,/obj/item/stamp,/obj/item/reagent_containers/food/drinks/flask,/obj/item/storage/box/matches,/obj/item/lighter,/obj/item/clothing/mask/cigarette,/obj/item/storage/fancy/cigarettes,/obj/item/flashlight,/obj/item/gun,/obj/item/ammo_box,/obj/item/ammo_casing)
+	armor = list(melee = 20, bullet = 15, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
 
-/obj/item/clothing/suit/ms13/duster/alt
-	icon_state = "coolerduster"
-
-/obj/item/clothing/suit/ms13/duster/reinf
+/obj/item/clothing/suit/ms13/duster/reinforced
 	name = "reinforced duster"
-	desc = "A long brown leather overcoat reinforced and padded for additional protection."
+	desc = "A duster with added leather and padding for some more protection."
 	icon_state = "reinfduster"
 	inhand_icon_state = "duster"
-	armor = list(melee = 35, bullet = 25, laser = 10, energy = 10, bomb = 20, bio = 10, rad = 10, fire = 10, acid = 10)
-
-/obj/item/clothing/suit/ms13/duster/courier
-	name = "modified duster"
-	desc = "A thin blue duster with the arms ripped off and a belt added for style/security."
-	icon_state = "courier"
-	inhand_icon_state = "leatherjacket"
-
-/obj/item/clothing/suit/ms13/duster/courier/protagonist
-	name = "couriers duster"
-	desc = "Holy shit you are the protagonist of fallout."
-	icon_state = "couriergodcomplex"
+	armor = list(melee = 30, bullet = 25, laser = 15, energy = 15, bomb = 15, bio = 10, rad = 10, fire = 10, acid = 10)
 
 // labcoats //
 
