@@ -5,7 +5,7 @@
 //IE. Structures which are limpid but impassable, to serve more of a decorative and tactical purpose.//
 
 //Metal Bars
-/*
+/* re-add later   super broke right now
 /obj/structure/ms13/bars
 	name = "metal bars"
 	desc = "Sturdy metal bars, if only you had a saw."
