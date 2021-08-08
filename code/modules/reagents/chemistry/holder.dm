@@ -1317,19 +1317,26 @@
 		// TODO it would be great if we could sort these from strong to weak
 		var/total_taste = counterlist_sum(tastes)
 		if(total_taste > 0)
+			//MOJAVE SUN EDIT - Tastes
 			for(var/taste_desc in tastes)
-				var/percent = tastes[taste_desc]/total_taste * 100
-				if(percent < minimum_percent)
+				var/percent = tastes[taste_desc]/total_taste * 100 //I believe this calculates the taste ratio of the food (old code, poked because it sucks [plus hardcoded :(])
+				var/intensity_desc
+				var/flavor_text = pick("taste", "flavor", "tang")
+
+				if(percent < minimum_percent) //what numbnuts made switch need constant expressions
 					continue
-				var/intensity_desc = "a hint of"
-				if(percent > minimum_percent * 2 || percent == 100)
-					intensity_desc = ""
-				else if(percent > minimum_percent * 3)
-					intensity_desc = "the strong flavor of"
+				else if(percent > minimum_percent * 2 || percent == 100)
+					intensity_desc = "a mild"
+				else if(percent > minimum_percent * 2.7)
+					intensity_desc = "a strong"
+				else if(percent > minimum_percent * 3.5)
+					intensity_desc = "a intense"
+
 				if(intensity_desc != "")
-					out += "[intensity_desc] [taste_desc]"
+					out += "[intensity_desc] [taste_desc] [flavor_text]"
 				else
-					out += "[taste_desc]"
+					out += "a [taste_desc] [flavor_text]"
+			//MOJAVE SUN EDIT END - Tastes
 
 	return english_list(out, "something indescribable")
 
