@@ -5,7 +5,7 @@
 //IE. Structures which are limpid but impassable, to serve more of a decorative and tactical purpose.//
 
 //Metal Bars
-
+/*
 /obj/structure/ms13/bars
 	name = "metal bars"
 	desc = "Sturdy metal bars, if only you had a saw."
@@ -440,7 +440,7 @@
 	if (O.loc == loc)
 		return 1
 	return !density
-
+ */
 //Road Barriers
 
 /obj/structure/ms13/road_barrier
@@ -454,12 +454,13 @@
 	var/hasaltstates = FALSE
 	var/altstates = 0
 	var/proj_pass_rate = 85
-
+	var/climbable = FALSE
 /obj/structure/ms13/road_barrier/Initialize()
 	. = ..()
+	if(climbable)
+		AddElement(/datum/element/climbable)
 	if(!hasaltstates)
 		return
-
 	if(prob(45))
 		icon_state = "[initial(icon_state)]_[rand(1,(altstates))]"
 
@@ -491,171 +492,3 @@
 		if(prob(proj_pass_rate))
 			return TRUE
 		return FALSE
-
-//Industrial handrails
-
-//Blue
-/obj/structure/handrail/b_central
-	name = "handrail"
-	desc = "Heavy-duty metal handrail. It's painted blue.<br>You shall not pass!"
-	icon = 'mojave/icons/obstacles/obstacles.dmi'
-	icon_state = "b_handrail"
-	density = 1
-	anchored = 1
-	pixel_y = -9
-
-/obj/structure/handrail/b_central/Initialize()
-	. = ..()
-	layer = 4.2
-
-/obj/structure/handrail/b_central/CanPass(atom/movable/mover, turf/target, height=0)
-	..()
-	if (dir!=SOUTH)
-		return 0
-	if(istype(mover) && (mover.pass_flags & PASSTABLE))
-		return 1
-	if(get_dir(loc, target) != SOUTH)
-		return 1
-	else
-		return 0
-
-/obj/structure/handrail/b_central/CheckExit(atom/movable/O as mob|obj, target)
-	if (dir!=SOUTH)
-		return 0
-	if(istype(O) && (O.pass_flags & PASSTABLE))
-		return 1
-	if(get_dir(O.loc, target) != SOUTH)
-		return 1
-	else
-		return 0
-
-/obj/structure/handrail/b_intersect
-	name = "handrails"
-	desc = "Heavy-duty metal handrails. They are painted blue."
-	icon = 'mojave/icons/obstacles/obstacles.dmi'
-	icon_state = "b_handrail_intersect"
-	density = 1
-	anchored = 1
-	pixel_y = -9
-
-/obj/structure/handrail/b_intersect/Initialize()
-	. = ..()
-	layer = 4.2
-
-/obj/structure/handrail/b_intersect/CanPass(atom/movable/mover, turf/target, height=0)
-	..()
-	if (dir!=SOUTH)
-		return 0
-	if(istype(mover) && (mover.pass_flags & PASSTABLE))
-		return 1
-	if(get_dir(loc, target) != SOUTH)
-		return 1
-	else
-		return 0
-
-/obj/structure/handrail/b_intersect/CheckExit(atom/movable/O as mob|obj, target)
-	if (dir!=SOUTH)
-		return 0
-	if(istype(O) && (O.pass_flags & PASSTABLE))
-		return 1
-	if(get_dir(O.loc, target) != SOUTH)
-		return 1
-	else
-		return 0
-
-/obj/structure/handrail/b_end
-	name = "handrail end"
-	desc = "Heavy-duty metal handrail ends here.<br>You can pass now!"
-	icon = 'mojave/icons/obstacles/obstacles.dmi'
-	icon_state = "b_handrail_end"
-	density = 0
-	anchored = 1
-	pixel_y = -9
-
-/obj/structure/handrail/b_end/Initialize()
-	. = ..()
-	if (dir>2)
-		layer = 4.2
-
-//Yellow
-/obj/structure/handrail/y_central
-	name = "handrail"
-	desc = "Heavy-duty metal handrail. It's painted yellow.<br>You shall not pass!"
-	icon = 'mojave/icons/obstacles/obstacles.dmi'
-	icon_state = "y_handrail"
-	density = 1
-	anchored = 1
-	pixel_y = -9
-
-/obj/structure/handrail/y_central/Initialize()
-	. = ..()
-	layer = 4.2
-
-/obj/structure/handrail/y_central/CanPass(atom/movable/mover, turf/target, height=0)
-	..()
-	if (dir!=SOUTH)
-		return 0
-	if(istype(mover) && (mover.pass_flags & PASSTABLE))
-		return 1
-	if(get_dir(loc, target) != SOUTH)
-		return 1
-	else
-		return 0
-
-/obj/structure/handrail/y_central/CheckExit(atom/movable/O as mob|obj, target)
-	if (dir!=SOUTH)
-		return 0
-	if(istype(O) && (O.pass_flags & PASSTABLE))
-		return 1
-	if(get_dir(O.loc, target) != SOUTH)
-		return 1
-	else
-		return 0
-
-/obj/structure/handrail/y_intersect
-	name = "handrails"
-	desc = "Heavy-duty metal handrails. They are painted yellow."
-	icon = 'mojave/icons/obstacles/obstacles.dmi'
-	icon_state = "y_handrail_intersect"
-	density = 1
-	anchored = 1
-	pixel_y = -9
-
-/obj/structure/handrail/y_intersect/Initialize()
-	. = ..()
-	layer = 4.2
-
-/obj/structure/handrail/y_intersect/CanPass(atom/movable/mover, turf/target, height=0)
-	..()
-	if (dir!=SOUTH)
-		return 0
-	if(istype(mover) && (mover.pass_flags & PASSTABLE))
-		return 1
-	if(get_dir(loc, target) != SOUTH)
-		return 1
-	else
-		return 0
-
-/obj/structure/handrail/y_intersect/CheckExit(atom/movable/O as mob|obj, target)
-	if (dir!=SOUTH)
-		return 0
-	if(istype(O) && (O.pass_flags & PASSTABLE))
-		return 1
-	if(get_dir(O.loc, target) != SOUTH)
-		return 1
-	else
-		return 0
-
-/obj/structure/handrail/y_end
-	name = "handrail end"
-	desc = "Heavy-duty metal handrail ends here.<br>You can pass now!"
-	icon = 'mojave/icons/obstacles/obstacles.dmi'
-	icon_state = "y_handrail_end"
-	density = 0
-	anchored = 1
-	pixel_y = -9
-
-/obj/structure/handrail/y_end/Initialize()
-	. = ..()
-	if (dir>2)
-		layer = 4.2

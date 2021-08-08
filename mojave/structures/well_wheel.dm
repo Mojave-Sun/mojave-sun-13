@@ -5,7 +5,7 @@ GLOBAL_LIST_EMPTY(water_wells_in_world)
 
 /obj/structure/ms13/well
 	name = "water well"
-	desc = "A structure that somehow brings up water from somewhere in the ground."
+	desc = "A setup used to retrieve water from deep in the ground.."
 	icon_state = "well"
 	icon = 'mojave/icons/structure/well_pump.dmi'
 	var/alive_humans //Amount of alive humans in the world at time of processing
@@ -22,17 +22,17 @@ GLOBAL_LIST_EMPTY(water_wells_in_world)
 	var/water_ratio = 2
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF // N O
 
-/obj/structure/well/Initialize()
+/obj/structure/ms13/well/Initialize()
 	. = ..()
 	START_PROCESSING(SSobj, src)
 	GLOB.water_wells_in_world += src
 	create_reagents(2000000, OPENCONTAINER | REFILLABLE)
 
-/obj/structure/well/Destroy(force)
+/obj/structure/ms13/well/Destroy(force)
 	GLOB.water_wells_in_world -= src
 	..()
 
-/obj/structure/well/process()
+/obj/structure/ms13/well/process()
 
 	alive_humans = 0
 	for(var/mob/living/carbon/human/H in GLOB.player_list)
@@ -46,6 +46,6 @@ GLOBAL_LIST_EMPTY(water_wells_in_world)
 	//We'll also have a minimum amount of water for super low pop, don't need to go to different faction bases just to get enough water when there's too many wells
 	reagents.add_reagent(/datum/reagent/water, max(0.5, (((1 / SECONDS_OF_LIFE_PER_WATER_U) * 2 * water_ratio * alive_humans) / length(GLOB.water_wells_in_world))))
 
-/obj/structure/well/proc/UpdateAllWells()
-	for(var/obj/structure/well/well in GLOB.water_wells_in_world)
+/obj/structure/ms13/well/proc/UpdateAllWells()
+	for(var/obj/structure/ms13/well/well in GLOB.water_wells_in_world)
 		well.water_ratio = water_ratio
