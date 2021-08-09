@@ -29,11 +29,6 @@
 	power_light = TRUE
 	ambientsounds = list('mojave/sound/ms13ambience/general/building.ogg')
 
-/area/ms13/prison
-	name = "prison"
-	icon_state = "prison"
-	requires_power = TRUE
-
 /area/ms13/farmhouse
 	name = "Farmhouse"
 	icon_state = "farmhouse"
@@ -116,7 +111,7 @@
 
 /area/ms13/ncr
 	name = "NCR Mainbase"
-	icon_state = "ncr"
+	icon_state = "NCR"
 	requires_power = FALSE
 
 /area/ms13/ncr/building
