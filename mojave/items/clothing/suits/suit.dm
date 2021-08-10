@@ -70,94 +70,78 @@
 // winter jackets //
 
 /obj/item/clothing/suit/labcoat/ms13/ljacket/orange
-	name = "orange padded jacket"
-	desc = "A light, plain orange winter jacket. Nice and warm."
+	name = "orange winter jacket"
+	desc = "A plain orange winter jacket. Nice and warm."
 	icon_state = "winterjacketorange"
 	inhand_icon_state = "winter"
-	armor = list(melee = 10, bullet = 5, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 10)
 
 /obj/item/clothing/suit/ms13/ljacket/orange/reinforced
 	name = "reinforced orange jacket"
-	desc = "A reinforced orange jacket. Kevlar. Cloth, leather? Don't know! It'll eat an impact."
-	icon_state = "reinforcedwinterjacketorange"
-	armor = list(melee = 25, bullet = 10, laser = 5, energy = 5, bomb = 10, bio = 10, rad = 10, fire = 10, acid = 10)
+	desc = "A reinforced and padded orange winter jacket."
+	icon_state = "reinforcedwinterorange"
+	armor = list(melee = 30, bullet = 25, laser = 15, energy = 15, bomb = 15, bio = 10, rad = 10, fire = 10, acid = 10)
 
 /obj/item/clothing/suit/ms13/ljacket/orange/armored
 	name = "armored orange jacket"
 	desc = "An armored and heavily reinforced orange winter jacket."
-	icon_state = "armoredwinterjacketorange"
-	armor = list(melee = 35, bullet = 25, laser = 25, energy = 25, bomb = 30, bio = 10, rad = 10, fire = 20, acid = 10)
+	icon_state = "armoredwinterorange"
+	armor = list(melee = 40, bullet = 35, laser = 25, energy = 25, bomb = 30, bio = 10, rad = 10, fire = 25, acid = 10)
 
 /obj/item/clothing/suit/labcoat/ms13/ljacket/brown
-	name = "brown padded jacket"
-	desc = "A light, plain brown winter jacket. Nice and warm."
+	name = "brown winter jacket"
+	desc = "A very plain brown winter jacket. Nice and warm."
 	icon_state = "winterjacketbrown"
-	armor = list(melee = 10, bullet = 5, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 10)
+	inhand_icon_state = "winter"
 
 /obj/item/clothing/suit/ms13/ljacket/brown/reinforced
 	name = "reinforced brown jacket"
-	desc = "A reinforced brown jacket. Kevlar. Cloth, leather? Don't know! It'll eat an impact."
-	icon_state = "reinforcedwinterjacketbrown"
-	armor = list(melee = 25, bullet = 10, laser = 5, energy = 5, bomb = 10, bio = 10, rad = 10, fire = 10, acid = 10)
+	desc = "A reinforced and padded brown winter jacket."
+	icon_state = "reinforcedwinterbrown"
+	armor = list(melee = 30, bullet = 25, laser = 15, energy = 15, bomb = 15, bio = 10, rad = 10, fire = 10, acid = 10)
 
 /obj/item/clothing/suit/ms13/ljacket/brown/armored
 	name = "armored brown jacket"
 	desc = "An armored and heavily reinforced brown winter jacket."
-	icon_state = "armoredwinterjacketbrown"
-	armor = list(melee = 35, bullet = 25, laser = 25, energy = 25, bomb = 30, bio = 10, rad = 10, fire = 20, acid = 10)
+	icon_state = "armoredwinterbrown"
+	armor = list(melee = 40, bullet = 35, laser = 25, energy = 25, bomb = 30, bio = 10, rad = 10, fire = 25, acid = 10)
 
 /obj/item/clothing/suit/labcoat/ms13/ljacket/blue
 	name = "blue winter jacket"
-	desc = "A light, blue winter jacket."
+	desc = "A blue winter jacket."
 	icon_state = "winterjacketblue"
 	inhand_icon_state = "winter"
-	armor = list(melee = 10, bullet = 5, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 10)
 
 /obj/item/clothing/suit/ms13/ljacket/blue/reinforced
 	name = "reinforced blue winter jacket"
 	desc = "A reinforced and padded blue winter jacket."
 	icon_state = "reinforcedwinterblue"
-	armor = list(melee = 25, bullet = 10, laser = 5, energy = 5, bomb = 10, bio = 10, rad = 10, fire = 10, acid = 10)
+	armor = list(melee = 30, bullet = 25, laser = 15, energy = 15, bomb = 15, bio = 10, rad = 10, fire = 10, acid = 10)
 
 /obj/item/clothing/suit/ms13/ljacket/blue/armored
 	name = "armored blue winter jacket"
 	desc = "An armored and heavily reinforced blue winter jacket."
 	icon_state = "armoredwinterblue"
-	armor = list(melee = 35, bullet = 25, laser = 25, energy = 25, bomb = 30, bio = 10, rad = 10, fire = 20, acid = 10)
+	armor = list(melee = 40, bullet = 35, laser = 25, energy = 25, bomb = 30, bio = 10, rad = 10, fire = 25, acid = 10)
 
 /obj/item/clothing/suit/labcoat/ms13/ljacket/black
 	name = "black winter jacket"
-	desc = "A light, black winter jacket."
+	desc = "A dark, black winter jacket."
 	icon_state = "winterjacketblack"
 	inhand_icon_state = "winter"
-	armor = list(melee = 10, bullet = 5, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 10)
 
 /obj/item/clothing/suit/ms13/ljacket/black/reinforced
 	name = "reinforced black winter jacket"
 	desc = "A reinforced and padded black winter jacket."
 	icon_state = "reinforcedwinterblack"
 	inhand_icon_state = "reinforcedwinterblack"
-	armor = list(melee = 25, bullet = 10, laser = 5, energy = 5, bomb = 10, bio = 10, rad = 10, fire = 10, acid = 10)
+	armor = list(melee = 30, bullet = 25, laser = 15, energy = 15, bomb = 15, bio = 10, rad = 10, fire = 10, acid = 10)
 
 /obj/item/clothing/suit/ms13/ljacket/black/armored
 	name = "armored black winter jacket"
 	desc = "An armored and heavily reinforced black winter jacket."
 	icon_state = "armoredwinterblack"
 	inhand_icon_state = "armoredwinterblack"
-	armor = list(melee = 35, bullet = 25, laser = 25, energy = 25, bomb = 30, bio = 10, rad = 10, fire = 20, acid = 10)
-
-/obj/item/clothing/suit/toggle/labcoat/ms13/wintercoat
-	name = "blue winter coat"
-	desc = "A blue, warm winter coat. Perfect for a ski trip. Can button open and closed."
-	icon_state = "winterpaddedblue"
-	inhand_icon_state = "winter"
-	armor = list(melee = 15, bullet = 10, laser = 5, energy = 5, bomb = 10, bio = 0, rad = 0, fire = 0, acid = 0)
-
-/obj/item/clothing/suit/toggle/labcoat/ms13/wintercoat/grey
-	name = "grey winter coat"
-	desc = "A grey, warm winter coat. For those who prefer less brightness in their life. Can button open and closed."
-	icon_state = "winterpadded"
-	inhand_icon_state = "winter"
+	armor = list(melee = 40, bullet = 35, laser = 25, energy = 25, bomb = 30, bio = 10, rad = 10, fire = 25, acid = 10)
 
 // jackets //
 
