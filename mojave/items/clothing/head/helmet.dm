@@ -700,7 +700,7 @@
 	desc = "A standard issue NCR infantry helmet adapted for arctic environments."
 	icon_state = "ncr_infantry_helmet"
 	inhand_icon_state = "ncr_infantry_helmet"
-	armor = list(melee = 35, bullet = 35, laser = 10, energy = 10, bomb = 20, bio = 10, rad = 10, fire = 10, acid = 10)
+	armor = list("melee" = 35, "bullet" = 30, "laser" = 15, "energy" = 15, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 20, "acid" = 10)
 	flags_cover = NONE
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
@@ -714,14 +714,14 @@
 	toggle_message = "You pull the goggles down on"
 	alt_toggle_message = "You push the goggles up on"
 	actions_types = list(/datum/action/item_action/toggle)
-	armor = list("melee" = 45, "bullet" = 40, "laser" = 20, "energy" = 20, "bomb" = 25, "bio" = 20, "rad" = 20, "fire" = 20, "acid" = 20)
+	armor = list("melee" = 40, "bullet" = 35, "laser" = 20, "energy" = 20, "bomb" = 30, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10)
 
 /obj/item/clothing/head/helmet/ms13/ncr/beret
 	name = "\improper NCR officer beret"
 	desc = "An NCR officer's beret. Minimal protection, maximum style and authority."
 	icon_state = "ncr_officer_beret"
 	inhand_icon_state = "ncr_officer_beret"
-	armor = list(melee = 25, bullet = 20, laser = 5, energy = 5, bomb = 10, bio = 5, rad = 5, fire = 5, acid = 5)
+	armor = list("melee" = 25, "bullet" = 20, "laser" = 10, "energy" = 10, "bomb" = 15, "bio" = 10, "rad" = 10, "fire" = 10, "acid" = 10)
 
 /obj/item/clothing/head/helmet/ms13/ncr/beret/brown
 	icon_state = "ncr_officer_brberet"
@@ -737,58 +737,53 @@
 	armor = list("melee" = 35, "bullet" = 15, "laser" = 15, "energy" = 10, "bomb" = 15, "bio" = 20, "rad" = 20, "fire" = 25, "acid" = 20)
 
 /obj/item/clothing/head/helmet/ms13/legion/recruit
-	name = "legion recruit headband"
-	desc = "A red headband, often worn by recruits of the Legion"
+	name = "\improper Legion recruit helmet"
+	desc = "A dark leather helmet fashioned from old sports gear, worn by Legion recruits."
 	icon_state = "leg_rec"
 	inhand_icon_state = "owl_mask"
-	armor = list("melee" = 10, "bullet" = 5, "laser" = 15, "energy" = 15, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 20)
+	armor = list("melee" = 30, "bullet" = 25, "laser" = 15, "energy" = 15, "bomb" = 15, "bio" = 10, "rad" = 10, "fire" = 10, "acid" = 10)
+	flags_inv = HIDEEARS|HIDEHAIR
 
 /obj/item/clothing/head/helmet/ms13/legion/prime
 	name = "\improper Legion prime helmet"
-	desc = "A helmet used by Prime Legionaries. It's pretty dense."
+	desc = "A red helmet used by Prime Legionaries. Has additional padding for added protection."
 	icon_state = "leg_prime"
 	inhand_icon_state = "owl_mask"
-	armor = list("melee" = 35, "bullet" = 20, "laser" = 15, "energy" = 20, "bomb" = 25, "bio" = 20, "rad" = 20, "fire" = 25, "acid" = 20)
+	armor = list("melee" = 35, "bullet" = 30, "laser" = 15, "energy" = 15, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 20, "acid" = 10)
 	flags_inv = HIDEEARS|HIDEHAIR
 
 /obj/item/clothing/head/helmet/ms13/legion/veteran
 	name = "\improper Legion veteran helmet"
-	desc = "A helmet used by Veteran Legionaries. It's got a face guard to keep you from bumping into things!"
+	desc = "A red helmet used by Veteran Legionaries with an added face guard. Only the best protection for the Legion's finest."
 	icon_state = "leg_vet"
 	inhand_icon_state = "owl_mask"
-	armor = list("melee" = 40, "bullet" = 25, "laser" = 20, "energy" = 20, "bomb" = 25, "bio" = 20, "rad" = 20, "fire" = 25, "acid" = 20)
-	flags_inv = HIDEEARS|HIDEHAIR
+	armor = list("melee" = 40, "bullet" = 35, "laser" = 20, "energy" = 20, "bomb" = 30, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10)
+	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 
-/obj/item/clothing/head/helmet/ms13/legion/decanus/recruit
+/obj/item/clothing/head/helmet/ms13/legion/decanus
 	name = "\improper Legion recruit decanus helmet"
-	desc = "A helmet used by recruit decanii of the Legion. It sports some brown feathers to signify lesser leadership."
+	desc = "A feathery, quite protective helmet used by recruit decanii of the Legion. It's got brown feathers to signify lesser leadership."
 	icon_state = "leg_decr"
 	inhand_icon_state = "owl_mask"
-	armor = list("melee" = 30, "bullet" = 35, "laser" = 30, "energy" = 20, "bomb" = 35, "bio" = 20, "rad" = 20, "fire" = 25, "acid" = 20)
+	armor = list("melee" = 40, "bullet" = 35, "laser" = 20, "energy" = 20, "bomb" = 30, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 
 /obj/item/clothing/head/helmet/ms13/legion/decanus/prime
 	name = "\improper Legion prime decanus helmet"
-	desc = "A helmet used by prime decanii of the Legion. It's got black feathers to signify a moderate rank."
+	desc = "A feathery, quite protective helmet used by prime decanii of the Legion. It's got black feathers to signify a moderate rank."
 	icon_state = "leg_decp"
-	inhand_icon_state = "owl_mask"
-	armor = list("melee" = 35, "bullet" = 40, "laser" = 30, "energy" = 20, "bomb" = 35, "bio" = 20, "rad" = 20, "fire" = 25, "acid" = 20)
-	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 
 /obj/item/clothing/head/helmet/ms13/legion/decanus/veteran
 	name = "\improper Legion veteran decanus helmet"
-	desc = "A helmet used by only the most experienced Decanii of the Legion! It's got striped feathers to signify superior rank."
+	desc = "A feathery helmet used by only the most experienced decanii of the Legion. It's got striped feathers to signify superior rank."
 	icon_state = "leg_decv"
-	inhand_icon_state = "owl_mask"
-	armor = list("melee" = 45, "bullet" = 40, "laser" = 35, "energy" = 20, "bomb" = 35, "bio" = 20, "rad" = 20, "fire" = 25, "acid" = 20)
-	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 
 /obj/item/clothing/head/helmet/ms13/legion/centurion
 	name = "\improper Legion centurion helmet"
-	desc = "A helmet donned by only the most esteemed Centurions in the Legion. Impressive!"
+	desc = "A strong helmet donned by Centurions in the Legion. Some reinforcements on the helmet no doubt came from fallen enemies."
 	icon_state = "leg_cent"
 	inhand_icon_state = "owl_mask"
-	armor = list("melee" = 60, "bullet" = 40, "laser" = 35, "energy" = 20, "bomb" = 55, "bio" = 20, "rad" = 20, "fire" = 25, "acid" = 20)
+	armor = list("melee" = 55, "bullet" = 45, "laser" = 25, "energy" = 25, "bomb" = 50, "bio" = 25, "rad" = 25, "fire" = 60, "acid" = 25)
 	flags_inv = HIDEEARS|HIDEHAIR
 
 /obj/item/clothing/head/helmet/ms13/legion/praetorian
@@ -809,18 +804,19 @@
 
 /obj/item/clothing/head/helmet/ms13/legion/explorer
 	name = "\improper Legion explorer cap"
-	desc = "A relatively preserved pre-war baseball cap, now pridefully adopted by Legion explorers. Style over Strength."
+	desc = "A relatively preserved pre-war baseball cap with some additional padding, now pridefully adopted by Legion explorers."
 	icon_state = "leg_exp"
 	inhand_icon_state = "owl_mask"
-	armor = list("melee" = 15, "bullet" = 10, "laser" = 15, "energy" = 20, "bomb" = 15, "bio" = 20, "rad" = 20, "fire" = 25, "acid" = 20)
+	armor = list("melee" = 25, "bullet" = 20, "laser" = 10, "energy" = 10, "bomb" = 15, "bio" = 10, "rad" = 10, "fire" = 10, "acid" = 10)
 
 // Brotherhood Helmets //
 
 /obj/item/clothing/head/helmet/ms13/combat/bos
-	name = "\improper BoS combat helmet"
+	name = "\improper Brotherhood combat helmet"
 	desc = "A hard, custom built helmet issued to Brotherhood troops."
 	icon_state = "bos_helmet"
 	inhand_icon_state = "bos_helmet"
+	armor = list("melee" = 45, "bullet" = 40, "laser" = 25, "energy" = 25, "bomb" = 40, "bio" = 20, "rad" = 20, "fire" = 40, "acid" = 20)
 
 // Desert Ranger Helmets/Hats //
 
@@ -829,14 +825,13 @@
 	desc = "An advanced helmet originally used by elite pre-war riot control units, now repurposed for the Desert Rangers"
 	icon_state = "elite_ranger"
 	inhand_icon_state = "riotgearhelmet"
-	armor = list("melee" = 60, "bullet" = 45, "laser" = 20, "energy" = 20, "bomb" = 60, "bio" = 25, "rad" = 25, "fire" = 60, "acid" = 25)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 
 /obj/item/clothing/head/helmet/ms13/cowboy/ranger
-	name = "Ranger hat"
-	desc = "A sylish hat, often worn by Desert Rangers. Made with some pretty thick leather."
+	name = "\improper Desert Ranger hat"
+	desc = "A sylish hat, often worn by Desert Rangers. Made with some pretty thick leather and additional padding."
 	icon_state = "ranger_hat"
 	worn_icon_state = "ranger_hat"
-	armor = list(melee = 25, bullet = 15, laser = 10, energy = 10, bomb = 20, bio = 10, rad = 10, fire = 10, acid = 10)
+	armor = list("melee" = 30, "bullet" = 25, "laser" = 15, "energy" = 15, "bomb" = 15, "bio" = 10, "rad" = 10, "fire" = 10, "acid" = 10)
