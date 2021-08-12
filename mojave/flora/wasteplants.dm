@@ -209,7 +209,6 @@
 	layer = FLY_LAYER
 	icon = 'mojave/icons/flora/trees.dmi'
 	icon_state = "snowshrub_1"
-	obj_integrity = 50
 	max_integrity = 50
 	var/proj_pass_rate = 100
 
@@ -278,7 +277,6 @@
 	icon = 'mojave/icons/flora/trees.dmi'
 	icon_state = "snowtree_1"
 	log_amount = 3
-	obj_integrity = 400
 	max_integrity = 400
 
 /obj/structure/flora/ms13/tree/deadsnow/New()
@@ -291,7 +289,6 @@
 	icon = 'mojave/icons/flora/trees.dmi'
 	icon_state = "pine_1"
 	log_amount = 1
-	obj_integrity = 400
 	max_integrity = 400
 
 /obj/structure/flora/ms13/tree/pine/New()
@@ -304,7 +301,6 @@
 	icon = 'mojave/icons/flora/talltrees.dmi'
 	icon_state = "pine_1"
 	log_amount = 4
-	obj_integrity = 400
 	max_integrity = 400
 
 /obj/structure/flora/ms13/tree/tallpine/New()
@@ -317,7 +313,6 @@
 	icon = 'mojave/icons/flora/trees.dmi'
 	icon_state = "deadtree_1"
 	log_amount = 4
-	obj_integrity = 400
 	max_integrity = 400
 
 /obj/structure/flora/ms13/tree/wasteland/New()
@@ -330,7 +325,6 @@
 	icon = 'mojave/icons/flora/trees.dmi'
 	log_amount = 3
 	icon_state = "joshua_1"
-	obj_integrity = 400
 	max_integrity = 400
 
 /obj/structure/flora/tree/joshua/ms13/Initialize()
@@ -343,7 +337,6 @@
 	icon = 'mojave/icons/flora/trees.dmi'
 	icon_state = "cactus"
 	log_amount = 2
-	obj_integrity = 400
 	max_integrity = 400
 
 //for more ms13 snow plants (grass etc. search /obj/structure/flora/grass)
