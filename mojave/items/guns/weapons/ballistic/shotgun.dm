@@ -88,7 +88,6 @@
 	force = 15
 	empty_indicator = TRUE
 
-
 /obj/item/gun/ballistic/shotgun/automatic/ms13/sks
 	name = "\improper European battle rifle"
 	desc = "An old European semi-automatic rifle chambered for 7.62 rounds and normally fed from 10 round stripper clips."

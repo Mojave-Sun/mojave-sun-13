@@ -55,4 +55,4 @@
 	ranged = TRUE
 	ranged_cooldown = 5 SECONDS
 	projectiletype = /obj/projectile/bullet/ms13/plasma/gutsy
-	projectilesound = 'mojave/sound/ms13weapons/gunsounds/plasrifle/plasma_10.ogg'
+	projectilesound = 'mojave/sound/ms13weapons/gunsounds/plasrifle/plasma_3.ogg'

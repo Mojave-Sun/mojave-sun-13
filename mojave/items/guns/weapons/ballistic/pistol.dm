@@ -121,12 +121,10 @@
 	icon_state = "22pistol"
 	inhand_icon_state = "22pistol"
 	mag_type = /obj/item/ammo_box/magazine/ms13/m22
-	suppressed = 1
 	w_class = WEIGHT_CLASS_SMALL
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
 	extra_damage = 15
 	fire_delay = 4
-
 
 //Magazines
 /obj/item/ammo_box/magazine/ms13/m45

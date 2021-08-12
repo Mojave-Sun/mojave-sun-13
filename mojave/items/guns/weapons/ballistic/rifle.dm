@@ -75,7 +75,6 @@
 	zoomable = TRUE
 	zoom_amt = 10
 	zoom_out_amt = 13
-	suppressed = 1
 
 /obj/item/gun/ballistic/rifle/ms13/hunting/scoped/amr
 	name = "anti-material rifle"
@@ -86,6 +85,7 @@
 	fire_sound = 'mojave/sound/ms13weapons/amrfire.ogg'
 	fire_delay = 8
 	extra_damage = 60
+	extra_penetration = 20
 
 /obj/item/gun/ballistic/rifle/ms13/hunting/scoped/amr/update_icon_state()
 	worn_icon_state = "[initial(icon_state)]"
@@ -125,21 +125,25 @@
 	fire_sound = 'mojave/sound/ms13weapons/hunting_rifle.ogg'
 	extra_damage = 30
 
-/obj/item/gun/ballistic/rifle/ms13/hunting/arisaka
-	name = "arisaka type 99"
-	desc = "An ancient pre-war rifle, chambered in .308 with an internal 5 round magazine."
+/obj/item/gun/ballistic/rifle/ms13/hunting/japanese
+	name = "\improper Japanese war rifle"
+	desc = "An ancient pre-war rifle, chambered in .308 with an internal 5 round magazine. Hardly functions in days like these, but it works... Sometimes."
 	icon_state = "arisaka"
 	inhand_icon_state = "arisaka"
 	internal_magazine = TRUE
 	mag_type = /obj/item/ammo_box/magazine/internal/ms13/arisaka
-	extra_damage = 45
 	fire_sound = 'mojave/sound/ms13weapons/hunting_rifle.ogg'
 	rack_sound = 'mojave/sound/ms13weapons/gunsounds/arisaka/ArisakaOpen.ogg' ///proof kenobi is a hecking weeb
 	bolt_drop_sound = 'mojave/sound/ms13weapons/gunsounds/arisaka/ArisakaClose.ogg'
+	can_jam = TRUE
+	jamming_chance = 55
+	jamming_increment = 10
+	unjam_chance = 5
+	extra_damage = 45
 
-/obj/item/gun/ballistic/rifle/ms13/hunting/arisaka/scoped //not likely to ever be seen in game, more of an admin thing, dont map it in, it'd be slightly OP
-	name = "scoped arisaka type 99"
-	desc = "A really old pre-war rifle, chambered in .308 with an internal 5 round magazine. This one has a scoped mounted to it."
+/obj/item/gun/ballistic/rifle/ms13/hunting/japanese/scoped //not likely to ever be seen in game, more of an admin thing, dont map it in, it'd be slightly OP
+	name = "scoped Japanese war rifle"
+	desc = "A really old pre-war rifle, chambered in .308 with an internal 5 round magazine. This one has a scoped mounted to it. Hardly functions in days like these, but it works... Sometimes."
 	icon_state = "scoped_arisaka"
 	inhand_icon_state = "scoped_arisaka"
 	zoomable = TRUE
@@ -159,6 +163,7 @@
 	fire_sound = 'mojave/sound/ms13weapons/battlerifle.ogg'
 	empty_alarm_sound = 'mojave/sound/ms13weapons/battlerifleunload.ogg'
 	extra_damage = 45
+	extra_penetration = 15
 
 //Magazines
 /obj/item/ammo_box/magazine/ms13/r10

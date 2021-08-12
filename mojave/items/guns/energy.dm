@@ -16,6 +16,14 @@
 	var/load_sound_volume = 40
 	var/load_sound_vary = TRUE
 
+/obj/item/gun/energy/ms13/update_ammo_types()
+	var/obj/item/ammo_casing/energy/shot
+	for (var/i = 1, i <= ammo_type.len, i++)
+		var/shottype = ammo_type[i]
+		shot = new shottype(src)
+		ammo_type[i] = shot
+	shot = ammo_type[select]
+
 /obj/item/gun/energy/ms13/update_icon()
 	if(!cell)
 		icon_state = "[base_icon_state]_empty"
@@ -103,202 +111,6 @@
 	extra_damage = 0
 	extra_penetration = 0
 	fire_delay = 5
-
-// Laser Pistols //
-
-/obj/item/gun/energy/ms13/laser/pistol
-	name = "AEP7 laser pistol"
-	desc = "A basic energy-based laser gun that fires concentrated beams of light which pass through glass and thin metal."
-	icon_state = "stanlas_pistol"
-	base_icon_state = "stanlas_pistol"
-	inhand_icon_state = "stanlas_pistol"
-	fire_sound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_1.ogg'
-	w_class = WEIGHT_CLASS_NORMAL
-	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/pistol)
-	cell_type = /obj/item/stock_parts/cell/ms13/ec
-	extra_damage = 20
-	extra_penetration = 0
-	fire_delay = 4
-
-/obj/item/gun/energy/ms13/laser/pistol/advanced
-	name = "AER9 laser pistol"
-	desc = "A later model of the laser pistol. Better and stronger, more reliable overall."
-	icon_state = "advlas_pistol"
-	base_icon_state = "advlas_pistol"
-	inhand_icon_state = "advlas_pistol"
-	fire_sound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_2.ogg'
-	extra_damage = 25
-	extra_penetration = 5
-
-/obj/item/gun/energy/ms13/laser/pistol/defender
-	name = "laser defender"
-	desc = "A low quantity produced experimental alternative to the Laser Defender. Proved to be worthy, but not of note. Better than the average laser pistol."
-	icon_state = "laserdefender"
-	base_icon_state = "laserdefender"
-	inhand_icon_state = "laserdefender"
-	fire_sound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_3.ogg'
-	extra_damage = 25
-	extra_penetration = 10
-	fire_delay = 3.5
-
-/obj/item/gun/energy/ms13/laser/pistol/wattz
-	name = "Wattz laser pistol"
-	desc = "The Wattz 1000 is a variant of the laser pistol developed for civilian use. It's lower powered than the military counterparts."
-	icon_state = "wattzpistol"
-	base_icon_state = "wattzpistol"
-	inhand_icon_state = "wattzpistol"
-	fire_sound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_4.ogg'
-	extra_damage = 15
-	fire_delay = 6
-
-/obj/item/gun/energy/ms13/laser/pistol/wattz/magneto
-	name = "Wattz magneto-laser pistol"
-	desc = "A modified Wattz 1000, utilizing systems to concentrate the laser emitted in order to gain better penetration power."
-	icon_state = "wattz1000mag"
-	base_icon_state = "wattz1000mag"
-	inhand_icon_state = "wattz1000mag"
-	fire_sound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_5.ogg'
-	extra_damage = 15
-	extra_penetration = 5
-
-/* Hekzder is an incredibly rude individual. I refuse to remove this beautiful creation. add back when he's not looking.
-/obj/item/gun/energy/ms13/laser/pistol/wattz/cutdown
-	name = "Wattz cutdown"
-	desc = "An unofficially produced post-war version of the Wattz 2000. Given the nickname 'Cutdown'- go figure. it's wildly inaccurate, and has lower range, but still packs a punch and is concealable."
-	icon_state = "wattz2000car"
-	base_icon_state = "wattz2000car"
-	inhand_icon_state = "wattz2000car"
-	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/unfocused)
-	extra_damage = 30
-	extra_penetration = 5
-	fire_delay = 7
-	spread = 10
-*/
-
-// Laser rifles //
-
-/obj/item/gun/energy/ms13/laser/aer9
-	name = "AER9 laser rifle"
-	desc = "A relic of the past, this is an early wood furnished version of the laser rifle that the U.S Military actively adopted."
-	base_icon_state = "stanlas_rifle"
-	icon_state = "stanlas_rifle"
-	inhand_icon_state = "stanlas_rifle"
-	fire_sound = 'mojave/sound/ms13weapons/gunsounds/lasrifle/las_rifle_1.ogg'
-	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser)
-	cell_type = /obj/item/stock_parts/cell/ms13/mfc
-	w_class = WEIGHT_CLASS_HUGE
-	extra_damage = 30
-	extra_penetration = 0
-	fire_delay = 5
-
-/obj/item/gun/energy/ms13/laser/aer12
-	name = "AER12 laser rifle"
-	desc = "A further developed version of the militarized laser rifle cherished by scavengers of the wasteland. Supposedly not as reliable as some of the older variants."
-	base_icon_state = "advlas_rifle"
-	icon_state = "advlas_rifle"
-	inhand_icon_state = "advlas_rifle"
-	extra_damage = 35
-	extra_penetration = 5
-
-/obj/item/gun/energy/ms13/laser/wattz
-	name = "Wattz laser rifle"
-	desc = "A medium range laser rifle. Features comfortable to shoot, but the scope is quite unreliable"
-	base_icon_state = "wattzrifle"
-	icon_state = "wattzrifle"
-	inhand_icon_state = "wattzrifle"
-	fire_sound = 'mojave/sound/ms13weapons/gunsounds/lasrifle/las_rifle_3.ogg'
-	extra_damage = 25
-	zoomable = TRUE
-	zoom_amt = 6
-	zoom_out_amt = 9
-
-/obj/item/gun/energy/ms13/laser/wattz/sniper
-	name = "Wattz sniper rifle"
-	desc = "A long range high powered laser sniper. The scope is study in place and has a good view in it. A reliable piece of technology, to say the least."
-	base_icon_state = "wattzsniper"
-	icon_state = "wattzsniper"
-	inhand_icon_state = "wattzsniper"
-	fire_sound = 'mojave/sound/ms13weapons/gunsounds/lasrifle/las_rifle_2.ogg'
-	extra_damage = 25
-	zoomable = TRUE
-	zoom_amt = 15
-	zoom_out_amt = 5
-
-/obj/item/gun/energy/ms13/laser/rcw
-	name = "laser RCW"
-	desc = "An iconic design with a twist. This laser rifle has an extremely high firerate and functions more like a minigun than it does a rifle."
-	base_icon_state = "rcw"
-	icon_state = "rcw"
-	inhand_icon_state = "rcw"
-	fire_sound = 'mojave/sound/ms13weapons/gunsounds/lasrcw/rcw_5.ogg'
-	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser)
-	cell_type = /obj/item/stock_parts/cell/ms13/ecp
-	extra_damage = 15
-	fire_delay = 0
-	spread = 2.5
-
-/obj/item/gun/energy/ms13/laser/rcw/Initialize()
-	. = ..()
-	AddComponent(/datum/component/automatic_fire, 0.2 SECONDS)
-
-/obj/item/gun/energy/ms13/laser/scatter
-	name = "Laser Scatter Rifle"
-	desc = "A modified AER9 equipped with a refraction kit that spreads its bolts."
-	icon = 'mojave/icons/objects/guns/guns_world.dmi'
-	icon_state = "lasershotgun"
-	base_icon_state = "lasershotgun"
-	inhand_icon_state = "lasershotgun"
-	lefthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_left.dmi'
-	righthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_right.dmi'
-	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/scatter)
-	cell_type = /obj/item/stock_parts/cell/ms13/mfc
-	fire_delay = 6
-
-
-// Plasma Pistols //
-
-// Plasma Guns //
-
-/obj/item/gun/energy/ms13/laser/plasma
-	name ="A3-20 Plasma Rifle"
-	icon = 'mojave/icons/objects/guns/guns_world.dmi'
-	inhand_icon_state = "plasmacarabine"
-	icon_state = "plasmacarabine"
-	base_icon_state = "plasmacarabine"
-	lefthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_left.dmi'
-	righthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_right.dmi'
-	desc = "A top of line miniaturized plasma caster built by REPCONN in the wake of the Z43-521P failure. It is supperior to all previous rifles to enter service in the USCC."
-	ammo_type = list(/obj/item/ammo_casing/energy/ms13/plasma)
-	cell_type = /obj/item/stock_parts/cell/ms13/pc
-	w_class = WEIGHT_CLASS_HUGE
-	fire_delay = 6
-
-/obj/item/gun/energy/ms13/laser/plasma/scatter
-	name = "A3e-20b Multiplas Rifle"
-	icon = 'mojave/icons/objects/guns/guns_world.dmi'
-	inhand_icon_state = "multiplas"
-	icon_state = "multiplas"
-	base_icon_state = "multiplas"
-	lefthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_left.dmi'
-	righthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_right.dmi'
-	desc = "A modified A3-20 plasma caster built by REPCONN equipped with a multicasting kit that creates multiple weaker clots."
-	ammo_type = list(/obj/item/ammo_casing/energy/ms13/plasma/scatter)
-	cell_type = /obj/item/stock_parts/cell/ms13/pc
-	fire_delay = 7
-
-/obj/item/gun/energy/ms13/laser/plasma/pistol
-	name ="MPL-A Plasma Pistol"
-	icon = 'mojave/icons/objects/guns/guns_world.dmi'
-	inhand_icon_state = "plasmapistol"
-	icon_state = "plasmapistol"
-	base_icon_state = "plasmapistol"
-	lefthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_left.dmi'
-	righthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_right.dmi'
-	desc = "A pistol-sized miniaturized plasma caster built by REPCONN. It fires heavy low penetration plasma clots."
-	ammo_type = list(/obj/item/ammo_casing/energy/ms13/plasma/pistol)
-	w_class = WEIGHT_CLASS_NORMAL
-	cell_type = /obj/item/stock_parts/cell/ms13/pc
-	fire_delay = 6
 
 //effects
 
@@ -396,17 +208,29 @@
 /obj/projectile/bullet/ms13/plasma
 	name = "plasma clot"
 	icon = 'mojave/icons/objects/projectiles/projectiles.dmi'
+	damage_type = BURN
+	flag = ENERGY
 	icon_state = "plasma"
 	damage = 0
 	armour_penetration = 0
-	wound_bonus = 15
+	wound_bonus = 10
+	speed = 1
 
 /obj/projectile/bullet/ms13/plasma/pistol
-	damage = 0
-	armour_penetration = 0
+	wound_bonus = 10
+
+/obj/projectile/bullet/ms13/plasma/rifle
+	wound_bonus = 15
 
 /obj/projectile/bullet/ms13/plasma/scatter
-	damage = 0
+	range = 16
+	wound_bonus = 20
+
+/obj/projectile/bullet/ms13/plasma/splatter
+	range = 18
+	wound_bonus = 10
+	bare_wound_bonus = 5
+	armour_penetration = -5
 
 //Casings
 
@@ -414,24 +238,6 @@
 	firing_effect_type = null
 	click_cooldown_override = 1 //0.1 second fire delay; better balance your fire rates now
 	fire_sound = null
-
-// Plasma //
-
-/obj/item/ammo_casing/energy/ms13/plasma
-	projectile_type = /obj/projectile/bullet/ms13/plasma
-	select_name = "plasma burst"
-	delay = 5
-	e_cost = 10
-
-/obj/item/ammo_casing/energy/ms13/plasma/scatter
-	projectile_type = /obj/projectile/bullet/ms13/plasma/scatter
-	pellets = 3
-	variance = 14
-	select_name = "scatter"
-
-/obj/item/ammo_casing/energy/ms13/plasma/pistol
-	projectile_type = /obj/projectile/bullet/ms13/plasma/pistol
-	e_cost = 50
 
 // Laser //
 
@@ -442,21 +248,44 @@
 /obj/item/ammo_casing/energy/ms13/laser/scatter
 	projectile_type = /obj/projectile/beam/ms13/laser/scatter
 	pellets = 3
-	variance = 14
+	variance = 15
 	select_name = "scatter"
-	e_cost = 50
+	e_cost = 85
 
 /obj/item/ammo_casing/energy/ms13/laser/pistol
 	projectile_type = /obj/projectile/beam/ms13/laser/pistol
-	e_cost = 10
+	e_cost = 15
 
 /obj/item/ammo_casing/energy/ms13/laser/sniper
 	projectile_type = /obj/projectile/beam/ms13/laser/sniper
-	e_cost = 80
+	e_cost = 75
 
-/obj/item/ammo_casing/energy/ms13/laser/unfocused
-	projectile_type = /obj/projectile/beam/ms13/laser/unfocused
-	e_cost = 80
+// Plasma //
+
+/obj/item/ammo_casing/energy/ms13/plasma
+	projectile_type = /obj/projectile/bullet/ms13/plasma
+	select_name = "plasma burst"
+	e_cost = 100
+
+/obj/item/ammo_casing/energy/ms13/plasma/pistol
+	projectile_type = /obj/projectile/bullet/ms13/plasma/pistol
+	e_cost = 65
+
+/obj/item/ammo_casing/energy/ms13/plasma/rifle
+	projectile_type = /obj/projectile/bullet/ms13/plasma/rifle
+	select_name = "plasma burst"
+	e_cost = 90
+
+/obj/item/ammo_casing/energy/ms13/plasma/scatter
+	projectile_type = /obj/projectile/bullet/ms13/plasma/scatter
+	pellets = 3
+	variance = 14
+	select_name = "scatter"
+	e_cost = 115
+
+/obj/item/ammo_casing/energy/ms13/plasma/pistol/splatter
+	projectile_type = /obj/projectile/bullet/ms13/plasma/splatter
+	e_cost = 75
 
 //energy weapon ammotypes
 

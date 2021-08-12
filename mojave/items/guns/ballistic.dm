@@ -99,6 +99,19 @@
 		//note this also applies to the SMG's
 	return ..()
 
+/obj/item/gun/ballistic/automatic/ms13/full // For weapons that are intended to have fully automatic capability
+	name = "fully automatic generic ms13 gun"
+	icon = 'mojave/icons/objects/guns/guns_world.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_left.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_right.dmi'
+	worn_icon = 'mojave/icons/mob/worn_guns.dmi'
+	force = 15
+	var/autofire_shot_delay = 0.25 //Time between individual shots.
+
+/obj/item/gun/ballistic/automatic/ms13/full/Initialize()
+	. = ..()
+	AddComponent(/datum/component/automatic_fire, 0.25 SECONDS)
+
 /obj/item/gun/ballistic/automatic/pistol/ms13
 	name = "generic ms13 gun"
 	desc = "complain when seeing this"
@@ -143,6 +156,11 @@
 	internal_magazine = FALSE
 	tac_reloads = TRUE
 	force = 15
+	var/jamming_chance = 20
+	var/unjam_chance = 10
+	var/jamming_increment = 5
+	var/jammed = FALSE
+	var/can_jam = FALSE
 
 /obj/item/gun/ballistic/rifle/ms13/Initialize()
 	. = ..()
@@ -162,6 +180,39 @@
 	if(chambered && bolt_locked == TRUE) //this makes all our rifles chambered, bolt open
 		icon_state = "[initial(icon_state)]_empty"
 	return ..()
+
+obj/item/gun/ballistic/rifle/ms13/attack_self(mob/user)
+	. = ..()
+	if(can_jam)
+		if(jammed)
+			if(prob(unjam_chance))
+				jammed = FALSE
+				unjam_chance = 10
+			else
+				unjam_chance += 10
+				to_chat(user, span_warning("[src] is jammed!"))
+				playsound(user,'sound/weapons/jammed.ogg', 75, TRUE)
+				return FALSE
+
+obj/item/gun/ballistic/rifle/ms13/process_fire(mob/user)
+	. = ..()
+	if(can_jam)
+		if(chambered.loaded_projectile)
+			if(prob(jamming_chance))
+				jammed = TRUE
+			jamming_chance  += jamming_increment
+			jamming_chance = clamp (jamming_chance, 0, 100)
+
+/* Have fun, until we get our own or show interest in using this widespread.
+obj/item/gun/ballistic/rifle/ms13/attackby(obj/item/item, mob/user, params)
+	. = ..()
+	if(can_jam)
+		if(bolt_locked)
+			if(istype(item, /obj/item/gun_maintenance_supplies))
+				if(do_after(user, 10 SECONDS, target = src))
+					user.visible_message(span_notice("[user] finishes maintenance of [src]."))
+					jamming_chance = 10
+					qdel(item) */
 
 //Loaders/Ammo boxes
 /obj/item/ammo_box/ms13
