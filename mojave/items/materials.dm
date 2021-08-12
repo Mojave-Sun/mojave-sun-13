@@ -23,10 +23,7 @@
 	merge_type = /obj/item/stack/sheet/ms13/scrap
 	matter_amount = 4
 	max_amount = 50
-//ma44 mojave edit: UNCOMMENT WHEN STRUCTURES PORTED
-/*
 	walltype = /turf/closed/wall/ms13/craftable/scrap
-*/
 
 /obj/item/stack/sheet/ms13/scrap/five
 	amount = 5
@@ -49,10 +46,7 @@ GLOBAL_LIST_INIT(scrap_recipes, list ( \
 
 /obj/item/stack/sheet/ms13/scrap/get_main_recipes()
 	. = ..()
-//ma44 mojave edit: UNCOMMENT WHEN STRUCTURES PORTED
-/*
 	. += GLOB.scrap_recipes
-*/
 
 /datum/material/ms13/scrap
 	name = "scrap"
