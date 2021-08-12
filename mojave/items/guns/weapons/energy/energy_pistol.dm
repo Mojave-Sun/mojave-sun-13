@@ -8,6 +8,7 @@
 	inhand_icon_state = "stanlas_pistol"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_1.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
+	weapon_weight = WEAPON_LIGHT
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/pistol)
 	cell_type = /obj/item/stock_parts/cell/ms13/ec
 	force = 10
@@ -80,6 +81,7 @@
 	inhand_icon_state = "plasmapistol"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/plaspistol/plasma_3.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
+	weapon_weight = WEAPON_LIGHT
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/plasma/pistol)
 	cell_type = /obj/item/stock_parts/cell/ms13/pc
 	force = 10

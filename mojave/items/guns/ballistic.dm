@@ -6,6 +6,7 @@
 	lefthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_left.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_right.dmi'
 	worn_icon = 'mojave/icons/mob/worn_guns.dmi'
+	tac_reloads = FALSE
 
 /obj/item/gun/ballistic/ms13/Initialize()
 	. = ..()
@@ -74,6 +75,12 @@
 	righthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_right.dmi'
 	worn_icon = 'mojave/icons/mob/worn_guns.dmi'
 	force = 15
+	w_class = WEIGHT_CLASS_BULKY
+	weapon_weight = WEAPON_HEAVY
+	can_suppress = FALSE
+	fire_delay = 0
+	extra_damage = 0
+	extra_penetration = 0
 
 /obj/item/gun/ballistic/automatic/ms13/Initialize()
 	. = ..()
@@ -106,6 +113,9 @@
 	righthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_right.dmi'
 	worn_icon = 'mojave/icons/mob/worn_guns.dmi'
 	force = 15
+	select = 0
+	burst_size = 1
+	actions_types = null
 	var/autofire_shot_delay = 0.25 //Time between individual shots.
 
 /obj/item/gun/ballistic/automatic/ms13/full/Initialize()
@@ -150,11 +160,11 @@
 /obj/item/gun/ballistic/rifle/ms13
 	name = "generic ms13 gun"
 	icon = 'mojave/icons/objects/guns/guns_world.dmi'
+	worn_icon = 'mojave/icons/mob/worn_guns.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_left.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_right.dmi'
-	worn_icon = 'mojave/icons/mob/worn_guns.dmi'
 	internal_magazine = FALSE
-	tac_reloads = TRUE
+	tac_reloads = FALSE
 	force = 15
 	var/jamming_chance = 20
 	var/unjam_chance = 10
@@ -181,8 +191,7 @@
 		icon_state = "[initial(icon_state)]_empty"
 	return ..()
 
-obj/item/gun/ballistic/rifle/ms13/attack_self(mob/user)
-	. = ..()
+/obj/item/gun/ballistic/rifle/ms13/attack_self(mob/user)
 	if(can_jam)
 		if(jammed)
 			if(prob(unjam_chance))
@@ -193,15 +202,16 @@ obj/item/gun/ballistic/rifle/ms13/attack_self(mob/user)
 				to_chat(user, span_warning("[src] is jammed!"))
 				playsound(user,'sound/weapons/jammed.ogg', 75, TRUE)
 				return FALSE
+	..()
 
-obj/item/gun/ballistic/rifle/ms13/process_fire(mob/user)
-	. = ..()
+/obj/item/gun/ballistic/rifle/ms13/process_fire(mob/user)
 	if(can_jam)
 		if(chambered.loaded_projectile)
 			if(prob(jamming_chance))
 				jammed = TRUE
 			jamming_chance  += jamming_increment
 			jamming_chance = clamp (jamming_chance, 0, 100)
+	return ..()
 
 /* Have fun, until we get our own or show interest in using this widespread.
 obj/item/gun/ballistic/rifle/ms13/attackby(obj/item/item, mob/user, params)

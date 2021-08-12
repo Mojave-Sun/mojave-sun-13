@@ -103,3 +103,10 @@
 	name = "HV .50MG bullet casing"
 	desc = "A high velocity .50MG bullet casing."
 	projectile_type = /obj/projectile/bullet/ms13/a50MG/hv
+
+//2mmEC
+/obj/item/ammo_casing/ms13/gauss
+	name = "2mmEC"
+	desc = "A 2mmec casing that doesn't exist."
+	caliber = "2mmEC"
+	projectile_type = /obj/projectile/bullet/ms13/gauss

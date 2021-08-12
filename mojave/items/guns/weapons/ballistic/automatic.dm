@@ -1,44 +1,32 @@
 //Guns
-/obj/item/gun/ballistic/automatic/ms13/marksman
-	name = "marksman carbine"
-	desc = "A 5.56 carbine with a scope attached to help in long range combat. Packs a good punch for 5.56 rounds, but at the cost of a slower rate of fire."
-	icon_state = "marksman"
-	inhand_icon_state = "marksman"
-	w_class = WEIGHT_CLASS_BULKY
-	mag_type = /obj/item/ammo_box/magazine/ms13/r20
-	fire_sound = 'mojave/sound/ms13weapons/gunsounds/marksman/marksman2.ogg'
-	can_suppress = FALSE
-	fire_delay = 6
-	burst_size = 1
-	extra_damage = 35
-	extra_penetration = 10
-	zoomable = TRUE
-	zoom_amt = 10
-	zoom_out_amt = 13
-	weapon_weight = WEAPON_HEAVY
-
-/obj/item/gun/ballistic/automatic/ms13/marksman/service
+/obj/item/gun/ballistic/automatic/ms13/service
 	name = "service rifle"
 	desc = "A 5.56 semi-automatic rifle manufactured by and for the NCR."
 	icon_state = "service"
 	inhand_icon_state = "service"
-	fire_sound = 'mojave/sound/ms13weapons/gunsounds/service/service3.ogg'
+	fire_sound = 'mojave/sound/ms13weapons/gunsounds/service/service_3.ogg'
 	fire_delay = 4
+	select = 0
+	burst_size = 1
+	actions_types = null
 	extra_damage = 25
 	extra_penetration = 5
 	zoomable = FALSE
+	mag_type = /obj/item/ammo_box/magazine/ms13/r20
 
-/obj/item/gun/ballistic/automatic/ms13/marksman/service/prototype
+/obj/item/gun/ballistic/automatic/ms13/service/prototype
 	name = "prototype service rifle"
 	desc = "A relatively new and improved modern service rifle sporting three round burst capabilities and a generally improved rate of fire at the cost of some accuracy and penetration."
 	icon_state = "protoservice"
 	inhand_icon_state = "protoservice"
+	fire_sound = 'mojave/sound/ms13weapons/gunsounds/service/service_2.ogg'
 	fire_delay = 3
 	spread = 3
 	burst_size = 3
+	actions_types = list(/datum/action/item_action/toggle_firemode)
 	extra_penetration = 0
 
-/obj/item/gun/ballistic/automatic/ms13/marksman/service/maquis
+/obj/item/gun/ballistic/automatic/ms13/service/maquis
 	name = "\improper Maquis"
 	desc = "A unique, heavy duty service rifle. Fires slower but packs a much heavier punch. Has a flag supporting a different kind of patriotism than most are used to."
 	icon_state = "maquis"
@@ -47,7 +35,7 @@
 	extra_damage = 30
 	extra_penetration = 10
 
-/obj/item/gun/ballistic/automatic/ms13/marksman/sniper
+/obj/item/gun/ballistic/automatic/ms13/sniper
 	name = "sniper rifle"
 	desc = "A semi-automatic, high powered .308 sniper rifle. Perfect weapon for a determined assassin."
 	icon_state = "sniper"
@@ -58,15 +46,15 @@
 	extra_penetration = 10
 	mag_type = /obj/item/ammo_box/magazine/ms13/r308
 
-/obj/item/gun/ballistic/automatic/ms13/marksman/sniper/silencer
+/obj/item/gun/ballistic/automatic/ms13/sniper/silencer
 	name = "\improper Silencer"
 	desc = "A modified sniper rifle with an integrated suppressor and an improved fire rate. Whether it's called the Silencer because of it's modification or it's intended purpose is yet to be known."
 	icon_state = "silentsniper"
-	inhand_icon_state = "silent sniper"
+	inhand_icon_state = "silentsniper"
 	fire_delay = 5
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
 
-/obj/item/gun/ballistic/automatic/ms13/marksman/battle
+/obj/item/gun/ballistic/automatic/ms13/battle
 	name = "battle rifle"
 	desc = "A very old but also very reliable semi-automatic rifle chambered for .308. From long before the war, but still packs a very heavy punch."
 	icon_state = "battler"
@@ -77,7 +65,7 @@
 	extra_penetration = 15
 	mag_type = /obj/item/ammo_box/magazine/ms13/r308_10
 
-/obj/item/gun/ballistic/automatic/ms13/marksman/battle/update_icon_state()
+/obj/item/gun/ballistic/automatic/ms13/battle/update_icon_state()
 	worn_icon_state = "[initial(icon_state)]"
 	if(!chambered && magazine) //this makes the sks empty, the state with a magazine, not necassarily empty just not chambered
 		icon_state = "[initial(icon_state)]_mag_empty"
@@ -92,7 +80,7 @@
 		icon_state = "[initial(icon_state)]"
 	return ..()
 
-/obj/item/gun/ballistic/automatic/ms13/marksman/battle/rangemaster
+/obj/item/gun/ballistic/automatic/ms13/battle/rangemaster
 	name = "\improper Rangemaster"
 	desc = "A heavy duty semi-automatic .308 rifle with a scope attached. Has built up a reputation amongst the wastes of being a formidable weapon at any range."
 	icon_state = "rangemaster"
@@ -115,7 +103,6 @@
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/45/45auto3.ogg'
 	can_suppress = FALSE
 	fire_delay = 3
-	burst_size = 3
 	extra_damage = 15
 	extra_penetration = 5
 	spread = 12
@@ -131,7 +118,6 @@
 	mag_type = /obj/item/ammo_box/magazine/ms13/smgm22
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
 	fire_delay = 3
-	burst_size = 3
 	extra_damage = 15
 	spread = 12
 
@@ -141,10 +127,10 @@
 	icon_state = "smg10mm"
 	inhand_icon_state = "smg10mm"
 	w_class = WEIGHT_CLASS_NORMAL
+	weapon_weight = WEAPON_MEDIUM
 	slot_flags = 0
 	mag_type = /obj/item/ammo_box/magazine/ms13/smgm10mm
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/10mmsmg/10mmsmg1.ogg'
-	burst_size = 3
 	fire_delay = 3
 	extra_damage = 15
 	extra_penetration = 5
@@ -156,10 +142,11 @@
 	desc = "A fast firing, old school 9mm submachine gun. Doesn't pack a lot of punch per bullet, but that doesn't matter when you're spitting them out so fast."
 	icon_state = "smg9mm"
 	inhand_icon_state = "smg9mm"
+	w_class = WEIGHT_CLASS_NORMAL
+	weapon_weight = WEAPON_MEDIUM
 	mag_type = /obj/item/ammo_box/magazine/ms13/smgm9mm
 	fire_sound = 'mojave/sound/ms13weapons/greasegun.ogg'
 	can_suppress = FALSE
-	burst_size = 3
 	fire_delay = 3
 	extra_damage = 15
 	force = 15
@@ -174,7 +161,6 @@
 	mag_type = /obj/item/ammo_box/magazine/ms13/smg12mm
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/12mm/m12mm2.ogg'
 	can_suppress = FALSE
-	burst_size = 3
 	fire_delay = 3
 	extra_damage = 15
 	extra_penetration = 15
@@ -189,7 +175,6 @@
 	slot_flags = 0
 	mag_type = /obj/item/ammo_box/magazine/ms13/r20
 	fire_sound = 'mojave/sound/ms13weapons/arfire.ogg'
-	burst_size = 3
 	fire_delay = 3
 	extra_damage = 20
 	extra_penetration = 5
@@ -236,6 +221,23 @@
 	zoom_amt = 10
 	zoom_out_amt = 13
 	spread = 6
+
+/obj/item/gun/ballistic/automatic/ms13/full/marksman
+	name = "marksman carbine"
+	desc = "A 5.56 carbine with a scope attached to help in long range combat. Packs a good punch for 5.56 rounds, but at the cost of a slower rate of fire."
+	icon_state = "marksman"
+	inhand_icon_state = "marksman"
+	w_class = WEIGHT_CLASS_BULKY
+	weapon_weight = WEAPON_HEAVY
+	mag_type = /obj/item/ammo_box/magazine/ms13/r20
+	fire_sound = 'mojave/sound/ms13weapons/gunsounds/marksman/marksman2.ogg'
+	can_suppress = FALSE
+	fire_delay = 6
+	extra_damage = 35
+	extra_penetration = 10
+	zoomable = TRUE
+	zoom_amt = 10
+	zoom_out_amt = 13
 
 /obj/item/gun/ballistic/automatic/ms13/full/marksman/american
 	name = "\improper All-American"

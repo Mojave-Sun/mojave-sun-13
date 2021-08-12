@@ -63,17 +63,16 @@
 
 /obj/item/gun/energy/ms13/laser/rcw/Initialize()
 	. = ..()
-	AddComponent(/datum/component/automatic_fire, 0.2 SECONDS)
+	AddComponent(/datum/component/automatic_fire, 0.25 SECONDS)
 
 /obj/item/gun/energy/ms13/laser/scatter
 	name = "laser scatter rifle"
 	desc = "A modified AER9 equipped with a refraction kit that spreads its bolts, often called a 'tri-beam'. You wouldn't believe why."
 	icon = 'mojave/icons/objects/guns/guns_world.dmi'
+	fire_sound = 'mojave/sound/ms13weapons/gunsounds/tribeam/tribeam_1.ogg'
 	icon_state = "lasershotgun"
 	base_icon_state = "lasershotgun"
 	inhand_icon_state = "lasershotgun"
-	lefthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_left.dmi'
-	righthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_right.dmi'
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/scatter)
 	cell_type = /obj/item/stock_parts/cell/ms13/mfc
 	extra_damage = 15

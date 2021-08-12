@@ -139,7 +139,7 @@
 	jamming_chance = 55
 	jamming_increment = 10
 	unjam_chance = 5
-	extra_damage = 45
+	extra_damage = 35
 
 /obj/item/gun/ballistic/rifle/ms13/hunting/japanese/scoped //not likely to ever be seen in game, more of an admin thing, dont map it in, it'd be slightly OP
 	name = "scoped Japanese war rifle"

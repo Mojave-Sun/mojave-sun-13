@@ -99,6 +99,8 @@
 	desc = "Life is heck. Report a bug today"
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser)
 	cell_type = /obj/item/stock_parts/cell/ms13/mfc
+	w_class = WEIGHT_CLASS_BULKY
+	weapon_weight = WEAPON_HEAVY
 	extra_damage = 0
 	extra_penetration = 0
 	fire_delay = 5
@@ -108,186 +110,13 @@
 	desc = "Life is heck. Report a bug today"
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/plasma)
 	cell_type = /obj/item/stock_parts/cell/ms13/pc
+	w_class = WEIGHT_CLASS_BULKY
+	weapon_weight = WEAPON_HEAVY
 	extra_damage = 0
 	extra_penetration = 0
 	fire_delay = 5
 
-//effects
-
-/obj/effect/projectile/impact/ms13/laser
-	name = "laser impact"
-	icon_state = "laser_impact"
-	icon = 'mojave/icons/objects/projectiles/projectiles_impact.dmi'
-
-/obj/effect/projectile/muzzle/ms13/laser
-	name = "muzzle flash"
-	icon_state = "laser_muzzle"
-	icon = 'mojave/icons/objects/projectiles/projectiles_muzzle.dmi'
-
-/obj/effect/projectile/tracer/ms13/laser
-	name = "laser beam"
-	icon_state = "laser"
-	icon = 'mojave/icons/objects/projectiles/projectiles_tracer.dmi'
-
-/obj/effect/projectile/impact/ms13/laser/blue
-	icon_state = "institute_impact"
-
-/obj/effect/projectile/muzzle/ms13/laser/blue
-	icon_state = "institute_muzzle"
-
-/obj/effect/projectile/tracer/ms13/laser/blue
-	icon_state = "institute"
-
-/obj/effect/projectile/impact/ms13/laser/yellow
-	icon_state = "recharger_impact"
-
-/obj/effect/projectile/muzzle/ms13/laser/yellow
-	icon_state = "recharger_muzzle"
-
-/obj/effect/projectile/tracer/ms13/laser/yellow
-	icon_state = "recharger"
-
-//projectiles
-
-// Laser Projectiles //
-
-/obj/projectile/beam/ms13
-	speed = 0.2 //Vanilla tg is 0.8
-	var/damage_constant = 1
-
-/obj/projectile/beam/ms13/laser
-	name = "laser beam"
-	damage = 0
-	armour_penetration = 0
-	range = 21
-	wound_bonus = 5
-	hitscan = TRUE
-	hitscan_light_color_override = COLOR_SOFT_RED
-	muzzle_flash_color_override = COLOR_SOFT_RED
-	impact_light_color_override = COLOR_SOFT_RED
-	tracer_type = /obj/effect/projectile/tracer/ms13/laser
-	muzzle_type = /obj/effect/projectile/muzzle/ms13/laser
-	impact_type = /obj/effect/projectile/impact/ms13/laser
-	hitscan_light_intensity = 2
-	hitscan_light_range = 0.50
-	muzzle_flash_intensity = 4
-	muzzle_flash_range = 1
-	impact_light_intensity = 5
-	impact_light_range = 1.25
-
-/obj/projectile/beam/ms13/laser/yellow
-	hitscan_light_color_override = COLOR_YELLOW
-	muzzle_flash_color_override = COLOR_YELLOW
-	impact_light_color_override = COLOR_YELLOW
-	tracer_type = /obj/effect/projectile/tracer/ms13/laser/yellow
-	muzzle_type = /obj/effect/projectile/muzzle/ms13/laser/yellow
-	impact_type = /obj/effect/projectile/impact/ms13/laser/yellow
-
-/obj/projectile/beam/ms13/laser/sniper
-	name = "laser beam"
-	damage = 0
-	armour_penetration = 0
-	range = 28
-	wound_bonus = 10
-
-/obj/projectile/beam/ms13/laser/pistol
-	name = "laser beam"
-	damage = 0
-	range = 18
-
-/obj/projectile/beam/ms13/laser/scatter
-	name = "scatter laser"
-	damage = 0
-	range = 16
-
-/obj/projectile/beam/ms13/laser/unfocused
-	range = 14
-
-// Plasma Projectiles //
-
-/obj/projectile/bullet/ms13/plasma
-	name = "plasma clot"
-	icon = 'mojave/icons/objects/projectiles/projectiles.dmi'
-	damage_type = BURN
-	flag = ENERGY
-	icon_state = "plasma"
-	damage = 0
-	armour_penetration = 0
-	wound_bonus = 10
-	speed = 1
-
-/obj/projectile/bullet/ms13/plasma/pistol
-	wound_bonus = 10
-
-/obj/projectile/bullet/ms13/plasma/rifle
-	wound_bonus = 15
-
-/obj/projectile/bullet/ms13/plasma/scatter
-	range = 16
-	wound_bonus = 20
-
-/obj/projectile/bullet/ms13/plasma/splatter
-	range = 18
-	wound_bonus = 10
-	bare_wound_bonus = 5
-	armour_penetration = -5
-
-//Casings
-
-/obj/item/ammo_casing/energy/ms13
-	firing_effect_type = null
-	click_cooldown_override = 1 //0.1 second fire delay; better balance your fire rates now
-	fire_sound = null
-
-// Laser //
-
-/obj/item/ammo_casing/energy/ms13/laser/
-	projectile_type = /obj/projectile/beam/ms13/laser
-	e_cost = 50
-
-/obj/item/ammo_casing/energy/ms13/laser/scatter
-	projectile_type = /obj/projectile/beam/ms13/laser/scatter
-	pellets = 3
-	variance = 15
-	select_name = "scatter"
-	e_cost = 85
-
-/obj/item/ammo_casing/energy/ms13/laser/pistol
-	projectile_type = /obj/projectile/beam/ms13/laser/pistol
-	e_cost = 15
-
-/obj/item/ammo_casing/energy/ms13/laser/sniper
-	projectile_type = /obj/projectile/beam/ms13/laser/sniper
-	e_cost = 75
-
-// Plasma //
-
-/obj/item/ammo_casing/energy/ms13/plasma
-	projectile_type = /obj/projectile/bullet/ms13/plasma
-	select_name = "plasma burst"
-	e_cost = 100
-
-/obj/item/ammo_casing/energy/ms13/plasma/pistol
-	projectile_type = /obj/projectile/bullet/ms13/plasma/pistol
-	e_cost = 65
-
-/obj/item/ammo_casing/energy/ms13/plasma/rifle
-	projectile_type = /obj/projectile/bullet/ms13/plasma/rifle
-	select_name = "plasma burst"
-	e_cost = 90
-
-/obj/item/ammo_casing/energy/ms13/plasma/scatter
-	projectile_type = /obj/projectile/bullet/ms13/plasma/scatter
-	pellets = 3
-	variance = 14
-	select_name = "scatter"
-	e_cost = 115
-
-/obj/item/ammo_casing/energy/ms13/plasma/pistol/splatter
-	projectile_type = /obj/projectile/bullet/ms13/plasma/splatter
-	e_cost = 75
-
-//energy weapon ammotypes
+//energy weapon ammotypes: I don't think there's a better place to put these, they're all really generic.
 
 /obj/item/stock_parts/cell/ms13
 	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
