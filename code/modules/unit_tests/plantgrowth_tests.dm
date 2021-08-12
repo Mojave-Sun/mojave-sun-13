@@ -12,7 +12,11 @@
 	//MOJAVE EDIT START: MORE HARDCODING
 	states |= icon_states('mojave/icons/hydroponics/growing.dmi')
 	//MOJAVE EDIT END
-	var/list/paths = subtypesof(/obj/item/seeds) - /obj/item/seeds - typesof(/obj/item/seeds/sample) - /obj/item/seeds/lavaland
+
+	///MOJAVE EDIT: ORIGINAL
+	//var/list/paths = subtypesof(/obj/item/seeds) - /obj/item/seeds - typesof(/obj/item/seeds/sample) - /obj/item/seeds/lavaland
+	//MOJAVE EDIT: ADDED "- obj/item/seeds/ms13" FOR UNIT TESTS
+	var/list/paths = subtypesof(/obj/item/seeds) - /obj/item/seeds - obj/item/seeds/ms13 - typesof(/obj/item/seeds/sample) - /obj/item/seeds/lavaland
 
 	for(var/seedpath in paths)
 		var/obj/item/seeds/seed = new seedpath
