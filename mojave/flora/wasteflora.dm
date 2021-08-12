@@ -50,7 +50,7 @@
 		))
 
 //wastelander secateur/geneshear realistic mutlitool
-/obj/item/secateurs/shears
+/obj/item/secateurs/ms13/shears
 	name = "shears"
 	desc = "It's a tool for delicately removing grafts or harshly cutting off plant parts to control a plants genetic growth."
 	icon = 'mojave/icons/hydroponics/equipment.dmi'
@@ -67,10 +67,13 @@
 	attack_verb_continuous = list("slashes", "slices", "cuts")
 	attack_verb_simple = list("slashed", "sliced", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	item_flags = EYE_STAB
 	sharpness = SHARP_POINTY
 
-/obj/item/geneshears/shears
+/obj/item/ssecateurs/shears/Initialize()
+	. = ..()
+	AddElement(/datum/element/eyestab)
+
+/obj/item/geneshears/ms13/shears
 	name = "shears"
 	desc = "It's a tool for delicately removing grafts or harshly cutting off plant parts to control a plants genetic growth."
 	icon = 'mojave/icons/hydroponics/equipment.dmi'
@@ -87,8 +90,11 @@
 	attack_verb_continuous = list("slashes", "slices", "cuts")
 	attack_verb_simple = list("slashed", "sliced", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	item_flags = EYE_STAB
 	sharpness = SHARP_POINTY
+
+/obj/item/geneshears/shears/Initialize()
+	. = ..()
+	AddElement(/datum/element/eyestab)
 
 /obj/item/secateurs/shears/ms13/attack_self(mob/user)
 	var/obj/item/geneshears/shears/gene = new /obj/item/geneshears/shears(drop_location())
@@ -254,7 +260,7 @@
 
 	return 0
 
-/obj/structure/rustic_extractor/attackby(obj/item/O, mob/user, params)
+/obj/structure/rustic_extractor/attackby(obj/item/O, mob/living/user, params)
 
 	if(default_unfasten_wrench(user, O)) //So we can move them around
 		return
@@ -262,7 +268,7 @@
 	else if(seedify(O,-1, src, user))
 		to_chat(user, "<span class='notice'>You extract some seeds.</span>")
 		return
-	else if(user.a_intent != INTENT_HARM)
+	else if(!user.combat_mode)
 		to_chat(user, "<span class='warning'>You can't extract any seeds from \the [O.name]!</span>")
 	else
 		return ..()
@@ -411,7 +417,7 @@
 	reagents.add_reagent(/datum/reagent/plantnutriment/ms13/fertilizer, 50) //Half filled nutrient trays for dirt trays to have more to grow with in prison/lavaland.
 	. = ..()
 
-/obj/machinery/hydroponics/ms13/soil/update_icon_lights()
+/obj/machinery/hydroponics/ms13/soil/update_status_light_overlays()
 	return // Has no lights
 
 /obj/machinery/hydroponics/ms13/soil/CtrlClick(mob/user)
