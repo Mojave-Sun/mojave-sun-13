@@ -16,7 +16,7 @@
 	///MOJAVE EDIT: ORIGINAL
 	//var/list/paths = subtypesof(/obj/item/seeds) - /obj/item/seeds - typesof(/obj/item/seeds/sample) - /obj/item/seeds/lavaland
 	//MOJAVE EDIT: ADDED "- obj/item/seeds/ms13" FOR UNIT TESTS
-	var/list/paths = subtypesof(/obj/item/seeds) - /obj/item/seeds - /obj/item/seeds/ms13 - typesof(/obj/item/seeds/sample) - /obj/item/seeds/lavaland
+	var/list/paths = subtypesof(/obj/item/seeds) - /obj/item/seeds - /obj/item/seeds/ms13 - typesof(/obj/item/seeds/sample) - /obj/item/seeds/lavaland // "- obj/item/seeds/ms13" ADDED IN THIS LINE
 
 	for(var/seedpath in paths)
 		var/obj/item/seeds/seed = new seedpath
