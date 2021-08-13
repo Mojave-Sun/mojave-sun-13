@@ -159,11 +159,9 @@
 	name = "rebar supports"
 	desc = "Quick and cheap building supports for ghetto constructions."
 	icon_state = "rebar"
-	climbable = TRUE //you can weave through these things
-	climb_time = 3 SECONDS
 	material_used = list(/obj/item/stack/sheet/ms13/scrap)
 	wall_type = /turf/closed/wall/ms13/craftable/scrap
 
 /obj/structure/girder/ms13/bars/Initialize()
 	. = ..()
-	AddElement(/datum/element/climbable, climb_time, climb_stun = 0)
+	AddElement(/datum/element/climbable, 3 SECONDS, climb_stun = 0)
