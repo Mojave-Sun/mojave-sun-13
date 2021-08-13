@@ -435,7 +435,6 @@
 	name = "Snow"
 	icon_state = "snow"
 	requires_power = FALSE
-	poweralm = FALSE
 	power_environ = FALSE
 	power_equip = FALSE
 	outdoors = TRUE

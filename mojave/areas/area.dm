@@ -5,7 +5,6 @@
 	icon = 'mojave/icons/turf/areas.dmi'
 	icon_state = "wasteland"
 	requires_power = TRUE
-	poweralm = FALSE
 	power_environ = FALSE
 	power_equip = FALSE
 	power_light = FALSE
@@ -23,7 +22,6 @@
 	name = "Abandoned town"
 	icon_state = "town"
 	requires_power = FALSE
-	poweralm = TRUE
 	power_environ = TRUE
 	power_equip = TRUE
 	power_light = TRUE
@@ -137,7 +135,6 @@
 	name = "Desert"
 	icon_state = "desert"
 	requires_power = FALSE
-	poweralm = FALSE
 	power_environ = FALSE
 	power_equip = FALSE
 	outdoors = TRUE
@@ -156,7 +153,6 @@
 	name = "Desert Ranger Outpost"
 	icon_state = "ranger_outpost"
 	requires_power = FALSE
-	poweralm = TRUE
 	power_environ = FALSE
 	power_equip = FALSE
 	power_light = TRUE
