@@ -12,8 +12,10 @@
 
 	///List of weights for scoring stuff happening here; ultilizes "identifiers" to differentiate different kinds of AI types looking at the same node.
 	var/list/weights = list(
-		IDENTIFIER_XENO = list(NODE_LAST_VISITED = 0),
+		IDENTIFIER_GENERIC_SIMPLE = list(NODE_LAST_VISITED = 0),
+		IDENTIFIER_EYEBOT = list(NODE_LAST_VISITED = 0)
 		)
+	//TODO: MAKE DYNAMICALLY INITIALIZED WHEN REQUESTED
 
 /obj/effect/ai_node/Initialize()
 	. = ..()
