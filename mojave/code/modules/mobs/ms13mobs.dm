@@ -61,7 +61,7 @@
 	var/bonus_tame_chance = 15
 	var/tame = FALSE
 	//does the homie have chemss/chems to extract? Poison, Milk, Other :flushed:
-	var/milkable = FALSE
+//	var/milkable = FALSE
 	//Chems that the creature makes
 	var/extract = null
 	var/obj/item/ms13/animalchem/chems = null
@@ -111,8 +111,8 @@
 		set_base_pixel_x(base_pixel_x + rand(-6, 6))
 		set_base_pixel_y(base_pixel_y + rand(0, 10))
 	if(tame)
-		if(milkable == TRUE)
-			chems = new()
+//		if(milkable == TRUE)
+//			chems = new()
 		if(eggable == TRUE)
 			eggsleft = 0
 
@@ -121,9 +121,9 @@
 	tame = TRUE
 
 /mob/living/simple_animal/ms13/Destroy()
-	if(milkable == TRUE)
+/*	if(milkable == TRUE)
 		qdel(chems)
-		chems = null
+		chems = null */
 	return ..()
 
 //hunger and baby grow/birth/speed shitcode
@@ -148,13 +148,13 @@
 					new adult_type(src.loc)
 					qdel(src)
 					visible_message("<span class='alertalien'>[src] has fully grown.</span>")
-					if(milkable == TRUE)
-						chems = new()
+//					if(milkable == TRUE)
+//						chems = new()
 					return
-		if(milkable == TRUE)
+/*		if(milkable == TRUE)
 			if(hunger > 0)
 				chems.generateChem()
-			return
+			return */
 		if(eggable == TRUE)
 			if(!stat)
 				if(hunger >= 150 && eggsleft < 8)
@@ -243,12 +243,12 @@
 					return
 				else
 					user.visible_message("<span class='warning'>[src] is rocking around! You can't put the saddle on!</span>")
-		if(milkable == TRUE)
+/*		if(milkable == TRUE)
 			if(istype(O, /obj/item/reagent_containers/glass))
 				chems.extractAnimal(O, user)
 				return TRUE
 			else
-				return ..()
+				return ..() */
 
 /obj/item/ms13/animalchem
 	name = "animalchem"
@@ -324,7 +324,7 @@
 	var/tame_chance = 10
 	var/bonus_tame_chance = 15
 	var/tame = FALSE
-	var/milkable = FALSE
+//	var/milkable = FALSE
 	var/extract = null
 	var/obj/item/ms13/animalchem/chems = null
 	var/eggable = FALSE
@@ -361,8 +361,8 @@
 		set_base_pixel_x(base_pixel_x + rand(-6, 6))
 		set_base_pixel_y(base_pixel_y + rand(0, 10))
 	if(tame)
-		if(milkable == TRUE)
-			chems = new()
+//		if(milkable == TRUE)
+//			chems = new()
 		if(eggable == TRUE)
 			eggsleft = 0
 
@@ -392,12 +392,12 @@
 					new adult_type(src.loc)
 					qdel(src)
 					visible_message("<span class='alertalien'>[src] has fully grown.</span>")
-					if(milkable == TRUE)
-						chems = new()
+//					if(milkable == TRUE)
+//						chems = new()
 					return
-		if(milkable == TRUE)
-			if(hunger > 0)
-				chems.generateChem()
+//		if(milkable == TRUE)
+//			if(hunger > 0)
+//				chems.generateChem()
 			return
 		if(eggable == TRUE)
 			if(!stat)
@@ -472,7 +472,7 @@
 					qdel(O)
 			else if(hunger >= maxhunger)
 				user.visible_message("<span class='notice'>The [src] rejects the [O] they dont seem to be hungry right now.</span>")
-/*		if(baggable == TRUE)
+		if(baggable == TRUE)
 			if(istype(O, /obj/item/storage/ms13/sack) && !bagged)
 				if(tame && do_after(user,55,target=src))
 					playsound(get_turf(src), "rustle", 50, TRUE)
@@ -481,7 +481,7 @@
 					bagged = TRUE
 					bogged()
 					egg_type = null
-					return */
+					return
 		if(rideable == TRUE)
 			if(istype(O, /obj/item/saddle) && !saddled)
 				if(tame && do_after(user,55,target=src))
@@ -494,10 +494,10 @@
 					return
 				else
 					user.visible_message("<span class='warning'>[src] is rocking around! You can't put the saddle on!</span>")
-		if(milkable == TRUE)
+/*		if(milkable == TRUE)
 			if(istype(O, /obj/item/reagent_containers/glass))
 				chems.extractAnimal(O, user)
-				return TRUE
+				return TRUE */
 			else
 				return ..()
 
@@ -544,7 +544,7 @@
 	var/tame_chance = 10
 	var/bonus_tame_chance = 15
 	var/tame = FALSE
-	var/milkable = FALSE
+//	var/milkable = FALSE
 	var/extract = null
 	var/obj/item/ms13/animalchem/chems = null
 	var/eggable = FALSE
@@ -581,8 +581,8 @@
 		set_base_pixel_x(base_pixel_x + rand(-6, 6))
 		set_base_pixel_y(base_pixel_y + rand(0, 10))
 	if(tame)
-		if(milkable == TRUE)
-			chems = new()
+//		if(milkable == TRUE)
+//			chems = new()
 		if(eggable == TRUE)
 			eggsleft = 0
 
@@ -616,13 +616,13 @@
 					new adult_type(src.loc)
 					qdel(src)
 					visible_message("<span class='alertalien'>[src] has fully grown.</span>")
-					if(milkable == TRUE)
-						chems = new()
+//					if(milkable == TRUE)
+//						chems = new()
 					return
-		if(milkable == TRUE)
+/*		if(milkable == TRUE)
 			if(hunger > 0)
 				chems.generateChem()
-			return
+			return */
 		if(eggable == TRUE)
 			if(!stat)
 				if(hunger >= 150 && eggsleft < 8)
@@ -699,7 +699,7 @@
 					qdel(O)
 			else if(hunger >= maxhunger)
 				user.visible_message("<span class='notice'>The [src] rejects the [O] they dont seem to be hungry right now.</span>")
-/*		if(baggable == TRUE)
+		if(baggable == TRUE)
 			if(istype(O, /obj/item/storage/ms13/sack) && !bagged)
 				if(tame && do_after(user,55,target=src))
 					playsound(get_turf(src), "rustle", 50, TRUE)
@@ -708,7 +708,7 @@
 					bagged = TRUE
 					bogged()
 					egg_type = null
-					return */
+					return
 		if(rideable == TRUE)
 			if(istype(O, /obj/item/saddle) && !saddled)
 				if(tame && do_after(user,55,target=src))
@@ -721,12 +721,12 @@
 					return
 				else
 					user.visible_message("<span class='warning'>[src] is rocking around! You can't put the saddle on!</span>")
-		if(milkable == TRUE)
+/*		if(milkable == TRUE)
 			if(istype(O, /obj/item/reagent_containers/glass))
 				chems.extractAnimal(O, user)
 				return TRUE
 			else
-				return ..()
+				return ..() */
 
 /mob/living/simple_animal/hostile/ms13/robot
 	name = "ms13 robot"
@@ -740,7 +740,7 @@
 	turns_per_move = 5
 	see_in_dark = 7
 	deathmessage = "blows apart!"
-//	loot = list(/obj/item/stack/sheet/ms13/scrap, /obj/effect/decal/cleanable/robot_debris)
+	loot = list(/obj/item/stack/sheet/ms13/scrap, /obj/effect/decal/cleanable/robot_debris)
 	speak_emote = list("states", "buzzes", "crackles")
 	blood_volume = null
 	food_type = null
@@ -749,7 +749,6 @@
 	stat_attack = HARD_CRIT
 	status_flags = null
 	mob_size = MOB_SIZE_HUMAN
-	footstep_type = FOOTSTEP_OBJ_ROBOT
 	stop_automated_movement_when_pulled = 0
 	wound_bonus = -5
 	bare_wound_bonus = 5
@@ -764,11 +763,10 @@
 	wander = TRUE
 	faction = list("robots")
 	check_friendly_fire = TRUE
-	footstep_type = FOOTSTEP_MOB_HEAVY
 	turns_per_move = 5
 	see_in_dark = 7
 	deathmessage = "blows apart!"
-//	loot = list(/obj/item/stack/sheet/ms13/scrap, /obj/effect/decal/cleanable/robot_debris)
+	loot = list(/obj/item/stack/sheet/ms13/scrap, /obj/effect/decal/cleanable/robot_debris)
 	speak_emote = list("states", "buzzes", "crackles")
 	blood_volume = null
 	food_type = null

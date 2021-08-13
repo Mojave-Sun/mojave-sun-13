@@ -21,6 +21,11 @@
 	projectiletype = /obj/projectile/beam/ms13/laser/protectron
 	projectilesound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_3.ogg'
 
+/mob/living/simple_animal/hostile/ms13/robot/protectron/death()
+	. = ..()
+	do_sparks(3, TRUE, src)
+	qdel(src)
+
 /mob/living/simple_animal/hostile/ms13/robot/protectron/fire
 	desc = "A pre-war protectron, assigned to a firefighting role apparently. Has a strong swing with a very sharp axe head, beware!"
 	icon_state = "protectron_fireman"
