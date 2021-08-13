@@ -3,7 +3,7 @@
 
 /obj/effect/ai_node //A effect that has a ai_node datum in it, used by AIs to pathfind over long distances as well as knowing what's happening at it
 	name = "AI Node"
-	icon = 'icons/effects/landmarks_static.dmi'
+	icon = 'mojave/icons/effects/landmarks_static.dmi'
 	icon_state = "x6" //Pure white 'X' with black borders
 	anchored = TRUE //No pulling those nodes yo
 	invisibility = INVISIBILITY_OBSERVER //Visible towards ghosts
@@ -12,8 +12,10 @@
 
 	///List of weights for scoring stuff happening here; ultilizes "identifiers" to differentiate different kinds of AI types looking at the same node.
 	var/list/weights = list(
-		IDENTIFIER_XENO = list(NODE_LAST_VISITED = 0),
+		IDENTIFIER_GENERIC_SIMPLE = list(NODE_LAST_VISITED = 0),
+		IDENTIFIER_EYEBOT = list(NODE_LAST_VISITED = 0)
 		)
+	//TODO: MAKE DYNAMICALLY INITIALIZED WHEN REQUESTED
 
 /obj/effect/ai_node/Initialize()
 	. = ..()
