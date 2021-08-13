@@ -9,7 +9,14 @@
 	states |= icon_states('icons/obj/hydroponics/growing_mushrooms.dmi')
 	states |= icon_states('icons/obj/hydroponics/growing_vegetables.dmi')
 	states |= icon_states('goon/icons/obj/hydroponics.dmi')
-	var/list/paths = subtypesof(/obj/item/seeds) - /obj/item/seeds - typesof(/obj/item/seeds/sample) - /obj/item/seeds/lavaland
+	//MOJAVE EDIT START: MORE HARDCODING
+	states |= icon_states('mojave/icons/hydroponics/growing.dmi')
+	//MOJAVE EDIT END
+
+	///MOJAVE EDIT: ORIGINAL
+	//var/list/paths = subtypesof(/obj/item/seeds) - /obj/item/seeds - typesof(/obj/item/seeds/sample) - /obj/item/seeds/lavaland
+	//MOJAVE EDIT: ADDED "- obj/item/seeds/ms13" FOR UNIT TESTS
+	var/list/paths = subtypesof(/obj/item/seeds) - /obj/item/seeds - /obj/item/seeds/ms13 - typesof(/obj/item/seeds/sample) - /obj/item/seeds/lavaland // "- obj/item/seeds/ms13" ADDED IN THIS LINE
 
 	for(var/seedpath in paths)
 		var/obj/item/seeds/seed = new seedpath
