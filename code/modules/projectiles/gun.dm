@@ -17,7 +17,10 @@
 	throw_speed = 3
 	throw_range = 5
 	force = 5
-	item_flags = NEEDS_PERMIT
+	//MOJAVE EDIT CHANGE BEGIN
+	//ORIGINAL IS item_flags = NEEDS_PERMIT
+	item_flags = NEEDS_PERMIT | SLOWS_WHILE_IN_HAND
+	//MOJAVE EDIT CHANGE END
 	attack_verb_continuous = list("strikes", "hits", "bashes")
 	attack_verb_simple = list("strike", "hit", "bash")
 
