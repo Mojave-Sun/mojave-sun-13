@@ -21,6 +21,7 @@
 	base_icon_state = "advlas_rifle"
 	icon_state = "advlas_rifle"
 	inhand_icon_state = "advlas_rifle"
+	fire_sound = 'mojave/sound/ms13weapons/gunsounds/lasrifle/las_rifle_1.ogg'
 	extra_damage = 35
 	extra_penetration = 5
 
@@ -30,7 +31,7 @@
 	base_icon_state = "wattzrifle"
 	icon_state = "wattzrifle"
 	inhand_icon_state = "wattzrifle"
-	fire_sound = 'mojave/sound/ms13weapons/gunsounds/lasrifle/las_rifle_3.ogg'
+	fire_sound = 'mojave/sound/ms13weapons/gunsounds/lasrifle/las_rifle_2.ogg'
 	extra_damage = 25
 	zoomable = TRUE
 	zoom_amt = 6

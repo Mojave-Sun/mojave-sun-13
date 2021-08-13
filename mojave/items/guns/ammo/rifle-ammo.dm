@@ -86,7 +86,7 @@
 	name = ".50MG bullet casing"
 	desc = "A .50MG bullet casing."
 	caliber = "a50MG"
-	icon_state = "50mg2"
+	icon_state = ".50"
 	projectile_type = /obj/projectile/bullet/ms13/a50MG
 
 /obj/item/ammo_casing/ms13/a50MG/ap
@@ -105,8 +105,8 @@
 	projectile_type = /obj/projectile/bullet/ms13/a50MG/hv
 
 //2mmEC
-/obj/item/ammo_casing/ms13/gauss
-	name = "2mmEC"
-	desc = "A 2mmec casing that doesn't exist."
+/obj/item/ammo_casing/caseless/ms13/a2mmEC
+	name = "2mmEC projectile"
+	desc = "A 2mm electromagnetic projectile."
 	caliber = "2mmEC"
 	projectile_type = /obj/projectile/bullet/ms13/gauss

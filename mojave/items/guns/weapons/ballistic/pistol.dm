@@ -30,6 +30,7 @@
 	internal_magazine = TRUE
 
 /obj/item/gun/ballistic/automatic/pistol/ms13/m10mm/chinese/update_icon_state()
+	. = ..()
 	if(!chambered && internal_magazine == TRUE && magazine.stored_ammo == 0) //this makes the pistol have the chinese pistol update when empty, code can be copied to similar pistols
 		icon_state = "[initial(icon_state)]_empty"
 
@@ -109,7 +110,6 @@
 	inhand_icon_state = "deagle"
 	mag_type = /obj/item/ammo_box/magazine/ms13/deagle
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/44/44mag1.ogg'
-	can_suppress = FALSE
 	w_class = WEIGHT_CLASS_NORMAL
 	extra_damage = 45
 	extra_penetration = 5

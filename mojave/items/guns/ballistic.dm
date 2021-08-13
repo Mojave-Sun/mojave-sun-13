@@ -74,10 +74,11 @@
 	lefthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_left.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_right.dmi'
 	worn_icon = 'mojave/icons/mob/worn_guns.dmi'
-	force = 15
+	can_suppress = FALSE
+	tac_reloads = FALSE
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
-	can_suppress = FALSE
+	force = 15
 	fire_delay = 0
 	extra_damage = 0
 	extra_penetration = 0
@@ -87,6 +88,7 @@
 	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/guns/guns_inventory.dmi')
 
 /obj/item/gun/ballistic/automatic/ms13/update_icon_state()
+	. = ..()
 	worn_icon_state = "[initial(icon_state)]"
 	if(current_skin)
 		icon_state = "[unique_reskin[current_skin]][sawn_off ? "_sawn" : ""]"
@@ -104,7 +106,17 @@
 	if(chambered && magazine) //this makes all our rifles full state when chambered and they have a magazine
 		icon_state = "[initial(icon_state)]"
 		//note this also applies to the SMG's
-	return ..()
+
+/obj/item/gun/ballistic/automatic/ms13/semi // For weapons that are intended to only fire in semi-auto.
+	name = "semi automatic generic ms13 gun"
+	icon = 'mojave/icons/objects/guns/guns_world.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_left.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_right.dmi'
+	worn_icon = 'mojave/icons/mob/worn_guns.dmi'
+	force = 15
+	actions_types = null
+	burst_size = 1
+	select = 1
 
 /obj/item/gun/ballistic/automatic/ms13/full // For weapons that are intended to have fully automatic capability
 	name = "fully automatic generic ms13 gun"
@@ -113,9 +125,9 @@
 	righthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_right.dmi'
 	worn_icon = 'mojave/icons/mob/worn_guns.dmi'
 	force = 15
-	select = 0
-	burst_size = 1
 	actions_types = null
+	select = 1
+	burst_size = 1
 	var/autofire_shot_delay = 0.25 //Time between individual shots.
 
 /obj/item/gun/ballistic/automatic/ms13/full/Initialize()
@@ -129,6 +141,8 @@
 	lefthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_left.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_right.dmi'
 	worn_icon = 'mojave/icons/mob/worn_guns.dmi'
+	can_suppress = FALSE
+	tac_reloads = FALSE
 	force = 10
 
 /obj/item/gun/ballistic/automatic/pistol/ms13/Initialize()
@@ -136,6 +150,7 @@
 	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/guns/guns_inventory.dmi')
 
 /obj/item/gun/ballistic/automatic/pistol/ms13/update_icon_state()
+	. = ..()
 	worn_icon_state = "[initial(icon_state)]"
 	if(!chambered && magazine) //this makes all our pistols empty, the state with a magazine, not necassarily empty just not chambered
 		icon_state = "[initial(icon_state)]_mag_empty"
@@ -154,7 +169,6 @@
 
 	if(!chambered && !magazine && bolt_locked == FALSE) //this makes the pistol bolt be back when you unchamber a round, the state with no magazine
 		icon_state = "[initial(icon_state)]_cham_empty"
-	return ..()
 
 //Bolt-actions
 /obj/item/gun/ballistic/rifle/ms13
@@ -177,6 +191,7 @@
 	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/guns/guns_inventory.dmi')
 
 /obj/item/gun/ballistic/rifle/ms13/update_icon_state()
+	. = ..()
 	worn_icon_state = "[initial(icon_state)]"
 	if(!chambered && bolt_locked == TRUE) //this makes all our rifles empty, rifle bolt open
 		icon_state = "[initial(icon_state)]_empty"
@@ -189,7 +204,6 @@
 
 	if(chambered && bolt_locked == TRUE) //this makes all our rifles chambered, bolt open
 		icon_state = "[initial(icon_state)]_empty"
-	return ..()
 
 /obj/item/gun/ballistic/rifle/ms13/attack_self(mob/user)
 	if(can_jam)

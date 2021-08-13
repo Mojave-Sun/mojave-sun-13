@@ -36,6 +36,7 @@
 	mag_type = /obj/item/ammo_box/magazine/ms13/r10
 
 /obj/item/gun/ballistic/rifle/ms13/varmint/update_icon_state()
+	. = ..()
 	worn_icon_state = "[initial(icon_state)]"
 	if(!chambered && magazine) //this makes all our rifles empty, the state with a magazine, rifle not necassarily empty just not chambered
 		icon_state = "[initial(icon_state)]_mag_empty"
@@ -63,7 +64,6 @@
 
 	if(chambered && magazine && bolt_locked == TRUE) //this makes all our rifles full state when chambered and they have a magazine
 		icon_state = "[initial(icon_state)]_mag_empty"
-	return ..()
 
 /obj/item/gun/ballistic/rifle/ms13/varmint/ratslayer
 	name = "\improper Ratslayer"
@@ -86,8 +86,10 @@
 	fire_delay = 8
 	extra_damage = 60
 	extra_penetration = 20
+	recoil = 5
 
 /obj/item/gun/ballistic/rifle/ms13/hunting/scoped/amr/update_icon_state()
+	. = ..()
 	worn_icon_state = "[initial(icon_state)]"
 	if(!chambered && magazine) //this makes all our rifles empty, the state with a magazine, rifle not necassarily empty just not chambered
 		icon_state = "[initial(icon_state)]_mag_empty"
@@ -113,7 +115,6 @@
 	if(chambered && magazine && bolt_locked == TRUE) //this makes all our rifles full state when chambered and they have a magazine, bolt open
 		icon_state = "[initial(icon_state)]_mag_empty"
 		////yes this has extensive ammounts, some might be unecassary but are in place as a failsafe
-	return ..()
 
 /obj/item/gun/ballistic/rifle/ms13/hunting/chinese
 	name = "\improper Chinese hunting rifle"

@@ -1,20 +1,17 @@
 //Guns
-/obj/item/gun/ballistic/automatic/ms13/service
+/obj/item/gun/ballistic/automatic/ms13/semi/service
 	name = "service rifle"
 	desc = "A 5.56 semi-automatic rifle manufactured by and for the NCR."
 	icon_state = "service"
 	inhand_icon_state = "service"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/service/service_3.ogg'
 	fire_delay = 4
-	select = 0
-	burst_size = 1
-	actions_types = null
 	extra_damage = 25
 	extra_penetration = 5
 	zoomable = FALSE
 	mag_type = /obj/item/ammo_box/magazine/ms13/r20
 
-/obj/item/gun/ballistic/automatic/ms13/service/prototype
+/obj/item/gun/ballistic/automatic/ms13/semi/service/prototype
 	name = "prototype service rifle"
 	desc = "A relatively new and improved modern service rifle sporting three round burst capabilities and a generally improved rate of fire at the cost of some accuracy and penetration."
 	icon_state = "protoservice"
@@ -22,11 +19,12 @@
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/service/service_2.ogg'
 	fire_delay = 3
 	spread = 3
-	burst_size = 3
 	actions_types = list(/datum/action/item_action/toggle_firemode)
+	select = 1
+	burst_size = 3
 	extra_penetration = 0
 
-/obj/item/gun/ballistic/automatic/ms13/service/maquis
+/obj/item/gun/ballistic/automatic/ms13/semi/service/maquis
 	name = "\improper Maquis"
 	desc = "A unique, heavy duty service rifle. Fires slower but packs a much heavier punch. Has a flag supporting a different kind of patriotism than most are used to."
 	icon_state = "maquis"
@@ -35,7 +33,7 @@
 	extra_damage = 30
 	extra_penetration = 10
 
-/obj/item/gun/ballistic/automatic/ms13/sniper
+/obj/item/gun/ballistic/automatic/ms13/semi/sniper
 	name = "sniper rifle"
 	desc = "A semi-automatic, high powered .308 sniper rifle. Perfect weapon for a determined assassin."
 	icon_state = "sniper"
@@ -46,7 +44,7 @@
 	extra_penetration = 10
 	mag_type = /obj/item/ammo_box/magazine/ms13/r308
 
-/obj/item/gun/ballistic/automatic/ms13/sniper/silencer
+/obj/item/gun/ballistic/automatic/ms13/semi/sniper/silencer
 	name = "\improper Silencer"
 	desc = "A modified sniper rifle with an integrated suppressor and an improved fire rate. Whether it's called the Silencer because of it's modification or it's intended purpose is yet to be known."
 	icon_state = "silentsniper"
@@ -54,7 +52,7 @@
 	fire_delay = 5
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
 
-/obj/item/gun/ballistic/automatic/ms13/battle
+/obj/item/gun/ballistic/automatic/ms13/semi/battle
 	name = "battle rifle"
 	desc = "A very old but also very reliable semi-automatic rifle chambered for .308. From long before the war, but still packs a very heavy punch."
 	icon_state = "battler"
@@ -65,7 +63,7 @@
 	extra_penetration = 15
 	mag_type = /obj/item/ammo_box/magazine/ms13/r308_10
 
-/obj/item/gun/ballistic/automatic/ms13/battle/update_icon_state()
+/obj/item/gun/ballistic/automatic/ms13/semi/battle/update_icon_state()
 	worn_icon_state = "[initial(icon_state)]"
 	if(!chambered && magazine) //this makes the sks empty, the state with a magazine, not necassarily empty just not chambered
 		icon_state = "[initial(icon_state)]_mag_empty"
@@ -80,7 +78,7 @@
 		icon_state = "[initial(icon_state)]"
 	return ..()
 
-/obj/item/gun/ballistic/automatic/ms13/battle/rangemaster
+/obj/item/gun/ballistic/automatic/ms13/semi/battle/rangemaster
 	name = "\improper Rangemaster"
 	desc = "A heavy duty semi-automatic .308 rifle with a scope attached. Has built up a reputation amongst the wastes of being a formidable weapon at any range."
 	icon_state = "rangemaster"

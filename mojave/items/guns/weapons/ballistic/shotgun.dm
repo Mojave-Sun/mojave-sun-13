@@ -12,6 +12,7 @@
 	fire_delay = 5
 
 /obj/item/gun/ballistic/shotgun/ms13/lever/update_icon_state()
+	. = ..()
 	worn_icon_state = "[initial(icon_state)]"
 	if(!chambered && magazine.stored_ammo == 0) //if its not chambered and the magazine ammo_count is 0, its empty
 		icon_state = "[initial(icon_state)]_empty"
@@ -19,7 +20,6 @@
 		icon_state = "[initial(icon_state)]_empty"
 	if(chambered) //round in the chamber and ready to fire, normal state
 		icon_state = "[initial(icon_state)]"
-	return ..()
 
 /obj/item/gun/ballistic/shotgun/ms13/huntingshot
 	name = "hunting shotgun"
@@ -34,6 +34,7 @@
 	fire_delay = 5
 
 /obj/item/gun/ballistic/shotgun/ms13/huntingshot/update_icon_state()
+	. = ..()
 	worn_icon_state = "[initial(icon_state)]"
 	if(!chambered && magazine.stored_ammo == 0) //if its not chambered and the magazine ammo_count is 0, its empty
 		icon_state = "[initial(icon_state)]_empty"
@@ -41,7 +42,6 @@
 		icon_state = "[initial(icon_state)]_empty"
 	if(chambered) //round in the chamber and ready to fire, normal state
 		icon_state = "[initial(icon_state)]"
-	return ..()
 
 /obj/item/gun/ballistic/shotgun/ms13/lever/trail
 	name = "trail carbine"
@@ -103,6 +103,7 @@
 	empty_indicator = TRUE
 
 /obj/item/gun/ballistic/shotgun/automatic/ms13/sks/update_icon_state()
+	. = ..()
 	worn_icon_state = "[initial(icon_state)]"
 	if(!chambered && magazine.stored_ammo == 0) //if its not chambered and the magazine ammo_count is 0, its empty
 		icon_state = "[initial(icon_state)]_empty"
@@ -110,7 +111,6 @@
 		icon_state = "[initial(icon_state)]_empty"
 	if(chambered) //round in the chamber and ready to fire, normal state
 		icon_state = "[initial(icon_state)]"
-	return ..()
 
 /obj/item/gun/ballistic/shotgun/automatic/ms13/sks/scoped
 	name = "scoped European battle rifle"
