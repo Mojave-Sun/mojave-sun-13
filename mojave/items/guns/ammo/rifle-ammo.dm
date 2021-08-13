@@ -2,7 +2,6 @@
 /obj/item/ammo_casing/ms13/a762
 	name = "7.62 bullet casing"
 	desc = "A 7.62 bullet casing."
-	icon_state = "762-casing"
 	caliber = "a762"
 	projectile_type = /obj/projectile/bullet/ms13/a762
 
@@ -30,7 +29,6 @@
 /obj/item/ammo_casing/ms13/a308
 	name = ".308 bullet casing"
 	desc = "A .308 bullet casing."
-	icon_state = "762-casing"
 	caliber = "a308"
 	projectile_type = /obj/projectile/bullet/ms13/a308
 
@@ -86,7 +84,6 @@
 	name = ".50MG bullet casing"
 	desc = "A .50MG bullet casing."
 	caliber = "a50MG"
-	icon_state = "50mg2"
 	projectile_type = /obj/projectile/bullet/ms13/a50MG
 
 /obj/item/ammo_casing/ms13/a50MG/ap
@@ -103,3 +100,10 @@
 	name = "HV .50MG bullet casing"
 	desc = "A high velocity .50MG bullet casing."
 	projectile_type = /obj/projectile/bullet/ms13/a50MG/hv
+
+//2mmEC
+/obj/item/ammo_casing/caseless/ms13/a2mmEC
+	name = "2mmEC projectile"
+	desc = "A 2mm electromagnetic projectile."
+	caliber = "2mmEC"
+	projectile_type = /obj/projectile/bullet/ms13/gauss
