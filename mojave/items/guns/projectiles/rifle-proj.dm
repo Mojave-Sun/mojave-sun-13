@@ -76,3 +76,9 @@
 
 /obj/projectile/bullet/ms13/a50MG/hv
 	speed = 0.4
+
+//2mmEC
+/obj/projectile/bullet/ms13/gauss
+	icon_state = "gauss"
+	speed = 0.25
+	wound_bonus = 5
