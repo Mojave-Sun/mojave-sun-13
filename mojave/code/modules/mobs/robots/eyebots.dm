@@ -32,12 +32,18 @@
 	projectilesound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_1.ogg'
 	bot_type = "ED" // Literally just for naming
 	shadow_type = "shadow_small"
+	stop_automated_movement = TRUE //Could interfere with patrolling so this is here
 
 /mob/living/simple_animal/hostile/retaliate/ms13/robot/eyebot/New()
 	..()
 	name = "[bot_type]-[rand(1,999)]"
 	add_overlay(image(icon, "[shadow_type]", BELOW_MOB_LAYER, dir))
-	AddElement(/datum/element/generic_patrol_animal, _animal_node_weights = list(NODE_LAST_VISITED = -1), _animal_identifier = IDENTIFIER_EYEBOT)
+	AddElement(/datum/element/generic_patrol_animal, _animal_node_weights = list(NODE_LAST_VISITED = -1), _animal_identifier = IDENTIFIER_EYEBOT, _patrol_move_delay = 6)
+
+/mob/living/simple_animal/retaliate/ms13/robot/eyebot/LoseAggro()
+	//stop_automated_movement = 0 For patrolling
+	vision_range = initial(vision_range)
+	taunt_chance = initial(taunt_chance)
 
 /mob/living/simple_animal/hostile/retaliate/ms13/robot/eyebot/death()
 	. = ..()
