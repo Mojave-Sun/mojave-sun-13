@@ -125,7 +125,7 @@
 /turf/closed/wall/ms13/craftable
 	name = "base class craftable wall"
 	desc = "God has abandoned us, with functionality"
-	baseturfs = /turf/open/floor/plating/ground/desert
+	baseturfs = /turf/open/floor/plating/ms13/ground/desert
 	weldable = TRUE
 
 /turf/closed/wall/ms13/craftable/scrap

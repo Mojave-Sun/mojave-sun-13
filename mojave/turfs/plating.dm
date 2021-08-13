@@ -15,10 +15,10 @@
 
 ////Ground Turfs////
 
-/turf/open/floor/plating/ground
+/turf/open/floor/plating/ms13/ground
 	name = "ground"
 	desc = "Some really hard ground. Looks like you can't destroy this for sure."
-	baseturfs = /turf/open/floor/plating/ground
+	baseturfs = /turf/open/floor/plating/ms13/ground
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	planetary_atmos = TRUE
 	attachment_holes = FALSE
@@ -28,32 +28,32 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	tiled_dirt = FALSE
 
-/turf/open/floor/plating/ground/try_replace_tile(obj/item/stack/tile/T, mob/user, params)
+/turf/open/floor/plating/ms13/ground/try_replace_tile(obj/item/stack/tile/T, mob/user, params)
 	return
 
-/turf/open/floor/plating/ground/break_tile()
+/turf/open/floor/plating/ms13/ground/break_tile()
 	return //unbreakable
 
-/turf/open/floor/plating/ground/burn_tile()
+/turf/open/floor/plating/ms13/ground/burn_tile()
 	return //unburnable
 
-/turf/open/floor/plating/ground/MakeSlippery(wet_setting, min_wet_time, wet_time_to_add, max_wet_time, permanent)
+/turf/open/floor/plating/ms13/ground/MakeSlippery(wet_setting, min_wet_time, wet_time_to_add, max_wet_time, permanent)
 	return
 
-/turf/open/floor/plating/ground/MakeDry()
+/turf/open/floor/plating/ms13/ground/MakeDry()
 	return
 
-/turf/open/floor/plating/ground/ex_act(severity, target)
+/turf/open/floor/plating/ms13/ground/ex_act(severity, target)
 	return
 
-/turf/open/floor/plating/ground/desert
+/turf/open/floor/plating/ms13/ground/desert
 	name = "\proper desert"
 	desc = "A stretch of desert."
 	icon = 'mojave/icons/turf/ground.dmi'
 	icon_state = "desert-255"
 	base_icon_state = "desert"
 	slowdown = 0.7 //Hard and very dry ground. Not as hard to walk on as sand
-	baseturfs = /turf/open/floor/plating/ground/desert
+	baseturfs = /turf/open/floor/plating/ms13/ground/desert
 	var/obj/structure/flora/turfPlant = null
 	var/digResult = /obj/item/stack/ore/glass //Sounds like a whole lot of not my problem at this very second
 	var/dug = FALSE
@@ -61,7 +61,7 @@
 	smoothing_groups = list(SMOOTH_GROUP_MS13_DESERT)
 	canSmoothWith = list(SMOOTH_GROUP_MS13_DESERT)
 
-/turf/open/floor/plating/ground/desert/Initialize()
+/turf/open/floor/plating/ms13/ground/desert/Initialize()
 	. = ..()
 	//If no fences, machines (soil patches are machines), etc. try to plant grass
 	if(!((locate(/obj/structure) in src) || (locate(/obj/machinery) in src)))
@@ -69,7 +69,7 @@
 	if(prob(35))
 		base_icon_state = "desert_alt_[rand(1,3)]"
 
-/turf/open/floor/plating/ground/desert/attackby(obj/item/W, mob/user, params)
+/turf/open/floor/plating/ms13/ground/desert/attackby(obj/item/W, mob/user, params)
 	. = ..()
 	if(!.)
 		if(!digResult)
@@ -93,13 +93,13 @@
 			for(var/obj/item/stack/ore/O in src)
 				SEND_SIGNAL(W, COMSIG_PARENT_ATTACKBY, O)
 
-/turf/open/floor/plating/ground/desert/proc/getDug()
+/turf/open/floor/plating/ms13/ground/desert/proc/getDug()
 	new digResult(src, 5)
 	icon_state = "[icon_state]_dug"
 	dug = TRUE
 
 //Pass PlantForce for admin stuff I guess?
-/turf/open/floor/plating/ground/desert/proc/plantGrass(Plantforce = FALSE)
+/turf/open/floor/plating/ms13/ground/desert/proc/plantGrass(Plantforce = FALSE)
 	var/Weight = 0
 	var/randPlant = null
 
@@ -111,7 +111,7 @@
 		return .
 
 	//loop through neighbouring desert turfs, if they have grass, then increase weight
-	for(var/turf/open/floor/plating/ground/desert/T in RANGE_TURFS(2, src))
+	for(var/turf/open/floor/plating/ms13/ground/desert/T in RANGE_TURFS(2, src))
 		if(T.turfPlant)
 			Weight += GRASS_WEIGHT
 
@@ -127,17 +127,17 @@
 		. = TRUE
 
 //Make sure we delete the plant if we ever change turfs
-/turf/open/floor/plating/ground/desert/ChangeTurf(path, new_baseturf, flags)
+/turf/open/floor/plating/ms13/ground/desert/ChangeTurf(path, new_baseturf, flags)
 	if(turfPlant)
 		qdel(turfPlant)
 	. =  ..()
 
 #define SHROOM_SPAWN	1
 
-/turf/open/floor/plating/ground/snow
+/turf/open/floor/plating/ms13/ground/snow
 	name = "snow"
 	desc = "Fresh powder."
-	baseturfs = /turf/open/floor/plating/ground/snow
+	baseturfs = /turf/open/floor/plating/ms13/ground/snow
 	icon_state = "snow"
 	icon = 'icons/turf/snow.dmi'
 	slowdown = 1
@@ -146,14 +146,14 @@
 	var/dug = FALSE
 	var/area/curr_area = null
 
-/turf/open/floor/plating/ground/snow/Initialize()
+/turf/open/floor/plating/ms13/ground/snow/Initialize()
     . = ..()
     icon_state = "snow[rand(1,12)]"
     curr_area = get_area(src)
     if(!((locate(/obj/structure) in src) || (locate(/obj/machinery) in src) || (locate(/obj/structure/flora) in src)))
         plant_grass()
 
-/turf/open/floor/plating/ground/snow/attackby(obj/item/W, mob/user, params)
+/turf/open/floor/plating/ms13/ground/snow/attackby(obj/item/W, mob/user, params)
 	. = ..()
 	if(!.)
 		if(!digResult)
@@ -177,12 +177,12 @@
 			for(var/obj/item/stack/ore/O in src)
 				SEND_SIGNAL(W, COMSIG_PARENT_ATTACKBY, O)
 
-/turf/open/floor/plating/ground/snow/proc/getDug()
+/turf/open/floor/plating/ms13/ground/snow/proc/getDug()
 	new digResult(src, 5)
 	icon_state = "[icon_state]_dug"
 	dug = TRUE
 
-/turf/open/floor/plating/ground/snow/proc/plant_grass(Plantforce = FALSE)
+/turf/open/floor/plating/ms13/ground/snow/proc/plant_grass(Plantforce = FALSE)
 	var/Weight = 0
 	var/randPlant = null
 
@@ -192,7 +192,7 @@
 		. = TRUE
 		return .
 
-	for(var/turf/open/floor/plating/ground/snow/T in RANGE_TURFS(2, src))
+	for(var/turf/open/floor/plating/ms13/ground/snow/T in RANGE_TURFS(2, src))
 		if(T.turfPlant)
 			Weight += GRASS_WEIGHT
 
@@ -240,21 +240,21 @@
 					. = TRUE
 					return .
 
-/turf/open/floor/plating/ground/snow/ChangeTurf(path, new_baseturf, flags)
+/turf/open/floor/plating/ms13/ground/snow/ChangeTurf(path, new_baseturf, flags)
 	if(turfPlant)
 		qdel(turfPlant)
 	. =  ..()
 
-/turf/open/floor/plating/ground/mountain
+/turf/open/floor/plating/ms13/ground/mountain
 	name = "mountain"
 	desc = "Damp cave flooring."
-	baseturfs = /turf/open/floor/plating/ground/mountain
+	baseturfs = /turf/open/floor/plating/ms13/ground/mountain
 	icon = 'mojave/icons/turf/mining.dmi'
 	icon_state = "rockfloor1"
 	var/obj/structure/flora/turfPlant = null
 	slowdown = 1
 
-/turf/open/floor/plating/ground/mountain/Initialize()
+/turf/open/floor/plating/ms13/ground/mountain/Initialize()
 	. = ..()
 	icon_state = "rockfloor[rand(1,2)]"
 	//If no fences, machines, etc. try to plant mushrooms
@@ -263,22 +263,22 @@
 			(locate(/obj/machinery) in src) ))
 		plantShrooms()
 
-/turf/open/floor/plating/ground/mountain/proc/plantShrooms()
+/turf/open/floor/plating/ms13/ground/mountain/proc/plantShrooms()
 	if(prob(SHROOM_SPAWN))
 		turfPlant = pickweight(MUSHROOM_SPAWN_LIST)
 		. = TRUE //in case we ever need this to return if we spawned
 		return .
 
-/turf/open/floor/plating/ground/dirt
+/turf/open/floor/plating/ms13/ground/dirt
 	name = "dirt"
 	desc = "Upon closer examination, it's still dirt."
-	baseturfs = /turf/open/floor/plating/ground/dirt
+	baseturfs = /turf/open/floor/plating/ms13/ground/dirt
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "dirt"
 	slowdown = 0.5
 ////Roads////
 
-/turf/open/floor/plating/ground/road
+/turf/open/floor/plating/ms13/ground/road
 	name = "\proper road"
 	desc = "A stretch of road."
 	icon = 'mojave/icons/turf/road.dmi'
@@ -288,11 +288,11 @@
 	smoothing_groups = list(SMOOTH_GROUP_MS13_ROAD)
 	canSmoothWith = list(SMOOTH_GROUP_MS13_ROAD)
 
-/turf/open/floor/plating/ground/road/Initialize()
+/turf/open/floor/plating/ms13/ground/road/Initialize()
 	. = ..()
 	addtimer(CALLBACK(src, /atom/.proc/update_icon), 1)
 
-/turf/open/floor/plating/ground/road/update_icon()
+/turf/open/floor/plating/ms13/ground/road/update_icon()
 	. = ..() //Inheritance required for road decals
 	var/crack_randomiser = "crack_[rand(1,18)]"
 	var/road_randomiser = "rand(-10,10)"
@@ -302,7 +302,7 @@
 
 ////Sidewalks////
 
-/turf/open/floor/plating/ground/sidewalk
+/turf/open/floor/plating/ms13/ground/sidewalk
 	name = "sidewalk"
 	desc = "Paved tiles specifically designed for walking upon."
 	icon = 'mojave/icons/turf/sidewalk.dmi'
@@ -312,27 +312,27 @@
 	smoothing_groups = list(SMOOTH_GROUP_MS13_SIDEWALK)
 	canSmoothWith = list(SMOOTH_GROUP_MS13_SIDEWALK, WALL_SMOOTHING, SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_MS13_DESERT)
 
-/turf/open/floor/plating/ground/sidewalk/Initialize()
+/turf/open/floor/plating/ms13/ground/sidewalk/Initialize()
 	. = ..()
 	addtimer(CALLBACK(src, /atom/.proc/update_icon), 1)
 
-/turf/open/floor/plating/ground/sidewalk/update_icon()
+/turf/open/floor/plating/ms13/ground/sidewalk/update_icon()
 	. = ..()
 	add_overlay(image('mojave/icons/turf/curb.dmi', icon_state, FLOAT_LAYER))
 	if(prob(20))
 		icon_state = "crack_[rand(1,11)]"
 		dir = rand(0,8)
 
-/turf/open/floor/plating/ground/sidewalk/cracked
+/turf/open/floor/plating/ms13/ground/sidewalk/cracked
 	icon_state = "crack_3"
 
-/turf/open/floor/plating/ground/sidewalk/cracked/Initialize()
+/turf/open/floor/plating/ms13/ground/sidewalk/cracked/Initialize()
 	. = ..()
 	icon_state = "crack_[rand(1,11)]"
 
 ////Roofing////
 
-/turf/open/floor/plating/roof
+/turf/open/floor/plating/ms13/roof
 	name = "roof"
 	desc = "Old roofing."
 	icon = 'mojave/icons/turf/roof_asphalt.dmi'
@@ -342,26 +342,26 @@
 	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_MS13_ROOF_NORMAL)
 	canSmoothWith = list(SMOOTH_GROUP_MS13_ROOF_NORMAL, WALL_SMOOTHING)
 
-/turf/open/floor/plating/roof/noborder //for holes and stuff
+/turf/open/floor/plating/ms13/roof/noborder //for holes and stuff
 	icon = 'mojave/icons/turf/roof_asphalt_noborder.dmi'
 
-/turf/open/floor/plating/roof/sheet
+/turf/open/floor/plating/ms13/roof/sheet
 	icon = 'mojave/icons/turf/roof_sheet.dmi'
 	smoothing_groups = list(SMOOTH_GROUP_MS13_ROOF_SHEET, SMOOTH_GROUP_MS13_ROOF_SHEET)
 	canSmoothWith = list(SMOOTH_GROUP_MS13_ROOF_SHEET, WALL_SMOOTHING)
 
-/turf/open/floor/plating/roof/sheet/noborder //for holes and stuff
+/turf/open/floor/plating/ms13/roof/sheet/noborder //for holes and stuff
 	icon = 'mojave/icons/turf/roof_sheet_noborder.dmi'
 
-/turf/open/floor/plating/roof/metal
+/turf/open/floor/plating/ms13/roof/metal
 	icon = 'mojave/icons/turf/roof_metal.dmi'
 	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_MS13_ROOF_METAL)
 	canSmoothWith = list(SMOOTH_GROUP_MS13_ROOF_METAL, WALL_SMOOTHING)
 
-/turf/open/floor/plating/roof/metal/rusty
+/turf/open/floor/plating/ms13/roof/metal/rusty
 	icon = 'mojave/icons/turf/roof_rusty.dmi'
 
-/turf/open/floor/plating/roof/wood
+/turf/open/floor/plating/ms13/roof/wood
 	icon = 'mojave/icons/turf/roof_wood.dmi'
 	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_MS13_ROOF_WOOD)
 	canSmoothWith = list(SMOOTH_GROUP_MS13_ROOF_WOOD, WALL_SMOOTHING)
