@@ -39,7 +39,7 @@
 
 /obj/item/clothing/suit/armor/ms13/tire
 	name = "tire armor"
-	desc = "Sections of tire, roughly cut apart and bound together. Getting into a firefight isn't advised, but you'll never feel a punch in this."
+	desc = "Sections of tire, roughly cut apart and bound together. Getting into a firefight isn't advised, but you shouldn't feel a punch in this."
 	icon_state = "tirearmor"
 	inhand_icon_state = "tirearmor"
 	armor = list("melee" = 30, "bullet" = 10, "laser" = 5, "energy" = 5, "bomb" = 5, "bio" = 5, "rad" = 5, "fire" = 5, "acid" = 5)
@@ -106,7 +106,7 @@
 	armor = list("melee" = 20, "bullet" = 35, "laser" = 10, "energy" = 10, "bomb" = 20, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10)
 
 /obj/item/clothing/suit/armor/ms13/vest/military
-	name = "military vest"
+	name = "military kevlar vest"
 	desc = "A military grade bulletproof kevlar vest, unmatched protection against almost any caliber of bullet."
 	icon_state = "military_kevlar"
 	inhand_icon_state = "militarykevlar"
@@ -201,7 +201,7 @@
 
 /obj/item/clothing/suit/armor/ms13/eliteriot
 	name = "elite riot gear"
-	desc = "A highly and advanced suit of armor originally in use by elite riot control units before the war."
+	desc = "A highly advanced suit of armor originally in use by elite riot control units before the war."
 	icon_state = "riotgear"
 	inhand_icon_state = "riotgear"
 	armor = list("melee" = 55, "bullet" = 45, "laser" = 25, "energy" = 25, "bomb" = 50, "bio" = 25, "rad" = 25, "fire" = 60, "acid" = 25)

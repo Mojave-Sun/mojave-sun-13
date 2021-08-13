@@ -184,6 +184,7 @@
 	desc = "A high school letterman jacket. For showing off your achievements in the post apocalypse."
 	icon_state = "letterman"
 	inhand_icon_state = "shirt"
+	armor = list(melee = 20, bullet = 15, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
 
 /obj/item/clothing/suit/ms13/ljacket/bomber
 	name = "bomber jacket"
@@ -203,14 +204,12 @@
 	name = "detective's trenchcoat"
 	desc = "A trenchcoat normally worn by pre-war detectives."
 	icon_state = "detective"
-	inhand_icon_state = "duster"
 	armor = list(melee = 15, bullet = 20, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
 
 /obj/item/clothing/suit/ms13/trench/brown
 	name = "brown overcoat"
 	desc = "A slightly dirty brown overcoat."
 	icon_state = "brownover"
-	inhand_icon_state = "duster"
 	armor = list(melee = 20, bullet = 15, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
 
 /obj/item/clothing/suit/ms13/trench/black
@@ -230,14 +229,12 @@
 	name = "reinforced black trenchcoat"
 	desc = "A black trenchcoat the addition of some reinforcements and armor for added protection."
 	icon_state = "reinfblacktrench"
-	inhand_icon_state = "leatherjacket"
 	armor = list(melee = 40, bullet = 35, laser = 25, energy = 25, bomb = 30, bio = 10, rad = 10, fire = 25, acid = 10)
 
 /obj/item/clothing/suit/ms13/trench/black/armored
 	name = "armored black trenchcoat"
 	desc = "A heavily armored black trenchcoat that is a near perfect balance between maximum style and maximum protection."
 	icon_state = "armorblacktrench"
-	inhand_icon_state = "leatherjacket"
 	armor = list(melee = 50, bullet = 40, laser = 30, energy = 30, bomb = 40, bio = 20, rad = 20, fire = 50, acid = 20)
 
 /obj/item/clothing/suit/ms13/trench/battle
@@ -260,8 +257,12 @@
 	name = "reinforced duster"
 	desc = "A duster with added leather and padding for some more protection."
 	icon_state = "reinfduster"
-	inhand_icon_state = "duster"
 	armor = list(melee = 30, bullet = 25, laser = 15, energy = 15, bomb = 15, bio = 10, rad = 10, fire = 10, acid = 10)
+
+/obj/item/clothing/suit/ms13/duster/reinforced/ranger
+	name = "\improper Desert Ranger duster"
+	desc = "A closed, padded duster used by the Desert Rangers. Commonly worn by fresh recruits and off-duty Rangers."
+	icon_state = "closed_duster"
 
 // labcoats //
 
