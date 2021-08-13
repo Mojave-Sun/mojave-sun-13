@@ -9,7 +9,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
 	internal_magazine = FALSE
-	mag_type = /obj/item/ammo_box/magazine/ms13/gauss
+	mag_type = /obj/item/ammo_box/magazine/ms13/a2mmEC
 	extra_damage = 30
 	extra_penetration = 35
 	fire_delay = 10 // Capacitor moment
@@ -22,7 +22,6 @@
 	desc = "The M72 is a weapon that electromagnetically fires its projectiles- at least so you've heard. All you really know is that it can punch through metal like it was never there."
 	icon_state = "m72"
 	inhand_icon_state = "m72"
-	mag_type = /obj/item/ammo_box/magazine/ms13/gauss
 	extra_damage = 30
 	extra_penetration = 35
 	fire_delay = 10 // Capacitor moment
@@ -58,7 +57,7 @@
 
 // Magazines //
 
-/obj/item/ammo_box/magazine/ms13/gauss
+/obj/item/ammo_box/magazine/ms13/a2mmEC
 	name = "20 round magazine (2mmEC)"
 	icon = 'mojave/icons/objects/ammo/ammo.dmi'
 	icon_state = "2mmec"

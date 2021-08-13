@@ -2,7 +2,6 @@
 /obj/item/ammo_casing/ms13/a762
 	name = "7.62 bullet casing"
 	desc = "A 7.62 bullet casing."
-	icon_state = "762-casing"
 	caliber = "a762"
 	projectile_type = /obj/projectile/bullet/ms13/a762
 
@@ -30,7 +29,6 @@
 /obj/item/ammo_casing/ms13/a308
 	name = ".308 bullet casing"
 	desc = "A .308 bullet casing."
-	icon_state = "762-casing"
 	caliber = "a308"
 	projectile_type = /obj/projectile/bullet/ms13/a308
 
@@ -86,7 +84,6 @@
 	name = ".50MG bullet casing"
 	desc = "A .50MG bullet casing."
 	caliber = "a50MG"
-	icon_state = ".50"
 	projectile_type = /obj/projectile/bullet/ms13/a50MG
 
 /obj/item/ammo_casing/ms13/a50MG/ap
