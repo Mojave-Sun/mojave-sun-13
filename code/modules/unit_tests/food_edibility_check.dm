@@ -4,7 +4,7 @@
 /datum/unit_test/food_edibility_check/Run()
 	var/list/not_food = list(
 		/obj/item/food/grown,
-		/obj/item/food/grown/ms13,
+		/obj/item/food/grown/ms13, //MOJAVE EDIT: MODIFIED UNIT TESTS TO ACCURATELY TEST NEW MOJAVE PLANTS
 		/obj/item/food/grown/mushroom,
 		/obj/item/food/deepfryholder,
 		/obj/item/food/clothing,
