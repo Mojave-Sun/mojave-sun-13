@@ -76,7 +76,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/hairstyle = "Bald" //Hair type
 	var/hair_color = "#171211" //Hair color //MOJAVE SUN EDIT - Hair/Gendered/Colours
 	var/facial_hairstyle = "Shaved" //Face hair type
-	var/facial_hair_color =  "#4171211" //Facial hair color //MOJAVE SUN EDIT - Hair/Gendered/Colours
+	var/facial_hair_color =  "#171211" //Facial hair color //MOJAVE SUN EDIT - Hair/Gendered/Colours
 	var/skin_tone = "caucasian1" //Skin color
 	var/eye_color = "#1b1424" //Eye color
 	var/datum/species/pref_species = new /datum/species/human() //Mutant race
@@ -1540,7 +1540,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				//MOJAVE SUN EDIT START - Skin Tones
 
 				if("s_tone")
-					var/new_s_tone = tgui_input_list(usr,user, "What skin tone do you have?", "Skin tone choice", GLOB.skin_tones)
+					var/new_s_tone = tgui_input_list(usr, "What skin tone do you have?", "Skin tone choice", GLOB.skin_tones)
 					skin_tone = new_s_tone
 
 				//MOJAVE SUN EDIT END - Skin Tones

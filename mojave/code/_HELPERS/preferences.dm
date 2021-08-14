@@ -29,7 +29,7 @@ GLOBAL_LIST_INIT(hair_color, sortList(list(
 		if("Black")
 			. = "242424"
 		if("Brown Black")
-			. = "231210"
+			. = "171211"
 		if("Darkest Brown")
 			. = "271917"
 		if("Dark Brown")
