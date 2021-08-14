@@ -259,8 +259,8 @@
 		age = rand(AGE_MIN, AGE_MAX)
 	if(randomise_flags & RANDOMIZE_UNDERWEAR)
 		underwear = random_underwear(gender)
-	if(randomise_flags & RANDOMIZE_UNDERWEAR_COLOR)
-		underwear_color = random_short_color()
+	if(randomise_flags & )
+		underwear_color = random_underwear_color() //MOJAVE SUN EDIT - Hair/Gendered/Colours
 	if(randomise_flags & RANDOMIZE_UNDERSHIRT)
 		undershirt = random_undershirt(gender)
 	if(randomise_flags & RANDOMIZE_SOCKS)

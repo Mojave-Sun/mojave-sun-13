@@ -16,7 +16,6 @@
 
 	if(!category || QDELETED(src))
 		return
-
 	var/atom/movable/screen/alert/thealert
 	if(alerts[category])
 		thealert = alerts[category]

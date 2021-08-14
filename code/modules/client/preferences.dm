@@ -1247,7 +1247,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("underwear")
 					underwear = random_underwear(gender)
 				if("underwear_color")
-					underwear_color = random_short_color()
+					underwear_color = random_underwear_color() //MOJAVE SUN EDIT - Hair/Gendered/Colours
 				if("undershirt")
 					undershirt = random_undershirt(gender)
 				if("socks")
@@ -1400,9 +1400,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					underwear = new_underwear
 
 				if("underwear_color")
-					var/new_underwear_color = input(user, "Choose your character's underwear color:", "Character Preference","#"+underwear_color) as color|null
-					if(new_underwear_color)
-						underwear_color = sanitize_hexcolor(new_underwear_color)
+					var/new_underwear_color
+					new_underwear_color = tgui_input_list(usr, "What underwear colour do you want?", "Underwear colour choice", GLOB.underwear_color)
+					underwear_color = sanitize_hexcolor(undiestone2hex(new_underwear_color))
 
 				if("undershirt")
 					var/new_undershirt

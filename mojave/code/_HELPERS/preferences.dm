@@ -118,7 +118,41 @@ GLOBAL_LIST_INIT(eye_color, sortList(list(
 
 //Underwear Colour
 
+var/underwear_colour
+
 /proc/random_underwear_color()
 	return pick(GLOB.underwear_color)
 
 GLOBAL_LIST_INIT(underwear_color, sortList(list(
+	"Brown",
+	"Green",
+	"Red",
+	"Blue",
+	"Purple",
+	"Yellow",
+	"Orange",
+	"Black",
+	"White"
+	)))
+
+/proc/undiestone2hex(eye_color)
+	. = 0
+	switch(eye_color)
+		if("Brown")
+			. = "FFCC99"
+		if("Green")
+			. = "88BB88"
+		if("Red")
+			. = "9F6A58"
+		if("Blue")
+			. = "61889B"
+		if("Purple")
+			. = "A188C6"
+		if("Yellow")
+			. = "CACA46"
+		if("Orange")
+			. = "D59A42"
+		if("Black")
+			. = "555555"
+		if("White")
+			. = "FFFFFF"

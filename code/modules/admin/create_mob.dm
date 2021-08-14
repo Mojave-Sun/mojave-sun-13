@@ -16,7 +16,7 @@
 	H.real_name = random_unique_name(H.gender)
 	H.name = H.real_name
 	H.underwear = random_underwear(H.gender)
-	H.underwear_color = random_short_color()
+	H.underwear_color = random_underwear_color() //MOJAVE SUN EDIT - Hair/Gendered/Colours
 	H.skin_tone = random_skin_tone()
 	H.hairstyle = random_hairstyle(H.gender)
 	H.facial_hairstyle = random_facial_hairstyle(H.gender)
