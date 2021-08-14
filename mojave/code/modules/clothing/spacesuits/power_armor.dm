@@ -41,11 +41,20 @@
 	helmettype = null //no helmet; default PA is frame = /obj/item/clothing/head/helmet/space/hardsuit/power_armor
 	var/footstep = 1
 	var/mob/listeningTo
+	clothing_traits = list(TRAIT_SILENT_FOOTSTEPS) //No playing regular footsteps over power armor footsteps
 
 /obj/item/clothing/suit/space/hardsuit/power_armor/Initialize()
 	. = ..()
 	interaction_flags_item &= ~INTERACT_ITEM_ATTACK_HAND_PICKUP
 	ADD_TRAIT(src, TRAIT_NODROP, STICKY_NODROP) //Somehow it's stuck to your body, no questioning.
+
+//We want to be able to strip the PA as usual but also have the benefits of NO_DROP to disallow stuff like drag clicking PA into hand slot
+/obj/item/clothing/suit/space/hardsuit/power_armor/canStrip(mob/stripper, mob/owner)
+	return !(item_flags & ABSTRACT)
+
+/obj/item/clothing/suit/space/hardsuit/power_armor/hit_reaction(owner, hitby, attack_text, final_block_chance, damage, attack_type)
+	if((damage > 10) && prob(35)) //SPARK
+		do_sparks(2, FALSE, src)
 
 //Hardcode goes brrr; borrowed from ancient hardsuits
 /obj/item/clothing/suit/space/hardsuit/power_armor/proc/on_mob_move()
@@ -61,7 +70,6 @@
 
 /obj/item/clothing/suit/space/hardsuit/power_armor/equipped(mob/user, slot)
 	. = ..()
-	ADD_TRAIT(user, TRAIT_FORCED_STANDING, "power_armor") //It's a suit of armor, it ain't going to fall over just because the pilot is dead
 	if(slot != ITEM_SLOT_OCLOTHING)
 		if(listeningTo)
 			UnregisterSignal(listeningTo, COMSIG_MOVABLE_MOVED)
@@ -72,9 +80,12 @@
 		UnregisterSignal(listeningTo, COMSIG_MOVABLE_MOVED)
 	RegisterSignal(user, COMSIG_MOVABLE_MOVED, .proc/on_mob_move)
 	listeningTo = user
+	user.base_pixel_y = user.base_pixel_y + 6
+	ADD_TRAIT(user, TRAIT_FORCED_STANDING, "power_armor") //It's a suit of armor, it ain't going to fall over just because the pilot is dead
 
 /obj/item/clothing/suit/space/hardsuit/power_armor/dropped(mob/user)
 	. = ..()
+	user.base_pixel_y = user.base_pixel_y - 6
 	if(listeningTo)
 		UnregisterSignal(listeningTo, COMSIG_MOVABLE_MOVED)
 
