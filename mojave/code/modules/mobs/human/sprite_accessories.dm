@@ -3,21 +3,21 @@
 #define LONG "long"
 #define BALD "bald"
 
-/proc/init_sprite_accessory_subtypes(prototype, list/L, list/male, list/female,roundstart = FALSE, list/short, list/medium, list/long, list/bald)//Roundstart argument builds a specific list for roundstart parts where some parts may be locked
+/proc/init_sprite_accessory_subtypes(prototype, list/L, list/male, list/female, list/bald, list/short, list/medium, list/long, roundstart = FALSE)//Roundstart argument builds a specific list for roundstart parts where some parts may be locked
 	if(!istype(L))
 		L = list()
 	if(!istype(male))
 		male = list()
 	if(!istype(female))
 		female = list()
+	if(!istype(bald))
+		bald = list()
 	if(!istype(short))
 		short = list()
 	if(!istype(medium))
 		medium = list()
 	if(!istype(long))
 		long = list()
-	if(!istype(bald))
-		bald = list()
 
 	for(var/path in subtypesof(prototype))
 		if(roundstart)
