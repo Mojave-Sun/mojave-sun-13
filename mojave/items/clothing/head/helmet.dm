@@ -555,7 +555,7 @@
 	desc = "An advanced combat helmet offering even better protection."
 	icon_state = "adv_combathelm"
 	inhand_icon_state = "combathelmet_mk2"
-	armor = list("melee" = 55, "bullet" = 45, "laser" = 25, "energy" = 25, "bomb" = 50, "bio" = 25, "rad" = 25, "fire" = 60, "acid" = 25)
+	armor = list("melee" = 55, "bullet" = 45, "laser" = 25, "energy" = 25, "bomb" = 50, "bio" = 25, "rad" = 25, "fire" = 60, "acid" = 25, "wound" = 10)
 
 // Special Helmets //
 

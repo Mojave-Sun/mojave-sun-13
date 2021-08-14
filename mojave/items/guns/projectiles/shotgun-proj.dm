@@ -22,7 +22,7 @@
 	icon_state = "bb"
 	name = "flechette pellet"
 	damage = 9
-	wound_bonus = 4
+	wound_bonus = 5
 	armour_penetration = 5
 
 /obj/projectile/bullet/ms13/slug
@@ -30,5 +30,5 @@
 	name = "12g slug"
 	damage = 45
 	armour_penetration = 15
-	wound_bonus = -8
+	wound_bonus = -5
 	speed = 0.8

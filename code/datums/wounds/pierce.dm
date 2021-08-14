@@ -145,8 +145,10 @@
 	gauzed_clot_rate = 0.8
 	internal_bleeding_chance = 30
 	internal_bleeding_coefficient = 1.25
-	threshold_minimum = 30
-	threshold_penalty = 20
+	//MOJAVE EDIT CHANGE BEGIN
+	threshold_minimum = 25 //Original TG value is 30
+	threshold_penalty = 15 //Original TG value is 20
+	//MOJAVE EDIT CHANGE END
 	status_effect_type = /datum/status_effect/wound/pierce/moderate
 	scar_keyword = "piercemoderate"
 
@@ -163,7 +165,9 @@
 	internal_bleeding_chance = 60
 	internal_bleeding_coefficient = 1.5
 	threshold_minimum = 50
-	threshold_penalty = 35
+	//MOJAVE EDIT CHANGE BEGIN
+	threshold_penalty = 30 //Original TG value is 35
+	//MOJAVE EDIT CHANGE END
 	status_effect_type = /datum/status_effect/wound/pierce/severe
 	scar_keyword = "piercesevere"
 

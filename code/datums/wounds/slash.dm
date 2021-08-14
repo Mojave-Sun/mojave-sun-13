@@ -306,7 +306,9 @@
 	initial_flow = 4.25
 	minimum_flow = 4
 	clot_rate = -0.025 // critical cuts actively get worse instead of better
-	threshold_minimum = 80
+	//MOJAVE EDIT CHANGE BEGIN
+	threshold_minimum = 90 //Original TG value is 80
+	//MOJAVE EDIT CHANGE END
 	threshold_penalty = 40
 	demotes_to = /datum/wound/slash/severe
 	status_effect_type = /datum/status_effect/wound/slash/critical
