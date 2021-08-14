@@ -14,7 +14,7 @@
 		var/mob/living/carbon/human/H = user
 
 		var/new_hair
-		var/new_facial_hairstyle
+		var/new_facial_hair
 
 		if(HAS_TRAIT(H, TRAIT_BALD))
 			to_chat(H, span_notice("If only growing back hair were that easy for you..."))
@@ -36,21 +36,16 @@
 		if(hairchoice == "Facial" && H.facial_hairstyle != "Shaved")
 			switch(H.gender)
 				if(MALE)
-					new_facial_hairstyle = tgui_input_list(usr, "What facial hair style do you want?", "Facial hair style choice", GLOB.facial_hairstyles_male_list)
-					H.hairstyle = new_facial_hairstyle
-					H.update_hair()
-					return
+					new_facial_hair = tgui_input_list(usr, "What facial hair style do you want?", "Facial hair style choice", GLOB.facial_hairstyles_male_list)
 				else if(FEMALE)
-					new_facial_hairstyle = tgui_input_list(usr, "What facial hair style do you want?", "Facial hair style choice", GLOB.facial_hairstyles_female_list)
-					H.hairstyle = new_facial_hairstyle
-					H.update_hair()
-					return
+					new_facial_hair = tgui_input_list(usr, "What facial hair style do you want?", "Facial hair style choice", GLOB.facial_hairstyles_female_list)
 				else
-					new_facial_hairstyle = tgui_input_list(usr, "What facial hair style do you want?", "Facial hair style choice", GLOB.facial_hairstyles_list)
-					H.hairstyle = new_facial_hairstyle
-					H.update_hair()
-					return
+					new_facial_hair = tgui_input_list(usr, "What facial hair style do you want?", "Facial hair style choice", GLOB.facial_hairstyles_list)
 		if(new_hair)
 			H.hairstyle = new_hair
+			H.update_hair()
+			return
+		if(new_facial_hair)
+			H.hairstyle = new_facial_hair
 			H.update_hair()
 			return
