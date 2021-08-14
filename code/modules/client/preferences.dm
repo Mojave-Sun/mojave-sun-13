@@ -1322,7 +1322,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("hair")
 					var/new_hair
 					new_hair = tgui_input_list(usr, "What hair colour do you want?", "Hair colour choice", GLOB.hair_color)
-					hair_color = sanitize_hexcolor(hairtone2hex(new_hair))
+					if(new_hair)
+						hair_color = sanitize_hexcolor(hairtone2hex(new_hair))
 
 				if("hairstyle")
 					var/new_hairstyle
@@ -1333,8 +1334,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 							new_hairstyle = tgui_input_list(usr, "What hair style do you want?", "Hair style choice", GLOB.hairstyles_female_list)
 						else
 							new_hairstyle = tgui_input_list(usr, "What hair style do you want?", "Hair style choice", GLOB.hairstyles_list)
-
-					hairstyle = new_hairstyle
+					if(new_hairstyle)
+						hairstyle = new_hairstyle
 
 				if("next_hairstyle")
 					switch(gender)
@@ -1357,7 +1358,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("facial")
 					var/new_facial
 					new_facial = tgui_input_list(usr, "What facial hair colour do you want?", "Facial hair colour choice", GLOB.hair_color)
-					facial_hair_color = sanitize_hexcolor(hairtone2hex(new_facial))
+					if(new_facial)
+						facial_hair_color = sanitize_hexcolor(hairtone2hex(new_facial))
 
 				if("facial_hairstyle")
 					var/new_facial_hairstyle
@@ -1368,7 +1370,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 							new_facial_hairstyle = tgui_input_list(usr, "What facial hair style do you want?", "Facial hair style choice")
 						else
 							new_facial_hairstyle = tgui_input_list(usr, "What facial hair style do you want?", "Facial hair style choice", GLOB.facial_hairstyles_list)
-					facial_hairstyle = new_facial_hairstyle
+					if(new_facial_hairstyle
+						facial_hairstyle = new_facial_hairstyle
 
 				if("next_facehairstyle")
 					switch(gender)
@@ -1397,12 +1400,14 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 							new_underwear = tgui_input_list(usr, "What underwear do you want?", "Underwear clothing choice", GLOB.underwear_f)
 						else
 							new_underwear = tgui_input_list(usr, "What underwear do you want?", "Underwear clothing choice", GLOB.underwear_list)
-					underwear = new_underwear
+					if(new_underwear)
+						underwear = new_underwear
 
 				if("underwear_color")
 					var/new_underwear_color
 					new_underwear_color = tgui_input_list(usr, "What underwear colour do you want?", "Underwear colour choice", GLOB.underwear_color)
-					underwear_color = sanitize_hexcolor(undiestone2hex(new_underwear_color))
+					if(new_underwear_color)
+						underwear_color = sanitize_hexcolor(undiestone2hex(new_underwear_color))
 
 				if("undershirt")
 					var/new_undershirt
@@ -1413,7 +1418,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 							new_undershirt = tgui_input_list(usr, "What undershirt do you want?", "Undershirt clothing choice", GLOB.undershirt_f)
 						else
 							new_undershirt = tgui_input_list(usr, "What undershirt do you want?", "Undershirt clothing choice", GLOB.undershirt_list)
-					undershirt = new_undershirt
+					if(new_undershirt)
+						undershirt = new_undershirt
 
 				if("socks")
 					var/new_socks
@@ -1424,7 +1430,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("eyes")
 					var/new_eyes
 					new_eyes = tgui_input_list(usr, "What eye colour do you want?", "Eye colour choice", GLOB.eye_color)
-					eye_color = sanitize_hexcolor(eyetone2hex(new_eyes))
+					if(eye_color)
+						eye_color = sanitize_hexcolor(eyetone2hex(new_eyes))
 
 				//MOJAVE SUN EDIT END - Hair/Gendered/Colours
 
@@ -1541,7 +1548,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 				if("s_tone")
 					var/new_s_tone = tgui_input_list(usr, "What skin tone do you have?", "Skin tone choice", GLOB.skin_tones)
-					skin_tone = new_s_tone
+					if(new_s_tone)
+						skin_tone = new_s_tone
 
 				//MOJAVE SUN EDIT END - Skin Tones
 
