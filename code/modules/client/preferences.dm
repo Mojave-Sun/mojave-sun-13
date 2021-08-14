@@ -1430,7 +1430,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("eyes")
 					var/new_eyes
 					new_eyes = tgui_input_list(usr, "What eye colour do you want?", "Eye colour choice", GLOB.eye_color)
-					if(eye_color)
+					if(new_eyes)
 						eye_color = sanitize_hexcolor(eyetone2hex(new_eyes))
 
 				//MOJAVE SUN EDIT END - Hair/Gendered/Colours
