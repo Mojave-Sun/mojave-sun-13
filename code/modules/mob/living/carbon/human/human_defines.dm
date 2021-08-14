@@ -14,7 +14,7 @@
 	can_be_shoved_into = TRUE
 
 	//Hair colour and style
-	var/hair_color = "000"
+	var/hair_color = "#4a2c21" //Hair color //MOJAVE SUN EDIT - Hair/Gendered/Colours
 	var/hairstyle = "Bald"
 
 	///Colour used for the hair gradient.
@@ -23,7 +23,7 @@
 	var/grad_style
 
 	//Facial hair colour and style
-	var/facial_hair_color = "000"
+	var/facial_hair_color = "#4a2c21" //Hair color //MOJAVE SUN EDIT - Hair/Gendered/Colours
 	var/facial_hairstyle = "Shaved"
 
 	//Eye colour

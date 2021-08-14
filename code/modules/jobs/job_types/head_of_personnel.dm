@@ -63,10 +63,12 @@
 
 	id_trim = /datum/id_trim/job/head_of_personnel
 
+/*MOJAVE SUN EDIT START - Holy shit who hardcoded an ian underwear - Mojave Sun Underwear
 /datum/outfit/job/hop/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(locate(/datum/holiday/ianbirthday) in SSevents.holidays)
 		undershirt = /datum/sprite_accessory/undershirt/ian
+*///MOJAVE SUN EDIT END - Holy shit who hardcoded an ian underwear - Mojave Sun Underwear
 
 //only pet worth reviving
 /datum/job/hop/get_mail_goodies(mob/recipient)

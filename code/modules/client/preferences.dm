@@ -74,9 +74,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/backpack = DBACKPACK //backpack type
 	var/jumpsuit_style = PREF_SUIT //suit/skirt
 	var/hairstyle = "Bald" //Hair type
-	var/hair_color = "000" //Hair color
+	var/hair_color = "#4a2c21" //Hair color //MOJAVE SUN EDIT - Hair/Gendered/Colours
 	var/facial_hairstyle = "Shaved" //Face hair type
-	var/facial_hair_color = "000" //Facial hair color
+	var/facial_hair_color =  "#4a2c21" //Facial hair color //MOJAVE SUN EDIT - Hair/Gendered/Colours
 	var/skin_tone = "caucasian1" //Skin color
 	var/eye_color = "000" //Eye color
 	var/datum/species/pref_species = new /datum/species/human() //Mutant race
@@ -1237,11 +1237,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("age")
 					age = rand(AGE_MIN, AGE_MAX)
 				if("hair")
-					hair_color = random_short_color()
+					hair_color = random_hair_color() //MOJAVE SUN EDIT - Hair/Gendered/Colours
 				if("hairstyle")
 					hairstyle = random_hairstyle(gender)
 				if("facial")
-					facial_hair_color = random_short_color()
+					facial_hair_color = random_hair_color() //MOJAVE SUN EDIT - Hair/Gendered/Colours
 				if("facial_hairstyle")
 					facial_hairstyle = random_facial_hairstyle(gender)
 				if("underwear")
@@ -1253,7 +1253,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("socks")
 					socks = random_socks()
 				if(BODY_ZONE_PRECISE_EYES)
-					eye_color = random_eye_color()
+					eye_color = random_eye_color() //MOJAVE SUN EDIT - Hair/Gendered/Colours
 				if("s_tone")
 					skin_tone = random_skin_tone()
 				if("species")
@@ -1317,42 +1317,87 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if(new_age)
 						age = max(min( round(text2num(new_age)), AGE_MAX),AGE_MIN)
 
+				//MOJAVE SUN EDIT START - Hair/Gendered/Colours
+
 				if("hair")
-					var/new_hair = input(user, "Choose your character's hair colour:", "Character Preference","#"+hair_color) as color|null
-					if(new_hair)
-						hair_color = sanitize_hexcolor(new_hair)
+					var/new_hair
+					new_hair = tgui_input_list(usr, "What hair colour do you want?", "Hair colour choice", GLOB.hair_color)
+					hair_color = sanitize_hexcolor(hairtone2hex(new_hair))
 
 				if("hairstyle")
-					var/new_hairstyle = input(user, "Choose your character's hairstyle:", "Character Preference")  as null|anything in GLOB.hairstyles_list
-					if(new_hairstyle)
-						hairstyle = new_hairstyle
+					var/new_hairstyle
+					switch(gender)
+						if(MALE)
+							new_hairstyle = tgui_input_list(usr, "What hair style do you want?", "Hair style choice", GLOB.hairstyles_male_list)
+						if(FEMALE)
+							new_hairstyle = tgui_input_list(usr, "What hair style do you want?", "Hair style choice", GLOB.hairstyles_female_list)
+						else
+							new_hairstyle = tgui_input_list(usr, "What hair style do you want?", "Hair style choice", GLOB.hairstyles_list)
+
+					hairstyle = new_hairstyle
 
 				if("next_hairstyle")
-					hairstyle = next_list_item(hairstyle, GLOB.hairstyles_list)
+					switch(gender)
+						if(MALE)
+							hairstyle = next_list_item(hairstyle, GLOB.hairstyles_male_list)
+						if(FEMALE)
+							hairstyle = next_list_item(hairstyle, GLOB.hairstyles_female_list)
+						else
+							hairstyle = next_list_item(hairstyle, GLOB.hairstyles_list)
 
 				if("previous_hairstyle")
-					hairstyle = previous_list_item(hairstyle, GLOB.hairstyles_list)
+					switch(gender)
+						if(MALE)
+							hairstyle = previous_list_item(hairstyle, GLOB.hairstyles_male_list)
+						if(FEMALE)
+							hairstyle = previous_list_item(hairstyle, GLOB.hairstyles_female_list)
+						else
+							hairstyle = previous_list_item(hairstyle, GLOB.hairstyles_list)
 
 				if("facial")
-					var/new_facial = input(user, "Choose your character's facial-hair colour:", "Character Preference","#"+facial_hair_color) as color|null
-					if(new_facial)
-						facial_hair_color = sanitize_hexcolor(new_facial)
+					var/new_facial
+					new_facial = tgui_input_list(usr, "What facial hair colour do you want?", "Facial hair colour choice", GLOB.hair_color)
+					facial_hair_color = sanitize_hexcolor(hairtone2hex(new_facial))
 
 				if("facial_hairstyle")
-					var/new_facial_hairstyle = input(user, "Choose your character's facial-hairstyle:", "Character Preference")  as null|anything in GLOB.facial_hairstyles_list
-					if(new_facial_hairstyle)
-						facial_hairstyle = new_facial_hairstyle
+					var/new_facial_hairstyle
+					switch(gender)
+						if(MALE)
+							new_facial_hairstyle = tgui_input_list(usr, "What facial hair style do you want?", "Facial hair style choice", GLOB.facial_hairstyles_list)
+						if(FEMALE)
+							new_facial_hairstyle = tgui_input_list(usr, "What facial hair style do you want?", "Facial hair style choice")
+						else
+							new_facial_hairstyle = tgui_input_list(usr, "What facial hair style do you want?", "Facial hair style choice", GLOB.facial_hairstyles_list)
+					facial_hairstyle = new_facial_hairstyle
 
 				if("next_facehairstyle")
-					facial_hairstyle = next_list_item(facial_hairstyle, GLOB.facial_hairstyles_list)
+					switch(gender)
+						if(MALE)
+							hairstyle = next_list_item(facial_hairstyle, GLOB.facial_hairstyles_male_list)
+						if(FEMALE)
+							return
+						else
+							hairstyle = next_list_item(facial_hairstyle, GLOB.facial_hairstyles_list)
 
 				if("previous_facehairstyle")
-					facial_hairstyle = previous_list_item(facial_hairstyle, GLOB.facial_hairstyles_list)
+					switch(gender)
+						if(MALE)
+							hairstyle = previous_list_item(facial_hairstyle, GLOB.facial_hairstyles_male_list)
+						if(FEMALE)
+							return
+						else
+							hairstyle = previous_list_item(facial_hairstyle, GLOB.facial_hairstyles_list)
 
 				if("underwear")
-					var/new_underwear = input(user, "Choose your character's underwear:", "Character Preference")  as null|anything in GLOB.underwear_list
-					if(new_underwear)
-						underwear = new_underwear
+					var/new_underwear
+					switch(gender)
+						if(MALE)
+							new_underwear = tgui_input_list(usr, "What underwear do you want?", "Underwear clothing choice", GLOB.underwear_m)
+						if(FEMALE)
+							new_underwear = tgui_input_list(usr, "What underwear do you want?", "Underwear clothing choice", GLOB.underwear_f)
+						else
+							new_underwear = tgui_input_list(usr, "What underwear do you want?", "Underwear clothing choice", GLOB.underwear_list)
+					underwear = new_underwear
 
 				if("underwear_color")
 					var/new_underwear_color = input(user, "Choose your character's underwear color:", "Character Preference","#"+underwear_color) as color|null
@@ -1360,20 +1405,28 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						underwear_color = sanitize_hexcolor(new_underwear_color)
 
 				if("undershirt")
-					var/new_undershirt = input(user, "Choose your character's undershirt:", "Character Preference") as null|anything in GLOB.undershirt_list
-					if(new_undershirt)
-						undershirt = new_undershirt
+					var/new_undershirt
+					switch(gender)
+						if(MALE)
+							new_undershirt = tgui_input_list(usr, "What undershirt do you want?", "Undershirt clothing choice", GLOB.undershirt_m)
+						if(FEMALE)
+							new_undershirt = tgui_input_list(usr, "What undershirt do you want?", "Undershirt clothing choice", GLOB.undershirt_f)
+						else
+							new_undershirt = tgui_input_list(usr, "What undershirt do you want?", "Undershirt clothing choice", GLOB.undershirt_list)
+					undershirt = new_undershirt
 
 				if("socks")
 					var/new_socks
-					new_socks = input(user, "Choose your character's socks:", "Character Preference") as null|anything in GLOB.socks_list
+					new_socks = tgui_input_list(usr, "What socks do you want?", "Socks clothing choice", GLOB.socks_list)
 					if(new_socks)
 						socks = new_socks
 
 				if("eyes")
-					var/new_eyes = input(user, "Choose your character's eye colour:", "Character Preference","#"+eye_color) as color|null
-					if(new_eyes)
-						eye_color = sanitize_hexcolor(new_eyes)
+					var/new_eyes
+					new_eyes = tgui_input_list(usr, "What eye colour do you want?", "Eye colour choice", GLOB.eye_color)
+					eye_color = sanitize_hexcolor(eyetone2hex(new_eyes))
+
+				//MOJAVE SUN EDIT END - Hair/Gendered/Colours
 
 				if("species")
 
@@ -1484,10 +1537,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if(new_moth_markings)
 						features["moth_markings"] = new_moth_markings
 
+				//MOJAVE SUN EDIT START - Skin Tones
+
 				if("s_tone")
-					var/new_s_tone = input(user, "Choose your character's skin-tone:", "Character Preference")  as null|anything in GLOB.skin_tones
-					if(new_s_tone)
-						skin_tone = new_s_tone
+					var/new_s_tone = tgui_input_list(usr,user, "What skin tone do you have?", "Skin tone choice", GLOB.skin_tones)
+					skin_tone = new_s_tone
+
+				//MOJAVE SUN EDIT END - Skin Tones
 
 				if("ooccolor")
 					var/new_ooccolor = input(user, "Choose your OOC colour:", "Game Preference",ooccolor) as color|null

@@ -713,7 +713,7 @@
 
 	if(change_icon_to_default)
 		if(status == BODYPART_ORGANIC)
-			icon = DEFAULT_BODYPART_ICON_ORGANIC
+			icon = 'mojave/icons/mob/humanoid.dmi' //MOJAVE SUN EDIT - Humanoid Sprites
 		else if(status == BODYPART_ROBOTIC)
 			icon = DEFAULT_BODYPART_ICON_ROBOTIC
 
@@ -883,7 +883,7 @@
 		return
 
 	if(should_draw_greyscale)
-		limb.icon = 'icons/mob/human_parts_greyscale.dmi'
+		limb.icon = 'mojave/icons/mob/humanoid.dmi' //MOJAVE SUN EDIT - Humanoid Sprites
 		if(should_draw_gender)
 			limb.icon_state = "[species_id]_[body_zone]_[icon_gender]"
 		else if(use_digitigrade)

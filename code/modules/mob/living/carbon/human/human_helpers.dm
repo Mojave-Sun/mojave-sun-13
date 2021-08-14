@@ -274,13 +274,13 @@
 	if(randomise_flags & RANDOMIZE_FACIAL_HAIRSTYLE)
 		facial_hairstyle = random_facial_hairstyle(gender)
 	if(randomise_flags & RANDOMIZE_HAIR_COLOR)
-		hair_color = random_short_color()
+		hair_color = random_hair_color() //MOJAVE SUN EDIT - Hair/Gendered/Colours
 	if(randomise_flags & RANDOMIZE_FACIAL_HAIR_COLOR)
-		facial_hair_color = random_short_color()
+		facial_hair_color = random_hair_color() //MOJAVE SUN EDIT - Hair/Gendered/Colours
 	if(randomise_flags & RANDOMIZE_SKIN_TONE)
 		skin_tone = random_skin_tone()
 	if(randomise_flags & RANDOMIZE_EYE_COLOR)
-		eye_color = random_eye_color()
+		eye_color = random_eye_color() //MOJAVE SUN EDIT - Hair/Gendered/Colours
 		var/obj/item/organ/eyes/organ_eyes = getorgan(/obj/item/organ/eyes)
 		if(organ_eyes)
 			if(!initial(organ_eyes.eye_color))
