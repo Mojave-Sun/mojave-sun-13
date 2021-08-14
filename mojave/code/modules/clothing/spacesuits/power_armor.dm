@@ -42,8 +42,6 @@
 	var/footstep = 1
 	var/mob/listeningTo
 	clothing_traits = list(TRAIT_SILENT_FOOTSTEPS) //No playing regular footsteps over power armor footsteps
-	item_flags = NO_PIXEL_RANDOM_DROP
-	clothing_flags = BLOCKS_SHOVE_KNOCKDOWN
 
 /obj/item/clothing/suit/space/hardsuit/power_armor/Initialize()
 	. = ..()
@@ -53,10 +51,6 @@
 //We want to be able to strip the PA as usual but also have the benefits of NO_DROP to disallow stuff like drag clicking PA into hand slot
 /obj/item/clothing/suit/space/hardsuit/power_armor/canStrip(mob/stripper, mob/owner)
 	return !(item_flags & ABSTRACT)
-
-/obj/item/clothing/suit/space/hardsuit/power_armor/doStrip(mob/stripper, mob/owner)
-	GetOutside()
-	return TRUE
 
 /obj/item/clothing/suit/space/hardsuit/power_armor/hit_reaction(owner, hitby, attack_text, final_block_chance, damage, attack_type)
 	if((damage > 10) && prob(35)) //SPARK
@@ -68,7 +62,7 @@
 	var/mob/living/carbon/human/H = loc
 	if(!istype(H) || H.wear_suit != src)
 		return
-	if(footstep >= 1)
+	if(footstep > 1)
 		playsound(src, 'sound/mecha/mechstep.ogg', 100, TRUE)
 		footstep = 0
 	else
@@ -87,16 +81,13 @@
 	RegisterSignal(user, COMSIG_MOVABLE_MOVED, .proc/on_mob_move)
 	listeningTo = user
 	user.base_pixel_y = user.base_pixel_y + 6
-	user.pixel_y = user.base_pixel_y
 	ADD_TRAIT(user, TRAIT_FORCED_STANDING, "power_armor") //It's a suit of armor, it ain't going to fall over just because the pilot is dead
 
 /obj/item/clothing/suit/space/hardsuit/power_armor/dropped(mob/user)
 	. = ..()
 	user.base_pixel_y = user.base_pixel_y - 6
-	user.pixel_y = user.base_pixel_y
 	if(listeningTo)
 		UnregisterSignal(listeningTo, COMSIG_MOVABLE_MOVED)
-	REMOVE_TRAIT(user, TRAIT_FORCED_STANDING, "power_armor") //It's a suit of armor, it ain't going to fall over just because the pilot is dead
 
 /obj/item/clothing/suit/space/hardsuit/power_armor/Destroy()
 	listeningTo = null
@@ -123,12 +114,14 @@
 			if(do_after(user, 6 SECONDS, target = user) && user.wear_suit == src)
 				GetOutside(user)
 				return TRUE
-			return FALSE
+			else
+				return FALSE
 
 	to_chat(user, "You begin entering the [src].")
 	if(do_after(user, 6 SECONDS, target = user) && user.wear_suit != src)
 		GetInside(user)
 		return TRUE
+
 	return FALSE
 
 //Let's actually get into the power armor

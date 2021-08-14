@@ -26,9 +26,9 @@
 	maxHealth = 200
 	melee_damage_lower = 3
 	melee_damage_upper = 5
-	//food_type = list(/obj/item/reagent_containers/food/snacks/grown/ms13/tato, /obj/item/reagent_containers/food/snacks/grown/ms13/potato, /obj/item/reagent_containers/food/snacks/grown/ms13/razorgrain, /obj/item/reagent_containers/food/snacks/grown/ms13/baifan, /obj/item/reagent_containers/food/snacks/grown/ms13/cabbage)
-	milkable = TRUE
-	extract = null//brahmin milk
+	food_type = list(/obj/item/food/grown/ms13/tato, /obj/item/food/grown/ms13/potato, /obj/item/food/grown/ms13/razorgrain, /obj/item/food/grown/ms13/baifan, /obj/item/food/grown/ms13/cabbage)
+//  milkable = TRUE
+//  extract = null//brahmin milk
 	rideable = TRUE
 	breedable = TRUE
 	baggable = TRUE
@@ -80,9 +80,9 @@
 	maxHealth = 300
 	melee_damage_lower = 5
 	melee_damage_upper = 20
-	//food_type = list(/obj/item/reagent_containers/food/snacks/grown/ms13/blackberry, /obj/item/reagent_containers/food/snacks/grown/ms13/mutfruit, /obj/item/reagent_containers/food/snacks/grown/ms13/razorgrain, /obj/item/reagent_containers/food/snacks/grown/ms13/carrot, /obj/item/reagent_containers/food/snacks/grown/ms13/cavefungus)
-	milkable = TRUE
-	extract = null//brahmiluff milk
+	food_type = list(/obj/item/food/grown/ms13/blackberry, /obj/item/food/grown/ms13/mutfruit, /obj/item/food/grown/ms13/razorgrain, /obj/item/food/grown/ms13/carrot, /obj/item/food/grown/ms13/cavefungus)
+//  milkable = TRUE
+//  extract = null//brahmiluff milk
 	rideable = TRUE
 	breedable = FALSE
 	young_type = null
@@ -107,9 +107,9 @@
 	health = 20
 	maxHealth = 20
 	speed = 1
-	//food_type = list(/obj/item/reagent_containers/food/snacks/grown/ms13/razorgrain, /obj/item/reagent_containers/food/snacks/grown/ms13/baifan)
+	food_type = list(/obj/item/food/grown/ms13/razorgrain, /obj/item/food/grown/ms13/baifan)
 	eggable = TRUE
-	egg_type = /obj/item/reagent_containers/food/snacks/egg/ms13/clucker
+	egg_type = /obj/item/food/ms13/egg/ms13/clucker
 	smallasslad = TRUE
 
 //slepnir - horse mount
@@ -135,7 +135,7 @@
 	melee_damage_lower = 5
 	melee_damage_upper = 20 //getting kicked by a horse should hurt
 	speed = 1.5
-	//food_type = list(/obj/item/reagent_containers/food/snacks/grown/ms13/apple, /obj/item/reagent_containers/food/snacks/grown/ms13/cmutfruit)
+	food_type = list(/obj/item/food/grown/ms13/apple, /obj/item/food/grown/ms13/cmutfruit)
 	tame_chance = 5
 	bonus_tame_chance = 15
 	rideable = TRUE
@@ -166,11 +166,11 @@
 	melee_damage_lower = 10
 	melee_damage_upper = 15
 	speed = 1
-	//food_type = list(/obj/item/reagent_containers/food/snacks/grown/ms13/xander, /obj/item/reagent_containers/food/snacks/grown/ms13/carrot)
+	food_type = list(/obj/item/food/grown/ms13/xander, /obj/item/food/grown/ms13/carrot)
 	tame_chance = 5
 	bonus_tame_chance = 5
-	milkable = TRUE
-	extract = null//pigrat milk
+//  milkable = TRUE
+//  extract = null//pigrat milk
 	breedable = TRUE
 	young_type = /mob/living/simple_animal/ms13/pigratyoung
 	adult_type = /mob/living/simple_animal/hostile/ms13/pigrat/tamed
@@ -221,7 +221,7 @@
 	melee_damage_lower = 7
 	melee_damage_upper = 10
 	speed = 1.5
-	//food_type = list(/obj/item/reagent_containers/food/snacks/grown/ms13/potato)
+	food_type = list(/obj/item/food/grown/ms13/potato)
 	tame_chance = 20
 	bonus_tame_chance = 5
 	breedable = TRUE
@@ -273,22 +273,11 @@
 	melee_damage_lower = 10
 	melee_damage_upper = 15
 	speed = 2
-	//food_type = list(/obj/item/reagent_containers/food)//they eat anything
+	food_type = list(/obj/item/food/)//they eat anything
 	tame_chance = 5
 	bonus_tame_chance = 5
 	eggable = TRUE
-	egg_type = /obj/item/reagent_containers/food/snacks/egg/ms13/radroach
-	var/poison_per_bite = 5
-	var/poison_type = /datum/reagent/toxin
-
-/mob/living/simple_animal/hostile/ms13/radroach/AttackingTarget()
-	. = ..()
-	if(.)
-		inject_poison(target)
-
-/mob/living/simple_animal/hostile/ms13/radroach/proc/inject_poison(mob/living/L)
-	if(poison_type && istype(L) && L.reagents)
-		L.reagents.add_reagent(poison_type, poison_per_bite)
+	egg_type = /obj/item/food/ms13/egg/ms13/radroach
 
 //gecko
 
@@ -312,12 +301,12 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 20
 	speed = 1.8
-	//food_type = //insert TECHNOFISH TM HERE)
+	food_type = null //insert TECHNOFISH TM HERE
 	tame_chance = 5
 	bonus_tame_chance = 15
 	rideable = TRUE
 	eggable = TRUE
-	egg_type = /obj/item/reagent_containers/food/snacks/egg/ms13/gecko
+	egg_type = /obj/item/food/ms13/egg/ms13/gecko
 	offsetx = 6
 	offsety = 5
 
@@ -355,7 +344,7 @@
 	bonus_tame_chance = 5
 	rideable = TRUE
 	eggable = TRUE
-	egg_type = /obj/item/reagent_containers/food/snacks/egg/ms13/mirelurk
+	egg_type = /obj/item/food/ms13/egg/ms13/mirelurk
 	offsetx = 4
 	offsety = 5
 
@@ -387,11 +376,11 @@
 	melee_damage_upper = 30
 	speed = 2
 	footstep_type = FOOTSTEP_MOB_CLAW
-	//food_type = list(/obj/item/reagent_containers/food/snacks/grown/ms13/punga, /obj/item/reagent_containers/food/snacks/grown/ms13/geigpunga)
+	food_type = list(/obj/item/food/grown/ms13/pungafruit, /obj/item/food/grown/ms13/geigpungafruit)
 	tame_chance = 5
 	bonus_tame_chance = 5
 	eggable = TRUE
-	egg_type = /obj/item/reagent_containers/food/snacks/egg/ms13/ant
+	egg_type = /obj/item/food/ms13/egg/ms13/ant
 
 //nightstalker, very good mount
 
@@ -409,7 +398,7 @@
 	attack_verb_simple = "maul"
 	speak_chance = 20
 	turns_per_move = 3
-	butcher_results = list(/obj/item/ms13/hide/nightstalker = 1, /obj/item/ms13/carcass/large/nightstalker = 1, /obj/item/ms13/animalitem/nightstalker/teeth = 2)//nightstalker hide, extract, meat
+	butcher_results = list(/obj/item/ms13/hide/nightstalker = 1, /obj/item/ms13/carcass/large/nightstalker = 1, /obj/item/ms13/animalitem/nightstalker/teeth = 2)//nightstalker hide,//  extract, meat
 	attack_sound = 'mojave/sound/ms13weapons/meleesounds/slam.ogg'
 	health = 400
 	maxHealth = 400
@@ -422,9 +411,9 @@
 	bonus_tame_chance = 2 //this things a jack of all tame trades
 	rideable = TRUE
 	eggable = TRUE
-	egg_type = /obj/item/reagent_containers/food/snacks/egg/ms13/nightstalker
-	milkable = TRUE
-	extract = null//nightstalkers squeezin
+	egg_type = /obj/item/food/ms13/egg/ms13/nightstalker
+//  milkable = TRUE
+//  extract = null//nightstalkers squeezin
 	base_pixel_x = -48
 	offsety = 6
 	var/poison_per_bite = 10
@@ -461,11 +450,11 @@
 	melee_damage_upper = 10
 	speed = 3
 	footstep_type = FOOTSTEP_MOB_CLAW
-	//food_type = list(/obj/item/reagent_containers/food/snacks/grown/ms13/pricklypear)
+	food_type = list(/obj/item/food/grown/ms13/pricklypear)
 	tame_chance = 5
 	bonus_tame_chance = 20
-	milkable = TRUE
-	extract = null//honey
+//  milkable = TRUE
+//  extract = null//honey
 	ranged = TRUE
 	var/bee_type = /mob/living/simple_animal/hostile/bee
 
@@ -503,11 +492,11 @@
 	base_pixel_x = -8
 	speed = 2
 	footstep_type = FOOTSTEP_MOB_CLAW
-	//food_type = list(/obj/item/reagent_containers/food/snacks/grown/ms13/soot, /obj/item/reagent_containers/food/snacks/grown/ms13/toxicsoot)
+	food_type = list(/obj/item/food/grown/ms13/soot, /obj/item/food/grown/ms13/toxicsoot)
 	tame_chance = 5
 	bonus_tame_chance = 5
-	milkable = TRUE
-	extract = null//poison
+//  milkable = TRUE
+//  extract = null//poison
 	var/poison_per_bite = 20
 	var/poison_type = /datum/reagent/toxin
 
@@ -546,12 +535,12 @@
 	melee_damage_upper = 20
 	aggro_vision_range = 30
 	speed = 1.5
-	//food_type = list(/obj/item/reagent_containers/food/snacks/grown/ms13/aster)
+	food_type = list(/obj/item/food/grown/ms13/aster)
 	tame_chance = 20
 	bonus_tame_chance = 25
 	rideable = TRUE
-	milkable = TRUE
-	extract = null//radstag milk
+//  milkable = TRUE
+//  extract = null//radstag milk
 	breedable = TRUE
 	young_type = /mob/living/simple_animal/ms13/radstagyoung
 	adult_type = /mob/living/simple_animal/hostile/ms13/radstag/tamed
@@ -689,7 +678,7 @@
 	melee_damage_lower = 30
 	melee_damage_upper = 40
 	speed = 1
-	//food_type = list(/obj/item/reagent_containers/food/snacks/grown/ms13/blight)
+	food_type = list(/obj/item/food/grown/ms13/blight)
 	tame_chance = 5
 	bonus_tame_chance = 5
 	rideable = TRUE

@@ -43,6 +43,9 @@
 	extra_damage = 45
 	extra_penetration = 10
 	mag_type = /obj/item/ammo_box/magazine/ms13/r308
+	zoomable = TRUE
+	zoom_amt = 10
+	zoom_out_amt = 13
 
 /obj/item/gun/ballistic/automatic/ms13/semi/sniper/silencer
 	name = "\improper Silencer"
@@ -51,6 +54,30 @@
 	inhand_icon_state = "silentsniper"
 	fire_delay = 5
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
+
+/obj/item/gun/ballistic/automatic/ms13/semi/marksman
+	name = "marksman carbine"
+	desc = "A 5.56 carbine with a scope attached to help in long range combat. Packs a good punch for 5.56 rounds, but at the cost of a slower rate of fire."
+	icon_state = "marksman"
+	inhand_icon_state = "marksman"
+	w_class = WEIGHT_CLASS_BULKY
+	weapon_weight = WEAPON_HEAVY
+	mag_type = /obj/item/ammo_box/magazine/ms13/r20
+	fire_sound = 'mojave/sound/ms13weapons/gunsounds/marksman/marksman2.ogg'
+	can_suppress = FALSE
+	fire_delay = 6
+	extra_damage = 35
+	extra_penetration = 10
+	zoomable = TRUE
+	zoom_amt = 10
+	zoom_out_amt = 13
+
+/obj/item/gun/ballistic/automatic/ms13/semi/marksman/american
+	name = "\improper All-American"
+	desc = "A unique and customized marksman carbine. Improved rifling and similar modifications allow for higher damage and an improved paint job allows for higher patriotism."
+	icon_state = "allamerican"
+	inhand_icon_state = "allamerican"
+	extra_damage = 40
 
 /obj/item/gun/ballistic/automatic/ms13/semi/battle
 	name = "battle rifle"
@@ -219,30 +246,6 @@
 	zoom_amt = 10
 	zoom_out_amt = 13
 	spread = 6
-
-/obj/item/gun/ballistic/automatic/ms13/full/marksman
-	name = "marksman carbine"
-	desc = "A 5.56 carbine with a scope attached to help in long range combat. Packs a good punch for 5.56 rounds, but at the cost of a slower rate of fire."
-	icon_state = "marksman"
-	inhand_icon_state = "marksman"
-	w_class = WEIGHT_CLASS_BULKY
-	weapon_weight = WEAPON_HEAVY
-	mag_type = /obj/item/ammo_box/magazine/ms13/r20
-	fire_sound = 'mojave/sound/ms13weapons/gunsounds/marksman/marksman2.ogg'
-	can_suppress = FALSE
-	fire_delay = 6
-	extra_damage = 35
-	extra_penetration = 10
-	zoomable = TRUE
-	zoom_amt = 10
-	zoom_out_amt = 13
-
-/obj/item/gun/ballistic/automatic/ms13/full/marksman/american
-	name = "\improper All-American"
-	desc = "A unique and customized marksman carbine. Improved rifling and similar modifications allow for higher damage and an improved paint job allows for higher patriotism."
-	icon_state = "allamerican"
-	inhand_icon_state = "allamerican"
-	extra_damage = 40
 
 //Magazines
 /obj/item/ammo_box/magazine/ms13/r20

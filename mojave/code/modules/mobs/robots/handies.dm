@@ -19,6 +19,11 @@
 	..()
 	add_overlay(image(icon, "[shadow_type]", BELOW_MOB_LAYER, dir))
 
+/mob/living/simple_animal/hostile/ms13/robot/handy/death()
+	. = ..()
+	do_sparks(3, TRUE, src)
+	qdel(src)
+
 /mob/living/simple_animal/hostile/ms13/robot/handy/saw
 	name = "mr. handy"
 	desc = "A work model Mr. Handy unit, armed with a horrifyingly sharp saw. It's long lost any rational wires in its circuits."
