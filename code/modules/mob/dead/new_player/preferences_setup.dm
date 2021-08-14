@@ -17,7 +17,7 @@
 	if(randomise_flags & RANDOMIZE_UNDERWEAR)
 		underwear = random_underwear(gender)
 	if(randomise_flags & RANDOMIZE_UNDERWEAR_COLOR)
-		underwear_color = random_underwear_color() //MOJAVE SUN EDIT - Hair/Gendered/Colours
+		underwear_color = sanitize_hexcolor(undiestone2hex(random_underwear_color())) //MOJAVE SUN EDIT - Hair/Gendered/Colours
 	if(randomise_flags & RANDOMIZE_UNDERSHIRT)
 		undershirt = random_undershirt(gender)
 	if(randomise_flags & RANDOMIZE_SOCKS)
@@ -31,13 +31,13 @@
 	if(randomise_flags & RANDOMIZE_FACIAL_HAIRSTYLE)
 		facial_hairstyle = random_facial_hairstyle(gender)
 	if(randomise_flags & RANDOMIZE_HAIR_COLOR)
-		hair_color = random_hair_color() //MOJAVE SUN EDIT - Hair/Gendered/Colours
+		hair_color = sanitize_hexcolor(hairtone2hex(random_hair_color())) //MOJAVE SUN EDIT - Hair/Gendered/Colours
 	if(randomise_flags & RANDOMIZE_FACIAL_HAIR_COLOR)
-		facial_hair_color = random_hair_color() //MOJAVE SUN EDIT - Hair/Gendered/Colours
+		facial_hair_color = hair_color //MOJAVE SUN EDIT - Hair/Gendered/Colours
 	if(randomise_flags & RANDOMIZE_SKIN_TONE)
 		skin_tone = random_skin_tone()
 	if(randomise_flags & RANDOMIZE_EYE_COLOR)
-		eye_color = random_eye_color()
+		eye_color = sanitize_hexcolor(eyetone2hex(random_eye_color())) //MOJAVE SUN EDIT - Hair/Gendered/Colours
 	if(randomise_flags & RANDOMIZE_FEATURES)
 		features = random_features()
 

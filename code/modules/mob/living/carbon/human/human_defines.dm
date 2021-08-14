@@ -14,7 +14,7 @@
 	can_be_shoved_into = TRUE
 
 	//Hair colour and style
-	var/hair_color = "#4a2c21" //Hair color //MOJAVE SUN EDIT - Hair/Gendered/Colours
+	var/hair_color = "341d18" //Hair color //MOJAVE SUN EDIT - Hair/Gendered/Colours
 	var/hairstyle = "Bald"
 
 	///Colour used for the hair gradient.
@@ -23,11 +23,11 @@
 	var/grad_style
 
 	//Facial hair colour and style
-	var/facial_hair_color = "#4a2c21" //Hair color //MOJAVE SUN EDIT - Hair/Gendered/Colours
+	var/facial_hair_color = "341d18" //Hair color //MOJAVE SUN EDIT - Hair/Gendered/Colours
 	var/facial_hairstyle = "Shaved"
 
 	//Eye colour
-	var/eye_color = "000"
+	var/eye_color = "1c3a5c" //MOJAVE SUN EDIT - Hair/Gendered/Colours
 
 	var/skin_tone = "caucasian1" //Skin tone
 
@@ -38,7 +38,7 @@
 
 	//consider updating /mob/living/carbon/human/copy_clothing_prefs() if adding more of these
 	var/underwear = "Nude" //Which underwear the player wants
-	var/underwear_color = "000"
+	var/underwear_color = "FFCC99" //MOJAVE SUN EDIT - Hair/Gendered/Colours
 	var/undershirt = "Nude" //Which undershirt the player wants
 	var/socks = "Nude" //Which socks the player wants
 	var/backpack = DBACKPACK //Which backpack type the player has chosen.

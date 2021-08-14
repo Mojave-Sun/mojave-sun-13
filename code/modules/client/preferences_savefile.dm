@@ -503,10 +503,10 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	socks = sanitize_inlist(socks, GLOB.socks_list)
 	age = sanitize_integer(age, AGE_MIN, AGE_MAX, initial(age))
-	hair_color = sanitize_hexcolor(hair_color, 3, 0)
-	facial_hair_color = sanitize_hexcolor(facial_hair_color, 3, 0)
-	underwear_color = sanitize_hexcolor(underwear_color, 3, 0)
-	eye_color = sanitize_hexcolor(eye_color, 3, 0)
+	hair_color = sanitize_inlist(hair_color,  GLOB.hair_color) //MOJAVE SUN EDIT - Hair/Gendered/Colours
+	facial_hair_color = sanitize_inlist(facial_hair_color,  GLOB.hair_color) //MOJAVE SUN EDIT - Hair/Gendered/Colours
+	underwear_color = sanitize_inlist(underwear_color,  GLOB.underwear_color) //MOJAVE SUN EDIT - Hair/Gendered/Colours
+	eye_color = sanitize_inlist(eye_color,  GLOB.eye_color) //MOJAVE SUN EDIT - Hair/Gendered/Colours
 	skin_tone = sanitize_inlist(skin_tone, GLOB.skin_tones)
 	backpack = sanitize_inlist(backpack, GLOB.backpacklist, initial(backpack))
 	jumpsuit_style = sanitize_inlist(jumpsuit_style, GLOB.jumpsuitlist, initial(jumpsuit_style))

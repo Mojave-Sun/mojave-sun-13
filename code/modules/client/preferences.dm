@@ -68,17 +68,17 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/gender = MALE //gender of character (well duh)
 	var/age = 30 //age of character
 	var/underwear = "Nude" //underwear type
-	var/underwear_color = "000" //underwear color
+	var/underwear_color = "FFCC99" //underwear colour //MOJAVE SUN EDIT - Hair/Gendered/Colours
 	var/undershirt = "Nude" //undershirt type
 	var/socks = "Nude" //socks type
 	var/backpack = DBACKPACK //backpack type
 	var/jumpsuit_style = PREF_SUIT //suit/skirt
 	var/hairstyle = "Bald" //Hair type
-	var/hair_color = "#171211" //Hair color //MOJAVE SUN EDIT - Hair/Gendered/Colours
+	var/hair_color = "341d18" //Hair color //MOJAVE SUN EDIT - Hair/Gendered/Colours
 	var/facial_hairstyle = "Shaved" //Face hair type
-	var/facial_hair_color =  "#171211" //Facial hair color //MOJAVE SUN EDIT - Hair/Gendered/Colours
+	var/facial_hair_color =  "341d18" //Facial hair color //MOJAVE SUN EDIT - Hair/Gendered/Colours
 	var/skin_tone = "caucasian1" //Skin color
-	var/eye_color = "#1b1424" //Eye color
+	var/eye_color = "1c3a5c" //Eye color //MOJAVE SUN EDIT - Hair/Gendered/Colours
 	var/datum/species/pref_species = new /datum/species/human() //Mutant race
 	var/list/features = list("mcolor" = "FFF", "ethcolor" = "9c3030", "tail_lizard" = "Smooth", "tail_human" = "None", "snout" = "Round", "horns" = "None", "ears" = "None", "wings" = "None", "frills" = "None", "spines" = "None", "body_markings" = "None", "legs" = "Normal Legs", "moth_wings" = "Plain", "moth_antennae" = "Plain", "moth_markings" = "None")
 	var/list/randomise = list(
@@ -1365,9 +1365,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					var/new_facial_hairstyle
 					switch(gender)
 						if(MALE)
-							new_facial_hairstyle = tgui_input_list(usr, "What facial hair style do you want?", "Facial hair style choice", GLOB.facial_hairstyles_list)
+							new_facial_hairstyle = tgui_input_list(usr, "What facial hair style do you want?", "Facial hair style choice", GLOB.facial_hairstyles_male_list)
 						if(FEMALE)
-							new_facial_hairstyle = tgui_input_list(usr, "What facial hair style do you want?", "Facial hair style choice")
+							new_facial_hairstyle = tgui_input_list(usr, "What facial hair style do you want?", "Facial hair style choice", GLOB.facial_hairstyles_female_list)
 						else
 							new_facial_hairstyle = tgui_input_list(usr, "What facial hair style do you want?", "Facial hair style choice", GLOB.facial_hairstyles_list)
 					if(new_facial_hairstyle)
@@ -1378,7 +1378,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						if(MALE)
 							hairstyle = next_list_item(facial_hairstyle, GLOB.facial_hairstyles_male_list)
 						if(FEMALE)
-							return
+							hairstyle = next_list_item(facial_hairstyle, GLOB.facial_hairstyles_female_list)
 						else
 							hairstyle = next_list_item(facial_hairstyle, GLOB.facial_hairstyles_list)
 
@@ -1387,7 +1387,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						if(MALE)
 							hairstyle = previous_list_item(facial_hairstyle, GLOB.facial_hairstyles_male_list)
 						if(FEMALE)
-							return
+							hairstyle = "Shaved"
 						else
 							hairstyle = previous_list_item(facial_hairstyle, GLOB.facial_hairstyles_list)
 

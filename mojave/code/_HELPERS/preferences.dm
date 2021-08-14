@@ -135,9 +135,9 @@ GLOBAL_LIST_INIT(underwear_color, sortList(list(
 	"White"
 	)))
 
-/proc/undiestone2hex(eye_color)
+/proc/undiestone2hex(underwear_color)
 	. = 0
-	switch(eye_color)
+	switch(underwear_color)
 		if("Brown")
 			. = "FFCC99"
 		if("Green")
