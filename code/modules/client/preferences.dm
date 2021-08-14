@@ -74,11 +74,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/backpack = DBACKPACK //backpack type
 	var/jumpsuit_style = PREF_SUIT //suit/skirt
 	var/hairstyle = "Bald" //Hair type
-	var/hair_color = "#4a2c21" //Hair color //MOJAVE SUN EDIT - Hair/Gendered/Colours
+	var/hair_color = "#171211" //Hair color //MOJAVE SUN EDIT - Hair/Gendered/Colours
 	var/facial_hairstyle = "Shaved" //Face hair type
-	var/facial_hair_color =  "#4a2c21" //Facial hair color //MOJAVE SUN EDIT - Hair/Gendered/Colours
+	var/facial_hair_color =  "#4171211" //Facial hair color //MOJAVE SUN EDIT - Hair/Gendered/Colours
 	var/skin_tone = "caucasian1" //Skin color
-	var/eye_color = "000" //Eye color
+	var/eye_color = "#1b1424" //Eye color
 	var/datum/species/pref_species = new /datum/species/human() //Mutant race
 	var/list/features = list("mcolor" = "FFF", "ethcolor" = "9c3030", "tail_lizard" = "Smooth", "tail_human" = "None", "snout" = "Round", "horns" = "None", "ears" = "None", "wings" = "None", "frills" = "None", "spines" = "None", "body_markings" = "None", "legs" = "Normal Legs", "moth_wings" = "Plain", "moth_antennae" = "Plain", "moth_markings" = "None")
 	var/list/randomise = list(
@@ -151,7 +151,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	///If we have a hearted commendations, we honor it every time the player loads preferences until this time has been passed
 	var/hearted_until
 	/// Agendered spessmen can choose whether to have a male or female bodytype
-	var/body_type
+	var/body_type = MALE // MOJAVE SUN EDIT - No More Wacky Start
 	/// If we have persistent scars enabled
 	var/persistent_scars = TRUE
 	///If we want to broadcast deadchat connect/disconnect messages
