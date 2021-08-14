@@ -1370,7 +1370,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 							new_facial_hairstyle = tgui_input_list(usr, "What facial hair style do you want?", "Facial hair style choice")
 						else
 							new_facial_hairstyle = tgui_input_list(usr, "What facial hair style do you want?", "Facial hair style choice", GLOB.facial_hairstyles_list)
-					if(new_facial_hairstyle
+					if(new_facial_hairstyle)
 						facial_hairstyle = new_facial_hairstyle
 
 				if("next_facehairstyle")
