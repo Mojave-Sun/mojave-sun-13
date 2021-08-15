@@ -39,18 +39,13 @@
 				return
 		if(hairchoice == "Facial")
 			if(H.facial_hairstyle == "Shaved")
-				to_chat(H, span_warning("You have no facial hair!"))
+				to_chat(user, span_warning("You have no facial hair!"))
 				return
-			switch(H.gender)
-				if(MALE)
-					new_facial_hair = tgui_input_list(usr, "What facial hair style do you want?", "Facial hair style choice", GLOB.facial_hairstyles_male_list)
-				else if(FEMALE)
-					new_facial_hair = tgui_input_list(usr, "What facial hair style do you want?", "Facial hair style choice", GLOB.facial_hairstyles_female_list)
-				else
-					new_facial_hair = tgui_input_list(usr, "What facial hair style do you want?", "Facial hair style choice", GLOB.facial_hairstyles_list)
+			else
+				new_facial_hair = tgui_input_list(usr, "What facial hair style do you want?", "Facial hair style choice", GLOB.facial_hairstyles_list)
 		if(new_facial_hair)
 			if(do_after(user, 4 SECONDS, src))
-				H.hairstyle = new_facial_hair
+				H.facial_hairstyle = new_facial_hair
 				H.update_hair()
 				return
 
