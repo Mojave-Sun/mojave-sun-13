@@ -69,7 +69,7 @@
 
 // winter jackets //
 
-/obj/item/clothing/suit/labcoat/ms13/ljacket/orange
+/obj/item/clothing/suit/ms13/ljacket/orange
 	name = "orange winter jacket"
 	desc = "A plain orange winter jacket. Nice and warm."
 	icon_state = "winterjacketorange"
@@ -87,7 +87,7 @@
 	icon_state = "armoredwinterorange"
 	armor = list(melee = 40, bullet = 35, laser = 25, energy = 25, bomb = 30, bio = 10, rad = 10, fire = 25, acid = 10)
 
-/obj/item/clothing/suit/labcoat/ms13/ljacket/brown
+/obj/item/clothing/suit/ms13/ljacket/brown
 	name = "brown winter jacket"
 	desc = "A very plain brown winter jacket. Nice and warm."
 	icon_state = "winterjacketbrown"
@@ -105,7 +105,7 @@
 	icon_state = "armoredwinterbrown"
 	armor = list(melee = 40, bullet = 35, laser = 25, energy = 25, bomb = 30, bio = 10, rad = 10, fire = 25, acid = 10)
 
-/obj/item/clothing/suit/labcoat/ms13/ljacket/blue
+/obj/item/clothing/suit/ms13/ljacket/blue
 	name = "blue winter jacket"
 	desc = "A blue winter jacket."
 	icon_state = "winterjacketblue"
@@ -123,7 +123,7 @@
 	icon_state = "armoredwinterblue"
 	armor = list(melee = 40, bullet = 35, laser = 25, energy = 25, bomb = 30, bio = 10, rad = 10, fire = 25, acid = 10)
 
-/obj/item/clothing/suit/labcoat/ms13/ljacket/black
+/obj/item/clothing/suit/ms13/ljacket/black
 	name = "black winter jacket"
 	desc = "A dark, black winter jacket."
 	icon_state = "winterjacketblack"
@@ -222,7 +222,7 @@
 /obj/item/clothing/suit/ms13/trench/black/bruiser
 	name = "bruiser trenchcoat"
 	desc = "A beefy black trenchcoat."
-	icon_state = "bruisercoat"
+	icon_state = "bruiser"
 	inhand_icon_state = "duster"
 
 /obj/item/clothing/suit/ms13/trench/black/reinf
@@ -230,12 +230,6 @@
 	desc = "A black trenchcoat the addition of some reinforcements and armor for added protection."
 	icon_state = "reinfblacktrench"
 	armor = list(melee = 40, bullet = 35, laser = 25, energy = 25, bomb = 30, bio = 10, rad = 10, fire = 25, acid = 10)
-
-/obj/item/clothing/suit/ms13/trench/black/armored
-	name = "armored black trenchcoat"
-	desc = "A heavily armored black trenchcoat that is a near perfect balance between maximum style and maximum protection."
-	icon_state = "armorblacktrench"
-	armor = list(melee = 50, bullet = 40, laser = 30, energy = 30, bomb = 40, bio = 20, rad = 20, fire = 50, acid = 20)
 
 /obj/item/clothing/suit/ms13/trench/battle
 	name = "battle trenchcoat"

@@ -2,6 +2,9 @@
 	fitted = NO_FEMALE_UNIFORM
 	///femstatics destroyed (Also stops it going invisible when someone dosent make a thottiana version.)
 	can_adjust = FALSE
+	has_sensor = NO_SENSORS // For the crew computer
+	random_sensor = FALSE
+	sensor_mode = NO_SENSORS
 	icon = 'mojave/icons/objects/clothing/uniforms.dmi'
 	worn_icon = 'mojave/icons/mob/clothing/uniform.dmi'
 	inhand_icon_state = null
@@ -125,12 +128,6 @@
 	icon_state = "merchant"
 	inhand_icon_state = "ro_suit"
 
-/obj/item/clothing/under/ms13/wasteland/ranger
-	name = "rangers' clothes"
-	desc = "A set of slick, lawkeeping and intimidating clothes."
-	icon_state = "ranger"
-	inhand_icon_state = "ncr_uniform"
-
 /obj/item/clothing/under/ms13/wasteland/hubologist
 	name = "hubologists' outfit"
 	desc = "Light hubologist sect robes typically worn under a heavier main preaching robes."
@@ -233,18 +230,12 @@
 	icon_state = "barman"
 	inhand_icon_state = "ro_suit"
 
-/obj/item/clothing/under/ms13/wasteland/regalsuit
-	name = "regal attire"
-	desc = "The clothing of a god amongst men."
-	icon_state = "regal"
-	inhand_icon_state = "regal"
-
 // combat//government //
 
 /obj/item/clothing/under/ms13/wasteland/police
 	name = "police uniform"
 	desc = "Golden classics of pre-War police officers."
-	icon_state = "police"
+	icon_state = "retro_police"
 	inhand_icon_state = "bluejump"
 
 /obj/item/clothing/under/ms13/wasteland/navy
@@ -262,7 +253,7 @@
 /obj/item/clothing/under/ms13/wasteland/army
 	name = "army uniform"
 	desc = "A tactical pre-war off-duty soldiers uniform, for off-duty personnel only maggot!"
-	icon_state = "combat_shirt"
+	icon_state = "army_uniform"
 	inhand_icon_state = "greenjump"
 
 /obj/item/clothing/under/ms13/wasteland/combat
@@ -273,16 +264,8 @@
 
 /obj/item/clothing/under/ms13/wasteland/combat/desert
 	desc = "A tactical pre-war combat soldiers uniform, for the dustwalkers of the hunt."
-	icon_state = "combatd"
+	icon_state = "combat_desert"
 	inhand_icon_state = "ncr_uniform"
-
-// raider //
-
-/obj/item/clothing/under/ms13/wasteland/raider_leather
-	name = "raider leathers"
-	desc = "A set of ragged leather clothes usually worn by raiders."
-	icon_state = "raider_leather"
-	inhand_icon_state = "tribalrag"
 
 // vault-tec //
 
@@ -316,12 +299,6 @@
 	desc = "A set of pristine spring clothes from before the great war."
 	icon_state = "spring"
 	inhand_icon_state = "sl_suit"
-
-/obj/item/clothing/under/ms13/wasteland/combat
-	name = "combat uniform"
-	desc = "A uniform worn by veterans of the wasteland."
-	icon_state = "combat_shirt"
-	inhand_icon_state = "gy_suit"
 
 /obj/item/clothing/under/ms13/prewar/checkeredred
 	name = "red checkered shirt"
@@ -362,7 +339,7 @@
 /obj/item/clothing/under/ms13/wasteland/burgundyvest
 	name = "burgundy vest"
 	desc = "A burgundy vest."
-	icon_state = "vestbrown"
+	icon_state = "vestburgundy"
 	inhand_icon_state = "brownjsuit"
 
 /obj/item/clothing/under/ms13/wasteland/whiteshirt

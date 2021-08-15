@@ -32,7 +32,7 @@
 	name = "reinforced armor kit"
 	desc = "A reinforced, heavier kit of armor intended to be worn over clothing. Made mostly of durable metal plates."
 	icon_state = "reinf_armorkit"
-	inhand_icon_state = "harmorkit"
+	inhand_icon_state = "reinf_armorkit"
 	armor = list("melee" = 50, "bullet" = 40, "laser" = 0, "energy" = 0, "bomb" = 30, "bio" = 10, "rad" = 10, "fire" = 40, "acid" = 10)
 
 // Light/Leather Armor //
