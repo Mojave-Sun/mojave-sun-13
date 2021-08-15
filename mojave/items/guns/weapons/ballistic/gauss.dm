@@ -37,10 +37,9 @@
 	inhand_icon_state = "ppk12"
 	w_class = WEIGHT_CLASS_NORMAL
 	weapon_weight = WEAPON_MEDIUM
-	extra_damage = 20
+	extra_damage = 25
 	extra_penetration = 25
-	spread = 5
-	fire_delay = 8
+	fire_delay = 6
 
 /* Someone else has to figure out this thing's gimmick. Won't be me.
 /obj/item/gun/ballistic/automatic/ms13/semi/gauss/chinese
