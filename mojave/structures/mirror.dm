@@ -32,11 +32,11 @@
 				new_hair = tgui_input_list(usr, "What hair style do you want?", "Hair style choice", GLOB.hairstyles_medium_list)
 			else if(H.hairstyle in GLOB.hairstyles_long_list)
 				new_hair = tgui_input_list(usr, "What hair style do you want?", "Hair style choice", GLOB.hairstyles_long_list)
-			if(new_hair)
-				if(do_after(user, 4 SECONDS, src))
-					H.hairstyle = new_hair
-					H.update_hair()
-					return
+		if(new_hair)
+			if(do_after(user, 4 SECONDS, src))
+				H.hairstyle = new_hair
+				H.update_hair()
+				return
 		if(hairchoice == "Facial")
 			if(H.facial_hairstyle == "Shaved")
 				to_chat(H, span_warning("You have no facial hair!"))
@@ -48,9 +48,9 @@
 					new_facial_hair = tgui_input_list(usr, "What facial hair style do you want?", "Facial hair style choice", GLOB.facial_hairstyles_female_list)
 				else
 					new_facial_hair = tgui_input_list(usr, "What facial hair style do you want?", "Facial hair style choice", GLOB.facial_hairstyles_list)
-				if(new_facial_hair)
-					if(do_after(user, 4 SECONDS, src))
-						H.hairstyle = new_facial_hair
-						H.update_hair()
-						return
+		if(new_facial_hair)
+			if(do_after(user, 4 SECONDS, src))
+				H.hairstyle = new_facial_hair
+				H.update_hair()
+				return
 
