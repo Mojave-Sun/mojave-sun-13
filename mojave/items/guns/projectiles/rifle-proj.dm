@@ -1,7 +1,6 @@
 //7.62
 /obj/projectile/bullet/ms13/a762
 	icon_state = "bigroilfe_bullet"
-	damage = 0
 	armour_penetration = 0
 	wound_bonus = 0
 
@@ -22,7 +21,6 @@
 //.308
 /obj/projectile/bullet/ms13/a308
 	icon_state = "bigroilfe_bullet"
-	damage = 0
 	armour_penetration = 0
 	wound_bonus = -6
 
@@ -43,7 +41,6 @@
 //5.56
 /obj/projectile/bullet/ms13/a556
 	icon_state = "medium_bullet"
-	damage = 0
 	armour_penetration = 0
 	wound_bonus = 5
 
@@ -64,7 +61,6 @@
 //50 BMG
 /obj/projectile/bullet/ms13/a50MG
 	icon_state = "lightfifty_bullet"
-	damage = 0
 	armour_penetration = 0
 	wound_bonus = 0
 

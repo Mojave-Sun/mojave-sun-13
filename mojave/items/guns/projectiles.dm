@@ -2,6 +2,7 @@
 	icon = 'mojave/icons/objects/projectiles/projectiles.dmi'
 	icon_state = "medium_bullet"
 	speed = 0.6 //Vanilla tg is 0.8
+	damage = 0
 
 /obj/projectile/bullet/ms13/needle
 	name = "needle"
