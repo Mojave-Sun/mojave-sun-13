@@ -22,7 +22,7 @@
 	desc = "The M72 is a weapon that electromagnetically fires its projectiles- at least so you've heard. All you really know is that it can punch through metal like it was never there."
 	icon_state = "m72"
 	inhand_icon_state = "m72"
-	extra_damage = 30
+	extra_damage = 35
 	extra_penetration = 35
 	fire_delay = 10 // Capacitor moment
 	zoomable = TRUE

@@ -3,10 +3,10 @@
 /obj/projectile/beam/ms13
 	speed = 0.2 //Vanilla tg is 0.8
 	var/damage_constant = 1
+	damage = 0
 
 /obj/projectile/beam/ms13/laser
 	name = "laser beam"
-	damage = 0
 	armour_penetration = 0
 	range = 21
 	wound_bonus = 5
@@ -34,19 +34,16 @@
 
 /obj/projectile/beam/ms13/laser/sniper
 	name = "laser beam"
-	damage = 0
 	armour_penetration = 0
 	range = 28
 	wound_bonus = 10
 
 /obj/projectile/beam/ms13/laser/pistol
 	name = "laser beam"
-	damage = 0
 	range = 18
 
 /obj/projectile/beam/ms13/laser/scatter
 	name = "scatter laser"
-	damage = 0
 	range = 16
 
 /obj/projectile/beam/ms13/laser/unfocused
@@ -97,7 +94,6 @@
 	damage_type = BURN
 	flag = ENERGY
 	icon_state = "plasma"
-	damage = 0
 	armour_penetration = 0
 	wound_bonus = 10
 	speed = 1
