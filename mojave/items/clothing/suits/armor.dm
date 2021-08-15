@@ -120,14 +120,6 @@
 
 // Raider Armor //
 
-/obj/item/clothing/suit/ms13/trench/bossduster
-	name = "boss' duster"
-	desc = "A duster with a rather thick vest under it. This just SCREAMS authority. Could probably stop a few bullets."
-	icon_state = "armoredblacktrench"
-	inhand_icon_state = "det_suit"
-	blood_overlay_type = "armor"
-	armor = list(melee = 30, bullet = 30, laser = 10, energy = 10, bomb = 25, bio = 5, rad = 5, fire = 20, acid = 5)
-
 /obj/item/clothing/suit/ms13/trench/enforcercoat
 	name = "enforcers overcoat"
 	desc = "A duster with a rather thick vest under it. This just SCREAMS authority. Could probably stop a few bullets."
@@ -153,11 +145,6 @@
 	name = "reinforced coat"
 	desc = "A cozy coat with some leather straps tieing some metal bits to the wearer. It's got a seemingly trustworthy vest over it. Could it take a shot?"
 	icon_state = "dapperraider"
-
-/obj/item/clothing/suit/ms13/raider/scrappy
-	name = "scrap reinforced coat"
-	desc = "A duster with a rather thick vest under it. This just SCREAMS authority. Could probably stop a few bullets."
-	icon_state = "veteranraider"
 
 // Combat Armor //
 
