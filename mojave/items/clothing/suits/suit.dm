@@ -5,10 +5,25 @@
 	worn_icon = 'mojave/icons/mob/clothing/suit.dmi'
 	allowed = list(/obj/item/pen,/obj/item/paper,/obj/item/stamp,/obj/item/reagent_containers/food/drinks/flask,/obj/item/storage/box/matches,/obj/item/lighter,/obj/item/clothing/mask/cigarette,/obj/item/storage/fancy/cigarettes,/obj/item/flashlight,/obj/item/gun,/obj/item/ammo_box,/obj/item/ammo_casing)
 	body_parts_covered = CHEST|ARMS|LEGS|GROIN
-	///Icon file for left hand inhand overlays
+	///Icon file for left inhand overlays
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	///Icon file for right inhand overlays
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
+
+/obj/item/clothing/suit/toggle/ms13
+	name = "generic ms13 toggleable"
+	desc = "Don't look. Don't look. NIGHTMARE NIGHTMARE NIGHTMARE."
+	icon_state = "winterjacketorange"
+	inhand_icon_state = "winter"
+	icon = 'mojave/icons/objects/clothing/suits.dmi'
+	worn_icon = 'mojave/icons/mob/clothing/suit.dmi'
+	allowed = list(/obj/item/pen,/obj/item/paper,/obj/item/stamp,/obj/item/reagent_containers/food/drinks/flask,/obj/item/storage/box/matches,/obj/item/lighter,/obj/item/clothing/mask/cigarette,/obj/item/storage/fancy/cigarettes,/obj/item/flashlight,/obj/item/gun,/obj/item/ammo_box,/obj/item/ammo_casing)
+	body_parts_covered = CHEST|ARMS|LEGS|GROIN
+	///Icon file for left inhand overlays
+	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
+	///Icon file for right inhand overlays
+	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
+	togglename = "buttons"
 
 // wasteland //
 
@@ -69,74 +84,74 @@
 
 // winter jackets //
 
-/obj/item/clothing/suit/ms13/ljacket/orange
+/obj/item/clothing/suit/toggle/ms13/wjacket/orange
 	name = "orange winter jacket"
 	desc = "A plain orange winter jacket. Nice and warm."
 	icon_state = "winterjacketorange"
 	inhand_icon_state = "winter"
 
-/obj/item/clothing/suit/ms13/ljacket/orange/reinforced
+/obj/item/clothing/suit/toggle/ms13/wjacket/orange/reinforced
 	name = "reinforced orange jacket"
 	desc = "A reinforced and padded orange winter jacket."
 	icon_state = "reinforcedwinterorange"
 	armor = list(melee = 30, bullet = 25, laser = 15, energy = 15, bomb = 15, bio = 10, rad = 10, fire = 10, acid = 10)
 
-/obj/item/clothing/suit/ms13/ljacket/orange/armored
+/obj/item/clothing/suit/toggle/ms13/wjacket/orange/armored
 	name = "armored orange jacket"
 	desc = "An armored and heavily reinforced orange winter jacket."
 	icon_state = "armoredwinterorange"
 	armor = list(melee = 40, bullet = 35, laser = 25, energy = 25, bomb = 30, bio = 10, rad = 10, fire = 25, acid = 10)
 
-/obj/item/clothing/suit/ms13/ljacket/brown
+/obj/item/clothing/suit/toggle/ms13/wjacket/brown
 	name = "brown winter jacket"
 	desc = "A very plain brown winter jacket. Nice and warm."
 	icon_state = "winterjacketbrown"
 	inhand_icon_state = "winter"
 
-/obj/item/clothing/suit/ms13/ljacket/brown/reinforced
+/obj/item/clothing/suit/toggle/ms13/wjacket/brown/reinforced
 	name = "reinforced brown jacket"
 	desc = "A reinforced and padded brown winter jacket."
 	icon_state = "reinforcedwinterbrown"
 	armor = list(melee = 30, bullet = 25, laser = 15, energy = 15, bomb = 15, bio = 10, rad = 10, fire = 10, acid = 10)
 
-/obj/item/clothing/suit/ms13/ljacket/brown/armored
+/obj/item/clothing/suit/toggle/ms13/wjacket/brown/armored
 	name = "armored brown jacket"
 	desc = "An armored and heavily reinforced brown winter jacket."
 	icon_state = "armoredwinterbrown"
 	armor = list(melee = 40, bullet = 35, laser = 25, energy = 25, bomb = 30, bio = 10, rad = 10, fire = 25, acid = 10)
 
-/obj/item/clothing/suit/ms13/ljacket/blue
+/obj/item/clothing/suit/toggle/ms13/wjacket/blue
 	name = "blue winter jacket"
 	desc = "A blue winter jacket."
 	icon_state = "winterjacketblue"
 	inhand_icon_state = "winter"
 
-/obj/item/clothing/suit/ms13/ljacket/blue/reinforced
+/obj/item/clothing/suit/toggle/ms13/wjacket/blue/reinforced
 	name = "reinforced blue winter jacket"
 	desc = "A reinforced and padded blue winter jacket."
 	icon_state = "reinforcedwinterblue"
 	armor = list(melee = 30, bullet = 25, laser = 15, energy = 15, bomb = 15, bio = 10, rad = 10, fire = 10, acid = 10)
 
-/obj/item/clothing/suit/ms13/ljacket/blue/armored
+/obj/item/clothing/suit/toggle/ms13/wjacket/blue/armored
 	name = "armored blue winter jacket"
 	desc = "An armored and heavily reinforced blue winter jacket."
 	icon_state = "armoredwinterblue"
 	armor = list(melee = 40, bullet = 35, laser = 25, energy = 25, bomb = 30, bio = 10, rad = 10, fire = 25, acid = 10)
 
-/obj/item/clothing/suit/ms13/ljacket/black
+/obj/item/clothing/suit/toggle/ms13/wjacket/black
 	name = "black winter jacket"
 	desc = "A dark, black winter jacket."
 	icon_state = "winterjacketblack"
 	inhand_icon_state = "winter"
 
-/obj/item/clothing/suit/ms13/ljacket/black/reinforced
+/obj/item/clothing/suit/toggle/ms13/wjacket/black/reinforced
 	name = "reinforced black winter jacket"
 	desc = "A reinforced and padded black winter jacket."
 	icon_state = "reinforcedwinterblack"
 	inhand_icon_state = "reinforcedwinterblack"
 	armor = list(melee = 30, bullet = 25, laser = 15, energy = 15, bomb = 15, bio = 10, rad = 10, fire = 10, acid = 10)
 
-/obj/item/clothing/suit/ms13/ljacket/black/armored
+/obj/item/clothing/suit/toggle/ms13/wjacket/black/armored
 	name = "armored black winter jacket"
 	desc = "An armored and heavily reinforced black winter jacket."
 	icon_state = "armoredwinterblack"
