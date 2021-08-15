@@ -40,8 +40,8 @@
 
 /obj/item/clothing/head/helmet/ms13/tall
 	worn_icon = 'mojave/icons/mob/clothing/32x64.dmi'
-	worn_x_dimension = 64
-	worn_y_dimension = 64
+	worn_x_dimension = 32
+	worn_y_dimension = 32
 
 // Helmets //
 
@@ -403,18 +403,18 @@
 	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
 	soft_type = "baseball"
 
+/obj/item/clothing/head/helmet/ms13/deputy
+	name = "deputy's cap"
+	desc = "A formal refurbished pre-war cap. It's got a faded logo on the inner rim."
+	icon_state = "deputycap"
+	inhand_icon_state = "deputycap"
+
 /obj/item/clothing/head/helmet/ms13/military
 	name = "military hat"
 	desc = "A military hat for off-duty soldiers."
 	icon_state = "military"
 	inhand_icon_state = "general"
 	armor = list(melee = 15, bullet = 20, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
-
-/obj/item/clothing/head/helmet/ms13/utilitycap/deputy
-	name = "deputy's cap"
-	desc = "A formal refurbished pre-war cap. It's got a faded logo on the inner rim."
-	icon_state = "deputycap"
-	inhand_icon_state = "deputycap"
 
 /obj/item/clothing/head/helmet/ms13/military/officer
 	name = "officer's hat"
@@ -460,7 +460,7 @@
 	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
 
 /obj/item/clothing/head/helmet/ms13/fisher/technobug
-	desc = "A waterproof angler's hat. About a quarter of what you need to get fishing! The name 'Technobug' is crudely written on the inside."
+	desc = "A waterproof angler's hat. About a quarter of what you need to get fishing! The name 'T. bugg' is crudely written on the inside."
 
 /obj/item/clothing/head/helmet/ms13/bandanacap
 	name = "bandana cap"
@@ -470,7 +470,7 @@
 	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
 
 /obj/item/clothing/head/helmet/ms13/bandanacap/ms13
-	desc = "A piece of cloth tied around a cap. A sense of gang activity radiates from this hat. The sign 'MS13' is inscribed on the inside."
+	desc = "A piece of cloth tied around a cap. A sense of gang activity radiates from this hat. The letters and numbers 'MS13' are inscribed on the inside."
 
 /obj/item/clothing/head/helmet/ms13/beret
 	name = "gray beret"
@@ -756,8 +756,8 @@
 	flags_inv = HIDEEARS|HIDEHAIR
 
 /obj/item/clothing/head/helmet/ms13/legion/scout
-	name = "\improper Legion scout helmet"
-	desc = "A simple helmet, often seen sucking onto the heads of Legionary scouts."
+	name = "\improper Legion scout bandana"
+	desc = "A red bandana, often seen tied aroudn the heads of Legion scouts."
 	icon_state = "leg_scout"
 	inhand_icon_state = "owl_mask"
 	armor = list("melee" = 25, "bullet" = 25, "laser" = 25, "energy" = 20, "bomb" = 35, "bio" = 20, "rad" = 20, "fire" = 25, "acid" = 20)
