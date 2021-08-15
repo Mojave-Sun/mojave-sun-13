@@ -136,7 +136,7 @@
 	blood_overlay_type = "armor"
 	armor = list(melee = 40, bullet = 45, laser = 15, energy = 10, bomb = 25, bio = 5, rad = 5, fire = 30, acid = 5)
 
-/obj/item/clothing/suit/ms13/vest/raider
+/obj/item/clothing/suit/ms13/raider
 	name = "lightly armored jacket"
 	desc = "A jacket with some basic armor attached to it. Better than nothing."
 	icon_state = "winterjacketraider"
@@ -144,17 +144,17 @@
 	blood_overlay_type = "armor"
 	armor = list(melee = 25, bullet = 35, laser = 10, energy = 10, bomb = 25, bio = 5, rad = 5, fire = 20, acid = 5)
 
-/obj/item/clothing/suit/ms13/vest/raider/plated
+/obj/item/clothing/suit/ms13/raider/plated
 	name = "plate reinforced coat"
 	desc = "A nice thick coat. The torso has a bit of padding under it while it's also got some rough scrapped together metal plates to protect the shoulders and thighs."
 	icon_state = "knightlyraider"
 
-/obj/item/clothing/suit/ms13/vest/raider/kevlar
+/obj/item/clothing/suit/ms13/raider/kevlar
 	name = "reinforced coat"
 	desc = "A cozy coat with some leather straps tieing some metal bits to the wearer. It's got a seemingly trustworthy vest over it. Could it take a shot?"
 	icon_state = "dapperraider"
 
-/obj/item/clothing/suit/ms13/vest/raider/scrappy
+/obj/item/clothing/suit/ms13/raider/scrappy
 	name = "scrap reinforced coat"
 	desc = "A duster with a rather thick vest under it. This just SCREAMS authority. Could probably stop a few bullets."
 	icon_state = "veteranraider"
