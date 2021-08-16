@@ -20,9 +20,9 @@
 
 /obj/projectile/bullet/pellet/ms13/flechette
 	icon_state = "bb"
-	name = "flechette pellet"
+	name = "flechette dart"
 	damage = 9
-	wound_bonus = 5
+	wound_bonus = 2
 	armour_penetration = 5
 
 /obj/projectile/bullet/ms13/slug
