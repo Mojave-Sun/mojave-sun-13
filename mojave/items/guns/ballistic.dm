@@ -128,11 +128,10 @@
 	actions_types = null
 	select = 1
 	burst_size = 1
-	var/autofire_shot_delay = 0.25 //Time between individual shots.
 
 /obj/item/gun/ballistic/automatic/ms13/full/Initialize()
 	. = ..()
-	AddComponent(/datum/component/automatic_fire, 0.25 SECONDS)
+	AddComponent(/datum/component/automatic_fire, fire_delay)
 
 /obj/item/gun/ballistic/automatic/pistol/ms13
 	name = "generic ms13 gun"

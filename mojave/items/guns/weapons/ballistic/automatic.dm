@@ -114,7 +114,7 @@
 	mag_type = /obj/item/ammo_box/magazine/ms13/smgm45
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/45/45auto3.ogg'
 	can_suppress = FALSE
-	fire_delay = 3
+	fire_delay = 0.25 SECONDS
 	extra_damage = 20
 	extra_penetration = 5
 	spread = 12
@@ -129,7 +129,7 @@
 	slot_flags = 0
 	mag_type = /obj/item/ammo_box/magazine/ms13/smgm22
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
-	fire_delay = 3
+	fire_delay = 0.2 SECONDS
 	extra_damage = 15
 	extra_penetration = 5
 	spread = 12
@@ -144,7 +144,7 @@
 	slot_flags = 0
 	mag_type = /obj/item/ammo_box/magazine/ms13/smgm10mm
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/10mmsmg/10mmsmg1.ogg'
-	fire_delay = 3
+	fire_delay = 0.2 SECONDS
 	extra_damage = 15
 	extra_penetration = 5
 	spread = 12
@@ -160,7 +160,7 @@
 	mag_type = /obj/item/ammo_box/magazine/ms13/smgm9mm
 	fire_sound = 'mojave/sound/ms13weapons/greasegun.ogg'
 	can_suppress = FALSE
-	fire_delay = 3
+	fire_delay = 0.2 SECONDS
 	extra_damage = 15
 	force = 15
 	spread = 12
@@ -174,7 +174,7 @@
 	mag_type = /obj/item/ammo_box/magazine/ms13/smg12mm
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/12mm/m12mm2.ogg'
 	can_suppress = FALSE
-	fire_delay = 3
+	fire_delay = 0.25 SECONDS
 	extra_damage = 20
 	extra_penetration = 15
 	force = 10
@@ -188,7 +188,7 @@
 	slot_flags = 0
 	mag_type = /obj/item/ammo_box/magazine/ms13/r20
 	fire_sound = 'mojave/sound/ms13weapons/arfire.ogg'
-	fire_delay = 3
+	fire_delay = 0.25 SECONDS
 	extra_damage = 20
 	extra_penetration = 10
 	w_class = WEIGHT_CLASS_BULKY
@@ -201,7 +201,7 @@
 	icon_state = "protoservice"
 	inhand_icon_state = "protoservice"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/service/service_2.ogg'
-	fire_delay = 3
+	fire_delay = 0.3 SECONDS
 	extra_damage = 25
 	extra_penetration = 0
 	spread = 3
@@ -224,7 +224,7 @@
 	inhand_icon_state = "chinesear"
 	mag_type = /obj/item/ammo_box/magazine/ms13/ar762
 	fire_sound = 'mojave/sound/ms13weapons/chinesearfire.ogg'
-	fire_delay = 4
+	fire_delay = 0.35 SECONDS
 	extra_damage = 30
 	extra_penetration = 5
 	spread = 10
