@@ -4,6 +4,7 @@
 	speed = 0.6 //Vanilla tg is 0.8
 	wound_falloff_tile = 0
 	embedding = null
+	damage = 0
 
 /obj/projectile/bullet/ms13/needle
 	name = "needle"

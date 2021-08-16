@@ -22,7 +22,7 @@
 	desc = "The M72 is a weapon that electromagnetically fires its projectiles- at least so you've heard. All you really know is that it can punch through metal like it was never there."
 	icon_state = "m72"
 	inhand_icon_state = "m72"
-	extra_damage = 30
+	extra_damage = 35
 	extra_penetration = 35
 	fire_delay = 10 // Capacitor moment
 	zoomable = TRUE
@@ -37,10 +37,9 @@
 	inhand_icon_state = "ppk12"
 	w_class = WEIGHT_CLASS_NORMAL
 	weapon_weight = WEAPON_MEDIUM
-	extra_damage = 20
+	extra_damage = 25
 	extra_penetration = 25
-	spread = 5
-	fire_delay = 8
+	fire_delay = 6
 
 /* Someone else has to figure out this thing's gimmick. Won't be me.
 /obj/item/gun/ballistic/automatic/ms13/semi/gauss/chinese

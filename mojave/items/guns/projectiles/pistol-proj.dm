@@ -1,7 +1,6 @@
 //.45
 /obj/projectile/bullet/ms13/c45
 	icon_state = "merehandgun_bullet"
-	damage = 0
 	armour_penetration = 0
 	wound_bonus = 5
 
@@ -22,7 +21,6 @@
 //.22
 /obj/projectile/bullet/ms13/c22
 	icon_state = "merehandgun_bullet"
-	damage = 0
 	armour_penetration = 0
 	wound_bonus = 5
 
@@ -43,7 +41,6 @@
 //9mm
 /obj/projectile/bullet/ms13/c9mm
 	icon_state = "merehandgun_bullet"
-	damage = 0
 	armour_penetration = 0
 	wound_bonus = 5
 
@@ -64,7 +61,6 @@
 //10mm
 /obj/projectile/bullet/ms13/c10mm
 	icon_state = "merehandgun_bullet"
-	damage = 0
 	armour_penetration = 0
 	wound_bonus = 5
 
@@ -85,7 +81,6 @@
 //12.7mm
 /obj/projectile/bullet/ms13/m12mm
 	icon_state = "medium_bullet"
-	damage = 0
 	armour_penetration = 0
 	wound_bonus = 2
 
