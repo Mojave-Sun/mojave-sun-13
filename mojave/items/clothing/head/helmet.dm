@@ -50,7 +50,7 @@
 	desc = "A hollowed out and re-fitted head of an assaultron robot, being made of metal won't help it at all in protecting from lasers."
 	icon_state = "assaultron"
 	inhand_icon_state = "metalhelmet"
-	armor = list("melee" = 50, "bullet" = 40, "laser" = 0, "energy" = 0, "bomb" = 30, "bio" = 10, "rad" = 10, "fire" = 40, "acid" = 10)
+	armor = list("melee" = 50, "bullet" = 40, "laser" = 0, "energy" = 0, "bomb" = 30, "bio" = 10, "rad" = 10, "fire" = 40, "acid" = 10, "wound" = 5)
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
@@ -60,7 +60,7 @@
 	desc = "A good looking brown pre-war flight helmet in decent condition."
 	icon_state = "flightbrown"
 	inhand_icon_state = "combathelmet_mk2"
-	armor = list("melee" = 30, "bullet" = 25, "laser" = 15, "energy" = 15, "bomb" = 15, "bio" = 10, "rad" = 10, "fire" = 10, "acid" = 10)
+	armor = list("melee" = 30, "bullet" = 25, "laser" = 15, "energy" = 15, "bomb" = 15, "bio" = 10, "rad" = 10, "fire" = 10, "acid" = 10, "wound" = 0)
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
@@ -80,7 +80,7 @@
 	desc = "A menancing metal helmet, adorned with two huge blades on the side."
 	icon_state = "bladed"
 	inhand_icon_state = "metalhelmet"
-	armor = list("melee" = 35, "bullet" = 30, "laser" = 0, "energy" = 0, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10)
+	armor = list("melee" = 35, "bullet" = 30, "laser" = 0, "energy" = 0, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10, "wound" = 0)
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 
@@ -89,7 +89,7 @@
 	desc = "An intimidating helmet crudely made from metal scrap."
 	icon_state = "junk"
 	inhand_icon_state = "combathelmet_mk2"
-	armor = list("melee" = 35, "bullet" = 30, "laser" = 0, "energy" = 0, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10)
+	armor = list("melee" = 35, "bullet" = 30, "laser" = 0, "energy" = 0, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10, "wound" = 0)
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
@@ -99,7 +99,7 @@
 	desc = "The skull of a radstag with some padding to be used as a makeshift helmet."
 	icon_state = "radstag"
 	inhand_icon_state = "w_shoes"
-	armor = list("melee" = 30, "bullet" = 10, "laser" = 5, "energy" = 5, "bomb" = 5, "bio" = 5, "rad" = 5, "fire" = 5, "acid" = 5)
+	armor = list("melee" = 30, "bullet" = 10, "laser" = 5, "energy" = 5, "bomb" = 5, "bio" = 5, "rad" = 5, "fire" = 5, "acid" = 5, "wound" = 0)
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 	flags_inv = HIDEEARS|HIDEFACE
@@ -114,7 +114,7 @@
 	desc = "A hollowed out eyebot drone converted into a metal helmet."
 	icon_state = "eyebot"
 	inhand_icon_state = "weldingoff"
-	armor = list("melee" = 35, "bullet" = 30, "laser" = 0, "energy" = 0, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10)
+	armor = list("melee" = 35, "bullet" = 30, "laser" = 0, "energy" = 0, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10, "wound" = 0)
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
@@ -124,7 +124,7 @@
 	desc = "A protective helmet likely used by pre-war doctors in the event of emergency or in dangerous areas."
 	icon_state = "medical"
 	inhand_icon_state = "combathelmet_mk2"
-	armor = list(melee = 20, bullet = 15, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
+	armor = list("melee" = 30, "bullet" = 25, "laser" = 15, "energy" = 15, "bomb" = 15, "bio" = 10, "rad" = 10, "fire" = 10, "acid" = 10, "wound" = 0)
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 	flags_inv = HIDEEARS|HIDEHAIR
@@ -134,7 +134,7 @@
 	desc = "A dark pre-war baseball batters helmet, helps protect your noggin a little."
 	icon_state = "batter"
 	inhand_icon_state = "combathelmet"
-	armor = list("melee" = 30, "bullet" = 10, "laser" = 5, "energy" = 5, "bomb" = 5, "bio" = 5, "rad" = 5, "fire" = 5, "acid" = 5)
+	armor = list("melee" = 30, "bullet" = 10, "laser" = 5, "energy" = 5, "bomb" = 5, "bio" = 5, "rad" = 5, "fire" = 5, "acid" = 5, "wound" = 0)
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 
@@ -157,7 +157,7 @@
 	desc = "A blue pre-war construction hat."
 	icon_state = "hardhat"
 	inhand_icon_state = "vaultvanarmor"
-	armor = list("melee" = 30, "bullet" = 10, "laser" = 5, "energy" = 5, "bomb" = 5, "bio" = 5, "rad" = 5, "fire" = 5, "acid" = 5)
+	armor = list("melee" = 30, "bullet" = 10, "laser" = 5, "energy" = 5, "bomb" = 5, "bio" = 5, "rad" = 5, "fire" = 5, "acid" = 5, "wound" = 0)
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 
@@ -171,7 +171,7 @@
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
 	inhand_icon_state = "hazmat"
-	armor = list("melee" = 30, "bullet" = 25, "laser" = 15, "energy" = 15, "bomb" = 15, "bio" = 10, "rad" = 10, "fire" = 10, "acid" = 10)
+	armor = list("melee" = 30, "bullet" = 25, "laser" = 15, "energy" = 15, "bomb" = 15, "bio" = 10, "rad" = 10, "fire" = 10, "acid" = 10, "wound" = 0)
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 
@@ -184,7 +184,7 @@
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
 	inhand_icon_state = "welding"
-	armor = list(melee = 20, bullet = 15, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
+	armor = list(melee = 20, bullet = 15, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5, wound = 0)
 
 /obj/item/clothing/head/helmet/riot/ms13
 	name = "police riot helmet"
@@ -192,7 +192,7 @@
 	icon_state = "riot"
 	inhand_icon_state = "helmet"
 	strip_delay = 60
-	armor = list("melee" = 30, "bullet" = 50, "laser" = 15, "energy" = 15, "bomb" = 30, "bio" = 20, "rad" = 20, "fire" = 30, "acid" = 20)
+	armor = list("melee" = 30, "bullet" = 50, "laser" = 15, "energy" = 15, "bomb" = 30, "bio" = 20, "rad" = 20, "fire" = 30, "acid" = 20, "wound" = 5)
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 
@@ -210,14 +210,14 @@
 	desc = "A mysterious hood worn by Hubologists."
 	icon_state = "hubologist"
 	inhand_icon_state = "hubologist"
-	armor = list("melee" = 25, "bullet" = 20, "laser" = 10, "energy" = 10, "bomb" = 15, "bio" = 10, "rad" = 10, "fire" = 10, "acid" = 10)
+	armor = list("melee" = 25, "bullet" = 20, "laser" = 10, "energy" = 10, "bomb" = 15, "bio" = 10, "rad" = 10, "fire" = 10, "acid" = 10, "wound" = 0)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 
 /obj/item/clothing/head/ms13/hood/assault
 	name = "assault mask"
 	desc = "A lesser used pre-war US military assault mask, ballistic fiber padding and kevlar weave makes for great protection from bullets."
 	icon_state = "assault"
-	armor = list("melee" = 40, "bullet" = 60, "laser" = 25, "energy" = 25, "bomb" = 50, "bio" = 20, "rad" = 20, "fire" = 50, "acid" = 20)
+	armor = list("melee" = 40, "bullet" = 60, "laser" = 25, "energy" = 25, "bomb" = 50, "bio" = 20, "rad" = 20, "fire" = 50, "acid" = 20, "wound" = 10)
 	inhand_icon_state = "winterglovesblack"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 
@@ -225,7 +225,7 @@
 	name = "banded helmet"
 	desc = "A crude helmet made by placing various banded metal sheets over a hood. Not very comfortable, but offers decent protection from conventional threats."
 	icon_state = "banded"
-	armor = list("melee" = 35, "bullet" = 30, "laser" = 0, "energy" = 0, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10)
+	armor = list("melee" = 35, "bullet" = 30, "laser" = 0, "energy" = 0, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10, "wound" = 0)
 	inhand_icon_state = "harmorkit"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 
@@ -233,7 +233,7 @@
 	name = "plated cowl"
 	desc = "A cloth cowl with plated metal reinforcements."
 	icon_state = "plated"
-	armor = list("melee" = 35, "bullet" = 30, "laser" = 0, "energy" = 0, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10)
+	armor = list("melee" = 35, "bullet" = 30, "laser" = 0, "energy" = 0, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10, "wound" = 0)
 	inhand_icon_state = "armorkit"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 
@@ -242,14 +242,14 @@
 	desc = "A plain cloth cowl."
 	icon_state = "cowl"
 	inhand_icon_state = "winterglovesbrown"
-	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
+	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5, wound = 0)
 	flags_inv = HIDEEARS|HIDEHAIR
 
 /obj/item/clothing/head/ms13/hood/inquisitor
 	name = "inquisitors helm"
 	desc = "A strange looking piece of armored metal religious headgear. The brass, gold, and iron have a strange shine to them despite the apocalyptic conditions."
 	icon_state = "inquisitor"
-	armor = list("melee" = 50, "bullet" = 40, "laser" = 0, "energy" = 0, "bomb" = 30, "bio" = 10, "rad" = 10, "fire" = 40, "acid" = 10)
+	armor = list("melee" = 50, "bullet" = 40, "laser" = 0, "energy" = 0, "bomb" = 30, "bio" = 10, "rad" = 10, "fire" = 40, "acid" = 10, "wound" = 5)
 	inhand_icon_state = "headdress_l"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 
@@ -258,20 +258,20 @@
 	desc = "A simple sack with some holes poked in it, for concealing your identity as you pillage the wasteland."
 	icon_state = "sack"
 	inhand_icon_state = "tribalrag"
-	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
+	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5, wound = 0)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 
 /obj/item/clothing/head/ms13/hood/sack/padded
 	name = "padded sack hood"
 	desc = "A sack hood with the addition of some padding and leather strips for protection."
 	icon_state = "sackstrap"
-	armor = list(melee = 15, bullet = 10, laser = 5, energy = 10, bomb = 10, bio = 5, rad = 5, fire = 10, acid = 5)
+	armor = list(melee = 20, bullet = 15, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5, wound = 0)
 
 /obj/item/clothing/head/ms13/hood/sack/metal
 	name = "reinforced sack hood"
 	desc = "A sack hood reinforced with metal and crude spikes. Looks quite intimidating... for a sack."
 	icon_state = "sackmetal"
-	armor = list(melee = 15, bullet = 10, laser = 5, energy = 10, bomb = 10, bio = 5, rad = 5, fire = 10, acid = 5)
+	armor = list("melee" = 35, "bullet" = 30, "laser" = 0, "energy" = 0, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10, "wound" = 0)
 
 /obj/item/clothing/head/ms13/hood/tactical
 	name = "tactical stealth hood"
@@ -286,14 +286,14 @@
 	desc = "A simple green leather hood."
 	icon_state = "hood"
 	inhand_icon_state = "winterglovesblack"
-	armor = list(melee = 20, bullet = 15, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
+	armor = list(melee = 20, bullet = 15, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5, wound = 0)
 	flags_inv = HIDEEARS|HIDEHAIR
 
 /obj/item/clothing/head/ms13/hood/hunter
 	name = "hunter hood"
 	desc = "A tactical hunting hood with some additional padding and a leather face guard. Commonly used by radstag hunters."
 	icon_state = "hunter"
-	armor = list("melee" = 30, "bullet" = 25, "laser" = 15, "energy" = 15, "bomb" = 15, "bio" = 10, "rad" = 10, "fire" = 10, "acid" = 10)
+	armor = list("melee" = 30, "bullet" = 25, "laser" = 15, "energy" = 15, "bomb" = 15, "bio" = 10, "rad" = 10, "fire" = 10, "acid" = 10, "wound" = 0)
 	inhand_icon_state = "winterglovesbrown"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 
@@ -310,7 +310,7 @@
 	name = "gray fedora"
 	desc = "An old gray fedora."
 	icon_state = "fedold"
-	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
+	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5, wound = 0)
 
 /obj/item/clothing/head/helmet/ms13/fedora/blue
 	name = "blue fedora"
@@ -323,7 +323,7 @@
 	icon_state = "fedbrown"
 
 /obj/item/clothing/head/helmet/ms13/fedora/yellow
-	name = "fedora"
+	name = "yellow fedora"
 	desc = "A bright and cheerful yellow fedora."
 	icon_state = "fedyellow"
 
@@ -332,14 +332,14 @@
 	desc = "A classy gentleman's bowler hat."
 	icon_state = "bowler"
 	inhand_icon_state = "sheriffhat"
-	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
+	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5, wound = 0)
 
 /obj/item/clothing/head/helmet/ms13/cowboy
 	name = "cowboy hat"
 	desc = "A classic cowboy hat. Perhaps worn by lawmen of old."
 	icon_state = "cowboy"
 	inhand_icon_state = "sheriffhat"
-	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
+	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5, wound = 0)
 
 /obj/item/clothing/head/helmet/ms13/cowboy/black
 	name = "black cowboy hat"
@@ -351,21 +351,21 @@
 	desc = "A hat worn commonly by post-war prospectors. Has some added padding for braving the dangers of the wastes."
 	icon_state = "prospector"
 	inhand_icon_state = "sheriffhat"
-	armor = list(melee = 20, bullet = 15, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
+	armor = list(melee = 20, bullet = 15, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5, wound = 0)
 
 /obj/item/clothing/head/helmet/ms13/millitia
 	name = "militia hat"
 	desc = "A sturdy leather wide-brimmed militia hat, the common garb of free men."
 	icon_state = "militia"
 	inhand_icon_state = "fedora"
-	armor = list(melee = 20, bullet = 15, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
+	armor = list(melee = 20, bullet = 15, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5, wound = 0)
 
 /obj/item/clothing/head/helmet/ms13/tricorn
 	name = "tricorn"
 	desc = "A fanciful leather tricorn, how traditional."
 	icon_state = "tricorn"
 	inhand_icon_state = "fedora"
-	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
+	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5, wound = 0)
 
 /obj/item/clothing/head/helmet/ms13/tricorn/pirate
 	name = "pirate hat"
@@ -400,7 +400,7 @@
 	desc = "A classic baseball cap. A relic from pre-nuclear America."
 	icon_state = "baseball"
 	inhand_icon_state = "baseball"
-	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
+	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5, wound = 0)
 	soft_type = "baseball"
 
 /obj/item/clothing/head/helmet/ms13/deputy
@@ -414,7 +414,7 @@
 	desc = "A military hat for off-duty soldiers."
 	icon_state = "military"
 	inhand_icon_state = "general"
-	armor = list(melee = 15, bullet = 20, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
+	armor = list(melee = 15, bullet = 20, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5, wound = 0)
 
 /obj/item/clothing/head/helmet/ms13/military/officer
 	name = "officer's hat"
@@ -436,28 +436,28 @@
 	desc = "A light cap used by pre-war sailors."
 	icon_state = "sailor"
 	inhand_icon_state = "fedora"
-	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
+	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5, wound = 0)
 
 /obj/item/clothing/head/helmet/ms13/postman
 	name = "postman hat"
 	desc = "A soft cap for old-school couriers of pre-war America."
 	icon_state = "postman"
 	inhand_icon_state = "fedora"
-	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
+	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5, wound = 0)
 
 /obj/item/clothing/head/helmet/ms13/police
 	name = "police hat"
 	desc = "A lightly padded hat used by pre-war police officers."
 	icon_state = "policeman"
 	inhand_icon_state = "fedora"
-	armor = list(melee = 15, bullet = 20, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
+	armor = list(melee = 15, bullet = 20, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5, wound = 0)
 
 /obj/item/clothing/head/helmet/ms13/fisher
 	name = "angler hat"
 	desc = "A waterproof angler's hat. About a quarter of what you need to get fishing!"
 	icon_state = "fisher"
 	inhand_icon_state = "fedora"
-	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
+	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5, wound = 0)
 
 /obj/item/clothing/head/helmet/ms13/fisher/technobug
 	desc = "A waterproof angler's hat. About a quarter of what you need to get fishing! The name 'T. bugg' is crudely written on the inside."
@@ -467,7 +467,7 @@
 	desc = "A piece of cloth tied around a cap. A sense of gang activity radiates from this hat."
 	icon_state = "bandanacap"
 	inhand_icon_state = "fedora"
-	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
+	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5, wound = 0)
 
 /obj/item/clothing/head/helmet/ms13/bandanacap/ms13
 	desc = "A piece of cloth tied around a cap. A sense of gang activity radiates from this hat. The letters and numbers 'MS13' are inscribed on the inside."
@@ -477,28 +477,28 @@
 	desc = "A plain gray beret."
 	icon_state = "beret"
 	inhand_icon_state = "fedora"
-	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
+	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5, wound = 0)
 
 /obj/item/clothing/head/helmet/ms13/newsboy
 	name = "newsboy cap"
 	desc = "A cap made famous by newsboys, come read all about it!"
 	icon_state = "newsboy"
 	inhand_icon_state = "fedora"
-	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
+	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5, wound = 0)
 
 /obj/item/clothing/head/helmet/ms13/trilby
 	name = "trilby hat"
 	desc = "A yellow trilby hat."
 	icon_state = "trilby"
 	inhand_icon_state = "fedora"
-	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
+	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5, wound = 0)
 
 /obj/item/clothing/head/helmet/ms13/beanie
 	name = "beanie"
 	desc = "A typical, dark beanie."
 	icon_state = "beanie"
 	inhand_icon_state = "fedora"
-	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
+	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5, wound = 0)
 
 // Misc Hats //
 
@@ -507,13 +507,13 @@
 	desc = "A professional chef hat, hopefully there is no rat inside."
 	icon_state = "chef"
 	inhand_icon_state = "chefhat"
-	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
+	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5, wound = 0)
 
 /obj/item/clothing/head/helmet/ms13/ushanka
 	name = "ushanka hat"
 	desc = "Thick, warm ushanka hat. The makings of a true slav."
 	icon_state = "ushankared"
-	armor = list(melee = 20, bullet = 15, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5)
+	armor = list(melee = 20, bullet = 15, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5, wound = 0)
 
 /obj/item/clothing/head/helmet/ms13/ushanka/blue
 	name = "blue ushanka hat"
@@ -528,11 +528,11 @@
 // Wasteland helmets //
 
 /obj/item/clothing/head/helmet/ms13/metal
-	name = "reinforced metal helmet"
-	desc = "A sturdy and robust metal helmet offering good conventional protection. Offers no protection from lasers, however."
+	name = "heavy metal helmet"
+	desc = "A sturdy and robust metal helmet offering excellent conventional protection."
 	icon_state = "metalhelmet"
 	inhand_icon_state = "metalhelmet"
-	armor = list("melee" = 50, "bullet" = 40, "laser" = 0, "energy" = 0, "bomb" = 30, "bio" = 10, "rad" = 10, "fire" = 40, "acid" = 10)
+	armor = list("melee" = 60, "bullet" = 50, "laser" = 10, "energy" = 10, "bomb" = 50, "bio" = 20, "rad" = 20, "fire" = 60, "acid" = 20, "wound" = 10)
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 
@@ -545,7 +545,7 @@
 	desc = "A standard pre-war combat helmet. Good overall protection."
 	icon_state = "combathelm"
 	inhand_icon_state = "combathelmet"
-	armor = list("melee" = 45, "bullet" = 40, "laser" = 15, "energy" = 15, "bomb" = 40, "bio" = 20, "rad" = 20, "fire" = 40, "acid" = 20)
+	armor = list("melee" = 45, "bullet" = 40, "laser" = 15, "energy" = 15, "bomb" = 40, "bio" = 20, "rad" = 20, "fire" = 40, "acid" = 20, "wound" = 5)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
@@ -555,7 +555,7 @@
 	desc = "An advanced combat helmet offering even better protection."
 	icon_state = "adv_combathelm"
 	inhand_icon_state = "combathelmet_mk2"
-	armor = list("melee" = 55, "bullet" = 45, "laser" = 25, "energy" = 25, "bomb" = 50, "bio" = 25, "rad" = 25, "fire" = 60, "acid" = 25)
+	armor = list("melee" = 55, "bullet" = 45, "laser" = 25, "energy" = 25, "bomb" = 50, "bio" = 25, "rad" = 25, "fire" = 60, "acid" = 25, "wound" = 10)
 
 // Special Helmets //
 
@@ -575,7 +575,7 @@
 	desc = "An experimental helmet specialized to protect from laser weaponry."
 	icon_state = "tesla_helmet"
 	inhand_icon_state = "tesla_helmet"
-	armor = list("melee" = 40, "bullet" = 35, "laser" = 55, "energy" = 55, "bomb" = 30, "bio" = 25, "rad" = 25, "fire" = 60, "acid" = 25)
+	armor = list("melee" = 40, "bullet" = 35, "laser" = 55, "energy" = 55, "bomb" = 30, "bio" = 25, "rad" = 25, "fire" = 60, "acid" = 25, "wound" = 10)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
@@ -585,7 +585,7 @@
 	desc = "An advanced helmet originally used by elite pre-war riot control units."
 	icon_state = "riotgearhelmet"
 	inhand_icon_state = "riotgearhelmet"
-	armor = list("melee" = 55, "bullet" = 45, "laser" = 25, "energy" = 25, "bomb" = 50, "bio" = 25, "rad" = 25, "fire" = 60, "acid" = 25)
+	armor = list("melee" = 55, "bullet" = 45, "laser" = 25, "energy" = 25, "bomb" = 50, "bio" = 25, "rad" = 25, "fire" = 60, "acid" = 25, "wound" = 10)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
@@ -661,7 +661,7 @@
 	desc = "A standard issue NCR infantry helmet adapted for arctic environments."
 	icon_state = "ncr_infantry_helmet"
 	inhand_icon_state = "ncr_infantry_helmet"
-	armor = list("melee" = 35, "bullet" = 30, "laser" = 15, "energy" = 15, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 20, "acid" = 10)
+	armor = list("melee" = 35, "bullet" = 30, "laser" = 15, "energy" = 15, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 20, "acid" = 10, "wound" = 0)
 	flags_cover = NONE
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
@@ -675,14 +675,14 @@
 	toggle_message = "You pull the goggles down on"
 	alt_toggle_message = "You push the goggles up on"
 	actions_types = list(/datum/action/item_action/toggle)
-	armor = list("melee" = 40, "bullet" = 35, "laser" = 20, "energy" = 20, "bomb" = 30, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10)
+	armor = list("melee" = 40, "bullet" = 35, "laser" = 20, "energy" = 20, "bomb" = 30, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10, "wound" = 5)
 
 /obj/item/clothing/head/helmet/ms13/ncr/beret
 	name = "\improper NCR officer beret"
 	desc = "An NCR officer's beret. Minimal protection, maximum style and authority."
 	icon_state = "ncr_officer_beret"
 	inhand_icon_state = "ncr_officer_beret"
-	armor = list("melee" = 25, "bullet" = 20, "laser" = 10, "energy" = 10, "bomb" = 15, "bio" = 10, "rad" = 10, "fire" = 10, "acid" = 10)
+	armor = list("melee" = 25, "bullet" = 20, "laser" = 10, "energy" = 10, "bomb" = 15, "bio" = 10, "rad" = 10, "fire" = 10, "acid" = 10, "wound" = 0)
 
 /obj/item/clothing/head/helmet/ms13/ncr/beret/brown
 	icon_state = "ncr_officer_brberet"
@@ -702,7 +702,7 @@
 	desc = "A dark leather helmet fashioned from old sports gear, worn by Legion recruits."
 	icon_state = "leg_rec"
 	inhand_icon_state = "owl_mask"
-	armor = list("melee" = 30, "bullet" = 25, "laser" = 15, "energy" = 15, "bomb" = 15, "bio" = 10, "rad" = 10, "fire" = 10, "acid" = 10)
+	armor = list("melee" = 30, "bullet" = 25, "laser" = 15, "energy" = 15, "bomb" = 15, "bio" = 10, "rad" = 10, "fire" = 10, "acid" = 10, "wound" = 0)
 	flags_inv = HIDEEARS|HIDEHAIR
 
 /obj/item/clothing/head/helmet/ms13/legion/prime
@@ -710,7 +710,7 @@
 	desc = "A red helmet used by Prime Legionaries. Has additional padding for added protection."
 	icon_state = "leg_prime"
 	inhand_icon_state = "owl_mask"
-	armor = list("melee" = 35, "bullet" = 30, "laser" = 15, "energy" = 15, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 20, "acid" = 10)
+	armor = list("melee" = 35, "bullet" = 30, "laser" = 15, "energy" = 15, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 20, "acid" = 10, "wound" = 0)
 	flags_inv = HIDEEARS|HIDEHAIR
 
 /obj/item/clothing/head/helmet/ms13/legion/veteran
@@ -718,7 +718,7 @@
 	desc = "A red helmet used by Veteran Legionaries with an added face guard. Only the best protection for the Legion's finest."
 	icon_state = "leg_vet"
 	inhand_icon_state = "owl_mask"
-	armor = list("melee" = 40, "bullet" = 35, "laser" = 20, "energy" = 20, "bomb" = 30, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10)
+	armor = list("melee" = 40, "bullet" = 35, "laser" = 20, "energy" = 20, "bomb" = 30, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10, "wound" = 5)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 
 /obj/item/clothing/head/helmet/ms13/legion/decanus
@@ -726,7 +726,7 @@
 	desc = "A feathery, quite protective helmet used by recruit decanii of the Legion. It's got brown feathers to signify lesser leadership."
 	icon_state = "leg_decr"
 	inhand_icon_state = "owl_mask"
-	armor = list("melee" = 40, "bullet" = 35, "laser" = 20, "energy" = 20, "bomb" = 30, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10)
+	armor = list("melee" = 40, "bullet" = 35, "laser" = 20, "energy" = 20, "bomb" = 30, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10, "wound" = 5)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 
 /obj/item/clothing/head/helmet/ms13/legion/decanus/prime
@@ -744,7 +744,7 @@
 	desc = "A strong helmet donned by Centurions in the Legion. Some reinforcements on the helmet no doubt came from fallen enemies."
 	icon_state = "leg_cent"
 	inhand_icon_state = "owl_mask"
-	armor = list("melee" = 55, "bullet" = 45, "laser" = 25, "energy" = 25, "bomb" = 50, "bio" = 25, "rad" = 25, "fire" = 60, "acid" = 25)
+	armor = list("melee" = 55, "bullet" = 45, "laser" = 25, "energy" = 25, "bomb" = 50, "bio" = 25, "rad" = 25, "fire" = 60, "acid" = 25, "wound" = 10)
 	flags_inv = HIDEEARS|HIDEHAIR
 
 /obj/item/clothing/head/helmet/ms13/legion/praetorian
@@ -768,7 +768,7 @@
 	desc = "A relatively preserved pre-war baseball cap with some additional padding, now pridefully adopted by Legion explorers."
 	icon_state = "leg_exp"
 	inhand_icon_state = "owl_mask"
-	armor = list("melee" = 25, "bullet" = 20, "laser" = 10, "energy" = 10, "bomb" = 15, "bio" = 10, "rad" = 10, "fire" = 10, "acid" = 10)
+	armor = list("melee" = 25, "bullet" = 20, "laser" = 10, "energy" = 10, "bomb" = 15, "bio" = 10, "rad" = 10, "fire" = 10, "acid" = 10, "wound" = 0)
 
 // Brotherhood Helmets //
 
@@ -777,7 +777,7 @@
 	desc = "A hard, custom built helmet issued to Brotherhood troops."
 	icon_state = "bos_helmet"
 	inhand_icon_state = "bos_helmet"
-	armor = list("melee" = 45, "bullet" = 40, "laser" = 25, "energy" = 25, "bomb" = 40, "bio" = 20, "rad" = 20, "fire" = 40, "acid" = 20)
+	armor = list("melee" = 45, "bullet" = 40, "laser" = 25, "energy" = 25, "bomb" = 40, "bio" = 20, "rad" = 20, "fire" = 40, "acid" = 20, "wound" = 5)
 
 // Desert Ranger Helmets/Hats //
 
@@ -795,4 +795,4 @@
 	desc = "A sylish hat, often worn by Desert Rangers. Made with some pretty thick leather and additional padding."
 	icon_state = "ranger_hat"
 	worn_icon_state = "ranger_hat"
-	armor = list("melee" = 30, "bullet" = 25, "laser" = 15, "energy" = 15, "bomb" = 15, "bio" = 10, "rad" = 10, "fire" = 10, "acid" = 10)
+	armor = list("melee" = 30, "bullet" = 25, "laser" = 15, "energy" = 15, "bomb" = 15, "bio" = 10, "rad" = 10, "fire" = 10, "acid" = 10, "wound" = 0)

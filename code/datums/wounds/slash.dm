@@ -303,10 +303,14 @@
 	occur_text = "is torn open, spraying blood wildly"
 	sound_effect = 'sound/effects/wounds/blood3.ogg'
 	severity = WOUND_SEVERITY_CRITICAL
-	initial_flow = 4.25
+	//MOJAVE EDIT CHANGE BEGIN
+	initial_flow = 4.5 //Original TG value is 4.25
+	//MOJAVE EDIT CHANGE END
 	minimum_flow = 4
 	clot_rate = -0.025 // critical cuts actively get worse instead of better
-	threshold_minimum = 80
+	//MOJAVE EDIT CHANGE BEGIN
+	threshold_minimum = 90 //Original TG value is 80
+	//MOJAVE EDIT CHANGE END
 	threshold_penalty = 40
 	demotes_to = /datum/wound/slash/severe
 	status_effect_type = /datum/status_effect/wound/slash/critical
