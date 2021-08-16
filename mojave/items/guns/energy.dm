@@ -155,11 +155,10 @@
 /obj/item/stock_parts/cell/ms13/ecp
 	name = "electron charge pack"
 	desc = "An electron charge pack, typically used as ammunition for rapidly-firing energy weapons."
-	icon_state = "2mmec"
+	icon_state = "mfc"
 	maxcharge = 1250
 	chargerate = 100
-	base_icon = "2mmec"
-	multiple_states = TRUE
+	base_icon = "mfc"
 
 /obj/item/stock_parts/cell/ms13/ec
 	name = "energy cell"
