@@ -151,7 +151,7 @@
 				""
 				)
 	var/loot12 = list(
-				/obj/item/gun/ballistic/automatic/ms13/semi/service/prototype,
+				/obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/proto_service,
 				/obj/item/ammo_box/magazine/ms13/r20,
 				""
 				)

@@ -84,7 +84,7 @@
 	fire_sound = 'mojave/sound/ms13weapons/brushfire.ogg'
 	fire_delay = 5
 	extra_damage = 55
-	extra_penetration = 10
+	extra_penetration = 5
 	force = 15
 	empty_indicator = TRUE
 

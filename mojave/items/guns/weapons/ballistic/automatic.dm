@@ -11,19 +11,6 @@
 	zoomable = FALSE
 	mag_type = /obj/item/ammo_box/magazine/ms13/r20
 
-/obj/item/gun/ballistic/automatic/ms13/semi/service/prototype
-	name = "prototype service rifle"
-	desc = "A relatively new and improved modern service rifle sporting three round burst capabilities and a generally improved rate of fire at the cost of some accuracy and penetration."
-	icon_state = "protoservice"
-	inhand_icon_state = "protoservice"
-	fire_sound = 'mojave/sound/ms13weapons/gunsounds/service/service_2.ogg'
-	fire_delay = 3
-	spread = 3
-	actions_types = list(/datum/action/item_action/toggle_firemode)
-	select = 1
-	burst_size = 3
-	extra_penetration = 0
-
 /obj/item/gun/ballistic/automatic/ms13/semi/service/maquis
 	name = "\improper Maquis"
 	desc = "A unique, heavy duty service rifle. Fires slower but packs a much heavier punch. Has a flag supporting a different kind of patriotism than most are used to."
@@ -128,7 +115,7 @@
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/45/45auto3.ogg'
 	can_suppress = FALSE
 	fire_delay = 3
-	extra_damage = 15
+	extra_damage = 20
 	extra_penetration = 5
 	spread = 12
 
@@ -144,6 +131,7 @@
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
 	fire_delay = 3
 	extra_damage = 15
+	extra_penetration = 5
 	spread = 12
 
 /obj/item/gun/ballistic/automatic/ms13/full/smg10mm
@@ -187,7 +175,7 @@
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/12mm/m12mm2.ogg'
 	can_suppress = FALSE
 	fire_delay = 3
-	extra_damage = 15
+	extra_damage = 20
 	extra_penetration = 15
 	force = 10
 	spread = 10
@@ -202,17 +190,27 @@
 	fire_sound = 'mojave/sound/ms13weapons/arfire.ogg'
 	fire_delay = 3
 	extra_damage = 20
-	extra_penetration = 5
+	extra_penetration = 10
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
 	spread = 8
+
+/obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/proto_service
+	name = "prototype service rifle"
+	desc = "A relatively new and improved modern service rifle sporting full auto capabilities and a generally improved rate of fire at the cost of some accuracy and penetration."
+	icon_state = "protoservice"
+	inhand_icon_state = "protoservice"
+	fire_sound = 'mojave/sound/ms13weapons/gunsounds/service/service_2.ogg'
+	fire_delay = 3
+	extra_damage = 25
+	extra_penetration = 0
+	spread = 3
 
 /obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/infiltrator
 	name = "\improper Infiltrator"
 	desc = "A heavily modified and customized assault rifle with a scope and suppressor as it's most notable additions. Fires a three round burst with very good accuracy."
 	icon_state = "infiltrator"
 	inhand_icon_state = "infiltrator"
-	extra_damage = 25
 	zoomable = TRUE
 	zoom_amt = 10
 	zoom_out_amt = 13
@@ -226,7 +224,9 @@
 	inhand_icon_state = "chinesear"
 	mag_type = /obj/item/ammo_box/magazine/ms13/ar762
 	fire_sound = 'mojave/sound/ms13weapons/chinesearfire.ogg'
-	extra_penetration = 10
+	fire_delay = 4
+	extra_damage = 30
+	extra_penetration = 5
 	spread = 10
 
 /obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/chinese/handmade
@@ -234,14 +234,13 @@
 	desc = "A decent quality handmade assault rifle chambered in 7.62."
 	icon_state = "handmadear"
 	inhand_icon_state = "handmadear"
-	extra_penetration = 0
+	extra_damage = 25
 
 /obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/chinese/xuanlong
 	name = "\improper Xuanlong assault rifle"
 	desc = "A modified Chinese assault rifle sporting a more stable stock and a scope. Fires a three round burst, intended for long range engagements."
 	icon_state = "xuanlong"
 	inhand_icon_state = "xuanlong"
-	extra_damage = 25
 	zoomable = TRUE
 	zoom_amt = 10
 	zoom_out_amt = 13
