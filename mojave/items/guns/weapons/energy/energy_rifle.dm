@@ -1,23 +1,25 @@
 // Laser rifles //
 
-/obj/item/gun/energy/ms13/laser/aer9
-	name = "AER9 laser rifle"
-	desc = "A relic of the past, this is an early wood furnished version of the laser rifle that the U.S Military actively adopted."
+/obj/item/gun/energy/ms13/laser/rifle
+	name = "standard laser rifle"
+	desc = "A standard laser rifle with wood furniture. Not incredibly well kept, but most certainly still deadly."
 	base_icon_state = "stanlas_rifle"
 	icon_state = "stanlas_rifle"
 	inhand_icon_state = "stanlas_rifle"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/lasrifle/las_rifle_1.ogg'
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser)
 	cell_type = /obj/item/stock_parts/cell/ms13/mfc
-	w_class = WEIGHT_CLASS_HUGE
+	w_class = WEIGHT_CLASS_BULKY
+	weapon_weight = WEAPON_HEAVY
 	force = 15
 	extra_damage = 30
 	extra_penetration = 0
-	fire_delay = 5
+	fire_delay = 0.5 SECONDS
+	slowdown = 0.75
 
-/obj/item/gun/energy/ms13/laser/aer12
-	name = "AER12 laser rifle"
-	desc = "A further developed version of the militarized laser rifle cherished by scavengers of the wasteland. Supposedly not as reliable as some of the older variants."
+/obj/item/gun/energy/ms13/laser/rifle/advanced
+	name = "advanced laser rifle"
+	desc = "A more advanced and near pristine condition laser rifle, optimizations allow it to pack much more of a punch."
 	base_icon_state = "advlas_rifle"
 	icon_state = "advlas_rifle"
 	inhand_icon_state = "advlas_rifle"
@@ -25,42 +27,47 @@
 	extra_damage = 35
 	extra_penetration = 5
 
-/obj/item/gun/energy/ms13/laser/wattz
-	name = "Wattz laser rifle"
-	desc = "A medium range laser rifle. Features comfortable to shoot, but the scope is quite unreliable"
+/obj/item/gun/energy/ms13/laser/rifle/wattz
+	name = "\improper Wattz laser rifle"
+	desc = "A relatively cheap, civilian grade laser rifle with an integrated sight."
 	base_icon_state = "wattzrifle"
 	icon_state = "wattzrifle"
 	inhand_icon_state = "wattzrifle"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/lasrifle/las_rifle_2.ogg'
 	extra_damage = 25
-	zoomable = TRUE
-	zoom_amt = 6
-	zoom_out_amt = 9
+	extra_penetration = 0
+	fire_delay = 0.5 SECONDS
 
-/obj/item/gun/energy/ms13/laser/wattz/sniper
-	name = "Wattz sniper rifle"
-	desc = "A long range high powered laser sniper. The scope is study in place and has a good view in it. A reliable piece of technology, to say the least."
+/obj/item/gun/energy/ms13/laser/rifle/wattz/sniper
+	name = "\improper Wattz laser sniper"
+	desc = "A Wattz laser rifle that has been heavily customized and modified. The sight has been replaced with a scope and the capacitor has been overcharged for substantially more damage."
 	base_icon_state = "wattzsniper"
 	icon_state = "wattzsniper"
 	inhand_icon_state = "wattzsniper"
-	fire_sound = 'mojave/sound/ms13weapons/gunsounds/lasrifle/las_rifle_2.ogg'
-	extra_damage = 25
+	extra_damage = 30
+	extra_penetration = 10
+	fire_delay = 0.55 SECONDS
+	slowdown = 1
 	zoomable = TRUE
-	zoom_amt = 15
-	zoom_out_amt = 5
+	zoom_amt = 10
+	zoom_out_amt = 13
 
 /obj/item/gun/energy/ms13/laser/rcw
 	name = "laser RCW"
-	desc = "An iconic design with a twist. This laser rifle has an extremely high firerate and functions more like a minigun than it does a rifle."
+	desc = "An iconic weapon that has been converted into a fast firing laser weapon. Stay clear of this weapon's line of fire, or you'll regret it."
 	base_icon_state = "rcw"
 	icon_state = "rcw"
 	inhand_icon_state = "rcw"
+	w_class = WEIGHT_CLASS_BULKY
+	weapon_weight = WEAPON_HEAVY
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/lasrcw/rcw_5.ogg'
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser)
 	cell_type = /obj/item/stock_parts/cell/ms13/ecp
 	extra_damage = 15
-	fire_delay = 0
-	spread = 2.5
+	extra_penetration = 0
+	fire_delay = 0.25 SECONDS
+	spread = 5
+	slowdown = 0.75
 
 /obj/item/gun/energy/ms13/laser/rcw/Initialize()
 	. = ..()
@@ -68,16 +75,18 @@
 
 /obj/item/gun/energy/ms13/laser/scatter
 	name = "laser scatter rifle"
-	desc = "A modified AER9 equipped with a refraction kit that spreads its bolts, often called a 'tri-beam'. You wouldn't believe why."
+	desc = "A modified laser rifle equipped with a special lens that spreads its bolts, often called a 'tri-beam'. You wouldn't believe why."
 	icon = 'mojave/icons/objects/guns/guns_world.dmi'
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/tribeam/tribeam_1.ogg'
 	icon_state = "lasershotgun"
 	base_icon_state = "lasershotgun"
 	inhand_icon_state = "lasershotgun"
+	w_class = WEIGHT_CLASS_BULKY
+	weapon_weight = WEAPON_HEAVY
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/scatter)
 	cell_type = /obj/item/stock_parts/cell/ms13/mfc
-	extra_damage = 15
-	fire_delay = 6
+	fire_delay = 0.6 SECONDS
+	slowdown = 0.75
 
 // Plasma Rifles //
 

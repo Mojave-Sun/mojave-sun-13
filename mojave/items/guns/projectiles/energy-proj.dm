@@ -4,12 +4,12 @@
 	speed = 0.2 //Vanilla tg is 0.8
 	var/damage_constant = 1
 	damage = 0
+	armour_penetration = 0
+	wound_bonus = 0
 
 /obj/projectile/beam/ms13/laser
 	name = "laser beam"
-	armour_penetration = 0
-	range = 21
-	wound_bonus = 5
+	range = 32
 	hitscan = TRUE
 	hitscan_light_color_override = COLOR_SOFT_RED
 	muzzle_flash_color_override = COLOR_SOFT_RED
@@ -34,20 +34,17 @@
 
 /obj/projectile/beam/ms13/laser/sniper
 	name = "laser beam"
-	armour_penetration = 0
-	range = 28
-	wound_bonus = 10
+	range = 48
 
 /obj/projectile/beam/ms13/laser/pistol
 	name = "laser beam"
-	range = 18
+	range = 28
 
 /obj/projectile/beam/ms13/laser/scatter
-	name = "scatter laser"
-	range = 16
-
-/obj/projectile/beam/ms13/laser/unfocused
-	range = 14
+	name = "scatter laser beam"
+	range = 18
+	damage = 15
+	armour_penetration = 5
 
 
 // Laser Projectile Effects //

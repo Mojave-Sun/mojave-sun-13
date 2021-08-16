@@ -7,24 +7,24 @@
 
 // Laser //
 
-/obj/item/ammo_casing/energy/ms13/laser/
+/obj/item/ammo_casing/energy/ms13/laser
 	projectile_type = /obj/projectile/beam/ms13/laser
-	e_cost = 50
+	e_cost = 25 //Combined with MFC capacity this gives 24 shots on laser rifles and 50 shots on RCW
 
 /obj/item/ammo_casing/energy/ms13/laser/scatter
 	projectile_type = /obj/projectile/beam/ms13/laser/scatter
 	pellets = 3
-	variance = 15
+	variance = 20
 	select_name = "scatter"
-	e_cost = 85
+	e_cost = 75 //Combined with MFC capacity this gives 8 shots
 
 /obj/item/ammo_casing/energy/ms13/laser/pistol
 	projectile_type = /obj/projectile/beam/ms13/laser/pistol
-	e_cost = 15
+	e_cost = 15 //Combined with EC capacity this gives 20 shots
 
 /obj/item/ammo_casing/energy/ms13/laser/sniper
 	projectile_type = /obj/projectile/beam/ms13/laser/sniper
-	e_cost = 75
+	e_cost = 40 //Combined with MFC capacity this gives 15 shots
 
 // Plasma //
 
