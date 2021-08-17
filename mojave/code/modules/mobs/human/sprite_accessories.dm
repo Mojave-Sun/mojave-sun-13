@@ -127,12 +127,6 @@
 	gender = MALE
 	length = SHORT
 
-/datum/sprite_accessory/hair/sergeant
-	name = "Sergeamt Cut"
-	icon_state = "hair_sargeant"
-	gender = MALE
-	length = SHORT
-
 /datum/sprite_accessory/hair/bedhead
 	name = "Bedhead"
 	icon_state = "hair_bedhead"
