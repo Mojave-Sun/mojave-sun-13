@@ -9,7 +9,7 @@
 
 /obj/projectile/beam/ms13/laser
 	name = "laser beam"
-	range = 32
+	range = 28
 	hitscan = TRUE
 	hitscan_light_color_override = COLOR_SOFT_RED
 	muzzle_flash_color_override = COLOR_SOFT_RED
@@ -34,15 +34,15 @@
 
 /obj/projectile/beam/ms13/laser/sniper
 	name = "laser beam"
-	range = 48
+	range = 40
 
 /obj/projectile/beam/ms13/laser/pistol
 	name = "laser beam"
-	range = 28
+	range = 21
 
 /obj/projectile/beam/ms13/laser/scatter
 	name = "scatter laser beam"
-	range = 18
+	range = 16
 	damage = 15
 	armour_penetration = 5
 

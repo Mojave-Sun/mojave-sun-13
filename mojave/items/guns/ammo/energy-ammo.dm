@@ -14,7 +14,7 @@
 /obj/item/ammo_casing/energy/ms13/laser/scatter
 	projectile_type = /obj/projectile/beam/ms13/laser/scatter
 	pellets = 3
-	variance = 20
+	variance = 15
 	select_name = "scatter"
 	e_cost = 75 //Combined with MFC capacity this gives 8 shots
 

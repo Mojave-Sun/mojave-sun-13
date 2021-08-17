@@ -44,6 +44,7 @@
 	base_icon_state = "wattzsniper"
 	icon_state = "wattzsniper"
 	inhand_icon_state = "wattzsniper"
+	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/sniper)
 	extra_damage = 30
 	extra_penetration = 10
 	fire_delay = 0.55 SECONDS
