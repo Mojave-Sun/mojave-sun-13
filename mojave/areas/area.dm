@@ -215,3 +215,23 @@
 /area/ms13/mall/entertainment
 	name = "Entertainment"
 	icon_state = "entertainment"
+
+// Combat Test Map
+
+/area/ms13/combattest
+	name = "combat arena"
+	icon_state = "combatarena_open"
+	requires_power = FALSE
+	power_environ = TRUE
+	power_equip = TRUE
+	power_light = TRUE
+
+/area/ms13/combattest/building
+	name = "combat arena building"
+	icon_state = "combatarena_building"
+	outdoors = FALSE
+
+/area/ms13/combattest/tunnels
+	name = "combat arena tunnel"
+	icon_state = "combatarena_tunnels"
+	outdoors = FALSE
