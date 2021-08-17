@@ -198,6 +198,10 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 	var/canMouseDown = FALSE
 
+//MOJAVE EDIT CHANGE BEGIN
+	var/log_pickup_and_drop = FALSE //For logging in the attack logs certain items (mostly weapons) being equipped, dropped, or taken into hand
+//MOJAVE EDIT CHANGE END 
+
 	/// Used in obj/item/examine to give additional notes on what the weapon does, separate from the predetermined output variables
 	var/offensive_notes
 	/// Used in obj/item/examine to determines whether or not to detail an item's statistics even if it does not meet the force requirements
@@ -608,6 +612,12 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		else if(slot == ITEM_SLOT_HANDS)
 			playsound(src, pickup_sound, PICKUP_SOUND_VOLUME, ignore_walls = FALSE)
 	user.update_equipment_speed_mods()
+//MOJAVE EDIT CHANGE BEGIN
+	if(!log_pickup_and_drop || initial) //This is all to make sure the pick up and drop logging works properly
+		return
+	if(slot == ITEM_SLOT_HANDS)
+		user.log_message("[user] grabbed a [name]", LOG_ATTACK)
+//MOJAVE EDIT CHANGE END
 
 ///sometimes we only want to grant the item's action if it's equipped in a specific slot.
 /obj/item/proc/item_action_slot_check(slot, mob/user)

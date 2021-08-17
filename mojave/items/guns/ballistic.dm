@@ -7,6 +7,7 @@
 	righthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_right.dmi'
 	worn_icon = 'mojave/icons/mob/worn_guns.dmi'
 	tac_reloads = FALSE
+	log_pickup_and_drop = TRUE
 
 /obj/item/gun/ballistic/ms13/Initialize()
 	. = ..()
@@ -22,6 +23,7 @@
 	inhand_x_dimension = 32
 	inhand_y_dimension = 32
 	force = 20
+	log_pickup_and_drop = TRUE
 
 /obj/item/gun/ballistic/shotgun/ms13/Initialize()
 	. = ..()
@@ -37,6 +39,7 @@
 	inhand_x_dimension = 32
 	inhand_y_dimension = 32
 	force = 15
+	log_pickup_and_drop = TRUE
 
 /obj/item/gun/ballistic/shotgun/automatic/ms13/Initialize()
 	. = ..()
@@ -50,6 +53,7 @@
 	righthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_right.dmi'
 	worn_icon = 'mojave/icons/mob/worn_guns.dmi'
 	force = 10
+	log_pickup_and_drop = TRUE
 
 /obj/item/gun/ballistic/revolver/ms13/Initialize()
 	. = ..()
@@ -82,6 +86,7 @@
 	fire_delay = 0
 	extra_damage = 0
 	extra_penetration = 0
+	log_pickup_and_drop = TRUE
 
 /obj/item/gun/ballistic/automatic/ms13/Initialize()
 	. = ..()
@@ -117,6 +122,7 @@
 	actions_types = null
 	burst_size = 1
 	select = 1
+	log_pickup_and_drop = TRUE
 
 /obj/item/gun/ballistic/automatic/ms13/full // For weapons that are intended to have fully automatic capability
 	name = "fully automatic generic ms13 gun"
@@ -128,6 +134,7 @@
 	actions_types = null
 	select = 1
 	burst_size = 1
+	log_pickup_and_drop = TRUE
 	var/autofire_shot_delay = 0.25 //Time between individual shots.
 
 /obj/item/gun/ballistic/automatic/ms13/full/Initialize()
@@ -143,6 +150,7 @@
 	worn_icon = 'mojave/icons/mob/worn_guns.dmi'
 	can_suppress = FALSE
 	tac_reloads = FALSE
+	log_pickup_and_drop = TRUE
 	force = 10
 
 /obj/item/gun/ballistic/automatic/pistol/ms13/Initialize()
@@ -180,6 +188,7 @@
 	internal_magazine = FALSE
 	tac_reloads = FALSE
 	force = 15
+	log_pickup_and_drop = TRUE
 	var/jamming_chance = 20
 	var/unjam_chance = 10
 	var/jamming_increment = 5
