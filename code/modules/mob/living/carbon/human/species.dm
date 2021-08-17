@@ -612,8 +612,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				var/static/list/extensions
 				if(!extensions)
 				//MOJAVE EDIT BEGIN
-					var/icon/hair_extensions = icon('mojave/icons/mob/hair_extensions.dmi') //Original path is 'icons/mob/hair_extensions.dmi'
-				//MOJAVE EDIT BEGIN
+					var/icon/hair_extensions = icon('mojave/icons/mob/hair_extensions.dmi') //Original path is ('icons/mob/hair_extensions.dmi')
+				//MOJAVE EDIT END
 					extensions = list()
 					for(var/s in hair_extensions.IconStates(1))
 						extensions[s] = TRUE
@@ -625,8 +625,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				if(extensions[hair_state+dynamic_hair_suffix])
 					hair_state += dynamic_hair_suffix
 				//MOJAVE EDIT BEGIN
-					hair_file = 'mojave/icons/mob/hair_extensions.dmi' //Original path is 'icons/mob/hair_extensions.dmi'
-				//MOJAVE EDIT BEGIN
+					hair_file = 'icons/mob/hair_extensions.dmi' //Original path is ('icons/mob/hair_extensions.dmi')
+				//MOJAVE EDIT END
 				hair_overlay.icon = hair_file
 				hair_overlay.icon_state = hair_state
 

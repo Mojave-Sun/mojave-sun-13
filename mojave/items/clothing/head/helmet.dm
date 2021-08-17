@@ -53,8 +53,6 @@
 	icon_state = "assaultron"
 	inhand_icon_state = "metalhelmet"
 	armor = list("melee" = 50, "bullet" = 40, "laser" = 0, "energy" = 0, "bomb" = 30, "bio" = 10, "rad" = 10, "fire" = 40, "acid" = 10, "wound" = 5)
-	dynamic_hair_suffix = ""
-	dynamic_fhair_suffix = ""
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 
 /obj/item/clothing/head/helmet/ms13/flight
@@ -83,8 +81,6 @@
 	icon_state = "bladed"
 	inhand_icon_state = "metalhelmet"
 	armor = list("melee" = 35, "bullet" = 30, "laser" = 0, "energy" = 0, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10, "wound" = 0)
-	dynamic_hair_suffix = ""
-	dynamic_fhair_suffix = ""
 
 /obj/item/clothing/head/helmet/ms13/junk
 	name = "junk helmet"
@@ -92,8 +88,6 @@
 	icon_state = "junk"
 	inhand_icon_state = "combathelmet_mk2"
 	armor = list("melee" = 35, "bullet" = 30, "laser" = 0, "energy" = 0, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10, "wound" = 0)
-	dynamic_hair_suffix = ""
-	dynamic_fhair_suffix = ""
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 
 /obj/item/clothing/head/helmet/ms13/skull
@@ -102,8 +96,6 @@
 	icon_state = "radstag"
 	inhand_icon_state = "w_shoes"
 	armor = list("melee" = 30, "bullet" = 10, "laser" = 5, "energy" = 5, "bomb" = 5, "bio" = 5, "rad" = 5, "fire" = 5, "acid" = 5, "wound" = 0)
-	dynamic_hair_suffix = ""
-	dynamic_fhair_suffix = ""
 	flags_inv = HIDEEARS|HIDEFACE
 
 /obj/item/clothing/head/helmet/ms13/skull/muffalo
@@ -137,22 +129,16 @@
 	icon_state = "batter"
 	inhand_icon_state = "combathelmet"
 	armor = list("melee" = 30, "bullet" = 10, "laser" = 5, "energy" = 5, "bomb" = 5, "bio" = 5, "rad" = 5, "fire" = 5, "acid" = 5, "wound" = 0)
-	dynamic_hair_suffix = ""
-	dynamic_fhair_suffix = ""
 
 /obj/item/clothing/head/helmet/ms13/batter/red
 	name = "red batters helmet"
 	desc = "A red pre-war baseball batters helmet, helps protect your noggin a little."
 	icon_state = "batterred"
-	dynamic_hair_suffix = ""
-	dynamic_fhair_suffix = ""
 
 /obj/item/clothing/head/helmet/ms13/batter/blue
 	name = "blue batters helmet"
 	desc = "A blue pre-war baseball batters helmet, helps protect your noggin a little."
 	icon_state = "batterblue"
-	dynamic_hair_suffix = ""
-	dynamic_fhair_suffix = ""
 
 /obj/item/clothing/head/helmet/ms13/hardhat
 	name = "hardhat"
@@ -160,8 +146,6 @@
 	icon_state = "hardhat"
 	inhand_icon_state = "vaultvanarmor"
 	armor = list("melee" = 30, "bullet" = 10, "laser" = 5, "energy" = 5, "bomb" = 5, "bio" = 5, "rad" = 5, "fire" = 5, "acid" = 5, "wound" = 0)
-	dynamic_hair_suffix = ""
-	dynamic_fhair_suffix = ""
 
 /obj/item/clothing/head/hardhat/ms13/mining
 	name = "mining hardhat"
@@ -174,8 +158,6 @@
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
 	inhand_icon_state = "hazmat"
 	armor = list("melee" = 30, "bullet" = 25, "laser" = 15, "energy" = 15, "bomb" = 15, "bio" = 10, "rad" = 10, "fire" = 10, "acid" = 10, "wound" = 0)
-	dynamic_hair_suffix = ""
-	dynamic_fhair_suffix = ""
 
 /obj/item/clothing/head/welding/ms13
 	name = "welding helmet"
@@ -195,8 +177,6 @@
 	inhand_icon_state = "helmet"
 	strip_delay = 60
 	armor = list("melee" = 30, "bullet" = 50, "laser" = 15, "energy" = 15, "bomb" = 30, "bio" = 20, "rad" = 20, "fire" = 30, "acid" = 20, "wound" = 5)
-	dynamic_hair_suffix = ""
-	dynamic_fhair_suffix = ""
 
 /obj/item/clothing/head/helmet/riot/ms13/vault
 	name = "vault-tec riot helmet"
@@ -535,8 +515,6 @@
 	icon_state = "metalhelmet"
 	inhand_icon_state = "metalhelmet"
 	armor = list("melee" = 60, "bullet" = 50, "laser" = 10, "energy" = 10, "bomb" = 50, "bio" = 20, "rad" = 20, "fire" = 60, "acid" = 20, "wound" = 10)
-	dynamic_hair_suffix = ""
-	dynamic_fhair_suffix = ""
 
 // Raider Helmets //
 
@@ -549,8 +527,6 @@
 	inhand_icon_state = "combathelmet"
 	armor = list("melee" = 45, "bullet" = 40, "laser" = 15, "energy" = 15, "bomb" = 40, "bio" = 20, "rad" = 20, "fire" = 40, "acid" = 20, "wound" = 5)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
-	dynamic_hair_suffix = ""
-	dynamic_fhair_suffix = ""
 
 /obj/item/clothing/head/helmet/ms13/combat/advanced
 	name = "advanced combat helmet"
@@ -579,8 +555,6 @@
 	inhand_icon_state = "tesla_helmet"
 	armor = list("melee" = 40, "bullet" = 35, "laser" = 55, "energy" = 55, "bomb" = 30, "bio" = 25, "rad" = 25, "fire" = 60, "acid" = 25, "wound" = 10)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
-	dynamic_hair_suffix = ""
-	dynamic_fhair_suffix = ""
 
 /obj/item/clothing/head/helmet/ms13/eliteriot
 	name = "elite riot helmet"
@@ -599,8 +573,6 @@
 	inhand_icon_state = "helmet"
 	armor = list(melee = 45, bullet = 15, laser = 20, energy = 20, bomb = 35, bio = 10, rad = 10, fire = 30, acid = 10)
 	flags_inv = HIDEEARS|HIDEHAIR
-	dynamic_hair_suffix = ""
-	dynamic_fhair_suffix = ""
 
 /obj/item/clothing/head/helmet/ms13/eliteriot/bountyhunter
 	name = "bounty hunter's helmet"
@@ -665,8 +637,6 @@
 	inhand_icon_state = "ncr_infantry_helmet"
 	armor = list("melee" = 35, "bullet" = 30, "laser" = 15, "energy" = 15, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 20, "acid" = 10, "wound" = 0)
 	flags_cover = NONE
-	dynamic_hair_suffix = ""
-	dynamic_fhair_suffix = ""
 
 /obj/item/clothing/head/helmet/ms13/ncr/goggles
 	name = "\improper NCR goggles helmet"
