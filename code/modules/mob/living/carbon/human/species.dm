@@ -625,7 +625,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				if(extensions[hair_state+dynamic_hair_suffix])
 					hair_state += dynamic_hair_suffix
 				//MOJAVE EDIT BEGIN
-					hair_file = 'icons/mob/hair_extensions.dmi' //Original path is ('icons/mob/hair_extensions.dmi')
+					hair_file = 'mojave/icons/mob/hair_extensions.dmi' //Original path is ('icons/mob/hair_extensions.dmi')
 				//MOJAVE EDIT END
 				hair_overlay.icon = hair_file
 				hair_overlay.icon_state = hair_state
