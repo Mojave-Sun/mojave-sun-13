@@ -126,6 +126,7 @@
 	fire_sound = 'mojave/sound/ms13weapons/hunting_rifle.ogg'
 	extra_damage = 30
 
+/* Weeb shit and an unbalanced M1 Garand for now
 /obj/item/gun/ballistic/rifle/ms13/hunting/japanese
 	name = "\improper Japanese war rifle"
 	desc = "An ancient pre-war rifle, chambered in .308 with an internal 5 round magazine. Hardly functions in days like these, but it works... Sometimes."
@@ -165,6 +166,7 @@
 	empty_alarm_sound = 'mojave/sound/ms13weapons/battlerifleunload.ogg'
 	extra_damage = 45
 	extra_penetration = 15
+*/ 
 
 //Magazines
 /obj/item/ammo_box/magazine/ms13/r10

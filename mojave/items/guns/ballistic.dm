@@ -7,6 +7,8 @@
 	righthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_right.dmi'
 	worn_icon = 'mojave/icons/mob/worn_guns.dmi'
 	tac_reloads = FALSE
+	wound_bonus = 0
+	bare_wound_bonus = 0
 	log_pickup_and_drop = TRUE
 
 /obj/item/gun/ballistic/ms13/Initialize()
@@ -23,6 +25,8 @@
 	inhand_x_dimension = 32
 	inhand_y_dimension = 32
 	force = 20
+	wound_bonus = 0
+	bare_wound_bonus = 0
 	log_pickup_and_drop = TRUE
 
 /obj/item/gun/ballistic/shotgun/ms13/Initialize()
@@ -39,6 +43,8 @@
 	inhand_x_dimension = 32
 	inhand_y_dimension = 32
 	force = 15
+	wound_bonus = 0
+	bare_wound_bonus = 0
 	log_pickup_and_drop = TRUE
 
 /obj/item/gun/ballistic/shotgun/automatic/ms13/Initialize()
@@ -53,6 +59,8 @@
 	righthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_right.dmi'
 	worn_icon = 'mojave/icons/mob/worn_guns.dmi'
 	force = 10
+	wound_bonus = 0
+	bare_wound_bonus = 0
 	log_pickup_and_drop = TRUE
 
 /obj/item/gun/ballistic/revolver/ms13/Initialize()
@@ -83,6 +91,8 @@
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
 	force = 15
+	wound_bonus = 0
+	bare_wound_bonus = 0
 	fire_delay = 0
 	extra_damage = 0
 	extra_penetration = 0
@@ -119,6 +129,8 @@
 	righthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_right.dmi'
 	worn_icon = 'mojave/icons/mob/worn_guns.dmi'
 	force = 15
+	wound_bonus = 0
+	bare_wound_bonus = 0
 	actions_types = null
 	burst_size = 1
 	select = 1
@@ -131,6 +143,8 @@
 	righthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_right.dmi'
 	worn_icon = 'mojave/icons/mob/worn_guns.dmi'
 	force = 15
+	wound_bonus = 0
+	bare_wound_bonus = 0
 	actions_types = null
 	select = 1
 	burst_size = 1
@@ -150,6 +164,8 @@
 	worn_icon = 'mojave/icons/mob/worn_guns.dmi'
 	can_suppress = FALSE
 	tac_reloads = FALSE
+	wound_bonus = 0
+	bare_wound_bonus = 0
 	log_pickup_and_drop = TRUE
 	force = 10
 
@@ -188,6 +204,8 @@
 	internal_magazine = FALSE
 	tac_reloads = FALSE
 	force = 15
+	wound_bonus = 0
+	bare_wound_bonus = 0
 	log_pickup_and_drop = TRUE
 	var/jamming_chance = 20
 	var/unjam_chance = 10
