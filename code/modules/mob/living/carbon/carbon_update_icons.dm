@@ -71,11 +71,61 @@
 		if(get_held_index_of_item(I) % 2 == 0)
 			icon_file = I.righthand_file
 
-		hands += I.build_worn_icon(default_layer = HANDS_LAYER, default_icon_file = icon_file, isinhands = TRUE)
+		var/mutable_appearance/hand_overlay = I.build_worn_icon(default_layer = HANDS_LAYER, default_icon_file = icon_file, isinhands = TRUE) //MS13 CODE EDIT: modify y shift of power armor users for proper inhands
+		hand_overlay.pixel_y += getItemPixelShiftY()
+
+		if(icon_file == I.lefthand_file)
+			hand_overlay.pixel_x += getItemPixelShiftX(current_hand = "left")
+
+		if(icon_file == I.righthand_file)
+			hand_overlay.pixel_x += getItemPixelShiftX(current_hand = "right")
+
+		hands += hand_overlay
+		//MS13 CODE EDIT END
 
 	overlays_standing[HANDS_LAYER] = hands
 	apply_overlay(HANDS_LAYER)
 
+//MS13 CODE EDIT: I'm sorry for the amount of hardcode you're going to see
+/mob/living/carbon/proc/getItemPixelShiftY()
+	if(istype(src, /mob/living/carbon/human))
+		var/mob/living/carbon/human/retyped_human = src
+		if(istype(retyped_human.wear_suit, /obj/item/clothing/suit/space/hardsuit/power_armor))
+			. = -4
+		else
+			. = 0
+
+/mob/living/carbon/proc/getItemPixelShiftX(current_hand)
+	if(istype(src, /mob/living/carbon/human))
+		var/mob/living/carbon/human/retyped_human = src
+		if(istype(retyped_human.wear_suit, /obj/item/clothing/suit/space/hardsuit/power_armor))
+			switch(retyped_human.dir) //Introducing: PAIN
+				if(NORTH)
+					switch(current_hand)
+						if("left")
+							. = -2
+						if("right")
+							. = 2
+				if(SOUTH)
+					switch(current_hand)
+						if("left")
+							. = -2
+						if("right")
+							. = 2
+				if(WEST)
+					switch(current_hand)
+						if("left")
+							. = -4
+						if("right")
+							. = 2
+				if(EAST)
+					switch(current_hand)
+						if("left")
+							. = 2
+						if("right")
+							. = -4
+
+//MS13 CODE EDIT END
 
 /mob/living/carbon/update_fire(fire_icon = "Generic_mob_burning")
 	remove_overlay(FIRE_LAYER)

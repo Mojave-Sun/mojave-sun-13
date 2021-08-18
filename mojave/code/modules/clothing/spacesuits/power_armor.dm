@@ -13,7 +13,7 @@
 	actions_types = null //No lights my dude, sorry
 	worn_x_dimension = 32
 	worn_y_dimension = 48
-	clothing_flags = LARGE_WORN_ICON
+	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL | SNUG_FIT | BLOCKS_SHOVE_KNOCKDOWN
 
 //No touchy
 /obj/item/clothing/head/helmet/space/hardsuit/power_armor/Initialize()
@@ -43,12 +43,13 @@
 	var/mob/listeningTo
 	clothing_traits = list(TRAIT_SILENT_FOOTSTEPS) //No playing regular footsteps over power armor footsteps
 	item_flags = NO_PIXEL_RANDOM_DROP
-	clothing_flags = BLOCKS_SHOVE_KNOCKDOWN
+	clothing_flags = LARGE_WORN_ICON | STOPSPRESSUREDAMAGE | THICKMATERIAL | SNUG_FIT | BLOCKS_SHOVE_KNOCKDOWN
 
 /obj/item/clothing/suit/space/hardsuit/power_armor/Initialize()
 	. = ..()
 	interaction_flags_item &= ~INTERACT_ITEM_ATTACK_HAND_PICKUP
 	ADD_TRAIT(src, TRAIT_NODROP, STICKY_NODROP) //Somehow it's stuck to your body, no questioning.
+	RegisterSignal(src, COMSIG_ATOM_CAN_BE_PULLED, .proc/reject_pulls)
 
 //We want to be able to strip the PA as usual but also have the benefits of NO_DROP to disallow stuff like drag clicking PA into hand slot
 /obj/item/clothing/suit/space/hardsuit/power_armor/canStrip(mob/stripper, mob/owner)
@@ -89,6 +90,14 @@
 	user.base_pixel_y = user.base_pixel_y + 6
 	user.pixel_y = user.base_pixel_y
 	ADD_TRAIT(user, TRAIT_FORCED_STANDING, "power_armor") //It's a suit of armor, it ain't going to fall over just because the pilot is dead
+	ADD_TRAIT(user, TRAIT_NOSLIPALL, "power_armor")
+	RegisterSignal(user, COMSIG_ATOM_CAN_BE_PULLED, .proc/reject_pulls)
+
+/obj/item/clothing/suit/space/hardsuit/power_armor/proc/reject_pulls(datum/source, mob/living/puller)
+	SIGNAL_HANDLER
+	if(puller != loc) // != the wearer
+		to_chat(puller, span_warning("The power armor resists your attempt at pulling it!"))
+		return COMSIG_ATOM_CANT_PULL
 
 /obj/item/clothing/suit/space/hardsuit/power_armor/dropped(mob/user)
 	. = ..()
@@ -97,9 +106,12 @@
 	if(listeningTo)
 		UnregisterSignal(listeningTo, COMSIG_MOVABLE_MOVED)
 	REMOVE_TRAIT(user, TRAIT_FORCED_STANDING, "power_armor") //It's a suit of armor, it ain't going to fall over just because the pilot is dead
+	REMOVE_TRAIT(user, TRAIT_NOSLIPALL, "power_armor")
+	UnregisterSignal(user, COMSIG_ATOM_CAN_BE_PULLED)
 
 /obj/item/clothing/suit/space/hardsuit/power_armor/Destroy()
 	listeningTo = null
+	UnregisterSignal(src, COMSIG_ATOM_CAN_BE_PULLED)
 	return ..()
 
 //No helmet toggles for now when helmet is up
