@@ -111,13 +111,13 @@
 						if("left")
 							. = -2
 						if("right")
-							. = 2
+							. = -4
 				if(WEST)
 					switch(current_hand)
 						if("left")
 							. = -4
 						if("right")
-							. = 2
+							. = -4
 				if(EAST)
 					switch(current_hand)
 						if("left")
