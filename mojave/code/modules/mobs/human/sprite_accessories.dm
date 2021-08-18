@@ -152,7 +152,7 @@
 	name = "Bob Hair Long"
 	icon_state = "hair_bob2"
 	gender = FEMALE
-	length = LONG
+	length = MEDIUM
 
 /datum/sprite_accessory/hair/bob3
 	name = "Bob Hair Short"
@@ -170,11 +170,6 @@
 	name = "Bowlcut"
 	icon_state = "hair_bowlcut2"
 	length = SHORT
-
-/datum/sprite_accessory/hair/braided
-	name = "Braided"
-	icon_state = "hair_braided"
-	length = LONG
 
 /datum/sprite_accessory/hair/front_braid
 	name = "Braided Front"
@@ -308,12 +303,6 @@
 	icon_state = "hair_c"
 	gender = MALE
 	length = SHORT
-
-/datum/sprite_accessory/hair/dandpompadour
-	name = "Dandy Pompadour"
-	icon_state = "hair_dandypompadour"
-	gender = MALE
-	length = LONG
 
 /datum/sprite_accessory/hair/dreadlocks
 	name = "Dreadlocks"
@@ -583,12 +572,6 @@
 	icon_state = "hair_quiff"
 	gender = MALE
 	length = SHORT
-
-/datum/sprite_accessory/hair/ronin
-	name = "Ronin"
-	icon_state = "hair_ronin"
-	gender = MALE
-	length = MEDIUM
 
 /datum/sprite_accessory/hair/shaved
 	name = "Shaved"
