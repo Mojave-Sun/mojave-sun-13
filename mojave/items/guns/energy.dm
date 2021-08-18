@@ -146,34 +146,33 @@
 
 /obj/item/stock_parts/cell/ms13/mfc
 	name = "microfusion cell"
-	desc = "A microfusion cell, typically used as ammunition for large energy weapons. YOU CAN RECHARGE THIS STUPID SON OF A BITCH FOR THE LOW RATE OF 0.99 NO SHIPPING AND HANDLING MOTHERFUCKER"
+	desc = "A microfusion cell, typically used as ammunition for large energy weapons."
 	icon_state = "mfc"
-	maxcharge = 1200
-	chargerate = 300
+	maxcharge = 600
+	chargerate = 100
 	base_icon = "mfc"
 
 /obj/item/stock_parts/cell/ms13/ecp
 	name = "electron charge pack"
 	desc = "An electron charge pack, typically used as ammunition for rapidly-firing energy weapons."
-	icon_state = "2mmec"
-	maxcharge = 2400
-	chargerate = 400
-	base_icon = "2mmec"
-	multiple_states = TRUE
+	icon_state = "mfc"
+	maxcharge = 1250
+	chargerate = 100
+	base_icon = "mfc"
 
 /obj/item/stock_parts/cell/ms13/ec
 	name = "energy cell"
 	desc = "An energy cell, typically used as ammunition for small-arms energy weapons."
 	icon_state = "sec"
 	maxcharge = 300
-	chargerate = 300
+	chargerate = 100
 	base_icon = "sec"
 
 /obj/item/stock_parts/cell/ms13/pc
 	name = "plasma cell"
 	desc = "A plasma cell, typically used as ammunition for plasma based energy weapons."
 	icon_state = "plasma"
-	maxcharge = 1200
-	chargerate = 300
+	maxcharge = 600
+	chargerate = 100
 	base_icon = "plasma"
 	multiple_states = TRUE
