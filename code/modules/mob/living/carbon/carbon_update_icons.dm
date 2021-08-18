@@ -90,7 +90,7 @@
 /mob/living/carbon/proc/getItemPixelShiftY()
 	if(istype(src, /mob/living/carbon/human))
 		var/mob/living/carbon/human/retyped_human = src
-		if(istype(retyped_human.wear_suit, /obj/item/clothing/suit/space/hardsuit/power_armor))
+		if(istype(retyped_human.wear_suit, /obj/item/clothing/suit/space/hardsuit/ms13/power_armor))
 			. = -4
 		else
 			. = 0
@@ -98,7 +98,7 @@
 /mob/living/carbon/proc/getItemPixelShiftX(current_hand)
 	if(istype(src, /mob/living/carbon/human))
 		var/mob/living/carbon/human/retyped_human = src
-		if(istype(retyped_human.wear_suit, /obj/item/clothing/suit/space/hardsuit/power_armor))
+		if(istype(retyped_human.wear_suit, /obj/item/clothing/suit/space/hardsuit/ms13/power_armor))
 			switch(retyped_human.dir) //Introducing: PAIN
 				if(NORTH)
 					switch(current_hand)
