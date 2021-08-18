@@ -22,6 +22,7 @@
 	icon_state = "machete_scrap"
 	inhand_icon_state = "machete_scrap"
 	force = 30
+	armour_penetration = 0
 	wound_bonus = 6
 	bare_wound_bonus = 4
 	sharpness = SHARP_EDGED
@@ -36,32 +37,26 @@
 	wound_bonus = 8
 	bare_wound_bonus = 6
 
-/* Weeb shit I don't feel like balancing for now
-/obj/item/katana/ms13
+/obj/item/claymore/ms13/machete/katana
 	name = "katana"
-	desc = "A katana is a japanese sword. However it ended up here is another story. Great legends surround this blade, such as being able to take a limb clean off in a single swipe"
-	icon = 'mojave/icons/objects/melee/melee_world.dmi'
-	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
-	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
-	icon_state = "katana_red"
-	inhand_icon_state = "katana_red"
-	force = 35
-	armour_penetration = 10
-	wound_bonus = 5
-	bare_wound_bonus = 20
-
-/obj/item/katana/ms13/Initialize()
-	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
-
-/obj/item/katana/ms13/alt
+	desc = "A very sharp Japanese sword that is well made and has long stood the test of time."
 	icon_state = "katana_black"
 	inhand_icon_state = "katana_black"
-*/
+	force = 35
+	armour_penetration = 0
+	wound_bonus = 12
+	bare_wound_bonus = 13
+
+/obj/item/claymore/ms13/machete/katana/replica
+	name = "replica katana"
+	desc = "A somewhat shoddy replica of a Japanese katana. Still fairly sharp, but not quite as deadly as the proper, well made thing."
+	icon_state = "katana_red"
+	inhand_icon_state = "katana_red"
+	force = 25
 
 /obj/item/claymore/ms13/pipe
 	name = "lead pipe"
-	desc = "A heavy rusted pipe, good for smashing heads. "
+	desc = "A heavy rusted pipe, good for smashing heads."
 	icon_state = "lead_pipe"
 	inhand_icon_state = "lead_pipe"
 	attack_verb_continuous = list("mashes", "bashes", "pipes", "hits", "bludgeons", "whacks", "bonks")
@@ -79,6 +74,14 @@
 	inhand_icon_state = "tire_iron"
 	force = 20
 	armour_penetration = 0
+
+/obj/item/claymore/ms13/pipe/humble
+	name = "\improper Humble Cudgel"
+	desc = "A unique heavier duty lead pipe with part of a T connector on the end. The prized cudgel of a humble wastelander."
+	icon_state = "lead_pipe_alt"
+	inhand_icon_state = "lead_pipe_alt"
+	force = 30
+	wound_bonus = 8
 
 /obj/item/claymore/ms13/baton
 	name = "police baton"
