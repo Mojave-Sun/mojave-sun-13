@@ -227,7 +227,7 @@
 	power_equip = TRUE
 	power_light = TRUE
 	mood_bonus = 2
-	mood_message = "<span class='cultlarge'>LETS GOOOOO/span>\n"
+	mood_message = "<span class='cultlarge'>LETS GOOOOOOOOOO\n"
 
 /area/ms13/combattest/building
 	name = "combat arena building"
