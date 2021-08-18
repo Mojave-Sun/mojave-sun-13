@@ -1,4 +1,5 @@
 /obj/projectile/bullet/pellet/ms13
+	icon = 'mojave/icons/objects/projectiles/projectiles.dmi'
 	icon_state = "bb"
 	name = "base mojave sun shotgun pellet"
 	speed = 0.6
@@ -19,7 +20,7 @@
 	damage = 10
 
 /obj/projectile/bullet/pellet/ms13/flechette
-	icon_state = "bb"
+	icon_state = "nail"
 	name = "flechette dart"
 	damage = 9
 	wound_bonus = 2

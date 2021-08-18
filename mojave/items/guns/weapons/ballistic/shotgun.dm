@@ -9,7 +9,9 @@
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
 	force = 25
-	fire_delay = 5
+	fire_delay = 0.55 SECONDS
+	slowdown = 0.75
+	recoil = 1.5
 
 /obj/item/gun/ballistic/shotgun/ms13/lever/update_icon_state()
 	. = ..()
@@ -31,7 +33,9 @@
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
 	force = 30
-	fire_delay = 5
+	fire_delay = 0.5 SECONDS
+	slowdown = 0.75
+	recoil = 1.5
 
 /obj/item/gun/ballistic/shotgun/ms13/huntingshot/update_icon_state()
 	. = ..()
@@ -45,16 +49,18 @@
 
 /obj/item/gun/ballistic/shotgun/ms13/lever/trail
 	name = "trail carbine"
-	desc = "A lever action repeater chambered for .44 Magnum with a solid capacity."
+	desc = "A lever action repeater chambered for .44 Magnum with a solid capacity in exchange for a slightly slower fire rate."
 	icon_state = "trail"
 	inhand_icon_state = "trail"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/tube44
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
 	fire_sound = 'mojave/sound/ms13weapons/trailfire.ogg'
-	fire_delay = 5
+	fire_delay = 0.55 SECONDS
 	extra_damage = 40
 	extra_penetration = 10
+	spread = 5
+	recoil = 1.5
 	force = 15
 	empty_indicator = TRUE
 
@@ -67,24 +73,28 @@
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/repeater/repeater1.ogg'
-	fire_delay = 5
+	fire_delay = 0.5 SECONDS
 	extra_damage = 35
 	extra_penetration = 10
+	spread = 5
+	recoil = 1.25
 	force = 15
 	empty_indicator = TRUE
 
 /obj/item/gun/ballistic/shotgun/ms13/lever/brush
 	name = "brush gun"
-	desc = "A lever action repeater chambered for the deadly .45-70 cartridge. Can't carry a lot of rounds and doesn't fire very fast, but with so much damage does that really matter?"
+	desc = "A lever action repeater chambered for the deadly .45-70 cartridge. Can't carry a lot of rounds and has quite a bit of recoil, but with so much damage does that really matter?"
 	icon_state = "brush"
 	inhand_icon_state = "brush"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/tube4570
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
 	fire_sound = 'mojave/sound/ms13weapons/brushfire.ogg'
-	fire_delay = 5
+	fire_delay = 0.5 SECONDS
 	extra_damage = 55
-	extra_penetration = 10
+	extra_penetration = 5
+	spread = 5
+	recoil = 2
 	force = 15
 	empty_indicator = TRUE
 
@@ -97,9 +107,12 @@
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/sks/sks1.ogg'
-	fire_delay = 5
+	fire_delay = 0.5 SECONDS
 	extra_damage = 30
 	extra_penetration = 10
+	spread = 5
+	recoil = 1.25
+	slowdown = 0.75
 	empty_indicator = TRUE
 
 /obj/item/gun/ballistic/shotgun/automatic/ms13/sks/update_icon_state()
@@ -114,14 +127,17 @@
 
 /obj/item/gun/ballistic/shotgun/automatic/ms13/sks/scoped
 	name = "scoped European battle rifle"
-	desc = "A European battle rifle with a scope attached and some improved rifling for better penetration."
+	desc = "A European battle rifle with a scope attached and some improved rifling for better penetration and accuracy. The added weight of the scope will slow the user down."
 	icon_state = "scoped_sks"
 	inhand_icon_state = "scoped_sks"
 	extra_penetration = 15
+	spread = 2
+	slowdown = 1
 	zoomable = TRUE
 	zoom_amt = 10
 	zoom_out_amt = 13
 	empty_indicator = TRUE
+
 //Magazines
 /obj/item/ammo_box/magazine/internal/shot/ms13/tube4570
 	name = "4570 internal tube magazine"
