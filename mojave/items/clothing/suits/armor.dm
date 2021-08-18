@@ -33,7 +33,7 @@
 	desc = "A reinforced, heavier kit of armor intended to be worn over clothing. Made mostly of durable metal plates."
 	icon_state = "reinf_armorkit"
 	inhand_icon_state = "reinf_armorkit"
-	armor = list("melee" = 50, "bullet" = 40, "laser" = 0, "energy" = 0, "bomb" = 30, "bio" = 10, "rad" = 10, "fire" = 40, "acid" = 10, "wound" = 5)
+	armor = list("melee" = 50, "bullet" = 40, "laser" = 5, "energy" = 0, "bomb" = 30, "bio" = 10, "rad" = 10, "fire" = 40, "acid" = 10, "wound" = 5)
 
 // Light/Leather Armor //
 
@@ -42,21 +42,21 @@
 	desc = "Sections of tire, roughly cut apart and bound together. Getting into a firefight isn't advised, but you shouldn't feel a punch in this."
 	icon_state = "tirearmor"
 	inhand_icon_state = "tirearmor"
-	armor = list("melee" = 30, "bullet" = 10, "laser" = 5, "energy" = 5, "bomb" = 5, "bio" = 5, "rad" = 5, "fire" = 5, "acid" = 5, "wound" = 0)
+	armor = list("melee" = 30, "bullet" = 10, "laser" = 10, "energy" = 5, "bomb" = 5, "bio" = 5, "rad" = 5, "fire" = 5, "acid" = 5, "wound" = 0)
 
 /obj/item/clothing/suit/armor/ms13/leatherarmor
 	name = "leather armor"
 	desc = "A suit of armor made of hardened leather, a wasteland staple."
 	icon_state = "leatherarmor"
 	inhand_icon_state = "leatherarmor"
-	armor = list("melee" = 30, "bullet" = 25, "laser" = 15, "energy" = 15, "bomb" = 15, "bio" = 10, "rad" = 10, "fire" = 10, "acid" = 10, "wound" = 0)
+	armor = list("melee" = 30, "bullet" = 25, "laser" = 20, "energy" = 15, "bomb" = 15, "bio" = 10, "rad" = 10, "fire" = 10, "acid" = 10, "wound" = 0)
 
 /obj/item/clothing/suit/armor/ms13/leatherarmor/reinforced
 	name = "reinforced leather armor"
 	desc = "A suit of leather armor with additional padding, stronger leather, and the addition of some metal reinforcements. A solid defense."
 	icon_state = "reinforcedleather"
 	inhand_icon_state = "reinforcedleather"
-	armor = list("melee" = 40, "bullet" = 35, "laser" = 25, "energy" = 25, "bomb" = 30, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10, "wound" = 5)
+	armor = list("melee" = 40, "bullet" = 35, "laser" = 30, "energy" = 25, "bomb" = 30, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10, "wound" = 5)
 
 // Metal Armor //
 
@@ -72,14 +72,14 @@
 	desc = "Sturdy metal armor with additional reinforcements, excellent protection from conventional threats at the cost of no protection from lasers."
 	icon_state = "reinforcedmetal"
 	inhand_icon_state = "reinforcedmetal"
-	armor = list("melee" = 50, "bullet" = 40, "laser" = 0, "energy" = 0, "bomb" = 30, "bio" = 10, "rad" = 10, "fire" = 40, "acid" = 10, "wound" = 5)
+	armor = list("melee" = 50, "bullet" = 40, "laser" = 5, "energy" = 0, "bomb" = 30, "bio" = 10, "rad" = 10, "fire" = 40, "acid" = 10, "wound" = 5)
 
 /obj/item/clothing/suit/armor/ms13/metal/heavy
 	name = "heavy metal armor"
 	desc = "A full suit of plated and spiked metal armor. Looks quite intimidating and offers the protection to match."
 	icon_state = "heavymetal"
 	inhand_icon_state = "heavymetal"
-	armor = list("melee" = 60, "bullet" = 50, "laser" = 10, "energy" = 10, "bomb" = 50, "bio" = 20, "rad" = 20, "fire" = 60, "acid" = 20, "wound" = 10)
+	armor = list("melee" = 60, "bullet" = 50, "laser" = 15, "energy" = 10, "bomb" = 50, "bio" = 20, "rad" = 20, "fire" = 60, "acid" = 20, "wound" = 10)
 
 /obj/item/clothing/suit/armor/ms13/vaultvan
 	name = "\improper Vault-tec van armor"
@@ -97,20 +97,20 @@
 	inhand_icon_state = "policekevlar"
 	blood_overlay_type = "armor"
 	dog_fashion = /datum/dog_fashion/back
-	armor = list("melee" = 30, "bullet" = 50, "laser" = 15, "energy" = 15, "bomb" = 30, "bio" = 20, "rad" = 20, "fire" = 30, "acid" = 20, "wound" = 5)
+	armor = list("melee" = 30, "bullet" = 50, "laser" = 20, "energy" = 15, "bomb" = 30, "bio" = 20, "rad" = 20, "fire" = 30, "acid" = 20, "wound" = 5)
 
 /obj/item/clothing/suit/armor/ms13/vest/civilian
 	name = "civilian kevlar vest"
 	desc = "A bulletproof kevlar vest intended for civilian use, not quite as good as it's police or military counterparts."
 	icon_state = "civ_kevlar"
-	armor = list("melee" = 20, "bullet" = 35, "laser" = 10, "energy" = 10, "bomb" = 20, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10, "wound" = 0)
+	armor = list("melee" = 20, "bullet" = 35, "laser" = 15, "energy" = 10, "bomb" = 20, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10, "wound" = 0)
 
 /obj/item/clothing/suit/armor/ms13/vest/military
 	name = "military kevlar vest"
 	desc = "A military grade bulletproof kevlar vest, unmatched protection against almost any caliber of bullet."
 	icon_state = "military_kevlar"
 	inhand_icon_state = "militarykevlar"
-	armor = list("melee" = 40, "bullet" = 60, "laser" = 25, "energy" = 25, "bomb" = 50, "bio" = 20, "rad" = 20, "fire" = 50, "acid" = 20, "wound" = 10)
+	armor = list("melee" = 40, "bullet" = 60, "laser" = 30, "energy" = 25, "bomb" = 50, "bio" = 20, "rad" = 20, "fire" = 50, "acid" = 20, "wound" = 10)
 
 /obj/item/clothing/suit/armor/ms13/vest/vault
 	name = "vault security vest"
@@ -153,14 +153,14 @@
 	desc = "Pre-war military grade combat armor. Offers great all around protection."
 	icon_state = "combatarmor"
 	inhand_icon_state = "combatarmor"
-	armor = list("melee" = 45, "bullet" = 40, "laser" = 15, "energy" = 15, "bomb" = 40, "bio" = 20, "rad" = 20, "fire" = 40, "acid" = 20, "wound" = 5)
+	armor = list("melee" = 45, "bullet" = 40, "laser" = 20, "energy" = 15, "bomb" = 40, "bio" = 20, "rad" = 20, "fire" = 40, "acid" = 20, "wound" = 5)
 
 /obj/item/clothing/suit/armor/ms13/combat/advanced
 	name = "advanced combat armor"
 	desc = "An advanced and more protective model of combat armor. Excellent overall protection."
 	icon_state = "adv_combatarmor"
 	inhand_icon_state = "combat_armor_mk2"
-	armor = list("melee" = 55, "bullet" = 45, "laser" = 25, "energy" = 25, "bomb" = 50, "bio" = 25, "rad" = 25, "fire" = 60, "acid" = 25, "wound" = 10)
+	armor = list("melee" = 55, "bullet" = 45, "laser" = 30, "energy" = 25, "bomb" = 50, "bio" = 25, "rad" = 25, "fire" = 60, "acid" = 25, "wound" = 10)
 
 // Special Armor //
 
@@ -191,7 +191,7 @@
 	desc = "A highly advanced suit of armor originally in use by elite riot control units before the war."
 	icon_state = "riotgear"
 	inhand_icon_state = "riotgear"
-	armor = list("melee" = 55, "bullet" = 45, "laser" = 25, "energy" = 25, "bomb" = 50, "bio" = 25, "rad" = 25, "fire" = 60, "acid" = 25, "wound" = 10)
+	armor = list("melee" = 55, "bullet" = 45, "laser" = 30, "energy" = 25, "bomb" = 50, "bio" = 25, "rad" = 25, "fire" = 60, "acid" = 25, "wound" = 10)
 
 /obj/item/clothing/suit/ms13/ljacket/bountyhunter
 	name = "bounty hunter's jacket"
@@ -285,13 +285,13 @@
 	name = "\improper Legion prime armor"
 	desc = "Legion leather armor with the small addition of some metal reinforcements for added protection. Intended for Prime Legionaries."
 	icon_state = "leg_prime"
-	armor = list("melee" = 35, "bullet" = 30, "laser" = 15, "energy" = 15, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 20, "acid" = 10, "wound" = 0)
+	armor = list("melee" = 35, "bullet" = 30, "laser" = 20, "energy" = 15, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 20, "acid" = 10, "wound" = 0)
 
 /obj/item/clothing/suit/armor/ms13/legion/veteran
 	name = "\improper Legion veteran armor"
 	desc = "A full suit of Legion armor with plenty of hardened leather, padding, and metal reinforcements. Worn by feared Legion Veterans."
 	icon_state = "leg_vet"
-	armor = list("melee" = 40, "bullet" = 35, "laser" = 20, "energy" = 20, "bomb" = 30, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10, "wound" = 5)
+	armor = list("melee" = 40, "bullet" = 35, "laser" = 25, "energy" = 20, "bomb" = 30, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10, "wound" = 5)
 
 /obj/item/clothing/suit/armor/ms13/legion/scout
 	name = "\improper Legion scout armor"
@@ -327,7 +327,7 @@
 	name = "\improper Legion centurion armor"
 	desc = "A hulking suit of armor cobbled together mostly from various other pieces of armor. It serves as both great protection and a status symbol for a Legion Centurion."
 	icon_state = "leg_cent"
-	armor = list("melee" = 55, "bullet" = 45, "laser" = 25, "energy" = 25, "bomb" = 50, "bio" = 25, "rad" = 25, "fire" = 60, "acid" = 25, "wound" = 10)
+	armor = list("melee" = 55, "bullet" = 45, "laser" = 30, "energy" = 25, "bomb" = 50, "bio" = 25, "rad" = 25, "fire" = 60, "acid" = 25, "wound" = 10)
 
 // BOS Armor //
 

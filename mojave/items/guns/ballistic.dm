@@ -46,6 +46,7 @@
 	wound_bonus = 0
 	bare_wound_bonus = 0
 	log_pickup_and_drop = TRUE
+	slowdown = 0.75 //A fall back in case someone forgets to define slowdown at the gun level
 
 /obj/item/gun/ballistic/shotgun/automatic/ms13/Initialize()
 	. = ..()
@@ -62,6 +63,7 @@
 	wound_bonus = 0
 	bare_wound_bonus = 0
 	log_pickup_and_drop = TRUE
+	slowdown = 0.5 //A fall back in case someone forgets to define slowdown at the gun level
 
 /obj/item/gun/ballistic/revolver/ms13/Initialize()
 	. = ..()
@@ -97,6 +99,7 @@
 	extra_damage = 0
 	extra_penetration = 0
 	log_pickup_and_drop = TRUE
+	slowdown = 0.75 //A fall back in case someone forgets to define slowdown at the gun level
 
 /obj/item/gun/ballistic/automatic/ms13/Initialize()
 	. = ..()
@@ -135,6 +138,7 @@
 	burst_size = 1
 	select = 1
 	log_pickup_and_drop = TRUE
+	slowdown = 0.75 //A fall back in case someone forgets to define slowdown at the gun level
 
 /obj/item/gun/ballistic/automatic/ms13/full // For weapons that are intended to have fully automatic capability
 	name = "fully automatic generic ms13 gun"
@@ -149,11 +153,11 @@
 	select = 1
 	burst_size = 1
 	log_pickup_and_drop = TRUE
-	var/autofire_shot_delay = 0.25 //Time between individual shots.
+	slowdown = 0.75 //A fall back in case someone forgets to define slowdown at the gun level
 
 /obj/item/gun/ballistic/automatic/ms13/full/Initialize()
 	. = ..()
-	AddComponent(/datum/component/automatic_fire, 0.25 SECONDS)
+	AddComponent(/datum/component/automatic_fire, fire_delay)
 
 /obj/item/gun/ballistic/automatic/pistol/ms13
 	name = "generic ms13 gun"
@@ -168,6 +172,7 @@
 	bare_wound_bonus = 0
 	log_pickup_and_drop = TRUE
 	force = 10
+	slowdown = 0.5 //A fall back in case someone forgets to define slowdown at the gun level
 
 /obj/item/gun/ballistic/automatic/pistol/ms13/Initialize()
 	. = ..()
@@ -207,6 +212,7 @@
 	wound_bonus = 0
 	bare_wound_bonus = 0
 	log_pickup_and_drop = TRUE
+	slowdown = 0.75 //A fall back in case someone forgets to define slowdown at the gun level
 	var/jamming_chance = 20
 	var/unjam_chance = 10
 	var/jamming_increment = 5

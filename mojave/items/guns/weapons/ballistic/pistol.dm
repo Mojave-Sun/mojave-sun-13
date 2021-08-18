@@ -7,9 +7,12 @@
 	mag_type = /obj/item/ammo_box/magazine/ms13/m10mm
 	fire_sound = 'mojave/sound/ms13weapons/10mm_fire_02.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
-	fire_delay = 4
+	fire_delay = 0.4 SECONDS
 	extra_damage = 20
 	extra_penetration = 10
+	spread = 8
+	recoil = 0.5
+	slowdown = 0.5
 
 /obj/item/gun/ballistic/automatic/pistol/ms13/m10mm/military
 	name = "military 10mm pistol"
@@ -17,6 +20,7 @@
 	icon_state = "mil10mm"
 	inhand_icon_state = "mil10mm"
 	extra_damage = 25
+	recoil = 0.75
 
 /obj/item/gun/ballistic/automatic/pistol/ms13/m10mm/chinese
 	name = "\improper Chinese pistol"
@@ -45,7 +49,7 @@
 	inhand_icon_state = "420pistol"
 	extra_damage = 30
 	extra_penetration = 5
-	fire_delay = 5
+	fire_delay = 0.5 SECONDS
 
 /obj/item/gun/ballistic/automatic/pistol/ms13/m9mm
 	name = "9mm pistol"
@@ -55,9 +59,12 @@
 	mag_type = /obj/item/ammo_box/magazine/ms13/m9mm
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/9mm/9mm2.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
-	fire_delay = 4
+	fire_delay = 0.4 SECONDS
 	extra_damage = 20
 	extra_penetration = 5
+	spread = 8
+	recoil = 0.25
+	slowdown = 0.5
 
 /* Weeb shit
 /obj/item/gun/ballistic/automatic/pistol/ms13/m9mm/nambu
@@ -81,9 +88,12 @@
 	mag_type = /obj/item/ammo_box/magazine/ms13/m12mm
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/12mm/m12mm1.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
-	fire_delay = 4
+	fire_delay = 0.4 SECONDS
 	extra_damage = 35
 	extra_penetration = 15
+	spread = 6
+	recoil = 1.25
+	slowdown = 0.5
 
 /obj/item/gun/ballistic/automatic/pistol/ms13/pistol45
 	name = ".45 pistol"
@@ -94,16 +104,20 @@
 	mag_type = /obj/item/ammo_box/magazine/ms13/m45
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/45/45auto1.ogg'
 	can_suppress = FALSE
-	fire_delay = 4
+	fire_delay = 0.4 SECONDS
 	extra_damage = 30
 	extra_penetration = 5
+	spread = 8
+	recoil = 0.75
+	slowdown = 0.5
 
 /obj/item/gun/ballistic/automatic/pistol/ms13/pistol45/stallion
 	name = "\improper Stallion"
-	desc = "A fancy, well kept, and improved .45 pistol. An even better version of the classic."
+	desc = "A fancy, well kept, and improved .45 pistol. An even better version of the classic. Sports improved penetration and accuracy."
 	icon_state = "stallion"
 	inhand_icon_state = "stallion"
 	extra_penetration = 10
+	spread = 6
 
 /obj/item/gun/ballistic/automatic/pistol/ms13/deagle
 	name = "desert eagle"
@@ -115,7 +129,10 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	extra_damage = 45
 	extra_penetration = 5
-	fire_delay = 5
+	fire_delay = 0.5 SECONDS
+	spread = 6
+	recoil = 1.25
+	slowdown = 0.5
 
 /obj/item/gun/ballistic/automatic/pistol/ms13/pistol22
 	name = ".22 pistol"
@@ -126,7 +143,10 @@
 	w_class = WEIGHT_CLASS_SMALL
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
 	extra_damage = 15
-	fire_delay = 4
+	fire_delay = 0.4 SECONDS
+	spread = 8
+	recoil = 0.25
+	slowdown = 0.5
 
 //Magazines
 /obj/item/ammo_box/magazine/ms13/m45

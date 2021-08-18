@@ -5,16 +5,9 @@
 	icon_state = "caravan"
 	inhand_icon_state = "caravan"
 	force = 20
-	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/caravan
-	fire_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravan.ogg'
-	w_class = WEIGHT_CLASS_BULKY
-	weapon_weight = WEAPON_HEAVY
-/obj/item/gun/ballistic/revolver/ms13/caravan
-	name = "caravan shotgun"
-	desc = "A well worn but reliable double barrel shotgun."
-	icon_state = "caravan"
-	inhand_icon_state = "caravan"
-	force = 20
+	fire_delay = 0.4 SECONDS
+	recoil = 1.5
+	slowdown = 0.75
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/caravan
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravan.ogg'
 	w_class = WEIGHT_CLASS_BULKY
@@ -26,6 +19,8 @@
 	icon_state = "sawedoff"
 	inhand_icon_state = "sawedoff"
 	force = 15
+	fire_delay = 0.5 SECONDS
+	slowdown = 0.5
 	w_class = WEIGHT_CLASS_NORMAL
 	weapon_weight = WEAPON_LIGHT
 
@@ -35,10 +30,14 @@
 	icon_state = "singleshot"
 	inhand_icon_state = "singleshot"
 	force = 20
+	fire_delay = 0.4 SECONDS
+	recoil = 1.5
+	slowdown = 0.75
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/single
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravan2.ogg'
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
+
 ////////////////////////// revolvers////////////////
 /obj/item/gun/ballistic/revolver/ms13/derringer
 	name = "derringer"
@@ -60,9 +59,12 @@
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/ms13/rev44
 	fire_sound = 'mojave/sound/ms13weapons/44mag.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
-	fire_delay = 5
+	fire_delay = 0.5 SECONDS
 	extra_damage = 35
 	extra_penetration = 10
+	spread = 6
+	recoil = 1.25
+	slowdown = 0.5
 
 /obj/item/gun/ballistic/revolver/ms13/rev44/mysterious
 	name = "\improper Mysterious Magnum"
@@ -78,20 +80,26 @@
 	inhand_icon_state = "revrifle"
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
-	fire_delay = 6
+	fire_delay = 0.65 SECONDS
 	extra_damage = 45
+	spread = 5
+	recoil = 1.5
+	slowdown = 0.75
 
 /obj/item/gun/ballistic/revolver/ms13/rev357
 	name = ".357 magnum revolver"
-	desc = "A classic .357 Magnum revolver, doesn't fire very fast but packs a decent punch."
+	desc = "A classic .357 Magnum revolver, packs a decent punch but fires a bit slower due to it's old mechanisms."
 	icon_state = "rev357"
 	inhand_icon_state = "rev357"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/357/357fire3.ogg'
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/ms13/rev357
 	w_class = WEIGHT_CLASS_NORMAL
-	fire_delay = 6
+	fire_delay = 0.55 SECONDS
 	extra_damage = 30
 	extra_penetration = 10
+	spread = 6
+	recoil = 1
+	slowdown = 0.5
 
 /obj/item/gun/ballistic/revolver/ms13/rev357/lucky
 	name = "\improper Lucky"
@@ -101,14 +109,17 @@
 	extra_damage = 35
 
 /obj/item/gun/ballistic/revolver/ms13/rev357/police
-	name = "police pistol"
-	desc = "A lightweight .357 revolver that can be easily stored and hidden, commonly used by pre-war police forces."
+	name = "police revolver"
+	desc = "A lightweight, short .357 revolver that can be easily stored and hidden, commonly used by pre-war police forces. The shorter barrel reduces it's accuracy."
 	icon_state = "policerev"
 	inhand_icon_state = "policerev"
 	fire_sound = 'mojave/sound/ms13weapons/policepistol.ogg'
 	w_class = WEIGHT_CLASS_SMALL
-	fire_delay = 5
+	fire_delay = 0.5 SECONDS
 	extra_damage = 25
+	spread = 8
+	recoil = 0.75
+	slowdown = 0.5
 
 /obj/item/gun/ballistic/revolver/ms13/rev10mm
 	name = "10mm revolver"
@@ -118,20 +129,26 @@
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/ms13/rev10mm
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/10mm/10mmfire2.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
-	fire_delay = 5
+	fire_delay = 0.45 SECONDS
 	extra_damage = 25
 	extra_penetration = 10
+	spread = 6
+	recoil = 0.75
+	slowdown = 0.5
 
 /obj/item/gun/ballistic/revolver/ms13/huntingrev
 	name = "hunting revolver"
-	desc = "A double action revolver chambered for heavy .45-70 rounds and only carrying five at a time. Make every shot count."
+	desc = "A slow firing revolver chambered for heavy .45-70 rounds and only carrying five at a time. Make every shot count."
 	icon_state = "huntingrev"
 	inhand_icon_state = "huntingrev"
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/ms13/rev4570
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/huntingrev/huntingrev5.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
-	fire_delay = 6
+	fire_delay = 0.6 SECONDS
 	extra_damage = 45
+	spread = 6
+	recoil = 1.5
+	slowdown = 0.5
 
 /obj/item/gun/ballistic/revolver/ms13/huntingrev/sequoia
 	name = "\improper Sequoia"
@@ -148,9 +165,12 @@
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/ms13/rev556
 	fire_sound = 'mojave/sound/ms13weapons/that_gun.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
-	fire_delay = 4
+	fire_delay = 0.45 SECONDS
 	extra_damage = 30
 	extra_penetration = 10
+	spread = 6
+	recoil = 0.75
+	slowdown = 0.5
 
 //Magazines
 /obj/item/ammo_box/magazine/internal/shot/ms13/caravan

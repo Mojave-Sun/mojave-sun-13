@@ -204,8 +204,8 @@
 	severity = WOUND_SEVERITY_MODERATE
 	viable_zones = list(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 	interaction_efficiency_penalty = 1.5
-	limp_slowdown = 3
 	//MOJAVE EDIT CHANGE BEGIN
+	limp_slowdown = 2.5 //Original TG value is 3
 	threshold_minimum = 30 //Original TG value is 35
 	//MOJAVE EDIT CHANGE END
 	threshold_penalty = 15
@@ -318,8 +318,8 @@
 
 	severity = WOUND_SEVERITY_SEVERE
 	interaction_efficiency_penalty = 2
-	limp_slowdown = 6
 	//MOJAVE EDIT CHANGE BEGIN
+	limp_slowdown = 5 //Original TG value is 6
 	threshold_minimum = 50 //Original TG value is 60
 	//MOJAVE EDIT CHANGE END
 	threshold_penalty = 30
@@ -342,7 +342,9 @@
 
 	severity = WOUND_SEVERITY_CRITICAL
 	interaction_efficiency_penalty = 4
-	limp_slowdown = 9
+	//MOJAVE EDIT CHANGE BEGIN
+	limp_slowdown = 8 //Orignal TG value is 9
+	//MOJAVE EDIT CHANGE END
 	sound_effect = 'sound/effects/wounds/crack2.ogg'
 	threshold_minimum = 115
 	threshold_penalty = 50

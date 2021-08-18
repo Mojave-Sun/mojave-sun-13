@@ -10,14 +10,19 @@
 	weapon_weight = WEAPON_HEAVY
 	extra_damage = 40
 	extra_penetration = 15
-	fire_delay = 6
+	fire_delay = 0.6 SECONDS
+	spread = 2
+	recoil = 1.75
+	slowdown = 0.75
 
 /obj/item/gun/ballistic/rifle/ms13/hunting/scoped
 	name = "scoped hunting rifle"
-	desc = "A bolt action hunting rifle with a scope attached and a slightly improved barrel for better penetration."
+	desc = "A bolt action hunting rifle with a scope attached and a slightly improved barrel for better penetration and reduced recoil, though the added weight of everything will slow the user down."
 	icon_state = "scoped_hunting"
 	inhand_icon_state = "scoped_hunting"
 	extra_penetration = 20
+	recoil = 1.5
+	slowdown = 1
 	zoomable = TRUE
 	zoom_amt = 10
 	zoom_out_amt = 13
@@ -30,9 +35,12 @@
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
 	fire_sound = 'mojave/sound/ms13weapons/varmint_rifle.ogg'
-	fire_delay = 6
+	fire_delay = 0.6 SECONDS
 	extra_damage = 30
 	extra_penetration = 5
+	spread = 2
+	recoil = 0.75
+	slowdown = 0.75
 	mag_type = /obj/item/ammo_box/magazine/ms13/r10
 
 /obj/item/gun/ballistic/rifle/ms13/varmint/update_icon_state()
@@ -67,10 +75,12 @@
 
 /obj/item/gun/ballistic/rifle/ms13/varmint/ratslayer
 	name = "\improper Ratslayer"
-	desc = "A uniquely modified varmint rifle with improved rifling, a scope, and supressor attached."
+	desc = "A uniquely modified varmint rifle with improved rifling, a scope, and supressor attached. The added weight of all the attachments will slow the user down some more."
 	icon_state = "ratslayer"
 	inhand_icon_state = "ratslayer"
 	extra_penetration = 10
+	recoil = 0.5
+	slowdown = 1
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
 	zoomable = TRUE
 	zoom_amt = 10
@@ -83,10 +93,12 @@
 	inhand_icon_state = "amr"
 	mag_type = /obj/item/ammo_box/magazine/ms13/amr
 	fire_sound = 'mojave/sound/ms13weapons/amrfire.ogg'
-	fire_delay = 8
+	fire_delay = 0.8 SECONDS
 	extra_damage = 60
 	extra_penetration = 20
-	recoil = 5
+	spread = 2
+	recoil = 4
+	slowdown = 1.5
 
 /obj/item/gun/ballistic/rifle/ms13/hunting/scoped/amr/update_icon_state()
 	. = ..()
@@ -125,6 +137,8 @@
 	mag_type = /obj/item/ammo_box/magazine/internal/ms13/chinese_rifle
 	fire_sound = 'mojave/sound/ms13weapons/hunting_rifle.ogg'
 	extra_damage = 30
+	spread = 2
+	recoil = 1.25
 
 /* Weeb shit and an unbalanced M1 Garand for now
 /obj/item/gun/ballistic/rifle/ms13/hunting/japanese
