@@ -473,13 +473,13 @@
 	icon_state = "chunk"
 
 //This functions like normal openspace but prevents placing lattice, so people cannot cheese catwalks or floors clear across the map.
-/turf/open/openspace/ms13_no_build
+/turf/open/openspace/ms13
 	icon = 'mojave/icons/turf/ground.dmi'
 	icon_state = "transparent" //Different icon so it's visually distinct for mappers.
 	can_build_on = FALSE
+	can_cover_up = FALSE
 
-/turf/open/openspace/ms13_no_build/Initialize()
+/turf/open/openspace/ms13/Initialize()
 	. = ..()
 	icon = 'icons/turf/floors.dmi'
-	icon_state = "transparent" //Reset to original icon so it doesn't darken things when viewed in game.
-
+	icon_state = "invisible" //Reset to original icon so it doesn't darken things when viewed in game.

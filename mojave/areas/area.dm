@@ -10,7 +10,7 @@
 	power_light = FALSE
 	outdoors = TRUE
 	has_gravity = STANDARD_GRAVITY
-	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
+	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
 	ambientsounds = list('mojave/sound/ms13ambience/general/wasteland.ogg')
 	flags_1 = NONE
 
@@ -69,6 +69,7 @@
 /area/ms13/underground
 	requires_power = FALSE
 	outdoors = FALSE
+	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
 
 /area/ms13/underground/mountain
 	name = "mountain"
@@ -225,6 +226,8 @@
 	power_environ = TRUE
 	power_equip = TRUE
 	power_light = TRUE
+	mood_bonus = 2
+	mood_message = "<span class='cultlarge'>LETS GOOOOO/span>\n"
 
 /area/ms13/combattest/building
 	name = "combat arena building"
@@ -235,3 +238,4 @@
 	name = "combat arena tunnel"
 	icon_state = "combatarena_tunnels"
 	outdoors = FALSE
+	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
