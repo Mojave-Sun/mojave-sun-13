@@ -24,7 +24,7 @@
 	inhand_icon_state = "machete_scrap"
 	force = 30
 	armour_penetration = 0
-	throw_force = 15
+	throwforce = 15
 	wound_bonus = 6
 	bare_wound_bonus = 4
 	w_class = WEIGHT_CLASS_NORMAL
@@ -47,7 +47,7 @@
 	inhand_icon_state = "katana_black"
 	force = 35
 	armour_penetration = 0
-	throw_force = 15
+	throwforce = 15
 	wound_bonus = 12
 	bare_wound_bonus = 13
 
@@ -67,7 +67,7 @@
 	attack_verb_simple = list("mash", "bash", "pipe", "hit", "bludgeon", "whack", "bonk")
 	force = 25
 	armour_penetration = 5
-	throw_force = 10
+	throwforce = 10
 	wound_bonus = 6
 	w_class= WEIGHT_CLASS_NORMAL
 	sharpness = NONE
@@ -112,7 +112,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	wound_bonus = 5
 	bare_wound_bonus = 5
-	throw_force = 10
+	throwforce = 10
 	var/on = FALSE
 
 /obj/item/claymore/ms13/machete/shishkebab/attack_self(mob/user)
@@ -144,7 +144,7 @@
 	wound_bonus = 8
 	bare_wound_bonus = 6
 	armour_penetration = 0
-	throw_force = 10
+	throwforce = 10
 	sharpness = IS_SHARP_AXE
 	w_class = WEIGHT_CLASS_BULKY
 	var/on = FALSE

@@ -1,21 +1,20 @@
-//This file contains all throwing weapons
+//This file contains all spears
 
-/obj/item/spear/ms13/
+/obj/item/spear/ms13
 	name = "spear"
-	desc = "A swift and ancient weapon used to this day, due to its ease of lodging itself into its victim's body parts."
+	desc = "A well made, dangerous, and versatile spear."
 	icon = 'mojave/icons/objects/melee/melee_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
 	icon_state = "spear"
 	inhand_icon_state = "spear"
 	icon_prefix = "spear"
-	force = 30
-	throwforce = 35
-	throw_speed = 1.5
-	armour_penetration = 5
-	wound_bonus = 0
-	embedding = list("embedded_pain_multiplier" = 3, "embed_chance" = 40, "embedded_fall_chance" = 20)
-	w_class = WEIGHT_CLASS_NORMAL
+	force = 20
+	throwforce = 30
+	armour_penetration = 10
+	wound_bonus = 5
+	embedding = null
+	w_class = WEIGHT_CLASS_BULKY
 	sharpness = SHARP_POINTY
 	log_pickup_and_drop = TRUE
 	var/wielded = FALSE
@@ -30,7 +29,7 @@
 	return
 
 /obj/item/spear/ms13/ComponentInitialize()
-	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_multiplier=2)
+	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_unwielded = 20, force_wielded = 35)
 
 // triggered on wielding of a two handed item.
 /obj/item/spear/ms13/proc/on_wield(obj/item/source, mob/user)
@@ -48,23 +47,34 @@
 
 /obj/item/spear/ms13/knife
 	name = "knife spear"
-	desc = "A rough spear, made from a knife and a pole. Don't look past it, it can still kill, whether it be by jab or throw."
+	desc = "A very crude spear made from a simple knife and a pole."
 	icon_state = "spear_knife"
 	inhand_icon_state = "spear_knife"
 	icon_prefix = "spear_knife"
-	force = 25
-	throwforce = 20
+	force = 15
+	armour_penetration = 5
+	wound_bonus = 2
+	throwforce = 25
 
-/obj/item/spear/ms13/legion
+/obj/item/spear/ms13/knife/ComponentInitialize()
+	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_unwielded = 15, force_wielded = 25)
+
+/obj/item/spear/ms13/throwing
 	name = "throwing spear"
-	desc = "A throwing spear, one of many signature weapons of Caesar's Legion. Swift, agile, deadly."
-	icon_state = "spear_legion"
-	inhand_icon_state = "spear_legion"
-	icon_prefix = "spear_legion"
-	force = 35
+	desc = "A decently well made barbed spear intended to be thrown but can serve fine as a melee weapon in a pinch."
+	icon_state = "spear_throwing"
+	inhand_icon_state = "spear_throwing"
+	icon_prefix = "spear_throwing"
+	force = 15
+	armour_penetration = 10
+	wound_bonus = 5
 	throwforce = 35
+	embedding = list("embedded_pain_multiplier" = 3, "embed_chance" = 65, "embedded_fall_chance" = 35)
 	throw_range = 6
 	throw_speed = 3
+
+/obj/item/spear/ms13/throwing/ComponentInitialize()
+	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_unwielded = 15, force_wielded = 25)
 
 /obj/item/spear/explosive/ms13
 	name = "thunder stick"
