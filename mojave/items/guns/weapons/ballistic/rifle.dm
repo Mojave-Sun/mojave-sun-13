@@ -183,30 +183,27 @@
 //Magazines
 /obj/item/ammo_box/magazine/ms13/r10
 	name = "10 round magazine (5.56mm)"
-	icon = 'mojave/icons/objects/ammo/ammo.dmi'
+	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	icon_state = "556r10"
 	ammo_type = /obj/item/ammo_casing/ms13/a556
 	caliber = "a556"
 	max_ammo = 10
-	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/ammo_box/magazine/ms13/r308
 	name = "5 round magazine (.308)"
-	icon = 'mojave/icons/objects/ammo/ammo.dmi'
+	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	icon_state = "r308"
 	ammo_type = /obj/item/ammo_casing/ms13/a308
 	caliber = "a308"
 	max_ammo = 5
-	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/ammo_box/magazine/ms13/amr
 	name = "6 round magazine (.50)"
-	icon = 'mojave/icons/objects/ammo/ammo.dmi'
+	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	icon_state = "50cal"
 	ammo_type = /obj/item/ammo_casing/ms13/a50MG
 	caliber = "a50MG"
 	max_ammo = 6
-	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/ammo_box/magazine/ms13/r308/battlerifle
 	name = "8 round enbloc magazine (.308)"
@@ -234,8 +231,9 @@
 
 /obj/item/ammo_box/ms13/r762
 	name = "rifle stripper clip (7.62)"
-	icon = 'mojave/icons/objects/ammo/ammo.dmi'
+	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	icon_state = "762clip"
 	ammo_type = /obj/item/ammo_casing/ms13/a762
 	caliber = "a762"
 	max_ammo = 5
+	multiple_sprites = AMMO_BOX_PER_BULLET

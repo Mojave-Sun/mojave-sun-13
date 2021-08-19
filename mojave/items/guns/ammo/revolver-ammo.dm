@@ -3,6 +3,7 @@
 	name = ".44 magnum bullet casing"
 	desc = "A .44 Magnum bullet casing."
 	caliber = "44"
+	icon_state = "44_casing"
 	projectile_type = /obj/projectile/bullet/ms13/m44
 
 /obj/item/ammo_casing/ms13/m44/junk
@@ -30,6 +31,7 @@
 	name = ".45-70 bullet casing"
 	desc = "A .45-70 bullet casing."
 	caliber = "4570"
+	icon_state = "45-70_casing"
 	projectile_type = /obj/projectile/bullet/ms13/c4570
 
 /obj/item/ammo_casing/ms13/c4570/ap
@@ -52,6 +54,7 @@
 	name = ".357 bullet casing"
 	desc = "A .357 bullet casing."
 	caliber = "357"
+	icon_state = "357_casing"
 	projectile_type = /obj/projectile/bullet/ms13/a357
 
 /obj/item/ammo_casing/ms13/a357/junk

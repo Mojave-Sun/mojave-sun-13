@@ -30,6 +30,7 @@
 	name = ".308 bullet casing"
 	desc = "A .308 bullet casing."
 	caliber = "a308"
+	icon_state = "308_casing"
 	projectile_type = /obj/projectile/bullet/ms13/a308
 
 /obj/item/ammo_casing/ms13/a308/junk
@@ -57,6 +58,7 @@
 	name = "5.56mm bullet casing"
 	desc = "A 5.56mm bullet casing."
 	caliber = "a556"
+	icon_state = "556_casing"
 	projectile_type = /obj/projectile/bullet/ms13/a556
 
 /obj/item/ammo_casing/ms13/a556/junk
@@ -84,6 +86,7 @@
 	name = ".50MG bullet casing"
 	desc = "A .50MG bullet casing."
 	caliber = "a50MG"
+	icon_state = "50bmg_casing"
 	projectile_type = /obj/projectile/bullet/ms13/a50MG
 
 /obj/item/ammo_casing/ms13/a50MG/ap

@@ -13,7 +13,7 @@
 			/obj/item/ammo_box/ms13/rev10mm,
 			/obj/item/ammo_box/magazine/ms13/m10mm,
 			/obj/item/ammo_box/ms13/cpistol,
-			/obj/item/ammo_box/ms13/chinese_rifle
+			/obj/item/ammo_box/ms13/r762
 			)
 
 /obj/effect/spawner/lootdrop/ms13/ammo/tier2

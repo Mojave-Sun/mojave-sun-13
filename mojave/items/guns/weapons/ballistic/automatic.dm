@@ -283,30 +283,27 @@
 //Magazines
 /obj/item/ammo_box/magazine/ms13/r20
 	name = "20 round magazine (5.56mm)"
-	icon = 'mojave/icons/objects/ammo/ammo.dmi'
+	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	icon_state = "556r20"
 	ammo_type = /obj/item/ammo_casing/ms13/a556
 	caliber = "a556"
 	max_ammo = 20
-	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/ammo_box/magazine/ms13/smgm10mm
 	name = "24 round magazine (10mm)"
-	icon = 'mojave/icons/objects/ammo/ammo.dmi'
+	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	icon_state = "smg10mm"
 	ammo_type = /obj/item/ammo_casing/ms13/c10mm
 	caliber = "10mm"
 	max_ammo = 24
-	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/ammo_box/magazine/ms13/smgm9mm
 	name = "30 round magazine (9mm)"
-	icon = 'mojave/icons/objects/ammo/ammo.dmi'
+	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	icon_state = "smg9mm"
 	ammo_type = /obj/item/ammo_casing/ms13/c9mm
 	caliber = "9mm"
 	max_ammo = 30
-	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/ammo_box/magazine/ms13/smgm45
 	name = "50 round drum magazine (.45)"
@@ -314,16 +311,14 @@
 	ammo_type = /obj/item/ammo_casing/ms13/c45
 	caliber = ".45"
 	max_ammo = 50
-	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/ammo_box/magazine/ms13/ar762
 	name = "24 round magazine (7.62mm)"
-	icon = 'mojave/icons/objects/ammo/ammo.dmi'
+	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	icon_state = "ar762"
 	ammo_type = /obj/item/ammo_casing/ms13/a762
 	caliber = "a762"
 	max_ammo = 24
-	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/ammo_box/magazine/ms13/smgm22
 	name = "60 round magazine (.22)"
@@ -331,7 +326,6 @@
 	ammo_type = /obj/item/ammo_casing/ms13/c22
 	caliber = ".22"
 	max_ammo = 60
-	multiple_sprites = AMMO_BOX_FULL_EMPTY
 
 /obj/item/ammo_box/magazine/ms13/smg12mm
 	name = "21 round magazine (12.7mm)"
@@ -346,4 +340,3 @@
 	ammo_type = /obj/item/ammo_casing/ms13/a308
 	caliber = "a308"
 	max_ammo = 10
-	multiple_sprites = AMMO_BOX_FULL_EMPTY

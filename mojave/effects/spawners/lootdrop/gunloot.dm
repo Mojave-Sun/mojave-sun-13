@@ -36,8 +36,8 @@
 				)
 	var/loot7 = list(
 				/obj/item/gun/ballistic/rifle/ms13/hunting/chinese,
-				/obj/item/ammo_box/ms13/chinese_rifle,
-				/obj/item/ammo_box/ms13/chinese_rifle
+				/obj/item/ammo_box/ms13/r762,
+				/obj/item/ammo_box/ms13/r762
 	)
 
 /obj/effect/spawner/lootdrop/ms13/gun/tier1/Initialize()

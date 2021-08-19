@@ -3,6 +3,7 @@
 	name = ".45 bullet casing"
 	desc = "A .45 bullet casing."
 	caliber = ".45"
+	icon_state = "45acp_casing"
 	projectile_type = /obj/projectile/bullet/ms13/c45
 
 /obj/item/ammo_casing/ms13/c45/junk
@@ -30,6 +31,7 @@
 	name = ".22 bullet casing"
 	desc = "A .22 bullet casing."
 	caliber = ".22"
+	icon_state = "22lr_casing"
 	projectile_type = /obj/projectile/bullet/ms13/c22
 
 /obj/item/ammo_casing/ms13/c22/junk
@@ -57,6 +59,7 @@
 	name = "9mm bullet casing"
 	desc = "A 9mm bullet casing."
 	caliber = "9mm"
+	icon_state = "9mm_casing"
 	projectile_type = /obj/projectile/bullet/ms13/c9mm
 
 /obj/item/ammo_casing/ms13/c9mm/junk
@@ -84,6 +87,7 @@
 	name = "10mm bullet casing"
 	desc = "A 10mm bullet casing."
 	caliber = "10mm"
+	icon_state = "10mm_casing"
 	projectile_type = /obj/projectile/bullet/ms13/c10mm
 
 /obj/item/ammo_casing/ms13/c10mm/junk
@@ -94,6 +98,7 @@
 /obj/item/ammo_casing/ms13/c10mm/ap
 	name = "AP 10mm bullet casing"
 	desc = "An armor piercing 10mm bullet casing."
+	icon_state = "10mm_ap_casing"
 	projectile_type = /obj/projectile/bullet/ms13/c10mm/ap
 
 /obj/item/ammo_casing/ms13/c10mm/fmj
@@ -111,6 +116,7 @@
 	name = "12.7mm bullet casing"
 	desc = "A 12.7mm bullet casing."
 	caliber = "12.7mm"
+	icon_state = "127_casing"
 	projectile_type = /obj/projectile/bullet/ms13/m12mm
 
 /obj/item/ammo_casing/ms13/m12mm/ap

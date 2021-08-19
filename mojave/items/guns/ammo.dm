@@ -1,5 +1,6 @@
 /obj/item/ammo_casing/ms13
 	click_cooldown_override = 1
+	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 
 /obj/item/ammo_casing/ms13/Initialize()
 	. = ..()

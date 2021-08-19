@@ -58,7 +58,7 @@
 
 /obj/item/ammo_box/magazine/ms13/a2mmEC
 	name = "20 round magazine (2mmEC)"
-	icon = 'mojave/icons/objects/ammo/ammo.dmi'
+	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	icon_state = "2mmec"
 	ammo_type = /obj/item/ammo_casing/caseless/ms13/a2mmEC
 	caliber = "2mmEC"
