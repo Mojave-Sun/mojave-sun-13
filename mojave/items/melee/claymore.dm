@@ -68,7 +68,7 @@
 	force = 25
 	armour_penetration = 5
 	throw_force = 10
-	wound_bonus = 5
+	wound_bonus = 6
 	w_class= WEIGHT_CLASS_NORMAL
 	sharpness = NONE
 	log_pickup_and_drop = TRUE
@@ -98,7 +98,7 @@
 	attack_verb_simple = list("mash", "bash", "batter", "hit", "bludgeon", "whack", "bonk")
 	force = 25
 	armour_penetration = 10
-	wound_bonus = -8
+	wound_bonus = -5
 	w_class = WEIGHT_CLASS_NORMAL
 	sharpness = NONE
 	log_pickup_and_drop = TRUE

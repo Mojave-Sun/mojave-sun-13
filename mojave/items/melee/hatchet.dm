@@ -9,9 +9,9 @@
 	icon_state = "hatchet"
 	inhand_icon_state = "hatchet"
 	force = 30
-	throwforce = 30
+	throwforce = 25
 	wound_bonus = 0
-	bare_wound_bonus = 5
+	bare_wound_bonus = 0
 	w_class = WEIGHT_CLASS_NORMAL
 	sharpness = IS_SHARP_AXE
 	log_pickup_and_drop = TRUE
@@ -21,12 +21,13 @@
 	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
 
 /obj/item/hatchet/ms13/broad
-	name = "hatchet"
-	desc = "A broad headed hatchet. Nice and hefty, could cleave just about anything in two."
+	name = "broad hatchet"
+	desc = "A broad headed hatchet that is heftier and more dangerous than it's simpler cousin."
 	icon_state = "hatchet_broad"
 	inhand_icon_state = "hatchet_broad"
-	force = 25
-	bare_wound_bonus = 10
+	force = 35
+	armour_penetration = 5
+	throwforce = 30
 
 /obj/item/hatchet/ms13/icepick
 	name = "ice pick"
@@ -35,19 +36,18 @@
 	inhand_icon_state = "ice_pick"
 	force = 25
 	throwforce = 20
-	bare_wound_bonus = 0
+	wound_bonus = 2
 	armour_penetration = 10
 	sharpness = SHARP_POINTY
 
 /obj/item/hatchet/ms13/tomahawk
 	name = "tomahawk"
-	desc = "A makeshift tomahawk, primarily used for throwing. Two long spikes protrude, used for digging into the target."
+	desc = "A makeshift tomahawk, primarily intended for throwing. Two long spikes protrude, used for digging into the target."
 	icon_state = "tomahawk"
 	inhand_icon_state = "tomahawk"
 	force = 20
-	throwforce = 35
+	throwforce = 30
 	armour_penetration = 5
-	wound_bonus = 0
-	embedding = list("embedded_pain_multiplier" = 4, "embed_chance" = 50, "embedded_fall_chance" = 10)
+	embedding = list("embedded_pain_multiplier" = 3, "embed_chance" = 50, "embedded_fall_chance" = 25)
 	sharpness = SHARP_POINTY
 	log_pickup_and_drop = TRUE
