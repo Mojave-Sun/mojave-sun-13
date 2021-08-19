@@ -208,4 +208,4 @@
 	icon_state = "cpistol"
 	ammo_type = /obj/item/ammo_casing/ms13/c10mm
 	caliber = "10mm"
-	max_ammo = 10
+	max_ammo = 5
