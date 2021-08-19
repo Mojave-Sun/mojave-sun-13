@@ -30,7 +30,7 @@
 	extra_penetration = 5
 	fire_delay = 0.45 SECONDS
 
-/obj/item/gun/energy/ms13/laser/pistol/defender
+/obj/item/gun/energy/ms13/laser/pistol/advanced/defender
 	name = "laser defender"
 	desc = "A highly advanced, experimental laser pistol. Sports best in class stopping power and fire rate, truly a menace in the right hands."
 	icon_state = "laserdefender"
