@@ -22,6 +22,7 @@
 	var/loot4 = list(
 				/obj/item/gun/ballistic/automatic/pistol/ms13/pistol22,
 				/obj/item/ammo_box/magazine/ms13/m22,
+				""
 				)
 	var/loot5 = list(
 				/obj/item/gun/ballistic/revolver/ms13/rev10mm,
@@ -59,6 +60,7 @@
 	var/loot3 = list(
 				/obj/item/gun/ballistic/automatic/ms13/semi/service,
 				/obj/item/ammo_box/magazine/ms13/r20,
+				""
 				)
 	var/loot4 = list(
 				/obj/item/gun/ballistic/rifle/ms13/hunting,
@@ -175,20 +177,27 @@
 	var/loot4 = list(
 				/obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/chinese,
 				/obj/item/ammo_box/magazine/ms13/ar762,
+				""
 				)
 	var/loot5 = list(
 				/obj/item/gun/ballistic/automatic/ms13/full/assaultrifle,
 				/obj/item/ammo_box/magazine/ms13/r20,
+				""
 				)
 	var/loot6 = list(
 				/obj/item/gun/ballistic/automatic/ms13/full/smg12mm,
 				/obj/item/ammo_box/magazine/ms13/smg12mm,
+				""
 				)
 	var/loot7 = list(
 				/obj/item/gun/ballistic/automatic/ms13/full/smg22,
+				"",
+				""
 				)
 	var/loot8 = list(
 				/obj/item/gun/ballistic/automatic/ms13/full/smg45,
+				"",
+				""
 				)
 	var/loot9 = list(
 				/obj/item/gun/ballistic/automatic/ms13/semi/sniper,
@@ -226,6 +235,7 @@
 	var/loot3 = list(
 				/obj/item/gun/ballistic/automatic/ms13/semi/service/maquis,
 				/obj/item/ammo_box/magazine/ms13/r20,
+				""
 				)
 	var/loot4 = list(
 				/obj/item/gun/ballistic/automatic/pistol/ms13/m10mm/chinese/v420,
@@ -253,6 +263,7 @@
 	var/loot2 = list(
 				/obj/item/gun/ballistic/automatic/ms13/semi/marksman/american,
 				/obj/item/ammo_box/magazine/ms13/r20,
+				""
 				)
 	var/loot3 = list(
 				/obj/item/gun/ballistic/revolver/ms13/rev44/mysterious,
@@ -272,10 +283,12 @@
 	var/loot6 = list(
 				/obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/chinese/xuanlong,
 				/obj/item/ammo_box/magazine/ms13/ar762,
+				""
 				)
 	var/loot7 = list(
 				/obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/infiltrator,
 				/obj/item/ammo_box/magazine/ms13/r20,
+				""
 				)
 
 /obj/effect/spawner/lootdrop/ms13/gun/highunique/Initialize()
