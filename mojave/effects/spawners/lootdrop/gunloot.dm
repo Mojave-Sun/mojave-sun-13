@@ -22,7 +22,6 @@
 	var/loot4 = list(
 				/obj/item/gun/ballistic/automatic/pistol/ms13/pistol22,
 				/obj/item/ammo_box/magazine/ms13/m22,
-				""
 				)
 	var/loot5 = list(
 				/obj/item/gun/ballistic/revolver/ms13/rev10mm,
@@ -60,7 +59,6 @@
 	var/loot3 = list(
 				/obj/item/gun/ballistic/automatic/ms13/semi/service,
 				/obj/item/ammo_box/magazine/ms13/r20,
-				""
 				)
 	var/loot4 = list(
 				/obj/item/gun/ballistic/rifle/ms13/hunting,
@@ -69,8 +67,9 @@
 				)
 	var/loot5 = list(
 				/obj/item/gun/ballistic/shotgun/automatic/ms13/sks,
-				/obj/item/ammo_box/ms13/sks,
-				/obj/item/ammo_box/ms13/sks
+				/obj/item/ammo_box/ms13/r762,
+				/obj/item/ammo_box/ms13/r762,
+				/obj/item/ammo_box/ms13/r762
 				)
 	var/loot6 = list(
 				/obj/item/gun/ballistic/shotgun/ms13/lever/cowboy,
@@ -127,33 +126,28 @@
 				)
 	var/loot7 = list(
 				/obj/item/gun/ballistic/shotgun/automatic/ms13/sks/scoped,
-				/obj/item/ammo_box/ms13/sks,
-				/obj/item/ammo_box/ms13/sks
+				/obj/item/ammo_box/ms13/r762,
+				/obj/item/ammo_box/ms13/r762
 				)
 	var/loot8 = list(
 				/obj/item/gun/ballistic/automatic/ms13/full/smg10mm,
 				/obj/item/ammo_box/magazine/ms13/smgm10mm,
-				""
 				)
 	var/loot9 = list(
 				/obj/item/gun/ballistic/automatic/ms13/full/smg9mm,
 				/obj/item/ammo_box/magazine/ms13/smgm9mm,
-				""
 				)
 	var/loot10 = list(
 				/obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/chinese/handmade,
 				/obj/item/ammo_box/magazine/ms13/ar762,
-				""
 				)
 	var/loot11 = list(
 				/obj/item/gun/ballistic/automatic/ms13/semi/marksman,
 				/obj/item/ammo_box/magazine/ms13/r20,
-				""
 				)
 	var/loot12 = list(
 				/obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/proto_service,
 				/obj/item/ammo_box/magazine/ms13/r20,
-				""
 				)
 
 /obj/effect/spawner/lootdrop/ms13/gun/tier3/Initialize()
@@ -181,27 +175,20 @@
 	var/loot4 = list(
 				/obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/chinese,
 				/obj/item/ammo_box/magazine/ms13/ar762,
-				""
 				)
 	var/loot5 = list(
 				/obj/item/gun/ballistic/automatic/ms13/full/assaultrifle,
 				/obj/item/ammo_box/magazine/ms13/r20,
-				""
 				)
 	var/loot6 = list(
 				/obj/item/gun/ballistic/automatic/ms13/full/smg12mm,
 				/obj/item/ammo_box/magazine/ms13/smg12mm,
-				""
 				)
 	var/loot7 = list(
 				/obj/item/gun/ballistic/automatic/ms13/full/smg22,
-				"",
-				""
 				)
 	var/loot8 = list(
 				/obj/item/gun/ballistic/automatic/ms13/full/smg45,
-				"",
-				""
 				)
 	var/loot9 = list(
 				/obj/item/gun/ballistic/automatic/ms13/semi/sniper,
@@ -239,7 +226,6 @@
 	var/loot3 = list(
 				/obj/item/gun/ballistic/automatic/ms13/semi/service/maquis,
 				/obj/item/ammo_box/magazine/ms13/r20,
-				""
 				)
 	var/loot4 = list(
 				/obj/item/gun/ballistic/automatic/pistol/ms13/m10mm/chinese/v420,
@@ -267,7 +253,6 @@
 	var/loot2 = list(
 				/obj/item/gun/ballistic/automatic/ms13/semi/marksman/american,
 				/obj/item/ammo_box/magazine/ms13/r20,
-				""
 				)
 	var/loot3 = list(
 				/obj/item/gun/ballistic/revolver/ms13/rev44/mysterious,
@@ -287,12 +272,10 @@
 	var/loot6 = list(
 				/obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/chinese/xuanlong,
 				/obj/item/ammo_box/magazine/ms13/ar762,
-				""
 				)
 	var/loot7 = list(
 				/obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/infiltrator,
 				/obj/item/ammo_box/magazine/ms13/r20,
-				""
 				)
 
 /obj/effect/spawner/lootdrop/ms13/gun/highunique/Initialize()

@@ -3,6 +3,7 @@
 	name = "7.62 bullet casing"
 	desc = "A 7.62 bullet casing."
 	caliber = "a762"
+	icon_state = "762_casing"
 	projectile_type = /obj/projectile/bullet/ms13/a762
 
 /obj/item/ammo_casing/ms13/a762/junk
