@@ -10,6 +10,7 @@
 	slot_flags = ITEM_SLOT_BELT
 	wound_bonus = 0
 	bare_wound_bonus = 0
+	embedding = null
 	log_pickup_and_drop = TRUE
 
 /obj/item/claymore/ms13/Initialize()
@@ -23,8 +24,10 @@
 	inhand_icon_state = "machete_scrap"
 	force = 30
 	armour_penetration = 0
+	throw_force = 15
 	wound_bonus = 6
 	bare_wound_bonus = 4
+	w_class = WEIGHT_CLASS_NORMAL
 	sharpness = SHARP_EDGED
 
 /obj/item/claymore/ms13/machete/gladius
@@ -44,15 +47,16 @@
 	inhand_icon_state = "katana_black"
 	force = 35
 	armour_penetration = 0
+	throw_force = 15
 	wound_bonus = 12
 	bare_wound_bonus = 13
 
-/obj/item/claymore/ms13/machete/katana/replica
-	name = "replica katana"
-	desc = "A somewhat shoddy replica of a Japanese katana. Still fairly sharp, but not quite as deadly as the proper, well made thing."
+/obj/item/claymore/ms13/machete/katana/immortal
+	name = "\improper Immortal Blade"
+	desc = "A red hilted katana that seems like it has seen it's fair share of warfare and bloodshed. The blade seems to be honed to better pierce armor."
 	icon_state = "katana_red"
 	inhand_icon_state = "katana_red"
-	force = 25
+	armour_penetration = 10
 
 /obj/item/claymore/ms13/pipe
 	name = "lead pipe"
@@ -63,7 +67,9 @@
 	attack_verb_simple = list("mash", "bash", "pipe", "hit", "bludgeon", "whack", "bonk")
 	force = 25
 	armour_penetration = 5
+	throw_force = 10
 	wound_bonus = 5
+	w_class= WEIGHT_CLASS_NORMAL
 	sharpness = NONE
 	log_pickup_and_drop = TRUE
 
@@ -92,7 +98,8 @@
 	attack_verb_simple = list("mash", "bash", "batter", "hit", "bludgeon", "whack", "bonk")
 	force = 25
 	armour_penetration = 10
-	wound_bonus = -5
+	wound_bonus = -8
+	w_class = WEIGHT_CLASS_NORMAL
 	sharpness = NONE
 	log_pickup_and_drop = TRUE
 
@@ -102,8 +109,10 @@
 	icon_state = "shishkebab_off"
 	inhand_icon_state = "shishkebab_off"
 	sharpness = SHARP_EDGED
-	wound_bonus = 2
-	bare_wound_bonus = 3
+	w_class = WEIGHT_CLASS_BULKY
+	wound_bonus = 5
+	bare_wound_bonus = 5
+	throw_force = 10
 	var/on = FALSE
 
 /obj/item/claymore/ms13/machete/shishkebab/attack_self(mob/user)
@@ -135,7 +144,9 @@
 	wound_bonus = 8
 	bare_wound_bonus = 6
 	armour_penetration = 0
+	throw_force = 10
 	sharpness = IS_SHARP_AXE
+	w_class = WEIGHT_CLASS_BULKY
 	var/on = FALSE
 	var/icon_prefix = "ripper"
 
