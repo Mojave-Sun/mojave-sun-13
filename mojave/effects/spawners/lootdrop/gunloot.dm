@@ -70,7 +70,6 @@
 	var/loot5 = list(
 				/obj/item/gun/ballistic/shotgun/automatic/ms13/sks,
 				/obj/item/ammo_box/ms13/r762,
-				/obj/item/ammo_box/ms13/r762,
 				/obj/item/ammo_box/ms13/r762
 				)
 	var/loot6 = list(
@@ -134,22 +133,27 @@
 	var/loot8 = list(
 				/obj/item/gun/ballistic/automatic/ms13/full/smg10mm,
 				/obj/item/ammo_box/magazine/ms13/smgm10mm,
+				""
 				)
 	var/loot9 = list(
 				/obj/item/gun/ballistic/automatic/ms13/full/smg9mm,
 				/obj/item/ammo_box/magazine/ms13/smgm9mm,
+				""
 				)
 	var/loot10 = list(
 				/obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/chinese/handmade,
 				/obj/item/ammo_box/magazine/ms13/ar762,
+				""
 				)
 	var/loot11 = list(
 				/obj/item/gun/ballistic/automatic/ms13/semi/marksman,
 				/obj/item/ammo_box/magazine/ms13/r20,
+				""
 				)
 	var/loot12 = list(
 				/obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/proto_service,
 				/obj/item/ammo_box/magazine/ms13/r20,
+				""
 				)
 
 /obj/effect/spawner/lootdrop/ms13/gun/tier3/Initialize()
