@@ -19,16 +19,30 @@
 	. = ..()
 	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/medical/medical_inventory.dmi')
 
-/obj/item/reagent_containers/hypospray/medipen/ms13/stimpak/inject(mob/living/M, mob/user)
-	. = ..()
-	update_icon_state()
+/obj/item/reagent_containers/hypospray/medipen/ms13/attack(mob/living/M, mob/user)
+	if(!reagents.total_volume)
+		return
+	if(do_after(M, 1 SECONDS))
+		inject(M, user)
+		update_icon_state()
+
+/obj/item/reagent_containers/hypospray/medipen/ms13/attack_self(mob/user/)
+	if(!reagents.total_volume)
+		return
+	if(!user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK, FALSE, FLOOR_OKAY))
+		return
+	if(do_after(user, 1 SECONDS))
+		inject(user)
+		update_icon_state()
 
 /obj/item/reagent_containers/hypospray/medipen/ms13/stimpak/update_icon_state()
 	. = ..()
 	if(reagents.total_volume > 0)
-		icon_state = initial(inhand_icon_state)
+		icon_state = initial(icon_state)
+		inhand_icon_state = initial(inhand_icon_state)
 	else
-		icon_state = "[initial(inhand_icon_state)]0"
+		icon_state = "[initial(icon_state)]0"
+		inhand_icon_state = "[initial(inhand_icon_state)]0"
 
 /obj/item/reagent_containers/hypospray/medipen/ms13/stimpak/super
 	name = "super stimpak"
@@ -49,6 +63,8 @@
 	var/OD_multiplier = 1
 	/// To prevent double dosing of super/regular stimpaks, avoiding OD
 	var/forbidden_double_dose = /datum/reagent/ms13/medicine/stimpak_fluid/super
+	/// Super stimpak moment
+	var/stamina_damage = 0
 // Blatant rip from the coagulant reagent //
 	/// The bloodiest wound that the patient has will have its blood_flow reduced by about half this much each second
 	var/clot_rate = 0.5
@@ -73,7 +89,7 @@
 	if(!M.reagents.has_reagent((forbidden_double_dose))) // Stacking healing items? Yeah right.
 		M.adjustBruteLoss(-(heal_Rate), 0)
 		M.adjustFireLoss(-(heal_Rate), 0)
-
+		M.adjustStaminaLoss((stamina_damage), 0)
 		if(!M.blood_volume || !M.all_wounds)
 			return
 
@@ -92,18 +108,16 @@
 		else if(was_working)
 			was_working = FALSE
 
-	else if(prob(15 * (OD_multiplier))) // OD from combination
+	else
 		to_chat(M, span_userdanger("Oh dear god... Shouldn't do that..."))
-
 		our_liver.applyOrganDamage(9.5 * (OD_multiplier))
-		if(DT_PROB(7.5, delta_time))
-			M.losebreath += rand(2, 4)
-			M.adjustOxyLoss(rand(1, 3))
+		if(DT_PROB(14.5, delta_time))
+			M.losebreath += rand(4, 8)
+			M.adjustOxyLoss(rand(3, 8))
 			if(prob(25 * (OD_multiplier)))
+				to_chat(M, span_userdanger("Oh this is bad..."))
 				M.vomit(20)
-			else if(prob(45 * (OD_multiplier)))
-				to_chat(M, span_userdanger("So hard to breathe..."))
-				M.adjustOxyLoss(rand(3, 4))
+				M.adjustOxyLoss(rand(4, 7))
 				M.Stun(35)
 
 /datum/reagent/ms13/medicine/stimpak_fluid/overdose_process(mob/living/carbon/human/M, delta_time, times_fired)
@@ -118,8 +132,6 @@
 		M.losebreath += rand(2, 4)
 		M.adjustOxyLoss(rand(1, 3))
 		if(prob(25 * (OD_multiplier)))
-			M.vomit(20)
-		else if(prob(45 * (OD_multiplier)))
 			to_chat(M, span_userdanger("So hard to breathe..."))
 			M.adjustOxyLoss(rand(3, 4))
 			M.Stun(35)
@@ -140,5 +152,6 @@
 	heal_Rate = 15
 	OD_multiplier = 1.5
 	forbidden_double_dose = /datum/reagent/ms13/medicine/stimpak_fluid/
+	stamina_damage = 20
 	clot_rate = 0.6
 	passive_bleed_modifier = 0.4
