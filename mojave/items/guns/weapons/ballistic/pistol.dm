@@ -164,7 +164,7 @@
 
 /obj/item/ammo_box/magazine/ms13/m10mm
 	name = "12 round magazine (10mm)"
-	icon = 'mojave/icons/objects/ammo/ammo.dmi'
+	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	icon_state = "10mm"
 	ammo_type = /obj/item/ammo_casing/ms13/c10mm
 	caliber = "10mm"
@@ -173,7 +173,7 @@
 
 /obj/item/ammo_box/magazine/ms13/m9mm
 	name = "13 round magazine (9mm)"
-	icon = 'mojave/icons/objects/ammo/ammo.dmi'
+	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	icon_state = "9mm"
 	ammo_type = /obj/item/ammo_casing/ms13/c9mm
 	caliber = "9mm"
@@ -181,7 +181,7 @@
 
 /obj/item/ammo_box/magazine/ms13/m22
 	name = "16 round magazine (.22)"
-	icon = 'mojave/icons/objects/ammo/ammo.dmi'
+	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	icon_state = "22"
 	ammo_type = /obj/item/ammo_casing/ms13/c22
 	caliber = ".22"
@@ -189,7 +189,7 @@
 
 /obj/item/ammo_box/magazine/ms13/m12mm
 	name = "7 round magazine (12.7mm)"
-	icon = 'mojave/icons/objects/ammo/ammo.dmi'
+	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	icon_state = "m12mm"
 	ammo_type = /obj/item/ammo_casing/ms13/m12mm
 	caliber = "12.7mm"
@@ -204,8 +204,9 @@
 //Loaders
 /obj/item/ammo_box/ms13/cpistol
 	name = "\improper Chinese pistol stripper clip (10mm)"
-	icon = 'mojave/icons/objects/ammo/ammo.dmi'
+	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	icon_state = "cpistol"
 	ammo_type = /obj/item/ammo_casing/ms13/c10mm
 	caliber = "10mm"
-	max_ammo = 10
+	max_ammo = 5
+	multiple_sprites = AMMO_BOX_PER_BULLET
