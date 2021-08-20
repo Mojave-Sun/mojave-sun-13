@@ -25,6 +25,7 @@
 	if(do_after(M, 1 SECONDS))
 		inject(M, user)
 		update_icon_state()
+		playsound(src.loc, 'mojave/sound/ms13items/stimpak_inject.ogg', 40, FALSE)
 
 /obj/item/reagent_containers/hypospray/medipen/ms13/attack_self(mob/user/)
 	if(!reagents.total_volume)
@@ -34,6 +35,7 @@
 	if(do_after(user, 1 SECONDS))
 		inject(user)
 		update_icon_state()
+		playsound(src.loc, 'mojave/sound/ms13items/stimpak_inject.ogg', 40, FALSE)
 
 /obj/item/reagent_containers/hypospray/medipen/ms13/stimpak/update_icon_state()
 	. = ..()
@@ -84,7 +86,7 @@
 /datum/reagent/ms13/medicine/stimpak_fluid/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	. = ..()
 
-	var/obj/item/organ/liver/our_liver = M.getorganslot(ORGAN_SLOT_LIVER)
+	var/obj/item/organ/heart/our_heart = M.getorganslot(ORGAN_SLOT_HEART)
 
 	if(!M.reagents.has_reagent((forbidden_double_dose))) // Stacking healing items? Yeah right.
 		M.adjustBruteLoss(-(heal_Rate), 0)
@@ -110,7 +112,7 @@
 
 	else
 		to_chat(M, span_userdanger("Oh dear god... Shouldn't do that..."))
-		our_liver.applyOrganDamage(9.5 * (OD_multiplier))
+		our_heart.applyOrganDamage(9.5 * (OD_multiplier))
 		if(DT_PROB(14.5, delta_time))
 			M.losebreath += rand(4, 8)
 			M.adjustOxyLoss(rand(3, 8))
@@ -125,14 +127,14 @@
 	if(!M.blood_volume)
 		return
 
-	var/obj/item/organ/liver/our_liver = M.getorganslot(ORGAN_SLOT_LIVER)
-	our_liver.applyOrganDamage(9.5 * (OD_multiplier))
+	var/obj/item/organ/heart/our_heart = M.getorganslot(ORGAN_SLOT_HEART)
+	our_heart.applyOrganDamage(9.5 * (OD_multiplier))
 
 	if(DT_PROB(7.5, delta_time))
 		M.losebreath += rand(2, 4)
 		M.adjustOxyLoss(rand(1, 3))
 		if(prob(25 * (OD_multiplier)))
-			to_chat(M, span_userdanger("So hard to breathe..."))
+			to_chat(M, span_userdanger("Can't catch my breath..."))
 			M.adjustOxyLoss(rand(3, 4))
 			M.Stun(35)
 
