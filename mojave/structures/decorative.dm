@@ -123,3 +123,26 @@
 
 /obj/structure/ms13/cable/black/splice
 	icon_state = "cable_black_spliced"
+
+//Turf Decor//
+
+/obj/structure/ms13/turfdecor
+
+/obj/structure/ms13/turfdecor/drought
+	icon = 'mojave/icons/structure/turf_decor.dmi'
+	icon_state = "drought_1"
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+
+/obj/structure/ms13/turfdecor/drought/Initialize()
+	. = ..()
+	icon_state = "drought_[rand(1,31)]"
+
+	switch(icon_state)
+		if("drought_31")
+			name = "skull"
+		else
+			name = "rocks"
+
+	var/matrix/M = new
+	M.Translate(rand(-5,5),rand(-5,5))
+	transform = M

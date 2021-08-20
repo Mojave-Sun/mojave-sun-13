@@ -21,6 +21,10 @@
 	icon = 'mojave/icons/turf/walls/mineral_drought.dmi'
 	smooth_icon = 'mojave/icons/turf/walls/mineral_drought.dmi'
 
+/turf/closed/mineral/random/ms13/mammoth
+	icon = 'mojave/icons/turf/walls/mineral_mammoth.dmi'
+	smooth_icon = 'mojave/icons/turf/walls/mineral_mammoth.dmi'
+
 /turf/closed/indestructible/rock/ms13
 	name = "dense rock"
 	desc = "An extremely densely-packed rock, most mining tools or explosives would never get through this."
@@ -34,3 +38,6 @@
 
 /turf/closed/indestructible/rock/ms13/drought
 	icon = 'mojave/icons/turf/walls/indestructible_rock_drought.dmi'
+
+/turf/closed/indestructible/rock/ms13/mammoth
+	icon = 'mojave/icons/turf/walls/indestructible_rock_mammoth.dmi'

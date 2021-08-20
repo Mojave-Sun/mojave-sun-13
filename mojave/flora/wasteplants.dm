@@ -168,11 +168,14 @@
 /obj/structure/flora/grass/wasteland
 	icon = 'mojave/icons/flora/flora.dmi'
 	desc = "Some dry, virtually dead grass."
-	icon_state = "tall_grass_1"
+	icon_state = "drygrass_1"
 
-/obj/structure/flora/grass/wasteland/New()
-	..()
-	icon_state = "tall_grass_[rand(5,8)]"
+/obj/structure/flora/grass/wasteland/Initialize()
+	. = ..()
+	icon_state = "drygrass_[rand(1,15)]"
+	var/matrix/M = new
+	M.Translate(rand(-5,5),rand(-5,5))
+	transform = M
 
 /obj/structure/flora/grass/wasteland/attackby(obj/item/W, mob/user, params) //we dont use /weapon any more
 	if(W.sharpness && W.force > 0 && !(NODECONSTRUCT_1 in flags_1))
