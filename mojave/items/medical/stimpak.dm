@@ -44,15 +44,18 @@
 	metabolization_rate = 1.6
 	overdose_threshold = 15
 	/// The value to subtract from the mob's damage, as well as the value to base the ODing off
-	var/healrate = 7
+	var/heal_Rate = 7
+	/// Let's do some damage.
+	var/OD_multiplier = 1
+	/// To prevent double dosing of super/regular stimpaks, avoiding OD
+	var/forbidden_double_dose = /datum/reagent/ms13/medicine/stimpak_fluid/super
 // Blatant rip from the coagulant reagent //
 	/// The bloodiest wound that the patient has will have its blood_flow reduced by about half this much each second
 	var/clot_rate = 0.5
 	/// While this reagent is in our bloodstream, we reduce all bleeding by this factor
-	var/passive_bleed_modifier = 0.8
+	var/passive_bleed_modifier = 0.2
 	/// For tracking when we tell the person we're no longer bleeding
 	var/was_working
-	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/ms13/medicine/stimpak_fluid/on_mob_metabolize(mob/living/M)
 	ADD_TRAIT(M, TRAIT_COAGULATING, /datum/reagent/ms13/medicine/stimpak_fluid)
@@ -64,52 +67,62 @@
 
 /datum/reagent/ms13/medicine/stimpak_fluid/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	. = ..()
-	M.adjustToxLoss(-(healrate), 0)
-	M.adjustBruteLoss(-(healrate), 0)
-	M.adjustFireLoss(-(healrate), 0)
 
-	if(!M.blood_volume || !M.all_wounds)
-		return
+	var/obj/item/organ/liver/our_liver = M.getorganslot(ORGAN_SLOT_LIVER)
 
-	var/datum/wound/bloodiest_wound
+	if(!M.reagents.has_reagent((forbidden_double_dose))) // Stacking healing items? Yeah right.
+		M.adjustBruteLoss(-(heal_Rate), 0)
+		M.adjustFireLoss(-(heal_Rate), 0)
 
-	for(var/i in M.all_wounds)
-		var/datum/wound/iter_wound = i
-		if(iter_wound.blood_flow)
-			if(iter_wound.blood_flow > bloodiest_wound?.blood_flow)
-				bloodiest_wound = iter_wound
+		if(!M.blood_volume || !M.all_wounds)
+			return
 
-	if(bloodiest_wound)
-		if(!was_working)
-			to_chat(M, span_green("You can feel your flowing blood start thickening!"))
-			was_working = TRUE
-		bloodiest_wound.blood_flow = max(0, bloodiest_wound.blood_flow - (clot_rate * REM * delta_time))
-	else if(was_working)
-		was_working = FALSE
+		var/datum/wound/bloodiest_wound
+		for(var/i in M.all_wounds)
+			var/datum/wound/iter_wound = i
+			if(iter_wound.blood_flow)
+				if(iter_wound.blood_flow > bloodiest_wound?.blood_flow)
+					bloodiest_wound = iter_wound
 
-/datum/reagent/ms13/medicine/stimpak_fluid/overdose_process(mob/living/M, delta_time, times_fired)
+		if(bloodiest_wound)
+			if(!was_working)
+				to_chat(M, span_green("I can already feel my wounds closing!"))
+				was_working = TRUE
+			bloodiest_wound.blood_flow = max(0, bloodiest_wound.blood_flow - (clot_rate * REM * delta_time))
+		else if(was_working)
+			was_working = FALSE
+
+	else if(prob(15 * (OD_multiplier))) // OD from combination
+		to_chat(M, span_userdanger("Oh dear god... Shouldn't do that..."))
+
+		our_liver.applyOrganDamage(9.5 * (OD_multiplier))
+		if(DT_PROB(7.5, delta_time))
+			M.losebreath += rand(2, 4)
+			M.adjustOxyLoss(rand(1, 3))
+			if(prob(25 * (OD_multiplier)))
+				M.vomit(20)
+			else if(prob(45 * (OD_multiplier)))
+				to_chat(M, span_userdanger("So hard to breathe..."))
+				M.adjustOxyLoss(rand(3, 4))
+				M.Stun(35)
+
+/datum/reagent/ms13/medicine/stimpak_fluid/overdose_process(mob/living/carbon/human/M, delta_time, times_fired)
 	. = ..()
-	M.adjustBruteLoss((healrate) * 0.15, 0)
-	M.adjustFireLoss((healrate) * 0.15, 0)
-
 	if(!M.blood_volume)
 		return
+
+	var/obj/item/organ/liver/our_liver = M.getorganslot(ORGAN_SLOT_LIVER)
+	our_liver.applyOrganDamage(9.5 * (OD_multiplier))
 
 	if(DT_PROB(7.5, delta_time))
 		M.losebreath += rand(2, 4)
 		M.adjustOxyLoss(rand(1, 3))
-		if(prob(30))
-			to_chat(M, span_danger("Something feels off!"))
-		else if(prob(10))
-			to_chat(M, span_userdanger("You feel your blood turning to a sludge!"))
+		if(prob(25 * (OD_multiplier)))
+			M.vomit(20)
+		else if(prob(45 * (OD_multiplier)))
+			to_chat(M, span_userdanger("So hard to breathe..."))
 			M.adjustOxyLoss(rand(3, 4))
-
-		if(prob(50))
-			var/obj/item/organ/lungs/our_lungs = M.getorganslot(ORGAN_SLOT_LUNGS)
-			our_lungs.applyOrganDamage(1)
-		else
-			var/obj/item/organ/heart/our_heart = M.getorganslot(ORGAN_SLOT_HEART)
-			our_heart.applyOrganDamage(1)
+			M.Stun(35)
 
 /datum/reagent/ms13/medicine/stimpak_fluid/on_mob_metabolize(mob/living/M)
 	if(!ishuman(M))
@@ -124,6 +137,8 @@
 	color = "#c73131"
 	metabolization_rate = 1.6
 	overdose_threshold = 15
-	healrate = 10
-	clot_rate = 0.8
-	passive_bleed_modifier = 0.6
+	heal_Rate = 15
+	OD_multiplier = 1.5
+	forbidden_double_dose = /datum/reagent/ms13/medicine/stimpak_fluid/
+	clot_rate = 0.6
+	passive_bleed_modifier = 0.4
