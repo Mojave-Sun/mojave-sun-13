@@ -133,3 +133,23 @@
 	name = "pristine cash register"
 	desc = "A beautiful example of a cash register, seemingly untouched by the war. Shame the same can't be said about the economy."
 	icon_state = "register_clean"
+
+/obj/structure/closet/crate/ms13/army
+	name = "army crate"
+	desc = "A crate used for transporting or storing goods. This one has army star drawn on it."
+	icon_state = "army"
+
+/obj/structure/closet/crate/ms13/aluminum
+	name = "aluminum crate"
+	desc = "A crate used for transporting or storing goods. This one is made of aluminum."
+	icon_state = "aluminum"
+
+/obj/structure/closet/crate/ms13/red
+	name = "red crate"
+	desc = "A crate used for transporting or storing goods. This one is colored red."
+	icon_state = "red"
+
+/obj/structure/closet/crate/ms13/vault
+	name = "vault crate"
+	desc = "A crate used for transporting or storing goods. This one has vault logo on it."
+	icon_state = "vault"
