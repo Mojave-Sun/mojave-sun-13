@@ -11,7 +11,7 @@
 	var/current_overlay
 	var/permanent = FALSE
 	var/last_process = 0
-	var/overlay = TRUE //MOJAVE SUN EDIT - Ice Overlay
+	var/overlay = TRUE //MOJAVE EDIT - Ice Overlay
 
 /datum/component/wet_floor/InheritComponent(datum/newcomp, orig, strength, duration_minimum, duration_add, duration_maximum, _permanent)
 	if(!newcomp) //We are getting passed the arguments of a would-be new component, but not a new component
@@ -52,9 +52,10 @@
 
 /datum/component/wet_floor/proc/update_overlay()
 	var/intended
-	//MOJAVE SUN EDIT START - Ice Overlays
+	//MOJAVE EDIT ADDITION BEGIN - Ice Overlays
 	if(!overlay)
 		return
+	//MOJAVE EDIT ADDITION END - Ice Overlays
 	if(!istype(parent, /turf/open/floor))
 		intended = generic_turf_overlay
 	else
@@ -65,7 +66,6 @@
 				intended = ice_overlay
 			else
 				intended = water_overlay
-	//MOJAVE SUN EDIT END - Ice Overlays
 	if(current_overlay != intended)
 		var/turf/T = parent
 		T.cut_overlay(current_overlay)
