@@ -7,10 +7,8 @@
 	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
 	block_chance = 0
-	slot_flags = ITEM_SLOT_BELT
 	wound_bonus = 0
 	bare_wound_bonus = 0
-	embedding = null
 	log_pickup_and_drop = TRUE
 
 /obj/item/claymore/ms13/Initialize()
