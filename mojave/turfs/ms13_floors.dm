@@ -8,6 +8,7 @@
 	icon = 'mojave/icons/turf/floors.dmi'
 	icon_state = "wood tiles"
 	desc = "Wooden flooring."
+	smoothing_groups = list(SMOOTH_GROUP_MS13_TILE)
 	var/has_alternate_states = TRUE //for damage, alts etc.
 	var/alternate_states = 1
 	var/has_base_states = TRUE //for starting variety (mainly wood)
@@ -64,6 +65,7 @@
 	armor = list(MELEE = 50, BULLET = 50, LASER = 0, ENERGY = 0, BOMB = 50, BIO = 0, RAD = 0, FIRE = 80, ACID = 50)
 	max_integrity = 300
 	obj_flags = CAN_BE_HIT | BLOCK_Z_OUT_DOWN | BLOCK_Z_IN_UP
+	smoothing_groups = list(SMOOTH_GROUP_MS13_TILE)
 	layer = TURF_LAYER
 	plane = FLOOR_PLANE
 
@@ -178,7 +180,7 @@
 	clawfootstep = FOOTSTEP_CARPET_BAREFOOT
 	has_alternate_states = FALSE
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_MS13_CARPET_RED)
+	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_MS13_CARPET_RED, SMOOTH_GROUP_MS13_TILE)
 	canSmoothWith = list(SMOOTH_GROUP_MS13_CARPET_RED)
 	flags_1 = NONE
 	bullet_bounce_sound = null
@@ -231,6 +233,7 @@
 	icon = 'mojave/icons/turf/floors.dmi'
 	icon_state = "floor"
 	floor_tile = /obj/item/stack/tile/iron/ms13
+	smoothing_groups = list(SMOOTH_GROUP_MS13_TILE)
 	var/has_alternate_states = FALSE
 	var/alternate_states
 
@@ -320,6 +323,7 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	icon_state = "steel_industrial"
 	desc = "Metal flooring."
+	smoothing_groups = list(SMOOTH_GROUP_MS13_TILE)
 
 /turf/open/floor/iron/ms13/metal/plate
 	icon_state = "steel_solid"
@@ -361,6 +365,7 @@
 /turf/open/floor/iron/ms13/concrete
 	icon_state = "concrete_big"
 	desc = "Concrete slabs."
+	smoothing_groups = list(SMOOTH_GROUP_MS13_TILE)
 
 /turf/open/floor/iron/ms13/concrete/small
 	icon_state = "concrete_small"
@@ -424,6 +429,7 @@
 	has_alternate_states = TRUE
 	alternate_states = 2
 	footstep = FOOTSTEP_FLOOR
+	smoothing_groups = list(SMOOTH_GROUP_MS13_TILE)
 
 /turf/open/floor/iron/ms13/ceramic/ornate
 	icon_state = "ornate"
@@ -441,6 +447,7 @@
 	has_alternate_states = TRUE
 	alternate_states = 8
 	footstep = FOOTSTEP_FLOOR
+	smoothing_groups = list(SMOOTH_GROUP_MS13_TILE)
 
 ////Pipe Floors////
 
