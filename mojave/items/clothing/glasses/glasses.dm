@@ -5,10 +5,15 @@
 	name = "generic ms13 glasses"
 	desc = "this doesn't even exist"
 	inhand_icon_state = "sunglasses"
-	icon = 'mojave/icons/objects/clothing/glasses.dmi'
+	icon = 'mojave/icons/objects/clothing/clothing_world/glasses_world.dmi'
 	worn_icon = 'mojave/icons/mob/clothing/eyes.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
+
+/obj/item/clothing/glasses/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/glasses_inventory.dmi')
+
 
 /obj/item/clothing/glasses/ms13/black
 	name = "black glasses"

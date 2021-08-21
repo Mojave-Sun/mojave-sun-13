@@ -1,10 +1,14 @@
 /obj/item/clothing/mask/ms13
 	name = "generic ms13 mask"
 	desc = "this doesn't even exist"
-	icon = 'mojave/icons/objects/clothing/masks.dmi'
+	icon = 'mojave/icons/objects/clothing/clothing_world/masks_world.dmi'
 	worn_icon = 'mojave/icons/mob/clothing/mask.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
+
+/obj/item/clothing/mask/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/masks_inventory.dmi')
 
 // Bandanas //
 
@@ -113,12 +117,16 @@
 /obj/item/clothing/mask/gas/ms13
 	name = "gas mask"
 	desc = "An old gas mask. Hypothetically speaking, breathing through it is safer than breathing out of it. The filters are questionable at best."
-	icon = 'mojave/icons/objects/clothing/masks.dmi'
+	icon = 'mojave/icons/objects/clothing/clothing_world/masks_world.dmi'
 	worn_icon = 'mojave/icons/mob/clothing/mask.dmi'
 	icon_state = "gasmaskmodern"
 	inhand_icon_state = "gasmask"
 	var/adjusted = FALSE
 	var/adjustable = TRUE
+
+/obj/item/clothing/mask/gas/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/masks_inventory.dmi')
 
 /obj/item/clothing/mask/gas/ms13/modern
 	icon_state = "gasmask"

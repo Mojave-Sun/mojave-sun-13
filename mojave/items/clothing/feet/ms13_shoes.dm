@@ -1,6 +1,10 @@
 /obj/item/clothing/shoes/ms13
-	icon = 'mojave/icons/objects/clothing/shoes.dmi'
+	icon = 'mojave/icons/objects/clothing/clothing_world/shoes_world.dmi'
 	worn_icon = 'mojave/icons/mob/clothing/feet.dmi'
+
+/obj/item/clothing/shoes/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/shoes_inventory.dmi')
 
 /obj/item/clothing/shoes/ms13
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/shoes

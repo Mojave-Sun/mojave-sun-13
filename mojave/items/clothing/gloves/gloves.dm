@@ -1,8 +1,12 @@
 /obj/item/clothing/gloves/ms13/
     name = "generic ms13 gloves"
     desc = "this doesn't even exist"
-    icon = 'mojave/icons/objects/clothing/gloves.dmi'
+    icon = 'mojave/icons/objects/clothing/clothing_world/gloves_world.dmi'
     worn_icon = 'mojave/icons/mob/clothing/hands.dmi'
+
+/obj/item/clothing/gloves/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/gloves_inventory.dmi')
 
 /obj/item/clothing/gloves/ms13/winter
 	name = "brown winter gloves"

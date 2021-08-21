@@ -1,10 +1,11 @@
 /obj/item/clothing/neck/cloak/ms13
 	name = "brown cloak"
 	desc = "This shouldn't really exist"
-	icon = 'mojave/icons/objects/clothing/neck.dmi'
+	icon = 'mojave/icons/objects/clothing/clothing_world/neck_world.dmi'
 	worn_icon = 'mojave/icons/mob/clothing/neck.dmi'
 	icon_state = "qmcloak"
 	inhand_icon_state = "qmcloak"
+
 
 /obj/item/clothing/neck/cloak/ms13/legion
 	icon_state = "leg_whitehalf"

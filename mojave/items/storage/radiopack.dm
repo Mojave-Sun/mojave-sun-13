@@ -1,10 +1,10 @@
 /obj/item/ms13/storage/backpack/radiopack
-	icon = 'mojave/icons/objects/clothing/backpack.dmi'
 	name = "radiopack"
-	icon_state = "radiopack"
+	icon = 'mojave/icons/objects/clothing/clothing_world/backpack_world.dmi'
 	worn_icon = 'mojave/icons/mob/clothing/back.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
+	icon_state = "radiopack"
 	inhand_icon_state = "radiopack"
 	desc = "A basic handheld radio that communicates over a relatively long range, and is proven to be 254% better than yelling loudly."
 	slot_flags = ITEM_SLOT_BACK
