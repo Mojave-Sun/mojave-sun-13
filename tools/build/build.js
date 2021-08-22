@@ -61,6 +61,7 @@ export const DmTarget = new Juke.Target({
     'html/**',
     'icons/**',
     'interface/**',
+    'mojave/**', // MODJAVE EDIT ADDITION- CBT target
     `${DME_NAME}.dme`,
   ],
   outputs: [
