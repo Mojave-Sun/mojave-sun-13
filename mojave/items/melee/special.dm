@@ -83,8 +83,8 @@
 //punchy punchy melee
 
 /obj/item/ms13/knuckles
-	name = "brass knuckles"
-	desc = "The peak of concealed street weaponry. Slot these things over your fingers and beat a man's teeth out. No big deal."
+	name = "brass knuckle"
+	desc = "The very small brass knuckle meant to be held in your hand to assist in making your punches quite a bit more dangerous."
 	icon = 'mojave/icons/objects/melee/melee_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
@@ -94,7 +94,15 @@
 	inhand_icon_state = "knuckles"
 	hitsound = "sound/weapons/cqchit1.ogg"
 	w_class = WEIGHT_CLASS_TINY
-	force = 10
+	slot_flags = ITEM_SLOT_BELT
+	throwforce = 5
+	max_integrity = 200
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 100, ACID = 50)
+	resistance_flags = FIRE_PROOF
+	force = 10 //Consistent 10 damage instead of the 1-10 from a regular punch
+	armour_penetration = 10
+	wound_bonus = 5
+	bare_wound_bonus = 0
 	log_pickup_and_drop = TRUE
 
 /obj/item/ms13/knuckles/Initialize()
@@ -102,32 +110,39 @@
 	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
 
 /obj/item/ms13/knuckles/weighted
-	name = "lead knuckles"
-	desc = "Heavy knuckles, for when you really just want more from a punch. Would certainly break a rib."
+	name = "steel knuckle"
+	desc = "A heavy knuckle made of steel, quite a bit stronger and more dangerous than a plain brass knuckle."
 	icon_state = "knuckles_weighted"
 	inhand_icon_state = "knuckles_weighted"
 	force = 15
-	armour_penetration = 5
+	armour_penetration = 15
+	wound_bonus = 8
 
 /obj/item/ms13/knuckles/weighted/spiked
 	name = "spiked knuckles"
-	desc = "Brass knuckles, but better. It has five spikes going along it, used to concentrate kinetic energy to a smaller area. In thug terms- Pack more heat. Cut a fool."
+	desc = "A steel knuckle with the addition of some pointed spikes. With this, you aren't looking to knock someone out anymore."
 	icon_state = "knuckles_spike"
 	inhand_icon_state = "knuckles_spike"
+	force = 20
+	bare_wound_bonus = 6
 	sharpness = SHARP_POINTY
 
 /obj/item/ms13/knuckles/powerfist
 	name = "power fist"
-	desc = "A pneumatic glove that acts as a powered ram in order to hit harder with a punch. Can send your foe flying!"
+	desc = "A heavy, advanced glove that packs a hefty extra punch thanks to pneumatic mechanisms in the glove. Can break bones like a stick."
 	icon = 'mojave/icons/objects/melee/melee_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
 	icon_state = "powerfist"
 	inhand_icon_state = "powerfist"
-	force = 25
-	armour_penetration = 5
+	force = 30
+	armour_penetration = 20
+	throw_force = 10
 	wound_bonus = 10
+	w_class = WEIGHT_CLASS_NORMAL
 
+
+/* Not sure about this, commenting it out for now
 /obj/item/ms13/knuckles/powerfist/attack(mob/living/target, mob/living/user)
 	. = ..()
 	var/atom/throw_target = get_edge_target_turf(target, user.dir)
@@ -135,3 +150,4 @@
 	SSexplosions.medturf += throw_target
 	playsound(loc, 'mojave/sound/ms13effects/airhiss.ogg', 50, TRUE)
 	playsound(loc, 'sound/weapons/genhit2.ogg', 50, TRUE)
+*/
