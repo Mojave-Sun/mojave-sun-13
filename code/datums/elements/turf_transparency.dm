@@ -41,8 +41,8 @@
 		if(!show_bottom_level(our_turf) && prune_on_fail) //If we cant show whats below, and we prune on fail, change the turf to plating as a fallback
 			our_turf.ChangeTurf(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
 			return FALSE
+	else below_turf.reconsider_sunlight()
 	debug_world("BELOW: [below_turf.name]")
-	below_turf.reconsider_sunlight()
 	if(init)
 		our_turf.vis_contents += below_turf
 	if(isclosedturf(our_turf)) //Show girders below closed turfs
