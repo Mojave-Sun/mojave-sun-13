@@ -1,6 +1,6 @@
 /obj/item/ms13/hammer
 	name = "claw hammer"
-	desc = "A standard claw hammer. While it is a simple tool, the uses are limitless."
+	desc = "A standard, small claw hammer."
 	icon = 'mojave/icons/objects/melee/melee_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
@@ -8,12 +8,18 @@
 	inhand_icon_state = "hammer"
 	hitsound = 'mojave/sound/ms13items/axe_1.ogg'
 	force = 20
-	armour_penetration = 5
-	wound_bonus = 10
+	armour_penetration = 0
+	wound_bonus = -2
+	bare_wound_bonus = 0
 	attack_verb_continuous = list("smacks", "deconstructs", "pounds", "beats", "bonks", "hammers", "nails")
 	attack_verb_simple = list("smack", "deconstruct", "pound", "beat", "bonk", "hammer", "nail")
 	sharpness = NONE
-	w_class = WEIGHT_CLASS_NORMAL
+	slot_flags = ITEM_SLOT_BELT
+	throwforce = 10
+	max_integrity = 200
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 100, ACID = 50)
+	resistance_flags = FIRE_PROOF
+	w_class = WEIGHT_CLASS_SMALL
 	log_pickup_and_drop = TRUE
 
 /obj/item/ms13/hammer/Initialize()
@@ -29,8 +35,11 @@
 	icon_state = "shovel"
 	inhand_icon_state = "shovel"
 	hitsound = 'sound/weapons/genhit.ogg'
-	force = 20
-	armour_penetration = 5
+	force = 25
+	armour_penetration = 10
+	wound_bonus = 5
+	bare_wound_bonus = 0
+	throwforce = 15
 	attack_verb_continuous = list("smacks", "slashes", "jabs", "slaps", "pounds", "beats", "bonks", "digs")
 	attack_verb_simple = list("smack", "slash", "jab", "slap", "pound", "beat", "bonk", "dig")
 	sharpness = NONE
@@ -43,52 +52,65 @@
 
 /obj/item/shovel/ms13/spade
 	name = "spade"
-	desc = "A small spade for digging up the ground. It's easily transportable, due to its size"
+	desc = "A small, compact spade for digging up the ground. It's smaller size makes it not as efficent as using a full sized shovel."
 	icon_state = "spade"
 	inhand_icon_state = "spade"
-	force = 15
-	armour_penetration = 5
+	force = 20
+	armour_penetration = 0
+	wound_bonus = -2
+	throwforce = 10
 	toolspeed = 0.5
 	sharpness = NONE
 	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/shovel/ms13/snow
 	name = "snow shovel"
-	desc = "A shovel used primarily for cleaning paths of any snow obstructions. Could probably be applied to other things as well."
+	desc = "A shovel primarily meant for clearing snow, but could be used to dig somewhat inefficiently."
 	icon_state = "shovel_snow"
 	inhand_icon_state = "shovel_snow"
 	force = 20
-	armour_penetration = 0
+	armour_penetration = 10
+	wound_bonus = 10
+	throwforce = 10
+	toolspeed = 0.5
 
 /obj/item/shovel/ms13/rake
 	name = "rake"
-	desc = "A rake. Used for raking. Go figure. You could try to dig with it, but it won't do you much good."
+	desc = "A rake used for raking. You could try to dig with it, but it won't do you much good."
 	icon_state = "rake"
 	inhand_icon_state = "rake"
-	force = 15
+	force = 20
+	wound_bonus = 5
 	bare_wound_bonus = 5
-	armour_penetration = -5
-	toolspeed = 0.2
+	throwforce = 10
+	armour_penetration = 5
+	toolspeed = 0.25
 	attack_verb_continuous = list("smacks", "slashes", "jabs", "slaps", "pounds", "beats", "bonks", "rakes", "assaults")
 	attack_verb_simple = list("smack", "slash", "jabb", "slap", "pound", "beat", "bonk", "rake", "assault")
 	hitsound = 'sound/weapons/genhit.ogg'
 	sharpness = SHARP_POINTY
-	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/ms13/brick
 	name = "brick"
-	desc = "A literal brick. Nothing more. State of the art clay brick, in the typical pale red colour."
+	desc = "A literal brick. Nothing more."
 	icon = 'mojave/icons/objects/melee/melee_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
 	icon_state = "brick"
 	inhand_icon_state = "brick"
-	attack_verb_continuous = list("clonks", "smacks", "clocks", "nails", "bludgeons", "whacks", "bonks")
-	attack_verb_simple = list("clonk", "smack", "clock", "nail", "bludgeon", "whack", "bonk")
-	force = 10
+	attack_verb_continuous = list("clonks", "smacks", "clocks", "nails", "bludgeons", "whacks", "bonks", "bricks")
+	attack_verb_simple = list("clonk", "smack", "clock", "nail", "bludgeon", "whack", "bonk", "brick")
+	force = 15
+	throwforce = 20 //brick
+	armour_penetration = 0
+	wound_bonus = 5
+	bare_wound_bonus = 0
 	sharpness = NONE
 	w_class = WEIGHT_CLASS_NORMAL
-	throwforce = 15 //brick
+	max_integrity = 200
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 100, ACID = 50)
+	resistance_flags = FIRE_PROOF
+	slot_flags = null
 	log_pickup_and_drop = TRUE
 
 /obj/item/ms13/brick/Initialize()
@@ -97,7 +119,7 @@
 
 /obj/item/flashlight/flare/ms13
 	name = "flare"
-	desc = "A red Nanotrasen issued flare. There are instructions on the side, it reads 'pull cord, make light'."
+	desc = "A red flare, quite simple."
 	icon = 'mojave/icons/objects/melee/melee_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
