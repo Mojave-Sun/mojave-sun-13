@@ -57,6 +57,7 @@
 
 	var/atom/movable/screen/using
 	var/atom/movable/screen/inventory/inv_box
+	var/atom/movable/screen/ms_button_background
 
 	using = new/atom/movable/screen/language_menu
 	using.icon = ui_style
@@ -320,6 +321,10 @@
 			inv.hud = src
 			inv_slots[TOBITSHIFT(inv.slot_id) + 1] = inv
 			inv.update_appearance()
+
+	ms_button_background = new /atom/movable/screen/ms13/button_background()
+	ms_button_background.hud = src
+	infodisplay += ms_button_background
 
 	update_locked_slots()
 
