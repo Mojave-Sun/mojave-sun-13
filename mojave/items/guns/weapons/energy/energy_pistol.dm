@@ -24,11 +24,13 @@
 	base_icon_state = "advlas_pistol"
 	inhand_icon_state = "advlas_pistol"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_2.ogg'
+	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/pistol/mfc)
+	cell_type = /obj/item/stock_parts/cell/ms13/mfc
 	extra_damage = 25
 	extra_penetration = 5
 	fire_delay = 0.45 SECONDS
 
-/obj/item/gun/energy/ms13/laser/pistol/defender
+/obj/item/gun/energy/ms13/laser/pistol/advanced/defender
 	name = "laser defender"
 	desc = "A highly advanced, experimental laser pistol. Sports best in class stopping power and fire rate, truly a menace in the right hands."
 	icon_state = "laserdefender"

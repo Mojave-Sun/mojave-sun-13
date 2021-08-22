@@ -22,6 +22,10 @@
 	projectile_type = /obj/projectile/beam/ms13/laser/pistol
 	e_cost = 15 //Combined with EC capacity this gives 20 shots
 
+/obj/item/ammo_casing/energy/ms13/laser/pistol/mfc
+	projectile_type = /obj/projectile/beam/ms13/laser/pistol
+	e_cost = 30 //Combined with MFC capacity this gives 20 shots
+
 /obj/item/ammo_casing/energy/ms13/laser/sniper
 	projectile_type = /obj/projectile/beam/ms13/laser/sniper
 	e_cost = 40 //Combined with MFC capacity this gives 15 shots

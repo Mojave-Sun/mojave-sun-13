@@ -148,7 +148,7 @@
 	internal_magazine = TRUE
 	mag_type = /obj/item/ammo_box/magazine/internal/ms13/arisaka
 	fire_sound = 'mojave/sound/ms13weapons/hunting_rifle.ogg'
-	rack_sound = 'mojave/sound/ms13weapons/gunsounds/arisaka/ArisakaOpen.ogg' ///proof kenobi is a hecking weeb
+	rack_sound = 'mojave/sound/ms13weapons/gunsounds/arisaka/ArisakaOpen.ogg' //Didn't ask.
 	bolt_drop_sound = 'mojave/sound/ms13weapons/gunsounds/arisaka/ArisakaClose.ogg'
 	can_jam = TRUE
 	jamming_chance = 55
@@ -156,7 +156,7 @@
 	unjam_chance = 5
 	extra_damage = 35
 
-/obj/item/gun/ballistic/rifle/ms13/hunting/japanese/scoped //not likely to ever be seen in game, more of an admin thing, dont map it in, it'd be slightly OP
+/obj/item/gun/ballistic/rifle/ms13/hunting/japanese/scoped //not likely to ever be seen in game, more of an admin thing, dont map it in, it'd be slightly OP (Didn't ask, also i won't :mrbruh:)
 	name = "scoped Japanese war rifle"
 	desc = "A really old pre-war rifle, chambered in .308 with an internal 5 round magazine. This one has a scoped mounted to it. Hardly functions in days like these, but it works... Sometimes."
 	icon_state = "scoped_arisaka"
@@ -183,30 +183,35 @@
 //Magazines
 /obj/item/ammo_box/magazine/ms13/r10
 	name = "10 round magazine (5.56mm)"
-	icon = 'mojave/icons/objects/ammo/ammo.dmi'
+	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	icon_state = "556r10"
 	ammo_type = /obj/item/ammo_casing/ms13/a556
 	caliber = "a556"
 	max_ammo = 10
-	multiple_sprites = 2
 
 /obj/item/ammo_box/magazine/ms13/r308
 	name = "5 round magazine (.308)"
-	icon = 'mojave/icons/objects/ammo/ammo.dmi'
+	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	icon_state = "r308"
 	ammo_type = /obj/item/ammo_casing/ms13/a308
 	caliber = "a308"
 	max_ammo = 5
-	multiple_sprites = 2
 
 /obj/item/ammo_box/magazine/ms13/amr
 	name = "6 round magazine (.50)"
-	icon = 'mojave/icons/objects/ammo/ammo.dmi'
+	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	icon_state = "50cal"
 	ammo_type = /obj/item/ammo_casing/ms13/a50MG
 	caliber = "a50MG"
 	max_ammo = 6
-	multiple_sprites = 2
+
+/obj/item/ammo_box/magazine/ms13/r308/battlerifle
+	name = "8 round enbloc magazine (.308)"
+	icon_state = "battler"
+	ammo_type = /obj/item/ammo_casing/ms13/a308
+	caliber = "a308"
+	max_ammo = 8
+	multiple_sprites = AMMO_BOX_PER_BULLET
 
 /obj/item/ammo_box/magazine/internal/ms13/chinese_rifle
 	name = "Chinese rifle internal magazine (7.62)"
@@ -222,20 +227,13 @@
 	caliber = "a308"
 	max_ammo = 5
 
-/obj/item/ammo_box/magazine/ms13/r308/battlerifle
-	name = "8 round enbloc magazine (.308)"
-	icon_state = "battler"
-	ammo_type = /obj/item/ammo_casing/ms13/a308
-	caliber = "a308"
-	max_ammo = 8
-	multiple_sprites = 8
-
 //Loaders
 
-/obj/item/ammo_box/ms13/chinese_rifle
-	name = "\improper Chinese hunting rifle stripper clip (7.62)"
-	icon = 'mojave/icons/objects/ammo/ammo.dmi'
-	icon_state = "cpistol"
+/obj/item/ammo_box/ms13/r762
+	name = "rifle stripper clip (7.62)"
+	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
+	icon_state = "762clip"
 	ammo_type = /obj/item/ammo_casing/ms13/a762
 	caliber = "a762"
 	max_ammo = 5
+	multiple_sprites = AMMO_BOX_PER_BULLET

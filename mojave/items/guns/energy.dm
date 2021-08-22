@@ -128,7 +128,7 @@
 
 /obj/item/stock_parts/cell/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/ammo/ammo.dmi')
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/ammo/ammo_inventory.dmi')
 
 /obj/item/stock_parts/cell/ms13/New()
 	..()

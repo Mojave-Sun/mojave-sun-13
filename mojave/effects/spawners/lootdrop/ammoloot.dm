@@ -13,7 +13,7 @@
 			/obj/item/ammo_box/ms13/rev10mm,
 			/obj/item/ammo_box/magazine/ms13/m10mm,
 			/obj/item/ammo_box/ms13/cpistol,
-			/obj/item/ammo_box/ms13/chinese_rifle
+			/obj/item/ammo_box/ms13/r762
 			)
 
 /obj/effect/spawner/lootdrop/ms13/ammo/tier2
@@ -26,7 +26,7 @@
 			/obj/item/ammo_box/magazine/ms13/m45,
 			/obj/item/ammo_box/magazine/ms13/r20,
 			/obj/item/ammo_box/magazine/ms13/r308,
-			/obj/item/ammo_box/ms13/sks
+			/obj/item/ammo_box/ms13/r762
 			)
 
 /obj/effect/spawner/lootdrop/ms13/ammo/tier3
@@ -40,7 +40,7 @@
 			/obj/item/ammo_box/magazine/ms13/r20,
 			/obj/item/ammo_box/magazine/ms13/r308,
 			/obj/item/ammo_box/magazine/ms13/smgm9mm,
-			/obj/item/ammo_box/ms13/sks,
+			/obj/item/ammo_box/ms13/r762,
 			/obj/item/ammo_box/ms13/tube44,
 			/obj/item/ammo_box/magazine/ms13/smgm10mm,
 			/obj/item/ammo_box/magazine/ms13/ar762
