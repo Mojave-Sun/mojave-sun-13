@@ -9,7 +9,7 @@
 	strip_delay = 200
 	max_integrity = 500
 	resistance_flags = FIRE_PROOF | ACID_PROOF
-	armor = list(MELEE = 80, BULLET = 80, LASER = 80, ENERGY = 80, BOMB = 80, BIO = 100, RAD = 100, FIRE = 100, ACID = 100) //Make the armor the same as the hardsuit one for consistancy
+	armor = list(MELEE = 80, BULLET = 80, LASER = 80, ENERGY = 80, BOMB = 80, BIO = 100, RAD = 100, FIRE = 100, ACID = 100, WOUND = 25) //Make the armor the same as the hardsuit one for consistancy
 	actions_types = null //No lights my dude, sorry
 	worn_x_dimension = 32
 	worn_y_dimension = 48
@@ -34,7 +34,7 @@
 	strip_delay = 200
 	max_integrity = 500
 	resistance_flags = FIRE_PROOF | ACID_PROOF
-	armor = list(MELEE = 80, BULLET = 80, LASER = 80, ENERGY = 80, BOMB = 80, BIO = 100, RAD = 100, FIRE = 100, ACID = 100) //Make the armor the same as the hardsuit one for consistancy
+	armor = list(MELEE = 80, BULLET = 80, LASER = 80, ENERGY = 80, BOMB = 80, BIO = 100, RAD = 100, FIRE = 100, ACID = 100, WOUND = 25) //Make the armor the same as the hardsuit one for consistancy
 	actions_types = null //No helmet toggle, sorry dude
 	worn_x_dimension = 32
 	worn_y_dimension = 20
@@ -44,6 +44,10 @@
 	clothing_traits = list(TRAIT_SILENT_FOOTSTEPS) //No playing regular footsteps over power armor footsteps
 	item_flags = NO_PIXEL_RANDOM_DROP
 	clothing_flags = LARGE_WORN_ICON | STOPSPRESSUREDAMAGE | THICKMATERIAL | SNUG_FIT | BLOCKS_SHOVE_KNOCKDOWN
+
+/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/examine(mob/user)
+	. = ..()
+	. += "You can alt+left click this power armor to get into and out of it!"
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/Initialize()
 	. = ..()
@@ -124,29 +128,37 @@
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/AltClick(mob/living/carbon/human/user)
 	if(!istype(user))
 		return FALSE
-
-	if(user.head && user.head != helmet || user.wear_suit && user.wear_suit != src)
-		to_chat(user, "You're unable to climb into the [src] due to already having a helmet or suit equipped!")
-		return FALSE
-
 	else
 		if(user.wear_suit == src)
 			to_chat(user, "You begin exiting the [src].")
-			if(do_after(user, 6 SECONDS, target = user) && user.wear_suit == src)
+			if(do_after(user, 6 SECONDS, target = user))
 				GetOutside(user)
 				return TRUE
 			return FALSE
 
+	if(!CheckEquippedClothing(user))
+		return FALSE
 	to_chat(user, "You begin entering the [src].")
-	if(do_after(user, 6 SECONDS, target = user) && user.wear_suit != src)
+	if(do_after(user, 6 SECONDS, target = user) && CheckEquippedClothing(user))
 		GetInside(user)
 		return TRUE
 	return FALSE
+
+//A proc that checks if the user is already wearing clothing that obstructs the equipping of the power armor
+/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/proc/CheckEquippedClothing(mob/living/carbon/human/user)
+	if(user.head && (user.head != helmet) || user.wear_suit && (user.wear_suit != src) || user.back || user.belt)
+		to_chat(user, span_warning("You're unable to climb into the [src] due to already having a helmet, backpack, belt or outer suit equipped!"))
+		return FALSE
+	return TRUE
 
 //Let's actually get into the power armor
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/proc/GetInside(mob/living/carbon/human/user)
 	if(!istype(user))
 		return
+
+	//Nothing can possibly go wrong
+	user.dna.species.no_equip += ITEM_SLOT_BACK
+	user.dna.species.no_equip += ITEM_SLOT_BELT
 
 	density = FALSE
 	anchored = FALSE
@@ -163,6 +175,9 @@
 	user.dropItemToGround(src, force = TRUE)
 	density = TRUE
 	anchored = TRUE
+	//Nothing can possibly go wrong
+	user.dna.species.no_equip -= ITEM_SLOT_BACK
+	user.dna.species.no_equip -= ITEM_SLOT_BELT
 
 //TODO for later involving integrity and ricochets
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
