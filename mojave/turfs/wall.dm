@@ -15,6 +15,12 @@
 	else
 		. = ..()
 
+/turf/closed/wall/ms13/ex_act()
+	return
+
+/turf/closed/wall/ms13/deconstruction_hints()
+	return
+
 /turf/closed/wall/ms13/metal
 	name = "metal wall"
 	desc = ""
@@ -87,6 +93,7 @@
 
 /turf/closed/wall/r_wall/ms13/concrete
 	name = "concrete wall"
+	desc = ""
 	icon = 'mojave/icons/turf/walls/concrete.dmi'
 
 /turf/closed/wall/r_wall/ms13/concrete/alt
