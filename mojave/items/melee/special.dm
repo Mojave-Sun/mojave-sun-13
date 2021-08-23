@@ -1,7 +1,7 @@
 // heavy weaponry //
 /obj/item/chainsaw/ms13
 	name = "auto axe"
-	desc = "A modified steel saw, converted into a tool of destruction. You could use it for trees, But why stop there?"
+	desc = "A modified steel saw, converted into a tool of destruction."
 	icon = 'mojave/icons/objects/melee/melee_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
@@ -9,6 +9,10 @@
 	inhand_icon_state = "auto_axe"
 	on = FALSE
 	w_class = WEIGHT_CLASS_HUGE
+	slot_flags = ITEM_SLOT_BACK
+	armour_penetration = 15
+	wound_bonus = 10
+	bare_wound_bonus = 10
 	throw_speed = 2
 	throw_range = 4
 
@@ -21,18 +25,12 @@
 	if(on)
 		icon_state = "auto_axe_on"
 		inhand_icon_state = "auto_axe_on"
-		force = 55
-		armour_penetration = 10
-		wound_bonus = 5
-		bare_wound_bonus = 10
+		force = 60
 		sharpness = IS_SHARP_AXE
 	else
 		icon_state = "auto_axe"
 		inhand_icon_state = "auto_axe"
-		force = 10
-		armour_penetration = 0
-		wound_bonus = 0
-		bare_wound_bonus = 5
+		force = 15
 		sharpness = SHARP_EDGED
 
 	if(src == user.get_active_held_item()) //update inhands
@@ -43,11 +41,14 @@
 
 /obj/item/ms13/twohanded/heavy/lance
 	name = "thermic lance"
-	desc = "A heavy duty thermic lance, used primarily for cutting steel beams with superheated gas. Scarily efficient."
+	desc = "A heavy duty thermic lance, used primarily for melting steel beams before the war. But now is used for melting faces and through armor."
 	icon_state = "thermiclance_off"
 	inhand_icon_state = "thermiclance_off"
-	w_class = WEIGHT_CLASS_BULKY
-	slot_flags = NONE
+	w_class = WEIGHT_CLASS_HUGE
+	slot_flags = ITEM_SLOT_BACK
+	armour_penetration = 20
+	wound_bonus = 12
+	bare_wound_bonus = 13
 	throw_speed = 1
 	throw_range = 2
 	hitsound = "swing_hit"
@@ -64,7 +65,7 @@
 		to_chat(user, "<span class='notice'>As you flip the lever and hit the ignition on [src], it begins to sputter flames out.")
 		hitsound = 'sound/items/welder2.ogg'
 		damtype = "burn"
-		force = 60
+		force = 55
 
 	else
 		attack_verb_continuous = list("pokes", "jabs", "smacks", "whacks",)
@@ -72,7 +73,7 @@
 		to_chat(user, "<span class='notice'>You flip the lever up on [src], the flame goes out.")
 		hitsound = "swing_hit"
 		damtype = "brute"
-		force = 15
+		force = 10
 
 	if(src == user.get_active_held_item()) //update inhands
 		user.update_inv_hands()
