@@ -71,16 +71,18 @@
 		if(get_held_index_of_item(I) % 2 == 0)
 			icon_file = I.righthand_file
 
+		//MOJAVE EDIT CHANGE BEGIN: modify y shift of power armor users for proper inhands
+		//hands += I.build_worn_icon(default_layer = HANDS_LAYER, default_icon_file = icon_file, isinhands = TRUE) - MOJAVE EDIT - ORIGINAL
 		var/mutable_appearance/hand_overlay = I.build_worn_icon(default_layer = HANDS_LAYER, default_icon_file = icon_file, isinhands = TRUE) //MS13 CODE EDIT: modify y shift of power armor users for proper inhands
 		hand_overlay.pixel_y += getItemPixelShiftY()
 
 		hands += hand_overlay
-		//MS13 CODE EDIT END
+		//MOJAVE EDIT CHANGE END
 
 	overlays_standing[HANDS_LAYER] = hands
 	apply_overlay(HANDS_LAYER)
 
-//MS13 CODE EDIT: I'm sorry for the amount of hardcode you're going to see
+//MOJAVE EDIT ADDITION BEGIN: Adds special offsets for power armor
 /mob/living/carbon/proc/getItemPixelShiftY()
 	if(istype(src, /mob/living/carbon/human))
 		var/mob/living/carbon/human/retyped_human = src
@@ -88,6 +90,7 @@
 			. = -4
 		else
 			. = 0
+//MOJAVE EDIT ADDITION END
 
 /mob/living/carbon/update_fire(fire_icon = "Generic_mob_burning")
 	remove_overlay(FIRE_LAYER)
