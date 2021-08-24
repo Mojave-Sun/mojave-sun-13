@@ -30,11 +30,11 @@
 
 /datum/quirk/foreigner
 	name = "Foreigner"
-	desc = "You're not from around here. You don't know Galactic Common!"
+	desc = "You're not from around here. You don't know English!" //MOJAVE EDIT FROM - 	desc = "You're not from around here. You don't know Galactic Common!"
 	value = 0
 	gain_text = "<span class='notice'>The words being spoken around you don't make any sense."
-	lose_text = "<span class='notice'>You've developed fluency in Galactic Common."
-	medical_record_text = "Patient does not speak Galactic Common and may require an interpreter."
+	lose_text = "<span class='notice'>You've developed fluency in English." //MOJAVE EDIT FROM - lose_text = "<span class='notice'>You've developed fluency in Galactic Common."
+	medical_record_text = "Patient does not speak English and may require an interpreter." //MOJAVE EDIT FROM - medical_record_text = "Patient does not speak Galactic Common and may require an interpreter."
 
 /datum/quirk/foreigner/add()
 	var/mob/living/carbon/human/human_holder = quirk_holder
