@@ -26,7 +26,7 @@
 	loot = list(
 			/obj/item/stack/medical/gauze/ms13/military,
 			/obj/item/stack/medical/ointment/ms13,
-			/obj/item/reagent_containers/hypospray/medipen/stimpak
+			/obj/item/reagent_containers/hypospray/medipen/ms13/stimpak
 			)
 
 /obj/effect/spawner/lootdrop/ms13/medical/lowrandom

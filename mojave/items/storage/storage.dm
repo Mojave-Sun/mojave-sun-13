@@ -26,7 +26,7 @@
 	new /obj/item/stack/medical/gauze/ms13/military(src)
 	new /obj/item/stack/medical/suture/ms13(src)
 	new /obj/item/stack/medical/ointment/ms13/(src)
-	new /obj/item/reagent_containers/hypospray/medipen/stimpak(src)
+	new /obj/item/reagent_containers/hypospray/medipen/ms13/stimpak(src)
 	new /obj/item/scalpel(src)
 
 /obj/item/storage/firstaid/ms13/bag
