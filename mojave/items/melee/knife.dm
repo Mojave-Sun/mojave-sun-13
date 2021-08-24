@@ -117,8 +117,8 @@
 	if(extended)
 		attack_verb_continuous = list("slashes", "slices", "tears", "lacerates", "rips", "dices", "cuts")
 		attack_verb_simple = list("slash", "slice", "tear", "lacerate", "rip", "dice", "cut")
-		icon_state = "[initial(icon_state)]_open"
-		inhand_icon_state = "[initial(icon_state)]_open"
+		icon_state = "knife_switch_open"
+		inhand_icon_state = "knife_switch_open"
 		hitsound = 'sound/weapons/bladeslice.ogg'
 		force = 20
 		throwforce = 15
@@ -128,7 +128,8 @@
 	else
 		attack_verb_continuous = list("stubs", "pokes")
 		attack_verb_simple = list("stub", "poke")
-		icon_state = "[initial(icon_state)]"
+		icon_state = "knife_switch"
+		inhand_icon_state = "knife_switch"
 		hitsound = 'sound/weapons/genhit.ogg'
 		force = 5
 		throwforce = 5
@@ -149,8 +150,8 @@
 	if(extended)
 		attack_verb_continuous = list("slashes", "slices", "tears", "lacerates", "rips", "dices", "cuts")
 		attack_verb_simple = list("slash", "slice", "tear", "lacerate", "rip", "dice", "cut")
-		icon_state = "[initial(icon_state)]_open"
-		inhand_icon_state = "[initial(inhand_icon_state)]_open"
+		icon_state = "knife_razor_open"
+		inhand_icon_state = "knife_razor_open"
 		hitsound = 'sound/weapons/bladeslice.ogg'
 		force = 15
 		throwforce = 5
@@ -160,8 +161,8 @@
 	else
 		attack_verb_continuous = list("stubs", "pokes")
 		attack_verb_simple = list("stub", "poke")
-		icon_state = "[initial(icon_state)]"
-		inhand_icon_state = "[initial(inhand_icon_state)]"
+		icon_state = "knife_razor"
+		inhand_icon_state = "knife_razor"
 		hitsound = 'sound/weapons/genhit.ogg'
 		force = 5
 		throwforce = 5
