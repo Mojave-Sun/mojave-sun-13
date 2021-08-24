@@ -1,7 +1,7 @@
 /obj/machinery/light/ms13
 	name = "light fixture"
 	icon = 'mojave/icons/structure/lighting.dmi'
-	overlayicon = 'mojave/icons/structure/lighting_overlay.dmi'
+	overlay_icon = 'mojave/icons/structure/lighting_overlay.dmi'
 	base_state = "light_tube"
 	icon_state = "light_tube"
 	desc = "A lighting fixture."
