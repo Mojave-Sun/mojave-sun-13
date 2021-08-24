@@ -1,7 +1,7 @@
 // 'basic' language; spoken by default.
 /datum/language/common
-	name = "English" //MOJAVE EDIT FROM - name = "Galactic Common"
-	desc = "The most commonly spoken language in America, both before and after the apocalypse" //MOJAVE EDIT FROM - desc = "The common galactic tongue."
+	name = "English" //MOJAVE EDIT CHANGE - name = "Galactic Common"
+	desc = "The most commonly spoken language in America, both before and after the apocalypse" //MOJAVE EDIT CHANGE - desc = "The common galactic tongue."
 	key = "0"
 	flags = TONGUELESS_SPEECH | LANGUAGE_HIDE_ICON_IF_UNDERSTOOD
 	default_priority = 100
