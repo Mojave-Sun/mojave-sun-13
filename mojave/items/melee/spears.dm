@@ -26,6 +26,7 @@
 	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
 
 /obj/item/spear/update_icon_state()
+	. = ..()
 	return
 
 /obj/item/spear/ms13/ComponentInitialize()

@@ -85,7 +85,7 @@
 	icon_state = "lead_pipe_alt"
 	inhand_icon_state = "lead_pipe_alt"
 	force = 30
-	wound_bonus = 8
+	wound_bonus = 10
 
 /obj/item/claymore/ms13/baton
 	name = "police baton"

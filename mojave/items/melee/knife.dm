@@ -68,6 +68,9 @@
 	inhand_icon_state = "knife_hunting_u"
 	force = 25
 	armour_penetration = 10
+	wound_bonus = 10
+	bare_wound_bonus = 10
+	throwforce = 25
 
 /obj/item/throwing_star/ms13/throwingknife
 	name = "throwing knife"

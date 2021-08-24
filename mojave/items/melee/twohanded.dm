@@ -25,9 +25,10 @@
 	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, .proc/on_wield)
 	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, .proc/on_unwield)
 	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
+
 /obj/item/ms13/twohanded/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_multiplier=2)
+	AddComponent(/datum/component/two_handed, require_twohands=FALSE)
 
 // triggered on wielding of a two handed item.
 /obj/item/ms13/twohanded/proc/on_wield(obj/item/source, mob/user)
@@ -51,68 +52,86 @@
 	attack_verb_continuous = list("cleaves", "whacks", "chops", "cuts")
 	attack_verb_simple = list("cleave", "whack", "chop", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	force = 25
-	armour_penetration = 10
-	wound_bonus = 5
-	throwforce = 5
+	force = 15
+	armour_penetration = 0
+	wound_bonus = 10
+	throwforce = 10
 	throw_range = 3
-	bare_wound_bonus = 10
+	bare_wound_bonus = 0
 	sharpness = IS_SHARP_AXE
 
-/obj/item/ms13/twohanded/sword
+/obj/item/ms13/twohanded/fireaxe/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_unwielded = 15, force_wielded = 50)
+
+/obj/item/ms13/twohanded/bump_sword
 	name = "bumper sword"
-	desc = "A sword, made from the bumper of a car. It's got a rough edge, but it will work just fine."
+	desc = "A large, intimidating sword made fashioned from the bumper of a car. The peak of post-war blades."
 	icon_state = "bumper_sword"
 	inhand_icon_state = "bumper_sword"
 	attack_verb_continuous = list("cleaves", "whacks", "chops", "lacerates", "stabs")
 	attack_verb_simple = list("cleave", "whack", "chop", "lacerate", "stab")
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	force = 25
-	armour_penetration = 5
-	wound_bonus = 10
+	force = 15
+	armour_penetration = 10
+	wound_bonus = 15
+	bare_wound_bonus = 15
 	throwforce = 10
-	throw_range = 5
-	bare_wound_bonus = 20
+	throw_range = 3
 	sharpness = SHARP_EDGED
+
+/obj/item/ms13/twohanded/bump_sword/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_unwielded = 15, force_wielded = 50)
 
 /obj/item/ms13/twohanded/hammer
 	name = "sledge hammer"
-	desc = "A heavy sledge hammer. Hard to swing with one hand, It'd take your full power to be able to weild it."
+	desc = "A heavy sledge hammer. Used mostly for demolition of walls pre-war, has now been repurposed for demolition of bones."
 	icon_state = "hammer_sledge"
 	inhand_icon_state = "hammer_sledge"
 	attack_verb_continuous = list("slams", "beats", "hammers", "pummels", "impacts")
 	attack_verb_simple = list("slam", "beat", "hammer", "pummel", "impact")
-	force = 25
-	armour_penetration = 20
-	wound_bonus = 10
-	throwforce = 5
-	throw_range = 2
+	force = 10
+	armour_penetration = 10
+	wound_bonus = 0
+	bare_wound_bonus = 0
+	throwforce = 10
+	throw_range = 3
 	sharpness = NONE
+
+/obj/item/ms13/twohanded/hammer/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_unwielded = 10, force_wielded = 45)
 
 /obj/item/ms13/twohanded/hammer/rebar
 	name = "rebar club"
-	desc = "A piece of rebar with concrete still stuck to it. Might as well use it for something."
+	desc = "A piece of rebar with concrete still stuck to it. Makes for a great, if heavy, makeshift bludgeon."
 	icon_state = "rebar_club"
 	inhand_icon_state = "rebar_club"
-	force = 20
-	armour_penetration = 15
-	wound_bonus = 15
+	armour_penetration = 5
+
+/obj/item/ms13/twohanded/hammer/rebar/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_unwielded = 10, force_wielded = 40)
 
 /obj/item/ms13/twohanded/hammer/super
 	name = "super sledge"
 	desc = "Using the power of science and engineering, They packed 66% more sledge in this hammer. It's a pain to use in general."
 	icon_state = "hammer_power"
 	inhand_icon_state = "hammer_power"
-	force = 35
-	armour_penetration = 35
-	wound_bonus = 35
+	armour_penetration = 25
+	wound_bonus = 10
+
+/obj/item/ms13/twohanded/hammer/super/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_unwielded = 10, force_wielded = 45)
 
 /obj/item/ms13/twohanded/hammer/super/attack(mob/living/target, mob/living/user)
 	. = ..()
 
 	if(wielded)
 		var/atom/throw_target = get_edge_target_turf(target, user.dir)
-		target.throw_at(throw_target, rand(2,5), 3, user)
+		target.throw_at(throw_target, rand(2,4), 3, user)
 		SSexplosions.medturf += throw_target
 		playsound(loc, 'sound/weapons/resonator_blast.ogg', 50, TRUE)
 		playsound(loc, 'sound/weapons/genhit2.ogg', 50, TRUE)
