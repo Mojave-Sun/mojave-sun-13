@@ -138,7 +138,7 @@
 	inhand_icon_state = "powerfist"
 	force = 30
 	armour_penetration = 25
-	throw_force = 10
+	throwforce = 10
 	wound_bonus = 10
 	w_class = WEIGHT_CLASS_NORMAL
 
