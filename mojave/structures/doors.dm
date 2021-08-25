@@ -2,6 +2,7 @@
 	icon = 'mojave/icons/structure/doors.dmi'
 	name = "base state ms13 door"
 	pixel_x = -16
+	pixel_y = -8
 	layer = 4.4
 	closingLayer = 4.4
 	density = TRUE
@@ -13,12 +14,26 @@
 	var/door_type = null
 	var/solidity = SOLID
 	var/frametype = "metal"
+	var/opensound = 'sound/machines/door_open.ogg'
+	var/closesound = 'sound/machines/door_close.ogg'
 
 /obj/machinery/door/unpowered/ms13/Initialize()
 	. = ..()
-	if(dir == EAST || dir == WEST)
+	if(dir == NORTH)
+		pixel_y = 8
+
+	if(dir == SOUTH)
+		pixel_y = -8
+
+	if(dir == EAST)
+		pixel_x = -3
 		pixel_y = 16
-		add_overlay(image(icon,icon_state="[frametype]_frame_vertical_overlay", layer = 4.45))
+		add_overlay(image(icon,icon_state="[frametype]_frame_vertical_overlay", layer = 4.5))
+
+	if(dir == WEST)
+		pixel_x = -28
+		pixel_y = 16
+		add_overlay(image(icon,icon_state="[frametype]_frame_vertical_overlay", layer = 4.5))
 
 /obj/machinery/door/unpowered/ms13/open()
 	if(!density)
@@ -33,6 +48,7 @@
 	set_opacity(0)
 	operating = FALSE
 	update_freelook_sight()
+	playsound(src, (opensound), 50, TRUE)
 	return TRUE
 
 /obj/machinery/door/unpowered/ms13/close()
@@ -52,6 +68,7 @@
 		set_opacity(1)
 	operating = FALSE
 	update_freelook_sight()
+	playsound(src, (closesound), 50, TRUE)
 	return TRUE
 
 /obj/machinery/door/unpowered/ms13/update_appearance(updates)
@@ -127,6 +144,9 @@
 #define LASER_PROJ /obj/projectile/beam
 
 /obj/machinery/door/unpowered/ms13/seethrough
+	name = "generic ms13 see-through door"
+	glass = TRUE
+	opacity = 0
 	var/allowed_projectile = null
 	var/passthrough_chance = 80
 
@@ -145,9 +165,9 @@
 		return FALSE
 
 /obj/machinery/door/unpowered/ms13/seethrough/metal
+	name = "metal door"
 	icon_state = "metal_window_closed"
 	door_type = "metal_window"
-	opacity = 0
 	allowed_projectile = LASER_PROJ
 	passthrough_chance = 40 //Small window!
 
@@ -155,14 +175,12 @@
 	name = "barred door"
 	icon_state = "metal_bar_closed"
 	door_type = "metal_bar"
-	opacity = 0
 	allowed_projectile = ALL_PROJ
 
 /obj/machinery/door/unpowered/ms13/seethrough/bar/grate
 	name = "grated door"
 	icon_state = "metal_grate_closed"
 	door_type = "metal_grate"
-	opacity = 0
 
 #undef ALL_PROJ
 #undef LASER_PROJ
