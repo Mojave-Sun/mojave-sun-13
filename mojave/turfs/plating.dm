@@ -8,6 +8,16 @@
 #define DESERT_LUSH_PLANT_SPAWN_LIST list(/obj/structure/flora/ms13/tree/joshua = 2, /obj/structure/flora/ms13/tree/cactus = 5, /obj/structure/ms13/turfdecor/drought = 10)
 #define DESERT_DESOLATE_PLANT_SPAWN_LIST list(/obj/structure/flora/grass/wasteland = 8)
 
+#define TURF_LAYER_SNOW 2.003
+#define TURF_LAYER_SNOW_BORDER 2.0031
+
+#define TURF_LAYER_ROAD 2.0021
+#define TURF_LAYER_ROAD_BORDER 2.0021
+
+#define TURF_LAYER_DESERT 2.001
+#define TURF_LAYER_DESERT_BORDER 2.0011
+
+
 /////////////////////////////////////////////////////////////
 /////////////////// MOJAVE SUN PLATINGS /////////////////////
 /////////////////////////////////////////////////////////////
@@ -30,6 +40,8 @@
 	tiled_dirt = FALSE
 	//Used in spawning plants on turfs
 	var/obj/structure/flora/turfPlant = null
+	//Used for larger than 32x border icons
+	var/border_icon
 
 /turf/open/floor/plating/ms13/ground/try_replace_tile(obj/item/stack/tile/T, mob/user, params)
 	return
@@ -53,29 +65,39 @@
 	name = "\proper desert"
 	desc = "A stretch of desert."
 	icon = 'mojave/icons/turf/64x/drought_1.dmi'
-	icon_state = "dirt-example"
+	icon_state = "dirt-255"
 	base_icon_state = "dirt"
 	slowdown = 0.7 //Hard and very dry ground. Not as hard to walk on as sand
 	baseturfs = /turf/open/floor/plating/ms13/ground/desert
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_MS13_DESERT)
 	canSmoothWith = list(DESERT_SMOOTHING)
-	layer = MID_TURF_LAYER
+	layer = TURF_LAYER_DESERT
 	var/digResult = /obj/item/stack/ore/glass //Sounds like a whole lot of not my problem at this very second
 	var/dug = FALSE
-	var/border = TRUE
 
 /turf/open/floor/plating/ms13/ground/desert/Initialize()
 	. = ..()
+	addtimer(CALLBACK(src, /atom/.proc/update_icon), 1)
 	//If no fences, machines (soil patches are machines), etc. try to plant grass
 	if(!((locate(/obj/structure) in src) || (locate(/obj/machinery) in src)))
 		plantGrass()
-	if(border)
-		var/rand_icon = pick('mojave/icons/turf/64x/drought_1.dmi', 'mojave/icons/turf/64x/drought_2.dmi', 'mojave/icons/turf/64x/drought_3.dmi')
-		icon = rand_icon
-		var/matrix/M = new
-		M.Translate(-16, -16)
-		transform = M
+
+/turf/open/floor/plating/ms13/ground/desert/update_icon()
+	. = ..()
+	var/rand_icon = rand(1,3)
+	switch(rand_icon)
+		if(1)
+			icon = 'mojave/icons/turf/64x/drought_1.dmi'
+			border_icon = 'mojave/icons/turf/64x/drought_1_border.dmi'
+		if(2)
+			icon = 'mojave/icons/turf/64x/drought_2.dmi'
+			border_icon = 'mojave/icons/turf/64x/drought_2_border.dmi'
+		if(3)
+			icon = 'mojave/icons/turf/64x/drought_3.dmi'
+			border_icon = 'mojave/icons/turf/64x/drought_3_border.dmi'
+
+	add_overlay(image(border_icon, icon_state, TURF_LAYER_DESERT_BORDER, pixel_x = -16, pixel_y = -16))
 
 /turf/open/floor/plating/ms13/ground/desert/attackby(obj/item/W, mob/user, params)
 	. = ..()
@@ -165,30 +187,41 @@
 /turf/open/floor/plating/ms13/ground/snow
 	name = "snow"
 	desc = "Fresh powder."
-	baseturfs = /turf/open/floor/plating/ms13/ground/snow
 	icon = 'mojave/icons/turf/64x/snow_1.dmi'
-	icon_state = "snow-example"
+	icon_state = "snow-255"
 	base_icon_state = "snow"
 	slowdown = 1
+	baseturfs = /turf/open/floor/plating/ms13/ground/snow
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_MS13_SNOW)
 	canSmoothWith = list(SMOOTH_GROUP_MS13_SNOW, SMOOTH_GROUP_MS13_TILE)
-	layer = MID_TURF_LAYER
+	layer = TURF_LAYER_SNOW
 	var/digResult = /obj/item/stack/sheet/mineral/snow
 	var/dug = FALSE
 	var/area/curr_area = null
 
 /turf/open/floor/plating/ms13/ground/snow/Initialize()
 	. = ..()
-	var/rand_icon = pick('mojave/icons/turf/64x/snow_1.dmi', 'mojave/icons/turf/64x/snow_2.dmi', 'mojave/icons/turf/64x/snow_3.dmi')
-	icon = rand_icon
+	addtimer(CALLBACK(src, /atom/.proc/update_icon), 1)
 	curr_area = get_area(src)
 	if(!((locate(/obj/structure) in src) || (locate(/obj/machinery) in src) || (locate(/obj/structure/flora) in src)))
 		plant_grass()
-	if(smoothing_flags & SMOOTH_BITMASK)
-		var/matrix/M = new
-		M.Translate(-16, -16)
-		transform = M
+
+/turf/open/floor/plating/ms13/ground/snow/update_icon()
+	. = ..()
+	var/rand_icon = rand(1,3)
+	switch(rand_icon)
+		if(1)
+			icon = 'mojave/icons/turf/64x/snow_1.dmi'
+			border_icon = 'mojave/icons/turf/64x/snow_1_border.dmi'
+		if(2)
+			icon = 'mojave/icons/turf/64x/snow_2.dmi'
+			border_icon = 'mojave/icons/turf/64x/snow_2_border.dmi'
+		if(3)
+			icon = 'mojave/icons/turf/64x/snow_3.dmi'
+			border_icon = 'mojave/icons/turf/64x/snow_3_border.dmi'
+
+	add_overlay(image(border_icon, icon_state, TURF_LAYER_SNOW_BORDER, pixel_x = -16, pixel_y = -16))
 
 /turf/open/floor/plating/ms13/ground/snow/attackby(obj/item/W, mob/user, params)
 	. = ..()
@@ -311,29 +344,40 @@
 	name = "\proper road"
 	desc = "A stretch of road."
 	icon = 'mojave/icons/turf/64x/road_1.dmi'
-	icon_state = "road-example"
+	icon_state = "road-255"
 	base_icon_state = "road"
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_MS13_ROAD)
-	canSmoothWith = list(SMOOTH_GROUP_MS13_ROAD, SMOOTH_GROUP_MS13_SIDEWALK, SMOOTH_GROUP_MS13_TILE, SMOOTH_GROUP_MS13_SNOW)
-	layer = MID_TURF_LAYER
+	canSmoothWith = list(SMOOTH_GROUP_MS13_ROAD, SMOOTH_GROUP_MS13_SIDEWALK, SMOOTH_GROUP_MS13_TILE, SMOOTH_GROUP_MS13_SNOW, SMOOTH_GROUP_MS13_SNOW)
+	layer = TURF_LAYER_ROAD
 
 /turf/open/floor/plating/ms13/ground/road/Initialize()
 	. = ..()
 	addtimer(CALLBACK(src, /atom/.proc/update_icon), 1)
 
-	var/rand_icon = pick('mojave/icons/turf/64x/road_1.dmi', 'mojave/icons/turf/64x/road_2.dmi', 'mojave/icons/turf/64x/road_3.dmi', 'mojave/icons/turf/64x/road_4.dmi')
-	icon = rand_icon
-	if(smoothing_flags & SMOOTH_BITMASK)
-		var/matrix/M = new
-		M.Translate(-16, -16)
-		transform = M
-
 /turf/open/floor/plating/ms13/ground/road/update_icon()
 	. = ..() //Inheritance required for road decals
+	var/rand_icon = rand(1,4)
 	var/crack_randomiser = "crack_[rand(1,18)]"
-	var/road_randomiser = "rand(-10,10)"
-	var/direction_randomiser = "rand(0,8)"
+	var/road_randomiser = rand(-10,10)
+	var/direction_randomiser = rand(0,8)
+
+	switch(rand_icon)
+		if(1)
+			icon = 'mojave/icons/turf/64x/road_1.dmi'
+			border_icon = 'mojave/icons/turf/64x/road_1_border.dmi'
+		if(2)
+			icon = 'mojave/icons/turf/64x/road_2.dmi'
+			border_icon = 'mojave/icons/turf/64x/road_2_border.dmi'
+		if(3)
+			icon = 'mojave/icons/turf/64x/road_3.dmi'
+			border_icon = 'mojave/icons/turf/64x/road_3_border.dmi'
+		if(4)
+			icon = 'mojave/icons/turf/64x/road_4.dmi'
+			border_icon = 'mojave/icons/turf/64x/road_4_border.dmi'
+
+	add_overlay(image(border_icon, icon_state, TURF_LAYER_ROAD_BORDER, pixel_x = -16, pixel_y = -16))
+
 	if(prob(20))
 		add_overlay(image('mojave/icons/turf/road.dmi', crack_randomiser, FLOAT_LAYER, direction_randomiser, road_randomiser, road_randomiser))
 
