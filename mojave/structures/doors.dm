@@ -18,7 +18,7 @@
 	. = ..()
 	if(dir == EAST || dir == WEST)
 		pixel_y = 16
-		add_overlay(image(icon,icon_state="(frametype)_frame_vertical_overlay", layer = 4.45))
+		add_overlay(image(icon,icon_state="[frametype]_frame_vertical_overlay", layer = 4.45))
 
 /obj/machinery/door/unpowered/ms13/open()
 	if(!density)
