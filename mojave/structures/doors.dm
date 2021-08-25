@@ -7,13 +7,43 @@
 	density = TRUE
 	assemblytype = null
 	can_crush = FALSE
+	spark_system = null
+	max_integrity = 650
 	var/door_type = null
+	var/solidity = SOLID
+	var/frametype = "metal"
 
 /obj/machinery/door/unpowered/ms13/Initialize()
 	. = ..()
 	if(dir == EAST || dir == WEST)
 		pixel_y = 16
-		add_overlay(image(icon,icon_state="metal_frame_vertical_overlay", layer = 4.45))
+		add_overlay(image(icon,icon_state="(frametype)_frame_vertical_overlay", layer = 4.45))
+
+/obj/machinery/door/unpowered/ms13/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir) // The base proc code from /obj. Needed because the doors have spark systems hard baked in on take_damage proc
+	if(QDELETED(src))
+		stack_trace("[src] taking damage after deletion")
+		return
+	if(sound_effect)
+		play_attack_sound(damage_amount, damage_type, damage_flag)
+	if((resistance_flags & INDESTRUCTIBLE) || obj_integrity <= 0)
+		return
+	damage_amount = run_obj_armor(damage_amount, damage_type, damage_flag, attack_dir, armour_penetration)
+	if(damage_amount < DAMAGE_PRECISION)
+		return
+	if(SEND_SIGNAL(src, COMSIG_OBJ_TAKE_DAMAGE, damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration) & COMPONENT_NO_TAKE_DAMAGE)
+		return
+
+	. = damage_amount
+
+	update_integrity(obj_integrity - damage_amount)
+
+	//BREAKING FIRST
+	if(integrity_failure && obj_integrity <= integrity_failure * max_integrity)
+		obj_break(damage_flag)
+
+	//DESTROYING SECOND
+	if(obj_integrity <= 0)
+		obj_destruction(damage_flag)
 
 /obj/machinery/door/unpowered/ms13/open()
 	if(!density)
@@ -79,20 +109,6 @@
 /obj/machinery/door/unpowered/ms13/Bumped(atom/movable/AM)
 	return
 
-/obj/machinery/door/unpowered/ms13/CanAllowThrough(atom/movable/mover, border_dir)
-	. = ..()
-	if(locate(/obj/machinery/door/unpowered/ms13) in get_turf(mover))
-		return TRUE
-	else if(istype(mover, /obj/projectile))
-		if(!anchored)
-			return TRUE
-		var/obj/projectile/proj = mover
-		if(proj.firer && Adjacent(proj.firer))
-			return TRUE
-		if(prob(80))
-			return TRUE
-		return FALSE
-
 /obj/machinery/door/unpowered/ms13/metal
 	name = "metal door"
 	icon_state = "metal_closed"
@@ -106,22 +122,72 @@
 	icon_state = "metal_red_closed"
 	door_type = "metal_red"
 
-/obj/machinery/door/unpowered/ms13/metal/window
+// Wood doors //
+/obj/machinery/door/unpowered/ms13/wood
+	name = "wood door"
+	icon_state = "wood_closed"
+	door_type = "wood"
+	frametype = "wood"
+
+/obj/machinery/door/unpowered/ms13/wood/red
+	icon_state = "wood_red_closed"
+	door_type = "wood_red"
+
+/obj/machinery/door/unpowered/ms13/wood/blue
+	icon_state = "wood_blue_closed"
+	door_type = "wood_blue"
+
+/obj/machinery/door/unpowered/ms13/wood/green
+	icon_state = "wood_green_closed"
+	door_type = "wood_green"
+
+/obj/machinery/door/unpowered/ms13/wood/white
+	icon_state = "wood_white_closed"
+	door_type = "wood_white"
+
+// Window/Open doors //
+
+#define ALL_PROJ /obj/projectile
+
+#define LASER_PROJ /obj/projectile/beam
+
+/obj/machinery/door/unpowered/ms13/seethrough
+	var/allowed_projectile = null
+	var/passthrough_chance = 80
+
+/obj/machinery/door/unpowered/ms13/seethrough/CanAllowThrough(atom/movable/mover, border_dir)
+	. = ..()
+	if(locate(/obj/machinery/door/unpowered/ms13/seethrough) in get_turf(mover))
+		return TRUE
+	else if(istype(mover,(allowed_projectile)))
+		if(!anchored)
+			return TRUE
+		var/obj/projectile/proj = mover
+		if(proj.firer && Adjacent(proj.firer))
+			return TRUE
+		if(prob((passthrough_chance)))
+			return TRUE
+		return FALSE
+
+/obj/machinery/door/unpowered/ms13/seethrough/metal
 	icon_state = "metal_window_closed"
 	door_type = "metal_window"
 	opacity = 0
-	glass = TRUE
+	allowed_projectile = LASER_PROJ
+	passthrough_chance = 40 //Small window!
 
-/obj/machinery/door/unpowered/ms13/metal/bar
+/obj/machinery/door/unpowered/ms13/seethrough/bar
 	name = "barred door"
 	icon_state = "metal_bar_closed"
 	door_type = "metal_bar"
 	opacity = 0
-	glass = TRUE
+	allowed_projectile = ALL_PROJ
 
-/obj/machinery/door/unpowered/ms13/metal/bar/grate
+/obj/machinery/door/unpowered/ms13/seethrough/bar/grate
 	name = "grated door"
 	icon_state = "metal_grate_closed"
 	door_type = "metal_grate"
 	opacity = 0
-	glass = TRUE
+
+#undef ALL_PROJ
+#undef LASER_PROJ
