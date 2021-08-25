@@ -9,6 +9,7 @@
 	can_crush = FALSE
 	spark_system = null
 	max_integrity = 650
+	sparks = FALSE
 	var/door_type = null
 	var/solidity = SOLID
 	var/frametype = "metal"
@@ -18,32 +19,6 @@
 	if(dir == EAST || dir == WEST)
 		pixel_y = 16
 		add_overlay(image(icon,icon_state="(frametype)_frame_vertical_overlay", layer = 4.45))
-
-/obj/machinery/door/unpowered/ms13/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir) // The base proc code from /obj. Needed because the doors have spark systems hard baked in on take_damage proc
-	if(QDELETED(src))
-		stack_trace("[src] taking damage after deletion")
-		return
-	if(sound_effect)
-		play_attack_sound(damage_amount, damage_type, damage_flag)
-	if((resistance_flags & INDESTRUCTIBLE) || obj_integrity <= 0)
-		return
-	damage_amount = run_obj_armor(damage_amount, damage_type, damage_flag, attack_dir, armour_penetration)
-	if(damage_amount < DAMAGE_PRECISION)
-		return
-	if(SEND_SIGNAL(src, COMSIG_OBJ_TAKE_DAMAGE, damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration) & COMPONENT_NO_TAKE_DAMAGE)
-		return
-
-	. = damage_amount
-
-	update_integrity(obj_integrity - damage_amount)
-
-	//BREAKING FIRST
-	if(integrity_failure && obj_integrity <= integrity_failure * max_integrity)
-		obj_break(damage_flag)
-
-	//DESTROYING SECOND
-	if(obj_integrity <= 0)
-		obj_destruction(damage_flag)
 
 /obj/machinery/door/unpowered/ms13/open()
 	if(!density)

@@ -42,7 +42,7 @@
 	var/unres_sides = 0 //Unrestricted sides. A bitflag for which direction (if any) can open the door with no access
 	var/safety_mode = FALSE ///Whether or not the airlock can be opened with bare hands while unpowered
 	var/can_crush = TRUE /// Whether or not the door can crush mobs.
-
+	var/sparks = TRUE /// MOJAVE SUN EDIT
 
 /obj/machinery/door/examine(mob/user)
 	. = ..()
@@ -274,6 +274,10 @@
 
 /obj/machinery/door/take_damage(damage_amount, damage_type = BRUTE, damage_flag = 0, sound_effect = 1, attack_dir)
 	. = ..()
+// MOJAVE SUN EDIT BEGIN
+	if(!sparks)
+		return
+// MOJAVE SUN EDIT END
 	if(. && obj_integrity > 0)
 		if(damage_amount >= 10 && prob(30))
 			spark_system.start()
