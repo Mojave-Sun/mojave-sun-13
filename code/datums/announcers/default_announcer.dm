@@ -1,3 +1,29 @@
+// MOJAVE SUN EDIT BEGIN //
+/datum/centcom_announcer/default
+	welcome_sounds = list('mojave/sound/ms13/begin1.ogg', 'mojave/sound/ms13/begin2.ogg', 'mojave/sound/ms13/begin3.ogg', 'mojave/sound/ms13/begin4.ogg', 'mojave/sound/ms13/begin5.ogg', 'mojave/sound/ms13/begin6.ogg')
+	alert_sounds = list('mojave/sound/ms13/broadcast.ogg')
+	command_report_sounds = list('mojave/sound/ms13/broadcast.ogg')
+	event_sounds = list(ANNOUNCER_AIMALF = null,
+		ANNOUNCER_ALIENS = null,
+		ANNOUNCER_ANIMES = null,
+		ANNOUNCER_GRANOMALIES = null,
+		ANNOUNCER_INTERCEPT = null,
+		ANNOUNCER_IONSTORM = null,
+		ANNOUNCER_METEORS = null,
+		ANNOUNCER_OUTBREAK5 = null,
+		ANNOUNCER_OUTBREAK7 = null,
+		ANNOUNCER_POWEROFF = null,
+		ANNOUNCER_POWERON = null,
+		ANNOUNCER_RADIATION = null,
+		ANNOUNCER_SHUTTLECALLED = null,
+		ANNOUNCER_SHUTTLEDOCK = null,
+		ANNOUNCER_SHUTTLERECALLED = null,
+		ANNOUNCER_SPANOMALIES = null)
+
+// MOJAVE SUN EDIT END //
+
+/* ORIGINAL VALUES
+
 /datum/centcom_announcer/default
 	welcome_sounds = list('sound/ai/default/welcome.ogg')
 	alert_sounds = list('sound/ai/default/attention.ogg')
@@ -18,3 +44,4 @@
 		ANNOUNCER_SHUTTLEDOCK = 'sound/ai/default/shuttledock.ogg',
 		ANNOUNCER_SHUTTLERECALLED = 'sound/ai/default/shuttlerecalled.ogg',
 		ANNOUNCER_SPANOMALIES = 'sound/ai/default/spanomalies.ogg')
+*/
