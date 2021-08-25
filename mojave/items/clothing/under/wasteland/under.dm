@@ -5,13 +5,17 @@
 	has_sensor = NO_SENSORS // For the crew computer
 	random_sensor = FALSE
 	sensor_mode = NO_SENSORS
-	icon = 'mojave/icons/objects/clothing/uniforms.dmi'
+	icon = 'mojave/icons/objects/clothing/clothing_world/uniforms_world.dmi'
 	worn_icon = 'mojave/icons/mob/clothing/uniform.dmi'
 	inhand_icon_state = null
 	///Icon file for left hand inhand overlays
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	///Icon file for right inhand overlays
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
+
+/obj/item/clothing/under/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/uniforms_inventory.dmi')
 
 /obj/item/clothing/under/ms13/wasteland
 	can_adjust = FALSE

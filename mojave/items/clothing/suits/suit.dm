@@ -1,7 +1,7 @@
 /obj/item/clothing/suit/ms13
 	name = "generic ms13 suit"
 	desc = "You shouldn't be seeing this. It do be lookin' kinda clean doe."
-	icon = 'mojave/icons/objects/clothing/suits.dmi'
+	icon = 'mojave/icons/objects/clothing/clothing_world/suits_world.dmi'
 	worn_icon = 'mojave/icons/mob/clothing/suit.dmi'
 	allowed = list(/obj/item/pen,/obj/item/paper,/obj/item/stamp,/obj/item/reagent_containers/food/drinks/flask,/obj/item/storage/box/matches,/obj/item/lighter,/obj/item/clothing/mask/cigarette,/obj/item/storage/fancy/cigarettes,/obj/item/flashlight,/obj/item/gun,/obj/item/ammo_box,/obj/item/ammo_casing)
 	body_parts_covered = CHEST|ARMS|LEGS|GROIN
@@ -10,12 +10,16 @@
 	///Icon file for right inhand overlays
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
 
+/obj/item/clothing/suit/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/suits_inventory.dmi')
+
 /obj/item/clothing/suit/toggle/ms13
 	name = "generic ms13 toggleable"
 	desc = "Don't look. Don't look. NIGHTMARE NIGHTMARE NIGHTMARE."
 	icon_state = "winterjacketorange"
 	inhand_icon_state = "winter"
-	icon = 'mojave/icons/objects/clothing/suits.dmi'
+	icon = 'mojave/icons/objects/clothing/clothing_world/suits_world.dmi'
 	worn_icon = 'mojave/icons/mob/clothing/suit.dmi'
 	allowed = list(/obj/item/pen,/obj/item/paper,/obj/item/stamp,/obj/item/reagent_containers/food/drinks/flask,/obj/item/storage/box/matches,/obj/item/lighter,/obj/item/clothing/mask/cigarette,/obj/item/storage/fancy/cigarettes,/obj/item/flashlight,/obj/item/gun,/obj/item/ammo_box,/obj/item/ammo_casing)
 	body_parts_covered = CHEST|ARMS|LEGS|GROIN
@@ -24,6 +28,10 @@
 	///Icon file for right inhand overlays
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
 	togglename = "buttons"
+
+/obj/item/clothing/suit/toggle/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/suits_inventory.dmi')
 
 // wasteland //
 
@@ -294,7 +302,7 @@
 /obj/item/clothing/suit/toggle/labcoat/ms13
 	name = "doctor's coat"
 	desc = "The medical coat of a typical wasteland doctor."
-	icon = 'mojave/icons/objects/clothing/suits.dmi'
+	icon = 'mojave/icons/objects/clothing/clothing_world/suits_world.dmi'
 	worn_icon = 'mojave/icons/mob/clothing/suit.dmi'
 	icon_state = "followers"
 	inhand_icon_state = "shirt"

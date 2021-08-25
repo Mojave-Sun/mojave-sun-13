@@ -1,7 +1,7 @@
 /obj/item/clothing/suit/armor/ms13
 	name = "generic ms13 armor"
 	desc = "You shouldn't be seeing this."
-	icon = 'mojave/icons/objects/clothing/suits.dmi'
+	icon = 'mojave/icons/objects/clothing/clothing_world/suits_world.dmi'
 	worn_icon = 'mojave/icons/mob/clothing/suit.dmi'
 	allowed = list(/obj/item/pen,/obj/item/paper,/obj/item/stamp,/obj/item/reagent_containers/food/drinks/flask,/obj/item/storage/box/matches,/obj/item/lighter,/obj/item/clothing/mask/cigarette,/obj/item/storage/fancy/cigarettes,/obj/item/flashlight,/obj/item/gun,/obj/item/ammo_box,/obj/item/ammo_casing)
 	body_parts_covered = CHEST|ARMS|LEGS|GROIN
@@ -10,14 +10,22 @@
 	///Icon file for right inhand overlays
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
 
+/obj/item/clothing/suit/armor/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/suits_inventory.dmi')
+
 /obj/item/clothing/suit/hooded/ms13/
 	name = "generic ms13 hooded clothing"
 	desc = "BASE CLASE BASE CLASS. AAAAAAAAAAAAAAA"
-	icon = 'mojave/icons/objects/clothing/suits.dmi'
+	icon = 'mojave/icons/objects/clothing/clothing_world/suits_world.dmi'
 	worn_icon = 'mojave/icons/mob/clothing/suit.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
 	hoodtype = null
+
+/obj/item/clothing/suit/hooded/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/suits_inventory.dmi')
 
 // Armor Kits //
 
@@ -230,7 +238,7 @@
 /obj/item/clothing/suit/space/ms13
 	name = "\improper Space suit"
 	desc = "A state of the art genuine space suit. I hope you didn't go into orbit to get this. Built to last, is up to standard for the harsh climate of space itself."
-	icon = 'mojave/icons/objects/clothing/suits.dmi'
+	icon = 'mojave/icons/objects/clothing/clothing_world/suits_world.dmi'
 	worn_icon = 'mojave/icons/mob/clothing/suit.dmi'
 	icon_state = "spacesuit"
 	inhand_icon_state = "spacesuit"

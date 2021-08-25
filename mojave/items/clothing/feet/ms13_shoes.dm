@@ -1,6 +1,10 @@
 /obj/item/clothing/shoes/ms13
-	icon = 'mojave/icons/objects/clothing/shoes.dmi'
+	icon = 'mojave/icons/objects/clothing/clothing_world/shoes_world.dmi'
 	worn_icon = 'mojave/icons/mob/clothing/feet.dmi'
+
+/obj/item/clothing/shoes/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/shoes_inventory.dmi')
 
 /obj/item/clothing/shoes/ms13
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/shoes
@@ -154,45 +158,3 @@
 	desc = "A pair of heavy military boots favored by the Brotherhood of Steel."
 	icon_state = "bos_boots"
 	inhand_icon_state = "bos_boots"
-
-//Fluff
-
-/obj/item/clothing/shoes/ms13/swimfins
-	name = "swimming fins"
-	desc = "You see, Ivan, when you wear fin in desert, they help you swim good if you find much water."
-	icon_state = "flippers"
-	inhand_icon_state = "flippers"
-	clothing_flags = NOSLIP
-
-/obj/item/clothing/shoes/ms13/moon
-	name = "moon boots"
-	desc = "These boots are constructed with a thin rubber exterior and cellular rubber midsole covered by colorful nylon fabrics and using polyurethane foams.<br>To the Moon!"
-	icon_state = "moon"
-	inhand_icon_state = "moon"
-	armor = list(melee = 40, bullet = 20, laser = 20, energy = 20, bomb = 20, bio = 10, rad = 50, fire = 0, acid = 0)
-	cold_protection = FEET
-	min_cold_protection_temperature = SHOES_MIN_TEMP_PROTECT
-	heat_protection = FEET
-	max_heat_protection_temperature = SHOES_MAX_TEMP_PROTECT
-	clothing_flags = NOSLIP
-
-/obj/item/clothing/shoes/ms13/doom
-	name = "mars boots"
-	desc = "These boots are constructed with a titanium alloy. There are some runes engraved on the side.<br>To Mars!"
-	icon_state = "mars"
-	inhand_icon_state = "mars"
-	armor = list(melee = 40, bullet = 20, laser = 20, energy = 20, bomb = 20, bio = 80, rad = 80, fire = 80, acid = 50)
-	cold_protection = FEET
-	min_cold_protection_temperature = SHOES_MIN_TEMP_PROTECT
-	heat_protection = FEET
-	max_heat_protection_temperature = SHOES_MAX_TEMP_PROTECT
-	clothing_flags = NOSLIP
-
-/obj/item/clothing/shoes/ms13/miner
-	name = "mining boots"
-	desc = "Heavy-duty work boots with steel-reinforced toes and some fluffy wool for extra warmth."
-	icon_state = "miner"
-	inhand_icon_state = "miner"
-	armor = list(melee = 20, bullet = 0, laser = 0, energy = 0, bomb = 20, bio = 0, rad = 0, fire = 0, acid = 0)
-	cold_protection = FEET
-	min_cold_protection_temperature = SHOES_MIN_TEMP_PROTECT

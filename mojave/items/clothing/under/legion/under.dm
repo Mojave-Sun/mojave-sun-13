@@ -9,13 +9,13 @@
 	desc = "A standard uniform worn by members of Caesar's Legion. "
 	icon_state = "leg_r_skirt"
 	inhand_icon_state = "bl_suit"
-	
+
 /obj/item/clothing/under/ms13/legion/fatigues/redstealth
 	name = "stealthy red Legion fatigues"
 	desc = "A standard uniform worn by members of Caesar's Legion. This one is sneaky!"
 	icon_state = "leg_rs_skirt"
 	inhand_icon_state = "bl_suit"
-	
+
 /obj/item/clothing/under/ms13/legion/fatigues/redpadded
 	name = "padded red Legion fatigues"
 	desc = "A standard uniform worn by members of Caesar's Legion. This one is padded."
@@ -27,19 +27,19 @@
 	desc = "A brown uniform worn by members of Caesar's Legion."
 	icon_state = "leg_b_skirt"
 	inhand_icon_state = "bl_suit"
-	
+
 /obj/item/clothing/under/ms13/legion/fatigues/brownstealth
 	name = "stealthy brown Legion fatigues"
 	desc = "A brown uniform worn by members of Caesar's Legion. This one is sneaky!"
 	icon_state = "leg_bs_skirt"
 	inhand_icon_state = "bl_suit"
-	
+
 /obj/item/clothing/under/ms13/legion/fatigues/brownpadded
 	name = "padded brown Legion fatigues"
 	desc = "A brown uniform worn by members of Caesar's Legion. This one is padded"
 	icon_state = "leg_bp_skirt"
 	inhand_icon_state = "bl_suit"
-	
+
 /obj/item/clothing/under/ms13/legion/fatigues/white
 	name = "white Legion fatigues"
 	desc = "A white uniform worn by members of Caesar's Legion for snowy environments."

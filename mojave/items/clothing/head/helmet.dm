@@ -1,7 +1,7 @@
 /obj/item/clothing/head/helmet/ms13
 	name = "generic ms13 helmet"
 	desc = "You shouldn't be seeing this helmet."
-	icon = 'mojave/icons/objects/clothing/hats.dmi'
+	icon = 'mojave/icons/objects/clothing/clothing_world/hats_world.dmi'
 	worn_icon = 'mojave/icons/mob/clothing/head.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
@@ -10,10 +10,14 @@
 	dynamic_hair_suffix = "+generic"
 	dynamic_fhair_suffix = "+generic"
 
+/obj/item/clothing/head/helmet/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/hats_inventory.dmi')
+
 /obj/item/clothing/head/ms13/hood
 	name = "generic ms13 hood"
 	desc = "We in this."
-	icon = 'mojave/icons/objects/clothing/hats.dmi'
+	icon = 'mojave/icons/objects/clothing/clothing_world/hats_world.dmi'
 	worn_icon = 'mojave/icons/mob/clothing/head.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
@@ -21,10 +25,14 @@
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 
+/obj/item/clothing/head/ms13/hood/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/hats_inventory.dmi')
+
 /obj/item/clothing/head/hooded/ms13
 	name = "generic ms13 suit hood"
 	desc = "Gamer phone home. Something is wrong."
-	icon = 'mojave/icons/objects/clothing/hats.dmi'
+	icon = 'mojave/icons/objects/clothing/clothing_world/hats_world.dmi'
 	worn_icon = 'mojave/icons/mob/clothing/head.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
@@ -35,10 +43,14 @@
 /obj/item/clothing/head/soft/ms13
 	name = "generic ms13 flip cap"
 	desc = "Now you flipped dawg."
-	icon = 'mojave/icons/objects/clothing/hats.dmi'
+	icon = 'mojave/icons/objects/clothing/clothing_world/hats_world.dmi'
 	worn_icon = 'mojave/icons/mob/clothing/head.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
+
+/obj/item/clothing/head/soft/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/hats_inventory.dmi')
 
 /obj/item/clothing/head/helmet/ms13/tall
 	worn_icon = 'mojave/icons/mob/clothing/32x64.dmi'
@@ -152,7 +164,7 @@
 	desc = "A very sturdy hard hat with a built in light."
 	icon_state = "hardhat0_mining" //holy fuck this code is garbage
 	hat_type = "mining"
-	icon = 'mojave/icons/objects/clothing/hats.dmi'
+	icon = 'mojave/icons/objects/clothing/clothing_world/hats_world.dmi'
 	worn_icon = 'mojave/icons/mob/clothing/head.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
@@ -163,7 +175,7 @@
 	name = "welding helmet"
 	desc = "A durable and fireproof face shield to help keep your eyes when welding."
 	icon_state = "welding"
-	icon = 'mojave/icons/objects/clothing/hats.dmi'
+	icon = 'mojave/icons/objects/clothing/clothing_world/hats_world.dmi'
 	worn_icon = 'mojave/icons/mob/clothing/head.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
@@ -613,13 +625,11 @@
 	inhand_icon_state = "hazmat"
 	armor = list(melee = 15, bullet = 5, laser = 5, energy = 5, bomb = 5, bio = 75, rad = 10, fire = 5, acid = 75)
 	resistance_flags = ACID_PROOF
-	dynamic_hair_suffix = ""
-	dynamic_fhair_suffix = ""
 
 /obj/item/clothing/head/helmet/space/ms13
 	name = "space helmet"
 	desc = "A near pristine space helmet. Not a single crack in the glass found. It's probably still good to go!"
-	icon = 'mojave/icons/objects/clothing/hats.dmi'
+	icon = 'mojave/icons/objects/clothing/clothing_world/hats_world.dmi'
 	worn_icon = 'mojave/icons/mob/clothing/head.dmi'
 	icon_state = "spacehelmet"
 	inhand_icon_state = "spacehelmet"
@@ -638,9 +648,17 @@
 	armor = list("melee" = 35, "bullet" = 30, "laser" = 15, "energy" = 15, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 20, "acid" = 10, "wound" = 0)
 	flags_cover = NONE
 
+/obj/item/clothing/head/helmet/ms13/ncr/medic
+	name = "\improper NCR medic helmet"
+	desc = "A specially marked helmet used by medics of the NCR."
+	icon_state = "ncr_infantry_helmet"
+	inhand_icon_state = "ncr_infantry_helmet"
+	armor = list("melee" = 35, "bullet" = 30, "laser" = 15, "energy" = 15, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 20, "acid" = 10, "wound" = 0)
+	flags_cover = NONE
+
 /obj/item/clothing/head/helmet/ms13/ncr/goggles
 	name = "\improper NCR goggles helmet"
-	desc = "An NCR helmet with added goggles and additional protective padding."
+	desc = "An NCR helmet with added goggles and a heartier internal padding."
 	icon_state = "ncr_goggles_helmet"
 	inhand_icon_state = "ncr_goggles_helmet"
 	can_toggle = 1
@@ -754,17 +772,14 @@
 // Desert Ranger Helmets/Hats //
 
 /obj/item/clothing/head/helmet/ms13/eliteriot/ranger
-	name = "\improper Elite Desert Ranger helmet"
+	name = "\improper Desert Ranger elite helmet"
 	desc = "An advanced and intimidating helmet used by equally intimidating and skilled Elite Desert Rangers."
 	icon_state = "elite_ranger"
 	inhand_icon_state = "riotgearhelmet"
-	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
-	dynamic_hair_suffix = ""
-	dynamic_fhair_suffix = ""
 
 /obj/item/clothing/head/helmet/ms13/cowboy/ranger
 	name = "\improper Desert Ranger hat"
-	desc = "A sylish hat, often worn by Desert Rangers. Made with some pretty thick leather and additional padding."
+	desc = "A sylish hat, often worn by Desert Rangers. Made with some thick leather and small internal layer of kevlar."
 	icon_state = "ranger_hat"
 	worn_icon_state = "ranger_hat"
 	armor = list("melee" = 30, "bullet" = 25, "laser" = 20, "energy" = 15, "bomb" = 15, "bio" = 10, "rad" = 10, "fire" = 10, "acid" = 10, "wound" = 0)

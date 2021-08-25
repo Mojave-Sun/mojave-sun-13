@@ -5,7 +5,7 @@
 /obj/item/storage/ms13
 	name = "generic ms13 storage"
 	desc = "Da error tho, the crazy error yo!!"
-	icon = 'mojave/icons/objects/clothing/backpack.dmi'
+	icon = 'mojave/icons/objects/clothing/clothing_world/backpack_world.dmi'
 	worn_icon = 'mojave/icons/mob/clothing/back.dmi'
 	icon_state = ""
 	inhand_icon_state = ""
@@ -16,6 +16,10 @@
 	slot_flags = ITEM_SLOT_BACK
 	resistance_flags = NONE
 	max_integrity = 300
+
+/obj/item/storage/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/backpack_inventory.dmi')
 
 /obj/item/storage/ms13/ComponentInitialize() //backpacks are smaller but hold larger things
 	. = ..()
