@@ -240,6 +240,11 @@
 /mob/living/simple_animal/hostile/ms13/robot/handy/laser,
 /turf/open/floor/iron/ms13/concrete/small,
 /area/ms13/combattest/building)
+"eq" = (
+/turf/open/floor/iron/ms13/metal/pipe{
+	dir = 1
+	},
+/area/ms13/combattest/building)
 "eu" = (
 /obj/structure/filingcabinet/ms13,
 /turf/open/floor/iron/ms13/tile/brown,
@@ -496,6 +501,10 @@
 	dir = 1
 	},
 /area/ms13/underground/mountain)
+"hk" = (
+/obj/structure/lattice/catwalk,
+/turf/open/floor/iron/ms13/metal,
+/area/ms13/combattest/building)
 "ho" = (
 /turf/open/floor/iron/ms13/concrete/cable/curved{
 	dir = 8
@@ -665,6 +674,9 @@
 	},
 /turf/open/floor/plating/ms13/ground/road,
 /area/ms13/combattest/tunnels)
+"kE" = (
+/turf/open/floor/iron/ms13/metal/plate,
+/area/ms13/combattest/building)
 "kH" = (
 /obj/structure/lattice/catwalk,
 /turf/open/openspace/ms13,
@@ -1030,6 +1042,10 @@
 	},
 /obj/effect/spawner/lootdrop/ms13/armor/highrandom,
 /turf/open/floor/iron/ms13/metal,
+/area/ms13/combattest/building)
+"qI" = (
+/obj/machinery/light/ms13,
+/turf/open/floor/iron/ms13/metal/plate,
 /area/ms13/combattest/building)
 "qJ" = (
 /obj/structure/table/ms13/metal/grate,
@@ -2536,6 +2552,12 @@
 	},
 /turf/open/floor/iron/ms13/concrete,
 /area/ms13/combattest/tunnels)
+"QT" = (
+/obj/machinery/light/ms13{
+	dir = 1
+	},
+/turf/open/floor/iron/ms13/metal/plate,
+/area/ms13/combattest/building)
 "QX" = (
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
@@ -2790,6 +2812,11 @@
 "Va" = (
 /obj/structure/table/ms13/no_smooth/dice,
 /turf/open/floor/iron/ms13/concrete/small,
+/area/ms13/combattest/building)
+"Vg" = (
+/turf/open/floor/iron/ms13/metal/grate/border/warning{
+	dir = 4
+	},
 /area/ms13/combattest/building)
 "Vk" = (
 /obj/structure/ms13/vehicle_ruin/van,
@@ -11126,8 +11153,8 @@ Oo
 Oo
 Oo
 Oo
-Oo
-Oo
+Us
+Us
 Us
 Vo
 Vo
@@ -11143,8 +11170,8 @@ BK
 Vo
 Vo
 Us
-Oo
-Oo
+Us
+Us
 Oo
 Oo
 Oo
@@ -12962,8 +12989,8 @@ Oo
 Oo
 Oo
 Oo
-Oo
-Oo
+Us
+Us
 Us
 Vo
 Vo
@@ -12979,8 +13006,8 @@ ab
 Vo
 Vo
 Us
-Oo
-Oo
+Us
+Us
 Oo
 Oo
 Oo
@@ -21531,6 +21558,7 @@ Oo
 Us
 YI
 YI
+hk
 me
 me
 me
@@ -21548,8 +21576,7 @@ me
 me
 me
 me
-me
-me
+hk
 YI
 YI
 Us
@@ -21633,7 +21660,7 @@ Oo
 Us
 YI
 YI
-me
+hk
 me
 me
 me
@@ -21651,7 +21678,7 @@ me
 me
 me
 me
-me
+hk
 YI
 YI
 Us
@@ -21735,7 +21762,7 @@ Oo
 Us
 yb
 YI
-UE
+YI
 UE
 UE
 me
@@ -21753,7 +21780,7 @@ BC
 me
 UE
 UE
-UE
+YI
 YI
 ya
 Us
@@ -21837,7 +21864,7 @@ Oo
 Us
 YI
 YI
-UE
+YI
 UE
 UE
 me
@@ -21855,7 +21882,7 @@ cZ
 me
 UE
 UE
-UE
+YI
 YI
 YI
 Us
@@ -21937,9 +21964,9 @@ Oo
 Oo
 Oo
 Us
-YI
-YI
-UE
+kE
+kE
+kE
 UE
 UE
 cZ
@@ -21957,9 +21984,9 @@ cZ
 cZ
 UE
 UE
-UE
-YI
-YI
+kE
+kE
+kE
 Us
 Oo
 Oo
@@ -22039,11 +22066,11 @@ Oo
 Oo
 Oo
 Us
-YI
-YI
-UE
-UE
-UE
+eq
+Vg
+eq
+eq
+eq
 cZ
 Iu
 Iu
@@ -22057,11 +22084,11 @@ Iu
 Iu
 Iu
 cZ
-UE
-UE
-UE
-YI
-YI
+eq
+eq
+eq
+Vg
+eq
 Us
 Oo
 Oo
@@ -22141,8 +22168,8 @@ Oo
 Oo
 Oo
 Us
-YI
-YI
+kE
+kE
 UE
 UE
 UE
@@ -22162,8 +22189,8 @@ cZ
 UE
 UE
 UE
-YI
-YI
+kE
+kE
 Us
 Oo
 Oo
@@ -22243,8 +22270,8 @@ Oo
 Oo
 Oo
 Us
-yb
-YI
+QT
+kE
 UE
 UE
 UE
@@ -22264,8 +22291,8 @@ cZ
 UE
 UE
 UE
-YI
-ya
+kE
+qI
 Us
 Oo
 Oo
@@ -22345,8 +22372,8 @@ Oo
 Oo
 Oo
 Us
-YI
-YI
+kE
+kE
 UE
 UE
 UE
@@ -22366,8 +22393,8 @@ cZ
 UE
 UE
 UE
-YI
-YI
+kE
+kE
 Us
 Oo
 Oo
@@ -22447,11 +22474,11 @@ Oo
 Oo
 Oo
 Us
-YI
-YI
-UE
-UE
-UE
+eq
+Vg
+eq
+eq
+eq
 cZ
 Iu
 Iu
@@ -22465,11 +22492,11 @@ Iu
 Iu
 Iu
 cZ
-UE
-UE
-UE
-YI
-YI
+eq
+eq
+eq
+Vg
+eq
 Us
 Oo
 Oo
@@ -22549,9 +22576,9 @@ Oo
 Oo
 Oo
 Us
-YI
-YI
-UE
+kE
+kE
+kE
 UE
 UE
 cZ
@@ -22569,9 +22596,9 @@ cZ
 cZ
 UE
 UE
-UE
-YI
-YI
+kE
+kE
+kE
 Us
 Oo
 Oo
@@ -22653,7 +22680,7 @@ Oo
 Us
 YI
 YI
-UE
+YI
 UE
 UE
 me
@@ -22671,7 +22698,7 @@ gH
 UE
 UE
 UE
-UE
+YI
 YI
 YI
 Us
@@ -22755,7 +22782,7 @@ Oo
 Us
 yb
 YI
-UE
+YI
 UE
 UE
 me
@@ -22773,7 +22800,7 @@ BC
 UE
 UE
 UE
-UE
+YI
 YI
 ya
 Us
@@ -22857,7 +22884,7 @@ Oo
 Us
 YI
 YI
-me
+hk
 me
 me
 me
@@ -22875,7 +22902,7 @@ me
 me
 me
 me
-me
+hk
 YI
 YI
 Us
@@ -22959,6 +22986,7 @@ Oo
 Us
 YI
 YI
+hk
 me
 me
 me
@@ -22976,8 +23004,7 @@ me
 me
 me
 me
-me
-me
+hk
 YI
 YI
 Us
