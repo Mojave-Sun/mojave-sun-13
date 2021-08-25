@@ -139,13 +139,56 @@
 	else
 		return
 
+/obj/item/twohanded/ms13/spear
+	name = "spear"
+	desc = "A well made, dangerous, and versatile spear."
+	icon_state = "spear"
+	inhand_icon_state = "spear"
+	force = 20
+	throwforce = 30
+	armour_penetration = 10
+	wound_bonus = 5
+	w_class = WEIGHT_CLASS_BULKY
+	sharpness = SHARP_POINTY
+	log_pickup_and_drop = TRUE
+
+/obj/item/twohanded/ms13/spear/ComponentInitialize()
+	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_unwielded = 20, force_wielded = 35)
+
+/obj/item/twohanded/ms13/spear/knife
+	name = "knife spear"
+	desc = "A very crude spear made from a simple knife and a pole."
+	icon_state = "spear_knife"
+	inhand_icon_state = "spear_knife"
+	force = 15
+	armour_penetration = 5
+	wound_bonus = 2
+	throwforce = 25
+
+/obj/item/twohanded/ms13/spear/knife/ComponentInitialize()
+	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_unwielded = 15, force_wielded = 25)
+
+/obj/item/twohanded/ms13/spear/throwing
+	name = "throwing spear"
+	desc = "A decently well made barbed spear intended to be thrown but can serve fine as a melee weapon in a pinch."
+	icon_state = "spear_throwing"
+	inhand_icon_state = "spear_throwing"
+	force = 15
+	armour_penetration = 10
+	wound_bonus = 5
+	throwforce = 35
+	embedding = list("embedded_pain_multiplier" = 3, "embed_chance" = 65, "embedded_fall_chance" = 35)
+	throw_range = 6
+	throw_speed = 3
+
+/obj/item/twohanded/ms13/spear/throwing/ComponentInitialize()
+	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_unwielded = 15, force_wielded = 25)
+
 // TWO HANDS REQUIRED //
 
 /obj/item/ms13/twohanded/heavy
 	name = "heavy weapon"
 	desc = "Generic heavy weapon go haha BRRR"
-
-
 
 /obj/item/ms13/twohanded/heavy/ComponentInitialize()
 	. = ..()
@@ -154,3 +197,81 @@
 /obj/item/ms13/twohanded/heavy/on_wield(obj/item/source, mob/user)
 	playsound(src.loc, 'mojave/sound/ms13effects/weapon_wield.ogg', 25, TRUE)
 	wielded = TRUE
+
+/obj/item/ms13/twohanded/heavy/autoaxe
+	name = "auto axe"
+	desc = "A modified steel saw, converted into a tool of destruction."
+	icon_state = "auto_axe"
+	inhand_icon_state = "auto_axe"
+	w_class = WEIGHT_CLASS_HUGE
+	slot_flags = ITEM_SLOT_BACK
+	armour_penetration = 15
+	wound_bonus = 10
+	bare_wound_bonus = 10
+	throw_speed = 2
+	throw_range = 4
+	var/on = FALSE
+
+/obj/item/ms13/twohanded/heavy/autoaxe/attack_self(mob/user)
+	on = !on
+	icon_state = "auto_axe_[on ? "on" : "off"]"
+	inhand_icon_state = "auto_axe_[on ? "on" : "off"]"
+
+	if(on)
+		force = 60
+		sharpness = IS_SHARP_AXE
+		attack_verb_continuous = list("slices", "slashes", "cuts", "rends", "saws", "tears")
+		attack_verb_simple = list("slice", "slash", "cut", "rend", "saw", "tear")
+	else
+		force = 15
+		sharpness = SHARP_EDGED
+		attack_verb_continuous = list("smacks", "beats", "slashes", "cuts", "clubs")
+		attack_verb_simple = list("smack", "beat", "slash", "cut", "club")
+
+	if(src == user.get_active_held_item()) //update inhands
+		user.update_inv_hands()
+	for(var/X in actions)
+		var/datum/action/A = X
+		A.UpdateButtonIcon()
+
+/obj/item/ms13/twohanded/heavy/lance
+	name = "thermic lance"
+	desc = "A heavy duty thermic lance, used primarily for melting steel beams before the war. But now is used for melting faces and through armor."
+	icon_state = "thermiclance_off"
+	inhand_icon_state = "thermiclance_off"
+	w_class = WEIGHT_CLASS_HUGE
+	slot_flags = ITEM_SLOT_BACK
+	armour_penetration = 20
+	wound_bonus = 12
+	bare_wound_bonus = 13
+	throw_speed = 1
+	throw_range = 2
+	hitsound = "swing_hit"
+	var/on = FALSE
+
+/obj/item/ms13/twohanded/heavy/lance/attack_self(mob/user)
+	on = !on
+	icon_state = "thermiclance_[on ? "on" : "off"]"
+	inhand_icon_state = "thermiclance_[on ? "on" : "off"]"
+
+	if(on)
+		attack_verb_continuous = list("burned", "welded", "cauterized", "melted", "charred")
+		attack_verb_simple = list("burn", "weld", "cauterize", "melt", "char")
+		to_chat(user, "<span class='notice'>As you flip the lever and hit the ignition on [src], it begins to sputter flames out.")
+		hitsound = 'sound/items/welder2.ogg'
+		damtype = "burn"
+		force = 55
+
+	else
+		attack_verb_continuous = list("pokes", "jabs", "smacks", "whacks",)
+		attack_verb_simple = list("poke", "jab", "smack", "whack",)
+		to_chat(user, "<span class='notice'>You flip the lever up on [src], the flame goes out.")
+		hitsound = "swing_hit"
+		damtype = "brute"
+		force = 10
+
+	if(src == user.get_active_held_item()) //update inhands
+		user.update_inv_hands()
+	for(var/X in actions)
+		var/datum/action/A = X
+		A.UpdateButtonIcon()
