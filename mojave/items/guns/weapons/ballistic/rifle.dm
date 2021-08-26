@@ -136,7 +136,8 @@
 	internal_magazine = TRUE
 	mag_type = /obj/item/ammo_box/magazine/internal/ms13/chinese_rifle
 	fire_sound = 'mojave/sound/ms13weapons/hunting_rifle.ogg'
-	extra_damage = 30
+	extra_damage = 35
+	extra_penetration = 5
 	spread = 2
 	recoil = 1.25
 
