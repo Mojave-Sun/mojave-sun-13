@@ -92,21 +92,12 @@
 	flag = ENERGY
 	icon_state = "plasma"
 	armour_penetration = 0
-	wound_bonus = 10
+	damage = 0
+	wound_bonus = 12
+	bare_wound_bonus = 8
 	speed = 1
-
-/obj/projectile/bullet/ms13/plasma/pistol
-	wound_bonus = 10
-
-/obj/projectile/bullet/ms13/plasma/rifle
-	wound_bonus = 15
 
 /obj/projectile/bullet/ms13/plasma/scatter
 	range = 16
-	wound_bonus = 20
-
-/obj/projectile/bullet/ms13/plasma/splatter
-	range = 18
-	wound_bonus = 10
-	bare_wound_bonus = 5
-	armour_penetration = -5
+	armour_penetration = 10
+	damage = 10

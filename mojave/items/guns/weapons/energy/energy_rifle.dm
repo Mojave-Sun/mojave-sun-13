@@ -93,37 +93,44 @@
 
 /obj/item/gun/energy/ms13/plasma/rifle
 	name = "plasma rifle"
-	desc = "A rifle sized plasma caster. Essentially lobs plasma slugs at low speed. Extremely efficient at its job."
-	icon_state = "plasmacarabine"
-	base_icon_state = "plasmacarabine"
-	inhand_icon_state = "plasmacarabine"
-	fire_sound = 'mojave/sound/ms13weapons/gunsounds/plasrifle/plasma_3.ogg'
-	ammo_type = list(/obj/item/ammo_casing/energy/ms13/plasma)
-	cell_type = /obj/item/stock_parts/cell/ms13/pc
-	w_class = WEIGHT_CLASS_HUGE
-	force = 15
-	extra_damage = 40
-	extra_penetration = 10
-	fire_delay = 7
-
-/obj/item/gun/energy/ms13/plasma/rifle/military
-	name = "military plasma rifle"
-	desc = "A slimmed down militarized version of the plasma rifle. Features higher quality hardware, is able to form plasma at higher temperatures."
+	desc = "A rifle sized plasma weapon that is near top of the line for plasma weaponry. Do not underestimate this."
 	icon_state = "enclaveplasma"
 	base_icon_state = "enclaveplasma"
 	inhand_icon_state = "enclaveplasma"
-	extra_damage = 50
-	extra_penetration = 15
-	fire_delay = 7
+	fire_sound = 'mojave/sound/ms13weapons/gunsounds/plasrifle/plasma_3.ogg'
+	ammo_type = list(/obj/item/ammo_casing/energy/ms13/plasma)
+	w_class = WEIGHT_CLASS_BULKY
+	weapon_weight = WEAPON_HEAVY
+	force = 15
+	extra_damage = 40
+	extra_penetration = 5
+	fire_delay = 0.5 SECONDS
+	slowdown = 0.75
+	spread = 3
+	recoil = 0.5
 
-/obj/item/gun/energy/ms13/plasma/scatter
+/obj/item/gun/energy/ms13/plasma/rifle/carbine
+	name = "plasma carbine"
+	desc = "A slightly more compact, faster firing plasma weapon that is between a rifle and a pistol, hence a carbine. Not as accurate or controllable as it's bigger rifle brother."
+	icon_state = "plasmacarabine"
+	base_icon_state = "plasmacarabine"
+	inhand_icon_state = "plasmacarabine"
+	extra_damage = 35
+	extra_penetration = 0
+	fire_delay = 0.45 SECONDS
+	spread = 5
+	recoil = 0.75
+
+/obj/item/gun/energy/ms13/plasma/multi
 	name = "multiplas rifle"
-	desc = "A plasma rifle variant that was modified to fire multiple projectiles in a single shot, Projectiles tend to dissipate past a certain distance. Try not to get stuck on the business side."
+	desc = "A modified, slow firing plasma rifle that fires a scattering of plasma bolts instead of a single concentrated one. The individual bolts are nowhere near as strong as a result, but the weapon itself is plenty deadly."
 	icon_state = "multiplas"
 	base_icon_state = "multiplas"
 	inhand_icon_state = "multiplas"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/plasrifle/plasma_1.ogg'
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/plasma/scatter)
-	extra_damage = 20
-	extra_penetration = 10
-	fire_delay = 8
+	w_class = WEIGHT_CLASS_BULKY
+	weapon_weight = WEAPON_HEAVY
+	fire_delay = 0.65 SECONDS
+	slowdown = 0.75
+	recoil = 0.75
