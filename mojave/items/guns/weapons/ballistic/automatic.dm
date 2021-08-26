@@ -194,6 +194,8 @@
 	desc = "A heavy duty submachine gun chambered in 12.7mm, can't hold a lot of rounds, but they sure do pack a punch."
 	icon_state = "smg12mm"
 	inhand_icon_state = "smg12mm"
+	w_class = WEIGHT_CLASS_NORMAL
+	weapon_weight = WEAPON_MEDIUM
 	mag_type = /obj/item/ammo_box/magazine/ms13/smg12mm
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/12mm/m12mm2.ogg'
 	can_suppress = FALSE
