@@ -66,6 +66,7 @@
 	recoil = 0.25
 	slowdown = 0.5
 
+/* Weeb shit
 /obj/item/gun/ballistic/automatic/pistol/ms13/m9mm/nambu
 	name = "Nambu type 14"
 	desc = "An unreliable ancient pre-war pistol chambered in 9mm nambu."
@@ -77,6 +78,7 @@
 	fire_delay = 3
 	extra_damage = 25
 	extra_penetration = 5
+*/
 
 /obj/item/gun/ballistic/automatic/pistol/ms13/m12mm
 	name = "12.7mm pistol"
