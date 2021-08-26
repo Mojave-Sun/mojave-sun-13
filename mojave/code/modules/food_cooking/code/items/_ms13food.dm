@@ -51,15 +51,15 @@
 	. = ..()
 	if(!can_be_grilled)
 		burns_on_grill = TRUE
-	MakeFryable()
-	MakeBoilable()
+	//MakeFryable()
+	//MakeBoilable()
 
 /obj/item/food/ms13/MakeGrillable()
 	if(burns_on_grill)
 		AddComponent(/datum/component/grillable, /obj/item/food/badrecipe, rand(20 SECONDS, 30 SECONDS), FALSE)
 	else
 		AddComponent(/datum/component/grillable, grill_result, rand(min_cook, max_cook), TRUE)
-
+/*
 /obj/item/food/ms13/proc/MakeFryable()
 	. = ..()
 	if(!can_be_fried)
@@ -73,3 +73,4 @@
 		return
 	else
 		AddComponent(/datum/component/boilable, boil_result, rand(min_cook, max_cook))
+*/
