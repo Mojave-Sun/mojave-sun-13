@@ -131,8 +131,8 @@
 /obj/item/kitchen/knife/ms13/switchblade/razor
 	name = "straight razor"
 	desc = "A men's shaving tool, now more commonly used to cut throats instead of beards."
-	icon_state = "knife_razor"
-	inhand_icon_state = "knife_razor"
+	icon_state = "knife_razor_closed"
+	inhand_icon_state = "knife_razor_closed"
 	wound_bonus = 0
 	bare_wound_bonus = 0
 
