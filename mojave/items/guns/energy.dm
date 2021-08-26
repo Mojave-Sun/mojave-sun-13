@@ -103,6 +103,8 @@
 	weapon_weight = WEAPON_HEAVY
 	extra_damage = 0
 	extra_penetration = 0
+	wound_bonus = 0
+	bare_wound_bonus = 0
 	fire_delay = 5
 
 /obj/item/gun/energy/ms13/plasma
@@ -114,6 +116,8 @@
 	weapon_weight = WEAPON_HEAVY
 	extra_damage = 0
 	extra_penetration = 0
+	wound_bonus = 0
+	bare_wound_bonus = 0
 	fire_delay = 5
 
 //energy weapon ammotypes: I don't think there's a better place to put these, they're all really generic.
@@ -122,7 +126,7 @@
 	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	name = "ammo cell"
 	desc = "You shouldn't be holding this."
-	w_class = WEIGHT_CLASS_TINY
+	w_class = WEIGHT_CLASS_SMALL
 	var/base_icon = ""
 	var/multiple_states = FALSE
 
@@ -173,6 +177,6 @@
 	desc = "A plasma cell, typically used as ammunition for plasma based energy weapons."
 	icon_state = "plasma"
 	maxcharge = 600
-	chargerate = 100
+	chargerate = 50
 	base_icon = "plasma"
 	multiple_states = TRUE

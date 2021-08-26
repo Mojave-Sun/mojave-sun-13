@@ -35,24 +35,15 @@
 /obj/item/ammo_casing/energy/ms13/plasma
 	projectile_type = /obj/projectile/bullet/ms13/plasma
 	select_name = "plasma burst"
-	e_cost = 100
+	e_cost = 50 //Combined with PC capacity this gives 12 shots
 
 /obj/item/ammo_casing/energy/ms13/plasma/pistol
-	projectile_type = /obj/projectile/bullet/ms13/plasma/pistol
-	e_cost = 65
-
-/obj/item/ammo_casing/energy/ms13/plasma/rifle
-	projectile_type = /obj/projectile/bullet/ms13/plasma/rifle
-	select_name = "plasma burst"
-	e_cost = 90
+	projectile_type = /obj/projectile/bullet/ms13/plasma
+	e_cost = 37.5 //Combined with PC capacity this gives 16 shots
 
 /obj/item/ammo_casing/energy/ms13/plasma/scatter
 	projectile_type = /obj/projectile/bullet/ms13/plasma/scatter
-	pellets = 3
-	variance = 14
+	pellets = 5
+	variance = 25
 	select_name = "scatter"
-	e_cost = 115
-
-/obj/item/ammo_casing/energy/ms13/plasma/pistol/splatter
-	projectile_type = /obj/projectile/bullet/ms13/plasma/splatter
-	e_cost = 75
+	e_cost = 60 //Combined with PC capacity this gives 10 shots
