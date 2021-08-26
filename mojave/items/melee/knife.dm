@@ -12,6 +12,7 @@
 	throwforce = 15
 	wound_bonus = 8
 	bare_wound_bonus = 6
+	embedding = null
 	sharpness = SHARP_EDGED
 	w_class = WEIGHT_CLASS_SMALL
 	log_pickup_and_drop = TRUE
@@ -94,31 +95,24 @@
 	. = ..()
 	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
 
-/obj/item/switchblade/ms13
+/obj/item/kitchen/knife/ms13/switchblade
 	name = "switchblade"
 	desc = "A slick and concealable switchblade."
-	icon = 'mojave/icons/objects/melee/melee_world.dmi'
-	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
-	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
-	icon_state = "knife_switch"
-	inhand_icon_state = "knife_switch"
+	icon_state = "knife_switch_closed"
+	inhand_icon_state = "knife_switch_closed"
 	wound_bonus = 2
 	bare_wound_bonus = 3
-	extended = 0
-	log_pickup_and_drop = TRUE
+	var/open = FALSE
 
-/obj/item/switchblade/ms13/Initialize()
-	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
-
-/obj/item/switchblade/ms13/attack_self(mob/user)
-	extended = !extended
+/obj/item/kitchen/knife/ms13/switchblade/attack_self(mob/user)
+	open = !open
 	playsound(src.loc, 'sound/weapons/batonextend.ogg', 50, TRUE)
-	if(extended)
+	icon_state = "knife_switch_[open ? "open" : "closed"]"
+	inhand_icon_state = "knife_switch_[open ? "open" : "closed"]"
+
+	if(open)
 		attack_verb_continuous = list("slashes", "slices", "tears", "lacerates", "rips", "dices", "cuts")
 		attack_verb_simple = list("slash", "slice", "tear", "lacerate", "rip", "dice", "cut")
-		icon_state = "knife_switch_open"
-		inhand_icon_state = "knife_switch_open"
 		hitsound = 'sound/weapons/bladeslice.ogg'
 		force = 20
 		throwforce = 15
@@ -128,15 +122,13 @@
 	else
 		attack_verb_continuous = list("stubs", "pokes")
 		attack_verb_simple = list("stub", "poke")
-		icon_state = "knife_switch"
-		inhand_icon_state = "knife_switch"
 		hitsound = 'sound/weapons/genhit.ogg'
 		force = 5
 		throwforce = 5
 		sharpness = NONE
 		w_class = WEIGHT_CLASS_TINY
 
-/obj/item/switchblade/ms13/razor
+/obj/item/kitchen/knife/ms13/switchblade/razor
 	name = "straight razor"
 	desc = "A men's shaving tool, now more commonly used to cut throats instead of beards."
 	icon_state = "knife_razor"
@@ -144,14 +136,15 @@
 	wound_bonus = 0
 	bare_wound_bonus = 0
 
-/obj/item/switchblade/ms13/razor/attack_self(mob/user)
-	extended = !extended
+/obj/item/kitchen/knife/ms13/switchblade/razor/attack_self(mob/user)
+	open = !open
 	playsound(src.loc, 'sound/weapons/batonextend.ogg', 50, TRUE)
-	if(extended)
+	icon_state = "knife_razor_[open ? "open" : "closed"]"
+	inhand_icon_state = "knife_razor_[open ? "open" : "closed"]"
+
+	if(open)
 		attack_verb_continuous = list("slashes", "slices", "tears", "lacerates", "rips", "dices", "cuts")
 		attack_verb_simple = list("slash", "slice", "tear", "lacerate", "rip", "dice", "cut")
-		icon_state = "knife_razor_open"
-		inhand_icon_state = "knife_razor_open"
 		hitsound = 'sound/weapons/bladeslice.ogg'
 		force = 15
 		throwforce = 5
@@ -161,8 +154,6 @@
 	else
 		attack_verb_continuous = list("stubs", "pokes")
 		attack_verb_simple = list("stub", "poke")
-		icon_state = "knife_razor"
-		inhand_icon_state = "knife_razor"
 		hitsound = 'sound/weapons/genhit.ogg'
 		force = 5
 		throwforce = 5

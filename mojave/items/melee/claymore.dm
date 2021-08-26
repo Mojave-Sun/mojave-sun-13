@@ -136,15 +136,15 @@
 
 /obj/item/claymore/ms13/machete/ripper
 	name = "ripper"
-	desc = "A militarized handheld chainsaw, the sound of it alone is enough to strike fear into the hearts of many."
+	desc = "A militarized handheld chainsaw, the sound of it alone is enough to strike fear into the hearts of many. When turned on, the motor allows this to be used as a weapon with quick follow up strikes."
 	icon_state = "ripper_off"
 	inhand_icon_state = "ripper_off"
 	wound_bonus = 8
 	bare_wound_bonus = 6
-	armour_penetration = 0
+	armour_penetration = 10
 	throwforce = 10
 	sharpness = IS_SHARP_AXE
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_NORMAL
 	var/on = FALSE
 	var/icon_prefix = "ripper"
 
@@ -158,8 +158,9 @@
 		attack_verb_simple = list("jab", "slice", "slash", "cut", "rend", "saw", "tear")
 		to_chat(user, "<span class='notice'>As you yank the starter cord on [src], it roars to life.")
 		hitsound = 'sound/weapons/chainsawhit.ogg'
-		force = 40
+		force = 25
 		sharpness = IS_SHARP_AXE
+		user.changeNext_move(CLICK_CD_MELEE * 0.6)
 
 	else
 		attack_verb_continuous = list("smacks", "beats", "slashes", "cuts", "clubs")
@@ -171,10 +172,31 @@
 
 /obj/item/claymore/ms13/machete/ripper/advanced
 	name = "advanced ripper"
-	desc = "A heavy duty ripper with a different design and heavier chains meant to eat through armor and cause even more gruesome injuries."
+	desc = "A heavy duty ripper with a different design and heavier chains which result in even more gruesome injuries."
 	icon_state = "ripper_legend_off"
 	inhand_icon_state = "ripper_legend_off"
 	icon_prefix = "ripper_legend"
-	wound_bonus = 10
-	bare_wound_bonus = 10
-	armour_penetration = 15
+	wound_bonus = 12
+	bare_wound_bonus = 13
+
+/obj/item/claymore/ms13/machete/ripper/advanced/attack_self(mob/user)
+	on = !on
+	icon_state = "[icon_prefix]_[on ? "on" : "off"]"
+	inhand_icon_state = "[icon_prefix]_[on ? "on" : "off"]"
+
+	if(on)
+		attack_verb_continuous = list("jabs", "slices", "slashes", "cuts", "rends", "saws", "tears")
+		attack_verb_simple = list("jab", "slice", "slash", "cut", "rend", "saw", "tear")
+		to_chat(user, "<span class='notice'>As you yank the starter cord on [src], it roars to life.")
+		hitsound = 'sound/weapons/chainsawhit.ogg'
+		force = 35
+		sharpness = IS_SHARP_AXE
+		user.changeNext_move(CLICK_CD_MELEE * 0.6)
+
+	else
+		attack_verb_continuous = list("smacks", "beats", "slashes", "cuts", "clubs")
+		attack_verb_simple = list("smack", "beat", "slash", "cut", "club")
+		to_chat(user, "<span class='notice'>You flip off [src], it slows to a halt.")
+		hitsound = "swing_hit"
+		force = 10
+		sharpness = SHARP_EDGED

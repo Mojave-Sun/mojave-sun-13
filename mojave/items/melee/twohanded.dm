@@ -139,7 +139,7 @@
 	else
 		return
 
-/obj/item/twohanded/ms13/spear
+/obj/item/ms13/twohanded/spear
 	name = "spear"
 	desc = "A well made, dangerous, and versatile spear."
 	icon_state = "spear"
@@ -152,10 +152,10 @@
 	sharpness = SHARP_POINTY
 	log_pickup_and_drop = TRUE
 
-/obj/item/twohanded/ms13/spear/ComponentInitialize()
+/obj/item/ms13/twohanded/spear/ComponentInitialize()
 	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_unwielded = 20, force_wielded = 35)
 
-/obj/item/twohanded/ms13/spear/knife
+/obj/item/ms13/twohanded/spear/knife
 	name = "knife spear"
 	desc = "A very crude spear made from a simple knife and a pole."
 	icon_state = "spear_knife"
@@ -165,10 +165,10 @@
 	wound_bonus = 2
 	throwforce = 25
 
-/obj/item/twohanded/ms13/spear/knife/ComponentInitialize()
+/obj/item/ms13/twohanded/spear/knife/ComponentInitialize()
 	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_unwielded = 15, force_wielded = 25)
 
-/obj/item/twohanded/ms13/spear/throwing
+/obj/item/ms13/twohanded/spear/throwing
 	name = "throwing spear"
 	desc = "A decently well made barbed spear intended to be thrown but can serve fine as a melee weapon in a pinch."
 	icon_state = "spear_throwing"
@@ -181,7 +181,7 @@
 	throw_range = 6
 	throw_speed = 3
 
-/obj/item/twohanded/ms13/spear/throwing/ComponentInitialize()
+/obj/item/ms13/twohanded/spear/throwing/ComponentInitialize()
 	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_unwielded = 15, force_wielded = 25)
 
 // TWO HANDS REQUIRED //
@@ -201,8 +201,8 @@
 /obj/item/ms13/twohanded/heavy/autoaxe
 	name = "auto axe"
 	desc = "A modified steel saw, converted into a tool of destruction."
-	icon_state = "auto_axe"
-	inhand_icon_state = "auto_axe"
+	icon_state = "auto_axe_off"
+	inhand_icon_state = "auto_axe_off"
 	w_class = WEIGHT_CLASS_HUGE
 	slot_flags = ITEM_SLOT_BACK
 	armour_penetration = 15
@@ -222,11 +222,14 @@
 		sharpness = IS_SHARP_AXE
 		attack_verb_continuous = list("slices", "slashes", "cuts", "rends", "saws", "tears")
 		attack_verb_simple = list("slice", "slash", "cut", "rend", "saw", "tear")
+		hitsound = 'sound/weapons/chainsawhit.ogg'
+
 	else
 		force = 15
 		sharpness = SHARP_EDGED
 		attack_verb_continuous = list("smacks", "beats", "slashes", "cuts", "clubs")
 		attack_verb_simple = list("smack", "beat", "slash", "cut", "club")
+		hitsound = "swing_hit"
 
 	if(src == user.get_active_held_item()) //update inhands
 		user.update_inv_hands()

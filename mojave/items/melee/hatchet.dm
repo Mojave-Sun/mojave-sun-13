@@ -12,6 +12,7 @@
 	throwforce = 25
 	wound_bonus = 0
 	bare_wound_bonus = 0
+	embedding = null
 	w_class = WEIGHT_CLASS_NORMAL
 	sharpness = IS_SHARP_AXE
 	log_pickup_and_drop = TRUE
