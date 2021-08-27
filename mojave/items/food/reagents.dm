@@ -371,7 +371,7 @@
 
 /datum/reagent/consumable/ethanol/ms13/clogged_pump //nuka-cola / rad-ant lager
 	name = "Clogged pump"
-	description = "Nuka-Cola and brewed ant meat. Interesting"
+	description = "Nuka-Cola and brewed ant meat. Interesting."
 	quality = DRINK_VERYGOOD
 	color = "#552c2b"
 	boozepwr = 25
@@ -383,7 +383,15 @@
 
 // Basic Brews //
 
-// Combination Brews //
+/datum/reagent/consumable/ethanol/ms13/barrel_wine
+	name = "Barrel cactus wine"
+	description = "Wine brewed from a barrel cactus fruit. Tangy."
+	quality = DRINK_GOOD
+	color = "#dbcb35"
+	boozepwr = 25
+	taste_description = "tangy barrel fruit wine"
+	glass_name = "glass of yellow liquid"
+	glass_desc = "A dark red liquid with a slight sweet meat-y smell. Strange. You can also pick up hints of alcohol in it."
 
 /datum/reagent/consumable/ethanol/ms13/waster_tequila //Agave
 	name = "Wasteland Tequila"
@@ -402,6 +410,8 @@
 	if(holder.has_reagent(/datum/reagent/toxin))
 		holder.remove_reagent(/datum/reagent/toxin, 0.5)
 	..()
+
+// Combination Brews //
 
 /datum/reagent/consumable/ethanol/ms13/ballistic_bock // Gunpowder, Wheat
 	name = "Ballistic Bock"
