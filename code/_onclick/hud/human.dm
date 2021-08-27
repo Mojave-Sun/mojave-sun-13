@@ -57,7 +57,9 @@
 
 	var/atom/movable/screen/using
 	var/atom/movable/screen/inventory/inv_box
-	var/atom/movable/screen/ms_button_background
+	var/atom/movable/screen/ms_background // MS EDIT
+	var/atom/movable/screen/ms_slot_background // MS EDIT
+	var/atom/movable/screen/ms_hand_background // MS EDIT
 
 	using = new/atom/movable/screen/language_menu
 	using.icon = ui_style
@@ -74,15 +76,15 @@
 	using.hud = src
 	static_inventory += using
 
-	action_intent = new /atom/movable/screen/combattoggle/flashy()
+	action_intent = new /atom/movable/screen/combattoggle/ms13() // MOJAVE EDIT CHANGE - action_intent = new /atom/movable/screen/combattoggle/flashy()
 	action_intent.hud = src
-	action_intent.icon = ui_style
+	//action_intent.icon = ui_style
 	action_intent.screen_loc = ui_combat_toggle
 	static_inventory += action_intent
 
 
-	using = new /atom/movable/screen/mov_intent
-	using.icon = ui_style
+	using = new /atom/movable/screen/mov_intent/ms13()
+	//using.icon = ui_style
 	using.icon_state = (mymob.m_intent == MOVE_INTENT_RUN ? "running" : "walking")
 	using.screen_loc = ui_movi
 	using.hud = src
@@ -96,7 +98,8 @@
 
 	inv_box = new /atom/movable/screen/inventory()
 	inv_box.name = "i_clothing"
-	inv_box.icon = ui_style
+	//inv_box.icon = ui_style
+	inv_box.icon = 'mojave/icons/hud/ms_ui_slots_34.dmi'
 	inv_box.slot_id = ITEM_SLOT_ICLOTHING
 	inv_box.icon_state = "uniform"
 	inv_box.screen_loc = ui_iclothing
@@ -105,7 +108,8 @@
 
 	inv_box = new /atom/movable/screen/inventory()
 	inv_box.name = "o_clothing"
-	inv_box.icon = ui_style
+	//inv_box.icon = ui_style
+	inv_box.icon = 'mojave/icons/hud/ms_ui_slots_34.dmi'
 	inv_box.slot_id = ITEM_SLOT_OCLOTHING
 	inv_box.icon_state = "suit"
 	inv_box.screen_loc = ui_oclothing
@@ -114,6 +118,7 @@
 
 	build_hand_slots()
 
+	/*
 	using = new /atom/movable/screen/swap_hand()
 	using.icon = ui_style
 	using.icon_state = "swap_1"
@@ -127,19 +132,23 @@
 	using.screen_loc = ui_swaphand_position(owner,2)
 	using.hud = src
 	static_inventory += using
+	*/
 
 	inv_box = new /atom/movable/screen/inventory()
 	inv_box.name = "id"
-	inv_box.icon = ui_style
+	//inv_box.icon = ui_style
+	inv_box.icon = 'mojave/icons/hud/ms_ui_slots_34.dmi'
 	inv_box.icon_state = "id"
 	inv_box.screen_loc = ui_id
 	inv_box.slot_id = ITEM_SLOT_ID
 	inv_box.hud = src
-	static_inventory += inv_box
+	//static_inventory += inv_box
+	toggleable_inventory += inv_box
 
 	inv_box = new /atom/movable/screen/inventory()
 	inv_box.name = "mask"
-	inv_box.icon = ui_style
+	//inv_box.icon = ui_style
+	inv_box.icon = 'mojave/icons/hud/ms_ui_slots_34.dmi'
 	inv_box.icon_state = "mask"
 	inv_box.screen_loc = ui_mask
 	inv_box.slot_id = ITEM_SLOT_MASK
@@ -148,16 +157,19 @@
 
 	inv_box = new /atom/movable/screen/inventory()
 	inv_box.name = "neck"
-	inv_box.icon = ui_style
+	//inv_box.icon = ui_style
+	inv_box.icon = 'mojave/icons/hud/ms_ui_slots_34.dmi'
 	inv_box.icon_state = "neck"
 	inv_box.screen_loc = ui_neck
 	inv_box.slot_id = ITEM_SLOT_NECK
 	inv_box.hud = src
 	toggleable_inventory += inv_box
 
+	// MOJAVE EDIT
 	inv_box = new /atom/movable/screen/inventory()
 	inv_box.name = "back"
-	inv_box.icon = ui_style
+	//inv_box.icon = ui_style
+	inv_box.icon = 'mojave/icons/hud/ms_ui_slots_40.dmi'
 	inv_box.icon_state = "back"
 	inv_box.screen_loc = ui_back
 	inv_box.slot_id = ITEM_SLOT_BACK
@@ -166,8 +178,10 @@
 
 	inv_box = new /atom/movable/screen/inventory()
 	inv_box.name = "storage1"
-	inv_box.icon = ui_style
-	inv_box.icon_state = "pocket"
+	//inv_box.icon = ui_style
+	inv_box.icon = 'mojave/icons/hud/ms_ui_slots_pockets.dmi'
+	//inv_box.icon_state = "pocket"
+	inv_box.icon_state = "l_pocket"
 	inv_box.screen_loc = ui_storage1
 	inv_box.slot_id = ITEM_SLOT_LPOCKET
 	inv_box.hud = src
@@ -175,16 +189,20 @@
 
 	inv_box = new /atom/movable/screen/inventory()
 	inv_box.name = "storage2"
-	inv_box.icon = ui_style
-	inv_box.icon_state = "pocket"
+	//inv_box.icon = ui_style
+	inv_box.icon = 'mojave/icons/hud/ms_ui_slots_pockets.dmi'
+	//inv_box.icon_state = "pocket"
+	inv_box.icon_state = "r_pocket"
 	inv_box.screen_loc = ui_storage2
 	inv_box.slot_id = ITEM_SLOT_RPOCKET
 	inv_box.hud = src
 	static_inventory += inv_box
 
+	// MOJAVE EDIT
 	inv_box = new /atom/movable/screen/inventory()
 	inv_box.name = "suit storage"
-	inv_box.icon = ui_style
+	//inv_box.icon = ui_style
+	inv_box.icon = 'mojave/icons/hud/ms_ui_slots_40.dmi'
 	inv_box.icon_state = "suit_storage"
 	inv_box.screen_loc = ui_sstore1
 	inv_box.slot_id = ITEM_SLOT_SUITSTORE
@@ -197,21 +215,24 @@
 	using.hud = src
 	hotkeybuttons += using
 
-	using = new /atom/movable/screen/human/toggle()
-	using.icon = ui_style
+	using = new /atom/movable/screen/human/toggle/ms13() // MS EDIT
+	//using.icon = ui_style
 	using.screen_loc = ui_inventory
 	using.hud = src
 	static_inventory += using
 
+	/*
 	using = new /atom/movable/screen/human/equip()
 	using.icon = ui_style
 	using.screen_loc = ui_equip_position(mymob)
 	using.hud = src
 	static_inventory += using
+	*/
 
 	inv_box = new /atom/movable/screen/inventory()
 	inv_box.name = "gloves"
-	inv_box.icon = ui_style
+	//inv_box.icon = ui_style
+	inv_box.icon = 'mojave/icons/hud/ms_ui_slots_34.dmi'
 	inv_box.icon_state = "gloves"
 	inv_box.screen_loc = ui_gloves
 	inv_box.slot_id = ITEM_SLOT_GLOVES
@@ -220,7 +241,8 @@
 
 	inv_box = new /atom/movable/screen/inventory()
 	inv_box.name = "eyes"
-	inv_box.icon = ui_style
+	//inv_box.icon = ui_style
+	inv_box.icon = 'mojave/icons/hud/ms_ui_slots_34.dmi'
 	inv_box.icon_state = "glasses"
 	inv_box.screen_loc = ui_glasses
 	inv_box.slot_id = ITEM_SLOT_EYES
@@ -229,7 +251,8 @@
 
 	inv_box = new /atom/movable/screen/inventory()
 	inv_box.name = "ears"
-	inv_box.icon = ui_style
+	//inv_box.icon = ui_style
+	inv_box.icon = 'mojave/icons/hud/ms_ui_slots_34.dmi'
 	inv_box.icon_state = "ears"
 	inv_box.screen_loc = ui_ears
 	inv_box.slot_id = ITEM_SLOT_EARS
@@ -238,7 +261,8 @@
 
 	inv_box = new /atom/movable/screen/inventory()
 	inv_box.name = "head"
-	inv_box.icon = ui_style
+	//inv_box.icon = ui_style
+	inv_box.icon = 'mojave/icons/hud/ms_ui_slots_34.dmi'
 	inv_box.icon_state = "head"
 	inv_box.screen_loc = ui_head
 	inv_box.slot_id = ITEM_SLOT_HEAD
@@ -247,7 +271,8 @@
 
 	inv_box = new /atom/movable/screen/inventory()
 	inv_box.name = "shoes"
-	inv_box.icon = ui_style
+	//inv_box.icon = ui_style
+	inv_box.icon = 'mojave/icons/hud/ms_ui_slots_34.dmi'
 	inv_box.icon_state = "shoes"
 	inv_box.screen_loc = ui_shoes
 	inv_box.slot_id = ITEM_SLOT_FEET
@@ -256,7 +281,8 @@
 
 	inv_box = new /atom/movable/screen/inventory()
 	inv_box.name = "belt"
-	inv_box.icon = ui_style
+	//inv_box.icon = ui_style
+	inv_box.icon = 'mojave/icons/hud/ms_ui_slots_40.dmi'
 	inv_box.icon_state = "belt"
 // inv_box.icon_full = "template_small"
 	inv_box.screen_loc = ui_belt
@@ -264,14 +290,14 @@
 	inv_box.hud = src
 	static_inventory += inv_box
 
-	throw_icon = new /atom/movable/screen/throw_catch()
-	throw_icon.icon = ui_style
+	throw_icon = new /atom/movable/screen/throw_catch/ms13() // MOJAVE EDIT
+	//throw_icon.icon = ui_style
 	throw_icon.screen_loc = ui_drop_throw
 	throw_icon.hud = src
 	hotkeybuttons += throw_icon
 
-	rest_icon = new /atom/movable/screen/rest()
-	rest_icon.icon = ui_style
+	rest_icon = new /atom/movable/screen/rest/ms13() // MOJAVE EDIT
+	//rest_icon.icon = ui_style
 	rest_icon.screen_loc = ui_above_movement
 	rest_icon.hud = src
 	static_inventory += rest_icon
@@ -292,8 +318,8 @@
 	healthdoll.hud = src
 	infodisplay += healthdoll
 
-	pull_icon = new /atom/movable/screen/pull()
-	pull_icon.icon = ui_style
+	pull_icon = new /atom/movable/screen/pull/ms13() // MOJAVE EDIT
+	//pull_icon.icon = ui_style
 	pull_icon.update_appearance()
 	pull_icon.screen_loc = ui_above_intent
 	pull_icon.hud = src
@@ -308,7 +334,8 @@
 	infodisplay += lingstingdisplay
 
 	zone_select =  new /atom/movable/screen/zone_sel()
-	zone_select.icon = ui_style
+	//zone_select.icon = ui_style
+	zone_select.icon = 'mojave/icons/hud/ms_ui_target.dmi'
 	zone_select.hud = src
 	zone_select.update_appearance()
 	static_inventory += zone_select
@@ -322,9 +349,17 @@
 			inv_slots[TOBITSHIFT(inv.slot_id) + 1] = inv
 			inv.update_appearance()
 
-	ms_button_background = new /atom/movable/screen/ms13/button_background()
-	ms_button_background.hud = src
-	infodisplay += ms_button_background
+	ms_background = new /atom/movable/screen/ms13/button_background() // MS EDIT
+	ms_background.hud = src
+	infodisplay += ms_background
+
+	ms_slot_background = new /atom/movable/screen/ms13/slot_background() // MS EDIT
+	ms_slot_background.hud = src
+	toggleable_inventory += ms_slot_background
+
+	ms_hand_background = new /atom/movable/screen/ms13/hand_background()
+	ms_hand_background.hud = src
+	static_inventory += ms_hand_background
 
 	update_locked_slots()
 
@@ -434,7 +469,13 @@
 
 	if(hud_version != HUD_STYLE_NOHUD)
 		for(var/obj/item/I in H.held_items)
-			I.screen_loc = ui_hand_position(H.get_held_index_of_item(I))
+			// MOJAVE EDIT
+			//I.screen_loc = ui_hand_position(H.get_held_index_of_item(I))
+			if(H.get_held_index_of_item(I) == 1)
+				I.screen_loc = "CENTER:-44,SOUTH"
+			else
+				I.screen_loc = "CENTER:2,SOUTH"
+			// MOJAVE EDIT END
 			screenmob.client.screen += I
 	else
 		for(var/obj/item/I in H.held_items)
