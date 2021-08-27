@@ -253,7 +253,7 @@
 /datum/reagent/consumable/ethanol/ms13/nukashine/on_mob_metabolize(mob/living/L)
 	..()
 	L.add_movespeed_modifier(/datum/movespeed_modifier/reagent/ephedrine)
-	to_chat(L, (span_swarmer("Your stomach burns with pain as you drink the Nukashine!")))
+	to_chat(L, (span_swarmer("Your stomach burns with pain as you drink the Nukashine, your heart beating faster.")))
 
 /datum/reagent/consumable/ethanol/ms13/nukashine/on_mob_end_metabolize(mob/living/L)
 	L.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/ephedrine)
@@ -262,11 +262,11 @@
 	..()
 
 /datum/reagent/consumable/ethanol/ms13/nukashine/on_mob_life(mob/living/carbon/M)
-	M.AdjustStun(-10, FALSE)
-	M.AdjustKnockdown(-10, FALSE)
-	M.adjustStaminaLoss(-2, 0)
+	M.AdjustStun(-20, FALSE)
+	M.AdjustKnockdown(-20, FALSE)
+	M.adjustStaminaLoss(-5, 0)
 	M.Jitter(2)
-	M.adjustOrganLoss(ORGAN_SLOT_LIVER, rand(1,5))
+	M.adjustOrganLoss(ORGAN_SLOT_HEART, rand(1,5))
 	..()
 
 /datum/reagent/consumable/ethanol/ms13/nuka_dark
@@ -291,8 +291,8 @@
 	glass_name = "glass of dark fizzing liquid"
 	glass_desc = "A dark fizzing liquid with a fair alcohlic smell to it."
 
-/datum/reagent/consumable/ethanol/ms13/whiskey_nuka //Whiskey and Nuka
-	name = "Whiskey and Nuka"
+/datum/reagent/consumable/ethanol/ms13/radstorm //Whiskey and Nuka
+	name = "Radstorm"
 	description = "Whiskey, mixed with Nuka-Cola. Surprisingly refreshing."
 	color = "#3E1B00"
 	quality = DRINK_NICE
@@ -312,7 +312,7 @@
 	glass_desc = "A brown fizzing liquid with a sharp alcohlic smell to it."
 
 /datum/reagent/consumable/ethanol/ms13/mammoth_bait // Soot flower Powder / Prickly pear Juice / Vodka
-	name = "Mammoth Bait"
+	name = "Mammoth bait"
 	description = "A recipe passed down through the generations in Mammoth. Perfect for warming up in the eversnow."
 	taste_description = "coffee with a kick"
 	quality = DRINK_NICE
@@ -533,6 +533,16 @@
 	taste_description = "beer"
 	glass_name = "glass of dark brown liquid"
 	glass_desc = "A dark brown liquid that gives of a strong alcoholic odor."
+
+/datum/reagent/consumable/ethanol/ms13/waster_sake // Baifan
+	name = "baifan brew"
+	description = "A homebrew sake from baifan grain. Strong alcoholic content."
+	quality = DRINK_GOOD
+	color = "#ada9a6"
+	boozepwr = 25
+	taste_description = "strong grain alcohol"
+	glass_name = "glass of clear murky liquid"
+	glass_desc = "A clear murky liquid that gives of a strong alcoholic odor."
 
 /datum/reagent/consumable/ethanol/ms13/waster_tequila // Agave
 	name = "wasteland tequila"
