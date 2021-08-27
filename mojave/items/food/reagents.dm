@@ -8,14 +8,25 @@
 	glass_icon_state = null
 
 /datum/reagent/consumable/ethanol/ms13
-	name = "Generic MS13 alcohol"
-	description = "Don't drink this bro	"
-	color = "#404030"
+	name = "Ethanol"
+	description = "Pure, unrestricted... 95% ethanol."
+	color = "#dadacb"
 	nutriment_factor = 0
-	taste_description = "alcohol"
-	boozepwr = 20
+	taste_description = "pure alcohol"
+	boozepwr = 100
+	glass_name = "glass of clear liquid"
+	glass_desc = "A completely clear liquid, spare for the occasional bubble rising to the top. A sniff of this nearly burns your nose hairs clean off."
 
 // E for Everyone drinks - Soda/Beverages //
+
+/datum/reagent/consumable/ms13/water // When you code it
+	name = "water"
+	description = "Water. The base of all life. Don't run out."
+	color = "#f1eeec"
+	quality = DRINK_VERYGOOD
+	taste_description = "water"
+	glass_name = "glass of clear liquid"
+	glass_desc = "A clear liquid with no smell. Nothing out of the ordinary."
 
 /datum/reagent/consumable/ms13/nuka_cola
 	name = "Nuka-Cola"
@@ -381,26 +392,156 @@
 
 //B for Brewed - Home brewed fun //
 
-// Basic Brews //
+// Basic Brews/Distilling //
 
-/datum/reagent/consumable/ethanol/ms13/barrel_wine
-	name = "Barrel cactus wine"
+/datum/reagent/consumable/ethanol/ms13/barrel_wine // Barrel Fruit
+	name = "barrel cactus wine"
 	description = "Wine brewed from a barrel cactus fruit. Tangy."
 	quality = DRINK_GOOD
 	color = "#dbcb35"
-	boozepwr = 25
-	taste_description = "tangy barrel fruit wine"
+	boozepwr = 20
+	taste_description = "sour, barrel fruit alcohol"
 	glass_name = "glass of yellow liquid"
-	glass_desc = "A dark red liquid with a slight sweet meat-y smell. Strange. You can also pick up hints of alcohol in it."
+	glass_desc = "A yellow liquid with a bland aroma. Smells vaguely alcoholic."
 
-/datum/reagent/consumable/ethanol/ms13/waster_tequila //Agave
-	name = "Wasteland Tequila"
+/datum/reagent/consumable/ethanol/ms13/mutfruit_wine // Mutfruit / Crunchy Mutfruit
+	name = "mutfruit wine"
+	description = "A sweet mutfruit wine. Best served with seeds in it."
+	quality = DRINK_NICE
+	color = "#472d58"
+	boozepwr = 15
+	taste_description = "sweet mutfruit alcohol"
+	glass_name = "glass of dark purple liquid"
+	glass_desc = "A dark purple liquid with tiny black seeds drifting around it. Smells vaguely alcoholic."
+
+/datum/reagent/consumable/ethanol/ms13/apple_cider // Apple
+	name = "hard apple cider"
+	description = "A sweet apple cider."
+	quality = DRINK_NICE
+	color = "#cdd465"
+	boozepwr = 10
+	taste_description = "sweet apple cider"
+	glass_name = "glass of murky yellow liquid"
+	glass_desc = "A murky yellow liquid. A sweet smell accompanied by an alcoholic follower."
+
+/datum/reagent/consumable/ethanol/ms13/pricklypear_wine // Prickly Pear
+	name = "prickly pear wine"
+	description = "A sweet prickly pear wine."
+	quality = DRINK_NICE
+	color = "#7725ad"
+	boozepwr = 35
+	taste_description = "bittersweet prickly pear and alcohol"
+	glass_name = "glass of bright purple liquid"
+	glass_desc = "A bright and murky purple liquid. Smells vaguely alcoholic."
+
+/datum/reagent/consumable/ethanol/ms13/punga_wine // Punga Fruit
+	name = "punga fruit wine"
+	description = "Wine made from punga fruit. Delicious."
+	quality = DRINK_NICE
+	color = "#3a8546"
+	boozepwr = 50
+	taste_description = "sour punga fruit and alcohol"
+	glass_name = "glass of green liquid"
+	glass_desc = "A green murky liquid. Heavy alcoholic aromas waft from it."
+
+/datum/reagent/consumable/ethanol/ms13/geigpunga_wine // Geigpunga Fruit
+	name = "geigpunga fruit wine"
+	description = "An acidic wine. You could almost melt something with it"
+	quality = DRINK_NICE
+	color = "#33d64e"
+	boozepwr = 75
+	taste_description = "rancid punga fruit and alcohol"
+	glass_name = "glass of green liquid"
+	glass_desc = "A bright green murky liquid. Heavy alcoholic aromas waft from it."
+
+/datum/reagent/consumable/ethanol/ms13/tarberry_wine // Tarberry
+	name = "tarberry wine"
+	description = "Wine made from tarberries. Delicious."
+	quality = DRINK_NICE
+	color = "#aa0fa2"
+	boozepwr = 40
+	taste_description = "oily tarberry and alcohol"
+	glass_name = "glass of bright purple liquid"
+	glass_desc = "A bright purple liquid. Bitter smell, with an alcoholic afterburn."
+
+/datum/reagent/consumable/ethanol/ms13/blackberry_wine // Blackberry
+	name = "blackberry wine"
+	description = "Wine made from blackberries. Delicious."
+	quality = DRINK_NICE
+	color = "#5f1946"
+	boozepwr = 45
+	taste_description = "sweet blackberries and alcohol"
+	glass_name = "glass of purple liquid"
+	glass_desc = "A purple liquid. Sweet smell, with an alcoholic afterburn."
+
+/datum/reagent/consumable/ethanol/ms13/radberry_wine // Radberry
+	name = "radberry wine"
+	description = "Wine made from radberries. Delicious."
+	quality = DRINK_NICE
+	color = "#0a9969"
+	boozepwr = 45
+	taste_description = "sweet berry with a hint of metal and alcohol"
+	glass_name = "glass of dull green liquid"
+	glass_desc = "A dull green liquid Sometimes, you can see a shimmer in it. Sweet smell, with an alcoholic afterburn."
+
+/datum/reagent/consumable/ethanol/ms13/yucca_wine // Agave
+	name = "yucca wine"
+	description = "A rough-and-ready tequila born of the wasteland."
+	quality = DRINK_NICE
+	color = "#d3d3b3"
+	boozepwr = 85 // That thing is incredibly sugar-y. Tell me it aint so
+	taste_description = "sweet starch and strong alcohol"
+	glass_name = "glass of pale clear liquid"
+	glass_desc = "A faint pale yellow liquid with a familiar distant agave smell to it. Smells pretty alcoholic."
+
+/datum/reagent/consumable/ethanol/ms13/tato_liquor // Tato
+	name = "tato liquor"
+	description = "liquor made from tatos. Not delicious at all."
+	quality = null
+	color = "#a13f2e"
+	boozepwr = 65
+	taste_description = "bitter eggs and alcohol"
+	glass_name = "glass of red-orange liquid"
+	glass_desc = "A red-orange liquid, with pieces of plant still floating around in it. Gives off a sickening smell. Definitely alcoholic."
+
+/datum/reagent/consumable/ethanol/ms13/waster_vodka // Potato???
+	name = "wasteland vodka"
+	description = "A modern version of an ancient alcohol. Not commonly found."
+	quality = DRINK_NICE
+	color = "#dfddd5"
+	boozepwr = 75
+	taste_description = "distant starch with strong alcohol"
+	glass_name = "glass of clear liquid"
+	glass_desc = "A clear liquid that gives of a strong alcoholic odor."
+
+/datum/reagent/consumable/ethanol/ms13/tomato_wine // Tomato???
+	name = "tomato wine"
+	description = "A wine brewed from a tomato. Not exactly desired."
+	quality = DRINK_NICE
+	color = "#c57f73"
+	boozepwr = 35
+	taste_description = "subtle tomato and alcohol"
+	glass_name = "glass of faintly red liquid"
+	glass_desc = "A nearly clear red liquid. It gives of a moderate alcoholic odor."
+
+/datum/reagent/consumable/ethanol/ms13/waster_beer // Razorgrain
+	name = "wasteland beer"
+	description = "A homebrew beer from razorgrain. About as generic as you can get."
+	quality = DRINK_GOOD
+	color = "#442b1b"
+	boozepwr = 25
+	taste_description = "beer"
+	glass_name = "glass of dark brown liquid"
+	glass_desc = "A dark brown liquid that gives of a strong alcoholic odor."
+
+/datum/reagent/consumable/ethanol/ms13/waster_tequila // Agave
+	name = "wasteland tequila"
 	description = "A rough-and-ready tequila born of the wasteland."
 	quality = DRINK_NICE
 	color = "#b6b687"
 	boozepwr = 65
 	taste_description = "rough agave alcohol"
-	glass_name = "glass of bright blue fizzy liquid"
+	glass_name = "glass of pale yellow-ish liquid"
 	glass_desc = "A faint pale yellow liquid with a familiar distant agave smell to it. Smells pretty alcoholic."
 
 /datum/reagent/consumable/ethanol/ms13/waster_tequila/on_mob_life(mob/living/carbon/M)
@@ -414,7 +555,7 @@
 // Combination Brews //
 
 /datum/reagent/consumable/ethanol/ms13/ballistic_bock // Gunpowder, Wheat
-	name = "Ballistic Bock"
+	name = "ballistic Bock"
 	description = "A dark, malty ale complemented perfectly with gunpowder."
 	quality = DRINK_NICE
 	color = "#5D0F0C"
@@ -424,7 +565,7 @@
 	glass_desc = "A dark and liquid. It smells faintly of alcohol and gunpowder."
 
 /datum/reagent/consumable/ethanol/ms13/rad_ant_lager // Rad ant meat, Wheat, Uranium???
-	name = "Rad Ant Lager"
+	name = "rad Ant Lager"
 	description = "A light, hoppy beer complemented exquisitely with Rad Ant meat."
 	quality = DRINK_NICE
 	color = "#864b49"
@@ -434,7 +575,7 @@
 	glass_desc = "A faint pale red liquid with a slight meat-y smell. Strange. You can also pick up hints of alcohol in it."
 
 /datum/reagent/consumable/ethanol/ms13/swift_recovery // Brain fungus and Tato
-	name = "Swift Recovery brew"
+	name = "swift Recovery brew"
 	description = "A flavorful and light beer. Reeks of fungus."
 	quality = DRINK_NICE
 	color = "#cead42"
@@ -451,7 +592,7 @@
 	..()
 
 /datum/reagent/consumable/ethanol/ms13/fire_wine // Firecap and xander
-	name = "Fire Wine"
+	name = "fire Wine"
 	description = "Perfect for warming yourself in the harsh winters."
 	quality = DRINK_NICE
 	color = "#2b0b0a"
@@ -466,7 +607,7 @@
 	. = 1
 
 /datum/reagent/consumable/ethanol/ms13/waster_tea // Ash Rose / Broc
-	name = "Waster's Tea"
+	name = "waster's Tea"
 	description = "A lightly alcoholic hot drink. Tastes medicinal."
 	quality = DRINK_NICE
 	color = "#a39d46"
@@ -482,7 +623,7 @@
 	. = 1
 
 /datum/reagent/consumable/ethanol/ms13/herb_brew // Coyote tobacco and lureweed
-	name = "Herbal Brew"
+	name = "herbal Brew"
 	description = "An alcoholic herbal brew, made by tribals from the local forage."
 	quality = DRINK_GOOD
 	color = "#66693b"
@@ -498,7 +639,7 @@
 	. = 1
 
 /datum/reagent/consumable/ms13/gagquik // Med-X / Cola :denthead:
-	name = "Gagquik"
+	name = "gagquik"
 	description = "A common wastelander brew in case of injesting poisonous substances."
 	color = "#3a502b"
 	quality = DRINK_VERYGOOD
@@ -514,7 +655,7 @@
 //N for NOBODY should consume - Horrible mixtures //
 
 /datum/reagent/consumable/ms13/nuka_lixir // Med-X / Cola :denthead:
-	name = "Nuka-Lixir"
+	name = "Nuka-lixir"
 	description = "...Who thought this was a good idea?"
 	color = "#2accc7"
 	quality = DRINK_VERYGOOD
@@ -528,7 +669,7 @@
 	..()
 
 /datum/reagent/consumable/ethanol/ms13/lead_champagne // lead powder / Champagne - What a cruel joke.
-	name = "Lead Champagne"
+	name = "lead champagne"
 	description = "Are you sure this is safe to drink?"
 	quality = DRINK_NICE
 	color = "#7c1f4d"
