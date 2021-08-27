@@ -102,7 +102,14 @@
 	/// String. If set to a non-empty one, it will be the key for the policy text value to show this role on spawn.
 	var/policy_index = ""
 
+	// MS13 EDIT BEGIN //
+	var/description = ""
 
+	var/forbid = ""
+
+	var/enforce = ""
+
+	// MS13 EDIT END //
 /datum/job/New()
 	. = ..()
 	var/list/jobs_changes = get_map_changes()
