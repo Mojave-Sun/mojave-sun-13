@@ -234,6 +234,7 @@
 	icon_state = "floor"
 	floor_tile = /obj/item/stack/tile/iron/ms13
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TILE)
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	var/has_alternate_states = FALSE
 	var/alternate_states
 
