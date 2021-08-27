@@ -24,7 +24,10 @@
 	inhand_icon_state = "plant"
 	lefthand_file = 'mojave/icons/mob/inhands/equipment/hydroponics_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/equipment/hydroponics_righthand.dmi'
-
+	can_distill = TRUE
+	distill_reagent = ""
+	wine_flavor = "Bitter wine"
+	wine_power = 15
 
 /////////////////////////////////////////////////////////////
 ////////////////// MOJAVE SUN BOTANY ITEMS //////////////////

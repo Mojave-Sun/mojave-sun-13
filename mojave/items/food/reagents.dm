@@ -36,7 +36,7 @@
 	glass_desc = "A dark fizzy liquid with a slighty off sweet smell. Bubbles form on the side."
 
 /datum/reagent/consumable/ms13/nuka_diet/on_mob_life(mob/living/carbon/M)
-	if(prob(1))
+	if(prob(5))
 		M.adjustBruteLoss(0.5) //aspartame is bad for your bones. Shoulda just drank water.
 
 /datum/reagent/consumable/ms13/nuka_cherry
@@ -381,6 +381,10 @@
 
 //B for Brewed - Home brewed fun //
 
+// Basic Brews //
+
+// Combination Brews //
+
 /datum/reagent/consumable/ethanol/ms13/waster_tequila //Agave
 	name = "Wasteland Tequila"
 	description = "A rough-and-ready tequila born of the wasteland."
@@ -493,8 +497,8 @@
 	glass_desc = "A murky green liquid with bits of plant matter floating at the top. Has a vile smell to it."
 
 /datum/reagent/consumable/ms13/gagquik/on_mob_life(mob/living/carbon/M) // This definitely won't be slipped into drinks
-	if(prob(35))
-		M.vomit(lost_nutrition = 10, distance = 2, purge_ratio = 0.5)
+	if(prob(25))
+		M.vomit(lost_nutrition = 10, distance = 1, purge_ratio = 0.5)
 	..()
 
 //N for NOBODY should consume - Horrible mixtures //
