@@ -464,7 +464,7 @@ SUBSYSTEM_DEF(ticker)
 	if(selected_tip)
 		m = selected_tip
 	else
-		var/list/randomtips = world.file2list("strings/tips.txt")
+		var/list/randomtips = world.file2list("strings/tips_ms.txt") // MOJAVE EDIT - var/list/randomtips = world.file2list("strings/tips.txt")
 		var/list/memetips = world.file2list("strings/sillytips.txt")
 		if(randomtips.len && prob(95))
 			m = pick(randomtips)
