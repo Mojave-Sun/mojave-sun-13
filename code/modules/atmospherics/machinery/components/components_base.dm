@@ -2,6 +2,7 @@
 // On top of that, now people can add component-speciic procs/vars if they want!
 
 /obj/machinery/atmospherics/components
+	plane = OVER_TILE_PLANE //MOJAVE SUN EDIT - Wallening Testmerge
 	hide = FALSE
 	///Is the component welded?
 	var/welded = FALSE

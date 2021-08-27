@@ -13,7 +13,7 @@
 	icon_state = "bars"
 	density = TRUE
 	anchored = TRUE
-	layer = ABOVE_MOB_LAYER
+	layer = ABOVE_OBJ_LAYER
 	max_integrity = 500
 	armor = list(MELEE = 100, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 100, BIO = 100, RAD = 100, FIRE = 100, ACID = 100)
 	damage_deflection = 40
@@ -46,6 +46,11 @@
 
 	if (flags_1 & ON_BORDER_1)
 		AddElement(/datum/element/connect_loc, loc_connections)
+	switch(dir)
+		if(SOUTH)
+			layer = ABOVE_WINDOW_LAYER
+		if(NORTH)
+			layer = OBJ_LAYER
 
 /obj/structure/ms13/bars/corner/Initialize()
 	. = ..()

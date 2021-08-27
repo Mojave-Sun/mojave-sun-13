@@ -1,10 +1,9 @@
-/obj/machinery/door/unpowered/ms13/
+/obj/machinery/door/unpowered/ms13
 	icon = 'mojave/icons/structure/doors.dmi'
 	name = "base state ms13 door"
 	pixel_x = -16
 	pixel_y = -8
-	layer = 4.4
-	closingLayer = 4.4
+	layer = BELOW_OBJ_LAYER
 	density = TRUE
 	assemblytype = null
 	can_crush = FALSE
@@ -28,12 +27,12 @@
 	if(dir == EAST)
 		pixel_x = -3
 		pixel_y = 16
-		add_overlay(image(icon,icon_state="[frametype]_frame_vertical_overlay", layer = 4.5))
+		add_overlay(image(icon,icon_state="[frametype]_frame_vertical_overlay"))
 
 	if(dir == WEST)
 		pixel_x = -28
 		pixel_y = 16
-		add_overlay(image(icon,icon_state="[frametype]_frame_vertical_overlay", layer = 4.5))
+		add_overlay(image(icon,icon_state="[frametype]_frame_vertical_overlay"))
 
 /obj/machinery/door/unpowered/ms13/open()
 	if(!density)

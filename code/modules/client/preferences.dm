@@ -129,6 +129,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/itemoutline_pref = TRUE
 
 	var/ambientocclusion = TRUE
+	///Do we see the top part of tall walls when looming over floors? //MOJAVE SUN EDIT - Wallening Testmerge
+	var/frills_over_floors = TRUE //MOJAVE SUN EDIT - Wallening Testmerge
 	///Should we automatically fit the viewport?
 	var/auto_fit_viewport = FALSE
 	///Should we be in the widescreen mode set by the config?
@@ -661,6 +663,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<b>Item Hover Outlines:</b> <a href='?_src_=prefs;preference=itemoutline_pref'>[itemoutline_pref ? "Enabled" : "Disabled"]</a><br>"
 
 
+			dat += "<b>Frills over Floors:</b> <a href='?_src_=prefs;preference=frills_over_floors'>[frills_over_floors ? "Enabled" : "Disabled"]</a><br>" //MOJAVE SUN EDIT - Wallening Testmerge
 			dat += "<b>Ambient Occlusion:</b> <a href='?_src_=prefs;preference=ambientocclusion'>[ambientocclusion ? "Enabled" : "Disabled"]</a><br>"
 			dat += "<b>Fit Viewport:</b> <a href='?_src_=prefs;preference=auto_fit_viewport'>[auto_fit_viewport ? "Auto" : "Manual"]</a><br>"
 			if (CONFIG_GET(string/default_view) != CONFIG_GET(string/default_view_square))
@@ -1885,12 +1888,20 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 				if("itemoutline_pref")
 					itemoutline_pref = !itemoutline_pref
-
+ //MOJAVE SUN EDIT - Wallening Testmerge
+				if("frills_over_floors")
+					frills_over_floors = !frills_over_floors
+					if(length(parent?.screen))
+						var/atom/movable/screen/plane_master/frill/frill = locate(/atom/movable/screen/plane_master/frill) in parent.screen
+						frill.backdrop(parent.mob)
+ //MOJAVE SUN EDIT - Wallening Testmerge
 				if("ambientocclusion")
 					ambientocclusion = !ambientocclusion
-					if(parent?.screen && parent.screen.len)
+					if(length(parent?.screen)) //MOJAVE SUN EDIT - Wallening Testmerge
 						var/atom/movable/screen/plane_master/game_world/PM = locate(/atom/movable/screen/plane_master/game_world) in parent.screen
 						PM.backdrop(parent.mob)
+						var/atom/movable/screen/plane_master/frill/frill = locate(/atom/movable/screen/plane_master/frill) in parent.screen //MOJAVE SUN EDIT - Wallening Testmerge
+						frill.backdrop(parent.mob) //MOJAVE SUN EDIT - Wallening Testmerge
 
 				if("auto_fit_viewport")
 					auto_fit_viewport = !auto_fit_viewport

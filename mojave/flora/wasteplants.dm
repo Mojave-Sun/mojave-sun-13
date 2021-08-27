@@ -4,7 +4,6 @@
 
 /obj/structure/flora/ms13/forage
 	gender = PLURAL
-	layer = PROJECTILE_HIT_THRESHHOLD_LAYER
 	icon = 'mojave/icons/flora/wastelandflora.dmi'
 	icon_state = "tarberry"
 	name = "tarberry shrub"
@@ -209,7 +208,7 @@
 	desc = "An evergreen bush."
 	anchored = TRUE
 	pixel_x = -16
-	layer = FLY_LAYER
+	pixel_y = 12
 	icon = 'mojave/icons/flora/trees.dmi'
 	icon_state = "snowshrub_1"
 	max_integrity = 50
@@ -251,7 +250,6 @@
 	desc = "A large tree."
 	density = TRUE
 	pixel_x = -16
-	layer = FLY_LAYER
 	var/log_amount = 10
 	opacity = 1
 

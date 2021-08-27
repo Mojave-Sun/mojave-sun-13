@@ -7,7 +7,6 @@
 	icon_state = "rug_blue"
 	flags_1 = FLAMMABLE
 	anchored = TRUE
-	layer = BELOW_OPEN_DOOR_LAYER
 	bound_height = 64
 	bound_width = 64
 	var/item_rug = /obj/item/ms13/rug

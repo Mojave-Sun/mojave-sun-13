@@ -55,7 +55,7 @@
 	maptext_width = 480
 
 /atom/movable/screen/swap_hand
-	plane = HUD_PLANE
+	//plane = HUD_PLANE //MOJAVE SUN EDIT - Wallening Testmerge
 	name = "swap hand"
 
 /atom/movable/screen/swap_hand/Click()

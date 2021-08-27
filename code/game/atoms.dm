@@ -156,6 +156,8 @@
 	var/atom/orbit_target
 	///AI controller that controls this atom. type on init, then turned into an instance during runtime
 	var/datum/ai_controller/ai_controller
+	///Should we ignore any attempts to auto align? Mappers should edit this
+	var/manual_align = FALSE //MOJAVE SUN EDIT - Wallening Testmerge
 
 /**
  * Called when an atom is created in byond (built in engine proc)
@@ -264,7 +266,7 @@
  * that all atoms will actually exist in the "WORLD" at this time and that all their Intialization
  * code has been run
  */
-/atom/proc/LateInitialize()
+/atom/proc/LateInitialize(mapload) //MOJAVE SUN EDIT - Wallening Testmerge
 	set waitfor = FALSE
 
 /// Put your [AddComponent] calls here

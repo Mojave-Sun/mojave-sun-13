@@ -15,7 +15,6 @@
 	icon_state = "helper"
 	bound_width = 96
 	density = TRUE
-	layer = FLY_LAYER
 	anchored = TRUE
 	max_integrity = 10000
 	custom_materials = list(/datum/material/iron = 10000) //probably gonna be one of the main sources of scrap

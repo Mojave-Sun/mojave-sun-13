@@ -1,7 +1,10 @@
 /obj/structure/mirror/ms13
 	desc = "A dust stained reflective mirror, you can sort of make out your reflection in it."
 	icon = 'mojave/icons/structure/32x64_tall_furniture.dmi'
-	layer = WALL_OBJ_LAYER
+
+/obj/structure/mirror/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/wall_mount)
 
 /obj/structure/mirror/ms13/attack_hand(mob/user, list/modifiers)
 	if(.)

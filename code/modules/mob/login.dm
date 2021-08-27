@@ -75,7 +75,12 @@
 			continue
 		var/datum/atom_hud/alternate_appearance/AA = v
 		AA.onNewMob(src)
-
+	//MOJAVE SUN EDIT - Wallening Testmerge
+	frill_oval_mask = image('mojave/icons/effects/ovalmask.dmi', src, "primary", pixel_x = -32, pixel_y = -12)
+	frill_oval_mask.plane = FRILL_MASK_PLANE
+	frill_oval_mask.appearance_flags = RESET_TRANSFORM
+	client.images |= frill_oval_mask
+ 	//MOJAVE SUN EDIT - Wallening Testmerge
 	update_client_colour()
 	update_mouse_pointer()
 	if(client)

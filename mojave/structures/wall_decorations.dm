@@ -2,7 +2,10 @@
 	name = "wasteland poster"
 	desc = "Display your radioactive dust on your wall."
 	icon = 'mojave/icons/objects/posters.dmi'
-	layer = 4.4
+
+/obj/structure/sign/poster/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/wall_mount)
 
 /obj/structure/sign/poster/ms13/careless
 	name = "\improper Careless Talk Costs Lives propaganda poster"
