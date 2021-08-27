@@ -90,11 +90,13 @@
 	using.hud = src
 	static_inventory += using
 
+	/*
 	using = new /atom/movable/screen/drop()
 	using.icon = ui_style
 	using.screen_loc = ui_drop_throw
 	using.hud = src
 	static_inventory += using
+	*/
 
 	inv_box = new /atom/movable/screen/inventory()
 	inv_box.name = "i_clothing"
@@ -209,11 +211,13 @@
 	inv_box.hud = src
 	static_inventory += inv_box
 
+	/*
 	using = new /atom/movable/screen/resist()
 	using.icon = ui_style
 	using.screen_loc = ui_above_intent
 	using.hud = src
 	hotkeybuttons += using
+	*/
 
 	using = new /atom/movable/screen/human/toggle/ms13() // MS EDIT
 	//using.icon = ui_style
