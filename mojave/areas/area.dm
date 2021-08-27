@@ -71,7 +71,6 @@
 /area/ms13/underground
 	requires_power = FALSE
 	outdoors = FALSE
-	static_lighting = TRUE
 
 /area/ms13/underground/mountain
 	name = "mountain"
@@ -240,4 +239,3 @@
 	name = "combat arena tunnel"
 	icon_state = "combatarena_tunnels"
 	outdoors = FALSE
-	static_lighting = TRUE
