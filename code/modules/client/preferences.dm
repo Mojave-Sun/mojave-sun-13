@@ -1888,13 +1888,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 				if("itemoutline_pref")
 					itemoutline_pref = !itemoutline_pref
- //MOJAVE SUN EDIT - Wallening Testmerge
+//MOJAVE SUN EDIT - Wallening Testmerge
 				if("frills_over_floors")
 					frills_over_floors = !frills_over_floors
 					if(length(parent?.screen))
 						var/atom/movable/screen/plane_master/frill/frill = locate(/atom/movable/screen/plane_master/frill) in parent.screen
 						frill.backdrop(parent.mob)
- //MOJAVE SUN EDIT - Wallening Testmerge
+//MOJAVE SUN EDIT - Wallening Testmerge
 				if("ambientocclusion")
 					ambientocclusion = !ambientocclusion
 					if(length(parent?.screen)) //MOJAVE SUN EDIT - Wallening Testmerge

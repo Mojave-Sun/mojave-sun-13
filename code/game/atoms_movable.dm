@@ -109,10 +109,10 @@
 			AddComponent(/datum/component/overlay_lighting)
 		if(MOVABLE_LIGHT_DIRECTIONAL)
 			AddComponent(/datum/component/overlay_lighting, is_directional = TRUE)
-	 //MOJAVE SUN EDIT - Wallening Testmerge
+	//MOJAVE SUN EDIT - Wallening Testmerge
 	if(frill_icon)
 		AddElement(/datum/element/frill, frill_icon)
-	 //MOJAVE SUN EDIT - Wallening Testmerge
+	//MOJAVE SUN EDIT - Wallening Testmerge
 
 /atom/movable/Destroy(force)
 	QDEL_NULL(proximity_monitor)
