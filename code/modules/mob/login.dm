@@ -80,7 +80,7 @@
 	frill_oval_mask.plane = FRILL_MASK_PLANE
 	frill_oval_mask.appearance_flags = RESET_TRANSFORM
 	client.images |= frill_oval_mask
- 	//MOJAVE SUN EDIT - Wallening Testmerge
+	//MOJAVE SUN EDIT - Wallening Testmerge
 	update_client_colour()
 	update_mouse_pointer()
 	if(client)

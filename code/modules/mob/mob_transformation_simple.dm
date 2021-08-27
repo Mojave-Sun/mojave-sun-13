@@ -59,7 +59,7 @@
 		M.pixel_x = M.base_pixel_x
 	if(M.base_pixel_y)
 		M.pixel_y = M.base_pixel_y
- 	//MOJAVE SUN EDIT - Wallening Testmerge
+	//MOJAVE SUN EDIT - Wallening Testmerge
 	if(delete_old_mob)
 		QDEL_IN(src, 1)
 	return M
