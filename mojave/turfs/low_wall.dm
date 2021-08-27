@@ -1,10 +1,11 @@
 /obj/structure/table/ms13/low_wall
 	name = "base class low wall"
+	plane = WALL_PLANE
 	desc = "Abandon hope"
 	icon = 'icons/obj/smooth_structures/table.dmi'
 	icon_state = "low-0"
 	base_icon_state = "low"
-	frame = null
+	frame = /obj/item/stack/sheet/ms13/scrap
 	max_integrity = 1000
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_MS13_LOW_WALL)

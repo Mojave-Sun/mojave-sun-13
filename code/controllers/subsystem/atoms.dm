@@ -67,7 +67,7 @@ SUBSYSTEM_DEF(atoms)
 			//I hate that we need this
 			if(QDELETED(A))
 				continue
-			A.LateInitialize()
+			A.LateInitialize(TRUE) //MOJAVE SUN EDIT - Wallening Testmerge
 		testing("Late initialized [late_loaders.len] atoms")
 		late_loaders.Cut()
 
@@ -97,7 +97,7 @@ SUBSYSTEM_DEF(atoms)
 				if(arguments[1]) //mapload
 					late_loaders += A
 				else
-					A.LateInitialize()
+					A.LateInitialize(FALSE) //MOJAVE SUN EDIT - Wallening Testmerge
 			if(INITIALIZE_HINT_QDEL)
 				qdel(A)
 				qdeleted = TRUE

@@ -2,7 +2,7 @@
 	name = "base class window"
 	desc = "Scream at the coders"
 	smoothing_flags = SMOOTH_BITMASK
-	layer = EDGED_TURF_LAYER
+	layer = ABOVE_OBJ_LAYER
 
 /obj/structure/window/fulltile/ms13/glass
 	name = "glass window"
@@ -17,7 +17,7 @@
 	name = "base class reinforced window"
 	desc = "Scream at the coders"
 	smoothing_flags = SMOOTH_BITMASK
-	layer = EDGED_TURF_LAYER
+	layer = ABOVE_OBJ_LAYER
 
 /obj/structure/window/reinforced/fulltile/ms13/glass
 	name = "reinforced glass window"

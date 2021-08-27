@@ -175,7 +175,7 @@
 
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/door/airlock/LateInitialize()
+/obj/machinery/door/airlock/LateInitialize(mapload) //MOJAVE SUN EDIT - Wallening Testmerge
 	. = ..()
 	if (cyclelinkeddir)
 		cyclelinkairlock()

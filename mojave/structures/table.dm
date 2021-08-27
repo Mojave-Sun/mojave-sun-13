@@ -5,7 +5,8 @@
 	desc = "Scream at the coders if you see this."
 	buildstack = null
 	custom_materials = null
-	frame = null
+	frame = /obj/item/stack/sheet/ms13/scrap
+	layer = BELOW_OBJ_LAYER
 
 /obj/structure/table/ms13/deconstruction_hints(mob/user)
 	return

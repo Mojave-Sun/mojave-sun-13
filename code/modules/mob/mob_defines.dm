@@ -17,6 +17,7 @@
 	throwforce = 10
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 	pass_flags_self = PASSMOB
+	base_pixel_y = 12 //MOJAVE SUN EDIT - Wallening Testmerge
 	var/shift_to_open_context_menu = TRUE
 
 	///when this be added to vis_contents of something it inherit something.plane, important for visualisation of mob in openspace.
@@ -224,6 +225,9 @@
 
 	///Override for sound_environments. If this is set the user will always hear a specific type of reverb (Instead of the area defined reverb)
 	var/sound_environment_override = SOUND_ENVIRONMENT_NONE
+
+	///Mask for when a client posseses a mob to mask out a section of the wall frill
+	var/image/frill_oval_mask //MOJAVE SUN EDIT - Wallening Testmerge
 
 	/// A mock client, provided by tests and friends
 	var/datum/client_interface/mock_client

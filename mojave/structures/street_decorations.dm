@@ -1,13 +1,15 @@
 /obj/machinery/power/ms13/streetlamp
 	name = "\improper street lamp"
+	plane = OVER_FRILL_PLANE
 	desc = "A pre-war street lamp, what more is there to say?"
 	icon = 'mojave/icons/structure/streetpoles.dmi'
 	icon_state = "streetlight"
 	anchored = TRUE
 	density = TRUE
+	layer = BELOW_OBJ_LAYER
 	max_integrity = 2000
 	pixel_x = -32
-	layer = ABOVE_ALL_MOB_LAYER
+	pixel_y = 8
 
 /obj/machinery/power/ms13/streetlamp
 	name = "\improper street lamp"
@@ -32,7 +34,6 @@
 	max_integrity = 2000
 	pixel_x = -32
 	icon_state = "trafficlightright"
-	layer = ABOVE_ALL_MOB_LAYER
 
 /obj/machinery/power/ms13/trafficlight/alt
 	icon_state = "trafficlightleft"

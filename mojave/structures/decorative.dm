@@ -7,7 +7,6 @@
 	desc = "Last pickup, October 22nd, 2077."
 	icon = 'mojave/icons/structure/miscellaneous.dmi'
 	icon_state = "mailbox"
-	layer = EDGED_TURF_LAYER
 	pixel_y = 12
 
 /obj/structure/filingcabinet/ms13/mail/old
@@ -46,7 +45,6 @@
 	desc = "A large banner stretched along a somewhat sturdy metal pole. It bears the insignia of a bear, representative of the New California Republic."
 	icon = 'mojave/icons/objects/flags32x64.dmi'
 	icon_state = "ncrflag"
-	layer = EDGED_TURF_LAYER
 
 /obj/structure/fluff/ms13/ncrflag
 	name = "\improper NCR flagpole"
@@ -54,15 +52,13 @@
 	icon = 'mojave/icons/structure/largeflags.dmi'
 	icon_state = "ncrflag"
 	pixel_x = -32
-	layer = ABOVE_ALL_MOB_LAYER
 
 //Decorative Cable, functional WYCI//
 
-/obj/structure/ms13/cable/
+/obj/structure/ms13/cable
 	name = "cable"
 	icon = 'mojave/icons/objects/cables.dmi'
 	density = FALSE
-	layer = WIRE_LAYER
 
 /obj/structure/ms13/cable/red
 	icon_state = "cable_red_straight"
@@ -127,11 +123,11 @@
 //Turf Decor//
 
 /obj/structure/ms13/turfdecor
+	invisibility = INVISIBILITY_MAXIMUM
 
 /obj/structure/ms13/turfdecor/drought
 	icon = 'mojave/icons/structure/turf_decor.dmi'
 	icon_state = "drought_1"
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /obj/structure/ms13/turfdecor/drought/Initialize()
 	. = ..()
