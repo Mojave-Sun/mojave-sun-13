@@ -18,9 +18,6 @@ The simple animal this is attached to should also be able to destroy obstacles s
 	///The move delay for patrolling with
 	var/list/patrol_move_delay = list()
 
-/datum/element/generic_patrol_animal/New()
-	START_PROCESSING(SSdcs, src)
-
 /datum/element/generic_patrol_animal/Attach(mob/living/simple_animal/animal, _animal_node_weights = list(), _animal_identifier = IDENTIFIER_GENERIC_SIMPLE, _patrol_move_delay = 3)
 	. = ..()
 	if(!istype(animal))
@@ -37,14 +34,15 @@ The simple animal this is attached to should also be able to destroy obstacles s
 	animal_node_weights[animal] = _animal_node_weights
 	animal_identifier[animal] = _animal_identifier
 	patrol_move_delay[animal] = _patrol_move_delay
+	if(!length(attached_animals))
+		START_PROCESSING(SSprocessing, src)
 	var/obj/effect/ai_node/linted_current_node = animal_current_node[animal]
 	animal_target_node[animal] = linted_current_node.get_best_adj_node(animal_node_weights[animal], animal_identifier[animal])
 
 /datum/element/generic_patrol_animal/Detach(mob/living/simple_animal/animal)
 	attached_animals -= animal
-	animal_node_weights -= animal
-	animal_identifier -= animal
-	patrol_move_delay -= animal
+	if(!length(attached_animals))
+		STOP_PROCESSING(SSprocessing, src)
 
 //We'll just do a Process() and look at whenever the simple mob is on or not
 /datum/element/generic_patrol_animal/process(delta_time)
