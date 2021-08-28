@@ -2,8 +2,8 @@
 #define DESERT_SMOOTHING SMOOTH_GROUP_MS13_DESERT, SMOOTH_GROUP_MS13_SIDEWALK, SMOOTH_GROUP_MS13_TILE, SMOOTH_GROUP_MS13_SNOW, SMOOTH_GROUP_MS13_ROAD
 #define GRASS_SPONTANEOUS 		2
 #define GRASS_WEIGHT 			2
-#define LUSH_PLANT_SPAWN_LIST list(/obj/structure/flora/ms13/tree/tallpine = 7, /obj/structure/flora/ms13/tree/deadsnow = 5, /obj/structure/flora/ms13/tree/pine = 5, /obj/structure/flora/ms13/shrub = 5, /obj/structure/flora/bush = 5, /obj/structure/flora/ms13/forage = 1, /obj/structure/flora/ms13/forage/blackberry = 1, /obj/structure/flora/ms13/forage/mutfruit = 1, /obj/structure/flora/ms13/forage/ashrose = 1, /obj/structure/flora/ms13/forage/wildcarrot = 1, /obj/structure/flora/ms13/forage/aster = 1)
-#define DESOLATE_PLANT_SPAWN_LIST list(/obj/structure/flora/grass/wasteland/snow = 10, /obj/structure/flora/bush = 1)
+#define LUSH_PLANT_SPAWN_LIST list(/obj/structure/flora/ms13/tree/tallpine/snow = 7, /obj/structure/flora/ms13/forage = 1, /obj/structure/flora/ms13/forage/blackberry = 1, /obj/structure/flora/ms13/forage/mutfruit = 1, /obj/structure/flora/ms13/forage/ashrose = 1, /obj/structure/flora/ms13/forage/wildcarrot = 1, /obj/structure/flora/ms13/forage/aster = 1)
+#define DESOLATE_PLANT_SPAWN_LIST list(/obj/structure/flora/grass/wasteland/snow = 10)
 #define MUSHROOM_SPAWN_LIST list(/obj/structure/flora/ms13/forage/mushroom = 5, /obj/structure/flora/ms13/forage/mushroom/glowing = 1)
 #define DESERT_LUSH_PLANT_SPAWN_LIST list(/obj/structure/flora/ms13/tree/joshua = 2, /obj/structure/flora/ms13/tree/cactus = 5, /obj/structure/ms13/turfdecor/drought = 10)
 #define DESERT_DESOLATE_PLANT_SPAWN_LIST list(/obj/structure/flora/grass/wasteland = 8)

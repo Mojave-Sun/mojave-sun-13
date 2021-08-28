@@ -429,7 +429,7 @@
 
 //forest and snow areas
 
-//#define SNOW_PLANT_DENSE_SPAWN_LIST list(/obj/structure/flora/grass/wasteland/snow = 10, /obj/structure/flora/ms13/tree/tallpine = 7, /obj/structure/flora/ms13/tree/deadsnow = 5, /obj/structure/flora/ms13/tree/pine = 5)
+//#define SNOW_PLANT_DENSE_SPAWN_LIST list(/obj/structure/flora/grass/wasteland/snow = 10, /obj/structure/flora/ms13/tree/tallpine = 7, /obj/structure/flora/ms13/tree/deadsnow = 5, /obj/structure/flora/ms13/tree/smallpine = 5)
 
 /area/ms13/snow
 	name = "Snow"
