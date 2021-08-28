@@ -115,7 +115,6 @@
 	inhand_icon_state = "policerev"
 	fire_sound = 'mojave/sound/ms13weapons/policepistol.ogg'
 	w_class = WEIGHT_CLASS_SMALL
-	fire_delay = 0.5 SECONDS
 	extra_damage = 25
 	spread = 8
 	recoil = 0.75
