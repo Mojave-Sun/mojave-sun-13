@@ -17,7 +17,6 @@
 	throwforce = 10
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 	pass_flags_self = PASSMOB
-	base_pixel_y = 12 //MOJAVE SUN EDIT - Wallening Testmerge
 	var/shift_to_open_context_menu = TRUE
 
 	///when this be added to vis_contents of something it inherit something.plane, important for visualisation of mob in openspace.

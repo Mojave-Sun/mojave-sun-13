@@ -207,7 +207,6 @@
 	name = "shrub"
 	desc = "An evergreen bush."
 	anchored = TRUE
-	pixel_x = -16
 	pixel_y = 12
 	icon = 'mojave/icons/flora/trees.dmi'
 	icon_state = "snowshrub_1"
@@ -247,6 +246,7 @@
 
 /obj/structure/flora/ms13/tree
 	name = "tree"
+	plane = OVER_FRILL_PLANE
 	desc = "A large tree."
 	density = TRUE
 	pixel_x = -16

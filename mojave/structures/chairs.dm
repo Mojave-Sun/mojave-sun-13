@@ -3,9 +3,6 @@
 	desc = "Scream at the coders if you see this."
 	icon = 'mojave/icons/structure/chairs.dmi'
 	item_chair = /obj/item/chair/ms13
-	layer = BELOW_OBJ_LAYER
-	pixel_y = 12
-	base_pixel_y = 12
 
 // Metal Chairs //
 
@@ -71,8 +68,6 @@
 	desc = "A bar stool. It's help up against time rather well. Perfect to prop yourself up on after a long day."
 	icon_state = "barstool"
 	item_chair = /obj/item/chair/ms13/metal/stool
-	pixel_y = 8
-	base_pixel_y = 16
 
 // Wood Chairs //
 
@@ -95,8 +90,6 @@
 	desc = "Scream at the coders if you see this."
 	icon = 'mojave/icons/structure/chairs.dmi'
 	color = null
-	pixel_y = 12
-	base_pixel_y = 12
 
 /obj/structure/chair/comfy/ms13/GetArmrest()
 	return mutable_appearance(icon, "(icon_state)_armrest")
@@ -172,8 +165,6 @@
 	name = "base class Mojave sun office chair"
 	desc = "Scream at the coders if you see this."
 	icon = 'mojave/icons/structure/chairs.dmi'
-	pixel_y = 12
-	base_pixel_y = 12
 
 /obj/structure/chair/office/ms13/red
 	name = "office chair"
