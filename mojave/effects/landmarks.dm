@@ -150,4 +150,4 @@
 	name = "Blue ganger"
 
 /obj/effect/landmark/start/ms13/redgang
-	name = "Blue ganger"
+	name = "Red ganger"
