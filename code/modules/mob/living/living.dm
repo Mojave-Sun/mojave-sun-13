@@ -845,7 +845,7 @@
 	for(var/obj/effect/decal/cleanable/trail_holder/TH in start)
 		if((!(newdir in TH.existing_dirs) || trail_type == "trails_1" || trail_type == "trails_2") && TH.existing_dirs.len <= 16) //maximum amount of overlays is 16 (all light & heavy directions filled)
 			TH.existing_dirs += newdir
-			TH.add_overlay(image('icons/effects/blood.dmi', trail_type, dir = newdir))
+			TH.add_overlay(image('mojave/icons/effects/blood.dmi', trail_type, dir = newdir)) //MOJAVE SUN EDIT - Blood Sprites
 			TH.transfer_mob_blood_dna(src)
 
 /mob/living/carbon/human/makeTrail(turf/T)
@@ -866,7 +866,7 @@
 	return bleed_amount
 
 /mob/living/proc/getTrail()
-	if(getBruteLoss() < 300)
+	if(getBruteLoss() < 100) //MOJAVE SUN EDIT - Blood Sprites
 		return pick("ltrails_1", "ltrails_2")
 	else
 		return pick("trails_1", "trails_2")
@@ -1444,7 +1444,7 @@
 
 	// can't spread fire to mobs that don't catch on fire
 	if(HAS_TRAIT(L, TRAIT_NOFIRE_SPREAD) || HAS_TRAIT(src, TRAIT_NOFIRE_SPREAD))
-		return 
+		return
 
 	if(on_fire)
 		if(L.on_fire) // If they were also on fire

@@ -51,7 +51,7 @@
 		if(clothing_flags & LARGE_WORN_ICON)
 			. += mutable_appearance('icons/effects/64x64.dmi', "shoeblood_large")
 		else
-			. += mutable_appearance('icons/effects/blood.dmi', "shoeblood")
+			. += mutable_appearance('mojave/icons/effects/blood.dmi', "shoeblood") //MOJAVE SUN EDIT - Blood Sprites
 
 /obj/item/clothing/shoes/examine(mob/user)
 	. = ..()

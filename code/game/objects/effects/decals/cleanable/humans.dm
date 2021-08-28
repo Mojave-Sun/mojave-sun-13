@@ -1,7 +1,7 @@
 /obj/effect/decal/cleanable/blood
 	name = "blood"
-	desc = "It's red and gooey. Perhaps it's the chef's cooking?"
-	icon = 'icons/effects/blood.dmi'
+	desc = "A pool of blood. Someones going to be missing this." //MOJAVE SUN EDIT - Blood Sprites
+	icon = 'mojave/icons/effects/blood.dmi' //MOJAVE SUN EDIT - Blood Sprites
 	icon_state = "floor1"
 	random_icon_states = list("floor1", "floor2", "floor3", "floor4", "floor5", "floor6", "floor7")
 	blood_state = BLOOD_STATE_HUMAN
@@ -15,6 +15,8 @@
 
 /obj/effect/decal/cleanable/blood/Initialize(mapload)
 	. = ..()
+	pixel_x = rand(-8,8) //MOJAVE SUN EDIT - Blood Sprites
+	pixel_y = rand(-8,8) //MOJAVE SUN EDIT - Blood Sprites
 	if(!should_dry)
 		return
 	if(bloodiness)
@@ -47,7 +49,7 @@
 		name = dryname
 		desc = drydesc
 		bloodiness = 0
-		color =  COLOR_GRAY //not all blood splatters have their own sprites... It still looks pretty nice
+		icon_state = "[icon_state]-old"
 		STOP_PROCESSING(SSobj, src)
 		return TRUE
 
@@ -66,8 +68,11 @@
 	. = ..()
 
 /obj/effect/decal/cleanable/blood/splatter
-	icon_state = "gibbl1"
-	random_icon_states = list("gibbl1", "gibbl2", "gibbl3", "gibbl4", "gibbl5")
+	icon_state = "floor1" //MOJAVE SUN EDIT - Blood Sprites
+	random_icon_states = list("floor1", "floor2", "floor3", "floor4", "floor5", "floor6", "floor7","splatter1","splatter2","splatter3","splatter4","splatter5","splatter6") //MOJAVE SUN EDIT - Blood Sprites
+
+/obj/effect/decal/cleanable/blood/splatter/replace_decal(obj/effect/decal/cleanable/C) //MOJAVE SUN EDIT - Blood Sprites
+	return FALSE
 
 /obj/effect/decal/cleanable/blood/tracks
 	icon_state = "tracks"
@@ -79,7 +84,7 @@
 
 /obj/effect/decal/cleanable/trail_holder //not a child of blood on purpose
 	name = "blood"
-	icon = 'icons/effects/blood.dmi'
+	icon = 'mojave/icons/effects/blood.dmi' //MOJAVE SUN EDIT - Blood Sprites
 	desc = "Your instincts say you shouldn't be following these."
 	beauty = -50
 	var/list/existing_dirs = list()
@@ -199,12 +204,13 @@
 /obj/effect/decal/cleanable/blood/drip/can_bloodcrawl_in()
 	return TRUE
 
+//MOJAVE SUN EDIT START - Bloody Footprints Sprites
 
 //BLOODY FOOTPRINTS
 /obj/effect/decal/cleanable/blood/footprints
 	name = "footprints"
 	desc = "WHOSE FOOTPRINTS ARE THESE?"
-	icon = 'icons/effects/footprints.dmi'
+	icon = 'mojave/icons/effects/blood.dmi'
 	icon_state = "blood1"
 	random_icon_states = null
 	blood_state = BLOOD_STATE_HUMAN //the icon state to load images from
@@ -249,7 +255,6 @@
 
 /obj/effect/decal/cleanable/blood/footprints/update_icon()
 	. = ..()
-	alpha = min(BLOODY_FOOTPRINT_BASE_ALPHA + (255 - BLOODY_FOOTPRINT_BASE_ALPHA) * bloodiness / (BLOOD_ITEM_MAX / 2), 255)
 
 /obj/effect/decal/cleanable/blood/footprints/update_overlays()
 	. = ..()
@@ -295,3 +300,4 @@
 	if((blood_state != BLOOD_STATE_OIL) && (blood_state != BLOOD_STATE_NOT_BLOODY))
 		return TRUE
 	return FALSE
+//MOJAVE SUN EDIT END - Bloody Footprints Sprites

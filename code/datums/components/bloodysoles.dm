@@ -232,7 +232,7 @@
 	wielder = parent
 
 	if(!bloody_feet)
-		bloody_feet = mutable_appearance('icons/effects/blood.dmi', "shoeblood", SHOES_LAYER)
+		bloody_feet = mutable_appearance('mojave/icons/effects/blood.dmi', "shoeblood", SHOES_LAYER) //MOJAVE SUN EDIT - Blood Sprites
 
 	RegisterSignal(parent, COMSIG_COMPONENT_CLEAN_ACT, .proc/on_clean)
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, .proc/on_moved)
