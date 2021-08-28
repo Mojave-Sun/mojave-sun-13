@@ -247,6 +247,7 @@
 
 /obj/structure/flora/ms13/tree
 	name = "tree"
+	plane = OVER_FRILL_PLANE
 	desc = "A large tree."
 	density = TRUE
 	pixel_x = -16

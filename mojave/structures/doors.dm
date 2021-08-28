@@ -3,7 +3,7 @@
 	name = "base state ms13 door"
 	pixel_x = -16
 	pixel_y = -8
-	layer = BELOW_OBJ_LAYER
+	layer = ABOVE_MOB_LAYER
 	density = TRUE
 	assemblytype = null
 	can_crush = FALSE
