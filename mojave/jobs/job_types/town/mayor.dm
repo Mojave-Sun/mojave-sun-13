@@ -21,5 +21,6 @@
 	belt = /obj/item/gun/ballistic/revolver/ms13/derringer
 	r_pocket = /obj/item/ammo_box/ms13/derringer22
 	l_pocket = /obj/item/ammo_box/ms13/derringer22
+
 /datum/outfit/job/ms13/town/mayor/pre_equip(mob/living/carbon/human/H)
 	..()
