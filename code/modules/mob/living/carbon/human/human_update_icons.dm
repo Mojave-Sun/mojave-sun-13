@@ -186,7 +186,7 @@ There are several things that need to be remembered:
 		inv.update_appearance()
 
 	if(!gloves && blood_in_hands && (num_hands > 0) && !(NOBLOODOVERLAY in dna.species.species_traits))
-		var/mutable_appearance/bloody_overlay = mutable_appearance('icons/effects/blood.dmi', "bloodyhands", -GLOVES_LAYER)
+		var/mutable_appearance/bloody_overlay = mutable_appearance('mojave/icons/effects/blood.dmi', "bloodyhands", -GLOVES_LAYER) //MOJAVE SUN EDIT - Blood Sprites
 		if(num_hands < 2)
 			if(has_left_hand(FALSE))
 				bloody_overlay.icon_state = "bloodyhands_left"

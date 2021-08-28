@@ -82,46 +82,33 @@
 	icon = 'mojave/icons/turf/walls/brickgray.dmi'
 	frill_icon = 'mojave/icons/turf/walls/brickgray_frill.dmi'
 
-/turf/closed/wall/r_wall/ms13
-	name = "base class wall"
-	desc = "AHHH FUCK A BASE CLASS WALL"
-	icon_state = "wall-0"
-	base_icon_state = "wall"
-	layer = EDGED_TURF_LAYER
-	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = list(SMOOTH_GROUP_MS13_WALL)
-	canSmoothWith= list(SMOOTH_GROUP_MS13_WALL)
-
-/turf/closed/wall/r_wall/ms13/metal
+/turf/closed/wall/ms13/metal/reinforced
 	name = "reinforced metal wall"
 	desc = ""
 	icon = 'mojave/icons/turf/walls/rmetal.dmi'
 	frill_icon = 'mojave/icons/turf/walls/rmetal_frill.dmi'
 
-/turf/closed/wall/r_wall/ms13/metal/rust
+/turf/closed/wall/ms13/metal/reinforced/rust
 	name = "rusted reinforced metal wall"
 	desc = ""
 	icon = 'mojave/icons/turf/walls/rrustmetal.dmi'
 	frill_icon = 'mojave/icons/turf/walls/rrustmetal_frill.dmi'
 
-/turf/closed/wall/r_wall/ms13/concrete
+/turf/closed/wall/ms13/concrete
 	name = "concrete wall"
 	desc = ""
 	icon = 'mojave/icons/turf/walls/concrete.dmi'
 	frill_icon = 'mojave/icons/turf/walls/concrete_frill.dmi'
 
-/turf/closed/wall/r_wall/ms13/concrete/alt
+/turf/closed/wall/ms13/concrete/alt
 	icon = 'mojave/icons/turf/walls/concretealt.dmi'
 	frill_icon = 'mojave/icons/turf/walls/concretealt_frill.dmi'
 
-/turf/closed/wall/r_wall/ms13/bunker
+/turf/closed/wall/ms13/bunker
 	name = "bunker wall"
 	desc = ""
 	icon = 'mojave/icons/turf/walls/bunker.dmi'
 	frill_icon = 'mojave/icons/turf/walls/bunker_frill.dmi'
-
-/turf/closed/indestructible/ms13
-	layer = EDGED_TURF_LAYER
 
 /turf/closed/indestructible/ms13/metal
 	name = "metal wall"

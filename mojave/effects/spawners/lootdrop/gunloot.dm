@@ -38,10 +38,15 @@
 				/obj/item/gun/ballistic/rifle/ms13/hunting/chinese,
 				/obj/item/ammo_box/ms13/r762,
 				/obj/item/ammo_box/ms13/r762
-	)
+				)
+	var/loot8 = list(
+				/obj/item/gun/energy/ms13/laser/pistol/wattz,
+				"",
+				""
+				)
 
 /obj/effect/spawner/lootdrop/ms13/gun/tier1/Initialize()
-	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7)
+	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8)
 	. = ..()
 
 /obj/effect/spawner/lootdrop/ms13/gun/tier2
@@ -87,9 +92,24 @@
 				/obj/item/ammo_box/ms13/rev357,
 				/obj/item/ammo_box/ms13/rev357
 				)
+	var/loot9 = list(
+				/obj/item/gun/energy/ms13/laser/pistol,
+				"",
+				""
+				)
+	var/loot10 = list(
+				/obj/item/gun/energy/ms13/plasma/pistol,
+				"",
+				""
+				)
+	var/loot11 = list(
+				/obj/item/gun/energy/ms13/laser/rifle/wattz,
+				"",
+				""
+				)
 
 /obj/effect/spawner/lootdrop/ms13/gun/tier2/Initialize()
-	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8)
+	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11)
 	. = ..()
 
 /obj/effect/spawner/lootdrop/ms13/gun/tier3
@@ -155,9 +175,29 @@
 				/obj/item/ammo_box/magazine/ms13/r20,
 				""
 				)
+	var/loot13 = list(
+				/obj/item/gun/energy/ms13/laser/pistol/advanced,
+				"",
+				""
+				)
+	var/loot14 = list(
+				/obj/item/gun/energy/ms13/laser/rifle,
+				"",
+				""
+				)
+	var/loot15 = list(
+				/obj/item/gun/energy/ms13/plasma/pistol/advanced,
+				"",
+				""
+				)
+	var/loot16 = list(
+				/obj/item/gun/energy/ms13/plasma/rifle/carbine,
+				"",
+				""
+				)
 
 /obj/effect/spawner/lootdrop/ms13/gun/tier3/Initialize()
-	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11, loot12)
+	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11, loot12, loot13, loot14, loot15, loot16)
 	. = ..()
 
 /obj/effect/spawner/lootdrop/ms13/gun/tier4
@@ -218,9 +258,49 @@
 				/obj/item/ammo_box/ms13/tube4570,
 				/obj/item/ammo_box/ms13/tube4570
 				)
+	var/loot12 = list(
+				/obj/item/gun/energy/ms13/laser/pistol/advanced/defender,
+				"",
+				""
+				)
+	var/loot13 = list(
+				/obj/item/gun/energy/ms13/laser/rcw,
+				"",
+				""
+				)
+	var/loot14 = list(
+				/obj/item/gun/energy/ms13/laser/rifle/wattz/sniper,
+				"",
+				""
+				)
+	var/loot15 = list(
+				/obj/item/gun/energy/ms13/laser/rifle/advanced,
+				"",
+				""
+				)
+	var/loot16 = list(
+				/obj/item/gun/energy/ms13/laser/scatter,
+				"",
+				""
+				)
+	var/loot17 = list(
+				/obj/item/gun/energy/ms13/plasma/pistol/defender,
+				"",
+				""
+				)
+	var/loot18 = list(
+				/obj/item/gun/energy/ms13/plasma/rifle,
+				"",
+				""
+				)
+	var/loot19 = list(
+				/obj/item/gun/energy/ms13/plasma/multi,
+				"",
+				""
+				)
 
 /obj/effect/spawner/lootdrop/ms13/gun/tier4/Initialize()
-	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11)
+	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11, loot12, loot13, loot14, loot15, loot16, loot17, loot18, loot19)
 	. = ..()
 
 /obj/effect/spawner/lootdrop/ms13/gun/lowunique

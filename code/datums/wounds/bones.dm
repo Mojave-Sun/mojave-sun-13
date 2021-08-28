@@ -127,18 +127,21 @@
 		switch(blood_bled)
 			if(1 to 6)
 				victim.bleed(blood_bled, TRUE)
+				victim.add_splatter_floor(get_step(victim.loc, victim.dir)) //MOJAVE SUN EDIT - Blood Sprites
 			if(7 to 13)
 				victim.visible_message("<span class='smalldanger'>[victim] coughs up a bit of blood from the blow to [victim.p_their()] chest.</span>", span_danger("You cough up a bit of blood from the blow to your chest."), vision_distance=COMBAT_MESSAGE_RANGE)
 				victim.bleed(blood_bled, TRUE)
+				victim.add_splatter_floor(get_step(victim.loc, victim.dir)) //MOJAVE SUN EDIT - Blood Sprites
 			if(14 to 19)
 				victim.visible_message("<span class='smalldanger'>[victim] spits out a string of blood from the blow to [victim.p_their()] chest!</span>", span_danger("You spit out a string of blood from the blow to your chest!"), vision_distance=COMBAT_MESSAGE_RANGE)
 				new /obj/effect/temp_visual/dir_setting/bloodsplatter(victim.loc, victim.dir)
 				victim.bleed(blood_bled)
+				victim.add_splatter_floor(get_step(victim.loc, victim.dir), null) //MOJAVE SUN EDIT - Blood Sprites
 			if(20 to INFINITY)
 				victim.visible_message(span_danger("[victim] chokes up a spray of blood from the blow to [victim.p_their()] chest!"), span_danger("<b>You choke up on a spray of blood from the blow to your chest!</b>"), vision_distance=COMBAT_MESSAGE_RANGE)
 				victim.bleed(blood_bled)
 				new /obj/effect/temp_visual/dir_setting/bloodsplatter(victim.loc, victim.dir)
-				victim.add_splatter_floor(get_step(victim.loc, victim.dir))
+				victim.add_splatter_floor(get_step(victim.loc, victim.dir), null) //MOJAVE SUN EDIT - Blood Sprites
 
 
 /datum/wound/blunt/get_examine_description(mob/user)

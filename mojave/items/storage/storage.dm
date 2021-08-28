@@ -16,8 +16,8 @@
 
 /obj/item/storage/firstaid/ms13/regular/PopulateContents()
 	new /obj/item/stack/medical/gauze/ms13/half(src)
-	new /obj/item/stack/medical/suture/ms13/half(src)
-	new /obj/item/stack/medical/ointment/ms13/cream(src)
+	new /obj/item/stack/medical/suture/ms13/four(src)
+	new /obj/item/stack/medical/ointment/ms13/cream/half(src)
 
 /obj/item/storage/firstaid/ms13/quality
 	desc = "A first aid kit, usually filled with supplies to administer quick assistance to any wounds. It's got a small label under the handle, 'United States Army'."
@@ -25,7 +25,7 @@
 /obj/item/storage/firstaid/ms13/quality/PopulateContents()
 	new /obj/item/stack/medical/gauze/ms13/military(src)
 	new /obj/item/stack/medical/suture/ms13(src)
-	new /obj/item/stack/medical/ointment/ms13/(src)
+	new /obj/item/stack/medical/ointment/ms13(src)
 	new /obj/item/reagent_containers/hypospray/medipen/ms13/stimpak(src)
 	new /obj/item/scalpel(src)
 
@@ -42,7 +42,7 @@
 	new /obj/item/hemostat(src)
 	new /obj/item/lighter(src)
 	new /obj/item/stack/medical/gauze/ms13/half(src)
-	new /obj/item/stack/medical/suture/ms13(src)
+	new /obj/item/stack/medical/suture/ms13/four(src)
 
 // Lollipop jar
 
