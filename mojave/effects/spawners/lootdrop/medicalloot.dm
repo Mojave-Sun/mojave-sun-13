@@ -7,17 +7,19 @@
 	name = "tier 1 medical spawner"
 
 	loot = list(
-			/obj/item/stack/medical/suture/ms13/half,
-			/obj/item/stack/medical/gauze/ms13/half
+			/obj/item/stack/medical/suture/ms13/four,
+			/obj/item/stack/medical/gauze/ms13/half,
+			/obj/item/stack/medical/ointment/ms13/cream/half,
+			/obj/item/stack/medical/ointment/ms13/aloe
 			)
 
 /obj/effect/spawner/lootdrop/ms13/medical/tier2
 	name = "tier 2 medical spawner"
 
 	loot = list(
-			/obj/item/stack/medical/suture/ms13,
+			/obj/item/stack/medical/suture/ms13/eight,
 			/obj/item/stack/medical/ointment/ms13/cream,
-			/obj/item/stack/medical/gauze/ms13
+			/obj/item/stack/medical/gauze/ms13,
 			)
 
 /obj/effect/spawner/lootdrop/ms13/medical/tier3
@@ -26,7 +28,8 @@
 	loot = list(
 			/obj/item/stack/medical/gauze/ms13/military,
 			/obj/item/stack/medical/ointment/ms13,
-			/obj/item/reagent_containers/hypospray/medipen/ms13/stimpak
+			/obj/item/reagent_containers/hypospray/medipen/ms13/stimpak,
+			/obj/item/stack/medical/suture/ms13
 			)
 
 /obj/effect/spawner/lootdrop/ms13/medical/lowrandom
@@ -34,8 +37,8 @@
 	lootcount = 1
 
 	loot = list(
-			/obj/effect/spawner/lootdrop/ms13/medical/tier1 = 65,
-			/obj/effect/spawner/lootdrop/ms13/medical/tier2 = 35
+			/obj/effect/spawner/lootdrop/ms13/medical/tier1 = 70,
+			/obj/effect/spawner/lootdrop/ms13/medical/tier2 = 30
 			)
 
 /obj/effect/spawner/lootdrop/ms13/medical/highrandom

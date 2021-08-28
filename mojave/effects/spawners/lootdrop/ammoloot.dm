@@ -13,7 +13,8 @@
 			/obj/item/ammo_box/ms13/rev10mm,
 			/obj/item/ammo_box/magazine/ms13/m10mm,
 			/obj/item/ammo_box/ms13/cpistol,
-			/obj/item/ammo_box/ms13/r762
+			/obj/item/ammo_box/ms13/r762,
+			/obj/item/stock_parts/cell/ms13/ec
 			)
 
 /obj/effect/spawner/lootdrop/ms13/ammo/tier2
@@ -26,7 +27,10 @@
 			/obj/item/ammo_box/magazine/ms13/m45,
 			/obj/item/ammo_box/magazine/ms13/r20,
 			/obj/item/ammo_box/magazine/ms13/r308,
-			/obj/item/ammo_box/ms13/r762
+			/obj/item/ammo_box/ms13/r762,
+			/obj/item/stock_parts/cell/ms13/ec,
+			/obj/item/stock_parts/cell/ms13/pc,
+			/obj/item/stock_parts/cell/ms13/mfc
 			)
 
 /obj/effect/spawner/lootdrop/ms13/ammo/tier3
@@ -43,7 +47,9 @@
 			/obj/item/ammo_box/ms13/r762,
 			/obj/item/ammo_box/ms13/tube44,
 			/obj/item/ammo_box/magazine/ms13/smgm10mm,
-			/obj/item/ammo_box/magazine/ms13/ar762
+			/obj/item/ammo_box/magazine/ms13/ar762,
+			/obj/item/stock_parts/cell/ms13/pc,
+			/obj/item/stock_parts/cell/ms13/mfc
 			)
 
 /obj/effect/spawner/lootdrop/ms13/ammo/tier4
@@ -60,7 +66,10 @@
 			/obj/item/ammo_box/magazine/ms13/r308_10,
 			/obj/item/ammo_box/magazine/ms13/deagle,
 			/obj/item/ammo_box/magazine/ms13/m12mm,
-			/obj/item/ammo_box/magazine/ms13/ar762
+			/obj/item/ammo_box/magazine/ms13/ar762,
+			/obj/item/stock_parts/cell/ms13/pc,
+			/obj/item/stock_parts/cell/ms13/mfc,
+			/obj/item/stock_parts/cell/ms13/ecp
 			)
 
 /obj/effect/spawner/lootdrop/ms13/ammo/lowrandom

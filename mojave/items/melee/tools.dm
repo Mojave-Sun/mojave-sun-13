@@ -70,7 +70,7 @@
 	inhand_icon_state = "shovel_snow"
 	force = 20
 	armour_penetration = 10
-	wound_bonus = 10
+	wound_bonus = 5
 	throwforce = 10
 	toolspeed = 0.5
 
