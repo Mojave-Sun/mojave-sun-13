@@ -3,7 +3,7 @@
 	total_positions = 100
 	spawn_positions = 100
 	supervisors = "High bluepand"
-	desbluetion = "Blast those red suckas away! This is YOUR turf!"
+	description = "Blast those red suckas away! This is YOUR turf!"
 
 	outfit = /datum/outfit/job/ms13/combattest/blue
 
