@@ -1,5 +1,7 @@
 /datum/job/ms13/legion
 	selection_color = "#9c0000"
+	exp_granted_type = EXP_TYPE_LEGION
+	exp_required_type = EXP_TYPE_LEGION
 	forbid = "Caesar's Legion forbids: chem usage, over-reliance on technology of all forms."
 
 /datum/outfit/job/ms13/legion

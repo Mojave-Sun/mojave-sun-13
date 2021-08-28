@@ -1,6 +1,7 @@
 /datum/job/ms13/ncr
 	selection_color = "#cfd1ba"
-	exp_type = EXP_TYPE_NCR
+	exp_granted_type = EXP_TYPE_NCR
+	exp_required_type = EXP_TYPE_NCR
 	forbid = "The NCR forbids: Recreational drugs(barring med-X), Drinking or Gambling on duty,, disobeying lawful orders and desertion. CO determines who is off-duty."
 	enforce = "The NCR expects: Obeying the lawful orders of superiors. Proper treatment of prisoners.  Good conduct within the Republics laws. Wearing the uniform. Radiomen found to be abusing their radio will be delimbed and then shot."
 

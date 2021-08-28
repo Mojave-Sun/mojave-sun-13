@@ -20,7 +20,7 @@
 	uniform = /obj/item/clothing/under/ms13/legion/fatigues/redpadded
 	shoes = /obj/item/clothing/shoes/ms13/military/legion/darkboots
 	suit = /obj/item/clothing/suit/armor/ms13/legion/centurion
-	suit_store = /obj/item/gun/ballistic/automatic/ms13/smg10mm
+	suit_store = /obj/item/gun/ballistic/automatic/ms13/full/smg10mm
 	r_pocket = /obj/item/ammo_box/magazine/ms13/smgm10mm
 
 /datum/outfit/job/ms13/legion/centurion/pre_equip(mob/living/carbon/human/H)

@@ -15,7 +15,7 @@
 	name = "_Raider Enforcer"
 	jobtype = /datum/job/ms13/raiders/enforcer
 
-	head = 		/obj/item/clothing/head/helmet/ms13/combat/reinforced
+	head = 		/obj/item/clothing/head/helmet/ms13/bladed
 	id = 		/obj/item/card/id/ms13/enforcer
 	suit = 		/obj/item/clothing/suit/ms13/trench/enforcercoat
 	uniform =	/obj/item/clothing/under/ms13/wasteland/mercc

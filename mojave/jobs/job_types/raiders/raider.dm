@@ -21,10 +21,8 @@
 /datum/outfit/job/ms13/raiders/raider/pre_equip(mob/living/carbon/human/H)
 	..()
 
-	head = pick(/obj/item/clothing/head/ms13/hood/sack,\
-		/obj/item/clothing/head/ms13/hood/sack/banded,\
+	head = pick(/obj/item/clothing/head/ms13/hood/banded,\
 		/obj/item/clothing/head/ms13/hood/sack/metal,\
-		/obj/item/clothing/head/ms13/hood/sack/banded,\
 		/obj/item/clothing/head/helmet/ms13/junk,\
 		/obj/item/clothing/head/ms13/hood/hunter,\
 		/obj/item/clothing/head/helmet/ms13/ushanka/blue)
@@ -35,10 +33,8 @@
 		/obj/item/clothing/under/ms13/wasteland/peasant)
 
 	suit = pick(
-		/obj/item/clothing/suit/ms13/vest/raider/plated,\
-		/obj/item/clothing/suit/ms13/vest/raider/kevlar,\
-		/obj/item/clothing/suit/ms13/vest/raider/scrappy,\
-		/obj/item/clothing/suit/ms13/vest/raider)
+		/obj/item/clothing/suit/ms13/raider/plated,\
+		/obj/item/clothing/suit/ms13/raider/kevlar)
 
 	back = pick(
 		/obj/item/storage/backpack/satchel/leather,\

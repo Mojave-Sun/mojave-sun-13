@@ -13,7 +13,7 @@
 	name = "_Legion Recruit Decanus"
 	jobtype = /datum/job/ms13/legion/recruitdecanus
 
-	head = /obj/item/clothing/head/helmet/ms13/legion/decanus/recruit
+	head = /obj/item/clothing/head/helmet/ms13/legion/decanus
 	glasses = /obj/item/clothing/glasses/sunglasses/big
 	back = /obj/item/storage/backpack/satchel/leather
 	uniform = /obj/item/clothing/under/ms13/legion/fatigues/brownpadded
@@ -21,7 +21,7 @@
 	suit = /obj/item/clothing/suit/armor/ms13/legion/recruit
 	gloves = /obj/item/clothing/gloves/ms13/legion/tanwraps
 	mask = /obj/item/clothing/mask/ms13/legion/clothmask
-	suit_store = /obj/item/gun/ballistic/automatic/ms13/smg9mm
+	suit_store = /obj/item/gun/ballistic/automatic/ms13/full/smg9mm
 	l_pocket = /obj/item/ammo_box/magazine/ms13/smgm9mm
 
 /datum/outfit/job/ms13/legion/recruitdecanus/pre_equip(mob/living/carbon/human/H)

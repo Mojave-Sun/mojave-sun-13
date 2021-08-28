@@ -16,7 +16,7 @@
 	jobtype = /datum/job/ms13/town/deputy
 
 	id = 		 /obj/item/card/id/ms13/deputy
-	head =		 /obj/item/clothing/head/helmet/ms13/utilitycap/deputy
+	head =		 /obj/item/clothing/head/helmet/ms13/deputy
 	mask =		 /obj/item/clothing/mask/ms13/facewrap/halfwrap
 	suit =       /obj/item/clothing/suit/armor/ms13/vest/vault
 	uniform =    /obj/item/clothing/under/ms13/vaultsuit

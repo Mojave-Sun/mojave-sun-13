@@ -20,19 +20,17 @@
 	if(prob(50))
 		head = pick(
 		/obj/item/clothing/head/helmet/ms13/cowboy/black,\
-		/obj/item/clothing/head/helmet/ms13/utilitycap,\
 		/obj/item/clothing/head/soft/ms13/baseball,\
 		/obj/item/clothing/head/ms13/hood/cowl,\
 		/obj/item/clothing/head/ms13/hood/sack,\
-		/obj/item/clothing/head/ms13/hood/hood,\
-		/obj/item/clothing/head/ms13/hood/hunter,\
+		/obj/item/clothing/head/ms13/hood/green,\
 		/obj/item/clothing/head/helmet/ms13/fedora,\
 		/obj/item/clothing/head/helmet/ms13/hardhat,\
 		/obj/item/clothing/head/helmet/ms13/skull/muffalo,\
-		/obj/item/clothing/head/helmet/ms13/skull/radstag,\
+		/obj/item/clothing/head/helmet/ms13/skull,\
 		/obj/item/clothing/head/helmet/ms13/fedora,\
 		/obj/item/clothing/head/helmet/ms13/fedora/brown,\
-		/obj/item/clothing/head/helmet/ms13/fedora/treasure,\
+		/obj/item/clothing/head/helmet/ms13/fedora/,\
 		/obj/item/clothing/head/helmet/ms13/bowler,\
 		/obj/item/clothing/head/helmet/ms13/cowboy,\
 		/obj/item/clothing/head/helmet/ms13/prospector,\
@@ -115,31 +113,29 @@
 		/obj/item/clothing/under/ms13/wasteland/prewar/spring)
 	if(prob(50))
 		suit = pick(
-			/obj/item/clothing/suit/ms13/vest/cowboy,\
-			/obj/item/clothing/suit/ms13/vest/grey,\
+			/obj/item/clothing/suit/ms13/vest/brown,\
+			/obj/item/clothing/suit/ms13/vest/black,\
 			/obj/item/clothing/suit/ms13/vest,\
 			/obj/item/clothing/suit/ms13/shawl,\
-			/obj/item/clothing/suit/labcoat/ms13/ljacket/orange,\
-			/obj/item/clothing/suit/labcoat/ms13/ljacket/brown,\
+			/obj/item/clothing/suit/toggle/ms13/wjacket/orange,\
+			/obj/item/clothing/suit/toggle/ms13/wjacket/brown,\
 			/obj/item/clothing/suit/armor/ms13/kit,\
-			/obj/item/clothing/suit/labcoat/ms13/ljacket/blue,\
-			/obj/item/clothing/suit/labcoat/ms13/ljacket/black,\
-			/obj/item/clothing/suit/toggle/labcoat/ms13/wintercoat,\
-			/obj/item/clothing/suit/toggle/labcoat/ms13/wintercoat/grey,\
+			/obj/item/clothing/suit/toggle/ms13/wjacket/blue,\
+			/obj/item/clothing/suit/toggle/ms13/wjacket/black,\
 			/obj/item/clothing/suit/ms13/ljacket/moleskin,\
 			/obj/item/clothing/suit/ms13/ljacket/wanderer,\
 			/obj/item/clothing/suit/ms13/ljacket/military,\
 			/obj/item/clothing/suit/ms13/ljacket/musty,\
 			/obj/item/clothing/suit/ms13/ljacket/biker,\
 			/obj/item/clothing/suit/ms13/ljacket/bomber,\
-			/obj/item/clothing/suit/ms13/trench/bum,\
+			/obj/item/clothing/suit/ms13/trench/brown,\
 			/obj/item/clothing/suit/ms13/trench,\
 			/obj/item/clothing/suit/ms13/trench/detective,\
 			/obj/item/clothing/suit/ms13/trench/black,\
 			/obj/item/clothing/suit/armor/ms13/leatherarmor)
 	r_hand = pick(
-		/obj/item/claymore/ms13/machete/pipe,\
-		/obj/item/claymore/ms13/machete/pipe/tireiron)
+		/obj/item/claymore/ms13/pipe/tireiron,\
+		/obj/item/claymore/ms13/pipe)
 	shoes = pick(
         /obj/item/clothing/shoes/ms13/tan,\
 		/obj/item/clothing/shoes/winterboots,\

@@ -233,6 +233,12 @@
 	inhand_icon_state = "duster"
 	armor = list(melee = 30, bullet = 25, laser = 20, energy = 10, bomb = 15, bio = 10, rad = 10, fire = 10, acid = 10, wound = 0)
 
+/obj/item/clothing/suit/ms13/trench/courier
+	name = "boss' coat"
+	desc = "A thick overcoat, with the arms left exposed. Worn by the biggest and baddest."
+	icon_state = "courier"
+	inhand_icon_state = "duster"
+
 /obj/item/clothing/suit/ms13/trench/detective
 	name = "detective's trenchcoat"
 	desc = "A trenchcoat normally worn by pre-war detectives."
