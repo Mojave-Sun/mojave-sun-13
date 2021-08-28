@@ -166,8 +166,6 @@
 	name = "base class Mojave sun office chair"
 	desc = "Scream at the coders if you see this."
 	icon = 'mojave/icons/structure/chairs.dmi'
-	pixel_y = 12
-	base_pixel_y = 12
 
 /obj/structure/chair/office/ms13/red
 	name = "office chair"
