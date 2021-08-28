@@ -182,7 +182,7 @@
 	inhand_icon_state = "welding"
 	armor = list(melee = 20, bullet = 15, laser = 10, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5, wound = 0)
 
-/obj/item/clothing/head/helmet/riot/ms13
+/obj/item/clothing/head/helmet/ms13/riot
 	name = "police riot helmet"
 	desc = "A pre-war police riot helmet with ballistic fiber padding."
 	icon_state = "riot"
@@ -651,8 +651,8 @@
 /obj/item/clothing/head/helmet/ms13/ncr/medic
 	name = "\improper NCR medic helmet"
 	desc = "A specially marked helmet used by medics of the NCR."
-	icon_state = "ncr_infantry_helmet"
-	inhand_icon_state = "ncr_infantry_helmet"
+	icon_state = "ncr_medic_helmet"
+	inhand_icon_state = "ncr_medic_helmet"
 	armor = list("melee" = 35, "bullet" = 30, "laser" = 15, "energy" = 10, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 20, "acid" = 10, "wound" = 0)
 	flags_cover = NONE
 

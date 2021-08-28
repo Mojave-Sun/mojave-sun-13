@@ -141,7 +141,7 @@
 				""
 				)
 	var/loot7 = list(
-				/obj/item/clothing/head/helmet/riot/ms13,
+				/obj/item/clothing/head/helmet/ms13/riot,
 				""
 				)
 	var/loot8 = list(
