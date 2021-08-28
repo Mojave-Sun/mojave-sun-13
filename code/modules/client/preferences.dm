@@ -298,11 +298,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_BODY_ANTAG]'>When Antagonist: [(randomise[RANDOM_BODY_ANTAG]) ? "Yes" : "No"]</A><br>"
 
 			dat += "<table width='100%'><tr><td width='24%' valign='top'>"
-
+			/*//MOJAVE SUN EDIT END - De-Furrying
 			dat += "<b>Species:</b><BR><a href='?_src_=prefs;preference=species;task=input'>[pref_species.name]</a><BR>"
 			dat += "<a href='?_src_=prefs;preference=species;task=random'>Random Species</A> "
 			dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_SPECIES]'>Always Random Species: [(randomise[RANDOM_SPECIES]) ? "Yes" : "No"]</A><br>"
-
+			*///MOJAVE SUN EDIT END - De-Furrying
 			dat += "<b>Underwear:</b><BR><a href ='?_src_=prefs;preference=underwear;task=input'>[underwear]</a>"
 			dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_UNDERWEAR]'>[(randomise[RANDOM_UNDERWEAR]) ? "Lock" : "Unlock"]</A>"
 
@@ -1437,7 +1437,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						eye_color = sanitize_hexcolor(eyetone2hex(new_eyes))
 
 				//MOJAVE SUN EDIT END - Hair/Gendered/Colours
-
+				/*/MOJAVE SUN EDIT START - De-Furrying
 				if("species")
 
 					var/result = input(user, "Select a species", "Species Selection") as null|anything in GLOB.roundstart_races
@@ -1451,7 +1451,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 							features["mcolor"] = pref_species.default_color
 						if(randomise[RANDOM_NAME])
 							real_name = pref_species.random_name(gender)
-
+				*///MOJAVE SUN EDIT END - De-Furrying
 				if("mutant_color")
 					var/new_mutantcolor = input(user, "Choose your character's alien/mutant color:", "Character Preference","#"+features["mcolor"]) as color|null
 					if(new_mutantcolor)
