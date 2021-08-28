@@ -676,6 +676,11 @@ SUBSYSTEM_DEF(ticker)
 	update_everything_flag_in_db()
 	if(!round_end_sound)
 		round_end_sound = pick(\
+		'mojave/sound/ms13roundend/9yearsindevelopment.ogg',
+		'mojave/sound/ms13roundend/mynameisjoe.ogg',
+		'mojave/sound/ms13roundend/welcometomojavesun.ogg'\
+		)
+		/* MOJAVE EDIT CHANGE
 		'sound/roundend/newroundsexy.ogg',
 		'sound/roundend/apcdestroyed.ogg',
 		'sound/roundend/bangindonk.ogg',
@@ -685,8 +690,9 @@ SUBSYSTEM_DEF(ticker)
 		'sound/roundend/disappointed.ogg',
 		'sound/roundend/scrunglartiy.ogg',
 		'sound/roundend/petersondisappointed.ogg',
-		'sound/roundend/bully2.ogg'\
-		)
+		'sound/roundend/bully2.ogg'
+		*/
+
 	///The reference to the end of round sound that we have chosen.
 	var/sound/end_of_round_sound_ref = sound(round_end_sound)
 	for(var/mob/M in GLOB.player_list)
