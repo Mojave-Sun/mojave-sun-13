@@ -290,9 +290,15 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	for(var/i in 1 to mymob.held_items.len)
 		hand_box = new /atom/movable/screen/inventory/hand()
 		hand_box.name = mymob.get_held_index_name(i)
-		hand_box.icon = ui_style
+		//hand_box.icon = ui_style
+		hand_box.icon = 'mojave/icons/hud/ms_ui_slots_hands.dmi'
 		hand_box.icon_state = "hand_[mymob.held_index_to_dir(i)]"
-		hand_box.screen_loc = ui_hand_position(i)
+		// MOJAVE EDIT
+		if(i == 1)
+			hand_box.screen_loc = "CENTER:-44,SOUTH"
+		else
+			hand_box.screen_loc = "CENTER:2,SOUTH"
+		//hand_box.screen_loc = ui_hand_position(i)
 		hand_box.held_index = i
 		hand_slots["[i]"] = hand_box
 		hand_box.hud = src
