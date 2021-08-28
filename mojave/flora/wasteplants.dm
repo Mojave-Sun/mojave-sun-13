@@ -1,5 +1,8 @@
 //Mojave Sun general flora directory
 
+/obj/structure/flora/ms13
+	layer = ABOVE_OBJ_LAYER
+
 //Ash Flora Type Plants but MS13 FORAGE EDITION
 
 /obj/structure/flora/ms13/forage
