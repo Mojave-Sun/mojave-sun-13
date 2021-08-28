@@ -11,6 +11,7 @@
 	outdoors = TRUE
 	has_gravity = STANDARD_GRAVITY
 	static_lighting = FALSE
+	area_has_base_lighting = TRUE
 	base_lighting_color = COLOR_WHITE
 	base_lighting_alpha = 255
 	ambientsounds = list('mojave/sound/ms13ambience/general/wasteland.ogg')
@@ -71,7 +72,6 @@
 /area/ms13/underground
 	requires_power = FALSE
 	outdoors = FALSE
-	static_lighting = TRUE
 
 /area/ms13/underground/mountain
 	name = "mountain"
@@ -240,4 +240,3 @@
 	name = "combat arena tunnel"
 	icon_state = "combatarena_tunnels"
 	outdoors = FALSE
-	static_lighting = TRUE
