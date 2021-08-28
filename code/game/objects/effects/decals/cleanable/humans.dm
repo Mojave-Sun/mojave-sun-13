@@ -75,12 +75,12 @@
 	return FALSE
 
 /obj/effect/decal/cleanable/blood/tracks
-	icon_state = "tracks"
-	desc = "They look like tracks left by wheels."
-	random_icon_states = null
+	icon_state = "trails_1" //MOJAVE SUN EDIT - Blood Sprites
+	desc = "They look like tracks left by something dragged." //MOJAVE SUN EDIT - Blood Sprites
+	random_icon_states = list("trails_1", "trails_2")
 	beauty = -50
 	dryname = "dried tracks"
-	drydesc = "Some old bloody tracks left by wheels. Machines are evil, perhaps."
+	drydesc = "Some old bloody tracks left by something being dragged, something bad happened here." //MOJAVE SUN EDIT - Blood Sprites
 
 /obj/effect/decal/cleanable/trail_holder //not a child of blood on purpose
 	name = "blood"
