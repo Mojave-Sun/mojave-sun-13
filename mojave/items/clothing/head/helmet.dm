@@ -182,12 +182,11 @@
 	inhand_icon_state = "welding"
 	armor = list(melee = 20, bullet = 15, laser = 10, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5, wound = 0)
 
-/obj/item/clothing/head/helmet/riot/ms13
+/obj/item/clothing/head/helmet/ms13/riot
 	name = "police riot helmet"
 	desc = "A pre-war police riot helmet with ballistic fiber padding."
 	icon_state = "riot"
 	inhand_icon_state = "helmet"
-	strip_delay = 60
 	armor = list("melee" = 30, "bullet" = 50, "laser" = 20, "energy" = 20, "bomb" = 30, "bio" = 20, "rad" = 20, "fire" = 30, "acid" = 20, "wound" = 5)
 
 /obj/item/clothing/head/helmet/riot/ms13/vault
@@ -265,7 +264,7 @@
 	name = "reinforced sack hood"
 	desc = "A sack hood reinforced with metal and crude spikes. Looks quite intimidating... for a sack."
 	icon_state = "sackmetal"
-	armor = list("melee" = 35, "bullet" = 30, "laser" = 0, "energy" = 15, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10, "wound" = 0)
+	armor = list("melee" = 40, "bullet" = 30, "laser" = 0, "energy" = 15, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10, "wound" = 0)
 
 /obj/item/clothing/head/ms13/hood/tactical
 	name = "tactical stealth hood"
@@ -347,7 +346,7 @@
 	inhand_icon_state = "sheriffhat"
 	armor = list(melee = 20, bullet = 15, laser = 10, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5, wound = 0)
 
-/obj/item/clothing/head/helmet/ms13/millitia
+/obj/item/clothing/head/helmet/ms13/militia
 	name = "militia hat"
 	desc = "A sturdy leather wide-brimmed militia hat, the common garb of free men."
 	icon_state = "militia"
@@ -389,13 +388,12 @@
 
 // Caps //
 
-/obj/item/clothing/head/soft/ms13/baseball
+/obj/item/clothing/head/helmet/ms13/baseball
 	name = "baseball cap"
 	desc = "A classic baseball cap. A relic from pre-nuclear America."
 	icon_state = "baseball"
-	inhand_icon_state = "baseball"
+	inhand_icon_state = "fedora"
 	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5, wound = 0)
-	soft_type = "baseball"
 
 /obj/item/clothing/head/helmet/ms13/deputy
 	name = "deputy's cap"
@@ -651,8 +649,8 @@
 /obj/item/clothing/head/helmet/ms13/ncr/medic
 	name = "\improper NCR medic helmet"
 	desc = "A specially marked helmet used by medics of the NCR."
-	icon_state = "ncr_infantry_helmet"
-	inhand_icon_state = "ncr_infantry_helmet"
+	icon_state = "ncr_medic_helmet"
+	inhand_icon_state = "ncr_medic_helmet"
 	armor = list("melee" = 35, "bullet" = 30, "laser" = 15, "energy" = 10, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 20, "acid" = 10, "wound" = 0)
 	flags_cover = NONE
 

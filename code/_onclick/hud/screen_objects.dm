@@ -212,7 +212,11 @@
 				. += blocked_overlay
 
 	if(held_index == hud.mymob.active_hand_index)
-		. += "hand_active"
+		//MOJAVE EDIT - . += "hand_active"
+		if(hud.mymob.active_hand_index == 1)
+			. += "hand_r_on"
+		else
+			. += "hand_l_on"
 
 
 /atom/movable/screen/inventory/hand/Click(location, control, params)
@@ -474,7 +478,8 @@
 	name = "damage zone"
 	icon_state = "zone_sel"
 	screen_loc = ui_zonesel
-	var/overlay_icon = 'icons/hud/screen_gen.dmi'
+	//var/overlay_icon = 'icons/hud/screen_gen.dmi'
+	var/overlay_icon = 'mojave/icons/hud/ms_ui_target.dmi'
 	var/static/list/hover_overlays_cache = list()
 	var/hovering
 
@@ -517,7 +522,8 @@
 	vis_contents += overlay_object
 
 /obj/effect/overlay/zone_sel
-	icon = 'icons/hud/screen_gen.dmi'
+	//icon = 'icons/hud/screen_gen.dmi'
+	icon = 'mojave/icons/hud/ms_ui_target.dmi'
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	alpha = 128
 	anchored = TRUE
@@ -528,6 +534,7 @@
 		vis_contents -= hover_overlays_cache[hovering]
 		hovering = null
 
+/* MOJAVE EDIT
 /atom/movable/screen/zone_sel/proc/get_zone_at(icon_x, icon_y)
 	switch(icon_y)
 		if(1 to 9) //Legs
@@ -563,6 +570,45 @@
 							return BODY_ZONE_PRECISE_EYES
 					if(25 to 27)
 						if(icon_x in 15 to 17)
+							return BODY_ZONE_PRECISE_EYES
+				return BODY_ZONE_HEAD
+*/
+
+/atom/movable/screen/zone_sel/proc/get_zone_at(icon_x, icon_y)
+	switch(icon_y)
+		if(15 to 42) //Legs
+			switch(icon_x)
+				if(37 to 48)
+					return BODY_ZONE_R_LEG
+				if(50 to 60)
+					return BODY_ZONE_L_LEG
+		if(43 to 47) //Hands and groin
+			switch(icon_x)
+				if(36 to 39)
+					return BODY_ZONE_R_ARM
+				if(42 to 55)
+					return BODY_ZONE_PRECISE_GROIN
+				if(59 to 62)
+					return BODY_ZONE_L_ARM
+		if(48 to 68) //Chest and arms to shoulders
+			switch(icon_x)
+				if(36 to 41)
+					return BODY_ZONE_R_ARM
+				if(42 to 55)
+					return BODY_ZONE_CHEST
+				if(56 to 62)
+					return BODY_ZONE_L_ARM
+		if(69 to 78) //Head, but we need to check for eye or mouth
+			if(icon_x in 46 to 52)
+				switch(icon_y)
+					if(72 to 73)
+						if(icon_x in 47 to 51)
+							return BODY_ZONE_PRECISE_MOUTH
+					if(74 to 75) //Eyeline, eyes are on 15 and 17
+						if(icon_x in 47 to 48)
+							return BODY_ZONE_PRECISE_EYES
+					if(74 to 75)
+						if(icon_x in 50 to 51)
 							return BODY_ZONE_PRECISE_EYES
 				return BODY_ZONE_HEAD
 

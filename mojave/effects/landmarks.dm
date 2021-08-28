@@ -144,4 +144,10 @@
 /obj/effect/landmark/start/ms13/ranger_doctor
 	name = "Ranger Doctor"
 
+// Combat Test Spawns //
 
+/obj/effect/landmark/start/ms13/bluegang
+	name = "Blue ganger"
+
+/obj/effect/landmark/start/ms13/redgang
+	name = "Red ganger"

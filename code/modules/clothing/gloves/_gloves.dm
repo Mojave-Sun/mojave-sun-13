@@ -34,7 +34,7 @@
 	if(damaged_clothes)
 		. += mutable_appearance('icons/effects/item_damage.dmi', "damagedgloves")
 	if(HAS_BLOOD_DNA(src))
-		. += mutable_appearance('icons/effects/blood.dmi', "bloodyhands")
+		. += mutable_appearance('mojave/icons/effects/blood.dmi', "bloodyhands") //MOJAVE SUN EDIT - Blood Sprites
 
 /obj/item/clothing/gloves/update_clothes_damaged_state(damaged_state = CLOTHING_DAMAGED)
 	..()

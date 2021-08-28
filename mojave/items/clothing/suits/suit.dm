@@ -85,7 +85,7 @@
 
 /obj/item/clothing/suit/ms13/veteran_coat/reinf
 	name = "reinforced veteran coat"
-	desc = "A blue padded coat with additional leather and crude metal reinforcements, as well as some ballistic weave. Common attire for hardened, dangeorus mercenaries."
+	desc = "A blue padded coat with additional leather and crude metal reinforcements, as well as some ballistic weave. Common attire for hardened, dangerous mercenaries."
 	icon_state = "reinf_veteran_coat"
 	armor = list("melee" = 20, "bullet" = 35, "laser" = 15, "energy" = 10, "bomb" = 20, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10, "wound" = 0)
 
@@ -233,6 +233,12 @@
 	inhand_icon_state = "duster"
 	armor = list(melee = 30, bullet = 25, laser = 20, energy = 10, bomb = 15, bio = 10, rad = 10, fire = 10, acid = 10, wound = 0)
 
+/obj/item/clothing/suit/ms13/trench/courier
+	name = "boss' coat"
+	desc = "A thick overcoat, with the arms left exposed. Worn by the biggest and baddest."
+	icon_state = "courier"
+	inhand_icon_state = "duster"
+
 /obj/item/clothing/suit/ms13/trench/detective
 	name = "detective's trenchcoat"
 	desc = "A trenchcoat normally worn by pre-war detectives."
@@ -260,7 +266,7 @@
 
 /obj/item/clothing/suit/ms13/trench/black/reinf
 	name = "reinforced black trenchcoat"
-	desc = "A black trenchcoat the addition of some reinforcements and armor for added protection."
+	desc = "A black trenchcoat with the addition of some reinforcements and armor for added protection."
 	icon_state = "reinfblacktrench"
 	armor = list(melee = 40, bullet = 35, laser = 30, energy = 20, bomb = 30, bio = 10, rad = 10, fire = 25, acid = 10, wound = 5)
 

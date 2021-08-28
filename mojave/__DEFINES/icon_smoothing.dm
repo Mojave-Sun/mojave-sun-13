@@ -6,7 +6,7 @@
 #define SMOOTH_GROUP_MS13_WALL_SCRAP S_OBJ_FO(3)		///obj/structure/table/low_wall/scrap, /turf/closed/wall/ms13/scrap
 #define SMOOTH_GROUP_MS13_WALL_ADOBE S_OBJ_FO(4)		///obj/structure/table/low_wall/adobe, /turf/closed/wall/ms13/adobe
 #define SMOOTH_GROUP_MS13_WALL_BRICK S_OBJ_FO(5)		///obj/structure/table/low_wall/brick, /turf/closed/wall/ms13/brick
-#define SMOOTH_GROUP_MS13_WALL_REINFORCED S_OBJ_FO(6)	///obj/structure/table/low_wall/reinforced, /turf/closed/wall/r_wall/ms13
+#define SMOOTH_GROUP_MS13_WALL_REINFORCED S_OBJ_FO(6)	///obj/structure/table/low_wall/reinforced, /turf/closed/wall/ms13
 #define SMOOTH_GROUP_MS13_MINERALS S_OBJ_FO(8)			///turf/closed/mineral/random/ms13, /turf/closed/indestructible/rock/ms13
 #define SMOOTH_GROUP_MS13_WINDOW S_OBJ_FO(9)			///obj/structure/window/fulltile/ms13/glass
 

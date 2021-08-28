@@ -15,7 +15,7 @@
 		if(damaged_clothes)
 			. += mutable_appearance('icons/effects/item_damage.dmi', "damagedmask")
 		if(HAS_BLOOD_DNA(src))
-			. += mutable_appearance('icons/effects/blood.dmi', "maskblood")
+			. += mutable_appearance('mojave/icons/effects/blood.dmi', "maskblood") //MOJAVE SUN EDIT - Blood Sprites
 
 /obj/item/clothing/neck/tie
 	name = "tie"

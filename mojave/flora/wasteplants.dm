@@ -253,6 +253,11 @@
 	var/log_amount = 10
 	opacity = 1
 
+/obj/structure/flora/ms13/tree/Initialize()
+	. = ..()
+	pixel_x = rand(-6,6)
+	pixel_y = rand(-6,6)
+
 /obj/structure/flora/ms13/tree/attackby(obj/item/W, mob/user, params)
 	if(log_amount && (!(flags_1 & NODECONSTRUCT_1)))
 		if(W.sharpness == IS_SHARP_AXE)
@@ -284,7 +289,7 @@
 	icon_state = "snowtree_[rand(1,3)]"
 	..()
 
-/obj/structure/flora/ms13/tree/pine
+/obj/structure/flora/ms13/tree/smallpine
 	name = "pine tree"
 	desc = "An small evergreen, Evergreen even when the bombs dropped."
 	icon = 'mojave/icons/flora/trees.dmi'
@@ -292,7 +297,7 @@
 	log_amount = 1
 	max_integrity = 400
 
-/obj/structure/flora/ms13/tree/pine/New()
+/obj/structure/flora/ms13/tree/smallpine/New()
 	icon_state = "pine_[rand(1,2)]"
 	..()
 
@@ -304,9 +309,11 @@
 	log_amount = 4
 	max_integrity = 400
 
-/obj/structure/flora/ms13/tree/tallpine/New()
-	icon_state = "pine_[rand(1,3)]"
-	..()
+/obj/structure/flora/ms13/tree/tallpine/snow
+	icon_state = "pine_1_snow"
+
+/obj/structure/flora/ms13/tree/tallpine/alt
+	icon_state = "pine_1_alt"
 
 /obj/structure/flora/ms13/tree/wasteland
 	name = "dead tree"
