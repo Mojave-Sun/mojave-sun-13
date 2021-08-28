@@ -59,8 +59,8 @@ GLOBAL_LIST_INIT(ranger_positions, list(
 
 
 GLOBAL_LIST_INIT(combattest_positions, list(
-	"Crip",
-	"Blood",))
+	"Blue ganger",
+	"Red ganger",))
 
 // job categories for rendering the late join menu
 GLOBAL_LIST_INIT(ms13_position_categories, list(

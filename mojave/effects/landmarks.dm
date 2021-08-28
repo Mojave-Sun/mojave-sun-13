@@ -146,8 +146,8 @@
 
 // Combat Test Spawns //
 
-/obj/effect/landmark/start/ms13/crip
-	name = "Crip ganger"
+/obj/effect/landmark/start/ms13/bluegang
+	name = "Blue ganger"
 
-/obj/effect/landmark/start/ms13/blood
-	name = "Blood ganger"
+/obj/effect/landmark/start/ms13/redgang
+	name = "Blue ganger"
