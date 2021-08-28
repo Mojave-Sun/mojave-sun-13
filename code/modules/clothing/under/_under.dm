@@ -30,7 +30,7 @@
 	if(damaged_clothes)
 		. += mutable_appearance('icons/effects/item_damage.dmi', "damageduniform")
 	if(HAS_BLOOD_DNA(src))
-		. += mutable_appearance('icons/effects/blood.dmi', "uniformblood")
+		. += mutable_appearance('mojave/icons/effects/blood.dmi', "uniformblood") //MOJAVE SUN EDIT - Blood Sprites
 	if(accessory_overlay)
 		. += accessory_overlay
 
