@@ -128,6 +128,7 @@
 	desc = "A busted up old cash register. It's almost as worthless as the cash inside it."
 	icon_state = "register"
 	anchored = TRUE
+	layer = ABOVE_MOB_LAYER
 
 /obj/structure/closet/crate/ms13/cash_register/prewar
 	name = "pristine cash register"
