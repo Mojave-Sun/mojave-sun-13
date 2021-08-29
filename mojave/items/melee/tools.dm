@@ -6,7 +6,7 @@
 	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
 	icon_state = "hammer"
 	inhand_icon_state = "hammer"
-	hitsound = 'mojave/sound/ms13items/axe_1.ogg'
+	hitsound = 'sound/weapons/genhit3.ogg'
 	force = 20
 	armour_penetration = 0
 	wound_bonus = -2

@@ -144,6 +144,7 @@
 	desc = "A well made, dangerous, and versatile spear."
 	icon_state = "spear"
 	inhand_icon_state = "spear"
+	hitsound = 'sound/weapons/rapierhit.ogg'
 	force = 20
 	throwforce = 30
 	armour_penetration = 10
