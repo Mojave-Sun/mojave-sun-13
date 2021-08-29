@@ -331,6 +331,7 @@
 				blood.pixel_x = rand(-8,8)
 				blood.pixel_y = rand(-8,8)
 				split.add_overlay(blood)
+				split.bloodiness = min((split.bloodiness + BLOOD_AMOUNT_PER_DECAL), BLOOD_POOL_MAX)
 				split.transfer_mob_blood_dna(src)
 				return
 			else
