@@ -144,3 +144,17 @@
 	name = "ranger medic badge"
 	desc = "A silver circle encompassing a gold cross. Given to the empathetic healers of the Desert Rangers."
 	icon_state = "ranger_cross"
+
+// Combat Test IDs //
+
+/obj/item/card/id/ms13/red_ganger
+	name = "red gang badge"
+	desc = "A silver textured gang star, issued to gangers with extensive expertise in the field, with multiple years of ganging behind them."
+	icon_state = "ranger_star_rimmed"
+	trim = /datum/id_trim/job/security_officer
+
+/obj/item/card/id/ms13/blue_ganger
+	name = "blue gang badge"
+	desc = "A gold textured gang star, issued to gangers with extensive expertise in the field, with multiple years of ganging behind them."
+	icon_state = "ranger_star"
+	trim = /datum/id_trim/centcom/deathsquad
