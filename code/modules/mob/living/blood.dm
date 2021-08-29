@@ -309,6 +309,7 @@
 
 	//MOJAVE SUN EDIT START - Blood Sprites
 
+	var/list/temp_blood_DNA
 	if(small_drip)
 		// Only a certain number of drips (or one large splatter) can be on a given turf.
 		var/obj/effect/decal/cleanable/blood/drip/drop = locate() in T
@@ -319,9 +320,14 @@
 				drop.transfer_mob_blood_dna(src)
 				return
 			else
-				return
-	else
-		var/obj/effect/decal/cleanable/blood/splatter/split = locate() in T
+				temp_blood_DNA = drop.return_blood_DNA() //we transfer the dna from the drip to the splatter
+				qdel(drop)//the drip is replaced by a bigger splatter
+		else
+			drop = new(T, get_static_viruses())
+			drop.transfer_mob_blood_dna(src)
+			return
+	var/obj/effect/decal/cleanable/blood/splatter/split = locate() in T
+	if(!small_drip)
 		if(split)
 			if(split.splats < 10)
 				split.splats++
@@ -340,6 +346,8 @@
 			split = new(T, get_static_viruses())
 			split.transfer_mob_blood_dna(src)
 			return
+	if(temp_blood_DNA)
+		split.add_blood_DNA(temp_blood_DNA)
 	//MOJAVE SUN EDIT END - Blood Sprites
 
 /mob/living/carbon/human/add_splatter_floor(turf/T, small_drip)
