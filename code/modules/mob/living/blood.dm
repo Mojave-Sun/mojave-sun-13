@@ -309,7 +309,6 @@
 
 	//MOJAVE SUN EDIT START - Blood Sprites
 
-	var/list/temp_blood_DNA
 	if(small_drip)
 		// Only a certain number of drips (or one large splatter) can be on a given turf.
 		var/obj/effect/decal/cleanable/blood/drip/drop = locate() in T
@@ -320,20 +319,28 @@
 				drop.transfer_mob_blood_dna(src)
 				return
 			else
-				temp_blood_DNA = drop.return_blood_DNA() //we transfer the dna from the drip to the splatter
-				qdel(drop)//the drip is replaced by a bigger splatter
+				return
+	else
+		var/obj/effect/decal/cleanable/blood/splatter/split = locate() in T
+		if(split)
+			if(split.splats < 10)
+				split.splats++
+				var/mutable_appearance/blood = new /mutable_appearance()
+				blood.icon = split.icon
+				blood.icon_state = pick(split.random_icon_states)
+				blood.pixel_x = rand(-8,8)
+				blood.pixel_y = rand(-8,8)
+				split.add_overlay(blood)
+				split.bloodiness = min((split.bloodiness + BLOOD_AMOUNT_PER_DECAL), BLOOD_POOL_MAX)
+				split.transfer_mob_blood_dna(src)
+				return
+			else
+				return
 		else
-			drop = new(T, get_static_viruses())
-			drop.transfer_mob_blood_dna(src)
+			split = new(T, get_static_viruses())
+			split.transfer_mob_blood_dna(src)
 			return
-
-	new /obj/effect/decal/cleanable/blood/splatter(T, get_static_viruses())
-	var/obj/effect/decal/cleanable/blood/B = locate() in T
 	//MOJAVE SUN EDIT END - Blood Sprites
-	B.bloodiness = min((B.bloodiness + BLOOD_AMOUNT_PER_DECAL), BLOOD_POOL_MAX)
-	B.transfer_mob_blood_dna(src) //give blood info to the blood decal.
-	if(temp_blood_DNA)
-		B.add_blood_DNA(temp_blood_DNA)
 
 /mob/living/carbon/human/add_splatter_floor(turf/T, small_drip)
 	if(!(NOBLOOD in dna.species.species_traits))
