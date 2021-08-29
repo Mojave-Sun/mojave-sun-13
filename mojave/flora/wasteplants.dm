@@ -247,6 +247,7 @@
 
 /obj/structure/flora/ms13/tree
 	name = "tree"
+	plane = OVER_FRILL_PLANE
 	desc = "A large tree."
 	density = TRUE
 	pixel_x = -16
@@ -255,8 +256,8 @@
 
 /obj/structure/flora/ms13/tree/Initialize()
 	. = ..()
-	pixel_x = rand(-6,6)
-	pixel_y = rand(-6,6)
+	pixel_x = rand(-2,2)
+	pixel_y = rand(-2,2)
 
 /obj/structure/flora/ms13/tree/attackby(obj/item/W, mob/user, params)
 	if(log_amount && (!(flags_1 & NODECONSTRUCT_1)))

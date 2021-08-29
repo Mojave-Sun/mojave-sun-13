@@ -1,5 +1,5 @@
 /datum/job/ms13/combattest
-	selection_color = "#737592"
+	selection_color = "#a78765"
 
 /datum/outfit/job/ms13/combattest
 	name = "Default"
