@@ -320,7 +320,7 @@
 				return
 			else
 				return
-		else
+	else
 		var/obj/effect/decal/cleanable/blood/splatter/split = locate() in T
 		if(split)
 			if(split.splats < 10)
