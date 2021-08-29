@@ -328,6 +328,8 @@
 			return
 	var/obj/effect/decal/cleanable/blood/splatter/split = locate() in T
 	if(!small_drip)
+		if(temp_blood_DNA)
+			split.add_blood_DNA(temp_blood_DNA)
 		if(split)
 			if(split.splats < 10)
 				split.splats++
@@ -346,8 +348,6 @@
 			split = new(T, get_static_viruses())
 			split.transfer_mob_blood_dna(src)
 			return
-	if(temp_blood_DNA)
-		split.add_blood_DNA(temp_blood_DNA)
 	//MOJAVE SUN EDIT END - Blood Sprites
 
 /mob/living/carbon/human/add_splatter_floor(turf/T, small_drip)
