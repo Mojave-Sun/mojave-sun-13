@@ -326,9 +326,12 @@
 			drop = new(T, get_static_viruses())
 			drop.transfer_mob_blood_dna(src)
 			return
-
-	new /obj/effect/decal/cleanable/blood/splatter(T, get_static_viruses())
 	var/obj/effect/decal/cleanable/blood/B = locate() in T
+	if(!B)
+		B = new /obj/effect/decal/cleanable/blood/splatter(T, get_static_viruses())
+	if(QDELETED(B)) //Give it up
+		return
+
 	//MOJAVE SUN EDIT END - Blood Sprites
 	B.bloodiness = min((B.bloodiness + BLOOD_AMOUNT_PER_DECAL), BLOOD_POOL_MAX)
 	B.transfer_mob_blood_dna(src) //give blood info to the blood decal.
