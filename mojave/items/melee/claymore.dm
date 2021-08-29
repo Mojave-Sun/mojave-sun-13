@@ -63,6 +63,7 @@
 	inhand_icon_state = "lead_pipe"
 	attack_verb_continuous = list("mashes", "bashes", "pipes", "hits", "bludgeons", "whacks", "bonks")
 	attack_verb_simple = list("mash", "bash", "pipe", "hit", "bludgeon", "whack", "bonk")
+	hitsound = 'sound/weapons/genhit2.ogg'
 	force = 25
 	armour_penetration = 5
 	throwforce = 10
@@ -94,6 +95,7 @@
 	inhand_icon_state = "tonfa"
 	attack_verb_continuous = list("mashes", "bashes", "batters", "hits", "bludgeons", "whacks", "bonks")
 	attack_verb_simple = list("mash", "bash", "batter", "hit", "bludgeon", "whack", "bonk")
+	hitsound = 'sound/weapons/genhit2.ogg'
 	force = 25
 	armour_penetration = 10
 	wound_bonus = -5
