@@ -50,9 +50,14 @@
 	icon_state = "vault_atrium_upper"
 	requires_power = TRUE
 
-/area/ms13/underground/vault_atrium_Lower
+/area/ms13/underground/vault_atrium_lower
 	name = "Vault Atrium Lower"
 	icon_state = "vault_atrium_lower"
+	requires_power = TRUE
+
+/area/ms13/underground/vault_outer
+	name = "Vault Outer"
+	icon_state = "vault_outer"
 	requires_power = TRUE
 
 /area/ms13/supermarket
