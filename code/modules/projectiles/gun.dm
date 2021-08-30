@@ -173,9 +173,12 @@
 	playsound(src, dry_fire_sound, 30, TRUE)
 
 
-/obj/item/gun/proc/shoot_live_shot(mob/living/user, pointblank = 0, atom/pbtarget = null, message = 1)
+/obj/item/gun/proc/shoot_live_shot(mob/living/user, pointblank = FALSE, atom/pbtarget = null, message = 1)
+	var/angle = FLOOR(Get_Angle(user, pbtarget)+rand(-22.5, 22.5),1) + 180
+	if(angle > 360)
+		angle -= 360
 	if(recoil)
-		shake_camera(user, recoil + 1, recoil)
+		recoil_camera(user, recoil+1, recoil*10, angle)
 
 	if(suppressed)
 		playsound(user, suppressed_sound, suppressed_volume, vary_fire_sound, ignore_walls = FALSE, extrarange = SILENCED_SOUND_EXTRARANGE, falloff_distance = 0)
@@ -388,9 +391,9 @@
 				return
 			else
 				if(get_dist(user, target) <= 1) //Making sure whether the target is in vicinity for the pointblank shot
-					shoot_live_shot(user, 1, target, message)
+					shoot_live_shot(user, TRUE, target, message)
 				else
-					shoot_live_shot(user, 0, target, message)
+					shoot_live_shot(user, FALSE, target, message)
 		else
 			shoot_with_empty_chamber(user)
 			return
