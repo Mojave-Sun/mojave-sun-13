@@ -184,14 +184,15 @@
 
 	if(!magazine || internal_magazine || !mag_display)
 		return
-
-	if(special_mags)
+// MOJAVE SUN EDIT BEGIN //
+/*	if(special_mags)
 		. += "[icon_state]_mag_[initial(magazine.icon_state)]"
 		if(mag_display_ammo && !magazine.ammo_count())
 			. += "[icon_state]_mag_empty"
 		return
 
-	. += "[icon_state]_mag"
+	. += "[icon_state]_mag"*/
+// MOJAVE SUN EDIT END //
 	if(!mag_display_ammo)
 		return
 
@@ -209,7 +210,6 @@
 			capacity_number = 20
 	if(capacity_number)
 		. += "[icon_state]_mag_[capacity_number]"
-
 
 /obj/item/gun/ballistic/process_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE)
 	if(!semi_auto && from_firing)
