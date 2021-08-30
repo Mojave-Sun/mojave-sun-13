@@ -160,12 +160,13 @@
 
 /obj/item/gun/ballistic/update_overlays()
 	. = ..()
-	if(show_bolt_icon)
+// MOJAVE SUN EDIT BEGIN //
+/*	if(show_bolt_icon)
 		if (bolt_type == BOLT_TYPE_LOCKING)
 			. += "[icon_state]_bolt[bolt_locked ? "_locked" : ""]"
 		if (bolt_type == BOLT_TYPE_OPEN && bolt_locked)
-			. += "[icon_state]_bolt"
-
+			. += "[icon_state]_bolt" */
+// MOJAVE SUN EDIT END //
 	if(suppressed)
 		var/mutable_appearance/MA = mutable_appearance(icon, "[icon_state]_suppressor")
 		if(suppressor_x_offset)
