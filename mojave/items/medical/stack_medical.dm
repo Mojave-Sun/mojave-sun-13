@@ -88,8 +88,8 @@
     inhand_icon_state = "bandage"
     self_delay = 3 SECONDS
     other_delay = 1.5 SECONDS
-    max_amount = 16
-    amount = 16
+    max_amount = 12
+    amount = 12
     absorption_rate = 0.13
     absorption_capacity = 4 //Capacity plus rate should mean this lasts about 30 seconds on average
     splint_factor = 0.5
@@ -100,7 +100,7 @@
 	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/medical/medical_inventory.dmi')
 
 /obj/item/stack/medical/gauze/ms13/half
-    amount = 8
+    amount = 6
 
 /obj/item/stack/medical/gauze/ms13/military
     name = "military gauze"
