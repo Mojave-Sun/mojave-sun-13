@@ -174,10 +174,10 @@
 		if(suppressor_y_offset)
 			MA.pixel_y = suppressor_y_offset
 		. += MA
-
-	if(!chambered && empty_indicator) //this is duplicated in c20's update_overlayss due to a layering issue with the select fire icon.
-		. += "[icon_state]_empty"
-
+// MOJAVE SUN EDIT BEGIN //
+/*	if(!chambered && empty_indicator) //this is duplicated in c20's update_overlayss due to a layering issue with the select fire icon.
+		. += "[icon_state]_empty"*/
+// MOJAVE SUN EDIT END //
 	if(gun_flags & TOY_FIREARM_OVERLAY)
 		. += "[icon_state]_toy"
 
