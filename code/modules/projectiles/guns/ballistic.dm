@@ -157,16 +157,18 @@
 	else
 		icon_state = "[base_icon_state || initial(icon_state)][sawn_off ? "_sawn" : ""]"
 	return ..()
-
+// Mojave Sun Edit Begin //
+/*
 /obj/item/gun/ballistic/update_overlays()
 	. = ..()
-// MOJAVE SUN EDIT BEGIN //
-/*	if(show_bolt_icon)
+
+
+	if(show_bolt_icon)
 		if (bolt_type == BOLT_TYPE_LOCKING)
 			. += "[icon_state]_bolt[bolt_locked ? "_locked" : ""]"
 		if (bolt_type == BOLT_TYPE_OPEN && bolt_locked)
-			. += "[icon_state]_bolt" */
-// MOJAVE SUN EDIT END //
+			. += "[icon_state]_bolt"
+
 	if(suppressed)
 		var/mutable_appearance/MA = mutable_appearance(icon, "[icon_state]_suppressor")
 		if(suppressor_x_offset)
@@ -174,25 +176,24 @@
 		if(suppressor_y_offset)
 			MA.pixel_y = suppressor_y_offset
 		. += MA
-// MOJAVE SUN EDIT BEGIN //
-/*	if(!chambered && empty_indicator) //this is duplicated in c20's update_overlayss due to a layering issue with the select fire icon.
-		. += "[icon_state]_empty"*/
-// MOJAVE SUN EDIT END //
+
+	if(!chambered && empty_indicator) //this is duplicated in c20's update_overlayss due to a layering issue with the select fire icon.
+		. += "[icon_state]_empty"
+
 	if(gun_flags & TOY_FIREARM_OVERLAY)
 		. += "[icon_state]_toy"
 
 
 	if(!magazine || internal_magazine || !mag_display)
 		return
-// MOJAVE SUN EDIT BEGIN //
-/*	if(special_mags)
+
+	if(special_mags)
 		. += "[icon_state]_mag_[initial(magazine.icon_state)]"
 		if(mag_display_ammo && !magazine.ammo_count())
 			. += "[icon_state]_mag_empty"
 		return
 
-	. += "[icon_state]_mag"*/
-// MOJAVE SUN EDIT END //
+	. += "[icon_state]_mag"
 	if(!mag_display_ammo)
 		return
 
@@ -210,6 +211,8 @@
 			capacity_number = 20
 	if(capacity_number)
 		. += "[icon_state]_mag_[capacity_number]"
+*/ // Honestly screw all of this stuff.
+// Mojave Sun Edit End //
 
 /obj/item/gun/ballistic/process_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE)
 	if(!semi_auto && from_firing)
