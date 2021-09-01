@@ -214,23 +214,10 @@
 		. += letter
 	return sanitize(.)
 
+
+
+
 #define TILES_PER_SECOND 0.7
-
-/proc/recoil_camera(mob/M, duration, strength, angle)
-	if(!M || !M.client)
-		return
-	var/client/sufferer = M.client
-	var/time_scalar = (1 / world.icon_size) * TILES_PER_SECOND
-	var/oldx = sufferer.pixel_x
-	var/oldy = sufferer.pixel_y
-	//get pixels to move the camera in an angle
-	var/mpx = sin(angle) * strength
-	var/mpy = cos(angle) * strength
-	var/time = round(max(max(abs(oldx - mpx), abs(oldy - mpy)) * time_scalar, 1))
-	animate(sufferer, pixel_x = oldx+mpx, pixel_y = oldy+mpy, time = time, flags = ANIMATION_RELATIVE, easing = CUBIC_EASING|EASE_OUT)
-	animate(pixel_x = oldx, pixel_y = oldy, time = time)
-
-
 ///Shake the camera of the person viewing the mob SO REAL!
 ///Takes the mob to shake, the time span to shake for, and the amount of tiles we're allowed to shake by in tiles
 ///Duration isn't taken as a strict limit, since we don't trust our coders to not make things feel shitty. So it's more like a soft cap.
