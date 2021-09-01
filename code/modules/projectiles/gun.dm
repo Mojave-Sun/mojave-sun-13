@@ -174,8 +174,10 @@
 
 
 
-/obj/item/gun/proc/shoot_live_shot(mob/living/user, pointblank = FALSE, atom/pbtarget = null, message = 1)
+/obj/item/gun/proc/shoot_live_shot(mob/living/user, pointblank = 0, atom/pbtarget = null, message = 1)
 	//MOJAVE EDIT CHANGE BEGIN - GUN_RECOIL
+	//if(recoil) - Original
+	//	shake_camera(user, recoil + 1, recoil) - Original
 	var/angle = Get_Angle(user, pbtarget)+rand(-recoil_deviation, recoil_deviation) + 180
 	if(angle > 360)
 		angle -= 360
@@ -394,9 +396,9 @@
 				return
 			else
 				if(get_dist(user, target) <= 1) //Making sure whether the target is in vicinity for the pointblank shot
-					shoot_live_shot(user, TRUE, target, message)
+					shoot_live_shot(user, 1, target, message)
 				else
-					shoot_live_shot(user, FALSE, target, message)
+					shoot_live_shot(user, 0, target, message)
 		else
 			shoot_with_empty_chamber(user)
 			return
