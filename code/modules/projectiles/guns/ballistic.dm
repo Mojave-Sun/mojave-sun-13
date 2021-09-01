@@ -158,6 +158,8 @@
 		icon_state = "[base_icon_state || initial(icon_state)][sawn_off ? "_sawn" : ""]"
 	return ..()
 
+// MOJAVE EDIT REMOVAL BEGIN - Gun overlays
+/*
 /obj/item/gun/ballistic/update_overlays()
 	. = ..()
 	if(show_bolt_icon)
@@ -208,7 +210,8 @@
 			capacity_number = 20
 	if(capacity_number)
 		. += "[icon_state]_mag_[capacity_number]"
-
+*/ // Honestly screw all of this stuff.
+// MOJAVE EDIT REMOVAL END
 
 /obj/item/gun/ballistic/process_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE)
 	if(!semi_auto && from_firing)

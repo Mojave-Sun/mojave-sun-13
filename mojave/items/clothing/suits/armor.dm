@@ -21,7 +21,7 @@
 	worn_icon = 'mojave/icons/mob/clothing/suit.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
-	hoodtype = null
+	hoodtype = /obj/item/clothing/head/hooded/ms13
 
 /obj/item/clothing/suit/hooded/ms13/Initialize()
 	. = ..()
