@@ -50,8 +50,8 @@
 	fire_delay = 0.55 SECONDS
 	slowdown = 1
 	zoomable = TRUE
-	zoom_amt = 10
-	zoom_out_amt = 13
+	zoom_amt = 9
+	zoom_out_amt = 3
 
 /obj/item/gun/energy/ms13/laser/rcw
 	name = "laser RCW"

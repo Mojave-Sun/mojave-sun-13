@@ -95,8 +95,8 @@
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/ms13/rev357
 	w_class = WEIGHT_CLASS_NORMAL
 	fire_delay = 0.55 SECONDS
-	extra_damage = 30
-	extra_penetration = 10
+	extra_damage = 35
+	extra_penetration = 0
 	spread = 6
 	recoil = 1
 	slowdown = 0.5
@@ -115,7 +115,8 @@
 	inhand_icon_state = "policerev"
 	fire_sound = 'mojave/sound/ms13weapons/policepistol.ogg'
 	w_class = WEIGHT_CLASS_SMALL
-	extra_damage = 25
+	fire_delay = 0.5 SECONDS
+	extra_damage = 30
 	spread = 8
 	recoil = 0.75
 	slowdown = 0.5

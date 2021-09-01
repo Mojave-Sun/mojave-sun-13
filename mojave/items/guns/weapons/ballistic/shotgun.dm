@@ -134,8 +134,8 @@
 	spread = 2
 	slowdown = 1
 	zoomable = TRUE
-	zoom_amt = 10
-	zoom_out_amt = 13
+	zoom_amt = 9
+	zoom_out_amt = 3
 	empty_indicator = TRUE
 
 //Magazines

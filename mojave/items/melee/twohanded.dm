@@ -91,6 +91,7 @@
 	inhand_icon_state = "hammer_sledge"
 	attack_verb_continuous = list("slams", "beats", "hammers", "pummels", "impacts")
 	attack_verb_simple = list("slam", "beat", "hammer", "pummel", "impact")
+	hitsound = 'sound/weapons/genhit3.ogg'
 	force = 10
 	armour_penetration = 10
 	wound_bonus = 0
@@ -134,7 +135,7 @@
 		target.throw_at(throw_target, rand(2,4), 3, user)
 		SSexplosions.medturf += throw_target
 		playsound(loc, 'sound/weapons/resonator_blast.ogg', 50, TRUE)
-		playsound(loc, 'sound/weapons/genhit2.ogg', 50, TRUE)
+		playsound(loc, 'sound/weapons/genhit3.ogg', 50, TRUE)
 
 	else
 		return
