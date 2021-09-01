@@ -37,8 +37,8 @@
 	slowdown = 1
 	mag_type = /obj/item/ammo_box/magazine/ms13/r308
 	zoomable = TRUE
-	zoom_amt = 10
-	zoom_out_amt = 13
+	zoom_amt = 9
+	zoom_out_amt = 3
 
 /obj/item/gun/ballistic/automatic/ms13/semi/sniper/silencer
 	name = "\improper Silencer"
@@ -66,8 +66,8 @@
 	recoil = 1
 	slowdown = 1
 	zoomable = TRUE
-	zoom_amt = 10
-	zoom_out_amt = 13
+	zoom_amt = 9
+	zoom_out_amt = 3
 
 /obj/item/gun/ballistic/automatic/ms13/semi/marksman/american
 	name = "\improper All-American"
@@ -111,8 +111,8 @@
 	icon_state = "rangemaster"
 	inhand_icon_state = "rangemaster"
 	zoomable = TRUE
-	zoom_amt = 10
-	zoom_out_amt = 13
+	zoom_amt = 9
+	zoom_out_amt = 3
 	spread = 2
 	recoil = 1.25
 	slowdown = 1
@@ -241,8 +241,8 @@
 	icon_state = "infiltrator"
 	inhand_icon_state = "infiltrator"
 	zoomable = TRUE
-	zoom_amt = 10
-	zoom_out_amt = 13
+	zoom_amt = 9
+	zoom_out_amt = 3
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
 	spread = 5
 	recoil = 0.5
@@ -276,8 +276,8 @@
 	icon_state = "xuanlong"
 	inhand_icon_state = "xuanlong"
 	zoomable = TRUE
-	zoom_amt = 10
-	zoom_out_amt = 13
+	zoom_amt = 9
+	zoom_out_amt = 3
 	spread = 6
 	recoil = 0.75
 	slowdown = 1

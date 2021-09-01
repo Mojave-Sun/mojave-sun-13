@@ -91,7 +91,7 @@
 	inhand_icon_state = "hammer_sledge"
 	attack_verb_continuous = list("slams", "beats", "hammers", "pummels", "impacts")
 	attack_verb_simple = list("slam", "beat", "hammer", "pummel", "impact")
-	hitsound = 'sound/effects/genhit3.ogg'
+	hitsound = 'sound/weapons/genhit3.ogg'
 	force = 10
 	armour_penetration = 10
 	wound_bonus = 0

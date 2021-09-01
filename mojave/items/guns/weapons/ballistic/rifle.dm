@@ -24,8 +24,8 @@
 	recoil = 1.5
 	slowdown = 1
 	zoomable = TRUE
-	zoom_amt = 10
-	zoom_out_amt = 13
+	zoom_amt = 9
+	zoom_out_amt = 3
 
 /obj/item/gun/ballistic/rifle/ms13/varmint
 	name = "varmint rifle"
@@ -83,8 +83,8 @@
 	slowdown = 1
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
 	zoomable = TRUE
-	zoom_amt = 10
-	zoom_out_amt = 13
+	zoom_amt = 9
+	zoom_out_amt = 3
 
 /obj/item/gun/ballistic/rifle/ms13/hunting/scoped/amr
 	name = "anti-material rifle"
