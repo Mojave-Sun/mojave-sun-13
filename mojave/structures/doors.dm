@@ -25,7 +25,7 @@
 		pixel_y = -8
 
 	if(dir == EAST)
-		pixel_x = -2
+		pixel_x = -3
 		pixel_y = 16
 		add_overlay(image(icon,icon_state="[frametype]_frame_vertical_overlay"))
 

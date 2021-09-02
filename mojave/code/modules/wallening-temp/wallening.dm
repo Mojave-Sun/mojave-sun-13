@@ -114,8 +114,8 @@ GLOBAL_LIST_INIT(lower_priority_connectables, typecacheof(list(
 	if(dirs_avalible <= 2 && dirs_avalible != 0)
 		dir = dirs_usable[1] //Just take the first dir avalible
 		return
-
+/*
 /obj/machinery/door/LateInitialize(mapload)
 	. = ..()
 	if(mapload)
-		auto_align()
+		auto_align()*/
