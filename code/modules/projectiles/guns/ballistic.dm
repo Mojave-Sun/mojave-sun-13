@@ -213,7 +213,7 @@
 */ // Honestly screw all of this stuff.
 // MOJAVE EDIT REMOVAL END
 
-/obj/item/gun/ballistic/process_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE)
+/obj/item/gun/ballistic/handle_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE)
 	if(!semi_auto && from_firing)
 		return
 	var/obj/item/ammo_casing/AC = chambered //Find chambered round
