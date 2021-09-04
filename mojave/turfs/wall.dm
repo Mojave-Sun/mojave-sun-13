@@ -33,16 +33,16 @@
 	frill_icon = 'mojave/icons/turf/walls/rustmetal_frill.dmi'
 
 /turf/closed/wall/ms13/wood
-	name = "wood wall"
+	name = "log wall"
 	desc = ""
 	icon = 'mojave/icons/turf/walls/wood.dmi'
 	frill_icon = 'mojave/icons/turf/walls/wood_frill.dmi'
 
-/turf/closed/wall/ms13/wood/log
-	name = "log wall"
+/turf/closed/wall/ms13/wood/fresh
+	name = "fresh log wall"
 	desc = ""
-	icon = 'mojave/icons/turf/walls/woodlog.dmi'
-	frill_icon = 'mojave/icons/turf/walls/woodlog_frill.dmi'
+	icon = 'mojave/icons/turf/walls/woodfresh.dmi'
+	frill_icon = 'mojave/icons/turf/walls/woodfresh_frill.dmi'
 
 /turf/closed/wall/ms13/scrap
 	name = "scrap wall"

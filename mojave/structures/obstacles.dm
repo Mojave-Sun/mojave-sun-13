@@ -584,3 +584,7 @@
 	name = "guard rail"
 	desc = "A sturdy rail setup with multiple functions, including but not limited to: ensuring you dont fly off the top of a four story tall building"
 	icon_state = "civ_solo"
+
+/obj/structure/railing/ms13/solo/industrial
+	desc = "A sturdy rail setup with multiple functions, including but not limited to: ensuring you dont fly off the top of a four story tall building. It's got a slick orange taint, so you know it's to workplace regulations."
+	icon_state = "indus_solo"
