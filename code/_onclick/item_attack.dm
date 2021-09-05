@@ -12,7 +12,10 @@
 
 	if(tool_behaviour && (target.tool_act(user, src, tool_behaviour, is_right_clicking) & TOOL_ACT_MELEE_CHAIN_BLOCKING))
 		return TRUE
-
+	//MOJAVE SUN EDIT START - craftable element
+	if(target.craft(user, src))
+		return TRUE
+	//MOJAVE SUN EDIT END- craftable element
 	var/pre_attack_result
 	if (is_right_clicking)
 		switch (pre_attack_secondary(target, user, params))
