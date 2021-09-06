@@ -568,3 +568,23 @@
 		if(prob(proj_pass_rate))
 			return TRUE
 		return FALSE
+
+// Railings //
+
+/obj/structure/railing/ms13
+	name = "base state MS13 guard rail"
+	icon = 'mojave/icons/structure/railings.dmi'
+
+/obj/structure/railing/ms13/Initialize()
+	. = ..()
+	if(dir == NORTH)
+		pixel_y = 5
+
+/obj/structure/railing/ms13/solo
+	name = "guard rail"
+	desc = "A sturdy rail setup with multiple functions, including but not limited to: ensuring you dont fly off the top of a four story tall building"
+	icon_state = "civ_solo"
+
+/obj/structure/railing/ms13/solo/industrial
+	desc = "A sturdy rail setup with multiple functions, including but not limited to: ensuring you dont fly off the top of a four story tall building. It's got a slick orange taint, so you know it's to workplace regulations."
+	icon_state = "indus_solo"

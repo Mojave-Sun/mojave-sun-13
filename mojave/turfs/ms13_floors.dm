@@ -373,6 +373,11 @@
 	has_alternate_states = TRUE
 	alternate_states = 5
 
+/turf/open/floor/iron/ms13/concrete/bricks
+	icon_state = "concrete_bricks"
+	has_alternate_states = TRUE
+	alternate_states = 8
+
 /turf/open/floor/iron/ms13/concrete/industrial
 	icon_state = "concrete_industrial"
 	desc = "Heavy duty concrete slabs." //DAS CONCRETE BABY
