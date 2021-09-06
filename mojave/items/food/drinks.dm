@@ -40,8 +40,3 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/ms13/attack_self_secondary(mob/user)
 	change_transfer_amount(user, FORWARD)
-
-// E for Everyone! - Generic Drinks//
-
-
-// A for adult - Alcoholic containers //
