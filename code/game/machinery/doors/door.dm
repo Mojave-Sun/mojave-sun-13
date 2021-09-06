@@ -274,11 +274,15 @@
 
 /obj/machinery/door/take_damage(damage_amount, damage_type = BRUTE, damage_flag = 0, sound_effect = 1, attack_dir)
 	. = ..()
+<<<<<<< HEAD
 // MOJAVE SUN EDIT BEGIN
 	if(!sparks)
 		return
 // MOJAVE SUN EDIT END
 	if(. && obj_integrity > 0)
+=======
+	if(. && atom_integrity > 0)
+>>>>>>> d9ee5e72979... moves obj_integrity and associated procs to the atom level (#61183)
 		if(damage_amount >= 10 && prob(30))
 			spark_system.start()
 
