@@ -320,6 +320,12 @@
 	desc = "A bright and cheerful yellow fedora."
 	icon_state = "fedyellow"
 
+/obj/item/clothing/head/helmet/ms13/fedora/treasure
+	name = "scavengers hat"
+	desc = "A typical treasure seekers hat, for those that roam the wastes picking clean the scraps of old."
+	icon_state = "treasure"
+	inhand_icon_state = "sheriffhat"
+
 /obj/item/clothing/head/helmet/ms13/bowler
 	name = "bowler hat"
 	desc = "A classy gentleman's bowler hat."
@@ -345,6 +351,10 @@
 	icon_state = "prospector"
 	inhand_icon_state = "sheriffhat"
 	armor = list(melee = 20, bullet = 15, laser = 10, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5, wound = 0)
+
+/obj/item/clothing/head/helmet/ms13/prospector/brown
+	icon_state = "prospectorbrown"
+	inhand_icon_state = "sheriffhat"
 
 /obj/item/clothing/head/helmet/ms13/militia
 	name = "militia hat"
