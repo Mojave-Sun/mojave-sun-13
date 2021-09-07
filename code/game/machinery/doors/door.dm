@@ -278,7 +278,7 @@
 	if(!sparks)
 		return
 // MOJAVE SUN EDIT END
-	if(. && obj_integrity > 0)
+	if(. && atom_integrity > 0)
 		if(damage_amount >= 10 && prob(30))
 			spark_system.start()
 
