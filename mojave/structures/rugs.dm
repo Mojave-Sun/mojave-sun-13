@@ -7,6 +7,7 @@
 	icon_state = "rug_blue"
 	flags_1 = FLAMMABLE
 	anchored = TRUE
+	layer = LOW_OBJ_LAYER
 	bound_height = 64
 	bound_width = 64
 	layer = BELOW_OPEN_DOOR_LAYER
