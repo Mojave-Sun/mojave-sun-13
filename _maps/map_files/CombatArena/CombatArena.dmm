@@ -133,11 +133,6 @@
 	},
 /turf/open/floor/wood/ms13/carpet/blue,
 /area/ms13/combattest/building)
-"bw" = (
-/obj/effect/turf_decal/MS13/road/verticalline,
-/mob/living/simple_animal/hostile/retaliate/ms13/robot/eyebot,
-/turf/open/floor/plating/ms13/ground/road,
-/area/ms13/combattest/tunnels)
 "bz" = (
 /turf/closed/wall/ms13/concrete,
 /area/ms13/underground/mountain)
@@ -1602,11 +1597,6 @@
 /obj/effect/spawner/lootdrop/ms13/gun/lowrandom,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/combattest)
-"yV" = (
-/obj/item/gun/ballistic/automatic/ms13/semi/gauss/m72,
-/mob/living/simple_animal/hostile/ms13/ghoul/radioactive,
-/turf/open/floor/iron/ms13/concrete/cable/node,
-/area/ms13/combattest)
 "yW" = (
 /obj/effect/spawner/lootdrop/ms13/armor/lowrandom,
 /turf/open/floor/iron/ms13/metal,
@@ -1695,6 +1685,13 @@
 /area/ms13/combattest/building)
 "An" = (
 /turf/closed/wall/ms13/scrap,
+/area/ms13/combattest)
+"Ap" = (
+/mob/living/simple_animal/hostile/ms13/ghoul/radioactive,
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/open/floor/iron/ms13/concrete/cable{
+	dir = 1
+	},
 /area/ms13/combattest)
 "At" = (
 /obj/structure/table/ms13/no_smooth/large/wood/desk,
@@ -1886,13 +1883,6 @@
 	},
 /turf/open/floor/iron/ms13/concrete,
 /area/ms13/combattest/tunnels)
-"Dn" = (
-/obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/ms13/ghoul/radioactive,
-/turf/open/floor/iron/ms13/concrete/cable{
-	dir = 1
-	},
-/area/ms13/combattest)
 "Ds" = (
 /obj/item/clothing/under/ms13/ncr/fatigues,
 /obj/item/clothing/under/ms13/ncr/fatigues,
@@ -2009,6 +1999,11 @@
 /obj/effect/spawner/lootdrop/ms13/medical/lowrandom,
 /turf/open/floor/iron/ms13/concrete/small,
 /area/ms13/combattest/building)
+"Fs" = (
+/mob/living/simple_animal/hostile/ms13/ghoul/radioactive,
+/obj/item/gun/ballistic/automatic/ms13/semi/gauss/m72,
+/turf/open/floor/iron/ms13/concrete/cable/node,
+/area/ms13/combattest)
 "FB" = (
 /obj/structure/curtain/bounty,
 /turf/open/floor/wood/ms13/common,
@@ -2193,6 +2188,11 @@
 "IW" = (
 /turf/closed/wall/ms13/craftable/scrap,
 /area/ms13/combattest/building)
+"IZ" = (
+/mob/living/simple_animal/hostile/ms13/robot/protectron/reinforced,
+/obj/structure/lattice/catwalk,
+/turf/open/openspace/ms13,
+/area/ms13/combattest/tunnels)
 "Ja" = (
 /obj/machinery/light/ms13/bulb,
 /obj/structure/table/ms13/metal/grate,
@@ -2468,10 +2468,6 @@
 /obj/machinery/light/ms13/bulb,
 /turf/open/floor/iron/ms13/concrete/small,
 /area/ms13/combattest/building)
-"MZ" = (
-/obj/effect/ai_node,
-/turf/open/floor/plating/ms13/ground/road,
-/area/ms13/combattest/tunnels)
 "Nf" = (
 /obj/structure/table/ms13/metal/alt,
 /obj/item/gun/energy/ms13/laser/pistol,
@@ -2594,11 +2590,6 @@
 /obj/structure/table/ms13/metal/grate,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/combattest/building)
-"OI" = (
-/obj/structure/lattice/catwalk,
-/mob/living/simple_animal/hostile/ms13/robot/protectron/reinforced,
-/turf/open/openspace/ms13,
-/area/ms13/combattest/tunnels)
 "OL" = (
 /obj/structure/table/ms13/metal/heavy,
 /obj/effect/spawner/lootdrop/ms13/armor/lowrandom,
@@ -2929,11 +2920,6 @@
 "TW" = (
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/sewer)
-"TX" = (
-/obj/effect/turf_decal/MS13/road/horizontalline,
-/mob/living/simple_animal/hostile/retaliate/ms13/robot/eyebot,
-/turf/open/floor/plating/ms13/ground/road,
-/area/ms13/combattest/tunnels)
 "Uc" = (
 /obj/structure/toilet,
 /obj/machinery/light/ms13/bulb{
@@ -12261,8 +12247,8 @@ bI
 jy
 bI
 sx
-yV
-Dn
+Fs
+Ap
 OX
 OX
 OX
@@ -18112,7 +18098,7 @@ Hw
 jD
 tW
 tW
-MZ
+mO
 tW
 tW
 jD
@@ -18826,7 +18812,7 @@ lk
 lk
 tW
 tW
-TX
+mO
 tW
 tW
 jD
@@ -19540,7 +19526,7 @@ Hw
 jD
 tW
 tW
-MZ
+mO
 tW
 tW
 lk
@@ -20672,7 +20658,7 @@ Hw
 jD
 lk
 yB
-OI
+IZ
 yB
 lk
 lk
@@ -20968,7 +20954,7 @@ lk
 lk
 tW
 tW
-MZ
+mO
 tW
 tW
 jD
@@ -22294,17 +22280,7 @@ Hw
 jD
 tW
 tW
-MZ
-pV
-pV
-pV
-pV
-bw
-pV
-pV
-pV
-pV
-MZ
+tW
 pV
 pV
 pV
@@ -22312,18 +22288,28 @@ pV
 pV
 pV
 pV
-MZ
 pV
 pV
 pV
 pV
 pV
 pV
-bw
 pV
 pV
 pV
-MZ
+pV
+pV
+pV
+pV
+pV
+pV
+pV
+pV
+pV
+pV
+pV
+pV
+pV
 pV
 pV
 pV

@@ -26,15 +26,13 @@ The simple animal this is attached to should also be able to destroy obstacles s
 	if(!istype(animal))
 		return ELEMENT_INCOMPATIBLE
 
-	for(var/obj/effect/ai_node/node in range(7, animal))
+	for(var/obj/effect/ai_node/node in range(7))
 		animal_current_node[animal] = node
-		node.make_adjacents()
 		break
 
 	if(!animal_current_node[animal])
-		log_mapping("[animal] was to be attached with a patrol element but no nodes nearby were located near [AREACOORD(animal)]; removing element from self.")
-		Detach(animal)
-		return
+		return ELEMENT_INCOMPATIBLE
+
 	attached_animals[animal] = animal
 	animal_node_weights[animal] = _animal_node_weights
 	animal_identifier[animal] = _animal_identifier
@@ -47,8 +45,6 @@ The simple animal this is attached to should also be able to destroy obstacles s
 	animal_node_weights -= animal
 	animal_identifier -= animal
 	patrol_move_delay -= animal
-	animal_target_node -= animal
-	animal_current_node -= animal
 
 //We'll just do a Process() and look at whenever the simple mob is on or not
 /datum/element/generic_patrol_animal/process(delta_time)
