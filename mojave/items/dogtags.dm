@@ -10,11 +10,6 @@
 	icon_state = "bos_holotag"
 	var/datum/bank_account = null
 
-/obj/item/card/id/ms13/bos
-	name = "\improper BoS holotag"
-	desc = "A set of dogtags, identifying the wearer as a member of the Brotherhood of Steel."
-	icon_state = "bos_holotag"
-
 /obj/item/card/id/ms13/deputy
 	name = "deputy's badge"
 	desc = "A silver badge which shows honour and dedication. Has some electronic workings sloppily attached to the back of it."
@@ -144,6 +139,31 @@
 	name = "ranger medic badge"
 	desc = "A silver circle encompassing a gold cross. Given to the empathetic healers of the Desert Rangers."
 	icon_state = "ranger_cross"
+
+// Brotherhood IDs //
+
+/obj/item/card/id/ms13/bos
+	name = "\improper BoS holotag"
+	desc = "A set of dogtags, identifying the wearer as a member of the Brotherhood of Steel."
+	icon_state = "bos_holotag"
+
+/obj/item/card/id/ms13/bos/headpaladin
+	assignment = "Head Paladin"
+
+/obj/item/card/id/ms13/bos/paladin
+	assignment = "Paladin"
+
+/obj/item/card/id/ms13/bos/knight
+	assignment = "Knight"
+
+/obj/item/card/id/ms13/bos/initiate
+	assignment = "Initiate"
+
+/obj/item/card/id/ms13/bos/headscribe
+	assignment = "Head Scribe"
+
+/obj/item/card/id/ms13/bos/scribe
+	assignment = "Scribe"
 
 // Combat Test IDs //
 

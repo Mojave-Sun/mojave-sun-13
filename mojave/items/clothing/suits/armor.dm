@@ -358,6 +358,12 @@
 	icon_state = "battlecoat"
 	inhand_icon_state = "battlecoat"
 
+/obj/item/clothing/suit/armor/ms13/vest/brotherhood
+	name = "\improper Brotherhood kevlar vest"
+	desc = "A light kevlar vest in use by the Brotherhood of Steel. Normally given to low ranking members not worthy of the Brotherhood's standard combat armor, or Power Armor."
+	icon_state = "bos_kevlar"
+	armor = list("melee" = 20, "bullet" = 35, "laser" = 15, "energy" = 10, "bomb" = 20, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10, "wound" = 0)
+
 /obj/item/clothing/suit/armor/ms13/combat/bos
 	name = "\improper Brotherhood combat armor"
 	desc = "A custom built and specialized suit of combat armor used by the Brotherhood of Steel."
