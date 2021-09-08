@@ -13,8 +13,9 @@
 	name = "_BoS Initiate"
 	jobtype = /datum/job/ms13/bos/initiate
 
-	head = /obj/item/clothing/head/helmet/ms13/initiate
 	id = /obj/item/card/id/ms13/bos/initiate
+	head = /obj/item/clothing/head/helmet/ms13/initiate
+	mask = /obj/item/clothing/mask/ms13/bos
 	uniform =  /obj/item/clothing/under/ms13/bos
 	gloves = /obj/item/clothing/gloves/ms13/bos
 	shoes = /obj/item/clothing/shoes/ms13/military/bos
