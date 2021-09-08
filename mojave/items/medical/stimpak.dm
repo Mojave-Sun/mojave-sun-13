@@ -20,12 +20,13 @@
 	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/medical/medical_inventory.dmi')
 
 /obj/item/reagent_containers/hypospray/medipen/ms13/attack(mob/living/M, mob/user)
-	if(!reagents.total_volume)
-		return
 	if(do_after(M, 1 SECONDS))
 		inject(M, user)
-		update_icon_state()
-		playsound(src.loc, 'mojave/sound/ms13items/stimpak_inject.ogg', 40, FALSE)
+
+/obj/item/reagent_containers/hypospray/medipen/ms13/inject(mob/living/M, mob/user)
+	. = ..()
+	playsound(src.loc, 'mojave/sound/ms13items/stimpak_inject.ogg', 40, FALSE)
+	update_icon_state()
 
 /obj/item/reagent_containers/hypospray/medipen/ms13/attack_self(mob/user/)
 	if(!reagents.total_volume)
@@ -60,7 +61,7 @@
 	metabolization_rate = 1.6
 	overdose_threshold = 15
 	/// The value to subtract from the mob's damage, as well as the value to base the ODing off
-	var/heal_Rate = 7
+	var/heal_Rate = 10
 	/// Let's do some damage.
 	var/OD_multiplier = 1
 	/// To prevent double dosing of super/regular stimpaks, avoiding OD
@@ -151,7 +152,7 @@
 	color = "#c73131"
 	metabolization_rate = 1.6
 	overdose_threshold = 15
-	heal_Rate = 15
+	heal_Rate = 20
 	OD_multiplier = 1.5
 	forbidden_double_dose = /datum/reagent/ms13/medicine/stimpak_fluid/
 	stamina_damage = 20
