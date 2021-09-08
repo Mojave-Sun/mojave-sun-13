@@ -19,7 +19,7 @@
 	uniform =  /obj/item/clothing/under/ms13/bos
 	gloves = /obj/item/clothing/gloves/ms13/bos
 	shoes = /obj/item/clothing/shoes/ms13/military/bos
-	suit = /obj/item/clothing/suit/armor/ms13/vest/brotherhood
+	suit = /obj/item/clothing/suit/armor/ms13/vest/bos
 	suit_store = /obj/item/gun/ballistic/automatic/pistol/ms13/m10mm
 	r_pocket = /obj/item/ammo_box/magazine/ms13/m10mm
 

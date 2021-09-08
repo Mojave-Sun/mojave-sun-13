@@ -358,7 +358,7 @@
 	icon_state = "battlecoat"
 	inhand_icon_state = "battlecoat"
 
-/obj/item/clothing/suit/armor/ms13/vest/brotherhood
+/obj/item/clothing/suit/armor/ms13/vest/bos
 	name = "\improper Brotherhood kevlar vest"
 	desc = "A light kevlar vest in use by the Brotherhood of Steel. Normally given to low ranking members not worthy of the Brotherhood's standard combat armor, or Power Armor."
 	icon_state = "bos_kevlar"
