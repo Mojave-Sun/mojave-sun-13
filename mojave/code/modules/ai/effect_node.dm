@@ -18,8 +18,9 @@
 	//TODO: MAKE DYNAMICALLY INITIALIZED WHEN REQUESTED
 
 /obj/effect/ai_node/Initialize()
-	. = ..()
+	..()
 	GLOB.allnodes += src
+	return INITIALIZE_HINT_LATELOAD
 
 /obj/effect/ai_node/LateInitialize()
 	make_adjacents()

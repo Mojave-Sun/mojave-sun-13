@@ -4,3 +4,4 @@
 #define CRAFTING_ITEM "craftsource"
 #define CRAFTING_SOUND "craftsound"
 #define CRAFTING_SURFACE "craftsurface"
+#define CRAFTING_FOCUS_SOUND "craftfocussound"

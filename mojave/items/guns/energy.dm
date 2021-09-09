@@ -5,6 +5,7 @@
 	icon = 'mojave/icons/objects/guns/guns_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_left.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_right.dmi'
+	worn_icon = 'mojave/icons/mob/worn_guns.dmi'
 	base_icon_state = ""
 	w_class = WEIGHT_CLASS_HUGE
 	automatic_charge_overlays = FALSE
@@ -16,6 +17,10 @@
 	var/load_sound_volume = 40
 	var/load_sound_vary = TRUE
 
+/obj/item/gun/energy/ms13/Initialize()
+	. = ..()
+	update_icon()
+
 /obj/item/gun/energy/ms13/update_ammo_types()
 	var/obj/item/ammo_casing/energy/shot
 	for (var/i = 1, i <= ammo_type.len, i++)
@@ -25,6 +30,7 @@
 	shot = ammo_type[select]
 
 /obj/item/gun/energy/ms13/update_icon()
+	worn_icon_state = "[initial(icon_state)]"
 	if(!cell)
 		icon_state = "[base_icon_state]_empty"
 	else
