@@ -770,6 +770,13 @@
 
 // Brotherhood Helmets //
 
+/obj/item/clothing/head/helmet/ms13/initiate
+	name = "\improper Brotherhood kevlar helmet"
+	desc = "A light kevlar helmet in use by the Brotherhood of Steel, usually seen accompanying the kevlar vests of the Initiates."
+	icon_state = "bos_kevlar_helmet"
+	inhand_icon_state = "bos_helmet"
+	armor = list("melee" = 20, "bullet" = 35, "laser" = 15, "energy" = 10, "bomb" = 20, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10, "wound" = 0)
+
 /obj/item/clothing/head/helmet/ms13/combat/bos
 	name = "\improper Brotherhood combat helmet"
 	desc = "A hard, custom built helmet issued to Brotherhood troops."
