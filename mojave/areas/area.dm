@@ -77,6 +77,10 @@
 	name = "Enclave Base"
 	icon_state = "enclave"
 
+/area/ms13/underground/army_bunker
+	name = "Army Bunker"
+	icon_state = "army_base"
+
 // Generic Underground Areas //
 
 /area/ms13/underground
