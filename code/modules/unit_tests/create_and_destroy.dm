@@ -99,6 +99,11 @@
 	//Expects a mob to holderize, we have nothing to give
 	ignore += typesof(/obj/item/clothing/head/mob_holder)
 
+	//MOJAVE EDIT ADDITION BEGIN - Unit tests for create and destroy
+	//Assumes there is a lavaland atmos level, when we don't use it
+	ignore += typesof(/obj/item/organ/lungs/ashwalker)
+	//MOJAVE EDIT ADDITION END
+
 	var/list/cached_contents = spawn_at.contents.Copy()
 	var/baseturf_count = length(spawn_at.baseturfs)
 
