@@ -102,6 +102,7 @@
 	//MOJAVE EDIT ADDITION BEGIN - Unit tests for create and destroy
 	//Assumes there is a lavaland atmos level, when we don't use it
 	ignore += typesof(/obj/item/organ/lungs/ashwalker)
+	ignore += typesof(/mob/living/carbon/human/species/lizard/ashwalker)
 	//MOJAVE EDIT ADDITION END
 
 	var/list/cached_contents = spawn_at.contents.Copy()
