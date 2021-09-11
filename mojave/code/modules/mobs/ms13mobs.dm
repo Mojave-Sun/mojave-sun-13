@@ -9,7 +9,7 @@
 
 /obj/item/melee/baton/attack(mob/M, mob/living/carbon/human/user)
 	. = ..()
-	if(active)
+	if(turned_on)
 		. = ..()
 		if(isanimal(M))
 			var/mob/living/simple_animal/critter = M
@@ -754,11 +754,6 @@
 	bare_wound_bonus = 5
 	var/shadow_type = null // For shadows below floating robots
 	var/bot_type = null // Literally just for naming
-
-/mob/living/simple_animal/hostile/ms13/robot/assaultron/death()
-	. = ..()
-	do_sparks(3, TRUE, src)
-
 
 /mob/living/simple_animal/hostile/retaliate/ms13/robot
 	name = "ms13 robot"
