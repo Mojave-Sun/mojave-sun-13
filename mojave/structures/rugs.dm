@@ -7,8 +7,10 @@
 	icon_state = "rug_blue"
 	flags_1 = FLAMMABLE
 	anchored = TRUE
+	layer = LOW_OBJ_LAYER
 	bound_height = 64
 	bound_width = 64
+	layer = BELOW_OPEN_DOOR_LAYER
 	var/item_rug = /obj/item/ms13/rug
 	COOLDOWN_DECLARE(rug_cooldown)
 	var/rolltime = 15 SECONDS

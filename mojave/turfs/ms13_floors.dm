@@ -361,6 +361,15 @@
 /turf/open/floor/iron/ms13/metal/stayclear
 	icon_state = "steel_stayclear"
 
+/turf/open/floor/iron/ms13/metal/walkway
+	icon_state = "steel_walkway"
+
+/turf/open/floor/iron/ms13/metal/walkway/corner
+	icon_state = "steel_walkway_corner"
+
+/turf/open/floor/iron/ms13/metal/walkway/end
+	icon_state = "steel_walkway_end"
+
 ////Concrete Floors////
 
 /turf/open/floor/iron/ms13/concrete
@@ -373,6 +382,11 @@
 	has_alternate_states = TRUE
 	alternate_states = 5
 
+/turf/open/floor/iron/ms13/concrete/bricks
+	icon_state = "concrete_bricks"
+	has_alternate_states = TRUE
+	alternate_states = 8
+
 /turf/open/floor/iron/ms13/concrete/industrial
 	icon_state = "concrete_industrial"
 	desc = "Heavy duty concrete slabs." //DAS CONCRETE BABY
@@ -382,15 +396,6 @@
 
 /turf/open/floor/iron/ms13/concrete/industrial/split
 	icon_state = "concrete_industrial_split"
-
-/turf/open/floor/iron/ms13/concrete/industrial/walkway
-	icon_state = "concrete_walkway"
-
-/turf/open/floor/iron/ms13/concrete/industrial/walkway/corner
-	icon_state = "concrete_walkway_corner"
-
-/turf/open/floor/iron/ms13/concrete/industrial/walkway/end
-	icon_state = "concrete_walkway_end"
 
 /turf/open/floor/iron/ms13/concrete/industrial/walkway
 	icon_state = "concrete_walkway"

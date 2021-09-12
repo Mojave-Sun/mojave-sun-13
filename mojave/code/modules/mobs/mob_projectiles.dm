@@ -98,3 +98,16 @@
 	armour_penetration = 25
 	damage_type = BURN
 	wound_bonus = 35
+
+// Assaultron Projectiles //
+
+/obj/projectile/beam/ms13/laser/assaultron
+	damage = 35
+	armour_penetration = 5
+	wound_bonus = 10
+	hitscan_light_intensity = 2.10
+	hitscan_light_range = 1.25
+	muzzle_flash_intensity = 3.15
+	muzzle_flash_range = 2.75
+	impact_light_intensity = 3.75
+	impact_light_range = 2
