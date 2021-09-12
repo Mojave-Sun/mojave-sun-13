@@ -1,12 +1,12 @@
 #define S_OBJ_FO(num) (MAX_S_OBJ + 1 + num)
 
-#define SMOOTH_GROUP_MS13_WALL S_OBJ_FO(0)				///obj/structure/table/ms13/low_wall, /turf/closed/wall/ms13
-#define SMOOTH_GROUP_MS13_WALL_METAL S_OBJ_FO(1)		///obj/structure/table/ms13/low_wall/metal, /turf/closed/wall/ms13/metal
-#define SMOOTH_GROUP_MS13_WALL_WOOD S_OBJ_FO(2)		///obj/structure/table/ms13/low_wall/wood, /turf/closed/wall/ms13/wood
-#define SMOOTH_GROUP_MS13_WALL_SCRAP S_OBJ_FO(3)		///obj/structure/table/ms13/low_wall/scrap, /turf/closed/wall/ms13/scrap
-#define SMOOTH_GROUP_MS13_WALL_ADOBE S_OBJ_FO(4)		///obj/structure/table/ms13/low_wall/adobe, /turf/closed/wall/ms13/adobe
-#define SMOOTH_GROUP_MS13_WALL_BRICK S_OBJ_FO(5)		///obj/structure/table/ms13/low_wall/brick, /turf/closed/wall/ms13/brick
-#define SMOOTH_GROUP_MS13_WALL_REINFORCED S_OBJ_FO(6)	///obj/structure/table/ms13/low_wall/reinforced, /turf/closed/wall/ms13
+#define SMOOTH_GROUP_MS13_WALL S_OBJ_FO(0)				///obj/structure/table/low_wall, /turf/closed/wall/ms13
+#define SMOOTH_GROUP_MS13_WALL_METAL S_OBJ_FO(1)		///obj/structure/table/low_wall/metal, /turf/closed/wall/ms13/metal
+#define SMOOTH_GROUP_MS13_WALL_WOOD S_OBJ_FO(2)		///obj/structure/table/low_wall/wood, /turf/closed/wall/ms13/wood
+#define SMOOTH_GROUP_MS13_WALL_SCRAP S_OBJ_FO(3)		///obj/structure/table/low_wall/scrap, /turf/closed/wall/ms13/scrap
+#define SMOOTH_GROUP_MS13_WALL_ADOBE S_OBJ_FO(4)		///obj/structure/table/low_wall/adobe, /turf/closed/wall/ms13/adobe
+#define SMOOTH_GROUP_MS13_WALL_BRICK S_OBJ_FO(5)		///obj/structure/table/low_wall/brick, /turf/closed/wall/ms13/brick
+#define SMOOTH_GROUP_MS13_WALL_REINFORCED S_OBJ_FO(6)	///obj/structure/table/low_wall/reinforced, /turf/closed/wall/ms13
 #define SMOOTH_GROUP_MS13_MINERALS S_OBJ_FO(8)			///turf/closed/mineral/random/ms13, /turf/closed/indestructible/rock/ms13
 #define SMOOTH_GROUP_MS13_WINDOW S_OBJ_FO(9)			///obj/structure/window/fulltile/ms13/glass
 
@@ -16,7 +16,7 @@
 #define SMOOTH_GROUP_MS13_SIDEWALK S_OBJ_FO(13)			///turf/open/floor/plating/ground/sidewalk
 #define SMOOTH_GROUP_MS13_TILE S_OBJ_FO(14)			///
 
-#define SMOOTH_GROUP_MS13_LOW_WALL S_OBJ_FO(15)			///obj/structure/table/ms13/low_wall
+#define SMOOTH_GROUP_MS13_LOW_WALL S_OBJ_FO(15)			///obj/structure/table/low_wall
 #define SMOOTH_GROUP_MS13_CARPET_RED S_OBJ_FO(16)			////turf/open/floor/wood/ms13/carpet/red
 #define SMOOTH_GROUP_MS13_CARPET_BLUE S_OBJ_FO(17)			////turf/open/floor/wood/ms13/carpet/blue
 #define SMOOTH_GROUP_MS13_CARPET_GREEN S_OBJ_FO(18)			////turf/open/floor/wood/ms13/carpet/green
