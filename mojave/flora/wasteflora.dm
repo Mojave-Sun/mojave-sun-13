@@ -309,10 +309,10 @@
 /obj/structure/reagent_dispensers/compostbin/proc/process_compost()
 	for(var/obj/item/C in contents)
 		if(istype(C, /obj/item/seeds))
-			reagents.add_reagent("fertilizer", seed_value)
+			reagents.add_reagent(/datum/reagent/plantnutriment/ms13/fertilizer, seed_value)
 			qdel(C)
 		else if(istype(C, /obj/item/food))
-			reagents.add_reagent("fertilizer", food_value)
+			reagents.add_reagent(/datum/reagent/plantnutriment/ms13/fertilizer, food_value)
 			qdel(C)
 		else //Not sure how we got here, but there's only one reasonable thing to do.
 			qdel(C)
