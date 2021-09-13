@@ -175,7 +175,7 @@
 	inhand_icon_state = "redstripe"
 
 /obj/item/clothing/under/ms13/wasteland/mercc
-	name = "merc' clothes"
+	name = "merc clothes"
 	desc = "A set of clothes worn by the more rugged veterans of the wasteland."
 	icon_state = "mercc"
 	inhand_icon_state = "bluejump"

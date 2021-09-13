@@ -2,7 +2,7 @@
 	title = "Raider Boss"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = ""
+	supervisors = "No one"
 	description = "Lead your gang of pipe swingers. The grind has paid off and now you've got a small army at your hands. Decide what you'll do, whether it be highway tax points or drug production and peddling."
 	forbid = ""
 	enforce = ""
