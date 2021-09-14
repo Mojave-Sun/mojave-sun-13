@@ -241,6 +241,7 @@
 
 
 /// Fully randomizes everything according to the given flags.
+<<<<<<< HEAD
 /mob/living/carbon/human/proc/randomize_human_appearance(randomise_flags = ALL)
 	if(randomise_flags & RANDOMIZE_GENDER)
 		gender = pick(MALE, FEMALE, PLURAL)
@@ -288,3 +289,14 @@
 			organ_eyes.old_eye_color = eye_color
 	if(randomise_flags & RANDOMIZE_FEATURES)
 		dna.features = random_features()
+=======
+/mob/living/carbon/human/proc/randomize_human_appearance(randomize_flags = ALL)
+	var/datum/preferences/preferences = new
+
+	for (var/datum/preference/preference as anything in get_preferences_in_priority_order())
+		if (!preference.included_in_randomization_flags(randomize_flags))
+			continue
+
+		if (preference.is_randomizable())
+			preferences.write_preference(preference, preference.create_random_value(preferences))
+>>>>>>> 5a4c87a9fc3... tgui Preferences Menu + total rewrite of the preferences backend (#61313)

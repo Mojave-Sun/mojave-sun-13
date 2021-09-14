@@ -1,4 +1,5 @@
 /// Fully randomizes everything in the character.
+<<<<<<< HEAD
 /datum/preferences/proc/randomise_appearance_prefs(randomise_flags = ALL)
 	if(randomise_flags & RANDOMIZE_GENDER)
 		gender = pick(MALE, FEMALE, PLURAL)
@@ -40,10 +41,19 @@
 		eye_color = sanitize_hexcolor(eyetone2hex(random_eye_color())) //MOJAVE SUN EDIT - Hair/Gendered/Colours
 	if(randomise_flags & RANDOMIZE_FEATURES)
 		features = random_features()
+=======
+/datum/preferences/proc/randomise_appearance_prefs(randomize_flags = ALL)
+	for (var/datum/preference/preference as anything in get_preferences_in_priority_order())
+		if (!preference.included_in_randomization_flags(randomize_flags))
+			continue
+>>>>>>> 5a4c87a9fc3... tgui Preferences Menu + total rewrite of the preferences backend (#61313)
 
+		if (preference.is_randomizable())
+			write_preference(preference, preference.create_random_value(src))
 
 /// Randomizes the character according to preferences.
 /datum/preferences/proc/apply_character_randomization_prefs(antag_override = FALSE)
+<<<<<<< HEAD
 	if(!randomise[RANDOM_BODY] && !(antag_override && randomise[RANDOM_BODY_ANTAG]))
 		return // Prefs say "no, thank you"
 	if(randomise[RANDOM_GENDER] || antag_override && randomise[RANDOM_GENDER_ANTAG])
@@ -91,7 +101,19 @@
 	pref_species = new random_species_type
 	if(randomise[RANDOM_NAME])
 		real_name = pref_species.random_name(gender,1)
+=======
+	switch (read_preference(/datum/preference/choiced/random_body))
+		if (RANDOM_ANTAG_ONLY)
+			if (!antag_override)
+				return
 
+		if (RANDOM_DISABLED)
+			return
+>>>>>>> 5a4c87a9fc3... tgui Preferences Menu + total rewrite of the preferences backend (#61313)
+
+	for (var/datum/preference/preference as anything in get_preferences_in_priority_order())
+		if (should_randomize(preference, antag_override))
+			write_preference(preference, preference.create_random_value(src))
 
 ///Setup the random hardcore quirks and give the character the new score prize.
 /datum/preferences/proc/hardcore_random_setup(mob/living/carbon/human/character)
@@ -148,33 +170,34 @@
 		. += available_hardcore_quirks[picked_quirk]
 		available_hardcore_quirks -= picked_quirk
 
-
-/datum/preferences/proc/update_preview_icon()
-	// Determine what job is marked as 'High' priority, and dress them up as such.
-	var/datum/job/previewJob
+/// Returns what job is marked as highest
+/datum/preferences/proc/get_highest_priority_job()
+	var/datum/job/preview_job
 	var/highest_pref = 0
+
 	for(var/job in job_preferences)
 		if(job_preferences[job] > highest_pref)
-			previewJob = SSjob.GetJob(job)
+			preview_job = SSjob.GetJob(job)
 			highest_pref = job_preferences[job]
 
-	if(previewJob)
+	return preview_job
+
+/datum/preferences/proc/render_new_preview_appearance(mob/living/carbon/human/dummy/mannequin)
+	var/datum/job/preview_job = get_highest_priority_job()
+
+	if(preview_job)
 		// Silicons only need a very basic preview since there is no customization for them.
-		if(istype(previewJob,/datum/job/ai))
-			parent.show_character_previews(image('icons/mob/ai.dmi', icon_state = resolve_ai_icon(preferred_ai_core_display), dir = SOUTH))
-			return
-		if(istype(previewJob,/datum/job/cyborg))
-			parent.show_character_previews(image('icons/mob/robots.dmi', icon_state = "robot", dir = SOUTH))
-			return
+		if (istype(preview_job,/datum/job/ai))
+			return image('icons/mob/ai.dmi', icon_state = resolve_ai_icon(read_preference(/datum/preference/choiced/ai_core_display)), dir = SOUTH)
+		if (istype(preview_job,/datum/job/cyborg))
+			return image('icons/mob/robots.dmi', icon_state = "robot", dir = SOUTH)
 
 	// Set up the dummy for its photoshoot
-	var/mob/living/carbon/human/dummy/mannequin = generate_or_wait_for_human_dummy(DUMMY_HUMAN_SLOT_PREFERENCES)
 	apply_prefs_to(mannequin, TRUE)
 
-	if(previewJob)
-		mannequin.job = previewJob.title
-		mannequin.dress_up_as_job(previewJob, TRUE)
+	if(preview_job)
+		mannequin.job = preview_job.title
+		mannequin.dress_up_as_job(preview_job, TRUE)
 
 	COMPILE_OVERLAYS(mannequin)
-	parent.show_character_previews(new /mutable_appearance(mannequin))
-	unset_busy_human_dummy(DUMMY_HUMAN_SLOT_PREFERENCES)
+	return mannequin.appearance
