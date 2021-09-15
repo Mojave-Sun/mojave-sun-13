@@ -23,8 +23,8 @@
 	suit_store = /obj/item/gun/ballistic/automatic/ms13/full/smg10mm
 	belt = 		/obj/item/claymore/ms13/machete/ripper
 	r_pocket = 	/obj/item/ammo_box/magazine/ms13/smgm10mm
+	l_pocket =	/obj/item/ammo_box/magazine/ms13/smgm10mm
 	backpack_contents = list(
-		/obj/item/ammo_box/magazine/ms13/smgm10mm=1, \
 		/obj/item/stack/medical/ointment/ms13/cream/half=1, \
 		/obj/item/stack/medical/gauze/ms13/half=1)
 
