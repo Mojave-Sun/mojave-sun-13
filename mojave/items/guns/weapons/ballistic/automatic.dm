@@ -6,6 +6,7 @@
 	inhand_icon_state = "service"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/service/service_3.ogg'
 	fire_delay = 0.4 SECONDS
+	slot_flags = ITEM_SLOT_BACK
 	extra_damage = 25
 	extra_penetration = 5
 	spread = 5
@@ -30,6 +31,7 @@
 	inhand_icon_state = "sniper"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/sniper/sniper2.ogg'
 	fire_delay = 0.6 SECONDS
+	slot_flags = ITEM_SLOT_BACK
 	extra_damage = 45
 	extra_penetration = 10
 	spread = 2
@@ -60,6 +62,7 @@
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/marksman/marksman2.ogg'
 	can_suppress = FALSE
 	fire_delay = 0.55 SECONDS
+	slot_flags = ITEM_SLOT_BACK
 	extra_damage = 35
 	extra_penetration = 10
 	spread = 2
@@ -83,6 +86,7 @@
 	inhand_icon_state = "battler"
 	fire_sound = 'mojave/sound/ms13weapons/battlerifle.ogg'
 	fire_delay = 0.5 SECONDS
+	slot_flags = ITEM_SLOT_BACK
 	extra_damage = 40
 	extra_penetration = 15
 	spread = 5

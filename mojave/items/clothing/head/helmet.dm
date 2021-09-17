@@ -674,13 +674,15 @@
 	armor = list("melee" = 40, "bullet" = 35, "laser" = 20, "energy" = 15, "bomb" = 30, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10, "wound" = 5)
 
 /obj/item/clothing/head/helmet/ms13/ncr/beret
-	name = "\improper NCR officer beret"
-	desc = "An NCR officer's beret. Minimal protection, maximum style and authority."
+	name = "\improper NCR beret"
+	desc = "A standard padded NCR beret. Normally reserved for NCOs."
 	icon_state = "ncr_officer_beret"
 	inhand_icon_state = "ncr_officer_beret"
 	armor = list("melee" = 25, "bullet" = 20, "laser" = 10, "energy" = 5, "bomb" = 15, "bio" = 10, "rad" = 10, "fire" = 10, "acid" = 10, "wound" = 0)
 
-/obj/item/clothing/head/helmet/ms13/ncr/beret/brown
+/obj/item/clothing/head/helmet/ms13/ncr/beret/officer
+	name = "\improper NCR officer beret"
+	desc = "A brown NCR officer's beret. Minimal protection, maximum style and authority."
 	icon_state = "ncr_officer_brberet"
 	inhand_icon_state = "ncr_officer_brberet"
 

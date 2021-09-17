@@ -14,8 +14,9 @@
 	jobtype = /datum/job/ms13/ncr/lieutenant
 	id = 		 /obj/item/card/id/ms13/ncrlieutenant
 	uniform =    /obj/item/clothing/under/ms13/ncr/fatigues
-	head = 	     /obj/item/clothing/head/helmet/ms13/ncr/beret
+	head = 	     /obj/item/clothing/head/helmet/ms13/ncr/beret/officer
 	suit =       /obj/item/clothing/suit/armor/ms13/ncr/mantle/reinforced
+	gloves = 	 null
 	suit_store = /obj/item/gun/ballistic/automatic/pistol/ms13/deagle
 	shoes = 	 /obj/item/clothing/shoes/ms13/military/ncr/officer
 	r_pocket = 	 /obj/item/ammo_box/magazine/ms13/deagle

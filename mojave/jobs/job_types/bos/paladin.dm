@@ -16,6 +16,7 @@
 	jobtype = /datum/job/ms13/bos/paladin
 
 	id = /obj/item/card/id/ms13/bos/paladin
+	mask = /obj/item/clothing/mask/ms13/bos
 	suit = /obj/item/clothing/suit/armor/ms13/combat/bos
 	uniform =  /obj/item/clothing/under/ms13/bos/officer
 	belt = /obj/item/gun/energy/ms13/laser/pistol/advanced

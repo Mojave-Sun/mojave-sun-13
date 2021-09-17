@@ -22,7 +22,8 @@
 	l_pocket = 	 /obj/item/kitchen/knife/ms13/hunting
 	backpack_contents = list(
 		/obj/item/stack/medical/gauze/ms13/three=1, \
-		/obj/item/ammo_box/magazine/ms13/m9mm=2)
+		/obj/item/ammo_box/magazine/ms13/m9mm=2, \
+		/obj/item/clothing/head/helmet/ms13/ncr/beret=1)
 
 /datum/outfit/job/ms13/ncr/staffsergeant/pre_equip(mob/living/carbon/human/H)
 	..()
