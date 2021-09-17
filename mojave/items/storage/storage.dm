@@ -1,7 +1,7 @@
 // Storage code
 
 /obj/item/storage/firstaid/ms13
-	name = "emergency aid kit"
+	name = "first aid kit"
 	desc = "A first aid kit, can be used for easy storage and access of critical medical supplies."
 	w_class = WEIGHT_CLASS_NORMAL
 	icon = 'mojave/icons/objects/medical/medical_world.dmi'

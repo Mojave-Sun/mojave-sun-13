@@ -658,11 +658,9 @@
 
 /obj/item/clothing/head/helmet/ms13/ncr/medic
 	name = "\improper NCR medic helmet"
-	desc = "A specially marked helmet used by medics of the NCR."
+	desc = "A standard NCR infantry helmet with the addition of a blue cross for identifying the soldier as a medic."
 	icon_state = "ncr_medic_helmet"
 	inhand_icon_state = "ncr_medic_helmet"
-	armor = list("melee" = 35, "bullet" = 30, "laser" = 15, "energy" = 10, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 20, "acid" = 10, "wound" = 0)
-	flags_cover = NONE
 
 /obj/item/clothing/head/helmet/ms13/ncr/goggles
 	name = "\improper NCR goggles helmet"

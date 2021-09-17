@@ -362,9 +362,10 @@
 
 /obj/item/clothing/suit/armor/ms13/head_paladin
 	name = "\improper Brotherhood head paladin's battlecoat"
-	desc = "A masterwork of Brotherhood tailoring, featuring remarkable reinforcement and armoring while not compromising on style or weight."
+	desc = "A masterwork of Brotherhood tailoring, featuring good reinforcements and armoring while not compromising on style or weight."
 	icon_state = "battlecoat"
 	inhand_icon_state = "battlecoat"
+	armor = list("melee" = 30, "bullet" = 25, "laser" = 20, "energy" = 10, "bomb" = 15, "bio" = 10, "rad" = 10, "fire" = 10, "acid" = 10, "wound" = 0)
 
 /obj/item/clothing/suit/armor/ms13/vest/bos
 	name = "\improper Brotherhood kevlar vest"
