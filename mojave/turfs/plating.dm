@@ -61,6 +61,17 @@
 /turf/open/floor/plating/ms13/ground/ex_act(severity, target)
 	return
 
+/turf/open/floor/plating/dirt/ms13
+	baseturfs = /turf/open/floor/plating/ms13/ground
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	planetary_atmos = TRUE
+	attachment_holes = FALSE
+	footstep = FOOTSTEP_SAND
+	barefootstep = FOOTSTEP_SAND
+	clawfootstep = FOOTSTEP_SAND
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	slowdown = 0.5
+
 /turf/open/floor/plating/ms13/ground/desert
 	name = "\proper desert"
 	desc = "A stretch of desert."
