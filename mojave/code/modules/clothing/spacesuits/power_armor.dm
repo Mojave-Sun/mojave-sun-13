@@ -218,3 +218,4 @@
 	worn_icon = 'mojave/icons/mob/large-worn-icons/32x48/armor.dmi'
 	icon_state = "t51_armor"
 	worn_icon_state = "t51_armor"
+	slowdown = 1
