@@ -97,7 +97,8 @@
 
 /obj/item/card/id/ms13/raider
 	name = "raider's necklace"
-	desc = "A necklace composed of random bits of teeth. If someone's wearing this, you know they could only be part of ONE gang..."
+	desc = "A necklace composed of random bits of teeth and bone. If someone's wearing this, they are no doubt a part of a raider gang."
+	assignment = "Raider"
 	icon_state = "raider"
 
 /obj/item/card/id/ms13/sawbone
@@ -107,12 +108,14 @@
 
 /obj/item/card/id/ms13/enforcer
 	name = "enforcer's necklace"
-	desc = "A necklace composed of random bits of teeth, along with bullets of varying caliber strung up. Truly a symbol of authority"
+	desc = "A necklace composed of random bits of teeth and bone, along with bullets of varying caliber strung up. An intimidating symbol of authority."
+	assignment = "Raider Enforcer"
 	icon_state = "enforcer"
 
 /obj/item/card/id/ms13/boss
 	name = "boss's collar"
 	desc = "A brave fashion statement. This is a seemingly non-functional bomb collar. The person wearing this must truly be an alpha."
+	assignment = "Raider Boss"
 	icon_state = "boss"
 
 /obj/item/card/id/ms13/ranger_recruit

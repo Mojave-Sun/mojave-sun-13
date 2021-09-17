@@ -128,31 +128,39 @@
 
 // Raider Armor //
 
-/obj/item/clothing/suit/ms13/trench/enforcercoat
+/obj/item/clothing/suit/ms13/trench/black/reinf/enforcer
 	name = "enforcers overcoat"
-	desc = "A duster with a rather thick vest under it. This just SCREAMS authority. Could probably stop a few bullets."
+	desc = "A duster with a rather thick vest under it and the addition of some metal spikes and reinforcements. This practically screams intimidating authority."
 	icon_state = "enforcercoat"
 	inhand_icon_state = "det_suit"
 	blood_overlay_type = "armor"
-	armor = list(melee = 40, bullet = 45, laser = 15, energy = 10, bomb = 25, bio = 5, rad = 5, fire = 30, acid = 5)
+
+/obj/item/clothing/suit/ms13/trench/boss
+	name = "boss' coat"
+	desc = "A padded trenchcoat, with the arms left exposed. Worn by the biggest and baddest."
+	icon_state = "courier"
+	inhand_icon_state = "duster"
 
 /obj/item/clothing/suit/ms13/raider
-	name = "lightly armored jacket"
-	desc = "A jacket with some basic armor attached to it. Better than nothing."
+	name = "raider reinforced jacket"
+	desc = "A winter jacket with some basic armoring and reinforcements. In recent times, it has become a staple for raiders in Mammoth."
 	icon_state = "winterjacketraider"
 	inhand_icon_state = "det_suit"
 	blood_overlay_type = "armor"
-	armor = list(melee = 25, bullet = 35, laser = 10, energy = 10, bomb = 25, bio = 5, rad = 5, fire = 20, acid = 5)
+	armor = list(melee = 30, bullet = 25, laser = 20, energy = 10, bomb = 15, bio = 10, rad = 10, fire = 10, acid = 10, wound = 0)
 
 /obj/item/clothing/suit/ms13/raider/plated
-	name = "plate reinforced coat"
-	desc = "A nice thick coat. The torso has a bit of padding under it while it's also got some rough scrapped together metal plates to protect the shoulders and thighs."
+	name = "raider plated jacket"
+	desc = "A light jacket that has been crudely reinforced with various metal plates and strips. An armored jacket like this is almost exclusively used by raiders."
 	icon_state = "knightlyraider"
+	armor = list("melee" = 40, "bullet" = 30, "laser" = 0, "energy" = 15, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10, "wound" = 0)
 
 /obj/item/clothing/suit/ms13/raider/kevlar
-	name = "reinforced coat"
-	desc = "A cozy coat with some leather straps tieing some metal bits to the wearer. It's got a seemingly trustworthy vest over it. Could it take a shot?"
+	name = "raider kevlar jacket"
+	desc = "A fur lined jacket with an added light kevlar vest and some metal reinforcements. Predominantly seen protecting raiders from bullets seeking justice."
 	icon_state = "dapperraider"
+	armor = list("melee" = 20, "bullet" = 35, "laser" = 15, "energy" = 10, "bomb" = 20, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10, "wound" = 0)
+
 
 // Combat Armor //
 

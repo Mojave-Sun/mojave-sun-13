@@ -8,6 +8,7 @@
 	fire_sound = 'mojave/sound/ms13weapons/hunting_rifle.ogg'
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
+	slot_flags = ITEM_SLOT_BACK
 	extra_damage = 40
 	extra_penetration = 15
 	fire_delay = 0.6 SECONDS
@@ -34,6 +35,7 @@
 	inhand_icon_state = "varmint"
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
+	slot_flags = ITEM_SLOT_BACK
 	fire_sound = 'mojave/sound/ms13weapons/varmint_rifle.ogg'
 	fire_delay = 0.6 SECONDS
 	extra_damage = 30

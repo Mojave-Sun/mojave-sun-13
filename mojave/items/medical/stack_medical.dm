@@ -102,6 +102,9 @@
 /obj/item/stack/medical/gauze/ms13/half
     amount = 6
 
+/obj/item/stack/medical/gauze/ms13/three
+    amount = 3
+
 /obj/item/stack/medical/gauze/ms13/military
     name = "military gauze"
     desc = "A sterile and elastic roll of gauze with a handle used to help pin the dressing down. Very good at soaking up blood from wounds and can be used as a splint for a broken bone."
