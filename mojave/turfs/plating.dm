@@ -683,6 +683,7 @@
 		if(!iswater(get_step(src, direction)))
 			M.swimming = FALSE
 			M.layer = initial(M.layer)
+			M.plane = initial(M.plane)
 
 /turf/open/ms13/water/Entered(atom/A, turf/OL)
 	..()
