@@ -1,6 +1,9 @@
 /datum/component/personal_crafting/Initialize()
+	return
+	/* MOJAVE EDIT
 	if(ismob(parent))
 		RegisterSignal(parent, COMSIG_MOB_CLIENT_LOGIN, .proc/create_mob_button)
+	*/
 
 /datum/component/personal_crafting/proc/create_mob_button(mob/user, client/CL)
 	SIGNAL_HANDLER
