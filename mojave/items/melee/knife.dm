@@ -6,6 +6,8 @@
 	icon = 'mojave/icons/objects/melee/melee_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
+	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
+	worn_icon_state = "empty_placeholder"
 	icon_state = "knife_kitchen"
 	inhand_icon_state = "knife_kitchen"
 	force = 15
@@ -15,6 +17,7 @@
 	embedding = null
 	sharpness = SHARP_EDGED
 	w_class = WEIGHT_CLASS_SMALL
+	slot_flags = ITEM_SLOT_BELT
 	log_pickup_and_drop = TRUE
 
 /obj/item/kitchen/knife/ms13/Initialize()
@@ -79,13 +82,16 @@
 	icon = 'mojave/icons/objects/melee/melee_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
+	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
+	worn_icon_state = "empty_placeholder"
 	icon_state = "knife_throwing"
 	inhand_icon_state = "knife_throwing"
 	force = 15
 	throwforce = 25
 	armour_penetration = 10
-	embedding = list("embedded_pain_multiplier" = 3, "embed_chance" = 40, "embedded_fall_chance" = 20)
+	embedding = list("embedded_pain_multiplier" = 2, "embed_chance" = 40, "embedded_fall_chance" = 20)
 	w_class = WEIGHT_CLASS_SMALL
+	slot_flags = ITEM_SLOT_BELT
 	sharpness = SHARP_POINTY
 	wound_bonus = 5
 	bare_wound_bonus = 5
@@ -166,6 +172,8 @@
 	icon = 'mojave/icons/objects/melee/melee_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
+	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
+	worn_icon_state = "empty_placeholder"
 	icon_state = "knife_cleaver"
 	inhand_icon_state = "knife_cleaver"
 	force = 25
@@ -173,6 +181,7 @@
 	wound_bonus = 12
 	bare_wound_bonus = 13
 	w_class = WEIGHT_CLASS_NORMAL
+	slot_flags = ITEM_SLOT_BELT
 	sharpness = SHARP_EDGED
 	log_pickup_and_drop = TRUE
 

@@ -69,9 +69,6 @@
 	desc = "High speed, no-drag combat boots designed for use by the U.S. Army before the Great War."
 	icon_state = "military"
 	inhand_icon_state = "military"
-	permeability_coefficient = 0.01
-	clothing_flags = NOSLIP
-	armor = list(melee = 10, bullet = 10, laser = 0, energy = 0, bomb = 10, bio = 0, rad = 0, fire = 10, acid = 0)
 	strip_delay = 40
 	resistance_flags = 0
 
@@ -89,13 +86,10 @@
 	clothing_flags = NOSLIP
 
 /obj/item/clothing/shoes/ms13/military/diesel
-	name = "male diesel boots"
-	desc = "Fancy mens' steel-toed boots."
+	name = "black diesel boots"
+	desc = "Bulky black steel-toed diesel boots. They sound as threatening as they look."
 	icon_state = "diesel_m"
 	inhand_icon_state = "diesel_m"
-	armor = list(melee = 20, bullet = 10, laser = 10, energy = 10, bomb = 10, bio = 0, rad = 0, fire = 0, acid = 0)
-	cold_protection = FEET
-	min_cold_protection_temperature = SHOES_MIN_TEMP_PROTECT
 
 /obj/item/clothing/shoes/ms13/military/female/diesel
 	name = "female diesel boots"

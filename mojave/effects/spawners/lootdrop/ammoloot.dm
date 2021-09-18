@@ -14,7 +14,8 @@
 			/obj/item/ammo_box/magazine/ms13/m10mm,
 			/obj/item/ammo_box/ms13/cpistol,
 			/obj/item/ammo_box/ms13/r762,
-			/obj/item/stock_parts/cell/ms13/ec
+			/obj/item/stock_parts/cell/ms13/ec,
+			/obj/item/ammo_box/ms13/shotgun/junkshot
 			)
 
 /obj/effect/spawner/lootdrop/ms13/ammo/tier2
@@ -30,7 +31,8 @@
 			/obj/item/ammo_box/ms13/r762,
 			/obj/item/stock_parts/cell/ms13/ec,
 			/obj/item/stock_parts/cell/ms13/pc,
-			/obj/item/stock_parts/cell/ms13/mfc
+			/obj/item/stock_parts/cell/ms13/mfc,
+			/obj/item/ammo_box/ms13/shotgun/buckshot
 			)
 
 /obj/effect/spawner/lootdrop/ms13/ammo/tier3
@@ -49,7 +51,8 @@
 			/obj/item/ammo_box/magazine/ms13/smgm10mm,
 			/obj/item/ammo_box/magazine/ms13/ar762,
 			/obj/item/stock_parts/cell/ms13/pc,
-			/obj/item/stock_parts/cell/ms13/mfc
+			/obj/item/stock_parts/cell/ms13/mfc,
+			/obj/item/ammo_box/ms13/shotgun/buckshot
 			)
 
 /obj/effect/spawner/lootdrop/ms13/ammo/tier4

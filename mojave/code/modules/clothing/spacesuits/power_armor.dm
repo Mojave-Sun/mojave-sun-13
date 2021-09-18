@@ -131,11 +131,13 @@
 		if(user.wear_suit == src)
 			to_chat(user, "You begin exiting the [src].")
 			if(do_after(user, 6 SECONDS, target = user))
+				if(get_dist(user, src) > 1) //Anti-afterimage check
+					return FALSE
 				GetOutside(user)
 				return TRUE
 			return FALSE
 
-	if(!CheckEquippedClothing(user))
+	if(!CheckEquippedClothing(user) || get_dist(user, src) > 1)
 		return FALSE
 	to_chat(user, "You begin entering the [src].")
 	if(do_after(user, 6 SECONDS, target = user) && CheckEquippedClothing(user))
@@ -201,7 +203,7 @@
 /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/t51
 	name = "T51 Power Armor Helmet"
 	desc = "A more advanced helmet for a more advanced piece of power armor."
-	armor = list(MELEE = 90, BULLET = 90, LASER = 90, ENERGY = 90, BOMB = 90, BIO = 100, RAD = 100, FIRE = 100, ACID = 100) //Make the armor the same as the hardsuit one for consistancy
+	armor = list(MELEE = 80, BULLET = 80, LASER = 75, ENERGY = 80, BOMB = 80, BIO = 100, RAD = 100, FIRE = 100, ACID = 100, WOUND = 20) //Make the armor the same as the hardsuit one for consistancy
 	icon = 'mojave/icons/mob/large-worn-icons/32x48/head.dmi'
 	worn_icon = 'mojave/icons/mob/large-worn-icons/32x48/head.dmi'
 	icon_state = "t51_helmet"
@@ -211,8 +213,9 @@
 	name = "T51B Power Armor Suit"
 	desc = "The last widely developed and distributed power armor prior to the nuclear winter, even after all of these years it still outperforms it's previous model iteration."
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/t51
-	armor = list(MELEE = 90, BULLET = 90, LASER = 90, ENERGY = 90, BOMB = 90, BIO = 100, RAD = 100, FIRE = 100, ACID = 100) //Make the armor the same as the hardsuit one for consistancy
+	armor = list(MELEE = 80, BULLET = 80, LASER = 75, ENERGY = 80, BOMB = 80, BIO = 100, RAD = 100, FIRE = 100, ACID = 100, WOUND = 20) //Make the armor the same as the hardsuit one for consistancy
 	icon = 'mojave/icons/mob/large-worn-icons/32x48/armor.dmi'
 	worn_icon = 'mojave/icons/mob/large-worn-icons/32x48/armor.dmi'
 	icon_state = "t51_armor"
 	worn_icon_state = "t51_armor"
+	slowdown = 1

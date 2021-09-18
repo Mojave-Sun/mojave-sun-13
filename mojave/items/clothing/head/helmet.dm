@@ -658,11 +658,9 @@
 
 /obj/item/clothing/head/helmet/ms13/ncr/medic
 	name = "\improper NCR medic helmet"
-	desc = "A specially marked helmet used by medics of the NCR."
+	desc = "A standard NCR infantry helmet with the addition of a blue cross for identifying the soldier as a medic."
 	icon_state = "ncr_medic_helmet"
 	inhand_icon_state = "ncr_medic_helmet"
-	armor = list("melee" = 35, "bullet" = 30, "laser" = 15, "energy" = 10, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 20, "acid" = 10, "wound" = 0)
-	flags_cover = NONE
 
 /obj/item/clothing/head/helmet/ms13/ncr/goggles
 	name = "\improper NCR goggles helmet"
@@ -676,13 +674,15 @@
 	armor = list("melee" = 40, "bullet" = 35, "laser" = 20, "energy" = 15, "bomb" = 30, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10, "wound" = 5)
 
 /obj/item/clothing/head/helmet/ms13/ncr/beret
-	name = "\improper NCR officer beret"
-	desc = "An NCR officer's beret. Minimal protection, maximum style and authority."
+	name = "\improper NCR beret"
+	desc = "A standard padded NCR beret. Normally reserved for NCOs."
 	icon_state = "ncr_officer_beret"
 	inhand_icon_state = "ncr_officer_beret"
 	armor = list("melee" = 25, "bullet" = 20, "laser" = 10, "energy" = 5, "bomb" = 15, "bio" = 10, "rad" = 10, "fire" = 10, "acid" = 10, "wound" = 0)
 
-/obj/item/clothing/head/helmet/ms13/ncr/beret/brown
+/obj/item/clothing/head/helmet/ms13/ncr/beret/officer
+	name = "\improper NCR officer beret"
+	desc = "A brown NCR officer's beret. Minimal protection, maximum style and authority."
 	icon_state = "ncr_officer_brberet"
 	inhand_icon_state = "ncr_officer_brberet"
 
