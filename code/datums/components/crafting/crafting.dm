@@ -1,4 +1,5 @@
 /datum/component/personal_crafting/Initialize()
+	return
 	if(ismob(parent))
 		RegisterSignal(parent, COMSIG_MOB_CLIENT_LOGIN, .proc/create_mob_button)
 
