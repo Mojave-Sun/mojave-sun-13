@@ -153,8 +153,10 @@ There are several things that need to be remembered:
 
 	if(wear_id)
 		wear_id.screen_loc = ui_id
+		/* MOJAVE EDIT
 		if(client && hud_used?.hud_shown)
 			client.screen += wear_id
+		*/
 		update_observer_view(wear_id)
 
 		//TODO: add an icon file for ID slot stuff, so it's less snowflakey
