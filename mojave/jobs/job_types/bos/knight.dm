@@ -1,5 +1,5 @@
 /datum/job/ms13/bos/knight
-	title = "_BoS Knight"
+	title = "BoS Knight"
 	department_head = list("Head Paladin")
 	total_positions = 3
 	spawn_positions = 3

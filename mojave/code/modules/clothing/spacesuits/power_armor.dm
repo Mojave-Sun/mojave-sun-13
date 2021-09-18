@@ -29,6 +29,7 @@
 	icon_state = "frame"
 	worn_icon = 'mojave/icons/mob/large-worn-icons/32x48/armor.dmi'
 	worn_icon_state = "frame"
+	allowed = list(/obj/item/storage/box/matches,/obj/item/lighter,/obj/item/clothing/mask/cigarette,/obj/item/storage/fancy/cigarettes,/obj/item/flashlight,/obj/item/gun,/obj/item/ammo_box,/obj/item/ammo_casing)
 	density = TRUE //It's a suit of armor man
 	anchored = TRUE
 	strip_delay = 200
