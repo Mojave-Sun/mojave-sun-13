@@ -1,5 +1,5 @@
 /datum/job/ms13/bos/scribe
-	title = "_BoS Scribe"
+	title = "BoS Scribe"
 	department_head = list("Head Scribe")
 	total_positions = 2
 	spawn_positions = 2
