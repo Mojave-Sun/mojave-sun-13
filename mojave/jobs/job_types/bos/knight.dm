@@ -3,8 +3,8 @@
 	department_head = list("Head Paladin")
 	total_positions = 3
 	spawn_positions = 3
-	supervisors = "the Paladin and Head Paladin"
-	description = "Another day of keeping the wastes in check. Ensure weaponized technology is properly contained. Follow any goals set out by your superiors."
+	supervisors = "The Paladin and Head Paladin"
+	description = "Follow the orders of your superiors and ensure weaponized technology in the wastes is kept contained and in check."
 
 	outfit = /datum/outfit/job/ms13/bos/knight
 
@@ -18,15 +18,16 @@
 	mask = /obj/item/clothing/mask/ms13/bos
 	suit = /obj/item/clothing/suit/armor/ms13/combat/bos
 	uniform =  /obj/item/clothing/under/ms13/bos
-	belt = /obj/item/gun/ballistic/automatic/pistol/ms13/m10mm
+	belt = /obj/item/gun/ballistic/automatic/pistol/ms13/m10mm/military
 	gloves = /obj/item/clothing/gloves/ms13/bos
 	shoes = /obj/item/clothing/shoes/ms13/military/bos
 	suit_store = /obj/item/gun/energy/ms13/laser/rifle
-	r_pocket = 	/obj/item/stack/medical/gauze/ms13
+	r_pocket = 	/obj/item/stock_parts/cell/ms13/mfc
+	l_pocket =  /obj/item/kitchen/knife/ms13/combat
 	back = /obj/item/storage/backpack/satchel
 	backpack_contents = list(
-		/obj/item/stock_parts/cell/ms13/mfc=1,\
-		/obj/item/kitchen/knife/ms13/combat=1)
+		/obj/item/stack/medical/gauze/ms13/three=1, \
+		/obj/item/ammo_box/magazine/ms13/m10mm=1)
 
 /datum/outfit/job/ms13/bos/knight/pre_equip(mob/living/carbon/human/H)
 	..()

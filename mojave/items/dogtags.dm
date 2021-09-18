@@ -42,19 +42,30 @@
 	return ..()
 
 /obj/item/card/id/ms13/ncrtrooper
-	name = "trooper's tags"
+	name = "\improper NCR trooper's tags"
 	desc = "A dog tag proving enlistment in the NCR."
 	icon_state = "ncrdogtagtrooper"
+	assignment = "NCR Trooper"
+
+/obj/item/card/id/ms13/ncrtrooper/medic
+	name = "\improper NCR medic's tags"
+	assignment = "NCR Medic"
 
 /obj/item/card/id/ms13/ncrsergeant
-	name = "sergeant's tags"
+	name = "\improper NCR sergeant's tags"
 	desc = "A chevron decorated dog tag showing NCO status within the NCR."
 	icon_state = "ncrdogtagsergeant"
+	assignment = "NCR Sergeant"
+
+/obj/item/card/id/ms13/ncrsergeant/staff
+	name = "\improper NCR staff sergeant's tags"
+	assignment = "NCR Staff Sergeant"
 
 /obj/item/card/id/ms13/ncrlieutenant
-	name = "lieutenant's tags"
+	name = "\improper NCR lieutenant's tags"
 	desc = "A silver bar dog tag that denotes a member of the NCR military with a lieutenant commission."
 	icon_state = "ncrdogtagofficer"
+	assignment = "NCR Lieutenant"
 
 /obj/item/card/id/ms13/ncrcaptain
 	name = "captain's tags"
