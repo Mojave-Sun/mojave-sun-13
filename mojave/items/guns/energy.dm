@@ -133,6 +133,8 @@
 	name = "ammo cell"
 	desc = "You shouldn't be holding this."
 	w_class = WEIGHT_CLASS_SMALL
+	worn_icon = 'mojave/icons/mob/worn_misc.dmi'
+	worn_icon_state = "empty_placeholder"
 	var/base_icon = ""
 	var/multiple_states = FALSE
 

@@ -90,8 +90,8 @@
     other_delay = 1.5 SECONDS
     max_amount = 12
     amount = 12
-    absorption_rate = 0.13
-    absorption_capacity = 4 //Capacity plus rate should mean this lasts about 30 seconds on average
+    absorption_rate = 0.15
+    absorption_capacity = 4.25
     splint_factor = 0.5
     merge_type = /obj/item/stack/medical/gauze/ms13
 
@@ -111,6 +111,6 @@
     icon_state = "bandage_m"
     inhand_icon_state = "bandage_m"
     absorption_rate = 0.2
-    absorption_capacity = 6 //Capacity plus rate should mean this lasts about 30 seconds on average
+    absorption_capacity = 6
     splint_factor = 0.4 //Lower = better
     merge_type = /obj/item/stack/medical/gauze/ms13/military

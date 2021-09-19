@@ -4,9 +4,12 @@
 	name = "first aid kit"
 	desc = "A first aid kit, can be used for easy storage and access of critical medical supplies."
 	w_class = WEIGHT_CLASS_NORMAL
+	slot_flags = ITEM_SLOT_BELT
 	icon = 'mojave/icons/objects/medical/medical_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
+	worn_icon = 'mojave/icons/mob/worn_misc.dmi'
+	worn_icon_state = "empty_placeholder"
 	icon_state = "medicalkit"
 
 /obj/item/storage/firstaid/ms13/Initialize()
@@ -32,6 +35,7 @@
 	name = "doctors bag"
 	desc = "A bag used by doctors to hold medical supplies and tools in. Extremely handy to keep around."
 	icon_state = "doctorsbag"
+	slot_flags = 0
 
 /obj/item/storage/firstaid/ms13/bag/filled
 

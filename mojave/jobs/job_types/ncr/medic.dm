@@ -17,11 +17,12 @@
 	suit =       /obj/item/clothing/suit/armor/ms13/ncr
 	gloves = 	 null
 	suit_store = /obj/item/gun/ballistic/automatic/pistol/ms13/m9mm
+	belt = 		 /obj/item/storage/firstaid/ms13/regular
 	r_pocket = 	 /obj/item/ammo_box/magazine/ms13/m9mm
 	l_pocket =	 /obj/item/kitchen/knife/ms13/hunting
 	backpack_contents = list(
 		/obj/item/ammo_box/magazine/ms13/m9mm=1, \
-		/obj/item/storage/firstaid/ms13/regular=1)
+		/obj/item/stack/medical/gauze/ms13/half=1)
 
 /datum/outfit/job/ms13/ncr/medic/pre_equip(mob/living/carbon/human/H)
 	..()

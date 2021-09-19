@@ -4,6 +4,9 @@
 	icon = 'mojave/icons/objects/medical/medical_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
+	worn_icon = 'mojave/icons/mob/worn_misc.dmi'
+	worn_icon_state = "empty_placeholder"
+	slot_flags = ITEM_SLOT_BELT
 
 /obj/item/reagent_containers/hypospray/medipen/ms13/stimpak
 	name = "stimpak"
