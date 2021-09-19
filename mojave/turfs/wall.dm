@@ -148,13 +148,13 @@
 
 /turf/closed/wall/ms13/craftable/scrap/Initialize()
 	. = ..()
-	base_icon_state = pick("wall","wall_2","wall_3")
-	switch(base_icon_state)
-		if("wall_1")
-			icon_state = "wall_1-0"
+	var/state = rand(1,3)
+	switch(state)
+		if(1)
+			icon = 'mojave/icons/turf/walls/roughscrap_2.dmi'
 			frill_icon = 'mojave/icons/turf/walls/roughscrap_2_frill.dmi'
-		if("wall_2")
-			icon_state = "wall_2-0"
+		if(2)
+			icon = 'mojave/icons/turf/walls/roughscrap_3.dmi'
 			frill_icon = 'mojave/icons/turf/walls/roughscrap_3_frill.dmi'
 		else
 			return

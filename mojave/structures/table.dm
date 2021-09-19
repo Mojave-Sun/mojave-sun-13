@@ -131,7 +131,7 @@
 /obj/structure/table/ms13/no_smooth/metal/Initialize(mapload)
 	. = ..()
 	if(prob(35))
-		icon_state = "(initial[icon_state]-[rand(1,2)]"
+		icon_state = "[initial(icon_state)]-[rand(1,2)]"
 
 // Large tables //
 
