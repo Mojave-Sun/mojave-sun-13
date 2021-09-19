@@ -60,7 +60,7 @@
 	return !(item_flags & ABSTRACT)
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/doStrip(mob/stripper, mob/owner)
-	GetOutside()
+	GetOutside(owner)
 	return TRUE
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/hit_reaction(owner, hitby, attack_text, final_block_chance, damage, attack_type)
