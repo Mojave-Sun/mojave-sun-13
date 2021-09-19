@@ -6,6 +6,8 @@
 	icon = 'mojave/icons/objects/melee/melee_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
+	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
+	worn_icon_state = "empty_placeholder"
 	icon_state = "hatchet"
 	inhand_icon_state = "hatchet"
 	force = 30
@@ -14,6 +16,7 @@
 	bare_wound_bonus = 0
 	embedding = null
 	w_class = WEIGHT_CLASS_NORMAL
+	slot_flags = ITEM_SLOT_BELT
 	sharpness = IS_SHARP_AXE
 	log_pickup_and_drop = TRUE
 
@@ -49,6 +52,6 @@
 	force = 20
 	throwforce = 30
 	armour_penetration = 5
-	embedding = list("embedded_pain_multiplier" = 3, "embed_chance" = 50, "embedded_fall_chance" = 25)
+	embedding = list("embedded_pain_multiplier" = 2, "embed_chance" = 50, "embedded_fall_chance" = 25)
 	sharpness = SHARP_POINTY
 	log_pickup_and_drop = TRUE

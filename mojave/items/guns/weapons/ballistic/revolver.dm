@@ -22,7 +22,7 @@
 	fire_delay = 0.5 SECONDS
 	slowdown = 0.5
 	w_class = WEIGHT_CLASS_NORMAL
-	weapon_weight = WEAPON_LIGHT
+	weapon_weight = WEAPON_MEDIUM
 
 /obj/item/gun/ballistic/revolver/ms13/single
 	name = "single shotgun"
