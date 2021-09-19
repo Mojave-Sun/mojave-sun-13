@@ -130,7 +130,7 @@
 	else
 		if(user.wear_suit == src)
 			to_chat(user, "You begin exiting the [src].")
-			if(do_after(user, 6 SECONDS, target = user))
+			if(do_after(user, 6 SECONDS, target = user) && density != TRUE)
 				GetOutside(user)
 				return TRUE
 			return FALSE
@@ -138,7 +138,7 @@
 	if(!CheckEquippedClothing(user))
 		return FALSE
 	to_chat(user, "You begin entering the [src].")
-	if(do_after(user, 6 SECONDS, target = user) && CheckEquippedClothing(user))
+	if(do_after(user, 6 SECONDS, target = user) && CheckEquippedClothing(user) && density == TRUE)
 		GetInside(user)
 		return TRUE
 	return FALSE
