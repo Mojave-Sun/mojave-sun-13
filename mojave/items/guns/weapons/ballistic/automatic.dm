@@ -6,6 +6,7 @@
 	inhand_icon_state = "service"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/service/service_3.ogg'
 	fire_delay = 0.4 SECONDS
+	slot_flags = ITEM_SLOT_BACK
 	extra_damage = 25
 	extra_penetration = 5
 	spread = 5
@@ -30,6 +31,7 @@
 	inhand_icon_state = "sniper"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/sniper/sniper2.ogg'
 	fire_delay = 0.6 SECONDS
+	slot_flags = ITEM_SLOT_BACK
 	extra_damage = 45
 	extra_penetration = 10
 	spread = 2
@@ -60,6 +62,7 @@
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/marksman/marksman2.ogg'
 	can_suppress = FALSE
 	fire_delay = 0.55 SECONDS
+	slot_flags = ITEM_SLOT_BACK
 	extra_damage = 35
 	extra_penetration = 10
 	spread = 2
@@ -83,6 +86,7 @@
 	inhand_icon_state = "battler"
 	fire_sound = 'mojave/sound/ms13weapons/battlerifle.ogg'
 	fire_delay = 0.5 SECONDS
+	slot_flags = ITEM_SLOT_BACK
 	extra_damage = 40
 	extra_penetration = 15
 	spread = 5
@@ -126,7 +130,7 @@
 	inhand_icon_state = "smg45"
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
-	slot_flags = 0
+	slot_flags = ITEM_SLOT_BACK
 	mag_type = /obj/item/ammo_box/magazine/ms13/smgm45
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/45/45auto3.ogg'
 	can_suppress = FALSE
@@ -144,7 +148,7 @@
 	inhand_icon_state = "smg22"
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
-	slot_flags = 0
+	slot_flags = ITEM_SLOT_BACK
 	mag_type = /obj/item/ammo_box/magazine/ms13/smgm22
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
 	fire_delay = 0.2 SECONDS
@@ -161,12 +165,11 @@
 	inhand_icon_state = "smg10mm"
 	w_class = WEIGHT_CLASS_NORMAL
 	weapon_weight = WEAPON_MEDIUM
-	slot_flags = 0
 	mag_type = /obj/item/ammo_box/magazine/ms13/smgm10mm
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/10mmsmg/10mmsmg1.ogg'
 	fire_delay = 0.2 SECONDS
 	extra_damage = 15
-	extra_penetration = 5
+	extra_penetration = 10
 	spread = 15
 	recoil = 0.5
 	force = 10
@@ -212,7 +215,7 @@
 	desc = "A general purpose, standard automatic assault rifle chambered in 5.56. Commonly used by pre-war US military forces."
 	icon_state = "assaultrifle"
 	inhand_icon_state = "assaultrifle"
-	slot_flags = 0
+	slot_flags = ITEM_SLOT_BACK
 	mag_type = /obj/item/ammo_box/magazine/ms13/r20
 	fire_sound = 'mojave/sound/ms13weapons/arfire.ogg'
 	fire_delay = 0.25 SECONDS
@@ -248,6 +251,22 @@
 	recoil = 0.5
 	slowdown = 1
 
+/obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/dakka
+	desc = "A stripped and heavily modified assault rifle. Faster rate of fire, but with less stopping power and substantially less accuracy. An unstable and dangerous weapon made for an unstable and dangerous individual."
+	icon_state = "m16stripped"
+	inhand_icon_state = "m16stripped"
+	fire_delay = 0.2 SECONDS
+	extra_damage = 20
+	extra_penetration = 0
+	spread = 15
+
+/obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/dakka/Initialize()
+	. = ..()
+	name = pick(
+		"\improper Dakka",\
+		"\improper Scrapper",\
+		"\improper Killjoy")
+
 /obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/chinese
 	name = "\improper Chinese assault rifle"
 	desc = "A Chinese made assault rifle chambered in the heavier 7.62 round, packs a bigger punch in exchange for reduced accuracy and higher recoil."
@@ -258,7 +277,7 @@
 	fire_delay = 0.35 SECONDS
 	extra_damage = 30
 	extra_penetration = 5
-	spread = 10
+	spread = 10	
 	recoil = 1
 	slowdown = 0.75
 

@@ -197,3 +197,45 @@
 	ammo_type = /obj/item/ammo_casing/ms13/a357
 	caliber = "357"
 	max_ammo = 7
+
+//Shotgun ammo boxes
+
+/obj/item/ammo_box/ms13/shotgun
+	name = "generic ms13 shotgun ammo box"
+	desc = "You shouldn't be seeing this."
+	icon_state = "junkbox"
+	ammo_type = /obj/item/ammo_casing/shotgun/ms13
+	caliber = "shotgun"
+	max_ammo = 8
+	w_class = WEIGHT_CLASS_SMALL
+	multiload = 0
+
+/obj/item/ammo_box/ms13/shotgun/junkshot
+	name = "12 gauge junkshot shotgun ammo box"
+	desc = "A worn shotgun ammo box containing makeshift junkshot shells."
+	icon_state = "junkbox"
+	ammo_type = /obj/item/ammo_casing/shotgun/ms13/buckshot/junk
+
+/obj/item/ammo_box/ms13/shotgun/buckshot
+	name = "12 gauge buckshot shotgun ammo box"
+	desc = "A plain shotgun ammo box containing standard buckshot shells."
+	icon_state = "buckbox"
+	ammo_type = /obj/item/ammo_casing/shotgun/ms13/buckshot
+
+/obj/item/ammo_box/ms13/shotgun/triplebuck
+	name = "12 gauge 000 buckshot shotgun ammo box"
+	desc = "A quality shotgun ammo box containing 000 buckshot shells."
+	icon_state = "triplebuckbox"
+	ammo_type = /obj/item/ammo_casing/shotgun/ms13/buckshot/triple
+
+/obj/item/ammo_box/ms13/shotgun/flechette
+	name = "12 gauge flechette shotgun ammo box"
+	desc = "A quality shotgun ammo box containing flechette shells."
+	icon_state = "flechbox"
+	ammo_type = /obj/item/ammo_casing/shotgun/ms13/buckshot/flechette
+
+/obj/item/ammo_box/ms13/shotgun/slug
+	name = "12 gauge slug shotgun ammo box"
+	desc = "A quality shotgun ammo box containing 12 gauge slugs."
+	icon_state = "slugbox"
+	ammo_type = /obj/item/ammo_casing/shotgun/ms13/slug

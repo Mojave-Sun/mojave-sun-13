@@ -93,10 +93,10 @@
 	name = "Sawbone"
 
 /obj/effect/landmark/start/ms13/enforcer
-	name = "Enforcer"
+	name = "Raider Enforcer"
 
 /obj/effect/landmark/start/ms13/boss
-	name = "Boss"
+	name = "Raider Boss"
 
 // Legion Spawns //
 

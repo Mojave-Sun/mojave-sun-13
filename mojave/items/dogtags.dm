@@ -10,11 +10,6 @@
 	icon_state = "bos_holotag"
 	var/datum/bank_account = null
 
-/obj/item/card/id/ms13/bos
-	name = "\improper BoS holotag"
-	desc = "A set of dogtags, identifying the wearer as a member of the Brotherhood of Steel."
-	icon_state = "bos_holotag"
-
 /obj/item/card/id/ms13/deputy
 	name = "deputy's badge"
 	desc = "A silver badge which shows honour and dedication. Has some electronic workings sloppily attached to the back of it."
@@ -47,19 +42,30 @@
 	return ..()
 
 /obj/item/card/id/ms13/ncrtrooper
-	name = "trooper's tags"
+	name = "\improper NCR trooper's tags"
 	desc = "A dog tag proving enlistment in the NCR."
 	icon_state = "ncrdogtagtrooper"
+	assignment = "NCR Trooper"
+
+/obj/item/card/id/ms13/ncrtrooper/medic
+	name = "\improper NCR medic's tags"
+	assignment = "NCR Medic"
 
 /obj/item/card/id/ms13/ncrsergeant
-	name = "sergeant's tags"
+	name = "\improper NCR sergeant's tags"
 	desc = "A chevron decorated dog tag showing NCO status within the NCR."
 	icon_state = "ncrdogtagsergeant"
+	assignment = "NCR Sergeant"
+
+/obj/item/card/id/ms13/ncrsergeant/staff
+	name = "\improper NCR staff sergeant's tags"
+	assignment = "NCR Staff Sergeant"
 
 /obj/item/card/id/ms13/ncrlieutenant
-	name = "lieutenant's tags"
+	name = "\improper NCR lieutenant's tags"
 	desc = "A silver bar dog tag that denotes a member of the NCR military with a lieutenant commission."
 	icon_state = "ncrdogtagofficer"
+	assignment = "NCR Lieutenant"
 
 /obj/item/card/id/ms13/ncrcaptain
 	name = "captain's tags"
@@ -102,7 +108,8 @@
 
 /obj/item/card/id/ms13/raider
 	name = "raider's necklace"
-	desc = "A necklace composed of random bits of teeth. If someone's wearing this, you know they could only be part of ONE gang..."
+	desc = "A necklace composed of random bits of teeth and bone. If someone's wearing this, they are no doubt a part of a raider gang."
+	assignment = "Raider"
 	icon_state = "raider"
 
 /obj/item/card/id/ms13/sawbone
@@ -112,12 +119,14 @@
 
 /obj/item/card/id/ms13/enforcer
 	name = "enforcer's necklace"
-	desc = "A necklace composed of random bits of teeth, along with bullets of varying caliber strung up. Truly a symbol of authority"
+	desc = "A necklace composed of random bits of teeth and bone, along with bullets of varying caliber strung up. An intimidating symbol of authority."
+	assignment = "Raider Enforcer"
 	icon_state = "enforcer"
 
 /obj/item/card/id/ms13/boss
 	name = "boss's collar"
 	desc = "A brave fashion statement. This is a seemingly non-functional bomb collar. The person wearing this must truly be an alpha."
+	assignment = "Raider Boss"
 	icon_state = "boss"
 
 /obj/item/card/id/ms13/ranger_recruit
@@ -144,6 +153,31 @@
 	name = "ranger medic badge"
 	desc = "A silver circle encompassing a gold cross. Given to the empathetic healers of the Desert Rangers."
 	icon_state = "ranger_cross"
+
+// Brotherhood IDs //
+
+/obj/item/card/id/ms13/bos
+	name = "\improper BoS holotag"
+	desc = "A set of dogtags, identifying the wearer as a member of the Brotherhood of Steel."
+	icon_state = "bos_holotag"
+
+/obj/item/card/id/ms13/bos/headpaladin
+	assignment = "Head Paladin"
+
+/obj/item/card/id/ms13/bos/paladin
+	assignment = "Paladin"
+
+/obj/item/card/id/ms13/bos/knight
+	assignment = "Knight"
+
+/obj/item/card/id/ms13/bos/initiate
+	assignment = "Initiate"
+
+/obj/item/card/id/ms13/bos/headscribe
+	assignment = "Head Scribe"
+
+/obj/item/card/id/ms13/bos/scribe
+	assignment = "Scribe"
 
 // Combat Test IDs //
 

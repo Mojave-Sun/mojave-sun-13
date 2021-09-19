@@ -2,7 +2,11 @@
 	"version": 1,
 	"map_name": "Mammoth",
 	"map_path": "map_files/Mammoth",
-	"map_file": "Mammoth.dmm",
+	"map_file": [
+		"Mammoth_below.dmm",
+		"Mammoth.dmm",
+		"Mammoth_above.dmm"
+	],
 	"shuttles": {
 		"cargo": "cargo_delta"
 	},
@@ -12,13 +16,13 @@
 		{
 			"Up": 1,
 			"Linkage": "Cross",
-			"Baseturf": "/turf/open/floor/plating/ground/mountain",
+			"Baseturf": "/turf/open/floor/plating/ms13/ground/mountain",
 			"Gravity": true
 		},
 		{
-			"Up": 1,
 			"Down": -1,
-			"Baseturf": "/turf/open/floor/plating/ground/mountain",
+			"Up": 1,
+			"Baseturf": "/turf/open/floor/plating/ms13/ground/mountain",
 			"Linkage": "Cross",
 			"Gravity": true
 		},

@@ -41,12 +41,22 @@
 				)
 	var/loot8 = list(
 				/obj/item/gun/energy/ms13/laser/pistol/wattz,
-				"",
+				/obj/item/stock_parts/cell/ms13/ec,
+				""
+				)
+	var/loot9 = list(
+				/obj/item/gun/ballistic/revolver/ms13/caravan,
+				/obj/item/ammo_box/ms13/shotgun/junkshot,
+				""
+				)
+	var/loot10 = list(
+				/obj/item/gun/ballistic/revolver/ms13/single,
+				/obj/item/ammo_box/ms13/shotgun/junkshot,
 				""
 				)
 
 /obj/effect/spawner/lootdrop/ms13/gun/tier1/Initialize()
-	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8)
+	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10)
 	. = ..()
 
 /obj/effect/spawner/lootdrop/ms13/gun/tier2
@@ -94,22 +104,27 @@
 				)
 	var/loot9 = list(
 				/obj/item/gun/energy/ms13/laser/pistol,
-				"",
+				/obj/item/stock_parts/cell/ms13/ec,
 				""
 				)
 	var/loot10 = list(
 				/obj/item/gun/energy/ms13/plasma/pistol,
-				"",
+				/obj/item/stock_parts/cell/ms13/pc,
 				""
 				)
 	var/loot11 = list(
 				/obj/item/gun/energy/ms13/laser/rifle/wattz,
-				"",
+				/obj/item/stock_parts/cell/ms13/mfc,
+				""
+				)
+	var/loot12 = list(
+				/obj/item/gun/ballistic/shotgun/ms13/lever,
+				/obj/item/ammo_box/ms13/shotgun/buckshot,
 				""
 				)
 
 /obj/effect/spawner/lootdrop/ms13/gun/tier2/Initialize()
-	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11)
+	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11, loot12)
 	. = ..()
 
 /obj/effect/spawner/lootdrop/ms13/gun/tier3
@@ -177,27 +192,32 @@
 				)
 	var/loot13 = list(
 				/obj/item/gun/energy/ms13/laser/pistol/advanced,
-				"",
+				/obj/item/stock_parts/cell/ms13/mfc,
 				""
 				)
 	var/loot14 = list(
 				/obj/item/gun/energy/ms13/laser/rifle,
-				"",
+				/obj/item/stock_parts/cell/ms13/mfc,
 				""
 				)
 	var/loot15 = list(
 				/obj/item/gun/energy/ms13/plasma/pistol/advanced,
-				"",
+				/obj/item/stock_parts/cell/ms13/pc,
 				""
 				)
 	var/loot16 = list(
 				/obj/item/gun/energy/ms13/plasma/rifle/carbine,
-				"",
+				/obj/item/stock_parts/cell/ms13/pc,
+				""
+				)
+	var/loot17 = list(
+				/obj/item/gun/ballistic/shotgun/ms13/huntingshot,
+				/obj/item/ammo_box/ms13/shotgun/buckshot,
 				""
 				)
 
 /obj/effect/spawner/lootdrop/ms13/gun/tier3/Initialize()
-	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11, loot12, loot13, loot14, loot15, loot16)
+	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11, loot12, loot13, loot14, loot15, loot16, loot17)
 	. = ..()
 
 /obj/effect/spawner/lootdrop/ms13/gun/tier4
@@ -260,7 +280,7 @@
 				)
 	var/loot12 = list(
 				/obj/item/gun/energy/ms13/laser/pistol/advanced/defender,
-				"",
+				/obj/item/stock_parts/cell/ms13/mfc,
 				""
 				)
 	var/loot13 = list(
@@ -270,32 +290,32 @@
 				)
 	var/loot14 = list(
 				/obj/item/gun/energy/ms13/laser/rifle/wattz/sniper,
-				"",
+				/obj/item/stock_parts/cell/ms13/mfc,
 				""
 				)
 	var/loot15 = list(
 				/obj/item/gun/energy/ms13/laser/rifle/advanced,
-				"",
+				/obj/item/stock_parts/cell/ms13/mfc,
 				""
 				)
 	var/loot16 = list(
 				/obj/item/gun/energy/ms13/laser/scatter,
-				"",
+				/obj/item/stock_parts/cell/ms13/mfc,
 				""
 				)
 	var/loot17 = list(
 				/obj/item/gun/energy/ms13/plasma/pistol/defender,
-				"",
+				/obj/item/stock_parts/cell/ms13/pc,
 				""
 				)
 	var/loot18 = list(
 				/obj/item/gun/energy/ms13/plasma/rifle,
-				"",
+				/obj/item/stock_parts/cell/ms13/pc,
 				""
 				)
 	var/loot19 = list(
 				/obj/item/gun/energy/ms13/plasma/multi,
-				"",
+				/obj/item/stock_parts/cell/ms13/pc,
 				""
 				)
 

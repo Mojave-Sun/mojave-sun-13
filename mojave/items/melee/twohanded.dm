@@ -6,8 +6,8 @@
 	icon = 'mojave/icons/objects/melee/melee_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
-	icon_state = "tire_iron"
-	inhand_icon_state = "tire_iron"
+	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
+	worn_icon_state = "empty_placeholder"
 	hitsound = 'sound/effects/hit_punch.ogg'
 	attack_verb_continuous = list("attacks", "stabs", "pokes")
 	attack_verb_simple = list("attack", "stab", "poke")
@@ -152,7 +152,6 @@
 	wound_bonus = 5
 	w_class = WEIGHT_CLASS_BULKY
 	sharpness = SHARP_POINTY
-	log_pickup_and_drop = TRUE
 
 /obj/item/ms13/twohanded/spear/ComponentInitialize()
 	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_unwielded = 20, force_wielded = 35)
@@ -179,7 +178,7 @@
 	armour_penetration = 10
 	wound_bonus = 5
 	throwforce = 35
-	embedding = list("embedded_pain_multiplier" = 3, "embed_chance" = 65, "embedded_fall_chance" = 35)
+	embedding = list("embedded_pain_multiplier" = 2, "embed_chance" = 65, "embedded_fall_chance" = 35)
 	throw_range = 6
 	throw_speed = 3
 

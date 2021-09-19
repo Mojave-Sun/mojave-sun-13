@@ -6,6 +6,9 @@
 	icon = 'mojave/icons/objects/melee/melee_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
+	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
+	worn_icon_state = "empty_placeholder"
+	slot_flags = ITEM_SLOT_BELT
 	block_chance = 0
 	wound_bonus = 0
 	bare_wound_bonus = 0
@@ -110,6 +113,7 @@
 	inhand_icon_state = "shishkebab_off"
 	sharpness = SHARP_EDGED
 	w_class = WEIGHT_CLASS_BULKY
+	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
 	wound_bonus = 5
 	bare_wound_bonus = 5
 	throwforce = 10
