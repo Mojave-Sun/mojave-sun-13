@@ -4,6 +4,13 @@
 /obj/structure/bed/ms13/sleepingbag/red,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
+"aw" = (
+/obj/structure/table/ms13/no_smooth/counter/wood/end{
+	dir = 6
+	},
+/obj/effect/spawner/lootdrop/ms13/medical/lowrandom,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
 "ax" = (
 /obj/structure/bed/ms13/mattress/dirty,
 /obj/effect/landmark/start/ms13/raider,
@@ -39,7 +46,7 @@
 /obj/structure/table/ms13/metal/heavy,
 /obj/effect/spawner/lootdrop/ms13/medical/lowrandom,
 /obj/effect/spawner/lootdrop/ms13/medical/lowrandom,
-/obj/effect/spawner/lootdrop/ms13/medical/lowrandom,
+/obj/effect/spawner/lootdrop/ms13/medical/highrandom,
 /turf/open/floor/iron/ms13/concrete/small,
 /area/ms13/underground/bos)
 "aX" = (
@@ -181,7 +188,7 @@
 /area/ms13/underground/mountain)
 "fh" = (
 /obj/structure/closet/ms13/wall/firstaid,
-/obj/effect/spawner/lootdrop/ms13/ammo/tier1,
+/obj/effect/spawner/lootdrop/ms13/medical/highrandom,
 /turf/open/floor/iron/ms13/tile/large/white,
 /area/ms13/town)
 "fH" = (
@@ -263,8 +270,8 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/raiders/building)
 "il" = (
-/obj/effect/spawner/lootdrop/ms13/medical/tier1,
 /obj/structure/table/ms13/no_smooth/large/wood/square,
+/obj/effect/spawner/lootdrop/ms13/medical/lowrandom,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "in" = (
@@ -351,6 +358,13 @@
 /obj/machinery/door/unpowered/ms13/wood,
 /turf/open/floor/wood/ms13/carpet/shaggy/blue,
 /area/ms13/town)
+"ks" = (
+/obj/structure/ms13/storage/store{
+	dir = 4
+	},
+/obj/effect/spawner/lootdrop/ms13/ammo/highrandom,
+/turf/open/floor/iron/ms13/tile/large/cafeteria,
+/area/ms13/town)
 "kE" = (
 /obj/structure/filingcabinet/ms13/empty,
 /turf/open/floor/wood/ms13/wide,
@@ -365,7 +379,7 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/raiders/building)
 "kW" = (
-/obj/effect/spawner/lootdrop/ms13/medical/tier1,
+/obj/effect/spawner/lootdrop/ms13/medical/highrandom,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "la" = (
@@ -440,7 +454,7 @@
 /obj/structure/ms13/storage/store{
 	dir = 8
 	},
-/obj/effect/spawner/lootdrop/ms13/ammo/tier1,
+/obj/effect/spawner/lootdrop/ms13/ammo/highrandom,
 /turf/open/floor/iron/ms13/tile/large/cafeteria,
 /area/ms13/town)
 "mV" = (
@@ -524,6 +538,11 @@
 	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
+"op" = (
+/obj/structure/ms13/storage/store,
+/obj/effect/spawner/lootdrop/ms13/medical/lowrandom,
+/turf/open/floor/iron/ms13/tile/navy,
+/area/ms13/town)
 "ox" = (
 /obj/effect/spawner/lootdrop/ms13/medical/lowrandom,
 /obj/effect/spawner/lootdrop/ms13/medical/lowrandom,
@@ -557,8 +576,7 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/raiders/building)
 "oZ" = (
-/obj/structure/ms13/storage/large/shelf/rust,
-/obj/effect/spawner/lootdrop/ms13/medical/tier1,
+/obj/effect/spawner/lootdrop/ms13/medical/highrandom,
 /turf/open/floor/iron/ms13/concrete,
 /area/ms13/town)
 "pm" = (
@@ -653,6 +671,10 @@
 	},
 /turf/open/floor/iron/ms13/concrete,
 /area/ms13/town)
+"qM" = (
+/obj/effect/spawner/lootdrop/ms13/medical/highrandom,
+/turf/open/floor/wood/ms13/common,
+/area/ms13/ncr/building)
 "qR" = (
 /obj/machinery/door/unpowered/ms13/metal/alt,
 /turf/open/floor/iron/ms13/tile/long,
@@ -823,6 +845,11 @@
 /obj/item/stock_parts/cell/ms13/mfc,
 /turf/open/floor/iron/ms13/concrete/small,
 /area/ms13/underground/bos)
+"tP" = (
+/obj/structure/table/ms13/low_wall/wood,
+/obj/effect/spawner/lootdrop/ms13/medical/highrandom,
+/turf/open/floor/plating/ms13/ground/mountain,
+/area/ms13/town)
 "uj" = (
 /obj/effect/landmark/start/ms13/scribe,
 /turf/open/floor/iron/ms13/concrete/small,
@@ -962,6 +989,14 @@
 	dir = 1
 	},
 /area/ms13/underground/bos)
+"xp" = (
+/obj/structure/ms13/storage/shelf/rust{
+	dir = 1
+	},
+/obj/effect/spawner/lootdrop/ms13/medical/lowrandom,
+/obj/effect/spawner/lootdrop/ms13/medical/highrandom,
+/turf/open/floor/iron/ms13/tile/large/white,
+/area/ms13/town)
 "xx" = (
 /obj/structure/table/ms13/metal/heavy,
 /obj/effect/spawner/lootdrop/ms13/medical/lowrandom,
@@ -1328,10 +1363,13 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "Er" = (
-/obj/structure/ms13/storage/store,
+/obj/structure/table/ms13/metal/heavy,
 /obj/effect/spawner/lootdrop/ms13/medical/lowrandom,
-/turf/open/floor/iron/ms13/tile/navy,
-/area/ms13/town)
+/obj/effect/spawner/lootdrop/ms13/medical/lowrandom,
+/obj/effect/spawner/lootdrop/ms13/medical/lowrandom,
+/obj/effect/spawner/lootdrop/ms13/medical/highrandom,
+/turf/open/floor/iron/ms13/concrete/small,
+/area/ms13/underground/bos)
 "EE" = (
 /obj/effect/turf_decal/arrows/red{
 	dir = 8
@@ -1348,6 +1386,7 @@
 /obj/structure/ms13/storage/large/shelf/rust{
 	dir = 4
 	},
+/obj/effect/spawner/lootdrop/ms13/medical/highrandom,
 /turf/open/floor/iron/ms13/concrete/small,
 /area/ms13/underground/bos)
 "Fg" = (
@@ -1441,7 +1480,7 @@
 /area/ms13/town)
 "Gy" = (
 /obj/structure/ms13/storage/store,
-/obj/effect/spawner/lootdrop/ms13/medical/tier1,
+/obj/effect/spawner/lootdrop/ms13/medical/highrandom,
 /turf/open/floor/iron/ms13/tile/navy,
 /area/ms13/town)
 "GA" = (
@@ -1636,6 +1675,14 @@
 "LG" = (
 /turf/open/floor/wood/ms13/carpet/shaggy,
 /area/ms13/ncr/building)
+"LI" = (
+/obj/structure/ms13/storage/shelf/rust{
+	dir = 1
+	},
+/obj/effect/spawner/lootdrop/ms13/medical/highrandom,
+/obj/effect/spawner/lootdrop/ms13/medical/highrandom,
+/turf/open/floor/iron/ms13/tile/large/white,
+/area/ms13/town)
 "LL" = (
 /turf/open/floor/plating/ms13/ground/snow,
 /area/ms13)
@@ -1671,6 +1718,7 @@
 /area/ms13/town)
 "Mq" = (
 /obj/structure/table/ms13/no_smooth/large/wood/square,
+/obj/effect/spawner/lootdrop/ms13/medical/highrandom,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/ncr/building)
 "Ms" = (
@@ -1718,7 +1766,7 @@
 /area/ms13/ncr/building)
 "Nx" = (
 /obj/structure/ms13/storage/shelf/rust,
-/obj/effect/spawner/lootdrop/ms13/medical/lowrandom,
+/obj/effect/spawner/lootdrop/ms13/medical/highrandom,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "NE" = (
@@ -1742,6 +1790,11 @@
 "Ob" = (
 /turf/open/ms13/water/shallow,
 /area/ms13)
+"Od" = (
+/obj/structure/table/ms13/no_smooth/large/wood/square,
+/obj/effect/spawner/lootdrop/ms13/medical/highrandom,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
 "Og" = (
 /obj/structure/bed/ms13/bedframe/wood,
 /obj/structure/bed/ms13/mattress/old,
@@ -1834,7 +1887,7 @@
 /obj/structure/table/ms13/no_smooth/counter/wood/straight{
 	dir = 1
 	},
-/obj/effect/spawner/lootdrop/ms13/medical/tier1,
+/obj/effect/spawner/lootdrop/ms13/medical/highrandom,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "Qg" = (
@@ -7505,7 +7558,7 @@ Eo
 Eo
 aX
 Fk
-Fk
+oZ
 Fk
 Fk
 Fk
@@ -7885,7 +7938,7 @@ Eo
 Eo
 Eo
 aX
-oZ
+nc
 Fk
 Fk
 Fk
@@ -8014,7 +8067,7 @@ Eo
 aX
 Fk
 Fk
-Fk
+oZ
 Fk
 Fk
 rE
@@ -17042,7 +17095,7 @@ lb
 lb
 lb
 Rb
-FW
+ks
 FW
 FW
 Rb
@@ -17958,7 +18011,7 @@ wW
 wW
 Wn
 OP
-qd
+qM
 qd
 qd
 OP
@@ -18235,7 +18288,7 @@ Eo
 sG
 yd
 xx
-aW
+Er
 sG
 EE
 Gn
@@ -19109,7 +19162,7 @@ qd
 LG
 LG
 LG
-qd
+qM
 FJ
 OP
 dn
@@ -19156,7 +19209,7 @@ dn
 dn
 dQ
 SZ
-dQ
+tP
 dn
 dn
 dn
@@ -19195,7 +19248,7 @@ Re
 Rb
 lb
 lb
-YJ
+LI
 Rb
 tm
 tm
@@ -19440,7 +19493,7 @@ SD
 SD
 Wn
 Rb
-vU
+op
 Sy
 Sy
 Sy
@@ -19567,7 +19620,7 @@ IK
 SD
 Wn
 Rb
-Er
+vU
 Sy
 Sy
 zq
@@ -19830,7 +19883,7 @@ Sy
 Rb
 lb
 lb
-kj
+xp
 Rb
 tm
 tm
@@ -20823,7 +20876,7 @@ cZ
 cZ
 cZ
 cZ
-Iz
+bd
 dn
 dn
 dn
@@ -21074,8 +21127,8 @@ tm
 tm
 bd
 bd
-bd
-bd
+Iz
+Iz
 bd
 bd
 dn
@@ -21503,29 +21556,29 @@ ZB
 ZB
 ZB
 ZB
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
 Eo
 Eo
 "}
@@ -21562,7 +21615,7 @@ Nx
 bJ
 ty
 ty
-vl
+aw
 fS
 bd
 dn
@@ -21628,31 +21681,31 @@ wo
 wo
 ZB
 ZB
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
 Eo
 Eo
 "}
@@ -21755,31 +21808,31 @@ wo
 wo
 wo
 wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
-wo
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
 Eo
 Eo
 "}
@@ -21878,7 +21931,7 @@ wo
 wo
 wo
 wo
-LL
+wo
 wo
 wo
 wo
@@ -22003,10 +22056,10 @@ tm
 wo
 wo
 wo
-LL
-LL
+wo
+wo
 gU
-LL
+wo
 wo
 wo
 bd
@@ -22129,7 +22182,7 @@ tm
 tm
 wo
 wo
-LL
+wo
 gU
 yM
 gU
@@ -22148,7 +22201,7 @@ bq
 bq
 bd
 TS
-Am
+Od
 Oi
 bd
 wo
@@ -22255,7 +22308,7 @@ dn
 tm
 tm
 wo
-LL
+wo
 gU
 yM
 iK
@@ -22388,7 +22441,7 @@ Hg
 iK
 iK
 yM
-LL
+dn
 wo
 bd
 Og
@@ -22515,7 +22568,7 @@ iK
 iK
 Hg
 gU
-LL
+dn
 tm
 bd
 bd
@@ -22532,14 +22585,14 @@ ty
 ty
 ty
 nj
-tm
-tm
-tm
-tm
-tm
-tm
-tm
-tm
+wo
+wo
+wo
+wo
+wo
+wo
+wo
+wo
 Eo
 Eo
 Eo
@@ -22641,8 +22694,8 @@ gU
 gU
 gU
 gU
-LL
-LL
+dn
+dn
 tm
 tm
 tm
@@ -22659,14 +22712,14 @@ ty
 ty
 la
 bd
-tm
-tm
-tm
-tm
-tm
-tm
-tm
-tm
+wo
+wo
+wo
+wo
+wo
+wo
+wo
+wo
 Eo
 Eo
 Eo
@@ -22766,10 +22819,10 @@ tm
 tm
 gU
 gU
-LL
-LL
-LL
-LL
+dn
+dn
+dn
+dn
 dn
 dn
 dn
@@ -22786,15 +22839,15 @@ pV
 pV
 pV
 bd
-dn
-tm
-tm
-tm
-tm
-tm
-tm
-tm
-tm
+wo
+wo
+wo
+wo
+wo
+wo
+wo
+wo
+wo
 Eo
 Eo
 Eo
@@ -22891,10 +22944,10 @@ ZB
 ZB
 tm
 tm
-LL
-LL
-LL
-LL
+dn
+dn
+dn
+dn
 dn
 dn
 dn
@@ -22913,15 +22966,15 @@ bd
 nj
 bd
 bd
-dn
-tm
-tm
-tm
-tm
-tm
-tm
-tm
-tm
+wo
+wo
+wo
+wo
+wo
+wo
+wo
+wo
+wo
 Eo
 Eo
 Eo

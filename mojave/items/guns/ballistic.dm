@@ -276,6 +276,8 @@ obj/item/gun/ballistic/rifle/ms13/attackby(obj/item/item, mob/user, params)
 	name = "generic ms13 ammo box"
 	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
+	worn_icon = 'mojave/icons/mob/worn_misc.dmi'
+	worn_icon_state = "empty_placeholder"
 
 /obj/item/ammo_box/ms13/Initialize()
 	. = ..()
@@ -286,6 +288,8 @@ obj/item/gun/ballistic/rifle/ms13/attackby(obj/item/item, mob/user, params)
 	name = "generic ms13 magazine"
 	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
+	worn_icon = 'mojave/icons/mob/worn_misc.dmi'
+	worn_icon_state = "empty_placeholder"
 
 /obj/item/ammo_box/magazine/ms13/Initialize()
 	. = ..()

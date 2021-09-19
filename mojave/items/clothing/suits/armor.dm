@@ -187,12 +187,13 @@
 	inhand_icon_state = "stealthsuit"
 	armor = list("melee" = 25, "bullet" = 15, "laser" = 15, "energy" = 10, "bomb" = 5, "bio" = 25, "rad" = 25, "fire" = 30, "acid" = 25)
 
-/obj/item/clothing/suit/armor/ms13/stealth/assassin
+/obj/item/clothing/suit/armor/ms13/assassin
 	name = "assassin armor"
-	desc = "An 'advanced' replication of a chinese stealth suit. It has a way of making people seemingly ignore you. Or does it?"
+	desc = "A prototype pre-war lightweight suit of armor that is so light and optimized that it can serve to speed the wearer up."
 	icon_state = "assassin"
 	inhand_icon_state = "assassin"
-	armor = list("melee" = 30, "bullet" = 20, "laser" = 15, "energy" = 10, "bomb" = 10, "bio" = 25, "rad" = 25, "fire" = 20, "acid" = 25)
+	armor = list("melee" = 35, "bullet" = 30, "laser" = 20, "energy" = 15, "bomb" = 20, "bio" = 15, "rad" = 15, "fire" = 15, "acid" = 15, "wound" = 5)
+	slowdown = -0.3
 
 /obj/item/clothing/suit/armor/ms13/tesla
 	name = "tesla armor"
