@@ -7,7 +7,7 @@
 				body_type = gender
 			else
 				body_type = pick(MALE, FEMALE)
-	if(randomise_flags & RANDOMIZE_SPECIES)
+	if(randomise_flags & RANDOMIZE_SPECIES & length(GLOB.roundstart_races))
 		var/rando_race = GLOB.species_list[pick(GLOB.roundstart_races)]
 		pref_species = new rando_race()
 	if(randomise_flags & RANDOMIZE_NAME)
