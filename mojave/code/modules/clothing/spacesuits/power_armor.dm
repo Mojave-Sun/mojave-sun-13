@@ -131,6 +131,9 @@
 	else
 		if(user.wear_suit == src)
 			to_chat(user, "You begin exiting the [src].")
+			if(do_after(user, 6 SECONDS, target = user))
+				if(get_dist(user, src) > 1) //Anti-afterimage check
+					return FALSE
 			if(do_after(user, 6 SECONDS, target = user) && density != TRUE)
 				GetOutside(user)
 				return TRUE
