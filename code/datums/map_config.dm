@@ -5,7 +5,7 @@
 
 /datum/map_config
 	// Metadata
-	var/config_filename = "_maps/metastation.json"
+	var/config_filename = "_maps/sunlightDebug.json"
 	var/defaulted = TRUE  // set to FALSE by LoadConfig() succeeding
 	// Config from maps.txt
 	var/config_max_users = 0
@@ -14,9 +14,9 @@
 	var/votable = FALSE
 
 	// Config actually from the JSON - should default to Meta
-	var/map_name = "Meta Station"
-	var/map_path = "map_files/MetaStation"
-	var/map_file = "MetaStation.dmm"
+	var/map_name = "Sunlight Debug"
+	var/map_path = "map_files/sunlightDebug"
+	var/map_file = "sunlightDebug.dmm"
 
 	var/traits = null
 	var/space_ruin_levels = 7
@@ -33,6 +33,9 @@
 
 	/// Dictionary of job sub-typepath to template changes dictionary
 	var/job_changes = list()
+
+	//List of particle_weather tpyes for this map
+	var/particle_weather = list()
 
 /proc/load_map_config(filename = "data/next_map.json", default_to_box, delete_after, error_if_missing = TRUE)
 	var/datum/map_config/config = new
@@ -83,7 +86,7 @@
 	map_path = json["map_path"]
 
 	map_file = json["map_file"]
-	// "map_file": "MetaStation.dmm"
+	// "map_file": "sunlightDebug.dmm"
 	if (istext(map_file))
 		if (!fexists("_maps/[map_path]/[map_file]"))
 			log_world("Map file ([map_path]/[map_file]) does not exist!")
@@ -119,6 +122,14 @@
 	else if (!isnull(traits))
 		log_world("map_config traits is not a list!")
 		return
+
+
+	if ("particle_weather" in json)
+		if(!islist(json["particle_weather"]))
+			log_world("map_config \"particle_weather\" field is missing or invalid!")
+			return
+		particle_weather = json["particle_weather"]
+
 
 	var/temp = json["space_ruin_levels"]
 	if (isnum(temp))

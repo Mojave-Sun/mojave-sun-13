@@ -45,6 +45,12 @@ require only minor tweaks.
 #define ZTRAIT_ACIDRAIN "Weather_Acidrain"
 #define ZTRAIT_VOIDSTORM "Weather_Voidstorm"
 
+// boolean - particle weather types that occur on the level
+#define PARTICLEWEATHER_RAIN "Weather_Rain"
+#define PARTICLEWEATHER_SNOW "Weather_Snow"
+#define PARTICLEWEATHER_DUST "Weather_Dust"
+#define PARTICLEWEATHER_RADS "Weather_Rads"
+
 // number - bombcap is multiplied by this before being applied to bombs
 #define ZTRAIT_BOMBCAP_MULTIPLIER "Bombcap Multiplier"
 
