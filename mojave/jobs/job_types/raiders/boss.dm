@@ -21,12 +21,12 @@
 	uniform =	/obj/item/clothing/under/ms13/wasteland/warboypants
 	shoes = 	/obj/item/clothing/shoes/ms13/military/diesel
 	suit_store = /obj/item/gun/ballistic/automatic/ms13/full/smg10mm
-	belt = 		/obj/item/claymore/ms13/machete/ripper
 	r_pocket = 	/obj/item/ammo_box/magazine/ms13/smgm10mm
-	l_pocket =	/obj/item/ammo_box/magazine/ms13/smgm10mm
+	l_pocket =	/obj/item/ms13/knuckles/weighted/spiked
 	backpack_contents = list(
 		/obj/item/stack/medical/ointment/ms13/cream/half=1, \
-		/obj/item/stack/medical/gauze/ms13/half=1)
+		/obj/item/stack/medical/gauze/ms13/half=1, \
+		/obj/item/ammo_box/magazine/ms13/smgm10mm=1)
 
 /datum/outfit/job/ms13/raiders/boss/pre_equip(mob/living/carbon/human/H)
 	..()
