@@ -39,13 +39,9 @@ On **2021-01-04** we have changed the way to compile the codebase.
 
 [/tg/station HACKMD account](https://hackmd.io/@tgstation) - Design documentation here
 
-<<<<<<< HEAD
 [Documenting your code](.github/AUTODOC_GUIDE.md)
 
 [Policy configuration system](.github/POLICYCONFIG.md)
-=======
-[Interested in some starting lore?](https://github.com/tgstation/common_core)
->>>>>>> 10edd4f6328... Contribution reorganization: Theft Edition (#61451)
 
 ## LICENSE
 
