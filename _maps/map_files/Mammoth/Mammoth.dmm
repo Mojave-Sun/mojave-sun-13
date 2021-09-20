@@ -6101,6 +6101,10 @@
 	},
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
+"enA" = (
+/obj/structure/dresser/ms13/orange,
+/turf/open/floor/wood/ms13/carpet/shaggy/blue,
+/area/ms13/underground/vault_atrium_middle)
 "enH" = (
 /obj/machinery/vending/snack,
 /turf/open/floor/wood/ms13/carpet/green,
@@ -7361,18 +7365,19 @@
 "fiO" = (
 /obj/structure/bed/ms13/bedframe/metal,
 /obj/structure/bed/ms13/mattress/dirty,
+/obj/effect/landmark/start/ms13/nurse,
 /turf/open/floor/wood/ms13/carpet/shaggy/blue,
 /area/ms13/underground/vault_atrium_middle)
 "fiX" = (
 /obj/machinery/light/ms13/bulb{
 	dir = 1
 	},
-/obj/structure/dresser/ms13/orange,
 /turf/open/floor/wood/ms13/carpet/shaggy/blue,
 /area/ms13/underground/vault_atrium_middle)
 "fiY" = (
 /obj/structure/bed/ms13/bedframe/metal,
 /obj/structure/bed/ms13/mattress/old,
+/obj/effect/landmark/start/ms13/nurse,
 /turf/open/floor/wood/ms13/carpet/shaggy/blue,
 /area/ms13/underground/vault_atrium_middle)
 "fjc" = (
@@ -7742,9 +7747,9 @@
 /area/ms13/underground/vault_atrium_middle)
 "fuK" = (
 /obj/structure/closet/crate/ms13/aluminum,
-/obj/item/reagent_containers/hypospray/medipen/ms13/stimpak,
-/obj/item/reagent_containers/hypospray/medipen/ms13/stimpak,
-/obj/item/reagent_containers/hypospray/medipen/ms13/stimpak,
+/obj/effect/spawner/lootdrop/ms13/medical/highrandom,
+/obj/effect/spawner/lootdrop/ms13/medical/highrandom,
+/obj/effect/spawner/lootdrop/ms13/medical/highrandom,
 /turf/open/floor/iron/ms13/tile/large/black,
 /area/ms13/underground/vault_atrium_middle)
 "fuX" = (
@@ -7987,12 +7992,13 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "fCC" = (
-/obj/structure/closet/crate/freezer,
 /obj/item/ms13/carcass/clucker,
+/obj/item/noogie{
+	name = "FREEZER PLACEHOLDER"
+	},
 /turf/open/floor/iron/ms13/tile/large/black,
 /area/ms13/underground/vault_atrium_middle)
 "fDi" = (
-/obj/effect/landmark/start/ms13/nurse,
 /obj/machinery/light/ms13{
 	dir = 4
 	},
@@ -9196,7 +9202,9 @@
 /turf/open/floor/iron/ms13/tile/large/checkered,
 /area/ms13/underground/vault_atrium_middle)
 "gow" = (
-/obj/structure/closet/crate/freezer,
+/obj/item/noogie{
+	name = "FREEZER PLACEHOLDER"
+	},
 /turf/open/floor/iron/ms13/tile/large/black,
 /area/ms13/underground/vault_atrium_middle)
 "goD" = (
@@ -12493,12 +12501,8 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "iAN" = (
-/obj/structure/table/ms13/metal,
-/obj/structure/closet/crate/ms13/cash_register{
-	dir = 1;
-	pixel_y = 10
-	},
-/obj/structure/railing,
+/obj/structure/chair/comfy/ms13/armchair,
+/obj/effect/landmark/start/ms13/doctor,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/vault_atrium_middle)
 "iAP" = (
@@ -19361,6 +19365,10 @@
 /obj/item/restraints/handcuffs/cable/zipties/used,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
+"mKJ" = (
+/obj/structure/filingcabinet/ms13/short,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/underground/vault_atrium_middle)
 "mLc" = (
 /obj/effect/decal/cleanable/blood/drip,
 /mob/living/simple_animal/hostile/ms13/giantant,
@@ -20978,11 +20986,7 @@
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
 "nNq" = (
-/obj/structure/table/ms13/metal,
-/obj/structure/railing,
-/obj/item/newspaper{
-	pixel_y = 4
-	},
+/obj/item/kirbyplants,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/vault_atrium_middle)
 "nNR" = (
@@ -22926,8 +22930,12 @@
 /turf/open/floor/iron/ms13/metal,
 /area/ms13/underground/vault_atrium_middle)
 "vpN" = (
-/obj/structure/table/ms13/metal,
-/obj/structure/railing,
+/obj/structure/table/ms13/no_smooth/large/metal/desk{
+	dir = 1
+	},
+/obj/machinery/computer/libraryconsole{
+	name = "pretend this is a fallout terminal"
+	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/vault_atrium_middle)
 "vsM" = (
@@ -23223,6 +23231,13 @@
 "xGW" = (
 /turf/open/floor/wood/ms13/carpet,
 /area/ms13/town)
+"xIc" = (
+/obj/structure/table/ms13/metal/small,
+/obj/item/newspaper{
+	pixel_y = 4
+	},
+/turf/open/floor/iron/ms13/tile/navy,
+/area/ms13/underground/vault_atrium_middle)
 "xNi" = (
 /turf/open/openspace/ms13,
 /area/ms13/town)
@@ -33990,8 +34005,8 @@ cOO
 cOO
 fsp
 xQc
-xQc
-xQc
+xIc
+eIl
 xQc
 hKh
 hKh
@@ -34590,7 +34605,7 @@ kRv
 kRv
 ylm
 fwy
-fnk
+cOO
 cOO
 cbz
 xQc
@@ -34891,10 +34906,10 @@ khQ
 khQ
 khQ
 xQc
-xQc
-xQc
-xQc
-xQc
+fwy
+fnk
+cOO
+cbz
 xQc
 fxH
 vfy
@@ -37910,7 +37925,7 @@ xQc
 xQc
 xQc
 xQc
-fit
+iAN
 ssV
 fnQ
 wxo
@@ -38217,9 +38232,9 @@ ssV
 ssV
 ssV
 xQc
-ght
+mKJ
 ssV
-iAN
+ssV
 fDi
 ssV
 ssV
@@ -39119,7 +39134,7 @@ khQ
 khQ
 xQc
 fiO
-fwV
+enA
 fwV
 fwV
 xQc
