@@ -32,7 +32,6 @@
 	remove_filter(FRILL_MOB_MASK)
 	if(!mymob.client?.prefs)
 		return
-	var/datum/preferences/client_prefs = mymob.client.prefs
 	//add_filter(FRILL_GAME_CUT, 1, alpha_mask_filter(render_source = EMISSIVE_BLOCKER_RENDER_TARGET, flags = MASK_INVERSE))
 	add_filter(FRILL_MOB_MASK, 1, alpha_mask_filter(render_source = FRILL_MASK_RENDER_TARGET, flags = MASK_INVERSE))
 
