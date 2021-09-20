@@ -33,12 +33,8 @@
 
 /datum/quirk/foreigner
 	name = "Foreigner"
-<<<<<<< HEAD
-	desc = "You're not from around here. You don't know English!" //MOJAVE EDIT FROM - 	desc = "You're not from around here. You don't know Galactic Common!"
-=======
-	desc = "You're not from around here. You don't know Galactic Common!"
+	desc = "You're not from around here. You don't know English!"
 	icon = "language"
->>>>>>> 5a4c87a9fc3... tgui Preferences Menu + total rewrite of the preferences backend (#61313)
 	value = 0
 	gain_text = "<span class='notice'>The words being spoken around you don't make any sense."
 	lose_text = "<span class='notice'>You've developed fluency in English." //MOJAVE EDIT CHANGE - lose_text = "<span class='notice'>You've developed fluency in Galactic Common."
