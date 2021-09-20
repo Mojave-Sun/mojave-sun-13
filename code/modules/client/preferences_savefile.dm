@@ -323,56 +323,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	//Sanitize
 	randomise = SANITIZE_LIST(randomise)
 
-<<<<<<< HEAD
-	//MOJAVE SUN EDIT START - Gendered Sprites
-
-	switch(gender)
-		if(MALE)
-			hairstyle = sanitize_inlist(hairstyle, GLOB.hairstyles_male_list)
-			facial_hairstyle = sanitize_inlist(facial_hairstyle, GLOB.facial_hairstyles_male_list)
-			underwear = sanitize_inlist(underwear, GLOB.underwear_m)
-			undershirt = sanitize_inlist(undershirt, GLOB.undershirt_m)
-		if(FEMALE)
-			hairstyle = sanitize_inlist(hairstyle, GLOB.hairstyles_female_list)
-			facial_hairstyle = sanitize_inlist(facial_hairstyle, GLOB.facial_hairstyles_female_list)
-			underwear = sanitize_inlist(underwear, GLOB.underwear_f)
-			undershirt = sanitize_inlist(undershirt, GLOB.undershirt_f)
-		else
-			hairstyle = sanitize_inlist(hairstyle, GLOB.hairstyles_list)
-			facial_hairstyle = sanitize_inlist(facial_hairstyle, GLOB.facial_hairstyles_list)
-			underwear = sanitize_inlist(underwear, GLOB.underwear_list)
-			undershirt = sanitize_inlist(undershirt, GLOB.undershirt_list)
-
-	//MOJAVE SUN EDIT END - Gendered Sprites
-
-	socks = sanitize_inlist(socks, GLOB.socks_list)
-	age = sanitize_integer(age, AGE_MIN, AGE_MAX, initial(age))
-	hair_color = sanitize_hexcolor(hair_color, 3, 0)//MOJAVE SUN EDIT - Hair/Gendered/Colours
-	facial_hair_color = sanitize_hexcolor(facial_hair_color, 3, 0) //MOJAVE SUN EDIT - Hair/Gendered/Colours
-	underwear_color = sanitize_hexcolor(underwear_color, 3, 0) //MOJAVE SUN EDIT - Hair/Gendered/Colours
-	eye_color = sanitize_hexcolor(eye_color, 3, 0) //MOJAVE SUN EDIT - Hair/Gendered/Colours
-	skin_tone = sanitize_inlist(skin_tone, GLOB.skin_tones)
-	backpack = sanitize_inlist(backpack, GLOB.backpacklist, initial(backpack))
-	jumpsuit_style = sanitize_inlist(jumpsuit_style, GLOB.jumpsuitlist, initial(jumpsuit_style))
-	uplink_spawn_loc = sanitize_inlist(uplink_spawn_loc, GLOB.uplink_spawn_loc_list_save, initial(uplink_spawn_loc))
-	playtime_reward_cloak = sanitize_integer(playtime_reward_cloak)
-	features["mcolor"] = sanitize_hexcolor(features["mcolor"], 3, 0)
-	features["ethcolor"] = copytext_char(features["ethcolor"], 1, 7)
-	features["tail_lizard"] = sanitize_inlist(features["tail_lizard"], GLOB.tails_list_lizard)
-	features["tail_human"] = sanitize_inlist(features["tail_human"], GLOB.tails_list_human, "None")
-	features["snout"] = sanitize_inlist(features["snout"], GLOB.snouts_list)
-	features["horns"] = sanitize_inlist(features["horns"], GLOB.horns_list)
-	features["ears"] = sanitize_inlist(features["ears"], GLOB.ears_list, "None")
-	features["frills"] = sanitize_inlist(features["frills"], GLOB.frills_list)
-	features["spines"] = sanitize_inlist(features["spines"], GLOB.spines_list)
-	features["body_markings"] = sanitize_inlist(features["body_markings"], GLOB.body_markings_list)
-	features["feature_lizard_legs"] = sanitize_inlist(features["legs"], GLOB.legs_list, "Normal Legs")
-	features["moth_wings"] = sanitize_inlist(features["moth_wings"], GLOB.moth_wings_list, "Plain")
-	features["moth_antennae"] = sanitize_inlist(features["moth_antennae"], GLOB.moth_antennae_list, "Plain")
-	features["moth_markings"] = sanitize_inlist(features["moth_markings"], GLOB.moth_markings_list, "None")
-
-=======
->>>>>>> 5a4c87a9fc3... tgui Preferences Menu + total rewrite of the preferences backend (#61313)
 	persistent_scars = sanitize_integer(persistent_scars)
 
 	//Validate job prefs

@@ -1,107 +1,14 @@
 /// Fully randomizes everything in the character.
-<<<<<<< HEAD
-/datum/preferences/proc/randomise_appearance_prefs(randomise_flags = ALL)
-	if(randomise_flags & RANDOMIZE_GENDER)
-		gender = pick(MALE, FEMALE, PLURAL)
-		switch(gender)
-			if(MALE, FEMALE)
-				body_type = gender
-			else
-				body_type = pick(MALE, FEMALE)
-	if(randomise_flags & RANDOMIZE_SPECIES)
-		var/rando_race = GLOB.species_list[pick(GLOB.roundstart_races)]
-		pref_species = new rando_race()
-	if(randomise_flags & RANDOMIZE_NAME)
-		real_name = pref_species.random_name(gender, TRUE)
-	if(randomise_flags & RANDOMIZE_AGE)
-		age = rand(AGE_MIN, AGE_MAX)
-	if(randomise_flags & RANDOMIZE_UNDERWEAR)
-		underwear = random_underwear(gender)
-	if(randomise_flags & RANDOMIZE_UNDERWEAR_COLOR)
-		underwear_color = sanitize_hexcolor(undiestone2hex(random_underwear_color())) //MOJAVE SUN EDIT - Hair/Gendered/Colours
-	if(randomise_flags & RANDOMIZE_UNDERSHIRT)
-		undershirt = random_undershirt(gender)
-	if(randomise_flags & RANDOMIZE_SOCKS)
-		socks = random_socks()
-	if(randomise_flags & RANDOMIZE_BACKPACK)
-		backpack = random_backpack()
-	if(randomise_flags & RANDOMIZE_JUMPSUIT_STYLE)
-		jumpsuit_style = pick(GLOB.jumpsuitlist)
-	if(randomise_flags & RANDOMIZE_HAIRSTYLE)
-		hairstyle = random_hairstyle(gender)
-	if(randomise_flags & RANDOMIZE_FACIAL_HAIRSTYLE)
-		facial_hairstyle = random_facial_hairstyle(gender)
-	if(randomise_flags & RANDOMIZE_HAIR_COLOR)
-		hair_color = sanitize_hexcolor(hairtone2hex(random_hair_color())) //MOJAVE SUN EDIT - Hair/Gendered/Colours
-	if(randomise_flags & RANDOMIZE_FACIAL_HAIR_COLOR)
-		facial_hair_color = hair_color //MOJAVE SUN EDIT - Hair/Gendered/Colours
-	if(randomise_flags & RANDOMIZE_SKIN_TONE)
-		skin_tone = random_skin_tone()
-	if(randomise_flags & RANDOMIZE_EYE_COLOR)
-		eye_color = sanitize_hexcolor(eyetone2hex(random_eye_color())) //MOJAVE SUN EDIT - Hair/Gendered/Colours
-	if(randomise_flags & RANDOMIZE_FEATURES)
-		features = random_features()
-=======
 /datum/preferences/proc/randomise_appearance_prefs(randomize_flags = ALL)
 	for (var/datum/preference/preference as anything in get_preferences_in_priority_order())
 		if (!preference.included_in_randomization_flags(randomize_flags))
 			continue
->>>>>>> 5a4c87a9fc3... tgui Preferences Menu + total rewrite of the preferences backend (#61313)
 
 		if (preference.is_randomizable())
 			write_preference(preference, preference.create_random_value(src))
 
 /// Randomizes the character according to preferences.
 /datum/preferences/proc/apply_character_randomization_prefs(antag_override = FALSE)
-<<<<<<< HEAD
-	if(!randomise[RANDOM_BODY] && !(antag_override && randomise[RANDOM_BODY_ANTAG]))
-		return // Prefs say "no, thank you"
-	if(randomise[RANDOM_GENDER] || antag_override && randomise[RANDOM_GENDER_ANTAG])
-		gender = pick(MALE, FEMALE, PLURAL)
-		switch(gender)
-			if(MALE, FEMALE)
-				body_type = gender
-			else
-				body_type = pick(MALE, FEMALE)
-	if(randomise[RANDOM_SPECIES])
-		random_species()
-	else if(randomise[RANDOM_NAME] || antag_override && randomise[RANDOM_NAME_ANTAG])
-		real_name = pref_species.random_name(gender, TRUE)
-	if(randomise[RANDOM_AGE] || antag_override && randomise[RANDOM_AGE_ANTAG])
-		age = rand(AGE_MIN, AGE_MAX)
-	if(randomise[RANDOM_UNDERWEAR])
-		underwear = random_underwear(gender)
-	if(randomise[RANDOM_UNDERWEAR_COLOR])
-		underwear_color = random_underwear_color() //MOJAVE SUN EDIT - Hair/Gendered/Colours
-	if(randomise[RANDOM_UNDERSHIRT])
-		undershirt = random_undershirt(gender)
-	if(randomise[RANDOM_SOCKS])
-		socks = random_socks()
-	if(randomise[RANDOM_BACKPACK])
-		backpack = random_backpack()
-	if(randomise[RANDOM_JUMPSUIT_STYLE])
-		jumpsuit_style = pick(GLOB.jumpsuitlist)
-	if(randomise[RANDOM_HAIRSTYLE])
-		hairstyle = random_hairstyle(gender)
-	if(randomise[RANDOM_FACIAL_HAIRSTYLE])
-		facial_hairstyle = random_facial_hairstyle(gender)
-	if(randomise[RANDOM_HAIR_COLOR])
-		hair_color = random_hair_color() //MOJAVE SUN EDIT - Hair/Gendered/Colours
-	if(randomise[RANDOM_FACIAL_HAIR_COLOR])
-		facial_hair_color = random_hair_color() //MOJAVE SUN EDIT - Hair/Gendered/Colours
-	if(randomise[RANDOM_SKIN_TONE])
-		skin_tone = random_skin_tone()
-	if(randomise[RANDOM_EYE_COLOR])
-		eye_color = random_eye_color() //MOJAVE SUN EDIT - Hair/Gendered/Colours
-	features = random_features()
-
-
-/datum/preferences/proc/random_species()
-	var/random_species_type = GLOB.species_list[pick(GLOB.roundstart_races)]
-	pref_species = new random_species_type
-	if(randomise[RANDOM_NAME])
-		real_name = pref_species.random_name(gender,1)
-=======
 	switch (read_preference(/datum/preference/choiced/random_body))
 		if (RANDOM_ANTAG_ONLY)
 			if (!antag_override)
@@ -109,7 +16,6 @@
 
 		if (RANDOM_DISABLED)
 			return
->>>>>>> 5a4c87a9fc3... tgui Preferences Menu + total rewrite of the preferences backend (#61313)
 
 	for (var/datum/preference/preference as anything in get_preferences_in_priority_order())
 		if (should_randomize(preference, antag_override))
