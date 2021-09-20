@@ -46,7 +46,6 @@
 	lootcount = 1
 
 	loot = list(
-			/obj/effect/spawner/lootdrop/ms13/medical/tier1 = 10,
-			/obj/effect/spawner/lootdrop/ms13/medical/tier2 = 40,
-			/obj/effect/spawner/lootdrop/ms13/medical/tier3 = 50
+			/obj/effect/spawner/lootdrop/ms13/medical/tier2 = 55,
+			/obj/effect/spawner/lootdrop/ms13/medical/tier3 = 45
 			)

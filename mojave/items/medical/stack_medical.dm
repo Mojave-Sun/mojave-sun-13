@@ -8,7 +8,7 @@
     icon_state = "suture"
     max_amount = 12
     amount = 12
-    self_delay = 4 SECONDS
+    self_delay = 3.5 SECONDS
     other_delay = 2 SECONDS
     heal_brute = 8
     stop_bleeding = 0.65
@@ -40,7 +40,7 @@
     self_delay = 2.5 SECONDS
     other_delay = 1.5 SECONDS
     heal_burn = 8
-    flesh_regeneration = 3
+    flesh_regeneration = 3.5
     sanitization = 1.25
     gender = NEUTER //So examine text says "This is a bottle of ointment" instead of "These are some bottle of ointment"
     merge_type = /obj/item/stack/medical/ointment/ms13
@@ -58,7 +58,7 @@
     amount = 10
     max_amount = 10
     heal_burn = 4
-    flesh_regeneration = 1.5
+    flesh_regeneration = 2
     sanitization = 0.5
     gender = PLURAL
     merge_type = /obj/item/stack/medical/ointment/ms13/aloe
@@ -69,7 +69,7 @@
     icon_state = "burncream"
     inhand_icon_state = "burncream"
     heal_burn = 6
-    flesh_regeneration = 2
+    flesh_regeneration = 2.75
     sanitization = 0.75
     gender = PLURAL
     merge_type = /obj/item/stack/medical/ointment/ms13/cream
@@ -86,12 +86,12 @@
     righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
     icon_state = "bandage"
     inhand_icon_state = "bandage"
-    self_delay = 3 SECONDS
+    self_delay = 2.5 SECONDS
     other_delay = 1.5 SECONDS
     max_amount = 12
     amount = 12
-    absorption_rate = 0.15
-    absorption_capacity = 4.25
+    absorption_rate = 0.13
+    absorption_capacity = 4.75
     splint_factor = 0.5
     merge_type = /obj/item/stack/medical/gauze/ms13
 
@@ -111,6 +111,6 @@
     icon_state = "bandage_m"
     inhand_icon_state = "bandage_m"
     absorption_rate = 0.2
-    absorption_capacity = 6
-    splint_factor = 0.4 //Lower = better
+    absorption_capacity = 6.5
+    splint_factor = 0.35 //Lower = better
     merge_type = /obj/item/stack/medical/gauze/ms13/military

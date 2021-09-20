@@ -6,7 +6,7 @@
 	icon_state = "null"
 	worn_icon = 'mojave/icons/mob/large-worn-icons/32x48/head.dmi'
 	worn_icon_state = "null"
-	strip_delay = 200
+	strip_delay = 15 SECONDS
 	max_integrity = 500
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	armor = list(MELEE = 80, BULLET = 80, LASER = 80, ENERGY = 80, BOMB = 80, BIO = 100, RAD = 100, FIRE = 100, ACID = 100, WOUND = 25) //Make the armor the same as the hardsuit one for consistancy
@@ -32,7 +32,7 @@
 	allowed = list(/obj/item/storage/box/matches,/obj/item/lighter,/obj/item/clothing/mask/cigarette,/obj/item/storage/fancy/cigarettes,/obj/item/flashlight,/obj/item/gun,/obj/item/ammo_box,/obj/item/ammo_casing)
 	density = TRUE //It's a suit of armor man
 	anchored = TRUE
-	strip_delay = 200
+	strip_delay = 15 SECONDS
 	max_integrity = 500
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	armor = list(MELEE = 80, BULLET = 80, LASER = 80, ENERGY = 80, BOMB = 80, BIO = 100, RAD = 100, FIRE = 100, ACID = 100, WOUND = 25) //Make the armor the same as the hardsuit one for consistancy
@@ -131,10 +131,10 @@
 	else
 		if(user.wear_suit == src)
 			to_chat(user, "You begin exiting the [src].")
-			if(do_after(user, 6 SECONDS, target = user))
+			if(do_after(user, 8 SECONDS, target = user))
 				if(get_dist(user, src) > 1) //Anti-afterimage check
 					return FALSE
-			if(do_after(user, 6 SECONDS, target = user) && density != TRUE)
+			if(do_after(user, 8 SECONDS, target = user) && density != TRUE)
 				GetOutside(user)
 				return TRUE
 			return FALSE
@@ -142,7 +142,7 @@
 	if(!CheckEquippedClothing(user) || get_dist(user, src) > 1)
 		return FALSE
 	to_chat(user, "You begin entering the [src].")
-	if(do_after(user, 6 SECONDS, target = user) && CheckEquippedClothing(user) && density == TRUE)
+	if(do_after(user, 8 SECONDS, target = user) && CheckEquippedClothing(user) && density == TRUE)
 		GetInside(user)
 		return TRUE
 	return FALSE
