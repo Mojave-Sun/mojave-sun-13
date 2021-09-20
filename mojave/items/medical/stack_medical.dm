@@ -91,7 +91,7 @@
     max_amount = 12
     amount = 12
     absorption_rate = 0.13
-    absorption_capacity = 4.75
+    absorption_capacity = 4.25
     splint_factor = 0.5
     merge_type = /obj/item/stack/medical/gauze/ms13
 
@@ -111,6 +111,6 @@
     icon_state = "bandage_m"
     inhand_icon_state = "bandage_m"
     absorption_rate = 0.2
-    absorption_capacity = 6.5
-    splint_factor = 0.35 //Lower = better
+    absorption_capacity = 6
+    splint_factor = 0.4 //Lower = better
     merge_type = /obj/item/stack/medical/gauze/ms13/military
