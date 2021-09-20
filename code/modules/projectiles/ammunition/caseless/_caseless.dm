@@ -3,6 +3,7 @@
 	firing_effect_type = null
 	heavy_metal = FALSE
 
+<<<<<<< HEAD
 //MOJAVE EDIT CHANGE BEGIN - FIRE_CASING
 //obj/item/ammo_casing/caseless/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from)) - Mojave EDIT - ORIGINAL
 /obj/item/ammo_casing/caseless/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from, damage_mod, penetration_mod)
@@ -12,7 +13,17 @@
 		QDEL_NULL(src)
 		return TRUE
 	else
+=======
+/obj/item/ammo_casing/caseless/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from)
+	if (!..()) //failed firing
+>>>>>>> a08f698230e... Harddeletes: Accident edition (#61562)
 		return FALSE
+	if(istype(fired_from, /obj/item/gun))
+		var/obj/item/gun/shot_from = fired_from
+		if(shot_from.chambered == src)
+			shot_from.chambered = null //Nuke it. Nuke it now.
+	qdel(src)
+	return TRUE
 
 /obj/item/ammo_casing/caseless/update_icon_state()
 	. = ..()
