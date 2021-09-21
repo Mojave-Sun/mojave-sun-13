@@ -691,7 +691,7 @@
 			switch(depth)
 				if(3)
 					H.wash(CLEAN_WASH)
-					if (H.wear_mask && H.wear_mask.flags_cover & MASKCOVERSMOUTH)
+					if(H.wear_mask && iscarbon(M) && H.wear_mask.flags_cover & MASKCOVERSMOUTH)
 						H.visible_message("<span class='danger'>[H] falls in the water!</span>",
 											"<span class='userdanger'>You fall in the water!</span>")
 						playsound(src, 'mojave/sound/ms13effects/splash.ogg', 60, 1, 1)
