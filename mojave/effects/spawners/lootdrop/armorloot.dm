@@ -237,9 +237,13 @@
 				/obj/item/clothing/suit/ms13/trench/black/armored,
 				""
 				)
+	var/loot7 = list(
+				/obj/item/clothing/suit/armor/ms13/assassin,
+				""
+				)
 
 /obj/effect/spawner/lootdrop/ms13/armor/tier4/Initialize()
-	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6)
+	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7)
 	. = ..()
 
 /obj/effect/spawner/lootdrop/ms13/armor/lowrandom
