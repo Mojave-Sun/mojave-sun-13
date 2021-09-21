@@ -23,7 +23,7 @@
 	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/medical/medical_inventory.dmi')
 
 /obj/item/reagent_containers/hypospray/medipen/ms13/attack(mob/living/M, mob/user)
-	if(do_after(M, 1 SECONDS))
+	if(do_after(M, 0.75 SECONDS))
 		inject(M, user)
 
 /obj/item/reagent_containers/hypospray/medipen/ms13/inject(mob/living/M, mob/user)
@@ -36,7 +36,7 @@
 		return
 	if(!user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK, FALSE, FLOOR_OKAY))
 		return
-	if(do_after(user, 1 SECONDS))
+	if(do_after(user, 0.75 SECONDS))
 		inject(user)
 		update_icon_state()
 		playsound(src.loc, 'mojave/sound/ms13items/stimpak_inject.ogg', 40, FALSE)

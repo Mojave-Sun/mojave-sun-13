@@ -20,7 +20,7 @@
 
 /obj/item/storage/firstaid/ms13/regular/PopulateContents()
 	new /obj/item/stack/medical/gauze/ms13(src)
-	new /obj/item/stack/medical/suture/ms13/eight(src)
+	new /obj/item/stack/medical/suture/ms13(src)
 	new /obj/item/stack/medical/ointment/ms13/cream(src)
 
 /obj/item/storage/firstaid/ms13/quality
