@@ -211,18 +211,12 @@
 	occur_text = "janks violently and becomes unseated"
 	severity = WOUND_SEVERITY_MODERATE
 	viable_zones = list(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
-<<<<<<< HEAD
-	interaction_efficiency_penalty = 1.5
+	interaction_efficiency_penalty = 1.3
 	//MOJAVE EDIT CHANGE BEGIN
 	limp_slowdown = 2.5 //Original TG value is 3
+	limp_chance = 50
 	threshold_minimum = 30 //Original TG value is 35
 	//MOJAVE EDIT CHANGE END
-=======
-	interaction_efficiency_penalty = 1.3
-	limp_slowdown = 3
-	limp_chance = 50
-	threshold_minimum = 35
->>>>>>> 1b8fcac4f57... Nerfs bone wounds to make them less miserable (#61196)
 	threshold_penalty = 15
 	treatable_tool = TOOL_BONESET
 	wound_flags = (BONE_WOUND)
@@ -333,16 +327,11 @@
 
 	severity = WOUND_SEVERITY_SEVERE
 	interaction_efficiency_penalty = 2
-<<<<<<< HEAD
 	//MOJAVE EDIT CHANGE BEGIN
 	limp_slowdown = 5 //Original TG value is 6
+	limp_chance = 60
 	threshold_minimum = 50 //Original TG value is 60
 	//MOJAVE EDIT CHANGE END
-=======
-	limp_slowdown = 6
-	limp_chance = 60
-	threshold_minimum = 60
->>>>>>> 1b8fcac4f57... Nerfs bone wounds to make them less miserable (#61196)
 	threshold_penalty = 30
 	treatable_by = list(/obj/item/stack/sticky_tape/surgical, /obj/item/stack/medical/bone_gel)
 	status_effect_type = /datum/status_effect/wound/blunt/severe
@@ -362,16 +351,11 @@
 	occur_text = "cracks apart, exposing broken bones to open air"
 
 	severity = WOUND_SEVERITY_CRITICAL
-<<<<<<< HEAD
-	interaction_efficiency_penalty = 4
+	interaction_efficiency_penalty = 2.5
 	//MOJAVE EDIT CHANGE BEGIN
 	limp_slowdown = 8 //Orignal TG value is 9
 	//MOJAVE EDIT CHANGE END
-=======
-	interaction_efficiency_penalty = 2.5
-	limp_slowdown = 7
 	limp_chance = 70
->>>>>>> 1b8fcac4f57... Nerfs bone wounds to make them less miserable (#61196)
 	sound_effect = 'sound/effects/wounds/crack2.ogg'
 	threshold_minimum = 115
 	threshold_penalty = 50
