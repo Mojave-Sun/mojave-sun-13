@@ -466,7 +466,6 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	tiled_dirt = FALSE
 	var/static/mutable_appearance/crack = mutable_appearance('mojave/icons/turf/ice.dmi', "crack")
-	var/static/mutable_appearance/holehole = mutable_appearance('mojave/icons/turf/ice.dmi', "hole_overlay")
 	var/cracked = FALSE
 	var/hole = FALSE
 
@@ -504,7 +503,6 @@
 			else
 				if(cracked)
 					cut_overlay(crack)
-					add_overlay(holehole)
 					density = TRUE
 					to_chat(user, "<span class='notice'>You crack the ice, making a hole to the waters below.</span>")
 					hole = TRUE

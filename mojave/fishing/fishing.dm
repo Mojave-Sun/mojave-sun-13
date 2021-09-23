@@ -2,16 +2,11 @@
 
 // Fishing tiles
 
-/turf/open/floor/plating/ice/hole
+/obj/structure/ms13/ice_hole
 	name = "ice hole"
-	baseturfs = /turf/open/floor/plating/asteroid
-	icon = 'icons/turf/floors.dmi'
-	icon_state = "asteroid"
-	icon_plating = "asteroid"
-	footstep = FOOTSTEP_SAND
-	barefootstep = FOOTSTEP_SAND
-	clawfootstep = FOOTSTEP_SAND
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	desc = "A hole in the ice. Good for fishing."
+	icon = 'mojave/icons/turf/ice.dmi'
+	icon_state = "hole_overlay"
 	var/list/fish = list(/obj/item/reagent_containers/food/snacks/meat/slab/fish/sockeye,
 		/obj/item/reagent_containers/food/snacks/meat/slab/fish/smallmouth,
 		/obj/item/reagent_containers/food/snacks/meat/slab/fish/largemouth,
@@ -23,7 +18,7 @@
 		/obj/item/reagent_containers/food/snacks/meat/slab/fish/blinky)
 	var/fished = FALSE
 
-/turf/open/floor/plating/ice/hole/attackby(obj/item/W, mob/user, params)
+/obj/structure/ms13/ice_hole/attackby(obj/item/W, mob/user, params)
 	. = ..()
 	if(!.)
 		if(istype(W, /obj/item/fishing_rod))
@@ -42,12 +37,12 @@
 			to_chat(user, "<span class='notice'>You reel in your catch.</span>")
 			getFished()
 
-/turf/open/floor/plating/ice/hole/proc/getFished()
+/obj/structure/ms13/ice_hole/proc/getFished()
 	var/spawnFish = pickweight(fish)
 	new spawnFish(src)
 	fished = TRUE
 
-/turf/open/floor/plating/ice/hole/proc/can_fish(mob/user)
+/obj/structure/ms13/ice_hole/proc/can_fish(mob/user)
 	if(!fished)
 		return TRUE
 	if(user)
@@ -62,8 +57,8 @@
 	var/fish_speed = 600 SECONDS
 
 /obj/item/ms13/fishing_rod/basic
-	name = "makeshift rod"
-	desc = "A makeshift fishing rod built from whatever was available. It works. Sort of."
+	name = "wooden rod"
+	desc = "A wooden fishing rod. Capable and proven."
 	icon_state = "basic"
 	lefthand_file = 'fallout/icons/mob/inhands/equipment/basic_lefthand.dmi'
 	righthand_file = 'fallout/icons/mob/inhands/equipment/basic_righthand.dmi'
