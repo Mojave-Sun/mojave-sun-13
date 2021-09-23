@@ -79,7 +79,7 @@
 
 /obj/item/stack/medical/gauze/ms13
     name = "gauze"
-    desc = "A roll of cloth intended for soaking up blood from bleeding wounds, or mildly supporting a broken bone."
+    desc = "A roll of cloth intended for soaking up blood from bleeding wounds, mildly supporting a broken bone, or making sure burn wounds stay clean."
     singular_name = "rolls of gauze"
     icon = 'mojave/icons/objects/medical/medical_world.dmi'
     lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
@@ -90,9 +90,11 @@
     other_delay = 1.5 SECONDS
     max_amount = 12
     amount = 12
-    absorption_rate = 0.13
+    absorption_rate = 0.12
     absorption_capacity = 4.25
-    splint_factor = 0.5
+    splint_factor = 0.6
+    burn_cleanliness_bonus = 0.6
+
     merge_type = /obj/item/stack/medical/gauze/ms13
 
 /obj/item/stack/medical/gauze/ms13/Initialize()
@@ -107,10 +109,11 @@
 
 /obj/item/stack/medical/gauze/ms13/military
     name = "military gauze"
-    desc = "A sterile and elastic roll of gauze with a handle used to help pin the dressing down. Very good at soaking up blood from wounds and can be used as a splint for a broken bone."
+    desc = "A sterile and elastic roll of gauze with a handle used to help pin the dressing down. Very good at soaking up blood from wounds and can be used as a decent splint for a broken bone."
     icon_state = "bandage_m"
     inhand_icon_state = "bandage_m"
-    absorption_rate = 0.2
+    absorption_rate = 0.18
     absorption_capacity = 6
-    splint_factor = 0.4 //Lower = better
+    splint_factor = 0.5 //Lower = better
+    burn_cleanliness_bonus = 0.4 //Lower = better
     merge_type = /obj/item/stack/medical/gauze/ms13/military
