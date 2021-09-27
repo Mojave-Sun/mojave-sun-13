@@ -21,14 +21,13 @@
 	foodtype = SUGAR
 	isGlass = TRUE
 	var/captype = null
-	var/opentext = "hiss"
 
 /obj/item/reagent_containers/food/drinks/soda_cans/ms13/Initialize()
 	. = ..()
 	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/food/liquids/drink_containers_inventory.dmi')
 
 /obj/item/reagent_containers/food/drinks/soda_cans/ms13/open_soda(mob/user)
-	to_chat(user, "You pry the top off \the [src] off with a satisfying [opentype].")
+	to_chat(user, "You pry the top off \the [src] off with a satisfying hiss.")
 	reagents.flags |= OPENCONTAINER
 	playsound(src, "can_open", 50, TRUE)
 	spillable = TRUE
@@ -247,6 +246,6 @@
 /obj/item/reagent_containers/food/drinks/bottle/ms13/caligary_beer
 	name = "New Caligary lager"
 	desc = "A beer bottle. This one apparently has something to do with a place called 'Caligary'."
-	icon_state = "beer"
+	icon_state = "beer_white"
 	volume = 45
 	list_reagents = list(/datum/reagent/consumable/ethanol/ms13/beer = 40)

@@ -569,5 +569,6 @@
 	M.AdjustKnockdown(-20, FALSE)
 	M.adjustStaminaLoss(-5, 0)
 	M.Jitter(2)
-	M.adjustOrganLoss(ORGAN_SLOT_HEART, rand(1,5))
+	if(prob(25))
+		M.adjustOrganLoss(ORGAN_SLOT_HEART, rand(1,3))
 	..()

@@ -252,7 +252,7 @@
 /datum/reagent/consumable/ms13/gagquik/on_mob_life(mob/living/carbon/M) // This definitely won't be slipped into drinks
 	if(prob(25))
 		M.vomit(lost_nutrition = 25, distance = 1, purge_ratio = 0.5)
-	M.adjust_disgust(15)
+	M.adjust_disgust(10)
 	..()
 
 /datum/reagent/consumable/ms13/redheave //Geigpunga wine, Toxic soot extract, Gagquik, CHEMICALS?
@@ -266,10 +266,10 @@
 
 /datum/reagent/consumable/ms13/redheave/on_mob_life(mob/living/carbon/M)
 	M.adjustOrganLoss(ORGAN_SLOT_STOMACH, rand(1,10))
-	to_chat(M, (span_cult("It BURNS!")))
+	to_chat(M, (span_cultboldtalic("It BURNS!")))
 	if(prob(25))
-		M.vomit(lost_nutrition = 10, distance = 1, purge_ratio = 0, blood = TRUE, harm = TRUE)
-	M.adjust_disgust(25)
+		M.vomit(lost_nutrition = 10, distance = 2, purge_ratio = 0, blood = TRUE, harm = TRUE)
+	M.adjust_disgust(5)
 	..()
 
 //// POWER GAMER brews- allegedly. ////
