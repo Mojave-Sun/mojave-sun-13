@@ -10,26 +10,38 @@
 
 /obj/item/clothing/gloves/ms13/winter
 	name = "brown winter gloves"
-	desc = "A pair of brown winter gloves. The knuckles are a bit worn, but they're overall solid and hold warmth well."
+	desc = "A plain pair of brown winter gloves. Nice and warm."
 	icon_state = "winterglovesbrown"
 	inhand_icon_state = "winterglovesbrown"
 
 /obj/item/clothing/gloves/ms13/winter/black
-	name = "black winter gloves"
-	desc = "A pair of black winter gloves. The knuckles are a bit worn, but they're overall solid and hold warmth well."
+	name = "dark winter gloves"
+	desc = "A pair of dark winter gloves. Nice and warm."
 	icon_state = "winterglovesblack"
 	inhand_icon_state = "winterglovesblack"
 
 /obj/item/clothing/gloves/ms13/baseball
 	name = "baseball glove"
-	desc = "An old baseball glove. The interior leather has formed sharp point and sorta hurts. Provides some nice protection to your hand when smacking things repeatedly."
+	desc = "An old pre-war baseball glove. Great for protecting a single hand or playing catch."
 	icon_state = "baseball"
+	inhand_icon_state = "bgloves"
+
+/obj/item/clothing/gloves/ms13/fingerless
+	name = "fingerless glove"
+	desc = "A pair of black fingerless gloves."
+	icon_state = "fingerless"
 	inhand_icon_state = "bgloves"
 
 /obj/item/clothing/gloves/ms13/leather
 	name = "leather gloves"
-	desc = "A pair of leather gloves. They've seen better days but they'll keep your hands protected."
+	desc = "A pair of brown leather gloves. They've seen better days but they'll keep your hands protected."
 	icon_state = "leather"
+	inhand_icon_state = "bgloves"
+
+/obj/item/clothing/gloves/ms13/military
+	name = "military gloves"
+	desc = "A pair of sturdy military gloves. Used by the pre-war military, now used by whoever can get their hands on them."
+	icon_state = "military"
 	inhand_icon_state = "bgloves"
 
 /obj/item/clothing/gloves/ms13/vault
