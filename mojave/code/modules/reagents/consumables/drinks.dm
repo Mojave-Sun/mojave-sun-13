@@ -5,9 +5,9 @@
 	quality = DRINK_NICE
 	glass_name = "glass of liquid" // Keep these generic for flavour!
 	glass_desc = "A pale coloured liquid. It screams 'PAIN'." // Same with this. Keep people guessin'. Make em know the drink via flavour and look for immersion.
-	glass_icon_state = null
+	glass_icon_state = null // None of this dumb nonsense. Glasses don't just morph based on liquid!
 
-// E for Everyone drinks - Soda/Beverages //
+//// E for Everyone drinks - Soda/Beverages ////
 
 /datum/reagent/consumable/ms13/water // When you code it
 	name = "water"
@@ -23,7 +23,7 @@
 	description = "Zap that thirst!"
 	color = "#413022"
 	quality = DRINK_VERYGOOD
-	taste_description = "nuka-cola"
+	taste_description = "soda"
 	glass_name = "glass of dark fizzy liquid"
 	glass_desc = "A dark fizzy liquid with a slighty sweet smell. Bubbles form on the side."
 
@@ -32,7 +32,7 @@
 	description = "Zap that thirst! Now with no sugar."
 	color = "#413022"
 	quality = DRINK_GOOD
-	taste_description = "weird nuka-cola"
+	taste_description = "strange soda"
 	glass_name = "glass of dark fizzy liquid"
 	glass_desc = "A dark fizzy liquid with a slighty off sweet smell. Bubbles form on the side."
 
@@ -42,16 +42,16 @@
 
 /datum/reagent/consumable/ms13/nuka_cherry
 	name = "Nuka-Cherry"
-	description = "Now this is one cherry drink."
+	description = "Classic Nuka with a cherry twist!"
 	color = "#790604"
 	quality = DRINK_VERYGOOD
-	taste_description = "sweet fruity cola"
+	taste_description = "sweet fruity soda"
 	glass_name = "glass of dark red fizzy liquid"
 	glass_desc = "A dark red fizzy liquid with a slighty sweet and fruity smell. Bubbles form on the side."
 
 /datum/reagent/consumable/ms13/nuka_grape
 	name = "Nuka-Grape"
-	description = "Tastes grape."
+	description = "Nuka cola! Tastes grape."
 	color = "#60145C"
 	quality = DRINK_VERYGOOD
 	taste_description = "sweet grape soda"
@@ -60,7 +60,7 @@
 
 /datum/reagent/consumable/ms13/nuka_orange
 	name = "Nuka-Orange"
-	description = "Orange you glad you found this?"
+	description = "Orange you glad you've got Nuka?"
 	color = "#FC8102"
 	quality = DRINK_VERYGOOD
 	taste_description = "fruity acidic soda"
@@ -69,7 +69,7 @@
 
 /datum/reagent/consumable/ms13/nuka_cranberry
 	name = "Nuka-Cranberry"
-	description = "How did this here all the way from Appalachia?"
+	description = "Fizzy Nuka, now in cranberry!"
 	color = "#950714"
 	quality = DRINK_VERYGOOD
 	taste_description = "bitter fruit soda"
@@ -79,11 +79,20 @@
 /datum/reagent/consumable/ms13/nuka_lemon
 	name = "Nuka-Lemon"
 	description = "All the zip of Nuka-Cola, with all the refreshing zing of lemon."
-	color = "#fff44f"
+	color = "#cec32d"
 	quality = DRINK_VERYGOOD
-	taste_description = "sour fruit soda"
+	taste_description = "sour and sweet fruity soda"
 	glass_name = "glass of yellow fizzy liquid"
-	glass_desc = "A transparent yellow fizzy liquid with a slighty sweet smell. Bubbles form on the side."
+	glass_desc = "A clear yellow fizzy liquid with a slighty sweet smell. Bubbles form on the side."
+
+/datum/reagent/consumable/ms13/nuka_lime
+	name = "Nuka-Lime"
+	description = "Classic Nuka with a lime twist!"
+	color = "#98b432"
+	quality = DRINK_VERYGOOD
+	taste_description = "sour and bitter fruity soda"
+	glass_name = "glass of pale green fizzy liquid"
+	glass_desc = "A clear green fizzy liquid with a subtle bittersweet and fruity aroma. Bubbles form on the side."
 
 /datum/reagent/consumable/ms13/nuka_quantum
 	name = "Nuka-Cola Quantum"
@@ -99,7 +108,7 @@
 	description = "A classy clear drink."
 	color = "#dfdcdc"
 	quality = DRINK_FANTASTIC
-	taste_description = "extra fizzy nuka-cola"
+	taste_description = "extra fizzy soda"
 	glass_name = "glass of clear sparkly liquid"
 	glass_desc = "A clear sparkly liquid with a slighty sweet smell. Bubbles form on the side."
 
@@ -153,16 +162,25 @@
 	description = "Packed with berry flavour."
 	color = "#5d1f81"
 	quality = DRINK_VERYGOOD
-	taste_description = "sweet berry cola"
+	taste_description = "sweet berry soda"
 	glass_name = "glass of purple fizzy liquid"
 	glass_desc = "A purple fizzy liquid with a slighty berry smell. Bubbles form on the side."
+
+/datum/reagent/consumable/ms13/newka_cola
+	name = "newka-Cola"
+	description = "Based on the failed Cherry Nuka-Cola, this drink is guaranteed to disappoint."
+	color = "#550404"
+	quality = DRINK_NICE
+	taste_description = "mediocre soda"
+	glass_name = "glass of deep red fizzy liquid"
+	glass_desc = "A deep red fizzy liquid with a disapointing bland smell. Bubbles form on the side."
 
 /datum/reagent/consumable/ms13/nuka_frutti // Grape/Orange/Cherry
 	name = "Nuka-Frutti"
 	description = "Perfect for when you're feeling fruity."
 	color = "#d8bd72"
 	quality = DRINK_VERYGOOD
-	taste_description = "strong fruity cola"
+	taste_description = "strong fruity soda"
 	glass_name = "glass of pale yellow fizzy liquid"
 	glass_desc = "A pale yellow fizzy liquid with a strong fruit smell. Bubbles form on the side."
 
@@ -171,7 +189,7 @@
 	description = "Aww, it's pink!"
 	color = "#c06968"
 	quality = DRINK_VERYGOOD
-	taste_description = "sparkling sweet fruit cola"
+	taste_description = "sparkling sweet fruit soda"
 	glass_name = "glass of pale red sparkly liquid"
 	glass_desc = "A pale red sparkly liquid with a slighty fruity smell. Bubbles form on the side."
 
@@ -184,30 +202,21 @@
 	glass_name = "glass of green fizzy liquid"
 	glass_desc = "A deep green fizzy liquid with a slighty fruity smell, just a sniff gives you a bit of a head rush. Bubbles form on the side."
 
-/datum/reagent/consumable/ms13/newka_cola //Cola and Cherry
-	name = "newka-Cola"
-	description = "Based on the failed Cherry Nuka-Cola, this drink is guaranteed to disappoint."
-	color = "#550404"
-	quality = DRINK_NICE
-	taste_description = "mediocre nuka-cola"
-	glass_name = "glass of deep red fizzy liquid"
-	glass_desc = "A deep red fizzy liquid with a disapointing bland smell. Bubbles form on the side."
-
 /datum/reagent/consumable/ms13/nuka_free //Cola and Water
 	name = "Nuka-Free"
 	description = "That's not how diet drinks work, you know."
 	color = "#4b3f35"
 	quality = DRINK_VERYGOOD
-	taste_description = "watered down cola"
+	taste_description = "refreshing watered down soda"
 	glass_name = "glass of pale murky liquid"
-	glass_desc = "A purple fizzy liquid with a slighty berry smell. You can see an occasional bubble."
+	glass_desc = "A purple fizzy liquid with a slighty sugar-y smell. You can see an occasional bubble."
 
 /datum/reagent/consumable/ms13/nuka_black //Cola and Coffee
 	name = "Nuka-Black"
 	description = "Cola and coffee, finally married in perfect harmony."
 	color = "#3B2F2F"
 	quality = DRINK_VERYGOOD
-	taste_description = "strong caffinated cola"
+	taste_description = "strong caffinated soda"
 	glass_name = "glass of dark liquid"
 	glass_desc = "A dark liquid reeking of coffee. Nothing is going on inside the glass."
 
@@ -221,7 +230,7 @@
 	glass_desc = "A green bubbly liquid smelling of vague apple."
 
 /datum/reagent/consumable/ms13/sunset_sarsaparilla
-	name = "Sunset Sarsaparilla"
+	name = "Sunset sarsaparilla"
 	description = "Build mass with sass!"
 	color = "#290E05"
 	quality = DRINK_VERYGOOD
@@ -229,7 +238,41 @@
 	glass_name = "glass of dark fizzy liquid"
 	glass_desc = "A dark fizzy liquid with a bland smell. Large bubbles form on the side."
 
-// POWER GAMER brews- allegedly. //
+//// Horrible mixtures. Definitely DON'T drink. ////
+
+/datum/reagent/consumable/ms13/gagquik // Vile stuff.
+	name = "gagquik"
+	description = "A common wastelander brew often used to induce vomiting."
+	color = "#3a502b"
+	quality = DRINK_VERYGOOD
+	taste_description = "putrid herbs and fruit"
+	glass_name = "glass of murky dark green liquid"
+	glass_desc = "A murky dark green liquid with bits of plant matter floating at the top. Has a vile smell to it."
+
+/datum/reagent/consumable/ms13/gagquik/on_mob_life(mob/living/carbon/M) // This definitely won't be slipped into drinks
+	if(prob(25))
+		M.vomit(lost_nutrition = 25, distance = 1, purge_ratio = 0.5)
+	M.adjust_disgust(15)
+	..()
+
+/datum/reagent/consumable/ms13/redheave //Geigpunga wine, Toxic soot extract, Gagquik, CHEMICALS?
+	name = "red heave"
+	description = "An accidental discovery. Curious brewers dread this outcome."
+	color = "#91a05b"
+	quality = DRINK_VERYGOOD
+	taste_description = "putrid sour fruit and herbs with chemical burn"
+	glass_name = "glass of murky pale green liquid"
+	glass_desc = "A murky pale green liquid. It occasionally frothes a bit and has a vile smell to it."
+
+/datum/reagent/consumable/ms13/redheave/on_mob_life(mob/living/carbon/M)
+	M.adjustOrganLoss(ORGAN_SLOT_STOMACH, rand(1,10))
+	to_chat(M, (span_cult("It BURNS!")))
+	if(prob(25))
+		M.vomit(lost_nutrition = 10, distance = 1, purge_ratio = 0, blood = TRUE, harm = TRUE)
+	M.adjust_disgust(25)
+	..()
+
+//// POWER GAMER brews- allegedly. ////
 
 /* Not doin this yet
 /datum/reagent/consumable/ms13/waster_tea // Ash Rose / Broc
@@ -240,12 +283,10 @@
 	glass_name = "glass of pale green liquid"
 	glass_desc = "A faint pale green liquid with an herbal aroma practically falling off it."
 
-/datum/reagent/consumable/ms13/waster_tea/on_mob_life(mob/living/carbon/M)
-	M.adjustBruteLoss(rand(-1,-2))
-	M.adjustFireLoss(1)
-	M.adjustStaminaLoss(1)
-	..()
-	. = 1
+/datum/reagent/consumable/ms13/waster_tea/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
+	if(M.getFireLoss() && DT_PROB(10, delta_time))
+		M.heal_bodypart_damage(1,0, 0)
+		. = TRUE
 
 /datum/reagent/consumable/ms13/herb_brew // Coyote tobacco and lureweed
 	name = "herbal Brew"

@@ -8,13 +8,22 @@
 	glass_name = "glass of clear liquid"
 	glass_desc = "A completely clear liquid, spare for the occasional bubble rising to the top. A sniff of this nearly burns your nose hairs clean off."
 
-// Basic pre-war alcohols //
+//// Basic pre-war alcohols ////
+
+/datum/reagent/consumable/ethanol/ms13/absinthe
+	name = "absinthe"
+	description = "An old popular drink. Very strong."
+	color = "#cecbc5"
+	boozepwr = 75
+	taste_description = "strong alcohol and strange herb-y sugar"
+	glass_name = "glass of clear green liquid"
+	glass_desc = "A clear green liquid with an intense alcoholic smell. Vaguely sweet herb aroma."
 
 /datum/reagent/consumable/ethanol/ms13/moonshine
 	name = "moonshine"
 	description = "A bland alcohol. Basically a party gimmick unless you're a masochist."
 	color = "#cecbc5"
-	boozepwr = 75
+	boozepwr = 70
 	taste_description = "strong bland alcohol"
 	glass_name = "glass of clear liquid"
 	glass_desc = "A clear liquid with an intense alcoholic smell."
@@ -24,16 +33,16 @@
 	description = "Cinnamon hinted alcohol, and that's about it."
 	quality = DRINK_NICE
 	color = "#a87820"
-	boozepwr = 55
+	boozepwr = 50
 	taste_description = "spiced alcohol"
 	glass_name = "glass of clear pale orange liquid"
 	glass_desc = "A clear orange liquid with a moderate alcoholic smell."
 
 /datum/reagent/consumable/ethanol/ms13/vodka
 	name = "vodka"
-	description = "Another bland alcohol. This one is a classic ingredient."
+	description = "Another bland yet strong alcohol. This one is a classic ingredient."
 	color = "#e7e5e1"
-	boozepwr = 65
+	boozepwr = 75
 	taste_description = "strong alcohol with subtle flavors"
 	glass_name = "glass of clear liquid"
 	glass_desc = "A clear liquid with no smell. Nothing out of the ordinary." // ☻
@@ -76,9 +85,57 @@
 	glass_name = "glass of clear orange-red liquid"
 	glass_desc = "A clear orange-red liquid with a moderate alcoholic smell."
 
+/datum/reagent/consumable/ethanol/ms13/beer // The only beer variant other than waster beer. They all taste the same. Fight me.
+	name = "beer"
+	description = "A generic ale brew. It could be anything, really."
+	quality = DRINK_GOOD
+	color = "#d0d8ac"
+	boozepwr = 25
+	taste_description = "beer"
+	glass_name = "glass of dark liquid"
+	glass_desc = "A dark liquid with a bland alcoholic smell."
+
+/datum/reagent/consumable/ethanol/ms13/gin
+	name = "gin"
+	description = "An alcohol. Something to do with berries. Who cares? It's pretty good."
+	quality = DRINK_GOOD
+	color = "#d0d8ac"
+	boozepwr = 45
+	taste_description = "spicy fruit and bittersweet alcohol"
+	glass_name = "glass of clear off-white liquid"
+	glass_desc = "A clear off-white liquid with an alcoholic smell."
+
+/datum/reagent/consumable/ethanol/ms13/sake
+	name = "sake"
+	description = "Sake, a sterotype of the east. Appreciated a bit more today than two hundred years ago."
+	color = "#b9b9b9"
+	boozepwr = 45
+	taste_description = "moderate grain alcohol"
+	glass_name = "glass of clear liquid"
+	glass_desc = "A clear murky liquid that gives of a moderate alcoholic odor."
+
+/datum/reagent/consumable/ethanol/ms13/vermouth
+	name = "vermouth"
+	description = "A spicy, sweet, and earthy herb infused grape wine. High class!"
+	color = "#d67c7c"
+	boozepwr = 40
+	taste_description = "sweet and spicy wine"
+	glass_name = "glass of clear light red liquid"
+	glass_desc = "A clear light red liquid that gives of a moderate sweet and spiced alcoholic odor."
+
+/datum/reagent/consumable/ethanol/ms13/triple_sec
+	name = "triple sec"
+	description = "A spicy, sweet, and earthy herb infused grape wine. High class!"
+	color = "#e49328"
+	boozepwr = 45
+	taste_description = "sweet fruit alcohol"
+	glass_name = "glass of clear orange liquid"
+	glass_desc = "A clear light orange that gives of a sweet fruity smell, followed by alcohol."
+
 /datum/reagent/consumable/ethanol/ms13/kaluha
 	name = "kaluha"
 	description = "A coffee liqueur. At least it once was. It's pretty bland these days."
+	quality = DRINK_FANTASTIC
 	color = "#dbab74"
 	boozepwr = 35
 	taste_description = "sugary alcohol"
@@ -103,45 +160,45 @@
 	glass_name = "glass of dark liquid"
 	glass_desc = "A still and dark liquid with a moderate alcoholic smell, with a hint of sweet cola mixed in."
 
-//Mixed Drinks
+//// Mixed Drinks ////
 
-/datum/reagent/consumable/ethanol/ms13/rum_nuka //Cola and Rum
-	name = "Rum and Nuka"
-	description = "Rum, mixed with Nuka-Cola."
-	quality = DRINK_NICE
+/datum/reagent/consumable/ethanol/ms13/rum_nuka // Rum and Nuka
+	name = "rum and nuka"
+	description = "Rum mixed with Nuka-Cola. Not much to be said."
+	quality = DRINK_GOOD
 	color = "#381d08"
 	boozepwr = 45
 	taste_description = "alcoholic nuka cola"
 	glass_name = "glass of dark fizzing liquid"
 	glass_desc = "A dark fizzing liquid with a fair alcohlic smell to it."
 
-/datum/reagent/consumable/ethanol/ms13/radstorm //Whiskey and Nuka
-	name = "Radstorm"
+/datum/reagent/consumable/ethanol/ms13/whiskey_nuka //Whiskey and Nuka
+	name = "whiskey and nuka"
 	description = "Whiskey, mixed with Nuka-Cola. Surprisingly refreshing."
 	color = "#3E1B00"
-	quality = DRINK_NICE
+	quality = DRINK_GOOD
 	boozepwr = 60
 	taste_description = "strong alcoholic nuka cola with spice"
 	glass_name = "glass of dark fizzing liquid"
 	glass_desc = "A dark fizzing liquid with a hint of spice and a decent alcohlic smell to it."
 
 /datum/reagent/consumable/ethanol/ms13/commie_bomb // Vodka, Nuka Quartz
-	name = "Commie bomb"
+	name = "commie bomb"
 	description = "A post-war drink devoded to the obvious victory over the communist threat."
-	quality = DRINK_NICE
+	quality = DRINK_GOOD
 	color = "#6e3e18"
 	boozepwr = 70
 	taste_description = "strong alcoholic nuka cola"
 	glass_name = "glass of brown fizzing liquid"
 	glass_desc = "A brown fizzing liquid with a sharp alcohlic smell to it."
 
-/datum/reagent/consumable/ethanol/ms13/mammoth_bait // Soot flower Powder / Prickly pear Juice / Champagne
+/datum/reagent/consumable/ethanol/ms13/mammoth_bait // Mutfruit wine / Champagne / Something mushroom
 	name = "Mammoth bait"
 	description = "A recipe passed down through the generations in Mammoth. Best served warm."
-	quality = DRINK_NICE
+	quality = DRINK_FANTASTIC
 	color = "#ce99c2"
 	boozepwr = 25
-	taste_description = "off-tasting caffinated alcohol"
+	taste_description = "off-tasting bubbly alcohol"
 	glass_name = "glass of dull pink liquid"
 	glass_desc = "A dull pink bubbly liquid with a strange smell- Vaguely alcoholic."
 
@@ -155,16 +212,6 @@
 	glass_name = "glass of pale green liquid"
 	glass_desc = "A pale green liquid with a strange smell. Based on smell, definitely has alcohol."
 
-/datum/reagent/consumable/ethanol/ms13/wares_waldon // Yeah what he said down there
-	name = "Ware's Waldon"
-	description = "A mix of Ware's Brew, Catseye, Vodka and Cranberry Juice."
-	quality = DRINK_FANTASTIC
-	color = "#5D0F0C"
-	boozepwr = 75
-	taste_description = "berry alcohol with a hint of chemicals"
-	glass_name = "glass of red liquid"
-	glass_desc = "A red liquid with a strange film on the top. Reeks of alcohol.."
-
 /datum/reagent/consumable/ethanol/ms13/necromancer // Vodka / Rum / Ash Blossom powder
 	name = "Necromancer"
 	description = "Strong enough to wake the dead.."
@@ -175,13 +222,12 @@
 	glass_name = "glass of dark red liquid"
 	glass_desc = "A dark red liquid with particles floating around in it. Intense alcoholic aroma."
 
-/datum/reagent/consumable/ethanol/ms13/necromancer/on_mob_life(mob/living/carbon/M)
+/*/datum/reagent/consumable/ethanol/ms13/necromancer/on_mob_life(mob/living/carbon/M)
 	M.drowsyness = max(0,M.drowsyness-3)
-	M.AdjustSleeping(-20)
 	..()
-	. = 1
+	. = 1 */
 
-/datum/reagent/consumable/ethanol/ms13/dirty_wastelander // Mutfruit / Nuka / Whiskey
+/datum/reagent/consumable/ethanol/ms13/dirty_wastelander // Mutfruit juice / Nuka / Whiskey
 	name = "Dirty Wastelander"
 	description = "A pre-war classic adapted to the post-war world."
 	quality = DRINK_VERYGOOD
@@ -191,11 +237,11 @@
 	glass_name = "glass of dull orange liquid"
 	glass_desc = "A dull orange liquid with a spiced fruity smell to it. Has alcohol in it, though the amount is uncertain."
 
-/datum/reagent/consumable/ethanol/ms13/nawlins_sazerac // Cognac / Coyote tobacco powder
+/datum/reagent/consumable/ethanol/ms13/nawlins_sazerac // Cognac / Coyote tobacco powder / Absinthe
 	name = "Nawlins Sazerac"
-	description = "A favourite from Nawlins, way down South."
+	description = "A favourite from Nawlins, way down South. Not to be confused with the New Orleans version."
 	quality = DRINK_VERYGOOD
-	color = "#d85016"
+	color = "#c74f1c"
 	boozepwr = 50
 	taste_description = "bitter herb-y alcohol with a strange aftertaste"
 	glass_name = "glass of orange liquid"
@@ -211,7 +257,7 @@
 	glass_name = "glass of dark red liquid"
 	glass_desc = "A dark red liquid with a slight sweet meat-y smell. Strange. You can also pick up hints of alcohol in it."
 
-//B for Brewed - Home brewed fun //
+////B for Brewed - Home brewed fun ////
 
 // Basic Brews/Distilling //
 
@@ -275,6 +321,16 @@
 	glass_name = "glass of green liquid"
 	glass_desc = "A bright green murky liquid. Heavy alcoholic aromas waft from it."
 
+/datum/reagent/consumable/ethanol/ms13/snaptail_rum // Snaptail
+	name = "snaptail rum"
+	description = "A sweet rum, brewed locally!"
+	quality = DRINK_NICE
+	color = "#c9a9a9"
+	boozepwr = 45
+	taste_description = "subtly sweet and smooth alcohol"
+	glass_name = "glass of clear tinted liquid"
+	glass_desc = "A clear liquid with a subtle tint. Definitely smells of alcohol."
+
 /datum/reagent/consumable/ethanol/ms13/tarberry_wine // Tarberry
 	name = "tarberry wine"
 	description = "Wine made from tarberries. Delicious."
@@ -305,12 +361,12 @@
 	glass_name = "glass of dull green liquid"
 	glass_desc = "A dull green liquid Sometimes, you can see a shimmer in it. Sweet smell, with an alcoholic afterburn."
 
-/datum/reagent/consumable/ethanol/ms13/yucca_wine // Agave
+/datum/reagent/consumable/ethanol/ms13/yucca_wine // Yucca
 	name = "yucca wine"
-	description = "A rough-and-ready tequila born of the wasteland."
+	description = ""
 	quality = DRINK_NICE
-	color = "#d3d3b3"
-	boozepwr = 85 // That thing is incredibly sugar-y. Tell me it aint so
+	color = "#acac87"
+	boozepwr = 25 // That thing is incredibly sugar-y. Tell me it aint so
 	taste_description = "sweet starch and strong alcohol"
 	glass_name = "glass of pale clear liquid"
 	glass_desc = "A faint pale yellow liquid with a familiar distant agave smell to it. Smells pretty alcoholic."
@@ -328,7 +384,6 @@
 /datum/reagent/consumable/ethanol/ms13/waster_vodka // Potato???
 	name = "wasteland vodka"
 	description = "A modern version of an ancient alcohol. Not commonly found."
-	quality = DRINK_NICE
 	color = "#dfddd5"
 	boozepwr = 75
 	taste_description = "distant starch with strong alcohol"
@@ -338,7 +393,6 @@
 /datum/reagent/consumable/ethanol/ms13/tomato_wine // Tomato???
 	name = "tomato wine"
 	description = "A wine brewed from a tomato. Not exactly desired."
-	quality = DRINK_NICE
 	color = "#c57f73"
 	boozepwr = 35
 	taste_description = "subtle tomato and alcohol"
@@ -348,19 +402,17 @@
 /datum/reagent/consumable/ethanol/ms13/waster_beer // Razorgrain
 	name = "wasteland beer"
 	description = "A homebrew beer from razorgrain. About as generic as you can get."
-	quality = DRINK_GOOD
 	color = "#442b1b"
 	boozepwr = 25
 	taste_description = "beer"
 	glass_name = "glass of dark brown liquid"
-	glass_desc = "A dark brown liquid that gives of a strong alcoholic odor."
+	glass_desc = "A dark brown liquid that gives of a moderate alcoholic odor."
 
 /datum/reagent/consumable/ethanol/ms13/waster_sake // Baifan
 	name = "baifan brew"
 	description = "A homebrew sake from baifan grain. Strong alcoholic content."
-	quality = DRINK_GOOD
 	color = "#ada9a6"
-	boozepwr = 25
+	boozepwr = 55
 	taste_description = "strong grain alcohol"
 	glass_name = "glass of clear murky liquid"
 	glass_desc = "A clear murky liquid that gives of a strong alcoholic odor."
@@ -368,7 +420,6 @@
 /datum/reagent/consumable/ethanol/ms13/waster_tequila // Agave
 	name = "wasteland tequila"
 	description = "A rough-and-ready tequila born of the wasteland."
-	quality = DRINK_NICE
 	color = "#b6b687"
 	boozepwr = 65
 	taste_description = "rough agave alcohol"
@@ -383,22 +434,52 @@
 		holder.remove_reagent(/datum/reagent/toxin, 0.5)
 	..()
 
-// Combination Brews //
+/datum/reagent/consumable/ethanol/ms13/waster_whiskey // Maize
+	name = "wasteland whiskey"
+	description = "A homemade whiskey. Some argue better than the pre-war bottles."
+	color = "#8f5b1f"
+	boozepwr = 45
+	taste_description = "sweet alcohol with a hint of maize"
+	glass_name = "glass of clear brown liquid"
+	glass_desc = "A clear brown liquid that gives of a strong alcoholic odor."
 
-/datum/reagent/consumable/ethanol/ms13/ballistic_bock // Gunpowder, Wheat
+/datum/reagent/consumable/ethanol/ms13/carrot_wine // Carrots
+	name = "carrot wine"
+	description = "Wine. From. Carrots. How exotic!"
+	color = "#c99355"
+	boozepwr = 55
+	taste_description = "sweet alcoholic carrots"
+	glass_name = "glass of clear orange liquid"
+	glass_desc = "A clear orange liquid with a sweet subtle smell with some alcohol definitely present."
+
+/datum/reagent/consumable/ethanol/ms13/brew_sludge // Anything random
+	name = "brew sludge"
+	description = "The result of trying to brew something questionable. Curiosity doesn't always bear fruit. Sometimes it bears this."
+	color = "#462814"
+	boozepwr = 5
+	taste_description = "vile earthy sludge and subtle alcohol"
+	glass_name = "glass of murky brown liquid"
+	glass_desc = "A murky brown liquid with a gross smell to it. You can ALMOST pick up the faint smell of alcohol."
+
+/datum/reagent/consumable/ethanol/ms13/brew_sludge/on_mob_life(mob/living/carbon/M)
+	M.adjustOrganLoss(ORGAN_SLOT_STOMACH, rand(1,2))
+	M.adjust_disgust(15)
+	..()
+
+//// Combination Brews ////
+
+/datum/reagent/consumable/ethanol/ms13/ballistic_bock // Gunpowder, Waster beer
 	name = "ballistic Bock"
 	description = "A dark, malty ale complemented perfectly with gunpowder."
-	quality = DRINK_NICE
 	color = "#5D0F0C"
-	boozepwr = 30
+	boozepwr = 15
 	taste_description = "faint gunpowder and beer"
 	glass_name = "glass of dark liquid"
 	glass_desc = "A dark and liquid. It smells faintly of alcohol and gunpowder."
 
-/datum/reagent/consumable/ethanol/ms13/rad_ant_lager // Rad ant meat, Wheat, Uranium???
-	name = "rad Ant Lager"
+/datum/reagent/consumable/ethanol/ms13/rad_ant_lager // Rad ant pulp, Waster beer
+	name = "rad ant lager"
 	description = "A light, hoppy beer complemented exquisitely with Rad Ant meat."
-	quality = DRINK_NICE
 	color = "#864b49"
 	boozepwr = 30
 	taste_description = "meat tinted alcohol"
@@ -406,11 +487,11 @@
 	glass_desc = "A faint pale red liquid with a slight meat-y smell. Strange. You can also pick up hints of alcohol in it."
 
 /datum/reagent/consumable/ethanol/ms13/swift_recovery // Brain fungus and Tato
-	name = "swift Recovery brew"
+	name = "swift recovery brew"
 	description = "A flavorful and light beer. Reeks of fungus."
 	quality = DRINK_NICE
 	color = "#cead42"
-	boozepwr = 35
+	boozepwr = 25
 	taste_description = "tato and fungus flavored alcohol"
 	glass_name = "glass of pale orange liquid"
 	glass_desc = "A pale orange liquid. It reeks of fungus and has hints of tato."
@@ -437,36 +518,15 @@
 	..()
 	. = 1
 
-/datum/reagent/consumable/ms13/gagquik // Vile stuff.
-	name = "gagquik"
-	description = "A common wastelander brew in case of injesting poisonous substances."
-	color = "#3a502b"
-	quality = DRINK_VERYGOOD
-	taste_description = "putrid herbs and fruit"
-	glass_name = "glass of murky green liquid"
-	glass_desc = "A murky green liquid with bits of plant matter floating at the top. Has a vile smell to it."
-
-/datum/reagent/consumable/ms13/gagquik/on_mob_life(mob/living/carbon/M) // This definitely won't be slipped into drinks
-	if(prob(25))
-		M.vomit(lost_nutrition = 10, distance = 1, purge_ratio = 0.5)
-	M.adjust_disgust(25)
-	..()
-
-//N for NOBODY should consume - Horrible mixtures //
+//// N for NOBODY should consume - Horrible mixtures ////
 
 /datum/reagent/consumable/ms13/nuka_lixir // Med-X / Cola :denthead:
 	name = "Nuka-lixir"
 	description = "...Who thought this was a good idea?"
 	color = "#2accc7"
-	quality = DRINK_VERYGOOD
-	taste_description = "intense burning chemical taste and soda"
+	taste_description = "burning chemical taste and soda"
 	glass_name = "glass of pale blue fizzy liquid"
 	glass_desc = "A pale blue fizzy liquid with a slighty sweet smell."
-
-/datum/reagent/consumable/ms13/nuka_lixir/on_mob_life(mob/living/carbon/M) // Other effects TBD once med-x is in
-	if(prob(15))
-		M.adjustOrganLoss(ORGAN_SLOT_STOMACH, rand(1,10)) // They ignored the label: Not for oral consumption
-	..()
 
 /datum/reagent/consumable/ethanol/ms13/lead_champagne // lead powder / Champagne - What a cruel joke.
 	name = "lead champagne"
@@ -482,7 +542,7 @@
 	if(prob(20))
 		M.radiation -= min(4, M.radiation)
 		M.adjustOrganLoss(ORGAN_SLOT_BRAIN, rand(1,5))
-	..()
+	..() // Not positive this works right. Radiation is when you unscuff it :tm:
 
 /datum/reagent/consumable/ethanol/ms13/nukashine //this stuff makes you harder to stun, but liver hurtie.
 	name = "Nukashine"
@@ -501,7 +561,6 @@
 
 /datum/reagent/consumable/ethanol/ms13/nukashine/on_mob_end_metabolize(mob/living/L)
 	L.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/ephedrine)
-	L.clear_fullscreen("nukashine")
 	to_chat(L, (span_swarmer("Against it all odds, it looks like the pain faded...")))
 	..()
 
