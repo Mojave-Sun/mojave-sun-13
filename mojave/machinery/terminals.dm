@@ -1,4 +1,4 @@
-// Base terminals ported in from BD code //
+// Base terminals ported in from BD code. Cool modification TBD/WYCI //
 
 /obj/machinery/computer/ms13/
 	name = "Generic MS13 computer"
@@ -8,9 +8,9 @@
 	name = "desktop terminal"
 	desc = "A RobCo Industries terminal, widely available for commercial and private use before the war."
 	icon = 'mojave/icons/structure/terminals.dmi'
-	icon_state = "terminal_new"
+	icon_state = "terminal"
 	icon_keyboard = null
-	icon_screen = "terminal_active"
+	icon_screen = "terminal_screen"
 	light_color = LIGHT_COLOR_GREEN
 	var/broken = FALSE // Used for pre-broken terminals
 	var/prog_notekeeper = TRUE // Almost all consoles have the word processor installed, but we can remove it if we want to
@@ -35,17 +35,17 @@
 
 // Notekeeper vars
 	var/notehtml = ""
-	var/note = "ERR://null-data #236XF51"
+	var/note = "ERR://null-data #m513-FEd5E01"
 
 /obj/machinery/computer/ms13/terminal/Initialize()
 	. = ..()
-
 	if(!broken)
 		desc = "[initial(desc)] Remarkably, it still works."
 		termnumber = rand(360,1337) // VERY unlikely to get two identical numbers.
 		write_documents()
 	else
 		desc = "[initial(desc)] Unfortunately, this one seems to have broken down."
+		icon_state = "[initial(icon_state)]_ruined"
 
 /obj/machinery/computer/ms13/terminal/ui_interact(mob/user)
 	. = ..()
@@ -190,3 +190,41 @@
 		doc_content_5 = "[N.content]"
 
 	return
+
+// Extra Variants- Wall/reskins/etc //
+
+/obj/machinery/computer/ms13/terminal/pristine
+	icon_state = "terminal_new"
+
+/obj/machinery/computer/ms13/terminal/rusty
+	icon_state = "terminal_rusted"
+
+/obj/machinery/computer/ms13/terminal/wall
+	name = "wall mounted terminal"
+	desc = "A RobCo Industries terminal. This one is handily mounted to a wall for added convenience."
+	icon_state = "wallterminal_off"
+	icon_screen = "wallterminal_screen"
+	active = FALSE
+	density = FALSE
+	pixel_y = 14
+
+/obj/machinery/computer/ms13/terminal/wall/AltClick(mob/user)
+	. = ..()
+	if(!active)
+		active = TRUE
+		icon_state = "wallterminal_on"
+
+	else
+		active = FALSE
+		icon_state = "wallterminal_off"
+	update_overlays()
+
+/obj/machinery/computer/ms13/terminal/wall/update_overlays()
+	. = ..()
+	var/overlay_state = icon_screen
+	if(!active)
+		overlay_state = "[initial(icon_state)]_off"
+
+	else if(machine_stat & BROKEN)
+		overlay_state = "[initial(icon_state)]_broken"
+		. += mutable_appearance(icon, overlay_state)
