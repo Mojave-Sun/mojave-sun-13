@@ -38,6 +38,12 @@
 /datum/browser/proc/set_window_options(nwindow_options)
 	window_options = nwindow_options
 
+// Mojave Sun edit begin //
+
+/datum/browser/proc/set_title_image(ntitle_image)
+	//title_image = ntitle_image
+
+// Mojave Sun edit end //
 /datum/browser/proc/add_stylesheet(name, file)
 	if (istype(name, /datum/asset/spritesheet))
 		var/datum/asset/spritesheet/sheet = name
@@ -432,6 +438,15 @@
 	A.wait()
 	if (A.selectedbutton)
 		return list("button" = A.selectedbutton, "settings" = A.settings)
+
+// Mojave Sun edit begin //
+
+// This will allow you to show an icon in the browse window
+// This is added to mob so that it can be used without a reference to the browser object
+// There is probably a better place for this...
+/mob/proc/browse_rsc_icon(icon, icon_state, dir = -1)
+
+// Mojave Sun edit end //
 
 // Registers the on-close verb for a browse window (client/verb/.windowclose)
 // this will be called when the close-button of a window is pressed.
