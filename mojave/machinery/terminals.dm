@@ -35,7 +35,9 @@
 
 // Notekeeper vars
 	var/notehtml = ""
-	var/note = "ERR://null-data #m513-FEd5E01"
+	var/note = "ERROR 0xCM513F3D
+	<br><br>'Invalid Entry.
+	<br><br>'Enter your information."
 
 /obj/machinery/computer/ms13/terminal/Initialize()
 	. = ..()
@@ -201,7 +203,7 @@
 
 /obj/machinery/computer/ms13/terminal/wall
 	name = "wall mounted terminal"
-	desc = "A RobCo Industries terminal. This one is handily mounted to a wall for added convenience."
+	desc = "A RobCo Industries terminal. This one is handily mounted to a wall for added convenience. <i>Alt-Click to toggle.</i>"
 	icon_state = "wallterminal_off"
 	icon_screen = "wallterminal_screen"
 	active = FALSE
@@ -210,17 +212,22 @@
 
 /obj/machinery/computer/ms13/terminal/wall/AltClick(mob/user)
 	. = ..()
+	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
+		return
+
 	if(!active)
+		playsound(src, 'mojave/sound/ms13machines/terminals/keyboard_down.ogg', 50, TRUE)
 		active = TRUE
 		icon_state = "wallterminal_on"
 
 	else
+		playsound(src, 'mojave/sound/ms13machines/terminals/keyboard_up.ogg', 50, TRUE)
 		active = FALSE
 		icon_state = "wallterminal_off"
+
 	update_overlays()
 
 /obj/machinery/computer/ms13/terminal/wall/update_overlays()
-	. = ..()
 	var/overlay_state = icon_screen
 	if(!active)
 		overlay_state = "[initial(icon_state)]_off"
@@ -228,3 +235,4 @@
 	else if(machine_stat & BROKEN)
 		overlay_state = "[initial(icon_state)]_broken"
 		. += mutable_appearance(icon, overlay_state)
+	return ..()
