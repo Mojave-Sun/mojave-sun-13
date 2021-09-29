@@ -80,11 +80,11 @@
 		write_documents()
 
 /obj/machinery/computer/ms13/terminal/proc/FXtoggle() // For overlays/sound
-	if(active)
+	if(!broken && active)
 		add_overlay(image(icon, "[icon_screen]", FLOAT_LAYER, dir))
 		soundloop = new(src, TRUE)
 
-	else if (!active || broken)
+	else
 		cut_overlays()
 		QDEL_NULL(soundloop)
 
@@ -96,6 +96,8 @@
 		broken = TRUE
 		desc = "[initial(desc)] It looks broken."
 		FXtoggle()
+		update_icon_state()
+
 /obj/machinery/computer/ms13/terminal/proc/Boom()
 	explosion(src,3,3,3,4,2, smoke = TRUE)
 	do_sparks(8, TRUE, src)
@@ -360,6 +362,7 @@
 	icon_state = "terminal_rusted"
 	rigged = TRUE
 
+//// Wall mounted terminals ////
 /obj/machinery/computer/ms13/terminal/wall
 	name = "wall mounted terminal"
 	desc = "A RobCo Industries terminal. This one is handily mounted to a wall for added convenience."
@@ -370,7 +373,6 @@
 	density = FALSE
 	pixel_y = 28
 
-//// Wall mounted terminals ////
 /obj/machinery/computer/ms13/terminal/wall/AltClick(mob/user)
 	. = ..()
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
