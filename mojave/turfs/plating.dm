@@ -481,33 +481,6 @@
 /turf/open/floor/plating/ms13/ice/ex_act(severity, target)
 	return
 
-/turf/open/floor/plating/ms13/ice/attackby(obj/item/W, mob/user, params)
-	. = ..()
-	if(W.tool_behaviour == TOOL_SHOVEL || W.tool_behaviour == TOOL_MINING)
-		if(hole)
-			to_chat(user, "<span class='notice'>The ice is completely dug through.</span>")
-			return TRUE
-
-		if(!isturf(user.loc))
-			return
-
-		to_chat(user, "<span class='notice'>You start picking at the ice...</span>")
-
-		playsound(get_turf(src), 'mojave/sound/ms13effects/icebreak.ogg', 100, FALSE, FALSE)
-
-		if(W.use_tool(src, user, 100, volume=0))
-			if(!cracked)
-				add_overlay(crack)
-				to_chat(user, "<span class='notice'>You crack the ice, loosening it.</span>")
-				cracked = TRUE
-			else
-				if(cracked)
-					cut_overlay(crack)
-					density = TRUE
-					to_chat(user, "<span class='notice'>You crack the ice, making a hole to the waters below.</span>")
-					hole = TRUE
-					return
-
 /turf/open/floor/plating/ms13/ice/Initialize()
 	. = ..()
 	MakeSlippery(TURF_WET_PERMAFROST, INFINITY, 0, INFINITY, TRUE, FALSE)
