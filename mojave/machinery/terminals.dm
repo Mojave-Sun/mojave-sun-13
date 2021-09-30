@@ -27,9 +27,10 @@
 	var/mode = 0 // What page we're on. 0 is the main menu. 1 is the text editor. 2 is the document viewer. 3 is the optional utility page
 	var/prog_notekeeper = TRUE // Almost all consoles have the word processor installed, but we can remove it if we want to
 	var/remote_capability = FALSE // For special terminals that can activate certain things. Wall terminals / The quirky ones with antennas namely
-	var/rigged = FALSE // Ultra cursed var. If true, terminal explodes violently on interaction. Delightfully devilish.
+	var/rigged = FALSE // Ultra cursed var. If true, terminal explodes violently on certain interaction. Delightfully devilish.
 	var/joker_titles = list("Safe codes",
 	"Stash location",
+	"About the safe",
 	"Weapons cache details",
 	"Your payment",
 	"Pickup location",
@@ -37,6 +38,7 @@
 	"Power Armor unlock code",
 	"Bunker Location",
 	"Free caps") // Suffer
+	var/chosen_joker = ""
 
 // Document variables
 	var/doc_title_1 = "readme"
@@ -74,6 +76,7 @@
 
 /obj/machinery/computer/ms13/terminal/Initialize(mapload)
 	. = ..()
+	chosen_joker = pick(joker_titles)
 	termnumber = rand(360,1337) // VERY unlikely to get two identical numbers.
 	FXtoggle()
 	if(!broken)
@@ -81,9 +84,8 @@
 
 /obj/machinery/computer/ms13/terminal/proc/FXtoggle() // For overlays/sound
 	if(!broken && active)
-		add_overlay(image(icon, "[icon_screen]", FLOAT_LAYER, dir))
+		add_overlay(image(icon, "[icon_screen]", ABOVE_OBJ_LAYER, dir))
 		soundloop = new(src, TRUE)
-
 	else
 		cut_overlays()
 		QDEL_NULL(soundloop)
@@ -99,8 +101,9 @@
 		update_icon_state()
 
 /obj/machinery/computer/ms13/terminal/proc/Boom()
-	explosion(src,3,3,3,4,2, smoke = TRUE)
+	explosion(src,1,2,3,4,2)
 	do_sparks(8, TRUE, src)
+	broken = TRUE
 	qdel(src)
 
 /obj/machinery/computer/ms13/terminal/Destroy()
@@ -118,7 +121,6 @@
 
 /obj/machinery/computer/ms13/terminal/ui_interact(mob/user)
 	. = ..()
-	var/chosen_joker = pick(joker_titles)
 	if(broken || !active)
 		return
 
@@ -299,8 +301,10 @@
 				transmit_signal()
 
 			if("joker") // It's go time. Used for rigged terminals.
+				loaded_title = doc_title_1
+				loaded_content = doc_content_1
+				mode = 2
 				addtimer(CALLBACK(src, .proc/Boom), 2 SECONDS)
-				broken = TRUE
 				message_admins("A rigged terminal has been triggered. [ADMIN_JMP(src)].")
 
 // Return

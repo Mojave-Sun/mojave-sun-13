@@ -14,6 +14,7 @@
 	start_length = 1.2 SECONDS
 	mid_length = 1 SECONDS
 	extra_range = 5
-	volume = 20
-	falloff_distance = 2
-	falloff_exponent = 5
+	volume = 15
+	falloff_exponent = 3
+	extra_range = -12
+	falloff_distance = 1
