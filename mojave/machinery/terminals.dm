@@ -77,7 +77,7 @@
 /obj/machinery/computer/ms13/terminal/Initialize(mapload)
 	. = ..()
 	chosen_joker = pick(joker_titles)
-	termnumber = rand(360,1337) // VERY unlikely to get two identical numbers.
+	termnumber = rand(360,620) // VERY unlikely to get two identical numbers.
 	FXtoggle()
 	if(!broken)
 		write_documents()
@@ -101,7 +101,7 @@
 		update_icon_state()
 
 /obj/machinery/computer/ms13/terminal/proc/Boom()
-	explosion(src,1,2,3,4,2)
+	explosion(src,1,2,3,3,2)
 	do_sparks(8, TRUE, src)
 	broken = TRUE
 	qdel(src)
@@ -170,7 +170,7 @@
 		if (2)
 			dat += "[loaded_content]"
 		if (3)
-			dat += "= Network online. Pending input. ="
+			dat += " Network online. Pending input. "
 
 	if (mode)
 		dat += "<br><br><center>=============================================================================</center>"
@@ -373,6 +373,7 @@
 	icon_state = "wallterminal"
 	base_icon_state = "wallterminal"
 	icon_screen = "wallterminal_screen"
+	termtag = "Utility"
 	active = FALSE
 	density = FALSE
 	pixel_y = 28
@@ -383,7 +384,6 @@
 		return
 	if(broken)
 		return
-	FXtoggle()
 	update_icon_state()
 	if(!active)
 		playsound(src, 'mojave/sound/ms13machines/terminals/keyboard_down.ogg', 50, FALSE)
@@ -395,6 +395,7 @@
 		playsound(src, 'mojave/sound/ms13machines/terminals/poweroff.ogg', 50, FALSE)
 		active = FALSE
 		icon_state = "[base_icon_state]"
+	FXtoggle()
 
 /obj/machinery/computer/ms13/terminal/wall/pristine
 	icon_state = "wallterminal_new_"
@@ -403,4 +404,3 @@
 /obj/machinery/computer/ms13/terminal/wall/rust
 	icon_state = "wallterminal_rusted"
 	base_icon_state = "wallterminal_rusted"
-
