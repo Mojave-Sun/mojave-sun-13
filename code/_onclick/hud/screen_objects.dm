@@ -270,7 +270,7 @@
 	icon_state = "combat_off"
 	screen_loc = ui_combat_toggle
 
-/atom/movable/screen/combattoggle/Initialize()
+/atom/movable/screen/combattoggle/Initialize(mapload)
 	. = ..()
 	update_appearance()
 
