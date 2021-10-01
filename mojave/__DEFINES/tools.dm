@@ -1,3 +1,3 @@
 // Defines for tools
 
-#define TOOL_FISHINGROD
+#define TOOL_FISHINGROD "fishingrod"
