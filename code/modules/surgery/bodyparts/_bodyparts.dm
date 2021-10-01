@@ -716,11 +716,7 @@
 
 	if(change_icon_to_default)
 		if(status == BODYPART_ORGANIC)
-<<<<<<< HEAD
-			icon = 'mojave/icons/mob/humanoid.dmi' //MOJAVE SUN EDIT - Humanoid Sprites
-=======
 			icon = icon_greyscale
->>>>>>> c1fd222c522... dehardcodes limb icons (#61570)
 		else if(status == BODYPART_ROBOTIC)
 			icon = icon_robotic
 
@@ -887,11 +883,7 @@
 		return
 
 	if(should_draw_greyscale)
-<<<<<<< HEAD
-		limb.icon = 'mojave/icons/mob/humanoid.dmi' //MOJAVE SUN EDIT - Humanoid Sprites
-=======
 		limb.icon = icon_greyscale
->>>>>>> c1fd222c522... dehardcodes limb icons (#61570)
 		if(should_draw_gender)
 			limb.icon_state = "[species_id]_[body_zone]_[icon_gender]"
 		else if(use_digitigrade)
