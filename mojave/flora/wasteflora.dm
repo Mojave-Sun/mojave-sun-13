@@ -24,6 +24,8 @@
 	inhand_icon_state = "plant"
 	lefthand_file = 'mojave/icons/mob/inhands/equipment/hydroponics_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/equipment/hydroponics_righthand.dmi'
+	can_distill = TRUE
+	distill_reagent = /datum/reagent/consumable/ethanol/ms13/brew_sludge
 
 
 /////////////////////////////////////////////////////////////
