@@ -30,24 +30,28 @@
 	if(victim.stat == DEAD || wounding_dmg < 5)
 		return
 	if(victim.blood_volume && prob(internal_bleeding_chance + wounding_dmg))
-		if(limb.current_gauze && limb.current_gauze.splint_factor)
+		if(limb.current_gauze?.splint_factor)
 			wounding_dmg *= (1 - limb.current_gauze.splint_factor)
 		var/blood_bled = rand(1, wounding_dmg * internal_bleeding_coefficient) // 12 brute toolbox can cause up to 15/18/21 bloodloss on mod/sev/crit
 		switch(blood_bled)
 			if(1 to 6)
 				victim.bleed(blood_bled, TRUE)
+				victim.add_splatter_floor(get_step(victim.loc, victim.dir)) //MOJAVE SUN EDIT - Blood Sprites
 			if(7 to 13)
 				victim.visible_message("<span class='smalldanger'>Blood droplets fly from the hole in [victim]'s [limb.name].</span>", span_danger("You cough up a bit of blood from the blow to your [limb.name]."), vision_distance=COMBAT_MESSAGE_RANGE)
 				victim.bleed(blood_bled, TRUE)
+				victim.add_splatter_floor(get_step(victim.loc, victim.dir), null) //MOJAVE SUN EDIT - Blood Sprites
 			if(14 to 19)
 				victim.visible_message("<span class='smalldanger'>A small stream of blood spurts from the hole in [victim]'s [limb.name]!</span>", span_danger("You spit out a string of blood from the blow to your [limb.name]!"), vision_distance=COMBAT_MESSAGE_RANGE)
 				new /obj/effect/temp_visual/dir_setting/bloodsplatter(victim.loc, victim.dir)
 				victim.bleed(blood_bled)
+				victim.add_splatter_floor(get_step(victim.loc, victim.dir), null) //MOJAVE SUN EDIT - Blood Sprites
 			if(20 to INFINITY)
 				victim.visible_message(span_danger("A spray of blood streams from the gash in [victim]'s [limb.name]!"), span_danger("<b>You choke up on a spray of blood from the blow to your [limb.name]!</b>"), vision_distance=COMBAT_MESSAGE_RANGE)
 				victim.bleed(blood_bled)
 				new /obj/effect/temp_visual/dir_setting/bloodsplatter(victim.loc, victim.dir)
 				victim.add_splatter_floor(get_step(victim.loc, victim.dir))
+				victim.add_splatter_floor(get_step(victim.loc, victim.dir), null) //MOJAVE SUN EDIT - Blood Sprites
 
 /datum/wound/pierce/get_bleed_rate_of_change()
 	if(HAS_TRAIT(victim, TRAIT_BLOODY_MESS))

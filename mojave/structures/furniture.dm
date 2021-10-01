@@ -32,7 +32,6 @@
 	armor = list(MELEE = 60, BULLET = 60, LASER = 20, ENERGY = 0, BOMB = 25, BIO = 100, RAD = 100, FIRE = 80, ACID = 100)
 	density = TRUE
 	anchored = TRUE
-	layer = EDGED_TURF_LAYER + 1
 
 /obj/structure/ms13/storage/store
 	name = "store shelf"

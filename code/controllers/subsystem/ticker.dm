@@ -253,6 +253,8 @@ SUBSYSTEM_DEF(ticker)
 		cb.InvokeAsync()
 	LAZYCLEARLIST(round_start_events)
 
+	SEND_SIGNAL(src, COMSIG_TICKER_ROUND_STARTING)
+
 	log_world("Game start took [(world.timeofday - init_start)/10]s")
 	round_start_time = world.time
 	SSdbcore.SetRoundStart()
@@ -426,7 +428,7 @@ SUBSYSTEM_DEF(ticker)
 			officer_mobs += character
 
 			var/datum/client_interface/client = GET_CLIENT(new_player_mob)
-			var/preference = client?.prefs?.prefered_security_department || SEC_DEPT_NONE
+			var/preference = client?.prefs?.read_preference(/datum/preference/choiced/security_department)
 			officer_preferences += preference
 
 	var/distribution = get_officer_departments(officer_preferences, departments)
@@ -447,7 +449,7 @@ SUBSYSTEM_DEF(ticker)
 			qdel(player)
 			living.notransform = TRUE
 			if(living.client)
-				var/atom/movable/screen/splash/S = new(living.client, TRUE)
+				var/atom/movable/screen/splash/S = new(null, living.client, TRUE)
 				S.Fade(TRUE)
 				living.client.init_verbs()
 			livings += living
@@ -464,7 +466,7 @@ SUBSYSTEM_DEF(ticker)
 	if(selected_tip)
 		m = selected_tip
 	else
-		var/list/randomtips = world.file2list("strings/tips.txt")
+		var/list/randomtips = world.file2list("strings/tips_ms.txt") // MOJAVE EDIT - var/list/randomtips = world.file2list("strings/tips.txt")
 		var/list/memetips = world.file2list("strings/sillytips.txt")
 		if(randomtips.len && prob(95))
 			m = pick(randomtips)
@@ -676,6 +678,11 @@ SUBSYSTEM_DEF(ticker)
 	update_everything_flag_in_db()
 	if(!round_end_sound)
 		round_end_sound = pick(\
+		'mojave/sound/ms13roundend/9yearsindevelopment.ogg',
+		'mojave/sound/ms13roundend/mynameisjoe.ogg',
+		'mojave/sound/ms13roundend/welcometomojavesun.ogg'\
+		)
+		/* MOJAVE EDIT CHANGE
 		'sound/roundend/newroundsexy.ogg',
 		'sound/roundend/apcdestroyed.ogg',
 		'sound/roundend/bangindonk.ogg',
@@ -685,8 +692,9 @@ SUBSYSTEM_DEF(ticker)
 		'sound/roundend/disappointed.ogg',
 		'sound/roundend/scrunglartiy.ogg',
 		'sound/roundend/petersondisappointed.ogg',
-		'sound/roundend/bully2.ogg'\
-		)
+		'sound/roundend/bully2.ogg'
+		*/
+
 	///The reference to the end of round sound that we have chosen.
 	var/sound/end_of_round_sound_ref = sound(round_end_sound)
 	for(var/mob/M in GLOB.player_list)

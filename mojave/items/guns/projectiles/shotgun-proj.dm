@@ -1,12 +1,12 @@
 /obj/projectile/bullet/pellet/ms13
 	icon = 'mojave/icons/objects/projectiles/projectiles.dmi'
-	icon_state = "bb"
+	icon_state = "buckshot"
 	name = "base mojave sun shotgun pellet"
 	speed = 0.6
 
 //12 gauge
 /obj/projectile/bullet/pellet/ms13/buckshot
-	icon_state = "bb"
+	icon_state = "buckshot"
 	name = "buckshot pellet"
 	damage = 9
 	wound_bonus = 0

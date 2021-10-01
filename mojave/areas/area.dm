@@ -10,7 +10,10 @@
 	power_light = FALSE
 	outdoors = TRUE
 	has_gravity = STANDARD_GRAVITY
-	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
+	static_lighting = FALSE
+	area_has_base_lighting = TRUE
+	base_lighting_color = COLOR_WHITE
+	base_lighting_alpha = 255
 	ambientsounds = list('mojave/sound/ms13ambience/general/wasteland.ogg')
 	flags_1 = NONE
 
@@ -43,13 +46,23 @@
 	icon_state = "factory"
 
 /area/ms13/underground/vault_atrium_upper
-	name = "Vault Atrium Upper"
+	name = "Vault atrium upper"
 	icon_state = "vault_atrium_upper"
 	requires_power = TRUE
 
-/area/ms13/underground/vault_atrium_Lower
-	name = "Vault Atrium Lower"
+/area/ms13/underground/vault_atrium_middle
+	name = "Vault atrium middle"
+	icon_state = "vault_atrium_middle"
+	requires_power = TRUE
+
+/area/ms13/underground/vault_atrium_lower
+	name = "Vault atrium lower"
 	icon_state = "vault_atrium_lower"
+	requires_power = TRUE
+
+/area/ms13/underground/vault_outer
+	name = "Vault Outer"
+	icon_state = "vault_outer"
 	requires_power = TRUE
 
 /area/ms13/supermarket
@@ -64,12 +77,15 @@
 	name = "Enclave Base"
 	icon_state = "enclave"
 
+/area/ms13/underground/army_bunker
+	name = "Army Bunker"
+	icon_state = "army_base"
+
 // Generic Underground Areas //
 
 /area/ms13/underground
 	requires_power = FALSE
 	outdoors = FALSE
-	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
 
 /area/ms13/underground/mountain
 	name = "mountain"
@@ -129,6 +145,10 @@
 /area/ms13/raiders/building
 	name = "Raider building"
 	icon_state = "raiders_building"
+
+/area/ms13/tribal_abandoned
+	name = "abandoned Tribal building"
+	icon_state = "town"
 
 // Drought Areas //
 
@@ -238,4 +258,3 @@
 	name = "combat arena tunnel"
 	icon_state = "combatarena_tunnels"
 	outdoors = FALSE
-	dynamic_lighting = DYNAMIC_LIGHTING_FORCED

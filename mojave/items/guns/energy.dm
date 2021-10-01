@@ -5,6 +5,7 @@
 	icon = 'mojave/icons/objects/guns/guns_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_left.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_right.dmi'
+	worn_icon = 'mojave/icons/mob/worn_guns.dmi'
 	base_icon_state = ""
 	w_class = WEIGHT_CLASS_HUGE
 	automatic_charge_overlays = FALSE
@@ -16,6 +17,10 @@
 	var/load_sound_volume = 40
 	var/load_sound_vary = TRUE
 
+/obj/item/gun/energy/ms13/Initialize()
+	. = ..()
+	update_icon()
+
 /obj/item/gun/energy/ms13/update_ammo_types()
 	var/obj/item/ammo_casing/energy/shot
 	for (var/i = 1, i <= ammo_type.len, i++)
@@ -25,6 +30,7 @@
 	shot = ammo_type[select]
 
 /obj/item/gun/energy/ms13/update_icon()
+	worn_icon_state = "[initial(icon_state)]"
 	if(!cell)
 		icon_state = "[base_icon_state]_empty"
 	else
@@ -103,6 +109,8 @@
 	weapon_weight = WEAPON_HEAVY
 	extra_damage = 0
 	extra_penetration = 0
+	wound_bonus = 0
+	bare_wound_bonus = 0
 	fire_delay = 5
 
 /obj/item/gun/energy/ms13/plasma
@@ -114,6 +122,8 @@
 	weapon_weight = WEAPON_HEAVY
 	extra_damage = 0
 	extra_penetration = 0
+	wound_bonus = 0
+	bare_wound_bonus = 0
 	fire_delay = 5
 
 //energy weapon ammotypes: I don't think there's a better place to put these, they're all really generic.
@@ -122,7 +132,9 @@
 	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	name = "ammo cell"
 	desc = "You shouldn't be holding this."
-	w_class = WEIGHT_CLASS_TINY
+	w_class = WEIGHT_CLASS_SMALL
+	worn_icon = 'mojave/icons/mob/worn_misc.dmi'
+	worn_icon_state = "empty_placeholder"
 	var/base_icon = ""
 	var/multiple_states = FALSE
 
@@ -173,6 +185,6 @@
 	desc = "A plasma cell, typically used as ammunition for plasma based energy weapons."
 	icon_state = "plasma"
 	maxcharge = 600
-	chargerate = 100
+	chargerate = 50
 	base_icon = "plasma"
 	multiple_states = TRUE

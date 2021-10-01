@@ -3,7 +3,6 @@
 	desc = "God has abandoned us"
 	icon_state = "wall-0"
 	base_icon_state = "wall"
-	layer = EDGED_TURF_LAYER
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_MS13_WALL)
 	canSmoothWith= list(SMOOTH_GROUP_MS13_WALL)
@@ -25,92 +24,97 @@
 	name = "metal wall"
 	desc = ""
 	icon = 'mojave/icons/turf/walls/metal.dmi'
+	frill_icon = 'mojave/icons/turf/walls/metal_frill.dmi'
 
 /turf/closed/wall/ms13/metal/rust
 	name = "rusted metal wall"
 	desc = ""
 	icon = 'mojave/icons/turf/walls/rustmetal.dmi'
+	frill_icon = 'mojave/icons/turf/walls/rustmetal_frill.dmi'
 
 /turf/closed/wall/ms13/wood
-	name = "wood wall"
-	desc = ""
-	icon = 'mojave/icons/turf/walls/wood.dmi'
-
-/turf/closed/wall/ms13/wood/log
 	name = "log wall"
 	desc = ""
-	icon = 'mojave/icons/turf/walls/woodlog.dmi'
+	icon = 'mojave/icons/turf/walls/wood.dmi'
+	frill_icon = 'mojave/icons/turf/walls/wood_frill.dmi'
+
+/turf/closed/wall/ms13/wood/fresh
+	name = "fresh log wall"
+	desc = ""
+	icon = 'mojave/icons/turf/walls/woodfresh.dmi'
+	frill_icon = 'mojave/icons/turf/walls/woodfresh_frill.dmi'
 
 /turf/closed/wall/ms13/scrap
 	name = "scrap wall"
 	desc = ""
 	icon = 'mojave/icons/turf/walls/scrap.dmi'
+	frill_icon = 'mojave/icons/turf/walls/scrap_frill.dmi'
 
 /turf/closed/wall/ms13/scrap/white
 	icon = 'mojave/icons/turf/walls/scrapwhite.dmi'
+	frill_icon = 'mojave/icons/turf/walls/scrapwhite_frill.dmi'
 
 /turf/closed/wall/ms13/scrap/red
 	icon = 'mojave/icons/turf/walls/scrapred.dmi'
+	frill_icon = 'mojave/icons/turf/walls/scrapred_frill.dmi'
 
 /turf/closed/wall/ms13/scrap/blue
 	icon = 'mojave/icons/turf/walls/scrapblue.dmi'
+	frill_icon = 'mojave/icons/turf/walls/scrapblue_frill.dmi'
 
 /turf/closed/wall/ms13/adobe //need
 	name = "adobe wall"
 	desc = ""
 	icon = 'mojave/icons/turf/walls/adobe.dmi'
+	frill_icon = 'mojave/icons/turf/walls/adobe_frill.dmi'
 
 /turf/closed/wall/ms13/brick
 	name = "brick wall"
 	desc = ""
 	icon = 'mojave/icons/turf/walls/brick.dmi'
+	frill_icon = 'mojave/icons/turf/walls/brick_frill.dmi'
 
 /turf/closed/wall/ms13/brick/alt
 	icon = 'mojave/icons/turf/walls/brickalt.dmi'
+	frill_icon = 'mojave/icons/turf/walls/brickalt_frill.dmi'
 
 /turf/closed/wall/ms13/brick/gray
 	icon = 'mojave/icons/turf/walls/brickgray.dmi'
+	frill_icon = 'mojave/icons/turf/walls/brickgray_frill.dmi'
 
-/turf/closed/wall/r_wall/ms13
-	name = "base class wall"
-	desc = "AHHH FUCK A BASE CLASS WALL"
-	icon_state = "wall-0"
-	base_icon_state = "wall"
-	layer = EDGED_TURF_LAYER
-	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = list(SMOOTH_GROUP_MS13_WALL)
-	canSmoothWith= list(SMOOTH_GROUP_MS13_WALL)
-
-/turf/closed/wall/r_wall/ms13/metal
+/turf/closed/wall/ms13/metal/reinforced
 	name = "reinforced metal wall"
 	desc = ""
 	icon = 'mojave/icons/turf/walls/rmetal.dmi'
+	frill_icon = 'mojave/icons/turf/walls/rmetal_frill.dmi'
 
-/turf/closed/wall/r_wall/ms13/metal/rust
+/turf/closed/wall/ms13/metal/reinforced/rust
 	name = "rusted reinforced metal wall"
 	desc = ""
 	icon = 'mojave/icons/turf/walls/rrustmetal.dmi'
+	frill_icon = 'mojave/icons/turf/walls/rrustmetal_frill.dmi'
 
-/turf/closed/wall/r_wall/ms13/concrete
+/turf/closed/wall/ms13/concrete
 	name = "concrete wall"
 	desc = ""
 	icon = 'mojave/icons/turf/walls/concrete.dmi'
+	frill_icon = 'mojave/icons/turf/walls/concrete_frill.dmi'
 
-/turf/closed/wall/r_wall/ms13/concrete/alt
+/turf/closed/wall/ms13/concrete/alt
 	icon = 'mojave/icons/turf/walls/concretealt.dmi'
+	frill_icon = 'mojave/icons/turf/walls/concretealt_frill.dmi'
 
-/turf/closed/wall/r_wall/ms13/bunker
+/turf/closed/wall/ms13/bunker
 	name = "bunker wall"
 	desc = ""
 	icon = 'mojave/icons/turf/walls/bunker.dmi'
-
-/turf/closed/indestructible/ms13
-	layer = EDGED_TURF_LAYER
+	frill_icon = 'mojave/icons/turf/walls/bunker_frill.dmi'
 
 /turf/closed/indestructible/ms13/metal
 	name = "metal wall"
 	desc = ""
 	icon = 'mojave/icons/turf/walls/metal.dmi'
+	frill_icon = 'mojave/icons/turf/walls/metal_frill.dmi'
 	icon_state = "wall-0"
 	base_icon_state = "wall"
 	smoothing_flags = SMOOTH_BITMASK
@@ -121,6 +125,7 @@
 	name = "comb wall"
 	desc = "honeybeast comb, lining the walls. They subtly drip a substance."
 	icon = 'mojave/icons/turf/walls/comb.dmi'
+	frill_icon = 'mojave/icons/turf/walls/comb_frill.dmi'
 	icon_state = "wall-0"
 	base_icon_state = "wall"
 	smoothing_flags = SMOOTH_BITMASK
@@ -139,15 +144,18 @@
 	name = "rough scrap wall"
 	desc = ""
 	icon = 'mojave/icons/turf/walls/roughscrap.dmi'
+	frill_icon = 'mojave/icons/turf/walls/roughscrap_1_frill.dmi'
 
 /turf/closed/wall/ms13/craftable/scrap/Initialize()
 	. = ..()
-	base_icon_state = pick("wall","wall_2","wall_3")
-	switch(base_icon_state)
-		if("wall_1")
-			icon_state = "wall_1-0"
-		if("wall_2")
-			icon_state = "wall_2-0"
+	var/state = rand(1,3)
+	switch(state)
+		if(1)
+			icon = 'mojave/icons/turf/walls/roughscrap_2.dmi'
+			frill_icon = 'mojave/icons/turf/walls/roughscrap_2_frill.dmi'
+		if(2)
+			icon = 'mojave/icons/turf/walls/roughscrap_3.dmi'
+			frill_icon = 'mojave/icons/turf/walls/roughscrap_3_frill.dmi'
 		else
 			return
 

@@ -30,7 +30,7 @@
 	if(damaged_clothes)
 		. += mutable_appearance('icons/effects/item_damage.dmi', "damageduniform")
 	if(HAS_BLOOD_DNA(src))
-		. += mutable_appearance('icons/effects/blood.dmi', "uniformblood")
+		. += mutable_appearance('mojave/icons/effects/blood.dmi', "uniformblood") //MOJAVE SUN EDIT - Blood Sprites
 	if(accessory_overlay)
 		. += accessory_overlay
 
@@ -62,7 +62,7 @@
 	else if(damaged_state == CLOTHING_PRISTINE && has_sensor == BROKEN_SENSORS)
 		has_sensor = HAS_SENSORS
 
-/obj/item/clothing/under/Initialize()
+/obj/item/clothing/under/Initialize(mapload)
 	. = ..()
 	if(random_sensor)
 		//make the sensor mode favor higher levels, except coords.
@@ -328,6 +328,6 @@
 	accessory_overlay = null
 	update_appearance()
 
-/obj/item/clothing/under/rank/obj_destruction(damage_flag)
+/obj/item/clothing/under/rank/atom_destruction(damage_flag)
 	dump_attachment()
 	return ..()

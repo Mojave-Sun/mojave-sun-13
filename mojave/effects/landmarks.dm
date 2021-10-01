@@ -93,10 +93,10 @@
 	name = "Sawbone"
 
 /obj/effect/landmark/start/ms13/enforcer
-	name = "Enforcer"
+	name = "Raider Enforcer"
 
 /obj/effect/landmark/start/ms13/boss
-	name = "Boss"
+	name = "Raider Boss"
 
 // Legion Spawns //
 
@@ -144,4 +144,10 @@
 /obj/effect/landmark/start/ms13/ranger_doctor
 	name = "Ranger Doctor"
 
+// Combat Test Spawns //
 
+/obj/effect/landmark/start/ms13/bluegang
+	name = "Blue ganger"
+
+/obj/effect/landmark/start/ms13/redgang
+	name = "Red ganger"

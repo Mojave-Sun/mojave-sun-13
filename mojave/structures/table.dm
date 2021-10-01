@@ -5,7 +5,7 @@
 	desc = "Scream at the coders if you see this."
 	buildstack = null
 	custom_materials = null
-	frame = null
+	frame = /obj/item/stack/sheet/ms13/scrap
 
 /obj/structure/table/ms13/deconstruction_hints(mob/user)
 	return
@@ -131,7 +131,7 @@
 /obj/structure/table/ms13/no_smooth/metal/Initialize(mapload)
 	. = ..()
 	if(prob(35))
-		icon_state = "(initial[icon_state]-[rand(1,2)]"
+		icon_state = "[initial(icon_state)]-[rand(1,2)]"
 
 // Large tables //
 

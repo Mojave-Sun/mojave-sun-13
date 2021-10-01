@@ -2,6 +2,7 @@
 // On top of that, now people can add component-speciic procs/vars if they want!
 
 /obj/machinery/atmospherics/components
+	plane = OVER_TILE_PLANE //MOJAVE SUN EDIT - Wallening Testmerge
 	hide = FALSE
 	///Is the component welded?
 	var/welded = FALSE
@@ -31,7 +32,7 @@
 		A.volume = 200
 		airs[i] = A
 
-/obj/machinery/atmospherics/components/Initialize()
+/obj/machinery/atmospherics/components/Initialize(mapload)
 	. = ..()
 
 	if(hide)

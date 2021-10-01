@@ -4,7 +4,6 @@
 
 /obj/structure/flora/ms13/forage
 	gender = PLURAL
-	layer = PROJECTILE_HIT_THRESHHOLD_LAYER
 	icon = 'mojave/icons/flora/wastelandflora.dmi'
 	icon_state = "tarberry"
 	name = "tarberry shrub"
@@ -209,7 +208,7 @@
 	desc = "An evergreen bush."
 	anchored = TRUE
 	pixel_x = -16
-	layer = FLY_LAYER
+	pixel_y = 12
 	icon = 'mojave/icons/flora/trees.dmi'
 	icon_state = "snowshrub_1"
 	max_integrity = 50
@@ -248,12 +247,17 @@
 
 /obj/structure/flora/ms13/tree
 	name = "tree"
+	plane = OVER_FRILL_PLANE
 	desc = "A large tree."
 	density = TRUE
 	pixel_x = -16
-	layer = FLY_LAYER
 	var/log_amount = 10
 	opacity = 1
+
+/obj/structure/flora/ms13/tree/Initialize()
+	. = ..()
+	pixel_x = rand(-20,-16)
+	pixel_y = rand(-2,-5)
 
 /obj/structure/flora/ms13/tree/attackby(obj/item/W, mob/user, params)
 	if(log_amount && (!(flags_1 & NODECONSTRUCT_1)))
@@ -286,7 +290,7 @@
 	icon_state = "snowtree_[rand(1,3)]"
 	..()
 
-/obj/structure/flora/ms13/tree/pine
+/obj/structure/flora/ms13/tree/smallpine
 	name = "pine tree"
 	desc = "An small evergreen, Evergreen even when the bombs dropped."
 	icon = 'mojave/icons/flora/trees.dmi'
@@ -294,7 +298,7 @@
 	log_amount = 1
 	max_integrity = 400
 
-/obj/structure/flora/ms13/tree/pine/New()
+/obj/structure/flora/ms13/tree/smallpine/New()
 	icon_state = "pine_[rand(1,2)]"
 	..()
 
@@ -306,9 +310,11 @@
 	log_amount = 4
 	max_integrity = 400
 
-/obj/structure/flora/ms13/tree/tallpine/New()
-	icon_state = "pine_[rand(1,3)]"
-	..()
+/obj/structure/flora/ms13/tree/tallpine/snow
+	icon_state = "pine_1_snow"
+
+/obj/structure/flora/ms13/tree/tallpine/alt
+	icon_state = "pine_1_alt"
 
 /obj/structure/flora/ms13/tree/wasteland
 	name = "dead tree"

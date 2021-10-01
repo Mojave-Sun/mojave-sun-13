@@ -3,7 +3,10 @@
 	desc = "Holds wastelands, while being attatched to a wall, presumably."
 	pixel_y = 32
 	density = FALSE
-	layer = EDGED_TURF_LAYER
+
+/obj/structure/closet/ms13/wall/Initialize()
+	. = ..()
+	AddElement(/datum/element/wall_mount)
 
 /obj/structure/closet/ms13/wall/firstaid
 	name = "emergency aid kit"
@@ -29,7 +32,6 @@
 	flags_1 = INDESTRUCTIBLE | ACID_PROOF | FIRE_PROOF
 	pixel_y = 24
 	density = FALSE
-	layer = WALL_OBJ_LAYER + 0.15
 
 /obj/structure/ms13/storage/vent/Initialize()
 	. = ..()

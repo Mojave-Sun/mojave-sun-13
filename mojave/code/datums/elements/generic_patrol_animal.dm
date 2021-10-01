@@ -18,31 +18,37 @@ The simple animal this is attached to should also be able to destroy obstacles s
 	///The move delay for patrolling with
 	var/list/patrol_move_delay = list()
 
+/datum/element/generic_patrol_animal/New()
+	START_PROCESSING(SSdcs, src)
+
 /datum/element/generic_patrol_animal/Attach(mob/living/simple_animal/animal, _animal_node_weights = list(), _animal_identifier = IDENTIFIER_GENERIC_SIMPLE, _patrol_move_delay = 3)
 	. = ..()
 	if(!istype(animal))
 		return ELEMENT_INCOMPATIBLE
 
-	for(var/obj/effect/ai_node/node in range(7))
+	for(var/obj/effect/ai_node/node in range(7, animal))
 		animal_current_node[animal] = node
+		node.make_adjacents()
 		break
 
 	if(!animal_current_node[animal])
-		return ELEMENT_INCOMPATIBLE
-
+		log_mapping("[animal] was to be attached with a patrol element but no nodes nearby were located near [AREACOORD(animal)]; removing element from self.")
+		Detach(animal)
+		return
 	attached_animals[animal] = animal
 	animal_node_weights[animal] = _animal_node_weights
 	animal_identifier[animal] = _animal_identifier
 	patrol_move_delay[animal] = _patrol_move_delay
-	if(!length(attached_animals))
-		START_PROCESSING(SSprocessing, src)
 	var/obj/effect/ai_node/linted_current_node = animal_current_node[animal]
 	animal_target_node[animal] = linted_current_node.get_best_adj_node(animal_node_weights[animal], animal_identifier[animal])
 
 /datum/element/generic_patrol_animal/Detach(mob/living/simple_animal/animal)
 	attached_animals -= animal
-	if(!length(attached_animals))
-		STOP_PROCESSING(SSprocessing, src)
+	animal_node_weights -= animal
+	animal_identifier -= animal
+	patrol_move_delay -= animal
+	animal_target_node -= animal
+	animal_current_node -= animal
 
 //We'll just do a Process() and look at whenever the simple mob is on or not
 /datum/element/generic_patrol_animal/process(delta_time)

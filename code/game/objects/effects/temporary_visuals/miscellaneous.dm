@@ -1,6 +1,6 @@
 //unsorted miscellaneous temporary visuals
 /obj/effect/temp_visual/dir_setting/bloodsplatter
-	icon = 'icons/effects/blood.dmi'
+	icon = 'mojave/icons/effects/blood.dmi' //MOJAVE SUN EDIT - Blood Sprites
 	duration = 5
 	randomdir = FALSE
 	layer = BELOW_MOB_LAYER

@@ -3,6 +3,7 @@
 	desc = "Scream at the coders if you see this."
 	icon = 'mojave/icons/structure/chairs.dmi'
 	item_chair = /obj/item/chair/ms13
+	layer = BELOW_OBJ_LAYER
 
 // Metal Chairs //
 

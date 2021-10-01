@@ -6,6 +6,7 @@
 	inhand_icon_state = "service"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/service/service_3.ogg'
 	fire_delay = 0.4 SECONDS
+	slot_flags = ITEM_SLOT_BACK
 	extra_damage = 25
 	extra_penetration = 5
 	spread = 5
@@ -30,6 +31,7 @@
 	inhand_icon_state = "sniper"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/sniper/sniper2.ogg'
 	fire_delay = 0.6 SECONDS
+	slot_flags = ITEM_SLOT_BACK
 	extra_damage = 45
 	extra_penetration = 10
 	spread = 2
@@ -37,8 +39,8 @@
 	slowdown = 1
 	mag_type = /obj/item/ammo_box/magazine/ms13/r308
 	zoomable = TRUE
-	zoom_amt = 10
-	zoom_out_amt = 13
+	zoom_amt = 9
+	zoom_out_amt = 3
 
 /obj/item/gun/ballistic/automatic/ms13/semi/sniper/silencer
 	name = "\improper Silencer"
@@ -60,14 +62,15 @@
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/marksman/marksman2.ogg'
 	can_suppress = FALSE
 	fire_delay = 0.55 SECONDS
+	slot_flags = ITEM_SLOT_BACK
 	extra_damage = 35
 	extra_penetration = 10
 	spread = 2
 	recoil = 1
 	slowdown = 1
 	zoomable = TRUE
-	zoom_amt = 10
-	zoom_out_amt = 13
+	zoom_amt = 9
+	zoom_out_amt = 3
 
 /obj/item/gun/ballistic/automatic/ms13/semi/marksman/american
 	name = "\improper All-American"
@@ -83,6 +86,7 @@
 	inhand_icon_state = "battler"
 	fire_sound = 'mojave/sound/ms13weapons/battlerifle.ogg'
 	fire_delay = 0.5 SECONDS
+	slot_flags = ITEM_SLOT_BACK
 	extra_damage = 40
 	extra_penetration = 15
 	spread = 5
@@ -111,8 +115,8 @@
 	icon_state = "rangemaster"
 	inhand_icon_state = "rangemaster"
 	zoomable = TRUE
-	zoom_amt = 10
-	zoom_out_amt = 13
+	zoom_amt = 9
+	zoom_out_amt = 3
 	spread = 2
 	recoil = 1.25
 	slowdown = 1
@@ -126,7 +130,7 @@
 	inhand_icon_state = "smg45"
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
-	slot_flags = 0
+	slot_flags = ITEM_SLOT_BACK
 	mag_type = /obj/item/ammo_box/magazine/ms13/smgm45
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/45/45auto3.ogg'
 	can_suppress = FALSE
@@ -144,7 +148,7 @@
 	inhand_icon_state = "smg22"
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
-	slot_flags = 0
+	slot_flags = ITEM_SLOT_BACK
 	mag_type = /obj/item/ammo_box/magazine/ms13/smgm22
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
 	fire_delay = 0.2 SECONDS
@@ -161,12 +165,11 @@
 	inhand_icon_state = "smg10mm"
 	w_class = WEIGHT_CLASS_NORMAL
 	weapon_weight = WEAPON_MEDIUM
-	slot_flags = 0
 	mag_type = /obj/item/ammo_box/magazine/ms13/smgm10mm
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/10mmsmg/10mmsmg1.ogg'
 	fire_delay = 0.2 SECONDS
 	extra_damage = 15
-	extra_penetration = 5
+	extra_penetration = 10
 	spread = 15
 	recoil = 0.5
 	force = 10
@@ -191,18 +194,20 @@
 
 /obj/item/gun/ballistic/automatic/ms13/full/smg12mm
 	name = "12.7mm submachine gun"
-	desc = "A heavy duty submachine gun chambered in 12.7mm, can't hold a lot of rounds, but they sure do pack a punch."
+	desc = "A heavy duty submachine gun chambered in 12.7mm, fires at a slower rate of fire, but it sure does pack a punch."
 	icon_state = "smg12mm"
 	inhand_icon_state = "smg12mm"
+	w_class = WEIGHT_CLASS_NORMAL
+	weapon_weight = WEAPON_MEDIUM
 	mag_type = /obj/item/ammo_box/magazine/ms13/smg12mm
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/12mm/m12mm2.ogg'
 	can_suppress = FALSE
-	fire_delay = 0.25 SECONDS
-	extra_damage = 20
+	fire_delay = 0.3 SECONDS
+	extra_damage = 25
 	extra_penetration = 15
 	force = 10
 	spread = 10
-	recoil = 0.75
+	recoil = 1
 	slowdown = 0.5
 
 /obj/item/gun/ballistic/automatic/ms13/full/assaultrifle
@@ -210,7 +215,7 @@
 	desc = "A general purpose, standard automatic assault rifle chambered in 5.56. Commonly used by pre-war US military forces."
 	icon_state = "assaultrifle"
 	inhand_icon_state = "assaultrifle"
-	slot_flags = 0
+	slot_flags = ITEM_SLOT_BACK
 	mag_type = /obj/item/ammo_box/magazine/ms13/r20
 	fire_sound = 'mojave/sound/ms13weapons/arfire.ogg'
 	fire_delay = 0.25 SECONDS
@@ -239,12 +244,28 @@
 	icon_state = "infiltrator"
 	inhand_icon_state = "infiltrator"
 	zoomable = TRUE
-	zoom_amt = 10
-	zoom_out_amt = 13
+	zoom_amt = 9
+	zoom_out_amt = 3
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
 	spread = 5
 	recoil = 0.5
 	slowdown = 1
+
+/obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/dakka
+	desc = "A stripped and heavily modified assault rifle. Faster rate of fire, but with less stopping power and substantially less accuracy. An unstable and dangerous weapon made for an unstable and dangerous individual."
+	icon_state = "m16stripped"
+	inhand_icon_state = "m16stripped"
+	fire_delay = 0.2 SECONDS
+	extra_damage = 20
+	extra_penetration = 0
+	spread = 15
+
+/obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/dakka/Initialize()
+	. = ..()
+	name = pick(
+		"\improper Dakka",\
+		"\improper Scrapper",\
+		"\improper Killjoy")
 
 /obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/chinese
 	name = "\improper Chinese assault rifle"
@@ -256,7 +277,7 @@
 	fire_delay = 0.35 SECONDS
 	extra_damage = 30
 	extra_penetration = 5
-	spread = 10
+	spread = 10	
 	recoil = 1
 	slowdown = 0.75
 
@@ -274,8 +295,8 @@
 	icon_state = "xuanlong"
 	inhand_icon_state = "xuanlong"
 	zoomable = TRUE
-	zoom_amt = 10
-	zoom_out_amt = 13
+	zoom_amt = 9
+	zoom_out_amt = 3
 	spread = 6
 	recoil = 0.75
 	slowdown = 1

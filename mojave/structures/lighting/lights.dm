@@ -5,7 +5,6 @@
 	base_state = "light_tube"
 	icon_state = "light_tube"
 	desc = "A lighting fixture."
-	layer = WALL_OBJ_LAYER + 0.15 // WALLENING HELP //
 	max_integrity = 100
 	brightness = 6
 	bulb_power = 0.9
@@ -15,22 +14,45 @@
 	start_with_cell = FALSE
 	no_emergency = TRUE
 
+/obj/machinery/light/ms13/deconstruct(disassembled = TRUE)
+	if(flags_1 & NODECONSTRUCT_1)
+		qdel(src)
+		return
+	var/obj/structure/light_construct/new_light = null
+	switch(fitting)
+		if("tube")
+			new_light = new /obj/machinery/light/ms13/built(loc)
+			new_light.pixel_x = pixel_x
+			new_light.pixel_y = pixel_y
 
-/obj/machinery/light/ms13/Initialize(mapload) // Until wallening:tm: //
+		if("bulb")
+			new_light = new /obj/machinery/light/ms13/bulb/built(loc)
+			new_light.pixel_x = pixel_x
+			new_light.pixel_y = pixel_y
+
+	new_light.setDir(dir)
+	if(!disassembled)
+		new_light.take_damage(new_light.max_integrity * 0.5, sound_effect=FALSE)
+		if(status != LIGHT_BROKEN)
+			break_light_tube()
+		if(status != LIGHT_EMPTY)
+			drop_light_tube()
+	transfer_fingerprints_to(new_light)
+	qdel(src)
+
+/obj/machinery/light/ms13/Initialize(mapload) //shoutout to the shartcoder that coded in lights backwards
 	. = ..()
-	if(dir == NORTH)
-		pixel_y = 30
-
-	if(dir == EAST)
-		pixel_y = 16
-		pixel_x = 16
-
-	if(dir == SOUTH)
-		pixel_y = 0
-
-	if(dir == WEST)
-		pixel_y = 16
-		pixel_x = -16
+	switch(dir)
+		if(SOUTH)
+			pixel_y = -2
+		if(NORTH)
+			pixel_y = 35
+		if(WEST)
+			pixel_x = -16
+			pixel_y = 16
+		if(EAST)
+			pixel_x = 16
+			pixel_y = 16
 
 /obj/machinery/light/ms13/broken
 	icon_state = "light_tube-broken"

@@ -5,7 +5,7 @@
 //IE. Structures which are limpid but impassable, to serve more of a decorative and tactical purpose.//
 
 //Metal Bars
-/* re-add later   super broke right now
+
 /obj/structure/ms13/bars
 	name = "metal bars"
 	desc = "Sturdy metal bars, if only you had a saw."
@@ -13,9 +13,9 @@
 	icon_state = "bars"
 	density = TRUE
 	anchored = TRUE
-	layer = ABOVE_MOB_LAYER
+	layer = ABOVE_OBJ_LAYER
 	max_integrity = 500
-	armor = list(MELEE = 80, BULLET = 80, LASER = 0, ENERGY = 0, BOMB = 25, BIO = 100, RAD = 100, FIRE = 80, ACID = 100)
+	armor = list(MELEE = 100, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 100, BIO = 100, RAD = 100, FIRE = 100, ACID = 100)
 	damage_deflection = 40
 	CanAtmosPass = ATMOS_PASS_YES
 	flags_1 = ON_BORDER_1 | RAD_PROTECT_CONTENTS_1
@@ -23,6 +23,7 @@
 
 /obj/structure/ms13/bars/corner
 	icon_state = "barscorner"
+	var/obj/cornersetter //why the hell did they limit border code to one single direction
 
 /obj/structure/ms13/bars/slot
 	icon_state = "barsslot"
@@ -37,63 +38,112 @@
 /obj/structure/ms13/bars/slot/rusty
 	icon_state = "barsslot_rust"
 
-/obj/structure/ms13/bars/corner/CanAllowThrough(atom/movable/mover, turf/target)
+/obj/structure/ms13/bars/Initialize()
 	. = ..()
-	if(istype(mover) && (mover.pass_flags & PASSGLASS))
-		return TRUE
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_EXIT = .proc/on_exit,
+	)
+
+	if (flags_1 & ON_BORDER_1)
+		AddElement(/datum/element/connect_loc, loc_connections)
+	switch(dir)
+		if(SOUTH)
+			layer = ABOVE_WINDOW_LAYER
+		if(NORTH)
+			layer = OBJ_LAYER
+
+/obj/structure/ms13/bars/corner/Initialize()
+	. = ..()
+	ghostbar(FALSE)
+
+/obj/structure/ms13/bars/corner/proc/ghostbar(destroyed)
+	cornersetter = new /obj/structure/ms13/bars(loc)
+	switch(dir)
+		if(NORTH)
+			cornersetter.dir = WEST
+		if(EAST)
+			cornersetter.dir = NORTH
+		if(SOUTH)
+			cornersetter.dir = EAST
+		if(WEST)
+			cornersetter.dir = SOUTH
+
+	cornersetter.invisibility = INVISIBILITY_ABSTRACT
+	if(destroyed)
+		qdel(cornersetter)
+
+/obj/structure/ms13/bars/corner/Destroy()
+	. = ..()
+	ghostbar(TRUE)
+
+/proc/valid_bars_location(turf/dest_turf, test_dir)
+	if(!dest_turf)
+		return FALSE
+	for(var/obj/turf_content in dest_turf)
+		if(istype(turf_content, /obj/structure/ms13/bars))
+			if((turf_content.dir == test_dir))
+				return FALSE
+	for(var/obj/turf_content in dest_turf)
+		if(istype(turf_content, /obj/structure/ms13/celldoor))
+			if((turf_content.dir == test_dir))
+				return FALSE
+	return TRUE
+
+/obj/structure/ms13/bars/CanAllowThrough(atom/movable/mover, border_dir)
+	. = ..()
+
 	if(istype(mover, /obj/projectile))
 		return TRUE
+
+	if(istype(mover, /obj/projectile/bullet))
+		return TRUE
+
 	if(istype(mover, /obj/item))
 		var/obj/item/I = mover
 		if(I.w_class == WEIGHT_CLASS_SMALL)
 			return TRUE
-	return
 
-/proc/valid_bars_location(turf/T, dir_to_check)
-	if(!T)
-		return FALSE
-	for(var/obj/O in T)
-		if(istype(O, /obj/structure/ms13/bars) && (O.dir == dir_to_check || dir_to_check == FULLTILE_WINDOW_DIR))
-			return FALSE
-	return TRUE
-
-/obj/structure/ms13/bars/CanAllowThrough(atom/movable/mover, turf/target)
-	. = ..()
-	var/attempted_dir = get_dir(loc, target)
-	if(istype(mover, /obj/projectile/bullet))
-		return TRUE
-	else if(istype(mover, /obj/projectile))
-		return TRUE
-	else if(istype(mover) && (mover.pass_flags & PASSGLASS))
-		return TRUE
-	else if(istype(mover, /obj/item))
-		var/obj/item/I = mover
-		if(I.w_class == WEIGHT_CLASS_SMALL)
-			return barpasschance
-	else if(istype(mover, /obj/structure/window))
-		var/obj/structure/window/W = mover
-		if(!valid_bars_location(loc, W.ini_dir))
-			return FALSE
-	else if(istype(mover, /obj/structure/windoor_assembly))
-		var/obj/structure/windoor_assembly/W = mover
-		if(!valid_bars_location(loc, W.ini_dir))
-			return FALSE
-	else if(istype(mover, /obj/structure/ms13/bars) && !valid_bars_location(loc, mover.dir))
-		return FALSE
-	else if(istype(mover, /mob/))
-		if(attempted_dir != dir)
-			return TRUE
-		else if(attempted_dir == dir)
-			return
-	else
+	if(.)
 		return
 
-/obj/structure/ms13/bars/CheckExit(atom/movable/O, turf/target)
-	if(istype(O) && (O.pass_flags & PASSGLASS))
-		return TRUE
-	if(istype(O, /mob/) && get_dir(O.loc, target) == dir)
+	if(ismob(mover))
+		if(get_dir(loc, src) == dir)
+			return
+
+	if(border_dir == dir)
 		return FALSE
+
+	if(istype(mover, /obj/structure/ms13/bars))
+		var/obj/structure/ms13/bars/moved_bars = mover
+		return valid_bars_location(loc, moved_bars.dir)
+
 	return TRUE
+
+/obj/structure/ms13/bars/proc/on_exit(datum/source, atom/movable/leaving, direction)
+	SIGNAL_HANDLER
+
+	if(istype(leaving, /obj/projectile) && prob(barpasschance))
+		return
+
+	if(istype(leaving, /obj/projectile/bullet) && prob(barpasschance))
+		return
+
+	if(istype(leaving, /obj/item))
+		var/obj/item/I = leaving
+		if(I.w_class == WEIGHT_CLASS_SMALL && prob(barpasschance))
+			return
+		else
+			return COMPONENT_ATOM_BLOCK_EXIT
+
+	if(leaving == src)
+		return // Let's not block ourselves.
+
+	if (leaving.pass_flags & pass_flags_self)
+		return
+
+	if(direction == dir && density)
+		leaving.Bump(src)
+		return COMPONENT_ATOM_BLOCK_EXIT
 
 /obj/structure/ms13/celldoor
 	name = "cell door"
@@ -107,7 +157,7 @@
 	max_integrity = 500
 	armor = list(MELEE = 80, BULLET = 80, LASER = 0, ENERGY = 0, BOMB = 25, BIO = 100, RAD = 100, FIRE = 80, ACID = 100)
 	damage_deflection = 40
-	flags_1 = RAD_PROTECT_CONTENTS_1 | RAD_NO_CONTAMINATE_1
+	flags_1 = ON_BORDER_1 | RAD_PROTECT_CONTENTS_1
 	var/locked = FALSE
 
 	var/door_opened = FALSE //if it's open or not.
@@ -116,6 +166,8 @@
 	var/close_delay = -1 //-1 if does not auto close.
 	var/openSound = 'mojave/sound/ms13effects/cellopen.ogg'
 	var/closeSound = 'mojave/sound/ms13effects/cellclose.ogg'
+
+	var/barpasschance = 33
 
 /obj/structure/ms13/celldoor/locked
 	locked = TRUE
@@ -129,11 +181,12 @@
 /obj/structure/ms13/celldoor/Initialize()
 	. = ..()
 	air_update_turf(TRUE)
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_EXIT = .proc/on_exit,
+	)
 
-/obj/structure/ms13/celldoor/Move()
-	var/turf/T = loc
-	. = ..()
-	move_update_air(T)
+	if (flags_1 & ON_BORDER_1)
+		AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/structure/ms13/celldoor/attack_ai(mob/user)
 	if(isAI(user))
@@ -151,16 +204,71 @@
 		return
 	return TryToSwitchState(user)
 
-/obj/structure/ms13/celldoor/CanAllowThrough(atom/movable/mover, turf/target)
+/obj/structure/ms13/celldoor/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
+
 	if(istype(mover, /obj/projectile))
 		return TRUE
-	else if(istype(mover, /obj/item)) //allows a chance to throw small things through, grenades, tools etc.
+
+	if(istype(mover, /obj/projectile/bullet))
+		return TRUE
+
+	if(istype(mover, /obj/item))
 		var/obj/item/I = mover
-		if(I.w_class == WEIGHT_CLASS_SMALL)
+		if(I.w_class == WEIGHT_CLASS_SMALL && prob(barpasschance))
 			return TRUE
-	else
+		else
+			return
+
+	if(.)
 		return
+
+	if(ismob(mover))
+		if(get_dir(loc, src) == dir)
+			return
+
+	if(border_dir == dir)
+		return FALSE
+
+	if(istype(mover, /obj/item))
+		var/obj/item/I = mover
+		if(I.w_class == WEIGHT_CLASS_SMALL && prob(barpasschance))
+			return TRUE
+		else
+			return
+
+	if(istype(mover, /obj/structure/ms13/celldoor))
+		var/obj/structure/ms13/celldoor/moved_bars = mover
+		return valid_bars_location(loc, moved_bars.dir)
+
+	return TRUE
+
+
+/obj/structure/ms13/celldoor/proc/on_exit(datum/source, atom/movable/leaving, direction)
+	SIGNAL_HANDLER
+
+	if(istype(leaving, /obj/projectile) && prob(barpasschance))
+		return
+
+	if(istype(leaving, /obj/projectile/bullet) && prob(barpasschance))
+		return
+
+	if(istype(leaving, /obj/item))
+		var/obj/item/I = leaving
+		if(I.w_class == WEIGHT_CLASS_SMALL && prob(barpasschance))
+			return
+		else
+			return COMPONENT_ATOM_BLOCK_EXIT
+
+	if(leaving == src)
+		return // Let's not block ourselves.
+
+	if (leaving.pass_flags & pass_flags_self)
+		return
+
+	if(direction == dir && density)
+		leaving.Bump(src)
+		return COMPONENT_ATOM_BLOCK_EXIT
 
 /obj/structure/ms13/celldoor/proc/TryToSwitchState(atom/user)
 	if(isSwitchingStates || !anchored)
@@ -221,19 +329,15 @@
 	isSwitchingStates = FALSE
 
 /obj/structure/ms13/celldoor/update_icon_state()
+	. = ..()
 	icon_state = "[initial(icon_state)][door_opened ? "open":""]"
-
-/obj/structure/ms13/celldoor/attackby(obj/item/I, mob/user)
-	if(user.a_intent != INTENT_HARM)
-		return attack_hand(user)
-	else
-		return ..()
 
 /obj/structure/ms13/celldoor/set_anchored(anchorvalue) //called in default_unfasten_wrench() chain
 	. = ..()
 	air_update_turf(TRUE)
 
 //Metal fence
+//HOLY fuck this shitcode needs culling
 /obj/structure/fence/fencenormal
 	name = "metal fence"
 	desc = "You see nothing out of the ordinary."
@@ -255,18 +359,6 @@
 	if(istype(mover) && (mover.pass_flags & PASSGRILLE))
 		return 1
 	if(get_dir(loc, target) != SOUTH)
-		return 1
-	else
-		return 0
-
-/obj/structure/fence/fencenormal/CheckExit(atom/movable/O as mob|obj, target)
-	if (!density)
-		return 1
-	if (dir!=SOUTH)
-		return 0
-	if(istype(O) && (O.pass_flags & PASSGRILLE))
-		return 1
-	if(get_dir(O.loc, target) != SOUTH)
 		return 1
 	else
 		return 0
@@ -382,17 +474,6 @@
 	else
 		return 0
 
-/obj/structure/fence/fencedoor/CheckExit(atom/movable/O as mob|obj, target)
-	if (!density)
-		return 1
-
-	if(istype(O) && (O.pass_flags & PASSGRILLE))
-		return 1
-	if(get_dir(O.loc, target) != SOUTH)
-		return 1
-	else
-		return 0
-
 /obj/structure/fence/fencedoorside
 	name = "metal fence door"
 	desc = "It opens and closes."
@@ -436,11 +517,6 @@
 		return 1
 	return !density
 
-/obj/structure/fence/fencedoorside/CheckExit(atom/movable/O as mob|obj, target)
-	if (O.loc == loc)
-		return 1
-	return !density
- */
 //Road Barriers
 
 /obj/structure/ms13/road_barrier
@@ -492,3 +568,23 @@
 		if(prob(proj_pass_rate))
 			return TRUE
 		return FALSE
+
+// Railings //
+
+/obj/structure/railing/ms13
+	name = "base state MS13 guard rail"
+	icon = 'mojave/icons/structure/railings.dmi'
+
+/obj/structure/railing/ms13/Initialize()
+	. = ..()
+	if(dir == NORTH)
+		pixel_y = 5
+
+/obj/structure/railing/ms13/solo
+	name = "guard rail"
+	desc = "A sturdy rail setup with multiple functions, including but not limited to: ensuring you dont fly off the top of a four story tall building"
+	icon_state = "civ_solo"
+
+/obj/structure/railing/ms13/solo/industrial
+	desc = "A sturdy rail setup with multiple functions, including but not limited to: ensuring you dont fly off the top of a four story tall building. It's got a slick orange taint, so you know it's to workplace regulations."
+	icon_state = "indus_solo"

@@ -1,22 +1,30 @@
 #define WALL_SMOOTHING SMOOTH_GROUP_MS13_SIDEWALK, SMOOTH_GROUP_MS13_WALL, SMOOTH_GROUP_MS13_WALL_METAL, SMOOTH_GROUP_MS13_WALL_WOOD, SMOOTH_GROUP_MS13_WALL_SCRAP, SMOOTH_GROUP_MS13_LOW_WALL,SMOOTH_GROUP_MS13_WALL_ADOBE, SMOOTH_GROUP_MS13_WALL_BRICK, SMOOTH_GROUP_MS13_WALL_REINFORCED, SMOOTH_GROUP_MS13_WINDOW, SMOOTH_GROUP_MS13_MINERALS
-#define DESERT_SMOOTHING SMOOTH_GROUP_MS13_DESERT, SMOOTH_GROUP_MS13_SIDEWALK, SMOOTH_GROUP_MS13_TILE, SMOOTH_GROUP_MS13_SNOW, SMOOTH_GROUP_MS13_ROAD
+#define DESERT_SMOOTHING SMOOTH_GROUP_MS13_DESERT, SMOOTH_GROUP_MS13_SIDEWALK, SMOOTH_GROUP_MS13_TILE, SMOOTH_GROUP_MS13_SNOW, SMOOTH_GROUP_MS13_ROAD, SMOOTH_GROUP_MS13_WATER
 #define GRASS_SPONTANEOUS 		2
 #define GRASS_WEIGHT 			2
-#define LUSH_PLANT_SPAWN_LIST list(/obj/structure/flora/ms13/tree/tallpine = 7, /obj/structure/flora/ms13/tree/deadsnow = 5, /obj/structure/flora/ms13/tree/pine = 5, /obj/structure/flora/ms13/shrub = 5, /obj/structure/flora/bush = 5, /obj/structure/flora/ms13/forage = 1, /obj/structure/flora/ms13/forage/blackberry = 1, /obj/structure/flora/ms13/forage/mutfruit = 1, /obj/structure/flora/ms13/forage/ashrose = 1, /obj/structure/flora/ms13/forage/wildcarrot = 1, /obj/structure/flora/ms13/forage/aster = 1)
-#define DESOLATE_PLANT_SPAWN_LIST list(/obj/structure/flora/grass/wasteland/snow = 10, /obj/structure/flora/bush = 1)
+#define LUSH_PLANT_SPAWN_LIST list(/obj/structure/flora/ms13/tree/tallpine/snow = 7, /obj/structure/flora/ms13/forage = 1, /obj/structure/flora/ms13/forage/blackberry = 1, /obj/structure/flora/ms13/forage/mutfruit = 1, /obj/structure/flora/ms13/forage/ashrose = 1, /obj/structure/flora/ms13/forage/wildcarrot = 1, /obj/structure/flora/ms13/forage/aster = 1)
+#define DESOLATE_PLANT_SPAWN_LIST list(/obj/structure/flora/grass/wasteland/snow = 10)
 #define MUSHROOM_SPAWN_LIST list(/obj/structure/flora/ms13/forage/mushroom = 5, /obj/structure/flora/ms13/forage/mushroom/glowing = 1)
 #define DESERT_LUSH_PLANT_SPAWN_LIST list(/obj/structure/flora/ms13/tree/joshua = 2, /obj/structure/flora/ms13/tree/cactus = 5, /obj/structure/ms13/turfdecor/drought = 10)
 #define DESERT_DESOLATE_PLANT_SPAWN_LIST list(/obj/structure/flora/grass/wasteland = 8)
 
 #define TURF_LAYER_SNOW 2.003
-#define TURF_LAYER_SNOW_BORDER 2.0031
+#define TURF_LAYER_SNOW_BORDER 2.2
 
-#define TURF_LAYER_ROAD 2.0021
+#define TURF_LAYER_ROAD 2.002
 #define TURF_LAYER_ROAD_BORDER 2.0021
+#define TURF_LAYER_ROAD_DECAL 2.00201
 
 #define TURF_LAYER_DESERT 2.001
 #define TURF_LAYER_DESERT_BORDER 2.0011
 
+#define TURF_LAYER_ICE 2.001 //if someone puts ice and desert together im going to blow their brains out
+#define TURF_LAYER_ICE_BORDER 2.0011
+
+#define TURF_LAYER_WATER 2
+#define TURF_LAYER_MOB_WATER 1.95
+#define TURF_LAYER_WATER_UNDER 1.94
+#define TURF_LAYER_WATER_BASE 1.93
 
 /////////////////////////////////////////////////////////////
 /////////////////// MOJAVE SUN PLATINGS /////////////////////
@@ -60,6 +68,17 @@
 
 /turf/open/floor/plating/ms13/ground/ex_act(severity, target)
 	return
+
+/turf/open/floor/plating/dirt/ms13
+	baseturfs = /turf/open/floor/plating/ms13/ground
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	planetary_atmos = TRUE
+	attachment_holes = FALSE
+	footstep = FOOTSTEP_SAND
+	barefootstep = FOOTSTEP_SAND
+	clawfootstep = FOOTSTEP_SAND
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	slowdown = 0.5
 
 /turf/open/floor/plating/ms13/ground/desert
 	name = "\proper desert"
@@ -194,7 +213,7 @@
 	baseturfs = /turf/open/floor/plating/ms13/ground/snow
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_MS13_SNOW)
-	canSmoothWith = list(SMOOTH_GROUP_MS13_SNOW, SMOOTH_GROUP_MS13_TILE)
+	canSmoothWith = list(SMOOTH_GROUP_MS13_SNOW, SMOOTH_GROUP_MS13_TILE, SMOOTH_GROUP_MS13_WATER)
 	layer = TURF_LAYER_SNOW
 	var/digResult = /obj/item/stack/sheet/mineral/snow
 	var/dug = FALSE
@@ -348,7 +367,7 @@
 	base_icon_state = "road"
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_MS13_ROAD)
-	canSmoothWith = list(SMOOTH_GROUP_MS13_ROAD, SMOOTH_GROUP_MS13_SIDEWALK, SMOOTH_GROUP_MS13_TILE, SMOOTH_GROUP_MS13_SNOW, SMOOTH_GROUP_MS13_SNOW)
+	canSmoothWith = list(SMOOTH_GROUP_MS13_ROAD, SMOOTH_GROUP_MS13_SIDEWALK, SMOOTH_GROUP_MS13_TILE, SMOOTH_GROUP_MS13_SNOW, SMOOTH_GROUP_MS13_SNOW, SMOOTH_GROUP_MS13_WATER)
 	layer = TURF_LAYER_ROAD
 
 /turf/open/floor/plating/ms13/ground/road/Initialize()
@@ -376,10 +395,11 @@
 			icon = 'mojave/icons/turf/64x/road_4.dmi'
 			border_icon = 'mojave/icons/turf/64x/road_4_border.dmi'
 
+	if(prob(20))
+		add_overlay(image('mojave/icons/turf/road.dmi', crack_randomiser, TURF_LAYER_ROAD_DECAL, direction_randomiser, road_randomiser, road_randomiser))
+
 	add_overlay(image(border_icon, icon_state, TURF_LAYER_ROAD_BORDER, pixel_x = -16, pixel_y = -16))
 
-	if(prob(20))
-		add_overlay(image('mojave/icons/turf/road.dmi', crack_randomiser, FLOAT_LAYER, direction_randomiser, road_randomiser, road_randomiser))
 
 ////Sidewalks////
 
@@ -449,109 +469,294 @@
 
 ////Ice////
 
-/turf/open/floor/plating/ms13/ice
-	name = "ice sheet"
-	desc = "A sheet of solid ice. Looks slippery. Tread Carefully."
-	icon = 'mojave/icons/turf/ice.dmi'
-	icon_state = "ice"
-	baseturfs = /turf/open/floor/plating/ms13/ice
-	slowdown = 1
-	attachment_holes = FALSE
-	bullet_sizzle = TRUE
-	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
-	planetary_atmos = TRUE
-	footstep = FOOTSTEP_SAND
-	barefootstep = FOOTSTEP_SAND
-	clawfootstep = FOOTSTEP_SAND
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
-	tiled_dirt = FALSE
-	var/static/mutable_appearance/crack = mutable_appearance('mojave/icons/turf/ice.dmi', "crack")
-	var/static/mutable_appearance/holehole = mutable_appearance('mojave/icons/turf/ice.dmi', "hole_overlay")
-	var/cracked = FALSE
-	var/hole = FALSE
+/turf/open/floor/plating/ms13/ground/ice
+	name = "ice"
+	desc = "A dangerous ice sheet, tread carefully."
+	icon = 'mojave/icons/turf/64x/ice_1.dmi'
+	icon_state = "ice-255"
+	base_icon_state = "ice"
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_MS13_ICE)
+	canSmoothWith = list(SMOOTH_GROUP_MS13_ICE, SMOOTH_GROUP_MS13_SIDEWALK, WALL_SMOOTHING, SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_MS13_DESERT, SMOOTH_GROUP_MS13_TILE, SMOOTH_GROUP_MS13_SNOW, SMOOTH_GROUP_MS13_ROAD)
+	layer = TURF_LAYER_ICE
+	//Used for increasing cracking when walking on ice
+	var/crack_state = 1
 
-/turf/open/floor/plating/ms13/ice/attackby(obj/item/stack/tile/T, mob/user, params)
-	return
+/turf/open/floor/plating/ms13/ground/ice/cracked
+	icon = 'mojave/icons/turf/64x/ice_2.dmi'
+	crack_state = 2
 
-/turf/open/floor/plating/ms13/ice/break_tile()
-	return //unbreakable
+/turf/open/floor/plating/ms13/ground/ice/morecracked
+	icon = 'mojave/icons/turf/64x/ice_3.dmi'
+	crack_state = 3
 
-/turf/open/floor/plating/ms13/ice/burn_tile()
-	return //unburnable
-
-/turf/open/floor/plating/ms13/ice/ex_act(severity, target)
-	return
-
-/turf/open/floor/plating/ms13/ice/attackby(obj/item/W, mob/user, params)
+/turf/open/floor/plating/ms13/ground/ice/Initialize()
 	. = ..()
-	if(W.tool_behaviour == TOOL_SHOVEL || W.tool_behaviour == TOOL_MINING)
-		if(hole)
-			to_chat(user, "<span class='notice'>The ice is completely dug through.</span>")
-			return TRUE
+	addtimer(CALLBACK(src, /atom/.proc/update_icon), 1)
+	MakeSlippery(TURF_WET_WATER, INFINITY, 0, INFINITY, TRUE, overlay = FALSE)
 
-		if(!isturf(user.loc))
+/turf/open/floor/plating/ms13/ground/ice/MakeSlippery(wet_setting, min_wet_time, wet_time_to_add, max_wet_time, permanent, overlay)
+	AddComponent(/datum/component/wet_floor, wet_setting, min_wet_time, wet_time_to_add, max_wet_time, permanent, overlay)
+
+/turf/open/floor/plating/ms13/ground/ice/Entered(fool)
+	. = ..()
+	if(isliving(fool) && prob(30))
+		switch(crack_state)
+			if(1)
+				crack_state = 2
+				update_icon()
+			if(2)
+				crack_state = 3
+				update_icon()
+			if(3)
+				Icebreak()
+				update_icon()
+		for(var/turf/open/floor/plating/ms13/ground/ice/T in RANGE_TURFS(1, src))
+			switch(T.crack_state)
+				if(1)
+					T.crack_state = 2
+					T.update_icon()
+				if(2)
+					T.crack_state = 3
+					T.update_icon()
+
+/turf/open/floor/plating/ms13/ground/ice/proc/Icebreak()
+	/*cut_overlays()
+	var/turf/water = /turf/open/ms13/water/deep
+	PlaceOnTop(water, flags = CHANGETURF_INHERIT_AIR)*/// Mojave Bug right here fellas, adding new tiles on our areas fails to inherit the outdoor lighting from the old one, until then, no ice break :'(
+
+/turf/open/floor/plating/ms13/ground/ice/update_icon()
+	. = ..()
+	add_overlay(image('mojave/icons/turf/64x/ice_border.dmi', icon_state, TURF_LAYER_ICE_BORDER, pixel_x = -16, pixel_y = -16))
+	switch(crack_state)
+		if(1)
+			icon = 'mojave/icons/turf/64x/ice_1.dmi'
+		if(2)
+			icon = 'mojave/icons/turf/64x/ice_2.dmi'
+		if(3)
+			icon = 'mojave/icons/turf/64x/ice_3.dmi'
+
+////Water////
+
+#define iswater(A) (istype(A, /turf/open/ms13/water))
+
+/turf/open/ms13/water
+	name = "water"
+	desc = "Cold dirty water."
+	icon = 'mojave/icons/turf/water.dmi'
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_MS13_WATER)
+	canSmoothWith = list(SMOOTH_GROUP_MS13_WATER)
+	footstep = FOOTSTEP_WATER
+	barefootstep = FOOTSTEP_WATER
+	clawfootstep = FOOTSTEP_WATER
+	heavyfootstep = FOOTSTEP_WATER
+	plane = FLOOR_PLANE
+	layer = TURF_LAYER_WATER_BASE
+	slowdown = 0.5
+	var/next_splash = 1
+	var/atom/watereffect
+	var/atom/watertop
+	var/depth
+
+/turf/open/ms13/water/deep
+	name = "deep water"
+	desc = "Cold dirty water, it looks pretty deep."
+	icon_state = "water_deep"
+	watereffect = /obj/effect/overlay/ms13/water/deep
+	watertop = /obj/effect/overlay/ms13/water/top/deep
+	depth = 3
+
+/turf/open/ms13/water/medium
+	icon_state = "water_medium"
+	watereffect = /obj/effect/overlay/ms13/water/medium
+	watertop = /obj/effect/overlay/ms13/water/top/medium
+	depth = 2
+
+/turf/open/ms13/water/shallow
+	icon_state = "water_shallow"
+	watereffect = /obj/effect/overlay/ms13/water/shallow
+	watertop = /obj/effect/overlay/ms13/water/top/shallow
+	depth = 1
+
+/turf/open/ms13/water/Initialize()
+	. = ..()
+	create_reagents(1000)
+	reagents.add_reagent(/datum/reagent/water/ms13/dirty, 1000)
+	new watereffect(src)
+	new watertop(src)
+
+/obj/effect/overlay/ms13/water
+	name = "water"
+	icon = 'mojave/icons/turf/water.dmi'
+	density = FALSE
+	mouse_opacity = 0
+	layer = TURF_LAYER_WATER
+	plane = FLOOR_PLANE
+	anchored = TRUE
+
+/obj/effect/overlay/ms13/water/deep
+	icon_state = "water_deep_bottom"
+
+/obj/effect/overlay/ms13/water/medium
+	icon_state = "water_medium_bottom"
+
+/obj/effect/overlay/ms13/water/shallow
+	icon_state = "water_shallow_bottom"
+
+/obj/effect/overlay/ms13/water/top
+	layer = TURF_LAYER_WATER_UNDER
+
+/obj/effect/overlay/ms13/water/top/deep
+	icon_state = "water_deep_top"
+
+/obj/effect/overlay/ms13/water/top/medium
+	icon_state = "water_medium_top"
+
+/obj/effect/overlay/ms13/water/top/shallow
+	icon_state = "water_shallow_top"
+
+/mob/living
+	var/swimming = FALSE
+
+/turf/open/ms13/water/MouseDrop_T(mob/living/M, mob/living/user)
+	if(!M.swimming) //can't put yourself up if you are not swimming
+		return ..()
+	switch(depth)
+		if(3)
+			if(user == M)
+				M.visible_message("<span class='notice'>[user] is getting out the deep water", \
+								"<span class='notice'>You start getting out of the deep water.</span>")
+				if(do_mob(user, M, 20))
+					M.swimming = FALSE
+					M.forceMove(src)
+					to_chat(user, "<span class='notice'>You get out of the deep water.</span>")
+			else
+				user.visible_message("<span class='notice'>[M] is being dragged out the water by [user].</span>", \
+								"<span class='notice'>You start getting [M] out of the deep water.")
+				if(do_mob(user, M, 20))
+					M.swimming = FALSE
+					M.forceMove(src)
+					to_chat(user, "<span class='notice'>You get [M] out of the deep water.</span>")
+					return
+		else
 			return
 
-		to_chat(user, "<span class='notice'>You start picking at the ice...</span>")
-
-		playsound(get_turf(src), 'mojave/sound/ms13effects/icebreak.ogg', 100, FALSE, FALSE)
-
-		if(W.use_tool(src, user, 100, volume=0))
-			if(!cracked)
-				add_overlay(crack)
-				to_chat(user, "<span class='notice'>You crack the ice, loosening it.</span>")
-				cracked = TRUE
+/turf/open/ms13/water/MouseDrop_T(mob/living/M, mob/living/user)
+	if(user.stat || user.body_position == LYING_DOWN || !Adjacent(user) || !M.Adjacent(user)|| !iscarbon(M))
+		return
+	if(M.swimming) //can't lower yourself again
+		return
+	else
+		switch(depth)
+			if(3)
+				if(user == M)
+					M.visible_message("<span class='notice'>[user] is descending in the deep water", \
+									"<span class='notice'>You start lowering yourself in the deep water.</span>")
+					if(do_mob(user, M, 20))
+						M.swimming = TRUE
+						addtimer(CALLBACK(src, .proc/transfer_mob_layer, M), 0.2 SECONDS)
+						M.forceMove(src)
+						to_chat(user, "<span class='notice'>You lower yourself in the deep water.</span>")
+						M.adjust_bodytemperature(-100)
+				else
+					user.visible_message("<span class='notice'>[M] is being put in the deep water by [user].</span>", \
+									"<span class='notice'>You start lowering [M] in the deep water.")
+					if(do_mob(user, M, 20))
+						M.swimming = TRUE
+						addtimer(CALLBACK(src, .proc/transfer_mob_layer, M), 0.2 SECONDS)
+						M.forceMove(src)
+						to_chat(user, "<span class='notice'>You lower [M] in the deep water.</span>")
+						M.adjust_bodytemperature(-100)
+						return
 			else
-				if(cracked)
-					cut_overlay(crack)
-					add_overlay(holehole)
-					density = TRUE
-					to_chat(user, "<span class='notice'>You crack the ice, making a hole to the waters below.</span>")
-					hole = TRUE
-					return
+				return
 
-/turf/open/floor/plating/ms13/ice/Initialize()
-	. = ..()
-	MakeSlippery(TURF_WET_PERMAFROST, INFINITY, 0, INFINITY, TRUE, FALSE)
+/turf/open/ms13/water/Exited(atom/movable/gone, direction)
+	..()
+	if(isliving(gone))
+		var/mob/living/M = gone
+		if(!iswater(get_step(src, direction)))
+			M.swimming = FALSE
+			M.layer = initial(M.layer)
+			M.plane = initial(M.plane)
 
-/turf/open/floor/plating/ms13/ice/innercorner
-	icon_state = "inner_corner"
+/turf/open/ms13/water/Entered(atom/A, turf/OL)
+	..()
+	if(isliving(A))
+		var/mob/living/M = A
+		var/mob/living/carbon/H = M
+		addtimer(CALLBACK(src, .proc/transfer_mob_layer, M), 0.2 SECONDS)
+		if(!(M.swimming))
+			switch(depth)
+				if(3)
+					H.wash(CLEAN_WASH)
+					if(H.wear_mask && iscarbon(M) && H.wear_mask.flags_cover & MASKCOVERSMOUTH)
+						H.visible_message("<span class='danger'>[H] falls in the water!</span>",
+											"<span class='userdanger'>You fall in the water!</span>")
+						playsound(src, 'mojave/sound/ms13effects/splash.ogg', 60, 1, 1)
+						H.Knockdown(20)
+						H.swimming = TRUE
+						M.adjust_bodytemperature(-100)
+						return
+					else
+						H.dropItemToGround(H.get_active_held_item())
+						H.adjustOxyLoss(5)
+						H.emote("cough")
+						H.visible_message("<span class='danger'>[H] falls in and takes a drink!</span>",
+											"<span class='userdanger'>You fall in and swallow some water!</span>")
+						playsound(src, 'mojave/sound/ms13effects/splash.ogg', 60, 1, 1)
+						H.Knockdown(60)
+						H.swimming = TRUE
+						M.adjust_bodytemperature(-100)
+				else
+					H.swimming = TRUE
+					M.adjust_bodytemperature(-100)
+		if(H.body_position == LYING_DOWN)
+			if(M.stat == DEAD)
+				return
+			switch(depth)
+				if(3)
+					H.visible_message("<span class='danger'>[H] flails in the water!</span>",
+										"<span class='userdanger'>Youre drowning!</span>")
+					H.Knockdown(20)
+					M.adjust_bodytemperature(-100)
+					M.adjustStaminaLoss(20)
+					M.adjustOxyLoss(10)
+					M.adjustOrganLoss(ORGAN_SLOT_LUNGS, 20)
+					playsound(src, 'mojave/sound/ms13effects/drown.ogg', 30, 1, 1)
+				if(2)
+					H.visible_message("<span class='danger'>[H] flails in the shallow water!</span>",
+										"<span class='userdanger'>Youre drowning!</span>")
+					H.Knockdown(10)
+					M.adjust_bodytemperature(-50)
+					M.adjustStaminaLoss(10)
+					M.adjustOxyLoss(5)
+					M.adjustOrganLoss(ORGAN_SLOT_LUNGS, 10)
+					playsound(src, 'mojave/sound/ms13effects/drown.ogg', 30, 1, 1)
+		else //wading
+			switch(depth)
+				if(3)
+					M.wash(CLEAN_WASH)
+					M.adjust_bodytemperature(-100)
+					M.adjustStaminaLoss(3)
+				if(2)
+					M.wash(CLEAN_WASH)
+					M.adjust_bodytemperature(-50)
+					M.adjustStaminaLoss(1)
+				else
+					M.adjust_bodytemperature(-10)
+			return
 
-/turf/open/floor/plating/ms13/ice/innercurve
-	icon_state = "inner_curve_large"
+/turf/open/ms13/water/proc/transfer_mob_layer(var/mob/living/carbon/M)
+	if(iswater(get_turf(M)))
+		M.layer = TURF_LAYER_MOB_WATER
+		M.plane = FLOOR_PLANE
+		M.update_icon(UPDATE_OVERLAYS)
+	else
+		return
 
-/turf/open/floor/plating/ms13/ice/corner
-	icon_state = "corner"
-
-/turf/open/floor/plating/ms13/ice/edge
-	icon_state = "edge"
-
-/turf/open/floor/plating/ms13/ice/smallcorner
-	icon_state = "cornerpiece"
-
-/turf/open/floor/plating/ms13/ice/end
-	icon_state = "end"
-
-/turf/open/floor/plating/ms13/ice/thin
-	icon_state = "thin"
-
-/turf/open/floor/plating/ms13/ice/shrinkage
-	icon_state = "shrinkage"
-
-/turf/open/floor/plating/ms13/ice/shore
-	icon_state = "shore"
-
-/turf/open/floor/plating/ms13/ice/single
-	icon_state = "junction0"
-
-/turf/open/floor/plating/ms13/ice/tunnel
-	icon_state = "tunnel"
-
-/obj/structure/fluff/icechunk
-	name = "ice chunk"
-	desc = "A segment of broken ice."
-	icon = 'mojave/icons/turf/ice.dmi'
-	icon_state = "chunk"
+////Openspace////
 
 //This functions like normal openspace but prevents placing lattice, so people cannot cheese catwalks or floors clear across the map.
 /turf/open/openspace/ms13

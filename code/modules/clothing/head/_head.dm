@@ -9,7 +9,7 @@
 	var/can_toggle = null
 	dynamic_hair_suffix = "+generic"
 
-/obj/item/clothing/head/Initialize()
+/obj/item/clothing/head/Initialize(mapload)
 	. = ..()
 	if(ishuman(loc) && dynamic_hair_suffix)
 		var/mob/living/carbon/human/H = loc
@@ -76,7 +76,7 @@
 		if(clothing_flags & LARGE_WORN_ICON)
 			. += mutable_appearance('icons/effects/64x64.dmi', "helmetblood_large")
 		else
-			. += mutable_appearance('icons/effects/blood.dmi', "helmetblood")
+			. += mutable_appearance('mojave/icons/effects/blood.dmi', "helmetblood") //MOJAVE SUN EDIT - Blood Sprites
 
 /obj/item/clothing/head/update_clothes_damaged_state(damaged_state = CLOTHING_DAMAGED)
 	..()

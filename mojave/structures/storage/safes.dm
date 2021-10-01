@@ -15,4 +15,7 @@
 	icon_state = "safe_wall"
 	pixel_y = 32
 	density = FALSE
-	layer = EDGED_TURF_LAYER
+
+/obj/structure/safe/ms13/wall/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/wall_mount)

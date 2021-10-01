@@ -39,7 +39,7 @@
 		create_mob_hud()
 	if(hud_used)
 		hud_used.show_hud(hud_used.hud_version)
-		hud_used.update_ui_style(ui_style2icon(client.prefs.UI_style))
+		hud_used.update_ui_style(ui_style2icon(client.prefs?.read_preference(/datum/preference/choiced/ui_style)))
 
 	next_move = 1
 
@@ -75,14 +75,19 @@
 			continue
 		var/datum/atom_hud/alternate_appearance/AA = v
 		AA.onNewMob(src)
-
+	//MOJAVE SUN EDIT - Wallening Testmerge
+	frill_oval_mask = image('mojave/icons/effects/ovalmask.dmi', src, "primary", pixel_x = -32, pixel_y = -12)
+	frill_oval_mask.plane = FRILL_MASK_PLANE
+	frill_oval_mask.appearance_flags = RESET_TRANSFORM
+	client.images |= frill_oval_mask
+	//MOJAVE SUN EDIT - Wallening Testmerge
 	update_client_colour()
 	update_mouse_pointer()
 	if(client)
 		if(client.view_size)
 			client.view_size.resetToDefault() // Resets the client.view in case it was changed.
 		else
-			client.change_view(getScreenSize(client.prefs.widescreenpref))
+			client.change_view(getScreenSize(client.prefs.read_preference(/datum/preference/toggle/widescreen)))
 
 		if(client.player_details.player_actions.len)
 			for(var/datum/action/A in client.player_details.player_actions)

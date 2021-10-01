@@ -170,7 +170,9 @@
 
 /mob/living/carbon/human/equipped_speed_mods()
 	. = ..()
-	for(var/sloties in get_all_slots() - list(l_store, r_store, s_store))
+	//MOJAVE EDIT CHANGE BEGIN 
+	for(var/sloties in get_all_slots() - list(l_store, r_store, s_store, belt, back)) //Belt and back were added to this. Original TG is only l_store, r_store, and s-store
+	//MOJAVE EDIT CHANGE END 
 		var/obj/item/thing = sloties
 		. += thing?.slowdown
 
@@ -339,4 +341,3 @@
 		return
 	stored.attack_hand(src) // take out thing from item in storage slot
 	return
-

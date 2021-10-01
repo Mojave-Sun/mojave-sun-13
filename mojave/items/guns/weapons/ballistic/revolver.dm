@@ -6,6 +6,7 @@
 	inhand_icon_state = "caravan"
 	force = 20
 	fire_delay = 0.4 SECONDS
+	slot_flags = ITEM_SLOT_BACK
 	recoil = 1.5
 	slowdown = 0.75
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/caravan
@@ -20,17 +21,19 @@
 	inhand_icon_state = "sawedoff"
 	force = 15
 	fire_delay = 0.5 SECONDS
+	slot_flags = ITEM_SLOT_BELT
 	slowdown = 0.5
 	w_class = WEIGHT_CLASS_NORMAL
-	weapon_weight = WEAPON_LIGHT
+	weapon_weight = WEAPON_MEDIUM
 
 /obj/item/gun/ballistic/revolver/ms13/single
 	name = "single shotgun"
-	desc = "A very cheap and very common shotgun with only a single round, better make it count."
+	desc = "A very cheap and very common lightweight shotgun with only a single round, better make it count."
 	icon_state = "singleshot"
 	inhand_icon_state = "singleshot"
 	force = 20
 	fire_delay = 0.4 SECONDS
+	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT
 	recoil = 1.5
 	slowdown = 0.75
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/single
@@ -80,6 +83,7 @@
 	inhand_icon_state = "revrifle"
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
+	slot_flags = ITEM_SLOT_BACK
 	fire_delay = 0.65 SECONDS
 	extra_damage = 45
 	spread = 5
@@ -95,8 +99,8 @@
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/ms13/rev357
 	w_class = WEIGHT_CLASS_NORMAL
 	fire_delay = 0.55 SECONDS
-	extra_damage = 30
-	extra_penetration = 10
+	extra_damage = 35
+	extra_penetration = 0
 	spread = 6
 	recoil = 1
 	slowdown = 0.5
@@ -116,7 +120,7 @@
 	fire_sound = 'mojave/sound/ms13weapons/policepistol.ogg'
 	w_class = WEIGHT_CLASS_SMALL
 	fire_delay = 0.5 SECONDS
-	extra_damage = 25
+	extra_damage = 30
 	spread = 8
 	recoil = 0.75
 	slowdown = 0.5

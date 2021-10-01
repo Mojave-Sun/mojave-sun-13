@@ -30,6 +30,14 @@
 	extra_penetration = 5
 	fire_delay = 0.45 SECONDS
 
+/obj/item/gun/energy/ms13/laser/pistol/advanced/brotherhood
+	name = "\improper Codex Enforcer"
+	desc = "A specially modified and customized advanced laser pistol primarily used by high ranking members of the Brotherhood of Steel. Sometimes used to enforce the Codex if other means fail, as one may expect."
+	icon_state = "boslas_pistol"
+	base_icon_state = "boslas_pistol"
+	inhand_icon_state = "boslas_pistol"
+	extra_damage = 30
+
 /obj/item/gun/energy/ms13/laser/pistol/advanced/defender
 	name = "laser defender"
 	desc = "A highly advanced, experimental laser pistol. Sports best in class stopping power and fire rate, truly a menace in the right hands."
@@ -54,36 +62,39 @@
 // Plasma Pistols //
 
 /obj/item/gun/energy/ms13/plasma/pistol
-	name = "plasma pistol"
-	desc = "A pistol-sized miniaturized plasma caster. It fires heavy low penetration plasma clots designed to melt flesh away in a horrifying fashion, all within the power of your hand."
+	name = "standard plasma pistol"
+	desc = "A standard, experimental plasma pistol that fires very hot concentrated bolts of green plasma. They travel slowly, but burn like hell."
 	icon_state = "plasmapistol"
 	base_icon_state = "plasmapistol"
 	inhand_icon_state = "plasmapistol"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/plaspistol/plasma_3.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
-	weapon_weight = WEAPON_LIGHT
+	weapon_weight = WEAPON_MEDIUM
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/plasma/pistol)
-	cell_type = /obj/item/stock_parts/cell/ms13/pc
 	force = 10
 	extra_damage = 25
-	extra_penetration = 5
-	fire_delay = 6
+	extra_penetration = 0
+	fire_delay = 0.5 SECONDS
+	spread = 6
+	recoil = 0.5
+	slowdown = 0.5
 
-/obj/item/gun/energy/ms13/plasma/pistol/military
-	name = "military plasma Pistol"
-	desc = "A more compact variant of the plasma pistol. Even though it's smaller, it's a later variant and vastly improved in more ways than one."
+/obj/item/gun/energy/ms13/plasma/pistol/advanced
+	name = "advanced plasma pistol"
+	desc = "A more advanced and even more experimental version of the plasma pistol. Concentrates it's bolts in an even more deadly manner."
 	icon_state = "enclaveplasmapistol"
 	base_icon_state = "enclaveplasmapistol"
 	inhand_icon_state = "enclaveplasmapistol"
 	extra_damage = 30
-	extra_penetration = 10
+	extra_penetration = 5
 
 /obj/item/gun/energy/ms13/plasma/pistol/defender
 	name = "plasma defender"
-	desc = "The plasma defender is a variant of the plasma pistol, rojectiles formed by this gun are intended to splatter on contact and do mass damage, but has a harder time getting through some armours."
+	desc = "The peak of compact plasma weaponry. A fast firing, very hard hitting and more accurate plasma pistol. Something you do not want to be on the receiving end of."
 	icon_state = "plasmadefender"
 	base_icon_state = "plasmadefender"
 	inhand_icon_state = "plasmadefender"
-	ammo_type = list(/obj/item/ammo_casing/energy/ms13/plasma/pistol/splatter)
-	extra_damage = 35
-	extra_penetration = -5
+	extra_penetration = 10
+	fire_delay = 0.4 SECONDS
+	spread = 4
+	recoil = 0.25

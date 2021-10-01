@@ -7,6 +7,9 @@
 	righthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_right.dmi'
 	worn_icon = 'mojave/icons/mob/worn_guns.dmi'
 	tac_reloads = FALSE
+	wound_bonus = 0
+	bare_wound_bonus = 0
+	log_pickup_and_drop = TRUE
 
 /obj/item/gun/ballistic/ms13/Initialize()
 	. = ..()
@@ -22,6 +25,9 @@
 	inhand_x_dimension = 32
 	inhand_y_dimension = 32
 	force = 20
+	wound_bonus = 0
+	bare_wound_bonus = 0
+	log_pickup_and_drop = TRUE
 
 /obj/item/gun/ballistic/shotgun/ms13/Initialize()
 	. = ..()
@@ -37,6 +43,9 @@
 	inhand_x_dimension = 32
 	inhand_y_dimension = 32
 	force = 15
+	wound_bonus = 0
+	bare_wound_bonus = 0
+	log_pickup_and_drop = TRUE
 	slowdown = 0.75 //A fall back in case someone forgets to define slowdown at the gun level
 
 /obj/item/gun/ballistic/shotgun/automatic/ms13/Initialize()
@@ -51,6 +60,9 @@
 	righthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_right.dmi'
 	worn_icon = 'mojave/icons/mob/worn_guns.dmi'
 	force = 10
+	wound_bonus = 0
+	bare_wound_bonus = 0
+	log_pickup_and_drop = TRUE
 	slowdown = 0.5 //A fall back in case someone forgets to define slowdown at the gun level
 
 /obj/item/gun/ballistic/revolver/ms13/Initialize()
@@ -81,9 +93,12 @@
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
 	force = 15
+	wound_bonus = 0
+	bare_wound_bonus = 0
 	fire_delay = 0
 	extra_damage = 0
 	extra_penetration = 0
+	log_pickup_and_drop = TRUE
 	slowdown = 0.75 //A fall back in case someone forgets to define slowdown at the gun level
 
 /obj/item/gun/ballistic/automatic/ms13/Initialize()
@@ -117,9 +132,12 @@
 	righthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_right.dmi'
 	worn_icon = 'mojave/icons/mob/worn_guns.dmi'
 	force = 15
+	wound_bonus = 0
+	bare_wound_bonus = 0
 	actions_types = null
 	burst_size = 1
 	select = 1
+	log_pickup_and_drop = TRUE
 	slowdown = 0.75 //A fall back in case someone forgets to define slowdown at the gun level
 
 /obj/item/gun/ballistic/automatic/ms13/full // For weapons that are intended to have fully automatic capability
@@ -129,9 +147,12 @@
 	righthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_right.dmi'
 	worn_icon = 'mojave/icons/mob/worn_guns.dmi'
 	force = 15
+	wound_bonus = 0
+	bare_wound_bonus = 0
 	actions_types = null
 	select = 1
 	burst_size = 1
+	log_pickup_and_drop = TRUE
 	slowdown = 0.75 //A fall back in case someone forgets to define slowdown at the gun level
 
 /obj/item/gun/ballistic/automatic/ms13/full/Initialize()
@@ -147,6 +168,9 @@
 	worn_icon = 'mojave/icons/mob/worn_guns.dmi'
 	can_suppress = FALSE
 	tac_reloads = FALSE
+	wound_bonus = 0
+	bare_wound_bonus = 0
+	log_pickup_and_drop = TRUE
 	force = 10
 	slowdown = 0.5 //A fall back in case someone forgets to define slowdown at the gun level
 
@@ -185,6 +209,9 @@
 	internal_magazine = FALSE
 	tac_reloads = FALSE
 	force = 15
+	wound_bonus = 0
+	bare_wound_bonus = 0
+	log_pickup_and_drop = TRUE
 	slowdown = 0.75 //A fall back in case someone forgets to define slowdown at the gun level
 	var/jamming_chance = 20
 	var/unjam_chance = 10
@@ -249,6 +276,8 @@ obj/item/gun/ballistic/rifle/ms13/attackby(obj/item/item, mob/user, params)
 	name = "generic ms13 ammo box"
 	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
+	worn_icon = 'mojave/icons/mob/worn_misc.dmi'
+	worn_icon_state = "empty_placeholder"
 
 /obj/item/ammo_box/ms13/Initialize()
 	. = ..()
@@ -259,6 +288,8 @@ obj/item/gun/ballistic/rifle/ms13/attackby(obj/item/item, mob/user, params)
 	name = "generic ms13 magazine"
 	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
+	worn_icon = 'mojave/icons/mob/worn_misc.dmi'
+	worn_icon_state = "empty_placeholder"
 
 /obj/item/ammo_box/magazine/ms13/Initialize()
 	. = ..()

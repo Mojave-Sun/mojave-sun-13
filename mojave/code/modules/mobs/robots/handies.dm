@@ -1,5 +1,5 @@
 /mob/living/simple_animal/hostile/ms13/robot/handy
-	name = "mr. handy"
+	name = "Mr. Handy"
 	desc = "A standard model Mr. Handy unit. It's long lost any rational wires in its circuits."
 	icon_state = "mrhandy_claw"
 	icon_living = "mrhandy_claw"
@@ -25,7 +25,6 @@
 	qdel(src)
 
 /mob/living/simple_animal/hostile/ms13/robot/handy/saw
-	name = "mr. handy"
 	desc = "A work model Mr. Handy unit, armed with a horrifyingly sharp saw. It's long lost any rational wires in its circuits."
 	icon_state = "mrhandy_saw"
 	icon_living = "mrhandy_saw"
@@ -50,7 +49,7 @@
 	projectilesound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_2.ogg'
 
 /mob/living/simple_animal/hostile/ms13/robot/handy/gutsy
-	name = "mr. Gutsy"
+	name = "Mr. Gutsy"
 	desc = "A militarized version of the Handy model. Equiped with a compact plasma rifle, it's a dangerous foe."
 	icon_state = "mrhandy_gutsy"
 	icon_living = "mrhandy_gutsy"

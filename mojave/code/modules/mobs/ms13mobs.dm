@@ -9,7 +9,7 @@
 
 /obj/item/melee/baton/attack(mob/M, mob/living/carbon/human/user)
 	. = ..()
-	if(turned_on)
+	if(active)
 		. = ..()
 		if(isanimal(M))
 			var/mob/living/simple_animal/critter = M

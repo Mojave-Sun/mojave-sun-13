@@ -1,6 +1,9 @@
 /datum/component/personal_crafting/Initialize()
+	return
+	/* MOJAVE EDIT
 	if(ismob(parent))
 		RegisterSignal(parent, COMSIG_MOB_CLIENT_LOGIN, .proc/create_mob_button)
+	*/
 
 /datum/component/personal_crafting/proc/create_mob_button(mob/user, client/CL)
 	SIGNAL_HANDLER
@@ -32,6 +35,7 @@
 					CAT_LIZARD,
 					CAT_ICE,
 					CAT_MEAT,
+					CAT_SEAFOOD,
 					CAT_MISCFOOD,
 					CAT_PASTRY,
 					CAT_PIE,
