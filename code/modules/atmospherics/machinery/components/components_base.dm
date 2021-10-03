@@ -32,7 +32,7 @@
 		A.volume = 200
 		airs[i] = A
 
-/obj/machinery/atmospherics/components/Initialize()
+/obj/machinery/atmospherics/components/Initialize(mapload)
 	. = ..()
 
 	if(hide)
