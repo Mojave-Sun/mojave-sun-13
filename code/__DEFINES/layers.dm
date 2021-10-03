@@ -16,9 +16,14 @@
 #define OPENSPACE_PLANE -9 //Openspace plane below all turfs
 #define OPENSPACE_BACKDROP_PLANE -8 //Black square just over openspace plane to guaranteed cover all in openspace turf
 
-
 #define FLOOR_PLANE -7
+#define OVER_TILE_PLANE -6
+#define WALL_PLANE -5
 #define GAME_PLANE -4
+#define UNDER_FRILL_PLANE -3
+#define UNDER_FRILL_RENDER_TARGET "*UNDER_RENDER_TARGET"
+#define FRILL_PLANE -2
+#define OVER_FRILL_PLANE -1
 
 #define SPACE_LAYER 1.8
 //#define TURF_LAYER 2 //For easy recordkeeping; this is a byond define
@@ -99,6 +104,9 @@
 
 #define RAD_TEXT_PLANE 90
 
+#define FRILL_MASK_PLANE 95
+#define FRILL_MASK_RENDER_TARGET "*FRILL_MASK_RENDER_TARGET"
+
 //---------- LIGHTING -------------
 ///Normal 1 per turf dynamic lighting underlays
 #define LIGHTING_PLANE 100
@@ -162,7 +170,6 @@
 //-------------------- HUD ---------------------
 //HUD layer defines
 #define HUD_BACKGROUND_PLANE 900 //MOJAVE EDIT ADDITION - Mojave HUD
-#define HUD_BACKGROUND_RENDER_TARGET "HUD_BACKGROUND_PLANE" //MOJAVE EDIT ADDITION - Mojave HUD
 #define HUD_PLANE 1000
 #define ABOVE_HUD_PLANE 1100
 
