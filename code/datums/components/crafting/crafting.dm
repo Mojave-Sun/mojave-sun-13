@@ -35,6 +35,7 @@
 					CAT_LIZARD,
 					CAT_ICE,
 					CAT_MEAT,
+					CAT_SEAFOOD,
 					CAT_MISCFOOD,
 					CAT_PASTRY,
 					CAT_PIE,

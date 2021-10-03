@@ -189,11 +189,12 @@
 
 /obj/item/clothing/suit/armor/ms13/assassin
 	name = "assassin armor"
-	desc = "A prototype pre-war lightweight suit of armor that is so light and optimized that it can serve to speed the wearer up."
+	desc = "A prototype pre-war lightweight suit of armor that is so light and optimized that it can serve to speed the wearer up and mask the sound of footsteps."
 	icon_state = "assassin"
 	inhand_icon_state = "assassin"
 	armor = list("melee" = 35, "bullet" = 30, "laser" = 20, "energy" = 15, "bomb" = 20, "bio" = 15, "rad" = 15, "fire" = 15, "acid" = 15, "wound" = 5)
 	slowdown = -0.3
+	clothing_traits = list(TRAIT_SILENT_FOOTSTEPS)
 
 /obj/item/clothing/suit/armor/ms13/tesla
 	name = "tesla armor"

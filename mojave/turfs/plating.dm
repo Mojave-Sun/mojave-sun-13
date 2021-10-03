@@ -655,9 +655,7 @@
 									"<span class='notice'>You start lowering yourself in the deep water.</span>")
 					if(do_mob(user, M, 20))
 						M.swimming = TRUE
-						M.layer = TURF_LAYER_MOB_WATER
-						M.plane = FLOOR_PLANE
-						M.update_icon(UPDATE_OVERLAYS)
+						addtimer(CALLBACK(src, .proc/transfer_mob_layer, M), 0.2 SECONDS)
 						M.forceMove(src)
 						to_chat(user, "<span class='notice'>You lower yourself in the deep water.</span>")
 						M.adjust_bodytemperature(-100)
@@ -666,9 +664,7 @@
 									"<span class='notice'>You start lowering [M] in the deep water.")
 					if(do_mob(user, M, 20))
 						M.swimming = TRUE
-						M.layer = TURF_LAYER_MOB_WATER
-						M.plane = FLOOR_PLANE
-						M.update_icon(UPDATE_OVERLAYS)
+						addtimer(CALLBACK(src, .proc/transfer_mob_layer, M), 0.2 SECONDS)
 						M.forceMove(src)
 						to_chat(user, "<span class='notice'>You lower [M] in the deep water.</span>")
 						M.adjust_bodytemperature(-100)
@@ -690,14 +686,12 @@
 	if(isliving(A))
 		var/mob/living/M = A
 		var/mob/living/carbon/H = M
-		M.layer = TURF_LAYER_MOB_WATER
-		M.plane = FLOOR_PLANE
-		M.update_icon(UPDATE_OVERLAYS)
+		addtimer(CALLBACK(src, .proc/transfer_mob_layer, M), 0.2 SECONDS)
 		if(!(M.swimming))
 			switch(depth)
 				if(3)
 					H.wash(CLEAN_WASH)
-					if (H.wear_mask && H.wear_mask.flags_cover & MASKCOVERSMOUTH)
+					if(H.wear_mask && iscarbon(M) && H.wear_mask.flags_cover & MASKCOVERSMOUTH)
 						H.visible_message("<span class='danger'>[H] falls in the water!</span>",
 											"<span class='userdanger'>You fall in the water!</span>")
 						playsound(src, 'mojave/sound/ms13effects/splash.ogg', 60, 1, 1)
@@ -753,6 +747,14 @@
 				else
 					M.adjust_bodytemperature(-10)
 			return
+
+/turf/open/ms13/water/proc/transfer_mob_layer(var/mob/living/carbon/M)
+	if(iswater(get_turf(M)))
+		M.layer = TURF_LAYER_MOB_WATER
+		M.plane = FLOOR_PLANE
+		M.update_icon(UPDATE_OVERLAYS)
+	else
+		return
 
 ////Openspace////
 
