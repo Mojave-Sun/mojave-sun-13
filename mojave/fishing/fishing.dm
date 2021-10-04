@@ -31,10 +31,10 @@
 			to_chat(user, "<span class='notice'>You start fishing...</span>")
 
 			if(do_after(user, /obj/item/ms13/tools/fishing_rod.fish_speed))
-			if(!can_fish(user))
-				return TRUE
-			to_chat(user, "<span class='notice'>You reel in your catch.</span>")
-			getFished()
+				if(!can_fish(user))
+					return TRUE
+				to_chat(user, "<span class='notice'>You reel in your catch.</span>")
+				getFished()
 
 /obj/structure/ms13/ice_hole/proc/getFished()
 	var/spawnFish = pickweight(fish)
