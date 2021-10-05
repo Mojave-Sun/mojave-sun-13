@@ -11,6 +11,7 @@
 	integrity_failure = 0
 	idle_power_usage = 300
 	active_power_usage = 300
+	density = TRUE
 	var/broken = FALSE // Used for pre-broken terminals
 	var/active = TRUE // These should usually probably start off
 	var/screen_icon = "terminal_screen"
