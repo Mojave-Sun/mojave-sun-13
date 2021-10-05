@@ -662,6 +662,7 @@ SUBSYSTEM_DEF(ticker)
 	save_admin_data()
 	update_everything_flag_in_db()
 	if(!round_end_sound)
+<<<<<<< HEAD
 		round_end_sound = pick(\
 		'mojave/sound/ms13roundend/9yearsindevelopment.ogg',
 		'mojave/sound/ms13roundend/mynameisjoe.ogg',
@@ -680,6 +681,9 @@ SUBSYSTEM_DEF(ticker)
 		'sound/roundend/bully2.ogg'
 		*/
 
+=======
+		round_end_sound = choose_round_end_song()
+>>>>>>> 9693fb456a3... Makes the roundend theme a config (#61573)
 	///The reference to the end of round sound that we have chosen.
 	var/sound/end_of_round_sound_ref = sound(round_end_sound)
 	for(var/mob/M in GLOB.player_list)
@@ -687,3 +691,12 @@ SUBSYSTEM_DEF(ticker)
 			SEND_SOUND(M.client, end_of_round_sound_ref)
 
 	text2file(login_music, "data/last_round_lobby_music.txt")
+
+/datum/controller/subsystem/ticker/proc/choose_round_end_song()
+	var/list/reboot_sounds = flist("[global.config.directory]/reboot_themes/")
+	var/list/possible_themes = list()
+
+	for(var/themes in reboot_sounds)
+		possible_themes += themes
+	if(possible_themes.len)
+		return "[global.config.directory]/reboot_themes/[pick(possible_themes)]"
