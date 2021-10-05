@@ -434,6 +434,16 @@
 /turf/open/floor/iron/ms13/concrete/cable/node
 	icon_state = "concrete_cable_node"
 
+/turf/open/floor/ms13/sewer
+	icon = 'mojave/icons/turf/sewer_floor.dmi'
+	icon_state = "floor-255"
+	base_icon_state = "floor"
+	desc = "Hard concrete sewer flooring, built to last."
+	has_alternate_states = FALSE
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_MS13_TILE)
+	canSmoothWith = list(SMOOTH_GROUP_CATWALK, SMOOTH_GROUP_MS13_WALL, SMOOTH_GROUP_CATWALK, SMOOTH_GROUP_MS13_TILE)
+
 ////Ceramic Floors////
 
 /turf/open/floor/iron/ms13/ceramic
