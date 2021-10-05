@@ -257,3 +257,42 @@
 	name = "cards table"
 	desc = "Very classy. Reminds you of that time in New Reno..."
 	icon_state = "table_cards"
+
+/obj/structure/table/rolling/ms13
+	name = "rolling table"
+	desc = "A rolling medical table. Extremely useful in a surgical environment."
+	icon = 'mojave/icons/structure/standalone_tables.dmi'
+	icon_state = "table_rolling"
+
+///// CRAFTING TABLES /////
+
+/obj/structure/table/ms13/crafting // Functionality of these is applied via individual crafting element var 'surfacetype'
+	name = "base class Mojave Sun crafting bench"
+	desc = "Scream at yo MAMA if you see this."
+	icon = 'mojave/icons/structure/workbenches.dmi'
+	bound_width = 64
+
+/obj/structure/table/ms13/crafting/workbench
+	name = "workbench"
+	desc = "A basic workbench. Solid metal surface and a few tools to help you make basic tools and items you require."
+	icon_state = "workbench"
+
+/obj/structure/table/ms13/crafting/ammobench
+	name = "loading bench"
+	desc = "An ammo loading bench, with some tools that assist you in assembling cartridges to send towards your foe."
+	icon_state = "ammobench"
+
+/obj/structure/table/ms13/crafting/armorbench
+	name = "tailoring bench"
+	desc = "A sturdy bench. It's got an anvil and sewing machine, it'd be a good surface to try and fabricate clothing or armor with."
+	icon_state = "armorbench"
+
+/obj/structure/table/ms13/crafting/weaponbench
+	name = "weapon bench"
+	desc = "A large bench with a functional drill press and a vice. Would be useful in creating and assembling weapons, to the best of your ability anyways."
+	icon_state = "weaponbench"
+
+/obj/structure/table/ms13/crafting/tinkerbench
+	name = "tinkering bench"
+	desc = "A large bench with a power supply hooked up to it. There's a soldering iron and a few other tools scattered about to assist you in making electronic components."
+	icon_state = "tinkerbench"

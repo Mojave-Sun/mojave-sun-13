@@ -300,6 +300,10 @@
 	icon_state = "white_large"
 	alternate_states = 3
 
+/turf/open/floor/iron/ms13/tile/large/green
+	icon_state = "green_large"
+	alternate_states = 3
+
 /turf/open/floor/iron/ms13/tile/large/checkered
 	icon_state = "checker_large"
 	alternate_states = 3
@@ -308,12 +312,15 @@
 	icon_state = "cafe_large"
 	alternate_states = 3
 
-/turf/open/floor/iron/ms13/tile/full //isn't sprited yet
+/turf/open/floor/iron/ms13/tile/full
 	icon_state = "tiled tiles"
+	has_alternate_states = FALSE
 
 /turf/open/floor/iron/ms13/tile/full/navy
 	icon_state = "navy_full"
-	has_alternate_states = FALSE
+
+/turf/open/floor/iron/ms13/tile/full/green
+	icon_state = "green_full"
 
 ////Metal Floors////
 

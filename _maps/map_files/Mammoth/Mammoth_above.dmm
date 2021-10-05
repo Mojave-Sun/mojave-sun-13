@@ -62,13 +62,13 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/supermarket)
 "aj" = (
-/obj/structure/railing{
-	dir = 10
-	},
 /obj/item/circlegame{
 	name =  ROOF SETTER PLACEHOLDER
 	},
-/turf/open/openspace/ms13,
+/obj/structure/railing/ms13/solo{
+	dir = 4
+	},
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/ncr)
 "al" = (
 /obj/item/circlegame{
@@ -186,13 +186,14 @@
 /turf/open/floor/iron/ms13/concrete/bricks,
 /area/ms13/underground/bos)
 "aD" = (
-/obj/structure/table/ms13/wood,
-/obj/item/folder/yellow,
-/obj/item/storage/fancy/cigarettes/dromedaryco,
+/obj/structure/table/ms13/metal,
 /obj/item/circlegame{
 	name =  ROOF SETTER PLACEHOLDER
 	},
-/turf/open/floor/wood/ms13/carpet,
+/obj/machinery/ms13/terminal{
+	dir = 1
+	},
+/turf/open/floor/iron/ms13/concrete/industrial,
 /area/ms13/town)
 "aE" = (
 /obj/item/circlegame{
@@ -274,15 +275,9 @@
 /area/ms13/town)
 "aP" = (
 /obj/structure/table/ms13/metal,
-/obj/machinery/computer/libraryconsole{
-	name = "pretend this is a fallout terminal";
-	pixel_y = 8
-	},
-/obj/item/circlegame{
-	name =  ROOF SETTER PLACEHOLDER
-	},
-/turf/open/floor/iron/ms13/concrete/industrial,
-/area/ms13/town)
+/obj/machinery/ms13/terminal,
+/turf/open/floor/iron/ms13/metal,
+/area/ms13/underground/tunnel/maintenance)
 "aQ" = (
 /obj/structure/railing/ms13/solo,
 /obj/structure/railing/ms13/solo{
@@ -458,12 +453,11 @@
 /obj/structure/table/ms13/no_smooth/large/metal/desk{
 	dir = 1
 	},
-/obj/machinery/computer/libraryconsole{
-	name = "pretend this is a fallout terminal";
-	pixel_y = 8
-	},
 /obj/item/circlegame{
 	name =  ROOF SETTER PLACEHOLDER
+	},
+/obj/machinery/ms13/terminal{
+	dir = 1
 	},
 /turf/open/floor/iron/ms13/metal,
 /area/ms13/town)
@@ -1152,6 +1146,10 @@
 "dF" = (
 /turf/open/floor/iron/ms13/tile/long,
 /area/ms13)
+"dG" = (
+/obj/effect/landmark/start/ms13/head_paladin,
+/turf/open/floor/iron/ms13/concrete/bricks,
+/area/ms13/underground/bos)
 "dH" = (
 /obj/structure/railing/ms13/solo{
 	dir = 4
@@ -1323,7 +1321,6 @@
 /area/ms13/underground/tunnel/maintenance)
 "eg" = (
 /obj/structure/safe/ms13/advanced,
-/obj/item/storage/bag/money,
 /obj/item/circlegame{
 	name =  ROOF SETTER PLACEHOLDER
 	},
@@ -1619,6 +1616,13 @@
 	dir = 8
 	},
 /turf/open/floor/wood/ms13/common,
+/area/ms13/town)
+"fa" = (
+/obj/structure/table/ms13/metal,
+/obj/item/circlegame{
+	name =  ROOF SETTER PLACEHOLDER
+	},
+/turf/open/floor/wood/ms13/carpet/green,
 /area/ms13/town)
 "fb" = (
 /obj/structure/chair/sofa/corp/right,
@@ -2107,6 +2111,7 @@
 /area/ms13/town)
 "gJ" = (
 /obj/structure/closet/crate/ms13/vault_tec/big,
+/obj/effect/spawner/random/ms13/drink/soda,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/vault_atrium_upper)
 "gK" = (
@@ -2387,6 +2392,16 @@
 	},
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
+"hB" = (
+/obj/structure/table/ms13/wood,
+/obj/item/circlegame{
+	name =  ROOF SETTER PLACEHOLDER
+	},
+/obj/machinery/ms13/terminal{
+	dir = 8
+	},
+/turf/open/floor/wood/ms13/carpet,
+/area/ms13/town)
 "hC" = (
 /obj/structure/ms13/foundation/mosaic/variantthree{
 	dir = 8
@@ -2570,6 +2585,13 @@
 	},
 /turf/open/openspace/ms13,
 /area/ms13)
+"ie" = (
+/obj/structure/railing/ms13/solo{
+	dir = 4
+	},
+/obj/structure/railing/ms13/solo,
+/turf/open/floor/iron/ms13/metal/pipe,
+/area/ms13/underground/bos)
 "if" = (
 /obj/structure/table/ms13/wood,
 /obj/item/camera/detective,
@@ -2911,13 +2933,13 @@
 /turf/open/floor/iron/ms13/tile/brown,
 /area/ms13/town)
 "jc" = (
-/obj/structure/railing{
-	dir = 8
-	},
 /obj/item/circlegame{
 	name =  ROOF SETTER PLACEHOLDER
 	},
-/turf/open/openspace/ms13,
+/obj/structure/railing/ms13/solo{
+	dir = 1
+	},
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/ncr)
 "jd" = (
 /obj/structure/closet/crate/bin,
@@ -3121,7 +3143,7 @@
 /area/ms13/town)
 "jH" = (
 /obj/structure/table/ms13/no_smooth/large/wood/stand,
-/obj/item/reagent_containers/food/drinks/bottle/whiskey{
+/obj/item/reagent_containers/food/drinks/bottle/ms13/whiskey{
 	pixel_x = 4;
 	pixel_y = 10
 	},
@@ -3531,9 +3553,6 @@
 	},
 /turf/open/floor/iron/ms13/metal/plate,
 /area/ms13/underground/tunnel/maintenance)
-"kW" = (
-/turf/open/floor/iron/ms13/metal/border,
-/area/ms13/underground/bos)
 "kY" = (
 /obj/item/circlegame{
 	name =  ROOF SETTER PLACEHOLDER
@@ -3957,11 +3976,11 @@
 /area/ms13/town)
 "mr" = (
 /obj/structure/table/ms13/metal,
-/obj/machinery/computer/libraryconsole{
-	name = "pretend this is a fallout terminal"
-	},
 /obj/item/circlegame{
 	name =  ROOF SETTER PLACEHOLDER
+	},
+/obj/machinery/ms13/terminal{
+	dir = 4
 	},
 /turf/open/floor/wood/ms13/carpet,
 /area/ms13/town)
@@ -5108,12 +5127,11 @@
 /area/ms13)
 "pL" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/under/rank/security/detective/grey,
-/obj/item/clothing/suit/armor/bulletproof,
 /obj/item/clothing/head/helmet/ms13/trilby,
 /obj/item/circlegame{
 	name =  ROOF SETTER PLACEHOLDER
 	},
+/obj/item/clothing/under/ms13/wasteland/police,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "pM" = (
@@ -5157,6 +5175,13 @@
 	name = "ROOF SETTER PLACEHOLDER"
 	},
 /turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
+"pX" = (
+/obj/item/circlegame{
+	name =  ROOF SETTER PLACEHOLDER
+	},
+/obj/structure/filingcabinet/ms13,
+/turf/open/floor/iron/ms13/metal,
 /area/ms13/town)
 "pZ" = (
 /obj/structure/ms13/road_barrier/concrete/alt{
@@ -5385,13 +5410,6 @@
 	},
 /turf/open/openspace/ms13,
 /area/ms13/town)
-"qH" = (
-/obj/structure/railing,
-/obj/item/circlegame{
-	name =  ROOF SETTER PLACEHOLDER
-	},
-/turf/open/openspace/ms13,
-/area/ms13/ncr)
 "qK" = (
 /obj/structure/table/ms13/wood,
 /obj/item/clipboard,
@@ -5518,6 +5536,7 @@
 /obj/item/circlegame{
 	name =  ROOF SETTER PLACEHOLDER
 	},
+/obj/effect/spawner/random/ms13/drink/soda_uncommon,
 /turf/open/floor/wood/ms13/carpet/green,
 /area/ms13/town)
 "rh" = (
@@ -5732,9 +5751,7 @@
 /area/ms13/underground/tunnel/maintenance)
 "rM" = (
 /obj/structure/table/ms13/no_smooth/wood,
-/obj/item/reagent_containers/food/drinks/drinkingglass/shotglass{
-	pixel_y = 12
-	},
+/obj/effect/spawner/random/ms13/drink/soda_uncommon,
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/underground/vault_atrium_upper)
 "rN" = (
@@ -5877,13 +5894,10 @@
 /area/ms13/town)
 "sf" = (
 /obj/structure/table/ms13/no_smooth/large/wood/desk,
-/obj/machinery/computer/libraryconsole{
-	name = "pretend this is a fallout terminal";
-	pixel_y = 8
-	},
 /obj/item/circlegame{
 	name =  ROOF SETTER PLACEHOLDER
 	},
+/obj/machinery/ms13/terminal,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "sg" = (
@@ -5992,12 +6006,10 @@
 	dir = 4
 	},
 /obj/structure/table/ms13/wood,
-/obj/machinery/computer/libraryconsole{
-	name = "pretend this is a fallout terminal"
-	},
 /obj/item/circlegame{
 	name =  ROOF SETTER PLACEHOLDER
 	},
+/obj/machinery/ms13/terminal,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "sy" = (
@@ -6021,11 +6033,11 @@
 /area/ms13/underground/tunnel/maintenance)
 "sD" = (
 /obj/structure/table/ms13/wood,
-/obj/machinery/computer/libraryconsole{
-	name = "pretend this is a fallout terminal"
-	},
 /obj/item/circlegame{
 	name =  ROOF SETTER PLACEHOLDER
+	},
+/obj/machinery/ms13/terminal{
+	dir = 8
 	},
 /turf/open/floor/wood/ms13/carpet/blue,
 /area/ms13/town)
@@ -6799,12 +6811,11 @@
 /turf/open/floor/wood/ms13/carpet/shaggy/green,
 /area/ms13/town)
 "vs" = (
-/obj/machinery/computer/libraryconsole{
-	name = "pretend this is a fallout terminal";
-	pixel_y = 8
-	},
 /obj/item/circlegame{
 	name =  ROOF SETTER PLACEHOLDER
+	},
+/obj/machinery/ms13/terminal{
+	dir = 4
 	},
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
@@ -6997,6 +7008,16 @@
 	},
 /turf/open/floor/iron/ms13/metal,
 /area/ms13/town)
+"wc" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/table/ms13/wood,
+/obj/item/circlegame{
+	name =  ROOF SETTER PLACEHOLDER
+	},
+/turf/open/floor/wood/ms13/common,
+/area/ms13/town)
 "wd" = (
 /obj/structure/table/ms13/metal,
 /turf/open/floor/iron/ms13/metal,
@@ -7108,10 +7129,6 @@
 	},
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
-"wD" = (
-/obj/structure/spider/stickyweb,
-/turf/closed/indestructible/rock/ms13/mammoth,
-/area/ms13/underground/mountain)
 "wE" = (
 /obj/structure/railing{
 	dir = 8
@@ -7361,9 +7378,7 @@
 /area/ms13/town)
 "xp" = (
 /obj/structure/table/ms13/metal,
-/obj/machinery/computer/libraryconsole{
-	name = "pretend this is a fallout terminal"
-	},
+/obj/item/radio/ms13/ham/broadcast,
 /turf/open/floor/iron/ms13/metal,
 /area/ms13/underground/vault_atrium_upper)
 "xq" = (
@@ -7709,6 +7724,10 @@
 	},
 /turf/open/floor/iron/ms13/metal,
 /area/ms13/town)
+"yw" = (
+/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/t51,
+/turf/open/floor/iron/ms13/metal/warning,
+/area/ms13/underground/bos)
 "yx" = (
 /obj/structure/closet/crate/ms13/footlocker{
 	dir = 1
@@ -8087,7 +8106,7 @@
 	pixel_x = -6;
 	pixel_y = 6
 	},
-/obj/item/reagent_containers/food/drinks/bottle/whiskey{
+/obj/item/reagent_containers/food/drinks/bottle/ms13/whiskey{
 	pixel_x = 4;
 	pixel_y = 10
 	},
@@ -8168,11 +8187,6 @@
 	},
 /turf/open/floor/iron/ms13/tile,
 /area/ms13/town)
-"Ac" = (
-/turf/open/floor/iron/ms13/metal/border/corner{
-	dir = 1
-	},
-/area/ms13/underground/bos)
 "Ad" = (
 /turf/open/floor/iron/ms13/metal,
 /area/ms13/underground/vault_atrium_upper)
@@ -8359,14 +8373,14 @@
 /area/ms13/underground/tunnel/maintenance)
 "AL" = (
 /obj/structure/table/ms13/wood,
-/obj/machinery/computer/libraryconsole{
-	name = "pretend this is a fallout terminal"
-	},
 /obj/item/circlegame{
 	name =  ROOF SETTER PLACEHOLDER
 	},
 /obj/item/circlegame{
 	name =  ROOF SETTER PLACEHOLDER
+	},
+/obj/machinery/ms13/terminal{
+	dir = 1
 	},
 /turf/open/floor/wood/ms13/carpet,
 /area/ms13/town)
@@ -8551,10 +8565,10 @@
 /area/ms13/town)
 "Bt" = (
 /obj/structure/table/ms13/metal,
-/obj/item/radio/ms13/ham/broadcast,
 /obj/machinery/light/ms13/bulb{
 	dir = 1
 	},
+/obj/effect/spawner/random/ms13/drink/soda,
 /turf/open/floor/iron/ms13/metal,
 /area/ms13/underground/vault_atrium_upper)
 "Bu" = (
@@ -8637,17 +8651,6 @@
 	dir = 10
 	},
 /turf/open/openspace/ms13,
-/area/ms13/town)
-"BG" = (
-/obj/structure/table/ms13/metal,
-/obj/machinery/computer/libraryconsole{
-	name = "pretend this is a fallout terminal";
-	pixel_y = 8
-	},
-/obj/item/circlegame{
-	name =  ROOF SETTER PLACEHOLDER
-	},
-/turf/open/floor/wood/ms13/carpet/green,
 /area/ms13/town)
 "BH" = (
 /obj/structure/lattice/catwalk,
@@ -8745,10 +8748,6 @@
 "Ca" = (
 /turf/open/openspace/ms13,
 /area/ms13/underground/tunnel/maintenance)
-"Cb" = (
-/obj/effect/landmark/start/ms13/head_paladin,
-/turf/open/floor/iron/ms13/concrete/bricks,
-/area/ms13/underground/bos)
 "Cc" = (
 /obj/structure/chair/comfy/ms13/armchair{
 	dir = 4
@@ -8954,6 +8953,11 @@
 	},
 /turf/open/floor/plating,
 /area/ms13/town)
+"CQ" = (
+/obj/structure/table/ms13/metal/alt,
+/obj/effect/spawner/random/ms13/drink/alcohol_uncommon,
+/turf/open/floor/iron/ms13/metal/grate/alt,
+/area/ms13/underground/vault_atrium_upper)
 "CR" = (
 /obj/item/circlegame{
 	name =  ROOF SETTER PLACEHOLDER
@@ -9222,7 +9226,6 @@
 	pixel_x = -3;
 	pixel_y = 2
 	},
-/obj/item/clothing/head/fedora/det_hat,
 /obj/item/circlegame{
 	name =  ROOF SETTER PLACEHOLDER
 	},
@@ -9438,16 +9441,13 @@
 /area/ms13/town)
 "EA" = (
 /obj/structure/table/ms13/no_smooth/large/metal/desk,
-/obj/machinery/computer/libraryconsole{
-	name = "pretend this is a fallout terminal";
-	pixel_y = 8
-	},
 /obj/machinery/light/ms13/broken{
 	dir = 1
 	},
 /obj/item/circlegame{
 	name =  ROOF SETTER PLACEHOLDER
 	},
+/obj/machinery/ms13/terminal,
 /turf/open/floor/iron/ms13/metal,
 /area/ms13/town)
 "EB" = (
@@ -9491,6 +9491,14 @@
 	name = "ROOF SETTER PLACEHOLDER"
 	},
 /turf/closed/wall/ms13/scrap/blue,
+/area/ms13/town)
+"EI" = (
+/obj/structure/table/ms13/metal,
+/obj/item/circlegame{
+	name =  ROOF SETTER PLACEHOLDER
+	},
+/obj/machinery/ms13/terminal,
+/turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "EJ" = (
 /obj/structure/railing/corner{
@@ -9594,10 +9602,7 @@
 "EW" = (
 /obj/effect/decal/cleanable/glass,
 /obj/structure/table/ms13/metal,
-/obj/machinery/computer/libraryconsole{
-	name = "pretend this is a fallout terminal";
-	pixel_y = 8
-	},
+/obj/machinery/ms13/terminal,
 /turf/open/floor/iron/ms13/metal,
 /area/ms13/underground/tunnel/maintenance)
 "EX" = (
@@ -9656,6 +9661,12 @@
 /obj/item/trash/boritos,
 /turf/open/floor/iron/ms13/concrete/industrial,
 /area/ms13/underground/tunnel/maintenance)
+"Ff" = (
+/obj/machinery/shower{
+	dir = 1
+	},
+/turf/open/floor/iron/ms13/tile,
+/area/ms13/underground/vault_atrium_upper)
 "Fg" = (
 /obj/structure/chair/sofa/corp/right{
 	dir = 4
@@ -9960,8 +9971,8 @@
 /area/ms13/town)
 "Ge" = (
 /obj/structure/table/ms13/metal/alt,
-/obj/machinery/computer/libraryconsole{
-	name = "pretend this is a fallout terminal"
+/obj/machinery/ms13/terminal{
+	dir = 1
 	},
 /turf/open/floor/iron/ms13/metal/border{
 	dir = 1
@@ -10180,10 +10191,7 @@
 	name =  ROOF SETTER PLACEHOLDER
 	},
 /obj/structure/table/ms13/no_smooth/large/wood/desk,
-/obj/machinery/computer/libraryconsole{
-	name = "pretend this is a fallout terminal";
-	pixel_y = 8
-	},
+/obj/machinery/ms13/terminal,
 /turf/open/floor/iron/ms13/tile/full/navy,
 /area/ms13/town)
 "GM" = (
@@ -10433,9 +10441,10 @@
 /turf/open/floor/wood/ms13/carpet,
 /area/ms13/town)
 "Hw" = (
-/turf/open/floor/iron/ms13/metal/border/corner{
-	dir = 4
+/obj/machinery/door/poddoor/shutters/indestructible/ms13{
+	id = "paladin-pa-storage"
 	},
+/turf/open/floor/iron/ms13/metal/grate/border,
 /area/ms13/underground/bos)
 "Hx" = (
 /obj/structure/closet/cabinet,
@@ -10610,6 +10619,13 @@
 	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/ncr)
+"HZ" = (
+/obj/structure/railing/ms13/solo{
+	dir = 8
+	},
+/obj/structure/railing/ms13/solo,
+/turf/open/floor/iron/ms13/metal/pipe,
+/area/ms13/underground/bos)
 "Ia" = (
 /obj/item/circlegame{
 	name =  ROOF SETTER PLACEHOLDER
@@ -11046,12 +11062,11 @@
 /area/ms13/underground/tunnel/maintenance)
 "Jq" = (
 /obj/structure/table/ms13/metal,
-/obj/machinery/computer/libraryconsole{
-	name = "pretend this is a fallout terminal";
-	pixel_y = 8
-	},
 /obj/item/circlegame{
 	name =  ROOF SETTER PLACEHOLDER
+	},
+/obj/machinery/ms13/terminal{
+	dir = 1
 	},
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
@@ -11182,7 +11197,7 @@
 /turf/open/floor/iron/ms13/concrete,
 /area/ms13/underground/tunnel/maintenance)
 "JL" = (
-/obj/item/reagent_containers/food/drinks/bottle/whiskey{
+/obj/item/reagent_containers/food/drinks/bottle/ms13/whiskey{
 	pixel_x = 4
 	},
 /obj/item/circlegame{
@@ -11317,6 +11332,14 @@
 	},
 /turf/open/floor/iron/ms13/tile,
 /area/ms13/town)
+"Kd" = (
+/obj/structure/table/ms13/wood,
+/obj/item/circlegame{
+	name =  ROOF SETTER PLACEHOLDER
+	},
+/obj/item/paper_bin,
+/turf/open/floor/wood/ms13/carpet,
+/area/ms13/town)
 "Ke" = (
 /obj/item/circlegame{
 	name =  ROOF SETTER PLACEHOLDER
@@ -11359,7 +11382,7 @@
 /turf/open/floor/wood/ms13/carpet/green,
 /area/ms13/supermarket)
 "Ks" = (
-/turf/open/floor/iron/ms13/metal/border/corner,
+/turf/open/floor/iron/ms13/metal/plate,
 /area/ms13/underground/bos)
 "Kt" = (
 /obj/effect/decal/remains/human,
@@ -11383,10 +11406,10 @@
 /turf/closed/wall/ms13/brick/alt,
 /area/ms13/town)
 "Kx" = (
-/obj/structure/table/ms13/no_smooth/large/metal/desk,
 /obj/machinery/light/ms13{
 	dir = 1
 	},
+/obj/structure/table/ms13/crafting/tinkerbench,
 /turf/open/floor/iron/ms13/concrete/bricks,
 /area/ms13/underground/bos)
 "KA" = (
@@ -11627,15 +11650,11 @@
 /area/ms13/town)
 "Lg" = (
 /obj/structure/table/ms13/metal,
-/obj/machinery/computer/libraryconsole{
-	name = "pretend this is a fallout terminal";
-	pixel_y = 8
+/obj/machinery/ms13/terminal{
+	dir = 4
 	},
-/obj/item/circlegame{
-	name =  ROOF SETTER PLACEHOLDER
-	},
-/turf/open/floor/wood/ms13/carpet/shaggy/green,
-/area/ms13/town)
+/turf/open/floor/iron/ms13/metal,
+/area/ms13/underground/vault_atrium_upper)
 "Lh" = (
 /obj/item/circlegame{
 	name =  ROOF SETTER PLACEHOLDER
@@ -12158,6 +12177,16 @@
 "MP" = (
 /turf/closed/wall/ms13/concrete,
 /area/ms13/underground/tunnel)
+"MR" = (
+/obj/structure/table/ms13/wood,
+/obj/item/circlegame{
+	name =  ROOF SETTER PLACEHOLDER
+	},
+/obj/machinery/ms13/terminal{
+	dir = 1
+	},
+/turf/open/floor/wood/ms13/common,
+/area/ms13/town)
 "MS" = (
 /obj/structure/bed/ms13/mattress/stale,
 /obj/item/circlegame{
@@ -12485,6 +12514,16 @@
 	},
 /turf/open/floor/iron/ms13/concrete/industrial,
 /area/ms13/town)
+"NT" = (
+/obj/structure/table/ms13/wood,
+/obj/item/circlegame{
+	name =  ROOF SETTER PLACEHOLDER
+	},
+/obj/machinery/ms13/terminal{
+	dir = 8
+	},
+/turf/open/floor/wood/ms13/common,
+/area/ms13/town)
 "NU" = (
 /turf/closed/wall/ms13/bunker,
 /area/ms13/underground/bos)
@@ -12497,11 +12536,6 @@
 	},
 /turf/open/floor/wood/ms13/carpet,
 /area/ms13/town)
-"NY" = (
-/turf/open/floor/iron/ms13/metal/border/corner{
-	dir = 8
-	},
-/area/ms13/underground/bos)
 "NZ" = (
 /obj/structure/chair/ms13/metal/broken,
 /turf/open/floor/wood/ms13/common,
@@ -12515,6 +12549,9 @@
 	},
 /obj/structure/table/ms13/no_smooth/large/metal/desk/alt{
 	dir = 8
+	},
+/obj/machinery/ms13/terminal{
+	dir = 4
 	},
 /turf/open/floor/iron/ms13/concrete/bricks,
 /area/ms13/underground/bos)
@@ -12792,7 +12829,7 @@
 /area/ms13/underground/tunnel/maintenance)
 "OT" = (
 /obj/structure/table/ms13/metal,
-/obj/item/reagent_containers/food/drinks/bottle/whiskey,
+/obj/item/reagent_containers/food/drinks/bottle/ms13/whiskey,
 /obj/item/circlegame{
 	name =  ROOF SETTER PLACEHOLDER
 	},
@@ -12817,6 +12854,14 @@
 	name =  ROOF SETTER PLACEHOLDER
 	},
 /turf/open/floor/iron/ms13/metal,
+/area/ms13/town)
+"OZ" = (
+/obj/structure/table/ms13/wood,
+/obj/item/circlegame{
+	name =  ROOF SETTER PLACEHOLDER
+	},
+/obj/machinery/ms13/terminal/rusty,
+/turf/open/floor/wood/ms13/carpet,
 /area/ms13/town)
 "Pa" = (
 /obj/structure/closet/cabinet,
@@ -12907,6 +12952,9 @@
 /obj/structure/table/ms13/no_smooth/large/metal/desk/alt{
 	dir = 4
 	},
+/obj/machinery/ms13/terminal{
+	dir = 8
+	},
 /turf/open/floor/iron/ms13/concrete/bricks,
 /area/ms13/underground/bos)
 "Pp" = (
@@ -12977,9 +13025,8 @@
 /turf/open/floor/wood/ms13/carpet/blue,
 /area/ms13/town)
 "Py" = (
-/turf/open/floor/iron/ms13/metal/border{
-	dir = 1
-	},
+/obj/machinery/door/poddoor/shutters/indestructible/ms13,
+/turf/open/floor/iron/ms13/metal/grate/border,
 /area/ms13/underground/bos)
 "PA" = (
 /obj/item/circlegame{
@@ -13164,13 +13211,12 @@
 /turf/open/openspace/ms13,
 /area/ms13/supermarket)
 "Qf" = (
-/obj/structure/filingcabinet/ms13{
-	dir = 8
-	},
+/obj/structure/table/ms13/metal,
 /obj/item/circlegame{
 	name =  ROOF SETTER PLACEHOLDER
 	},
-/turf/open/floor/iron/ms13/metal,
+/obj/machinery/ms13/terminal,
+/turf/open/floor/wood/ms13/carpet/green,
 /area/ms13/town)
 "Qg" = (
 /obj/structure/railing/corner{
@@ -14037,6 +14083,13 @@
 /obj/structure/closet/crate/bin,
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
+"SM" = (
+/obj/item/circlegame{
+	name =  ROOF SETTER PLACEHOLDER
+	},
+/obj/item/folder/yellow,
+/turf/open/floor/wood/ms13/common,
+/area/ms13/town)
 "SN" = (
 /turf/open/floor/iron/ms13/metal/border/corner{
 	dir = 8
@@ -14311,16 +14364,6 @@
 /obj/structure/railing/ms13/solo/industrial,
 /turf/open/openspace/ms13,
 /area/ms13/town)
-"TJ" = (
-/obj/structure/table/ms13/metal,
-/obj/machinery/computer/libraryconsole{
-	name = "pretend this is a fallout terminal"
-	},
-/obj/item/circlegame{
-	name =  ROOF SETTER PLACEHOLDER
-	},
-/turf/open/floor/wood/ms13/common,
-/area/ms13/town)
 "TK" = (
 /obj/machinery/door/unpowered/ms13/metal{
 	dir = 1
@@ -14334,12 +14377,10 @@
 /area/ms13/underground/tunnel/maintenance)
 "TM" = (
 /obj/structure/table/ms13/wood,
-/obj/machinery/computer/libraryconsole{
-	name = "pretend this is a fallout terminal"
-	},
 /obj/item/circlegame{
 	name =  ROOF SETTER PLACEHOLDER
 	},
+/obj/machinery/ms13/terminal,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "TO" = (
@@ -15015,6 +15056,19 @@
 	},
 /turf/open/floor/wood/ms13/carpet/green,
 /area/ms13/town)
+"VT" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/table/ms13/wood,
+/obj/item/circlegame{
+	name =  ROOF SETTER PLACEHOLDER
+	},
+/obj/machinery/ms13/terminal{
+	dir = 1
+	},
+/turf/open/floor/wood/ms13/common,
+/area/ms13/town)
 "VV" = (
 /obj/machinery/door/poddoor/shutters,
 /turf/open/floor/iron/ms13/metal,
@@ -15292,12 +15346,10 @@
 /area/ms13/town)
 "WK" = (
 /obj/structure/table/ms13/metal,
-/obj/machinery/computer/libraryconsole{
-	name = "pretend this is a fallout terminal"
-	},
 /obj/item/circlegame{
 	name =  ROOF SETTER PLACEHOLDER
 	},
+/obj/machinery/ms13/terminal,
 /turf/open/floor/iron/ms13/metal,
 /area/ms13/town)
 "WL" = (
@@ -15325,14 +15377,11 @@
 /turf/open/openspace/ms13,
 /area/ms13/supermarket)
 "WQ" = (
-/obj/machinery/computer/libraryconsole{
-	name = "pretend this is a fallout terminal";
-	pixel_y = 8
-	},
 /obj/item/circlegame{
 	name =  ROOF SETTER PLACEHOLDER
 	},
 /obj/structure/table/ms13/metal,
+/obj/machinery/ms13/terminal,
 /turf/open/floor/iron/ms13/concrete/industrial,
 /area/ms13/town)
 "WR" = (
@@ -15361,6 +15410,12 @@
 "WU" = (
 /obj/structure/table/ms13/no_smooth/large/metal/desk{
 	dir = 1
+	},
+/obj/machinery/ms13/terminal{
+	dir = 1;
+	remote_capability = 1;
+	signal_id_1 = "paladin-pa-storage";
+	signal_title_1 = "Power Armor Storage"
 	},
 /turf/open/floor/iron/ms13/metal,
 /area/ms13/underground/bos)
@@ -15522,12 +15577,10 @@
 /area/ms13/town)
 "Xx" = (
 /obj/structure/table/ms13/wood,
-/obj/machinery/computer/libraryconsole{
-	name = "pretend this is a fallout terminal"
-	},
 /obj/item/circlegame{
 	name =  ROOF SETTER PLACEHOLDER
 	},
+/obj/machinery/ms13/terminal,
 /turf/open/floor/wood/ms13/carpet,
 /area/ms13/town)
 "Xy" = (
@@ -15583,6 +15636,14 @@
 /obj/structure/railing{
 	dir = 8
 	},
+/turf/open/floor/iron/ms13/concrete/industrial,
+/area/ms13/town)
+"XE" = (
+/obj/structure/table/ms13/metal,
+/obj/item/circlegame{
+	name =  ROOF SETTER PLACEHOLDER
+	},
+/obj/machinery/ms13/terminal,
 /turf/open/floor/iron/ms13/concrete/industrial,
 /area/ms13/town)
 "XF" = (
@@ -15800,6 +15861,14 @@
 	},
 /turf/open/floor/iron/ms13/metal,
 /area/ms13/town)
+"Yq" = (
+/obj/structure/closet,
+/obj/item/circlegame{
+	name =  ROOF SETTER PLACEHOLDER
+	},
+/obj/effect/spawner/random/ms13/drink/alcohol_beer,
+/turf/open/floor/wood/ms13/common,
+/area/ms13/town)
 "Yr" = (
 /obj/structure/table/ms13/metal,
 /obj/item/paper_bin{
@@ -16015,6 +16084,15 @@
 	},
 /turf/open/floor/iron/ms13/concrete,
 /area/ms13/town)
+"YU" = (
+/obj/structure/table/ms13/wood,
+/obj/item/circlegame{
+	name =  ROOF SETTER PLACEHOLDER
+	},
+/obj/item/paper_bin,
+/obj/item/pen,
+/turf/open/floor/wood/ms13/common,
+/area/ms13/town)
 "YV" = (
 /obj/structure/closet/crate/bin,
 /obj/item/circlegame{
@@ -16178,17 +16256,14 @@
 	name =  ROOF SETTER PLACEHOLDER
 	},
 /obj/structure/table/ms13/metal,
-/obj/machinery/chem_dispenser/drinks/beer,
+/obj/effect/spawner/random/ms13/drink/alcohol_beer,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "ZD" = (
-/obj/machinery/computer/libraryconsole{
-	name = "pretend this is a fallout terminal";
-	pixel_y = 8
-	},
 /obj/item/circlegame{
 	name =  ROOF SETTER PLACEHOLDER
 	},
+/obj/machinery/ms13/terminal,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "ZE" = (
@@ -22041,7 +22116,7 @@ PY
 PY
 PY
 PY
-wD
+PY
 PY
 PY
 PY
@@ -27012,7 +27087,7 @@ SG
 Ad
 Wa
 ca
-rG
+bH
 Wa
 Ad
 TK
@@ -27314,7 +27389,7 @@ BU
 XO
 Wa
 ca
-bH
+rG
 Wa
 Ad
 vL
@@ -27617,8 +27692,8 @@ IL
 Wa
 qE
 rG
-Wa
-Ad
+rG
+Sx
 rG
 vL
 rG
@@ -28811,7 +28886,7 @@ NH
 ca
 zt
 Rs
-JH
+CQ
 JH
 Rx
 vL
@@ -29130,9 +29205,9 @@ vL
 rG
 zR
 xh
+xh
+Ff
 rG
-PY
-PY
 PY
 PY
 PY
@@ -29296,9 +29371,9 @@ Mt
 Mt
 Mt
 Mt
-Mt
-Mt
-Mt
+aj
+aj
+aj
 Mt
 Mt
 Mt
@@ -29432,9 +29507,9 @@ PY
 rG
 zR
 Sb
+xh
+Ff
 rG
-PY
-PY
 PY
 PY
 PY
@@ -29598,10 +29673,10 @@ Mt
 Mt
 Mt
 Mt
+lb
+lb
+lb
 jc
-jc
-aj
-Mt
 Mt
 Mt
 Mt
@@ -29732,11 +29807,11 @@ rG
 PY
 PY
 rG
-zR
-xh
 rG
-PY
-PY
+rG
+rG
+rG
+rG
 PY
 PY
 PY
@@ -29902,8 +29977,8 @@ ll
 Mt
 Vi
 lb
-qH
-Mt
+lb
+jc
 Mt
 Mt
 Mt
@@ -30025,7 +30100,7 @@ PY
 PY
 rG
 xp
-BA
+Lg
 Ad
 Ad
 Ad
@@ -30033,10 +30108,10 @@ BA
 vL
 PY
 PY
-rG
-rG
-rG
-rG
+PY
+PY
+PY
+PY
 PY
 PY
 PY
@@ -30204,8 +30279,8 @@ ll
 ll
 ll
 ll
-qH
-Mt
+lb
+jc
 Mt
 Mt
 Mt
@@ -49660,7 +49735,7 @@ YA
 VJ
 hd
 hd
-yb
+Qf
 ui
 Vt
 hd
@@ -49964,7 +50039,7 @@ hC
 hG
 yP
 Nf
-BG
+fa
 YA
 hd
 Op
@@ -52375,7 +52450,7 @@ bJ
 bJ
 bJ
 YA
-BG
+Qf
 DG
 DG
 SE
@@ -53314,7 +53389,7 @@ zQ
 Gr
 Ya
 Ya
-aP
+XE
 Ya
 Ya
 AF
@@ -55366,7 +55441,7 @@ AF
 nk
 Ya
 Ya
-aP
+KE
 AF
 He
 He
@@ -55970,7 +56045,7 @@ AF
 nk
 Ya
 Ya
-aP
+aD
 AF
 He
 He
@@ -56532,7 +56607,7 @@ Ef
 Xq
 Xq
 XI
-LK
+Yq
 Xq
 Xq
 XI
@@ -58210,7 +58285,7 @@ LH
 LH
 LH
 Cj
-Lg
+UD
 UD
 wI
 PC
@@ -58561,7 +58636,7 @@ Xq
 Xq
 Xq
 Xq
-aD
+Jb
 vM
 Cj
 IH
@@ -58861,10 +58936,10 @@ Na
 oW
 zK
 Xq
-Xq
+SM
 Qo
-Xx
-cp
+Kd
+hB
 Cj
 Xq
 Xq
@@ -60071,7 +60146,7 @@ Ef
 Ef
 aO
 Rq
-sx
+VT
 Cj
 Cj
 Xq
@@ -61581,7 +61656,7 @@ Ef
 Ef
 aO
 Rq
-sx
+VT
 Cj
 Cj
 Cj
@@ -63672,7 +63747,7 @@ uC
 eH
 as
 Xq
-To
+EI
 QV
 CP
 LH
@@ -63695,7 +63770,7 @@ Ef
 Ef
 Xq
 Bf
-iE
+MR
 Cj
 He
 He
@@ -63974,7 +64049,7 @@ vZ
 eH
 Xq
 Xq
-TJ
+To
 Ie
 Cj
 LH
@@ -63997,7 +64072,7 @@ Ef
 Ef
 ny
 rh
-sx
+wc
 Cj
 PI
 PI
@@ -64571,7 +64646,7 @@ LH
 LH
 LH
 CP
-TJ
+EI
 Xq
 Xq
 qX
@@ -65506,8 +65581,8 @@ zK
 Ef
 Ef
 OA
-pz
-TM
+NT
+YU
 Cj
 bJ
 bJ
@@ -66641,7 +66716,7 @@ kj
 ZS
 He
 Cj
-Xx
+OZ
 MA
 CN
 hd
@@ -68411,7 +68486,7 @@ Cj
 eo
 Cj
 Cj
-Wt
+pX
 gA
 gA
 gA
@@ -68815,7 +68890,7 @@ LH
 LH
 LH
 LH
-np
+LH
 LH
 LH
 bJ
@@ -69296,7 +69371,7 @@ rH
 jq
 jq
 XR
-OS
+wd
 jf
 Xd
 rH
@@ -69318,10 +69393,10 @@ Cj
 Cj
 Cj
 gA
-Qf
-Qf
-Qf
-Qf
+gA
+gA
+gA
+gA
 uA
 Cj
 LH
@@ -69900,7 +69975,7 @@ mX
 Iz
 jq
 XR
-fY
+aP
 jq
 jq
 rH
@@ -70460,7 +70535,7 @@ LH
 ZI
 Go
 ts
-OS
+aP
 SA
 HF
 jq
@@ -71759,7 +71834,7 @@ LH
 LH
 bJ
 Nd
-aP
+KE
 xg
 Ya
 Ya
@@ -72276,7 +72351,7 @@ PY
 PY
 hg
 yG
-OS
+aP
 tb
 rp
 hg
@@ -81635,12 +81710,12 @@ cA
 Xq
 GK
 ot
-hL
+To
 Cj
 Pp
 Xq
 Xq
-TJ
+To
 Yc
 Yc
 Cj
@@ -81937,7 +82012,7 @@ as
 Zq
 jY
 nX
-TJ
+Jq
 Cj
 JS
 Xq
@@ -81988,7 +82063,7 @@ PY
 PY
 PY
 NU
-Ph
+dG
 Ph
 jL
 lI
@@ -82239,7 +82314,7 @@ Xq
 rN
 He
 PO
-hL
+To
 Cj
 Pp
 Xq
@@ -82582,7 +82657,7 @@ PY
 PY
 PY
 PY
-PY
+NU
 NU
 NU
 NU
@@ -82884,9 +82959,9 @@ PY
 PY
 PY
 PY
-PY
 NU
-Ac
+ie
+Ks
 Hw
 mj
 mj
@@ -83186,9 +83261,9 @@ PY
 PY
 PY
 PY
-PY
 NU
-kW
+yw
+Ks
 Py
 mj
 mj
@@ -83488,10 +83563,10 @@ PY
 PY
 PY
 PY
-PY
 NU
+HZ
 Ks
-NY
+Py
 mj
 mj
 mj
@@ -83790,7 +83865,7 @@ PY
 PY
 PY
 PY
-PY
+NU
 NU
 NU
 NU
@@ -84102,7 +84177,7 @@ mj
 fx
 NU
 Kx
-Cb
+Ph
 Ph
 Ph
 Ph
