@@ -1,3 +1,7 @@
+// This will allow you to show an icon in the browse window
+// This is added to mob so that it can be used without a reference to the browser object
+/mob/proc/browse_rsc_icon(icon, icon_state, dir = -1)
+
 //// Actual Terminals ////
 /obj/machinery/ms13/terminal
 	name = "desktop terminal"
