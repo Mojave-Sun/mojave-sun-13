@@ -27,8 +27,8 @@
 	if(machine_stat & (NOPOWER|BROKEN))
 		return FALSE
 	return TRUE
-// Mojave Sun edit begin
-/*/obj/machinery/computer/update_overlays()
+
+/obj/machinery/computer/update_overlays()
 	. = ..()
 	if(icon_keyboard)
 		if(machine_stat & NOPOWER)
@@ -43,8 +43,8 @@
 		return // If we don't do this broken computers glow in the dark.
 
 	. += mutable_appearance(icon, overlay_state)
-	. += emissive_appearance(icon, overlay_state) */
-// Mojave Sun edit end
+	. += emissive_appearance(icon, overlay_state)
+
 /obj/machinery/computer/power_change()
 	. = ..()
 	if(machine_stat & NOPOWER)

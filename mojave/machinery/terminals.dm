@@ -1,33 +1,26 @@
-////// Terminals initially ported in from BD code. Cool modification TBD/WYCI //////
-/obj/machinery/computer/ms13/
-	name = "Generic MS13 computer"
-	desc = "DON'T USE IT"
-	layer = BELOW_OBJ_LAYER
-	max_integrity = 550 // Hearty lil things.
-	integrity_failure = 0
-	icon_keyboard = null
-	var/broken = FALSE // Used for pre-broken terminals
-	var/active = TRUE // These should usually probably start off
-	var/datum/looping_sound/ms13/terminal/soundloop
-
-/obj/machinery/computer/ms13/screwdriver_act(mob/living/user, obj/item/I)
-	return
-
 //// Actual Terminals ////
-/obj/machinery/computer/ms13/terminal
+/obj/machinery/ms13/terminal
 	name = "desktop terminal"
 	desc = "A RobCo Industries terminal, widely available for commercial and private use before the war."
 	icon = 'mojave/icons/structure/terminals.dmi'
 	icon_state = "terminal"
-	icon_screen = "terminal_screen"
 	light_color = LIGHT_COLOR_GREEN
 	pixel_y = 8
+	layer = BELOW_OBJ_LAYER
+	max_integrity = 550 // Hearty lil things.
+	integrity_failure = 0
+	idle_power_usage = 300
+	active_power_usage = 300
+	var/broken = FALSE // Used for pre-broken terminals
+	var/active = TRUE // These should usually probably start off
+	var/screen_icon = "terminal_screen"
 	var/termtag = "Home" // We use this for flavor.
 	var/termnumber = null // Flavor
 	var/mode = 0 // What page we're on. 0 is the main menu. 1 is the text editor. 2 is the document viewer. 3 is the optional utility page
 	var/prog_notekeeper = TRUE // Almost all consoles have the word processor installed, but we can remove it if we want to
 	var/remote_capability = FALSE // For special terminals that can activate certain things. Wall terminals / The quirky ones with antennas namely
 	var/rigged = FALSE // Ultra cursed var. If true, terminal explodes violently on certain interaction. Delightfully devilish.
+	var/datum/looping_sound/ms13/terminal/soundloop
 	var/joker_titles = list("Safe codes",
 	"Stash location",
 	"About the safe",
@@ -74,7 +67,7 @@
 	var/title = "ERROR 0xCM513F3D"
 	var/note = "'Invalid Entry. Please enter your information.'"
 
-/obj/machinery/computer/ms13/terminal/Initialize(mapload)
+/obj/machinery/ms13/terminal/Initialize(mapload)
 	. = ..()
 	chosen_joker = pick(joker_titles)
 	termnumber = rand(360,620) // VERY unlikely to get two identical numbers.
@@ -82,15 +75,15 @@
 	if(!broken)
 		write_documents()
 
-/obj/machinery/computer/ms13/terminal/proc/FXtoggle() // For overlays/sound
+/obj/machinery/ms13/terminal/proc/FXtoggle() // For overlays/sound
 	if(!broken && active)
-		add_overlay(image(icon, "[icon_screen]", ABOVE_OBJ_LAYER, dir))
+		add_overlay(image(icon, "[screen_icon]", ABOVE_OBJ_LAYER, dir))
 		soundloop = new(src, TRUE)
 	else
 		cut_overlays()
 		QDEL_NULL(soundloop)
 
-/obj/machinery/computer/ms13/terminal/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration)
+/obj/machinery/ms13/terminal/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration)
 	. = ..()
 	if(prob(35))
 		do_sparks(1, FALSE, src)
@@ -100,17 +93,17 @@
 		FXtoggle()
 		update_icon_state()
 
-/obj/machinery/computer/ms13/terminal/proc/Boom()
+/obj/machinery/ms13/terminal/proc/Boom()
 	explosion(src,1,2,3,3,2)
 	do_sparks(8, TRUE, src)
 	broken = TRUE
 	qdel(src)
 
-/obj/machinery/computer/ms13/terminal/Destroy()
+/obj/machinery/ms13/terminal/Destroy()
 	. = ..()
 	QDEL_NULL(soundloop)
 
-/obj/machinery/computer/ms13/terminal/update_icon_state()
+/obj/machinery/ms13/terminal/update_icon_state()
 	. = ..()
 	if(!active)
 		cut_overlays()
@@ -119,7 +112,7 @@
 	if(rigged)
 		icon_state = "[initial(icon_state)]_rigged"
 
-/obj/machinery/computer/ms13/terminal/ui_interact(mob/user)
+/obj/machinery/ms13/terminal/ui_interact(mob/user)
 	. = ..()
 	if(broken || !active)
 		return
@@ -200,7 +193,7 @@
 	popup.set_title_image(user.browse_rsc_icon(src.icon, src.icon_state))
 	popup.open()
 
-/obj/machinery/computer/ms13/terminal/Topic(href, href_list)
+/obj/machinery/ms13/terminal/Topic(href, href_list)
 	..()
 	var/mob/living/U = usr
 
@@ -321,7 +314,7 @@
 	updateUsrDialog()
 	return
 
-/obj/machinery/computer/ms13/terminal/proc/write_documents()
+/obj/machinery/ms13/terminal/proc/write_documents()
 	if (doc_title_1)
 		var/file_in_memory = text2path("/datum/terminal/document/[doc_title_1]")
 		var/datum/terminal/document/N = new file_in_memory
@@ -350,7 +343,7 @@
 
 	return
 
-/obj/machinery/computer/ms13/terminal/proc/transmit_signal()
+/obj/machinery/ms13/terminal/proc/transmit_signal()
 	var/openclose
 	for(var/obj/machinery/door/poddoor/M in GLOB.machines)
 		if(M.id == src.id)
@@ -359,26 +352,26 @@
 			INVOKE_ASYNC(M, openclose ? /obj/machinery/door/poddoor.proc/open : /obj/machinery/door/poddoor.proc/close)
 
 //// Extra variants ////
-/obj/machinery/computer/ms13/terminal/pristine
+/obj/machinery/ms13/terminal/pristine
 	icon_state = "terminal_new" // Shouldn't really even be used. But i'll add it anyways.
 
-/obj/machinery/computer/ms13/terminal/rusty
+/obj/machinery/ms13/terminal/rusty
 	icon_state = "terminal_rusted"
 	rigged = TRUE
 
 //// Wall mounted terminals ////
-/obj/machinery/computer/ms13/terminal/wall
+/obj/machinery/ms13/terminal/wall
 	name = "wall mounted terminal"
 	desc = "A RobCo Industries terminal. This one is handily mounted to a wall for added convenience."
 	icon_state = "wallterminal"
 	base_icon_state = "wallterminal"
-	icon_screen = "wallterminal_screen"
+	screen_icon = "wallterminal_screen"
 	termtag = "Utility"
 	active = FALSE
 	density = FALSE
 	pixel_y = 28
 
-/obj/machinery/computer/ms13/terminal/wall/AltClick(mob/user)
+/obj/machinery/ms13/terminal/wall/AltClick(mob/user)
 	. = ..()
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
 		return
@@ -397,10 +390,10 @@
 		icon_state = "[base_icon_state]"
 	FXtoggle()
 
-/obj/machinery/computer/ms13/terminal/wall/pristine
+/obj/machinery/ms13/terminal/wall/pristine
 	icon_state = "wallterminal_new_"
 	base_icon_state = "wallterminal_new"
 
-/obj/machinery/computer/ms13/terminal/wall/rust
+/obj/machinery/ms13/terminal/wall/rust
 	icon_state = "wallterminal_rusted"
 	base_icon_state = "wallterminal_rusted"
