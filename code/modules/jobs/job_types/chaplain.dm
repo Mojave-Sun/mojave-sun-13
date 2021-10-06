@@ -28,8 +28,13 @@
 		/obj/item/toy/plush/narplush = 2,
 		/obj/item/toy/plush/ratplush = 1
 	)
+<<<<<<< HEAD
 
 	job_flags = null 	/// MS13 EDIT -ORIGINAL FLAGS 	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS
+=======
+	rpg_title = "Paladin"
+	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS
+>>>>>>> 1de7b626f3e... RPG titles wizard event (#61579)
 
 	voice_of_god_power = 2 //Chaplains are very good at speaking with the voice of god
 
