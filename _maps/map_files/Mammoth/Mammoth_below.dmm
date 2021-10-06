@@ -265,6 +265,7 @@
 "bf" = (
 /obj/structure/closet/ms13/wall/firstaid,
 /obj/structure/ms13/storage/vent,
+/obj/effect/spawner/random/ms13/medical/lowrandom,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "bg" = (
@@ -518,6 +519,11 @@
 	},
 /turf/open/floor/ms13/concrete/industrial/alt,
 /area/ms13/supermarket/basement)
+"cb" = (
+/obj/structure/closet/crate/grave,
+/obj/effect/spawner/random/ms13/drink/soda,
+/turf/open/floor/plating/ms13/ground/mountain,
+/area/ms13/underground/mountain)
 "cc" = (
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/ms13/metal,
@@ -1166,10 +1172,10 @@
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
 "eL" = (
-/obj/structure/closet/crate/coffin,
-/obj/structure/railing/ms13/solo{
-	dir = 1
+/obj/structure/stairs{
+	dir = 4
 	},
+/obj/structure/railing/ms13/solo,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "eM" = (
@@ -2530,6 +2536,7 @@
 "ku" = (
 /obj/structure/closet/ms13/wall/firstaid,
 /obj/structure/table/ms13/metal/grate,
+/obj/effect/spawner/random/ms13/medical/lowrandom,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "kv" = (
@@ -2732,12 +2739,12 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/supermarket/basement)
 "lm" = (
-/obj/structure/stairs/north,
+/obj/structure/closet/crate/coffin,
 /obj/structure/railing/ms13/solo{
-	dir = 8
+	dir = 1
 	},
-/turf/open/floor/wood/ms13/wide,
-/area/ms13/ncr)
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/town)
 "ln" = (
 /obj/machinery/door/airlock,
 /turf/open/floor/wood/ms13/carpet/shaggy/green,
@@ -3061,6 +3068,13 @@
 /obj/structure/toilet,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/army_bunker)
+"mC" = (
+/obj/structure/stairs/north,
+/obj/structure/railing/ms13/solo{
+	dir = 8
+	},
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/ncr)
 "mE" = (
 /obj/structure/fence/fencenormal{
 	dir = 4
@@ -3392,6 +3406,14 @@
 /obj/structure/table/ms13/crafting/armorbench,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/vault_atrium_lower)
+"nZ" = (
+/obj/structure/lattice/catwalk/ms13,
+/obj/structure/railing/ms13/sewer,
+/obj/structure/railing/ms13/sewer{
+	dir = 1
+	},
+/turf/open/ms13/water/deep,
+/area/ms13/underground/sewer)
 "ob" = (
 /obj/structure/chair/ms13/wood{
 	dir = 1
@@ -4875,6 +4897,11 @@
 	},
 /turf/open/floor/ms13/tile,
 /area/ms13/town)
+"tP" = (
+/obj/structure/closet/crate/grave,
+/obj/effect/spawner/random/ms13/gun/lowrandom,
+/turf/open/floor/plating/ms13/ground/mountain,
+/area/ms13/underground/mountain)
 "tQ" = (
 /obj/structure/table/ms13/no_smooth/counter/metal,
 /turf/open/floor/ms13/tile/navy,
@@ -5316,6 +5343,7 @@
 /area/ms13/underground/sewer)
 "vD" = (
 /obj/structure/closet/ms13/wall/firstaid,
+/obj/effect/spawner/random/ms13/medical/lowrandom,
 /turf/open/floor/ms13/metal/stayclear{
 	dir = 8
 	},
@@ -5534,12 +5562,6 @@
 	},
 /turf/open/floor/wood/ms13/common,
 /area/ms13/underground/underground_town)
-"wB" = (
-/obj/machinery/door/unpowered/ms13/seethrough/mirrored/grate{
-	dir = 8
-	},
-/turf/open/floor/ms13/concrete/industrial,
-/area/ms13/town)
 "wC" = (
 /obj/structure/table/ms13/metal,
 /obj/item/flashlight/lamp{
@@ -10435,6 +10457,10 @@
 /obj/item/clothing/under/ms13/wasteland/army,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/army_bunker)
+"PA" = (
+/obj/machinery/door/unpowered/ms13/wood/mirrored,
+/turf/open/floor/wood/ms13/carpet/shaggy,
+/area/ms13/underground/vault_atrium_lower)
 "PB" = (
 /obj/machinery/door/unpowered/ms13/seethrough/grate,
 /turf/open/floor/ms13/concrete/industrial,
@@ -22514,7 +22540,7 @@ vU
 bK
 vU
 Le
-iB
+PA
 GY
 Zd
 sP
@@ -30832,8 +30858,8 @@ fU
 fU
 fU
 oU
-lm
-lm
+mC
+mC
 Hp
 Hp
 Hp
@@ -39440,7 +39466,7 @@ As
 Xc
 ZW
 Zh
-yu
+nZ
 Zh
 Zh
 ZW
@@ -39742,7 +39768,7 @@ As
 Xc
 ZW
 Zh
-yu
+nZ
 Zh
 Zh
 ZW
@@ -40044,7 +40070,7 @@ As
 Xc
 ZW
 Zh
-yu
+nZ
 Zh
 Zh
 ZW
@@ -40346,7 +40372,7 @@ As
 Xc
 ZW
 Zh
-yu
+nZ
 Zh
 Zh
 ZW
@@ -53953,7 +53979,7 @@ kx
 fU
 tD
 yz
-yz
+eL
 oT
 oT
 Xz
@@ -54255,7 +54281,7 @@ kx
 fU
 tD
 yz
-yz
+eL
 oT
 oT
 tA
@@ -54559,7 +54585,7 @@ tD
 tD
 tD
 vh
-wB
+tD
 tD
 tD
 tD
@@ -54801,7 +54827,7 @@ fU
 kx
 kx
 kx
-EO
+cb
 fU
 fU
 fU
@@ -55404,16 +55430,16 @@ fU
 kx
 kx
 EO
-Po
 kx
 kx
+kx
 fU
 fU
-fU
-fU
-fU
-fU
-fU
+EQ
+EQ
+EQ
+EQ
+EQ
 fU
 fU
 fU
@@ -56309,7 +56335,7 @@ fU
 fU
 fU
 kx
-EO
+tP
 kx
 kx
 Bg
@@ -59108,7 +59134,7 @@ fU
 tD
 Es
 yz
-eL
+lm
 qN
 qN
 oT
@@ -60550,7 +60576,7 @@ fU
 fU
 fU
 fU
-fU
+NR
 fU
 fU
 fU
