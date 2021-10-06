@@ -241,11 +241,6 @@
 /obj/structure/table/ms13/no_smooth/dice/pristine
 	icon_state = "dice_clean"
 
-/obj/structure/table/ms13/no_smooth/workbench
-	name = "workbench"
-	desc = "A perfect surface for arts and crafts. It's got so much space for activities!"
-	icon_state = "workbench_wood"
-
 // Misc Large tables //
 
 /obj/structure/table/ms13/no_smooth/large/pool
@@ -271,6 +266,8 @@
 	desc = "Scream at yo MAMA if you see this."
 	icon = 'mojave/icons/structure/workbenches.dmi'
 	bound_width = 64
+	smoothing_flags = NONE
+	canSmoothWith = null
 
 /obj/structure/table/ms13/crafting/workbench
 	name = "workbench"

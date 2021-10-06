@@ -251,12 +251,12 @@
 
 /turf/open/floor/iron/ms13/try_replace_tile(obj/item/stack/tile/T, mob/user, params)
 	return
-
+/*
 /turf/open/floor/iron/ms13/Initialize()
 	. = ..()
 	if(has_alternate_states)
 		if(prob(45))
-			icon_state = "[icon_state]_[rand(1,(alternate_states))]"
+			icon_state = "[icon_state]_[rand(1,(alternate_states))]" */
 
 /turf/open/floor/iron/ms13/tile
 	icon_state = "grey"
@@ -434,12 +434,11 @@
 /turf/open/floor/iron/ms13/concrete/cable/node
 	icon_state = "concrete_cable_node"
 
-/turf/open/floor/ms13/sewer
+/turf/open/floor/iron/ms13/sewer
 	icon = 'mojave/icons/turf/sewer_floor.dmi'
 	icon_state = "floor-255"
 	base_icon_state = "floor"
 	desc = "Hard concrete sewer flooring, built to last."
-	has_alternate_states = FALSE
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TILE)
 	canSmoothWith = list(SMOOTH_GROUP_CATWALK, SMOOTH_GROUP_MS13_WALL, SMOOTH_GROUP_CATWALK, SMOOTH_GROUP_MS13_TILE)
