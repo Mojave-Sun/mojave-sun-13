@@ -122,6 +122,9 @@
 	if(broken || !active)
 		return
 
+	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
+		return
+
 	var/clicksound = pick('mojave/sound/ms13machines/terminals/ui_hacking_charenter_01.ogg','mojave/sound/ms13machines/terminals/ui_hacking_charenter_02.ogg', 'mojave/sound/ms13machines/terminals/ui_hacking_charenter_03.ogg',)
 	playsound(src, clicksound, 50, FALSE)
 	var/dat = ""
@@ -362,7 +365,6 @@
 
 /obj/machinery/ms13/terminal/rusty
 	icon_state = "terminal_rusted"
-	rigged = TRUE
 
 //// Wall mounted terminals ////
 /obj/machinery/ms13/terminal/wall
@@ -396,7 +398,7 @@
 	FXtoggle()
 
 /obj/machinery/ms13/terminal/wall/pristine
-	icon_state = "wallterminal_new_"
+	icon_state = "wallterminal_new"
 	base_icon_state = "wallterminal_new"
 
 /obj/machinery/ms13/terminal/wall/rust

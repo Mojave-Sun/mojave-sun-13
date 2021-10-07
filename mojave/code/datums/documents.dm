@@ -13,3 +13,15 @@
 	RobCo Industries supply store. \
 
 	<br><br>Welcome to the future. We hope you enjoy your stay."
+
+// Mammoth specific notes //
+
+/datum/terminal/document/water_plant_notice
+	title = "Notice for Operator."
+	content = "Leaving this notice here as an official declaration of being over this shit. This is COMPLETELY unacceptable. \
+		Consider this the final warning- The system can NOT take another closure like this, last week it got backed up to max capacity and nearly backwashed into the primary reservoir. \
+		We've recently came upon a list of the culprits involved in this matter, it will not be formally disclosed to you all. \
+
+		<br><br> I don't know what you think, but I've got a decent idea of what's REALLY going on here. I had a meeting with the local Sheriff and he's been alerted to this, so you should save yourself the bother and be on good behavior. \
+		In the meantime- DO. NOT. TOUCH. THE. CHOKES. \
+		<br><br> I will be watching. -Director Norrison."

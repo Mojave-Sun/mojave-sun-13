@@ -9,15 +9,6 @@
 
 //// E for Everyone drinks - Soda/Beverages ////
 
-/datum/reagent/consumable/ms13/water // When you code it
-	name = "water"
-	description = "Water. The base of all life. Don't run out."
-	color = "#f1eeec"
-	quality = DRINK_VERYGOOD
-	taste_description = "water"
-	glass_name = "glass of clear liquid"
-	glass_desc = "A clear liquid with no smell. Nothing out of the ordinary."
-
 /datum/reagent/consumable/ms13/nuka_cola
 	name = "Nuka-Cola"
 	description = "Zap that thirst!"
