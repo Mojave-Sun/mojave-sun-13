@@ -11,6 +11,10 @@
 	pixel_x = -32
 	pixel_y = 8
 
+/obj/machinery/power/ms13/streetlamp/Initialize()
+	. = ..()
+	AddComponent(/datum/component/largetransparency, 1, 1, 1, 1)
+
 /obj/machinery/power/ms13/streetlamp
 	name = "\improper street lamp"
 	desc = "A pre-war street lamp, what more is there to say?"
