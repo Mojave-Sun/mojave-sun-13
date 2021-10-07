@@ -91,3 +91,8 @@
 	name = "low bunker wall"
 	desc = ""
 	icon = 'mojave/icons/turf/walls/bunker.dmi'
+
+/obj/structure/table/ms13/low_wall/sewer
+	name = "low sewer wall"
+	desc = ""
+	icon = 'mojave/icons/turf/walls/sewer.dmi'
