@@ -15,6 +15,20 @@
 	. = ..()
 	AddComponent(/datum/component/largetransparency, 1, 1, 1, 1)
 
+/obj/machinery/power/ms13/streetlamp/CanAllowThrough(atom/movable/mover, turf/target)
+	. = ..()
+	if(locate(/obj/machinery/power/ms13/streetlamp) in get_turf(mover))
+		return TRUE
+	else if(istype(mover, /obj/projectile))
+		if(!anchored)
+			return TRUE
+		var/obj/projectile/proj = mover
+		if(proj.firer && Adjacent(proj.firer))
+			return TRUE
+		if(prob(85)) // These things are pretty thin
+			return TRUE
+		return FALSE
+
 /obj/machinery/power/ms13/streetlamp
 	name = "\improper street lamp"
 	desc = "A pre-war street lamp, what more is there to say?"
