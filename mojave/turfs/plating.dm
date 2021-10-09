@@ -582,9 +582,9 @@
 /turf/open/ms13/water/Initialize()
 	. = ..()
 	create_reagents(1000)
-	reagents.add_reagent(/datum/reagent/water/ms13/dirty, 1000)
 	new watereffect(src)
 	new watertop(src)
+	reagents.add_reagent(/datum/reagent/consumable/ms13/unfiltered_water, 1000)
 
 /obj/effect/overlay/ms13/water
 	name = "water"
@@ -683,6 +683,9 @@
 
 /turf/open/ms13/water/Entered(atom/A, turf/OL)
 	..()
+	for(var/obj/structure/lattice/catwalk/C in get_turf(A))
+		return
+
 	if(isliving(A))
 		var/mob/living/M = A
 		var/mob/living/carbon/H = M
@@ -755,6 +758,60 @@
 		M.update_icon(UPDATE_OVERLAYS)
 	else
 		return
+
+/turf/open/ms13/water/sewer
+	name = "sewer water"
+	desc = "Murky and foul smelling water, if you could call it that."
+
+/turf/open/ms13/water/sewer/deep
+	name = "deep water"
+	desc = "Cold rancid sewer water, it looks pretty deep."
+	icon_state = "sewer_deep"
+	watereffect = /obj/effect/overlay/ms13/sewer/deep
+	watertop = /obj/effect/overlay/ms13/sewer/top/deep
+	depth = 3
+
+/turf/open/ms13/water/sewer/medium
+	icon_state = "sewer_medium"
+	watereffect = /obj/effect/overlay/ms13/sewer/medium
+	watertop = /obj/effect/overlay/ms13/sewer/top/medium
+	depth = 2
+
+/turf/open/ms13/water/sewer/shallow
+	icon_state = "sewer_shallow"
+	watereffect = /obj/effect/overlay/ms13/sewer/shallow
+	watertop = /obj/effect/overlay/ms13/sewer/top/shallow
+	depth = 1
+
+/obj/effect/overlay/ms13/sewer
+	name = "water"
+	icon = 'mojave/icons/turf/water.dmi'
+	density = FALSE
+	mouse_opacity = 0
+	layer = TURF_LAYER_WATER
+	plane = FLOOR_PLANE
+	anchored = TRUE
+
+/obj/effect/overlay/ms13/sewer/deep
+	icon_state = "sewer_deep_bottom"
+
+/obj/effect/overlay/ms13/sewer/medium
+	icon_state = "sewer_medium_bottom"
+
+/obj/effect/overlay/ms13/sewer/shallow
+	icon_state = "sewer_shallow_bottom"
+
+/obj/effect/overlay/ms13/sewer/top
+	layer = TURF_LAYER_WATER_UNDER
+
+/obj/effect/overlay/ms13/sewer/top/deep
+	icon_state = "sewer_deep_top"
+
+/obj/effect/overlay/ms13/sewer/top/medium
+	icon_state = "sewer_medium_top"
+
+/obj/effect/overlay/ms13/sewer/top/shallow
+	icon_state = "sewer_shallow_top"
 
 ////Openspace////
 

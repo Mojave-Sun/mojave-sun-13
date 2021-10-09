@@ -88,6 +88,12 @@
 	icon = 'mojave/icons/turf/walls/rmetal.dmi'
 	frill_icon = 'mojave/icons/turf/walls/rmetal_frill.dmi'
 
+/turf/closed/wall/ms13/metal/reinforced/industrial
+	name = "reinforced metal wall"
+	desc = ""
+	icon = 'mojave/icons/turf/walls/rusty_industrial.dmi'
+	frill_icon = 'mojave/icons/turf/walls/rusty_industrial_frill.dmi'
+
 /turf/closed/wall/ms13/metal/reinforced/rust
 	name = "rusted reinforced metal wall"
 	desc = ""
@@ -103,6 +109,12 @@
 /turf/closed/wall/ms13/concrete/alt
 	icon = 'mojave/icons/turf/walls/concretealt.dmi'
 	frill_icon = 'mojave/icons/turf/walls/concretealt_frill.dmi'
+
+/turf/closed/wall/ms13/sewer
+	name = "sewer wall"
+	desc = ""
+	icon = 'mojave/icons/turf/walls/sewer.dmi'
+	frill_icon = 'mojave/icons/turf/walls/sewer_frill.dmi'
 
 /turf/closed/wall/ms13/bunker
 	name = "bunker wall"

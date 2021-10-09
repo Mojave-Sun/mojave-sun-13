@@ -1,9 +1,9 @@
-/obj/effect/spawner/lootdrop/ms13/melee
+/obj/effect/spawner/random/ms13/melee
     name = "DO NOT USE ME - Mojave Sun melee spawners"
-    lootcount = 1
-    lootdoubles = FALSE
+    spawn_loot_count = 1
+    spawn_loot_double = FALSE
 
-/obj/effect/spawner/lootdrop/ms13/melee/tier1
+/obj/effect/spawner/random/ms13/melee/tier1
 	name = "tier 1 melee spawner"
 
 	loot = list(
@@ -19,7 +19,7 @@
             /obj/item/shovel/ms13/rake
 			)
 
-/obj/effect/spawner/lootdrop/ms13/melee/tier2
+/obj/effect/spawner/random/ms13/melee/tier2
 	name = "tier 2 melee spawner"
 
 	loot = list(
@@ -39,7 +39,7 @@
             /obj/item/ms13/twohanded/hammer/rebar
             )
 
-/obj/effect/spawner/lootdrop/ms13/melee/tier3
+/obj/effect/spawner/random/ms13/melee/tier3
 	name = "tier 3 melee spawner"
 
 	loot = list(
@@ -55,7 +55,7 @@
             /obj/item/ms13/twohanded/spear,
             )
 
-/obj/effect/spawner/lootdrop/ms13/melee/tier4
+/obj/effect/spawner/random/ms13/melee/tier4
 	name = "tier 4 melee spawner"
 
 	loot = list(
@@ -68,7 +68,7 @@
             /obj/item/ms13/twohanded/bump_sword
             )
 
-/obj/effect/spawner/lootdrop/ms13/melee/unique
+/obj/effect/spawner/random/ms13/melee/unique
 	name = "unique melee spawner"
 
 	loot = list(
@@ -78,19 +78,19 @@
             /obj/item/kitchen/knife/butcher/ms13/unique
             )
 
-/obj/effect/spawner/lootdrop/ms13/melee/lowrandom
+/obj/effect/spawner/random/ms13/melee/lowrandom
     name = "low tier random melee spawner"
 
     loot = list(
-            /obj/effect/spawner/lootdrop/ms13/melee/tier1 = 70,
-            /obj/effect/spawner/lootdrop/ms13/melee/tier2 = 30
+            /obj/effect/spawner/random/ms13/melee/tier1 = 70,
+            /obj/effect/spawner/random/ms13/melee/tier2 = 30
             )
 
-/obj/effect/spawner/lootdrop/ms13/melee/highrandom
+/obj/effect/spawner/random/ms13/melee/highrandom
     name = "high tier random melee spawner"
 
     loot = list(
-            /obj/effect/spawner/lootdrop/ms13/melee/tier2 = 10,
-            /obj/effect/spawner/lootdrop/ms13/melee/tier3 = 60,
-            /obj/effect/spawner/lootdrop/ms13/melee/tier4 = 30
+            /obj/effect/spawner/random/ms13/melee/tier2 = 10,
+            /obj/effect/spawner/random/ms13/melee/tier3 = 60,
+            /obj/effect/spawner/random/ms13/melee/tier4 = 30
             )
