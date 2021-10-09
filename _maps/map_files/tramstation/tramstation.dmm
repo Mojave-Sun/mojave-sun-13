@@ -9771,12 +9771,12 @@
 /turf/open/floor/iron,
 /area/hallway/secondary/construction/engineering)
 "bdI" = (
-/obj/machinery/power/rad_collector/anchored,
 /obj/structure/window/reinforced/plasma{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /obj/structure/cable,
+/obj/machinery/power/tesla_coil/anchored,
 /turf/open/floor/engine,
 /area/engineering/supermatter)
 "bdJ" = (
@@ -44870,6 +44870,15 @@
 	},
 /turf/open/floor/iron,
 /area/security/prison)
+"oSK" = (
+/obj/structure/window/reinforced/plasma{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
+/obj/structure/cable,
+/obj/machinery/power/grounding_rod/anchored,
+/turf/open/floor/engine,
+/area/engineering/supermatter)
 "oTr" = (
 /obj/effect/turf_decal/trimline/green/filled/corner,
 /obj/effect/turf_decal/trimline/green/line{
@@ -55740,12 +55749,12 @@
 /turf/open/floor/iron/white,
 /area/science/robotics/lab)
 "tip" = (
-/obj/machinery/power/rad_collector/anchored,
 /obj/structure/window/reinforced/plasma{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /obj/structure/cable,
+/obj/machinery/power/tesla_coil/anchored,
 /turf/open/floor/engine,
 /area/engineering/supermatter)
 "tiq" = (
@@ -64321,6 +64330,15 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron,
 /area/hallway/secondary/command)
+"wGS" = (
+/obj/structure/window/reinforced/plasma{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
+/obj/structure/cable,
+/obj/machinery/power/grounding_rod/anchored,
+/turf/open/floor/engine,
+/area/engineering/supermatter)
 "wGY" = (
 /turf/closed/wall/r_wall,
 /area/science/explab)
@@ -98772,7 +98790,7 @@ oms
 wKG
 roS
 tip
-tip
+oSK
 tip
 wKG
 qMI
@@ -99800,7 +99818,7 @@ wKG
 oAv
 roS
 bdI
-bdI
+wGS
 bdI
 wKG
 jqb
