@@ -18,6 +18,8 @@
 	faction = list("ghoul")
 	speak_emote = list("grumbles","growls")
 
+	ai_controller = /datum/ai_controller/basic_controller/ms13/ghoul
+
 /mob/living/basic/ms13/ghoul/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/basic_body_temp_sensitive, cold_damage = 7.5, heat_damage = 7.5)
@@ -32,7 +34,8 @@
 	idle_behavior = /datum/idle_behavior/idle_random_walk
 	planning_subtrees = list(
 		/datum/ai_planning_subtree/simple_find_target,
-		/datum/ai_planning_subtree/basic_melee_attack_subtree/ms13/ghoul
+		/datum/ai_planning_subtree/basic_melee_attack_subtree/ms13/ghoul,
+		/datum/ai_planning_subtree/random_speech/ms13/ghoul
 	)
 
 /datum/ai_planning_subtree/basic_melee_attack_subtree/ms13/ghoul
@@ -41,7 +44,7 @@
 /datum/ai_behavior/basic_melee_attack/ms13/ghoul
 	action_cooldown = 1.5 SECONDS
 
-/mob/living/simple_animal/hostile/ms13/ghoul
+/mob/living/basic/ms13/ghoul
 	name = "feral ghoul"
 	desc = "The remnants of what was once a human being with aspirations and desires. Reduced to a soul lacking husk of flesh with a single purpose."
 	icon = 'mojave/icons/mob/ms13enemies.dmi'
