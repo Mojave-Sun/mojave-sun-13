@@ -3,7 +3,6 @@
 	desc = "A being from a realm with only 2 dimensions. At least it's trying to stay faced towards you."
 	icon = 'mojave/icons/mob/ms13enemies.dmi'
 	icon_state = "feralghoul"
-	icon_dead = "stickman_dead"
 	mob_biotypes = MOB_HUMANOID
 	gender = MALE
 	health = 100
@@ -43,25 +42,6 @@
 
 /datum/ai_behavior/basic_melee_attack/ms13/ghoul
 	action_cooldown = 1.5 SECONDS
-
-/mob/living/basic/ms13/ghoul
-	name = "feral ghoul"
-	desc = "The remnants of what was once a human being with aspirations and desires. Reduced to a soul lacking husk of flesh with a single purpose."
-	icon = 'mojave/icons/mob/ms13enemies.dmi'
-	icon_state = "feralghoul"
-	faction = list("ghoul")
-	speak = list("hnnnhhh","heuhhhh","nnnnhhh")
-	speak_emote = list("grumbles","growls")
-	emote_hear = list("lets out a weak groan.")
-	emote_see = list("idly twitches")
-	attack_verb_continuous = "tears"
-	attack_verb_simple = "claws"
-	turns_per_move = 1
-	attack_sound = list('sound/creatures/venus_trap_hurt.ogg', 'sound/creatures/venus_trap_hit.ogg')
-	health = 100
-	maxHealth = 100
-	melee_damage_lower = 5
-	melee_damage_upper = 20
 
 /mob/living/basic/ms13/ghoul/brown
 	icon_state = "feralghoul_brown"
