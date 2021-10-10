@@ -52,6 +52,11 @@
 	icon_state = "power_display"
 	screen_loc = ui_lingchemdisplay
 
+
+//Show super cool ms13 sidebar
+/datum/hud/human/containsOffScreenHud = TRUE
+
+
 /datum/hud/human/New(mob/living/carbon/human/owner)
 	..()
 
