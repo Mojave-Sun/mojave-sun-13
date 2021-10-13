@@ -244,7 +244,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	//TODO this could probs changes anchors of the map and hud panels
 	// If disabled, maybe set X size of hud to 0, and change anchor1 of map to top left
 	// otherwise set o 92 and 13%
-	// if(containsOffScreenHud && display_hud_version != HUD_STYLE_NOHUD)
+	// if(contains_off_screen_hud && display_hud_version != HUD_STYLE_NOHUD)
 	// 	winset(screenmob.client, "mapwindow.hud", "is-visible=true")
 	// else
 	// 	winset(screenmob.client, "mapwindow.hud", "is-visible=false")
