@@ -81,7 +81,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	// subtypes can override this to force a specific UI style
 	var/ui_style
 
-	var/containsOffScreenHud = FALSE
+	var/contains_off_screen_hud = FALSE // MOJAVE SUN EDIT - handling for secondary map skin for HUD
 
 /datum/hud/New(mob/owner)
 	mymob = owner
@@ -240,10 +240,12 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	else if (viewmob.hud_used)
 		viewmob.hud_used.plane_masters_update()
 
+	// MOJAVE SUN EDIT START - changes for HUD
 	setHudBarVisible(containsOffScreenHud && display_hud_version != HUD_STYLE_NOHUD, screenmob.client)
-
+	// MOJAVE SUN EDIT END - changes for HUD
 	return TRUE
 
+// MOJAVE SUN EDIT START - changes for HUD
 /datum/hud/proc/setHudBarVisible( visible = FALSE, client/C)
 
 	var/list/hudSize = splittext(winget(C, "mapwindow.hud", "size"), "x")
@@ -254,6 +256,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 
 	winset(C, "mapwindow.map","pos=[mapXPos],0;size=[mapWidth]x[screenSize[2]]")
 	winshow(C, "mapwindow.hud", visible)
+// MOJAVE SUN EDIT END - changes for HUD
 
 /datum/hud/proc/plane_masters_update()
 	// Plane masters are always shown to OUR mob, never to observers

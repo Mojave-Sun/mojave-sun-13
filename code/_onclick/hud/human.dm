@@ -54,7 +54,8 @@
 
 
 //Show super cool ms13 sidebar
-/datum/hud/human/containsOffScreenHud = TRUE
+/datum/hud/human
+	contains_off_screen_hud = TRUE
 
 
 /datum/hud/human/New(mob/living/carbon/human/owner)
