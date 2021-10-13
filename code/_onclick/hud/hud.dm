@@ -241,16 +241,23 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 		viewmob.hud_used.plane_masters_update()
 
 	// MOJAVE SUN EDIT START - changes for HUD
-	//TODO this could probs changes anchors of the map and hud panels
-	// If disabled, maybe set X size of hud to 0, and change anchor1 of map to top left
-	// otherwise set o 92 and 13%
-	// if(contains_off_screen_hud && display_hud_version != HUD_STYLE_NOHUD)
-	// 	winset(screenmob.client, "mapwindow.hud", "is-visible=true")
-	// else
-	// 	winset(screenmob.client, "mapwindow.hud", "is-visible=false")
+	setHudBarVisible(containsOffScreenHud && display_hud_version != HUD_STYLE_NOHUD, screenmob.client)
 	// MOJAVE SUN EDIT END - changes for HUD
 
 	return TRUE
+
+// MOJAVE SUN EDIT START - changes for HUD
+/datum/hud/proc/setHudBarVisible( visible = FALSE, client/C)
+
+	var/list/hudSize = splittext(winget(C, "mapwindow.hud", "size"), "x")
+	var/list/screenSize = splittext(winget(C, "mapwindow", "size"), "x")
+
+	var/mapXPos = visible ? hudSize[1] : 0
+	var/mapWidth = visible ? text2num(screenSize[1]) - text2num(hudSize[1]) : screenSize[1]
+
+	winset(C, "mapwindow.map","pos=[mapXPos],0;size=[mapWidth]x[screenSize[2]]")
+	winshow(C, "mapwindow.hud", visible)
+// MOJAVE SUN EDIT END - changes for HUD
 
 /datum/hud/proc/plane_masters_update()
 	// Plane masters are always shown to OUR mob, never to observers
