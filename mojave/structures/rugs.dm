@@ -11,8 +11,8 @@
 	bound_height = 64
 	bound_width = 64
 	layer = BELOW_OPEN_DOOR_LAYER
+	obj_flags = NONE // No hitting these anymore
 	var/item_rug = /obj/item/ms13/rug
-	COOLDOWN_DECLARE(rug_cooldown)
 	var/rolltime = 15 SECONDS
 	var/has_alt_states = FALSE // Currenlty just rubber rugs. Could be more in the future. dunno.
 	var/alternate_states
@@ -48,6 +48,16 @@
 	desc = "A common rug, used to cover your boring floor. It's got a nice and simple pattern on it, perfect for the living room."
 	icon_state = "rug_fancy"
 	item_rug = /obj/item/ms13/rug/fancy
+
+/obj/structure/ms13/rug/yellow
+	desc = "A common rug, used to cover your boring floor. It's got a semi-complex pattern on it, very appeasing to the eyes!"
+	icon_state = "rug_yellow"
+	item_rug = /obj/item/ms13/rug/yellow
+
+/obj/structure/ms13/rug/red
+	desc = "A common rug, used to cover your boring floor. It's got a red circle pattern on it. Bubbly!"
+	icon_state = "rug_red"
+	item_rug = /obj/item/ms13/rug/red
 
 /obj/structure/ms13/rug/rubber
 	name = "rubber mat"
@@ -161,9 +171,16 @@
 	qdel(src)
 
 /obj/item/ms13/rug/fancy
-	name = "rug"
 	desc = "A common rug, used to cover your boring floor. It's currently rolled up, but peeking through you can see it's got a pattern on it."
 	origin_type = /obj/structure/ms13/rug/fancy
+
+/obj/item/ms13/rug/yellow
+	desc = "A common rug, used to cover your boring floor. It's currently rolled up, but peeking through you can see it's got a yellow pattern on it."
+	origin_type = /obj/structure/ms13/rug/yellow
+
+/obj/item/ms13/rug/red
+	desc = "A common rug, used to cover your boring floor. It's currently rolled up, but peeking through you can see it's got a red pattern on it."
+	origin_type = /obj/structure/ms13/rug/red
 
 /obj/item/ms13/rug/rubber
 	name = "rubber mat"
