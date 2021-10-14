@@ -241,7 +241,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 		viewmob.hud_used.plane_masters_update()
 
 	// MOJAVE SUN EDIT START - changes for HUD
-	setHudBarVisible(containsOffScreenHud && display_hud_version != HUD_STYLE_NOHUD, screenmob.client)
+	setHudBarVisible(contains_off_screen_hud && display_hud_version != HUD_STYLE_NOHUD, screenmob.client)
 	// MOJAVE SUN EDIT END - changes for HUD
 
 	return TRUE
