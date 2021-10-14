@@ -11,7 +11,7 @@
 	bound_height = 64
 	bound_width = 64
 	layer = BELOW_OPEN_DOOR_LAYER
-	obj_flags = null // No hitting these anymore
+	obj_flags = NONE // No hitting these anymore
 	var/item_rug = /obj/item/ms13/rug
 	var/rolltime = 15 SECONDS
 	var/has_alt_states = FALSE // Currenlty just rubber rugs. Could be more in the future. dunno.
