@@ -257,6 +257,7 @@
 	. = ..()
 	pixel_x = rand(-20,-16)
 	pixel_y = rand(-2,-5)
+	AddComponent(/datum/component/largetransparency, 1, 1, -1, 1)
 
 /obj/structure/flora/ms13/tree/attackby(obj/item/W, mob/user, params)
 	if(log_amount && (!(flags_1 & NODECONSTRUCT_1)))
