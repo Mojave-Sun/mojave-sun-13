@@ -84,12 +84,12 @@ INITIALIZE_IMMEDIATE(/atom/movable/plane_master_controller)
 	name = PLANE_MASTERS_GAME
 	controlled_planes = list(
 		FLOOR_PLANE,
-		OVER_TILE_PLANE,
-		WALL_PLANE,
+		OVER_TILE_PLANE, //MOJAVE SUN EDIT - Wallening Testmerge
+		WALL_PLANE, //MOJAVE SUN EDIT - Wallening Testmerge
 		GAME_PLANE,
-		UNDER_FRILL_PLANE,
-		FRILL_PLANE,
-		AREA_PLANE,
+		UNDER_FRILL_PLANE, //MOJAVE SUN EDIT - Wallening Testmerge
+		FRILL_PLANE, //MOJAVE SUN EDIT - Wallening Testmerge
+		OVER_FRILL_PLANE, //MOJAVE SUN EDIT - Wallening Testmerge
 		MASSIVE_OBJ_PLANE,
 		GHOST_PLANE,
 		POINT_PLANE,

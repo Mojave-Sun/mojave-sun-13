@@ -1,6 +1,5 @@
 /obj/machinery/power/ms13/streetlamp
 	name = "\improper street lamp"
-	plane = OVER_FRILL_PLANE
 	desc = "A pre-war street lamp, what more is there to say?"
 	icon = 'mojave/icons/structure/streetpoles.dmi'
 	icon_state = "streetlight"
@@ -10,6 +9,24 @@
 	max_integrity = 2000
 	pixel_x = -32
 	pixel_y = 8
+
+/obj/machinery/power/ms13/streetlamp/Initialize()
+	. = ..()
+	AddComponent(/datum/component/largetransparency, 1, 1, 1, 1)
+
+/obj/machinery/power/ms13/streetlamp/CanAllowThrough(atom/movable/mover, turf/target)
+	. = ..()
+	if(locate(/obj/machinery/power/ms13/streetlamp) in get_turf(mover))
+		return TRUE
+	else if(istype(mover, /obj/projectile))
+		if(!anchored)
+			return TRUE
+		var/obj/projectile/proj = mover
+		if(proj.firer && Adjacent(proj.firer))
+			return TRUE
+		if(prob(85)) // These things are pretty thin
+			return TRUE
+		return FALSE
 
 /obj/machinery/power/ms13/streetlamp
 	name = "\improper street lamp"

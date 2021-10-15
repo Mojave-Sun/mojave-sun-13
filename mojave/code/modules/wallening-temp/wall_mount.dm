@@ -34,7 +34,7 @@
 	var/atom/movable/real_target = target
 	switch(newdir)
 		if(NORTH)
-			real_target.plane = OVER_FRILL_PLANE
+			real_target.plane = GAME_PLANE
 		if(SOUTH)
 			real_target.plane = WALL_PLANE
 		if(EAST)
