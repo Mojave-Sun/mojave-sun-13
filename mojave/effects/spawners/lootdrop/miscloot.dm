@@ -1,4 +1,6 @@
-/obj/effect/spawner/lootdrop/ms13
+/obj/effect/spawner/random/ms13
 	name = "DO NOT USE ME - Mojave Sun loot spawners"
-	lootdoubles = FALSE
-	fan_out_items = TRUE
+	icon = 'mojave/icons/effects/random_spawners.dmi'
+	icon_state = "loot"
+	spawn_loot_double = FALSE
+	spawn_loot_split = TRUE

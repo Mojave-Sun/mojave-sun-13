@@ -3,7 +3,6 @@
 	desc = "A standard protectron, issued in large quantities to establishments across pre-war America. Armed with lasers for 'self defense'."
 	icon_state = "protectron_common"
 	icon_living = "protectron_common"
-	idlesound = list('mojave/sound/ms13items/tracker_close.ogg', 'mojave/sound/ms13items/tracker_closedirect.ogg', 'mojave/sound/ms13items/tracker_far.ogg', 'mojave/sound/ms13items/tracker_medium.ogg', 'mojave/sound/ms13items/tracker_direct.ogg')
 	health = 120
 	maxHealth = 120
 	melee_damage_lower = 10
@@ -38,6 +37,7 @@
 	retreat_distance = 2
 	wound_bonus = 10
 	bare_wound_bonus = 5
+	sharpness = SHARP_EDGED
 	attack_verb_continuous = "cleaves"
 	attack_verb_simple = "cleave"
 	attack_sound = 'sound/weapons/bladeslice.ogg'
@@ -87,8 +87,8 @@
 	desc = "A high security variant of a protectron. Built to last and keep up to harsh punishment, the unaging guard that doesn't require payment."
 	icon_state = "protectron_reinforced"
 	icon_living = "protectron_reinforced"
-	health = 145
-	maxHealth = 145
+	health = 175
+	maxHealth = 175
 	melee_damage_lower = 10
 	melee_damage_upper = 20
 	minimum_distance = 3

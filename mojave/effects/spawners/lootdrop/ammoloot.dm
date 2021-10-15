@@ -1,9 +1,9 @@
-/obj/effect/spawner/lootdrop/ms13/ammo
+/obj/effect/spawner/random/ms13/ammo
 	name = "DO NOT USE ME - Mojave Sun ammo spawners"
-	lootcount = 3
-	lootdoubles = TRUE
+	spawn_loot_count = 3
+	spawn_loot_double = TRUE
 
-/obj/effect/spawner/lootdrop/ms13/ammo/tier1
+/obj/effect/spawner/random/ms13/ammo/tier1
 	name = "tier 1 ammo spawner"
 
 	loot = list(
@@ -14,10 +14,11 @@
 			/obj/item/ammo_box/magazine/ms13/m10mm,
 			/obj/item/ammo_box/ms13/cpistol,
 			/obj/item/ammo_box/ms13/r762,
-			/obj/item/stock_parts/cell/ms13/ec
+			/obj/item/stock_parts/cell/ms13/ec,
+			/obj/item/ammo_box/ms13/shotgun/junkshot
 			)
 
-/obj/effect/spawner/lootdrop/ms13/ammo/tier2
+/obj/effect/spawner/random/ms13/ammo/tier2
 	name = "tier 2 ammo spawner"
 
 	loot = list(
@@ -30,10 +31,11 @@
 			/obj/item/ammo_box/ms13/r762,
 			/obj/item/stock_parts/cell/ms13/ec,
 			/obj/item/stock_parts/cell/ms13/pc,
-			/obj/item/stock_parts/cell/ms13/mfc
+			/obj/item/stock_parts/cell/ms13/mfc,
+			/obj/item/ammo_box/ms13/shotgun/buckshot
 			)
 
-/obj/effect/spawner/lootdrop/ms13/ammo/tier3
+/obj/effect/spawner/random/ms13/ammo/tier3
 	name = "tier 3 ammo spawner"
 
 	loot = list(
@@ -49,10 +51,11 @@
 			/obj/item/ammo_box/magazine/ms13/smgm10mm,
 			/obj/item/ammo_box/magazine/ms13/ar762,
 			/obj/item/stock_parts/cell/ms13/pc,
-			/obj/item/stock_parts/cell/ms13/mfc
+			/obj/item/stock_parts/cell/ms13/mfc,
+			/obj/item/ammo_box/ms13/shotgun/buckshot
 			)
 
-/obj/effect/spawner/lootdrop/ms13/ammo/tier4
+/obj/effect/spawner/random/ms13/ammo/tier4
 	name = "tier 4 ammo spawner"
 
 	loot = list(
@@ -72,21 +75,21 @@
 			/obj/item/stock_parts/cell/ms13/ecp
 			)
 
-/obj/effect/spawner/lootdrop/ms13/ammo/lowrandom
+/obj/effect/spawner/random/ms13/ammo/lowrandom
 	name = "low tier random ammo spawner"
-	lootcount = 1
+	spawn_loot_count = 1
 
 	loot = list(
-			/obj/effect/spawner/lootdrop/ms13/ammo/tier1 = 70,
-			/obj/effect/spawner/lootdrop/ms13/ammo/tier2 = 30
+			/obj/effect/spawner/random/ms13/ammo/tier1 = 70,
+			/obj/effect/spawner/random/ms13/ammo/tier2 = 30
 			)
 
-/obj/effect/spawner/lootdrop/ms13/ammo/highrandom
+/obj/effect/spawner/random/ms13/ammo/highrandom
 	name = "high tier random ammo spawner"
-	lootcount = 1
+	spawn_loot_count = 1
 
 	loot = list(
-			/obj/effect/spawner/lootdrop/ms13/ammo/tier2 = 10,
-			/obj/effect/spawner/lootdrop/ms13/ammo/tier3 = 60,
-			/obj/effect/spawner/lootdrop/ms13/ammo/tier4 = 30
+			/obj/effect/spawner/random/ms13/ammo/tier2 = 10,
+			/obj/effect/spawner/random/ms13/ammo/tier3 = 60,
+			/obj/effect/spawner/random/ms13/ammo/tier4 = 30
 			)

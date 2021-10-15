@@ -33,16 +33,16 @@
 	frill_icon = 'mojave/icons/turf/walls/rustmetal_frill.dmi'
 
 /turf/closed/wall/ms13/wood
-	name = "wood wall"
+	name = "log wall"
 	desc = ""
 	icon = 'mojave/icons/turf/walls/wood.dmi'
 	frill_icon = 'mojave/icons/turf/walls/wood_frill.dmi'
 
-/turf/closed/wall/ms13/wood/log
-	name = "log wall"
+/turf/closed/wall/ms13/wood/fresh
+	name = "fresh log wall"
 	desc = ""
-	icon = 'mojave/icons/turf/walls/woodlog.dmi'
-	frill_icon = 'mojave/icons/turf/walls/woodlog_frill.dmi'
+	icon = 'mojave/icons/turf/walls/woodfresh.dmi'
+	frill_icon = 'mojave/icons/turf/walls/woodfresh_frill.dmi'
 
 /turf/closed/wall/ms13/scrap
 	name = "scrap wall"
@@ -88,6 +88,12 @@
 	icon = 'mojave/icons/turf/walls/rmetal.dmi'
 	frill_icon = 'mojave/icons/turf/walls/rmetal_frill.dmi'
 
+/turf/closed/wall/ms13/metal/reinforced/industrial
+	name = "reinforced metal wall"
+	desc = ""
+	icon = 'mojave/icons/turf/walls/rusty_industrial.dmi'
+	frill_icon = 'mojave/icons/turf/walls/rusty_industrial_frill.dmi'
+
 /turf/closed/wall/ms13/metal/reinforced/rust
 	name = "rusted reinforced metal wall"
 	desc = ""
@@ -103,6 +109,12 @@
 /turf/closed/wall/ms13/concrete/alt
 	icon = 'mojave/icons/turf/walls/concretealt.dmi'
 	frill_icon = 'mojave/icons/turf/walls/concretealt_frill.dmi'
+
+/turf/closed/wall/ms13/sewer
+	name = "sewer wall"
+	desc = ""
+	icon = 'mojave/icons/turf/walls/sewer.dmi'
+	frill_icon = 'mojave/icons/turf/walls/sewer_frill.dmi'
 
 /turf/closed/wall/ms13/bunker
 	name = "bunker wall"
@@ -148,13 +160,13 @@
 
 /turf/closed/wall/ms13/craftable/scrap/Initialize()
 	. = ..()
-	base_icon_state = pick("wall","wall_2","wall_3")
-	switch(base_icon_state)
-		if("wall_1")
-			icon_state = "wall_1-0"
+	var/state = rand(1,3)
+	switch(state)
+		if(1)
+			icon = 'mojave/icons/turf/walls/roughscrap_2.dmi'
 			frill_icon = 'mojave/icons/turf/walls/roughscrap_2_frill.dmi'
-		if("wall_2")
-			icon_state = "wall_2-0"
+		if(2)
+			icon = 'mojave/icons/turf/walls/roughscrap_3.dmi'
 			frill_icon = 'mojave/icons/turf/walls/roughscrap_3_frill.dmi'
 		else
 			return

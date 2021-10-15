@@ -233,12 +233,6 @@
 	inhand_icon_state = "duster"
 	armor = list(melee = 30, bullet = 25, laser = 20, energy = 10, bomb = 15, bio = 10, rad = 10, fire = 10, acid = 10, wound = 0)
 
-/obj/item/clothing/suit/ms13/trench/courier
-	name = "boss' coat"
-	desc = "A thick overcoat, with the arms left exposed. Worn by the biggest and baddest."
-	icon_state = "courier"
-	inhand_icon_state = "duster"
-
 /obj/item/clothing/suit/ms13/trench/detective
 	name = "detective's trenchcoat"
 	desc = "A trenchcoat normally worn by pre-war detectives."
@@ -314,7 +308,7 @@
 	inhand_icon_state = "shirt"
 	armor = list(melee = 10, bullet = 5, laser = 5, energy = 5, bomb = 5, bio = 15, rad = 15, fire = 15, acid = 15)
 	body_parts_covered = CHEST|ARMS|LEGS|GROIN
-	allowed = list(/obj/item/pen,/obj/item/paper,/obj/item/stamp,/obj/item/reagent_containers/food/drinks/flask,/obj/item/storage/box/matches,/obj/item/lighter,/obj/item/clothing/mask/cigarette,/obj/item/storage/fancy/cigarettes,/obj/item/flashlight,/obj/item/ammo_box,/obj/item/ammo_casing,/obj/item/scalpel,/obj/item/surgical_drapes,/obj/item/cautery,/obj/item/hemostat,/obj/item/retractor,/obj/item/storage/pill_bottle/dice,/obj/item/dice)
+	allowed = list(/obj/item/pen,/obj/item/paper,/obj/item/stamp,/obj/item/reagent_containers/food/drinks/flask,/obj/item/storage/box/matches,/obj/item/lighter,/obj/item/clothing/mask/cigarette,/obj/item/storage/fancy/cigarettes,/obj/item/flashlight,/obj/item/ammo_box,/obj/item/ammo_casing,/obj/item/scalpel,/obj/item/surgical_drapes,/obj/item/cautery,/obj/item/hemostat,/obj/item/retractor,/obj/item/storage/dice,/obj/item/dice)
 
 /obj/item/clothing/suit/ms13/vaultlab
 	name = "vault lab coat"

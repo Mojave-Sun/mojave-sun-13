@@ -256,8 +256,8 @@
 
 /obj/structure/flora/ms13/tree/Initialize()
 	. = ..()
-	pixel_x = rand(-2,2)
-	pixel_y = rand(-2,2)
+	pixel_x = rand(-20,-16)
+	pixel_y = rand(-2,-5)
 
 /obj/structure/flora/ms13/tree/attackby(obj/item/W, mob/user, params)
 	if(log_amount && (!(flags_1 & NODECONSTRUCT_1)))

@@ -34,9 +34,9 @@
 	desc = ""
 	icon = 'mojave/icons/turf/walls/wood.dmi'
 
-/obj/structure/table/ms13/low_wall/wood/log
-	name = "low log wall"
-	icon = 'mojave/icons/turf/walls/woodlog.dmi'
+/obj/structure/table/ms13/low_wall/wood/fresh
+	name = "low fresh log wall"
+	icon = 'mojave/icons/turf/walls/woodfresh.dmi'
 
 /obj/structure/table/ms13/low_wall/scrap
 	name = "low scrap wall"
@@ -91,3 +91,8 @@
 	name = "low bunker wall"
 	desc = ""
 	icon = 'mojave/icons/turf/walls/bunker.dmi'
+
+/obj/structure/table/ms13/low_wall/sewer
+	name = "low sewer wall"
+	desc = ""
+	icon = 'mojave/icons/turf/walls/sewer.dmi'

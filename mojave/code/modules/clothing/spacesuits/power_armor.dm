@@ -6,7 +6,7 @@
 	icon_state = "null"
 	worn_icon = 'mojave/icons/mob/large-worn-icons/32x48/head.dmi'
 	worn_icon_state = "null"
-	strip_delay = 200
+	strip_delay = 15 SECONDS
 	max_integrity = 500
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	armor = list(MELEE = 80, BULLET = 80, LASER = 80, ENERGY = 80, BOMB = 80, BIO = 100, RAD = 100, FIRE = 100, ACID = 100, WOUND = 25) //Make the armor the same as the hardsuit one for consistancy
@@ -29,9 +29,10 @@
 	icon_state = "frame"
 	worn_icon = 'mojave/icons/mob/large-worn-icons/32x48/armor.dmi'
 	worn_icon_state = "frame"
+	allowed = list(/obj/item/storage/box/matches,/obj/item/lighter,/obj/item/clothing/mask/cigarette,/obj/item/storage/fancy/cigarettes,/obj/item/flashlight,/obj/item/gun,/obj/item/ammo_box,/obj/item/ammo_casing)
 	density = TRUE //It's a suit of armor man
 	anchored = TRUE
-	strip_delay = 200
+	strip_delay = 15 SECONDS
 	max_integrity = 500
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	armor = list(MELEE = 80, BULLET = 80, LASER = 80, ENERGY = 80, BOMB = 80, BIO = 100, RAD = 100, FIRE = 100, ACID = 100, WOUND = 25) //Make the armor the same as the hardsuit one for consistancy
@@ -60,7 +61,7 @@
 	return !(item_flags & ABSTRACT)
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/doStrip(mob/stripper, mob/owner)
-	GetOutside()
+	GetOutside(owner)
 	return TRUE
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/hit_reaction(owner, hitby, attack_text, final_block_chance, damage, attack_type)
@@ -93,6 +94,8 @@
 	user.pixel_y = user.base_pixel_y
 	ADD_TRAIT(user, TRAIT_FORCED_STANDING, "power_armor") //It's a suit of armor, it ain't going to fall over just because the pilot is dead
 	ADD_TRAIT(user, TRAIT_NOSLIPALL, "power_armor")
+	ADD_TRAIT(user, TRAIT_STUNIMMUNE, "power_armor")
+	ADD_TRAIT(user, TRAIT_NOMOBSWAP, "power_armor")
 	RegisterSignal(user, COMSIG_ATOM_CAN_BE_PULLED, .proc/reject_pulls)
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/proc/reject_pulls(datum/source, mob/living/puller)
@@ -110,6 +113,8 @@
 	listeningTo = null
 	REMOVE_TRAIT(user, TRAIT_FORCED_STANDING, "power_armor") //It's a suit of armor, it ain't going to fall over just because the pilot is dead
 	REMOVE_TRAIT(user, TRAIT_NOSLIPALL, "power_armor")
+	REMOVE_TRAIT(user, TRAIT_STUNIMMUNE, "power_armor")
+	REMOVE_TRAIT(user, TRAIT_NOMOBSWAP, "power_armor")
 	UnregisterSignal(user, COMSIG_ATOM_CAN_BE_PULLED)
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/Destroy()
@@ -130,15 +135,18 @@
 	else
 		if(user.wear_suit == src)
 			to_chat(user, "You begin exiting the [src].")
-			if(do_after(user, 6 SECONDS, target = user))
+			if(do_after(user, 8 SECONDS, target = user))
+				if(get_dist(user, src) > 1) //Anti-afterimage check
+					return FALSE
+			if(do_after(user, 8 SECONDS, target = user) && density != TRUE)
 				GetOutside(user)
 				return TRUE
 			return FALSE
 
-	if(!CheckEquippedClothing(user))
+	if(!CheckEquippedClothing(user) || get_dist(user, src) > 1)
 		return FALSE
 	to_chat(user, "You begin entering the [src].")
-	if(do_after(user, 6 SECONDS, target = user) && CheckEquippedClothing(user))
+	if(do_after(user, 8 SECONDS, target = user) && CheckEquippedClothing(user) && density == TRUE)
 		GetInside(user)
 		return TRUE
 	return FALSE
@@ -201,7 +209,7 @@
 /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/t51
 	name = "T51 Power Armor Helmet"
 	desc = "A more advanced helmet for a more advanced piece of power armor."
-	armor = list(MELEE = 90, BULLET = 90, LASER = 90, ENERGY = 90, BOMB = 90, BIO = 100, RAD = 100, FIRE = 100, ACID = 100) //Make the armor the same as the hardsuit one for consistancy
+	armor = list(MELEE = 80, BULLET = 80, LASER = 75, ENERGY = 80, BOMB = 80, BIO = 100, RAD = 100, FIRE = 100, ACID = 100, WOUND = 20) //Make the armor the same as the hardsuit one for consistancy
 	icon = 'mojave/icons/mob/large-worn-icons/32x48/head.dmi'
 	worn_icon = 'mojave/icons/mob/large-worn-icons/32x48/head.dmi'
 	icon_state = "t51_helmet"
@@ -211,8 +219,9 @@
 	name = "T51B Power Armor Suit"
 	desc = "The last widely developed and distributed power armor prior to the nuclear winter, even after all of these years it still outperforms it's previous model iteration."
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/t51
-	armor = list(MELEE = 90, BULLET = 90, LASER = 90, ENERGY = 90, BOMB = 90, BIO = 100, RAD = 100, FIRE = 100, ACID = 100) //Make the armor the same as the hardsuit one for consistancy
+	armor = list(MELEE = 80, BULLET = 80, LASER = 75, ENERGY = 80, BOMB = 80, BIO = 100, RAD = 100, FIRE = 100, ACID = 100, WOUND = 20) //Make the armor the same as the hardsuit one for consistancy
 	icon = 'mojave/icons/mob/large-worn-icons/32x48/armor.dmi'
 	worn_icon = 'mojave/icons/mob/large-worn-icons/32x48/armor.dmi'
 	icon_state = "t51_armor"
 	worn_icon_state = "t51_armor"
+	slowdown = 1
