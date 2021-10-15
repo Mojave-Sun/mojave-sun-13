@@ -1,6 +1,5 @@
 /obj/machinery/power/ms13/streetlamp
 	name = "\improper street lamp"
-	plane = OVER_FRILL_PLANE
 	desc = "A pre-war street lamp, what more is there to say?"
 	icon = 'mojave/icons/structure/streetpoles.dmi'
 	icon_state = "streetlight"
