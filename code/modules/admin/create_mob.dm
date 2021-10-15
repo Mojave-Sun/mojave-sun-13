@@ -16,17 +16,25 @@
 	H.real_name = random_unique_name(H.gender)
 	H.name = H.real_name
 	H.underwear = random_underwear(H.gender)
+<<<<<<< HEAD
 	H.underwear_color = sanitize_hexcolor(undiestone2hex(random_underwear_color())) //MOJAVE SUN EDIT - Hair/Gendered/Colours
 	H.skin_tone = random_skin_tone()
 	H.hairstyle = random_hairstyle(H.gender)
 	H.facial_hairstyle = random_facial_hairstyle(H.gender)
 	H.hair_color = sanitize_hexcolor(hairtone2hex(random_hair_color())) //MOJAVE SUN EDIT - Hair/Gendered/Colours
+=======
+	H.underwear_color = "#[random_color()]"
+	H.skin_tone = random_skin_tone()
+	H.hairstyle = random_hairstyle(H.gender)
+	H.facial_hairstyle = random_facial_hairstyle(H.gender)
+	H.hair_color = "#[random_color()]"
+>>>>>>> 694c2999b08... makes it so the sanitize_hexcolors' default is 6 characters rather than 3 and gets rid of color_legacy (#61980)
 	H.facial_hair_color = H.hair_color
 	H.eye_color = sanitize_hexcolor(eyetone2hex(random_eye_color())) //MOJAVE SUN EDIT - Hair/Gendered/Colours
 	H.dna.blood_type = random_blood_type()
 
 	// Mutant randomizing, doesn't affect the mob appearance unless it's the specific mutant.
-	H.dna.features["mcolor"] = random_short_color()
+	H.dna.features["mcolor"] = "#[random_color()]"
 	H.dna.features["ethcolor"] = GLOB.color_list_ethereal[pick(GLOB.color_list_ethereal)]
 	H.dna.features["tail_lizard"] = pick(GLOB.tails_list_lizard)
 	H.dna.features["snout"] = pick(GLOB.snouts_list)

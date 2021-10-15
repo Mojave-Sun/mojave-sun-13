@@ -14,20 +14,32 @@
 	can_be_shoved_into = TRUE
 
 	//Hair colour and style
+<<<<<<< HEAD
 	var/hair_color = "341d18" //Hair color //MOJAVE SUN EDIT - Hair/Gendered/Colours
+=======
+	var/hair_color = "#000000"
+>>>>>>> 694c2999b08... makes it so the sanitize_hexcolors' default is 6 characters rather than 3 and gets rid of color_legacy (#61980)
 	var/hairstyle = "Bald"
 
 	///Colour used for the hair gradient.
-	var/grad_color = "000"
+	var/grad_color = "#000000"
 	///Style used for the hair gradient.
 	var/grad_style
 
 	//Facial hair colour and style
+<<<<<<< HEAD
 	var/facial_hair_color = "341d18" //Hair color //MOJAVE SUN EDIT - Hair/Gendered/Colours
 	var/facial_hairstyle = "Shaved"
 
 	//Eye colour
 	var/eye_color = "1c3a5c" //MOJAVE SUN EDIT - Hair/Gendered/Colours
+=======
+	var/facial_hair_color = "#000000"
+	var/facial_hairstyle = "Shaved"
+
+	//Eye colour
+	var/eye_color = "#000000"
+>>>>>>> 694c2999b08... makes it so the sanitize_hexcolors' default is 6 characters rather than 3 and gets rid of color_legacy (#61980)
 
 	var/skin_tone = "caucasian1" //Skin tone
 
@@ -38,7 +50,11 @@
 
 	//consider updating /mob/living/carbon/human/copy_clothing_prefs() if adding more of these
 	var/underwear = "Nude" //Which underwear the player wants
+<<<<<<< HEAD
 	var/underwear_color = "FFCC99" //MOJAVE SUN EDIT - Hair/Gendered/Colours
+=======
+	var/underwear_color = "#000000"
+>>>>>>> 694c2999b08... makes it so the sanitize_hexcolors' default is 6 characters rather than 3 and gets rid of color_legacy (#61980)
 	var/undershirt = "Nude" //Which undershirt the player wants
 	var/socks = "Nude" //Which socks the player wants
 	var/backpack = DBACKPACK //Which backpack type the player has chosen.
