@@ -181,7 +181,7 @@
 	//MOJAVE EDIT CHANGE BEGIN - GUN_RECOIL
 	//if(recoil) - Original
 	//	shake_camera(user, recoil + 1, recoil) - Original
-	var/angle = Get_Angle(user, pbtarget)+rand(-recoil_deviation, recoil_deviation) + 180
+	var/angle = get_angle(user, pbtarget)+rand(-recoil_deviation, recoil_deviation) + 180
 	if(angle > 360)
 		angle -= 360
 	if(recoil)

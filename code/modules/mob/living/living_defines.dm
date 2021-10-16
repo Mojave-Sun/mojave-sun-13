@@ -6,7 +6,7 @@
 	pressure_resistance = 10
 
 	hud_type = /datum/hud/living
-
+	flags_1 = CRITICAL_ATOM_1 // MOJAVE SUN EDIT
 	var/resize = 1 ///Badminnery resize
 	var/lastattacker = null
 	var/lastattackerckey = null
