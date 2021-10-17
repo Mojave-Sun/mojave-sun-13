@@ -81,7 +81,7 @@
 	M.adjustBruteLoss(15)
 	src.visible_message(text("<span class='danger'>[M] falls free of [src]!</span>"))
 	unbuckle_mob(M,force=1)
-	M.emote("collapse")
+	//M.emote("collapse")
 	M.overlays -= image('mojave/icons/structure/cross.dmi', "lashing")
 
 /obj/structure/kitchenspike/ms13/cross/Destroy()
