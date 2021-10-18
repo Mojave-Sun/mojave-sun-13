@@ -3,7 +3,7 @@
 /proc/random_hair_color()
 	return pick(GLOB.hair_color)
 
-GLOBAL_LIST_INIT(hair_color, sortList(list(
+GLOBAL_LIST_INIT(hair_color, sort_list(list(
 	"Dark Gray",
 	"Light Gray",
 	"Black",
@@ -54,7 +54,7 @@ GLOBAL_LIST_INIT(hair_color, sortList(list(
 /proc/random_eye_color()
 	return pick(GLOB.eye_color)
 
-GLOBAL_LIST_INIT(eye_color, sortList(list(
+GLOBAL_LIST_INIT(eye_color, sort_list(list(
 	"Light Turqouise",
 	"Medium Turqouise",
 	"Dark Turqouise",
@@ -123,7 +123,7 @@ var/underwear_colour
 /proc/random_underwear_color()
 	return pick(GLOB.underwear_color)
 
-GLOBAL_LIST_INIT(underwear_color, sortList(list(
+GLOBAL_LIST_INIT(underwear_color, sort_list(list(
 	"Brown",
 	"Green",
 	"Red",

@@ -154,7 +154,7 @@
 
 	//spontaneously spawn grass
 	if(Plantforce || prob(GRASS_SPONTANEOUS))
-		randPlant = pickweight(DESERT_LUSH_PLANT_SPAWN_LIST) //Create a new grass object at this location, and assign var
+		randPlant = pick_weight(DESERT_LUSH_PLANT_SPAWN_LIST) //Create a new grass object at this location, and assign var
 		turfPlant = new randPlant(src)
 		. = TRUE //in case we ever need this to return if we spawned
 		return .
@@ -173,9 +173,9 @@
 
 		//If surrounded on 5+ sides, pick from lush
 		if(Weight == (2 * GRASS_WEIGHT))
-			randPlant = pickweight(DESERT_LUSH_PLANT_SPAWN_LIST)
+			randPlant = pick_weight(DESERT_LUSH_PLANT_SPAWN_LIST)
 		else
-			randPlant = pickweight(DESERT_DESOLATE_PLANT_SPAWN_LIST)
+			randPlant = pick_weight(DESERT_DESOLATE_PLANT_SPAWN_LIST)
 		turfPlant = new randPlant(src)
 		. = TRUE
 
@@ -276,7 +276,7 @@
 	var/randPlant = null
 
 	if(Plantforce || prob(GRASS_SPONTANEOUS))
-		randPlant = pickweight(DESOLATE_PLANT_SPAWN_LIST)
+		randPlant = pick_weight(DESOLATE_PLANT_SPAWN_LIST)
 		turfPlant = new randPlant(src)
 		. = TRUE
 		return .
@@ -287,44 +287,44 @@
 
 		if(istype(curr_area, /area/ms13/snow/deepforest))
 			if(prob(40))
-				randPlant = pickweight(LUSH_PLANT_SPAWN_LIST)
+				randPlant = pick_weight(LUSH_PLANT_SPAWN_LIST)
 				turfPlant = new randPlant(src)
 			else if(prob(20))
-				randPlant = pickweight(DESOLATE_PLANT_SPAWN_LIST)
+				randPlant = pick_weight(DESOLATE_PLANT_SPAWN_LIST)
 				turfPlant = new randPlant(src)
 			. = TRUE
 			return .
 		if(istype(curr_area, /area/ms13/snow/forest))
 			if(prob(20))
-				randPlant = pickweight(LUSH_PLANT_SPAWN_LIST)
+				randPlant = pick_weight(LUSH_PLANT_SPAWN_LIST)
 				turfPlant = new randPlant(src)
 			else if(prob(10))
-				randPlant = pickweight(DESOLATE_PLANT_SPAWN_LIST)
+				randPlant = pick_weight(DESOLATE_PLANT_SPAWN_LIST)
 				turfPlant = new randPlant(src)
 			. = TRUE
 			return .
 		if(istype(curr_area, /area/ms13/snow/lightforest))
 			if(prob(5))
-				randPlant = pickweight(LUSH_PLANT_SPAWN_LIST)
+				randPlant = pick_weight(LUSH_PLANT_SPAWN_LIST)
 				turfPlant = new randPlant(src)
 			else if(prob(10))
-				randPlant = pickweight(DESOLATE_PLANT_SPAWN_LIST)
+				randPlant = pick_weight(DESOLATE_PLANT_SPAWN_LIST)
 				turfPlant = new randPlant(src)
 			. = TRUE
 			return .
 		if(istype(curr_area, /area/ms13/desert))
 			if(prob(5))
-				randPlant = pickweight(DESERT_LUSH_PLANT_SPAWN_LIST)
+				randPlant = pick_weight(DESERT_LUSH_PLANT_SPAWN_LIST)
 				turfPlant = new randPlant(src)
 			else if(prob(10))
-				randPlant = pickweight(DESERT_DESOLATE_PLANT_SPAWN_LIST)
+				randPlant = pick_weight(DESERT_DESOLATE_PLANT_SPAWN_LIST)
 				turfPlant = new randPlant(src)
 			. = TRUE
 			return .
 		else
 			if(prob(Weight))
 				if(Weight == (20 * GRASS_WEIGHT))
-					randPlant = pickweight(DESOLATE_PLANT_SPAWN_LIST)
+					randPlant = pick_weight(DESOLATE_PLANT_SPAWN_LIST)
 					turfPlant = new randPlant(src)
 					. = TRUE
 					return .
@@ -353,7 +353,7 @@
 
 /turf/open/floor/plating/ms13/ground/mountain/proc/plantShrooms()
 	if(prob(SHROOM_SPAWN))
-		turfPlant = pickweight(MUSHROOM_SPAWN_LIST)
+		turfPlant = pick_weight(MUSHROOM_SPAWN_LIST)
 		. = TRUE //in case we ever need this to return if we spawned
 		return .
 
