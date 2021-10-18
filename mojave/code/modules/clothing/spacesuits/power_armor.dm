@@ -2,7 +2,7 @@
 /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor
 	name = "Generic Power Armor Helmet"
 	desc = "Don't ever use this in the video game please."
-	worn_icon = 'mojave/icons/mob/large-worn-icons/32x48/head.dmi'
+	icon = 'mojave/icons/mob/large-worn-icons/32x48/head.dmi'
 	icon_state = "null"
 	worn_icon = 'mojave/icons/mob/large-worn-icons/32x48/head.dmi'
 	worn_icon_state = "null"
@@ -13,6 +13,7 @@
 	actions_types = null //No lights my dude, sorry
 	worn_x_dimension = 32
 	worn_y_dimension = 48
+	worn_y_offset = 2
 	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL | SNUG_FIT | BLOCKS_SHOVE_KNOCKDOWN
 
 //No touchy
@@ -25,7 +26,7 @@
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor
 	name = "Generic Power Armor"
 	desc = "Don't ever use this in the video game please."
-	worn_icon = 'mojave/icons/mob/large-worn-icons/32x48/armor.dmi'
+	icon = 'mojave/icons/mob/large-worn-icons/32x48/armor.dmi'
 	icon_state = "frame"
 	worn_icon = 'mojave/icons/mob/large-worn-icons/32x48/armor.dmi'
 	worn_icon_state = "frame"
@@ -45,6 +46,7 @@
 	clothing_traits = list(TRAIT_SILENT_FOOTSTEPS) //No playing regular footsteps over power armor footsteps
 	item_flags = NO_PIXEL_RANDOM_DROP
 	clothing_flags = LARGE_WORN_ICON | STOPSPRESSUREDAMAGE | THICKMATERIAL | SNUG_FIT | BLOCKS_SHOVE_KNOCKDOWN
+	slowdown = 1
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/examine(mob/user)
 	. = ..()
@@ -193,25 +195,12 @@
 		spark_system.start()
 	..()
 
-/* t45 sprite unimpleneted
-
-//For now the t45 is just a new subtype
-/obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/t45
-	name = "T45 Power Armor Helmet"
-	desc = "A beefy helmet attached to a suit of power armor."
-
-/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/t45
-	name = "T45 Power Armor Suit"
-	desc = "Supposedly the first power armor to be deployed in the Great War. While it does have it's flaws, it still represents a very robust piece of armor that can withstand great punishment."
-	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/power_armor/t45
-*/
+// T-51 PA set //
 
 /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/t51
 	name = "T51 Power Armor Helmet"
 	desc = "A more advanced helmet for a more advanced piece of power armor."
 	armor = list(MELEE = 80, BULLET = 80, LASER = 75, ENERGY = 80, BOMB = 80, BIO = 100, RAD = 100, FIRE = 100, ACID = 100, WOUND = 20) //Make the armor the same as the hardsuit one for consistancy
-	icon = 'mojave/icons/mob/large-worn-icons/32x48/head.dmi'
-	worn_icon = 'mojave/icons/mob/large-worn-icons/32x48/head.dmi'
 	icon_state = "t51_helmet"
 	worn_icon_state = "t51_helmet"
 
@@ -219,9 +208,23 @@
 	name = "T51B Power Armor Suit"
 	desc = "The last widely developed and distributed power armor prior to the nuclear winter, even after all of these years it still outperforms it's previous model iteration."
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/t51
-	armor = list(MELEE = 80, BULLET = 80, LASER = 75, ENERGY = 80, BOMB = 80, BIO = 100, RAD = 100, FIRE = 100, ACID = 100, WOUND = 20) //Make the armor the same as the hardsuit one for consistancy
-	icon = 'mojave/icons/mob/large-worn-icons/32x48/armor.dmi'
-	worn_icon = 'mojave/icons/mob/large-worn-icons/32x48/armor.dmi'
+	armor = list(MELEE = 80, BULLET = 80, LASER = 75, ENERGY = 80, BOMB = 80, BIO = 100, RAD = 100, FIRE = 100, ACID = 100, WOUND = 20)
 	icon_state = "t51_armor"
 	worn_icon_state = "t51_armor"
-	slowdown = 1
+
+// T-45 PA set //
+
+/obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/t45
+	name = "T51 Power Armor Helmet"
+	desc = "The helmet to a T-45 powered combat armor suit. Stare your foe down as they can only scrape your paint."
+	armor = list(MELEE = 80, BULLET = 80, LASER = 75, ENERGY = 80, BOMB = 80, BIO = 100, RAD = 100, FIRE = 100, ACID = 100, WOUND = 20)
+	icon_state = "t45_helmet"
+	worn_icon_state = "t45_helmet"
+
+/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/t45
+	name = "T45D Power Armor Suit"
+	desc = "Supposedly the first power armor to be deployed in the Great War. While it does have it's flaws, it still represents a very robust piece of armor that can withstand great punishment."
+	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/t45
+	armor = list(MELEE = 75, BULLET = 75, LASER = 70, ENERGY = 75, BOMB = 75, BIO = 100, RAD = 100, FIRE = 100, ACID = 100, WOUND = 15)
+	icon_state = "t45_armor"
+	worn_icon_state = "t45_armor"
