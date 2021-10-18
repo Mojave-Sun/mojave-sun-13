@@ -124,7 +124,7 @@
 
 //No helmet toggles for now when helmet is up
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/ToggleHelmet()
-	if(suittoggled || (helmettype == null))
+	if(hood_up || (helmettype == null))
 		return
 	return ..()
 
