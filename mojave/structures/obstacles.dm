@@ -17,7 +17,7 @@
 	max_integrity = 500
 	armor = list(MELEE = 100, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 100, BIO = 100, RAD = 100, FIRE = 100, ACID = 100)
 	damage_deflection = 40
-	CanAtmosPass = ATMOS_PASS_YES
+	can_atmos_pass = ATMOS_PASS_YES
 	flags_1 = ON_BORDER_1 | RAD_PROTECT_CONTENTS_1
 	var/barpasschance = 33
 
