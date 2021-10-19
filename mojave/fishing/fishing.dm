@@ -1,21 +1,21 @@
 // Actual fishing, this will usher in a new era for Fallout13
 
-// Fishing tiles
+// Fishing structures
 
 /obj/structure/ms13/ice_hole
 	name = "ice hole"
 	desc = "A hole in the ice. Good for fishing."
 	icon = 'mojave/icons/turf/ice.dmi'
 	icon_state = "hole_overlay"
-	var/list/fish = list(/obj/item/reagent_containers/food/snacks/meat/slab/fish/sockeye,
-		/obj/item/reagent_containers/food/snacks/meat/slab/fish/smallmouth,
-		/obj/item/reagent_containers/food/snacks/meat/slab/fish/largemouth,
-		/obj/item/reagent_containers/food/snacks/meat/slab/fish/lamprey,
-		/obj/item/reagent_containers/food/snacks/meat/slab/fish/pink,
-		/obj/item/reagent_containers/food/snacks/meat/slab/fish/chum,
-		/obj/item/reagent_containers/food/snacks/meat/slab/fish/sturgeon,
-		/obj/item/reagent_containers/food/snacks/meat/slab/fish/asian,
-		/obj/item/reagent_containers/food/snacks/meat/slab/fish/blinky)
+	var/list/fish = list(/obj/item/food/meat/slab/ms13/fish/sockeye,
+		/obj/item/food/meat/slab/ms13/fish/smallmouth,
+		/obj/item/food/meat/slab/ms13/fish/largemouth,
+		/obj/item/food/meat/slab/ms13/fish/lamprey,
+		/obj/item/food/meat/slab/ms13/fish/pink,
+		/obj/item/food/meat/slab/ms13/fish/chum,
+		/obj/item/food/meat/slab/ms13/fish/sturgeon,
+		/obj/item/food/meat/slab/ms13/fish/asian,
+		/obj/item/food/meat/slab/ms13/fish/blinky)
 	var/fished = FALSE
 
 /obj/structure/ms13/ice_hole/attackby(obj/item/W, mob/user, params)
