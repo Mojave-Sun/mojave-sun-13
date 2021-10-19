@@ -3,7 +3,7 @@
 	icon = 'mojave/icons/hud/ms_ui_base.dmi'
 	icon_state = "background"
 	plane = HUD_BACKGROUND_PLANE
-	screen_loc = "WEST-3,SOUTH"
+	screen_loc = "hud:WEST,SOUTH"
 	mouse_opacity = 0
 
 /atom/movable/screen/ms13/slot_background
@@ -54,13 +54,13 @@
 	icon = 'mojave/icons/hud/ms_ui_buttons.dmi'
 	icon_state = "rest"
 	base_icon_state = "rest"
-	screen_loc = "WEST-3,SOUTH"
+	screen_loc = "hud:WEST,SOUTH"
 
 /atom/movable/screen/pull/ms13
 	icon = 'mojave/icons/hud/ms_ui_buttons.dmi'
 	icon_state = "pull"
 	base_icon_state = "pull"
-	screen_loc = "WEST-3,SOUTH"
+	screen_loc = "hud:WEST,SOUTH"
 
 //atom/movable/screen/resist/ms13
 
@@ -69,11 +69,11 @@
 /atom/movable/screen/throw_catch/ms13
 	icon = 'mojave/icons/hud/ms_ui_buttons.dmi'
 	icon_state = "act_throw_off"
-	screen_loc = "WEST-3,SOUTH"
+	screen_loc = "hud:WEST,SOUTH"
 
 /atom/movable/screen/mov_intent/ms13
 	icon = 'mojave/icons/hud/ms_ui_buttons.dmi'
 	icon_state = "running"
-	screen_loc = "WEST-3,SOUTH"
+	screen_loc = "hud:WEST,SOUTH"
 
 

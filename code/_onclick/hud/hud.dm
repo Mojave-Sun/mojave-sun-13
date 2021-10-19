@@ -81,6 +81,8 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	// subtypes can override this to force a specific UI style
 	var/ui_style
 
+	var/contains_off_screen_hud = FALSE // MOJAVE SUN EDIT - handling for secondary map skin for HUD
+
 /datum/hud/New(mob/owner)
 	mymob = owner
 
@@ -237,6 +239,16 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 			show_hud(hud_version, M)
 	else if (viewmob.hud_used)
 		viewmob.hud_used.plane_masters_update()
+
+	// MOJAVE SUN EDIT START - changes for HUD
+	//TODO this could probs changes anchors of the map and hud panels
+	// If disabled, maybe set X size of hud to 0, and change anchor1 of map to top left
+	// otherwise set o 92 and 13%
+	// if(containsOffScreenHud && display_hud_version != HUD_STYLE_NOHUD)
+	// 	winset(screenmob.client, "mapwindow.hud", "is-visible=true")
+	// else
+	// 	winset(screenmob.client, "mapwindow.hud", "is-visible=false")
+	// MOJAVE SUN EDIT END - changes for HUD
 
 	return TRUE
 

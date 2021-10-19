@@ -1108,10 +1108,12 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 /client/proc/set_right_click_menu_mode(shift_only)
 	if(shift_only)
 		winset(src, "mapwindow.map", "right-click=true")
+		winset(src, "mapwindow.hud", "right-click=true") // MOJAVE SUN EDIT ADDITION - HUD skin
 		winset(src, "ShiftUp", "is-disabled=false")
 		winset(src, "Shift", "is-disabled=false")
 	else
 		winset(src, "mapwindow.map", "right-click=false")
+		winset(src, "mapwindow.hud", "right-click=false") // MOJAVE SUN EDIT ADDITION - HUD skin
 		winset(src, "default.Shift", "is-disabled=true")
 		winset(src, "default.ShiftUp", "is-disabled=true")
 

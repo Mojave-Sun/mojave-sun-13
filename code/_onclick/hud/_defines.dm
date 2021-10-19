@@ -32,29 +32,29 @@
 	return "CENTER+[x_off]:16,SOUTH+[y_off+1]:5"
 
 //Lower left, persistent menu
-#define ui_inventory "WEST-3,SOUTH" // MOJAVE EDIT - #define ui_inventory "WEST:6,SOUTH:5"
+#define ui_inventory "hud:WEST,SOUTH" // MOJAVE EDIT - #define ui_inventory "WEST:6,SOUTH:5"
 
 //Middle left indicators
 #define ui_lingchemdisplay "WEST,CENTER-1:15"
 #define ui_lingstingdisplay "WEST:6,CENTER-3:11"
 
 //Lower center, persistent menu
-#define ui_sstore1 "WEST-3:8,SOUTH:44" // MOJAVE EDIT - #define ui_sstore1 "CENTER-5:10,SOUTH:5"
+#define ui_sstore1 "hud:WEST:8,SOUTH:44" // MOJAVE EDIT - #define ui_sstore1 "CENTER-5:10,SOUTH:5"
 #define ui_id "WEST:10,SOUTH:44" // MOJAVE EDIT - #define ui_id "CENTER-4:12,SOUTH:5"
-#define ui_belt "WEST-3:50,SOUTH:44" // MOJAVE EDIT - #define ui_belt "CENTER-3:14,SOUTH:5"
-#define ui_back "WEST-3:29,SOUTH:9" // MOJAVE EDIT - #define ui_back "CENTER-2:14,SOUTH:5"
+#define ui_belt "hud:WEST:50,SOUTH:44" // MOJAVE EDIT - #define ui_belt "CENTER-3:14,SOUTH:5"
+#define ui_back "hud:WEST:29,SOUTH:9" // MOJAVE EDIT - #define ui_back "CENTER-2:14,SOUTH:5"
 #define ui_storage1 "CENTER:48,SOUTH" // MOJAVE EDIT - #define ui_storage1 "CENTER+1:18,SOUTH:5"
 #define ui_storage2 "CENTER:-80,SOUTH" // MOJAVE EDIT - #define ui_storage2 "CENTER+2:20,SOUTH:5"
 #define ui_combo "CENTER+4:24,SOUTH+1:7" //combo meter for martial arts
 
 //Lower right, persistent menu
-#define ui_drop_throw "WEST-3,SOUTH" // MOJAVE EDIT - #define ui_drop_throw "EAST-1:28,SOUTH+1:7"
-#define ui_above_movement "WEST-3,SOUTH" // MOJAVE EDIT - #define ui_above_movement "EAST-2:26,SOUTH+1:7"
-#define ui_above_intent "WEST-3,SOUTH" // MOJAVE EDIT -  #define ui_above_intent "EAST-3:24, SOUTH+1:7"
-#define ui_movi "WEST-3,SOUTH" // MOJAVE EDIT - #define ui_movi "EAST-2:26,SOUTH:5"
+#define ui_drop_throw "hud:WEST,SOUTH" // MOJAVE EDIT - #define ui_drop_throw "EAST-1:28,SOUTH+1:7"
+#define ui_above_movement "hud:WEST,SOUTH" // MOJAVE EDIT - #define ui_above_movement "EAST-2:26,SOUTH+1:7"
+#define ui_above_intent "hud:WEST,SOUTH" // MOJAVE EDIT -  #define ui_above_intent "EAST-3:24, SOUTH+1:7"
+#define ui_movi "hud:WEST,SOUTH" // MOJAVE EDIT - #define ui_movi "EAST-2:26,SOUTH:5"
 #define ui_acti "EAST-3:24,SOUTH:5"
-#define ui_combat_toggle "WEST-3,SOUTH+4:12" // MOJAVE EDIT - #define ui_combat_toggle "EAST-3:24,SOUTH:5"
-#define ui_zonesel "WEST-3,SOUTH:198" // MOJAVE EDIT - #define ui_zonesel "EAST-1:28,SOUTH:5"
+#define ui_combat_toggle "hud:WEST,SOUTH+4:12" // MOJAVE EDIT - #define ui_combat_toggle "EAST-3:24,SOUTH:5"
+#define ui_zonesel "hud:WEST,SOUTH:198" // MOJAVE EDIT - #define ui_zonesel "EAST-1:28,SOUTH:5"
 #define ui_acti_alt "EAST-1:28,SOUTH:5" //alternative intent switcher for when the interface is hidden (F12)
 #define ui_crafting "EAST-4:22,SOUTH:5"
 #define ui_building "EAST-4:22,SOUTH:21"
