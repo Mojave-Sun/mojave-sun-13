@@ -27,19 +27,11 @@
 	//Limb appearance info:
 	var/real_name = "" //Replacement name
 	//Hair colour and style
-<<<<<<< HEAD
 	var/hair_color = "#341d18" //Hair color //MOJAVE SUN EDIT - Hair/Gendered/Colours
 	var/hairstyle = "Bald"
 	var/hair_alpha = 255
 	//Facial hair colour and style
 	var/facial_hair_color = "#341d18" //Hair color //MOJAVE SUN EDIT - Hair/Gendered/Colours
-=======
-	var/hair_color = "#000000"
-	var/hairstyle = "Bald"
-	var/hair_alpha = 255
-	//Facial hair colour and style
-	var/facial_hair_color = "#000000"
->>>>>>> 694c2999b08... makes it so the sanitize_hexcolors' default is 6 characters rather than 3 and gets rid of color_legacy (#61980)
 	var/facial_hairstyle = "Shaved"
 	//Eye Colouring
 

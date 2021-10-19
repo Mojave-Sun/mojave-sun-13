@@ -190,62 +190,33 @@
 	. = 0
 	//MOJAVE SUN EDIT START - Skin Colours
 	switch(skin_tone)
-<<<<<<< HEAD
 		if("arab")
-			. = "cc926a"
+			. = "#cc926a"
 		if("asian1")
-			. = "e1c898"
+			. = "#e1c898"
 		if("asian2")
-			. = "c8b088"
+			. = "#c8b088"
 		if("african1")
-			. = "78544f"
+			. = "#78544f"
 		if("african2")
-			. = "4c3735"
+			. = "#4c3735"
 		if("albino")
-			. = "ffe0d1"
-		if("caucasian1")
-			. = "fcccb3"
-		if("caucasian2")
-			. = "ffc19e"
-		if("caucasian3")
-			. = "edb198"
-		if("indian")
-			. = "915e4c"
-		if("latino")
-			. = "cc9e6c"
-		if("mediterranean")
-			. = "ddb47b"
-		if("orange")
-			. = "ffc905"
-	//MOJAVE SUN EDIT END - Skin Colours
-=======
-		if("caucasian1")
 			. = "#ffe0d1"
-		if("caucasian2")
+		if("caucasian1")
 			. = "#fcccb3"
+		if("caucasian2")
+			. = "#ffc19e"
 		if("caucasian3")
-			. = "#e8b59b"
-		if("latino")
-			. = "#d9ae96"
-		if("mediterranean")
-			. = "#c79b8b"
-		if("asian1")
-			. = "#ffdeb3"
-		if("asian2")
-			. = "#e3ba84"
-		if("arab")
-			. = "#c4915e"
+			. = "#edb198"
 		if("indian")
-			. = "#b87840"
-		if("african1")
-			. = "#754523"
-		if("african2")
-			. = "#471c18"
-		if("albino")
-			. = "#fff4e6"
+			. = "#915e4c"
+		if("latino")
+			. = "#cc9e6c"
+		if("mediterranean")
+			. = "#ddb47b"
 		if("orange")
 			. = "#ffc905"
->>>>>>> 694c2999b08... makes it so the sanitize_hexcolors' default is 6 characters rather than 3 and gets rid of color_legacy (#61980)
+	//MOJAVE SUN EDIT END - Skin Colours
 
 /mob/living/carbon/proc/Digitigrade_Leg_Swap(swap_back)
 	var/body_plan_changed = FALSE
