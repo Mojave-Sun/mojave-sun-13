@@ -18,13 +18,8 @@
 		if("albino")
 			return "#" + pick("cc","dd","ee","ff") + pick("00","11","22","33","44","55","66","77","88","99") + pick("00","11","22","33","44","55","66","77","88","99")
 		else
-<<<<<<< HEAD
-			return "000"
-*/// MOJAVE SUN EDIT END - Unused Eye Colour Proc
-=======
 			return "#000000"
-
->>>>>>> 694c2999b08... makes it so the sanitize_hexcolors' default is 6 characters rather than 3 and gets rid of color_legacy (#61980)
+*/// MOJAVE SUN EDIT END - Unused Eye Colour Proc
 /proc/random_underwear(gender)
 	if(!GLOB.underwear_list.len)
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/underwear, GLOB.underwear_list, GLOB.underwear_m, GLOB.underwear_f)
