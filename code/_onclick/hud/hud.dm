@@ -241,7 +241,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 		viewmob.hud_used.plane_masters_update()
 
 	// MOJAVE SUN EDIT START - changes for HUD
-	setHudBarVisible(contains_off_screen_hud && display_hud_version != HUD_STYLE_NOHUD, screenmob.client)
+	INVOKE_ASYNC(src, .proc/setHudBarVisible, contains_off_screen_hud && display_hud_version != HUD_STYLE_NOHUD, screenmob.client)
 	// MOJAVE SUN EDIT END - changes for HUD
 
 	return TRUE
@@ -254,9 +254,11 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 
 	var/mapXPos = visible ? hudSize[1] : 0
 	var/mapWidth = visible ? text2num(screenSize[1]) - text2num(hudSize[1]) : screenSize[1]
+	var/anchor1  = visible ? "13,0" : "0,0" //Hud is 13% of our screen
 
-	winset(C, "mapwindow.map","pos=[mapXPos],0;size=[mapWidth]x[screenSize[2]]")
-	winshow(C, "mapwindow.hud", visible)
+	winset(C, "mapwindow.map","pos=[mapXPos],0;size=[mapWidth]x[screenSize[2]],anchor1=[anchor1]")
+	//We don't hide this, so it doesn't create a white block
+	//winshow(C, "mapwindow.hud", visible)
 // MOJAVE SUN EDIT END - changes for HUD
 
 /datum/hud/proc/plane_masters_update()
