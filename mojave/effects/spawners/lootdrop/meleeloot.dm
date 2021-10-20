@@ -8,8 +8,8 @@
 
 	loot = list(
 			/obj/item/claymore/ms13/pipe/tireiron,
-            /obj/item/kitchen/knife/ms13/switchblade/razor,
-            /obj/item/kitchen/knife/ms13,
+            /obj/item/knife/ms13/switchblade/razor,
+            /obj/item/knife/ms13,
             /obj/item/ms13/twohanded/spear/knife,
             /obj/item/ms13/brick,
             /obj/item/ms13/hammer,
@@ -29,10 +29,10 @@
             /obj/item/claymore/ms13/pipe,
             /obj/item/claymore/ms13/baton,
             /obj/item/claymore/ms13/machete,
-            /obj/item/kitchen/knife/ms13/hunting,
-            /obj/item/throwing_star/ms13/throwingknife,
-            /obj/item/kitchen/knife/ms13/switchblade,
-            /obj/item/kitchen/knife/butcher/ms13,
+            /obj/item/knife/ms13/hunting,
+            /obj/item/knife/ms13/throwingknife,
+            /obj/item/knife/ms13/switchblade,
+            /obj/item/knife/butcher/ms13,
             /obj/item/ms13/knuckles/weighted,
             /obj/item/shovel/ms13,
             /obj/item/ms13/twohanded/spear/throwing,
@@ -46,8 +46,8 @@
             /obj/item/claymore/ms13/machete/katana,
             /obj/item/claymore/ms13/machete/shishkebab,
             /obj/item/claymore/ms13/machete/ripper,
-            /obj/item/kitchen/knife/ms13/combat/soviet,
-            /obj/item/kitchen/knife/ms13/combat,
+            /obj/item/knife/ms13/combat/soviet,
+            /obj/item/knife/ms13/combat,
             /obj/item/hatchet/ms13/broad,
             /obj/item/ms13/knuckles/weighted/spiked,
             /obj/item/ms13/twohanded/hammer,
@@ -59,7 +59,7 @@
 	name = "tier 4 melee spawner"
 
 	loot = list(
-            /obj/item/kitchen/knife/ms13/combat/bowie,
+            /obj/item/knife/ms13/combat/bowie,
             /obj/item/claymore/ms13/machete/ripper/advanced,
             /obj/item/ms13/knuckles/powerfist,
             /obj/item/ms13/twohanded/hammer/super,
@@ -74,8 +74,8 @@
 	loot = list(
             /obj/item/claymore/ms13/machete/katana/immortal,
             /obj/item/claymore/ms13/pipe/humble,
-            /obj/item/kitchen/knife/ms13/hunting/unique,
-            /obj/item/kitchen/knife/butcher/ms13/unique
+            /obj/item/knife/ms13/hunting/unique,
+            /obj/item/knife/butcher/ms13/unique
             )
 
 /obj/effect/spawner/random/ms13/melee/lowrandom

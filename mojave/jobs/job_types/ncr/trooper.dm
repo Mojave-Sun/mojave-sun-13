@@ -17,7 +17,7 @@
 	suit =       /obj/item/clothing/suit/armor/ms13/ncr
 	suit_store = /obj/item/gun/ballistic/automatic/ms13/semi/service
 	r_pocket = 	 /obj/item/ammo_box/magazine/ms13/r20
-	l_pocket =	 /obj/item/kitchen/knife/ms13/hunting
+	l_pocket =	 /obj/item/knife/ms13/hunting
 	backpack_contents = list(
 		/obj/item/stack/medical/gauze/ms13/three=1, \
 		/obj/item/clothing/mask/ms13/ncr=1)
