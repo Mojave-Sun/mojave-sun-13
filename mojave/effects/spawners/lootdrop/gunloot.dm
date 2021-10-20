@@ -1,9 +1,10 @@
 /obj/effect/spawner/random/ms13/gun
 	name = "DO NOT USE ME - Mojave Sun gun spawners"
-
+	icon_state = "ms13_gun"
 /obj/effect/spawner/random/ms13/gun/tier1
 	name = "tier 1 gun spawner"
 	spawn_loot_count = 3
+	spawn_loot_chance = 35
 	var/loot1 = list(
 				/obj/item/gun/ballistic/automatic/pistol/ms13/m9mm,
 				/obj/item/ammo_box/magazine/ms13/m9mm,
@@ -62,6 +63,7 @@
 /obj/effect/spawner/random/ms13/gun/tier2
 	name = "tier 2 gun spawner"
 	spawn_loot_count = 3
+	spawn_loot_chance = 40
 	var/loot1 = list(
 				/obj/item/gun/ballistic/automatic/pistol/ms13/m10mm/military,
 				/obj/item/ammo_box/magazine/ms13/m10mm,
@@ -130,6 +132,7 @@
 /obj/effect/spawner/random/ms13/gun/tier3
 	name = "tier 3 gun spawner"
 	spawn_loot_count = 3
+	spawn_loot_chance = 45
 	var/loot1 = list(
 				/obj/item/gun/ballistic/revolver/ms13/rev44,
 				/obj/item/ammo_box/ms13/rev44,
@@ -223,6 +226,7 @@
 /obj/effect/spawner/random/ms13/gun/tier4
 	name = "tier 4 gun spawner"
 	spawn_loot_count = 3
+	spawn_loot_chance = 50
 	var/loot1 = list(
 				/obj/item/gun/ballistic/rifle/ms13/hunting/scoped/amr,
 				/obj/item/ammo_box/magazine/ms13/amr,
@@ -326,6 +330,7 @@
 /obj/effect/spawner/random/ms13/gun/lowunique
 	name = "low tier unique gun spawner"
 	spawn_loot_count = 3
+	spawn_loot_chance = 25
 	var/loot1 = list(
 				/obj/item/gun/ballistic/rifle/ms13/varmint/ratslayer,
 				/obj/item/ammo_box/magazine/ms13/r10,
@@ -359,6 +364,7 @@
 /obj/effect/spawner/random/ms13/gun/highunique
 	name = "high tier unique gun spawner"
 	spawn_loot_count = 3
+	spawn_loot_chance = 25
 	var/loot1 = list(
 				/obj/item/gun/ballistic/revolver/ms13/huntingrev/sequoia,
 				/obj/item/ammo_box/ms13/rev4570,
@@ -402,6 +408,7 @@
 /obj/effect/spawner/random/ms13/gun/lowrandom
 	name = "low tier random gun spawner"
 	spawn_loot_count = 1
+	spawn_loot_chance = 100
 
 	loot = list(
 			/obj/effect/spawner/random/ms13/gun/tier1 = 70,
@@ -411,6 +418,7 @@
 /obj/effect/spawner/random/ms13/gun/highrandom
 	name = "high tier random gun spawner"
 	spawn_loot_count = 1
+	spawn_loot_chance = 100
 
 	loot = list(
 			/obj/effect/spawner/random/ms13/gun/tier2 = 10,
