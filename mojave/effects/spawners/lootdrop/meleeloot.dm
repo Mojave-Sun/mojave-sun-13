@@ -1,11 +1,11 @@
 /obj/effect/spawner/random/ms13/melee
-    name = "DO NOT USE ME - Mojave Sun melee spawners"
-    spawn_loot_count = 1
-    spawn_loot_double = FALSE
+	name = "DO NOT USE ME - Mojave Sun melee spawners"
+	spawn_loot_count = 1
+	spawn_loot_double = FALSE
 
 /obj/effect/spawner/random/ms13/melee/tier1
 	name = "tier 1 melee spawner"
-
+	spawn_loot_chance = 35
 	loot = list(
 			/obj/item/claymore/ms13/pipe/tireiron,
             /obj/item/knife/ms13/switchblade/razor,
@@ -21,7 +21,7 @@
 
 /obj/effect/spawner/random/ms13/melee/tier2
 	name = "tier 2 melee spawner"
-
+	spawn_loot_chance = 40
 	loot = list(
             /obj/item/hatchet/ms13,
             /obj/item/hatchet/ms13/icepick,
@@ -41,7 +41,7 @@
 
 /obj/effect/spawner/random/ms13/melee/tier3
 	name = "tier 3 melee spawner"
-
+	spawn_loot_chance = 45
 	loot = list(
             /obj/item/claymore/ms13/machete/katana,
             /obj/item/claymore/ms13/machete/shishkebab,
@@ -57,6 +57,7 @@
 
 /obj/effect/spawner/random/ms13/melee/tier4
 	name = "tier 4 melee spawner"
+	spawn_loot_chance = 50
 
 	loot = list(
             /obj/item/knife/ms13/combat/bowie,
@@ -70,6 +71,7 @@
 
 /obj/effect/spawner/random/ms13/melee/unique
 	name = "unique melee spawner"
+	spawn_loot_chance = 25
 
 	loot = list(
             /obj/item/claymore/ms13/machete/katana/immortal,
@@ -79,18 +81,20 @@
             )
 
 /obj/effect/spawner/random/ms13/melee/lowrandom
-    name = "low tier random melee spawner"
+	name = "low tier random melee spawner"
+	spawn_loot_chance = 100
 
-    loot = list(
-            /obj/effect/spawner/random/ms13/melee/tier1 = 70,
-            /obj/effect/spawner/random/ms13/melee/tier2 = 30
-            )
+	loot = list(
+			/obj/effect/spawner/random/ms13/melee/tier1 = 70,
+			/obj/effect/spawner/random/ms13/melee/tier2 = 30
+			)
 
 /obj/effect/spawner/random/ms13/melee/highrandom
-    name = "high tier random melee spawner"
+	name = "high tier random melee spawner"
+	spawn_loot_chance = 100
 
-    loot = list(
-            /obj/effect/spawner/random/ms13/melee/tier2 = 10,
-            /obj/effect/spawner/random/ms13/melee/tier3 = 60,
-            /obj/effect/spawner/random/ms13/melee/tier4 = 30
-            )
+	loot = list(
+			/obj/effect/spawner/random/ms13/melee/tier2 = 10,
+			/obj/effect/spawner/random/ms13/melee/tier3 = 60,
+			/obj/effect/spawner/random/ms13/melee/tier4 = 30
+			)
