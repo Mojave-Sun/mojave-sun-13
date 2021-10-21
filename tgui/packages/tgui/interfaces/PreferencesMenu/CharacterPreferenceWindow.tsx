@@ -126,7 +126,7 @@ export const CharacterPreferenceWindow = (props, context) => {
                     catches your eyes, because it's really important!
                   */}
 
-                  Occupations
+                  Factions
                 </PageButton>
               </Stack.Item>
 

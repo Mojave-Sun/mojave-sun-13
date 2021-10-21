@@ -38,3 +38,26 @@ export const Science: Department = {
 export const Silicon: Department = {
   head: "AI",
 };
+
+// MOJAVE EDIT ADDITION BEGIN - Departments
+export const NCR: Department = {
+  head: "NCR Lieutenant",
+};
+
+export const BOS: Department = {
+  head: "Head Paladin",
+};
+
+export const Raiders: Department = {
+  head: "Raider Boss",
+};
+
+export const Town: Department = {
+  head: "Town Mayor",
+};
+
+export const Wasteland: Department = {
+  // no head.
+};
+
+// MOJAVE EDIT ADDITION END - Departments

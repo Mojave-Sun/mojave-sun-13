@@ -13,6 +13,18 @@ const jobsByDepartment = new Map<Departments.Department, {
   head?: Job,
 }>();
 
+/* MOJAVE EDIT ADDITION START - FACTION SWITCH*/
+export enum Faction {
+  NCR,
+  Raiders,
+  BOS,
+  Town,
+  Wasteland
+}
+
+export let activeFaction = Faction.NCR; // Default Faction
+
+/* MOJAVE EDIT ADDITION STOP - FACTION SWITCH*/
 const binaryInsertJob = binaryInsertWith((job: Job) => {
   return job.name;
 });
@@ -371,16 +383,146 @@ const JoblessRoleDropdown = (props, context) => {
   );
 };
 
-export const JobsPage = () => {
+/* MOJAVE EDIT ADDITION START - FACTION SWITCH*/
+export const setFaction = (faction) => {
+  activeFaction = faction;
+};
+
+export const JobSwitch = (faction) => {
+  switch (faction) {
+    case Faction.NCR:
+      return (
+        <>
+          <Stack.Item mr={1}>
+            <Gap amount={36} />
+            <PriorityHeaders />
+            <Gap amount={6} />
+            <Department
+              department={Departments.NCR}
+              name="NCR" />
+            <Gap amount={6} />
+          </Stack.Item>
+
+          <Stack.Item mr={1}>
+            <Gap amount={36} />
+          </Stack.Item>
+        </>
+      );
+    case Faction.Town:
+      return (
+        <>
+          <Stack.Item mr={1}>
+            <Gap amount={36} />
+            <PriorityHeaders />
+            <Gap amount={6} />
+            <Department
+              department={Departments.Town}
+              name="Town" />
+            <Gap amount={6} />
+          </Stack.Item>
+
+          <Stack.Item mr={1}>
+            <Gap amount={36} />
+          </Stack.Item>
+        </>
+      );
+    case Faction.BOS:
+      return (
+        <>
+          <Stack.Item mr={1}>
+            <Gap amount={36} />
+            <PriorityHeaders />
+            <Gap amount={6} />
+            <Department
+              department={Departments.BOS}
+              name="Brotherhood of Steel" />
+            <Gap amount={6} />
+          </Stack.Item>
+
+          <Stack.Item mr={1}>
+            <Gap amount={36} />
+          </Stack.Item>
+        </>
+      );
+    case Faction.Raiders:
+      return (
+        <>
+          <Stack.Item mr={1}>
+            <Gap amount={36} />
+            <PriorityHeaders />
+            <Gap amount={6} />
+            <Department
+              department={Departments.Raiders}
+              name="Raiders" />
+            <Gap amount={6} />
+          </Stack.Item>
+
+          <Stack.Item mr={1}>
+            <Gap amount={36} />
+          </Stack.Item>
+        </>
+      );
+    case Faction.Wasteland:
+      return (
+        <>
+          <Stack.Item mr={1}>
+            <Gap amount={36} />
+            <PriorityHeaders />
+            <Gap amount={6} />
+            <Department
+              department={Departments.Wasteland}
+              name="Wastelanders" />
+            <Gap amount={6} />
+          </Stack.Item>
+
+          <Stack.Item mr={1}>
+            <Gap amount={36} />
+          </Stack.Item>
+        </>
+      );
+  }
+};
+
+export const JobsPage = (currentFaction) => {
+  currentFaction = activeFaction;
+  const activeFactionMenu = JobSwitch(currentFaction);
+
   return (
     <>
+      <>
+        <Button
+          content="NCR"
+          color={activeFaction === Faction.NCR ? "green" : null}
+          onClick={() => { setFaction(Faction.NCR);
+          }}
+        />
+        <Button
+          content="Town"
+          color={activeFaction === Faction.Town ? "green" : null}
+          onClick={() => setFaction(Faction.Town)}
+        />
+        <Button
+          content="Brotherhood of Steel"
+          color={activeFaction === Faction.BOS ? "green" : null}
+          onClick={() => setFaction(Faction.BOS)}
+        />
+        <Button
+          content="Raiders"
+          color={activeFaction === Faction.Raiders ? "green" : null}
+          onClick={() => setFaction(Faction.Raiders)}
+        />
+        <Button
+          content="Wasteland"
+          color={activeFaction === Faction.Wasteland ? "green" : null}
+          onClick={() => setFaction(Faction.Wasteland)}
+        />
+      </>
       <JoblessRoleDropdown />
-
       <Stack vertical fill>
         <Gap amount={22} />
-
         <Stack.Item>
           <Stack fill className="PreferencesMenu__Jobs">
+            {/* MOJAVE EDIT REMOVAL BEGIN - DEPARTMENTS
             <Stack.Item mr={1}>
               <Gap amount={36} />
 
@@ -433,6 +575,11 @@ export const JobsPage = () => {
                 department={Departments.Medical}
                 name="Medical" />
             </Stack.Item>
+            MOJAVE EDIT REMOVAL END - DEPARTMENTS*/}
+
+            {/* MOJAVE EDIT ADDITION START - DEPARTMENTS */}
+            {activeFactionMenu}
+            {/* MOJAVE EDIT ADDITION END - DEPARTMENTS */}
           </Stack>
         </Stack.Item>
       </Stack>
