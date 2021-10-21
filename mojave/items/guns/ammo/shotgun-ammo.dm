@@ -13,14 +13,14 @@
 	desc = "A 12 gauge shotgun shell loaded with buckshot."
 	icon_state = "buckshot"
 	pellets = 5
-	variance = 30
+	variance = 25
 	projectile_type = /obj/projectile/bullet/pellet/ms13/buckshot
 
 /obj/item/ammo_casing/shotgun/ms13/buckshot/junk
 	name = "12 gauge junkshot shell"
 	desc = "A makeshift 12 gauge shotgun shell crudely loaded to resemble buckshot."
 	icon_state = "buckshot"
-	variance = 35
+	variance = 30
 	projectile_type = /obj/projectile/bullet/pellet/ms13/buckshot/junk
 
 /obj/item/ammo_casing/shotgun/ms13/buckshot/triple
@@ -32,7 +32,7 @@
 	name = "12 gauge flechette shell"
 	desc = "A 12 gauge shotgun shell loaded with flechette darts. Better penetration and tighter spread than standard buckshot."
 	icon_state = "flechette"
-	variance = 25
+	variance = 20
 	projectile_type = /obj/projectile/bullet/pellet/ms13/flechette
 
 /obj/item/ammo_casing/shotgun/ms13/slug

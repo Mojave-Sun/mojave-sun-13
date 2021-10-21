@@ -2,8 +2,8 @@
 	title = "NCR Trooper"
 	total_positions = 10
 	spawn_positions = 10
-	supervisors = "The Lieutenant, Staff Sergeants, and Sergeants.  In that order."
-	description = "Hold the line, and do as ordered."
+	supervisors = "Sergeants and above."
+	description = "Follow and execute orders given to you by your superiors."
 
 	outfit = /datum/outfit/job/ms13/ncr/trooper
 
@@ -13,16 +13,14 @@
 	name = "_NCR Trooper"
 	jobtype = 	 /datum/job/ms13/ncr/trooper
 	id = 		 /obj/item/card/id/ms13/ncrtrooper
-	uniform =    /obj/item/clothing/under/ms13/ncr/fatigues
 	head = 	     /obj/item/clothing/head/helmet/ms13/ncr
-	mask = 		 /obj/item/clothing/mask/ms13/ncr
 	suit =       /obj/item/clothing/suit/armor/ms13/ncr
 	suit_store = /obj/item/gun/ballistic/automatic/ms13/semi/service
+	r_pocket = 	 /obj/item/ammo_box/magazine/ms13/r20
+	l_pocket =	 /obj/item/knife/ms13/hunting
 	backpack_contents = list(
-		/obj/item/ammo_box/magazine/ms13/r20=1, \
-		/obj/item/kitchen/knife/ms13/hunting=1, \
-		/obj/item/reagent_containers/hypospray/medipen/ms13/stimpak=1, \
-		/obj/item/stack/medical/gauze/ms13=1)
+		/obj/item/stack/medical/gauze/ms13/three=1, \
+		/obj/item/clothing/mask/ms13/ncr=1)
 
 /datum/outfit/job/ms13/ncr/trooper/pre_equip(mob/living/carbon/human/H)
 	..()

@@ -6,7 +6,7 @@
 	pressure_resistance = 10
 
 	hud_type = /datum/hud/living
-
+	flags_1 = CRITICAL_ATOM_1 // MOJAVE SUN EDIT
 	var/resize = 1 ///Badminnery resize
 	var/lastattacker = null
 	var/lastattackerckey = null
@@ -113,8 +113,6 @@
 	var/list/butcher_results = null ///these will be yielded from butchering with a probability chance equal to the butcher item's effectiveness
 	var/list/guaranteed_butcher_results = null ///these will always be yielded from butchering
 	var/butcher_difficulty = 0 ///effectiveness prob. is modified negatively by this amount; positive numbers make it more difficult, negative ones make it easier
-
-	var/list/weather_immunities
 
 	var/stun_absorption = null ///converted to a list of stun absorption sources this mob has when one is added
 

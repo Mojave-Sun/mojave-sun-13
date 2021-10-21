@@ -2,17 +2,18 @@
 /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor
 	name = "Generic Power Armor Helmet"
 	desc = "Don't ever use this in the video game please."
-	worn_icon = 'mojave/icons/mob/large-worn-icons/32x48/head.dmi'
+	icon = 'mojave/icons/mob/large-worn-icons/32x48/head.dmi'
 	icon_state = "null"
 	worn_icon = 'mojave/icons/mob/large-worn-icons/32x48/head.dmi'
 	worn_icon_state = "null"
-	strip_delay = 200
+	strip_delay = 15 SECONDS
 	max_integrity = 500
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	armor = list(MELEE = 80, BULLET = 80, LASER = 80, ENERGY = 80, BOMB = 80, BIO = 100, RAD = 100, FIRE = 100, ACID = 100, WOUND = 25) //Make the armor the same as the hardsuit one for consistancy
 	actions_types = null //No lights my dude, sorry
 	worn_x_dimension = 32
 	worn_y_dimension = 48
+	worn_y_offset = 2
 	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL | SNUG_FIT | BLOCKS_SHOVE_KNOCKDOWN
 
 //No touchy
@@ -25,13 +26,14 @@
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor
 	name = "Generic Power Armor"
 	desc = "Don't ever use this in the video game please."
-	worn_icon = 'mojave/icons/mob/large-worn-icons/32x48/armor.dmi'
+	icon = 'mojave/icons/mob/large-worn-icons/32x48/armor.dmi'
 	icon_state = "frame"
 	worn_icon = 'mojave/icons/mob/large-worn-icons/32x48/armor.dmi'
 	worn_icon_state = "frame"
+	allowed = list(/obj/item/storage/box/matches,/obj/item/lighter,/obj/item/clothing/mask/cigarette,/obj/item/storage/fancy/cigarettes,/obj/item/flashlight,/obj/item/gun,/obj/item/ammo_box,/obj/item/ammo_casing)
 	density = TRUE //It's a suit of armor man
 	anchored = TRUE
-	strip_delay = 200
+	strip_delay = 15 SECONDS
 	max_integrity = 500
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	armor = list(MELEE = 80, BULLET = 80, LASER = 80, ENERGY = 80, BOMB = 80, BIO = 100, RAD = 100, FIRE = 100, ACID = 100, WOUND = 25) //Make the armor the same as the hardsuit one for consistancy
@@ -44,6 +46,7 @@
 	clothing_traits = list(TRAIT_SILENT_FOOTSTEPS) //No playing regular footsteps over power armor footsteps
 	item_flags = NO_PIXEL_RANDOM_DROP
 	clothing_flags = LARGE_WORN_ICON | STOPSPRESSUREDAMAGE | THICKMATERIAL | SNUG_FIT | BLOCKS_SHOVE_KNOCKDOWN
+	slowdown = 1
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/examine(mob/user)
 	. = ..()
@@ -60,7 +63,7 @@
 	return !(item_flags & ABSTRACT)
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/doStrip(mob/stripper, mob/owner)
-	GetOutside()
+	GetOutside(owner)
 	return TRUE
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/hit_reaction(owner, hitby, attack_text, final_block_chance, damage, attack_type)
@@ -93,6 +96,8 @@
 	user.pixel_y = user.base_pixel_y
 	ADD_TRAIT(user, TRAIT_FORCED_STANDING, "power_armor") //It's a suit of armor, it ain't going to fall over just because the pilot is dead
 	ADD_TRAIT(user, TRAIT_NOSLIPALL, "power_armor")
+	ADD_TRAIT(user, TRAIT_STUNIMMUNE, "power_armor")
+	ADD_TRAIT(user, TRAIT_NOMOBSWAP, "power_armor")
 	RegisterSignal(user, COMSIG_ATOM_CAN_BE_PULLED, .proc/reject_pulls)
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/proc/reject_pulls(datum/source, mob/living/puller)
@@ -110,6 +115,8 @@
 	listeningTo = null
 	REMOVE_TRAIT(user, TRAIT_FORCED_STANDING, "power_armor") //It's a suit of armor, it ain't going to fall over just because the pilot is dead
 	REMOVE_TRAIT(user, TRAIT_NOSLIPALL, "power_armor")
+	REMOVE_TRAIT(user, TRAIT_STUNIMMUNE, "power_armor")
+	REMOVE_TRAIT(user, TRAIT_NOMOBSWAP, "power_armor")
 	UnregisterSignal(user, COMSIG_ATOM_CAN_BE_PULLED)
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/Destroy()
@@ -119,7 +126,7 @@
 
 //No helmet toggles for now when helmet is up
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/ToggleHelmet()
-	if(suittoggled || (helmettype == null))
+	if(helmet_on || (helmettype == null))
 		return
 	return ..()
 
@@ -130,15 +137,18 @@
 	else
 		if(user.wear_suit == src)
 			to_chat(user, "You begin exiting the [src].")
-			if(do_after(user, 6 SECONDS, target = user))
+			if(do_after(user, 8 SECONDS, target = user))
+				if(get_dist(user, src) > 1) //Anti-afterimage check
+					return FALSE
+			if(do_after(user, 8 SECONDS, target = user) && density != TRUE)
 				GetOutside(user)
 				return TRUE
 			return FALSE
 
-	if(!CheckEquippedClothing(user))
+	if(!CheckEquippedClothing(user) || get_dist(user, src) > 1)
 		return FALSE
 	to_chat(user, "You begin entering the [src].")
-	if(do_after(user, 6 SECONDS, target = user) && CheckEquippedClothing(user))
+	if(do_after(user, 8 SECONDS, target = user) && CheckEquippedClothing(user) && density == TRUE)
 		GetInside(user)
 		return TRUE
 	return FALSE
@@ -185,25 +195,12 @@
 		spark_system.start()
 	..()
 
-/* t45 sprite unimpleneted
-
-//For now the t45 is just a new subtype
-/obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/t45
-	name = "T45 Power Armor Helmet"
-	desc = "A beefy helmet attached to a suit of power armor."
-
-/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/t45
-	name = "T45 Power Armor Suit"
-	desc = "Supposedly the first power armor to be deployed in the Great War. While it does have it's flaws, it still represents a very robust piece of armor that can withstand great punishment."
-	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/power_armor/t45
-*/
+// T-51 PA set //
 
 /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/t51
 	name = "T51 Power Armor Helmet"
 	desc = "A more advanced helmet for a more advanced piece of power armor."
-	armor = list(MELEE = 90, BULLET = 90, LASER = 90, ENERGY = 90, BOMB = 90, BIO = 100, RAD = 100, FIRE = 100, ACID = 100) //Make the armor the same as the hardsuit one for consistancy
-	icon = 'mojave/icons/mob/large-worn-icons/32x48/head.dmi'
-	worn_icon = 'mojave/icons/mob/large-worn-icons/32x48/head.dmi'
+	armor = list(MELEE = 80, BULLET = 80, LASER = 75, ENERGY = 80, BOMB = 80, BIO = 100, RAD = 100, FIRE = 100, ACID = 100, WOUND = 20) //Make the armor the same as the hardsuit one for consistancy
 	icon_state = "t51_helmet"
 	worn_icon_state = "t51_helmet"
 
@@ -211,8 +208,23 @@
 	name = "T51B Power Armor Suit"
 	desc = "The last widely developed and distributed power armor prior to the nuclear winter, even after all of these years it still outperforms it's previous model iteration."
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/t51
-	armor = list(MELEE = 90, BULLET = 90, LASER = 90, ENERGY = 90, BOMB = 90, BIO = 100, RAD = 100, FIRE = 100, ACID = 100) //Make the armor the same as the hardsuit one for consistancy
-	icon = 'mojave/icons/mob/large-worn-icons/32x48/armor.dmi'
-	worn_icon = 'mojave/icons/mob/large-worn-icons/32x48/armor.dmi'
+	armor = list(MELEE = 80, BULLET = 80, LASER = 75, ENERGY = 80, BOMB = 80, BIO = 100, RAD = 100, FIRE = 100, ACID = 100, WOUND = 20)
 	icon_state = "t51_armor"
 	worn_icon_state = "t51_armor"
+
+// T-45 PA set //
+
+/obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/t45
+	name = "T51 Power Armor Helmet"
+	desc = "The helmet to a T-45 powered combat armor suit. Stare your foe down as they can only scrape your paint."
+	armor = list(MELEE = 80, BULLET = 80, LASER = 75, ENERGY = 80, BOMB = 80, BIO = 100, RAD = 100, FIRE = 100, ACID = 100, WOUND = 20)
+	icon_state = "t45_helmet"
+	worn_icon_state = "t45_helmet"
+
+/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/t45
+	name = "T45D Power Armor Suit"
+	desc = "Supposedly the first power armor to be deployed in the Great War. While it does have it's flaws, it still represents a very robust piece of armor that can withstand great punishment."
+	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/t45
+	armor = list(MELEE = 75, BULLET = 75, LASER = 70, ENERGY = 75, BOMB = 75, BIO = 100, RAD = 100, FIRE = 100, ACID = 100, WOUND = 15)
+	icon_state = "t45_armor"
+	worn_icon_state = "t45_armor"

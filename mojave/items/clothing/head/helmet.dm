@@ -320,6 +320,12 @@
 	desc = "A bright and cheerful yellow fedora."
 	icon_state = "fedyellow"
 
+/obj/item/clothing/head/helmet/ms13/fedora/treasure
+	name = "scavengers hat"
+	desc = "A typical treasure seekers hat, for those that roam the wastes picking clean the scraps of old."
+	icon_state = "treasure"
+	inhand_icon_state = "sheriffhat"
+
 /obj/item/clothing/head/helmet/ms13/bowler
 	name = "bowler hat"
 	desc = "A classy gentleman's bowler hat."
@@ -345,6 +351,10 @@
 	icon_state = "prospector"
 	inhand_icon_state = "sheriffhat"
 	armor = list(melee = 20, bullet = 15, laser = 10, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5, wound = 0)
+
+/obj/item/clothing/head/helmet/ms13/prospector/brown
+	icon_state = "prospectorbrown"
+	inhand_icon_state = "sheriffhat"
 
 /obj/item/clothing/head/helmet/ms13/militia
 	name = "militia hat"
@@ -648,11 +658,9 @@
 
 /obj/item/clothing/head/helmet/ms13/ncr/medic
 	name = "\improper NCR medic helmet"
-	desc = "A specially marked helmet used by medics of the NCR."
+	desc = "A standard NCR infantry helmet with the addition of a blue cross for identifying the soldier as a medic."
 	icon_state = "ncr_medic_helmet"
 	inhand_icon_state = "ncr_medic_helmet"
-	armor = list("melee" = 35, "bullet" = 30, "laser" = 15, "energy" = 10, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 20, "acid" = 10, "wound" = 0)
-	flags_cover = NONE
 
 /obj/item/clothing/head/helmet/ms13/ncr/goggles
 	name = "\improper NCR goggles helmet"
@@ -666,13 +674,15 @@
 	armor = list("melee" = 40, "bullet" = 35, "laser" = 20, "energy" = 15, "bomb" = 30, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10, "wound" = 5)
 
 /obj/item/clothing/head/helmet/ms13/ncr/beret
-	name = "\improper NCR officer beret"
-	desc = "An NCR officer's beret. Minimal protection, maximum style and authority."
+	name = "\improper NCR beret"
+	desc = "A standard padded NCR beret. Normally reserved for NCOs."
 	icon_state = "ncr_officer_beret"
 	inhand_icon_state = "ncr_officer_beret"
 	armor = list("melee" = 25, "bullet" = 20, "laser" = 10, "energy" = 5, "bomb" = 15, "bio" = 10, "rad" = 10, "fire" = 10, "acid" = 10, "wound" = 0)
 
-/obj/item/clothing/head/helmet/ms13/ncr/beret/brown
+/obj/item/clothing/head/helmet/ms13/ncr/beret/officer
+	name = "\improper NCR officer beret"
+	desc = "A brown NCR officer's beret. Minimal protection, maximum style and authority."
 	icon_state = "ncr_officer_brberet"
 	inhand_icon_state = "ncr_officer_brberet"
 
@@ -759,6 +769,13 @@
 	armor = list("melee" = 25, "bullet" = 20, "laser" = 10, "energy" = 5, "bomb" = 15, "bio" = 10, "rad" = 10, "fire" = 10, "acid" = 10, "wound" = 0)
 
 // Brotherhood Helmets //
+
+/obj/item/clothing/head/helmet/ms13/initiate
+	name = "\improper Brotherhood kevlar helmet"
+	desc = "A light kevlar helmet in use by the Brotherhood of Steel, usually seen accompanying the kevlar vests of the Initiates."
+	icon_state = "bos_kevlar_helmet"
+	inhand_icon_state = "bos_helmet"
+	armor = list("melee" = 20, "bullet" = 35, "laser" = 15, "energy" = 10, "bomb" = 20, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10, "wound" = 0)
 
 /obj/item/clothing/head/helmet/ms13/combat/bos
 	name = "\improper Brotherhood combat helmet"

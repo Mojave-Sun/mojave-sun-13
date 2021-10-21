@@ -225,99 +225,106 @@
 
 ////Tiled Floors////
 
-/obj/item/stack/tile/iron/ms13 //We need this because upstream turf code is not great.
-	turf_type = /turf/open/floor/iron/ms13
+/obj/item/stack/tile/ms13 //We need this because upstream turf code is not great.
+	turf_type = /turf/open/floor/ms13
 
-/turf/open/floor/iron/ms13
+/turf/open/floor/ms13
 	desc = "Tiled flooring."
 	icon = 'mojave/icons/turf/floors.dmi'
 	icon_state = "floor"
-	floor_tile = /obj/item/stack/tile/iron/ms13
+	floor_tile = /obj/item/stack/tile/ms13
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TILE)
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	var/has_alternate_states = FALSE
 	var/alternate_states
 
-/turf/open/floor/iron/ms13/burn_tile()
+/turf/open/floor/ms13/burn_tile()
 	burnt = 1
 	return //We're not spriting damage variations for the millions of tiles we have. To do: make overlay here instead.
 
-/turf/open/floor/iron/ms13/break_tile()
+/turf/open/floor/ms13/break_tile()
 	broken = 1
 	return
 
-/turf/open/floor/iron/ms13/crowbar_act(mob/living/user, obj/item/I)
+/turf/open/floor/ms13/crowbar_act(mob/living/user, obj/item/I)
 	return FALSE
 
-/turf/open/floor/iron/ms13/try_replace_tile(obj/item/stack/tile/T, mob/user, params)
+/turf/open/floor/ms13/try_replace_tile(obj/item/stack/tile/T, mob/user, params)
 	return
-
-/turf/open/floor/iron/ms13/Initialize()
+/*
+/turf/open/floor/ms13/Initialize()
 	. = ..()
 	if(has_alternate_states)
 		if(prob(45))
-			icon_state = "[icon_state]_[rand(1,(alternate_states))]"
+			icon_state = "[icon_state]_[rand(1,(alternate_states))]" */
 
-/turf/open/floor/iron/ms13/tile
+/turf/open/floor/ms13/tile
 	icon_state = "grey"
 	has_alternate_states = TRUE
 	alternate_states = 8
 
-/turf/open/floor/iron/ms13/tile/long
+/turf/open/floor/ms13/tile/long
 	icon_state = "grey_long"
 	alternate_states = 6
 
-/turf/open/floor/iron/ms13/tile/blue
+/turf/open/floor/ms13/tile/blue
 	icon_state = "blue"
 
-/turf/open/floor/iron/ms13/tile/blue/long
+/turf/open/floor/ms13/tile/blue/long
 	icon_state = "blue_long"
 	alternate_states = 6
 
-/turf/open/floor/iron/ms13/tile/navy
+/turf/open/floor/ms13/tile/navy
 	icon_state = "navy"
 	alternate_states = 7
 
-/turf/open/floor/iron/ms13/tile/brown
+/turf/open/floor/ms13/tile/brown
 	icon_state = "brown"
 
-/turf/open/floor/iron/ms13/tile/fancy
+/turf/open/floor/ms13/tile/fancy
 	icon_state = "fancy"
 	alternate_states = 7
 
-/turf/open/floor/iron/ms13/tile/large
+/turf/open/floor/ms13/tile/large
 	icon_state = "tiled tiles"
 
-/turf/open/floor/iron/ms13/tile/large/navy
+/turf/open/floor/ms13/tile/large/navy
 	icon_state = "navy_large"
 	alternate_states = 3
 
-/turf/open/floor/iron/ms13/tile/large/black
+/turf/open/floor/ms13/tile/large/black
 	icon_state = "black_large"
 	alternate_states = 3
 
-/turf/open/floor/iron/ms13/tile/large/white
+/turf/open/floor/ms13/tile/large/white
 	icon_state = "white_large"
 	alternate_states = 3
 
-/turf/open/floor/iron/ms13/tile/large/checkered
+/turf/open/floor/ms13/tile/large/green
+	icon_state = "green_large"
+	alternate_states = 3
+
+/turf/open/floor/ms13/tile/large/checkered
 	icon_state = "checker_large"
 	alternate_states = 3
 
-/turf/open/floor/iron/ms13/tile/large/cafeteria
+/turf/open/floor/ms13/tile/large/cafeteria
 	icon_state = "cafe_large"
 	alternate_states = 3
 
-/turf/open/floor/iron/ms13/tile/full //isn't sprited yet
+/turf/open/floor/ms13/tile/full
 	icon_state = "tiled tiles"
-
-/turf/open/floor/iron/ms13/tile/full/navy
-	icon_state = "navy_full"
 	has_alternate_states = FALSE
+
+/turf/open/floor/ms13/tile/full/navy
+	icon_state = "navy_full"
+
+/turf/open/floor/ms13/tile/full/green
+	icon_state = "green_full"
 
 ////Metal Floors////
 
-/turf/open/floor/iron/ms13/metal
+/turf/open/floor/ms13/metal
 	footstep = FOOTSTEP_PLATING //clonk
 	barefootstep = FOOTSTEP_HARD_BAREFOOT
 	clawfootstep = FOOTSTEP_HARD_CLAW
@@ -326,105 +333,119 @@
 	desc = "Metal flooring."
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TILE)
 
-/turf/open/floor/iron/ms13/metal/plate
+/turf/open/floor/ms13/metal/plate
 	icon_state = "steel_solid"
 	has_alternate_states = TRUE
 	alternate_states = 3
 
-/turf/open/floor/iron/ms13/metal/border
+/turf/open/floor/ms13/metal/border
 	icon_state = "steel_industrial_b"
 
-/turf/open/floor/iron/ms13/metal/border/corner
+/turf/open/floor/ms13/metal/border/corner
 	icon_state = "steel_industrial_b_corner"
 
-/turf/open/floor/iron/ms13/metal/border/sides
+/turf/open/floor/ms13/metal/border/sides
 	icon_state = "steel_industrial_b_sides"
 
-/turf/open/floor/iron/ms13/metal/border/end
+/turf/open/floor/ms13/metal/border/end
 	icon_state = "steel_industrial_b_end"
 
-/turf/open/floor/iron/ms13/metal/grate
+/turf/open/floor/ms13/metal/grate
 	icon_state = "steel_grate"
 
-/turf/open/floor/iron/ms13/metal/grate/alt
+/turf/open/floor/ms13/metal/grate/alt
 	icon_state = "steel_grate_alt"
 
-/turf/open/floor/iron/ms13/metal/grate/border
+/turf/open/floor/ms13/metal/grate/border
 	icon_state = "steel_grate_border"
 
-/turf/open/floor/iron/ms13/metal/grate/border/warning
+/turf/open/floor/ms13/metal/grate/border/warning
 	icon_state = "steel_grate_warning"
 
-/turf/open/floor/iron/ms13/metal/warning
+/turf/open/floor/ms13/metal/warning
 	icon_state = "steel_warning"
 
-/turf/open/floor/iron/ms13/metal/stayclear
+/turf/open/floor/ms13/metal/stayclear
 	icon_state = "steel_stayclear"
+
+/turf/open/floor/ms13/metal/walkway
+	icon_state = "steel_walkway"
+
+/turf/open/floor/ms13/metal/walkway/corner
+	icon_state = "steel_walkway_corner"
+
+/turf/open/floor/ms13/metal/walkway/end
+	icon_state = "steel_walkway_end"
 
 ////Concrete Floors////
 
-/turf/open/floor/iron/ms13/concrete
+/turf/open/floor/ms13/concrete
 	icon_state = "concrete_big"
 	desc = "Concrete slabs."
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TILE)
 
-/turf/open/floor/iron/ms13/concrete/small
+/turf/open/floor/ms13/concrete/small
 	icon_state = "concrete_small"
 	has_alternate_states = TRUE
 	alternate_states = 5
 
-/turf/open/floor/iron/ms13/concrete/industrial
+/turf/open/floor/ms13/concrete/bricks
+	icon_state = "concrete_bricks"
+	has_alternate_states = TRUE
+	alternate_states = 8
+
+/turf/open/floor/ms13/concrete/industrial
 	icon_state = "concrete_industrial"
 	desc = "Heavy duty concrete slabs." //DAS CONCRETE BABY
 
-/turf/open/floor/iron/ms13/concrete/industrial/alt
+/turf/open/floor/ms13/concrete/industrial/alt
 	icon_state = "concrete_industrial_alt"
 
-/turf/open/floor/iron/ms13/concrete/industrial/split
+/turf/open/floor/ms13/concrete/industrial/split
 	icon_state = "concrete_industrial_split"
 
-/turf/open/floor/iron/ms13/concrete/industrial/walkway
+/turf/open/floor/ms13/concrete/industrial/walkway
 	icon_state = "concrete_walkway"
 
-/turf/open/floor/iron/ms13/concrete/industrial/walkway/corner
+/turf/open/floor/ms13/concrete/industrial/walkway/corner
 	icon_state = "concrete_walkway_corner"
 
-/turf/open/floor/iron/ms13/concrete/industrial/walkway/end
-	icon_state = "concrete_walkway_end"
-
-/turf/open/floor/iron/ms13/concrete/industrial/walkway
-	icon_state = "concrete_walkway"
-
-/turf/open/floor/iron/ms13/concrete/industrial/walkway/corner
-	icon_state = "concrete_walkway_corner"
-
-/turf/open/floor/iron/ms13/concrete/industrial/walkway/end
+/turf/open/floor/ms13/concrete/industrial/walkway/end
 	icon_state = "concrete_walkway_end"
 
 ////Hybrid Floors////
 
-/turf/open/floor/iron/ms13/concrete/cable
+/turf/open/floor/ms13/concrete/cable
 	icon_state = "concrete_cable_straight"
 	desc = "Heavy duty cabling embedded in industrial grade concrete."
 
-/turf/open/floor/iron/ms13/concrete/cable/curved
+/turf/open/floor/ms13/concrete/cable/curved
 	icon_state = "concrete_cable_curve"
 
-/turf/open/floor/iron/ms13/concrete/cable/merge
+/turf/open/floor/ms13/concrete/cable/merge
 	icon_state = "concrete_cable_merge"
 
-/turf/open/floor/iron/ms13/concrete/cable/intersection
+/turf/open/floor/ms13/concrete/cable/intersection
 	icon_state = "concrete_cable_intersection"
 
-/turf/open/floor/iron/ms13/concrete/cable/box
+/turf/open/floor/ms13/concrete/cable/box
 	icon_state = "concrete_cable_box"
 
-/turf/open/floor/iron/ms13/concrete/cable/node
+/turf/open/floor/ms13/concrete/cable/node
 	icon_state = "concrete_cable_node"
+
+/turf/open/floor/ms13/sewer
+	icon = 'mojave/icons/turf/sewer_floor.dmi'
+	icon_state = "floor-255"
+	base_icon_state = "floor"
+	desc = "Hard concrete sewer flooring, built to last."
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_MS13_TILE)
+	canSmoothWith = list(SMOOTH_GROUP_CATWALK, SMOOTH_GROUP_MS13_WALL, SMOOTH_GROUP_CATWALK, SMOOTH_GROUP_MS13_TILE)
 
 ////Ceramic Floors////
 
-/turf/open/floor/iron/ms13/ceramic
+/turf/open/floor/ms13/ceramic
 	icon_state = "ceramic"
 	desc = "Ceramic tiles."
 	has_alternate_states = TRUE
@@ -432,17 +453,17 @@
 	footstep = FOOTSTEP_FLOOR
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TILE)
 
-/turf/open/floor/iron/ms13/ceramic/ornate
+/turf/open/floor/ms13/ceramic/ornate
 	icon_state = "ornate"
 	alternate_states = 3
 
-/turf/open/floor/iron/ms13/ceramic/sierra
+/turf/open/floor/ms13/ceramic/sierra
 	icon_state = "sierra"
 	alternate_states = 3
 
 ////Brick Floors////
 
-/turf/open/floor/iron/ms13/brick
+/turf/open/floor/ms13/brick
 	icon_state = "brick"
 	desc = "Brick flooring."
 	has_alternate_states = TRUE
@@ -452,10 +473,10 @@
 
 ////Pipe Floors////
 
-/turf/open/floor/iron/ms13/metal/pipe
+/turf/open/floor/ms13/metal/pipe
 	icon_state = "pipe_straight"
 
-/turf/open/floor/iron/ms13/metal/pipe/Entered(mob/living/M)
+/turf/open/floor/ms13/metal/pipe/Entered(mob/living/M)
 	. = ..()
 	if(!istype(M))
 		return
@@ -466,8 +487,8 @@
 		to_chat(usr, "<span class='warning'>You trip on the pipes!</span>")
 		return
 
-/turf/open/floor/iron/ms13/metal/pipe/corner
+/turf/open/floor/ms13/metal/pipe/corner
 	icon_state = "pipe_corner"
 
-/turf/open/floor/iron/ms13/metal/pipe/intersection
+/turf/open/floor/ms13/metal/pipe/intersection
 	icon_state = "pipe_intersection"

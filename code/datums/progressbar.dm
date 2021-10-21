@@ -16,9 +16,15 @@
 	var/last_progress = 0
 	///Variable to ensure smooth visual stacking on multiple progress bars.
 	var/listindex = 0
+	//MOJAVE SUN EDIT START - Interactive Progressbar
+	///An optional, clickable object that can be used to speed up progress bars
+	var/obj/booster
+	///How much bonus progress we've accured from a linked progress booster
+	var/bonus_progress = 0
+	//MOJAVE SUN EDIT END - Interactive Progressbar
 
 
-/datum/progressbar/New(mob/User, goal_number, atom/target)
+/datum/progressbar/New(mob/User, goal_number, atom/target, bonus_time, focus_sound, type) //MOJAVE SUN EDIT - Interactive Progressbar
 	. = ..()
 	if (!istype(target))
 		EXCEPTION("Invalid target given")
@@ -44,7 +50,10 @@
 	if(user.client)
 		user_client = user.client
 		add_prog_bar_image_to_client()
-
+	//MOJAVE SUN EDIT START - Interactive Progressbar
+	if(bonus_time)
+		booster = new type(get_turf(target), user, src, bonus_time, focus_sound)
+	//MOJAVE SUN EDIT END - Interactive Progressbar
 	RegisterSignal(user, COMSIG_PARENT_QDELETING, .proc/on_user_delete)
 	RegisterSignal(user, COMSIG_MOB_LOGOUT, .proc/clean_user_client)
 	RegisterSignal(user, COMSIG_MOB_LOGIN, .proc/on_user_login)
@@ -119,17 +128,25 @@
 
 ///Updates the progress bar image visually.
 /datum/progressbar/proc/update(progress)
-	progress = clamp(progress, 0, goal)
+	progress = clamp(progress + bonus_progress, 0, goal) //MOJAVE SUN EDIT END - Interactive Progressbar
 	if(progress == last_progress)
 		return
 	last_progress = progress
 	bar.icon_state = "prog_bar_[round(((progress / goal) * 100), 5)]"
 
+//MOJAVE SUN EDIT START - Interactive Progressbar
+/datum/progressbar/proc/boost_progress(amount)
+	bonus_progress += amount
+//MOJAVE SUN EDIT END - Interactive Progressbar
 
 ///Called on progress end, be it successful or a failure. Wraps up things to delete the datum and bar.
 /datum/progressbar/proc/end_progress()
-	if(last_progress != goal)
+	//MOJAVE SUN EDIT START - Interactive Progressbar
+	if(last_progress < goal)
 		bar.icon_state = "[bar.icon_state]_fail"
+	if(booster)
+		QDEL_NULL(booster)
+	//MOJAVE SUN EDIT END - Interactive Progressbar
 
 	animate(bar, alpha = 0, time = PROGRESSBAR_ANIMATION_TIME)
 

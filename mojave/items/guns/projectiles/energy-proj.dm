@@ -5,7 +5,8 @@
 	var/damage_constant = 1
 	damage = 0
 	armour_penetration = 0
-	wound_bonus = 0
+	wound_bonus = -5
+	bare_wound_bonus = 5
 
 /obj/projectile/beam/ms13/laser
 	name = "laser beam"
@@ -34,7 +35,7 @@
 
 /obj/projectile/beam/ms13/laser/sniper
 	name = "laser beam"
-	range = 40
+	range = 36
 
 /obj/projectile/beam/ms13/laser/pistol
 	name = "laser beam"

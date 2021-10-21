@@ -36,7 +36,7 @@
 	. = ..()
 	var/randomiser = rand(1,5)
 	if(!body_state)
-		body_state = pickweight(RUIN_BODIES)
+		body_state = pick_weight(RUIN_BODIES)
 	switch(body_state)
 		if("coupe")
 			name = "coupe car wreck"

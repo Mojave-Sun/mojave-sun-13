@@ -60,6 +60,8 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define HTML_USE_INITAL_ICON_1 (1<<20)
 /// Can players recolor this in-game via vendors (and maybe more if support is added)?
 #define IS_PLAYER_COLORABLE_1 (1<<21)
+// Use when this shouldn't be obscured by large icons. // MOJAVE SUN EDIT
+#define CRITICAL_ATOM_1 (1<<22) // MOJAVE SUN EDIT
 
 // Update flags for [/atom/proc/update_appearance]
 /// Update the atom's name
@@ -122,7 +124,8 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define CULT_PERMITTED (1<<13)
 ///Whther this area is iluminated by starlight
 #define AREA_USES_STARLIGHT (1<<14)
-
+/// If engravings are persistent in this area
+#define PERSISTENT_ENGRAVINGS (1<<15)
 /*
 	These defines are used specifically with the atom/pass_flags bitmask
 	the atom/checkpass() proc uses them (tables will call movable atom checkpass(PASSTABLE) for example)
@@ -140,6 +143,7 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define PASSSTRUCTURE (1<<8)
 #define PASSFLAPS (1<<9)
 #define PASSDOORS (1<<10)
+#define PASSVEHICLE (1<<11)
 
 //Movement Types
 #define GROUND (1<<0)
@@ -171,6 +175,8 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define ZAP_MOB_DAMAGE (1<<3)
 #define ZAP_MOB_STUN (1<<4)
 #define ZAP_GENERATES_POWER (1<<5)
+/// Zaps with this flag will generate less power through tesla coils
+#define ZAP_LOW_POWER_GEN (1<<6)
 
 #define ZAP_DEFAULT_FLAGS ZAP_MOB_STUN | ZAP_MOB_DAMAGE | ZAP_OBJ_DAMAGE
 #define ZAP_FUSION_FLAGS ZAP_OBJ_DAMAGE | ZAP_MOB_DAMAGE | ZAP_MOB_STUN

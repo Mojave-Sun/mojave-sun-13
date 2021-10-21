@@ -58,6 +58,18 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	///UI for screentips that appear when you mouse over things
 	var/atom/movable/screen/screentip/screentip_text
 
+	/// Whether or not screentips are enabled.
+	/// This is updated by the preference for cheaper reads than would be
+	/// had with a proc call, especially on one of the hottest procs in the
+	/// game (MouseEntered).
+	var/screentips_enabled = TRUE
+
+	/// The color to use for the screentips.
+	/// This is updated by the preference for cheaper reads than would be
+	/// had with a proc call, especially on one of the hottest procs in the
+	/// game (MouseEntered).
+	var/screentip_color
+
 	var/atom/movable/screen/movable/action_button/hide_toggle/hide_actions_toggle
 	var/action_buttons_hidden = FALSE
 
@@ -69,17 +81,19 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	// subtypes can override this to force a specific UI style
 	var/ui_style
 
+	var/contains_off_screen_hud = FALSE // MOJAVE SUN EDIT - handling for secondary map skin for HUD
+
 /datum/hud/New(mob/owner)
 	mymob = owner
 
 	if (!ui_style)
 		// will fall back to the default if any of these are null
-		ui_style = ui_style2icon(owner.client && owner.client.prefs && owner.client.prefs.UI_style)
+		ui_style = ui_style2icon(owner.client?.prefs?.read_preference(/datum/preference/choiced/ui_style))
 
 	hide_actions_toggle = new
 	hide_actions_toggle.InitialiseIcon(src)
 	if(mymob.client)
-		hide_actions_toggle.locked = mymob.client.prefs.buttons_locked
+		hide_actions_toggle.locked = mymob.client.prefs.read_preference(/datum/preference/toggle/buttons_locked)
 
 	hand_slots = list()
 
@@ -88,11 +102,14 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 		plane_masters["[instance.plane]"] = instance
 		instance.backdrop(mymob)
 
+	var/datum/preferences/preferences = owner?.client?.prefs
+	screentip_color = preferences?.read_preference(/datum/preference/color/screentip_color)
+	screentips_enabled = preferences?.read_preference(/datum/preference/toggle/enable_screentips)
 	screentip_text = new(null, src)
 	static_inventory += screentip_text
 
 	for(var/mytype in subtypesof(/atom/movable/plane_master_controller))
-		var/atom/movable/plane_master_controller/controller_instance = new mytype(src)
+		var/atom/movable/plane_master_controller/controller_instance = new mytype(null,src)
 		plane_master_controllers[controller_instance.name] = controller_instance
 
 	owner.overlay_fullscreen("see_through_darkness", /atom/movable/screen/fullscreen/see_through_darkness)
@@ -224,7 +241,26 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	else if (viewmob.hud_used)
 		viewmob.hud_used.plane_masters_update()
 
+	// MOJAVE SUN EDIT START - changes for HUD
+	INVOKE_ASYNC(src, .proc/setHudBarVisible, contains_off_screen_hud && display_hud_version != HUD_STYLE_NOHUD, screenmob.client)
+	// MOJAVE SUN EDIT END - changes for HUD
+
 	return TRUE
+
+// MOJAVE SUN EDIT START - changes for HUD
+/datum/hud/proc/setHudBarVisible( visible = FALSE, client/C)
+
+	var/list/hudSize = splittext(winget(C, "mapwindow.hud", "size"), "x")
+	var/list/screenSize = splittext(winget(C, "mapwindow", "size"), "x")
+
+	var/mapXPos = visible ? hudSize[1] : 0
+	var/mapWidth = visible ? text2num(screenSize[1]) - text2num(hudSize[1]) : screenSize[1]
+	var/anchor1  = visible ? "13,0" : "0,0" //Hud is 13% of our screen
+
+	winset(C, "mapwindow.map","pos=[mapXPos],0;size=[mapWidth]x[screenSize[2]],anchor1=[anchor1]")
+	//We don't hide this, so it doesn't create a white block
+	//winshow(C, "mapwindow.hud", visible)
+// MOJAVE SUN EDIT END - changes for HUD
 
 /datum/hud/proc/plane_masters_update()
 	// Plane masters are always shown to OUR mob, never to observers
