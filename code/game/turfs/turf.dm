@@ -179,9 +179,11 @@ GLOBAL_LIST_EMPTY(station_turfs)
 
 /turf/proc/multiz_turf_del(turf/T, dir)
 	SEND_SIGNAL(src, COMSIG_TURF_MULTIZ_DEL, T, dir)
+	reconsider_sunlight()
 
 /turf/proc/multiz_turf_new(turf/T, dir)
 	SEND_SIGNAL(src, COMSIG_TURF_MULTIZ_NEW, T, dir)
+	reconsider_sunlight()
 
 /**
  * Check whether the specified turf is blocked by something dense inside it with respect to a specific atom.

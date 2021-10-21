@@ -5,6 +5,7 @@
 #define NUM_E 2.71828183
 
 #define PI 3.1416
+#define PI2 3.1416 / 2
 #define INFINITY 1e31 //closer then enough
 
 #define SHORT_REAL_LIMIT 16777216
@@ -47,6 +48,7 @@
 #define CSC(x) (1 / sin(x))
 
 #define ATAN2(x, y) ( !(x) && !(y) ? 0 : (y) >= 0 ? arccos((x) / sqrt((x)*(x) + (y)*(y))) : -arccos((x) / sqrt((x)*(x) + (y)*(y))) )
+
 
 // Greatest Common Divisor - Euclid's algorithm
 /proc/Gcd(a, b)

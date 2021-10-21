@@ -830,7 +830,7 @@ Section can also be titled to clearly define its purpose.
 </Section>
 ```
 
-If you want to have a button on the right side of an section title
+If you want to have a toolt on the right side of an section title
 (for example, to perform some sort of action), there is a way to do that:
 
 ```jsx
