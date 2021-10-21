@@ -171,7 +171,7 @@
 
 //-------------------- HUD ---------------------
 //HUD layer defines
-#define HUD_BACKGROUND_PLANE 900 //MOJAVE EDIT ADDITION - Mojave HUD
+#define HUD_BACKGROUND_LAYER 1 //MOJAVE EDIT ADDITION - Mojave HUD
 #define HUD_PLANE 1000
 #define ABOVE_HUD_PLANE 1100
 
