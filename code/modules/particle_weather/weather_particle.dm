@@ -19,7 +19,7 @@
 	//Obnoxiously 3D -- INCREASE Z level to make them further away
 	transform			   = list( 1, 0, 0,  0  ,
 								   0, 1, 0,  0  ,
-								   0, 0, 1, -1/10, //Get twice as LARGE every 10 Z
+								   0, 0, 1, 1/10, //Get twice as LARGE every 10 Z
 								   0, 0, 0,  1  )
 
 //Animate particle effect to a severity
