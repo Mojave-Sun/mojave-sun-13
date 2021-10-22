@@ -1,5 +1,12 @@
 ///MOJAVE SUN CHEM BASE FILE/TEMP STORAGE///
 
+/datum/reagent/ms13
+	name = "generic MS13 chem"
+	description = "Don't breathe this in."
+	color = "#42330a"
+	taste_description = "burning chemical taste"
+	overdose_threshold = 1
+
 /datum/reagent/consumable/ms13/water // When you code it
 	name = "water"
 	description = "Water. The base of all life. Don't run out."
