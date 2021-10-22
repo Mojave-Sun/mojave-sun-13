@@ -283,7 +283,7 @@
 	icon = 'mojave/icons/hydroponics/equipment.dmi'
 	icon_state = "compostbin"
 	anchored = TRUE
-	reagent_id = "fertilizer"
+	reagent_id = /datum/reagent/plantnutriment/ms13/fertilizer
 	var/seed_value = 4
 	var/food_value = 15
 
