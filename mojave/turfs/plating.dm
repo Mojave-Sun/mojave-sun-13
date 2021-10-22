@@ -555,9 +555,9 @@
 	layer = TURF_LAYER_WATER_BASE
 	slowdown = 0.5
 	var/next_splash = 1
-	var/atom/watereffect
-	var/atom/watertop
-	var/depth
+	var/atom/watereffect = /obj/effect/overlay/ms13/water/medium
+	var/atom/watertop = /obj/effect/overlay/ms13/water/top/medium
+	var/depth = 0
 
 /turf/open/ms13/water/deep
 	name = "deep water"
