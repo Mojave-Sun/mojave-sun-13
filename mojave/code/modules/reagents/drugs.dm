@@ -3,11 +3,39 @@
 	name = "Buffout"
 	description = "A highly potent anabolic steroid popular before the war with athletes. Causes mild liver and heart damage."
 	color = "#60A584" // rgb: 96, 165, 132
-	overdose_threshold = 20
+	overdose_threshold = 1
+
+/datum/reagent/ms13/buffout/on_mob_metabolize(mob/living/M)
+	M.maxHealth += 30
+	M.health += 30
+	..()
+
+/datum/reagent/ms13/buffout/on_mob_delete(mob/living/M)
+	M.maxHealth -= 30
+	M.health -= 30
+	..()
+
+/datum/reagent/ms13/buffout/overdose_start(mob/living/M)
+	. = ..()
+	if(M.maxHealth <= 0) // So that you can't jack dudes up until they're 100% fried. Why? Eh. Let them live as a vegetable. It's funnier.
+		return
+
+	M.maxHealth -= 50 // Every time you start to overdose on this crap, you lose out on 50 max health points. Good luck after that. Better off sticking to bar RP buddy.
+	to_chat(M, span_warning("You're rushed with a wave of fatigue... Something doesn't feel right, and the world seemingly gets a lot heavier." ))
+
+/datum/reagent/ms13/buffout/overdose_process(mob/living/M)
+	if(M.maxHealth <= 0) // If they're already a vegetable, just start putting them out of their misery I guess.
+		M.drowsyness += 10
+		M.adjustToxLoss(rand(2,5))
+		return
+
+	M.drowsyness += 1
+	M.emote(pick("groan"))
+	..()
 
 // Calmex //
 
-/datum/reagent/ms13/calmex //useful for surgery
+/datum/reagent/ms13/calmex //useful for surgery allegedly
 	name = "Calmex"
 	description = "A light anaesthetic. Reduces inhibitions and dulls the senses."
 	color = "#BC13FE" // rgb: 96, 165, 132
@@ -169,21 +197,41 @@
 
 /datum/reagent/ms13/rocket/on_mob_add(mob/living/carbon/human/M)
 	..()
+	var/atom/movable/plane_master_controller/game_plane_master_controller = M.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
+	game_plane_master_controller.add_filter("rocket_blur", 1, list("type" = "radial_blur", "size" = 0))
+	M.add_movespeed_modifier(/datum/movespeed_modifier/reagent/ms13/rocket)
+
+	for(var/filter in game_plane_master_controller.get_filters("rocket_blur"))
+		animate(filter, loop = -1, size = 0.02, time = 2 SECONDS, easing = JUMP_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
+		animate(size = 0, time = 6 SECONDS, easing = JUMP_EASING|EASE_IN)
 	if(isliving(M))
 		to_chat(M, span_userdanger("You feel an incredible high! But feel very focused..."))
 
 /datum/reagent/ms13/rocket/on_mob_delete(mob/living/carbon/human/M)
 	..()
+	var/atom/movable/plane_master_controller/game_plane_master_controller = M.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
+	game_plane_master_controller.remove_filter("rocket_blur")
+	M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/ms13/jet)
+
 	if(isliving(M))
 		to_chat(M, span_userdanger("You come down from your high. Everything seems back to normal."))
 
 /datum/reagent/ms13/rocket/on_mob_life(mob/living/carbon/M)
 	M.adjustStaminaLoss(-20, 0)
 	M.AdjustAllImmobility(-5)
-	M.set_drugginess(10)
 	M.setOrganLoss(ORGAN_SLOT_LUNGS, rand(0.25, 1))
 	if(prob(12))
 		M.emote(pick("twitch","drool","moan"))
+
+/datum/reagent/ms13/rocket/overdose_start(mob/living/M)
+	to_chat(M, span_userdanger("You start tripping hard!"))
+	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "[type]_overdose", /datum/mood_event/overdose, name)
+
+/datum/reagent/ms13/rocket/overdose_process(mob/living/M)
+	M.hallucination += 10
+	M.adjustOrganLoss(ORGAN_SLOT_LUNGS, rand(2,8))
+	..()
+
 	..()
 
 // Mentats //
