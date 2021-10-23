@@ -26,7 +26,7 @@
 
 /obj/item/ms13/storage/backpack/radiopack/Destroy()
 	STOP_PROCESSING(SSobj, src)
-	qdel(radio)
+	QDEL_NULL(radio)
 	return ..()
 
 /obj/item/ms13/storage/backpack/radiopack/AltClick(var/mob/living/carbon/user)
@@ -109,6 +109,9 @@
 
 	return ..()
 
+/obj/item/radio/ms13/NCR/Destroy()
+	radipack = null
+	return ..()
 
 /obj/item/radio/ms13/NCR/dropped(mob/user)
 	. = ..()
