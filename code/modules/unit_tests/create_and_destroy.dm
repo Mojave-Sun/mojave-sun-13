@@ -29,11 +29,6 @@
 		/mob/dview,
 		//Template,
 		/obj/effect/mapping_helpers/custom_icon,
-		// MOJAVE SUN ADDITION START - Test blacklist
-		/obj/item/organ/lungs/ashwalker,
-		/mob/living/carbon/human/species/lizard/ashwalker
-
-		// MOJAVE SUN ADDITION END - Test blacklist
 	)
 	//This turf existing is an error in and of itself
 	ignore += typesof(/turf/baseturf_skipover)

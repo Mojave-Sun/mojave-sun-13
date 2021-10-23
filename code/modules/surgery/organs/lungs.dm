@@ -563,10 +563,12 @@
 // to 16 kPa. So it follows that ashwalkers, as humanoids, follow the same rules.
 #define GAS_TOLERANCE 5
 
+/*
+// MOJAVE SUN REMOVAL START - Remove ashwalker lung gas mix
 /obj/item/organ/lungs/ashwalker/Initialize(mapload)
 	. = ..()
 
-	var/datum/gas_mixture/immutable/planetary/mix = /datum/gas_mixture/immutable/planetary // MOJAVE SUN EDIT - Ashwalker lungs
+	var/datum/gas_mixture/immutable/planetary/mix = SSair.planetary[LAVALAND_DEFAULT_ATMOS]
 	// Take a "breath" of the air
 	var/datum/gas_mixture/breath = mix.remove(mix.total_moles() * BREATH_PERCENTAGE)
 
@@ -607,5 +609,7 @@
 	// Lungs adapted to a high miasma atmosphere do not process it, and breathe it back out
 	if(miasma_pp)
 		suffers_miasma = FALSE
+*/
+// MOJAVE SUN REMOVAL END - Remove ashwalker lung gas mix
 
 #undef GAS_TOLERANCE
