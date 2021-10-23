@@ -566,7 +566,7 @@
 /obj/item/organ/lungs/ashwalker/Initialize(mapload)
 	. = ..()
 
-	var/datum/gas_mixture/immutable/planetary/mix = SSair.planetary[LAVALAND_DEFAULT_ATMOS]
+	var/datum/gas_mixture/immutable/planetary/mix = /datum/gas_mixture/immutable/planetary // MOJAVE SUN EDIT - Ashwalker lungs
 	// Take a "breath" of the air
 	var/datum/gas_mixture/breath = mix.remove(mix.total_moles() * BREATH_PERCENTAGE)
 
