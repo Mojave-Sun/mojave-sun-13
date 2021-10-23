@@ -1,9 +1,10 @@
-//UNCRAFTABLE (MUST BE SCAVENGED)
+// Buffout //
+
 /datum/reagent/ms13/buffout
 	name = "Buffout"
 	description = "A highly potent anabolic steroid popular before the war with athletes. Causes mild liver and heart damage."
 	color = "#60A584" // rgb: 96, 165, 132
-	overdose_threshold = 1
+	overdose_threshold = 25
 
 /datum/reagent/ms13/buffout/on_mob_metabolize(mob/living/M)
 	M.maxHealth += 30
@@ -65,36 +66,25 @@
 	color = "#60A584" // rgb: 96, 165, 132
 	overdose_threshold = 30
 
-// Smooch //
-
-/datum/reagent/ms13/smooch
-	name = "Smooch"
-	description = "A novel smokable from Northern Nevada. Tastes terrible, but causes mellowness and ecstacy. Prolonged use causes extreme brain damage."
-	color = "#65FF00"
-	overdose_threshold = 20
-	taste_description = "putrid death"
-
-/datum/reagent/ms13/smooch/on_mob_metabolize(mob/living/L)
+/datum/reagent/ms13/day_tripper/on_mob_metabolize(mob/living/L)
 	..()
 	SEND_SIGNAL(L, COMSIG_ADD_MOOD_EVENT, "smooch_drug", /datum/mood_event/happiness_drug)
 
-/datum/reagent/ms13/smooch/on_mob_delete(mob/living/L)
+/datum/reagent/ms13/day_tripper/on_mob_delete(mob/living/L)
 	SEND_SIGNAL(L, COMSIG_CLEAR_MOOD_EVENT, "smooch_drug")
 	..()
 
-/datum/reagent/ms13/smooch/on_mob_life(mob/living/carbon/M)
+/datum/reagent/ms13/day_tripper/on_mob_life(mob/living/carbon/M)
 	M.set_drugginess(15)
 	M.jitteriness = 0
-	M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.2)
 	if(prob(7))
 		M.emote(pick("twitch","drool","moan","giggle"))
 	..()
 	. = 1
 
-/datum/reagent/ms13/smooch/overdose_process(mob/living/M)
-	M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.5)
-	M.adjustToxLoss(0.5, 0)
+/datum/reagent/ms13/day_tripper/overdose_process(mob/living/M)
 	M.adjust_disgust(2)
+	M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.2)
 	..()
 	. = 1
 
@@ -139,16 +129,16 @@
 /datum/reagent/ms13/hydra/on_mob_delete(mob/living/carbon/human/M)
 	..()
 	if(isliving(M))
-		to_chat(M, span_notice("Your insides halt to a stop. Everything seems back to normal now."))
+		to_chat(M, span_notice("Everything seems back to normal now."))
 
 // Jet //
 
 /datum/reagent/ms13/jet
 	name = "Jet"
 	description = "A highly addictive substance. Causes lung damage and addiction."
-	color = "#60A584" // rgb: 96, 165, 132
-	overdose_threshold = 30
-	addiction_types = list(/datum/addiction/ms13/jet = 35)
+	color = "#ca4f4f"
+	overdose_threshold = 45
+	addiction_types = list(/datum/addiction/ms13/jet = 65)
 
 /datum/reagent/ms13/jet/on_mob_add(mob/living/carbon/human/M)
 	..()
@@ -167,14 +157,14 @@
 	var/atom/movable/plane_master_controller/game_plane_master_controller = M.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
 	game_plane_master_controller.remove_filter("jet_blur")
 	M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/ms13/jet)
-
 	if(isliving(M))
 		to_chat(M, span_userdanger("You come down from your high. Maybe you should go get some more?"))
 
 /datum/reagent/ms13/jet/on_mob_life(mob/living/carbon/M)
+	M.adjustStaminaLoss(-2.5, 0)
 	M.setOrganLoss(ORGAN_SLOT_LUNGS, rand(0.25, 2))
 	if(prob(12))
-		M.emote(pick("twitch", "drool", "moan", "giggle"))
+		M.emote(pick("drool", "moan", "chuckle"))
 	..()
 
 /datum/reagent/ms13/jet/overdose_start(mob/living/M)
@@ -191,9 +181,9 @@
 /datum/reagent/ms13/rocket
 	name = "Rocket"
 	description = "A variant of jet. Has more potent combat properties, but carries a higher risk of addiction."
-	color = "#60A584" // rgb: 96, 165, 132
+	color = "#a35353"
 	overdose_threshold = 30
-	addiction_types = list(/datum/addiction/ms13/rocket = 45)
+	addiction_types = list(/datum/addiction/ms13/rocket = 75)
 
 /datum/reagent/ms13/rocket/on_mob_add(mob/living/carbon/human/M)
 	..()
@@ -217,8 +207,7 @@
 		to_chat(M, span_userdanger("You come down from your high. Everything seems back to normal."))
 
 /datum/reagent/ms13/rocket/on_mob_life(mob/living/carbon/M)
-	M.adjustStaminaLoss(-20, 0)
-	M.AdjustAllImmobility(-5)
+	M.adjustStaminaLoss(-5, 0)
 	M.setOrganLoss(ORGAN_SLOT_LUNGS, rand(0.25, 1))
 	if(prob(12))
 		M.emote(pick("twitch","drool","moan"))
@@ -232,6 +221,50 @@
 	M.adjustOrganLoss(ORGAN_SLOT_LUNGS, rand(2,8))
 	..()
 
+// Turbo //
+
+/datum/reagent/ms13/turbo
+	name = "Turbo"
+	description = "Jet mixed with cazador poison and hairspray. Results in extremely strong Jet effects."
+	color = "#be8585"
+	overdose_threshold = 30
+	addiction_types = list(/datum/addiction/ms13/turbo = 65)
+
+/datum/reagent/ms13/turbo/on_mob_add(mob/living/carbon/human/M)
+	..()
+	var/rotation = min(round(current_cycle/20), 89) // wiggle wiggle. Don't even mention where you've seen this before.
+	var/atom/movable/plane_master_controller/game_plane_master_controller = M.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
+	game_plane_master_controller.add_filter("turbo_wave", 1, list("type" = "wave", "x" = 32, "y" = 32))
+	for(var/filter in game_plane_master_controller.get_filters("turbo_wave"))
+		animate(filter = matrix(-rotation, MATRIX_ROTATE), time = 5, easing = QUAD_EASING)
+		animate(filter, time = 32 SECONDS, loop = -1, easing = LINEAR_EASING, offset = 32, flags = ANIMATION_PARALLEL)
+	M.add_movespeed_modifier(/datum/movespeed_modifier/reagent/ms13/turbo)
+	M.sound_environment_override = SOUND_ENVIRONMENT_DRUGGED
+	if(isliving(M))
+		to_chat(M, span_notice("The world around you begins to slow down."))
+
+/datum/reagent/ms13/turbo/on_mob_delete(mob/living/carbon/human/M)
+	..()
+	var/atom/movable/plane_master_controller/game_plane_master_controller = M.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
+	game_plane_master_controller.remove_filter("turbo_wave")
+	M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/ms13/turbo)
+	M.sound_environment_override = NONE
+	if(isliving(M))
+		to_chat(M, span_notice("The world around you starts speeding up again."))
+
+/datum/reagent/ms13/turbo/on_mob_life(mob/living/carbon/M)
+	M.setOrganLoss(ORGAN_SLOT_LUNGS, rand(0.25, 2))
+	if(prob(12))
+		M.emote(pick("stare", "glare"))
+	..()
+
+/datum/reagent/ms13/turbo/overdose_start(mob/living/M)
+	to_chat(M, span_userdanger("You start tripping hard!"))
+	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "[type]_overdose", /datum/mood_event/overdose, name)
+
+/datum/reagent/ms13/turbo/overdose_process(mob/living/M)
+	M.hallucination += 10
+	M.adjustOrganLoss(ORGAN_SLOT_LUNGS, rand(0.25,5))
 	..()
 
 // Mentats //
@@ -268,9 +301,9 @@
 /datum/reagent/ms13/psycho //military grade bath salts? SIGN ME AND THE REST OF AMERICA THE FUCK UP!
 	name = "Psycho"
 	description = "A military grade amphetamine. Causes increased strength and endurance, but induces a powerful psychosis."
-	color = "#60A584" // rgb: 96, 165, 132
+	color = "#cf6060"
 	overdose_threshold = 20
-	addiction_types = list(/datum/addiction/ms13/psycho = 25)
+	addiction_types = list(/datum/addiction/ms13/psycho = 75)
 	var/datum/brain_trauma/special/psychotic_brawling/bath_salts/rage
 
 /datum/reagent/ms13/psycho/on_mob_metabolize(mob/living/M)
@@ -278,8 +311,6 @@
 	ADD_TRAIT(M, TRAIT_STUNIMMUNE, type)
 	ADD_TRAIT(M, TRAIT_SLEEPIMMUNE, type)
 	M.apply_status_effect(STATUS_EFFECT_SPASMS)
-	M.maxHealth += 25
-	M.health += 25
 	if(iscarbon(M))
 		var/mob/living/carbon/C = M
 		rage = new()
@@ -287,13 +318,12 @@
 	M.overlay_fullscreen("psycho", /atom/movable/screen/fullscreen/color_vision/red)
 	if(prob(25))
 		M.adjustOrganLoss(ORGAN_SLOT_HEART, )
+	M.visible_message(span_danger("[M]'s eyes go empty, with their face quickly shifting to a scorn"), span_narsiesmall("Your mind suddenly begins to drift- you begin to feel ANGRY."))
 
 /datum/reagent/ms13/psycho/on_mob_end_metabolize(mob/living/M)
 	REMOVE_TRAIT(M, TRAIT_STUNIMMUNE, type)
 	REMOVE_TRAIT(M, TRAIT_SLEEPIMMUNE, type)
 	M.remove_status_effect(STATUS_EFFECT_SPASMS)
-	M.maxHealth -= 25
-	M.health -= 25
 	if(rage)
 		QDEL_NULL(rage)
 	M.clear_fullscreen("psycho")
@@ -305,51 +335,24 @@
 /datum/reagent/ms13/psycho/overdose_process(mob/living/M)
 	M.Jitter(10)
 	M.adjustOrganLoss(ORGAN_SLOT_HEART, 0.5)
-	if(prob(5))
-		M.drop_all_held_items()
 	if(prob(15))
-		M.emote(pick("scream","twitch"))
+		M.emote(pick("twitch", "shiver"))
 	if(prob(15))
-		M.adjustToxLoss(3, 0)
+		M.adjustToxLoss(2, 0)
 	..()
 
 /datum/reagent/ms13/psycho/on_mob_life(mob/living/M)
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "gone_psycho", /datum/mood_event/stimulant_heavy, name)
-	M.adjustOrganLoss(ORGAN_SLOT_HEART, 1)
+	M.adjustOrganLoss(ORGAN_SLOT_HEART, 0.25)
 	M.hallucination += 5
 	..()
 	. = 1
-
 
 // Rebound //
 
 /datum/reagent/ms13/rebound
 	name = "Rebound"
 	description = "A powerful mix of adrenaline and liquid Jet. Makes the user faster, but causes considerable heart damage."
-	color = "#60A584" // rgb: 96, 165, 132
-	overdose_threshold = 30
-
-// Turbo //
-
-/datum/reagent/ms13/turbo
-	name = "Turbo"
-	description = "Jet mixed with cazador poison and hairspray. Results in extremely strong Jet effects."
-	color = "#60A584" // rgb: 96, 165, 132
-	overdose_threshold = 30
-
-// Voodoo //
-
-/datum/reagent/ms13/voodoo
-	name = "Voodoo"
-	description = "A potent mix of animal venoms and alcohol. Results in numbness that reduces damage."
-	color = "#60A584" // rgb: 96, 165, 132
-	overdose_threshold = 30
-
-// Mutie //
-
-/datum/reagent/ms13/mutie
-	name = "Mutie"
-	description = "A potent mutagenic serum that causes random mutations."
 	color = "#60A584" // rgb: 96, 165, 132
 	overdose_threshold = 30
 
@@ -360,16 +363,76 @@
 	description = "A modified version of Psycho, designed to produce a stronger effect. Extremely dangerous."
 	color = "#60A584" // rgb: 96, 165, 132
 	overdose_threshold = 30
+	var/datum/brain_trauma/special/psychotic_brawling/bath_salts/rage
+
+/datum/reagent/ms13/overdrive/on_mob_metabolize(mob/living/M)
+	..()
+	ADD_TRAIT(M, TRAIT_STUNIMMUNE, type)
+	ADD_TRAIT(M, TRAIT_SLEEPIMMUNE, type)
+	ADD_TRAIT(M, TRAIT_NOSOFTCRIT, TRAUMA_TRAIT)
+	ADD_TRAIT(M, TRAIT_NOHARDCRIT, TRAUMA_TRAIT)
+	M.apply_status_effect(STATUS_EFFECT_SPASMS)
+	if(iscarbon(M))
+		var/mob/living/carbon/C = M
+		rage = new()
+		C.gain_trauma(rage, TRAUMA_RESILIENCE_ABSOLUTE)
+	M.overlay_fullscreen("overdrive", /atom/movable/screen/fullscreen/color_vision/red)
+
+/datum/reagent/ms13/overdrive/on_mob_end_metabolize(mob/living/M)
+	REMOVE_TRAIT(M, TRAIT_STUNIMMUNE, type)
+	REMOVE_TRAIT(M, TRAIT_SLEEPIMMUNE, type)
+	REMOVE_TRAIT(M, TRAIT_NOSOFTCRIT, TRAUMA_TRAIT)
+	REMOVE_TRAIT(M, TRAIT_NOHARDCRIT, TRAUMA_TRAIT)
+	M.remove_status_effect(STATUS_EFFECT_SPASMS)
+	if(rage)
+		QDEL_NULL(rage)
+	M.clear_fullscreen("overdrive")
+	..()
+
+/datum/reagent/ms13/overdrive/overdose_start(mob/living/M)
+	M.emote("scream")
+	M.drop_all_held_items()
+	M.visible_message(span_userdanger("[M]'s chest produces an audible pop. They look visibly stunned and in pain."), span_userdanger("A pop is heard coming from your chest and sudden pain appears- It's INTOLERABLE! What happened?"), span_hear("You hear a pop."))
+	REMOVE_TRAIT(M, TRAIT_STUNIMMUNE, type)
+	REMOVE_TRAIT(M, TRAIT_SLEEPIMMUNE, type)
+	M.Stun(25)
+
+/datum/reagent/ms13/overdrive/overdose_process(mob/living/carbon/M)
+	if(prob(35)) // panic
+		to_chat(M, span_userdanger("[pick("OH SHIT!", "THE PAIN!", "AGHHHH!", "OH GOD IT HURTS!")]"))
+	if(prob(10))
+		M.vomit(25, TRUE ,TRUE)
+	M.Jitter(20)
+	M.emote(pick("twitch", "shiver"))
+	M.adjustOrganLoss(ORGAN_SLOT_BRAIN, rand(1, 5))
+	addtimer(CALLBACK(src, .proc/heartsplosion, M), rand(1, 5) SECONDS) // We want to delay the actual removal of the heart a tiny bit so people can get out a "Oh damn" or something. You go ZZZzzz mode the second you don't have one.
+	..()
+
+/datum/reagent/ms13/overdrive/proc/heartsplosion(mob/living/carbon/M)
+	var/obj/item/organ/heart/our_heart = M.getorganslot(ORGAN_SLOT_HEART)
+	qdel(our_heart)
+	M.visible_message(span_notice("[M] looks faint and begins to close their eyes."), span_alert("This doesn't feel good at all..."))
+
+/datum/reagent/ms13/overdrive/on_mob_life(mob/living/M)
+	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "gone_OVERDRIVE", /datum/mood_event/stimulant_heavy, name)
+	if(prob(25))
+		M.adjustOrganLoss(ORGAN_SLOT_BRAIN, rand(1, 5))
+	M.hallucination += 10
+	..()
+	. = 1
 
 /////// Movespeed Modifiers ///////
 
 /datum/movespeed_modifier/reagent/ms13
 
 /datum/movespeed_modifier/reagent/ms13/jet
-	multiplicative_slowdown = -0.10
+	multiplicative_slowdown = -0.1
 
 /datum/movespeed_modifier/reagent/ms13/rocket
-	multiplicative_slowdown = -0.15
+	multiplicative_slowdown = -0.2
 
 /datum/movespeed_modifier/reagent/ms13/turbo
-	multiplicative_slowdown = -0.25
+	multiplicative_slowdown = -0.35
+
+/datum/movespeed_modifier/reagent/ms13/turbo_slow
+	multiplicative_slowdown = 0.35
