@@ -29,6 +29,9 @@
 		/mob/dview,
 		//Template,
 		/obj/effect/mapping_helpers/custom_icon,
+		// MOJAVE SUN EDIT ADDITION START - Ignored from create/destroy
+		obj/effect/ai_node,
+		// MOJAVE SUN EDIT ADDITION END - Ignored from create/destroy
 	)
 	//This turf existing is an error in and of itself
 	ignore += typesof(/turf/baseturf_skipover)
