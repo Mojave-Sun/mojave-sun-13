@@ -30,7 +30,7 @@
 		//Template,
 		/obj/effect/mapping_helpers/custom_icon,
 		// MOJAVE SUN ADDITION START - Test blacklist
-		/obj/item/organ/lungs/ashwalker
+		/obj/item/organ/lungs/ashwalker,
 		/mob/living/carbon/human/species/lizard/ashwalker
 
 		// MOJAVE SUN ADDITION END - Test blacklist
