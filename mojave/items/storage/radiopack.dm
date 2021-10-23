@@ -110,7 +110,7 @@
 	return ..()
 
 /obj/item/radio/ms13/NCR/Destroy()
-	radipack = null
+	radiopack = null
 	return ..()
 
 /obj/item/radio/ms13/NCR/dropped(mob/user)
