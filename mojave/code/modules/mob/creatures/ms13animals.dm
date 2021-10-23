@@ -27,8 +27,6 @@
 	melee_damage_lower = 3
 	melee_damage_upper = 5
 	food_type = list(/obj/item/food/grown/ms13/tato, /obj/item/food/grown/ms13/potato, /obj/item/food/grown/ms13/razorgrain, /obj/item/food/grown/ms13/baifan, /obj/item/food/grown/ms13/cabbage)
-//  milkable = TRUE
-//  extract = null//brahmin milk
 	rideable = TRUE
 	breedable = TRUE
 	baggable = TRUE
@@ -81,8 +79,6 @@
 	melee_damage_lower = 5
 	melee_damage_upper = 20
 	food_type = list(/obj/item/food/grown/ms13/blackberry, /obj/item/food/grown/ms13/mutfruit, /obj/item/food/grown/ms13/razorgrain, /obj/item/food/grown/ms13/carrot, /obj/item/food/grown/ms13/cavefungus)
-//  milkable = TRUE
-//  extract = null//brahmiluff milk
 	rideable = TRUE
 	breedable = FALSE
 	young_type = null
@@ -169,8 +165,6 @@
 	food_type = list(/obj/item/food/grown/ms13/xander, /obj/item/food/grown/ms13/carrot)
 	tame_chance = 5
 	bonus_tame_chance = 5
-//  milkable = TRUE
-//  extract = null//pigrat milk
 	breedable = TRUE
 	young_type = /mob/living/simple_animal/ms13/pigratyoung
 	adult_type = /mob/living/simple_animal/hostile/ms13/pigrat/tamed
@@ -412,8 +406,6 @@
 	rideable = TRUE
 	eggable = TRUE
 	egg_type = /obj/item/food/ms13/egg/ms13/nightstalker
-//  milkable = TRUE
-//  extract = null//nightstalkers squeezin
 	base_pixel_x = -48
 	offsety = 6
 	var/poison_per_bite = 10
@@ -453,8 +445,6 @@
 	food_type = list(/obj/item/food/grown/ms13/pricklypear)
 	tame_chance = 5
 	bonus_tame_chance = 20
-//  milkable = TRUE
-//  extract = null//honey
 	ranged = TRUE
 	var/bee_type = /mob/living/simple_animal/hostile/bee
 
@@ -495,8 +485,6 @@
 	food_type = list(/obj/item/food/grown/ms13/soot, /obj/item/food/grown/ms13/toxicsoot)
 	tame_chance = 5
 	bonus_tame_chance = 5
-//  milkable = TRUE
-//  extract = null//poison
 	var/poison_per_bite = 20
 	var/poison_type = /datum/reagent/toxin
 
@@ -539,8 +527,6 @@
 	tame_chance = 20
 	bonus_tame_chance = 25
 	rideable = TRUE
-//  milkable = TRUE
-//  extract = null//radstag milk
 	breedable = TRUE
 	young_type = /mob/living/simple_animal/ms13/radstagyoung
 	adult_type = /mob/living/simple_animal/hostile/ms13/radstag/tamed

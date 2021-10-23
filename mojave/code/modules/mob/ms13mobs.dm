@@ -60,11 +60,6 @@
 	var/tame_chance = 10
 	var/bonus_tame_chance = 15
 	var/tame = FALSE
-	//does the homie have chemss/chems to extract? Poison, Milk, Other :flushed:
-//	var/milkable = FALSE
-	//Chems that the creature makes
-	var/extract = null
-	var/obj/item/ms13/animalchem/chems = null
 	//does the homie lay eggs?
 	var/eggable = FALSE
 	var/egg_type = null
@@ -111,20 +106,12 @@
 		set_base_pixel_x(base_pixel_x + rand(-6, 6))
 		set_base_pixel_y(base_pixel_y + rand(0, 10))
 	if(tame)
-//		if(milkable == TRUE)
-//			chems = new()
 		if(eggable == TRUE)
 			eggsleft = 0
 
 /mob/living/simple_animal/ms13/proc/tamed(mob/living/tamer)
 	faction = list("neutral")
 	tame = TRUE
-
-/mob/living/simple_animal/ms13/Destroy()
-/*	if(milkable == TRUE)
-		qdel(chems)
-		chems = null */
-	return ..()
 
 //hunger and baby grow/birth/speed shitcode
 /mob/living/simple_animal/ms13/Life()
@@ -148,13 +135,7 @@
 					new adult_type(src.loc)
 					qdel(src)
 					visible_message("<span class='alertalien'>[src] has fully grown.</span>")
-//					if(milkable == TRUE)
-//						chems = new()
 					return
-/*		if(milkable == TRUE)
-			if(hunger > 0)
-				chems.generateChem()
-			return */
 		if(eggable == TRUE)
 			if(!stat)
 				if(hunger >= 150 && eggsleft < 8)
@@ -243,40 +224,6 @@
 					return
 				else
 					user.visible_message("<span class='warning'>[src] is rocking around! You can't put the saddle on!</span>")
-/*		if(milkable == TRUE)
-			if(istype(O, /obj/item/reagent_containers/glass))
-				chems.extractAnimal(O, user)
-				return TRUE
-			else
-				return ..() */
-
-/obj/item/ms13/animalchem
-	name = "animalchem"
-	var/mob/living/simple_animal/ms13/chemicalgen = null
-
-/obj/item/ms13/animalchem/Initialize()
-	create_reagents(50)
-	reagents.add_reagent(chemicalgen.extract, 20)
-	. = ..()
-
-/obj/item/ms13/animalchem/proc/extractAnimal(obj/O, mob/user)
-	var/obj/item/reagent_containers/glass/G = O
-	if(G.reagents.total_volume >= G.volume)
-		to_chat(user, "<span class='warning'>[O] is full.</span>")
-		return
-	var/transfered = reagents.trans_to(O, rand(5,10))
-
-	if(transfered)
-		if(chemicalgen.extract == /datum/reagent/consumable/milk)
-			user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>", "<span class='notice'>You milk [src] using \the [O].</span>")
-		else
-			user.visible_message("<span class='notice'>[user] extracts the [chemicalgen.extract] from the [src] using \the [O].</span>", "<span class='notice'>You extract the [chemicalgen.extract] from the [src] using \the [O].</span>")
-	else
-		to_chat(user, "<span class='warning'>The glands are dry. Wait a bit longer...</span>")
-
-/obj/item/ms13/animalchem/proc/generateChem()
-	if(prob(5))
-		reagents.add_reagent(chemicalgen.extract, rand(5, 10))
 
 //Aggressive Mobs - Things that Run/Attack you (TG shitcode, I know)
 
@@ -324,9 +271,6 @@
 	var/tame_chance = 10
 	var/bonus_tame_chance = 15
 	var/tame = FALSE
-//	var/milkable = FALSE
-	var/extract = null
-	var/obj/item/ms13/animalchem/chems = null
 	var/eggable = FALSE
 	var/egg_type = null
 	var/eggsleft = 0
@@ -361,8 +305,6 @@
 		set_base_pixel_x(base_pixel_x + rand(-6, 6))
 		set_base_pixel_y(base_pixel_y + rand(0, 10))
 	if(tame)
-//		if(milkable == TRUE)
-//			chems = new()
 		if(eggable == TRUE)
 			eggsleft = 0
 
@@ -392,12 +334,7 @@
 					new adult_type(src.loc)
 					qdel(src)
 					visible_message("<span class='alertalien'>[src] has fully grown.</span>")
-//					if(milkable == TRUE)
-//						chems = new()
 					return
-//		if(milkable == TRUE)
-//			if(hunger > 0)
-//				chems.generateChem()
 			return
 		if(eggable == TRUE)
 			if(!stat)
@@ -494,10 +431,6 @@
 					return
 				else
 					user.visible_message("<span class='warning'>[src] is rocking around! You can't put the saddle on!</span>")
-/*		if(milkable == TRUE)
-			if(istype(O, /obj/item/reagent_containers/glass))
-				chems.extractAnimal(O, user)
-				return TRUE */
 			else
 				return ..()
 
@@ -544,9 +477,6 @@
 	var/tame_chance = 10
 	var/bonus_tame_chance = 15
 	var/tame = FALSE
-//	var/milkable = FALSE
-	var/extract = null
-	var/obj/item/ms13/animalchem/chems = null
 	var/eggable = FALSE
 	var/egg_type = null
 	var/eggsleft = 0
@@ -581,8 +511,6 @@
 		set_base_pixel_x(base_pixel_x + rand(-6, 6))
 		set_base_pixel_y(base_pixel_y + rand(0, 10))
 	if(tame)
-//		if(milkable == TRUE)
-//			chems = new()
 		if(eggable == TRUE)
 			eggsleft = 0
 
@@ -616,13 +544,7 @@
 					new adult_type(src.loc)
 					qdel(src)
 					visible_message("<span class='alertalien'>[src] has fully grown.</span>")
-//					if(milkable == TRUE)
-//						chems = new()
 					return
-/*		if(milkable == TRUE)
-			if(hunger > 0)
-				chems.generateChem()
-			return */
 		if(eggable == TRUE)
 			if(!stat)
 				if(hunger >= 150 && eggsleft < 8)
@@ -721,12 +643,6 @@
 					return
 				else
 					user.visible_message("<span class='warning'>[src] is rocking around! You can't put the saddle on!</span>")
-/*		if(milkable == TRUE)
-			if(istype(O, /obj/item/reagent_containers/glass))
-				chems.extractAnimal(O, user)
-				return TRUE
-			else
-				return ..() */
 
 /mob/living/simple_animal/hostile/ms13/robot
 	name = "ms13 robot"

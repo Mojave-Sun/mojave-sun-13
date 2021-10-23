@@ -227,6 +227,7 @@
 
 /obj/item/stack/tile/ms13 //We need this because upstream turf code is not great.
 	turf_type = /turf/open/floor/ms13
+	merge_type = /obj/item/stack/tile/ms13
 
 /turf/open/floor/ms13
 	desc = "Tiled flooring."
