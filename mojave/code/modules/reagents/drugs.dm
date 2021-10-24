@@ -7,7 +7,7 @@
 	overdose_threshold = 25
 
 /datum/reagent/ms13/buffout/on_mob_metabolize(mob/living/M)
-	M.maxHealth += 30
+	M.maxHealth += 30 // These probably shouldn't ever be too high for the sake of balance. You're only human anyways afterall.
 	M.health += 30
 	..()
 
@@ -68,10 +68,10 @@
 
 /datum/reagent/ms13/day_tripper/on_mob_metabolize(mob/living/L)
 	..()
-	SEND_SIGNAL(L, COMSIG_ADD_MOOD_EVENT, "smooch_drug", /datum/mood_event/happiness_drug)
+	SEND_SIGNAL(L, COMSIG_ADD_MOOD_EVENT, "daytripper_drug", /datum/mood_event/happiness_drug)
 
 /datum/reagent/ms13/day_tripper/on_mob_delete(mob/living/L)
-	SEND_SIGNAL(L, COMSIG_CLEAR_MOOD_EVENT, "smooch_drug")
+	SEND_SIGNAL(L, COMSIG_CLEAR_MOOD_EVENT, "daytripper_drug")
 	..()
 
 /datum/reagent/ms13/day_tripper/on_mob_life(mob/living/carbon/M)
@@ -232,11 +232,9 @@
 
 /datum/reagent/ms13/turbo/on_mob_add(mob/living/carbon/human/M)
 	..()
-	var/rotation = min(round(current_cycle/20), 89) // wiggle wiggle. Don't even mention where you've seen this before.
 	var/atom/movable/plane_master_controller/game_plane_master_controller = M.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
 	game_plane_master_controller.add_filter("turbo_wave", 1, list("type" = "wave", "x" = 32, "y" = 32))
 	for(var/filter in game_plane_master_controller.get_filters("turbo_wave"))
-		animate(filter = matrix(-rotation, MATRIX_ROTATE), time = 5, easing = QUAD_EASING)
 		animate(filter, time = 32 SECONDS, loop = -1, easing = LINEAR_EASING, offset = 32, flags = ANIMATION_PARALLEL)
 	M.add_movespeed_modifier(/datum/movespeed_modifier/reagent/ms13/turbo)
 	M.sound_environment_override = SOUND_ENVIRONMENT_DRUGGED
