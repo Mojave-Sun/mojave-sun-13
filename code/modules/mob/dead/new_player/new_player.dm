@@ -250,7 +250,7 @@
 
 	if(CONFIG_GET(flag/allow_latejoin_antagonists) && humanc) //Borgs aren't allowed to be antags. Will need to be tweaked if we get true latejoin ais.
 		if(SSshuttle.emergency)
-			switch(SSshuttle.emergency.mode)
+			switch(SSshuttle.emergency?.mode)
 				if(SHUTTLE_RECALL, SHUTTLE_IDLE)
 					SSticker.mode.make_antag_chance(humanc)
 				if(SHUTTLE_CALL)
@@ -278,7 +278,7 @@
 		dat += "<div class='notice red' style='font-size: 125%'>Only Observers may join at this time.</div><br>"
 	dat += "<div class='notice'>Round Duration: [DisplayTimeText(world.time - SSticker.round_start_time)]</div>"
 	if(SSshuttle.emergency)
-		switch(SSshuttle.emergency.mode)
+		switch(SSshuttle.emergency?.mode)
 			if(SHUTTLE_ESCAPE)
 				dat += "<div class='notice red'>The station has been evacuated.</div><br>"
 			if(SHUTTLE_CALL)

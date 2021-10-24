@@ -1,7 +1,7 @@
 #define TIME_LEFT (SSshuttle.emergency.timeLeft())
 #define ENGINES_START_TIME 100
-#define ENGINES_STARTED (SSshuttle.emergency.mode == SHUTTLE_IGNITING)
-#define IS_DOCKED (SSshuttle.emergency.mode == SHUTTLE_DOCKED || (ENGINES_STARTED))
+#define ENGINES_STARTED (SSshuttle.emergency?.mode == SHUTTLE_IGNITING)
+#define IS_DOCKED (SSshuttle.emergency?.mode == SHUTTLE_DOCKED || (ENGINES_STARTED))
 #define SHUTTLE_CONSOLE_ACTION_DELAY (5 SECONDS)
 
 #define NOT_BEGUN 0
@@ -82,7 +82,7 @@
 		return
 	if(!IS_DOCKED) // shuttle computer only has uses when onstation
 		return
-	if(SSshuttle.emergency.mode == SHUTTLE_DISABLED) // admins have disabled the shuttle.
+	if(SSshuttle.emergency?.mode == SHUTTLE_DISABLED) // admins have disabled the shuttle.
 		return
 	if(!isliving(usr))
 		return
@@ -162,7 +162,7 @@
 	if(!SSshuttle.emergency)
 		return
 
-	if(SSshuttle.emergency.mode == SHUTTLE_STRANDED)
+	if(SSshuttle.emergency?.mode == SHUTTLE_STRANDED)
 		authorized.Cut()
 		obj_flags &= ~(EMAGGED)
 
@@ -245,7 +245,7 @@
 		if(HIJACKED)
 			msg = "SYSTEM OVERRIDE - Resetting course to \[[scramble_message_replace_chars("###########", 100)]\] \
 			([scramble_message_replace_chars("#######", 100)]/[scramble_message_replace_chars("#######", 100)]/[scramble_message_replace_chars("#######", 100)]) \
-			{AUTH - ROOT (uid: 0)}.</font>[SSshuttle.emergency.mode == SHUTTLE_ESCAPE ? "Diverting from existing route - Bluespace exit in [hijack_completion_flight_time_set/10] seconds." : ""]"
+			{AUTH - ROOT (uid: 0)}.</font>[SSshuttle.emergency?.mode == SHUTTLE_ESCAPE ? "Diverting from existing route - Bluespace exit in [hijack_completion_flight_time_set/10] seconds." : ""]"
 	minor_announce(scramble_message_replace_chars(msg, replaceprob = 10), "Emergency Shuttle", TRUE)
 
 /obj/machinery/computer/emergency_shuttle/emag_act(mob/user)

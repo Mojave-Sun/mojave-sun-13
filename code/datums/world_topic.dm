@@ -231,7 +231,7 @@
 	.["bunkered"] = CONFIG_GET(flag/panic_bunker) || FALSE
 	.["interviews"] = CONFIG_GET(flag/panic_bunker_interview) || FALSE
 	if(SSshuttle?.emergency)
-		.["shuttle_mode"] = SSshuttle.emergency.mode
+		.["shuttle_mode"] = SSshuttle.emergency?.mode
 		// Shuttle status, see /__DEFINES/stat.dm
 		.["shuttle_timer"] = SSshuttle.emergency.timeLeft()
 		// Shuttle timer, in seconds

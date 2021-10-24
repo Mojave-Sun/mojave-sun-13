@@ -109,7 +109,7 @@
 			if("2")
 				if(EMERGENCY_AT_LEAST_DOCKED)
 					return
-				switch(SSshuttle.emergency.mode)
+				switch(SSshuttle.emergency?.mode)
 					if(SHUTTLE_CALL)
 						SSshuttle.emergency.cancel()
 						log_admin("[key_name(usr)] sent the Emergency Shuttle back.")

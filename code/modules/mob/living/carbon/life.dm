@@ -558,7 +558,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 			adjustToxLoss(0.5 * delta_time)
 			adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.2 * delta_time)
 			if(DT_PROB(10, delta_time) && !stat)
-				if(SSshuttle.emergency.mode == SHUTTLE_DOCKED && is_station_level(z)) //QoL mainly
+				if(SSshuttle.emergency?.mode == SHUTTLE_DOCKED && is_station_level(z)) //QoL mainly
 					to_chat(src, span_warning("You're so tired... but you can't miss that shuttle..."))
 				else
 					to_chat(src, span_warning("Just a quick nap..."))

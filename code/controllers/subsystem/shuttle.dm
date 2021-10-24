@@ -221,7 +221,7 @@ SUBSYSTEM_DEF(shuttle)
 	if(world.time - SSticker.round_start_time < srd)
 		return "The emergency shuttle is refueling. Please wait [DisplayTimeText(srd - (world.time - SSticker.round_start_time))] before attempting to call."
 
-	switch(emergency.mode)
+	switch(emergency?.mode)
 		if(SHUTTLE_RECALL)
 			return "The emergency shuttle may not be called while returning to CentCom."
 		if(SHUTTLE_CALL)
@@ -290,7 +290,7 @@ SUBSYSTEM_DEF(shuttle)
 	message_admins("[ADMIN_LOOKUPFLW(user)] has called the shuttle. (<A HREF='?_src_=holder;[HrefToken()];trigger_centcom_recall=1'>TRIGGER CENTCOM RECALL</A>)")
 
 /datum/controller/subsystem/shuttle/proc/centcom_recall(old_timer, admiral_message)
-	if(emergency.mode != SHUTTLE_CALL || emergency.timer != old_timer)
+	if(emergency?.mode != SHUTTLE_CALL || emergency.timer != old_timer)
 		return
 	emergency.cancel()
 
@@ -325,7 +325,7 @@ SUBSYSTEM_DEF(shuttle)
 		return 1
 
 /datum/controller/subsystem/shuttle/proc/canRecall()
-	if(!emergency || emergency.mode != SHUTTLE_CALL || adminEmergencyNoRecall || emergencyNoRecall)
+	if(!emergency || emergency?.mode != SHUTTLE_CALL || adminEmergencyNoRecall || emergencyNoRecall)
 		return
 	var/security_num = seclevel2num(get_security_level())
 	switch(security_num)
@@ -407,15 +407,15 @@ SUBSYSTEM_DEF(shuttle)
 			hostileEnvironments -= d
 	emergencyNoEscape = hostileEnvironments.len
 
-	if(emergencyNoEscape && (emergency.mode == SHUTTLE_IGNITING))
-		emergency.mode = SHUTTLE_STRANDED
+	if(emergencyNoEscape && (emergency?.mode == SHUTTLE_IGNITING))
+		emergency?.mode = SHUTTLE_STRANDED
 		emergency.timer = null
 		emergency.sound_played = FALSE
 		priority_announce("Hostile environment detected. \
 			Departure has been postponed indefinitely pending \
 			conflict resolution.", null, 'sound/misc/notice1.ogg', "Priority")
-	if(!emergencyNoEscape && (emergency.mode == SHUTTLE_STRANDED))
-		emergency.mode = SHUTTLE_DOCKED
+	if(!emergencyNoEscape && (emergency?.mode == SHUTTLE_STRANDED))
+		emergency?.mode = SHUTTLE_DOCKED
 		emergency.setTimer(emergencyDockTime)
 		priority_announce("Hostile environment resolved. \
 			You have 3 minutes to board the Emergency Shuttle.",

@@ -163,7 +163,7 @@
 			return
 		if("Yes (No Recall)")
 			SSshuttle.adminEmergencyNoRecall = TRUE
-			SSshuttle.emergency.mode = SHUTTLE_IDLE
+			SSshuttle.emergency?.mode = SHUTTLE_IDLE
 
 	SSshuttle.emergency.request()
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Call Shuttle") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -199,7 +199,7 @@
 	if(!check_rights(R_ADMIN))
 		return
 
-	if(SSshuttle.emergency.mode == SHUTTLE_DISABLED)
+	if(SSshuttle.emergency?.mode == SHUTTLE_DISABLED)
 		to_chat(usr, span_warning("Error, shuttle is already disabled."))
 		return
 
@@ -208,11 +208,11 @@
 
 	message_admins(span_adminnotice("[key_name_admin(usr)] disabled the shuttle."))
 
-	SSshuttle.lastMode = SSshuttle.emergency.mode
+	SSshuttle.lastMode = SSshuttle.emergency?.mode
 	SSshuttle.lastCallTime = SSshuttle.emergency.timeLeft(1)
 	SSshuttle.adminEmergencyNoRecall = TRUE
 	SSshuttle.emergency.setTimer(0)
-	SSshuttle.emergency.mode = SHUTTLE_DISABLED
+	SSshuttle.emergency?.mode = SHUTTLE_DISABLED
 	priority_announce("Warning: Emergency Shuttle uplink failure, shuttle disabled until further notice.", "Emergency Shuttle Uplink Alert", 'sound/misc/announce_dig.ogg')
 
 /client/proc/admin_enable_shuttle()
@@ -222,7 +222,7 @@
 	if(!check_rights(R_ADMIN))
 		return
 
-	if(SSshuttle.emergency.mode != SHUTTLE_DISABLED)
+	if(SSshuttle.emergency?.mode != SHUTTLE_DISABLED)
 		to_chat(usr, span_warning("Error, shuttle not disabled."))
 		return
 
@@ -235,7 +235,7 @@
 	if(SSshuttle.lastMode == SHUTTLE_DISABLED) //If everything goes to shit, fix it.
 		SSshuttle.lastMode = SHUTTLE_IDLE
 
-	SSshuttle.emergency.mode = SSshuttle.lastMode
+	SSshuttle.emergency?.mode = SSshuttle.lastMode
 	if(SSshuttle.lastCallTime < 10 SECONDS && SSshuttle.lastMode != SHUTTLE_IDLE)
 		SSshuttle.lastCallTime = 10 SECONDS //Make sure no insta departures.
 	SSshuttle.emergency.setTimer(SSshuttle.lastCallTime)

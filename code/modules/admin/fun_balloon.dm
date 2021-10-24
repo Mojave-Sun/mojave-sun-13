@@ -105,7 +105,7 @@
 
 /obj/effect/fun_balloon/sentience/emergency_shuttle/check()
 	. = FALSE
-	if(SSshuttle.emergency && (SSshuttle.emergency.timeLeft() <= trigger_time) && (SSshuttle.emergency.mode == SHUTTLE_CALL))
+	if(SSshuttle.emergency && (SSshuttle.emergency.timeLeft() <= trigger_time) && (SSshuttle.emergency?.mode == SHUTTLE_CALL))
 		. = TRUE
 
 // ----------- Scatter Balloon

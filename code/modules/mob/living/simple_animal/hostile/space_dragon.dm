@@ -123,7 +123,7 @@
 		visible_message(span_danger("[src] vomits up [consumed_mob]!"))
 		consumed_mob.forceMove(loc)
 		consumed_mob.Paralyze(50)
-	if((rifts_charged == 3 || (SSshuttle.emergency.mode == SHUTTLE_DOCKED && rifts_charged > 0)) && !objective_complete)
+	if((rifts_charged == 3 || (SSshuttle.emergency?.mode == SHUTTLE_DOCKED && rifts_charged > 0)) && !objective_complete)
 		victory()
 	if(riftTimer == -1)
 		return

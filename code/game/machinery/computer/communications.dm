@@ -492,7 +492,7 @@
 					data["canMakeAnnouncement"] = TRUE
 					data["canSetAlertLevel"] = issilicon(user) ? "NO_SWIPE_NEEDED" : "SWIPE_NEEDED"
 
-				if (SSshuttle.emergency.mode != SHUTTLE_IDLE && SSshuttle.emergency.mode != SHUTTLE_RECALL)
+				if (SSshuttle.emergency?.mode != SHUTTLE_IDLE && SSshuttle.emergency?.mode != SHUTTLE_RECALL)
 					data["shuttleCalled"] = TRUE
 					data["shuttleRecallable"] = SSshuttle.canRecall()
 
@@ -608,7 +608,7 @@
 	if (!has_access)
 		return FALSE
 
-	if (SSshuttle.emergency.mode != SHUTTLE_RECALL && SSshuttle.emergency.mode != SHUTTLE_IDLE)
+	if (SSshuttle.emergency?.mode != SHUTTLE_RECALL && SSshuttle.emergency?.mode != SHUTTLE_IDLE)
 		return "The shuttle is already in transit."
 	if (SSshuttle.shuttle_purchased == SHUTTLEPURCHASE_PURCHASED)
 		return "A replacement shuttle has already been purchased."

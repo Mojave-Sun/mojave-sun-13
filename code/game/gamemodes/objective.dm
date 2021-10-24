@@ -68,7 +68,7 @@ GLOBAL_LIST_EMPTY(objectives)
 		return TRUE
 	if(SSticker.force_ending || GLOB.station_was_nuked) // Just let them win.
 		return TRUE
-	if(SSshuttle.emergency.mode != SHUTTLE_ENDGAME)
+	if(SSshuttle.emergency?.mode != SHUTTLE_ENDGAME)
 		return FALSE
 	var/area/current_area = get_area(M.current)
 	if(!current_area || istype(current_area, /area/shuttle/escape/brig)) // Fails if they are in the shuttle brig
@@ -356,7 +356,7 @@ GLOBAL_LIST_EMPTY(objectives)
 	var/hijack_speed_override = 1
 
 /datum/objective/hijack/check_completion() // Requires all owners to escape.
-	if(SSshuttle.emergency.mode != SHUTTLE_ENDGAME)
+	if(SSshuttle.emergency?.mode != SHUTTLE_ENDGAME)
 		return FALSE
 	var/list/datum/mind/owners = get_owners()
 	for(var/datum/mind/M in owners)
@@ -371,7 +371,7 @@ GLOBAL_LIST_EMPTY(objectives)
 	martyr_compatible = FALSE
 
 /datum/objective/elimination/check_completion()
-	if(SSshuttle.emergency.mode != SHUTTLE_ENDGAME)
+	if(SSshuttle.emergency?.mode != SHUTTLE_ENDGAME)
 		return FALSE
 	var/list/datum/mind/owners = get_owners()
 	for(var/datum/mind/M in owners)
@@ -384,7 +384,7 @@ GLOBAL_LIST_EMPTY(objectives)
 	explanation_text = "Escape on the shuttle alone. Ensure that nobody else makes it out."
 
 /datum/objective/elimination/highlander/check_completion()
-	if(SSshuttle.emergency.mode != SHUTTLE_ENDGAME)
+	if(SSshuttle.emergency?.mode != SHUTTLE_ENDGAME)
 		return FALSE
 	var/list/datum/mind/owners = get_owners()
 	for(var/datum/mind/M in owners)
@@ -398,7 +398,7 @@ GLOBAL_LIST_EMPTY(objectives)
 	martyr_compatible = 1
 
 /datum/objective/block/check_completion()
-	if(SSshuttle.emergency.mode != SHUTTLE_ENDGAME)
+	if(SSshuttle.emergency?.mode != SHUTTLE_ENDGAME)
 		return TRUE
 	for(var/mob/living/player in GLOB.player_list)
 		if(player.mind && player.stat != DEAD && (player.mob_biotypes & MOB_ORGANIC))
@@ -412,7 +412,7 @@ GLOBAL_LIST_EMPTY(objectives)
 	martyr_compatible = TRUE
 
 /datum/objective/purge/check_completion()
-	if(SSshuttle.emergency.mode != SHUTTLE_ENDGAME)
+	if(SSshuttle.emergency?.mode != SHUTTLE_ENDGAME)
 		return TRUE
 	for(var/mob/living/player in GLOB.player_list)
 		if((get_area(player) in SSshuttle.emergency.shuttle_areas) && player.mind && player.stat != DEAD && ishuman(player))
