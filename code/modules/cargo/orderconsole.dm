@@ -103,7 +103,7 @@
 	data["grocery"] = SSshuttle.chef_groceries.len
 	data["away"] = SSshuttle.supply.getDockedId() == docking_away
 	data["self_paid"] = self_paid
-	data["docked"] = SSshuttle.supply.mode == SHUTTLE_IDLE
+	data["docked"] = SSshuttle.supply?.mode == SHUTTLE_IDLE
 	data["loan"] = !!SSshuttle.shuttle_loan
 	data["loan_dispatched"] = SSshuttle.shuttle_loan && SSshuttle.shuttle_loan.dispatched
 	data["can_send"] = can_send
@@ -187,7 +187,7 @@
 			if(SSshuttle.supplyBlocked)
 				say(blockade_warning)
 				return
-			else if(SSshuttle.supply.mode != SHUTTLE_IDLE)
+			else if(SSshuttle.supply?.mode != SHUTTLE_IDLE)
 				return
 			else if(SSshuttle.supply.getDockedId() != docking_away)
 				return

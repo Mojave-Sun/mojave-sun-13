@@ -393,12 +393,12 @@ SUBSYSTEM_DEF(shuttle)
 			tradeBlockade -= d
 	supplyBlocked = tradeBlockade.len
 
-	if(supplyBlocked && (supply.mode == SHUTTLE_IGNITING))
-		supply.mode = SHUTTLE_STRANDED
+	if(supplyBlocked && (supply?.mode == SHUTTLE_IGNITING))
+		supply?.mode = SHUTTLE_STRANDED
 		supply.timer = null
 		//Make all cargo consoles speak up
-	if(!supplyBlocked && (supply.mode == SHUTTLE_STRANDED))
-		supply.mode = SHUTTLE_DOCKED
+	if(!supplyBlocked && (supply?.mode == SHUTTLE_STRANDED))
+		supply?.mode = SHUTTLE_DOCKED
 		//Make all cargo consoles speak up
 
 /datum/controller/subsystem/shuttle/proc/checkHostileEnvironment()

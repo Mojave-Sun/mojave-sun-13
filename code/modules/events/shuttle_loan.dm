@@ -62,7 +62,7 @@
 		D.adjust_money(bonus_points)
 	endWhen = activeFor + 1
 
-	SSshuttle.supply.mode = SHUTTLE_CALL
+	SSshuttle.supply?.mode = SHUTTLE_CALL
 	SSshuttle.supply.destination = SSshuttle.getDock("supply_home")
 	SSshuttle.supply.setTimer(3000)
 
@@ -96,7 +96,7 @@
 
 /datum/round_event/shuttle_loan/tick()
 	if(dispatched)
-		if(SSshuttle.supply.mode != SHUTTLE_IDLE)
+		if(SSshuttle.supply?.mode != SHUTTLE_IDLE)
 			endWhen = activeFor
 		else
 			endWhen = activeFor + 1

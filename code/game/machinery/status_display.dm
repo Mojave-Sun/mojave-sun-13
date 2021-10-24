@@ -309,7 +309,7 @@
 		// have loaded. Cross our fingers that it will soon return.
 		line1 = "CARGO"
 		line2 = "shutl?"
-	else if(SSshuttle.supply.mode == SHUTTLE_IDLE)
+	else if(SSshuttle.supply?.mode == SHUTTLE_IDLE)
 		if(is_station_level(SSshuttle.supply.z))
 			line1 = "CARGO"
 			line2 = "Docked"
