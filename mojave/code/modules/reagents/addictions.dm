@@ -99,7 +99,8 @@
 /datum/addiction/turbo/withdrawal_enters_stage_1(mob/living/carbon/M)
 	. = ..()
 	to_chat(M, span_red("[pick("Going any faster just seems so impossible...", "I don't think I can maintain speed without turbo...")]"))
-	M.add_movespeed_modifier(/datum/movespeed_modifier/reagent/ms13/turbo_slow) // Don't do drugs, kids. Dependencies are real.
+	if(M.has_movespeed_modifier(/datum/movespeed_modifier/reagent/ms13/turbo_slow)) // Stacking this could break stuff.
+		M.add_movespeed_modifier(/datum/movespeed_modifier/reagent/ms13/turbo_slow) // Don't do drugs, kids. Dependencies are real.
 
 /datum/addiction/ms13/turbo/withdrawal_stage_1_process(mob/living/carbon/M, delta_time)
 	. = ..()
