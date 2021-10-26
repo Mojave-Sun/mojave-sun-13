@@ -1,5 +1,10 @@
+
+import ncr_logo from './job_icons/ncr_flag.png';
+
 export type Department = {
+  name?: string;
   head?: string;
+  picture?: string;
 };
 
 export const Assistant: Department = {
@@ -41,23 +46,33 @@ export const Silicon: Department = {
 
 // MOJAVE EDIT ADDITION BEGIN - Departments
 export const NCR: Department = {
+  name: "NCR",
   head: "NCR Lieutenant",
+  picture: ncr_logo,
 };
 
 export const BOS: Department = {
+  name: "Brotherhood of Steel",
   head: "Head Paladin",
+  picture: ncr_logo,
 };
 
 export const Raiders: Department = {
+  name: "Raiders",
   head: "Raider Boss",
+  picture: ncr_logo,
 };
 
 export const Town: Department = {
+  name: "Town",
   head: "Town Mayor",
+  picture: ncr_logo,
 };
 
 export const Wasteland: Department = {
+  name: "Wasteland",
   // no head.
+  picture: ncr_logo,
 };
 
 // MOJAVE EDIT ADDITION END - Departments
