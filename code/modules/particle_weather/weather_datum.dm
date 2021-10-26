@@ -46,7 +46,7 @@
 	//The number of times we will change our severity over the duration
 	var/severitySteps = 5
 	/// Used by mobs to prevent them from being affected by the weather
-	var/immunity_type = WEATHER_STORM
+	var/immunity_type = TRAIT_WEATHER_IMMUNE
 	/// Weight amongst other eligible weather. If zero, will never happen randomly.
 	var/probability = 0
 
@@ -168,7 +168,7 @@
 
 
 /**
- * Returns TRUE if the living mob can be affected by the weather
+ * Returns TRUE if the living mob can hear the weather (you might be immune, but you get to listen to the pitter patter)
  */
 /datum/particle_weather/proc/can_weather(mob/living/mob_to_check)
 	var/turf/mob_turf = get_turf(mob_to_check)
@@ -185,15 +185,14 @@
  * Returns TRUE if the living mob can be affected by the weather
  */
 /datum/particle_weather/proc/can_weather_effect(mob/living/mob_to_check)
-	if(istype(mob_to_check.loc, /obj/structure/closet))
-		var/obj/structure/closet/current_locker = mob_to_check.loc
-		if(current_locker.weather_protection)
-			if((immunity_type in current_locker.weather_protection) || (WEATHER_ALL in current_locker.weather_protection))
-				return
 
-	if((immunity_type in mob_to_check.weather_immunities) || (WEATHER_ALL in mob_to_check.weather_immunities))
-		return
-
+	//If mob is not in a turf
+	var/turf/mob_turf = get_turf(mob_to_check)
+	var/atom/loc_to_check = mob_to_check.loc
+	while(loc_to_check != mob_turf)
+		if((immunity_type && HAS_TRAIT(loc_to_check, immunity_type)) || HAS_TRAIT(loc_to_check, TRAIT_WEATHER_IMMUNE))
+			return
+		loc_to_check = loc_to_check.loc
 
 	return TRUE
 

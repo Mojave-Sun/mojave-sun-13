@@ -175,6 +175,7 @@
 	blend_mode = BLEND_MULTIPLY
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	render_target = SUNLIGHTING_RENDER_TARGET
+	render_relay_plane = null
 
 //Contains all weather overlays
 /atom/movable/screen/plane_master/Weather
@@ -183,6 +184,7 @@
 	blend_mode = BLEND_MULTIPLY
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	render_target = WEATHER_RENDER_TARGET
+	render_relay_plane = null
 
 /*!
  * This system works by exploiting BYONDs color matrix filter to use layers to handle emissive blockers.

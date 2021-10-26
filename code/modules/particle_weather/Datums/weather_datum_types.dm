@@ -30,7 +30,7 @@
 	maxSeverity = 50
 	maxSeverityChange = 10
 	severitySteps = 20
-	immunity_type = WEATHER_STORM
+	immunity_type = TRAIT_DUSTSTORM_IMMUNE
 	probability = 1
 	target_trait = PARTICLEWEATHER_DUST
 
@@ -55,7 +55,7 @@
 	maxSeverity = 100
 	maxSeverityChange = 0
 	severitySteps = 50
-	immunity_type = WEATHER_STORM
+	immunity_type = TRAIT_RADSTORM_IMMUNE
 	probability = 1
 	target_trait = PARTICLEWEATHER_RADS
 
@@ -90,7 +90,7 @@
 	maxSeverity = 10
 	maxSeverityChange = 5
 	severitySteps = 5
-	immunity_type = WEATHER_STORM
+	immunity_type = TRAIT_RAINSTORM_IMMUNE
 	probability = 1
 	target_trait = PARTICLEWEATHER_RAIN
 
@@ -111,7 +111,7 @@
 	maxSeverity = 100
 	maxSeverityChange = 50
 	severitySteps = 50
-	immunity_type = WEATHER_STORM
+	immunity_type = TRAIT_RAINSTORM_IMMUNE
 	probability = 1
 	target_trait = PARTICLEWEATHER_RAIN
 
@@ -132,7 +132,7 @@
 	maxSeverity = 10
 	maxSeverityChange = 5
 	severitySteps = 5
-	immunity_type = WEATHER_STORM
+	immunity_type = TRAIT_SNOWSTORM_IMMUNE
 	probability = 1
 	target_trait = PARTICLEWEATHER_SNOW
 
@@ -154,7 +154,7 @@
 	maxSeverity = 100
 	maxSeverityChange = 50
 	severitySteps = 50
-	immunity_type = WEATHER_STORM
+	immunity_type = TRAIT_SNOWSTORM_IMMUNE
 	probability = 1
 	target_trait = PARTICLEWEATHER_SNOW
 

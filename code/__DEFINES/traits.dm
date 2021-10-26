@@ -413,6 +413,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_SNOWSTORM_IMMUNE "snowstorm_immune"
 #define TRAIT_RADSTORM_IMMUNE "radstorm_immune"
 #define TRAIT_VOIDSTORM_IMMUNE "voidstorm_immune"
+#define TRAIT_DUSTSTORM_IMMUNE "duststorm_immune"
+#define TRAIT_RAINSTORM_IMMUNE "rainstorm_immune"
 #define TRAIT_WEATHER_IMMUNE "weather_immune" //Immune to ALL weather effects.
 
 //non-mob traits

@@ -19,7 +19,7 @@ SUBSYSTEM_DEF(ParticleWeather)
 				runningWeather.try_weather_act(act_on)
 	else
 		// start random weather
-		var/datum/particle_weather/our_event = pickweight(elligble_weather) //possible_weather
+		var/datum/particle_weather/our_event = pick_weight(elligble_weather) //possible_weather
 		if(our_event)
 			run_weather(our_event)
 

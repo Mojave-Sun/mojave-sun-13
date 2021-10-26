@@ -197,7 +197,11 @@
 
 
 
-/* our sunny version - I will need to figure out a less shit way of copying this */
+/* our sunny version - I will need to figure out a less shit way of copying this              */
+/* Our sunlight planemaster mashes all of our sunlight overlays together into one             */
+/* The fullscreen then grabs the plane_master with a layer filter, and colours it             */
+/* We do this so the sunlight fullscreen acts as a big lighting object, in our lighting plane */
+
 /atom/movable/screen/fullscreen/lighting_backdrop/Sunlight
 	icon_state  = ""
 	screen_loc = "CENTER"

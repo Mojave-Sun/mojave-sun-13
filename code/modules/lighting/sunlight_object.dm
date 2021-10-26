@@ -143,11 +143,11 @@ Sunlight System
 /* I moved this here to consolidate sunlight changes as much as possible, so its easily disabled */
 
 /* area fuckery */
-/area/var/turf/roofType
+/area/var/turf/pseudo_roof
 
 /* turf fuckery */
 /turf/var/tmp/atom/movable/outdoor_effect/outdoor_effect /* a turf's sunlight overlay */
-/turf/var/turf/roofType /* our roof turf - may be a path for top z level, or a ref to the turf above*/
+/turf/var/turf/pseudo_roof /* our roof turf - may be a path for top z level, or a ref to the turf above*/
 
 /* check ourselves and neighbours to see what outdoor effects we need */
 /* turf won't initialize an outdoor_effect if sky_blocked*/
@@ -198,8 +198,8 @@ Sunlight System
 		return .
 
 	//Ceiling Check
-	// Psuedo-roof, for the top of the map (no actual turf exists up here) -- We assume these are solid, if you add glass rooftypes then fix this
-	if (roofType)
+	// Psuedo-roof, for the top of the map (no actual turf exists up here) -- We assume these are solid, if you add glass pseudo_roofs then fix this
+	if (pseudo_roof)
 		.["SKYVISIBLE"]   =  FALSE
 		.["WEATHERPROOF"] =  TRUE
 	else
@@ -218,8 +218,8 @@ Sunlight System
 		return
 
 	/* remove roof refs (not path for psuedo roof) so we can recalculate it */
-	if(roofType && !ispath(roofType))
-		roofType = null
+	if(pseudo_roof && !ispath(pseudo_roof))
+		pseudo_roof = null
 
 	var/atom/movable/outdoor_effect/S
 	var/list/SunlightUpdates = list()
@@ -337,10 +337,10 @@ Sunlight System
 /* these bits are to set the roof on a top-z level, as there is no turf above to act as a roof */
 /obj/effect/mapping_helpers/sunlight/roofSetter
 	icon_state = "roof"
-	var/turf/roofType
+	var/turf/pseudo_roof
 
 /obj/effect/mapping_helpers/sunlight/roofSetter/mountain
-	roofType = /turf/closed/indestructible/rock
+	pseudo_roof = /turf/closed/indestructible/rock
 	icon_state = "roof_rock"
 
 // /obj/effect/mapping_helpers/sunligx
@@ -352,7 +352,7 @@ Sunlight System
 		return
 	if(isturf(loc) && !get_step_multiz(loc, UP))
 		var/turf/T = loc
-		T.roofType = roofType
+		T.pseudo_roof = pseudo_roof
 
 
 

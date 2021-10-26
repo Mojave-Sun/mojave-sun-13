@@ -5,7 +5,7 @@
 
 /datum/map_config
 	// Metadata
-	var/config_filename = "_maps/sunlightDebug.json"
+	var/config_filename = "_maps/Mammoth.json"
 	var/defaulted = TRUE  // set to FALSE by LoadConfig() succeeding
 	// Config from maps.txt
 	var/config_max_users = 0
@@ -13,10 +13,10 @@
 	var/voteweight = 1
 	var/votable = FALSE
 
-	// Config actually from the JSON - should default to Meta
-	var/map_name = "Sunlight Debug"
-	var/map_path = "map_files/sunlightDebug"
-	var/map_file = "sunlightDebug.dmm"
+	// Config actually from the JSON - should default to Mammoth
+	var/map_name = "Mammoth"
+	var/map_path = "map_files/Mammoth"
+	var/map_file = "Mammoth.dmm"
 
 	var/traits = null
 	var/space_ruin_levels = 7
