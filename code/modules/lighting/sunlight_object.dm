@@ -13,10 +13,10 @@ Sunlight System
 					- Turfs that have an opaque turf above them. Has no light themselves but is affected by SKY_VISIBLE_BORDER
 				- SKY_VISIBLE (1)
 					- Turfs that with no opaque turfs above it (no roof, glass roof, etc), with no neighbouring SKY_BLOCKED tiles
-					  Emits no light, but is fully white to display the overlay colour
+					  Emits no light, but is fully white to display the overlay color
 				- SKY_VISIBLE_BORDER  (2)
 					- Turfs that with no opaque turfs above it (no roof, glass roof, etc), which neighbour at least one SKY_BLOCKED tile.
-				     Emits light to SKY_BLOCKED tiles, and fully white to display the overlay colour
+				     Emits light to SKY_BLOCKED tiles, and fully white to display the overlay color
 
 */
 
@@ -26,12 +26,11 @@ Sunlight System
 	anchored = 1
 
 	/* misc vars */
-	var/sunlightLuminosity       = 0				//
 	var/mutable_appearance/sunlight_overlay
 	var/state 					 = SKY_VISIBLE	// If we can see the see the sky, are blocked, or we have a blocked neighbour (SKY_BLOCKED/VISIBLE/VISIBLE_BORDER)
 	var/weatherproof			 = FALSE        // If we have a weather overlay
 	var/turf/source_turf
-	var/list/datum/lighting_corner/affectingCorners
+	var/list/datum/lighting_corner/affecting_corners
 
 /atom/movable/outdoor_effect/Destroy(force)
 	if (!force)
@@ -48,11 +47,11 @@ Sunlight System
 	source_turf.outdoor_effect = src
 	GLOB.outdoor_effects += src
 
-/atom/movable/outdoor_effect/proc/DisableSunlight()
+/atom/movable/outdoor_effect/proc/disable_sunlight()
 	var/turf/T = list()
-	for(var/datum/lighting_corner/C in affectingCorners)
+	for(var/datum/lighting_corner/C in affecting_corners)
 		LAZYREMOVE(C.globAffect, src)
-		C.getSunFalloff()
+		C.get_sunlight_falloff()
 		if( C.master_NE)
 			T |= C.master_NE
 		if (C.master_SE)
@@ -64,22 +63,22 @@ Sunlight System
 	T |= source_turf /* get our calculated indoor lighting */
 	GLOB.SUNLIGHT_QUEUE_CORNER += T
 
-	//Empty our affectingCorners list
-	affectingCorners = null
+	//Empty our affecting_corners list
+	affecting_corners = null
 
-/atom/movable/outdoor_effect/proc/ProcessState()
+/atom/movable/outdoor_effect/proc/process_state()
 	switch(state)
 		if(SKY_BLOCKED)
-			DisableSunlight() /* Do our indoor processing */
+			disable_sunlight() /* Do our indoor processing */
 		if(SKY_VISIBLE_BORDER)
-			CalcSunlightSpread()
+			calc_sunlight_spread()
 
-#define hardSun 0.5 /* our hyperboloidy modifyer funky times -  */
+#define hardSun 0.5 /* our hyperboloidy modifyer funky times - I wrote this in like, 2020 and can't remember how it works - I think it makes a 3D cone shape with a flat top */
 /* calculate the indoor corners we are affecting */
 #define SUN_FALLOFF(C, T) (1 - CLAMP01(sqrt((C.x - T.x) ** 2 + (C.y - T.y) ** 2 - hardSun) / max(1, GLOB.GLOBAL_LIGHT_RANGE)))
 
 
-/atom/movable/outdoor_effect/proc/CalcSunlightSpread()
+/atom/movable/outdoor_effect/proc/calc_sunlight_spread()
 
 	var/list/turf/turfs                    = list()
 	var/datum/lighting_corner/C
@@ -107,9 +106,9 @@ Sunlight System
 
 	/* fix up the lists */
 	/* add ourselves and our distance to the corner */
-	LAZYINITLIST(affectingCorners)
-	var/list/L = corners - affectingCorners
-	affectingCorners += L
+	LAZYINITLIST(affecting_corners)
+	var/list/L = corners - affecting_corners
+	affecting_corners += L
 	for (C in L)
 		LAZYSET(C.globAffect, src, SUN_FALLOFF(C,source_turf))
 		if(C.globAffect[src] > C.sunFalloff) /* if are closer than current dist, update the corner */
@@ -123,11 +122,11 @@ Sunlight System
 			if (C.master_NW)
 				tempMasterList |= C.master_NW
 
-	L = affectingCorners - corners // Now-gone corners, remove us from the affecting.
-	affectingCorners -= L
+	L = affecting_corners - corners // Now-gone corners, remove us from the affecting.
+	affecting_corners -= L
 	for (C in L)
 		LAZYREMOVE(C.globAffect, src)
-		C.getSunFalloff()
+		C.get_sunlight_falloff()
 		if (C.master_NE)
 			tempMasterList |= C.master_NE
 		if (C.master_SE)
@@ -151,15 +150,15 @@ Sunlight System
 
 /* check ourselves and neighbours to see what outdoor effects we need */
 /* turf won't initialize an outdoor_effect if sky_blocked*/
-/turf/proc/GetSkyAndWeatherStates()
+/turf/proc/get_sky_and_weather_states()
 	var/TempState
 
-	var/roofStat = getCeilingStat()
+	var/roofStat = get_ceiling_status()
 	var/tempRoofStat
 	if(roofStat["SKYVISIBLE"])
 		TempState = SKY_VISIBLE
 		for(var/turf/CT in RANGE_TURFS(1, src))
-			tempRoofStat = CT.getCeilingStat()
+			tempRoofStat = CT.get_ceiling_status()
 			if(!tempRoofStat["SKYVISIBLE"]) /* if we have a single roofed/indoor neighbour, we are a border */
 				TempState = SKY_VISIBLE_BORDER
 				break
@@ -175,7 +174,7 @@ Sunlight System
 
 /* runs up the Z stack for this turf, returns a assoc (SKYVISIBLE, WEATHERPROOF)*/
 /* pass recursionStarted=TRUE when we are checking our ceiling's stats */
-/turf/proc/getCeilingStat(recursionStarted = FALSE)
+/turf/proc/get_ceiling_status(recursionStarted = FALSE)
 	. = list()
 
 	//Check yourself (before you wreck yourself)
@@ -207,7 +206,7 @@ Sunlight System
 		// ANY turf must be closed for weatherproof - so |=
 		var/turf/ceiling = get_step_multiz(src, UP)
 		if(ceiling)
-			var/list/ceilingStat = ceiling.getCeilingStat(TRUE) //Pass TRUE because we are now acting as a ceiling
+			var/list/ceilingStat = ceiling.get_ceiling_status(TRUE) //Pass TRUE because we are now acting as a ceiling
 			.["SKYVISIBLE"]   &= ceilingStat["SKYVISIBLE"]
 			.["WEATHERPROOF"] |= ceilingStat["WEATHERPROOF"]
 
@@ -323,7 +322,7 @@ Sunlight System
 /datum/lighting_corner/var/sunFalloff = 0 /* smallest distance to sunlight turf, for sunlight falloff */
 
 /* loop through and find our strongest sunlight value */
-/datum/lighting_corner/proc/getSunFalloff()
+/datum/lighting_corner/proc/get_sunlight_falloff()
 	sunFalloff = 0
 
 	var/atom/movable/outdoor_effect/S
@@ -335,17 +334,17 @@ Sunlight System
 
 /* Effect Fuckery */
 /* these bits are to set the roof on a top-z level, as there is no turf above to act as a roof */
-/obj/effect/mapping_helpers/sunlight/roofSetter
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter
 	icon_state = "roof"
 	var/turf/pseudo_roof
 
-/obj/effect/mapping_helpers/sunlight/roofSetter/mountain
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain
 	pseudo_roof = /turf/closed/indestructible/rock
 	icon_state = "roof_rock"
 
 // /obj/effect/mapping_helpers/sunligx
 
-/obj/effect/mapping_helpers/sunlight/roofSetter/Initialize(mapload)
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/Initialize(mapload)
 	. = ..()
 	if(!mapload)
 		log_mapping("[src] spawned outside of mapload!")
@@ -353,19 +352,6 @@ Sunlight System
 	if(isturf(loc) && !get_step_multiz(loc, UP))
 		var/turf/T = loc
 		T.pseudo_roof = pseudo_roof
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

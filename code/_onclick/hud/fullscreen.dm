@@ -215,7 +215,7 @@
 	filters += filter(type="layer", render_source=SUNLIGHTING_RENDER_TARGET)
 	SSoutdoor_effects.sunlighting_planes |= src
 	color = SSoutdoor_effects.last_color
-	SSoutdoor_effects.transitionSunlightColor(src)
+	SSoutdoor_effects.transition_sunlight_color(src)
 
 /atom/movable/screen/fullscreen/lighting_backdrop/Sunlight/Destroy()
 	. = ..()
