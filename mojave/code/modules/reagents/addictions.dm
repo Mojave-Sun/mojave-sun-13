@@ -8,7 +8,7 @@
 	///Lower threshold, when you stop being addicted
 	addiction_loss_threshold = 50
 	///Rates at which you lose addiction (in units/second) if you are not on the drug at that time per stage
-	addiction_loss_per_stage = list(0.5, 0.5, 1, 1.5)
+	addiction_loss_per_stage = list(0.5, 0.5, 1, 1)
 
 // Jet //
 
@@ -192,6 +192,10 @@
 		to_chat(M, span_warning("You feel angry, and you don't know why..."))
 	..()
 
+/datum/addiction/ms13/psycho/withdrawal_enters_stage_2(mob/living/carbon/M)
+	. = ..()
+	to_chat(M, span_warning("You feel like something changed- But you can't figure out what. This angers you!"))
+
 /datum/addiction/ms13/psycho/withdrawal_stage_2_process(mob/living/carbon/M, delta_time)
 	. = ..()
 	M.Jitter(10)
@@ -200,26 +204,70 @@
 		to_chat(M, span_warning("[pick("You are filled with anger.", "Is the room spinning...? This is PISSING YOU OFF!", "You REALLY want to PUNCH someone right now.")]"))
 	..()
 
-/datum/addiction/ms13/psycho/withdrawal_enters_stage_2(mob/living/carbon/M)
-	. = ..()
-	to_chat(M, span_warning("You feel like something changed- But you can't figure out what. This angers you!"))
-
 /datum/addiction/ms13/psycho/withdrawal_enters_stage_3(mob/living/carbon/M)
 	. = ..()
 	to_chat(M, span_boldwarning("Everything is just- Wrong! What the HELL IS GOING ON?"))
 
 /datum/addiction/ms13/psycho/withdrawal_stage_3_process(mob/living/carbon/M, delta_time)
 	. = ..()
-	M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.5)
+	M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.25)
 	M.Jitter(5)
 	M.Dizzy(10)
 	if(prob(20))
 		to_chat(M, span_warning("[pick("Your head burns... Your heart aches... You are FURIOUS!", "You feel a sickening nausea run over you- You're filled with RAGE!", "Why is EVERYONE so adamant on PISSING YOU OFF at a time like this?!")]"))
 	..()
 
-// Smooch //
+// Overdrive //
 
-/datum/addiction/ms13/smooch/withdrawal_stage_1_process(mob/living/carbon/M)
+/datum/addiction/ms13/overdrive
+	name = "overdrive"
+	withdrawal_stage_messages = list("", "", "")
+
+/datum/addiction/ms13/overdrive/withdrawal_enters_stage_1(mob/living/carbon/M)
+	. = ..()
+	to_chat(M, span_warning("Your eye twitches slightly."))
+
+/datum/addiction/ms13/overdrive/withdrawal_stage_1_process(mob/living/carbon/M, delta_time)
+	. = ..()
+	M.Jitter(15)
+	if(prob(20))
+		to_chat(M, span_warning("You begin to shake in fury."))
+	..()
+
+/datum/addiction/ms13/overdrive/withdrawal_enters_stage_2(mob/living/carbon/M)
+	. = ..()
+	to_chat(M, span_warning("You begin to shake with fury."))
+
+/datum/addiction/ms13/overdrive/withdrawal_stage_2_process(mob/living/carbon/M, delta_time)
+	. = ..()
+	M.Jitter(25)
+	M.Dizzy(10)
+	if(prob(20))
+		to_chat(M, span_warning("[pick("You have trouble thinking clearly through your rage", "You're REALLY pissed off right now.")]"))
+	..()
+
+
+/datum/addiction/ms13/overdrive/withdrawal_enters_stage_3(mob/living/carbon/M)
+	. = ..()
+	to_chat(M, span_boldwarning("You're so mad- You could just KILL someone!"))
+
+/datum/addiction/ms13/overdrive/withdrawal_stage_3_process(mob/living/carbon/M, delta_time)
+	. = ..()
+	M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 1)
+	M.Jitter(45)
+	M.Dizzy(10)
+	M.adjustStaminaLoss(2.5)
+	if(prob(20))
+		to_chat(M, span_warning("[pick("You feel so tired- and it's REALLY pissing you off!", "Your arms ache heavily.", "Your whole body throbs with fatigue.")]"))
+	..()
+
+// Day Tripper //
+
+/datum/addiction/ms13/daytripper
+	name = "day tripper"
+	withdrawal_stage_messages = list("", "", "")
+
+/datum/addiction/ms13/daytripper/withdrawal_stage_1_process(mob/living/carbon/M)
 	. = ..()
 	M.hallucination += 20
 	if(!HAS_TRAIT(M, TRAIT_IMMOBILIZED) && !isspaceturf(M.loc) && isturf(M.loc))
@@ -230,7 +278,7 @@
 	if(prob(30))
 		M.emote(pick("twitch","drool","moan"))
 
-/datum/addiction/ms13/smooch/withdrawal_stage_2_process(mob/living/carbon/M)
+/datum/addiction/ms13/daytripper/withdrawal_stage_2_process(mob/living/carbon/M)
 	. = ..()
 	M.hallucination += 30
 	if(!HAS_TRAIT(M, TRAIT_IMMOBILIZED) && !isspaceturf(M.loc) && isturf(M.loc))
@@ -241,7 +289,7 @@
 	if(prob(40))
 		M.emote(pick("twitch","drool","moan"))
 
-/datum/addiction/ms13/smooch/withdrawal_stage_3_process(mob/living/carbon/M)
+/datum/addiction/ms13/daytripper/withdrawal_stage_3_process(mob/living/carbon/M)
 	. = ..()
 	M.hallucination += 30
 	if(!HAS_TRAIT(M, TRAIT_IMMOBILIZED) && !isspaceturf(M.loc) && isturf(M.loc))

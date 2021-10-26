@@ -3,7 +3,7 @@
 /datum/reagent/ms13/buffout
 	name = "Buffout"
 	description = "A highly potent anabolic steroid popular before the war with athletes. Causes mild liver and heart damage."
-	color = "#60A584" // rgb: 96, 165, 132
+	color = "#a19f7c"
 	overdose_threshold = 25
 
 /datum/reagent/ms13/buffout/on_mob_metabolize(mob/living/M)
@@ -39,7 +39,7 @@
 /datum/reagent/ms13/calmex //useful for surgery allegedly
 	name = "Calmex"
 	description = "A light anaesthetic. Reduces inhibitions and dulls the senses."
-	color = "#BC13FE" // rgb: 96, 165, 132
+	color = "#BC13FE"
 	overdose_threshold = 30
 
 /datum/reagent/ms13/calmex/on_mob_life(mob/living/carbon/M)
@@ -55,16 +55,16 @@
 			M.drowsyness += 1
 		if(24 to INFINITY)
 			M.Sleeping(40, 0)
-			. = 1
-	..()
+			..()
 
 // Day Tripper //
 
 /datum/reagent/ms13/day_tripper
 	name = "Day Tripper"
 	description = "A mild hallucinogen. Helps take the edge off, but weakens muscles."
-	color = "#60A584" // rgb: 96, 165, 132
+	color = "#94b8cc"
 	overdose_threshold = 30
+	addiction_types = list(/datum/addiction/ms13/daytripper = 25)
 
 /datum/reagent/ms13/day_tripper/on_mob_metabolize(mob/living/L)
 	..()
@@ -80,20 +80,18 @@
 	if(prob(7))
 		M.emote(pick("twitch","drool","moan","giggle"))
 	..()
-	. = 1
 
 /datum/reagent/ms13/day_tripper/overdose_process(mob/living/M)
 	M.adjust_disgust(2)
 	M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.2)
 	..()
-	. = 1
 
 // Steady //
 
 /datum/reagent/ms13/steady
 	name = "Steady"
 	description = "A military grade relaxant. Reduces weapon sway and increases effective accuracy, but carries a severe risk of addiction."
-	color = "#60A584" // rgb: 96, 165, 132
+	color = "#665355"
 	overdose_threshold = 30
 
 // X-Cell //
@@ -101,7 +99,7 @@
 /datum/reagent/ms13/x_cell
 	name = "X-Cell"
 	description = "A general purpose performance enhancer. Gives a general boost to all SPECIAL stats, but with a high risk of addiction."
-	color = "#60A584" // rgb: 96, 165, 132
+	color = "#766494"
 	overdose_threshold = 30
 
 // Hydra //
@@ -109,16 +107,14 @@
 /datum/reagent/ms13/hydra
 	name = "Hydra"
 	description = "A curative agent that anaesthetises and restores crippled limbs. Causes heart damage."
-	color = "#60A584" // rgb: 96, 165, 132
+	color = "#60A584"
 	overdose_threshold = 30
 
 /datum/reagent/ms13/hydra/on_mob_add(mob/living/M, amount)
-	. = ..()
 	to_chat(M, span_notice("Your insides start tingling slightly. You can feel things shifting."))
+	..()
 
 /datum/reagent/ms13/hydra/on_mob_life(mob/living/carbon/M) // This needs to be unscuffed before we can use it. It WORKS. Just too well. Instant healing of wounds for as long as it's in your blood. I'm not qualified for this! help!
-	. = ..()
-	..()
 	if(!isliving(M))
 		return
 
@@ -130,6 +126,7 @@
 	..()
 	if(isliving(M))
 		to_chat(M, span_notice("Everything seems back to normal now."))
+	..()
 
 // Jet //
 
@@ -138,10 +135,9 @@
 	description = "A highly addictive substance. Causes lung damage and addiction."
 	color = "#ca4f4f"
 	overdose_threshold = 45
-	addiction_types = list(/datum/addiction/ms13/jet = 65)
+	addiction_types = list(/datum/addiction/ms13/jet = 45)
 
 /datum/reagent/ms13/jet/on_mob_add(mob/living/carbon/human/M)
-	..()
 	var/atom/movable/plane_master_controller/game_plane_master_controller = M.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
 	game_plane_master_controller.add_filter("jet_blur", 1, list("type" = "radial_blur", "size" = 0))
 	M.add_movespeed_modifier(/datum/movespeed_modifier/reagent/ms13/jet)
@@ -151,14 +147,15 @@
 		animate(size = 0, time = 6 SECONDS, easing = CIRCULAR_EASING|EASE_IN)
 	if(isliving(M))
 		to_chat(M, span_userdanger("You feel an incredible pulsating high! You just absolutely love life in this moment!"))
+	..()
 
 /datum/reagent/ms13/jet/on_mob_delete(mob/living/carbon/human/M)
-	..()
 	var/atom/movable/plane_master_controller/game_plane_master_controller = M.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
 	game_plane_master_controller.remove_filter("jet_blur")
 	M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/ms13/jet)
 	if(isliving(M))
 		to_chat(M, span_userdanger("You come down from your high. Maybe you should go get some more?"))
+	..()
 
 /datum/reagent/ms13/jet/on_mob_life(mob/living/carbon/M)
 	M.adjustStaminaLoss(-2.5, 0)
@@ -183,10 +180,9 @@
 	description = "A variant of jet. Has more potent combat properties, but carries a higher risk of addiction."
 	color = "#a35353"
 	overdose_threshold = 30
-	addiction_types = list(/datum/addiction/ms13/rocket = 75)
+	addiction_types = list(/datum/addiction/ms13/rocket = 40)
 
 /datum/reagent/ms13/rocket/on_mob_add(mob/living/carbon/human/M)
-	..()
 	var/atom/movable/plane_master_controller/game_plane_master_controller = M.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
 	game_plane_master_controller.add_filter("rocket_blur", 1, list("type" = "radial_blur", "size" = 0))
 	M.add_movespeed_modifier(/datum/movespeed_modifier/reagent/ms13/rocket)
@@ -196,15 +192,16 @@
 		animate(size = 0, time = 6 SECONDS, easing = JUMP_EASING|EASE_IN)
 	if(isliving(M))
 		to_chat(M, span_userdanger("You feel an incredible high! But feel very focused..."))
+	..()
 
 /datum/reagent/ms13/rocket/on_mob_delete(mob/living/carbon/human/M)
-	..()
 	var/atom/movable/plane_master_controller/game_plane_master_controller = M.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
 	game_plane_master_controller.remove_filter("rocket_blur")
 	M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/ms13/jet)
 
 	if(isliving(M))
 		to_chat(M, span_userdanger("You come down from your high. Everything seems back to normal."))
+	..()
 
 /datum/reagent/ms13/rocket/on_mob_life(mob/living/carbon/M)
 	M.adjustStaminaLoss(-5, 0)
@@ -228,10 +225,9 @@
 	description = "Jet mixed with cazador poison and hairspray. Results in extremely strong Jet effects."
 	color = "#be8585"
 	overdose_threshold = 30
-	addiction_types = list(/datum/addiction/ms13/turbo = 65)
+	addiction_types = list(/datum/addiction/ms13/turbo = 35)
 
 /datum/reagent/ms13/turbo/on_mob_add(mob/living/carbon/human/M)
-	..()
 	var/atom/movable/plane_master_controller/game_plane_master_controller = M.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
 	game_plane_master_controller.add_filter("turbo_wave", 1, list("type" = "wave", "x" = 32, "y" = 32))
 	for(var/filter in game_plane_master_controller.get_filters("turbo_wave"))
@@ -240,15 +236,16 @@
 	M.sound_environment_override = SOUND_ENVIRONMENT_DRUGGED
 	if(isliving(M))
 		to_chat(M, span_notice("The world around you begins to slow down."))
+	..()
 
 /datum/reagent/ms13/turbo/on_mob_delete(mob/living/carbon/human/M)
-	..()
 	var/atom/movable/plane_master_controller/game_plane_master_controller = M.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
 	game_plane_master_controller.remove_filter("turbo_wave")
 	M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/ms13/turbo)
 	M.sound_environment_override = NONE
 	if(isliving(M))
 		to_chat(M, span_notice("The world around you starts speeding up again."))
+	..()
 
 /datum/reagent/ms13/turbo/on_mob_life(mob/living/carbon/M)
 	M.setOrganLoss(ORGAN_SLOT_LUNGS, rand(0.25, 2))
@@ -259,6 +256,7 @@
 /datum/reagent/ms13/turbo/overdose_start(mob/living/M)
 	to_chat(M, span_userdanger("You start tripping hard!"))
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "[type]_overdose", /datum/mood_event/overdose, name)
+	..()
 
 /datum/reagent/ms13/turbo/overdose_process(mob/living/M)
 	M.hallucination += 10
@@ -270,7 +268,7 @@
 /datum/reagent/ms13/mentats
 	name = "Mentat powder"
 	description = "A powerful nootropic that increases mental faculties and cures brain damage, but increases thirst."
-	color = "#60A584" // rgb: 96, 165, 132
+	color = "#a0dfe7"
 	overdose_threshold = 30
 	addiction_types = list(/datum/addiction/ms13/mentats = 25)
 
@@ -301,11 +299,10 @@
 	description = "A military grade amphetamine. Causes increased strength and endurance, but induces a powerful psychosis."
 	color = "#cf6060"
 	overdose_threshold = 20
-	addiction_types = list(/datum/addiction/ms13/psycho = 75)
+	addiction_types = list(/datum/addiction/ms13/psycho = 35)
 	var/datum/brain_trauma/special/psychotic_brawling/bath_salts/rage
 
 /datum/reagent/ms13/psycho/on_mob_metabolize(mob/living/M)
-	..()
 	ADD_TRAIT(M, TRAIT_STUNIMMUNE, type)
 	ADD_TRAIT(M, TRAIT_SLEEPIMMUNE, type)
 	M.apply_status_effect(STATUS_EFFECT_SPASMS)
@@ -317,6 +314,7 @@
 	if(prob(25))
 		M.adjustOrganLoss(ORGAN_SLOT_HEART, )
 	M.visible_message(span_danger("[M]'s eyes go empty, with their face quickly shifting to a scorn"), span_narsiesmall("Your mind suddenly begins to drift- you begin to feel ANGRY."))
+	..()
 
 /datum/reagent/ms13/psycho/on_mob_end_metabolize(mob/living/M)
 	REMOVE_TRAIT(M, TRAIT_STUNIMMUNE, type)
@@ -329,6 +327,7 @@
 
 /datum/reagent/ms13/psycho/overdose_start(mob/living/M)
 	to_chat(M, span_narsiesmall("YOU FEEL AN INSATIABLE BLOODLUST!"))
+	..()
 
 /datum/reagent/ms13/psycho/overdose_process(mob/living/M)
 	M.Jitter(10)
@@ -344,14 +343,13 @@
 	M.adjustOrganLoss(ORGAN_SLOT_HEART, 0.25)
 	M.hallucination += 5
 	..()
-	. = 1
 
 // Rebound //
 
 /datum/reagent/ms13/rebound
 	name = "Rebound"
 	description = "A powerful mix of adrenaline and liquid Jet. Makes the user faster, but causes considerable heart damage."
-	color = "#60A584" // rgb: 96, 165, 132
+	color = "#ddab69"
 	overdose_threshold = 30
 
 // OVERDRIVE //
@@ -359,7 +357,7 @@
 /datum/reagent/ms13/overdrive
 	name = "Overdrive"
 	description = "A modified version of Psycho, designed to produce a stronger effect. Extremely dangerous."
-	color = "#60A584" // rgb: 96, 165, 132
+	color = "#ac4b4b"
 	overdose_threshold = 30
 	var/datum/brain_trauma/special/psychotic_brawling/bath_salts/rage
 
@@ -394,6 +392,7 @@
 	REMOVE_TRAIT(M, TRAIT_STUNIMMUNE, type)
 	REMOVE_TRAIT(M, TRAIT_SLEEPIMMUNE, type)
 	M.Stun(25)
+	..()
 
 /datum/reagent/ms13/overdrive/overdose_process(mob/living/carbon/M)
 	if(prob(35)) // panic
@@ -417,7 +416,35 @@
 		M.adjustOrganLoss(ORGAN_SLOT_BRAIN, rand(1, 5))
 	M.hallucination += 10
 	..()
-	. = 1
+
+// Addictol //
+
+/datum/reagent/ms13/addictol
+	name = "Addictol"
+	description = "An effective pre-War medicine that works both physically and psychologically to remove both the symptoms of drug abuse and the craving."
+	color = "#8da070"
+	overdose_threshold = 10
+
+/datum/reagent/ms13/addictol/on_mob_metabolize(mob/living/carbon/M)
+	..()
+	if(M.mind)
+		for(var/addiction_type in subtypesof(/datum/addiction))
+			M.mind.remove_addiction_points(addiction_type, MAX_ADDICTION_POINTS) //Remove addictions
+	to_chat(M, span_green("Your head feels a lot more clear now!"))
+
+/*/datum/reagent/ms13/addictol/overdose_start(mob/living/carbon/M) This is busted, probably. Let's not for now.
+	..()
+	if(M.mind)
+		for(var/addiction_type in subtypesof(/datum/addiction/ms13))
+			M.mind.add_addiction_points(addiction_type, MAX_ADDICTION_POINTS) //KILL.
+*/
+/datum/reagent/ms13/addictol/overdose_process(mob/living/carbon/M)
+	M.adjustToxLoss(5, 0)
+	..()
+
+/datum/reagent/ms13/addictol/on_mob_life(mob/living/M)
+	M.adjustToxLoss(2, 0)
+	..()
 
 /////// Movespeed Modifiers ///////
 
