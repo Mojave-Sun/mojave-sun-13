@@ -26,7 +26,15 @@
 
 	family_heirlooms = list(/obj/item/lighter, /obj/item/lighter/greyscale, /obj/item/storage/box/matches)
 
-	job_flags = NONE 	/// MS13 EDIT -ORIGINAL FLAGS 	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS
+	mail_goodies = list(
+		/obj/item/rpd_upgrade/unwrench = 30,
+		/obj/item/grenade/gas_crystal/crystal_foam = 10,
+		/obj/item/grenade/gas_crystal/proto_nitrate_crystal = 10,
+		/obj/item/grenade/gas_crystal/healium_crystal = 10,
+		/obj/item/grenade/gas_crystal/nitrous_oxide_crystal = 5,
+	)
+
+	job_flags = NONE // MS13 EDIT -ORIGINAL FLAGS job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS
 	rpg_title = "Aeromancer"
 
 /datum/outfit/job/atmos
