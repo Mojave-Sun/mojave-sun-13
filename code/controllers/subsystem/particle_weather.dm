@@ -70,6 +70,7 @@ SUBSYSTEM_DEF(ParticleWeather)
 		weatherEffect = new /obj()
 		weatherEffect.particles = particleEffect
 		weatherEffect.filters += filter(type="alpha", render_source=WEATHER_RENDER_TARGET)
+		mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	return weatherEffect
 
 /datum/controller/subsystem/ParticleWeather/proc/SetparticleEffect(particles/P)

@@ -138,6 +138,22 @@
 	blend_mode = BLEND_OVERLAY
 	render_relay_plane = RENDER_PLANE_GAME
 
+
+//Contains all weather overlays
+/atom/movable/screen/plane_master/weather_overlay
+	name = "weather overlay master"
+	plane = WEATHER_OVERLAY_PLANE
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	render_target = WEATHER_RENDER_TARGET
+	render_relay_plane = null //Used as alpha filter for weather_effect fullscreen
+
+/atom/movable/screen/plane_master/weather_effect
+	name = "weather effect plane master"
+	plane = WEATHER_EFFECT_PLANE
+	appearance_flags = PLANE_MASTER
+	blend_mode = BLEND_OVERLAY
+	render_relay_plane = RENDER_PLANE_GAME
+
 /**
  * Plane master handling byond internal blackness
  * vars are set as to replicate behavior when rendering to other planes
@@ -175,16 +191,8 @@
 	blend_mode = BLEND_MULTIPLY
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	render_target = SUNLIGHTING_RENDER_TARGET
-	render_relay_plane = null
+	render_relay_plane = null  //Used as layer filter for sunlight fullscreen
 
-//Contains all weather overlays
-/atom/movable/screen/plane_master/Weather
-	name = "Weather plane master"
-	plane = WEATHER_PLANE
-	blend_mode = BLEND_MULTIPLY
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	render_target = WEATHER_RENDER_TARGET
-	render_relay_plane = null
 
 /*!
  * This system works by exploiting BYONDs color matrix filter to use layers to handle emissive blockers.

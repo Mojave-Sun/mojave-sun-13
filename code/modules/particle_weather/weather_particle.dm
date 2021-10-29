@@ -11,10 +11,11 @@
 	height                 = 800
 	count                  = 3000 // 3000 particles
 	//Set bounds to rough screensize + some extra on the side and top movement for "wind"
-	bound1                 = list(-500,-256,-100)
-	bound2                 = list(500,500,100)
-	lifespan               = 300  // live for 30s max
-	fade                   = 0    // no fade
+	bound1                 = list(-500,-256,-10)
+	bound2                 = list(500,500,10)
+	lifespan               = 285   // live for 30s max (fadein + lifespan + fade)
+	fade                   = 10    // 1s fade out
+	fadein				   = 5     // 0.5s fade in
 
 	//Obnoxiously 3D -- INCREASE Z level to make them further away
 	transform			   = list( 1, 0, 0,  0  ,

@@ -335,20 +335,22 @@ Sunlight System
 /* Effect Fuckery */
 /* these bits are to set the roof on a top-z level, as there is no turf above to act as a roof */
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter
-	icon_state = "roof"
 	var/turf/pseudo_roof
 
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain
 	pseudo_roof = /turf/closed/indestructible/rock
-	icon_state = "roof_rock"
+	icon_state = "roof_mountain"
 
-// /obj/effect/mapping_helpers/sunligx
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood
+	pseudo_roof = /turf/open/floor/wood/ms13
+	icon_state = "roof_wood"
 
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/Initialize(mapload)
 	. = ..()
-	if(!mapload)
-		log_mapping("[src] spawned outside of mapload!")
-		return
+	// Disabled mapload catch - somebody might want to wangle this l8r
+	// if(!mapload)
+	// 	log_mapping("[src] spawned outside of mapload!")
+	// 	return
 	if(isturf(loc) && !get_step_multiz(loc, UP))
 		var/turf/T = loc
 		T.pseudo_roof = pseudo_roof

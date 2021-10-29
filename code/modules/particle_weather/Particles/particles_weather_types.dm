@@ -10,10 +10,9 @@
 /particles/weather/rain
 	icon_state             = "drop"
 	color                  = "#ccffff"
-	position               = generator("box", list(-300,-256,0), list(300,500,0))
+	position               = generator("box", list(-500,-256,0), list(400,500,0))
 	grow			       = list(-0.01,-0.01)
 	gravity                = list(0, -10, 0.5)
-	velocity 			   = list(0, -2, 0)
 	drift                  = generator("circle", 0, 1) // Some random movement for variation
 	friction               = 0.3  // shed 30% of velocity and drift every 0.1s
 	transform 			   = null // Rain is directional - so don't make it "3D"
@@ -21,13 +20,14 @@
 	maxSpawning            = 100
 	minSpawning            = 50
 	wind                   = 2
+	spin                   = 0 // explicitly set spin to 0 - there is a bug that seems to carry generators over from old particle effects
 
 
 //Snow - goes down and swirls
 /particles/weather/snow
 	icon_state             = list("cross"=2, "snow_1"=5, "snow_2"=2, "snow_3"=2,)
 	color                  = "#ffffff"
-	position               = generator("box", list(-300,-256,5), list(300,500,0))
+	position               = generator("box", list(-500,-256,5), list(500,500,0))
 	spin                   = generator("num",-10,10)
 	gravity                = list(0, -2, 0.1)
 	drift                  = generator("circle", 0, 3) // Some random movement for variation
@@ -46,7 +46,7 @@
 	color_change		   = generator("num",0,3)
 	spin                   = generator("num",-5,5)
 	position               = generator("box", list(-500,-256,0), list(500,500,0))
-	gravity                = list(-2 -1, 0.1)
+	gravity                = list(-5 -1, 0.1)
 	drift                  = generator("circle", 0, 3) + generator("sphere", 0, 1) // Some random movement for variation - squashed sphere
 	friction               = 0.3  // shed 30% of velocity and drift every 0.1s
 	//Weather effects, max values
@@ -63,7 +63,7 @@
 	color                  = 0
 	color_change		   = generator("num",-5,5)
 	position               = generator("box", list(-500,-256,0), list(500,500,0))
-	gravity                = list(-2 -1, 0.1)
+	gravity                = list(-5 -1, 0.1)
 	drift                  = generator("circle", 0, 5) + generator("sphere", 0, 1) // Some random movement for variation - squashed sphere
 	friction               = 0.3  // shed 30% of velocity and drift every 0.1s
 	//Weather effects, max values

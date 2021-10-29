@@ -9,16 +9,21 @@
 #define PLANE_SPACE -95
 #define PLANE_SPACE_PARALLAX -90
 
-#define GRAVITY_PULSE_PLANE -11
+//Not ever visible
+#define WEATHER_OVERLAY_PLANE -80
+#define WEATHER_RENDER_TARGET "*WEATHER_OVERLAY_PLANE"
+
+#define GRAVITY_PULSE_PLANE -12
 #define GRAVITY_PULSE_RENDER_TARGET "*GRAVPULSE_RENDER_TARGET"
 
 #define OPENSPACE_LAYER 600 //Openspace layer over all
-#define OPENSPACE_PLANE -9 //Openspace plane below all turfs
-#define OPENSPACE_BACKDROP_PLANE -8 //Black square just over openspace plane to guaranteed cover all in openspace turf
+#define OPENSPACE_PLANE -10 //Openspace plane below all turfs
+#define OPENSPACE_BACKDROP_PLANE -9 //Black square just over openspace plane to guaranteed cover all in openspace turf
 
-#define FLOOR_PLANE -7
-#define OVER_TILE_PLANE -6 //MOJAVE SUN EDIT - Wallening Testmerge
-#define WALL_PLANE -5 //MOJAVE SUN EDIT - Wallening Testmerge
+#define FLOOR_PLANE -8
+#define OVER_TILE_PLANE -7 //MOJAVE SUN EDIT - Wallening Testmerge
+#define WALL_PLANE -6 //MOJAVE SUN EDIT - Wallening Testmerge
+#define WEATHER_EFFECT_PLANE -5
 #define GAME_PLANE -4
 #define UNDER_FRILL_PLANE -3 //MOJAVE SUN EDIT - Wallening Testmerge
 #define UNDER_FRILL_RENDER_TARGET "*UNDER_RENDER_TARGET" //MOJAVE SUN EDIT - Wallening Testmerge
@@ -110,9 +115,6 @@
 //MOJAVE SUN EDIT - Wallening Testmerge
 
 //---------- LIGHTING -------------
-#define WEATHER_PLANE 96
-#define WEATHER_RENDER_TARGET "*WEATHER_PLANE"
-
 #define SUNLIGHTING_PLANE 99
 #define SUNLIGHTING_RENDER_TARGET "*SUNLIGHT_PLANE"
 
