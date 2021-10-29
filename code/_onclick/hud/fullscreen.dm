@@ -220,18 +220,3 @@
 /atom/movable/screen/fullscreen/lighting_backdrop/Sunlight/Destroy()
 	. = ..()
 	SSoutdoor_effects.sunlighting_planes -= src
-
-/atom/movable/screen/fullscreen/weather
-	screen_loc = "CENTER"
-	transform = null
-	plane = WEATHER_EFFECT_PLANE
-	show_when_dead = TRUE
-
-/atom/movable/screen/fullscreen/weather/Initialize()
-	. = ..()
-	filters += filter(type="alpha", render_source=WEATHER_RENDER_TARGET)
-	SSoutdoor_effects.weather_planes_need_vis |= src
-
-/atom/movable/screen/fullscreen/weather/Destroy()
-	. = ..()
-	SSoutdoor_effects.weather_planes_need_vis -= src

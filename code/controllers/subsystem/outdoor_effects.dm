@@ -57,7 +57,7 @@ SUBSYSTEM_DEF(outdoor_effects)
 	var/datum/time_of_day/current_step_datum
 	var/datum/time_of_day/next_step_datum
 	var/list/mutable_appearance/sunlight_overlays
-	var/list/atom/movable/screen/fullscreen/weather/weather_planes_need_vis = list()
+	var/list/atom/movable/screen/plane_master/weather_effect/weather_planes_need_vis = list()
 	var/last_color = null
 	//Ensure midnight is the liast step
 	var/list/datum/time_of_day/time_cycle_steps = list(new /datum/time_of_day/Dawn(),
@@ -139,7 +139,7 @@ SUBSYSTEM_DEF(outdoor_effects)
 	//Add our weather particle obj to any new weather screens
 	if(SSParticleWeather.initialized)
 		for (i in 1 to weather_planes_need_vis.len)
-			var/atom/movable/screen/fullscreen/weather/W = weather_planes_need_vis[i]
+			var/atom/movable/screen/plane_master/weather_effect/W = weather_planes_need_vis[i]
 			if(W)
 				W.vis_contents = list(SSParticleWeather.getweatherEffect())
 			if(init_tick_checks)

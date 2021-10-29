@@ -154,6 +154,16 @@
 	blend_mode = BLEND_OVERLAY
 	render_relay_plane = RENDER_PLANE_GAME
 
+/atom/movable/screen/plane_master/weather_effect/Initialize()
+	. = ..()
+	//filters += filter(type="alpha", render_source=WEATHER_RENDER_TARGET)
+	SSoutdoor_effects.weather_planes_need_vis |= src
+
+/atom/movable/screen/plane_master/weather_effect/Destroy()
+	. = ..()
+	SSoutdoor_effects.weather_planes_need_vis -= src
+
+
 /**
  * Plane master handling byond internal blackness
  * vars are set as to replicate behavior when rendering to other planes
