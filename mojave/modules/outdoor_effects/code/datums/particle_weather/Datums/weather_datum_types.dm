@@ -1,22 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /datum/particle_weather/dust_storm
 	name = "Rain"
 	desc = "Gentle Rain, la la description."

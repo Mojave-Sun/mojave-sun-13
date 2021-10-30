@@ -1118,11 +1118,12 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		holder.filteriffic = new /datum/filter_editor(in_atom)
 		holder.filteriffic.ui_interact(mob)
 
+//MOJAVE MODULE OUTDOOR_EFFECTS -- BEGIN
 /client/proc/open_particle_editor(atom/in_atom)
 	if(holder)
 		holder.particool = new /datum/particle_editor(in_atom)
 		holder.particool.ui_interact(mob)
-
+ //MOJAVE MODULE OUTDOOR_EFFECTS -- END
 
 /client/proc/set_right_click_menu_mode(shift_only)
 	if(shift_only)

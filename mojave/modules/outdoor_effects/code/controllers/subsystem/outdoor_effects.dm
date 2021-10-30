@@ -51,7 +51,7 @@ SUBSYSTEM_DEF(outdoor_effects)
 	name = "Sunlight"
 	wait = LIGHTING_INTERVAL
 	flags = SS_TICKER
-	init_order = INIT_ORDER_SUNLIGHT
+	init_order = INIT_ORDER_OUTDOOR_EFFECTS
 
 	var/list/atom/movable/screen/fullscreen/lighting_backdrop/Sunlight/sunlighting_planes = list()
 	var/datum/time_of_day/current_step_datum
@@ -268,7 +268,7 @@ SUBSYSTEM_DEF(outdoor_effects)
 /datum/controller/subsystem/outdoor_effects/proc/get_weather_overlay()
 	var/mutable_appearance/MA = new /mutable_appearance()
 	MA.blend_mode   	  = BLEND_OVERLAY
-	MA.icon 			  = 'icons/effects/weather_overlay.dmi'
+	MA.icon 			  = 'mojave/modules/outdoor_effects/icons/effects/weather_overlay.dmi'
 	MA.icon_state 		  = "weather_overlay"
 	MA.plane			  = WEATHER_OVERLAY_PLANE /* we put this on a lower level than lighting so we dont multiply anything */
 	MA.invisibility 	  = INVISIBILITY_LIGHTING

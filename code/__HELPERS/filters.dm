@@ -1,8 +1,5 @@
 #define ICON_NOT_SET "Not Set"
 
-//This should should have a default at some point
-GLOBAL_LIST_INIT(master_particle_info, list())
-
 //This is stored as a nested list instead of datums or whatever because it json encodes nicely for usage in tgui
 GLOBAL_LIST_INIT(master_filter_info, list(
 	"alpha" = list(

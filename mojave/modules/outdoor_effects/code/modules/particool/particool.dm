@@ -39,6 +39,10 @@
 
 */
 
+//This should should have a default at some point
+GLOBAL_LIST_INIT(master_particle_info, list())
+
+
 //some helpyers
 /datum/particle_editor/proc/ListToMatrix(list/L)
 

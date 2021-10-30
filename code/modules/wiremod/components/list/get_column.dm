@@ -29,11 +29,11 @@
 	if(!islist(input_list) || isnum(column_name.value))
 		return
 
-	var/list/new_list = list()
+	var/list/newlist = list()
 	for(var/list/entry in input_list)
 		var/anything = entry[column_name.value]
 		if(islist(anything))
 			continue
-		new_list += anything
+		newlist += anything
 
-	output_list.set_output(new_list)
+	output_list.set_output(newlist)

@@ -31,11 +31,6 @@
 	var/sine = (b/decompose_matrix.scale_y - d/decompose_matrix.scale_x) / 2
 	decompose_matrix.rotation = arctan(cossine, sine)
 
-/proc/newMatrix()
-	return matrix(args)
-/proc/newList()
-	return list(args)
-
 /matrix/proc/TurnTo(old_angle, new_angle)
 	. = new_angle - old_angle
 	Turn(.) //BYOND handles cases such as -270, 360, 540 etc. DOES NOT HANDLE 180 TURNS WELL, THEY TWEEN AND LOOK LIKE SHIT

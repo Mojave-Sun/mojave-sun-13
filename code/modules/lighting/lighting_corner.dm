@@ -75,7 +75,7 @@
 			master.lighting_corner_SE = src
 
 /datum/lighting_corner/proc/self_destruct_if_idle()
-	if (!LAZYLEN(affecting) && !LAZYLEN(globAffect))
+	if (!LAZYLEN(affecting) && !LAZYLEN(globAffect)) //MOJAVE MODULE OUTDOOR_EFFECTS
 		qdel(src, force = TRUE)
 
 /datum/lighting_corner/proc/vis_update()

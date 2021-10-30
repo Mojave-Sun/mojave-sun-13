@@ -15,7 +15,7 @@
 #define VV_NEW_ATOM "New Atom"
 #define VV_NEW_DATUM "New Datum"
 #define VV_NEW_TYPE "New Custom Typepath"
-#define VV_NEW_LIST "New List"
+#define VV_newlist "New List"
 #define VV_NULL "NULL"
 #define VV_INFINITY "Infinity"
 #define VV_RESTORE_DEFAULT "Restore to Default"
@@ -90,7 +90,7 @@
 #define VV_HK_AUTO_RENAME "auto_rename"
 #define VV_HK_RADIATE "radiate"
 #define VV_HK_EDIT_FILTERS "edit_filters"
-#define VV_HK_EDIT_PARTICLES "edit_particles"
+#define VV_HK_EDIT_PARTICLES "edit_particles" //MOJAVE MODULE OUTDOOR_EFFECTS
 #define VV_HK_ADD_AI "add_ai"
 
 // /atom/movable

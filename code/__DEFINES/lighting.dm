@@ -43,16 +43,6 @@
 		0, 0, 0, 1           \
 	)                        \
 
-#define SUNLIGHT_DARK_MATRIX \
-	list                     \
-	(                        \
-		0, 0, 0, 0, \
-		0, 0, 0, 0, \
-		0, 0, 0, 0, \
-		0, 0, 0, 0, \
-		0, 0, 0, 1           \
-	)                        \
-
 ///How many tiles standard fires glow.
 #define LIGHT_RANGE_FIRE 3
 
@@ -95,11 +85,6 @@ GLOBAL_LIST_INIT(em_block_color, EM_BLOCK_COLOR)
 /// A globaly cached version of [EM_MASK_MATRIX] for quick access.
 GLOBAL_LIST_INIT(em_mask_matrix, EM_MASK_MATRIX)
 
-//Sunlight states
-#define SKY_BLOCKED   0
-#define SKY_VISIBLE  1
-#define SKY_VISIBLE_BORDER   2
-
 /// Returns the red part of a #RRGGBB hex sequence as number
 #define GETREDPART(hexa) hex2num(copytext(hexa, 2, 4))
 
@@ -123,3 +108,20 @@ do { \
 		source.lum_b = 1; \
 	}; \
 } while (FALSE)
+
+//MOJAVE MODULE OUTDOOR_EFFECTS -- BEGIN
+//Sunlight states
+#define SKY_BLOCKED   0
+#define SKY_VISIBLE  1
+#define SKY_VISIBLE_BORDER   2
+
+#define SUNLIGHT_DARK_MATRIX \
+	list                     \
+	(                        \
+		0, 0, 0, 0, \
+		0, 0, 0, 0, \
+		0, 0, 0, 0, \
+		0, 0, 0, 0, \
+		0, 0, 0, 1           \
+	)                        \
+//MOJAVE MODULE OUTDOOR_EFFECTS -- END

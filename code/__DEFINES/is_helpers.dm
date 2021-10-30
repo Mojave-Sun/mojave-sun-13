@@ -20,22 +20,24 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 	/turf/open/openspace
 	)))
 
+#define isgroundlessturf(A) (is_type_in_typecache(A, GLOB.turfs_without_ground))
+
+//MOJAVE MODULE OUTDOOR_EFFECTS -- BEGIN
+//List of turfs that don't provide weatherproofing
 GLOBAL_LIST_INIT(turfs_non_weatherproof, typecacheof(list(
 	/turf/open/space,
 	/turf/open/openspace
 	)))
+//MOJAVE MODULE OUTDOOR_EFFECTS -- END
 
-#define isgroundlessturf(A) (is_type_in_typecache(A, GLOB.turfs_without_ground))
+#define isnotweatherproofceiling(A) (is_type_in_typecache(A, GLOB.turfs_non_weatherproof))
+
 
 #define isopenturf(A) (istype(A, /turf/open))
 
 #define isindestructiblefloor(A) (istype(A, /turf/open/indestructible))
 
 #define isspaceturf(A) (istype(A, /turf/open/space))
-
-//TODO make this a trait for catwalks, etc. to use - instead of hard list (maybe damaged floors stop being weatherproof)
-//Also bloody double negative, nice one
-#define isnotweatherproofceiling(A) (is_type_in_typecache(A, GLOB.turfs_non_weatherproof))
 
 #define isfloorturf(A) (istype(A, /turf/open/floor))
 

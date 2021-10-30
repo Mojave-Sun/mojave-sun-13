@@ -47,6 +47,14 @@ require only minor tweaks.
 #define ZTRAIT_ASHSTORM "Weather_Ashstorm"
 #define ZTRAIT_VOIDSTORM "Weather_Voidstorm"
 
+//MOJAVE MODULE OUTDOOR_EFFECTS -- BEGIN
+// boolean - particle weather types that occur on the level
+#define PARTICLEWEATHER_RAIN "Weather_Rain"
+#define PARTICLEWEATHER_SNOW "Weather_Snow"
+#define PARTICLEWEATHER_DUST "Weather_Dust"
+#define PARTICLEWEATHER_RADS "Weather_Rads"
+//MOJAVE MODULE OUTDOOR_EFFECTS -- END
+
 /// boolean - does this z prevent ghosts from observing it
 #define ZTRAIT_SECRET "Secret"
 
@@ -55,12 +63,6 @@ require only minor tweaks.
 
 /// boolean - does this z prevent xray/meson/thermal vision
 #define ZTRAIT_NOXRAY "No X-Ray"
-
-// boolean - particle weather types that occur on the level
-#define PARTICLEWEATHER_RAIN "Weather_Rain"
-#define PARTICLEWEATHER_SNOW "Weather_Snow"
-#define PARTICLEWEATHER_DUST "Weather_Dust"
-#define PARTICLEWEATHER_RADS "Weather_Rads"
 
 // number - bombcap is multiplied by this before being applied to bombs
 #define ZTRAIT_BOMBCAP_MULTIPLIER "Bombcap Multiplier"

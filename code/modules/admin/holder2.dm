@@ -32,7 +32,7 @@ GLOBAL_PROTECT(href_token)
 	var/deadmined
 
 	var/datum/filter_editor/filteriffic
-	var/datum/particle_editor/particool
+	var/datum/particle_editor/particool  //MOJAVE MODULE OUTDOOR_EFFECTS
 
 	/// Whether or not the user tried to connect, but was blocked by 2FA
 	var/blocked_by_2fa = FALSE

@@ -97,7 +97,7 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/admin_change_sec_level,
 	/client/proc/toggle_nuke,
 	/client/proc/run_weather,
-	/client/proc/run_particle_weather,
+	/client/proc/run_particle_weather,  //MOJAVE MODULE OUTDOOR_EFFECTS
 	/client/proc/mass_zombie_infection,
 	/client/proc/mass_zombie_cure,
 	/client/proc/polymorph_all,

@@ -79,7 +79,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/plane_master_controller)
 		var/atom/movable/screen/plane_master/pm_iterator = controlled_planes[i]
 		pm_iterator.update_atom_colour()
 
-
+//TODO RECHECK
 /atom/movable/plane_master_controller/game
 	name = PLANE_MASTERS_GAME
 	controlled_planes = list(
@@ -94,7 +94,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/plane_master_controller)
 		GHOST_PLANE,
 		POINT_PLANE,
 		LIGHTING_PLANE,
-		SUNLIGHTING_PLANE
+		SUNLIGHTING_PLANE //MOJAVE MODULE OUTDOOR_EFFECTS
 	)
 
 
