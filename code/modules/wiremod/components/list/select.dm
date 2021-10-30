@@ -63,7 +63,7 @@
 		return
 
 	var/comparison_value = comparison_input.value
-	var/list/newlist = list()
+	var/list/new_list = list()
 	for(var/list/entry in input_list)
 		var/anything = entry[column_name.value]
 		if(islist(anything))
@@ -86,6 +86,6 @@
 				add_to_list = anything <= comparison_value
 
 		if(add_to_list)
-			newlist += list(entry)
+			new_list += list(entry)
 
-	filtered_table.set_output(newlist)
+	filtered_table.set_output(new_list)
