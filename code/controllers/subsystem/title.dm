@@ -33,7 +33,8 @@ SUBSYSTEM_DEF(title)
 	if(!file_path)
 		file_path = "mojave/icons/default_title.dmi" //MOJAVE EDIT CHANGE - file_path = "icons/runtime/default_title.dmi"
 
-	ASSERT(fexists(file_path))
+	// MOJAVE EDIT REMOVE - non-working file assertion
+	// ASSERT(fexists(file_path))
 
 	icon = new(fcopy_rsc(file_path))
 

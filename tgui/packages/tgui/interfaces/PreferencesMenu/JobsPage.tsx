@@ -1,8 +1,8 @@
 import { binaryInsertWith } from "common/collections";
 import { classes } from "common/react";
 import { InfernoNode } from "inferno";
-import { useBackend } from "../../backend";
-import { Box, Button, Dropdown, Stack, Tooltip } from "../../components";
+import { useBackend, useLocalState } from "../../backend";
+import { Box, Button, Dropdown, Flex, Stack, Tooltip } from "../../components";
 import { createSetPreference, JoblessRole, JobPriority, PreferencesMenuData } from "./data";
 import { Job } from "./jobs/base";
 import * as Departments from "./jobs/departments";
@@ -11,8 +11,19 @@ const requireJob = require.context("./jobs/jobs", false, /.ts$/);
 const jobsByDepartment = new Map<Departments.Department, {
   jobs: Job[],
   head?: Job,
+  picture?: string,
 }>();
 
+/* MOJAVE EDIT ADDITION START - FACTION SWITCH*/
+export enum Faction {
+  NCR,
+  Town,
+  BOS,
+  Raiders,
+  Wasteland
+}
+
+/* MOJAVE EDIT ADDITION STOP - FACTION SWITCH*/
 const binaryInsertJob = binaryInsertWith((job: Job) => {
   return job.name;
 });
@@ -371,16 +382,259 @@ const JoblessRoleDropdown = (props, context) => {
   );
 };
 
-export const JobsPage = () => {
+export const JobSwitch = (faction) => {
+  switch (faction) {
+    case Faction.NCR:
+      return (
+        <>
+
+          <Stack.Item mr={1}>
+            <Gap amount={36} />
+            <PriorityHeaders />
+            <Gap amount={6} />
+            <Department
+              department={Departments.NCR}
+              name="NCR" />
+            <Gap amount={6} />
+          </Stack.Item>
+
+          <Stack.Item mr={1}>
+            <Gap amount={36} />
+          </Stack.Item>
+        </>
+      );
+    case Faction.Town:
+      return (
+        <>
+          <Stack.Item mr={1}>
+            <Gap amount={36} />
+            <PriorityHeaders />
+            <Gap amount={6} />
+            <Department
+              department={Departments.Town}
+              name="Town" />
+            <Gap amount={6} />
+          </Stack.Item>
+
+          <Stack.Item mr={1}>
+            <Gap amount={36} />
+          </Stack.Item>
+        </>
+      );
+    case Faction.BOS:
+      return (
+        <>
+          <Stack.Item mr={1}>
+            <Gap amount={36} />
+            <PriorityHeaders />
+            <Gap amount={6} />
+            <Department
+              department={Departments.BOS}
+              name="BOS" />
+            <Gap amount={6} />
+          </Stack.Item>
+
+          <Stack.Item mr={1}>
+            <Gap amount={36} />
+          </Stack.Item>
+        </>
+      );
+    case Faction.Raiders:
+      return (
+        <>
+          <Stack.Item mr={1}>
+            <Gap amount={36} />
+            <PriorityHeaders />
+            <Gap amount={6} />
+            <Department
+              department={Departments.Raiders}
+              name="Raiders" />
+            <Gap amount={6} />
+          </Stack.Item>
+
+          <Stack.Item mr={1}>
+            <Gap amount={36} />
+          </Stack.Item>
+        </>
+      );
+    case Faction.Wasteland:
+      return (
+        <>
+          <Stack.Item mr={1}>
+            <Gap amount={36} />
+            <PriorityHeaders />
+            <Gap amount={6} />
+            <Department
+              department={Departments.Wasteland}
+              name="Wasteland" />
+            <Gap amount={6} />
+          </Stack.Item>
+
+          <Stack.Item mr={1}>
+            <Gap amount={36} />
+          </Stack.Item>
+        </>
+      );
+  }
+};
+
+export const GetFactionPicture = (faction) => {
+  switch (faction) {
+    case Faction.NCR:
+      return <img src={Departments.NCR.picture} />;
+    case Faction.Town:
+      return <img src={Departments.Town.picture} />;
+    case Faction.BOS:
+      return <img src={Departments.BOS.picture} />;
+    case Faction.Raiders:
+      return <img src={Departments.Raiders.picture} />;
+    case Faction.Wasteland:
+      return <img src={Departments.Wasteland.picture} />;
+  }
+};
+
+export const JobsPage = (props, context) => {
+  const [
+    currentFaction,
+    setCurrentFaction,
+  ] = useLocalState<any | null>(context, 'jobsPage', Faction.NCR);
+
+  const nextFaction = () => {
+    const nextFaction = (currentFaction + 1) % 5;
+    setCurrentFaction(nextFaction);
+  };
+  const previousFaction = () => {
+    const previousFaction = (currentFaction - 1) % 5;
+    if (previousFaction < 0) {
+      setCurrentFaction(Faction.Wasteland);
+    }
+    else {
+      setCurrentFaction(previousFaction);
+    }
+  };
+
+  const getFactionName = () => {
+    switch (currentFaction) {
+      case Faction.NCR:
+        return "NCR";
+      case Faction.Town:
+        return "Town";
+      case Faction.BOS:
+        return "BOS";
+      case Faction.Raiders:
+        return "Raiders";
+      case Faction.Wasteland:
+        return "Wasteland";
+    }
+  };
+  const activeFactionMenu = JobSwitch(currentFaction);
+  const className = "PreferencesMenu__Jobs";
+
   return (
     <>
-      <JoblessRoleDropdown />
+      <>
+        <Button
+          content="NCR"
+          color={currentFaction === Faction.NCR ? "green" : null}
+          onClick={() => { setCurrentFaction(Faction.NCR);
+          }}
+        />
+        <Button
+          content="Town"
+          color={currentFaction === Faction.Town ? "green" : null}
+          onClick={() => setCurrentFaction(Faction.Town)}
+        />
+        <Button
+          content="Brotherhood of Steel"
+          color={currentFaction === Faction.BOS ? "green" : null}
+          onClick={() => setCurrentFaction(Faction.BOS)}
+        />
+        <Button
+          content="Raiders"
+          color={currentFaction === Faction.Raiders ? "green" : null}
+          onClick={() => setCurrentFaction(Faction.Raiders)}
+        />
+        <Button
+          content="Wasteland"
+          color={currentFaction === Faction.Wasteland ? "green" : null}
+          onClick={() => setCurrentFaction(Faction.Wasteland)}
+        />
+      </>
+      <Box
+        position="absolute"
+        right={21}
+        width="30%"
+      />
+      <Gap amount={50} />
+      <div>
+        <Box
+          position="absolute"
+          right={30}
+          width="30%"
+        >
+          <Flex.Item
+            className={classes([
+              `${className}__faction`,
+            ])}
+            key={currentFaction}
+          >
+            <Stack align="center" vertical>
+              <Stack.Item style={{
+                "font-weight": "bold",
+                "margin-top": "auto",
+                "max-width": "100px",
+                "text-align": "center",
+              }}>
+                {getFactionName()}
+              </Stack.Item>
+              <Stack.Item align="center">
+                <Tooltip content={
+                  <>The New California Republic</>
+                } position="bottom">
+                  <Box
+                    className={"faction-icon-parent"}
+                  >
+                    {GetFactionPicture(currentFaction)}
 
+                    {/* {isBanned && (
+                      <Box className="antagonist-banned-slash" />
+                    )}
+
+                    {daysLeft > 0 && (
+                      <Box className="antagonist-days-left">
+                        <b>{daysLeft}</b> days left
+                      </Box>
+
+                    )}
+                  */ }
+                  </Box>
+                </Tooltip>
+                <Gap amount={25} />
+                <Button
+                  icon="chevron-left"
+                  content="Previous"
+                  onClick={previousFaction}
+                />
+                <Button
+                  icon="chevron-right"
+                  content="Next"
+                  onClick={nextFaction}
+                />
+              </Stack.Item>
+            </Stack>
+
+          </Flex.Item>
+          {/* {GetFactionPicture(currentFaction)} */}
+
+        </Box>
+      </div>
+      <Gap amount={160} />
+      <JoblessRoleDropdown />
       <Stack vertical fill>
         <Gap amount={22} />
-
         <Stack.Item>
           <Stack fill className="PreferencesMenu__Jobs">
+            {/* MOJAVE EDIT REMOVAL BEGIN - DEPARTMENTS
             <Stack.Item mr={1}>
               <Gap amount={36} />
 
@@ -433,6 +687,18 @@ export const JobsPage = () => {
                 department={Departments.Medical}
                 name="Medical" />
             </Stack.Item>
+            MOJAVE EDIT REMOVAL END - DEPARTMENTS*/}
+
+            {/* MOJAVE EDIT ADDITION START - DEPARTMENTS */}
+            <Box
+              position="absolute"
+              right={30}
+              width="30%"
+              verticalAlign="middle"
+            >
+              {activeFactionMenu}
+            </Box>
+            {/* MOJAVE EDIT ADDITION END - DEPARTMENTS */}
           </Stack>
         </Stack.Item>
       </Stack>
