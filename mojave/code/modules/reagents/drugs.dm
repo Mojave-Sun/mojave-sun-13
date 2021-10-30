@@ -139,11 +139,12 @@
 
 /datum/reagent/ms13/jet/on_mob_add(mob/living/carbon/human/M)
 	if(!M.hud_used)
-		var/atom/movable/plane_master_controller/game_plane_master_controller = M.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
-		game_plane_master_controller.add_filter("jet_blur", 1, list("type" = "radial_blur", "size" = 0))
-		for(var/filter in game_plane_master_controller.get_filters("jet_blur"))
-			animate(filter, loop = -1, size = 0.04, time = 2 SECONDS, easing = ELASTIC_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
-			animate(size = 0, time = 6 SECONDS, easing = CIRCULAR_EASING|EASE_IN)
+		return
+	var/atom/movable/plane_master_controller/game_plane_master_controller = M.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
+	game_plane_master_controller.add_filter("jet_blur", 1, list("type" = "radial_blur", "size" = 0))
+	for(var/filter in game_plane_master_controller.get_filters("jet_blur"))
+		animate(filter, loop = -1, size = 0.04, time = 2 SECONDS, easing = ELASTIC_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
+		animate(size = 0, time = 6 SECONDS, easing = CIRCULAR_EASING|EASE_IN)
 	M.add_movespeed_modifier(/datum/movespeed_modifier/reagent/ms13/jet)
 	if(isliving(M))
 		to_chat(M, span_userdanger("You feel an incredible pulsating high! You just absolutely love life in this moment!"))
@@ -151,8 +152,9 @@
 
 /datum/reagent/ms13/jet/on_mob_delete(mob/living/carbon/human/M)
 	if(!M.hud_used)
-		var/atom/movable/plane_master_controller/game_plane_master_controller = M.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
-		game_plane_master_controller.remove_filter("jet_blur")
+		return
+	var/atom/movable/plane_master_controller/game_plane_master_controller = M.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
+	game_plane_master_controller.remove_filter("jet_blur")
 	M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/ms13/jet)
 	if(isliving(M))
 		to_chat(M, span_userdanger("You come down from your high. Maybe you should go get some more?"))
@@ -185,11 +187,12 @@
 
 /datum/reagent/ms13/rocket/on_mob_add(mob/living/carbon/human/M)
 	if(!M.hud_used)
-		var/atom/movable/plane_master_controller/game_plane_master_controller = M.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
-		game_plane_master_controller.add_filter("rocket_blur", 1, list("type" = "radial_blur", "size" = 0))
-		for(var/filter in game_plane_master_controller.get_filters("rocket_blur"))
-			animate(filter, loop = -1, size = 0.02, time = 2 SECONDS, easing = JUMP_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
-			animate(size = 0, time = 6 SECONDS, easing = JUMP_EASING|EASE_IN)
+		return
+	var/atom/movable/plane_master_controller/game_plane_master_controller = M.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
+	game_plane_master_controller.add_filter("rocket_blur", 1, list("type" = "radial_blur", "size" = 0))
+	for(var/filter in game_plane_master_controller.get_filters("rocket_blur"))
+		animate(filter, loop = -1, size = 0.02, time = 2 SECONDS, easing = JUMP_EASING|EASE_OUT, flags = ANIMATION_PARALLEL)
+		animate(size = 0, time = 6 SECONDS, easing = JUMP_EASING|EASE_IN)
 	M.add_movespeed_modifier(/datum/movespeed_modifier/reagent/ms13/rocket)
 	if(isliving(M))
 		to_chat(M, span_userdanger("You feel an incredible high! But feel very focused..."))
@@ -197,8 +200,9 @@
 
 /datum/reagent/ms13/rocket/on_mob_delete(mob/living/carbon/human/M)
 	if(!M.hud_used)
-		var/atom/movable/plane_master_controller/game_plane_master_controller = M.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
-		game_plane_master_controller.remove_filter("rocket_blur")
+		return
+	var/atom/movable/plane_master_controller/game_plane_master_controller = M.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
+	game_plane_master_controller.remove_filter("rocket_blur")
 	M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/ms13/jet)
 
 	if(isliving(M))
@@ -231,10 +235,11 @@
 
 /datum/reagent/ms13/turbo/on_mob_add(mob/living/carbon/human/M)
 	if(!M.hud_used)
-		var/atom/movable/plane_master_controller/game_plane_master_controller = M.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
-		game_plane_master_controller.add_filter("turbo_wave", 1, list("type" = "wave", "x" = 32, "y" = 32))
-		for(var/filter in game_plane_master_controller.get_filters("turbo_wave"))
-			animate(filter, time = 32 SECONDS, loop = -1, easing = LINEAR_EASING, offset = 32, flags = ANIMATION_PARALLEL)
+		return
+	var/atom/movable/plane_master_controller/game_plane_master_controller = M.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
+	game_plane_master_controller.add_filter("turbo_wave", 1, list("type" = "wave", "x" = 32, "y" = 32))
+	for(var/filter in game_plane_master_controller.get_filters("turbo_wave"))
+		animate(filter, time = 32 SECONDS, loop = -1, easing = LINEAR_EASING, offset = 32, flags = ANIMATION_PARALLEL)
 	M.add_movespeed_modifier(/datum/movespeed_modifier/reagent/ms13/turbo)
 	M.sound_environment_override = SOUND_ENVIRONMENT_DRUGGED
 	if(isliving(M))
@@ -243,8 +248,9 @@
 
 /datum/reagent/ms13/turbo/on_mob_delete(mob/living/carbon/human/M)
 	if(!M.hud_used)
-		var/atom/movable/plane_master_controller/game_plane_master_controller = M.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
-		game_plane_master_controller.remove_filter("turbo_wave")
+		return
+	var/atom/movable/plane_master_controller/game_plane_master_controller = M.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
+	game_plane_master_controller.remove_filter("turbo_wave")
 	M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/ms13/turbo)
 	M.sound_environment_override = NONE
 	if(isliving(M))
