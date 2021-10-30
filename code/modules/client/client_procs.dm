@@ -1123,7 +1123,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	if(holder)
 		holder.particool = new /datum/particle_editor(in_atom)
 		holder.particool.ui_interact(mob)
- //MOJAVE MODULE OUTDOOR_EFFECTS -- END
+//MOJAVE MODULE OUTDOOR_EFFECTS -- END
 
 /client/proc/set_right_click_menu_mode(shift_only)
 	if(shift_only)

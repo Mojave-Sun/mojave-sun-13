@@ -68,7 +68,7 @@
 				VV_NEW_ATOM,
 				VV_NEW_DATUM,
 				VV_NEW_TYPE,
-				VV_newlist,
+				VV_NEW_LIST,
 				VV_NULL,
 				VV_INFINITY,
 				VV_RESTORE_DEFAULT,
@@ -253,7 +253,7 @@
 				newguy.datum_flags |= DF_VAR_EDITED
 			.["value"] = newguy
 
-		if(VV_newlist)
+		if(VV_NEW_LIST)
 			.["value"] = list()
 			.["type"] = /list
 

@@ -15,7 +15,7 @@
 #define VV_NEW_ATOM "New Atom"
 #define VV_NEW_DATUM "New Datum"
 #define VV_NEW_TYPE "New Custom Typepath"
-#define VV_newlist "New List"
+#define VV_NEW_LIST "New List"
 #define VV_NULL "NULL"
 #define VV_INFINITY "Infinity"
 #define VV_RESTORE_DEFAULT "Restore to Default"

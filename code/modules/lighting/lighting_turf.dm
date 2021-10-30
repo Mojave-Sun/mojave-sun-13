@@ -40,7 +40,7 @@
 	if (L)
 		totallums += L.lum_r + L.lum_b + L.lum_g
 		totalSunFalloff += L.sunFalloff //MOJAVE MODULE OUTDOOR_EFFECTS
- 	
+
 	//MOJAVE MODULE OUTDOOR_EFFECTS -- BEGIN
 	/* if we are outside, full sunlight */
 	if(outdoor_effect && outdoor_effect.state) /* SKY_BLOCKED is 0 */

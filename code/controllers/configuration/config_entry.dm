@@ -166,16 +166,16 @@
 	if(!VASProcCallGuard(str_val))
 		return FALSE
 	str_val = trim(str_val)
-	var/list/newlist = list()
+	var/list/new_list = list()
 	var/list/values = splittext(str_val," ")
 	for(var/I in values)
 		var/temp = text2num(I)
 		if(isnull(temp))
 			return FALSE
-		newlist += temp
-	if(!newlist.len)
+		new_list += temp
+	if(!new_list.len)
 		return FALSE
-	config_entry_value = newlist
+	config_entry_value = new_list
 	return TRUE
 
 /datum/config_entry/keyed_list
