@@ -165,6 +165,7 @@
 	. = ..()
 	mymob.overlay_fullscreen("lighting_backdrop_lit", /atom/movable/screen/fullscreen/lighting_backdrop/lit)
 	mymob.overlay_fullscreen("lighting_backdrop_unlit", /atom/movable/screen/fullscreen/lighting_backdrop/unlit)
+	mymob.overlay_fullscreen("sunlight_backdrop", /atom/movable/screen/fullscreen/lighting_backdrop/Sunlight) //MOJAVE MODULE OUTDOOR_EFFECTS
 
 /*!
  * This system works by exploiting BYONDs color matrix filter to use layers to handle emissive blockers.
