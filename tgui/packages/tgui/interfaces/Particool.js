@@ -1,8 +1,7 @@
-import { map } from 'common/collections';
 import { toFixed } from 'common/math';
 import { numberOfDecimalDigits } from '../../common/math';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Collapsible, ColorBox, Dropdown, Flex, Input, LabeledList, NoticeBox, NumberInput, Section, Tooltip } from '../components';
+import { Box, Button, Collapsible, ColorBox, Flex, Input, LabeledList, NoticeBox, NumberInput, Section, Tooltip } from '../components';
 import { Window } from '../layouts';
 import { logger } from '../logging';
 
@@ -40,8 +39,7 @@ const ParticleMatrixEntry = (props, context) => {
           <NumberInput
             value={val}
             key={i}
-            onDrag={(e, v) =>
-            {
+            onDrag={(e, v) => {
               value[i] = v;
               act('modify_particle_value', {
                 new_data: {
@@ -49,7 +47,8 @@ const ParticleMatrixEntry = (props, context) => {
                   value: value,
                   type: 'matrix',
                 },
-              }); }}
+              });
+            }}
           />))}
       </Flex.Item>
     </Flex>
@@ -122,7 +121,7 @@ const ParticleGeneratorEntry = (props, context) => {
     params = params[1].split(', ');
     if (params.length === 4) {
       tempGenType = params[0];
-      tempRand= params[1];
+      tempRand = params[1];
 
       // Try to get contents of list(), just pass value if null
       let aTemp = params[2].match(/\((.*)\)/);
@@ -155,7 +154,8 @@ const ParticleGeneratorEntry = (props, context) => {
         },
         type: 'generator',
       },
-    }); };
+    });
+  };
 
   return (
     <Collapsible
@@ -366,37 +366,51 @@ const GeneratorHelp = () => {
             <tr>
               <td>box</td>
               <td>vector</td>
-              <td>A random vector within a box whose corners are at A and B.</td>
+              <td>A random vector within a box whose corners are at A and B</td>
             </tr>
             <tr>
               <td>color</td>
               <td>color (string) or color matrix</td>
-              <td>Result type depends on whether A or B are matrices or not. The result is interpolated between A and B; components are not randomized separately.</td>
+              <td>Result type depends on whether A or B are matrices or not.
+                The result is interpolated between A and B;
+                components are not randomized separately.
+              </td>
             </tr>
             <tr>
               <td>circle</td>
               <td>vector</td>
-              <td>A random XY-only vector in a ring between radius A and B, centered at 0,0.</td>
+              <td>A random XY-only vector in a ring between radius A and B,
+                centered at 0,0.
+              </td>
             </tr>
             <tr>
               <td>sphere</td>
               <td>vector</td>
-              <td>A random vector in a spherical shell between radius A and B, centered at 0,0,0.</td>
+              <td>A random vector in a spherical shell between radius A and B,
+                centered at 0,0,0.
+              </td>
             </tr>
             <tr>
               <td>square</td>
               <td>vector</td>
-              <td>A random XY-only vector between squares of sizes A and B. (The length of the square is between A*2 and B*2, centered at 0,0.)</td>
+              <td>A random XY-only vector between squares of sizes A and B.
+                (The length of the square is between A*2 and B*2,
+                centered at 0,0.)
+              </td>
             </tr>
             <tr>
               <td>cube</td>
               <td>vector</td>
-              <td>A random vector between cubes of sizes A and B. (The length of the cube is between A*2 and B*2, centered at 0,0,0.)</td>
+              <td>A random vector between cubes of sizes A and B.
+                (The length of the cube is between A*2 and B*2,
+                centered at 0,0,0.)
+              </td>
             </tr>
           </tbody>
         </table>
       </Section>
-    </Collapsible>); };
+    </Collapsible>);
+};
 
 
 
