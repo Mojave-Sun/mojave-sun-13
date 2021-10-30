@@ -25,14 +25,14 @@
 	glass_name = "glass of murky liquid"
 	glass_desc = "A murky green liquid with a pungeant vile smell. Not so sure about this one."
 
-/datum/reagent/consumable/ms13/dirty_water/on_mob_life(mob/living/carbon/M)
+/datum/reagent/consumable/ms13/dirty_water/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	M.adjust_disgust(10)
 	if(prob(50))
 		M.adjustToxLoss(5)
 
 	if(prob(10))
 		M.vomit(lost_nutrition = 25, distance = 1, purge_ratio = 0.2)
-	..()
+	return ..()
 
 //// E for Everyone drinks - Soda/Beverages ////
 
@@ -54,7 +54,7 @@
 	glass_name = "glass of dark fizzy liquid"
 	glass_desc = "A dark fizzy liquid with a slighty off sweet smell. Bubbles form on the side."
 
-/datum/reagent/consumable/ms13/nuka_diet/on_mob_life(mob/living/carbon/M)
+/datum/reagent/consumable/ms13/nuka_diet/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(prob(5))
 		M.adjustBruteLoss(0.5) //aspartame is bad for your bones. Shoulda just drank water.
 
@@ -157,14 +157,14 @@
 	glass_name = "glass of brown-ish fizzy liquid"
 	glass_desc = "A dark brown-ish fizzy liquid with a slighty sweet smell. Bubbles form on the side."
 
-/datum/reagent/consumable/ms13/nuka_vaccinated/on_mob_life(mob/living/carbon/M)
+/datum/reagent/consumable/ms13/nuka_vaccinated/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	M.adjustToxLoss(-0.2, 0, TRUE)
 	for(var/thing in M.diseases)
 		var/datum/disease/D = thing
 		if(D.severity == DISEASE_SEVERITY_POSITIVE)
 			continue
 		D.cure()
-	..()
+	return ..()
 
 /datum/reagent/consumable/ms13/nuka_fusion
 	name = "Nuka-Fusion"
@@ -267,11 +267,11 @@
 	glass_name = "glass of murky dark green liquid"
 	glass_desc = "A murky dark green liquid with bits of plant matter floating at the top. Has a vile smell to it."
 
-/datum/reagent/consumable/ms13/gagquik/on_mob_life(mob/living/carbon/M) // This definitely won't be slipped into drinks
+/datum/reagent/consumable/ms13/gagquik/on_mob_life(mob/living/carbon/M, delta_time, times_fired) // This definitely won't be slipped into drinks
 	if(prob(25))
 		M.vomit(lost_nutrition = 25, distance = 1, purge_ratio = 0.5)
 	M.adjust_disgust(10)
-	..()
+	return ..()
 
 /datum/reagent/consumable/ms13/redheave //Geigpunga wine, Toxic soot extract, Gagquik, CHEMICALS?
 	name = "red heave"
@@ -282,13 +282,13 @@
 	glass_name = "glass of murky pale green liquid"
 	glass_desc = "A murky pale green liquid. It occasionally frothes a bit and has a vile smell to it."
 
-/datum/reagent/consumable/ms13/redheave/on_mob_life(mob/living/carbon/M)
+/datum/reagent/consumable/ms13/redheave/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	M.adjustOrganLoss(ORGAN_SLOT_STOMACH, rand(1,10))
 	to_chat(M, (span_cultboldtalic("It BURNS!")))
 	if(prob(25))
 		M.vomit(lost_nutrition = 10, distance = 2, purge_ratio = 0, blood = TRUE, harm = TRUE)
 	M.adjust_disgust(5)
-	..()
+	return ..()
 
 //// POWER GAMER brews- allegedly. ////
 
@@ -315,7 +315,7 @@
 	glass_name = "glass of pale-ish green liquid"
 	glass_desc = "A faint pale-ish green liquid with a bitter earthy smell."
 
-/datum/reagent/consumable/ms13/herb_brew/on_mob_life(mob/living/carbon/M)
+/datum/reagent/consumable/ms13/herb_brew/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	M.adjustBruteLoss(-1)
 	M.AdjustAllImmobility(5)
 	..()

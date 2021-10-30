@@ -9,12 +9,12 @@
 /datum/reagent/ms13/buffout/on_mob_metabolize(mob/living/M)
 	M.maxHealth += 30 // These probably shouldn't ever be too high for the sake of balance. You're only human anyways afterall.
 	M.health += 30
-	..()
+	return ..()
 
 /datum/reagent/ms13/buffout/on_mob_delete(mob/living/M)
 	M.maxHealth -= 30
 	M.health -= 30
-	..()
+	return ..()
 
 /datum/reagent/ms13/buffout/overdose_start(mob/living/M)
 	. = ..()
@@ -32,7 +32,7 @@
 
 	M.drowsyness += 1
 	M.emote(pick("groan"))
-	..()
+	return ..()
 
 // Calmex //
 
@@ -42,10 +42,10 @@
 	color = "#BC13FE"
 	overdose_threshold = 30
 
-/datum/reagent/ms13/calmex/on_mob_life(mob/living/carbon/M)
+/datum/reagent/ms13/calmex/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(current_cycle >= 5)
 		SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "numb", /datum/mood_event/narcotic_medium, name)
-	..()
+	return ..()
 
 /datum/reagent/ms13/calmex/overdose_process(mob/living/M)
 	switch(current_cycle)
@@ -55,7 +55,7 @@
 			M.drowsyness += 1
 		if(24 to INFINITY)
 			M.Sleeping(40, 0)
-			..()
+			return ..()
 
 // Day Tripper //
 
@@ -67,24 +67,24 @@
 	addiction_types = list(/datum/addiction/ms13/daytripper = 25)
 
 /datum/reagent/ms13/day_tripper/on_mob_metabolize(mob/living/L)
-	..()
+	. = ..()
 	SEND_SIGNAL(L, COMSIG_ADD_MOOD_EVENT, "daytripper_drug", /datum/mood_event/happiness_drug)
 
 /datum/reagent/ms13/day_tripper/on_mob_delete(mob/living/L)
 	SEND_SIGNAL(L, COMSIG_CLEAR_MOOD_EVENT, "daytripper_drug")
-	..()
+	return ..()
 
-/datum/reagent/ms13/day_tripper/on_mob_life(mob/living/carbon/M)
+/datum/reagent/ms13/day_tripper/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	M.set_drugginess(15)
 	M.jitteriness = 0
 	if(prob(7))
 		M.emote(pick("twitch","drool","moan","giggle"))
-	..()
+	return ..()
 
 /datum/reagent/ms13/day_tripper/overdose_process(mob/living/M)
 	M.adjust_disgust(2)
 	M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.2)
-	..()
+	return ..()
 
 // Steady //
 
@@ -112,9 +112,9 @@
 
 /datum/reagent/ms13/hydra/on_mob_add(mob/living/M, amount)
 	to_chat(M, span_notice("Your insides start tingling slightly. You can feel things shifting."))
-	..()
+	return ..()
 
-/datum/reagent/ms13/hydra/on_mob_life(mob/living/carbon/M) // This needs to be unscuffed before we can use it. It WORKS. Just too well. Instant healing of wounds for as long as it's in your blood. I'm not qualified for this! help!
+/datum/reagent/ms13/hydra/on_mob_life(mob/living/carbon/M, delta_time, times_fired) // This needs to be unscuffed before we can use it. It WORKS. Just too well. Instant healing of wounds for as long as it's in your blood. I'm not qualified for this! help!
 	if(!isliving(M))
 		return
 
@@ -123,10 +123,9 @@
 		W.remove_wound()
 
 /datum/reagent/ms13/hydra/on_mob_delete(mob/living/carbon/human/M)
-	..()
+	. = ..()
 	if(isliving(M))
 		to_chat(M, span_notice("Everything seems back to normal now."))
-	..()
 
 // Jet //
 
@@ -148,7 +147,7 @@
 	M.add_movespeed_modifier(/datum/movespeed_modifier/reagent/ms13/jet)
 	if(isliving(M))
 		to_chat(M, span_userdanger("You feel an incredible pulsating high! You just absolutely love life in this moment!"))
-	..()
+	return ..()
 
 /datum/reagent/ms13/jet/on_mob_delete(mob/living/carbon/human/M)
 	if(!M.hud_used)
@@ -158,14 +157,14 @@
 	M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/ms13/jet)
 	if(isliving(M))
 		to_chat(M, span_userdanger("You come down from your high. Maybe you should go get some more?"))
-	..()
+	return ..()
 
-/datum/reagent/ms13/jet/on_mob_life(mob/living/carbon/M)
+/datum/reagent/ms13/jet/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	M.adjustStaminaLoss(-2.5, 0)
 	M.setOrganLoss(ORGAN_SLOT_LUNGS, rand(0.25, 2))
 	if(prob(12))
 		M.emote(pick("drool", "moan", "chuckle"))
-	..()
+	return ..()
 
 /datum/reagent/ms13/jet/overdose_start(mob/living/M)
 	to_chat(M, span_userdanger("You start tripping hard!"))
@@ -174,7 +173,7 @@
 /datum/reagent/ms13/jet/overdose_process(mob/living/M)
 	M.hallucination += 10
 	M.adjustOrganLoss(ORGAN_SLOT_LUNGS, rand(0.25,5))
-	..()
+	return ..()
 
 // Rocket //
 
@@ -196,7 +195,7 @@
 	M.add_movespeed_modifier(/datum/movespeed_modifier/reagent/ms13/rocket)
 	if(isliving(M))
 		to_chat(M, span_userdanger("You feel an incredible high! But feel very focused..."))
-	..()
+	return ..()
 
 /datum/reagent/ms13/rocket/on_mob_delete(mob/living/carbon/human/M)
 	if(!M.hud_used)
@@ -207,9 +206,9 @@
 
 	if(isliving(M))
 		to_chat(M, span_userdanger("You come down from your high. Everything seems back to normal."))
-	..()
+	return ..()
 
-/datum/reagent/ms13/rocket/on_mob_life(mob/living/carbon/M)
+/datum/reagent/ms13/rocket/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	M.adjustStaminaLoss(-5, 0)
 	M.setOrganLoss(ORGAN_SLOT_LUNGS, rand(0.25, 1))
 	if(prob(12))
@@ -222,7 +221,7 @@
 /datum/reagent/ms13/rocket/overdose_process(mob/living/M)
 	M.hallucination += 10
 	M.adjustOrganLoss(ORGAN_SLOT_LUNGS, rand(2,8))
-	..()
+	return ..()
 
 // Turbo //
 
@@ -244,7 +243,7 @@
 	M.sound_environment_override = SOUND_ENVIRONMENT_DRUGGED
 	if(isliving(M))
 		to_chat(M, span_notice("The world around you begins to slow down."))
-	..()
+	return ..()
 
 /datum/reagent/ms13/turbo/on_mob_delete(mob/living/carbon/human/M)
 	if(!M.hud_used)
@@ -255,23 +254,23 @@
 	M.sound_environment_override = NONE
 	if(isliving(M))
 		to_chat(M, span_notice("The world around you starts speeding up again."))
-	..()
+	return ..()
 
-/datum/reagent/ms13/turbo/on_mob_life(mob/living/carbon/M)
+/datum/reagent/ms13/turbo/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	M.setOrganLoss(ORGAN_SLOT_LUNGS, rand(0.25, 2))
 	if(prob(12))
 		M.emote(pick("stare", "glare"))
-	..()
+	return ..()
 
 /datum/reagent/ms13/turbo/overdose_start(mob/living/M)
 	to_chat(M, span_userdanger("You start tripping hard!"))
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "[type]_overdose", /datum/mood_event/overdose, name)
-	..()
+	return ..()
 
 /datum/reagent/ms13/turbo/overdose_process(mob/living/M)
 	M.hallucination += 10
 	M.adjustOrganLoss(ORGAN_SLOT_LUNGS, rand(0.25,5))
-	..()
+	return ..()
 
 // Mentats //
 
@@ -286,7 +285,7 @@
 	C.adjustOrganLoss(ORGAN_SLOT_BRAIN, -2*REM)
 	if(prob(15))
 		C.cure_trauma_type(resilience = TRAUMA_RESILIENCE_BASIC)
-	..()
+	return ..()
 
 /datum/reagent/ms13/mentats/overdose_process(mob/living/carbon/M)
 	M.Jitter(3)
@@ -300,7 +299,7 @@
 	if(prob(1))
 		to_chat(M, span_userdanger("You feel something within your head snap."))
 		M.gain_trauma_type(BRAIN_TRAUMA_MILD, TRAUMA_RESILIENCE_ABSOLUTE)
-	..()
+	return ..()
 
 // Psycho //
 
@@ -324,7 +323,7 @@
 	if(prob(25))
 		M.adjustOrganLoss(ORGAN_SLOT_HEART, )
 	M.visible_message(span_danger("[M]'s eyes go empty, with their face quickly shifting to a scorn"), span_narsiesmall("Your mind suddenly begins to drift- you begin to feel ANGRY."))
-	..()
+	return ..()
 
 /datum/reagent/ms13/psycho/on_mob_end_metabolize(mob/living/M)
 	REMOVE_TRAIT(M, TRAIT_STUNIMMUNE, type)
@@ -333,11 +332,11 @@
 	if(rage)
 		QDEL_NULL(rage)
 	M.clear_fullscreen("psycho")
-	..()
+	return ..()
 
 /datum/reagent/ms13/psycho/overdose_start(mob/living/M)
 	to_chat(M, span_narsiesmall("YOU FEEL AN INSATIABLE BLOODLUST!"))
-	..()
+	return ..()
 
 /datum/reagent/ms13/psycho/overdose_process(mob/living/M)
 	M.Jitter(10)
@@ -346,13 +345,13 @@
 		M.emote(pick("twitch", "shiver"))
 	if(prob(15))
 		M.adjustToxLoss(2, 0)
-	..()
+	return ..()
 
 /datum/reagent/ms13/psycho/on_mob_life(mob/living/M)
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "gone_psycho", /datum/mood_event/stimulant_heavy, name)
 	M.adjustOrganLoss(ORGAN_SLOT_HEART, 0.25)
 	M.hallucination += 5
-	..()
+	return ..()
 
 // Rebound //
 
@@ -372,7 +371,7 @@
 	var/datum/brain_trauma/special/psychotic_brawling/bath_salts/rage
 
 /datum/reagent/ms13/overdrive/on_mob_metabolize(mob/living/M)
-	..()
+	. = ..()
 	ADD_TRAIT(M, TRAIT_STUNIMMUNE, type)
 	ADD_TRAIT(M, TRAIT_SLEEPIMMUNE, type)
 	ADD_TRAIT(M, TRAIT_NOSOFTCRIT, TRAUMA_TRAIT)
@@ -393,7 +392,7 @@
 	if(rage)
 		QDEL_NULL(rage)
 	M.clear_fullscreen("overdrive")
-	..()
+	return ..()
 
 /datum/reagent/ms13/overdrive/overdose_start(mob/living/M)
 	M.emote("scream")
@@ -402,7 +401,7 @@
 	REMOVE_TRAIT(M, TRAIT_STUNIMMUNE, type)
 	REMOVE_TRAIT(M, TRAIT_SLEEPIMMUNE, type)
 	M.Stun(25)
-	..()
+	return ..()
 
 /datum/reagent/ms13/overdrive/overdose_process(mob/living/carbon/M)
 	if(prob(35)) // panic
@@ -413,7 +412,7 @@
 	M.emote(pick("twitch", "shiver"))
 	M.adjustOrganLoss(ORGAN_SLOT_BRAIN, rand(1, 5))
 	addtimer(CALLBACK(src, .proc/heartsplosion, M), rand(1, 5) SECONDS) // We want to delay the actual removal of the heart a tiny bit so people can get out a "Oh damn" or something. You go ZZZzzz mode the second you don't have one.
-	..()
+	return ..()
 
 /datum/reagent/ms13/overdrive/proc/heartsplosion(mob/living/carbon/M)
 	var/obj/item/organ/heart/our_heart = M.getorganslot(ORGAN_SLOT_HEART)
@@ -425,7 +424,7 @@
 	if(prob(25))
 		M.adjustOrganLoss(ORGAN_SLOT_BRAIN, rand(1, 5))
 	M.hallucination += 10
-	..()
+	return ..()
 
 // Addictol //
 
@@ -436,7 +435,7 @@
 	overdose_threshold = 10
 
 /datum/reagent/ms13/addictol/on_mob_metabolize(mob/living/carbon/M)
-	..()
+	. = ..()
 	if(M.mind)
 		for(var/addiction_type in subtypesof(/datum/addiction))
 			M.mind.remove_addiction_points(addiction_type, MAX_ADDICTION_POINTS) //Remove addictions
@@ -450,11 +449,11 @@
 */
 /datum/reagent/ms13/addictol/overdose_process(mob/living/carbon/M)
 	M.adjustToxLoss(5, 0)
-	..()
+	return ..()
 
 /datum/reagent/ms13/addictol/on_mob_life(mob/living/M)
 	M.adjustToxLoss(2, 0)
-	..()
+	return ..()
 
 /////// Movespeed Modifiers ///////
 

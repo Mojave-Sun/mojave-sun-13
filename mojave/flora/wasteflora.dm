@@ -139,7 +139,7 @@
 	color = "#44341F"
 	taste_description = "rot"
 
-/datum/reagent/plantnutriment/ms13/fertilizer/on_mob_life(mob/living/carbon/M)
+/datum/reagent/plantnutriment/ms13/fertilizer/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	M.adjustToxLoss(0.5*REM, 0)
 	. = 1
 	..()

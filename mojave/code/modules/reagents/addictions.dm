@@ -146,7 +146,6 @@
 	M.Dizzy(5)
 	if(prob(20))
 		to_chat(M, span_warning("[pick("Your head hurts.", "Your head pounds.")]"))
-	..()
 
 /datum/addiction/mentats/withdrawal_enters_stage_2(mob/living/carbon/M)
 	. = ..()
@@ -159,7 +158,6 @@
 	if(prob(20))
 		M.adjustStaminaLoss(25)
 		to_chat(M, span_warning("[pick("Your head hurts a lot.", "Your head pounds incessantly.")]"))
-	..()
 
 /datum/addiction/mentats/withdrawal_enters_stage_3(mob/living/carbon/M)
 	. = ..()
@@ -173,7 +171,6 @@
 	if(prob(20))
 		M.Stun(35)
 		to_chat(M, span_userdanger("[pick("Your head hurts!", "You feel a burning knife inside your brain!", "A wave of pain fills your head!")]"))
-	..()
 
 // Psycho //
 
@@ -190,7 +187,6 @@
 	M.Jitter(5)
 	if(prob(20))
 		to_chat(M, span_warning("You feel angry, and you don't know why..."))
-	..()
 
 /datum/addiction/ms13/psycho/withdrawal_enters_stage_2(mob/living/carbon/M)
 	. = ..()
@@ -202,7 +198,6 @@
 	M.Dizzy(10)
 	if(prob(20))
 		to_chat(M, span_warning("[pick("You are filled with anger.", "Is the room spinning...? This is PISSING YOU OFF!", "You REALLY want to PUNCH someone right now.")]"))
-	..()
 
 /datum/addiction/ms13/psycho/withdrawal_enters_stage_3(mob/living/carbon/M)
 	. = ..()
@@ -215,7 +210,6 @@
 	M.Dizzy(10)
 	if(prob(20))
 		to_chat(M, span_warning("[pick("Your head burns... Your heart aches... You are FURIOUS!", "You feel a sickening nausea run over you- You're filled with RAGE!", "Why is EVERYONE so adamant on PISSING YOU OFF at a time like this?!")]"))
-	..()
 
 // Overdrive //
 
@@ -232,7 +226,6 @@
 	M.Jitter(15)
 	if(prob(20))
 		to_chat(M, span_warning("You begin to shake in fury."))
-	..()
 
 /datum/addiction/ms13/overdrive/withdrawal_enters_stage_2(mob/living/carbon/M)
 	. = ..()
@@ -244,7 +237,6 @@
 	M.Dizzy(10)
 	if(prob(20))
 		to_chat(M, span_warning("[pick("You have trouble thinking clearly through your rage", "You're REALLY pissed off right now.")]"))
-	..()
 
 
 /datum/addiction/ms13/overdrive/withdrawal_enters_stage_3(mob/living/carbon/M)
@@ -259,7 +251,6 @@
 	M.adjustStaminaLoss(2.5)
 	if(prob(20))
 		to_chat(M, span_warning("[pick("You feel so tired- and it's REALLY pissing you off!", "Your arms ache heavily.", "Your whole body throbs with fatigue.")]"))
-	..()
 
 // Day Tripper //
 
