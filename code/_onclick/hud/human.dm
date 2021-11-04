@@ -345,7 +345,7 @@
 	lingstingdisplay.hud = src
 	infodisplay += lingstingdisplay
 
-	zone_select =  new /atom/movable/screen/zone_sel()
+	zone_select = new /atom/movable/screen/zone_sel()
 	//zone_select.icon = ui_style
 	zone_select.icon = 'mojave/icons/hud/ms_ui_target.dmi'
 	zone_select.hud = src
