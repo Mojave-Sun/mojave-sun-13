@@ -21,7 +21,6 @@
 
 /obj/projectile/beam/ms13/laser/eyebot/proto
 	damage = 10
-	irradiate = 5
 	slur = 5
 	hitscan_light_color_override = COLOR_DARK_CYAN
 	muzzle_flash_color_override = COLOR_DARK_CYAN
@@ -65,7 +64,6 @@
 /obj/projectile/beam/ms13/laser/robobrain
 	name = "radiation beam"
 	damage = 15
-	irradiate = 45
 	drowsy = 40
 	hitscan_light_color_override = COLOR_YELLOW
 	muzzle_flash_color_override = COLOR_YELLOW

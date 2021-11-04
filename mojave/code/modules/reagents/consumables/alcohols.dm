@@ -540,7 +540,6 @@
 
 /datum/reagent/consumable/ethanol/ms13/lead_champagne/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(prob(20))
-		M.radiation -= min(4, M.radiation)
 		M.adjustOrganLoss(ORGAN_SLOT_BRAIN, rand(1,5))
 	..() // Not positive this works right. Radiation is when you unscuff it :tm:
 
