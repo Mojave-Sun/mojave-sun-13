@@ -345,9 +345,14 @@
 	lingstingdisplay.hud = src
 	infodisplay += lingstingdisplay
 
+<<<<<<< HEAD
 	zone_select =  new /atom/movable/screen/zone_sel()
 	//zone_select.icon = ui_style
 	zone_select.icon = 'mojave/icons/hud/ms_ui_target.dmi'
+=======
+	zone_select = new /atom/movable/screen/zone_sel()
+	zone_select.icon = ui_style
+>>>>>>> 6c0aba5da4c... removes double spaces AFTER symbols (#62515)
 	zone_select.hud = src
 	zone_select.update_appearance()
 	static_inventory += zone_select

@@ -49,7 +49,11 @@
 		name = dryname
 		desc = drydesc
 		bloodiness = 0
+<<<<<<< HEAD
 		icon_state = "[icon_state]-old"
+=======
+		color = COLOR_GRAY //not all blood splatters have their own sprites... It still looks pretty nice
+>>>>>>> 6c0aba5da4c... removes double spaces AFTER symbols (#62515)
 		STOP_PROCESSING(SSobj, src)
 		return TRUE
 
