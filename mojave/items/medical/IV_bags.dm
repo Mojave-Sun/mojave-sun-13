@@ -42,6 +42,5 @@
 
 /datum/reagent/ms13/medicine/radaway/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	M.adjustToxLoss(-3*REM)
-	M.radiation -= min(M.radiation, 16)
 	. = 1
 	..()
