@@ -135,8 +135,8 @@
 
 	belt = pick(
 		/obj/item/claymore/ms13/pipe/tireiron, \
-		/obj/item/kitchen/knife/ms13, \
-		/obj/item/kitchen/knife/ms13/switchblade/razor, \
+		/obj/item/knife/ms13, \
+		/obj/item/knife/ms13/switchblade/razor, \
 		/obj/item/ms13/hammer, \
 		/obj/item/ms13/knuckles, \
 		/obj/item/ms13/brick)

@@ -2,10 +2,10 @@
 	title = "Sawbone"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = ""
-	description = "Fix up the boys whenever they get fucked up. While you may not be an expert- Sometimes the blood letting and chainsaw improv works out."
+	supervisors = "The Boss and the Enforcer"
+	description = "Fix up your boys whenever they get themselves in trouble, or perhaps help in torturing some poor captured victim. You are by no means an expert, but who really cares about that?"
 	forbid = ""
-	enforce = "Fixxing up the boys. Perhaps cutting some deals with the locals."
+	enforce = ""
 
 	outfit = /datum/outfit/job/ms13/raiders/sawbone
 
@@ -17,10 +17,15 @@
 
 	head = 		/obj/item/clothing/head/ms13/hood/sack
 	id = 		/obj/item/card/id/ms13/sawbone
-	suit = 		/obj/item/clothing/suit/ms13/shawl
-	uniform =	/obj/item/clothing/under/ms13/wasteland/worn
-	shoes = 	/obj/item/clothing/shoes/ms13/military
-	suit_store = /obj/item/claymore/ms13/machete/ripper
+	suit = 		/obj/item/clothing/suit/ms13/raider
+	uniform =	/obj/item/clothing/under/ms13/wasteland/whiteshirt
+	shoes = 	/obj/item/clothing/shoes/ms13/military/diesel
+	suit_store = /obj/item/gun/ballistic/automatic/pistol/ms13/pistol22
+	belt = 		/obj/item/knife/butcher/ms13
+	r_pocket =  /obj/item/ammo_box/magazine/ms13/m22
+	backpack_contents = list(
+		/obj/item/storage/firstaid/ms13/regular=1, \
+		/obj/item/stack/medical/gauze/ms13/half=1)
 
 /datum/outfit/job/ms13/raiders/sawbone/pre_equip(mob/living/carbon/human/H)
 	..()

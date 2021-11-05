@@ -294,10 +294,10 @@
 
 /obj/item/clothing/head/helmet/ms13/sheriff
 	name = "sheriff's hat"
-	desc = "A wide brimmed sheriff hat. There's better smelling things in the wasteland, perhaps you could give it a wash some time. Upon further examination, you can see there is a metal rim inside of it with some rather thick leather in the dome. "
+	desc = "A dark, wide brimmed, padded hat normally used by sheriffs of the wastes."
 	icon_state = "sheriffhat"
 	inhand_icon_state = "sheriffhat"
-	armor = list(melee = 20, bullet = 15, laser = 15, energy = 5, bomb = 0, bio = 0, rad = 0, fire = 10, acid = 10)
+	armor = list(melee = 20, bullet = 15, laser = 10, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5, wound = 0)
 
 /obj/item/clothing/head/helmet/ms13/fedora
 	name = "gray fedora"
@@ -407,9 +407,10 @@
 
 /obj/item/clothing/head/helmet/ms13/deputy
 	name = "deputy's cap"
-	desc = "A formal refurbished pre-war cap. It's got a faded logo on the inner rim."
+	desc = "A refurbished, good looking pre-war police cap normally in use by the new law enforcers of the cold wastes."
 	icon_state = "deputycap"
 	inhand_icon_state = "deputycap"
+	armor = list(melee = 15, bullet = 20, laser = 10, energy = 5, bomb = 5, bio = 5, rad = 5, fire = 5, acid = 5, wound = 0)
 
 /obj/item/clothing/head/helmet/ms13/military
 	name = "military hat"
@@ -588,10 +589,10 @@
 
 /obj/item/clothing/head/helmet/ms13/vaulthelmet
 	name = "vault security helmet"
-	desc = "A rather pristine vault-tec officer's helmet. Surprisingly intact."
+	desc = "A rather pristine vault-tec security helmet with the addition of some ballistic fiber padding for the changing, post apocalypse world."
 	icon_state = "vaulthelmet"
 	inhand_icon_state = "helmet"
-	armor = list(melee = 45, bullet = 15, laser = 20, energy = 20, bomb = 35, bio = 10, rad = 10, fire = 30, acid = 10)
+	armor = list("melee" = 30, "bullet" = 50, "laser" = 20, "energy" = 20, "bomb" = 30, "bio" = 20, "rad" = 20, "fire" = 30, "acid" = 20, "wound" = 5)
 	flags_inv = HIDEEARS|HIDEHAIR
 
 /obj/item/clothing/head/helmet/ms13/eliteriot/bountyhunter

@@ -122,9 +122,9 @@
 
 /obj/item/clothing/suit/armor/ms13/vest/vault
 	name = "vault security vest"
-	desc = "A thick padded vest worn by vault security officers. Makes you want to yell, 'Hit me, I can hardly feel it!'"
+	desc = "A thick kevlar vest worn by vault security officers."
 	icon_state = "vaultarmor"
-	armor = list(melee = 40, bullet = 10, laser = 15, energy = 10, bomb = 25, bio = 5, rad = 5, fire = 20, acid = 5)
+	armor = list("melee" = 30, "bullet" = 50, "laser" = 20, "energy" = 20, "bomb" = 30, "bio" = 20, "rad" = 20, "fire" = 30, "acid" = 20, "wound" = 5)
 
 // Raider Armor //
 
