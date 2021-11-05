@@ -20,7 +20,7 @@
 	belt = 		 /obj/item/gun/ballistic/automatic/pistol/ms13/m9mm
 	back = 		 /obj/item/ms13/storage/backpack/radiopack
 	r_pocket =   /obj/item/ammo_box/magazine/ms13/r10
-	l_pocket =   /obj/item/kitchen/knife/ms13/hunting
+	l_pocket =   /obj/item/knife/ms13/hunting
 	backpack_contents = list(
 		/obj/item/ammo_box/magazine/ms13/m9mm=1, \
 		/obj/item/stack/medical/gauze/ms13/three=1, \
