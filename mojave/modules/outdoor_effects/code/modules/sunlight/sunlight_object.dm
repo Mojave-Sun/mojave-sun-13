@@ -35,6 +35,15 @@ Sunlight System
 /atom/movable/outdoor_effect/Destroy(force)
 	if (!force)
 		return QDEL_HINT_LETMELIVE
+
+	//If we are a source of light - disable it, to fix out corner refs
+	disable_sunlight()
+
+	//Remove ourselves from our turf
+	if(source_turf && source_turf.outdoor_effect == src)
+		source_turf.outdoor_effect = null
+
+
 	return ..()
 
 
@@ -44,8 +53,8 @@ Sunlight System
 	source_turf = loc
 	if (source_turf.outdoor_effect)
 		qdel(source_turf.outdoor_effect, force = TRUE)
+		source_turf.outdoor_effect = null //No qdel_null force
 	source_turf.outdoor_effect = src
-	GLOB.outdoor_effects += src
 
 /atom/movable/outdoor_effect/proc/disable_sunlight()
 	var/turf/T = list()
