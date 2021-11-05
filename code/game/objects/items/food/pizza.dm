@@ -14,7 +14,7 @@
 	var/boxtag = ""
 
 /obj/item/food/pizza/raw
-	foodtypes =  GRAIN | DAIRY | VEGETABLES | RAW
+	foodtypes = GRAIN | DAIRY | VEGETABLES | RAW
 	burns_in_oven = FALSE
 	slice_type = null
 
@@ -53,7 +53,7 @@
 /obj/item/food/pizza/margherita/raw
 	name = "raw pizza margherita"
 	icon_state = "pizzamargherita_raw"
-	foodtypes =  GRAIN | VEGETABLES | DAIRY | RAW
+	foodtypes = GRAIN | VEGETABLES | DAIRY | RAW
 	burns_in_oven = FALSE
 	slice_type = null
 
@@ -70,7 +70,7 @@
 	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 
-/obj/item/food/pizzaslice/margherita/Initialize()
+/obj/item/food/pizzaslice/margherita/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/customizable_reagent_holder, null, CUSTOM_INGREDIENT_ICON_FILL, max_ingredients = 12)
 
@@ -86,7 +86,7 @@
 /obj/item/food/pizza/meat/raw
 	name = "raw meatpizza"
 	icon_state = "meatpizza_raw"
-	foodtypes =  GRAIN | VEGETABLES| DAIRY | MEAT | RAW
+	foodtypes = GRAIN | VEGETABLES| DAIRY | MEAT | RAW
 	burns_in_oven = FALSE
 	slice_type = null
 
@@ -113,7 +113,7 @@
 /obj/item/food/pizza/mushroom/raw
 	name = "raw mushroom pizza"
 	icon_state = "mushroompizza_raw"
-	foodtypes =  GRAIN | VEGETABLES | DAIRY | RAW
+	foodtypes = GRAIN | VEGETABLES | DAIRY | RAW
 	burns_in_oven = FALSE
 	slice_type = null
 
@@ -142,7 +142,7 @@
 /obj/item/food/pizza/vegetable/raw
 	name = "raw vegetable pizza"
 	icon_state = "vegetablepizza_raw"
-	foodtypes =  GRAIN | VEGETABLES | DAIRY | RAW
+	foodtypes = GRAIN | VEGETABLES | DAIRY | RAW
 	burns_in_oven = FALSE
 	slice_type = null
 
@@ -170,7 +170,7 @@
 /obj/item/food/pizza/donkpocket/raw
 	name = "raw donkpocket pizza"
 	icon_state = "donkpocketpizza_raw"
-	foodtypes =  GRAIN | VEGETABLES | DAIRY | MEAT | JUNKFOOD | RAW
+	foodtypes = GRAIN | VEGETABLES | DAIRY | MEAT | JUNKFOOD | RAW
 	burns_in_oven = FALSE
 	slice_type = null
 
@@ -198,7 +198,7 @@
 /obj/item/food/pizza/dank/raw
 	name = "raw dank pizza"
 	icon_state = "dankpizza_raw"
-	foodtypes =  GRAIN | VEGETABLES | DAIRY | RAW
+	foodtypes = GRAIN | VEGETABLES | DAIRY | RAW
 	burns_in_oven = FALSE
 	slice_type = null
 
@@ -226,7 +226,7 @@
 /obj/item/food/pizza/sassysage/raw
 	name = "raw sassysage pizza"
 	icon_state = "sassysagepizza_raw"
-	foodtypes =  GRAIN | VEGETABLES | DAIRY | MEAT | RAW
+	foodtypes = GRAIN | VEGETABLES | DAIRY | MEAT | RAW
 	burns_in_oven = FALSE
 	slice_type = null
 
@@ -254,7 +254,7 @@
 /obj/item/food/pizza/pineapple/raw
 	name = "raw Hawaiian pizza"
 	icon_state = "pineapplepizza_raw"
-	foodtypes =  GRAIN | VEGETABLES | DAIRY | MEAT | FRUIT | PINEAPPLE | RAW
+	foodtypes = GRAIN | VEGETABLES | DAIRY | MEAT | FRUIT | PINEAPPLE | RAW
 	burns_in_oven = FALSE
 	slice_type = null
 
@@ -284,7 +284,7 @@
 	name = "bacteria rich moldy pizza slice"
 	desc = "Not only is this once delicious pizza encrusted with a layer of spore-spewing fungus, it also seems to shift and slide when unattended, teeming with new life."
 
-/obj/item/food/pizzaslice/moldy/bacteria/Initialize()
+/obj/item/food/pizzaslice/moldy/bacteria/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_MOLD, CELL_VIRUS_TABLE_GENERIC, rand(2,4), 25)
 
@@ -303,7 +303,7 @@
 /obj/item/food/pizza/arnold/raw
 	name = "raw Arnold pizza"
 	icon_state = "arnoldpizza_raw"
-	foodtypes =  GRAIN | DAIRY | VEGETABLES | RAW
+	foodtypes = GRAIN | DAIRY | VEGETABLES | RAW
 	burns_in_oven = FALSE
 	slice_type = null
 

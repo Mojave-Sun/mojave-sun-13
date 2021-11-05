@@ -3,7 +3,7 @@
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "scroll"
 	drop_sound = 'sound/items/handling/paper_drop.ogg'
-	pickup_sound =  'sound/items/handling/paper_pickup.ogg'
+	pickup_sound = 'sound/items/handling/paper_pickup.ogg'
 	throw_range = 1
 	throw_speed = 1
 	w_class = WEIGHT_CLASS_TINY
@@ -16,7 +16,7 @@
 	///who has signed this contract. fills itself with WEAKREFS, to prevent hanging references
 	var/list/datum/weakref/signed_by = list(null, null)
 
-/obj/item/sparring_contract/Initialize()
+/obj/item/sparring_contract/Initialize(mapload)
 	. = ..()
 	name = "[GLOB.deity]'s sparring contract"
 

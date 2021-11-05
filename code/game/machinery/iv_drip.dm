@@ -54,7 +54,7 @@
 	if(!target_reagents)
 		return
 
-	var/mutable_appearance/filling_overlay = mutable_appearance('icons/obj/iv_drip.dmi', "reagent")
+	var/mutable_appearance/filling_overlay = mutable_appearance(icon, "reagent") // Mojave Sun edit, original text: var/mutable_appearance/filling_overlay = mutable_appearance('icons/obj/iv_drip.dmi', "reagent")
 	var/percent = round((target_reagents.total_volume / target_reagents.maximum_volume) * 100)
 	switch(percent)
 		if(0 to 9)
@@ -297,7 +297,7 @@
 	density = TRUE
 	use_internal_storage = TRUE
 
-/obj/machinery/iv_drip/plumbing/Initialize()
+/obj/machinery/iv_drip/plumbing/Initialize(mapload)
 	. = ..()
 
 	AddComponent(/datum/component/simple_rotation, ROTATION_ALTCLICK | ROTATION_CLOCKWISE | ROTATION_COUNTERCLOCKWISE | ROTATION_VERBS, null, CALLBACK(src, .proc/can_be_rotated))

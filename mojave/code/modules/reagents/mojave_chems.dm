@@ -1,11 +1,17 @@
 ///MOJAVE SUN CHEM BASE FILE/TEMP STORAGE///
 
-/datum/reagent/water/ms13/dirty
-	name = "Dirty Water"
-	description = "An ubiquitous chemical substance that is composed of hydrogen and oxygen, this one is impure and toxic to drink."
-	color = "#7a706677"
-	taste_description = "dirt and water"
-	glass_icon_state = "glass_clear"
-	glass_name = "glass of dirty water"
-	glass_desc = "Tough times call for strong men and dirty drink."
-	shot_glass_icon_state = "shotglassclear"
+/datum/reagent/ms13
+	name = "generic MS13 chem"
+	description = "Don't breathe this in."
+	color = "#42330a"
+	taste_description = "burning chemical taste"
+	overdose_threshold = 1
+
+/datum/reagent/consumable/ms13
+	name = "Generic MS13 yummy liquid"
+	description = "Yeah probably skip out on this one chief."
+	color = "#7c7b7a"
+	quality = DRINK_NICE
+	glass_name = "glass of liquid" // Keep these generic for flavour!
+	glass_desc = "A pale coloured liquid. It screams 'PAIN'." // Same with this. Keep people guessin'. Make em know the drink via flavour and look for immersion.
+	glass_icon_state = null // None of this dumb nonsense. Glasses don't just morph based on liquid!

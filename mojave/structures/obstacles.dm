@@ -17,8 +17,8 @@
 	max_integrity = 500
 	armor = list(MELEE = 100, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 100, BIO = 100, RAD = 100, FIRE = 100, ACID = 100)
 	damage_deflection = 40
-	CanAtmosPass = ATMOS_PASS_YES
-	flags_1 = ON_BORDER_1 | RAD_PROTECT_CONTENTS_1
+	can_atmos_pass = ATMOS_PASS_YES
+	flags_1 = ON_BORDER_1
 	var/barpasschance = 33
 
 /obj/structure/ms13/bars/corner
@@ -157,7 +157,7 @@
 	max_integrity = 500
 	armor = list(MELEE = 80, BULLET = 80, LASER = 0, ENERGY = 0, BOMB = 25, BIO = 100, RAD = 100, FIRE = 80, ACID = 100)
 	damage_deflection = 40
-	flags_1 = ON_BORDER_1 | RAD_PROTECT_CONTENTS_1
+	flags_1 = ON_BORDER_1
 	var/locked = FALSE
 
 	var/door_opened = FALSE //if it's open or not.
@@ -574,11 +574,7 @@
 /obj/structure/railing/ms13
 	name = "base state MS13 guard rail"
 	icon = 'mojave/icons/structure/railings.dmi'
-
-/obj/structure/railing/ms13/Initialize()
-	. = ..()
-	if(dir == NORTH)
-		pixel_y = 5
+	layer = ABOVE_MOB_LAYER
 
 /obj/structure/railing/ms13/solo
 	name = "guard rail"
@@ -588,3 +584,8 @@
 /obj/structure/railing/ms13/solo/industrial
 	desc = "A sturdy rail setup with multiple functions, including but not limited to: ensuring you dont fly off the top of a four story tall building. It's got a slick orange taint, so you know it's to workplace regulations."
 	icon_state = "indus_solo"
+
+/obj/structure/railing/ms13/sewer
+	name = "guard rail"
+	desc = "A rusty guard rail used to prevent you from falling into the region's sewage. Thank the lord it's there."
+	icon_state = "railings_sewer"

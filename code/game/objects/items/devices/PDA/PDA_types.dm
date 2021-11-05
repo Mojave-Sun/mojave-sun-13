@@ -63,7 +63,7 @@
 /obj/item/pda/ai/pai
 	ttone = "assist"
 
-/obj/item/pda/ai/Initialize()
+/obj/item/pda/ai/Initialize(mapload)
 	. = ..()
 	RegisterSignal(src, COMSIG_PDA_CHECK_DETONATE, .proc/pda_no_detonate)
 
@@ -156,7 +156,7 @@
 	greyscale_config = /datum/greyscale_config/pda/captain
 	greyscale_colors = "#2C7CB2#FF0000#FFFFFF#F5D67B"
 
-/obj/item/pda/captain/Initialize()
+/obj/item/pda/captain/Initialize(mapload)
 	. = ..()
 	RegisterSignal(src, COMSIG_PDA_CHECK_DETONATE, .proc/pda_no_detonate)
 
@@ -214,12 +214,13 @@
 	greyscale_colors = null
 	icon_state = "pda-library"
 	icon_alert = "pda-r-library"
+	icon_pai = "pai_overlay_library"
+	icon_inactive_pai = "pai_off_overlay_library"
 	default_cartridge = /obj/item/cartridge/curator
 	inserted_item = /obj/item/pen/fountain
 	desc = "A portable microcomputer by Thinktronic Systems, LTD. This model is a WGW-11 series e-reader."
 	note = "Congratulations, your station has chosen the Thinktronic 5290 WGW-11 Series E-reader and Personal Data Assistant!"
 	silent = TRUE //Quiet in the library!
-	overlays_x_offset = -3
 
 /obj/item/pda/clear
 	name = "clear PDA"

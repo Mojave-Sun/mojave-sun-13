@@ -25,7 +25,7 @@
 	belt = 		/obj/item/gun/ballistic/revolver/ms13/rev10mm
 	r_hand = 	/obj/item/ms13/twohanded/hammer
 	r_pocket = 	/obj/item/ammo_box/magazine/ms13/r20
-	l_pocket =	/obj/item/kitchen/knife/ms13/combat/soviet
+	l_pocket =	/obj/item/knife/ms13/combat/soviet
 	backpack_contents = list(
 		/obj/item/ammo_box/ms13/rev10mm=2, \
 		/obj/item/stack/medical/ointment/ms13/aloe=1, \

@@ -27,7 +27,6 @@
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	///Icon file for right inhand overlays
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
-	togglename = "buttons"
 
 /obj/item/clothing/suit/toggle/ms13/Initialize()
 	. = ..()

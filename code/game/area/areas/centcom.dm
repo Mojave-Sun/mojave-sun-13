@@ -26,6 +26,18 @@
 /area/centcom/ferry
 	name = "CentCom Transport Shuttle Dock"
 
+/area/centcom/briefing
+	name = "CentCom Briefing Room"
+
+/area/centcom/briefing/storage
+	name = "CentCom Briefing Room Storage"
+
+/area/centcom/admin
+	name = "CentCom Administrative Office"
+
+/area/centcom/admin/storage
+	name = "CentCom Administrative Office Storage"
+
 /area/centcom/prison
 	name = "Admin Prison"
 
@@ -52,7 +64,7 @@
 	icon_state = "supplypod_loading"
 	var/loading_id = ""
 
-/area/centcom/supplypod/loading/Initialize()
+/area/centcom/supplypod/loading/Initialize(mapload)
 	. = ..()
 	if(!loading_id)
 		CRASH("[type] created without a loading_id")

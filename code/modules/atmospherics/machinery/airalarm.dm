@@ -74,7 +74,7 @@
 	req_access = list(ACCESS_ATMOSPHERICS)
 	max_integrity = 250
 	integrity_failure = 0.33
-	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 100, BOMB = 0, BIO = 100, RAD = 100, FIRE = 90, ACID = 30)
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 100, BOMB = 0, BIO = 100, FIRE = 90, ACID = 30)
 	resistance_flags = FIRE_PROOF
 
 	var/danger_level = 0
@@ -119,8 +119,8 @@
 		/datum/gas/halon = new/datum/tlv/dangerous
 	)
 
-/obj/machinery/airalarm/New(loc, ndir, nbuild)
-	..()
+/obj/machinery/airalarm/Initialize(mapload, ndir, nbuild)
+	. = ..()
 	wires = new /datum/wires/airalarm(src)
 	if(ndir)
 		setDir(ndir)
@@ -137,19 +137,17 @@
 	alarm_manager = new(src)
 	update_appearance()
 
-/obj/machinery/airalarm/Destroy()
-	SSradio.remove_object(src, frequency)
-	QDEL_NULL(wires)
-	QDEL_NULL(alarm_manager)
-	return ..()
-
-/obj/machinery/airalarm/Initialize(mapload)
-	. = ..()
 	set_frequency(frequency)
 	AddElement(/datum/element/connect_loc, atmos_connections)
 	AddComponent(/datum/component/usb_port, list(
 		/obj/item/circuit_component/air_alarm,
 	))
+
+/obj/machinery/airalarm/Destroy()
+	SSradio.remove_object(src, frequency)
+	QDEL_NULL(wires)
+	QDEL_NULL(alarm_manager)
+	return ..()
 
 /obj/machinery/airalarm/examine(mob/user)
 	. = ..()

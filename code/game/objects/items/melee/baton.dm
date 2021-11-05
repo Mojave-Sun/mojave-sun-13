@@ -37,7 +37,7 @@
 	/// Whether the stun attack is logged. Only relevant for abductor batons, which have different modes.
 	var/log_stun_attack = TRUE
 
-/obj/item/melee/baton/Initialize()
+/obj/item/melee/baton/Initialize(mapload)
 	. = ..()
 	// Adding an extra break for the sake of presentation
 	if(stamina_damage != 0)
@@ -157,7 +157,7 @@
 /obj/item/melee/baton/proc/get_stun_description(mob/living/target, mob/living/user)
 	. = list()
 
-	.["visible"] =  "<span class ='danger'>[user] knocks [target] down with [src]!</span>"
+	.["visible"] = "<span class ='danger'>[user] knocks [target] down with [src]!</span>"
 	.["local"] = "<span class ='userdanger'>[user] knocks you down with [src]!</span>"
 
 	return .
@@ -255,7 +255,7 @@
 	/// The force on extension.
 	var/active_force = 10
 
-/obj/item/melee/baton/telescopic/Initialize()
+/obj/item/melee/baton/telescopic/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/transforming, \
 		force_on = active_force, \
@@ -341,7 +341,7 @@
 	attack_verb_continuous = list("beats")
 	attack_verb_simple = list("beat")
 
-	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 50, BIO = 0, RAD = 0, FIRE = 80, ACID = 80)
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 50, BIO = 0, FIRE = 80, ACID = 80)
 
 	throwforce = 7
 	stamina_damage = 60
@@ -359,7 +359,7 @@
 	var/can_remove_cell = TRUE
 	var/convertible = TRUE //if it can be converted with a conversion kit
 
-/obj/item/melee/baton/security/Initialize()
+/obj/item/melee/baton/security/Initialize(mapload)
 	. = ..()
 	if(preload_cell_type)
 		if(!ispath(preload_cell_type,/obj/item/stock_parts/cell))
@@ -562,7 +562,7 @@
 	worn_icon_state = null
 	lefthand_file = 'icons/mob/inhands/weapons/melee_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/melee_righthand.dmi'
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_HUGE
 	force = 3
 	throwforce = 5
 	cell_hit_cost = 2000
@@ -571,7 +571,7 @@
 	convertible = FALSE
 	var/obj/item/assembly/igniter/sparkler
 
-/obj/item/melee/baton/security/cattleprod/Initialize()
+/obj/item/melee/baton/security/cattleprod/Initialize(mapload)
 	. = ..()
 	sparkler = new (src)
 

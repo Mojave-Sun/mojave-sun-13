@@ -194,7 +194,7 @@
 
 	attack_sound = 'sound/items/bikehorn.ogg'
 	attack_vis_effect = null
-	feast_sound = 'sound/spookoween/scary_horn2.ogg'
+	feast_sound = 'sound/misc/scary_horn.ogg'
 	deathsound = 'sound/misc/sadtrombone.ogg'
 
 	icon_state = "bowmon"
@@ -206,7 +206,7 @@
 	// Keep the people we hug!
 	var/list/consumed_mobs = list()
 
-/mob/living/simple_animal/hostile/imp/slaughter/laughter/Initialize()
+/mob/living/simple_animal/hostile/imp/slaughter/laughter/Initialize(mapload)
 	. = ..()
 	if(SSevents.holidays && SSevents.holidays[APRIL_FOOLS])
 		icon_state = "honkmon"

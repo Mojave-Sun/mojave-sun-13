@@ -6,7 +6,7 @@
 	pressure_resistance = 10
 
 	hud_type = /datum/hud/living
-
+	flags_1 = CRITICAL_ATOM_1 // MOJAVE SUN EDIT
 	var/resize = 1 ///Badminnery resize
 	var/lastattacker = null
 	var/lastattackerckey = null
@@ -143,7 +143,6 @@
 	///if it can be held, can it be equipped to any slots? (think pAI's on head)
 	var/worn_slot_flags = NONE
 
-	var/radiation = 0 ///If the mob is irradiated.
 	var/ventcrawl_layer = PIPING_LAYER_DEFAULT
 	var/losebreath = 0
 

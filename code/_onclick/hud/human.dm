@@ -52,6 +52,12 @@
 	icon_state = "power_display"
 	screen_loc = ui_lingchemdisplay
 
+
+//Show super cool ms13 sidebar
+/datum/hud/human
+	contains_off_screen_hud = TRUE
+
+
 /datum/hud/human/New(mob/living/carbon/human/owner)
 	..()
 
@@ -339,7 +345,7 @@
 	lingstingdisplay.hud = src
 	infodisplay += lingstingdisplay
 
-	zone_select =  new /atom/movable/screen/zone_sel()
+	zone_select = new /atom/movable/screen/zone_sel()
 	//zone_select.icon = ui_style
 	zone_select.icon = 'mojave/icons/hud/ms_ui_target.dmi'
 	zone_select.hud = src
