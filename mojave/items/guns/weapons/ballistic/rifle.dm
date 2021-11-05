@@ -8,6 +8,7 @@
 	fire_sound = 'mojave/sound/ms13weapons/hunting_rifle.ogg'
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
+	slot_flags = ITEM_SLOT_BACK
 	extra_damage = 40
 	extra_penetration = 15
 	fire_delay = 0.6 SECONDS
@@ -24,8 +25,8 @@
 	recoil = 1.5
 	slowdown = 1
 	zoomable = TRUE
-	zoom_amt = 10
-	zoom_out_amt = 13
+	zoom_amt = 9
+	zoom_out_amt = 3
 
 /obj/item/gun/ballistic/rifle/ms13/varmint
 	name = "varmint rifle"
@@ -34,6 +35,7 @@
 	inhand_icon_state = "varmint"
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
+	slot_flags = ITEM_SLOT_BACK
 	fire_sound = 'mojave/sound/ms13weapons/varmint_rifle.ogg'
 	fire_delay = 0.6 SECONDS
 	extra_damage = 30
@@ -83,8 +85,8 @@
 	slowdown = 1
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
 	zoomable = TRUE
-	zoom_amt = 10
-	zoom_out_amt = 13
+	zoom_amt = 9
+	zoom_out_amt = 3
 
 /obj/item/gun/ballistic/rifle/ms13/hunting/scoped/amr
 	name = "anti-material rifle"

@@ -52,6 +52,12 @@
 	icon_state = "power_display"
 	screen_loc = ui_lingchemdisplay
 
+
+//Show super cool ms13 sidebar
+/datum/hud/human
+	contains_off_screen_hud = TRUE
+
+
 /datum/hud/human/New(mob/living/carbon/human/owner)
 	..()
 
@@ -61,12 +67,13 @@
 	var/atom/movable/screen/ms_slot_background // MS EDIT
 	var/atom/movable/screen/ms_hand_background // MS EDIT
 
+	/*
 	using = new/atom/movable/screen/language_menu
 	using.icon = ui_style
 	using.hud = src
 	static_inventory += using
 
-	using = new/atom/movable/screen/skills
+	/using = new/atom/movable/screen/skills
 	using.icon = ui_style
 	using.hud = src
 	static_inventory += using
@@ -75,6 +82,7 @@
 	using.icon = ui_style
 	using.hud = src
 	static_inventory += using
+	*/
 
 	action_intent = new /atom/movable/screen/combattoggle/ms13() // MOJAVE EDIT CHANGE - action_intent = new /atom/movable/screen/combattoggle/flashy()
 	action_intent.hud = src
@@ -337,7 +345,7 @@
 	lingstingdisplay.hud = src
 	infodisplay += lingstingdisplay
 
-	zone_select =  new /atom/movable/screen/zone_sel()
+	zone_select = new /atom/movable/screen/zone_sel()
 	//zone_select.icon = ui_style
 	zone_select.icon = 'mojave/icons/hud/ms_ui_target.dmi'
 	zone_select.hud = src
@@ -416,6 +424,10 @@
 		if(H.head)
 			H.head.screen_loc = ui_head
 			screenmob.client.screen += H.head
+		// MOJAVE EDIT
+		if(H.wear_id)
+			H.wear_id.screen_loc = ui_id
+			screenmob.client.screen += H.wear_id
 	else
 		if(H.shoes) screenmob.client.screen -= H.shoes
 		if(H.gloves) screenmob.client.screen -= H.gloves
@@ -426,6 +438,7 @@
 		if(H.wear_mask) screenmob.client.screen -= H.wear_mask
 		if(H.wear_neck) screenmob.client.screen -= H.wear_neck
 		if(H.head) screenmob.client.screen -= H.head
+		if(H.wear_id) screenmob.client.screen -= H.wear_id
 
 
 
@@ -442,9 +455,11 @@
 			if(H.s_store)
 				H.s_store.screen_loc = ui_sstore1
 				screenmob.client.screen += H.s_store
+			/* MOJAVE EDIT
 			if(H.wear_id)
 				H.wear_id.screen_loc = ui_id
 				screenmob.client.screen += H.wear_id
+			*/
 			if(H.belt)
 				H.belt.screen_loc = ui_belt
 				screenmob.client.screen += H.belt
@@ -460,8 +475,10 @@
 		else
 			if(H.s_store)
 				screenmob.client.screen -= H.s_store
+			/* MOJAVE EDIT
 			if(H.wear_id)
 				screenmob.client.screen -= H.wear_id
+			*/
 			if(H.belt)
 				screenmob.client.screen -= H.belt
 			if(H.back)

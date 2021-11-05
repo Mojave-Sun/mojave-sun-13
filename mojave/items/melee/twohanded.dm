@@ -6,8 +6,8 @@
 	icon = 'mojave/icons/objects/melee/melee_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
-	icon_state = "tire_iron"
-	inhand_icon_state = "tire_iron"
+	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
+	worn_icon_state = "empty_placeholder"
 	hitsound = 'sound/effects/hit_punch.ogg'
 	attack_verb_continuous = list("attacks", "stabs", "pokes")
 	attack_verb_simple = list("attack", "stab", "poke")
@@ -91,6 +91,7 @@
 	inhand_icon_state = "hammer_sledge"
 	attack_verb_continuous = list("slams", "beats", "hammers", "pummels", "impacts")
 	attack_verb_simple = list("slam", "beat", "hammer", "pummel", "impact")
+	hitsound = 'sound/weapons/genhit3.ogg'
 	force = 10
 	armour_penetration = 10
 	wound_bonus = 0
@@ -134,7 +135,7 @@
 		target.throw_at(throw_target, rand(2,4), 3, user)
 		SSexplosions.medturf += throw_target
 		playsound(loc, 'sound/weapons/resonator_blast.ogg', 50, TRUE)
-		playsound(loc, 'sound/weapons/genhit2.ogg', 50, TRUE)
+		playsound(loc, 'sound/weapons/genhit3.ogg', 50, TRUE)
 
 	else
 		return
@@ -144,13 +145,13 @@
 	desc = "A well made, dangerous, and versatile spear."
 	icon_state = "spear"
 	inhand_icon_state = "spear"
+	hitsound = 'sound/weapons/rapierhit.ogg'
 	force = 20
 	throwforce = 30
 	armour_penetration = 10
 	wound_bonus = 5
 	w_class = WEIGHT_CLASS_BULKY
 	sharpness = SHARP_POINTY
-	log_pickup_and_drop = TRUE
 
 /obj/item/ms13/twohanded/spear/ComponentInitialize()
 	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_unwielded = 20, force_wielded = 35)
@@ -177,7 +178,7 @@
 	armour_penetration = 10
 	wound_bonus = 5
 	throwforce = 35
-	embedding = list("embedded_pain_multiplier" = 3, "embed_chance" = 65, "embedded_fall_chance" = 35)
+	embedding = list("embedded_pain_multiplier" = 2, "embed_chance" = 65, "embedded_fall_chance" = 35)
 	throw_range = 6
 	throw_speed = 3
 

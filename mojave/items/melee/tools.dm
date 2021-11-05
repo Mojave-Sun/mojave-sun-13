@@ -6,7 +6,7 @@
 	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
 	icon_state = "hammer"
 	inhand_icon_state = "hammer"
-	hitsound = 'mojave/sound/ms13items/axe_1.ogg'
+	hitsound = 'sound/weapons/genhit3.ogg'
 	force = 20
 	armour_penetration = 0
 	wound_bonus = -2
@@ -32,6 +32,8 @@
 	icon = 'mojave/icons/objects/melee/melee_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
+	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
+	worn_icon_state = "empty_placeholder"
 	icon_state = "shovel"
 	inhand_icon_state = "shovel"
 	hitsound = 'sound/weapons/genhit.ogg'
@@ -44,6 +46,7 @@
 	attack_verb_simple = list("smack", "slash", "jab", "slap", "pound", "beat", "bonk", "dig")
 	sharpness = NONE
 	w_class = WEIGHT_CLASS_BULKY
+	slot_flags = ITEM_SLOT_BACK
 	log_pickup_and_drop = TRUE
 
 /obj/item/shovel/ms13/Initialize()
@@ -62,6 +65,7 @@
 	toolspeed = 0.5
 	sharpness = NONE
 	w_class = WEIGHT_CLASS_NORMAL
+	slot_flags = ITEM_SLOT_BELT
 
 /obj/item/shovel/ms13/snow
 	name = "snow shovel"
@@ -96,6 +100,8 @@
 	icon = 'mojave/icons/objects/melee/melee_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
+	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
+	worn_icon_state = "empty_placeholder"
 	icon_state = "brick"
 	inhand_icon_state = "brick"
 	attack_verb_continuous = list("clonks", "smacks", "clocks", "nails", "bludgeons", "whacks", "bonks", "bricks")
@@ -110,7 +116,7 @@
 	max_integrity = 200
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 100, ACID = 50)
 	resistance_flags = FIRE_PROOF
-	slot_flags = null
+	slot_flags = ITEM_SLOT_BELT
 	log_pickup_and_drop = TRUE
 
 /obj/item/ms13/brick/Initialize()

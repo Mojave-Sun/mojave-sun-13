@@ -24,6 +24,8 @@
 	inhand_icon_state = "plant"
 	lefthand_file = 'mojave/icons/mob/inhands/equipment/hydroponics_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/equipment/hydroponics_righthand.dmi'
+	can_distill = TRUE
+	distill_reagent = /datum/reagent/consumable/ethanol/ms13/brew_sludge
 
 
 /////////////////////////////////////////////////////////////
@@ -137,7 +139,7 @@
 	color = "#44341F"
 	taste_description = "rot"
 
-/datum/reagent/plantnutriment/ms13/fertilizer/on_mob_life(mob/living/carbon/M)
+/datum/reagent/plantnutriment/ms13/fertilizer/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	M.adjustToxLoss(0.5*REM, 0)
 	. = 1
 	..()
@@ -281,7 +283,7 @@
 	icon = 'mojave/icons/hydroponics/equipment.dmi'
 	icon_state = "compostbin"
 	anchored = TRUE
-	reagent_id = "fertilizer"
+	reagent_id = /datum/reagent/plantnutriment/ms13/fertilizer
 	var/seed_value = 4
 	var/food_value = 15
 
@@ -309,10 +311,10 @@
 /obj/structure/reagent_dispensers/compostbin/proc/process_compost()
 	for(var/obj/item/C in contents)
 		if(istype(C, /obj/item/seeds))
-			reagents.add_reagent("fertilizer", seed_value)
+			reagents.add_reagent(/datum/reagent/plantnutriment/ms13/fertilizer, seed_value)
 			qdel(C)
 		else if(istype(C, /obj/item/food))
-			reagents.add_reagent("fertilizer", food_value)
+			reagents.add_reagent(/datum/reagent/plantnutriment/ms13/fertilizer, food_value)
 			qdel(C)
 		else //Not sure how we got here, but there's only one reasonable thing to do.
 			qdel(C)

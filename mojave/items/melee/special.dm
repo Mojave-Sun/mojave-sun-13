@@ -6,6 +6,8 @@
 	icon = 'mojave/icons/objects/melee/melee_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
+	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
+	worn_icon_state = "empty_placeholder"
 	attack_verb_continuous = list("punches", "jabs", "clocks", "nails", "bludgeons", "whacks", "bonks")
 	attack_verb_simple = list("punch", "jab", "clock", "nail", "bludgeon", "whack", "bonk")
 	icon_state = "knuckles"
@@ -70,11 +72,13 @@
 	playsound(loc, 'sound/weapons/genhit2.ogg', 50, TRUE)
 */
 
-/*/obj/item/spear/explosive/ms13
+/obj/item/spear/explosive/ms13
 	name = "thunder stick"
 	icon = 'mojave/icons/objects/melee/melee_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
+	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
+	worn_icon_state = "empty_placeholder"
 	attack_verb_continuous = list("whacks", "jabs", "smacks", "pokes")
 	attack_verb_simple = list("whack", "jab", "smack", "poke")
 	icon_state = "spear_thunder"
@@ -103,4 +107,3 @@
 		icon_state = "spear_thunder"
 		inhand_icon_state = "spear_thunder"
 		wielded = FALSE
-*/
