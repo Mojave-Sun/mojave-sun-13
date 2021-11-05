@@ -86,7 +86,7 @@
 	name = "reinforced veteran coat"
 	desc = "A blue padded coat with additional leather and crude metal reinforcements, as well as some ballistic weave. Common attire for hardened, dangerous mercenaries."
 	icon_state = "reinf_veteran_coat"
-	armor = list("melee" = 20, "bullet" = 35, "laser" = 15, "energy" = 10, "bomb" = 20, "bio" = 10, "rad" = 10, "fire" = 25, "acid" = 10, "wound" = 0)
+	armor = list("melee" = 20, "bullet" = 35, "laser" = 15, "energy" = 10, "bomb" = 20, "bio" = 10,  "fire" = 25, "acid" = 10, "wound" = 0)
 
 /obj/item/clothing/suit/ms13/ljacket/reinforced
 	name = "reinforced leather jacket"
@@ -332,7 +332,7 @@
 	desc = "Long, dark, and imposing padded robes worn by Hubologists."
 	icon_state = "hubologist"
 	inhand_icon_state = "hostrench"
-	armor = list("melee" = 25, "bullet" = 20, "laser" = 10, "energy" = 5, "bomb" = 15, "bio" = 10, "rad" = 10, "fire" = 10, "acid" = 10, "wound" = 0)
+	armor = list("melee" = 25, "bullet" = 20, "laser" = 10, "energy" = 5, "bomb" = 15, "bio" = 10,  "fire" = 10, "acid" = 10, "wound" = 0)
 	allowed = list(/obj/item/pen,/obj/item/paper,/obj/item/stamp,/obj/item/reagent_containers/food/drinks/flask,/obj/item/storage/box/matches,/obj/item/lighter,/obj/item/clothing/mask/cigarette,/obj/item/storage/fancy/cigarettes,/obj/item/flashlight,/obj/item/gun,/obj/item/ammo_box,/obj/item/ammo_casing)
 	hoodtype = /obj/item/clothing/head/hooded/ms13/hubologist
 
