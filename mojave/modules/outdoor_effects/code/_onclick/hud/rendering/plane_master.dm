@@ -25,7 +25,7 @@
 	SSoutdoor_effects.weather_planes_need_vis -= src
 
 //Contains all sunlight overlays
-/atom/movable/screen/plane_master/Sunlight
+/atom/movable/screen/plane_master/sunlight
 	name = "sunlight plane master"
 	plane = SUNLIGHTING_PLANE
 	blend_mode = BLEND_MULTIPLY

@@ -10,32 +10,32 @@
 //  color = "#050d29"
 //  start = "0" //12:00:00 AM
 
-/datum/time_of_day/Dawn
+/datum/time_of_day/dawn
  name = "Dawn"
  color = "#31211b"
  start = 4 HOURS //4:00:00 AM
 
-/datum/time_of_day/Sunrise
+/datum/time_of_day/sunrise
  name = "Sunrise"
  color = "#F598AB"
  start = 5 HOURS  //5:00:00 AM
 
-/datum/time_of_day/Daytime
+/datum/time_of_day/daytime
  name = "Daytime"
  color = "#FFFFFF"
  start = 5.5 HOURS //5:30:00 AM
 
-/datum/time_of_day/Sunset
+/datum/time_of_day/sunset
  name = "Sunset"
  color = "#ff8a63"
  start = 19 HOURS //7:00:00 PM
 
-/datum/time_of_day/Dusk
+/datum/time_of_day/dusk
  name = "Dusk"
  color = "#221f33"
  start = 19.5 HOURS //7:30:00 PM
 
-/datum/time_of_day/Midnight
+/datum/time_of_day/midnight
  name = "Midnight"
  color = "#000032"
  start = 20 HOURS //8:00:00 PM
@@ -60,12 +60,12 @@ SUBSYSTEM_DEF(outdoor_effects)
 	var/list/atom/movable/screen/plane_master/weather_effect/weather_planes_need_vis = list()
 	var/last_color = null
 	//Ensure midnight is the liast step
-	var/list/datum/time_of_day/time_cycle_steps = list(new /datum/time_of_day/Dawn(),
-	                                                   new /datum/time_of_day/Sunrise(),
-	                                                   new /datum/time_of_day/Daytime(),
-	                                                   new /datum/time_of_day/Sunset(),
-	                                                   new /datum/time_of_day/Dusk(),
-	                                                   new /datum/time_of_day/Midnight())
+	var/list/datum/time_of_day/time_cycle_steps = list(new /datum/time_of_day/dawn(),
+	                                                   new /datum/time_of_day/sunrise(),
+	                                                   new /datum/time_of_day/daytime(),
+	                                                   new /datum/time_of_day/sunset(),
+	                                                   new /datum/time_of_day/dusk(),
+	                                                   new /datum/time_of_day/midnight())
 
 
 

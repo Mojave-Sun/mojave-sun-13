@@ -148,6 +148,11 @@ Sunlight System
 /turf/var/tmp/atom/movable/outdoor_effect/outdoor_effect /* a turf's sunlight overlay */
 /turf/var/turf/pseudo_roof /* our roof turf - may be a path for top z level, or a ref to the turf above*/
 
+//non-weatherproof turfs
+/turf/var/weatherproof = TRUE
+/turf/open/space/weatherproof = FALSE
+/turf/open/openspace/weatherproof = FALSE
+
 /* check ourselves and neighbours to see what outdoor effects we need */
 /* turf won't initialize an outdoor_effect if sky_blocked*/
 /turf/proc/get_sky_and_weather_states()
@@ -185,7 +190,7 @@ Sunlight System
 		if(recursionStarted)
 			// This src is acting as a ceiling - so if we are a floor we weatherproof + block the sunlight of our down-Z turf
 			.["SKYVISIBLE"]   = istransparentturf(src) //If we are glass floor, we don't block
-			.["WEATHERPROOF"] = !isnotweatherproofceiling(src) //If we are air or space, we aren't weatherproof (maybe catwalks eventually?)
+			.["WEATHERPROOF"] = weatherproof //If we are air or space, we aren't weatherproof
 		else //We are open, so assume open to the elements
 			.["SKYVISIBLE"]   = TRUE
 			.["WEATHERPROOF"] = FALSE
