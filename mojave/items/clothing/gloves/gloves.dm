@@ -71,7 +71,7 @@
     name = "wrist bracers"
     desc = "Often worn by Legionaries to protect their wrists against rudimentary attacks."
     icon_state = "leg_bracers"
-    armor = list(melee = 10, bullet = 5, laser = 5, energy = 5, bomb = 0, bio = 0, rad = 0, fire = 5, acid = 0)
+    armor = list(melee = 10, bullet = 5, laser = 5, energy = 5, bomb = 0, bio = 0,  fire = 5, acid = 0)
 
 /obj/item/clothing/gloves/ms13/legion/darkwraps
     name = "dark handwraps"

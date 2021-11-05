@@ -147,7 +147,7 @@
 	icon_state = "winterjacketraider"
 	inhand_icon_state = "det_suit"
 	blood_overlay_type = "armor"
-	armor = list(melee = 30, bullet = 25, laser = 20, energy = 10, bomb = 15, bio = 10, rad = 10, fire = 10, acid = 10, wound = 0)
+	armor = list(melee = 30, bullet = 25, laser = 20, energy = 10, bomb = 15, bio = 10,  fire = 10, acid = 10, wound = 0)
 
 /obj/item/clothing/suit/ms13/raider/plated
 	name = "raider plated jacket"
@@ -216,7 +216,7 @@
 	desc = "A unique fur lined leather coat featuring thick ballistic weave fibers through it. Built to hold up to the worse while retaining protection against the elements."
 	icon_state = "bountyhunter"
 	inhand_icon_state = "armoredwinterblack"
-	armor = list(melee = 55, bullet = 45, laser = 35, energy = 25, bomb = 30, bio = 10, rad = 10, fire = 40, acid = 10)
+	armor = list(melee = 55, bullet = 45, laser = 35, energy = 25, bomb = 30, bio = 10,  fire = 40, acid = 10)
 
 // Enviro Armor //
 
@@ -225,7 +225,7 @@
 	desc = "Thick fibers woven together, into the ultimate fire-proof suit. There's a few stiches missing here and there, but it'll be fine."
 	icon_state = "firesuit"
 	inhand_icon_state = "firesuit"
-	armor = list(melee = 25, bullet = 5, laser = 35, energy = 35, bomb = 10, bio = 5, rad = 10, fire = 100, acid = 10)
+	armor = list(melee = 25, bullet = 5, laser = 35, energy = 35, bomb = 10, bio = 5,  fire = 100, acid = 10)
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	resistance_flags = FIRE_PROOF
 
@@ -234,7 +234,7 @@
 	desc = "A lead lined suit, designed with the sole purpose of blocking radiation from the human body. It's pretty thick, and while it could protect you from more than rads, why would you waste such a thing like this in combat?"
 	icon_state = "radsuit"
 	inhand_icon_state = "radsuit"
-	armor = list(melee = 20, bullet = 5, laser = 10, energy = 10, bomb = 10, bio = 5, rad = 75, fire = 15, acid = 10)
+	armor = list(melee = 20, bullet = 5, laser = 10, energy = 10, bomb = 10, bio = 5, fire = 15, acid = 10)
 
 /obj/item/clothing/suit/hooded/ms13/hazmat
 	name = "hazmat suit"
@@ -243,7 +243,7 @@
 	inhand_icon_state = "hazmat"
 	hoodtype = /obj/item/clothing/head/hooded/ms13/hazmat
 	resistance_flags = ACID_PROOF
-	armor = list(melee = 15, bullet = 5, laser = 5, energy = 5, bomb = 5, bio = 75, rad = 10, fire = 5, acid = 75)
+	armor = list(melee = 15, bullet = 5, laser = 5, energy = 5, bomb = 5, bio = 75,  fire = 5, acid = 75)
 
 /obj/item/clothing/suit/space/ms13
 	name = "\improper Space suit"
@@ -252,7 +252,7 @@
 	worn_icon = 'mojave/icons/mob/clothing/suit.dmi'
 	icon_state = "spacesuit"
 	inhand_icon_state = "spacesuit"
-	armor = list(melee = 25, bullet = 15, laser = 25, energy = 25, bomb = 5, bio = 50, rad = 40, fire = 60, acid = 50)
+	armor = list(melee = 25, bullet = 15, laser = 25, energy = 25, bomb = 5, bio = 50, fire = 60, acid = 50)
 
 // NCR Armor //
 

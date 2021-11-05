@@ -19,7 +19,7 @@
 	max_integrity = 150
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TABLE_METAL) //Don't smooth with SMOOTH_GROUP_TABLES
 	canSmoothWith = list(SMOOTH_GROUP_MS13_TABLE_METAL)
-	armor = list(MELEE = 20, BULLET = 40, LASER = 30, ENERGY = 30, BOMB = 50, BIO = 0, RAD = 0, FIRE = 80, ACID = 70)
+	armor = list(MELEE = 20, BULLET = 40, LASER = 30, ENERGY = 30, BOMB = 50, BIO = 0,  FIRE = 80, ACID = 70)
 
 /obj/structure/table/ms13/metal/alt
 	desc = "A rounded piece of metal standing on a set of metal legs. It can not move."
@@ -42,7 +42,7 @@
 	icon = 'mojave/icons/structure/smooth_structures/tables/table_metal_heavy.dmi'
 	max_integrity = 250
 	integrity_failure = 0.25
-	armor = list(MELEE = 40, BULLET = 60, LASER = 40, ENERGY = 30, BOMB = 50, BIO = 0, RAD = 0, FIRE = 80, ACID = 70)
+	armor = list(MELEE = 40, BULLET = 60, LASER = 40, ENERGY = 30, BOMB = 50, BIO = 0,  FIRE = 80, ACID = 70)
 
 // Wooden Smoothing Tables //
 
@@ -55,7 +55,7 @@
 	max_integrity = 100
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TABLE_WOOD)
 	canSmoothWith = list(SMOOTH_GROUP_MS13_TABLE_WOOD)
-	armor = list(MELEE = 10, BULLET = 15, LASER = 15, ENERGY = 25, BOMB = 10, BIO = 0, RAD = 0, FIRE = 10, ACID = 10)
+	armor = list(MELEE = 10, BULLET = 15, LASER = 15, ENERGY = 25, BOMB = 10, BIO = 0,  FIRE = 10, ACID = 10)
 
 /obj/structure/table/ms13/wood/bar
 	desc = "A somewhat fancy table used at restauraunts of the past. Featuring a simplistic anchored leg design, wow!"
@@ -86,7 +86,7 @@
 	max_integrity = 125
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TABLE_PLAYER) //Don't smooth with SMOOTH_GROUP_TABLES
 	canSmoothWith = list(SMOOTH_GROUP_MS13_TABLE_PLAYER)
-	armor = list(MELEE = 30, BULLET = 35, LASER = 35, ENERGY = 35, BOMB = 50, BIO = 0, RAD = 0, FIRE = 80, ACID = 70)
+	armor = list(MELEE = 30, BULLET = 35, LASER = 35, ENERGY = 35, BOMB = 50, BIO = 0,  FIRE = 80, ACID = 70)
 	frame = /obj/structure/table_frame/ms13
 
 /obj/structure/table/ms13/metal/constructed/cobbled
@@ -95,7 +95,7 @@
 	max_integrity = 95
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TABLE_PLAYER) //Don't smooth with SMOOTH_GROUP_TABLES
 	canSmoothWith = list(SMOOTH_GROUP_MS13_TABLE_PLAYER)
-	armor = list(MELEE = 15, BULLET = 20, LASER = 15, ENERGY = 15, BOMB = 25, BIO = 0, RAD = 0, FIRE = 80, ACID = 60)
+	armor = list(MELEE = 15, BULLET = 20, LASER = 15, ENERGY = 15, BOMB = 25, BIO = 0, FIRE = 80, ACID = 60)
 //	buildstack = /obj/item/stack/sheet/ms13/scrap re-add later
 
 /obj/structure/table/ms13/wood/constructed
@@ -105,14 +105,14 @@
 	max_integrity = 85
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TABLE_PLAYER)
 	canSmoothWith = list(SMOOTH_GROUP_MS13_TABLE_PLAYER)
-	armor = list(MELEE = 15, BULLET = 15, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 0, RAD = 0, FIRE = 30, ACID = 30)
+	armor = list(MELEE = 15, BULLET = 15, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 0, FIRE = 30, ACID = 30)
 	frame = /obj/structure/table_frame/ms13/wood
 
 /obj/structure/table/ms13/wood/constructed/cobbled
 	desc = "A wood table of extreme low quality. Can hardly stand up to the wind. Perhaps they should try something else."
 	icon = 'mojave/icons/structure/smooth_structures/tables/table_wood_built_LQ.dmi'
 	max_integrity = 65
-	armor = list(MELEE = 5, BULLET = 5, LASER = 10, ENERGY = 10, BOMB = 5, BIO = 0, RAD = 0, FIRE = 20, ACID = 20)
+	armor = list(MELEE = 5, BULLET = 5, LASER = 10, ENERGY = 10, BOMB = 5, BIO = 0,, FIRE = 20, ACID = 20)
 
 // Metal Non-Smoothing tables //
 
@@ -161,7 +161,7 @@
 	desc = "A solid, wide metal table. Nothing about it stands out in particular."
 	icon_state = "table_metal_wide"
 	max_integrity = 350
-	armor = list(MELEE = 20, BULLET = 40, LASER = 30, ENERGY = 30, BOMB = 50, BIO = 0, RAD = 0, FIRE = 80, ACID = 70)
+	armor = list(MELEE = 20, BULLET = 40, LASER = 30, ENERGY = 30, BOMB = 50, BIO = 0, FIRE = 80, ACID = 70)
 
 /obj/structure/table/ms13/no_smooth/large/metal/desk
 	name = "metal desk"
@@ -207,7 +207,7 @@
 	desc = "A large oval shaped wood table. Perfect for displaying the 200 year old family photos you found."
 	icon_state = "table_wood_wide_oval"
 	max_integrity = 200
-	armor = list(MELEE = 10, BULLET = 15, LASER = 15, ENERGY = 25, BOMB = 10, BIO = 0, RAD = 0, FIRE = 0, ACID = 10)
+	armor = list(MELEE = 10, BULLET = 15, LASER = 15, ENERGY = 25, BOMB = 10, BIO = 0, FIRE = 0, ACID = 10)
 
 /obj/structure/table/ms13/no_smooth/large/wood/square
 	desc = "A large rectangular wood table. Very sturdy."
