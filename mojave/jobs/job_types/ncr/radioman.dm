@@ -2,8 +2,8 @@
 	title = "NCR Radioman"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "The Lieutenant, Staff Sergeants, and Sergeants.  In that order."
-	description = "Relay messages, obey orders and relay changes in situations to keep command up to date. Your radiopack functions as a backpack, and should be worn as such."
+	supervisors = "Sergeants and above"
+	description = "Act as a relay between your squad and command. Assist your assigned Sergeant in organizing your squad as the second in command."
 
 	outfit = /datum/outfit/job/ms13/ncr/radioman
 
@@ -12,18 +12,19 @@
 /datum/outfit/job/ms13/ncr/radioman
 	name = "_NCR Radioman"
 	jobtype = 	 /datum/job/ms13/ncr/radioman
-	id = 		 /obj/item/card/id/ms13/ncrtrooper
+	id = 		 /obj/item/card/id/ms13/ncrtrooper/radioman
 	uniform = 	 /obj/item/clothing/under/ms13/ncr/fatigues
-	head = 		 /obj/item/clothing/head/helmet/ms13/ncr
-	suit = 		 /obj/item/clothing/suit/armor/ms13/ncr
-	suit_store = /obj/item/gun/ballistic/automatic/pistol/ms13/m9mm
-	ears = 		 null
+	head = 		 /obj/item/clothing/head/helmet/ms13/ncr/goggles
+	suit = 		 /obj/item/clothing/suit/armor/ms13/ncr/reinforced
+	suit_store = /obj/item/gun/ballistic/rifle/ms13/varmint
+	belt = 		 /obj/item/gun/ballistic/automatic/pistol/ms13/m9mm
 	back = 		 /obj/item/ms13/storage/backpack/radiopack
-	l_pocket =   /obj/item/stack/medical/gauze/ms13
+	r_pocket =   /obj/item/ammo_box/magazine/ms13/r10
+	l_pocket =   /obj/item/knife/ms13/hunting
 	backpack_contents = list(
-		/obj/item/ammo_box/magazine/ms13/m9mm=2, \
-		/obj/item/kitchen/knife/ms13/hunting=1, \
-		/obj/item/stack/medical/gauze/ms13=1)
+		/obj/item/ammo_box/magazine/ms13/m9mm=1, \
+		/obj/item/stack/medical/gauze/ms13/three=1, \
+		/obj/item/clothing/mask/ms13/ncr=1)
 
 /datum/outfit/job/ms13/ncr/radioman/pre_equip(mob/living/carbon/human/H)
 	..()

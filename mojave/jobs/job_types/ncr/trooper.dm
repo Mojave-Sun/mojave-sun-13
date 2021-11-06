@@ -1,7 +1,7 @@
 /datum/job/ms13/ncr/trooper
 	title = "NCR Trooper"
-	total_positions = 10
-	spawn_positions = 10
+	total_positions = 8
+	spawn_positions = 8
 	supervisors = "Sergeants and above."
 	description = "Follow and execute orders given to you by your superiors."
 

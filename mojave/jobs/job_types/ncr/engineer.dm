@@ -1,7 +1,7 @@
 /datum/job/ms13/ncr/engineer
 	title = "NCR Engineer"
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 3
+	spawn_positions = 3
 	supervisors = "The Lieutenant, Staff Sergeants, and Sergeants.  In that order."
 	description = "You are in charge of fortifying and building for NCR strategic locations throughout the region."
 
