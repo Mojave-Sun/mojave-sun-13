@@ -71,6 +71,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 		return new path(src)
 
 	var/old_lighting_object = lighting_object
+	var/old_outdoor_effect = outdoor_effect //MOJAVE MODULE OUTDOOR_EFFECTS
 	var/old_lighting_corner_NE = lighting_corner_NE
 	var/old_lighting_corner_SE = lighting_corner_SE
 	var/old_lighting_corner_SW = lighting_corner_SW
@@ -131,6 +132,11 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 
 	if(SSlighting.initialized)
 		W.lighting_object = old_lighting_object
+
+		//MOJAVE MODULE OUTDOOR_EFFECTS -- BEGIN
+		if(SSoutdoor_effects.initialized)
+			outdoor_effect = old_outdoor_effect
+		//MOJAVE MODULE OUTDOOR_EFFECTS -- END
 
 		directional_opacity = old_directional_opacity
 		recalculate_directional_opacity()

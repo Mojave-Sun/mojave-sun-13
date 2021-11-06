@@ -10,10 +10,7 @@
 	power_light = FALSE
 	outdoors = TRUE
 	has_gravity = STANDARD_GRAVITY
-	static_lighting = FALSE
-	area_has_base_lighting = TRUE
-	base_lighting_color = COLOR_WHITE
-	base_lighting_alpha = 255
+	static_lighting = TRUE
 	ambientsounds = list('mojave/sound/ms13ambience/general/wasteland.ogg')
 	flags_1 = NONE
 
