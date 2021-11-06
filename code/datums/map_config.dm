@@ -37,7 +37,8 @@
 	//List of particle_weather types for this map
 	var/particle_weather = list() //MOJAVE MODULE OUTDOOR_EFFECTS
 
-/proc/load_map_config(filename = "data/next_map.json", default_to_box, delete_after, error_if_missing = TRUE)
+/proc/load_map_config(filename = "next_map.json", default_to_box, delete_after, error_if_missing = TRUE)
+	filename = "_maps/[filename].json"
 	var/datum/map_config/config = new
 	var/datum/map_config/default_map = /datum/map_config
 	if (default_to_box)
@@ -45,11 +46,11 @@
 	if (!config.LoadConfig(filename, error_if_missing))
 		qdel(config)
 		// MOJAVE SUN -- If next_map is missing when we try to load, attempt to load the default json, then fall back to the object
-		if (filename == "data/next_map.json")
+		if (filename == "_maps/next_map.json")
 			if(!config.LoadConfig(initial(default_map.config_filename), error_if_missing))
 				qdel(config)
 				config = new default_map  // Fall back to Box
-	if (delete_after)
+	else if (delete_after)
 		fdel(filename)
 	return config
 

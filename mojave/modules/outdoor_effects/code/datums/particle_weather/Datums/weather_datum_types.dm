@@ -43,7 +43,7 @@
 
 //STOLEN
 /datum/particle_weather/radiation_storm/weather_act(mob/living/L)
-	var/resist = L.getarmor(null, RAD)
+	var/resist = L.getarmor(null)
 	if(prob(40))
 		if(ishuman(L))
 			var/mob/living/carbon/human/H = L
@@ -57,7 +57,6 @@
 						else
 							H.easy_random_mutate(POSITIVE)
 						H.domutcheck()
-		L.rad_act(20)
 
 /datum/particle_weather/rain_gentle
 	name = "Rain"
