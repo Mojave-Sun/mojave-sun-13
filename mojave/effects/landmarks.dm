@@ -18,28 +18,28 @@
 // Mammoth Town Spawns //
 
 /obj/effect/landmark/start/ms13/mayor
-	name = "Mayor"
+	name = "Town Mayor"
 
 /obj/effect/landmark/start/ms13/settler
-	name = "Settler"
+	name = "Town Settler"
 
 /obj/effect/landmark/start/ms13/bartender
-	name = "Bartender"
+	name = "Town Bartender"
 
 /obj/effect/landmark/start/ms13/farmer
-	name = "Farmer"
+	name = "Town Farmer"
 
 /obj/effect/landmark/start/ms13/doctor
-	name = "Doctor"
+	name = "Town Doctor"
 
 /obj/effect/landmark/start/ms13/nurse
-	name = "Nurse"
+	name = "Town Nurse"
 
 /obj/effect/landmark/start/ms13/deputy
-	name = "Deputy"
+	name = "Town Deputy"
 
 /obj/effect/landmark/start/ms13/sheriff
-	name = "Sheriff"
+	name = "Town Sheriff"
 
 // NCR Spawns //
 
