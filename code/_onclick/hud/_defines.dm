@@ -42,7 +42,7 @@
 #define ui_sstore1 "hud:EAST+0.23,SOUTH+1.36" // MOJAVE EDIT - #define ui_sstore1 "CENTER-5:10,SOUTH:5"
 #define ui_id "WEST:10,SOUTH:44" // MOJAVE EDIT - #define ui_id "CENTER-4:12,SOUTH:5"
 #define ui_belt "hud:EAST+1.52,SOUTH+1.36" // MOJAVE EDIT - #define ui_belt "CENTER-3:14,SOUTH:5"
-#define ui_back "hud:hud:EAST+0.875,SOUTH+0.28" // MOJAVE EDIT - #define ui_back "CENTER-2:14,SOUTH:5"
+#define ui_back "hud:EAST+0.875,SOUTH+0.28" // MOJAVE EDIT - #define ui_back "CENTER-2:14,SOUTH:5"
 #define ui_storage1 "CENTER:48,SOUTH" // MOJAVE EDIT - #define ui_storage1 "CENTER+1:18,SOUTH:5"
 #define ui_storage2 "CENTER:-80,SOUTH" // MOJAVE EDIT - #define ui_storage2 "CENTER+2:20,SOUTH:5"
 #define ui_combo "CENTER+4:24,SOUTH+1:7" //combo meter for martial arts
