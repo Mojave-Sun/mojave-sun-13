@@ -12404,6 +12404,12 @@
 	},
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
+"inJ" = (
+/obj/machinery/door/poddoor/shutters{
+	id = "vaultdoor"
+	},
+/turf/open/floor/ms13/metal/grate/border,
+/area/ms13/underground/vault_atrium_middle)
 "inW" = (
 /obj/structure/table/ms13/wood/bar,
 /obj/effect/spawner/random/ms13/drink/alcohol_beer,
@@ -23200,7 +23206,10 @@
 "rdr" = (
 /obj/structure/table/ms13/metal/alt,
 /obj/machinery/ms13/terminal{
-	dir = 8
+	dir = 8;
+	remote_capability = 1;
+	signal_id_1 = "vaultdoor";
+	signal_title_1 = "pretend this is a vault door"
 	},
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/vault_atrium_middle)
@@ -43594,7 +43603,7 @@ rGn
 rGn
 nbS
 lmC
-gAT
+inJ
 xpz
 xpz
 lBA
@@ -43896,7 +43905,7 @@ rGn
 rGn
 nbS
 ueo
-gAT
+inJ
 xpz
 xpz
 xpz
