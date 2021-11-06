@@ -4,7 +4,7 @@
 	name = "wasteland"
 	icon = 'mojave/icons/turf/areas.dmi'
 	icon_state = "wasteland"
-	requires_power = TRUE
+	requires_power = FALSE
 	power_environ = FALSE
 	power_equip = FALSE
 	power_light = FALSE
@@ -30,12 +30,10 @@
 /area/ms13/farmhouse
 	name = "Farmhouse"
 	icon_state = "farmhouse"
-	requires_power = TRUE
 
 /area/ms13/powerplant
 	name = "Power Plant"
 	icon_state = "powerplant"
-	requires_power = TRUE
 	ambientsounds = AMBIENCE_ENGI
 
 /area/ms13/factory
@@ -45,22 +43,18 @@
 /area/ms13/underground/vault_atrium_upper
 	name = "Vault atrium upper"
 	icon_state = "vault_atrium_upper"
-	requires_power = TRUE
 
 /area/ms13/underground/vault_atrium_middle
 	name = "Vault atrium middle"
 	icon_state = "vault_atrium_middle"
-	requires_power = TRUE
 
 /area/ms13/underground/vault_atrium_lower
 	name = "Vault atrium lower"
 	icon_state = "vault_atrium_lower"
-	requires_power = TRUE
 
 /area/ms13/underground/vault_outer
 	name = "Vault Outer"
 	icon_state = "vault_outer"
-	requires_power = TRUE
 
 /area/ms13/supermarket
 	name = "Supermarket"
@@ -88,12 +82,10 @@
 	name = "mountain"
 	ambientsounds = list('mojave/sound/ms13ambience/cave/cave_idle.ogg', 'mojave/sound/ms13ambience/cave/cave_spooky.ogg')
 	icon_state = "mountain"
-	requires_power = TRUE
 
 /area/ms13/underground/mountain_bunker
 	name = "Mountain Bunker"
 	icon_state = "mountain_bunker"
-	requires_power = TRUE
 
 /area/ms13/underground/sewer
 	name = "Sewers"
