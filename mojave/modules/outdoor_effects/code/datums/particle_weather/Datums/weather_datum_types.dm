@@ -142,5 +142,5 @@
 
 //Makes you a lot little chilly
 /datum/particle_weather/snow_storm/weather_act(mob/living/L)
-	L.adjust_bodytemperature(-rand(5,15))
+	L.adjust_bodytemperature(-rand(5,50))
 
