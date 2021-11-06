@@ -17,73 +17,73 @@
 
 /obj/item/clothing/glasses/ms13/black
 	name = "black glasses"
-	desc = "Snazzy glasses for the hip or near-blind."
+	desc = "Very plain black glasses. Normally used by hipsters and the near-blind."
 	icon_state = "black"
 
 /obj/item/clothing/glasses/ms13/cap
 	name = "bottle-cap glasses"
-	desc = "Crude soda caps crafted into spectacles, they provide some sort of uh ... Quirkiness."
+	desc = "A crude pair of glasses made from well worn bottlecaps. A waste of money in the very literal sense."
 	icon_state = "cap"
-	tint = 1
-	glass_colour_type = /datum/client_colour/glass_colour/brown
 
 /obj/item/clothing/glasses/ms13/cap/nuka
-	desc = "Limited edition nuka-cola brand cappy spectacles, see life better with Nuka!"
+	name = "pristine bottle-cap glasses"
+	desc = "A pristine pair of tinted glasses from before the war, likely some kind of marketing scheme or promotion. But now instead seen on the heads of random, likely insane wastelanders."
 	icon_state = "capnew"
+	tint = 1
 	glass_colour_type = /datum/client_colour/glass_colour/darkred
 	flags_cover = GLASSESCOVERSEYES
 
 /obj/item/clothing/glasses/ms13/old
-	name = "old spectacles"
-	desc = "Pre-war dirtied glasses, relics from a different time."
+	name = "old glasses"
+	desc = "Old, dirty glasses from before the war. Not very useful as actual glasses, but function just fine as an accessory."
 	icon_state = "old"
 
 /obj/item/clothing/glasses/ms13/fashionable
-	name = "swanky shades"
-	desc = "Very fashionable!"
+	name = "fashionable shades"
+	desc = "Eccentric, fashionable, tinted shades for the post-nuclear performer."
 	icon_state = "fashion"
 	tint = 1
 	glass_colour_type = /datum/client_colour/glass_colour/gray
 
 /obj/item/clothing/glasses/ms13/leather
 	name = "leather goggles"
-	desc = "Rugged tinted handcrafted leather goggles for the harsh wasteland."
+	desc = "Thick goggles made from leather. A makeshift solution to keeping things out of your eyes."
 	icon_state = "leather"
-	tint = 1
-	glass_colour_type = /datum/client_colour/glass_colour/gray
 	flags_cover = GLASSESCOVERSEYES
 
 /obj/item/clothing/glasses/ms13/metal
 	name = "metal goggles"
-	desc = "Hardy metal goggles for baring the harsh winter storms, cold to the touch."
+	desc = "Tinted metal goggles for weathering the wastes, cold to the touch."
 	icon_state = "gogglemetal"
 	inhand_icon_state = "sunglasses"
-	tint = 2
+	tint = 1
 	glass_colour_type = /datum/client_colour/glass_colour/gray
 	flags_cover = GLASSESCOVERSEYES
 
 /obj/item/clothing/glasses/ms13/cool
-	name = "sunglasses"
-	desc = "Very cool."
+	name = "shades"
+	desc = "An undeniably cool pair of tinted shades."
 	icon_state = "cool"
 	tint = 1
 	glass_colour_type = /datum/client_colour/glass_colour/gray
 
 /obj/item/clothing/glasses/ms13/goggles
 	name = "goggles"
-	desc = "Strap on and see shit partner."
+	desc = "A plain pair of goggles for keeping things out of your eyes."
 	icon_state = "goggles"
 	flags_cover = GLASSESCOVERSEYES
 
 /obj/item/clothing/glasses/ms13/sunglasses
 	name = "sunglasses"
-	desc = "Strangely ancient technology used to help provide rudimentary eye cover from the harsh mojave sun."
+	desc = "Plain, tinted sunglasses. Useful for keeping the Mojave Sun out of your eyes."
 	icon_state = "sunglasses"
+	tint = 1
+	glass_colour_type = /datum/client_colour/glass_colour/gray
 
 /obj/item/clothing/glasses/ms13/welding
 	name = "welding goggles"
-	desc = "Arclight insured RobCo pre-war welding goggles, to help you keep your sight."
-	icon_state = ""
+	desc = "A heavy duty pair of welding goggles. For when you'd like to use a welder but would not like to go blind."
+	icon_state = "welding"
 	flash_protect = FLASH_PROTECTION_WELDER
 	tint = 2
 	visor_vars_to_toggle = VISOR_FLASHPROTECT | VISOR_TINT

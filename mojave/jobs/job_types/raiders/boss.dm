@@ -15,7 +15,7 @@
 	name = "_Raider Boss"
 	jobtype = /datum/job/ms13/raiders/boss
 
-	glasses = 	/obj/item/clothing/glasses/ms13/sunglasses
+	glasses = 	/obj/item/clothing/glasses/ms13/cool
 	id = 		/obj/item/card/id/ms13/boss
 	suit =		/obj/item/clothing/suit/ms13/trench/boss
 	uniform =	/obj/item/clothing/under/ms13/wasteland/warboypants

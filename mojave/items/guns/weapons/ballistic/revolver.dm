@@ -44,7 +44,7 @@
 ////////////////////////// revolvers////////////////
 /obj/item/gun/ballistic/revolver/ms13/derringer
 	name = "derringer"
-	desc = "A small and sneaky 2 shot pistol thats often concealed. This one's a bit fancy with some gold trim."
+	desc = "A small and sneaky 2 shot pistol that is often concealed. This one's a bit fancy with some gold trim."
 	icon_state = "derringer"
 	inhand_icon_state = "derringer"
 	force = 5

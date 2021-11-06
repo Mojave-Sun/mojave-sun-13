@@ -51,6 +51,10 @@
 	name = "\improper NCR medic's tags"
 	assignment = "NCR Medic"
 
+/obj/item/card/id/ms13/ncrtrooper/radioman
+	name = "\improper NCR radioman's tags"
+	assignment = "NCR Radioman"
+
 /obj/item/card/id/ms13/ncrsergeant
 	name = "\improper NCR sergeant's tags"
 	desc = "A chevron decorated dog tag showing NCO status within the NCR."
