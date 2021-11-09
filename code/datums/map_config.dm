@@ -34,16 +34,6 @@
 	/// Dictionary of job sub-typepath to template changes dictionary
 	var/job_changes = list()
 
-<<<<<<< HEAD
-	//List of particle_weather types for this map
-	var/particle_weather = list() //MOJAVE MODULE OUTDOOR_EFFECTS
-
-/proc/load_map_config(filename = "next_map.json", default_to_box, delete_after, error_if_missing = TRUE)
-	filename = "data/[filename].json"
-	var/datum/map_config/config = new
-	if (default_to_box)
-		return config
-=======
 /**
  * Proc that simply loads the default map config, which should always be functional.
  */
@@ -65,7 +55,6 @@
 		filename = "_maps/[filename].json"
 	else
 		filename = PATH_TO_NEXT_MAP_JSON
->>>>>>> 5025ed36205... Makes maps be able to load correctly again (#62623)
 	if (!config.LoadConfig(filename, error_if_missing))
 		qdel(config)
 		return load_default_map_config()
