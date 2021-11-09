@@ -34,6 +34,9 @@
 	/// Dictionary of job sub-typepath to template changes dictionary
 	var/job_changes = list()
 
+	//List of particle_weather types for this map
+	var/particle_weather = list() //MOJAVE MODULE OUTDOOR_EFFECTS
+
 /**
  * Proc that simply loads the default map config, which should always be functional.
  */
