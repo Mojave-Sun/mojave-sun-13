@@ -25,3 +25,11 @@
 		<br><br> I don't know what you think, but I've got a decent idea of what's REALLY going on here. I had a meeting with the local Sheriff and he's been alerted to this, so you should save yourself the bother and be on good behavior. \
 		In the meantime- DO. NOT. TOUCH. THE. CHOKES. \
 		<br><br> I will be watching. -Director Norrison."
+
+/datum/terminal/document/vaultdoor
+	title = "Dual-Loc chamber notice"
+	content = "Attention gatesman!\
+		The exterior chamber entryway has a critically damaged component. Further use at best will outright refuse to function- and potentailly completely ruin it further at worst. \
+		Do NOT attempt to link the terminal to it and move it. It can SERIOUSLY destroy it. We've got a scheduled order in coming in next week, after that- we can get it working again on time. \
+
+		<br><br> Thank you for your cooperation."
