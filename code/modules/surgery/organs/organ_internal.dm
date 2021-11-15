@@ -38,7 +38,7 @@
 // they would not be able to see external organs, such as moth wings.
 // This is also necessary because assets SS is before atoms, and so
 // any nonhumans created in that time would experience the same effect.
-INITIALIZE_IMMEDIATE(/obj/item/organ)
+//INITIALIZE_IMMEDIATE(/obj/item/organ)
 
 /obj/item/organ/Initialize(mapload)
 	. = ..()
