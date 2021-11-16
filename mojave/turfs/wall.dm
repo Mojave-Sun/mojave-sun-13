@@ -188,7 +188,7 @@
 			icon = 'mojave/icons/turf/walls/dungeon_1.dmi'
 			frill_icon = 'mojave/icons/turf/walls/dungeon_1_frill.dmi'
 		if(2)
-			icon = 'mojave/icons/turf/walls/dungeon_2.dmi'
+			icon = 'mojave/icons/turf/walls/dungeon_two.dmi'
 			frill_icon = 'mojave/icons/turf/walls/dungeon_2_frill.dmi'
 		if(3)
 			icon = 'mojave/icons/turf/walls/dungeon_3.dmi'
