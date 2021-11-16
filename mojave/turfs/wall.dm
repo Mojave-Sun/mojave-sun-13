@@ -189,13 +189,13 @@
 			frill_icon = 'mojave/icons/turf/walls/dungeon_1_frill.dmi'
 		if(2)
 			icon = 'mojave/icons/turf/walls/dungeon_two.dmi'
-			frill_icon = 'mojave/icons/turf/walls/dungeon_2_frill.dmi'
+			frill_icon = 'mojave/icons/turf/walls/dungeon_two_frill.dmi'
 		if(3)
-			icon = 'mojave/icons/turf/walls/dungeon_3.dmi'
-			frill_icon = 'mojave/icons/turf/walls/dungeon_3_frill.dmi'
+			icon = 'mojave/icons/turf/walls/dungeon_three.dmi'
+			frill_icon = 'mojave/icons/turf/walls/dungeon_three_frill.dmi'
 		if(4)
-			icon = 'mojave/icons/turf/walls/dungeon_4.dmi'
-			frill_icon = 'mojave/icons/turf/walls/dungeon_4_frill.dmi'
+			icon = 'mojave/icons/turf/walls/dungeon_four.dmi'
+			frill_icon = 'mojave/icons/turf/walls/dungeon_four_frill.dmi'
 		else
 			return
 
