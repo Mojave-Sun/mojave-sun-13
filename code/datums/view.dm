@@ -24,12 +24,15 @@
 
 /datum/view_data/proc/assertFormat()//T-Pose
 	winset(chief, "mapwindow.map", "zoom=0")
+	winset(chief, "mapwindow.hud", "zoom=0") // MOJAVE SUN EDIT ADDITION - HUD skin
 
 /datum/view_data/proc/resetFormat()//Cuck
 	winset(chief, "mapwindow.map", "zoom=[chief.prefs.read_preference(/datum/preference/numeric/pixel_size)]")
+	winset(chief, "mapwindow.hud", "zoom=[chief.prefs.read_preference(/datum/preference/numeric/pixel_size)]") // MOJAVE SUN EDIT ADDITION - HUD skin
 
 /datum/view_data/proc/setZoomMode()
 	winset(chief, "mapwindow.map", "zoom-mode=[chief.prefs.read_preference(/datum/preference/choiced/scaling_method)]")
+	winset(chief, "mapwindow.hud", "zoom-mode=[chief.prefs.read_preference(/datum/preference/choiced/scaling_method)]") // MOJAVE SUN EDIT ADDITION - HUD skin
 
 /datum/view_data/proc/isZooming()
 	return (width || height)

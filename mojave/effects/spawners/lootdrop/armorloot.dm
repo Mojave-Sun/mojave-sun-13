@@ -1,9 +1,12 @@
 /obj/effect/spawner/random/ms13/armor
 	name = "DO NOT USE ME - Mojave Sun armor spawners"
+	icon_state = "ms13_suit"
 
 /obj/effect/spawner/random/ms13/armor/tier1
 	name = "tier 1 armor spawner"
 	spawn_loot_count = 2
+	spawn_loot_chance = 35
+
 	var/loot1 = list(
 				/obj/item/clothing/suit/ms13/vest,
 				/obj/item/clothing/head/helmet/ms13/cowboy
@@ -97,6 +100,8 @@
 /obj/effect/spawner/random/ms13/armor/tier2
 	name = "tier 2 armor spawner"
 	spawn_loot_count = 2
+	spawn_loot_chance = 40
+
 	var/loot1 = list(
 				/obj/item/clothing/suit/toggle/ms13/wjacket/orange/reinforced,
 				/obj/item/clothing/head/helmet/ms13/ushanka
@@ -165,6 +170,8 @@
 /obj/effect/spawner/random/ms13/armor/tier3
 	name = "tier 3 armor spawner"
 	spawn_loot_count = 2
+	spawn_loot_chance = 45
+
 	var/loot1 = list(
 				/obj/item/clothing/suit/toggle/ms13/wjacket/blue/armored,
 				""
@@ -213,6 +220,8 @@
 /obj/effect/spawner/random/ms13/armor/tier4
 	name = "tier 4 armor spawner"
 	spawn_loot_count = 2
+	spawn_loot_chance = 50
+
 	var/loot1 = list(
 				/obj/item/clothing/suit/armor/ms13/combat/advanced,
 				/obj/item/clothing/head/helmet/ms13/combat/advanced
@@ -249,7 +258,7 @@
 /obj/effect/spawner/random/ms13/armor/lowrandom
 	name = "low tier random armor spawner"
 	spawn_loot_count = 1
-
+	spawn_loot_chance = 100
 	loot = list(
 			/obj/effect/spawner/random/ms13/armor/tier1 = 60,
 			/obj/effect/spawner/random/ms13/armor/tier2 = 40,
@@ -258,7 +267,7 @@
 /obj/effect/spawner/random/ms13/armor/highrandom
 	name = "high tier random armor spawner"
 	spawn_loot_count = 1
-
+	spawn_loot_chance = 100
 	loot = list(
 			/obj/effect/spawner/random/ms13/armor/tier2 = 10,
 			/obj/effect/spawner/random/ms13/armor/tier3 = 60,
@@ -266,9 +275,9 @@
 			)
 
 /obj/effect/spawner/random/ms13/armor/headgear
-	name = "miscellaneous headgear spawner"
+	name = "miscellaneous armored headgear spawner"
 	spawn_loot_count = 1
-
+	icon_state = "ms13_helmet"
 	loot = list(
 			/obj/item/clothing/head/helmet/ms13/assaultron,
 			/obj/item/clothing/head/helmet/ms13/flight,
@@ -289,39 +298,8 @@
 			/obj/item/clothing/head/ms13/hood/plated,
 			/obj/item/clothing/head/ms13/hood/cowl,
 			/obj/item/clothing/head/ms13/hood/inquisitor,
-			/obj/item/clothing/head/ms13/hood/sack,
 			/obj/item/clothing/head/ms13/hood/sack/padded,
 			/obj/item/clothing/head/ms13/hood/sack/metal,
 			/obj/item/clothing/head/ms13/hood/green,
-			/obj/item/clothing/head/ms13/hood/hunter,
-			/obj/item/clothing/head/helmet/ms13/fedora,
-			/obj/item/clothing/head/helmet/ms13/fedora/blue,
-			/obj/item/clothing/head/helmet/ms13/fedora/brown,
-			/obj/item/clothing/head/helmet/ms13/fedora/yellow,
-			/obj/item/clothing/head/helmet/ms13/bowler,
-			/obj/item/clothing/head/helmet/ms13/cowboy,
-			/obj/item/clothing/head/helmet/ms13/cowboy/black,
-			/obj/item/clothing/head/helmet/ms13/prospector,
-			/obj/item/clothing/head/helmet/ms13/militia,
-			/obj/item/clothing/head/helmet/ms13/tricorn,
-			/obj/item/clothing/head/helmet/ms13/tricorn/pirate,
-			/obj/item/clothing/head/helmet/ms13/baseball,
-			/obj/item/clothing/head/helmet/ms13/military,
-			/obj/item/clothing/head/helmet/ms13/military/officer,
-			/obj/item/clothing/head/helmet/ms13/military/officer/white,
-			/obj/item/clothing/head/helmet/ms13/military/officer/chinese,
-			/obj/item/clothing/head/helmet/ms13/sailor,
-			/obj/item/clothing/head/helmet/ms13/postman,
-			/obj/item/clothing/head/helmet/ms13/police,
-			/obj/item/clothing/head/helmet/ms13/fisher,
-			/obj/item/clothing/head/helmet/ms13/bandanacap,
-			/obj/item/clothing/head/helmet/ms13/bandanacap/ms13,
-			/obj/item/clothing/head/helmet/ms13/beret,
-			/obj/item/clothing/head/helmet/ms13/newsboy,
-			/obj/item/clothing/head/helmet/ms13/trilby,
-			/obj/item/clothing/head/helmet/ms13/beanie,
-			/obj/item/clothing/head/helmet/ms13/chef,
-			/obj/item/clothing/head/helmet/ms13/ushanka,
-			/obj/item/clothing/head/helmet/ms13/ushanka/blue,
-			/obj/item/clothing/head/helmet/ms13/ushanka/green
+			/obj/item/clothing/head/ms13/hood/hunter
 			)

@@ -88,6 +88,12 @@
 	icon = 'mojave/icons/turf/walls/rmetal.dmi'
 	frill_icon = 'mojave/icons/turf/walls/rmetal_frill.dmi'
 
+/turf/closed/wall/ms13/metal/reinforced/industrial
+	name = "reinforced metal wall"
+	desc = ""
+	icon = 'mojave/icons/turf/walls/rusty_industrial.dmi'
+	frill_icon = 'mojave/icons/turf/walls/rusty_industrial_frill.dmi'
+
 /turf/closed/wall/ms13/metal/reinforced/rust
 	name = "rusted reinforced metal wall"
 	desc = ""
@@ -103,6 +109,12 @@
 /turf/closed/wall/ms13/concrete/alt
 	icon = 'mojave/icons/turf/walls/concretealt.dmi'
 	frill_icon = 'mojave/icons/turf/walls/concretealt_frill.dmi'
+
+/turf/closed/wall/ms13/sewer
+	name = "sewer wall"
+	desc = ""
+	icon = 'mojave/icons/turf/walls/sewer.dmi'
+	frill_icon = 'mojave/icons/turf/walls/sewer_frill.dmi'
 
 /turf/closed/wall/ms13/bunker
 	name = "bunker wall"
@@ -131,6 +143,86 @@
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_MS13_WALL)
 	canSmoothWith= list(SMOOTH_GROUP_MS13_WALL)
+
+// Vault Walls //
+
+/turf/closed/wall/ms13/vault
+	name = "vault wall"
+	desc = ""
+	icon = 'mojave/icons/turf/walls/vault_wall.dmi'
+	frill_icon = 'mojave/icons/turf/walls/vault_wall_rust_frill.dmi'
+
+/turf/closed/wall/ms13/vault/vent
+	name = "vent section"
+	desc = ""
+	icon_state = "wall-141"
+	icon = 'mojave/icons/turf/walls/vault_vent.dmi'
+	frill_icon = 'mojave/icons/turf/walls/vault_vent_frill.dmi'
+
+/turf/closed/wall/ms13/vault/rust
+	name = "vault wall"
+	desc = ""
+	icon = 'mojave/icons/turf/walls/vault_wall_rust.dmi'
+	frill_icon = 'mojave/icons/turf/walls/vault_wall_rust_frill.dmi'
+
+/turf/closed/wall/ms13/vault/rust/vent
+	name = "vent section"
+	desc = ""
+	icon_state = "wall-141"
+	icon = 'mojave/icons/turf/walls/vault_vent_rust.dmi'
+	frill_icon = 'mojave/icons/turf/walls/vault_vent_rust_frill.dmi'
+
+// Dungeon Walls //
+
+/turf/closed/wall/ms13/dungeon
+	name = "reinforced bunker wall"
+	desc = ""
+	icon = 'mojave/icons/turf/walls/dungeon_1.dmi'
+	frill_icon = 'mojave/icons/turf/walls/dungeon_1_frill.dmi'
+
+/turf/closed/wall/ms13/dungeon/Initialize()
+	. = ..()
+	var/state = rand(1,4)
+	switch(state)
+		if(1)
+			icon = 'mojave/icons/turf/walls/dungeon_1.dmi'
+			frill_icon = 'mojave/icons/turf/walls/dungeon_1_frill.dmi'
+		if(2)
+			icon = 'mojave/icons/turf/walls/dungeon_2.dmi'
+			frill_icon = 'mojave/icons/turf/walls/dungeon_2_frill.dmi'
+		if(3)
+			icon = 'mojave/icons/turf/walls/dungeon_3.dmi'
+			frill_icon = 'mojave/icons/turf/walls/dungeon_3_frill.dmi'
+		if(4)
+			icon = 'mojave/icons/turf/walls/dungeon_4.dmi'
+			frill_icon = 'mojave/icons/turf/walls/dungeon_4_frill.dmi'
+		else
+			return
+
+/turf/closed/wall/ms13/dungeon/rust
+	name = "reinforced bunker wall"
+	desc = ""
+	icon = 'mojave/icons/turf/walls/dungeon_rust_1.dmi'
+	frill_icon = 'mojave/icons/turf/walls/dungeon_rust_1_frill.dmi'
+
+/turf/closed/wall/ms13/dungeon/rust/Initialize()
+	. = ..()
+	var/state = rand(1,4)
+	switch(state)
+		if(1)
+			icon = 'mojave/icons/turf/walls/dungeon_rust_1.dmi'
+			frill_icon = 'mojave/icons/turf/walls/dungeon_rust_1_frill.dmi'
+		if(2)
+			icon = 'mojave/icons/turf/walls/dungeon_rust_2.dmi'
+			frill_icon = 'mojave/icons/turf/walls/dungeon_rust_2_frill.dmi'
+		if(3)
+			icon = 'mojave/icons/turf/walls/dungeon_rust_3.dmi'
+			frill_icon = 'mojave/icons/turf/walls/dungeon_rust_3_frill.dmi'
+		if(4)
+			icon = 'mojave/icons/turf/walls/dungeon_rust_4.dmi'
+			frill_icon = 'mojave/icons/turf/walls/dungeon_rust_4_frill.dmi'
+		else
+			return
 
 //Player Craftable Walls
 

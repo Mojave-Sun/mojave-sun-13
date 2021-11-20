@@ -26,22 +26,23 @@
 	mail_goodies = list(
 		/obj/item/circuitboard/machine/emitter = 3
 	)
-
-	job_flags = null 	/// MS13 EDIT -ORIGINAL FLAGS 	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_BOLD_SELECT_TEXT | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS
+	rpg_title = "Steward"
+	job_flags = NONE 	/// MS13 EDIT -ORIGINAL FLAGS 	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS
 
 
 /datum/outfit/job/quartermaster
 	name = "Quartermaster"
 	jobtype = /datum/job/quartermaster
 
+	id_trim = /datum/id_trim/job/quartermaster
+	uniform = /obj/item/clothing/under/rank/cargo/qm
+	backpack_contents = list(
+		/obj/item/modular_computer/tablet/preset/cargo/quartermaster = 1,
+		)
 	belt = /obj/item/pda/quartermaster
 	ears = /obj/item/radio/headset/headset_cargo
-	uniform = /obj/item/clothing/under/rank/cargo/qm
-	shoes = /obj/item/clothing/shoes/sneakers/brown
 	glasses = /obj/item/clothing/glasses/sunglasses
+	shoes = /obj/item/clothing/shoes/sneakers/brown
 	l_hand = /obj/item/clipboard
-	backpack_contents = list(/obj/item/modular_computer/tablet/preset/cargo/quartermaster = 1)
 
 	chameleon_extras = /obj/item/stamp/qm
-
-	id_trim = /datum/id_trim/job/quartermaster

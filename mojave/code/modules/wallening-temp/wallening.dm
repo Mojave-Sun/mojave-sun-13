@@ -3,9 +3,10 @@
 	plane = UNDER_FRILL_PLANE
 	appearance_flags = PLANE_MASTER
 	blend_mode = BLEND_OVERLAY
-	render_target = UNDER_FRILL_RENDER_TARGET
+	render_relay_plane = RENDER_PLANE_GAME
 
 /atom/movable/screen/plane_master/frill_under/backdrop(mob/mymob)
+	. = ..()
 	if(!mymob)
 		CRASH("Plane master backdrop called without a mob attached.")
 	remove_filter(FRILL_MOB_MASK)
@@ -17,14 +18,17 @@
 	appearance_flags = PLANE_MASTER
 	blend_mode = BLEND_OVERLAY
 	render_target = FRILL_MASK_RENDER_TARGET
+	render_relay_plane = null
 
 /atom/movable/screen/plane_master/frill_under/backdrop(mob/mymob)
+	. = ..()
 	if(!mymob)
 		CRASH("Plane master backdrop called without a mob attached.")
 	remove_filter(FRILL_MOB_MASK)
 	add_filter(FRILL_MOB_MASK, 1, alpha_mask_filter(render_source = FRILL_MASK_RENDER_TARGET, flags = MASK_INVERSE))
 
 /atom/movable/screen/plane_master/frill/backdrop(mob/mymob)
+	. = ..()
 	if(!mymob)
 		CRASH("Plane master backdrop called without a mob attached.")
 	remove_filter(FRILL_FLOOR_CUT)

@@ -5,6 +5,7 @@
 
 /obj/effect/spawner/random/ms13/ammo/tier1
 	name = "tier 1 ammo spawner"
+	spawn_loot_chance = 35
 
 	loot = list(
 			/obj/item/ammo_box/magazine/ms13/r10,
@@ -20,6 +21,7 @@
 
 /obj/effect/spawner/random/ms13/ammo/tier2
 	name = "tier 2 ammo spawner"
+	spawn_loot_chance = 40
 
 	loot = list(
 			/obj/item/ammo_box/magazine/ms13/m10mm,
@@ -37,6 +39,7 @@
 
 /obj/effect/spawner/random/ms13/ammo/tier3
 	name = "tier 3 ammo spawner"
+	spawn_loot_chance = 45
 
 	loot = list(
 			/obj/item/ammo_box/ms13/rev44,
@@ -57,6 +60,7 @@
 
 /obj/effect/spawner/random/ms13/ammo/tier4
 	name = "tier 4 ammo spawner"
+	spawn_loot_chance = 50
 
 	loot = list(
 			/obj/item/ammo_box/magazine/ms13/smgm45,
@@ -78,6 +82,7 @@
 /obj/effect/spawner/random/ms13/ammo/lowrandom
 	name = "low tier random ammo spawner"
 	spawn_loot_count = 1
+	spawn_loot_chance = 100
 
 	loot = list(
 			/obj/effect/spawner/random/ms13/ammo/tier1 = 70,
@@ -87,6 +92,7 @@
 /obj/effect/spawner/random/ms13/ammo/highrandom
 	name = "high tier random ammo spawner"
 	spawn_loot_count = 1
+	spawn_loot_chance = 100
 
 	loot = list(
 			/obj/effect/spawner/random/ms13/ammo/tier2 = 10,

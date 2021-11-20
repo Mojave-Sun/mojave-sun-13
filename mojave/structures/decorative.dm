@@ -142,3 +142,16 @@
 	var/matrix/M = new
 	M.Translate(rand(-5,5),rand(-5,5))
 	transform = M
+
+// Medical Decoration //
+
+/obj/structure/ms13/medical_curtain
+	name = "medical curtain"
+	desc = "A vision blocker, used to shield eyes of the innocent from the sights of the deathly. These ones are secured firmly in the ground."
+	icon = 'mojave/icons/structure/medical.dmi'
+	icon_state = "curtain"
+	layer = ABOVE_OBJ_LAYER
+	max_integrity = 100
+	anchored = TRUE // If they're to be unanchored, you might as well make them toppleable. Go ahead, codersprite it...
+	pixel_y = 12
+	opacity = TRUE

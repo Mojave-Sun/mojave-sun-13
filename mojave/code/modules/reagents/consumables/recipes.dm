@@ -61,9 +61,9 @@
 	results = list(/datum/reagent/consumable/ethanol/ms13/necromancer = 2)
 	required_reagents = list(/datum/reagent/consumable/ethanol/ms13/rum = 1, /datum/reagent/consumable/ethanol/ms13/vodka = 1)
 
-/datum/chemical_reaction/drink/ms13/dirty_wastelander 				// Mutfruit juice needed, too
+/*/datum/chemical_reaction/drink/ms13/dirty_wastelander 				// Mutfruit juice needed, too
 	results = list(	/datum/reagent/consumable/ethanol/ms13/dirty_wastelander = 2)
-	required_reagents = list(/datum/reagent/consumable/ethanol/ms13/whiskey = 1, /datum/reagent/consumable/ms13/nuka_cola = 1)
+	required_reagents = list(/datum/reagent/consumable/ethanol/ms13/whiskey = 1, /datum/reagent/consumable/ms13/nuka_cola = 1) */
 
 /datum/chemical_reaction/drink/ms13/nawlins_sazerac 				// Tobacco powder needed
 	results = list(/datum/reagent/consumable/ethanol/ms13/nawlins_sazerac = 2)
