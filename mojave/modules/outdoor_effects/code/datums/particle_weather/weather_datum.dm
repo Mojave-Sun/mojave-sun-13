@@ -176,7 +176,7 @@
 	if(!mob_turf)
 		return
 
-	if(mob_turf.outdoor_effect && mob_turf.outdoor_effect.state == SKY_BLOCKED)
+	if(!mob_turf.outdoor_effect || mob_turf.outdoor_effect.weatherproof)
 		return
 
 	return TRUE
