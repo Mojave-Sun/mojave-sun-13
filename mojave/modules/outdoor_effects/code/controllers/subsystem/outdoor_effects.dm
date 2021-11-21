@@ -96,7 +96,7 @@ SUBSYSTEM_DEF(outdoor_effects)
 
 
 /datum/controller/subsystem/outdoor_effects/proc/check_cycle()
-	if(station_time() > next_step_datum.start)
+	if(!next_step_datum || station_time() > next_step_datum.start)
 		get_time_of_day()
 		return TRUE
 	return FALSE
