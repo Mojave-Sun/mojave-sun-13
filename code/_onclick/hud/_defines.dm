@@ -177,3 +177,6 @@
 
 //Families
 #define ui_wanted_lvl "NORTH,11"
+
+// Width of our sidepanel hud (in tiles)
+#define HUD_WIDTH 3
