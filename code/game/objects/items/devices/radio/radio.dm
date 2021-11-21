@@ -205,10 +205,10 @@
 	if(HAS_TRAIT(M, TRAIT_SIGN_LANG)) //Forces Sign Language users to wear the translation gloves to speak over radios
 		var/mob/living/carbon/mute = M
 		if(istype(mute))
-			var/empty_indexes = mute.get_empty_held_indexes() //How many hands the player has empty
 			var/obj/item/clothing/gloves/radio/G = mute.get_item_by_slot(ITEM_SLOT_GLOVES)
 			if(!istype(G))
 				return FALSE
+<<<<<<< HEAD
 			/* MOJAVE EDIT: moved below
 			if(length(empty_indexes) == 1)
 				message = stars(message)
@@ -230,6 +230,13 @@
 			message = stars(message, radio_broadcast)
 	//MOJAVE: END EDIT
 
+=======
+			switch(mute.check_signables_state())
+				if(SIGN_ONE_HAND) // One hand full
+					message = stars(message)
+				if(SIGN_HANDS_FULL to SIGN_CUFFED)
+					return FALSE
+>>>>>>> 96b81f6c7f4... Refactors Sign Language & Fixes Inconsistency (#62836)
 	if(!spans)
 		spans = list(M.speech_span)
 	if(!language)
