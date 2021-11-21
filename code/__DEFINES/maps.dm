@@ -26,6 +26,18 @@ require only minor tweaks.
 
 #define SPACERUIN_MAP_EDGE_PAD 15
 
+
+/// Path for the next_map.json file, if someone, for some messed up reason, wants to change it.
+#define PATH_TO_NEXT_MAP_JSON "data/next_map.json"
+
+/// List of directories we can load map .json files from
+#define MAP_DIRECTORY_MAPS "_maps"
+#define MAP_DIRECTORY_DATA "data"
+#define MAP_DIRECTORY_WHITELIST list(MAP_DIRECTORY_MAPS,MAP_DIRECTORY_DATA)
+
+/// Special map path value for custom adminloaded stations.
+#define CUSTOM_MAP_PATH "custom"
+
 // traits
 // boolean - marks a level as having that property if present
 #define ZTRAIT_CENTCOM "CentCom"
@@ -44,11 +56,22 @@ require only minor tweaks.
 #define ZTRAIT_ASHSTORM "Weather_Ashstorm"
 #define ZTRAIT_VOIDSTORM "Weather_Voidstorm"
 
+//MOJAVE MODULE OUTDOOR_EFFECTS -- BEGIN
+// boolean - particle weather types that occur on the level
+#define PARTICLEWEATHER_RAIN "Weather_Rain"
+#define PARTICLEWEATHER_SNOW "Weather_Snow"
+#define PARTICLEWEATHER_DUST "Weather_Dust"
+#define PARTICLEWEATHER_RADS "Weather_Rads"
+//MOJAVE MODULE OUTDOOR_EFFECTS -- END
+
 /// boolean - does this z prevent ghosts from observing it
 #define ZTRAIT_SECRET "Secret"
 
 /// boolean - does this z prevent phasing
 #define ZTRAIT_NOPHASE "No Phase"
+
+/// boolean - does this z prevent xray/meson/thermal vision
+#define ZTRAIT_NOXRAY "No X-Ray"
 
 // number - bombcap is multiplied by this before being applied to bombs
 #define ZTRAIT_BOMBCAP_MULTIPLIER "Bombcap Multiplier"

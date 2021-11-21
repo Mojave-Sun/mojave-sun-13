@@ -6,7 +6,6 @@
 	///how many times a this movable had movement procs called on it since Moved() was last called
 	var/move_stacks = 0
 	var/last_move = null
-	var/last_move_time = 0
 	var/anchored = FALSE
 	var/move_resist = MOVE_RESIST_DEFAULT
 	var/move_force = MOVE_FORCE_DEFAULT
@@ -60,9 +59,6 @@
 	var/can_be_z_moved = TRUE
 
 	var/zfalling = FALSE
-
-	///Last location of the atom for demo recording purposes
-	var/atom/demo_last_loc
 
 	/// Either FALSE, [EMISSIVE_BLOCK_GENERIC], or [EMISSIVE_BLOCK_UNIQUE]
 	var/blocks_emissive = FALSE
@@ -123,8 +119,8 @@
 
 	if(loc)
 		//Restore air flow if we were blocking it (movables with ATMOS_PASS_PROC will need to do this manually if necessary)
-		if(((CanAtmosPass == ATMOS_PASS_DENSITY && density) || CanAtmosPass == ATMOS_PASS_NO) && isturf(loc))
-			CanAtmosPass = ATMOS_PASS_YES
+		if(((can_atmos_pass == ATMOS_PASS_DENSITY && density) || can_atmos_pass == ATMOS_PASS_NO) && isturf(loc))
+			can_atmos_pass = ATMOS_PASS_YES
 			air_update_turf(TRUE, FALSE)
 		loc.handle_atom_del(src)
 
@@ -1214,6 +1210,7 @@
 	. = ..()
 	VV_DROPDOWN_OPTION(VV_HK_DEADCHAT_PLAYS, "Start/Stop Deadchat Plays")
 	VV_DROPDOWN_OPTION(VV_HK_ADD_FANTASY_AFFIX, "Add Fantasy Affix")
+	VV_DROPDOWN_OPTION(VV_HK_EDIT_PARTICLES, "Edit Particles") //MOJAVE MODULE OUTDOOR_EFFECTS
 
 /atom/movable/vv_do_topic(list/href_list)
 	. = ..()
@@ -1237,6 +1234,12 @@
 		to_chat(usr, span_notice("Deadchat now control [src]."))
 		log_admin("[key_name(usr)] has added deadchat control to [src]")
 		message_admins(span_notice("[key_name(usr)] has added deadchat control to [src]"))
+
+	//MOJAVE MODULE OUTDOOR_EFFECTS -- BEGIN
+	if(href_list[VV_HK_EDIT_PARTICLES] && check_rights(R_VAREDIT))
+		var/client/C = usr.client
+		C?.open_particle_editor(src)
+	//MOJAVE MODULE OUTDOOR_EFFECTS -- END
 
 /obj/item/proc/do_pickup_animation(atom/target)
 	set waitfor = FALSE

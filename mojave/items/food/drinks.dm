@@ -125,6 +125,10 @@
 	list_reagents = null
 	foodtype = ALCOHOL
 
+/obj/item/reagent_containers/food/drinks/bottle/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/food/liquids/drink_containers_inventory.dmi')
+
 /obj/item/reagent_containers/food/drinks/bottle/ms13/plain
 	name = "bottle"
 	desc = "An unlabeled bottle. Doesn't look like it was ever used. Perfect to use for yourself."

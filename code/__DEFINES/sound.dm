@@ -1,4 +1,4 @@
-//max channel is 1024. Only go lower from here, because byond tends to pick the first availiable channel to play sounds on
+//max channel is 1024. Only go lower from here, because byond tends to pick the first available channel to play sounds on
 #define CHANNEL_LOBBYMUSIC 1024
 #define CHANNEL_ADMIN 1023
 #define CHANNEL_VOX 1022
@@ -7,6 +7,7 @@
 #define CHANNEL_AMBIENCE 1019
 #define CHANNEL_BUZZ 1018
 #define CHANNEL_BICYCLE 1017
+#define CHANNEL_WEATHER 1016 //MOJAVE MODULE OUTDOOR_EFFECTS
 
 ///Default range of a sound.
 #define SOUND_RANGE 17

@@ -55,7 +55,7 @@
 
 /obj/machinery/ms13/wartable/Initialize()
 	. = ..()
-	soundloop = new(list(src), on)
+	soundloop = new(src, on)
 
 /obj/machinery/ms13/wartable/Destroy()
 	QDEL_NULL(soundloop)

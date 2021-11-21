@@ -20,7 +20,7 @@
  *
  * make sure you add an update to the schema_version stable in the db changelog
  */
-#define DB_MINOR_VERSION 16
+#define DB_MINOR_VERSION 18
 
 
 //! ## Timing subsystem
@@ -95,8 +95,11 @@
 #define INITIALIZE_IMMEDIATE(X) ##X/New(loc, ...){\
 	..();\
 	if(!(flags_1 & INITIALIZED_1)) {\
+		var/previous_initialized_value = SSatoms.initialized;\
+		SSatoms.initialized = INITIALIZATION_INNEW_MAPLOAD;\
 		args[1] = TRUE;\
 		SSatoms.InitAtom(src, FALSE, args);\
+		SSatoms.initialized = previous_initialized_value;\
 	}\
 }
 
@@ -150,12 +153,13 @@
 #define INIT_ORDER_XKEYSCORE -10
 #define INIT_ORDER_STICKY_BAN -10
 #define INIT_ORDER_LIGHTING -20
-#define INIT_ORDER_SHUTTLE -21
+#define INIT_ORDER_OUTDOOR_EFFECTS	-21 //MOJAVE MODULE OUTDOOR_EFFECTS
+#define INIT_ORDER_SHUTTLE -22 //MOJAVE MODULE OUTDOOR_EFFECTS
 #define INIT_ORDER_MINOR_MAPPING -40
 #define INIT_ORDER_PATH -50
 #define INIT_ORDER_EXPLOSIONS -69
 #define INIT_ORDER_STATPANELS -98
-#define INIT_ORDER_DEMO -99  // o avoid a bunch of changes related to initialization being written, do this last
+#define INIT_ORDER_INIT_PROFILER -99 //Near the end, logs the costs of initialize
 #define INIT_ORDER_CHAT -100 //Should be last to ensure chat remains smooth during init.
 
 // Subsystem fire priority, from lowest to highest priority

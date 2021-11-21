@@ -19,7 +19,7 @@
 	max_integrity = 150
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TABLE_METAL) //Don't smooth with SMOOTH_GROUP_TABLES
 	canSmoothWith = list(SMOOTH_GROUP_MS13_TABLE_METAL)
-	armor = list(MELEE = 20, BULLET = 40, LASER = 30, ENERGY = 30, BOMB = 50, BIO = 0, RAD = 0, FIRE = 80, ACID = 70)
+	armor = list(MELEE = 20, BULLET = 40, LASER = 30, ENERGY = 30, BOMB = 50, BIO = 0,  FIRE = 80, ACID = 70)
 
 /obj/structure/table/ms13/metal/alt
 	desc = "A rounded piece of metal standing on a set of metal legs. It can not move."
@@ -42,7 +42,7 @@
 	icon = 'mojave/icons/structure/smooth_structures/tables/table_metal_heavy.dmi'
 	max_integrity = 250
 	integrity_failure = 0.25
-	armor = list(MELEE = 40, BULLET = 60, LASER = 40, ENERGY = 30, BOMB = 50, BIO = 0, RAD = 0, FIRE = 80, ACID = 70)
+	armor = list(MELEE = 40, BULLET = 60, LASER = 40, ENERGY = 30, BOMB = 50, BIO = 0,  FIRE = 80, ACID = 70)
 
 // Wooden Smoothing Tables //
 
@@ -55,7 +55,7 @@
 	max_integrity = 100
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TABLE_WOOD)
 	canSmoothWith = list(SMOOTH_GROUP_MS13_TABLE_WOOD)
-	armor = list(MELEE = 10, BULLET = 15, LASER = 15, ENERGY = 25, BOMB = 10, BIO = 0, RAD = 0, FIRE = 10, ACID = 10)
+	armor = list(MELEE = 10, BULLET = 15, LASER = 15, ENERGY = 25, BOMB = 10, BIO = 0,  FIRE = 10, ACID = 10)
 
 /obj/structure/table/ms13/wood/bar
 	desc = "A somewhat fancy table used at restauraunts of the past. Featuring a simplistic anchored leg design, wow!"
@@ -86,7 +86,7 @@
 	max_integrity = 125
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TABLE_PLAYER) //Don't smooth with SMOOTH_GROUP_TABLES
 	canSmoothWith = list(SMOOTH_GROUP_MS13_TABLE_PLAYER)
-	armor = list(MELEE = 30, BULLET = 35, LASER = 35, ENERGY = 35, BOMB = 50, BIO = 0, RAD = 0, FIRE = 80, ACID = 70)
+	armor = list(MELEE = 30, BULLET = 35, LASER = 35, ENERGY = 35, BOMB = 50, BIO = 0,  FIRE = 80, ACID = 70)
 	frame = /obj/structure/table_frame/ms13
 
 /obj/structure/table/ms13/metal/constructed/cobbled
@@ -95,7 +95,7 @@
 	max_integrity = 95
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TABLE_PLAYER) //Don't smooth with SMOOTH_GROUP_TABLES
 	canSmoothWith = list(SMOOTH_GROUP_MS13_TABLE_PLAYER)
-	armor = list(MELEE = 15, BULLET = 20, LASER = 15, ENERGY = 15, BOMB = 25, BIO = 0, RAD = 0, FIRE = 80, ACID = 60)
+	armor = list(MELEE = 15, BULLET = 20, LASER = 15, ENERGY = 15, BOMB = 25, BIO = 0, FIRE = 80, ACID = 60)
 //	buildstack = /obj/item/stack/sheet/ms13/scrap re-add later
 
 /obj/structure/table/ms13/wood/constructed
@@ -105,14 +105,14 @@
 	max_integrity = 85
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TABLE_PLAYER)
 	canSmoothWith = list(SMOOTH_GROUP_MS13_TABLE_PLAYER)
-	armor = list(MELEE = 15, BULLET = 15, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 0, RAD = 0, FIRE = 30, ACID = 30)
+	armor = list(MELEE = 15, BULLET = 15, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 0, FIRE = 30, ACID = 30)
 	frame = /obj/structure/table_frame/ms13/wood
 
 /obj/structure/table/ms13/wood/constructed/cobbled
 	desc = "A wood table of extreme low quality. Can hardly stand up to the wind. Perhaps they should try something else."
 	icon = 'mojave/icons/structure/smooth_structures/tables/table_wood_built_LQ.dmi'
 	max_integrity = 65
-	armor = list(MELEE = 5, BULLET = 5, LASER = 10, ENERGY = 10, BOMB = 5, BIO = 0, RAD = 0, FIRE = 20, ACID = 20)
+	armor = list(MELEE = 5, BULLET = 5, LASER = 10, ENERGY = 10, BOMB = 5, BIO = 0,, FIRE = 20, ACID = 20)
 
 // Metal Non-Smoothing tables //
 
@@ -161,7 +161,7 @@
 	desc = "A solid, wide metal table. Nothing about it stands out in particular."
 	icon_state = "table_metal_wide"
 	max_integrity = 350
-	armor = list(MELEE = 20, BULLET = 40, LASER = 30, ENERGY = 30, BOMB = 50, BIO = 0, RAD = 0, FIRE = 80, ACID = 70)
+	armor = list(MELEE = 20, BULLET = 40, LASER = 30, ENERGY = 30, BOMB = 50, BIO = 0, FIRE = 80, ACID = 70)
 
 /obj/structure/table/ms13/no_smooth/large/metal/desk
 	name = "metal desk"
@@ -207,7 +207,7 @@
 	desc = "A large oval shaped wood table. Perfect for displaying the 200 year old family photos you found."
 	icon_state = "table_wood_wide_oval"
 	max_integrity = 200
-	armor = list(MELEE = 10, BULLET = 15, LASER = 15, ENERGY = 25, BOMB = 10, BIO = 0, RAD = 0, FIRE = 0, ACID = 10)
+	armor = list(MELEE = 10, BULLET = 15, LASER = 15, ENERGY = 25, BOMB = 10, BIO = 0, FIRE = 0, ACID = 10)
 
 /obj/structure/table/ms13/no_smooth/large/wood/square
 	desc = "A large rectangular wood table. Very sturdy."
@@ -241,11 +241,6 @@
 /obj/structure/table/ms13/no_smooth/dice/pristine
 	icon_state = "dice_clean"
 
-/obj/structure/table/ms13/no_smooth/workbench
-	name = "workbench"
-	desc = "A perfect surface for arts and crafts. It's got so much space for activities!"
-	icon_state = "workbench_wood"
-
 // Misc Large tables //
 
 /obj/structure/table/ms13/no_smooth/large/pool
@@ -257,3 +252,44 @@
 	name = "cards table"
 	desc = "Very classy. Reminds you of that time in New Reno..."
 	icon_state = "table_cards"
+
+/obj/structure/table/rolling/ms13
+	name = "rolling table"
+	desc = "A rolling medical table. Extremely useful in a surgical environment."
+	icon = 'mojave/icons/structure/standalone_tables.dmi'
+	icon_state = "table_rolling"
+
+///// CRAFTING TABLES /////
+
+/obj/structure/table/ms13/crafting // Functionality of these is applied via individual crafting element var 'surfacetype'
+	name = "base class Mojave Sun crafting bench"
+	desc = "Scream at yo MAMA if you see this."
+	icon = 'mojave/icons/structure/workbenches.dmi'
+	bound_width = 64
+	smoothing_flags = NONE
+	canSmoothWith = null
+
+/obj/structure/table/ms13/crafting/workbench
+	name = "workbench"
+	desc = "A basic workbench. Solid metal surface and a few tools to help you make basic tools and items you require."
+	icon_state = "workbench"
+
+/obj/structure/table/ms13/crafting/ammobench
+	name = "loading bench"
+	desc = "An ammo loading bench, with some tools that assist you in assembling cartridges to send towards your foe."
+	icon_state = "ammobench"
+
+/obj/structure/table/ms13/crafting/armorbench
+	name = "tailoring bench"
+	desc = "A sturdy bench. It's got an anvil and sewing machine, it'd be a good surface to try and fabricate clothing or armor with."
+	icon_state = "armorbench"
+
+/obj/structure/table/ms13/crafting/weaponbench
+	name = "weapon bench"
+	desc = "A large bench with a functional drill press and a vice. Would be useful in creating and assembling weapons, to the best of your ability anyways."
+	icon_state = "weaponbench"
+
+/obj/structure/table/ms13/crafting/tinkerbench
+	name = "tinkering bench"
+	desc = "A large bench with a power supply hooked up to it. There's a soldering iron and a few other tools scattered about to assist you in making electronic components."
+	icon_state = "tinkerbench"

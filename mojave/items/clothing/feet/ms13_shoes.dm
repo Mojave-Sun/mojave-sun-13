@@ -1,6 +1,7 @@
 /obj/item/clothing/shoes/ms13
 	icon = 'mojave/icons/objects/clothing/clothing_world/shoes_world.dmi'
 	worn_icon = 'mojave/icons/mob/clothing/feet.dmi'
+	strip_delay = 20
 
 /obj/item/clothing/shoes/ms13/Initialize()
 	. = ..()
@@ -11,8 +12,14 @@
 
 /obj/item/clothing/shoes/ms13/rag
 	name = "footcloths"
-	desc = "A footcloths made of ripped cloth.<br>It has soaked in smelly sweat, and it is rather repulsive.<br>Only the poorest of settlers, mostly the drug addicts or slaves wear something like that."
+	desc = "Simple ragged cloth for your feet. Anything is better than nothing."
 	icon_state = "rag"
+	inhand_icon_state = "rag"
+
+/obj/item/clothing/shoes/ms13/crude
+	name = "crude treads"
+	desc = "A single dirty boot, with a sandal on the other foot. A slight step up from nothing but rags on your feet."
+	icon_state = "crudetreads"
 	inhand_icon_state = "rag"
 
 /obj/item/clothing/shoes/ms13/tan
@@ -23,50 +30,45 @@
 
 /obj/item/clothing/shoes/ms13/brownie //Make a craft recipe, and delete this comment.
 	name = "brown shoes"
-	desc = "A pair of brown leather shoes made of wasteland animals hides."
+	desc = "A hardy pair of brown leather shoes."
 	icon_state = "brownie"
 	inhand_icon_state = "brownie"
 
 /obj/item/clothing/shoes/ms13/fancy
-	name = "black shoes"
-	desc = "A pair of fancy black shoes." //Nice shoes!
+	name = "fancy black shoes"
+	desc = "A pair of fancy black shoes."
 	icon_state = "fancy"
 	inhand_icon_state = "fancy"
 
 /obj/item/clothing/shoes/ms13/winter
 	name = "brown winter boots"
-	desc = "A pair of brown winter boots. The treads are durable with a fair amount of grip, hopefully enough to prevent ice mishaps."
+	desc = "A pair of brown winter boots. Great for surviving a rugged, harsh winter."
 	icon_state = "winterbootsbrown"
 	inhand_icon_state = "winterbootsbrown"
+	strip_delay = 40
 
 /obj/item/clothing/shoes/ms13/winter/black
 	name = "black winter boots"
-	desc = "A pair of black winter boots. The treads are durable with a fair amount of grip, hopefully enough to prevent ice mishaps."
+	desc = "A pair of black winter boots. For those who think brown winter boots are far too basic."
 	icon_state = "winterbootsblack"
 	inhand_icon_state = "winterbootsblack"
 
 /obj/item/clothing/shoes/ms13/cowboy
 	name = "cowboy boots"
-	desc = "A pair of cowhide boots with spurs.<br>They have a Cuban heel, rounded to pointed toe, high shaft, and, traditionally, no lacing."
+	desc = "A pair of cowhide boots with spurs that jingle, jangle, jingle."
 	icon_state = "cowboy"
 	inhand_icon_state = "cowboy"
+	strip_delay = 40
 
 /obj/item/clothing/shoes/ms13/explorer
-	name = "worn boots"
-	desc = "A pair of slightly worn, steel-toed work boots.<br>Good at keeping toes safe from falling junk you find amid the ruins."
+	name = "explorer boots"
+	desc = "A rugged pair of boots great for explorers of the wastes. They can take you almost anywhere."
 	icon_state = "explorer"
-	armor = list(melee = 10, bullet = 10, laser = 0, energy = 0, bomb = 10, bio = 0, rad = 0, fire = 10, acid = 0)
-
-/obj/item/clothing/shoes/ms13/khan
-	name = "Great Khan boots"
-	desc = "A pair of leather boots reinforced with metal plates.<br>These are commonly worn by Great Khans raiders."
-	icon_state = "legionmetal" //It's that simple
-	inhand_icon_state = "legionmetal"
-	armor = list(melee = 10, bullet = 10, laser = 0, energy = 0, bomb = 10, bio = 0, rad = 0, fire = 10, acid = 0)
+	strip_delay = 40
 
 /obj/item/clothing/shoes/ms13/military
 	name = "military boots"
-	desc = "High speed, no-drag combat boots designed for use by the U.S. Army before the Great War."
+	desc = "Robust black boots used by the pre-war US military. Now instead used to protect the grubby feet of wastelanders."
 	icon_state = "military"
 	inhand_icon_state = "military"
 	strip_delay = 40
@@ -77,13 +79,6 @@
 	desc = "Tight-fit vault-tec branded boots. Built for style and conditioned for the worst."
 	icon_state = "vaultboots"
 	inhand_icon_state = "vaultboots"
-	armor = list(melee = 5, bullet = 5, laser = 0, energy = 0, bomb = 10, bio = 0, rad = 0, fire = 10, acid = 0)
-
-/obj/item/clothing/shoes/ms13/military/light //I'm a ninja!
-	name = "advanced combat boots"
-	desc = "High speed, no-drag combat boots designed for use by U.S. special forces before the Great War.<br>The soles are made of aerated rubber to silence the movement of the wearer."
-//	stepsound = FALSE
-	clothing_flags = NOSLIP
 
 /obj/item/clothing/shoes/ms13/military/diesel
 	name = "black diesel boots"
@@ -91,20 +86,18 @@
 	icon_state = "diesel_m"
 	inhand_icon_state = "diesel_m"
 
-/obj/item/clothing/shoes/ms13/military/female/diesel
+/obj/item/clothing/shoes/ms13/military/diesel/female
 	name = "female diesel boots"
-	desc = "Fancy womens' knee-high platform boots with shiny steel clasps."
+	desc = "Womens' knee-high platform boots with shiny steel clasps."
 	icon_state = "diesel_f"
 	inhand_icon_state = "diesel_f"
-	armor = list(melee = 20, bullet = 10, laser = 10, energy = 10, bomb = 10, bio = 0, rad = 0, fire = 0, acid = 0)
-	cold_protection = FEET
-	min_cold_protection_temperature = SHOES_MIN_TEMP_PROTECT
 
 /obj/item/clothing/shoes/ms13/military/ncr
 	name = "\improper NCR boots"
 	desc = "A pair of standard issue NCR black boots."
 	icon_state = "ncr_boots"
 	inhand_icon_state = "ncr_boots"
+	strip_delay = 40
 
 /obj/item/clothing/shoes/ms13/military/ncr/officer
 	name = "\improper NCR officer boots"
@@ -123,21 +116,21 @@
 	desc = "Generic boots worn by Legionaries."
 	icon_state = "leg_tanboot"
 	inhand_icon_state = "legionleather"
-	armor = list(melee = 20, bullet = 10, laser = 10, energy = 0, bomb = 10, bio = 0, rad = 5, fire = 10, acid = 0)
+	armor = list(melee = 20, bullet = 10, laser = 10, energy = 0, bomb = 10, bio = 0,  fire = 10, acid = 0)
 
 /obj/item/clothing/shoes/ms13/military/legion/tanboots
 	name = "tan leather boots"
 	desc = "A crude pair of leather boots commonly worn by the Caesar's Legion recruits. These ones are made of a tan leather."
 	icon_state = "leg_tanboot"
 	inhand_icon_state = "legionleather"
-	armor = list(melee = 10, bullet = 5, laser = 10, energy = 0, bomb = 10, bio = 0, rad = 5, fire = 10, acid = 0)
+	armor = list(melee = 10, bullet = 5, laser = 10, energy = 0, bomb = 10, bio = 0,  fire = 10, acid = 0)
 
 /obj/item/clothing/shoes/ms13/military/legion/darkboots
 	name = "dark leather boots"
 	desc = "A crude pair of leather boots commonly worn by the Caesar's Legion recruits. These ones are made of a darker leather."
 	icon_state = "leg_darkboot"
 	inhand_icon_state = "legionleather"
-	armor = list(melee = 10, bullet = 5, laser = 10, energy = 0, bomb = 10, bio = 0, rad = 5, fire = 10, acid = 0)
+	armor = list(melee = 10, bullet = 5, laser = 10, energy = 0, bomb = 10, bio = 0,  fire = 10, acid = 0)
 
 /obj/item/clothing/shoes/ms13/military/legion/cleats
 	name = "cleats"
@@ -145,7 +138,7 @@
 	icon_state = "leg_cleats"
 	inhand_icon_state = "legionmetal"
 	clothing_flags = NOSLIP
-	armor = list(melee = 5, bullet = 10, laser = 10, energy = 10, bomb = 20, bio = 0, rad = 0, fire = 20, acid = 0)
+	armor = list(melee = 5, bullet = 10, laser = 10, energy = 10, bomb = 20, bio = 0,  fire = 20, acid = 0)
 
 /obj/item/clothing/shoes/ms13/military/bos
 	name = "\improper BoS combat boots"

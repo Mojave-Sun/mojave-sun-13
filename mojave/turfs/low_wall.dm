@@ -91,3 +91,32 @@
 	name = "low bunker wall"
 	desc = ""
 	icon = 'mojave/icons/turf/walls/bunker.dmi'
+
+/obj/structure/table/ms13/low_wall/sewer
+	name = "low sewer wall"
+	desc = ""
+	icon = 'mojave/icons/turf/walls/sewer.dmi'
+
+// Vault low walls //
+
+/obj/structure/table/ms13/low_wall/vault
+	name = "low vault wall"
+	desc = ""
+	icon = 'mojave/icons/turf/walls/vault_wall.dmi'
+
+/obj/structure/table/ms13/low_wall/vault/rust
+	name = "low vault wall"
+	desc = ""
+	icon = 'mojave/icons/turf/walls/vault_wall_rust.dmi'
+
+// Dungeon Low wall //
+
+/obj/structure/table/ms13/low_wall/dungeon
+	name = "low reinforced bunker wall"
+	desc = ""
+	icon = 'mojave/icons/turf/walls/dungeon_1.dmi'
+
+/obj/structure/table/ms13/low_wall/dungeon/rust
+	name = "low reinforced bunker wall"
+	desc = ""
+	icon = 'mojave/icons/turf/walls/dungeon_rust_1.dmi'
