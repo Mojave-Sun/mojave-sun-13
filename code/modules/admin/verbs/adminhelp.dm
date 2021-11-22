@@ -575,7 +575,9 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 
 //Use this proc when an admin takes action that may be related to an open ticket on what
 //what can be a client, ckey, or mob
-/proc/admin_ticket_log(what, message)
+//log_in_blackbox: Whether or not this message with the blackbox system.
+//If disabled, this message should be logged with a different proc call
+/proc/admin_ticket_log(what, message, log_in_blackbox = TRUE)
 	var/client/C
 	var/mob/Mob = what
 	if(istype(Mob))
@@ -584,11 +586,15 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		C = what
 	if(istype(C) && C.current_ticket)
 		C.current_ticket.AddInteraction(message)
+		if(log_in_blackbox)
+			SSblackbox.LogAhelp(C.current_ticket.id, "Interaction", message, C.ckey, usr.ckey)
 		return C.current_ticket
 	if(istext(what)) //ckey
 		var/datum/admin_help/AH = GLOB.ahelp_tickets.CKey2ActiveTicket(what)
 		if(AH)
 			AH.AddInteraction(message)
+			if(log_in_blackbox)
+				SSblackbox.LogAhelp(AH.id, "Interaction", message, what, usr.ckey)
 			return AH
 
 //
