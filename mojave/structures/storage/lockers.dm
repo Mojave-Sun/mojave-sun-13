@@ -3,6 +3,7 @@
 	desc = "Holds wastelands, presumably."
 	icon = 'mojave/icons/structure/storage.dmi'
 	can_weld_shut = FALSE
+	door_anim_time = 0
 
 /obj/structure/closet/ms13/enclave
 	name = "\improper Enclave locker"
