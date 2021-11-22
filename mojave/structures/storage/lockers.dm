@@ -8,3 +8,8 @@
 	name = "\improper Enclave locker"
 	desc = "Used to hold various truly American things. No muties allowed!"
 	icon_state = "enclave"
+
+/obj/structure/closet/ms13/fridge
+	name = "refrigerator"
+	desc = "A once powered refrigerator unit. Useful for keeping your food in one place."
+	icon_state = "fridge"
