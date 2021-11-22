@@ -177,3 +177,5 @@
 
 //Families
 #define ui_wanted_lvl "NORTH,11"
+
+#define HUD_WIDTH 3 // MOJAVE SUN ADDITION - Width of our sidepanel hud (in tiles)

@@ -386,6 +386,8 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 
 		if (got_width == desired_width)
 			// success
+			//Update hud sidebar if necessary
+			setHudBarVisible() // MOJAVE SUN HUD
 			return
 		else if (isnull(delta))
 			// calculate a probable delta value based on the difference
@@ -396,6 +398,9 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 
 		pct += delta
 		winset(src, "mainwindow.split", "splitter=[pct]")
+
+	//Update hud sidebar if necessary
+	setHudBarVisible() // MOJAVE SUN HUD
 
 
 /client/verb/policy()
