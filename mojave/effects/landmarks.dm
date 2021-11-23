@@ -2,6 +2,7 @@
 	name = "Mojave Sun"
 	icon_state = "Assistant"
 	jobspawn_override = TRUE
+	delete_after_roundstart = FALSE
 
 // Wasteland Spawns //
 
