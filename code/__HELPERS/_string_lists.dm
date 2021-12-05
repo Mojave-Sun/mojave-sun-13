@@ -19,13 +19,16 @@ GLOBAL_VAR(string_filename_current_key)
 	else
 		CRASH("strings list not found: [STRING_DIRECTORY]/[filepath], index=[key]")
 
-/proc/strings(filepath as text, key as text)
+/proc/strings(filepath as text, key as text, directory = STRING_DIRECTORY)
+	if(IsAdminAdvancedProcCall())
+		return
+
 	filepath = sanitize_filepath(filepath)
-	load_strings_file(filepath)
+	load_strings_file(filepath, directory)
 	if((filepath in GLOB.string_cache) && (key in GLOB.string_cache[filepath]))
 		return GLOB.string_cache[filepath][key]
 	else
-		CRASH("strings list not found: [STRING_DIRECTORY]/[filepath], index=[key]")
+		CRASH("strings list not found: [directory]/[filepath], index=[key]")
 
 /proc/strings_subkey_lookup(match, group1)
 	return pick_list(GLOB.string_filename_current_key, group1)
@@ -41,7 +44,7 @@ GLOBAL_VAR(string_filename_current_key)
 	if(!GLOB.string_cache)
 		GLOB.string_cache = new
 
-	if(fexists("[STRING_DIRECTORY]/[filepath]"))
-		GLOB.string_cache[filepath] = json_load("[STRING_DIRECTORY]/[filepath]")
+	if(fexists("[directory]/[filepath]"))
+		GLOB.string_cache[filepath] = json_load("[directory]/[filepath]")
 	else
-		CRASH("file not found: [STRING_DIRECTORY]/[filepath]")
+		CRASH("file not found: [directory]/[filepath]")
