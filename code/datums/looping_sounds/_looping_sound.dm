@@ -13,6 +13,7 @@
 	volume (num) Sound output volume
 	max_loops (num) The max amount of loops to run for.
 	direct (bool) If true plays directly to provided atoms instead of from them
+	channel (num) channel override - otherwise selects random available channel - playing a sound overrides existing sounds on a channel
 */
 /datum/looping_sound
 	var/atom/parent
@@ -30,6 +31,7 @@
 	var/vary = FALSE
 	var/max_loops
 	var/direct
+	var/channel  // MOJAVE MODULE OUTDOOR_EFFECTS
 	var/extra_range = 0
 	var/falloff_exponent
 	var/timerid
@@ -37,7 +39,7 @@
 	var/skip_starting_sounds = FALSE
 	var/loop_started = FALSE
 
-/datum/looping_sound/New(_parent, start_immediately=FALSE, _direct=FALSE, _skip_starting_sounds = FALSE)
+/datum/looping_sound/New(_parent, start_immediately=FALSE, _direct=FALSE, _skip_starting_sounds = FALSE, _channel = 0)  // MOJAVE MODULE OUTDOOR_EFFECTS
 	if(!mid_sounds)
 		WARNING("A looping sound datum was created without sounds to play.")
 		return
@@ -45,6 +47,7 @@
 	set_parent(_parent)
 	direct = _direct
 	skip_starting_sounds = _skip_starting_sounds
+	channel = _channel
 
 	if(start_immediately)
 		start()
@@ -85,11 +88,11 @@
 /datum/looping_sound/proc/play(soundfile, volume_override)
 	var/sound/S = sound(soundfile)
 	if(direct)
-		S.channel = SSsounds.random_available_channel()
+		S.channel = channel || SSsounds.random_available_channel()  // MOJAVE MODULE OUTDOOR_EFFECTS
 		S.volume = volume_override || volume //Use volume as fallback if theres no override
 		SEND_SOUND(parent, S)
 	else
-		playsound(parent, S, volume, vary, extra_range, falloff_exponent = falloff_exponent, falloff_distance = falloff_distance)
+		playsound(parent, S, volume, vary, extra_range, falloff_exponent = falloff_exponent, falloff_distance = falloff_distance, channel = channel) // MOJAVE MODULE OUTDOOR_EFFECTS
 
 /datum/looping_sound/proc/get_sound(starttime, _mid_sounds)
 	. = _mid_sounds || mid_sounds
@@ -104,7 +107,7 @@
 	timerid = addtimer(CALLBACK(src, .proc/start_sound_loop), start_wait, TIMER_CLIENT_TIME | TIMER_DELETE_ME | TIMER_STOPPABLE, SSsound_loops)
 
 /datum/looping_sound/proc/on_stop()
-	if(end_sound && loop_started)
+	if(loop_started) // MOJAVE MODULE OUTDOOR_EFFECTS - Allow null end_sound to stop sound
 		play(end_sound, end_volume)
 
 /datum/looping_sound/proc/set_parent(new_parent)

@@ -1032,6 +1032,35 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	if (prefs.read_preference(/datum/preference/toggle/auto_fit_viewport))
 		addtimer(CALLBACK(src,.verb/fit_viewport,10)) //Delayed to avoid wingets from Login calls.
 
+// MOJAVE SUN EDIT START - changes for HUD
+// Moved this from /datum/hud to /client, because if we have no hud we still have to fix anchoring for the map
+// this is the case for the looby screen
+/client/proc/setHudBarVisible()
+
+	// Visible if we have an offscreen-hud that isn't hidden
+	var/visible = mob?.hud_used ? mob.hud_used.contains_off_screen_hud && mob.hud_used.hud_version != HUD_STYLE_NOHUD : FALSE
+
+	// Calculate hud-size based on client.view and size of mapwindow
+	var/view_width = getviewsize(view)[1]
+	var/full_width = view_width + HUD_WIDTH
+	var/list/screen_size = splittext(winget(src, "mapwindow", "size"), "x")
+	var/screen_width = text2num(screen_size[1])
+	var/tile_width = screen_width / full_width
+	var/hud_width  = HUD_WIDTH * tile_width
+
+
+	var/mapXPos = visible ? hud_width : 0
+	var/mapWidth = visible ? screen_width - text2num(hud_width) : screen_size[1]
+	var/mapAnchor1  = visible ? "[100 * HUD_WIDTH * tile_width / screen_width],0" : "0,0" // % that our hud takes up the screen
+
+	winset(src, "mapwindow.map","pos=[mapXPos],0;size=[mapWidth]x[screen_size[2]],anchor1=[mapAnchor1]")
+
+	winset(src, "mapwindow.hud","size=[hud_width]x[screen_size[2]]")
+
+	//We don't hide this, so it doesn't create a white block
+	//winshow(C, "mapwindow.hud", visible)
+// MOJAVE SUN EDIT END - changes for HUD
+
 /client/proc/generate_clickcatcher()
 	if(!void)
 		void = new()
@@ -1118,6 +1147,12 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		holder.filteriffic = new /datum/filter_editor(in_atom)
 		holder.filteriffic.ui_interact(mob)
 
+//MOJAVE MODULE OUTDOOR_EFFECTS -- BEGIN
+/client/proc/open_particle_editor(atom/in_atom)
+	if(holder)
+		holder.particool = new /datum/particle_editor(in_atom)
+		holder.particool.ui_interact(mob)
+//MOJAVE MODULE OUTDOOR_EFFECTS -- END
 
 /client/proc/set_right_click_menu_mode(shift_only)
 	if(shift_only)

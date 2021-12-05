@@ -52,11 +52,9 @@
 		/obj/item/clothing/shoes/ms13/winter/black,
 		/obj/item/clothing/shoes/ms13/cowboy,
 		/obj/item/clothing/shoes/ms13/explorer,
-		/obj/item/clothing/shoes/ms13/khan,
 		/obj/item/clothing/shoes/ms13/military,
-		/obj/item/clothing/shoes/ms13/military/light,
 		/obj/item/clothing/shoes/ms13/military/diesel,
-		/obj/item/clothing/shoes/ms13/military/female/diesel)
+		/obj/item/clothing/shoes/ms13/military/diesel/female)
 
 /obj/effect/spawner/random/ms13/clothing/glasses
 	name = "miscellaneous glasses spawner"

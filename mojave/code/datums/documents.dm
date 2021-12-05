@@ -25,3 +25,18 @@
 		<br><br> I don't know what you think, but I've got a decent idea of what's REALLY going on here. I had a meeting with the local Sheriff and he's been alerted to this, so you should save yourself the bother and be on good behavior. \
 		In the meantime- DO. NOT. TOUCH. THE. CHOKES. \
 		<br><br> I will be watching. -Director Norrison."
+
+/datum/terminal/document/vault_door_notice
+	title = "Dual-Loc chamber notice"
+	content = "Attention gatesman! \
+		The exterior chamber entryway has a critically damaged component. Further use at best will outright refuse to function and potentailly completely ruin it further at worst. \
+		Do NOT attempt to link the terminal to it and move it. It can SERIOUSLY destroy it. We've got a scheduled order in coming in next week, after that- we can get it working again on time. \
+
+		<br><br> Thank you for your cooperation."
+
+/datum/terminal/document/military_base_lockdown
+	title = "Emergency Lockdown Protocol"
+	content = "By orders of Major Handfordth any posted guard is required to read the following. \
+		This post is multi-functioned and should be kept online unless absolutely necessary. Primary priority following a high security threat is to put the facility under yellow alert and await further instruction. \
+		In the event of a catastrophic event and or declaration of DEFCON level two and up, this point should only be put under complete lockdown under orders of a Lieutenant colonel or higher. \
+		Non-compliance with this standard will- depending on conditions- at the very best earn you a swift loss of rank. At worse... Try it and find out, in Major Handfordth's terms."

@@ -6,17 +6,17 @@
 
 //Road Decals
 
-/obj/effect/turf_decal/MS13/road
+/obj/effect/turf_decal/ms13/road
 	icon = 'mojave/icons/turf/road_decals.dmi'
 
-/obj/effect/turf_decal/MS13/road/horizontalline
+/obj/effect/turf_decal/ms13/road/horizontalline
 	icon_state = "horizontal_line"
 
-/obj/effect/turf_decal/MS13/road/verticalline
+/obj/effect/turf_decal/ms13/road/verticalline
 	icon_state = "vertical_line"
 
-/obj/effect/turf_decal/MS13/road/horizontalcrossing
+/obj/effect/turf_decal/ms13/road/horizontalcrossing
 	icon_state = "horizontal_crossing"
 
-/obj/effect/turf_decal/MS13/road/verticalcrossing
+/obj/effect/turf_decal/ms13/road/verticalcrossing
 	icon_state = "vertical_crossing"

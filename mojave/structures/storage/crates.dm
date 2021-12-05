@@ -20,7 +20,7 @@
 	open_sound_volume = 25
 	close_sound_volume = 50
 	max_integrity = 500
-	armor = list(MELEE = 50, BULLET = 10, LASER = 10, ENERGY = 0, BOMB = 10, BIO = 0, RAD = 0, FIRE = 70, ACID = 60)
+	armor = list(MELEE = 50, BULLET = 10, LASER = 10, ENERGY = 0, BOMB = 10, BIO = 0, FIRE = 70, ACID = 60)
 	var/breakable = TRUE
 	var/prying = FALSE
 	var/altstates = 0
@@ -84,7 +84,7 @@
 	icon_state = "plain_crate"
 	anchored = FALSE //smaller bois
 	max_integrity = 350
-	armor = list(MELEE = 35, BULLET = 10, LASER = 10, ENERGY = 0, BOMB = 10, BIO = 0, RAD = 0, FIRE = 70, ACID = 60)
+	armor = list(MELEE = 35, BULLET = 10, LASER = 10, ENERGY = 0, BOMB = 10, BIO = 0, FIRE = 70, ACID = 60)
 	altstates = 3
 
 /obj/structure/closet/crate/ms13/woodcrate/compact/boom
