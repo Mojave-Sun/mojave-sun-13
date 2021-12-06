@@ -1,5 +1,6 @@
-import { binaryInsertWith } from "common/collections";
+import { sortBy } from "common/collections";
 import { classes } from "common/react";
+<<<<<<< HEAD
 import { InfernoNode } from "inferno";
 import { useBackend, useLocalState } from "../../backend";
 import { Box, Button, Dropdown, Flex, Stack, Tooltip } from "../../components";
@@ -27,35 +28,23 @@ export enum Faction {
 const binaryInsertJob = binaryInsertWith((job: Job) => {
   return job.name;
 });
+=======
+import { InfernoNode, SFC } from "inferno";
+import { useBackend } from "../../backend";
+import { Box, Button, Dropdown, Stack, Tooltip } from "../../components";
+import { createSetPreference, Job, JoblessRole, JobPriority, PreferencesMenuData } from "./data";
+import { ServerPreferencesFetcher } from "./ServerPreferencesFetcher";
+
+const sortJobs = (
+  entries: [string, Job][],
+  head?: string,
+) => sortBy<[string, Job]>(
+  ([key, _]) => key === head ? -1 : 1,
+  ([key, _]) => key,
+)(entries);
+>>>>>>> 0989ce2d6fd... Remove job .tsx files from preferences menu, use compiled data instead (#63200)
 
 const PRIORITY_BUTTON_SIZE = "18px";
-
-for (const jobKey of requireJob.keys()) {
-  const job = requireJob<{
-    default?: Job,
-  }>(jobKey).default;
-
-  if (!job) {
-    continue;
-  }
-
-
-  let departmentInfo = jobsByDepartment.get(job.department);
-  if (departmentInfo === undefined) {
-    departmentInfo = {
-      jobs: [],
-      head: undefined,
-    };
-
-    jobsByDepartment.set(job.department, departmentInfo);
-  }
-
-  if (job.department.head === job.name) {
-    departmentInfo.head = job;
-  } else {
-    departmentInfo.jobs = binaryInsertJob(departmentInfo.jobs, job);
-  }
-}
 
 const PriorityButton = (props: {
   name: string,
@@ -221,18 +210,19 @@ const PriorityButtons = (props: {
 const JobRow = (props: {
   className?: string,
   job: Job,
+  name: string,
 }, context) => {
   const { data } = useBackend<PreferencesMenuData>(context);
-  const { job } = props;
+  const { className, job, name } = props;
 
-  const isOverflow = data.overflow_role === job.name;
-  const priority = data.job_preferences[job.name];
+  const isOverflow = data.overflow_role === name;
+  const priority = data.job_preferences[name];
 
-  const createSetPriority = createCreateSetPriorityFromName(context, job.name);
+  const createSetPriority = createCreateSetPriorityFromName(context, name);
 
   const experienceNeeded = data.job_required_experience
-    && data.job_required_experience[job.name];
-  const daysLeft = data.job_days_left ? data.job_days_left[job.name] : 0;
+    && data.job_required_experience[name];
+  const daysLeft = data.job_days_left ? data.job_days_left[name] : 0;
 
   let rightSide: InfernoNode;
 
@@ -255,7 +245,7 @@ const JobRow = (props: {
         </Stack.Item>
       </Stack>
     );
-  } else if (data.job_bans && data.job_bans.indexOf(job.name) !== -1) {
+  } else if (data.job_bans && data.job_bans.indexOf(name) !== -1) {
     rightSide = (
       <Stack align="center" height="100%" pr={1}>
         <Stack.Item grow textAlign="right">
@@ -272,7 +262,7 @@ const JobRow = (props: {
   }
 
   return (
-    <Stack.Item className={props.className} height="100%" style={{
+    <Stack.Item className={className} height="100%" style={{
       "margin-top": 0,
     }}>
       <Stack fill align="center">
@@ -284,7 +274,7 @@ const JobRow = (props: {
             "padding-left": "0.3em",
           }}>
 
-            {props.job.name}
+            {name}
           </Stack.Item>
         </Tooltip>
 
@@ -296,38 +286,55 @@ const JobRow = (props: {
   );
 };
 
-const Department = (props: {
-  department: Departments.Department,
-  name: string,
-}) => {
-  const { department, name } = props;
-  const jobs = jobsByDepartment.get(department);
+const Department: SFC<{ department: string}> = (props) => {
+  const { children, department: name } = props;
   const className = `PreferencesMenu__Jobs__departments--${name}`;
 
-  if (!jobs) {
-    return (
-      <Box color="red">
-        <b>ERROR: Department {name} could not be found!</b>
-      </Box>
-    );
-  }
-
   return (
-    <Box>
-      <Stack
-        vertical
-        fill>
-        {jobs.head
-          && <JobRow className={`${className} head`} job={jobs.head} />}
-        {jobs.jobs.map((job) => {
-          if (job === jobs.head) {
-            return null;
-          }
+    <ServerPreferencesFetcher
+      render={(data) => {
+        if (!data) {
+          return null;
+        }
 
-          return <JobRow className={className} key={job.name} job={job} />;
-        })}
-      </Stack>
-    </Box>
+        const { departments, jobs } = data.jobs;
+        const department = departments[name];
+
+        // This isn't necessarily a bug, it's like this
+        // so that you can remove entire departments without
+        // having to edit the UI.
+        // This is used in events, for instance.
+        if (!department) {
+          return null;
+        }
+
+        const jobsForDepartment = sortJobs(
+          Object.entries(jobs).filter(
+            ([_, job]) => job.department === name
+          ),
+          department.head
+        );
+
+        return (
+          <Box>
+            <Stack
+              vertical
+              fill>
+              {jobsForDepartment.map(([name, job]) => {
+                return (<JobRow
+                  className={classes([className, name === department.head && "head"])}
+                  key={name}
+                  job={job}
+                  name={name}
+                />);
+              })}
+            </Stack>
+
+            {children}
+          </Box>
+        );
+      }}
+    />
   );
 };
 
@@ -640,36 +647,35 @@ export const JobsPage = (props, context) => {
 
               <PriorityHeaders />
 
-              <Department
-                department={Departments.Engineering}
-                name="Engineering" />
+              <Department department="Engineering">
+                <Gap amount={6} />
+              </Department>
 
-              <Gap amount={6} />
+              <Department department="Science">
+                <Gap amount={6} />
+              </Department>
 
-              <Department
-                department={Departments.Science}
-                name="Science" />
-
-              <Gap amount={6} />
-
-              <Department
-                department={Departments.Silicon}
-                name="Silicon" />
-
-              <Gap amount={12} />
+              <Department department="Silicon">
+                <Gap amount={12} />
+              </Department>
 
               <Department
-                department={Departments.Assistant}
-                name="Assistant" />
+                department="Assistant"
+              />
             </Stack.Item>
 
             <Stack.Item mr={1}>
               <PriorityHeaders />
-              <Department department={Departments.Captain} name="Captain" />
-              <Gap amount={6} />
-              <Department department={Departments.Service} name="Service" />
-              <Gap amount={6} />
-              <Department department={Departments.Cargo} name="Supply" />
+
+              <Department department="Captain">
+                <Gap amount={6} />
+              </Department>
+
+              <Department department="Service">
+                <Gap amount={6} />
+              </Department>
+
+              <Department department="Cargo" />
             </Stack.Item>
 
             <Stack.Item>
@@ -677,15 +683,13 @@ export const JobsPage = (props, context) => {
 
               <PriorityHeaders />
 
-              <Department
-                department={Departments.Security}
-                name="Security" />
-
-              <Gap amount={6} />
+              <Department department="Security">
+                <Gap amount={6} />
+              </Department>
 
               <Department
-                department={Departments.Medical}
-                name="Medical" />
+                department="Medical"
+              />
             </Stack.Item>
             MOJAVE EDIT REMOVAL END - DEPARTMENTS*/}
 
