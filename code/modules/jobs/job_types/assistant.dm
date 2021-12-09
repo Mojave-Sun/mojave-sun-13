@@ -47,7 +47,12 @@ Assistant
 		else
 			uniform = /obj/item/clothing/under/color/jumpskirt/random
 
+<<<<<<< HEAD
 /datum/outfit/job/assistant/proc/give_grey_suit(mob/living/carbon/human/target)
+=======
+	//We don't cache these, because they can delete on init
+	//Too fragile, better to just eat the cost
+>>>>>>> 9b605b9cc0a... Speeds up the preference menu, significantly. Adds object pooling, other stuff too (#63225)
 	if (target.jumpsuit_style == PREF_SUIT)
 		uniform = /obj/item/clothing/under/color/grey
 	else
