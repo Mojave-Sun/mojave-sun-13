@@ -106,6 +106,7 @@
 				pai.master_dna = M.dna.unique_enzymes
 				to_chat(pai, span_notice("You have been bound to a new master."))
 				pai.emittersemicd = FALSE
+<<<<<<< HEAD
 		if(href_list["wipe"])
 			var/confirm = tgui_alert(usr, "Are you CERTAIN you wish to delete the current personality? This action cannot be undone.", "Personality Wipe", list("Yes", "No"))
 			if(confirm == "Yes")
@@ -132,6 +133,10 @@
 			to_chat(pai,span_warning("Your owner has [transmit_holder ? "enabled" : "disabled"] your [transmitting ? "outgoing" : "incoming"] radio transmissions!"))
 		if(href_list["setlaws"])
 			var/newlaws = stripped_multiline_input(usr, "Enter any additional directives you would like your pAI personality to follow. Note that these directives will not override the personality's allegiance to its imprinted master. Conflicting directives will be ignored.", "pAI Directive Configuration", pai.laws.supplied[1], MAX_MESSAGE_LEN)
+=======
+		if("set_laws")
+			var/newlaws = tgui_input_text(usr, "Enter any additional directives you would like your pAI personality to follow. Note that these directives will not override the personality's allegiance to its imprinted master. Conflicting directives will be ignored.", "pAI Directive Configuration", pai.laws.supplied[1], MAX_MESSAGE_LEN, TRUE)
+>>>>>>> 1052bc19ed2... TGUI input box conversions 1 (#63313)
 			if(newlaws && pai)
 				pai.add_supplied_law(0,newlaws)
 		if(href_list["toggle_holo"])
