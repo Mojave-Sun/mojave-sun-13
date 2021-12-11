@@ -9,6 +9,11 @@
 	anchored = FALSE
 	health = 100
 	maxHealth = 100
+<<<<<<< HEAD
+=======
+
+	maints_access_required = list(ACCESS_ROBOTICS, ACCESS_JANITOR)
+>>>>>>> 324a33f606a... Bot code improvement part 3 - Removes bot core. (#63321)
 	radio_key = /obj/item/encryptionkey/headset_service
 	radio_channel = RADIO_CHANNEL_SERVICE //Service
 	bot_type = HYGIENE_BOT
@@ -221,8 +226,3 @@
 		A.fire_act()  //lol pranked no cleaning besides that
 	else
 		A.wash(CLEAN_WASH)
-
-
-
-/obj/machinery/bot_core/hygienebot
-	req_one_access = list(ACCESS_JANITOR, ACCESS_ROBOTICS)

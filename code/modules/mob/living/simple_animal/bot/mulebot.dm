@@ -25,6 +25,10 @@
 	mob_size = MOB_SIZE_LARGE
 	buckle_prevents_pull = TRUE // No pulling loaded shit
 
+<<<<<<< HEAD
+=======
+	maints_access_required = list(ACCESS_ROBOTICS, ACCESS_CARGO)
+>>>>>>> 324a33f606a... Bot code improvement part 3 - Removes bot core. (#63321)
 	radio_key = /obj/item/encryptionkey/headset_cargo
 	radio_channel = RADIO_CHANNEL_SUPPLY
 
@@ -873,6 +877,3 @@
 #undef ANNOYED
 #undef DELIGHT
 #undef CHIME
-
-/obj/machinery/bot_core/mulebot
-	req_access = list(ACCESS_CARGO)

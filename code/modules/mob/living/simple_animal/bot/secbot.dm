@@ -10,6 +10,10 @@
 	damage_coeff = list(BRUTE = 0.5, BURN = 0.7, TOX = 0, CLONE = 0, STAMINA = 0, OXY = 0)
 	pass_flags = PASSMOB | PASSFLAPS
 
+<<<<<<< HEAD
+=======
+	maints_access_required = list(ACCESS_SECURITY)
+>>>>>>> 324a33f606a... Bot code improvement part 3 - Removes bot core. (#63321)
 	radio_key = /obj/item/encryptionkey/secbot //AI Priv + Security
 	radio_channel = RADIO_CHANNEL_SECURITY //Security channel
 	bot_type = SEC_BOT
@@ -490,9 +494,6 @@
 		if(!istype(C) || !C || in_range(src, target))
 			return
 		knockOver(C)
-
-/obj/machinery/bot_core/secbot
-	req_access = list(ACCESS_SECURITY)
 
 /// Returns false if the current target is unable to pay the fair_market_price for being arrested/detained
 /mob/living/simple_animal/bot/secbot/proc/check_nap_violations()

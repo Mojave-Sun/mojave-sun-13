@@ -8,6 +8,11 @@
 	anchored = FALSE
 	health = 25
 	maxHealth = 25
+<<<<<<< HEAD
+=======
+
+	maints_access_required = list(ACCESS_ROBOTICS, ACCESS_JANITOR)
+>>>>>>> 324a33f606a... Bot code improvement part 3 - Removes bot core. (#63321)
 	radio_key = /obj/item/encryptionkey/headset_service
 	radio_channel = RADIO_CHANNEL_SERVICE //Service
 	bot_type = CLEAN_BOT
@@ -52,6 +57,16 @@
 
 	var/ascended = FALSE // if we have all the top titles, grant achievements to living mobs that gaze upon our cleanbot god
 
+<<<<<<< HEAD
+=======
+/mob/living/simple_animal/bot/cleanbot/autopatrol
+	bot_mode_flags = BOT_MODE_ON | BOT_MODE_AUTOPATROL | BOT_MODE_REMOTE_ENABLED | BOT_MODE_PAI_CONTROLLABLE
+
+/mob/living/simple_animal/bot/cleanbot/medbay
+	name = "Scrubs, MD"
+	maints_access_required = list(ACCESS_ROBOTICS, ACCESS_JANITOR, ACCESS_MEDICAL)
+	bot_mode_flags = ~(BOT_MODE_ON | BOT_MODE_REMOTE_ENABLED)
+>>>>>>> 324a33f606a... Bot code improvement part 3 - Removes bot core. (#63321)
 
 /mob/living/simple_animal/bot/cleanbot/proc/deputize(obj/item/W, mob/user)
 	if(in_range(src, user))
@@ -384,6 +399,7 @@
 	do_sparks(3, TRUE, src)
 	..()
 
+<<<<<<< HEAD
 /mob/living/simple_animal/bot/cleanbot/medbay
 	name = "Scrubs, MD"
 	bot_core_type = /obj/machinery/bot_core/cleanbot/medbay
@@ -392,6 +408,8 @@
 /obj/machinery/bot_core/cleanbot
 	req_one_access = list(ACCESS_JANITOR, ACCESS_ROBOTICS)
 
+=======
+>>>>>>> 324a33f606a... Bot code improvement part 3 - Removes bot core. (#63321)
 // Variables sent to TGUI
 /mob/living/simple_animal/bot/cleanbot/ui_data(mob/user)
 	var/list/data = ..()
@@ -419,6 +437,3 @@
 			drawn = !drawn
 	get_targets()
 	return
-
-/obj/machinery/bot_core/cleanbot/medbay
-	req_one_access = list(ACCESS_JANITOR, ACCESS_ROBOTICS, ACCESS_MEDICAL)
