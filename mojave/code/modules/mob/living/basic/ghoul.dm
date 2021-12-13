@@ -1,21 +1,25 @@
 /mob/living/basic/ms13/ghoul
 	name = "feral ghoul"
-	desc = "A being from a realm with only 2 dimensions. At least it's trying to stay faced towards you."
+	desc = "A rotting, deformed ghoul that has gone feral either due to excess radiation exposure or simply the test of time."
 	icon = 'mojave/icons/mob/ms13enemies.dmi'
 	icon_state = "feralghoul"
+	icon_dead = "feralghoul_dead"
 	mob_biotypes = MOB_HUMANOID
 	gender = MALE
-	health = 100
-	maxHealth = 100
-	speed = 0.5
+	health = 120
+	maxHealth = 120
+	speed = 0
 	attack_verb_continuous = "tears"
 	attack_verb_simple = "claws"
 	melee_damage_lower = 10
-	melee_damage_upper = 10
+	melee_damage_upper = 15
 	attack_sound = 'sound/weapons/punch1.ogg'
 	combat_mode = TRUE
 	faction = list("ghoul")
 	speak_emote = list("grumbles","growls")
+	sharpness = SHARP_EDGED
+	wound_bonus = 10
+	bare_wound_bonus = 5
 
 	ai_controller = /datum/ai_controller/basic_controller/ms13/ghoul
 
@@ -45,24 +49,27 @@
 
 /mob/living/basic/ms13/ghoul/brown
 	icon_state = "feralghoul_brown"
+	icon_dead = "feralghoul_brown_dead"
 
 /mob/living/basic/ms13/ghoul/frozen
 	name = "frozen feral ghoul"
-	desc = "A frozen corpse that has decided to seek heat once more. It's a miracle they can walk with all that ice in them."
+	desc = "A frozen feral ghoul that has decided to seek heat once more. It's a miracle they can walk with all that ice in them."
 	icon_state = "iceghoul"
-	health = 110
-	maxHealth = 110
+	icon_dead = "iceghoul_dead"
+	health = 160
+	maxHealth = 160
+	speed = 0.75
 	melee_damage_lower = 10
-	melee_damage_upper = 25
+	melee_damage_upper = 20
 
 /mob/living/basic/ms13/ghoul/radioactive
 	name = "glowing feral ghoul"
 	desc = "A glowing, calloused ghoul. It looks like it has spent is entire lifetime sitting in a radioactive lake, as the damn thing can probably power a building if you hooked it up."
 	icon_state = "glowinghoul"
-	health = 130
-	maxHealth = 130
-	melee_damage_lower = 5
-	melee_damage_upper = 30
-	speed = 0.9
+	icon_dead = "glowinghoul_dead"
+	health = 145
+	maxHealth = 145
+	melee_damage_lower = 15
+	melee_damage_upper = 25
 	light_range = 2
 	light_color = "#4ba54f"
