@@ -1,4 +1,3 @@
-/* MOJAVE SUN EDIT - Moved to Modular Folder
 /*
 
 	Hello and welcome to sprite_accessories: For sprite accessories, such as hair,
@@ -17,6 +16,7 @@
 	from doing this unless you absolutely know what you are doing, and have defined a
 	conversion in savefile.dm
 */
+/* MOJAVE - moved to mojave directory
 /proc/init_sprite_accessory_subtypes(prototype, list/L, list/male, list/female,roundstart = FALSE)//Roundstart argument builds a specific list for roundstart parts where some parts may be locked
 	if(!istype(L))
 		L = list()
@@ -796,7 +796,7 @@
 /datum/sprite_accessory/hair/wisp
 	name = "Wisp"
 	icon_state = "hair_wisp"
-
+*/
 /*
 /////////////////////////////////////
 /  =---------------------------=    /
@@ -895,7 +895,7 @@
 /////////////////////////////
 // Facial Hair Definitions //
 /////////////////////////////
-
+/* MOJAVE - moved to mojave directory
 /datum/sprite_accessory/facial_hair
 	icon = 'icons/mob/human_face.dmi'
 	gender = MALE // barf (unless you're a dorf, dorfs dig chix w/ beards :P)
