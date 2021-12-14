@@ -4,6 +4,9 @@
 //NEVER HAVE ANYTHING BELOW THIS PLANE ADJUST IF YOU NEED MORE SPACE
 #define LOWEST_EVER_PLANE -200
 
+#define FIELD_OF_VISION_BLOCKER_PLANE -199
+#define FIELD_OF_VISION_BLOCKER_RENDER_TARGET "*FIELD_OF_VISION_BLOCKER_RENDER_TARGET"
+
 #define CLICKCATCHER_PLANE -99
 
 #define PLANE_SPACE -95
@@ -17,6 +20,7 @@
 #define GRAVITY_PULSE_PLANE -12 //MOJAVE MODULE OUTDOOR_EFFECTS
 #define GRAVITY_PULSE_RENDER_TARGET "*GRAVPULSE_RENDER_TARGET"
 
+<<<<<<< HEAD
 #define OPENSPACE_LAYER 600 //Openspace layer over all
 #define OPENSPACE_PLANE -10 //Openspace plane below all turfs
 #define OPENSPACE_BACKDROP_PLANE -9 //Black square just over openspace plane to guaranteed cover all in openspace turf
@@ -30,6 +34,11 @@
 #define UNDER_FRILL_RENDER_TARGET "*UNDER_RENDER_TARGET" //MOJAVE SUN EDIT - Wallening Testmerge
 #define FRILL_PLANE -2 //MOJAVE SUN EDIT - Wallening Testmerge
 #define OVER_FRILL_PLANE -1 //MOJAVE SUN EDIT - Wallening Testmerge
+=======
+#define FLOOR_PLANE -7
+#define GAME_PLANE -4
+#define GAME_PLANE_FOV_HIDDEN -3
+>>>>>>> 680ca7d3b9e... Field of View and Blindness improvements [bounty + upstream push] (#63312)
 
 #define SPACE_LAYER 1.8
 //#define TURF_LAYER 2 //For easy recordkeeping; this is a byond define
@@ -175,6 +184,7 @@
 #define BLIND_LAYER 4
 #define CRIT_LAYER 5
 #define CURSE_LAYER 6
+#define FOV_EFFECTS_LAYER 10000 //Blindness effects are not layer 4, they lie to you
 
 
 //-------------------- Rendering ---------------------
