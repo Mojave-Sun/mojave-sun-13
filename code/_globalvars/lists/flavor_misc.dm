@@ -7,6 +7,7 @@ GLOBAL_LIST_EMPTY(facial_hairstyles_list) //stores /datum/sprite_accessory/facia
 GLOBAL_LIST_EMPTY(facial_hairstyles_male_list) //stores only hair names
 GLOBAL_LIST_EMPTY(facial_hairstyles_female_list) //stores only hair names
 GLOBAL_LIST_EMPTY(hair_gradients_list) //stores /datum/sprite_accessory/hair_gradient indexed by name
+GLOBAL_LIST_EMPTY(facial_hair_gradients_list) //stores /datum/sprite_accessory/facial_hair_gradient indexed by name
 	//Hairstyles MS13
 GLOBAL_LIST_EMPTY(hairstyles_bald_list) //stores only hair names
 GLOBAL_LIST_EMPTY(hairstyles_short_list) //stores only hair names
