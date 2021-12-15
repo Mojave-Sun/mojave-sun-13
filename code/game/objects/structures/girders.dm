@@ -59,10 +59,15 @@
 		if(istype(W, /obj/item/stack/rods))
 			var/obj/item/stack/rods/S = W
 			if(state == GIRDER_DISPLACED)
+<<<<<<< HEAD
 				if(S.get_amount() < 2)
 					to_chat(user, span_warning("You need at least two rods to create a false wall!"))
+=======
+				if(S.get_amount() < 5)
+					to_chat(user, span_warning("You need at least five rods to create a false wall!"))
+>>>>>>> d69dd1f1dd2... Fixed rough iron false wall alert text and rough iron wall deconstruction amount. (#63389)
 					return
-				to_chat(user, span_notice("You start building a reinforced false wall..."))
+				to_chat(user, span_notice("You start building a false wall..."))
 				if(do_after(user, 20, target = src))
 					if(S.get_amount() < 2)
 						return
