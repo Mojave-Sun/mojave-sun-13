@@ -319,7 +319,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 				dat += "<h4>Utilities</h4>"
 				dat += "<ul>"
 				if (cartridge)
-					if(cartridge.bot_access_flags)
+					if(!isnull(cartridge.bot_access))
 						dat += "<li><a href='byond://?src=[REF(src)];choice=[PDA_UI_BOTS_ACCESS]'>[PDAIMG(medbot)]Bots Access</a></li>"
 					if (cartridge.access & CART_JANITOR)
 						dat += "<li><a href='byond://?src=[REF(src)];choice=[PDA_UI_JANNIE_LOCATOR]'>[PDAIMG(bucket)]Custodial Locator</a></li>"
@@ -363,7 +363,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 				dat += "<a href='byond://?src=[REF(src)];choice=Toggle Ringer'>[PDAIMG(bell)]Ringer: [silent == 1 ? "Off" : "On"]</a> | "
 				dat += "<a href='byond://?src=[REF(src)];choice=Toggle Messenger'>[PDAIMG(mail)]Send / Receive: [toff == 1 ? "Off" : "On"]</a> | "
 				dat += "<a href='byond://?src=[REF(src)];choice=Ringtone'>[PDAIMG(bell)]Set Ringtone</a> | "
-				dat += "<a href='byond://?src=[REF(src)];choice=21'>[PDAIMG(mail)]Messages</a><br>"
+				dat += "<a href='byond://?src=[REF(src)];choice=[PDA_UI_READ_MESSAGES]'>[PDAIMG(mail)]Messages</a><br>"
 				dat += "<a href='byond://?src=[REF(src)];choice=Sorting Mode'>Sorted by: [sort_by_job ? "Job" : "Name"]</a>"
 
 				if(cartridge)
@@ -388,7 +388,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 					dat += "None detected.<br>"
 				else if(cartridge?.spam_enabled)
 					dat += "<a href='byond://?src=[REF(src)];choice=MessageAll'>Send To All</a>"
-			if(6)
+			if(PDA_UI_SKILL_TRACKER)
 				dat += "<h4>[PDAIMG(mail)] ExperTrak® Skill Tracker V4.26.2</h4>"
 				dat += "<i>Thank you for choosing ExperTrak® brand software! ExperTrak® inc. is proud to be a Nanotrasen employee expertise and effectiveness department subsidary!</i>"
 				dat += "<br><br>This software is designed to track and monitor your skill development as a Nanotrasen employee. Your job performance across different fields has been quantified and categorized below.<br>"
@@ -401,7 +401,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 						var/exp = targetmind.get_skill_exp(type)
 						var/xp_prog_to_level = targetmind.exp_needed_to_level_up(type)
 						var/xp_req_to_level = 0
-						if (xp_prog_to_level)//is it even possible to level up?
+						if (xp_prog_to_level && lvl_num < length(SKILL_EXP_LIST)) // is it even possible to level up?
 							xp_req_to_level = SKILL_EXP_LIST[lvl_num+1] - SKILL_EXP_LIST[lvl_num]
 						dat += "<HR><b>[S.name]</b>"
 						dat += "<br><i>[S.desc]</i>"
@@ -416,7 +416,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 						if (lvl_num >= length(SKILL_EXP_LIST) && !(type in targetmind.skills_rewarded))
 							dat += "<br><a href='byond://?src=[REF(src)];choice=SkillReward;skill=[type]'>Contact the Professional [S.title] Association</a>"
 						dat += "</li></ul>"
-			if(21)
+			if(PDA_UI_READ_MESSAGES)
 				if(icon_alert && !istext(icon_alert))
 					cut_overlay(icon_alert)
 					icon_alert = initial(icon_alert)
@@ -429,7 +429,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 				dat += tnote
 				dat += "<br>"
 
-			if (3)
+			if (PDA_UI_ATMOS_SCAN)
 				dat += "<h4>[PDAIMG(atmos)] Atmospheric Readings</h4>"
 
 				var/turf/T = user.loc
@@ -544,7 +544,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 				if(!silent)
 					playsound(src, 'sound/machines/terminal_select.ogg', 15, TRUE)
 			if(PDA_UI_READ_MESSAGES)
-				ui_mode = PDA_UI_MESSENGER
+				ui_mode = PDA_UI_READ_MESSAGES
 				if(!silent)
 					playsound(src, 'sound/machines/terminal_select.ogg', 15, TRUE)
 			if(PDA_UI_ATMOS_SCAN)
@@ -678,6 +678,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 						pai.attack_self(U)
 					if("2") // Eject pAI device
 						usr.put_in_hands(pai)
+						pai.slotted = FALSE
 						to_chat(usr, span_notice("You remove the pAI from the [name]."))
 
 //SKILL FUNCTIONS===================================
@@ -766,12 +767,12 @@ GLOBAL_LIST_EMPTY(PDAs)
 	if((last_text && world.time < last_text + 10) || (everyone && last_everyone && world.time < last_everyone + PDA_SPAM_DELAY))
 		return FALSE
 
-	var/list/filter_result = is_ic_filtered_for_pdas(message)
+	var/list/filter_result = CAN_BYPASS_FILTER(user) ? null : is_ic_filtered_for_pdas(message)
 	if (filter_result)
 		REPORT_CHAT_FILTER_TO_USER(user, filter_result)
 		return FALSE
 
-	var/list/soft_filter_result = is_soft_ic_filtered_for_pdas(message)
+	var/list/soft_filter_result = CAN_BYPASS_FILTER(user) ? null : is_soft_ic_filtered_for_pdas(message)
 	if (soft_filter_result)
 		if(tgui_alert(usr,"Your message contains \"[soft_filter_result[CHAT_FILTER_INDEX_WORD]]\". \"[soft_filter_result[CHAT_FILTER_INDEX_REASON]]\", Are you sure you want to send it?", "Soft Blocked Word", list("Yes", "No")) != "Yes")
 			return FALSE
@@ -1085,6 +1086,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 		if(!user.transferItemToLoc(C, src))
 			return
 		pai = C
+		pai.slotted = TRUE
 		to_chat(user, span_notice("You slot \the [C] into [src]."))
 		update_appearance()
 		updateUsrDialog()
@@ -1169,6 +1171,8 @@ GLOBAL_LIST_EMPTY(PDAs)
 		M.show_message(span_userdanger("Your [src] explodes!"), MSG_VISUAL, span_warning("You hear a loud *pop*!"), MSG_AUDIBLE)
 	else
 		visible_message(span_danger("[src] explodes!"), span_warning("You hear a loud *pop*!"))
+
+	target.client?.give_award(/datum/award/achievement/misc/clickbait, target)
 
 	if(T)
 		T.hotspot_expose(700,125)
