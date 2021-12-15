@@ -1,5 +1,10 @@
 /datum/job/ai
+<<<<<<< HEAD
 	title = "AI"
+=======
+	title = JOB_AI
+	description = "Assist the crew, follow your laws, coordinate your cyborgs."
+>>>>>>> 2834383245d... Makes all default job titles, defines. (#63357)
 	auto_deadmin_role_flags = DEADMIN_POSITION_SILICON
 	faction = FACTION_STATION
 	total_positions = 1

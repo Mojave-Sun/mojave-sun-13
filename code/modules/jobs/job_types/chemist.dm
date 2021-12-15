@@ -1,5 +1,11 @@
 /datum/job/chemist
+<<<<<<< HEAD
 	title = "Chemist"
+=======
+	title = JOB_CHEMIST
+	description = "Supply the doctors with chemicals, make medicine, as well as \
+		less likable substances in the comfort of a fully reinforced room."
+>>>>>>> 2834383245d... Makes all default job titles, defines. (#63357)
 	department_head = list("Chief Medical Officer")
 	faction = FACTION_STATION
 	total_positions = 2

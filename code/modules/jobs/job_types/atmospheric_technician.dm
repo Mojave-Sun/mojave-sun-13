@@ -1,6 +1,12 @@
 /datum/job/atmospheric_technician
+<<<<<<< HEAD
 	title = "Atmospheric Technician"
 	department_head = list("Chief Engineer")
+=======
+	title = JOB_ATMOSPHERIC_TECHNICIAN
+	description = "Ensure the air is breathable on the station, fill oxygen tanks, fight fires, purify the air."
+	department_head = list(JOB_CHIEF_ENGINEER)
+>>>>>>> 2834383245d... Makes all default job titles, defines. (#63357)
 	faction = FACTION_STATION
 	total_positions = 3
 	spawn_positions = 2

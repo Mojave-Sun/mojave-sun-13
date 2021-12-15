@@ -1,7 +1,13 @@
 /datum/job/head_of_security
+<<<<<<< HEAD
 	title = "Head of Security"
+=======
+	title = JOB_HEAD_OF_SECURITY
+	description = "Coordinate security personnel, ensure they are not corrupt, \
+		make sure every department is protected."
+>>>>>>> 2834383245d... Makes all default job titles, defines. (#63357)
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD|DEADMIN_POSITION_SECURITY
-	department_head = list("Captain")
+	department_head = list(JOB_CAPTAIN)
 	head_announce = list(RADIO_CHANNEL_SECURITY)
 	faction = FACTION_STATION
 	total_positions = 1

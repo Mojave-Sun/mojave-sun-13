@@ -1,6 +1,13 @@
 /datum/job/shaft_miner
+<<<<<<< HEAD
 	title = "Shaft Miner"
 	department_head = list("Head of Personnel")
+=======
+	title = JOB_SHAFT_MINER
+	description = "Travel to strange lands. Mine ores. \
+		Meet strange creatures. Kill them for their gold."
+	department_head = list(JOB_HEAD_OF_PERSONNEL)
+>>>>>>> 2834383245d... Makes all default job titles, defines. (#63357)
 	faction = FACTION_STATION
 	total_positions = 3
 	spawn_positions = 3

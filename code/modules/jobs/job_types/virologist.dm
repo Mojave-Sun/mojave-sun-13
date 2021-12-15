@@ -1,6 +1,13 @@
 /datum/job/virologist
+<<<<<<< HEAD
 	title = "Virologist"
 	department_head = list("Chief Medical Officer")
+=======
+	title = JOB_VIROLOGIST
+	description = "Study the effects of various diseases and synthesize a \
+		vaccine for them. Engineer beneficial viruses."
+	department_head = list(JOB_CHIEF_MEDICAL_OFFICER)
+>>>>>>> 2834383245d... Makes all default job titles, defines. (#63357)
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
@@ -31,7 +38,7 @@
 		/obj/item/reagent_containers/glass/bottle/formaldehyde = 10,
 		/obj/item/reagent_containers/glass/bottle/synaptizine = 10,
 		/obj/item/stack/sheet/mineral/plasma = 10,
-		/obj/item/stack/sheet/mineral/uranium = 5
+		/obj/item/stack/sheet/mineral/uranium = 5,
 	)
 	rpg_title = "Plague Doctor"
 	job_flags = NONE 	/// MS13 EDIT -ORIGINAL FLAGS 	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS

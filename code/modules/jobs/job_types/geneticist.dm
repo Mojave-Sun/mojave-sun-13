@@ -1,6 +1,12 @@
 /datum/job/geneticist
+<<<<<<< HEAD
 	title = "Geneticist"
 	department_head = list("Research Director")
+=======
+	title = JOB_GENETICIST
+	description = "Alter genomes, turn monkeys into humans (and vice-versa), and make DNA backups."
+	department_head = list(JOB_RESEARCH_DIRECTOR)
+>>>>>>> 2834383245d... Makes all default job titles, defines. (#63357)
 	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 2

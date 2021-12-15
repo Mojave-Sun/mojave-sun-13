@@ -1,5 +1,12 @@
 /datum/job/captain
+<<<<<<< HEAD
 	title = "Captain"
+=======
+	title = JOB_CAPTAIN
+	description = "Be responsible for the station, manage your Heads of Staff, \
+		keep the crew alive, be prepared to do anything and everything or die \
+		horribly trying."
+>>>>>>> 2834383245d... Makes all default job titles, defines. (#63357)
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD|DEADMIN_POSITION_SECURITY
 	department_head = list("CentCom")
 	faction = FACTION_STATION

@@ -1,6 +1,13 @@
 /datum/job/quartermaster
+<<<<<<< HEAD
 	title = "Quartermaster"
 	department_head = list("Head of Personnel")
+=======
+	title = JOB_QUARTERMASTER
+	description = "Coordinate cargo technicians and shaft miners, assist with \
+		economical purchasing."
+	department_head = list(JOB_HEAD_OF_PERSONNEL)
+>>>>>>> 2834383245d... Makes all default job titles, defines. (#63357)
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1

@@ -1,5 +1,10 @@
 /datum/job/prisoner
+<<<<<<< HEAD
 	title = "Prisoner"
+=======
+	title = JOB_PRISONER
+	description = "Keep yourself occupied in permabrig."
+>>>>>>> 2834383245d... Makes all default job titles, defines. (#63357)
 	department_head = list("The Security Team")
 	faction = FACTION_STATION
 	total_positions = 0

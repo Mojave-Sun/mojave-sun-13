@@ -1,7 +1,14 @@
 /datum/job/research_director
+<<<<<<< HEAD
 	title = "Research Director"
+=======
+	title = JOB_RESEARCH_DIRECTOR
+	description = "Supervise research efforts, ensure Robotics is in working \
+		order, make sure the AI and its Cyborgs aren't rogue, replacing them if \
+		they are"
+>>>>>>> 2834383245d... Makes all default job titles, defines. (#63357)
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
-	department_head = list("Captain")
+	department_head = list(JOB_CAPTAIN)
 	head_announce = list("Science")
 	faction = FACTION_STATION
 	total_positions = 1

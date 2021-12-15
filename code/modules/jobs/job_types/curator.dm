@@ -1,6 +1,13 @@
 /datum/job/curator
+<<<<<<< HEAD
 	title = "Curator"
 	department_head = list("Head of Personnel")
+=======
+	title = JOB_CURATOR
+	description = "Read and write books and hand them to people, stock \
+		bookshelves, report on station news."
+	department_head = list(JOB_HEAD_OF_PERSONNEL)
+>>>>>>> 2834383245d... Makes all default job titles, defines. (#63357)
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1

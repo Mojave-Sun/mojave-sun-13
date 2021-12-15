@@ -1,6 +1,14 @@
 /datum/job/cargo_technician
+<<<<<<< HEAD
 	title = "Cargo Technician"
 	department_head = list("Head of Personnel")
+=======
+	title = JOB_CARGO_TECHNICIAN
+	description = "Distribute supplies to the departments that ordered them, \
+		collect empty crates, load and unload the supply shuttle, \
+		ship bounty cubes."
+	department_head = list(JOB_HEAD_OF_PERSONNEL)
+>>>>>>> 2834383245d... Makes all default job titles, defines. (#63357)
 	faction = FACTION_STATION
 	total_positions = 3
 	spawn_positions = 2

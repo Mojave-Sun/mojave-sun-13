@@ -1,6 +1,13 @@
 /datum/job/doctor
+<<<<<<< HEAD
 	title = "Medical Doctor"
 	department_head = list("Chief Medical Officer")
+=======
+	title = JOB_MEDICAL_DOCTOR
+	description = "Save lives, run around the station looking for victims, \
+		scan everyone in sight"
+	department_head = list(JOB_CHIEF_MEDICAL_OFFICER)
+>>>>>>> 2834383245d... Makes all default job titles, defines. (#63357)
 	faction = FACTION_STATION
 	total_positions = 5
 	spawn_positions = 3

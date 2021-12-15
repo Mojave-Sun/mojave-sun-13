@@ -1,6 +1,13 @@
 /datum/job/chief_medical_officer
+<<<<<<< HEAD
 	title = "Chief Medical Officer"
 	department_head = list("Captain")
+=======
+	title = JOB_CHIEF_MEDICAL_OFFICER
+	description = "Coordinate doctors and other medbay employees, ensure they \
+		know how to save lives, check for injuries on the crew monitor."
+	department_head = list(JOB_CAPTAIN)
+>>>>>>> 2834383245d... Makes all default job titles, defines. (#63357)
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	head_announce = list(RADIO_CHANNEL_MEDICAL)
 	faction = FACTION_STATION

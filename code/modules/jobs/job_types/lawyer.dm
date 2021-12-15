@@ -1,6 +1,13 @@
 /datum/job/lawyer
+<<<<<<< HEAD
 	title = "Lawyer"
 	department_head = list("Head of Personnel")
+=======
+	title = JOB_LAWYER
+	description = "Advocate for prisoners, create law-binding contracts, \
+		ensure Security is following protocol and Space Law."
+	department_head = list(JOB_HEAD_OF_PERSONNEL)
+>>>>>>> 2834383245d... Makes all default job titles, defines. (#63357)
 	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 2

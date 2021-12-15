@@ -1,6 +1,12 @@
 /datum/job/bartender
+<<<<<<< HEAD
 	title = "Bartender"
 	department_head = list("Head of Personnel")
+=======
+	title = JOB_BARTENDER
+	description = "Serve booze, mix drinks, keep the crew drunk."
+	department_head = list(JOB_HEAD_OF_PERSONNEL)
+>>>>>>> 2834383245d... Makes all default job titles, defines. (#63357)
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1

@@ -1,6 +1,12 @@
 /datum/job/mime
+<<<<<<< HEAD
 	title = "Mime"
 	department_head = list("Head of Personnel")
+=======
+	title = JOB_MIME
+	description = "..."
+	department_head = list(JOB_HEAD_OF_PERSONNEL)
+>>>>>>> 2834383245d... Makes all default job titles, defines. (#63357)
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1

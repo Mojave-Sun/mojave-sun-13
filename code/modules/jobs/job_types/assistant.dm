@@ -4,7 +4,12 @@ GLOBAL_DATUM(colored_assistant, /datum/colored_assistant)
 Assistant
 */
 /datum/job/assistant
+<<<<<<< HEAD
 	title = "Assistant"
+=======
+	title = JOB_ASSISTANT
+	description = "Get your space legs, assist people, ask the HoP to give you a job."
+>>>>>>> 2834383245d... Makes all default job titles, defines. (#63357)
 	faction = FACTION_STATION
 	total_positions = 5
 	spawn_positions = 5
