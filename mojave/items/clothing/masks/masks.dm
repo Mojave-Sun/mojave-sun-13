@@ -15,6 +15,7 @@
 /obj/item/clothing/mask/ms13/bandana
 	name = "black bandana"
 	desc = "A black bandana useful for keeping dust, snow, and prying eyes away from your face."
+	icon_state = "bandana"
 	inhand_icon_state = "winterglovesbrown"
 	flags_inv = HIDEFACE
 

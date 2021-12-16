@@ -4,6 +4,8 @@
 	icon = 'mojave/icons/objects/melee/melee_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
+	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
+	worn_icon_state = "empty_placeholder"
 	icon_state = "hammer"
 	inhand_icon_state = "hammer"
 	hitsound = 'sound/weapons/genhit3.ogg'
