@@ -17,6 +17,7 @@
 #define GRAVITY_PULSE_PLANE -12 //MOJAVE MODULE OUTDOOR_EFFECTS
 #define GRAVITY_PULSE_RENDER_TARGET "*GRAVPULSE_RENDER_TARGET"
 
+<<<<<<< HEAD
 #define OPENSPACE_LAYER 600 //Openspace layer over all
 #define OPENSPACE_PLANE -10 //Openspace plane below all turfs
 #define OPENSPACE_BACKDROP_PLANE -9 //Black square just over openspace plane to guaranteed cover all in openspace turf
@@ -30,6 +31,12 @@
 #define UNDER_FRILL_RENDER_TARGET "*UNDER_RENDER_TARGET" //MOJAVE SUN EDIT - Wallening Testmerge
 #define FRILL_PLANE -2 //MOJAVE SUN EDIT - Wallening Testmerge
 #define OVER_FRILL_PLANE -1 //MOJAVE SUN EDIT - Wallening Testmerge
+=======
+#define FLOOR_PLANE -7
+#define GAME_PLANE -4
+#define GAME_PLANE_FOV_HIDDEN -3
+#define ABOVE_GAME_PLANE -2
+>>>>>>> 19329cd74a3... Fixes objects with bad planes and FoV bugs (#63412)
 
 #define SPACE_LAYER 1.8
 //#define TURF_LAYER 2 //For easy recordkeeping; this is a byond define
