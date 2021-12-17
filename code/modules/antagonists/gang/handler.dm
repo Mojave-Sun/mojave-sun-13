@@ -152,6 +152,7 @@ GLOBAL_VAR(families_override_theme)
  * * return_if_no_gangs - Boolean that determines if the proc should return FALSE should it find no eligible family members. Should be used for dynamic only.
  */
 /datum/gang_handler/proc/post_setup_analogue(return_if_no_gangs = FALSE)
+<<<<<<< HEAD
 	var/replacement_gangsters = 0
 	for(var/datum/mind/gangbanger in gangbangers)
 		if(!ishuman(gangbanger.current))
@@ -180,6 +181,22 @@ GLOBAL_VAR(families_override_theme)
 
 	var/list/gangs_to_use = current_theme.involved_gangs
 	var/amount_of_gangs = gangs_to_use.len
+=======
+	var/list/gangs_to_use = current_theme.involved_gangs.Copy()
+	var/amount_of_gangs = gangs_to_use.len
+	var/amount_of_gangsters = amount_of_gangs * current_theme.starting_gangsters
+	for(var/_ in 1 to amount_of_gangsters)
+		if(!gangbangers.len) // We ran out of candidates!
+			break
+		if(!gangs_to_use.len)
+			gangs_to_use = current_theme.involved_gangs.Copy()
+		var/gang_to_use = pick_n_take(gangs_to_use) // Evenly distributes Leaders among the gangs
+		var/datum/mind/gangster_mind = pick_n_take(gangbangers)
+		var/datum/antagonist/gang/new_gangster = new gang_to_use()
+		new_gangster.handler = src
+		new_gangster.starter_gangster = TRUE
+		gangster_mind.add_antag_datum(new_gangster)
+>>>>>>> 6d48b3db992... Fixes #63399, Fixes Families runtimes and not making enough gang leaders #63399 (#63419)
 
 	for(var/_ in 1 to amount_of_gangs)
 		var/gang_to_use = pick_n_take(gangs_to_use)
