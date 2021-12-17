@@ -35,6 +35,14 @@
 	///Played when someone punches the creature.
 	var/attacked_sound = "punch" //This should be an element
 
+	//MS13 EDIT START - Idle sounds ported from simple mobs, and projectile types for ranged attacks.
+	var/idlesound = null
+	var/idlechance = 5
+	var/projectiletype //set ONLY it and NULLIFY casingtype var, if we have ONLY projectile
+	var/projectilesound
+	var/casingtype //set ONLY it and NULLIFY projectiletype, if we have projectile IN CASING
+	//MS13 EDIT END
+
 	///What kind of objects this mob can smash.
 	var/environment_smash = ENVIRONMENT_SMASH_NONE
 
@@ -105,6 +113,13 @@
 	///Automatic stamina re-gain
 	if(staminaloss > 0)
 		adjustStaminaLoss(-stamina_recovery * delta_time, FALSE, TRUE)
+
+//MS13 EDIT - ports idlesound from simplemob
+	if(idlesound)
+		if (prob(idlechance))
+			var/chosen_sound = pick(idlesound)
+			playsound(src, chosen_sound, 60, FALSE)
+//MS13 EDIT END
 
 /mob/living/basic/say_mod(input, list/message_mods = list())
 	if(length(speak_emote))
