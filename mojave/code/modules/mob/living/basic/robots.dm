@@ -156,9 +156,7 @@
 	attack_verb_simple = "saw"
 	attack_sound = 'sound/weapons/circsawhit.ogg'
 	ai_controller = /datum/ai_controller/basic_controller/ms13/robot/rangedrobot
-	projectiletype = /obj/projectile/bullet/ms13/plasma/gutsy
-	projectilesound = 'mojave/sound/ms13weapons/gunsounds/plasrifle/plasma_3.ogg'
 
-/mob/living/basic/ms13/robot/handy/laser/Initialize(mapload)
+/mob/living/basic/ms13/robot/handy/gutsy/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/ranged_attacks, null, 'mojave/sound/ms13weapons/gunsounds/plasrifle/plasma_3.ogg', /obj/projectile/bullet/ms13/plasma/gutsy)
