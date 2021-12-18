@@ -14,6 +14,7 @@
  */
 /mob/proc/throw_alert(category, type, severity, obj/new_master, override = FALSE)
 
+	// MOJAVE EDIT BEGIN
 	// If we have an offscreen hud, and this alert has an offscreen alternative, display it instead.
 	// and wipe out severity
 	// @kosh I know this looks gross, it is midnight and I want to go to bed xoxox
@@ -22,6 +23,7 @@
 		if(initial(alert_type.hudbar_alternative) && hud_used?.contains_off_screen_hud) // MS Health doll
 			type = initial(alert_type.hudbar_alternative)
 			severity = null
+	// MOJAVE EDIT END
 
 	if(!category || QDELETED(src))
 		return
@@ -133,80 +135,80 @@
 	name = "Choking (No O2)"
 	desc = "You're not getting enough oxygen. Find some good air before you pass out! The box in your backpack has an oxygen tank and breath mask in it."
 	icon_state = "not_enough_oxy"
-	hudbar_alternative = /atom/movable/screen/alert/hudbar/oxy
+	hudbar_alternative = /atom/movable/screen/alert/hudbar/oxy // MS Health doll
 
 /atom/movable/screen/alert/too_much_oxy
 	name = "Choking (O2)"
 	desc = "There's too much oxygen in the air, and you're breathing it in! Find some good air before you pass out!"
 	icon_state = "too_much_oxy"
-	hudbar_alternative = /atom/movable/screen/alert/hudbar/toxin
+	hudbar_alternative = /atom/movable/screen/alert/hudbar/toxin // MS Health doll
 
 /atom/movable/screen/alert/not_enough_nitro
 	name = "Choking (No N2)"
 	desc = "You're not getting enough nitrogen. Find some good air before you pass out!"
 	icon_state = "not_enough_nitro"
-	hudbar_alternative = /atom/movable/screen/alert/hudbar/oxy
+	hudbar_alternative = /atom/movable/screen/alert/hudbar/oxy // MS Health doll
 
 /atom/movable/screen/alert/too_much_nitro
 	name = "Choking (N2)"
 	desc = "There's too much nitrogen in the air, and you're breathing it in! Find some good air before you pass out!"
 	icon_state = "too_much_nitro"
-	hudbar_alternative = /atom/movable/screen/alert/hudbar/toxin
+	hudbar_alternative = /atom/movable/screen/alert/hudbar/toxin // MS Health doll
 
 /atom/movable/screen/alert/not_enough_co2
 	name = "Choking (No CO2)"
 	desc = "You're not getting enough carbon dioxide. Find some good air before you pass out!"
 	icon_state = "not_enough_co2"
-	hudbar_alternative = /atom/movable/screen/alert/hudbar/oxy
+	hudbar_alternative = /atom/movable/screen/alert/hudbar/oxy // MS Health doll
 
 /atom/movable/screen/alert/too_much_co2
 	name = "Choking (CO2)"
 	desc = "There's too much carbon dioxide in the air, and you're breathing it in! Find some good air before you pass out!"
 	icon_state = "too_much_co2"
-	hudbar_alternative = /atom/movable/screen/alert/hudbar/toxin
+	hudbar_alternative = /atom/movable/screen/alert/hudbar/toxin // MS Health doll
 
 /atom/movable/screen/alert/not_enough_plas
 	name = "Choking (No Plasma)"
 	desc = "You're not getting enough plasma. Find some good air before you pass out!"
 	icon_state = "not_enough_plas"
-	hudbar_alternative = /atom/movable/screen/alert/hudbar/oxy
+	hudbar_alternative = /atom/movable/screen/alert/hudbar/oxy // MS Health doll
 
 /atom/movable/screen/alert/too_much_plas
 	name = "Choking (Plasma)"
 	desc = "There's highly flammable, toxic plasma in the air and you're breathing it in. Find some fresh air. The box in your backpack has an oxygen tank and gas mask in it."
 	icon_state = "too_much_plas"
-	hudbar_alternative = /atom/movable/screen/alert/hudbar/toxin
+	hudbar_alternative = /atom/movable/screen/alert/hudbar/toxin // MS Health doll
 
 /atom/movable/screen/alert/not_enough_n2o
 	name = "Choking (No N2O)"
 	desc = "You're not getting enough N2O. Find some good air before you pass out!"
 	icon_state = "not_enough_n2o"
-	hudbar_alternative = /atom/movable/screen/alert/hudbar/oxy
+	hudbar_alternative = /atom/movable/screen/alert/hudbar/oxy // MS Health doll
 
 /atom/movable/screen/alert/too_much_n2o
 	name = "Choking (N2O)"
 	desc = "There's sleeping gas in the air and you're breathing it in. Find some fresh air. The box in your backpack has an oxygen tank and gas mask in it."
 	icon_state = "too_much_n2o"
-	hudbar_alternative = /atom/movable/screen/alert/hudbar/toxin
+	hudbar_alternative = /atom/movable/screen/alert/hudbar/toxin // MS Health doll
 
 //End gas alerts
 /atom/movable/screen/alert/fat
 	name = "Fat"
 	desc = "You ate too much food, lardass. Run around the station and lose some weight."
 	icon_state = "fat"
-	hudbar_alternative = /atom/movable/screen/alert/hudbar/hunger/fat
+	hudbar_alternative = /atom/movable/screen/alert/hudbar/hunger/fat // MS Health doll
 
 /atom/movable/screen/alert/hungry
 	name = "Hungry"
 	desc = "Some food would be good right about now."
 	icon_state = "hungry"
-	hudbar_alternative = /atom/movable/screen/alert/hudbar/hunger
+	hudbar_alternative = /atom/movable/screen/alert/hudbar/hunger // MS Health doll
 
 /atom/movable/screen/alert/starving
 	name = "Starving"
 	desc = "You're severely malnourished. The hunger pains make moving around a chore."
 	icon_state = "starving"
-	hudbar_alternative = /atom/movable/screen/alert/hudbar/hunger/starving
+	hudbar_alternative = /atom/movable/screen/alert/hudbar/hunger/starving // MS Health doll
 
 /atom/movable/screen/alert/gross
 	name = "Grossed out."
@@ -822,7 +824,7 @@ so as to remain in compliance with the most up-to-date laws."
 	var/iCounter = 0 // MS health doll - counter because we skip our hudbar ones
 	for(var/i in 1 to alerts.len)
 		var/atom/movable/screen/alert/alert = alerts[alerts[i]]
-		if( !istype(alert, /atom/movable/screen/alert/hudbar) )// MS health doll - offscreen hud status' have their own spot
+		if( !istype(alert, /atom/movable/screen/alert/hudbar) )// MOJAVE EDIT BEGIN MS health doll - offscreen hud status' have their own spot
 			iCounter++
 			if(alert.icon_state == "template")
 				alert.icon = ui_style
@@ -840,6 +842,7 @@ so as to remain in compliance with the most up-to-date laws."
 				else
 					. = ""
 			alert.screen_loc = .
+			// MOJAVE EDIT END
 		screenmob.client.screen |= alert
 	if(!viewmob)
 		for(var/M in mymob.observers)
