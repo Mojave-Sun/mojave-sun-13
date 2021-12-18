@@ -693,6 +693,7 @@
 /atom/movable/screen/healthdoll
 	name = "health doll"
 	screen_loc = ui_healthdoll
+	icon = 'mojave/icons/hud/ms_ui_health.dmi' // MS Health doll
 
 /atom/movable/screen/healthdoll/Click()
 	if (iscarbon(usr))
@@ -703,11 +704,13 @@
 	icon_state = "fullhealth0"
 	screen_loc = ui_living_healthdoll
 	var/filtered = FALSE //so we don't repeatedly create the mask of the mob every update
+	icon = 'icons/hud/screen_gen.dmi' // MS Health doll
 
 /atom/movable/screen/mood
 	name = "mood"
 	icon_state = "mood5"
 	screen_loc = ui_mood
+	icon = 'mojave/icons/hud/ms_ui_health.dmi' // MS Health doll
 
 /atom/movable/screen/mood/attack_tk()
 	return

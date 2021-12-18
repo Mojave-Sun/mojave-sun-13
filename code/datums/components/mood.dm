@@ -148,19 +148,21 @@
 			if(absmood > highest_absolute_mood)
 				highest_absolute_mood = absmood
 
-	switch(sanity_level)
-		if(1)
-			screen_obj.color = "#2eeb9a"
-		if(2)
-			screen_obj.color = "#86d656"
-		if(3)
-			screen_obj.color = "#4b96c4"
-		if(4)
-			screen_obj.color = "#dfa65b"
-		if(5)
-			screen_obj.color = "#f38943"
-		if(6)
-			screen_obj.color = "#f15d36"
+	// MOJAVE EDIT BEGIN
+	// switch(sanity_level)
+	// 	if(1)
+	// 		screen_obj.color = "#2eeb9a"
+	// 	if(2)
+	// 		screen_obj.color = "#86d656"
+	// 	if(3)
+	// 		screen_obj.color = "#4b96c4"
+	// 	if(4)
+	// 		screen_obj.color = "#dfa65b"
+	// 	if(5)
+	// 		screen_obj.color = "#f38943"
+	// 	if(6)
+	// 		screen_obj.color = "#f15d36"
+	// MOJAVE EDIT END
 
 	if(!conflicting_moodies.len) //no special icons- go to the normal icon states
 		screen_obj.icon_state = "mood[mood_level]"
