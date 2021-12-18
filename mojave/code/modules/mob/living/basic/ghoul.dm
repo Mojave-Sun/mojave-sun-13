@@ -61,6 +61,7 @@
 	speed = 0.5
 	melee_damage_lower = 15
 	melee_damage_upper = 20
+	armour_penetration = 5
 
 /mob/living/basic/ms13/ghoul/radioactive
 	name = "glowing feral ghoul"

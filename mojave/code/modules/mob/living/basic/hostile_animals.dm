@@ -153,6 +153,7 @@
 	maxHealth = 80
 	melee_damage_lower = 15
 	melee_damage_upper = 20
+	armour_penetration = 5
 	speed = 0.5
 	sharpness = SHARP_POINTY
 	wound_bonus = 5
@@ -196,6 +197,7 @@
 	maxHealth = 100
 	melee_damage_lower = 15
 	melee_damage_upper = 20
+	armour_penetration = 10
 	speed = 0.5
 	sharpness = NONE
 	wound_bonus = 5
@@ -222,7 +224,7 @@
 	melee_damage_upper = 20
 	speed = -1
 	sharpness = SHARP_EDGED
-	wound_bonus = 12
+	wound_bonus = 10
 	bare_wound_bonus = 10
 	faction = list("dog_city")
 	/*food_type = list(/obj/item/food/meat/slab)
@@ -242,6 +244,7 @@
 	maxHealth = 250
 	melee_damage_lower = 30
 	melee_damage_upper = 40
+	armour_penetration = 15
 	speed = 2
 	sharpness = SHARP_EDGED
 	wound_bonus = 5
@@ -269,6 +272,7 @@
 	maxHealth = 400
 	melee_damage_lower = 50
 	melee_damage_upper = 60
+	armour_penetration = 10
 	speed = 1.5
 	sharpness = SHARP_EDGED
 	wound_bonus = 10
@@ -294,6 +298,7 @@
 	maxHealth = 500
 	melee_damage_lower = 50
 	melee_damage_upper = 60
+	armour_penetration = 15
 	speed = 2
 	sharpness = NONE
 	wound_bonus = 5
