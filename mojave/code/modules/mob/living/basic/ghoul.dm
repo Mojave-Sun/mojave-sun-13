@@ -45,7 +45,7 @@
 	melee_attack_behavior = /datum/ai_behavior/basic_melee_attack/ms13/ghoul
 
 /datum/ai_behavior/basic_melee_attack/ms13/ghoul
-	action_cooldown = 1.5 SECONDS
+	action_cooldown = 1.2 SECONDS
 
 /mob/living/basic/ms13/ghoul/brown
 	icon_state = "feralghoul_brown"
@@ -56,19 +56,20 @@
 	desc = "A frozen feral ghoul that has decided to seek heat once more. It's a miracle they can walk with all that ice in them."
 	icon_state = "iceghoul"
 	icon_dead = "iceghoul_dead"
-	health = 160
-	maxHealth = 160
-	speed = 0.75
-	melee_damage_lower = 10
+	health = 150
+	maxHealth = 150
+	speed = 0.5
+	melee_damage_lower = 15
 	melee_damage_upper = 20
+	armour_penetration = 5
 
 /mob/living/basic/ms13/ghoul/radioactive
 	name = "glowing feral ghoul"
 	desc = "A glowing, calloused ghoul. It looks like it has spent is entire lifetime sitting in a radioactive lake, as the damn thing can probably power a building if you hooked it up."
 	icon_state = "glowinghoul"
 	icon_dead = "glowinghoul_dead"
-	health = 145
-	maxHealth = 145
+	health = 140
+	maxHealth = 140
 	melee_damage_lower = 15
 	melee_damage_upper = 25
 	light_range = 2

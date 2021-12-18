@@ -35,7 +35,7 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/subway)
 "ag" = (
-/mob/living/simple_animal/hostile/ms13/mirelurk,
+/mob/living/basic/ms13/hostile_animal/mirelurk,
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/sewer)
 "ah" = (
@@ -1018,10 +1018,10 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/subway)
 "dI" = (
-/mob/living/simple_animal/mouse,
 /obj/machinery/light/ms13/bulb{
 	dir = 8
 	},
+/mob/living/simple_animal/mouse,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/vault_atrium_lower)
 "dJ" = (
@@ -1166,10 +1166,6 @@
 	},
 /turf/open/floor/ms13/tile,
 /area/ms13/underground/underground_town)
-"em" = (
-/mob/living/simple_animal/hostile/ms13/robot/protectron/builder,
-/turf/open/floor/ms13/concrete/industrial,
-/area/ms13/underground/subway)
 "en" = (
 /obj/machinery/chem_dispenser/drinks/beer,
 /obj/structure/table/ms13/no_smooth/counter/wood,
@@ -3161,10 +3157,11 @@
 	dir = 1
 	},
 /area/ms13/underground/subway)
-"lY" = (
-/mob/living/simple_animal/hostile/ms13/robot/protectron/builder,
-/turf/open/floor/plating/ms13/ground/mountain,
-/area/ms13/underground/mountain)
+"lX" = (
+/obj/structure/table/ms13/metal,
+/obj/effect/spawner/random/ms13/armor/headgear,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/underground/underground_town)
 "lZ" = (
 /obj/machinery/light/ms13/bulb/industrial{
 	dir = 4
@@ -3334,6 +3331,7 @@
 /obj/structure/chair/ms13/metal/broken{
 	dir = 1
 	},
+/obj/effect/spawner/random/ms13/gun/lowrandom,
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
 "mG" = (
@@ -3419,8 +3417,8 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/underground_town)
 "mU" = (
-/mob/living/basic/ms13/ghoul,
 /obj/structure/ms13/rug/fancy,
+/mob/living/basic/ms13/ghoul,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/underground_town)
 "mV" = (
@@ -3753,7 +3751,7 @@
 /turf/open/floor/ms13/tile/full/green,
 /area/ms13/underground/army_bunker)
 "oi" = (
-/mob/living/simple_animal/hostile/ms13/mirelurk,
+/mob/living/basic/ms13/hostile_animal/mirelurk,
 /turf/open/floor/ms13/sewer,
 /area/ms13/underground/sewer)
 "oj" = (
@@ -4477,9 +4475,7 @@
 /obj/item/ammo_casing,
 /obj/item/ammo_casing,
 /obj/item/ammo_casing,
-/mob/living/simple_animal/hostile/ms13/hellpig{
-	name = "make this a sentry bot when we get them"
-	},
+/mob/living/basic/ms13/hostile_animal/hellpig,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/underground/underground_town)
 "qM" = (
@@ -4656,7 +4652,7 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/mountain)
 "rx" = (
-/mob/living/simple_animal/hostile/ms13/mirelurk,
+/mob/living/basic/ms13/hostile_animal/mirelurk,
 /turf/open/ms13/water/sewer/medium,
 /area/ms13/underground/mountain)
 "ry" = (
@@ -5314,6 +5310,7 @@
 /obj/structure/sink{
 	pixel_y = 24
 	},
+/obj/effect/spawner/random/ms13/medical/lowrandom,
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "tP" = (
@@ -5745,7 +5742,7 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/sewer)
 "vs" = (
-/mob/living/simple_animal/hostile/ms13/mirelurk,
+/mob/living/basic/ms13/hostile_animal/mirelurk,
 /turf/open/ms13/water/sewer/shallow,
 /area/ms13/underground/sewer)
 "vu" = (
@@ -7969,7 +7966,7 @@
 /area/ms13/town)
 "DP" = (
 /obj/structure/closet/crate/coffin,
-/mob/living/simple_animal/hostile/ms13/radroach,
+/mob/living/basic/ms13/hostile_animal/radroach,
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
 "DQ" = (
@@ -8076,7 +8073,7 @@
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
 "Ei" = (
-/mob/living/simple_animal/hostile/ms13/mirelurk,
+/mob/living/basic/ms13/hostile_animal/mirelurk,
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
 "Ej" = (
@@ -9116,7 +9113,7 @@
 /turf/open/floor/ms13/metal/grate,
 /area/ms13/underground/vault_atrium_lower)
 "HQ" = (
-/mob/living/simple_animal/hostile/ms13/mirelurk,
+/mob/living/basic/ms13/hostile_animal/mirelurk,
 /turf/open/ms13/water/sewer/shallow,
 /area/ms13/underground/mountain)
 "HR" = (
@@ -9684,7 +9681,7 @@
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/vault_atrium_lower)
 "Ka" = (
-/mob/living/simple_animal/hostile/ms13/radroach,
+/mob/living/basic/ms13/hostile_animal/radroach,
 /turf/open/floor/ms13/sewer,
 /area/ms13/underground/sewer)
 "Kb" = (
@@ -10816,7 +10813,7 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/ncr)
 "Ov" = (
-/mob/living/simple_animal/hostile/ms13/pigrat,
+/mob/living/basic/ms13/hostile_animal/pigrat,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "Ow" = (
@@ -10991,7 +10988,7 @@
 /turf/open/floor/ms13/concrete/industrial/split,
 /area/ms13/underground/vault_atrium_lower)
 "Pg" = (
-/mob/living/simple_animal/hostile/ms13/mirelurk,
+/mob/living/basic/ms13/hostile_animal/mirelurk,
 /turf/open/ms13/water/sewer/deep,
 /area/ms13/underground/sewer)
 "Pi" = (
@@ -11027,6 +11024,11 @@
 /obj/structure/chair/comfy/ms13/ergo,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/army_bunker)
+"Pr" = (
+/obj/structure/table/ms13/metal,
+/obj/effect/spawner/random/ms13/armor/lowrandom,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/underground/underground_town)
 "Ps" = (
 /obj/structure/ms13/storage/shelf{
 	dir = 4
@@ -11052,6 +11054,12 @@
 /obj/structure/ms13/storage/shelf{
 	dir = 1
 	},
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/underground/underground_town)
+"Py" = (
+/obj/structure/closet/crate/ms13/footlocker,
+/obj/effect/spawner/random/ms13/melee/lowrandom,
+/obj/effect/spawner/random/ms13/ammo/lowrandom,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/underground_town)
 "Pz" = (
@@ -11232,7 +11240,7 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/vault_atrium_lower)
 "Qo" = (
-/mob/living/simple_animal/hostile/ms13/radroach,
+/mob/living/basic/ms13/hostile_animal/radroach,
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
 "Qp" = (
@@ -11732,10 +11740,10 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/underground_town)
 "Sg" = (
-/mob/living/simple_animal/hostile/ms13/radroach,
 /obj/machinery/light/ms13/bulb/industrial{
 	dir = 8
 	},
+/mob/living/basic/ms13/hostile_animal/radroach,
 /turf/open/floor/ms13/sewer,
 /area/ms13/underground/sewer)
 "Sh" = (
@@ -12000,6 +12008,10 @@
 /mob/living/simple_animal/hostile/ms13/robot/robobrain/heavy,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/army_bunker)
+"Tk" = (
+/mob/living/basic/ms13/ghoul/radioactive,
+/turf/open/floor/ms13/concrete,
+/area/ms13/town)
 "Tl" = (
 /obj/structure/ms13/bars/rusty{
 	dir = 4
@@ -12339,10 +12351,10 @@
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/vault_atrium_lower)
 "Uz" = (
-/mob/living/basic/ms13/ghoul,
 /obj/machinery/light/ms13/bulb/broken{
 	dir = 4
 	},
+/mob/living/basic/ms13/ghoul,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/underground_town)
 "UA" = (
@@ -12658,6 +12670,10 @@
 	},
 /turf/open/floor/wood/ms13/common,
 /area/ms13/underground/underground_town)
+"VG" = (
+/mob/living/simple_animal/hostile/ms13/robot/protectron,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/underground/subway)
 "VI" = (
 /obj/structure/table/ms13/no_smooth/wood/low,
 /obj/machinery/light/ms13/bulb,
@@ -61881,7 +61897,7 @@ kx
 kx
 kx
 kx
-hH
+lX
 ff
 ff
 EQ
@@ -62183,7 +62199,7 @@ kx
 kx
 kx
 kx
-hH
+Pr
 qj
 ff
 EQ
@@ -64296,7 +64312,7 @@ kx
 kx
 kx
 fU
-Xx
+Py
 bi
 EQ
 fU
@@ -66408,7 +66424,7 @@ fU
 fU
 fU
 kx
-kx
+Wm
 Wj
 hm
 kx
@@ -76079,7 +76095,7 @@ EW
 Dd
 Dd
 zR
-Dd
+an
 Dd
 Dd
 EW
@@ -77288,7 +77304,7 @@ HF
 Dd
 Dd
 Dd
-Dd
+Tk
 Dd
 RB
 Yz
@@ -77571,7 +77587,7 @@ fU
 fU
 kx
 lW
-dH
+VG
 dH
 lW
 nJ
@@ -78173,7 +78189,7 @@ fU
 fU
 kx
 kx
-lY
+kx
 lW
 dH
 dH
@@ -83008,7 +83024,7 @@ fU
 nJ
 lW
 dH
-em
+dH
 lW
 nJ
 fU

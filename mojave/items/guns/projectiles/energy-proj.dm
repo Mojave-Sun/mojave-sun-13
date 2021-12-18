@@ -7,6 +7,7 @@
 	armour_penetration = 0
 	wound_bonus = -5
 	bare_wound_bonus = 5
+	eyeblur = 0
 
 /obj/projectile/beam/ms13/laser
 	name = "laser beam"
