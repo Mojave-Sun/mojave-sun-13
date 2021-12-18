@@ -197,8 +197,8 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 20
 	speed = 0.5
-	sharpness = SHARP_POINTY
-	wound_bonus = 0
+	sharpness = NONE
+	wound_bonus = 5
 	bare_wound_bonus = 5
 	faction = list("insect")
 	/*food_type = list(/obj/item/food/grown/ms13/pungafruit, /obj/item/food/grown/ms13/geigpungafruit)
