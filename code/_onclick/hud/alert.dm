@@ -318,6 +318,7 @@ or shoot a gun to move around via Newton's 3rd Law of Motion."
 	name = "On Fire"
 	desc = "You're on fire. Stop, drop and roll to put the fire out or move to a vacuum area."
 	icon_state = "fire"
+	hudbar_alternative = /atom/movable/screen/alert/hudbar/fire
 
 /atom/movable/screen/alert/fire/Click()
 	. = ..()

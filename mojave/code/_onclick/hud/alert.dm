@@ -14,6 +14,17 @@
 	desc = "You're on fire. Stop, drop and roll to put the fire out or move to a vacuum area."
 	icon_state = "status_fire"
 
+/atom/movable/screen/alert/hudbar/fire/Click()
+	. = ..()
+	if(!.)
+		return
+
+	var/mob/living/living_owner = owner
+
+	living_owner.changeNext_move(CLICK_CD_RESIST)
+	if(living_owner.mobility_flags & MOBILITY_MOVE)
+		return living_owner.resist_fire()
+
 /atom/movable/screen/alert/hudbar/toxin
 	name = "Choking (Toxins)"
 	desc = "The air you're breathing in is toxic. Find some fresh air."
