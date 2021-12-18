@@ -37,7 +37,7 @@
 	melee_attack_behavior = /datum/ai_behavior/basic_melee_attack/ms13/hostile_animal
 
 /datum/ai_behavior/basic_melee_attack/ms13/hostile_animal
-	action_cooldown = 1 SECONDS
+	action_cooldown = 1.2 SECONDS
 
 //Some things will be commented out, mostly relating to Scar's taming and domestication code, since it isn't ported over with this.
 
@@ -54,7 +54,7 @@
 	maxHealth = 40
 	melee_damage_lower = 5
 	melee_damage_upper = 10
-	speed = -1
+	speed = -0.5
 	sharpness = NONE
 	wound_bonus = CANT_WOUND
 	faction = list("insect")
@@ -78,7 +78,7 @@
 	maxHealth = 70
 	melee_damage_lower = 10
 	melee_damage_upper = 10
-	speed = -1.5
+	speed = -0.5
 	sharpness = SHARP_EDGED
 	wound_bonus = 10
 	bare_wound_bonus = 5
@@ -112,7 +112,7 @@
 	maxHealth = 60
 	melee_damage_lower = 10
 	melee_damage_upper = 10
-	speed = -0.5
+	speed = 0
 	sharpness = SHARP_POINTY
 	wound_bonus = 10
 	bare_wound_bonus = 5
@@ -134,7 +134,6 @@
 	attack_verb_simple = "nip"
 	melee_damage_lower = 1
 	melee_damage_upper = 5
-	speed = -0.5
 	health = 15
 	maxHealth = 15
 	/*is_young = TRUE
@@ -154,7 +153,7 @@
 	maxHealth = 80
 	melee_damage_lower = 15
 	melee_damage_upper = 20
-	speed = 0
+	speed = 0.5
 	sharpness = SHARP_POINTY
 	wound_bonus = 5
 	bare_wound_bonus = 3
@@ -197,7 +196,7 @@
 	maxHealth = 100
 	melee_damage_lower = 15
 	melee_damage_upper = 20
-	speed = 0
+	speed = 0.5
 	sharpness = SHARP_POINTY
 	wound_bonus = 0
 	bare_wound_bonus = 5
@@ -217,11 +216,11 @@
 	attack_verb_continuous = "bites"
 	attack_verb_simple = "bite"
 	attack_sound = 'sound/weapons/bite.ogg'
-	health = 90
-	maxHealth = 90
+	health = 85
+	maxHealth = 85
 	melee_damage_lower = 15
 	melee_damage_upper = 20
-	speed = -2
+	speed = -1
 	sharpness = SHARP_EDGED
 	wound_bonus = 12
 	bare_wound_bonus = 10
@@ -270,7 +269,7 @@
 	maxHealth = 400
 	melee_damage_lower = 50
 	melee_damage_upper = 60
-	speed = 2
+	speed = 1.5
 	sharpness = SHARP_EDGED
 	wound_bonus = 10
 	bare_wound_bonus = 5
@@ -295,7 +294,7 @@
 	maxHealth = 500
 	melee_damage_lower = 50
 	melee_damage_upper = 60
-	speed = 2.5
+	speed = 2
 	sharpness = NONE
 	wound_bonus = 5
 	bare_wound_bonus = 5
