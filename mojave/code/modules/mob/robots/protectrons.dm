@@ -45,7 +45,7 @@
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 	ranged = FALSE
 	minimum_distance = 1
-	retreat_distance = NULL
+	retreat_distance = null
 	move_to_delay = 4
 	speed = 2
 
