@@ -6,8 +6,8 @@
 	icon_dead = "feralghoul_dead"
 	mob_biotypes = MOB_HUMANOID
 	gender = MALE
-	health = 120
-	maxHealth = 120
+	health = 110
+	maxHealth = 110
 	speed = 0
 	attack_verb_continuous = "tears"
 	attack_verb_simple = "claws"
@@ -45,7 +45,7 @@
 	melee_attack_behavior = /datum/ai_behavior/basic_melee_attack/ms13/ghoul
 
 /datum/ai_behavior/basic_melee_attack/ms13/ghoul
-	action_cooldown = 1.2 SECONDS
+	action_cooldown = 1.5 SECONDS
 
 /mob/living/basic/ms13/ghoul/brown
 	icon_state = "feralghoul_brown"
@@ -58,7 +58,7 @@
 	icon_dead = "iceghoul_dead"
 	health = 150
 	maxHealth = 150
-	speed = 0.5
+	speed = 1
 	melee_damage_lower = 15
 	melee_damage_upper = 20
 	armour_penetration = 5
@@ -68,8 +68,8 @@
 	desc = "A glowing, calloused ghoul. It looks like it has spent is entire lifetime sitting in a radioactive lake, as the damn thing can probably power a building if you hooked it up."
 	icon_state = "glowinghoul"
 	icon_dead = "glowinghoul_dead"
-	health = 140
-	maxHealth = 140
+	health = 135
+	maxHealth = 135
 	melee_damage_lower = 15
 	melee_damage_upper = 25
 	light_range = 2

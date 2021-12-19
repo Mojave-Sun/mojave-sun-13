@@ -5,7 +5,7 @@
 /obj/effect/spawner/random/ms13/armor/tier1
 	name = "tier 1 armor spawner"
 	spawn_loot_count = 2
-	spawn_loot_chance = 35
+	spawn_loot_chance = 40
 
 	var/loot1 = list(
 				/obj/item/clothing/suit/ms13/vest,
@@ -100,7 +100,7 @@
 /obj/effect/spawner/random/ms13/armor/tier2
 	name = "tier 2 armor spawner"
 	spawn_loot_count = 2
-	spawn_loot_chance = 40
+	spawn_loot_chance = 45
 
 	var/loot1 = list(
 				/obj/item/clothing/suit/toggle/ms13/wjacket/orange/reinforced,
@@ -170,7 +170,7 @@
 /obj/effect/spawner/random/ms13/armor/tier3
 	name = "tier 3 armor spawner"
 	spawn_loot_count = 2
-	spawn_loot_chance = 45
+	spawn_loot_chance = 50
 
 	var/loot1 = list(
 				/obj/item/clothing/suit/toggle/ms13/wjacket/blue/armored,
@@ -277,6 +277,7 @@
 /obj/effect/spawner/random/ms13/armor/headgear
 	name = "miscellaneous armored headgear spawner"
 	spawn_loot_count = 1
+	spawn_loot_chance = 75
 	icon_state = "ms13_helmet"
 	loot = list(
 			/obj/item/clothing/head/helmet/ms13/assaultron,
