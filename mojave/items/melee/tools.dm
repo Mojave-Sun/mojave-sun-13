@@ -125,6 +125,38 @@
 	. = ..()
 	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
 
+// Handheld light sources  //
+
+/obj/item/flashlight/ms13
+	name = "flashlight"
+	desc = "A common pre-war flashlight. It's held up surprisingly well over the years. An essential tool for any tomfoolery in the unknown."
+	icon = 'mojave/icons/objects/melee/melee_world.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
+	icon_state = "flashlight_mag"
+	inhand_icon_state = "flashlight_mag"
+	light_range = 3.5
+	light_power = 0.85
+	light_color = "#dbb070"
+
+/obj/item/flashlight/ms13/mag
+	name = "stick flashlight"
+	desc = "A lengthy dark flashlight. Has a fair light range, and feels relatively high quality."
+	icon_state = "flashlight_mag"
+	inhand_icon_state = "flashlight_mag"
+	light_range = 5
+	light_power = 1
+	light_color = "#dac97c"
+
+/obj/item/flashlight/ms13/crafted
+	name = "homemade flashlight"
+	desc = "To call it a flashlight is even a stretch. This device is simply a lightbulb connected to a low output fusion cell."
+	icon_state = "flashlight_crafted"
+	inhand_icon_state = "flashlight_crafted"
+	light_range = 2 // doo-doo. But much better than nothing.
+	light_power = 0.55
+	light_color = "#ddd2b9"
+
 /obj/item/flashlight/flare/ms13
 	name = "flare"
 	desc = "A red flare, quite simple."
@@ -133,7 +165,7 @@
 	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
 	icon_state = "flare"
 	inhand_icon_state = "flare"
-	light_range = 5 // Somewhat bright.
+	light_range = 3 // lower because radial
 
 /obj/item/flashlight/flare/ms13/Initialize()
 	. = ..()
