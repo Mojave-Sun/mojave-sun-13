@@ -13,7 +13,7 @@
 	tool_behaviour = TOOL_FISHINGROD
 	icon_state = "basic"
 	lefthand_file = 'mojave/icons/objects/tools/fishing_left_inhands.dmi'
-	righthand_file = 'mojave/icons/objects/tools/fishing_left_inhands.dmi'
+	righthand_file = 'mojave/icons/objects/tools/fishing_right_inhands.dmi'
 	w_class = WEIGHT_CLASS_NORMAL
 	fish_speed = 60 SECONDS
 
@@ -26,19 +26,6 @@
 	w_class = WEIGHT_CLASS_SMALL
 	fish_speed = 40 SECONDS
 	var/on_sound = 'sound/weapons/batonextend.ogg'
-
-/obj/item/ms13/tools/fishing_rod/telescopic/Initialize()
-	. = ..()
-	AddComponent(/datum/component/transforming, \
-		w_class = WEIGHT_CLASS_NORMAL)
-	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, .proc/on_transform)
-
-/obj/item/ms13/tools/fishing_rod/telescopic/proc/on_transform(obj/item/source, mob/user, active)
-	SIGNAL_HANDLER
-
-	src.active = active
-	tool_behaviour = active ? TOOL_FISHINGROD : null
-	return COMPONENT_NO_DEFAULT_MESSAGE
 
 /obj/item/ms13/tools/fishing_rod/advanced
 	name = "advanced rod"

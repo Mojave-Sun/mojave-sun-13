@@ -7,38 +7,37 @@
 	desc = "A hole in the ice. Good for fishing."
 	icon = 'mojave/icons/turf/ice.dmi'
 	icon_state = "hole_overlay"
-	var/list/fish = list(/obj/item/food/meat/slab/ms13/fish/sockeye,
-		/obj/item/food/meat/slab/ms13/fish/smallmouth,
-		/obj/item/food/meat/slab/ms13/fish/largemouth,
-		/obj/item/food/meat/slab/ms13/fish/lamprey,
-		/obj/item/food/meat/slab/ms13/fish/pink,
-		/obj/item/food/meat/slab/ms13/fish/chum,
-		/obj/item/food/meat/slab/ms13/fish/sturgeon,
-		/obj/item/food/meat/slab/ms13/fish/asian,
-		/obj/item/food/meat/slab/ms13/fish/blinky)
+	var/list/fish = list(/obj/item/food/meat/slab/ms13/fish/sockeye = 1,
+		/obj/item/food/meat/slab/ms13/fish/smallmouth = 1,
+		/obj/item/food/meat/slab/ms13/fish/largemouth = 1,
+		/obj/item/food/meat/slab/ms13/fish/lamprey = 1,
+		/obj/item/food/meat/slab/ms13/fish/pink = 1,
+		/obj/item/food/meat/slab/ms13/fish/chum = 1,
+		/obj/item/food/meat/slab/ms13/fish/sturgeon = 1,
+		/obj/item/food/meat/slab/ms13/fish/asian = 1,
+		/obj/item/food/meat/slab/ms13/fish/blinky = 1)
 	var/fished = FALSE
 
 /obj/structure/ms13/ice_hole/attackby(obj/item/W, mob/user, params)
 	. = ..()
-	if(!.)
-		if(W.tool_behaviour == TOOL_FISHINGROD)
+	if(W.tool_behaviour == TOOL_FISHINGROD)
+		if(!can_fish(user))
+			return TRUE
+
+		if(!isturf(user.loc))
+			return
+
+		to_chat(user, "<span class='notice'>You start fishing...</span>")
+
+		if(do_after(user, 30 SECONDS))
 			if(!can_fish(user))
 				return TRUE
+			to_chat(user, "<span class='notice'>You reel in your catch.</span>")
+			getFished(user)
 
-			if(!isturf(user.loc))
-				return
-
-			to_chat(user, "<span class='notice'>You start fishing...</span>")
-
-			if(do_after(user, /obj/item/ms13/tools/fishing_rod.fish_speed))
-				if(!can_fish(user))
-					return TRUE
-				to_chat(user, "<span class='notice'>You reel in your catch.</span>")
-				getFished()
-
-/obj/structure/ms13/ice_hole/proc/getFished()
+/obj/structure/ms13/ice_hole/proc/getFished(mob/user)
 	var/spawnFish = pickweight(fish)
-	new spawnFish(src)
+	new spawnFish(user.loc)
 	fished = TRUE
 
 /obj/structure/ms13/ice_hole/proc/can_fish(mob/user)
