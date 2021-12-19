@@ -40,3 +40,16 @@
 		This post is multi-functioned and should be kept online unless absolutely necessary. Primary priority following a high security threat is to put the facility under yellow alert and await further instruction. \
 		In the event of a catastrophic event and or declaration of DEFCON level two and up, this point should only be put under complete lockdown under orders of a Lieutenant colonel or higher. \
 		Non-compliance with this standard will- depending on conditions- at the very best earn you a swift loss of rank. At worse... Try it and find out, in Major Handfordth's terms."
+
+/datum/terminal/document/brotherhood_hint
+	title = "Supply count"
+	content = "Before the departure of the last chapter splinter, they took the liberty of leaving behind some excess equipment.  \
+		A lot of our hardware should be in the generator room's crates. Look around for a crowbar and start busting them open- They can't stay there forever. \
+		According to one of them, they're actually kind enough to keep some medical supplies with us. Check the storage for them below the medical bay. \
+		The supplies are fantastic and well appreciated- But we need to remember to keep an eye out when we're out on the field. Take what you can, the opportuntiy might not arise again."
+
+/datum/terminal/document/brotherhood_hint_2
+	title = "The rear"
+	content = "Attention! Heed caution exiting through the rear tunnels. Recently, mirelurks have taken to a liking of the pools out back.  \
+		It wouldn't be the first time a simple thing as a mirelurk has claimed one of our own... You all much exercise caution when going out through the back. Not like there's much point anyways. The tunnels probably don't lead anywhere. \
+		If you REALLY insist on going out there, bring at least on partner and log your exit with your nearest superior. Keep a flashlight handy and stay in the light. Good luck."
