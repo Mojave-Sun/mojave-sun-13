@@ -45,7 +45,7 @@
 	melee_attack_behavior = /datum/ai_behavior/basic_melee_attack/ms13/ghoul
 
 /datum/ai_behavior/basic_melee_attack/ms13/ghoul
-	action_cooldown = 1.2 SECONDS
+	action_cooldown = 1.5 SECONDS
 
 /mob/living/basic/ms13/ghoul/brown
 	icon_state = "feralghoul_brown"

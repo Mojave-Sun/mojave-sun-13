@@ -37,7 +37,7 @@
 	melee_attack_behavior = /datum/ai_behavior/basic_melee_attack/ms13/hostile_animal
 
 /datum/ai_behavior/basic_melee_attack/ms13/hostile_animal
-	action_cooldown = 1.2 SECONDS
+	action_cooldown = 1.5 SECONDS
 
 //Some things will be commented out, mostly relating to Scar's taming and domestication code, since it isn't ported over with this.
 

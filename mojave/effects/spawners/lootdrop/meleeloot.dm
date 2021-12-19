@@ -5,7 +5,7 @@
 
 /obj/effect/spawner/random/ms13/melee/tier1
 	name = "tier 1 melee spawner"
-	spawn_loot_chance = 35
+	spawn_loot_chance = 40
 	loot = list(
 			/obj/item/claymore/ms13/pipe/tireiron,
 			/obj/item/knife/ms13/switchblade/razor,
@@ -21,7 +21,7 @@
 
 /obj/effect/spawner/random/ms13/melee/tier2
 	name = "tier 2 melee spawner"
-	spawn_loot_chance = 40
+	spawn_loot_chance = 45
 	loot = list(
 			/obj/item/hatchet/ms13,
 			/obj/item/hatchet/ms13/icepick,
@@ -41,7 +41,7 @@
 
 /obj/effect/spawner/random/ms13/melee/tier3
 	name = "tier 3 melee spawner"
-	spawn_loot_chance = 45
+	spawn_loot_chance = 50
 	loot = list(
 			/obj/item/claymore/ms13/machete/katana,
 			/obj/item/claymore/ms13/machete/shishkebab,
