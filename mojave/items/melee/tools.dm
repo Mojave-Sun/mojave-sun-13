@@ -129,13 +129,13 @@
 	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
 
 /obj/item/weldingtool/ms13/update_icon_state()
+	. = ..()
 	if(welding)
 		inhand_icon_state = "[initial(inhand_icon_state)]-on"
 		icon_state = "[initial(icon_state)]-on"
 	else
 		inhand_icon_state = "[initial(inhand_icon_state)]"
 		icon_state = "[initial(icon_state)]"
-	return ..()
 
 /obj/item/wrench/ms13
 	name = "wrench"

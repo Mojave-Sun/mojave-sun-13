@@ -24,6 +24,7 @@
 	backpack_contents = list(
 		/obj/item/ammo_box/magazine/ms13/m9mm=1, \
 		/obj/item/stack/medical/gauze/ms13/three=1, \
+		/obj/item/flashlight/flare/ms13=1, \
 		/obj/item/clothing/mask/ms13/ncr=1)
 
 /datum/outfit/job/ms13/ncr/radioman/pre_equip(mob/living/carbon/human/H)

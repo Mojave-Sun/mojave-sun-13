@@ -29,6 +29,7 @@
 		/obj/item/stack/medical/gauze/ms13/three=1, \
 		/obj/item/clothing/head/helmet/ms13/vaulthelmet=1, \
 		/obj/item/claymore/ms13/baton=1, \
+		/obj/item/flashlight/ms13=1, \
 		/obj/item/ammo_box/ms13/tube357=2)
 
 /datum/outfit/job/ms13/town/deputy/pre_equip(mob/living/carbon/human/H)

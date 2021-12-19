@@ -9,3 +9,6 @@
 	closingLayer = CLOSED_DOOR_LAYER
 	assemblytype = null // no build
 	hackProof = TRUE
+
+/obj/machinery/door/airlock/ms13/Bumped(atom/movable/AM)
+	return
