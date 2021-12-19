@@ -50,8 +50,8 @@
 	attack_verb_continuous = "pincers"
 	attack_verb_simple = "pincer"
 	attack_sound = 'sound/weapons/bite.ogg'
-	health = 40
-	maxHealth = 40
+	health = 35
+	maxHealth = 35
 	melee_damage_lower = 5
 	melee_damage_upper = 10
 	speed = -0.5
@@ -74,8 +74,8 @@
 	attack_verb_continuous = "scratches"
 	attack_verb_simple = "scratch"
 	attack_sound = 'sound/weapons/slash.ogg'//scratch
-	health = 70
-	maxHealth = 70
+	health = 60
+	maxHealth = 60
 	melee_damage_lower = 10
 	melee_damage_upper = 10
 	speed = -0.5
@@ -108,8 +108,8 @@
 	attack_verb_continuous = "bites"
 	attack_verb_simple = "bite"
 	attack_sound = 'sound/weapons/bite.ogg'
-	health = 60
-	maxHealth = 60
+	health = 50
+	maxHealth = 50
 	melee_damage_lower = 10
 	melee_damage_upper = 10
 	speed = 0
@@ -218,8 +218,8 @@
 	attack_verb_continuous = "bites"
 	attack_verb_simple = "bite"
 	attack_sound = 'sound/weapons/bite.ogg'
-	health = 85
-	maxHealth = 85
+	health = 80
+	maxHealth = 80
 	melee_damage_lower = 15
 	melee_damage_upper = 20
 	speed = -1
