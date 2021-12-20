@@ -218,8 +218,8 @@
 	attack_verb_continuous = "bites"
 	attack_verb_simple = "bite"
 	attack_sound = 'sound/weapons/bite.ogg'
-	health = 80
-	maxHealth = 80
+	health = 75
+	maxHealth = 75
 	melee_damage_lower = 15
 	melee_damage_upper = 20
 	speed = -1
