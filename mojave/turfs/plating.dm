@@ -371,7 +371,7 @@
 	base_icon_state = "road"
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_MS13_ROAD)
-	canSmoothWith = list(SMOOTH_GROUP_MS13_ROAD, SMOOTH_GROUP_MS13_SIDEWALK, SMOOTH_GROUP_MS13_TILE, SMOOTH_GROUP_MS13_SNOW, SMOOTH_GROUP_MS13_SNOW, SMOOTH_GROUP_MS13_WATER)
+	canSmoothWith = list(SMOOTH_GROUP_MS13_ROAD, SMOOTH_GROUP_MS13_SIDEWALK, SMOOTH_GROUP_MS13_TILE, SMOOTH_GROUP_MS13_SNOW, SMOOTH_GROUP_MS13_SNOW, SMOOTH_GROUP_MS13_WATER, SMOOTH_GROUP_MS13_OPENSPACE)
 	layer = TURF_LAYER_ROAD
 
 /turf/open/floor/plating/ms13/ground/road/Initialize()
@@ -836,6 +836,7 @@
 	icon_state = "transparent" //Different icon so it's visually distinct for mappers.
 	can_build_on = FALSE
 	can_cover_up = FALSE
+	smoothing_groups = list(SMOOTH_GROUP_MS13_OPENSPACE)
 
 /turf/open/openspace/ms13/Initialize()
 	. = ..()

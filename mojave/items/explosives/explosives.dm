@@ -1,8 +1,16 @@
-/obj/item/grenade/frag/ms13
+/obj/item/grenade/ms13/Initialize()
+	. = ..()
+	inhand_icon_state = initial(icon_state)
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
+
+/obj/item/grenade/ms13/examine(mob/user)
+	return
+
+/obj/item/grenade/frag/ms13 //nasty code right here, stinks of hekzder
 	name = "frag grenade"
 	desc = "The average frag grenade, if you could even say that. Utilizing an explosive payload to blast shrapnel around a large area. Great for clearing rooms."
 
-/obj/item/grenade/frag/ms13/Initialize()
+/obj/item/grenade/ms13/Initialize()
 	. = ..()
 	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/throwables/grenades_inventory.dmi')
 
@@ -14,6 +22,8 @@
 	name = "molotov cocktail"
 	desc = "The firestarters best friend, a very simple grenade consisting of a rag and a full bottle of alcohol. Light those suckers up."
 	icon = 'mojave/icons/objects/throwables/grenades_world.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/weapons/grenades_inhand_left.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/weapons/grenades_inhand_right.dmi'
 	icon_state = "molotov"
 	var/arm_sound = 'sound/items/welder.ogg'
 
@@ -43,8 +53,10 @@
 	playsound(src, arm_sound, volume, TRUE)
 	active = TRUE
 	icon_state = initial(icon_state) + "_active"
+	inhand_icon_state = icon_state
 	SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time, delayoverride)
 	addtimer(CALLBACK(src, .proc/detonate), isnull(delayoverride)? det_time : delayoverride)
+	update_icon()
 
 /obj/item/grenade/ms13/molotov/detonate(mob/living/lanced_by)
 	playsound(loc, 'sound/effects/hit_on_shattered_glass.ogg', 35, TRUE, 4)
@@ -54,6 +66,8 @@
 
 /obj/item/grenade/ms13/molotov/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	. = ..()
+	if(istype(loc, /turf/open/openspace))
+		return
 	if(!. && active)
 		detonate()
 	else
