@@ -249,15 +249,16 @@
 	name = "tree"
 	desc = "A large tree."
 	density = TRUE
+	layer = ABOVE_ALL_MOB_LAYER
 	pixel_x = -16
+	pixel_y = 5
 	var/log_amount = 10
-	opacity = 1
 
 /obj/structure/flora/ms13/tree/Initialize()
 	. = ..()
 	pixel_x = rand(-20,-16)
-	pixel_y = rand(-2,-5)
 	AddComponent(/datum/component/largetransparency, 1, 1, -1, 1)
+	AddElement(/datum/element/climbable) // People should be able to pass trees hypothetically. Just not quickly... One day, unscuff the text for this.
 
 /obj/structure/flora/ms13/tree/attackby(obj/item/W, mob/user, params)
 	if(log_amount && (!(flags_1 & NODECONSTRUCT_1)))
