@@ -18,8 +18,11 @@
 	var/flame_color = "red"
 
 /obj/ms13/fire/Initialize(mapload, fire_lvl, burn_lvl, f_color, fire_stacks = 0, fire_damage = 0)
-	. = ..()
 
+	for(var/turf/open_turf as anything in RANGE_TURFS(0, src))
+		if(isgroundlessturf(open_turf))
+			qdel(src)
+			return
 	START_PROCESSING(SSobj, src)
 
 	if(f_color)
@@ -40,6 +43,9 @@
 		COMSIG_ATOM_ENTERED = .proc/on_entered,
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
+	process()
+	updateicon()
+	. = ..()
 
 /obj/ms13/fire/Destroy()
 	STOP_PROCESSING(SSobj, src)
@@ -89,7 +95,10 @@
 	if(!istype(T)) //Is it a valid turf?
 		qdel(src)
 		return
-
+	for(var/turf/open_turf as anything in RANGE_TURFS(0, src))
+		if(isgroundlessturf(open_turf))
+			qdel(src)
+			return
 	updateicon()
 
 	if(!firelevel)
@@ -136,11 +145,11 @@
 
 /turf/proc/flame(fire_lvl, burn_lvl, f_color, fire_stacks = 0, fire_damage = 0)
 	//extinguish any flame present
-	var/obj/ms13/fire/F = locate(/obj/ms13/fire) in src
-	if(F)
-		qdel(F)
-
-	new /obj/ms13/fire(src, fire_lvl, burn_lvl, f_color, fire_stacks, fire_damage)
+	var/obj/ms13/fire/A = locate(/turf/open/openspace) in src
+	if(A)
+		return
+	else
+		new /obj/ms13/fire(src, fire_lvl, burn_lvl, f_color, fire_stacks, fire_damage)
 
 //Circle Calculation (currently only used for fire radius)
 
