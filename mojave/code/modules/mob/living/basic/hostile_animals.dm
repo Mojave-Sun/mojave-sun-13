@@ -80,8 +80,8 @@
 	melee_damage_upper = 10
 	speed = -0.5
 	sharpness = SHARP_EDGED
-	wound_bonus = 10
-	bare_wound_bonus = 5
+	wound_bonus = 6
+	bare_wound_bonus = 4
 	faction = list("gecko")
 	/*food_type = null //insert TECHNOFISH TM HERE
 	tame_chance = 5
@@ -114,8 +114,8 @@
 	melee_damage_upper = 10
 	speed = 0
 	sharpness = SHARP_POINTY
-	wound_bonus = 10
-	bare_wound_bonus = 5
+	wound_bonus = 6
+	bare_wound_bonus = 4
 	faction = list("rat")
 	/*food_type = list(/obj/item/food/grown/ms13/potato)
 	tame_chance = 20
@@ -156,8 +156,8 @@
 	armour_penetration = 5
 	speed = 0.5
 	sharpness = SHARP_POINTY
-	wound_bonus = 5
-	bare_wound_bonus = 3
+	wound_bonus = 4
+	bare_wound_bonus = 4
 	faction = list("rat")
 	/*food_type = list(/obj/item/food/grown/ms13/xander, /obj/item/food/grown/ms13/carrot)
 	tame_chance = 5
@@ -200,8 +200,8 @@
 	armour_penetration = 10
 	speed = 0.5
 	sharpness = NONE
-	wound_bonus = 5
-	bare_wound_bonus = 5
+	wound_bonus = 8
+	bare_wound_bonus = 4
 	faction = list("insect")
 	/*food_type = list(/obj/item/food/grown/ms13/pungafruit, /obj/item/food/grown/ms13/geigpungafruit)
 	tame_chance = 5
@@ -224,8 +224,8 @@
 	melee_damage_upper = 20
 	speed = -1
 	sharpness = SHARP_EDGED
-	wound_bonus = 10
-	bare_wound_bonus = 10
+	wound_bonus = 6
+	bare_wound_bonus = 6
 	faction = list("dog_city")
 	/*food_type = list(/obj/item/food/meat/slab)
 	tame_chance = 5
@@ -247,8 +247,8 @@
 	armour_penetration = 15
 	speed = 2
 	sharpness = SHARP_EDGED
-	wound_bonus = 5
-	bare_wound_bonus = 5
+	wound_bonus = 2
+	bare_wound_bonus = 3
 	faction = list("shellfish")
 	/*food_type = list(/obj/item/food/meat/slab)
 	tame_chance = 5
