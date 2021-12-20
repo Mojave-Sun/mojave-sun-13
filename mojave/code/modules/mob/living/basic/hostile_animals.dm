@@ -240,8 +240,8 @@
 	attack_verb_continuous = "claws"
 	attack_verb_simple = "claw"
 	attack_sound = 'sound/weapons/slash.ogg'
-	health = 250
-	maxHealth = 250
+	health = 240
+	maxHealth = 240
 	melee_damage_lower = 30
 	melee_damage_upper = 40
 	armour_penetration = 15
