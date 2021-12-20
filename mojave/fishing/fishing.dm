@@ -5,8 +5,8 @@
 /obj/structure/ms13/ice_hole
 	name = "ice hole"
 	desc = "A hole in the ice. Good for fishing."
-	icon = 'mojave/icons/turf/ice.dmi'
-	icon_state = "hole_overlay"
+	icon = 'mojave/icons/turf/fishing_hole.dmi'
+	icon_state = "ice_hole"
 	var/list/fish = list(/obj/item/food/meat/slab/ms13/fish/sockeye = 1,
 		/obj/item/food/meat/slab/ms13/fish/smallmouth = 1,
 		/obj/item/food/meat/slab/ms13/fish/largemouth = 1,
@@ -36,7 +36,7 @@
 			getFished(user)
 
 /obj/structure/ms13/ice_hole/proc/getFished(mob/user)
-	var/spawnFish = pickweight(fish)
+	var/spawnFish = pick_weight(fish)
 	new spawnFish(user.loc)
 	fished = TRUE
 
