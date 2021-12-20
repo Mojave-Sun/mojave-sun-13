@@ -9,6 +9,7 @@
 	icon_state = "wood tiles"
 	desc = "Wooden flooring."
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TILE)
+	baseturfs = /turf/baseturf_bottom //No lattices please
 	var/has_alternate_states = TRUE //for damage, alts etc.
 	var/alternate_states = 1
 	var/has_base_states = TRUE //for starting variety (mainly wood)

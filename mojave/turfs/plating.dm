@@ -34,6 +34,9 @@
 
 ////Ground Turfs////
 
+/turf/open/floor/plating/ms13/ReplaceWithLattice()
+	return //No lattice please - this might break things
+
 /turf/open/floor/plating/ms13/ground
 	name = "ground"
 	desc = "Some really hard ground. Looks like you can't destroy this for sure."
@@ -66,8 +69,8 @@
 /turf/open/floor/plating/ms13/ground/MakeDry()
 	return
 
-/turf/open/floor/plating/ms13/ground/ex_act(severity, target)
-	return
+// /turf/open/floor/plating/ms13/ground/ex_act(severity, target)
+// 	return
 
 /turf/open/floor/plating/dirt/ms13
 	baseturfs = /turf/open/floor/plating/ms13/ground
@@ -362,12 +365,13 @@
 /turf/open/floor/plating/ms13/ground/road
 	name = "\proper road"
 	desc = "A stretch of road."
+	baseturfs = /turf/open/floor/plating/ms13/ground/road
 	icon = 'mojave/icons/turf/64x/road_1.dmi'
 	icon_state = "road-255"
 	base_icon_state = "road"
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_MS13_ROAD)
-	canSmoothWith = list(SMOOTH_GROUP_MS13_ROAD, SMOOTH_GROUP_MS13_SIDEWALK, SMOOTH_GROUP_MS13_TILE, SMOOTH_GROUP_MS13_SNOW, SMOOTH_GROUP_MS13_SNOW, SMOOTH_GROUP_MS13_WATER)
+	canSmoothWith = list(SMOOTH_GROUP_MS13_ROAD, SMOOTH_GROUP_MS13_SIDEWALK, SMOOTH_GROUP_MS13_TILE, SMOOTH_GROUP_MS13_SNOW, SMOOTH_GROUP_MS13_SNOW, SMOOTH_GROUP_MS13_WATER, SMOOTH_GROUP_MS13_OPENSPACE)
 	layer = TURF_LAYER_ROAD
 
 /turf/open/floor/plating/ms13/ground/road/Initialize()
@@ -406,6 +410,7 @@
 /turf/open/floor/plating/ms13/ground/sidewalk
 	name = "sidewalk"
 	desc = "Paved tiles specifically designed for walking upon."
+	baseturfs = /turf/open/floor/plating/ms13/ground/sidewalk
 	icon = 'mojave/icons/turf/sidewalk.dmi'
 	icon_state = "sidewalk-255"
 	base_icon_state = "sidewalk"
@@ -479,16 +484,20 @@
 	smoothing_groups = list(SMOOTH_GROUP_MS13_ICE)
 	canSmoothWith = list(SMOOTH_GROUP_MS13_ICE, SMOOTH_GROUP_MS13_SIDEWALK, WALL_SMOOTHING, SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_MS13_DESERT, SMOOTH_GROUP_MS13_TILE, SMOOTH_GROUP_MS13_SNOW, SMOOTH_GROUP_MS13_ROAD)
 	layer = TURF_LAYER_ICE
+	baseturfs = /turf/open/floor/plating/ms13/ground/ice/cracked
 	//Used for increasing cracking when walking on ice
 	var/crack_state = 1
 
 /turf/open/floor/plating/ms13/ground/ice/cracked
+	baseturfs = /turf/open/floor/plating/ms13/ground/ice/morecracked
 	icon = 'mojave/icons/turf/64x/ice_2.dmi'
 	crack_state = 2
 
 /turf/open/floor/plating/ms13/ground/ice/morecracked
+	baseturfs = /turf/open/ms13/water/deep
 	icon = 'mojave/icons/turf/64x/ice_3.dmi'
 	crack_state = 3
+
 
 /turf/open/floor/plating/ms13/ground/ice/Initialize()
 	. = ..()
@@ -521,9 +530,7 @@
 					T.update_icon()
 
 /turf/open/floor/plating/ms13/ground/ice/proc/Icebreak()
-	/*cut_overlays()
-	var/turf/water = /turf/open/ms13/water/deep
-	PlaceOnTop(water, flags = CHANGETURF_INHERIT_AIR)*/// Mojave Bug right here fellas, adding new tiles on our areas fails to inherit the outdoor lighting from the old one, until then, no ice break :'(
+	src.ChangeTurf(/turf/open/ms13/water/deep, flags = CHANGETURF_INHERIT_AIR)
 
 /turf/open/floor/plating/ms13/ground/ice/update_icon()
 	. = ..()
@@ -547,6 +554,7 @@
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_MS13_WATER)
 	canSmoothWith = list(SMOOTH_GROUP_MS13_WATER)
+	baseturfs = /turf/open/ms13/water
 	footstep = FOOTSTEP_WATER
 	barefootstep = FOOTSTEP_WATER
 	clawfootstep = FOOTSTEP_WATER
@@ -563,18 +571,21 @@
 	name = "deep water"
 	desc = "Cold dirty water, it looks pretty deep."
 	icon_state = "water_deep"
+	baseturfs = /turf/open/ms13/water/deep
 	watereffect = /obj/effect/overlay/ms13/water/deep
 	watertop = /obj/effect/overlay/ms13/water/top/deep
 	depth = 3
 
 /turf/open/ms13/water/medium
 	icon_state = "water_medium"
+	baseturfs = /turf/open/ms13/water/medium
 	watereffect = /obj/effect/overlay/ms13/water/medium
 	watertop = /obj/effect/overlay/ms13/water/top/medium
 	depth = 2
 
 /turf/open/ms13/water/shallow
 	icon_state = "water_shallow"
+	baseturfs = /turf/open/ms13/water/shallow
 	watereffect = /obj/effect/overlay/ms13/water/shallow
 	watertop = /obj/effect/overlay/ms13/water/top/shallow
 	depth = 1
@@ -694,7 +705,7 @@
 			switch(depth)
 				if(3)
 					H.wash(CLEAN_WASH)
-					if(H.wear_mask && iscarbon(M) && H.wear_mask.flags_cover & MASKCOVERSMOUTH)
+					if(iscarbon(M) && H.wear_mask && H.wear_mask.flags_cover & MASKCOVERSMOUTH)
 						H.visible_message("<span class='danger'>[H] falls in the water!</span>",
 											"<span class='userdanger'>You fall in the water!</span>")
 						playsound(src, 'mojave/sound/ms13effects/splash.ogg', 60, 1, 1)
@@ -762,23 +773,27 @@
 /turf/open/ms13/water/sewer
 	name = "sewer water"
 	desc = "Murky and foul smelling water, if you could call it that."
+	baseturfs = /turf/open/ms13/water/sewer
 
 /turf/open/ms13/water/sewer/deep
 	name = "deep water"
 	desc = "Cold rancid sewer water, it looks pretty deep."
 	icon_state = "sewer_deep"
+	baseturfs = /turf/open/ms13/water/sewer/deep
 	watereffect = /obj/effect/overlay/ms13/sewer/deep
 	watertop = /obj/effect/overlay/ms13/sewer/top/deep
 	depth = 3
 
 /turf/open/ms13/water/sewer/medium
 	icon_state = "sewer_medium"
+	baseturfs = /turf/open/ms13/water/sewer/medium
 	watereffect = /obj/effect/overlay/ms13/sewer/medium
 	watertop = /obj/effect/overlay/ms13/sewer/top/medium
 	depth = 2
 
 /turf/open/ms13/water/sewer/shallow
 	icon_state = "sewer_shallow"
+	baseturfs = /turf/open/ms13/water/sewer/shallow
 	watereffect = /obj/effect/overlay/ms13/sewer/shallow
 	watertop = /obj/effect/overlay/ms13/sewer/top/shallow
 	depth = 1
@@ -821,6 +836,7 @@
 	icon_state = "transparent" //Different icon so it's visually distinct for mappers.
 	can_build_on = FALSE
 	can_cover_up = FALSE
+	smoothing_groups = list(SMOOTH_GROUP_MS13_OPENSPACE)
 
 /turf/open/openspace/ms13/Initialize()
 	. = ..()

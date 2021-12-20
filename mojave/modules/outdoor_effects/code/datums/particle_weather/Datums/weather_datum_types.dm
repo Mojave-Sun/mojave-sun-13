@@ -107,7 +107,7 @@
 
 	scale_vol_with_severity = TRUE
 	weather_sounds = list(/datum/looping_sound/snow)
-	weather_messages = list("It's snowing!","You feel a chill/")
+	weather_messages = list("It's snowing!","You feel a chill")
 
 	minSeverity = 1
 	maxSeverity = 10
@@ -129,7 +129,7 @@
 
 	scale_vol_with_severity = TRUE
 	weather_sounds = list(/datum/looping_sound/snow)
-	weather_messages = list("You feel a chill/", "The cold wind is freezing you to the bone", "How can a man who is warm, understand a man who is cold?")
+	weather_messages = list("You feel a chill", "The cold wind is freezing you to the bone", "How can a man who is warm, understand a man who is cold?")
 
 	minSeverity = 40
 	maxSeverity = 100

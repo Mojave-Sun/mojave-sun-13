@@ -77,6 +77,8 @@
 	//assoc list of mob=timestamp -> Next time we can send a message
 	var/list/messagedMobs = list()
 
+	var/last_message = ""
+
 /datum/particle_weather/proc/severityMod()
 	return severity / maxSeverity
 /*
@@ -130,8 +132,9 @@
 	if(SSParticleWeather.particleEffect)
 		SSParticleWeather.particleEffect.animateSeverity(severityMod())
 
-	//Send new severity message
-	messagedMobs = list()
+	//Send new severity message if the message has changed
+	if(last_message != scale_range_pick(minSeverity, maxSeverity, severity, weather_messages))
+		messagedMobs = list()
 
 	//Tick on
 	if(severityStepsTaken < severitySteps)
@@ -176,7 +179,7 @@
 	if(!mob_turf)
 		return
 
-	if(mob_turf.outdoor_effect && mob_turf.outdoor_effect.state == SKY_BLOCKED)
+	if(!mob_turf.outdoor_effect || mob_turf.outdoor_effect.weatherproof)
 		return
 
 	return TRUE
@@ -242,6 +245,6 @@
 
 /datum/particle_weather/proc/weather_message(mob/living/L)
 	messagedMobs[L] = world.time + 30 SECONDS //Chunky delay - this spams otherwise - Severity changes and going indoors resets this timer
-	var/tempMessage = scale_range_pick(minSeverity, maxSeverity, severity, weather_messages)
-	if(tempMessage)
-		to_chat(L, tempMessage)
+	last_message = scale_range_pick(minSeverity, maxSeverity, severity, weather_messages)
+	if(last_message)
+		to_chat(L, last_message)

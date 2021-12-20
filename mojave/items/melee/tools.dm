@@ -4,6 +4,8 @@
 	icon = 'mojave/icons/objects/melee/melee_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
+	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
+	worn_icon_state = "empty_placeholder"
 	icon_state = "hammer"
 	inhand_icon_state = "hammer"
 	hitsound = 'sound/weapons/genhit3.ogg'
@@ -23,6 +25,177 @@
 	log_pickup_and_drop = TRUE
 
 /obj/item/ms13/hammer/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
+
+/obj/item/ms13/handsaw
+	name = "hand saw"
+	desc = "An old handsaw. Useful for cutting wood to length. Also useful for compacting corpses down to a bag sized package."
+	icon = 'mojave/icons/objects/melee/melee_world.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
+	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
+	worn_icon_state = "empty_placeholder"
+	icon_state = "handsaw"
+	inhand_icon_state = "handsaw"
+	force = 25
+	armour_penetration = 0
+	wound_bonus = 5
+	bare_wound_bonus = 5
+	attack_verb_continuous = list("saws", "slashes", "tears", "rips")
+	attack_verb_simple = list("saw", "slash", "tear", "rip")
+	sharpness = IS_SHARP_AXE // Cut down da TREE. Cut down da WOOD.
+	slot_flags = ITEM_SLOT_BELT
+	resistance_flags = FIRE_PROOF
+	w_class = WEIGHT_CLASS_SMALL
+	toolspeed = 0.5 // axe tomfoolery
+	log_pickup_and_drop = TRUE
+
+/obj/item/ms13/handsaw/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
+
+
+/obj/item/ms13/handdrill
+	name = "hand drill"
+	desc = "A manual operated drill. Put the spinny bit on what you want to drill, and then just crank it!"
+	icon = 'mojave/icons/objects/melee/melee_world.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
+	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
+	worn_icon_state = "empty_placeholder"
+	icon_state = "handdrill"
+	inhand_icon_state = "handdrill"
+	force = 20
+	armour_penetration = 5 // da DRILL
+	wound_bonus = 5
+	bare_wound_bonus = 0
+	attack_verb_continuous = list("drills", "pierces", "stabs", "impales", "jabs")
+	attack_verb_simple = list("drill", "pierce", "stab", "impale", "jab")
+	sharpness = SHARP_POINTY // Cut down da TREE. Cut down da WOOD.
+	slot_flags = ITEM_SLOT_BELT
+	resistance_flags = FIRE_PROOF
+	w_class = WEIGHT_CLASS_NORMAL
+	log_pickup_and_drop = TRUE
+
+/obj/item/ms13/handdrill/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
+
+/obj/item/crowbar/ms13
+	name = "crowbar"
+	desc = "A formidible weapon, and a useful tool. The ultimate slayer of boarded structures."
+	icon = 'mojave/icons/objects/melee/melee_world.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
+	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
+	worn_icon_state = "empty_placeholder"
+	icon_state = "crowbar"
+	inhand_icon_state = "crowbar"
+	force = 25
+	throwforce = 10
+	armour_penetration = 5
+	throwforce = 10
+	wound_bonus = 6
+	slot_flags = ITEM_SLOT_BELT
+	w_class = WEIGHT_CLASS_NORMAL
+	log_pickup_and_drop = TRUE
+
+/obj/item/crowbar/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
+
+/obj/item/weldingtool/ms13
+	name = "welding tool"
+	desc = "An old welding torch. Useful for cutting metal and welding things together alike. Don't touch the flame!"
+	icon = 'mojave/icons/objects/melee/melee_world.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
+	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
+	worn_icon_state = "empty_placeholder"
+	icon_state = "torch"
+	inhand_icon_state = "torch"
+	force = 25
+	throwforce = 10
+	armour_penetration = 5
+	throwforce = 10
+	wound_bonus = 10
+	bare_wound_bonus = 15
+	light_color = "#7c84a7"
+	w_class = WEIGHT_CLASS_NORMAL
+	log_pickup_and_drop = TRUE
+
+/obj/item/weldingtool/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
+
+/obj/item/weldingtool/ms13/update_icon_state()
+	. = ..()
+	if(welding)
+		inhand_icon_state = "[initial(inhand_icon_state)]-on"
+		icon_state = "[initial(icon_state)]-on"
+	else
+		inhand_icon_state = "[initial(inhand_icon_state)]"
+		icon_state = "[initial(icon_state)]"
+
+/obj/item/wrench/ms13
+	name = "wrench"
+	desc = "An old and slightly rusted wrench. Still filled with uses even today."
+	icon = 'mojave/icons/objects/melee/melee_world.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
+	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
+	worn_icon_state = "empty_placeholder"
+	icon_state = "wrench"
+	inhand_icon_state = "wrench"
+	force = 15
+	throwforce = 10
+	armour_penetration = 5
+	throwforce = 10
+	wound_bonus = 10
+	w_class = WEIGHT_CLASS_NORMAL
+	log_pickup_and_drop = TRUE
+
+/obj/item/wrench/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
+
+/obj/item/wirecutters/ms13
+	name = "pliers"
+	desc = "A portable set of multi-use pliers. Has a section that can be used to cut cable."
+	icon = 'mojave/icons/objects/melee/melee_world.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
+	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
+	worn_icon_state = "empty_placeholder"
+	icon_state = "wrench"
+	inhand_icon_state = "wrench"
+	force = 10
+	random_color = FALSE
+	log_pickup_and_drop = TRUE
+
+/obj/item/wirecutters/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
+
+/obj/item/screwdriver/ms13
+	name = "screwdriver"
+	desc = "A thin screwdriver. Keep it close, you'll never know when you need to remove someone's eye- or a screw."
+	icon = 'mojave/icons/objects/melee/melee_world.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
+	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
+	worn_icon_state = "empty_placeholder"
+	icon_state = "screwdriver"
+	inhand_icon_state = "screwdriver"
+	flags_1 = CONDUCT_1
+	force = 15
+	sharpness = SHARP_POINTY
+	throwforce = 5
+	random_color = FALSE
+	log_pickup_and_drop = TRUE
+
+/obj/item/screwdriver/ms13/Initialize()
 	. = ..()
 	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
 
@@ -123,6 +296,42 @@
 	. = ..()
 	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
 
+// Handheld light sources  //
+
+/obj/item/flashlight/ms13
+	name = "flashlight"
+	desc = "A common pre-war flashlight. It's held up surprisingly well over the years. An essential tool for any tomfoolery in the unknown."
+	icon = 'mojave/icons/objects/melee/melee_world.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
+	icon_state = "flashlight_old"
+	inhand_icon_state = "flashlight_old"
+	light_range = 3.5
+	light_power = 0.85
+	light_color = "#dbb070"
+
+/obj/item/flashlight/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
+
+/obj/item/flashlight/ms13/mag
+	name = "stick flashlight"
+	desc = "A lengthy dark flashlight. Has a fair light range, and feels relatively high quality."
+	icon_state = "flashlight_mag"
+	inhand_icon_state = "flashlight_mag"
+	light_range = 3.65
+	light_power = 0.75
+	light_color = "#dac97c"
+
+/obj/item/flashlight/ms13/crafted
+	name = "homemade flashlight"
+	desc = "To call it a flashlight is even a stretch. This device is simply a lightbulb connected to a low output fusion cell."
+	icon_state = "flashlight_crafted"
+	inhand_icon_state = "flashlight_crafted"
+	light_range = 3 // doo-doo. But much better than nothing.
+	light_power = 0.55
+	light_color = "#ddd2b9"
+
 /obj/item/flashlight/flare/ms13
 	name = "flare"
 	desc = "A red flare, quite simple."
@@ -131,7 +340,7 @@
 	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
 	icon_state = "flare"
 	inhand_icon_state = "flare"
-	light_range = 5 // Somewhat bright.
+	light_range = 3.65 // lower because radial
 
 /obj/item/flashlight/flare/ms13/Initialize()
 	. = ..()

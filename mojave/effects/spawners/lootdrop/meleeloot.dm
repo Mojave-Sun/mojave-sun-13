@@ -5,7 +5,7 @@
 
 /obj/effect/spawner/random/ms13/melee/tier1
 	name = "tier 1 melee spawner"
-	spawn_loot_chance = 35
+	spawn_loot_chance = 40
 	loot = list(
 			/obj/item/claymore/ms13/pipe/tireiron,
 			/obj/item/knife/ms13/switchblade/razor,
@@ -14,6 +14,8 @@
 			/obj/item/ms13/brick,
 			/obj/item/ms13/hammer,
 			/obj/item/ms13/knuckles,
+			/obj/item/wrench/ms13,
+			/obj/item/screwdriver/ms13,
 			/obj/item/shovel/ms13/spade,
 			/obj/item/shovel/ms13/snow,
 			/obj/item/shovel/ms13/rake
@@ -21,19 +23,21 @@
 
 /obj/effect/spawner/random/ms13/melee/tier2
 	name = "tier 2 melee spawner"
-	spawn_loot_chance = 40
+	spawn_loot_chance = 45
 	loot = list(
 			/obj/item/hatchet/ms13,
 			/obj/item/hatchet/ms13/icepick,
 			/obj/item/hatchet/ms13/tomahawk,
 			/obj/item/claymore/ms13/pipe,
 			/obj/item/claymore/ms13/baton,
+			/obj/item/crowbar/ms13,
 			/obj/item/claymore/ms13/machete,
 			/obj/item/knife/ms13/hunting,
 			/obj/item/knife/ms13/throwingknife,
 			/obj/item/knife/ms13/switchblade,
 			/obj/item/knife/butcher/ms13,
 			/obj/item/ms13/knuckles/weighted,
+			/obj/item/ms13/handsaw,
 			/obj/item/shovel/ms13,
 			/obj/item/ms13/twohanded/spear/throwing,
 			/obj/item/ms13/twohanded/hammer/rebar
@@ -41,7 +45,7 @@
 
 /obj/effect/spawner/random/ms13/melee/tier3
 	name = "tier 3 melee spawner"
-	spawn_loot_chance = 45
+	spawn_loot_chance = 50
 	loot = list(
 			/obj/item/claymore/ms13/machete/katana,
 			/obj/item/claymore/ms13/machete/shishkebab,

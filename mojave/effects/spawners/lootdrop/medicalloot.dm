@@ -6,7 +6,7 @@
 
 /obj/effect/spawner/random/ms13/medical/tier1
 	name = "tier 1 medical spawner"
-	spawn_loot_chance = 40
+	spawn_loot_chance = 55
 	loot = list(
 			/obj/item/stack/medical/suture/ms13/four,
 			/obj/item/stack/medical/gauze/ms13/half,
@@ -16,7 +16,7 @@
 
 /obj/effect/spawner/random/ms13/medical/tier2
 	name = "tier 2 medical spawner"
-	spawn_loot_chance = 45
+	spawn_loot_chance = 55
 	loot = list(
 			/obj/item/stack/medical/suture/ms13/eight,
 			/obj/item/stack/medical/ointment/ms13/cream,
@@ -25,7 +25,7 @@
 
 /obj/effect/spawner/random/ms13/medical/tier3
 	name = "tier 3 medical spawner"
-	spawn_loot_chance = 50
+	spawn_loot_chance = 65
 	loot = list(
 			/obj/item/stack/medical/gauze/ms13/military,
 			/obj/item/stack/medical/ointment/ms13,

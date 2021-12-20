@@ -30,7 +30,7 @@
 		relay_render_to_plane(mymob, render_relay_plane)
 
 ///Things rendered on "openspace"; holes in multi-z
-/atom/movable/screen/plane_master/openspace
+/atom/movable/screen/plane_master/openspace_backdrop
 	name = "open space backdrop plane master"
 	plane = OPENSPACE_BACKDROP_PLANE
 	appearance_flags = PLANE_MASTER
@@ -38,17 +38,26 @@
 	alpha = 255
 	render_relay_plane = RENDER_PLANE_GAME
 
-/atom/movable/screen/plane_master/openspace/Initialize(mapload)
-	. = ..()
-	add_filter("first_stage_openspace", 1, drop_shadow_filter(color = "#04080FAA", size = -10))
-	add_filter("second_stage_openspace", 2, drop_shadow_filter(color = "#04080FAA", size = -15))
-	add_filter("third_stage_openspace", 3, drop_shadow_filter(color = "#04080FAA", size = -20))
-
+//MOJAVE SUN EDIT - Depth Blur & Fixes//
 /atom/movable/screen/plane_master/openspace
 	name = "open space plane master"
 	plane = OPENSPACE_PLANE
 	appearance_flags = PLANE_MASTER
 	render_relay_plane = RENDER_PLANE_GAME
+	blend_mode = BLEND_OVERLAY
+	alpha = 255
+
+/atom/movable/screen/plane_master/openspace/Initialize(mapload) //Increase this if making map larger than 7 Zs
+	. = ..()
+	add_filter("z_level_blur", 1, list(type = "blur", size = 0.75))
+	add_filter("first_stage_openspace", 2, drop_shadow_filter(color = "#04080FAA", size = -10))
+	add_filter("second_stage_openspace", 3, drop_shadow_filter(color = "#04080FAA", size = -15))
+	add_filter("third_stage_openspace", 4, drop_shadow_filter(color = "#04080FAA", size = -20))
+	add_filter("fourth_stage_openspace", 5, drop_shadow_filter(color = "#04080FAA", size = -25))
+	add_filter("fifth_stage_openspace", 6, drop_shadow_filter(color = "#04080FAA", size = -30))
+	add_filter("sixth_stage_openspace", 7, drop_shadow_filter(color = "#04080FAA", size = -35))
+	add_filter("seventh_stage_openspace", 8, drop_shadow_filter(color = "#04080FAA", size = -40))
+//MOJAVE SUN EDIT END - Depth Blur & Fixes
 
 ///Contains just the floor
 /atom/movable/screen/plane_master/floor
