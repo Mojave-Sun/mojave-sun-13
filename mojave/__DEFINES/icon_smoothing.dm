@@ -33,6 +33,8 @@
 #define SMOOTH_GROUP_MS13_ROOF_WOOD S_OBJ_FO(29)			////turf/open/floor/plating/roof/wood
 #define SMOOTH_GROUP_MS13_GLASS S_OBJ_FO(30)			///obj/structure/ms13/glassfloor
 
+#define SMOOTH_GROUP_MS13_OPENSPACE S_OBJ_FO(31)			///turf/open/openspace/ms13
+
 #define SMOOTH_GROUP_SOIL S_OBJ_FO(31)					///obj/machinery/hydroponics/ms13/soil
 #define SMOOTH_GROUP_MS13_TABLE_METAL S_OBJ_FO(32)			///obj/structure/table/ms13
 #define SMOOTH_GROUP_MS13_TABLE_WOOD S_OBJ_FO(33)			///obj/structure/table/ms13/wood
