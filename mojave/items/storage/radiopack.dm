@@ -6,7 +6,7 @@
 	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
 	icon_state = "radiopack"
 	inhand_icon_state = "radiopack"
-	desc = "A basic handheld radio that communicates over a relatively long range, and is proven to be 254% better than yelling loudly."
+	desc = "A radio backpack primarily in use by the NCR. The peak of NCR communication, when they feel like using it."
 	slot_flags = ITEM_SLOT_BACK
 	throw_speed = 3
 	throw_range = 7
@@ -21,8 +21,8 @@
 	START_PROCESSING(SSobj, src)
 	var/datum/component/storage/STR = AddComponent(/datum/component/storage/concrete)
 	STR.max_w_class = WEIGHT_CLASS_NORMAL
-	STR.max_combined_w_class = 18
-	STR.max_items = 5
+	STR.max_combined_w_class = 15
+	STR.max_items = 4
 
 /obj/item/ms13/storage/backpack/radiopack/Destroy()
 	STOP_PROCESSING(SSobj, src)
@@ -85,16 +85,15 @@
 
 /obj/item/radio/ms13/NCR
 	icon = 'mojave/icons/objects/hamradio.dmi'
-	name = "Walkie-Talkie"
+	name = "walkie-talkie"
 	icon_state = "handradio"
 	inhand_icon_state = "handradio_"
-	desc = "The important bit of the radiopack, this broadcasts and recieves radio messages in decent quality."
-
+	desc = "The important bit of the radiopack, this broadcasts and recieves radio messages in high quality with an amplified volume."
 	flags_1 = CONDUCT_1
-	canhear_range = 3
+	canhear_range = 4
 	freerange = TRUE
 	w_class = WEIGHT_CLASS_SMALL
-	radio_broadcast = RADIOSTATIC_MEDIUM
+	radio_broadcast = RADIOSTATIC_LIGHT
 	var/req_radio = TRUE
 	var/obj/item/ms13/storage/backpack/radiopack/radiopack
 

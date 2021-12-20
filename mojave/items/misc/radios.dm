@@ -1,10 +1,10 @@
 /obj/item/radio/ms13
 	icon = 'mojave/icons/objects/hamradio.dmi'
-	name = "hand Radio"
+	name = "hand radio"
 	icon_state = "handradio"
 	inhand_icon_state = "handradio_"
 	desc = "A basic handheld radio that recieves over a relatively long range, unfortunately this one can't broadcast."
-
+	canhear_range = 2
 	w_class = WEIGHT_CLASS_SMALL
 	custom_materials = list(/datum/material/iron=75, /datum/material/glass=25)
 	radio_broadcast = FALSE
@@ -19,18 +19,12 @@
 	return FALSE
 
 /obj/item/radio/ms13/broadcast
-	icon = 'mojave/icons/objects/hamradio.dmi'
 	name = "broadcast hand radio"
-	icon_state = "handradio"
-	inhand_icon_state = "handradio_"
-	desc = "A rare handheld radio that can send as well as recieve signals. The poor quality of broadcasts makes it unpleasent to listen to, and doing so too often is a good way to get lynched."
+	desc = "A handheld radio that can send as well as recieve signals. The poor quality of broadcasts makes it unpleasent to listen to, and doing so too often is a good way to get lynched."
 	radio_broadcast = RADIOSTATIC_HEAVY
 
 /obj/item/radio/ms13/broadcast/prewar
-	icon = 'mojave/icons/objects/hamradio.dmi'
-	name = "pre-War hand radio"
-	icon_state = "handradio"
-	inhand_icon_state = "handradio_"
+	name = "pre-war hand radio"
 	desc = "The best a handheld gets, this extremely rare radio can broadcast at reasonably high quality while remaining lightweight and portable."
 	radio_broadcast = RADIOSTATIC_MEDIUM
 
@@ -39,10 +33,9 @@
 	desc = "An amateur radio setup. The sound quality could be better, but it beats listening to brahmin all day. Has a working microphone, though the quality isn't great."
 	icon = 'mojave/icons/objects/hamradio.dmi'
 	icon_state = "radio_on"
-	canhear_range = 7
+	canhear_range = 6
 	pixel_y = 5
 	freerange = TRUE
-	anonymize = TRUE
 	anchored = TRUE
 	radio_broadcast = RADIOSTATIC_MEDIUM
 
@@ -62,13 +55,6 @@
 /obj/item/radio/ms13/ham/broadcast
 	name = "high power broadcasting set"
 	desc = "A high end broadcasting set used by professional radio studios. Legend has it that Mr. New Vegas himself uses this model."
-	icon = 'mojave/icons/objects/hamradio.dmi'
-	icon_state = "radio_on"
-	canhear_range = 7
-	pixel_y = 5
-	freerange = TRUE
-	anonymize = TRUE
-	anchored = TRUE
 	radio_broadcast = RADIOSTATIC_LIGHT
 /**
  * Override attack_tk_grab instead of attack_tk because we actually want attack_tk's
