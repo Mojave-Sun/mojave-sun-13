@@ -10,6 +10,22 @@
 	icon_state = "bos_holotag"
 	var/datum/bank_account = null
 
+/obj/item/card/id/ms13/doctor
+	name = "doctor's ID card"
+	desc = "A laminated but also very crude looking medical identification badge that has been scribbled on extensively. By wasteland standards, this is actually quite professional."
+	assignment = "Town Doctor"
+	icon_state = "doctor"
+
+/obj/item/card/id/ms13/doctor/nurse
+	name = "nurse's ID card"
+	assignment = "Town Nurse"
+
+/obj/item/card/id/ms13/mayor
+	name = "mayor's ID card"
+	desc = "A very faded gold identification card that looks very, very old and the many edits to the card make it seem like it has seen many owners. But whoever owns this now is surely important."
+	assignment = "Town Mayor"
+	icon_state = "mayor"
+
 /obj/item/card/id/ms13/deputy
 	name = "deputy's badge"
 	desc = "A silver badge which shows honour and dedication. Has some electronic workings sloppily attached to the back of it."
