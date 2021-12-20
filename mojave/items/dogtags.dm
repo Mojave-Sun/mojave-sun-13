@@ -13,7 +13,7 @@
 /obj/item/card/id/ms13/deputy
 	name = "deputy's badge"
 	desc = "A silver badge which shows honour and dedication. Has some electronic workings sloppily attached to the back of it."
-	assignment = "Deputy"
+	assignment = "Town Deputy"
 	icon_state = "deputy"
 
 /obj/item/card/id/ms13/deputy/attackby(obj/item/W, mob/user, params)
@@ -26,6 +26,7 @@
 /obj/item/card/id/ms13/sheriff
 	name = "sheriff's badge"
 	desc = "A golden Sheriff's badge. Has some electronic workings sloppily attached to the back of it."
+	assignment = "Town Sheriff"
 	icon_state = "sheriff"
 
 /obj/item/card/id/ms13/ncrrecruit
@@ -119,6 +120,7 @@
 /obj/item/card/id/ms13/sawbone
 	name = "sawbone's patch"
 	desc = "A nice rectangular patch with a little hole to loop a string through if you really wanted to. It's a bit bloody."
+	assignment = "Raider Sawbones"
 	icon_state = "sawbone"
 
 /obj/item/card/id/ms13/enforcer
