@@ -14,12 +14,35 @@
 	worn_y_dimension = 48
 	worn_y_offset = 2
 	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL | SNUG_FIT | BLOCKS_SHOVE_KNOCKDOWN
+	var/obj/item/radio/headset/powerarmor/radio
+	actions_types = list(/datum/action/item_action/toggle_helmet_light) //New ability to modify the radio's settings
+
+/obj/item/radio/headset/powerarmor
+	actions_types = list(/datum/action/item_action/toggle_radio)
+	icon = 'mojave/icons/objects/hamradio.dmi'
+	icon_state = "handradio"
+
+/obj/item/radio/headset/powerarmor/Initialize()
+	. = ..()
+	interaction_flags_item &= ~INTERACT_ITEM_ATTACK_HAND_PICKUP
+
+/obj/item/radio/headset/powerarmor/attackby(obj/item/W, mob/user, params)
+	return
+
+/obj/item/radio/headset/powerarmor/ui_action_click(mob/user, action)
+    if(istype(action, /datum/action/item_action/toggle_radio))
+        ui_interact(user)
 
 //No touchy
 /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/Initialize()
 	. = ..()
 	interaction_flags_item &= ~INTERACT_ITEM_ATTACK_HAND_PICKUP
 	ADD_TRAIT(src, TRAIT_NODROP, STICKY_NODROP) //Somehow it's stuck to your body, no questioning.
+	radio = new(src)
+
+//Click the ability to access the settings of the integrated radio
+/datum/action/item_action/toggle_radio
+	name = "Toggle Internal Radio Settings"
 
 //Generic power armor based off of the hardsuit
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor
@@ -136,10 +159,7 @@
 	else
 		if(user.wear_suit == src)
 			to_chat(user, "You begin exiting the [src].")
-			if(do_after(user, 8 SECONDS, target = user))
-				if(get_dist(user, src) > 1) //Anti-afterimage check
-					return FALSE
-			if(do_after(user, 8 SECONDS, target = user) && density != TRUE)
+			if(do_after(user, 8 SECONDS, target = user) && density != TRUE && (get_dist(user, src) <= 1))
 				GetOutside(user)
 				return TRUE
 			return FALSE
@@ -154,8 +174,8 @@
 
 //A proc that checks if the user is already wearing clothing that obstructs the equipping of the power armor
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/proc/CheckEquippedClothing(mob/living/carbon/human/user)
-	if(user.head && (user.head != helmet) || user.wear_suit && (user.wear_suit != src) || user.back || user.belt)
-		to_chat(user, span_warning("You're unable to climb into the [src] due to already having a helmet, backpack, belt or outer suit equipped!"))
+	if(user.head && (user.head != helmet) || user.wear_suit && (user.wear_suit != src) || user.back || user.belt || user.ears)
+		to_chat(user, span_warning("You're unable to climb into the [src] due to already having a helmet, backpack, belt, ear accessories or outer suit equipped!"))
 		return FALSE
 	return TRUE
 
@@ -175,6 +195,12 @@
 	user.equip_to_slot_if_possible(src, ITEM_SLOT_OCLOTHING)
 	if(helmettype)
 		ToggleHelmet()
+		var/obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/helmet2 = helmet
+		if(helmet2.radio)
+			user.equip_to_slot(helmet2.radio, ITEM_SLOT_EARS)
+			for(var/X in helmet2.radio.actions)
+				var/datum/action/A = X
+				A.Grant(user)
 
 //Nevermind let's get out
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/proc/GetOutside(mob/living/carbon/human/user)
@@ -186,6 +212,12 @@
 	//Nothing can possibly go wrong
 	user.dna.species.no_equip -= ITEM_SLOT_BACK
 	user.dna.species.no_equip -= ITEM_SLOT_BELT
+	var/obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/helmet2 = helmet
+	if(helmet2.radio)
+		user.transferItemToLoc(helmet2.radio, helmet)
+		for(var/X in helmet2.radio.actions)
+			var/datum/action/A = X
+			A.Remove(user)
 
 //TODO for later involving integrity and ricochets
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
