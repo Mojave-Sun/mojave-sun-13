@@ -202,7 +202,7 @@
 	armor = list(MELEE = 80, BULLET = 80, LASER = 75, ENERGY = 80, BOMB = 80, BIO = 100,  FIRE = 100, ACID = 100, WOUND = 20) //Make the armor the same as the hardsuit one for consistancy
 	icon_state = "helmet0-t51"
 	hardsuit_type = "t51" //Determines used sprites: hardsuit[on]-[type]
-	light_range = 4
+	light_range = 4.20
 	light_power = 0.9
 	light_color = "#d1c58d"
 
