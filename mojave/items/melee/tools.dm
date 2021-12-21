@@ -118,6 +118,7 @@
 	throwforce = 10
 	wound_bonus = 0
 	bare_wound_bonus = 5
+	max_fuel = 50
 	light_color = "#7c84a7"
 	w_class = WEIGHT_CLASS_NORMAL
 	log_pickup_and_drop = TRUE
