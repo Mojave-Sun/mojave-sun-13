@@ -3,14 +3,13 @@
 	name = "Generic Power Armor Helmet"
 	desc = "Don't ever use this in the video game please."
 	icon = 'mojave/icons/mob/large-worn-icons/32x48/head.dmi'
-	icon_state = "null"
 	worn_icon = 'mojave/icons/mob/large-worn-icons/32x48/head.dmi'
-	worn_icon_state = "null"
+	icon_state = "null"
+	basestate = "helmet"
 	strip_delay = 15 SECONDS
 	max_integrity = 500
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	armor = list(MELEE = 80, BULLET = 80, LASER = 80, ENERGY = 80, BOMB = 80, BIO = 100,  FIRE = 100, ACID = 100, WOUND = 25) //Make the armor the same as the hardsuit one for consistancy
-	actions_types = null //No lights my dude, sorry
 	worn_x_dimension = 32
 	worn_y_dimension = 48
 	worn_y_offset = 2
@@ -27,8 +26,8 @@
 	name = "Generic Power Armor"
 	desc = "Don't ever use this in the video game please."
 	icon = 'mojave/icons/mob/large-worn-icons/32x48/armor.dmi'
-	icon_state = "frame"
 	worn_icon = 'mojave/icons/mob/large-worn-icons/32x48/armor.dmi'
+	icon_state = "frame"
 	worn_icon_state = "frame"
 	allowed = list(/obj/item/storage/box/matches,/obj/item/lighter,/obj/item/clothing/mask/cigarette,/obj/item/storage/fancy/cigarettes,/obj/item/flashlight,/obj/item/gun,/obj/item/ammo_box,/obj/item/ammo_casing)
 	density = TRUE //It's a suit of armor man
@@ -50,7 +49,7 @@
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/examine(mob/user)
 	. = ..()
-	. += "You can alt+left click this power armor to get into and out of it!"
+	. += "Alt+left click this power armor to get into and out of it."
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/Initialize()
 	. = ..()
@@ -201,8 +200,11 @@
 	name = "T-51B Power Armor Helmet"
 	desc = "A more advanced helmet for a more advanced piece of power armor."
 	armor = list(MELEE = 80, BULLET = 80, LASER = 75, ENERGY = 80, BOMB = 80, BIO = 100,  FIRE = 100, ACID = 100, WOUND = 20) //Make the armor the same as the hardsuit one for consistancy
-	icon_state = "t51_helmet"
-	worn_icon_state = "t51_helmet"
+	icon_state = "helmet0-t51"
+	hardsuit_type = "t51" //Determines used sprites: hardsuit[on]-[type]
+	light_range = 4.20
+	light_power = 0.9
+	light_color = "#d1c58d"
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/t51
 	name = "T-51B Power Armor Suit"
@@ -218,8 +220,11 @@
 	name = "T-45D Power Armor Helmet"
 	desc = "The helmet to a T-45 powered combat armor suit. Stare your foe down as they can only scrape your paint."
 	armor = list(MELEE = 75, BULLET = 75, LASER = 70, ENERGY = 75, BOMB = 75, BIO = 100,  FIRE = 100, ACID = 100, WOUND = 15)
-	icon_state = "t45_helmet"
-	worn_icon_state = "t45_helmet"
+	icon_state = "helmet0-t45"
+	hardsuit_type = "t45"
+	light_range = 4
+	light_power = 0.8
+	light_color = "#dabc7c"
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/t45
 	name = "T-45D Power Armor Suit"
