@@ -38,16 +38,15 @@
 	worn_icon_state = "empty_placeholder"
 	icon_state = "handsaw"
 	inhand_icon_state = "handsaw"
-	force = 25
-	armour_penetration = 0
+	force = 20
 	wound_bonus = 5
 	bare_wound_bonus = 5
 	attack_verb_continuous = list("saws", "slashes", "tears", "rips")
 	attack_verb_simple = list("saw", "slash", "tear", "rip")
 	sharpness = IS_SHARP_AXE // Cut down da TREE. Cut down da WOOD.
 	slot_flags = ITEM_SLOT_BELT
-	resistance_flags = FIRE_PROOF
-	w_class = WEIGHT_CLASS_SMALL
+	resistance_flags = FIRE_PROOF	
+	w_class = WEIGHT_CLASS_NORMAL
 	toolspeed = 0.5 // axe tomfoolery
 	log_pickup_and_drop = TRUE
 
@@ -66,10 +65,10 @@
 	worn_icon_state = "empty_placeholder"
 	icon_state = "handdrill"
 	inhand_icon_state = "handdrill"
-	force = 20
-	armour_penetration = 5 // da DRILL
-	wound_bonus = 5
-	bare_wound_bonus = 0
+	force = 25
+	armour_penetration = 10 // da DRILL
+	wound_bonus = 6
+	bare_wound_bonus = 4
 	attack_verb_continuous = list("drills", "pierces", "stabs", "impales", "jabs")
 	attack_verb_simple = list("drill", "pierce", "stab", "impale", "jab")
 	sharpness = SHARP_POINTY // Cut down da TREE. Cut down da WOOD.
@@ -92,11 +91,10 @@
 	worn_icon_state = "empty_placeholder"
 	icon_state = "crowbar"
 	inhand_icon_state = "crowbar"
-	force = 25
-	throwforce = 10
-	armour_penetration = 5
+	force = 20
 	throwforce = 10
 	wound_bonus = 6
+	sharpness = NONE
 	slot_flags = ITEM_SLOT_BELT
 	w_class = WEIGHT_CLASS_NORMAL
 	log_pickup_and_drop = TRUE
@@ -117,10 +115,9 @@
 	inhand_icon_state = "torch"
 	force = 25
 	throwforce = 10
-	armour_penetration = 5
 	throwforce = 10
-	wound_bonus = 10
-	bare_wound_bonus = 15
+	wound_bonus = 0
+	bare_wound_bonus = 5
 	light_color = "#7c84a7"
 	w_class = WEIGHT_CLASS_NORMAL
 	log_pickup_and_drop = TRUE
@@ -148,11 +145,11 @@
 	worn_icon_state = "empty_placeholder"
 	icon_state = "wrench"
 	inhand_icon_state = "wrench"
-	force = 15
-	throwforce = 10
-	armour_penetration = 5
-	throwforce = 10
-	wound_bonus = 10
+	force = 10
+	throwforce = 15
+	sharpness = NONE
+	wound_bonus = 0
+	bare_wound_bonus = 0
 	w_class = WEIGHT_CLASS_NORMAL
 	log_pickup_and_drop = TRUE
 
@@ -168,9 +165,11 @@
 	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
 	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
 	worn_icon_state = "empty_placeholder"
-	icon_state = "wrench"
-	inhand_icon_state = "wrench"
-	force = 10
+	icon_state = "wirecutter"
+	inhand_icon_state = "wirecutter"
+	force = 5
+	sharpness = SHARP_POINTY
+	wound_bonus = CANT_WOUND
 	random_color = FALSE
 	log_pickup_and_drop = TRUE
 
@@ -189,9 +188,11 @@
 	icon_state = "screwdriver"
 	inhand_icon_state = "screwdriver"
 	flags_1 = CONDUCT_1
-	force = 15
+	force = 10
 	sharpness = SHARP_POINTY
-	throwforce = 5
+	wound_bonus = 5
+	bare_wound_bonus = 5
+	throwforce = 10
 	random_color = FALSE
 	log_pickup_and_drop = TRUE
 
@@ -306,8 +307,8 @@
 	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
 	icon_state = "flashlight_old"
 	inhand_icon_state = "flashlight_old"
-	light_range = 3.5
-	light_power = 0.85
+	light_range = 3.75
+	light_power = 0.75
 	light_color = "#dbb070"
 
 /obj/item/flashlight/ms13/Initialize()
@@ -319,8 +320,8 @@
 	desc = "A lengthy dark flashlight. Has a fair light range, and feels relatively high quality."
 	icon_state = "flashlight_mag"
 	inhand_icon_state = "flashlight_mag"
-	light_range = 3.65
-	light_power = 0.75
+	light_range = 4.5
+	light_power = 0.9
 	light_color = "#dac97c"
 
 /obj/item/flashlight/ms13/crafted
@@ -329,7 +330,7 @@
 	icon_state = "flashlight_crafted"
 	inhand_icon_state = "flashlight_crafted"
 	light_range = 3 // doo-doo. But much better than nothing.
-	light_power = 0.55
+	light_power = 0.6
 	light_color = "#ddd2b9"
 
 /obj/item/flashlight/flare/ms13
@@ -340,7 +341,7 @@
 	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
 	icon_state = "flare"
 	inhand_icon_state = "flare"
-	light_range = 3.65 // lower because radial
+	light_range = 3.75 // lower because radial
 
 /obj/item/flashlight/flare/ms13/Initialize()
 	. = ..()

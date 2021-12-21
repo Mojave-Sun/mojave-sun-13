@@ -1,6 +1,7 @@
 /obj/effect/spawner/random/ms13/gun
 	name = "DO NOT USE ME - Mojave Sun gun spawners"
 	icon_state = "ms13_gun"
+
 /obj/effect/spawner/random/ms13/gun/tier1
 	name = "tier 1 gun spawner"
 	spawn_loot_count = 3
@@ -132,7 +133,7 @@
 /obj/effect/spawner/random/ms13/gun/tier3
 	name = "tier 3 gun spawner"
 	spawn_loot_count = 3
-	spawn_loot_chance = 560
+	spawn_loot_chance = 60
 	var/loot1 = list(
 				/obj/item/gun/ballistic/revolver/ms13/rev44,
 				/obj/item/ammo_box/ms13/rev44,

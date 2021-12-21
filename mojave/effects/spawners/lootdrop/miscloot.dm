@@ -24,14 +24,32 @@
 			/obj/item/shovel/ms13,
 			/obj/item/crowbar/ms13,
 			/obj/item/weldingtool/ms13,
-			/obj/effect/spawner/random/ms13/tools/lights
+			/obj/effect/spawner/random/ms13/tools/lights,
+			/obj/effect/spawner/random/ms13/tools/radio
 			)
 
 /obj/effect/spawner/random/ms13/tools/lights
 	name = "lighting tool spawner"
+	spawn_loot_chance = 80
+	loot = list(
+			/obj/item/flashlight/flare/ms13 = 35,
+			/obj/item/flashlight/ms13 = 25,
+			/obj/item/flashlight/ms13/mag = 10,
+			/obj/item/flashlight/ms13/crafted = 30
+			)
+
+/obj/effect/spawner/random/ms13/tools/radio
+	name = "low tier radio spawner"
+	spawn_loot_chance = 65
+	loot = list(
+			/obj/item/radio/ms13 = 70,
+			/obj/item/radio/ms13/broadcast = 30
+			)
+
+/obj/effect/spawner/random/ms13/tools/radio/high
+	name = "high tier radio spawner"
 	spawn_loot_chance = 75
 	loot = list(
-			/obj/item/flashlight/flare/ms13,
-			/obj/item/flashlight/ms13,
-			/obj/item/flashlight/ms13/mag
+			/obj/item/radio/ms13/broadcast/prewar = 60,
+			/obj/item/radio/ms13/broadcast = 40
 			)
