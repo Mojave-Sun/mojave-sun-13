@@ -5,6 +5,7 @@
 	inhand_icon_state = "handradio_"
 	desc = "A basic handheld radio that recieves over a relatively long range, unfortunately this one can't broadcast."
 	canhear_range = 2
+	freerange = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	custom_materials = list(/datum/material/iron=75, /datum/material/glass=25)
 	radio_broadcast = FALSE
@@ -35,7 +36,6 @@
 	icon_state = "radio_on"
 	canhear_range = 6
 	pixel_y = 5
-	freerange = TRUE
 	anchored = TRUE
 	radio_broadcast = RADIOSTATIC_MEDIUM
 

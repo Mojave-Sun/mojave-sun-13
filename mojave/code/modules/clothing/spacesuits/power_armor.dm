@@ -198,14 +198,14 @@
 // T-51 PA set //
 
 /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/t51
-	name = "T51 Power Armor Helmet"
+	name = "T-51B Power Armor Helmet"
 	desc = "A more advanced helmet for a more advanced piece of power armor."
 	armor = list(MELEE = 80, BULLET = 80, LASER = 75, ENERGY = 80, BOMB = 80, BIO = 100,  FIRE = 100, ACID = 100, WOUND = 20) //Make the armor the same as the hardsuit one for consistancy
 	icon_state = "t51_helmet"
 	worn_icon_state = "t51_helmet"
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/t51
-	name = "T51B Power Armor Suit"
+	name = "T-51B Power Armor Suit"
 	desc = "The last widely developed and distributed power armor prior to the nuclear winter, even after all of these years it still outperforms it's previous model iteration."
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/t51
 	armor = list(MELEE = 80, BULLET = 80, LASER = 75, ENERGY = 80, BOMB = 80, BIO = 100,  FIRE = 100, ACID = 100, WOUND = 20)
@@ -215,14 +215,14 @@
 // T-45 PA set //
 
 /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/t45
-	name = "T51 Power Armor Helmet"
+	name = "T-45D Power Armor Helmet"
 	desc = "The helmet to a T-45 powered combat armor suit. Stare your foe down as they can only scrape your paint."
-	armor = list(MELEE = 80, BULLET = 80, LASER = 75, ENERGY = 80, BOMB = 80, BIO = 100,  FIRE = 100, ACID = 100, WOUND = 20)
+	armor = list(MELEE = 75, BULLET = 75, LASER = 70, ENERGY = 75, BOMB = 75, BIO = 100,  FIRE = 100, ACID = 100, WOUND = 15)
 	icon_state = "t45_helmet"
 	worn_icon_state = "t45_helmet"
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/t45
-	name = "T45D Power Armor Suit"
+	name = "T-45D Power Armor Suit"
 	desc = "Supposedly the first power armor to be deployed in the Great War. While it does have it's flaws, it still represents a very robust piece of armor that can withstand great punishment."
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/t45
 	armor = list(MELEE = 75, BULLET = 75, LASER = 70, ENERGY = 75, BOMB = 75, BIO = 100,  FIRE = 100, ACID = 100, WOUND = 15)
