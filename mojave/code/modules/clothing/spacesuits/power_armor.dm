@@ -18,6 +18,7 @@
 	actions_types = list(/datum/action/item_action/toggle_helmet_light) //New ability to modify the radio's settings
 
 /obj/item/radio/headset/powerarmor
+	name = "integrated power armor headset"
 	actions_types = list(/datum/action/item_action/toggle_radio)
 	icon = 'mojave/icons/objects/hamradio.dmi'
 	icon_state = "handradio"
