@@ -605,7 +605,7 @@
 
 		to_chat(user, "<span class='notice'>You start fishing...</span>")
 
-		if(do_after(user, 30 SECONDS))
+		if(do_after(user, 40 SECONDS*W.toolspeed))
 			if(!can_fish(user))
 				return TRUE
 			to_chat(user, "<span class='notice'>You reel in your catch.</span>")

@@ -47,7 +47,7 @@
 	slot_flags = ITEM_SLOT_BELT
 	resistance_flags = FIRE_PROOF	
 	w_class = WEIGHT_CLASS_NORMAL
-	toolspeed = 0.5 // axe tomfoolery
+	toolspeed = 2 // axe tomfoolery
 	log_pickup_and_drop = TRUE
 
 /obj/item/ms13/handsaw/Initialize()
@@ -246,7 +246,7 @@
 	armour_penetration = 0
 	wound_bonus = -2
 	throwforce = 10
-	toolspeed = 0.5
+	toolspeed = 1.5
 	sharpness = NONE
 	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = ITEM_SLOT_BELT
@@ -260,7 +260,7 @@
 	armour_penetration = 10
 	wound_bonus = 5
 	throwforce = 10
-	toolspeed = 0.5
+	toolspeed = 1.5
 
 /obj/item/shovel/ms13/rake
 	name = "rake"
@@ -272,7 +272,7 @@
 	bare_wound_bonus = 5
 	throwforce = 10
 	armour_penetration = 5
-	toolspeed = 0.25
+	toolspeed = 2.5
 	attack_verb_continuous = list("smacks", "slashes", "jabs", "slaps", "pounds", "beats", "bonks", "rakes", "assaults")
 	attack_verb_simple = list("smack", "slash", "jabb", "slap", "pound", "beat", "bonk", "rake", "assault")
 	hitsound = 'sound/weapons/genhit.ogg'
