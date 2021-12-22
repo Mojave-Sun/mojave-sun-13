@@ -113,11 +113,12 @@
 	worn_icon_state = "empty_placeholder"
 	icon_state = "torch"
 	inhand_icon_state = "torch"
-	force = 25
+	force = 10
 	throwforce = 10
 	throwforce = 10
 	wound_bonus = 0
 	bare_wound_bonus = 5
+	max_fuel = 50
 	light_color = "#7c84a7"
 	w_class = WEIGHT_CLASS_NORMAL
 	log_pickup_and_drop = TRUE
@@ -129,11 +130,20 @@
 /obj/item/weldingtool/ms13/update_icon_state()
 	. = ..()
 	if(welding)
-		inhand_icon_state = "[initial(inhand_icon_state)]-on"
-		icon_state = "[initial(icon_state)]-on"
+		inhand_icon_state = "[initial(inhand_icon_state)]-lit"
+		icon_state = "[initial(icon_state)]-lit"
+		force = 25
+		damtype = BURN
 	else
 		inhand_icon_state = "[initial(inhand_icon_state)]"
 		icon_state = "[initial(icon_state)]"
+		force = 10
+		damtype = BRUTE
+
+/obj/item/weldingtool/ms13/update_overlays()
+	. = ..()
+	if(welding)
+		. += "empty"
 
 /obj/item/wrench/ms13
 	name = "wrench"
