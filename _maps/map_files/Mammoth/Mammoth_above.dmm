@@ -687,11 +687,9 @@
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "cw" = (
-/obj/item/reagent_containers/blood/ms13/radaway{
-	pixel_y = 6
-	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/table/ms13/metal,
+/obj/effect/spawner/random/ms13/medical/bloodbag,
 /turf/open/floor/ms13/tile/blue,
 /area/ms13/town)
 "cx" = (
@@ -3983,8 +3981,10 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "nF" = (
-/obj/structure/ms13/storage/shelf,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
+/obj/effect/spawner/random/ms13/medical/bloodbag,
+/obj/effect/spawner/random/ms13/medical/bloodbag,
+/obj/structure/closet/crate/ms13/medical,
 /turf/open/floor/ms13/tile/blue,
 /area/ms13/underground/tunnel/maintenance)
 "nG" = (
@@ -4062,6 +4062,14 @@
 /obj/effect/spawner/random/ms13/medical/highrandom,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/tunnel/maintenance)
+"nT" = (
+/obj/structure/table/ms13/no_smooth/large/metal/desk{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/spawner/random/ms13/medical/bloodbag,
+/turf/open/floor/ms13/tile/large/white,
+/area/ms13/town)
 "nU" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/machinery/door/unpowered/ms13/wood{
@@ -5259,6 +5267,7 @@
 "rY" = (
 /obj/structure/table/ms13/metal/grate,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/spawner/random/ms13/medical/bloodbag,
 /turf/open/floor/ms13/tile/blue/long,
 /area/ms13/town)
 "rZ" = (
@@ -7123,6 +7132,14 @@
 /obj/structure/railing/ms13/solo,
 /turf/open/floor/ms13/concrete/industrial/split,
 /area/ms13/underground/vault_atrium_upper)
+"yP" = (
+/obj/structure/ms13/storage/shelf{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/spawner/random/ms13/medical/bloodbag,
+/turf/open/floor/ms13/tile/large/white,
+/area/ms13/town)
 "yQ" = (
 /obj/structure/chair/sofa/corp{
 	dir = 8
@@ -10287,6 +10304,7 @@
 	},
 /obj/structure/closet/ms13/wall/firstaid,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/spawner/random/ms13/medical/lowrandom,
 /turf/open/floor/ms13/tile,
 /area/ms13/town)
 "Ka" = (
@@ -12219,6 +12237,18 @@
 /mob/living/simple_animal/hostile/ms13/pigrat,
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/tunnel/maintenance)
+"QO" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/spawner/random/ms13/medical/bloodbag,
+/obj/effect/spawner/random/ms13/medical/bloodbag,
+/obj/effect/spawner/random/ms13/medical/bloodbag,
+/obj/effect/spawner/random/ms13/medical/bloodbag,
+/obj/effect/spawner/random/ms13/medical/bloodbag,
+/obj/effect/spawner/random/ms13/medical/bloodbag,
+/obj/effect/spawner/random/ms13/medical/bloodbag,
+/obj/structure/closet/crate/ms13/medical,
+/turf/open/floor/ms13/tile/blue,
+/area/ms13/town)
 "QP" = (
 /obj/structure/ms13/storage/shelf{
 	dir = 8
@@ -13195,6 +13225,7 @@
 "Um" = (
 /obj/structure/table/ms13/no_smooth/large/metal/desk,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/spawner/random/ms13/medical/bloodbag,
 /turf/open/floor/ms13/tile/large/white,
 /area/ms13/town)
 "Un" = (
@@ -25671,7 +25702,7 @@ vR
 vR
 vR
 vR
-LH
+vR
 LH
 LH
 LH
@@ -25972,8 +26003,8 @@ vR
 vR
 vR
 vR
-LH
-LH
+vR
+vR
 LH
 LH
 LH
@@ -26273,9 +26304,9 @@ vR
 vR
 vR
 vR
-LH
-LH
-LH
+vR
+vR
+vR
 LH
 LH
 LH
@@ -26575,8 +26606,8 @@ vR
 vR
 vR
 vR
-LH
-LH
+vR
+vR
 LH
 LH
 LH
@@ -26878,7 +26909,7 @@ vR
 vR
 vR
 vR
-LH
+vR
 LH
 LH
 LH
@@ -50328,7 +50359,7 @@ bJ
 bJ
 bJ
 YA
-qF
+QO
 Di
 Sk
 YA
@@ -64869,7 +64900,7 @@ Ey
 Cj
 Cj
 Fx
-DJ
+nT
 TA
 TA
 Nt
@@ -66383,7 +66414,7 @@ gP
 TA
 TA
 gP
-Yd
+yP
 an
 LH
 LH

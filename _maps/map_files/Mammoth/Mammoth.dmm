@@ -7882,10 +7882,11 @@
 /turf/open/floor/ms13/tile/large/black,
 /area/ms13/underground/vault_atrium_middle)
 "fuK" = (
-/obj/effect/spawner/random/ms13/medical/highrandom,
-/obj/effect/spawner/random/ms13/medical/highrandom,
-/obj/effect/spawner/random/ms13/medical/highrandom,
 /obj/structure/closet/crate/ms13/medical,
+/obj/effect/spawner/random/ms13/medical/bloodbag,
+/obj/effect/spawner/random/ms13/medical/bloodbag,
+/obj/effect/spawner/random/ms13/medical/bloodbag,
+/obj/effect/spawner/random/ms13/medical/bloodbag,
 /obj/effect/spawner/random/ms13/medical/bloodbag,
 /turf/open/floor/ms13/tile/large/black,
 /area/ms13/underground/vault_atrium_middle)
@@ -13528,10 +13529,6 @@
 /obj/structure/table/ms13/metal,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/ncr)
-"iTU" = (
-/mob/living/basic/ms13/hostile_animal/mirelurk,
-/turf/open/floor/plating/ms13/ground/ice,
-/area/ms13)
 "iUb" = (
 /obj/structure/toilet,
 /obj/machinery/light/ms13/bulb{
@@ -14416,6 +14413,7 @@
 /area/ms13/town)
 "jtV" = (
 /obj/structure/table/ms13/metal,
+/obj/effect/spawner/random/ms13/medical/highrandom,
 /turf/open/floor/ms13/tile/blue,
 /area/ms13/town)
 "jua" = (
@@ -14557,12 +14555,17 @@
 /area/ms13/snow/lightforest)
 "jwJ" = (
 /obj/structure/closet/crate/ms13/medical,
-/obj/effect/spawner/random/ms13/medical/tier3,
-/obj/effect/spawner/random/ms13/medical/highrandom,
+/obj/effect/spawner/random/ms13/medical/bloodbag,
+/obj/effect/spawner/random/ms13/medical/bloodbag,
+/obj/effect/spawner/random/ms13/medical/bloodbag,
+/obj/effect/spawner/random/ms13/medical/bloodbag,
+/obj/effect/spawner/random/ms13/medical/bloodbag,
+/obj/effect/spawner/random/ms13/medical/bloodbag,
 /turf/open/floor/ms13/metal,
 /area/ms13/town)
 "jwK" = (
 /obj/structure/ms13/storage/shelf/rust,
+/obj/effect/spawner/random/ms13/medical/highrandom,
 /turf/open/floor/ms13/metal,
 /area/ms13/town)
 "jwP" = (
@@ -14631,8 +14634,9 @@
 /area/ms13/town)
 "jyI" = (
 /obj/structure/closet/crate/ms13/medical,
-/obj/effect/spawner/random/ms13/medical/highrandom,
-/obj/effect/spawner/random/ms13/medical/highrandom,
+/obj/effect/spawner/random/ms13/medical/bloodbag,
+/obj/effect/spawner/random/ms13/medical/bloodbag,
+/obj/effect/spawner/random/ms13/medical/bloodbag,
 /turf/open/floor/ms13/tile/blue,
 /area/ms13/town)
 "jyQ" = (
@@ -15821,7 +15825,6 @@
 	},
 /obj/effect/spawner/random/ms13/medical/highrandom,
 /obj/effect/spawner/random/ms13/medical/lowrandom,
-/obj/effect/spawner/random/ms13/medical/bloodbag,
 /turf/open/floor/ms13/tile/large/black,
 /area/ms13/underground/vault_atrium_middle)
 "kjK" = (
@@ -21605,6 +21608,12 @@
 	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
+"nUf" = (
+/obj/structure/ms13/foundation/variantfour{
+	dir = 9
+	},
+/turf/open/floor/plating/ms13/ground/mountain,
+/area/ms13/town)
 "nUs" = (
 /obj/structure/bed/ms13/bedframe/wood,
 /turf/open/floor/wood/ms13/carpet/shaggy,
@@ -21851,6 +21860,7 @@
 "odh" = (
 /obj/structure/bed/ms13/mattress/filthy,
 /obj/effect/decal/cleanable/blood/old,
+/obj/effect/spawner/random/ms13/melee/lowrandom,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "odp" = (
@@ -22607,10 +22617,6 @@
 /obj/structure/ms13/storage/vent,
 /turf/open/floor/ms13/tile/brown,
 /area/ms13/town)
-"oDc" = (
-/mob/living/basic/ms13/hostile_animal/mirelurk,
-/turf/open/floor/wood/ms13/common,
-/area/ms13)
 "oDe" = (
 /obj/structure/closet/crate/miningcar,
 /obj/item/stack/ore/silver,
@@ -23484,10 +23490,12 @@
 /area/ms13)
 "qrl" = (
 /obj/structure/bed/ms13/bedframe/wood,
-/obj/structure/bed/ms13/mattress/yellowed,
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/spawner/random/ms13/medical/lowrandom,
-/turf/open/floor/wood/ms13/common,
+/obj/structure/ms13/foundation/common/variantone{
+	dir = 9
+	},
+/turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/town)
 "qsa" = (
 /obj/structure/table/ms13/wood/bar,
@@ -24565,6 +24573,12 @@
 	},
 /turf/open/floor/ms13/tile/full/navy,
 /area/ms13/town)
+"twr" = (
+/obj/structure/ms13/foundation/variantfour{
+	dir = 5
+	},
+/turf/open/floor/plating/ms13/ground/mountain,
+/area/ms13/underground/mountain)
 "tAf" = (
 /obj/machinery/door/airlock/ms13{
 	dir = 4
@@ -25631,6 +25645,10 @@
 /obj/effect/spawner/random/ms13/tools/hardware,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
+"xeG" = (
+/mob/living/basic/ms13/hostile_animal/mirelurk,
+/turf/open/floor/wood/ms13/common,
+/area/ms13/town)
 "xff" = (
 /obj/structure/ms13/foundation/mosaic,
 /turf/open/floor/plating/ms13/ground/mountain,
@@ -25823,6 +25841,10 @@
 /obj/item/bodybag/ms13,
 /obj/item/bodybag/ms13,
 /obj/item/bodybag/ms13,
+/obj/effect/spawner/random/ms13/medical/bloodbag,
+/obj/effect/spawner/random/ms13/medical/lowrandom,
+/obj/effect/spawner/random/ms13/medical/lowrandom,
+/obj/effect/spawner/random/ms13/medical/lowrandom,
 /turf/open/floor/ms13/tile/large/black,
 /area/ms13/underground/vault_atrium_middle)
 "xCb" = (
@@ -36845,7 +36867,7 @@ khQ
 khQ
 khQ
 khQ
-ybZ
+khQ
 ybZ
 xsE
 xsE
@@ -37146,8 +37168,8 @@ khQ
 khQ
 khQ
 khQ
-ybZ
-ybZ
+khQ
+khQ
 ybZ
 xsE
 xsE
@@ -37447,9 +37469,9 @@ khQ
 khQ
 khQ
 khQ
-ybZ
-ybZ
-ybZ
+khQ
+khQ
+khQ
 ybZ
 xsE
 xsE
@@ -37749,8 +37771,8 @@ khQ
 khQ
 khQ
 khQ
-ybZ
-ybZ
+khQ
+khQ
 ybZ
 ybZ
 xsE
@@ -38052,7 +38074,7 @@ khQ
 khQ
 khQ
 khQ
-ybZ
+khQ
 ybZ
 ybZ
 xsE
@@ -42179,7 +42201,7 @@ mnq
 ylm
 fuK
 vfS
-fAk
+vfS
 dmC
 khQ
 khQ
@@ -42481,7 +42503,7 @@ fpZ
 ylm
 xzP
 veB
-vfS
+fAk
 ylm
 khQ
 khQ
@@ -74386,7 +74408,7 @@ wtg
 muY
 muY
 muY
-oDc
+muY
 yib
 yib
 yib
@@ -74690,7 +74712,7 @@ muY
 muY
 muY
 yib
-iTU
+yib
 khQ
 khQ
 khQ
@@ -75596,7 +75618,7 @@ hZh
 ykZ
 khQ
 khQ
-khQ
+xmo
 oIN
 xmo
 khQ
@@ -75897,7 +75919,7 @@ wSc
 anG
 ykZ
 khQ
-khQ
+xmo
 xmo
 xmo
 vrx
@@ -76198,9 +76220,9 @@ lUa
 cIm
 anG
 ykZ
-ykZ
-ykZ
-khQ
+twr
+oIN
+xmo
 xmo
 oJg
 khQ
@@ -76499,10 +76521,10 @@ ylG
 lbg
 azN
 wSc
-wSc
-wSc
-ykZ
-khQ
+xeG
+nUf
+xmo
+xmo
 khQ
 khQ
 khQ
