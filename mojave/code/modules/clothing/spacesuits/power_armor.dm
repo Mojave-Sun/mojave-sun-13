@@ -14,14 +14,24 @@
 	worn_y_dimension = 48
 	worn_y_offset = 2
 	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL | SNUG_FIT | BLOCKS_SHOVE_KNOCKDOWN
-	var/obj/item/radio/headset/powerarmor/radio
+	var/obj/item/radio/headset/powerarmor/radio //Instantiated radio
+	var/radiotype = /obj/item/radio/headset/powerarmor //Typepath of the radio
 	actions_types = list(/datum/action/item_action/toggle_helmet_light) //New ability to modify the radio's settings
+
+//No touchy
+/obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/Initialize()
+	. = ..()
+	interaction_flags_item &= ~INTERACT_ITEM_ATTACK_HAND_PICKUP
+	ADD_TRAIT(src, TRAIT_NODROP, STICKY_NODROP) //Somehow it's stuck to your body, no questioning.
+	radio = new radiotype(src)
 
 /obj/item/radio/headset/powerarmor
 	name = "integrated power armor headset"
 	actions_types = list(/datum/action/item_action/toggle_radio)
 	icon = 'mojave/icons/objects/hamradio.dmi'
 	icon_state = "handradio"
+	subspace_transmission = FALSE
+	freerange = TRUE
 
 /obj/item/radio/headset/powerarmor/Initialize()
 	. = ..()
@@ -43,13 +53,6 @@
     name = "integrated T-51B power armor radio"
     desc = "A high quality radio internally attached to a T-51B power armor helmet."
     radio_broadcast = RADIOSTATIC_LIGHT
-
-//No touchy
-/obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/Initialize()
-	. = ..()
-	interaction_flags_item &= ~INTERACT_ITEM_ATTACK_HAND_PICKUP
-	ADD_TRAIT(src, TRAIT_NODROP, STICKY_NODROP) //Somehow it's stuck to your body, no questioning.
-	radio = new(src)
 
 //Click the ability to access the settings of the integrated radio
 /datum/action/item_action/toggle_radio
@@ -248,7 +251,7 @@
 	light_range = 4.20
 	light_power = 0.9
 	light_color = "#d1c58d"
-	radio = /obj/item/radio/headset/powerarmor/t51
+	radiotype = /obj/item/radio/headset/powerarmor/t51
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/t51
 	name = "T-51B Power Armor Suit"
@@ -269,7 +272,7 @@
 	light_range = 4
 	light_power = 0.8
 	light_color = "#dabc7c"
-	radio = /obj/item/radio/headset/powerarmor/t45
+	radiotype = /obj/item/radio/headset/powerarmor/t45
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/t45
 	name = "T-45D Power Armor Suit"
