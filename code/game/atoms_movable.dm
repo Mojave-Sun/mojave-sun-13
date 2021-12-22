@@ -112,7 +112,6 @@
 	//MOJAVE SUN EDIT - Wallening Testmerge
 
 /atom/movable/Destroy(force)
-	QDEL_NULL(proximity_monitor)
 	QDEL_NULL(language_holder)
 	QDEL_NULL(em_block)
 
