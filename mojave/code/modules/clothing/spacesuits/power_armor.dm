@@ -34,6 +34,16 @@
     if(istype(action, /datum/action/item_action/toggle_radio))
         ui_interact(user)
 
+/obj/item/radio/headset/powerarmor/t45
+    name = "integrated T-45D power armor radio"
+    desc = "A mediocre quality radio internally attached to a T-45D power armor helmet."
+    radio_broadcast = RADIOSTATIC_MEDIUM
+
+/obj/item/radio/headset/powerarmor/t51
+    name = "integrated T-51B power armor radio"
+    desc = "A high quality radio internally attached to a T-51B power armor helmet."
+    radio_broadcast = RADIOSTATIC_LIGHT
+
 //No touchy
 /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/Initialize()
 	. = ..()
@@ -238,6 +248,7 @@
 	light_range = 4.20
 	light_power = 0.9
 	light_color = "#d1c58d"
+	radio = /obj/item/radio/headset/powerarmor/t51
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/t51
 	name = "T-51B Power Armor Suit"
@@ -258,6 +269,7 @@
 	light_range = 4
 	light_power = 0.8
 	light_color = "#dabc7c"
+	radio = /obj/item/radio/headset/powerarmor/t45
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/t45
 	name = "T-45D Power Armor Suit"
