@@ -15,7 +15,7 @@
 			level = SEC_LEVEL_RED
 		if("delta")
 			level = SEC_LEVEL_DELTA
-
+	/* MOJAVE SUN EDIT - SECURITY LEVEL REMOVAL
 	//Will not be announced if you try to set to the same level as it already is
 	if(level >= SEC_LEVEL_GREEN && level <= SEC_LEVEL_DELTA && level != SSsecurity_level.current_level)
 		switch(level)
@@ -54,7 +54,7 @@
 						SSshuttle.emergency.modTimer(0.5)
 
 		SSsecurity_level.set_level(level)
-
+*/
 /proc/get_security_level()
 	switch(SSsecurity_level.current_level)
 		if(SEC_LEVEL_GREEN)
