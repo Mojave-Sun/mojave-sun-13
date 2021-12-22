@@ -6463,7 +6463,9 @@
 /area/ms13/underground/tunnel/maintenance)
 "eBx" = (
 /obj/structure/table/ms13/metal,
-/obj/machinery/door/poddoor/shutters/preopen/ms13/indestructible,
+/obj/machinery/door/poddoor/shutters/preopen/ms13/indestructible{
+	id = "outpost_desk_shutters"
+	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/tunnel/maintenance)
 "eBA" = (
@@ -6576,7 +6578,9 @@
 /obj/item/paper_bin,
 /obj/item/pen,
 /obj/structure/table/ms13/metal,
-/obj/machinery/door/poddoor/shutters/preopen/ms13/indestructible,
+/obj/machinery/door/poddoor/shutters/preopen/ms13/indestructible{
+	id = "outpost_desk_shutters"
+	},
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/tunnel/maintenance)
 "eEv" = (
@@ -8383,6 +8387,20 @@
 /obj/structure/chair/pew/right,
 /turf/open/floor/plating/ms13/ground/sidewalk,
 /area/ms13)
+"fLM" = (
+/obj/structure/railing/ms13/solo{
+	dir = 4
+	},
+/obj/effect/spawner/random/ms13/drink/soda,
+/obj/structure/ms13/storage/shelf{
+	dir = 4
+	},
+/obj/structure/ms13/storage/shelf{
+	dir = 8
+	},
+/obj/effect/spawner/random/ms13/drink/soda,
+/turf/open/floor/ms13/tile/large/white,
+/area/ms13/supermarket)
 "fLU" = (
 /obj/structure/table/ms13/low_wall/concrete,
 /obj/structure/window/fulltile/ms13/glass,
@@ -15618,6 +15636,12 @@
 	},
 /turf/open/floor/plating/ms13/ground/road,
 /area/ms13)
+"kej" = (
+/obj/structure/ms13/storage/shelf/rust,
+/obj/effect/spawner/random/ms13/seeds/random,
+/obj/effect/spawner/random/ms13/seeds/random,
+/turf/open/floor/ms13/tile/large/white,
+/area/ms13/supermarket)
 "kem" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 5
@@ -17158,6 +17182,11 @@
 /obj/effect/decal/cleanable/ash/large,
 /turf/open/floor/ms13/tile/blue/long,
 /area/ms13/town)
+"lcq" = (
+/obj/structure/ms13/storage/shelf/rust,
+/obj/effect/spawner/random/ms13/seeds/unique,
+/turf/open/floor/ms13/tile/large/white,
+/area/ms13/supermarket)
 "lcr" = (
 /turf/open/openspace/ms13,
 /area/ms13/underground/mountain)
@@ -23706,7 +23735,7 @@
 	doc_title_1 = "vault_door_notice";
 	remote_capability = 1;
 	signal_id_1 = "vaultdoor2";
-	signal_title_1 = "interior seal lockdown"
+	signal_title_1 = "Interior Seal Lockdown"
 	},
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/vault_atrium_middle)
@@ -83027,7 +83056,7 @@ xZD
 kIA
 xZD
 vSh
-kYf
+kej
 sQr
 leU
 sQr
@@ -83329,9 +83358,9 @@ xZD
 kIA
 xZD
 vSh
-kYf
+kej
 sQr
-kYf
+lcq
 sQr
 kYf
 sQr
@@ -83631,7 +83660,7 @@ xZD
 kIN
 xZD
 vSh
-kYf
+kej
 sQr
 lfc
 sQr
@@ -83933,7 +83962,7 @@ vSh
 vSh
 vSh
 vSh
-kYf
+kej
 sQr
 lff
 fPF
@@ -86649,7 +86678,7 @@ sTz
 kIQ
 hAQ
 vSh
-kUY
+fLM
 kUY
 sQr
 sQr
