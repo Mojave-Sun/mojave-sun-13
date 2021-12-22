@@ -43,6 +43,7 @@
 	wound_bonus = 2
 	armour_penetration = 10
 	sharpness = SHARP_POINTY
+	tool_behaviour = TOOL_MINING
 
 /obj/item/hatchet/ms13/tomahawk
 	name = "tomahawk"
