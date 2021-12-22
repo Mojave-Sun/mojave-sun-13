@@ -34,6 +34,16 @@
     if(istype(action, /datum/action/item_action/toggle_radio))
         ui_interact(user)
 
+/obj/item/radio/headset/powerarmor/t45
+    name = "integrated T-45D power armor radio"
+    desc = "A mediocre quality radio internally attached to a T-45D power armor helmet."
+    radio_broadcast = RADIOSTATIC_MEDIUM
+
+/obj/item/radio/headset/powerarmor/t51
+    name = "integrated T-51B power armor radio"
+    desc = "A high quality radio internally attached to a T-51B power armor helmet."
+    radio_broadcast = RADIOSTATIC_LIGHT
+
 //No touchy
 /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/Initialize()
 	. = ..()
@@ -231,13 +241,14 @@
 
 /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/t51
 	name = "T-51B Power Armor Helmet"
-	desc = "A more advanced helmet for a more advanced piece of power armor."
+	desc = "A more advanced helmet for a more advanced piece of power armor. Comes with a high quality headlamp and integrated radio."
 	armor = list(MELEE = 80, BULLET = 80, LASER = 75, ENERGY = 80, BOMB = 80, BIO = 100,  FIRE = 100, ACID = 100, WOUND = 20) //Make the armor the same as the hardsuit one for consistancy
 	icon_state = "helmet0-t51"
 	hardsuit_type = "t51" //Determines used sprites: hardsuit[on]-[type]
 	light_range = 4.20
 	light_power = 0.9
 	light_color = "#d1c58d"
+	radio = /obj/item/radio/headset/powerarmor/t51
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/t51
 	name = "T-51B Power Armor Suit"
@@ -251,13 +262,14 @@
 
 /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/t45
 	name = "T-45D Power Armor Helmet"
-	desc = "The helmet to a T-45 powered combat armor suit. Stare your foe down as they can only scrape your paint."
+	desc = "The helmet to a T-45 powered combat armor suit. Stare your foe down as they can only scrape your paint. Comes with a decent quality headlamp and integrated radio."
 	armor = list(MELEE = 75, BULLET = 75, LASER = 70, ENERGY = 75, BOMB = 75, BIO = 100,  FIRE = 100, ACID = 100, WOUND = 15)
 	icon_state = "helmet0-t45"
 	hardsuit_type = "t45"
 	light_range = 4
 	light_power = 0.8
 	light_color = "#dabc7c"
+	radio = /obj/item/radio/headset/powerarmor/t45
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/t45
 	name = "T-45D Power Armor Suit"
