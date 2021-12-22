@@ -120,15 +120,8 @@
 /area/ms13/town)
 "adm" = (
 /obj/structure/table/ms13/metal,
-/obj/item/retractor{
-	pixel_x = 4;
-	pixel_y = 2
-	},
-/obj/item/hemostat{
-	pixel_x = -5
-	},
-/obj/item/scalpel{
-	pixel_y = 16
+/obj/item/storage/firstaid/ms13/bag/filled{
+	pixel_y = 6
 	},
 /turf/open/floor/ms13/tile/navy,
 /area/ms13/town)
@@ -168,10 +161,7 @@
 /obj/structure/table/ms13/metal,
 /obj/effect/decal/cleanable/blood/gibs/core,
 /obj/effect/spawner/random/ms13/medical/lowrandom,
-/obj/effect/spawner/random/ms13/medical/highrandom,
-/obj/item/storage/firstaid/ms13/bag/filled{
-	pixel_y = 6
-	},
+/obj/effect/spawner/random/ms13/medical/lowrandom,
 /turf/open/floor/ms13/tile/navy,
 /area/ms13/town)
 "adP" = (
@@ -654,7 +644,6 @@
 /obj/effect/spawner/random/ms13/drink/alcohol_beer,
 /obj/effect/spawner/random/ms13/drink/alcohol_beer,
 /obj/effect/spawner/random/ms13/food/produce_random,
-/obj/item/food/canned/beans,
 /turf/open/floor/ms13/tile/navy,
 /area/ms13/town)
 "auO" = (
@@ -1554,8 +1543,10 @@
 /turf/open/floor/wood/ms13/carpet,
 /area/ms13/town)
 "bbd" = (
-/obj/item/food/canned/beans,
-/obj/structure/ms13/storage/store,
+/obj/structure/table/ms13/no_smooth/large/metal,
+/obj/machinery/light/ms13/bulb{
+	dir = 1
+	},
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "bbC" = (
@@ -2140,7 +2131,6 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "bxL" = (
-/obj/item/food/canned/beans,
 /obj/structure/ms13/storage/shelf/rust{
 	dir = 1
 	},
@@ -2218,11 +2208,11 @@
 /obj/structure/chair/sofa/corp/left{
 	dir = 4
 	},
-/turf/open/floor/wood/ms13/carpet/shaggy,
+/turf/open/floor/wood/ms13/carpet/shaggy/green,
 /area/ms13/town)
 "bBI" = (
 /obj/structure/table/ms13/metal,
-/turf/open/floor/wood/ms13/carpet/shaggy,
+/turf/open/floor/wood/ms13/carpet/shaggy/green,
 /area/ms13/town)
 "bBJ" = (
 /obj/structure/closet/crate/ms13/woodcrate,
@@ -2248,7 +2238,7 @@
 /obj/structure/chair/sofa/corp/right{
 	dir = 8
 	},
-/turf/open/floor/wood/ms13/carpet/shaggy,
+/turf/open/floor/wood/ms13/carpet/shaggy/green,
 /area/ms13/town)
 "bCk" = (
 /obj/machinery/light/ms13/bulb{
@@ -2470,13 +2460,13 @@
 /obj/structure/chair/sofa/corp/corner{
 	dir = 1
 	},
-/turf/open/floor/wood/ms13/carpet/shaggy,
+/turf/open/floor/wood/ms13/carpet/shaggy/green,
 /area/ms13/town)
 "bHn" = (
 /obj/structure/chair/sofa/corp{
 	dir = 1
 	},
-/turf/open/floor/wood/ms13/carpet/shaggy,
+/turf/open/floor/wood/ms13/carpet/shaggy/green,
 /area/ms13/town)
 "bHy" = (
 /obj/structure/table/ms13/no_smooth/counter/metal{
@@ -2490,18 +2480,18 @@
 	dir = 1
 	},
 /obj/effect/landmark/start/ms13/enforcer,
-/turf/open/floor/wood/ms13/carpet/shaggy,
+/turf/open/floor/wood/ms13/carpet/shaggy/green,
 /area/ms13/town)
 "bHY" = (
-/obj/machinery/light/ms13/bulb,
-/turf/open/floor/wood/ms13/carpet/shaggy,
+/obj/structure/closet/ms13/fridge,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "bIa" = (
 /obj/structure/chair/sofa/corp/right{
 	dir = 1
 	},
 /obj/effect/landmark/start/ms13/enforcer,
-/turf/open/floor/wood/ms13/carpet/shaggy,
+/turf/open/floor/wood/ms13/carpet/shaggy/green,
 /area/ms13/town)
 "bId" = (
 /obj/structure/curtain/bounty,
@@ -2511,7 +2501,7 @@
 /obj/structure/chair/sofa/corp/corner{
 	dir = 8
 	},
-/turf/open/floor/wood/ms13/carpet/shaggy,
+/turf/open/floor/wood/ms13/carpet/shaggy/green,
 /area/ms13/town)
 "bIk" = (
 /obj/item/trash/semki{
@@ -4218,9 +4208,6 @@
 	},
 /turf/open/floor/ms13/tile,
 /area/ms13/town)
-"cTb" = (
-/turf/open/ms13/water/deep,
-/area/ms13)
 "cTw" = (
 /obj/structure/chair/stool{
 	pixel_x = 6;
@@ -9315,7 +9302,6 @@
 /obj/effect/spawner/random/ms13/food/produce_random,
 /obj/effect/spawner/random/ms13/drink/alcohol_beer,
 /obj/effect/spawner/random/ms13/food/produce_random,
-/obj/item/food/canned/beans,
 /turf/open/floor/ms13/tile/navy,
 /area/ms13/town)
 "gmE" = (
@@ -13520,7 +13506,7 @@
 /area/ms13/ncr)
 "iTU" = (
 /mob/living/basic/ms13/hostile_animal/mirelurk,
-/turf/open/ms13/water/medium,
+/turf/open/floor/plating/ms13/ground/ice,
 /area/ms13)
 "iUb" = (
 /obj/structure/toilet,
@@ -20431,9 +20417,6 @@
 /obj/item/taperecorder,
 /turf/open/floor/ms13/tile/full/navy,
 /area/ms13/town)
-"nfu" = (
-/turf/open/ms13/water/shallow,
-/area/ms13)
 "nfL" = (
 /obj/structure/table/ms13/metal,
 /obj/machinery/light/ms13/bulb,
@@ -21958,9 +21941,7 @@
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
 "ogP" = (
-/mob/living/simple_animal/hostile/retaliate/ms13/slepnir{
-	dir = 8
-	},
+/mob/living/simple_animal/hostile/retaliate/ms13/slepnir,
 /turf/open/floor/plating/ms13/ground/snow,
 /area/ms13/snow/deepforest)
 "ogZ" = (
@@ -22517,7 +22498,6 @@
 /obj/effect/spawner/random/ms13/food/produce_safe,
 /obj/effect/spawner/random/ms13/food/produce_safe,
 /obj/effect/spawner/random/ms13/drink/soda,
-/obj/item/food/canned/beans,
 /turf/open/floor/ms13/tile,
 /area/ms13/ncr)
 "ozn" = (
@@ -22935,6 +22915,10 @@
 	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/tribal_abandoned)
+"pas" = (
+/obj/effect/landmark/start/ms13/wastelander,
+/turf/open/floor/plating/ms13/ground/road,
+/area/ms13/town)
 "paK" = (
 /obj/machinery/light/ms13/bulb/broken{
 	dir = 1
@@ -26012,7 +25996,7 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "yib" = (
-/turf/open/ms13/water/medium,
+/turf/open/floor/plating/ms13/ground/ice,
 /area/ms13)
 "yic" = (
 /obj/structure/ms13/phone,
@@ -28259,9 +28243,9 @@ wSc
 ylG
 ylG
 ylG
-nfu
-nfu
-nfu
+yib
+yib
+yib
 khQ
 khQ
 khQ
@@ -28561,8 +28545,8 @@ wSc
 ylG
 ylG
 ylG
-nfu
-nfu
+yib
+yib
 yib
 khQ
 khQ
@@ -28861,9 +28845,9 @@ rAq
 wSc
 wSc
 ylG
-nfu
-nfu
-nfu
+yib
+yib
+yib
 yib
 yib
 khQ
@@ -29163,8 +29147,8 @@ rAq
 wSc
 wSc
 ylG
-nfu
-nfu
+yib
+yib
 yib
 yib
 yib
@@ -29470,7 +29454,7 @@ muY
 muY
 yib
 yib
-cTb
+yib
 khQ
 khQ
 khQ
@@ -29772,7 +29756,7 @@ muY
 muY
 yib
 yib
-cTb
+yib
 khQ
 khQ
 khQ
@@ -30069,12 +30053,12 @@ ykZ
 wSc
 ykZ
 ylG
-nfu
-nfu
 yib
 yib
 yib
-cTb
+yib
+yib
+yib
 khQ
 khQ
 khQ
@@ -30371,13 +30355,13 @@ ylG
 ylG
 ylG
 ylG
-nfu
-nfu
 yib
 yib
-cTb
-cTb
-cTb
+yib
+yib
+yib
+yib
+yib
 khQ
 khQ
 khQ
@@ -30672,13 +30656,13 @@ ylG
 ylG
 ylG
 ylG
-nfu
-nfu
 yib
 yib
 yib
-cTb
-cTb
+yib
+yib
+yib
+yib
 khQ
 khQ
 khQ
@@ -30974,13 +30958,13 @@ ylG
 ylG
 ylG
 ylG
-nfu
-nfu
 yib
 yib
 yib
-cTb
-cTb
+yib
+yib
+yib
+yib
 khQ
 khQ
 khQ
@@ -31276,13 +31260,13 @@ ylG
 ylG
 ylG
 ylG
-nfu
-nfu
 yib
 yib
 yib
-cTb
-cTb
+yib
+yib
+yib
+yib
 khQ
 khQ
 khQ
@@ -31578,13 +31562,13 @@ ylG
 ylG
 ylG
 ylG
-nfu
-nfu
 yib
 yib
 yib
-cTb
-cTb
+yib
+yib
+yib
+yib
 khQ
 khQ
 khQ
@@ -31880,12 +31864,12 @@ ylG
 ylG
 ylG
 ylG
-nfu
-nfu
 yib
 yib
 yib
-cTb
+yib
+yib
+yib
 khQ
 khQ
 khQ
@@ -32182,12 +32166,12 @@ ylG
 ylG
 ylG
 ylG
-nfu
-nfu
 yib
 yib
 yib
-cTb
+yib
+yib
+yib
 khQ
 khQ
 khQ
@@ -32484,12 +32468,12 @@ ylG
 ylG
 ylG
 ylG
-nfu
-nfu
-nfu
 yib
 yib
-cTb
+yib
+yib
+yib
+yib
 khQ
 khQ
 khQ
@@ -32787,11 +32771,11 @@ ylG
 ylG
 ylG
 ylG
-nfu
-nfu
 yib
 yib
-cTb
+yib
+yib
+yib
 khQ
 khQ
 khQ
@@ -33089,8 +33073,8 @@ ylG
 ylG
 ylG
 ylG
-nfu
-nfu
+yib
+yib
 yib
 yib
 khQ
@@ -33391,8 +33375,8 @@ ylG
 ylG
 ylG
 ylG
-nfu
-nfu
+yib
+yib
 yib
 yib
 khQ
@@ -33693,9 +33677,9 @@ ylG
 ylG
 ylG
 ylG
-nfu
-nfu
-nfu
+yib
+yib
+yib
 yib
 khQ
 khQ
@@ -33995,9 +33979,9 @@ xsE
 xsE
 ylG
 ylG
-nfu
-nfu
-nfu
+yib
+yib
+yib
 khQ
 khQ
 khQ
@@ -34297,8 +34281,8 @@ ybZ
 xsE
 ylG
 ylG
-nfu
-nfu
+yib
+yib
 khQ
 khQ
 khQ
@@ -34599,8 +34583,8 @@ ybZ
 xsE
 ylG
 ylG
-nfu
-nfu
+yib
+yib
 khQ
 khQ
 khQ
@@ -34901,8 +34885,8 @@ ybZ
 xsE
 ylG
 ylG
-nfu
-nfu
+yib
+yib
 khQ
 khQ
 khQ
@@ -35203,7 +35187,7 @@ ybZ
 xsE
 ylG
 ylG
-nfu
+yib
 khQ
 khQ
 khQ
@@ -36713,8 +36697,8 @@ ylG
 xsE
 ylG
 xsE
-ybZ
 ogP
+ybZ
 khQ
 khQ
 khQ
@@ -72281,7 +72265,7 @@ khQ
 khQ
 khQ
 pwP
-bbd
+cvg
 cxd
 brR
 gRs
@@ -72863,7 +72847,7 @@ ylG
 ylG
 ylG
 ylG
-nfu
+yib
 yib
 yib
 khQ
@@ -73163,9 +73147,9 @@ ylG
 ylG
 ylG
 ylG
-nfu
-nfu
-nfu
+yib
+yib
+yib
 yib
 yib
 khQ
@@ -73464,8 +73448,8 @@ ylG
 ylG
 ylG
 ylG
-nfu
-nfu
+yib
+yib
 yib
 yib
 yib
@@ -73766,8 +73750,8 @@ ylG
 ylG
 wtg
 wtg
-nfu
-nfu
+yib
+yib
 yib
 yib
 yib
@@ -74068,8 +74052,8 @@ ylG
 ylG
 wtg
 wtg
-nfu
-nfu
+yib
+yib
 yib
 yib
 yib
@@ -74975,8 +74959,8 @@ ylG
 wtg
 wtg
 wtg
-nfu
-nfu
+yib
+yib
 yib
 yib
 khQ
@@ -78553,7 +78537,7 @@ jIO
 mRK
 sUu
 sUu
-mBi
+pas
 mBi
 mBi
 sUu
@@ -85270,8 +85254,8 @@ axO
 bcT
 axO
 axO
-aKu
-aKu
+jas
+jas
 pwP
 xZD
 xZD
@@ -85572,8 +85556,8 @@ axO
 axO
 kWw
 axO
-aKu
-bHY
+jas
+olh
 pwP
 yic
 xZD
@@ -86188,7 +86172,7 @@ ykT
 ykT
 xZD
 mxp
-cay
+bHY
 axO
 axO
 axO
@@ -86490,7 +86474,7 @@ ykT
 ykT
 xZD
 bSX
-cay
+bHY
 axO
 axO
 axO
@@ -87672,7 +87656,7 @@ khQ
 khQ
 khQ
 hiq
-bme
+hiq
 hiq
 hiq
 hiq
@@ -88577,7 +88561,7 @@ khQ
 khQ
 khQ
 khQ
-bme
+hiq
 adG
 ahE
 coc
@@ -88825,7 +88809,7 @@ ylG
 ylG
 ylG
 ylG
-sCy
+ylG
 ylG
 ylG
 ylG
@@ -88879,10 +88863,10 @@ khQ
 khQ
 khQ
 khQ
-bme
-bme
 hiq
-bme
+hiq
+hiq
+hiq
 aim
 amq
 apw
@@ -89185,7 +89169,7 @@ khQ
 jIO
 aeX
 wSc
-wSc
+azh
 akY
 wSc
 mxp
@@ -89787,7 +89771,7 @@ khQ
 khQ
 khQ
 jIO
-mCu
+bbd
 wSc
 aiu
 wSc
@@ -90391,7 +90375,7 @@ khQ
 khQ
 khQ
 jIO
-ybx
+wSc
 wSc
 aju
 amq
@@ -91598,10 +91582,10 @@ khQ
 khQ
 aaD
 xmo
-kaz
 xmo
 xmo
-kaz
+xmo
+xmo
 xmo
 khQ
 khQ
@@ -92204,7 +92188,7 @@ khQ
 aaD
 xmo
 xmo
-kaz
+xmo
 xmo
 xmo
 aaD
@@ -93125,7 +93109,7 @@ khQ
 khQ
 hiq
 hiq
-bme
+hiq
 hiq
 hiq
 bON
@@ -94333,8 +94317,8 @@ khQ
 khQ
 hiq
 hiq
-bme
-bme
+hiq
+hiq
 hiq
 jIO
 jIO

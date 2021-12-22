@@ -445,6 +445,13 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/carpet/shaggy/green,
 /area/ms13/town)
+"bB" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/door/unpowered/ms13/seethrough/metal{
+	dir = 4
+	},
+/turf/open/floor/wood/ms13/common,
+/area/ms13/town)
 "bC" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/machinery/light/ms13{
@@ -1913,13 +1920,6 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
-"gM" = (
-/obj/structure/barricade/sandbags,
-/obj/structure/railing/ms13/solo{
-	dir = 8
-	},
-/turf/open/floor/wood/ms13/common,
-/area/ms13)
 "gN" = (
 /obj/item/stack/cable_coil/five,
 /obj/effect/spawner/random/ms13/tools/hardware,
@@ -2414,7 +2414,7 @@
 	},
 /area/ms13/town)
 "iq" = (
-/obj/structure/railing/ms13/solo{
+/obj/structure/railing/ms13/sewer{
 	dir = 4
 	},
 /turf/open/floor/plating/ms13/roof,
@@ -5102,10 +5102,10 @@
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/underground/vault_atrium_upper)
 "ru" = (
-/obj/structure/railing/ms13/solo{
+/obj/structure/barricade/sandbags,
+/obj/structure/railing/ms13/sewer{
 	dir = 8
 	},
-/obj/structure/barricade/sandbags,
 /turf/open/floor/wood/ms13/common,
 /area/ms13)
 "rv" = (
@@ -5862,7 +5862,7 @@
 /turf/open/openspace/ms13,
 /area/ms13/town)
 "ub" = (
-/obj/structure/railing/ms13/solo{
+/obj/structure/railing/ms13/sewer{
 	dir = 1
 	},
 /turf/open/openspace/ms13,
@@ -6176,12 +6176,11 @@
 /turf/open/floor/wood/ms13/carpet/shaggy,
 /area/ms13/town)
 "vl" = (
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/structure/filingcabinet/ms13{
-	dir = 4
+/obj/structure/railing/ms13/sewer{
+	dir = 8
 	},
-/turf/open/floor/ms13/metal,
-/area/ms13/town)
+/turf/open/floor/wood/ms13/common,
+/area/ms13)
 "vm" = (
 /obj/structure/ms13/storage/trashcan,
 /turf/open/floor/wood/ms13/common,
@@ -7733,7 +7732,7 @@
 /area/ms13/town)
 "AZ" = (
 /obj/structure/barricade/sandbags,
-/obj/structure/railing/ms13/solo{
+/obj/structure/railing/ms13/sewer{
 	dir = 8
 	},
 /turf/open/floor/plating/ms13/roof,
@@ -8258,6 +8257,13 @@
 	},
 /turf/open/floor/iron/stairs/medium,
 /area/ms13/underground/vault_atrium_upper)
+"CW" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/filingcabinet/ms13{
+	dir = 4
+	},
+/turf/open/floor/ms13/metal,
+/area/ms13/town)
 "CY" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/table/ms13/no_smooth/large/metal/desk/alt,
@@ -9275,7 +9281,7 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/ncr)
 "GB" = (
-/obj/structure/railing/ms13/solo{
+/obj/structure/railing/ms13/sewer{
 	dir = 8
 	},
 /turf/open/floor/plating/ms13/roof,
@@ -10737,6 +10743,11 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/ms13/metal,
 /area/ms13/town)
+"LB" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/fence/fencenormal,
+/turf/open/floor/ms13/metal,
+/area/ms13/town)
 "LC" = (
 /obj/effect/landmark/start/ms13/sergeant,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -12185,6 +12196,13 @@
 /obj/structure/weightmachine/weightlifter,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
+"Qz" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/door/unpowered/ms13/metal{
+	dir = 1
+	},
+/turf/open/floor/ms13/tile,
 /area/ms13/town)
 "QA" = (
 /obj/effect/turf_decal/stripes/line{
@@ -70821,17 +70839,17 @@ PY
 PY
 PY
 PY
-pK
-pK
-pK
-pK
-pK
+vl
+vl
+vl
+vl
+vl
 rm
 ru
 ru
-pK
-pK
-pK
+vl
+vl
+vl
 rm
 LH
 LH
@@ -70843,17 +70861,17 @@ LH
 LH
 LH
 rm
-gM
-gM
-gM
-pK
-pK
+ru
+ru
+ru
+vl
+vl
 rm
-pK
-pK
-pK
-pK
-pK
+vl
+vl
+vl
+vl
+vl
 PY
 PY
 PY
@@ -78071,14 +78089,14 @@ bJ
 XI
 CD
 AP
-Ix
+Qz
 Kc
 XI
 AP
 AP
 XI
 qf
-Ix
+XG
 AP
 AP
 XI
@@ -78675,14 +78693,14 @@ bJ
 XI
 GM
 AP
-Ix
+Qz
 Kc
 XI
 AP
 AP
 XI
 qf
-Ix
+XG
 AP
 wQ
 XI
@@ -81748,11 +81766,11 @@ LH
 LH
 LH
 Cj
-He
-He
-He
-He
-FW
+Cj
+Cj
+Cj
+Cj
+ax
 AP
 AP
 JJ
@@ -82050,10 +82068,10 @@ LH
 LH
 Cj
 Cj
-Cj
-Cj
-Cj
-Cj
+CW
+CW
+LB
+qP
 Cj
 Fa
 Cj
@@ -82353,9 +82371,9 @@ LH
 Cj
 wV
 KT
-vl
+gA
 Jf
-ZJ
+AP
 AP
 AP
 Cj
@@ -82608,7 +82626,7 @@ AP
 AP
 XI
 ks
-Ix
+XG
 AP
 oH
 XI
@@ -83212,7 +83230,7 @@ AP
 AP
 XI
 ks
-Ix
+XG
 AP
 AP
 XI
@@ -84718,8 +84736,8 @@ XI
 XI
 XI
 XI
-lo
-lo
+bB
+bB
 XI
 XI
 XI
@@ -85369,10 +85387,10 @@ LH
 LH
 LH
 LH
-LH
-LH
-LH
-LH
+Ir
+Ir
+Ir
+Ir
 LH
 LH
 LH
@@ -85671,10 +85689,10 @@ LH
 LH
 LH
 LH
-LH
-LH
-LH
-LH
+Ir
+Ir
+Ir
+Ir
 LH
 LH
 LH
@@ -85973,10 +85991,10 @@ LH
 LH
 LH
 LH
-LH
-LH
-LH
-LH
+Ir
+Ir
+Ir
+Ir
 LH
 LH
 LH
@@ -86274,11 +86292,11 @@ RK
 RK
 RK
 RK
-PY
 LH
-LH
-LH
-LH
+Ir
+Ir
+Ir
+Ir
 LH
 LH
 LH
@@ -86576,9 +86594,9 @@ PY
 PY
 PY
 RK
-PY
-PY
-PY
+LH
+LH
+LH
 LH
 LH
 LH
@@ -86881,7 +86899,7 @@ PY
 PY
 PY
 PY
-PY
+LH
 LH
 LH
 LH
