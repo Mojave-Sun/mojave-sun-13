@@ -21,7 +21,6 @@
 	uniform =    /obj/item/clothing/under/ms13/vaultsuit
 	gloves = 	 /obj/item/clothing/gloves/ms13/vault
 	shoes =  	 /obj/item/clothing/shoes/ms13/military/vault
-	back =	 	 /obj/item/storage/backpack/satchel/leather
 	suit_store = /obj/item/gun/ballistic/shotgun/ms13/lever/trail
 	belt = 		 /obj/item/gun/ballistic/automatic/pistol/ms13/m10mm/military
 	r_pocket =   /obj/item/ammo_box/magazine/ms13/m10mm
