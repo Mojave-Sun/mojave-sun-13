@@ -139,6 +139,10 @@
 	name = "abandoned Tribal building"
 	icon_state = "town"
 
+/area/ms13/underground/military_crypt
+	name = "Abandoned Outpost Bunker"
+	icon_state = "military_crypt"
+
 // Drought Areas //
 
 /area/ms13/desert

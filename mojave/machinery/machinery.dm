@@ -74,3 +74,53 @@
 			soundloop.start()
 		set_light_on(on)
 		update_light()
+
+// Intercoms //
+
+/obj/item/radio/intercom/ms13 // Limited use closed in radios. Quirky.
+	name = "intercom"
+	desc = "A wall mounted intercom. Used to communicate seemlessly through distance in a closed system. Truly gamechanging."
+	icon = 'mojave/icons/structure/machinery.dmi'
+	icon_state = "intercom"
+	canhear_range = 6
+	frequency = 1445.4 // Wack-ass numbers. Ensure these goofballs don't ever reach open air.
+	broadcasting = FALSE  // Whether the radio will transmit dialogue it hears nearby.
+	freerange = TRUE  // If true, the radio has access to the full spectrum.
+	freqlock = TRUE  // Frequency lock to stop the user from untuning specialist radios.
+	radio_broadcast = RADIOSTATIC_LIGHT
+
+/obj/item/radio/intercom/ms13/Initialize(mapload)
+	. = ..()
+	wires = new /datum/wires/radio(src)
+	if(prison_radio)
+		wires.cut(WIRE_TX) // OH GOD WHY
+	secure_radio_connections = new
+	for(var/ch_name in channels)
+		secure_radio_connections[ch_name] = add_radio(src, GLOB.radiochannels[ch_name])
+
+	become_hearing_sensitive(ROUNDSTART_TRAIT)
+	if(dir == SOUTH)
+		pixel_y = 28
+
+/obj/item/radio/intercom/ms13/ui_data(mob/user) // These should be set up to be closed off from everything else, and thus will be neutered and set to a set frequency.
+	var/list/data = list()
+	data["broadcasting"] = broadcasting
+	data["listening"] = listening
+	return data
+
+// Buttons //
+
+/obj/machinery/button/door/ms13
+	name = "button"
+	desc = "A remote control switch."
+	icon = 'mojave/icons/structure/machinery.dmi'
+	icon_state = "button"
+	skin = "button"
+
+/obj/machinery/button/door/ms13/Initialize(mapload)
+	. = ..()
+	if(dir == SOUTH)
+		pixel_y = 28
+
+/obj/machinery/button/door/ms13/attackby(obj/item/W, mob/living/user, params)
+	return // no opening these
