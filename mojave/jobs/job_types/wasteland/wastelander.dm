@@ -77,11 +77,6 @@
 	else
 		gloves = null
 
-	back = pick(
-		/obj/item/storage/backpack/satchel/leather,\
-		/obj/item/storage/backpack)
-
-
 	uniform = pick(
 		/obj/item/clothing/under/ms13/wasteland/caravanpants,\
 		/obj/item/clothing/under/ms13/wasteland/pants,\
@@ -132,16 +127,18 @@
 		/obj/item/gun/ballistic/revolver/ms13/single, \
 		/obj/item/gun/ballistic/automatic/pistol/ms13/m10mm/chinese)
 
-
-	belt = pick(
-		/obj/item/claymore/ms13/pipe/tireiron, \
-		/obj/item/knife/ms13, \
-		/obj/item/knife/ms13/switchblade/razor, \
-		/obj/item/ms13/hammer, \
-		/obj/item/ms13/knuckles, \
-		/obj/item/ms13/brick, \
-		/obj/item/ms13/handsaw, \
-		/obj/item/crowbar/ms13)
+	if(H.backpack == SACK)
+		belt = /obj/item/storage/ms13/sack
+	else
+		belt = pick(
+			/obj/item/claymore/ms13/pipe/tireiron, \
+			/obj/item/knife/ms13, \
+			/obj/item/knife/ms13/switchblade/razor, \
+			/obj/item/ms13/hammer, \
+			/obj/item/ms13/knuckles, \
+			/obj/item/ms13/brick, \
+			/obj/item/ms13/handsaw, \
+			/obj/item/crowbar/ms13)
 
 	shoes = pick(
         /obj/item/clothing/shoes/ms13/tan, \

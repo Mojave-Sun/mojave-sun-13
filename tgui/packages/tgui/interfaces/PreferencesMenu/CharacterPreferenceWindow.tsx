@@ -79,7 +79,7 @@ export const CharacterPreferenceWindow = (props, context) => {
       title="Character Preferences"
       width={920}
       height={770}
-    >
+      theme="mojavesun">
       <Window.Content scrollable>
         <Stack vertical fill>
           <Stack.Item>
@@ -129,7 +129,7 @@ export const CharacterPreferenceWindow = (props, context) => {
                   Factions
                 </PageButton>
               </Stack.Item>
-
+              {/*
               <Stack.Item grow>
                 <PageButton
                   currentPage={currentPage}
@@ -147,8 +147,9 @@ export const CharacterPreferenceWindow = (props, context) => {
                   setPage={setCurrentPage}
                 >
                   Quirks
-                </PageButton>
-              </Stack.Item>
+              </PageButton>
+
+              </Stack.Item>*/}
             </Stack>
           </Stack.Item>
 

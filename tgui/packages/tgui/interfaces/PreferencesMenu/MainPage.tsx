@@ -37,7 +37,7 @@ const CharacterControls = (props: {
           tooltipPosition="top"
         />
       </Stack.Item>
-
+      {/* MOJAVE SUN EDIT - Prefs
       <Stack.Item>
         <Button
           onClick={props.handleOpenSpecies}
@@ -47,7 +47,7 @@ const CharacterControls = (props: {
           tooltipPosition="top"
         />
       </Stack.Item>
-
+      */}
       {props.showGender && (
         <Stack.Item>
           <GenderButton
@@ -181,7 +181,7 @@ const GenderButton = (props: {
       genderMenuOpen
         && (
           <Stack backgroundColor="white" ml={0.5} p={0.3}>
-            {[Gender.Male, Gender.Female, Gender.Other].map(gender => {
+            {[Gender.Male, Gender.Female].map(gender => { // MOJAVE SUN EDIT
               return (
                 <Stack.Item key={gender}>
                   <Button
