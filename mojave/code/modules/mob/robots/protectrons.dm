@@ -37,7 +37,7 @@
 	melee_damage_lower = 35
 	melee_damage_upper = 35
 	armour_penetration = 10
-	wound_bonus = 8
+	wound_bonus = 6
 	bare_wound_bonus = 6
 	sharpness = SHARP_EDGED
 	attack_verb_continuous = "cleaves"

@@ -488,6 +488,24 @@
 	//Used for increasing cracking when walking on ice
 	var/crack_state = 1
 
+/turf/open/floor/plating/ms13/ground/ice/attackby(obj/item/W, mob/user, params)
+	. = ..()
+	if(!W.tool_behaviour == TOOL_SHOVEL || !W.tool_behaviour == TOOL_MINING)
+		return
+
+	if(do_after(user, 5 SECONDS))
+		to_chat(user, span_notice("You break away the ice."))
+		switch(crack_state)
+			if(1)
+				crack_state = 2
+				update_icon()
+			if(2)
+				crack_state = 3
+				update_icon()
+			if(3)
+				Icebreak()
+				update_icon()
+
 /turf/open/floor/plating/ms13/ground/ice/cracked
 	baseturfs = /turf/open/floor/plating/ms13/ground/ice/morecracked
 	icon = 'mojave/icons/turf/64x/ice_2.dmi'
@@ -497,7 +515,6 @@
 	baseturfs = /turf/open/ms13/water/deep
 	icon = 'mojave/icons/turf/64x/ice_3.dmi'
 	crack_state = 3
-
 
 /turf/open/floor/plating/ms13/ground/ice/Initialize()
 	. = ..()
@@ -566,6 +583,44 @@
 	var/atom/watereffect = /obj/effect/overlay/ms13/water/medium
 	var/atom/watertop = /obj/effect/overlay/ms13/water/top/medium
 	var/depth = 0
+	var/list/fish = list(/obj/item/food/meat/slab/ms13/fish/sockeye = 1,
+		/obj/item/food/meat/slab/ms13/fish/smallmouth = 1,
+		/obj/item/food/meat/slab/ms13/fish/largemouth = 1,
+		/obj/item/food/meat/slab/ms13/fish/lamprey = 1,
+		/obj/item/food/meat/slab/ms13/fish/pink = 1,
+		/obj/item/food/meat/slab/ms13/fish/chum = 1,
+		/obj/item/food/meat/slab/ms13/fish/sturgeon = 1,
+		/obj/item/food/meat/slab/ms13/fish/asian = 1,
+		/obj/item/food/meat/slab/ms13/fish/blinky = 1)
+	var/fished = FALSE
+
+/turf/open/ms13/water/attackby(obj/item/W, mob/user, params)
+	. = ..()
+	if(W.tool_behaviour == TOOL_FISHINGROD)
+		if(!can_fish(user))
+			return TRUE
+
+		if(!isturf(user.loc))
+			return
+
+		to_chat(user, "<span class='notice'>You start fishing...</span>")
+
+		if(do_after(user, 30 SECONDS))
+			if(!can_fish(user))
+				return TRUE
+			to_chat(user, "<span class='notice'>You reel in your catch.</span>")
+			getFished(user)
+
+/turf/open/ms13/water/proc/getFished(mob/user)
+	var/spawnFish = pick_weight(fish)
+	new spawnFish(user.loc)
+	fished = TRUE
+
+/turf/open/ms13/water/proc/can_fish(mob/user)
+	if(!fished)
+		return TRUE
+	if(user)
+		to_chat(user, "<span class='warning'>Looks like there's no fish here!</span>")
 
 /turf/open/ms13/water/deep
 	name = "deep water"

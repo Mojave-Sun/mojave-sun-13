@@ -37,8 +37,8 @@
 	melee_damage_upper = 30
 	armour_penetration = 10
 	sharpness = SHARP_EDGED
-	wound_bonus = 8
-	bare_wound_bonus = 10
+	wound_bonus = 6
+	bare_wound_bonus = 6
 	attack_verb_continuous = "saws"
 	attack_verb_simple = "saw"
 	attack_sound = 'sound/weapons/circsawhit.ogg'
