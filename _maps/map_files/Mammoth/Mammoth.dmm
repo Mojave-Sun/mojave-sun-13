@@ -3458,6 +3458,10 @@
 /obj/item/trash/boritos,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
+"cps" = (
+/obj/structure/table/ms13/wood/constructed/cobbled,
+/turf/closed/wall/ms13/concrete,
+/area/ms13/underground/mountain)
 "cpI" = (
 /obj/structure/table/ms13/metal,
 /obj/item/wrench/ms13,
@@ -5535,8 +5539,9 @@
 /area/ms13/town)
 "dVm" = (
 /obj/effect/decal/cleanable/glass,
-/turf/open/floor/ms13/tile,
-/area/ms13/town)
+/obj/structure/closet/crate/ms13/woodcrate/compact,
+/turf/open/floor/plating/ms13/ground/snow,
+/area/ms13)
 "dVB" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 4
@@ -6165,6 +6170,10 @@
 /mob/living/simple_animal/hostile/retaliate/ms13/brahmin/brahmiluff,
 /turf/open/floor/plating/ms13/ground/snow,
 /area/ms13/snow/lightforest)
+"ers" = (
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/open/floor/ms13/tile,
+/area/ms13/town)
 "erw" = (
 /obj/structure/safe/ms13,
 /obj/effect/spawner/random/ms13/gun/highrandom,
@@ -11089,8 +11098,8 @@
 /turf/open/floor/wood/ms13/carpet/green,
 /area/ms13/town)
 "hxX" = (
-/mob/living/simple_animal/hostile/tree{
-	pixel_x = -2
+/obj/structure/flora/ms13/tree/tallpine/snow{
+	pixel_x = 0
 	},
 /turf/open/floor/plating/ms13/ground/snow,
 /area/ms13)
@@ -14254,6 +14263,12 @@
 /obj/structure/chair/sofa/corp/left,
 /turf/open/floor/wood/ms13/carpet,
 /area/ms13/town)
+"jpn" = (
+/obj/structure/ms13/foundation/common/variantfive{
+	dir = 6
+	},
+/turf/open/floor/plating/ms13/ground/mountain,
+/area/ms13/town)
 "jpw" = (
 /obj/structure/chair/sofa/corp/right,
 /turf/open/floor/wood/ms13/carpet,
@@ -17057,13 +17072,6 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/plating/ms13/ground/snow,
 /area/ms13/snow/lightforest)
-"kZy" = (
-/obj/effect/decal/cleanable/blood/drip,
-/obj/structure/ms13/foundation/variantfour{
-	dir = 4
-	},
-/turf/open/floor/plating/ms13/ground/mountain,
-/area/ms13/town)
 "kZM" = (
 /obj/effect/decal/cleanable/glass,
 /obj/structure/barricade/wooden/crude/snow,
@@ -17193,14 +17201,6 @@
 "ldh" = (
 /turf/open/floor/wood/ms13/carpet/violet,
 /area/ms13/supermarket)
-"ldr" = (
-/obj/effect/decal/cleanable/blood/drip,
-/obj/structure/flora/grass/jungle/b,
-/obj/structure/ms13/foundation/common/variantone{
-	dir = 6
-	},
-/turf/open/floor/plating/ms13/ground/mountain,
-/area/ms13/town)
 "ldv" = (
 /obj/structure/table/ms13/metal,
 /obj/effect/decal/cleanable/glass,
@@ -17217,6 +17217,8 @@
 /obj/structure/chair/ms13/wood/padded{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/effect/spawner/random/ms13/armor/lowrandom,
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
@@ -17304,16 +17306,13 @@
 /turf/open/floor/plating/ms13/ground/road,
 /area/ms13)
 "lgn" = (
-/obj/structure/barricade/wooden/crude/snow,
-/turf/closed/wall/ms13/wood,
-/area/ms13/town)
+/obj/structure/table/ms13/low_wall/wood,
+/turf/open/floor/plating/ms13/ground/snow,
+/area/ms13)
 "lgo" = (
-/obj/structure/ms13/foundation/common/variantthree{
-	dir = 4
-	},
-/mob/living/basic/ms13/hostile_animal/wolf,
-/turf/open/floor/plating/ms13/ground/mountain,
-/area/ms13/town)
+/obj/structure/closet/crate/ms13/woodcrate,
+/turf/open/floor/plating/ms13/ground/snow,
+/area/ms13)
 "lgy" = (
 /obj/structure/filingcabinet/ms13{
 	dir = 1
@@ -17323,15 +17322,6 @@
 	dir = 8
 	},
 /turf/open/floor/wood/ms13/carpet/green,
-/area/ms13/town)
-"lgA" = (
-/obj/item/kirbyplants/dead{
-	desc = "It's a dead plant. You can't tell what it used to be.";
-	name = "Dead Plant";
-	pixel_x = -3;
-	pixel_y = 12
-	},
-/turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "lgK" = (
 /mob/living/basic/ms13/hostile_animal/wolf,
@@ -17658,7 +17648,10 @@
 "lpT" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/glass,
-/turf/open/floor/ms13/tile,
+/obj/structure/ms13/foundation/variantthree{
+	dir = 1
+	},
+/turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/town)
 "lpX" = (
 /obj/structure/bed/ms13/bedframe/cot,
@@ -19226,10 +19219,6 @@
 	},
 /turf/open/floor/ms13/tile,
 /area/ms13/supermarket)
-"mml" = (
-/obj/structure/sign/poster/ms13/bombshell_2,
-/turf/closed/wall/ms13/wood,
-/area/ms13/town)
 "mmX" = (
 /obj/machinery/light/ms13/bulb/broken{
 	dir = 4
@@ -19318,6 +19307,10 @@
 	},
 /turf/open/floor/ms13/tile,
 /area/ms13/supermarket)
+"mpC" = (
+/mob/living/basic/ms13/hostile_animal/wolf,
+/turf/open/floor/ms13/tile,
+/area/ms13/town)
 "mqo" = (
 /obj/structure/table/ms13/metal,
 /obj/machinery/chem_dispenser/drinks/fullupgrade,
@@ -19611,11 +19604,6 @@
 /area/ms13/town)
 "mBj" = (
 /obj/item/reagent_containers/food/drinks/bottle/ms13/whiskey,
-/obj/structure/table/ms13/wood/bar,
-/turf/open/floor/wood/ms13/common,
-/area/ms13/town)
-"mBQ" = (
-/obj/item/restraints/legcuffs/bola/ms13,
 /obj/structure/table/ms13/wood/bar,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
@@ -21339,6 +21327,12 @@
 	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/bos)
+"nNl" = (
+/obj/structure/ms13/foundation/varianttwo{
+	dir = 1
+	},
+/turf/open/floor/plating/ms13/ground/mountain,
+/area/ms13/town)
 "nNn" = (
 /mob/living/basic/ms13/hostile_animal/giantant,
 /turf/open/floor/plating/ms13/ground/mountain,
@@ -22974,6 +22968,12 @@
 	},
 /turf/open/floor/wood/ms13/carpet/green,
 /area/ms13/town)
+"phf" = (
+/obj/structure/ms13/foundation/variantfour{
+	dir = 10
+	},
+/turf/closed/indestructible/rock/ms13/mammoth,
+/area/ms13/underground/mountain)
 "phr" = (
 /obj/structure/table/ms13/no_smooth/large/metal{
 	dir = 4
@@ -33199,7 +33199,7 @@ xsE
 ylG
 ylG
 kZx
-aaI
+wtg
 lgn
 ykZ
 lpS
@@ -33500,11 +33500,11 @@ xsE
 xsE
 ylG
 ylG
-aaI
-jlv
-jff
+wtg
+wtg
+wtg
 dVm
-scA
+nNl
 scA
 ykZ
 khQ
@@ -33802,12 +33802,12 @@ xsE
 xsE
 ylG
 ylG
-kZy
-ldr
+wtg
+wtg
 lgo
-scA
+wtg
 lpT
-scA
+mpC
 ykZ
 khQ
 khQ
@@ -34104,11 +34104,11 @@ xsE
 xsE
 ylG
 ylG
-ykZ
-wSc
-lgA
-wSc
-scA
+wtg
+jcS
+aju
+jpn
+ers
 inr
 ykZ
 khQ
@@ -34408,7 +34408,7 @@ ylG
 ylG
 ykZ
 fVQ
-wSc
+ltO
 wSc
 wSc
 ykZ
@@ -34433,7 +34433,7 @@ ykZ
 mrf
 qsa
 dJs
-mBQ
+dJs
 xGW
 dAI
 wSc
@@ -35033,7 +35033,7 @@ axO
 axO
 ykZ
 ylG
-mml
+ykZ
 mri
 xGW
 myD
@@ -47685,7 +47685,7 @@ khQ
 khQ
 khQ
 khQ
-khQ
+phf
 ylG
 ylG
 ylG
@@ -97493,7 +97493,7 @@ khQ
 khQ
 khQ
 khQ
-oJD
+cps
 xZD
 ykT
 ykT
