@@ -82,7 +82,6 @@
 	desc = "A wall mounted intercom. Used to communicate seemlessly through distance in a closed system. Truly gamechanging."
 	icon = 'mojave/icons/structure/machinery.dmi'
 	icon_state = "intercom"
-	pixel_y = 28
 	canhear_range = 6
 	frequency = 1445.4 // Wack-ass numbers. Ensure these goofballs don't ever reach open air.
 	broadcasting = FALSE  // Whether the radio will transmit dialogue it hears nearby.
@@ -118,10 +117,10 @@
 	icon_state = "button"
 	skin = "button"
 
-/obj/machinery/button/ms13/Initialize(mapload)
+/obj/machinery/button/door/ms13/Initialize(mapload)
 	. = ..()
 	if(dir == SOUTH)
 		pixel_y = 28
 
-/obj/machinery/button/attackby(obj/item/W, mob/living/user, params)
+/obj/machinery/button/door/ms13/attackby(obj/item/W, mob/living/user, params)
 	return // no opening these
