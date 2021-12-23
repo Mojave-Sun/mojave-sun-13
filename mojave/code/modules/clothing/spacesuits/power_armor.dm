@@ -14,8 +14,8 @@
 	worn_y_dimension = 48
 	worn_y_offset = 2
 	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL | SNUG_FIT | BLOCKS_SHOVE_KNOCKDOWN
-	var/obj/item/radio/headset/powerarmor/radio //Instantiated radio
-	var/radiotype = /obj/item/radio/headset/powerarmor //Typepath of the radio
+	var/obj/item/radio/headset/ms13/powerarmor/radio //Instantiated radio
+	var/radiotype = /obj/item/radio/headset/ms13/powerarmor //Typepath of the radio
 	actions_types = list(/datum/action/item_action/toggle_helmet_light) //New ability to modify the radio's settings
 
 //No touchy
@@ -25,7 +25,7 @@
 	ADD_TRAIT(src, TRAIT_NODROP, STICKY_NODROP) //Somehow it's stuck to your body, no questioning.
 	radio = new radiotype(src)
 
-/obj/item/radio/headset/powerarmor
+/obj/item/radio/headset/ms13/powerarmor
 	name = "integrated power armor headset"
 	actions_types = list(/datum/action/item_action/toggle_radio)
 	icon = 'mojave/icons/objects/hamradio.dmi'
@@ -33,23 +33,23 @@
 	subspace_transmission = FALSE
 	freerange = TRUE
 
-/obj/item/radio/headset/powerarmor/Initialize()
+/obj/item/radio/headset/ms13/powerarmor/Initialize()
 	. = ..()
 	interaction_flags_item &= ~INTERACT_ITEM_ATTACK_HAND_PICKUP
 
-/obj/item/radio/headset/powerarmor/attackby(obj/item/W, mob/user, params)
+/obj/item/radio/headset/ms13/powerarmor/attackby(obj/item/W, mob/user, params)
 	return
 
-/obj/item/radio/headset/powerarmor/ui_action_click(mob/user, action)
+/obj/item/radio/headset/ms13/powerarmor/ui_action_click(mob/user, action)
     if(istype(action, /datum/action/item_action/toggle_radio))
         ui_interact(user)
 
-/obj/item/radio/headset/powerarmor/t45
+/obj/item/radio/headset/ms13/powerarmor/t45
     name = "integrated T-45D power armor radio"
     desc = "A mediocre quality radio internally attached to a T-45D power armor helmet."
     radio_broadcast = RADIOSTATIC_MEDIUM
 
-/obj/item/radio/headset/powerarmor/t51
+/obj/item/radio/headset/ms13/powerarmor/t51
     name = "integrated T-51B power armor radio"
     desc = "A high quality radio internally attached to a T-51B power armor helmet."
     radio_broadcast = RADIOSTATIC_LIGHT
@@ -251,7 +251,7 @@
 	light_range = 4.20
 	light_power = 0.9
 	light_color = "#d1c58d"
-	radiotype = /obj/item/radio/headset/powerarmor/t51
+	radiotype = /obj/item/radio/headset/ms13/powerarmor/t51
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/t51
 	name = "T-51B Power Armor Suit"
@@ -272,7 +272,7 @@
 	light_range = 4
 	light_power = 0.8
 	light_color = "#dabc7c"
-	radiotype = /obj/item/radio/headset/powerarmor/t45
+	radiotype = /obj/item/radio/headset/ms13/powerarmor/t45
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/t45
 	name = "T-45D Power Armor Suit"
