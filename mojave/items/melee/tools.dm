@@ -122,6 +122,7 @@
 	light_color = "#7c84a7"
 	w_class = WEIGHT_CLASS_NORMAL
 	log_pickup_and_drop = TRUE
+	change_icons = FALSE
 
 /obj/item/weldingtool/ms13/Initialize()
 	. = ..()
