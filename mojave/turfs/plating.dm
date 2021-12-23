@@ -584,14 +584,12 @@
 	var/atom/watertop = /obj/effect/overlay/ms13/water/top/medium
 	var/depth = 0
 	var/list/fish = list(/obj/item/food/meat/slab/ms13/fish/sockeye = 1,
-		/obj/item/food/meat/slab/ms13/fish/smallmouth = 1,
+		/obj/item/food/meat/slab/ms13/fish/smallmouth = 2,
 		/obj/item/food/meat/slab/ms13/fish/largemouth = 1,
-		/obj/item/food/meat/slab/ms13/fish/lamprey = 1,
-		/obj/item/food/meat/slab/ms13/fish/pink = 1,
-		/obj/item/food/meat/slab/ms13/fish/chum = 1,
+		/obj/item/food/meat/slab/ms13/fish/pink = 2,
+		/obj/item/food/meat/slab/ms13/fish/chum = 2,
 		/obj/item/food/meat/slab/ms13/fish/sturgeon = 1,
-		/obj/item/food/meat/slab/ms13/fish/asian = 1,
-		/obj/item/food/meat/slab/ms13/fish/blinky = 1)
+		/obj/item/food/meat/slab/ms13/fish/asian = 1)
 	var/fished = FALSE
 
 /turf/open/ms13/water/attackby(obj/item/W, mob/user, params)
@@ -829,6 +827,12 @@
 	name = "sewer water"
 	desc = "Murky and foul smelling water, if you could call it that."
 	baseturfs = /turf/open/ms13/water/sewer
+	fish = list(/obj/item/food/meat/slab/ms13/fish/lamprey = 2,
+		/obj/item/food/meat/slab/ms13/fish/largemouth = 1,
+		/obj/item/food/meat/slab/ms13/fish/chum = 3,
+		/obj/item/food/meat/slab/ms13/fish/blinky = 3,
+		/obj/item/food/meat/slab/ms13/fish/asian = 1)
+
 
 /turf/open/ms13/water/sewer/deep
 	name = "deep water"
