@@ -134,7 +134,6 @@
 #define TPACK "Travelpack"
 #define MBACKPACK "Millitary Backpack"
 #define SATCHEL "Satchel"
-#define SACK "Sack"
 
 GLOBAL_LIST_INIT(backpacklist, list(TPACK, MBACKPACK, SACK))
 
@@ -149,9 +148,8 @@ GLOBAL_LIST_INIT(backpacklist, list(TPACK, MBACKPACK, SACK))
 	var/list/values = list()
 
 	values[TPACK] = /obj/item/storage/ms13/travel
-	values[MBACKPACK] = /obj/item/storage/ms13/millitary
+	values[MBACKPACK] = /obj/item/storage/ms13/military
 	values[SATCHEL] = /obj/item/storage/backpack/satchel/leather
-	values[SACK] = /obj/item/storage/ms13/sack
 	return values
 
 /datum/preference/choiced/backpack/apply_to_human(mob/living/carbon/human/target, value)
@@ -162,11 +160,9 @@ GLOBAL_LIST_INIT(backpacklist, list(TPACK, MBACKPACK, SACK))
 		if(TPACK)
 			back = /obj/item/storage/ms13/travel
 		if(MBACKPACK)
-			back = /obj/item/storage/ms13/millitary
+			back = /obj/item/storage/ms13/military
 		if(SATCHEL)
 			back = /obj/item/storage/backpack/satchel/leather
-		if(SACK)
-			belt = /obj/item/storage/ms13/sack
 		else
 			back = backpack //Department backpack
 	//converts the uniform string into the path we'll wear, whether it's the skirt or regular variant

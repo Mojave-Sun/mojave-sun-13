@@ -42,12 +42,12 @@
 	desc = "A sturdy pack used by members of the NCR. It looks like it can hold a fair bit while still keeping a low profile."
 	icon_state = "ncr_pack"
 
-/obj/item/storage/ms13/millitary
-	name = "millitary backpack"
+/obj/item/storage/ms13/military
+	name = "military backpack"
 	desc = "A tactical green storage device, made of sturdy materials and has enough pockets to hold anything you would ever need for wasteland combat."
-	icon_state = "millitary"
+	icon_state = "military"
 
 /obj/item/storage/ms13/travel
 	name = "travelpack"
-	desc = "The roamers comapnion, a tall handcrafted pack, for storing all the essentials of wasteland livin'."
+	desc = "The roamer's comapanion, a tall handcrafted pack, for storing all the essentials of wasteland livin'."
 	icon_state = "travel"
