@@ -135,7 +135,7 @@
 #define MBACKPACK "Millitary Backpack"
 #define SATCHEL "Satchel"
 
-GLOBAL_LIST_INIT(backpacklist, list(TPACK, MBACKPACK, SACK))
+GLOBAL_LIST_INIT(backpacklist, list(TPACK, MBACKPACK))
 
 /datum/preference/choiced/backpack
 	savefile_key = "backpack"
