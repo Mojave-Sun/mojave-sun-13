@@ -54,8 +54,8 @@
 	name = "low tier radio spawner"
 	spawn_loot_chance = 65
 	loot = list(
-			/obj/item/radio/ms13 = 70,
-			/obj/item/radio/ms13/broadcast = 30
+			/obj/item/radio/ms13 = 75,
+			/obj/item/radio/ms13/broadcast = 25
 			)
 
 /obj/effect/spawner/random/ms13/tools/radio/high
