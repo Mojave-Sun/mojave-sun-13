@@ -78,7 +78,7 @@
 *///MOJAVE SUN EDIT END - Holy shit who hardcoded an ian underwear - Mojave Sun Underwear
 
 //only pet worth reviving
-/datum/job/hop/get_mail_goodies(mob/recipient)
+/datum/job/head_of_personnel/get_mail_goodies(mob/recipient)
 	. = ..()
 	// Strange Reagent if the pet is dead.
 	for(var/mob/living/simple_animal/pet/dog/corgi/ian/staff_pet in GLOB.dead_mob_list)
