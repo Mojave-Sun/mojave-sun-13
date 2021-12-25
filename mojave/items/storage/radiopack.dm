@@ -22,7 +22,8 @@
 	var/datum/component/storage/STR = AddComponent(/datum/component/storage/concrete)
 	STR.max_w_class = WEIGHT_CLASS_NORMAL
 	STR.max_combined_w_class = 18
-	STR.max_items = 5
+	STR.max_items = 6
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/backpack_inventory.dmi')
 
 /obj/item/ms13/storage/backpack/radiopack/Destroy()
 	STOP_PROCESSING(SSobj, src)
@@ -90,7 +91,7 @@
 	inhand_icon_state = "handradio_"
 	desc = "The important bit of the radiopack, this broadcasts and recieves radio messages in high quality with an amplified volume."
 	flags_1 = CONDUCT_1
-	canhear_range = 4
+	canhear_range = 3
 	freerange = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	radio_broadcast = RADIOSTATIC_LIGHT

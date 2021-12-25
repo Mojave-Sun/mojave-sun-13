@@ -34,7 +34,7 @@
 	desc = "A basic ham radio, an amateur setup. The sound quality could be better, but it beats listening to brahmin all day. Has a working microphone, though the quality leaves something to be desired."
 	icon = 'mojave/icons/objects/hamradio.dmi'
 	icon_state = "radio"
-	canhear_range = 6
+	canhear_range = 4
 	pixel_y = 5
 	anchored = TRUE
 	radio_broadcast = RADIOSTATIC_MEDIUM
