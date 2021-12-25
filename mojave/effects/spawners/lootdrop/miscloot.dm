@@ -12,8 +12,18 @@
 	spawn_loot_double = FALSE
 
 /obj/effect/spawner/random/ms13/tools/hardware
-	name = "tool spawner"
+	name = "general hardware spawner"
 	spawn_loot_chance = 65
+	loot = list(
+			/obj/effect/spawner/random/ms13/tools/lights = 15,
+			/obj/effect/spawner/random/ms13/tools/radio = 10,
+			/obj/effect/spawner/random/ms13/tools/tool = 65,
+			/obj/effect/spawner/random/ms13/tools/fishing = 10,
+			)
+
+/obj/effect/spawner/random/ms13/tools/tool
+	name = "tool spawner"
+	spawn_loot_chance = 90
 	loot = list(
 			/obj/item/ms13/hammer,
 			/obj/item/ms13/handsaw,
@@ -24,8 +34,10 @@
 			/obj/item/shovel/ms13,
 			/obj/item/crowbar/ms13,
 			/obj/item/weldingtool/ms13,
-			/obj/effect/spawner/random/ms13/tools/lights,
-			/obj/effect/spawner/random/ms13/tools/radio
+			/obj/item/shovel/ms13/spade,
+			/obj/item/shovel/ms13/snow,
+			/obj/item/shovel/ms13/rake,
+			/obj/item/ms13/brick
 			)
 
 /obj/effect/spawner/random/ms13/tools/lights
@@ -52,4 +64,13 @@
 	loot = list(
 			/obj/item/radio/ms13/broadcast/prewar = 60,
 			/obj/item/radio/ms13/broadcast = 40
+			)
+
+/obj/effect/spawner/random/ms13/tools/fishing
+	name = "fishing rod spawner"
+	spawn_loot_chance = 75
+	loot = list(
+			/obj/item/ms13/tools/fishing_rod/basic = 60,
+			/obj/item/ms13/tools/fishing_rod/telescopic = 30,
+			/obj/item/ms13/tools/fishing_rod/advanced = 10
 			)
