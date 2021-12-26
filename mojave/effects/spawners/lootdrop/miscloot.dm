@@ -15,15 +15,15 @@
 	name = "general hardware spawner"
 	spawn_loot_chance = 65
 	loot = list(
-			/obj/effect/spawner/random/ms13/tools/lights = 15,
+			/obj/effect/spawner/random/ms13/tools/lights = 20,
 			/obj/effect/spawner/random/ms13/tools/radio = 10,
-			/obj/effect/spawner/random/ms13/tools/tool = 65,
+			/obj/effect/spawner/random/ms13/tools/tool = 60,
 			/obj/effect/spawner/random/ms13/tools/fishing = 10,
 			)
 
 /obj/effect/spawner/random/ms13/tools/tool
 	name = "tool spawner"
-	spawn_loot_chance = 90
+	spawn_loot_chance = 85
 	loot = list(
 			/obj/item/ms13/hammer,
 			/obj/item/ms13/handsaw,
@@ -52,7 +52,7 @@
 
 /obj/effect/spawner/random/ms13/tools/radio
 	name = "low tier radio spawner"
-	spawn_loot_chance = 65
+	spawn_loot_chance = 60
 	loot = list(
 			/obj/item/radio/ms13 = 75,
 			/obj/item/radio/ms13/broadcast = 25
@@ -60,7 +60,7 @@
 
 /obj/effect/spawner/random/ms13/tools/radio/high
 	name = "high tier radio spawner"
-	spawn_loot_chance = 75
+	spawn_loot_chance = 65
 	loot = list(
 			/obj/item/radio/ms13/broadcast/prewar = 65,
 			/obj/item/radio/ms13/broadcast = 35

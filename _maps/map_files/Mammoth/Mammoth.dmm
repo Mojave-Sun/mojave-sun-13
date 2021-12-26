@@ -3312,13 +3312,6 @@
 /obj/effect/spawner/random/ms13/medical/lowrandom,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
-"ckE" = (
-/obj/item/lighter/greyscale,
-/obj/structure/table/ms13/no_smooth/large/metal/desk/alt{
-	dir = 1
-	},
-/turf/open/floor/wood/ms13/common,
-/area/ms13/town)
 "ckL" = (
 /obj/structure/fluff/paper/stack{
 	dir = 8;
@@ -3494,6 +3487,7 @@
 /obj/machinery/light/ms13/bulb/built{
 	dir = 1
 	},
+/obj/effect/spawner/random/ms13/gun/tier2,
 /turf/open/floor/ms13/tile,
 /area/ms13/town)
 "csp" = (
@@ -3608,10 +3602,10 @@
 	dir = 4;
 	pixel_x = -12
 	},
-/obj/item/stack/medical/gauze/ms13,
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 4
 	},
+/obj/effect/spawner/random/ms13/medical/lowrandom,
 /turf/open/floor/ms13/tile,
 /area/ms13/town)
 "cwa" = (
@@ -4152,10 +4146,6 @@
 /obj/effect/decal/cleanable/food/salt,
 /turf/open/floor/ms13/tile,
 /area/ms13/town)
-"cRB" = (
-/obj/item/knife/ms13,
-/turf/open/floor/ms13/tile,
-/area/ms13/town)
 "cRK" = (
 /obj/structure/fluff/paper/stack{
 	dir = 4
@@ -4344,6 +4334,13 @@
 	dir = 1
 	},
 /turf/open/floor/wood/ms13/common,
+/area/ms13/town)
+"dam" = (
+/obj/structure/ms13/storage/store{
+	dir = 8
+	},
+/obj/effect/spawner/random/ms13/tools/tool,
+/turf/open/floor/ms13/tile/large/checkered,
 /area/ms13/town)
 "daD" = (
 /obj/structure/chair/ms13/metal/unfinished,
@@ -4633,6 +4630,13 @@
 	},
 /obj/item/secateurs/ms13/shears,
 /turf/open/floor/ms13/tile,
+/area/ms13/town)
+"dkP" = (
+/obj/structure/ms13/storage/store{
+	dir = 8
+	},
+/obj/effect/spawner/random/ms13/melee/lowrandom,
+/turf/open/floor/ms13/tile/large/checkered,
 /area/ms13/town)
 "dlb" = (
 /obj/machinery/light/ms13,
@@ -5024,11 +5028,6 @@
 	dir = 1
 	},
 /turf/open/floor/ms13/tile/long,
-/area/ms13/town)
-"dBk" = (
-/obj/structure/table/ms13/low_wall/brick/alt,
-/obj/item/wrench/ms13,
-/turf/open/floor/plating,
 /area/ms13/town)
 "dBt" = (
 /obj/structure/table/ms13/low_wall/brick/alt,
@@ -5531,6 +5530,7 @@
 /obj/machinery/light/ms13/bulb{
 	dir = 1
 	},
+/obj/effect/landmark/start/ms13/wastelander,
 /turf/open/floor/wood/ms13/carpet/green,
 /area/ms13/town)
 "dUq" = (
@@ -5665,6 +5665,7 @@
 	dir = 8
 	},
 /obj/machinery/light/ms13/bulb,
+/mob/living/basic/ms13/hostile_animal/radroach,
 /turf/open/floor/wood/ms13/carpet/green,
 /area/ms13/town)
 "dXT" = (
@@ -6208,7 +6209,7 @@
 "eqs" = (
 /obj/effect/spawner/random/ms13/armor/tier1,
 /obj/structure/closet/crate/ms13/footlocker,
-/obj/effect/spawner/random/ms13/medical/tier1,
+/obj/effect/spawner/random/ms13/tools/fishing,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "erh" = (
@@ -7792,6 +7793,7 @@
 "fpZ" = (
 /obj/structure/bed/ms13/bedframe/metal,
 /obj/structure/bed/ms13/mattress/stained,
+/obj/effect/landmark/start/ms13/doctor,
 /turf/open/floor/wood/ms13/carpet/shaggy/blue,
 /area/ms13/underground/vault_atrium_middle)
 "fqd" = (
@@ -8400,6 +8402,7 @@
 /obj/structure/chair/sofa/right{
 	dir = 4
 	},
+/obj/effect/landmark/start/ms13/settler,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/vault_atrium_middle)
 "fIp" = (
@@ -9816,8 +9819,6 @@
 /obj/effect/spawner/random/ms13/tools/lights,
 /obj/effect/spawner/random/ms13/tools/tool,
 /obj/effect/spawner/random/ms13/tools/tool,
-/obj/effect/spawner/random/ms13/tools/tool,
-/obj/effect/spawner/random/ms13/tools/tool,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/bos)
 "gzG" = (
@@ -10471,11 +10472,6 @@
 /obj/structure/chair/office/ms13/red,
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/bos)
-"gVe" = (
-/obj/structure/table/ms13/metal,
-/obj/item/paper_bin,
-/turf/open/floor/ms13/concrete/bricks,
-/area/ms13/underground/bos)
 "gVh" = (
 /obj/structure/bed/ms13/bedframe/cot,
 /obj/effect/landmark/start/ms13/initiate,
@@ -10585,6 +10581,7 @@
 "gZA" = (
 /obj/structure/table/ms13/metal,
 /obj/machinery/light/ms13,
+/obj/item/paper_bin,
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/bos)
 "gZJ" = (
@@ -11243,6 +11240,7 @@
 /obj/structure/ms13/storage/shelf{
 	dir = 8
 	},
+/obj/effect/spawner/random/ms13/tools/radio,
 /turf/open/floor/wood/ms13/carpet/green,
 /area/ms13/town)
 "hyB" = (
@@ -11988,6 +11986,11 @@
 	dir = 1
 	},
 /turf/open/floor/plating/ms13/ground/sidewalk,
+/area/ms13/town)
+"hYy" = (
+/obj/structure/table/ms13/metal,
+/obj/effect/spawner/random/ms13/melee/tier1,
+/turf/open/floor/ms13/tile,
 /area/ms13/town)
 "hYD" = (
 /obj/structure/ms13/storage/store{
@@ -14803,6 +14806,11 @@
 	},
 /turf/open/floor/wood/ms13/carpet,
 /area/ms13/town)
+"jzn" = (
+/obj/structure/ms13/storage/shelf/rust,
+/obj/effect/spawner/random/ms13/gun/tier1,
+/turf/open/floor/ms13/tile/large/checkered,
+/area/ms13/town)
 "jzF" = (
 /obj/item/ammo_casing/spent,
 /turf/open/floor/plating/ms13/ground/sidewalk,
@@ -15565,6 +15573,11 @@
 	},
 /turf/open/floor/wood/ms13/carpet/green,
 /area/ms13/town)
+"jWN" = (
+/obj/structure/closet/crate/ms13/woodcrate,
+/obj/effect/spawner/random/ms13/tools/lights,
+/turf/open/floor/ms13/tile/navy,
+/area/ms13/underground/vault_atrium_middle)
 "jWS" = (
 /mob/living/basic/ms13/hostile_animal/molerat,
 /turf/open/floor/plating/ms13/ground/mountain,
@@ -16071,6 +16084,11 @@
 	},
 /turf/open/floor/plating/ms13/ground/sidewalk,
 /area/ms13)
+"kmb" = (
+/obj/item/ammo_casing/ms13/c10mm/junk,
+/obj/effect/spawner/random/ms13/gun/tier1,
+/turf/open/floor/wood/ms13/carpet,
+/area/ms13/town)
 "kmd" = (
 /obj/machinery/door/unpowered/ms13/wood{
 	dir = 1
@@ -16247,6 +16265,13 @@
 	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/tribal_abandoned)
+"ksS" = (
+/obj/structure/table/ms13/no_smooth/counter/metal{
+	dir = 1
+	},
+/obj/effect/spawner/random/ms13/melee/tier1,
+/turf/open/floor/ms13/tile,
+/area/ms13/town)
 "ktb" = (
 /obj/machinery/door/unpowered/ms13/wood/white,
 /turf/open/floor/ms13/concrete/industrial,
@@ -17833,6 +17858,8 @@
 /area/ms13/underground/mountain)
 "lpQ" = (
 /obj/structure/ms13/storage/shelf/rust,
+/obj/effect/spawner/random/ms13/gun/lowrandom,
+/obj/effect/spawner/random/ms13/ammo/lowrandom,
 /turf/open/floor/ms13/tile/large/checkered,
 /area/ms13/town)
 "lpS" = (
@@ -17853,6 +17880,11 @@
 /obj/structure/bed/ms13/mattress/filthy,
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/wood/ms13/common,
+/area/ms13/town)
+"lqa" = (
+/obj/structure/table/ms13/no_smooth/counter/wood,
+/obj/item/radio/ms13/ham/receiver,
+/turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "lqc" = (
 /obj/structure/closet/crate/ms13/footlocker,
@@ -17918,6 +17950,7 @@
 /obj/structure/chair/office/ms13/red{
 	dir = 4
 	},
+/obj/effect/landmark/start/ms13/deputy,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/vault_atrium_middle)
 "lrK" = (
@@ -18800,6 +18833,10 @@
 /obj/effect/spawner/random/ms13/drink/soda,
 /turf/open/floor/ms13/tile/blue/long,
 /area/ms13/supermarket)
+"lRm" = (
+/obj/effect/spawner/random/ms13/medical/tier1,
+/turf/open/floor/wood/ms13/common,
+/area/ms13/town)
 "lRn" = (
 /obj/structure/toilet,
 /turf/open/floor/ms13/tile,
@@ -19252,6 +19289,11 @@
 	},
 /turf/open/floor/wood/ms13/carpet/shaggy,
 /area/ms13/supermarket)
+"mfD" = (
+/obj/structure/table/ms13/metal,
+/obj/item/radio/ms13/ham/receiver,
+/turf/open/floor/wood/ms13/carpet/shaggy/green,
+/area/ms13/town)
 "mfJ" = (
 /obj/structure/ms13/storage/store{
 	dir = 4
@@ -20058,10 +20100,6 @@
 /obj/structure/bed/ms13/medical/surgery,
 /turf/open/floor/ms13/tile/large/white,
 /area/ms13/underground/vault_atrium_middle)
-"mMn" = (
-/obj/effect/spawner/random/ms13/gun/tier1,
-/turf/open/floor/ms13/tile,
-/area/ms13/town)
 "mMs" = (
 /obj/machinery/computer/arcade/orion_trail{
 	dir = 8
@@ -20079,6 +20117,10 @@
 /obj/structure/bed/ms13/sleepingbag/green,
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
+"mMX" = (
+/obj/effect/spawner/random/ms13/ammo/tier1,
+/turf/open/floor/wood/ms13/carpet,
+/area/ms13/town)
 "mOm" = (
 /obj/structure/bed/ms13/mattress/filthy,
 /turf/open/floor/plating/ms13/ground/mountain,
@@ -20309,6 +20351,13 @@
 	dir = 1
 	},
 /turf/open/floor/ms13/tile/full/navy,
+/area/ms13/town)
+"mVb" = (
+/obj/structure/table/ms13/no_smooth/counter/metal{
+	dir = 1
+	},
+/obj/effect/spawner/random/ms13/melee/lowrandom,
+/turf/open/floor/ms13/tile,
 /area/ms13/town)
 "mVq" = (
 /obj/structure/closet,
@@ -20968,6 +21017,13 @@
 /mob/living/basic/ms13/hostile_animal/pigrat,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/tribal_abandoned)
+"nto" = (
+/obj/structure/ms13/storage/shelf/rust{
+	dir = 1
+	},
+/obj/effect/spawner/random/ms13/tools/fishing,
+/turf/open/floor/ms13/tile/large/checkered,
+/area/ms13/town)
 "nty" = (
 /obj/structure/table/ms13/no_smooth/counter/metal{
 	dir = 1
@@ -22048,13 +22104,6 @@
 	dir = 1
 	},
 /turf/open/floor/wood/ms13/common,
-/area/ms13/town)
-"odJ" = (
-/obj/structure/sink{
-	pixel_y = 24
-	},
-/obj/effect/landmark/start/ms13/wastelander,
-/turf/open/floor/ms13/tile,
 /area/ms13/town)
 "oef" = (
 /obj/effect/spawner/random/ms13/armor/headgear,
@@ -23652,6 +23701,13 @@
 /obj/effect/spawner/random/ms13/clothing/under,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
+"qlo" = (
+/obj/structure/toilet{
+	dir = 8
+	},
+/obj/effect/landmark/start/ms13/wastelander,
+/turf/open/floor/ms13/tile/large/checkered,
+/area/ms13/town)
 "qmX" = (
 /obj/structure/table/ms13/no_smooth/large/metal,
 /turf/open/floor/wood/ms13/wide,
@@ -23978,6 +24034,11 @@
 	},
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
+"reY" = (
+/obj/structure/table/ms13/metal/heavy,
+/obj/item/radio/ms13/ham/receiver,
+/turf/open/floor/ms13/concrete/bricks,
+/area/ms13/underground/bos)
 "rfd" = (
 /obj/structure/table/ms13/metal/grate,
 /turf/open/floor/ms13/tile/large/navy,
@@ -24081,6 +24142,13 @@
 "rAq" = (
 /obj/structure/table/ms13/low_wall/wood,
 /obj/structure/window/fulltile/ms13/glass,
+/turf/open/floor/wood/ms13/common,
+/area/ms13/town)
+"rAW" = (
+/obj/structure/ms13/storage/large/shelf/rust{
+	dir = 1
+	},
+/obj/effect/spawner/random/ms13/tools/hardware,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "rAX" = (
@@ -24950,11 +25018,6 @@
 	},
 /turf/open/floor/ms13/metal/grate/border,
 /area/ms13/underground/bos)
-"udj" = (
-/obj/structure/table/ms13/no_smooth/counter/wood,
-/obj/effect/spawner/random/ms13/tools/hardware,
-/turf/open/floor/ms13/metal,
-/area/ms13/underground/vault_atrium_middle)
 "udN" = (
 /obj/structure/table/ms13/metal,
 /obj/machinery/ms13/terminal{
@@ -25419,6 +25482,7 @@
 /obj/structure/ms13/storage/large/shelf/rust{
 	dir = 1
 	},
+/obj/effect/spawner/random/ms13/ammo/tier1,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "vCw" = (
@@ -25490,6 +25554,11 @@
 /obj/effect/spawner/random/ms13/drink/alcohol_beer,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
+"vJO" = (
+/obj/structure/ms13/storage/large/shelf,
+/obj/effect/spawner/random/ms13/tools/hardware,
+/turf/open/floor/wood/ms13/common,
+/area/ms13/town)
 "vLG" = (
 /obj/structure/closet/crate/ms13/woodcrate/compact,
 /obj/effect/spawner/random/ms13/tools/hardware,
@@ -25528,6 +25597,12 @@
 	name = "pretend this is a part of big board"
 	},
 /turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
+"vUG" = (
+/obj/structure/table/ms13/metal,
+/obj/effect/spawner/random/ms13/clothing/under,
+/obj/effect/spawner/random/ms13/armor/tier1,
+/turf/open/floor/ms13/tile/blue/long,
 /area/ms13/town)
 "vVo" = (
 /obj/structure/table/ms13/no_smooth/large/wood/square{
@@ -25710,6 +25785,13 @@
 	dir = 8
 	},
 /turf/open/floor/ms13/tile/large/cafeteria,
+/area/ms13/town)
+"wws" = (
+/obj/structure/ms13/storage/shelf/rust{
+	dir = 1
+	},
+/obj/effect/spawner/random/ms13/tools/hardware,
+/turf/open/floor/ms13/tile/large/checkered,
 /area/ms13/town)
 "wwY" = (
 /obj/structure/closet/ms13/fridge,
@@ -25943,7 +26025,6 @@
 	},
 /obj/effect/spawner/random/ms13/tools/hardware,
 /obj/effect/spawner/random/ms13/tools/hardware,
-/obj/effect/spawner/random/ms13/tools/hardware,
 /obj/effect/spawner/random/ms13/melee/lowrandom,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/bos)
@@ -26107,6 +26188,7 @@
 /obj/structure/chair/office/ms13/red/broken{
 	dir = 4
 	},
+/obj/effect/landmark/start/ms13/sheriff,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/vault_atrium_middle)
 "xwN" = (
@@ -26158,6 +26240,11 @@
 /obj/effect/spawner/random/ms13/medical/lowrandom,
 /turf/open/floor/ms13/tile/large/black,
 /area/ms13/underground/vault_atrium_middle)
+"xBD" = (
+/obj/structure/table/ms13/metal,
+/obj/effect/spawner/random/ms13/melee/tier1,
+/turf/open/floor/ms13/tile/large/white,
+/area/ms13/town)
 "xCb" = (
 /obj/structure/table/ms13/metal,
 /obj/effect/spawner/random/ms13/medical/lowrandom,
@@ -26415,6 +26502,7 @@
 /obj/structure/chair/sofa/right{
 	dir = 8
 	},
+/obj/effect/landmark/start/ms13/deputy,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/vault_atrium_middle)
 "ylG" = (
@@ -28912,7 +29000,7 @@ xsE
 xsE
 xsE
 ykZ
-odJ
+ats
 cjH
 wSc
 wSc
@@ -29519,7 +29607,7 @@ ykZ
 aqJ
 scA
 wSc
-wSc
+lRm
 jeK
 rAq
 wSc
@@ -29818,7 +29906,7 @@ ybZ
 xsE
 xsE
 ykZ
-sgt
+hYy
 scA
 wSc
 aJy
@@ -34036,7 +34124,7 @@ aKu
 wSc
 dRT
 lZY
-dWi
+xBD
 jIO
 ylG
 ylG
@@ -35598,7 +35686,7 @@ hGp
 ydJ
 rGn
 oTJ
-udj
+frN
 grB
 grB
 uoR
@@ -37655,7 +37743,7 @@ ykT
 xZD
 jIO
 dCA
-dHv
+qlo
 jIO
 bus
 jIO
@@ -39831,7 +39919,7 @@ gvG
 fxW
 dyV
 ylm
-aUC
+jWN
 pMV
 ylm
 khQ
@@ -41283,7 +41371,7 @@ jIO
 jIO
 icf
 aLq
-kGz
+vUG
 jIO
 xsE
 xsE
@@ -46389,12 +46477,12 @@ iDB
 iDB
 rYf
 wSc
-vBJ
+rAW
 jIO
 aqJ
 cRv
 scA
-cYp
+ksS
 jIO
 ykT
 ykT
@@ -47299,7 +47387,7 @@ wSc
 jIO
 bXh
 hPO
-cRB
+scA
 bXh
 jIO
 ykT
@@ -47602,7 +47690,7 @@ jIO
 bXh
 scA
 scA
-cYp
+mVb
 jIO
 ykT
 ykT
@@ -47897,7 +47985,7 @@ xZD
 jIO
 cfn
 cki
-mMn
+scA
 cvV
 apm
 jIO
@@ -49133,7 +49221,7 @@ mfr
 dCf
 dCf
 box
-box
+dam
 jIO
 hxJ
 upG
@@ -49410,7 +49498,7 @@ ckn
 csH
 oLG
 xih
-uhz
+lqa
 xih
 xih
 xih
@@ -49708,7 +49796,7 @@ xZD
 xZD
 bWw
 xih
-xGW
+mMX
 csX
 cwV
 xih
@@ -49738,7 +49826,7 @@ vOw
 ykw
 ovm
 dCf
-aCH
+nto
 jIO
 xsE
 xsE
@@ -50342,7 +50430,7 @@ dCf
 dCf
 edL
 dCf
-aCH
+wws
 jIO
 xsE
 xsE
@@ -50639,7 +50727,7 @@ rew
 ykT
 ykT
 xZD
-dBk
+klm
 dCf
 vOw
 dCf
@@ -50927,7 +51015,7 @@ rOr
 bES
 xGW
 xGW
-cyR
+kmb
 deH
 dqF
 dtD
@@ -51249,7 +51337,7 @@ dCf
 dCf
 dCf
 ktw
-vOw
+dCf
 fUf
 jIO
 xsE
@@ -51548,10 +51636,10 @@ xZD
 jIO
 dCf
 box
-box
+dkP
 box
 jIO
-lpQ
+jzn
 dCf
 jIO
 ylG
@@ -55144,7 +55232,7 @@ xZD
 ylG
 pwP
 wSc
-ckE
+cCW
 wSc
 wSc
 wSc
@@ -59866,7 +59954,7 @@ ykT
 ykT
 xZD
 jIO
-ilw
+vJO
 wSc
 xcp
 wSc
@@ -62282,7 +62370,7 @@ ykT
 ykT
 xZD
 jIO
-ivS
+cvg
 wSc
 wSc
 wSc
@@ -85330,7 +85418,7 @@ axO
 axO
 axO
 axO
-bBI
+mfD
 bHA
 rbd
 xZD
@@ -88170,7 +88258,7 @@ rMe
 pHX
 pHX
 iLT
-hJk
+reY
 hJk
 pHX
 iLT
@@ -93297,7 +93385,7 @@ gPC
 pHX
 pHX
 gUY
-fvK
+gKP
 iLT
 aef
 hjP
@@ -93598,7 +93686,7 @@ iLT
 gPR
 pHX
 pHX
-gVe
+fvK
 gZA
 iLT
 pHX
