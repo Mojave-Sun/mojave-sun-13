@@ -58,6 +58,12 @@
 		According to one of them, they're actually kind enough to keep some medical supplies with us. Check the storage for them below the medical bay. \
 		<br><br>The supplies are fantastic and well appreciated- But we need to remember to keep an eye out when we're out on the field. Take what you can, the opportuntiy might not arise again."
 
+/datum/terminal/document/brotherhood_hint_2 // BOS reminder to not fly out the rear entrance and get fragged by shellheads
+	title = "About the rear entrance"
+	content = "Attention! Heed caution exiting through the rear tunnels. Recently, mirelurks have taken to a liking of the pools out back.  \
+		It wouldn't be the first time a simple thing as a mirelurk has claimed one of our own... You all much exercise caution when going out through the back. Not like there's much point anyways. The tunnels probably don't lead anywhere. \
+		If you REALLY insist on going out there, bring at least on partner and log your exit with your nearest superior. Keep a flashlight handy and stay in the light. Good luck."
+
 /datum/terminal/document/military_crypt_initial // Topright military bunker outpost - First log
 	title = "Downfall"
 	content = "Well. Here it is. Today marks my ONE YEAR anniversary of being in this dumphole. I think I'll go ahead and do one of these every year until the storage slots fill up, and run out of storage space. What a shame that these things come with so little capacity.   \
