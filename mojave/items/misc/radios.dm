@@ -1,6 +1,6 @@
 /obj/item/radio/ms13
 	icon = 'mojave/icons/objects/hamradio.dmi'
-	name = "hand radio"
+	name = "receiver hand radio"
 	icon_state = "handradio"
 	inhand_icon_state = "handradio_"
 	desc = "A basic handheld radio that recieves over a relatively long range, unfortunately this one can't broadcast."
@@ -31,10 +31,10 @@
 
 /obj/item/radio/ms13/ham
 	name = "ham radio"
-	desc = "An amateur radio setup. The sound quality could be better, but it beats listening to brahmin all day. Has a working microphone, though the quality isn't great."
+	desc = "A basic ham radio, an amateur setup. The sound quality could be better, but it beats listening to brahmin all day. Has a working microphone, though the quality leaves something to be desired."
 	icon = 'mojave/icons/objects/hamradio.dmi'
-	icon_state = "radio_on"
-	canhear_range = 6
+	icon_state = "radio"
+	canhear_range = 5
 	pixel_y = 5
 	anchored = TRUE
 	radio_broadcast = RADIOSTATIC_MEDIUM
@@ -53,9 +53,17 @@
 	RegisterSignal(current_area, COMSIG_AREA_POWER_CHANGE, .proc/AreaPowerCheck)
 
 /obj/item/radio/ms13/ham/broadcast
-	name = "high power broadcasting set"
+	name = "high end broadcasting set"
 	desc = "A high end broadcasting set used by professional radio studios. Legend has it that Mr. New Vegas himself uses this model."
 	radio_broadcast = RADIOSTATIC_LIGHT
+	icon_state = "highradio"
+
+/obj/item/radio/ms13/ham/receiver
+	name = "receiver ham radio"
+	desc = "A ham radio without a working microphone or any way to broadcast. Only good for listening in on frequencies. Maybe you could find some good tunes?"
+	radio_broadcast = FALSE
+	icon_state = "recradio"
+
 /**
  * Override attack_tk_grab instead of attack_tk because we actually want attack_tk's
  * functionality. What we DON'T want is attack_tk_grab attempting to pick up the
@@ -108,9 +116,9 @@
 /obj/item/radio/ms13/ham/update_icon()
 	. = ..()
 	if(on)
-		icon_state = initial(icon_state)
+		icon_state = "[initial(icon_state)]-on"
 	else
-		icon_state = "radio_off"
+		icon_state = "[initial(icon_state)]-off"
 
 /**
  * Proc called whenever the intercom's area loses or gains power. Responsible for setting the `on` variable and calling `update_icon()`.

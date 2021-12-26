@@ -66,7 +66,8 @@
 /obj/projectile/beam/ms13/laser/robobrain
 	name = "radiation beam"
 	damage = 20
-	drowsy = 30
+	armour_penetration = 10
+	drowsy = 25
 	wound_bonus = 12
 	bare_wound_bonus = 10
 	hitscan_light_color_override = COLOR_YELLOW
