@@ -99,3 +99,14 @@
 			/obj/effect/spawner/random/ms13/ammo/tier3 = 60,
 			/obj/effect/spawner/random/ms13/ammo/tier4 = 30
 			)
+
+/obj/effect/spawner/random/ms13/ammo/energy
+	name = "energy ammo spawner"
+	spawn_loot_chance = 65
+
+	loot = list(
+			/obj/item/stock_parts/cell/ms13/mfc = 35,
+			/obj/item/stock_parts/cell/ms13/pc = 20,
+			/obj/item/stock_parts/cell/ms13/ecp = 10,
+			/obj/item/stock_parts/cell/ms13/ec = 35
+	)
