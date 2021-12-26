@@ -90,3 +90,15 @@
 		<br><br>Now that you're here, this is the part where I tell you to never unlock the armory! Why you may ask? Because it also unlocks the security bay for the sentry bot, who was programmed to be VERY adamant on the integrity of our storage.\
 		<br><br>I leave this note not for your personal integrity, but as a plead for you to avoid having him blow up our reserves before the rest get there. Trust me, there will be nothing left. \
 		<br><br>If I've got to clean your body off of anything that may have survived, I'll personally scoop your brains up and pour it into a robobrain tank. Consider that before you toy around with things above you."
+
+/datum/terminal/document/toystore_restocklist // if you say this is coding i'll kill you; the toy store in the south of the map
+	title = "STOCKING LIST"
+	content= "train models:<br>#14-001 to 013(rail pieces; always keep healthy surplus)<br>#14-023(staple bi-directional engine)<br>#14-041<br>#14-055<br>#15-004<br>#15-006<br>#15-016(order an extra and don't forget to put $3.99 in the register and put it down as an employee sale)\
+		<br>#16-005<br>#17-027 to 030<br>#17-033(basic light set, keep healthy surplus)<br>#18-001(David; do not stock more than one at a time. These are way too expensive to keep ordering every month.)\
+		<br><br>regular toys:<br>refer to the shelves next to the door, if any are half empty then re-order<br>(David; please order some more of the BB guns. They're flying off shelves. Don't forget the BBs this time, please.)\
+		<br><br>science kits:<br>basic chemistry glowing volcano kit(best seller)<br>basic chemistry lead plating kit<br>basic radiometry nuclear blast test kit<br>basic astronomy build your own telescope kit<br>basic mechanics mini nuclear car kit\
+		<br>basic electronics build your own flashlight kit<br>basic rocketry commie-buster kit<br>(David; keep your eyes on the new catalogues, you understand what youngins want more than I do.)"
+
+/datum/terminal/document/toystore_notetoself // same as above, immersive
+	title = "NOTE TO SELF"
+	content = "remember to get clay and paint for train diorama"
