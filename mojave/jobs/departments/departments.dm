@@ -70,3 +70,15 @@
 	//display_order = 0
 	//label_class = "WASTELAND"
 	//latejoin_color = "#ffddf0"
+
+// FLAG DEFINES
+
+/datum/asset/simple/ms13/faction_flags
+	assets = list(
+		"NCR_flag.png" = 'mojave/icons/faction_flags/NCR.png',
+		"Legion_flag.png" = 'mojave/icons/faction_flags/NCR.png',
+		"BOS_flag.png" = 'mojave/icons/faction_flags/NCR.png',
+		"Raiders_flag.png" = 'mojave/icons/faction_flags/NCR.png',
+		"Town_flag.png" = 'mojave/icons/faction_flags/NCR.png',
+		"Wasteland_flag.png" = 'mojave/icons/faction_flags/NCR.png',
+	)

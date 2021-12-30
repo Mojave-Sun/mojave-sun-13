@@ -1,8 +1,10 @@
 import { sortBy } from "common/collections";
 import { classes } from "common/react";
 import { InfernoNode, SFC } from "inferno";
+import { resolveAsset } from "../../assets";
 import { useBackend, useLocalState } from "../../backend";
 import { Box, Button, Dropdown, Flex, Stack, Tooltip } from "../../components";
+import { logger } from "../../logging";
 import { createSetPreference, Job, JoblessRole, JobPriority, PreferencesMenuData } from "./data";
 import { ServerPreferencesFetcher } from "./ServerPreferencesFetcher";
 
@@ -267,16 +269,17 @@ const JobRow = (props: {
   );
 };
 
-const Department: SFC<{ department: string}> = (props) => {
-  const { children, department: name } = props;
+const Department: SFC<{ department: string, nextFaction: () => any, previousFaction: () => any}> = (
+  props
+) => {
+  const { children, department: name, nextFaction, previousFaction } = props;
   const className = `PreferencesMenu__Jobs__departments--${name}`;
-
-    return (
+  return (
     <ServerPreferencesFetcher
       render={(data) => {
         if (!data) {
           return null;
-  }
+        }
 
         const { departments, jobs } = data.jobs;
         const department = departments[name];
@@ -290,30 +293,64 @@ const Department: SFC<{ department: string}> = (props) => {
         }
 
         const jobsForDepartment = sortJobs(
-          Object.entries(jobs).filter(
-            ([_, job]) => job.department === name
-          ),
+          Object.entries(jobs).filter(([_, job]) => job.department === name),
           department.head
         );
 
-  return (
-    <Box>
-      <Stack
-        vertical
-        fill>
-              {jobsForDepartment.map(([name, job]) => {
-                return (<JobRow
-                  className={classes([className, name === department.head && "head"])}
-                  key={name}
-                  job={job}
-                  name={name}
-                />);
-        })}
-      </Stack>
+        return (
+          <Box>
+            <Flex.Item className={classes([`${className}__faction`])}>
+              <Stack align="center" vertical>
+                <Stack.Item
+                  style={{
+                    'font-weight': 'bold',
+                    'margin-top': 'auto',
+                    'max-width': '100px',
+                    'text-align': 'center',
+                  }}>
+                  {name}
+                </Stack.Item>
+                <Stack.Item align="center">
+                  <Tooltip content={name} position="bottom">
+                    <Box className={'faction-icon-parent'}>
+                      <img src={resolveAsset(`${name}_flag.png`)} />
+                    </Box>
+                  </Tooltip>
+                  <Gap amount={25} />
+                  <Button
+                    icon="chevron-left"
+                    content="Previous"
+                    onClick={previousFaction}
+                  />
+                  <Button
+                    icon="chevron-right"
+                    content="Next"
+                    onClick={nextFaction}
+                  />
+                </Stack.Item>
+              </Stack>
+            </Flex.Item>
 
+            <Gap amount={36} />
+            <PriorityHeaders />
+            <Stack vertical fill>
+              {jobsForDepartment.map(([name, job]) => {
+                return (
+                  <JobRow
+                    className={classes([
+                      className,
+                      name === department.head && 'head',
+                    ])}
+                    key={name}
+                    job={job}
+                    name={name}
+                  />
+                );
+              })}
+            </Stack>
             {children}
-    </Box>
-  );
+          </Box>
+        );
       }}
     />
   );
@@ -370,20 +407,24 @@ const JoblessRoleDropdown = (props, context) => {
   );
 };
 
-export const JobSwitch = (faction) => {
+export const JobSwitch = (
+  faction,
+  nextFaction: () => any,
+  previousFaction: () => any
+) => {
+
   switch (faction) {
     case Faction.NCR:
       return (
         <>
-
           <Stack.Item mr={1}>
-            <Gap amount={36} />
-            <PriorityHeaders />
             <Gap amount={6} />
             <Department
-              department={Departments.NCR}
-              name="NCR" />
-            <Gap amount={6} />
+              department="NCR"
+              nextFaction={nextFaction}
+              previousFaction={previousFaction}>
+              <Gap amount={6} />
+            </Department>
           </Stack.Item>
 
           <Stack.Item mr={1}>
@@ -395,13 +436,13 @@ export const JobSwitch = (faction) => {
       return (
         <>
           <Stack.Item mr={1}>
-            <Gap amount={36} />
-            <PriorityHeaders />
             <Gap amount={6} />
             <Department
-              department={Departments.Town}
-              name="Town" />
-            <Gap amount={6} />
+              department="Town"
+              nextFaction={nextFaction}
+              previousFaction={previousFaction}>
+              <Gap amount={6} />
+            </Department>
           </Stack.Item>
 
           <Stack.Item mr={1}>
@@ -413,13 +454,13 @@ export const JobSwitch = (faction) => {
       return (
         <>
           <Stack.Item mr={1}>
-            <Gap amount={36} />
-            <PriorityHeaders />
             <Gap amount={6} />
             <Department
-              department={Departments.BOS}
-              name="BOS" />
-            <Gap amount={6} />
+              department="BOS"
+              nextFaction={nextFaction}
+              previousFaction={previousFaction}>
+              <Gap amount={6} />
+            </Department>
           </Stack.Item>
 
           <Stack.Item mr={1}>
@@ -431,13 +472,13 @@ export const JobSwitch = (faction) => {
       return (
         <>
           <Stack.Item mr={1}>
-            <Gap amount={36} />
-            <PriorityHeaders />
             <Gap amount={6} />
             <Department
-              department={Departments.Raiders}
-              name="Raiders" />
-            <Gap amount={6} />
+              department="Raiders"
+              nextFaction={nextFaction}
+              previousFaction={previousFaction}>
+              <Gap amount={6} />
+            </Department>
           </Stack.Item>
 
           <Stack.Item mr={1}>
@@ -449,13 +490,13 @@ export const JobSwitch = (faction) => {
       return (
         <>
           <Stack.Item mr={1}>
-            <Gap amount={36} />
-            <PriorityHeaders />
             <Gap amount={6} />
             <Department
-              department={Departments.Wasteland}
-              name="Wasteland" />
-            <Gap amount={6} />
+              department="Wasteland"
+              nextFaction={nextFaction}
+              previousFaction={previousFaction}>
+              <Gap amount={6} />
+            </Department>
           </Stack.Item>
 
           <Stack.Item mr={1}>
@@ -463,21 +504,6 @@ export const JobSwitch = (faction) => {
           </Stack.Item>
         </>
       );
-  }
-};
-
-export const GetFactionPicture = (faction) => {
-  switch (faction) {
-    case Faction.NCR:
-      return <img src={Departments.NCR.picture} />;
-    case Faction.Town:
-      return <img src={Departments.Town.picture} />;
-    case Faction.BOS:
-      return <img src={Departments.BOS.picture} />;
-    case Faction.Raiders:
-      return <img src={Departments.Raiders.picture} />;
-    case Faction.Wasteland:
-      return <img src={Departments.Wasteland.picture} />;
   }
 };
 
@@ -500,7 +526,6 @@ export const JobsPage = (props, context) => {
       setCurrentFaction(previousFaction);
     }
   };
-
   const getFactionName = () => {
     switch (currentFaction) {
       case Faction.NCR:
@@ -515,9 +540,8 @@ export const JobsPage = (props, context) => {
         return "Wasteland";
     }
   };
-  const activeFactionMenu = JobSwitch(currentFaction);
+  const activeFactionMenu = JobSwitch(currentFaction, nextFaction, previousFaction);
   const className = "PreferencesMenu__Jobs";
-
   return (
     <>
       <>
@@ -553,70 +577,6 @@ export const JobsPage = (props, context) => {
         right={21}
         width="30%"
       />
-      <Gap amount={50} />
-      <div>
-        <Box
-          position="absolute"
-          right={30}
-          width="30%"
-        >
-          <Flex.Item
-            className={classes([
-              `${className}__faction`,
-            ])}
-            key={currentFaction}
-          >
-            <Stack align="center" vertical>
-              <Stack.Item style={{
-                "font-weight": "bold",
-                "margin-top": "auto",
-                "max-width": "100px",
-                "text-align": "center",
-              }}>
-                {getFactionName()}
-              </Stack.Item>
-              <Stack.Item align="center">
-                <Tooltip content={
-                  <>The New California Republic</>
-                } position="bottom">
-                  <Box
-                    className={"faction-icon-parent"}
-                  >
-                    {GetFactionPicture(currentFaction)}
-
-                    {/* {isBanned && (
-                      <Box className="antagonist-banned-slash" />
-                    )}
-
-                    {daysLeft > 0 && (
-                      <Box className="antagonist-days-left">
-                        <b>{daysLeft}</b> days left
-                      </Box>
-
-                    )}
-                  */ }
-                  </Box>
-                </Tooltip>
-                <Gap amount={25} />
-                <Button
-                  icon="chevron-left"
-                  content="Previous"
-                  onClick={previousFaction}
-                />
-                <Button
-                  icon="chevron-right"
-                  content="Next"
-                  onClick={nextFaction}
-                />
-              </Stack.Item>
-            </Stack>
-
-          </Flex.Item>
-          {/* {GetFactionPicture(currentFaction)} */}
-
-        </Box>
-      </div>
-      <Gap amount={160} />
       <JoblessRoleDropdown />
       <Stack vertical fill>
         <Gap amount={22} />
