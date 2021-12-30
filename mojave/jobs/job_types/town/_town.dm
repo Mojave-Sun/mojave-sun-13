@@ -1,5 +1,8 @@
 /datum/job/ms13/town
 	selection_color = "#4feb64"
+	departments_list = list(
+		/datum/job_department/town,
+	)
 
 /datum/outfit/job/ms13/town
 	name = "Default"
