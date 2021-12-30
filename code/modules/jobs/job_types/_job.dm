@@ -116,9 +116,6 @@
 	///RPG job names, for the memes
 	var/rpg_title
 
-	// MS13 EDIT BEGIN //
-	var/description = ""
-
 	var/forbid = ""
 
 	var/enforce = ""
