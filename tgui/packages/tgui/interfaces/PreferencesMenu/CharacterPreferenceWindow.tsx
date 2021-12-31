@@ -57,7 +57,7 @@ export const CharacterPreferenceWindow = (props, context) => {
       break;
     case Page.Main:
       pageContents = (<MainPage
-        openSpecies={() => setCurrentPage(Page.Species)}
+      //  openSpecies={() => setCurrentPage(Page.Species)} MOJAVE SUN EDIT - Prefs
       />);
 
       break;
