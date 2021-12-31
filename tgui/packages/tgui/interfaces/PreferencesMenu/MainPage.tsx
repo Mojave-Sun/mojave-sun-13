@@ -393,7 +393,7 @@ const PreferenceList = (props: {
 };
 
 export const MainPage = (props: {
-  openSpecies: () => void,
+//  openSpecies: () => void, MOJAVE SUN EDIT - Prefs
 }, context) => {
   const { act, data } = useBackend<PreferencesMenuData>(context);
   const [currentClothingMenu, setCurrentClothingMenu]
