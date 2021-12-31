@@ -21,7 +21,7 @@ const CLOTHING_SELECTION_MULTIPLIER = 5.2;
 
 const CharacterControls = (props: {
   handleRotate: () => void,
-  handleOpenSpecies: () => void,
+  // handleOpenSpecies: () => void, MOJAVE SUN EDIT - Prefs
   gender: Gender,
   setGender: (gender: Gender) => void,
   showGender: boolean,
