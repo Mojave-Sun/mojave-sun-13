@@ -606,6 +606,7 @@ export const JobsPage = (props, context) => {
                   <>{GetFactionFullName()}</>
                 } position="bottom">
                   <Box
+                    align="center"
                     className={"faction-icon-parent"}
                   >
                     {GetFactionPicture(currentFaction)}

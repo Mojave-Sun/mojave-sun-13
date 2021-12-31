@@ -132,10 +132,10 @@
 //Backpack/Storage
 
 #define TPACK "Travelpack"
-#define MBACKPACK "Millitary Backpack"
+#define MBACKPACK "Military Backpack"
 #define SATCHEL "Satchel"
 
-GLOBAL_LIST_INIT(backpacklist, list(TPACK, MBACKPACK))
+GLOBAL_LIST_INIT(backpacklist, list(TPACK, MBACKPACK, SATCHEL))
 
 /datum/preference/choiced/backpack
 	savefile_key = "backpack"
@@ -155,27 +155,16 @@ GLOBAL_LIST_INIT(backpacklist, list(TPACK, MBACKPACK))
 /datum/preference/choiced/backpack/apply_to_human(mob/living/carbon/human/target, value)
 	target.backpack = value
 
+//Base pre-equip code
+
 /datum/outfit/job/ms13/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	switch(H.backpack)
-		if(TPACK)
-			back = /obj/item/storage/ms13/travel
-		if(MBACKPACK)
-			back = /obj/item/storage/ms13/military
-		if(SATCHEL)
-			back = /obj/item/storage/backpack/satchel/leather
-		else
-			back = backpack //Department backpack
-	//converts the uniform string into the path we'll wear, whether it's the skirt or regular variant
-	var/holder
-	if(H.jumpsuit_style == PREF_SKIRT)
-		holder = "[uniform]/skirt"
-		if(!text2path(holder))
-			holder = "[uniform]"
+	if(back == null)
+		switch(H.backpack)
+			if(TPACK)
+				back = /obj/item/storage/ms13/travel
+			if(MBACKPACK)
+				back = /obj/item/storage/ms13/military
+			if(SATCHEL)
+				back = /obj/item/storage/backpack/satchel/leather
 	else
-		holder = "[uniform]"
-	uniform = text2path(holder)
-
-	var/client/client = GLOB.directory[ckey(H.mind?.key)]
-
-	if(client?.is_veteran() && client?.prefs.read_preference(/datum/preference/toggle/playtime_reward_cloak))
-		neck = /obj/item/clothing/neck/cloak/skill_reward/playing
+		back = back //Forced backpack

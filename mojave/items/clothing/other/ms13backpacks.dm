@@ -5,7 +5,7 @@
 /obj/item/storage/ms13
 	name = "generic ms13 storage"
 	desc = "Da error tho, the crazy error yo!!"
-	icon = 'mojave/icons/objects/clothing/clothing_world/backpack_world.dmi'
+	icon = 'mojave/icons/objects/clothing/clothing_inventory/backpack_inventory.dmi' //breaks norm in the name of pref menu icons - praise hekzder 2021
 	worn_icon = 'mojave/icons/mob/clothing/back.dmi'
 	icon_state = ""
 	inhand_icon_state = ""
@@ -19,6 +19,7 @@
 
 /obj/item/storage/ms13/Initialize()
 	. = ..()
+	icon = 'mojave/icons/objects/clothing/clothing_world/backpack_world.dmi' //I know this is gross, but its the only way the world icon can show in the pref menu (without complicated coder input)
 	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/backpack_inventory.dmi')
 	inhand_icon_state = icon_state
 	worn_icon_state = icon_state
