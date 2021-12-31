@@ -19,7 +19,6 @@
 	uniform =    /obj/item/clothing/under/ms13/vaultsuit
 	gloves = 	 /obj/item/clothing/gloves/color/latex/nitrile
 	shoes =  	 /obj/item/clothing/shoes/ms13/military/vault
-	back =	 	 /obj/item/storage/backpack
 	belt = 		 /obj/item/storage/firstaid/ms13/regular
 
 /datum/outfit/job/ms13/town/doctor/pre_equip(mob/living/carbon/human/H)

@@ -18,4 +18,5 @@
 	target.facial_hair_color = target.hair_color
 
 /datum/preference/color/facial_hair_color/is_accessible(datum/preferences/preferences)
+	. = ..()
 	return FALSE
