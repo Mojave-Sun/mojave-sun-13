@@ -495,7 +495,7 @@ export const MainPage = (props: {
                 <Stack.Item>
                   <CharacterControls
                     gender={data.character_preferences.misc.gender}
-                    handleOpenSpecies={props.openSpecies}
+                    // handleOpenSpecies={props.openSpecies} MOJAVE SUN EDIT
                     handleRotate={() => {
                       act("rotate");
                     }}
