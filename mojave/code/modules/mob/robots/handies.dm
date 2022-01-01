@@ -47,6 +47,8 @@
 	desc = "An armed model of Mr. Handy unit. It's long lost any rational wires in its circuits. It's equipped with a laser rifle!"
 	icon_state = "mrhandy_laser"
 	icon_living = "mrhandy_laser"
+	minimum_distance = 3
+	retreat_distance = 5
 	attack_verb_continuous = "pinches"
 	attack_verb_simple = "pinch"
 	ranged = TRUE
@@ -61,8 +63,11 @@
 	icon_living = "mrhandy_gutsy"
 	health = 180
 	maxHealth = 180
-	attack_verb_continuous = "pinches"
-	attack_verb_simple = "pinch"
+	melee_damage_lower = 20
+	melee_damage_upper = 20
+	armour_penetration = 10
+	minimum_distance = 2
+	retreat_distance = 3
 	ranged = TRUE
 	ranged_cooldown = 3 SECONDS
 	projectiletype = /obj/projectile/bullet/ms13/plasma/gutsy

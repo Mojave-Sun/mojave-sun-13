@@ -6,9 +6,12 @@
 	maxHealth = 200
 	melee_damage_lower = 15
 	melee_damage_upper = 20
+	armour_penetration = 5
 	sharpness = NONE
 	wound_bonus = 5
 	move_to_delay = 5
+	minimum_distance = 3
+	retreat_distance = 5
 	speed = 2
 	attack_verb_continuous = "slams"
 	attack_verb_simple = "slam"

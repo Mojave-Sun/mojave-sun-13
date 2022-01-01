@@ -80,7 +80,7 @@
 /obj/item/food/meat/slab/ms13/fish/blinky
 	fish_type = "blinky"
 	name = "blinky"
-	desc = "What...?"
+	desc = "A very strange looking fish, likely a product of lots and lots of radiation."
 	icon_state = "blinky_cutlet"
 	fillet_type = /obj/item/food/meat/rawcutlet/ms13/fish/blinky
 
@@ -150,7 +150,7 @@
 
 /obj/item/food/meat/rawcutlet/ms13/fish/blinky
 	name = "raw blinky fillet"
-	desc = "A raw blinky fillet. What...?"
+	desc = "A raw fillet from a Blinky fish. What's a Blinky? Try it and find out."
 	icon_state = "blinky_cutlet"
 	fish_cooked_type = /obj/item/food/meat/cutlet/ms13/fish/blinky
 	tastes = list("what...?" =1, "fish" = 2)
