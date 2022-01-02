@@ -183,7 +183,7 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "be" = (
-/obj/structure/ms13/storage/shelf/rust{
+/obj/structure/filingcabinet/ms13{
 	dir = 1
 	},
 /turf/open/floor/wood/ms13/wide,
@@ -1522,6 +1522,10 @@
 	},
 /turf/open/floor/ms13/tile,
 /area/ms13/town)
+"ic" = (
+/obj/structure/filingcabinet/ms13/mail,
+/turf/open/floor/plating/ms13/ground/sidewalk,
+/area/ms13/desert)
 "id" = (
 /turf/open/floor/plating/ms13/ground/road,
 /area/ms13/town)
@@ -3197,6 +3201,7 @@
 /area/ms13/town)
 "qN" = (
 /obj/structure/table/ms13/wood,
+/obj/item/phone,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/rangeroutpost)
 "qO" = (
@@ -3505,13 +3510,11 @@
 /turf/open/floor/plating/dirt/ms13,
 /area/ms13/town)
 "su" = (
-/obj/structure/closet/crate/trashcart,
-/obj/item/clothing/under/ms13/wasteland/police,
-/obj/item/clothing/under/ms13/wasteland/police,
-/obj/item/clothing/under/ms13/wasteland/police,
-/obj/item/clothing/under/ms13/wasteland/prewar/relaxedwear,
-/turf/open/floor/plating/ms13/ground/road,
-/area/ms13/desert)
+/obj/structure/filingcabinet/ms13/busted{
+	dir = 1
+	},
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/rangeroutpost)
 "sv" = (
 /obj/machinery/shower{
 	dir = 4
@@ -4060,9 +4063,9 @@
 /turf/open/floor/plating/ms13/ground/desertalt,
 /area/ms13/legioncamp)
 "vw" = (
-/obj/structure/closet/ms13/wall/firstaid,
-/obj/effect/spawner/random/ms13/medical/lowrandom,
-/obj/structure/table/ms13/no_smooth/counter/metal,
+/obj/structure/sink/kitchen{
+	pixel_y = 13
+	},
 /turf/open/floor/ms13/tile/large/white,
 /area/ms13/rangeroutpost)
 "vy" = (
@@ -4135,6 +4138,8 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "vW" = (
+/obj/structure/closet/ms13/wall/firstaid,
+/obj/effect/spawner/random/ms13/medical/lowrandom,
 /obj/structure/table/ms13/no_smooth/counter/metal,
 /turf/open/floor/ms13/tile/large/white,
 /area/ms13/rangeroutpost)
@@ -6350,10 +6355,10 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "GK" = (
-/obj/structure/sink/kitchen{
-	pixel_y = 13
+/obj/structure/filingcabinet/ms13/busted{
+	dir = 4
 	},
-/turf/open/floor/ms13/tile/large/white,
+/turf/open/floor/wood/ms13/carpet/shaggy/green,
 /area/ms13/rangeroutpost)
 "GL" = (
 /turf/closed/wall/ms13/brick,
@@ -8983,14 +8988,13 @@
 /turf/open/floor/ms13/tile/large/black,
 /area/ms13/rangeroutpost)
 "Vu" = (
-/obj/structure/closet/crate/trashcart,
-/obj/item/clothing/head/helmet/ms13/cowboy/black,
-/obj/item/clothing/head/helmet/ms13/cowboy,
-/obj/item/clothing/head/helmet/ms13/cowboy,
-/obj/item/clothing/head/helmet/ms13/cowboy/black,
+/obj/structure/closet,
 /obj/item/clothing/under/ms13/wasteland/police,
-/turf/open/floor/plating/ms13/ground/road,
-/area/ms13/desert)
+/obj/item/clothing/under/ms13/wasteland/police,
+/obj/item/clothing/head/helmet/ms13/police,
+/obj/item/clothing/head/helmet/ms13/police,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/rangeroutpost)
 "Vw" = (
 /obj/structure/chair/sofa/left{
 	dir = 1
@@ -13621,17 +13625,17 @@ ZC
 rQ
 lJ
 qp
-Cs
-Cs
-Cs
-Cs
-Cs
-Cs
-Cs
-Cs
-Cs
-Cs
-Cs
+aX
+ZU
+vF
+ZU
+aX
+ZU
+aX
+ZU
+aX
+ZU
+aX
 Cs
 Cs
 ru
@@ -13817,9 +13821,9 @@ ZU
 aX
 ZU
 aX
+ZU
 aX
 aX
-Cs
 Cs
 ru
 aX
@@ -14004,7 +14008,7 @@ ZU
 aX
 ZU
 aX
-aX
+ZU
 aX
 aX
 Cs
@@ -14183,13 +14187,13 @@ qp
 qp
 qp
 aX
-ZU
 aX
-ZU
 aX
-ZU
 aX
-ZU
+aX
+aX
+aX
+aX
 aX
 aX
 aX
@@ -14557,15 +14561,15 @@ rQ
 jo
 qp
 aX
+ZU
 aX
+ZU
 aX
+ZU
+IE
+ZU
 aX
-aX
-aX
-aX
-aX
-aX
-aX
+ZU
 aX
 aX
 Cs
@@ -14752,7 +14756,7 @@ ZU
 aX
 ZU
 aX
-aX
+ZU
 aX
 aX
 Cs
@@ -14930,8 +14934,6 @@ ey
 QN
 QN
 qp
-Vu
-ZU
 aX
 ZU
 aX
@@ -14939,7 +14941,9 @@ ZU
 aX
 ZU
 aX
+ZU
 aX
+ZU
 aX
 aX
 Cs
@@ -15117,16 +15121,16 @@ Jt
 QN
 Vt
 qp
-su
-ZU
-aX
-ZU
-aX
-ZU
-aX
-ZU
-aX
-aX
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
 aX
 aX
 Cs
@@ -15492,7 +15496,7 @@ Qx
 Qx
 qp
 Af
-Af
+GK
 qp
 nT
 AQ
@@ -15853,7 +15857,7 @@ aX
 aX
 Tc
 qp
-GK
+xT
 xT
 oC
 xT
@@ -16059,8 +16063,8 @@ qp
 qp
 qp
 qp
-nT
-nT
+Vu
+Vu
 qp
 aX
 aX
@@ -17169,7 +17173,7 @@ rx
 AQ
 AQ
 AQ
-be
+su
 vp
 pI
 Tc
@@ -24069,7 +24073,7 @@ QI
 Ap
 gK
 GL
-Tc
+fQ
 Tc
 aX
 aX
@@ -27658,7 +27662,7 @@ IW
 sx
 Vi
 GL
-Tc
+ic
 EX
 aX
 aX
@@ -28967,7 +28971,7 @@ sx
 sx
 vZ
 GL
-Tc
+ic
 Tc
 aX
 aX
@@ -33642,7 +33646,7 @@ gQ
 gQ
 Pw
 GL
-mx
+Tc
 Tc
 aX
 aX
