@@ -4063,6 +4063,9 @@
 /obj/structure/ms13/rug/rubber{
 	dir = 4
 	},
+/obj/machinery/ms13/terminal{
+	dir = 4
+	},
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/vault_atrium_middle)
 "cOe" = (
@@ -4203,10 +4206,7 @@
 /turf/open/openspace/ms13,
 /area/ms13/underground/subway)
 "cSw" = (
-/obj/machinery/ms13/terminal{
-	dir = 4;
-	pixel_y = 0
-	},
+/obj/effect/spawner/random/ms13/drink/alcohol_beer,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/vault_atrium_middle)
 "cSz" = (
@@ -4995,6 +4995,10 @@
 /turf/open/floor/ms13/tile/brown,
 /area/ms13/town)
 "dyV" = (
+/turf/open/floor/ms13/metal/plate,
+/area/ms13/underground/vault_atrium_middle)
+"dzh" = (
+/obj/machinery/atmospherics/components/unary/passive_vent,
 /turf/open/floor/ms13/metal/plate,
 /area/ms13/underground/vault_atrium_middle)
 "dzl" = (
@@ -13610,11 +13614,10 @@
 /turf/open/floor/ms13/tile/large/navy,
 /area/ms13/underground/vault_atrium_middle)
 "iQk" = (
-/obj/structure/chair/office/ms13/green{
-	dir = 8
+/obj/machinery/atmospherics/components/unary/passive_vent{
+	dir = 1
 	},
-/obj/effect/landmark/start/ms13/deputy,
-/turf/open/floor/ms13/metal,
+/turf/open/floor/ms13/metal/plate,
 /area/ms13/underground/vault_atrium_middle)
 "iQX" = (
 /obj/structure/ms13/storage/large/shelf/rust{
@@ -15971,10 +15974,6 @@
 /obj/structure/ms13/storage/large/shelf,
 /turf/open/floor/ms13/tile,
 /area/ms13/town)
-"khy" = (
-/obj/machinery/atmospherics/components/unary/passive_vent,
-/turf/open/floor/ms13/metal/plate,
-/area/ms13/underground/vault_atrium_middle)
 "khH" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 5
@@ -20319,12 +20318,6 @@
 	},
 /turf/open/floor/wood/ms13/common,
 /area/ms13/ncr)
-"mSH" = (
-/obj/machinery/atmospherics/components/unary/passive_vent{
-	dir = 1
-	},
-/turf/open/floor/ms13/metal/plate,
-/area/ms13/underground/vault_atrium_middle)
 "mSI" = (
 /obj/machinery/light/ms13{
 	dir = 8
@@ -21610,11 +21603,8 @@
 /obj/structure/table/ms13/no_smooth/large/metal/desk{
 	dir = 8
 	},
-/obj/item/paper_bin{
-	pixel_y = 6
-	},
-/obj/item/pen{
-	pixel_y = 6
+/obj/machinery/ms13/terminal{
+	dir = 8
 	},
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/vault_atrium_middle)
@@ -24475,6 +24465,13 @@
 /obj/machinery/oven,
 /turf/open/floor/ms13/tile/long,
 /area/ms13/town)
+"slF" = (
+/obj/structure/chair/office/ms13/green{
+	dir = 8
+	},
+/obj/effect/landmark/start/ms13/deputy,
+/turf/open/floor/ms13/metal,
+/area/ms13/underground/vault_atrium_middle)
 "slY" = (
 /obj/structure/chair/pew/left,
 /turf/open/floor/plating/ms13/ground/sidewalk,
@@ -25877,7 +25874,8 @@
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
 "wBH" = (
-/obj/effect/spawner/random/ms13/drink/alcohol_beer,
+/obj/item/paper_bin,
+/obj/item/pen,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/vault_atrium_middle)
 "wCz" = (
@@ -26377,6 +26375,10 @@
 /turf/open/openspace/ms13,
 /area/ms13/town)
 "xNQ" = (
+/obj/structure/chair/office/ms13/green{
+	dir = 4
+	},
+/obj/effect/landmark/start/ms13/deputy,
 /obj/structure/ms13/rug/rubber{
 	dir = 4
 	},
@@ -43304,7 +43306,7 @@ gAT
 ylm
 uXL
 rGn
-lrH
+rGn
 xNQ
 ylm
 khQ
@@ -44210,8 +44212,8 @@ gAT
 gjX
 gAT
 rGn
-iQk
 rGn
+slF
 ylm
 khQ
 khQ
@@ -45106,13 +45108,13 @@ vHI
 jFh
 rGn
 dmC
-mSH
+iQk
 nbS
 rGn
 rGn
 rGn
 nbS
-khy
+dzh
 dmC
 khQ
 khQ
@@ -46314,13 +46316,13 @@ ylm
 ylm
 dmC
 dmC
-mSH
+iQk
 tJW
 rGn
 rGn
 rGn
 tJW
-khy
+dzh
 dmC
 pmz
 fKQ
