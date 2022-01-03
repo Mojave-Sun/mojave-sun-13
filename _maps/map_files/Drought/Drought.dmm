@@ -1834,6 +1834,9 @@
 "jK" = (
 /obj/structure/table/ms13/metal,
 /obj/structure/ms13/tv,
+/obj/machinery/light/ms13/bulb{
+	dir = 8
+	},
 /turf/open/floor/wood/ms13/carpet/shaggy/green,
 /area/ms13/town)
 "jL" = (
@@ -3191,11 +3194,10 @@
 /turf/open/floor/wood/ms13/carpet/shaggy/green,
 /area/ms13/town)
 "qI" = (
-/obj/machinery/power/ms13/streetlamp/corner{
-	dir = 4
-	},
-/turf/open/floor/plating/ms13/ground/sidewalk,
-/area/ms13/desert)
+/obj/structure/table/ms13/no_smooth/wood,
+/obj/item/lighter/greyscale,
+/turf/open/floor/wood/ms13/carpet/shaggy/green,
+/area/ms13/town)
 "qK" = (
 /obj/effect/decal/cleanable/glass{
 	dir = 8;
@@ -3623,7 +3625,7 @@
 /area/ms13/town)
 "sY" = (
 /obj/machinery/power/ms13/streetlamp/corner{
-	dir = 8
+	dir = 4
 	},
 /turf/open/floor/plating/ms13/ground/sidewalk,
 /area/ms13/desert)
@@ -4244,7 +4246,9 @@
 /turf/open/floor/ms13/tile/long,
 /area/ms13/town)
 "wz" = (
-/obj/structure/closet/crate/trashcart,
+/obj/structure/fence/fencenormal{
+	dir = 8
+	},
 /turf/open/floor/plating/ms13/ground/sidewalk,
 /area/ms13/desert)
 "wB" = (
@@ -5733,11 +5737,9 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/factory)
 "DG" = (
-/obj/machinery/door/unpowered/ms13/metal/red{
-	dir = 4
-	},
-/turf/open/floor/wood/ms13/common,
-/area/ms13/town)
+/obj/structure/closet/crate/trashcart,
+/turf/open/floor/plating/ms13/ground/sidewalk,
+/area/ms13/desert)
 "DH" = (
 /obj/structure/rack,
 /turf/open/floor/wood/ms13/carpet/shaggy/blue,
@@ -6634,14 +6636,11 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "Iq" = (
-/obj/machinery/door/unpowered/ms13/metal/red{
-	dir = 4
+/obj/machinery/power/ms13/streetlamp/corner{
+	dir = 8
 	},
-/obj/structure/ms13/rug/mat{
-	dir = 4
-	},
-/turf/open/floor/wood/ms13/carpet/shaggy/green,
-/area/ms13/rangeroutpost)
+/turf/open/floor/plating/ms13/ground/sidewalk,
+/area/ms13/desert)
 "Is" = (
 /obj/machinery/light/ms13/bulb{
 	dir = 4
@@ -7174,9 +7173,10 @@
 /turf/open/floor/ms13/tile/full/navy,
 /area/ms13/town)
 "Lp" = (
-/obj/structure/table/ms13/metal,
-/obj/item/lighter/greyscale,
-/turf/open/floor/wood/ms13/carpet/shaggy/green,
+/obj/machinery/door/unpowered/ms13/metal/red{
+	dir = 4
+	},
+/turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "Lq" = (
 /obj/structure/table/ms13/wood,
@@ -7231,7 +7231,12 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "LI" = (
-/obj/machinery/door/unpowered/ms13/wood/mirrored,
+/obj/machinery/door/unpowered/ms13/metal/red{
+	dir = 4
+	},
+/obj/structure/ms13/rug/mat{
+	dir = 4
+	},
 /turf/open/floor/wood/ms13/carpet/shaggy/green,
 /area/ms13/rangeroutpost)
 "LK" = (
@@ -9825,11 +9830,9 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "Zu" = (
-/obj/machinery/door/unpowered/ms13/metal/red{
-	dir = 8
-	},
-/turf/open/floor/ms13/tile/long,
-/area/ms13/town)
+/obj/machinery/door/unpowered/ms13/wood/mirrored,
+/turf/open/floor/wood/ms13/carpet/shaggy/green,
+/area/ms13/rangeroutpost)
 "Zw" = (
 /obj/machinery/shower{
 	dir = 4
@@ -9896,6 +9899,12 @@
 /obj/structure/rack,
 /obj/item/binoculars,
 /turf/open/floor/ms13/tile/large/white,
+/area/ms13/town)
+"ZT" = (
+/obj/machinery/door/unpowered/ms13/metal/red{
+	dir = 8
+	},
+/turf/open/floor/ms13/tile/long,
 /area/ms13/town)
 "ZU" = (
 /obj/effect/turf_decal/ms13/road/horizontalline,
@@ -15875,7 +15884,7 @@ Hi
 Hi
 XC
 Hi
-LI
+Zu
 AQ
 AQ
 BI
@@ -16993,9 +17002,9 @@ AQ
 be
 qp
 qp
-Iq
+LI
 qp
-Iq
+LI
 qp
 qp
 yD
@@ -34879,7 +34888,7 @@ Tc
 Tc
 Tc
 Tc
-qI
+sY
 Cs
 Cs
 Cs
@@ -35441,9 +35450,9 @@ aX
 ZU
 aX
 Tc
-Cs
-Cs
-Cs
+df
+wz
+wz
 GL
 GL
 GL
@@ -35564,8 +35573,8 @@ Bi
 gQ
 GL
 xw
-bA
-Lp
+sK
+sK
 gQ
 bh
 sx
@@ -35628,11 +35637,11 @@ aX
 aX
 aX
 Tc
-Cs
-Cs
-Cs
-Cs
-Cs
+Qw
+Tc
+Tc
+Tc
+DG
 GL
 FO
 bt
@@ -35751,8 +35760,8 @@ yu
 gQ
 GL
 dN
-Rn
-GL
+bA
+qI
 gQ
 GL
 Nu
@@ -35815,11 +35824,11 @@ aX
 ZU
 aX
 Tc
-Cs
-Cs
-Cs
-Cs
-Cs
+Dz
+Tc
+Tc
+Tc
+Tc
 GL
 GL
 GL
@@ -35937,8 +35946,8 @@ GL
 GL
 wP
 GL
-gQ
-GL
+sK
+sK
 GL
 gQ
 GL
@@ -36002,19 +36011,19 @@ aX
 aX
 aX
 Tc
-Cs
-Cs
-Cs
-Cs
-Cs
-Cs
-Cs
-Cs
-Vn
-Cs
-Cs
-Cs
+Qw
 Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Bj
+Tc
+Tc
+Tc
+Dz
 Tc
 aX
 ZU
@@ -36125,8 +36134,8 @@ Pw
 gQ
 gQ
 gQ
-yT
 gQ
+yT
 gQ
 GL
 xC
@@ -36815,8 +36824,8 @@ ZU
 aX
 Tc
 Qw
-wz
-wz
+DG
+DG
 Tc
 Tc
 Tc
@@ -37195,7 +37204,7 @@ GL
 GL
 GL
 GL
-Zu
+ZT
 GL
 GL
 GL
@@ -37714,7 +37723,7 @@ GL
 Mx
 sx
 GL
-Cs
+bg
 GL
 GL
 GL
@@ -37901,7 +37910,7 @@ GL
 me
 sx
 GL
-Cs
+Tc
 GL
 yS
 Wi
@@ -38088,7 +38097,7 @@ GL
 GL
 sx
 GL
-Cs
+Tc
 GL
 sx
 Xe
@@ -38275,7 +38284,7 @@ GL
 yS
 sx
 GL
-Cs
+Tc
 GL
 GL
 GL
@@ -38462,8 +38471,8 @@ GL
 yr
 sx
 GL
-Cs
-Cs
+Tc
+Tc
 GL
 Ik
 aZ
@@ -38648,9 +38657,9 @@ sx
 cs
 sx
 sx
-GL
-Cs
-Cs
+mv
+Tc
+Tc
 GL
 Rq
 Jj
@@ -44443,7 +44452,7 @@ GL
 GL
 GL
 GL
-DG
+Lp
 GL
 Cs
 Cs
@@ -44816,8 +44825,8 @@ Tc
 Tc
 Tc
 Tc
-wz
-wz
+DG
+DG
 Qw
 Cs
 Cs
@@ -50227,7 +50236,7 @@ Cs
 Cs
 Cs
 Cs
-sY
+Iq
 Tc
 Tc
 Tc
