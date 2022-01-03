@@ -1137,7 +1137,8 @@
 /obj/machinery/light/ms13/bulb{
 	dir = 8
 	},
-/mob/living/simple_animal/mouse,
+/obj/structure/bed/ms13/bedframe/cot,
+/obj/structure/bed/ms13/mattress/dirty,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/vault_atrium_lower)
 "adJ" = (
@@ -1157,9 +1158,6 @@
 /turf/open/floor/ms13/metal/grate/border,
 /area/ms13/underground/bos)
 "adN" = (
-/obj/structure/chair/ms13/metal{
-	dir = 4
-	},
 /obj/machinery/light/ms13/bulb{
 	dir = 8
 	},
@@ -3891,8 +3889,8 @@
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/enclave_base)
 "anh" = (
-/obj/structure/table/ms13/metal/alt,
-/turf/open/floor/ms13/metal/grate,
+/obj/machinery/door/unpowered/ms13/wood,
+/turf/open/floor/ms13/metal/grate/border,
 /area/ms13/underground/vault_atrium_lower)
 "ani" = (
 /obj/structure/chair/ms13/wood,
@@ -3940,7 +3938,11 @@
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/underground_town)
 "anq" = (
-/obj/structure/bed/ms13/mattress/yellowed,
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = 11
+	},
+/obj/item/chair/ms13/metal/broken,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/vault_atrium_lower)
 "anr" = (
@@ -4730,8 +4732,7 @@
 /turf/open/floor/wood/ms13/carpet,
 /area/ms13/underground/enclave_base)
 "aqb" = (
-/obj/structure/bed/ms13/bedframe/wood,
-/obj/structure/bed/ms13/sleepingbag/green,
+/obj/item/reagent_containers/glass/bucket/wooden,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/vault_atrium_lower)
 "aqc" = (
@@ -4743,7 +4744,9 @@
 	dir = 1
 	},
 /obj/structure/curtain/cloth,
-/turf/open/floor/ms13/metal/grate,
+/turf/open/floor/ms13/metal/grate/border{
+	dir = 8
+	},
 /area/ms13/underground/vault_atrium_lower)
 "aqe" = (
 /obj/structure/dresser/ms13/torquise,
@@ -5995,12 +5998,6 @@
 /obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
-"auh" = (
-/obj/machinery/door/airlock/ms13{
-	dir = 4
-	},
-/turf/open/floor/ms13/metal/grate,
-/area/ms13/underground/vault_atrium_lower)
 "aui" = (
 /obj/machinery/light/ms13/bulb/broken{
 	dir = 8
@@ -6217,7 +6214,10 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/underground_town)
 "auV" = (
-/obj/item/reagent_containers/glass/bucket/wooden,
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = 11
+	},
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/vault_atrium_lower)
 "auW" = (
@@ -7745,9 +7745,10 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/sewer)
 "aAl" = (
-/turf/open/floor/ms13/metal/border/corner{
+/obj/structure/chair/pew{
 	dir = 1
 	},
+/turf/open/floor/ms13/metal/pipe,
 /area/ms13/underground/vault_atrium_lower)
 "aAm" = (
 /obj/structure/closet,
@@ -7943,10 +7944,6 @@
 	},
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/enclave_base)
-"aAU" = (
-/obj/machinery/door/airlock/ms13,
-/turf/open/floor/ms13/metal,
-/area/ms13/underground/vault_atrium_lower)
 "aAV" = (
 /obj/machinery/light/ms13,
 /turf/open/floor/wood/ms13/wide,
@@ -8457,7 +8454,7 @@
 /turf/open/floor/ms13/metal/pipe/corner,
 /area/ms13/underground/enclave_base)
 "aCK" = (
-/obj/structure/chair/ms13/metal,
+/mob/living/simple_animal/mouse,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/vault_atrium_lower)
 "aCL" = (
@@ -9334,7 +9331,7 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/military_crypt)
 "aFI" = (
-/obj/structure/chair/pew{
+/obj/structure/chair/pew/right{
 	dir = 1
 	},
 /turf/open/floor/ms13/metal/pipe,
@@ -9467,7 +9464,9 @@
 /obj/machinery/door/airlock/ms13{
 	dir = 4
 	},
-/turf/open/floor/ms13/metal,
+/turf/open/floor/ms13/metal/grate/border{
+	dir = 8
+	},
 /area/ms13/underground/vault_atrium_lower)
 "aGf" = (
 /obj/structure/ms13/storage/bookshelf,
@@ -10970,7 +10969,7 @@
 /area/ms13/underground/military_crypt)
 "aLd" = (
 /obj/machinery/door/airlock/ms13,
-/turf/open/floor/ms13/metal/grate,
+/turf/open/floor/ms13/metal/grate/border,
 /area/ms13/underground/vault_atrium_lower)
 "aLe" = (
 /turf/open/floor/wood/ms13/wide,
@@ -12264,7 +12263,7 @@
 /area/ms13/underground/army_bunker)
 "aPA" = (
 /obj/machinery/door/unpowered/ms13/wood/mirrored,
-/turf/open/floor/wood/ms13/wide,
+/turf/open/floor/ms13/metal/grate/border,
 /area/ms13/underground/vault_atrium_lower)
 "aPB" = (
 /obj/machinery/door/unpowered/ms13/seethrough/grate,
@@ -12490,10 +12489,10 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/supermarket/basement)
 "aQs" = (
-/obj/structure/chair/ms13/metal{
+/obj/structure/toilet{
 	dir = 8
 	},
-/turf/open/floor/plating/ms13/ground/mountain,
+/turf/open/floor/ms13/metal,
 /area/ms13/underground/vault_atrium_lower)
 "aQt" = (
 /obj/structure/closet/crate/coffin,
@@ -12633,7 +12632,9 @@
 /area/ms13/town)
 "aQR" = (
 /obj/structure/curtain/cloth,
-/turf/open/floor/ms13/metal/grate,
+/turf/open/floor/ms13/metal/grate/border{
+	dir = 8
+	},
 /area/ms13/underground/vault_atrium_lower)
 "aQS" = (
 /obj/machinery/light/ms13/bulb/broken{
@@ -13037,8 +13038,8 @@
 	},
 /area/ms13/underground/vault_atrium_lower)
 "aSi" = (
-/obj/item/storage/bag/tray/cafeteria,
-/turf/open/floor/ms13/metal,
+/obj/item/reagent_containers/glass/bucket/wooden,
+/turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/vault_atrium_lower)
 "aSj" = (
 /obj/effect/turf_decal/trimline/yellow/line{
@@ -13062,10 +13063,11 @@
 /turf/open/floor/ms13/metal/plate,
 /area/ms13/underground/military_crypt)
 "aSn" = (
-/obj/structure/bed/ms13/mattress/filthy,
 /obj/machinery/light/ms13/bulb{
 	dir = 8
 	},
+/obj/structure/bed/ms13/bedframe/wire,
+/obj/structure/bed/ms13/mattress/stale,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/vault_atrium_lower)
 "aSo" = (
@@ -13782,9 +13784,8 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/underground_town)
 "aUM" = (
-/turf/open/floor/ms13/metal/border/corner{
-	dir = 4
-	},
+/obj/structure/chair/ms13/metal/folding,
+/turf/open/floor/ms13/metal,
 /area/ms13/underground/vault_atrium_lower)
 "aUN" = (
 /obj/structure/ms13/storage/trashcan,
@@ -14877,10 +14878,11 @@
 /turf/open/floor/ms13/metal/plate,
 /area/ms13/underground/sewer)
 "aYy" = (
-/obj/structure/chair/pew/right{
+/obj/structure/chair/ms13/metal/folding,
+/obj/machinery/light/ms13{
 	dir = 1
 	},
-/turf/open/floor/ms13/metal/pipe,
+/turf/open/floor/ms13/metal,
 /area/ms13/underground/vault_atrium_lower)
 "aYz" = (
 /obj/structure/fluff/paper/stack{
@@ -15365,6 +15367,10 @@
 	},
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/underground_town)
+"gwj" = (
+/obj/structure/table/ms13/no_smooth/metal,
+/turf/open/floor/ms13/metal/grate/border,
+/area/ms13/underground/vault_atrium_lower)
 "jeA" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/remains/human{
@@ -15373,6 +15379,42 @@
 	},
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/underground_town)
+"jxQ" = (
+/obj/item/flashlight/lamp,
+/turf/open/floor/ms13/metal,
+/area/ms13/underground/vault_atrium_lower)
+"jXN" = (
+/obj/structure/closet,
+/turf/open/floor/ms13/metal,
+/area/ms13/underground/vault_atrium_lower)
+"kYK" = (
+/obj/structure/closet,
+/turf/open/floor/ms13/metal/grate/border,
+/area/ms13/underground/vault_atrium_lower)
+"nHS" = (
+/obj/structure/table/ms13/no_smooth/large/metal{
+	dir = 4
+	},
+/obj/machinery/light/ms13,
+/obj/item/taperecorder,
+/turf/open/floor/ms13/metal,
+/area/ms13/underground/vault_atrium_lower)
+"pFq" = (
+/turf/open/floor/ms13/metal/border/corner{
+	dir = 1
+	},
+/area/ms13/underground/vault_atrium_lower)
+"qoS" = (
+/obj/structure/chair/ms13/metal/unfinished{
+	dir = 8
+	},
+/turf/open/floor/ms13/metal,
+/area/ms13/underground/vault_atrium_lower)
+"tIG" = (
+/turf/open/floor/ms13/metal/border/corner{
+	dir = 4
+	},
+/area/ms13/underground/vault_atrium_lower)
 
 (1,1,1) = {"
 afU
@@ -20304,7 +20346,7 @@ aFU
 aSQ
 aSQ
 aSQ
-auh
+aGe
 aSQ
 aFo
 asP
@@ -21210,7 +21252,7 @@ aSQ
 aoM
 aoM
 aoM
-auh
+aGe
 aDK
 aoM
 aSQ
@@ -21810,7 +21852,7 @@ asP
 asP
 asP
 asP
-aAU
+aLd
 aGY
 asP
 asP
@@ -23348,7 +23390,7 @@ asP
 asP
 aKY
 aGO
-aoM
+aSQ
 afU
 afU
 aEI
@@ -23643,15 +23685,15 @@ asP
 aZd
 aLy
 aoM
-afU
 aoM
 aoM
 aoM
 aoM
 aoM
 aoM
-aoM
-afU
+aSQ
+aSQ
+aSQ
 afU
 afU
 afU
@@ -23945,15 +23987,15 @@ asP
 aZd
 aLy
 aoM
-afU
-afU
-afU
-afU
-afU
-afU
-afU
-afU
-afU
+asP
+asP
+asP
+gwj
+aoM
+asP
+asP
+asP
+aSQ
 afU
 afU
 afU
@@ -24245,17 +24287,17 @@ aoM
 aSQ
 asP
 aZd
-aLy
+aqZ
 aoM
-afU
-afU
-afU
-afU
-afU
-afU
-afU
-afU
-afU
+aUM
+asP
+asP
+aGY
+aLd
+asP
+axT
+axT
+aoM
 afU
 afU
 afU
@@ -24538,26 +24580,26 @@ avU
 avU
 avU
 aLe
-adL
+anh
 aGY
 aZd
 aNw
 aDK
-aoM
+aSQ
 afH
 asP
 aZd
-aLy
+aAl
 aoM
-afU
-afU
-afU
-afU
-afU
-afU
-afU
-afU
-afU
+aYy
+asP
+asP
+kYK
+aoM
+asP
+jxQ
+nHS
+aoM
 afU
 afU
 afU
@@ -24849,17 +24891,17 @@ aSQ
 aSQ
 asP
 aZd
-aLy
+aFI
 aoM
-afU
-afU
-afU
-afU
-afU
-afU
-afU
-afU
-afU
+aUM
+asP
+asP
+kYK
+aoM
+asP
+qoS
+asP
+aoM
 afU
 afU
 afU
@@ -25153,15 +25195,15 @@ asP
 aZd
 aLy
 aoM
-afU
-afU
-afU
-afU
-afU
-afU
-afU
-afU
-afU
+asP
+asP
+asP
+kYK
+aSQ
+asP
+asP
+asP
+aoM
 afU
 afU
 afU
@@ -25454,16 +25496,16 @@ avz
 asP
 aZd
 aLy
-aoM
-aoM
+aSQ
+aSQ
+aGe
+aSQ
+aSQ
 aSQ
 aSQ
 aoM
 aoM
 aoM
-aoM
-aoM
-afU
 afU
 afU
 afU
@@ -25757,15 +25799,15 @@ asP
 aZd
 aLy
 aSQ
+pFq
+tIG
 aSQ
-aSQ
-aSQ
-anh
+aHP
 axm
-avQ
-aSi
+aLd
+asP
 aSn
-aEl
+aoM
 afU
 afU
 afU
@@ -26059,15 +26101,15 @@ asP
 aZd
 aLy
 aSQ
-aAl
-aUM
+apV
+acQ
 avQ
 aHP
 axm
 aoM
 asP
 asP
-aEl
+aoM
 afU
 afU
 afU
@@ -26364,13 +26406,13 @@ aoM
 aJz
 acQ
 avQ
-anh
+aHP
 axm
-aLd
+avQ
 auV
 aQs
-asP
 aSQ
+afU
 afU
 afU
 afU
@@ -26672,7 +26714,7 @@ aoM
 aoM
 aSQ
 aSQ
-aSQ
+afU
 afU
 afU
 afU
@@ -26971,9 +27013,9 @@ aoM
 aTI
 axm
 aLd
-aCK
-adI
 asP
+adI
+aSQ
 afU
 afU
 afU
@@ -27274,7 +27316,7 @@ axm
 axm
 aoM
 asP
-asP
+aCK
 aEl
 afU
 afU
@@ -27567,7 +27609,7 @@ aOY
 asP
 asP
 aZd
-aqZ
+aLy
 aoM
 apV
 acQ
@@ -27578,7 +27620,7 @@ avQ
 auV
 aqb
 aEl
-aoM
+afU
 afU
 afU
 afU
@@ -27869,7 +27911,7 @@ aOY
 asP
 asP
 aZd
-aFI
+aLy
 aoM
 apV
 acQ
@@ -27878,9 +27920,9 @@ aFw
 axm
 aSQ
 aSQ
-aoM
-aoM
-aoM
+aSQ
+aSQ
+afU
 afU
 afU
 afU
@@ -28171,7 +28213,7 @@ aOY
 asP
 aNw
 aZd
-aYy
+aLy
 aSQ
 aJz
 acQ
@@ -28179,10 +28221,10 @@ avQ
 aHt
 axm
 aLd
-auV
-adN
 asP
-aoM
+adN
+aSi
+afU
 afU
 afU
 afU
@@ -28481,9 +28523,9 @@ avQ
 axm
 axm
 aoM
+arH
 asP
-asP
-azg
+aEl
 afU
 afU
 afU
@@ -29080,7 +29122,7 @@ aZd
 aLy
 aoM
 aoM
-auh
+aGe
 aSQ
 aSQ
 aSQ
@@ -29989,10 +30031,10 @@ asP
 bai
 asP
 aGY
-aAU
+aLd
 asP
 asP
-aVo
+jXN
 aoM
 afU
 afU
@@ -30269,7 +30311,7 @@ asP
 asP
 asP
 asP
-aAU
+aLd
 aES
 aqm
 aLe

@@ -482,11 +482,6 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/carpet,
 /area/ms13/town)
-"bH" = (
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
-/obj/machinery/door/airlock/ms13,
-/turf/open/floor/ms13/metal,
-/area/ms13/underground/vault_atrium_upper)
 "bI" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/safe/ms13,
@@ -10273,13 +10268,6 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/tunnel/maintenance)
-"HH" = (
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
-/obj/machinery/door/airlock/ms13{
-	dir = 4
-	},
-/turf/open/floor/ms13/concrete/industrial/alt,
-/area/ms13/underground/vault_atrium_upper)
 "HI" = (
 /obj/machinery/light/ms13,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
@@ -11847,7 +11835,9 @@
 /obj/machinery/door/airlock/ms13{
 	dir = 4
 	},
-/turf/open/floor/ms13/metal,
+/turf/open/floor/ms13/metal/grate/border{
+	dir = 8
+	},
 /area/ms13/underground/vault_atrium_upper)
 "MR" = (
 /obj/structure/table/ms13/wood,
@@ -13345,7 +13335,7 @@
 "RJ" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
 /obj/machinery/door/airlock/ms13,
-/turf/open/floor/ms13/concrete/industrial,
+/turf/open/floor/ms13/metal/grate/border,
 /area/ms13/underground/vault_atrium_upper)
 "RK" = (
 /turf/closed/wall/ms13/concrete,
@@ -24109,7 +24099,7 @@ Xs
 Xs
 kD
 ca
-bH
+RJ
 Wa
 Ad
 TK
@@ -26525,7 +26515,7 @@ fA
 dW
 Wa
 ca
-bH
+RJ
 Wa
 Ad
 TK
@@ -26814,7 +26804,7 @@ md
 rG
 rG
 rG
-HH
+MQ
 md
 md
 md
