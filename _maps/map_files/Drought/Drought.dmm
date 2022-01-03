@@ -106,7 +106,9 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/legioncamp/building)
 "aF" = (
-/obj/structure/bed/ms13/bedframe/wood,
+/obj/structure/toilet{
+	pixel_y = 13
+	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/rangeroutpost)
 "aI" = (
@@ -181,7 +183,7 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "be" = (
-/obj/structure/ms13/storage/shelf/rust{
+/obj/structure/filingcabinet/ms13{
 	dir = 1
 	},
 /turf/open/floor/wood/ms13/wide,
@@ -501,7 +503,7 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "cM" = (
-/obj/structure/chair/ms13/metal{
+/obj/structure/chair/office/ms13/green{
 	dir = 1
 	},
 /turf/open/floor/ms13/tile/blue/long,
@@ -651,6 +653,10 @@
 /obj/item/ammo_casing/c10mm,
 /turf/open/floor/plating/dirt/ms13,
 /area/ms13/desert)
+"dC" = (
+/obj/machinery/door/unpowered/ms13/wood,
+/turf/open/floor/ms13/tile/large/white,
+/area/ms13/rangeroutpost)
 "dD" = (
 /obj/structure/chair/ms13/overlaypickup/plastic{
 	dir = 8
@@ -942,7 +948,7 @@
 /turf/closed/indestructible/rock/ms13/drought,
 /area/ms13/underground/mountain)
 "fg" = (
-/obj/structure/chair/ms13/metal/folding{
+/obj/structure/chair/office/ms13/green/broken{
 	dir = 4
 	},
 /obj/effect/landmark/start/ms13/ranger_doctor,
@@ -1121,6 +1127,11 @@
 	},
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
+"fS" = (
+/obj/structure/bed/ms13/bedframe/metal,
+/obj/structure/bed/ms13/mattress/filthy,
+/turf/open/floor/ms13/tile/large/white,
+/area/ms13/rangeroutpost)
 "fT" = (
 /obj/structure/chair/ms13/metal/broken{
 	dir = 4
@@ -1427,7 +1438,7 @@
 /turf/open/openspace/ms13,
 /area/ms13/desert)
 "hI" = (
-/obj/structure/table/ms13/no_smooth/counter/wood{
+/obj/structure/table/ms13/no_smooth/counter/metal{
 	dir = 8
 	},
 /turf/open/floor/ms13/tile/large/white,
@@ -1511,6 +1522,10 @@
 	},
 /turf/open/floor/ms13/tile,
 /area/ms13/town)
+"ic" = (
+/obj/structure/filingcabinet/ms13/mail,
+/turf/open/floor/plating/ms13/ground/sidewalk,
+/area/ms13/desert)
 "id" = (
 /turf/open/floor/plating/ms13/ground/road,
 /area/ms13/town)
@@ -1819,6 +1834,9 @@
 "jK" = (
 /obj/structure/table/ms13/metal,
 /obj/structure/ms13/tv,
+/obj/machinery/light/ms13/bulb{
+	dir = 8
+	},
 /turf/open/floor/wood/ms13/carpet/shaggy/green,
 /area/ms13/town)
 "jL" = (
@@ -2236,7 +2254,9 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/factory)
 "lJ" = (
-/obj/structure/bed/ms13/bedframe/metal,
+/obj/structure/toilet{
+	dir = 4
+	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/rangeroutpost)
 "lL" = (
@@ -2748,7 +2768,9 @@
 /turf/open/floor/wood/ms13/carpet/shaggy/violet,
 /area/ms13/town)
 "oB" = (
-/obj/structure/chair/ms13/metal,
+/obj/structure/chair/office/ms13/green{
+	dir = 8
+	},
 /turf/open/floor/ms13/tile/blue/long,
 /area/ms13/town)
 "oC" = (
@@ -2826,7 +2848,9 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "oW" = (
-/obj/structure/closet/crate/bin,
+/obj/structure/ms13/phone/withthephone{
+	dir = 1
+	},
 /turf/open/floor/plating/ms13/ground/sidewalk,
 /area/ms13/desert)
 "oX" = (
@@ -3169,6 +3193,11 @@
 /obj/item/knife/ms13/switchblade,
 /turf/open/floor/wood/ms13/carpet/shaggy/green,
 /area/ms13/town)
+"qI" = (
+/obj/structure/table/ms13/no_smooth/wood,
+/obj/item/lighter/greyscale,
+/turf/open/floor/wood/ms13/carpet/shaggy/green,
+/area/ms13/town)
 "qK" = (
 /obj/effect/decal/cleanable/glass{
 	dir = 8;
@@ -3178,6 +3207,7 @@
 /area/ms13/town)
 "qN" = (
 /obj/structure/table/ms13/wood,
+/obj/item/phone,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/rangeroutpost)
 "qO" = (
@@ -3486,13 +3516,11 @@
 /turf/open/floor/plating/dirt/ms13,
 /area/ms13/town)
 "su" = (
-/obj/structure/closet/crate/trashcart,
-/obj/item/clothing/under/ms13/wasteland/police,
-/obj/item/clothing/under/ms13/wasteland/police,
-/obj/item/clothing/under/ms13/wasteland/police,
-/obj/item/clothing/under/ms13/wasteland/prewar/relaxedwear,
-/turf/open/floor/plating/ms13/ground/road,
-/area/ms13/desert)
+/obj/structure/filingcabinet/ms13/busted{
+	dir = 1
+	},
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/rangeroutpost)
 "sv" = (
 /obj/machinery/shower{
 	dir = 4
@@ -3595,6 +3623,12 @@
 /obj/structure/dresser/ms13/orange,
 /turf/open/floor/wood/ms13/carpet,
 /area/ms13/town)
+"sY" = (
+/obj/machinery/power/ms13/streetlamp/corner{
+	dir = 4
+	},
+/turf/open/floor/plating/ms13/ground/sidewalk,
+/area/ms13/desert)
 "sZ" = (
 /obj/effect/decal/cleanable/blood/footprints,
 /turf/open/floor/wood/ms13/wide,
@@ -3837,10 +3871,10 @@
 /turf/open/floor/ms13/tile/large/white,
 /area/ms13/town)
 "uA" = (
-/obj/effect/decal/cleanable/glass,
-/obj/structure/filingcabinet/ms13/mail/old,
-/turf/open/floor/plating/ms13/ground/sidewalk,
-/area/ms13/desert)
+/obj/structure/table/ms13/no_smooth/large/metal/desk,
+/obj/machinery/ms13/terminal,
+/turf/open/floor/ms13/concrete,
+/area/ms13/rangeroutpost)
 "uB" = (
 /obj/structure/toilet{
 	dir = 1
@@ -3944,6 +3978,12 @@
 /obj/structure/table/ms13/no_smooth/large/wood/square,
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/town)
+"vb" = (
+/obj/structure/chair/office/ms13/green{
+	dir = 4
+	},
+/turf/open/floor/wood/ms13/carpet/shaggy/green,
+/area/ms13/rangeroutpost)
 "vc" = (
 /turf/closed/wall/ms13/concrete,
 /area/ms13/factory)
@@ -3978,6 +4018,12 @@
 /obj/machinery/door/unpowered/ms13/wood/mirrored,
 /turf/open/floor/ms13/tile/large/black,
 /area/ms13/town)
+"vj" = (
+/obj/structure/toilet{
+	dir = 1
+	},
+/turf/open/floor/ms13/concrete,
+/area/ms13/rangeroutpost)
 "vk" = (
 /obj/machinery/door/unpowered/ms13/wood/mirrored,
 /turf/open/floor/wood/ms13/wide,
@@ -4023,9 +4069,9 @@
 /turf/open/floor/plating/ms13/ground/desertalt,
 /area/ms13/legioncamp)
 "vw" = (
-/obj/structure/closet/ms13/wall/firstaid,
-/obj/effect/spawner/random/ms13/medical/lowrandom,
-/obj/structure/table/ms13/no_smooth/counter/wood,
+/obj/structure/sink/kitchen{
+	pixel_y = 13
+	},
 /turf/open/floor/ms13/tile/large/white,
 /area/ms13/rangeroutpost)
 "vy" = (
@@ -4098,11 +4144,11 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "vW" = (
-/obj/machinery/door/unpowered/ms13/metal/red{
-	dir = 4
-	},
-/turf/open/floor/wood/ms13/common,
-/area/ms13/town)
+/obj/structure/closet/ms13/wall/firstaid,
+/obj/effect/spawner/random/ms13/medical/lowrandom,
+/obj/structure/table/ms13/no_smooth/counter/metal,
+/turf/open/floor/ms13/tile/large/white,
+/area/ms13/rangeroutpost)
 "vX" = (
 /obj/machinery/door/unpowered/ms13/wood{
 	dir = 1
@@ -4151,7 +4197,8 @@
 /area/ms13/town)
 "wj" = (
 /obj/structure/sink{
-	pixel_y = 13
+	dir = 4;
+	pixel_x = -12
 	},
 /turf/open/floor/ms13/tile/large/checkered,
 /area/ms13/rangeroutpost)
@@ -4161,8 +4208,9 @@
 /area/ms13/town)
 "wq" = (
 /obj/structure/closet,
-/obj/item/clothing/head/helmet/ms13/baseball,
+/obj/item/clothing/under/ms13/wasteland/police,
 /obj/item/clothing/suit/armor/ms13/vest,
+/obj/item/clothing/head/helmet/ms13/police,
 /turf/open/floor/ms13/tile/large/navy,
 /area/ms13/town)
 "wr" = (
@@ -4369,6 +4417,8 @@
 /obj/structure/ms13/bars/slot/rusty{
 	dir = 4
 	},
+/obj/item/paper_bin,
+/obj/item/pen,
 /turf/open/floor/wood/ms13/carpet/shaggy/green,
 /area/ms13/rangeroutpost)
 "xn" = (
@@ -4505,7 +4555,9 @@
 /turf/open/floor/ms13/tile/large/white,
 /area/ms13/rangeroutpost)
 "xW" = (
-/obj/machinery/door/unpowered/ms13/wood,
+/obj/machinery/door/unpowered/ms13/wood{
+	dir = 1
+	},
 /turf/open/floor/wood/ms13/carpet/shaggy/green,
 /area/ms13/rangeroutpost)
 "xX" = (
@@ -4553,6 +4605,18 @@
 /obj/effect/spawner/random/ms13/gun/tier2,
 /turf/open/floor/wood/ms13/carpet/shaggy/blue,
 /area/ms13/town)
+"yk" = (
+/obj/structure/ms13/bars/slot/rusty{
+	dir = 4
+	},
+/obj/structure/table/ms13/no_smooth/counter/wood{
+	dir = 4
+	},
+/obj/item/phone{
+	pixel_y = 12
+	},
+/turf/open/floor/wood/ms13/carpet/shaggy/green,
+/area/ms13/rangeroutpost)
 "yl" = (
 /obj/structure/filingcabinet/ms13,
 /turf/open/floor/wood/ms13/carpet,
@@ -4935,7 +4999,7 @@
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/town)
 "Af" = (
-/obj/structure/ms13/storage/shelf/rust{
+/obj/structure/filingcabinet/ms13{
 	dir = 4
 	},
 /turf/open/floor/wood/ms13/carpet/shaggy/green,
@@ -5564,7 +5628,7 @@
 /area/ms13/factory)
 "Db" = (
 /obj/structure/toilet{
-	dir = 1
+	dir = 4
 	},
 /turf/open/floor/ms13/tile/large/checkered,
 /area/ms13/rangeroutpost)
@@ -5960,7 +6024,10 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "Fd" = (
-/obj/structure/bed/ms13/bedframe/cot,
+/obj/effect/landmark/start/ms13/ranger_elite,
+/obj/structure/chair/office/ms13/green/broken{
+	dir = 1
+	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/rangeroutpost)
 "Fe" = (
@@ -5984,7 +6051,7 @@
 /turf/open/floor/ms13/tile/long,
 /area/ms13/town)
 "Fi" = (
-/obj/structure/table/ms13/no_smooth/counter/wood/bend,
+/obj/structure/table/ms13/no_smooth/counter/metal/bend,
 /turf/open/floor/ms13/tile/large/white,
 /area/ms13/rangeroutpost)
 "Fj" = (
@@ -6092,6 +6159,11 @@
 /area/ms13/town)
 "FJ" = (
 /turf/open/floor/ms13/tile/large/checkered,
+/area/ms13/rangeroutpost)
+"FL" = (
+/obj/structure/bed/ms13/bedframe/cot,
+/obj/structure/bed/ms13/mattress/yellowed,
+/turf/open/floor/ms13/tile/large/white,
 /area/ms13/rangeroutpost)
 "FN" = (
 /obj/structure/table/ms13/crafting/workbench,
@@ -6280,10 +6352,10 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "GK" = (
-/obj/structure/sink/kitchen{
-	pixel_y = 13
+/obj/structure/filingcabinet/ms13/busted{
+	dir = 4
 	},
-/turf/open/floor/ms13/tile/large/white,
+/turf/open/floor/wood/ms13/carpet/shaggy/green,
 /area/ms13/rangeroutpost)
 "GL" = (
 /turf/closed/wall/ms13/brick,
@@ -6335,8 +6407,7 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/factory)
 "He" = (
-/obj/structure/bed/ms13/bedframe/cot,
-/obj/structure/bed/ms13/mattress/yellowed,
+/obj/structure/chair/ms13/metal/blue/broken,
 /turf/open/floor/ms13/tile/large/white,
 /area/ms13/rangeroutpost)
 "Hf" = (
@@ -6387,7 +6458,7 @@
 /obj/machinery/light/ms13/bulb{
 	dir = 1
 	},
-/obj/structure/table/ms13/no_smooth/counter/wood,
+/obj/structure/table/ms13/no_smooth/counter/metal,
 /turf/open/floor/ms13/tile/large/white,
 /area/ms13/rangeroutpost)
 "Hw" = (
@@ -6457,6 +6528,8 @@
 /area/ms13/legioncamp/building)
 "HP" = (
 /obj/structure/closet,
+/obj/item/clothing/under/ms13/wasteland/police,
+/obj/item/clothing/head/helmet/ms13/police,
 /obj/effect/spawner/random/ms13/armor/lowrandom,
 /turf/open/floor/ms13/tile/large/navy,
 /area/ms13/town)
@@ -6553,9 +6626,18 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "Iq" = (
-/obj/structure/filingcabinet/ms13/mail/old,
+/obj/machinery/power/ms13/streetlamp/corner{
+	dir = 8
+	},
 /turf/open/floor/plating/ms13/ground/sidewalk,
-/area/ms13/town)
+/area/ms13/desert)
+"Is" = (
+/obj/machinery/light/ms13/bulb{
+	dir = 4
+	},
+/obj/item/ms13_small_flag/usa,
+/turf/open/floor/wood/ms13/carpet/shaggy/green,
+/area/ms13/rangeroutpost)
 "It" = (
 /obj/structure/fence/fencecorner,
 /turf/open/floor/plating/ms13/ground/desertalt,
@@ -6587,7 +6669,12 @@
 /turf/open/floor/ms13/tile,
 /area/ms13/town)
 "IA" = (
-/obj/effect/landmark/start/ms13/ranger_elite,
+/obj/item/paper_bin{
+	pixel_y = 7
+	},
+/obj/item/pen{
+	pixel_y = 6
+	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/rangeroutpost)
 "ID" = (
@@ -6741,7 +6828,7 @@
 /turf/open/floor/ms13/tile/navy,
 /area/ms13/town)
 "Jo" = (
-/obj/structure/chair/comfy/ms13/retro{
+/obj/structure/chair/office/ms13/blue{
 	dir = 8
 	},
 /obj/effect/landmark/start/ms13/ranger,
@@ -7005,7 +7092,7 @@
 /turf/open/floor/ms13/tile/navy,
 /area/ms13/town)
 "KU" = (
-/obj/structure/chair/ms13/metal{
+/obj/item/chair/ms13/metal/broken{
 	dir = 4
 	},
 /turf/open/floor/ms13/tile/navy,
@@ -7076,9 +7163,10 @@
 /turf/open/floor/ms13/tile/full/navy,
 /area/ms13/town)
 "Lp" = (
-/obj/structure/table/ms13/metal,
-/obj/item/lighter/greyscale,
-/turf/open/floor/wood/ms13/carpet/shaggy/green,
+/obj/machinery/door/unpowered/ms13/metal/red{
+	dir = 4
+	},
+/turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "Lq" = (
 /obj/structure/table/ms13/wood,
@@ -7132,6 +7220,15 @@
 /obj/structure/table/ms13/wood/bar,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
+"LI" = (
+/obj/machinery/door/unpowered/ms13/metal/red{
+	dir = 4
+	},
+/obj/structure/ms13/rug/mat{
+	dir = 4
+	},
+/turf/open/floor/wood/ms13/carpet/shaggy/green,
+/area/ms13/rangeroutpost)
 "LK" = (
 /obj/structure/toilet{
 	dir = 4
@@ -7545,7 +7642,8 @@
 /turf/open/floor/ms13/tile/blue,
 /area/ms13/town)
 "Ob" = (
-/obj/structure/table/ms13/no_smooth/counter/wood,
+/obj/structure/table/ms13/no_smooth/counter/metal,
+/obj/item/knife/ms13,
 /turf/open/floor/ms13/tile/large/white,
 /area/ms13/rangeroutpost)
 "Oe" = (
@@ -7960,7 +8058,9 @@
 /turf/open/floor/plating/ms13/ground/sidewalk,
 /area/ms13/desert)
 "Qt" = (
-/obj/item/ms13_small_flag/usa,
+/obj/structure/chair/ms13/metal{
+	dir = 8
+	},
 /turf/open/floor/wood/ms13/carpet/shaggy/green,
 /area/ms13/rangeroutpost)
 "Qu" = (
@@ -8415,8 +8515,9 @@
 	},
 /area/ms13/factory)
 "SD" = (
-/obj/structure/bed/ms13/bedframe/metal,
-/obj/structure/bed/ms13/mattress/filthy,
+/obj/structure/chair/ms13/metal/blue/broken{
+	dir = 8
+	},
 /turf/open/floor/ms13/tile/large/white,
 /area/ms13/rangeroutpost)
 "SE" = (
@@ -8895,14 +8996,13 @@
 /turf/open/floor/ms13/tile/large/black,
 /area/ms13/rangeroutpost)
 "Vu" = (
-/obj/structure/closet/crate/trashcart,
-/obj/item/clothing/head/helmet/ms13/cowboy/black,
-/obj/item/clothing/head/helmet/ms13/cowboy,
-/obj/item/clothing/head/helmet/ms13/cowboy,
-/obj/item/clothing/head/helmet/ms13/cowboy/black,
+/obj/structure/closet,
 /obj/item/clothing/under/ms13/wasteland/police,
-/turf/open/floor/plating/ms13/ground/road,
-/area/ms13/desert)
+/obj/item/clothing/under/ms13/wasteland/police,
+/obj/item/clothing/head/helmet/ms13/cowboy/black,
+/obj/item/clothing/head/helmet/ms13/cowboy/black,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/rangeroutpost)
 "Vw" = (
 /obj/structure/chair/sofa/left{
 	dir = 1
@@ -9035,13 +9135,8 @@
 /turf/open/floor/ms13/tile/blue,
 /area/ms13/town)
 "Wg" = (
-/obj/machinery/door/unpowered/ms13/metal/red{
-	dir = 4
-	},
-/obj/structure/ms13/rug/mat{
-	dir = 4
-	},
-/turf/open/floor/wood/ms13/carpet/shaggy/green,
+/obj/machinery/light/ms13/bulb,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/rangeroutpost)
 "Wi" = (
 /obj/machinery/light/ms13{
@@ -9646,6 +9741,12 @@
 	},
 /turf/open/floor/ms13/tile/blue/long,
 /area/ms13/town)
+"Zb" = (
+/obj/structure/chair/ms13/metal/blue{
+	dir = 4
+	},
+/turf/open/floor/ms13/tile/large/white,
+/area/ms13/rangeroutpost)
 "Zd" = (
 /obj/structure/table/ms13/no_smooth/large/wood/square{
 	dir = 4
@@ -9786,11 +9887,11 @@
 /turf/open/floor/ms13/tile/large/white,
 /area/ms13/town)
 "ZT" = (
-/obj/machinery/door/unpowered/ms13/wood{
-	dir = 1
+/obj/machinery/door/unpowered/ms13/metal/red{
+	dir = 8
 	},
-/turf/open/floor/wood/ms13/carpet/shaggy/green,
-/area/ms13/rangeroutpost)
+/turf/open/floor/ms13/tile/long,
+/area/ms13/town)
 "ZU" = (
 /obj/effect/turf_decal/ms13/road/horizontalline,
 /turf/open/floor/plating/ms13/ground/road,
@@ -13140,7 +13241,7 @@ Cs
 ru
 Cs
 qp
-lJ
+jo
 tz
 rQ
 rQ
@@ -13521,19 +13622,19 @@ rQ
 rQ
 ZC
 rQ
-jo
+lJ
 qp
-Cs
-Cs
-Cs
-Cs
-Cs
-Cs
-Cs
-Cs
-Cs
-Cs
-Cs
+aX
+ZU
+vF
+ZU
+aX
+ZU
+aX
+ZU
+aX
+ZU
+aX
 Cs
 Cs
 ru
@@ -13719,9 +13820,9 @@ ZU
 aX
 ZU
 aX
+ZU
 aX
 aX
-Cs
 Cs
 ru
 aX
@@ -13886,12 +13987,12 @@ Cs
 Cs
 Cs
 qp
-aF
+jo
 rQ
 tz
 rQ
-rQ
-rQ
+uA
+Fd
 rQ
 BB
 rQ
@@ -13906,7 +14007,7 @@ ZU
 aX
 ZU
 aX
-aX
+ZU
 aX
 aX
 Cs
@@ -14085,13 +14186,13 @@ qp
 qp
 qp
 aX
-ZU
 aX
-ZU
 aX
-ZU
 aX
-ZU
+aX
+aX
+aX
+aX
 aX
 aX
 aX
@@ -14260,7 +14361,7 @@ Tc
 Tc
 Cs
 qp
-rQ
+aF
 rQ
 Cf
 rQ
@@ -14269,7 +14370,7 @@ rQ
 rQ
 PD
 rQ
-rQ
+vj
 qp
 aX
 aX
@@ -14447,7 +14548,7 @@ aX
 Tc
 Cs
 qp
-Fd
+jo
 rQ
 zr
 rQ
@@ -14456,18 +14557,18 @@ rQ
 rQ
 ZC
 rQ
-Fd
+jo
 qp
 aX
+ZU
 aX
+ZU
 aX
+ZU
+IE
+ZU
 aX
-aX
-aX
-aX
-aX
-aX
-aX
+ZU
 aX
 aX
 Cs
@@ -14648,13 +14749,13 @@ qp
 aX
 ZU
 aX
-aX
-aX
 ZU
 aX
 ZU
 aX
+ZU
 aX
+ZU
 aX
 aX
 Cs
@@ -14822,7 +14923,7 @@ Tc
 qp
 Fi
 hI
-xT
+Zb
 od
 ka
 qp
@@ -14832,16 +14933,16 @@ ey
 QN
 QN
 qp
-Vu
-ZU
-aX
-aX
 aX
 ZU
 aX
 ZU
 aX
+ZU
 aX
+ZU
+aX
+ZU
 aX
 aX
 Cs
@@ -15008,7 +15109,7 @@ aX
 Tc
 qp
 Ob
-SD
+xT
 xT
 xT
 xT
@@ -15019,16 +15120,16 @@ Jt
 QN
 Vt
 qp
-su
-ZU
-aX
-aX
-aX
-ZU
-aX
-ZU
-aX
-aX
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
 aX
 aX
 Cs
@@ -15195,10 +15296,10 @@ aX
 Tc
 qp
 Hv
+He
 xT
 xT
-xT
-xT
+FL
 qp
 AQ
 AQ
@@ -15381,12 +15482,12 @@ aX
 aX
 Tc
 qp
-Ob
-He
+vW
 xT
 xT
 xT
 xT
+qp
 AQ
 AQ
 ZJ
@@ -15394,7 +15495,7 @@ Qx
 Qx
 qp
 Af
-Af
+GK
 qp
 nT
 AQ
@@ -15573,7 +15674,7 @@ xT
 xT
 xT
 xT
-xT
+qp
 AQ
 AQ
 AQ
@@ -15755,19 +15856,19 @@ aX
 aX
 Tc
 qp
-GK
+xT
 xT
 oC
 xT
 xT
-xT
+dC
 AQ
 AQ
 AQ
-ZT
-Hi
+xW
 Hi
 XC
+Hi
 Hi
 xW
 AQ
@@ -15945,7 +16046,7 @@ qp
 qU
 xT
 xT
-xT
+fS
 xT
 qp
 AQ
@@ -15954,15 +16055,15 @@ AQ
 qp
 fg
 Hi
-Hi
+vb
 xR
 qp
 qp
 qp
 qp
 qp
-nT
-nT
+Vu
+Vu
 qp
 aX
 aX
@@ -16136,10 +16237,10 @@ qp
 qp
 qp
 AQ
-AQ
+Wg
 qp
 qp
-Vj
+yk
 xl
 Vj
 qp
@@ -16317,14 +16418,14 @@ aX
 Tc
 qp
 ah
-xT
+SD
 xT
 jA
 Ph
 qp
 AQ
 AQ
-XC
+Hi
 Hi
 WC
 Hi
@@ -16701,7 +16802,7 @@ qp
 qp
 Qt
 Hi
-Hi
+Is
 Hi
 Qt
 qp
@@ -16887,9 +16988,9 @@ AQ
 be
 qp
 qp
-Wg
+LI
 qp
-Wg
+LI
 qp
 qp
 yD
@@ -17071,9 +17172,9 @@ rx
 AQ
 AQ
 AQ
-be
+su
 vp
-uA
+pI
 Tc
 Tc
 Tc
@@ -17260,7 +17361,7 @@ AQ
 AQ
 be
 vD
-uA
+pI
 Tc
 Tc
 Tc
@@ -17634,12 +17735,12 @@ Cs
 Cs
 Cs
 Cs
+fQ
 Tc
 Tc
 Tc
 Tc
-Tc
-Tc
+Cs
 Cs
 Cs
 LY
@@ -17833,7 +17934,7 @@ Cs
 Cs
 Cs
 Cs
-aX
+Cs
 aX
 aX
 Cs
@@ -18020,7 +18121,7 @@ Cs
 Cs
 Cs
 Cs
-aX
+Cs
 aX
 aX
 Cs
@@ -18207,7 +18308,7 @@ Cs
 Cs
 Cs
 Cs
-aX
+Cs
 aX
 aX
 Cs
@@ -18394,7 +18495,7 @@ Cs
 Cs
 Cs
 Cs
-aX
+Cs
 aX
 aX
 Cs
@@ -18581,7 +18682,7 @@ Cs
 Cs
 Cs
 Cs
-aX
+Cs
 aX
 aX
 Cs
@@ -18768,7 +18869,7 @@ Cs
 Cs
 Cs
 Cs
-aX
+Cs
 aX
 aX
 Cs
@@ -18955,7 +19056,7 @@ Cs
 Cs
 Cs
 Cs
-aX
+Cs
 aX
 aX
 Cs
@@ -19142,7 +19243,7 @@ Cs
 Cs
 Cs
 Cs
-aX
+Cs
 aX
 aX
 Cs
@@ -19329,7 +19430,7 @@ Cs
 Cs
 Cs
 Cs
-aX
+Cs
 aX
 aX
 Cs
@@ -19516,7 +19617,7 @@ Cs
 Cs
 Cs
 Cs
-aX
+Cs
 aX
 aX
 Cs
@@ -19690,12 +19791,11 @@ dV
 dV
 dV
 dV
-Cs
-Cs
+dV
+dV
 Tc
 Tc
 Tc
-Cs
 dV
 dV
 dV
@@ -19703,7 +19803,8 @@ dV
 dV
 dV
 dV
-ck
+dV
+dV
 ck
 ck
 dV
@@ -19890,7 +19991,7 @@ Cs
 Cs
 Cs
 Cs
-aX
+Cs
 aX
 aX
 Cs
@@ -20077,7 +20178,7 @@ Tc
 Tc
 Tc
 Tc
-WU
+Tc
 WU
 WU
 Tc
@@ -23971,7 +24072,7 @@ QI
 Ap
 gK
 GL
-Tc
+fQ
 Tc
 aX
 aX
@@ -26232,7 +26333,7 @@ GL
 GL
 GL
 GL
-vW
+re
 GL
 GL
 GL
@@ -27560,7 +27661,7 @@ IW
 sx
 Vi
 GL
-Tc
+ic
 EX
 aX
 aX
@@ -28869,7 +28970,7 @@ sx
 sx
 vZ
 GL
-Tc
+ic
 Tc
 aX
 aX
@@ -33544,7 +33645,7 @@ gQ
 gQ
 Pw
 GL
-mx
+Tc
 Tc
 aX
 aX
@@ -33852,11 +33953,11 @@ GL
 GL
 GL
 GL
-Cs
 Tc
 Tc
 Tc
-Cs
+Tc
+Tc
 GL
 mC
 Eb
@@ -34773,7 +34874,7 @@ Tc
 Tc
 Tc
 Tc
-gN
+sY
 Cs
 Cs
 Cs
@@ -35458,8 +35559,8 @@ Bi
 gQ
 GL
 xw
-bA
-Lp
+sK
+sK
 gQ
 bh
 sx
@@ -35645,8 +35746,8 @@ yu
 gQ
 GL
 dN
-Rn
-GL
+bA
+qI
 gQ
 GL
 Nu
@@ -35831,8 +35932,8 @@ GL
 GL
 wP
 GL
-gQ
-GL
+sK
+sK
 GL
 gQ
 GL
@@ -35904,11 +36005,11 @@ Cs
 Cs
 Cs
 Cs
-Vn
 Cs
 Cs
 Cs
-Tc
+Cs
+Cs
 Tc
 aX
 ZU
@@ -36019,8 +36120,8 @@ Pw
 gQ
 gQ
 gQ
-yT
 gQ
+yT
 gQ
 GL
 xC
@@ -36288,7 +36389,7 @@ aX
 ZU
 aX
 Tc
-Iq
+GQ
 GQ
 GL
 sx
@@ -36708,7 +36809,7 @@ aX
 ZU
 aX
 Tc
-Tc
+Cs
 Cs
 Cs
 Cs
@@ -36895,7 +36996,7 @@ aX
 aX
 aX
 Tc
-Tc
+Cs
 Cs
 Cs
 Cs
@@ -37089,7 +37190,7 @@ GL
 GL
 GL
 GL
-GL
+ZT
 GL
 GL
 GL
@@ -37608,7 +37709,7 @@ GL
 Mx
 sx
 GL
-Cs
+bg
 GL
 GL
 GL
@@ -37795,7 +37896,7 @@ GL
 me
 sx
 GL
-Cs
+Tc
 GL
 yS
 Wi
@@ -37982,7 +38083,7 @@ GL
 GL
 sx
 GL
-Cs
+Tc
 GL
 sx
 Xe
@@ -38169,7 +38270,7 @@ GL
 yS
 sx
 GL
-Cs
+Tc
 GL
 GL
 GL
@@ -38356,8 +38457,8 @@ GL
 yr
 sx
 GL
-Cs
-Cs
+Tc
+Tc
 GL
 Ik
 aZ
@@ -38542,9 +38643,9 @@ sx
 cs
 sx
 sx
-GL
-Cs
-Cs
+mv
+Tc
+Tc
 GL
 Rq
 Jj
@@ -42833,7 +42934,7 @@ aX
 aX
 aX
 Tc
-mx
+Tc
 GL
 ir
 sx
@@ -44123,7 +44224,7 @@ Xd
 Xd
 Xd
 Xd
-mx
+ic
 Tc
 Tc
 Tc
@@ -44337,7 +44438,7 @@ GL
 GL
 GL
 GL
-GL
+Lp
 GL
 Cs
 Cs
@@ -50121,7 +50222,7 @@ Cs
 Cs
 Cs
 Cs
-cB
+Iq
 Tc
 Tc
 Tc
