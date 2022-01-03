@@ -190,7 +190,7 @@
 	if(anchored)
 		. += span_notice("It is <b>bolted</b> to the ground.")
 	*/ // MOJAVE SUN EDIT END - No false reports, kids.
-	if(opened)
+	if(opened && cutting_tool == /obj/item/weldingtool)
 		. += span_notice("The parts are <b>welded</b> together.")
 	else if(secure && !opened)
 		. += span_notice("Right-click to [locked ? "unlock" : "lock"].")
