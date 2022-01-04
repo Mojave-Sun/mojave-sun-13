@@ -53,7 +53,7 @@
     melee_damage_lower = 15
     melee_damage_upper = 15
     armour_penetration = 5
-    speed = 0
+    speed = 0.5
     speak_emote = list("states", "says")
     attack_verb_continuous = "pinches"
     attack_verb_simple = "pinch"

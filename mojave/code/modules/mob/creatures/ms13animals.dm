@@ -19,7 +19,7 @@
 	attack_verb_continuous = "headbutts"
 	attack_verb_simple = "headbutt"
 	turns_per_move = 3
-	butcher_results = list(/obj/item/ms13/hide/brahmin = 1, /obj/item/food/meat/slab = 6, /obj/item/ms13/animalitem/brahmin/horns = 2)//brahmin meat, tongue, horns, hide
+	butcher_results = list(/obj/item/ms13/hide/brahmin = 1, /obj/item/food/meat/slab/ms13/carcass/large/brahmin/front = 1, /obj/item/food/meat/slab/ms13/carcass/large/brahmin/back = 1, /obj/item/ms13/animalitem/brahmin/horns = 2)//brahmin meat, tongue, horns, hide
 	attack_sound = 'sound/weapons/punch1.ogg'
 	speed = 3
 	health = 150
@@ -75,7 +75,7 @@
 	attack_verb_continuous = "headbutts"
 	attack_verb_simple = "headbutt"
 	turns_per_move = 1
-	butcher_results = list(/obj/item/ms13/hide/brahmiluff = 1, /obj/item/food/meat/slab = 8, /obj/item/ms13/animalitem/brahmiluff/horns = 2)//brahmiluff meat, tongue, horns, hide, fur
+	butcher_results = list(/obj/item/ms13/hide/brahmiluff = 1, /obj/item/food/meat/slab/ms13/carcass/large/brahmiluff = 1, /obj/item/ms13/animalitem/brahmiluff/horns = 2)//brahmiluff meat, tongue, horns, hide, fur
 	attack_sound = 'sound/weapons/punch1.ogg'
 	health = 200
 	maxHealth = 200
@@ -105,7 +105,7 @@
 	emote_hear = list("cheeps")
 	emote_see = list("flaps its wings")
 	turns_per_move = 2
-	butcher_results = list(/obj/item/ms13/carcass/clucker = 1, /obj/item/ms13/animalitem/clucker/feather = 1)//feathers(rare, homie bald), beak, "chicken"
+	butcher_results = list(/obj/item/food/meat/slab/ms13/carcass/clucker = 1, /obj/item/ms13/animalitem/clucker/feather = 1)//feathers(rare, homie bald), beak, "chicken"
 	health = 20
 	maxHealth = 20
 	speed = 1
@@ -130,7 +130,7 @@
 	attack_verb_simple = "kick"
 	speak_chance = 10
 	turns_per_move = 5
-	butcher_results = list(/obj/item/ms13/hide/slepnir = 1, /obj/item/food/meat/slab = 6, /obj/item/ms13/animalitem/slepnir/hooves = 2)//slepnir hide, hooves, hair, meat
+	butcher_results = list(/obj/item/ms13/hide/slepnir = 1, /obj/item/food/meat/slab/ms13/carcass/large/slepnir/front = 1, /obj/item/food/meat/slab/ms13/carcass/large/slepnir/back = 1, /obj/item/ms13/animalitem/slepnir/hooves = 2)//slepnir hide, hooves, hair, meat
 	attack_sound = 'mojave/sound/ms13weapons/meleesounds/slam.ogg'
 	health = 180
 	maxHealth = 180
@@ -164,7 +164,6 @@
 	attack_verb_simple = "bite"
 	speak_chance = 30
 	turns_per_move = 5
-	butcher_results = list(/obj/item/ms13/hide/pigrat = 1, /obj/item/ms13/carcass/molerat/pig = 1, /obj/item/ms13/animalitem/pigrat/snout = 1)//pigrat hide, snout, meat
 	attack_sound = 'sound/weapons/bite.ogg'
 	health = 100
 	maxHealth = 100
@@ -217,7 +216,6 @@
 	attack_verb_simple = "bite"
 	speak_chance = 30
 	turns_per_move = 5
-	butcher_results = list(/obj/item/ms13/hide/molerat = 1, /obj/item/ms13/carcass/molerat = 1)//molerat hide, teeth, meat
 	attack_sound = 'sound/weapons/bite.ogg'
 	health = 100
 	maxHealth = 100
@@ -297,7 +295,6 @@
 	attack_verb_simple = "scratch"
 	speak_chance = 40
 	turns_per_move = 5
-	butcher_results = list(/obj/item/ms13/hide/gecko = 1, /obj/item/ms13/carcass/gecko = 1, /obj/item/ms13/animalitem/gecko/claws = 1)//gecko meat, eggs, hide
 	attack_sound = 'sound/weapons/slash.ogg'//scratch
 	health = 150
 	maxHealth = 150
@@ -315,11 +312,9 @@
 
 /mob/living/simple_animal/hostile/ms13/gecko/ice
 	icon_state = "icegecko"
-	butcher_results = list(/obj/item/ms13/hide/gecko/ice = 1, /obj/item/ms13/carcass/gecko = 1, /obj/item/ms13/animalitem/gecko/claws = 1)
 
 /mob/living/simple_animal/hostile/ms13/gecko/sand
 	icon_state = "sandgecko"
-	butcher_results = list(/obj/item/ms13/hide/gecko/sand = 1, /obj/item/ms13/carcass/gecko = 1, /obj/item/ms13/animalitem/gecko/claws = 1)
 
 //mirelurk
 
@@ -401,7 +396,6 @@
 	attack_verb_simple = "maul"
 	speak_chance = 20
 	turns_per_move = 3
-	butcher_results = list(/obj/item/ms13/hide/nightstalker = 1, /obj/item/ms13/carcass/large/nightstalker = 1, /obj/item/ms13/animalitem/nightstalker/teeth = 2)//nightstalker hide,//  extract, meat
 	attack_sound = 'mojave/sound/ms13weapons/meleesounds/slam.ogg'
 	health = 400
 	maxHealth = 400
@@ -524,7 +518,7 @@
 	attack_verb_simple = "kick"
 	speak_chance = 10
 	turns_per_move = 1
-	butcher_results = list(/obj/item/ms13/hide/radstag = 1, /obj/item/food/meat/slab = 5, /obj/item/ms13/animalitem/radstag/antlers = 2)//radstag meat, radstag hide ,radstag horns
+	butcher_results = list(/obj/item/ms13/hide/radstag = 1, /obj/item/food/meat/slab/ms13/carcass/large/radstag = 1, /obj/item/ms13/animalitem/radstag/antlers = 2)//radstag meat, radstag hide ,radstag horns
 	attack_sound = 'mojave/sound/ms13weapons/meleesounds/slam.ogg'
 	health = 125
 	maxHealth = 125
@@ -592,7 +586,6 @@
 	attack_verb_simple = "bite"
 	speak_chance = 40
 	turns_per_move = 3
-	butcher_results = list(/obj/item/ms13/hide/mongrel = 1, /obj/item/ms13/carcass/mongrel = 1)//mongrel meat, mongrel skin
 	attack_sound = 'sound/weapons/bite.ogg'
 	health = 100
 	maxHealth = 100
@@ -644,7 +637,6 @@
 	attack_verb_simple = "bite"
 	speak_chance = 40
 	turns_per_move = 3
-	butcher_results = list(/obj/item/ms13/hide/wolf = 1,/obj/item/ms13/carcass/wolf = 1, /obj/item/ms13/animalitem/wolf/teeth = 2)//wolf meat, wolf hide
 	attack_sound = 'sound/weapons/bite.ogg'
 	health = 200
 	maxHealth = 200
@@ -669,7 +661,6 @@
 	attack_verb_simple = "harm"
 	speak_chance = 80
 	turns_per_move = 3
-	butcher_results = list(/obj/item/ms13/hide/tunneler = 1, /obj/item/ms13/carcass/large/tunneller = 1)//tunneler meat, tunneler hide
 	attack_sound = 'sound/weapons/slash.ogg'
 	health = 300
 	maxHealth = 300
@@ -699,7 +690,6 @@
 	attack_verb_simple = "maul"
 	speak_chance = 40
 	turns_per_move = 10
-	butcher_results = list(/obj/item/ms13/hide/yaoguai = 1, /obj/item/ms13/carcass/large/yaoguai/front = 1, /obj/item/ms13/carcass/large/yaoguai/back = 1)//yaoguai hide, yaoguai meat
 	attack_sound = 'mojave/sound/ms13weapons/meleesounds/slam.ogg'
 	health = 500
 	maxHealth = 500
@@ -730,7 +720,6 @@
 	attack_verb_simple = "chomp"
 	speak_chance = 40
 	turns_per_move = 3
-	butcher_results = list(/obj/item/ms13/hide/large/hellpig = 1, /obj/item/ms13/carcass/large/hellpig/front = 1, /obj/item/ms13/carcass/large/hellpig/back = 1, /obj/item/ms13/carcass/large/hellpig/leg = 4)//hellpig hide, hellpig meat, hellpig tusks
 	attack_sound = 'mojave/sound/ms13weapons/meleesounds/slam.ogg'
 	health = 600
 	maxHealth = 600
