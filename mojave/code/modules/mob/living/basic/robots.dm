@@ -45,42 +45,41 @@
 	action_cooldown = 1.5 SECONDS
 
 /mob/living/basic/ms13/robot/handy
-	name = "Mr. Handy"
-	desc = "A standard model Mr. Handy unit. It's long lost any rational wires in its circuits."
-	icon_state = "mrhandy_claw"
-	health = 150
-	maxHealth = 150
-	melee_damage_lower = 15
-	melee_damage_upper = 15
+    name = "Mr. Handy"
+    desc = "A standard model Mr. Handy unit. It's long lost any rational wires in its circuits."
+    icon_state = "mrhandy_claw"
+    health = 150
+    maxHealth = 150
+    melee_damage_lower = 15
+    melee_damage_upper = 15
     armour_penetration = 5
     speed = 0
-	speak_emote = list("states", "says")
-	attack_verb_continuous = "pinches"
-	attack_verb_simple = "pinch"
-	sharpness = NONE
-	wound_bonus = 5
-	bare_wound_bonus = 5
-    footstep_type = null
-	shadow_type = "shadow_large"
+    speak_emote = list("states", "says")
+    attack_verb_continuous = "pinches"
+    attack_verb_simple = "pinch"
+    sharpness = NONE
+    wound_bonus = 5
+    bare_wound_bonus = 5
+    shadow_type = "shadow_large"
 
 /mob/living/basic/ms13/robot/handy/New()
-	..()
-	add_overlay(image(icon, "[shadow_type]", BELOW_MOB_LAYER, dir))
+    ..()
+    add_overlay(image(icon, "[shadow_type]", BELOW_MOB_LAYER, dir))
 
 /mob/living/basic/ms13/robot/handy/death()
-	. = ..()
-	do_sparks(3, TRUE, src)
-	qdel(src)
+    . = ..()
+    do_sparks(3, TRUE, src)
+    qdel(src)
 
 /mob/living/basic/ms13/robot/handy/saw
     desc = "A work model Mr. Handy unit, armed with a horrifyingly sharp saw. It's long lost any rational wires in its circuits."
-	icon_state = "mrhandy_saw"
-	melee_damage_lower = 30
-	melee_damage_upper = 30
-	armour_penetration = 10
-	sharpness = SHARP_EDGED
-	wound_bonus = 6
-	bare_wound_bonus = 6
-	attack_verb_continuous = "saws"
-	attack_verb_simple = "saw"
-	attack_sound = 'sound/weapons/circsawhit.ogg'
+    icon_state = "mrhandy_saw"
+    melee_damage_lower = 30
+    melee_damage_upper = 30
+    armour_penetration = 10
+    sharpness = SHARP_EDGED
+    wound_bonus = 6
+    bare_wound_bonus = 6
+    attack_verb_continuous = "saws"
+    attack_verb_simple = "saw"
+    attack_sound = 'sound/weapons/circsawhit.ogg'
