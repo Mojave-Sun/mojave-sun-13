@@ -19,13 +19,16 @@
 	attack_verb_continuous = "headbutts"
 	attack_verb_simple = "headbutt"
 	turns_per_move = 3
-	butcher_results = list(/obj/item/ms13/hide/brahmin = 1, /obj/item/ms13/carcass/large/brahmiluff/front = 1, /obj/item/ms13/carcass/large/brahmiluff/back = 1, /obj/item/ms13/animalitem/brahmin/horns = 2)//brahmin meat, tongue, horns, hide
+	butcher_results = list(/obj/item/ms13/hide/brahmin = 1, /obj/item/food/meat/slab = 6, /obj/item/ms13/animalitem/brahmin/horns = 2)//brahmin meat, tongue, horns, hide
 	attack_sound = 'sound/weapons/punch1.ogg'
 	speed = 3
-	health = 200
-	maxHealth = 200
-	melee_damage_lower = 3
-	melee_damage_upper = 5
+	health = 150
+	maxHealth = 150
+	melee_damage_lower = 10
+	melee_damage_upper = 10
+	sharpness = NONE
+	wound_bonus = 5
+	bare_wound_bonus = 5
 	food_type = list(/obj/item/food/grown/ms13/tato, /obj/item/food/grown/ms13/potato, /obj/item/food/grown/ms13/razorgrain, /obj/item/food/grown/ms13/baifan, /obj/item/food/grown/ms13/cabbage)
 	rideable = TRUE
 	breedable = TRUE
@@ -49,11 +52,11 @@
 	attack_verb_simple = "tap"
 	speak_chance = 20
 	turns_per_move = 3
-	melee_damage_lower = 0
-	melee_damage_upper = 0
+	melee_damage_lower = 1
+	melee_damage_upper = 1
 	butcher_results = list(/obj/item/food/meat/slab = 1)
-	health = 50
-	maxHealth = 50
+	health = 30
+	maxHealth = 30
 	is_young = TRUE
 	adult_type = /mob/living/simple_animal/hostile/retaliate/ms13/brahmin
 
@@ -72,12 +75,15 @@
 	attack_verb_continuous = "headbutts"
 	attack_verb_simple = "headbutt"
 	turns_per_move = 1
-	butcher_results = list(/obj/item/ms13/hide/brahmiluff = 1, /obj/item/ms13/carcass/large/brahmiluff/front = 1, /obj/item/ms13/carcass/large/brahmiluff/back = 1, /obj/item/ms13/animalitem/brahmiluff/horns = 2)//brahmiluff meat, tongue, horns, hide, fur
+	butcher_results = list(/obj/item/ms13/hide/brahmiluff = 1, /obj/item/food/meat/slab = 8, /obj/item/ms13/animalitem/brahmiluff/horns = 2)//brahmiluff meat, tongue, horns, hide, fur
 	attack_sound = 'sound/weapons/punch1.ogg'
-	health = 300
-	maxHealth = 300
-	melee_damage_lower = 5
-	melee_damage_upper = 20
+	health = 200
+	maxHealth = 200
+	melee_damage_lower = 10
+	melee_damage_upper = 15
+	sharpness = NONE
+	wound_bonus = 5
+	bare_wound_bonus = 5
 	food_type = list(/obj/item/food/grown/ms13/blackberry, /obj/item/food/grown/ms13/mutfruit, /obj/item/food/grown/ms13/razorgrain, /obj/item/food/grown/ms13/carrot, /obj/item/food/grown/ms13/cavefungus)
 	rideable = TRUE
 	breedable = FALSE
@@ -124,12 +130,15 @@
 	attack_verb_simple = "kick"
 	speak_chance = 10
 	turns_per_move = 5
-	butcher_results = list(/obj/item/ms13/hide/slepnir = 1, /obj/item/ms13/carcass/large/slepnir/front = 1, /obj/item/ms13/carcass/large/slepnir/back = 1, /obj/item/ms13/animalitem/slepnir/hooves = 2)//slepnir hide, hooves, hair, meat
+	butcher_results = list(/obj/item/ms13/hide/slepnir = 1, /obj/item/food/meat/slab = 6, /obj/item/ms13/animalitem/slepnir/hooves = 2)//slepnir hide, hooves, hair, meat
 	attack_sound = 'mojave/sound/ms13weapons/meleesounds/slam.ogg'
-	health = 250
-	maxHealth = 250
-	melee_damage_lower = 5
-	melee_damage_upper = 20 //getting kicked by a horse should hurt
+	health = 180
+	maxHealth = 180
+	melee_damage_lower = 10
+	melee_damage_upper = 10
+	sharpness = NONE
+	wound_bonus = 10
+	bare_wound_bonus = 5
 	speed = 1.5
 	food_type = list(/obj/item/food/grown/ms13/apple, /obj/item/food/grown/ms13/cmutfruit)
 	tame_chance = 5
@@ -155,7 +164,7 @@
 	attack_verb_simple = "bite"
 	speak_chance = 30
 	turns_per_move = 5
-	butcher_results = list(/obj/item/ms13/hide/pigrat = 1, /obj/item/ms13/carcass/large/pigrat = 1, /obj/item/ms13/animalitem/pigrat/snout = 1)//pigrat hide, snout, meat
+	butcher_results = list(/obj/item/ms13/hide/pigrat = 1, /obj/item/ms13/carcass/molerat/pig = 1, /obj/item/ms13/animalitem/pigrat/snout = 1)//pigrat hide, snout, meat
 	attack_sound = 'sound/weapons/bite.ogg'
 	health = 100
 	maxHealth = 100
@@ -515,12 +524,15 @@
 	attack_verb_simple = "kick"
 	speak_chance = 10
 	turns_per_move = 1
-	butcher_results = list(/obj/item/ms13/hide/radstag = 1, /obj/item/ms13/carcass/large/radstag = 1, /obj/item/ms13/animalitem/radstag/antlers = 2)//radstag meat, radstag hide ,radstag horns
+	butcher_results = list(/obj/item/ms13/hide/radstag = 1, /obj/item/food/meat/slab = 5, /obj/item/ms13/animalitem/radstag/antlers = 2)//radstag meat, radstag hide ,radstag horns
 	attack_sound = 'mojave/sound/ms13weapons/meleesounds/slam.ogg'
-	health = 200
-	maxHealth = 200
-	melee_damage_lower = 15
-	melee_damage_upper = 20
+	health = 125
+	maxHealth = 125
+	melee_damage_lower = 10
+	melee_damage_upper = 10
+	sharpness = NONE
+	wound_bonus = 5
+	bare_wound_bonus = 5
 	aggro_vision_range = 30
 	speed = 1.5
 	food_type = list(/obj/item/food/grown/ms13/aster)
@@ -557,12 +569,12 @@
 	attack_verb_simple = "nip"
 	speak_chance = 30
 	turns_per_move = 5
-	melee_damage_lower = 0
-	melee_damage_upper = 0
+	melee_damage_lower = 1
+	melee_damage_upper = 1
 	speed = 1.5
 	butcher_results = list(/obj/item/food/meat/slab = 1)
-	health = 50
-	maxHealth = 50
+	health = 25
+	maxHealth = 25
 	is_young = TRUE
 	adult_type = /mob/living/simple_animal/hostile/ms13/radstag/tamed
 

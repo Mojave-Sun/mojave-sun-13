@@ -170,7 +170,7 @@
 	icon_state = "gecko_carcass"
 	inhand_icon_state = "gecko_carcass"
 	throw_range = 2
-	item_butcher_results = list(/obj/item/food/meat/slab = 3)
+	item_butcher_results = list(/obj/item/food/meat/slab = 2)
 	butcher_difficulty = -20
 
 /obj/item/ms13/carcass/wolf
@@ -179,7 +179,7 @@
 	icon_state = "dog_carcass"
 	inhand_icon_state = "dog_carcass"
 	throw_range = 2
-	item_butcher_results = list(/obj/item/food/meat/slab = 2)
+	item_butcher_results = list(/obj/item/food/meat/slab = 3)
 	butcher_difficulty = -20
 
 /obj/item/ms13/carcass/mongrel
@@ -200,16 +200,12 @@
 	item_butcher_results = list(/obj/item/food/meat/slab = 2)
 	butcher_difficulty = -20
 
-//large
-
-/obj/item/ms13/carcass/large/pigrat
+/obj/item/ms13/carcass/molerat/pig
 	name = "pigrat carcass"
 	desc = "A skinned body of a pigrat."
-	icon_state = "rat_carcass"
-	inhand_icon_state = "rat_carcass"
-	throw_range = 1
-	w_class = WEIGHT_CLASS_HUGE
 	item_butcher_results = list(/obj/item/food/meat/slab = 3)
+
+//large
 
 /obj/item/ms13/carcass/large/radstag
 	name = "radstag carcass"
@@ -246,7 +242,7 @@
 	inhand_icon_state = "brahmiluff_carcass"
 	throw_range = 1
 	w_class = WEIGHT_CLASS_HUGE
-	item_butcher_results = list(/obj/item/food/meat/slab = 4)
+	item_butcher_results = list(/obj/item/food/meat/slab = 8)
 
 /obj/item/ms13/carcass/large/brahmiluff/front
 	icon_state = "cowbeastfront_carcass"
@@ -278,7 +274,7 @@
 	desc = "A skinned body section of a yaoguai."
 	throw_range = 1
 	w_class = WEIGHT_CLASS_HUGE
-	item_butcher_results = list(/obj/item/food/meat/slab = 4)
+	item_butcher_results = list(/obj/item/food/meat/slab = 8)
 	butcher_difficulty = 20
 
 /obj/item/ms13/carcass/large/yaoguai/front
@@ -294,7 +290,7 @@
 	desc = "A skinned body section of a slepnir."
 	throw_range = 1
 	w_class = WEIGHT_CLASS_HUGE
-	item_butcher_results = list(/obj/item/food/meat/slab = 4)
+	item_butcher_results = list(/obj/item/food/meat/slab = 3)
 	butcher_difficulty = 25
 
 /obj/item/ms13/carcass/large/slepnir/front
@@ -310,7 +306,7 @@
 	desc = "A skinned body section of a hellpig."
 	throw_range = 1
 	w_class = WEIGHT_CLASS_HUGE
-	item_butcher_results = list(/obj/item/food/meat/slab = 6)
+	item_butcher_results = list(/obj/item/food/meat/slab = 4)
 	butcher_difficulty = 30
 
 /obj/item/ms13/carcass/large/hellpig/front
@@ -326,6 +322,7 @@
 	icon_state = "hellpigleg_carcass"
 	inhand_icon_state = "hellpigleg_carcass"
 	w_class = WEIGHT_CLASS_BULKY
+	item_butcher_results = list(/obj/item/food/meat/slab = 3)
 
 /obj/item/ms13/carcass/large/ComponentInitialize()
 	. = ..()
@@ -502,6 +499,6 @@
 		. = ..()
 		AddComponent(/datum/component/itembutchering, 80 * toolspeed)
 
-/obj/item/kitchen/knife/ComponentInitialize() //basically currently only knives can be used to butcher without destroying the meat (unless its small game)
+/obj/item/knife/ComponentInitialize() //basically currently only knives can be used to butcher without destroying the meat (unless its small game)
 	. = ..()
 	AddComponent(/datum/component/itembutchering, 70 + force, 100, force - 10)

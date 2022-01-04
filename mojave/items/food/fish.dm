@@ -98,7 +98,7 @@
 	foodtypes = MEAT | RAW
 
 /obj/item/food/meat/rawcutlet/ms13/fish/MakeGrillable()
-	AddComponent(/datum/component/grillable, fish_cooked_type, rand(30 SECONDS, 90 SECONDS), TRUE, TRUE)
+	AddComponent(/datum/component/grillable, fish_cooked_type, rand(30 SECONDS, 60 SECONDS), TRUE, TRUE)
 
 /obj/item/food/meat/rawcutlet/ms13/fish/sockeye
 	name = "raw sockeye fillet"
