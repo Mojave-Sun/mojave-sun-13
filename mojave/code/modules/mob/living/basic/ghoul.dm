@@ -6,8 +6,8 @@
 	icon_dead = "feralghoul_dead"
 	mob_biotypes = MOB_HUMANOID
 	gender = MALE
-	health = 120
-	maxHealth = 120
+	health = 100
+	maxHealth = 100
 	speed = 0
 	attack_verb_continuous = "tears"
 	attack_verb_simple = "claws"
@@ -18,8 +18,8 @@
 	faction = list("ghoul")
 	speak_emote = list("grumbles","growls")
 	sharpness = SHARP_EDGED
-	wound_bonus = 10
-	bare_wound_bonus = 5
+	wound_bonus = 6
+	bare_wound_bonus = 4
 
 	ai_controller = /datum/ai_controller/basic_controller/ms13/ghoul
 
@@ -56,19 +56,20 @@
 	desc = "A frozen feral ghoul that has decided to seek heat once more. It's a miracle they can walk with all that ice in them."
 	icon_state = "iceghoul"
 	icon_dead = "iceghoul_dead"
-	health = 160
-	maxHealth = 160
-	speed = 0.75
-	melee_damage_lower = 10
+	health = 140
+	maxHealth = 140
+	speed = 1
+	melee_damage_lower = 15
 	melee_damage_upper = 20
+	armour_penetration = 5
 
 /mob/living/basic/ms13/ghoul/radioactive
 	name = "glowing feral ghoul"
 	desc = "A glowing, calloused ghoul. It looks like it has spent is entire lifetime sitting in a radioactive lake, as the damn thing can probably power a building if you hooked it up."
 	icon_state = "glowinghoul"
 	icon_dead = "glowinghoul_dead"
-	health = 145
-	maxHealth = 145
+	health = 125
+	maxHealth = 125
 	melee_damage_lower = 15
 	melee_damage_upper = 25
 	light_range = 2

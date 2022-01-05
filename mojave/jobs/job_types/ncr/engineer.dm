@@ -24,6 +24,7 @@
 	backpack_contents = list(
 		/obj/item/ammo_box/magazine/ms13/m9mm=2, \
 		/obj/item/kitchen/knife/ms13/hunting=1, \
+		/obj/item/flashlight/flare/ms13=1, \
 		/obj/item/food/bread/plain=1)
 
 /datum/outfit/job/ms13/ncr/engineer/pre_equip(mob/living/carbon/human/H)

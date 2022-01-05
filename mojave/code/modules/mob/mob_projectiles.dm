@@ -11,13 +11,14 @@
 
 /obj/projectile/beam/ms13/laser/eyebot/overcharge
 	damage = 20
+	armour_penetration = 5
+	wound_bonus = 0
 	hitscan_light_intensity = 1.10
 	hitscan_light_range = 0.25
 	muzzle_flash_intensity = 2.15
 	muzzle_flash_range = 0.75
 	impact_light_intensity = 2.75
 	impact_light_range = 1
-	wound_bonus = 5
 
 /obj/projectile/beam/ms13/laser/eyebot/proto
 	damage = 10
@@ -32,18 +33,19 @@
 
 /obj/projectile/energy/electrode/ms13
 	nodamage = FALSE
-	paralyze = 25
-	stutter = 5
-	jitter = 15
-	eyeblur = 12
-	range = 12
+	paralyze = 15
+	stutter = 10
+	jitter = 20
+	eyeblur = 15
+	range = 15
 
 // Protectron Projectiles //
 
 /obj/projectile/beam/ms13/laser/protectron
-	damage = 30 // high power moment
+	damage = 30
 	armour_penetration = 10
-	wound_bonus = 10
+	wound_bonus = 5
+	bare_wound_bonus = 5
 	hitscan_light_intensity = 2
 	hitscan_light_range = 0.50
 	muzzle_flash_intensity = 4
@@ -63,8 +65,11 @@
 
 /obj/projectile/beam/ms13/laser/robobrain
 	name = "radiation beam"
-	damage = 15
-	drowsy = 40
+	damage = 20
+	armour_penetration = 10
+	drowsy = 25
+	wound_bonus = 12
+	bare_wound_bonus = 10
 	hitscan_light_color_override = COLOR_YELLOW
 	muzzle_flash_color_override = COLOR_YELLOW
 	impact_light_color_override = COLOR_YELLOW
@@ -83,7 +88,8 @@
 /obj/projectile/beam/ms13/laser/handy
 	damage = 25
 	armour_penetration = 5
-	wound_bonus = 5
+	wound_bonus = 0
+	bare_wound_bonus = 5
 	hitscan_light_intensity = 2
 	hitscan_light_range = 0.50
 	muzzle_flash_intensity = 4
@@ -93,16 +99,15 @@
 
 /obj/projectile/bullet/ms13/plasma/gutsy
 	damage = 35
-	armour_penetration = 25
-	damage_type = BURN
-	wound_bonus = 35
+	armour_penetration = 10
 
 // Assaultron Projectiles //
 
 /obj/projectile/beam/ms13/laser/assaultron
 	damage = 35
-	armour_penetration = 5
-	wound_bonus = 10
+	armour_penetration = 10
+	wound_bonus = 5
+	bare_wound_bonus = 10
 	hitscan_light_intensity = 2.10
 	hitscan_light_range = 1.25
 	muzzle_flash_intensity = 3.15

@@ -164,6 +164,8 @@
 	icon_state = "register"
 	anchored = TRUE
 	layer = ABOVE_MOB_LAYER
+	max_mob_size = MOB_SIZE_TINY
+	mob_storage_capacity = 1
 
 /obj/structure/closet/crate/ms13/cash_register/prewar
 	name = "pristine cash register"

@@ -16,6 +16,7 @@
 	bare_wound_bonus = 6
 	embedding = null
 	sharpness = SHARP_EDGED
+	toolspeed = 1.25
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = ITEM_SLOT_BELT
 	log_pickup_and_drop = TRUE
@@ -33,6 +34,7 @@
 	armour_penetration = 10
 	wound_bonus = 10
 	bare_wound_bonus = 10
+	toolspeed = 1.6
 	throwforce = 25
 
 /obj/item/knife/ms13/combat/soviet
@@ -44,6 +46,7 @@
 	armour_penetration = 5
 	wound_bonus = 2
 	bare_wound_bonus = 3
+	toolspeed = 1.6
 
 /obj/item/knife/ms13/combat/bowie
 	name = "bowie knife"
@@ -54,6 +57,7 @@
 	armour_penetration = 10
 	wound_bonus = 4
 	bare_wound_bonus = 4
+	toolspeed = 0.65
 	throwforce = 35
 
 /obj/item/knife/ms13/hunting
@@ -63,6 +67,7 @@
 	inhand_icon_state = "knife_hunting"
 	force = 20
 	armour_penetration = 5
+	toolspeed = 0.5
 	throwforce = 20
 
 /obj/item/knife/ms13/hunting/unique
@@ -74,6 +79,7 @@
 	armour_penetration = 10
 	wound_bonus = 10
 	bare_wound_bonus = 10
+	toolspeed = 0.35
 	throwforce = 25
 
 /obj/item/knife/ms13/throwingknife
@@ -94,6 +100,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = ITEM_SLOT_BELT
 	sharpness = SHARP_POINTY
+	tool_behaviour = null
 	wound_bonus = 5
 	bare_wound_bonus = 5
 	log_pickup_and_drop = TRUE
@@ -105,6 +112,7 @@
 	inhand_icon_state = "knife_switch_closed"
 	wound_bonus = 2
 	bare_wound_bonus = 3
+	toolspeed = 2
 	var/open = FALSE
 
 /obj/item/knife/ms13/switchblade/attack_self(mob/user)
@@ -121,6 +129,7 @@
 		throwforce = 15
 		sharpness = SHARP_EDGED
 		w_class = WEIGHT_CLASS_SMALL
+		tool_behaviour = TOOL_KNIFE
 
 	else
 		attack_verb_continuous = list("stubs", "pokes")
@@ -130,6 +139,7 @@
 		throwforce = 5
 		sharpness = NONE
 		w_class = WEIGHT_CLASS_TINY
+		tool_behaviour = null
 
 /obj/item/knife/ms13/switchblade/razor
 	name = "straight razor"
@@ -138,6 +148,7 @@
 	inhand_icon_state = "knife_razor_closed"
 	wound_bonus = 0
 	bare_wound_bonus = 0
+	toolspeed = 4
 
 /obj/item/knife/ms13/switchblade/razor/attack_self(mob/user)
 	open = !open
@@ -153,6 +164,7 @@
 		throwforce = 5
 		sharpness = SHARP_EDGED
 		w_class = WEIGHT_CLASS_SMALL
+		tool_behaviour = TOOL_KNIFE
 
 	else
 		attack_verb_continuous = list("stubs", "pokes")
@@ -162,6 +174,7 @@
 		throwforce = 5
 		sharpness = NONE
 		w_class = WEIGHT_CLASS_TINY
+		tool_behaviour = null
 
 /obj/item/knife/butcher/ms13
 	name = "cleaver"
@@ -177,6 +190,7 @@
 	throwforce = 15
 	wound_bonus = 12
 	bare_wound_bonus = 13
+	toolspeed = 1
 	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = ITEM_SLOT_BELT
 	sharpness = SHARP_EDGED

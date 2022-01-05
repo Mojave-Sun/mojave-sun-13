@@ -371,7 +371,7 @@
 	base_icon_state = "road"
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_MS13_ROAD)
-	canSmoothWith = list(SMOOTH_GROUP_MS13_ROAD, SMOOTH_GROUP_MS13_SIDEWALK, SMOOTH_GROUP_MS13_TILE, SMOOTH_GROUP_MS13_SNOW, SMOOTH_GROUP_MS13_SNOW, SMOOTH_GROUP_MS13_WATER)
+	canSmoothWith = list(SMOOTH_GROUP_MS13_ROAD, SMOOTH_GROUP_MS13_SIDEWALK, SMOOTH_GROUP_MS13_TILE, SMOOTH_GROUP_MS13_SNOW, SMOOTH_GROUP_MS13_SNOW, SMOOTH_GROUP_MS13_WATER, SMOOTH_GROUP_MS13_OPENSPACE)
 	layer = TURF_LAYER_ROAD
 
 /turf/open/floor/plating/ms13/ground/road/Initialize()
@@ -488,6 +488,24 @@
 	//Used for increasing cracking when walking on ice
 	var/crack_state = 1
 
+/turf/open/floor/plating/ms13/ground/ice/attackby(obj/item/W, mob/user, params)
+	. = ..()
+	if(!W.tool_behaviour == TOOL_SHOVEL || !W.tool_behaviour == TOOL_MINING)
+		return
+
+	if(do_after(user, 5 SECONDS))
+		to_chat(user, span_notice("You break away the ice."))
+		switch(crack_state)
+			if(1)
+				crack_state = 2
+				update_icon()
+			if(2)
+				crack_state = 3
+				update_icon()
+			if(3)
+				Icebreak()
+				update_icon()
+
 /turf/open/floor/plating/ms13/ground/ice/cracked
 	baseturfs = /turf/open/floor/plating/ms13/ground/ice/morecracked
 	icon = 'mojave/icons/turf/64x/ice_2.dmi'
@@ -497,7 +515,6 @@
 	baseturfs = /turf/open/ms13/water/deep
 	icon = 'mojave/icons/turf/64x/ice_3.dmi'
 	crack_state = 3
-
 
 /turf/open/floor/plating/ms13/ground/ice/Initialize()
 	. = ..()
@@ -566,6 +583,40 @@
 	var/atom/watereffect = /obj/effect/overlay/ms13/water/medium
 	var/atom/watertop = /obj/effect/overlay/ms13/water/top/medium
 	var/depth = 0
+	var/list/fish = list(/obj/item/food/meat/slab/ms13/fish/sockeye = 1,
+		/obj/item/food/meat/slab/ms13/fish/smallmouth = 2,
+		/obj/item/food/meat/slab/ms13/fish/largemouth = 1,
+		/obj/item/food/meat/slab/ms13/fish/pink = 2,
+		/obj/item/food/meat/slab/ms13/fish/chum = 2,
+		/obj/item/food/meat/slab/ms13/fish/sturgeon = 1,
+		/obj/item/food/meat/slab/ms13/fish/asian = 1)
+	var/fished = FALSE
+
+/turf/open/ms13/water/attackby(obj/item/W, mob/user, params)
+	. = ..()
+	if(W.tool_behaviour == TOOL_FISHINGROD)
+		if(!can_fish(user))
+			return TRUE
+		if(!isturf(user.loc))
+			return
+
+		to_chat(user, "<span class='notice'>You start fishing...</span>")
+		if(do_after(user, 40 SECONDS * W.toolspeed))
+			if(!can_fish(user))
+				return TRUE
+			to_chat(user, "<span class='notice'>You reel in your catch.</span>")
+			getFished(user)
+
+/turf/open/ms13/water/proc/getFished(mob/user)
+	var/spawnFish = pick_weight(fish)
+	new spawnFish(user.loc)
+	fished = TRUE
+
+/turf/open/ms13/water/proc/can_fish(mob/user)
+	if(!fished)
+		return TRUE
+	if(user)
+		to_chat(user, "<span class='warning'>Looks like there's no fish here!</span>")
 
 /turf/open/ms13/water/deep
 	name = "deep water"
@@ -705,7 +756,7 @@
 			switch(depth)
 				if(3)
 					H.wash(CLEAN_WASH)
-					if(H.wear_mask && iscarbon(M) && H.wear_mask.flags_cover & MASKCOVERSMOUTH)
+					if(iscarbon(M) && H.wear_mask && H.wear_mask.flags_cover & MASKCOVERSMOUTH)
 						H.visible_message("<span class='danger'>[H] falls in the water!</span>",
 											"<span class='userdanger'>You fall in the water!</span>")
 						playsound(src, 'mojave/sound/ms13effects/splash.ogg', 60, 1, 1)
@@ -774,6 +825,12 @@
 	name = "sewer water"
 	desc = "Murky and foul smelling water, if you could call it that."
 	baseturfs = /turf/open/ms13/water/sewer
+	fish = list(/obj/item/food/meat/slab/ms13/fish/lamprey = 2,
+		/obj/item/food/meat/slab/ms13/fish/largemouth = 1,
+		/obj/item/food/meat/slab/ms13/fish/chum = 3,
+		/obj/item/food/meat/slab/ms13/fish/blinky = 3,
+		/obj/item/food/meat/slab/ms13/fish/asian = 1)
+
 
 /turf/open/ms13/water/sewer/deep
 	name = "deep water"
@@ -836,6 +893,7 @@
 	icon_state = "transparent" //Different icon so it's visually distinct for mappers.
 	can_build_on = FALSE
 	can_cover_up = FALSE
+	smoothing_groups = list(SMOOTH_GROUP_MS13_OPENSPACE)
 
 /turf/open/openspace/ms13/Initialize()
 	. = ..()

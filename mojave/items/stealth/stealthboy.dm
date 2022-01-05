@@ -3,7 +3,8 @@
 /obj/item/clothing/ms13/stealthboy
 	name = "stealthboy"
 	desc = "A RobCo Industries Stealth Boy 3001, a device capable of rendering the wearer nearly transparent for a period of time."
-	icon = 'mojave/items/stealth/stealthboy_icon.dmi'
+	icon = 'mojave/items/stealth/stealthboy_world.dmi'
+	worn_icon = 'mojave/items/stealth/stealthboy_worn.dmi' //Currently an empty placeholder, needs a sprite!
 	icon_state = "stealthboy"
 	throwforce = 5.0
 	throw_speed = 1
@@ -28,7 +29,7 @@
 		return
 	if(!COOLDOWN_FINISHED(src, stealthboy_cooldown))
 		return
-	playsound(get_turf(src), 'sound/effects/pop.ogg', 25, 1, 3)
+	playsound(get_turf(src), 'mojave/items/stealth/stealthboy_sfx/stealthboy_activate.ogg', 20, 1, 0)
 	stealthboy_on = !stealthboy_on
 	if(stealthboy_on)
 		user.alpha = 25
@@ -47,4 +48,5 @@
 		user.alpha = initial(user.alpha)
 		stealthboy_on = FALSE
 	COOLDOWN_START(src, stealthboy_cooldown, 180 SECONDS)
+	playsound(get_turf(src), 'mojave/items/stealth/stealthboy_sfx/stealthboy_deactivate.ogg', 20, 1, 0)
 	to_chat(user, "<span class='notice'>[src] deactivates.</span>")

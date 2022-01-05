@@ -5,14 +5,19 @@
 	icon_living = "mrhandy_claw"
 	health = 150
 	maxHealth = 150
-	melee_damage_lower = 10
-	melee_damage_upper = 20
+	melee_damage_lower = 15
+	melee_damage_upper = 15
+	armour_penetration = 5
+	move_to_delay = 3
+	speed = 1
+	sharpness = NONE
+	wound_bonus = 5
 	bare_wound_bonus = 5
 	speak_emote = list("states", "says")
 	attack_verb_continuous = "pinches"
 	attack_verb_simple = "pinch"
 	footstep_type = null
-	stat_attack = HARD_CRIT
+	stat_attack = CONSCIOUS
 	shadow_type = "shadow_large"
 
 /mob/living/simple_animal/hostile/ms13/robot/handy/New()
@@ -28,23 +33,26 @@
 	desc = "A work model Mr. Handy unit, armed with a horrifyingly sharp saw. It's long lost any rational wires in its circuits."
 	icon_state = "mrhandy_saw"
 	icon_living = "mrhandy_saw"
-	melee_damage_lower = 15
-	melee_damage_upper = 35
-	wound_bonus = 5
-	bare_wound_bonus = 10
+	melee_damage_lower = 30
+	melee_damage_upper = 30
+	armour_penetration = 10
+	sharpness = SHARP_EDGED
+	wound_bonus = 6
+	bare_wound_bonus = 6
 	attack_verb_continuous = "saws"
 	attack_verb_simple = "saw"
 	attack_sound = 'sound/weapons/circsawhit.ogg'
-	stat_attack = HARD_CRIT
 
 /mob/living/simple_animal/hostile/ms13/robot/handy/laser
 	desc = "An armed model of Mr. Handy unit. It's long lost any rational wires in its circuits. It's equipped with a laser rifle!"
 	icon_state = "mrhandy_laser"
 	icon_living = "mrhandy_laser"
+	minimum_distance = 3
+	retreat_distance = 5
 	attack_verb_continuous = "pinches"
 	attack_verb_simple = "pinch"
-	stat_attack = HARD_CRIT
 	ranged = TRUE
+	ranged_cooldown = 3 SECONDS
 	projectiletype = /obj/projectile/beam/ms13/laser/handy
 	projectilesound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_2.ogg'
 
@@ -53,10 +61,14 @@
 	desc = "A militarized version of the Handy model. Equiped with a compact plasma rifle, it's a dangerous foe."
 	icon_state = "mrhandy_gutsy"
 	icon_living = "mrhandy_gutsy"
-	attack_verb_continuous = "pinches"
-	attack_verb_simple = "pinch"
-	stat_attack = HARD_CRIT
+	health = 180
+	maxHealth = 180
+	melee_damage_lower = 20
+	melee_damage_upper = 20
+	armour_penetration = 10
+	minimum_distance = 2
+	retreat_distance = 3
 	ranged = TRUE
-	ranged_cooldown = 5 SECONDS
+	ranged_cooldown = 3 SECONDS
 	projectiletype = /obj/projectile/bullet/ms13/plasma/gutsy
 	projectilesound = 'mojave/sound/ms13weapons/gunsounds/plasrifle/plasma_3.ogg'

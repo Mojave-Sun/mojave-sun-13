@@ -16,11 +16,11 @@ GLOBAL_LIST_INIT(dehydration_stage_examine, list("<font color='green'>not dehydr
 
 //List of stage of dehydration => typepath associated with alert to pop up
 GLOBAL_LIST_INIT(dehydration_stage_alerts, list(
-												/atom/movable/screen/alert/thirst/not_thirsty,
-												/atom/movable/screen/alert/thirst/slight_thirst,
-												/atom/movable/screen/alert/thirst/thirsty,
-												/atom/movable/screen/alert/thirst/very_thirsty,
-												/atom/movable/screen/alert/thirst/dehydrated
+												/atom/movable/screen/alert/hudbar/thirst/not_thirsty,
+												/atom/movable/screen/alert/hudbar/thirst/slight_thirst,
+												/atom/movable/screen/alert/hudbar/thirst/thirsty,
+												/atom/movable/screen/alert/hudbar/thirst/very_thirsty,
+												/atom/movable/screen/alert/hudbar/thirst/dehydrated
 												))
 
 /datum/component/thirst

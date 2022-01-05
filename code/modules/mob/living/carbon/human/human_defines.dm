@@ -14,8 +14,8 @@
 	can_be_shoved_into = TRUE
 
 	//Hair colour and style
-	var/hair_color = "#341d18" //Hair color //MOJAVE SUN EDIT - Hair/Gendered/Colours
-	var/hairstyle = "Bald"
+	var/hair_color = "Light Blonde" //Hair color //MOJAVE SUN EDIT - Hair/Gendered/Colours
+	var/hairstyle = "Business Slick" //MOJAVE SUN EDIT - Hair/Gendered/Colours
 
 	///Colours used for hair and facial hair gradients.
 	var/list/grad_color
@@ -23,11 +23,11 @@
 	var/list/grad_style
 
 	//Facial hair colour and style
-	var/facial_hair_color = "#341d18" //Hair color //MOJAVE SUN EDIT - Hair/Gendered/Colours
+	var/facial_hair_color = "Light Blonde" //Hair color //MOJAVE SUN EDIT - Hair/Gendered/Colours
 	var/facial_hairstyle = "Shaved"
 
 	//Eye colour
-	var/eye_color = "#1c3a5c" //MOJAVE SUN EDIT - Hair/Gendered/Colours
+	var/eye_color = "Black" //MOJAVE SUN EDIT - Hair/Gendered/Colours
 
 	var/skin_tone = "caucasian1" //Skin tone
 

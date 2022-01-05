@@ -86,7 +86,7 @@
 	return TRUE
 
 /obj/machinery/door/unpowered/ms13/attack_hand(mob/living/M)
-	if(do_after(M, 1 SECONDS))
+	if(do_after(M, 0.5 SECONDS))
 		try_to_activate_door(M)
 
 /obj/machinery/door/unpowered/ms13/attackby(obj/item/I, mob/living/M, params)
