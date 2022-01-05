@@ -34,7 +34,7 @@
 	armour_penetration = 10
 	wound_bonus = 10
 	bare_wound_bonus = 10
-	toolspeed = 1.5
+	toolspeed = 1.6
 	throwforce = 25
 
 /obj/item/knife/ms13/combat/soviet
@@ -46,7 +46,7 @@
 	armour_penetration = 5
 	wound_bonus = 2
 	bare_wound_bonus = 3
-	toolspeed = 1.5
+	toolspeed = 1.6
 
 /obj/item/knife/ms13/combat/bowie
 	name = "bowie knife"
