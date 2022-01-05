@@ -35,7 +35,3 @@
 
 /datum/outfit/job/ms13/raiders/enforcer/pre_equip(mob/living/carbon/human/H)
 	..()
-
-	back = pick(
-		/obj/item/storage/backpack/satchel/leather,\
-		/obj/item/storage/backpack)

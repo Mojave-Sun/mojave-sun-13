@@ -1,5 +1,9 @@
 
-import ncr_logo from './job_icons/ncr_flag.png';
+import ncr_logo from './job_icons/flag_ncr.png';
+import bos_logo from './job_icons/flag_brotherhood.png';
+import raiders_logo from './job_icons/flag_raiders.png';
+import town_logo from './job_icons/flag_towner.png';
+import wasteland_logo from './job_icons/flag_wastelanders.png';
 
 export type Department = {
   name?: string;
@@ -54,25 +58,25 @@ export const NCR: Department = {
 export const BOS: Department = {
   name: "Brotherhood of Steel",
   head: "Head Paladin",
-  picture: ncr_logo,
+  picture: bos_logo,
 };
 
 export const Raiders: Department = {
   name: "Raiders",
   head: "Raider Boss",
-  picture: ncr_logo,
+  picture: raiders_logo,
 };
 
 export const Town: Department = {
   name: "Town",
   head: "Town Mayor",
-  picture: ncr_logo,
+  picture: town_logo,
 };
 
 export const Wasteland: Department = {
   name: "Wasteland",
   // no head.
-  picture: ncr_logo,
+  picture: wasteland_logo,
 };
 
 // MOJAVE EDIT ADDITION END - Departments
