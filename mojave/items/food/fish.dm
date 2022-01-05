@@ -13,7 +13,7 @@
 	var/fish_size = 1
 
 /obj/item/food/meat/slab/ms13/fish/MakeProcessable()
-	AddElement(/datum/element/processable, TOOL_KNIFE,  fillet_type, fish_size * 2, 30)
+	AddElement(/datum/element/processable, TOOL_KNIFE,  fillet_type, fish_size * 2, 15 SECONDS * toolspeed)
 
 /obj/item/food/meat/slab/ms13/fish/Initialize()
 	fish_size = rand(1,3)
@@ -94,11 +94,11 @@
 	var/fish_cooked_type = /obj/item/food/meat/cutlet/ms13/fish
 	bite_consumption = 4
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 4)
-	tastes = list("fish" = 1)
+	tastes = list("fish" = 8)
 	foodtypes = MEAT | RAW
 
 /obj/item/food/meat/rawcutlet/ms13/fish/MakeGrillable()
-	AddComponent(/datum/component/grillable, fish_cooked_type, rand(30 SECONDS, 90 SECONDS), TRUE, TRUE)
+	AddComponent(/datum/component/grillable, fish_cooked_type, rand(30 SECONDS, 60 SECONDS), TRUE, TRUE)
 
 /obj/item/food/meat/rawcutlet/ms13/fish/sockeye
 	name = "raw sockeye fillet"
@@ -164,7 +164,7 @@
 	icon_state = "sockeye_cutlet"
 	bite_consumption = 4
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/consumable/nutriment/vitamin = 2)
-	tastes = list("fish" = 1)
+	tastes = list("fish" = 5)
 	foodtypes = MEAT
 
 /obj/item/food/meat/cutlet/ms13/fish/sockeye
@@ -212,4 +212,4 @@
 	name = "blinky fillet"
 	desc = "A blinky fillet. What...?"
 	icon_state = "blinky_cutlet"
-	tastes = list("what...?" = 1, "fish" = 2)
+	tastes = list("what...?" = 4, "fish" = 4)
