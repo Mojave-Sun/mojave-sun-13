@@ -16,7 +16,7 @@
 	bare_wound_bonus = 6
 	embedding = null
 	sharpness = SHARP_EDGED
-	toolspeed = 1
+	toolspeed = 1.25
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = ITEM_SLOT_BELT
 	log_pickup_and_drop = TRUE
