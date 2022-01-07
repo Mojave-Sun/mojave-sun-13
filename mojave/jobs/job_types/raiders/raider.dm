@@ -50,10 +50,6 @@
 		/obj/item/clothing/suit/ms13/raider/plated,\
 		/obj/item/clothing/suit/ms13/raider/kevlar)
 
-	back = pick(
-		/obj/item/storage/backpack/satchel/leather,\
-		/obj/item/storage/backpack)
-
 	belt = pick(
 		/obj/item/claymore/ms13/pipe,\
 		/obj/item/knife/ms13/hunting,\

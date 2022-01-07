@@ -1,3 +1,4 @@
+/* MOVED TO MOJAVE SUN MODULAR FOLDERS mojave/code/modules/preferences
 /proc/generate_possible_values_for_sprite_accessories_on_head(accessories)
 	var/list/values = possible_values_for_sprite_accessory_list(accessories)
 
@@ -165,3 +166,4 @@
 	if (!..(preferences))
 		return FALSE
 	return preferences.read_preference(/datum/preference/choiced/hair_gradient) != "None"
+*/
