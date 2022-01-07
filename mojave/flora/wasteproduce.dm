@@ -32,7 +32,6 @@
 	filling_color = "#a6b115"
 	distill_reagent = /datum/reagent/consumable/ethanol/ms13/barrel_wine
 	tastes = list("sourness"= 10, "burning"= 1)
-	eat_time = 8 SECONDS
 
 ///////////////////// MUTFRUIT /////////////////////////
 
@@ -65,7 +64,6 @@
 	filling_color = "#5f035f"
 	distill_reagent = /datum/reagent/consumable/ethanol/ms13/mutfruit_wine
 	tastes = list("warmth"= 5, "sweetness"= 2)
-	eat_time = 6 SECONDS
 
 //CRUNCHY MUTFRUITx
 
@@ -86,7 +84,6 @@
 	maturation = 6
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 
-
 /obj/item/food/grown/ms13/cmutfruit
 	seed = /obj/item/seeds/ms13/cmutfruit
 	name = "crunchy mutfruit"
@@ -97,7 +94,6 @@
 	filling_color = "#7c3e04"
 	distill_reagent = /datum/reagent/consumable/ethanol/ms13/mutfruit_wine
 	tastes = list("sourness"= 5, "sweetness"= 1)
-	eat_time = 8 SECONDS
 
 //APPLEx
 
@@ -118,7 +114,6 @@
 	maturation = 10
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 
-
 /obj/item/food/grown/ms13/apple
 	seed = /obj/item/seeds/ms13/apple
 	name = "apple"
@@ -129,7 +124,6 @@
 	filling_color = "#9b7470"
 	distill_reagent = /datum/reagent/consumable/ethanol/ms13/apple_cider
 	tastes = list("apple"= 1)
-	eat_time = 6 SECONDS
 
 ///////////////////// PRICKLY PEAR /////////////////////////
 
@@ -161,7 +155,6 @@
 	bite_consumption_mod = 2
 	distill_reagent = /datum/reagent/consumable/ethanol/ms13/pricklypear_wine
 	tastes = list("sweetness"= 1)
-	eat_time = 12 SECONDS // eating around the spikes
 
 /obj/item/food/grown/ms13/pricklypear/pickup(mob/living/user)
 	..()
@@ -209,7 +202,6 @@
 	filling_color = "#695d19"
 	distill_reagent = /datum/reagent/consumable/ethanol/ms13/punga_wine
 	tastes = list("sourness"= 6, "warmth"= 1)
-	eat_time = 5 SECONDS
 
 //refined punga
 
@@ -241,7 +233,6 @@
 	filling_color = "#55ff06"
 	distill_reagent = /datum/reagent/consumable/ethanol/ms13/geigpunga_wine
 	tastes = list("acid"= 6, "burning"= 5)
-	eat_time = 6 SECONDS
 
 ///////////////////// SNAPTAIL /////////////////////////x
 
@@ -271,7 +262,6 @@
 	filling_color = "#caa3a3"
 	distill_reagent = /datum/reagent/consumable/ethanol/ms13/snaptail_rum
 	tastes = list("sugar"= 5, "reed"= 5)
-	eat_time = 15 SECONDS
 
 ///////////////////// TARBERRY /////////////////////////x
 
@@ -304,7 +294,6 @@
 	filling_color = "#2f2525ff"
 	distill_reagent = /datum/reagent/consumable/ethanol/ms13/tarberry_wine
 	tastes = list("oil"= 5, "stale berries"= 1)
-	eat_time = 1 SECONDS
 
 //BLACKBERRYx
 
@@ -337,7 +326,6 @@
 	filling_color = "#15172a"
 	distill_reagent = /datum/reagent/consumable/ethanol/ms13/blackberry_wine
 	tastes = list("berries"= 5, "juice"= 1)
-	eat_time = 1 SECONDS
 
 //RADBERRYx
 
@@ -369,7 +357,6 @@
 	filling_color = "#00ff2a"
 	distill_reagent = /datum/reagent/consumable/ethanol/ms13/radberry_wine
 	tastes = list("metal"= 5, "sweetness"= 1)
-	eat_time = 1 SECONDS
 
 ///////////////////// YUCCA /////////////////////////
 
@@ -398,7 +385,6 @@
 	filling_color = "#b4a031ff"
 	distill_reagent = /datum/reagent/consumable/ethanol/ms13/yucca_wine
 	tastes = list("sweet" = 5, "starch" = 2)
-	eat_time = 5 SECONDS
 
 //TOMATO
 
@@ -430,7 +416,6 @@
 	filling_color = "#8d1d1d"
 	distill_reagent = /datum/reagent/consumable/ethanol/ms13/tomato_wine
 	tastes = list("sweetness" = 3, "tangy acid" = 2)
-	eat_time = 5 SECONDS
 
 /////////////////////////////////////////////////////////////
 /////////////////////  VEGETABLES ///////////////////////////
@@ -466,7 +451,6 @@
 	filling_color = "#4b2727"
 	distill_reagent = /datum/reagent/consumable/ethanol/ms13/tato_liquor
 	tastes = list("raw eggs"= 5)
-	eat_time = 5 SECONDS
 
 //POTATO
 
@@ -495,7 +479,6 @@
 	filling_color = "#ada876"
 	distill_reagent = /datum/reagent/consumable/ethanol/ms13/waster_vodka
 	tastes = list("starch"= 5)
-	eat_time = 8 SECONDS
 
 ////////////////////// JALEPENO /////////////////////////////
 
@@ -526,7 +509,6 @@
 	icon_state = "jalepeno"
 	filling_color = "#233b29"
 	tastes = list("spicy"= 5)
-	eat_time = 4 SECONDS
 
 //RADPEPPER
 
@@ -558,7 +540,6 @@
 	icon_state = "radpepper"
 	filling_color = "#837e3c"
 	tastes = list("death"= 5, "pain"= 5)
-	eat_time = 4 SECONDS
 
 //////////////////////// ONION //////////////////////////////
 
@@ -586,7 +567,6 @@
 	icon_state = "onion"
 	filling_color = "#5d5151"
 	tastes = list("sour"= 5)
-	eat_time = 6 SECONDS
 
 //GARLIC
 
@@ -613,7 +593,6 @@
 	icon_state = "garlic"
 	filling_color = "#707070"
 	tastes = list("garlic"= 5, "burning" = 5)
-	eat_time = 8 SECONDS
 
 //////////////////////// XANDER /////////////////////////////
 
@@ -639,7 +618,6 @@
 	icon_state = "xander"
 	filling_color = "#2f2424"
 	tastes = list("bitterness"= 5)
-	eat_time = 8 SECONDS
 
 //////////////////////// CARROT /////////////////////////////
 
@@ -666,7 +644,6 @@
 	filling_color = "#815c1f"
 	distill_reagent = /datum/reagent/consumable/ethanol/ms13/carrot_wine
 	tastes = list("sweetness"= 1)
-	eat_time = 6 SECONDS
 
 //////////////////////// RAZORGRAIN /////////////////////////
 
@@ -693,7 +670,6 @@
 	filling_color = "#8f905b"
 	distill_reagent = /datum/reagent/consumable/ethanol/ms13/waster_beer
 	tastes = list("chalky grain"= 5)
-	eat_time = 3 SECONDS
 
 //////////////////////// BAIFAN /////////////////////////////
 
@@ -720,7 +696,6 @@
 	filling_color = "#505749"
 	distill_reagent = /datum/reagent/consumable/ethanol/ms13/waster_sake
 	tastes = list("chalky grain"= 2, "raw rice"= 5)
-	eat_time = 6 SECONDS
 
 /////////////////////// CABBAGE /////////////////////////////
 
@@ -748,7 +723,6 @@
 	icon_state = "cabbage"
 	filling_color = "#2d382a"
 	tastes = list("cabbage"= 5)
-	eat_time = 6 SECONDS
 
 //////////////////////// PINYON /////////////////////////////
 
@@ -779,7 +753,6 @@
 	filling_color = "#7b7c68"
 	tastes = list("nutty"= 4, "sourness"= 1)
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/vitamin = 1)
-	eat_time = 2 SECONDS
 
 ///////////////////////// MESQUITE //////////////////////////
 
@@ -809,7 +782,6 @@
 	icon_state = "mesquite"
 	filling_color = "#223a24"
 	tastes = list("sour"= 5, "sweet"= 5)
-	eat_time = 2 SECONDS
 
 /////////////////////// BUFFALO /////////////////////////////
 
@@ -839,7 +811,6 @@
 	icon_state = "buffalo"
 	filling_color = "#2b3325"
 	tastes = list("wood"= 5)
-	eat_time = 6 SECONDS
 
 //////////////////////// MAIZE //////////////////////////////
 
@@ -865,7 +836,6 @@
 	filling_color = "#bbb81c"
 	distill_reagent = /datum/reagent/consumable/ethanol/ms13/waster_whiskey
 	tastes = list("corn"= 5)
-	eat_time = 2 SECONDS
 
 /////////////////////////////////////////////////////////////
 ///////////////////// FLOWER/HERBS //////////////////////////
@@ -900,7 +870,6 @@
 	icon_state = "ashrose"
 	filling_color = "#411c19"
 	tastes = list("sourness"= 5)
-	eat_time = 1 SECONDS
 
 //radrose
 
@@ -931,7 +900,6 @@
 	icon_state = "radrose"
 	filling_color = "#579797"
 	tastes = list("warmth"= 5, "sourness"= 5, "pain"= 5)
-	eat_time = 1 SECONDS
 
 /////////////////////////// SOOT ////////////////////////////
 
@@ -962,7 +930,6 @@
 	icon_state = "soot"
 	filling_color = "#462050"
 	tastes = list("bitterness"= 5)
-	eat_time = 1 SECONDS
 
 //toxicsoot
 
@@ -993,7 +960,6 @@
 	icon_state = "toxsoot"
 	filling_color = "#34773f"
 	tastes = list("bitterness"= 10)
-	eat_time = 1 SECONDS
 
 ////////////////////////// DATURA ///////////////////////////
 
@@ -1024,7 +990,6 @@
 	icon_state = "datura"
 	filling_color = "#a7a7a7"
 	tastes = list("bitterness"= 5)
-	eat_time = 1 SECONDS
 
 //radtura
 
@@ -1055,7 +1020,6 @@
 	icon_state = "radtura"
 	filling_color = "#a2a36c"
 	tastes = list("bitterness"= 5, "warmth"= 5)
-	eat_time = 1 SECONDS
 
 ////////////////////////// COTTON ///////////////////////////
 
@@ -1112,7 +1076,6 @@
 	foodtypes = GROSS
 	icon_state = "coyote"
 	filling_color = "#1d3821"
-	eat_time = 1 SECONDS
 
 ////////////////////////// ASTER ////////////////////////////
 
@@ -1141,8 +1104,7 @@
 	bite_consumption_mod = 1
 	icon_state = "aster"
 	filling_color = "#1e2b2c"
-	tastes = list("salty"= 5, "peppery"= 5)
-	eat_time = 1 SECONDS
+	tastes = list("salt"= 5, "pepper"= 5)
 
 /////////////////////// ASH BLOSSOM /////////////////////////
 
@@ -1172,7 +1134,6 @@
 	foodtypes = GROSS
 	icon_state = "ashblossom"
 	filling_color = "#213436"
-	eat_time = 1 SECONDS
 
 ///////////////////////// THISTLE ///////////////////////////
 
@@ -1203,7 +1164,6 @@
 	icon_state = "thistle"
 	filling_color = "#a64e5a"
 	tastes = list("pain"= 5)
-	eat_time = 1 SECONDS
 
 /obj/item/food/grown/ms13/thistle/pickup(mob/living/user)
 	..()
@@ -1245,13 +1205,12 @@
 /obj/item/food/grown/ms13/agave
 	seed = /obj/item/seeds/ms13/agave
 	name = "agave"
-	desc = "A fleshy blade of plant matter. Quite firm and feels as if it will snap easily.
+	desc = "A fleshy blade of plant matter. Quite firm and feels as if it will snap easily."
 	bite_consumption_mod = 1
 	icon_state = "agave"
 	filling_color = "#37524e"
 	distill_reagent = /datum/reagent/consumable/ethanol/ms13/waster_tequila
 	tastes = list("bitterness"= 5)
-	eat_time = 5 SECONDS
 
 /////////////////////// BROC FLOWER /////////////////////////
 
@@ -1281,7 +1240,6 @@
 	icon_state = "brocflower"
 	filling_color = "#493d28"
 	tastes = list("broc"= 5)
-	eat_time = 1 SECONDS
 
 /////////////////////////////////////////////////////////////
 //////////////////////// FUNGUS /////////////////////////////
@@ -1315,7 +1273,6 @@
 	icon_state = "cavefungus"
 	filling_color = "#64553b"
 	tastes = list("mushroom"= 5)
-	eat_time = 2 SECONDS
 
 //GLOWCAVEFUNG
 
@@ -1346,13 +1303,14 @@
 	foodtypes = TOXIC
 	filling_color = "#357944"
 	tastes = list("mushroom"= 5, "warmth"= 5)
-	eat_time = 2 SECONDS
+	light_range = 2
+	light_power = 0.25
 
 /datum/plant_gene/trait/glow/ms13green
 	//oh no, now i'm radioactive
 	name = "Radioactive Bioluminescence"
 	rate = 0.01
-	glow_color = "#3eff3e"
+	glow_color = "#50e650"
 
 //////////////////////// BLIGHT /////////////////////////////
 
@@ -1381,7 +1339,6 @@
 	foodtypes = GROSS | TOXIC
 	filling_color = "#575c2a"
 	tastes = list("spice"= 5, "gunk"= 5)
-	eat_time = 2 SECONDS
 
 ////////////////////// BRAIN FUNGUS /////////////////////////
 
@@ -1410,7 +1367,6 @@
 	icon_state = "brainfung"
 	filling_color = "#c87070"
 	tastes = list("illness"= 5)
-	eat_time = 2 SECONDS
 
 /obj/item/food/grown/ms13/brainfung/pickup(mob/living/user)
 	..()
@@ -1455,7 +1411,6 @@
 	icon_state = "firecap"
 	filling_color = "#3f2e0f"
 	tastes = list("fire"= 5, "mushroom"= 1)
-	eat_time = 2 SECONDS
 
 /obj/item/food/grown/ms13/firecap/pickup(mob/living/user)
 	..()
@@ -1503,7 +1458,6 @@
 	icon_state = "gutshroom"
 	filling_color = "#38372a"
 	tastes = list("pain"= 5)
-	eat_time = 2 SECONDS
 
 /obj/item/food/grown/ms13/gutshroom/pickup(mob/living/user)
 	..()
@@ -1547,7 +1501,6 @@
 	icon_state = "lureweed"
 	filling_color = "#383322"
 	tastes = list("lureweed"= 5)
-	eat_time = 2 SECONDS
 
 ////////////////////////// NARA /////////////////////////////
 
@@ -1577,4 +1530,3 @@
 	icon_state = "nara"
 	filling_color = "#770d0d"
 	tastes = list("blood"= 5)
-	eat_time = 2 SECONDS
