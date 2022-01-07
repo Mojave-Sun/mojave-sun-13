@@ -1,4 +1,6 @@
-/obj/item/storage/trash_stack
+//This is all unused for now and the shart icons it relied on have been purged. Don't want to entirely purge the file in case someone wants to pick it up later or SeniorScore revives from the dead - Hekzder
+
+/*/obj/item/storage/trash_stack
 	name       = "pile of garbage"
 	desc       = "a pile of garbage. Smells as good, as it looks, though it may contain something useful. Or may not"
 	icon       = 'mojave/icons/objects/crafting.dmi'
@@ -56,3 +58,4 @@
 		var/I = new itemtype(src)
 		back += I
 	return back
+*/

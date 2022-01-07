@@ -64,6 +64,15 @@
 	radio_broadcast = FALSE
 	icon_state = "recradio"
 
+/obj/item/radio/ms13/ham/receiver/radioking
+	name = "\improper Radiation King radio"
+	desc = "A classic radio from before the war. A fading logo can barely be seen on the front that reads 'Radiation King'. This one is black."
+	icon_state = "radioking_black"
+
+/obj/item/radio/ms13/ham/receiver/radioking/wood
+	desc = "A classic radio from before the war. A fading logo can barely be seen on the front that reads 'Radiation King'. This one has a wooden body."
+	icon_state = "radioking_wood"
+
 /**
  * Override attack_tk_grab instead of attack_tk because we actually want attack_tk's
  * functionality. What we DON'T want is attack_tk_grab attempting to pick up the
