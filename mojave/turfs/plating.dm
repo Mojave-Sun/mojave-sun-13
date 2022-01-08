@@ -493,7 +493,7 @@
 	if(!W.tool_behaviour == TOOL_SHOVEL || !W.tool_behaviour == TOOL_MINING)
 		return
 
-	if(do_after(user, 5 SECONDS))
+	if(do_after(user, 5 SECONDS, interaction_key = DOAFTER_SOURCE_BREAKICE))
 		to_chat(user, span_notice("You break away the ice."))
 		switch(crack_state)
 			if(1)
@@ -601,7 +601,7 @@
 			return
 
 		to_chat(user, "<span class='notice'>You start fishing...</span>")
-		if(do_after(user, 40 SECONDS * W.toolspeed))
+		if(do_after(user, 40 SECONDS * W.toolspeed, interaction_key = DOAFTER_SOURCE_FISHING))
 			if(!can_fish(user))
 				return TRUE
 			to_chat(user, "<span class='notice'>You reel in your catch.</span>")
