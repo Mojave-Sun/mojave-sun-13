@@ -4,6 +4,10 @@
 	icon = 'mojave/icons/objects/medical/medical_world.dmi'
 	icon_state = "bag_r"
 
+/obj/item/reagent_containers/blood/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/medical/medical_inventory.dmi')
+
 /obj/item/reagent_containers/blood/ms13/a_plus
 	blood_type = "A+"
 

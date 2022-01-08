@@ -186,8 +186,8 @@ const TitleBar = (props, context) => {
       ) || (
         <Icon
           className="TitleBar__statusIcon"
-          color={statusToColor(status)}
-          name="eye" />
+          color={'white'}
+          name="circle" /> // MOJAVE SUN EDIT - removes weird eyeball
       )}
       <div
         className="TitleBar__dragZone"

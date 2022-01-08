@@ -93,6 +93,7 @@
 /mob/living/basic/ms13/hostile_animal/gecko/ice
 	icon_state = "icegecko"
 	icon_dead = "icegecko_dead"
+	butcher_results = list(/obj/item/ms13/hide/gecko/ice = 1, /obj/item/food/meat/slab/ms13/carcass/gecko = 1, /obj/item/ms13/animalitem/gecko/claws = 1)
 
 /mob/living/basic/ms13/hostile_animal/gecko/sand
 	icon_state = "sandgecko"
@@ -116,6 +117,7 @@
 	sharpness = SHARP_POINTY
 	wound_bonus = 6
 	bare_wound_bonus = 4
+	butcher_results = list(/obj/item/ms13/hide/molerat = 1, /obj/item/food/meat/slab/ms13/carcass/molerat = 1)
 	faction = list("rat")
 	/*food_type = list(/obj/item/food/grown/ms13/potato)
 	tame_chance = 20
@@ -158,6 +160,7 @@
 	sharpness = SHARP_POINTY
 	wound_bonus = 4
 	bare_wound_bonus = 4
+	butcher_results = list(/obj/item/ms13/hide/pigrat = 1, /obj/item/food/meat/slab/ms13/carcass/molerat/pig = 1, /obj/item/ms13/animalitem/pigrat/snout = 1)
 	faction = list("rat")
 	/*food_type = list(/obj/item/food/grown/ms13/xander, /obj/item/food/grown/ms13/carrot)
 	tame_chance = 5
@@ -226,6 +229,7 @@
 	sharpness = SHARP_EDGED
 	wound_bonus = 6
 	bare_wound_bonus = 6
+	butcher_results = list(/obj/item/ms13/hide/wolf = 1, /obj/item/food/meat/slab/ms13/carcass/wolf = 1, /obj/item/ms13/animalitem/wolf/teeth = 2)
 	faction = list("dog_city")
 	/*food_type = list(/obj/item/food/meat/slab)
 	tame_chance = 5
@@ -277,36 +281,39 @@
 	sharpness = SHARP_EDGED
 	wound_bonus = 10
 	bare_wound_bonus = 5
+	butcher_results = list(/obj/item/ms13/hide/yaoguai = 1, /obj/item/food/meat/slab/ms13/carcass/large/yaoguai/front = 1, /obj/item/food/meat/slab/ms13/carcass/large/yaoguai/back = 1)
 	faction = list("bear")
 	/*food_type = list(/obj/item/food/meat/slab/human)
 	tame_chance = 5
 	bonus_tame_chance = 2
 	rideable = TRUE*/
-	base_pixel_x = -48
+	base_pixel_x = -64
 
 /mob/living/basic/ms13/hostile_animal/hellpig
 	name = "hellpig"
 	desc = "A massive mutated pig. Wild and deadly."
 	icon = 'mojave/icons/mob/64x64.dmi'
 	icon_state = "hellpig"
+	icon_dead = "hellpig_dead"
 	gender = MALE
 	speak_emote = list("honks")
 	attack_verb_continuous = "chomps"
 	attack_verb_simple = "chomp"
 	attack_sound = 'mojave/sound/ms13weapons/meleesounds/slam.ogg'
-	health = 500
-	maxHealth = 500
+	health = 550
+	maxHealth = 550
 	melee_damage_lower = 50
 	melee_damage_upper = 60
-	armour_penetration = 15
+	armour_penetration = 20
 	speed = 2
 	sharpness = NONE
-	wound_bonus = 5
+	wound_bonus = 10
 	bare_wound_bonus = 5
+	butcher_results = list(/obj/item/ms13/hide/large/hellpig = 1, /obj/item/food/meat/slab/ms13/carcass/large/hellpig/front = 1, /obj/item/food/meat/slab/ms13/carcass/large/hellpig/back = 1, /obj/item/food/meat/slab/ms13/carcass/large/hellpig/leg = 4)
 	faction = list("pig")
 	/*food_type = list(/obj/item/food/meat/slab/human)
 	tame_chance = 1
 	bonus_tame_chance = 1
 	rideable = TRUE*/
-	base_pixel_x = -64
+	base_pixel_x = -48
 	status_flags = null

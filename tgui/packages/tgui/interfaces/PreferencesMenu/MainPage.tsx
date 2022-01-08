@@ -21,7 +21,7 @@ const CLOTHING_SELECTION_MULTIPLIER = 5.2;
 
 const CharacterControls = (props: {
   handleRotate: () => void,
-  handleOpenSpecies: () => void,
+  // handleOpenSpecies: () => void, MOJAVE SUN EDIT - Prefs
   gender: Gender,
   setGender: (gender: Gender) => void,
   showGender: boolean,
@@ -37,7 +37,7 @@ const CharacterControls = (props: {
           tooltipPosition="top"
         />
       </Stack.Item>
-
+      {/* MOJAVE SUN EDIT - Prefs
       <Stack.Item>
         <Button
           onClick={props.handleOpenSpecies}
@@ -47,7 +47,7 @@ const CharacterControls = (props: {
           tooltipPosition="top"
         />
       </Stack.Item>
-
+      */}
       {props.showGender && (
         <Stack.Item>
           <GenderButton
@@ -181,7 +181,7 @@ const GenderButton = (props: {
       genderMenuOpen
         && (
           <Stack backgroundColor="white" ml={0.5} p={0.3}>
-            {[Gender.Male, Gender.Female, Gender.Other].map(gender => {
+            {[Gender.Male, Gender.Female].map(gender => { // MOJAVE SUN EDIT
               return (
                 <Stack.Item key={gender}>
                   <Button
@@ -393,7 +393,7 @@ const PreferenceList = (props: {
 };
 
 export const MainPage = (props: {
-  openSpecies: () => void,
+//  openSpecies: () => void, MOJAVE SUN EDIT - Prefs
 }, context) => {
   const { act, data } = useBackend<PreferencesMenuData>(context);
   const [currentClothingMenu, setCurrentClothingMenu]
@@ -495,7 +495,7 @@ export const MainPage = (props: {
                 <Stack.Item>
                   <CharacterControls
                     gender={data.character_preferences.misc.gender}
-                    handleOpenSpecies={props.openSpecies}
+                    // handleOpenSpecies={props.openSpecies} MOJAVE SUN EDIT
                     handleRotate={() => {
                       act("rotate");
                     }}

@@ -12,7 +12,8 @@
 		if (accessory_name != "Nude")
 			var/datum/sprite_accessory/accessory = accessory_list[accessory_name]
 
-			var/icon/accessory_icon = icon('icons/mob/clothing/underwear.dmi', accessory.icon_state)
+			var/icon/accessory_icon = icon('mojave/icons/mob/clothing/underwear.dmi', accessory.icon_state) //MOJAVE SUN EDIT - Prefs
+			lower_half.Blend("#ffe0d1", ICON_MULTIPLY) //MOJAVE SUN EDIT END - Prefs
 			if (color && !accessory.use_static)
 				accessory_icon.Blend(color, ICON_MULTIPLY)
 			icon_with_socks.Blend(accessory_icon, ICON_OVERLAY)
@@ -24,6 +25,7 @@
 
 	return values
 
+/* MOVED TO MOJAVE MODULAR FILE FOR SORTING - mojave/code/modules/preferences/character.dm
 /// Backpack preference
 /datum/preference/choiced/backpack
 	savefile_key = "backpack"
@@ -110,7 +112,7 @@
 
 		if (accessory_name != "Nude")
 			var/datum/sprite_accessory/accessory = GLOB.undershirt_list[accessory_name]
-			icon_with_undershirt.Blend(icon('icons/mob/clothing/underwear.dmi', accessory.icon_state), ICON_OVERLAY)
+			icon_with_undershirt.Blend(icon('mojave/icons/mob/clothing/underwear.dmi', accessory.icon_state), ICON_OVERLAY) //MOJAVE SUN EDIT - Prefs
 
 		icon_with_undershirt.Crop(9, 9, 23, 23)
 		icon_with_undershirt.Scale(32, 32)
@@ -149,3 +151,4 @@
 	data[SUPPLEMENTAL_FEATURE_KEY] = "underwear_color"
 
 	return data
+*/
