@@ -334,11 +334,11 @@ Behavior that's still missing from this component that original food items had t
 									span_userdanger("[feeder] forces you to eat [parent]!"))
 
 	TakeBite(eater, feeder)
-
+	/* MOJAVE SUN EDIT BEGIN
 	//If we're not force-feeding and there's an eat delay, try take another bite
 	if(eater == feeder && eat_time)
 		INVOKE_ASYNC(src, .proc/TryToEat, eater, feeder)
-
+	MOJAVE SUN EDIT END */
 
 ///This function lets the eater take a bite and transfers the reagents to the eater.
 /datum/component/edible/proc/TakeBite(mob/living/eater, mob/living/feeder)

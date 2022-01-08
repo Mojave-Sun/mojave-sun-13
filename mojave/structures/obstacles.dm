@@ -359,9 +359,9 @@
 	if(istype(mover) && (mover.pass_flags & PASSGRILLE))
 		return 1
 	if(get_dir(loc, target) != SOUTH)
-		return 1
-	else
 		return 0
+	else
+		return 1
 
 /obj/structure/fence/fencenormal/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/wirecutters))
@@ -470,9 +470,9 @@
 	if(istype(mover) && (mover.pass_flags & PASSGRILLE))
 		return 1
 	if(get_dir(loc, target) != SOUTH)
-		return 1
-	else
 		return 0
+	else
+		return 1
 
 /obj/structure/fence/fencedoorside
 	name = "metal fence door"
