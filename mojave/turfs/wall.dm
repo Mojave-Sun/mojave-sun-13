@@ -22,31 +22,31 @@
 
 /turf/closed/wall/ms13/metal
 	name = "metal wall"
-	desc = ""
+	desc = "A sturdy metal wall."
 	icon = 'mojave/icons/turf/walls/metal.dmi'
 	frill_icon = 'mojave/icons/turf/walls/metal_frill.dmi'
 
 /turf/closed/wall/ms13/metal/rust
 	name = "rusted metal wall"
-	desc = ""
+	desc = "A metal wall rusted with age."
 	icon = 'mojave/icons/turf/walls/rustmetal.dmi'
 	frill_icon = 'mojave/icons/turf/walls/rustmetal_frill.dmi'
 
 /turf/closed/wall/ms13/wood
 	name = "log wall"
-	desc = ""
+	desc = "A rustic log wall."
 	icon = 'mojave/icons/turf/walls/wood.dmi'
 	frill_icon = 'mojave/icons/turf/walls/wood_frill.dmi'
 
 /turf/closed/wall/ms13/wood/fresh
 	name = "fresh log wall"
-	desc = ""
+	desc = "A somewhat freshly made log wall."
 	icon = 'mojave/icons/turf/walls/woodfresh.dmi'
 	frill_icon = 'mojave/icons/turf/walls/woodfresh_frill.dmi'
 
 /turf/closed/wall/ms13/scrap
 	name = "scrap wall"
-	desc = ""
+	desc = "A wall made of scrap metal."
 	icon = 'mojave/icons/turf/walls/scrap.dmi'
 	frill_icon = 'mojave/icons/turf/walls/scrap_frill.dmi'
 
@@ -70,7 +70,7 @@
 
 /turf/closed/wall/ms13/brick
 	name = "brick wall"
-	desc = ""
+	desc = "A brick wall. Try banging your head against this."
 	icon = 'mojave/icons/turf/walls/brick.dmi'
 	frill_icon = 'mojave/icons/turf/walls/brick_frill.dmi'
 
@@ -84,25 +84,24 @@
 
 /turf/closed/wall/ms13/metal/reinforced
 	name = "reinforced metal wall"
-	desc = ""
+	desc = "A heavy duty, reinforced metal wall."
 	icon = 'mojave/icons/turf/walls/rmetal.dmi'
 	frill_icon = 'mojave/icons/turf/walls/rmetal_frill.dmi'
 
 /turf/closed/wall/ms13/metal/reinforced/industrial
-	name = "reinforced metal wall"
-	desc = ""
+	desc = "A reinforced metal wall with some patches of rust."
 	icon = 'mojave/icons/turf/walls/rusty_industrial.dmi'
 	frill_icon = 'mojave/icons/turf/walls/rusty_industrial_frill.dmi'
 
 /turf/closed/wall/ms13/metal/reinforced/rust
 	name = "rusted reinforced metal wall"
-	desc = ""
+	desc = "A rusty but still quite sturdy reinforced metal wall."
 	icon = 'mojave/icons/turf/walls/rrustmetal.dmi'
 	frill_icon = 'mojave/icons/turf/walls/rrustmetal_frill.dmi'
 
 /turf/closed/wall/ms13/concrete
 	name = "concrete wall"
-	desc = ""
+	desc = "A tough concrete wall."
 	icon = 'mojave/icons/turf/walls/concrete.dmi'
 	frill_icon = 'mojave/icons/turf/walls/concrete_frill.dmi'
 
@@ -112,19 +111,19 @@
 
 /turf/closed/wall/ms13/sewer
 	name = "sewer wall"
-	desc = ""
+	desc = "A sewer wall. Gross."
 	icon = 'mojave/icons/turf/walls/sewer.dmi'
 	frill_icon = 'mojave/icons/turf/walls/sewer_frill.dmi'
 
 /turf/closed/wall/ms13/bunker
 	name = "bunker wall"
-	desc = ""
+	desc = "A bunker wall. Serious business."
 	icon = 'mojave/icons/turf/walls/bunker.dmi'
 	frill_icon = 'mojave/icons/turf/walls/bunker_frill.dmi'
 
 /turf/closed/indestructible/ms13/metal
 	name = "metal wall"
-	desc = ""
+	desc = "A sturdy metal wall."
 	icon = 'mojave/icons/turf/walls/metal.dmi'
 	frill_icon = 'mojave/icons/turf/walls/metal_frill.dmi'
 	icon_state = "wall-0"
@@ -135,7 +134,7 @@
 
 /turf/closed/indestructible/ms13/comb
 	name = "comb wall"
-	desc = "honeybeast comb, lining the walls. They subtly drip a substance."
+	desc = "Honeybeast comb, lining the walls. They subtly drip a substance."
 	icon = 'mojave/icons/turf/walls/comb.dmi'
 	frill_icon = 'mojave/icons/turf/walls/comb_frill.dmi'
 	icon_state = "wall-0"
@@ -148,26 +147,24 @@
 
 /turf/closed/wall/ms13/vault
 	name = "vault wall"
-	desc = ""
+	desc = "A secure vault wall."
 	icon = 'mojave/icons/turf/walls/vault_wall.dmi'
 	frill_icon = 'mojave/icons/turf/walls/vault_wall_rust_frill.dmi'
 
 /turf/closed/wall/ms13/vault/vent
 	name = "vent section"
-	desc = ""
 	icon_state = "wall-141"
 	icon = 'mojave/icons/turf/walls/vault_vent.dmi'
 	frill_icon = 'mojave/icons/turf/walls/vault_vent_frill.dmi'
 
 /turf/closed/wall/ms13/vault/rust
-	name = "vault wall"
-	desc = ""
+	name = "rusted vault wall"
+	desc = "A rusted vault wall."
 	icon = 'mojave/icons/turf/walls/vault_wall_rust.dmi'
 	frill_icon = 'mojave/icons/turf/walls/vault_wall_rust_frill.dmi'
 
 /turf/closed/wall/ms13/vault/rust/vent
-	name = "vent section"
-	desc = ""
+	name = "rusted vent section"
 	icon_state = "wall-141"
 	icon = 'mojave/icons/turf/walls/vault_vent_rust.dmi'
 	frill_icon = 'mojave/icons/turf/walls/vault_vent_rust_frill.dmi'
@@ -176,7 +173,7 @@
 
 /turf/closed/wall/ms13/dungeon
 	name = "reinforced bunker wall"
-	desc = ""
+	desc = "A reinforced bunker wall. The pinnacle of pre-war engineering."
 	icon = 'mojave/icons/turf/walls/dungeon_1.dmi'
 	frill_icon = 'mojave/icons/turf/walls/dungeon_1_frill.dmi'
 
@@ -200,8 +197,8 @@
 			return
 
 /turf/closed/wall/ms13/dungeon/rust
-	name = "reinforced bunker wall"
-	desc = ""
+	name = "rusted reinforced bunker wall"
+	desc = "A rusted reinforced bunker wall. Still stands strong."
 	icon = 'mojave/icons/turf/walls/dungeon_rust_1.dmi'
 	frill_icon = 'mojave/icons/turf/walls/dungeon_rust_1_frill.dmi'
 
@@ -233,10 +230,12 @@
 	weldable = TRUE
 
 /turf/closed/wall/ms13/craftable/scrap
-	name = "rough scrap wall"
-	desc = ""
+	name = "crude scrap wall"
+	desc = "A crude wall made of scrap metal. This looks recently constructed."
 	icon = 'mojave/icons/turf/walls/roughscrap.dmi'
 	frill_icon = 'mojave/icons/turf/walls/roughscrap_1_frill.dmi'
+	girder_type = /obj/structure/girder/ms13/bars
+	slicing_duration = 30 SECONDS
 
 /turf/closed/wall/ms13/craftable/scrap/Initialize()
 	. = ..()
@@ -264,7 +263,7 @@
 
 /obj/structure/girder/ms13/bars
 	name = "rebar supports"
-	desc = "Quick and cheap building supports for ghetto constructions."
+	desc = "Cheap building supports for makeshift construction projects."
 	icon_state = "rebar"
 	material_used = list(/obj/item/stack/sheet/ms13/scrap)
 	wall_type = /turf/closed/wall/ms13/craftable/scrap

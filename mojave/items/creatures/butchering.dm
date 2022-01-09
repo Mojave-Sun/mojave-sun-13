@@ -156,7 +156,7 @@
 	return
 
 /obj/item/food/meat/slab/ms13/carcass/MakeProcessable()
-	AddElement(/datum/element/processable, TOOL_KNIFE,  /obj/item/food/meat/slab, meat_amount, 60 SECONDS * toolspeed)
+	AddElement(/datum/element/processable, TOOL_KNIFE,  /obj/item/food/meat/slab, meat_amount, 45 SECONDS * toolspeed)
 
 //small/medium
 

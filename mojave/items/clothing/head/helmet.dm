@@ -164,6 +164,8 @@
 	desc = "A very sturdy hard hat with a built in light."
 	icon_state = "hardhat0_mining" //holy fuck this code is garbage
 	hat_type = "mining"
+	light_power = 0.75
+	light_range = 3.75
 	icon = 'mojave/icons/objects/clothing/clothing_world/hats_world.dmi'
 	worn_icon = 'mojave/icons/mob/clothing/head.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
