@@ -38,7 +38,7 @@
 	amount = 50
 
 GLOBAL_LIST_INIT(scrap_recipes, list ( \
-	new/datum/stack_recipe("rebar struts", /obj/structure/girder/ms13/bars, 2, time = 10 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("rebar struts", /obj/structure/girder/ms13/bars, 2, time = 30 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 ))
 
 /obj/item/stack/sheet/ms13/scrap/get_main_recipes()
