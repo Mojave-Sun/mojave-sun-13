@@ -1,9 +1,12 @@
-/datum/component/personal_crafting/Initialize()
-	return
-	/* MOJAVE EDIT
+// MOJAVE EDIT - CRAFTING BENCHES START
+/datum/component/personal_crafting/Initialize(crafting_interface=CRAFTING_BENCH_HANDS)
+	src.crafting_interface = crafting_interface // MOJAVE EDIT - CRAFTING BENCHES
 	if(ismob(parent))
-		RegisterSignal(parent, COMSIG_MOB_CLIENT_LOGIN, .proc/create_mob_button)
-	*/
+		return // no hand crafting
+		// RegisterSignal(parent, COMSIG_MOB_CLIENT_LOGIN, .proc/create_mob_button)
+	else // Alt click because workbenches are tables, so putting items on them triggers a click
+		RegisterSignal(parent, COMSIG_CLICK_CTRL, .proc/component_ui_interact_workbench)
+// MOJAVE EDIT - CRAFTING BENCHES END
 
 /datum/component/personal_crafting/proc/create_mob_button(mob/user, client/CL)
 	SIGNAL_HANDLER
@@ -24,6 +27,7 @@
 					CAT_WEAPON,
 					CAT_AMMO,
 				),
+				CAT_MEDICAL,
 				CAT_ROBOT = CAT_NONE,
 				CAT_MISC = CAT_NONE,
 				CAT_PRIMAL = CAT_NONE,
@@ -205,9 +209,16 @@
 				for(var/content in get_turf(a))
 					if(istype(content, R.result))
 						return ", object already present."
-			//If we're a mob we'll try a do_after; non mobs will instead instantly construct the item
-			if(ismob(a) && !do_after(a, R.time, target = a))
-				return "."
+			// MOJAVE EDIT - CRAFTING BENCHES START
+			if(ismob(a))
+				var/mob/crafting_mob = a
+				// If we are a mob, check we still have desired traits (if any)
+				if(R.trait && crafting_mob.mind && !HAS_TRAIT(crafting_mob.mind, R.trait))
+					return ", missing trait"
+				//If we're a mob we'll try a do_after; non mobs will instead instantly construct the item
+				if(!do_after(a, R.time, target = a))
+					return "."
+			// MOJAVE EDIT - CRAFTING BENCHES END
 			contents = get_surroundings(a,R.blacklist)
 			if(!check_contents(a, R, contents))
 				return ", missing component."
@@ -359,14 +370,25 @@
 			container.emptyStorage()
 		qdel(DL)
 
+// MOJAVE-EDIT
+/datum/component/personal_crafting/proc/component_ui_interact_workbench(datum/source, mob/user)
+	SIGNAL_HANDLER
+
+	//MOJAVE EDIT - Only require user to be the component owner, for hand crafting
+	if(source == parent)
+		INVOKE_ASYNC(src, .proc/ui_interact, user)
+
 /datum/component/personal_crafting/proc/component_ui_interact(atom/movable/screen/craft/image, location, control, params, user)
 	SIGNAL_HANDLER
 
 	if(user == parent)
 		INVOKE_ASYNC(src, .proc/ui_interact, user)
 
+
 /datum/component/personal_crafting/ui_state(mob/user)
-	return GLOB.not_incapacitated_turf_state
+	if(crafting_interface == CRAFTING_BENCH_HANDS)
+		return GLOB.not_incapacitated_turf_state
+	return GLOB.default_state
 
 //For the UI related things we're going to assume the user is a mob rather than typesetting it to an atom as the UI isn't generated if the parent is an atom
 /datum/component/personal_crafting/ui_interact(mob/user, datum/tgui/ui)
@@ -394,6 +416,16 @@
 	for(var/rec in GLOB.crafting_recipes)
 		var/datum/crafting_recipe/R = rec
 
+		// MOJAVE EDIT - CRAFTING BENCHES START
+		// Check we are the correct workbench for this
+		if(!(R.crafting_interface & src.crafting_interface))
+			continue
+
+		// Check we have the traits that teach these -- traits might be in their body or noggin
+		if(R.trait && user?.mind && !HAS_TRAIT(user.mind, R.trait))
+			continue
+		// MOJAVE EDIT - CRAFTING BENCHES END
+
 		if(!R.always_available && !(R.type in user?.mind?.learned_recipes)) //User doesn't actually know how to make this.
 			continue
 
@@ -414,6 +446,16 @@
 
 		if(R.name == "") //This is one of the invalid parents that sneaks in
 			continue
+
+		// MOJAVE EDIT - CRAFTING BENCHES START
+		// Check we are the correct workbench for this
+		if(!(R.crafting_interface & src.crafting_interface))
+			continue
+
+		// Check we have the traits that teach these
+		if(R.trait && user?.mind && !HAS_TRAIT(user.mind, R.trait))
+			continue
+		// MOJAVE EDIT - CRAFTING BENCHES END
 
 		if(!R.always_available && !(R.type in user?.mind?.learned_recipes)) //User doesn't actually know how to make this.
 			continue
