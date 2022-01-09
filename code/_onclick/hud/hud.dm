@@ -316,9 +316,9 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 		hand_box.icon_state = "hand_[mymob.held_index_to_dir(i)]"
 		// MOJAVE EDIT
 		if(i == 1)
-			hand_box.screen_loc = "CENTER:-44,SOUTH"
-		else
 			hand_box.screen_loc = "CENTER:2,SOUTH"
+		else
+			hand_box.screen_loc = "CENTER:-44,SOUTH"
 		//hand_box.screen_loc = ui_hand_position(i)
 		hand_box.held_index = i
 		hand_slots["[i]"] = hand_box
