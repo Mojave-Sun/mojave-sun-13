@@ -43,7 +43,7 @@
 	var/can_crush = TRUE /// Whether or not the door can crush mobs.
 	var/sparks = TRUE /// MOJAVE SUN EDIT
 
-/obj/machinery/door/examine(mob/user)
+/*/obj/machinery/door/examine(mob/user) //MOJAVE SUN EDUT START
 	. = ..()
 	if(red_alert_access)
 		if(SSsecurity_level.current_level >= SEC_LEVEL_RED)
@@ -55,7 +55,7 @@
 /obj/machinery/door/check_access_list(list/access_list)
 	if(red_alert_access && SSsecurity_level.current_level >= SEC_LEVEL_RED)
 		return TRUE
-	return ..()
+	return ..() */ //MOJAVE SUN EDIT END
 
 /obj/machinery/door/Initialize(mapload)
 	. = ..()
