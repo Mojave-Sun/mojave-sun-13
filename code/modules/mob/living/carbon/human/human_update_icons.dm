@@ -124,11 +124,11 @@ There are several things that need to be remembered:
 
 
 		var/mutable_appearance/uniform_overlay
-
+		/* MOJAVE SUN EDIT - Gender Prefs
 		if(dna?.species.sexes)
 			if(body_type == FEMALE && U.fitted != NO_FEMALE_UNIFORM)
 				uniform_overlay = U.build_worn_icon(default_layer = UNIFORM_LAYER, default_icon_file = 'icons/mob/clothing/under/default.dmi', isinhands = FALSE, femaleuniform = U.fitted, override_state = target_overlay)
-
+		*/
 		if(!uniform_overlay)
 			uniform_overlay = U.build_worn_icon(default_layer = UNIFORM_LAYER, default_icon_file = 'icons/mob/clothing/under/default.dmi', isinhands = FALSE, override_state = target_overlay)
 

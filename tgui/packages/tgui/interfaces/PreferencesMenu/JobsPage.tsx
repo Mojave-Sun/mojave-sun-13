@@ -527,6 +527,20 @@ export const JobsPage = (props, context) => {
         return "Wasteland";
     }
   };
+  const GetFactionFullName = () => {
+    switch (currentFaction) {
+      case Faction.NCR:
+        return "The New California Republic";
+      case Faction.Town:
+        return "";
+      case Faction.BOS:
+        return "The Brotherhood of Steel";
+      case Faction.Raiders:
+        return "The Blizzard Bastards";
+      case Faction.Wasteland:
+        return "";
+    }
+  };
   const activeFactionMenu = JobSwitch(currentFaction);
   const className = "PreferencesMenu__Jobs";
 
@@ -589,9 +603,10 @@ export const JobsPage = (props, context) => {
               </Stack.Item>
               <Stack.Item align="center">
                 <Tooltip content={
-                  <>The New California Republic</>
+                  <>{GetFactionFullName()}</>
                 } position="bottom">
                   <Box
+                    align="center"
                     className={"faction-icon-parent"}
                   >
                     {GetFactionPicture(currentFaction)}

@@ -17,7 +17,6 @@
 
 	uniform =    /obj/item/clothing/under/ms13/regal
 	shoes =  	 /obj/item/clothing/shoes/ms13/military/vault
-	back =	 	 /obj/item/storage/backpack
 	belt = 		 /obj/item/gun/ballistic/revolver/ms13/derringer
 	r_pocket =   /obj/item/ammo_box/ms13/derringer22
 	l_pocket =   /obj/item/ammo_box/ms13/derringer22

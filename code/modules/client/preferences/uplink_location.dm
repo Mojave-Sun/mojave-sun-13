@@ -24,3 +24,7 @@
 
 /datum/preference/choiced/uplink_location/apply_to_human(mob/living/carbon/human/target, value)
 	return
+
+/datum/preference/choiced/uplink_location/is_accessible(datum/preferences/preferences)
+	. = ..()
+	return FALSE //MOJAVE SUN EDIT - Prefs

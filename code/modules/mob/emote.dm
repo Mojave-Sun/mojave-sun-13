@@ -60,7 +60,7 @@
 	message += "."
 	message = message.Join("")
 	to_chat(user, message)
-
+/* MOJAVE SUN EDIT - Removes Stupid non-RP Emotes
 /datum/emote/flip
 	key = "flip"
 	key_third_person = "flips"
@@ -131,3 +131,4 @@
 #undef BEYBLADE_DIZZINESS_VALUE
 #undef BEYBLADE_CONFUSION_INCREMENT
 #undef BEYBLADE_CONFUSION_LIMIT
+*///MOJAVE SUN EDIT END - Remove stupid non-RP emotes
