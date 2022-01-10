@@ -94,7 +94,6 @@
     absorption_capacity = 5
     splint_factor = 0.6
     burn_cleanliness_bonus = 0.6
-
     merge_type = /obj/item/stack/medical/gauze/ms13
 
 /obj/item/stack/medical/gauze/ms13/Initialize()
@@ -106,6 +105,19 @@
 
 /obj/item/stack/medical/gauze/ms13/three
     amount = 3
+
+/obj/item/stack/medical/gauze/ms13/cloth
+    name = "cloth"
+    desc = "Pieces of cloth that can be used for many things, even as an improvised bandage."
+    singular_name = "cloth piece"
+    icon_state = "cloth"
+    max_amount = 12
+    amount = 12
+    absorption_rate = 0.06
+    absorption_capacity = 3.5
+    splint_factor = 0.85
+    burn_cleanliness_bonus = 0.85
+    merge_type = /obj/item/stack/medical/gauze/ms13/cloth
 
 /obj/item/stack/medical/gauze/ms13/military
     name = "military gauze"

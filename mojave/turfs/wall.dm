@@ -231,7 +231,7 @@
 
 /turf/closed/wall/ms13/craftable/scrap
 	name = "crude scrap wall"
-	desc = "A crude wall made of scrap metal. This looks recently constructed."
+	desc = "A crude wall made of scrap metal. This looks very recently constructed."
 	icon = 'mojave/icons/turf/walls/roughscrap.dmi'
 	frill_icon = 'mojave/icons/turf/walls/roughscrap_1_frill.dmi'
 	girder_type = /obj/structure/girder/ms13/bars
@@ -250,6 +250,14 @@
 		else
 			return
 
+/turf/closed/wall/ms13/craftable/wood
+	name = "crude log wall"
+	desc = "A freshly made, crude log wall. This looks very recently constructed."
+	icon = 'mojave/icons/turf/walls/woodfresh.dmi'
+	frill_icon = 'mojave/icons/turf/walls/woodfresh_frill.dmi'
+	girder_type = /obj/structure/girder/ms13/bars
+	slicing_duration = 30 SECONDS
+
 //Wall Supports
 
 /obj/structure/girder/ms13
@@ -266,7 +274,7 @@
 	desc = "Cheap building supports for makeshift construction projects."
 	icon_state = "rebar"
 	material_used = list(/obj/item/stack/sheet/ms13/scrap)
-	wall_type = /turf/closed/wall/ms13/craftable/scrap
+	wall_type = list(/turf/closed/wall/ms13/craftable/scrap, /turf/closed/wall/ms13/craftable/wood)
 
 /obj/structure/girder/ms13/bars/Initialize()
 	. = ..()
