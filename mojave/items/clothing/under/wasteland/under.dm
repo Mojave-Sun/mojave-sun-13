@@ -13,7 +13,7 @@
 	///Icon file for right inhand overlays
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
 	repairable_by = /obj/item/stack/medical/gauze/ms13/cloth
-	limb_integrity = 60
+	limb_integrity = 80
 	max_integrity = 300
 
 /obj/item/clothing/under/ms13/Initialize()

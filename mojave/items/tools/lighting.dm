@@ -42,7 +42,8 @@
 	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
 	icon_state = "flare"
 	inhand_icon_state = "flare"
-	light_range = 3.75 // lower because radial
+	light_range = 3.5
+	light_power = 0.75
 
 /obj/item/flashlight/flare/ms13/Initialize()
 	. = ..()

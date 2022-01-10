@@ -11,7 +11,7 @@
 	merge_type = /obj/item/stack/sheet/ms13
 	w_class = WEIGHT_CLASS_NORMAL
 
-/obj/item/ms13/component/cell/Initialize()
+/obj/item/stack/sheet/ms13/Initialize()
 	. = ..()
 	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/crafting/materials_inventory.dmi')
 
@@ -25,10 +25,12 @@
 	inhand_icon_state = "scrap"
 	merge_type = /obj/item/stack/sheet/ms13/scrap
 	max_amount = 15
-	walltype = /turf/closed/wall/ms13/craftable/scrap
+
+/obj/item/stack/sheet/ms13/scrap/two
+	amount = 2
 
 GLOBAL_LIST_INIT(scrap_recipes, list ( \
-	new/datum/stack_recipe("rebar struts", /obj/structure/girder/ms13/bars, 10, time = 30 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("crude scrap wall", /turf/closed/wall/ms13/craftable/scrap, 10, time = 40 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 ))
 
 /obj/item/stack/sheet/ms13/scrap/get_main_recipes()
@@ -53,6 +55,12 @@ GLOBAL_LIST_INIT(scrap_recipes, list ( \
 	max_amount = 20
 	w_class = WEIGHT_CLASS_SMALL
 
+/obj/item/stack/sheet/ms13/scrap_parts/two
+	amount = 2
+
+/obj/item/stack/sheet/ms13/scrap_parts/ten
+	amount = 10
+
 /datum/material/ms13/scrap_parts
 	name = "scrap parts"
 	desc = "Assorted scrap parts."
@@ -67,7 +75,11 @@ GLOBAL_LIST_INIT(scrap_recipes, list ( \
 	singular_name = "rubber piece"
 	icon_state = "rubber"
 	merge_type = /obj/item/stack/sheet/ms13/rubber
+	amount = 1
 	max_amount = 20
+
+/obj/item/stack/sheet/ms13/rubber/two
+	amount = 2
 
 /datum/material/ms13/rubber
 	name = "rubber"
@@ -83,7 +95,11 @@ GLOBAL_LIST_INIT(scrap_recipes, list ( \
 	singular_name = "plastice piece"
 	icon_state = "plastic"
 	merge_type = /obj/item/stack/sheet/ms13/plastic
+	amount = 1
 	max_amount = 25
+
+/obj/item/stack/sheet/ms13/plastic/three
+	amount = 3
 
 /datum/material/ms13/plastic
 	name = "plastic"
@@ -99,7 +115,11 @@ GLOBAL_LIST_INIT(scrap_recipes, list ( \
 	singular_name = "ceramic shard"
 	icon_state = "ceramic"
 	merge_type = /obj/item/stack/sheet/ms13/ceramic
+	amount = 1
 	max_amount = 20
+
+/obj/item/stack/sheet/ms13/ceramic/three
+	amount = 3
 
 /datum/material/ms13/ceramic
 	name = "ceramic shards"
@@ -115,8 +135,12 @@ GLOBAL_LIST_INIT(scrap_recipes, list ( \
 	singular_name = "glass shard"
 	icon_state = "scrap_glass"
 	merge_type = /obj/item/stack/sheet/ms13/glass
+	amount = 1
 	max_amount = 20
 	w_class = WEIGHT_CLASS_SMALL
+
+/obj/item/stack/sheet/ms13/glass/three
+	amount = 3
 
 /datum/material/ms13/glass
 	name = "glass shards"
@@ -135,15 +159,18 @@ GLOBAL_LIST_INIT(scrap_recipes, list ( \
 	icon_state = "scrap_steel"
 	inhand_icon_state = "scrap"
 	merge_type = /obj/item/stack/sheet/ms13/scrap_steel
+	amount = 1
 	max_amount = 15
-	walltype = /turf/closed/wall/ms13/craftable/scrap
+
+/obj/item/stack/sheet/ms13/scrap_steel/two
+	amount = 2
 
 GLOBAL_LIST_INIT(scrap_steel_recipes, list ( \
-	new/datum/stack_recipe("rebar struts", /obj/structure/girder/ms13/bars, 6, time = 30 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("metal table frame", /obj/structure/table_frame/ms13, 2, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("green scrap metal chair", /obj/structure/chair/ms13/metal/unfinished, 2, time = 10 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("blue scrap metal chair", /obj/structure/chair/ms13/metal/blue/unfinished, 2, time = 10 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("red scrap metal chair", /obj/structure/chair/ms13/metal/red/unfinished, 2, time = 10 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("crude scrap wall", /turf/closed/wall/ms13/craftable/scrap, 6, time = 40 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("crude scrap metal table", /obj/structure/table/ms13/metal/constructed/cobbled, 4, time = 20 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("green scrap metal chair", /obj/structure/chair/ms13/metal/unfinished, 2, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("blue scrap metal chair", /obj/structure/chair/ms13/metal/blue/unfinished, 2, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("red scrap metal chair", /obj/structure/chair/ms13/metal/red/unfinished, 2, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 ))
 
 /obj/item/stack/sheet/ms13/scrap_steel/get_main_recipes()
@@ -164,7 +191,11 @@ GLOBAL_LIST_INIT(scrap_steel_recipes, list ( \
 	singular_name = "refined steel ingot"
 	icon_state = "ingot_steel"
 	merge_type = /obj/item/stack/sheet/ms13/refined_steel
+	amount = 1
 	max_amount = 10
+
+/obj/item/stack/sheet/ms13/refined_steel/two
+	amount = 2
 
 /datum/material/ms13/refined_steel
 	name = "refined steel"
@@ -173,6 +204,17 @@ GLOBAL_LIST_INIT(scrap_steel_recipes, list ( \
 	sheet_type = /obj/item/stack/sheet/ms13/refined_steel
 	beauty_modifier = 0
 	strength_modifier = 1
+
+GLOBAL_LIST_INIT(refined_steel_recipes, list ( \
+	new/datum/stack_recipe("crude metal table", /obj/structure/table/ms13/metal/constructed, 2, time = 20 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("green metal chair", /obj/structure/chair/ms13/metal, 1, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("blue metal chair", /obj/structure/chair/ms13/metal/blue, 1, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("red metal chair", /obj/structure/chair/ms13/metal/red, 1, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+))
+
+/obj/item/stack/sheet/ms13/refined_steel/get_main_recipes()
+	. = ..()
+	. += GLOB.refined_steel_recipes
 
 //LEAD//
 
@@ -183,7 +225,11 @@ GLOBAL_LIST_INIT(scrap_steel_recipes, list ( \
 	icon_state = "scrap_lead"
 	inhand_icon_state = "scrap"
 	merge_type = /obj/item/stack/sheet/ms13/scrap_lead
+	amount = 1
 	max_amount = 15
+
+/obj/item/stack/sheet/ms13/scrap_lead/two
+	amount = 2
 
 /datum/material/ms13/scrap_lead
 	name = "scrap lead"
@@ -197,9 +243,13 @@ GLOBAL_LIST_INIT(scrap_steel_recipes, list ( \
 	name = "refined lead"
 	desc = "Dense and heavy lead ingots."
 	singular_name = "refined lead ingot"
-	icon_state = "lead_ingot"
+	icon_state = "ingot_lead"
 	merge_type = /obj/item/stack/sheet/ms13/refined_lead
+	amount = 1
 	max_amount = 10
+
+/obj/item/stack/sheet/ms13/refined_lead/two
+	amount = 2
 
 /datum/material/ms13/refined_lead
 	name = "refined lead"
@@ -236,7 +286,11 @@ GLOBAL_LIST_INIT(scrap_steel_recipes, list ( \
 	icon_state = "scrap_brass"
 	inhand_icon_state = "scrap"
 	merge_type = /obj/item/stack/sheet/ms13/scrap_brass
+	amount = 1
 	max_amount = 15
+
+/obj/item/stack/sheet/ms13/scrap_brass/two
+	amount = 2
 
 /datum/material/ms13/scrap_brass
 	name = "scrap brass"
@@ -250,9 +304,13 @@ GLOBAL_LIST_INIT(scrap_steel_recipes, list ( \
 	name = "refined brass"
 	desc = "Light brass ingots."
 	singular_name = "refined brass ingot"
-	icon_state = "brass_ingot"
+	icon_state = "ingot_brass"
 	merge_type = /obj/item/stack/sheet/ms13/refined_brass
+	amount = 1
 	max_amount = 10
+
+/obj/item/stack/sheet/ms13/refined_brass/two
+	amount = 2
 
 /datum/material/ms13/refined_brass
 	name = "refined brass"
@@ -289,7 +347,11 @@ GLOBAL_LIST_INIT(scrap_steel_recipes, list ( \
 	icon_state = "scrap_aluminum"
 	inhand_icon_state = "scrap"
 	merge_type = /obj/item/stack/sheet/ms13/scrap_alu
+	amount = 1
 	max_amount = 15
+
+/obj/item/stack/sheet/ms13/scrap_alu/two
+	amount = 2
 
 /datum/material/ms13/scrap_alu
 	name = "scrap aluminum"
@@ -300,10 +362,10 @@ GLOBAL_LIST_INIT(scrap_steel_recipes, list ( \
 	strength_modifier = 1
 
 GLOBAL_LIST_INIT(scrap_alu_recipes, list ( \
-	new/datum/stack_recipe("metal table frame", /obj/structure/table_frame/ms13, 2, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("green scrap metal chair", /obj/structure/chair/ms13/metal/unfinished, 2, time = 10 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("blue scrap metal chair", /obj/structure/chair/ms13/metal/blue/unfinished, 2, time = 10 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("red scrap metal chair", /obj/structure/chair/ms13/metal/red/unfinished, 2, time = 10 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("crude scrap metal table", /obj/structure/table/ms13/metal/constructed/cobbled, 4, time = 20 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("green scrap metal chair", /obj/structure/chair/ms13/metal/unfinished, 2, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("blue scrap metal chair", /obj/structure/chair/ms13/metal/blue/unfinished, 2, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("red scrap metal chair", /obj/structure/chair/ms13/metal/red/unfinished, 2, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 ))
 
 /obj/item/stack/sheet/ms13/scrap_alu/get_main_recipes()
@@ -316,7 +378,11 @@ GLOBAL_LIST_INIT(scrap_alu_recipes, list ( \
 	singular_name = "refined aluminum ingot"
 	icon_state = "ingot_aluminum"
 	merge_type = /obj/item/stack/sheet/ms13/refined_alu
+	amount = 1
 	max_amount = 10
+
+/obj/item/stack/sheet/ms13/refined_alu/two
+	amount = 2
 
 /datum/material/ms13/refined_alu
 	name = "refined aluminum"
@@ -325,6 +391,17 @@ GLOBAL_LIST_INIT(scrap_alu_recipes, list ( \
 	sheet_type = /obj/item/stack/sheet/ms13/refined_alu
 	beauty_modifier = 0
 	strength_modifier = 1
+
+GLOBAL_LIST_INIT(refined_alu_recipes, list ( \
+	new/datum/stack_recipe("crude metal table", /obj/structure/table/ms13/metal/constructed, 2, time = 20 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("green metal chair", /obj/structure/chair/ms13/metal, 1, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("blue metal chair", /obj/structure/chair/ms13/metal/blue, 1, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("red metal chair", /obj/structure/chair/ms13/metal/red, 1, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+))
+
+/obj/item/stack/sheet/ms13/refined_alu/get_main_recipes()
+	. = ..()
+	. += GLOB.refined_alu_recipes
 
 //SILVER//
 
@@ -335,7 +412,11 @@ GLOBAL_LIST_INIT(scrap_alu_recipes, list ( \
 	icon_state = "scrap_silver"
 	inhand_icon_state = "scrap"
 	merge_type = /obj/item/stack/sheet/ms13/scrap_silver
+	amount = 1
 	max_amount = 15
+
+/obj/item/stack/sheet/ms13/scrap_silver/two
+	amount = 2
 
 /datum/material/ms13/scrap_silver
 	name = "scrap silver"
@@ -351,7 +432,11 @@ GLOBAL_LIST_INIT(scrap_alu_recipes, list ( \
 	singular_name = "refined silver ingot"
 	icon_state = "ingot_silver"
 	merge_type = /obj/item/stack/sheet/ms13/refined_silver
+	amount = 1
 	max_amount = 10
+
+/obj/item/stack/sheet/ms13/refined_silver/two
+	amount = 2
 
 /datum/material/ms13/refined_silver
 	name = "refined silver"
@@ -370,7 +455,11 @@ GLOBAL_LIST_INIT(scrap_alu_recipes, list ( \
 	icon_state = "scrap_gold"
 	inhand_icon_state = "scrap"
 	merge_type = /obj/item/stack/sheet/ms13/scrap_gold
+	amount = 1
 	max_amount = 15
+
+/obj/item/stack/sheet/ms13/scrap_gold/two
+	amount = 2
 
 /datum/material/ms13/scrap_gold
 	name = "scrap gold"
@@ -386,7 +475,11 @@ GLOBAL_LIST_INIT(scrap_alu_recipes, list ( \
 	singular_name = "refined gold ingot"
 	icon_state = "ingot_gold"
 	merge_type = /obj/item/stack/sheet/ms13/refined_gold
+	amount = 1
 	max_amount = 10
+
+/obj/item/stack/sheet/ms13/refined_gold/two
+	amount = 2
 
 /datum/material/ms13/refined_gold
 	name = "refined gold"
@@ -405,7 +498,11 @@ GLOBAL_LIST_INIT(scrap_alu_recipes, list ( \
 	icon_state = "scrap_copper"
 	inhand_icon_state = "scrap"
 	merge_type = /obj/item/stack/sheet/ms13/scrap_copper
+	amount = 1
 	max_amount = 15
+
+/obj/item/stack/sheet/ms13/scrap_copper/two
+	amount = 2
 
 /datum/material/ms13/scrap_copper
 	name = "copper wire"
@@ -424,7 +521,11 @@ GLOBAL_LIST_INIT(scrap_alu_recipes, list ( \
 	icon_state = "scrap_electronic"
 	inhand_icon_state = "scrap"
 	merge_type = /obj/item/stack/sheet/ms13/scrap_electronics
+	amount = 1
 	max_amount = 15
+
+/obj/item/stack/sheet/ms13/scrap_electronics/two
+	amount = 2
 
 /obj/item/stack/sheet/ms13/circuits
 	name = "circuits"
@@ -433,7 +534,11 @@ GLOBAL_LIST_INIT(scrap_alu_recipes, list ( \
 	icon_state = "circuits"
 	inhand_icon_state = "scrap"
 	merge_type = /obj/item/stack/sheet/ms13/circuits
+	amount = 1
 	max_amount = 15
+
+/obj/item/stack/sheet/ms13/circuits/three
+	amount = 3
 
 //WOOD//
 
@@ -443,9 +548,17 @@ GLOBAL_LIST_INIT(scrap_alu_recipes, list ( \
 	singular_name = "log"
 	icon_state = "log"
 	merge_type = /obj/item/stack/sheet/ms13/log
+	amount = 1
 	max_amount = 4
 	w_class = WEIGHT_CLASS_BULKY
-	walltype = /turf/closed/wall/ms13/craftable/wood
+
+GLOBAL_LIST_INIT(log_recipes, list ( \
+	new/datum/stack_recipe("crude log wall", /turf/closed/wall/ms13/craftable/wood, 4, time = 40 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+))
+
+/obj/item/stack/sheet/ms13/log/get_main_recipes()
+	. = ..()
+	. += GLOB.log_recipes
 
 /obj/item/stack/sheet/ms13/scrap_wood
 	name = "scrap wood"
@@ -453,10 +566,14 @@ GLOBAL_LIST_INIT(scrap_alu_recipes, list ( \
 	singular_name = "scrap wood piece"
 	icon_state = "scrap_wood"
 	merge_type = /obj/item/stack/sheet/ms13/scrap_wood
+	amount = 1
 	max_amount = 15
 
+/obj/item/stack/sheet/ms13/scrap_wood/two
+	amount = 2
+
 GLOBAL_LIST_INIT(scrap_wood_recipes, list ( \
-	new/datum/stack_recipe("wood table frame", /obj/structure/table_frame/ms13/wood, 5, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("crude scrap wood table", /obj/structure/table/ms13/wood/constructed/cobbled, 10, time = 20 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 ))
 
 /obj/item/stack/sheet/ms13/scrap_wood/get_main_recipes()
@@ -469,10 +586,11 @@ GLOBAL_LIST_INIT(scrap_wood_recipes, list ( \
 	singular_name = "wood plank"
 	icon_state = "plank"
 	merge_type = /obj/item/stack/sheet/ms13/plank
+	amount = 1
 	max_amount = 10
 
 GLOBAL_LIST_INIT(plank_recipes, list ( \
-	new/datum/stack_recipe("wood table frame", /obj/structure/table_frame/ms13/wood, 2, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("crude wood table", /obj/structure/table/ms13/wood/constructed, 4, time = 20 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 ))
 
 /obj/item/stack/sheet/ms13/plank/get_main_recipes()
@@ -487,7 +605,11 @@ GLOBAL_LIST_INIT(plank_recipes, list ( \
 	singular_name = "leather piece"
 	icon_state = "leather"
 	merge_type = /obj/item/stack/sheet/ms13/leather
+	amount = 1
 	max_amount = 15
+
+/obj/item/stack/sheet/ms13/leather/two
+	amount = 2
 
 /obj/item/stack/sheet/ms13/mil_fiber
 	name = "military fiber"
@@ -495,7 +617,11 @@ GLOBAL_LIST_INIT(plank_recipes, list ( \
 	singular_name = "military fiber piece"
 	icon_state = "militaryfiber"
 	merge_type = /obj/item/stack/sheet/ms13/mil_fiber
+	amount = 1
 	max_amount = 15
+
+/obj/item/stack/sheet/ms13/mil_fiber/three
+	amount = 3
 
 /obj/item/stack/sheet/ms13/thread
 	name = "thread"
@@ -503,8 +629,12 @@ GLOBAL_LIST_INIT(plank_recipes, list ( \
 	singular_name = "thread piece"
 	icon_state = "thread"
 	merge_type = /obj/item/stack/sheet/ms13/thread
+	amount = 1
 	max_amount = 20
 	w_class = WEIGHT_CLASS_SMALL
+
+/obj/item/stack/sheet/ms13/thread/two
+	amount = 2
 
 //Old Stuff Below, Be Warned//
 

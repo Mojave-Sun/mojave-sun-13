@@ -18,9 +18,10 @@
 	icon = 'mojave/icons/structure/smooth_structures/tables/table_metal.dmi'
 	icon_state = "table-0"
 	base_icon_state = "table"
-	max_integrity = 150
+	max_integrity = 200
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TABLE_METAL) //Don't smooth with SMOOTH_GROUP_TABLES
 	canSmoothWith = list(SMOOTH_GROUP_MS13_TABLE_METAL)
+	frame = /obj/item/stack/sheet/ms13/scrap
 
 /obj/structure/table/ms13/metal/alt
 	desc = "A rounded piece of metal standing on a set of metal legs. It can not move."
@@ -29,7 +30,7 @@
 /obj/structure/table/ms13/metal/grate
 	desc = "A grated metal table, like a normal table but can't hold small stuff! Super industrial-y"
 	icon = 'mojave/icons/structure/smooth_structures/tables/table_metal_grate.dmi'
-	max_integrity = 125
+	max_integrity = 150
 
 /obj/structure/table/ms13/metal/small
 	desc = "A small, low down metal table. God only knows why these were sought out after in the old days."
@@ -43,6 +44,7 @@
 	icon = 'mojave/icons/structure/smooth_structures/tables/table_metal_heavy.dmi'
 	max_integrity = 250
 	integrity_failure = 0.25
+	frame = /obj/item/stack/sheet/ms13/scrap/two
 
 // Wooden Smoothing Tables //
 
@@ -88,37 +90,18 @@
 // Player-Made tables //
 
 /obj/structure/table/ms13/metal/constructed
-	name = "crude steel table"
-	desc = "A crude table made of quality steel. Not too bad, as far as post apocalyptic furniture goes."
+	name = "crude metal table"
+	desc = "A crude table made of quality metal. Not too bad, as far as post apocalyptic furniture goes."
 	icon = 'mojave/icons/structure/smooth_structures/tables/table_metal_built.dmi'
-	max_integrity = 125
+	max_integrity = 100
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TABLE_PLAYER) //Don't smooth with SMOOTH_GROUP_TABLES
 	canSmoothWith = list(SMOOTH_GROUP_MS13_TABLE_PLAYER)
-	frame = /obj/structure/table_frame/ms13
-	framestack = /obj/item/stack/sheet/ms13/scrap
-	framestackamount = 2
-	buildstack = /obj/item/stack/sheet/ms13/refined_steel
-	buildstackamount = 2
 
 /obj/structure/table/ms13/metal/constructed/cobbled
-	name = "crude scrap steel table"
-	desc = "A crude table made of scrap steel. Doesn't look pretty and seems barely finished, but it does it's job."
+	name = "crude scrap metal table"
+	desc = "A crude table made of scrap metal. Doesn't look pretty and seems barely finished, but it does it's job."
 	icon = 'mojave/icons/structure/smooth_structures/tables/table_metal_built_LQ.dmi'
-	max_integrity = 100
-	buildstack = /obj/item/stack/sheet/ms13/scrap_steel
-	buildstackamount = 2
-
-/obj/structure/table/ms13/metal/constructed/alu
-	name = "crude aluminum table"
-	desc = "A crude table made of quality aluminum. Not too bad, as far as post apocalyptic furniture goes."
-	buildstack = /obj/item/stack/sheet/ms13/refined_alu
-	buildstackamount = 2
-
-/obj/structure/table/ms13/metal/constructed/cobbled/alu
-	name = "crude scrap aluminum table"
-	desc = "A crude table made of scrap aluminum. Doesn't look pretty and seems barely finished, but it does it's job."
-	buildstack = /obj/item/stack/sheet/ms13/scrap_alu
-	buildstackamount = 2
+	max_integrity = 80
 
 /obj/structure/table/ms13/wood/constructed
 	name = "crude wood table"
@@ -127,18 +110,12 @@
 	max_integrity = 75
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TABLE_PLAYER)
 	canSmoothWith = list(SMOOTH_GROUP_MS13_TABLE_PLAYER)
-	framestack = /obj/item/stack/sheet/ms13/scrap_wood
-	framestackamount = 2
-	buildstack = /obj/item/stack/sheet/ms13/plank
-	buildstackamount = 3
 
 /obj/structure/table/ms13/wood/constructed/cobbled
 	name = "crude scrap wood table"
 	desc = "A crude wood table made of scrap, low quality wood. About as rickety as you'd expect."
 	icon = 'mojave/icons/structure/smooth_structures/tables/table_wood_built_LQ.dmi'
 	max_integrity = 50
-	buildstack = /obj/item/stack/sheet/ms13/scrap_wood
-	buildstackamount = 5
 
 // Metal Non-Smoothing tables //
 
@@ -186,7 +163,8 @@
 	name = "metal table"
 	desc = "A solid, wide metal table. Nothing about it stands out in particular."
 	icon_state = "table_metal_wide"
-	max_integrity = 350
+	max_integrity = 250
+	frame = /obj/item/stack/sheet/ms13/scrap/two
 
 /obj/structure/table/ms13/no_smooth/large/metal/desk
 	name = "metal desk"
@@ -204,6 +182,8 @@
 	name = "wood table"
 	desc = "A simple round wooden table. You wish you could make something this nice."
 	icon_state = "table_wood_round"
+	max_integrity = 100
+	frame = /obj/item/stack/sheet/ms13/scrap_wood
 
 /obj/structure/table/ms13/no_smooth/wood/square
 	name = "wood table"
@@ -232,6 +212,7 @@
 	desc = "A large oval shaped wood table. Perfect for displaying the 200 year old family photos you found."
 	icon_state = "table_wood_wide_oval"
 	max_integrity = 200
+	frame = /obj/item/stack/sheet/ms13/scrap_wood/two
 
 /obj/structure/table/ms13/no_smooth/large/wood/square
 	desc = "A large rectangular wood table. Very sturdy."
@@ -261,9 +242,12 @@
 	name = "dice table"
 	desc = "Shoot the dice with your friends. Preferably not literally."
 	icon_state = "dice_dirty"
+	max_integrity = 100
+	frame = /obj/item/stack/sheet/ms13/scrap_wood
 
 /obj/structure/table/ms13/no_smooth/dice/pristine
 	icon_state = "dice_clean"
+	max_integrity = 125
 
 // Misc Large tables //
 
@@ -271,6 +255,8 @@
 	name = "pool table"
 	desc = "A favourite of students and drunkards alike. Watch out for sharks!"
 	icon_state = "table_pool"
+	max_integrity = 200
+	frame = /obj/item/stack/sheet/ms13/scrap_wood/two
 
 /obj/structure/table/ms13/no_smooth/large/cards
 	name = "cards table"
@@ -282,6 +268,12 @@
 	desc = "A rolling medical table. Extremely useful in a surgical environment."
 	icon = 'mojave/icons/structure/standalone_tables.dmi'
 	icon_state = "table_rolling"
+	max_integrity = 125
+	buildstack = null
+	frame = /obj/item/stack/sheet/ms13/scrap
+	framestack = /obj/item/stack/sheet/ms13/scrap
+	framestackamount = 2
+
 
 ///// CRAFTING TABLES /////
 
@@ -293,6 +285,8 @@
 	smoothing_flags = NONE
 	canSmoothWith = null
 	var/crafting_interface = CRAFTING_BENCH_GENERAL
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
+	
 
 /obj/structure/table/ms13/crafting/Initialize(mapload)
 	. = ..()

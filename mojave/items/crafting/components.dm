@@ -30,6 +30,15 @@
 	desc = "A dangerous looking battery containing superheated plasma. Practically just waiting to be used for something lethal."
 	icon_state = "plasma_battery"
 
+/obj/item/ms13/component/gunpowder
+	name = "high quality gunpowder"
+	desc = "High quality, refined gunpowder. Can be used to make standard quality ammunition."
+	icon_state = "gunpowder"
+
+/obj/item/ms13/component/gunpowder/lq
+	name = "low quality gunpowder"
+	desc = "Low quality, impure, and probably dangerous gunpowder. Can be used to make junk ammunition."
+
 // Light items (bulbs and stuff) //
 
 /obj/item/light/ms13
