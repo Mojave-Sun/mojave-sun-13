@@ -259,28 +259,39 @@
 	bound_width = 64
 	smoothing_flags = NONE
 	canSmoothWith = null
+	var/crafting_interface = CRAFTING_BENCH_GENERAL
+
+/obj/structure/table/ms13/crafting/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/personal_crafting, crafting_interface)
 
 /obj/structure/table/ms13/crafting/workbench
 	name = "workbench"
 	desc = "A basic workbench. Solid metal surface and a few tools to help you make basic tools and items you require."
 	icon_state = "workbench"
+	crafting_interface = CRAFTING_BENCH_GENERAL
 
+// TODO FIX
 /obj/structure/table/ms13/crafting/ammobench
 	name = "loading bench"
 	desc = "An ammo loading bench, with some tools that assist you in assembling cartridges to send towards your foe."
 	icon_state = "ammobench"
+	crafting_interface = CRAFTING_BENCH_RELOADING
 
 /obj/structure/table/ms13/crafting/armorbench
 	name = "tailoring bench"
 	desc = "A sturdy bench. It's got an anvil and sewing machine, it'd be a good surface to try and fabricate clothing or armor with."
 	icon_state = "armorbench"
+	crafting_interface = CRAFTING_BENCH_ARMTAILOR
 
 /obj/structure/table/ms13/crafting/weaponbench
 	name = "weapon bench"
 	desc = "A large bench with a functional drill press and a vice. Would be useful in creating and assembling weapons, to the best of your ability anyways."
 	icon_state = "weaponbench"
+	crafting_interface = CRAFTING_BENCH_WEAPONS
 
 /obj/structure/table/ms13/crafting/tinkerbench
 	name = "tinkering bench"
 	desc = "A large bench with a power supply hooked up to it. There's a soldering iron and a few other tools scattered about to assist you in making electronic components."
 	icon_state = "tinkerbench"
+	crafting_interface = CRAFTING_BENCH_ELECTRIC

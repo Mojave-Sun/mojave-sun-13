@@ -9,6 +9,8 @@
 
 	display_order = JOB_DISPLAY_ORDER_MS13_MEDIC
 
+	mind_traits = list(TRAIT_MEDICAL_TRAINING)
+
 /datum/outfit/job/ms13/ncr/medic
 	name = "_NCR Medic"
 	jobtype = /datum/job/ms13/ncr/medic
