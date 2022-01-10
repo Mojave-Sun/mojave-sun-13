@@ -121,6 +121,7 @@
 	ADD_TRAIT(user, TRAIT_NOSLIPALL, "power_armor")
 	ADD_TRAIT(user, TRAIT_STUNIMMUNE, "power_armor")
 	ADD_TRAIT(user, TRAIT_NOMOBSWAP, "power_armor")
+	ADD_TRAIT(user, TRAIT_PUSHIMMUNE, "power_armor")
 	RegisterSignal(user, COMSIG_ATOM_CAN_BE_PULLED, .proc/reject_pulls)
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/proc/reject_pulls(datum/source, mob/living/puller)
@@ -140,6 +141,7 @@
 	REMOVE_TRAIT(user, TRAIT_NOSLIPALL, "power_armor")
 	REMOVE_TRAIT(user, TRAIT_STUNIMMUNE, "power_armor")
 	REMOVE_TRAIT(user, TRAIT_NOMOBSWAP, "power_armor")
+	REMOVE_TRAIT(user, TRAIT_PUSHIMMUNE, "power_armor")
 	UnregisterSignal(user, COMSIG_ATOM_CAN_BE_PULLED)
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/Destroy()
