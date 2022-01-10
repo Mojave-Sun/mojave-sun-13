@@ -235,6 +235,8 @@
 	icon = 'mojave/icons/turf/walls/roughscrap.dmi'
 	frill_icon = 'mojave/icons/turf/walls/roughscrap_1_frill.dmi'
 	girder_type = /obj/structure/girder/ms13/bars
+	sheet_type = /obj/item/stack/sheet/ms13/scrap
+	sheet_amount = 4
 	slicing_duration = 30 SECONDS
 
 /turf/closed/wall/ms13/craftable/scrap/Initialize()
@@ -256,6 +258,8 @@
 	icon = 'mojave/icons/turf/walls/woodfresh.dmi'
 	frill_icon = 'mojave/icons/turf/walls/woodfresh_frill.dmi'
 	girder_type = /obj/structure/girder/ms13/bars
+	sheet_type = /obj/item/stack/sheet/ms13/log
+	sheet_amount = 4
 	slicing_duration = 30 SECONDS
 
 //Wall Supports

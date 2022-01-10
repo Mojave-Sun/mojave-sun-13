@@ -6,6 +6,8 @@
 	buildstack = null
 	custom_materials = null
 	frame = /obj/item/stack/sheet/ms13/scrap
+	framestack = /obj/item/stack/sheet/ms13/scrap
+	framestackamount = 2
 
 /obj/structure/table/ms13/deconstruction_hints(mob/user)
 	return
@@ -53,6 +55,9 @@
 	max_integrity = 100
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TABLE_WOOD)
 	canSmoothWith = list(SMOOTH_GROUP_MS13_TABLE_WOOD)
+	frame = /obj/item/stack/sheet/ms13/scrap_wood
+	framestack = /obj/item/stack/sheet/ms13/scrap_wood
+	framestackamount = 2
 
 /obj/structure/table/ms13/wood/bar
 	desc = "A somewhat fancy table used at restauraunts of the past. Featuring a simplistic anchored leg design, wow!"
@@ -62,50 +67,78 @@
 // Table Frames //
 
 /obj/structure/table_frame/ms13
+	name = "metal table frame"
 	desc = "Four metal legs with four framing rods for a table."
 	icon = 'mojave/icons/structure/standalone_tables.dmi'
 	icon_state = "tableframe_metal"
 	density = TRUE
 	anchored = FALSE
 	max_integrity = 20
+	framestack = /obj/item/stack/sheet/ms13/scrap
+	framestackamount = 2
 
 /obj/structure/table_frame/ms13/wood
+	name = "wood table frame"
 	desc = "Four wooden legs with four framing wooden rods for a wooden table. You could easily pass through this."
 	icon_state = "tableframe_wood"
 	resistance_flags = FLAMMABLE
+	framestack = /obj/item/stack/sheet/ms13/scrap_wood
+	framestackamount = 2
 
 // Player-Made tables //
 
 /obj/structure/table/ms13/metal/constructed
-	name = "metal table"
-	desc = "A decently made table made of metal sheets. Should be able to last a while."
+	name = "crude steel table"
+	desc = "A crude table made of quality steel. Not too bad, as far as post apocalyptic furniture goes."
 	icon = 'mojave/icons/structure/smooth_structures/tables/table_metal_built.dmi'
 	max_integrity = 125
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TABLE_PLAYER) //Don't smooth with SMOOTH_GROUP_TABLES
 	canSmoothWith = list(SMOOTH_GROUP_MS13_TABLE_PLAYER)
 	frame = /obj/structure/table_frame/ms13
+	framestack = /obj/item/stack/sheet/ms13/scrap
+	framestackamount = 2
+	buildstack = /obj/item/stack/sheet/ms13/refined_steel
+	buildstackamount = 2
 
 /obj/structure/table/ms13/metal/constructed/cobbled
-	desc = "To include the word 'table' in the description of this thing is... Generous. Let's hope someone didn't give this their all. Hardly can hold stuff without it falling through it."
+	name = "crude scrap steel table"
+	desc = "A crude table made of scrap steel. Doesn't look pretty and seems barely finished, but it does it's job."
 	icon = 'mojave/icons/structure/smooth_structures/tables/table_metal_built_LQ.dmi'
-	max_integrity = 95
-	smoothing_groups = list(SMOOTH_GROUP_MS13_TABLE_PLAYER) //Don't smooth with SMOOTH_GROUP_TABLES
-	canSmoothWith = list(SMOOTH_GROUP_MS13_TABLE_PLAYER)
-//	buildstack = /obj/item/stack/sheet/ms13/scrap re-add later
+	max_integrity = 100
+	buildstack = /obj/item/stack/sheet/ms13/scrap_steel
+	buildstackamount = 2
+
+/obj/structure/table/ms13/metal/constructed/alu
+	name = "crude aluminum table"
+	desc = "A crude table made of quality aluminum. Not too bad, as far as post apocalyptic furniture goes."
+	buildstack = /obj/item/stack/sheet/ms13/refined_alu
+	buildstackamount = 2
+
+/obj/structure/table/ms13/metal/constructed/cobbled/alu
+	name = "crude scrap aluminum table"
+	desc = "A crude table made of scrap aluminum. Doesn't look pretty and seems barely finished, but it does it's job."
+	buildstack = /obj/item/stack/sheet/ms13/scrap_alu
+	buildstackamount = 2
 
 /obj/structure/table/ms13/wood/constructed
-	name = "wood table"
-	desc = "A table of mediocre build quality. At least it won't fall apart if you set something on it."
+	name = "crude wood table"
+	desc = "A crude wood table of decent quality. It probably won't fall apart any time soon."
 	icon = 'mojave/icons/structure/smooth_structures/tables/table_wood_built.dmi'
-	max_integrity = 85
+	max_integrity = 75
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TABLE_PLAYER)
 	canSmoothWith = list(SMOOTH_GROUP_MS13_TABLE_PLAYER)
-	frame = /obj/structure/table_frame/ms13/wood
+	framestack = /obj/item/stack/sheet/ms13/scrap_wood
+	framestackamount = 2
+	buildstack = /obj/item/stack/sheet/ms13/plank
+	buildstackamount = 3
 
 /obj/structure/table/ms13/wood/constructed/cobbled
-	desc = "A wood table of extreme low quality. Can hardly stand up to the wind. Perhaps they should try something else."
+	name = "crude scrap wood table"
+	desc = "A crude wood table made of scrap, low quality wood. About as rickety as you'd expect."
 	icon = 'mojave/icons/structure/smooth_structures/tables/table_wood_built_LQ.dmi'
-	max_integrity = 65
+	max_integrity = 50
+	buildstack = /obj/item/stack/sheet/ms13/scrap_wood
+	buildstackamount = 5
 
 // Metal Non-Smoothing tables //
 

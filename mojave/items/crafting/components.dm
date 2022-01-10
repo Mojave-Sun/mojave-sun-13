@@ -5,20 +5,30 @@
 	desc = "I don't think you can assemble stuff with this!"
 	icon = 'mojave/icons/objects/crafting/components_world.dmi'
 	icon_state = "fusion_cell"
-
-// Fusion cells //
-
-/obj/item/ms13/component/cell
-	name = "fusion cell"
-	desc = "A ultra-portable fusion cell, used for all of your power needs!"
-	icon_state = "fusion_cell"
-	force = 1
-	throwforce = 5
+	force = 2
+	throwforce = 2
 	w_class = WEIGHT_CLASS_SMALL
 
-/obj/item/ms13/component/cell/Initialize()
+/obj/item/ms13/component/Initialize()
 	. = ..()
 	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/crafting/components_inventory.dmi')
+
+// Components //
+
+/obj/item/ms13/component/cell
+	name = "fission battery"
+	desc = "A small fission battery. Used both before and after the war for all kinds of power needs."
+	icon_state = "fusion_cell"
+
+/obj/item/ms13/component/vacuum_tube
+	name = "vacuum tube"
+	desc = "A vacuum tube. An important component in many electrical gadgets."
+	icon_state = "vacuumtube"
+
+/obj/item/ms13/component/plasma_battery
+	name = "plasma battery"
+	desc = "A dangerous looking battery containing superheated plasma. Practically just waiting to be used for something lethal."
+	icon_state = "plasma_battery"
 
 // Light items (bulbs and stuff) //
 

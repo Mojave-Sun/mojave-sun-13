@@ -28,7 +28,7 @@
 	walltype = /turf/closed/wall/ms13/craftable/scrap
 
 GLOBAL_LIST_INIT(scrap_recipes, list ( \
-	new/datum/stack_recipe("rebar struts", /obj/structure/girder/ms13/bars, 5, time = 30 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("rebar struts", /obj/structure/girder/ms13/bars, 10, time = 30 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 ))
 
 /obj/item/stack/sheet/ms13/scrap/get_main_recipes()
@@ -139,7 +139,11 @@ GLOBAL_LIST_INIT(scrap_recipes, list ( \
 	walltype = /turf/closed/wall/ms13/craftable/scrap
 
 GLOBAL_LIST_INIT(scrap_steel_recipes, list ( \
-	new/datum/stack_recipe("rebar struts", /obj/structure/girder/ms13/bars, 3, time = 30 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("rebar struts", /obj/structure/girder/ms13/bars, 6, time = 30 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("metal table frame", /obj/structure/table_frame/ms13, 2, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("green scrap metal chair", /obj/structure/chair/ms13/metal/unfinished, 2, time = 10 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("blue scrap metal chair", /obj/structure/chair/ms13/metal/blue/unfinished, 2, time = 10 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("red scrap metal chair", /obj/structure/chair/ms13/metal/red/unfinished, 2, time = 10 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 ))
 
 /obj/item/stack/sheet/ms13/scrap_steel/get_main_recipes()
@@ -295,6 +299,17 @@ GLOBAL_LIST_INIT(scrap_steel_recipes, list ( \
 	beauty_modifier = 0
 	strength_modifier = 1
 
+GLOBAL_LIST_INIT(scrap_alu_recipes, list ( \
+	new/datum/stack_recipe("metal table frame", /obj/structure/table_frame/ms13, 2, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("green scrap metal chair", /obj/structure/chair/ms13/metal/unfinished, 2, time = 10 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("blue scrap metal chair", /obj/structure/chair/ms13/metal/blue/unfinished, 2, time = 10 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("red scrap metal chair", /obj/structure/chair/ms13/metal/red/unfinished, 2, time = 10 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+))
+
+/obj/item/stack/sheet/ms13/scrap_alu/get_main_recipes()
+	. = ..()
+	. += GLOB.scrap_alu_recipes
+
 /obj/item/stack/sheet/ms13/refined_alu
 	name = "refined aluminum"
 	desc = "Malleable aluminum ingots."
@@ -440,13 +455,29 @@ GLOBAL_LIST_INIT(scrap_steel_recipes, list ( \
 	merge_type = /obj/item/stack/sheet/ms13/scrap_wood
 	max_amount = 15
 
+GLOBAL_LIST_INIT(scrap_wood_recipes, list ( \
+	new/datum/stack_recipe("wood table frame", /obj/structure/table_frame/ms13/wood, 5, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+))
+
+/obj/item/stack/sheet/ms13/scrap_wood/get_main_recipes()
+	. = ..()
+	. += GLOB.scrap_wood_recipes
+
 /obj/item/stack/sheet/ms13/plank
 	name = "wood planks"
 	desc = "Robust wood planks. Perfect for crafting."
 	singular_name = "wood plank"
 	icon_state = "plank"
 	merge_type = /obj/item/stack/sheet/ms13/plank
-	max_amount = 8
+	max_amount = 10
+
+GLOBAL_LIST_INIT(plank_recipes, list ( \
+	new/datum/stack_recipe("wood table frame", /obj/structure/table_frame/ms13/wood, 2, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+))
+
+/obj/item/stack/sheet/ms13/plank/get_main_recipes()
+	. = ..()
+	. += GLOB.plank_recipes
 
 //CLOTH-RELATED//
 
