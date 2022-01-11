@@ -6,7 +6,7 @@
 #define CHANNEL_HEARTBEAT 1020 //sound channel for heartbeats
 #define CHANNEL_AMBIENCE 1019
 #define CHANNEL_BUZZ 1018
-#define CHANNEL_BICYCLE 1017
+#define CHANNEL_TRAITOR 1017
 #define CHANNEL_WEATHER 1016 //MOJAVE MODULE OUTDOOR_EFFECTS
 
 ///Default range of a sound.
