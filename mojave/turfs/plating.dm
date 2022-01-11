@@ -497,24 +497,30 @@
 	baseturfs = /turf/open/floor/plating/ms13/ground/ice/cracked
 	//Used for increasing cracking when walking on ice
 	var/crack_state = 1
+	var/breaking = FALSE
 
 /turf/open/floor/plating/ms13/ground/ice/attackby(obj/item/W, mob/user, params)
 	. = ..()
-	if(!W.tool_behaviour == TOOL_SHOVEL || !W.tool_behaviour == TOOL_MINING)
+	if(W.force < 15)
+		to_chat(user, span_notice("The [W.name] cannot break away the ice!"))
 		return
-
-	if(do_after(user, 5 SECONDS, interaction_key = DOAFTER_SOURCE_BREAKICE))
-		to_chat(user, span_notice("You break away the ice."))
-		switch(crack_state)
-			if(1)
-				crack_state = 2
-				update_icon()
-			if(2)
-				crack_state = 3
-				update_icon()
-			if(3)
-				Icebreak()
-				update_icon()
+	if(!breaking)
+		user.balloon_alert_to_viewers("breaking the [src]", "breaking the [src]")
+		playsound(get_turf(src), 'mojave/sound/ms13effects/icebreakshort.ogg', 100, FALSE, FALSE)
+		breaking = TRUE
+		if(do_after(user, 5 SECONDS, interaction_key = DOAFTER_SOURCE_BREAKICE))
+			to_chat(user, span_notice("You break away the ice."))
+			switch(crack_state)
+				if(1)
+					crack_state = 2
+					update_icon()
+				if(2)
+					crack_state = 3
+					update_icon()
+				if(3)
+					Icebreak()
+					update_icon()
+		breaking = FALSE
 
 /turf/open/floor/plating/ms13/ground/ice/cracked
 	baseturfs = /turf/open/floor/plating/ms13/ground/ice/morecracked
@@ -534,9 +540,13 @@
 /turf/open/floor/plating/ms13/ground/ice/MakeSlippery(wet_setting, min_wet_time, wet_time_to_add, max_wet_time, permanent, overlay)
 	AddComponent(/datum/component/wet_floor, wet_setting, min_wet_time, wet_time_to_add, max_wet_time, permanent, overlay)
 
-/turf/open/floor/plating/ms13/ground/ice/Entered(fool)
+/turf/open/floor/plating/ms13/ground/ice/Entered(atom/movable/AM)
 	. = ..()
-	if(isliving(fool) && prob(30))
+	if(istype(AM, /mob/living/carbon))
+		var/mob/living/carbon/fool = AM
+		if(fool.m_intent == MOVE_INTENT_WALK)
+			return //tread carefully
+	if(isliving(AM) && prob(30))
 		switch(crack_state)
 			if(1)
 				crack_state = 2
@@ -730,7 +740,7 @@
 						addtimer(CALLBACK(src, .proc/transfer_mob_layer, M), 0.2 SECONDS)
 						M.forceMove(src)
 						to_chat(user, "<span class='notice'>You lower yourself in the deep water.</span>")
-						M.adjust_bodytemperature(-100)
+						M.adjust_bodytemperature(-300)
 				else
 					user.visible_message("<span class='notice'>[M] is being put in the deep water by [user].</span>", \
 									"<span class='notice'>You start lowering [M] in the deep water.")
@@ -739,7 +749,7 @@
 						addtimer(CALLBACK(src, .proc/transfer_mob_layer, M), 0.2 SECONDS)
 						M.forceMove(src)
 						to_chat(user, "<span class='notice'>You lower [M] in the deep water.</span>")
-						M.adjust_bodytemperature(-100)
+						M.adjust_bodytemperature(-300)
 						return
 			else
 				return
@@ -772,7 +782,8 @@
 						playsound(src, 'mojave/sound/ms13effects/splash.ogg', 60, 1, 1)
 						H.Knockdown(20)
 						H.swimming = TRUE
-						M.adjust_bodytemperature(-100)
+						M.adjust_bodytemperature(-300)
+						M.Jitter(20)
 						return
 					else
 						H.dropItemToGround(H.get_active_held_item())
@@ -783,10 +794,12 @@
 						playsound(src, 'mojave/sound/ms13effects/splash.ogg', 60, 1, 1)
 						H.Knockdown(60)
 						H.swimming = TRUE
-						M.adjust_bodytemperature(-100)
+						M.adjust_bodytemperature(-300)
+						M.Jitter(20)
 				else
 					H.swimming = TRUE
-					M.adjust_bodytemperature(-100)
+					M.adjust_bodytemperature(-300)
+					M.Jitter(3)
 		if(H.body_position == LYING_DOWN)
 			if(M.stat == DEAD)
 				return
@@ -795,7 +808,7 @@
 					H.visible_message("<span class='danger'>[H] flails in the water!</span>",
 										"<span class='userdanger'>Youre drowning!</span>")
 					H.Knockdown(20)
-					M.adjust_bodytemperature(-100)
+					M.adjust_bodytemperature(-300)
 					M.adjustStaminaLoss(20)
 					M.adjustOxyLoss(10)
 					M.adjustOrganLoss(ORGAN_SLOT_LUNGS, 20)
@@ -804,7 +817,7 @@
 					H.visible_message("<span class='danger'>[H] flails in the shallow water!</span>",
 										"<span class='userdanger'>Youre drowning!</span>")
 					H.Knockdown(10)
-					M.adjust_bodytemperature(-50)
+					M.adjust_bodytemperature(-100)
 					M.adjustStaminaLoss(10)
 					M.adjustOxyLoss(5)
 					M.adjustOrganLoss(ORGAN_SLOT_LUNGS, 10)
@@ -813,14 +826,14 @@
 			switch(depth)
 				if(3)
 					M.wash(CLEAN_WASH)
-					M.adjust_bodytemperature(-100)
+					M.adjust_bodytemperature(-300)
 					M.adjustStaminaLoss(3)
 				if(2)
 					M.wash(CLEAN_WASH)
-					M.adjust_bodytemperature(-50)
+					M.adjust_bodytemperature(-300)
 					M.adjustStaminaLoss(1)
 				else
-					M.adjust_bodytemperature(-10)
+					M.adjust_bodytemperature(-300)
 			return
 
 /turf/open/ms13/water/proc/transfer_mob_layer(var/mob/living/carbon/M)

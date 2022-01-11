@@ -396,6 +396,25 @@
 	icon_state = "tophat"
 	inhand_icon_state = "that"
 
+/obj/item/clothing/head/helmet/ms13/tall/cone
+	desc = "A once bright warning device, now a staple of wasteland fashion."
+	name = "warning cone"
+	icon_state = "cone"
+	inhand_icon_state = "cone"
+	force = 1
+	throwforce = 5
+	throw_speed = 2
+	throw_range = 5
+	attack_verb_continuous = list("warns", "cautions", "smashes")
+	attack_verb_simple = list("warn", "caution", "smash")
+	resistance_flags = NONE
+	flags_inv = HIDEHAIR
+	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5,  fire = 5, acid = 5, wound = 0)
+	dynamic_hair_suffix = ""
+
+/obj/item/clothing/head/helmet/ms13/tall/cone/attack_self(mob/user)
+	weldingvisortoggle(user)
+
 // Caps //
 
 /obj/item/clothing/head/helmet/ms13/baseball
