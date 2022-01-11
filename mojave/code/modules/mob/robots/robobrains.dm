@@ -18,7 +18,7 @@
 	speak_emote = list("says", "whines", "crackles")
 	mob_size = MOB_SIZE_LARGE
 	footstep_type = FOOTSTEP_OBJ_ROBOT
-	loot = list(/obj/item/stack/sheet/ms13/scrap/twentyfive, /obj/effect/decal/cleanable/robot_debris)
+	loot = list(/obj/item/stack/sheet/ms13/scrap, /obj/effect/decal/cleanable/robot_debris)
 	dextrous = TRUE
 	held_items = list(null, null)
 	ranged = TRUE

@@ -23,7 +23,7 @@
 	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/medical/medical_inventory.dmi')
 
 /obj/item/reagent_containers/hypospray/medipen/ms13/attack(mob/living/M, mob/user)
-	if(do_after(M, 0.75 SECONDS))
+	if(do_after(user, 0.75 SECONDS))
 		inject(M, user)
 
 /obj/item/reagent_containers/hypospray/medipen/ms13/inject(mob/living/M, mob/user)

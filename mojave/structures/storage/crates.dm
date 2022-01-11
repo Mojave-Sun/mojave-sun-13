@@ -53,13 +53,12 @@
 		if(manifest)
 			tear_manifest(user)
 		if(!prying)
-			var/time_to_open = 11 SECONDS
 			user.visible_message("<span class='notice'>[user] starts to break \the [src] open.</span>", \
 					"<span class='notice'>You start to break \the [src] open.</span>", \
 					"<span class='hear'>You hear splitting wood.</span>")
 			playsound(src.loc, 'mojave/sound/ms13effects/wood_deconstruction.ogg', 50, TRUE)
 			prying = TRUE
-			if(do_after(user, time_to_open, target = src))
+			if(do_after(user, 8 SECONDS * W.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_CRATEOPEN))
 				user.visible_message("<span class='notice'>[user] pries \the [src] open.</span>", \
 					"<span class='notice'>You pry open \the [src].</span>", \
 					"<span class='hear'>You hear splitting wood.</span>")

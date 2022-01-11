@@ -1,6 +1,6 @@
 /obj/item/ms13/hammer
 	name = "claw hammer"
-	desc = "A standard, small claw hammer."
+	desc = "A standard, small claw hammer. Can be used to hammer a nail and pry a nail!"
 	icon = 'mojave/icons/objects/tools/tools_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
@@ -22,6 +22,8 @@
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0,  FIRE = 100, ACID = 50)
 	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_SMALL
+	tool_behaviour = TOOL_CROWBAR
+	toolspeed = 2
 	log_pickup_and_drop = TRUE
 
 /obj/item/ms13/hammer/Initialize()
@@ -96,6 +98,7 @@
 	sharpness = NONE
 	slot_flags = ITEM_SLOT_BELT
 	w_class = WEIGHT_CLASS_NORMAL
+	toolspeed = 1
 	log_pickup_and_drop = TRUE
 
 /obj/item/crowbar/ms13/Initialize()
