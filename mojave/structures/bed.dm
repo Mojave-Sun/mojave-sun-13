@@ -28,7 +28,7 @@
 
 /obj/structure/bed/ms13/bedframe/wood
 	name = "wood bed"
-	desc = "A panel bed made from rotting wood."
+	desc = "A panel bed made from wood."
 	icon_state = "wood_bed"
 	buildstacktype = /obj/item/stack/sheet/ms13/scrap_wood
 	buildstackamount = 1
