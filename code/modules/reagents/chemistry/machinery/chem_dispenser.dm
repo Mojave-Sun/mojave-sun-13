@@ -89,11 +89,11 @@
 
 /obj/machinery/chem_dispenser/Initialize(mapload)
 	. = ..()
-	dispensable_reagents = sortList(dispensable_reagents, /proc/cmp_reagents_asc)
+	dispensable_reagents = sort_list(dispensable_reagents, /proc/cmp_reagents_asc)
 	if(emagged_reagents)
-		emagged_reagents = sortList(emagged_reagents, /proc/cmp_reagents_asc)
+		emagged_reagents = sort_list(emagged_reagents, /proc/cmp_reagents_asc)
 	if(upgrade_reagents)
-		upgrade_reagents = sortList(upgrade_reagents, /proc/cmp_reagents_asc)
+		upgrade_reagents = sort_list(upgrade_reagents, /proc/cmp_reagents_asc)
 	if(is_operational)
 		begin_processing()
 	update_appearance()
@@ -661,5 +661,7 @@
 		/datum/reagent/drug/space_drugs,
 		/datum/reagent/toxin,
 		/datum/reagent/toxin/plasma,
-		/datum/reagent/uranium
+		/datum/reagent/uranium,
+		/datum/reagent/consumable/liquidelectricity/enriched,
+		/datum/reagent/medicine/c2/synthflesh
 	)

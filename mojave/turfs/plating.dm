@@ -2,9 +2,10 @@
 #define DESERT_SMOOTHING SMOOTH_GROUP_MS13_DESERT, SMOOTH_GROUP_MS13_SIDEWALK, SMOOTH_GROUP_MS13_TILE, SMOOTH_GROUP_MS13_SNOW, SMOOTH_GROUP_MS13_ROAD, SMOOTH_GROUP_MS13_WATER
 #define GRASS_SPONTANEOUS 		2
 #define GRASS_WEIGHT 			2
-#define LUSH_PLANT_SPAWN_LIST list(/obj/structure/flora/ms13/tree/tallpine/snow = 7, /obj/structure/flora/ms13/forage = 1, /obj/structure/flora/ms13/forage/blackberry = 1, /obj/structure/flora/ms13/forage/mutfruit = 1, /obj/structure/flora/ms13/forage/ashrose = 1, /obj/structure/flora/ms13/forage/wildcarrot = 1, /obj/structure/flora/ms13/forage/aster = 1)
+#define SHROOM_WEIGHT			5
+#define LUSH_PLANT_SPAWN_LIST list(/obj/structure/flora/ms13/tree/tallpine/snow = 7, /obj/structure/flora/ms13/forage/tarberry = 1, /obj/structure/flora/ms13/forage/blackberry = 1, /obj/structure/flora/ms13/forage/mutfruit = 1, /obj/structure/flora/ms13/forage/ashrose = 1, /obj/structure/flora/ms13/forage/wildcarrot = 1, /obj/structure/flora/ms13/forage/aster = 1)
 #define DESOLATE_PLANT_SPAWN_LIST list(/obj/structure/flora/grass/wasteland/snow = 10)
-#define MUSHROOM_SPAWN_LIST list(/obj/structure/flora/ms13/forage/mushroom = 5, /obj/structure/flora/ms13/forage/mushroom/glowing = 1)
+#define MUSHROOM_SPAWN_LIST list(/obj/structure/flora/ms13/forage/mushroom = 5, /obj/structure/flora/ms13/forage/mushroom/glowing = 5, /obj/structure/flora/ms13/forage/brainshroom = 1, /obj/structure/flora/ms13/forage/fireshroom = 1,/obj/structure/flora/ms13/forage/gutshroom = 1, /obj/structure/flora/ms13/forage/lure = 1, /obj/structure/flora/ms13/forage/nara= 1)
 #define DESERT_LUSH_PLANT_SPAWN_LIST list(/obj/structure/flora/ms13/tree/joshua = 2, /obj/structure/flora/ms13/tree/cactus = 5, /obj/structure/ms13/turfdecor/drought = 10)
 #define DESERT_DESOLATE_PLANT_SPAWN_LIST list(/obj/structure/flora/grass/wasteland = 8)
 
@@ -33,6 +34,9 @@
 //A plating that can't be destroyed but can have stuff like floor tiles slapped on for construction
 
 ////Ground Turfs////
+
+/turf/open/floor/plating/ms13/ReplaceWithLattice()
+	return //No lattice please - this might break things
 
 /turf/open/floor/plating/ms13/ground
 	name = "ground"
@@ -66,8 +70,8 @@
 /turf/open/floor/plating/ms13/ground/MakeDry()
 	return
 
-/turf/open/floor/plating/ms13/ground/ex_act(severity, target)
-	return
+// /turf/open/floor/plating/ms13/ground/ex_act(severity, target)
+// 	return
 
 /turf/open/floor/plating/dirt/ms13
 	baseturfs = /turf/open/floor/plating/ms13/ground
@@ -154,7 +158,7 @@
 
 	//spontaneously spawn grass
 	if(Plantforce || prob(GRASS_SPONTANEOUS))
-		randPlant = pickweight(DESERT_LUSH_PLANT_SPAWN_LIST) //Create a new grass object at this location, and assign var
+		randPlant = pick_weight(DESERT_LUSH_PLANT_SPAWN_LIST) //Create a new grass object at this location, and assign var
 		turfPlant = new randPlant(src)
 		. = TRUE //in case we ever need this to return if we spawned
 		return .
@@ -173,9 +177,9 @@
 
 		//If surrounded on 5+ sides, pick from lush
 		if(Weight == (2 * GRASS_WEIGHT))
-			randPlant = pickweight(DESERT_LUSH_PLANT_SPAWN_LIST)
+			randPlant = pick_weight(DESERT_LUSH_PLANT_SPAWN_LIST)
 		else
-			randPlant = pickweight(DESERT_DESOLATE_PLANT_SPAWN_LIST)
+			randPlant = pick_weight(DESERT_DESOLATE_PLANT_SPAWN_LIST)
 		turfPlant = new randPlant(src)
 		. = TRUE
 
@@ -199,9 +203,6 @@
 
 	if(!((locate(/obj/structure) in src) || (locate(/obj/machinery) in src)))
 		plantGrass()
-
-
-#define SHROOM_SPAWN	1
 
 /turf/open/floor/plating/ms13/ground/snow
 	name = "snow"
@@ -276,7 +277,7 @@
 	var/randPlant = null
 
 	if(Plantforce || prob(GRASS_SPONTANEOUS))
-		randPlant = pickweight(DESOLATE_PLANT_SPAWN_LIST)
+		randPlant = pick_weight(DESOLATE_PLANT_SPAWN_LIST)
 		turfPlant = new randPlant(src)
 		. = TRUE
 		return .
@@ -287,44 +288,44 @@
 
 		if(istype(curr_area, /area/ms13/snow/deepforest))
 			if(prob(40))
-				randPlant = pickweight(LUSH_PLANT_SPAWN_LIST)
+				randPlant = pick_weight(LUSH_PLANT_SPAWN_LIST)
 				turfPlant = new randPlant(src)
 			else if(prob(20))
-				randPlant = pickweight(DESOLATE_PLANT_SPAWN_LIST)
+				randPlant = pick_weight(DESOLATE_PLANT_SPAWN_LIST)
 				turfPlant = new randPlant(src)
 			. = TRUE
 			return .
 		if(istype(curr_area, /area/ms13/snow/forest))
 			if(prob(20))
-				randPlant = pickweight(LUSH_PLANT_SPAWN_LIST)
+				randPlant = pick_weight(LUSH_PLANT_SPAWN_LIST)
 				turfPlant = new randPlant(src)
 			else if(prob(10))
-				randPlant = pickweight(DESOLATE_PLANT_SPAWN_LIST)
+				randPlant = pick_weight(DESOLATE_PLANT_SPAWN_LIST)
 				turfPlant = new randPlant(src)
 			. = TRUE
 			return .
 		if(istype(curr_area, /area/ms13/snow/lightforest))
 			if(prob(5))
-				randPlant = pickweight(LUSH_PLANT_SPAWN_LIST)
+				randPlant = pick_weight(LUSH_PLANT_SPAWN_LIST)
 				turfPlant = new randPlant(src)
 			else if(prob(10))
-				randPlant = pickweight(DESOLATE_PLANT_SPAWN_LIST)
+				randPlant = pick_weight(DESOLATE_PLANT_SPAWN_LIST)
 				turfPlant = new randPlant(src)
 			. = TRUE
 			return .
 		if(istype(curr_area, /area/ms13/desert))
 			if(prob(5))
-				randPlant = pickweight(DESERT_LUSH_PLANT_SPAWN_LIST)
+				randPlant = pick_weight(DESERT_LUSH_PLANT_SPAWN_LIST)
 				turfPlant = new randPlant(src)
 			else if(prob(10))
-				randPlant = pickweight(DESERT_DESOLATE_PLANT_SPAWN_LIST)
+				randPlant = pick_weight(DESERT_DESOLATE_PLANT_SPAWN_LIST)
 				turfPlant = new randPlant(src)
 			. = TRUE
 			return .
 		else
 			if(prob(Weight))
 				if(Weight == (20 * GRASS_WEIGHT))
-					randPlant = pickweight(DESOLATE_PLANT_SPAWN_LIST)
+					randPlant = pick_weight(DESOLATE_PLANT_SPAWN_LIST)
 					turfPlant = new randPlant(src)
 					. = TRUE
 					return .
@@ -341,10 +342,12 @@
 	icon = 'mojave/icons/turf/cave.dmi'
 	icon_state = "cave_1"
 	slowdown = 1
+	var/area/curr_area = null
 
 /turf/open/floor/plating/ms13/ground/mountain/Initialize()
 	. = ..()
 	icon_state = "cave_[rand(1,7)]"
+	curr_area = get_area(src)
 	//If no fences, machines, etc. try to plant mushrooms
 	if(!(\
 			(locate(/obj/structure) in src) || \
@@ -352,22 +355,33 @@
 		plantShrooms()
 
 /turf/open/floor/plating/ms13/ground/mountain/proc/plantShrooms()
-	if(prob(SHROOM_SPAWN))
-		turfPlant = pickweight(MUSHROOM_SPAWN_LIST)
-		. = TRUE //in case we ever need this to return if we spawned
-		return .
+	var/randPlant = null
+	if(!istype(curr_area, /area/ms13/underground/mountain))
+		return
+
+	if(prob(SHROOM_WEIGHT))
+		randPlant = pick_weight(MUSHROOM_SPAWN_LIST)
+		turfPlant = new randPlant(src)
+	. = TRUE //in case we ever need this to return if we spawned
+	return .
+
+/turf/open/floor/plating/ms13/ground/mountain/ChangeTurf(path, new_baseturf, flags)
+	if(turfPlant)
+		qdel(turfPlant)
+	. =  ..()
 
 ////Roads////
 
 /turf/open/floor/plating/ms13/ground/road
 	name = "\proper road"
 	desc = "A stretch of road."
+	baseturfs = /turf/open/floor/plating/ms13/ground/road
 	icon = 'mojave/icons/turf/64x/road_1.dmi'
 	icon_state = "road-255"
 	base_icon_state = "road"
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_MS13_ROAD)
-	canSmoothWith = list(SMOOTH_GROUP_MS13_ROAD, SMOOTH_GROUP_MS13_SIDEWALK, SMOOTH_GROUP_MS13_TILE, SMOOTH_GROUP_MS13_SNOW, SMOOTH_GROUP_MS13_SNOW, SMOOTH_GROUP_MS13_WATER)
+	canSmoothWith = list(SMOOTH_GROUP_MS13_ROAD, SMOOTH_GROUP_MS13_SIDEWALK, SMOOTH_GROUP_MS13_TILE, SMOOTH_GROUP_MS13_SNOW, SMOOTH_GROUP_MS13_SNOW, SMOOTH_GROUP_MS13_WATER, SMOOTH_GROUP_MS13_OPENSPACE)
 	layer = TURF_LAYER_ROAD
 
 /turf/open/floor/plating/ms13/ground/road/Initialize()
@@ -406,6 +420,7 @@
 /turf/open/floor/plating/ms13/ground/sidewalk
 	name = "sidewalk"
 	desc = "Paved tiles specifically designed for walking upon."
+	baseturfs = /turf/open/floor/plating/ms13/ground/sidewalk
 	icon = 'mojave/icons/turf/sidewalk.dmi'
 	icon_state = "sidewalk-255"
 	base_icon_state = "sidewalk"
@@ -479,14 +494,35 @@
 	smoothing_groups = list(SMOOTH_GROUP_MS13_ICE)
 	canSmoothWith = list(SMOOTH_GROUP_MS13_ICE, SMOOTH_GROUP_MS13_SIDEWALK, WALL_SMOOTHING, SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_MS13_DESERT, SMOOTH_GROUP_MS13_TILE, SMOOTH_GROUP_MS13_SNOW, SMOOTH_GROUP_MS13_ROAD)
 	layer = TURF_LAYER_ICE
+	baseturfs = /turf/open/floor/plating/ms13/ground/ice/cracked
 	//Used for increasing cracking when walking on ice
 	var/crack_state = 1
 
+/turf/open/floor/plating/ms13/ground/ice/attackby(obj/item/W, mob/user, params)
+	. = ..()
+	if(!W.tool_behaviour == TOOL_SHOVEL || !W.tool_behaviour == TOOL_MINING)
+		return
+
+	if(do_after(user, 5 SECONDS, interaction_key = DOAFTER_SOURCE_BREAKICE))
+		to_chat(user, span_notice("You break away the ice."))
+		switch(crack_state)
+			if(1)
+				crack_state = 2
+				update_icon()
+			if(2)
+				crack_state = 3
+				update_icon()
+			if(3)
+				Icebreak()
+				update_icon()
+
 /turf/open/floor/plating/ms13/ground/ice/cracked
+	baseturfs = /turf/open/floor/plating/ms13/ground/ice/morecracked
 	icon = 'mojave/icons/turf/64x/ice_2.dmi'
 	crack_state = 2
 
 /turf/open/floor/plating/ms13/ground/ice/morecracked
+	baseturfs = /turf/open/ms13/water/deep
 	icon = 'mojave/icons/turf/64x/ice_3.dmi'
 	crack_state = 3
 
@@ -521,9 +557,7 @@
 					T.update_icon()
 
 /turf/open/floor/plating/ms13/ground/ice/proc/Icebreak()
-	/*cut_overlays()
-	var/turf/water = /turf/open/ms13/water/deep
-	PlaceOnTop(water, flags = CHANGETURF_INHERIT_AIR)*/// Mojave Bug right here fellas, adding new tiles on our areas fails to inherit the outdoor lighting from the old one, until then, no ice break :'(
+	src.ChangeTurf(/turf/open/ms13/water/deep, flags = CHANGETURF_INHERIT_AIR)
 
 /turf/open/floor/plating/ms13/ground/ice/update_icon()
 	. = ..()
@@ -547,6 +581,7 @@
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_MS13_WATER)
 	canSmoothWith = list(SMOOTH_GROUP_MS13_WATER)
+	baseturfs = /turf/open/ms13/water
 	footstep = FOOTSTEP_WATER
 	barefootstep = FOOTSTEP_WATER
 	clawfootstep = FOOTSTEP_WATER
@@ -555,26 +590,63 @@
 	layer = TURF_LAYER_WATER_BASE
 	slowdown = 0.5
 	var/next_splash = 1
-	var/atom/watereffect
-	var/atom/watertop
-	var/depth
+	var/atom/watereffect = /obj/effect/overlay/ms13/water/medium
+	var/atom/watertop = /obj/effect/overlay/ms13/water/top/medium
+	var/depth = 0
+	var/list/fish = list(/obj/item/food/meat/slab/ms13/fish/sockeye = 1,
+		/obj/item/food/meat/slab/ms13/fish/smallmouth = 2,
+		/obj/item/food/meat/slab/ms13/fish/largemouth = 1,
+		/obj/item/food/meat/slab/ms13/fish/pink = 2,
+		/obj/item/food/meat/slab/ms13/fish/chum = 2,
+		/obj/item/food/meat/slab/ms13/fish/sturgeon = 1,
+		/obj/item/food/meat/slab/ms13/fish/asian = 1)
+	var/fished = FALSE
+
+/turf/open/ms13/water/attackby(obj/item/W, mob/user, params)
+	. = ..()
+	if(W.tool_behaviour == TOOL_FISHINGROD)
+		if(!can_fish(user))
+			return TRUE
+		if(!isturf(user.loc))
+			return
+
+		to_chat(user, "<span class='notice'>You start fishing...</span>")
+		if(do_after(user, 40 SECONDS * W.toolspeed, interaction_key = DOAFTER_SOURCE_FISHING))
+			if(!can_fish(user))
+				return TRUE
+			to_chat(user, "<span class='notice'>You reel in your catch.</span>")
+			getFished(user)
+
+/turf/open/ms13/water/proc/getFished(mob/user)
+	var/spawnFish = pick_weight(fish)
+	new spawnFish(user.loc)
+	fished = TRUE
+
+/turf/open/ms13/water/proc/can_fish(mob/user)
+	if(!fished)
+		return TRUE
+	if(user)
+		to_chat(user, "<span class='warning'>Looks like there's no fish here!</span>")
 
 /turf/open/ms13/water/deep
 	name = "deep water"
 	desc = "Cold dirty water, it looks pretty deep."
 	icon_state = "water_deep"
+	baseturfs = /turf/open/ms13/water/deep
 	watereffect = /obj/effect/overlay/ms13/water/deep
 	watertop = /obj/effect/overlay/ms13/water/top/deep
 	depth = 3
 
 /turf/open/ms13/water/medium
 	icon_state = "water_medium"
+	baseturfs = /turf/open/ms13/water/medium
 	watereffect = /obj/effect/overlay/ms13/water/medium
 	watertop = /obj/effect/overlay/ms13/water/top/medium
 	depth = 2
 
 /turf/open/ms13/water/shallow
 	icon_state = "water_shallow"
+	baseturfs = /turf/open/ms13/water/shallow
 	watereffect = /obj/effect/overlay/ms13/water/shallow
 	watertop = /obj/effect/overlay/ms13/water/top/shallow
 	depth = 1
@@ -694,7 +766,7 @@
 			switch(depth)
 				if(3)
 					H.wash(CLEAN_WASH)
-					if(H.wear_mask && iscarbon(M) && H.wear_mask.flags_cover & MASKCOVERSMOUTH)
+					if(iscarbon(M) && H.wear_mask && H.wear_mask.flags_cover & MASKCOVERSMOUTH)
 						H.visible_message("<span class='danger'>[H] falls in the water!</span>",
 											"<span class='userdanger'>You fall in the water!</span>")
 						playsound(src, 'mojave/sound/ms13effects/splash.ogg', 60, 1, 1)
@@ -762,23 +834,33 @@
 /turf/open/ms13/water/sewer
 	name = "sewer water"
 	desc = "Murky and foul smelling water, if you could call it that."
+	baseturfs = /turf/open/ms13/water/sewer
+	fish = list(/obj/item/food/meat/slab/ms13/fish/lamprey = 2,
+		/obj/item/food/meat/slab/ms13/fish/largemouth = 1,
+		/obj/item/food/meat/slab/ms13/fish/chum = 3,
+		/obj/item/food/meat/slab/ms13/fish/blinky = 3,
+		/obj/item/food/meat/slab/ms13/fish/asian = 1)
+
 
 /turf/open/ms13/water/sewer/deep
 	name = "deep water"
 	desc = "Cold rancid sewer water, it looks pretty deep."
 	icon_state = "sewer_deep"
+	baseturfs = /turf/open/ms13/water/sewer/deep
 	watereffect = /obj/effect/overlay/ms13/sewer/deep
 	watertop = /obj/effect/overlay/ms13/sewer/top/deep
 	depth = 3
 
 /turf/open/ms13/water/sewer/medium
 	icon_state = "sewer_medium"
+	baseturfs = /turf/open/ms13/water/sewer/medium
 	watereffect = /obj/effect/overlay/ms13/sewer/medium
 	watertop = /obj/effect/overlay/ms13/sewer/top/medium
 	depth = 2
 
 /turf/open/ms13/water/sewer/shallow
 	icon_state = "sewer_shallow"
+	baseturfs = /turf/open/ms13/water/sewer/shallow
 	watereffect = /obj/effect/overlay/ms13/sewer/shallow
 	watertop = /obj/effect/overlay/ms13/sewer/top/shallow
 	depth = 1
@@ -821,6 +903,7 @@
 	icon_state = "transparent" //Different icon so it's visually distinct for mappers.
 	can_build_on = FALSE
 	can_cover_up = FALSE
+	smoothing_groups = list(SMOOTH_GROUP_MS13_OPENSPACE)
 
 /turf/open/openspace/ms13/Initialize()
 	. = ..()

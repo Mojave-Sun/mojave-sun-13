@@ -1,6 +1,5 @@
 /obj/effect/spawner/random/ms13/drink
 	name = "DO NOT USE ME - Mojave Sun drink spawners"
-	icon_state = "rainbow"
 	spawn_loot_count = 1
 	spawn_loot_chance = 50
 
@@ -24,7 +23,7 @@
 /obj/effect/spawner/random/ms13/drink/soda_uncommon
 	name = "uncommon cola spawner"
 	icon_state = "ms13_cola"
-	spawn_loot_chance = 15
+	spawn_loot_chance = 25
 	loot = list(
 		/obj/item/reagent_containers/food/drinks/soda_cans/ms13/nuka_quartz,
 		/obj/item/reagent_containers/food/drinks/soda_cans/ms13/nuka_cranberry,
@@ -63,7 +62,7 @@
 /obj/effect/spawner/random/ms13/drink/alcohol_beer
 	name = "beer spawner"
 	icon_state = "ms13_beer"
-	spawn_loot_chance = 25
+	spawn_loot_chance = 35
 
 	loot = list(
 		/obj/item/reagent_containers/food/drinks/bottle/ms13/trooper_beer,
@@ -74,7 +73,7 @@
 /obj/effect/spawner/random/ms13/drink/alcohol_uncommon // Breathe some artificial inflation up in there
 	name = "uncommon alcohol spawner"
 	icon_state = "ms13_alcohol"
-	spawn_loot_chance = 15
+	spawn_loot_chance = 25
 
 	loot = list(
 		/obj/item/reagent_containers/food/drinks/bottle/ms13/sake,

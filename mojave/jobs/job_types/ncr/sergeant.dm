@@ -19,10 +19,11 @@
 	suit_store = /obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/proto_service
 	belt = 		 /obj/item/gun/ballistic/automatic/pistol/ms13/m9mm
 	r_pocket = 	 /obj/item/ammo_box/magazine/ms13/r20
-	l_pocket = 	 /obj/item/kitchen/knife/ms13/hunting
+	l_pocket = 	 /obj/item/knife/ms13/hunting
 	backpack_contents = list(
 		/obj/item/clothing/mask/ms13/ncr=1, \
 		/obj/item/stack/medical/gauze/ms13/three=1, \
+		/obj/item/flashlight/flare/ms13=1, \
 		/obj/item/ammo_box/magazine/ms13/m9mm=1)
 
 /datum/outfit/job/ms13/ncr/sergeant/pre_equip(mob/living/carbon/human/H)

@@ -48,11 +48,15 @@
 	return ..()
 
 /mob/living/carbon/human/ZImpactDamage(turf/T, levels)
-	if(!HAS_TRAIT(src, TRAIT_FREERUNNING) || levels > 1) // falling off one level
+	if(stat != CONSCIOUS || levels > 1) // you're not The One
 		return ..()
-	visible_message(span_danger("[src] makes a hard landing on [T] but remains unharmed from the fall."), \
-					span_userdanger("You brace for the fall. You make a hard landing on [T] but remain unharmed."))
-	Knockdown(levels * 40)
+	var/obj/item/organ/external/wings/gliders = getorgan(/obj/item/organ/external/wings)
+	if(HAS_TRAIT(src, TRAIT_FREERUNNING) || gliders?.can_soften_fall()) // the power of parkour or wings allows falling short distances unscathed
+		visible_message(span_danger("[src] makes a hard landing on [T] but remains unharmed from the fall."), \
+						span_userdanger("You brace for the fall. You make a hard landing on [T] but remain unharmed."))
+		Knockdown(levels * 40)
+		return
+	return ..()
 
 /mob/living/carbon/human/prepare_data_huds()
 	//Update med hud images...
@@ -290,8 +294,8 @@
 							"name" = "Security Citation",
 							"job" = "Citation Server",
 							"message" = message,
-							"targets" = list("[P.owner] ([P.ownjob])"),
-							"automated" = 1
+							"targets" = list(STRINGIFY_PDA_TARGET(P.owner, P.ownjob)),
+							"automated" = TRUE
 						))
 						signal.send_to_receivers()
 						usr.log_message("(PDA: Citation Server) sent \"[message]\" to [signal.format_target()]", LOG_PDA)
@@ -383,8 +387,7 @@
 /mob/living/carbon/human/try_inject(mob/user, target_zone, injection_flags)
 	. = ..()
 	if(!. && (injection_flags & INJECT_TRY_SHOW_ERROR_MESSAGE) && user)
-		var/obj/item/bodypart/the_part = get_bodypart(target_zone) || get_bodypart(BODY_ZONE_CHEST)
-
+		var/obj/item/bodypart/the_part = get_bodypart(target_zone || user.zone_selected)
 		to_chat(user, span_alert("There is no exposed flesh or thin material on [p_their()] [the_part.name]."))
 
 /mob/living/carbon/human/assess_threat(judgement_criteria, lasercolor = "", datum/callback/weaponcheck=null)
@@ -473,7 +476,6 @@
 			if(prob(current_size * 5) && hand.w_class >= ((11-current_size)/2)  && dropItemToGround(hand))
 				step_towards(hand, src)
 				to_chat(src, span_warning("\The [S] pulls \the [hand] from your grip!"))
-	rad_act(current_size * 3)
 
 #define CPR_PANIC_SPEED (0.8 SECONDS)
 
@@ -718,29 +720,29 @@
 					//Hallucinations
 					if(body_part.type in hal_screwydoll)
 						icon_num = hal_screwydoll[body_part.type]
-						hud_used.healthdoll.add_overlay(mutable_appearance('icons/hud/screen_gen.dmi', "[body_part.body_zone][icon_num]"))
+						hud_used.healthdoll.add_overlay(mutable_appearance('mojave/icons/hud/ms_ui_health.dmi', "[body_part.body_zone][icon_num]")) // MS Health doll
 						continue
 					//Not hallucinating
 					var/damage = body_part.burn_dam + body_part.brute_dam
-					var/comparison = (body_part.max_damage/5)
+					//var/comparison = (body_part.max_damage/5)   // MS Health doll
 					if(damage)
-						icon_num = 1
-					if(damage > (comparison))
 						icon_num = 2
-					if(damage > (comparison*2))
-						icon_num = 3
-					if(damage > (comparison*3))
-						icon_num = 4
-					if(damage > (comparison*4))
-						icon_num = 5
-					if(hal_screwyhud == SCREWYHUD_HEALTHY)
-						icon_num = 0
+					// if(damage > (comparison))              // MS Health doll star
+					// 	icon_num = 2                          // MS Health doll
+					// if(damage > (comparison*2))            // MS Health doll
+					// 	icon_num = 3                          // MS Health doll
+					// if(damage > (comparison*3))            // MS Health doll
+					// 	icon_num = 4                          // MS Health doll
+					// if(damage > (comparison*4))            // MS Health doll
+					// 	icon_num = 5                          // MS Health doll
+					// if(hal_screwyhud == SCREWYHUD_HEALTHY) // MS Health doll
+					// 	icon_num = 0                          // MS Health doll
 					if(icon_num)
-						hud_used.healthdoll.add_overlay(mutable_appearance('icons/hud/screen_gen.dmi', "[body_part.body_zone][icon_num]"))
+						hud_used.healthdoll.add_overlay(mutable_appearance('mojave/icons/hud/ms_ui_health.dmi', "[body_part.body_zone][icon_num]")) // MS Health doll
 				for(var/t in get_missing_limbs()) //Missing limbs
-					hud_used.healthdoll.add_overlay(mutable_appearance('icons/hud/screen_gen.dmi', "[t]6"))
+					hud_used.healthdoll.add_overlay(mutable_appearance('mojave/icons/hud/ms_ui_health.dmi', "[t]3")) // MS Health doll
 				for(var/t in get_disabled_limbs()) //Disabled limbs
-					hud_used.healthdoll.add_overlay(mutable_appearance('icons/hud/screen_gen.dmi', "[t]7"))
+					hud_used.healthdoll.add_overlay(mutable_appearance('mojave/icons/hud/ms_ui_health.dmi', "[t]3")) // MS Health doll
 			else
 				hud_used.healthdoll.icon_state = "healthdoll_DEAD"
 
@@ -778,10 +780,6 @@
 	VV_DROPDOWN_OPTION(VV_HK_COPY_OUTFIT, "Copy Outfit")
 	VV_DROPDOWN_OPTION(VV_HK_MOD_MUTATIONS, "Add/Remove Mutation")
 	VV_DROPDOWN_OPTION(VV_HK_MOD_QUIRKS, "Add/Remove Quirks")
-	VV_DROPDOWN_OPTION(VV_HK_MAKE_MONKEY, "Make Monkey")
-	VV_DROPDOWN_OPTION(VV_HK_MAKE_CYBORG, "Make Cyborg")
-	VV_DROPDOWN_OPTION(VV_HK_MAKE_SLIME, "Make Slime")
-	VV_DROPDOWN_OPTION(VV_HK_MAKE_ALIEN, "Make Alien")
 	VV_DROPDOWN_OPTION(VV_HK_SET_SPECIES, "Set Species")
 	VV_DROPDOWN_OPTION(VV_HK_PURRBATION, "Toggle Purrbation")
 
@@ -801,7 +799,7 @@
 			var/name = initial(mut.name)
 			options[dna.check_mutation(mut) ? "[name] (Remove)" : "[name] (Add)"] = mut
 
-		var/result = input(usr, "Choose mutation to add/remove","Mutation Mod") as null|anything in sortList(options)
+		var/result = input(usr, "Choose mutation to add/remove","Mutation Mod") as null|anything in sort_list(options)
 		if(result)
 			if(result == "Clear")
 				dna.remove_all_mutations()
@@ -825,7 +823,7 @@
 			var/qname = initial(quirk_type.name)
 			options[has_quirk(quirk_type) ? "[qname] (Remove)" : "[qname] (Add)"] = quirk_type
 
-		var/result = input(usr, "Choose quirk to add/remove","Quirk Mod") as null|anything in sortList(options)
+		var/result = input(usr, "Choose quirk to add/remove","Quirk Mod") as null|anything in sort_list(options)
 		if(result)
 			if(result == "Clear")
 				for(var/datum/quirk/q in quirks)
@@ -836,30 +834,6 @@
 					remove_quirk(T)
 				else
 					add_quirk(T)
-	if(href_list[VV_HK_MAKE_MONKEY])
-		if(!check_rights(R_SPAWN))
-			return
-		if(tgui_alert(usr,"Confirm mob type change?",,list("Transform","Cancel")) != "Transform")
-			return
-		usr.client.holder.Topic("vv_override", list("monkeyone"=href_list[VV_HK_TARGET]))
-	if(href_list[VV_HK_MAKE_CYBORG])
-		if(!check_rights(R_SPAWN))
-			return
-		if(tgui_alert(usr,"Confirm mob type change?",,list("Transform","Cancel")) != "Transform")
-			return
-		usr.client.holder.Topic("vv_override", list("makerobot"=href_list[VV_HK_TARGET]))
-	if(href_list[VV_HK_MAKE_ALIEN])
-		if(!check_rights(R_SPAWN))
-			return
-		if(tgui_alert(usr,"Confirm mob type change?",,list("Transform","Cancel")) != "Transform")
-			return
-		usr.client.holder.Topic("vv_override", list("makealien"=href_list[VV_HK_TARGET]))
-	if(href_list[VV_HK_MAKE_SLIME])
-		if(!check_rights(R_SPAWN))
-			return
-		if(tgui_alert(usr,"Confirm mob type change?",,list("Transform","Cancel")) != "Transform")
-			return
-		usr.client.holder.Topic("vv_override", list("makeslime"=href_list[VV_HK_TARGET]))
 	if(href_list[VV_HK_SET_SPECIES])
 		if(!check_rights(R_SPAWN))
 			return

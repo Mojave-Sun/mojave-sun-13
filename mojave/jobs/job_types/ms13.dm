@@ -7,7 +7,7 @@ Mojave Sun Job Base Class
 	description = "N/A - please give a description of the role in your dataum/job/ms13/yourjob file"
 	forbid = "N/A - please note down what the role shout NOT be doing in your dataum/job/ms13/yourjob file"
 	enforce = "N/A - please note down what the role should be doing in dataum/job/ms13/yourjob file"
-	faction = "Wasteland"
+	faction = FACTION_STATION // this has to be faction station for it to work properly with the prefs menu.
 	paycheck = null
 	paycheck_department = null
 	job_flags = JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS
@@ -31,9 +31,6 @@ Mojave Sun Job Base Class
 	duffelbag = null
 
 	pda_slot = null
-
-/datum/outfit/job/ms13/pre_equip(mob/living/carbon/human/H)
-	//Blank for now, utilize as needed later on.
 
 //These are base jobs, we don't want them appearing at all
 /datum/job/ms13/config_check()

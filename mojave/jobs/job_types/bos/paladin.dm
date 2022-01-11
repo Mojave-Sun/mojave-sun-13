@@ -24,8 +24,7 @@
 	shoes = /obj/item/clothing/shoes/ms13/military/bos
 	suit_store = /obj/item/gun/energy/ms13/laser/rifle/advanced
 	r_pocket = 	/obj/item/stock_parts/cell/ms13/mfc
-	l_pocket =  /obj/item/kitchen/knife/ms13/combat
-	back = /obj/item/storage/backpack/satchel
+	l_pocket =  /obj/item/knife/ms13/combat
 	backpack_contents = list(
 		/obj/item/stack/medical/gauze/ms13/half=1, \
 		/obj/item/stack/medical/ointment/ms13/cream/half=1)

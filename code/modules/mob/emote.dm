@@ -55,12 +55,12 @@
 			if(P.can_run_emote(user, status_check = FALSE , intentional = TRUE))
 				keys += P.key
 
-	keys = sortList(keys)
+	keys = sort_list(keys)
 	message += keys.Join(", ")
 	message += "."
 	message = message.Join("")
 	to_chat(user, message)
-
+/* MOJAVE SUN EDIT - Removes Stupid non-RP Emotes
 /datum/emote/flip
 	key = "flip"
 	key_third_person = "flips"
@@ -131,3 +131,4 @@
 #undef BEYBLADE_DIZZINESS_VALUE
 #undef BEYBLADE_CONFUSION_INCREMENT
 #undef BEYBLADE_CONFUSION_LIMIT
+*///MOJAVE SUN EDIT END - Remove stupid non-RP emotes

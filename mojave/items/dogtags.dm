@@ -10,10 +10,26 @@
 	icon_state = "bos_holotag"
 	var/datum/bank_account = null
 
+/obj/item/card/id/ms13/doctor
+	name = "doctor's ID card"
+	desc = "A laminated but also very crude looking medical identification badge that has been scribbled on extensively. By wasteland standards, this is actually quite professional."
+	assignment = "Town Doctor"
+	icon_state = "doctor"
+
+/obj/item/card/id/ms13/doctor/nurse
+	name = "nurse's ID card"
+	assignment = "Town Nurse"
+
+/obj/item/card/id/ms13/mayor
+	name = "mayor's ID card"
+	desc = "A very faded gold identification card that looks very, very old and the many edits to the card make it seem like it has seen many owners. But whoever owns this now is surely important."
+	assignment = "Town Mayor"
+	icon_state = "mayor"
+
 /obj/item/card/id/ms13/deputy
 	name = "deputy's badge"
 	desc = "A silver badge which shows honour and dedication. Has some electronic workings sloppily attached to the back of it."
-	assignment = "Deputy"
+	assignment = "Town Deputy"
 	icon_state = "deputy"
 
 /obj/item/card/id/ms13/deputy/attackby(obj/item/W, mob/user, params)
@@ -26,6 +42,7 @@
 /obj/item/card/id/ms13/sheriff
 	name = "sheriff's badge"
 	desc = "A golden Sheriff's badge. Has some electronic workings sloppily attached to the back of it."
+	assignment = "Town Sheriff"
 	icon_state = "sheriff"
 
 /obj/item/card/id/ms13/ncrrecruit
@@ -50,6 +67,10 @@
 /obj/item/card/id/ms13/ncrtrooper/medic
 	name = "\improper NCR medic's tags"
 	assignment = "NCR Medic"
+
+/obj/item/card/id/ms13/ncrtrooper/radioman
+	name = "\improper NCR radioman's tags"
+	assignment = "NCR Radioman"
 
 /obj/item/card/id/ms13/ncrsergeant
 	name = "\improper NCR sergeant's tags"
@@ -115,6 +136,7 @@
 /obj/item/card/id/ms13/sawbone
 	name = "sawbone's patch"
 	desc = "A nice rectangular patch with a little hole to loop a string through if you really wanted to. It's a bit bloody."
+	assignment = "Raider Sawbones"
 	icon_state = "sawbone"
 
 /obj/item/card/id/ms13/enforcer

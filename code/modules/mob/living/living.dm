@@ -314,9 +314,17 @@
 
 		log_combat(src, M, "grabbed", addition="passive grab")
 		if(!supress_message && !(iscarbon(AM) && HAS_TRAIT(src, TRAIT_STRONG_GRABBER)))
-			M.visible_message(span_warning("[src] grabs [M] [(zone_selected == "l_arm" || zone_selected == "r_arm" && ishuman(M))? "by their hands":"passively"]!"), \
-							span_warning("[src] grabs you [(zone_selected == "l_arm" || zone_selected == "r_arm" && ishuman(M))? "by your hands":"passively"]!"), null, null, src)
-			to_chat(src, span_notice("You grab [M] [(zone_selected == "l_arm" || zone_selected == "r_arm" && ishuman(M))? "by their hands":"passively"]!"))
+			if(ishuman(M))
+				var/mob/living/carbon/human/grabbed_human = M
+				var/grabbed_by_hands = (zone_selected == "l_arm" || zone_selected == "r_arm") && grabbed_human.usable_hands > 0
+				M.visible_message(span_warning("[src] grabs [M] [grabbed_by_hands ? "by their hands":"passively"]!"), \
+								span_warning("[src] grabs you [grabbed_by_hands ? "by your hands":"passively"]!"), null, null, src)
+				to_chat(src, span_notice("You grab [M] [grabbed_by_hands ? "by their hands":"passively"]!"))
+			else
+				M.visible_message(span_warning("[src] grabs [M] passively!"), \
+								span_warning("[src] grabs you passively!"), null, null, src)
+				to_chat(src, span_notice("You grab [M] passively!"))
+
 		if(!iscarbon(src))
 			M.LAssailant = null
 		else
@@ -744,7 +752,6 @@
 	remove_CC()
 	set_disgust(0)
 	losebreath = 0
-	radiation = 0
 	set_nutrition(NUTRITION_LEVEL_FED + 50)
 	bodytemperature = get_body_temp_normal(apply_change=FALSE)
 	set_blindness(0)
@@ -759,7 +766,7 @@
 	fire_stacks = 0
 	set_confusion(0)
 	dizziness = 0
-	drowsyness = 0
+	set_drowsyness(0)
 	stuttering = 0
 	slurring = 0
 	jitteriness = 0
@@ -1201,7 +1208,7 @@
 			Robot.connected_ai.disconnect_shell()
 		if(Robot.mmi)
 			qdel(Robot.mmi)
-		Robot.notify_ai(NEW_BORG)
+		Robot.notify_ai(AI_NOTIFICATION_NEW_BORG)
 	else
 		for(var/obj/item/item in src)
 			if(!dropItemToGround(item))
@@ -1352,21 +1359,6 @@
 		G.Recall()
 		to_chat(G, span_holoparasite("Your summoner has changed form!"))
 
-/mob/living/rad_act(amount)
-	. = ..()
-
-	if(!amount || (amount < RAD_MOB_SKIN_PROTECTION) || HAS_TRAIT(src, TRAIT_RADIMMUNE))
-		return
-
-	amount -= RAD_BACKGROUND_RADIATION // This will always be at least 1 because of how skin protection is calculated
-
-	var/blocked = getarmor(null, RAD)
-
-	if(amount > RAD_BURN_THRESHOLD)
-		apply_damage(RAD_BURN_CURVE(amount), BURN, null, blocked)
-
-	apply_effect((amount*RAD_MOB_COEFFICIENT)/max(1, (radiation**2)*RAD_OVERDOSE_REDUCTION), EFFECT_IRRADIATE, blocked)
-
 /mob/living/anti_magic_check(magic = TRUE, holy = FALSE, tinfoil = FALSE, chargecost = 1, self = FALSE)
 	. = ..()
 	if(.)
@@ -1507,7 +1499,7 @@
 
 /mob/living/forceMove(atom/destination)
 	stop_pulling()
-	if(buckled)
+	if(buckled && !HAS_TRAIT(src, TRAIT_CANNOT_BE_UNBUCKLED))
 		buckled.unbuckle_mob(src, force = TRUE)
 	if(has_buckled_mobs())
 		unbuckle_all_mobs(force = TRUE)
@@ -1791,7 +1783,10 @@
 	SIGNAL_HANDLER
 	var/turf/ceiling = get_step_multiz(src, UP)
 	if(!ceiling) //We are at the highest z-level.
-		to_chat(src, span_warning("You can't see through the ceiling above you."))
+		if (prob(0.1))
+			to_chat(src, span_warning("You gaze out into the infinite vastness of deep space, for a moment, you have the impulse to continue travelling, out there, out into the deep beyond, before your conciousness reasserts itself and you decide to stay within travelling distance of the station."))
+			return
+		to_chat(src, span_warning("There's nothing interesting up there."))
 		return
 	else if(!istransparentturf(ceiling)) //There is no turf we can look through above us
 		var/turf/front_hole = get_step(ceiling, dir)
@@ -2153,3 +2148,26 @@
 		exp_list[mind.assigned_role.title] = minutes
 
 	return exp_list
+
+/**
+ * A proc triggered by callback when someone gets slammed by the tram and lands somewhere.
+ *
+ * This proc is used to force people to fall through things like lattice and unplated flooring at the expense of some
+ * extra damage, so jokers can't use half a stack of iron rods to make getting hit by the tram immediately lethal.
+ */
+/mob/living/proc/tram_slam_land()
+	if(!istype(loc, /turf/open/openspace) && !istype(loc, /turf/open/floor/plating))
+		return
+
+	if(istype(loc, /turf/open/floor/plating))
+		var/turf/open/floor/smashed_plating = loc
+		visible_message(span_danger("[src] is thrown violently into [smashed_plating], smashing through it and punching straight through!"),
+				span_userdanger("You're thrown violently into [smashed_plating], smashing through it and punching straight through!"))
+		apply_damage(rand(5,20), BRUTE, BODY_ZONE_CHEST)
+		smashed_plating.ScrapeAway(1, CHANGETURF_INHERIT_AIR)
+
+	for(var/obj/structure/lattice/lattice in loc)
+		visible_message(span_danger("[src] is thrown violently into [lattice], smashing through it and punching straight through!"),
+			span_userdanger("You're thrown violently into [lattice], smashing through it and punching straight through!"))
+		apply_damage(rand(5,10), BRUTE, BODY_ZONE_CHEST)
+		lattice.deconstruct(FALSE)

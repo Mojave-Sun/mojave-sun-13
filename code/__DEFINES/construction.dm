@@ -108,6 +108,19 @@
 #define CAT_ICE "Frozen"
 #define CAT_DRINK "Drinks"
 #define CAT_CHEMISTRY "Chemistry"
+#define CAT_ATMOSPHERIC "Atmospheric"
+
+// tablecrafting interface types - MOJAVE EDIT START
+
+#define CAT_MEDICAL "Medical"
+
+#define CRAFTING_BENCH_HANDS      1<<0
+#define CRAFTING_BENCH_GENERAL    1<<1
+#define CRAFTING_BENCH_ELECTRIC   1<<2
+#define CRAFTING_BENCH_ARMTAILOR  1<<3
+#define CRAFTING_BENCH_WEAPONS    1<<4
+#define CRAFTING_BENCH_RELOADING  1<<5
+// tablecrafting interface types - MOJAVE EDIT END
 
 //rcd modes
 #define RCD_FLOORWALL 0

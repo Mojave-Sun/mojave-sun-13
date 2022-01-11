@@ -20,7 +20,7 @@
 	open_sound_volume = 25
 	close_sound_volume = 50
 	max_integrity = 500
-	armor = list(MELEE = 50, BULLET = 10, LASER = 10, ENERGY = 0, BOMB = 10, BIO = 0, RAD = 0, FIRE = 70, ACID = 60)
+	armor = list(MELEE = 50, BULLET = 10, LASER = 10, ENERGY = 0, BOMB = 10, BIO = 0, FIRE = 70, ACID = 60)
 	var/breakable = TRUE
 	var/prying = FALSE
 	var/altstates = 0
@@ -53,13 +53,12 @@
 		if(manifest)
 			tear_manifest(user)
 		if(!prying)
-			var/time_to_open = 11 SECONDS
 			user.visible_message("<span class='notice'>[user] starts to break \the [src] open.</span>", \
 					"<span class='notice'>You start to break \the [src] open.</span>", \
 					"<span class='hear'>You hear splitting wood.</span>")
 			playsound(src.loc, 'mojave/sound/ms13effects/wood_deconstruction.ogg', 50, TRUE)
 			prying = TRUE
-			if(do_after(user, time_to_open, target = src))
+			if(do_after(user, 8 SECONDS * W.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_CRATEOPEN))
 				user.visible_message("<span class='notice'>[user] pries \the [src] open.</span>", \
 					"<span class='notice'>You pry open \the [src].</span>", \
 					"<span class='hear'>You hear splitting wood.</span>")
@@ -84,7 +83,7 @@
 	icon_state = "plain_crate"
 	anchored = FALSE //smaller bois
 	max_integrity = 350
-	armor = list(MELEE = 35, BULLET = 10, LASER = 10, ENERGY = 0, BOMB = 10, BIO = 0, RAD = 0, FIRE = 70, ACID = 60)
+	armor = list(MELEE = 35, BULLET = 10, LASER = 10, ENERGY = 0, BOMB = 10, BIO = 0, FIRE = 70, ACID = 60)
 	altstates = 3
 
 /obj/structure/closet/crate/ms13/woodcrate/compact/boom
@@ -164,6 +163,8 @@
 	icon_state = "register"
 	anchored = TRUE
 	layer = ABOVE_MOB_LAYER
+	max_mob_size = MOB_SIZE_TINY
+	mob_storage_capacity = 1
 
 /obj/structure/closet/crate/ms13/cash_register/prewar
 	name = "pristine cash register"

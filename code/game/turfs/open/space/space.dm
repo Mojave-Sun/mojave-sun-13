@@ -2,7 +2,8 @@
 	icon = 'icons/turf/space.dmi'
 	icon_state = "0"
 	name = "\proper space"
-	intact = 0
+	overfloor_placed = FALSE
+	underfloor_accessibility = UNDERFLOOR_INTERACTABLE
 
 	temperature = TCMB
 	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT
@@ -49,6 +50,9 @@
 			smoothing_flags |= SMOOTH_OBJ
 		SET_BITFLAG_LIST(canSmoothWith)
 
+	var/area/our_area = loc
+	if(our_area.area_has_base_lighting && always_lit) //Only provide your own lighting if the area doesn't for you
+		add_overlay(GLOB.fullbright_overlay)
 
 	if(requires_activation)
 		SSair.add_to_active(src, TRUE)
@@ -154,6 +158,7 @@
 				to_chat(user, span_warning("You need one floor tile to build a floor!"))
 		else
 			to_chat(user, span_warning("The plating is going to need some support! Place metal rods first."))
+
 
 /turf/open/space/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	. = ..()

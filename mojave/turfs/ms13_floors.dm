@@ -9,6 +9,7 @@
 	icon_state = "wood tiles"
 	desc = "Wooden flooring."
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TILE)
+	baseturfs = /turf/baseturf_bottom //No lattices please
 	var/has_alternate_states = TRUE //for damage, alts etc.
 	var/alternate_states = 1
 	var/has_base_states = TRUE //for starting variety (mainly wood)
@@ -62,7 +63,7 @@
 	desc = "Exposed wooden foundation."
 	density = FALSE
 	anchored = TRUE
-	armor = list(MELEE = 50, BULLET = 50, LASER = 0, ENERGY = 0, BOMB = 50, BIO = 0, RAD = 0, FIRE = 80, ACID = 50)
+	armor = list(MELEE = 50, BULLET = 50, LASER = 0, ENERGY = 0, BOMB = 50, BIO = 0, FIRE = 80, ACID = 50)
 	max_integrity = 300
 	obj_flags = CAN_BE_HIT | BLOCK_Z_OUT_DOWN | BLOCK_Z_IN_UP
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TILE)
@@ -227,6 +228,7 @@
 
 /obj/item/stack/tile/ms13 //We need this because upstream turf code is not great.
 	turf_type = /turf/open/floor/ms13
+	merge_type = /obj/item/stack/tile/ms13
 
 /turf/open/floor/ms13
 	desc = "Tiled flooring."

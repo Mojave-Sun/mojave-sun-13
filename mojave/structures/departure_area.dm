@@ -21,7 +21,7 @@
 		return //Things have changed since the alert happened.
 	var/dat = "[key_name(user)] has despawned themselves, job [departing_mob.job], at [AREACOORD(src)]. Contents despawned along:"
 	var/list/stuff = list()
-	for(var/thing in departing_mob.GetAllContents())
+	for(var/thing in departing_mob.get_all_contents())
 		if(isobj(thing))
 			stuff += "[thing]"
 	dat = "[dat] [stuff.Join(", ")]."

@@ -63,7 +63,7 @@ There are several things that need to be remembered:
 	..()
 
 /mob/living/carbon/human/update_fire()
-	..((fire_stacks > HUMAN_FIRE_STACK_ICON_NUM) ? "Standing" : "Generic_mob_burning")
+	..((fire_stacks > HUMAN_FIRE_STACK_ICON_NUM) ? dna.species.fire_overlay : "Generic_mob_burning")
 
 
 /* --------------------------------------- */
@@ -124,11 +124,11 @@ There are several things that need to be remembered:
 
 
 		var/mutable_appearance/uniform_overlay
-
+		/* MOJAVE SUN EDIT - Gender Prefs
 		if(dna?.species.sexes)
 			if(body_type == FEMALE && U.fitted != NO_FEMALE_UNIFORM)
 				uniform_overlay = U.build_worn_icon(default_layer = UNIFORM_LAYER, default_icon_file = 'icons/mob/clothing/under/default.dmi', isinhands = FALSE, femaleuniform = U.fitted, override_state = target_overlay)
-
+		*/
 		if(!uniform_overlay)
 			uniform_overlay = U.build_worn_icon(default_layer = UNIFORM_LAYER, default_icon_file = 'icons/mob/clothing/under/default.dmi', isinhands = FALSE, override_state = target_overlay)
 
@@ -671,7 +671,7 @@ generate/load female uniform sprites matching all previously decided variables
 			else
 				eye_overlay = mutable_appearance('icons/mob/human_face.dmi', E.eye_icon_state, -BODY_LAYER)
 			if((EYECOLOR in dna.species.species_traits) && E)
-				eye_overlay.color = "#" + eye_color
+				eye_overlay.color = eye_color
 			if(OFFSET_FACE in dna.species.offset_features)
 				eye_overlay.pixel_x += dna.species.offset_features[OFFSET_FACE][1]
 				eye_overlay.pixel_y += dna.species.offset_features[OFFSET_FACE][2]

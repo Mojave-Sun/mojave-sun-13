@@ -81,6 +81,8 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	// subtypes can override this to force a specific UI style
 	var/ui_style
 
+	var/contains_off_screen_hud = FALSE // MOJAVE SUN EDIT - handling for secondary map skin for HUD
+
 /datum/hud/New(mob/owner)
 	mymob = owner
 
@@ -90,7 +92,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 
 	hide_actions_toggle = new
 	hide_actions_toggle.InitialiseIcon(src)
-	if(mymob.client)
+	if(mymob.client?.prefs)
 		hide_actions_toggle.locked = mymob.client.prefs.read_preference(/datum/preference/toggle/buttons_locked)
 
 	hand_slots = list()
@@ -238,6 +240,10 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	else if (viewmob.hud_used)
 		viewmob.hud_used.plane_masters_update()
 
+	// MOJAVE SUN EDIT START - changes for HUD
+	INVOKE_ASYNC(screenmob.client, /client/.proc/setHudBarVisible )
+	// MOJAVE SUN EDIT END - changes for HUD
+
 	return TRUE
 
 /datum/hud/proc/plane_masters_update()
@@ -310,9 +316,9 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 		hand_box.icon_state = "hand_[mymob.held_index_to_dir(i)]"
 		// MOJAVE EDIT
 		if(i == 1)
-			hand_box.screen_loc = "CENTER:-44,SOUTH"
-		else
 			hand_box.screen_loc = "CENTER:2,SOUTH"
+		else
+			hand_box.screen_loc = "CENTER:-44,SOUTH"
 		//hand_box.screen_loc = ui_hand_position(i)
 		hand_box.held_index = i
 		hand_slots["[i]"] = hand_box

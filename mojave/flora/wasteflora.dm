@@ -20,13 +20,16 @@
 	var/wholeiconcolor = TRUE
 
 /obj/item/food/grown/ms13
-	icon = 'mojave/icons/hydroponics/harvest.dmi'
+	icon = 'mojave/icons/hydroponics/harvest/harvest_world.dmi'
 	inhand_icon_state = "plant"
 	lefthand_file = 'mojave/icons/mob/inhands/equipment/hydroponics_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/equipment/hydroponics_righthand.dmi'
 	can_distill = TRUE
 	distill_reagent = /datum/reagent/consumable/ethanol/ms13/brew_sludge
 
+/obj/item/food/grown/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/hydroponics/harvest/harvest_inventory.dmi')
 
 /////////////////////////////////////////////////////////////
 ////////////////// MOJAVE SUN BOTANY ITEMS //////////////////
@@ -139,7 +142,7 @@
 	color = "#44341F"
 	taste_description = "rot"
 
-/datum/reagent/plantnutriment/ms13/fertilizer/on_mob_life(mob/living/carbon/M)
+/datum/reagent/plantnutriment/ms13/fertilizer/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	M.adjustToxLoss(0.5*REM, 0)
 	. = 1
 	..()
@@ -147,8 +150,8 @@
 /datum/reagent/plantnutriment/ms13/fertilizer/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray)
 	. = ..()
 	if(chems.has_reagent(src.type, 1))
-		mytray.adjustHealth(round(chems.get_reagent_amount(src.type) * 0.25))
-		mytray.adjustPests(-rand(1,2))
+		mytray.adjust_plant_health(round(chems.get_reagent_amount(src.type) * 0.25))
+		mytray.adjust_pestlevel(-rand(1,2))
 
 /datum/reagent/plantnutriment/eznutriment/ms13
 	name = "micronutrient fertilizer"
@@ -283,7 +286,7 @@
 	icon = 'mojave/icons/hydroponics/equipment.dmi'
 	icon_state = "compostbin"
 	anchored = TRUE
-	reagent_id = "fertilizer"
+	reagent_id = /datum/reagent/plantnutriment/ms13/fertilizer
 	var/seed_value = 4
 	var/food_value = 15
 
@@ -311,10 +314,10 @@
 /obj/structure/reagent_dispensers/compostbin/proc/process_compost()
 	for(var/obj/item/C in contents)
 		if(istype(C, /obj/item/seeds))
-			reagents.add_reagent("fertilizer", seed_value)
+			reagents.add_reagent(/datum/reagent/plantnutriment/ms13/fertilizer, seed_value)
 			qdel(C)
 		else if(istype(C, /obj/item/food))
-			reagents.add_reagent("fertilizer", food_value)
+			reagents.add_reagent(/datum/reagent/plantnutriment/ms13/fertilizer, food_value)
 			qdel(C)
 		else //Not sure how we got here, but there's only one reasonable thing to do.
 			qdel(C)
@@ -388,9 +391,9 @@
 				to_chat(user, "<span class='red'> Its filled with weeds!</span>")
 			if(pestlevel >= 5)
 				to_chat(user, "<span class='red'> Its filled with critters!</span>")
-			if (dead)
+			if (plant_status == HYDROTRAY_PLANT_DEAD)
 				to_chat(user, "<span class='warning'>It's dead!</span>")
-			else if (harvest)
+			else if (plant_status == HYDROTRAY_PLANT_HARVESTABLE)
 				to_chat(user, "<span class='info'>It's ready to harvest.</span>")
 			else if (plant_health <= (myseed.endurance / 2))
 				to_chat(user, "<span class='warning'>It looks unhealthy.</span>")

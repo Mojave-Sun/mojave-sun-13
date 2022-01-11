@@ -50,15 +50,11 @@
 		/obj/item/clothing/suit/ms13/raider/plated,\
 		/obj/item/clothing/suit/ms13/raider/kevlar)
 
-	back = pick(
-		/obj/item/storage/backpack/satchel/leather,\
-		/obj/item/storage/backpack)
-
 	belt = pick(
 		/obj/item/claymore/ms13/pipe,\
-		/obj/item/kitchen/knife/ms13/hunting,\
-		/obj/item/kitchen/knife/ms13/switchblade,\
-		/obj/item/kitchen/knife/butcher/ms13,\
+		/obj/item/knife/ms13/hunting,\
+		/obj/item/knife/ms13/switchblade,\
+		/obj/item/knife/butcher/ms13,\
 		/obj/item/hatchet/ms13/icepick)
 
 	suit_store = pick(

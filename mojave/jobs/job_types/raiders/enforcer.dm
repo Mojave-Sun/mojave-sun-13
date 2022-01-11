@@ -19,21 +19,19 @@
 	id = 		/obj/item/card/id/ms13/enforcer
 	suit = 		/obj/item/clothing/suit/ms13/trench/black/reinf/enforcer
 	uniform =	/obj/item/clothing/under/ms13/wasteland/mercc
-	gloves =	/obj/item/clothing/gloves/ms13/leather
+	gloves =	/obj/item/clothing/gloves/ms13/military
 	shoes = 	/obj/item/clothing/shoes/ms13/military/diesel
 	suit_store = /obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/dakka
 	belt = 		/obj/item/gun/ballistic/revolver/ms13/rev10mm
 	r_hand = 	/obj/item/ms13/twohanded/hammer
 	r_pocket = 	/obj/item/ammo_box/magazine/ms13/r20
-	l_pocket =	/obj/item/kitchen/knife/ms13/combat/soviet
+	l_pocket =	/obj/item/knife/ms13/combat/soviet
 	backpack_contents = list(
 		/obj/item/ammo_box/ms13/rev10mm=2, \
 		/obj/item/stack/medical/ointment/ms13/aloe=1, \
-		/obj/item/stack/medical/gauze/ms13/half=1)
+		/obj/item/stack/medical/gauze/ms13/half=1, \
+		/obj/item/flashlight/ms13/crafted=1, \
+		/obj/item/radio/ms13=1)
 
 /datum/outfit/job/ms13/raiders/enforcer/pre_equip(mob/living/carbon/human/H)
 	..()
-
-	back = pick(
-		/obj/item/storage/backpack/satchel/leather,\
-		/obj/item/storage/backpack)

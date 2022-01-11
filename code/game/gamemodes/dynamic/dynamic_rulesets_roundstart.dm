@@ -223,7 +223,7 @@
 	name = "Wizard"
 	antag_flag = ROLE_WIZARD
 	antag_datum = /datum/antagonist/wizard
-	flags = LONE_RULESET
+	flags = HIGH_IMPACT_RULESET
 	minimum_required_age = 14
 	restricted_roles = list("Head of Security", "Captain") // Just to be sure that a wizard getting picked won't ever imply a Captain or HoS not getting drafted
 	required_candidates = 1
@@ -605,7 +605,7 @@
 	. = ..()
 	var/carriers_to_make = max(round(mode.roundstart_pop_ready / players_per_carrier, 1), 1)
 
-	for(var/j = 0, j < carriers_to_make, j++)
+	for(var/j in 1 to carriers_to_make)
 		if (!candidates.len)
 			break
 		var/mob/carrier = pick_n_take(candidates)

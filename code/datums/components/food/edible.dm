@@ -3,7 +3,7 @@
 This component makes it possible to make things edible. What this means is that you can take a bite or force someone to take a bite (in the case of items).
 These items take a specific time to eat, and can do most of the things our original food items could.
 
-Behavior that's still missing from this component that original food items had that should either be put into seperate components or somewhere else:
+Behavior that's still missing from this component that original food items had that should either be put into separate components or somewhere else:
 	Components:
 	Drying component (jerky etc)
 	Processable component (Slicing and cooking behavior essentialy, making it go from item A to B when conditions are met.)
@@ -72,10 +72,13 @@ Behavior that's still missing from this component that original food items had t
 	RegisterSignal(parent, COMSIG_EDIBLE_INGREDIENT_ADDED, .proc/edible_ingredient_added)
 	RegisterSignal(parent, COMSIG_OOZE_EAT_ATOM, .proc/on_ooze_eat)
 
-	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
-	)
-	AddComponent(/datum/component/connect_loc_behalf, parent, loc_connections)
+	if(!isturf(parent))
+		var/static/list/loc_connections = list(
+			COMSIG_ATOM_ENTERED = .proc/on_entered,
+		)
+		AddComponent(/datum/component/connect_loc_behalf, parent, loc_connections)
+	else
+		RegisterSignal(parent, COMSIG_ATOM_ENTERED, .proc/on_entered)
 
 	if(isitem(parent))
 		RegisterSignal(parent, COMSIG_ITEM_ATTACK, .proc/UseFromHand)
@@ -331,11 +334,11 @@ Behavior that's still missing from this component that original food items had t
 									span_userdanger("[feeder] forces you to eat [parent]!"))
 
 	TakeBite(eater, feeder)
-
+	/* MOJAVE SUN EDIT BEGIN
 	//If we're not force-feeding and there's an eat delay, try take another bite
 	if(eater == feeder && eat_time)
 		INVOKE_ASYNC(src, .proc/TryToEat, eater, feeder)
-
+	MOJAVE SUN EDIT END */
 
 ///This function lets the eater take a bite and transfers the reagents to the eater.
 /datum/component/edible/proc/TakeBite(mob/living/eater, mob/living/feeder)

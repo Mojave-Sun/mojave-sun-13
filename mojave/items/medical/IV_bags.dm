@@ -4,6 +4,10 @@
 	icon = 'mojave/icons/objects/medical/medical_world.dmi'
 	icon_state = "bag_r"
 
+/obj/item/reagent_containers/blood/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/medical/medical_inventory.dmi')
+
 /obj/item/reagent_containers/blood/ms13/a_plus
 	blood_type = "A+"
 
@@ -40,8 +44,7 @@
 	color = "#ff7200"
 	metabolization_rate = 2 * REAGENTS_METABOLISM
 
-/datum/reagent/ms13/medicine/radaway/on_mob_life(mob/living/carbon/M)
+/datum/reagent/ms13/medicine/radaway/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	M.adjustToxLoss(-3*REM)
-	M.radiation -= min(M.radiation, 16)
 	. = 1
 	..()

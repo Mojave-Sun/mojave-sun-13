@@ -30,6 +30,8 @@
 	bare_wound_bonus = 4
 	w_class = WEIGHT_CLASS_NORMAL
 	sharpness = SHARP_EDGED
+	tool_behaviour = TOOL_KNIFE
+	toolspeed = 2
 
 /obj/item/claymore/ms13/machete/gladius
 	name = "machete gladius"

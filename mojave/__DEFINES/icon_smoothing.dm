@@ -14,7 +14,7 @@
 #define SMOOTH_GROUP_MS13_SNOW S_OBJ_FO(11)			///turf/open/floor/plating/ms13/ground/snow
 #define SMOOTH_GROUP_MS13_ROAD S_OBJ_FO(12)			///turf/open/floor/plating/ground/road
 #define SMOOTH_GROUP_MS13_SIDEWALK S_OBJ_FO(13)			///turf/open/floor/plating/ground/sidewalk
-#define SMOOTH_GROUP_MS13_TILE S_OBJ_FO(14)			///turf/open/floor/wood/ms13, /turf/open/floor/iron/ms13
+#define SMOOTH_GROUP_MS13_TILE S_OBJ_FO(14)			///turf/open/floor/wood/ms13, /turf/open/floor/ms13/
 #define SMOOTH_GROUP_MS13_ICE S_OBJ_FO(15)			///turf/open/floor/plating/ms13/ground/ice
 #define SMOOTH_GROUP_MS13_WATER S_OBJ_FO(16)		///turf/open/ms13/water
 
@@ -31,11 +31,14 @@
 #define SMOOTH_GROUP_MS13_ROOF_SHEET S_OBJ_FO(27)			////turf/open/floor/plating/roof/sheet
 #define SMOOTH_GROUP_MS13_ROOF_METAL S_OBJ_FO(28)			////turf/open/floor/plating/roof/metal
 #define SMOOTH_GROUP_MS13_ROOF_WOOD S_OBJ_FO(29)			////turf/open/floor/plating/roof/wood
+#define SMOOTH_GROUP_MS13_GLASS S_OBJ_FO(30)			///obj/structure/ms13/glassfloor
 
-#define SMOOTH_GROUP_SOIL S_OBJ_FO(30)					///obj/machinery/hydroponics/ms13/soil
-#define SMOOTH_GROUP_MS13_TABLE_METAL S_OBJ_FO(31)			///obj/structure/table/ms13
-#define SMOOTH_GROUP_MS13_TABLE_WOOD S_OBJ_FO(32)			///obj/structure/table/ms13/wood
-#define SMOOTH_GROUP_MS13_TABLE_SMALL S_OBJ_FO(33)			///obj/structure/table/ms13/metal/small
-#define SMOOTH_GROUP_MS13_TABLE_PLAYER S_OBJ_FO(34) 	 	///obj/structure/table/ms13/metal/cobbled
+#define SMOOTH_GROUP_MS13_OPENSPACE S_OBJ_FO(31)			///turf/open/openspace/ms13
+
+#define SMOOTH_GROUP_SOIL S_OBJ_FO(31)					///obj/machinery/hydroponics/ms13/soil
+#define SMOOTH_GROUP_MS13_TABLE_METAL S_OBJ_FO(32)			///obj/structure/table/ms13
+#define SMOOTH_GROUP_MS13_TABLE_WOOD S_OBJ_FO(33)			///obj/structure/table/ms13/wood
+#define SMOOTH_GROUP_MS13_TABLE_SMALL S_OBJ_FO(34)			///obj/structure/table/ms13/metal/small
+#define SMOOTH_GROUP_MS13_TABLE_PLAYER S_OBJ_FO(35) 	 	///obj/structure/table/ms13/metal/cobbled
 
 #define MAX_S_TURF_FO SMOOTH_GROUP_MS13_TABLE_PLAYER //Always match this value with the one above it.

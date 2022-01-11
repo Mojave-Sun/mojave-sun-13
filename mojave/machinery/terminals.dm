@@ -378,6 +378,11 @@
 	density = FALSE
 	pixel_y = 28
 
+/obj/machienry/ms13/terminal/wall/Initialize(mapload)
+	. = ..()
+	if(dir == !SOUTH)
+		pixel_y = 0
+
 /obj/machinery/ms13/terminal/wall/AltClick(mob/user)
 	. = ..()
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))

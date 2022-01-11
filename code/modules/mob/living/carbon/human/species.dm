@@ -20,7 +20,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	///This is the fluff name. They are displayed on health analyzers and in the character setup menu. Leave them generic for other servers to customize.
 	var/name
 	// Default color. If mutant colors are disabled, this is the color that will be used by that race.
-	var/default_color = "#FFF"
+	var/default_color = "#FFFFFF"
 
 	///Whether or not the race has sexual characteristics (biological genders). At the moment this is only FALSE for skeletons and shadows
 	var/sexes = TRUE
@@ -32,10 +32,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	var/hair_color
 	///The alpha used by the hair. 255 is completely solid, 0 is invisible.
 	var/hair_alpha = 255
-	///The gradient style used for the mob's hair.
-	var/grad_style
-	///The gradient color used to color the gradient.
-	var/grad_color
 
 	///Does the species use skintones or not? As of now only used by humans.
 	var/use_skintones = FALSE
@@ -143,6 +139,9 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	var/bodytemp_heat_damage_limit = BODYTEMP_HEAT_DAMAGE_LIMIT
 	/// The body temperature limit the body can take before it starts taking damage from cold.
 	var/bodytemp_cold_damage_limit = BODYTEMP_COLD_DAMAGE_LIMIT
+
+	/// The icon_state of the fire overlay added when sufficently ablaze and standing. see onfire.dmi
+	var/fire_overlay = "Standing"
 
 	///the species that body parts are surgically compatible with (found in _DEFINES/mobs.dm)
 	///current acceptable bitfields are HUMAN_BODY, ALIEN_BODY, LARVA_BODY, MONKEY_BODY, or NONE
@@ -316,7 +315,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
  * * excluded_zones - list, add zone defines to block organs inside of the zones from getting handled. see headless mutation for an example
  */
 /datum/species/proc/regenerate_organs(mob/living/carbon/C,datum/species/old_species,replace_current=TRUE,list/excluded_zones)
-	//what should be put in if there is no mutantorgan (brains handled seperately)
+	//what should be put in if there is no mutantorgan (brains handled separately)
 	var/list/slot_mutantorgans = list(ORGAN_SLOT_BRAIN = mutantbrain, ORGAN_SLOT_HEART = mutantheart, ORGAN_SLOT_LUNGS = mutantlungs, ORGAN_SLOT_APPENDIX = mutantappendix, \
 	ORGAN_SLOT_EYES = mutanteyes, ORGAN_SLOT_EARS = mutantears, ORGAN_SLOT_TONGUE = mutanttongue, ORGAN_SLOT_LIVER = mutantliver, ORGAN_SLOT_STOMACH = mutantstomach)
 
@@ -575,17 +574,23 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				fhair_file = 'icons/mob/facialhair_extensions.dmi'
 
 			var/mutable_appearance/facial_overlay = mutable_appearance(fhair_file, fhair_state, -HAIR_LAYER)
+			var/mutable_appearance/gradient_overlay
 
 			if(!forced_colour)
 				if(hair_color)
 					if(hair_color == "mutcolor")
-						facial_overlay.color = "#" + H.dna.features["mcolor"]
+						facial_overlay.color = H.dna.features["mcolor"]
 					else if(hair_color == "fixedmutcolor")
-						facial_overlay.color = "#[fixed_mut_color]"
+						facial_overlay.color = fixed_mut_color
 					else
-						facial_overlay.color = "#" + hair_color
+						facial_overlay.color = hair_color
 				else
-					facial_overlay.color = "#" + H.facial_hair_color
+					facial_overlay.color = H.facial_hair_color
+				//Gradients
+				var/grad_style = LAZYACCESS(H.grad_style, GRADIENT_FACIAL_HAIR_KEY)
+				if(grad_style)
+					var/grad_color = LAZYACCESS(H.grad_color, GRADIENT_FACIAL_HAIR_KEY)
+					gradient_overlay = make_gradient_overlay(fhair_file, fhair_state, HAIR_LAYER, GLOB.facial_hair_gradients_list[grad_style], grad_color)
 			else
 				facial_overlay.color = forced_colour
 
@@ -593,6 +598,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			facial_overlay.overlays += emissive_blocker(fhair_file, fhair_state, alpha = hair_alpha)
 
 			standing += facial_overlay
+			if(gradient_overlay)
+				standing += gradient_overlay
 
 	if(H.head)
 		var/obj/item/I = H.head
@@ -620,7 +627,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 	if(!hair_hidden || dynamic_hair_suffix)
 		var/mutable_appearance/hair_overlay = mutable_appearance(layer = -HAIR_LAYER)
-		var/mutable_appearance/gradient_overlay = mutable_appearance(layer = -HAIR_LAYER)
+		var/mutable_appearance/gradient_overlay
 		if(!hair_hidden && !H.getorgan(/obj/item/organ/brain)) //Applies the debrained overlay if there is no brain
 			if(!(NOBLOOD in species_traits))
 				hair_overlay.icon = 'icons/mob/human_face.dmi'
@@ -655,25 +662,19 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				if(!forced_colour)
 					if(hair_color)
 						if(hair_color == "mutcolor")
-							hair_overlay.color = "#" + H.dna.features["mcolor"]
+							hair_overlay.color = H.dna.features["mcolor"]
 						else if(hair_color == "fixedmutcolor")
-							hair_overlay.color = "#[fixed_mut_color]"
+							hair_overlay.color = fixed_mut_color
 						else
-							hair_overlay.color = "#" + hair_color
+							hair_overlay.color = hair_color
 					else
-						hair_overlay.color = "#" + H.hair_color
+						hair_overlay.color = H.hair_color
 
 					//Gradients
-					grad_style = H.grad_style
-					grad_color = H.grad_color
+					var/grad_style = LAZYACCESS(H.grad_style, GRADIENT_HAIR_KEY)
 					if(grad_style)
-						var/datum/sprite_accessory/gradient = GLOB.hair_gradients_list[grad_style]
-						var/icon/temp = icon(gradient.icon, gradient.icon_state)
-						var/icon/temp_hair = icon(hair_file, hair_state)
-						temp.Blend(temp_hair, ICON_ADD)
-						gradient_overlay.icon = temp
-						gradient_overlay.color = "#" + grad_color
-
+						var/grad_color = LAZYACCESS(H.grad_color, GRADIENT_HAIR_KEY)
+						gradient_overlay = make_gradient_overlay(hair_file, hair_state, HAIR_LAYER, GLOB.hair_gradients_list[grad_style], grad_color)
 				else
 					hair_overlay.color = forced_colour
 
@@ -685,12 +686,22 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		if(hair_overlay.icon)
 			hair_overlay.overlays += emissive_blocker(hair_overlay.icon, hair_overlay.icon_state, alpha = hair_alpha)
 			standing += hair_overlay
-			standing += gradient_overlay
+			if(gradient_overlay)
+				standing += gradient_overlay
 
 	if(standing.len)
 		H.overlays_standing[HAIR_LAYER] = standing
 
 	H.apply_overlay(HAIR_LAYER)
+
+/datum/species/proc/make_gradient_overlay(file, icon, layer, datum/sprite_accessory/gradient, grad_color)
+	var/mutable_appearance/gradient_overlay = mutable_appearance(layer = -layer)
+	var/icon/temp = icon(gradient.icon, gradient.icon_state)
+	var/icon/temp_hair = icon(file, icon)
+	temp.Blend(temp_hair, ICON_ADD)
+	gradient_overlay.icon = temp
+	gradient_overlay.color = grad_color
+	return gradient_overlay
 
 /**
  * Handles the body of a human
@@ -745,7 +756,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				eye_overlay.pixel_x += add_pixel_x
 				eye_overlay.pixel_y += add_pixel_y
 				if((EYECOLOR in species_traits) && eye_organ)
-					eye_overlay.color = "#" + species_human.eye_color
+					eye_overlay.color = species_human.eye_color
 				standing += eye_overlay
 
 	// organic body markings
@@ -788,21 +799,18 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			var/datum/sprite_accessory/underwear/underwear = GLOB.underwear_list[species_human.underwear]
 			var/mutable_appearance/underwear_overlay
 			if(underwear)
-				if(species_human.dna.species.sexes && species_human.body_type == FEMALE && (underwear.gender == MALE))
-					underwear_overlay = wear_female_version(underwear.icon_state, underwear.icon, BODY_LAYER, FEMALE_UNIFORM_FULL)
-				else
-					underwear_overlay = mutable_appearance(underwear.icon, underwear.icon_state, -BODY_LAYER)
+
+				//MOJAVE SUN EDIT START - Gender Prefs
+				underwear_overlay = mutable_appearance(underwear.icon, underwear.icon_state, -BODY_LAYER)
 				if(!underwear.use_static)
-					underwear_overlay.color = "#" + species_human.underwear_color
+					underwear_overlay.color = species_human.underwear_color
 				standing += underwear_overlay
 
 		if(species_human.undershirt)
 			var/datum/sprite_accessory/undershirt/undershirt = GLOB.undershirt_list[species_human.undershirt]
 			if(undershirt)
-				if(species_human.dna.species.sexes && species_human.body_type == FEMALE)
-					standing += wear_female_version(undershirt.icon_state, undershirt.icon, BODY_LAYER)
-				else
-					standing += mutable_appearance(undershirt.icon, undershirt.icon_state, -BODY_LAYER)
+				standing += mutable_appearance(undershirt.icon, undershirt.icon_state, -BODY_LAYER)
+				//MOJAVE SUN EDIT END - Gender Prefs
 
 		if(species_human.socks && species_human.num_legs >= 2 && !(DIGITIGRADE in species_traits))
 			var/datum/sprite_accessory/socks/socks = GLOB.socks_list[species_human.socks]
@@ -959,20 +967,20 @@ GLOBAL_LIST_EMPTY(features_by_species)
 					switch(accessory.color_src)
 						if(MUTCOLORS)
 							if(fixed_mut_color)
-								accessory_overlay.color = "#[fixed_mut_color]"
+								accessory_overlay.color = fixed_mut_color
 							else
-								accessory_overlay.color = "#[source.dna.features["mcolor"]]"
+								accessory_overlay.color = source.dna.features["mcolor"]
 						if(HAIR)
 							if(hair_color == "mutcolor")
-								accessory_overlay.color = "#[source.dna.features["mcolor"]]"
+								accessory_overlay.color = source.dna.features["mcolor"]
 							else if(hair_color == "fixedmutcolor")
-								accessory_overlay.color = "#[fixed_mut_color]"
+								accessory_overlay.color = fixed_mut_color
 							else
-								accessory_overlay.color = "#[source.hair_color]"
+								accessory_overlay.color = source.hair_color
 						if(FACEHAIR)
-							accessory_overlay.color = "#[source.facial_hair_color]"
+							accessory_overlay.color = source.facial_hair_color
 						if(EYECOLOR)
-							accessory_overlay.color = "#[source.eye_color]"
+							accessory_overlay.color = source.eye_color
 				else
 					accessory_overlay.color = forced_colour
 			standing += accessory_overlay
@@ -1216,32 +1224,26 @@ GLOBAL_LIST_EMPTY(features_by_species)
  *
  * Arguments:
  * - [source][/mob/living/carbon/human]: The mob requesting handling
+ * - time_since_irradiated: The amount of time since the mob was first irradiated
  * - delta_time: The amount of time that has passed since the last tick
- * - times_fired: The number of times SSmobs has fired
  */
-/datum/species/proc/handle_mutations_and_radiation(mob/living/carbon/human/source, delta_time, times_fired)
-	if(HAS_TRAIT(source, TRAIT_RADIMMUNE))
-		source.radiation = 0
-		return TRUE
-
-	. = FALSE
-	var/radiation = source.radiation
-	if(radiation > RAD_MOB_KNOCKDOWN && DT_PROB(RAD_MOB_KNOCKDOWN_PROB, delta_time))
+/datum/species/proc/handle_radiation(mob/living/carbon/human/source, time_since_irradiated, delta_time)
+	if(time_since_irradiated > RAD_MOB_KNOCKDOWN && DT_PROB(RAD_MOB_KNOCKDOWN_PROB, delta_time))
 		if(!source.IsParalyzed())
 			source.emote("collapse")
 		source.Paralyze(RAD_MOB_KNOCKDOWN_AMOUNT)
 		to_chat(source, span_danger("You feel weak."))
 
-	if(radiation > RAD_MOB_VOMIT && DT_PROB(RAD_MOB_VOMIT_PROB, delta_time))
+	if(time_since_irradiated > RAD_MOB_VOMIT && DT_PROB(RAD_MOB_VOMIT_PROB, delta_time))
 		source.vomit(10, TRUE)
 
-	if(radiation > RAD_MOB_MUTATE && DT_PROB(RAD_MOB_MUTATE_PROB, delta_time))
+	if(time_since_irradiated > RAD_MOB_MUTATE && DT_PROB(RAD_MOB_MUTATE_PROB, delta_time))
 		to_chat(source, span_danger("You mutate!"))
 		source.easy_random_mutate(NEGATIVE + MINOR_NEGATIVE)
 		source.emote("gasp")
 		source.domutcheck()
 
-	if(radiation > RAD_MOB_HAIRLOSS && DT_PROB(RAD_MOB_HAIRLOSS_PROB, delta_time))
+	if(time_since_irradiated > RAD_MOB_HAIRLOSS && DT_PROB(RAD_MOB_HAIRLOSS_PROB, delta_time))
 		if(!(source.hairstyle == "Bald") && (HAIR in species_traits))
 			to_chat(source, span_danger("Your hair starts to fall out in clumps..."))
 			addtimer(CALLBACK(src, .proc/go_bald, source), 5 SECONDS)
@@ -2133,4 +2135,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 /// Given a human, will adjust it before taking a picture for the preferences UI.
 /// This should create a CONSISTENT result, so the icons don't randomly change.
 /datum/species/proc/prepare_human_for_preview(mob/living/carbon/human/human)
+	return
+
+/// Returns the species's scream sound.
+/datum/species/proc/get_scream_sound(mob/living/carbon/human/human)
 	return

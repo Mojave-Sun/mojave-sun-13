@@ -34,8 +34,8 @@
 //Odd = left. Even = right
 /mob/proc/held_index_to_dir(i)
 	if(!(i % 2))
-		return "l" // MOJAVE EDIT - return "r"
-	return "r" // MOJAVE EDIT - return "l"
+		return "r"
+	return "l"
 
 //Check we have an organ for this hand slot (Dismemberment), Only relevant for humans
 /mob/proc/has_hand_for_held_index(i)
@@ -127,10 +127,10 @@
 	var/num = 0
 	if(!(i % 2))
 		num = i-2
-		hand += "left hand" // MOJAVE EDIT - hand += "right hand"
+		hand += "right hand" // MOJAVE EDIT - hand += "right hand"
 	else
 		num = i-1
-		hand += "right hand"// MOJAVE EDIT - hand += "left hand"
+		hand += "left hand"// MOJAVE EDIT - hand += "left hand"
 
 	num -= (num*0.5)
 	if(num > 1) //"upper left hand #1" seems weird, but "upper left hand #2" is A-ok
@@ -234,7 +234,7 @@
 
 	var/hand = get_empty_held_index_for_side(LEFT_HANDS)
 	if(!hand)
-		hand =  get_empty_held_index_for_side(RIGHT_HANDS)
+		hand = get_empty_held_index_for_side(RIGHT_HANDS)
 	if(hand)
 		if(put_in_hand(I, hand, forced))
 			return TRUE
@@ -485,7 +485,7 @@
 //GetAllContents that is reasonable and not stupid
 /mob/living/carbon/proc/get_all_gear()
 	var/list/processing_list = get_equipped_items(include_pockets = TRUE) + held_items
-	listclearnulls(processing_list) // handles empty hands
+	list_clear_nulls(processing_list) // handles empty hands
 	var/i = 0
 	while(i < length(processing_list) )
 		var/atom/A = processing_list[++i]

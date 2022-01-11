@@ -52,6 +52,12 @@
 	icon_state = "power_display"
 	screen_loc = ui_lingchemdisplay
 
+
+//Show super cool ms13 sidebar
+/datum/hud/human
+	contains_off_screen_hud = TRUE
+
+
 /datum/hud/human/New(mob/living/carbon/human/owner)
 	..()
 
@@ -339,7 +345,7 @@
 	lingstingdisplay.hud = src
 	infodisplay += lingstingdisplay
 
-	zone_select =  new /atom/movable/screen/zone_sel()
+	zone_select = new /atom/movable/screen/zone_sel()
 	//zone_select.icon = ui_style
 	zone_select.icon = 'mojave/icons/hud/ms_ui_target.dmi'
 	zone_select.hud = src
@@ -487,9 +493,9 @@
 			// MOJAVE EDIT
 			//I.screen_loc = ui_hand_position(H.get_held_index_of_item(I))
 			if(H.get_held_index_of_item(I) == 1)
-				I.screen_loc = "CENTER:-44,SOUTH"
-			else
 				I.screen_loc = "CENTER:2,SOUTH"
+			else
+				I.screen_loc = "CENTER:-44,SOUTH"
 			// MOJAVE EDIT END
 			screenmob.client.screen += I
 	else

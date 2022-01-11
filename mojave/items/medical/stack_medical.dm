@@ -10,8 +10,9 @@
     amount = 12
     self_delay = 3.5 SECONDS
     other_delay = 2 SECONDS
+    repeating = FALSE
     heal_brute = 8
-    stop_bleeding = 0.65
+    stop_bleeding = 0.75
     gender = NEUTER //So examine text says "This is a suture" instead of "These are some suture"
     merge_type = /obj/item/stack/medical/suture/ms13
 
@@ -36,7 +37,7 @@
     inhand_icon_state = "ointment"
     amount = 12
     max_amount = 12
-    repeating = TRUE
+    repeating = FALSE
     self_delay = 2.5 SECONDS
     other_delay = 1.5 SECONDS
     heal_burn = 8
@@ -91,10 +92,9 @@
     max_amount = 12
     amount = 12
     absorption_rate = 0.12
-    absorption_capacity = 4.25
+    absorption_capacity = 5
     splint_factor = 0.6
     burn_cleanliness_bonus = 0.6
-
     merge_type = /obj/item/stack/medical/gauze/ms13
 
 /obj/item/stack/medical/gauze/ms13/Initialize()
@@ -107,13 +107,32 @@
 /obj/item/stack/medical/gauze/ms13/three
     amount = 3
 
+/obj/item/stack/medical/gauze/ms13/cloth
+    name = "cloth"
+    desc = "Pieces of cloth that can be used for many things, even as an improvised bandage."
+    singular_name = "cloth piece"
+    icon_state = "cloth"
+    max_amount = 12
+    amount = 1
+    absorption_rate = 0.06
+    absorption_capacity = 3.25
+    splint_factor = 0.85
+    burn_cleanliness_bonus = 0.85
+    merge_type = /obj/item/stack/medical/gauze/ms13/cloth
+
+/obj/item/stack/medical/gauze/ms13/cloth/two
+    amount = 2
+
+/obj/item/stack/medical/gauze/ms13/cloth/three
+    amount = 3
+
 /obj/item/stack/medical/gauze/ms13/military
     name = "military gauze"
     desc = "A sterile and elastic roll of gauze with a handle used to help pin the dressing down. Very good at soaking up blood from wounds and can be used as a decent splint for a broken bone."
     icon_state = "bandage_m"
     inhand_icon_state = "bandage_m"
     absorption_rate = 0.18
-    absorption_capacity = 6
+    absorption_capacity = 6.5
     splint_factor = 0.5 //Lower = better
     burn_cleanliness_bonus = 0.4 //Lower = better
     merge_type = /obj/item/stack/medical/gauze/ms13/military

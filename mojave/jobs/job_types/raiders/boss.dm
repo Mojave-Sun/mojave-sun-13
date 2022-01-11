@@ -15,7 +15,7 @@
 	name = "_Raider Boss"
 	jobtype = /datum/job/ms13/raiders/boss
 
-	glasses = 	/obj/item/clothing/glasses/ms13/sunglasses
+	glasses = 	/obj/item/clothing/glasses/ms13/cool
 	id = 		/obj/item/card/id/ms13/boss
 	suit =		/obj/item/clothing/suit/ms13/trench/boss
 	uniform =	/obj/item/clothing/under/ms13/wasteland/warboypants
@@ -26,11 +26,9 @@
 	backpack_contents = list(
 		/obj/item/stack/medical/ointment/ms13/cream/half=1, \
 		/obj/item/stack/medical/gauze/ms13/half=1, \
-		/obj/item/ammo_box/magazine/ms13/smgm10mm=1)
+		/obj/item/flashlight/ms13/crafted=1, \
+		/obj/item/ammo_box/magazine/ms13/smgm10mm=1, \
+		/obj/item/radio/ms13/broadcast=1)
 
 /datum/outfit/job/ms13/raiders/boss/pre_equip(mob/living/carbon/human/H)
 	..()
-
-	back = pick(
-		/obj/item/storage/backpack/satchel/leather,\
-		/obj/item/storage/backpack)

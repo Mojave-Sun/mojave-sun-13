@@ -222,7 +222,7 @@
 	glass_name = "glass of dark red liquid"
 	glass_desc = "A dark red liquid with particles floating around in it. Intense alcoholic aroma."
 
-/*/datum/reagent/consumable/ethanol/ms13/necromancer/on_mob_life(mob/living/carbon/M)
+/*/datum/reagent/consumable/ethanol/ms13/necromancer/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	M.drowsyness = max(0,M.drowsyness-3)
 	..()
 	. = 1 */
@@ -426,7 +426,7 @@
 	glass_name = "glass of pale yellow-ish liquid"
 	glass_desc = "A faint pale yellow liquid with a familiar distant agave smell to it. Smells pretty alcoholic."
 
-/datum/reagent/consumable/ethanol/ms13/waster_tequila/on_mob_life(mob/living/carbon/M)
+/datum/reagent/consumable/ethanol/ms13/waster_tequila/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(M.getToxLoss() && prob(20))
 		M.adjustToxLoss(-1*REM, 0)
 		. = 1
@@ -461,7 +461,7 @@
 	glass_name = "glass of murky brown liquid"
 	glass_desc = "A murky brown liquid with a gross smell to it. You can ALMOST pick up the faint smell of alcohol."
 
-/datum/reagent/consumable/ethanol/ms13/brew_sludge/on_mob_life(mob/living/carbon/M)
+/datum/reagent/consumable/ethanol/ms13/brew_sludge/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	M.adjustOrganLoss(ORGAN_SLOT_STOMACH, rand(1,2))
 	M.adjust_disgust(15)
 	..()
@@ -496,7 +496,7 @@
 	glass_name = "glass of pale orange liquid"
 	glass_desc = "A pale orange liquid. It reeks of fungus and has hints of tato."
 
-/datum/reagent/consumable/ethanol/ms13/swift_recovery/on_mob_life(mob/living/carbon/M)
+/datum/reagent/consumable/ethanol/ms13/swift_recovery/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	M.adjustOrganLoss(ORGAN_SLOT_BRAIN, rand(-5,-1))
 	if(M.getToxLoss() && prob(20))
 		M.adjustToxLoss(1*REM, 0)
@@ -513,7 +513,7 @@
 	glass_name = "glass of deep red liquid"
 	glass_desc = "A deep red liquid with a spiced aroma. Smelling it brings a comforting aura."
 
-/datum/reagent/consumable/ethanol/ms13/fire_wine/on_mob_life(mob/living/carbon/M)
+/datum/reagent/consumable/ethanol/ms13/fire_wine/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	M.adjust_bodytemperature(25 * TEMPERATURE_DAMAGE_COEFFICIENT, 0, M.get_body_temp_normal())
 	..()
 	. = 1
@@ -538,9 +538,8 @@
 	glass_name = "glass of a reddish-purple liquid"
 	glass_desc = "A reddish-purple liquid with a distant fruit aroma to it, occasional black flakes can be seen floating around. Alcohol is present in it, albeit not too strong."
 
-/datum/reagent/consumable/ethanol/ms13/lead_champagne/on_mob_life(mob/living/carbon/M)
+/datum/reagent/consumable/ethanol/ms13/lead_champagne/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(prob(20))
-		M.radiation -= min(4, M.radiation)
 		M.adjustOrganLoss(ORGAN_SLOT_BRAIN, rand(1,5))
 	..() // Not positive this works right. Radiation is when you unscuff it :tm:
 
@@ -564,7 +563,7 @@
 	to_chat(L, (span_swarmer("Against it all odds, it looks like the pain faded...")))
 	..()
 
-/datum/reagent/consumable/ethanol/ms13/nukashine/on_mob_life(mob/living/carbon/M)
+/datum/reagent/consumable/ethanol/ms13/nukashine/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	M.AdjustStun(-20, FALSE)
 	M.AdjustKnockdown(-20, FALSE)
 	M.adjustStaminaLoss(-5, 0)

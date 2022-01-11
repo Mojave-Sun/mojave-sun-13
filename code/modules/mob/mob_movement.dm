@@ -90,8 +90,8 @@
 	if(mob.force_moving)
 		return FALSE
 
-	var/mob/living/L = mob  //Already checked for isliving earlier
-	if(L.incorporeal_move) //Move though walls
+	var/mob/living/L = mob //Already checked for isliving earlier
+	if(L.incorporeal_move && !is_secret_level(mob.z)) //Move though walls
 		Process_Incorpmove(direct)
 		return FALSE
 
@@ -122,7 +122,7 @@
 
 	//We are now going to move
 	var/add_delay = mob.cached_multiplicative_slowdown
-	mob.set_glide_size(DELAY_TO_GLIDE_SIZE(add_delay * ( (NSCOMPONENT(direct) && EWCOMPONENT(direct)) ? 2 : 1 ) )) // set it now in case of pulled objects
+	mob.set_glide_size(DELAY_TO_GLIDE_SIZE(add_delay * ( (NSCOMPONENT(direct) && EWCOMPONENT(direct)) ? SQRT_2 : 1 ) )) // set it now in case of pulled objects
 	if(old_move_delay + (add_delay*MOVEMENT_DELAY_BUFFER_DELTA) + MOVEMENT_DELAY_BUFFER > world.time)
 		move_delay = old_move_delay
 	else
@@ -144,7 +144,7 @@
 	. = ..()
 
 	if((direct & (direct - 1)) && mob.loc == new_loc) //moved diagonally successfully
-		add_delay *= 2
+		add_delay *= SQRT_2
 	mob.set_glide_size(DELAY_TO_GLIDE_SIZE(add_delay))
 	move_delay += add_delay
 	if(.) // If mob is null here, we deserve the runtime
@@ -234,7 +234,7 @@
 				if(target)
 					L.forceMove(target)
 					var/limit = 2//For only two trailing shadows.
-					for(var/turf/T in getline(mobloc, L.loc))
+					for(var/turf/T in get_line(mobloc, L.loc))
 						new /obj/effect/temp_visual/dir_setting/ninja/shadow(T, L.dir)
 						limit--
 						if(limit<=0)
@@ -552,6 +552,6 @@
 
 /mob/abstract_move(atom/destination)
 	var/turf/new_turf = get_turf(destination)
-	if(SSmapping.level_trait(new_turf.z, ZTRAIT_SECRET) && !client?.holder)
+	if(is_secret_level(new_turf.z) && !client?.holder)
 		return
 	return ..()

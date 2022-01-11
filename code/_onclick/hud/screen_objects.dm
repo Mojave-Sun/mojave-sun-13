@@ -214,9 +214,9 @@
 	if(held_index == hud.mymob.active_hand_index)
 		//MOJAVE EDIT - . += "hand_active"
 		if(hud.mymob.active_hand_index == 1)
-			. += "hand_r_on"
-		else
 			. += "hand_l_on"
+		else
+			. += "hand_r_on"
 
 
 /atom/movable/screen/inventory/hand/Click(location, control, params)
@@ -693,6 +693,7 @@
 /atom/movable/screen/healthdoll
 	name = "health doll"
 	screen_loc = ui_healthdoll
+	icon = 'mojave/icons/hud/ms_ui_health.dmi' // MS Health doll
 
 /atom/movable/screen/healthdoll/Click()
 	if (iscarbon(usr))
@@ -703,11 +704,13 @@
 	icon_state = "fullhealth0"
 	screen_loc = ui_living_healthdoll
 	var/filtered = FALSE //so we don't repeatedly create the mask of the mob every update
+	icon = 'icons/hud/screen_gen.dmi' // MS Health doll
 
 /atom/movable/screen/mood
 	name = "mood"
 	icon_state = "mood5"
 	screen_loc = ui_mood
+	icon = 'mojave/icons/hud/ms_ui_health.dmi' // MS Health doll
 
 /atom/movable/screen/mood/attack_tk()
 	return

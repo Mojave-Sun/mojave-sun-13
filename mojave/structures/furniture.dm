@@ -29,7 +29,7 @@
 	name = "generic ms13 storage"
 	desc = "You place stuff on/in/or around it or it pretends to at least, pretty generic right."
 	icon = 'mojave/icons/structure/32x64_tall_furniture.dmi'
-	armor = list(MELEE = 60, BULLET = 60, LASER = 20, ENERGY = 0, BOMB = 25, BIO = 100, RAD = 100, FIRE = 80, ACID = 100)
+	armor = list(MELEE = 60, BULLET = 60, LASER = 20, ENERGY = 0, BOMB = 25, BIO = 100,  FIRE = 80, ACID = 100)
 	density = TRUE
 	anchored = TRUE
 
