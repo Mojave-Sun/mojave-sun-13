@@ -18,7 +18,7 @@
 	icon = 'mojave/icons/structure/smooth_structures/tables/table_metal.dmi'
 	icon_state = "table-0"
 	base_icon_state = "table"
-	max_integrity = 200
+	max_integrity = 225
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TABLE_METAL) //Don't smooth with SMOOTH_GROUP_TABLES
 	canSmoothWith = list(SMOOTH_GROUP_MS13_TABLE_METAL)
 	frame = /obj/item/stack/sheet/ms13/scrap
@@ -30,7 +30,7 @@
 /obj/structure/table/ms13/metal/grate
 	desc = "A grated metal table, like a normal table but can't hold small stuff! Super industrial-y"
 	icon = 'mojave/icons/structure/smooth_structures/tables/table_metal_grate.dmi'
-	max_integrity = 150
+	max_integrity = 200
 
 /obj/structure/table/ms13/metal/small
 	desc = "A small, low down metal table. God only knows why these were sought out after in the old days."
@@ -42,7 +42,7 @@
 	name = "heavy-duty metal table"
 	desc = "A heavy duty metal table, held together by strong rivets and expert engineering, built to hold up to the heaviest of tools."
 	icon = 'mojave/icons/structure/smooth_structures/tables/table_metal_heavy.dmi'
-	max_integrity = 250
+	max_integrity = 300
 	integrity_failure = 0.25
 	frame = /obj/item/stack/sheet/ms13/scrap/two
 
@@ -54,7 +54,7 @@
 	icon = 'mojave/icons/structure/smooth_structures/tables/table_wood.dmi'
 	icon_state = "table-0"
 	base_icon_state = "table"
-	max_integrity = 100
+	max_integrity = 150
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TABLE_WOOD)
 	canSmoothWith = list(SMOOTH_GROUP_MS13_TABLE_WOOD)
 	frame = /obj/item/stack/sheet/ms13/scrap_wood
@@ -64,7 +64,7 @@
 /obj/structure/table/ms13/wood/bar
 	desc = "A somewhat fancy table used at restauraunts of the past. Featuring a simplistic anchored leg design, wow!"
 	icon = 'mojave/icons/structure/smooth_structures/tables/table_wood_bar.dmi'
-	max_integrity = 125
+	max_integrity = 200
 
 // Table Frames //
 
@@ -93,7 +93,7 @@
 	name = "crude metal table"
 	desc = "A crude table made of quality metal. Not too bad, as far as post apocalyptic furniture goes."
 	icon = 'mojave/icons/structure/smooth_structures/tables/table_metal_built.dmi'
-	max_integrity = 100
+	max_integrity = 125
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TABLE_PLAYER) //Don't smooth with SMOOTH_GROUP_TABLES
 	canSmoothWith = list(SMOOTH_GROUP_MS13_TABLE_PLAYER)
 
@@ -101,13 +101,13 @@
 	name = "crude scrap metal table"
 	desc = "A crude table made of scrap metal. Doesn't look pretty and seems barely finished, but it does it's job."
 	icon = 'mojave/icons/structure/smooth_structures/tables/table_metal_built_LQ.dmi'
-	max_integrity = 80
+	max_integrity = 100
 
 /obj/structure/table/ms13/wood/constructed
 	name = "crude wood table"
 	desc = "A crude wood table of decent quality. It probably won't fall apart any time soon."
 	icon = 'mojave/icons/structure/smooth_structures/tables/table_wood_built.dmi'
-	max_integrity = 75
+	max_integrity = 100
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TABLE_PLAYER)
 	canSmoothWith = list(SMOOTH_GROUP_MS13_TABLE_PLAYER)
 
@@ -115,7 +115,7 @@
 	name = "crude scrap wood table"
 	desc = "A crude wood table made of scrap, low quality wood. About as rickety as you'd expect."
 	icon = 'mojave/icons/structure/smooth_structures/tables/table_wood_built_LQ.dmi'
-	max_integrity = 50
+	max_integrity = 75
 
 // Metal Non-Smoothing tables //
 
@@ -130,6 +130,7 @@
 	name = "metal table"
 	desc = "A table, masterfully designed with high-tech to become... round."
 	icon_state = "table_metal_round"
+	max_integrity = 225
 
 /obj/structure/table/ms13/no_smooth/metal/Initialize(mapload)
 	. = ..()
@@ -163,7 +164,7 @@
 	name = "metal table"
 	desc = "A solid, wide metal table. Nothing about it stands out in particular."
 	icon_state = "table_metal_wide"
-	max_integrity = 250
+	max_integrity = 300
 	frame = /obj/item/stack/sheet/ms13/scrap/two
 
 /obj/structure/table/ms13/no_smooth/large/metal/desk
@@ -182,7 +183,7 @@
 	name = "wood table"
 	desc = "A simple round wooden table. You wish you could make something this nice."
 	icon_state = "table_wood_round"
-	max_integrity = 100
+	max_integrity = 150
 	frame = /obj/item/stack/sheet/ms13/scrap_wood
 
 /obj/structure/table/ms13/no_smooth/wood/square
@@ -242,12 +243,12 @@
 	name = "dice table"
 	desc = "Shoot the dice with your friends. Preferably not literally."
 	icon_state = "dice_dirty"
-	max_integrity = 100
+	max_integrity = 150
 	frame = /obj/item/stack/sheet/ms13/scrap_wood
 
 /obj/structure/table/ms13/no_smooth/dice/pristine
 	icon_state = "dice_clean"
-	max_integrity = 125
+	max_integrity = 200
 
 // Misc Large tables //
 
@@ -268,7 +269,7 @@
 	desc = "A rolling medical table. Extremely useful in a surgical environment."
 	icon = 'mojave/icons/structure/standalone_tables.dmi'
 	icon_state = "table_rolling"
-	max_integrity = 125
+	max_integrity = 200
 	buildstack = null
 	frame = /obj/item/stack/sheet/ms13/scrap
 	framestack = /obj/item/stack/sheet/ms13/scrap

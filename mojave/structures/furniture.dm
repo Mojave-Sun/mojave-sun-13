@@ -125,7 +125,7 @@
 
 /obj/structure/filingcabinet/ms13
 	name = "filing cabinet"
-	desc = "Perfect for filing with your radioactive dust."
+	desc = "Perfect for filing with radioactive dust."
 	icon = 'mojave/icons/structure/cabinets.dmi'
 	icon_state = "filing_cabinet"
 
@@ -133,7 +133,6 @@
 	icon_state = "filing_cabinet_busted"
 
 /obj/structure/filingcabinet/ms13/empty
-	desc = "Perfect for loosely filling with radioactive dust."
 	icon_state = "filing_cabinet_empty"
 
 /obj/structure/filingcabinet/ms13/short

@@ -8,7 +8,7 @@
 
 /obj/structure/ms13/bars
 	name = "metal bars"
-	desc = "Sturdy metal bars, if only you had a saw."
+	desc = "Sturdy metal bars."
 	icon = 'mojave/icons/obstacles/bars.dmi'
 	icon_state = "bars"
 	density = TRUE
@@ -16,6 +16,7 @@
 	layer = ABOVE_OBJ_LAYER
 	max_integrity = 500
 	armor = list(MELEE = 100, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 100, BIO = 100,  FIRE = 100, ACID = 100)
+	resistance_flags = INDESTRUCTIBLE
 	damage_deflection = 40
 	can_atmos_pass = ATMOS_PASS_YES
 	flags_1 = ON_BORDER_1

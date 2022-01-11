@@ -24,6 +24,7 @@
 	icon_state = "scrap"
 	inhand_icon_state = "scrap"
 	merge_type = /obj/item/stack/sheet/ms13/scrap
+	amount = 1
 	max_amount = 15
 
 /obj/item/stack/sheet/ms13/scrap/two
@@ -52,6 +53,7 @@ GLOBAL_LIST_INIT(scrap_recipes, list ( \
 	icon_state = "scrap_parts"
 	inhand_icon_state = "scrap"
 	merge_type = /obj/item/stack/sheet/ms13/scrap_parts
+	amount = 1
 	max_amount = 20
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -560,6 +562,12 @@ GLOBAL_LIST_INIT(log_recipes, list ( \
 	. = ..()
 	. += GLOB.log_recipes
 
+/obj/item/stack/sheet/ms13/log/attackby(obj/item/W, mob/user, params)
+	if(W.sharpness == IS_SHARP_AXE)
+		user.show_message(span_notice("You make wood planks out of \the [src]!"), MSG_VISUAL)
+		new /obj/item/stack/sheet/ms13/plank/two(user.loc)
+		qdel(src)
+
 /obj/item/stack/sheet/ms13/scrap_wood
 	name = "scrap wood"
 	desc = "Various scrap, low quality pieces of wood."
@@ -588,6 +596,9 @@ GLOBAL_LIST_INIT(scrap_wood_recipes, list ( \
 	merge_type = /obj/item/stack/sheet/ms13/plank
 	amount = 1
 	max_amount = 10
+
+/obj/item/stack/sheet/ms13/plank/two
+	amount = 2
 
 GLOBAL_LIST_INIT(plank_recipes, list ( \
 	new/datum/stack_recipe("crude wood table", /obj/structure/table/ms13/wood/constructed, 4, time = 20 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
