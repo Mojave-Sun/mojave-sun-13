@@ -10,6 +10,7 @@
     amount = 12
     self_delay = 3.5 SECONDS
     other_delay = 2 SECONDS
+    repeating = FALSE
     heal_brute = 8
     stop_bleeding = 0.75
     gender = NEUTER //So examine text says "This is a suture" instead of "These are some suture"
@@ -36,7 +37,7 @@
     inhand_icon_state = "ointment"
     amount = 12
     max_amount = 12
-    repeating = TRUE
+    repeating = FALSE
     self_delay = 2.5 SECONDS
     other_delay = 1.5 SECONDS
     heal_burn = 8
@@ -94,7 +95,6 @@
     absorption_capacity = 5
     splint_factor = 0.6
     burn_cleanliness_bonus = 0.6
-
     merge_type = /obj/item/stack/medical/gauze/ms13
 
 /obj/item/stack/medical/gauze/ms13/Initialize()
@@ -105,6 +105,25 @@
     amount = 6
 
 /obj/item/stack/medical/gauze/ms13/three
+    amount = 3
+
+/obj/item/stack/medical/gauze/ms13/cloth
+    name = "cloth"
+    desc = "Pieces of cloth that can be used for many things, even as an improvised bandage."
+    singular_name = "cloth piece"
+    icon_state = "cloth"
+    max_amount = 12
+    amount = 1
+    absorption_rate = 0.06
+    absorption_capacity = 3.25
+    splint_factor = 0.85
+    burn_cleanliness_bonus = 0.85
+    merge_type = /obj/item/stack/medical/gauze/ms13/cloth
+
+/obj/item/stack/medical/gauze/ms13/cloth/two
+    amount = 2
+
+/obj/item/stack/medical/gauze/ms13/cloth/three
     amount = 3
 
 /obj/item/stack/medical/gauze/ms13/military
