@@ -9,6 +9,18 @@
 	spillable = TRUE
 	resistance_flags = ACID_PROOF
 
+/obj/item/reagent_containers/food/drinks/mug/ms13
+	name = "mug"
+	desc = "An old mug, if only you had some coffee"
+	icon = 'mojave/icons/objects/food/liquids/drink_containers_world.dmi'
+	icon_state = "mug"
+	throwforce = 5
+	volume = 20
+
+/obj/item/reagent_containers/food/drinks/mug/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/food/liquids/drink_containers_inventory.dmi')
+
 /obj/item/reagent_containers/food/drinks/soda_cans/ms13
 	name = "bottle"
 	icon = 'mojave/icons/objects/food/liquids/drink_containers_world.dmi'

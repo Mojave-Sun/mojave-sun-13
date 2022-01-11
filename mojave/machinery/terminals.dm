@@ -409,3 +409,8 @@
 /obj/machinery/ms13/terminal/wall/rust
 	icon_state = "wallterminal_rusted"
 	base_icon_state = "wallterminal_rusted"
+
+/obj/machinery/ms13/terminal/wall/classic
+	icon_state = "terminal_classic"
+	base_icon_state = "terminal_classic"
+	screen_icon = "terminal_classic_screen"
