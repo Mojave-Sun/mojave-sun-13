@@ -9,9 +9,6 @@
 	framestack = /obj/item/stack/sheet/ms13/scrap
 	framestackamount = 2
 
-/obj/structure/table/ms13/deconstruction_hints(mob/user)
-	return
-
 /obj/structure/table/ms13/metal
 	name = "metal table"
 	desc = "A square piece of metal standing on four metal legs. It can not move."
@@ -288,6 +285,14 @@
 	var/crafting_interface = CRAFTING_BENCH_GENERAL
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	
+/obj/structure/table/ms13/crafting/wrench_act_secondary(mob/living/user, obj/item/weapon)
+	return
+
+/obj/structure/table/ms13/crafting/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
+	return
+
+/obj/structure/table/ms13/crafting/deconstruction_hints(mob/user)
+	return
 
 /obj/structure/table/ms13/crafting/Initialize(mapload)
 	. = ..()
@@ -307,7 +312,7 @@
 	crafting_interface = CRAFTING_BENCH_RELOADING
 
 /obj/structure/table/ms13/crafting/armorbench
-	name = "tailoring bench"
+	name = "armor and tailoring bench"
 	desc = "A sturdy bench. It's got an anvil and sewing machine, it'd be a good surface to try and fabricate clothing or armor with."
 	icon_state = "armorbench"
 	crafting_interface = CRAFTING_BENCH_ARMTAILOR
@@ -319,7 +324,7 @@
 	crafting_interface = CRAFTING_BENCH_WEAPONS
 
 /obj/structure/table/ms13/crafting/tinkerbench
-	name = "tinkering bench"
-	desc = "A large bench with a power supply hooked up to it. There's a soldering iron and a few other tools scattered about to assist you in making electronic components."
+	name = "electronics bench"
+	desc = "A large bench with a power supply hooked up to it. There's a soldering iron and a few other tools scattered about to assist you in making electronics."
 	icon_state = "tinkerbench"
 	crafting_interface = CRAFTING_BENCH_ELECTRIC

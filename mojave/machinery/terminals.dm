@@ -11,7 +11,7 @@
 	light_color = LIGHT_COLOR_GREEN
 	pixel_y = 8
 	layer = BELOW_OBJ_LAYER
-	max_integrity = 550 // Hearty lil things.
+	max_integrity = 500 // Hearty lil things.
 	integrity_failure = 0
 	idle_power_usage = 300
 	active_power_usage = 300
@@ -80,6 +80,39 @@
 	if(!broken)
 		write_documents()
 
+/obj/machinery/ms13/terminal/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
+	if(flags_1&NODECONSTRUCT_1)
+		return TRUE
+	..()
+	weapon.play_tool_sound(src)
+	if(do_after(user, 30 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+		deconstruct(disassembled = TRUE)
+		return TRUE
+
+/obj/machinery/ms13/terminal/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/scrap/two(loc)
+			new /obj/item/stack/sheet/ms13/scrap_parts/two(loc)
+			new /obj/item/stack/sheet/ms13/glass(loc)
+			new /obj/item/stack/sheet/ms13/scrap_electronics/two(loc)
+			new /obj/item/stack/sheet/ms13/scrap_copper/two(loc)
+			new /obj/item/stack/sheet/ms13/circuits(loc)
+		else
+			new /obj/item/stack/sheet/ms13/scrap(loc)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
+			new /obj/item/stack/sheet/ms13/glass(loc)
+			new /obj/item/stack/sheet/ms13/scrap_electronics(loc)
+			new /obj/item/stack/sheet/ms13/scrap_copper(loc)
+	qdel(src)
+
+/obj/machinery/ms13/terminal/examine(mob/user)
+	. = ..()
+	. += deconstruction_hints(user)
+
+/obj/machinery/ms13/terminal/proc/deconstruction_hints(mob/user)
+	return span_notice("You could use a <b>screwdriver</b> to carefully take apart [src] for parts.")
+
 /obj/machinery/ms13/terminal/proc/FXtoggle() // For overlays/sound
 	if(!broken && active)
 		add_overlay(image(icon, "[screen_icon]", ABOVE_OBJ_LAYER, dir))
@@ -92,7 +125,7 @@
 	. = ..()
 	if(prob(35))
 		do_sparks(1, FALSE, src)
-	if(atom_integrity < 450)
+	if(atom_integrity < 250)
 		broken = TRUE
 		desc = "[initial(desc)] It looks broken."
 		FXtoggle()

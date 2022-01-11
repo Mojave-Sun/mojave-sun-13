@@ -514,6 +514,27 @@ GLOBAL_LIST_INIT(refined_alu_recipes, list ( \
 	beauty_modifier = 0
 	strength_modifier = 1
 
+/obj/item/stack/sheet/ms13/refined_copper
+	name = "refined copper"
+	desc = "A refined copper ingot. Could be smelted down and turned into more useful copper wire."
+	singular_name = "refined copper ingot"
+	icon_state = "ingot_copper"
+	inhand_icon_state = "scrap"
+	merge_type = /obj/item/stack/sheet/ms13/refined_copper
+	amount = 1
+	max_amount = 10
+
+/obj/item/stack/sheet/ms13/refined_copper/two
+	amount = 2
+
+/datum/material/ms13/refined_copper
+	name = "refined copper"
+	desc = "Rare refined copper."
+	color = "#8f731a"
+	sheet_type = /obj/item/stack/sheet/ms13/refined_copper
+	beauty_modifier = 0
+	strength_modifier = 1
+
 //ELECTRONICS//
 
 /obj/item/stack/sheet/ms13/scrap_electronics
@@ -564,9 +585,14 @@ GLOBAL_LIST_INIT(log_recipes, list ( \
 
 /obj/item/stack/sheet/ms13/log/attackby(obj/item/W, mob/user, params)
 	if(W.sharpness == IS_SHARP_AXE)
-		user.show_message(span_notice("You make wood planks out of \the [src]!"), MSG_VISUAL)
-		new /obj/item/stack/sheet/ms13/plank/two(user.loc)
-		qdel(src)
+		if(amount > 1)
+			user.show_message(span_notice("You can only chop one log at a time!"), MSG_VISUAL)
+			return
+		user.show_message(span_notice("You begin chopping \the [src] into wood planks!"), MSG_VISUAL)
+		if(do_after(user, 3 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_MAKEPLANKS)) 
+			user.show_message(span_notice("You make wood planks out of \the [src]!"), MSG_VISUAL)
+			new /obj/item/stack/sheet/ms13/plank/two(user.loc)
+			qdel(src)
 
 /obj/item/stack/sheet/ms13/scrap_wood
 	name = "scrap wood"

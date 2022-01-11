@@ -42,13 +42,13 @@
 	. = ..()
 	. += deconstruction_hints(user)
 
+/obj/structure/closet/crate/ms13/woodcrate/proc/deconstruction_hints(mob/user)
+	return span_notice("The [src] is tightly sealed, but you could use a <b>crowbar<b> or similar prying tool to <b>open</b> it.")
+
 /obj/structure/closet/crate/ms13/woodcrate/attack_hand(mob/user)
 	add_fingerprint(user)
 	if(manifest)
 		tear_manifest(user)
-
-/obj/structure/closet/crate/ms13/woodcrate/proc/deconstruction_hints(mob/user)
-	return "<span class='notice'>The [src] is tightly sealed, but you could use a <b>crowbar<b> or similar prying tool to <b>open</b> it.</span>"
 
 /obj/structure/closet/crate/ms13/woodcrate/attackby(obj/item/W, mob/living/user, params)
 	if(W.tool_behaviour == TOOL_CROWBAR && breakable)

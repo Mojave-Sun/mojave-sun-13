@@ -6,6 +6,9 @@
 	layer = BELOW_OBJ_LAYER
 	max_integrity = 100
 
+/obj/structure/chair/ms13/wrench_act_secondary(mob/living/user, obj/item/weapon)
+	return
+
 // Metal Chairs //
 
 /obj/structure/chair/ms13/metal
@@ -100,6 +103,9 @@
 	buildstackamount = 1
 	max_integrity = 100
 
+/obj/structure/chair/comfy/ms13/wrench_act_secondary(mob/living/user, obj/item/weapon)
+	return
+
 /obj/structure/chair/comfy/ms13/GetArmrest()
 	return mutable_appearance(icon, "(icon_state)_armrest")
 
@@ -181,6 +187,9 @@
 	buildstacktype = /obj/item/stack/sheet/ms13/scrap
 	buildstackamount = 1
 	max_integrity = 100
+
+/obj/structure/chair/office/ms13/wrench_act_secondary(mob/living/user, obj/item/weapon)
+	return
 
 /obj/structure/chair/office/ms13/red
 	name = "office chair"
@@ -294,7 +303,7 @@
 
 // Office Chair Items //
 
-/obj/item/chair/ms13/metal/office/
+/obj/item/chair/ms13/metal/office
 	name = "base class office chair"
 	desc = "Scream at the coders if you see this."
 	origin_type = /obj/structure/chair/office/ms13

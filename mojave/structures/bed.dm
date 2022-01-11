@@ -3,6 +3,9 @@
 	desc = "Scream at the coders if you see this."
 	icon = 'mojave/icons/structure/beds.dmi'
 
+/obj/structure/bed/ms13/wrench_act_secondary(mob/living/user, obj/item/weapon)
+	return
+
 //bed//
 
 /obj/structure/bed/ms13/bedframe

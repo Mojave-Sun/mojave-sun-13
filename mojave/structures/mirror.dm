@@ -1,6 +1,7 @@
 /obj/structure/mirror/ms13
 	desc = "A dust stained reflective mirror, you can sort of make out your reflection in it."
 	icon = 'mojave/icons/structure/32x64_tall_furniture.dmi'
+	max_integrity = 100
 
 /obj/structure/mirror/ms13/Initialize()
 	. = ..()
@@ -51,4 +52,10 @@
 				H.facial_hairstyle = new_facial_hair
 				H.update_hair()
 				return
+
+/obj/structure/mirror/ms13/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(!disassembled)
+			new /obj/item/stack/sheet/ms13/glass( src.loc )
+	qdel(src)
 
