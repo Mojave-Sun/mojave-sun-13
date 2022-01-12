@@ -252,21 +252,6 @@
 	M.Translate(rand(-5,5),rand(-5,5))
 	transform = M
 
-/obj/structure/flora/grass/wasteland/attackby(obj/item/W, mob/user, params) //we dont use /weapon any more
-	if(W.sharpness && W.force > 0 && !(NODECONSTRUCT_1 in flags_1))
-		to_chat(user, "You begin to harvest [src]...")
-		if(do_after(user, 100/W.force, target = user))
-			to_chat(user, "<span class='notice'>You've collected [src]</span>")
-			var/obj/item/stack/sheet/hay/H = user.get_inactive_held_item()
-			if(istype(H))
-				H.add(1)
-			else
-				new /obj/item/stack/sheet/hay/(get_turf(src))
-			qdel(src)
-			return 1
-	else
-		. = ..()
-
 /obj/structure/flora/grass/wasteland/snow
 	icon = 'mojave/icons/flora/flora.dmi'
 	desc = "Some frozen, virtually dead grass."

@@ -12,6 +12,7 @@
 	icon = 'icons/obj/computer.dmi'
 	icon_state = "television"
 	max_integrity = 250
+	density = TRUE
 
 /obj/structure/ms13/tv/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
 	if(flags_1&NODECONSTRUCT_1)
@@ -50,6 +51,8 @@
 	icon = 'mojave/icons/structure/miscellaneous.dmi'
 	icon_state = "payphone"
 	max_integrity = 300
+	density = TRUE
+	anchored = TRUE
 
 /obj/structure/ms13/phone/wrench_act_secondary(mob/living/user, obj/item/weapon)
 	if(flags_1&NODECONSTRUCT_1)
@@ -185,8 +188,8 @@
 /obj/structure/dresser/ms13/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		new /obj/item/stack/sheet/ms13/scrap(loc)
-		new /obj/item/stack/medical/gauze/ms13/cloth/two(loc)
-		new /obj/item/stack/sheet/ms13/thread(loc)
+		new /obj/item/stack/medical/gauze/ms13/cloth(loc, 4)
+		new /obj/item/stack/sheet/ms13/thread(loc, 2)
 	qdel(src)
 
 /obj/structure/dresser/ms13/torquise
@@ -233,3 +236,48 @@
 
 /obj/structure/filingcabinet/ms13/short/busted
 	icon_state = "filing_cabinet_small_busted"
+
+// Broken Jukebox //
+
+/obj/structure/ms13/jukebox
+	name = "broken jukebox"
+	desc = "A very old jukebox from before the war. Broken beyond repair, but could perhaps be salvaged for parts."
+	icon = 'mojave/icons/objects/hamradio.dmi'
+	icon_state = "jukebox_off"
+	max_integrity = 350
+	density = TRUE
+	anchored = TRUE
+
+/obj/structure/ms13/jukebox/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
+	if(flags_1&NODECONSTRUCT_1)
+		return TRUE
+	..()
+	weapon.play_tool_sound(src)
+	if(do_after(user, 30 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+		deconstruct(disassembled = TRUE)
+		return TRUE
+
+/obj/structure/ms13/jukebox/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/scrap/two(loc)
+			new /obj/item/stack/sheet/ms13/scrap_parts/two(loc)
+			new /obj/item/stack/sheet/ms13/glass/three(loc)
+			new /obj/item/stack/sheet/ms13/scrap_electronics/two(loc)
+			new /obj/item/stack/sheet/ms13/scrap_copper/two(loc)
+			new /obj/item/ms13/component/vacuum_tube(loc)
+			new /obj/item/stack/sheet/ms13/circuits(loc)
+		else
+			new /obj/item/stack/sheet/ms13/scrap(loc)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
+			new /obj/item/stack/sheet/ms13/glass(loc)
+			new /obj/item/stack/sheet/ms13/scrap_electronics(loc)
+			new /obj/item/stack/sheet/ms13/scrap_copper(loc)
+	qdel(src)
+
+/obj/structure/ms13/jukebox/examine(mob/user)
+	. = ..()
+	. += deconstruction_hints(user)
+
+/obj/structure/ms13/jukebox/proc/deconstruction_hints(mob/user)
+	return span_notice("You could use a <b>screwdriver</b> to carefully take apart [src] for parts.")

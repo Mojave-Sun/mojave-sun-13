@@ -20,12 +20,10 @@
 	resistance_flags = INDESTRUCTIBLE
 	var/body_state = null
 
-/obj/structure/ms13/vehicle_ruin/wrench_act_secondary(mob/living/user, obj/item/weapon)
-	if(flags_1&NODECONSTRUCT_1)
+/obj/structure/ms13/vehicle_ruin/welder_act_secondary(mob/living/user, obj/item/I)
+	if(!I.tool_start_check(user, amount=0))
 		return TRUE
-	..()
-	weapon.play_tool_sound(src)
-	if(do_after(user, 70 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+	if(I.use_tool(src, user, 60 SECONDS, volume=80))
 		deconstruct(disassembled = TRUE)
 		return TRUE
 
@@ -47,7 +45,7 @@
 	. += deconstruction_hints(user)
 
 /obj/structure/ms13/vehicle_ruin/proc/deconstruction_hints(mob/user)
-	return span_notice("You could use a <b>wrench</b> to carefully and painstakingly take apart [src] for parts.")
+	return span_notice("You could use a <b>welding tool</b> to painstakingly take apart [src] for parts.")
 
 /obj/structure/ms13/vehicle_ruin/coupe
 	body_state = "coupe"

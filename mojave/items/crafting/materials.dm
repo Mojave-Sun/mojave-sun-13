@@ -589,7 +589,7 @@ GLOBAL_LIST_INIT(log_recipes, list ( \
 			user.show_message(span_notice("You can only chop one log at a time!"), MSG_VISUAL)
 			return
 		user.show_message(span_notice("You begin chopping \the [src] into wood planks!"), MSG_VISUAL)
-		if(do_after(user, 3 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_MAKEPLANKS)) 
+		if(do_after(user, 4 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_MAKEPLANKS)) 
 			user.show_message(span_notice("You make wood planks out of \the [src]!"), MSG_VISUAL)
 			new /obj/item/stack/sheet/ms13/plank/two(user.loc)
 			qdel(src)

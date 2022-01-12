@@ -18,6 +18,7 @@
 	move_to_delay = 4
 	attack_sound = "slam"
 	status_flags = CANPUSH
+	loot = list(/obj/item/stack/sheet/ms13/scrap, /obj/item/stack/sheet/ms13/scrap_electronics, /obj/item/stack/sheet/ms13/scrap_parts)
 	vision_range = 20
 	aggro_vision_range = 10
 	maxHealth = 75
@@ -70,6 +71,7 @@
 	move_to_delay = 4
 	attack_sound = "slam"
 	status_flags = CANPUSH
+	loot = list(/obj/item/stack/sheet/ms13/scrap, /obj/item/stack/sheet/ms13/scrap_electronics, /obj/item/stack/sheet/ms13/scrap_parts)
 	vision_range = 20
 	aggro_vision_range = 10
 	maxHealth = 75
@@ -102,6 +104,7 @@
 	retreat_distance = 8
 	maxHealth = 90
 	health = 90
+	loot = list(/obj/item/stack/sheet/ms13/scrap_steel, /obj/item/stack/sheet/ms13/scrap_parts, /obj/item/stack/sheet/ms13/scrap_electronics/two)
 	melee_damage_lower = 5
 	melee_damage_upper = 5
 	projectiletype = /obj/projectile/beam/ms13/laser/eyebot/overcharge

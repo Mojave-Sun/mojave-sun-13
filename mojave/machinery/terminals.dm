@@ -97,7 +97,8 @@
 			new /obj/item/stack/sheet/ms13/glass(loc)
 			new /obj/item/stack/sheet/ms13/scrap_electronics/two(loc)
 			new /obj/item/stack/sheet/ms13/scrap_copper/two(loc)
-			new /obj/item/stack/sheet/ms13/circuits(loc)
+			new /obj/item/stack/sheet/ms13/circuits(loc, 2)
+			new /obj/item/ms13/component/vacuum_tube(loc)
 		else
 			new /obj/item/stack/sheet/ms13/scrap(loc)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
