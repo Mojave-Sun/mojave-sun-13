@@ -103,7 +103,7 @@
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 
 /obj/item/clothing/head/helmet/ms13/skull
-	name = "radstag skull"
+	name = "radstag skull helmet"
 	desc = "The skull of a radstag with some padding to be used as a makeshift helmet."
 	icon_state = "radstag"
 	inhand_icon_state = "w_shoes"
@@ -111,8 +111,8 @@
 	flags_inv = HIDEEARS|HIDEFACE
 
 /obj/item/clothing/head/helmet/ms13/skull/muffalo
-	name = "muffalo skull"
-	desc = "The skull of a muffalo with some padding to be used as a makeshift helmet."
+	name = "brahmiluff skull helmet"
+	desc = "The skull of a brahmiluff with some padding to be used as a makeshift helmet."
 	icon_state = "muffalo"
 
 /obj/item/clothing/head/helmet/ms13/eyebot

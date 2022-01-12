@@ -29,6 +29,7 @@
 				), //MOJAVE EDIT START - Crafting categories
 				CAT_MEDICAL, 
 				CAT_ARMOR,
+				CAT_HEADGEAR,
 				CAT_ROBOT = CAT_NONE,
 				CAT_MISC = CAT_NONE,
 				CAT_PRIMAL = CAT_NONE,

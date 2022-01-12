@@ -114,6 +114,7 @@
 
 #define CAT_MEDICAL "Medical"
 #define CAT_ARMOR "Armor"
+#define CAT_HEADGEAR "Headgear"
 
 #define CRAFTING_BENCH_HANDS      1<<0
 #define CRAFTING_BENCH_GENERAL    1<<1

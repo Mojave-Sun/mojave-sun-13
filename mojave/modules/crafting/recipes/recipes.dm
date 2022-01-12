@@ -177,6 +177,15 @@
 	category = CAT_ARMOR
 	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
 
+/datum/crafting_recipe/duster
+	name = "duster"
+	result = /obj/item/clothing/suit/ms13/duster
+	time = 10 SECONDS
+	tool_paths = list()
+	reqs = list(/obj/item/stack/sheet/ms13/leather = 4, /obj/item/stack/medical/gauze/ms13/cloth = 4, /obj/item/stack/sheet/ms13/thread = 1)
+	category = CAT_ARMOR
+	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
+
 /datum/crafting_recipe/reinf_duster
 	name = "reinforced duster"
 	result = /obj/item/clothing/suit/ms13/duster/reinforced
@@ -185,3 +194,171 @@
 	reqs = list(/obj/item/clothing/suit/ms13/duster = 1, /obj/item/stack/sheet/ms13/leather = 5, /obj/item/stack/medical/gauze/ms13/cloth = 3, /obj/item/stack/sheet/ms13/thread = 1)
 	category = CAT_ARMOR
 	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
+
+//HEADGEAR CRAFTING
+
+/datum/crafting_recipe/radstag_skull
+	name = "radstag skull helmet"
+	result = /obj/item/clothing/head/helmet/ms13/skull
+	time = 8 SECONDS
+	tool_paths = list()
+	reqs = list(/obj/item/ms13/animalitem/radstag/antlers = 2, /obj/item/stack/medical/gauze/ms13/cloth = 2)
+	category = CAT_HEADGEAR
+	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/brahmiluff_skull
+	name = "brahmiluff skull helmet"
+	result = /obj/item/clothing/head/helmet/ms13/skull/muffalo
+	time = 8 SECONDS
+	tool_paths = list()
+	reqs = list(/obj/item/ms13/animalitem/brahmiluff/horns = 2, /obj/item/stack/medical/gauze/ms13/cloth = 2)
+	category = CAT_HEADGEAR
+	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/cowboy_hat
+	name = "cowboy hat"
+	result = /obj/item/clothing/head/helmet/ms13/cowboy
+	time = 6 SECONDS
+	tool_paths = list()
+	reqs = list(/obj/item/stack/sheet/ms13/leather = 2, /obj/item/stack/medical/gauze/ms13/cloth = 1)
+	category = CAT_HEADGEAR
+	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/cowboy_hat_black
+	name = "black cowboy hat"
+	result = /obj/item/clothing/head/helmet/ms13/cowboy/black
+	time = 6 SECONDS
+	tool_paths = list()
+	reqs = list(/obj/item/stack/sheet/ms13/leather = 2, /obj/item/stack/medical/gauze/ms13/cloth = 1)
+	category = CAT_HEADGEAR
+	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/prospector_hat
+	name = "prospector hat"
+	result = /obj/item/clothing/head/helmet/ms13/prospector
+	time = 8 SECONDS
+	tool_paths = list()
+	reqs = list(/obj/item/stack/sheet/ms13/leather = 3, /obj/item/stack/medical/gauze/ms13/cloth = 2, /obj/item/stack/sheet/ms13/thread = 1)
+	category = CAT_HEADGEAR
+	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/prospector_hat_brown
+	name = "brown prospector hat"
+	result = /obj/item/clothing/head/helmet/ms13/prospector/brown
+	time = 8 SECONDS
+	tool_paths = list()
+	reqs = list(/obj/item/stack/sheet/ms13/leather = 3, /obj/item/stack/medical/gauze/ms13/cloth = 2, /obj/item/stack/sheet/ms13/thread = 1)
+	category = CAT_HEADGEAR
+	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/militia_hat
+	name = "militia hat"
+	result = /obj/item/clothing/head/helmet/ms13/militia
+	time = 8 SECONDS
+	tool_paths = list()
+	reqs = list(/obj/item/stack/sheet/ms13/leather = 3, /obj/item/stack/medical/gauze/ms13/cloth = 2, /obj/item/stack/sheet/ms13/thread = 1)
+	category = CAT_HEADGEAR
+	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/cowl
+	name = "cowl"
+	result = /obj/item/clothing/head/ms13/hood/cowl
+	time = 6 SECONDS
+	tool_paths = list()
+	reqs = list(/obj/item/stack/medical/gauze/ms13/cloth = 3, /obj/item/stack/sheet/ms13/thread = 1)
+	category = CAT_HEADGEAR
+	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/plated_cowl
+	name = "plated cowl"
+	result = /obj/item/clothing/head/ms13/hood/plated
+	time = 8 SECONDS
+	tool_behaviors = list(TOOL_SCREWDRIVER)
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/clothing/head/ms13/hood/cowl = 1, /obj/item/stack/sheet/ms13/scrap = 4, /obj/item/stack/sheet/ms13/scrap_parts = 1)
+	category = CAT_HEADGEAR
+	crafting_interface = CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/green_hood
+	name = "green hood"
+	result = /obj/item/clothing/head/ms13/hood/green
+	time = 8 SECONDS
+	tool_paths = list()
+	reqs = list(/obj/item/stack/sheet/ms13/leather = 3, /obj/item/stack/medical/gauze/ms13/cloth = 2, /obj/item/stack/sheet/ms13/thread = 1)
+	category = CAT_HEADGEAR
+	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/hunter_hood
+	name = "hunter hood"
+	result = /obj/item/clothing/head/ms13/hood/hunter
+	time = 8 SECONDS
+	tool_paths = list()
+	reqs = list(/obj/item/clothing/head/ms13/hood/green = 1, /obj/item/stack/sheet/ms13/leather = 4, /obj/item/stack/medical/gauze/ms13/cloth = 3, /obj/item/stack/sheet/ms13/thread = 1)
+	category = CAT_HEADGEAR
+	crafting_interface = CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/sackhood
+	name = "sack hood"
+	result = /obj/item/clothing/head/ms13/hood/sack
+	time = 6 SECONDS
+	tool_behaviors = list(TOOL_KNIFE)
+	tool_paths = list()
+	reqs = list(/obj/item/stack/medical/gauze/ms13/cloth = 3)
+	category = CAT_HEADGEAR
+	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/sackhood_padded
+	name = "padded sack hood"
+	result = /obj/item/clothing/head/ms13/hood/sack/padded
+	time = 6 SECONDS
+	tool_paths = list()
+	reqs = list(/obj/item/clothing/head/ms13/hood/sack = 1, /obj/item/stack/medical/gauze/ms13/cloth = 2, /obj/item/stack/sheet/ms13/leather = 2, /obj/item/stack/sheet/ms13/thread = 1)
+	category = CAT_HEADGEAR
+	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/sackhood_reinf
+	name = "reinforced sack hood"
+	result = /obj/item/clothing/head/ms13/hood/sack/metal
+	time = 8 SECONDS
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/clothing/head/ms13/hood/sack = 1, /obj/item/stack/medical/gauze/ms13/cloth = 3, /obj/item/stack/sheet/ms13/scrap = 6, /obj/item/stack/sheet/ms13/thread = 1)
+	category = CAT_HEADGEAR
+	crafting_interface = CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/bladed_helmet
+	name = "bladed helmet"
+	result = /obj/item/clothing/head/helmet/ms13/bladed
+	time = 10 SECONDS
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/stack/medical/gauze/ms13/cloth = 4, /obj/item/stack/sheet/ms13/scrap_steel = 6)
+	category = CAT_HEADGEAR
+	crafting_interface = CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/banded_helmet
+	name = "banded helmet"
+	result = /obj/item/clothing/head/ms13/hood/banded
+	time = 8 SECONDS
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/clothing/head/ms13/hood/cowl = 1, /obj/item/stack/sheet/ms13/scrap_steel = 4, /obj/item/stack/sheet/ms13/scrap = 4)
+	category = CAT_HEADGEAR
+	crafting_interface = CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/junk_helmet
+	name = "junk helmet"
+	result = /obj/item/clothing/head/helmet/ms13/junk
+	time = 10 SECONDS
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WRENCH)
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/stack/medical/gauze/ms13/cloth = 2, /obj/item/stack/sheet/ms13/scrap = 6, /obj/item/stack/sheet/ms13/scrap_parts = 2)
+	category = CAT_HEADGEAR
+	crafting_interface = CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/metal_helmet
+	name = "heavy metal helmet"
+	result = /obj/item/clothing/head/helmet/ms13/metal
+	time = 15 SECONDS
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WRENCH, TOOL_WELDER)
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/stack/sheet/ms13/refined_steel = 5, /obj/item/stack/medical/gauze/ms13/cloth = 4, /obj/item/stack/sheet/ms13/scrap_parts = 6, /obj/item/stack/sheet/ms13/mil_fiber = 2, /obj/item/stack/sheet/ms13/thread = 2)
+	category = CAT_HEADGEAR
+	crafting_interface = CRAFTING_BENCH_ARMTAILOR
