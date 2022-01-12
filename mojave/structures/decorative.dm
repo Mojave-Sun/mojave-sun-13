@@ -19,6 +19,7 @@
 	icon_state = "trashbin"
 	anchored = FALSE
 	pixel_y = 10
+	materialtype = /obj/item/stack/sheet/ms13/scrap
 
 /obj/structure/ms13/storage/trashcan/Initialize()
 	. = ..()

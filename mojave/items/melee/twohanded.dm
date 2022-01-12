@@ -59,6 +59,7 @@
 	throw_range = 3
 	bare_wound_bonus = 0
 	sharpness = IS_SHARP_AXE
+	toolspeed = 0.75
 
 /obj/item/ms13/twohanded/fireaxe/ComponentInitialize()
 	. = ..()
@@ -211,6 +212,7 @@
 	bare_wound_bonus = 10
 	throw_speed = 2
 	throw_range = 4
+	toolspeed = 0.35
 	var/on = FALSE
 
 /obj/item/ms13/twohanded/heavy/autoaxe/attack_self(mob/user)

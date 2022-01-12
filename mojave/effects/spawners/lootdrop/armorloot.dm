@@ -302,5 +302,6 @@
 			/obj/item/clothing/head/ms13/hood/sack/padded,
 			/obj/item/clothing/head/ms13/hood/sack/metal,
 			/obj/item/clothing/head/ms13/hood/green,
-			/obj/item/clothing/head/ms13/hood/hunter
+			/obj/item/clothing/head/ms13/hood/hunter,
+			/obj/item/clothing/head/welding/ms13
 			)
