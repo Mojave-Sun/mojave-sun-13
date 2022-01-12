@@ -108,6 +108,9 @@
 	data["listening"] = listening
 	return data
 
+/obj/item/radio/intercom/ms13/attackby(obj/item/I, mob/living/user, params)
+	return
+
 // Buttons //
 
 /obj/machinery/button/door/ms13
