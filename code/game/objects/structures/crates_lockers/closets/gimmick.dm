@@ -9,6 +9,7 @@
 	close_sound_volume = 50
 	max_integrity = 70
 	door_anim_time = 0 // no animation
+	material_drop = /obj/item/stack/sheet/ms13/scrap_wood //MOJAVE EDIT - Drops our scrap wood instead of TG wood. Revert after CAT
 
 /obj/structure/closet/acloset
 	name = "strange closet"

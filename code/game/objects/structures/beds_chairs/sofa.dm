@@ -2,6 +2,7 @@
 	name = "old ratty sofa"
 	icon_state = "sofamiddle"
 	icon = 'icons/obj/sofa.dmi'
+	buildstacktype = /obj/item/stack/sheet/ms13/leather //MOJAVE EDIT - Makes sofas drop our own leather instead of TG iron. Revert after CAT
 	buildstackamount = 1
 	item_chair = null
 	var/mutable_appearance/armrest
