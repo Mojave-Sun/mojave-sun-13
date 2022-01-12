@@ -88,13 +88,15 @@
 	freerange = TRUE  // If true, the radio has access to the full spectrum.
 	freqlock = TRUE  // Frequency lock to stop the user from untuning specialist radios.
 	radio_broadcast = RADIOSTATIC_LIGHT
+	var/destroyable = FALSE
 
 /obj/item/radio/intercom/ms13/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/wall_mount)
 
 /obj/item/radio/intercom/ms13/attackby(obj/item/W, mob/living/user, params)
-	. = ..()
+	if(!destroyable)
+		return
 	if(!user.combat_mode && !(W.item_flags & NOBLUDGEON))
 		return attack_hand(user)
 	else
@@ -117,6 +119,7 @@
 	var/normaldoorcontrol = FALSE
 	var/specialfunctions = OPEN // Bitflag, see assembly file
 	var/sync_doors = TRUE
+	var/destroyable = FALSE
 
 /obj/machinery/button/ms13/setup_device() //Adds this so we can have our own future functionality, instead of making 4000 button types for each individual thing
 	if(!device)
@@ -135,6 +138,8 @@
 	AddElement(/datum/element/wall_mount)
 
 /obj/machinery/button/ms13/attackby(obj/item/W, mob/living/user, params)
+	if(!destroyable)
+		return
 	if(!user.combat_mode && !(W.item_flags & NOBLUDGEON))
 		return attack_hand(user)
 	else
