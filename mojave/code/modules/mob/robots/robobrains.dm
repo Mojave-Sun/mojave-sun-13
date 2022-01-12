@@ -18,7 +18,7 @@
 	speak_emote = list("says", "whines", "crackles")
 	mob_size = MOB_SIZE_LARGE
 	footstep_type = FOOTSTEP_OBJ_ROBOT
-	loot = list(/obj/item/stack/sheet/ms13/scrap, /obj/effect/decal/cleanable/robot_debris)
+	loot = list(/obj/item/stack/sheet/ms13/scrap_steel/two, /obj/effect/decal/cleanable/robot_debris, /obj/item/stack/sheet/ms13/glass, /obj/item/stack/sheet/ms13/scrap_electronics/two, /obj/item/stack/sheet/ms13/circuits, /obj/item/stack/sheet/ms13/scrap_parts/two, /obj/item/ms13/component/vacuum_tube)
 	dextrous = TRUE
 	held_items = list(null, null)
 	ranged = TRUE
@@ -44,4 +44,5 @@
 	maxHealth = 250
 	melee_damage_lower = 20
 	melee_damage_upper = 25
+	loot = list(/obj/item/stack/sheet/ms13/scrap_steel/two, /obj/effect/decal/cleanable/robot_debris, /obj/item/stack/sheet/ms13/glass, /obj/item/stack/sheet/ms13/scrap_electronics/two, /obj/item/stack/sheet/ms13/circuits/three, /obj/item/stack/sheet/ms13/scrap_parts/two, /obj/item/ms13/component/vacuum_tube)
 	ranged_cooldown_time = 5 SECONDS

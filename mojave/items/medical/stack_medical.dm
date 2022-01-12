@@ -97,6 +97,9 @@
     burn_cleanliness_bonus = 0.6
     merge_type = /obj/item/stack/medical/gauze/ms13
 
+/obj/item/stack/medical/gauze/ms13/attackby(obj/item/I, mob/user, params)
+    return
+
 /obj/item/stack/medical/gauze/ms13/Initialize()
 	. = ..()
 	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/medical/medical_inventory.dmi')

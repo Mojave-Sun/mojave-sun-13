@@ -24,6 +24,7 @@
 	icon_state = "scrap"
 	inhand_icon_state = "scrap"
 	merge_type = /obj/item/stack/sheet/ms13/scrap
+	amount = 1
 	max_amount = 15
 
 /obj/item/stack/sheet/ms13/scrap/two
@@ -52,6 +53,7 @@ GLOBAL_LIST_INIT(scrap_recipes, list ( \
 	icon_state = "scrap_parts"
 	inhand_icon_state = "scrap"
 	merge_type = /obj/item/stack/sheet/ms13/scrap_parts
+	amount = 1
 	max_amount = 20
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -512,6 +514,27 @@ GLOBAL_LIST_INIT(refined_alu_recipes, list ( \
 	beauty_modifier = 0
 	strength_modifier = 1
 
+/obj/item/stack/sheet/ms13/refined_copper
+	name = "refined copper"
+	desc = "A refined copper ingot. Could be smelted down and turned into more useful copper wire."
+	singular_name = "refined copper ingot"
+	icon_state = "ingot_copper"
+	inhand_icon_state = "scrap"
+	merge_type = /obj/item/stack/sheet/ms13/refined_copper
+	amount = 1
+	max_amount = 10
+
+/obj/item/stack/sheet/ms13/refined_copper/two
+	amount = 2
+
+/datum/material/ms13/refined_copper
+	name = "refined copper"
+	desc = "Rare refined copper."
+	color = "#8f731a"
+	sheet_type = /obj/item/stack/sheet/ms13/refined_copper
+	beauty_modifier = 0
+	strength_modifier = 1
+
 //ELECTRONICS//
 
 /obj/item/stack/sheet/ms13/scrap_electronics
@@ -560,6 +583,17 @@ GLOBAL_LIST_INIT(log_recipes, list ( \
 	. = ..()
 	. += GLOB.log_recipes
 
+/obj/item/stack/sheet/ms13/log/attackby(obj/item/W, mob/user, params)
+	if(W.sharpness == IS_SHARP_AXE)
+		if(amount > 1)
+			user.show_message(span_notice("You can only chop one log at a time!"), MSG_VISUAL)
+			return
+		user.show_message(span_notice("You begin chopping \the [src] into wood planks!"), MSG_VISUAL)
+		if(do_after(user, 4 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_MAKEPLANKS)) 
+			user.show_message(span_notice("You make wood planks out of \the [src]!"), MSG_VISUAL)
+			new /obj/item/stack/sheet/ms13/plank/two(user.loc)
+			qdel(src)
+
 /obj/item/stack/sheet/ms13/scrap_wood
 	name = "scrap wood"
 	desc = "Various scrap, low quality pieces of wood."
@@ -574,6 +608,7 @@ GLOBAL_LIST_INIT(log_recipes, list ( \
 
 GLOBAL_LIST_INIT(scrap_wood_recipes, list ( \
 	new/datum/stack_recipe("crude scrap wood table", /obj/structure/table/ms13/wood/constructed/cobbled, 10, time = 20 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("wood bed", /obj/structure/bed/ms13/bedframe/wood, 5, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 ))
 
 /obj/item/stack/sheet/ms13/scrap_wood/get_main_recipes()
@@ -589,8 +624,12 @@ GLOBAL_LIST_INIT(scrap_wood_recipes, list ( \
 	amount = 1
 	max_amount = 10
 
+/obj/item/stack/sheet/ms13/plank/two
+	amount = 2
+
 GLOBAL_LIST_INIT(plank_recipes, list ( \
 	new/datum/stack_recipe("crude wood table", /obj/structure/table/ms13/wood/constructed, 4, time = 20 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("wood bed", /obj/structure/bed/ms13/bedframe/wood, 3, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 ))
 
 /obj/item/stack/sheet/ms13/plank/get_main_recipes()

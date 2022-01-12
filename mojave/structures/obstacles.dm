@@ -8,18 +8,32 @@
 
 /obj/structure/ms13/bars
 	name = "metal bars"
-	desc = "Sturdy metal bars, if only you had a saw."
+	desc = "Sturdy metal bars. If only you had a saw."
 	icon = 'mojave/icons/obstacles/tallobstacles.dmi'
 	icon_state = "bars"
 	density = TRUE
 	anchored = TRUE
 	layer = ABOVE_OBJ_LAYER
 	max_integrity = 500
-	armor = list(MELEE = 100, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 100, BIO = 100,  FIRE = 100, ACID = 100)
-	damage_deflection = 40
+	armor = list(MELEE = 75, BULLET = 75, LASER = 75, ENERGY = 75, BOMB = 100, BIO = 100,  FIRE = 100, ACID = 100)
+	damage_deflection = 10
 	can_atmos_pass = ATMOS_PASS_YES
 	flags_1 = ON_BORDER_1
 	var/barpasschance = 33
+
+/obj/structure/ms13/bars/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		new /obj/item/stack/sheet/ms13/scrap_steel/two(loc)
+	qdel(src)
+
+/obj/structure/ms13/bars/attackby(obj/item/W, mob/user, params)
+	if(W.tool_behaviour == TOOL_SAW)
+		user.show_message(span_notice("You begin sawing through the bars."), MSG_VISUAL)
+		if(do_after(user, 60 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON)) 
+			user.show_message(span_notice("You saw through the bars!"), MSG_VISUAL)
+			deconstruct()
+			return TRUE
+	
 
 /obj/structure/ms13/bars/corner
 	icon_state = "barscorner"
@@ -155,8 +169,8 @@
 	opacity = FALSE
 	layer = ABOVE_MOB_LAYER
 	max_integrity = 500
-	armor = list(MELEE = 80, BULLET = 80, LASER = 0, ENERGY = 0, BOMB = 25, BIO = 100,  FIRE = 80, ACID = 100)
-	damage_deflection = 40
+	armor = list(MELEE = 75, BULLET = 75, LASER = 75, ENERGY = 75, BOMB = 25, BIO = 100,  FIRE = 80, ACID = 100)
+	damage_deflection = 10
 	flags_1 = ON_BORDER_1
 	var/locked = FALSE
 
@@ -168,6 +182,11 @@
 	var/closeSound = 'mojave/sound/ms13effects/cellclose.ogg'
 
 	var/barpasschance = 33
+
+/obj/structure/ms13/celldoor/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		new /obj/item/stack/sheet/ms13/scrap_steel/two(loc)
+	qdel(src)
 
 /obj/structure/ms13/celldoor/locked
 	locked = TRUE
@@ -575,6 +594,12 @@
 	name = "base state MS13 guard rail"
 	icon = 'mojave/icons/structure/railings.dmi'
 	layer = ABOVE_MOB_LAYER
+	max_integrity = 150
+
+/obj/structure/railing/ms13/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		new /obj/item/stack/sheet/ms13/scrap(loc)
+	qdel(src)
 
 /obj/structure/railing/ms13/solo
 	name = "guard rail"

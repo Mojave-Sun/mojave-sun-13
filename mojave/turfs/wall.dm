@@ -229,6 +229,9 @@
 	baseturfs = /turf/open/floor/plating/ms13/ground/desert
 	weldable = TRUE
 
+/turf/closed/wall/ms13/craftable/deconstruction_hints(mob/user)
+	return span_notice("You could use a <b>welder</b> to cut through this wall.")
+
 /turf/closed/wall/ms13/craftable/scrap
 	name = "crude scrap wall"
 	desc = "A crude wall made of scrap metal. This looks very recently constructed."
