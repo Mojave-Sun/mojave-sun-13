@@ -87,7 +87,6 @@
 	broadcasting = FALSE  // Whether the radio will transmit dialogue it hears nearby.
 	freerange = TRUE  // If true, the radio has access to the full spectrum.
 	freqlock = TRUE  // Frequency lock to stop the user from untuning specialist radios.
-	anonymize = TRUE
 	radio_broadcast = RADIOSTATIC_LIGHT
 
 /obj/item/radio/intercom/ms13/Initialize(mapload)
@@ -115,6 +114,21 @@
 	icon = 'mojave/icons/structure/machinery.dmi'
 	icon_state = "button"
 	skin = "button"
+	var/normaldoorcontrol = FALSE
+	var/specialfunctions = OPEN // Bitflag, see assembly file
+	var/sync_doors = TRUE
+
+/obj/machinery/button/ms13/setup_device() //Adds this so we can have our own future functionality, instead of making 4000 button types for each individual thing
+	if(!device)
+		if(normaldoorcontrol)
+			var/obj/item/assembly/control/airlock/A = new(src)
+			A.specialfunctions = specialfunctions
+			device = A
+		else
+			var/obj/item/assembly/control/C = new(src)
+			C.sync_doors = sync_doors
+			device = C
+	..()
 
 /obj/machinery/button/ms13/Initialize(mapload)
 	. = ..()
