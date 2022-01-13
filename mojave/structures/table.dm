@@ -287,7 +287,7 @@
 
 /obj/structure/table/ms13/crafting/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>Use <b>CTRL + CLICK</b> on the workbench to begin crafting.</span>"
+	. += "<span class='notice'>Use <b>CTRL + CLICK</b> on [src] to begin crafting.</span>"
 	
 /obj/structure/table/ms13/crafting/wrench_act_secondary(mob/living/user, obj/item/weapon)
 	return

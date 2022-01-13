@@ -31,7 +31,8 @@
 	amount = 2
 
 GLOBAL_LIST_INIT(scrap_recipes, list ( \
-	new/datum/stack_recipe("crude scrap wall", /turf/closed/wall/ms13/craftable/scrap, 10, time = 40 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("crude scrap wall", /turf/closed/wall/ms13/craftable/scrap, 12, time = 40 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("makeshift smelter", /obj/structure/ms13/smelter, 10, time = 30 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 ))
 
 /obj/item/stack/sheet/ms13/scrap/get_main_recipes()
@@ -168,7 +169,8 @@ GLOBAL_LIST_INIT(scrap_recipes, list ( \
 	amount = 2
 
 GLOBAL_LIST_INIT(scrap_steel_recipes, list ( \
-	new/datum/stack_recipe("crude scrap wall", /turf/closed/wall/ms13/craftable/scrap, 6, time = 40 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("crude scrap wall", /turf/closed/wall/ms13/craftable/scrap, 7, time = 40 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("makeshift smelter", /obj/structure/ms13/smelter, 6, time = 30 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("crude scrap metal table", /obj/structure/table/ms13/metal/constructed/cobbled, 4, time = 20 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("green scrap metal chair", /obj/structure/chair/ms13/metal/unfinished, 2, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("blue scrap metal chair", /obj/structure/chair/ms13/metal/blue/unfinished, 2, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \

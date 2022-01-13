@@ -1048,3 +1048,6 @@
 				/obj/item/stack/sheet/ms13/scrap = 4)
 	category = CAT_UTILITY
 	crafting_interface = CRAFTING_BENCH_GENERAL
+
+//SMELTER CRAFTING
+

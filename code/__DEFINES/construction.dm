@@ -120,6 +120,7 @@
 #define CAT_WEAPONS "Weapons"
 #define CAT_ELECTRONICS "Electronics"
 #define CAT_UTILITY "Utility"
+#define CAT_SMELTER "Smelter"
 
 #define CRAFTING_BENCH_HANDS      1<<0
 #define CRAFTING_BENCH_GENERAL    1<<1
@@ -127,6 +128,7 @@
 #define CRAFTING_BENCH_ARMTAILOR  1<<3
 #define CRAFTING_BENCH_WEAPONS    1<<4
 #define CRAFTING_BENCH_RELOADING  1<<5
+#define CRAFTING_BENCH_SMELTER    1<<6
 // tablecrafting interface types - MOJAVE EDIT END
 
 //rcd modes
