@@ -852,7 +852,7 @@
 	tool_behaviors = list(TOOL_DRILL)
 	tool_paths = list(/obj/item/ms13/hammer)
 	reqs = list(/obj/item/claymore/ms13/pipe = 1,
-				/obj/item/stack/sheet/ms13/scrap_parts = 2
+				/obj/item/stack/sheet/ms13/scrap_parts = 2,
 				/obj/item/stack/sheet/ms13/scrap_steel = 4,
 				/obj/item/stack/sheet/ms13/scrap = 2)
 	category = CAT_WEAPONS
