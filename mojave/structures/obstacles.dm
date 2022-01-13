@@ -651,7 +651,7 @@
 	. += deconstruction_hints(user)
 
 /obj/structure/ms13/barricade/proc/deconstruction_hints(mob/user)
-	return span_notice("You could use a <b>crowbar<b> or similar prying tool to dismantle [src] for planks.")
+	return span_notice("You could use a <b>crowbar</b> or similar prying tool to dismantle [src] for planks.")
 
 /obj/structure/ms13/barricade/Initialize() //this shit should really be a component
 	. = ..()

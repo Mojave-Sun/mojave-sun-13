@@ -539,7 +539,7 @@ GLOBAL_LIST_INIT(refined_alu_recipes, list ( \
 
 /obj/item/stack/sheet/ms13/refined_copper
 	name = "refined copper"
-	desc = "A refined copper ingot. Could be smelted down and turned into more useful copper wire."
+	desc = "A refined copper ingot."
 	singular_name = "refined copper ingot"
 	icon_state = "ingot_copper"
 	inhand_icon_state = "scrap"
