@@ -39,10 +39,7 @@
 	)
 
 /datum/ai_planning_subtree/basic_melee_attack_subtree/ms13/robot
-	melee_attack_behavior = /datum/ai_behavior/basic_melee_attack/ms13/robot
-
-/datum/ai_behavior/basic_melee_attack/ms13/robot
-	action_cooldown = 1.5 SECONDS
+	melee_attack_behavior = /datum/ai_behavior/basic_melee_attack/ms13/hostile_animal/sidestep
 
 /mob/living/basic/ms13/robot/handy
     name = "Mr. Handy"

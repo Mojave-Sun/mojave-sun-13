@@ -39,6 +39,19 @@
 /datum/ai_behavior/basic_melee_attack/ms13/hostile_animal
 	action_cooldown = 1.5 SECONDS
 
+//Some simple sidestepping; mainly for robots
+/datum/ai_behavior/basic_melee_attack/ms13/hostile_animal/sidestep
+	action_cooldown = 1.5 SECONDS
+	///Cooldown until next sidestep
+	COOLDOWN_DECLARE(sidestep_cooldown)
+
+/datum/ai_behavior/basic_melee_attack/ms13/hostile_animal/sidestep/perform(delta_time, datum/ai_controller/controller, target_key, targetting_datum_key, hiding_location_key)
+	..()
+	if(COOLDOWN_FINISHED(src, sidestep_cooldown))
+		var/atom/movable/movable_pawn = controller.pawn
+		movable_pawn.Move(get_step(movable_pawn, turn((get_dir(movable_pawn, controller.current_movement_target)), pick(90, -90))))
+		COOLDOWN_START(src, sidestep_cooldown, rand(1 SECONDS, 2 SECONDS))
+
 //Some things will be commented out, mostly relating to Scar's taming and domestication code, since it isn't ported over with this.
 
 /mob/living/basic/ms13/hostile_animal/radroach
