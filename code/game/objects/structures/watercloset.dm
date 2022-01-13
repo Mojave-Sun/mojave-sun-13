@@ -728,7 +728,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/urinal, 32)
 	opaque_closed = TRUE
 
 /obj/structure/curtain/cloth/deconstruct(disassembled = TRUE)
-	new /obj/item/stack/medical/gauze/ms13/cloth (loc, 2) //MOJAVE EDIT - Removed other drops and made it drop our cloth instead of TG cloth. Revert after CAT
+	new /obj/item/stack/sheet/ms13/cloth (loc, 2) //MOJAVE EDIT - Removed other drops and made it drop our cloth instead of TG cloth. Revert after CAT
 	qdel(src)
 
 /obj/structure/curtain/cloth/fancy
