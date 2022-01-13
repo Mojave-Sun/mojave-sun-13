@@ -3,7 +3,7 @@ import { Town } from "../departments";
 
 const TownWorker: Job = {
   name: "Town Worker",
-  description: "Tend your farm and practice animal husbandry so that your Town can continue to thrive.",
+  description: "Provide vital labor for the Town in the form of production, construction, engineering, maintenance. You name it!",
   department: Town,
 };
 

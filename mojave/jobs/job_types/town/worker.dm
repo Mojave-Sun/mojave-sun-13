@@ -24,7 +24,7 @@
 	r_pocket =   /obj/item/wirecutters/ms13
 	l_pocket =	 /obj/item/screwdriver/ms13
 	backpack_contents = list(
-		/obj/item/clothing/glasses/ms13/welding=1
+		/obj/item/clothing/glasses/ms13/welding=1, \
 		/obj/item/wrench/ms13=1, \
 		/obj/item/ms13/handsaw=1, \
 		/obj/item/ms13/hammer=1)
