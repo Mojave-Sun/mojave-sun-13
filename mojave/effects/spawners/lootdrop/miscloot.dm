@@ -63,7 +63,7 @@
 	name = "high tier radio spawner"
 	spawn_loot_chance = 65
 	loot = list(
-			/obj/item/radio/ms13/broadcast/prewar = 65,
+			/obj/item/radio/ms13/broadcast/advanced = 65,
 			/obj/item/radio/ms13/broadcast = 35
 			)
 
