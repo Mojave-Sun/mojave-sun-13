@@ -117,6 +117,7 @@
 #define CAT_HEADGEAR "Headgear"
 #define CAT_UNDER "Uniforms/Clothing"
 #define CAT_MISCCLOTHING "Gloves, Shoes, Masks"
+#define CAT_WEAPONS "Weapons"
 
 #define CRAFTING_BENCH_HANDS      1<<0
 #define CRAFTING_BENCH_GENERAL    1<<1

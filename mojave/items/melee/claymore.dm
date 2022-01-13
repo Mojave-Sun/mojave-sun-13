@@ -20,7 +20,7 @@
 
 /obj/item/claymore/ms13/machete
 	name = "machete"
-	desc = "A makeshift machete made of a lawn mower blade."
+	desc = "A makeshift machete made from scrap."
 	icon_state = "machete_scrap"
 	inhand_icon_state = "machete_scrap"
 	force = 30
