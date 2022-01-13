@@ -634,7 +634,6 @@
 	if(flags_1&NODECONSTRUCT_1)
 		return TRUE
 	..()
-	weapon.play_tool_sound(src)
 	if(do_after(user, 6 SECONDS * tool.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_DECON))
 		deconstruct(disassembled = TRUE)
 		return TRUE
@@ -642,9 +641,9 @@
 /obj/structure/ms13/barricade/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/plank(user.loc)
+			new /obj/item/stack/sheet/ms13/plank(loc)
 		else
-			new /obj/item/stack/sheet/ms13/scrap_wood(user.loc)
+			new /obj/item/stack/sheet/ms13/scrap_wood(loc)
 	qdel(src)
 
 /obj/structure/ms13/barricade/examine(mob/user)
