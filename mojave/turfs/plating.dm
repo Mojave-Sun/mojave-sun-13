@@ -244,33 +244,30 @@
 	add_overlay(image(border_icon, icon_state, TURF_LAYER_SNOW_BORDER, pixel_x = -16, pixel_y = -16))
 
 /turf/open/floor/plating/ms13/ground/snow/attackby(obj/item/W, mob/user, params)
+	return
+/*
+/turf/open/floor/plating/ms13/ground/snow/attackby(obj/item/W, mob/user, params) Has to be fixed. Doesn't smooth out the spawned turf.
 	. = ..()
 	if(!.)
 		if(!digResult)
 			return
-		if(W.tool_behaviour == TOOL_SHOVEL || W.tool_behaviour == TOOL_MINING)
+		if(W.tool_behaviour == TOOL_SHOVEL)
 			if(dug)
-				to_chat(user, "<span class='notice'>Looks like someone has dug here already.</span>")
+				to_chat(user, span_notice("The snow is already dug and packed."))
 				return TRUE
 
 			if(!isturf(user.loc))
 				return
 
-			to_chat(user, "<span class='notice'>You start digging...</span>")
+			to_chat(user, span_notice("You start digging."))
 
 			if(W.use_tool(src, user, 40, volume=50))
-				to_chat(user, "<span class='notice'>You dig a hole.</span>")
+				to_chat(user, span_notice("You dig out a path."))
 				getDug()
-				SSblackbox.record_feedback("tally", "pick_used_mining", 1, W.type)
 				return TRUE
-		else if(istype(W, /obj/item/storage/bag/ore))
-			for(var/obj/item/stack/ore/O in src)
-				SEND_SIGNAL(W, COMSIG_PARENT_ATTACKBY, O)
 
 /turf/open/floor/plating/ms13/ground/snow/proc/getDug()
-	new digResult(src, 5)
-	icon_state = "[icon_state]_dug"
-	dug = TRUE
+	new /turf/open/floor/plating/ms13/ground/snow/dug(src) */
 
 /turf/open/floor/plating/ms13/ground/snow/proc/plant_grass(Plantforce = FALSE)
 	var/Weight = 0
@@ -334,6 +331,16 @@
 	if(turfPlant)
 		qdel(turfPlant)
 	. =  ..()
+
+/turf/open/floor/plating/ms13/ground/snow/dug
+	name = "paved snow"
+	desc = "Freshly paved out snow."
+	icon = 'mojave/icons/turf/64x/snow_paved.dmi'
+	border_icon = 'mojave/icons/turf/64x/snow_1_border.dmi'
+	dug = TRUE
+	slowdown = 0.65
+//	smoothing_groups = list(SMOOTH_GROUP_MS13_SNOW_PATH)
+//	canSmoothWith = list(SMOOTH_GROUP_MS13_SNOW_PATH, SMOOTH_GROUP_MS13_WATER)
 
 /turf/open/floor/plating/ms13/ground/mountain
 	name = "mountain"
