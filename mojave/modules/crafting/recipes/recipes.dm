@@ -972,9 +972,9 @@
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	tool_paths = list(/obj/item/wirecutters/ms13)
 	reqs = list(/obj/item/ms13/component/cell = 1,
-				/obj/item/stack/sheet/ms13/refined_copper = 1,
+				/obj/item/stack/sheet/ms13/refined_copper = 2,
 				/obj/item/stack/sheet/ms13/scrap_electronics = 4,
-				/obj/item/stack/sheet/ms13/refined_lead = 1,
+				/obj/item/stack/sheet/ms13/refined_lead = 2,
 				/obj/item/stack/sheet/ms13/plastic = 5)
 	category = CAT_ELECTRONICS
 	crafting_interface = CRAFTING_BENCH_ELECTRIC
@@ -987,9 +987,9 @@
 	tool_paths = list(/obj/item/wirecutters/ms13)
 	trait = TRAIT_SCRIBE_TRAINING
 	reqs = list(/obj/item/ms13/component/cell = 2,
-				/obj/item/stack/sheet/ms13/refined_copper = 2,
+				/obj/item/stack/sheet/ms13/refined_copper = 3,
 				/obj/item/stack/sheet/ms13/scrap_electronics = 6,
-				/obj/item/stack/sheet/ms13/refined_lead = 2,
+				/obj/item/stack/sheet/ms13/refined_lead = 3,
 				/obj/item/stack/sheet/ms13/plastic = 8)
 	category = CAT_ELECTRONICS
 	crafting_interface = CRAFTING_BENCH_ELECTRIC
@@ -1002,9 +1002,9 @@
 	tool_paths = list(/obj/item/wirecutters/ms13)
 	trait = TRAIT_SCRIBE_TRAINING
 	reqs = list(/obj/item/ms13/component/cell = 2,
-				/obj/item/stack/sheet/ms13/refined_copper = 3,
+				/obj/item/stack/sheet/ms13/refined_copper = 5,
 				/obj/item/stack/sheet/ms13/scrap_electronics = 10,
-				/obj/item/stack/sheet/ms13/refined_lead = 3,
+				/obj/item/stack/sheet/ms13/refined_lead = 5,
 				/obj/item/stack/sheet/ms13/plastic = 10)
 	category = CAT_ELECTRONICS
 	crafting_interface = CRAFTING_BENCH_ELECTRIC
@@ -1017,8 +1017,8 @@
 	tool_paths = list(/obj/item/wirecutters/ms13)
 	trait = TRAIT_SCRIBE_TRAINING
 	reqs = list(/obj/item/ms13/component/plasma_battery = 2,
-				/obj/item/stack/sheet/ms13/refined_copper = 5,
-				/obj/item/stack/sheet/ms13/refined_lead = 5,
+				/obj/item/stack/sheet/ms13/refined_copper = 6,
+				/obj/item/stack/sheet/ms13/refined_lead = 6,
 				/obj/item/stack/sheet/ms13/plastic = 10)
 	category = CAT_ELECTRONICS
 	crafting_interface = CRAFTING_BENCH_ELECTRIC
