@@ -12,7 +12,7 @@
 /datum/outfit/job/ms13/ncr/radioman
 	name = "_NCR Radioman"
 	jobtype = 	 /datum/job/ms13/ncr/radioman
-	id = 		 /obj/item/card/id/ms13/ncrtrooper/radioman
+	id = 		 /obj/item/card/id/ms13/ncr/radioman
 	uniform = 	 /obj/item/clothing/under/ms13/ncr/fatigues
 	head = 		 /obj/item/clothing/head/helmet/ms13/ncr/goggles
 	suit = 		 /obj/item/clothing/suit/armor/ms13/ncr/reinforced

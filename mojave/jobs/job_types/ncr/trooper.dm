@@ -12,7 +12,7 @@
 /datum/outfit/job/ms13/ncr/trooper
 	name = "_NCR Trooper"
 	jobtype = 	 /datum/job/ms13/ncr/trooper
-	id = 		 /obj/item/card/id/ms13/ncrtrooper
+	id = 		 /obj/item/card/id/ms13/ncr
 	head = 	     /obj/item/clothing/head/helmet/ms13/ncr
 	suit =       /obj/item/clothing/suit/armor/ms13/ncr
 	suit_store = /obj/item/gun/ballistic/automatic/ms13/semi/service

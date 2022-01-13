@@ -26,8 +26,8 @@
 /obj/effect/landmark/start/ms13/bartender
 	name = "Town Bartender"
 
-/obj/effect/landmark/start/ms13/farmer
-	name = "Town Farmer"
+/obj/effect/landmark/start/ms13/worker
+	name = "Town Worker"
 
 /obj/effect/landmark/start/ms13/doctor
 	name = "Town Doctor"
