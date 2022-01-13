@@ -284,6 +284,10 @@
 	canSmoothWith = null
 	var/crafting_interface = CRAFTING_BENCH_GENERAL
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
+
+/obj/structure/table/ms13/crafting/examine(mob/user)
+	. = ..()
+	. += "<span class='notice'>Use <b>CTRL + CLICK</b> on [src] to begin crafting.</span>"
 	
 /obj/structure/table/ms13/crafting/wrench_act_secondary(mob/living/user, obj/item/weapon)
 	return

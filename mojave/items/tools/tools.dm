@@ -75,6 +75,7 @@
 	attack_verb_simple = list("drill", "pierce", "stab", "impale", "jab")
 	sharpness = SHARP_POINTY // Cut down da TREE. Cut down da WOOD.
 	slot_flags = ITEM_SLOT_BELT
+	tool_behaviour = TOOL_DRILL
 	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_NORMAL
 	log_pickup_and_drop = TRUE

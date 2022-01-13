@@ -43,7 +43,7 @@
 	. += deconstruction_hints(user)
 
 /obj/structure/closet/crate/ms13/woodcrate/proc/deconstruction_hints(mob/user)
-	return span_notice("The [src] is tightly sealed, but you could use a <b>crowbar<b> or similar prying tool to <b>open</b> it.")
+	return span_notice("The [src] is tightly sealed, but you could use a <b>crowbar</b> or similar prying tool to <b>open</b> it.")
 
 /obj/structure/closet/crate/ms13/woodcrate/attack_hand(mob/user)
 	add_fingerprint(user)

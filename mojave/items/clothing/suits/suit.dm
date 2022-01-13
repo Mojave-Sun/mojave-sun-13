@@ -84,7 +84,7 @@
 
 /obj/item/clothing/suit/ms13/veteran_coat/reinf
 	name = "reinforced veteran coat"
-	desc = "A blue padded coat with additional leather and crude metal reinforcements, as well as some ballistic weave. Common attire for hardened, dangerous mercenaries."
+	desc = "A blue padded coat with additional leather and crude metal reinforcements, as well as some ballistic padding. Common attire for hardened, dangerous mercenaries."
 	icon_state = "reinf_veteran_coat"
 	armor = list("melee" = 20, "bullet" = 35, "laser" = 15, "energy" = 10, "bomb" = 20, "bio" = 10,  "fire" = 25, "acid" = 10, "wound" = 0)
 

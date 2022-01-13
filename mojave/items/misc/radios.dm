@@ -24,8 +24,8 @@
 	desc = "A handheld radio that can send as well as recieve signals. The poor quality of broadcasts makes it unpleasent to listen to, and doing so too often is a good way to get lynched."
 	radio_broadcast = RADIOSTATIC_HEAVY
 
-/obj/item/radio/ms13/broadcast/prewar
-	name = "pre-war hand radio"
+/obj/item/radio/ms13/broadcast/advanced
+	name = "advanced hand radio"
 	desc = "The best a handheld gets, this extremely rare radio can broadcast at reasonably high quality while remaining lightweight and portable."
 	radio_broadcast = RADIOSTATIC_MEDIUM
 
@@ -65,6 +65,7 @@
 			new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 3)
 			new /obj/item/stack/sheet/ms13/scrap_copper(loc, 3)
 			new /obj/item/stack/sheet/ms13/circuits(loc)
+			new /obj/item/ms13/component/vacuum_tube(loc)
 			new /obj/item/ms13/component/cell(loc)
 		else
 			new /obj/item/stack/sheet/ms13/scrap/two(loc)

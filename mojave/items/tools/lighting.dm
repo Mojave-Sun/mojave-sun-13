@@ -2,7 +2,7 @@
 
 /obj/item/flashlight/ms13
 	name = "flashlight"
-	desc = "A common pre-war flashlight. It's held up surprisingly well over the years. An essential tool for any tomfoolery in the unknown."
+	desc = "A common flashlight. An essential tool for any tomfoolery in the unknown."
 	icon = 'mojave/icons/objects/tools/tools_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'

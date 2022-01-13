@@ -89,20 +89,19 @@
 		return TRUE
 	..()
 	weapon.play_tool_sound(src)
-	if(do_after(user, 35 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+	if(do_after(user, 30 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
 		deconstruct(disassembled = TRUE)
 		return TRUE
 
 /obj/machinery/ms13/terminal/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/scrap/two(loc)
-			new /obj/item/stack/sheet/ms13/scrap_parts/two(loc)
+			new /obj/item/stack/sheet/ms13/scrap(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 3)
 			new /obj/item/stack/sheet/ms13/glass(loc)
-			new /obj/item/stack/sheet/ms13/scrap_electronics/two(loc)
-			new /obj/item/stack/sheet/ms13/scrap_copper/two(loc)
-			new /obj/item/stack/sheet/ms13/circuits(loc, 2)
-			new /obj/item/ms13/component/vacuum_tube(loc)
+			new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 3)
+			new /obj/item/stack/sheet/ms13/scrap_copper(loc, 3)
+			new /obj/item/stack/sheet/ms13/circuits(loc)
 		else
 			new /obj/item/stack/sheet/ms13/scrap(loc)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc)

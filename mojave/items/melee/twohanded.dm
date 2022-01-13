@@ -142,7 +142,7 @@
 		return
 
 /obj/item/ms13/twohanded/spear
-	name = "spear"
+	name = "metal spear"
 	desc = "A well made, dangerous, and versatile spear."
 	icon_state = "spear"
 	inhand_icon_state = "spear"
@@ -159,7 +159,7 @@
 
 /obj/item/ms13/twohanded/spear/knife
 	name = "knife spear"
-	desc = "A very crude spear made from a simple knife and a pole."
+	desc = "A very crude spear made from a simple knife and a scrap metal pole."
 	icon_state = "spear_knife"
 	inhand_icon_state = "spear_knife"
 	force = 15
