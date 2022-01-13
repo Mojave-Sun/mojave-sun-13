@@ -1,10 +1,10 @@
 import { Job } from "../base";
 import { Town } from "../departments";
 
-const TownFarmer: Job = {
+const TownWorker: Job = {
   name: "Town Worker",
   description: "Tend your farm and practice animal husbandry so that your Town can continue to thrive.",
   department: Town,
 };
 
-export default TownFarmer;
+export default TownWorker;
