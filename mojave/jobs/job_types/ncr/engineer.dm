@@ -13,7 +13,7 @@
 	name = "_NCR Engineer"
 	jobtype = /datum/job/ms13/ncr/engineer
 	id = 		 /obj/item/card/id/ms13/ncr/engineer
-	head =       /obj/item/clothing/head/helmet/ms13/ncr
+	head =       /obj/item/clothing/head/helmet/ms13/hardhat
 	suit =       /obj/item/clothing/suit/armor/ms13/ncr
 	suit_store = /obj/item/gun/ballistic/automatic/pistol/ms13/m9mm
 	belt =		 /obj/item/weldingtool/ms13
