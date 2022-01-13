@@ -1069,3 +1069,152 @@
 
 //SMELTER CRAFTING
 
+/datum/crafting_recipe/refined_steel
+	name = "smelt refined steel ingot"
+	result = /obj/item/stack/sheet/ms13/refined_steel
+	time = 10 SECONDS
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/stack/sheet/ms13/scrap_steel = 5,
+				/obj/item/stack/sheet/ms13/plank = 2)
+	category = CAT_SMELTER
+	crafting_interface = CRAFTING_BENCH_SMELTER
+
+/datum/crafting_recipe/refined_alu
+	name = "smelt refined aluminum ingot"
+	result = /obj/item/stack/sheet/ms13/refined_alu
+	time = 10 SECONDS
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/stack/sheet/ms13/scrap_alu = 5,
+				/obj/item/stack/sheet/ms13/plank = 2)
+	category = CAT_SMELTER
+	crafting_interface = CRAFTING_BENCH_SMELTER
+
+/datum/crafting_recipe/refined_lead
+	name = "smelt refined lead ingot"
+	result = /obj/item/stack/sheet/ms13/refined_lead
+	time = 10 SECONDS
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/stack/sheet/ms13/scrap_lead = 5,
+				/obj/item/stack/sheet/ms13/plank = 2)
+	category = CAT_SMELTER
+	crafting_interface = CRAFTING_BENCH_SMELTER
+
+/datum/crafting_recipe/refined_copper
+	name = "smelt refined copper ingot"
+	result = /obj/item/stack/sheet/ms13/refined_copper
+	time = 10 SECONDS
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/stack/sheet/ms13/scrap_copper = 5,
+				/obj/item/stack/sheet/ms13/plank = 2)
+	category = CAT_SMELTER
+	crafting_interface = CRAFTING_BENCH_SMELTER
+
+/datum/crafting_recipe/refined_brass
+	name = "smelt refined brass ingot"
+	result = /obj/item/stack/sheet/ms13/refined_brass
+	time = 10 SECONDS
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/stack/sheet/ms13/scrap_brass = 5,
+				/obj/item/stack/sheet/ms13/plank = 2)
+	category = CAT_SMELTER
+	crafting_interface = CRAFTING_BENCH_SMELTER
+
+/datum/crafting_recipe/refined_silver
+	name = "smelt refined silver ingot"
+	result = /obj/item/stack/sheet/ms13/refined_silver
+	time = 10 SECONDS
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/stack/sheet/ms13/scrap_silver = 5,
+				/obj/item/stack/sheet/ms13/plank = 2)
+	category = CAT_SMELTER
+	crafting_interface = CRAFTING_BENCH_SMELTER
+
+/datum/crafting_recipe/refined_gold
+	name = "smelt refined gold ingot"
+	result = /obj/item/stack/sheet/ms13/refined_gold
+	time = 10 SECONDS
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/stack/sheet/ms13/scrap_gold = 5,
+				/obj/item/stack/sheet/ms13/plank = 2)
+	category = CAT_SMELTER
+	crafting_interface = CRAFTING_BENCH_SMELTER
+
+/datum/crafting_recipe/melt_steel_beams
+	name = "melt down refined steel"
+	result = list(/obj/item/stack/sheet/ms13/scrap_steel = 5)
+	time = 6 SECONDS
+	tool_paths = list()
+	reqs = list(/obj/item/stack/sheet/ms13/refined_steel = 1,
+				/obj/item/stack/sheet/ms13/plank = 1)
+	category = CAT_SMELTER
+	crafting_interface = CRAFTING_BENCH_SMELTER
+
+/datum/crafting_recipe/melt_alu
+	name = "melt down refined aluminum"
+	result = list(/obj/item/stack/sheet/ms13/scrap_alu = 5)
+	time = 6 SECONDS
+	tool_paths = list()
+	reqs = list(/obj/item/stack/sheet/ms13/refined_alu = 1,
+				/obj/item/stack/sheet/ms13/plank = 1)
+	category = CAT_SMELTER
+	crafting_interface = CRAFTING_BENCH_SMELTER
+
+/datum/crafting_recipe/melt_lead
+	name = "melt down refined lead"
+	result = list(/obj/item/stack/sheet/ms13/scrap_lead = 5)
+	time = 6 SECONDS
+	tool_paths = list()
+	reqs = list(/obj/item/stack/sheet/ms13/refined_lead = 1,
+				/obj/item/stack/sheet/ms13/plank = 1)
+	category = CAT_SMELTER
+	crafting_interface = CRAFTING_BENCH_SMELTER
+
+/datum/crafting_recipe/melt_copper
+	name = "melt down refined copper"
+	result = list(/obj/item/stack/sheet/ms13/scrap_copper = 5)
+	time = 6 SECONDS
+	tool_paths = list()
+	reqs = list(/obj/item/stack/sheet/ms13/refined_copper = 1,
+				/obj/item/stack/sheet/ms13/plank = 1)
+	category = CAT_SMELTER
+	crafting_interface = CRAFTING_BENCH_SMELTER
+
+/datum/crafting_recipe/melt_brass
+	name = "melt down refined brass"
+	result = list(/obj/item/stack/sheet/ms13/scrap_brass = 5)
+	time = 6 SECONDS
+	tool_paths = list()
+	reqs = list(/obj/item/stack/sheet/ms13/refined_brass = 1,
+				/obj/item/stack/sheet/ms13/plank = 1)
+	category = CAT_SMELTER
+	crafting_interface = CRAFTING_BENCH_SMELTER
+
+/datum/crafting_recipe/melt_silver
+	name = "melt down refined silver"
+	result = list(/obj/item/stack/sheet/ms13/scrap_silver = 5)
+	time = 6 SECONDS
+	tool_paths = list()
+	reqs = list(/obj/item/stack/sheet/ms13/refined_silver = 1,
+				/obj/item/stack/sheet/ms13/plank = 1)
+	category = CAT_SMELTER
+	crafting_interface = CRAFTING_BENCH_SMELTER
+
+/datum/crafting_recipe/melt_gold
+	name = "melt down refined gold"
+	result = list(/obj/item/stack/sheet/ms13/scrap_gold = 5)
+	time = 6 SECONDS
+	tool_paths = list()
+	reqs = list(/obj/item/stack/sheet/ms13/refined_gold = 1,
+				/obj/item/stack/sheet/ms13/plank = 1)
+	category = CAT_SMELTER
+	crafting_interface = CRAFTING_BENCH_SMELTER
+
+/datum/crafting_recipe/melt_scrap_parts
+	name = "melt down scrap parts"
+	result = list(/obj/item/stack/sheet/ms13/scrap_steel = 1, /obj/item/stack/sheet/ms13/scrap_alu = 1, /obj/item/stack/sheet/ms13/scrap = 2)
+	time = 6 SECONDS
+	tool_paths = list()
+	reqs = list(/obj/item/stack/sheet/ms13/scrap_parts = 5,
+				/obj/item/stack/sheet/ms13/plank = 1)
+	category = CAT_SMELTER
+	crafting_interface = CRAFTING_BENCH_SMELTER

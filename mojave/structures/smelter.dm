@@ -3,7 +3,7 @@
 	desc = "A crude, makeshift smelter used to refine or melt down ingots. At least it works.... probably."
 	icon = 'mojave/icons/structure/smelter.dmi'
 	icon_state = "smelter"
-	max_integrity = 200
+	max_integrity = 160
 	density = TRUE
 	anchored = TRUE
 	var/crafting_interface = CRAFTING_BENCH_SMELTER

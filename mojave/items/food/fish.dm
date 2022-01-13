@@ -39,7 +39,7 @@
 	fish_type = "largemouth"
 	name = "largemouth bass"
 	desc = "A largemouth bass. It's meat is usually mushy, gross!"
-	icon_state = "largemouth cutlet"
+	icon_state = "largemouth_cutlet"
 	fillet_type = /obj/item/food/meat/rawcutlet/ms13/fish/largemouth
 
 /obj/item/food/meat/slab/ms13/fish/lamprey
