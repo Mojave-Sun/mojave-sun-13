@@ -148,6 +148,7 @@
 /obj/effect/spawner/random/ms13/crafting/electrical
 	name = "electrical random crafting spawner"
 	spawn_loot_chance = 60
+	spawn_loot_count = 1
 	loot = list(
 			/obj/item/stack/sheet/ms13/scrap_electronics/two = 40,
 			/obj/item/ms13/component/cell = 25,

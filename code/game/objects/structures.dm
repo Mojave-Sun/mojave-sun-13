@@ -10,6 +10,7 @@
 	pass_flags_self = PASSSTRUCTURE
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 	var/broken = FALSE
+	var/weatherproof = FALSE //MOJAVE SUN EDIT - Weather
 
 /obj/structure/Initialize(mapload)
 	if (!armor)

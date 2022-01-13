@@ -13,7 +13,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	custom_materials = list(/datum/material/iron=75, /datum/material/glass=25)
 	var/held = 0
-	var/obj/item/radio/ms13/NCR/radio
+	var/obj/item/radio/ms13/ncr/radio
 
 /obj/item/ms13/storage/backpack/radiopack/Initialize()
 	. = ..()
@@ -84,7 +84,7 @@
 	user.update_inv_back()
 
 
-/obj/item/radio/ms13/NCR
+/obj/item/radio/ms13/ncr
 	icon = 'mojave/icons/objects/hamradio.dmi'
 	name = "walkie-talkie"
 	icon_state = "handradio"
@@ -98,7 +98,7 @@
 	var/req_radio = TRUE
 	var/obj/item/ms13/storage/backpack/radiopack/radiopack
 
-/obj/item/radio/ms13/NCR/Initialize()
+/obj/item/radio/ms13/ncr/Initialize()
 	if(istype(loc, /obj/item/ms13/storage/backpack/radiopack))
 		radiopack = loc
 
@@ -109,18 +109,18 @@
 
 	return ..()
 
-/obj/item/radio/ms13/NCR/Destroy()
+/obj/item/radio/ms13/ncr/Destroy()
 	radiopack = null
 	return ..()
 
-/obj/item/radio/ms13/NCR/dropped(mob/user)
+/obj/item/radio/ms13/ncr/dropped(mob/user)
 	. = ..()
 	if(user)
 		UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
 	if(req_radio)
 		snap_back()
 
-/obj/item/radio/ms13/NCR/proc/snap_back()
+/obj/item/radio/ms13/ncr/proc/snap_back()
 	if(!radiopack)
 		return
 	forceMove(radiopack)
