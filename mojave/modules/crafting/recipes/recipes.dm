@@ -1023,6 +1023,24 @@
 	category = CAT_ELECTRONICS
 	crafting_interface = CRAFTING_BENCH_ELECTRIC
 
+/datum/crafting_recipe/smash_circuits
+	name = "smash apart circuits"
+	result = list(/obj/item/stack/sheet/ms13/scrap_electronics = 6, /obj/item/stack/sheet/ms13/scrap_copper = 4)
+	time = 4 SECONDS
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/stack/sheet/ms13/circuits = 2)
+	category = CAT_ELECTRONICS
+	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ELECTRIC
+
+/datum/crafting_recipe/smash_fusioncell
+	name = "smash apart fusion cell"
+	result = list(/obj/item/stack/sheet/ms13/scrap_lead = 2, /obj/item/stack/sheet/ms13/scrap_copper = 2)
+	time = 4 SECONDS
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/ms13/component/cell = 1)
+	category = CAT_ELECTRONICS
+	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ELECTRIC
+
 //UTILITY ITEM CRAFTING
 
 /datum/crafting_recipe/fishing_rod
