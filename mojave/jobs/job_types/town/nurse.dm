@@ -16,9 +16,11 @@
 	jobtype = /datum/job/ms13/town/nurse
 	
 	id =		 /obj/item/card/id/ms13/doctor/nurse
+	suit = 		 /obj/item/clothing/suit/apron/surgical
 	uniform =    /obj/item/clothing/under/ms13/vaultsuit
 	gloves = 	 /obj/item/clothing/gloves/color/latex/nitrile
 	shoes =  	 /obj/item/clothing/shoes/ms13/military/vault
+	belt = 		 /obj/item/storage/firstaid/ms13/regular
 
 /datum/outfit/job/ms13/town/nurse/pre_equip(mob/living/carbon/human/H)
 	..()
