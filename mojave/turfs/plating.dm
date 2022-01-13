@@ -339,10 +339,8 @@
 	border_icon = 'mojave/icons/turf/64x/snow_1_border.dmi'
 	dug = TRUE
 	slowdown = 0.65
-	randomize_state = FALSE
 //	smoothing_groups = list(SMOOTH_GROUP_MS13_SNOW_PATH)
 //	canSmoothWith = list(SMOOTH_GROUP_MS13_SNOW_PATH, SMOOTH_GROUP_MS13_WATER)
-	shouldplant = FALSE
 
 /turf/open/floor/plating/ms13/ground/mountain
 	name = "mountain"
