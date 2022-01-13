@@ -6,7 +6,7 @@
 	max_integrity = 200
 	density = TRUE
 	anchored = TRUE
-	crafting_interface = CRAFTING_BENCH_SMELTER
+	var/crafting_interface = CRAFTING_BENCH_SMELTER
 
 /obj/structure/ms13/smelter/examine(mob/user)
 	. = ..()
