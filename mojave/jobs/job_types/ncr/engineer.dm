@@ -27,7 +27,6 @@
 		/obj/item/screwdriver/ms13=1, \
 		/obj/item/ms13/handsaw=1, \
 		/obj/item/ms13/hammer=1, \
-		/obj/item/shovel/ms13/spade=1, \
 		/obj/item/stack/medical/gauze/ms13/three=1)
 
 /datum/outfit/job/ms13/ncr/engineer/pre_equip(mob/living/carbon/human/H)
