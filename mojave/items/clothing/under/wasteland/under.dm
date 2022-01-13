@@ -63,24 +63,33 @@
 	desc = "A pair of pants worn by caravaneers that can't seem to afford a shirt."
 	icon_state = "caravan"
 	inhand_icon_state = "tribalrag"
+	body_parts_covered = LEGS|GROIN
+	max_integrity = 220
 
 /obj/item/clothing/under/ms13/wasteland/pants
 	name = "cloth pants"
 	desc = "A relatively intact pair of cloth pants, grubby and dishevelled."
 	icon_state = "cloth"
 	inhand_icon_state = "tribalrag"
+	body_parts_covered = LEGS|GROIN
+	max_integrity = 220
 
 /obj/item/clothing/under/ms13/wasteland/ghoulpants
 	name = "tattered cloth pants"
 	desc = "A barely intact pair of ancient cloth pants."
 	icon_state = "ghoul"
 	inhand_icon_state = "tribalrag"
+	body_parts_covered = LEGS|GROIN
+	max_integrity = 200
+	limb_integrity = 80
 
 /obj/item/clothing/under/ms13/wasteland/warboypants
 	name = "leather pants"
 	desc = "A hardy, somewhat intimidating pair of black leather pants. Fastened and tightened with multiple belts."
 	icon_state = "warboy"
 	inhand_icon_state = "petcollar"
+	body_parts_covered = LEGS|GROIN
+	max_integrity = 220
 
 // wasteland //
 
@@ -89,6 +98,7 @@
 	desc = "A set of rags worn by those who can't seem to find better, or like things loose."
 	icon_state = "rag"
 	inhand_icon_state = "tribalrag"
+	max_integrity = 250
 
 /obj/item/clothing/under/ms13/wasteland/worn
 	name = "worn clothes"
@@ -97,7 +107,7 @@
 	inhand_icon_state = "ro_suit"
 
 /obj/item/clothing/under/ms13/wasteland/doctor
-	name = "doctor uniform"
+	name = "wasteland doctor uniform"
 	desc = "A set of identifiably dark green, ragged clothes usually worn by wasteland doctors."
 	icon_state = "doctor"
 	inhand_icon_state = "ro_suit"
@@ -149,7 +159,7 @@
 	inhand_icon_state = "shirt"
 
 /obj/item/clothing/under/ms13/wasteland/wanderer
-	name = "wanderer clothing"
+	name = "wanderer clothes"
 	desc = "A grubby shirt and jeans, for the roamer not held back by life."
 	icon_state = "wanderer"
 	inhand_icon_state = "shirt"
@@ -179,7 +189,7 @@
 	inhand_icon_state = "ro_suit"
 
 /obj/item/clothing/under/ms13/wasteland/caravaneer
-	name = "caravanner clothes"
+	name = "caravaneer clothes"
 	desc = "A set of clothes usually worn by caravaneers."
 	icon_state = "caravaneer"
 	inhand_icon_state = "redstripe"
