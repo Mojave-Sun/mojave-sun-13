@@ -8,7 +8,7 @@
 
 #define MS13_SETTLER			(1<<0)
 #define MS13_SHOPKEEP		(1<<1)
-#define MS13_FARMER			(1<<2)
+#define MS13_WORKER			(1<<2)
 #define MS13_BARTENDER		(1<<3)
 #define MS13_DOCTOR			(1<<4)
 #define MS13_DEPUTY			(1<<5)
