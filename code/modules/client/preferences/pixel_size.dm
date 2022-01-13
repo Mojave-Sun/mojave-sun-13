@@ -9,7 +9,7 @@
 	step = 0.5
 
 /datum/preference/numeric/pixel_size/create_default_value()
-	return 0
+	return 2 //MOJAVE SUN EDIT - Stretch to fit fix
 
 /datum/preference/numeric/pixel_size/apply_to_client(client/client, value)
 	client?.view_size?.resetFormat()

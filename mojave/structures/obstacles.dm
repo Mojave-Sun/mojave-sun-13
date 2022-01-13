@@ -9,7 +9,7 @@
 /obj/structure/ms13/bars
 	name = "metal bars"
 	desc = "Sturdy metal bars. If only you had a saw."
-	icon = 'mojave/icons/obstacles/bars.dmi'
+	icon = 'mojave/icons/obstacles/tallobstacles.dmi'
 	icon_state = "bars"
 	density = TRUE
 	anchored = TRUE
@@ -162,7 +162,7 @@
 /obj/structure/ms13/celldoor
 	name = "cell door"
 	desc = "Better hope you arent rotting on the wrong side slick."
-	icon = 'mojave/icons/obstacles/bars.dmi'
+	icon = 'mojave/icons/obstacles/tallobstacles.dmi'
 	icon_state = "door"
 	density = TRUE
 	anchored = TRUE
@@ -614,3 +614,97 @@
 	name = "guard rail"
 	desc = "A rusty guard rail used to prevent you from falling into the region's sewage. Thank the lord it's there."
 	icon_state = "railings_sewer"
+
+// Wood Barricade //
+
+/obj/structure/ms13/barricade
+	name = "wooden barricade"
+	desc = "A semi-sturdy improvised wooden defense."
+	icon = 'mojave/icons/obstacles/tallobstacles.dmi'
+	icon_state = "barricade"
+	density = TRUE
+	anchored = TRUE
+	layer = ABOVE_OBJ_LAYER
+	max_integrity = 500
+	damage_deflection = 40
+	flags_1 = ON_BORDER_1
+	var/barpasschance = 20
+
+/obj/structure/ms13/barricade/Initialize() //this shit should really be a component
+	. = ..()
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_EXIT = .proc/on_exit,
+	)
+
+	if (flags_1 & ON_BORDER_1)
+		AddElement(/datum/element/connect_loc, loc_connections)
+	switch(dir)
+		if(SOUTH)
+			layer = ABOVE_WINDOW_LAYER
+		if(NORTH)
+			layer = OBJ_LAYER
+
+/proc/valid_barricade_location(turf/dest_turf, test_dir)
+	if(!dest_turf)
+		return FALSE
+	for(var/obj/turf_content in dest_turf)
+		if(istype(turf_content, /obj/structure/ms13/barricade))
+			if((turf_content.dir == test_dir))
+				return FALSE
+	return TRUE
+
+/obj/structure/ms13/barricade/CanAllowThrough(atom/movable/mover, border_dir)
+	. = ..()
+
+	if(istype(mover, /obj/projectile))
+		return TRUE
+
+	if(istype(mover, /obj/projectile/bullet))
+		return TRUE
+
+	if(istype(mover, /obj/item))
+		var/obj/item/I = mover
+		if(I.w_class == WEIGHT_CLASS_SMALL)
+			return TRUE
+
+	if(.)
+		return
+
+	if(ismob(mover))
+		if(get_dir(loc, src) == dir)
+			return
+
+	if(border_dir == dir)
+		return FALSE
+
+	if(istype(mover, /obj/structure/ms13/barricade))
+		var/obj/structure/ms13/barricade/moved_bars = mover
+		return valid_bars_location(loc, moved_bars.dir)
+
+	return TRUE
+
+/obj/structure/ms13/barricade/proc/on_exit(datum/source, atom/movable/leaving, direction)
+	SIGNAL_HANDLER
+
+	if(istype(leaving, /obj/projectile) && prob(barpasschance))
+		return
+
+	if(istype(leaving, /obj/projectile/bullet) && prob(barpasschance))
+		return
+
+	if(istype(leaving, /obj/item))
+		var/obj/item/I = leaving
+		if(I.w_class == WEIGHT_CLASS_SMALL && prob(barpasschance))
+			return
+		else
+			return COMPONENT_ATOM_BLOCK_EXIT
+
+	if(leaving == src)
+		return // Let's not block ourselves.
+
+	if (leaving.pass_flags & pass_flags_self)
+		return
+
+	if(direction == dir && density)
+		leaving.Bump(src)
+		return COMPONENT_ATOM_BLOCK_EXIT

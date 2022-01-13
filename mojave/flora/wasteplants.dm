@@ -376,6 +376,10 @@
 /obj/structure/flora/ms13/tree/tallpine/alt
 	icon_state = "pine_1_alt"
 
+/obj/structure/flora/ms13/tree/tallpine/dead //uh oh placeholder alert
+	icon_state = "bald"
+	log_amount = 1
+
 /obj/structure/flora/ms13/tree/wasteland
 	name = "dead tree"
 	desc = "It's a tree. Useful for combustion and/or construction."

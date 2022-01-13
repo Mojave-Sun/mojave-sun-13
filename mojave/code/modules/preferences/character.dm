@@ -45,7 +45,7 @@
 /datum/preference/choiced/facial_hairstyle/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/gender = preferences.read_preference(/datum/preference/choiced/gender)
-	if(gender != MALE)
+	if(gender == FEMALE)
 		return FALSE
 	else
 		return TRUE
