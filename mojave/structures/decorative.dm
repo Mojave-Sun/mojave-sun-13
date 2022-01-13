@@ -174,12 +174,19 @@
 	name = "barrel"
 	desc = "A sealed canister of mystery, closed to time."
 	icon = 'mojave/icons/structure/barrels.dmi'
-	max_integrity = 1000
-	armor = list("melee" = 60, "bullet" = 80, "laser" = 60, "energy" = 60, "bomb" = 0, "bio" = 0, "fire" = 100, "acid" = 100)
+	max_integrity = 350
+	armor = list("melee" = 20, "bullet" = 25, "laser" = 10, "energy" = 15, "bomb" = 15, "bio" = 0, "fire" = 100, "acid" = 100)
 	anchored = TRUE
+	density = TRUE
 	var/icon_type = null
 	var/amount = 3 //used for icon randomisation amount
 	var/unique = FALSE //used to set if the icon is randomised or not
+
+/obj/structure/fluff/ms13/barrel/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		new /obj/item/stack/sheet/ms13/scrap/two(loc)
+		new /obj/item/stack/sheet/ms13/scrap_steel(loc)
+	qdel(src)
 
 /obj/structure/fluff/ms13/barrel/Initialize()
 	. = ..()

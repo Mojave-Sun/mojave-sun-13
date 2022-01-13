@@ -625,10 +625,34 @@
 	density = TRUE
 	anchored = TRUE
 	layer = ABOVE_OBJ_LAYER
-	max_integrity = 500
-	damage_deflection = 40
+	max_integrity = 120
+	armor = list("melee" = 0, "bullet" = 20, "laser" = 20, "energy" = 10, "bomb" = 10, "bio" = 0, "fire" = 50, "acid" = 50)
 	flags_1 = ON_BORDER_1
 	var/barpasschance = 20
+
+/obj/structure/ms13/barricade/crowbar_act(mob/living/user, obj/item/tool)
+	if(flags_1&NODECONSTRUCT_1)
+		return TRUE
+	..()
+	weapon.play_tool_sound(src)
+	if(do_after(user, 6 SECONDS * tool.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+		deconstruct(disassembled = TRUE)
+		return TRUE
+
+/obj/structure/ms13/barricade/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/plank(user.loc)
+		else
+			new /obj/item/stack/sheet/ms13/scrap_wood(user.loc)
+	qdel(src)
+
+/obj/structure/ms13/barricade/examine(mob/user)
+	. = ..()
+	. += deconstruction_hints(user)
+
+/obj/structure/ms13/barricade/proc/deconstruction_hints(mob/user)
+	return span_notice("You could use a <b>crowbar<b> or similar prying tool to dismantle [src] for planks.")
 
 /obj/structure/ms13/barricade/Initialize() //this shit should really be a component
 	. = ..()
