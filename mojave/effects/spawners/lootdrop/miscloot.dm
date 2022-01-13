@@ -94,7 +94,7 @@
 			/obj/item/stack/sheet/ms13/thread/two,
 			/obj/item/stack/sheet/ms13/scrap_electronics/two,
 			/obj/item/stack/sheet/ms13/scrap_copper/two,
-			/obj/item/stack/medical/gauze/ms13/cloth/three,
+			/obj/item/stack/sheet/ms13/cloth/three,
 			/obj/item/ms13/component/gunpowder/lq,
 			/obj/item/ms13/component/cell,
 			/obj/item/stack/sheet/ms13/scrap_lead/two,
@@ -136,7 +136,7 @@
 	loot = list(
 			/obj/item/stack/sheet/ms13/thread/two,
 			/obj/item/stack/sheet/ms13/scrap_electronics/two,
-			/obj/item/stack/medical/gauze/ms13/cloth/three,
+			/obj/item/stack/sheet/ms13/cloth/three,
 			/obj/item/ms13/component/cell,
 			/obj/item/stack/sheet/ms13/glass/three,
 			/obj/item/stack/sheet/ms13/ceramic/three,
@@ -160,8 +160,8 @@
 	name = "precious metals spawner"
 	spawn_loot_chance = 65
 	loot = list(
-			/obj/item/stack/sheet/ms13/scrap_silver/two = 40,
-			/obj/item/stack/sheet/ms13/scrap_gold/two = 40,
+			/obj/item/stack/sheet/ms13/scrap_silver/five = 40,
+			/obj/item/stack/sheet/ms13/scrap_gold/five = 40,
 			/obj/item/stack/sheet/ms13/refined_silver/two = 10,
 			/obj/item/stack/sheet/ms13/refined_gold/two = 10
 	)

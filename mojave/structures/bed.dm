@@ -41,7 +41,7 @@
 /obj/structure/bed/ms13/mattress
 	name = "base class Mojave Sun mattress"
 	desc = "Scream at the coders if you see this."
-	buildstacktype = /obj/item/stack/medical/gauze/ms13/cloth
+	buildstacktype = /obj/item/stack/sheet/ms13/cloth
 	buildstackamount = 2
 
 /obj/structure/bed/ms13/mattress/dirty
@@ -79,7 +79,7 @@
 /obj/structure/bed/ms13/sleepingbag
 	name = "base class Mojave Sun sleeping bag"
 	desc = "Scream at the coders if you see this."
-	buildstacktype = /obj/item/stack/medical/gauze/ms13/cloth
+	buildstacktype = /obj/item/stack/sheet/ms13/cloth
 	buildstackamount = 2
 
 /obj/structure/bed/ms13/sleepingbag/red

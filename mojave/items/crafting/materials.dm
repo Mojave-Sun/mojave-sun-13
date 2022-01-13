@@ -168,6 +168,9 @@ GLOBAL_LIST_INIT(scrap_recipes, list ( \
 /obj/item/stack/sheet/ms13/scrap_steel/two
 	amount = 2
 
+/obj/item/stack/sheet/ms13/scrap_steel/five
+	amount = 5
+
 GLOBAL_LIST_INIT(scrap_steel_recipes, list ( \
 	new/datum/stack_recipe("crude scrap wall", /turf/closed/wall/ms13/craftable/scrap, 7, time = 40 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("makeshift smelter", /obj/structure/ms13/smelter, 6, time = 30 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
@@ -235,6 +238,9 @@ GLOBAL_LIST_INIT(refined_steel_recipes, list ( \
 /obj/item/stack/sheet/ms13/scrap_lead/two
 	amount = 2
 
+/obj/item/stack/sheet/ms13/scrap_lead/five
+	amount = 5
+
 /datum/material/ms13/scrap_lead
 	name = "scrap lead"
 	desc = "Lead scrap metal."
@@ -296,6 +302,9 @@ GLOBAL_LIST_INIT(refined_steel_recipes, list ( \
 /obj/item/stack/sheet/ms13/scrap_brass/two
 	amount = 2
 
+/obj/item/stack/sheet/ms13/scrap_brass/five
+	amount = 5
+
 /datum/material/ms13/scrap_brass
 	name = "scrap brass"
 	desc = "Brass scrap metal."
@@ -356,6 +365,9 @@ GLOBAL_LIST_INIT(refined_steel_recipes, list ( \
 
 /obj/item/stack/sheet/ms13/scrap_alu/two
 	amount = 2
+
+/obj/item/stack/sheet/ms13/scrap_alu/five
+	amount = 5
 
 /datum/material/ms13/scrap_alu
 	name = "scrap aluminum"
@@ -422,6 +434,9 @@ GLOBAL_LIST_INIT(refined_alu_recipes, list ( \
 /obj/item/stack/sheet/ms13/scrap_silver/two
 	amount = 2
 
+/obj/item/stack/sheet/ms13/scrap_silver/five
+	amount = 5
+
 /datum/material/ms13/scrap_silver
 	name = "scrap silver"
 	desc = "Scrap silver. Still shiny."
@@ -465,6 +480,9 @@ GLOBAL_LIST_INIT(refined_alu_recipes, list ( \
 /obj/item/stack/sheet/ms13/scrap_gold/two
 	amount = 2
 
+/obj/item/stack/sheet/ms13/scrap_gold/five
+	amount = 5
+
 /datum/material/ms13/scrap_gold
 	name = "scrap gold"
 	desc = "Pieces of gold. Shining bright."
@@ -507,6 +525,9 @@ GLOBAL_LIST_INIT(refined_alu_recipes, list ( \
 
 /obj/item/stack/sheet/ms13/scrap_copper/two
 	amount = 2
+
+/obj/item/stack/sheet/ms13/scrap_copper/five
+	amount = 5
 
 /datum/material/ms13/scrap_copper
 	name = "copper wire"
@@ -639,6 +660,25 @@ GLOBAL_LIST_INIT(plank_recipes, list ( \
 	. += GLOB.plank_recipes
 
 //CLOTH-RELATED//
+
+/obj/item/stack/sheet/ms13/cloth
+    name = "cloth"
+    desc = "Pieces of cloth that can be used for many things, even as an improvised bandage."
+    singular_name = "cloth piece"
+    icon_state = "cloth"
+    max_amount = 12
+    amount = 1
+    absorption_rate = 0.06
+    absorption_capacity = 3.25
+    splint_factor = 0.85
+    burn_cleanliness_bonus = 0.85
+    merge_type = /obj/item/stack/sheet/ms13/cloth
+
+/obj/item/stack/sheet/ms13/cloth/two
+    amount = 2
+
+/obj/item/stack/sheet/ms13/cloth/three
+    amount = 3
 
 /obj/item/stack/sheet/ms13/leather
 	name = "leather"

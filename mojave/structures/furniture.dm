@@ -188,7 +188,7 @@
 /obj/structure/dresser/ms13/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		new /obj/item/stack/sheet/ms13/scrap(loc)
-		new /obj/item/stack/medical/gauze/ms13/cloth(loc, 4)
+		new /obj/item/stack/sheet/ms13/cloth(loc, 4)
 		new /obj/item/stack/sheet/ms13/thread(loc, 2)
 	qdel(src)
 

@@ -12,7 +12,7 @@
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	///Icon file for right inhand overlays
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
-	repairable_by = /obj/item/stack/medical/gauze/ms13/cloth
+	repairable_by = /obj/item/stack/sheet/ms13/cloth
 	limb_integrity = 100
 	max_integrity = 300
 
@@ -23,7 +23,7 @@
 			if(do_after(user, 3 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_CLOTHSHRED)) 
 				user.show_message(span_notice("You get cloth and thread from [src]!"), MSG_VISUAL)
 				new /obj/item/stack/sheet/ms13/thread(user.loc)
-				new /obj/item/stack/medical/gauze/ms13/cloth(user.loc)
+				new /obj/item/stack/sheet/ms13/cloth(user.loc)
 				qdel(src)
 		else
 			return..()
