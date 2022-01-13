@@ -22,6 +22,7 @@
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_MS13_GLASS)
 	canSmoothWith = list(SMOOTH_GROUP_MS13_GLASS, SMOOTH_GROUP_OPEN_FLOOR, SMOOTH_GROUP_WALLS)
+	weatherproof = TRUE
 
 /obj/structure/ms13/glassfloor/Initialize(mapload)
 	. = ..()
