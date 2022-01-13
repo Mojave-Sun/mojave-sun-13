@@ -10,7 +10,7 @@
 	var/w_items = 0 //the combined w_class of all the items in the cistern
 	var/mob/living/swirlie = null //the mob being given a swirlie
 	var/buildstacktype = /obj/item/stack/sheet/ms13/ceramic//they're iron now, shut up //MOJAVE EDIT - Drops our ceramic instead of TG iron. Revert after CAT
-	var/buildstackamount = 2 //MOJAVE EDIT - Original TG value is 1. Revert after CAT
+	var/buildstackamount = 1
 
 /obj/structure/toilet/Initialize(mapload)
 	. = ..()
@@ -263,7 +263,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/urinal, 32)
 	///Material to drop when broken or deconstructed.
 	var/buildstacktype = /obj/item/stack/sheet/ms13/ceramic //MOJAVE EDIT - Drops our ceramic instead of TG iron. Revert/remove after CAT
 	///Number of sheets of material to drop when broken or deconstructed.
-	var/buildstackamount = 2 //MOJAVE EDIT - Original value is 1. Revert after CAT
+	var/buildstackamount = 1
 	///Does the sink have a water recycler to recollect it's water supply?
 	var/has_water_reclaimer = TRUE
 	///Has the water reclamation begun?
