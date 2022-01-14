@@ -8,7 +8,7 @@
 	freerange = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	custom_materials = list(/datum/material/iron=75, /datum/material/glass=25)
-	radio_broadcast = FALSE
+	radio_broadcast = 100 //Cannot broadcast. If someone manages to circumvent, it should be complete static.
 
 /obj/item/radio/ms13/can_receive(freq, level, AIuser)
 	if(ishuman(src.loc))
@@ -108,7 +108,7 @@
 /obj/item/radio/ms13/ham/receiver
 	name = "receiver ham radio"
 	desc = "A ham radio without a working microphone or any way to broadcast. Only good for listening in on frequencies. Maybe you could find some good tunes?"
-	radio_broadcast = FALSE
+	radio_broadcast = 100 //Cannot broadcast. If someone manages to circumvent, it should be complete static.
 	icon_state = "recradio"
 
 /obj/item/radio/ms13/ham/receiver/deconstruct(disassembled = TRUE)
