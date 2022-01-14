@@ -149,12 +149,43 @@
 
 /obj/machinery/ms13/coffee //beanening when
 	name = "coffee machine"
-	desc = "A an old pre-war coffee machine, still functional somehow, if only you had some goddamn beans."
+	desc = "An old pre-war coffee machine, still functional somehow, if only you had some goddamn beans."
 	icon = 'mojave/icons/structure/machinery.dmi'
 	icon_state = "coffee"
 	var/has_mug = FALSE //this is deep as fuark
 	var/list/mugs
 	var/obj/item/reagent_containers/food/drinks/mug = null
+	max_integrity = 150
+
+/obj/machinery/ms13/coffee/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
+	if(flags_1&NODECONSTRUCT_1)
+		return TRUE
+	..()
+	weapon.play_tool_sound(src)
+	if(do_after(user, 12 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+		deconstruct(disassembled = TRUE)
+		return TRUE
+
+/obj/machinery/ms13/coffee/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/scrap_alu(loc)
+			new /obj/item/stack/sheet/ms13/plastic(loc)
+			new /obj/item/stack/sheet/ms13/scrap_parts/two(loc)
+			new /obj/item/stack/sheet/ms13/scrap_copper/two(loc)
+			new /obj/item/stack/sheet/ms13/scrap_electronics(loc)
+		else
+			new /obj/item/stack/sheet/ms13/scrap_alu(loc)
+			new /obj/item/stack/sheet/ms13/plastic(loc)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
+	qdel(src)
+
+/obj/machinery/ms13/coffee/examine(mob/user)
+	. = ..()
+	. += deconstruction_hints(user)
+
+/obj/machinery/ms13/coffee/proc/deconstruction_hints(mob/user)
+	return span_notice("You could use a <b>screwdriver</b> to take apart [src] for parts.")
 
 /obj/machinery/ms13/coffee/update_icon()
 	. = ..()
