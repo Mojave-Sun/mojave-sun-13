@@ -90,7 +90,7 @@
 /obj/item/food/meat/rawcutlet/ms13/fish
 	name = "raw fish fillet"
 	desc = "A raw fish fillet. You shouldn't be seeing this."
-	icon = 'mojave/icons/objects/food/fish.dmi'
+	icon = 'mojave/icons/objects/food/fish/fish_world.dmi'
 	icon_state = "sockeye_cutlet"
 	var/fish_cooked_type = /obj/item/food/meat/cutlet/ms13/fish
 	bite_consumption = 4
@@ -100,6 +100,7 @@
 
 /obj/item/food/meat/rawcutlet/ms13/fish/MakeGrillable()
 	AddComponent(/datum/component/grillable, fish_cooked_type, rand(30 SECONDS, 60 SECONDS), TRUE, TRUE)
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/food/fish/fish_inventory.dmi')
 
 /obj/item/food/meat/rawcutlet/ms13/fish/sockeye
 	name = "raw sockeye fillet"
@@ -161,18 +162,20 @@
 /obj/item/food/meat/cutlet/ms13/fish
 	name = "fish fillet"
 	desc = "A cooked fish fillet."
-	icon = 'mojave/icons/objects/food/fish.dmi'
+	icon = 'mojave/icons/objects/food/fish/fish_world.dmi'
 	icon_state = "sockeye_cutlet"
 	bite_consumption = 4
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/consumable/nutriment/vitamin = 2)
 	tastes = list("fish" = 5)
 	foodtypes = MEAT
 
+/obj/item/food/meat/cutlet/ms13/fish/MakeProcessable()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/food/fish/fish_inventory.dmi')
+
 /obj/item/food/meat/cutlet/ms13/fish/sockeye
 	name = "sockeye fillet"
 	desc = "A nice and tasty sockeye fillet. Good eating."
 	icon_state = "sockeye_cutlet"
-
 
 /obj/item/food/meat/cutlet/ms13/fish/smallmouth
 	name = "smallmouth fillet"
