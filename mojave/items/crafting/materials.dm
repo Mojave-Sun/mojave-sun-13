@@ -277,6 +277,7 @@ GLOBAL_LIST_INIT(refined_steel_recipes, list ( \
 	singular_name = "junk bullet"
 	icon_state = "bullets"
 	merge_type = /obj/item/stack/sheet/ms13/junk_bullets
+	amount = 1
 	max_amount = 30
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -289,6 +290,7 @@ GLOBAL_LIST_INIT(refined_steel_recipes, list ( \
 	singular_name = "high quality bullet"
 	icon_state = "bullets"
 	merge_type = /obj/item/stack/sheet/ms13/hq_bullets
+	amount = 1
 	max_amount = 30
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -347,6 +349,7 @@ GLOBAL_LIST_INIT(refined_steel_recipes, list ( \
 	singular_name = "junk bullet casing"
 	icon_state = "casings"
 	merge_type = /obj/item/stack/sheet/ms13/junk_casings
+	amount = 1
 	max_amount = 30
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -359,6 +362,7 @@ GLOBAL_LIST_INIT(refined_steel_recipes, list ( \
 	singular_name = "high quality bullet casing"
 	icon_state = "casings"
 	merge_type = /obj/item/stack/sheet/ms13/hq_casings
+	amount = 1
 	max_amount = 30
 	w_class = WEIGHT_CLASS_SMALL
 
