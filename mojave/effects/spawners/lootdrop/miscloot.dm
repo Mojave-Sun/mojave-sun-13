@@ -87,7 +87,6 @@
 	name = "low tier random crafting spawner"
 	spawn_loot_chance = 60
 	loot = list(
-			/obj/item/stack/sheet/ms13/log,
 			/obj/item/stack/sheet/ms13/scrap_wood/two,
 			/obj/item/stack/sheet/ms13/plank,
 			/obj/item/stack/sheet/ms13/leather/two,
