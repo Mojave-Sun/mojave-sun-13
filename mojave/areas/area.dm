@@ -11,7 +11,7 @@
 	outdoors = TRUE
 	has_gravity = STANDARD_GRAVITY
 	static_lighting = TRUE
-	ambientsounds = list('mojave/sound/ms13ambience/general/wasteland.ogg')
+	ambience_index = AMBIENCE_WASTELAND
 	flags_1 = NONE
 
 /area/ms13/admeme
@@ -26,6 +26,7 @@
 	power_equip = TRUE
 	power_light = TRUE
 	ambientsounds = list('mojave/sound/ms13ambience/general/building.ogg')
+	sound_environment = SOUND_ENVIRONMENT_ROOM
 
 /area/ms13/farmhouse
 	name = "Farmhouse"
@@ -82,6 +83,7 @@
 	name = "mountain"
 	ambientsounds = list('mojave/sound/ms13ambience/cave/cave_idle.ogg', 'mojave/sound/ms13ambience/cave/cave_spooky.ogg')
 	icon_state = "mountain"
+	sound_environment = SOUND_ENVIRONMENT_CAVE
 
 /area/ms13/underground/mountain_bunker
 	name = "Mountain Bunker"
@@ -91,11 +93,13 @@
 	name = "Sewers"
 	icon_state = "sewer"
 	outdoors = FALSE
+	sound_environment = SOUND_ENVIRONMENT_SEWER_PIPE
 
 /area/ms13/underground/subway
 	name = "Subway"
 	outdoors = FALSE
 	icon_state = "subway"
+	sound_environment = SOUND_ENVIRONMENT_HALLWAY
 
 /area/ms13/underground/underground_town
 	name = "Lower Town"
@@ -106,6 +110,7 @@
 	name = "Tunnel"
 	outdoors = FALSE
 	icon_state = "tunnels"
+	sound_environment = SOUND_ENVIRONMENT_HALLWAY
 
 /area/ms13/underground/tunnel/maintenance
 	name = "Maintenance Passages"
