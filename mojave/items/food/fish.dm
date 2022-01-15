@@ -3,7 +3,7 @@
 /obj/item/food/meat/slab/ms13/fish
 	name = "fish"
 	desc = "You shouldn't be seeing this."
-	icon = 'mojave/icons/objects/food/fish.dmi'
+	icon = 'mojave/icons/objects/food/fish/fish_world.dmi'
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 4)
 	foodtypes = MEAT | RAW
 	//Tells the initialize function which icon to pick
@@ -14,6 +14,7 @@
 
 /obj/item/food/meat/slab/ms13/fish/MakeProcessable()
 	AddElement(/datum/element/processable, TOOL_KNIFE,  fillet_type, fish_size * 2, 15 SECONDS * toolspeed)
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/food/fish/fish_inventory.dmi')
 
 /obj/item/food/meat/slab/ms13/fish/Initialize()
 	fish_size = rand(1,3)
