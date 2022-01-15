@@ -1,14 +1,16 @@
 /datum/job/ms13/bos/scribe
 	title = "BoS Scribe"
 	department_head = list("Head Scribe")
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 3
+	spawn_positions = 3
 	supervisors = "The Head Scribe"
 	description = "Ensure the bunker is up to standards, ensure everyone is in good health, and ensure the technology of the Brotherhood is well maintained. Obey orders from the Head Scribe."
 
 	outfit = /datum/outfit/job/ms13/bos/scribe
 
 	display_order = JOB_DISPLAY_ORDER_MS13_SCRIBE
+
+	mind_traits = list(TRAIT_MEDICAL_TRAINING, TRAIT_SCRIBE_TRAINING)
 
 /datum/outfit/job/ms13/bos/scribe
 	name = "_BoS Scribe"

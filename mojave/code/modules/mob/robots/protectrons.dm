@@ -18,6 +18,7 @@
 	sharpness = NONE
 	attack_verb_continuous = "smacks"
 	attack_verb_simple = "smack"
+	loot = list(/obj/item/stack/sheet/ms13/scrap/two, /obj/effect/decal/cleanable/robot_debris, /obj/item/stack/sheet/ms13/glass, /obj/item/stack/sheet/ms13/scrap_electronics, /obj/item/stack/sheet/ms13/scrap_parts)
 	stat_attack = CONSCIOUS
 	ranged = TRUE
 	ranged_cooldown = 3 SECONDS
@@ -92,6 +93,7 @@
 	maxHealth = 200
 	melee_damage_lower = 15
 	melee_damage_upper = 15
+	loot = list(/obj/item/stack/sheet/ms13/scrap_steel/two, /obj/effect/decal/cleanable/robot_debris, /obj/item/stack/sheet/ms13/glass, /obj/item/stack/sheet/ms13/scrap_electronics/two, /obj/item/stack/sheet/ms13/circuits, /obj/item/stack/sheet/ms13/scrap_parts/two)
 	wound_bonus = 5
 	minimum_distance = 3
 	retreat_distance = 6

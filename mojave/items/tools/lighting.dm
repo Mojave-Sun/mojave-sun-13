@@ -2,7 +2,7 @@
 
 /obj/item/flashlight/ms13
 	name = "flashlight"
-	desc = "A common pre-war flashlight. It's held up surprisingly well over the years. An essential tool for any tomfoolery in the unknown."
+	desc = "A common flashlight. An essential tool for any tomfoolery in the unknown."
 	icon = 'mojave/icons/objects/tools/tools_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
@@ -42,11 +42,13 @@
 	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
 	icon_state = "flare"
 	inhand_icon_state = "flare"
-	light_range = 3.75 // lower because radial
+	light_range = 3.5
+	light_power = 0.75
 
 /obj/item/flashlight/flare/ms13/Initialize()
 	. = ..()
 	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
+	fuel = rand(900, 1200) //This is remaining fuel in seconds, so this puts every flare at between 15-20 minutes of life time.
 
 /obj/item/flashlight/flare/torch/ms13
 	name = "torch"

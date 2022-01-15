@@ -8,7 +8,7 @@
 	freerange = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	custom_materials = list(/datum/material/iron=75, /datum/material/glass=25)
-	radio_broadcast = FALSE
+	radio_broadcast = 100 //Cannot broadcast. If someone manages to circumvent, it should be complete static.
 
 /obj/item/radio/ms13/can_receive(freq, level, AIuser)
 	if(ishuman(src.loc))
@@ -24,8 +24,8 @@
 	desc = "A handheld radio that can send as well as recieve signals. The poor quality of broadcasts makes it unpleasent to listen to, and doing so too often is a good way to get lynched."
 	radio_broadcast = RADIOSTATIC_HEAVY
 
-/obj/item/radio/ms13/broadcast/prewar
-	name = "pre-war hand radio"
+/obj/item/radio/ms13/broadcast/advanced
+	name = "advanced hand radio"
 	desc = "The best a handheld gets, this extremely rare radio can broadcast at reasonably high quality while remaining lightweight and portable."
 	radio_broadcast = RADIOSTATIC_MEDIUM
 
@@ -38,10 +38,40 @@
 	pixel_y = 5
 	anchored = TRUE
 	radio_broadcast = RADIOSTATIC_MEDIUM
+	max_integrity = 250
 
 /obj/item/radio/ms13/ham/examine(mob/user)
 	. = ..()
 	. += "<span class='notice'>Use [MODE_TOKEN_INTERCOM] when nearby to speak into it.</span>"
+	. += deconstruction_hints(user)
+
+/obj/item/radio/ms13/ham/proc/deconstruction_hints(mob/user)
+	return span_notice("You could use a <b>screwdriver</b> to carefully take apart [src] for parts.")
+
+/obj/item/radio/ms13/ham/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
+	if(flags_1&NODECONSTRUCT_1)
+		return TRUE
+	..()
+	weapon.play_tool_sound(src)
+	if(do_after(user, 25 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+		deconstruct(disassembled = TRUE)
+		return TRUE
+
+/obj/item/radio/ms13/ham/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/scrap(loc, 4)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 3)
+			new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 3)
+			new /obj/item/stack/sheet/ms13/scrap_copper(loc, 3)
+			new /obj/item/stack/sheet/ms13/circuits(loc)
+			new /obj/item/ms13/component/vacuum_tube(loc)
+			new /obj/item/ms13/component/cell(loc)
+		else
+			new /obj/item/stack/sheet/ms13/scrap/two(loc)
+			new /obj/item/stack/sheet/ms13/scrap_parts/two(loc)
+			new /obj/item/stack/sheet/ms13/scrap_electronics/two(loc)
+	qdel(src)
 
 /obj/item/radio/ms13/ham/Initialize(mapload, ndir, building)
 	. = ..()
@@ -58,11 +88,42 @@
 	radio_broadcast = RADIOSTATIC_LIGHT
 	icon_state = "highradio"
 
+/obj/item/radio/ms13/ham/broadcast/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/scrap(loc, 6)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 6)
+			new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 5)
+			new /obj/item/stack/sheet/ms13/scrap_copper(loc, 5)
+			new /obj/item/stack/sheet/ms13/circuits(loc, 3)
+			new /obj/item/ms13/component/vacuum_tube(loc, 2)
+			new /obj/item/ms13/component/cell(loc, 2)
+		else
+			new /obj/item/stack/sheet/ms13/scrap(loc, 4)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 4)
+			new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 4)
+			new /obj/item/stack/sheet/ms13/circuits(loc)
+	qdel(src)
+
 /obj/item/radio/ms13/ham/receiver
 	name = "receiver ham radio"
 	desc = "A ham radio without a working microphone or any way to broadcast. Only good for listening in on frequencies. Maybe you could find some good tunes?"
-	radio_broadcast = FALSE
+	radio_broadcast = 100 //Cannot broadcast. If someone manages to circumvent, it should be complete static.
 	icon_state = "recradio"
+
+/obj/item/radio/ms13/ham/receiver/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/scrap/two(loc)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
+			new /obj/item/stack/sheet/ms13/scrap_electronics/two(loc)
+			new /obj/item/stack/sheet/ms13/scrap_copper/two(loc)
+			new /obj/item/ms13/component/cell(loc)
+		else
+			new /obj/item/stack/sheet/ms13/scrap(loc)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
+			new /obj/item/stack/sheet/ms13/scrap_electronics(loc)
+	qdel(src)
 
 /obj/item/radio/ms13/ham/receiver/radioking
 	name = "\improper Radiation King radio"
@@ -72,6 +133,20 @@
 /obj/item/radio/ms13/ham/receiver/radioking/wood
 	desc = "A classic radio from before the war. A fading logo can barely be seen on the front that reads 'Radiation King'. This one has a wooden body."
 	icon_state = "radioking_wood"
+
+/obj/item/radio/ms13/ham/receiver/radioking/wood/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/scrap_wood/two(loc)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
+			new /obj/item/stack/sheet/ms13/scrap_electronics/two(loc)
+			new /obj/item/stack/sheet/ms13/scrap_copper/two(loc)
+			new /obj/item/ms13/component/cell(loc)
+		else
+			new /obj/item/stack/sheet/ms13/scrap_wood(loc)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
+			new /obj/item/stack/sheet/ms13/scrap_electronics(loc)
+	qdel(src)
 
 /**
  * Override attack_tk_grab instead of attack_tk because we actually want attack_tk's

@@ -89,7 +89,7 @@
 	var/atom/thing = current_crafting_option[CRAFTING_ITEM]
 	choices_to_options[initial(crafting_option_surface.name)] = current_crafting_option
 	if(crafting_option_surface != null)
-		StartSurfaceCraftingAtom(user, I, current_crafting_option)
+		StartSurfaceCraftingAtom(I, user, current_crafting_option)
 		return
 	to_chat(user, "<span class='notice'>You start crudely working on [src].</span>")
 	playsound(I, current_crafting_option[CRAFTING_SOUND], 50, TRUE)
@@ -139,8 +139,8 @@
 /obj/item/ms13/crafting/gunpart
 	name = "shotgun action parts"
 	desc = "A set of various action parts for the creation of shotguns."
-	icon = 'mojave/icons/objects/crafting.dmi'
-	icon_state = "weapon_parts_2"
+	icon = 'mojave/icons/objects/construction/construction_inventory.dmi'
+	icon_state = "ltube"
 
 /obj/item/ms13/crafting/other
 	name = "shotgun barrel parts"
@@ -157,5 +157,5 @@
 
 /obj/item/ms13/crafting/gunpart/MakeCraftable()
 	AddElement(/datum/element/craftable, /obj/item/ms13/crafting/other, /obj/item/gun/ballistic/rifle/ms13/hunting/chinese, 1, 120 SECONDS)
-	AddElement(/datum/element/craftable, /obj/item/ms13/crafting/other, /obj/item/gun/ballistic/shotgun/ms13/lever, 1, 120 SECONDS, surface_type = /obj/structure/table/ms13/no_smooth/workbench)
+	AddElement(/datum/element/craftable, /obj/item/ms13/crafting/other, /obj/item/gun/ballistic/shotgun/ms13/lever, 1, 120 SECONDS, surface_type = /obj/structure/table/ms13/crafting/workbench)
 */

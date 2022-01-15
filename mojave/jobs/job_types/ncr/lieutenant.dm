@@ -12,7 +12,7 @@
 /datum/outfit/job/ms13/ncr/lieutenant
 	name = "_NCR Lieutenant"
 	jobtype = /datum/job/ms13/ncr/lieutenant
-	id = 		 /obj/item/card/id/ms13/ncrlieutenant
+	id = 		 /obj/item/card/id/ms13/ncr/lieutenant
 	uniform =    /obj/item/clothing/under/ms13/ncr/fatigues
 	head = 	     /obj/item/clothing/head/helmet/ms13/ncr/beret/officer
 	suit =       /obj/item/clothing/suit/armor/ms13/ncr/mantle/reinforced

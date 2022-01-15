@@ -1,6 +1,6 @@
 /obj/item/ms13/hammer
 	name = "claw hammer"
-	desc = "A standard, small claw hammer."
+	desc = "A standard, small claw hammer. Can be used to hammer a nail and pry a nail!"
 	icon = 'mojave/icons/objects/tools/tools_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
@@ -22,6 +22,8 @@
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0,  FIRE = 100, ACID = 50)
 	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_SMALL
+	tool_behaviour = TOOL_CROWBAR
+	toolspeed = 2
 	log_pickup_and_drop = TRUE
 
 /obj/item/ms13/hammer/Initialize()
@@ -44,6 +46,7 @@
 	attack_verb_continuous = list("saws", "slashes", "tears", "rips")
 	attack_verb_simple = list("saw", "slash", "tear", "rip")
 	sharpness = IS_SHARP_AXE // Cut down da TREE. Cut down da WOOD.
+	tool_behaviour = TOOL_SAW
 	slot_flags = ITEM_SLOT_BELT
 	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_NORMAL
@@ -70,8 +73,9 @@
 	bare_wound_bonus = 4
 	attack_verb_continuous = list("drills", "pierces", "stabs", "impales", "jabs")
 	attack_verb_simple = list("drill", "pierce", "stab", "impale", "jab")
-	sharpness = SHARP_POINTY // Cut down da TREE. Cut down da WOOD.
+	sharpness = SHARP_POINTY
 	slot_flags = ITEM_SLOT_BELT
+	tool_behaviour = TOOL_DRILL
 	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_NORMAL
 	log_pickup_and_drop = TRUE
@@ -96,6 +100,7 @@
 	sharpness = NONE
 	slot_flags = ITEM_SLOT_BELT
 	w_class = WEIGHT_CLASS_NORMAL
+	toolspeed = 1
 	log_pickup_and_drop = TRUE
 
 /obj/item/crowbar/ms13/Initialize()
@@ -117,7 +122,7 @@
 	throwforce = 10
 	wound_bonus = 0
 	bare_wound_bonus = 5
-	max_fuel = 50
+	max_fuel = 40
 	light_color = "#7c84a7"
 	w_class = WEIGHT_CLASS_NORMAL
 	log_pickup_and_drop = TRUE
@@ -160,7 +165,7 @@
 	sharpness = NONE
 	wound_bonus = 0
 	bare_wound_bonus = 0
-	w_class = WEIGHT_CLASS_NORMAL
+	w_class = WEIGHT_CLASS_SMALL
 	log_pickup_and_drop = TRUE
 
 /obj/item/wrench/ms13/Initialize()

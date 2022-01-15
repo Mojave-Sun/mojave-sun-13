@@ -4,6 +4,10 @@
 	icon = 'mojave/icons/structure/chairs.dmi'
 	item_chair = /obj/item/chair/ms13
 	layer = BELOW_OBJ_LAYER
+	max_integrity = 100
+
+/obj/structure/chair/ms13/wrench_act_secondary(mob/living/user, obj/item/weapon)
+	return
 
 // Metal Chairs //
 
@@ -12,6 +16,8 @@
 	desc = "An uncomfortable chair."
 	icon_state = "metal_chair"
 	item_chair = /obj/item/chair/ms13/metal
+	buildstacktype = /obj/item/stack/sheet/ms13/scrap
+	buildstackamount = 1
 
 /obj/structure/chair/ms13/metal/broken
 	name = "broken metal chair"
@@ -77,6 +83,8 @@
 	desc = "An antique wooden chair with a small green cushion."
 	icon_state = "wood_chair"
 	item_chair = /obj/item/chair/ms13/wood
+	buildstacktype = /obj/item/stack/sheet/ms13/scrap_wood
+	buildstackamount = 1
 
 /obj/structure/chair/ms13/wood/padded
 	name = "padded wooden chair"
@@ -91,6 +99,12 @@
 	desc = "Scream at the coders if you see this."
 	icon = 'mojave/icons/structure/chairs.dmi'
 	color = null
+	buildstacktype = /obj/item/stack/sheet/ms13/leather
+	buildstackamount = 1
+	max_integrity = 100
+
+/obj/structure/chair/comfy/ms13/wrench_act_secondary(mob/living/user, obj/item/weapon)
+	return
 
 /obj/structure/chair/comfy/ms13/GetArmrest()
 	return mutable_appearance(icon, "(icon_state)_armrest")
@@ -104,6 +118,7 @@
 	name = "retro chair"
 	desc = "With a fiberglass body, this chair harkens to a future that never came."
 	icon_state = "retro_chair"
+	buildstacktype = /obj/item/stack/sheet/ms13/scrap
 
 /obj/structure/chair/comfy/ms13/captain
 	name = "captain's chair"
@@ -127,6 +142,9 @@
 	icon_state = "plastic_chair"
 	armrest_icon = "plastic_chair_armrest"
 	item_chair = /obj/item/chair/ms13/plastic
+	buildstacktype = /obj/item/stack/sheet/ms13/plastic
+	buildstackamount = 1
+	max_integrity = 100
 
 /obj/structure/chair/ms13/overlaypickup //overlay chairs you can pick up
 	var/mutable_appearance/armrest
@@ -166,6 +184,12 @@
 	name = "base class Mojave sun office chair"
 	desc = "Scream at the coders if you see this."
 	icon = 'mojave/icons/structure/chairs.dmi'
+	buildstacktype = /obj/item/stack/sheet/ms13/scrap
+	buildstackamount = 1
+	max_integrity = 100
+
+/obj/structure/chair/office/ms13/wrench_act_secondary(mob/living/user, obj/item/weapon)
+	return
 
 /obj/structure/chair/office/ms13/red
 	name = "office chair"
@@ -201,7 +225,7 @@
 	inhand_icon_state = "metal_chair"
 	lefthand_file = 'mojave/icons/mob/inhands/misc/chairs_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/misc/chairs_righthand.dmi'
-	custom_materials = list(/datum/material/iron = 1000)
+	custom_materials = null
 	origin_type = /obj/structure/chair/ms13
 
 // Metal Chair Items //
@@ -279,7 +303,7 @@
 
 // Office Chair Items //
 
-/obj/item/chair/ms13/metal/office/
+/obj/item/chair/ms13/metal/office
 	name = "base class office chair"
 	desc = "Scream at the coders if you see this."
 	origin_type = /obj/structure/chair/office/ms13

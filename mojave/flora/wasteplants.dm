@@ -252,21 +252,6 @@
 	M.Translate(rand(-5,5),rand(-5,5))
 	transform = M
 
-/obj/structure/flora/grass/wasteland/attackby(obj/item/W, mob/user, params) //we dont use /weapon any more
-	if(W.sharpness && W.force > 0 && !(NODECONSTRUCT_1 in flags_1))
-		to_chat(user, "You begin to harvest [src]...")
-		if(do_after(user, 100/W.force, target = user))
-			to_chat(user, "<span class='notice'>You've collected [src]</span>")
-			var/obj/item/stack/sheet/hay/H = user.get_inactive_held_item()
-			if(istype(H))
-				H.add(1)
-			else
-				new /obj/item/stack/sheet/hay/(get_turf(src))
-			qdel(src)
-			return 1
-	else
-		. = ..()
-
 /obj/structure/flora/grass/wasteland/snow
 	icon = 'mojave/icons/flora/flora.dmi'
 	desc = "Some frozen, virtually dead grass."
@@ -328,7 +313,7 @@
 	layer = ABOVE_ALL_MOB_LAYER
 	pixel_x = -16
 	pixel_y = 5
-	var/log_amount = 10
+	var/log_amount = 1
 
 /obj/structure/flora/ms13/tree/Initialize()
 	. = ..()
@@ -340,16 +325,14 @@
 	if(log_amount && (!(flags_1 & NODECONSTRUCT_1)))
 		if(W.sharpness == IS_SHARP_AXE)
 			if(W.hitsound)
-				playsound(get_turf(src), 'mojave/sound/ms13effects/wood_cutting.ogg', 100, FALSE, FALSE)
+				playsound(get_turf(src), 'mojave/sound/ms13effects/wood_cutting.ogg', 80, FALSE, FALSE)
 				user.visible_message("<span class='notice'>[user] begins to cut down [src] with [W].</span>","<span class='notice'>You begin to cut down [src] with [W].</span>", "<span class='hear'>You hear the sound of chopping.</span>")
-				if(do_after(user, 1000/W.force, target = src)) //5 seconds with 20 force, 8 seconds with a hatchet, 20 seconds with a shard.
+				if(do_after(user, 30 SECONDS * W.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_CHOPTREE)) 
 					user.visible_message("<span class='notice'>[user] fells [src] with the [W].</span>","<span class='notice'>You fell [src] with the [W].</span>", "<span class='hear'>You hear the sound of a tree falling.</span>")
-					playsound(get_turf(src), 'sound/effects/meteorimpact.ogg', 100 , FALSE, FALSE)
+					playsound(get_turf(src), 'sound/effects/meteorimpact.ogg', 80, FALSE, FALSE)
 					user.log_message("cut down [src] at [AREACOORD(src)]", LOG_ATTACK)
 					for(var/i=1 to log_amount)
-						new /obj/item/grown/log/tree(get_turf(src))
-					var/obj/structure/flora/stump/S = new(loc)
-					S.name = "[name]_stump"
+						new /obj/item/stack/sheet/ms13/log(get_turf(src))
 					qdel(src)
 		else
 			user.visible_message("<span class='notice'>The [W] is uncapable of cutting down the [src].</span>")
@@ -360,7 +343,7 @@
 	desc = "It's a tree. Useful for combustion and/or construction."
 	icon = 'mojave/icons/flora/trees.dmi'
 	icon_state = "snowtree_1"
-	log_amount = 3
+	log_amount = 2
 	max_integrity = 400
 
 /obj/structure/flora/ms13/tree/deadsnow/New()
@@ -393,12 +376,16 @@
 /obj/structure/flora/ms13/tree/tallpine/alt
 	icon_state = "pine_1_alt"
 
+/obj/structure/flora/ms13/tree/tallpine/dead //uh oh placeholder alert
+	icon_state = "bald"
+	log_amount = 1
+
 /obj/structure/flora/ms13/tree/wasteland
 	name = "dead tree"
 	desc = "It's a tree. Useful for combustion and/or construction."
 	icon = 'mojave/icons/flora/trees.dmi'
 	icon_state = "deadtree_1"
-	log_amount = 4
+	log_amount = 2
 	max_integrity = 400
 
 /obj/structure/flora/ms13/tree/wasteland/New()
@@ -409,7 +396,7 @@
 	name = "joshua tree"
 	desc = "A tree named by mormons, who said it's branches mimiced the biblical Joshua, raising his hands in prayer."
 	icon = 'mojave/icons/flora/trees.dmi'
-	log_amount = 3
+	log_amount = 2
 	icon_state = "joshua_1"
 	max_integrity = 400
 

@@ -71,8 +71,8 @@
 	alerts[category] = thealert
 	if(client && hud_used)
 		hud_used.reorganize_alerts()
-	thealert.transform = matrix(32, 6, MATRIX_TRANSLATE)
-	animate(thealert, transform = matrix(), time = 2.5, easing = CUBIC_EASING)
+	// thealert.transform = matrix(32, 6, MATRIX_TRANSLATE) // MS disable screen obj easing in
+	// animate(thealert, transform = matrix(), time = 2.5, easing = CUBIC_EASING) // MS disable screen obj easing in
 
 	if(thealert.timeout)
 		addtimer(CALLBACK(src, .proc/alert_timeout, thealert, category), thealert.timeout)

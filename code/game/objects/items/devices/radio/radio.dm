@@ -44,7 +44,7 @@
 	var/list/channels = list()  // Map from name (see communications.dm) to on/off. First entry is current department (:h)
 	var/list/secure_radio_connections
 
-	var/radio_broadcast = FALSE //MOJAVE EDIT: if this radio can be used for broadcasting messages or not
+	var/radio_broadcast = 100 //MOJAVE EDIT: 100 means it cannot broadcast and if someone somehow manages a work around, the message comes out as complete static.
 
 /obj/item/radio/suicide_act(mob/living/user)
 	user.visible_message(span_suicide("[user] starts bouncing [src] off [user.p_their()] head! It looks like [user.p_theyre()] trying to commit suicide!"))
@@ -175,7 +175,7 @@
 			. = TRUE
 		*/
 		if("broadcast") //MOJAVE EDIT START
-			if(radio_broadcast == FALSE)
+			if(radio_broadcast == 100)
 				. = FALSE
 			else
 				broadcasting = !broadcasting
@@ -216,9 +216,9 @@
 
 	//MOJAVE: START EDIT
 	if(radio_broadcast)
-		if(radio_broadcast == FALSE)
+		if(radio_broadcast == 100)
 			return FALSE
-		if(radio_broadcast > 0)
+		if(radio_broadcast < 100)
 			message = stars(message, radio_broadcast)
 	//MOJAVE: END EDIT
 	if(!spans)

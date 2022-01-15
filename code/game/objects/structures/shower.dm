@@ -169,7 +169,7 @@
 		return PROCESS_KILL
 
 /obj/machinery/shower/deconstruct(disassembled = TRUE)
-	new /obj/item/stack/sheet/iron(drop_location(), 3)
+	new /obj/item/stack/sheet/ms13/scrap(drop_location(), 1) //MOJAVE EDIT - Drops our scrap metal. Revert after CAT.
 	qdel(src)
 
 /obj/machinery/shower/proc/check_heat(mob/living/L)

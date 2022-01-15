@@ -39,7 +39,7 @@
 	fish_type = "largemouth"
 	name = "largemouth bass"
 	desc = "A largemouth bass. It's meat is usually mushy, gross!"
-	icon_state = "largemouth cutlet"
+	icon_state = "largemouth_cutlet"
 	fillet_type = /obj/item/food/meat/rawcutlet/ms13/fish/largemouth
 
 /obj/item/food/meat/slab/ms13/fish/lamprey
@@ -158,7 +158,7 @@
 // Cooked fish fillets
 
 /obj/item/food/meat/cutlet/ms13/fish
-	name = "fish fillet"
+	name = "cooked fish fillet"
 	desc = "A cooked fish fillet."
 	icon = 'mojave/icons/objects/food/fish.dmi'
 	icon_state = "sockeye_cutlet"
@@ -168,48 +168,48 @@
 	foodtypes = MEAT
 
 /obj/item/food/meat/cutlet/ms13/fish/sockeye
-	name = "sockeye fillet"
+	name = "cooked sockeye fillet"
 	desc = "A nice and tasty sockeye fillet. Good eating."
 	icon_state = "sockeye_cutlet"
 
 
 /obj/item/food/meat/cutlet/ms13/fish/smallmouth
-	name = "smallmouth fillet"
+	name = "cooked smallmouth fillet"
 	desc = "A smallmouth bass fillet, despite being a game fish, it does not taste like game."
 	icon_state = "smallmouth_cutlet"
 
 /obj/item/food/meat/cutlet/ms13/fish/largemouth
-	name = "largemouth fillet"
+	name = "cooked largemouth fillet"
 	desc = "A largemouth bass fillet. Mushy and gross, you must be desperate."
 	icon_state = "largemouth_cutlet"
 
 /obj/item/food/meat/cutlet/ms13/fish/lamprey
-	name = "lamprey fillet"
+	name = "cooked lamprey fillet"
 	desc = "A lamprey fillet. Vedius Pollio would be jealous."
 	icon_state = "lamprey_cutlet"
 
 /obj/item/food/meat/cutlet/ms13/fish/pink
-	name = "pink salmon fillet"
+	name = "cooked pink salmon fillet"
 	desc = "A pink salmon fillet. Maybe put it in a salad."
 	icon_state = "pink_cutlet"
 
 /obj/item/food/meat/cutlet/ms13/fish/chum
-	name = "chum salmon fillet"
+	name = "cooked chum salmon fillet"
 	desc = "A chum salmon fillet. You can taste the poverty."
 	icon_state = "chum_cutlet"
 
 /obj/item/food/meat/cutlet/ms13/fish/sturgeon
-	name = "sturgeon fillet"
+	name = "cooked sturgeon fillet"
 	desc = "A white sturgeon fillet."
 	icon_state = "sturgeon_cutlet"
 
 /obj/item/food/meat/cutlet/ms13/fish/asian
-	name = "asian carp fillet"
+	name = "cooked asian carp fillet"
 	desc = "An Asian carp fillet."
 	icon_state = "asian_cutlet"
 
 /obj/item/food/meat/cutlet/ms13/fish/blinky
-	name = "blinky fillet"
+	name = "cooked blinky fillet"
 	desc = "A blinky fillet. What...?"
 	icon_state = "blinky_cutlet"
 	tastes = list("what...?" = 4, "fish" = 4)
