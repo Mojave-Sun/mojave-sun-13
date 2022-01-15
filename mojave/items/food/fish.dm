@@ -3,7 +3,7 @@
 /obj/item/food/meat/slab/ms13/fish
 	name = "fish"
 	desc = "You shouldn't be seeing this."
-	icon = 'mojave/icons/objects/food/fish.dmi'
+	icon = 'mojave/icons/objects/food/fish/fish_world.dmi'
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 4)
 	foodtypes = MEAT | RAW
 	//Tells the initialize function which icon to pick
@@ -19,6 +19,7 @@
 	fish_size = rand(1,3)
 	icon_state = "[fish_type]-[fish_size]"
 	bite_consumption = fish_size * 2
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/food/fish/fish_inventory.dmi')
 	return ..()
 
 /obj/item/food/meat/slab/ms13/fish/sockeye
@@ -89,7 +90,7 @@
 /obj/item/food/meat/rawcutlet/ms13/fish
 	name = "raw fish fillet"
 	desc = "A raw fish fillet. You shouldn't be seeing this."
-	icon = 'mojave/icons/objects/food/fish.dmi'
+	icon = 'mojave/icons/objects/food/fish/fish_world.dmi'
 	icon_state = "sockeye_cutlet"
 	var/fish_cooked_type = /obj/item/food/meat/cutlet/ms13/fish
 	bite_consumption = 4
@@ -99,6 +100,11 @@
 
 /obj/item/food/meat/rawcutlet/ms13/fish/MakeGrillable()
 	AddComponent(/datum/component/grillable, fish_cooked_type, rand(30 SECONDS, 60 SECONDS), TRUE, TRUE)
+	
+
+/obj/item/food/meat/rawcutlet/ms13/fish/Initialize()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/food/fish/fish_inventory.dmi')
+	return ..()
 
 /obj/item/food/meat/rawcutlet/ms13/fish/sockeye
 	name = "raw sockeye fillet"
@@ -160,18 +166,22 @@
 /obj/item/food/meat/cutlet/ms13/fish
 	name = "cooked fish fillet"
 	desc = "A cooked fish fillet."
-	icon = 'mojave/icons/objects/food/fish.dmi'
+	icon = 'mojave/icons/objects/food/fish/fish_world.dmi'
 	icon_state = "sockeye_cutlet"
 	bite_consumption = 4
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/consumable/nutriment/vitamin = 2)
 	tastes = list("fish" = 5)
 	foodtypes = MEAT
 
+/obj/item/food/meat/cutlet/ms13/fish/Initialize()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/food/fish/fish_inventory.dmi')
+	return ..()
+
+
 /obj/item/food/meat/cutlet/ms13/fish/sockeye
 	name = "cooked sockeye fillet"
 	desc = "A nice and tasty sockeye fillet. Good eating."
 	icon_state = "sockeye_cutlet"
-
 
 /obj/item/food/meat/cutlet/ms13/fish/smallmouth
 	name = "cooked smallmouth fillet"
