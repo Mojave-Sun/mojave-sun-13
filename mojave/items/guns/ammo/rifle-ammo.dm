@@ -34,6 +34,7 @@
 	caliber = "a762"
 	max_ammo = 24
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/ammo_box/ms13/a762/junk
 	name = "junk 7.62 ammo box"
@@ -76,6 +77,7 @@
 	caliber = "a308"
 	max_ammo = 20
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/ammo_box/ms13/a308/junk
 	name = "junk .308 ammo box"
@@ -118,6 +120,7 @@
 	caliber = "a556"
 	max_ammo = 40
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/ammo_box/ms13/a556/junk
 	name = "junk 5.56 ammo box"
