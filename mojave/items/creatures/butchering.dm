@@ -28,6 +28,10 @@
 			new /obj/item/stack/sheet/ms13/leather(user.loc, 1 * leather_amount)
 			qdel(src)
 
+/obj/item/ms13/hide/examine(mob/user)
+	. = ..()
+	. += span_notice("You could use a <b>knife</b> to turn [src] into leather.")
+
 /obj/item/ms13/hide/gecko
 	name = "gecko hide"
 	desc = "A skinned gecko hide."
@@ -169,6 +173,10 @@
 
 /obj/item/food/meat/slab/ms13/carcass/proc/harvest(mob/living/user) //used for extra objects etc. in butchering
 	return
+
+/obj/item/food/meat/slab/ms13/carcass/examine(mob/user)
+	. = ..()
+	. += span_notice("You could use a <b>knife</b> to cut [src] up into meat.")
 
 /obj/item/food/meat/slab/ms13/carcass/MakeProcessable()
 	AddElement(/datum/element/processable, TOOL_KNIFE,  /obj/item/food/meat/slab, meat_amount, 40 SECONDS * toolspeed)
