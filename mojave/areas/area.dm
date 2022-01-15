@@ -11,7 +11,13 @@
 	outdoors = TRUE
 	has_gravity = STANDARD_GRAVITY
 	static_lighting = TRUE
-	ambience_index = AMBIENCE_WASTELAND
+	ambientsounds = list('mojave/sound/ms13ambience/general/ambigen_1.ogg', 'mojave/sound/ms13ambience/general/ambigen_3.ogg',
+	'mojave/sound/ms13ambience/general/ambigen_4.ogg', 'mojave/sound/ms13ambience/general/ambigen_5.ogg',
+	'mojave/sound/ms13ambience/general/ambigen_6.ogg', 'mojave/sound/ms13ambience/general/ambigen_7.ogg',
+	'mojave/sound/ms13ambience/general/ambigen_8.ogg', 'mojave/sound/ms13ambience/general/ambigen_9.ogg',
+	'mojave/sound/ms13ambience/general/ambigen_10.ogg', 'mojave/sound/ms13ambience/general/ambigen_11.ogg',
+	'mojave/sound/ms13ambience/general/ambigen_12.ogg', 'mojave/sound/ms13ambience/general/ambigen_14.ogg',
+	'mojave/sound/ms13ambience/general/ambigen_15.ogg') // This is scuffed, I know. But the other system isn't working right now and I don't want this last hour to have been a complete waste.
 	flags_1 = NONE
 
 /area/ms13/admeme
