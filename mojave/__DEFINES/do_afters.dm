@@ -9,3 +9,4 @@
 #define DOAFTER_SOURCE_DECON "doafter_decon"
 #define DOAFTER_SOURCE_LEATHER "doafter_leather"
 #define DOAFTER_SOURCE_CLOTHSHRED "doafter_clothshred"
+#define DOAFTER_SOURCE_ADDGRILL "doafter_addgrill"

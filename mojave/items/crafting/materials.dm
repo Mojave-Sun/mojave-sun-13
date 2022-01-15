@@ -33,6 +33,7 @@
 GLOBAL_LIST_INIT(scrap_recipes, list ( \
 	new/datum/stack_recipe("crude scrap wall", /turf/closed/wall/ms13/craftable/scrap, 12, time = 40 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("makeshift smelter", /obj/structure/ms13/smelter, 10, time = 30 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("fire barrel", /obj/structure/bonfire/ms13/fire_barrel, 8, time = 20 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 ))
 
 /obj/item/stack/sheet/ms13/scrap/get_main_recipes()
@@ -175,6 +176,7 @@ GLOBAL_LIST_INIT(scrap_steel_recipes, list ( \
 	new/datum/stack_recipe("crude scrap wall", /turf/closed/wall/ms13/craftable/scrap, 7, time = 40 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("makeshift smelter", /obj/structure/ms13/smelter, 6, time = 30 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("crude scrap metal table", /obj/structure/table/ms13/metal/constructed/cobbled, 4, time = 20 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("fire barrel", /obj/structure/bonfire/ms13/fire_barrel, 4, time = 20 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("green scrap metal chair", /obj/structure/chair/ms13/metal/unfinished, 2, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("blue scrap metal chair", /obj/structure/chair/ms13/metal/blue/unfinished, 2, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("red scrap metal chair", /obj/structure/chair/ms13/metal/red/unfinished, 2, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
@@ -631,7 +633,8 @@ GLOBAL_LIST_INIT(log_recipes, list ( \
 
 GLOBAL_LIST_INIT(scrap_wood_recipes, list ( \
 	new/datum/stack_recipe("crude scrap wood table", /obj/structure/table/ms13/wood/constructed/cobbled, 10, time = 20 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("wood bed", /obj/structure/bed/ms13/bedframe/wood, 5, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("wood bed", /obj/structure/bed/ms13/bedframe/wood, 6, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("campfire", /obj/structure/bonfire/ms13/campfire, 6, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 ))
 
 /obj/item/stack/sheet/ms13/scrap_wood/get_main_recipes()
@@ -653,6 +656,7 @@ GLOBAL_LIST_INIT(scrap_wood_recipes, list ( \
 GLOBAL_LIST_INIT(plank_recipes, list ( \
 	new/datum/stack_recipe("crude wood table", /obj/structure/table/ms13/wood/constructed, 4, time = 20 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("wood bed", /obj/structure/bed/ms13/bedframe/wood, 3, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("campfire", /obj/structure/bonfire/ms13/campfire, 3, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 ))
 
 /obj/item/stack/sheet/ms13/plank/get_main_recipes()
