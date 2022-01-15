@@ -87,8 +87,8 @@
     righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
     icon_state = "bandage"
     inhand_icon_state = "bandage"
-    self_delay = 2.5 SECONDS
-    other_delay = 1.5 SECONDS
+    self_delay = 2 SECONDS
+    other_delay = 1 SECONDS
     max_amount = 12
     amount = 12
     absorption_rate = 0.12
@@ -109,6 +109,9 @@
 
 /obj/item/stack/medical/gauze/ms13/three
     amount = 3
+
+/obj/item/stack/medical/gauze/ms13/one
+    amount = 1
 
 /obj/item/stack/medical/gauze/ms13/military
     name = "military gauze"

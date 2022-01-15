@@ -663,15 +663,11 @@ GLOBAL_LIST_INIT(plank_recipes, list ( \
 
 /obj/item/stack/sheet/ms13/cloth
     name = "cloth"
-    desc = "Pieces of cloth that can be used for many things, even as an improvised bandage."
+    desc = "Pieces of cloth that can be used for many things. Clothing, armor, weapons, medical supplies. Even making some gauze on the fly!"
     singular_name = "cloth piece"
     icon_state = "cloth"
-    max_amount = 12
+    max_amount = 15
     amount = 1
-    absorption_rate = 0.06
-    absorption_capacity = 3.25
-    splint_factor = 0.85
-    burn_cleanliness_bonus = 0.85
     merge_type = /obj/item/stack/sheet/ms13/cloth
 
 /obj/item/stack/sheet/ms13/cloth/two
@@ -679,6 +675,14 @@ GLOBAL_LIST_INIT(plank_recipes, list ( \
 
 /obj/item/stack/sheet/ms13/cloth/three
     amount = 3
+
+GLOBAL_LIST_INIT(ms13cloth_recipes, list ( \
+	new/datum/stack_recipe("roll of gauze", /obj/item/stack/medical/gauze/ms13/one, 2, time = 3 SECONDS, one_per_turf = FALSE, on_floor = FALSE), \
+))
+
+/obj/item/stack/sheet/ms13/cloth/get_main_recipes()
+	. = ..()
+	. += GLOB.ms13cloth_recipes
 
 /obj/item/stack/sheet/ms13/leather
 	name = "leather"

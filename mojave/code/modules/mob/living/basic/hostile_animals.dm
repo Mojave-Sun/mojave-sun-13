@@ -247,7 +247,7 @@
 	health = 240
 	maxHealth = 240
 	melee_damage_lower = 30
-	melee_damage_upper = 40
+	melee_damage_upper = 35
 	armour_penetration = 15
 	speed = 2
 	sharpness = SHARP_EDGED
