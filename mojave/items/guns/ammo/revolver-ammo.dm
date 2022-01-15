@@ -26,6 +26,21 @@
 	desc = "A high velocity .44 Magnum bullet casing."
 	projectile_type = /obj/projectile/bullet/ms13/m44/hv
 
+/obj/item/ammo_box/ms13/m44box
+	name = "standard .44 ammo box"
+	desc = "A box containing standard .44 magnum ammo."
+	icon_state = "box44"
+	ammo_type = /obj/item/ammo_casing/ms13/m44
+	caliber = "44"
+	max_ammo = 24
+	multiple_sprites = AMMO_BOX_FULL_EMPTY
+	w_class = WEIGHT_CLASS_NORMAL
+
+/obj/item/ammo_box/ms13/m44box/junk
+	name = "junk .44 ammo box"
+	desc = "A crude box containing junk quality .44 magnum ammo."
+	ammo_type = /obj/item/ammo_casing/ms13/m44/junk
+
 //45-70
 /obj/item/ammo_casing/ms13/c4570
 	name = ".45-70 bullet casing"
@@ -76,3 +91,18 @@
 	name = ".357 bullet casing"
 	desc = "A high velocity .357 bullet casing."
 	projectile_type = /obj/projectile/bullet/ms13/a357/hv
+
+/obj/item/ammo_box/ms13/a357box
+	name = "standard .357 ammo box"
+	desc = "A box containing standard .357 ammo."
+	icon_state = "box357"
+	ammo_type = /obj/item/ammo_casing/ms13/a357
+	caliber = "357"
+	max_ammo = 18
+	multiple_sprites = AMMO_BOX_FULL_EMPTY
+	w_class = WEIGHT_CLASS_NORMAL
+
+/obj/item/ammo_box/ms13/a357box/junk
+	name = "junk .357 ammo box"
+	desc = "A crude box containing junk quality .357 ammo."
+	ammo_type = /obj/item/ammo_casing/ms13/a357/junk

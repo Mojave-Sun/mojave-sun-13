@@ -118,6 +118,8 @@
 #define CAT_UNDER "Uniforms/Clothing"
 #define CAT_MISCCLOTHING "Gloves, Shoes, Masks"
 #define CAT_WEAPONS "Weapons"
+#define CAT_JUNK_AMMO "Junk Ammo"
+#define CAT_STAN_AMMO "Standard Ammo"
 #define CAT_ELECTRONICS "Electronics"
 #define CAT_UTILITY "Utility"
 #define CAT_SMELTER "Smelt"
