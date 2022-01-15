@@ -28,6 +28,10 @@
 			new /obj/item/stack/sheet/ms13/leather(user.loc, 1 * leather_amount)
 			qdel(src)
 
+/obj/item/ms13/hide/examine(mob/user)
+	. = ..()
+	. += span_notice("You could use a <b>knife</b> to turn [src] into leather.")
+
 /obj/item/ms13/hide/gecko
 	name = "gecko hide"
 	desc = "A skinned gecko hide."

@@ -120,7 +120,8 @@
 #define CAT_WEAPONS "Weapons"
 #define CAT_ELECTRONICS "Electronics"
 #define CAT_UTILITY "Utility"
-#define CAT_SMELTER "Smelter"
+#define CAT_SMELTER "Smelt"
+#define CAT_MELT "Melt down"
 
 #define CRAFTING_BENCH_HANDS      1<<0
 #define CRAFTING_BENCH_GENERAL    1<<1

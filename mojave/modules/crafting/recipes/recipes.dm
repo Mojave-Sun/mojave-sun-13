@@ -1146,7 +1146,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/refined_steel = 1,
 				/obj/item/stack/sheet/ms13/plank = 1)
-	category = CAT_SMELTER
+	category = CAT_MELT
 	crafting_interface = CRAFTING_BENCH_SMELTER
 
 /datum/crafting_recipe/melt_alu
@@ -1156,7 +1156,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/refined_alu = 1,
 				/obj/item/stack/sheet/ms13/plank = 1)
-	category = CAT_SMELTER
+	category = CAT_MELT
 	crafting_interface = CRAFTING_BENCH_SMELTER
 
 /datum/crafting_recipe/melt_lead
@@ -1166,7 +1166,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/refined_lead = 1,
 				/obj/item/stack/sheet/ms13/plank = 1)
-	category = CAT_SMELTER
+	category = CAT_MELT
 	crafting_interface = CRAFTING_BENCH_SMELTER
 
 /datum/crafting_recipe/melt_copper
@@ -1176,7 +1176,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/refined_copper = 1,
 				/obj/item/stack/sheet/ms13/plank = 1)
-	category = CAT_SMELTER
+	category = CAT_MELT
 	crafting_interface = CRAFTING_BENCH_SMELTER
 
 /datum/crafting_recipe/melt_brass
@@ -1186,7 +1186,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/refined_brass = 1,
 				/obj/item/stack/sheet/ms13/plank = 1)
-	category = CAT_SMELTER
+	category = CAT_MELT
 	crafting_interface = CRAFTING_BENCH_SMELTER
 
 /datum/crafting_recipe/melt_silver
@@ -1196,7 +1196,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/refined_silver = 1,
 				/obj/item/stack/sheet/ms13/plank = 1)
-	category = CAT_SMELTER
+	category = CAT_MELT
 	crafting_interface = CRAFTING_BENCH_SMELTER
 
 /datum/crafting_recipe/melt_gold
@@ -1206,7 +1206,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/refined_gold = 1,
 				/obj/item/stack/sheet/ms13/plank = 1)
-	category = CAT_SMELTER
+	category = CAT_MELT
 	crafting_interface = CRAFTING_BENCH_SMELTER
 
 /*/datum/crafting_recipe/melt_scrap_parts //Commented out for the same reason as smashing circuits and fission batteries are. Crafting recipes don't support lists - Hekzder 2022
