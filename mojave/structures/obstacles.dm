@@ -8,18 +8,32 @@
 
 /obj/structure/ms13/bars
 	name = "metal bars"
-	desc = "Sturdy metal bars, if only you had a saw."
-	icon = 'mojave/icons/obstacles/bars.dmi'
+	desc = "Sturdy metal bars. If only you had a saw."
+	icon = 'mojave/icons/obstacles/tallobstacles.dmi'
 	icon_state = "bars"
 	density = TRUE
 	anchored = TRUE
 	layer = ABOVE_OBJ_LAYER
 	max_integrity = 500
-	armor = list(MELEE = 100, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 100, BIO = 100,  FIRE = 100, ACID = 100)
-	damage_deflection = 40
+	armor = list(MELEE = 75, BULLET = 75, LASER = 75, ENERGY = 75, BOMB = 100, BIO = 100,  FIRE = 100, ACID = 100)
+	damage_deflection = 10
 	can_atmos_pass = ATMOS_PASS_YES
 	flags_1 = ON_BORDER_1
 	var/barpasschance = 33
+
+/obj/structure/ms13/bars/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		new /obj/item/stack/sheet/ms13/scrap_steel/two(loc)
+	qdel(src)
+
+/obj/structure/ms13/bars/attackby(obj/item/W, mob/user, params)
+	if(W.tool_behaviour == TOOL_SAW)
+		user.show_message(span_notice("You begin sawing through the bars."), MSG_VISUAL)
+		if(do_after(user, 60 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON)) 
+			user.show_message(span_notice("You saw through the bars!"), MSG_VISUAL)
+			deconstruct()
+			return TRUE
+	
 
 /obj/structure/ms13/bars/corner
 	icon_state = "barscorner"
@@ -148,15 +162,15 @@
 /obj/structure/ms13/celldoor
 	name = "cell door"
 	desc = "Better hope you arent rotting on the wrong side slick."
-	icon = 'mojave/icons/obstacles/bars.dmi'
+	icon = 'mojave/icons/obstacles/tallobstacles.dmi'
 	icon_state = "door"
 	density = TRUE
 	anchored = TRUE
 	opacity = FALSE
 	layer = ABOVE_MOB_LAYER
 	max_integrity = 500
-	armor = list(MELEE = 80, BULLET = 80, LASER = 0, ENERGY = 0, BOMB = 25, BIO = 100,  FIRE = 80, ACID = 100)
-	damage_deflection = 40
+	armor = list(MELEE = 75, BULLET = 75, LASER = 75, ENERGY = 75, BOMB = 25, BIO = 100,  FIRE = 80, ACID = 100)
+	damage_deflection = 10
 	flags_1 = ON_BORDER_1
 	var/locked = FALSE
 
@@ -168,6 +182,11 @@
 	var/closeSound = 'mojave/sound/ms13effects/cellclose.ogg'
 
 	var/barpasschance = 33
+
+/obj/structure/ms13/celldoor/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		new /obj/item/stack/sheet/ms13/scrap_steel/two(loc)
+	qdel(src)
 
 /obj/structure/ms13/celldoor/locked
 	locked = TRUE
@@ -359,9 +378,9 @@
 	if(istype(mover) && (mover.pass_flags & PASSGRILLE))
 		return 1
 	if(get_dir(loc, target) != SOUTH)
-		return 1
-	else
 		return 0
+	else
+		return 1
 
 /obj/structure/fence/fencenormal/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/wirecutters))
@@ -470,9 +489,9 @@
 	if(istype(mover) && (mover.pass_flags & PASSGRILLE))
 		return 1
 	if(get_dir(loc, target) != SOUTH)
-		return 1
-	else
 		return 0
+	else
+		return 1
 
 /obj/structure/fence/fencedoorside
 	name = "metal fence door"
@@ -575,6 +594,12 @@
 	name = "base state MS13 guard rail"
 	icon = 'mojave/icons/structure/railings.dmi'
 	layer = ABOVE_MOB_LAYER
+	max_integrity = 150
+
+/obj/structure/railing/ms13/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		new /obj/item/stack/sheet/ms13/scrap(loc)
+	qdel(src)
 
 /obj/structure/railing/ms13/solo
 	name = "guard rail"
@@ -589,3 +614,120 @@
 	name = "guard rail"
 	desc = "A rusty guard rail used to prevent you from falling into the region's sewage. Thank the lord it's there."
 	icon_state = "railings_sewer"
+
+// Wood Barricade //
+
+/obj/structure/ms13/barricade
+	name = "wooden barricade"
+	desc = "A semi-sturdy improvised wooden defense."
+	icon = 'mojave/icons/obstacles/tallobstacles.dmi'
+	icon_state = "barricade"
+	density = TRUE
+	anchored = TRUE
+	layer = ABOVE_OBJ_LAYER
+	max_integrity = 120
+	armor = list("melee" = 0, "bullet" = 20, "laser" = 20, "energy" = 10, "bomb" = 10, "bio" = 0, "fire" = 50, "acid" = 50)
+	flags_1 = ON_BORDER_1
+	var/barpasschance = 20
+
+/obj/structure/ms13/barricade/crowbar_act(mob/living/user, obj/item/tool)
+	if(flags_1&NODECONSTRUCT_1)
+		return TRUE
+	..()
+	if(do_after(user, 6 SECONDS * tool.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+		deconstruct(disassembled = TRUE)
+		return TRUE
+
+/obj/structure/ms13/barricade/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/plank(loc)
+		else
+			new /obj/item/stack/sheet/ms13/scrap_wood(loc)
+	qdel(src)
+
+/obj/structure/ms13/barricade/examine(mob/user)
+	. = ..()
+	. += deconstruction_hints(user)
+
+/obj/structure/ms13/barricade/proc/deconstruction_hints(mob/user)
+	return span_notice("You could use a <b>crowbar</b> or similar prying tool to dismantle [src] for planks.")
+
+/obj/structure/ms13/barricade/Initialize() //this shit should really be a component
+	. = ..()
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_EXIT = .proc/on_exit,
+	)
+
+	if (flags_1 & ON_BORDER_1)
+		AddElement(/datum/element/connect_loc, loc_connections)
+	switch(dir)
+		if(SOUTH)
+			layer = ABOVE_WINDOW_LAYER
+		if(NORTH)
+			layer = OBJ_LAYER
+
+/proc/valid_barricade_location(turf/dest_turf, test_dir)
+	if(!dest_turf)
+		return FALSE
+	for(var/obj/turf_content in dest_turf)
+		if(istype(turf_content, /obj/structure/ms13/barricade))
+			if((turf_content.dir == test_dir))
+				return FALSE
+	return TRUE
+
+/obj/structure/ms13/barricade/CanAllowThrough(atom/movable/mover, border_dir)
+	. = ..()
+
+	if(istype(mover, /obj/projectile))
+		return TRUE
+
+	if(istype(mover, /obj/projectile/bullet))
+		return TRUE
+
+	if(istype(mover, /obj/item))
+		var/obj/item/I = mover
+		if(I.w_class == WEIGHT_CLASS_SMALL)
+			return TRUE
+
+	if(.)
+		return
+
+	if(ismob(mover))
+		if(get_dir(loc, src) == dir)
+			return
+
+	if(border_dir == dir)
+		return FALSE
+
+	if(istype(mover, /obj/structure/ms13/barricade))
+		var/obj/structure/ms13/barricade/moved_bars = mover
+		return valid_bars_location(loc, moved_bars.dir)
+
+	return TRUE
+
+/obj/structure/ms13/barricade/proc/on_exit(datum/source, atom/movable/leaving, direction)
+	SIGNAL_HANDLER
+
+	if(istype(leaving, /obj/projectile) && prob(barpasschance))
+		return
+
+	if(istype(leaving, /obj/projectile/bullet) && prob(barpasschance))
+		return
+
+	if(istype(leaving, /obj/item))
+		var/obj/item/I = leaving
+		if(I.w_class == WEIGHT_CLASS_SMALL && prob(barpasschance))
+			return
+		else
+			return COMPONENT_ATOM_BLOCK_EXIT
+
+	if(leaving == src)
+		return // Let's not block ourselves.
+
+	if (leaving.pass_flags & pass_flags_self)
+		return
+
+	if(direction == dir && density)
+		leaving.Bump(src)
+		return COMPONENT_ATOM_BLOCK_EXIT

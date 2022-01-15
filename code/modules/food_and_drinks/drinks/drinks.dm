@@ -146,20 +146,11 @@
 		return
 	if(bartender_check(target) && ranged)
 		return
-	var/obj/item/broken_bottle/B = new (loc)
-	B.icon_state = icon_state
-	var/icon/I = new('icons/obj/drinks.dmi', src.icon_state)
-	I.Blend(B.broken_outline, ICON_OVERLAY, rand(5), 1)
-	I.SwapColor(rgb(255, 0, 220, 255), rgb(0, 0, 0, 0))
-	B.icon = I
-	B.name = "broken [name]"
 	if(prob(33))
-		var/obj/item/shard/S = new(drop_location())
+		var/obj/item/stack/sheet/ms13/glass/S = new(drop_location()) //MOJAVE EDIT - Makes it drop our glass instead of TG glass and removes the broken variants since we don't have any so it just makes invisible broken bottles. Revert after CAT 
 		target.Bumped(S)
 	playsound(src, "shatter", 70, TRUE)
-	transfer_fingerprints_to(B)
 	qdel(src)
-	target.Bumped(B)
 
 /obj/item/reagent_containers/food/drinks/bullet_act(obj/projectile/P)
 	. = ..()

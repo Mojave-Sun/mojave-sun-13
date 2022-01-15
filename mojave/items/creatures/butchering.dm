@@ -18,13 +18,26 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	drop_sound = 'sound/items/handling/cloth_drop.ogg'
 	pickup_sound =  'sound/items/handling/cloth_pickup.ogg'
+	var/leather_amount = 2 //How much leather you get from skinning the hide
+
+/obj/item/ms13/hide/attackby(obj/item/W, mob/user, params)
+	if(W.tool_behaviour == TOOL_KNIFE)
+		user.show_message(span_notice("You begin turning [src] into leather."), MSG_VISUAL)
+		if(do_after(user, 15 SECONDS * W.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_LEATHER)) 
+			user.show_message(span_notice("You make leather out of [src]!"), MSG_VISUAL)
+			new /obj/item/stack/sheet/ms13/leather(user.loc, 1 * leather_amount)
+			qdel(src)
+
+/obj/item/ms13/hide/examine(mob/user)
+	. = ..()
+	. += span_notice("You could use a <b>knife</b> to turn [src] into leather.")
 
 /obj/item/ms13/hide/gecko
 	name = "gecko hide"
 	desc = "A skinned gecko hide."
 	icon_state = "gecko_hide"
 	inhand_icon_state = "gecko_hide"
-	throw_range = 3
+	leather_amount = 2
 
 /obj/item/ms13/hide/gecko/ice
 	icon_state = "icegecko_hide"
@@ -39,7 +52,7 @@
 	desc = "A skinned wolf hide."
 	icon_state = "wolf_hide"
 	inhand_icon_state = "wolf_hide"
-	throw_range = 3
+	leather_amount = 3
 
 /obj/item/ms13/hide/mongrel
 	name = "mongrel hide"
@@ -53,14 +66,14 @@
 	desc = "A skinned molerat hide."
 	icon_state = "molerat_hide"
 	inhand_icon_state = "molerat_hide"
-	throw_range = 3
+	leather_amount = 2
 
 /obj/item/ms13/hide/pigrat
 	name = "pigrat hide"
 	desc = "A skinned pigrat hide."
 	icon_state = "pigrat_hide"
 	inhand_icon_state = "pigrat_hide"
-	throw_range = 3
+	leather_amount = 3
 
 /obj/item/ms13/hide/brahmin
 	name = "brahmin hide"
@@ -69,6 +82,7 @@
 	inhand_icon_state = "brahmin_hide"
 	throw_range = 2
 	w_class = WEIGHT_CLASS_BULKY
+	leather_amount = 6
 
 /obj/item/ms13/hide/radstag
 	name = "radstag hide"
@@ -77,6 +91,7 @@
 	inhand_icon_state = "radstag_hide"
 	throw_range = 2
 	w_class = WEIGHT_CLASS_BULKY
+	leather_amount = 5
 
 /obj/item/ms13/hide/brahmiluff
 	name = "brahmiluff hide"
@@ -85,6 +100,7 @@
 	inhand_icon_state = "brahmiluff_hide"
 	throw_range = 2
 	w_class = WEIGHT_CLASS_BULKY
+	leather_amount = 8
 
 /obj/item/ms13/hide/tunneler
 	name = "tunneler hide"
@@ -109,6 +125,7 @@
 	inhand_icon_state = "yaoguai_hide"
 	throw_range = 2
 	w_class = WEIGHT_CLASS_BULKY
+	leather_amount = 10
 
 /obj/item/ms13/hide/slepnir
 	name = "slepnir hide"
@@ -117,6 +134,7 @@
 	inhand_icon_state = "slepnir_hide"
 	throw_range = 2
 	w_class = WEIGHT_CLASS_BULKY
+	leather_amount = 6
 
 /obj/item/ms13/hide/large/hellpig
 	name = "hellpig hide"
@@ -125,6 +143,7 @@
 	inhand_icon_state = "hellpig_hide"
 	throw_range = 2
 	w_class = WEIGHT_CLASS_HUGE
+	leather_amount = 12
 
 /obj/item/ms13/hide/large/ComponentInitialize()
 	. = ..()
@@ -134,7 +153,7 @@
 //////////////////////// CARCASSES //////////////////////////
 /////////////////////////////////////////////////////////////
 
-/obj/item/ms13/carcass
+/obj/item/food/meat/slab/ms13/carcass
 	name = "carcass"
 	desc = "A meaty error :)."
 	icon = 'mojave/icons/mob/skinning.dmi'
@@ -144,192 +163,170 @@
 	righthand_file = 'mojave/icons/mob/inhands/misc/butchering_righthand.dmi'
 	throw_range = 2
 	w_class = WEIGHT_CLASS_BULKY
+	food_reagents = null
+	eat_time = null
 	var/item_butcher_results = list(/obj/item/food/meat/slab = 4) //placeholder meat
 	var/butcher_difficulty = 0
+	var/meat_amount = 1 //For determining how much meat you get after butchering the carcass
 	drop_sound = 'mojave/sound/ms13items/ms13handling/meat_drop.ogg'
 	pickup_sound =  'mojave/sound/ms13items/ms13handling/meat_pickup.ogg'
 
-/obj/item/ms13/carcass/proc/harvest(mob/living/user) //used for extra objects etc. in butchering
+/obj/item/food/meat/slab/ms13/carcass/proc/harvest(mob/living/user) //used for extra objects etc. in butchering
 	return
+
+/obj/item/food/meat/slab/ms13/carcass/MakeProcessable()
+	AddElement(/datum/element/processable, TOOL_KNIFE,  /obj/item/food/meat/slab, meat_amount, 40 SECONDS * toolspeed)
 
 //small/medium
 
-/obj/item/ms13/carcass/clucker
+/obj/item/food/meat/slab/ms13/carcass/clucker
 	name = "clucker carcass"
 	desc = "A de-feathered body of a clucker."
 	icon_state = "clucker_carcass"
 	inhand_icon_state = "clucker_carcass"
 	throw_range = 4
 	w_class = WEIGHT_CLASS_NORMAL
-	item_butcher_results = list(/obj/item/food/meat/slab = 1)
-	butcher_difficulty = -20
+	meat_amount = 1
 
-/obj/item/ms13/carcass/gecko
+/obj/item/food/meat/slab/ms13/carcass/gecko
 	name = "gecko carcass"
 	desc = "A skinned body of a gecko."
 	icon_state = "gecko_carcass"
 	inhand_icon_state = "gecko_carcass"
-	throw_range = 2
-	item_butcher_results = list(/obj/item/food/meat/slab = 3)
-	butcher_difficulty = -20
+	meat_amount = 2
 
-/obj/item/ms13/carcass/wolf
+/obj/item/food/meat/slab/ms13/carcass/wolf
 	name = "wolf carcass"
 	desc = "A skinned body of a wolf."
 	icon_state = "dog_carcass"
 	inhand_icon_state = "dog_carcass"
-	throw_range = 2
-	item_butcher_results = list(/obj/item/food/meat/slab = 2)
-	butcher_difficulty = -20
+	meat_amount = 3
 
-/obj/item/ms13/carcass/mongrel
+/obj/item/food/meat/slab/ms13/carcass/mongrel
 	name = "mongrel carcass"
 	desc = "A skinned body of a mongrel."
 	icon_state = "dog_carcass"
 	inhand_icon_state = "dog_carcass"
-	throw_range = 2
-	item_butcher_results = list(/obj/item/food/meat/slab = 2)
-	butcher_difficulty = -20
+	meat_amount = 3
 
-/obj/item/ms13/carcass/molerat
+/obj/item/food/meat/slab/ms13/carcass/molerat
 	name = "molerat carcass"
 	desc = "A skinned body of a molerat."
 	icon_state = "rat_carcass"
 	inhand_icon_state = "rat_carcass"
-	throw_range = 2
-	item_butcher_results = list(/obj/item/food/meat/slab = 2)
-	butcher_difficulty = -20
+	meat_amount = 2
+
+/obj/item/food/meat/slab/ms13/carcass/molerat/pig
+	name = "pigrat carcass"
+	desc = "A skinned body of a pigrat."
+	meat_amount = 3
 
 //large
 
-/obj/item/ms13/carcass/large/pigrat
-	name = "pigrat carcass"
-	desc = "A skinned body of a pigrat."
-	icon_state = "rat_carcass"
-	inhand_icon_state = "rat_carcass"
-	throw_range = 1
+/obj/item/food/meat/slab/ms13/carcass/large
 	w_class = WEIGHT_CLASS_HUGE
-	item_butcher_results = list(/obj/item/food/meat/slab = 3)
+	throw_range = 1
 
-/obj/item/ms13/carcass/large/radstag
+/obj/item/food/meat/slab/ms13/carcass/large/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/two_handed, require_twohands=TRUE)
+
+/obj/item/food/meat/slab/ms13/carcass/large/radstag
 	name = "radstag carcass"
 	desc = "A skinned body of a radstag."
 	icon_state = "radstag_carcass"
 	inhand_icon_state = "radstag_carcass"
-	throw_range = 1
-	w_class = WEIGHT_CLASS_HUGE
-	item_butcher_results = list(/obj/item/food/meat/slab = 5)
+	meat_amount = 5
 
-/obj/item/ms13/carcass/large/tunneller
+/obj/item/food/meat/slab/ms13/carcass/large/tunneller
 	name = "tunneler carcass"
 	desc = "A skinned body of a tunneler."
 	icon_state = "tunneller_carcass"
 	inhand_icon_state = "tunneller_carcass"
-	throw_range = 1
-	w_class = WEIGHT_CLASS_HUGE
-	item_butcher_results = list(/obj/item/food/meat/slab = 4)
+	meat_amount = 4
 
-/obj/item/ms13/carcass/large/nightstalker
+/obj/item/food/meat/slab/ms13/carcass/large/nightstalker
 	name = "nightstalker carcass"
 	desc = "A skinned body of a nightstalker."
 	icon_state = "nightstalker_carcass"
 	inhand_icon_state = "nightstalker_carcass"
-	throw_range = 1
-	w_class = WEIGHT_CLASS_HUGE
-	item_butcher_results = list(/obj/item/food/meat/slab = 4)
-	butcher_difficulty = 15
+	meat_amount = 4
 
-/obj/item/ms13/carcass/large/brahmiluff
+/obj/item/food/meat/slab/ms13/carcass/large/brahmiluff
 	name = "brahmiluff carcass"
 	desc = "A skinned body of a brahmiluff."
 	icon_state = "brahmiluff_carcass"
 	inhand_icon_state = "brahmiluff_carcass"
-	throw_range = 1
-	w_class = WEIGHT_CLASS_HUGE
-	item_butcher_results = list(/obj/item/food/meat/slab = 4)
+	meat_amount = 6
 
-/obj/item/ms13/carcass/large/brahmiluff/front
+/obj/item/food/meat/slab/ms13/carcass/large/brahmiluff/front
 	icon_state = "cowbeastfront_carcass"
 	inhand_icon_state = "cowbeastfront_carcass"
 
-/obj/item/ms13/carcass/large/brahmiluff/back
+/obj/item/food/meat/slab/ms13/carcass/large/brahmiluff/back
 	icon_state = "cowbeastback_carcass"
 	inhand_icon_state = "cowbeastback_carcass"
 
-/obj/item/ms13/carcass/large/brahmin
+/obj/item/food/meat/slab/ms13/carcass/large/brahmin
 	name = "brahmin carcass"
 	desc = "A skinned body of a brahmin."
 	icon_state = "brahmin_carcass"
 	inhand_icon_state = "brahmin_carcass"
-	throw_range = 1
-	w_class = WEIGHT_CLASS_HUGE
-	item_butcher_results = list(/obj/item/food/meat/slab = 3)
+	meat_amount = 3
 
-/obj/item/ms13/carcass/large/brahmin/front
+/obj/item/food/meat/slab/ms13/carcass/large/brahmin/front
 	icon_state = "cowbeastfront_carcass"
 	inhand_icon_state = "cowbeastfront_carcass"
 
-/obj/item/ms13/carcass/large/brahmin/back
+/obj/item/food/meat/slab/ms13/carcass/large/brahmin/back
 	icon_state = "cowbeastback_carcass"
 	inhand_icon_state = "cowbeastback_carcass"
 
-/obj/item/ms13/carcass/large/yaoguai
+/obj/item/food/meat/slab/ms13/carcass/large/yaoguai
 	name = "yaoguai carcass"
 	desc = "A skinned body section of a yaoguai."
-	throw_range = 1
-	w_class = WEIGHT_CLASS_HUGE
-	item_butcher_results = list(/obj/item/food/meat/slab = 4)
-	butcher_difficulty = 20
+	meat_amount = 8
 
-/obj/item/ms13/carcass/large/yaoguai/front
+/obj/item/food/meat/slab/ms13/carcass/large/yaoguai/front
 	icon_state = "yaoguaifront_carcass"
 	inhand_icon_state = "yaoguaifront_carcass"
 
-/obj/item/ms13/carcass/large/yaoguai/back
+/obj/item/food/meat/slab/ms13/carcass/large/yaoguai/back
 	icon_state = "yaoguaiback_carcass"
 	inhand_icon_state = "yaoguaiback_carcass"
 
-/obj/item/ms13/carcass/large/slepnir
+/obj/item/food/meat/slab/ms13/carcass/large/slepnir
 	name = "slepnir carcass"
 	desc = "A skinned body section of a slepnir."
-	throw_range = 1
-	w_class = WEIGHT_CLASS_HUGE
-	item_butcher_results = list(/obj/item/food/meat/slab = 4)
-	butcher_difficulty = 25
+	meat_amount = 3
 
-/obj/item/ms13/carcass/large/slepnir/front
+/obj/item/food/meat/slab/ms13/carcass/large/slepnir/front
 	icon_state = "slepnirfront_carcass"
 	inhand_icon_state = "slepnirfront_carcass"
 
-/obj/item/ms13/carcass/large/slepnir/back
+/obj/item/food/meat/slab/ms13/carcass/large/slepnir/back
 	icon_state = "slepnirback_carcass"
 	inhand_icon_state = "slepnirback_carcass"
 
-/obj/item/ms13/carcass/large/hellpig
+/obj/item/food/meat/slab/ms13/carcass/large/hellpig
 	name = "hellpig carcass"
 	desc = "A skinned body section of a hellpig."
-	throw_range = 1
-	w_class = WEIGHT_CLASS_HUGE
-	item_butcher_results = list(/obj/item/food/meat/slab = 6)
-	butcher_difficulty = 30
+	meat_amount = 4
 
-/obj/item/ms13/carcass/large/hellpig/front
+/obj/item/food/meat/slab/ms13/carcass/large/hellpig/front
 	icon_state = "hellpigfront_carcass"
 	inhand_icon_state = "hellpigfront_carcass"
 
-/obj/item/ms13/carcass/large/hellpig/back
+/obj/item/food/meat/slab/ms13/carcass/large/hellpig/back
 	icon_state = "hellpigback_carcass"
 	inhand_icon_state = "hellpigback_carcass"
 
-/obj/item/ms13/carcass/large/hellpig/leg
+/obj/item/food/meat/slab/ms13/carcass/large/hellpig/leg
 	name = "hellpig leg"
 	icon_state = "hellpigleg_carcass"
 	inhand_icon_state = "hellpigleg_carcass"
 	w_class = WEIGHT_CLASS_BULKY
-
-/obj/item/ms13/carcass/large/ComponentInitialize()
-	. = ..()
-	AddComponent(/datum/component/two_handed, require_twohands=TRUE)
+	meat_amount = 3
 
 /////////////////////////////////////////////////////////////
 ////////////////////////// ITEMS ////////////////////////////
@@ -445,7 +442,9 @@
 /////////////////// ITEM BUTCHER COMPONENT //////////////////
 /////////////////////////////////////////////////////////////
 
-/datum/component/itembutchering
+//This is commented out for now because it simultaneously does not work and is more or less not needed because of the processable element
+
+/*/datum/component/itembutchering
 	var/speed = 1.5 MINUTES //time in deciseconds taken to butcher something
 	var/effectiveness = 80 //percentage effectiveness; numbers above 100 yield extra drops
 	var/bonus_modifier = 0 //percentage increase to bonus item chance
@@ -502,6 +501,6 @@
 		. = ..()
 		AddComponent(/datum/component/itembutchering, 80 * toolspeed)
 
-/obj/item/kitchen/knife/ComponentInitialize() //basically currently only knives can be used to butcher without destroying the meat (unless its small game)
+/obj/item/knife/ComponentInitialize() //basically currently only knives can be used to butcher without destroying the meat (unless its small game)
 	. = ..()
-	AddComponent(/datum/component/itembutchering, 70 + force, 100, force - 10)
+	AddComponent(/datum/component/itembutchering, 70 + force, 100, force - 10)*/

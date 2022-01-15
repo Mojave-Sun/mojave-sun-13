@@ -13,6 +13,7 @@
 	minimum_distance = 1
 	retreat_distance = 4
 	move_to_delay = 2.5
+	loot = list(/obj/item/stack/sheet/ms13/scrap_steel/two, /obj/effect/decal/cleanable/robot_debris, /obj/item/stack/sheet/ms13/scrap_electronics/two, /obj/item/stack/sheet/ms13/scrap_parts/two, /obj/item/stack/sheet/ms13/circuits/three)
 	speed = 1
 	wound_bonus = 5
 	bare_wound_bonus = 5

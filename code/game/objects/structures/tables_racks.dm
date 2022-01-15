@@ -171,13 +171,13 @@
 	if(!(flags_1 & NODECONSTRUCT_1) && LAZYACCESS(modifiers, RIGHT_CLICK))
 		if(I.tool_behaviour == TOOL_SCREWDRIVER && deconstruction_ready)
 			to_chat(user, span_notice("You start disassembling [src]..."))
-			if(I.use_tool(src, user, 20, volume=50))
+			if(I.use_tool(src, user, 6 SECONDS, volume=50)) //MOJAVE EDIT - Decon time increase
 				deconstruct(TRUE)
 			return
 
 		if(I.tool_behaviour == TOOL_WRENCH && deconstruction_ready)
 			to_chat(user, span_notice("You start deconstructing [src]..."))
-			if(I.use_tool(src, user, 40, volume=50))
+			if(I.use_tool(src, user, 6 SECONDS, volume=50)) //MOJAVE EDIT - Decon time increase
 				playsound(src.loc, 'sound/items/deconstruct.ogg', 50, TRUE)
 				deconstruct(TRUE, 1)
 			return

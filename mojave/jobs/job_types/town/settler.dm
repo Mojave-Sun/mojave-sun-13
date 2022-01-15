@@ -15,9 +15,9 @@
 	name = "_Town Settler"
 	jobtype = /datum/job/ms13/town/settler
 
+	id =		 /obj/item/card/id/ms13/town
 	uniform =    /obj/item/clothing/under/ms13/vaultsuit
 	shoes =  	 /obj/item/clothing/shoes/ms13/military/vault
-	back =	 	 /obj/item/storage/backpack
 
 /datum/outfit/job/ms13/town/settler/pre_equip(mob/living/carbon/human/H)
 	..()

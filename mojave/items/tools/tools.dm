@@ -1,9 +1,9 @@
 /obj/item/ms13/hammer
 	name = "claw hammer"
-	desc = "A standard, small claw hammer."
-	icon = 'mojave/icons/objects/melee/melee_world.dmi'
-	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
-	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
+	desc = "A standard, small claw hammer. Can be used to hammer a nail and pry a nail!"
+	icon = 'mojave/icons/objects/tools/tools_world.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
 	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
 	worn_icon_state = "empty_placeholder"
 	icon_state = "hammer"
@@ -22,18 +22,20 @@
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0,  FIRE = 100, ACID = 50)
 	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_SMALL
+	tool_behaviour = TOOL_CROWBAR
+	toolspeed = 2
 	log_pickup_and_drop = TRUE
 
 /obj/item/ms13/hammer/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
 /obj/item/ms13/handsaw
 	name = "hand saw"
 	desc = "An old handsaw. Useful for cutting wood to length. Also useful for compacting corpses down to a bag sized package."
-	icon = 'mojave/icons/objects/melee/melee_world.dmi'
-	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
-	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
+	icon = 'mojave/icons/objects/tools/tools_world.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
 	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
 	worn_icon_state = "empty_placeholder"
 	icon_state = "handsaw"
@@ -44,23 +46,23 @@
 	attack_verb_continuous = list("saws", "slashes", "tears", "rips")
 	attack_verb_simple = list("saw", "slash", "tear", "rip")
 	sharpness = IS_SHARP_AXE // Cut down da TREE. Cut down da WOOD.
+	tool_behaviour = TOOL_SAW
 	slot_flags = ITEM_SLOT_BELT
-	resistance_flags = FIRE_PROOF	
+	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_NORMAL
 	toolspeed = 2 // axe tomfoolery
 	log_pickup_and_drop = TRUE
 
 /obj/item/ms13/handsaw/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
-
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
 /obj/item/ms13/handdrill
 	name = "hand drill"
 	desc = "A manual operated drill. Put the spinny bit on what you want to drill, and then just crank it!"
-	icon = 'mojave/icons/objects/melee/melee_world.dmi'
-	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
-	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
+	icon = 'mojave/icons/objects/tools/tools_world.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
 	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
 	worn_icon_state = "empty_placeholder"
 	icon_state = "handdrill"
@@ -71,22 +73,23 @@
 	bare_wound_bonus = 4
 	attack_verb_continuous = list("drills", "pierces", "stabs", "impales", "jabs")
 	attack_verb_simple = list("drill", "pierce", "stab", "impale", "jab")
-	sharpness = SHARP_POINTY // Cut down da TREE. Cut down da WOOD.
+	sharpness = SHARP_POINTY
 	slot_flags = ITEM_SLOT_BELT
+	tool_behaviour = TOOL_DRILL
 	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_NORMAL
 	log_pickup_and_drop = TRUE
 
 /obj/item/ms13/handdrill/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
 /obj/item/crowbar/ms13
 	name = "crowbar"
 	desc = "A formidible weapon, and a useful tool. The ultimate slayer of boarded structures."
-	icon = 'mojave/icons/objects/melee/melee_world.dmi'
-	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
-	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
+	icon = 'mojave/icons/objects/tools/tools_world.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
 	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
 	worn_icon_state = "empty_placeholder"
 	icon_state = "crowbar"
@@ -97,18 +100,19 @@
 	sharpness = NONE
 	slot_flags = ITEM_SLOT_BELT
 	w_class = WEIGHT_CLASS_NORMAL
+	toolspeed = 1
 	log_pickup_and_drop = TRUE
 
 /obj/item/crowbar/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
 /obj/item/weldingtool/ms13
 	name = "welding tool"
 	desc = "An old welding torch. Useful for cutting metal and welding things together alike. Don't touch the flame!"
-	icon = 'mojave/icons/objects/melee/melee_world.dmi'
-	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
-	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
+	icon = 'mojave/icons/objects/tools/tools_world.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
 	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
 	worn_icon_state = "empty_placeholder"
 	icon_state = "torch"
@@ -118,7 +122,7 @@
 	throwforce = 10
 	wound_bonus = 0
 	bare_wound_bonus = 5
-	max_fuel = 50
+	max_fuel = 40
 	light_color = "#7c84a7"
 	w_class = WEIGHT_CLASS_NORMAL
 	log_pickup_and_drop = TRUE
@@ -126,7 +130,7 @@
 
 /obj/item/weldingtool/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
 /obj/item/weldingtool/ms13/update_icon_state()
 	. = ..()
@@ -149,9 +153,9 @@
 /obj/item/wrench/ms13
 	name = "wrench"
 	desc = "An old and slightly rusted wrench. Still filled with uses even today."
-	icon = 'mojave/icons/objects/melee/melee_world.dmi'
-	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
-	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
+	icon = 'mojave/icons/objects/tools/tools_world.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
 	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
 	worn_icon_state = "empty_placeholder"
 	icon_state = "wrench"
@@ -161,19 +165,19 @@
 	sharpness = NONE
 	wound_bonus = 0
 	bare_wound_bonus = 0
-	w_class = WEIGHT_CLASS_NORMAL
+	w_class = WEIGHT_CLASS_SMALL
 	log_pickup_and_drop = TRUE
 
 /obj/item/wrench/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
 /obj/item/wirecutters/ms13
 	name = "pliers"
 	desc = "A portable set of multi-use pliers. Has a section that can be used to cut cable."
-	icon = 'mojave/icons/objects/melee/melee_world.dmi'
-	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
-	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
+	icon = 'mojave/icons/objects/tools/tools_world.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
 	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
 	worn_icon_state = "empty_placeholder"
 	icon_state = "wirecutter"
@@ -186,14 +190,14 @@
 
 /obj/item/wirecutters/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
 /obj/item/screwdriver/ms13
 	name = "screwdriver"
 	desc = "A thin screwdriver. Keep it close, you'll never know when you need to remove someone's eye- or a screw."
-	icon = 'mojave/icons/objects/melee/melee_world.dmi'
-	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
-	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
+	icon = 'mojave/icons/objects/tools/tools_world.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
 	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
 	worn_icon_state = "empty_placeholder"
 	icon_state = "screwdriver"
@@ -209,14 +213,14 @@
 
 /obj/item/screwdriver/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
 /obj/item/shovel/ms13
 	name = "shovel"
 	desc = "A shovel for digging up the ground, commonly used for farming or gravedigging."
-	icon = 'mojave/icons/objects/melee/melee_world.dmi'
-	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
-	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
+	icon = 'mojave/icons/objects/tools/tools_world.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
 	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
 	worn_icon_state = "empty_placeholder"
 	icon_state = "shovel"
@@ -236,7 +240,7 @@
 
 /obj/item/shovel/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
 /obj/item/shovel/ms13/spade
 	name = "spade"
@@ -282,9 +286,9 @@
 /obj/item/ms13/brick
 	name = "brick"
 	desc = "A literal brick. Nothing more."
-	icon = 'mojave/icons/objects/melee/melee_world.dmi'
-	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
-	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
+	icon = 'mojave/icons/objects/tools/tools_world.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
 	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
 	worn_icon_state = "empty_placeholder"
 	icon_state = "brick"
@@ -306,83 +310,4 @@
 
 /obj/item/ms13/brick/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
-
-// Handheld light sources  //
-
-/obj/item/flashlight/ms13
-	name = "flashlight"
-	desc = "A common pre-war flashlight. It's held up surprisingly well over the years. An essential tool for any tomfoolery in the unknown."
-	icon = 'mojave/icons/objects/melee/melee_world.dmi'
-	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
-	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
-	icon_state = "flashlight_old"
-	inhand_icon_state = "flashlight_old"
-	light_range = 3.75
-	light_power = 0.75
-	light_color = "#dbb070"
-
-/obj/item/flashlight/ms13/Initialize()
-	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
-
-/obj/item/flashlight/ms13/mag
-	name = "stick flashlight"
-	desc = "A lengthy dark flashlight. Has a fair light range, and feels relatively high quality."
-	icon_state = "flashlight_mag"
-	inhand_icon_state = "flashlight_mag"
-	light_range = 4.5
-	light_power = 0.9
-	light_color = "#dac97c"
-
-/obj/item/flashlight/ms13/crafted
-	name = "homemade flashlight"
-	desc = "To call it a flashlight is even a stretch. This device is simply a lightbulb connected to a low output fusion cell."
-	icon_state = "flashlight_crafted"
-	inhand_icon_state = "flashlight_crafted"
-	light_range = 3 // doo-doo. But much better than nothing.
-	light_power = 0.6
-	light_color = "#ddd2b9"
-
-/obj/item/flashlight/flare/ms13
-	name = "flare"
-	desc = "A red flare, quite simple."
-	icon = 'mojave/icons/objects/melee/melee_world.dmi'
-	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
-	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
-	icon_state = "flare"
-	inhand_icon_state = "flare"
-	light_range = 3.75 // lower because radial
-
-/obj/item/flashlight/flare/ms13/Initialize()
-	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
-
-/obj/item/flashlight/flare/torch/ms13
-	name = "torch"
-	desc = "A torch fashioned from some leaves and a log."
-	w_class = WEIGHT_CLASS_BULKY
-	light_range = 4
-	light_color = LIGHT_COLOR_FIRE
-
-/obj/item/flashlight/flare/torch/ms13/attack_self(mob/user)
-	if(!src.on)
-		to_chat(user, "<span class='notice'>You start pushing [src] into the ground...</span>")
-		if (do_after(user, 5 SECONDS, target=src))
-			qdel(src)
-			new /obj/structure/ms13/torch(get_turf(user))
-			user.visible_message("<span class='notice'>[user] plants \the [src] firmly in the ground.</span>", "<span class='notice'>You plant \the [src] firmly in the ground.</span>")
-			return
-	else if(on)
-		user.visible_message(
-			"<span class='notice'>[user] snuffs [src] out.</span>")
-		on = FALSE
-		set_light(0)
-
-/obj/item/flashlight/flare/torch/ms13/attackby(obj/item/W, mob/user, params)
-	. = ..()
-	if(W.ignition_effect())
-		update_brightness()
-		update_icon()
-		user.visible_message("<span class='notice'>[user] lights [src] with [W].</span>", "<span class='notice'>You light [src] with [W].</span>")
-		return
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')

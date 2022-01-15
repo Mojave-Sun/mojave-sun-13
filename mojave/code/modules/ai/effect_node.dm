@@ -6,7 +6,8 @@
 	icon = 'mojave/icons/effects/landmarks_static.dmi'
 	icon_state = "x6" //Pure white 'X' with black borders
 	anchored = TRUE //No pulling those nodes yo
-	invisibility = INVISIBILITY_OBSERVER //Visible towards ghosts
+	invisibility = INVISIBILITY_MAXIMUM //Why was this visible towrds ghosts, just change it if testing
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	///list of adjacent landmark nodes
 	var/list/adjacent_nodes
 

@@ -77,11 +77,6 @@
 	else
 		gloves = null
 
-	back = pick(
-		/obj/item/storage/backpack/satchel/leather,\
-		/obj/item/storage/backpack)
-
-
 	uniform = pick(
 		/obj/item/clothing/under/ms13/wasteland/caravanpants,\
 		/obj/item/clothing/under/ms13/wasteland/pants,\
@@ -140,8 +135,7 @@
 		/obj/item/ms13/hammer, \
 		/obj/item/ms13/knuckles, \
 		/obj/item/ms13/brick, \
-		/obj/item/ms13/handsaw, \
-		/obj/item/crowbar/ms13)
+		/obj/item/ms13/handsaw)
 
 	shoes = pick(
         /obj/item/clothing/shoes/ms13/tan, \

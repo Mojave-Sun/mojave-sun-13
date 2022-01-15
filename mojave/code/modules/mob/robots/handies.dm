@@ -51,6 +51,7 @@
 	retreat_distance = 5
 	attack_verb_continuous = "pinches"
 	attack_verb_simple = "pinch"
+	loot = list(/obj/item/stack/sheet/ms13/scrap/two, /obj/effect/decal/cleanable/robot_debris, /obj/item/stack/sheet/ms13/scrap_electronics/two, /obj/item/stack/sheet/ms13/scrap_parts/two, /obj/item/ms13/component/cell)
 	ranged = TRUE
 	ranged_cooldown = 3 SECONDS
 	projectiletype = /obj/projectile/beam/ms13/laser/handy
@@ -68,6 +69,7 @@
 	armour_penetration = 10
 	minimum_distance = 2
 	retreat_distance = 3
+	loot = list(/obj/item/stack/sheet/ms13/scrap_steel/two, /obj/effect/decal/cleanable/robot_debris, /obj/item/stack/sheet/ms13/scrap_electronics/two, /obj/item/stack/sheet/ms13/scrap_parts/two, /obj/item/ms13/component/plasma_battery, /obj/item/stack/sheet/ms13/circuits)
 	ranged = TRUE
 	ranged_cooldown = 3 SECONDS
 	projectiletype = /obj/projectile/bullet/ms13/plasma/gutsy

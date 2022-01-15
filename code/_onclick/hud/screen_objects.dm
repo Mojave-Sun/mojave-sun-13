@@ -214,9 +214,9 @@
 	if(held_index == hud.mymob.active_hand_index)
 		//MOJAVE EDIT - . += "hand_active"
 		if(hud.mymob.active_hand_index == 1)
-			. += "hand_r_on"
-		else
 			. += "hand_l_on"
+		else
+			. += "hand_r_on"
 
 
 /atom/movable/screen/inventory/hand/Click(location, control, params)

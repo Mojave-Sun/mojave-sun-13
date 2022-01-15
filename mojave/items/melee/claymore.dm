@@ -20,7 +20,7 @@
 
 /obj/item/claymore/ms13/machete
 	name = "machete"
-	desc = "A makeshift machete made of a lawn mower blade."
+	desc = "A makeshift machete made from scrap."
 	icon_state = "machete_scrap"
 	inhand_icon_state = "machete_scrap"
 	force = 30
@@ -30,6 +30,8 @@
 	bare_wound_bonus = 4
 	w_class = WEIGHT_CLASS_NORMAL
 	sharpness = SHARP_EDGED
+	tool_behaviour = TOOL_KNIFE
+	toolspeed = 2
 
 /obj/item/claymore/ms13/machete/gladius
 	name = "machete gladius"
@@ -150,6 +152,7 @@
 	armour_penetration = 10
 	throwforce = 10
 	sharpness = IS_SHARP_AXE
+	toolspeed = 0.75
 	w_class = WEIGHT_CLASS_NORMAL
 	var/on = FALSE
 	var/icon_prefix = "ripper"
@@ -184,6 +187,7 @@
 	icon_prefix = "ripper_legend"
 	wound_bonus = 12
 	bare_wound_bonus = 13
+	toolspeed = 0.5
 
 /obj/item/claymore/ms13/machete/ripper/advanced/attack_self(mob/user)
 	on = !on

@@ -61,7 +61,7 @@
 
 /obj/item/clothing/suit/armor/ms13/leatherarmor/reinforced
 	name = "reinforced leather armor"
-	desc = "A suit of leather armor with additional padding, stronger leather, and the addition of some metal reinforcements. A solid defense."
+	desc = "A suit of leather armor with ballistic padding, more leather, and some ceramic reinforcements. A solid defense."
 	icon_state = "reinforcedleather"
 	inhand_icon_state = "reinforcedleather"
 	armor = list("melee" = 40, "bullet" = 35, "laser" = 30, "energy" = 20, "bomb" = 30, "bio" = 10,  "fire" = 25, "acid" = 10, "wound" = 5)

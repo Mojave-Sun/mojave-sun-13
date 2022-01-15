@@ -15,11 +15,11 @@
 	name = "_Town Bartender"
 	jobtype = /datum/job/ms13/town/bartender
 
+	id =		 /obj/item/card/id/ms13/town/bartender
 	suit =       /obj/item/clothing/suit/ms13/vest/black
 	uniform =    /obj/item/clothing/under/ms13/vaultsuit
 	gloves = 	 /obj/item/clothing/gloves/color/white
 	shoes =  	 /obj/item/clothing/shoes/ms13/military/vault
-	back =	 	 /obj/item/storage/backpack
 	suit_store = /obj/item/gun/ballistic/revolver/ms13/caravan
 	r_pocket   = /obj/item/ammo_box/ms13/shotgun/buckshot
 
