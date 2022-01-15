@@ -174,10 +174,6 @@
 /obj/item/food/meat/slab/ms13/carcass/proc/harvest(mob/living/user) //used for extra objects etc. in butchering
 	return
 
-/obj/item/food/meat/slab/ms13/carcass/examine(mob/user)
-	. = ..()
-	. += span_notice("You could use a <b>knife</b> to cut [src] up into meat.")
-
 /obj/item/food/meat/slab/ms13/carcass/MakeProcessable()
 	AddElement(/datum/element/processable, TOOL_KNIFE,  /obj/item/food/meat/slab, meat_amount, 40 SECONDS * toolspeed)
 
