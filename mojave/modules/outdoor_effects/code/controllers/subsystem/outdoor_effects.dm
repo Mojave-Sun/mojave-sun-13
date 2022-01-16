@@ -145,6 +145,11 @@ SUBSYSTEM_DEF(outdoor_effects)
 
 /* set sunlight color + add weather effect to clients */
 /datum/controller/subsystem/outdoor_effects/fire(resumed, init_tick_checks)
+
+	// Change the name of our sun_color - this fixes byond not rendering it for some reason
+	if(sun_color)
+		sun_color.name = "SUN_COLOR_[rand()*rand(1,9999999)]" // force rendering refresh because byond is a bitch
+
 	MC_SPLIT_TICK_INIT(3)
 	if(!init_tick_checks)
 		MC_SPLIT_TICK
