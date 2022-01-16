@@ -47,6 +47,7 @@
 	new /obj/item/stack/medical/gauze/ms13/half(src)
 	new /obj/item/stack/medical/suture/ms13/four(src)
 	new /obj/item/stack/medical/ointment/ms13/cream/half(src)
+	new /obj/item/bonesetter(src)
 
 // Lollipop jar
 

@@ -1,5 +1,5 @@
 /datum/job/ms13/raiders/sawbone
-	title = "Sawbone"
+	title = "Raider Sawbone"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "The Boss and the Enforcer"

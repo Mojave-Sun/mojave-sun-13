@@ -90,7 +90,7 @@
 	start_burning()
 
 /obj/structure/bonfire/ms13/fire_barrel/start_burning()
-	if(burning || !check_oxygen())
+	if(burning)
 		return
 	icon_state = burn_icon
 	burning = TRUE

@@ -2371,12 +2371,6 @@
 /mob/living/basic/ms13/ghoul/frozen,
 /turf/open/floor/plating/ms13/ground/sidewalk,
 /area/ms13)
-"bUI" = (
-/obj/structure/ms13/storage/shelf,
-/obj/effect/spawner/random/ms13/drink/alcohol,
-/obj/effect/spawner/random/ms13/drink/alcohol,
-/turf/open/floor/ms13/tile/large/black,
-/area/ms13/underground/vault_atrium_middle)
 "bUQ" = (
 /obj/machinery/door/unpowered/ms13/metal/alt{
 	dir = 1
@@ -2536,6 +2530,7 @@
 /obj/effect/spawner/random/ms13/food/produce_safe,
 /obj/effect/spawner/random/ms13/food/produce_safe,
 /obj/structure/closet/ms13/fridge,
+/obj/effect/spawner/random/ms13/food/produce_safe,
 /turf/open/floor/ms13/tile/long,
 /area/ms13/underground/vault_atrium_middle)
 "ccd" = (
@@ -6425,10 +6420,10 @@
 /area/ms13/tribal_abandoned)
 "fcY" = (
 /obj/structure/table/ms13/metal,
-/obj/effect/spawner/random/ms13/medical/lowrandom,
 /obj/machinery/light/ms13{
 	dir = 1
 	},
+/obj/item/storage/firstaid/ms13/bag/filled,
 /turf/open/floor/ms13/tile/large/white,
 /area/ms13/underground/vault_atrium_middle)
 "fdh" = (
@@ -6613,6 +6608,7 @@
 /obj/effect/spawner/random/ms13/food/produce_safe,
 /obj/effect/spawner/random/ms13/food/produce_safe,
 /obj/structure/closet/ms13/fridge,
+/obj/effect/spawner/random/ms13/food/produce_safe,
 /turf/open/floor/ms13/tile/long,
 /area/ms13/underground/vault_atrium_middle)
 "fko" = (
@@ -6849,9 +6845,6 @@
 /area/ms13/underground/vault_atrium_middle)
 "fsl" = (
 /obj/structure/closet/crate/ms13/woodcrate,
-/obj/effect/spawner/random/ms13/drink/soda,
-/obj/effect/spawner/random/ms13/drink/soda,
-/obj/effect/spawner/random/ms13/drink/soda,
 /obj/effect/spawner/random/ms13/drink/soda,
 /obj/effect/spawner/random/ms13/drink/soda,
 /obj/effect/spawner/random/ms13/drink/soda,
@@ -8610,6 +8603,9 @@
 /area/ms13/underground/tunnel/maintenance)
 "gup" = (
 /obj/structure/table/rolling/ms13,
+/obj/item/storage/firstaid/ms13/bag/filled{
+	pixel_y = 6
+	},
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/bos)
 "guA" = (
@@ -8871,7 +8867,7 @@
 /area/ms13/underground/vault_atrium_middle)
 "gCE" = (
 /obj/structure/table/ms13/metal,
-/obj/item/stack/medical/ointment/ms13/cream,
+/obj/effect/spawner/random/ms13/medical/tier1,
 /turf/open/floor/ms13/tile/large/white,
 /area/ms13/underground/vault_atrium_middle)
 "gCK" = (
@@ -8879,10 +8875,6 @@
 	dir = 8
 	},
 /turf/open/floor/wood/ms13/carpet/shaggy/blue,
-/area/ms13/underground/vault_atrium_middle)
-"gCR" = (
-/obj/structure/closet/crate/ms13/woodcrate,
-/turf/open/floor/ms13/tile/large/black,
 /area/ms13/underground/vault_atrium_middle)
 "gDn" = (
 /obj/structure/table/ms13/metal,
@@ -19818,7 +19810,6 @@
 /area/ms13/ncr)
 "nvG" = (
 /obj/structure/table/ms13/metal,
-/obj/item/surgical_drapes,
 /obj/item/clothing/suit/apron/surgical,
 /turf/open/floor/ms13/tile,
 /area/ms13/ncr)
@@ -19927,10 +19918,7 @@
 /area/ms13/ncr)
 "nzs" = (
 /obj/structure/table/ms13/metal,
-/obj/item/cautery,
-/obj/item/scalpel{
-	pixel_y = 9
-	},
+/obj/item/storage/firstaid/ms13/bag/filled,
 /turf/open/floor/ms13/tile,
 /area/ms13/ncr)
 "nzw" = (
@@ -23974,6 +23962,7 @@
 /area/ms13/underground/tunnel/maintenance)
 "tmz" = (
 /obj/structure/table/ms13/metal,
+/obj/effect/spawner/random/ms13/medical/lowrandom,
 /turf/open/floor/ms13/tile/large/white,
 /area/ms13/underground/vault_atrium_middle)
 "tmE" = (
@@ -33021,7 +33010,7 @@ khQ
 khQ
 khQ
 ylm
-bUI
+oFE
 vfS
 fna
 fsl
@@ -33326,7 +33315,7 @@ ylm
 oFE
 vfS
 fna
-gCR
+fsl
 ylm
 alc
 pGA

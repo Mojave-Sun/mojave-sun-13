@@ -137,7 +137,7 @@
 /obj/item/card/id/ms13/sawbone
 	name = "sawbone's patch"
 	desc = "A nice rectangular patch with a little hole to loop a string through if you really wanted to. It's a bit bloody."
-	assignment = "Raider Sawbones"
+	assignment = "Raider Sawbone"
 	icon_state = "sawbone"
 
 /obj/item/card/id/ms13/enforcer
@@ -185,22 +185,22 @@
 	icon_state = "bos_holotag"
 
 /obj/item/card/id/ms13/bos/headpaladin
-	assignment = "Head Paladin"
+	assignment = "BoS Head Paladin"
 
 /obj/item/card/id/ms13/bos/paladin
-	assignment = "Paladin"
+	assignment = "BoS Paladin"
 
 /obj/item/card/id/ms13/bos/knight
-	assignment = "Knight"
+	assignment = "BoS Knight"
 
 /obj/item/card/id/ms13/bos/initiate
-	assignment = "Initiate"
+	assignment = "BoS Initiate"
 
 /obj/item/card/id/ms13/bos/headscribe
-	assignment = "Head Scribe"
+	assignment = "BoS Head Scribe"
 
 /obj/item/card/id/ms13/bos/scribe
-	assignment = "Scribe"
+	assignment = "BoS Scribe"
 
 // Combat Test IDs //
 
