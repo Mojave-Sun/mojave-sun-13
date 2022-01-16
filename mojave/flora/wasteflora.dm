@@ -1,5 +1,6 @@
 #define IS_SHARP_AXE	3
 #define STATIC_NUTRIENT_CAPACITY_MS13 50
+#define SOIL_EDGE_LAYER 2.95
 
 /////////////////////////////////////////////////////////////
 //////////// MOJAVE SUN BOTANY TWEAKS DIRECTORY /////////////
@@ -330,7 +331,6 @@
 	icon = 'mojave/icons/hydroponics/soil.dmi'
 	icon_state = "crate_full"
 	pixel_z = 0
-	pixel_x = -3
 	nutridrain = 0.3
 	maxnutri = 20
 	gender = PLURAL
@@ -404,7 +404,7 @@
 	return
 
 /obj/machinery/hydroponics/ms13/attackby(obj/item/O, mob/user, params)
-	if(O.tool_behaviour == TOOL_SHOVEL && !istype(O, /obj/item/shovel/spade)) //Doesn't include spades because of uprooting plants
+	if(O.tool_behaviour == TOOL_SHOVEL && !istype(O, /obj/item/shovel/ms13/rake)) //Doesn't include rakes because of uprooting plants
 		to_chat(user, "<span class='notice'>You begin clearing up the [src]!</span>")
 		if(do_after(user, 1000, target = src))
 			to_chat(user, "<span class='notice'>You clear up [src]!</span>")
@@ -454,9 +454,21 @@
 /obj/machinery/hydroponics/ms13/soil
 	name = "soil"
 	desc = "A patch of dirt."
-	icon_state = "soil"
-	nutridrain = 0.3
-	maxnutri = 20
+	icon = 'mojave/icons/hydroponics/dirt.dmi'
+	icon_state = "dirt-0"
+	base_icon_state = "dirt"
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_SOIL)
+	canSmoothWith = list(SMOOTH_GROUP_SOIL)
+	var/border_icon = 'mojave/icons/hydroponics/dirt_border.dmi'
+
+/obj/machinery/hydroponics/ms13/soil/Initialize()
+	. = ..()
+	addtimer(CALLBACK(src, /atom/.proc/update_icon), 1)
+
+/obj/machinery/hydroponics/ms13/soil/update_icon()
+	. = ..()
+	add_overlay(image(border_icon, icon_state, SOIL_EDGE_LAYER, pixel_x = -8, pixel_y = -8))
 
 /////////////////////////////////////////////////////////////
 ////////////////// MOJAVE SUN BOTANY MISC  //////////////////
