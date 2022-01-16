@@ -39,7 +39,7 @@
 	if(pulling)
 		if(isliving(pulling))
 			var/mob/living/L = pulling
-			if(!slowed_by_drag || L.body_position == STANDING_UP || L.buckled || grab_state >= GRAB_AGGRESSIVE)
+			if(!slowed_by_drag || L.buckled || grab_state >= GRAB_AGGRESSIVE) // MOJAVE SUN EDIT: Original = 	if(!slowed_by_drag || L.body_position == STANDING_UP || L.buckled || grab_state >= GRAB_AGGRESSIVE)
 				remove_movespeed_modifier(/datum/movespeed_modifier/bulky_drag)
 				return
 			add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/bulky_drag, multiplicative_slowdown = PULL_PRONE_SLOWDOWN)
