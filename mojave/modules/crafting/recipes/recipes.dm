@@ -869,6 +869,39 @@
 	category = CAT_WEAPONS
 	crafting_interface = CRAFTING_BENCH_WEAPONS
 
+/datum/crafting_recipe/brass_knuckle
+	name = "brass knuckle"
+	result = /obj/item/ms13/knuckles
+	time = 8 SECONDS
+	tool_behaviors = list()
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/stack/sheet/ms13/scrap_brass = 8)
+	category = CAT_WEAPONS
+	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_WEAPONS
+
+/datum/crafting_recipe/steel_knuckle
+	name = "steel knuckle"
+	result = /obj/item/ms13/knuckles/weighted
+	time = 12 SECONDS
+	tool_behaviors = list()
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/stack/sheet/ms13/scrap_steel = 7,
+				/obj/item/stack/sheet/ms13/scrap = 7)
+	category = CAT_WEAPONS
+	crafting_interface = CRAFTING_BENCH_WEAPONS
+
+/datum/crafting_recipe/spiked_knuckle
+	name = "spiked knuckle"
+	result = /obj/item/ms13/knuckles/weighted/spiked
+	time = 15 SECONDS
+	tool_behaviors = list(TOOL_WELDER)
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/ms13/knuckles/weighted = 1,
+				/obj/item/stack/sheet/ms13/refined_steel = 3,
+				/obj/item/stack/sheet/ms13/scrap_parts = 5)
+	category = CAT_WEAPONS
+	crafting_interface = CRAFTING_BENCH_WEAPONS
+
 //ELECTRONICS CRAFTING
 
 /datum/crafting_recipe/shart_flashlight
