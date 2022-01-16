@@ -79,9 +79,9 @@
 				//Center the icon where the user clicked.
 				if(!LAZYACCESS(modifiers, ICON_X) || !LAZYACCESS(modifiers, ICON_Y))
 					return
-				//Clamp it so that the icon never moves more than 12 pixels to the side or 8 pixels up (thus leaving the turf)
-				used_item.pixel_x = used_item.base_pixel_x + clamp(text2num(LAZYACCESS(modifiers, ICON_X)) - 12, -(world.icon_size/2), world.icon_size/2)
-				used_item.pixel_y = used_item.base_pixel_y + clamp(text2num(LAZYACCESS(modifiers, ICON_Y)) - 8, -(world.icon_size/2), world.icon_size/2)
+				//Clamp it so that the icon never moves more than 10 pixels to the side or 6 pixels up (thus leaving the turf)
+				used_item.pixel_x = used_item.base_pixel_x + clamp(text2num(LAZYACCESS(modifiers, ICON_X)) - 10, -(world.icon_size/2), world.icon_size/2)
+				used_item.pixel_y = used_item.base_pixel_y + clamp(text2num(LAZYACCESS(modifiers, ICON_Y)) - 6, -(world.icon_size/2), world.icon_size/2)
 		else
 			return ..()
 

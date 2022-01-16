@@ -5,7 +5,6 @@
 	worn_icon = 'mojave/icons/mob/clothing/head.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
-	flags_inv = HIDEHAIR
 	armor = list(melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 10, bio = 20,  fire = 0, acid = 10)
 	dynamic_hair_suffix = "+generic"
 	dynamic_fhair_suffix = "+generic"
@@ -683,6 +682,25 @@
 	desc = "A standard NCR infantry helmet with the addition of a blue cross for identifying the soldier as a medic."
 	icon_state = "ncr_medic_helmet"
 	inhand_icon_state = "ncr_medic_helmet"
+
+/obj/item/clothing/head/helmet/ms13/ncr/engineer
+	name = "\improper NCR engineer helmet"
+	desc = "A standard NCR infantry helmet with the addition of a firm chin strap and some added welding goggles. Used almost exclusively by NCR engineers."
+	icon_state = "ncr_engi_helmet"
+	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH
+	flash_protect = FLASH_PROTECTION_WELDER
+	tint = 2
+	flags_inv = HIDEEARS|HIDEEYES
+	toggle_message = "You pull the welding goggles down on"
+	alt_toggle_message = "You push the welding goggles up on"
+	actions_types = list(/datum/action/item_action/toggle)
+	visor_flags_inv = HIDEEARS|HIDEEYES
+	visor_flags_cover = HEADCOVERSEYES | PEPPERPROOF
+	resistance_flags = FIRE_PROOF
+	clothing_flags = SNUG_FIT | PLASMAMAN_HELMET_EXEMPT
+
+/obj/item/clothing/head/helmet/ms13/ncr/engineer/attack_self(mob/user)
+	weldingvisortoggle(user)
 
 /obj/item/clothing/head/helmet/ms13/ncr/goggles
 	name = "\improper NCR goggles helmet"
