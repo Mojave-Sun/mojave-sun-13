@@ -174,7 +174,6 @@
 	. = ..()
 	mymob.overlay_fullscreen("lighting_backdrop_lit", /atom/movable/screen/fullscreen/lighting_backdrop/lit)
 	mymob.overlay_fullscreen("lighting_backdrop_unlit", /atom/movable/screen/fullscreen/lighting_backdrop/unlit)
-	mymob.overlay_fullscreen("sunlight_backdrop", /atom/movable/screen/fullscreen/lighting_backdrop/Sunlight) //MOJAVE MODULE OUTDOOR_EFFECTS
 
 /*!
  * This system works by exploiting BYONDs color matrix filter to use layers to handle emissive blockers.
@@ -190,6 +189,9 @@
 	. = ..()
 	add_filter("emissives", 1, alpha_mask_filter(render_source = EMISSIVE_RENDER_TARGET, flags = MASK_INVERSE))
 	add_filter("object_lighting", 2, alpha_mask_filter(render_source = O_LIGHTING_VISUAL_RENDER_TARGET, flags = MASK_INVERSE))
+	// Add our sunlight color
+	if(SSoutdoor_effects.initialized)
+		vis_contents +=  SSoutdoor_effects.sun_color //MOJAVE MODULE OUTDOOR_EFFECTS
 
 
 /**
