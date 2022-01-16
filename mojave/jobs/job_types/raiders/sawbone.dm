@@ -11,6 +11,8 @@
 
 	display_order = JOB_DISPLAY_ORDER_MS13_SAWBONE
 
+	mind_traits = list(TRAIT_MEDICAL_TRAINING)
+
 /datum/outfit/job/ms13/raiders/sawbone
 	name = "_Raider Sawbone"
 	jobtype = /datum/job/ms13/raiders/sawbone

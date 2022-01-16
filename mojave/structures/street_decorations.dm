@@ -9,6 +9,7 @@
 	max_integrity = 2000
 	pixel_x = -32
 	pixel_y = 8
+	resistance_flags = INDESTRUCTIBLE
 
 /obj/machinery/power/ms13/streetlamp/Initialize()
 	. = ..()
@@ -51,6 +52,7 @@
 	max_integrity = 2000
 	pixel_x = -32
 	icon_state = "trafficlightright"
+	resistance_flags = INDESTRUCTIBLE
 
 /obj/machinery/power/ms13/trafficlight/alt
 	icon_state = "trafficlightleft"

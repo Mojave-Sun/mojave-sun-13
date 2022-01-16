@@ -18,13 +18,26 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	drop_sound = 'sound/items/handling/cloth_drop.ogg'
 	pickup_sound =  'sound/items/handling/cloth_pickup.ogg'
+	var/leather_amount = 2 //How much leather you get from skinning the hide
+
+/obj/item/ms13/hide/attackby(obj/item/W, mob/user, params)
+	if(W.tool_behaviour == TOOL_KNIFE)
+		user.show_message(span_notice("You begin turning [src] into leather."), MSG_VISUAL)
+		if(do_after(user, 15 SECONDS * W.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_LEATHER)) 
+			user.show_message(span_notice("You make leather out of [src]!"), MSG_VISUAL)
+			new /obj/item/stack/sheet/ms13/leather(user.loc, 1 * leather_amount)
+			qdel(src)
+
+/obj/item/ms13/hide/examine(mob/user)
+	. = ..()
+	. += span_notice("You could use a <b>knife</b> to turn [src] into leather.")
 
 /obj/item/ms13/hide/gecko
 	name = "gecko hide"
 	desc = "A skinned gecko hide."
 	icon_state = "gecko_hide"
 	inhand_icon_state = "gecko_hide"
-	throw_range = 3
+	leather_amount = 2
 
 /obj/item/ms13/hide/gecko/ice
 	icon_state = "icegecko_hide"
@@ -39,7 +52,7 @@
 	desc = "A skinned wolf hide."
 	icon_state = "wolf_hide"
 	inhand_icon_state = "wolf_hide"
-	throw_range = 3
+	leather_amount = 3
 
 /obj/item/ms13/hide/mongrel
 	name = "mongrel hide"
@@ -53,14 +66,14 @@
 	desc = "A skinned molerat hide."
 	icon_state = "molerat_hide"
 	inhand_icon_state = "molerat_hide"
-	throw_range = 3
+	leather_amount = 2
 
 /obj/item/ms13/hide/pigrat
 	name = "pigrat hide"
 	desc = "A skinned pigrat hide."
 	icon_state = "pigrat_hide"
 	inhand_icon_state = "pigrat_hide"
-	throw_range = 3
+	leather_amount = 3
 
 /obj/item/ms13/hide/brahmin
 	name = "brahmin hide"
@@ -69,6 +82,7 @@
 	inhand_icon_state = "brahmin_hide"
 	throw_range = 2
 	w_class = WEIGHT_CLASS_BULKY
+	leather_amount = 6
 
 /obj/item/ms13/hide/radstag
 	name = "radstag hide"
@@ -77,6 +91,7 @@
 	inhand_icon_state = "radstag_hide"
 	throw_range = 2
 	w_class = WEIGHT_CLASS_BULKY
+	leather_amount = 5
 
 /obj/item/ms13/hide/brahmiluff
 	name = "brahmiluff hide"
@@ -85,6 +100,7 @@
 	inhand_icon_state = "brahmiluff_hide"
 	throw_range = 2
 	w_class = WEIGHT_CLASS_BULKY
+	leather_amount = 8
 
 /obj/item/ms13/hide/tunneler
 	name = "tunneler hide"
@@ -109,6 +125,7 @@
 	inhand_icon_state = "yaoguai_hide"
 	throw_range = 2
 	w_class = WEIGHT_CLASS_BULKY
+	leather_amount = 10
 
 /obj/item/ms13/hide/slepnir
 	name = "slepnir hide"
@@ -117,6 +134,7 @@
 	inhand_icon_state = "slepnir_hide"
 	throw_range = 2
 	w_class = WEIGHT_CLASS_BULKY
+	leather_amount = 6
 
 /obj/item/ms13/hide/large/hellpig
 	name = "hellpig hide"
@@ -125,6 +143,7 @@
 	inhand_icon_state = "hellpig_hide"
 	throw_range = 2
 	w_class = WEIGHT_CLASS_HUGE
+	leather_amount = 12
 
 /obj/item/ms13/hide/large/ComponentInitialize()
 	. = ..()
@@ -156,7 +175,7 @@
 	return
 
 /obj/item/food/meat/slab/ms13/carcass/MakeProcessable()
-	AddElement(/datum/element/processable, TOOL_KNIFE,  /obj/item/food/meat/slab, meat_amount, 45 SECONDS * toolspeed)
+	AddElement(/datum/element/processable, TOOL_KNIFE,  /obj/item/food/meat/slab, meat_amount, 40 SECONDS * toolspeed)
 
 //small/medium
 

@@ -181,6 +181,7 @@
 	ammo_type = /obj/item/ammo_casing/ms13/c4570
 	caliber = "4570"
 	max_ammo = 6
+	multiple_sprites = AMMO_BOX_PER_BULLET
 
 /obj/item/ammo_box/ms13/tube44
 	name = ".44 speed loader tube"
@@ -189,6 +190,7 @@
 	ammo_type = /obj/item/ammo_casing/ms13/m44
 	caliber = "44"
 	max_ammo = 8
+	multiple_sprites = AMMO_BOX_PER_BULLET
 
 /obj/item/ammo_box/ms13/tube357
 	name = ".357 speed loader tube"
@@ -197,6 +199,7 @@
 	ammo_type = /obj/item/ammo_casing/ms13/a357
 	caliber = "357"
 	max_ammo = 7
+	multiple_sprites = AMMO_BOX_PER_BULLET
 
 //Shotgun ammo boxes
 

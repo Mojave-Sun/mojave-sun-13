@@ -46,6 +46,7 @@
 	attack_verb_continuous = list("saws", "slashes", "tears", "rips")
 	attack_verb_simple = list("saw", "slash", "tear", "rip")
 	sharpness = IS_SHARP_AXE // Cut down da TREE. Cut down da WOOD.
+	tool_behaviour = TOOL_SAW
 	slot_flags = ITEM_SLOT_BELT
 	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_NORMAL
@@ -72,8 +73,9 @@
 	bare_wound_bonus = 4
 	attack_verb_continuous = list("drills", "pierces", "stabs", "impales", "jabs")
 	attack_verb_simple = list("drill", "pierce", "stab", "impale", "jab")
-	sharpness = SHARP_POINTY // Cut down da TREE. Cut down da WOOD.
+	sharpness = SHARP_POINTY
 	slot_flags = ITEM_SLOT_BELT
+	tool_behaviour = TOOL_DRILL
 	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_NORMAL
 	log_pickup_and_drop = TRUE
@@ -120,7 +122,7 @@
 	throwforce = 10
 	wound_bonus = 0
 	bare_wound_bonus = 5
-	max_fuel = 50
+	max_fuel = 40
 	light_color = "#7c84a7"
 	w_class = WEIGHT_CLASS_NORMAL
 	log_pickup_and_drop = TRUE
@@ -163,7 +165,7 @@
 	sharpness = NONE
 	wound_bonus = 0
 	bare_wound_bonus = 0
-	w_class = WEIGHT_CLASS_NORMAL
+	w_class = WEIGHT_CLASS_SMALL
 	log_pickup_and_drop = TRUE
 
 /obj/item/wrench/ms13/Initialize()

@@ -34,7 +34,7 @@
 
 /obj/item/clothing/gloves/ms13/leather
 	name = "leather gloves"
-	desc = "A pair of brown leather gloves. They've seen better days but they'll keep your hands protected."
+	desc = "A pair of brown leather gloves. They don't look pretty, but they'll keep your hands protected."
 	icon_state = "leather"
 	inhand_icon_state = "bgloves"
 

@@ -801,9 +801,9 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 // MOJAVE JOB TRAITS START
 
-/*
-* trait granted by medical jobs - allows crafting proper medical equipment
-*/
-#define TRAIT_MEDICAL_TRAINING "medical_training"
+
+#define TRAIT_MEDICAL_TRAINING "medical_training" //Trait for medical jobs that allows better crafting of medical items
+
+#define TRAIT_SCRIBE_TRAINING "scribe_training" //Trait for BoS Scribes that allows better electronics crafting
 
 // MOJAVE JOB TRAITS END

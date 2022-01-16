@@ -11,6 +11,8 @@
 
 	display_order = JOB_DISPLAY_ORDER_MS13_DOCTOR
 
+	mind_traits = list(TRAIT_MEDICAL_TRAINING)
+
 /datum/outfit/job/ms13/town/doctor
 	name = "_Town Doctor"
 	jobtype = /datum/job/ms13/town/doctor

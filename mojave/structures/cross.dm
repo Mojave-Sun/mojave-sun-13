@@ -1,6 +1,15 @@
 #define VIABLE_MOB_CHECK(X) (isliving(X) && !issilicon(X) && !isbot(X))
 
 /obj/structure/kitchenspike/ms13
+	max_integrity = 200
+
+/obj/structure/kitchenspike/ms13/crowbar_act(mob/living/user, obj/item/I)
+	return
+
+/obj/structure/kitchenspike/ms13/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		new /obj/item/stack/sheet/ms13/scrap(loc)
+	qdel(src)
 
 /obj/structure/kitchenspike/ms13/cross
 	name = "cross"

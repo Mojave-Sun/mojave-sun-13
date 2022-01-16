@@ -5,7 +5,6 @@
 	worn_icon = 'mojave/icons/mob/clothing/head.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
-	flags_inv = HIDEHAIR
 	armor = list(melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 10, bio = 20,  fire = 0, acid = 10)
 	dynamic_hair_suffix = "+generic"
 	dynamic_fhair_suffix = "+generic"
@@ -103,7 +102,7 @@
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 
 /obj/item/clothing/head/helmet/ms13/skull
-	name = "radstag skull"
+	name = "radstag skull helmet"
 	desc = "The skull of a radstag with some padding to be used as a makeshift helmet."
 	icon_state = "radstag"
 	inhand_icon_state = "w_shoes"
@@ -111,8 +110,8 @@
 	flags_inv = HIDEEARS|HIDEFACE
 
 /obj/item/clothing/head/helmet/ms13/skull/muffalo
-	name = "muffalo skull"
-	desc = "The skull of a muffalo with some padding to be used as a makeshift helmet."
+	name = "brahmiluff skull helmet"
+	desc = "The skull of a brahmiluff with some padding to be used as a makeshift helmet."
 	icon_state = "muffalo"
 
 /obj/item/clothing/head/helmet/ms13/eyebot
@@ -398,6 +397,25 @@
 	icon_state = "tophat"
 	inhand_icon_state = "that"
 
+/obj/item/clothing/head/helmet/ms13/tall/cone
+	desc = "A once bright warning device, now a staple of wasteland fashion."
+	name = "warning cone"
+	icon_state = "cone"
+	inhand_icon_state = "cone"
+	force = 1
+	throwforce = 5
+	throw_speed = 2
+	throw_range = 5
+	attack_verb_continuous = list("warns", "cautions", "smashes")
+	attack_verb_simple = list("warn", "caution", "smash")
+	resistance_flags = NONE
+	flags_inv = HIDEHAIR
+	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 5,  fire = 5, acid = 5, wound = 0)
+	dynamic_hair_suffix = ""
+
+/obj/item/clothing/head/helmet/ms13/tall/cone/attack_self(mob/user)
+	weldingvisortoggle(user)
+
 // Caps //
 
 /obj/item/clothing/head/helmet/ms13/baseball
@@ -664,6 +682,25 @@
 	desc = "A standard NCR infantry helmet with the addition of a blue cross for identifying the soldier as a medic."
 	icon_state = "ncr_medic_helmet"
 	inhand_icon_state = "ncr_medic_helmet"
+
+/obj/item/clothing/head/helmet/ms13/ncr/engineer
+	name = "\improper NCR engineer helmet"
+	desc = "A standard NCR infantry helmet with the addition of a firm chin strap and some added welding goggles. Used almost exclusively by NCR engineers."
+	icon_state = "ncr_engi_helmet"
+	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH
+	flash_protect = FLASH_PROTECTION_WELDER
+	tint = 2
+	flags_inv = HIDEEARS|HIDEEYES
+	toggle_message = "You pull the welding goggles down on"
+	alt_toggle_message = "You push the welding goggles up on"
+	actions_types = list(/datum/action/item_action/toggle)
+	visor_flags_inv = HIDEEARS|HIDEEYES
+	visor_flags_cover = HEADCOVERSEYES | PEPPERPROOF
+	resistance_flags = FIRE_PROOF
+	clothing_flags = SNUG_FIT | PLASMAMAN_HELMET_EXEMPT
+
+/obj/item/clothing/head/helmet/ms13/ncr/engineer/attack_self(mob/user)
+	weldingvisortoggle(user)
 
 /obj/item/clothing/head/helmet/ms13/ncr/goggles
 	name = "\improper NCR goggles helmet"

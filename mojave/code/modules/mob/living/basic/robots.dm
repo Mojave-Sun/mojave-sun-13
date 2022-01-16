@@ -67,9 +67,12 @@
     add_overlay(image(icon, "[shadow_type]", BELOW_MOB_LAYER, dir))
 
 /mob/living/basic/ms13/robot/handy/death()
-    . = ..()
-    do_sparks(3, TRUE, src)
-    qdel(src)
+	. = ..()
+	do_sparks(3, TRUE, src)
+	new /obj/item/stack/sheet/ms13/scrap/two(loc)
+	new /obj/item/stack/sheet/ms13/scrap_parts(loc)
+	new /obj/item/stack/sheet/ms13/scrap_electronics(loc)
+	qdel(src)
 
 /mob/living/basic/ms13/robot/handy/saw
     desc = "A work model Mr. Handy unit, armed with a horrifyingly sharp saw. It's long lost any rational wires in its circuits."

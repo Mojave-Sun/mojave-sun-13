@@ -14,7 +14,7 @@
 /datum/outfit/job/ms13/ncr/medic
 	name = "_NCR Medic"
 	jobtype = /datum/job/ms13/ncr/medic
-	id = 		 /obj/item/card/id/ms13/ncrtrooper/medic
+	id = 		 /obj/item/card/id/ms13/ncr/medic
 	head = 	     /obj/item/clothing/head/helmet/ms13/ncr/medic
 	suit =       /obj/item/clothing/suit/armor/ms13/ncr
 	gloves = 	 null
