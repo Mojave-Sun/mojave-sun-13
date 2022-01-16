@@ -442,6 +442,11 @@
 		icon_state = "[base_icon_state]"
 	FXtoggle()
 
+/obj/machinery/ms13/terminal/wall/examine(mob/user)
+	. = ..()
+	if(flippable)
+		. += span_notice("You can flip [src] up and down using <b>ALT+CLICK.</b>")
+
 /obj/machinery/ms13/terminal/wall/pristine
 	icon_state = "wallterminal_new"
 	base_icon_state = "wallterminal_new"
