@@ -186,8 +186,8 @@
 	. = ..()
 	if(welded)
 		. += span_notice("It's welded shut.")
-	if(anchored)
-		. += span_notice("It is <b>bolted</b> to the ground.")
+/*	if(anchored) // MOJAVE SUN EDIT BEGIN
+		. += span_notice("It is <b>bolted</b> to the ground.") */ // MOJAVE SUN EDIT END - No false reports, kids.
 	if(opened)
 		. += span_notice("The parts are <b>welded</b> together.")
 	else if(secure && !opened)
