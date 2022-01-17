@@ -11,6 +11,7 @@
 	integrity_failure = 0.25
 	armor = list(MELEE = 20, BULLET = 10, LASER = 10, ENERGY = 0, BOMB = 10, BIO = 0, FIRE = 70, ACID = 60)
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
+	anchored = TRUE // MOJAVE EDIT - Revert after CAT
 
 	/// The overlay for the closet's door
 	var/obj/effect/overlay/closet_door/door_obj
@@ -51,10 +52,10 @@
 	var/close_sound = 'sound/machines/closet_close.ogg'
 	var/open_sound_volume = 35
 	var/close_sound_volume = 50
-	var/material_drop = /obj/item/stack/sheet/iron
-	var/material_drop_amount = 2
+	var/material_drop = /obj/item/stack/sheet/ms13/scrap //MOJAVE EDIT - Drops our own scrap metal instead of TG iron. Revert after CAT
+	var/material_drop_amount = 1 //MOJAVE EDIT - Original value is 2. Revert after CAT
 	var/delivery_icon = "deliverycloset" //which icon to use when packagewrapped. null to be unwrappable.
-	var/anchorable = TRUE
+	var/anchorable = FALSE // MOJAVE EDIT - Original value is TRUE. Probably revert after CAT.
 	var/icon_welded = "welded"
 	/// How close being inside of the thing provides complete pressure safety. Must be between 0 and 1!
 	contents_pressure_protection = 0
@@ -185,8 +186,10 @@
 	. = ..()
 	if(welded)
 		. += span_notice("It's welded shut.")
+	/* // MOJAVE SUN EDIT BEGIN
 	if(anchored)
 		. += span_notice("It is <b>bolted</b> to the ground.")
+	*/ // MOJAVE SUN EDIT END - No false reports, kids.
 	if(opened)
 		. += span_notice("The parts are <b>welded</b> together.")
 	else if(secure && !opened)

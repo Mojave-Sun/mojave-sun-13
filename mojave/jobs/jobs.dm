@@ -6,7 +6,7 @@ GLOBAL_LIST_INIT(wasteland_positions, list(
 GLOBAL_LIST_INIT(town_positions, list(
 	"Town Mayor",
 	"Town Settler",
-	"Town Farmer",
+	"Town Worker",
 	"Town Bartender",
 	"Town Doctor",
 	"Town Nurse",
@@ -16,10 +16,10 @@ GLOBAL_LIST_INIT(town_positions, list(
 GLOBAL_LIST_INIT(ncr_positions, list(
 	"NCR Trooper",
 	"NCR Radioman",
-	"NCR Corporal",
-  "NCR Engineer",
+	"NCR Medic",
+	"NCR Engineer",
 	"NCR Sergeant",
-  "NCR Medical Officer",
+	"NCR Staff Sergeant",
 	"NCR Lieutenant"))
 
 GLOBAL_LIST_INIT(bos_positions, list(

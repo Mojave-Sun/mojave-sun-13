@@ -12,6 +12,42 @@
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	///Icon file for right inhand overlays
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
+	repairable_by = /obj/item/stack/sheet/ms13/cloth
+	limb_integrity = 100
+	max_integrity = 300
+
+/obj/item/clothing/under/ms13/attackby(obj/item/W, mob/user, params)
+	if(!istype(W, repairable_by))
+		if(W.tool_behaviour == TOOL_KNIFE)
+			user.show_message(span_notice("You begin shredding [src]."), MSG_VISUAL)
+			if(do_after(user, 3 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_CLOTHSHRED)) 
+				user.show_message(span_notice("You get cloth and thread from [src]!"), MSG_VISUAL)
+				new /obj/item/stack/sheet/ms13/thread(user.loc)
+				new /obj/item/stack/sheet/ms13/cloth(user.loc)
+				qdel(src)
+		else
+			return..()
+
+	switch(damaged_clothes)
+		if(CLOTHING_PRISTINE)
+			return..()
+		if(CLOTHING_DAMAGED)
+			var/obj/item/stack/cloth_repair = W
+			cloth_repair.use(1)
+			repair(user, params)
+			return TRUE
+		if(CLOTHING_SHREDDED)
+			var/obj/item/stack/cloth_repair = W
+			if(cloth_repair.amount < 3)
+				to_chat(user, span_warning("You require 3 [cloth_repair.name] to repair [src]."))
+				return TRUE
+			to_chat(user, span_notice("You begin fixing the damage to [src] with [cloth_repair]..."))
+			if(!do_after(user, 4 SECONDS, src) || !cloth_repair.use(3))
+				return TRUE
+			repair(user, params)
+			return TRUE
+
+	return ..()
 
 /obj/item/clothing/under/ms13/Initialize()
 	. = ..()
@@ -27,24 +63,33 @@
 	desc = "A pair of pants worn by caravaneers that can't seem to afford a shirt."
 	icon_state = "caravan"
 	inhand_icon_state = "tribalrag"
+	body_parts_covered = LEGS|GROIN
+	max_integrity = 220
 
 /obj/item/clothing/under/ms13/wasteland/pants
 	name = "cloth pants"
 	desc = "A relatively intact pair of cloth pants, grubby and dishevelled."
 	icon_state = "cloth"
 	inhand_icon_state = "tribalrag"
+	body_parts_covered = LEGS|GROIN
+	max_integrity = 220
 
 /obj/item/clothing/under/ms13/wasteland/ghoulpants
 	name = "tattered cloth pants"
 	desc = "A barely intact pair of ancient cloth pants."
 	icon_state = "ghoul"
 	inhand_icon_state = "tribalrag"
+	body_parts_covered = LEGS|GROIN
+	max_integrity = 200
+	limb_integrity = 80
 
 /obj/item/clothing/under/ms13/wasteland/warboypants
 	name = "leather pants"
 	desc = "A hardy, somewhat intimidating pair of black leather pants. Fastened and tightened with multiple belts."
 	icon_state = "warboy"
 	inhand_icon_state = "petcollar"
+	body_parts_covered = LEGS|GROIN
+	max_integrity = 220
 
 // wasteland //
 
@@ -53,6 +98,7 @@
 	desc = "A set of rags worn by those who can't seem to find better, or like things loose."
 	icon_state = "rag"
 	inhand_icon_state = "tribalrag"
+	max_integrity = 250
 
 /obj/item/clothing/under/ms13/wasteland/worn
 	name = "worn clothes"
@@ -61,7 +107,7 @@
 	inhand_icon_state = "ro_suit"
 
 /obj/item/clothing/under/ms13/wasteland/doctor
-	name = "doctor uniform"
+	name = "wasteland doctor uniform"
 	desc = "A set of identifiably dark green, ragged clothes usually worn by wasteland doctors."
 	icon_state = "doctor"
 	inhand_icon_state = "ro_suit"
@@ -113,7 +159,7 @@
 	inhand_icon_state = "shirt"
 
 /obj/item/clothing/under/ms13/wasteland/wanderer
-	name = "wanderer clothing"
+	name = "wanderer clothes"
 	desc = "A grubby shirt and jeans, for the roamer not held back by life."
 	icon_state = "wanderer"
 	inhand_icon_state = "shirt"
@@ -143,7 +189,7 @@
 	inhand_icon_state = "ro_suit"
 
 /obj/item/clothing/under/ms13/wasteland/caravaneer
-	name = "caravanner clothes"
+	name = "caravaneer clothes"
 	desc = "A set of clothes usually worn by caravaneers."
 	icon_state = "caravaneer"
 	inhand_icon_state = "redstripe"

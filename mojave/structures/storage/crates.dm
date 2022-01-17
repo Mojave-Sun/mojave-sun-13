@@ -4,6 +4,9 @@
 	name = "wasteland crate"
 	desc = "Holds wastelands, presumably."
 	icon = 'mojave/icons/structure/crates.dmi'
+	drag_slowdown = 1
+	max_integrity = 300
+	anchored = TRUE
 
 /obj/structure/closet/crate/ms13/woodcrate
 	name = "\improper wooden crate"
@@ -11,15 +14,15 @@
 	icon_state = "wood_crate"
 	density = TRUE
 	anchored = TRUE
-	material_drop = /obj/item/stack/sheet/mineral/wood
-	material_drop_amount = 4
+	material_drop = /obj/item/stack/sheet/ms13/scrap_wood
+	material_drop_amount = 1
 	delivery_icon = "deliverybox"
 	integrity_failure = 0 //Makes the crate break when integrity reaches 0, instead of opening and becoming an invisible sprite.
 	open_sound = 'sound/machines/wooden_closet_open.ogg'
 	close_sound = 'sound/machines/wooden_closet_close.ogg'
 	open_sound_volume = 25
 	close_sound_volume = 50
-	max_integrity = 500
+	max_integrity = 400
 	armor = list(MELEE = 50, BULLET = 10, LASER = 10, ENERGY = 0, BOMB = 10, BIO = 0, FIRE = 70, ACID = 60)
 	var/breakable = TRUE
 	var/prying = FALSE
@@ -40,26 +43,25 @@
 	. = ..()
 	. += deconstruction_hints(user)
 
+/obj/structure/closet/crate/ms13/woodcrate/proc/deconstruction_hints(mob/user)
+	return span_notice("The [src] is tightly sealed, but you could use a <b>crowbar</b> or similar prying tool to <b>open</b> it.")
+
 /obj/structure/closet/crate/ms13/woodcrate/attack_hand(mob/user)
 	add_fingerprint(user)
 	if(manifest)
 		tear_manifest(user)
-
-/obj/structure/closet/crate/ms13/woodcrate/proc/deconstruction_hints(mob/user)
-	return "<span class='notice'>The [src] is tightly sealed, but you could use a <b>crowbar<b> to <b>open</b> it.</span>"
 
 /obj/structure/closet/crate/ms13/woodcrate/attackby(obj/item/W, mob/living/user, params)
 	if(W.tool_behaviour == TOOL_CROWBAR && breakable)
 		if(manifest)
 			tear_manifest(user)
 		if(!prying)
-			var/time_to_open = 11 SECONDS
 			user.visible_message("<span class='notice'>[user] starts to break \the [src] open.</span>", \
 					"<span class='notice'>You start to break \the [src] open.</span>", \
 					"<span class='hear'>You hear splitting wood.</span>")
 			playsound(src.loc, 'mojave/sound/ms13effects/wood_deconstruction.ogg', 50, TRUE)
 			prying = TRUE
-			if(do_after(user, time_to_open, target = src))
+			if(do_after(user, 8 SECONDS * W.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_CRATEOPEN))
 				user.visible_message("<span class='notice'>[user] pries \the [src] open.</span>", \
 					"<span class='notice'>You pry open \the [src].</span>", \
 					"<span class='hear'>You hear splitting wood.</span>")
@@ -83,7 +85,7 @@
 /obj/structure/closet/crate/ms13/woodcrate/compact
 	icon_state = "plain_crate"
 	anchored = FALSE //smaller bois
-	max_integrity = 350
+	max_integrity = 300
 	armor = list(MELEE = 35, BULLET = 10, LASER = 10, ENERGY = 0, BOMB = 10, BIO = 0, FIRE = 70, ACID = 60)
 	altstates = 3
 
@@ -105,6 +107,9 @@
 	name = "\improper Vault-Tec crate"
 	desc = "A crate designed for the rigours of vault life. Looks like it didn't handle life outside too well."
 	icon_state = "vault_standard"
+	max_integrity = 400
+	material_drop = /obj/item/stack/sheet/ms13/scrap
+	material_drop_amount = 1
 
 /obj/structure/closet/crate/ms13/vault_tec/pristine
 	name = "\improper Vault-Tec crate"
@@ -145,18 +150,24 @@
 	name = "wooden footlocker"
 	desc = "The best way to store various supplies."
 	icon_state = "footlocker_wood"
+	material_drop = /obj/item/stack/sheet/ms13/scrap_wood
+	material_drop_amount = 1
 
 /obj/structure/closet/crate/ms13/enclave
 	name = "high-tech crate"
 	desc = "Stores items, in style!"
 	icon_state = "enclave"
+	material_drop = /obj/item/stack/sheet/ms13/scrap
+	material_drop_amount = 1
 
 /obj/structure/closet/crate/ms13/medical
 	name = "medical locker"
 	desc = "Useful for storing blood, organs, or just about whatever you could wish for. Has some handles and rollers under it for transporation, but is very bulky."
 	icon_state = "medical"
 	anchored = FALSE
-	drag_slowdown = 0.25
+	drag_slowdown = 0.5
+	material_drop = /obj/item/stack/sheet/ms13/scrap
+	material_drop_amount = 1
 
 /obj/structure/closet/crate/ms13/cash_register
 	name = "cash register"
@@ -166,6 +177,8 @@
 	layer = ABOVE_MOB_LAYER
 	max_mob_size = MOB_SIZE_TINY
 	mob_storage_capacity = 1
+	material_drop = /obj/item/stack/sheet/ms13/scrap
+	material_drop_amount = 1
 
 /obj/structure/closet/crate/ms13/cash_register/prewar
 	name = "pristine cash register"
@@ -176,18 +189,26 @@
 	name = "army crate"
 	desc = "A crate used for transporting or storing goods. This one has army star drawn on it."
 	icon_state = "army"
+	material_drop = /obj/item/stack/sheet/ms13/scrap
+	material_drop_amount = 1
 
 /obj/structure/closet/crate/ms13/aluminum
 	name = "aluminum crate"
 	desc = "A crate used for transporting or storing goods. This one is made of aluminum."
 	icon_state = "aluminum"
+	material_drop = /obj/item/stack/sheet/ms13/scrap_alu
+	material_drop_amount = 1
 
 /obj/structure/closet/crate/ms13/red
 	name = "red crate"
 	desc = "A crate used for transporting or storing goods. This one is colored red."
 	icon_state = "red"
+	material_drop = /obj/item/stack/sheet/ms13/scrap
+	material_drop_amount = 1
 
 /obj/structure/closet/crate/ms13/vault
 	name = "vault crate"
 	desc = "A crate used for transporting or storing goods. This one has vault logo on it."
 	icon_state = "vault"
+	material_drop = /obj/item/stack/sheet/ms13/scrap
+	material_drop_amount = 1

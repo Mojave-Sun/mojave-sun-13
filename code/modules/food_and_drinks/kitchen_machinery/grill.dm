@@ -35,12 +35,12 @@
 	return ..()
 
 /obj/machinery/grill/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/stack/sheet/mineral/coal) || istype(I, /obj/item/stack/sheet/mineral/wood))
+	if(istype(I, /obj/item/stack/sheet/ms13/plank) || istype(I, /obj/item/stack/sheet/ms13/scrap_wood)) //MOJAVE EDIT - Takes our wood instead of TG wood and coal. Revert after CAT
 		var/obj/item/stack/S = I
 		var/stackamount = S.get_amount()
 		to_chat(user, span_notice("You put [stackamount] [I]s in [src]."))
-		if(istype(I, /obj/item/stack/sheet/mineral/coal))
-			grill_fuel += (500 * stackamount)
+		if(istype(I, /obj/item/stack/sheet/ms13/plank)) //MOJAVE EDIT - Takes our wood instead of TG coal. Adjusted fuel amounts accordingly. Revert after CAT
+			grill_fuel += (150 * stackamount)
 		else
 			grill_fuel += (50 * stackamount)
 		S.use(stackamount)
@@ -117,8 +117,8 @@
 /obj/machinery/grill/deconstruct(disassembled = TRUE)
 	finish_grill()
 	if(!(flags_1 & NODECONSTRUCT_1))
-		new /obj/item/stack/sheet/iron(loc, 5)
-		new /obj/item/stack/rods(loc, 5)
+		new /obj/item/stack/sheet/ms13/scrap(loc) //MOJAVE EDIT - Drops our scrap instead of TG iron and rods. Revert after CAT
+		new /obj/item/stack/sheet/ms13/scrap_parts(loc)
 	..()
 
 /obj/machinery/grill/attack_ai(mob/user)

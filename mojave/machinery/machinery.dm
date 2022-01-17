@@ -44,8 +44,6 @@
 	density = 1
 	bound_height = 64
 	bound_width = 64
-	bound_x = 64
-	bound_y = 64
 	light_color = "#50afee"
 	light_range = 4
 	light_power = 0.3
@@ -88,19 +86,19 @@
 	freerange = TRUE  // If true, the radio has access to the full spectrum.
 	freqlock = TRUE  // Frequency lock to stop the user from untuning specialist radios.
 	radio_broadcast = RADIOSTATIC_LIGHT
+	var/destroyable = FALSE
 
 /obj/item/radio/intercom/ms13/Initialize(mapload)
 	. = ..()
-	wires = new /datum/wires/radio(src)
-	if(prison_radio)
-		wires.cut(WIRE_TX) // OH GOD WHY
-	secure_radio_connections = new
-	for(var/ch_name in channels)
-		secure_radio_connections[ch_name] = add_radio(src, GLOB.radiochannels[ch_name])
+	AddElement(/datum/element/wall_mount)
 
-	become_hearing_sensitive(ROUNDSTART_TRAIT)
-	if(dir == SOUTH)
-		pixel_y = 28
+/obj/item/radio/intercom/ms13/attackby(obj/item/W, mob/living/user, params)
+	if(!destroyable)
+		return
+	if(!user.combat_mode && !(W.item_flags & NOBLUDGEON))
+		return attack_hand(user)
+	else
+		return //aint no_one yoinkin our intercom
 
 /obj/item/radio/intercom/ms13/ui_data(mob/user) // These should be set up to be closed off from everything else, and thus will be neutered and set to a set frequency.
 	var/list/data = list()
@@ -110,17 +108,120 @@
 
 // Buttons //
 
-/obj/machinery/button/door/ms13
+/obj/machinery/button/ms13
 	name = "button"
 	desc = "A remote control switch."
 	icon = 'mojave/icons/structure/machinery.dmi'
 	icon_state = "button"
 	skin = "button"
+	var/normaldoorcontrol = FALSE
+	var/specialfunctions = OPEN // Bitflag, see assembly file
+	var/sync_doors = TRUE
+	var/destroyable = FALSE
 
-/obj/machinery/button/door/ms13/Initialize(mapload)
+/obj/machinery/button/ms13/setup_device() //Adds this so we can have our own future functionality, instead of making 4000 button types for each individual thing
+	if(!device)
+		if(normaldoorcontrol)
+			var/obj/item/assembly/control/airlock/A = new(src)
+			A.specialfunctions = specialfunctions
+			device = A
+		else
+			var/obj/item/assembly/control/C = new(src)
+			C.sync_doors = sync_doors
+			device = C
+	..()
+
+/obj/machinery/button/ms13/Initialize(mapload)
 	. = ..()
-	if(dir == SOUTH)
-		pixel_y = 28
+	AddElement(/datum/element/wall_mount)
 
-/obj/machinery/button/door/ms13/attackby(obj/item/W, mob/living/user, params)
-	return // no opening these
+/obj/machinery/button/ms13/attackby(obj/item/W, mob/living/user, params)
+	if(!destroyable)
+		return
+	if(!user.combat_mode && !(W.item_flags & NOBLUDGEON))
+		return attack_hand(user)
+	else
+		return //aint no_one yoinkin our button
+
+// Misc Machinery //
+
+/obj/machinery/ms13/coffee //beanening when
+	name = "coffee machine"
+	desc = "An old pre-war coffee machine, still functional somehow, if only you had some goddamn beans."
+	icon = 'mojave/icons/structure/machinery.dmi'
+	icon_state = "coffee"
+	var/has_mug = FALSE //this is deep as fuark
+	var/list/mugs
+	var/obj/item/reagent_containers/food/drinks/mug = null
+	max_integrity = 150
+
+/obj/machinery/ms13/coffee/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
+	if(flags_1&NODECONSTRUCT_1)
+		return TRUE
+	..()
+	weapon.play_tool_sound(src)
+	if(do_after(user, 12 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+		deconstruct(disassembled = TRUE)
+		return TRUE
+
+/obj/machinery/ms13/coffee/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/scrap_alu(loc)
+			new /obj/item/stack/sheet/ms13/plastic(loc)
+			new /obj/item/stack/sheet/ms13/scrap_parts/two(loc)
+			new /obj/item/stack/sheet/ms13/scrap_copper/two(loc)
+			new /obj/item/stack/sheet/ms13/scrap_electronics(loc)
+		else
+			new /obj/item/stack/sheet/ms13/scrap_alu(loc)
+			new /obj/item/stack/sheet/ms13/plastic(loc)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
+	qdel(src)
+
+/obj/machinery/ms13/coffee/examine(mob/user)
+	. = ..()
+	. += deconstruction_hints(user)
+
+/obj/machinery/ms13/coffee/proc/deconstruction_hints(mob/user)
+	return span_notice("You could use a <b>screwdriver</b> to take apart [src] for parts.")
+
+/obj/machinery/ms13/coffee/update_icon()
+	. = ..()
+	if(has_mug)
+		icon_state = "coffee_cup"
+	else
+		icon_state = initial(icon_state)
+
+/obj/machinery/ms13/coffee/attackby(obj/item/I, mob/living/user, params)
+	if(istype(I, /obj/item/reagent_containers/food/drinks/mug/ms13))
+		var/obj/item/reagent_containers/B = I
+		. = TRUE //no afterattack
+		if(!user.transferItemToLoc(B, src))
+			return
+		replace_mug(user, B)
+		has_mug = TRUE
+		to_chat(user, span_notice("You add [B] to [src]."))
+		update_appearance()
+		return TRUE //no afterattack
+
+/obj/machinery/ms13/coffee/attack_hand()
+	if(has_mug == TRUE)
+		eject()
+
+/obj/machinery/ms13/coffee/proc/eject(mob/user)
+	if(mug)
+		try_put_in_hand(mug, user)
+		mug = null
+	has_mug = FALSE
+	update_appearance()
+
+/obj/machinery/ms13/coffee/proc/replace_mug(mob/living/user, obj/item/reagent_containers/new_mug)
+	if(!user)
+		return FALSE
+	if(mug)
+		try_put_in_hand(mug, user)
+		mug = null
+	if(new_mug)
+		mug = new_mug
+	update_appearance()
+	return TRUE

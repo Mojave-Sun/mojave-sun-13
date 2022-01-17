@@ -6,97 +6,102 @@
 /obj/item/card/id/ms13
 	name = "\improper ID tag"
 	desc = "A simple identification tag. This is a base class and you shouldn't be seeing it."
-	icon = 'mojave/icons/objects/dogtags.dmi'
+	icon = 'mojave/icons/objects/identification/dogtags_world.dmi'
 	icon_state = "bos_holotag"
 	var/datum/bank_account = null
 
+/obj/item/card/id/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/identification/dogtags_inventory.dmi')
+
 /obj/item/card/id/ms13/doctor
-	name = "doctor's ID card"
-	desc = "A laminated but also very crude looking medical identification badge that has been scribbled on extensively. By wasteland standards, this is actually quite professional."
+	name = "doctor's ID badge"
+	desc = "A very crisp and clean medical identification badge. Even has a clip. By Wasteland standards, this is incredibly professional."
 	assignment = "Town Doctor"
 	icon_state = "doctor"
 
 /obj/item/card/id/ms13/doctor/nurse
-	name = "nurse's ID card"
+	name = "nurse's ID badge"
 	assignment = "Town Nurse"
 
 /obj/item/card/id/ms13/mayor
-	name = "mayor's ID card"
-	desc = "A very faded gold identification card that looks very, very old and the many edits to the card make it seem like it has seen many owners. But whoever owns this now is surely important."
+	name = "mayor's badge"
+	desc = "A gold star badge with a blue stamp in the middle, indicating this badge belongs to the Mayor."
 	assignment = "Town Mayor"
 	icon_state = "mayor"
 
 /obj/item/card/id/ms13/deputy
 	name = "deputy's badge"
-	desc = "A silver badge which shows honour and dedication. Has some electronic workings sloppily attached to the back of it."
+	desc = "A dull silver Deputy's badge. Classic."
 	assignment = "Town Deputy"
 	icon_state = "deputy"
 
 /obj/item/card/id/ms13/deputy/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/card/id/ms13/sheriff))
 		registered_name = stripped_input(user, "Who do you want to designate as your deputy?", , "", MAX_NAME_LEN)
-		to_chat(user, "You scribble the [registered_name] for the name on the badge.")
+		to_chat(user, "You scribble [registered_name] for the name on the badge.")
 		update_label()
 	return ..()
 
 /obj/item/card/id/ms13/sheriff
 	name = "sheriff's badge"
-	desc = "A golden Sheriff's badge. Has some electronic workings sloppily attached to the back of it."
+	desc = "A golden Sheriff's badge. Strikes fear into the hearts of wrongdoers."
 	assignment = "Town Sheriff"
 	icon_state = "sheriff"
 
-/obj/item/card/id/ms13/ncrrecruit
-	name = "recruit's tags"
-	desc = "A dog tag proving enlistment in the NCR, issued to local recruits."
-	assignment = "NCR Recruit"
-	icon_state = "ncrdogtagtrooper"
+/obj/item/card/id/ms13/town
+	name = "town passport"
+	desc = "A fancy looking passport proving residency in the Town. Stamped by the Mayor to prove it's authenticity."
+	assignment = "Town Settler"
+	icon_state = "passport"
 
-/obj/item/card/id/ms13/ncrrecruit/attackby(obj/item/W, mob/user, params)
-	if(istype(W, /obj/item/card/id/ms13/ncrlieutenant))
+/obj/item/card/id/ms13/town/worker
+	assignment = "Town Worker"
+
+/obj/item/card/id/ms13/town/bartender
+	assignment = "Town Bartender"
+
+/obj/item/card/id/ms13/ncr
+	name = "\improper NCR dog tags"
+	desc = "Standard NCR dog tags. The assignment listed on the tag is 'Trooper' and the rank is listed as 'Private First Class'."
+	icon_state = "ncrdogtag"
+	assignment = "NCR Trooper"
+
+/obj/item/card/id/ms13/ncr/recruit
+	name = "\improper NCR recruit dog tags"
+	desc = "Standard NCR dog tags. The assignment listed on the tag is 'Recruit' and the rank is listed as 'Private'."
+	assignment = "NCR Recruit"
+
+/obj/item/card/id/ms13/ncr/recruit/attackby(obj/item/W, mob/user, params)
+	if(istype(W, /obj/item/card/id/ms13/ncr/lieutenant))
 		registered_name = stripped_input(user, "Who do you want to designate as a recruit?", , "", MAX_NAME_LEN)
-		to_chat(user, "You scribble the [registered_name] for the name on the dogtag.")
+		to_chat(user, "You scribble [registered_name] for the name on the dogtag.")
 		update_label()
 	return ..()
 
-/obj/item/card/id/ms13/ncrtrooper
-	name = "\improper NCR trooper's tags"
-	desc = "A dog tag proving enlistment in the NCR."
-	icon_state = "ncrdogtagtrooper"
-	assignment = "NCR Trooper"
-
-/obj/item/card/id/ms13/ncrtrooper/medic
-	name = "\improper NCR medic's tags"
+/obj/item/card/id/ms13/ncr/medic
+	desc = "Standard NCR dog tags. The assignment listed on the tag is 'Medic' and the rank is listed as 'Specialist'."
 	assignment = "NCR Medic"
 
-/obj/item/card/id/ms13/ncrtrooper/radioman
-	name = "\improper NCR radioman's tags"
+/obj/item/card/id/ms13/ncr/engineer
+	desc = "Standard NCR dog tags. The assignment listed on the tag is 'Engineer' and the rank is listed as 'Specialist'."
+	assignment = "NCR Engineer"
+
+/obj/item/card/id/ms13/ncr/radioman
+	desc = "Standard NCR dog tags. The assignment listed on the tag is 'Radioman' and the rank is listed as 'Corporal'."
 	assignment = "NCR Radioman"
 
-/obj/item/card/id/ms13/ncrsergeant
-	name = "\improper NCR sergeant's tags"
-	desc = "A chevron decorated dog tag showing NCO status within the NCR."
-	icon_state = "ncrdogtagsergeant"
+/obj/item/card/id/ms13/ncr/sergeant
+	desc = "Standard NCR dog tags. The assignment listed on the tag is 'Squad Leader' and the rank is listed as 'Sergeant'."
 	assignment = "NCR Sergeant"
 
-/obj/item/card/id/ms13/ncrsergeant/staff
-	name = "\improper NCR staff sergeant's tags"
+/obj/item/card/id/ms13/ncr/staff_sergeant
+	desc = "Standard NCR dog tags. The assignment listed on the tag is 'Platoon Sergeant' and the rank is listed as 'Staff Sergeant'."
 	assignment = "NCR Staff Sergeant"
 
-/obj/item/card/id/ms13/ncrlieutenant
-	name = "\improper NCR lieutenant's tags"
-	desc = "A silver bar dog tag that denotes a member of the NCR military with a lieutenant commission."
-	icon_state = "ncrdogtagofficer"
+/obj/item/card/id/ms13/ncr/lieutenant
+	desc = "Standard NCR dog tags. The assignment listed on the tag is 'Platoon Commander' and the rank is listed as 'First Lieutenant'."
 	assignment = "NCR Lieutenant"
-
-/obj/item/card/id/ms13/ncrcaptain
-	name = "captain's tags"
-	desc = "A dog tag that demands respect from all those subordinate to it. This one belongs to an NCR captain."
-	icon_state = "ncrdogtagcaptain"
-
-/obj/item/card/id/ms13/ncrranger
-	name = "ranger's tags"
-	desc = "A dog tag that invokes fear in those who see it. Belongs to an elite of the NCR, usually with a big iron on their hip."
-	icon_state = "ncrdogtagranger"
 
 /obj/item/card/id/ms13/legrecruit
 	name = "recruit medallion"
@@ -136,7 +141,7 @@
 /obj/item/card/id/ms13/sawbone
 	name = "sawbone's patch"
 	desc = "A nice rectangular patch with a little hole to loop a string through if you really wanted to. It's a bit bloody."
-	assignment = "Raider Sawbones"
+	assignment = "Raider Sawbone"
 	icon_state = "sawbone"
 
 /obj/item/card/id/ms13/enforcer
@@ -184,22 +189,22 @@
 	icon_state = "bos_holotag"
 
 /obj/item/card/id/ms13/bos/headpaladin
-	assignment = "Head Paladin"
+	assignment = "BoS Head Paladin"
 
 /obj/item/card/id/ms13/bos/paladin
-	assignment = "Paladin"
+	assignment = "BoS Paladin"
 
 /obj/item/card/id/ms13/bos/knight
-	assignment = "Knight"
+	assignment = "BoS Knight"
 
 /obj/item/card/id/ms13/bos/initiate
-	assignment = "Initiate"
+	assignment = "BoS Initiate"
 
 /obj/item/card/id/ms13/bos/headscribe
-	assignment = "Head Scribe"
+	assignment = "BoS Head Scribe"
 
 /obj/item/card/id/ms13/bos/scribe
-	assignment = "Scribe"
+	assignment = "BoS Scribe"
 
 // Combat Test IDs //
 

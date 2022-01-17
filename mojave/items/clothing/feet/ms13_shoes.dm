@@ -23,13 +23,13 @@
 	inhand_icon_state = "rag"
 
 /obj/item/clothing/shoes/ms13/tan
-	name = "tan shoes"
+	name = "tan leather shoes"
 	desc = "A pair of tanned leather shoes."
 	icon_state = "tan"
 	inhand_icon_state = "tan"
 
-/obj/item/clothing/shoes/ms13/brownie //Make a craft recipe, and delete this comment.
-	name = "brown shoes"
+/obj/item/clothing/shoes/ms13/brownie
+	name = "brown leather shoes"
 	desc = "A hardy pair of brown leather shoes."
 	icon_state = "brownie"
 	inhand_icon_state = "brownie"
@@ -48,7 +48,7 @@
 	strip_delay = 40
 
 /obj/item/clothing/shoes/ms13/winter/black
-	name = "black winter boots"
+	name = "dark winter boots"
 	desc = "A pair of black winter boots. For those who think brown winter boots are far too basic."
 	icon_state = "winterbootsblack"
 	inhand_icon_state = "winterbootsblack"

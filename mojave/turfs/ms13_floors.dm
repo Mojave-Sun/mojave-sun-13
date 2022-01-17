@@ -37,6 +37,9 @@
 /turf/open/floor/wood/ms13/try_replace_tile(obj/item/stack/tile/T, mob/user, params)
 	return
 
+/turf/open/floor/wood/screwdriver_act(mob/living/user, obj/item/I)
+	return
+
 /turf/open/floor/wood/ms13/common
 	icon_state = "wood_common"
 	alternate_states = 6

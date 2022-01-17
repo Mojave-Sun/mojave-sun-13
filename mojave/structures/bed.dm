@@ -3,11 +3,16 @@
 	desc = "Scream at the coders if you see this."
 	icon = 'mojave/icons/structure/beds.dmi'
 
+/obj/structure/bed/ms13/wrench_act_secondary(mob/living/user, obj/item/weapon)
+	return
+
 //bed//
 
 /obj/structure/bed/ms13/bedframe
 	name = "base class Mojave Sun bedframe"
 	desc = "Scream at the coders if you see this."
+	buildstacktype = /obj/item/stack/sheet/ms13/scrap
+	buildstackamount = 1
 
 /obj/structure/bed/ms13/bedframe/wire
 	name = "wireframe bed"
@@ -26,14 +31,18 @@
 
 /obj/structure/bed/ms13/bedframe/wood
 	name = "wood bed"
-	desc = "A panel bed made from rotting wood."
+	desc = "A panel bed made from wood."
 	icon_state = "wood_bed"
+	buildstacktype = /obj/item/stack/sheet/ms13/scrap_wood
+	buildstackamount = 1
 
 //mattress//
 
 /obj/structure/bed/ms13/mattress
 	name = "base class Mojave Sun mattress"
 	desc = "Scream at the coders if you see this."
+	buildstacktype = /obj/item/stack/sheet/ms13/cloth
+	buildstackamount = 2
 
 /obj/structure/bed/ms13/mattress/dirty
 	name = "mattress"
@@ -70,6 +79,8 @@
 /obj/structure/bed/ms13/sleepingbag
 	name = "base class Mojave Sun sleeping bag"
 	desc = "Scream at the coders if you see this."
+	buildstacktype = /obj/item/stack/sheet/ms13/cloth
+	buildstackamount = 2
 
 /obj/structure/bed/ms13/sleepingbag/red
 	name = "sleeping bag"
@@ -90,6 +101,8 @@
 	desc = "A stiff bed often found in medical locations. Useful for triage and further disabling your patients with back pain."
 	icon_state = "bed_medical"
 	density = TRUE // tallboi
+	buildstacktype = /obj/item/stack/sheet/ms13/scrap
+	buildstackamount = 1
 
 /obj/structure/bed/ms13/medical/post_buckle_mob(mob/living/M)
 	M.pixel_y = M.base_pixel_y
@@ -108,8 +121,8 @@
 	name = "roller bed"
 	icon = 'mojave/icons/structure/beds.dmi'
 	icon_state = "rollingbed_down"
-	anchored = FALSE
-	resistance_flags = NONE
+	buildstacktype = /obj/item/stack/sheet/ms13/scrap
+	buildstackamount = 1
 
 /obj/structure/bed/roller/ms13/post_buckle_mob(mob/living/M)
 	set_density(TRUE)

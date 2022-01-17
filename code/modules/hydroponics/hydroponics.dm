@@ -692,7 +692,7 @@
 			to_chat(user, span_warning("[src] already has seeds in it!"))
 			return
 
-	else if(istype(O, /obj/item/cultivator))
+	else if(istype(O, /obj/item/shovel/ms13/rake)) // MOJAVE SUN EDIT - Original Path /obj/item/cultivator
 		if(weedlevel > 0)
 			user.visible_message(span_notice("[user] uproots the weeds."), span_notice("You remove the weeds from [src]."))
 			set_weedlevel(0)

@@ -10,6 +10,7 @@
     amount = 12
     self_delay = 3.5 SECONDS
     other_delay = 2 SECONDS
+    repeating = FALSE
     heal_brute = 8
     stop_bleeding = 0.75
     gender = NEUTER //So examine text says "This is a suture" instead of "These are some suture"
@@ -36,7 +37,7 @@
     inhand_icon_state = "ointment"
     amount = 12
     max_amount = 12
-    repeating = TRUE
+    repeating = FALSE
     self_delay = 2.5 SECONDS
     other_delay = 1.5 SECONDS
     heal_burn = 8
@@ -86,16 +87,18 @@
     righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
     icon_state = "bandage"
     inhand_icon_state = "bandage"
-    self_delay = 2.5 SECONDS
-    other_delay = 1.5 SECONDS
+    self_delay = 2 SECONDS
+    other_delay = 1 SECONDS
     max_amount = 12
     amount = 12
     absorption_rate = 0.12
     absorption_capacity = 5
     splint_factor = 0.6
     burn_cleanliness_bonus = 0.6
-
     merge_type = /obj/item/stack/medical/gauze/ms13
+
+/obj/item/stack/medical/gauze/ms13/attackby(obj/item/I, mob/user, params)
+    return
 
 /obj/item/stack/medical/gauze/ms13/Initialize()
 	. = ..()
@@ -106,6 +109,9 @@
 
 /obj/item/stack/medical/gauze/ms13/three
     amount = 3
+
+/obj/item/stack/medical/gauze/ms13/one
+    amount = 1
 
 /obj/item/stack/medical/gauze/ms13/military
     name = "military gauze"

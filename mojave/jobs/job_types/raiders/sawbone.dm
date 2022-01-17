@@ -1,5 +1,5 @@
 /datum/job/ms13/raiders/sawbone
-	title = "Sawbone"
+	title = "Raider Sawbone"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "The Boss and the Enforcer"
@@ -10,6 +10,8 @@
 	outfit = /datum/outfit/job/ms13/raiders/sawbone
 
 	display_order = JOB_DISPLAY_ORDER_MS13_SAWBONE
+
+	mind_traits = list(TRAIT_MEDICAL_TRAINING)
 
 /datum/outfit/job/ms13/raiders/sawbone
 	name = "_Raider Sawbone"

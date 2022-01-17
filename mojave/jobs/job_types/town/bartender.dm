@@ -15,6 +15,7 @@
 	name = "_Town Bartender"
 	jobtype = /datum/job/ms13/town/bartender
 
+	id =		 /obj/item/card/id/ms13/town/bartender
 	suit =       /obj/item/clothing/suit/ms13/vest/black
 	uniform =    /obj/item/clothing/under/ms13/vaultsuit
 	gloves = 	 /obj/item/clothing/gloves/color/white

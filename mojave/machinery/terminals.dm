@@ -11,7 +11,7 @@
 	light_color = LIGHT_COLOR_GREEN
 	pixel_y = 8
 	layer = BELOW_OBJ_LAYER
-	max_integrity = 550 // Hearty lil things.
+	max_integrity = 500 // Hearty lil things.
 	integrity_failure = 0
 	idle_power_usage = 300
 	active_power_usage = 300
@@ -37,6 +37,10 @@
 	"Bunker Location",
 	"Free caps") // Suffer
 	var/chosen_joker = ""
+	//Used for the Background
+	var/main_color = "#062113"
+	//Used for the Text
+	var/secondary_color = "#4aed92"
 
 // Document variables
 	var/doc_title_1 = "readme"
@@ -80,6 +84,39 @@
 	if(!broken)
 		write_documents()
 
+/obj/machinery/ms13/terminal/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
+	if(flags_1&NODECONSTRUCT_1)
+		return TRUE
+	..()
+	weapon.play_tool_sound(src)
+	if(do_after(user, 30 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+		deconstruct(disassembled = TRUE)
+		return TRUE
+
+/obj/machinery/ms13/terminal/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/scrap(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 3)
+			new /obj/item/stack/sheet/ms13/glass(loc)
+			new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 3)
+			new /obj/item/stack/sheet/ms13/scrap_copper(loc, 3)
+			new /obj/item/stack/sheet/ms13/circuits(loc)
+		else
+			new /obj/item/stack/sheet/ms13/scrap(loc)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
+			new /obj/item/stack/sheet/ms13/glass(loc)
+			new /obj/item/stack/sheet/ms13/scrap_electronics(loc)
+			new /obj/item/stack/sheet/ms13/scrap_copper(loc)
+	qdel(src)
+
+/obj/machinery/ms13/terminal/examine(mob/user)
+	. = ..()
+	. += deconstruction_hints(user)
+
+/obj/machinery/ms13/terminal/proc/deconstruction_hints(mob/user)
+	return span_notice("You could use a <b>screwdriver</b> to carefully take apart [src] for parts.")
+
 /obj/machinery/ms13/terminal/proc/FXtoggle() // For overlays/sound
 	if(!broken && active)
 		add_overlay(image(icon, "[screen_icon]", ABOVE_OBJ_LAYER, dir))
@@ -92,7 +129,7 @@
 	. = ..()
 	if(prob(35))
 		do_sparks(1, FALSE, src)
-	if(atom_integrity < 450)
+	if(atom_integrity < 250)
 		broken = TRUE
 		desc = "[initial(desc)] It looks broken."
 		FXtoggle()
@@ -128,7 +165,7 @@
 	var/clicksound = pick('mojave/sound/ms13machines/terminals/ui_hacking_charenter_01.ogg','mojave/sound/ms13machines/terminals/ui_hacking_charenter_02.ogg', 'mojave/sound/ms13machines/terminals/ui_hacking_charenter_03.ogg',)
 	playsound(src, clicksound, 50, FALSE)
 	var/dat = ""
-	dat += "<head><style>body {padding: 0; margin: 15px; background-color: #062113; color: #4aed92; line-height: 170%;} a, button, a:link, a:visited, a:active, .linkOn, .linkOff {color: #4aed92; text-decoration: none; background: #062113; border: none; padding: 1px 4px 1px 4px; margin: 0 2px 0 0; cursor:default;} a:hover {color: #062113; background: #4aed92; border: 1px solid #4aed92} a.white, a.white:link, a.white:visited, a.white:active {color: #4aed92; text-decoration: none; background: #4aed92; border: 1px solid #161616; padding: 1px 4px 1px 4px; margin: 0 2px 0 0; cursor:default;} a.white:hover {color: #062113; background: #4aed92;} .linkOn, a.linkOn:link, a.linkOn:visited, a.linkOn:active, a.linkOn:hover {color: #4aed92; background: #062113; border-color: #062113;} .linkOff, a.linkOff:link, a.linkOff:visited, a.linkOff:active, a.linkOff:hover{color: #4aed92; background: #062113; border-color: #062113;}</style></head><font face='courier'>"
+	dat += "<head><style>body {padding: 0; margin: 15px; background-color: [main_color]; color: [secondary_color]; line-height: 170%;} a, button, a:link, a:visited, a:active, .linkOn, .linkOff {color: [secondary_color]; text-decoration: none; background: [main_color]; border: none; padding: 1px 4px 1px 4px; margin: 0 2px 0 0; cursor:default;} a:hover {color: [main_color]; background: [secondary_color]; border: 1px solid [secondary_color]} a.white, a.white:link, a.white:visited, a.white:active {color: [secondary_color]; text-decoration: none; background: [secondary_color]; border: 1px solid #161616; padding: 1px 4px 1px 4px; margin: 0 2px 0 0; cursor:default;} a.white:hover {color: [main_color]; background: [secondary_color];} .linkOn, a.linkOn:link, a.linkOn:visited, a.linkOn:active, a.linkOn:hover {color: [secondary_color]; background: [main_color]; border-color: [main_color];} .linkOff, a.linkOff:link, a.linkOff:visited, a.linkOff:active, a.linkOff:hover{color: [secondary_color]; background: [main_color]; border-color: [main_color];}</style></head><font face='courier'>"
 	dat += "<center><b>ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM v.92</b><br>"
 	dat += "<b>COPYRIGHT 2075-2077 ROBCO INDUSTRIES</b><br>"
 	switch (mode) // Text at the top of the page
@@ -376,12 +413,13 @@
 	termtag = "Utility"
 	active = FALSE
 	density = FALSE
-	pixel_y = 28
+	var/flippable = TRUE
 
-/obj/machienry/ms13/terminal/wall/Initialize(mapload)
+/obj/machinery/ms13/terminal/wall/Initialize(mapload)
 	. = ..()
-	if(dir == !SOUTH)
-		pixel_y = 0
+	if(!flippable)
+		active = TRUE
+	AddElement(/datum/element/wall_mount)
 
 /obj/machinery/ms13/terminal/wall/AltClick(mob/user)
 	. = ..()
@@ -390,6 +428,8 @@
 	if(broken)
 		return
 	update_icon_state()
+	if(!flippable)
+		return
 	if(!active)
 		playsound(src, 'mojave/sound/ms13machines/terminals/keyboard_down.ogg', 50, FALSE)
 		playsound(src, 'mojave/sound/ms13machines/terminals/poweron.ogg', 50, FALSE)
@@ -402,6 +442,11 @@
 		icon_state = "[base_icon_state]"
 	FXtoggle()
 
+/obj/machinery/ms13/terminal/wall/examine(mob/user)
+	. = ..()
+	if(flippable)
+		. += span_notice("You can flip [src] up and down using <b>ALT+CLICK.</b>")
+
 /obj/machinery/ms13/terminal/wall/pristine
 	icon_state = "wallterminal_new"
 	base_icon_state = "wallterminal_new"
@@ -409,3 +454,12 @@
 /obj/machinery/ms13/terminal/wall/rust
 	icon_state = "wallterminal_rusted"
 	base_icon_state = "wallterminal_rusted"
+
+/obj/machinery/ms13/terminal/wall/classic
+	icon_state = "terminal_classic"
+	base_icon_state = "terminal_classic"
+	screen_icon = "terminal_classic_screen"
+	light_color = LIGHT_COLOR_DARK_BLUE
+	main_color = "#1e3645"
+	secondary_color = "#597d89"
+	flippable = FALSE
