@@ -6,9 +6,13 @@
 /obj/item/card/id/ms13
 	name = "\improper ID tag"
 	desc = "A simple identification tag. This is a base class and you shouldn't be seeing it."
-	icon = 'mojave/icons/objects/dogtags.dmi'
+	icon = 'mojave/icons/objects/identification/dogtags_world.dmi'
 	icon_state = "bos_holotag"
 	var/datum/bank_account = null
+
+/obj/item/card/id/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/identification/dogtags_inventory.dmi')
 
 /obj/item/card/id/ms13/doctor
 	name = "doctor's ID badge"

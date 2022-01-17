@@ -1,14 +1,18 @@
 /obj/item/radio/ms13
-	icon = 'mojave/icons/objects/hamradio.dmi'
+	icon = 'mojave/icons/objects/tools/tools_world.dmi'
 	name = "receiver hand radio"
 	icon_state = "handradio"
-	inhand_icon_state = "handradio_"
+	inhand_icon_state = "handradio"
 	desc = "A basic handheld radio that recieves over a relatively long range, unfortunately this one can't broadcast."
 	canhear_range = 2
 	freerange = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	custom_materials = list(/datum/material/iron=75, /datum/material/glass=25)
 	radio_broadcast = 100 //Cannot broadcast. If someone manages to circumvent, it should be complete static.
+
+/obj/item/radio/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
 /obj/item/radio/ms13/can_receive(freq, level, AIuser)
 	if(ishuman(src.loc))

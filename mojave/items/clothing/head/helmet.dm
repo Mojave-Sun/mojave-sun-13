@@ -8,6 +8,7 @@
 	armor = list(melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 10, bio = 20,  fire = 0, acid = 10)
 	dynamic_hair_suffix = "+generic"
 	dynamic_fhair_suffix = "+generic"
+	flags_inv = HIDEHAIR
 
 /obj/item/clothing/head/helmet/ms13/Initialize()
 	. = ..()
