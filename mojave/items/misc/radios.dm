@@ -1,6 +1,8 @@
 /obj/item/radio/ms13
-	icon = 'mojave/icons/objects/tools/tools_world.dmi'
 	name = "receiver hand radio"
+	icon = 'mojave/icons/objects/tools/tools_world.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
 	icon_state = "handradio"
 	inhand_icon_state = "handradio"
 	desc = "A basic handheld radio that recieves over a relatively long range, unfortunately this one can't broadcast."
