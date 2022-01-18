@@ -39,7 +39,19 @@
 	)
 
 /datum/ai_planning_subtree/basic_melee_attack_subtree/ms13/robot
-	melee_attack_behavior = /datum/ai_behavior/basic_melee_attack/ms13/hostile_animal/sidestep
+	melee_attack_behavior = /datum/ai_behavior/basic_melee_attack/ms13/robot
+
+/datum/ai_behavior/basic_melee_attack/ms13/robot
+	action_cooldown = 1.5 SECONDS
+	///Cooldown until next sidestep
+	COOLDOWN_DECLARE(sidestep_cooldown)
+
+/datum/ai_behavior/basic_melee_attack/ms13/robot/perform(delta_time, datum/ai_controller/controller, target_key, targetting_datum_key, hiding_location_key)
+	..()
+	if(COOLDOWN_FINISHED(src, sidestep_cooldown))
+		var/atom/movable/movable_pawn = controller.pawn
+		movable_pawn.Move(get_step(movable_pawn, turn((get_dir(movable_pawn, controller.current_movement_target)), pick(90, -90))))
+		COOLDOWN_START(src, sidestep_cooldown, rand(1.5 SECONDS, 3 SECONDS))
 
 /mob/living/basic/ms13/robot/handy
     name = "Mr. Handy"
