@@ -866,7 +866,7 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "aId" = (
-/obj/machinery/door/airlock/ms13/brotherhood{
+/obj/machinery/door/airlock/ms13{
 	dir = 4
 	},
 /turf/open/floor/ms13/metal,
@@ -2398,11 +2398,6 @@
 	dir = 8
 	},
 /turf/open/floor/wood/ms13/wide,
-/area/ms13/town)
-"bWP" = (
-/obj/effect/decal/cleanable/glass,
-/obj/item/toy/crayon/orange,
-/turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "bWR" = (
 /obj/effect/landmark/start/ms13/wastelander,
@@ -4102,12 +4097,7 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "dtG" = (
-/obj/item/storage/belt/janitor,
 /obj/structure/ms13/storage/shelf/rust,
-/turf/open/floor/ms13/tile/brown,
-/area/ms13/town)
-"dtO" = (
-/obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/ms13/tile/brown,
 /area/ms13/town)
 "dtR" = (
@@ -5989,6 +5979,12 @@
 	},
 /turf/open/floor/wood/ms13/carpet,
 /area/ms13/town)
+"eNg" = (
+/obj/structure/disposalpipe/trunk/multiz/down{
+	dir = 4
+	},
+/turf/open/floor/wood/ms13/common,
+/area/ms13/town)
 "eNA" = (
 /obj/structure/chair/ms13/metal/unfinished{
 	dir = 4
@@ -6696,7 +6692,7 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "fmI" = (
-/obj/machinery/door/airlock/ms13/town/doctor,
+/obj/machinery/door/airlock/ms13,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/vault_atrium_middle)
 "fmT" = (
@@ -8711,7 +8707,7 @@
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/bos)
 "gwE" = (
-/obj/machinery/door/airlock/ms13/brotherhood,
+/obj/machinery/door/airlock/ms13,
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/bos)
 "gwG" = (
@@ -9036,7 +9032,7 @@
 /turf/open/floor/ms13/tile/long,
 /area/ms13/underground/vault_atrium_middle)
 "gHE" = (
-/obj/machinery/door/airlock/ms13/brotherhood,
+/obj/machinery/door/airlock/ms13,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/bos)
 "gIj" = (
@@ -19026,6 +19022,11 @@
 /obj/structure/toilet,
 /turf/open/floor/ms13/tile,
 /area/ms13/ncr)
+"mSq" = (
+/obj/structure/closet/crate/ms13/aluminum,
+/obj/item/reagent_containers/glass/bucket,
+/turf/open/floor/ms13/tile/brown,
+/area/ms13/town)
 "mSw" = (
 /obj/machinery/door/unpowered/ms13/wood/blue{
 	dir = 8
@@ -21895,7 +21896,7 @@
 /turf/open/floor/ms13/tile/full/navy,
 /area/ms13/town)
 "pbB" = (
-/obj/machinery/door/airlock/ms13/town/doctor,
+/obj/machinery/door/airlock/ms13,
 /turf/open/floor/ms13/tile/long,
 /area/ms13/underground/vault_atrium_middle)
 "pbI" = (
@@ -22475,10 +22476,6 @@
 	},
 /turf/open/floor/ms13/tile/large/cafeteria,
 /area/ms13/supermarket)
-"qfK" = (
-/obj/machinery/door/airlock/ms13/town/security,
-/turf/open/floor/ms13/metal/grate/border,
-/area/ms13/underground/vault_atrium_middle)
 "qfP" = (
 /obj/structure/table/ms13/metal/grate,
 /obj/effect/spawner/random/ms13/tools/fishing,
@@ -23156,6 +23153,15 @@
 	dir = 1
 	},
 /area/ms13/underground/vault_atrium_middle)
+"rxa" = (
+/obj/structure/disposaloutlet{
+	dir = 1
+	},
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/turf/open/floor/wood/ms13/common,
+/area/ms13/town)
 "rxh" = (
 /obj/structure/bonfire/ms13/campfire,
 /turf/open/floor/plating/ms13/ground/snow,
@@ -23362,7 +23368,7 @@
 /turf/open/floor/plating/ms13/ground/snow,
 /area/ms13)
 "rQt" = (
-/obj/machinery/door/airlock/ms13/town/security{
+/obj/machinery/door/airlock/ms13{
 	dir = 4
 	},
 /turf/open/floor/ms13/metal/grate/border,
@@ -24086,7 +24092,7 @@
 	},
 /area/ms13/town)
 "tAf" = (
-/obj/machinery/door/airlock/ms13/brotherhood{
+/obj/machinery/door/airlock/ms13{
 	dir = 4
 	},
 /turf/open/floor/ms13/concrete/bricks,
@@ -24227,7 +24233,7 @@
 /turf/open/floor/ms13/tile/blue/long,
 /area/ms13/town)
 "tMS" = (
-/obj/machinery/door/airlock/ms13/town/doctor{
+/obj/machinery/door/airlock/ms13{
 	dir = 4
 	},
 /turf/open/floor/ms13/tile/large/black,
@@ -24837,7 +24843,7 @@
 /turf/open/floor/ms13/tile/large/cafeteria,
 /area/ms13/town)
 "vft" = (
-/obj/machinery/door/airlock/ms13/brotherhood,
+/obj/machinery/door/airlock/ms13,
 /turf/open/floor/ms13/concrete/small,
 /area/ms13/underground/bos)
 "vfy" = (
@@ -24879,12 +24885,6 @@
 /obj/effect/spawner/random/ms13/melee/tier1,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
-"vmW" = (
-/obj/machinery/door/airlock/ms13/brotherhood{
-	dir = 4
-	},
-/turf/open/floor/ms13/concrete/industrial/alt,
-/area/ms13/underground/bos)
 "vnu" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 6
@@ -25229,7 +25229,7 @@
 	},
 /area/ms13/underground/tunnel/maintenance)
 "vZg" = (
-/obj/machinery/door/airlock/ms13/brotherhood,
+/obj/machinery/door/airlock/ms13,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/bos)
 "vZw" = (
@@ -41242,7 +41242,7 @@ jFK
 jFK
 jFK
 nbS
-qfK
+gjX
 gAT
 iqz
 vpe
@@ -41841,7 +41841,7 @@ jFK
 djS
 gAT
 rGn
-qfK
+gjX
 gAT
 rGn
 rGn
@@ -43960,7 +43960,7 @@ rGn
 rGn
 lrH
 gAT
-qfK
+gjX
 gAT
 rGn
 rGn
@@ -64710,7 +64710,7 @@ ykT
 ykT
 laG
 bSq
-bWP
+anG
 vVo
 anG
 wSc
@@ -65332,7 +65332,7 @@ wSc
 pwP
 dtG
 oJO
-dyJ
+dxA
 pwP
 xZD
 ykT
@@ -65634,7 +65634,7 @@ wSc
 drW
 oJO
 oJO
-oJO
+mSq
 pwP
 xZD
 ykT
@@ -65934,8 +65934,8 @@ wSc
 wSc
 wSc
 pwP
-dtO
-dxA
+dtG
+oJO
 dyL
 pwP
 xZD
@@ -73597,7 +73597,7 @@ lqe
 wSc
 wSc
 wSc
-wSc
+eNg
 mxp
 ylG
 fLf
@@ -73899,7 +73899,7 @@ idW
 idW
 wSc
 wSc
-wSc
+rxa
 mxp
 ylG
 fLL
@@ -88358,7 +88358,7 @@ iLT
 iLT
 iLT
 iLT
-vmW
+aId
 iLT
 iLT
 pHX
@@ -92581,7 +92581,7 @@ khQ
 khQ
 iLT
 iLT
-pHX
+tAf
 iLT
 iLT
 tAf
