@@ -1583,7 +1583,9 @@
 /area/ms13/town)
 "afc" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
-/obj/machinery/door/airlock/ms13/brotherhood,
+/obj/machinery/door/airlock/ms13/brotherhood{
+	name = "Command Center"
+	},
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/bos)
 "afd" = (
@@ -6076,7 +6078,8 @@
 "atl" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/machinery/door/unpowered/ms13/metal{
-	dir = 8
+	dir = 8;
+	name = "Snipers Shack"
 	},
 /turf/open/floor/plating/ms13/roof,
 /area/ms13/town)
@@ -6558,7 +6561,9 @@
 /area/ms13/town)
 "auP" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
-/obj/machinery/door/airlock/ms13/brotherhood/hpaladin,
+/obj/machinery/door/airlock/ms13/brotherhood/hpaladin{
+	name = "Head Paladins Office"
+	},
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/bos)
 "auQ" = (
@@ -10099,7 +10104,8 @@
 "aGA" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/machinery/door/unpowered/ms13/wood{
-	dir = 1
+	dir = 1;
+	name = "Creaky Bunks"
 	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/ncr)
@@ -12215,7 +12221,8 @@
 "aNF" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
 /obj/machinery/door/airlock/ms13/brotherhood{
-	dir = 4
+	dir = 4;
+	name = "Scribe Bunks"
 	},
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/bos)
@@ -16255,6 +16262,14 @@
 /obj/structure/ms13/storage/trashcan,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
+"cFu" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/door/unpowered/ms13/seethrough/metal{
+	dir = 8;
+	name = "Battlements"
+	},
+/turf/open/floor/ms13/metal,
+/area/ms13/town)
 "cQI" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/machinery/shower{
@@ -16427,6 +16442,14 @@
 	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
+"gEZ" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/door/unpowered/ms13/wood/white{
+	dir = 4;
+	name = "Sergeants Dorms"
+	},
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/ncr)
 "gJP" = (
 /obj/structure/ms13/storage/bookshelf{
 	dir = 1
@@ -17043,6 +17066,14 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/ms13/tile/large/checkered,
 /area/ms13/town)
+"tPB" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/door/unpowered/ms13/metal{
+	dir = 1;
+	name = "Raider Bunks"
+	},
+/turf/open/floor/wood/ms13/common,
+/area/ms13/town)
 "uaF" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/table/ms13/no_smooth/wood/low,
@@ -17087,6 +17118,13 @@
 /obj/structure/closet/ms13/fridge,
 /obj/effect/spawner/random/ms13/food/produce_random,
 /turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
+"vrT" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/door/unpowered/ms13/metal{
+	name = "Raider Bunks"
+	},
+/turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "vtF" = (
 /obj/structure/table/ms13/low_wall/brick/alt,
@@ -17220,6 +17258,15 @@
 	},
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
+"xCY" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/door/unpowered/ms13/wood{
+	dir = 1
+	},
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/ncr{
+	name = "Creaky Bunks"
+	})
 "yhM" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/ms13/barricade{
@@ -29583,7 +29630,7 @@ aLH
 all
 all
 all
-aiK
+gEZ
 all
 all
 all
@@ -29591,11 +29638,11 @@ aiK
 all
 all
 all
-aiK
+gEZ
 all
 all
 all
-aiK
+gEZ
 all
 aOu
 aMt
@@ -33829,7 +33876,7 @@ ahV
 aMt
 aMt
 aMt
-aGA
+xCY
 aMt
 aMt
 aMt
@@ -75529,7 +75576,7 @@ aXI
 aJB
 aJB
 aXI
-aVM
+cFu
 aXI
 aJB
 aJB
@@ -79455,10 +79502,10 @@ aAP
 aAP
 aAP
 aAP
-aAm
+vrT
 aAP
 aAP
-agS
+tPB
 aAP
 aAP
 aAP
@@ -81871,10 +81918,10 @@ aAP
 aAP
 aAP
 aAP
-aAm
+vrT
 aAP
 aAP
-agS
+tPB
 aAP
 aAP
 aAP
@@ -83988,7 +84035,7 @@ apW
 apW
 aAP
 aAP
-agS
+tPB
 aAP
 aAP
 aAP
@@ -86404,7 +86451,7 @@ apW
 apW
 aAP
 aAP
-agS
+tPB
 aAP
 aAP
 aAP

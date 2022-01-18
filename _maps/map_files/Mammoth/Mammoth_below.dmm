@@ -825,7 +825,9 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/underground/underground_town)
 "acM" = (
-/obj/machinery/door/airlock/ms13/brotherhood,
+/obj/machinery/door/airlock/ms13/brotherhood{
+	name = "Cell I"
+	},
 /turf/open/floor/ms13/metal/grate/border,
 /area/ms13/underground/bos)
 "acN" = (
@@ -7578,7 +7580,9 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "aBs" = (
-/obj/machinery/door/airlock/ms13/brotherhood,
+/obj/machinery/door/airlock/ms13/brotherhood{
+	name = "Morgue"
+	},
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/bos)
 "aBt" = (
@@ -8939,7 +8943,8 @@
 /area/ms13/underground/military_crypt)
 "aGn" = (
 /obj/machinery/door/unpowered/ms13/metal{
-	dir = 8
+	dir = 8;
+	name = "Staff Sergeants Office"
 	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/ncr)
@@ -10399,7 +10404,8 @@
 /area/ms13/town)
 "aLA" = (
 /obj/machinery/door/airlock/ms13/brotherhood{
-	dir = 4
+	dir = 4;
+	name = "Anti-ERP Showers of Doom"
 	},
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/bos)
@@ -14002,7 +14008,9 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/military_crypt)
 "aYN" = (
-/obj/machinery/door/airlock/ms13/brotherhood,
+/obj/machinery/door/airlock/ms13/brotherhood{
+	name = "Scribes Workshop"
+	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/bos)
 "aYO" = (
@@ -14486,6 +14494,12 @@
 /obj/effect/spawner/random/ms13/crafting/lowrandom,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"dOm" = (
+/obj/machinery/door/airlock/ms13/brotherhood{
+	name = "High-Risk Prisoner Containment"
+	},
+/turf/open/floor/ms13/metal/grate/border/warning,
+/area/ms13/underground/bos)
 "dRh" = (
 /obj/structure/table/ms13/no_smooth/large/metal/desk{
 	dir = 1
@@ -14532,6 +14546,12 @@
 "euM" = (
 /turf/closed/wall/ms13/wood,
 /area/ms13/underground/vault_atrium_lower)
+"fhB" = (
+/obj/machinery/door/airlock/ms13/brotherhood{
+	name = "Cell III"
+	},
+/turf/open/floor/ms13/metal/grate/border,
+/area/ms13/underground/bos)
 "fkF" = (
 /obj/structure/fluff/ms13/barrel/double/waste,
 /turf/open/floor/plating/ms13/ground/mountain,
@@ -15021,6 +15041,13 @@
 	dir = 1
 	},
 /area/ms13/underground/sewer)
+"suw" = (
+/obj/machinery/door/airlock/ms13/brotherhood{
+	dir = 4;
+	name = "Ultra High Security Super Laundromat Deluxse"
+	},
+/turf/open/floor/ms13/metal,
+/area/ms13/underground/bos)
 "sHS" = (
 /obj/structure/fluff/ms13/barrel/double/grey/two,
 /turf/open/floor/ms13/tile/full/green,
@@ -15050,6 +15077,12 @@
 	dir = 4
 	},
 /area/ms13/underground/vault_atrium_lower)
+"tRi" = (
+/obj/machinery/door/airlock/ms13/brotherhood{
+	name = "Cell II"
+	},
+/turf/open/floor/ms13/metal/grate/border,
+/area/ms13/underground/bos)
 "uac" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/structure/ms13/storage/shelf{
@@ -15142,6 +15175,13 @@
 /obj/effect/spawner/random/ms13/ammo/lowrandom,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/sewer)
+"wCY" = (
+/obj/machinery/door/airlock/ms13/brotherhood{
+	dir = 4;
+	name = "Cellblock"
+	},
+/turf/open/floor/ms13/metal,
+/area/ms13/underground/bos)
 "wFx" = (
 /obj/effect/spawner/random/ms13/crafting/electrical,
 /turf/open/floor/ms13/metal/plate,
@@ -74537,11 +74577,11 @@ alU
 alU
 alU
 alU
-aLA
+suw
 alU
 alU
 alU
-aLA
+wCY
 alU
 alU
 azt
@@ -78152,7 +78192,7 @@ azt
 acM
 azt
 azt
-aBt
+dOm
 asV
 asV
 alU
@@ -79055,7 +79095,7 @@ afU
 alU
 ayd
 azt
-acM
+tRi
 azt
 azt
 alU
@@ -79961,7 +80001,7 @@ afU
 alU
 ayd
 azt
-acM
+fhB
 azt
 azt
 alU
