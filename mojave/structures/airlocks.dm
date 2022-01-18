@@ -14,3 +14,24 @@
 
 /obj/machinery/door/airlock/ms13/Bumped(atom/movable/AM)
 	return
+
+//// Town Doors ////
+
+/obj/machinery/door/airlock/ms13/town
+
+/obj/machinery/door/airlock/ms13/town/mayor
+	req_access = list(ACCESS_TOWN_MAYOR)
+
+/obj/machinery/door/airlock/ms13/town/security
+	req_access = list(ACCESS_TOWN_LAW)
+
+/obj/machinery/door/airlock/ms13/town/doctor
+	req_access = list(ACCESS_TOWN_DOCTOR)
+
+//// Brotherhood doors ////
+
+/obj/machinery/door/airlock/ms13/brotherhood
+	req_access = list(ACCESS_BROTHERHOOD)
+
+/obj/machinery/door/airlock/ms13/brotherhood/hpaladin
+	req_access = list(ACCESS_BROTHERHOOD, ACCESS_BROTHERHOOD_HPALADIN)

@@ -825,7 +825,7 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/underground/underground_town)
 "acM" = (
-/obj/machinery/door/airlock/ms13,
+/obj/machinery/door/airlock/ms13/brotherhood,
 /turf/open/floor/ms13/metal/grate/border,
 /area/ms13/underground/bos)
 "acN" = (
@@ -1168,12 +1168,6 @@
 	},
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/underground_town)
-"aed" = (
-/obj/structure/disposalpipe/trunk/multiz{
-	dir = 8
-	},
-/turf/open/floor/ms13/concrete/industrial,
-/area/ms13/town)
 "aee" = (
 /obj/structure/bed/ms13/bedframe/wood,
 /turf/open/floor/ms13/concrete,
@@ -2287,11 +2281,11 @@
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/enclave_base)
 "ail" = (
-/obj/machinery/door/airlock/ms13{
-	dir = 4
-	},
 /obj/machinery/door/poddoor/shutters{
 	id = "BOSrear"
+	},
+/obj/machinery/door/airlock/ms13/brotherhood{
+	dir = 4
 	},
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/bos)
@@ -2724,15 +2718,6 @@
 	},
 /obj/effect/spawner/random/ms13/medical/lowrandom,
 /turf/open/floor/ms13/tile,
-/area/ms13/town)
-"ajP" = (
-/obj/machinery/disposal/delivery_chute{
-	dir = 8
-	},
-/obj/structure/disposalpipe/trunk{
-	dir = 4
-	},
-/turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "ajQ" = (
 /obj/structure/chair/comfy/ms13/ergo{
@@ -3463,6 +3448,7 @@
 "amy" = (
 /obj/structure/ms13/storage/shelf,
 /obj/effect/spawner/random/ms13/tools/hardware,
+/obj/effect/spawner/random/ms13/tools/tool,
 /turf/open/floor/ms13/concrete/small,
 /area/ms13/underground/bos)
 "amz" = (
@@ -4240,8 +4226,9 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/mountain)
 "apm" = (
-/obj/structure/ms13/storage/shelf,
-/obj/effect/spawner/random/ms13/tools/tool,
+/obj/machinery/light/ms13{
+	dir = 1
+	},
 /turf/open/floor/ms13/concrete/small,
 /area/ms13/underground/bos)
 "apn" = (
@@ -5844,10 +5831,6 @@
 	dir = 8
 	},
 /area/ms13/underground/sewer)
-"auT" = (
-/obj/machinery/light/ms13/broken,
-/turf/open/floor/ms13/concrete/small,
-/area/ms13/underground/bos)
 "auU" = (
 /obj/structure/chair/ms13/metal/broken,
 /turf/open/floor/wood/ms13/wide,
@@ -7586,11 +7569,11 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "aBs" = (
-/obj/machinery/door/airlock/ms13,
+/obj/machinery/door/airlock/ms13/brotherhood,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/bos)
 "aBt" = (
-/obj/machinery/door/airlock/ms13,
+/obj/machinery/door/airlock/ms13/brotherhood,
 /turf/open/floor/ms13/metal/grate/border/warning,
 /area/ms13/underground/bos)
 "aBu" = (
@@ -10404,7 +10387,7 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "aLA" = (
-/obj/machinery/door/airlock/ms13{
+/obj/machinery/door/airlock/ms13/brotherhood{
 	dir = 4
 	},
 /turf/open/floor/ms13/metal,
@@ -11659,12 +11642,12 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/vault_atrium_lower)
 "aQd" = (
-/obj/machinery/light/ms13/broken{
-	dir = 1
-	},
 /obj/structure/table/ms13/no_smooth/counter/wood,
 /obj/item/crowbar/ms13,
 /obj/effect/spawner/random/ms13/melee/lowrandom,
+/obj/machinery/light/ms13{
+	dir = 1
+	},
 /turf/open/floor/ms13/concrete/small,
 /area/ms13/underground/bos)
 "aQe" = (
@@ -12921,13 +12904,6 @@
 /obj/effect/decal/cleanable/oil/streak,
 /turf/open/floor/plating/ms13/ground/road,
 /area/ms13/town)
-"aUH" = (
-/obj/machinery/conveyor{
-	dir = 4;
-	id = "mining_internal"
-	},
-/turf/open/floor/ms13/concrete/industrial,
-/area/ms13/town)
 "aUI" = (
 /obj/machinery/light/ms13/bulb/industrial/broken{
 	dir = 1
@@ -14011,7 +13987,7 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/military_crypt)
 "aYN" = (
-/obj/machinery/door/airlock/ms13,
+/obj/machinery/door/airlock/ms13/brotherhood,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/bos)
 "aYO" = (
@@ -14679,10 +14655,6 @@
 /obj/structure/table/ms13/crafting/workbench,
 /turf/open/floor/ms13/concrete/small,
 /area/ms13/underground/bos)
-"jXN" = (
-/obj/structure/closet,
-/turf/open/floor/ms13/metal,
-/area/ms13/underground/vault_atrium_lower)
 "kkx" = (
 /obj/effect/landmark/start/ms13/worker,
 /turf/open/floor/ms13/metal,
@@ -14811,7 +14783,6 @@
 	dir = 4
 	},
 /obj/machinery/light/ms13,
-/obj/item/taperecorder,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/vault_atrium_lower)
 "nMm" = (
@@ -14820,6 +14791,10 @@
 	},
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/underground_town)
+"nQR" = (
+/obj/machinery/door/airlock/ms13/town/security,
+/turf/open/floor/ms13/metal/grate/border,
+/area/ms13/underground/vault_atrium_lower)
 "nZO" = (
 /obj/effect/spawner/random/ms13/crafting/household,
 /turf/open/floor/ms13/concrete,
@@ -15016,6 +14991,14 @@
 /mob/living/basic/ms13/hostile_animal/giantant,
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
+"vjy" = (
+/obj/machinery/door/airlock/ms13/town/security{
+	dir = 4
+	},
+/turf/open/floor/ms13/metal/grate/border{
+	dir = 1
+	},
+/area/ms13/underground/vault_atrium_lower)
 "vBo" = (
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 1
@@ -24000,7 +23983,7 @@ aUM
 asP
 asP
 aGY
-aLd
+nQR
 asP
 axT
 axT
@@ -25205,7 +25188,7 @@ aZd
 aLy
 aSQ
 aSQ
-aGe
+vjy
 aSQ
 aSQ
 aSQ
@@ -25511,7 +25494,7 @@ tIG
 aSQ
 aHP
 axm
-aLd
+nQR
 asP
 aSn
 aoM
@@ -26719,7 +26702,7 @@ acQ
 aoM
 aTI
 axm
-aLd
+nQR
 asP
 adI
 aSQ
@@ -27018,7 +27001,7 @@ aLy
 aoM
 apV
 acQ
-aLd
+nQR
 axm
 axm
 aoM
@@ -27927,7 +27910,7 @@ acQ
 avQ
 aHt
 axm
-aLd
+nQR
 asP
 adN
 aSi
@@ -28829,7 +28812,7 @@ aZd
 aLy
 aoM
 aoM
-aGe
+vjy
 aSQ
 aSQ
 aSQ
@@ -29733,15 +29716,15 @@ avz
 asP
 aZd
 aGY
-aLd
+nQR
 asP
 bai
 asP
 aGY
-aLd
+nQR
 asP
 asP
-jXN
+aVo
 aoM
 afU
 afU
@@ -30338,7 +30321,7 @@ asP
 aZd
 aLy
 aoM
-aGe
+vjy
 aoM
 aoM
 aSQ
@@ -61489,7 +61472,7 @@ aNv
 aoT
 auO
 aoT
-aUH
+aoT
 atD
 afU
 afU
@@ -61791,7 +61774,7 @@ aDM
 aQQ
 aDu
 atD
-aUH
+atD
 atD
 afU
 afU
@@ -62093,8 +62076,8 @@ atD
 atD
 atD
 atD
-ajP
-atD
+afU
+afU
 afU
 afU
 afU
@@ -62394,9 +62377,9 @@ afU
 afU
 afU
 afU
-atD
-aed
-atD
+afU
+afU
+afU
 afU
 afU
 afU
@@ -62696,9 +62679,9 @@ afU
 afU
 afU
 afU
-atD
-atD
-atD
+afU
+afU
+afU
 afU
 afU
 afU
@@ -75960,7 +75943,7 @@ aWJ
 aJi
 aWJ
 aWJ
-auT
+apT
 alU
 aFq
 asV
