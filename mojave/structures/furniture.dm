@@ -248,7 +248,7 @@
 	density = TRUE
 	anchored = TRUE
 
-/obj/structure/ms13/jukebox/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
+/obj/structure/ms13/jukebox/wrench_act_secondary(mob/living/user, obj/item/weapon)
 	if(flags_1&NODECONSTRUCT_1)
 		return TRUE
 	..()
@@ -280,4 +280,4 @@
 	. += deconstruction_hints(user)
 
 /obj/structure/ms13/jukebox/proc/deconstruction_hints(mob/user)
-	return span_notice("You could use a <b>screwdriver</b> to carefully take apart [src] for parts.")
+	return span_notice("You could use a <b>wrench</b> to carefully take apart [src] for parts.")
