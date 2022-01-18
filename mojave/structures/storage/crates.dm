@@ -6,6 +6,7 @@
 	icon = 'mojave/icons/structure/crates.dmi'
 	drag_slowdown = 1
 	max_integrity = 300
+	anchored = TRUE
 
 /obj/structure/closet/crate/ms13/woodcrate
 	name = "\improper wooden crate"

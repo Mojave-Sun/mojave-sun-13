@@ -1,20 +1,20 @@
-/* The old dogtags
-* and medallions from BD.
-* all have the dogtag subtype
-*/
-
 /obj/item/card/id/ms13
 	name = "\improper ID tag"
 	desc = "A simple identification tag. This is a base class and you shouldn't be seeing it."
-	icon = 'mojave/icons/objects/dogtags.dmi'
+	icon = 'mojave/icons/objects/identification/dogtags_world.dmi'
 	icon_state = "bos_holotag"
 	var/datum/bank_account = null
+
+/obj/item/card/id/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/identification/dogtags_inventory.dmi')
 
 /obj/item/card/id/ms13/doctor
 	name = "doctor's ID badge"
 	desc = "A very crisp and clean medical identification badge. Even has a clip. By Wasteland standards, this is incredibly professional."
 	assignment = "Town Doctor"
 	icon_state = "doctor"
+	access = list(ACCESS_TOWN_DOCTOR)
 
 /obj/item/card/id/ms13/doctor/nurse
 	name = "nurse's ID badge"
@@ -25,12 +25,14 @@
 	desc = "A gold star badge with a blue stamp in the middle, indicating this badge belongs to the Mayor."
 	assignment = "Town Mayor"
 	icon_state = "mayor"
+	access = list(ACCESS_TOWN_MAYOR, ACCESS_TOWN_LAW, ACCESS_TOWN_DOCTOR)
 
 /obj/item/card/id/ms13/deputy
 	name = "deputy's badge"
 	desc = "A dull silver Deputy's badge. Classic."
 	assignment = "Town Deputy"
 	icon_state = "deputy"
+	access = list(ACCESS_TOWN_LAW, ACCESS_TOWN_DOCTOR)
 
 /obj/item/card/id/ms13/deputy/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/card/id/ms13/sheriff))
@@ -44,6 +46,7 @@
 	desc = "A golden Sheriff's badge. Strikes fear into the hearts of wrongdoers."
 	assignment = "Town Sheriff"
 	icon_state = "sheriff"
+	access = list(ACCESS_TOWN_MAYOR, ACCESS_TOWN_LAW, ACCESS_TOWN_DOCTOR)
 
 /obj/item/card/id/ms13/town
 	name = "town passport"
@@ -137,7 +140,7 @@
 /obj/item/card/id/ms13/sawbone
 	name = "sawbone's patch"
 	desc = "A nice rectangular patch with a little hole to loop a string through if you really wanted to. It's a bit bloody."
-	assignment = "Raider Sawbones"
+	assignment = "Raider Sawbone"
 	icon_state = "sawbone"
 
 /obj/item/card/id/ms13/enforcer
@@ -183,24 +186,26 @@
 	name = "\improper BoS holotag"
 	desc = "A set of dogtags, identifying the wearer as a member of the Brotherhood of Steel."
 	icon_state = "bos_holotag"
+	access = list(ACCESS_BROTHERHOOD)
 
 /obj/item/card/id/ms13/bos/headpaladin
-	assignment = "Head Paladin"
+	assignment = "BoS Head Paladin"
+	access = list(ACCESS_BROTHERHOOD, ACCESS_BROTHERHOOD_HPALADIN)
 
 /obj/item/card/id/ms13/bos/paladin
-	assignment = "Paladin"
+	assignment = "BoS Paladin"
 
 /obj/item/card/id/ms13/bos/knight
-	assignment = "Knight"
+	assignment = "BoS Knight"
 
 /obj/item/card/id/ms13/bos/initiate
-	assignment = "Initiate"
+	assignment = "BoS Initiate"
 
 /obj/item/card/id/ms13/bos/headscribe
-	assignment = "Head Scribe"
+	assignment = "BoS Head Scribe"
 
 /obj/item/card/id/ms13/bos/scribe
-	assignment = "Scribe"
+	assignment = "BoS Scribe"
 
 // Combat Test IDs //
 

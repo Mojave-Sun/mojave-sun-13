@@ -30,6 +30,7 @@
 	QDEL_NULL(radio)
 	return ..()
 
+/* Broken ""feature"". Tends to break the radio and/or delete stuff.
 /obj/item/ms13/storage/backpack/radiopack/AltClick(var/mob/living/carbon/user)
 	if(src.loc == user)
 		if(!held)
@@ -44,7 +45,7 @@
 		else
 			to_chat(user, "<span class='warning'>You are already holding the radio!</span>")
 	else
-		..()
+		..() */
 
 /obj/item/ms13/storage/backpack/radiopack/attackby(obj/item/W, mob/user, params)
 	if(W == radio)
@@ -85,10 +86,9 @@
 
 
 /obj/item/radio/ms13/ncr
-	icon = 'mojave/icons/objects/hamradio.dmi'
 	name = "walkie-talkie"
 	icon_state = "handradio"
-	inhand_icon_state = "handradio_"
+	inhand_icon_state = "handradio"
 	desc = "The important bit of the radiopack, this broadcasts and recieves radio messages in high quality with an amplified volume."
 	flags_1 = CONDUCT_1
 	canhear_range = 3

@@ -8,7 +8,7 @@
 
 /obj/structure/ms13/bars
 	name = "metal bars"
-	desc = "Sturdy metal bars. If only you had a saw."
+	desc = "Sturdy metal bars."
 	icon = 'mojave/icons/obstacles/tallobstacles.dmi'
 	icon_state = "bars"
 	density = TRUE
@@ -29,11 +29,24 @@
 /obj/structure/ms13/bars/attackby(obj/item/W, mob/user, params)
 	if(W.tool_behaviour == TOOL_SAW)
 		user.show_message(span_notice("You begin sawing through the bars."), MSG_VISUAL)
-		if(do_after(user, 60 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON)) 
+		if(do_after(user, 45 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON)) 
 			user.show_message(span_notice("You saw through the bars!"), MSG_VISUAL)
 			deconstruct()
 			return TRUE
-	
+
+/obj/structure/ms13/bars/welder_act(mob/living/user, obj/item/I)
+	if(!I.tool_start_check(user, amount=0))
+		return TRUE
+	if(I.use_tool(src, user, 20 SECONDS, volume=80))
+		deconstruct(disassembled = TRUE)
+		return TRUE
+
+/obj/structure/ms13/bars/examine(mob/user)
+	. = ..()
+	. += deconstruction_hints(user)
+
+/obj/structure/ms13/bars/proc/deconstruction_hints(mob/user)
+	return span_notice("You could use a <b>saw</b> or <b>welding tool</b> to cut through [src].")
 
 /obj/structure/ms13/bars/corner
 	icon_state = "barscorner"
