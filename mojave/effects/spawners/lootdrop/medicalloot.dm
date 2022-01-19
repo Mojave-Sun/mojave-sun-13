@@ -56,14 +56,9 @@
 
 /obj/effect/spawner/random/ms13/medical/bloodbag
 	name = "blood bag spawner"
-	spawn_loot_count = 2
-	spawn_loot_chance = 100
+	spawn_loot_count = 1
+	spawn_loot_chance = 65
 	loot = list(
-			/obj/item/reagent_containers/blood/ms13/a_plus = 15,
-			/obj/item/reagent_containers/blood/ms13/a_minus = 15,
-			/obj/item/reagent_containers/blood/ms13/b_plus = 15,
-			/obj/item/reagent_containers/blood/ms13/b_minus = 15,
-			/obj/item/reagent_containers/blood/ms13/o_plus = 15,
-			/obj/item/reagent_containers/blood/ms13/o_minus = 10,
-			/obj/item/reagent_containers/blood/ms13/radaway = 15
+			/obj/item/reagent_containers/blood/ms13/universal = 80,
+			/obj/item/reagent_containers/blood/ms13/radaway = 20
 			)
