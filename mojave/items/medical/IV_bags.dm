@@ -26,9 +26,6 @@
 /obj/item/reagent_containers/blood/ms13/o_minus
 	blood_type = "O-"
 
-/obj/item/reagent_containers/blood/ms13/universal
-	blood_type = "U"
-
 //Misc//
 
 /obj/item/reagent_containers/blood/ms13/radaway

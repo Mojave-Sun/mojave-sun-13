@@ -59,6 +59,6 @@
 	spawn_loot_count = 1
 	spawn_loot_chance = 65
 	loot = list(
-			/obj/item/reagent_containers/blood/ms13/universal = 80,
+			/obj/item/reagent_containers/blood/ms13/o_minus = 80,
 			/obj/item/reagent_containers/blood/ms13/radaway = 20
 			)
