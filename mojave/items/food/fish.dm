@@ -4,6 +4,7 @@
 	name = "fish"
 	desc = "You shouldn't be seeing this."
 	icon = 'mojave/icons/objects/food/fish/fish_world.dmi'
+	bite_consumption = 4
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 8, /datum/reagent/consumable/nutriment/vitamin = 4)
 	foodtypes = MEAT | RAW
 	//Tells the initialize function which icon to pick
@@ -93,8 +94,8 @@
 	icon = 'mojave/icons/objects/food/fish/fish_world.dmi'
 	icon_state = "sockeye_cutlet"
 	var/fish_cooked_type = /obj/item/food/meat/cutlet/ms13/fish
-	bite_consumption = 4
-	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 4)
+	bite_consumption = 3
+	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 3)
 	tastes = list("fish" = 8)
 	foodtypes = MEAT | RAW
 
@@ -168,7 +169,7 @@
 	desc = "A cooked fish fillet."
 	icon = 'mojave/icons/objects/food/fish/fish_world.dmi'
 	icon_state = "sockeye_cutlet"
-	bite_consumption = 4
+	bite_consumption = 5
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/nutriment/vitamin = 2)
 	tastes = list("fish" = 5)
 	foodtypes = MEAT
