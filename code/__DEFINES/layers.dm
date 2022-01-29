@@ -30,16 +30,17 @@
 #define WALL_PLANE -50 //MOJAVE SUN EDIT - Wallening Testmerge
 
 #define GAME_PLANE -42 //MOJAVE MODULE OUTDOOR_EFFECTS
-#define GAME_PLANE_FOV_HIDDEN -41
-#define ABOVE_GAME_PLANE -40
 
 #define WEATHER_EFFECT_PLANE -30 //MOJAVE MODULE OUTDOOR_EFFECTS
 
-#define UNDER_FRILL_PLANE -22 //MOJAVE SUN EDIT - Wallening Testmerge
-#define UNDER_FRILL_RENDER_TARGET "*UNDER_RENDER_TARGET" //MOJAVE SUN EDIT - Wallening Testmerge
-#define FRILL_PLANE -21 //MOJAVE SUN EDIT - Wallening Testmerge
-#define OVER_FRILL_PLANE -21 //MOJAVE SUN EDIT - Wallening Testmerge
 
+#define GAME_PLANE_FOV_HIDDEN -21
+#define ABOVE_GAME_PLANE -20
+
+#define UNDER_FRILL_PLANE -12 //MOJAVE SUN EDIT - Wallening Testmerge
+#define UNDER_FRILL_RENDER_TARGET "*UNDER_RENDER_TARGET" //MOJAVE SUN EDIT - Wallening Testmerge
+#define FRILL_PLANE -11 //MOJAVE SUN EDIT - Wallening Testmerge
+#define OVER_FRILL_PLANE -10 //MOJAVE SUN EDIT - Wallening Testmerge
 
 #define SPACE_LAYER 1.8
 //#define TURF_LAYER 2 //For easy recordkeeping; this is a byond define

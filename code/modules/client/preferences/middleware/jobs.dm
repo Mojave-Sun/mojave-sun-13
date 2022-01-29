@@ -46,7 +46,8 @@
 			var/datum/job/department_head_type = initial(department_type.department_head)
 
 			departments[department_name] = list(
-				"head" = department_head_type && initial(department_head_type.title),
+				"head"      = department_head_type && initial(department_head_type.title),
+				"full_name" = initial(department_type.department_full_name) || initial(department_type.department_name), // MOJAVE - JOB PREF
 			)
 
 		jobs[job.title] = list(

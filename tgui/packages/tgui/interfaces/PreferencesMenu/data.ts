@@ -50,6 +50,7 @@ export type ServerSpeciesData = {
 
 export type Department = {
   head?: string;
+  full_name?: string; // Mojave Sun Edit - Department full_name
 };
 
 export type Job = {

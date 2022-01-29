@@ -117,8 +117,6 @@
 	var/rpg_title
 
 	// MS13 EDIT BEGIN //
-	var/description = ""
-
 	var/forbid = ""
 
 	var/enforce = ""
