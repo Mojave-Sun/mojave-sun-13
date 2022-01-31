@@ -10,6 +10,7 @@
 	outfit = /datum/outfit/job/ms13/town/mayor
 
 	display_order = JOB_DISPLAY_ORDER_MS13_MAYOR
+	job_type_flags = JOB_STATION_JOB | JOB_HEAD_JOB
 
 /datum/outfit/job/ms13/town/mayor
 	name = "_Town Mayor"

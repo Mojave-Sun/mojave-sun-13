@@ -10,6 +10,7 @@
 	outfit = /datum/outfit/job/ms13/bos/head_scribe
 
 	display_order = JOB_DISPLAY_ORDER_MS13_HEAD_SCRIBE
+	job_type_flags = JOB_STATION_JOB | JOB_HEAD_JOB
 
 	mind_traits = list(TRAIT_MEDICAL_TRAINING, TRAIT_SCRIBE_TRAINING)
 

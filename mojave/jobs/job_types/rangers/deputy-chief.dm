@@ -8,6 +8,7 @@
 	outfit = /datum/outfit/job/ms13/ranger/deputychief
 
 	display_order = JOB_DISPLAY_ORDER_MS13_RANGERDEPUTYCHIEF
+	job_type_flags = JOB_STATION_JOB | JOB_HEAD_JOB
 
 /datum/outfit/job/ms13/ranger/deputychief
 	name = "_Desert Ranger Deputy-Chief"

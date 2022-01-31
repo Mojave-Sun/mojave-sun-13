@@ -10,6 +10,7 @@
 	outfit = /datum/outfit/job/ms13/raiders/boss
 
 	display_order = JOB_DISPLAY_ORDER_MS13_BOSS
+	job_type_flags = JOB_STATION_JOB | JOB_HEAD_JOB
 
 /datum/outfit/job/ms13/raiders/boss
 	name = "_Raider Boss"

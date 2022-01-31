@@ -10,6 +10,7 @@
 	outfit = /datum/outfit/job/ms13/bos/head_paladin
 
 	display_order = JOB_DISPLAY_ORDER_MS13_HEAD_PALADIN
+	job_type_flags = JOB_STATION_JOB | JOB_HEAD_JOB
 
 /datum/outfit/job/ms13/bos/head_paladin
 	name = "_BoS Head Paladin"
