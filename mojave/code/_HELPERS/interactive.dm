@@ -21,7 +21,7 @@
 	var/atom/user_loc = user.loc
 
 	var/drifting = FALSE
-	if(!user.Process_Spacemove(0) && user.inertia_dir)
+	if(SSmove_manager.processing_on(user, SSspacedrift))
 		drifting = TRUE
 
 	var/holding = user.get_active_held_item()
@@ -41,7 +41,7 @@
 		if(!QDELETED(progbar))
 			progbar.update(world.time - starttime)
 
-		if(drifting && !user.inertia_dir)
+		if(drifting && !SSmove_manager.processing_on(user, SSspacedrift))
 			drifting = FALSE
 			user_loc = user.loc
 

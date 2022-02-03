@@ -87,6 +87,8 @@ INITIALIZE_IMMEDIATE(/atom/movable/plane_master_controller)
 		OVER_TILE_PLANE, //MOJAVE SUN EDIT - Wallening Testmerge
 		WALL_PLANE, //MOJAVE SUN EDIT - Wallening Testmerge
 		GAME_PLANE,
+		GAME_PLANE_FOV_HIDDEN,
+		ABOVE_GAME_PLANE,
 		UNDER_FRILL_PLANE, //MOJAVE SUN EDIT - Wallening Testmerge
 		FRILL_PLANE, //MOJAVE SUN EDIT - Wallening Testmerge
 		OVER_FRILL_PLANE, //MOJAVE SUN EDIT - Wallening Testmerge

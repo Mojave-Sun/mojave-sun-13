@@ -188,6 +188,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/list/assets = list(
 		get_asset_datum(/datum/asset/spritesheet/preferences),
 		get_asset_datum(/datum/asset/json/preferences),
+		get_asset_datum(/datum/asset/simple/ms13/faction_flags), // MOJAVE - JOB PREFS
 	)
 
 	for (var/datum/preference_middleware/preference_middleware as anything in middleware)
@@ -487,6 +488,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/character_preview_view)
 	character.dna.real_name = character.real_name
 
 	if(icon_updates)
+		character.icon_render_key = null //turns out if you don't set this to null update_body_parts does nothing, since it assumes the operation was cached
 		character.update_body()
 		character.update_hair()
 		character.update_body_parts()

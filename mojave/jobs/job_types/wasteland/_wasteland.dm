@@ -1,5 +1,8 @@
 /datum/job/ms13/wasteland
 	selection_color = "#e08960"
+	departments_list = list(
+		/datum/job_department/wasteland,
+		)
 
 /datum/outfit/job/ms13/wasteland
 	name = "Default"

@@ -81,8 +81,8 @@
 	icon = 'mojave/icons/structure/machinery.dmi'
 	icon_state = "intercom"
 	canhear_range = 6
-	frequency = 1445.4 // Wack-ass numbers. Ensure these goofballs don't ever reach open air.
-	broadcasting = FALSE  // Whether the radio will transmit dialogue it hears nearby.
+	// frequency = 1445.4 // Wack-ass numbers. Ensure these goofballs don't ever reach open air.
+	// broadcasting = FALSE  // Whether the radio will transmit dialogue it hears nearby.
 	freerange = TRUE  // If true, the radio has access to the full spectrum.
 	freqlock = TRUE  // Frequency lock to stop the user from untuning specialist radios.
 	radio_broadcast = RADIOSTATIC_LIGHT

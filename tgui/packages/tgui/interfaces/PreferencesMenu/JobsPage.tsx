@@ -1,61 +1,20 @@
-import { binaryInsertWith } from "common/collections";
 import { classes } from "common/react";
-import { InfernoNode } from "inferno";
+import { InfernoNode, SFC } from "inferno";
+import { sortBy } from "../../../common/collections";
+import { resolveAsset } from "../../assets";
 import { useBackend, useLocalState } from "../../backend";
 import { Box, Button, Dropdown, Flex, Stack, Tooltip } from "../../components";
-import { createSetPreference, JoblessRole, JobPriority, PreferencesMenuData } from "./data";
-import { Job } from "./jobs/base";
-import * as Departments from "./jobs/departments";
+import { logger } from "../../logging";
+import { createSetPreference, Job, JoblessRole, JobPriority, PreferencesMenuData } from "./data";
+import { ServerPreferencesFetcher } from "./ServerPreferencesFetcher";
 
-const requireJob = require.context("./jobs/jobs", false, /.ts$/);
-const jobsByDepartment = new Map<Departments.Department, {
-  jobs: Job[],
-  head?: Job,
-  picture?: string,
-}>();
-
-/* MOJAVE EDIT ADDITION START - FACTION SWITCH*/
-export enum Faction {
-  NCR,
-  Town,
-  BOS,
-  Raiders,
-  Wasteland
-}
-
-/* MOJAVE EDIT ADDITION STOP - FACTION SWITCH*/
-const binaryInsertJob = binaryInsertWith((job: Job) => {
-  return job.name;
-});
+const sortJobs = (entries: [string, Job][], head?: string) =>
+  sortBy<[string, Job]>(
+    ([key, _]) => (key === head ? -1 : 1),
+    ([key, _]) => key
+  )(entries);
 
 const PRIORITY_BUTTON_SIZE = "18px";
-
-for (const jobKey of requireJob.keys()) {
-  const job = requireJob<{
-    default?: Job,
-  }>(jobKey).default;
-
-  if (!job) {
-    continue;
-  }
-
-
-  let departmentInfo = jobsByDepartment.get(job.department);
-  if (departmentInfo === undefined) {
-    departmentInfo = {
-      jobs: [],
-      head: undefined,
-    };
-
-    jobsByDepartment.set(job.department, departmentInfo);
-  }
-
-  if (job.department.head === job.name) {
-    departmentInfo.head = job;
-  } else {
-    departmentInfo.jobs = binaryInsertJob(departmentInfo.jobs, job);
-  }
-}
 
 const PriorityButton = (props: {
   name: string,
@@ -221,18 +180,19 @@ const PriorityButtons = (props: {
 const JobRow = (props: {
   className?: string,
   job: Job,
+  name: string,
 }, context) => {
   const { data } = useBackend<PreferencesMenuData>(context);
-  const { job } = props;
+  const { className, job, name } = props;
 
-  const isOverflow = data.overflow_role === job.name;
-  const priority = data.job_preferences[job.name];
+  const isOverflow = data.overflow_role === name;
+  const priority = data.job_preferences[name];
 
-  const createSetPriority = createCreateSetPriorityFromName(context, job.name);
+  const createSetPriority = createCreateSetPriorityFromName(context, name);
 
   const experienceNeeded = data.job_required_experience
-    && data.job_required_experience[job.name];
-  const daysLeft = data.job_days_left ? data.job_days_left[job.name] : 0;
+    && data.job_required_experience[name];
+  const daysLeft = data.job_days_left ? data.job_days_left[name] : 0;
 
   let rightSide: InfernoNode;
 
@@ -255,7 +215,7 @@ const JobRow = (props: {
         </Stack.Item>
       </Stack>
     );
-  } else if (data.job_bans && data.job_bans.indexOf(job.name) !== -1) {
+  } else if (data.job_bans && data.job_bans.indexOf(name) !== -1) {
     rightSide = (
       <Stack align="center" height="100%" pr={1}>
         <Stack.Item grow textAlign="right">
@@ -272,7 +232,7 @@ const JobRow = (props: {
   }
 
   return (
-    <Stack.Item className={props.className} height="100%" style={{
+    <Stack.Item className={className} height="100%" style={{
       "margin-top": 0,
     }}>
       <Stack fill align="center">
@@ -284,7 +244,7 @@ const JobRow = (props: {
             "padding-left": "0.3em",
           }}>
 
-            {props.job.name}
+            {name}
           </Stack.Item>
         </Tooltip>
 
@@ -296,38 +256,97 @@ const JobRow = (props: {
   );
 };
 
-const Department = (props: {
-  department: Departments.Department,
-  name: string,
-}) => {
-  const { department, name } = props;
-  const jobs = jobsByDepartment.get(department);
+const Department: SFC<{
+  department: string;
+  nextFaction: () => any;
+  previousFaction: () => any;
+}> = (props) => {
+  const { children, department: name, nextFaction, previousFaction } = props;
   const className = `PreferencesMenu__Jobs__departments--${name}`;
-
-  if (!jobs) {
-    return (
-      <Box color="red">
-        <b>ERROR: Department {name} could not be found!</b>
-      </Box>
-    );
-  }
-
   return (
-    <Box>
-      <Stack
-        vertical
-        fill>
-        {jobs.head
-          && <JobRow className={`${className} head`} job={jobs.head} />}
-        {jobs.jobs.map((job) => {
-          if (job === jobs.head) {
-            return null;
-          }
+    <ServerPreferencesFetcher
+      render={(data) => {
+        if (!data) {
+          return null;
+        }
 
-          return <JobRow className={className} key={job.name} job={job} />;
-        })}
-      </Stack>
-    </Box>
+        const { departments, jobs } = data.jobs;
+        const department = departments[name];
+
+        // This isn't necessarily a bug, it's like this
+        // so that you can remove entire departments without
+        // having to edit the UI.
+        // This is used in events, for instance.
+        if (!department) {
+          return null;
+        }
+
+        const jobsForDepartment = sortJobs(
+          Object.entries(jobs).filter(([_, job]) => job.department === name),
+          department.head
+        );
+
+        return (
+          <Box>
+            <Box textAlign="center" bold fontSize="25px">
+              {department.full_name}
+            </Box>
+
+            <Gap amount={25} />
+            <Flex px="10%">
+              <Flex.Item grow={5}>
+                <Button
+                  fluid
+                  icon="chevron-left"
+                  content="Previous"
+                  onClick={previousFaction}
+                />
+              </Flex.Item>
+              <Flex.Item grow={1} />
+              <Flex.Item grow={5}>
+                <Button
+                  fluid
+                  icon="chevron-right"
+                  content="Next"
+                  onClick={nextFaction}
+                />
+              </Flex.Item>
+            </Flex>
+
+            <Gap amount={25} />
+            <Tooltip content={name} position="bottom">
+              <Box
+                px="30%"
+                width="100%"
+                inline
+                className={'faction-icon-parent'}
+                as="img"
+                src={resolveAsset(`${name}_flag.png`)}
+              />
+            </Tooltip>
+
+            <Gap amount={36} />
+            <PriorityHeaders />
+            <Stack vertical fill>
+              {jobsForDepartment.map(([name, job]) => {
+                return (
+                  <JobRow
+                    className={classes([
+                      className,
+                      name === department.head && 'head',
+                    ])}
+                    key={name}
+                    job={job}
+                    name={name}
+                  />
+                );
+              })}
+            </Stack>
+            {children}
+          </Box>
+        );
+      }}
+    />
   );
 };
 
@@ -382,341 +401,135 @@ const JoblessRoleDropdown = (props, context) => {
   );
 };
 
-export const JobSwitch = (faction) => {
-  switch (faction) {
-    case Faction.NCR:
-      return (
-        <>
-
-          <Stack.Item mr={1}>
-            <Gap amount={36} />
-            <PriorityHeaders />
-            <Gap amount={6} />
-            <Department
-              department={Departments.NCR}
-              name="NCR" />
-            <Gap amount={6} />
-          </Stack.Item>
-
-          <Stack.Item mr={1}>
-            <Gap amount={36} />
-          </Stack.Item>
-        </>
-      );
-    case Faction.Town:
-      return (
-        <>
-          <Stack.Item mr={1}>
-            <Gap amount={36} />
-            <PriorityHeaders />
-            <Gap amount={6} />
-            <Department
-              department={Departments.Town}
-              name="Town" />
-            <Gap amount={6} />
-          </Stack.Item>
-
-          <Stack.Item mr={1}>
-            <Gap amount={36} />
-          </Stack.Item>
-        </>
-      );
-    case Faction.BOS:
-      return (
-        <>
-          <Stack.Item mr={1}>
-            <Gap amount={36} />
-            <PriorityHeaders />
-            <Gap amount={6} />
-            <Department
-              department={Departments.BOS}
-              name="BOS" />
-            <Gap amount={6} />
-          </Stack.Item>
-
-          <Stack.Item mr={1}>
-            <Gap amount={36} />
-          </Stack.Item>
-        </>
-      );
-    case Faction.Raiders:
-      return (
-        <>
-          <Stack.Item mr={1}>
-            <Gap amount={36} />
-            <PriorityHeaders />
-            <Gap amount={6} />
-            <Department
-              department={Departments.Raiders}
-              name="Raiders" />
-            <Gap amount={6} />
-          </Stack.Item>
-
-          <Stack.Item mr={1}>
-            <Gap amount={36} />
-          </Stack.Item>
-        </>
-      );
-    case Faction.Wasteland:
-      return (
-        <>
-          <Stack.Item mr={1}>
-            <Gap amount={36} />
-            <PriorityHeaders />
-            <Gap amount={6} />
-            <Department
-              department={Departments.Wasteland}
-              name="Wasteland" />
-            <Gap amount={6} />
-          </Stack.Item>
-
-          <Stack.Item mr={1}>
-            <Gap amount={36} />
-          </Stack.Item>
-        </>
-      );
-  }
-};
-
-export const GetFactionPicture = (faction) => {
-  switch (faction) {
-    case Faction.NCR:
-      return <img src={Departments.NCR.picture} />;
-    case Faction.Town:
-      return <img src={Departments.Town.picture} />;
-    case Faction.BOS:
-      return <img src={Departments.BOS.picture} />;
-    case Faction.Raiders:
-      return <img src={Departments.Raiders.picture} />;
-    case Faction.Wasteland:
-      return <img src={Departments.Wasteland.picture} />;
-  }
-};
 
 export const JobsPage = (props, context) => {
   const [
     currentFaction,
     setCurrentFaction,
-  ] = useLocalState<any | null>(context, 'jobsPage', Faction.NCR);
+  ] = useLocalState<any | null>(context, 'jobsPage', 0);
 
-  const nextFaction = () => {
-    const nextFaction = (currentFaction + 1) % 5;
-    setCurrentFaction(nextFaction);
-  };
-  const previousFaction = () => {
-    const previousFaction = (currentFaction - 1) % 5;
-    if (previousFaction < 0) {
-      setCurrentFaction(Faction.Wasteland);
-    }
-    else {
-      setCurrentFaction(previousFaction);
-    }
-  };
-
-  const getFactionName = () => {
-    switch (currentFaction) {
-      case Faction.NCR:
-        return "NCR";
-      case Faction.Town:
-        return "Town";
-      case Faction.BOS:
-        return "BOS";
-      case Faction.Raiders:
-        return "Raiders";
-      case Faction.Wasteland:
-        return "Wasteland";
-    }
-  };
-  const GetFactionFullName = () => {
-    switch (currentFaction) {
-      case Faction.NCR:
-        return "The New California Republic";
-      case Faction.Town:
-        return "";
-      case Faction.BOS:
-        return "The Brotherhood of Steel";
-      case Faction.Raiders:
-        return "The Blizzard Bastards";
-      case Faction.Wasteland:
-        return "";
-    }
-  };
-  const activeFactionMenu = JobSwitch(currentFaction);
   const className = "PreferencesMenu__Jobs";
-
+  // TODO This should loop over a list of /ms13 departments
   return (
-    <>
-      <>
-        <Button
-          content="NCR"
-          color={currentFaction === Faction.NCR ? "green" : null}
-          onClick={() => { setCurrentFaction(Faction.NCR);
-          }}
-        />
-        <Button
-          content="Town"
-          color={currentFaction === Faction.Town ? "green" : null}
-          onClick={() => setCurrentFaction(Faction.Town)}
-        />
-        <Button
-          content="Brotherhood of Steel"
-          color={currentFaction === Faction.BOS ? "green" : null}
-          onClick={() => setCurrentFaction(Faction.BOS)}
-        />
-        <Button
-          content="Raiders"
-          color={currentFaction === Faction.Raiders ? "green" : null}
-          onClick={() => setCurrentFaction(Faction.Raiders)}
-        />
-        <Button
-          content="Wasteland"
-          color={currentFaction === Faction.Wasteland ? "green" : null}
-          onClick={() => setCurrentFaction(Faction.Wasteland)}
-        />
-      </>
-      <Box
-        position="absolute"
-        right={21}
-        width="30%"
-      />
-      <Gap amount={50} />
-      <div>
-        <Box
-          position="absolute"
-          right={30}
-          width="30%"
-        >
-          <Flex.Item
-            className={classes([
-              `${className}__faction`,
-            ])}
-            key={currentFaction}
-          >
-            <Stack align="center" vertical>
-              <Stack.Item style={{
-                "font-weight": "bold",
-                "margin-top": "auto",
-                "max-width": "100px",
-                "text-align": "center",
-              }}>
-                {getFactionName()}
-              </Stack.Item>
-              <Stack.Item align="center">
-                <Tooltip content={
-                  <>{GetFactionFullName()}</>
-                } position="bottom">
-                  <Box
-                    align="center"
-                    className={"faction-icon-parent"}
-                  >
-                    {GetFactionPicture(currentFaction)}
+    <ServerPreferencesFetcher
+      render={(data) => {
+        if (!data) {
+          return null;
+        }
+        const { departments, jobs } = data.jobs;
 
-                    {/* {isBanned && (
-                      <Box className="antagonist-banned-slash" />
-                    )}
+        const currentFactionName = Object.keys(departments)[currentFaction];
+        const numFactions = Object.keys(departments).length;
+        const nextFaction = () => {
 
-                    {daysLeft > 0 && (
-                      <Box className="antagonist-days-left">
-                        <b>{daysLeft}</b> days left
-                      </Box>
+          const nextFaction = (currentFaction + 1) % numFactions;
+          logger.log(`${nextFaction}/${numFactions}`);
+          setCurrentFaction(nextFaction);
+        };
+        const previousFaction = () => {
+          const previousFaction = (currentFaction - 1) % numFactions;
+          if (previousFaction < 0) {
+            logger.log(`${previousFaction}/${numFactions}`);
+            setCurrentFaction(numFactions - 1);
+          }
+          else {
+            logger.log(`${previousFaction}/${numFactions}`);
+            setCurrentFaction(previousFaction);
+          }
+        };
+        return (
+          <>
+            {Object.keys(departments).map((key, index) => {
+              return (
+                <Button
+                  key={`faction_button_${key}`}
+                  content={key}
+                  color={currentFaction === index ? 'green' : null}
+                  onClick={() => {
+                    setCurrentFaction(index);
+                  }}
+                />
+              );
+            })}
+            <JoblessRoleDropdown />
+            <Stack vertical fill>
+              <Gap amount={22} />
+              <Stack.Item>
+                <Stack fill className="PreferencesMenu__Jobs">
+                  {/* MOJAVE EDIT REMOVAL BEGIN - DEPARTMENTS
+                <Stack.Item mr={1}>
+                  <Gap amount={36} />
 
-                    )}
-                  */ }
+                  <PriorityHeaders />
+
+                  <Department department="Engineering">
+                    <Gap amount={6} />
+                  </Department>
+
+                  <Department department="Science">
+                    <Gap amount={6} />
+                  </Department>
+
+                  <Department department="Silicon">
+                    <Gap amount={12} />
+                  </Department>
+
+                  <Department
+                    department="Assistant"
+                  />
+                </Stack.Item>
+
+                <Stack.Item mr={1}>
+                  <PriorityHeaders />
+
+                  <Department department="Captain">
+                    <Gap amount={6} />
+                  </Department>
+
+                  <Department department="Service">
+                    <Gap amount={6} />
+                  </Department>
+
+                  <Department department="Cargo" />
+                </Stack.Item>
+
+                <Stack.Item>
+                  <Gap amount={36} />
+
+                  <PriorityHeaders />
+
+                  <Department department="Security">
+                    <Gap amount={6} />
+                  </Department>
+
+                  <Department
+                    department="Medical"
+                  />
+                </Stack.Item>
+                MOJAVE EDIT REMOVAL END - DEPARTMENTS*/}
+
+                  {/* MOJAVE EDIT ADDITION START - DEPARTMENTS */}
+                  <Box mx="35%">
+                    <Stack.Item>
+                      <Gap amount={6} />
+                      <Department
+                        department={currentFactionName}
+                        nextFaction={nextFaction}
+                        previousFaction={previousFaction}>
+                        <Gap amount={6} />
+                      </Department>
+                    </Stack.Item>
+                    <Stack.Item>
+                      <Gap amount={36} />
+                    </Stack.Item>
                   </Box>
-                </Tooltip>
-                <Gap amount={25} />
-                <Button
-                  icon="chevron-left"
-                  content="Previous"
-                  onClick={previousFaction}
-                />
-                <Button
-                  icon="chevron-right"
-                  content="Next"
-                  onClick={nextFaction}
-                />
+                  {/* MOJAVE EDIT ADDITION END - DEPARTMENTS */}
+                </Stack>
               </Stack.Item>
             </Stack>
-
-          </Flex.Item>
-          {/* {GetFactionPicture(currentFaction)} */}
-
-        </Box>
-      </div>
-      <Gap amount={160} />
-      <JoblessRoleDropdown />
-      <Stack vertical fill>
-        <Gap amount={22} />
-        <Stack.Item>
-          <Stack fill className="PreferencesMenu__Jobs">
-            {/* MOJAVE EDIT REMOVAL BEGIN - DEPARTMENTS
-            <Stack.Item mr={1}>
-              <Gap amount={36} />
-
-              <PriorityHeaders />
-
-              <Department
-                department={Departments.Engineering}
-                name="Engineering" />
-
-              <Gap amount={6} />
-
-              <Department
-                department={Departments.Science}
-                name="Science" />
-
-              <Gap amount={6} />
-
-              <Department
-                department={Departments.Silicon}
-                name="Silicon" />
-
-              <Gap amount={12} />
-
-              <Department
-                department={Departments.Assistant}
-                name="Assistant" />
-            </Stack.Item>
-
-            <Stack.Item mr={1}>
-              <PriorityHeaders />
-              <Department department={Departments.Captain} name="Captain" />
-              <Gap amount={6} />
-              <Department department={Departments.Service} name="Service" />
-              <Gap amount={6} />
-              <Department department={Departments.Cargo} name="Supply" />
-            </Stack.Item>
-
-            <Stack.Item>
-              <Gap amount={36} />
-
-              <PriorityHeaders />
-
-              <Department
-                department={Departments.Security}
-                name="Security" />
-
-              <Gap amount={6} />
-
-              <Department
-                department={Departments.Medical}
-                name="Medical" />
-            </Stack.Item>
-            MOJAVE EDIT REMOVAL END - DEPARTMENTS*/}
-
-            {/* MOJAVE EDIT ADDITION START - DEPARTMENTS */}
-            <Box
-              position="absolute"
-              right={30}
-              width="30%"
-              verticalAlign="middle"
-            >
-              {activeFactionMenu}
-            </Box>
-            {/* MOJAVE EDIT ADDITION END - DEPARTMENTS */}
-          </Stack>
-        </Stack.Item>
-      </Stack>
-    </>
+          </>
+        );
+      }}
+    />
   );
 };
