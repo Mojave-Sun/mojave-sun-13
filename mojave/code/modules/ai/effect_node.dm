@@ -7,14 +7,14 @@
 	icon_state = "x6" //Pure white 'X' with black borders
 	anchored = TRUE //No pulling those nodes yo
 	invisibility = INVISIBILITY_MAXIMUM //Why was this visible towrds ghosts, just change it if testing
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	//mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	///list of adjacent landmark nodes
 	var/list/adjacent_nodes
 
 	///List of weights for scoring stuff happening here; ultilizes "identifiers" to differentiate different kinds of AI types looking at the same node.
 	var/list/weights = list(
-		IDENTIFIER_GENERIC_SIMPLE = list(NODE_LAST_VISITED = 0),
-		IDENTIFIER_EYEBOT = list(NODE_LAST_VISITED = 0)
+		IDENTIFIER_GENERIC_SIMPLE = list(NODE_LAST_VISITED = 0, DUNGEON_AREA = 0),
+		IDENTIFIER_EYEBOT = list(NODE_LAST_VISITED = 0, DUNGEON_AREA = 0)
 		)
 	//TODO: MAKE DYNAMICALLY INITIALIZED WHEN REQUESTED
 
@@ -71,7 +71,7 @@
 	var/obj/effect/ai_node/node_to_return
 	var/current_best_node_score = -INFINITY
 	var/current_score
-	for(var/thing in shuffle_inplace(adjacent_nodes)) //We keep a score for the nodes and see which one is best
+	for(var/thing in adjacent_nodes) //We keep a score for the nodes and see which one is best
 		var/obj/effect/ai_node/node = thing
 		current_score = 0
 		for(var/weight in weight_modifiers)
@@ -107,3 +107,10 @@
 	icon_state = "x6" //Pure white 'X' with black borders
 	color = "#ffffff"
 	invisibility = 0
+
+/obj/effect/ai_node/debug/dungeon
+	color = "#693737"
+	weights = list(
+		IDENTIFIER_GENERIC_SIMPLE = list(NODE_LAST_VISITED = 0, DUNGEON_AREA = 1),
+		IDENTIFIER_EYEBOT = list(NODE_LAST_VISITED = 0, DUNGEON_AREA = 1)
+		)
