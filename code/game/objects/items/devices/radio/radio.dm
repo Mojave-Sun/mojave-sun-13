@@ -141,7 +141,6 @@
 
 	add_radio(src, FREQ_COMMON)
 
-
 /obj/item/radio/proc/make_syndie() // Turns normal radios into Syndicate radios!
 	qdel(keyslot)
 	keyslot = new /obj/item/encryptionkey/syndicate
@@ -424,7 +423,7 @@
 				set_broadcasting(!broadcasting)
 				. = TRUE
 		//End of Mojave Sun Edit
-		
+
 		if("channel")
 			var/channel = params["channel"]
 			if(!(channel in channels))
