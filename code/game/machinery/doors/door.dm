@@ -61,6 +61,13 @@
 		context[SCREENTIP_CONTEXT_LMB] = "Open"
 		return CONTEXTUAL_SCREENTIP_SET
 
+/obj/machinery/door/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	if (isnull(held_item))
+		context[SCREENTIP_CONTEXT_LMB] = "Open"
+		return CONTEXTUAL_SCREENTIP_SET
+
 /obj/machinery/door/check_access_list(list/access_list)
 	/*MOJAVE SUN EDIT BEGIN
 	if(red_alert_access && SSsecurity_level.current_level >= SEC_LEVEL_RED)
