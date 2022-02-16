@@ -105,5 +105,5 @@
 
 /datum/terminal/document/principals_office // School Principal's Office - First Log
 	title = "Unruly Brats"
-	content = "Another week another damn prankster. This time it was ,the usual, Steve Brown, he decided it would be a 'funny' prank to clog all the female toilets and wait outside the toilets and laugh as all the students came running out. \
+	content = "Another week another damn prankster. This time it was the usual Steve Brown, he decided it would be a 'funny' prank to clog all the female toilets and wait outside the toilets and laugh as all the students came running out. \
 		 I told his mother this isn't good behavior and that I will kick Steve out incase he tries anything else, again. But my words fall on deaf ears.."
