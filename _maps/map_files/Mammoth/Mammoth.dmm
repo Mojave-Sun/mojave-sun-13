@@ -777,6 +777,15 @@
 	},
 /turf/open/floor/plating/ms13/ground/sidewalk,
 /area/ms13)
+"aCy" = (
+/obj/structure/table/ms13/wood,
+/obj/machinery/ms13/terminal{
+	dir = 8;
+	doc_title_1 = "principals_office";
+	termtag = "Principal Andrew's Office"
+	},
+/turf/open/floor/wood/ms13/carpet,
+/area/ms13/town)
 "aCH" = (
 /obj/structure/ms13/storage/shelf/rust{
 	dir = 1
@@ -2144,7 +2153,9 @@
 "bKW" = (
 /obj/structure/table/ms13/metal,
 /obj/machinery/ms13/terminal{
-	dir = 8
+	dir = 8;
+	doc_title_1 = "principals_office";
+	termtag = "Principal Andrew's Office"
 	},
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
@@ -2192,6 +2203,12 @@
 	},
 /turf/open/floor/plating/ms13/ground/sidewalk,
 /area/ms13)
+"bMZ" = (
+/obj/structure/chair/office/ms13/green/broken{
+	dir = 1
+	},
+/turf/open/floor/ms13/tile,
+/area/ms13/town)
 "bNj" = (
 /obj/effect/turf_decal/ms13/road/verticalline,
 /obj/effect/landmark/start/ms13/wastelander,
@@ -2399,7 +2416,9 @@
 	dir = 8
 	},
 /obj/machinery/ms13/terminal{
-	dir = 8
+	dir = 8;
+	doc_title_1 = "principals_office";
+	termtag = "Principal Andrew's Office"
 	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
@@ -3166,6 +3185,7 @@
 /obj/structure/ms13/storage/shelf/rust{
 	dir = 1
 	},
+/obj/effect/spawner/random/ms13/food/produce_random,
 /turf/open/floor/ms13/tile,
 /area/ms13/town)
 "cDZ" = (
@@ -3476,6 +3496,13 @@
 /obj/effect/decal/cleanable/blood/gibs/down,
 /obj/structure/ms13/foundation/variantfour,
 /turf/open/floor/plating/ms13/ground/mountain,
+/area/ms13/town)
+"cRj" = (
+/obj/structure/table/ms13/metal,
+/obj/machinery/ms13/coffee{
+	pixel_y = 7
+	},
+/turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "cRU" = (
 /obj/structure/table/ms13/no_smooth/counter/wood{
@@ -3885,6 +3912,7 @@
 /obj/machinery/light/ms13/bulb{
 	dir = 1
 	},
+/obj/effect/spawner/random/ms13/clothing/under,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "djS" = (
@@ -4109,18 +4137,9 @@
 /obj/item/trash/raisins,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
-"dtG" = (
-/obj/item/storage/belt/janitor,
-/obj/structure/ms13/storage/shelf/rust,
-/turf/open/floor/ms13/tile/brown,
-/area/ms13/town)
 "dtO" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/ms13/tile/brown,
-/area/ms13/town)
-"dtR" = (
-/obj/structure/closet/body_bag,
-/turf/open/floor/ms13/tile,
 /area/ms13/town)
 "duh" = (
 /obj/structure/chair/pew/left{
@@ -4155,11 +4174,6 @@
 	},
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
-"dwP" = (
-/obj/structure/bed/ms13/bedframe/wire,
-/obj/structure/bed/ms13/mattress/filthy,
-/turf/open/floor/ms13/tile,
-/area/ms13/town)
 "dwS" = (
 /obj/structure/chair/comfy/ms13/ergo{
 	dir = 4
@@ -4167,7 +4181,14 @@
 /turf/open/floor/wood/ms13/carpet,
 /area/ms13/town)
 "dwV" = (
-/obj/structure/bed/ms13/bedframe/wire,
+/obj/item/pen{
+	pixel_y = 6
+	},
+/obj/structure/fluff/paper/stack{
+	dir = 1;
+	pixel_x = -7;
+	pixel_y = 10
+	},
 /turf/open/floor/ms13/tile,
 /area/ms13/town)
 "dxg" = (
@@ -4209,10 +4230,6 @@
 /area/ms13/town)
 "dyJ" = (
 /obj/structure/janitorialcart,
-/turf/open/floor/ms13/tile/brown,
-/area/ms13/town)
-"dyL" = (
-/obj/structure/ms13/tv,
 /turf/open/floor/ms13/tile/brown,
 /area/ms13/town)
 "dyV" = (
@@ -4986,7 +5003,9 @@
 	dir = 4
 	},
 /obj/machinery/ms13/terminal{
-	dir = 8
+	dir = 8;
+	doc_title_1 = "principals_office";
+	termtag = "Principal Andrew's Office"
 	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
@@ -5683,6 +5702,13 @@
 	dir = 1
 	},
 /turf/open/floor/ms13/concrete/industrial,
+/area/ms13/town)
+"eDh" = (
+/obj/structure/table/ms13/no_smooth/wood/low,
+/obj/structure/ms13/tv{
+	pixel_y = 12
+	},
+/turf/open/floor/ms13/tile/brown,
 /area/ms13/town)
 "eDm" = (
 /obj/structure/ms13/storage/shelf{
@@ -6425,6 +6451,13 @@
 	id = "powerloadingbay2"
 	},
 /turf/open/floor/ms13/concrete/industrial,
+/area/ms13/town)
+"faS" = (
+/obj/structure/table/ms13/no_smooth/large/metal/desk,
+/obj/item/flashlight/lamp{
+	pixel_y = 10
+	},
+/turf/open/floor/ms13/tile,
 /area/ms13/town)
 "fbc" = (
 /turf/open/floor/ms13/metal/pipe,
@@ -7265,6 +7298,11 @@
 	},
 /turf/open/floor/ms13/tile/long,
 /area/ms13/underground/vault_atrium_middle)
+"fFb" = (
+/obj/structure/closet,
+/obj/effect/spawner/random/ms13/drink/soda,
+/turf/open/floor/wood/ms13/common,
+/area/ms13/town)
 "fFH" = (
 /obj/machinery/power/ms13/streetlamp/corner{
 	dir = 8
@@ -7684,6 +7722,11 @@
 /area/ms13/underground/tunnel/maintenance)
 "fSc" = (
 /turf/open/floor/ms13/concrete/industrial/walkway,
+/area/ms13/town)
+"fSm" = (
+/obj/structure/closet/body_bag,
+/obj/structure/closet/ms13/wall/firstaid,
+/turf/open/floor/ms13/tile,
 /area/ms13/town)
 "fSt" = (
 /obj/item/pen{
@@ -10827,6 +10870,20 @@
 	},
 /turf/open/floor/ms13/tile/fancy,
 /area/ms13/town)
+"hTd" = (
+/obj/structure/closet{
+	pixel_x = -7;
+	pixel_y = 10
+	},
+/obj/structure/closet{
+	pixel_x = 8;
+	pixel_y = 10
+	},
+/obj/machinery/light/ms13/bulb/broken{
+	dir = 1
+	},
+/turf/open/floor/wood/ms13/common,
+/area/ms13/town)
 "hTm" = (
 /obj/structure/ms13/rug,
 /obj/effect/spawner/random/ms13/clothing/under,
@@ -12527,6 +12584,15 @@
 	dir = 1
 	},
 /turf/open/floor/ms13/metal,
+/area/ms13/town)
+"iSG" = (
+/obj/item/kirbyplants/dead{
+	desc = "It's a dead plant. You can't tell what it used to be.";
+	name = "Dead Plant";
+	pixel_x = 3;
+	pixel_y = 11
+	},
+/turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "iSK" = (
 /mob/living/basic/ms13/hostile_animal/radroach,
@@ -15465,6 +15531,13 @@
 "kFu" = (
 /obj/effect/decal/cleanable/glass,
 /obj/effect/spawner/random/ms13/tools/tool,
+/turf/open/floor/wood/ms13/common,
+/area/ms13/town)
+"kGb" = (
+/obj/machinery/light/ms13/bulb{
+	dir = 1
+	},
+/obj/machinery/iv_drip/ms13,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "kGl" = (
@@ -18628,6 +18701,13 @@
 	},
 /turf/open/floor/ms13/tile,
 /area/ms13/supermarket)
+"mAG" = (
+/obj/structure/filingcabinet/ms13/short,
+/obj/item/flashlight/lamp/green{
+	pixel_y = 14
+	},
+/turf/open/floor/wood/ms13/carpet,
+/area/ms13/town)
 "mAJ" = (
 /obj/structure/stairs/west,
 /turf/open/floor/ms13/tile/large/white,
@@ -19365,6 +19445,10 @@
 /mob/living/basic/ms13/hostile_animal/radroach,
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
+"nfh" = (
+/obj/structure/displaycase,
+/turf/open/floor/wood/ms13/common,
+/area/ms13/town)
 "nfz" = (
 /obj/structure/closet/ms13/wall/firstaid,
 /obj/effect/spawner/random/ms13/medical/lowrandom,
@@ -19742,13 +19826,8 @@
 /turf/open/floor/ms13/tile/full/navy,
 /area/ms13/town)
 "nsm" = (
-/obj/structure/toilet{
-	pixel_y = 13
-	},
-/obj/machinery/light/ms13/bulb{
-	dir = 4
-	},
-/turf/open/floor/ms13/tile,
+/obj/structure/ms13/storage/shelf/rust,
+/turf/open/floor/ms13/tile/brown,
 /area/ms13/town)
 "nss" = (
 /mob/living/basic/ms13/hostile_animal/pigrat,
@@ -19914,6 +19993,11 @@
 "nyC" = (
 /obj/effect/spawner/random/ms13/armor/lowrandom,
 /turf/open/floor/wood/ms13/common,
+/area/ms13/town)
+"nyI" = (
+/obj/structure/table/ms13/metal/alt,
+/obj/effect/spawner/random/ms13/food/produce_random,
+/turf/open/floor/ms13/tile,
 /area/ms13/town)
 "nyK" = (
 /obj/structure/bed/ms13/mattress/dirty,
@@ -20318,7 +20402,9 @@
 	dir = 8
 	},
 /obj/machinery/ms13/terminal{
-	dir = 8
+	dir = 8;
+	doc_title_1 = "principals_office";
+	termtag = "Principal Andrew's Office"
 	},
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/vault_atrium_middle)
@@ -20655,15 +20741,6 @@
 	},
 /turf/open/floor/plating/ms13/ground/snow,
 /area/ms13/snow/lightforest)
-"nXn" = (
-/obj/machinery/light/ms13/bulb{
-	dir = 1
-	},
-/obj/structure/chair/ms13/metal/red{
-	dir = 8
-	},
-/turf/open/floor/wood/ms13/common,
-/area/ms13/town)
 "nXA" = (
 /obj/structure/table/ms13/low_wall/wood,
 /turf/open/floor/wood/ms13/common,
@@ -22663,6 +22740,10 @@
 /obj/effect/spawner/random/ms13/melee/lowrandom,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
+"qsh" = (
+/obj/structure/closet/ms13/wall/firstaid,
+/turf/open/floor/ms13/tile,
+/area/ms13/town)
 "qsT" = (
 /obj/structure/closet/ms13/fridge,
 /obj/effect/spawner/random/ms13/food/produce_random,
@@ -23165,6 +23246,10 @@
 /obj/effect/spawner/random/ms13/medical/bloodbag,
 /turf/open/floor/ms13/tile/large/white,
 /area/ms13/town)
+"ruB" = (
+/obj/item/chair/ms13/metal/folding,
+/turf/open/floor/ms13/tile/brown,
+/area/ms13/town)
 "rva" = (
 /obj/structure/ms13/barricade,
 /turf/open/floor/plating/ms13/ground/mountain,
@@ -23214,6 +23299,12 @@
 /obj/effect/spawner/random/ms13/melee/tier3,
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
+"rBu" = (
+/obj/structure/janitorialcart{
+	dir = 1
+	},
+/turf/open/floor/ms13/tile/brown,
+/area/ms13/town)
 "rBz" = (
 /obj/structure/table/ms13/no_smooth/large/metal/desk/alt{
 	dir = 4
@@ -23651,6 +23742,13 @@
 /obj/structure/kitchenspike/ms13,
 /turf/open/floor/ms13/tile/blue/long,
 /area/ms13/town)
+"srV" = (
+/obj/effect/decal/cleanable/glass,
+/obj/item/chair/ms13/metal/red{
+	dir = 4
+	},
+/turf/open/floor/ms13/tile/large/cafeteria,
+/area/ms13/town)
 "ssg" = (
 /obj/structure/table/ms13/no_smooth/counter/metal,
 /turf/open/floor/ms13/tile/long,
@@ -23994,6 +24092,10 @@
 	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/tribal_abandoned)
+"tjF" = (
+/obj/item/chair/ms13/metal/red/broken,
+/turf/open/floor/ms13/tile/large/cafeteria,
+/area/ms13/town)
 "tkl" = (
 /turf/closed/wall/ms13/concrete,
 /area/ms13/underground/tunnel/maintenance)
@@ -24291,6 +24393,11 @@
 /obj/effect/spawner/random/ms13/clothing/under,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/supermarket)
+"tSB" = (
+/obj/structure/ms13/rug/rubber,
+/obj/structure/table/rolling/ms13,
+/turf/open/floor/ms13/tile,
+/area/ms13/town)
 "tTF" = (
 /obj/structure/table/ms13/metal,
 /obj/machinery/light/ms13/broken{
@@ -24446,6 +24553,13 @@
 "uhg" = (
 /obj/structure/ms13/storage/bookshelf,
 /turf/open/floor/wood/ms13/carpet/shaggy/green,
+/area/ms13/town)
+"uih" = (
+/obj/item/newspaper{
+	pixel_x = -7;
+	pixel_y = 4
+	},
+/turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "uiE" = (
 /obj/structure/filingcabinet/ms13/busted,
@@ -24720,7 +24834,9 @@
 /area/ms13/town)
 "uQP" = (
 /obj/machinery/ms13/terminal{
-	dir = 8
+	dir = 8;
+	doc_title_1 = "principals_office";
+	termtag = "Principal Andrew's Office"
 	},
 /obj/structure/table/ms13/no_smooth/large/metal/desk{
 	dir = 8
@@ -25328,7 +25444,9 @@
 /area/ms13/town)
 "weE" = (
 /obj/machinery/ms13/terminal{
-	dir = 8
+	dir = 8;
+	doc_title_1 = "principals_office";
+	termtag = "Principal Andrew's Office"
 	},
 /obj/effect/spawner/random/ms13/drink/alcohol,
 /turf/open/floor/wood/ms13/fancy,
@@ -25645,6 +25763,12 @@
 "wPQ" = (
 /obj/structure/ms13/storage/vent,
 /turf/open/floor/ms13/tile/large/checkered,
+/area/ms13/town)
+"wPR" = (
+/obj/structure/chair/ms13/metal/red/broken{
+	dir = 8
+	},
+/turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "wPX" = (
 /obj/machinery/light/ms13{
@@ -26171,6 +26295,15 @@
 	},
 /turf/open/floor/ms13/concrete,
 /area/ms13)
+"xTE" = (
+/obj/machinery/light/ms13/bulb,
+/obj/item/kirbyplants/dead{
+	desc = "It's a dead plant. You can't tell what it used to be.";
+	name = "Dead Plant";
+	pixel_y = 10
+	},
+/turf/open/floor/wood/ms13/common,
+/area/ms13/town)
 "xTQ" = (
 /obj/structure/chair/sofa/corp/left{
 	dir = 8
@@ -63260,13 +63393,13 @@ cSz
 cWd
 vcM
 pwP
-vEq
+fFb
 wSc
 pwP
 dqP
 wSc
-pwP
-dyE
+scA
+tSB
 pwP
 xZD
 ykT
@@ -63566,9 +63699,9 @@ vEq
 wSc
 pwP
 drM
-wSc
-dsz
-aps
+hUz
+scA
+puI
 pwP
 xZD
 ykT
@@ -63869,8 +64002,8 @@ wSc
 pwP
 drM
 wSc
-pwP
-pwP
+mls
+mls
 pwP
 xZD
 ykT
@@ -64171,7 +64304,7 @@ wSc
 pwP
 vcM
 wSc
-dwP
+scA
 scA
 pwP
 xZD
@@ -64471,9 +64604,9 @@ pwP
 vEq
 wSc
 pwP
-ybx
+kGb
 wSc
-scA
+faS
 scA
 pwP
 xZD
@@ -64770,13 +64903,13 @@ wSc
 wSc
 chc
 pwP
-vEq
+oos
 wSc
 bUQ
 wSc
 wSc
 dwV
-scA
+bMZ
 pwP
 xZD
 ykT
@@ -65378,9 +65511,9 @@ pwP
 ybx
 wSc
 pwP
-dtG
-oJO
-dyJ
+wmi
+pwP
+wmi
 pwP
 xZD
 ykT
@@ -65679,10 +65812,10 @@ wSc
 wSc
 wSc
 wSc
-drW
-oJO
-oJO
-oJO
+pwP
+cDZ
+pwP
+cDZ
 pwP
 xZD
 ykT
@@ -65982,9 +66115,9 @@ wSc
 wSc
 wSc
 pwP
-dtO
-dxA
-dyL
+qsh
+scA
+nLd
 pwP
 xZD
 ykT
@@ -66283,10 +66416,10 @@ wSc
 wSc
 wSc
 wSc
-pwP
-pwP
-pwP
-pwP
+drW
+scA
+aps
+aps
 pwP
 xZD
 ykT
@@ -66586,9 +66719,9 @@ pwP
 ybx
 wSc
 pwP
-wmi
 pwP
-wmi
+pwP
+pwP
 pwP
 xZD
 ykT
@@ -66874,23 +67007,23 @@ xZD
 oPs
 uTb
 scA
-cnh
+nyI
 cnh
 cnh
 scA
 cDS
 pwP
 nsm
-cki
-scA
-scA
-cki
+oJO
+jYy
+oJO
+kWn
 wSc
 wSc
 pwP
-cDZ
+wmi
 pwP
-cDZ
+wmi
 pwP
 xZD
 ykT
@@ -67178,21 +67311,21 @@ aqJ
 scA
 cnh
 cnh
-cnh
+nyI
 ays
 scA
 pwP
-pwP
-pwP
-bDk
-nLd
+eDh
+oJO
+ruB
+oJO
 pwP
 wSc
 wSc
 pwP
-dtR
-scA
-nLd
+cDZ
+pwP
+cDZ
 pwP
 xZD
 ykT
@@ -67484,17 +67617,17 @@ scA
 scA
 scA
 pwP
-nsm
-cki
-aps
-aps
+dtO
+oJO
+dxA
+rBu
 pwP
 wSc
 wSc
-dsz
+pwP
+fSm
 scA
-aps
-aps
+nLd
 pwP
 xZD
 ykT
@@ -67793,10 +67926,10 @@ pwP
 pwP
 ybx
 wSc
-pwP
-pwP
-pwP
-pwP
+dsz
+scA
+aps
+aps
 pwP
 xZD
 ykT
@@ -68095,11 +68228,11 @@ wSc
 wSc
 wSc
 wSc
-wSc
-wSc
-wSc
 pwP
-xZD
+pwP
+pwP
+pwP
+pwP
 xZD
 ykT
 ykT
@@ -68383,9 +68516,9 @@ ykT
 xZD
 pwP
 vvF
+okq
 vvF
-vvF
-vvF
+ojP
 cxc
 vvF
 wSc
@@ -69290,7 +69423,7 @@ xZD
 pwP
 bYv
 vvF
-vvF
+okl
 ctZ
 heI
 pwP
@@ -69298,7 +69431,7 @@ pNE
 wSc
 wSc
 pwP
-mkp
+mAG
 xGW
 wSc
 pwP
@@ -69590,13 +69723,13 @@ ykT
 ykT
 xZD
 pwP
-vvF
+hXN
 vvF
 cnt
 cuk
 vvF
 pwP
-xcp
+cRj
 wSc
 bue
 pwP
@@ -69609,7 +69742,7 @@ kwb
 wSc
 wSc
 pwP
-wSc
+idI
 xZD
 ykT
 ykT
@@ -69894,7 +70027,7 @@ xZD
 bSq
 vvF
 vvF
-bYY
+srV
 cuK
 vvF
 pwP
@@ -69902,8 +70035,8 @@ vcM
 wSc
 wSc
 pwP
+aCy
 rtO
-smU
 wSc
 pwP
 iKV
@@ -70496,14 +70629,14 @@ ykT
 ykT
 xZD
 pwP
-hXN
+vvF
 dHp
 chS
 chS
 vvF
 pwP
 abx
-wSc
+uih
 bue
 pwP
 dsO
@@ -70799,25 +70932,25 @@ ykT
 xZD
 pwP
 vvF
-vvF
+okR
 hyH
-vvF
+tjF
 vvF
 pwP
 cFq
 cNr
 wSc
 pwP
+mGh
 xGW
-xGW
-wSc
+iSG
 pwP
 vcM
 dsT
 wSc
 wSc
 pwP
-wSc
+idI
 xZD
 ykT
 ykT
@@ -75044,7 +75177,7 @@ cOh
 scA
 pwP
 wSc
-wSc
+vcM
 pwP
 xZD
 ykT
@@ -75346,7 +75479,7 @@ cSU
 scA
 pwP
 wSc
-bue
+xTE
 pwP
 xZD
 ykT
@@ -75648,7 +75781,7 @@ pwP
 cDZ
 pwP
 wSc
-wSc
+nfh
 pwP
 xZD
 ykT
@@ -75939,18 +76072,18 @@ unL
 cxd
 axO
 pwP
-wSc
+dka
 vlH
 wSc
 wSc
 pwP
-paK
+hTd
 wSc
 wSc
 wSc
 pwP
 wSc
-wSc
+nfh
 pwP
 xZD
 ykT
@@ -76241,18 +76374,18 @@ axO
 axO
 axO
 pwP
-nXn
+aeX
 cTw
-wSc
+wPR
 bue
 pwP
-dka
+vcM
 cOp
 bas
 wSc
 pwP
 aFo
-wSc
+nfh
 pwP
 xZD
 ykT
@@ -76554,7 +76687,7 @@ pwP
 cmA
 pwP
 wSc
-bue
+xTE
 pwP
 xZD
 ykT
