@@ -576,11 +576,11 @@
 /turf/open/floor/ms13/tile/navy,
 /area/ms13/town)
 "auR" = (
-/obj/machinery/light/ms13/bulb/broken{
-	dir = 1
-	},
 /obj/structure/bed/ms13/bedframe/wood,
 /obj/structure/bed/ms13/mattress/filthy,
+/obj/machinery/light/ms13/bulb{
+	dir = 1
+	},
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "auS" = (
@@ -731,14 +731,14 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "aBu" = (
-/obj/machinery/light/ms13/bulb/broken{
-	dir = 4
-	},
 /obj/structure/railing/ms13/solo{
 	dir = 1
 	},
 /obj/structure/railing/ms13/solo{
 	dir = 8
+	},
+/obj/machinery/light/ms13/bulb{
+	dir = 4
 	},
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
@@ -2611,9 +2611,11 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "cib" = (
-/obj/structure/holohoop,
-/turf/open/floor/plating/ms13/ground/road,
-/area/ms13)
+/obj/structure/table/ms13/no_smooth/large/metal/desk/alt{
+	dir = 8
+	},
+/turf/open/floor/ms13/tile/brown,
+/area/ms13/town)
 "cig" = (
 /obj/effect/spawner/random/ms13/gun/lowrandom,
 /obj/structure/table/ms13/no_smooth/counter/metal,
@@ -3794,11 +3796,10 @@
 /turf/open/floor/wood/ms13/carpet,
 /area/ms13/town)
 "dgC" = (
-/obj/structure/holohoop{
-	dir = 1
-	},
-/turf/open/floor/plating/ms13/ground/road,
-/area/ms13)
+/obj/structure/mopbucket,
+/obj/item/mop,
+/turf/open/floor/ms13/tile/brown,
+/area/ms13/town)
 "dgH" = (
 /obj/structure/closet,
 /turf/open/floor/ms13/concrete/industrial,
@@ -4094,7 +4095,7 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "dtO" = (
-/obj/structure/reagent_dispensers/watertank,
+/obj/structure/ms13/storage/shelf/rust,
 /turf/open/floor/ms13/tile/brown,
 /area/ms13/town)
 "duh" = (
@@ -4174,8 +4175,7 @@
 /turf/open/floor/wood/ms13/carpet,
 /area/ms13/town)
 "dxA" = (
-/obj/item/mop,
-/obj/structure/mopbucket,
+/obj/item/chair/ms13/metal/folding,
 /turf/open/floor/ms13/tile/brown,
 /area/ms13/town)
 "dxF" = (
@@ -10259,6 +10259,9 @@
 	pixel_y = -6
 	},
 /obj/structure/ms13/storage/vent,
+/obj/machinery/light/ms13/bulb{
+	dir = 1
+	},
 /turf/open/floor/ms13/tile,
 /area/ms13/town)
 "hwC" = (
@@ -19535,8 +19538,10 @@
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "nfh" = (
-/obj/structure/displaycase,
-/turf/open/floor/wood/ms13/common,
+/obj/structure/table/ms13/no_smooth/large/metal/desk/alt{
+	dir = 1
+	},
+/turf/open/floor/ms13/tile/brown,
 /area/ms13/town)
 "nfz" = (
 /obj/structure/closet/ms13/wall/firstaid,
@@ -19919,10 +19924,6 @@
 "nsj" = (
 /obj/structure/stairs/south,
 /turf/open/floor/ms13/tile/full/navy,
-/area/ms13/town)
-"nsm" = (
-/obj/structure/ms13/storage/shelf/rust,
-/turf/open/floor/ms13/tile/brown,
 /area/ms13/town)
 "nss" = (
 /mob/living/basic/ms13/hostile_animal/pigrat,
@@ -23382,10 +23383,6 @@
 /obj/effect/spawner/random/ms13/medical/bloodbag,
 /turf/open/floor/ms13/tile/large/white,
 /area/ms13/town)
-"ruB" = (
-/obj/item/chair/ms13/metal/folding,
-/turf/open/floor/ms13/tile/brown,
-/area/ms13/town)
 "rva" = (
 /obj/structure/ms13/barricade,
 /turf/open/floor/plating/ms13/ground/mountain,
@@ -23435,12 +23432,6 @@
 /obj/effect/spawner/random/ms13/melee/tier3,
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
-"rBu" = (
-/obj/structure/janitorialcart{
-	dir = 1
-	},
-/turf/open/floor/ms13/tile/brown,
-/area/ms13/town)
 "rBz" = (
 /obj/structure/table/ms13/no_smooth/large/metal/desk/alt{
 	dir = 4
@@ -26643,9 +26634,6 @@
 	},
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
-"ybD" = (
-/turf/closed/wall/ms13/concrete,
-/area/ms13/snow/lightforest)
 "ybX" = (
 /obj/structure/railing/ms13/solo{
 	dir = 4
@@ -67260,8 +67248,8 @@ cnh
 scA
 cDS
 pwP
-nsm
 oJO
+cib
 jYy
 oJO
 kWn
@@ -67564,8 +67552,8 @@ scA
 pwP
 eDh
 oJO
-ruB
 oJO
+nfh
 pwP
 wSc
 wSc
@@ -67865,9 +67853,9 @@ scA
 scA
 pwP
 dtO
-oJO
+dgC
 dxA
-rBu
+oJO
 pwP
 wSc
 wSc
@@ -70558,12 +70546,12 @@ khQ
 khQ
 khQ
 khQ
-wtg
-wtg
-wtg
-wtg
-wtg
-wtg
+ylG
+ylG
+ylG
+ylG
+ylG
+ylG
 tqN
 ylG
 xZD
@@ -70861,12 +70849,12 @@ khQ
 khQ
 khQ
 khQ
-nKu
-nKu
-nKu
-nKu
-nKu
-ybD
+aSC
+aSC
+aSC
+aSC
+aSC
+aNw
 ylG
 xZD
 ykT
@@ -73293,17 +73281,17 @@ ykT
 xZD
 kNq
 xZD
-cib
 ykT
 ykT
 ykT
 ykT
 ykT
-cNw
 ykT
 ykT
 ykT
-dgC
+ykT
+ykT
+ykT
 xZD
 xZD
 xZD
@@ -74787,13 +74775,13 @@ xmo
 khQ
 khQ
 khQ
-wtg
+ylG
 jIO
 jGv
 wjZ
 fXB
 jIO
-wtg
+ylG
 xZD
 ykT
 ykT
@@ -76028,7 +76016,7 @@ pwP
 cDZ
 pwP
 wSc
-nfh
+wSc
 pwP
 xZD
 ykT
@@ -76330,7 +76318,7 @@ wSc
 wSc
 pwP
 wSc
-nfh
+wSc
 pwP
 xZD
 ykT
@@ -76632,7 +76620,7 @@ bas
 wSc
 pwP
 aFo
-nfh
+wSc
 pwP
 xZD
 ykT
@@ -77505,11 +77493,11 @@ eUU
 wSc
 wSc
 wSc
-aPV
 wSc
 wSc
 wSc
-aPV
+wSc
+wSc
 wSc
 gnH
 xZD
@@ -77807,11 +77795,11 @@ aBu
 wSc
 wSc
 aTP
+bus
 wSc
 wSc
 wSc
-wSc
-wSc
+bus
 wSc
 bKD
 xZD
