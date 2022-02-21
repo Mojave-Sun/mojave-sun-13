@@ -59,6 +59,13 @@
 	add_filter("seventh_stage_openspace", 8, drop_shadow_filter(color = "#04080FAA", size = -40))
 //MOJAVE SUN EDIT END - Depth Blur & Fixes
 
+///For any transparent multi-z tiles we want to render
+/atom/movable/screen/plane_master/transparent
+	name = "transparent plane master"
+	plane = TRANSPARENT_FLOOR_PLANE
+	appearance_flags = PLANE_MASTER
+	render_relay_plane = RENDER_PLANE_GAME
+
 ///Contains just the floor
 /atom/movable/screen/plane_master/floor
 	name = "floor plane master"
@@ -95,13 +102,30 @@
 	if(istype(mymob) && mymob.client?.prefs?.read_preference(/datum/preference/toggle/ambient_occlusion))
 		add_filter("AO", 1, drop_shadow_filter(x = 0, y = -2, size = 4, color = "#04080FAA"))
 
-//MOJAVE SUN EDIT - Wallening Testmerge
+/atom/movable/screen/plane_master/game_world_fov_hidden
+	name = "game world fov hidden plane master"
+	plane = GAME_PLANE_FOV_HIDDEN
+	render_relay_plane = GAME_PLANE
+	appearance_flags = PLANE_MASTER //should use client color
+	blend_mode = BLEND_OVERLAY
+
+/atom/movable/screen/plane_master/game_world_fov_hidden/Initialize()
+	. = ..()
+	add_filter("vision_cone", 1, alpha_mask_filter(render_source = FIELD_OF_VISION_BLOCKER_RENDER_TARGET, flags = MASK_INVERSE))//MOJAVE SUN EDIT - Wallening Testmerge
 /atom/movable/screen/plane_master/wall
 	name = "wall plane master"
 	plane = WALL_PLANE
 	appearance_flags = PLANE_MASTER //should use client color
 	blend_mode = BLEND_OVERLAY
 	render_relay_plane = RENDER_PLANE_GAME
+
+/atom/movable/screen/plane_master/game_world_above
+	name = "above game world plane master"
+	plane = ABOVE_GAME_PLANE
+	render_relay_plane = GAME_PLANE
+	appearance_flags = PLANE_MASTER //should use client color
+	blend_mode = BLEND_OVERLAY
+
 
 /atom/movable/screen/plane_master/frill_under
 	name = "frill under plane master"
@@ -291,3 +315,10 @@
 	name = "fullscreen alert plane"
 	plane = FULLSCREEN_PLANE
 	render_relay_plane = RENDER_PLANE_NON_GAME
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+
+/atom/movable/screen/plane_master/field_of_vision_blocker
+	name = "field of vision blocker plane master"
+	plane = FIELD_OF_VISION_BLOCKER_PLANE
+	render_target = FIELD_OF_VISION_BLOCKER_RENDER_TARGET
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT

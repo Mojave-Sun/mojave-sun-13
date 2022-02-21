@@ -16,8 +16,7 @@
 
 /obj/item/clothing/suit/hooded/Destroy()
 	. = ..()
-	qdel(hood)
-	hood = null
+	QDEL_NULL(hood)
 
 /obj/item/clothing/suit/hooded/proc/MakeHood()
 	if(!hood)
@@ -115,6 +114,9 @@
 	. = ..()
 	AddComponent(/datum/component/toggle_icon, toggle_noun)
 
+
+// MOJAVE CHANGE - HARDSUITS FOR PA -- START
+
 //Hardsuit toggle code
 /obj/item/clothing/suit/space/hardsuit/Initialize(mapload)
 	MakeHelmet()
@@ -194,3 +196,5 @@
 				playsound(src.loc, 'sound/mecha/mechmove03.ogg', 50, TRUE)
 	else
 		RemoveHelmet()
+
+// MOJAVE CHANGE - HARDSUITS FOR PA -- END
