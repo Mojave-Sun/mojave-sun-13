@@ -61,8 +61,11 @@
 		context[SCREENTIP_CONTEXT_LMB] = "Open"
 		return CONTEXTUAL_SCREENTIP_SET
 
-/obj/machinery/door/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+/obj/machinery/door/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = ..()
+
+	if(!isliving(user))
+		return .
 
 	if (isnull(held_item))
 		context[SCREENTIP_CONTEXT_LMB] = "Open"
