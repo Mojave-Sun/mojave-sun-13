@@ -18,7 +18,7 @@
 	density = TRUE
 	var/broken = FALSE // Used for pre-broken terminals
 	var/active = TRUE // These should usually probably start off
-	var/screen_icon = "terminal_screen"
+	var/screen_icon = "terminal_screen" // The icon grabbed for the screen icon overlay
 	var/termtag = "Home" // We use this for flavor.
 	var/termnumber = null // Flavor
 	var/mode = 0 // What page we're on. 0 is the main menu. 1 is the text editor. 2 is the document viewer. 3 is the optional utility page
@@ -34,6 +34,7 @@
 	"Weapons cache details",
 	"Your payment",
 	"Pickup location",
+	"Something really important",
 	"Looking for a good time",
 	"Power Armor unlock code",
 	"Bunker Location",
