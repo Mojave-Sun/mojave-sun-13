@@ -146,7 +146,7 @@
 /obj/item/ms13/rug
 	name = "rug"
 	desc = "A common rug, used to cover your boring floor. It's currently rolled up, but peeking through you can see it's blue."
-	icon = 'mojave/icons/objects/decorative.dmi'
+	icon = 'mojave/icons/objects/clutter/clutter_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
 	icon_state = "rug"
@@ -154,6 +154,10 @@
 	throw_range = 2
 	w_class = WEIGHT_CLASS_BULKY
 	var/obj/structure/ms13/rug/origin_type = /obj/structure/ms13/rug
+
+/obj/item/ms13/rug/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clutter/clutter_inventory.dmi')
 
 /obj/item/ms13/rug/ComponentInitialize()
 	. = ..()
@@ -192,9 +196,6 @@
 /obj/item/ms13/rug/mat
 	name = "door mat"
 	desc = "A small door mat, It's rolled and ready for transport."
-	icon = 'mojave/icons/objects/decorative.dmi'
-	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
-	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
 	icon_state = "rug"
 	inhand_icon_state = "mat"
 	throw_range = 6

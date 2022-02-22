@@ -29,7 +29,7 @@
 /obj/structure/ms13/bars/attackby(obj/item/W, mob/user, params)
 	if(W.tool_behaviour == TOOL_SAW)
 		user.show_message(span_notice("You begin sawing through the bars."), MSG_VISUAL)
-		if(do_after(user, 45 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON)) 
+		if(do_after(user, 45 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
 			user.show_message(span_notice("You saw through the bars!"), MSG_VISUAL)
 			deconstruct()
 			return TRUE
@@ -627,6 +627,23 @@
 	name = "guard rail"
 	desc = "A rusty guard rail used to prevent you from falling into the region's sewage. Thank the lord it's there."
 	icon_state = "railings_sewer"
+
+// Fences. Huzzah! //
+/obj/structure/railing/ms13/wood
+	name = "wooden fence"
+	desc = "A classic wooden fence. It doesn't get more homely than this."
+	icon_state = "wood_full"
+
+/obj/structure/railing/ms13/wood/single
+	icon_state = "wood_solo"
+
+/obj/structure/railing/ms13/wood/snow
+	name = "wooden fence"
+	desc = "A classic wooden fence. It doesn't get more homely than this."
+	icon_state = "wood_snow_full"
+
+/obj/structure/railing/ms13/wood/snow/single
+	icon_state = "wood_snow_solo"
 
 // Wood Barricade //
 

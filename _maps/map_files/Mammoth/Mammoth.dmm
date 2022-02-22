@@ -2451,6 +2451,10 @@
 /turf/open/floor/ms13/tile/large/white,
 /area/ms13/town)
 "bZf" = (
+/obj/structure/chair/office/ms13/green{
+	dir = 8
+	},
+/obj/effect/landmark/start/ms13/sheriff,
 /obj/item/radio/intercom/ms13{
 	dir = 8;
 	frequency = 1262
@@ -8054,7 +8058,7 @@
 /area/ms13/underground/tunnel/maintenance)
 "gbT" = (
 /turf/closed/wall/ms13/vault/vent,
-/area/ms13/underground/mountain)
+/area/ms13/underground/vault_atrium_middle)
 "gbU" = (
 /obj/structure/table/ms13/no_smooth/counter/wood,
 /obj/effect/spawner/random/ms13/gun/lowrandom,
@@ -8181,7 +8185,7 @@
 /turf/open/floor/plating/ms13/ground/sidewalk,
 /area/ms13/town)
 "gfY" = (
-/obj/structure/fence/fencedoor,
+/obj/structure/railing/ms13/wood/snow,
 /turf/open/floor/plating/ms13/ground/snow,
 /area/ms13)
 "gga" = (
@@ -12253,6 +12257,12 @@
 "iLT" = (
 /turf/closed/wall/ms13/bunker,
 /area/ms13/underground/bos)
+"iMf" = (
+/obj/structure/railing/ms13/wood/snow{
+	dir = 8
+	},
+/turf/open/floor/plating/ms13/ground/snow,
+/area/ms13)
 "iMh" = (
 /obj/machinery/door/unpowered/ms13/metal/alt,
 /turf/open/floor/plating/ms13/ground/sidewalk,
@@ -12892,9 +12902,11 @@
 /turf/open/floor/plating/ms13/ground/road,
 /area/ms13/town)
 "jdB" = (
-/obj/structure/table/ms13/metal/alt,
-/obj/structure/table/ms13/metal/heavy,
-/turf/open/floor/ms13/metal/grate/border,
+/obj/effect/landmark/start/ms13/deputy,
+/obj/structure/chair/office/ms13/green{
+	dir = 4
+	},
+/turf/open/floor/ms13/metal,
 /area/ms13/underground/vault_atrium_middle)
 "jdC" = (
 /obj/machinery/light/ms13{
@@ -16674,15 +16686,6 @@
 	},
 /turf/open/openspace/ms13,
 /area/ms13/town)
-"lrH" = (
-/obj/structure/chair/office/ms13/green{
-	dir = 4
-	},
-/obj/effect/landmark/start/ms13/deputy,
-/turf/open/floor/ms13/metal/border{
-	dir = 1
-	},
-/area/ms13/underground/vault_atrium_middle)
 "lrK" = (
 /obj/structure/ms13/foundation/variantsix{
 	dir = 8
@@ -17294,6 +17297,10 @@
 	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/supermarket)
+"lIX" = (
+/obj/structure/sign/poster/ms13/pinup_2,
+/turf/open/floor/ms13/metal/grate/border,
+/area/ms13/underground/vault_atrium_middle)
 "lJf" = (
 /obj/structure/barricade/sandbags,
 /turf/open/floor/ms13/concrete,
@@ -22367,7 +22374,12 @@
 /turf/open/floor/wood/ms13/carpet/shaggy,
 /area/ms13/town)
 "pLr" = (
-/obj/structure/table/ms13/metal/heavy,
+/obj/machinery/ms13/terminal/vault{
+	doc_title_1 = "vault_door_notice";
+	remote_capability = 1;
+	signal_id_1 = "vaultdoor2";
+	signal_title_1 = "Interior Seal Lockdown"
+	},
 /turf/open/floor/ms13/metal/grate/border,
 /area/ms13/underground/vault_atrium_middle)
 "pMJ" = (
@@ -23004,11 +23016,7 @@
 "rdr" = (
 /obj/structure/table/ms13/metal/alt,
 /obj/machinery/ms13/terminal{
-	dir = 8;
-	doc_title_1 = "vault_door_notice";
-	remote_capability = 1;
-	signal_id_1 = "vaultdoor2";
-	signal_title_1 = "Interior Seal Lockdown"
+	dir = 8
 	},
 /turf/open/floor/ms13/metal/border{
 	dir = 1
@@ -23048,9 +23056,6 @@
 /obj/structure/table/ms13/metal/grate,
 /turf/open/floor/ms13/tile/large/navy,
 /area/ms13/underground/vault_atrium_middle)
-"rge" = (
-/turf/closed/wall/ms13/vault/rust,
-/area/ms13/underground/mountain)
 "rgt" = (
 /obj/structure/table/ms13/no_smooth/counter/wood{
 	dir = 1
@@ -24677,7 +24682,9 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "uOS" = (
-/obj/structure/fence/fenceintersectbottom,
+/obj/structure/railing/ms13/wood/snow{
+	dir = 10
+	},
 /turf/open/floor/plating/ms13/ground/snow,
 /area/ms13)
 "uOV" = (
@@ -25006,9 +25013,6 @@
 /obj/effect/spawner/random/ms13/gun/lowrandom,
 /turf/open/floor/wood/ms13/carpet/green,
 /area/ms13/town)
-"vwT" = (
-/turf/closed/wall/ms13/vault,
-/area/ms13/underground/mountain)
 "vwV" = (
 /turf/open/floor/ms13/metal/grate/border{
 	dir = 1
@@ -25995,13 +25999,6 @@
 /obj/effect/spawner/random/ms13/tools/tool,
 /turf/open/floor/ms13/tile/full/navy,
 /area/ms13/town)
-"xwA" = (
-/obj/structure/chair/office/ms13/green{
-	dir = 4
-	},
-/obj/effect/landmark/start/ms13/sheriff,
-/turf/open/floor/ms13/metal,
-/area/ms13/underground/vault_atrium_middle)
 "xxT" = (
 /obj/machinery/door/airlock/ms13,
 /turf/open/floor/ms13/concrete/industrial,
@@ -31688,10 +31685,10 @@ kCC
 luy
 aaD
 khQ
-abo
-abo
-abo
-bKn
+wtg
+wtg
+wtg
+wtg
 ylG
 ylG
 khQ
@@ -31990,9 +31987,9 @@ kCC
 kCC
 aaD
 khQ
-wtg
-wtg
-wtg
+iMf
+iMf
+iMf
 uOS
 ylG
 ylG
@@ -32295,7 +32292,7 @@ wtg
 wtg
 uCW
 wtg
-uOS
+gfY
 ylG
 ylG
 ylG
@@ -32597,7 +32594,7 @@ wtg
 wtg
 wtg
 wtg
-uOS
+gfY
 ylG
 ylG
 ylG
@@ -32899,7 +32896,7 @@ wtg
 wtg
 wtg
 wtg
-uOS
+gfY
 ylG
 ylG
 ylG
@@ -33201,7 +33198,7 @@ wtg
 wtg
 wtg
 wtg
-uOS
+gfY
 ylG
 ylG
 ylG
@@ -33503,7 +33500,7 @@ iuT
 wtg
 wtg
 wtg
-uOS
+gfY
 wtg
 wtg
 ylG
@@ -34107,7 +34104,7 @@ wtg
 wtg
 wtg
 wtg
-uOS
+gfY
 wtg
 wtg
 wtg
@@ -43699,7 +43696,7 @@ vHI
 jFh
 jVm
 ylm
-jdB
+lIX
 hts
 rGn
 rGn
@@ -44003,10 +44000,10 @@ jVm
 iiU
 ipW
 jVm
-xwA
 rGn
 rGn
-lrH
+jdB
+oTJ
 gAT
 qfK
 gAT
@@ -46416,15 +46413,15 @@ khQ
 khQ
 khQ
 khQ
-rge
-vwT
+dmC
+ylm
 gbT
-rge
-vwT
-vwT
+dmC
+ylm
+ylm
 gbT
-rge
-rge
+dmC
+dmC
 xpz
 fKQ
 fKQ
