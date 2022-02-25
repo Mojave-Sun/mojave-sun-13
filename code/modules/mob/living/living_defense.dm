@@ -1,22 +1,22 @@
 
 /mob/living/proc/run_armor_check(def_zone = null, attack_flag = MELEE, absorb_text = null, soften_text = null, armour_penetration, penetrated_text, silent=FALSE, weak_against_armour = FALSE)
-	var/armor = getarmor(def_zone, attack_flag)
+	var/our_armor = getarmor(def_zone, attack_flag)
 
-	if(armor <= 0)
-		return armor
-	if(weak_against_armour && armor >= 0)
-		armor *= ARMOR_WEAKENED_MULTIPLIER
+	if(our_armor <= 0)
+		return our_armor
+	if(weak_against_armour && our_armor >= 0)
+		our_armor *= ARMOR_WEAKENED_MULTIPLIER
 	if(silent)
-		return max(0, armor - armour_penetration)
+		return max(0, our_armor - armour_penetration)
 
 	//the if "armor" check is because this is used for everything on /living, including humans
 	if(armour_penetration)
-		armor = max(0, armor - armour_penetration)
+		our_armor = max(0, our_armor - armour_penetration)
 		if(penetrated_text)
 			to_chat(src, span_userdanger("[penetrated_text]"))
 		else
 			to_chat(src, span_userdanger("Your armor was penetrated!"))
-	else if(armor >= 100)
+	else if(our_armor >= 100)
 		if(absorb_text)
 			to_chat(src, span_notice("[absorb_text]"))
 		else
@@ -26,7 +26,7 @@
 			to_chat(src, span_warning("[soften_text]"))
 		else
 			to_chat(src, span_warning("Your armor softens the blow!"))
-	return armor
+	return our_armor
 
 /mob/living/proc/getarmor(def_zone, type)
 	return 0
@@ -62,7 +62,10 @@
 		var/subarmor = run_subarmor_check(def_zone, P.flag, armour_penetration = P.subtractible_armour_penetration, weak_against_armour = P.weak_against_subtractible_armour, sharpness = P.sharpness)
 		//MOJAVE EDIT END
 		/* MOJAVE EDIT REMOVAL
-		apply_damage(P.damage, P.damage_type, def_zone, armor, wound_bonus=P.wound_bonus, bare_wound_bonus=P.bare_wound_bonus, sharpness = P.sharpness, attack_direction = attack_direction)
+		// we need a second, silent armor check to actually know how much to reduce damage taken, as opposed to
+		// on [/atom/proc/bullet_act] where it's just to pass it to the projectile's on_hit().
+		var/armor_check = check_projectile_armor(def_zone, P, is_silent = TRUE)
+		apply_damage(P.damage, P.damage_type, def_zone, armor_check, wound_bonus=P.wound_bonus, bare_wound_bonus=P.bare_wound_bonus, sharpness = P.sharpness, attack_direction = attack_direction)
 		*/
 		//MOJAVE EDIT BEGIN
 		apply_damage(P.damage, P.damage_type, def_zone, \
@@ -75,8 +78,8 @@
 			check_projectile_dismemberment(P, def_zone)
 	return . ? BULLET_ACT_HIT : BULLET_ACT_BLOCK
 
-/mob/living/check_projectile_armor(def_zone, obj/projectile/impacting_projectile)
-	return run_armor_check(def_zone, impacting_projectile.flag, "","",impacting_projectile.subtractible_armour_penetration, "", FALSE, impacting_projectile.weak_against_armour)
+/mob/living/check_projectile_armor(def_zone, obj/projectile/impacting_projectile, is_silent)
+	return run_armor_check(def_zone, impacting_projectile.flag, "","",impacting_projectile.subtractible_armour_penetration, "", is_silent, impacting_projectile.weak_against_armour)
 
 /mob/living/proc/check_projectile_dismemberment(obj/projectile/P, def_zone)
 	return 0
