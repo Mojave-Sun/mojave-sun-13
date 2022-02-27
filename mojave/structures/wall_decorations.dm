@@ -2,57 +2,68 @@
 	name = "wasteland poster"
 	desc = "Display your radioactive dust on your wall."
 	icon = 'mojave/icons/objects/posters.dmi'
+	pixel_y = 30
 
 /obj/structure/sign/poster/ms13/Initialize()
 	. = ..()
 	AddElement(/datum/element/wall_mount)
 
-/obj/structure/sign/poster/ms13/careless
-	name = "\improper Careless Talk Costs Lives propaganda poster"
-	desc = "A propaganda poster from the NCR. It reminds the reader that careless talk costs lives."
-	icon_state = "poster1"
+/obj/structure/sign/poster/ms13/ncr
+	name = "NCR recruitment poster"
+	desc = "A wall poster with an NCR soldier plastered across it. 'REPRESENT THE REPUBLIC' is in bold red letters from top to bottom."
+	icon_state = "NCR_1"
 
-/obj/structure/sign/poster/ms13/espionage
-	name = "\improper Prevent Corporate Espionage poster"
-	desc = "An Old World poster. Remember, only you can prevent corporate espionage!"
-	icon_state = "poster2"
+/obj/structure/sign/poster/ms13/ncr_2
+	name = "NCR recruitment poster"
+	desc = "A colorful poster attempting to recuit YOU to the NCR. It is exclusively in red, white, and blue- as to remind you where you are, seemingly. There is a stylized blue NCR solder off to the side."
+	icon_state = "NCR_2"
 
-/obj/structure/sign/poster/ms13/democracy
-	name = "\improper You Bring Democracy propaganda poster"
-	desc = "A propaganda poster from the NCR. It reminds troopers that they bring democracy to this land."
-	icon_state = "poster3"
+/obj/structure/sign/poster/ms13/tattered
+	name = "tattered poster"
+	desc = "An old and torn poster. It has a city horizon printed across it and says something about corporations. Whatever that has to do with anything."
+	icon_state = "corporate"
 
-/obj/structure/sign/poster/ms13/irradiated
-	name = "\improper Do Not Eat Irradiated Food propaganda poster"
-	desc = "A propaganda poster from the NCR. It reminds the reader not to eat irradiated food."
-	icon_state = "poster4"
+/obj/structure/sign/poster/ms13/handgun
+	name = "handgun advertisement poster"
+	desc = "A dirty'd up advertisement poster. There appears to be a Colt 10mm handgun being sold to you. There is a very patriotic American soldier at the bottom of it."
+	icon_state = "handgun"
 
-/obj/structure/sign/poster/ms13/loaded
-	name = "\improper 'Loaded?' propaganda poster"
-	desc = "A propaganda poster from the NCR. It reminds the reader that loose women may also be loaded with disease."
-	icon_state = "poster5"
+/obj/structure/sign/poster/ms13/protect
+	name = "RobCo protectron advertisement"
+	desc = "This poster has a Protectron model on display, seemingly a police model from before the war. The words 'PROTECT AND SERVE' and plastered onto it."
+	icon_state = "protectron"
 
-/obj/structure/sign/poster/ms13/protectron
-	name = "\improper Protectron Advertisement poster"
-	desc = "An Old World poster, advertising the RobCo Protectron."
-	icon_state = "poster6"
+/obj/structure/sign/poster/ms13/vaulttec
+	name = "VaultTec poster"
+	desc = "A very basic poster. It has the VaultTec logo on it, in their usual vibrant colors that have been slightly faded through the years."
+	icon_state = "vaulttec"
 
-/obj/structure/sign/poster/ms13/vault_tec
-	name = "\improper Vault-Tec Advertisement poster"
-	desc = "An Old World poster. Vault-Tec: Revolutionizing safety for an uncertain future!"
-	icon_state = "poster7"
+/obj/structure/sign/poster/ms13/vacation
+	name = "vacation poster"
+	desc = "On this poster is a lovely island with a palm tree on it, with calm seas behind it. There is some scratched out text at the top that mentions 'vacations'."
+	icon_state = "vacation"
 
-/obj/structure/sign/poster/ms13/bombshell_1
-	name = "bombshell pinup"
-	desc = "A pin-up of a scantily-clad bombshell."
-	icon_state = "poster8"
+/obj/structure/sign/poster/ms13/moon
+	name = "moon poster"
+	desc = "A dark poster, featuring a very familiar sky pie. How calming."
+	icon_state = "moon"
 
-/obj/structure/sign/poster/ms13/bombshell_2
-	name = "bombshell pinup"
-	desc = "A pin-up of a scantily-clad bombshell."
-	icon_state = "poster9"
+/obj/structure/sign/poster/ms13/planet
+	name = "planet poster"
+	desc = "A poster with a planet in the center of it. It looks green- teeming with life."
+	icon_state = "planet"
 
-/obj/structure/sign/poster/ms13/bombshell_3
-	name = "bombshell pinup"
-	desc = "A pin-up of a scantily-clad bombshell."
-	icon_state = "poster10"
+/obj/structure/sign/poster/ms13/pinup
+	name = "pinup poster"
+	desc = "A tall poster with an attractive woman on it. She appears to be in a party outfit and dancing."
+	icon_state = "pinup_1"
+
+/obj/structure/sign/poster/ms13/pinup_2
+	name = "pinup poster"
+	desc = "A poster with a woman on it. She has very unnatural and vibrant hair with a revealing outfit."
+	icon_state = "pinup_2"
+
+/obj/structure/sign/poster/ms13/pinup_3
+	name = "pinup poster"
+	desc = "A poster with a woman on it. She is wearing a very fluffy dress and is sitting down, staring at your soul."
+	icon_state = "pinup_3"
