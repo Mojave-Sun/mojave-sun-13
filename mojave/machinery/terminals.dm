@@ -18,13 +18,15 @@
 	density = TRUE
 	var/broken = FALSE // Used for pre-broken terminals
 	var/active = TRUE // These should usually probably start off
-	var/screen_icon = "terminal_screen"
+	var/screen_icon = "terminal_screen" // The icon grabbed for the screen icon overlay
 	var/termtag = "Home" // We use this for flavor.
 	var/termnumber = null // Flavor
 	var/mode = 0 // What page we're on. 0 is the main menu. 1 is the text editor. 2 is the document viewer. 3 is the optional utility page
+	var/system = "ROBCO50" // Flavour text on the top indicating system type. Very awesome stuff.
 	var/prog_notekeeper = TRUE // Almost all consoles have the word processor installed, but we can remove it if we want to
 	var/remote_capability = FALSE // For special terminals that can activate certain things. Wall terminals / The quirky ones with antennas namely
 	var/rigged = FALSE // Ultra cursed var. If true, terminal explodes violently on certain interaction. Delightfully devilish.
+	var/craft = FALSE // For messed up stuff as a result of making a terminal yourself.
 	var/datum/looping_sound/ms13/terminal/soundloop
 	var/joker_titles = list("Safe codes",
 	"Stash location",
@@ -32,6 +34,7 @@
 	"Weapons cache details",
 	"Your payment",
 	"Pickup location",
+	"Something really important",
 	"Looking for a good time",
 	"Power Armor unlock code",
 	"Bunker Location",
@@ -79,7 +82,7 @@
 /obj/machinery/ms13/terminal/Initialize(mapload)
 	. = ..()
 	chosen_joker = pick(joker_titles)
-	termnumber = rand(360,620) // VERY unlikely to get two identical numbers.
+	termnumber = "No.[rand(360,620)]" // VERY unlikely to get two identical numbers.
 	FXtoggle()
 	if(!broken)
 		write_documents()
@@ -166,8 +169,17 @@
 	playsound(src, clicksound, 50, FALSE)
 	var/dat = ""
 	dat += "<head><style>body {padding: 0; margin: 15px; background-color: [main_color]; color: [secondary_color]; line-height: 170%;} a, button, a:link, a:visited, a:active, .linkOn, .linkOff {color: [secondary_color]; text-decoration: none; background: [main_color]; border: none; padding: 1px 4px 1px 4px; margin: 0 2px 0 0; cursor:default;} a:hover {color: [main_color]; background: [secondary_color]; border: 1px solid [secondary_color]} a.white, a.white:link, a.white:visited, a.white:active {color: [secondary_color]; text-decoration: none; background: [secondary_color]; border: 1px solid #161616; padding: 1px 4px 1px 4px; margin: 0 2px 0 0; cursor:default;} a.white:hover {color: [main_color]; background: [secondary_color];} .linkOn, a.linkOn:link, a.linkOn:visited, a.linkOn:active, a.linkOn:hover {color: [secondary_color]; background: [main_color]; border-color: [main_color];} .linkOff, a.linkOff:link, a.linkOff:visited, a.linkOff:active, a.linkOff:hover{color: [secondary_color]; background: [main_color]; border-color: [main_color];}</style></head><font face='courier'>"
-	dat += "<center><b>ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM v.92</b><br>"
-	dat += "<b>COPYRIGHT 2075-2077 ROBCO INDUSTRIES</b><br>"
+	switch (system)
+		if ("ROBCO50")
+			dat += "<center><b>ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM V.5.0</b><br>"
+			dat += "<b>COPYRIGHT 2075-2077 ROBCO INDUSTRIES</b><br>"
+		if ("ROBCO38")
+			dat += "<center><b>ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM V.3.8</b><br>"
+			dat += "<b>COPYRIGHT 2072-2075 ROBCO INDUSTRIES</b><br>"
+		if ("APRICOT")
+			dat += "<center><b>APRICOT COMPUTING SYSTEM VERSION 4B</b><br>"
+			dat += "<b>COPYRIGHT 2069-2070 APRICOT COMPUTING INC.</b><br>"
+
 	switch (mode) // Text at the top of the page
 		if (0) // If we're on the home page
 			dat += "= [termtag] Terminal [termnumber] =</center>"
@@ -249,13 +261,13 @@
 
 // Notekeeper
 			if ("Title")
-				var/t = stripped_multiline_input(U, "Please enter your entry title", name, title, 25)
+				var/t = tgui_input_text(U, "Please enter your entry title", "entry title", max_length = 25)
 				if (in_range(src, U))
 					if (mode == 1 && t)
 						title = t
 
 			if ("Contents")
-				var/n = stripped_multiline_input(U, "Please enter your entry contents", name, note)
+				var/n = tgui_input_text(U, "Please enter your entry contents", "entry contents")
 				if (in_range(src, U))
 					if (mode == 1 && n)
 						note = n
@@ -403,6 +415,23 @@
 /obj/machinery/ms13/terminal/rusty
 	icon_state = "terminal_rusted"
 
+/obj/machinery/ms13/terminal/vault
+	name = "terminal stand"
+	desc = "A multi-monitored heavy duty vault-tec terminal stand. Very uncommon to see anywhere else."
+	icon_state = "terminal_vault"
+	screen_icon = "terminal_vault_screen"
+	termtag = "vault"
+	system = "ROBCO38"
+	light_color = LIGHT_COLOR_DARK_BLUE
+	main_color = "#2b84bb"
+	secondary_color = "#093b4d"
+
+/obj/machinery/ms13/terminal/crafted
+	name = "crafted terminal"
+	desc = "A miracle of man- A terminal that has been locally produced by a wastelander, as can be clearly seen by the quality."
+	icon_state = "terminal_handmade"
+	screen_icon = "terminal_handmade_screen"
+
 //// Wall mounted terminals ////
 /obj/machinery/ms13/terminal/wall
 	name = "wall mounted terminal"
@@ -460,6 +489,7 @@
 	base_icon_state = "terminal_classic"
 	screen_icon = "terminal_classic_screen"
 	light_color = LIGHT_COLOR_DARK_BLUE
-	main_color = "#1e3645"
-	secondary_color = "#597d89"
+	main_color = "#1f7cb6"
+	secondary_color = "#012c3b"
 	flippable = FALSE
+	system = "APRICOT"
