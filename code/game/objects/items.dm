@@ -238,6 +238,13 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		if(damtype == BRUTE)
 			hitsound = "swing_hit"
 
+	//MOJAVE SUN EDIT START - Grid Inventory
+	if(grid_width <= 0)
+		grid_width = (w_class * world.icon_size)
+	if(grid_height <= 0)
+		grid_height = (w_class * world.icon_size)
+	//MOJAVE SUN EDIT END
+
 //	add_weapon_description() MOJAVE SUN EDIT: We don't need this!
 
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_ITEM, src)

@@ -16,6 +16,7 @@
 	slot_flags = ITEM_SLOT_BACK
 	resistance_flags = NONE
 	max_integrity = 300
+	component_type = /datum/component/storage/concrete/ms13/grid
 
 /obj/item/storage/ms13/Initialize()
 	. = ..()
@@ -26,9 +27,9 @@
 /obj/item/storage/ms13/ComponentInitialize() //backpacks are smaller but hold larger things
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_combined_w_class = 40
 	STR.max_w_class = WEIGHT_CLASS_NORMAL
-	STR.max_items = 12
+	STR.max_items = 40 //max grid
+	STR.max_combined_w_class = 100
 
 /obj/item/storage/ms13/sack
 	name = "sack"

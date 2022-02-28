@@ -10,10 +10,28 @@
 	throwforce = 2
 	merge_type = /obj/item/stack/sheet/ms13
 	w_class = WEIGHT_CLASS_NORMAL
+	grid_width = 32
+	grid_height = 32
+
+/obj/item/stack/sheet/ms13/update_icon_state()
+	if(novariants)
+		return ..()
+	if(amount <= (max_amount * (1/3)))
+		grid_width = 64
+		grid_height = 32
+		return ..()
+	if (amount <= (max_amount * (2/3)))
+		grid_width = 96
+		grid_height = 64
+		return ..()
+	grid_width = 126
+	grid_height = 96
+	return ..()
 
 /obj/item/stack/sheet/ms13/Initialize()
 	. = ..()
 	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/crafting/materials_inventory.dmi')
+	update_icon_state()
 
 //MISC. SCRAP//
 
@@ -630,7 +648,7 @@ GLOBAL_LIST_INIT(log_recipes, list ( \
 			user.show_message(span_notice("You can only chop one log at a time!"), MSG_VISUAL)
 			return
 		user.show_message(span_notice("You begin chopping \the [src] into wood planks!"), MSG_VISUAL)
-		if(do_after(user, 4 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_MAKEPLANKS)) 
+		if(do_after(user, 4 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_MAKEPLANKS))
 			user.show_message(span_notice("You make wood planks out of \the [src]!"), MSG_VISUAL)
 			new /obj/item/stack/sheet/ms13/plank/two(user.loc)
 			qdel(src)
