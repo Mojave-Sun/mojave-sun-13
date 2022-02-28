@@ -708,7 +708,7 @@
 /turf/open/floor/wood/ms13/carpet,
 /area/ms13/underground/mountain)
 "acD" = (
-/obj/machinery/ms13/terminal{
+/obj/machinery/ms13/terminal/wall/classic{
 	dir = 4;
 	doc_title_1 = "military_crypt_initial";
 	doc_title_2 = "corrupted";
@@ -721,7 +721,6 @@
 	signal_title_1 = "External Preservation Lock";
 	signal_title_2 = "Internal Preservation Lock"
 	},
-/obj/structure/table/ms13/metal/heavy,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/military_crypt)
 "acE" = (
@@ -9422,8 +9421,17 @@
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
 "aJb" = (
-/obj/structure/chair/comfy/ms13/captain,
-/obj/structure/ms13/storage/vent,
+/obj/machinery/ms13/terminal/wall/classic{
+	doc_title_1 = "corrupted";
+	doc_title_2 = "military_crypt_unlock";
+	doc_title_3 = "corrupted";
+	remote_capability = 1;
+	signal_id_1 = "crypt_armory";
+	signal_title_1 = "Armory Unlock"
+	},
+/obj/structure/chair/comfy/ms13/captain{
+	dir = 4
+	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/military_crypt)
 "aJc" = (
@@ -11142,17 +11150,11 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/underground/mountain)
 "aPv" = (
-/obj/machinery/ms13/terminal{
+/obj/machinery/ms13/terminal/wall/classic{
 	dir = 8;
-	doc_title_1 = "corrupted";
-	doc_title_2 = "military_crypt_unlock";
-	doc_title_3 = "corrupted";
 	remote_capability = 1;
 	signal_id_1 = "crypt_armory";
 	signal_title_1 = "Armory Unlock"
-	},
-/obj/machinery/light/ms13{
-	dir = 1
 	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/military_crypt)
@@ -81180,7 +81182,7 @@ afU
 ajf
 aoK
 aMO
-aMO
+aPv
 ajf
 aMO
 ayD
@@ -82393,7 +82395,7 @@ afU
 afU
 afU
 ajf
-aMO
+aAa
 aMO
 aMO
 aMO
@@ -82997,7 +82999,7 @@ afU
 afU
 afU
 ajf
-aPv
+azS
 ajr
 aMO
 aMO
