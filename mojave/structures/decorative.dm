@@ -296,6 +296,10 @@
 	icon_type = "toxic"
 	amount = 4
 
+/obj/structure/fluff/ms13/barrel/single/toxic/Initialize()
+	. = ..()
+	AddElement(/datum/element/radioactive)
+
 /obj/structure/fluff/ms13/barrel/single/toxic/one
 	icon_state = "toxic_1"
 	unique = TRUE
