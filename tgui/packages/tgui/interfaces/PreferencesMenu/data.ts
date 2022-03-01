@@ -48,6 +48,16 @@ export type ServerSpeciesData = {
   toxic_food: Food[];
 };
 
+export type Department = {
+  head?: string;
+  full_name?: string; // Mojave Sun Edit - Department full_name
+};
+
+export type Job = {
+  description: string;
+  department: string;
+};
+
 export type Quirk = {
   description: string;
   icon: string;
@@ -145,6 +155,10 @@ export type PreferencesMenuData = {
 };
 
 export type ServerData = {
+  jobs: {
+    departments: Record<string, Department>;
+    jobs: Record<string, Job>;
+  };
   names: {
     types: Record<string, Name>;
   };
