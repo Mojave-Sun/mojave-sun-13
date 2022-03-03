@@ -741,7 +741,7 @@
 		storage_master.screen_pixel_y = initial(storage_master.screen_pixel_y)
 		storage_master.orient2hud()
 		storage_master.show_to(usr)
-		testing("storage screen variables reset [storage_master.screen_x]:[storage_master.screen_pixel_x],[storage_master.screen_y]:[storage_master.screen_pixel_y]")
+		testing("storage screen variables reset.")
 		to_chat(usr, span_notice("Storage window position has been reset."))
 	else if(LAZYACCESS(modifiers, CTRL_CLICK))
 		locked = !locked
