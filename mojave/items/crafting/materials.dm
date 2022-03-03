@@ -10,9 +10,9 @@
 	throwforce = 2
 	merge_type = /obj/item/stack/sheet/ms13
 	w_class = WEIGHT_CLASS_NORMAL
-	grid_width = 32
-	grid_height = 32
-
+	grid_width = 96
+	grid_height = 64
+/*
 /obj/item/stack/sheet/ms13/update_icon_state()
 	if(novariants)
 		return ..()
@@ -27,7 +27,7 @@
 	grid_width = 126
 	grid_height = 96
 	return ..()
-
+*/
 /obj/item/stack/sheet/ms13/Initialize()
 	. = ..()
 	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/crafting/materials_inventory.dmi')

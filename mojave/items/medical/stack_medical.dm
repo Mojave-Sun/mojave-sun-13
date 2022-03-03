@@ -1,5 +1,10 @@
 //Children of base TG stack medical items should go here
 
+/obj/item/stack/medical
+	grid_width = 64
+	grid_height = 32
+
+/*
 /obj/item/stack/medical/update_icon_state()
 	if(novariants)
 		return ..()
@@ -14,7 +19,7 @@
 	grid_width = 64
 	grid_height = 64
 	return ..()
-
+*/
 /obj/item/stack/medical/suture/ms13
     name = "suture"
     singular_name = "use" //This is so that examine text says "X uses left in the stack" instead of "X SUTURES left in the stack"

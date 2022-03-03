@@ -11,6 +11,7 @@
 	worn_icon = 'mojave/icons/mob/worn_misc.dmi'
 	worn_icon_state = "empty_placeholder"
 	icon_state = "medicalkit"
+	component_type = /datum/component/storage/concrete/ms13/firstaid
 
 /obj/item/storage/firstaid/ms13/Initialize()
 	. = ..()
@@ -49,7 +50,7 @@
 	desc = "A bag used by doctors to hold medical supplies and tools in. Extremely handy to keep around."
 	icon_state = "doctorsbag"
 	slot_flags = 0
-	//component_type = /datum/component/storage/concrete/ms13/d_bag SOON
+	component_type = /datum/component/storage/concrete/ms13/d_bag
 
 /obj/item/storage/firstaid/ms13/bag/ComponentInitialize()
 	. = ..()

@@ -19,27 +19,58 @@
 	/// Height we occupy on the hud - Keep null to generate based on w_class
 	var/grid_height
 
+/obj/item/storage
+	var/grid = TRUE
+	var/storage_flags = NONE
+
+/obj/item/storage/Initialize()
+	. = ..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	if(STR)
+		STR.grid = grid
+		STR.storage_flags = storage_flags
+	update_grid_inventory()
+
+/obj/item/storage/proc/update_grid_inventory()
+	//this is stupid shitcode but grid inventory sadly requires it
+	var/drop_location = drop_location()
+	for(var/obj/item/item_in_source in contents)
+		if(drop_location)
+			item_in_source.forceMove(drop_location)
+		else
+			item_in_source.moveToNullspace()
+		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, item_in_source, null, TRUE, FALSE, FALSE)
+
+
 // storage types //
 
-/datum/component/storage/concrete/ms13/grid //main for MS13 backpacks
+/datum/component/storage/concrete/ms13
 	grid = TRUE
+
+/datum/component/storage/concrete/ms13/grid //main for MS13 backpacks
 	screen_max_columns = 8
 	screen_max_rows = 5
+	screen_start_y = 7
 
 /datum/component/storage/concrete/ms13/d_bag //main for Doctors bags
-	grid = TRUE
 	screen_max_columns = 6
+	screen_max_rows = 4
+	screen_start_y = 6
+	screen_start_x = 7
+
+/datum/component/storage/concrete/ms13/firstaid //main for First Aid kits
+	screen_max_columns = 4
 	screen_max_rows = 4
 	screen_start_y = 6
 	screen_start_x = 8
 
 /datum/component/storage
 	screen_max_columns = 8
-	screen_max_rows = 2
+	screen_max_rows = 3
 	screen_pixel_x = 5
 	screen_pixel_y = 0
 	screen_start_x = 6
-	screen_start_y = 7
+	screen_start_y = 5
 	rustle_sound = list(
 		'sound/effects/rustle1.ogg',
 		'sound/effects/rustle2.ogg',
@@ -197,7 +228,7 @@
 												params)
 	if((!force && !can_be_inserted(storing, TRUE, user, worn_check, params = params)) || (storing == parent))
 		return FALSE
-	return handle_item_insertion(storing, silent, user, params = params)
+	return handle_item_insertion(storing, silent, user, params = params, storage_click = FALSE)
 
 /datum/component/storage/can_be_inserted(obj/item/storing, stop_messages, mob/user, worn_check = FALSE, params, storage_click = FALSE)
 	if(!istype(storing) || (storing.item_flags & ABSTRACT))
@@ -235,7 +266,7 @@
 		return FALSE
 	var/atom/recursive_loc = real_location?.loc
 	var/depth = 0
-	while(isatom(recursive_loc) && !isturf(recursive_loc) && !isarea(recursive_loc))
+	while(ismovable(recursive_loc))
 		depth++
 		var/datum/component/storage/biggerfish = recursive_loc.GetComponent(/datum/component/storage)
 		if(biggerfish)
@@ -699,9 +730,9 @@
 
 /atom/movable/screen/close/Click(location, control, params)
 	. = ..()
+	var/datum/component/storage/storage_master = master
 	var/list/modifiers = params2list(params)
 	if(LAZYACCESS(modifiers, SHIFT_CLICK))
-		var/datum/component/storage/storage_master = master
 		if(!istype(storage_master))
 			return
 		storage_master.screen_start_x = initial(storage_master.screen_start_x)
@@ -710,12 +741,15 @@
 		storage_master.screen_pixel_y = initial(storage_master.screen_pixel_y)
 		storage_master.orient2hud()
 		storage_master.show_to(usr)
-		testing("storage screen variables reset [screen_x]:[screen_pixel_x],[screen_y]:[screen_pixel_y]")
+		testing("storage screen variables reset [storage_master.screen_x]:[storage_master.screen_pixel_x],[storage_master.screen_y]:[storage_master.screen_pixel_y]")
 		to_chat(usr, span_notice("Storage window position has been reset."))
 	else if(LAZYACCESS(modifiers, CTRL_CLICK))
 		locked = !locked
 		to_chat(usr, span_notice("Storage window [locked ? "" : "un"]locked."))
-		return
+	else
+		if(!istype(storage_master))
+			return
+		storage_master.hide_from(usr)
 
 /atom/movable/screen/close/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
 	. = ..()
