@@ -111,8 +111,8 @@
 	var/datum/bodypart_aid/gauze/current_gauze 	// MOJAVE SUN EDIT - ORIGINAL IS var/obj/item/stack/current_gauze
 	/// If we have a splint currently applied // MOJAVE SUN EDIT
 	var/datum/bodypart_aid/splint/current_splint // MOJAVE SUN EDIT
-	/// If something is currently grasping this bodypart and trying to staunch bleeding (see [/obj/item/self_grasp])
-	var/obj/item/self_grasp/grasped_by
+	/// If something is currently grasping this bodypart and trying to staunch bleeding (see [/obj/item/hand_item/self_grasp])
+	var/obj/item/hand_item/self_grasp/grasped_by
 
 	///A list of all the external organs we've got stored to draw horns, wings and stuff with (special because we are actually in the limbs unlike normal organs :/ )
 	var/list/obj/item/organ/external/external_organs = list()
