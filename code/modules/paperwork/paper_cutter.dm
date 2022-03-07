@@ -44,6 +44,14 @@ MOJAVE SUN EDIT END */
 	if(storedpaper)
 		. += "paper"
 
+/obj/item/papercutter/screwdriver_act(mob/living/user, obj/item/tool)
+	if(!storedcutter)
+		return
+	tool.play_tool_sound(src)
+	to_chat(user, span_notice("[storedcutter] has been [cuttersecured ? "unsecured" : "secured"]."))
+	cuttersecured = !cuttersecured
+	return TOOL_ACT_TOOLTYPE_SUCCESS
+
 
 /obj/item/papercutter/attackby(obj/item/P, mob/user, params)
 	if(istype(P, /obj/item/paper) && !storedpaper)
@@ -62,11 +70,6 @@ MOJAVE SUN EDIT END */
 		P.forceMove(src)
 		storedcutter = P
 		update_appearance()
-		return
-	if(P.tool_behaviour == TOOL_SCREWDRIVER && storedcutter)
-		P.play_tool_sound(src)
-		to_chat(user, span_notice("[storedcutter] has been [cuttersecured ? "unsecured" : "secured"]."))
-		cuttersecured = !cuttersecured
 		return
 	MOJAVE SUN EDIT END*/
 	..()
