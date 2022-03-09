@@ -88,8 +88,8 @@
 		to_chat(user, span_notice("You neatly cut [storedpaper]."))
 		storedpaper = null
 		qdel(storedpaper)
-		new /obj/item/paperslip(get_turf(src))
-		new /obj/item/paperslip(get_turf(src))
+		new /obj/item/paper/ms13/paperslip(get_turf(src)) //EXTREMELY TEMPORARY MOJAVE SUN EDIT - Paper
+		new /obj/item/paper/ms13/paperslip(get_turf(src)) //EXTREMELY TEMPORARY MOJAVE SUN EDIT - Paper
 		update_appearance()
 
 /obj/item/papercutter/MouseDrop(atom/over_object)
