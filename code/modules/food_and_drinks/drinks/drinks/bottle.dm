@@ -38,9 +38,10 @@
 
 	if(isGlass)
 		if(prob(33))
+			// GOMBLE TODO - Why don't we just have a list like butcher results for shatter
 			var/obj/item/stack/sheet/ms13/glass/S = new(drop_location()) //MOJAVE EDIT - Changes to drop our glass instead of TG glass and removes the broken variants since we don't have any and thus it just makes invisible broken bottle. Revert after CAT
 			target.Bumped(S)
-		playsound(src, "shatter", 70, TRUE)
+		playsound(src, SFX_SHATTER, 70, TRUE)
 
 	qdel(src)
 

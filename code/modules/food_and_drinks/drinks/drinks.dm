@@ -149,7 +149,7 @@
 	if(prob(33))
 		var/obj/item/stack/sheet/ms13/glass/S = new(drop_location()) //MOJAVE EDIT - Makes it drop our glass instead of TG glass and removes the broken variants since we don't have any so it just makes invisible broken bottles. Revert after CAT
 		target.Bumped(S)
-	playsound(src, "shatter", 70, TRUE)
+	playsound(src, SFX_SHATTER, 70, TRUE)
 	qdel(src)
 
 /obj/item/reagent_containers/food/drinks/bullet_act(obj/projectile/P)
@@ -696,7 +696,7 @@ MOJAVE SUN EDIT END*/
 
 	to_chat(user, "You pull back the tab of [src] with a satisfying pop.") //Ahhhhhhhh
 	reagents.flags |= OPENCONTAINER
-	playsound(src, "can_open", 50, TRUE)
+	playsound(src, SFX_CAN_OPEN, 50, TRUE)
 	spillable = TRUE
 	throwforce = 0
 
