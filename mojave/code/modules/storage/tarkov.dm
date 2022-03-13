@@ -226,9 +226,9 @@
 												force = FALSE,
 												worn_check = FALSE,
 												params)
-	if((!force && !can_be_inserted(storing, TRUE, user, worn_check, params)) || (storing == parent))
+	if((!force && !can_be_inserted(storing, TRUE, user, worn_check, params = params)) || (storing == parent))
 		return FALSE
-	return handle_item_insertion(storing, silent, user, params, storage_click = FALSE)
+	return handle_item_insertion(storing, silent, user, params = params, storage_click = FALSE)
 
 /datum/component/storage/can_be_inserted(obj/item/storing, stop_messages, mob/user, worn_check = FALSE, params, storage_click = FALSE)
 	if(!istype(storing) || (storing.item_flags & ABSTRACT))
@@ -306,7 +306,7 @@
 	var/datum/component/storage/concrete/master = master()
 	if(!istype(master))
 		return FALSE
-	return master.slave_can_insert_object(src, storing, stop_messages, user, params, storage_click = storage_click)
+	return master.slave_can_insert_object(src, storing, stop_messages, user, params = params, storage_click = storage_click)
 
 /datum/component/storage/handle_item_insertion(obj/item/storing, prevent_warning = FALSE, mob/user, datum/component/storage/remote, params, storage_click = FALSE)
 	var/atom/parent = src.parent
@@ -317,7 +317,7 @@
 		prevent_warning = TRUE
 	if(user)
 		parent.add_fingerprint(user)
-	return master.handle_item_insertion_from_slave(src, storing, prevent_warning, user, params, storage_click = storage_click)
+	return master.handle_item_insertion_from_slave(src, storing, prevent_warning, user, params = params, storage_click = storage_click)
 
 /datum/component/storage/signal_take_obj(datum/source, atom/movable/taken, new_loc, force = FALSE)
 	if(!(taken in real_location()))
@@ -341,12 +341,12 @@
 	. = TRUE //no afterattack
 	if(iscyborg(user))
 		return
-	if(!can_be_inserted(attacking_item, FALSE, user, params, storage_click = storage_click))
+	if(!can_be_inserted(attacking_item, FALSE, user, params = params, storage_click = storage_click))
 		var/atom/real_location = real_location()
 		if(LAZYLEN(real_location.contents) >= max_items) //don't use items on the backpack if they don't fit
 			return TRUE
 		return FALSE
-	return handle_item_insertion(attacking_item, FALSE, user, params, storage_click = storage_click)
+	return handle_item_insertion(attacking_item, FALSE, user, params = params, storage_click = storage_click)
 
 /datum/component/storage/proc/on_equipped(obj/item/source, mob/user, slot)
 	SIGNAL_HANDLER
@@ -691,7 +691,7 @@
 	return TRUE
 
 /datum/component/storage/concrete/handle_item_insertion_from_slave(datum/component/storage/slave, obj/item/storing, prevent_warning = FALSE, mob/user, params, storage_click = FALSE)
-	. = handle_item_insertion(storing, prevent_warning, user, slave, params, storage_click = storage_click)
+	. = handle_item_insertion(storing, prevent_warning, user, slave, params = params, storage_click = storage_click)
 	if(. && !prevent_warning)
 		slave.mob_item_insertion_feedback(usr, user, storing)
 
@@ -838,7 +838,7 @@
 	var/coordinates = storage_master.screen_loc_to_grid_coordinates(screen_loc)
 	if(!coordinates)
 		return
-	if(storage_master.can_be_inserted(held_item, stop_messages = TRUE, user = usr, worn_check = TRUE, params, storage_click = TRUE))
+	if(storage_master.can_be_inserted(held_item, stop_messages = TRUE, user = usr, worn_check = TRUE, params = params, storage_click = TRUE))
 		hovering.color = COLOR_LIME
 	else
 		hovering.color = COLOR_RED_LIGHT
