@@ -9,6 +9,8 @@
 	worn_icon = 'mojave/icons/mob/clothing/eyes.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
+	grid_width = 32
+	grid_height = 32
 
 /obj/item/clothing/glasses/ms13/Initialize()
 	. = ..()

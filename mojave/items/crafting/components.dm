@@ -8,6 +8,8 @@
 	force = 2
 	throwforce = 2
 	w_class = WEIGHT_CLASS_SMALL
+	grid_width = 32
+	grid_height = 32
 
 /obj/item/ms13/component/Initialize()
 	. = ..()
