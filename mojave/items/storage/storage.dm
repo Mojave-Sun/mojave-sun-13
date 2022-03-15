@@ -11,6 +11,7 @@
 	worn_icon = 'mojave/icons/mob/worn_misc.dmi'
 	worn_icon_state = "empty_placeholder"
 	icon_state = "medicalkit"
+	component_type = /datum/component/storage/concrete/ms13/firstaid
 
 /obj/item/storage/firstaid/ms13/Initialize()
 	. = ..()
@@ -30,6 +31,7 @@
 /obj/item/storage/firstaid/ms13/regular
 
 /obj/item/storage/firstaid/ms13/regular/PopulateContents()
+	. = ..()
 	new /obj/item/stack/medical/gauze/ms13(src)
 	new /obj/item/stack/medical/suture/ms13(src)
 	new /obj/item/stack/medical/ointment/ms13/cream(src)
@@ -37,6 +39,7 @@
 /obj/item/storage/firstaid/ms13/quality
 
 /obj/item/storage/firstaid/ms13/quality/PopulateContents()
+	. = ..()
 	new /obj/item/stack/medical/gauze/ms13/military(src)
 	new /obj/item/stack/medical/suture/ms13(src)
 	new /obj/item/stack/medical/ointment/ms13(src)
@@ -47,6 +50,7 @@
 	desc = "A bag used by doctors to hold medical supplies and tools in. Extremely handy to keep around."
 	icon_state = "doctorsbag"
 	slot_flags = 0
+	component_type = /datum/component/storage/concrete/ms13/d_bag
 
 /obj/item/storage/firstaid/ms13/bag/ComponentInitialize()
 	. = ..()

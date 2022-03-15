@@ -9,6 +9,8 @@
 	dynamic_hair_suffix = "+generic"
 	dynamic_fhair_suffix = "+generic"
 	flags_inv = HIDEHAIR
+	grid_width = 64
+	grid_height = 64
 
 /obj/item/clothing/head/helmet/ms13/Initialize()
 	. = ..()
@@ -24,6 +26,8 @@
 	flags_inv = HIDEHAIR
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
+	grid_width = 64
+	grid_height = 64
 
 /obj/item/clothing/head/ms13/hood/Initialize()
 	. = ..()
@@ -47,6 +51,8 @@
 	worn_icon = 'mojave/icons/mob/clothing/head.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
+	grid_width = 32
+	grid_height = 64
 
 /obj/item/clothing/head/soft/ms13/Initialize()
 	. = ..()
