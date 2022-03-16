@@ -1,6 +1,7 @@
 /turf/closed
 	plane = WALL_PLANE //MOJAVE SUN EDIT - Wallening Testmerge
 	layer = CLOSED_TURF_LAYER
+	turf_flags = IS_SOLID
 	opacity = TRUE
 	density = TRUE
 	blocks_air = TRUE
