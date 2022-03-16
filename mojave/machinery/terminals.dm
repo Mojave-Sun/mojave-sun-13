@@ -28,6 +28,9 @@
 	var/rigged = FALSE // Ultra cursed var. If true, terminal explodes violently on certain interaction. Delightfully devilish.
 	var/craft = FALSE // For messed up stuff as a result of making a terminal yourself.
 	var/datum/looping_sound/ms13/terminal/soundloop
+	var/password_needed = FALSE
+	var/password
+	var/unlocked = FALSE
 	var/joker_titles = list("Safe codes",
 	"Stash location",
 	"About the safe",
@@ -72,6 +75,9 @@
 	var/signal_id_5 = "null"
 	var/signal_title_6 = ""
 	var/signal_id_6 = "null"
+	var/signal_title_single = "" //single use commands
+	var/signal_id_single = "null"
+	var/used = FALSE
 	var/id = null // Currently selected ID
 
 // Notekeeper vars
@@ -165,6 +171,15 @@
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
 		return
 
+	if(password_needed && !unlocked)
+		var/guess = tgui_input_text(user, "Enter the password", "Password")
+		if(guess == !password)
+			return
+		if(!guess)
+			return
+		unlocked = TRUE
+		to_chat(user, span_notice("You unlock the computer."))
+
 	var/clicksound = pick('mojave/sound/ms13machines/terminals/ui_hacking_charenter_01.ogg','mojave/sound/ms13machines/terminals/ui_hacking_charenter_02.ogg', 'mojave/sound/ms13machines/terminals/ui_hacking_charenter_03.ogg',)
 	playsound(src, clicksound, 50, FALSE)
 	var/dat = ""
@@ -242,6 +257,9 @@
 				dat += "<a href='byond://?src=[REF(src)];choice=signal_five'>\>  [signal_title_5]</a><br>"
 			if(signal_title_6)
 				dat += "<a href='byond://?src=[REF(src)];choice=signal_six'>\>  [signal_title_6]</a><br>"
+			if(signal_title_single && !used)
+				dat += "<a href='byond://?src=[REF(src)];choice=signal_single'>\>  [signal_title_single]</a><br>"
+				used = TRUE
 		dat += "<a href='byond://?src=[REF(src)];choice=Return'>\>  Return</a>"
 
 	dat += "</font></div>"
@@ -348,6 +366,10 @@
 
 			if("signal_six")
 				id = signal_id_6
+				transmit_signal()
+
+			if("signal_single")
+				id = signal_id_single
 				transmit_signal()
 
 			if("joker") // It's go time. Used for rigged terminals.
@@ -493,3 +515,11 @@
 	secondary_color = "#012c3b"
 	flippable = FALSE
 	system = "APRICOT"
+
+//// Unique Computers ////
+
+/obj/machinery/ms13/terminal/pristine/mayor
+
+/obj/machinery/ms13/terminal/pristine/mayor/Initialize(mapload)
+	. = ..()
+	password = "[GLOB.fscpassword]"
