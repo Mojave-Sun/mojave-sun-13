@@ -105,5 +105,10 @@
 
 /datum/terminal/document/principals_office // School Principal's Office - First Log
 	title = "Unruly Brats"
-	content = "Another week another damn prankster. This time it was the usual Steve Brown, he decided it would be a 'funny' prank to clog all the female toilets and wait outside the toilets and laugh as all the students came running out. \
+	content = "Another week another damn prankster. This time it was the usual Steve Brown, he decided it would be a 'funny' prank to clog all the female toilets and wait outside the toilets and laugh as all the students came running out.\
 		 I told his mother this isn't good behavior and that I will kick Steve out incase he tries anything else, again. But my words fall on deaf ears.."
+
+/datum/terminal/document/waste_management
+	title = "Rapture of Barrel"
+	content = "One of the waste barrels sent to us from the local power plant had it's lid loose, thank god Adams spotted it quickly before it irradiated more of the place.\
+		<br><br> Other than the minor radiation leak from the barrel, everything here is a-okay, none of us three have puked in months, so hoorah to us right?"
