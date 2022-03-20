@@ -3058,6 +3058,7 @@
 	dir = 4
 	},
 /obj/structure/table/ms13/metal,
+/obj/effect/spawner/random/ms13/ammo/lowrandom,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/tunnel/maintenance)
 "cty" = (
@@ -3997,10 +3998,8 @@
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/town)
 "dfW" = (
-/obj/structure/filingcabinet/ms13{
-	dir = 8
-	},
 /obj/effect/decal/cleanable/generic,
+/obj/structure/table/ms13/metal,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/tunnel/maintenance)
 "dgc" = (
@@ -5779,8 +5778,9 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "ewo" = (
-/obj/structure/table/ms13/metal,
-/obj/item/phone,
+/obj/structure/ms13/storage/bookshelf{
+	dir = 8
+	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/tunnel/maintenance)
 "ews" = (
@@ -8032,11 +8032,6 @@
 /turf/open/floor/ms13/metal/pipe{
 	dir = 1
 	},
-/area/ms13/underground/tunnel/maintenance)
-"fRZ" = (
-/obj/structure/table/ms13/metal,
-/obj/effect/spawner/random/ms13/ammo/lowrandom,
-/turf/open/floor/ms13/concrete,
 /area/ms13/underground/tunnel/maintenance)
 "fSc" = (
 /turf/open/floor/ms13/concrete/industrial/walkway,
@@ -11274,6 +11269,11 @@
 	},
 /turf/open/floor/plating,
 /area/ms13/town)
+"hTi" = (
+/obj/item/phone,
+/obj/structure/table/ms13/metal,
+/turf/open/floor/ms13/concrete,
+/area/ms13/underground/tunnel/maintenance)
 "hTm" = (
 /obj/structure/ms13/rug,
 /obj/effect/spawner/random/ms13/clothing/under,
@@ -24481,6 +24481,12 @@
 	},
 /turf/open/floor/ms13/tile/blue/long,
 /area/ms13/town)
+"sHT" = (
+/obj/structure/filingcabinet/ms13{
+	dir = 1
+	},
+/turf/open/floor/ms13/concrete,
+/area/ms13/underground/tunnel/maintenance)
 "sIv" = (
 /obj/machinery/door/unpowered/ms13/wood/mirrored{
 	dir = 1
@@ -26195,15 +26201,6 @@
 /obj/effect/spawner/random/ms13/tools/hardware,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
-"vMT" = (
-/obj/machinery/door/airlock/ms13{
-	dir = 4
-	},
-/obj/structure/ms13/storage/bookshelf{
-	dir = 4
-	},
-/turf/open/floor/ms13/concrete/industrial,
-/area/ms13/underground/tunnel/maintenance)
 "vMU" = (
 /obj/structure/toilet{
 	dir = 4
@@ -86585,8 +86582,8 @@ fIz
 tkl
 fQo
 rln
+hTi
 efs
-fRZ
 eso
 fbD
 tkl
@@ -86889,7 +86886,7 @@ uUt
 csN
 dfW
 ewo
-eso
+sHT
 uUw
 tkl
 khQ
@@ -87189,7 +87186,7 @@ vlA
 tkl
 tkl
 tkl
-vMT
+tlH
 tkl
 tkl
 tkl
