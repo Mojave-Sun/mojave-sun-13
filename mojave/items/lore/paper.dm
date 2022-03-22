@@ -86,13 +86,13 @@
 	<br>
 	Interrogatee: The... *coughs up blood* ...
 	<br>
-	Interrogator: *Heard slaps and slight screams through the microphone*
+	Interrogator: <<Heard slaps and slight screams through the microphone>>
 	<br>
 	Interrogator: Tell me what I want to know and I'll give you the medicine you desperately need.
 	<br>
 	Interrogatee: G-God... Bless.. the United.. St-
 	<br>
-	Interrogator: *More shouts and punches can be heard, when finally a single shot rings out*
+	Interrogator: <<More shouts and punches can be heard, when finally a single shot rings out>>
 	<br>
 	Interrogator: Useless dog, he's probably lying anyways.
 	<br>
