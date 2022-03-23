@@ -84,7 +84,7 @@
 	<br>
 	Interrogator: Repeat what you said before, about the President.
 	<br>
-	Interrogatee: The... *coughs up blood* ...
+	Interrogatee: The... <<coughs up blood>> ...
 	<br>
 	Interrogator: <<Heard slaps and slight screams through the microphone>>
 	<br>
