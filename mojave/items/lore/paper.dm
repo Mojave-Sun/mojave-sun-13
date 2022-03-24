@@ -69,3 +69,31 @@
 	2910227 = Whiskey 482
 	</i>"}
 	. = ..()
+
+/obj/item/paper/ms13/prewritten/confession
+	name = "paper - 'American Pig Interrogation'"
+	info = {"<i>Audio Recorder Log No. #05<B>
+	<br>
+	Interrogator: State your name, American Pig
+	<br>
+	Interrogatee: M-My name is... Bradley Johnson...
+	<br>
+	Interrogator: What is your rank and occupation, Pig?
+	<br>
+	Interrogatee: I.. I'm a Second Lieutenant.. with the 49th.. MP Brigade... of the.. Californian...National Guard...
+	<br>
+	Interrogator: Repeat what you said before, about the President.
+	<br>
+	Interrogatee: The... <<coughs up blood>> ...
+	<br>
+	Interrogator: <<Heard slaps and slight screams through the microphone>>
+	<br>
+	Interrogator: Tell me what I want to know and I'll give you the medicine you desperately need.
+	<br>
+	Interrogatee: G-God... Bless.. the United.. St-
+	<br>
+	Interrogator: <<More shouts and punches can be heard, when finally a single shot rings out>>
+	<br>
+	Interrogator: Useless dog, he's probably lying anyways.
+	<br>
+	</i>"}
