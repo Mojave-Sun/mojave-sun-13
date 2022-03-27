@@ -32,16 +32,13 @@
 	custom_price = PAYCHECK_EASY * 0.9
 
 /obj/item/reagent_containers/food/drinks/bottle/smash(mob/living/target, mob/thrower, ranged = FALSE)
-	//Creates a shattering noise and replaces the bottle with a broken_bottle
 	if(bartender_check(target) && ranged)
 		return
-
-	if(isGlass)
-		if(prob(33))
-			// GOMBLE TODO - Why don't we just have a list like butcher results for shatter
-			var/obj/item/stack/sheet/ms13/glass/S = new(drop_location()) //MOJAVE EDIT - Changes to drop our glass instead of TG glass and removes the broken variants since we don't have any and thus it just makes invisible broken bottle. Revert after CAT
-			target.Bumped(S)
-		playsound(src, SFX_SHATTER, 70, TRUE)
+	SplashReagents(target, ranged, override_spillable = TRUE)
+	var/obj/item/broken_bottle/B = new (loc)
+	if(!ranged && thrower)
+		thrower.put_in_hands(B)
+	B.mimic_broken(src, target)
 
 	qdel(src)
 
@@ -106,9 +103,6 @@
 	//Attack logs
 	log_combat(user, target, "attacked", src)
 
-	//The reagents in the bottle splash all over the target, thanks for the idea Nodrak
-	SplashReagents(target, override_spillable = TRUE)
-
 	//Finally, smash the bottle. This kills (del) the bottle.
 	smash(target, user)
 
@@ -138,6 +132,28 @@
 	. = ..()
 	AddComponent(/datum/component/caltrop, min_damage = force)
 	AddComponent(/datum/component/butchering, 200, 55)
+
+/// Mimics the appearance and properties of the passed in bottle.
+/// Takes the broken bottle to mimic, and the thing the bottle was broken agaisnt as args
+/obj/item/broken_bottle/proc/mimic_broken(obj/item/reagent_containers/food/drinks/to_mimic, atom/target)
+	icon_state = to_mimic.icon_state
+	var/icon/drink_icon = new('icons/obj/drinks.dmi', icon_state)
+	drink_icon.Blend(broken_outline, ICON_OVERLAY, rand(5), 1)
+	drink_icon.SwapColor(rgb(255, 0, 220, 255), rgb(0, 0, 0, 0))
+	icon = drink_icon
+
+	if(to_mimic.isGlass)
+		if(prob(33))
+			var/obj/item/shard/stab_with = new(to_mimic.drop_location())
+			target.Bumped(stab_with)
+		playsound(src, SFX_SHATTER, 70, TRUE)
+	else
+		force = 0
+		throwforce = 0
+		desc = "A carton with the bottom half burst open. Might give you a papercut."
+
+	name = "broken [to_mimic.name]"
+	to_mimic.transfer_fingerprints_to(src)
 
 /obj/item/reagent_containers/food/drinks/bottle/beer
 	name = "space beer"
