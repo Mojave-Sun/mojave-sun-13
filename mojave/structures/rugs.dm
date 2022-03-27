@@ -239,7 +239,7 @@
 	origin_type = /obj/structure/ms13/rug/mat/welcome
 
 /obj/item/ms13/rug/mat/getfucked
-   	desc = "A small door mat, It's rolled and ready for transport. Red markings are visible."
+	desc = "A small door mat, It's rolled and ready for transport. Red markings are visible."
 	origin_type = /obj/structure/ms13/rug/mat/getfucked
 
 /obj/item/ms13/rug/mat/fuckoff
@@ -247,7 +247,7 @@
 	origin_type = /obj/structure/ms13/rug/mat/fuckoff
 
 /obj/item/ms13/rug/mat/shittown
-   	desc = "A small door mat, It's rolled and ready for transport. Red markings are visible."
+	desc = "A small door mat, It's rolled and ready for transport. Red markings are visible."
 	origin_type = /obj/structure/ms13/rug/mat/shittown
 
 /obj/item/ms13/rug/mat/ncrsucks
@@ -255,7 +255,7 @@
 	origin_type = /obj/structure/ms13/rug/mat/ncrsucks
 
 /obj/item/ms13/rug/mat/bosblows
-   	desc = "A small door mat, It's rolled and ready for transport. Red markings are visible."
+	desc = "A small door mat, It's rolled and ready for transport. Red markings are visible."
 	origin_type = /obj/structure/ms13/rug/mat/bosblows
 
 /obj/item/ms13/rug/mat/rubber
