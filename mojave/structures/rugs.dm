@@ -108,6 +108,36 @@
 	icon_state = "mat_welcome"
 	item_rug = /obj/item/ms13/rug/mat/welcome
 
+/obj/structure/ms13/rug/mat/getfucked
+	name = "door mat"
+	desc = "A small door mat, it's got the words GET FUCKED sprayed across it by what looks to be blood."
+	icon_state = "mat_vulgar"
+	item_rug = /obj/item/ms13/rug/mat/getfucked
+
+/obj/structure/ms13/rug/mat/fuckoff
+	name = "door mat"
+	desc = "A small door mat, it's got the words FUCK OFF!! across it, looks like someone doesn't want visitors."
+	icon_state = "mat_vulgar_2"
+	item_rug = /obj/item/ms13/rug/mat/fuckoff
+
+/obj/structure/ms13/rug/mat/shittown
+	name = "door mat"
+	desc = "A small door mat, it's got the words SHIT TOWN across it, someone doesn't like this town."
+	icon_state = "mat_town"
+	item_rug = /obj/item/ms13/rug/mat/shittown
+
+/obj/structure/ms13/rug/mat/ncrsucks
+	name = "door mat"
+	desc = "A small door mat, it's got the words NCR SUCKS across it, the average raider probably wrote this."
+	icon_state = "mat_ncr"
+	item_rug = /obj/item/ms13/rug/mat/ncrsucks
+
+/obj/structure/ms13/rug/mat/bosblows
+	name = "door mat"
+	desc = "A small door mat, it's got the words BOS BLOWS across it, probably means the Brotherhood stole another energy gun from someone."
+	icon_state = "mat_bos"
+	item_rug = /obj/item/ms13/rug/mat/bosblows
+
 /obj/structure/ms13/rug/mat/rubber
 	name = "rubber mats"
 	desc = "A small assortment of rubber mats. Good for keeping traction in slippery areas."
@@ -208,6 +238,20 @@
 /obj/item/ms13/rug/mat/welcome
 	origin_type = /obj/structure/ms13/rug/mat/welcome
 
+/obj/item/ms13/rug/mat/getfucked
+	origin_type = /obj/structure/ms13/rug/mat/getfucked
+
+/obj/item/ms13/rug/mat/fuckoff
+	origin_type = /obj/structure/ms13/rug/mat/fuckoff
+
+/obj/item/ms13/rug/mat/shittown
+	origin_type = /obj/structure/ms13/rug/mat/shittown
+
+/obj/item/ms13/rug/mat/ncrsucks
+	origin_type = /obj/structure/ms13/rug/mat/ncrsucks
+
+/obj/item/ms13/rug/mat/bosblows
+	origin_type = /obj/structure/ms13/rug/mat/bosblows
 /obj/item/ms13/rug/mat/rubber
 	name = "rubber mats"
 	desc = "A small assortment of rubber mats. Good for keeping traction in slippery areas. Stacked and ready to pack."
