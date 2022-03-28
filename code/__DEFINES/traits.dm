@@ -854,13 +854,9 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 /// Ignore Crew monitor Z levels
 #define TRAIT_MULTIZ_SUIT_SENSORS "multiz_suit_sensors"
-/// This mob heals from carp rifts.
-#define TRAIT_HEALS_FROM_CARP_RIFTS "heals_from_carp_rifts"
 
-/// This mob heals from cult pylons.
-#define TRAIT_HEALS_FROM_CULT_PYLONS "heals_from_cult_pylons"
-
-
+/// Ignores body_parts_covered during the add_fingerprint() proc. Works both on the person and the item in the glove slot.
+#define TRAIT_FINGERPRINT_PASSTHROUGH "fingerprint_passthrough"
 // MOJAVE JOB TRAITS START
 
 
