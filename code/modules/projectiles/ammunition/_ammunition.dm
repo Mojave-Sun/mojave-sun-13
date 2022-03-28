@@ -105,7 +105,28 @@
 		loaded_projectile = new projectile_type(src, src)
 
 /obj/item/ammo_casing/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/ammo_box))
+	// MOJAVE SUN EDIT BEGIN
+	//if(istype(I, /obj/item/ammo_box))
+	if(istype(I, /obj/item/ammo_box/magazine/ms13/ammo_stack))
+		var/obj/item/ammo_box/magazine/ms13/ammo_stack = I
+		if(isturf(loc))
+			var/boolets = 0
+			for(var/obj/item/ammo_casing/bullet in loc)
+				if(length(ammo_stack.stored_ammo) >= ammo_stack.max_ammo)
+					break
+				if(bullet.loaded_projectile)
+					if(ammo_stack.give_round(bullet, 0))
+						boolets++
+						break
+				else
+					continue
+			if(boolets > 0)
+				ammo_stack.update_appearance()
+				to_chat(user, span_notice("I collect [boolets] shell\s. [ammo_stack] now contains [length(ammo_stack.stored_ammo)] shell\s."))
+			else
+				to_chat(user, span_warning("I fail to collect anything!"))
+		return ..()
+	/*if(istype(I, /obj/item/ammo_box))
 		var/obj/item/ammo_box/box = I
 		if(isturf(loc))
 			var/boolets = 0
@@ -123,7 +144,8 @@
 			else
 				to_chat(user, span_warning("You fail to collect anything!"))
 	else
-		return ..()
+		return ..() */
+	//MOJAVE SUN EDIT END
 
 /obj/item/ammo_casing/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	bounce_away(FALSE, NONE)

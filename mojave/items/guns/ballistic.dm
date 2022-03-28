@@ -290,6 +290,7 @@ obj/item/gun/ballistic/rifle/ms13/attackby(obj/item/item, mob/user, params)
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 	worn_icon = 'mojave/icons/mob/worn_misc.dmi'
 	worn_icon_state = "empty_placeholder"
+	multiload = 0
 
 /obj/item/ammo_box/magazine/ms13/Initialize()
 	. = ..()
