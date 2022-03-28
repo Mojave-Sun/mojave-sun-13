@@ -76,6 +76,8 @@
 /obj/item/gun/ballistic/revolver/examine(mob/user)
 	. = ..()
 	var/live_ammo = get_ammo(FALSE, FALSE)
+	var/count_chambered = !(bolt_type == BOLT_TYPE_NO_BOLT || bolt_type == BOLT_TYPE_OPEN) // MOJAVE SUN EDIT - Transplanted from /obj/item/gun/ballistic/Examine.
+	. += "It has [get_ammo(count_chambered)] round\s remaining."  // MOJAVE SUN EDIT - Revolvers can get ammo checks on thorough examination- Why not.
 	. += "[live_ammo ? live_ammo : "None"] of those are live rounds."
 	if (current_skin)
 		. += "It can be spun with <b>alt+click</b>"

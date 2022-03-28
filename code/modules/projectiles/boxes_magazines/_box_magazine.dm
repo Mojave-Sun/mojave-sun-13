@@ -121,8 +121,8 @@
 	var/num_loaded = 0
 	if(!can_load(user))
 		return
-	if(istype(A, /obj/item/ammo_box/magazine/ms13/ammo_stack)) // MOJAVE SUN EDIT | ORIGINAL IS if(istype(A, /obj/item/ammo_box)) // Edited so that you can't just mag to mag transfer, and have to manually put the bullets in yourself.
-		var/obj/item/ammo_box/magazine/ms13/ammo_stack/AM = A // MOJAVE SUN EDIT | ORIGINLA IS var/obj/item/ammo_box/AM = A
+	if(istype(A, /obj/item/ammo_box))
+		var/obj/item/ammo_box/AM = A
 		for(var/obj/item/ammo_casing/AC in AM.stored_ammo)
 			var/did_load = give_round(AC, replace_spent)
 			if(did_load)
