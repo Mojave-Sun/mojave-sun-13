@@ -495,7 +495,7 @@
 	. = ..()
 	/* MOJAVE SUN EDIT BEGIN - I hate gaming.
 	var/count_chambered = !(bolt_type == BOLT_TYPE_NO_BOLT || bolt_type == BOLT_TYPE_OPEN)
-	 . += "It has [get_ammo(count_chambered)] round\s remaining." */ // MOJAVE SUN EDIT END
+	. += "It has [get_ammo(count_chambered)] round\s remaining." */ // MOJAVE SUN EDIT END
 
 	if (!chambered && !hidden_chambered)
 		. += "It does not seem to have a round chambered."
