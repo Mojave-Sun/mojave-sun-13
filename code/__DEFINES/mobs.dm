@@ -1,3 +1,5 @@
+// GOMBLE TODO - Just compare this to origin/master when you're done
+
 /*ALL MOB-RELATED DEFINES THAT DON'T BELONG IN ANOTHER FILE GO HERE*/
 
 //Misc mob defines
@@ -56,7 +58,7 @@
 #define BODYPART_ORGANIC 1
 #define BODYPART_ROBOTIC 2
 
-#define DEFAULT_BODYPART_ICON_ORGANIC 'mojave/icons/mob/humanoid.dmi' //MOJAVE SUN EDIT - Humanoid Sprites original: 'icons/mob/human_parts_greyscale.dmi'
+#define DEFAULT_BODYPART_ICON_ORGANIC 'icons/mob/human_parts_greyscale.dmi'
 #define DEFAULT_BODYPART_ICON_ROBOTIC 'icons/mob/augmentation/augments.dmi'
 
 #define MONKEY_BODYPART "monkey"
@@ -375,7 +377,7 @@
 #define GRAB_PIXEL_SHIFT_AGGRESSIVE 12
 #define GRAB_PIXEL_SHIFT_NECK 16
 
-#define PULL_PRONE_SLOWDOWN 2
+#define PULL_PRONE_SLOWDOWN 1.5
 #define HUMAN_CARRY_SLOWDOWN 0.35
 
 //Flags that control what things can spawn species (whitelist)
@@ -509,29 +511,25 @@
 #define SIGN_TRAIT_BLOCKED 3
 #define SIGN_CUFFED 4
 
-//Human Overlays Indexes/////////
-
 // Mob Overlays Indexes
 /// Total number of layers for mob overlays
-#define TOTAL_LAYERS 33 //KEEP THIS UP-TO-DATE OR SHIT WILL BREAK ;_; // MOJAVE SUN EDIT - ORIGINAL IS '31'
+#define TOTAL_LAYERS 32 //KEEP THIS UP-TO-DATE OR SHIT WILL BREAK ;_;
 /// Mutations layer - Tk headglows, cold resistance glow, etc
-#define MUTATIONS_LAYER 33
+#define MUTATIONS_LAYER 32
 /// Mutantrace features (tail when looking south) that must appear behind the body parts
-#define BODY_BEHIND_LAYER 32
+#define BODY_BEHIND_LAYER 31
 /// Initially "AUGMENTS", this was repurposed to be a catch-all bodyparts flag
-#define BODYPARTS_LAYER 31
+#define BODYPARTS_LAYER 30
 /// Mutantrace features (snout, body markings) that must appear above the body parts
-#define BODY_ADJ_LAYER 30
+#define BODY_ADJ_LAYER 29
 /// Underwear, undershirts, socks, eyes, lips(makeup)
-#define BODY_LAYER 29
+#define BODY_LAYER 28
 /// Mutations that should appear above body, body_adj and bodyparts layer (e.g. laser eyes)
-#define FRONT_MUTATIONS_LAYER 28
+#define FRONT_MUTATIONS_LAYER 27
 /// Damage indicators (cuts and burns)
-#define DAMAGE_LAYER 27
+#define DAMAGE_LAYER 26
 /// Jumpsuit clothing layer
-#define UNIFORM_LAYER 26
-/// MOJAVE EDIT ADD - Wounds
-#define BANDAGE_LAYER 25
+#define UNIFORM_LAYER 25
 /// ID card layer (might be deprecated)
 #define ID_LAYER 24
 /// ID card layer
@@ -572,10 +570,10 @@
 #define BODY_FRONT_LAYER 6
 /// Special body layer that actually require to be above the hair (e.g. lifted welding goggles)
 #define ABOVE_BODY_FRONT_GLASSES_LAYER 5
-/// MOJAVE EDIT ADD - Wounds
-#define WOUND_LAYER 4
 /// Special body layer for the rare cases where something on the head needs to be above everything else (e.g. flowers)
-#define ABOVE_BODY_FRONT_HEAD_LAYER 3
+#define ABOVE_BODY_FRONT_HEAD_LAYER 4
+/// Bleeding wound icons
+#define WOUND_LAYER 3
 /// Blood cult ascended halo layer, because there's currently no better solution for adding/removing
 #define HALO_LAYER 2
 /// Fire layer when you're on fire
