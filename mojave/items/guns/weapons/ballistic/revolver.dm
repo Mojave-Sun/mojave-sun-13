@@ -227,20 +227,21 @@
 	caliber = "a556"
 	max_ammo = 5
 
-//Loaders
+//Loaders Banished from this realm since the bullet pile-ening
 
+/obj/item/ammo_box/ms13/speedloader/derringer22
+	name = ".22 Derringer speed clip"
+	icon_state = "derringer"
+	ammo_type = /obj/item/ammo_casing/ms13/c22
+	caliber = ".22"
+	max_ammo = 4
+
+/*
 /obj/item/ammo_box/ms13/speedloader
 	name = "generic MS13 speed loader"
 	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	icon_state = "nothing"
 	max_ammo = 100
-
-/obj/item/ammo_box/ms13/speedloader/derringer22
-	name = ".22 Derringer speed loader"
-	icon_state = "derringer"
-	ammo_type = /obj/item/ammo_casing/ms13/c22
-	caliber = ".22"
-	max_ammo = 4
 
 /obj/item/ammo_box/ms13/speedloader/rev4570
 	name = ".45-70 speed loader"
@@ -275,4 +276,4 @@
 	icon_state = "rev10mm"
 	ammo_type = /obj/item/ammo_casing/ms13/c10mm
 	caliber = "10mm"
-	max_ammo = 5
+	max_ammo = 5*/

@@ -176,7 +176,7 @@
 	ammo_type = /obj/item/ammo_casing/shotgun/ms13/buckshot
 	max_ammo = 8
 
-//Loaders
+/*Loaders Banished from this realm since the bullet pile-ening
 /obj/item/ammo_box/ms13/tube4570
 	name = ".45-70 speed bullet tube"
 	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
@@ -202,7 +202,7 @@
 	ammo_type = /obj/item/ammo_casing/ms13/a357
 	caliber = "357"
 	max_ammo = 7
-	multiple_sprites = AMMO_BOX_PER_BULLET
+	multiple_sprites = AMMO_BOX_PER_BULLET*/
 
 //Shotgun ammo boxes
 

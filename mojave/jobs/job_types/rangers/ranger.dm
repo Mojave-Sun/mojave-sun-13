@@ -15,12 +15,12 @@
 	head = 		 /obj/item/clothing/head/helmet/ms13/cowboy/ranger
 	suit = 	  	 /obj/item/clothing/suit/armor/ms13/combat/ranger
 	belt = 		 /obj/item/gun/ballistic/revolver/ms13/rev357
-	r_pocket = 	 /obj/item/ammo_box/ms13/speedloader/rev357
+	r_pocket = 	 /obj/item/stack/medical/gauze/ms13
 	id = 		 /obj/item/card/id/ms13/ranger
 	backpack_contents = list(
-		/obj/item/ammo_box/ms13/tube44=2,\
-		/obj/item/kitchen/knife/ms13/hunting=1,\
-		/obj/item/stack/medical/gauze/ms13=1)
+		/obj/item/ammo_box/ms13/m44box=1,\
+		/obj/item/knife/ms13/hunting=1,\
+		/obj/item/ammo_box/ms13/a357=1)
 
 /datum/outfit/job/ms13/ranger/standard/pre_equip(mob/living/carbon/human/H)
 	..()

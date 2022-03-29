@@ -16,8 +16,8 @@
 	suit_store = /obj/item/gun/ballistic/shotgun/ms13/lever/cowboy
 	belt = 		 /obj/item/gun/ballistic/revolver/ms13/rev357
 	backpack_contents = list(
-		/obj/item/ammo_box/ms13/tube357=2, \
-		/obj/item/kitchen/knife/ms13/hunting=1,\
+		/obj/item/ammo_box/ms13/a357=1, \
+		/obj/item/knife/ms13/hunting=1,\
 		/obj/item/stack/medical/gauze=1)
 
 /datum/outfit/job/ms13/ranger/recruit/pre_equip(mob/living/carbon/human/H)

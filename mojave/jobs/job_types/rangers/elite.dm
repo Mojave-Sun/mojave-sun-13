@@ -16,11 +16,12 @@
 	suit = 	  	 /obj/item/clothing/suit/armor/ms13/eliteriot/ranger
 	belt =  	 /obj/item/gun/ballistic/revolver/ms13/rev44
 	id = 		 /obj/item/card/id/ms13/ranger_elite
-	r_pocket = 	 /obj/item/ammo_box/ms13/tube4570
+	r_pocket = 	 /obj/item/stack/medical/gauze/ms13
 	suit_store = /obj/item/gun/ballistic/shotgun/ms13/lever/brush
 	backpack_contents = list(
-		/obj/item/ammo_box/ms13/tube44=2,\
-		/obj/item/kitchen/knife/ms13/combat=1,\
+		/obj/item/ammo_box/ms13/m44box=1,\
+		/obj/item/ammo_box/ms13/c4570box=1, \
+		/obj/item/knife/ms13/combat=1,\
 		/obj/item/stack/medical/gauze/ms13=1,\
 		/obj/item/reagent_containers/hypospray/medipen/ms13/stimpak=1)
 
