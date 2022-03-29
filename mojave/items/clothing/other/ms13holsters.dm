@@ -20,11 +20,11 @@
 	STR.max_w_class = WEIGHT_CLASS_NORMAL
 	STR.set_holdable(list(
 		/obj/item/gun/ballistic/automatic/pistol,
-		/obj/item/ammo_box/ms13/rev4570, // Revolver speedloaders.
-		/obj/item/ammo_box/ms13/rev44,
-		/obj/item/ammo_box/ms13/rev357,
-		/obj/item/ammo_box/ms13/rev556,
-		/obj/item/ammo_box/ms13/rev10mm, // Pistol Mags
+		/obj/item/ammo_box/ms13/speedloader/rev4570, // Revolver speedloaders.
+		/obj/item/ammo_box/ms13/speedloader/rev44,
+		/obj/item/ammo_box/ms13/speedloader/rev357,
+		/obj/item/ammo_box/ms13/speedloader/rev556,
+		/obj/item/ammo_box/ms13/speedloader/rev10mm, // Pistol Mags
 		/obj/item/ammo_box/magazine/ms13/m45,
 		/obj/item/ammo_box/magazine/ms13/deagle,
 		/obj/item/ammo_box/magazine/ms13/m10mm,
@@ -37,16 +37,16 @@
 /obj/item/storage/belt/holster/ms13/sheriff/full_44/PopulateContents()
 	var/static/items_inside = list(
 		/obj/item/gun/ballistic/revolver/ms13/rev44 = 1,
-		/obj/item/ammo_box/ms13/rev44 = 2)
+		/obj/item/ammo_box/ms13/speedloader/rev44 = 2)
 	generate_items_inside(items_inside,src)
 /obj/item/storage/belt/holster/ms13/sheriff/full_357/PopulateContents()
 	var/static/items_inside = list(
 		/obj/item/gun/ballistic/revolver/ms13/rev357 = 1,
-		/obj/item/ammo_box/ms13/rev357 = 2)
+		/obj/item/ammo_box/ms13/speedloader/rev357 = 2)
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/belt/holster/ms13/sheriff/full_357_lucky/PopulateContents()
 	var/static/items_inside = list(
 		/obj/item/gun/ballistic/revolver/ms13/rev357/lucky = 1,
-		/obj/item/ammo_box/ms13/rev357 = 2)
+		/obj/item/ammo_box/ms13/speedloader/rev357 = 2)
 	generate_items_inside(items_inside,src)

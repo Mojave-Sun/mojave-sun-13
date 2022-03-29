@@ -19,8 +19,8 @@
 	uniform =    /obj/item/clothing/under/ms13/regal
 	shoes =  	 /obj/item/clothing/shoes/ms13/military/vault
 	belt = 		 /obj/item/gun/ballistic/revolver/ms13/derringer
-	r_pocket =   /obj/item/ammo_box/ms13/derringer22
-	l_pocket =   /obj/item/ammo_box/ms13/derringer22
+	r_pocket =   /obj/item/ammo_box/ms13/speedloader/derringer22
+	l_pocket =   /obj/item/ammo_box/ms13/speedloader/derringer22
 	backpack_contents = list(
 		/obj/item/stack/medical/ointment/ms13/cream/half=1, \
 		/obj/item/stack/medical/gauze/ms13/three=1)

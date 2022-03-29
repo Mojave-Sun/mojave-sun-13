@@ -114,6 +114,9 @@
 	recoil = 1.25
 	slowdown = 0.75
 	empty_indicator = TRUE
+	bolt_wording = "bolt"
+	cartridge_wording = "bullet"
+	bolt_wo
 
 /obj/item/gun/ballistic/shotgun/automatic/ms13/sks/update_icon_state()
 	. = ..()
@@ -175,7 +178,7 @@
 
 //Loaders
 /obj/item/ammo_box/ms13/tube4570
-	name = ".45-70 speed loader tube"
+	name = ".45-70 speed bullet tube"
 	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	icon_state = "4570tube"
 	ammo_type = /obj/item/ammo_casing/ms13/c4570
@@ -184,7 +187,7 @@
 	multiple_sprites = AMMO_BOX_PER_BULLET
 
 /obj/item/ammo_box/ms13/tube44
-	name = ".44 speed loader tube"
+	name = ".44 speed bullet tube"
 	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	icon_state = "44tube"
 	ammo_type = /obj/item/ammo_casing/ms13/m44
@@ -193,7 +196,7 @@
 	multiple_sprites = AMMO_BOX_PER_BULLET
 
 /obj/item/ammo_box/ms13/tube357
-	name = ".357 speed loader tube"
+	name = ".357 speed bullet tube"
 	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	icon_state = "357tube"
 	ammo_type = /obj/item/ammo_casing/ms13/a357
