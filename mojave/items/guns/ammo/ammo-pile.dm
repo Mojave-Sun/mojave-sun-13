@@ -17,6 +17,7 @@
 		var/obj/item/ammo_box/magazine/ms13/ammo_stack/ammo_stack = new(drop_location())
 		ammo_stack.name = "[capitalize(caliber)] rounds"
 		ammo_stack.caliber = caliber
+		ammo_stack.max_ammo = ammo_casing.stack_size
 		user.transferItemToLoc(src, ammo_stack, silent = TRUE)
 		ammo_stack.give_round(src)
 		user.transferItemToLoc(ammo_casing, ammo_stack, silent = TRUE)
@@ -29,8 +30,8 @@
 	name = "ammo stack"
 	desc = "A stack of ammo."
 	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
-	icon_state = "nothing"
-	max_ammo = 15
+	icon_state = "ammo_stack"
+	max_ammo = 10
 	multiple_sprites = FALSE
 	start_empty = TRUE
 	multiload = FALSE

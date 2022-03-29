@@ -2,6 +2,7 @@
 	name = "mojave sun base shotgun shell"
 	desc = "Complain when seeing this."
 	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
+	stack_size = 6
 
 /obj/item/ammo_casing/shotgun/ms13/Initialize()
 	. = ..()

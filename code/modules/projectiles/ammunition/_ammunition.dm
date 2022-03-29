@@ -33,6 +33,7 @@
 	var/heavy_metal = TRUE
 	///pacifism check for boolet, set to FALSE if bullet is non-lethal
 	var/harmful = TRUE
+	var/stack_size = 1 /// MOJAVE SUN EDIT - This is a ammo stack multiplier. 1 = default size of 10 bullets, use
 
 /obj/item/ammo_casing/spent
 	name = "spent bullet casing"

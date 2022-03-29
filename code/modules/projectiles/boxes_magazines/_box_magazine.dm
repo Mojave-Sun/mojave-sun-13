@@ -128,7 +128,7 @@
 			if(did_load)
 				AM.stored_ammo -= AC
 				num_loaded++
-			if(!did_load || !multiload)
+			if(!did_load || !multiload || istype(A, /obj/item/ammo_box/magazine/ms13/ammo_stack)) // MOJAVE SUN EDIT || ORIGINAL IS "if(!did_load || !multiload)"
 				break
 		if(num_loaded)
 			AM.update_ammo_count()

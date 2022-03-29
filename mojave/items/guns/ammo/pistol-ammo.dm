@@ -5,6 +5,7 @@
 	caliber = ".45"
 	icon_state = "45acp_casing"
 	projectile_type = /obj/projectile/bullet/ms13/c45
+	stack_size = 12
 
 /obj/item/ammo_casing/ms13/c45/junk
 	name = "junk .45 bullet casing"
@@ -48,6 +49,7 @@
 	caliber = ".22"
 	icon_state = "22lr_casing"
 	projectile_type = /obj/projectile/bullet/ms13/c22
+	stack_size = 20
 
 /obj/item/ammo_casing/ms13/c22/junk
 	name = "junk .22 bullet casing"
@@ -91,6 +93,7 @@
 	caliber = "9mm"
 	icon_state = "9mm_casing"
 	projectile_type = /obj/projectile/bullet/ms13/c9mm
+	stack_size = 15
 
 /obj/item/ammo_casing/ms13/c9mm/junk
 	name = "junk 9mm bullet casing"
@@ -134,6 +137,7 @@
 	caliber = "10mm"
 	icon_state = "10mm_casing"
 	projectile_type = /obj/projectile/bullet/ms13/c10mm
+	stack_size = 12
 
 /obj/item/ammo_casing/ms13/c10mm/junk
 	name = "junk 10mm bullet casing"
@@ -178,6 +182,7 @@
 	caliber = "12.7mm"
 	icon_state = "127_casing"
 	projectile_type = /obj/projectile/bullet/ms13/m12mm
+	stack_size = 10
 
 /obj/item/ammo_casing/ms13/m12mm/ap
 	name = "AP 12.7mm bullet casing"
