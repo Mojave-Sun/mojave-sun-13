@@ -105,7 +105,8 @@
 		reconsider_sunlight()//MOJAVE MODULE OUTDOOR_EFFECTS
 
 
-/turf/proc/change_area(area/old_area, area/new_area)
+///Transfer the lighting of one area to another
+/turf/proc/transfer_area_lighting(area/old_area, area/new_area)
 	if(SSlighting.initialized)
 		if (new_area.static_lighting != old_area.static_lighting)
 			if (new_area.static_lighting)
