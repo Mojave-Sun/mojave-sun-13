@@ -60,12 +60,15 @@ GLOBAL_VAR(command_name)
 	var/name = ""
 	var/new_station_name = ""
 
-	/*//Rare: Pre-Prefix MOJAVE SUN EDIT - 🤫
+	/*//Rare: Pre-Prefix MOJAVE SUN EDIT - ??
 	if (prob(10))
 		name = pick(GLOB.station_prefixes)
 		new_station_name = name + " "
 		name = ""
 	*/
+	if(prob(1))
+		random = 999999999 //ridiculously long name in written numbers
+
 	// Prefix
 	var/holiday_name = pick(SSevents.holidays)
 	if(holiday_name)
@@ -94,7 +97,7 @@ GLOBAL_VAR(command_name)
 		if(4)
 			new_station_name += pick(GLOB.phonetic_alphabet)
 		if(5)
-			new_station_name += pick(GLOB.numbers_as_words)
+			new_station_name += convert_integer_to_words(rand(-1,99), capitalise = TRUE)
 		if(13)
 			new_station_name += pick("13","XIII","Thirteen")
 	return "Mojave Sun - Open Beta" // Hard coding for now until we change how station name is generated.
