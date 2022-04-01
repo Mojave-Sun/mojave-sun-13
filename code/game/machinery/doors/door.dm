@@ -41,7 +41,27 @@
 	var/red_alert_access = FALSE //if TRUE, this door will always open on red alert
 	var/unres_sides = 0 //Unrestricted sides. A bitflag for which direction (if any) can open the door with no access
 	var/can_crush = TRUE /// Whether or not the door can crush mobs.
+	var/can_open_with_hands = TRUE /// Whether or not the door can be opened by hand (used for blast doors and shutters)
 	var/sparks = TRUE /// MOJAVE SUN EDIT
+
+/obj/machinery/door/Initialize(mapload)
+	. = ..()
+	set_init_door_layer()
+	update_freelook_sight()
+	air_update_turf(TRUE, TRUE)
+	register_context()
+	GLOB.airlocks += src
+	spark_system = new /datum/effect_system/spark_spread
+	spark_system.set_up(2, 1, src)
+	if(density)
+		flags_1 |= PREVENT_CLICK_UNDER_1
+	else
+		flags_1 &= ~PREVENT_CLICK_UNDER_1
+
+	//doors only block while dense though so we have to use the proc
+	real_explosion_block = explosion_block
+	explosion_block = EXPLOSION_BLOCK_PROC
+	RegisterSignal(SSsecurity_level, COMSIG_SECURITY_LEVEL_CHANGED, .proc/check_security_level)
 
 /obj/machinery/door/examine(mob/user)
 	. = ..()
@@ -64,6 +84,9 @@
 /obj/machinery/door/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = ..()
 
+	if(!can_open_with_hands)
+		return .
+
 	if(isaicamera(user) || issilicon(user))
 		return .
 
@@ -77,25 +100,6 @@
 		return TRUE
 	*///MOJAVE SUN EDIT END
 	return ..()
-
-/obj/machinery/door/Initialize(mapload)
-	. = ..()
-	set_init_door_layer()
-	update_freelook_sight()
-	air_update_turf(TRUE, TRUE)
-	register_context()
-	GLOB.airlocks += src
-	spark_system = new /datum/effect_system/spark_spread
-	spark_system.set_up(2, 1, src)
-	if(density)
-		flags_1 |= PREVENT_CLICK_UNDER_1
-	else
-		flags_1 &= ~PREVENT_CLICK_UNDER_1
-
-	//doors only block while dense though so we have to use the proc
-	real_explosion_block = explosion_block
-	explosion_block = EXPLOSION_BLOCK_PROC
-	RegisterSignal(SSsecurity_level, COMSIG_SECURITY_LEVEL_CHANGED, .proc/check_security_level)
 
 /obj/machinery/door/proc/set_init_door_layer()
 	if(density)
@@ -145,7 +149,7 @@
 
 /obj/machinery/door/Bumped(atom/movable/AM)
 	. = ..()
-	if(operating || (obj_flags & EMAGGED))
+	if(operating || (obj_flags & EMAGGED) || (!can_open_with_hands && density))
 		return
 	if(ismob(AM))
 		var/mob/B = AM
@@ -189,8 +193,9 @@
 		return !opacity
 
 /obj/machinery/door/proc/bumpopen(mob/user)
-	if(operating)
+	if(operating || !can_open_with_hands)
 		return
+		
 	add_fingerprint(user)
 	if(!density || (obj_flags & EMAGGED))
 		return
@@ -210,16 +215,14 @@
 		return
 	return try_to_activate_door(user)
 
-
 /obj/machinery/door/attack_tk(mob/user)
 	if(requiresID() && !allowed(null))
 		return
 	return ..()
 
-
 /obj/machinery/door/proc/try_to_activate_door(mob/user, access_bypass = FALSE)
 	add_fingerprint(user)
-	if(operating || (obj_flags & EMAGGED))
+	if(operating || (obj_flags & EMAGGED) || !can_open_with_hands)
 		return
 	if(access_bypass || (requiresID() && allowed(user)))
 		if(density)
