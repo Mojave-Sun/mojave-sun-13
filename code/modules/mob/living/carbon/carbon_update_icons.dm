@@ -40,10 +40,12 @@
 /mob/living/carbon/regenerate_icons()
 	if(notransform)
 		return 1
+	icon_render_keys = list() //Clear this bad larry out
 	update_inv_hands()
 	update_inv_handcuffed()
 	update_inv_legcuffed()
 	update_fire()
+	update_body_parts()
 
 
 /mob/living/carbon/update_inv_hands()
@@ -250,132 +252,113 @@
 
 	. += emissive_blocker(standing.icon, standing.icon_state, alpha = standing.alpha)
 
-/mob/living/carbon/update_body()
-	update_body_parts()
+/mob/living/carbon/update_body(is_creating)
+	update_body_parts(is_creating)
 
-/mob/living/carbon/proc/assign_bodypart_ownership()
-	for(var/X in bodyparts)
-		var/obj/item/bodypart/BP = X
-		BP.original_owner = WEAKREF(src)
+///Checks to see if any bodyparts need to be redrawn, then does so. update_limb_data = TRUE redraws the limbs to conform to the owner.
+/mob/living/carbon/proc/update_body_parts(update_limb_data)
+	update_damage_overlays()
+	update_wound_overlays()
+	var/list/needs_update = list()
+	var/limb_count_update = FALSE
+	for(var/obj/item/bodypart/limb as anything in bodyparts)
+		limb.update_limb(is_creating = update_limb_data) //Update limb actually doesn't do much, get_limb_icon is the cpu eater.
+		var/old_key = icon_render_keys?[limb.body_zone] //Checks the mob's icon render key list for the bodypart
+		icon_render_keys[limb.body_zone] = (limb.is_husked) ? limb.generate_husk_key().Join() : limb.generate_icon_key().Join() //Generates a key for the current bodypart
+		if(!(icon_render_keys[limb.body_zone] == old_key)) //If the keys match, that means the limb doesn't need to be redrawn
+			needs_update += limb
 
-/mob/living/carbon/proc/update_body_parts()
-	//CHECK FOR UPDATE
-	var/oldkey = icon_render_key
-	icon_render_key = generate_icon_render_key()
-	if(oldkey == icon_render_key)
+
+	var/list/missing_bodyparts = get_missing_limbs()
+	if(((dna ? dna.species.max_bodypart_count : BODYPARTS_DEFAULT_MAXIMUM) - icon_render_keys.len) != missing_bodyparts.len) //Checks to see if the target gained or lost any limbs.
+		limb_count_update = TRUE
+		for(var/missing_limb in missing_bodyparts)
+			icon_render_keys -= missing_limb //Removes dismembered limbs from the key list
+
+	if(!needs_update.len && !limb_count_update)
 		return
 
 	remove_overlay(BODYPARTS_LAYER)
 
-	for(var/X in bodyparts)
-		var/obj/item/bodypart/BP = X
-		BP.update_limb()
-
-	//LOAD ICONS
-	if(limb_icon_cache[icon_render_key])
-		load_limb_from_cache()
-		return
-
 	//GENERATE NEW LIMBS
 	var/list/new_limbs = list()
-	var/draw_features = !HAS_TRAIT(src, TRAIT_INVISIBLE_MAN)
-	for(var/X in bodyparts)
-		var/obj/item/bodypart/BP = X
-		var/list/bp_icons = BP.get_limb_icon(draw_external_organs = draw_features)
-		if(!LAZYLEN(bp_icons))
-			continue
-		new_limbs += bp_icons
+	for(var/obj/item/bodypart/limb as anything in bodyparts)
+		if(limb in needs_update) //Checks to see if the limb needs to be redrawn
+			var/bodypart_icon = limb.get_limb_icon()
+			new_limbs += bodypart_icon
+			limb_icon_cache[icon_render_keys[limb.body_zone]] = bodypart_icon //Caches the icon with the bodypart key, as it is new
+		else
+			new_limbs += limb_icon_cache[icon_render_keys[limb.body_zone]] //Pulls existing sprites from the cache
+
 	if(new_limbs.len)
-		// MOJAVE EDIT BEGIN - Fatties
-		// i know this kind of fucks with the entire concept of the limb cache but its the only way this could work afaik
-		limb_icon_cache[icon_render_key] = new_limbs
-		var/list/final_limbs = list()
-		var/image/copy
-		for(var/image/limb as anything in new_limbs)
-			copy = new(limb)
-			copy = apply_fatness_filter(copy, FALSE)
-			final_limbs += copy
-		overlays_standing[BODYPARTS_LAYER] = final_limbs
-		// MOJAVE EDIT END - Fatties
+		overlays_standing[BODYPARTS_LAYER] = new_limbs
 
 	apply_overlay(BODYPARTS_LAYER)
-	update_damage_overlays()
-	update_wound_overlays()
 
 
 
-/////////////////////
-// Limb Icon Cache //
-/////////////////////
-/*
-	Called from update_body_parts() these procs handle the limb icon cache.
-	the limb icon cache adds an icon_render_key to a human mob, it represents:
-	- skin_tone (if applicable)
-	- gender
-	- limbs (stores as the limb name and whether it is removed/fine, organic/robotic)
-	These procs only store limbs as to increase the number of matching icon_render_keys
-	This cache exists because drawing 6/7 icons for humans constantly is quite a waste
-	See RemieRichards on irc.rizon.net #coderbus (RIP remie :sob:)
-*/
+/////////////////////////
+// Limb Icon Cache 2.0 //
+/////////////////////////
+/**
+ * Called from update_body_parts() these procs handle the limb icon cache.
+ * the limb icon cache adds an icon_render_key to a human mob, it represents:
+ * - Gender, if applicable
+ * - The ID of the limb
+ * - Draw color, if applicable
+ * These procs only store limbs as to increase the number of matching icon_render_keys
+ * This cache exists because drawing 6/7 icons for humans constantly is quite a waste
+ * See RemieRichards on irc.rizon.net #coderbus (RIP remie :sob:)
+**/
+/obj/item/bodypart/proc/generate_icon_key()
+	RETURN_TYPE(/list)
+	. = list()
+	if(is_dimorphic)
+		. += "[limb_gender]-"
+	. += "[limb_id]"
+	. += "-[body_zone]"
+	if(should_draw_greyscale && draw_color)
+		. += "-[draw_color]"
+	for(var/obj/item/organ/external/external_organ as anything in external_organs)
+		if(!external_organ.can_draw_on_bodypart(owner))
+			continue
+		. += "-[external_organ.generate_icon_cache()]"
 
-//produces a key based on the mob's limbs
+	return .
 
-/mob/living/carbon/proc/generate_icon_render_key()
-	for(var/X in bodyparts)
-		var/obj/item/bodypart/BP = X
-		. += "-[BP.body_zone]"
-		if(BP.use_digitigrade)
-			. += "-digitigrade[BP.use_digitigrade]"
-		if(BP.animal_origin)
-			. += "-[BP.animal_origin]"
-		if(BP.status == BODYPART_ORGANIC)
-			. += "-organic"
-		else
-			. += "-robotic"
+///Generates a cache key specifically for husks
+/obj/item/bodypart/proc/generate_husk_key()
+	RETURN_TYPE(/list)
+	. = list()
+	. += "[husk_type]"
+	. += "-husk"
+	. += "-[body_zone]"
+	return .
 
-	if(HAS_TRAIT(src, TRAIT_HUSK))
-		. += "-husk"
+/obj/item/bodypart/head/generate_icon_key()
+	. = ..()
+	. += "-[facial_hairstyle]"
+	. += "-[facial_hair_color]"
+	if(facial_hair_gradient_style)
+		. += "-[facial_hair_gradient_style]"
+		if(hair_gradient_color)
+			. += "-[facial_hair_gradient_color]"
+	if(facial_hair_hidden)
+		. += "-FACIAL_HAIR_HIDDEN"
+	if(show_debrained)
+		. += "-SHOW_DEBRAINED"
+		return .
+
+	. += "-[hair_style]"
+	. += "-[fixed_hair_color || override_hair_color || hair_color]"
+	if(hair_gradient_style)
+		. += "-[hair_gradient_style]"
+		if(hair_gradient_color)
+			. += "-[hair_gradient_color]"
+	if(hair_hidden)
+		. += "-HAIR_HIDDEN"
+
+	return .
 
 
-//change the mob's icon to the one matching its key
-/mob/living/carbon/proc/load_limb_from_cache()
-	if(limb_icon_cache[icon_render_key])
-		remove_overlay(BODYPARTS_LAYER)
-		// MOJAVE EDIT BEGIN - Fatties
-		// i know this kind of fucks with the entire concept of the limb cache but its the only way this could work afaik
-		var/list/final_limbs = list()
-		var/image/copy
-		for(var/image/limb as anything in limb_icon_cache[icon_render_key])
-			copy = new(limb)
-			copy = apply_fatness_filter(copy, FALSE)
-			final_limbs += copy
-		overlays_standing[BODYPARTS_LAYER] = final_limbs
-		// MOJAVE EDIT END - Fatties
-		apply_overlay(BODYPARTS_LAYER)
-	update_damage_overlays()
-
-// MOJAVE SUN EDIT BEGIN
-
-//Updating overlays related to on bodypart bandages
-/mob/living/carbon/proc/update_bandage_overlays()
-	remove_overlay(BANDAGE_LAYER)
-
-	var/mutable_appearance/overlays = mutable_appearance('icons/mob/bandage_overlays.dmi', "", -BANDAGE_LAYER)
-	overlays_standing[BANDAGE_LAYER] = overlays
-
-	for(var/b in bodyparts)
-		var/obj/item/bodypart/BP = b
-		if(BP.current_gauze && BP.current_gauze.overlay_prefix)
-			var/bp_suffix = BP.body_zone
-			if(BP.use_digitigrade)
-				bp_suffix += "_digitigrade"
-			overlays.add_overlay("[BP.current_gauze.overlay_prefix]_[bp_suffix]")
-		if(BP.current_splint && BP.current_splint.overlay_prefix)
-			var/bp_suffix = BP.body_zone
-			if(BP.use_digitigrade)
-				bp_suffix += "_digitigrade"
-			overlays.add_overlay("[BP.current_splint.overlay_prefix]_[bp_suffix]")
-
-	apply_overlay(BANDAGE_LAYER)
-
-// MOJAVE SUN EDIT
+// GOMBLE TODO - Obese + bandage overlay
