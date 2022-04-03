@@ -466,6 +466,18 @@ GLOBAL_LIST_EMPTY(nodes_trader_destination)
 	speech_span = SPAN_SANS
 	sell_sound = 'sound/voice/hiss2.ogg'
 	mob_biotypes = MOB_UNDEAD|MOB_HUMANOID
+	products = list(
+		/obj/item/clothing/head/helmet/skull = 150,
+		/obj/item/clothing/mask/bandana/color/skull/black = 50,
+		/obj/item/food/cookie/sugar/spookyskull = 10,
+		/obj/item/instrument/trombone/spectral = 10000,
+		/obj/item/shovel/serrated = 150
+	)
+	wanted_items = list(
+		/obj/item/reagent_containers/food/condiment/milk = 1000,
+		/obj/item/stack/sheet/bone = 420
+	)
+	buyphrase = "Bone appetit!"
 	icon_state = "mrbones"
 	gender = MALE
 	loot = list(/obj/effect/decal/remains/human)
