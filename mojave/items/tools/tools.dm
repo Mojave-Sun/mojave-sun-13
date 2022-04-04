@@ -273,8 +273,8 @@
 	sharpness = NONE
 	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = ITEM_SLOT_BELT
-	grid_width = 32
-	grid_height = 96
+	grid_width = 64
+	grid_height = 64
 
 /obj/item/shovel/ms13/snow
 	name = "snow shovel"

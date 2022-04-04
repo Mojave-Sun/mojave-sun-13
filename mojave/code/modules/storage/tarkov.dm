@@ -49,7 +49,12 @@
 
 /datum/component/storage/concrete/ms13/grid //main for MS13 backpacks
 	screen_max_columns = 6
-	screen_max_rows = 6
+	screen_max_rows = 5
+	screen_start_y = 7
+
+/datum/component/storage/concrete/ms13/rad_pack //for MS13 radiopack
+	screen_max_columns = 5
+	screen_max_rows = 4
 	screen_start_y = 7
 
 /datum/component/storage/concrete/ms13/d_bag //main for Doctors bags

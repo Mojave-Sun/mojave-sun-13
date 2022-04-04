@@ -15,6 +15,8 @@
 	spread = 2
 	recoil = 1.75
 	slowdown = 0.75
+	grid_height = 192
+	grid_width = 32
 
 /obj/item/gun/ballistic/rifle/ms13/hunting/scoped
 	name = "scoped hunting rifle"
@@ -44,6 +46,8 @@
 	recoil = 0.75
 	slowdown = 0.75
 	mag_type = /obj/item/ammo_box/magazine/ms13/r10
+	grid_height = 160
+	grid_width = 32
 
 /obj/item/gun/ballistic/rifle/ms13/varmint/update_icon_state()
 	. = ..()
@@ -87,6 +91,8 @@
 	zoomable = TRUE
 	zoom_amt = 9
 	zoom_out_amt = 3
+	grid_height = 192
+	grid_width = 32
 
 /obj/item/gun/ballistic/rifle/ms13/hunting/scoped/amr
 	name = "anti-material rifle"
@@ -101,6 +107,8 @@
 	spread = 2
 	recoil = 4
 	slowdown = 1.5
+	grid_height = 256
+	grid_width = 64
 
 /obj/item/gun/ballistic/rifle/ms13/hunting/scoped/amr/update_icon_state()
 	. = ..()
@@ -142,6 +150,8 @@
 	extra_penetration = 5
 	spread = 2
 	recoil = 1.25
+	grid_height = 192
+	grid_width = 32
 
 /* Weeb shit and an unbalanced M1 Garand for now
 /obj/item/gun/ballistic/rifle/ms13/hunting/japanese
@@ -192,7 +202,10 @@
 	icon_state = "556r10"
 	ammo_type = /obj/item/ammo_casing/ms13/a556
 	caliber = "a556"
+	w_class = WEIGHT_CLASS_TINY
 	max_ammo = 10
+	grid_height = 32
+	grid_width = 32
 
 /obj/item/ammo_box/magazine/ms13/r308
 	name = "5 round magazine (.308)"
@@ -200,7 +213,10 @@
 	icon_state = "r308"
 	ammo_type = /obj/item/ammo_casing/ms13/a308
 	caliber = "a308"
+	w_class = WEIGHT_CLASS_TINY
 	max_ammo = 5
+	grid_height = 32
+	grid_width = 32
 
 /obj/item/ammo_box/magazine/ms13/amr
 	name = "6 round magazine (.50)"
@@ -208,7 +224,10 @@
 	icon_state = "50cal"
 	ammo_type = /obj/item/ammo_casing/ms13/a50MG
 	caliber = "a50MG"
+	w_class = WEIGHT_CLASS_SMALL
 	max_ammo = 6
+	grid_height = 64
+	grid_width = 32
 
 /obj/item/ammo_box/magazine/ms13/r308/battlerifle
 	name = "8 round enbloc magazine (.308)"

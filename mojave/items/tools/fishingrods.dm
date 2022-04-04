@@ -9,7 +9,7 @@
 	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
 	grid_width = 32
-	grid_height = 160
+	grid_height = 192
 
 /obj/item/ms13/tools/fishing_rod/Initialize(mapload)
 	. = ..()
@@ -30,7 +30,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	toolspeed = 1 //40 second fish time
 	grid_width = 32
-	grid_height = 32
+	grid_height = 64
 	var/toggled = FALSE
 	var/extended_icon = "telescopic"
 	var/on_sound = 'sound/weapons/batonextend.ogg'
@@ -48,7 +48,7 @@
 			toggled = TRUE
 			playsound(src, on_sound, 60, TRUE)
 			grid_width = 32
-			grid_height = 160
+			grid_height = 192
 	else
 		to_chat(user, span_notice("You begin to collapse the rod."))
 		if(do_after(user, 2.5 SECONDS, interaction_key = DOAFTER_SOURCE_TELESCOPICROD))
@@ -60,7 +60,7 @@
 			toggled = FALSE
 			playsound(src, on_sound, 85, TRUE)
 			grid_width = 32
-			grid_height = 32
+			grid_height = 64
 
 /obj/item/ms13/tools/fishing_rod/advanced
 	name = "advanced fishing rod"

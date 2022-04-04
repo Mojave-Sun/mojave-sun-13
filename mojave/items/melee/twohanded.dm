@@ -60,6 +60,8 @@
 	bare_wound_bonus = 0
 	sharpness = IS_SHARP_AXE
 	toolspeed = 0.75
+	grid_height = 160
+	grid_width = 64
 
 /obj/item/ms13/twohanded/fireaxe/ComponentInitialize()
 	. = ..()
@@ -80,6 +82,8 @@
 	throwforce = 10
 	throw_range = 3
 	sharpness = SHARP_EDGED
+	grid_height = 192
+	grid_width = 64
 
 /obj/item/ms13/twohanded/bump_sword/ComponentInitialize()
 	. = ..()
@@ -100,6 +104,8 @@
 	throwforce = 10
 	throw_range = 3
 	sharpness = NONE
+	grid_height = 160
+	grid_width = 64
 
 /obj/item/ms13/twohanded/hammer/ComponentInitialize()
 	. = ..()
@@ -123,6 +129,8 @@
 	inhand_icon_state = "hammer_power"
 	armour_penetration = 25
 	wound_bonus = 10
+	grid_height = 224
+	grid_width = 128
 
 /obj/item/ms13/twohanded/hammer/super/ComponentInitialize()
 	. = ..()
@@ -153,6 +161,8 @@
 	wound_bonus = 5
 	w_class = WEIGHT_CLASS_BULKY
 	sharpness = SHARP_POINTY
+	grid_height = 192
+	grid_width = 32
 
 /obj/item/ms13/twohanded/spear/ComponentInitialize()
 	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_unwielded = 20, force_wielded = 35)

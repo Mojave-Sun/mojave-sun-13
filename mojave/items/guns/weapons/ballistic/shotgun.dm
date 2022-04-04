@@ -12,6 +12,8 @@
 	fire_delay = 0.55 SECONDS
 	slowdown = 0.75
 	recoil = 1.5
+	grid_width = 128
+	grid_height = 64
 
 /obj/item/gun/ballistic/shotgun/ms13/lever/update_icon_state()
 	. = ..()
@@ -36,6 +38,8 @@
 	fire_delay = 0.5 SECONDS
 	slowdown = 0.75
 	recoil = 1.5
+	grid_width = 160
+	grid_height = 64
 
 /obj/item/gun/ballistic/shotgun/ms13/huntingshot/update_icon_state()
 	. = ..()
@@ -63,6 +67,8 @@
 	recoil = 1.5
 	force = 15
 	empty_indicator = TRUE
+	grid_width = 192
+	grid_height = 32
 
 /obj/item/gun/ballistic/shotgun/ms13/lever/cowboy
 	name = "cowboy repeater"
@@ -80,6 +86,8 @@
 	recoil = 1.25
 	force = 15
 	empty_indicator = TRUE
+	grid_width = 192
+	grid_height = 32
 
 /obj/item/gun/ballistic/shotgun/ms13/lever/brush
 	name = "brush gun"
@@ -97,6 +105,8 @@
 	recoil = 2
 	force = 15
 	empty_indicator = TRUE
+	grid_width = 192
+	grid_height = 32
 
 /obj/item/gun/ballistic/shotgun/automatic/ms13/sks
 	name = "\improper European battle rifle"
@@ -114,6 +124,8 @@
 	recoil = 1.25
 	slowdown = 0.75
 	empty_indicator = TRUE
+	grid_width = 160
+	grid_height = 64
 
 /obj/item/gun/ballistic/shotgun/automatic/ms13/sks/update_icon_state()
 	. = ..()

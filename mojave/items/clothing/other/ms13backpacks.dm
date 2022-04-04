@@ -28,8 +28,8 @@
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_w_class = WEIGHT_CLASS_BULKY
-	STR.max_items = 36
-	STR.max_combined_w_class = 55
+	STR.max_items = 30
+	STR.max_combined_w_class = 100
 
 /obj/item/storage/ms13/sack
 	name = "sack"
