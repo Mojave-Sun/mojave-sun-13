@@ -25,7 +25,7 @@
 	tool_behaviour = TOOL_CROWBAR
 	toolspeed = 2
 	log_pickup_and_drop = TRUE
-	grid_width = 64
+	grid_width = 32
 	grid_height = 64
 
 /obj/item/ms13/hammer/Initialize()
@@ -54,7 +54,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	toolspeed = 2 // axe tomfoolery
 	log_pickup_and_drop = TRUE
-	grid_width = 64
+	grid_width = 96
 	grid_height = 32
 
 /obj/item/ms13/handsaw/Initialize()
@@ -83,7 +83,7 @@
 	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_NORMAL
 	log_pickup_and_drop = TRUE
-	grid_width = 32
+	grid_width = 64
 	grid_height = 64
 
 /obj/item/ms13/handdrill/Initialize()
@@ -224,6 +224,8 @@
 	throwforce = 10
 	random_color = FALSE
 	log_pickup_and_drop = TRUE
+	grid_width = 32
+	grid_height = 32
 
 /obj/item/screwdriver/ms13/Initialize()
 	. = ..()
@@ -251,7 +253,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK
 	log_pickup_and_drop = TRUE
-	grid_width = 32
+	grid_width = 64
 	grid_height = 128
 
 /obj/item/shovel/ms13/Initialize()
@@ -267,12 +269,12 @@
 	armour_penetration = 0
 	wound_bonus = -2
 	throwforce = 10
-	toolspeed = 1.5
+	toolspeed = 2
 	sharpness = NONE
 	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = ITEM_SLOT_BELT
 	grid_width = 32
-	grid_height = 64
+	grid_height = 96
 
 /obj/item/shovel/ms13/snow
 	name = "snow shovel"

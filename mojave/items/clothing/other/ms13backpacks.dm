@@ -24,12 +24,12 @@
 	inhand_icon_state = icon_state
 	worn_icon_state = icon_state
 
-/obj/item/storage/ms13/ComponentInitialize() //backpacks are smaller but hold larger things
+/obj/item/storage/ms13/ComponentInitialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_w_class = WEIGHT_CLASS_NORMAL
-	STR.max_items = 40 //max grid
-	STR.max_combined_w_class = 100
+	STR.max_w_class = WEIGHT_CLASS_BULKY
+	STR.max_items = 36
+	STR.max_combined_w_class = 55
 
 /obj/item/storage/ms13/sack
 	name = "sack"
