@@ -242,7 +242,7 @@
 	/// A mock client, provided by tests and friends
 	var/datum/client_interface/mock_client
 
-	var/interaction_range = 1 //how far a mob has to be to interact with something, defaulted to 1 tile
-
+	var/interaction_range = 0 //how far a mob has to be to interact with something without caring about obsctruction, defaulted to 0 tiles
+	// GOMBLE TODO Check that I didn't break respawn 
 	/// Keeps track of time of death for respawn purposes on the base mob
 	var/respawn_timeofdeath = 0
