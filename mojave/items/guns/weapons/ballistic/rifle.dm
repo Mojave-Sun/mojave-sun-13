@@ -6,7 +6,7 @@
 	inhand_icon_state = "hunting"
 	mag_type = /obj/item/ammo_box/magazine/ms13/r308
 	fire_sound = 'mojave/sound/ms13weapons/hunting_rifle.ogg'
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	slot_flags = ITEM_SLOT_BACK
 	extra_damage = 40
@@ -15,8 +15,8 @@
 	spread = 2
 	recoil = 1.75
 	slowdown = 0.75
-	grid_height = 192
-	grid_width = 32
+	grid_height = 32
+	grid_width = 224
 
 /obj/item/gun/ballistic/rifle/ms13/hunting/scoped
 	name = "scoped hunting rifle"
@@ -46,8 +46,8 @@
 	recoil = 0.75
 	slowdown = 0.75
 	mag_type = /obj/item/ammo_box/magazine/ms13/r10
-	grid_height = 160
-	grid_width = 32
+	grid_height = 32
+	grid_width = 192
 
 /obj/item/gun/ballistic/rifle/ms13/varmint/update_icon_state()
 	. = ..()
@@ -88,11 +88,12 @@
 	recoil = 0.5
 	slowdown = 1
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
+	w_class = WEIGHT_CLASS_HUGE
 	zoomable = TRUE
 	zoom_amt = 9
 	zoom_out_amt = 3
-	grid_height = 192
-	grid_width = 32
+	grid_height = 32
+	grid_width = 224
 
 /obj/item/gun/ballistic/rifle/ms13/hunting/scoped/amr
 	name = "anti-material rifle"
@@ -150,8 +151,6 @@
 	extra_penetration = 5
 	spread = 2
 	recoil = 1.25
-	grid_height = 192
-	grid_width = 32
 
 /* Weeb shit and an unbalanced M1 Garand for now
 /obj/item/gun/ballistic/rifle/ms13/hunting/japanese

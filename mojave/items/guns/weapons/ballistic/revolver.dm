@@ -13,7 +13,7 @@
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravan.ogg'
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
-	grid_width = 128
+	grid_width = 160
 	grid_height = 64
 
 /obj/item/gun/ballistic/revolver/ms13/caravan/sawed
@@ -27,7 +27,7 @@
 	slowdown = 0.5
 	w_class = WEIGHT_CLASS_NORMAL
 	weapon_weight = WEAPON_MEDIUM
-	grid_width = 64
+	grid_width = 96
 	grid_height = 64
 
 /obj/item/gun/ballistic/revolver/ms13/single
@@ -44,7 +44,7 @@
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravan2.ogg'
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
-	grid_width = 128
+	grid_width = 160
 	grid_height = 64
 
 ////////////////////////// revolvers////////////////
@@ -99,7 +99,7 @@
 	spread = 5
 	recoil = 1.5
 	slowdown = 0.75
-	grid_width = 128
+	grid_width = 160
 	grid_height = 64
 
 /obj/item/gun/ballistic/revolver/ms13/rev357

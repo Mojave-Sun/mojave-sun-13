@@ -12,7 +12,7 @@
 	attack_verb_continuous = list("attacks", "stabs", "pokes")
 	attack_verb_simple = list("attack", "stab", "poke")
 	sharpness = SHARP_EDGED
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_HUGE
 	max_integrity = 200
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0,  FIRE = 100, ACID = 50)
 	resistance_flags = FIRE_PROOF
@@ -82,7 +82,7 @@
 	throwforce = 10
 	throw_range = 3
 	sharpness = SHARP_EDGED
-	grid_height = 224
+	grid_height = 192
 	grid_width = 64
 
 /obj/item/ms13/twohanded/bump_sword/ComponentInitialize()
@@ -129,8 +129,8 @@
 	inhand_icon_state = "hammer_power"
 	armour_penetration = 25
 	wound_bonus = 10
-	grid_height = 224
-	grid_width = 128
+	grid_height = 256
+	grid_width = 96
 
 /obj/item/ms13/twohanded/hammer/super/ComponentInitialize()
 	. = ..()
@@ -159,10 +159,10 @@
 	throwforce = 30
 	armour_penetration = 10
 	wound_bonus = 5
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_HUGE
 	sharpness = SHARP_POINTY
-	grid_height = 224
-	grid_width = 32
+	grid_height = 32
+	grid_width = 224
 
 /obj/item/ms13/twohanded/spear/ComponentInitialize()
 	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_unwielded = 20, force_wielded = 35)
@@ -223,6 +223,8 @@
 	throw_speed = 2
 	throw_range = 4
 	toolspeed = 0.35
+	grid_height = 256
+	grid_width = 256
 	var/on = FALSE
 
 /obj/item/ms13/twohanded/heavy/autoaxe/attack_self(mob/user)
@@ -262,6 +264,8 @@
 	bare_wound_bonus = 13
 	throw_speed = 1
 	throw_range = 2
+	grid_height = 256
+	grid_width = 256
 	hitsound = "swing_hit"
 	var/on = FALSE
 

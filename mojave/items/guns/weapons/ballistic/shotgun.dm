@@ -12,7 +12,7 @@
 	fire_delay = 0.55 SECONDS
 	slowdown = 0.75
 	recoil = 1.5
-	grid_width = 128
+	grid_width = 160
 	grid_height = 64
 
 /obj/item/gun/ballistic/shotgun/ms13/lever/update_icon_state()
@@ -32,13 +32,13 @@
 	inhand_icon_state = "huntingshot"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/huntingshot
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/huntingshot/huntingshot2.ogg'
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	force = 30
 	fire_delay = 0.5 SECONDS
 	slowdown = 0.75
 	recoil = 1.5
-	grid_width = 160
+	grid_width = 192
 	grid_height = 64
 
 /obj/item/gun/ballistic/shotgun/ms13/huntingshot/update_icon_state()
@@ -57,7 +57,7 @@
 	icon_state = "trail"
 	inhand_icon_state = "trail"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/tube44
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	fire_sound = 'mojave/sound/ms13weapons/trailfire.ogg'
 	fire_delay = 0.55 SECONDS
@@ -76,7 +76,7 @@
 	icon_state = "cowboy"
 	inhand_icon_state = "cowboy"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/tube357
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/repeater/repeater1.ogg'
 	fire_delay = 0.5 SECONDS
@@ -95,7 +95,7 @@
 	icon_state = "brush"
 	inhand_icon_state = "brush"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/tube4570
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	fire_sound = 'mojave/sound/ms13weapons/brushfire.ogg'
 	fire_delay = 0.5 SECONDS
@@ -114,7 +114,7 @@
 	icon_state = "sks"
 	inhand_icon_state = "sks"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/sks
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/sks/sks1.ogg'
 	fire_delay = 0.5 SECONDS
@@ -124,7 +124,7 @@
 	recoil = 1.25
 	slowdown = 0.75
 	empty_indicator = TRUE
-	grid_width = 160
+	grid_width = 192
 	grid_height = 64
 
 /obj/item/gun/ballistic/shotgun/automatic/ms13/sks/update_icon_state()

@@ -24,7 +24,7 @@
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_w_class = WEIGHT_CLASS_SMALL
 	STR.max_items = 12
-	STR.max_combined_w_class = 20
+	STR.max_combined_w_class = 100
 	STR.set_holdable(list(
 		/obj/item/reagent_containers/hypospray,
 		/obj/item/stack/medical
@@ -61,7 +61,7 @@
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_w_class = WEIGHT_CLASS_NORMAL
 	STR.max_items = 16
-	STR.max_combined_w_class = 28
+	STR.max_combined_w_class = 100
 	STR.set_holdable(list(
 		/obj/item/lighter,
 		/obj/item/stack/medical,

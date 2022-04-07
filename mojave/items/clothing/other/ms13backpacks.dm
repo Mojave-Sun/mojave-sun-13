@@ -28,15 +28,21 @@
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_w_class = WEIGHT_CLASS_BULKY
-	STR.max_items = 30
+	STR.max_items = 36
 	STR.max_combined_w_class = 100
 
 /obj/item/storage/ms13/sack
 	name = "sack"
-	desc = "A gnarly weave-sack, very abundant, useful for storage and a carvanners necessity."
-	worn_icon = 'mojave/icons/mob/clothing/belt.dmi'
+	desc = "A simple woven sack for storage. Easy to access, but can't carry too much."
 	icon_state = "sack"
-	slot_flags = ITEM_SLOT_BELT
+	component_type = /datum/component/storage/concrete/ms13/satchel
+
+/obj/item/storage/ms13/sack/ComponentInitialize()
+	. = ..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	STR.max_w_class = WEIGHT_CLASS_NORMAL
+	STR.max_items = 25
+	STR.max_combined_w_class = 100
 
 /obj/item/storage/ms13/ncr
 	name = "\improper NCR backpack"

@@ -9,12 +9,13 @@
 	slot_flags = ITEM_SLOT_BACK
 	extra_damage = 25
 	extra_penetration = 5
+	w_class = WEIGHT_CLASS_HUGE
 	spread = 5
 	recoil = 0.75
 	slowdown = 0.75
 	zoomable = FALSE
 	mag_type = /obj/item/ammo_box/magazine/ms13/r20
-	grid_width = 160
+	grid_width = 192
 	grid_height = 64
 
 /obj/item/gun/ballistic/automatic/ms13/semi/service/maquis
@@ -36,6 +37,7 @@
 	slot_flags = ITEM_SLOT_BACK
 	extra_damage = 45
 	extra_penetration = 10
+	w_class = WEIGHT_CLASS_HUGE
 	spread = 2
 	recoil = 1.5
 	slowdown = 1
@@ -43,6 +45,8 @@
 	zoomable = TRUE
 	zoom_amt = 9
 	zoom_out_amt = 3
+	grid_width = 224
+	grid_height = 64
 
 /obj/item/gun/ballistic/automatic/ms13/semi/sniper/silencer
 	name = "\improper Silencer"
@@ -65,13 +69,14 @@
 	slot_flags = ITEM_SLOT_BACK
 	extra_damage = 35
 	extra_penetration = 10
+	w_class = WEIGHT_CLASS_HUGE
 	spread = 2
 	recoil = 1
 	slowdown = 1
 	zoomable = TRUE
 	zoom_amt = 9
 	zoom_out_amt = 3
-	grid_width = 160
+	grid_width = 192
 	grid_height = 64
 
 /obj/item/gun/ballistic/automatic/ms13/semi/marksman/american
@@ -91,11 +96,12 @@
 	slot_flags = ITEM_SLOT_BACK
 	extra_damage = 40
 	extra_penetration = 15
+	w_class = WEIGHT_CLASS_HUGE
 	spread = 5
 	recoil = 1.5
 	slowdown = 0.75
 	mag_type = /obj/item/ammo_box/magazine/ms13/r308_10
-	grid_width = 160
+	grid_width = 192
 	grid_height = 64
 
 /obj/item/gun/ballistic/automatic/ms13/semi/battle/update_icon_state()
@@ -235,12 +241,12 @@
 	fire_delay = 0.25 SECONDS
 	extra_damage = 20
 	extra_penetration = 10
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	spread = 10
 	recoil = 0.75
 	slowdown = 0.75
-	grid_width = 160
+	grid_width = 192
 	grid_height = 64
 
 /obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/proto_service
@@ -263,10 +269,11 @@
 	zoom_amt = 9
 	zoom_out_amt = 3
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
+	w_class = WEIGHT_CLASS_BULKY
 	spread = 5
 	recoil = 0.5
 	slowdown = 1
-	grid_width = 128
+	grid_width = 160
 	grid_height = 64
 
 /obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/dakka
@@ -276,8 +283,9 @@
 	fire_delay = 0.2 SECONDS
 	extra_damage = 20
 	extra_penetration = 0
+	w_class = WEIGHT_CLASS_BULKY
 	spread = 15
-	grid_width = 128
+	grid_width = 160
 	grid_height = 64
 
 /obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/dakka/Initialize()
@@ -300,7 +308,7 @@
 	spread = 10	
 	recoil = 1
 	slowdown = 0.75
-	grid_width = 160
+	grid_width = 192
 	grid_height = 64
 
 /obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/chinese/handmade
