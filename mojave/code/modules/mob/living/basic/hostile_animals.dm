@@ -281,7 +281,7 @@
 	sharpness = SHARP_EDGED
 	wound_bonus = 10
 	bare_wound_bonus = 5
-	butcher_results = list(/obj/item/ms13/hide/yaoguai = 1, /obj/item/food/meat/slab/ms13/carcass/large/yaoguai/front = 1, /obj/item/food/meat/slab/ms13/carcass/large/yaoguai/back = 1)
+	butcher_results = list(/obj/item/ms13/hide/large/yaoguai = 1, /obj/item/food/meat/slab/ms13/carcass/large/yaoguai/front = 1, /obj/item/food/meat/slab/ms13/carcass/large/yaoguai/back = 1)
 	faction = list("bear")
 	/*food_type = list(/obj/item/food/meat/slab/human)
 	tame_chance = 5
