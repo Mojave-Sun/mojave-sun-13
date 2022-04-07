@@ -79,7 +79,7 @@
 	sharpness = NONE
 	log_pickup_and_drop = TRUE
 	grid_width = 32
-	grid_height = 96
+	grid_height = 128
 
 /obj/item/claymore/ms13/pipe/tireiron
 	name = "tire iron"
@@ -112,7 +112,7 @@
 	sharpness = NONE
 	log_pickup_and_drop = TRUE
 	grid_width = 32
-	grid_height = 96
+	grid_height = 128
 
 /obj/item/claymore/ms13/machete/shishkebab
 	name = "shishkebab"
@@ -162,8 +162,8 @@
 	sharpness = IS_SHARP_AXE
 	toolspeed = 0.75
 	w_class = WEIGHT_CLASS_NORMAL
-	grid_width = 64
-	grid_height = 96
+	grid_width = 96
+	grid_height = 64
 	var/on = FALSE
 	var/icon_prefix = "ripper"
 
