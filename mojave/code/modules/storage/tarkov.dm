@@ -39,7 +39,7 @@
 			item_in_source.forceMove(drop_location)
 		else
 			item_in_source.moveToNullspace()
-		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, item_in_source, null, TRUE, FALSE, FALSE)
+		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, item_in_source, null, TRUE, TRUE, FALSE)
 
 
 // storage types //
