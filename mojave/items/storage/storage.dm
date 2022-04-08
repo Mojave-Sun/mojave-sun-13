@@ -76,12 +76,12 @@
 /obj/item/storage/firstaid/ms13/bag/filled
 
 /obj/item/storage/firstaid/ms13/bag/filled/PopulateContents()
-	new /obj/item/scalpel(src)
-	new /obj/item/surgical_drapes(src)
-	new /obj/item/hemostat(src)
-	new /obj/item/cautery(src)
-	new /obj/item/bonesetter(src)
-	new /obj/item/retractor(src)
+	new /obj/item/scalpel/ms13(src)
+	new /obj/item/surgical_drapes/ms13(src)
+	new /obj/item/hemostat/ms13(src)
+	new /obj/item/cautery/ms13(src)
+	new /obj/item/bonesetter/ms13(src)
+	new /obj/item/retractor/ms13(src)
 	new /obj/item/stack/medical/gauze/ms13/half(src)
 	new /obj/item/stack/medical/suture/ms13/four(src)
 	new /obj/item/stack/medical/ointment/ms13/cream/half(src)
