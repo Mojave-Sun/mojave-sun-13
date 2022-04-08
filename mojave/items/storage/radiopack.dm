@@ -2,16 +2,17 @@
 	name = "radiopack"
 	icon = 'mojave/icons/objects/clothing/clothing_world/backpack_world.dmi'
 	worn_icon = 'mojave/icons/mob/clothing/back.dmi'
-	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
-	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/equipment/backpack_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/equipment/backpack_righthand.dmi'
 	icon_state = "radiopack"
 	inhand_icon_state = "radiopack"
 	desc = "A radio backpack primarily in use by the NCR. The peak of NCR communication, when they feel like using it."
 	slot_flags = ITEM_SLOT_BACK
 	throw_speed = 3
 	throw_range = 7
-	w_class = WEIGHT_CLASS_NORMAL
-	custom_materials = list(/datum/material/iron=75, /datum/material/glass=25)
+	w_class = WEIGHT_CLASS_BULKY
+	grid_height = 288 //NO BACKPACK STACKING
+	grid_width = 288 //NO BACKPACK STACKING
 	var/held = 0
 	var/obj/item/radio/ms13/ncr/radio
 
@@ -21,8 +22,8 @@
 	START_PROCESSING(SSobj, src)
 	var/datum/component/storage/STR = AddComponent(/datum/component/storage/concrete)
 	STR.max_w_class = WEIGHT_CLASS_NORMAL
-	STR.max_combined_w_class = 18
-	STR.max_items = 6
+	STR.max_combined_w_class = 22
+	STR.max_items = 8
 	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/backpack_inventory.dmi')
 
 /obj/item/ms13/storage/backpack/radiopack/Destroy()
@@ -90,10 +91,7 @@
 	icon_state = "handradio"
 	inhand_icon_state = "handradio"
 	desc = "The important bit of the radiopack, this broadcasts and recieves radio messages in high quality with an amplified volume."
-	flags_1 = CONDUCT_1
 	canhear_range = 3
-	freerange = TRUE
-	w_class = WEIGHT_CLASS_SMALL
 	radio_broadcast = RADIOSTATIC_LIGHT
 	var/req_radio = TRUE
 	var/obj/item/ms13/storage/backpack/radiopack/radiopack
