@@ -197,6 +197,7 @@
 	force = 5
 	sharpness = SHARP_POINTY
 	wound_bonus = CANT_WOUND
+	w_class = WEIGHT_CLASS_TINY
 	random_color = FALSE
 	log_pickup_and_drop = TRUE
 	grid_width = 32
