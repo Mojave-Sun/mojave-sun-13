@@ -29,6 +29,7 @@
 	dir = WEST
 
 /obj/structure/stairs/Initialize(mapload)
+	GLOB.stairs += src
 	if(force_open_above)
 		force_open_above()
 		build_signal_listener()
