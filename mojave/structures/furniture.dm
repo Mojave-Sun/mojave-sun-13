@@ -45,12 +45,53 @@
 /obj/structure/ms13/tv/proc/deconstruction_hints(mob/user)
 	return span_notice("You could use a <b>screwdriver</b> to take apart [src] for parts.")
 
-/obj/structure/ms13/phone
+/obj/structure/ms13/pay_phone
 	name = "payphone"
 	desc = "A long unused and dead payphone, sure as hell ain't anyone to call on this thing no more."
 	icon = 'mojave/icons/structure/miscellaneous.dmi'
 	icon_state = "payphone"
 	max_integrity = 300
+	density = TRUE
+	anchored = TRUE
+
+/obj/structure/ms13/pay_phone/wrench_act_secondary(mob/living/user, obj/item/weapon)
+	if(flags_1&NODECONSTRUCT_1)
+		return TRUE
+	..()
+	weapon.play_tool_sound(src)
+	if(do_after(user, 15 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+		deconstruct(disassembled = TRUE)
+		return TRUE
+
+/obj/structure/ms13/pay_phone/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/scrap/two(loc)
+			new /obj/item/stack/sheet/ms13/scrap_parts/two(loc)
+			new /obj/item/stack/sheet/ms13/scrap_electronics(loc)
+			new /obj/item/stack/sheet/ms13/scrap_copper/two(loc)
+		else
+			new /obj/item/stack/sheet/ms13/scrap(loc)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
+			new /obj/item/stack/sheet/ms13/scrap_copper(loc)
+	qdel(src)
+
+/obj/structure/ms13/pay_phone/examine(mob/user)
+	. = ..()
+	. += deconstruction_hints(user)
+
+/obj/structure/ms13/pay_phone/proc/deconstruction_hints(mob/user)
+	return span_notice("You could use a <b>wrench</b> to take apart [src] for parts.")
+
+/obj/structure/ms13/pay_phone/withthephone
+	icon_state = "payphone_alt"
+
+/obj/structure/ms13/phone
+	name = "phone"
+	desc = "A dusty and scuffed phone. You don't think it'll work again."
+	icon = 'mojave/icons/structure/miscellaneous.dmi'
+	icon_state = "phone_red"
+	max_integrity = 100
 	density = TRUE
 	anchored = TRUE
 
@@ -66,25 +107,17 @@
 /obj/structure/ms13/phone/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/scrap/two(loc)
-			new /obj/item/stack/sheet/ms13/scrap_parts/two(loc)
+			new /obj/item/stack/sheet/ms13/scrap(loc)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
 			new /obj/item/stack/sheet/ms13/scrap_electronics(loc)
 			new /obj/item/stack/sheet/ms13/scrap_copper/two(loc)
 		else
 			new /obj/item/stack/sheet/ms13/scrap(loc)
-			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
 			new /obj/item/stack/sheet/ms13/scrap_copper(loc)
 	qdel(src)
 
-/obj/structure/ms13/phone/examine(mob/user)
-	. = ..()
-	. += deconstruction_hints(user)
-
-/obj/structure/ms13/phone/proc/deconstruction_hints(mob/user)
-	return span_notice("You could use a <b>wrench</b> to take apart [src] for parts.")
-
-/obj/structure/ms13/phone/withthephone
-	icon_state = "payphone_alt"
+/obj/structure/ms13/phone/black
+	icon_state = "phone_black"
 
 //Plumbing//
 
@@ -281,3 +314,32 @@
 
 /obj/structure/ms13/jukebox/proc/deconstruction_hints(mob/user)
 	return span_notice("You could use a <b>wrench</b> to carefully take apart [src] for parts.")
+
+// Plant decor //
+
+/obj/structure/ms13/pot
+	name = "plant pot"
+	desc = "An old ceramic plant pot. It has faint cracks lining it in random patterns, but it holds strong."
+	icon = 'mojave/icons/structure/miscellaneous.dmi'
+	icon_state = "pot_1"
+	max_integrity = 40
+	density = TRUE
+	anchored = TRUE
+
+/obj/structure/ms13/pot/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/ceramic/three(loc)
+		else
+			new /obj/item/stack/sheet/ms13/ceramic(loc)
+	qdel(src)
+
+/obj/structure/ms13/pot/plant
+	name = "plant pot"
+	desc = "An old ceramic plant pot. It has faint cracks lining it in random patterns, but it holds strong. There is a dead plant in it."
+	icon_state = "pot_2"
+
+/obj/structure/ms13/pot/plant/Initialize(mapload)
+	. = ..()
+	if(prob(30))
+		icon_state = "[initial(icon_state)]_[rand(2,4)]"

@@ -67,3 +67,44 @@
 	name = "pinup poster"
 	desc = "A poster with a woman on it. She is wearing a very fluffy dress and is sitting down, staring at your soul."
 	icon_state = "pinup_3"
+
+// Flags //
+
+/obj/structure/ms13/wall_decor
+	name = "Base type MS13 decor"
+	desc = "This shouldn't be on a wall, bro."
+	icon = 'mojave/icons/structure/wall_decor.dmi'
+	pixel_y = 32
+
+/obj/structure/ms13/wall_decor/flag
+	name = "flag"
+	desc = "A flag from the old world. This one represents America in all of its glory."
+	icon_state = "flag_us"
+
+/obj/structure/ms13/wall_decor/flag/california
+	desc = "An old California flag. It has a Yao Guai on it, single head and all."
+	icon_state = "flag_cali"
+
+/obj/structure/ms13/wall_decor/flag/arizona
+	desc = "A dried out Arizona flag. An iconic pattern, is it not?"
+	icon_state = "flag_arizona"
+
+/obj/structure/ms13/wall_decor/flag/enclave
+	desc = "A flag representing the Enclave. God bless the Enclve, and NOBODY else."
+	icon_state = "flag_enclave"
+
+/obj/structure/ms13/wall_decor/flag/ncr
+	desc = "A flag representing the New Californian Republic. Glory to the Republic."
+	icon_state = "flag_ncr"
+
+/obj/structure/ms13/wall_decor/flag/legion
+	desc = "A flag representing the Caesar's Legion. Be wary."
+	icon_state = "flag_legion"
+
+/obj/structure/ms13/wall_decor/flag/rangers
+	desc = "A flag representing the Desert Rangers. A beacon of hope and safety."
+	icon_state = "flag_rangers"
+
+/obj/structure/ms13/wall_decor/flag/bos
+	desc = "A flag the Brotherhood of Steel. It is in the western chapter pattern."
+	icon_state = "flag_westbos"
