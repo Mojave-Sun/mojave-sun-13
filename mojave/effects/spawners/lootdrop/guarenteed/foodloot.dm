@@ -1,21 +1,21 @@
-//// These spawners are NON-STATIC spawns. If you are making changes to these pools, you should probably also make changes to the static spawns outside of the Guarenteed folder. ////
-//// The idea of these spawners it to use these EVERYWHERE. Emphasis on EVERYWHERE!!! These are the spawners you should be slapping in every other building, so that there's variety in loot locations on a per-round basis. ////
+//// These spawners are GUARENTEED spawns. If you are making changes to these pools, you should probably also make changes to the non-static spawns outside of the Guarenteed folder. ////
+//// The idea of these spawners it to use these SPARINGLY. Emphasis on SPARINGLY... Examples of where to use these are: High tier dungeons / Faction bases ////
 
-/obj/effect/spawner/random/ms13/food
+/obj/effect/spawner/random/ms13/guarenteed/food
 	name = "DO NOT USE ME - Mojave Sun food spawners"
 	spawn_loot_count = 1
 	spawn_loot_chance = 25 // Low spawn chance is a reoccuring theme here.
 
-/obj/effect/spawner/random/ms13/seeds
+/obj/effect/spawner/random/ms13/guarenteed/seeds
 	name = "DO NOT USE ME - Mojave Sun seed spawners"
-	icon_state = "ms13_seeds"
+	icon_state = "ms13_seeds-static"
 	spawn_loot_chance = 25 // Low chance- Like I said above.
 
 // Produce- Vegetables/Fruit //
 
-/obj/effect/spawner/random/ms13/food/produce_random
+/obj/effect/spawner/random/ms13/guarenteed/food/produce_random
 	name = "random produce spawner"
-	icon_state = "ms13_produce"
+	icon_state = "ms13_produce-static"
 	loot = list(
 		/obj/item/food/grown/ms13/barrelcactus,
 		/obj/item/food/grown/ms13/mutfruit,
@@ -63,9 +63,9 @@
 		/obj/item/food/grown/ms13/nara
 		)
 
-/obj/effect/spawner/random/ms13/food/produce_safe
+/obj/effect/spawner/random/ms13/guarenteed/food/produce_safe
 	name = "safe produce spawner" //For places where you might not randomly find an agressive chaos agent like brainfungus
-	icon_state = "ms13_produce"
+	icon_state = "ms13_produce-static"
 	loot = list(
 		/obj/item/food/grown/ms13/barrelcactus,
 		/obj/item/food/grown/ms13/mutfruit,
@@ -99,9 +99,9 @@
 		/obj/item/food/grown/ms13/cavefungus
 		)
 
-/obj/effect/spawner/random/ms13/food/produce_mushrooms
+/obj/effect/spawner/random/ms13/guarenteed/food/produce_mushrooms
 	name = "random produce spawner"
-	icon_state = "ms13_mushroom"
+	icon_state = "ms13_mushroom-static"
 	loot = list(
 		/obj/item/food/grown/ms13/cavefungus,
 		/obj/item/food/grown/ms13/glowfungus,
@@ -115,7 +115,7 @@
 
 // Seed spawners //
 
-/obj/effect/spawner/random/ms13/seeds/random
+/obj/effect/spawner/random/ms13/guarenteed/seeds/random
 	name = "seed spawner"
 	loot = list(
 		/obj/item/seeds/ms13/barrelcactus,
@@ -156,7 +156,7 @@
 		/obj/item/seeds/ms13/brocflower
 		)
 
-/obj/effect/spawner/random/ms13/seeds/spores
+/obj/effect/spawner/random/ms13/guarenteed/seeds/spores
 	name = "mushroom spore spawner"
 	loot = list(
 		/obj/item/seeds/ms13/cavefungus,
@@ -171,7 +171,7 @@
 
 // THE TIER FIVE PRODUCE. //
 
-/obj/effect/spawner/random/ms13/food/unique_produce
+/obj/effect/spawner/random/ms13/guarenteed/food/unique_produce
 	name = "UNIQUE produce spawner" // This is a meme.
 	spawn_loot_chance = 5 // FWOOOOAH. TOMATOPOTATO. Tomatos and Potatos are supposed to be 'extict' and combined into one- A tato. I think it'd be funny to have a SUPER LOW CHANCE to find this relic of the past.
 	loot = list(
@@ -179,7 +179,7 @@
 		/obj/item/food/grown/ms13/tomato
 		)
 
-/obj/effect/spawner/random/ms13/seeds/unique
+/obj/effect/spawner/random/ms13/guarenteed/seeds/unique
 	name = "UNIQUE seed spawner"
 	spawn_loot_chance = 5 // FWOOOOAH. TOMATOPOTATO. Tomatos and Potatos are supposed to be 'extict' and combined into one- A tato. I think it'd be funny to have a SUPER LOW CHANCE to find this relic of the past.
 	loot = list(
