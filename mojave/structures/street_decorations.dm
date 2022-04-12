@@ -86,7 +86,7 @@
 			return TRUE
 		return FALSE
 
-/obj/structure/ms13/street_sign/welder_act_secondary(mob/living/user, obj/item/weapon)
+/obj/structure/ms13/street_sign/welder_act_secondary(mob/living/user, obj/item/I)
 	if(!I.tool_start_check(user, amount=0))
 		return TRUE
 	if(I.use_tool(src, user, 15 SECONDS, volume=80))
