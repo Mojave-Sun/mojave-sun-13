@@ -9,7 +9,7 @@
 	idlesound = list('mojave/sound/ms13items/radio_1.ogg', 'mojave/sound/ms13items/radio_2.ogg', 'mojave/sound/ms13items/radio_3.ogg', 'mojave/sound/ms13items/radio_4.ogg', 'mojave/sound/ms13items/radio_5.ogg')
 	mob_size = MOB_SIZE_SMALL
 	footstep_type = null
-	stat_attack = CONSCIOUS
+	stat_attack = SOFT_CRIT
 	robust_searching = TRUE
 	idlechance = 15
 	minimum_distance = 8

@@ -19,7 +19,7 @@
 	attack_verb_continuous = "smacks"
 	attack_verb_simple = "smack"
 	loot = list(/obj/item/stack/sheet/ms13/scrap/two, /obj/effect/decal/cleanable/robot_debris, /obj/item/stack/sheet/ms13/glass, /obj/item/stack/sheet/ms13/scrap_electronics, /obj/item/stack/sheet/ms13/scrap_parts)
-	stat_attack = CONSCIOUS
+	stat_attack = SOFT_CRIT
 	ranged = TRUE
 	ranged_cooldown = 3 SECONDS
 	projectiletype = /obj/projectile/beam/ms13/laser/protectron
