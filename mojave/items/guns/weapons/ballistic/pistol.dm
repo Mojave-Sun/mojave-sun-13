@@ -240,5 +240,8 @@
 	icon_state = "cpistol"
 	ammo_type = /obj/item/ammo_casing/ms13/c10mm
 	caliber = "10mm"
+	w_class = WEIGHT_CLASS_TINY
 	max_ammo = 5
 	multiple_sprites = AMMO_BOX_PER_BULLET
+	grid_width = 32
+	grid_height = 32

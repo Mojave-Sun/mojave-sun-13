@@ -258,5 +258,8 @@
 	icon_state = "762clip"
 	ammo_type = /obj/item/ammo_casing/ms13/a762
 	caliber = "a762"
+	w_class = WEIGHT_CLASS_TINY
 	max_ammo = 5
 	multiple_sprites = AMMO_BOX_PER_BULLET
+	grid_height = 32
+	grid_width = 32

@@ -192,8 +192,11 @@
 	icon_state = "4570tube"
 	ammo_type = /obj/item/ammo_casing/ms13/c4570
 	caliber = "4570"
+	w_class = WEIGHT_CLASS_SMALL
 	max_ammo = 6
 	multiple_sprites = AMMO_BOX_PER_BULLET
+	grid_height = 64
+	grid_width = 32
 
 /obj/item/ammo_box/ms13/tube44
 	name = ".44 speed loader tube"
@@ -201,8 +204,11 @@
 	icon_state = "44tube"
 	ammo_type = /obj/item/ammo_casing/ms13/m44
 	caliber = "44"
+	w_class = WEIGHT_CLASS_SMALL
 	max_ammo = 8
 	multiple_sprites = AMMO_BOX_PER_BULLET
+	grid_height = 64
+	grid_width = 32
 
 /obj/item/ammo_box/ms13/tube357
 	name = ".357 speed loader tube"
@@ -210,8 +216,11 @@
 	icon_state = "357tube"
 	ammo_type = /obj/item/ammo_casing/ms13/a357
 	caliber = "357"
+	w_class = WEIGHT_CLASS_SMALL
 	max_ammo = 7
 	multiple_sprites = AMMO_BOX_PER_BULLET
+	grid_height = 64
+	grid_width = 32
 
 //Shotgun ammo boxes
 
@@ -221,9 +230,11 @@
 	icon_state = "junkbox"
 	ammo_type = /obj/item/ammo_casing/shotgun/ms13
 	caliber = "shotgun"
-	max_ammo = 8
+	max_ammo = 10
 	w_class = WEIGHT_CLASS_SMALL
 	multiload = 0
+	grid_height = 64
+	grid_width = 64
 
 /obj/item/ammo_box/ms13/shotgun/junkshot
 	name = "12 gauge junkshot shotgun ammo box"

@@ -35,7 +35,7 @@
 	max_ammo = 24
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 	w_class = WEIGHT_CLASS_NORMAL
-	grid_width = 32
+	grid_width = 64
 	grid_height = 64
 
 /obj/item/ammo_box/ms13/m44box/junk
