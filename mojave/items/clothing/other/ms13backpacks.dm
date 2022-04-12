@@ -14,6 +14,7 @@
 	righthand_file = 'mojave/icons/mob/inhands/equipment/backpack_righthand.dmi'
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK
+	storage_flags = STORAGE_NO_WORN_ACCESS
 	resistance_flags = NONE
 	max_integrity = 300
 	component_type = /datum/component/storage/concrete/ms13/grid
@@ -30,13 +31,22 @@
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_w_class = WEIGHT_CLASS_BULKY
-	STR.max_items = 30
+	STR.max_items = 36
 	STR.max_combined_w_class = 100
 
 /obj/item/storage/ms13/sack
 	name = "sack"
-	desc = "A simple woven sack for storage."
+	desc = "A simple woven sack for storage. Easy to access but can't hold very much."
 	icon_state = "sack"
+	storage_flags = 0
+	component_type = /datum/component/storage/concrete/ms13/satchel
+
+/obj/item/storage/ms13/sack/ComponentInitialize()
+	. = ..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	STR.max_w_class = WEIGHT_CLASS_NORMAL
+	STR.max_items = 24
+	STR.max_combined_w_class = 100
 
 /obj/item/storage/ms13/ncr
 	name = "\improper NCR backpack"
