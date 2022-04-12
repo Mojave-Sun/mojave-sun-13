@@ -75,11 +75,32 @@
 	desc = "This shouldn't be on a wall, bro."
 	icon = 'mojave/icons/structure/wall_decor.dmi'
 	pixel_y = 32
+	density = FALSE
+	anchored = TRUE
+
+/obj/structure/ms13/wall_decor/CanAllowThrough(atom/movable/mover, turf/target)
+	. = ..()
+	if(locate(/obj/structure/ms13/wall_decor) in get_turf(mover))
+		return TRUE
 
 /obj/structure/ms13/wall_decor/flag
 	name = "flag"
 	desc = "A flag from the old world. This one represents America in all of its glory."
 	icon_state = "flag_us"
+
+/obj/structure/ms13/wall_decor/flag/attackby(obj/item/I, mob/user, params)
+	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
+		return
+
+	if(I.tool_behaviour == I.get_sharpness())
+		if(do_after(user, 10 SECONDS))
+			new /obj/item/stack/sheet/ms13/cloth(I.drop_location())
+			user.visible_message(span_notice("[user] cuts [src] into pieces of cloth with [I]."), \
+				span_notice("You cut [src] into pieces of cloth with [I]."), \
+				span_hear("You hear cutting."))
+			qdel(src)
+	else
+		return ..()
 
 /obj/structure/ms13/wall_decor/flag/california
 	desc = "An old California flag. It has a Yao Guai on it, single head and all."
@@ -108,3 +129,13 @@
 /obj/structure/ms13/wall_decor/flag/bos
 	desc = "A flag the Brotherhood of Steel. It is in the western chapter pattern."
 	icon_state = "flag_westbos"
+
+/obj/structure/ms13/wall_decor/clock
+	name = "wall clock"
+	desc = "A wall mounted clock. Frozen in time- this died long ago with the rest of the world."
+	icon_state = "clock"
+
+/obj/structure/ms13/wall_decor/clock/Initialize(mapload)
+	. = ..()
+	if(prob(25))
+		dir = pick(GLOB.cardinals)

@@ -22,6 +22,11 @@
 	desc = "A small fission battery. Used both before and after the war for all kinds of power needs."
 	icon_state = "fusion_cell"
 
+/obj/item/ms13/component/fusion
+	name = "fusion core"
+	desc = "A fusion core. Careful not to drop it!"
+	icon_state = "fusion_core"
+
 /obj/item/ms13/component/vacuum_tube
 	name = "vacuum tube"
 	desc = "A vacuum tube. An important component in many electrical gadgets."

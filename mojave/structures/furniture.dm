@@ -95,12 +95,12 @@
 	density = TRUE
 	anchored = TRUE
 
-/obj/structure/ms13/phone/wrench_act_secondary(mob/living/user, obj/item/weapon)
+/obj/structure/ms13/phone/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
 	if(flags_1&NODECONSTRUCT_1)
 		return TRUE
 	..()
 	weapon.play_tool_sound(src)
-	if(do_after(user, 15 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+	if(do_after(user, 10 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
 		deconstruct(disassembled = TRUE)
 		return TRUE
 
@@ -109,7 +109,6 @@
 		if(disassembled)
 			new /obj/item/stack/sheet/ms13/scrap(loc)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
-			new /obj/item/stack/sheet/ms13/scrap_electronics(loc)
 			new /obj/item/stack/sheet/ms13/scrap_copper/two(loc)
 		else
 			new /obj/item/stack/sheet/ms13/scrap(loc)

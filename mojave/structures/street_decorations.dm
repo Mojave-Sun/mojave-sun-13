@@ -63,8 +63,10 @@
 	name = "\improper street sign"
 	desc = "can we get one that says something absurd that is DEFINITELY the name of a town for real?"
 	icon = 'mojave/icons/structure/street_signs.dmi'
+	anchored = TRUE
 	density = TRUE
-	max_integrity = 300 // Hardy but not immortal
+	layer = LOW_ITEM_LAYER
+	max_integrity = 500 // Hardy but not immortal
 
 /obj/structure/ms13/street_sign/Initialize()
 	. = ..()
@@ -83,6 +85,15 @@
 		if(prob(90)) // These things are very thin
 			return TRUE
 		return FALSE
+
+/obj/structure/ms13/street_sign/welder_act_secondary(mob/living/user, obj/item/weapon)
+	if(flags_1&NODECONSTRUCT_1)
+		return TRUE
+	..()
+	weapon.play_tool_sound(src)
+	if(do_after(user, 20 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+		deconstruct(disassembled = TRUE)
+		return TRUE
 
 /obj/structure/ms13/street_sign/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))

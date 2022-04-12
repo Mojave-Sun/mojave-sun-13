@@ -4,12 +4,10 @@
 /obj/effect/spawner/random/ms13/guarenteed/food
 	name = "DO NOT USE ME - Mojave Sun food spawners"
 	spawn_loot_count = 1
-	spawn_loot_chance = 25 // Low spawn chance is a reoccuring theme here.
 
 /obj/effect/spawner/random/ms13/guarenteed/seeds
 	name = "DO NOT USE ME - Mojave Sun seed spawners"
 	icon_state = "ms13_seeds-static"
-	spawn_loot_chance = 25 // Low chance- Like I said above.
 
 // Produce- Vegetables/Fruit //
 

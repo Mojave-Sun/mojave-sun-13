@@ -271,7 +271,7 @@
 	frame = /obj/item/stack/sheet/ms13/scrap
 	framestack = /obj/item/stack/sheet/ms13/scrap
 	framestackamount = 2
-
+	drag_slowdown = 0.5
 
 ///// CRAFTING TABLES /////
 
@@ -288,7 +288,7 @@
 /obj/structure/table/ms13/crafting/examine(mob/user)
 	. = ..()
 	. += "<span class='notice'>Use <b>CTRL + CLICK</b> on [src] to begin crafting.</span>"
-	
+
 /obj/structure/table/ms13/crafting/wrench_act_secondary(mob/living/user, obj/item/weapon)
 	return
 
