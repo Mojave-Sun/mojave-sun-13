@@ -244,7 +244,7 @@
 			host.add_fingerprint(user)
 			to_chat(user, span_warning("[host] seems to be locked!"))
 		return FALSE
-	if(worn_check && !worn_check(parent, user))
+	if(worn_check && !worn_check(parent, user, no_message = stop_messages))
 		host.add_fingerprint(user)
 		return FALSE
 	if(LAZYLEN(real_location.contents) >= max_items)
