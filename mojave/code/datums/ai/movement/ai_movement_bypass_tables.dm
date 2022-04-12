@@ -13,6 +13,14 @@
 	if(controller.ai_traits & STOP_MOVING_WHEN_PULLED && pawn.pulledby)
 		can_move = FALSE
 
+	if(controller.ai_traits & STOP_MOVING)
+		can_move = FALSE
+
+	if(ismob(pawn))
+		var/mob/mob_pawn = pawn
+		if(controller.ai_traits & STOP_MOVING_DURING_DO_AFTER && LAZYLEN(mob_pawn.do_afters))
+			can_move = FALSE
+
 	// Check if this controller can actually run, so we don't chase people with corpses
 	if(!controller.able_to_run())
 		controller.CancelActions()
@@ -31,6 +39,8 @@
 				thing.set_density(FALSE)
 				step(the_pawn, get_dir(the_pawn.loc, thing.loc))
 				thing.set_density(TRUE)
+				addtimer(CALLBACK(src, .proc/enable_movement, controller), 10)
+				controller.ai_traits |= STOP_MOVING
 				return MOVELOOP_SKIP_STEP
 
 	if(is_type_in_typecache(target_turf, GLOB.dangerous_turfs))
@@ -40,3 +50,6 @@
 		return
 	increment_pathing_failures(controller)
 	return MOVELOOP_SKIP_STEP
+
+/datum/ai_movement/basic_avoidance/bypass_tables/proc/enable_movement(datum/ai_controller/controller)
+	controller.ai_traits &= ~STOP_MOVING
