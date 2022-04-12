@@ -87,24 +87,30 @@
 		return FALSE
 
 /obj/structure/ms13/street_sign/welder_act_secondary(mob/living/user, obj/item/weapon)
-	if(flags_1&NODECONSTRUCT_1)
+	if(!I.tool_start_check(user, amount=0))
 		return TRUE
-	..()
-	weapon.play_tool_sound(src)
-	if(do_after(user, 20 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+	if(I.use_tool(src, user, 15 SECONDS, volume=80))
 		deconstruct(disassembled = TRUE)
 		return TRUE
 
 /obj/structure/ms13/street_sign/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 1)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 2)
 			new /obj/item/stack/sheet/ms13/scrap_alu(loc, 3)
-			new /obj/item/stack/sheet/ms13/scrap_wood(loc, 1)
+			new /obj/item/stack/sheet/ms13/scrap(loc, 3)
 		else
 			new /obj/item/stack/sheet/ms13/scrap_alu(loc)
-			new /obj/item/stack/sheet/ms13/scrap_wood(loc)
+			new /obj/item/stack/sheet/ms13/scrap(loc)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
 	qdel(src)
+
+/obj/structure/ms13/street_sign/examine(mob/user)
+	. = ..()
+	. += deconstruction_hints(user)
+
+/obj/structure/ms13/street_sign/proc/deconstruction_hints(mob/user)
+	return span_notice("You could use a <b>welding tool</b> to take apart [src] for parts.")
 
 /obj/structure/ms13/street_sign/interstate // uh oh
 	name = "\improper interstate sign"

@@ -11,7 +11,7 @@
 	desc = "A message asking the audience to please standby appears on screen."
 	icon = 'icons/obj/computer.dmi'
 	icon_state = "television"
-	max_integrity = 250
+	max_integrity = 225
 	density = TRUE
 
 /obj/structure/ms13/tv/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
@@ -50,7 +50,7 @@
 	desc = "A long unused and dead payphone, sure as hell ain't anyone to call on this thing no more."
 	icon = 'mojave/icons/structure/miscellaneous.dmi'
 	icon_state = "payphone"
-	max_integrity = 300
+	max_integrity = 250
 	density = TRUE
 	anchored = TRUE
 
@@ -69,7 +69,7 @@
 			new /obj/item/stack/sheet/ms13/scrap/two(loc)
 			new /obj/item/stack/sheet/ms13/scrap_parts/two(loc)
 			new /obj/item/stack/sheet/ms13/scrap_electronics(loc)
-			new /obj/item/stack/sheet/ms13/scrap_copper/two(loc)
+			new /obj/item/stack/sheet/ms13/scrap_copper(loc, 3)
 		else
 			new /obj/item/stack/sheet/ms13/scrap(loc)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
@@ -100,7 +100,7 @@
 		return TRUE
 	..()
 	weapon.play_tool_sound(src)
-	if(do_after(user, 10 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+	if(do_after(user, 8 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
 		deconstruct(disassembled = TRUE)
 		return TRUE
 
@@ -114,6 +114,13 @@
 			new /obj/item/stack/sheet/ms13/scrap(loc)
 			new /obj/item/stack/sheet/ms13/scrap_copper(loc)
 	qdel(src)
+
+/obj/structure/ms13/phone/examine(mob/user)
+	. = ..()
+	. += deconstruction_hints(user)
+
+/obj/structure/ms13/phone/proc/deconstruction_hints(mob/user)
+	return span_notice("You could use a <b>screwdriver</b> to take apart [src] for parts.")
 
 /obj/structure/ms13/phone/black
 	icon_state = "phone_black"

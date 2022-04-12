@@ -93,14 +93,21 @@
 		return
 
 	if(I.tool_behaviour == I.get_sharpness())
-		if(do_after(user, 10 SECONDS))
-			new /obj/item/stack/sheet/ms13/cloth(I.drop_location())
+		if(do_after(user, 12 SECONDS))
+			new /obj/item/stack/sheet/ms13/cloth(I.drop_location(), 4)
 			user.visible_message(span_notice("[user] cuts [src] into pieces of cloth with [I]."), \
 				span_notice("You cut [src] into pieces of cloth with [I]."), \
 				span_hear("You hear cutting."))
 			qdel(src)
 	else
 		return ..()
+
+/obj/structure/ms13/wall_decor/flag/examine(mob/user)
+	. = ..()
+	. += deconstruction_hints(user)
+
+/obj/structure/ms13/wall_decor/flag/proc/deconstruction_hints(mob/user)
+	return span_notice("You could use a <b>knife</b> to cut up [src] for cloth.")
 
 /obj/structure/ms13/wall_decor/flag/california
 	desc = "An old California flag. It has a Yao Guai on it, single head and all."
