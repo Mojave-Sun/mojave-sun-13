@@ -10,7 +10,7 @@
 	///Icon file for right inhand overlays
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
 	grid_width = 96
-	grid_height = 128
+	grid_height = 96
 
 /obj/item/clothing/suit/armor/ms13/Initialize()
 	. = ..()
@@ -24,8 +24,8 @@
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
 	hoodtype = /obj/item/clothing/head/hooded/ms13
-	grid_width = 96
-	grid_height = 128
+	grid_width = 64
+	grid_height = 96
 
 /obj/item/clothing/suit/hooded/ms13/Initialize()
 	. = ..()

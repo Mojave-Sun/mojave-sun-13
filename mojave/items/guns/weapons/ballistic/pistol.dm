@@ -13,6 +13,8 @@
 	spread = 8
 	recoil = 0.5
 	slowdown = 0.5
+	grid_width = 64
+	grid_height = 64
 
 /obj/item/gun/ballistic/automatic/pistol/ms13/m10mm/military
 	name = "military 10mm pistol"
@@ -65,6 +67,8 @@
 	spread = 8
 	recoil = 0.25
 	slowdown = 0.5
+	grid_width = 64
+	grid_height = 64
 
 /* Weeb shit
 /obj/item/gun/ballistic/automatic/pistol/ms13/m9mm/nambu
@@ -94,6 +98,8 @@
 	spread = 6
 	recoil = 1.25
 	slowdown = 0.5
+	grid_width = 64
+	grid_height = 64
 
 /obj/item/gun/ballistic/automatic/pistol/ms13/pistol45
 	name = ".45 pistol"
@@ -110,6 +116,8 @@
 	spread = 8
 	recoil = 0.75
 	slowdown = 0.5
+	grid_width = 64
+	grid_height = 64
 
 /obj/item/gun/ballistic/automatic/pistol/ms13/pistol45/stallion
 	name = "\improper Stallion"
@@ -133,6 +141,8 @@
 	spread = 6
 	recoil = 1.25
 	slowdown = 0.5
+	grid_width = 64
+	grid_height = 64
 
 /obj/item/gun/ballistic/automatic/pistol/ms13/pistol22
 	name = ".22 pistol"
@@ -147,6 +157,8 @@
 	spread = 8
 	recoil = 0.25
 	slowdown = 0.5
+	grid_width = 64
+	grid_height = 32
 
 //Magazines
 /obj/item/ammo_box/magazine/ms13/m45
@@ -154,15 +166,21 @@
 	icon_state = "45"
 	ammo_type = /obj/item/ammo_casing/ms13/c45
 	caliber = ".45"
+	w_class = WEIGHT_CLASS_TINY
 	max_ammo = 7
+	grid_width = 32
+	grid_height = 32
 
 /obj/item/ammo_box/magazine/ms13/deagle
 	name = "8 round magazine (.44)"
 	icon_state = "deagle"
 	ammo_type = /obj/item/ammo_casing/ms13/m44
 	caliber = "44"
+	w_class = WEIGHT_CLASS_TINY
 	max_ammo = 8
 	multiple_sprites = 2
+	grid_width = 32
+	grid_height = 32
 
 /obj/item/ammo_box/magazine/ms13/m10mm
 	name = "12 round magazine (10mm)"
@@ -170,8 +188,11 @@
 	icon_state = "10mm"
 	ammo_type = /obj/item/ammo_casing/ms13/c10mm
 	caliber = "10mm"
+	w_class = WEIGHT_CLASS_TINY
 	max_ammo = 12
 	multiple_sprites = 2
+	grid_width = 32
+	grid_height = 32
 
 /obj/item/ammo_box/magazine/ms13/m9mm
 	name = "13 round magazine (9mm)"
@@ -179,7 +200,10 @@
 	icon_state = "9mm"
 	ammo_type = /obj/item/ammo_casing/ms13/c9mm
 	caliber = "9mm"
+	w_class = WEIGHT_CLASS_TINY
 	max_ammo = 13
+	grid_width = 32
+	grid_height = 32
 
 /obj/item/ammo_box/magazine/ms13/m22
 	name = "16 round magazine (.22)"
@@ -187,7 +211,10 @@
 	icon_state = "22"
 	ammo_type = /obj/item/ammo_casing/ms13/c22
 	caliber = ".22"
+	w_class = WEIGHT_CLASS_TINY
 	max_ammo = 16
+	grid_width = 32
+	grid_height = 32
 
 /obj/item/ammo_box/magazine/ms13/m12mm
 	name = "7 round magazine (12.7mm)"
@@ -195,7 +222,10 @@
 	icon_state = "m12mm"
 	ammo_type = /obj/item/ammo_casing/ms13/m12mm
 	caliber = "12.7mm"
+	w_class = WEIGHT_CLASS_TINY
 	max_ammo = 7
+	grid_width = 32
+	grid_height = 32
 
 /obj/item/ammo_box/magazine/internal/ms13/cpistol
 	name = "Chinese pistol internal magazine"
@@ -210,5 +240,8 @@
 	icon_state = "cpistol"
 	ammo_type = /obj/item/ammo_casing/ms13/c10mm
 	caliber = "10mm"
+	w_class = WEIGHT_CLASS_TINY
 	max_ammo = 5
 	multiple_sprites = AMMO_BOX_PER_BULLET
+	grid_width = 32
+	grid_height = 32

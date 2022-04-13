@@ -8,8 +8,8 @@
 	icon = 'mojave/icons/objects/tools/tools_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
-	grid_width = 32
-	grid_height = 160
+	grid_width = 192
+	grid_height = 32
 
 /obj/item/ms13/tools/fishing_rod/Initialize(mapload)
 	. = ..()
@@ -29,7 +29,7 @@
 	tool_behaviour = null // starts closed
 	w_class = WEIGHT_CLASS_NORMAL
 	toolspeed = 1 //40 second fish time
-	grid_width = 32
+	grid_width = 96
 	grid_height = 32
 	var/toggled = FALSE
 	var/extended_icon = "telescopic"
@@ -47,8 +47,8 @@
 			w_class = WEIGHT_CLASS_BULKY
 			toggled = TRUE
 			playsound(src, on_sound, 60, TRUE)
-			grid_width = 32
-			grid_height = 160
+			grid_width = 192
+			grid_height = 32
 	else
 		to_chat(user, span_notice("You begin to collapse the rod."))
 		if(do_after(user, 2.5 SECONDS, interaction_key = DOAFTER_SOURCE_TELESCOPICROD))
@@ -59,7 +59,7 @@
 			w_class = WEIGHT_CLASS_NORMAL
 			toggled = FALSE
 			playsound(src, on_sound, 85, TRUE)
-			grid_width = 32
+			grid_width = 96
 			grid_height = 32
 
 /obj/item/ms13/tools/fishing_rod/advanced

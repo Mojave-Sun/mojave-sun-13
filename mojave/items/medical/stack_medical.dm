@@ -1,7 +1,7 @@
 //Children of base TG stack medical items should go here
 
 /obj/item/stack/medical
-	grid_width = 64
+	grid_width = 32
 	grid_height = 32
 
 /*

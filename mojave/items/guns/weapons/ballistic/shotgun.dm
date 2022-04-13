@@ -12,6 +12,8 @@
 	fire_delay = 0.55 SECONDS
 	slowdown = 0.75
 	recoil = 1.5
+	grid_width = 160
+	grid_height = 64
 
 /obj/item/gun/ballistic/shotgun/ms13/lever/update_icon_state()
 	. = ..()
@@ -30,12 +32,14 @@
 	inhand_icon_state = "huntingshot"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/huntingshot
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/huntingshot/huntingshot2.ogg'
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	force = 30
 	fire_delay = 0.5 SECONDS
 	slowdown = 0.75
 	recoil = 1.5
+	grid_width = 192
+	grid_height = 64
 
 /obj/item/gun/ballistic/shotgun/ms13/huntingshot/update_icon_state()
 	. = ..()
@@ -53,7 +57,7 @@
 	icon_state = "trail"
 	inhand_icon_state = "trail"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/tube44
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	fire_sound = 'mojave/sound/ms13weapons/trailfire.ogg'
 	fire_delay = 0.55 SECONDS
@@ -63,6 +67,8 @@
 	recoil = 1.5
 	force = 15
 	empty_indicator = TRUE
+	grid_width = 192
+	grid_height = 32
 
 /obj/item/gun/ballistic/shotgun/ms13/lever/cowboy
 	name = "cowboy repeater"
@@ -70,7 +76,7 @@
 	icon_state = "cowboy"
 	inhand_icon_state = "cowboy"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/tube357
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/repeater/repeater1.ogg'
 	fire_delay = 0.5 SECONDS
@@ -80,6 +86,8 @@
 	recoil = 1.25
 	force = 15
 	empty_indicator = TRUE
+	grid_width = 192
+	grid_height = 32
 
 /obj/item/gun/ballistic/shotgun/ms13/lever/brush
 	name = "brush gun"
@@ -87,7 +95,7 @@
 	icon_state = "brush"
 	inhand_icon_state = "brush"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/tube4570
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	fire_sound = 'mojave/sound/ms13weapons/brushfire.ogg'
 	fire_delay = 0.5 SECONDS
@@ -97,6 +105,8 @@
 	recoil = 2
 	force = 15
 	empty_indicator = TRUE
+	grid_width = 192
+	grid_height = 32
 
 /obj/item/gun/ballistic/shotgun/automatic/ms13/sks
 	name = "\improper European battle rifle"
@@ -104,7 +114,7 @@
 	icon_state = "sks"
 	inhand_icon_state = "sks"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/sks
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/sks/sks1.ogg'
 	fire_delay = 0.5 SECONDS
@@ -114,6 +124,8 @@
 	recoil = 1.25
 	slowdown = 0.75
 	empty_indicator = TRUE
+	grid_width = 192
+	grid_height = 64
 
 /obj/item/gun/ballistic/shotgun/automatic/ms13/sks/update_icon_state()
 	. = ..()
@@ -180,8 +192,11 @@
 	icon_state = "4570tube"
 	ammo_type = /obj/item/ammo_casing/ms13/c4570
 	caliber = "4570"
+	w_class = WEIGHT_CLASS_SMALL
 	max_ammo = 6
 	multiple_sprites = AMMO_BOX_PER_BULLET
+	grid_height = 64
+	grid_width = 32
 
 /obj/item/ammo_box/ms13/tube44
 	name = ".44 speed loader tube"
@@ -189,8 +204,11 @@
 	icon_state = "44tube"
 	ammo_type = /obj/item/ammo_casing/ms13/m44
 	caliber = "44"
+	w_class = WEIGHT_CLASS_SMALL
 	max_ammo = 8
 	multiple_sprites = AMMO_BOX_PER_BULLET
+	grid_height = 64
+	grid_width = 32
 
 /obj/item/ammo_box/ms13/tube357
 	name = ".357 speed loader tube"
@@ -198,8 +216,11 @@
 	icon_state = "357tube"
 	ammo_type = /obj/item/ammo_casing/ms13/a357
 	caliber = "357"
+	w_class = WEIGHT_CLASS_SMALL
 	max_ammo = 7
 	multiple_sprites = AMMO_BOX_PER_BULLET
+	grid_height = 64
+	grid_width = 32
 
 //Shotgun ammo boxes
 
@@ -209,9 +230,11 @@
 	icon_state = "junkbox"
 	ammo_type = /obj/item/ammo_casing/shotgun/ms13
 	caliber = "shotgun"
-	max_ammo = 8
+	max_ammo = 10
 	w_class = WEIGHT_CLASS_SMALL
 	multiload = 0
+	grid_height = 64
+	grid_width = 64
 
 /obj/item/ammo_box/ms13/shotgun/junkshot
 	name = "12 gauge junkshot shotgun ammo box"

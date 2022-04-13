@@ -32,6 +32,8 @@
 	sharpness = SHARP_EDGED
 	tool_behaviour = TOOL_KNIFE
 	toolspeed = 2
+	grid_width = 64
+	grid_height = 96
 
 /obj/item/claymore/ms13/machete/gladius
 	name = "machete gladius"
@@ -76,6 +78,8 @@
 	w_class= WEIGHT_CLASS_NORMAL
 	sharpness = NONE
 	log_pickup_and_drop = TRUE
+	grid_width = 32
+	grid_height = 128
 
 /obj/item/claymore/ms13/pipe/tireiron
 	name = "tire iron"
@@ -107,6 +111,8 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	sharpness = NONE
 	log_pickup_and_drop = TRUE
+	grid_width = 32
+	grid_height = 128
 
 /obj/item/claymore/ms13/machete/shishkebab
 	name = "shishkebab"
@@ -119,6 +125,8 @@
 	wound_bonus = 5
 	bare_wound_bonus = 5
 	throwforce = 10
+	grid_width = 64
+	grid_height = 128
 	var/on = FALSE
 
 /obj/item/claymore/ms13/machete/shishkebab/attack_self(mob/user)
@@ -154,6 +162,8 @@
 	sharpness = IS_SHARP_AXE
 	toolspeed = 0.75
 	w_class = WEIGHT_CLASS_NORMAL
+	grid_width = 96
+	grid_height = 64
 	var/on = FALSE
 	var/icon_prefix = "ripper"
 

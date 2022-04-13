@@ -25,7 +25,7 @@
 	tool_behaviour = TOOL_CROWBAR
 	toolspeed = 2
 	log_pickup_and_drop = TRUE
-	grid_width = 64
+	grid_width = 32
 	grid_height = 64
 
 /obj/item/ms13/hammer/Initialize()
@@ -54,7 +54,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	toolspeed = 2 // axe tomfoolery
 	log_pickup_and_drop = TRUE
-	grid_width = 64
+	grid_width = 96
 	grid_height = 32
 
 /obj/item/ms13/handsaw/Initialize()
@@ -83,7 +83,7 @@
 	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_NORMAL
 	log_pickup_and_drop = TRUE
-	grid_width = 32
+	grid_width = 64
 	grid_height = 64
 
 /obj/item/ms13/handdrill/Initialize()
@@ -197,6 +197,7 @@
 	force = 5
 	sharpness = SHARP_POINTY
 	wound_bonus = CANT_WOUND
+	w_class = WEIGHT_CLASS_TINY
 	random_color = FALSE
 	log_pickup_and_drop = TRUE
 	grid_width = 32
@@ -224,6 +225,8 @@
 	throwforce = 10
 	random_color = FALSE
 	log_pickup_and_drop = TRUE
+	grid_width = 32
+	grid_height = 32
 
 /obj/item/screwdriver/ms13/Initialize()
 	. = ..()
@@ -251,7 +254,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK
 	log_pickup_and_drop = TRUE
-	grid_width = 32
+	grid_width = 64
 	grid_height = 128
 
 /obj/item/shovel/ms13/Initialize()
@@ -267,11 +270,11 @@
 	armour_penetration = 0
 	wound_bonus = -2
 	throwforce = 10
-	toolspeed = 1.5
+	toolspeed = 2
 	sharpness = NONE
 	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = ITEM_SLOT_BELT
-	grid_width = 32
+	grid_width = 64
 	grid_height = 64
 
 /obj/item/shovel/ms13/snow
@@ -319,7 +322,7 @@
 	wound_bonus = 5
 	bare_wound_bonus = 0
 	sharpness = NONE
-	w_class = WEIGHT_CLASS_NORMAL
+	w_class = WEIGHT_CLASS_SMALL
 	max_integrity = 200
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0,  FIRE = 100, ACID = 50)
 	resistance_flags = FIRE_PROOF

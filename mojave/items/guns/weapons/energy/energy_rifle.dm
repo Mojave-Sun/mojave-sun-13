@@ -9,7 +9,7 @@
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/lasrifle/las_rifle_1.ogg'
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser)
 	cell_type = /obj/item/stock_parts/cell/ms13/mfc
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	slot_flags = ITEM_SLOT_BACK
 	force = 15
@@ -17,6 +17,8 @@
 	extra_penetration = 0
 	fire_delay = 0.5 SECONDS
 	slowdown = 0.75
+	grid_width = 192
+	grid_height = 64
 
 /obj/item/gun/energy/ms13/laser/rifle/advanced
 	name = "advanced laser rifle"
@@ -70,6 +72,8 @@
 	fire_delay = 0.25 SECONDS
 	spread = 5
 	slowdown = 0.75
+	grid_width = 160
+	grid_height = 64
 
 /obj/item/gun/energy/ms13/laser/rcw/Initialize()
 	. = ..()
@@ -83,12 +87,14 @@
 	icon_state = "lasershotgun"
 	base_icon_state = "lasershotgun"
 	inhand_icon_state = "lasershotgun"
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/scatter)
 	cell_type = /obj/item/stock_parts/cell/ms13/mfc
 	fire_delay = 0.6 SECONDS
 	slowdown = 0.75
+	grid_width = 192
+	grid_height = 64
 
 // Plasma Rifles //
 
@@ -100,7 +106,7 @@
 	inhand_icon_state = "enclaveplasma"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/plasrifle/plasma_3.ogg'
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/plasma)
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	slot_flags = ITEM_SLOT_BACK
 	force = 15
@@ -110,6 +116,8 @@
 	slowdown = 0.75
 	spread = 3
 	recoil = 0.5
+	grid_width = 192
+	grid_height = 64
 
 /obj/item/gun/energy/ms13/plasma/rifle/carbine
 	name = "plasma carbine"
@@ -117,11 +125,14 @@
 	icon_state = "plasmacarabine"
 	base_icon_state = "plasmacarabine"
 	inhand_icon_state = "plasmacarabine"
+	w_class = WEIGHT_CLASS_BULKY
 	extra_damage = 35
 	extra_penetration = 0
 	fire_delay = 0.45 SECONDS
 	spread = 5
 	recoil = 0.75
+	grid_width = 160
+	grid_height = 64
 
 /obj/item/gun/energy/ms13/plasma/multi
 	name = "multiplas rifle"
@@ -131,9 +142,11 @@
 	inhand_icon_state = "multiplas"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/plasrifle/plasma_1.ogg'
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/plasma/scatter)
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	slot_flags = ITEM_SLOT_BACK
 	fire_delay = 0.65 SECONDS
 	slowdown = 0.75
 	recoil = 0.75
+	grid_width = 192
+	grid_height = 64
