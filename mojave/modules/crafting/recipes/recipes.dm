@@ -915,7 +915,7 @@
 	crafting_interface = CRAFTING_BENCH_WEAPONS
 
 //GUN CRAFTING
-
+/* I don't feel like deleting all of this so I'm just going to comment it - Hekzder
 /datum/crafting_recipe/pistol_9mm
 	name = "9mm pistol"
 	result = /obj/item/gun/ballistic/automatic/pistol/ms13/m9mm
@@ -989,6 +989,7 @@
 	category = CAT_GUNS
 	crafting_interface = CRAFTING_BENCH_WEAPONS
 
+*/
 //ELECTRONICS CRAFTING
 
 /datum/crafting_recipe/shart_flashlight
