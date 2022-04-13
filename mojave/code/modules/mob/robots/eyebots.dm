@@ -18,6 +18,7 @@
 	move_to_delay = 4
 	attack_sound = "slam"
 	status_flags = CANPUSH
+	faction = list("robots", "ghoul", "bear", "pig", "shellfish", "dog_city", "insect", "rat", "gecko")
 	loot = list(/obj/item/stack/sheet/ms13/scrap, /obj/item/stack/sheet/ms13/scrap_electronics, /obj/item/stack/sheet/ms13/scrap_parts)
 	vision_range = 20
 	aggro_vision_range = 10
