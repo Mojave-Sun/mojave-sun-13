@@ -902,6 +902,93 @@
 	category = CAT_WEAPONS
 	crafting_interface = CRAFTING_BENCH_WEAPONS
 
+/datum/crafting_recipe/shishkebab
+	name = "shishkebab"
+	result = /obj/item/claymore/ms13/machete/shishkebab
+	time = 20 SECONDS
+	tool_behaviors = list(TOOL_DRILL, TOOL_SCREWDRIVER)
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/stack/sheet/ms13/scrap = 8,
+				/obj/item/stack/sheet/ms13/refined_steel = 4,
+				/obj/item/stack/sheet/ms13/scrap_parts = 10)
+	category = CAT_WEAPONS
+	crafting_interface = CRAFTING_BENCH_WEAPONS
+
+//GUN CRAFTING
+
+/datum/crafting_recipe/pistol_9mm
+	name = "9mm pistol"
+	result = /obj/item/gun/ballistic/automatic/pistol/ms13/m9mm
+	time = 18 SECONDS
+	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WRENCH, TOOL_SAW)
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(
+				/obj/item/stack/sheet/ms13/refined_steel = 3,
+				/obj/item/stack/sheet/ms13/scrap_parts = 5,
+				/obj/item/stack/sheet/ms13/plank = 1,
+				/obj/item/stack/sheet/ms13/refined_alu = 1
+				)
+	category = CAT_GUNS
+	crafting_interface = CRAFTING_BENCH_WEAPONS
+
+/datum/crafting_recipe/single_shotgun
+	name = "single shotgun"
+	result = /obj/item/gun/ballistic/revolver/ms13/single
+	time = 18 SECONDS
+	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WRENCH, TOOL_SAW)
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(
+				/obj/item/stack/sheet/ms13/refined_steel = 3,
+				/obj/item/stack/sheet/ms13/scrap_parts = 4,
+				/obj/item/stack/sheet/ms13/plank = 3
+				)
+	category = CAT_GUNS
+	crafting_interface = CRAFTING_BENCH_WEAPONS
+
+/datum/crafting_recipe/cara_shotgun
+	name = "caravan shotgun"
+	result = /obj/item/gun/ballistic/revolver/ms13/caravan
+	time = 18 SECONDS
+	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WRENCH, TOOL_SAW)
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(
+				/obj/item/stack/sheet/ms13/refined_steel = 4,
+				/obj/item/stack/sheet/ms13/scrap_parts = 5,
+				/obj/item/stack/sheet/ms13/plank = 4
+				)
+	category = CAT_GUNS
+	crafting_interface = CRAFTING_BENCH_WEAPONS
+
+/datum/crafting_recipe/var_rifle
+	name = "varmint rifle"
+	result = /obj/item/gun/ballistic/rifle/ms13/varmint
+	time = 18 SECONDS
+	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WRENCH, TOOL_SAW)
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(
+				/obj/item/stack/sheet/ms13/refined_steel = 4,
+				/obj/item/stack/sheet/ms13/scrap_parts = 6,
+				/obj/item/stack/sheet/ms13/plank = 3,
+				/obj/item/stack/sheet/ms13/refined_alu = 2
+				)
+	category = CAT_GUNS
+	crafting_interface = CRAFTING_BENCH_WEAPONS
+
+/datum/crafting_recipe/rev_10mm
+	name = "10mm revolver"
+	result = /obj/item/gun/ballistic/revolver/ms13/rev10mm
+	time = 18 SECONDS
+	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WRENCH, TOOL_SAW)
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(
+				/obj/item/stack/sheet/ms13/refined_steel = 3,
+				/obj/item/stack/sheet/ms13/scrap_parts = 6,
+				/obj/item/stack/sheet/ms13/plank = 2,
+				/obj/item/stack/sheet/ms13/refined_alu = 2
+				)
+	category = CAT_GUNS
+	crafting_interface = CRAFTING_BENCH_WEAPONS
+
 //ELECTRONICS CRAFTING
 
 /datum/crafting_recipe/shart_flashlight
