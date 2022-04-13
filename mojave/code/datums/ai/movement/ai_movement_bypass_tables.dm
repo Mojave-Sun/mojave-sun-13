@@ -36,10 +36,8 @@
 		for(var/atom/thing in target_turf.contents)
 			if(istype(thing, /obj/structure/table))
 				var/atom/movable/the_pawn = pawn
-				thing.set_density(FALSE)
-				step(the_pawn, get_dir(the_pawn.loc, thing.loc))
-				thing.set_density(TRUE)
-				addtimer(CALLBACK(src, .proc/enable_movement, controller), 10)
+				the_pawn.forceMove(thing.loc)
+				addtimer(CALLBACK(src, .proc/enable_movement, controller), 20)
 				controller.ai_traits |= STOP_MOVING
 				return MOVELOOP_SKIP_STEP
 
