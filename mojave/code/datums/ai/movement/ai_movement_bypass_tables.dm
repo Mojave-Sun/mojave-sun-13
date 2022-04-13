@@ -3,7 +3,6 @@
 
 //Copypaste the entire thing, could probably make this into a modular thing upstream
 /datum/ai_movement/basic_avoidance/bypass_tables/pre_move(datum/move_loop/has_target/dist_bound/source)
-	SIGNAL_HANDLER
 	var/atom/movable/pawn = source.moving
 	var/datum/ai_controller/controller = source.extra_info
 	source.delay = controller.movement_delay
@@ -11,10 +10,10 @@
 
 	var/can_move = TRUE
 	if(controller.ai_traits & STOP_MOVING_WHEN_PULLED && pawn.pulledby)
-		can_move = FALSE
+		return MOVELOOP_SKIP_STEP
 
 	if(controller.ai_traits & STOP_MOVING)
-		can_move = FALSE
+		return MOVELOOP_SKIP_STEP
 
 	if(ismob(pawn))
 		var/mob/mob_pawn = pawn
@@ -36,7 +35,10 @@
 		for(var/atom/thing in target_turf.contents)
 			if(istype(thing, /obj/structure/table))
 				var/atom/movable/the_pawn = pawn
-				the_pawn.forceMove(thing.loc)
+				var/preserved_density = thing.density
+				thing.set_density(FALSE)
+				step(the_pawn, get_dir(the_pawn.loc, thing.loc))
+				thing.set_density(preserved_density)
 				addtimer(CALLBACK(src, .proc/enable_movement, controller), 20)
 				controller.ai_traits |= STOP_MOVING
 				return MOVELOOP_SKIP_STEP
