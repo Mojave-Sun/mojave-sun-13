@@ -906,7 +906,7 @@
 	name = "shishkebab"
 	result = /obj/item/claymore/ms13/machete/shishkebab
 	time = 20 SECONDS
-	tool_behaviors = list(TOOL_DRILL, TOOL_SCREWDRIVER)
+	tool_behaviors = list(TOOL_DRILL, TOOL_SCREWDRIVER, TOOL_WRENCH)
 	tool_paths = list(/obj/item/ms13/hammer)
 	reqs = list(/obj/item/stack/sheet/ms13/scrap = 8,
 				/obj/item/stack/sheet/ms13/refined_steel = 4,
