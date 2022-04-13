@@ -23,14 +23,14 @@
 /obj/structure/ms13/vehicle_ruin/welder_act_secondary(mob/living/user, obj/item/I)
 	if(!I.tool_start_check(user, amount=0))
 		return TRUE
-	if(I.use_tool(src, user, 60 SECONDS, volume=80))
+	if(I.use_tool(src, user, 65 SECONDS, volume=80))
 		deconstruct(disassembled = TRUE)
 		return TRUE
 
 /obj/structure/ms13/vehicle_ruin/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/scrap(loc, 6)
+			new /obj/item/stack/sheet/ms13/scrap(loc, 5)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 5)
 			new /obj/item/stack/sheet/ms13/scrap_steel(loc, 4)
 			new /obj/item/stack/sheet/ms13/scrap_alu(loc, 4)
@@ -38,6 +38,7 @@
 			new /obj/item/stack/sheet/ms13/rubber(loc, 6)
 			new /obj/item/stack/sheet/ms13/glass(loc, 4)
 			new /obj/item/stack/sheet/ms13/scrap_lead(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_brass(loc, 2)
 		else
 			new /obj/item/stack/sheet/ms13/scrap(loc)
 	qdel(src)
