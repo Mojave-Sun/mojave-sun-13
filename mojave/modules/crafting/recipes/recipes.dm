@@ -59,7 +59,7 @@
 	time = 20 SECONDS
 	tool_paths = list()
 	trait = TRAIT_MEDICAL_TRAINING
-	reqs = list(/obj/item/stack/sheet/ms13/mil_fiber = 6)
+	reqs = list(/obj/item/stack/sheet/ms13/mil_fiber = 5)
 	category = CAT_MEDICAL
 	crafting_interface = CRAFTING_BENCH_ARMTAILOR
 
