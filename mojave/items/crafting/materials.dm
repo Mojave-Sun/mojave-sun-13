@@ -306,6 +306,9 @@ GLOBAL_LIST_INIT(refined_steel_recipes, list ( \
 /obj/item/stack/sheet/ms13/junk_bullets/ten
 	amount = 10
 
+/obj/item/stack/sheet/ms13/junk_bullets/fifteen
+	amount = 15
+
 /obj/item/stack/sheet/ms13/hq_bullets
 	name = "high quality bullets"
 	desc = "Good quality bullets made from refined lead."
@@ -320,6 +323,9 @@ GLOBAL_LIST_INIT(refined_steel_recipes, list ( \
 
 /obj/item/stack/sheet/ms13/hq_bullets/ten
 	amount = 10
+
+/obj/item/stack/sheet/ms13/hq_bullets/fifteen
+	amount = 15
 
 //BRASS//
 
@@ -384,6 +390,9 @@ GLOBAL_LIST_INIT(refined_steel_recipes, list ( \
 /obj/item/stack/sheet/ms13/junk_casings/ten
 	amount = 10
 
+/obj/item/stack/sheet/ms13/junk_casings/fifteen
+	amount = 15
+
 /obj/item/stack/sheet/ms13/hq_casings
 	name = "high quality bullet casings"
 	desc = "Good quality bullet casings made from refined brass."
@@ -398,6 +407,9 @@ GLOBAL_LIST_INIT(refined_steel_recipes, list ( \
 
 /obj/item/stack/sheet/ms13/hq_casings/ten
 	amount = 10
+
+/obj/item/stack/sheet/ms13/hq_casings/fifteen
+	amount = 15
 
 //ALUMINUM//
 

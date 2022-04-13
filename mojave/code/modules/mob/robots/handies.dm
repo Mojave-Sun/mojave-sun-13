@@ -17,7 +17,7 @@
 	attack_verb_continuous = "pinches"
 	attack_verb_simple = "pinch"
 	footstep_type = null
-	stat_attack = CONSCIOUS
+	stat_attack = SOFT_CRIT
 	shadow_type = "shadow_large"
 
 /mob/living/simple_animal/hostile/ms13/robot/handy/New()
