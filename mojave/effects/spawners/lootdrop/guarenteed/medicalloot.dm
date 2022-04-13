@@ -1,16 +1,14 @@
-//// These spawners are NON-STATIC spawns. If you are making changes to these pools, you should probably also make changes to the static spawns outside of the Guarenteed folder. ////
-//// The idea of these spawners it to use these EVERYWHERE. Emphasis on EVERYWHERE!!! These are the spawners you should be slapping in every other building, so that there's variety in loot locations on a per-round basis. ////
+//// These spawners are GUARENTEED spawns. If you are making changes to these pools, you should probably also make changes to the non-static spawns outside of the Guarenteed folder. ////
+//// The idea of these spawners it to use these SPARINGLY. Emphasis on SPARINGLY... Examples of where to use these are: High tier dungeons / Faction bases ////
 
-/obj/effect/spawner/random/ms13/medical
+/obj/effect/spawner/random/ms13/guarenteed/medical
 	name = "DO NOT USE ME - Mojave Sun medical spawners"
-	icon_state = "ms13_medical"
+	icon_state = "ms13_medical-static"
 	spawn_loot_count = 2
 	spawn_loot_double = TRUE
-	spawn_loot_chance = 45
 
-/obj/effect/spawner/random/ms13/medical/tier1
+/obj/effect/spawner/random/ms13/guarenteed/medical/tier1
 	name = "tier 1 medical spawner"
-	spawn_loot_chance = 55
 	loot = list(
 			/obj/item/stack/medical/suture/ms13/four = 30,
 			/obj/item/stack/medical/gauze/ms13/half = 40,
@@ -18,9 +16,8 @@
 			/obj/item/stack/medical/ointment/ms13/aloe = 15
 			)
 
-/obj/effect/spawner/random/ms13/medical/tier2
+/obj/effect/spawner/random/ms13/guarenteed/medical/tier2
 	name = "tier 2 medical spawner"
-	spawn_loot_chance = 55
 	loot = list(
 			/obj/item/stack/medical/suture/ms13/eight = 35,
 			/obj/item/stack/medical/ointment/ms13/cream = 20,
@@ -28,9 +25,8 @@
 			/obj/item/reagent_containers/hypospray/medipen/ms13/stimpak = 10
 			)
 
-/obj/effect/spawner/random/ms13/medical/tier3
+/obj/effect/spawner/random/ms13/guarenteed/medical/tier3
 	name = "tier 3 medical spawner"
-	spawn_loot_chance = 65
 	loot = list(
 			/obj/item/stack/medical/gauze/ms13/military = 30,
 			/obj/item/stack/medical/ointment/ms13 = 30,
@@ -38,31 +34,28 @@
 			/obj/item/stack/medical/suture/ms13 = 30
 			)
 
-/obj/effect/spawner/random/ms13/medical/lowrandom
+/obj/effect/spawner/random/ms13/guarenteed/medical/lowrandom
 	name = "low tier random medical spawner"
 	spawn_loot_count = 1
-	spawn_loot_chance = 100
 
 	loot = list(
-			/obj/effect/spawner/random/ms13/medical/tier1 = 70,
-			/obj/effect/spawner/random/ms13/medical/tier2 = 30
+			/obj/effect/spawner/random/ms13/guarenteed/medical/tier1 = 70,
+			/obj/effect/spawner/random/ms13/guarenteed/medical/tier2 = 30
 			)
 
-/obj/effect/spawner/random/ms13/medical/highrandom
+/obj/effect/spawner/random/ms13/guarenteed/medical/highrandom
 	name = "high tier random medical spawner"
 	spawn_loot_count = 1
-	spawn_loot_chance = 100
 
 	loot = list(
-			/obj/effect/spawner/random/ms13/medical/tier2 = 55,
-			/obj/effect/spawner/random/ms13/medical/tier3 = 45
+			/obj/effect/spawner/random/ms13/guarenteed/medical/tier2 = 55,
+			/obj/effect/spawner/random/ms13/guarenteed/medical/tier3 = 45
 			)
 
-/obj/effect/spawner/random/ms13/medical/bloodbag
+/obj/effect/spawner/random/ms13/guarenteed/medical/bloodbag
 	name = "blood bag spawner"
-	icon_state = "ms13_medfluid"
+	icon_state = "ms13_medfluid-static"
 	spawn_loot_count = 1
-	spawn_loot_chance = 65
 	loot = list(
 			/obj/item/reagent_containers/blood/ms13/o_minus = 80,
 			/obj/item/reagent_containers/blood/ms13/radaway = 20

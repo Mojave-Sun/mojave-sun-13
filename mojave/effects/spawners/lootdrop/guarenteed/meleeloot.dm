@@ -1,15 +1,14 @@
-//// These spawners are NON-STATIC spawns. If you are making changes to these pools, you should probably also make changes to the static spawns outside of the Guarenteed folder. ////
-//// The idea of these spawners it to use these EVERYWHERE. Emphasis on EVERYWHERE!!! These are the spawners you should be slapping in every other building, so that there's variety in loot locations on a per-round basis. ////
+//// These spawners are GUARENTEED spawns. If you are making changes to these pools, you should probably also make changes to the non-static spawns outside of the Guarenteed folder. ////
+//// The idea of these spawners it to use these SPARINGLY. Emphasis on SPARINGLY... Examples of where to use these are: High tier dungeons / Faction bases ////
 
-/obj/effect/spawner/random/ms13/melee
+/obj/effect/spawner/random/ms13/guarenteed/melee
 	name = "DO NOT USE ME - Mojave Sun melee spawners"
-	icon_state = "ms13_melee"
+	icon_state = "ms13_melee-static"
 	spawn_loot_count = 1
 	spawn_loot_double = FALSE
 
-/obj/effect/spawner/random/ms13/melee/tier1
+/obj/effect/spawner/random/ms13/guarenteed/melee/tier1
 	name = "tier 1 melee spawner"
-	spawn_loot_chance = 45
 	loot = list(
 			/obj/item/claymore/ms13/pipe/tireiron,
 			/obj/item/knife/ms13/switchblade/razor,
@@ -25,9 +24,8 @@
 			/obj/item/shovel/ms13/rake
 			)
 
-/obj/effect/spawner/random/ms13/melee/tier2
+/obj/effect/spawner/random/ms13/guarenteed/melee/tier2
 	name = "tier 2 melee spawner"
-	spawn_loot_chance = 50
 	loot = list(
 			/obj/item/hatchet/ms13,
 			/obj/item/hatchet/ms13/icepick,
@@ -47,9 +45,8 @@
 			/obj/item/ms13/handdrill
 			)
 
-/obj/effect/spawner/random/ms13/melee/tier3
+/obj/effect/spawner/random/ms13/guarenteed/melee/tier3
 	name = "tier 3 melee spawner"
-	spawn_loot_chance = 60
 	loot = list(
 			/obj/item/claymore/ms13/machete/katana,
 			/obj/item/claymore/ms13/machete/shishkebab,
@@ -63,9 +60,8 @@
 			/obj/item/ms13/twohanded/spear,
 			)
 
-/obj/effect/spawner/random/ms13/melee/tier4
+/obj/effect/spawner/random/ms13/guarenteed/melee/tier4
 	name = "tier 4 melee spawner"
-	spawn_loot_chance = 60
 	loot = list(
 			/obj/item/knife/ms13/combat/bowie,
 			/obj/item/claymore/ms13/machete/ripper/advanced,
@@ -76,9 +72,9 @@
 			/obj/item/ms13/twohanded/bump_sword
 			)
 
-/obj/effect/spawner/random/ms13/melee/unique
+/obj/effect/spawner/random/ms13/guarenteed/melee/unique
 	name = "unique melee spawner"
-	spawn_loot_chance = 25
+
 	loot = list(
 			/obj/item/claymore/ms13/machete/katana/immortal,
 			/obj/item/claymore/ms13/pipe/humble,
@@ -86,19 +82,17 @@
 			/obj/item/knife/butcher/ms13/unique
 			)
 
-/obj/effect/spawner/random/ms13/melee/lowrandom
+/obj/effect/spawner/random/ms13/guarenteed/melee/lowrandom
 	name = "low tier random melee spawner"
-	spawn_loot_chance = 100
 	loot = list(
-			/obj/effect/spawner/random/ms13/melee/tier1 = 70,
-			/obj/effect/spawner/random/ms13/melee/tier2 = 30
+			/obj/effect/spawner/random/ms13/guarenteed/melee/tier1 = 70,
+			/obj/effect/spawner/random/ms13/guarenteed/melee/tier2 = 30
 			)
 
-/obj/effect/spawner/random/ms13/melee/highrandom
+/obj/effect/spawner/random/ms13/guarenteed/melee/highrandom
 	name = "high tier random melee spawner"
-	spawn_loot_chance = 100
 	loot = list(
-			/obj/effect/spawner/random/ms13/melee/tier2 = 10,
-			/obj/effect/spawner/random/ms13/melee/tier3 = 60,
-			/obj/effect/spawner/random/ms13/melee/tier4 = 30
+			/obj/effect/spawner/random/ms13/guarenteed/melee/tier2 = 10,
+			/obj/effect/spawner/random/ms13/guarenteed/melee/tier3 = 60,
+			/obj/effect/spawner/random/ms13/guarenteed/melee/tier4 = 30
 			)

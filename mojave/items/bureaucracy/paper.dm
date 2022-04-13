@@ -22,6 +22,28 @@
 	desc = "A little slip of paper left over after a larger piece was cut. Whoa."
 	icon_state = "paperslip"
 
+/obj/item/papercutter/ms13
+	name = "paper cutter"
+	desc = "A board with a large blade used for cutting paper into smaller shapes."
+	icon = 'mojave/icons/objects/clutter/clutter_world.dmi'
+	icon_state = "papercutter"
+
+/obj/item/papercutter/ms13/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clutter/clutter_inventory.dmi')
+
+/obj/item/paper_bin/ms13
+	name = "paper bin"
+	desc = "Contains all the paper you'll never need."
+	icon = 'mojave/icons/objects/clutter/clutter_world.dmi'
+	icon_state = "paper_bin1"
+	papertype = /obj/item/paper/ms13
+	bin_overlay_string = "null"
+
+/obj/item/paper_bin/ms13/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clutter/clutter_inventory.dmi')
+
 // CUSTOM //
 
 /obj/item/paper/ms13/prewritten/secretary
