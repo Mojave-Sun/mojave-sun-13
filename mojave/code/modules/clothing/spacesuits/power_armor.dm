@@ -28,7 +28,7 @@
 /obj/item/radio/headset/ms13/powerarmor
 	name = "integrated power armor headset"
 	actions_types = list(/datum/action/item_action/toggle_radio)
-	icon = 'mojave/icons/objects/hamradio.dmi'
+	icon = 'mojave/icons/objects/tools/tools_inventory.dmi'
 	icon_state = "handradio"
 	subspace_transmission = FALSE
 	freerange = TRUE

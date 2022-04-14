@@ -52,12 +52,12 @@
 	screen_max_rows = 6
 	screen_start_y = 7
 
-/datum/component/storage/concrete/ms13/satchel //for MS13 satchels and radiopack
+/datum/component/storage/concrete/ms13/satchel //for MS13 satchels
 	screen_max_columns = 6
 	screen_max_rows = 4
 	screen_start_y = 7
 
-/datum/component/storage/concrete/ms13/d_bag //main for Doctors bags
+/datum/component/storage/concrete/ms13/d_bag //main for Doctors bags, used for radiopacks currently as well
 	screen_max_columns = 4
 	screen_max_rows = 4
 	screen_start_y = 6
