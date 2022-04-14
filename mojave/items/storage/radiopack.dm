@@ -20,7 +20,7 @@
 	. = ..()
 	radio = new(src)
 	START_PROCESSING(SSobj, src)
-	var/datum/component/storage/STR = AddComponent(/datum/component/storage/concrete)
+	var/datum/component/storage/STR = AddComponent(/datum/component/storage)
 	STR.max_w_class = WEIGHT_CLASS_NORMAL
 	STR.max_combined_w_class = 22
 	STR.max_items = 10
