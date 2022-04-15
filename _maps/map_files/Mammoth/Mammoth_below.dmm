@@ -1734,7 +1734,6 @@
 /obj/structure/chair/comfy/ms13/retro{
 	dir = 4
 	},
-/obj/effect/mob_spawn/corpse/human/ms13/wastelander,
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/underground_town)
@@ -2531,6 +2530,10 @@
 "akg" = (
 /obj/machinery/light/ms13/bulb,
 /obj/machinery/iv_drip/ms13,
+/obj/effect/decal/cleanable/blood/old{
+	pixel_x = 1;
+	pixel_y = 6
+	},
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/underground_town)
 "akh" = (
@@ -3184,7 +3187,7 @@
 /turf/open/floor/ms13/metal/grate/alt,
 /area/ms13/town)
 "amM" = (
-/obj/item/ms13_small_flag/usa,
+/obj/structure/ms13/wall_decor/flag,
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/underground_town)
 "amN" = (
@@ -3257,12 +3260,6 @@
 "amZ" = (
 /turf/open/floor/ms13/metal/pipe/intersection,
 /area/ms13/underground/bos)
-"anb" = (
-/obj/structure/ms13/barricade{
-	dir = 8
-	},
-/turf/open/floor/ms13/concrete,
-/area/ms13/underground/underground_town)
 "anc" = (
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 1
@@ -3590,6 +3587,9 @@
 "aos" = (
 /obj/machinery/light/ms13/bulb,
 /mob/living/basic/ms13/ghoul,
+/obj/effect/decal/cleanable/blood/old{
+	pixel_x = -9
+	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/underground_town)
 "aot" = (
@@ -8106,8 +8106,10 @@
 /area/ms13/underground/military_crypt)
 "aHf" = (
 /obj/structure/bed/ms13/bedframe/cot,
-/obj/effect/mob_spawn/corpse/human/ms13/wastelander,
-/obj/effect/decal/cleanable/blood/old,
+/obj/effect/decal/cleanable/blood/old{
+	pixel_x = 13;
+	pixel_y = 16
+	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/underground_town)
 "aHh" = (
@@ -10825,6 +10827,7 @@
 /area/ms13/underground/enclave_base)
 "aSd" = (
 /obj/structure/table/ms13/metal,
+/obj/structure/ms13/pot/plant,
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/underground_town)
 "aSe" = (
@@ -12389,6 +12392,7 @@
 /obj/structure/closet/crate/ms13/aluminum,
 /obj/effect/spawner/random/ms13/armor/lowrandom,
 /obj/effect/spawner/random/ms13/armor/headgear,
+/obj/structure/ms13/wall_decor/flag/arizona,
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/underground_town)
 "aYK" = (
@@ -12616,6 +12620,9 @@
 "aZK" = (
 /obj/structure/bed/ms13/bedframe/wood,
 /obj/structure/bed/ms13/mattress/filthy,
+/obj/machinery/light/ms13{
+	dir = 8
+	},
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/underground_town)
 "aZL" = (
@@ -12870,7 +12877,9 @@
 /obj/structure/ms13/rug{
 	pixel_x = 19
 	},
-/obj/effect/decal/cleanable/blood/old,
+/obj/effect/decal/cleanable/blood/old{
+	pixel_x = -9
+	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/underground_town)
 "bUc" = (
@@ -12888,12 +12897,6 @@
 	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/sewer)
-"bXu" = (
-/obj/machinery/door/unpowered/ms13/metal{
-	dir = 1
-	},
-/turf/open/floor/ms13/concrete,
-/area/ms13/underground/underground_town)
 "ccB" = (
 /obj/effect/spawner/random/ms13/gun/lowunique,
 /obj/effect/spawner/random/ms13/crafting/electrical,
@@ -12970,11 +12973,6 @@
 	},
 /turf/open/floor/ms13/metal,
 /area/ms13/town)
-"cwB" = (
-/obj/effect/mob_spawn/corpse/human/ms13/wastelander,
-/obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/ms13/concrete,
-/area/ms13/underground/underground_town)
 "cwH" = (
 /obj/structure/table/ms13/no_smooth/counter/metal/bend,
 /obj/machinery/light/ms13/bulb/industrial{
@@ -13426,6 +13424,7 @@
 /obj/structure/ms13/rug/red{
 	dir = 4
 	},
+/obj/machinery/light/ms13,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/underground_town)
 "eCV" = (
@@ -13521,6 +13520,12 @@
 /obj/structure/fluff/ms13/barrel/double/waste,
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
+"flk" = (
+/obj/effect/decal/cleanable/blood/old{
+	pixel_x = -9
+	},
+/turf/open/floor/ms13/concrete/bricks,
+/area/ms13/underground/underground_town)
 "fmn" = (
 /obj/structure/closet/crate/ms13/woodcrate,
 /obj/effect/spawner/random/ms13/tools/hardware,
@@ -13855,6 +13860,13 @@
 "hpT" = (
 /turf/open/floor/wood/ms13/fancy,
 /area/ms13/town)
+"hqx" = (
+/obj/effect/decal/cleanable/blood/old{
+	pixel_x = -7;
+	pixel_y = -7
+	},
+/turf/open/floor/ms13/concrete,
+/area/ms13/underground/underground_town)
 "hvg" = (
 /obj/effect/decal/cleanable/blood/footprints{
 	dir = 8
@@ -14245,6 +14257,16 @@
 /obj/effect/spawner/random/ms13/guarenteed/drink/alcohol,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/underground_town)
+"jCl" = (
+/obj/structure/chair/ms13/overlaypickup/plastic{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood/old{
+	pixel_x = -2;
+	pixel_y = -12
+	},
+/turf/open/floor/ms13/concrete,
+/area/ms13/underground/underground_town)
 "jDq" = (
 /obj/structure/fluff/ms13/barrel/single/label,
 /turf/open/floor/ms13/tile/full/green,
@@ -14356,10 +14378,16 @@
 /area/ms13/underground/underground_town)
 "ksM" = (
 /obj/machinery/ms13/terminal{
-	dir = 8
+	dir = 8;
+	doc_title_2 = "publicbunker_1";
+	doc_title_3 = "publicbunker_2";
+	doc_title_4 = "publicbunker_3"
 	},
 /obj/structure/table/ms13/no_smooth/large/wood/desk{
 	dir = 8
+	},
+/obj/machinery/light/ms13{
+	dir = 4
 	},
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/underground_town)
@@ -14585,11 +14613,6 @@
 /obj/effect/spawner/random/ms13/gun/highunique,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/army_bunker)
-"lDl" = (
-/obj/item/chair/ms13/plastic,
-/obj/effect/mob_spawn/corpse/human/ms13/wastelander,
-/turf/open/floor/ms13/concrete,
-/area/ms13/underground/underground_town)
 "lET" = (
 /obj/item/shovel/ms13,
 /obj/structure/ms13/skeleton,
@@ -14697,6 +14720,14 @@
 /obj/structure/ms13/rug/mat/rubber,
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/underground_town)
+"mcH" = (
+/mob/living/basic/ms13/ghoul,
+/obj/effect/decal/cleanable/blood/old{
+	pixel_x = -7;
+	pixel_y = -7
+	},
+/turf/open/floor/ms13/concrete,
+/area/ms13/underground/underground_town)
 "mdn" = (
 /obj/machinery/light/ms13{
 	dir = 1
@@ -14745,10 +14776,6 @@
 /obj/machinery/light/ms13/bulb/industrial/broken,
 /turf/open/floor/ms13/tile/fancy,
 /area/ms13/town)
-"mvA" = (
-/obj/effect/mob_spawn/corpse/human/ms13/wastelander,
-/turf/open/floor/ms13/concrete,
-/area/ms13/underground/underground_town)
 "mvL" = (
 /obj/structure/closet/crate/ms13/enclave{
 	dir = 1
@@ -14881,7 +14908,6 @@
 /area/ms13/underground/vault_atrium_lower)
 "ndl" = (
 /obj/structure/bed/ms13/bedframe/wire,
-/obj/effect/mob_spawn/corpse/human/ms13/wastelander,
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/underground_town)
@@ -14920,7 +14946,6 @@
 "nwx" = (
 /obj/structure/ms13/rug/red,
 /obj/structure/table/ms13/metal,
-/obj/structure/ms13/pot/plant,
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/underground_town)
 "nxk" = (
@@ -15024,7 +15049,6 @@
 	},
 /obj/effect/spawner/random/ms13/clothing/under,
 /obj/effect/spawner/random/ms13/clothing/shoe,
-/obj/machinery/light/ms13,
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/underground_town)
 "nTQ" = (
@@ -15271,6 +15295,18 @@
 	},
 /turf/open/floor/ms13/concrete/small,
 /area/ms13/town)
+"oZN" = (
+/mob/living/basic/ms13/ghoul,
+/obj/effect/decal/cleanable/blood/old{
+	pixel_x = -2;
+	pixel_y = -12
+	},
+/obj/effect/decal/cleanable/blood/old{
+	pixel_x = 1;
+	pixel_y = 6
+	},
+/turf/open/floor/ms13/concrete/bricks,
+/area/ms13/underground/underground_town)
 "pal" = (
 /obj/structure/ms13/storage/large/shelf,
 /obj/effect/spawner/random/ms13/crafting/lowrandom,
@@ -15339,8 +15375,10 @@
 	},
 /area/ms13/town)
 "ppy" = (
-/obj/effect/mob_spawn/corpse/human/ms13/wastelander,
-/obj/effect/decal/cleanable/blood/old,
+/obj/effect/decal/cleanable/blood/old{
+	pixel_x = 1;
+	pixel_y = 6
+	},
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/underground_town)
 "ppD" = (
@@ -15628,9 +15666,6 @@
 /area/ms13/underground/military_crypt)
 "qLu" = (
 /obj/structure/bed/ms13/bedframe/wood,
-/obj/machinery/light/ms13{
-	dir = 1
-	},
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/underground_town)
 "qNu" = (
@@ -15906,10 +15941,6 @@
 /obj/structure/table/ms13/wood/constructed,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/underground_town)
-"srp" = (
-/obj/structure/ms13/barricade,
-/turf/open/floor/ms13/concrete,
-/area/ms13/underground/underground_town)
 "ssh" = (
 /obj/structure/bed/ms13/bedframe/cot,
 /obj/effect/decal/cleanable/blood/old{
@@ -15998,6 +16029,10 @@
 	},
 /obj/structure/ms13/barricade{
 	dir = 4
+	},
+/obj/effect/mob_spawn/corpse/human/ms13/wastelander,
+/obj/effect/decal/cleanable/blood/old{
+	pixel_x = -9
 	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/underground_town)
@@ -16327,6 +16362,12 @@
 /obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/ms13/tile/navy,
 /area/ms13/town)
+"uHl" = (
+/obj/effect/decal/cleanable/blood/old{
+	pixel_x = 15
+	},
+/turf/open/floor/ms13/concrete,
+/area/ms13/underground/underground_town)
 "uLu" = (
 /obj/structure/chair/sofa/corp/right{
 	dir = 8
@@ -16526,12 +16567,6 @@
 /obj/effect/spawner/random/ms13/tools/tool,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/mountain)
-"vww" = (
-/obj/structure/ms13/barricade{
-	dir = 4
-	},
-/turf/open/floor/ms13/concrete,
-/area/ms13/underground/underground_town)
 "vwD" = (
 /obj/structure/rustic_extractor,
 /turf/open/floor/plating/ms13/ground/mountain,
@@ -16862,6 +16897,16 @@
 	},
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/underground_town)
+"xvX" = (
+/obj/structure/chair/ms13/overlaypickup/plastic{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood/old{
+	pixel_x = 1;
+	pixel_y = 6
+	},
+/turf/open/floor/ms13/concrete,
+/area/ms13/underground/underground_town)
 "xwf" = (
 /obj/effect/spawner/random/ms13/crafting/highrandom,
 /obj/structure/ms13/storage/large/shelf/rust{
@@ -16951,6 +16996,13 @@
 /obj/effect/spawner/random/ms13/crafting/household,
 /turf/open/floor/ms13/concrete,
 /area/ms13/supermarket/basement)
+"xOS" = (
+/obj/effect/decal/cleanable/blood/old{
+	pixel_x = -7;
+	pixel_y = -7
+	},
+/turf/open/floor/ms13/concrete/bricks,
+/area/ms13/underground/underground_town)
 "xRo" = (
 /obj/machinery/light/ms13/bulb{
 	dir = 4
@@ -62206,7 +62258,7 @@ aJl
 aJl
 jVp
 aJl
-cwB
+hfx
 aJl
 nZq
 qNu
@@ -62492,8 +62544,8 @@ aZW
 nZq
 xjg
 aJl
-mvA
-vww
+aJl
+aJl
 nZq
 aJl
 aJl
@@ -62794,10 +62846,10 @@ aZW
 nZq
 eGY
 aJl
-srp
-aaY
-bXu
 aJl
+aJl
+nZq
+axW
 aJl
 aJl
 aJl
@@ -63097,9 +63149,9 @@ nZq
 aJl
 aJl
 aJl
-anb
+aJl
 nZq
-axW
+aJl
 aJl
 alC
 alC
@@ -63707,7 +63759,7 @@ aJl
 wup
 soB
 bSi
-soB
+xvX
 soB
 nZq
 amM
@@ -64009,7 +64061,7 @@ aJl
 aJl
 aJl
 aJl
-aJl
+uHl
 aJl
 nZq
 hFF
@@ -64307,10 +64359,10 @@ nZq
 sLT
 wRH
 nZq
-aJl
+axW
 aKl
 aKl
-alC
+jCl
 alC
 exL
 nZq
@@ -64614,7 +64666,7 @@ aBC
 iOm
 pWX
 dzY
-aio
+aJl
 nZq
 qLu
 amj
@@ -64914,7 +64966,7 @@ nZq
 aJl
 aJl
 aJl
-lDl
+aKl
 soB
 aJl
 ocz
@@ -65210,7 +65262,7 @@ aZW
 afU
 nZq
 aJl
-wup
+mcH
 hfx
 nZq
 aJl
@@ -65230,7 +65282,7 @@ aJl
 aJl
 nZq
 wUz
-amj
+flk
 akg
 nZq
 afU
@@ -65532,8 +65584,8 @@ aJl
 aJl
 ocz
 amj
-cYp
-axX
+oZN
+amj
 nZq
 afU
 aZW
@@ -66120,7 +66172,7 @@ aJl
 aJl
 aJl
 aJl
-aJl
+hqx
 aJl
 aHf
 nZq
@@ -67031,8 +67083,8 @@ aJl
 aJl
 nZq
 amj
-ppy
-amj
+axX
+xOS
 amj
 nZq
 buT
