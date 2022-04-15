@@ -417,11 +417,14 @@
 			set_listening(!listening)
 			. = TRUE
 		if("broadcast")
+		//Mojave Sun Edit
 			if(radio_broadcast == 100)
 				. = FALSE
 			else
 				set_broadcasting(!broadcasting)
 				. = TRUE
+		//End of Mojave Sun Edit
+		
 		if("channel")
 			var/channel = params["channel"]
 			if(!(channel in channels))
