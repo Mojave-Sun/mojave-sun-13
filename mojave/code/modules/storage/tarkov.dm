@@ -96,7 +96,7 @@
 	if(!grid_box_size)
 		grid_box_size = world.icon_size
 	. = ..()
-	if(!.)
+	if(.)
 		return
 	RegisterSignal(parent, COMSIG_STORAGE_BLOCK_USER_TAKE, .proc/should_block_user_take)
 
