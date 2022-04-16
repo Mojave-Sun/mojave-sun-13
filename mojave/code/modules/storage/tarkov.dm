@@ -350,6 +350,12 @@
 		return FALSE
 	return handle_item_insertion(attacking_item, FALSE, user, params = params, storage_click = storage_click)
 
+/datum/component/storage/proc/on_move()
+	var/atom/A = parent
+	for(var/mob/living/L in can_see_contents())
+		if(!L.CanReach(A) || !worn_check(A, L, TRUE))
+			hide_from(L)
+
 /datum/component/storage/proc/on_equipped(obj/item/source, mob/user, slot)
 	SIGNAL_HANDLER
 
@@ -389,8 +395,9 @@
 			to_chat(user, span_warning("My arms aren't long enough to reach into [storer] while wearing it!"))
 		return FALSE
 
-/datum/component/storage/proc/should_block_user_take(obj/item/stored, mob/user, worn_check = FALSE, no_message = FALSE)
-	if(worn_check && !worn_check(parent, user, no_message))
+/datum/component/storage/proc/should_block_user_take(datum/source, obj/item/stored, mob/user, worn_check = FALSE, no_message = FALSE)
+	SIGNAL_HANDLER
+	if(worn_check && !worn_check(source, user, no_message))
 		return TRUE
 	var/atom/real_location = real_location()
 	var/atom/recursive_loc = real_location?.loc
