@@ -21,21 +21,35 @@
 	name = "fission battery"
 	desc = "A small fission battery. Used both before and after the war for all kinds of power needs."
 	icon_state = "fusion_cell"
+	grid_width = 32
+	grid_height = 32
+
+/obj/item/ms13/component/fusion
+	name = "fusion core"
+	desc = "A fusion core. Careful not to drop it!"
+	icon_state = "fusion_core"
 
 /obj/item/ms13/component/vacuum_tube
 	name = "vacuum tube"
 	desc = "A vacuum tube. An important component in many electrical gadgets."
 	icon_state = "vacuumtube"
+	grid_width = 64
+	grid_height = 32
 
 /obj/item/ms13/component/plasma_battery
 	name = "plasma battery"
 	desc = "A dangerous looking battery containing superheated plasma. Practically just waiting to be used for something lethal."
 	icon_state = "plasma_battery"
+	grid_width = 32
+	grid_height = 64
 
 /obj/item/ms13/component/gunpowder
 	name = "high quality gunpowder"
 	desc = "High quality, refined gunpowder. Can be used to make standard quality ammunition."
 	icon_state = "gunpowder"
+	grid_width = 32
+	grid_height = 32
+
 
 /obj/item/ms13/component/gunpowder/lq
 	name = "low quality gunpowder"
@@ -59,6 +73,9 @@
 	base_state = "ltube"
 	inhand_icon_state = "c_tube"
 	brightness = 7
+	grid_width = 64
+	grid_height = 32
+
 
 /obj/item/light/ms13/tube/broken
 	status = LIGHT_BROKEN
@@ -75,6 +92,9 @@
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
 	brightness = 4.5
+	grid_width = 32
+	grid_height = 32
+
 
 /obj/item/light/ms13/bulb/broken
 	status = LIGHT_BROKEN

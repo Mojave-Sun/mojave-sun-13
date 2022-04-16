@@ -286,6 +286,10 @@
 /turf/open/floor/ms13/tile/brown
 	icon_state = "brown"
 
+/turf/open/floor/ms13/tile/brown/big
+	icon_state = "brown_big"
+	has_alternate_states = FALSE
+
 /turf/open/floor/ms13/tile/fancy
 	icon_state = "fancy"
 	alternate_states = 7
@@ -296,6 +300,10 @@
 /turf/open/floor/ms13/tile/large/navy
 	icon_state = "navy_large"
 	alternate_states = 3
+
+/turf/open/floor/ms13/tile/large/cream
+	icon_state = "cream_large"
+	has_alternate_states = FALSE
 
 /turf/open/floor/ms13/tile/large/black
 	icon_state = "black_large"

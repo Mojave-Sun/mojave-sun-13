@@ -9,7 +9,7 @@
 	idlesound = list('mojave/sound/ms13items/radio_1.ogg', 'mojave/sound/ms13items/radio_2.ogg', 'mojave/sound/ms13items/radio_3.ogg', 'mojave/sound/ms13items/radio_4.ogg', 'mojave/sound/ms13items/radio_5.ogg')
 	mob_size = MOB_SIZE_SMALL
 	footstep_type = null
-	stat_attack = CONSCIOUS
+	stat_attack = SOFT_CRIT
 	robust_searching = TRUE
 	idlechance = 15
 	minimum_distance = 8
@@ -18,6 +18,7 @@
 	move_to_delay = 4
 	attack_sound = "slam"
 	status_flags = CANPUSH
+	faction = list("robots", "ghoul", "bear", "pig", "shellfish", "dog_city", "insect", "rat", "gecko")
 	loot = list(/obj/item/stack/sheet/ms13/scrap, /obj/item/stack/sheet/ms13/scrap_electronics, /obj/item/stack/sheet/ms13/scrap_parts)
 	vision_range = 20
 	aggro_vision_range = 10

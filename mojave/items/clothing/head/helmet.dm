@@ -647,19 +647,23 @@
 
 /obj/item/clothing/head/helmet/ms13/radiationhood
 	name = "radiation suit hood"
-	desc = "A hood to go along with your radiation suit. It's got a geiger counter mounted near the filter, but it doesn't seem functional."
+	desc = "A hood to go along with your radiation suit. It's got a geiger counter mounted near the filter."
 	icon_state = "radsuithood"
 	inhand_icon_state = "radsuithood"
-	armor = list(melee = 20, bullet = 5, laser = 10, energy = 10, bomb = 10, bio = 5, fire = 15, acid = 10)
+	armor = list("melee" = 25, "bullet" = 20, "laser" = 15, "energy" = 15, "bomb" = 15, "bio" = 80,  "fire" = 20, "acid" = 80, "wound" = 0)
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
+
+/obj/item/clothing/head/helmet/ms13/radiationhood/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/radiation_protected_clothing)
 
 /obj/item/clothing/head/hooded/ms13/hazmat
 	name = "hazmat hood"
 	desc = "The hood to a hazmat suit. You'll want to keep this close if you want the suit to actually do anything for you."
 	icon_state = "hazmathood"
 	inhand_icon_state = "hazmat"
-	armor = list(melee = 15, bullet = 5, laser = 5, energy = 5, bomb = 5, bio = 75,  fire = 5, acid = 75)
+	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 75,  fire = 5, acid = 75, wound = 0)
 	resistance_flags = ACID_PROOF
 
 /obj/item/clothing/head/helmet/space/ms13

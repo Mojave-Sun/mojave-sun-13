@@ -2,7 +2,7 @@
 
 /obj/item/ms13/knuckles
 	name = "brass knuckle"
-	desc = "The very small brass knuckle meant to be held in your hand to assist in making your punches quite a bit more dangerous."
+	desc = "A very small brass knuckle meant to be held in your hand to assist in making your punches quite a bit more dangerous."
 	icon = 'mojave/icons/objects/melee/melee_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
@@ -24,6 +24,8 @@
 	wound_bonus = 5
 	bare_wound_bonus = 0
 	log_pickup_and_drop = TRUE
+	grid_width = 32
+	grid_height = 32
 
 /obj/item/ms13/knuckles/Initialize()
 	. = ..()
@@ -60,6 +62,8 @@
 	throwforce = 10
 	wound_bonus = 10
 	w_class = WEIGHT_CLASS_NORMAL
+	grid_width = 96
+	grid_height = 64
 
 
 /* Not sure about this, commenting it out for now

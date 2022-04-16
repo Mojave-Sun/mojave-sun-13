@@ -6,7 +6,7 @@
 	inhand_icon_state = "hunting"
 	mag_type = /obj/item/ammo_box/magazine/ms13/r308
 	fire_sound = 'mojave/sound/ms13weapons/hunting_rifle.ogg'
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	slot_flags = ITEM_SLOT_BACK
 	extra_damage = 40
@@ -15,6 +15,8 @@
 	spread = 2
 	recoil = 1.75
 	slowdown = 0.75
+	grid_height = 32
+	grid_width = 224
 
 /obj/item/gun/ballistic/rifle/ms13/hunting/scoped
 	name = "scoped hunting rifle"
@@ -44,6 +46,8 @@
 	recoil = 0.75
 	slowdown = 0.75
 	mag_type = /obj/item/ammo_box/magazine/ms13/r10
+	grid_height = 32
+	grid_width = 192
 
 /obj/item/gun/ballistic/rifle/ms13/varmint/update_icon_state()
 	. = ..()
@@ -84,9 +88,12 @@
 	recoil = 0.5
 	slowdown = 1
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
+	w_class = WEIGHT_CLASS_HUGE
 	zoomable = TRUE
 	zoom_amt = 9
 	zoom_out_amt = 3
+	grid_height = 32
+	grid_width = 224
 
 /obj/item/gun/ballistic/rifle/ms13/hunting/scoped/amr
 	name = "anti-material rifle"
@@ -101,6 +108,8 @@
 	spread = 2
 	recoil = 4
 	slowdown = 1.5
+	grid_height = 256
+	grid_width = 64
 
 /obj/item/gun/ballistic/rifle/ms13/hunting/scoped/amr/update_icon_state()
 	. = ..()
@@ -192,7 +201,10 @@
 	icon_state = "556r10"
 	ammo_type = /obj/item/ammo_casing/ms13/a556
 	caliber = "a556"
+	w_class = WEIGHT_CLASS_TINY
 	max_ammo = 10
+	grid_height = 32
+	grid_width = 32
 
 /obj/item/ammo_box/magazine/ms13/r308
 	name = "5 round magazine (.308)"
@@ -200,7 +212,10 @@
 	icon_state = "r308"
 	ammo_type = /obj/item/ammo_casing/ms13/a308
 	caliber = "a308"
+	w_class = WEIGHT_CLASS_TINY
 	max_ammo = 5
+	grid_height = 32
+	grid_width = 32
 
 /obj/item/ammo_box/magazine/ms13/amr
 	name = "6 round magazine (.50)"
@@ -208,7 +223,10 @@
 	icon_state = "50cal"
 	ammo_type = /obj/item/ammo_casing/ms13/a50MG
 	caliber = "a50MG"
+	w_class = WEIGHT_CLASS_SMALL
 	max_ammo = 6
+	grid_height = 64
+	grid_width = 32
 
 /obj/item/ammo_box/magazine/ms13/r308/battlerifle
 	name = "8 round enbloc magazine (.308)"
@@ -240,5 +258,8 @@
 	icon_state = "762clip"
 	ammo_type = /obj/item/ammo_casing/ms13/a762
 	caliber = "a762"
+	w_class = WEIGHT_CLASS_TINY
 	max_ammo = 5
 	multiple_sprites = AMMO_BOX_PER_BULLET
+	grid_height = 32
+	grid_width = 32

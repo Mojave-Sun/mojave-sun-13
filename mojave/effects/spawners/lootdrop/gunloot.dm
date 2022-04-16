@@ -1,3 +1,6 @@
+//// These spawners are NON-STATIC spawns. If you are making changes to these pools, you should probably also make changes to the static spawns outside of the Guarenteed folder. ////
+//// The idea of these spawners it to use these EVERYWHERE. Emphasis on EVERYWHERE!!! These are the spawners you should be slapping in every other building, so that there's variety in loot locations on a per-round basis. ////
+
 /obj/effect/spawner/random/ms13/gun
 	name = "DO NOT USE ME - Mojave Sun gun spawners"
 	icon_state = "ms13_gun"
@@ -410,7 +413,6 @@
 	name = "low tier random gun spawner"
 	spawn_loot_count = 1
 	spawn_loot_chance = 100
-
 	loot = list(
 			/obj/effect/spawner/random/ms13/gun/tier1 = 70,
 			/obj/effect/spawner/random/ms13/gun/tier2 = 30,
@@ -420,7 +422,6 @@
 	name = "high tier random gun spawner"
 	spawn_loot_count = 1
 	spawn_loot_chance = 100
-
 	loot = list(
 			/obj/effect/spawner/random/ms13/gun/tier2 = 10,
 			/obj/effect/spawner/random/ms13/gun/tier3 = 60,

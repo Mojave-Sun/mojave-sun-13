@@ -24,6 +24,7 @@
 	interaction_flags_item &= ~INTERACT_ITEM_ATTACK_HAND_PICKUP
 	ADD_TRAIT(src, TRAIT_NODROP, STICKY_NODROP) //Somehow it's stuck to your body, no questioning.
 	radio = new radiotype(src)
+	AddElement(/datum/element/radiation_protected_clothing)
 
 /obj/item/radio/headset/ms13/powerarmor
 	name = "integrated power armor headset"
@@ -93,6 +94,7 @@
 	interaction_flags_item &= ~INTERACT_ITEM_ATTACK_HAND_PICKUP
 	ADD_TRAIT(src, TRAIT_NODROP, STICKY_NODROP) //Somehow it's stuck to your body, no questioning.
 	RegisterSignal(src, COMSIG_ATOM_CAN_BE_PULLED, .proc/reject_pulls)
+	AddElement(/datum/element/radiation_protected_clothing)
 
 //We want to be able to strip the PA as usual but also have the benefits of NO_DROP to disallow stuff like drag clicking PA into hand slot
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/canStrip(mob/stripper, mob/owner)
