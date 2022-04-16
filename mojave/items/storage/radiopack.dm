@@ -20,10 +20,10 @@
 	. = ..()
 	radio = new(src)
 	START_PROCESSING(SSobj, src)
-	var/datum/component/storage/STR = AddComponent(/datum/component/storage/concrete/ms13/d_bag)
+	var/datum/component/storage/STR = AddComponent(/datum/component/storage/concrete)
 	STR.max_w_class = WEIGHT_CLASS_NORMAL
-	STR.max_combined_w_class = 100
-	STR.max_items = 16
+	STR.max_combined_w_class = 22
+	STR.max_items = 10
 	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/backpack_inventory.dmi')
 
 /obj/item/ms13/storage/backpack/radiopack/Destroy()
