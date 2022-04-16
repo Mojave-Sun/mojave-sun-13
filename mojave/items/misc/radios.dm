@@ -13,10 +13,12 @@
 	radio_broadcast = 100 //Cannot broadcast. If someone manages to circumvent, it should be complete static.
 	grid_height = 64
 	grid_width = 32
+	var/static = FALSE //used for inventory only radios
 
 /obj/item/radio/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
+	if(!static)
+		AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
 /obj/item/radio/ms13/can_receive(freq, level, AIuser)
 	if(ishuman(src.loc))
