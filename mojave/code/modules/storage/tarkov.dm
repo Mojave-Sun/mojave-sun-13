@@ -8,9 +8,6 @@
 #define STORAGE_NO_EQUIPPED_ACCESS (1<<1)
 /// jimmy joger variable
 #define CHECK_BITFIELD(variable, flag) (variable & (flag))
-// ~storage component
-///from base of datum/component/storage/can_user_take(): (mob/user)
-#define COMSIG_STORAGE_BLOCK_USER_TAKE "storage_block_user_take"
 
 /obj/item
 	// ~Grid INVENTORY VARIABLES
@@ -366,7 +363,7 @@
 
 /datum/component/storage/proc/worn_check(obj/item/storer, mob/user, no_message = FALSE)
 	. = TRUE
-	if(!istype(storer) || !istype(user) || !CHECK_BITFIELD(storage_flags, STORAGE_NO_WORN_ACCESS|STORAGE_NO_EQUIPPED_ACCESS))
+	if(!istype(storer) || !istype(user) || !(storage_flags & STORAGE_NO_WORN_ACCESS|STORAGE_NO_EQUIPPED_ACCESS))
 		return TRUE
 
 	if((storage_flags & STORAGE_NO_EQUIPPED_ACCESS) && (storer.item_flags & IN_INVENTORY))
@@ -380,7 +377,7 @@
 
 /datum/component/storage/proc/worn_check_aggressive(obj/item/storer, mob/user, no_message = FALSE)
 	. = TRUE
-	if(!istype(storer) || !istype(user) || !CHECK_BITFIELD(storage_flags, STORAGE_NO_WORN_ACCESS|STORAGE_NO_EQUIPPED_ACCESS))
+	if(!istype(storer) || !istype(user) || !(storage_flags & STORAGE_NO_WORN_ACCESS | STORAGE_NO_EQUIPPED_ACCESS))
 		return TRUE
 
 	if(storage_flags & STORAGE_NO_EQUIPPED_ACCESS)
