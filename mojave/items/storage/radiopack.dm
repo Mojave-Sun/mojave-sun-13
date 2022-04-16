@@ -8,7 +8,8 @@
 	lefthand_file = 'mojave/icons/mob/inhands/equipment/backpack_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/equipment/backpack_righthand.dmi'
 
-	component_type = /datum/component/storage/concrete/ms13/satchel
+	component_type = /datum/component/storage/concrete/ms13/d_bag
+	storage_flags = 0
 	var/held = 0
 	var/obj/item/radio/ms13/ncr/radio
 
@@ -16,7 +17,7 @@
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_w_class = WEIGHT_CLASS_NORMAL
-	STR.max_items = 24
+	STR.max_items = 16
 	STR.max_combined_w_class = 100
 
 /obj/item/storage/ms13/radiopack/PopulateContents()
@@ -93,6 +94,8 @@
 	canhear_range = 3
 	radio_broadcast = RADIOSTATIC_LIGHT
 	static = TRUE
+	grid_height = 32
+	grid_width = 32
 	var/req_radio = TRUE
 	var/obj/item/storage/ms13/radiopack/radiopack
 

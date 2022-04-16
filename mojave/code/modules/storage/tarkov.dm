@@ -63,7 +63,7 @@
 	screen_max_columns = 4
 	screen_max_rows = 4
 	screen_start_y = 6
-	screen_start_x = 7
+	screen_start_x = 8
 
 /datum/component/storage/concrete/ms13/firstaid //main for First Aid kits
 	screen_max_columns = 4
