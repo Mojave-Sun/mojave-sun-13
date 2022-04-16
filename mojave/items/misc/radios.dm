@@ -17,7 +17,8 @@
 
 /obj/item/radio/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
+	if(!static)
+		AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
 /obj/item/radio/ms13/can_receive(freq, level, AIuser)
 	if(ishuman(src.loc))

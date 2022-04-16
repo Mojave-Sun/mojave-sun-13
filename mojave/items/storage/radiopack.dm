@@ -86,11 +86,13 @@
 
 /obj/item/radio/ms13/ncr
 	name = "walkie-talkie"
+	icon = 'mojave/icons/objects/tools/tools_inventory.dmi'
 	icon_state = "handradio"
 	inhand_icon_state = "handradio"
 	desc = "The important bit of the radiopack, this broadcasts and recieves radio messages in high quality with an amplified volume."
 	canhear_range = 3
 	radio_broadcast = RADIOSTATIC_LIGHT
+	static = TRUE
 	var/req_radio = TRUE
 	var/obj/item/storage/ms13/radiopack/radiopack
 
