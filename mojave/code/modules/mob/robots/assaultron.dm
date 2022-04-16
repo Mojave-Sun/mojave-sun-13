@@ -20,7 +20,7 @@
 	sharpness = SHARP_POINTY
 	attack_verb_continuous = "stabs"
 	attack_verb_simple = "stab"
-	stat_attack = CONSCIOUS
+	stat_attack = SOFT_CRIT
 	ranged = TRUE
 	projectiletype = /obj/projectile/beam/ms13/laser/assaultron
 	projectilesound = 'mojave/sound/ms13weapons/gunsounds/lasrifle/laser_heavy.ogg'

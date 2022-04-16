@@ -3,7 +3,7 @@
 	worn_icon = 'mojave/icons/mob/clothing/feet.dmi'
 	strip_delay = 20
 	grid_width = 64
-	grid_height = 32
+	grid_height = 64
 
 /obj/item/clothing/shoes/ms13/Initialize()
 	. = ..()

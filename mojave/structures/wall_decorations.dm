@@ -67,3 +67,82 @@
 	name = "pinup poster"
 	desc = "A poster with a woman on it. She is wearing a very fluffy dress and is sitting down, staring at your soul."
 	icon_state = "pinup_3"
+
+// Flags //
+
+/obj/structure/ms13/wall_decor
+	name = "Base type MS13 decor"
+	desc = "This shouldn't be on a wall, bro."
+	icon = 'mojave/icons/structure/wall_decor.dmi'
+	pixel_y = 32
+	density = FALSE
+	anchored = TRUE
+
+/obj/structure/ms13/wall_decor/CanAllowThrough(atom/movable/mover, turf/target)
+	. = ..()
+	if(locate(/obj/structure/ms13/wall_decor) in get_turf(mover))
+		return TRUE
+
+/obj/structure/ms13/wall_decor/flag
+	name = "flag"
+	desc = "A flag from the old world. This one represents America in all of its glory."
+	icon_state = "flag_us"
+
+/obj/structure/ms13/wall_decor/flag/attackby(obj/item/I, mob/user, params)
+	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
+		return
+
+	if(I.tool_behaviour == TOOL_KNIFE)
+		if(do_after(user, 10 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+			new /obj/item/stack/sheet/ms13/cloth(I.drop_location(), 4)
+			user.visible_message(span_notice("[user] cuts [src] into pieces of cloth with [I]."), \
+				span_notice("You cut [src] into pieces of cloth with [I]."), \
+				span_hear("You hear cutting."))
+			qdel(src)
+	else
+		return ..()
+
+/obj/structure/ms13/wall_decor/flag/examine(mob/user)
+	. = ..()
+	. += deconstruction_hints(user)
+
+/obj/structure/ms13/wall_decor/flag/proc/deconstruction_hints(mob/user)
+	return span_notice("You could use a <b>knife</b> to cut up [src] for cloth.")
+
+/obj/structure/ms13/wall_decor/flag/california
+	desc = "An old California flag. It has a Yao Guai on it, single head and all."
+	icon_state = "flag_cali"
+
+/obj/structure/ms13/wall_decor/flag/arizona
+	desc = "A dried out Arizona flag. An iconic pattern, is it not?"
+	icon_state = "flag_arizona"
+
+/obj/structure/ms13/wall_decor/flag/enclave
+	desc = "A flag representing the Enclave. God bless the Enclve, and NOBODY else."
+	icon_state = "flag_enclave"
+
+/obj/structure/ms13/wall_decor/flag/ncr
+	desc = "A flag representing the New Californian Republic. Glory to the Republic."
+	icon_state = "flag_ncr"
+
+/obj/structure/ms13/wall_decor/flag/legion
+	desc = "A flag representing the Caesar's Legion. Be wary."
+	icon_state = "flag_legion"
+
+/obj/structure/ms13/wall_decor/flag/rangers
+	desc = "A flag representing the Desert Rangers. A beacon of hope and safety."
+	icon_state = "flag_rangers"
+
+/obj/structure/ms13/wall_decor/flag/bos
+	desc = "A flag the Brotherhood of Steel. It is in the western chapter pattern."
+	icon_state = "flag_westbos"
+
+/obj/structure/ms13/wall_decor/clock
+	name = "wall clock"
+	desc = "A wall mounted clock. Frozen in time- this died long ago with the rest of the world."
+	icon_state = "clock"
+
+/obj/structure/ms13/wall_decor/clock/Initialize(mapload)
+	. = ..()
+	if(prob(25))
+		dir = pick(GLOB.cardinals)

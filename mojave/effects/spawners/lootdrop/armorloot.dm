@@ -1,3 +1,6 @@
+//// These spawners are NON-STATIC spawns. If you are making changes to these pools, you should probably also make changes to the static spawns outside of the Guarenteed folder. ////
+//// The idea of these spawners it to use these EVERYWHERE. Emphasis on EVERYWHERE!!! These are the spawners you should be slapping in every other building, so that there's variety in loot locations on a per-round basis. ////
+
 /obj/effect/spawner/random/ms13/armor
 	name = "DO NOT USE ME - Mojave Sun armor spawners"
 	icon_state = "ms13_suit"
@@ -162,9 +165,13 @@
 				/obj/item/clothing/suit/ms13/trench/black/bruiser,
 				/obj/item/clothing/head/helmet/ms13/prospector
 				)
+	var/loot16 = list(
+				/obj/item/clothing/suit/armor/ms13/radsuit,
+				/obj/item/clothing/head/helmet/ms13/radiationhood
+				)
 
 /obj/effect/spawner/random/ms13/armor/tier2/Initialize()
-	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11, loot12, loot13, loot14, loot15)
+	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11, loot12, loot13, loot14, loot15, loot16)
 	. = ..()
 
 /obj/effect/spawner/random/ms13/armor/tier3

@@ -409,7 +409,12 @@
 		if(equip_delay_self)
 			return
 
+	/* MOJAVE EDIT REMOVAL
 	if(M.active_storage && M.active_storage.parent && SEND_SIGNAL(M.active_storage.parent, COMSIG_TRY_STORAGE_INSERT, src,M))
+	*/
+	//MOJAVE EDIT BEGIN
+	if(M.active_storage && M.active_storage.parent && SEND_SIGNAL(M.active_storage.parent, COMSIG_TRY_STORAGE_INSERT, src, M, FALSE, FALSE, TRUE))
+	//MOJAVE EDIT END
 		return TRUE
 
 	var/list/obj/item/possible = list(M.get_inactive_held_item(), M.get_item_by_slot(ITEM_SLOT_BELT), M.get_item_by_slot(ITEM_SLOT_DEX_STORAGE), M.get_item_by_slot(ITEM_SLOT_BACK))
@@ -417,7 +422,12 @@
 		if(!i)
 			continue
 		var/obj/item/I = i
+		/* MOJAVE EDIT REMOVAL
 		if(SEND_SIGNAL(I, COMSIG_TRY_STORAGE_INSERT, src, M))
+		*/
+		//MOJAVE EDIT BEGIN
+		if(SEND_SIGNAL(I, COMSIG_TRY_STORAGE_INSERT, src, M, FALSE, FALSE, TRUE))
+		//MOJAVE EDIT END
 			return TRUE
 
 	to_chat(M, span_warning("You are unable to equip that!"))

@@ -12,7 +12,7 @@
 	light_power = 0.75
 	light_color = "#dbb070"
 	grid_width = 64
-	grid_height = 64
+	grid_height = 32
 
 /obj/item/flashlight/ms13/Initialize()
 	. = ..()

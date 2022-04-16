@@ -13,6 +13,8 @@
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravan.ogg'
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
+	grid_width = 160
+	grid_height = 64
 
 /obj/item/gun/ballistic/revolver/ms13/caravan/sawed
 	name = "sawed-off shotgun"
@@ -25,6 +27,8 @@
 	slowdown = 0.5
 	w_class = WEIGHT_CLASS_NORMAL
 	weapon_weight = WEAPON_MEDIUM
+	grid_width = 96
+	grid_height = 64
 
 /obj/item/gun/ballistic/revolver/ms13/single
 	name = "single shotgun"
@@ -40,6 +44,8 @@
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravan2.ogg'
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
+	grid_width = 160
+	grid_height = 64
 
 ////////////////////////// revolvers////////////////
 /obj/item/gun/ballistic/revolver/ms13/derringer
@@ -53,6 +59,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 	extra_damage = 25
 	extra_penetration = 5
+	grid_width = 64
+	grid_height = 32
 
 /obj/item/gun/ballistic/revolver/ms13/rev44
 	name = ".44 magnum revolver"
@@ -68,6 +76,8 @@
 	spread = 6
 	recoil = 1.25
 	slowdown = 0.5
+	grid_width = 64
+	grid_height = 64
 
 /obj/item/gun/ballistic/revolver/ms13/rev44/mysterious
 	name = "\improper Mysterious Magnum"
@@ -89,6 +99,8 @@
 	spread = 5
 	recoil = 1.5
 	slowdown = 0.75
+	grid_width = 160
+	grid_height = 64
 
 /obj/item/gun/ballistic/revolver/ms13/rev357
 	name = ".357 magnum revolver"
@@ -104,6 +116,8 @@
 	spread = 6
 	recoil = 1
 	slowdown = 0.5
+	grid_width = 64
+	grid_height = 64
 
 /obj/item/gun/ballistic/revolver/ms13/rev357/lucky
 	name = "\improper Lucky"
@@ -124,6 +138,8 @@
 	spread = 8
 	recoil = 0.75
 	slowdown = 0.5
+	grid_width = 64
+	grid_height = 32
 
 /obj/item/gun/ballistic/revolver/ms13/rev10mm
 	name = "10mm revolver"
@@ -139,6 +155,8 @@
 	spread = 6
 	recoil = 0.75
 	slowdown = 0.5
+	grid_width = 64
+	grid_height = 64
 
 /obj/item/gun/ballistic/revolver/ms13/huntingrev
 	name = "hunting revolver"
@@ -153,6 +171,8 @@
 	spread = 6
 	recoil = 1.5
 	slowdown = 0.5
+	grid_width = 64
+	grid_height = 64
 
 /obj/item/gun/ballistic/revolver/ms13/huntingrev/sequoia
 	name = "\improper Sequoia"
@@ -175,6 +195,8 @@
 	spread = 6
 	recoil = 0.75
 	slowdown = 0.5
+	grid_width = 64
+	grid_height = 64
 
 //Magazines
 /obj/item/ammo_box/magazine/internal/shot/ms13/caravan
@@ -234,7 +256,10 @@
 	icon_state = "derringer"
 	ammo_type = /obj/item/ammo_casing/ms13/c22
 	caliber = ".22"
+	w_class = WEIGHT_CLASS_TINY
 	max_ammo = 4
+	grid_width = 32
+	grid_height = 32
 
 /obj/item/ammo_box/ms13/rev4570
 	name = ".45-70 speed loader"
@@ -242,7 +267,10 @@
 	icon_state = "rev4570"
 	ammo_type = /obj/item/ammo_casing/ms13/c4570
 	caliber = "4570"
+	w_class = WEIGHT_CLASS_TINY
 	max_ammo = 5
+	grid_width = 32
+	grid_height = 32
 
 /obj/item/ammo_box/ms13/rev44
 	name = ".44 Magnum speed loader"
@@ -250,7 +278,10 @@
 	icon_state = "rev44"
 	ammo_type = /obj/item/ammo_casing/ms13/m44
 	caliber = "44"
+	w_class = WEIGHT_CLASS_TINY
 	max_ammo = 6
+	grid_width = 32
+	grid_height = 32
 
 /obj/item/ammo_box/ms13/rev357
 	name = ".357 Magnum speed loader"
@@ -258,7 +289,10 @@
 	icon_state = "rev357"
 	ammo_type = /obj/item/ammo_casing/ms13/a357
 	caliber = "357"
+	w_class = WEIGHT_CLASS_TINY
 	max_ammo = 6
+	grid_width = 32
+	grid_height = 32
 
 /obj/item/ammo_box/ms13/rev556
 	name = "5.56 speed loader"
@@ -266,7 +300,10 @@
 	icon_state = "rev556"
 	ammo_type = /obj/item/ammo_casing/ms13/a556
 	caliber = "a556"
+	w_class = WEIGHT_CLASS_TINY
 	max_ammo = 5
+	grid_width = 32
+	grid_height = 32
 
 /obj/item/ammo_box/ms13/rev10mm
 	name = "10mm speed loader"
@@ -274,4 +311,7 @@
 	icon_state = "rev10mm"
 	ammo_type = /obj/item/ammo_casing/ms13/c10mm
 	caliber = "10mm"
+	w_class = WEIGHT_CLASS_TINY
 	max_ammo = 5
+	grid_width = 32
+	grid_height = 32

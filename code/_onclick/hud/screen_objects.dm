@@ -452,7 +452,6 @@
 	master = new_master
 
 /atom/movable/screen/storage/Click(location, control, params)
-	. = ..() //MOJAVE SUN EDIT - Grid Inventory
 	if(world.time <= usr.next_move)
 		return TRUE
 	if(usr.incapacitated())

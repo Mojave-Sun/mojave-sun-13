@@ -12,6 +12,8 @@
 	worn_icon_state = "empty_placeholder"
 	icon_state = "medicalkit"
 	component_type = /datum/component/storage/concrete/ms13/firstaid
+	grid_height = 64
+	grid_width = 64
 
 /obj/item/storage/firstaid/ms13/Initialize()
 	. = ..()
@@ -21,8 +23,8 @@
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_w_class = WEIGHT_CLASS_SMALL
-	STR.max_items = 10
-	STR.max_combined_w_class = 20
+	STR.max_items = 12
+	STR.max_combined_w_class = 100
 	STR.set_holdable(list(
 		/obj/item/reagent_containers/hypospray,
 		/obj/item/stack/medical
@@ -51,13 +53,15 @@
 	icon_state = "doctorsbag"
 	slot_flags = 0
 	component_type = /datum/component/storage/concrete/ms13/d_bag
+	grid_height = 64
+	grid_width = 96
 
 /obj/item/storage/firstaid/ms13/bag/ComponentInitialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_w_class = WEIGHT_CLASS_NORMAL
-	STR.max_items = 10
-	STR.max_combined_w_class = 20
+	STR.max_items = 16
+	STR.max_combined_w_class = 100
 	STR.set_holdable(list(
 		/obj/item/lighter,
 		/obj/item/stack/medical,
@@ -72,12 +76,12 @@
 /obj/item/storage/firstaid/ms13/bag/filled
 
 /obj/item/storage/firstaid/ms13/bag/filled/PopulateContents()
-	new /obj/item/scalpel(src)
-	new /obj/item/surgical_drapes(src)
-	new /obj/item/hemostat(src)
-	new /obj/item/cautery(src)
-	new /obj/item/bonesetter(src)
-	new /obj/item/retractor(src)
+	new /obj/item/scalpel/ms13(src)
+	new /obj/item/surgical_drapes/ms13(src)
+	new /obj/item/hemostat/ms13(src)
+	new /obj/item/cautery/ms13(src)
+	new /obj/item/bonesetter/ms13(src)
+	new /obj/item/retractor/ms13(src)
 	new /obj/item/stack/medical/gauze/ms13/half(src)
 	new /obj/item/stack/medical/suture/ms13/four(src)
 	new /obj/item/stack/medical/ointment/ms13/cream/half(src)

@@ -11,6 +11,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 	custom_materials = list(/datum/material/iron=75, /datum/material/glass=25)
 	radio_broadcast = 100 //Cannot broadcast. If someone manages to circumvent, it should be complete static.
+	grid_height = 64
+	grid_width = 32
 
 /obj/item/radio/ms13/Initialize()
 	. = ..()

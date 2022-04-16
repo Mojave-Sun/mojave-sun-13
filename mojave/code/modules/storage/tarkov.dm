@@ -39,7 +39,7 @@
 			item_in_source.forceMove(drop_location)
 		else
 			item_in_source.moveToNullspace()
-		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, item_in_source, null, TRUE, FALSE, FALSE)
+		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, item_in_source, null, TRUE, TRUE, FALSE)
 
 
 // storage types //
@@ -48,19 +48,24 @@
 	grid = TRUE
 
 /datum/component/storage/concrete/ms13/grid //main for MS13 backpacks
-	screen_max_columns = 8
-	screen_max_rows = 5
+	screen_max_columns = 6
+	screen_max_rows = 6
+	screen_start_y = 7
+
+/datum/component/storage/concrete/ms13/satchel //for MS13 satchels and radiopack
+	screen_max_columns = 6
+	screen_max_rows = 4
 	screen_start_y = 7
 
 /datum/component/storage/concrete/ms13/d_bag //main for Doctors bags
-	screen_max_columns = 6
+	screen_max_columns = 4
 	screen_max_rows = 4
 	screen_start_y = 6
 	screen_start_x = 7
 
 /datum/component/storage/concrete/ms13/firstaid //main for First Aid kits
 	screen_max_columns = 4
-	screen_max_rows = 4
+	screen_max_rows = 3
 	screen_start_y = 6
 	screen_start_x = 8
 
@@ -244,7 +249,7 @@
 			host.add_fingerprint(user)
 			to_chat(user, span_warning("[host] seems to be locked!"))
 		return FALSE
-	if(worn_check && !worn_check(parent, user))
+	if(worn_check && !worn_check(parent, user, no_message = stop_messages))
 		host.add_fingerprint(user)
 		return FALSE
 	if(LAZYLEN(real_location.contents) >= max_items)
