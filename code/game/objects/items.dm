@@ -1,4 +1,5 @@
 GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/effects/fire.dmi', "fire"))
+#define COMSIG_STORAGE_BLOCK_USER_TAKE "storage_block_user_take" // MOJAVE EDIT ADD
 
 /// Anything you can pick up and hold.
 /obj/item
