@@ -143,3 +143,20 @@
 	content = "Sleep. I don't remember the last time I had it. It's been about a week since Thomas passed away in his sleep. I don't quite know from what, but he's been acting strangely on the medication I've been giving him... I suspect I'm the culprit for another\
 		family member's demise. I'm a horrible person and deserve what is coming to me. Let it be known that Malcolm Robinson isn't a coward and has owned up to the grim reality of what he's done- I intend on doing it briefly after this log, but I am scheduled\
 		to depart this hellhole of a prison I call my new home. Not through physical freedom, but mental. It won't be long until I'm dead and at the gates, in God's judgement. I only wish that my family can forgive me for the sins I've committed against them."
+
+/datum/terminal/document/publicbunker_1 //public bunker big cheese room terminal entry 1 kind of in the middle of the map
+	title = "Nuclear Holocaust"
+	content = "It finally happened. The Reds launched the big ones. I hope we took a good chunk of them out.<br>Not important. We are safe in this public bunker, not some stupid subscription like those Vaults or whatever. I'm sure those are nicer, but we still need a\
+		place for the less fortunate of us. I am the leader, I suppose, though it's not like I'm going to get arrested if I don't want to. No more cops. Feels good to be able to say that.<br>Guess I should document something important on here. Well, the sirens were\
+		blaring, and I don't really think this place was being guarded, but we all kinda knew it was here. We just rushed in. Lots of people, honestly. Maybe too many. It got claustrophibic quick. We're probably gonna need some more space, figure no one will care if\
+		we dig a hole in a wall for more beds. After everyone was inside, I counted about 30, including myself. I donjg people are bugging me to help take mattress off of bedframes ill come back to this"
+
+/datum/terminal/document/publicbunker_2 //public bunker big cheese room terminal entry 2
+	title = "Holes"
+	content = "Well, we managed to dig a hole. Big problem though. It seems like the outside world is radioactive, despite none of the nukes hitting around here, I thought? Whatever was in these walls was protecting us. The people I had mine the thing out are losing hair\
+		at a disgusting pace. Worst part is I had them dig into the wall of the main hallway, so the cafeteria is not safe, and we already set up lots of beds in the hallway. This is fucked. Fuck fuck fuck fuck fuck"
+
+/datum/terminal/document/publicbunker_3 //public bunker big cheese room terminal entry 3
+	title = "New Entry"
+	content = "The peopel are mutating oh godf theyre attacking everyone its like zombies man fuck i locked myself in my room. THey canyt get me in here right? saving opne bullet for myself God fuckikng dammit FUCKim so sorry I know they can't hear this but I'm so sorry.\
+		I didn't mean to fuck us all. I wanted to keep as many of us in here as I could and I fucked up in the process, this fucking piece of shit bunker was only meant for 20 people not 30. I'm goign to hell fucking shit man fuck"
