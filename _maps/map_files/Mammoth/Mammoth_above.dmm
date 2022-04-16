@@ -2364,12 +2364,6 @@
 "aid" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/table/ms13/no_smooth/large/wood/stand,
-/obj/item/kirbyplants/dead{
-	desc = "It's a dead plant. You can't tell what it used to be.";
-	name = "Dead Plant";
-	pixel_x = 2;
-	pixel_y = 14
-	},
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "aie" = (
@@ -4098,10 +4092,13 @@
 /turf/open/openspace/ms13,
 /area/ms13/town)
 "aof" = (
-/obj/structure/reagent_dispensers/water_cooler,
+/obj/structure/closet/ms13/fridge,
+/obj/effect/spawner/random/ms13/food/produce_safe,
+/obj/effect/spawner/random/ms13/food/produce_safe,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/ms13/concrete,
-/area/ms13/supermarket)
+/obj/effect/spawner/random/ms13/drink/soda,
+/turf/open/floor/ms13/tile/large/checkered,
+/area/ms13/town)
 "aog" = (
 /obj/structure/chair/ms13/metal/unfinished{
 	dir = 1
@@ -5194,10 +5191,10 @@
 /area/ms13/town)
 "arS" = (
 /obj/structure/table/ms13/wood,
-/obj/item/phone{
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/ms13/phone{
 	pixel_y = 6
 	},
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "arT" = (
@@ -9349,12 +9346,11 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "aGR" = (
-/obj/structure/reagent_dispensers/water_cooler,
+/obj/structure/closet/ms13/fridge,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/structure/railing/ms13/solo/industrial{
-	dir = 8
-	},
-/turf/open/floor/ms13/tile/full/navy,
+/obj/effect/spawner/random/ms13/drink/alcohol_beer,
+/obj/effect/spawner/random/ms13/food/produce_random,
+/turf/open/floor/ms13/tile/large/white,
 /area/ms13/town)
 "aGS" = (
 /obj/structure/lattice/catwalk/ms13,
@@ -9375,7 +9371,7 @@
 /area/ms13/underground/tunnel/maintenance)
 "aGW" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
-/obj/machinery/door/airlock/ms13/brotherhood/hpaladin,
+/obj/machinery/door/airlock/ms13/brotherhood,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/bos)
 "aGY" = (
@@ -9539,10 +9535,7 @@
 /area/ms13/underground/tunnel/maintenance)
 "aHD" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/item/kirbyplants/dead{
-	desc = "It's a dead plant. You can't tell what it used to be.";
-	name = "Dead Plant"
-	},
+/obj/structure/ms13/pot/plant,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/ncr)
 "aHE" = (
@@ -9578,6 +9571,9 @@
 /obj/structure/railing/ms13/solo{
 	dir = 8
 	},
+/obj/machinery/light/ms13{
+	dir = 1
+	},
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/bos)
 "aHK" = (
@@ -9588,11 +9584,8 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "aHL" = (
-/obj/item/kirbyplants/dead{
-	desc = "It's a dead plant. You can't tell what it used to be.";
-	name = "Dead Plant"
-	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/ms13/pot,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "aHM" = (
@@ -9624,12 +9617,10 @@
 /turf/open/floor/ms13/tile/brown,
 /area/ms13/town)
 "aHR" = (
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
-/obj/machinery/light/ms13{
-	dir = 1
-	},
-/turf/open/floor/ms13/concrete/bricks,
-/area/ms13/underground/bos)
+/obj/structure/lattice/catwalk/ms13,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/turf/open/floor/ms13/concrete,
+/area/ms13/supermarket)
 "aHS" = (
 /obj/machinery/iv_drip/ms13,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
@@ -9743,6 +9734,7 @@
 "aIm" = (
 /obj/structure/closet/ms13/fridge,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/spawner/random/ms13/food/produce_random,
 /turf/open/floor/ms13/tile/large/white,
 /area/ms13/town)
 "aIo" = (
@@ -11188,9 +11180,6 @@
 /turf/open/floor/ms13/tile/full/navy,
 /area/ms13/town)
 "aNF" = (
-/obj/machinery/light/ms13{
-	dir = 1
-	},
 /obj/structure/chair/ms13/metal,
 /obj/effect/landmark/start/ms13/head_scribe,
 /obj/structure/railing/ms13/solo{
@@ -11199,13 +11188,6 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/bos)
-"aNG" = (
-/obj/structure/table/ms13/low_wall/concrete,
-/obj/structure/window/fulltile/ms13/glass,
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/item/flashlight/lamp/green,
-/turf/open/floor/plating,
-/area/ms13/town)
 "aNI" = (
 /obj/structure/table/ms13/metal,
 /obj/item/paper_bin/ms13,
@@ -11614,9 +11596,6 @@
 /obj/structure/table/ms13/no_smooth/large/wood/desk/alt{
 	dir = 8
 	},
-/obj/item/flashlight/lamp/green{
-	pixel_y = 14
-	},
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "aOV" = (
@@ -11661,11 +11640,6 @@
 /area/ms13/town)
 "aPe" = (
 /obj/structure/table/ms13/no_smooth/metal,
-/obj/item/kirbyplants/dead{
-	desc = "It's a dead plant. You can't tell what it used to be.";
-	name = "Dead Plant";
-	pixel_y = 11
-	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/supermarket)
@@ -12263,10 +12237,8 @@
 /area/ms13/town)
 "aRi" = (
 /obj/structure/table/ms13/metal,
-/obj/item/phone{
-	pixel_y = 6
-	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
+/obj/structure/ms13/phone,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/tunnel/maintenance)
 "aRj" = (
@@ -12394,11 +12366,6 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/ms13/tile/brown,
 /area/ms13/town)
-"aRH" = (
-/obj/structure/reagent_dispensers/water_cooler,
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/wood/ms13/mosaic,
-/area/ms13/town)
 "aRK" = (
 /turf/closed/wall/ms13/concrete,
 /area/ms13/underground/mountain)
@@ -12457,11 +12424,6 @@
 /obj/structure/chair/ms13/wood{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/wood/ms13/common,
-/area/ms13/town)
-"aRT" = (
-/obj/structure/reagent_dispensers/water_cooler,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
@@ -14778,7 +14740,7 @@
 /turf/open/floor/ms13/tile,
 /area/ms13/town)
 "aZY" = (
-/obj/structure/reagent_dispensers/water_cooler,
+/obj/structure/ms13/pot/plant,
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/supermarket)
 "aZZ" = (
@@ -20362,7 +20324,7 @@ aPY
 aLH
 ahj
 omi
-hMs
+aof
 rLw
 ahj
 cce
@@ -30660,7 +30622,7 @@ aDq
 ahj
 aSC
 aTA
-aIm
+aGR
 ahj
 aLH
 aLH
@@ -48453,6 +48415,7 @@ aPY
 aPY
 aLH
 aLH
+aLH
 abJ
 abJ
 abJ
@@ -48462,8 +48425,7 @@ abJ
 abJ
 abJ
 abJ
-abJ
-abJ
+aLH
 aLH
 aLH
 aLH
@@ -50265,6 +50227,7 @@ aLH
 aLH
 aLH
 aLH
+aLH
 abJ
 abJ
 abJ
@@ -50274,8 +50237,7 @@ abJ
 abJ
 abJ
 abJ
-abJ
-abJ
+aLH
 aLH
 aLH
 aLH
@@ -50567,17 +50529,17 @@ aLH
 aLH
 aLH
 aLH
-abJ
-abJ
-abJ
-abJ
-abJ
-abJ
-abJ
-abJ
-abJ
-abJ
-abJ
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
 aLH
 aLH
 aLH
@@ -50869,17 +50831,17 @@ aLH
 aLH
 aLH
 aLH
-abJ
-abJ
-abJ
-abJ
-abJ
-abJ
-abJ
-abJ
-abJ
-abJ
-abJ
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
 aLH
 aLH
 aLH
@@ -51171,17 +51133,17 @@ aLH
 aLH
 aLH
 aLH
-abJ
-abJ
-abJ
-aOb
-aOb
-aOb
-aOb
-aOb
-abJ
-abJ
-abJ
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
 aLH
 aLH
 aLH
@@ -51473,17 +51435,17 @@ aLH
 aLH
 aLH
 aLH
-abJ
-aOb
-abJ
-abJ
-abJ
-abJ
-abJ
-abJ
-abJ
-aOb
-abJ
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
 aLH
 aLH
 aLH
@@ -51776,7 +51738,6 @@ aLH
 aLH
 aLH
 abJ
-aOb
 abJ
 abJ
 abJ
@@ -51784,7 +51745,8 @@ abJ
 abJ
 abJ
 abJ
-aOb
+abJ
+abJ
 abJ
 aLH
 aLH
@@ -52076,9 +52038,6 @@ aPY
 aLH
 aLH
 aLH
-aLH
-abJ
-aOb
 abJ
 abJ
 abJ
@@ -52086,9 +52045,12 @@ abJ
 abJ
 abJ
 abJ
-aOb
 abJ
-aLH
+abJ
+abJ
+abJ
+abJ
+abJ
 aLH
 aLH
 aLH
@@ -52380,7 +52342,6 @@ aLH
 aLH
 aLH
 abJ
-aOb
 abJ
 abJ
 abJ
@@ -52388,7 +52349,8 @@ abJ
 abJ
 abJ
 abJ
-aOb
+abJ
+abJ
 abJ
 aLH
 aLH
@@ -53690,7 +53652,7 @@ abe
 ahd
 abj
 aYA
-aRH
+ahd
 ahd
 aOl
 ahd
@@ -54894,7 +54856,7 @@ abJ
 abJ
 aYA
 aYA
-aNG
+aAF
 aAF
 aYA
 aYA
@@ -58320,7 +58282,7 @@ aCj
 aPC
 aDL
 avV
-aGR
+aDL
 aSy
 aCj
 aLH
@@ -78854,7 +78816,7 @@ aOb
 aOb
 abJ
 aBD
-aof
+akH
 akH
 akH
 aYV
@@ -79078,7 +79040,7 @@ acF
 aeB
 aeB
 aeB
-aHR
+aeB
 aeB
 amN
 aHw
@@ -80373,7 +80335,7 @@ aaT
 aaT
 aaT
 aSZ
-aWP
+aHR
 aBD
 aLH
 aLH
@@ -85364,7 +85326,7 @@ aAP
 aSD
 aCj
 aTo
-aRT
+aAP
 aAP
 aAP
 aTo
