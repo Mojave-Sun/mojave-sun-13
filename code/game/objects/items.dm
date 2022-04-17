@@ -208,7 +208,6 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 //MOJAVE EDIT CHANGE BEGIN
 	var/log_pickup_and_drop = FALSE //For logging in the attack logs certain items (mostly weapons) being equipped, dropped, or taken into hand
-	drag_slowdown = 2 // This is a cover-all. That way no matter what, you won't be able to cheese stuff and we won't have to run around in a weird cat and mouse game to nerf dragging some vague item.
 //MOJAVE EDIT CHANGE END
 
 	/// Used in obj/item/examine to give additional notes on what the weapon does, separate from the predetermined output variables
