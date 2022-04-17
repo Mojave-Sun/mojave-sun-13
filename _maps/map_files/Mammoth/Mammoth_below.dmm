@@ -966,10 +966,7 @@
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/vault_atrium_lower)
 "adP" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/effect/spawner/random/ms13/tools/lights,
+/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/ms13/metal/plate,
 /area/ms13/underground/sewer)
 "adQ" = (
@@ -1466,7 +1463,7 @@
 /obj/effect/decal/cleanable/blood/footprints{
 	dir = 8
 	},
-/mob/living/basic/ms13/ghoul/brown,
+/mob/living/basic/ms13/ghoul,
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
 "afX" = (
@@ -3570,13 +3567,8 @@
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/vault_atrium_lower)
 "aoq" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/machinery/light/ms13/bulb{
-	dir = 8
-	},
-/turf/open/floor/ms13/metal/plate,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/ms13/metal/stayclear,
 /area/ms13/underground/sewer)
 "aor" = (
 /obj/structure/table/ms13/metal/small,
@@ -3641,7 +3633,7 @@
 /turf/open/floor/ms13/metal/border,
 /area/ms13/underground/bos)
 "aoF" = (
-/obj/structure/table/ms13/crafting/ammobench,
+/obj/effect/turf_decal/stripes/full,
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "aoH" = (
@@ -7241,9 +7233,10 @@
 /turf/closed/wall/ms13/vault/vent,
 /area/ms13/underground/vault_atrium_lower)
 "aDL" = (
-/obj/structure/reagent_dispensers/watertank,
-/turf/open/floor/ms13/metal,
-/area/ms13/underground/enclave_base)
+/obj/machinery/ms13/fusion_generator,
+/obj/effect/turf_decal/stripes/full,
+/turf/open/floor/ms13/concrete,
+/area/ms13/town)
 "aDM" = (
 /obj/structure/table/ms13/metal,
 /obj/effect/spawner/random/ms13/melee/lowrandom,
@@ -7978,8 +7971,10 @@
 /turf/open/floor/ms13/tile/long,
 /area/ms13/town)
 "aGG" = (
-/obj/structure/fence/fencenormal,
-/turf/open/floor/ms13/concrete/industrial,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/ms13/metal/stayclear{
+	dir = 1
+	},
 /area/ms13/underground/sewer)
 "aGH" = (
 /obj/structure/lattice/catwalk/ms13,
@@ -8241,8 +8236,11 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/sewer)
 "aHF" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
 /obj/machinery/light/ms13/bulb{
-	dir = 1
+	dir = 4
 	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
@@ -8649,6 +8647,7 @@
 /obj/structure/ms13/rug/rubber{
 	dir = 4
 	},
+/obj/machinery/light/ms13,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/bos)
 "aJj" = (
@@ -9062,9 +9061,6 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/machinery/light/ms13/bulb{
-	dir = 8
-	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "aKN" = (
@@ -9197,6 +9193,8 @@
 /area/ms13/underground/sewer)
 "aLn" = (
 /obj/structure/closet/ms13/fridge,
+/obj/effect/spawner/random/ms13/food/produce_random,
+/obj/effect/spawner/random/ms13/food/produce_random,
 /turf/open/floor/ms13/tile,
 /area/ms13/underground/underground_town)
 "aLp" = (
@@ -10418,7 +10416,9 @@
 /turf/open/floor/ms13/tile,
 /area/ms13/underground/underground_town)
 "aQx" = (
-/obj/structure/fence/fencedoor,
+/obj/machinery/door/unpowered/ms13/seethrough/grate{
+	dir = 4
+	},
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/sewer)
 "aQy" = (
@@ -10482,9 +10482,9 @@
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/enclave_base)
 "aQJ" = (
-/obj/structure/janitorialcart,
-/turf/open/floor/ms13/concrete/industrial,
-/area/ms13/underground/subway)
+/obj/machinery/ms13/terminal/vault,
+/turf/open/floor/ms13/metal,
+/area/ms13/underground/vault_atrium_lower)
 "aQK" = (
 /obj/structure/table/ms13/no_smooth/large/wood/desk,
 /turf/open/floor/ms13/concrete,
@@ -10500,9 +10500,8 @@
 /turf/open/floor/ms13/metal/grate/border,
 /area/ms13/underground/sewer)
 "aQN" = (
-/obj/structure/table/ms13/metal,
-/obj/effect/spawner/random/ms13/tools/radio,
-/turf/open/floor/ms13/concrete/industrial,
+/obj/machinery/ms13/fusion_generator,
+/turf/open/floor/ms13/metal/plate,
 /area/ms13/underground/sewer)
 "aQO" = (
 /obj/structure/ms13/bars/slot/rusty{
@@ -10752,11 +10751,11 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "aRP" = (
-/obj/effect/turf_decal/stripes/line{
+/obj/machinery/light/ms13/bulb{
 	dir = 1
 	},
-/turf/open/floor/ms13/concrete,
-/area/ms13/town)
+/turf/open/floor/ms13/metal,
+/area/ms13/underground/bos)
 "aRQ" = (
 /obj/machinery/door/poddoor/shutters/indestructible/ms13{
 	id = "sewereast"
@@ -11604,8 +11603,10 @@
 /turf/open/floor/wood/ms13/carpet/green,
 /area/ms13/underground/underground_town)
 "aVu" = (
-/obj/structure/table/ms13/metal/grate,
 /obj/effect/spawner/random/ms13/tools/tool,
+/obj/structure/ms13/storage/large/shelf{
+	dir = 4
+	},
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/sewer)
 "aVv" = (
@@ -12322,10 +12323,8 @@
 /turf/closed/indestructible/ms13/metal,
 /area/ms13/underground/sewer)
 "aYx" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/turf/open/floor/ms13/metal/plate,
+/obj/effect/spawner/random/ms13/tools/lights,
+/turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/sewer)
 "aYy" = (
 /obj/effect/spawner/random/ms13/drink/soda,
@@ -13202,8 +13201,11 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/underground_town)
 "dDA" = (
-/obj/structure/ms13/phone,
 /obj/machinery/light/ms13/bulb/industrial,
+/obj/structure/ms13/phone{
+	pixel_y = 6
+	},
+/obj/structure/table/ms13/metal/small,
 /turf/open/floor/wood/ms13/carpet/shaggy,
 /area/ms13/town)
 "dEt" = (
@@ -14363,6 +14365,10 @@
 /obj/effect/spawner/random/ms13/armor/tier3,
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/underground_town)
+"kks" = (
+/obj/effect/spawner/random/ms13/tools/radio,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/underground/sewer)
 "kkx" = (
 /obj/structure/ms13/rug/rubber,
 /turf/open/floor/ms13/metal,
@@ -14564,9 +14570,9 @@
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
 "lpN" = (
-/obj/item/trash/cheesie,
-/turf/open/floor/wood/ms13/common,
-/area/ms13/underground/underground_town)
+/obj/machinery/light/ms13,
+/turf/open/floor/ms13/metal,
+/area/ms13/underground/bos)
 "luP" = (
 /obj/structure/fence/fencenormal{
 	dir = 8
@@ -15111,15 +15117,6 @@
 	},
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 4
-	},
-/obj/machinery/light/ms13/bulb/industrial{
-	dir = 4
-	},
-/obj/machinery/ms13/terminal/wall/classic{
-	dir = 8;
-	remote_capability = 1;
-	signal_id_single = "BunkerEscape";
-	signal_title_single = "Bunker Escape Protocols"
 	},
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
@@ -15875,6 +15872,9 @@
 /area/ms13/town)
 "sfK" = (
 /obj/effect/spawner/random/ms13/crafting/highrandom,
+/obj/machinery/light/ms13/bulb{
+	dir = 4
+	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "sfN" = (
@@ -16094,16 +16094,21 @@
 /turf/open/floor/ms13/metal,
 /area/ms13/town)
 "tcy" = (
-/obj/item/trash/candy,
-/turf/open/floor/wood/ms13/common,
-/area/ms13/underground/underground_town)
+/obj/machinery/light/ms13/bulb{
+	dir = 4
+	},
+/turf/open/floor/ms13/metal,
+/area/ms13/underground/bos)
 "tgh" = (
 /obj/item/clothing/head/helmet/ms13/hardhat,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/underground_town)
 "tjH" = (
-/obj/item/reagent_containers/food/drinks/waterbottle/empty,
-/turf/open/floor/wood/ms13/common,
+/obj/structure/closet/ms13/fridge,
+/obj/effect/spawner/random/ms13/guarenteed/food/produce_random,
+/obj/effect/spawner/random/ms13/food/produce_random,
+/obj/effect/spawner/random/ms13/food/produce_random,
+/turf/open/floor/ms13/tile,
 /area/ms13/underground/underground_town)
 "tkx" = (
 /obj/effect/spawner/random/ms13/guarenteed/tools/radio/high,
@@ -16157,14 +16162,9 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/underground_town)
 "tCI" = (
-/obj/machinery/ms13/terminal/vault,
-/turf/open/floor/ms13/metal,
-/area/ms13/underground/vault_atrium_lower)
-"tDB" = (
-/obj/structure/ms13/rug/rubber,
-/obj/machinery/ms13/terminal/vault,
-/turf/open/floor/ms13/metal,
-/area/ms13/underground/vault_atrium_lower)
+/obj/machinery/door/unpowered/ms13/metal,
+/turf/open/floor/wood/ms13/common,
+/area/ms13/underground/underground_town)
 "tGS" = (
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/wood/ms13/carpet/blue,
@@ -16751,6 +16751,11 @@
 /area/ms13/underground/mountain)
 "wFm" = (
 /obj/effect/spawner/random/ms13/gun/highrandom,
+/obj/machinery/ms13/terminal/wall/classic{
+	remote_capability = 1;
+	signal_id_single = "BunkerEscape";
+	signal_title_single = "Bunker Escape Protocols"
+	},
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "wFx" = (
@@ -16759,6 +16764,7 @@
 /area/ms13/underground/sewer)
 "wJm" = (
 /obj/structure/fluff/ms13/barrel/single/warning/two,
+/obj/machinery/light/ms13/bulb/industrial,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "wKu" = (
@@ -20491,7 +20497,7 @@ asP
 qZS
 aTg
 aoM
-asP
+aQJ
 kkx
 asP
 asP
@@ -20794,7 +20800,7 @@ asP
 asP
 aNV
 asP
-tCI
+asP
 rRS
 asP
 vyo
@@ -21096,7 +21102,7 @@ asP
 asP
 aNV
 asP
-tDB
+kkx
 asP
 asP
 aoM
@@ -21397,7 +21403,7 @@ asP
 sQu
 kGF
 aoM
-asP
+aQJ
 asP
 asP
 asP
@@ -22084,7 +22090,7 @@ aRd
 aro
 aWo
 auM
-aDL
+aWo
 aRd
 afU
 afU
@@ -38652,12 +38658,12 @@ aZW
 aYO
 aYO
 aZW
-afU
-afU
-afU
-afU
-afU
-afU
+aZW
+aZW
+aZW
+aZW
+aZW
+aZW
 afU
 afU
 afU
@@ -38954,11 +38960,11 @@ aZW
 azd
 aqu
 aZW
-aZW
-aZW
-aZW
-aZW
-aZW
+aAs
+adP
+aAk
+aYO
+aVu
 aZW
 afU
 afU
@@ -39257,10 +39263,10 @@ aAs
 aAs
 aZW
 aQN
-aYO
-aGG
 aoq
-aBz
+aYO
+aYO
+aYO
 aZW
 afU
 afU
@@ -39485,7 +39491,7 @@ aBK
 afK
 anJ
 atU
-aQJ
+adH
 anJ
 aRo
 aEE
@@ -39558,11 +39564,11 @@ aBz
 aBz
 aBz
 aZW
-alN
-aYO
-aQx
-adP
 aBz
+aGG
+aYO
+aYO
+aYx
 aZW
 afU
 afU
@@ -39860,11 +39866,11 @@ avi
 aTG
 aBz
 aZW
-aVu
+aAs
+adP
 aYO
-aGG
-aYx
-aBz
+aYO
+kks
 aZW
 afU
 afU
@@ -40162,9 +40168,9 @@ evi
 aus
 aZg
 aZW
-aYO
-aYO
 aZW
+aZW
+aQx
 aZW
 aZW
 aZW
@@ -46614,7 +46620,7 @@ aFO
 aFO
 aKY
 aFO
-aLn
+tjH
 aSR
 aSR
 aFN
@@ -47528,7 +47534,7 @@ aaz
 aaz
 aaz
 aaz
-tcy
+aaz
 aaz
 aRy
 afU
@@ -48132,7 +48138,7 @@ aaz
 aTw
 aTw
 aaz
-tjH
+aaz
 aaz
 aaz
 aRy
@@ -51147,15 +51153,15 @@ afU
 aaz
 aUM
 aaz
-lpN
 aaz
 aaz
 aaz
 aaz
 aaz
 aaz
-tjH
-aFO
+aaz
+aaz
+tCI
 akx
 akx
 afU
@@ -74591,7 +74597,7 @@ ayd
 azt
 aBs
 azt
-azt
+lpN
 alU
 azt
 aCh
@@ -74888,7 +74894,7 @@ ahQ
 azt
 azt
 alU
-azt
+aRP
 azt
 azt
 alU
@@ -75794,7 +75800,7 @@ ajN
 azt
 azt
 alU
-azt
+aRP
 azt
 azt
 akY
@@ -76403,7 +76409,7 @@ alU
 alU
 alU
 azt
-azt
+lpN
 alU
 alU
 alU
@@ -77612,7 +77618,7 @@ asV
 asV
 alU
 aVa
-azt
+tcy
 aVa
 alU
 alU
@@ -77848,11 +77854,11 @@ aEW
 aEW
 aEW
 aEW
-afU
-afU
-afU
-afU
-afU
+aEW
+aEW
+aEW
+aEW
+aEW
 afU
 afU
 afU
@@ -78150,13 +78156,13 @@ aDd
 aFh
 avj
 aEW
+aDL
+aKM
+aDd
+aDd
 aEW
-aEW
-aEW
-aEW
-aEW
-aEW
-aEW
+afU
+afU
 afU
 afU
 afU
@@ -78453,12 +78459,12 @@ aEW
 aEW
 aEW
 aoF
-aDd
-aDd
-aRB
 aKM
 aDd
+aZy
 aEW
+afU
+afU
 afU
 afU
 afU
@@ -78754,13 +78760,13 @@ aDd
 aFh
 avj
 aEW
+aHF
 aDd
 aDd
-aDd
-ard
-aRP
 aDd
 aEW
+afU
+afU
 afU
 afU
 afU
@@ -79056,13 +79062,13 @@ aEW
 aEW
 aEW
 aEW
-aau
+aEW
+aEW
 aDd
-aDd
-aRB
-aRP
 aDd
 aEW
+afU
+afU
 afU
 afU
 afU
@@ -79355,16 +79361,16 @@ aEW
 azR
 aDd
 aEW
-aDd
-aDd
+aau
 azR
+aDd
 aan
+azR
 aDd
 aDd
 aEW
-aEW
-aEW
-aEW
+afU
+afU
 afU
 afU
 afU
@@ -79663,8 +79669,8 @@ aDd
 aDd
 aDd
 aDd
+aZy
 aEW
-afU
 afU
 afU
 afU
@@ -79965,8 +79971,8 @@ pal
 aDd
 alf
 aDd
+aDd
 aEW
-afU
 afU
 afU
 afU
@@ -80563,7 +80569,7 @@ aEW
 aEW
 aEW
 aEW
-aHF
+aDd
 aDd
 aDd
 aDd
