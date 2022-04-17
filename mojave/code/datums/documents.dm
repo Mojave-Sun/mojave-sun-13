@@ -17,6 +17,11 @@
 	content = "	Bad data. Cannot read \
 	<br><br>Contact Administrator for assistance or send a letter to your local RobCo facility and fill a repair request."
 
+/datum/terminal/document/joker //For rigged terminals
+	title = "Got you!"
+	content = "Hear that ticking? I bet you do. That's right- you fell for it. You're an IDIOT. By the time you even finish reading this, the bomb stashed in the back of the terminal is destined to go off. Should have used your eyes, you damn idiot.\
+		I would say let this be a lesson- But you're already dead, no?"
+
 // Mammoth specific notes //
 
 /datum/terminal/document/water_plant_notice // For the water plant terminal with sewer control

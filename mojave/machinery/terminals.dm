@@ -26,7 +26,7 @@
 	var/prog_notekeeper = TRUE // Almost all consoles have the word processor installed, but we can remove it if we want to
 	var/remote_capability = FALSE // For special terminals that can activate certain things. Wall terminals / The quirky ones with antennas namely
 	var/rigged = FALSE // Ultra cursed var. If true, terminal explodes violently on certain interaction. Delightfully devilish.
-	var/craft = FALSE // For messed up stuff as a result of making a terminal yourself.
+	var/riggable = TRUE // To determine rigging eligibility
 	var/datum/looping_sound/ms13/terminal/soundloop
 	var/password_needed = FALSE
 	var/password
@@ -343,6 +343,7 @@
 				loaded_title = doc_title_5
 				loaded_content = doc_content_5
 				mode = 2
+
 // Signal sender - Should have a few of these just in case.
 			if("signal_one")
 				id = signal_id_1
@@ -372,9 +373,13 @@
 				id = signal_id_single
 				transmit_signal()
 
+// Joker - AKA character killer
 			if("joker") // It's go time. Used for rigged terminals.
-				loaded_title = doc_title_1
-				loaded_content = doc_content_1
+				var/file_in_memory = /datum/terminal/document/joker
+				var/datum/terminal/document/J = new file_in_memory
+
+				loaded_title = J.title
+				loaded_content = J.content
 				mode = 2
 				addtimer(CALLBACK(src, .proc/Boom), 2 SECONDS)
 				message_admins("A rigged terminal has been triggered. [ADMIN_JMP(src)].")
@@ -464,6 +469,7 @@
 	termtag = "Utility"
 	active = FALSE
 	density = FALSE
+	riggable = FALSE
 	var/flippable = TRUE
 
 /obj/machinery/ms13/terminal/wall/Initialize(mapload)
@@ -523,3 +529,19 @@
 /obj/machinery/ms13/terminal/pristine/mayor/Initialize(mapload)
 	. = ..()
 	password = "[GLOB.fscpassword]"
+
+//// Wasteland Computers ////
+/// Potentially controversial. These are computers that should be primarily scatterd through the wastland. They have a high chance of being inoperable roundstart, and a VERY VERY SLIGHT chance to be visibly rigged to explode. ///
+
+/obj/machinery/ms13/terminal/wasteland
+
+/obj/machinery/ms13/terminal/wasteland/Initialize(mapload)
+	if(prob(65))
+		broken = TRUE
+		riggable = FALSE
+		update_icon_state()
+	if(!riggable)
+		return
+	else if(prob(1)) // Ultra rare pre-rigged terminals. Stay woke out there.
+		rigged = TRUE
+	. = ..()

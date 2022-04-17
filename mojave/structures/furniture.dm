@@ -92,7 +92,7 @@
 	icon = 'mojave/icons/structure/miscellaneous.dmi'
 	icon_state = "phone_red"
 	max_integrity = 100
-	density = TRUE
+	density = FALSE
 	anchored = TRUE
 
 /obj/structure/ms13/phone/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
