@@ -7004,9 +7004,11 @@
 /turf/open/floor/ms13/metal/pipe/corner,
 /area/ms13/underground/enclave_base)
 "aCK" = (
-/mob/living/simple_animal/mouse,
-/turf/open/floor/ms13/metal,
-/area/ms13/underground/vault_atrium_lower)
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/ms13/metal/stayclear{
+	dir = 1
+	},
+/area/ms13/underground/sewer)
 "aCM" = (
 /obj/structure/chair/ms13/wood{
 	dir = 4
@@ -7971,10 +7973,10 @@
 /turf/open/floor/ms13/tile/long,
 /area/ms13/town)
 "aGG" = (
-/obj/effect/turf_decal/stripes/line,
-/turf/open/floor/ms13/metal/stayclear{
-	dir = 1
+/obj/machinery/door/unpowered/ms13/seethrough/grate{
+	dir = 4
 	},
+/turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/sewer)
 "aGH" = (
 /obj/structure/lattice/catwalk/ms13,
@@ -10416,7 +10418,8 @@
 /turf/open/floor/ms13/tile,
 /area/ms13/underground/underground_town)
 "aQx" = (
-/obj/machinery/door/unpowered/ms13/seethrough/grate{
+/obj/effect/spawner/random/ms13/tools/tool,
+/obj/structure/ms13/storage/large/shelf{
 	dir = 4
 	},
 /turf/open/floor/ms13/concrete/industrial,
@@ -11603,10 +11606,7 @@
 /turf/open/floor/wood/ms13/carpet/green,
 /area/ms13/underground/underground_town)
 "aVu" = (
-/obj/effect/spawner/random/ms13/tools/tool,
-/obj/structure/ms13/storage/large/shelf{
-	dir = 4
-	},
+/obj/effect/spawner/random/ms13/tools/lights,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/sewer)
 "aVv" = (
@@ -12323,7 +12323,7 @@
 /turf/closed/indestructible/ms13/metal,
 /area/ms13/underground/sewer)
 "aYx" = (
-/obj/effect/spawner/random/ms13/tools/lights,
+/obj/effect/spawner/random/ms13/tools/radio,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/sewer)
 "aYy" = (
@@ -14365,10 +14365,6 @@
 /obj/effect/spawner/random/ms13/armor/tier3,
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/underground_town)
-"kks" = (
-/obj/effect/spawner/random/ms13/tools/radio,
-/turf/open/floor/ms13/concrete/industrial,
-/area/ms13/underground/sewer)
 "kkx" = (
 /obj/structure/ms13/rug/rubber,
 /turf/open/floor/ms13/metal,
@@ -28974,7 +28970,7 @@ axm
 axm
 aoM
 asP
-aCK
+asP
 aEl
 afU
 afU
@@ -38964,7 +38960,7 @@ aAs
 adP
 aAk
 aYO
-aVu
+aQx
 aZW
 afU
 afU
@@ -39565,10 +39561,10 @@ aBz
 aBz
 aZW
 aBz
-aGG
+aCK
 aYO
 aYO
-aYx
+aVu
 aZW
 afU
 afU
@@ -39870,7 +39866,7 @@ aAs
 adP
 aYO
 aYO
-kks
+aYx
 aZW
 afU
 afU
@@ -40170,7 +40166,7 @@ aZg
 aZW
 aZW
 aZW
-aQx
+aGG
 aZW
 aZW
 aZW
