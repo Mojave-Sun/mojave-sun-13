@@ -17,6 +17,7 @@
 	storage_flags = STORAGE_NO_WORN_ACCESS
 	resistance_flags = NONE
 	max_integrity = 300
+	drag_slowdown = 2
 	component_type = /datum/component/storage/concrete/ms13/grid
 	grid_height = 288 //NO BACKPACK STACKING
 	grid_width = 288 //NO BACKPACK STACKING
