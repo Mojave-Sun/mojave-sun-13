@@ -821,6 +821,11 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		. = COMPONENT_CANCEL_ATTACK_CHAIN
 		return
 
+	//MOJAVE EDIT BEGIN
+	if(!worn_check(A, user, TRUE))
+		return COMPONENT_CANCEL_ATTACK_CHAIN
+	//MOJAVE EDIT END
+
 	if(rustle_sound)
 		playsound(A, "rustle", 50, TRUE, -5)
 

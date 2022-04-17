@@ -6,8 +6,6 @@
 #define STORAGE_NO_WORN_ACCESS (1<<0)
 /// Must be out of the user to be accessed
 #define STORAGE_NO_EQUIPPED_ACCESS (1<<1)
-/// jimmy joger variable
-#define CHECK_BITFIELD(variable, flag) (variable & (flag))
 
 /obj/item
 	// ~Grid INVENTORY VARIABLES
@@ -340,9 +338,8 @@
 		var/obj/item/hand_labeler/labeler = attacking_item
 		if(labeler.mode)
 			return FALSE
-	. = TRUE //no afterattack
 	if(iscyborg(user))
-		return
+		return TRUE
 	if(!can_be_inserted(attacking_item, FALSE, user, params = params, storage_click = storage_click))
 		var/atom/real_location = real_location()
 		if(LAZYLEN(real_location.contents) >= max_items) //don't use items on the backpack if they don't fit
@@ -351,10 +348,9 @@
 	return handle_item_insertion(attacking_item, FALSE, user, params = params, storage_click = storage_click)
 
 /datum/component/storage/on_move()
-	var/atom/A = parent
-	for(var/mob/living/L in can_see_contents())
-		if(!L.CanReach(A) || !worn_check(A, L, TRUE))
-			hide_from(L)
+	for(var/mob/living/living_viewer in can_see_contents())
+		if(!living_viewer.CanReach(parent) || !worn_check(parent, living_viewer, TRUE))
+			hide_from(living_viewer)
 
 /datum/component/storage/proc/on_equipped(obj/item/source, mob/user, slot)
 	SIGNAL_HANDLER
