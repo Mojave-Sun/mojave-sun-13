@@ -439,8 +439,8 @@
 	turns_per_move = 3
 	butcher_results = list()//honeybeast meat, queen bee, chitin
 	attack_sound = 'sound/weapons/bite.ogg'
-	health = 200
-	maxHealth = 200
+	health = 180
+	maxHealth = 180
 	melee_damage_lower = 5
 	melee_damage_upper = 10
 	speed = 3
@@ -478,10 +478,10 @@
 	turns_per_move = 4
 	butcher_results = list()//radscoprion meat, radscorpion tail, chitin
 	attack_sound = 'sound/weapons/slash.ogg'
-	health = 180
-	maxHealth = 180
-	melee_damage_lower = 25
-	melee_damage_upper = 35
+	health = 160
+	maxHealth = 160
+	melee_damage_lower = 20
+	melee_damage_upper = 30
 	base_pixel_x = -8
 	speed = 2
 	footstep_type = FOOTSTEP_MOB_CLAW
