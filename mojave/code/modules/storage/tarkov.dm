@@ -6,11 +6,6 @@
 #define STORAGE_NO_WORN_ACCESS (1<<0)
 /// Must be out of the user to be accessed
 #define STORAGE_NO_EQUIPPED_ACCESS (1<<1)
-/// jimmy joger variable
-#define CHECK_BITFIELD(variable, flag) (variable & (flag))
-// ~storage component
-///from base of datum/component/storage/can_user_take(): (mob/user)
-#define COMSIG_STORAGE_BLOCK_USER_TAKE "storage_block_user_take"
 
 /obj/item
 	// ~Grid INVENTORY VARIABLES
@@ -98,7 +93,7 @@
 	if(!grid_box_size)
 		grid_box_size = world.icon_size
 	. = ..()
-	if(!.)
+	if(.)
 		return
 	RegisterSignal(parent, COMSIG_STORAGE_BLOCK_USER_TAKE, .proc/should_block_user_take)
 
@@ -345,15 +340,19 @@
 		var/obj/item/hand_labeler/labeler = attacking_item
 		if(labeler.mode)
 			return FALSE
-	. = TRUE //no afterattack
 	if(iscyborg(user))
-		return
+		return TRUE
 	if(!can_be_inserted(attacking_item, FALSE, user, params = params, storage_click = storage_click))
 		var/atom/real_location = real_location()
 		if(LAZYLEN(real_location.contents) >= max_items) //don't use items on the backpack if they don't fit
 			return TRUE
 		return FALSE
 	return handle_item_insertion(attacking_item, FALSE, user, params = params, storage_click = storage_click)
+
+/datum/component/storage/on_move()
+	for(var/mob/living/living_viewer in can_see_contents())
+		if(!living_viewer.CanReach(parent) || !worn_check(parent, living_viewer, TRUE))
+			hide_from(living_viewer)
 
 /datum/component/storage/proc/on_equipped(obj/item/source, mob/user, slot)
 	SIGNAL_HANDLER
@@ -366,36 +365,37 @@
 		hide_from(user)
 	update_actions()
 
-/datum/component/storage/proc/worn_check(obj/item/storing, mob/user, no_message = FALSE)
+/datum/component/storage/proc/worn_check(obj/item/storer, mob/user, no_message = FALSE)
 	. = TRUE
-	if(!istype(storing) || !istype(user) || !CHECK_BITFIELD(storage_flags, STORAGE_NO_WORN_ACCESS|STORAGE_NO_EQUIPPED_ACCESS))
+	if(!istype(storer) || !istype(user) || !(storage_flags & STORAGE_NO_WORN_ACCESS|STORAGE_NO_EQUIPPED_ACCESS))
 		return TRUE
 
-	if((storage_flags & STORAGE_NO_EQUIPPED_ACCESS) && (storing.item_flags & IN_INVENTORY))
+	if((storage_flags & STORAGE_NO_EQUIPPED_ACCESS) && (storer.item_flags & IN_INVENTORY))
 		if(!no_message)
-			to_chat(user, span_warning("[storing] is too bulky! I need to set it down before I can access it's contents!"))
+			to_chat(user, span_warning("[storer] is too bulky! I need to set it down before I can access it's contents!"))
 		return FALSE
-	else if((storage_flags & STORAGE_NO_WORN_ACCESS) && (storing.item_flags & IN_INVENTORY) && !(storing in user.held_items))
+	else if((storage_flags & STORAGE_NO_WORN_ACCESS) && (storer.item_flags & IN_INVENTORY) && !user.is_holding(storer))
 		if(!no_message)
-			to_chat(user, span_warning("My arms aren't long enough to reach into [storing] while wearing it!"))
+			to_chat(user, span_warning("My arms aren't long enough to reach into [storer] while wearing it!"))
 		return FALSE
 
-/datum/component/storage/proc/worn_check_aggressive(obj/item/storing, mob/user, no_message = FALSE)
+/datum/component/storage/proc/worn_check_aggressive(obj/item/storer, mob/user, no_message = FALSE)
 	. = TRUE
-	if(!istype(storing) || !istype(user) || !CHECK_BITFIELD(storage_flags, STORAGE_NO_WORN_ACCESS|STORAGE_NO_EQUIPPED_ACCESS))
+	if(!istype(storer) || !istype(user) || !(storage_flags & STORAGE_NO_WORN_ACCESS | STORAGE_NO_EQUIPPED_ACCESS))
 		return TRUE
 
 	if(storage_flags & STORAGE_NO_EQUIPPED_ACCESS)
 		if(!no_message)
-			to_chat(user, span_warning("[storing] is too bulky! I need to set it down before I can access it's contents!"))
+			to_chat(user, span_warning("[storer] is too bulky! I need to set it down before I can access it's contents!"))
 		return FALSE
-	else if((storage_flags & STORAGE_NO_WORN_ACCESS) && !(storing in user.held_items))
+	else if((storage_flags & STORAGE_NO_WORN_ACCESS) && !user.is_holding(storer))
 		if(!no_message)
-			to_chat(user, span_warning("My arms aren't long enough to reach into [storing] while wearing it!"))
+			to_chat(user, span_warning("My arms aren't long enough to reach into [storer] while wearing it!"))
 		return FALSE
 
-/datum/component/storage/proc/should_block_user_take(obj/item/stored, mob/user, worn_check = FALSE, no_message = FALSE)
-	if(worn_check && !worn_check(parent, user, no_message))
+/datum/component/storage/proc/should_block_user_take(datum/source, obj/item/stored, mob/user, worn_check = FALSE, no_message = FALSE)
+	SIGNAL_HANDLER
+	if(worn_check && !worn_check(source, user, no_message))
 		return TRUE
 	var/atom/real_location = real_location()
 	var/atom/recursive_loc = real_location?.loc
