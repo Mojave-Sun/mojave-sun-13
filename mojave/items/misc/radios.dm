@@ -61,7 +61,7 @@
 		return TRUE
 	..()
 	weapon.play_tool_sound(src)
-	if(do_after(user, 25 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+	if(do_after(user, 30 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
 		deconstruct(disassembled = TRUE)
 		return TRUE
 
