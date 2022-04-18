@@ -634,6 +634,25 @@
 	desc = "A classic wooden fence. It doesn't get more homely than this."
 	icon_state = "wood_full"
 
+/obj/structure/railing/ms13/wood/crowbar_act_secondary(mob/living/user, obj/item/weapon)
+	if(flags_1&NODECONSTRUCT_1)
+		return TRUE
+	..()
+	weapon.play_tool_sound(src)
+	if(do_after(user, 30 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+		deconstruct(disassembled = TRUE)
+		return TRUE
+
+/obj/structure/railing/ms13/wood/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/plank(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 2)
+		else
+			new /obj/item/stack/sheet/ms13/scrap_wood(loc)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
+	qdel(src)
+
 /obj/structure/railing/ms13/wood/single
 	icon_state = "wood_solo"
 
