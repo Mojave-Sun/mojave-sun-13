@@ -51,22 +51,19 @@
 	if(manifest)
 		tear_manifest(user)
 
-/obj/structure/closet/crate/ms13/woodcrate/crowbar_act_secondary(mob/living/user, obj/item/weapon)
+/obj/structure/closet/crate/ms13/woodcrate/crowbar_act_secondary(mob/living/user, obj/item/tool)
 	if(flags_1&NODECONSTRUCT_1)
 		return TRUE
 	..()
 	user.visible_message("<span class='notice'>[user] starts to break \the [src] open.</span>", \
 		"<span class='notice'>You start to break \the [src] open.</span>", \
 		"<span class='hear'>You hear splitting wood.</span>")
-	weapon.play_tool_sound(src)
-	if(do_after(user, 10 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+	tool.play_tool_sound(src)
+	if(do_after(user, 10 SECONDS * tool.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_DECON))
 		playsound(src.loc, 'mojave/sound/ms13effects/wood_deconstruction.ogg', 50, TRUE)
 		user.visible_message("<span class='notice'>[user] pries \the [src] open.</span>", \
 			"<span class='notice'>You pry open \the [src].</span>", \
 			"<span class='hear'>You hear splitting wood.</span>")
-		var/turf/T = get_turf(src)
-		for(var/atom/movable/AM in contents)
-			AM.forceMove(T)
 		deconstruct(disassembled = TRUE)
 		return TRUE
 
@@ -78,6 +75,9 @@
 		else
 			new /obj/item/stack/sheet/ms13/scrap_wood(loc)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
+	var/turf/T = get_turf(src)
+		for(var/atom/movable/AM in contents)
+			AM.forceMove(T)
 	qdel(src)
 
 /obj/structure/closet/crate/ms13/woodcrate/compact

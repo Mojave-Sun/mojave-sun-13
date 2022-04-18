@@ -654,7 +654,7 @@
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
 			new /obj/item/stack/sheet/ms13/plank(loc, 2)
-			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 2)
 		else
 			new /obj/item/stack/sheet/ms13/scrap_wood(loc)
 	qdel(src)
@@ -664,7 +664,8 @@
 	. += deconstruction_hints(user)
 
 /obj/structure/railing/ms13/wood/proc/deconstruction_hints(mob/user)
-	return span_notice("You could use a <b>crowbar</b> or similar prying tool to dismantle [src] for planks.")
+	return span_notice("You could use a <b>crowbar</b> or similar prying tool to dismantle [src] for planks and parts.")
+
 /obj/structure/railing/ms13/wood/single
 	icon_state = "wood_solo"
 
