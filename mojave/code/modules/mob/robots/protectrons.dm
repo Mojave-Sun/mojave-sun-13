@@ -58,7 +58,7 @@
 
 /mob/living/simple_animal/hostile/ms13/robot/protectron/police/Initialize()
 	. = ..()
-	if(prob(60))
+	if(prob(65))
 		desc = "A protectron given the duty of upholding law. This one is equipped with standard laser weaponry."
 
 	else
