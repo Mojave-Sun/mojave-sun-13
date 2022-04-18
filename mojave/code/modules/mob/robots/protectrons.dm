@@ -58,7 +58,7 @@
 
 /mob/living/simple_animal/hostile/ms13/robot/protectron/police/Initialize()
 	. = ..()
-	if(prob(65))
+	if(prob(60))
 		desc = "A protectron given the duty of upholding law. This one is equipped with standard laser weaponry."
 
 	else
@@ -72,7 +72,7 @@
 		retreat_distance = null
 		projectiletype = /obj/projectile/energy/electrode/ms13
 		projectilesound = 'mojave/sound/ms13weapons/gunsounds/bb/wpn_bbgun_fire_2d.ogg'
-		ranged_cooldown = 4 SECONDS
+		ranged_cooldown = 5 SECONDS
 
 /mob/living/simple_animal/hostile/ms13/robot/protectron/builder
 	desc = "A heavy duty protectron that is equipped with basic tools in order to aid construction workers. Stay clear!"
