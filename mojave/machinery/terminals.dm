@@ -111,6 +111,7 @@
 			new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 3)
 			new /obj/item/stack/sheet/ms13/scrap_copper(loc, 3)
 			new /obj/item/stack/sheet/ms13/circuits(loc)
+			new /obj/item/ms13/component/vacuum_tube(loc)
 		else
 			new /obj/item/stack/sheet/ms13/scrap(loc)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
