@@ -4288,9 +4288,8 @@
 /area/ms13/town)
 "aoI" = (
 /obj/structure/table/ms13/wood,
-/obj/item/restraints/handcuffs,
-/obj/item/storage/box/evidence,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/item/restraints/handcuffs/ms13,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "aoJ" = (
@@ -7229,6 +7228,7 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
 /obj/structure/table/ms13/low_wall/concrete,
 /obj/structure/window/fulltile/ms13/glass,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
 /turf/closed/wall/ms13/concrete,
 /area/ms13/underground/tunnel/maintenance)
 "azn" = (
@@ -7677,6 +7677,7 @@
 	signal_id_1 = "senior-paladin-pa-storage";
 	signal_title_1 = "Power Armor Storage"
 	},
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/bos)
 "aAR" = (
@@ -7767,9 +7768,6 @@
 	},
 /turf/open/floor/wood/ms13/carpet/shaggy/green,
 /area/ms13/town)
-"aBi" = (
-/turf/open/floor/ms13/metal,
-/area/ms13/underground/bos)
 "aBj" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/machinery/door/unpowered/ms13/wood{
@@ -12866,9 +12864,6 @@
 /obj/structure/table/ms13/no_smooth/metal,
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/supermarket)
-"aTu" = (
-/turf/closed/wall/ms13/bunker,
-/area/ms13/underground/bos)
 "aTv" = (
 /obj/structure/table/ms13/no_smooth/large/wood/square{
 	dir = 4
@@ -13255,7 +13250,6 @@
 	pixel_x = -2;
 	pixel_y = 10
 	},
-/obj/item/reagent_containers/glass/beaker/cryoxadone,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/ms13/storage/vent,
 /turf/open/floor/ms13/tile/blue/long,
@@ -13288,13 +13282,6 @@
 /obj/structure/bed/ms13/mattress/old,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/wide,
-/area/ms13/town)
-"aUT" = (
-/obj/item/reagent_containers/glass/beaker/cryoxadone{
-	pixel_y = 6
-	},
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/ms13/tile/large/white,
 /area/ms13/town)
 "aUU" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -16093,6 +16080,13 @@
 	},
 /obj/effect/spawner/random/ms13/guarenteed/medical/lowrandom,
 /turf/open/floor/ms13/tile/long,
+/area/ms13/town)
+"jbl" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/door/unpowered/ms13/metal{
+	dir = 8
+	},
+/turf/open/floor/ms13/metal,
 /area/ms13/town)
 "jbD" = (
 /obj/structure/table/ms13/metal,
@@ -30156,7 +30150,7 @@ agA
 agA
 aCj
 aCj
-aiO
+jbl
 aCj
 aCj
 aAq
@@ -68820,7 +68814,7 @@ aHf
 agP
 aTA
 aTA
-aUT
+aTA
 aET
 aan
 aLH
@@ -80001,8 +79995,8 @@ aPY
 aPY
 aPY
 aPY
-aLH
-aLH
+aPY
+aPY
 aLH
 aLH
 aLH
@@ -80292,7 +80286,7 @@ aNU
 aoN
 aPy
 acF
-aTu
+acF
 aPY
 aPY
 aPY
@@ -80302,10 +80296,10 @@ aPY
 aPY
 aPY
 aPY
-aLH
-aLH
-aLH
-aLH
+aPY
+aPY
+aPY
+aPY
 aLH
 aLH
 aLH
@@ -80604,10 +80598,10 @@ aPY
 aPY
 aPY
 aPY
-aLH
-aLH
-aLH
-aLH
+aPY
+aPY
+aPY
+aPY
 aLH
 aLH
 aLH
@@ -80905,11 +80899,11 @@ aPY
 aPY
 aPY
 aPY
-aLH
-aLH
-aLH
-aLH
-aLH
+aPY
+aPY
+aPY
+aPY
+aPY
 aLH
 aLH
 aLH
@@ -81207,11 +81201,11 @@ aPY
 aPY
 aPY
 aPY
-aLH
-aLH
-aLH
-aLH
-aLH
+aPY
+aPY
+aPY
+aPY
+aPY
 aLH
 aLH
 aLH
@@ -81490,7 +81484,7 @@ akw
 ami
 aoN
 aoN
-aBi
+aoN
 acF
 aeB
 aeB
@@ -81509,10 +81503,10 @@ aPY
 aPY
 aPY
 aPY
-aLH
-aLH
-aLH
-aLH
+aPY
+aPY
+aPY
+aPY
 aLH
 aLH
 aLH
@@ -81811,10 +81805,10 @@ aPY
 aPY
 aPY
 aPY
-aLH
-aLH
-aLH
-aLH
+aPY
+aPY
+aPY
+aPY
 aLH
 aLH
 aLH
@@ -82114,9 +82108,9 @@ aPY
 aPY
 aPY
 aPY
-aLH
-aLH
-aLH
+aPY
+aPY
+aPY
 aLH
 aLH
 aLH
@@ -82416,9 +82410,9 @@ aPY
 aPY
 aPY
 aPY
-aLH
-aLH
-aLH
+aPY
+aPY
+aPY
 aLH
 aLH
 aLH
@@ -82719,7 +82713,7 @@ aPY
 aPY
 aPY
 aPY
-aLH
+aPY
 aLH
 aLH
 aLH
@@ -83625,8 +83619,8 @@ aPY
 aPY
 aPY
 aPY
-aPY
-aPY
+aLH
+aLH
 aLH
 aLH
 aLH
@@ -83927,8 +83921,8 @@ aPY
 aPY
 aPY
 aPY
-aPY
-aPY
+aLH
+aLH
 aLH
 aLH
 aLH
@@ -84229,8 +84223,8 @@ aPY
 aPY
 aPY
 aPY
-aPY
-aPY
+aLH
+aLH
 aLH
 aLH
 aLH
@@ -84531,8 +84525,8 @@ aPY
 aPY
 aPY
 aPY
-aPY
-aPY
+aLH
+aLH
 aLH
 aLH
 aLH
@@ -84833,8 +84827,8 @@ aPY
 aPY
 aPY
 aPY
-aPY
-aPY
+aLH
+aLH
 aLH
 aLH
 aLH
@@ -85135,9 +85129,9 @@ aPY
 aPY
 aPY
 aPY
-aPY
-aPY
-aPY
+aLH
+aLH
+aLH
 aLH
 aLH
 aLH
@@ -85438,8 +85432,8 @@ aPY
 aPY
 aPY
 aPY
-aPY
-aPY
+aLH
+aLH
 aLH
 aLH
 aLH
@@ -85740,10 +85734,10 @@ aPY
 aPY
 aPY
 aPY
-aPY
-aPY
-aPY
-aPY
+aLH
+aLH
+aLH
+aLH
 aLH
 aLH
 aLH
@@ -86043,9 +86037,9 @@ aPY
 aPY
 aPY
 aPY
-aPY
-aPY
-aPY
+aLH
+aLH
+aLH
 aLH
 aLH
 aLH
@@ -86345,10 +86339,10 @@ aPY
 aPY
 aPY
 aPY
-aPY
-aPY
-aPY
-aPY
+aLH
+aLH
+aLH
+aLH
 aLH
 aLH
 aLH
@@ -86648,9 +86642,9 @@ aPY
 aPY
 aPY
 aPY
-aPY
-aPY
-aPY
+aLH
+aLH
+aLH
 aLH
 aLH
 aLH
@@ -86950,11 +86944,11 @@ aPY
 aPY
 aPY
 aPY
-aPY
-aPY
-aPY
-aPY
-aPY
+aLH
+aLH
+aLH
+aLH
+aLH
 aLH
 aLH
 aLH
@@ -87252,10 +87246,10 @@ aPY
 aPY
 aPY
 aPY
-aPY
-aPY
-aPY
-aPY
+aLH
+aLH
+aLH
+aLH
 aPY
 aPY
 aPY
