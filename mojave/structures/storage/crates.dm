@@ -76,8 +76,8 @@
 			new /obj/item/stack/sheet/ms13/scrap_wood(loc)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
 	var/turf/T = get_turf(src)
-		for(var/atom/movable/AM in contents)
-			AM.forceMove(T)
+	for(var/atom/movable/AM in contents)
+		AM.forceMove(T)
 	qdel(src)
 
 /obj/structure/closet/crate/ms13/woodcrate/compact
