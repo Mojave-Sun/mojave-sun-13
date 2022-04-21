@@ -52,7 +52,7 @@
 /obj/item/flashlight/flare/ms13/Initialize()
 	. = ..()
 	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
-	fuel = rand(900, 1200) //This is remaining fuel in seconds, so this puts every flare at between 15-20 minutes of life time.
+	fuel = rand(720, 1080) //This is remaining fuel in seconds, so this puts every flare at between 12-18 minutes of life time.
 
 /obj/item/flashlight/flare/torch/ms13
 	name = "torch"
