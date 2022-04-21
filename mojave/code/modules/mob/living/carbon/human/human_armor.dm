@@ -1,13 +1,13 @@
-/mob/living/carbon/human/getsubarmor(def_zone, type)
+/mob/living/carbon/human/getsubarmor(def_zone, d_type)
 	if(!def_zone)
 		//no averaging values when no bodypart is specified, that's stupid
 		return 0
 	if(isbodypart(def_zone))
-		return checksubarmor(def_zone, type)
+		return checksubarmor(def_zone, d_type)
 	var/obj/item/bodypart/affecting = get_bodypart(check_zone(def_zone))
 	if(affecting)
 		//If a specific bodypart is targeted, check how that bodypart is protected and return the value.
-		return checksubarmor(affecting, type)
+		return checksubarmor(affecting, d_type)
 
 //We only get the most superficial edge protection, no stacking!
 /mob/living/carbon/human/get_edge_protection(def_zone)
@@ -36,12 +36,12 @@
 		else
 			affecting = get_bodypart(check_zone(def_zone))
 
-	//if you don't specify a bodypart then only your phisiology matters
+	//if you don't specify a bodypart then only your physiology matters
 	if(!affecting)
 		return physiology.subarmor.subarmor_flags
 
 	var/list/clothings = clothingonpart(affecting)
-	for(var/obj/item/clothing in clothings)
+	for(var/obj/item/clothing as anything in clothings)
 		return clothing.subarmor.getRating(SUBARMOR_FLAGS)
 	return physiology.subarmor.getRating(SUBARMOR_FLAGS)
 
@@ -50,7 +50,8 @@
 		return 0
 
 	//for the love of god this should never happen, if it did happen you fucked up
-	if(d_type in list(MELEE, BULLET))
+	var/static/list/converstion_table = list(MELEE, BULLET)
+	if(d_type in converstion_table)
 		d_type = CRUSHING
 		stack_trace("Called checksubarmor with invalid d_type ([d_type])!")
 
@@ -66,7 +67,7 @@
 
 	var/protection = 0
 	var/list/clothings = clothingonpart(affecting)
-	for(var/obj/item/clothing in clothings)
+	for(var/obj/item/clothing as anything in clothings)
 		protection += clothing.subarmor.getRating(d_type)
 	protection += physiology.subarmor.getRating(d_type)
 	return protection
@@ -83,7 +84,7 @@
 		return FALSE
 
 	var/list/clothings = clothingonpart(affecting)
-	for(var/obj/item/clothing/clothing in clothings)
+	for(var/obj/item/clothing/clothing as anything in clothings)
 		if(clothing.take_damage_zone(def_zone, damage, damage_flag, damage_type, sharpness, 100))
 			return TRUE
 

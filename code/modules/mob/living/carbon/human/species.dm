@@ -1478,10 +1478,14 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	hit_area = affecting.name
 	var/def_zone = affecting.body_zone
 
+	/* MOJAVE EDIT REMOVAL
 	var/armor_block = H.run_armor_check(affecting, MELEE, span_notice("Your armor has protected your [hit_area]!"), span_warning("Your armor has softened a hit to your [hit_area]!"),I.armour_penetration, weak_against_armour = I.weak_against_armour)
 	armor_block = min(90,armor_block) //cap damage reduction at 90%
+	*/
 	var/Iwound_bonus = I.wound_bonus
 	//MOJAVE EDIT BEGIN
+	var/armor_block = H.run_armor_check(affecting, MELEE, armour_penetration = I.armour_penetration, weak_against_armour = I.weak_against_armour)
+	armor_block = min(90,armor_block) //cap damage reduction at 90%
 	var/armor_reduce = H.run_subarmor_check(affecting, MELEE, armour_penetration = I.subtractible_armour_penetration, weak_against_armour = I.weak_against_subtractible_armour, sharpness = I.get_sharpness())
 	var/edge_protection = H.get_edge_protection(affecting)
 	edge_protection = max(0, edge_protection - I.edge_protection_penetration)

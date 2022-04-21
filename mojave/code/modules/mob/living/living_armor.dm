@@ -1,3 +1,35 @@
+// just changing the messages here to be clearer, mkay?
+/mob/living/run_armor_check(def_zone = null, attack_flag = MELEE, absorb_text = null, soften_text = null, armour_penetration, penetrated_text, silent=FALSE, weak_against_armour = FALSE)
+	var/armor = getarmor(def_zone, attack_flag)
+
+	if(armor <= 0)
+		return armor
+
+	if(weak_against_armour && (armor >= 0))
+		armor *= ARMOR_WEAKENED_MULTIPLIER
+
+	if(silent)
+		return max(0, armor - armour_penetration)
+
+	//the if "armor" check is because this is used for everything on /living, including humans
+	if(armour_penetration >= armor)
+		armor = max(0, armor - armour_penetration)
+		if(penetrated_text)
+			to_chat(src, span_userdanger("[penetrated_text]"))
+		else
+			to_chat(src, span_userdanger("Your DR armor was penetrated!"))
+	else if(armor >= 100)
+		if(absorb_text)
+			to_chat(src, span_notice("[absorb_text]"))
+		else
+			to_chat(src, span_notice("Your DR armor absorbs the blow!"))
+	else
+		if(soften_text)
+			to_chat(src, span_warning("[soften_text]"))
+		else
+			to_chat(src, span_warning("Your DR armor softens the blow!"))
+	return armor
+
 /mob/living/proc/run_subarmor_check(def_zone = null, \
 						attack_flag = MELEE, \
 						absorb_text = null, \
@@ -22,12 +54,33 @@
 	if(armor <= 0)
 		return armor
 
-	if(weak_against_armour)
+	if(weak_against_armour && (armor >= 0))
 		armor *= ARMOR_WEAKENED_MULTIPLIER
+
+	if(silent)
+		return max(0, armor - armour_penetration)
+
+	//the if "armor" check is because this is used for everything on /living, including humans
+	if(armour_penetration >= armor)
+		armor = max(0, armor - armour_penetration)
+		if(penetrated_text)
+			to_chat(src, span_userdanger("[penetrated_text]"))
+		else
+			to_chat(src, span_userdanger("Your DT armor was penetrated!"))
+	else if(armor >= 100)
+		if(absorb_text)
+			to_chat(src, span_notice("[absorb_text]"))
+		else
+			to_chat(src, span_notice("Your DT armor absorbs the blow!"))
+	else
+		if(soften_text)
+			to_chat(src, span_warning("[soften_text]"))
+		else
+			to_chat(src, span_warning("Your DT armor softens the blow!"))
 
 	return max(0, armor - armour_penetration)
 
-/mob/living/proc/getsubarmor(def_zone, type)
+/mob/living/proc/getsubarmor(def_zone, d_type)
 	return 0
 
 /mob/living/proc/get_edge_protection(def_zone)
