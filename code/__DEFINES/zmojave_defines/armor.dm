@@ -1,4 +1,4 @@
-/// The subtractible armor system will never subtract enough damage to go above this percentage of armor
+/// The subtractible armor system will never subtract enough damage to go below this percentage of the original damage
 #define MAXIMUM_ARMOR_REDUCTION 0.15
 
 // ~armor flags
