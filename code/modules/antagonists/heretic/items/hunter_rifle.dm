@@ -1,3 +1,5 @@
+// GOMBLE TODO - did we change this?
+
 // The Lionhunter, a gun for heretics
 // The ammo it uses takes time to "charge" before firing,
 // releasing a homing, very damaging projectile
@@ -10,10 +12,9 @@
 	worn_icon_state = "moistprime"
 	mag_type = /obj/item/ammo_box/magazine/internal/boltaction/lionhunter
 	fire_sound = 'sound/weapons/gun/sniper/shot.ogg'
-
-/obj/item/gun/ballistic/rifle/lionhunter/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/scope, range_modifier = 1.25)
+	zoomable = TRUE
+	zoom_amt = 5
+	zoom_out_amt = 3
 
 /obj/item/ammo_box/magazine/internal/boltaction/lionhunter
 	name = "lionhunter rifle internal magazine"
