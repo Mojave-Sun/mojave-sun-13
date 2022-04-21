@@ -226,7 +226,24 @@
 //Applies brute and burn damage to the organ. Returns 1 if the damage-icon states changed at all.
 //Damage will not exceed max_damage using this proc
 //Cannot apply negative damage
+/* MOJAVE EDIT REMOVAL
 /obj/item/bodypart/proc/receive_damage(brute = 0, burn = 0, stamina = 0, blocked = 0, updating_health = TRUE, required_status = null, wound_bonus = 0, bare_wound_bonus = 0, sharpness = NONE, attack_direction = null)
+*/
+//MOJAVE EDIT BEGIN
+/obj/item/bodypart/proc/receive_damage(brute = 0, \
+									burn = 0, \
+									stamina = 0, \
+									blocked = 0, \
+									updating_health = TRUE, \
+									required_status = null, \
+									wound_bonus = 0, \
+									bare_wound_bonus = 0, \
+									sharpness = NONE, \
+									attack_direction = null, \
+									reduced = 0, \
+									edge_protection = 0, \
+									subarmor_flags = NONE)
+//MOJAVE EDIT END
 	var/hit_percent = (100-blocked)/100
 	if((!brute && !burn && !stamina) || hit_percent <= 0)
 		return FALSE
@@ -242,6 +259,17 @@
 	stamina = round(max(stamina * dmg_multi, 0),DAMAGE_PRECISION)
 	brute = max(0, brute - brute_reduction)
 	burn = max(0, burn - burn_reduction)
+	//MOJAVE EDIT BEGIN
+	if(brute >= burn)
+		reduced = min(reduced, brute * MAXIMUM_ARMOR_REDUCTION)
+		var/actually_reduced_brute = min(brute, reduced)
+		brute = max(0, brute - reduced)
+		if(subarmor_flags & SUBARMOR_FLEXIBLE)
+			brute += FLOOR(actually_reduced_brute * 0.1, 1)
+	else
+		reduced = min(reduced, burn * MAXIMUM_ARMOR_REDUCTION)
+		burn = max(0, burn - reduced)
+	//MOJAVE EDIT END
 	//No stamina scaling.. for now..
 
 	if(!brute && !burn && !stamina)
@@ -265,8 +293,12 @@
 	var/mangled_state = get_mangled_state()
 	var/bio_state = owner.get_biological_state()
 	var/easy_dismember = HAS_TRAIT(owner, TRAIT_EASYDISMEMBER) // if we have easydismember, we don't reduce damage when redirecting damage to different types (slashing weapons on mangled/skinless limbs attack at 100% instead of 50%)
-
+	/* MOJAVE EDIT REMOVAL
 	if(wounding_type == WOUND_BLUNT && sharpness)
+	*/
+	//MOJAVE EDIT BEGIN
+	if(sharpness && (wounding_type == WOUND_BLUNT) && (wounding_dmg > edge_protection))
+	//MOJAVE EDIT END
 		if(sharpness & SHARP_EDGED)
 			wounding_type = WOUND_SLASH
 		else if (sharpness & SHARP_POINTY)
