@@ -261,13 +261,13 @@
 	burn = max(0, burn - burn_reduction)
 	//MOJAVE EDIT BEGIN
 	if(brute >= burn)
-		reduced = min(reduced, brute * MAXIMUM_ARMOR_REDUCTION)
+		reduced = round(min(reduced, brute * MAXIMUM_ARMOR_REDUCTION), DAMAGE_PRECISION)
 		var/actually_reduced_brute = min(brute, reduced)
 		brute = max(0, brute - reduced)
 		if(subarmor_flags & SUBARMOR_FLEXIBLE)
 			brute += FLOOR(actually_reduced_brute * 0.1, 1)
 	else
-		reduced = min(reduced, burn * MAXIMUM_ARMOR_REDUCTION)
+		reduced = round(min(reduced, burn * MAXIMUM_ARMOR_REDUCTION), DAMAGE_PRECISION)
 		burn = max(0, burn - reduced)
 	//MOJAVE EDIT END
 	//No stamina scaling.. for now..

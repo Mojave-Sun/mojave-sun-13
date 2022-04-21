@@ -42,8 +42,8 @@
 
 	var/list/clothings = clothingonpart(affecting)
 	for(var/obj/item/clothing in clothings)
-		return clothing.subarmor.subarmor_flags
-	return physiology.subarmor.subarmor_flags
+		return clothing.subarmor.getRating(SUBARMOR_FLAGS)
+	return physiology.subarmor.getRating(SUBARMOR_FLAGS)
 
 /mob/living/carbon/human/proc/checksubarmor(obj/item/bodypart/def_zone, d_type)
 	if(!d_type)
@@ -68,7 +68,8 @@
 	var/list/clothings = clothingonpart(affecting)
 	for(var/obj/item/clothing in clothings)
 		protection += clothing.subarmor.getRating(d_type)
-	return physiology.subarmor.getRating(d_type)
+	protection += physiology.subarmor.getRating(d_type)
+	return protection
 
 /mob/living/carbon/human/damage_armor(damage = 0, damage_flag = MELEE, damage_type = BRUTE, sharpness = NONE, def_zone = BODY_ZONE_CHEST)
 	var/obj/item/bodypart/affecting
