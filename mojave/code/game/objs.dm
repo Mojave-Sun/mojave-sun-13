@@ -1,3 +1,7 @@
+/obj/vv_get_dropdown()
+	. = ..()
+	VV_DROPDOWN_OPTION(VV_HK_SUBARMOR_MOD, "Modify subarmor values")
+
 /obj/vv_do_topic(list/href_list)
 	if(!(. = ..()))
 		return

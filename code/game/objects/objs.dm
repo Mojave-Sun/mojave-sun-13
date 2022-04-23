@@ -234,9 +234,6 @@
 	VV_DROPDOWN_OPTION(VV_HK_MASS_DEL_TYPE, "Delete all of type")
 	VV_DROPDOWN_OPTION(VV_HK_OSAY, "Object Say")
 	VV_DROPDOWN_OPTION(VV_HK_ARMOR_MOD, "Modify armor values")
-	//MOJAVE EDIT BEGIN
-	VV_DROPDOWN_OPTION(VV_HK_SUBARMOR_MOD, "Modify subarmor values")
-	//MOJAVE EDIT END
 
 /obj/vv_do_topic(list/href_list)
 	if(!(. = ..()))
