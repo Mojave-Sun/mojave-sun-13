@@ -420,8 +420,10 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "amg" = (
-/obj/machinery/door/unpowered/ms13/seethrough/metal,
-/turf/open/floor/ms13/tile/brown,
+/obj/machinery/door/unpowered/ms13/metal{
+	dir = 1
+	},
+/turf/open/floor/ms13/tile,
 /area/ms13/supermarket)
 "amp" = (
 /obj/structure/ms13/foundation/common/varianttwo,
@@ -1932,7 +1934,9 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "bxJ" = (
-/obj/machinery/door/poddoor/shutters/preopen/ms13,
+/obj/machinery/door/poddoor/shutters/preopen/ms13{
+	id = "market-freezer"
+	},
 /turf/open/floor/ms13/tile/large/white,
 /area/ms13/supermarket)
 "bxQ" = (
@@ -2602,7 +2606,7 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "bVk" = (
-/obj/machinery/door/unpowered/ms13/seethrough/mirrored/metal,
+/obj/machinery/light/ms13/bulb,
 /turf/open/floor/ms13/tile/brown,
 /area/ms13/supermarket)
 "bVD" = (
@@ -4397,6 +4401,12 @@
 	},
 /turf/open/floor/plating/ms13/ground/snow,
 /area/ms13)
+"dmz" = (
+/obj/machinery/light/ms13/bulb{
+	dir = 1
+	},
+/turf/open/floor/ms13/tile/brown,
+/area/ms13/supermarket)
 "dmC" = (
 /turf/closed/wall/ms13/vault/rust,
 /area/ms13/underground/vault_atrium_middle)
@@ -10435,7 +10445,7 @@
 /area/ms13/town)
 "hcj" = (
 /obj/machinery/door/unpowered/ms13/seethrough/grate,
-/turf/open/floor/ms13/tile/large/cream,
+/turf/open/floor/ms13/tile/brown,
 /area/ms13/supermarket)
 "hcT" = (
 /obj/structure/table/ms13/metal/heavy,
@@ -20359,7 +20369,8 @@
 /area/ms13/underground/mountain)
 "nMG" = (
 /obj/machinery/button/ms13{
-	dir = 4
+	dir = 4;
+	id = "market-freezer"
 	},
 /turf/open/floor/ms13/tile,
 /area/ms13/supermarket)
@@ -24947,6 +24958,10 @@
 /obj/effect/spawner/random/ms13/armor/lowrandom,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/tribal_abandoned)
+"tvf" = (
+/obj/machinery/light/ms13/bulb,
+/turf/open/floor/ms13/tile/long,
+/area/ms13/supermarket)
 "tvw" = (
 /obj/structure/table/ms13/no_smooth/counter/metal,
 /obj/structure/closet/crate/ms13/cash_register{
@@ -26304,6 +26319,9 @@
 /obj/structure/toilet{
 	pixel_y = 13
 	},
+/obj/machinery/light/ms13/bulb{
+	dir = 1
+	},
 /turf/open/floor/ms13/tile/long,
 /area/ms13/supermarket)
 "vQl" = (
@@ -26882,7 +26900,8 @@
 /area/ms13/town)
 "wRW" = (
 /obj/machinery/button/ms13{
-	dir = 4
+	dir = 4;
+	id = "market-freezer"
 	},
 /turf/open/floor/ms13/tile/large/white,
 /area/ms13/supermarket)
@@ -83030,12 +83049,12 @@ xgN
 xgN
 xgN
 url
-oPv
+tvf
 xgN
 xgN
 xgN
 url
-oPv
+tvf
 xgN
 oXt
 tod
@@ -86936,11 +86955,11 @@ ykT
 ykT
 xZD
 xZD
-amg
-ovj
-ovj
-ovj
-ovj
+fPF
+ntC
+ntC
+ntC
+ntC
 ntC
 ntC
 utP
@@ -87541,10 +87560,10 @@ xBj
 xZD
 xZD
 xgN
-ntC
-ntC
-ntC
-ntC
+ovj
+ovj
+ovj
+ovj
 ntC
 ntC
 cSs
@@ -88447,10 +88466,10 @@ xBj
 xZD
 xZD
 xgN
-ntC
-ntC
-ntC
-ntC
+ovj
+ovj
+ovj
+ovj
 ntC
 ntC
 mPk
@@ -89050,11 +89069,11 @@ ykT
 ykT
 xZD
 xZD
-bVk
-ovj
-ovj
-ovj
-ovj
+kyX
+ntC
+ntC
+ntC
+ntC
 ntC
 ntC
 fsW
@@ -89064,9 +89083,9 @@ ntC
 ntC
 xgN
 ksn
-ovj
+bVk
 xgN
-ovj
+dmz
 vZq
 vHh
 ovj
@@ -92988,7 +93007,7 @@ kSN
 ovj
 ovj
 ovj
-hoa
+amg
 nhc
 nhc
 nhc
