@@ -55,7 +55,7 @@
 	if(!P.nodamage && on_hit_state != BULLET_ACT_BLOCK)
 		var/attack_direction = get_dir(P.starting, src)
 		//MOJAVE EDIT BEGIN
-		var/subarmor = run_subarmor_check(def_zone, P.flag, armour_penetration = P.subtractible_armour_penetration, P.weak_against_subtractible_armour, sharpness = P.sharpness)
+		var/subarmor = run_subarmor_check(def_zone, P.flag, armour_penetration = P.subtractible_armour_penetration, weak_against_armour = P.weak_against_subtractible_armour, sharpness = P.sharpness)
 		//MOJAVE EDIT END
 		/* MOJAVE EDIT REMOVAL
 		apply_damage(P.damage, P.damage_type, def_zone, armor, wound_bonus=P.wound_bonus, bare_wound_bonus=P.bare_wound_bonus, sharpness = P.sharpness, attack_direction = attack_direction)
