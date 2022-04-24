@@ -146,7 +146,7 @@
 				FIRE = fire, \
 				ACID = acid)
 
-/datum/subarmor/proc/attachSubrmor(datum/subarmor/attached_armor)
+/datum/subarmor/proc/attachSubarmor(datum/subarmor/attached_armor)
 	return getSubarmor(subarmor_flags | attached_armor.subarmor_flags, \
 					edge_protection+attached_armor.edge_protection, \
 					crushing+attached_armor.crushing, \
@@ -159,7 +159,7 @@
 					fire+attached_armor.fire, \
 					acid+attached_armor.acid)
 
-/datum/subarmor/proc/detachSubrmor(datum/subarmor/detached_armor)
+/datum/subarmor/proc/detachSubarmor(datum/subarmor/detached_armor)
 	return getSubarmor(subarmor_flags & ~detached_armor.subarmor_flags, \
 					edge_protection-detached_armor.edge_protection, \
 					crushing-detached_armor.crushing, \
