@@ -26,7 +26,7 @@
 	var/list/clothings = clothingonpart(affecting)
 	for(var/obj/item/clothing in clothings)
 		edge_protection = max(edge_protection, clothing.subarmor.getRating(EDGE_PROTECTION))
-	return max(edge_protection, physiology.subarmor.getRating(EDGE_PROTECTION)
+	return max(edge_protection, physiology.subarmor.getRating(EDGE_PROTECTION))
 
 //We only get the most superficial armor flags, no stacking!
 /mob/living/carbon/human/get_subarmor_flags(def_zone)
