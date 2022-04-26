@@ -580,8 +580,9 @@
 				to_chat(src, span_warning("Your ears start to ring badly!"))
 				if(prob(ears.damage - 5))
 					to_chat(src, span_userdanger("You can't hear anything!"))
-					ears.damage = min(ears.damage, ears.maxHealth) // does this actually do anything useful? all this would do is set an upper bound on damage, is this supposed to be a max?
+					// Makes you deaf, enough that you need a proper source of healing, it won't self heal
 					// you need earmuffs, inacusiate, or replacement
+					ears.setOrganDamage(ears.maxHealth)
 			else if(ears.damage >= 5)
 				to_chat(src, span_warning("Your ears start to ring!"))
 			SEND_SOUND(src, sound('sound/weapons/flash_ring.ogg',0,1,0,250))
@@ -649,7 +650,7 @@
 		return ..()
 
 	var/obj/item/bodypart/grasped_part = get_bodypart(zone_selected)
-	if(!grasped_part?.get_part_bleed_rate())
+	if(!grasped_part?.get_modified_bleed_rate())
 	// MOJAVE SUN EDIT BEGIN
 	self_grasp_bleeding_limb(grasped_part, supress_message)
 
@@ -694,6 +695,7 @@
 	if(grasped_part)
 		UnregisterSignal(grasped_part, list(COMSIG_CARBON_REMOVE_LIMB, COMSIG_PARENT_QDELETING))
 		grasped_part.grasped_by = null
+		grasped_part.refresh_bleed_rate()
 	grasped_part = null
 	user = null
 	return ..()
@@ -713,6 +715,7 @@
 
 	grasped_part = grasping_part
 	grasped_part.grasped_by = src
+	grasped_part.refresh_bleed_rate()
 	RegisterSignal(user, COMSIG_PARENT_QDELETING, .proc/qdel_void)
 	RegisterSignal(grasped_part, list(COMSIG_CARBON_REMOVE_LIMB, COMSIG_PARENT_QDELETING), .proc/qdel_void)
 
