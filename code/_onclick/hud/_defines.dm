@@ -60,6 +60,7 @@
 #define ui_building "EAST-4:22,SOUTH:21"
 #define ui_language_menu "EAST-4:6,SOUTH:21"
 #define ui_skill_menu "EAST-4:22,SOUTH:5"
+#define ui_wield "EAST-3,SOUTH" // MOJAVE EDIT
 
 //Upper-middle right (alerts)
 #define ui_alert1 "EAST-1:28,CENTER+5:27"

@@ -42,6 +42,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	var/atom/movable/screen/rest_icon
 	var/atom/movable/screen/throw_icon
 	var/atom/movable/screen/module_store_icon
+	var/atom/movable/screen/wield/wield // MOJAVE SUN EDIT
 
 	var/list/static_inventory = list() //the screen objects which are static
 	var/list/toggleable_inventory = list() //the screen objects which can be hidden
@@ -145,6 +146,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	alien_plasma_display = null
 	alien_queen_finder = null
 	combo_display = null
+	wield = null // MOJAVE SUN EDIT
 
 	QDEL_LIST_ASSOC_VAL(plane_masters)
 	QDEL_LIST_ASSOC_VAL(plane_master_controllers)

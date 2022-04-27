@@ -98,6 +98,13 @@
 	using.hud = src
 	static_inventory += using
 
+	// MOJAVE SUN EDIT BEGIN
+	using = new /atom/movable/screen/wield()
+	//using.icon = ui_style
+	using.screen_loc = ui_wield
+	using.hud = src
+	static_inventory += using
+	// MOJAVE SUN EDIT END
 	/*
 	using = new /atom/movable/screen/drop()
 	using.icon = ui_style
