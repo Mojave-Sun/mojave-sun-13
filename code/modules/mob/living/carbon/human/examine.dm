@@ -429,7 +429,10 @@
 	. += "*---------*</span>"
 
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
-
+	// MOJAVE SUN EDIT BEGIN
+	if(on_examined_check(user, FALSE))
+		user.on_examine_atom(src, FALSE)
+	// MOJAVE SUN EDIT END
 /mob/living/proc/status_effect_examines(pronoun_replacement) //You can include this in any mob's examine() to show the examine texts of status effects!
 	var/list/dat = list()
 	if(!pronoun_replacement)
@@ -462,3 +465,7 @@
 		if(101 to INFINITY)
 			age_text = "withering away"
 	. += list(span_notice("[p_they(TRUE)] appear[p_s()] to be [age_text]."))
+	// MOJAVE SUN EDIT BEGIN
+	if(on_examined_check(user, TRUE))
+		user.on_examine_atom(src, TRUE)
+	// MOJAVE SUN EDIT END

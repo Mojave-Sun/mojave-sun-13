@@ -176,5 +176,8 @@
 		var/scar_text = S.get_examine_description(user)
 		if(scar_text)
 			msg += "[scar_text]"
-
+	// MOJAVE SUN EDIT BEGIN
+	if(on_examined_check(user, TRUE))
+		user.on_examine_atom(src, TRUE)
+	// MOJAVE SUN EDIT END
 	return msg
