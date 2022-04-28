@@ -274,16 +274,24 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 		to_chat(src, compose_message(src, language, message, , spans, message_mods))
 
 	// MOJAVE SUN EDIT BEGIN
+	var/voice_type = "deep"
+	var/voice_volume = 25
+	if(gender == FEMALE)
+		voice_type = "light"
+
 	if(message_mods[WHISPER_MODE] == MODE_WHISPER)
 		var/list/temp_message = splittext(message, " ")
+		voice_volume = 5
 		for(var/i = 0, i < temp_message.len, i++)
-			sleep(1)
-			playsound(src, "mojave/sound/voice_tones/light_1.ogg", 5, TRUE)
+			addtimer(CALLBACK(src, .proc/beep_boop, voice_type, voice_volume), 50)
 	else
 		var/list/temp_message = splittext(message, " ")
 		for(var/i = 0, i < temp_message.len, i++)
-			sleep(1)
-			playsound(src, "mojave/sound/voice_tones/light_1.ogg", 25, TRUE)
+			addtimer(CALLBACK(src, .proc/beep_boop, voice_type, voice_volume), 100)
+
+/mob/living/proc/beep_boop(voice_type, voice_volume)
+	playsound(src, "mojave/sound/voice_tones/[voice_type]_[rand(1, 4)].ogg", (voice_volume), TRUE)
+
 	// MOJAVE SUN EDIT END
 	return TRUE
 
