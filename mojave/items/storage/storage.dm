@@ -37,6 +37,7 @@
 	new /obj/item/stack/medical/gauze/ms13(src)
 	new /obj/item/stack/medical/suture/ms13(src)
 	new /obj/item/stack/medical/ointment/ms13/cream(src)
+	new /obj/item/reagent_containers/hypospray/medipen/ms13/stimpak(src)
 
 /obj/item/storage/firstaid/ms13/quality
 
@@ -46,6 +47,7 @@
 	new /obj/item/stack/medical/suture/ms13(src)
 	new /obj/item/stack/medical/ointment/ms13(src)
 	new /obj/item/reagent_containers/hypospray/medipen/ms13/stimpak(src)
+	new /obj/item/reagent_containers/hypospray/medipen/ms13/stimpak/super(src)
 
 /obj/item/storage/firstaid/ms13/bag
 	name = "doctors bag"
