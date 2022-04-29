@@ -131,7 +131,8 @@
 	var/slurring = 0
 	var/cultslurring = 0
 	var/derpspeech = 0
-
+	var/voice_sound = "lowest" /// MOJAVE SUN EDIT. There are currently FOUR types for either deep or light bases. 1>4, count em.
+	var/voice_base = "human" /// MOJAVE SUN EDIT. This is for tone BASES. Humans should sound different than ghouls or even robots.
 	var/list/implants = null
 
 	var/last_words ///used for database logging
