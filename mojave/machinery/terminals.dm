@@ -537,10 +537,10 @@
 /obj/machinery/ms13/terminal/wasteland
 
 /obj/machinery/ms13/terminal/wasteland/Initialize(mapload)
-	if(prob(65))
+/*	if(prob(65))
 		broken = TRUE
 		riggable = FALSE
-		update_icon_state()
+		update_icon_state() */
 	if(!riggable)
 		return
 	else if(prob(1)) // Ultra rare pre-rigged terminals. Stay woke out there.

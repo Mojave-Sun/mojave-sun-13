@@ -31,7 +31,7 @@
     self_delay = 3.5 SECONDS
     other_delay = 2 SECONDS
     repeating = FALSE
-    heal_brute = 8
+    heal_brute = 10
     stop_bleeding = 0.75
     gender = NEUTER //So examine text says "This is a suture" instead of "These are some suture"
     merge_type = /obj/item/stack/medical/suture/ms13
@@ -60,7 +60,7 @@
     repeating = FALSE
     self_delay = 2.5 SECONDS
     other_delay = 1.5 SECONDS
-    heal_burn = 8
+    heal_burn = 10
     flesh_regeneration = 3.5
     sanitization = 1.25
     gender = NEUTER //So examine text says "This is a bottle of ointment" instead of "These are some bottle of ointment"
@@ -78,7 +78,7 @@
     inhand_icon_state = "aloe"
     amount = 10
     max_amount = 10
-    heal_burn = 4
+    heal_burn = 5
     flesh_regeneration = 2
     sanitization = 0.5
     gender = PLURAL
@@ -89,7 +89,7 @@
     desc = "A small container of healing cream meant for burn related injuries."
     icon_state = "burncream"
     inhand_icon_state = "burncream"
-    heal_burn = 6
+    heal_burn = 8
     flesh_regeneration = 2.75
     sanitization = 0.75
     gender = PLURAL
@@ -114,7 +114,7 @@
     absorption_rate = 0.12
     absorption_capacity = 5
     splint_factor = 0.6
-    burn_cleanliness_bonus = 0.6
+    burn_cleanliness_bonus = 0.5
     merge_type = /obj/item/stack/medical/gauze/ms13
 
 /obj/item/stack/medical/gauze/ms13/attackby(obj/item/I, mob/user, params)
@@ -141,5 +141,5 @@
     absorption_rate = 0.18
     absorption_capacity = 6.5
     splint_factor = 0.5 //Lower = better
-    burn_cleanliness_bonus = 0.4 //Lower = better
+    burn_cleanliness_bonus = 0.3 //Lower = better
     merge_type = /obj/item/stack/medical/gauze/ms13/military
