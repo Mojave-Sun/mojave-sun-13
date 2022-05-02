@@ -204,6 +204,20 @@
 	inhand_icon_state = "metalhelmet"
 	actions_types = null
 
+/obj/item/clothing/head/helmet/ms13/army
+	name = "army helmet"
+	desc = "A pre-war steel helmet, protects your head from the various dangers of warfare."
+	icon_state = "armyhelmet"
+	inhand_icon_state = "combathelmet"
+	armor = list("melee" = 30, "bullet" = 25, "laser" = 20, "energy" = 10, "bomb" = 15, "bio" = 10,  "fire" = 10, "acid" = 10, "wound" = 0)
+
+/obj/item/clothing/head/helmet/ms13/army/civildefence
+	name = "civil defence helmet"
+	desc = "A pre-war steel helmet, protects your head from the various dangers of warfare."
+	icon_state = "civildefence"
+	inhand_icon_state = "combathelmet"
+	armor = list("melee" = 30, "bullet" = 25, "laser" = 20, "energy" = 10, "bomb" = 15, "bio" = 10,  "fire" = 10, "acid" = 10, "wound" = 0)
+
 // Hoods //
 
 /obj/item/clothing/head/hooded/ms13/hubologist
