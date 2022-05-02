@@ -86,6 +86,8 @@
 	ignore += typesof(/obj/effect/skyfall_landingzone)
 	//Expects a mob to holderize, we have nothing to give
 	ignore += typesof(/obj/item/clothing/head/mob_holder)
+	//Needs cards passed into the initilazation args
+	ignore += typesof(/obj/item/toy/cards/cardhand)
 
 	// MOJAVE EDIT - Additional blacklists
 	//Grid inventory HATES this
