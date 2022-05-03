@@ -7,22 +7,18 @@
 	mag_type = /obj/item/ammo_box/magazine/ms13/m10mm
 	fire_sound = 'mojave/sound/ms13weapons/10mm_fire_02.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
-	fire_delay = 0.4 SECONDS
-	extra_damage = 20
-	extra_penetration = 10
+	fire_delay = 0.45 SECONDS
 	spread = 8
-	recoil = 0.5
+	recoil = 0.75
 	slowdown = 0.5
 	grid_width = 64
 	grid_height = 64
 
 /obj/item/gun/ballistic/automatic/pistol/ms13/m10mm/military
 	name = "military 10mm pistol"
-	desc = "A bulkier, more advanced 10mm pistol typically used as a pre-war side arm by the US military."
+	desc = "A 10mm pistol typically used as a side arm by the pre-war US military."
 	icon_state = "mil10mm"
 	inhand_icon_state = "mil10mm"
-	extra_damage = 25
-	recoil = 0.75
 
 /obj/item/gun/ballistic/automatic/pistol/ms13/m10mm/chinese
 	name = "\improper Chinese pistol"
@@ -31,8 +27,7 @@
 	inhand_icon_state = "cpistol"
 	mag_type = /obj/item/ammo_box/magazine/internal/ms13/cpistol
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/chinese/chinese1.ogg'
-	extra_damage = 25
-	extra_penetration = 0
+	fire_delay = 0.5 SECONDS
 	internal_magazine = TRUE
 
 /obj/item/gun/ballistic/automatic/pistol/ms13/m10mm/chinese/update_icon_state()
@@ -46,12 +41,10 @@
 
 /obj/item/gun/ballistic/automatic/pistol/ms13/m10mm/chinese/v420
 	name = "v420 Chinese pistol"
-	desc = "A prototype Chinese pistol with a slower fire rate but much higher damage, also sporting some much better looks."
+	desc = "A prototype Chinese pistol with a faster fire rate and much better looks."
 	icon_state = "420pistol"
 	inhand_icon_state = "420pistol"
-	extra_damage = 30
-	extra_penetration = 5
-	fire_delay = 0.5 SECONDS
+	fire_delay = 0.4 SECONDS
 
 /obj/item/gun/ballistic/automatic/pistol/ms13/m9mm
 	name = "9mm pistol"
@@ -61,9 +54,7 @@
 	mag_type = /obj/item/ammo_box/magazine/ms13/m9mm
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/9mm/9mm2.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
-	fire_delay = 0.4 SECONDS
-	extra_damage = 20
-	extra_penetration = 5
+	fire_delay = 0.45 SECONDS
 	spread = 8
 	recoil = 0.25
 	slowdown = 0.5
@@ -92,11 +83,9 @@
 	mag_type = /obj/item/ammo_box/magazine/ms13/m12mm
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/12mm/m12mm1.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
-	fire_delay = 0.4 SECONDS
-	extra_damage = 35
-	extra_penetration = 15
+	fire_delay = 0.5 SECONDS
 	spread = 6
-	recoil = 1.25
+	recoil = 1.5
 	slowdown = 0.5
 	grid_width = 64
 	grid_height = 64
@@ -110,9 +99,7 @@
 	mag_type = /obj/item/ammo_box/magazine/ms13/m45
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/45/45auto1.ogg'
 	can_suppress = FALSE
-	fire_delay = 0.4 SECONDS
-	extra_damage = 30
-	extra_penetration = 5
+	fire_delay = 0.45 SECONDS
 	spread = 8
 	recoil = 0.75
 	slowdown = 0.5
@@ -121,11 +108,11 @@
 
 /obj/item/gun/ballistic/automatic/pistol/ms13/pistol45/stallion
 	name = "\improper Stallion"
-	desc = "A fancy, well kept, and improved .45 pistol. An even better version of the classic. Sports improved penetration and accuracy."
+	desc = "A fancy, well kept, and improved .45 pistol. An even better version of the classic. Sports improved rate of fire and accuracy."
 	icon_state = "stallion"
 	inhand_icon_state = "stallion"
-	extra_penetration = 10
-	spread = 6
+	fire_delay = 0.4 SECONDS
+	spread = 5
 
 /obj/item/gun/ballistic/automatic/pistol/ms13/deagle
 	name = "desert eagle"
@@ -135,9 +122,7 @@
 	mag_type = /obj/item/ammo_box/magazine/ms13/deagle
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/44/44mag1.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
-	extra_damage = 45
-	extra_penetration = 5
-	fire_delay = 0.5 SECONDS
+	fire_delay = 0.45 SECONDS
 	spread = 6
 	recoil = 1.25
 	slowdown = 0.5
@@ -152,10 +137,9 @@
 	mag_type = /obj/item/ammo_box/magazine/ms13/m22
 	w_class = WEIGHT_CLASS_SMALL
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
-	extra_damage = 15
-	fire_delay = 0.4 SECONDS
+	fire_delay = 0.45 SECONDS
 	spread = 8
-	recoil = 0.25
+	recoil = 0.1
 	slowdown = 0.5
 	grid_width = 64
 	grid_height = 32

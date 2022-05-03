@@ -53,7 +53,7 @@
 
 /obj/item/gun/ballistic/shotgun/ms13/lever/trail
 	name = "trail carbine"
-	desc = "A lever action repeater chambered for .44 Magnum with a solid capacity in exchange for a slightly slower fire rate."
+	desc = "A lever action repeater chambered for .44 Magnum with a solid capacity."
 	icon_state = "trail"
 	inhand_icon_state = "trail"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/tube44
@@ -61,10 +61,8 @@
 	weapon_weight = WEAPON_HEAVY
 	fire_sound = 'mojave/sound/ms13weapons/trailfire.ogg'
 	fire_delay = 0.55 SECONDS
-	extra_damage = 40
-	extra_penetration = 10
-	spread = 5
-	recoil = 1.5
+	spread = 4
+	recoil = 1
 	force = 15
 	empty_indicator = TRUE
 	grid_width = 192
@@ -79,11 +77,9 @@
 	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/repeater/repeater1.ogg'
-	fire_delay = 0.5 SECONDS
-	extra_damage = 35
-	extra_penetration = 10
-	spread = 5
-	recoil = 1.25
+	fire_delay = 0.55 SECONDS
+	spread = 4
+	recoil = 0.85
 	force = 15
 	empty_indicator = TRUE
 	grid_width = 192
@@ -91,18 +87,16 @@
 
 /obj/item/gun/ballistic/shotgun/ms13/lever/brush
 	name = "brush gun"
-	desc = "A lever action repeater chambered for the deadly .45-70 cartridge. Can't carry a lot of rounds and has quite a bit of recoil, but with so much damage does that really matter?"
+	desc = "A lever action repeater chambered for the deadly .45-70 cartridge. Can't carry a lot of rounds, but with so much damage does that really matter?"
 	icon_state = "brush"
 	inhand_icon_state = "brush"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/tube4570
 	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	fire_sound = 'mojave/sound/ms13weapons/brushfire.ogg'
-	fire_delay = 0.5 SECONDS
-	extra_damage = 55
-	extra_penetration = 5
-	spread = 5
-	recoil = 2
+	fire_delay = 0.55 SECONDS
+	spread = 4
+	recoil = 1.5
 	force = 15
 	empty_indicator = TRUE
 	grid_width = 192
@@ -117,9 +111,7 @@
 	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/sks/sks1.ogg'
-	fire_delay = 0.5 SECONDS
-	extra_damage = 30
-	extra_penetration = 10
+	fire_delay = 0.6 SECONDS
 	spread = 5
 	recoil = 1.25
 	slowdown = 0.75
@@ -139,10 +131,9 @@
 
 /obj/item/gun/ballistic/shotgun/automatic/ms13/sks/scoped
 	name = "scoped European battle rifle"
-	desc = "A European battle rifle with a scope attached and some improved rifling for better penetration and accuracy. The added weight of the scope will slow the user down."
+	desc = "A European battle rifle with a scope attached and some improved rifling for better accuracy. The added weight of the scope will slow the user down."
 	icon_state = "scoped_sks"
 	inhand_icon_state = "scoped_sks"
-	extra_penetration = 15
 	spread = 2
 	slowdown = 1
 	zoomable = TRUE

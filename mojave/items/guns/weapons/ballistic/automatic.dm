@@ -5,10 +5,8 @@
 	icon_state = "service"
 	inhand_icon_state = "service"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/service/service_3.ogg'
-	fire_delay = 0.4 SECONDS
+	fire_delay = 0.45 SECONDS
 	slot_flags = ITEM_SLOT_BACK
-	extra_damage = 25
-	extra_penetration = 5
 	w_class = WEIGHT_CLASS_HUGE
 	spread = 5
 	recoil = 0.75
@@ -20,12 +18,11 @@
 
 /obj/item/gun/ballistic/automatic/ms13/semi/service/maquis
 	name = "\improper Maquis"
-	desc = "A unique, heavy duty service rifle. Fires slower but packs a much heavier punch. Has a flag supporting a different kind of patriotism than most are used to."
+	desc = "A unique, heavy duty service rifle. Fires much more accurately and with less of a kick. Has a flag supporting a different kind of patriotism than most are used to."
 	icon_state = "maquis"
 	inhand_icon_state = "maquis"
-	fire_delay = 0.5 SECONDS
-	extra_damage = 30
-	extra_penetration = 10
+	spread = 2
+	recoil = 0.6
 
 /obj/item/gun/ballistic/automatic/ms13/semi/sniper
 	name = "sniper rifle"
@@ -59,20 +56,18 @@
 
 /obj/item/gun/ballistic/automatic/ms13/semi/marksman
 	name = "marksman carbine"
-	desc = "A 5.56 carbine with a scope attached to help in long range combat. Packs a good punch for 5.56 rounds, but at the cost of a slower rate of fire and the added weight of the scope will slow the user."
+	desc = "A 5.56 marksman carbine with a scope attached to help in long range combat."
 	icon_state = "marksman"
 	inhand_icon_state = "marksman"
 	mag_type = /obj/item/ammo_box/magazine/ms13/r20
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/marksman/marksman2.ogg'
 	can_suppress = FALSE
-	fire_delay = 0.55 SECONDS
+	fire_delay = 0.5 SECONDS
 	slot_flags = ITEM_SLOT_BACK
-	extra_damage = 35
-	extra_penetration = 10
 	w_class = WEIGHT_CLASS_HUGE
 	spread = 2
-	recoil = 1
-	slowdown = 1
+	recoil = 0.6
+	slowdown = 0.75
 	zoomable = TRUE
 	zoom_amt = 9
 	zoom_out_amt = 3
@@ -81,10 +76,10 @@
 
 /obj/item/gun/ballistic/automatic/ms13/semi/marksman/american
 	name = "\improper All-American"
-	desc = "A unique and customized marksman carbine. Improved rifling and similar modifications allow for higher damage and an improved paint job allows for higher patriotism."
+	desc = "A unique and customized marksman carbine. Improved rate of fire for improved dispensing of patriotic lead."
 	icon_state = "allamerican"
 	inhand_icon_state = "allamerican"
-	extra_damage = 40
+	fire_delay = 0.45 SECONDS
 
 /obj/item/gun/ballistic/automatic/ms13/semi/battle
 	name = "battle rifle"
@@ -145,8 +140,6 @@
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/45/45auto3.ogg'
 	can_suppress = FALSE
 	fire_delay = 0.25 SECONDS
-	extra_damage = 20
-	extra_penetration = 5
 	spread = 12
 	recoil = 0.75
 	slowdown = 0.75
@@ -164,10 +157,8 @@
 	mag_type = /obj/item/ammo_box/magazine/ms13/smgm22
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
 	fire_delay = 0.2 SECONDS
-	extra_damage = 15
-	extra_penetration = 5
 	spread = 12
-	recoil = 0.25
+	recoil = 0.2
 	slowdown = 0.75
 	grid_width = 128
 	grid_height = 64
@@ -182,10 +173,8 @@
 	mag_type = /obj/item/ammo_box/magazine/ms13/smgm10mm
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/10mmsmg/10mmsmg1.ogg'
 	fire_delay = 0.2 SECONDS
-	extra_damage = 15
-	extra_penetration = 10
 	spread = 15
-	recoil = 0.5
+	recoil = 0.75
 	force = 10
 	slowdown = 0.5
 	grid_width = 96
@@ -202,9 +191,8 @@
 	fire_sound = 'mojave/sound/ms13weapons/greasegun.ogg'
 	can_suppress = FALSE
 	fire_delay = 0.2 SECONDS
-	extra_damage = 15
 	spread = 15
-	recoil = 0.5
+	recoil = 0.35
 	force = 10
 	slowdown = 0.5
 	grid_width = 96
@@ -220,12 +208,10 @@
 	mag_type = /obj/item/ammo_box/magazine/ms13/smg12mm
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/12mm/m12mm2.ogg'
 	can_suppress = FALSE
-	fire_delay = 0.3 SECONDS
-	extra_damage = 25
-	extra_penetration = 15
+	fire_delay = 0.35 SECONDS
 	force = 10
 	spread = 10
-	recoil = 1
+	recoil = 1.25
 	slowdown = 0.5
 	grid_width = 96
 	grid_height = 64
@@ -239,8 +225,6 @@
 	mag_type = /obj/item/ammo_box/magazine/ms13/r20
 	fire_sound = 'mojave/sound/ms13weapons/arfire.ogg'
 	fire_delay = 0.25 SECONDS
-	extra_damage = 20
-	extra_penetration = 10
 	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	spread = 10
@@ -251,13 +235,11 @@
 
 /obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/proto_service
 	name = "prototype service rifle"
-	desc = "A relatively new and improved modern service rifle sporting full auto capabilities and a generally improved rate of fire at the cost of some accuracy and penetration."
+	desc = "A relatively new and improved modern service rifle sporting full auto capabilities and a generally improved rate of fire at the cost of some accuracy."
 	icon_state = "protoservice"
 	inhand_icon_state = "protoservice"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/service/service_2.ogg'
 	fire_delay = 0.3 SECONDS
-	extra_damage = 25
-	extra_penetration = 0
 	spread = 8
 
 /obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/infiltrator
@@ -277,14 +259,13 @@
 	grid_height = 64
 
 /obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/dakka
-	desc = "A stripped and heavily modified assault rifle. Faster rate of fire, but with less stopping power and substantially less accuracy. An unstable and dangerous weapon made for an unstable and dangerous individual."
+	desc = "A stripped and heavily modified assault rifle. Faster rate of fire, but with substantially less accuracy and much more recoil. An unstable and dangerous weapon made for an unstable and dangerous individual."
 	icon_state = "m16stripped"
 	inhand_icon_state = "m16stripped"
 	fire_delay = 0.2 SECONDS
-	extra_damage = 20
-	extra_penetration = 0
 	w_class = WEIGHT_CLASS_BULKY
 	spread = 15
+	recoil = 1.15
 	grid_width = 160
 	grid_height = 64
 
@@ -297,15 +278,13 @@
 
 /obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/chinese
 	name = "\improper Chinese assault rifle"
-	desc = "A Chinese made assault rifle chambered in the heavier 7.62 round, packs a bigger punch in exchange for reduced accuracy and higher recoil."
+	desc = "A Chinese made assault rifle chambered in the heavier 7.62 round, packs a bigger punch in exchange for higher recoil and a slower rate of fire."
 	icon_state = "chinesear"
 	inhand_icon_state = "chinesear"
 	mag_type = /obj/item/ammo_box/magazine/ms13/ar762
 	fire_sound = 'mojave/sound/ms13weapons/chinesearfire.ogg'
 	fire_delay = 0.35 SECONDS
-	extra_damage = 30
-	extra_penetration = 5
-	spread = 10	
+	spread = 8
 	recoil = 1
 	slowdown = 0.75
 	grid_width = 192
@@ -313,11 +292,11 @@
 
 /obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/chinese/handmade
 	name = "handmade assault rifle"
-	desc = "A decent quality handmade assault rifle chambered in 7.62, the makeshift qualities of it reduces it's accuracy."
+	desc = "A decent quality handmade assault rifle chambered in 7.62, the makeshift qualities of it reduces it's accuracy and increases it's recoil by a lot."
 	icon_state = "handmadear"
 	inhand_icon_state = "handmadear"
-	extra_damage = 25
 	spread = 12
+	recoil = 1.5
 
 /obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/chinese/xuanlong
 	name = "\improper Xuanlong assault rifle"

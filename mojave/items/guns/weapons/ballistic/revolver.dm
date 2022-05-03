@@ -70,9 +70,7 @@
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/ms13/rev44
 	fire_sound = 'mojave/sound/ms13weapons/44mag.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
-	fire_delay = 0.5 SECONDS
-	extra_damage = 35
-	extra_penetration = 10
+	fire_delay = 0.6 SECONDS
 	spread = 6
 	recoil = 1.25
 	slowdown = 0.5
@@ -81,23 +79,22 @@
 
 /obj/item/gun/ballistic/revolver/ms13/rev44/mysterious
 	name = "\improper Mysterious Magnum"
-	desc = "A unique .44 Magnum with a silver finish for style, and even better stopping power. Something sure is mysterious about this gun though."
+	desc = "A unique .44 Magnum with a silver finish for style and an improved hammer for faster firing. Something sure is mysterious about this gun though."
 	icon_state = "mysterious"
 	inhand_icon_state = "mysterious"
-	extra_damage = 40
+	fire_delay = 0.5 SECONDS
 
 /obj/item/gun/ballistic/revolver/ms13/rev44/rifle
 	name = ".44 revolver rifle"
-	desc = "A slow firing revolver rifle chambered for .44 Magnum rounds."
+	desc = "A revolver rifle chambered for .44 Magnum rounds."
 	icon_state = "revrifle"
 	inhand_icon_state = "revrifle"
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
 	slot_flags = ITEM_SLOT_BACK
-	fire_delay = 0.65 SECONDS
-	extra_damage = 45
-	spread = 5
-	recoil = 1.5
+	fire_delay = 0.55 SECONDS
+	spread = 4
+	recoil = 1
 	slowdown = 0.75
 	grid_width = 160
 	grid_height = 64
@@ -110,9 +107,7 @@
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/357/357fire3.ogg'
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/ms13/rev357
 	w_class = WEIGHT_CLASS_NORMAL
-	fire_delay = 0.55 SECONDS
-	extra_damage = 35
-	extra_penetration = 0
+	fire_delay = 0.6 SECONDS
 	spread = 6
 	recoil = 1
 	slowdown = 0.5
@@ -121,22 +116,21 @@
 
 /obj/item/gun/ballistic/revolver/ms13/rev357/lucky
 	name = "\improper Lucky"
-	desc = "A unique .357 Magnum with fancy engravings and a nice finish, hits harder than it's lamer brother too."
+	desc = "A unique .357 Magnum with fancy engravings and a nice finish. The lucky nature of the gun seems to make it almost dead accurate."
 	icon_state = "lucky"
 	inhand_icon_state = "lucky"
-	extra_damage = 35
+	spread = 2
 
 /obj/item/gun/ballistic/revolver/ms13/rev357/police
 	name = "police revolver"
-	desc = "A lightweight, short .357 revolver that can be easily stored and hidden, commonly used by pre-war police forces. The shorter barrel reduces it's accuracy."
+	desc = "A lightweight, short .357 revolver that can be easily stored and hidden, commonly used by pre-war police forces. The shorter barrel of the gun reduces accuracy and increases recoil."
 	icon_state = "policerev"
 	inhand_icon_state = "policerev"
 	fire_sound = 'mojave/sound/ms13weapons/policepistol.ogg'
 	w_class = WEIGHT_CLASS_SMALL
-	fire_delay = 0.5 SECONDS
-	extra_damage = 30
-	spread = 8
-	recoil = 0.75
+	fire_delay = 0.6 SECONDS
+	spread = 10
+	recoil = 1.25
 	slowdown = 0.5
 	grid_width = 64
 	grid_height = 32
@@ -150,8 +144,6 @@
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/10mm/10mmfire2.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 	fire_delay = 0.45 SECONDS
-	extra_damage = 25
-	extra_penetration = 10
 	spread = 6
 	recoil = 0.75
 	slowdown = 0.5
@@ -166,20 +158,20 @@
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/ms13/rev4570
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/huntingrev/huntingrev5.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
-	fire_delay = 0.6 SECONDS
-	extra_damage = 45
+	fire_delay = 0.65 SECONDS
 	spread = 6
-	recoil = 1.5
+	recoil = 1.75
 	slowdown = 0.5
 	grid_width = 64
 	grid_height = 64
 
 /obj/item/gun/ballistic/revolver/ms13/huntingrev/sequoia
 	name = "\improper Sequoia"
-	desc = "A unique and modified .45-70 revolver that hits quite a bit harder."
+	desc = "A unique and modified .45-70 revolver that is more controllable with a better rate of fire."
 	icon_state = "sequoia"
 	inhand_icon_state = "sequoia"
-	extra_damage = 50
+	recoil = 1.5
+	fire_delay = 0.6 SECONDS
 
 /obj/item/gun/ballistic/revolver/ms13/rev556
 	name = "5.56 revolver"
@@ -190,8 +182,6 @@
 	fire_sound = 'mojave/sound/ms13weapons/that_gun.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 	fire_delay = 0.45 SECONDS
-	extra_damage = 30
-	extra_penetration = 10
 	spread = 6
 	recoil = 0.75
 	slowdown = 0.5
