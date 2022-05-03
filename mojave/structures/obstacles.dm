@@ -606,8 +606,21 @@
 /obj/structure/railing/ms13
 	name = "base state MS13 guard rail"
 	icon = 'mojave/icons/structure/railings.dmi'
-	layer = ABOVE_MOB_LAYER
+	plane = WALL_PLANE
+	layer = CLOSED_TURF_LAYER
 	max_integrity = 150
+	climbable = FALSE //so we can override TG
+
+/obj/structure/railing/ms13/Initialize()
+	. = ..()
+	if(dir == SOUTH)
+		layer = ABOVE_ALL_MOB_LAYER
+		plane = GAME_PLANE_FOV_HIDDEN
+	if(dir == NORTH)
+		layer = ABOVE_ALL_MOB_LAYER
+		plane = GAME_PLANE_FOV_HIDDEN
+
+	AddElement(/datum/element/climbable, climb_time = 3 SECONDS, climb_stun = 0, no_stun = TRUE, jump_over = TRUE, jump_north = 12, jump_south = 17, jump_sides = 12)
 
 /obj/structure/railing/ms13/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
