@@ -125,7 +125,7 @@
 			return
 
 	if(limb.body_zone == BODY_ZONE_CHEST && victim.blood_volume && prob(internal_bleeding_chance + wounding_dmg))
-		var/blood_bled = rand(1, wounding_dmg * (severity == WOUND_SEVERITY_CRITICAL ? 2 : 1.5)) // 12 brute toolbox can cause up to 18/24 bleeding with a severe/critical chest wound
+		var/blood_bled = rand(1, wounding_dmg * (severity == WOUND_SEVERITY_CRITICAL ? 1.1 : 0.75)) // 12 brute toolbox can cause up to 18/24 bleeding with a severe/critical chest wound //MOJAVE EDIT - Original values are 2 : 1.5
 		switch(blood_bled)
 			if(1 to 6)
 				victim.bleed(blood_bled, TRUE)
@@ -215,7 +215,7 @@
 	interaction_efficiency_penalty = 1.5 //Original TG value is 1.3
 	limp_slowdown = 2.5 //Original TG value is 3
 	limp_chance = 50 //Unchanged
-	threshold_minimum = 30 //Original TG value is 35
+	threshold_minimum = 25 //Original TG value is 35
 	//MOJAVE EDIT CHANGE END
 	threshold_penalty = 15
 	treatable_tool = TOOL_BONESET
@@ -337,8 +337,10 @@
 	status_effect_type = /datum/status_effect/wound/blunt/severe
 	scar_keyword = "bluntsevere"
 	brain_trauma_group = BRAIN_TRAUMA_MILD
-	trauma_cycle_cooldown = 1.5 MINUTES
-	internal_bleeding_chance = 40
+	//MOJAVE EDIT CHANGE BEGIN
+	trauma_cycle_cooldown = 2 MINUTES //Original TG value is 1.5 minutes
+	internal_bleeding_chance = 35 //Original TG value is 40
+	//MOJAVE EDIT CHANGE END
 	wound_flags = (BONE_WOUND | ACCEPTS_GAUZE | MANGLES_BONE)
 	regen_ticks_needed = 120 // ticks every 2 seconds, 240 seconds, so roughly 4 minutes default
 
@@ -353,11 +355,11 @@
 	severity = WOUND_SEVERITY_CRITICAL
 	interaction_efficiency_penalty = 2.5
 	//MOJAVE EDIT CHANGE BEGIN
-	limp_slowdown = 8 //Orignal TG value is 9
+	limp_slowdown = 7.5 //Orignal TG value is 9
 	limp_chance = 90 //Original TG value is 70
+	sound_effect = 'sound/effects/wounds/crack2.ogg' //Unchanged from original TG value
+	threshold_minimum = 110 //Original TG value is 115
 	//MOJAVE EDIT CHANGE END
-	sound_effect = 'sound/effects/wounds/crack2.ogg'
-	threshold_minimum = 115
 	threshold_penalty = 50
 	disabling = TRUE
 	treatable_by = list(/obj/item/stack/sticky_tape/surgical, /obj/item/stack/medical/bone_gel)
@@ -365,7 +367,9 @@
 	scar_keyword = "bluntcritical"
 	brain_trauma_group = BRAIN_TRAUMA_SEVERE
 	trauma_cycle_cooldown = 2.5 MINUTES
-	internal_bleeding_chance = 60
+	//MOJAVE EDIT CHANGE BEGIN
+	internal_bleeding_chance = 65 //Original TG value is 60
+	//MOJAVE EDIT CHANGE END
 	wound_flags = (BONE_WOUND | ACCEPTS_GAUZE | MANGLES_BONE)
 	regen_ticks_needed = 240 // ticks every 2 seconds, 480 seconds, so roughly 8 minutes default
 

@@ -11,7 +11,7 @@
 	stam_damage_coeff = 1
 	max_stamina_damage = 120
 	grind_results = null
-	wound_resistance = 10
+	wound_resistance = 0 //MOJAVE EDIT - Original value is 10
 	var/obj/item/cavity_item
 
 /obj/item/bodypart/chest/can_dismember(obj/item/item)
@@ -61,8 +61,8 @@
 	icon_state = "default_human_l_arm"
 	attack_verb_continuous = list("slaps", "punches")
 	attack_verb_simple = list("slap", "punch")
-	max_damage = 50
-	max_stamina_damage = 50
+	max_damage = 65 //MOJAVE EDIT - Original value is 50
+	max_stamina_damage = 65 //MOJAVE EDIT - Original value is 50
 	body_zone = BODY_ZONE_L_ARM
 	body_part = ARM_LEFT
 	aux_zone = BODY_ZONE_PRECISE_L_HAND
@@ -158,7 +158,7 @@
 	icon_state = "default_human_r_arm"
 	attack_verb_continuous = list("slaps", "punches")
 	attack_verb_simple = list("slap", "punch")
-	max_damage = 50
+	max_damage = 65 //MOJAVE EDIT - Original value is 50
 	body_zone = BODY_ZONE_R_ARM
 	body_part = ARM_RIGHT
 	aux_zone = BODY_ZONE_PRECISE_R_HAND
@@ -167,7 +167,7 @@
 	held_index = 2
 	px_x = 6
 	px_y = 0
-	max_stamina_damage = 50
+	max_stamina_damage = 65 //MOJAVE EDIT - Original value is 50
 	can_be_disabled = TRUE
 
 
@@ -256,13 +256,13 @@
 	icon_state = "default_human_l_leg"
 	attack_verb_continuous = list("kicks", "stomps")
 	attack_verb_simple = list("kick", "stomp")
-	max_damage = 50
+	max_damage = 65 //MOJAVE EDIT - Original value is 50
 	body_zone = BODY_ZONE_L_LEG
 	body_part = LEG_LEFT
 	body_damage_coeff = 0.75
 	px_x = -2
 	px_y = 12
-	max_stamina_damage = 50
+	max_stamina_damage = 65 //MOJAVE EDIT - Original value is 50
 	can_be_disabled = TRUE
 
 
@@ -349,13 +349,13 @@
 	icon_state = "default_human_r_leg"
 	attack_verb_continuous = list("kicks", "stomps")
 	attack_verb_simple = list("kick", "stomp")
-	max_damage = 50
+	max_damage = 65 //MOJAVE EDIT - Original value is 50
 	body_zone = BODY_ZONE_R_LEG
 	body_part = LEG_RIGHT
 	body_damage_coeff = 0.75
 	px_x = 2
 	px_y = 12
-	max_stamina_damage = 50
+	max_stamina_damage = 65 //MOJAVE EDIT - Original value is 50
 	can_be_disabled = TRUE
 
 

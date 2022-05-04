@@ -148,13 +148,13 @@
 	occur_text = "spurts out a thin stream of blood"
 	sound_effect = 'sound/effects/wounds/pierce1.ogg'
 	severity = WOUND_SEVERITY_MODERATE
-	initial_flow = 1.5
 	//MOJAVE EDIT CHANGE BEGIN
-	gauzed_clot_rate = 0.6 //Original TG value is 0.8
+	initial_flow = 1.25 //Original TG value is 1.5
+	gauzed_clot_rate = 0.65 //Original TG value is 0.8
 	internal_bleeding_chance = 35 //Original TG value is 30
-	internal_bleeding_coefficient = 1.25 //Unchanged from original TG value
+	internal_bleeding_coefficient = 0.75 //Original TG value is 1.25
 	threshold_minimum = 25 //Original TG value is 30
-	threshold_penalty = 15 //Original TG value is 20
+	threshold_penalty = 20 //Original TG value is 15
 	//MOJAVE EDIT CHANGE END
 	status_effect_type = /datum/status_effect/wound/pierce/moderate
 	scar_keyword = "piercemoderate"
@@ -168,15 +168,13 @@
 	sound_effect = 'sound/effects/wounds/pierce2.ogg'
 	severity = WOUND_SEVERITY_SEVERE
 	//MOJAVE EDIT CHANGE BEGIN
-	initial_flow = 2.5 //Original TG value is 2.25
+	initial_flow = 2 //Original TG value is 2.25
 	gauzed_clot_rate = 0.5 //Original TG values is 0.6
+	internal_bleeding_chance = 65 //Original TG value is 60
+	internal_bleeding_coefficient = 1 //Original TG value is 1.5
 	//MOJAVE EDIT CHANGE END
-	internal_bleeding_chance = 60
-	internal_bleeding_coefficient = 1.5
 	threshold_minimum = 50
-	//MOJAVE EDIT CHANGE BEGIN
-	threshold_penalty = 30 //Original TG value is 35
-	//MOJAVE EDIT CHANGE END
+	threshold_penalty = 35
 	status_effect_type = /datum/status_effect/wound/pierce/severe
 	scar_keyword = "piercesevere"
 
@@ -189,11 +187,11 @@
 	sound_effect = 'sound/effects/wounds/pierce3.ogg'
 	severity = WOUND_SEVERITY_CRITICAL
 	//MOJAVE EDIT CHANGE BEGIN
-	initial_flow = 3.5 //Original TG value is 3
-	gauzed_clot_rate = 0.3 //Original TG value is 0.4
+	initial_flow = 3 //Original TG value is 3.5
+	gauzed_clot_rate = 0.35 //Original TG value is 0.4
+	internal_bleeding_chance = 90 //Original TG value is 80
+	internal_bleeding_coefficient = 1.35 //Original TG value is 1.75
 	//MOJAVE EDIT CHANGE END
-	internal_bleeding_chance = 80
-	internal_bleeding_coefficient = 1.75
 	threshold_minimum = 100
 	threshold_penalty = 50
 	status_effect_type = /datum/status_effect/wound/pierce/critical
