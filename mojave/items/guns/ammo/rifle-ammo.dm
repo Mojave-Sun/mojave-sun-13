@@ -146,11 +146,6 @@
 	desc = "An armor piercing .50MG bullet casing."
 	projectile_type = /obj/projectile/bullet/ms13/a50MG/ap
 
-/obj/item/ammo_casing/ms13/a50MG/fmj
-	name = "FMJ .50MG bullet casing"
-	desc = "A full metal jacket .50MG bullet casing."
-	projectile_type = /obj/projectile/bullet/ms13/a50MG/fmj
-
 /obj/item/ammo_casing/ms13/a50MG/hv
 	name = "HV .50MG bullet casing"
 	desc = "A high velocity .50MG bullet casing."
