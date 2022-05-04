@@ -5,7 +5,7 @@
 	icon_state = "caravan"
 	inhand_icon_state = "caravan"
 	force = 20
-	fire_delay = 0.4 SECONDS
+	fire_delay = 0.5 SECONDS
 	slot_flags = ITEM_SLOT_BACK
 	recoil = 1.5
 	slowdown = 0.75
@@ -22,7 +22,7 @@
 	icon_state = "sawedoff"
 	inhand_icon_state = "sawedoff"
 	force = 15
-	fire_delay = 0.5 SECONDS
+	fire_delay = 0.55 SECONDS
 	slot_flags = ITEM_SLOT_BELT
 	slowdown = 0.5
 	w_class = WEIGHT_CLASS_NORMAL
@@ -36,7 +36,7 @@
 	icon_state = "singleshot"
 	inhand_icon_state = "singleshot"
 	force = 20
-	fire_delay = 0.4 SECONDS
+	fire_delay = 0.45 SECONDS
 	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT
 	recoil = 1.5
 	slowdown = 0.75
@@ -44,8 +44,8 @@
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravan2.ogg'
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
-	grid_width = 160
-	grid_height = 64
+	grid_width = 192
+	grid_height = 32
 
 ////////////////////////// revolvers////////////////
 /obj/item/gun/ballistic/revolver/ms13/derringer

@@ -9,7 +9,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
 	force = 25
-	fire_delay = 0.55 SECONDS
+	fire_delay = 0.6 SECONDS
 	slowdown = 0.75
 	recoil = 1.5
 	grid_width = 160
@@ -35,7 +35,7 @@
 	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	force = 30
-	fire_delay = 0.5 SECONDS
+	fire_delay = 0.6 SECONDS
 	slowdown = 0.75
 	recoil = 1.5
 	grid_width = 192

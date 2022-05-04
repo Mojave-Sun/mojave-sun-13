@@ -30,10 +30,8 @@
 	icon_state = "sniper"
 	inhand_icon_state = "sniper"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/sniper/sniper2.ogg'
-	fire_delay = 0.6 SECONDS
+	fire_delay = 0.65 SECONDS
 	slot_flags = ITEM_SLOT_BACK
-	extra_damage = 45
-	extra_penetration = 10
 	w_class = WEIGHT_CLASS_HUGE
 	spread = 2
 	recoil = 1.5
@@ -50,8 +48,8 @@
 	desc = "A modified sniper rifle with an integrated suppressor and an improved rate of fire and recoil compensation. Whether it's called the Silencer because of it's modification or it's intended purpose is yet to be known."
 	icon_state = "silentsniper"
 	inhand_icon_state = "silentsniper"
-	fire_delay = 0.5 SECONDS
-	recoil = 1.25
+	fire_delay = 0.6 SECONDS
+	recoil = 1.15
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
 
 /obj/item/gun/ballistic/automatic/ms13/semi/marksman
@@ -87,13 +85,11 @@
 	icon_state = "battler"
 	inhand_icon_state = "battler"
 	fire_sound = 'mojave/sound/ms13weapons/battlerifle.ogg'
-	fire_delay = 0.5 SECONDS
+	fire_delay = 0.6 SECONDS
 	slot_flags = ITEM_SLOT_BACK
-	extra_damage = 40
-	extra_penetration = 15
 	w_class = WEIGHT_CLASS_HUGE
-	spread = 5
-	recoil = 1.5
+	spread = 4
+	recoil = 1.75
 	slowdown = 0.75
 	mag_type = /obj/item/ammo_box/magazine/ms13/r308_10
 	grid_width = 192
@@ -123,7 +119,7 @@
 	zoom_amt = 9
 	zoom_out_amt = 3
 	spread = 2
-	recoil = 1.25
+	recoil = 1.5
 	slowdown = 1
 
 // And now I will be switching the firearm to fully semi-automatic mode. //
