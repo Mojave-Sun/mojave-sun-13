@@ -223,8 +223,8 @@
 	fire_delay = 0.25 SECONDS
 	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
-	spread = 10
-	recoil = 0.75
+	spread = 8
+	recoil = 0.6
 	slowdown = 0.75
 	grid_width = 192
 	grid_height = 64
@@ -236,7 +236,7 @@
 	inhand_icon_state = "protoservice"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/service/service_2.ogg'
 	fire_delay = 0.3 SECONDS
-	spread = 8
+	recoil = 0.75
 
 /obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/infiltrator
 	name = "\improper Infiltrator"
@@ -248,8 +248,8 @@
 	zoom_out_amt = 3
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
 	w_class = WEIGHT_CLASS_BULKY
-	spread = 5
-	recoil = 0.5
+	spread = 4
+	recoil = 0.35
 	slowdown = 1
 	grid_width = 160
 	grid_height = 64
