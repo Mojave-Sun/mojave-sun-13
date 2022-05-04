@@ -40,8 +40,8 @@
 	throwforce = 25
 
 /obj/item/knife/ms13/combat/soviet
-	name = "\improper European combat knife"
-	desc = "A slick, straight back combat knife of European make. Seems quite old, and has a faint engraving reading NKVD. The plain, straight blade reduces it's effectiveness at wounding a target."
+	name = "\improper Soviet combat knife"
+	desc = "A slick, straight back combat knife of Soviet make. Seems quite old, and has a faint engraving reading NKVD. The plain, straight blade reduces it's effectiveness at wounding a target."
 	icon_state = "knife_soviet"
 	inhand_icon_state = "knife_soviet"
 	force = 30

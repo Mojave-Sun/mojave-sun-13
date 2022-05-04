@@ -103,8 +103,8 @@
 	grid_height = 32
 
 /obj/item/gun/ballistic/shotgun/automatic/ms13/sks
-	name = "\improper European battle rifle"
-	desc = "An old European semi-automatic rifle chambered for 7.62 rounds and normally fed from 10 round stripper clips."
+	name = "\improper Soviet battle rifle"
+	desc = "An old Soviet semi-automatic rifle chambered for 7.62 rounds and normally fed from 10 round stripper clips."
 	icon_state = "sks"
 	inhand_icon_state = "sks"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/sks
@@ -130,8 +130,8 @@
 		icon_state = "[initial(icon_state)]"
 
 /obj/item/gun/ballistic/shotgun/automatic/ms13/sks/scoped
-	name = "scoped European battle rifle"
-	desc = "A European battle rifle with a scope attached and some improved rifling for better accuracy. The added weight of the scope will slow the user down."
+	name = "scoped Soviet battle rifle"
+	desc = "A Soviet battle rifle with a scope attached and some improved rifling for better accuracy. The added weight of the scope will slow the user down."
 	icon_state = "scoped_sks"
 	inhand_icon_state = "scoped_sks"
 	spread = 2
