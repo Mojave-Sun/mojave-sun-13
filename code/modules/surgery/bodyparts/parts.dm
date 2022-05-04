@@ -6,6 +6,7 @@
 	max_damage = 200
 	body_zone = BODY_ZONE_CHEST
 	body_part = CHEST
+	plaintext_zone = "chest"
 	is_dimorphic = TRUE
 	px_x = 0
 	px_y = 0
@@ -73,6 +74,7 @@
 	//MOJAVE EDIT END
 	body_zone = BODY_ZONE_L_ARM
 	body_part = ARM_LEFT
+	plaintext_zone = "left arm"
 	aux_zone = BODY_ZONE_PRECISE_L_HAND
 	aux_layer = HANDS_PART_LAYER
 	body_damage_coeff = 0.6 //MOJAVE EDIT - Original TG value is 0.75
@@ -174,6 +176,7 @@
 	//MOJAVE EDIT END
 	body_zone = BODY_ZONE_R_ARM
 	body_part = ARM_RIGHT
+	plaintext_zone = "right arm"
 	aux_zone = BODY_ZONE_PRECISE_R_HAND
 	aux_layer = HANDS_PART_LAYER
 	body_damage_coeff = 0.6 //MOJAVE EDIT - Original TG value is 0.75
@@ -273,6 +276,7 @@
 	//MOJAVE EDIT END
 	body_zone = BODY_ZONE_L_LEG
 	body_part = LEG_LEFT
+	plaintext_zone = "left leg"
 	body_damage_coeff = 0.6 //MOJAVE EDIT - Original TG value is 0.75
 	px_x = -2
 	px_y = 12
@@ -365,6 +369,7 @@
 	//MOJAVE EDIT END
 	body_zone = BODY_ZONE_R_LEG
 	body_part = LEG_RIGHT
+	plaintext_zone = "right leg"
 	body_damage_coeff = 0.6 //MOJAVE EDIT - Original TG value is 0.75
 	px_x = 2
 	px_y = 12
