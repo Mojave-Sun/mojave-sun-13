@@ -12,9 +12,7 @@
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/pistol)
 	cell_type = /obj/item/stock_parts/cell/ms13/ec
 	force = 10
-	extra_damage = 20
-	extra_penetration = 0
-	fire_delay = 0.4 SECONDS
+	fire_delay = 0.5 SECONDS
 	slowdown = 0.5
 	grid_width = 64
 	grid_height = 64
@@ -28,9 +26,6 @@
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_2.ogg'
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/pistol/mfc)
 	cell_type = /obj/item/stock_parts/cell/ms13/mfc
-	extra_damage = 25
-	extra_penetration = 5
-	fire_delay = 0.45 SECONDS
 
 /obj/item/gun/energy/ms13/laser/pistol/advanced/brotherhood
 	name = "\improper Codex Enforcer"
@@ -38,7 +33,7 @@
 	icon_state = "boslas_pistol"
 	base_icon_state = "boslas_pistol"
 	inhand_icon_state = "boslas_pistol"
-	extra_damage = 30
+	fire_delay = 0.45 SECONDS
 
 /obj/item/gun/energy/ms13/laser/pistol/advanced/defender
 	name = "laser defender"
@@ -47,9 +42,7 @@
 	base_icon_state = "laserdefender"
 	inhand_icon_state = "laserdefender"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_3.ogg'
-	extra_damage = 25
-	extra_penetration = 10
-	fire_delay = 0.4 SECONDS
+	fire_delay = 0.45 SECONDS
 
 /obj/item/gun/energy/ms13/laser/pistol/wattz
 	name = "\improper Wattz laser pistol"
@@ -58,8 +51,6 @@
 	base_icon_state = "wattzpistol"
 	inhand_icon_state = "wattzpistol"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_4.ogg'
-	extra_damage = 15
-	fire_delay = 0.4 SECONDS
 
 // Plasma Pistols //
 
@@ -74,9 +65,7 @@
 	weapon_weight = WEAPON_MEDIUM
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/plasma/pistol)
 	force = 10
-	extra_damage = 25
-	extra_penetration = 0
-	fire_delay = 0.5 SECONDS
+	fire_delay = 0.6 SECONDS
 	spread = 6
 	recoil = 0.5
 	slowdown = 0.5
@@ -89,16 +78,13 @@
 	icon_state = "enclaveplasmapistol"
 	base_icon_state = "enclaveplasmapistol"
 	inhand_icon_state = "enclaveplasmapistol"
-	extra_damage = 30
-	extra_penetration = 5
 
 /obj/item/gun/energy/ms13/plasma/pistol/defender
 	name = "plasma defender"
-	desc = "The peak of compact plasma weaponry. A fast firing, very hard hitting and more accurate plasma pistol. Something you do not want to be on the receiving end of."
+	desc = "The peak of compact plasma weaponry. Faster firing and more accurate than other plasma pistols. Something you do not want to be on the receiving end of."
 	icon_state = "plasmadefender"
 	base_icon_state = "plasmadefender"
 	inhand_icon_state = "plasmadefender"
-	extra_penetration = 10
-	fire_delay = 0.4 SECONDS
+	fire_delay = 0.5 SECONDS
 	spread = 4
 	recoil = 0.25
