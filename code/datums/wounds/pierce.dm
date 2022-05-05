@@ -190,7 +190,7 @@
 	initial_flow = 3 //Original TG value is 3.5
 	gauzed_clot_rate = 0.35 //Original TG value is 0.4
 	internal_bleeding_chance = 90 //Original TG value is 80
-	internal_bleeding_coefficient = 1.35 //Original TG value is 1.75
+	internal_bleeding_coefficient = 1.25 //Original TG value is 1.75
 	//MOJAVE EDIT CHANGE END
 	threshold_minimum = 100
 	threshold_penalty = 50

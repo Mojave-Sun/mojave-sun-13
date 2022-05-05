@@ -125,7 +125,7 @@
 			return
 
 	if(limb.body_zone == BODY_ZONE_CHEST && victim.blood_volume && prob(internal_bleeding_chance + wounding_dmg))
-		var/blood_bled = rand(1, wounding_dmg * (severity == WOUND_SEVERITY_CRITICAL ? 1.1 : 0.75)) // 12 brute toolbox can cause up to 18/24 bleeding with a severe/critical chest wound //MOJAVE EDIT - Original values are 2 : 1.5
+		var/blood_bled = rand(1, wounding_dmg * (severity == WOUND_SEVERITY_CRITICAL ? 1.5 : 1.1)) // 12 brute toolbox can cause up to 18/24 bleeding with a severe/critical chest wound //MOJAVE EDIT - Original values are 2 : 1.5
 		switch(blood_bled)
 			if(1 to 6)
 				victim.bleed(blood_bled, TRUE)
@@ -339,7 +339,7 @@
 	brain_trauma_group = BRAIN_TRAUMA_MILD
 	//MOJAVE EDIT CHANGE BEGIN
 	trauma_cycle_cooldown = 2 MINUTES //Original TG value is 1.5 minutes
-	internal_bleeding_chance = 35 //Original TG value is 40
+	internal_bleeding_chance = 50 //Original TG value is 40
 	//MOJAVE EDIT CHANGE END
 	wound_flags = (BONE_WOUND | ACCEPTS_GAUZE | MANGLES_BONE)
 	regen_ticks_needed = 120 // ticks every 2 seconds, 240 seconds, so roughly 4 minutes default
@@ -368,7 +368,7 @@
 	brain_trauma_group = BRAIN_TRAUMA_SEVERE
 	trauma_cycle_cooldown = 2.5 MINUTES
 	//MOJAVE EDIT CHANGE BEGIN
-	internal_bleeding_chance = 65 //Original TG value is 60
+	internal_bleeding_chance = 75 //Original TG value is 60
 	//MOJAVE EDIT CHANGE END
 	wound_flags = (BONE_WOUND | ACCEPTS_GAUZE | MANGLES_BONE)
 	regen_ticks_needed = 240 // ticks every 2 seconds, 480 seconds, so roughly 8 minutes default
