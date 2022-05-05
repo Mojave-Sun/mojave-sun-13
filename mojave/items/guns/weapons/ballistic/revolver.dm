@@ -5,7 +5,7 @@
 	icon_state = "caravan"
 	inhand_icon_state = "caravan"
 	force = 20
-	fire_delay = 0.5 SECONDS
+	fire_delay = 0.45 SECONDS
 	slot_flags = ITEM_SLOT_BACK
 	recoil = 1.5
 	slowdown = 0.75
@@ -37,7 +37,7 @@
 	inhand_icon_state = "singleshot"
 	force = 20
 	fire_delay = 0.45 SECONDS
-	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT
+	slot_flags = ITEM_SLOT_BACK
 	recoil = 1.5
 	slowdown = 0.75
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/single
