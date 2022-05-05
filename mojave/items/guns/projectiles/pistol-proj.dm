@@ -1,5 +1,6 @@
 //.45
 /obj/projectile/bullet/ms13/c45
+	name = ".45 bullet"
 	icon_state = "merehandgun_bullet"
 	damage = 30
 	subtractible_armour_penetration = 5
@@ -22,6 +23,7 @@
 
 //.22
 /obj/projectile/bullet/ms13/c22
+	name = ".22 bullet"
 	icon_state = "merehandgun_bullet"
 	damage = 20
 	subtractible_armour_penetration = 0
@@ -44,6 +46,7 @@
 
 //9mm
 /obj/projectile/bullet/ms13/c9mm
+	name = "9mm bullet"
 	icon_state = "merehandgun_bullet"
 	damage = 20
 	subtractible_armour_penetration = 10
@@ -65,6 +68,7 @@
 
 //10mm
 /obj/projectile/bullet/ms13/c10mm
+	name = "10mm bullet"
 	icon_state = "merehandgun_bullet"
 	damage = 25
 	subtractible_armour_penetration = 15
@@ -86,6 +90,7 @@
 
 //12.7mm
 /obj/projectile/bullet/ms13/m12mm
+	name = "12.7mm bullet"
 	icon_state = "medium_bullet"
 	damage = 40
 	subtractible_armour_penetration = 35

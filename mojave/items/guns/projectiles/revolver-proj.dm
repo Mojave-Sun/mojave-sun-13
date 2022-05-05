@@ -1,5 +1,6 @@
 //.44
 /obj/projectile/bullet/ms13/m44
+	name = ".44 bullet"
 	icon_state = "medium_bullet"
 	damage = 40
 	subtractible_armour_penetration = 15
@@ -21,6 +22,7 @@
 
 //45-70
 /obj/projectile/bullet/ms13/c4570
+	name = ".45-70 bullet"
 	icon_state = "medium_bullet"
 	damage = 50
 	subtractible_armour_penetration = 20
@@ -39,6 +41,7 @@
 
 //.357
 /obj/projectile/bullet/ms13/a357
+	name = ".357 bullet"
 	icon_state = "medium_bullet"
 	damage = 35
 	subtractible_armour_penetration = 10

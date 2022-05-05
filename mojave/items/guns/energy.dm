@@ -170,7 +170,7 @@
 	name = "electron charge pack"
 	desc = "An electron charge pack, typically used as ammunition for rapidly-firing energy weapons."
 	icon_state = "mfc"
-	maxcharge = 1250
+	maxcharge = 1000
 	chargerate = 100
 	base_icon = "mfc"
 

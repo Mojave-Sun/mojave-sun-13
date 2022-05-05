@@ -9,7 +9,7 @@
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_1.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 	weapon_weight = WEAPON_MEDIUM
-	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/pistol)
+	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/stan_pistol)
 	cell_type = /obj/item/stock_parts/cell/ms13/ec
 	force = 10
 	fire_delay = 0.5 SECONDS
@@ -24,7 +24,7 @@
 	base_icon_state = "advlas_pistol"
 	inhand_icon_state = "advlas_pistol"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_2.ogg'
-	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/pistol/mfc)
+	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/adv_pistol)
 	cell_type = /obj/item/stock_parts/cell/ms13/mfc
 
 /obj/item/gun/energy/ms13/laser/pistol/advanced/brotherhood
@@ -42,6 +42,7 @@
 	base_icon_state = "laserdefender"
 	inhand_icon_state = "laserdefender"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_3.ogg'
+	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/las_defender)
 	fire_delay = 0.45 SECONDS
 
 /obj/item/gun/energy/ms13/laser/pistol/wattz
@@ -51,6 +52,18 @@
 	base_icon_state = "wattzpistol"
 	inhand_icon_state = "wattzpistol"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_4.ogg'
+	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/wattz_pistol)
+
+/obj/item/gun/energy/ms13/laser/pistol/wattz_heavy
+	name = "\improper Wattz heavy laser pistol"
+	desc = "An experimental laser pistol developed by Wattz electronics, intended to try and push into the military laser weapon market. Fires slower than other laser pistols but packs a decent punch."
+	icon_state = "wattz2000car"
+	base_icon_state = "wattz2000car"
+	inhand_icon_state = "wattz2000car"
+	fire_sound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_2.ogg'
+	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/wattz_heavypistol)
+	cell_type = /obj/item/stock_parts/cell/ms13/mfc
+	fire_delay = 0.6 SECONDS
 
 // Plasma Pistols //
 
@@ -63,7 +76,7 @@
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/plaspistol/plasma_3.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 	weapon_weight = WEAPON_MEDIUM
-	ammo_type = list(/obj/item/ammo_casing/energy/ms13/plasma/pistol)
+	ammo_type = list(/obj/item/ammo_casing/energy/ms13/plasma/stan_pistol)
 	force = 10
 	fire_delay = 0.6 SECONDS
 	spread = 6
@@ -78,6 +91,7 @@
 	icon_state = "enclaveplasmapistol"
 	base_icon_state = "enclaveplasmapistol"
 	inhand_icon_state = "enclaveplasmapistol"
+	ammo_type = list(/obj/item/ammo_casing/energy/ms13/plasma/adv_pistol)
 
 /obj/item/gun/energy/ms13/plasma/pistol/defender
 	name = "plasma defender"
@@ -85,6 +99,7 @@
 	icon_state = "plasmadefender"
 	base_icon_state = "plasmadefender"
 	inhand_icon_state = "plasmadefender"
+	ammo_type = list(/obj/item/ammo_casing/energy/ms13/plasma/plas_defender)
 	fire_delay = 0.5 SECONDS
 	spread = 4
 	recoil = 0.25

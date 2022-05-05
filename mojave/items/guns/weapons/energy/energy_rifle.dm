@@ -7,7 +7,7 @@
 	icon_state = "stanlas_rifle"
 	inhand_icon_state = "stanlas_rifle"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/lasrifle/las_rifle_1.ogg'
-	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser)
+	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/stan_rifle)
 	cell_type = /obj/item/stock_parts/cell/ms13/mfc
 	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
@@ -25,6 +25,7 @@
 	icon_state = "advlas_rifle"
 	inhand_icon_state = "advlas_rifle"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/lasrifle/las_rifle_1.ogg'
+	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/adv_rifle)
 
 /obj/item/gun/energy/ms13/laser/rifle/wattz
 	name = "\improper Wattz laser rifle"
@@ -33,7 +34,7 @@
 	icon_state = "wattzrifle"
 	inhand_icon_state = "wattzrifle"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/lasrifle/las_rifle_2.ogg'
-	fire_delay = 0.55 SECONDS
+	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/wattz_rifle)
 
 /obj/item/gun/energy/ms13/laser/rifle/wattz/sniper
 	name = "\improper Wattz laser sniper"
@@ -59,7 +60,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/lasrcw/rcw_5.ogg'
-	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser)
+	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/las_rcw)
 	cell_type = /obj/item/stock_parts/cell/ms13/ecp
 	fire_delay = 0.25 SECONDS
 	spread = 6
@@ -97,7 +98,7 @@
 	base_icon_state = "enclaveplasma"
 	inhand_icon_state = "enclaveplasma"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/plasrifle/plasma_3.ogg'
-	ammo_type = list(/obj/item/ammo_casing/energy/ms13/plasma)
+	ammo_type = list(/obj/item/ammo_casing/energy/ms13/plasma/plas_rifle)
 	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	slot_flags = ITEM_SLOT_BACK
@@ -117,6 +118,7 @@
 	icon_state = "plasmacarabine"
 	base_icon_state = "plasmacarabine"
 	inhand_icon_state = "plasmacarabine"
+	ammo_type = list(/obj/item/ammo_casing/energy/ms13/plasma/plas_carbine)
 	w_class = WEIGHT_CLASS_BULKY
 	fire_delay = 0.6 SECONDS
 	spread = 5

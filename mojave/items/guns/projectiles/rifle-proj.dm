@@ -1,5 +1,6 @@
 //7.62
 /obj/projectile/bullet/ms13/a762
+	name = "7.62 bullet"
 	icon_state = "bigroilfe_bullet"
 	damage = 30
 	subtractible_armour_penetration = 40
@@ -21,6 +22,7 @@
 
 //.308
 /obj/projectile/bullet/ms13/a308
+	name = ".308 bullet"
 	icon_state = "bigroilfe_bullet"
 	damage = 45
 	subtractible_armour_penetration = 45
@@ -42,6 +44,7 @@
 
 //5.56
 /obj/projectile/bullet/ms13/a556
+	name = "5.56 bullet"
 	icon_state = "medium_bullet"
 	damage = 25
 	subtractible_armour_penetration = 25
@@ -63,6 +66,7 @@
 
 //50 BMG
 /obj/projectile/bullet/ms13/a50MG
+	name = ".50 BMG bullet"
 	icon_state = "lightfifty_bullet"
 	damage = 60
 	subtractible_armour_penetration = 60
