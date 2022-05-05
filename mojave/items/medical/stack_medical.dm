@@ -32,7 +32,7 @@
     other_delay = 2 SECONDS
     repeating = FALSE
     heal_brute = 10
-    stop_bleeding = 0.75
+    stop_bleeding = 0.65
     gender = NEUTER //So examine text says "This is a suture" instead of "These are some suture"
     merge_type = /obj/item/stack/medical/suture/ms13
 

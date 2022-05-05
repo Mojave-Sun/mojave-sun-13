@@ -216,8 +216,8 @@
 	limp_slowdown = 2.5 //Original TG value is 3
 	limp_chance = 50 //Unchanged
 	threshold_minimum = 25 //Original TG value is 35
+	threshold_penalty = 10 //Original TG value is 15
 	//MOJAVE EDIT CHANGE END
-	threshold_penalty = 15
 	treatable_tool = TOOL_BONESET
 	wound_flags = (BONE_WOUND)
 	status_effect_type = /datum/status_effect/wound/blunt/moderate
@@ -330,9 +330,9 @@
 	//MOJAVE EDIT CHANGE BEGIN
 	limp_slowdown = 5 //Original TG value is 6
 	limp_chance = 75 //Original TG value is 60
-	threshold_minimum = 50 //Original TG value is 60
+	threshold_minimum = 55 //Original TG value is 60
+	threshold_penalty = 25 //Original TG value is 30
 	//MOJAVE EDIT CHANGE END
-	threshold_penalty = 30
 	treatable_by = list(/obj/item/stack/sticky_tape/surgical, /obj/item/stack/medical/bone_gel)
 	status_effect_type = /datum/status_effect/wound/blunt/severe
 	scar_keyword = "bluntsevere"
@@ -359,8 +359,8 @@
 	limp_chance = 90 //Original TG value is 70
 	sound_effect = 'sound/effects/wounds/crack2.ogg' //Unchanged from original TG value
 	threshold_minimum = 110 //Original TG value is 115
+	threshold_penalty = 45 //Original TG value is 50
 	//MOJAVE EDIT CHANGE END
-	threshold_penalty = 50
 	disabling = TRUE
 	treatable_by = list(/obj/item/stack/sticky_tape/surgical, /obj/item/stack/medical/bone_gel)
 	status_effect_type = /datum/status_effect/wound/blunt/critical
