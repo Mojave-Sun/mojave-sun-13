@@ -37,17 +37,17 @@
 /obj/projectile/beam/ms13/laser/wattz_pistol
 	name = "weak laser beam"
 	range = 21
-	damage = 20
+	damage = 15
 	subtractible_armour_penetration = 5
-	wound_bonus = -5
-	bare_wound_bonus = 5
+	wound_bonus = 0
+	bare_wound_bonus = 10
 
 /obj/projectile/beam/ms13/laser/stan_pistol
 	name = "weak laser beam"
 	range = 21
 	damage = 20
-	subtractible_armour_penetration = 20
-	wound_bonus = 0
+	subtractible_armour_penetration = 15
+	wound_bonus = 5
 	bare_wound_bonus = 10
 
 /obj/projectile/beam/ms13/laser/wattz_rifle
@@ -55,71 +55,71 @@
 	range = 28
 	damage = 25
 	subtractible_armour_penetration = 5
-	wound_bonus = -5
+	wound_bonus = 0
 	bare_wound_bonus = 10
 
 /obj/projectile/beam/ms13/laser/wattz_heavypistol
 	name = "laser beam"
 	range = 28
 	damage = 25
-	subtractible_armour_penetration = 20
-	wound_bonus = 0
+	subtractible_armour_penetration = 15
+	wound_bonus = 10
 	bare_wound_bonus = 10
 
 /obj/projectile/beam/ms13/laser/sniper
 	name = "concentrated laser beam"
 	range = 36
 	damage = 35
-	subtractible_armour_penetration = 35
-	wound_bonus = 10
-	bare_wound_bonus = 10
+	subtractible_armour_penetration = 30
+	wound_bonus = 15
+	bare_wound_bonus = 15
 
 /obj/projectile/beam/ms13/laser/adv_rifle
 	name = "concentrated laser beam"
 	range = 28
-	damage = 35
+	damage = 30
 	subtractible_armour_penetration = 30
-	wound_bonus = 5
-	bare_wound_bonus = 10
+	wound_bonus = 10
+	bare_wound_bonus = 15
 
 /obj/projectile/beam/ms13/laser/stan_rifle
 	name = "laser beam"
 	range = 28
-	damage = 30
+	damage = 25
 	subtractible_armour_penetration = 30
-	wound_bonus = 5
-	bare_wound_bonus = 5
+	wound_bonus = 10
+	bare_wound_bonus = 15
 
 /obj/projectile/beam/ms13/laser/adv_pistol
 	name = "laser beam"
 	range = 21
 	damage = 25
 	subtractible_armour_penetration = 25
-	wound_bonus = 0
-	bare_wound_bonus = 5
+	wound_bonus = 5
+	bare_wound_bonus = 10
 
 /obj/projectile/beam/ms13/laser/las_defender
 	name = "laser beam"
 	range = 21
 	damage = 25
 	subtractible_armour_penetration = 35
-	wound_bonus = 5
-	bare_wound_bonus = 5
+	wound_bonus = 10
+	bare_wound_bonus = 15
 
 /obj/projectile/beam/ms13/laser/las_rcw
 	name = "weak laser beam"
 	range = 21
-	damage = 20
-	subtractible_armour_penetration = 20
-	wound_bonus = 8
-	bare_wound_bonus = 8
+	damage = 15
+	subtractible_armour_penetration = 25
+	wound_bonus = 10
+	bare_wound_bonus = 10
 
 /obj/projectile/beam/ms13/laser/scatter
 	name = "scatter laser beam"
 	range = 16
 	damage = 15
 	subtractible_armour_penetration = 35
-	wound_bonus = 0
+	wound_bonus = 5
 	bare_wound_bonus = 10
 
 
@@ -176,33 +176,33 @@
 /obj/projectile/bullet/ms13/plasma/stan_pistol
 	damage = 30
 	subtractible_armour_penetration = 5
-	wound_bonus = 10
+	wound_bonus = 15
 	bare_wound_bonus = 15
 
 /obj/projectile/bullet/ms13/plasma/adv_pistol
 	name = "concentrated plasma bolt"
 	damage = 35
 	subtractible_armour_penetration = 25
-	wound_bonus = 10
+	wound_bonus = 15
 	bare_wound_bonus = 20
 
 /obj/projectile/bullet/ms13/plasma/plas_defender
 	damage = 30
 	subtractible_armour_penetration = 20
-	wound_bonus = 10
+	wound_bonus = 15
 	bare_wound_bonus = 20
 
 /obj/projectile/bullet/ms13/plasma/plas_carbine
 	damage = 35
 	subtractible_armour_penetration = 10
-	wound_bonus = 10
+	wound_bonus = 15
 	bare_wound_bonus = 15
 
 /obj/projectile/bullet/ms13/plasma/plas_rifle
 	name = "concentrated plasma bolt"
 	damage = 40
 	subtractible_armour_penetration = 25
-	wound_bonus = 15
+	wound_bonus = 20
 	bare_wound_bonus = 25
 
 /obj/projectile/bullet/ms13/plasma/scatter

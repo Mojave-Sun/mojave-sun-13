@@ -12,7 +12,7 @@
 
 /obj/item/ammo_casing/energy/ms13/laser/wattz_pistol
 	projectile_type = /obj/projectile/beam/ms13/laser/wattz_pistol
-	e_cost = 20 //Combined with EC capacity this gives 15 shots
+	e_cost = 15 //Combined with EC capacity this gives 20 shots
 
 /obj/item/ammo_casing/energy/ms13/laser/stan_pistol
 	projectile_type = /obj/projectile/beam/ms13/laser/stan_pistol
@@ -20,7 +20,7 @@
 
 /obj/item/ammo_casing/energy/ms13/laser/wattz_rifle
 	projectile_type = /obj/projectile/beam/ms13/laser/wattz_rifle
-	e_cost = 30 //Combined with MFC capacity this gives 20 shots
+	e_cost = 25 //Combined with MFC capacity this gives 24 shots
 
 /obj/item/ammo_casing/energy/ms13/laser/wattz_heavypistol
 	projectile_type = /obj/projectile/beam/ms13/laser/wattz_heavypistol
