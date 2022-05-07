@@ -63,7 +63,7 @@
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/las_rcw)
 	cell_type = /obj/item/stock_parts/cell/ms13/ecp
 	fire_delay = 0.25 SECONDS
-	spread = 6
+	spread = 4
 	slowdown = 0.75
 	grid_width = 160
 	grid_height = 64
