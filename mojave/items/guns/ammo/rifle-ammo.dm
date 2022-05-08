@@ -95,6 +95,7 @@
 	caliber = "a556"
 	icon_state = "556_casing"
 	projectile_type = /obj/projectile/bullet/ms13/a556
+	stack_type = /obj/item/ammo_box/magazine/ammo_stack
 
 /obj/item/ammo_casing/ms13/a556/junk
 	name = "junk 5.56mm bullet casing"
