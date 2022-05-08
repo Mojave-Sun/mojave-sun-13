@@ -1,5 +1,8 @@
 /datum/job/ms13/ncr
 	selection_color = "#cfd1ba"
+	departments_list = list(
+		/datum/job_department/ncr,
+	)
 	exp_granted_type = EXP_TYPE_NCR
 	exp_required_type = EXP_TYPE_NCR
 	forbid = "The NCR forbids: Recreational drugs(barring med-X), Drinking or Gambling on duty,, disobeying lawful orders and desertion. CO determines who is off-duty."
@@ -14,6 +17,7 @@
 	gloves = /obj/item/clothing/gloves/ms13/ncr
 
 /datum/outfit/job/ms13/ncr/pre_equip(mob/living/carbon/human/H)
+	..()
 
 //These are base jobs, we don't want them appearing at all
 /datum/job/ms13/ncr/config_check()
