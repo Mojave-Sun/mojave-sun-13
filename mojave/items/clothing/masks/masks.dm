@@ -11,7 +11,7 @@
 
 /obj/item/clothing/mask/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/masks_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clothing/clothing_inventory/masks_inventory.dmi')
 
 // Bandanas //
 
@@ -140,7 +140,7 @@
 
 /obj/item/clothing/mask/gas/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/masks_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clothing/clothing_inventory/masks_inventory.dmi')
 
 /obj/item/clothing/mask/gas/ms13/modern
 	icon_state = "gasmask"

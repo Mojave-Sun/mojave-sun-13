@@ -36,7 +36,7 @@
 
 /obj/item/food/grown/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/hydroponics/harvest/harvest_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/hydroponics/harvest/harvest_inventory.dmi')
 
 /////////////////////////////////////////////////////////////
 ////////////////// MOJAVE SUN BOTANY ITEMS //////////////////

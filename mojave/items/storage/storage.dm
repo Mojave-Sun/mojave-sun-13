@@ -17,7 +17,7 @@
 
 /obj/item/storage/firstaid/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/medical/medical_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/medical/medical_inventory.dmi')
 
 /obj/item/storage/firstaid/ms13/ComponentInitialize()
 	. = ..()

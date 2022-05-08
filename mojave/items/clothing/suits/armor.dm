@@ -14,7 +14,7 @@
 
 /obj/item/clothing/suit/armor/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/suits_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clothing/clothing_inventory/suits_inventory.dmi')
 
 /obj/item/clothing/suit/hooded/ms13/
 	name = "generic ms13 hooded clothing"
@@ -29,7 +29,7 @@
 
 /obj/item/clothing/suit/hooded/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/suits_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clothing/clothing_inventory/suits_inventory.dmi')
 
 // Armor Kits //
 

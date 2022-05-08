@@ -8,7 +8,7 @@
 
 /obj/item/storage/belt/holster/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/belts_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clothing/clothing_inventory/belts_inventory.dmi')
 
 /obj/item/storage/belt/holster/ms13/equipped(mob/user, slot)
 	. = ..()
