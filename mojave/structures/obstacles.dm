@@ -29,7 +29,7 @@
 /obj/structure/ms13/bars/attackby(obj/item/W, mob/user, params)
 	if(W.tool_behaviour == TOOL_SAW)
 		user.show_message(span_notice("You begin sawing through the bars."), MSG_VISUAL)
-		if(do_after(user, 45 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON)) 
+		if(do_after(user, 45 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
 			user.show_message(span_notice("You saw through the bars!"), MSG_VISUAL)
 			deconstruct()
 			return TRUE
@@ -628,6 +628,55 @@
 	desc = "A rusty guard rail used to prevent you from falling into the region's sewage. Thank the lord it's there."
 	icon_state = "railings_sewer"
 
+// Fences. Huzzah! //
+/obj/structure/railing/ms13/wood
+	name = "wooden fence"
+	desc = "A classic wooden fence. It doesn't get more homely than this."
+	icon_state = "wood_full"
+
+/obj/structure/railing/ms13/wood/crowbar_act_secondary(mob/living/user, obj/item/tool)
+	if(flags_1&NODECONSTRUCT_1)
+		return TRUE
+	..()
+	user.visible_message("<span class='notice'>[user] starts to break \the [src].</span>", \
+		"<span class='notice'>You start to break \the [src].</span>", \
+		"<span class='hear'>You hear splitting wood.</span>")
+	tool.play_tool_sound(src)
+	if(do_after(user, 10 SECONDS * tool.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+		playsound(src.loc, 'mojave/sound/ms13effects/wood_deconstruction.ogg', 50, TRUE)
+		user.visible_message("<span class='notice'>[user] pries \the [src] into pieces.</span>", \
+			"<span class='notice'>You pry \the [src] into pieces.</span>", \
+			"<span class='hear'>You hear splitting wood.</span>")
+		deconstruct(disassembled = TRUE)
+		return TRUE
+
+/obj/structure/railing/ms13/wood/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/plank(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 2)
+		else
+			new /obj/item/stack/sheet/ms13/scrap_wood(loc)
+	qdel(src)
+
+/obj/structure/railing/ms13/wood/examine(mob/user)
+	. = ..()
+	. += deconstruction_hints(user)
+
+/obj/structure/railing/ms13/wood/proc/deconstruction_hints(mob/user)
+	return span_notice("You could use a <b>crowbar</b> or similar prying tool to dismantle [src] for planks and parts.")
+
+/obj/structure/railing/ms13/wood/single
+	icon_state = "wood_solo"
+
+/obj/structure/railing/ms13/wood/snow
+	name = "wooden fence"
+	desc = "A classic wooden fence. It doesn't get more homely than this."
+	icon_state = "wood_snow_full"
+
+/obj/structure/railing/ms13/wood/snow/single
+	icon_state = "wood_snow_solo"
+
 // Wood Barricade //
 
 /obj/structure/ms13/barricade
@@ -643,11 +692,19 @@
 	flags_1 = ON_BORDER_1
 	var/barpasschance = 20
 
-/obj/structure/ms13/barricade/crowbar_act(mob/living/user, obj/item/tool)
+/obj/structure/ms13/barricade/crowbar_act_secondary(mob/living/user, obj/item/tool)
 	if(flags_1&NODECONSTRUCT_1)
 		return TRUE
 	..()
+	user.visible_message("<span class='notice'>[user] starts to break \the [src].</span>", \
+		"<span class='notice'>You start to break \the [src].</span>", \
+		"<span class='hear'>You hear splitting wood.</span>")
+	tool.play_tool_sound(src)
 	if(do_after(user, 6 SECONDS * tool.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+		playsound(src.loc, 'mojave/sound/ms13effects/wood_deconstruction.ogg', 50, TRUE)
+		user.visible_message("<span class='notice'>[user] pries \the [src] into pieces.</span>", \
+			"<span class='notice'>You pry \the [src] into pieces.</span>", \
+			"<span class='hear'>You hear splitting wood.</span>")
 		deconstruct(disassembled = TRUE)
 		return TRUE
 

@@ -1,5 +1,9 @@
+//// These spawners are NON-STATIC spawns. If you are making changes to these pools, you should probably also make changes to the static spawns outside of the Guarenteed folder. ////
+//// The idea of these spawners it to use these EVERYWHERE. Emphasis on EVERYWHERE!!! These are the spawners you should be slapping in every other building, so that there's variety in loot locations on a per-round basis. ////
+
 /obj/effect/spawner/random/ms13/melee
 	name = "DO NOT USE ME - Mojave Sun melee spawners"
+	icon_state = "ms13_melee"
 	spawn_loot_count = 1
 	spawn_loot_double = FALSE
 
@@ -62,7 +66,6 @@
 /obj/effect/spawner/random/ms13/melee/tier4
 	name = "tier 4 melee spawner"
 	spawn_loot_chance = 60
-
 	loot = list(
 			/obj/item/knife/ms13/combat/bowie,
 			/obj/item/claymore/ms13/machete/ripper/advanced,
@@ -76,7 +79,6 @@
 /obj/effect/spawner/random/ms13/melee/unique
 	name = "unique melee spawner"
 	spawn_loot_chance = 25
-
 	loot = list(
 			/obj/item/claymore/ms13/machete/katana/immortal,
 			/obj/item/claymore/ms13/pipe/humble,
@@ -87,7 +89,6 @@
 /obj/effect/spawner/random/ms13/melee/lowrandom
 	name = "low tier random melee spawner"
 	spawn_loot_chance = 100
-
 	loot = list(
 			/obj/effect/spawner/random/ms13/melee/tier1 = 70,
 			/obj/effect/spawner/random/ms13/melee/tier2 = 30
@@ -96,7 +97,6 @@
 /obj/effect/spawner/random/ms13/melee/highrandom
 	name = "high tier random melee spawner"
 	spawn_loot_chance = 100
-
 	loot = list(
 			/obj/effect/spawner/random/ms13/melee/tier2 = 10,
 			/obj/effect/spawner/random/ms13/melee/tier3 = 60,

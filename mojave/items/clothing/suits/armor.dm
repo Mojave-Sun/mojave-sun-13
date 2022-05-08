@@ -9,6 +9,8 @@
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	///Icon file for right inhand overlays
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
+	grid_width = 96
+	grid_height = 96
 
 /obj/item/clothing/suit/armor/ms13/Initialize()
 	. = ..()
@@ -22,6 +24,8 @@
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
 	hoodtype = /obj/item/clothing/head/hooded/ms13
+	grid_width = 64
+	grid_height = 96
 
 /obj/item/clothing/suit/hooded/ms13/Initialize()
 	. = ..()
@@ -234,16 +238,20 @@
 	desc = "A lead lined suit, designed with the sole purpose of blocking radiation from the human body. It's pretty thick, and while it could protect you from more than rads, why would you waste such a thing like this in combat?"
 	icon_state = "radsuit"
 	inhand_icon_state = "radsuit"
-	armor = list(melee = 20, bullet = 5, laser = 10, energy = 10, bomb = 10, bio = 5, fire = 15, acid = 10)
+	armor = list("melee" = 25, "bullet" = 20, "laser" = 10, "energy" = 20, "bomb" = 15, "bio" = 80,  "fire" = 20, "acid" = 80, "wound" = 0)
+
+/obj/item/clothing/suit/armor/ms13/radsuit/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/radiation_protected_clothing)
 
 /obj/item/clothing/suit/hooded/ms13/hazmat
 	name = "hazmat suit"
-	desc = "A relatively thin but sturdy suit. You're not quite sure what it's made from, only that there's not a chance any liquids are getting on your hardly pristine skin. "
+	desc = "A relatively thin hazmat suit. You're not quite sure what it's made from, only that this should be able to keep any dangerous liquids off of you."
 	icon_state = "hazmat"
 	inhand_icon_state = "hazmat"
 	hoodtype = /obj/item/clothing/head/hooded/ms13/hazmat
 	resistance_flags = ACID_PROOF
-	armor = list(melee = 15, bullet = 5, laser = 5, energy = 5, bomb = 5, bio = 75,  fire = 5, acid = 75)
+	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 75,  fire = 5, acid = 75, wound = 0)
 
 /obj/item/clothing/suit/space/ms13
 	name = "\improper Space suit"

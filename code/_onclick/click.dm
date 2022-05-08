@@ -342,6 +342,17 @@
  * For most objects, pull
  */
 /mob/proc/CtrlClickOn(atom/A)
+	//MOJAVE SUN EDIT START - Grid Rotation
+	if(isitem(A))
+		var/obj/item/flipper = A
+		if((!usr.Adjacent(flipper) && !usr.DirectAccess(flipper)) || !isliving(usr) || usr.incapacitated())
+			return
+		var/old_width = flipper.grid_width
+		var/old_height = flipper.grid_height
+		flipper.grid_height = old_width
+		flipper.grid_width = old_height
+		to_chat(usr, span_notice("You flip the item for storage."))
+	//MOJAVE SUN EDIT END - Grid Rotation
 	A.CtrlClick(src)
 	return
 

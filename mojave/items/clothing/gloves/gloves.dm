@@ -1,8 +1,11 @@
 /obj/item/clothing/gloves/ms13/
-    name = "generic ms13 gloves"
-    desc = "this doesn't even exist"
-    icon = 'mojave/icons/objects/clothing/clothing_world/gloves_world.dmi'
-    worn_icon = 'mojave/icons/mob/clothing/hands.dmi'
+	name = "generic ms13 gloves"
+	desc = "this doesn't even exist"
+	icon = 'mojave/icons/objects/clothing/clothing_world/gloves_world.dmi'
+	worn_icon = 'mojave/icons/mob/clothing/hands.dmi'
+	grid_height = 32
+	grid_width = 64
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/clothing/gloves/ms13/Initialize()
 	. = ..()

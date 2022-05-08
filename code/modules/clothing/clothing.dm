@@ -320,8 +320,40 @@
 
 	if(href_list["list_armor"])
 		var/list/readout = list("<span class='notice'><u><b>PROTECTION CLASSES (I-X)</u></b>")
+		//MOJAVE EDIT BEGIN
+		if(subarmor.edge_protection || subarmor.crushing || subarmor.cutting || subarmor.piercing || subarmor.impaling || subarmor.laser \
+			|| subarmor.energy || subarmor.bomb  || subarmor.fire || subarmor.acid)
+			readout += "\n<b>ARMOR (DT)</b>"
+			if(subarmor.subarmor_flags & SUBARMOR_FLEXIBLE)
+				readout += "\nFLEXIBLE"
+			if(subarmor.edge_protection)
+				readout += "\nEDGE PROTECTION [armor_to_protection_class(subarmor.edge_protection)]"
+			if(subarmor.crushing)
+				readout += "\nCRUSHING [armor_to_protection_class(subarmor.crushing)]"
+			if(subarmor.cutting)
+				readout += "\nCUTTING [armor_to_protection_class(subarmor.cutting)]"
+			if(subarmor.piercing)
+				readout += "\nPIERCING [armor_to_protection_class(subarmor.piercing)]"
+			if(subarmor.impaling)
+				readout += "\nIMPALING [armor_to_protection_class(subarmor.impaling)]"
+			if(subarmor.laser)
+				readout += "\nLASER [armor_to_protection_class(subarmor.laser)]"
+			if(subarmor.energy)
+				readout += "\nENERGY [armor_to_protection_class(subarmor.energy)]"
+			if(subarmor.bomb)
+				readout += "\nBOMB [armor_to_protection_class(subarmor.bomb)]"
+			if(subarmor.fire)
+				readout += "\nFIRE [armor_to_protection_class(subarmor.fire)]"
+			if(subarmor.acid)
+				readout += "\nACID [armor_to_protection_class(subarmor.acid)]"
+		//MOJAVE EDIT END
 		if(armor.bio || armor.bomb || armor.bullet || armor.energy || armor.laser || armor.melee)
+			/* MOJAVE EDIT REMOVAL
 			readout += "\n<b>ARMOR</b>"
+			*/
+			//MOJAVE EDIT BEGIN
+			readout += "\n<b>ARMOR (DR)</b>"
+			//MOJAVE EDIT END
 			if(armor.bio)
 				readout += "\nTOXIN [armor_to_protection_class(armor.bio)]"
 			if(armor.bomb)

@@ -1,5 +1,9 @@
+//// These spawners are NON-STATIC spawns. If you are making changes to these pools, you should probably also make changes to the static spawns outside of the Guarenteed folder. ////
+//// The idea of these spawners it to use these EVERYWHERE. Emphasis on EVERYWHERE!!! These are the spawners you should be slapping in every other building, so that there's variety in loot locations on a per-round basis. ////
+
 /obj/effect/spawner/random/ms13/medical
 	name = "DO NOT USE ME - Mojave Sun medical spawners"
+	icon_state = "ms13_medical"
 	spawn_loot_count = 2
 	spawn_loot_double = TRUE
 	spawn_loot_chance = 45
@@ -56,6 +60,7 @@
 
 /obj/effect/spawner/random/ms13/medical/bloodbag
 	name = "blood bag spawner"
+	icon_state = "ms13_medfluid"
 	spawn_loot_count = 1
 	spawn_loot_chance = 65
 	loot = list(

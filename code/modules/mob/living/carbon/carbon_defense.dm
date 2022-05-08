@@ -656,7 +656,7 @@
 		return
 
 	to_chat(src, span_warning("You try grasping at your [grasped_part.name], trying to stop the bleeding..."))
-	if(!do_after(src, 1.5 SECONDS))
+	if(!do_after(src, 1 SECONDS)) //MOJAVE EDIT - Original value is 1.5 SECONDS, bit of a buff to touching yourself.
 		to_chat(src, span_danger("You fail to grasp your [grasped_part.name]."))
 		return
 
@@ -675,7 +675,7 @@
 	inhand_icon_state = "nothing"
 	force = 0
 	throwforce = 0
-	slowdown = 1
+	slowdown = 0.5 //MOJAVE EDIT - Original value is 1 slowdown. Buff to have it make more sense and encouraging touching yourself. 
 	item_flags = DROPDEL | ABSTRACT | NOBLUDGEON | SLOWS_WHILE_IN_HAND | HAND_ITEM
 	/// The bodypart we're staunching bleeding on, which also has a reference to us in [/obj/item/bodypart/var/grasped_by]
 	var/obj/item/bodypart/grasped_part

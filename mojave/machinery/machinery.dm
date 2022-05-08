@@ -1,6 +1,7 @@
 /obj/machinery/ms13
 	name = "ms13 machine"
 	desc = "You shouldn't be seeing this."
+	anchored = TRUE
 
 /obj/machinery/door/poddoor/shutters/indestructible/ms13
 	name = "shutters"
@@ -81,8 +82,8 @@
 	icon = 'mojave/icons/structure/machinery.dmi'
 	icon_state = "intercom"
 	canhear_range = 6
-	frequency = 1445.4 // Wack-ass numbers. Ensure these goofballs don't ever reach open air.
-	broadcasting = FALSE  // Whether the radio will transmit dialogue it hears nearby.
+	// frequency = 1445.4 // Wack-ass numbers. Ensure these goofballs don't ever reach open air.
+	// broadcasting = FALSE  // Whether the radio will transmit dialogue it hears nearby.
 	freerange = TRUE  // If true, the radio has access to the full spectrum.
 	freqlock = TRUE  // Frequency lock to stop the user from untuning specialist radios.
 	radio_broadcast = RADIOSTATIC_LIGHT
@@ -225,3 +226,18 @@
 		mug = new_mug
 	update_appearance()
 	return TRUE
+
+/obj/machinery/ms13/plant_machinery
+	name = "water treatment machinery"
+	desc = "The label on this says something about fresh water- But what side do you take a sip from?."
+	icon = 'mojave/icons/structure/64x64_machinery.dmi'
+	icon_state = "watertreatment"
+	max_integrity = 20000
+	anchored = TRUE
+	density = TRUE
+	pixel_x = -16
+	flags_1 = INDESTRUCTIBLE
+
+/obj/machinery/ms13/plant_machinery/broken
+	desc = "The label on this says something about fresh water- But what side do you take a sip from? It appears broken down, missing crucial parts."
+	icon_state = "watertreatment_broken"

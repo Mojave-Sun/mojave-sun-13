@@ -15,6 +15,9 @@
 	icon_state = "seed"
 	potency = 50
 	growthstages = 5
+	w_class = WEIGHT_CLASS_TINY
+	grid_height = 32
+	grid_width = 32
 	//vars added here to stop compilation issues.  Removed from base botany and will need to be refactored.
 	var/growing_color = ""
 	var/harvest_icon = 1
@@ -26,6 +29,9 @@
 	lefthand_file = 'mojave/icons/mob/inhands/equipment/hydroponics_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/equipment/hydroponics_righthand.dmi'
 	can_distill = TRUE
+	w_class = WEIGHT_CLASS_TINY
+	grid_height = 32
+	grid_width = 32
 	distill_reagent = /datum/reagent/consumable/ethanol/ms13/brew_sludge
 
 /obj/item/food/grown/ms13/Initialize()

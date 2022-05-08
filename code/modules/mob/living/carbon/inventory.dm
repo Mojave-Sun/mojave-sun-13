@@ -81,8 +81,14 @@
 			put_in_hands(I)
 			update_inv_hands()
 		if(ITEM_SLOT_BACKPACK)
+			/* MOJAVE EDIT REMOVAL
 			if(!back || !SEND_SIGNAL(back, COMSIG_TRY_STORAGE_INSERT, I, src, TRUE))
 				not_handled = TRUE
+			*/
+			//MOJAVE EDIT BEGIN
+			if(!back || !SEND_SIGNAL(back, COMSIG_TRY_STORAGE_INSERT, I, src, TRUE, initial, TRUE))
+				not_handled = TRUE
+			//MOJAVE EDIT END
 		else
 			not_handled = TRUE
 

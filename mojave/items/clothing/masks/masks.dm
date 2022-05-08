@@ -5,6 +5,9 @@
 	worn_icon = 'mojave/icons/mob/clothing/mask.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
+	w_class = WEIGHT_CLASS_TINY
+	grid_width = 32
+	grid_height = 32
 
 /obj/item/clothing/mask/ms13/Initialize()
 	. = ..()

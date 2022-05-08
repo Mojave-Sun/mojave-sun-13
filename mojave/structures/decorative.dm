@@ -296,6 +296,10 @@
 	icon_type = "toxic"
 	amount = 4
 
+/obj/structure/fluff/ms13/barrel/single/toxic/Initialize()
+	. = ..()
+	AddElement(/datum/element/radioactive)
+
 /obj/structure/fluff/ms13/barrel/single/toxic/one
 	icon_state = "toxic_1"
 	unique = TRUE
@@ -509,3 +513,27 @@
 /obj/structure/fluff/ms13/barrel/quadruple/waste/one
 	icon_state = "quad_waste_1"
 	unique = TRUE
+
+/obj/structure/fluff/ms13/trash
+	name = "Base type MS13 TRASH"
+	desc = "Who the hell littered this here? Call a mapper!"
+	icon = 'mojave/icons/structure/miscellaneous.dmi'
+
+/obj/structure/fluff/ms13/trash/papers
+	name = "scattered papers"
+	desc = "Some scattered papers. They look mostly ruined."
+	icon_state = "scattered_papers"
+
+/obj/structure/fluff/ms13/trash/papers/attack_hand(mob/living/user, list/modifiers)
+	. = ..()
+	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
+		return
+	to_chat(user, span_notice("You begin salvaging through the pile for a paper."))
+	if(do_after(user, 5 SECONDS, src))
+		if(prob(20))
+			to_chat(user, span_notice("You successfully recover a page from the stack. The rest all tear away into the void."))
+			new /obj/item/paper/ms13(src)
+			qdel(src)
+		else
+			to_chat(user, span_notice("You fail to find a paper that won't dissolve in your hands. Shame."))
+			qdel(src)

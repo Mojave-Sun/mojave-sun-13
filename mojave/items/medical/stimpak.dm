@@ -1,4 +1,4 @@
-/obj/item/reagent_containers/hypospray/medipen/ms13/
+/obj/item/reagent_containers/hypospray/medipen/ms13
 	name = "Generic ms13 medipen moment"
 	desc = "Shove it into your arm. Go ahead."
 	icon = 'mojave/icons/objects/medical/medical_world.dmi'
@@ -7,6 +7,8 @@
 	worn_icon = 'mojave/icons/mob/worn_misc.dmi'
 	worn_icon_state = "empty_placeholder"
 	slot_flags = ITEM_SLOT_BELT
+	grid_height = 32
+	grid_width = 32
 
 /obj/item/reagent_containers/hypospray/medipen/ms13/stimpak
 	name = "stimpak"

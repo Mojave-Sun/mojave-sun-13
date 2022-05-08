@@ -9,6 +9,8 @@
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	///Icon file for right inhand overlays
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
+	grid_width = 64
+	grid_height = 96
 
 /obj/item/clothing/suit/ms13/Initialize()
 	. = ..()
@@ -27,6 +29,8 @@
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	///Icon file for right inhand overlays
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
+	grid_width = 64
+	grid_height = 96
 
 /obj/item/clothing/suit/toggle/ms13/Initialize()
 	. = ..()

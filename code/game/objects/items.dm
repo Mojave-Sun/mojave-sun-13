@@ -238,6 +238,13 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		if(damtype == BRUTE)
 			hitsound = "swing_hit"
 
+	//MOJAVE SUN EDIT START - Grid Inventory
+	if(grid_width <= 0)
+		grid_width = (w_class * world.icon_size)
+	if(grid_height <= 0)
+		grid_height = (w_class * world.icon_size)
+	//MOJAVE SUN EDIT END
+
 //	add_weapon_description() MOJAVE SUN EDIT: We don't need this!
 
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_ITEM, src)
@@ -488,6 +495,10 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 			return
 
 
+	//MOJAVE EDIT BEGIN
+	if(SEND_SIGNAL(loc, COMSIG_STORAGE_BLOCK_USER_TAKE, src, user, TRUE))
+		return
+	//MOJAVE EDIT END
 	//If the item is in a storage item, take it out
 	SEND_SIGNAL(loc, COMSIG_TRY_STORAGE_TAKE, src, user.loc, TRUE)
 	if(QDELETED(src)) //moving it out of the storage to the floor destroyed it.

@@ -134,9 +134,9 @@
 
 #define TPACK "Travelpack"
 #define MBACKPACK "Military Backpack"
-#define SATCHEL "Satchel"
+#define SACK "Sack"
 
-GLOBAL_LIST_INIT(backpacklist, list(TPACK, MBACKPACK, SATCHEL))
+GLOBAL_LIST_INIT(backpacklist, list(TPACK, MBACKPACK, SACK))
 
 /datum/preference/choiced/backpack
 	savefile_key = "backpack"
@@ -150,7 +150,7 @@ GLOBAL_LIST_INIT(backpacklist, list(TPACK, MBACKPACK, SATCHEL))
 
 	values[TPACK] = /obj/item/storage/ms13/travel
 	values[MBACKPACK] = /obj/item/storage/ms13/military
-	values[SATCHEL] = /obj/item/storage/backpack/satchel/leather
+	values[SACK] = /obj/item/storage/ms13/sack
 	return values
 
 /datum/preference/choiced/backpack/apply_to_human(mob/living/carbon/human/target, value)
@@ -165,7 +165,7 @@ GLOBAL_LIST_INIT(backpacklist, list(TPACK, MBACKPACK, SATCHEL))
 				back = /obj/item/storage/ms13/travel
 			if(MBACKPACK)
 				back = /obj/item/storage/ms13/military
-			if(SATCHEL)
-				back = /obj/item/storage/backpack/satchel/leather
+			if(SACK)
+				back = /obj/item/storage/ms13/sack
 	else
 		back = back //Forced backpack

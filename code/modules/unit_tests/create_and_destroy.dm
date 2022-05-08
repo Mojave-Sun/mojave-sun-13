@@ -89,6 +89,10 @@
 	//Expects a mob to holderize, we have nothing to give
 	ignore += typesof(/obj/item/clothing/head/mob_holder)
 
+	// MOJAVE EDIT - Additional blacklists
+	ignore += typesof(/obj/item/storage/fish_case)
+	ignore += typesof(/obj/item/storage/part_replacer)
+
 	var/list/cached_contents = spawn_at.contents.Copy()
 	var/baseturf_count = length(spawn_at.baseturfs)
 

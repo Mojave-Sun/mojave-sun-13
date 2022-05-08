@@ -26,7 +26,7 @@
 		BB_TARGETTING_DATUM = new /datum/targetting_datum/basic()
 	)
 
-	ai_movement = /datum/ai_movement/basic_avoidance
+	ai_movement = /datum/ai_movement/basic_avoidance/bypass_tables
 	idle_behavior = /datum/idle_behavior/idle_random_walk
 	planning_subtrees = list(
 		/datum/ai_planning_subtree/simple_find_target,
@@ -244,15 +244,15 @@
 	attack_verb_continuous = "claws"
 	attack_verb_simple = "claw"
 	attack_sound = 'sound/weapons/slash.ogg'
-	health = 240
-	maxHealth = 240
-	melee_damage_lower = 30
-	melee_damage_upper = 35
+	health = 210
+	maxHealth = 210
+	melee_damage_lower = 25
+	melee_damage_upper = 30
 	armour_penetration = 15
 	speed = 2
 	sharpness = SHARP_EDGED
-	wound_bonus = 2
-	bare_wound_bonus = 3
+	wound_bonus = 4
+	bare_wound_bonus = 6
 	faction = list("shellfish")
 	/*food_type = list(/obj/item/food/meat/slab)
 	tame_chance = 5
@@ -281,7 +281,7 @@
 	sharpness = SHARP_EDGED
 	wound_bonus = 10
 	bare_wound_bonus = 5
-	butcher_results = list(/obj/item/ms13/hide/yaoguai = 1, /obj/item/food/meat/slab/ms13/carcass/large/yaoguai/front = 1, /obj/item/food/meat/slab/ms13/carcass/large/yaoguai/back = 1)
+	butcher_results = list(/obj/item/ms13/hide/large/yaoguai = 1, /obj/item/food/meat/slab/ms13/carcass/large/yaoguai/front = 1, /obj/item/food/meat/slab/ms13/carcass/large/yaoguai/back = 1)
 	faction = list("bear")
 	/*food_type = list(/obj/item/food/meat/slab/human)
 	tame_chance = 5
