@@ -28,6 +28,7 @@
 
 /obj/item/ammo_box/magazine/ammo_stack/update_icon(updates)
 	icon = initial(icon)
+	cut_overlays()
 	return ..()
 
 /obj/item/ammo_box/magazine/ammo_stack/update_icon_state()
