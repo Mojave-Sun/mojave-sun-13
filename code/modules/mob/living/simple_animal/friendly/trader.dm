@@ -468,7 +468,7 @@ GLOBAL_LIST_EMPTY(nodes_trader_destination)
 	mob_biotypes = MOB_UNDEAD|MOB_HUMANOID
 	products = list(
 		/obj/item/clothing/head/helmet/skull = 150,
-		/obj/item/clothing/mask/bandana/color/skull/black = 50,
+		/obj/item/clothing/mask/bandana/skull/black = 50,
 		/obj/item/food/cookie/sugar/spookyskull = 10,
 		/obj/item/instrument/trombone/spectral = 10000,
 		/obj/item/shovel/serrated = 150
