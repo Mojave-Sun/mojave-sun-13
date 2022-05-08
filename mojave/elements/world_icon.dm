@@ -20,19 +20,19 @@
 	/// Only used if attached_proc doesn't exist, simply changes the icon of target to this when it's NOT in the inventory
 	var/world_icon
 
-/datum/element/world_icon/Attach(datum/target, attached_proc, inventory_icon, world_icon)
+/datum/element/world_icon/Attach(obj/item/target, attached_proc, inventory_icon, world_icon)
 	. = ..()
-	if(!isitem(target))
+	if(!istype(target))
 		return ELEMENT_INCOMPATIBLE
 
 	src.attached_proc = attached_proc
-	src.inventory = inventory_icon
+	src.inventory_icon = inventory_icon
 	src.world_icon = world_icon
 	RegisterSignal(target, COMSIG_ATOM_UPDATE_ICON, .proc/update_icon)
 	RegisterSignal(target, list(COMSIG_ITEM_EQUIPPED, COMSIG_STORAGE_ENTERED, COMSIG_ITEM_DROPPED, COMSIG_STORAGE_EXITED), .proc/inventory_updated)
 	target.update_icon()
 
-/datum/element/world_icon/Detach(datum/target)
+/datum/element/world_icon/Detach(obj/item/source)
 	. = ..()
 	UnregisterSignal(source, COMSIG_ATOM_UPDATE_ICON)
 	UnregisterSignal(source, list(COMSIG_ITEM_EQUIPPED, COMSIG_STORAGE_ENTERED, COMSIG_ITEM_DROPPED, COMSIG_STORAGE_EXITED))
