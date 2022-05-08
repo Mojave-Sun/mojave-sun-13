@@ -14,6 +14,8 @@
 	multiload = FALSE
 	start_empty = TRUE
 	max_ammo = 12
+	/// Max ammo amount for the baked inventory sprite
+	var/max_ammo_inventory = 5
 	/// World icon for this stack
 	var/world_icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	/// World icon state
@@ -30,7 +32,7 @@
 
 /obj/item/ammo_box/magazine/ammo_stack/update_icon_state()
 	. = ..()
-	icon_state = "[base_icon_state]-[ammo_count(TRUE)]"
+	icon_state = "[base_icon_state]-live-[min(ammo_count(TRUE), max_ammo_inventory)]"
 
 /obj/item/ammo_box/magazine/ammo_stack/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
     . = ..()
@@ -77,7 +79,7 @@
 	 */
 	var/obj/item/ammo_box/magazine/stack_type
 	/// TRUE if the ammo stack is generic and we should give it info based on the casing
-	var/generic_stacking = FALSE
+	var/generic_stacking = TRUE
 
 /obj/item/ammo_casing/attackby(obj/item/attacking_item, mob/user, params)
 	. = ..()
@@ -102,7 +104,7 @@
 	var/obj/item/ammo_box/magazine/ammo_stack/ammo_stack = new stack_type(drop_location())
 	if(generic_stacking)
 		ammo_stack.name = "[capitalize(caliber)] rounds"
-		ammo_stack.base_icon_state = base_icon_state
+		ammo_stack.base_icon_state = initial(icon_state)
 		if(istype(ammo_stack))
 			ammo_stack.world_icon_state = initial(icon_state)
 	user.transferItemToLoc(src, ammo_stack, silent = TRUE)
