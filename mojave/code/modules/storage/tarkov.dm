@@ -845,6 +845,9 @@
 	var/coordinates = storage_master.screen_loc_to_grid_coordinates(screen_loc)
 	if(!coordinates)
 		return
+	// this looks shit and you can't create paradoxes
+	if(held_item == storage_master.parent)
+		return
 	if(storage_master.can_be_inserted(held_item, stop_messages = TRUE, user = usr, worn_check = TRUE, params = params, storage_click = TRUE))
 		hovering.color = COLOR_LIME
 	else
