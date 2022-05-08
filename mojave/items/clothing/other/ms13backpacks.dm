@@ -24,7 +24,8 @@
 
 /obj/item/storage/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/world_icon, null, 'mojave/icons/objects/clothing/clothing_world/backpack_world.dmi', icon) //This ones flipped for the pref menu icons
+	//This ones flipped for the pref menu icons
+	AddElement(/datum/element/world_icon, null, 'mojave/icons/objects/clothing/clothing_world/backpack_world.dmi', icon)
 	inhand_icon_state = icon_state
 	worn_icon_state = icon_state
 
