@@ -74,10 +74,10 @@
 /obj/item/ammo_casing
 	/**
 	 * What this casing can be stacked into.
-	 * Practically every casing type needs an associated ammo stack type, because that was the easiest
-	 * way for me to handle it.
 	 */
 	var/obj/item/ammo_box/magazine/stack_type
+	/// TRUE if the ammo stack is generic and we should give it info based on the casing
+	var/generic_stacking = FALSE
 
 /obj/item/ammo_casing/attackby(obj/item/attacking_item, mob/user, params)
 	. = ..()
@@ -99,7 +99,12 @@
 	if(!loaded_projectile || !ammo_casing.loaded_projectile)
 		to_chat(user, span_warning("I can't stack empty casings."))
 		return
-	var/obj/item/ammo_box/magazine/ammo_stack = new stack_type(drop_location())
+	var/obj/item/ammo_box/magazine/ammo_stack/ammo_stack = new stack_type(drop_location())
+	if(generic_stacking)
+		ammo_stack.name = "[capitalize(caliber)] rounds"
+		ammo_stack.base_icon_state = base_icon_state
+		if(istype(ammo_stack))
+			ammo_stack.world_icon_state = initial(icon_state)
 	user.transferItemToLoc(src, ammo_stack, silent = TRUE)
 	ammo_stack.give_round(src)
 	user.transferItemToLoc(ammo_casing, ammo_stack, silent = TRUE)

@@ -30,13 +30,13 @@
 	src.world_icon = world_icon
 	RegisterSignal(target, COMSIG_ATOM_UPDATE_ICON, .proc/update_icon)
 	RegisterSignal(target, list(COMSIG_ITEM_EQUIPPED, COMSIG_STORAGE_ENTERED, COMSIG_ITEM_DROPPED, COMSIG_STORAGE_EXITED), .proc/inventory_updated)
-	target.update_icon()
+	target.update_appearance(UPDATE_ICON)
 
 /datum/element/world_icon/Detach(obj/item/source)
 	. = ..()
 	UnregisterSignal(source, COMSIG_ATOM_UPDATE_ICON)
 	UnregisterSignal(source, list(COMSIG_ITEM_EQUIPPED, COMSIG_STORAGE_ENTERED, COMSIG_ITEM_DROPPED, COMSIG_STORAGE_EXITED))
-	source.update_icon()
+	source.update_appearance(UPDATE_ICON)
 
 /datum/element/world_icon/proc/update_icon(obj/item/source, updates)
 	SIGNAL_HANDLER
