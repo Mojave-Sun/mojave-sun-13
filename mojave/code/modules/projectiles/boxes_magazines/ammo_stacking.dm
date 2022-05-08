@@ -107,6 +107,7 @@
 		ammo_stack.base_icon_state = initial(icon_state)
 		if(istype(ammo_stack))
 			ammo_stack.world_icon_state = initial(icon_state)
+		ammo_stack.caliber = src.caliber
 	user.transferItemToLoc(src, ammo_stack, silent = TRUE)
 	ammo_stack.give_round(src)
 	user.transferItemToLoc(ammo_casing, ammo_stack, silent = TRUE)
