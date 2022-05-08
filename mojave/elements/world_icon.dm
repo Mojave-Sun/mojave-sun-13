@@ -44,17 +44,17 @@
 	if((source.item_flags & IN_INVENTORY) || (source.loc && SEND_SIGNAL(source.loc, COMSIG_CONTAINS_STORAGE)))
 		if(attached_proc)
 			return
-		return default_inventory_icon()
+		return default_inventory_icon(source)
 
 	if(attached_proc)
-		return call(source, attached_proc)()
+		return call(source, attached_proc)(updates)
 	else
-		return default_world_icon()
+		return default_world_icon(source)
 
 /datum/element/world_icon/proc/inventory_updated(obj/item/source)
 	SIGNAL_HANDLER
 
-	source.update_icon()
+	source.update_appearance(UPDATE_ICON)
 
 /datum/element/world_icon/proc/default_inventory_icon(obj/item/source)
 	SIGNAL_HANDLER
