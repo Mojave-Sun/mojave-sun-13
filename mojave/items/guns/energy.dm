@@ -107,6 +107,7 @@
 	cell_type = /obj/item/stock_parts/cell/ms13/mfc
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
+	slot_flags = ITEM_SLOT_SUITSTORE
 	extra_damage = 0
 	extra_penetration = 0
 	wound_bonus = 0
@@ -120,6 +121,7 @@
 	cell_type = /obj/item/stock_parts/cell/ms13/pc
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
+	slot_flags = ITEM_SLOT_SUITSTORE
 	extra_damage = 0
 	extra_penetration = 0
 	wound_bonus = 0

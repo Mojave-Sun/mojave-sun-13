@@ -11,7 +11,7 @@
 	cell_type = /obj/item/stock_parts/cell/ms13/mfc
 	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
-	slot_flags = ITEM_SLOT_BACK
+	slot_flags = ITEM_SLOT_SUITSTORE
 	force = 15
 	extra_damage = 30
 	extra_penetration = 0

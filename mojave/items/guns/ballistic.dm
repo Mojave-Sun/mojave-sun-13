@@ -22,6 +22,7 @@
 	lefthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_left.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_right.dmi'
 	worn_icon = 'mojave/icons/mob/worn_guns.dmi'
+	slot_flags = ITEM_SLOT_SUITSTORE
 	inhand_x_dimension = 32
 	inhand_y_dimension = 32
 	force = 20
@@ -92,6 +93,7 @@
 	tac_reloads = FALSE
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
+	slot_flags = ITEM_SLOT_SUITSTORE
 	force = 15
 	wound_bonus = 0
 	bare_wound_bonus = 0
@@ -173,6 +175,7 @@
 	log_pickup_and_drop = TRUE
 	force = 10
 	slowdown = 0.5 //A fall back in case someone forgets to define slowdown at the gun level
+	slot_flags = ITEM_SLOT_BELT
 
 /obj/item/gun/ballistic/automatic/pistol/ms13/Initialize()
 	. = ..()
@@ -208,6 +211,7 @@
 	righthand_file = 'mojave/icons/mob/inhands/weapons/guns_inhand_right.dmi'
 	internal_magazine = FALSE
 	tac_reloads = FALSE
+	slot_flags = ITEM_SLOT_SUITSTORE
 	force = 15
 	wound_bonus = 0
 	bare_wound_bonus = 0
