@@ -11,6 +11,8 @@
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
 	grid_width = 96
 	grid_height = 96
+	equip_delay_self = 4 SECONDS
+	equip_delay_other = 8 SECONDS
 
 /obj/item/clothing/suit/armor/ms13/Initialize()
 	. = ..()
