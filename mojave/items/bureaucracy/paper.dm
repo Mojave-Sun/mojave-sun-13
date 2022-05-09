@@ -121,7 +121,7 @@
 	</i>"}
 
 /obj/item/paper/ms13/prewritten/crooked_note
-name = "paper - 'Crooked Note'"
-info = {"I saw it in a blizzard. And it saw me. It haunts me for now, I know it. God, please, help...
-"}
+	name = "paper - 'Crooked Note'"
+	info = {"I saw it in a blizzard. And it saw me. It haunts me for now, I know it. God, please, help...
+	"}
 
