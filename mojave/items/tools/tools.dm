@@ -304,6 +304,20 @@
 	hitsound = 'sound/weapons/genhit.ogg'
 	sharpness = SHARP_POINTY
 
+/obj/item/pickaxe/ms13
+	name = "pickaxe"
+	desc = "An old pickaxe. Ideally, you can use this to break through loose stone."
+	icon = 'mojave/icons/objects/tools/tools_world.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
+	icon_state = "pickaxe"
+	slot_flags = NONE
+	force = 30
+	throwforce = 15
+	w_class = WEIGHT_CLASS_BULKY
+	custom_materials = null
+	toolspeed = 0.25 //grim
+
 /obj/item/ms13/brick
 	name = "brick"
 	desc = "A literal brick. Nothing more."
