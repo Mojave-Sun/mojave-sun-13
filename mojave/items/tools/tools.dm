@@ -43,7 +43,7 @@
 	icon_state = "handsaw"
 	inhand_icon_state = "handsaw"
 	force = 25
-	subtractible_armour_penetration = 5
+	subtractible_armour_penetration = 0
 	wound_bonus = 5
 	bare_wound_bonus = 5
 	attack_verb_continuous = list("saws", "slashes", "tears", "rips")
@@ -73,7 +73,7 @@
 	icon_state = "handdrill"
 	inhand_icon_state = "handdrill"
 	force = 25
-	subtractible_armour_penetration = 5
+	subtractible_armour_penetration = 0
 	wound_bonus = 5
 	bare_wound_bonus = 8
 	attack_verb_continuous = list("drills", "pierces", "stabs", "impales", "jabs")
@@ -271,8 +271,8 @@
 	inhand_icon_state = "spade"
 	force = 20
 	throwforce = 10
-	subtractible_armour_penetration = 5
-	wound_bonus = -2
+	subtractible_armour_penetration = 15
+	wound_bonus = 5
 	bare_wound_bonus = 0
 	toolspeed = 2
 	sharpness = NONE
