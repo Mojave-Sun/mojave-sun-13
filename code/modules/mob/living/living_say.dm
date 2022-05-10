@@ -273,30 +273,6 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 		succumb(TRUE)
 		to_chat(src, compose_message(src, language, message, , spans, message_mods))
 
-	// MOJAVE SUN EDIT BEGIN
-	var/list/temp_message = splittext(message, " ")
-	var/voice_type = "low"
-	if(gender == FEMALE)
-		voice_type = "high"
-
-	if(message_mods[WHISPER_MODE] == MODE_WHISPER)
-		var/voice_volume = 5
-		var/message_ending = copytext(message, length(message))
-		if(message_ending=="!")
-			voice_volume = initial(voice_volume) + 10 // Shhh! Keep calm or they'll hear!
-		for(var/i = 0, i < temp_message.len, i++)
-			sleep(2)
-			playsound(src, "mojave/sound/voice_tones/[voice_base]_[voice_type]_[voice_sound].ogg", (voice_volume), TRUE)
-	else
-		var/voice_volume = 25
-		var/message_ending = copytext(message, length(message))
-		if(message_ending=="!")
-			voice_volume = initial(voice_volume) + 15
-		for(var/i = 0, i < temp_message.len, i++)
-			sleep(1)
-			playsound(src, "mojave/sound/voice_tones/[voice_base]_[voice_type]_[voice_sound].ogg", (voice_volume), TRUE)
-
-	// MOJAVE SUN EDIT END
 	return TRUE
 
 /mob/living/Hear(message, atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, list/message_mods = list())
