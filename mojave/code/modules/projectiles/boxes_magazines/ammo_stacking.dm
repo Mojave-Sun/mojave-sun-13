@@ -81,6 +81,7 @@
 	var/obj/item/ammo_box/magazine/stack_type
 	/// TRUE if the ammo stack is generic and we should give it info based on the casing
 	var/generic_stacking = TRUE
+	var/stack_size = 20
 
 /obj/item/ammo_casing/attackby(obj/item/attacking_item, mob/user, params)
 	. = ..()
@@ -109,6 +110,7 @@
 		if(istype(ammo_stack))
 			ammo_stack.world_icon_state = initial(icon_state)
 		ammo_stack.caliber = src.caliber
+	ammo_stack.max_ammo = ammo_casing.stack_size
 	user.transferItemToLoc(src, ammo_stack, silent = TRUE)
 	ammo_stack.give_round(src)
 	user.transferItemToLoc(ammo_casing, ammo_stack, silent = TRUE)

@@ -31,7 +31,7 @@
 		/obj/item/clothing/head/helmet/ms13/vaulthelmet=1, \
 		/obj/item/claymore/ms13/baton=1, \
 		/obj/item/flashlight/ms13=1, \
-		/obj/item/ammo_box/ms13/tube44=2, \
+		/obj/item/ammo_box/ms13/m44box=1, \
 		/obj/item/radio/ms13/broadcast/advanced=1)
 
 /datum/outfit/job/ms13/town/sheriff/pre_equip(mob/living/carbon/human/H)

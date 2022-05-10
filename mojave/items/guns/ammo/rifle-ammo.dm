@@ -5,6 +5,7 @@
 	caliber = "a762"
 	icon_state = "762_casing"
 	projectile_type = /obj/projectile/bullet/ms13/a762
+	stack_size = 10
 
 /obj/item/ammo_casing/ms13/a762/junk
 	name = "junk 7.62 bullet casing"
@@ -50,6 +51,7 @@
 	caliber = "a308"
 	icon_state = "308_casing"
 	projectile_type = /obj/projectile/bullet/ms13/a308
+	stack_size = 10
 
 /obj/item/ammo_casing/ms13/a308/junk
 	name = "junk .308 bullet casing"
@@ -96,6 +98,7 @@
 	icon_state = "556_casing"
 	projectile_type = /obj/projectile/bullet/ms13/a556
 	stack_type = /obj/item/ammo_box/magazine/ammo_stack
+	stack_size = 15
 
 /obj/item/ammo_casing/ms13/a556/junk
 	name = "junk 5.56mm bullet casing"
@@ -141,6 +144,7 @@
 	caliber = "a50MG"
 	icon_state = "50bmg_casing"
 	projectile_type = /obj/projectile/bullet/ms13/a50MG
+	stack_size = 6
 
 /obj/item/ammo_casing/ms13/a50MG/ap
 	name = "AP .50MG bullet casing"

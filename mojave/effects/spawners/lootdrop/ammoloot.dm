@@ -15,7 +15,7 @@
 			/obj/item/ammo_box/magazine/ms13/r10,
 			/obj/item/ammo_box/magazine/ms13/m22,
 			/obj/item/ammo_box/magazine/ms13/m9mm,
-			/obj/item/ammo_box/ms13/rev10mm,
+			/obj/item/ammo_box/ms13/c10mm,
 			/obj/item/ammo_box/magazine/ms13/m10mm,
 			/obj/item/ammo_box/ms13/cpistol,
 			/obj/item/ammo_box/ms13/r762,
@@ -29,8 +29,7 @@
 
 	loot = list(
 			/obj/item/ammo_box/magazine/ms13/m10mm,
-			/obj/item/ammo_box/ms13/rev357,
-			/obj/item/ammo_box/ms13/tube357,
+			/obj/item/ammo_box/ms13/a357box,
 			/obj/item/ammo_box/magazine/ms13/m45,
 			/obj/item/ammo_box/magazine/ms13/r20,
 			/obj/item/ammo_box/magazine/ms13/r308,
@@ -46,15 +45,14 @@
 	spawn_loot_chance = 60
 
 	loot = list(
-			/obj/item/ammo_box/ms13/rev44,
-			/obj/item/ammo_box/ms13/rev357,
-			/obj/item/ammo_box/ms13/rev4570,
-			/obj/item/ammo_box/ms13/rev556,
+			/obj/item/ammo_box/ms13/m44box,
+			/obj/item/ammo_box/ms13/a357box,
+			/obj/item/ammo_box/ms13/c4570box,
+			/obj/item/ammo_box/ms13/a556,
 			/obj/item/ammo_box/magazine/ms13/r20,
 			/obj/item/ammo_box/magazine/ms13/r308,
 			/obj/item/ammo_box/magazine/ms13/smgm9mm,
 			/obj/item/ammo_box/ms13/r762,
-			/obj/item/ammo_box/ms13/tube44,
 			/obj/item/ammo_box/magazine/ms13/smgm10mm,
 			/obj/item/ammo_box/magazine/ms13/ar762,
 			/obj/item/stock_parts/cell/ms13/pc,
@@ -69,7 +67,7 @@
 	loot = list(
 			/obj/item/ammo_box/magazine/ms13/smgm45,
 			/obj/item/ammo_box/magazine/ms13/amr,
-			/obj/item/ammo_box/ms13/tube4570,
+			/obj/item/ammo_box/ms13/c4570box,
 			/obj/item/ammo_box/magazine/ms13/smgm22,
 			/obj/item/ammo_box/magazine/ms13/r20,
 			/obj/item/ammo_box/magazine/ms13/r308,
