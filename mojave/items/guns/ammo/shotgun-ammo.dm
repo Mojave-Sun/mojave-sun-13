@@ -5,7 +5,7 @@
 
 /obj/item/ammo_casing/shotgun/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/ammo/ammo_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/ammo/ammo_inventory.dmi')
 
 //12 gauge
 /obj/item/ammo_casing/shotgun/ms13/buckshot

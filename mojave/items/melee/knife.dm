@@ -25,7 +25,7 @@
 
 /obj/item/knife/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/melee/melee_inventory.dmi')
 
 /obj/item/knife/ms13/combat
 	name = "combat knife"
@@ -210,7 +210,7 @@
 
 /obj/item/knife/butcher/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/melee/melee_inventory.dmi')
 
 /obj/item/knife/butcher/ms13/unique
 	name = "\improper Chopper"

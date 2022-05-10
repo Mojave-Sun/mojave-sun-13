@@ -7,7 +7,7 @@
 
 /obj/item/card/id/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/identification/dogtags_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/identification/dogtags_inventory.dmi')
 
 /obj/item/card/id/ms13/doctor
 	name = "doctor's ID badge"

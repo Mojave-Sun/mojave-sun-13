@@ -14,7 +14,7 @@
 
 /obj/item/clothing/head/helmet/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/hats_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clothing/clothing_inventory/hats_inventory.dmi')
 
 /obj/item/clothing/head/ms13/hood
 	name = "generic ms13 hood"
@@ -31,7 +31,7 @@
 
 /obj/item/clothing/head/ms13/hood/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/hats_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clothing/clothing_inventory/hats_inventory.dmi')
 
 /obj/item/clothing/head/hooded/ms13
 	name = "generic ms13 suit hood"
@@ -56,7 +56,7 @@
 
 /obj/item/clothing/head/soft/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/hats_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clothing/clothing_inventory/hats_inventory.dmi')
 
 /obj/item/clothing/head/helmet/ms13/tall
 	worn_icon = 'mojave/icons/mob/clothing/32x64.dmi'

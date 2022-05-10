@@ -7,7 +7,7 @@
 
 /obj/item/clothing/shoes/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/shoes_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clothing/clothing_inventory/shoes_inventory.dmi')
 
 /obj/item/clothing/shoes/ms13
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/shoes
