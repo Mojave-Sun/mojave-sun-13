@@ -2,9 +2,14 @@
 	name = "base class window"
 	desc = "Scream at the coders"
 	smoothing_flags = SMOOTH_BITMASK
+	plane = GAME_PLANE_FOV_HIDDEN
 	layer = ABOVE_OBJ_LAYER
+	damage_deflection = 10
 	glass_type = /obj/item/stack/sheet/ms13/glass
 	glass_amount = 1
+	break_sound = 'mojave/sound/ms13effects/glass_break.ogg'
+	hit_sound = 'mojave/sound/ms13effects/glass_hit.ogg'
+	knock_sound = 'mojave/sound/ms13effects/glass_knock.ogg'
 
 /obj/structure/window/fulltile/ms13/spawnDebris(location)
 	. = list()

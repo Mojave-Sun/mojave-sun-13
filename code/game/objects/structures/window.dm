@@ -341,13 +341,7 @@
 
 //merges adjacent full-tile windows into one
 /obj/structure/window/update_overlays(updates=ALL)
-	. = ..()
-	if(QDELETED(src) || !fulltile)
-		return
-
-	if((updates & UPDATE_SMOOTHING) && (smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK)))
-		QUEUE_SMOOTH(src)
-
+	//MOJAVE SUN EDIT START - Window Tweaks
 	var/ratio = atom_integrity / max_integrity
 	ratio = CEILING(ratio*4, 1) * 25
 	cut_overlay(crack_overlay)
@@ -355,6 +349,13 @@
 		return
 	crack_overlay = mutable_appearance('icons/obj/structures.dmi', "damage[ratio]", -(layer+0.1))
 	. += crack_overlay
+	//MOJAVE SUN EDIT END - Window Tweaks
+	. = ..()
+	if(QDELETED(src) || !fulltile)
+		return
+
+	if((updates & UPDATE_SMOOTHING) && (smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK)))
+		QUEUE_SMOOTH(src)
 
 /obj/structure/window/should_atmos_process(datum/gas_mixture/air, exposed_temperature)
 	return exposed_temperature > T0C + heat_resistance
