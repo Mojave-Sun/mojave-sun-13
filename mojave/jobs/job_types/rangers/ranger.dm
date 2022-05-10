@@ -15,6 +15,7 @@
 	head = 		 /obj/item/clothing/head/helmet/ms13/cowboy/ranger
 	suit = 	  	 /obj/item/clothing/suit/armor/ms13/combat/ranger
 	belt = 		 /obj/item/gun/ballistic/revolver/ms13/rev357
+	suit_store = /obj/item/gun/ballistic/shotgun/ms13/lever/trail
 	r_pocket = 	 /obj/item/ammo_box/ms13/tube357
 	id = 		 /obj/item/card/id/ms13/ranger
 	backpack_contents = list(
@@ -27,9 +28,6 @@
 
 	if(prob(15))
 		mask = /obj/item/clothing/mask/gas/ms13/ranger
-
-	suit_store = pick(/obj/item/gun/ballistic/revolver/ms13/rev44/rifle,\
-		/obj/item/gun/ballistic/shotgun/ms13/lever/trail)
 
 	uniform = pick(/obj/item/clothing/under/ms13/ranger,\
 		/obj/item/clothing/under/ms13/ranger/casual,\

@@ -9,6 +9,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
 	force = 25
+	subtractible_armour_penetration = 5
 	fire_delay = 0.6 SECONDS
 	slowdown = 0.75
 	recoil = 1.5
@@ -35,6 +36,7 @@
 	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	force = 30
+	subtractible_armour_penetration = 10
 	fire_delay = 0.6 SECONDS
 	slowdown = 0.75
 	recoil = 1.5
@@ -146,7 +148,7 @@
 	name = "4570 internal tube magazine"
 	ammo_type = /obj/item/ammo_casing/ms13/c4570
 	caliber = "4570"
-	max_ammo = 6
+	max_ammo = 8
 
 /obj/item/ammo_box/magazine/internal/shot/ms13/tube44
 	name = ".44 magnum internal tube magazine"
@@ -158,7 +160,7 @@
 	name = ".357 magnum internal tube magazine"
 	ammo_type = /obj/item/ammo_casing/ms13/a357
 	caliber = "357"
-	max_ammo = 7
+	max_ammo = 8
 
 /obj/item/ammo_box/magazine/internal/shot/ms13/sks
 	name = "SKS internal magazine (7.62)"

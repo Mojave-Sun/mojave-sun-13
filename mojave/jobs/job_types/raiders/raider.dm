@@ -52,6 +52,8 @@
 
 	belt = pick(
 		/obj/item/claymore/ms13/pipe,\
+		/obj/item/claymore/ms13/pipe/tireiron,\
+		/obj/item/ms13/knuckles/weighted,\
 		/obj/item/knife/ms13/hunting,\
 		/obj/item/knife/ms13/switchblade,\
 		/obj/item/knife/butcher/ms13,\
@@ -59,8 +61,12 @@
 
 	suit_store = pick(
 		/obj/item/gun/ballistic/automatic/pistol/ms13/m10mm/military,\
+		/obj/item/gun/ballistic/automatic/pistol/ms13/m10mm,\
 		/obj/item/gun/ballistic/automatic/pistol/ms13/pistol45,\
 		/obj/item/gun/ballistic/revolver/ms13/rev357,\
+		/obj/item/gun/ballistic/revolver/ms13/rev357/police,\
+		/obj/item/gun/ballistic/shotgun/automatic/ms13/sks,\
+		/obj/item/gun/ballistic/revolver/ms13/rev556,\
 		/obj/item/gun/ballistic/shotgun/ms13/lever/cowboy,\
 		/obj/item/gun/ballistic/shotgun/ms13/lever,\
-		/obj/item/gun/ballistic/rifle/ms13/hunting)
+		/obj/item/gun/ballistic/revolver/ms13/caravan/sawed)

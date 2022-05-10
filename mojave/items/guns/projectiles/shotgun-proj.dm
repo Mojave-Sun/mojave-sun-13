@@ -8,12 +8,14 @@
 /obj/projectile/bullet/pellet/ms13/buckshot
 	icon_state = "buckshot"
 	name = "buckshot pellet"
-	damage = 9
-	wound_bonus = 0
+	damage = 10
+	subtractible_armour_penetration = 10
+	wound_bonus = 10
+	bare_wound_bonus = 10
 
 /obj/projectile/bullet/pellet/ms13/buckshot/junk
 	name = "junkshot pellet"
-	damage = 8
+	subtractible_armour_penetration = 0
 
 /obj/projectile/bullet/pellet/ms13/buckshot/triple
 	name = "000 buckshot pellet"

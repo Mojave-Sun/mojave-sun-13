@@ -5,6 +5,7 @@
 	icon_state = "caravan"
 	inhand_icon_state = "caravan"
 	force = 20
+	subtractible_armour_penetration = 5
 	fire_delay = 0.45 SECONDS
 	slot_flags = ITEM_SLOT_BACK
 	recoil = 1.5
@@ -22,6 +23,7 @@
 	icon_state = "sawedoff"
 	inhand_icon_state = "sawedoff"
 	force = 15
+	subtractible_armour_penetration = 0
 	fire_delay = 0.55 SECONDS
 	slot_flags = ITEM_SLOT_BELT
 	slowdown = 0.5
@@ -36,6 +38,7 @@
 	icon_state = "singleshot"
 	inhand_icon_state = "singleshot"
 	force = 20
+	subtractible_armour_penetration = 5
 	fire_delay = 0.45 SECONDS
 	slot_flags = ITEM_SLOT_BACK
 	recoil = 1.5
@@ -46,6 +49,22 @@
 	weapon_weight = WEAPON_HEAVY
 	grid_width = 192
 	grid_height = 32
+
+/obj/item/gun/ballistic/revolver/ms13/mts
+	name = "revolver shotgun"
+	desc = "A strange shotgun resembling a revolver. Fires semi-automatic and faster than most shotguns."
+	icon_state = "revrifle"
+	inhand_icon_state = "revrifle"
+	w_class = WEIGHT_CLASS_BULKY
+	weapon_weight = WEAPON_HEAVY
+	slot_flags = ITEM_SLOT_BACK
+	force = 25
+	subtractible_armour_penetration = 5
+	fire_delay = 0.55 SECONDS
+	recoil = 1.5
+	slowdown = 0.75
+	grid_width = 160
+	grid_height = 64
 
 ////////////////////////// revolvers////////////////
 /obj/item/gun/ballistic/revolver/ms13/derringer
@@ -83,21 +102,6 @@
 	icon_state = "mysterious"
 	inhand_icon_state = "mysterious"
 	fire_delay = 0.5 SECONDS
-
-/obj/item/gun/ballistic/revolver/ms13/rev44/rifle
-	name = ".44 revolver rifle"
-	desc = "A revolver rifle chambered for .44 Magnum rounds."
-	icon_state = "revrifle"
-	inhand_icon_state = "revrifle"
-	w_class = WEIGHT_CLASS_BULKY
-	weapon_weight = WEAPON_HEAVY
-	slot_flags = ITEM_SLOT_BACK
-	fire_delay = 0.55 SECONDS
-	spread = 4
-	recoil = 1
-	slowdown = 0.75
-	grid_width = 160
-	grid_height = 64
 
 /obj/item/gun/ballistic/revolver/ms13/rev357
 	name = ".357 magnum revolver"
@@ -137,7 +141,7 @@
 
 /obj/item/gun/ballistic/revolver/ms13/rev10mm
 	name = "10mm revolver"
-	desc = "A bulky revolver chambered for 10mm rounds with a five round capacity."
+	desc = "A bulky revolver chambered for 10mm rounds with a six round capacity."
 	icon_state = "rev10mm"
 	inhand_icon_state = "rev10mm"
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/ms13/rev10mm
@@ -199,6 +203,11 @@
 	ammo_type = /obj/item/ammo_casing/shotgun/ms13/buckshot
 	max_ammo = 1
 
+/obj/item/ammo_box/magazine/internal/shot/ms13/mts
+	name = "revolver shotgun internal tube"
+	ammo_type = /obj/item/ammo_casing/shotgun/ms13/buckshot
+	max_ammo = 6
+
 /obj/item/ammo_box/magazine/internal/shot/ms13/derringer
 	name = ".22 derringer internal tube"
 	ammo_type = /obj/item/ammo_casing/ms13/c22
@@ -223,7 +232,7 @@
 	ammo_type = /obj/item/ammo_casing/ms13/c10mm
 	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	caliber = "10mm"
-	max_ammo = 5
+	max_ammo = 6
 
 /obj/item/ammo_box/magazine/internal/cylinder/ms13/rev4570
 	name = ".45-70 cylinder"
@@ -237,7 +246,7 @@
 	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	ammo_type = /obj/item/ammo_casing/ms13/a556
 	caliber = "a556"
-	max_ammo = 5
+	max_ammo = 6
 
 //Loaders
 /obj/item/ammo_box/ms13/derringer22
