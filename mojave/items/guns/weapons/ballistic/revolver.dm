@@ -141,7 +141,7 @@
 
 /obj/item/gun/ballistic/revolver/ms13/rev10mm
 	name = "10mm revolver"
-	desc = "A bulky revolver chambered for 10mm rounds with a six round capacity."
+	desc = "A bulky revolver chambered for 10mm rounds with a five round capacity."
 	icon_state = "rev10mm"
 	inhand_icon_state = "rev10mm"
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/ms13/rev10mm
@@ -232,7 +232,7 @@
 	ammo_type = /obj/item/ammo_casing/ms13/c10mm
 	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	caliber = "10mm"
-	max_ammo = 6
+	max_ammo = 5
 
 /obj/item/ammo_box/magazine/internal/cylinder/ms13/rev4570
 	name = ".45-70 cylinder"
