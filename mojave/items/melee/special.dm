@@ -19,10 +19,10 @@
 	max_integrity = 200
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0,  FIRE = 100, ACID = 50)
 	resistance_flags = FIRE_PROOF
-	force = 10 //Consistent 10 damage instead of the 1-10 from a regular punch
-	armour_penetration = 10
+	force = 15
+	subtractible_armour_penetration = 10
 	wound_bonus = 5
-	bare_wound_bonus = 0
+	bare_wound_bonus = 5
 	log_pickup_and_drop = TRUE
 	grid_width = 32
 	grid_height = 32
@@ -36,17 +36,19 @@
 	desc = "A heavy knuckle made of steel, quite a bit stronger and more dangerous than a plain brass knuckle."
 	icon_state = "knuckles_weighted"
 	inhand_icon_state = "knuckles_weighted"
-	force = 15
-	armour_penetration = 15
-	wound_bonus = 8
+	force = 20
+	subtractible_armour_penetration = 20
 
 /obj/item/ms13/knuckles/weighted/spiked
 	name = "spiked knuckles"
 	desc = "A steel knuckle with the addition of some pointed spikes. With this, you aren't looking to knock someone out anymore."
 	icon_state = "knuckles_spike"
 	inhand_icon_state = "knuckles_spike"
-	force = 20
-	bare_wound_bonus = 6
+	force = 25
+	throwforce = 10 //Imagine finshing off someone running away by throwing your spiked knuckle at them
+	subtractible_armour_penetration = 25
+	wound_bonus = 10
+	bare_wound_bonus = 10
 	sharpness = SHARP_POINTY
 
 /obj/item/ms13/knuckles/powerfist
@@ -57,10 +59,11 @@
 	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
 	icon_state = "powerfist"
 	inhand_icon_state = "powerfist"
-	force = 30
-	armour_penetration = 25
+	force = 40
 	throwforce = 10
+	subtractible_armour_penetration = 35
 	wound_bonus = 10
+	bare_wound_bonus = 5
 	w_class = WEIGHT_CLASS_NORMAL
 	grid_width = 96
 	grid_height = 64

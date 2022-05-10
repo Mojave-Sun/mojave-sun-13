@@ -86,7 +86,7 @@
 	icon_state = "knife_throwing"
 	inhand_icon_state = "knife_throwing"
 	force = 15
-	throwforce = 25
+	throwforce = 20
 	subtractible_armour_penetration = 5
 	throw_speed = 4
 	embedding = list("embedded_pain_multiplier" = 2, "embed_chance" = 35, "embedded_fall_chance" = 20)
