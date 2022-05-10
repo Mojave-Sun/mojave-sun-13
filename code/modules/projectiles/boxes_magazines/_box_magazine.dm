@@ -26,7 +26,7 @@
 	///String, used for checking if ammo of different types but still fits can fit inside it; generally used for magazines
 	var/caliber
 	///Allows multiple bullets to be loaded in from one click of another box/magazine
-	var/multiload = TRUE
+	var/multiload = FALSE // MOJAVE SUN EDIT | ORIGINAL VALUE IS "TRUE"
 	///Whether the magazine should start with nothing in it
 	var/start_empty = FALSE
 	///cost of all the bullets in the magazine/box
