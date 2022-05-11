@@ -52,6 +52,7 @@
 	icon_state = "45-70_casing"
 	projectile_type = /obj/projectile/bullet/ms13/c4570
 	stack_size = 10
+	no_inventory_sprite = TRUE
 
 /obj/item/ammo_casing/ms13/c4570/ap
 	name = "AP .45-70 bullet casing"
@@ -84,6 +85,7 @@
 	icon_state = "357_casing"
 	projectile_type = /obj/projectile/bullet/ms13/a357
 	stack_size = 12
+	no_inventory_sprite = TRUE
 
 /obj/item/ammo_casing/ms13/a357/junk
 	name = "junk .357 bullet casing"

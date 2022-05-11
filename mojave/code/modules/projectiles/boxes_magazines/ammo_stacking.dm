@@ -20,6 +20,8 @@
 	var/world_icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	/// World icon state
 	var/world_icon_state = "9mm_casing"
+	///Placeholder icons
+	var/no_inventory_sprite = FALSE
 
 /obj/item/ammo_box/magazine/ammo_stack/Initialize(mapload)
 	. = ..()
@@ -33,7 +35,17 @@
 
 /obj/item/ammo_box/magazine/ammo_stack/update_icon_state()
 	. = ..()
-	icon_state = "[base_icon_state]-live-[min(ammo_count(TRUE), max_ammo_inventory)]"
+	if(no_inventory_sprite)
+		cut_overlays()
+		icon_state = ""
+		for(var/casing in stored_ammo)
+			var/image/bullet = image(initial(icon), src, "[base_icon_state]-live")
+			bullet.pixel_x = rand(-8, 8)
+			bullet.pixel_y = rand(-8, 8)
+			add_overlay(bullet)
+		return UPDATE_ICON_STATE | UPDATE_OVERLAYS
+	else
+		icon_state = "[base_icon_state]-live-[min(ammo_count(TRUE), max_ammo_inventory)]"
 
 /obj/item/ammo_box/magazine/ammo_stack/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
     . = ..()
@@ -110,6 +122,8 @@
 	/// TRUE if the ammo stack is generic and we should give it info based on the casing
 	var/generic_stacking = TRUE
 	var/stack_size = 20
+	/// Used if we don't have a pre-made inventory sprite. Resorts to the barbaric methods of random gen icon state
+	var/no_inventory_sprite = FALSE
 
 /obj/item/ammo_casing/attackby(obj/item/attacking_item, mob/user, params)
 	. = ..()
@@ -139,6 +153,7 @@
 			ammo_stack.world_icon_state = initial(icon_state)
 		ammo_stack.caliber = src.caliber
 	ammo_stack.max_ammo = ammo_casing.stack_size
+	ammo_stack.no_inventory_sprite = ammo_casing.no_inventory_sprite
 	user.transferItemToLoc(src, ammo_stack, silent = TRUE)
 	ammo_stack.give_round(src)
 	user.transferItemToLoc(ammo_casing, ammo_stack, silent = TRUE)
