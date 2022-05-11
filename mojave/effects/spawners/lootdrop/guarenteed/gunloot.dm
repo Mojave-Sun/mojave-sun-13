@@ -352,8 +352,8 @@
 				)
 	var/loot2 = list(
 				/obj/item/gun/ballistic/revolver/ms13/rev357/lucky,
-				/obj/item/ammo_box/ms13/rev357,
-				/obj/item/ammo_box/ms13/rev357
+				/obj/item/ammo_box/ms13/a357box,
+				""
 				)
 	var/loot3 = list(
 				/obj/item/gun/ballistic/automatic/ms13/semi/service/maquis,
@@ -362,8 +362,8 @@
 				)
 	var/loot4 = list(
 				/obj/item/gun/ballistic/automatic/pistol/ms13/m10mm/chinese/v420,
-				/obj/item/ammo_box/ms13/cpistol,
-				/obj/item/ammo_box/ms13/cpistol
+				/obj/item/ammo_box/ms13/c10mm,
+				""
 				)
 	var/loot5 = list(
 				/obj/item/gun/ballistic/automatic/pistol/ms13/pistol45/stallion,
@@ -380,8 +380,8 @@
 	spawn_loot_count = 3
 	var/loot1 = list(
 				/obj/item/gun/ballistic/revolver/ms13/huntingrev/sequoia,
-				/obj/item/ammo_box/ms13/rev4570,
-				/obj/item/ammo_box/ms13/rev4570
+				/obj/item/ammo_box/ms13/c4570box,
+				""
 				)
 	var/loot2 = list(
 				/obj/item/gun/ballistic/automatic/ms13/semi/marksman/american,
@@ -390,8 +390,8 @@
 				)
 	var/loot3 = list(
 				/obj/item/gun/ballistic/revolver/ms13/rev44/mysterious,
-				/obj/item/ammo_box/ms13/rev44,
-				/obj/item/ammo_box/ms13/rev44
+				/obj/item/ammo_box/ms13/m44box,
+				""
 				)
 	var/loot4 = list(
 				/obj/item/gun/ballistic/automatic/ms13/semi/sniper/silencer,
