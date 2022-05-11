@@ -25,7 +25,7 @@
 
 /obj/item/reagent_containers/food/drinks/mug/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/food/liquids/drink_containers_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/food/liquids/drink_containers_inventory.dmi')
 
 /obj/item/reagent_containers/food/drinks/soda_cans/ms13
 	name = "bottle"
@@ -45,7 +45,7 @@
 
 /obj/item/reagent_containers/food/drinks/soda_cans/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/food/liquids/drink_containers_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/food/liquids/drink_containers_inventory.dmi')
 
 /obj/item/reagent_containers/food/drinks/soda_cans/ms13/open_soda(mob/user)
 	to_chat(user, "You pry the top off \the [src] off with a satisfying hiss.")
@@ -149,7 +149,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/food/liquids/drink_containers_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/food/liquids/drink_containers_inventory.dmi')
 
 /obj/item/reagent_containers/food/drinks/bottle/ms13/plain
 	name = "bottle"

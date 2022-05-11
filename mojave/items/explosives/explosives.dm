@@ -1,7 +1,7 @@
 /obj/item/grenade/ms13/Initialize()
 	. = ..()
 	inhand_icon_state = initial(icon_state)
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/melee/melee_inventory.dmi')
 
 /obj/item/grenade/ms13/examine(mob/user)
 	return
@@ -12,7 +12,7 @@
 
 /obj/item/grenade/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/throwables/grenades_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/throwables/grenades_inventory.dmi')
 
 /obj/item/grenade/frag/ms13/charge
 	name = "explosive charge"

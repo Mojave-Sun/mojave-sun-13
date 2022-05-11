@@ -12,7 +12,7 @@
 
 /obj/item/paper/ms13/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clutter/clutter_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clutter/clutter_inventory.dmi')
 
 /obj/item/paper/ms13/AltClick(mob/living/user, obj/item/I)
 	return //aint no paper airplanes, NO FUN ALLOWED
@@ -30,7 +30,7 @@
 
 /obj/item/papercutter/ms13/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clutter/clutter_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clutter/clutter_inventory.dmi')
 
 /obj/item/paper_bin/ms13
 	name = "paper bin"
@@ -42,7 +42,7 @@
 
 /obj/item/paper_bin/ms13/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clutter/clutter_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clutter/clutter_inventory.dmi')
 
 // CUSTOM //
 
@@ -119,3 +119,9 @@
 	Interrogator: Useless dog, he's probably lying anyways.
 	<br>
 	</i>"}
+
+/obj/item/paper/ms13/prewritten/crooked_note
+	name = "paper - 'Crooked Note'"
+	info = {"I saw it in a blizzard. And it saw me. It haunts me for now, I know it. God, please, help...
+	"}
+

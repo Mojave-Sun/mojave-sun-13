@@ -14,7 +14,7 @@
 
 /obj/item/clothing/suit/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/suits_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clothing/clothing_inventory/suits_inventory.dmi')
 
 /obj/item/clothing/suit/toggle/ms13
 	name = "generic ms13 toggleable"
@@ -34,7 +34,7 @@
 
 /obj/item/clothing/suit/toggle/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/suits_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clothing/clothing_inventory/suits_inventory.dmi')
 
 // wasteland //
 

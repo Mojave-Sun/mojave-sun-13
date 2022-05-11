@@ -187,7 +187,7 @@
 
 /obj/item/ms13/rug/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clutter/clutter_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clutter/clutter_inventory.dmi')
 
 /obj/item/ms13/rug/ComponentInitialize()
 	. = ..()

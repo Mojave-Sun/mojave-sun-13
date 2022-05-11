@@ -22,7 +22,7 @@
 
 /obj/item/reagent_containers/hypospray/medipen/ms13/stimpak/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/medical/medical_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/medical/medical_inventory.dmi')
 
 /obj/item/reagent_containers/hypospray/medipen/ms13/attack(mob/living/M, mob/user)
 	if(do_after(user, 0.75 SECONDS))

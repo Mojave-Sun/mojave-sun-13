@@ -23,7 +23,7 @@
 	if(!istype(W, repairable_by))
 		if(W.tool_behaviour == TOOL_KNIFE)
 			user.show_message(span_notice("You begin shredding [src]."), MSG_VISUAL)
-			if(do_after(user, 3 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_CLOTHSHRED)) 
+			if(do_after(user, 3 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_CLOTHSHRED))
 				user.show_message(span_notice("You get cloth and thread from [src]!"), MSG_VISUAL)
 				new /obj/item/stack/sheet/ms13/thread(user.loc)
 				new /obj/item/stack/sheet/ms13/cloth(user.loc)
@@ -54,7 +54,7 @@
 
 /obj/item/clothing/under/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/uniforms_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clothing/clothing_inventory/uniforms_inventory.dmi')
 
 /obj/item/clothing/under/ms13/wasteland
 	can_adjust = FALSE

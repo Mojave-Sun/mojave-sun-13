@@ -30,7 +30,7 @@
 
 /obj/item/ms13/hammer/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
 /obj/item/ms13/handsaw
 	name = "hand saw"
@@ -60,7 +60,7 @@
 
 /obj/item/ms13/handsaw/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
 /obj/item/ms13/handdrill
 	name = "hand drill"
@@ -89,7 +89,7 @@
 
 /obj/item/ms13/handdrill/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
 /obj/item/crowbar/ms13
 	name = "crowbar"
@@ -116,7 +116,7 @@
 
 /obj/item/crowbar/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
 /obj/item/weldingtool/ms13
 	name = "welding tool"
@@ -143,7 +143,7 @@
 
 /obj/item/weldingtool/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
 /obj/item/weldingtool/ms13/update_icon_state()
 	. = ..()
@@ -185,7 +185,7 @@
 
 /obj/item/wrench/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
 /obj/item/wirecutters/ms13
 	name = "pliers"
@@ -208,7 +208,7 @@
 
 /obj/item/wirecutters/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
 /obj/item/screwdriver/ms13
 	name = "screwdriver"
@@ -233,7 +233,7 @@
 
 /obj/item/screwdriver/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
 /obj/item/shovel/ms13
 	name = "shovel"
@@ -262,7 +262,7 @@
 
 /obj/item/shovel/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
 /obj/item/shovel/ms13/spade
 	name = "spade"
@@ -310,6 +310,20 @@
 	hitsound = 'sound/weapons/genhit.ogg'
 	sharpness = SHARP_POINTY
 
+/obj/item/pickaxe/ms13
+	name = "pickaxe"
+	desc = "An old pickaxe. Ideally, you can use this to break through loose stone."
+	icon = 'mojave/icons/objects/tools/tools_world.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
+	icon_state = "pickaxe"
+	slot_flags = NONE
+	force = 30
+	throwforce = 15
+	w_class = WEIGHT_CLASS_BULKY
+	custom_materials = null
+	toolspeed = 0.25 //grim
+
 /obj/item/ms13/brick
 	name = "brick"
 	desc = "A literal brick. Nothing more."
@@ -339,4 +353,4 @@
 
 /obj/item/ms13/brick/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')

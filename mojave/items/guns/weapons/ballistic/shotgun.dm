@@ -178,43 +178,6 @@
 	ammo_type = /obj/item/ammo_casing/shotgun/ms13/buckshot
 	max_ammo = 8
 
-//Loaders
-/obj/item/ammo_box/ms13/tube4570
-	name = ".45-70 speed loader tube"
-	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
-	icon_state = "4570tube"
-	ammo_type = /obj/item/ammo_casing/ms13/c4570
-	caliber = "4570"
-	w_class = WEIGHT_CLASS_SMALL
-	max_ammo = 6
-	multiple_sprites = AMMO_BOX_PER_BULLET
-	grid_height = 64
-	grid_width = 32
-
-/obj/item/ammo_box/ms13/tube44
-	name = ".44 speed loader tube"
-	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
-	icon_state = "44tube"
-	ammo_type = /obj/item/ammo_casing/ms13/m44
-	caliber = "44"
-	w_class = WEIGHT_CLASS_SMALL
-	max_ammo = 8
-	multiple_sprites = AMMO_BOX_PER_BULLET
-	grid_height = 64
-	grid_width = 32
-
-/obj/item/ammo_box/ms13/tube357
-	name = ".357 speed loader tube"
-	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
-	icon_state = "357tube"
-	ammo_type = /obj/item/ammo_casing/ms13/a357
-	caliber = "357"
-	w_class = WEIGHT_CLASS_SMALL
-	max_ammo = 7
-	multiple_sprites = AMMO_BOX_PER_BULLET
-	grid_height = 64
-	grid_width = 32
-
 //Shotgun ammo boxes
 
 /obj/item/ammo_box/ms13/shotgun
