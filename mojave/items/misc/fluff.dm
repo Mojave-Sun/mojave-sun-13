@@ -4,13 +4,13 @@
     name = "fluff"
     desc = "you're not supposed to be seeing this"
     icon = 'mojave/icons/objects/clutter/clutter_world.dmi'
+    grid_height = 32
+    grid_width = 32
 
 /obj/item/ms13/fluff/ruined_book
     name = "ruined book"
     desc = "A book that's been rendered unreadable from decades of decay."
     icon_state = "book"
-    grid_height = 32
-    grid_width = 32
 
 /obj/item/ms13/fluff/typewriter
     name = "typewriter"
@@ -61,12 +61,8 @@
     name = "chemistry glassware"
     desc = "Some old chemistry equipment. Not very useful anymore."
     icon_state = "chems"
-    grid_height = 32
-    grid_width = 32
 
 /obj/item/ms13/fluff/ashtray
     name = "ashtray"
     desc = "An old plastic ashtray, still good to hold cigarette butts."
     icon_state = "ashtray"
-    grid_height = 32
-    grid_width = 32
