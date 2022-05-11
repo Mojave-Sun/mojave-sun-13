@@ -26,7 +26,7 @@
 	///String, used for checking if ammo of different types but still fits can fit inside it; generally used for magazines
 	var/caliber
 	///Allows multiple bullets to be loaded in from one click of another box/magazine
-	var/multiload = TRUE
+	var/multiload = FALSE // MOJAVE SUN EDIT | ORIGINAL VALUE IS "TRUE"
 	///Whether the magazine should start with nothing in it
 	var/start_empty = FALSE
 	///cost of all the bullets in the magazine/box
@@ -121,7 +121,7 @@
 	var/num_loaded = 0
 	if(!can_load(user))
 		return
-	if(istype(A, /obj/item/ammo_box))
+	if(istype(A, /obj/item/ammo_box/magazine/ammo_stack) || (istype(A, /obj/item/ammo_box/ms13/stripper))) // MOJAVE SUN EDIT | INITIAL CODE : if(istype(A, /obj/item/ammo_box))
 		var/obj/item/ammo_box/AM = A
 		for(var/obj/item/ammo_casing/AC in AM.stored_ammo)
 			var/did_load = give_round(AC, replace_spent)

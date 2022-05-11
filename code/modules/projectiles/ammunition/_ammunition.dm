@@ -129,8 +129,7 @@
 			else
 				to_chat(user, span_warning("You fail to collect anything!"))
 		return ..()
-	//MOJAVE EDIT END
-	if(istype(I, /obj/item/ammo_box))
+	/*if(istype(I, /obj/item/ammo_box)) //No gaming
 		var/obj/item/ammo_box/box = I
 		if(isturf(loc))
 			var/boolets = 0
@@ -146,7 +145,8 @@
 				box.update_appearance()
 				to_chat(user, span_notice("You collect [boolets] shell\s. [box] now contains [box.stored_ammo.len] shell\s."))
 			else
-				to_chat(user, span_warning("You fail to collect anything!"))
+				to_chat(user, span_warning("You fail to collect anything!"))*/
+	//MOJAVE EDIT END
 	else
 		return ..()
 

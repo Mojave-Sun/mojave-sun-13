@@ -2,6 +2,8 @@
 	name = "mojave sun base shotgun shell"
 	desc = "Complain when seeing this."
 	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
+	stack_size = 6
+	stack_type = /obj/item/ammo_box/magazine/ammo_stack
 
 /obj/item/ammo_casing/shotgun/ms13/Initialize()
 	. = ..()
@@ -34,9 +36,11 @@
 	icon_state = "flechette"
 	variance = 20
 	projectile_type = /obj/projectile/bullet/pellet/ms13/flechette
+	no_inventory_sprite = TRUE
 
 /obj/item/ammo_casing/shotgun/ms13/slug
 	name = "12 gauge slug"
 	desc = "A deadly 12 gauge shotgun slug firing a single powerful projectile as opposed to multiple pellets."
 	icon_state = "slug"
 	projectile_type = /obj/projectile/bullet/ms13/slug
+	no_inventory_sprite = TRUE

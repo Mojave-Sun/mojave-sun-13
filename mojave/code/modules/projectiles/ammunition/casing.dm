@@ -1,6 +1,7 @@
 /obj/item/ammo_casing/ms13
 	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	click_cooldown_override = 1
+	stack_type = /obj/item/ammo_box/magazine/ammo_stack
 
 /obj/item/ammo_casing/ms13/Initialize()
 	. = ..()

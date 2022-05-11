@@ -192,7 +192,7 @@
 	empty_alarm_sound = 'mojave/sound/ms13weapons/battlerifleunload.ogg'
 	extra_damage = 45
 	extra_penetration = 15
-*/ 
+*/
 
 //Magazines
 /obj/item/ammo_box/magazine/ms13/r10
@@ -252,14 +252,18 @@
 
 //Loaders
 
-/obj/item/ammo_box/ms13/r762
-	name = "rifle stripper clip (7.62)"
+/obj/item/ammo_box/ms13/stripper
+	name = "BASE TYPE MS13 STRIPPER CLIP"
 	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
-	icon_state = "762clip"
-	ammo_type = /obj/item/ammo_casing/ms13/a762
-	caliber = "a762"
-	w_class = WEIGHT_CLASS_TINY
-	max_ammo = 5
+	w_class = WEIGHT_CLASS_SMALL
 	multiple_sprites = AMMO_BOX_PER_BULLET
 	grid_height = 32
 	grid_width = 32
+
+/obj/item/ammo_box/ms13/stripper/r762
+	name = "rifle stripper clip (7.62)"
+	icon_state = "762clip"
+	ammo_type = /obj/item/ammo_casing/ms13/a762
+	caliber = "a762"
+	max_ammo = 5
+
