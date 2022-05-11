@@ -6,7 +6,7 @@
 	icon_state = "44_casing"
 	projectile_type = /obj/projectile/bullet/ms13/m44
 	stack_size = 12
-
+	no_inventory_sprite = TRUE
 /obj/item/ammo_casing/ms13/m44/junk
 	name = "junk .44 magnum bullet casing"
 	desc = "A makeshift .44 Magnum bullet casing."
