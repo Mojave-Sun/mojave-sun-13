@@ -186,7 +186,7 @@
 	icon_state = "junkbox"
 	ammo_type = /obj/item/ammo_casing/shotgun/ms13
 	caliber = "shotgun"
-	max_ammo = 10
+	max_ammo = 12
 	w_class = WEIGHT_CLASS_SMALL
 	multiload = 0
 	grid_height = 64

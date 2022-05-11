@@ -69,17 +69,25 @@
 ////////////////////////// revolvers////////////////
 /obj/item/gun/ballistic/revolver/ms13/derringer
 	name = "derringer"
-	desc = "A small and sneaky 2 shot pistol that is often concealed. This one's a bit fancy with some gold trim."
+	desc = "A small and sneaky 2 shot pistol that is often concealed. Chambered for .357."
 	icon_state = "derringer"
 	inhand_icon_state = "derringer"
 	force = 5
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/derringer
-	fire_sound = 'mojave/sound/ms13weapons/22pistol.ogg'
+	fire_sound = 'mojave/sound/ms13weapons/gunsounds/357/357fire1.ogg'
 	w_class = WEIGHT_CLASS_SMALL
-	extra_damage = 25
-	extra_penetration = 5
+	slowdown = 0.5
+	fire_delay = 0.4 SECONDS
+	recoil = 0.5
+	spread = 6
 	grid_width = 64
 	grid_height = 32
+
+/obj/item/gun/ballistic/revolver/ms13/derringer/trimmed
+	name = "gold trimmed derringer"
+	desc = "A small and sneaky 2 shot pistol that is often concealed. This one has some gold trim."
+	icon_state = "derringer_t"
+	inhand_icon_state = "derringer_t"
 
 /obj/item/gun/ballistic/revolver/ms13/rev44
 	name = ".44 magnum revolver"
@@ -209,9 +217,9 @@
 	max_ammo = 6
 
 /obj/item/ammo_box/magazine/internal/shot/ms13/derringer
-	name = ".22 derringer internal tube"
-	ammo_type = /obj/item/ammo_casing/ms13/c22
-	caliber = ".22"
+	name = ".357 derringer internal tube"
+	ammo_type = /obj/item/ammo_casing/ms13/a357
+	caliber = "357"
 	max_ammo = 2
 
 /obj/item/ammo_box/magazine/internal/cylinder/ms13/rev44
@@ -247,70 +255,3 @@
 	ammo_type = /obj/item/ammo_casing/ms13/a556
 	caliber = "a556"
 	max_ammo = 6
-
-//Loaders
-/obj/item/ammo_box/ms13/derringer22
-	name = ".22 Derringer speed loader"
-	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
-	icon_state = "derringer"
-	ammo_type = /obj/item/ammo_casing/ms13/c22
-	caliber = ".22"
-	w_class = WEIGHT_CLASS_TINY
-	max_ammo = 4
-	grid_width = 32
-	grid_height = 32
-
-/obj/item/ammo_box/ms13/rev4570
-	name = ".45-70 speed loader"
-	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
-	icon_state = "rev4570"
-	ammo_type = /obj/item/ammo_casing/ms13/c4570
-	caliber = "4570"
-	w_class = WEIGHT_CLASS_TINY
-	max_ammo = 5
-	grid_width = 32
-	grid_height = 32
-
-/obj/item/ammo_box/ms13/rev44
-	name = ".44 Magnum speed loader"
-	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
-	icon_state = "rev44"
-	ammo_type = /obj/item/ammo_casing/ms13/m44
-	caliber = "44"
-	w_class = WEIGHT_CLASS_TINY
-	max_ammo = 6
-	grid_width = 32
-	grid_height = 32
-
-/obj/item/ammo_box/ms13/rev357
-	name = ".357 Magnum speed loader"
-	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
-	icon_state = "rev357"
-	ammo_type = /obj/item/ammo_casing/ms13/a357
-	caliber = "357"
-	w_class = WEIGHT_CLASS_TINY
-	max_ammo = 6
-	grid_width = 32
-	grid_height = 32
-
-/obj/item/ammo_box/ms13/rev556
-	name = "5.56 speed loader"
-	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
-	icon_state = "rev556"
-	ammo_type = /obj/item/ammo_casing/ms13/a556
-	caliber = "a556"
-	w_class = WEIGHT_CLASS_TINY
-	max_ammo = 5
-	grid_width = 32
-	grid_height = 32
-
-/obj/item/ammo_box/ms13/rev10mm
-	name = "10mm speed loader"
-	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
-	icon_state = "rev10mm"
-	ammo_type = /obj/item/ammo_casing/ms13/c10mm
-	caliber = "10mm"
-	w_class = WEIGHT_CLASS_TINY
-	max_ammo = 5
-	grid_width = 32
-	grid_height = 32

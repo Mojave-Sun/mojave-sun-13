@@ -99,7 +99,7 @@
 	caliber = "a556"
 	icon_state = "556_casing"
 	projectile_type = /obj/projectile/bullet/ms13/a556
-	stack_size = 15
+	stack_size = 12
 
 /obj/item/ammo_casing/ms13/a556/junk
 	name = "junk 5.56mm bullet casing"
@@ -132,6 +132,10 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	grid_width = 64
 	grid_height = 64
+
+/obj/item/ammo_box/ms13/a556/small
+	name = "small 5.56 ammo box" //This is basically a snowflake for the 5.56 rev
+	max_ammo = 24
 
 /obj/item/ammo_box/ms13/a556/junk
 	name = "junk 5.56 ammo box"

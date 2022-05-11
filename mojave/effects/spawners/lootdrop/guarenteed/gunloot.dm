@@ -15,8 +15,8 @@
 				)
 	var/loot2 = list(
 				/obj/item/gun/ballistic/automatic/pistol/ms13/m10mm/chinese,
-				/obj/item/ammo_box/ms13/cpistol,
-				/obj/item/ammo_box/ms13/cpistol
+				/obj/item/ammo_box/ms13/c10mm,
+				""
 				)
 	var/loot3 = list(
 				/obj/item/gun/energy/ms13/laser/rifle/wattz,
@@ -30,8 +30,8 @@
 				)
 	var/loot5 = list(
 				/obj/item/gun/ballistic/revolver/ms13/rev10mm,
-				/obj/item/ammo_box/ms13/rev10mm,
-				/obj/item/ammo_box/ms13/rev10mm
+				/obj/item/ammo_box/ms13/c10mm,
+				""
 				)
 	var/loot6 = list(
 				/obj/item/gun/ballistic/rifle/ms13/varmint,
@@ -40,8 +40,8 @@
 				)
 	var/loot7 = list(
 				/obj/item/gun/ballistic/rifle/ms13/hunting/chinese,
-				/obj/item/ammo_box/ms13/r762,
-				/obj/item/ammo_box/ms13/r762
+				/obj/item/ammo_box/ms13/stripper/r762,
+				/obj/item/ammo_box/ms13/stripper/r762
 				)
 	var/loot8 = list(
 				/obj/item/gun/energy/ms13/laser/pistol/wattz,
@@ -58,9 +58,14 @@
 				/obj/item/ammo_box/ms13/shotgun/junkshot,
 				""
 				)
+	var/loot11 = list(
+				/obj/item/gun/ballistic/revolver/ms13/derringer,
+				/obj/item/ammo_box/ms13/a357box,
+				""
+				)
 
 /obj/effect/spawner/random/ms13/guarenteed/gun/tier1/Initialize()
-	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10)
+	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11)
 	. = ..()
 
 /obj/effect/spawner/random/ms13/guarenteed/gun/tier2
@@ -83,28 +88,28 @@
 				)
 	var/loot4 = list(
 				/obj/item/gun/ballistic/revolver/ms13/rev556,
-				/obj/item/ammo_box/ms13/rev556,
-				/obj/item/ammo_box/ms13/rev556
+				/obj/item/ammo_box/ms13/a556/small,
+				""
 				)
 	var/loot5 = list(
 				/obj/item/gun/ballistic/shotgun/automatic/ms13/sks,
-				/obj/item/ammo_box/ms13/r762,
-				/obj/item/ammo_box/ms13/r762
+				/obj/item/ammo_box/ms13/stripper/r762,
+				/obj/item/ammo_box/ms13/stripper/r762
 				)
 	var/loot6 = list(
 				/obj/item/gun/ballistic/shotgun/ms13/lever/cowboy,
-				/obj/item/ammo_box/ms13/tube357,
-				/obj/item/ammo_box/ms13/tube357
+				/obj/item/ammo_box/ms13/a357box,
+				""
 				)
 	var/loot7 = list(
 				/obj/item/gun/ballistic/revolver/ms13/rev357,
-				/obj/item/ammo_box/ms13/rev357,
-				/obj/item/ammo_box/ms13/rev357
+				/obj/item/ammo_box/ms13/a357box,
+				""
 				)
 	var/loot8 = list(
 				/obj/item/gun/ballistic/revolver/ms13/rev357/police,
-				/obj/item/ammo_box/ms13/rev357,
-				/obj/item/ammo_box/ms13/rev357
+				/obj/item/ammo_box/ms13/a357box,
+				""
 				)
 	var/loot9 = list(
 				/obj/item/gun/energy/ms13/laser/pistol,
@@ -118,8 +123,8 @@
 				)
 	var/loot11 = list(
 				/obj/item/gun/ballistic/shotgun/automatic/ms13/sks/scoped,
-				/obj/item/ammo_box/ms13/r762,
-				/obj/item/ammo_box/ms13/r762
+				/obj/item/ammo_box/ms13/stripper/r762,
+				/obj/item/ammo_box/ms13/stripper/r762
 				)
 	var/loot12 = list(
 				/obj/item/gun/ballistic/shotgun/ms13/lever,
@@ -151,8 +156,8 @@
 	spawn_loot_count = 3
 	var/loot1 = list(
 				/obj/item/gun/ballistic/revolver/ms13/rev44,
-				/obj/item/ammo_box/ms13/rev44,
-				/obj/item/ammo_box/ms13/rev44
+				/obj/item/ammo_box/ms13/m44box,
+				""
 				)
 	var/loot2 = list(
 				/obj/item/gun/ballistic/revolver/ms13/mts,
@@ -161,8 +166,8 @@
 				)
 	var/loot3 = list(
 				/obj/item/gun/ballistic/revolver/ms13/huntingrev,
-				/obj/item/ammo_box/ms13/rev4570,
-				/obj/item/ammo_box/ms13/rev4570
+				/obj/item/ammo_box/ms13/c4570box,
+				""
 				)
 	var/loot4 = list(
 				/obj/item/gun/ballistic/automatic/ms13/full/smg22,
@@ -171,8 +176,8 @@
 				)
 	var/loot5 = list(
 				/obj/item/gun/ballistic/shotgun/ms13/lever/trail,
-				/obj/item/ammo_box/ms13/tube44,
-				/obj/item/ammo_box/ms13/tube44
+				/obj/item/ammo_box/ms13/m44box,
+				""
 				)
 	var/loot6 = list(
 				/obj/item/gun/ballistic/rifle/ms13/hunting/scoped,
@@ -284,8 +289,8 @@
 				)
 	var/loot9 = list(
 				/obj/item/gun/ballistic/shotgun/ms13/lever/brush,
-				/obj/item/ammo_box/ms13/tube4570,
-				/obj/item/ammo_box/ms13/tube4570
+				/obj/item/ammo_box/ms13/c4570box,
+				""
 				)
 	var/loot10 = list(
 				/obj/item/gun/energy/ms13/laser/pistol/advanced/defender,
