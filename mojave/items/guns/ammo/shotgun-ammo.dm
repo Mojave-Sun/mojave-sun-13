@@ -3,6 +3,7 @@
 	desc = "Complain when seeing this."
 	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	stack_size = 6
+	stack_type = /obj/item/ammo_box/magazine/ammo_stack
 
 /obj/item/ammo_casing/shotgun/ms13/Initialize()
 	. = ..()

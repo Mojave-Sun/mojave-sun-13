@@ -40,8 +40,8 @@
 				)
 	var/loot7 = list(
 				/obj/item/gun/ballistic/rifle/ms13/hunting/chinese,
-				/obj/item/ammo_box/ms13/r762,
-				/obj/item/ammo_box/ms13/r762
+				/obj/item/ammo_box/ms13/stripper/r762,
+				/obj/item/ammo_box/ms13/stripper/r762
 				)
 	var/loot8 = list(
 				/obj/item/gun/energy/ms13/laser/pistol/wattz,
@@ -88,8 +88,8 @@
 				)
 	var/loot5 = list(
 				/obj/item/gun/ballistic/shotgun/automatic/ms13/sks,
-				/obj/item/ammo_box/ms13/r762,
-				/obj/item/ammo_box/ms13/r762
+				/obj/item/ammo_box/ms13/stripper/r762,
+				/obj/item/ammo_box/ms13/stripper/r762
 				)
 	var/loot6 = list(
 				/obj/item/gun/ballistic/shotgun/ms13/lever/cowboy,
@@ -166,8 +166,8 @@
 				)
 	var/loot7 = list(
 				/obj/item/gun/ballistic/shotgun/automatic/ms13/sks/scoped,
-				/obj/item/ammo_box/ms13/r762,
-				/obj/item/ammo_box/ms13/r762
+				/obj/item/ammo_box/ms13/stripper/r762,
+				/obj/item/ammo_box/ms13/stripper/r762
 				)
 	var/loot8 = list(
 				/obj/item/gun/ballistic/automatic/ms13/full/smg10mm,

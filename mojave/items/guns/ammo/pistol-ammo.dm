@@ -143,7 +143,6 @@
 	caliber = "10mm"
 	icon_state = "10mm_casing"
 	projectile_type = /obj/projectile/bullet/ms13/c10mm
-	stack_type = /obj/item/ammo_box/magazine/ammo_stack
 	stack_size = 12
 
 /obj/item/ammo_casing/ms13/c10mm/junk
