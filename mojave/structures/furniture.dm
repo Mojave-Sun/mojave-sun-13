@@ -349,3 +349,71 @@
 	. = ..()
 	if(prob(30))
 		icon_state = "[initial(icon_state)]_[rand(2,4)]"
+
+// Grocery Store Displays //
+
+/obj/structure/ms13/deli
+	name = "deli stand"
+	desc = "Hot food used to be served here to customers, now nothing is left."
+	icon = 'mojave/icons/structure/stand_deli.dmi'
+	icon_state = "deli_stand"
+	density = TRUE
+	anchored = TRUE
+
+/obj/structure/ms13/deli/wrench_act_secondary(mob/living/user, obj/item/weapon)
+	if(flags_1&NODECONSTRUCT_1)
+		return TRUE
+	..()
+	weapon.play_tool_sound(src)
+	if(do_after(user, 30 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+		deconstruct(disassembled = TRUE)
+		return TRUE
+
+
+/obj/structure/ms13/deli/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/scrap_steel(loc, 3)
+		else
+			new /obj/item/stack/sheet/ms13/scrap_steel(loc)
+	qdel(src)
+
+/obj/structure/ms13/deli/examine(mob/user)
+	. = ..()
+	. += deconstruction_hints(user)
+
+/obj/structure/ms13/deli/proc/deconstruction_hints(mob/user)
+	return span_notice("You could use a <b>wrench</b> to take apart [src] for scrap.")
+
+/obj/structure/ms13/fruit_empty
+	name = "fruit stand"
+	desc = "These stands used to be full of the freshest fruit from all over."
+	icon = 'mojave/icons/structure/stand_fruit.dmi'
+	icon_state = "fruitstand_empty"
+	density = TRUE
+	anchored = TRUE
+
+/obj/structure/ms13/fruit_empty/attackby(obj/item/W, mob/user, params)
+	if(W.sharpness == IS_SHARP_AXE)
+		user.show_message(span_notice("You begin chopping \the [src] into scraps of wood!"), MSG_VISUAL)
+		if(do_after(user, 15 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_MAKEPLANKS))
+			user.show_message(span_notice("You make wood scraps out of \the [src]!"), MSG_VISUAL)
+			new /obj/item/stack/sheet/ms13/scrap_wood(loc, 2)
+			qdel(src)
+
+/obj/structure/ms13/fruit_empty/examine(mob/user)
+	. = ..()
+	. += deconstruction_hints(user)
+
+/obj/structure/ms13/fruit_empty/proc/deconstruction_hints(mob/user)
+	return span_notice("You could use an <b>axe</b> to chop up [src] for wood.")
+
+/obj/structure/ms13/fruit_empty/fake
+	name = "fruit stand"
+	desc = "Wait, fruit...? What the f- It's fake!"
+	var/fruit_type = 1
+
+/obj/structure/ms13/fruit_empty/fake/Initialize()
+	fruit_type = rand(1,3)
+	icon_state = "fruitstand-[fruit_type]"
+	return ..()
