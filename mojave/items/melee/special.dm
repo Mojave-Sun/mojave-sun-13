@@ -49,7 +49,7 @@
 	subtractible_armour_penetration = 25
 	wound_bonus = 10
 	bare_wound_bonus = 10
-	sharpness = SHARP_POINTY
+	sharpness = SHARP_IMPALING
 
 /obj/item/ms13/knuckles/powerfist
 	name = "power fist"

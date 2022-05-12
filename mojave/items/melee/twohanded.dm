@@ -164,7 +164,7 @@
 	wound_bonus = 10
 	bare_wound_bonus = 10
 	w_class = WEIGHT_CLASS_HUGE
-	sharpness = SHARP_POINTY
+	sharpness = SHARP_IMPALING
 	grid_height = 32
 	grid_width = 224
 

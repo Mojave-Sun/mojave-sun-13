@@ -48,7 +48,7 @@
 	subtractible_armour_penetration = 15
 	wound_bonus = 5
 	bare_wound_bonus = 10
-	sharpness = SHARP_POINTY
+	sharpness = SHARP_IMPALING
 	tool_behaviour = TOOL_MINING
 
 /obj/item/hatchet/ms13/tomahawk
@@ -62,5 +62,5 @@
 	wound_bonus = 5
 	bare_wound_bonus = 10
 	embedding = list("embedded_pain_multiplier" = 2, "embed_chance" = 50, "embedded_fall_chance" = 25)
-	sharpness = SHARP_POINTY
+	sharpness = SHARP_IMPALING
 	log_pickup_and_drop = TRUE

@@ -78,7 +78,7 @@
 	bare_wound_bonus = 8
 	attack_verb_continuous = list("drills", "pierces", "stabs", "impales", "jabs")
 	attack_verb_simple = list("drill", "pierce", "stab", "impale", "jab")
-	sharpness = SHARP_POINTY
+	sharpness = SHARP_IMPALING
 	slot_flags = ITEM_SLOT_BELT
 	tool_behaviour = TOOL_DRILL
 	resistance_flags = FIRE_PROOF
@@ -222,7 +222,7 @@
 	inhand_icon_state = "screwdriver"
 	flags_1 = CONDUCT_1
 	force = 15
-	sharpness = SHARP_POINTY
+	sharpness = SHARP_IMPALING
 	wound_bonus = 0
 	bare_wound_bonus = 5
 	throwforce = 10
@@ -308,7 +308,7 @@
 	attack_verb_continuous = list("smacks", "slashes", "jabs", "slaps", "pounds", "beats", "bonks", "rakes", "assaults")
 	attack_verb_simple = list("smack", "slash", "jabb", "slap", "pound", "beat", "bonk", "rake", "assault")
 	hitsound = 'sound/weapons/genhit.ogg'
-	sharpness = SHARP_POINTY
+	sharpness = SHARP_IMPALING
 
 /obj/item/pickaxe/ms13
 	name = "pickaxe"

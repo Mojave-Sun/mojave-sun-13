@@ -90,7 +90,7 @@
 	subtractible_armour_penetration = 5
 	throw_speed = 4
 	embedding = list("embedded_pain_multiplier" = 2, "embed_chance" = 35, "embedded_fall_chance" = 20)
-	sharpness = SHARP_POINTY
+	sharpness = SHARP_IMPALING
 	tool_behaviour = null
 	wound_bonus = -5
 	bare_wound_bonus = 5
