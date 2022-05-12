@@ -263,8 +263,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	return ..()
 
 /// Adds the weapon_description element, which shows the 'warning label' for especially dangerous objects. Override this for item types with special notes.
-/obj/item/proc/add_weapon_description()
-	AddElement(/datum/element/weapon_description)
+/*/obj/item/proc/add_weapon_description()
+	AddElement(/datum/element/weapon_description) */ //MOJAVE EDIT - Comments out this proc because weapon_description in general is commented out.
 
 /obj/item/proc/check_allowed_items(atom/target, not_inside, target_self)
 	if(((src in target) && !target_self) || (!isturf(target.loc) && !isturf(target) && not_inside))
