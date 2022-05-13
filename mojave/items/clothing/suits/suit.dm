@@ -200,7 +200,7 @@
 	slowdown = 0.3
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 0, \
-                CRUSHING = CLASS3_CRUSH, \
+                CRUSHING = CLASS2_CRUSH, \
                 CUTTING = CLASS3_CUT, \
                 PIERCING = CLASS3_PIERCE, \
                 IMPALING = CLASS3_STAB, \
@@ -509,7 +509,6 @@
 	name = "bruiser trenchcoat"
 	desc = "A beefy black trenchcoat."
 	icon_state = "bruiser"
-	body_parts_covered = CHEST|ARMS|GROIN
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 0, \
                 CRUSHING = CLASS1_CRUSH, \
@@ -532,7 +531,7 @@
                 CUTTING = CLASS2_CUT, \
                 PIERCING = CLASS1_PIERCE, \
                 IMPALING = CLASS2_STAB, \
-                LASER = 0, \
+                LASER = CLASS1_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS2_FIRE)
 
@@ -544,29 +543,13 @@
 	slowdown = 0.3
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 0, \
-                CRUSHING = CLASS3_CRUSH, \
+                CRUSHING = CLASS2_CRUSH, \
                 CUTTING = CLASS3_CUT, \
                 PIERCING = CLASS3_PIERCE, \
-                IMPALING = CLASS2_STAB, \
+                IMPALING = CLASS3_STAB, \
                 LASER = CLASS2_LASER, \
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
-
-/obj/item/clothing/suit/ms13/trench/battle
-	name = "battle trenchcoat"
-	desc = "A trenchcoat with extra padding and lined with fur for extra style. Perfect for a mix of battle ready and charming."
-	icon_state = "battlecoat"
-	inhand_icon_state = "battlecoat"
-	body_parts_covered = CHEST|ARMS|GROIN
-	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
-                CRUSHING = CLASS1_CRUSH, \
-                CUTTING = CLASS1_CUT, \
-                PIERCING = CLASS1_PIERCE, \
-                IMPALING = 0, \
-                LASER = CLASS1_LASER, \
-                ENERGY = 0, \
-                FIRE = 0)
 
 // dusters //
 

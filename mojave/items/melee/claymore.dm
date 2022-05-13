@@ -127,7 +127,7 @@
 	sharpness = SHARP_EDGED
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
-	subtractible_armour_penetration = 20
+	subtractible_armour_penetration = 25
 	wound_bonus = 5
 	bare_wound_bonus = 10
 	throwforce = 10
