@@ -501,7 +501,7 @@
 /area/ms13/town)
 "abO" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/machinery/door/poddoor/shutters,
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/left,
 /turf/open/openspace/ms13,
 /area/ms13/town)
 "abP" = (
@@ -1851,7 +1851,7 @@
 /obj/structure/table/ms13/low_wall/concrete,
 /obj/structure/window/fulltile/ms13/glass,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/machinery/door/poddoor/shutters{
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/red/left{
 	id = "emergency_lockdown"
 	},
 /turf/open/floor/plating,
@@ -5732,7 +5732,6 @@
 /obj/machinery/light/ms13/bulb{
 	dir = 8
 	},
-/obj/machinery/ms13/terminal/vault,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "avn" = (
@@ -6188,7 +6187,7 @@
 /obj/machinery/light/ms13/bulb{
 	dir = 4
 	},
-/obj/machinery/ms13/terminal/vault,
+/obj/structure/table/ms13/metal,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "axg" = (
@@ -7655,11 +7654,13 @@
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/tunnel/maintenance)
 "aCI" = (
+/obj/structure/table/ms13/low_wall/concrete,
+/obj/structure/window/fulltile/ms13/glass,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/machinery/ms13/terminal/vault{
-	dir = 1
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/red/mid{
+	id = "emergency_lockdown"
 	},
-/turf/open/floor/ms13/concrete/industrial,
+/turf/open/floor/plating,
 /area/ms13/town)
 "aCK" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -14005,9 +14006,13 @@
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "bVb" = (
+/obj/structure/table/ms13/low_wall/concrete,
+/obj/structure/window/fulltile/ms13/glass,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/structure/table/ms13/metal,
-/turf/open/floor/ms13/concrete/industrial,
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/red/right{
+	id = "emergency_lockdown"
+	},
+/turf/open/floor/plating,
 /area/ms13/town)
 "bXK" = (
 /obj/structure/chair/comfy/ms13/armchair{
@@ -15554,6 +15559,11 @@
 /obj/machinery/light/ms13,
 /turf/open/floor/wood/ms13/fancy,
 /area/ms13/town)
+"hdU" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/mid,
+/turf/open/openspace/ms13,
+/area/ms13/town)
 "hgu" = (
 /obj/structure/ms13/foundation/mosaic/variantthree{
 	dir = 5
@@ -15818,6 +15828,11 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/ms13/storage/trashcan,
 /turf/open/floor/ms13/tile/full/green,
+/area/ms13/town)
+"iiT" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/right,
+/turf/open/openspace/ms13,
 /area/ms13/town)
 "ijy" = (
 /obj/structure/bed/ms13/bedframe/cot,
@@ -17085,6 +17100,14 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/ms13/tile/large/checkered,
 /area/ms13/town)
+"mvH" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/light/ms13,
+/obj/item/paper_bin/ms13{
+	pixel_y = 6
+	},
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/town)
 "mvN" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -17645,15 +17668,11 @@
 /turf/open/floor/ms13/tile/large/checkered,
 /area/ms13/town)
 "omG" = (
-/obj/structure/table/ms13/no_smooth/large/metal/desk{
-	dir = 1
-	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/machinery/ms13/terminal{
-	dir = 1
+/obj/machinery/door/poddoor/shutters/ms13/vertical/red/top{
+	id = "emergency_lockdown"
 	},
-/obj/structure/ms13/rug/rubber,
-/turf/open/floor/ms13/concrete/industrial,
+/turf/closed/wall/ms13/concrete,
 /area/ms13/town)
 "onf" = (
 /obj/structure/bed/ms13/bedframe/wire,
@@ -18861,6 +18880,17 @@
 	dir = 4
 	},
 /turf/open/floor/wood/ms13/mosaic,
+/area/ms13/town)
+"sit" = (
+/obj/structure/table/ms13/no_smooth/large/metal/desk{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/ms13/terminal{
+	dir = 1
+	},
+/obj/structure/ms13/rug/rubber,
+/turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "sjq" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -20221,11 +20251,13 @@
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "xfD" = (
+/obj/structure/table/ms13/low_wall/concrete,
+/obj/structure/window/fulltile/ms13/glass,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/structure/filingcabinet/ms13{
-	dir = 8
+/obj/machinery/door/poddoor/shutters/ms13/vertical/red/mid{
+	id = "emergency_lockdown"
 	},
-/turf/open/floor/ms13/concrete/industrial,
+/turf/open/floor/plating,
 /area/ms13/town)
 "xfQ" = (
 /obj/structure/chair/ms13/metal{
@@ -20499,6 +20531,13 @@
 	pixel_x = 11
 	},
 /turf/open/floor/wood/ms13/carpet/violet,
+/area/ms13/town)
+"ycw" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/filingcabinet/ms13{
+	dir = 1
+	},
+/turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "yeZ" = (
 /obj/structure/ms13/storage/large/shelf{
@@ -40967,7 +41006,7 @@ aXy
 aHe
 aHe
 aHe
-abO
+hdU
 jav
 jav
 jav
@@ -41269,7 +41308,7 @@ aXy
 aHe
 aHe
 aHe
-abO
+iiT
 lUe
 jav
 jav
@@ -58086,10 +58125,10 @@ amz
 amz
 amz
 aYA
-aYA
-agK
-agK
-agK
+omG
+xfD
+xfD
+xfD
 aYA
 aYA
 aYA
@@ -58697,7 +58736,7 @@ aJh
 aJh
 aft
 aft
-agK
+aCI
 agz
 aRz
 aYa
@@ -58999,7 +59038,7 @@ aHe
 aTI
 aft
 aft
-agK
+bVb
 asX
 aYa
 aSc
@@ -59290,7 +59329,7 @@ aYA
 avl
 aYa
 aYa
-aCI
+aYa
 agK
 aHe
 aHe
@@ -59589,11 +59628,11 @@ aTi
 aLH
 aLH
 agK
-bVb
+aYa
 aYa
 aYa
 adD
-agK
+aCI
 aHe
 aHe
 aHe
@@ -59890,12 +59929,12 @@ aLH
 apl
 aLH
 aLH
-agK
+aCI
 aqo
 aYa
 aOM
 ant
-agK
+aCI
 aHe
 aHe
 aHe
@@ -60192,12 +60231,12 @@ aLH
 aTi
 aLH
 aLH
-agK
+bVb
 cxZ
 aYa
 aYa
 aaD
-agK
+aCI
 aHe
 aHe
 aHe
@@ -60498,8 +60537,8 @@ aYA
 axf
 aCl
 aYa
-aCI
-agK
+aYa
+bVb
 aHe
 aHe
 aHe
@@ -61113,7 +61152,7 @@ aUX
 aUX
 aft
 aft
-agK
+aCI
 aim
 aRz
 rZx
@@ -61415,7 +61454,7 @@ aft
 aft
 aoa
 agR
-agK
+bVb
 aWQ
 aWp
 aMB
@@ -61710,10 +61749,10 @@ aYA
 aYA
 aYA
 aYA
-aYA
-agK
-agK
-agK
+omG
+xfD
+xfD
+xfD
 aYA
 aYA
 aYA
@@ -63833,7 +63872,7 @@ aSv
 aYa
 aYa
 aYa
-nDW
+ycw
 aYA
 aYA
 ale
@@ -64134,8 +64173,8 @@ aYA
 aYa
 aYa
 aYa
-lPZ
-omG
+aYa
+atj
 aYA
 ari
 aYa
@@ -64436,8 +64475,8 @@ aYA
 aYa
 aYa
 aYa
-aYa
-qoQ
+lPZ
+sit
 aYA
 aWy
 aYa
@@ -64737,9 +64776,9 @@ abJ
 aYA
 aSv
 aYa
-xfD
-xfD
-maM
+aYa
+aYa
+mvH
 aYA
 apT
 aEG
