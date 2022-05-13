@@ -21,10 +21,6 @@
 				/obj/item/clothing/suit/ms13/vest/black,
 				/obj/item/clothing/head/helmet/ms13/fedora
 				)
-	var/loot4 = list(
-				/obj/item/clothing/suit/ms13/shawl,
-				/obj/item/clothing/head/helmet/ms13/skull
-				)
 	var/loot5 = list(
 				/obj/item/clothing/suit/ms13/vest/letterman,
 				/obj/item/clothing/head/helmet/ms13/baseball

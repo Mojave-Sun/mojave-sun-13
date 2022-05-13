@@ -104,7 +104,6 @@
 		/obj/item/clothing/suit/ms13/vest/brown,\
 		/obj/item/clothing/suit/ms13/vest/black,\
 		/obj/item/clothing/suit/ms13/vest,\
-		/obj/item/clothing/suit/ms13/shawl,\
 		/obj/item/clothing/suit/ms13/ljacket/moleskin,\
 		/obj/item/clothing/suit/ms13/ljacket/wanderer,\
 		/obj/item/clothing/suit/ms13/ljacket/military,\
