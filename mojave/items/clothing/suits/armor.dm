@@ -5,6 +5,7 @@
 	worn_icon = 'mojave/icons/mob/clothing/suit.dmi'
 	allowed = list(/obj/item/pen,/obj/item/paper,/obj/item/stamp,/obj/item/reagent_containers/food/drinks/flask,/obj/item/storage/box/matches,/obj/item/lighter,/obj/item/clothing/mask/cigarette,/obj/item/storage/fancy/cigarettes,/obj/item/flashlight,/obj/item/gun,/obj/item/ammo_box,/obj/item/ammo_casing)
 	body_parts_covered = CHEST|ARMS|LEGS|GROIN
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0, wound = 0)
 	///Icon file for left hand inhand overlays
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	///Icon file for right inhand overlays
@@ -16,7 +17,7 @@
 	. = ..()
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clothing/clothing_inventory/suits_inventory.dmi')
 
-/obj/item/clothing/suit/hooded/ms13/
+/obj/item/clothing/suit/hooded/ms13
 	name = "generic ms13 hooded clothing"
 	desc = "BASE CLASE BASE CLASS. AAAAAAAAAAAAAAA"
 	icon = 'mojave/icons/objects/clothing/clothing_world/suits_world.dmi'
@@ -24,6 +25,7 @@
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
 	hoodtype = /obj/item/clothing/head/hooded/ms13
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0, wound = 0)
 	grid_width = 64
 	grid_height = 96
 
@@ -38,14 +40,34 @@
 	desc = "A makeshift kit of armor intended to be worn over clothing and made mostly of metal."
 	icon_state = "armorkit"
 	inhand_icon_state = "armorkit"
-	armor = list("melee" = 40, "bullet" = 30, "laser" = 0, "energy" = 15, "bomb" = 25, "bio" = 10,  "fire" = 25, "acid" = 10, "wound" = 0)
+	body_parts_covered = CHEST|LEGS|ARM_LEFT
+	slowdown = 0.15
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = 0, \
+                CUTTING = CLASS2_CUT, \
+                PIERCING = 0, \
+                IMPALING = CLASS1_STAB, \
+                LASER = 0, \
+                ENERGY = CLASS1_PLASMA, \
+                FIRE = CLASS2_FIRE)
 
 /obj/item/clothing/suit/armor/ms13/kit/reinf
 	name = "reinforced armor kit"
 	desc = "A reinforced, heavier kit of armor intended to be worn over clothing. Made mostly of durable metal plates."
 	icon_state = "reinf_armorkit"
 	inhand_icon_state = "reinf_armorkit"
-	armor = list("melee" = 50, "bullet" = 40, "laser" = 5, "energy" = 30, "bomb" = 30, "bio" = 10,  "fire" = 40, "acid" = 10, "wound" = 5)
+	body_parts_covered = CHEST|LEGS|ARM_LEFT|GROIN
+	slowdown = 0.3
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS2_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = CLASS2_STAB, \
+                LASER = 0, \
+                ENERGY = CLASS1_PLASMA, \
+                FIRE = CLASS2_FIRE)
 
 // Light/Leather Armor //
 
@@ -54,51 +76,118 @@
 	desc = "Sections of tire, roughly cut apart and bound together. Getting into a firefight isn't advised, but you shouldn't feel a punch in this."
 	icon_state = "tirearmor"
 	inhand_icon_state = "tirearmor"
-	armor = list("melee" = 30, "bullet" = 10, "laser" = 10, "energy" = 5, "bomb" = 5, "bio" = 5,  "fire" = 5, "acid" = 5, "wound" = 0)
+	body_parts_covered = CHEST|GROIN
+	slowdown = 0.15
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS2_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = 0, \
+                IMPALING = 0, \
+                LASER = CLASS1_LASER, \
+                ENERGY = 0, \
+                FIRE = CLASS2_FIRE)
 
 /obj/item/clothing/suit/armor/ms13/leatherarmor
 	name = "leather armor"
 	desc = "A suit of armor made of hardened leather, a wasteland staple."
 	icon_state = "leatherarmor"
 	inhand_icon_state = "leatherarmor"
-	armor = list("melee" = 30, "bullet" = 25, "laser" = 20, "energy" = 10, "bomb" = 15, "bio" = 10,  "fire" = 10, "acid" = 10, "wound" = 0)
+	body_parts_covered = CHEST|LEGS|GROIN
+	slowdown = 0.15
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS2_CRUSH, \
+                CUTTING = CLASS2_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS2_LASER, \
+                ENERGY = 0, \
+                FIRE = CLASS2_FIRE)
 
 /obj/item/clothing/suit/armor/ms13/leatherarmor/reinforced
 	name = "reinforced leather armor"
-	desc = "A suit of leather armor with ballistic padding, more leather, and some ceramic reinforcements. A solid defense."
+	desc = "A suit of leather armor with light ballistic padding, more leather, and some ceramic reinforcements. A solid defense."
 	icon_state = "reinforcedleather"
 	inhand_icon_state = "reinforcedleather"
-	armor = list("melee" = 40, "bullet" = 35, "laser" = 30, "energy" = 20, "bomb" = 30, "bio" = 10,  "fire" = 25, "acid" = 10, "wound" = 5)
+	slowdown = 0.15
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS3_CRUSH, \
+                CUTTING = CLASS3_CUT, \
+                PIERCING = CLASS2_PIERCE, \
+                IMPALING = CLASS2_STAB, \
+                LASER = CLASS3_LASER, \
+                ENERGY = CLASS1_PLASMA, \
+                FIRE = CLASS3_FIRE)
 
 // Metal Armor //
 
 /obj/item/clothing/suit/armor/ms13/metal
 	name = "metal armor"
-	desc = "Standard metal armor, great protection from conventional threats but won't do anything against lasers."
+	desc = "Standard metal armor, great protection from blades but quite bulky and susceptible to lasers and blunt weapons."
 	icon_state = "metalarmor"
 	inhand_icon_state = "metalarmor"
-	armor = list("melee" = 40, "bullet" = 30, "laser" = 0, "energy" = 15, "bomb" = 25, "bio" = 10,  "fire" = 25, "acid" = 10, "wound" = 0)
+	body_parts_covered = CHEST|LEGS|GROIN|ARM_LEFT
+	slowdown = 0.5
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS3_CUT, \
+                PIERCING = CLASS2_PIERCE, \
+                IMPALING = CLASS2_STAB, \
+                LASER = 0, \
+                ENERGY = CLASS1_PLASMA, \
+                FIRE = CLASS3_FIRE)
 
 /obj/item/clothing/suit/armor/ms13/metal/reinforced
 	name = "reinforced metal armor"
-	desc = "Sturdy metal armor with additional reinforcements, excellent protection from conventional threats at the cost of no protection from lasers."
+	desc = "Sturdy metal armor with additional reinforcements, excellent protection from blades at the cost of mobility and vulnerability to lasers and blunt weapons."
 	icon_state = "reinforcedmetal"
 	inhand_icon_state = "reinforcedmetal"
-	armor = list("melee" = 50, "bullet" = 40, "laser" = 5, "energy" = 30, "bomb" = 30, "bio" = 10,  "fire" = 40, "acid" = 10, "wound" = 5)
+	body_parts_covered = CHEST|LEGS|GROIN|ARMS
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS4_CUT, \
+                PIERCING = CLASS2_PIERCE, \
+                IMPALING = CLASS4_STAB, \
+                LASER = 0, \
+                ENERGY = CLASS2_PLASMA, \
+                FIRE = CLASS3_FIRE)
 
 /obj/item/clothing/suit/armor/ms13/metal/heavy
 	name = "heavy metal armor"
-	desc = "A full suit of plated and spiked metal armor. Looks quite intimidating and offers the protection to match."
+	desc = "A full suit of heavy duty plated metal armor. Looks quite intimidating and offers the protection to match."
 	icon_state = "heavymetal"
 	inhand_icon_state = "heavymetal"
-	armor = list("melee" = 60, "bullet" = 50, "laser" = 15, "energy" = 40, "bomb" = 50, "bio" = 20,  "fire" = 60, "acid" = 20, "wound" = 10)
+	body_parts_covered = CHEST|LEGS|GROIN|ARMS
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS2_CRUSH, \
+                CUTTING = CLASS4_CUT, \
+                PIERCING = CLASS3_PIERCE, \
+                IMPALING = CLASS4_STAB, \
+                LASER = CLASS1_LASER, \
+                ENERGY = CLASS3_PLASMA, \
+                FIRE = CLASS4_FIRE)
 
 /obj/item/clothing/suit/armor/ms13/vaultvan
 	name = "\improper Vault-tec van armor"
-	desc = "Makeshift armor scrounged together from, as one may expect, the old remains of a Vault-tec van. Being made entirely of metal does make it susceptible to laser and energy weapons, however."
+	desc = "Makeshift armor scrounged together from, as one may expect, the old remains of a Vault-tec van. Being made entirely of metal does make it susceptible to laser weapons, however."
 	icon_state = "vaultvanarmor"
 	inhand_icon_state = "vaultvanarmor"
-	armor = list("melee" = 40, "bullet" = 30, "laser" = 0, "energy" = 15, "bomb" = 25, "bio" = 10,  "fire" = 25, "acid" = 10, "wound" = 0)
+	body_parts_covered = CHEST|LEGS
+	slowdown = 0.3
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS2_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = CLASS2_STAB, \
+                LASER = 0, \
+                ENERGY = CLASS1_PLASMA, \
+                FIRE = CLASS2_FIRE)
 
 // Armor Vests //
 
@@ -108,27 +197,62 @@
 	icon_state = "police_kevlar"
 	inhand_icon_state = "policekevlar"
 	blood_overlay_type = "armor"
-	dog_fashion = /datum/dog_fashion/back
-	armor = list("melee" = 30, "bullet" = 50, "laser" = 20, "energy" = 20, "bomb" = 30, "bio" = 20,  "fire" = 30, "acid" = 20, "wound" = 5)
+	body_parts_covered = CHEST
+	slowdown = 0.15
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = CLASS3_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS1_LASER, \
+                ENERGY = 0, \
+                FIRE = CLASS2_FIRE)
 
 /obj/item/clothing/suit/armor/ms13/vest/civilian
 	name = "civilian kevlar vest"
 	desc = "A bulletproof kevlar vest intended for civilian use, not quite as good as it's police or military counterparts."
 	icon_state = "civ_kevlar"
-	armor = list("melee" = 20, "bullet" = 35, "laser" = 15, "energy" = 10, "bomb" = 20, "bio" = 10,  "fire" = 25, "acid" = 10, "wound" = 0)
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = 0, \
+                PIERCING = CLASS2_PIERCE, \
+                IMPALING = 0, \
+                LASER = 0, \
+                ENERGY = 0, \
+                FIRE = CLASS1_FIRE)
 
 /obj/item/clothing/suit/armor/ms13/vest/military
 	name = "military kevlar vest"
 	desc = "A military grade bulletproof kevlar vest, unmatched protection against almost any caliber of bullet."
 	icon_state = "military_kevlar"
 	inhand_icon_state = "militarykevlar"
-	armor = list("melee" = 40, "bullet" = 60, "laser" = 25, "energy" = 25, "bomb" = 50, "bio" = 20,  "fire" = 50, "acid" = 20, "wound" = 10)
+	body_parts_covered = CHEST|GROIN
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS2_CRUSH, \
+                CUTTING = CLASS2_CUT, \
+                PIERCING = CLASS4_PIERCE, \
+                IMPALING = CLASS2_STAB, \
+                LASER = CLASS2_LASER, \
+                ENERGY = CLASS1_PLASMA, \
+                FIRE = CLASS2_FIRE)
 
 /obj/item/clothing/suit/armor/ms13/vest/vault
 	name = "vault security vest"
 	desc = "A thick kevlar vest worn by vault security officers."
 	icon_state = "vaultarmor"
-	armor = list("melee" = 30, "bullet" = 50, "laser" = 20, "energy" = 20, "bomb" = 30, "bio" = 20,  "fire" = 30, "acid" = 20, "wound" = 5)
+	body_parts_covered = CHEST|GROIN
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS2_CRUSH, \
+                CUTTING = CLASS2_CUT, \
+                PIERCING = CLASS2_PIERCE, \
+                IMPALING = CLASS2_STAB, \
+                LASER = CLASS2_LASER, \
+                ENERGY = CLASS1_PLASMA, \
+                FIRE = CLASS2_FIRE)
 
 // Raider Armor //
 

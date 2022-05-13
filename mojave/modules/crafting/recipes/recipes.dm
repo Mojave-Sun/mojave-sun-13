@@ -113,16 +113,6 @@
 	category = CAT_ARMOR
 	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
 
-/datum/crafting_recipe/shawl
-	name = "leather shawl"
-	result = /obj/item/clothing/suit/ms13/shawl
-	time = 10 SECONDS
-	tool_behaviors = list(TOOL_KNIFE)
-	tool_paths = list()
-	reqs = list(/obj/item/stack/sheet/ms13/leather = 6)
-	category = CAT_ARMOR
-	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
-
 /datum/crafting_recipe/leather_vest
 	name = "leather vest"
 	result = /obj/item/clothing/suit/ms13/vest
@@ -791,6 +781,16 @@
 	tool_behaviors = list(TOOL_KNIFE)
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/cloth = 2)
+	category = CAT_MISCCLOTHING
+	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/shawl
+	name = "leather shawl"
+	result = /obj/item/clothing/neck/cloak/ms13/shawl
+	time = 8 SECONDS
+	tool_behaviors = list(TOOL_KNIFE)
+	tool_paths = list()
+	reqs = list(/obj/item/stack/sheet/ms13/leather = 3)
 	category = CAT_MISCCLOTHING
 	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
 

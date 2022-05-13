@@ -21,78 +21,78 @@
 				/obj/item/clothing/suit/ms13/vest/black,
 				/obj/item/clothing/head/helmet/ms13/fedora
 				)
-	var/loot5 = list(
+	var/loot4 = list(
 				/obj/item/clothing/suit/ms13/vest/letterman,
 				/obj/item/clothing/head/helmet/ms13/baseball
 				)
-	var/loot6 = list(
+	var/loot5 = list(
 				/obj/item/clothing/suit/ms13/ljacket,
 				/obj/item/clothing/head/helmet/ms13/cowboy/black
 				)
-	var/loot7 = list(
+	var/loot6 = list(
 				/obj/item/clothing/suit/toggle/ms13/wjacket/brown,
 				/obj/item/clothing/head/helmet/ms13/ushanka
 				)
-	var/loot8 = list(
+	var/loot7 = list(
 				/obj/item/clothing/suit/toggle/ms13/wjacket/black,
 				/obj/item/clothing/head/helmet/ms13/ushanka/blue
 				)
-	var/loot9 = list(
+	var/loot8 = list(
 				/obj/item/clothing/suit/ms13/veteran_coat,
 				/obj/item/clothing/head/helmet/ms13/police
 				)
-	var/loot10 = list(
+	var/loot9 = list(
 				/obj/item/clothing/suit/ms13/duster,
 				/obj/item/clothing/head/helmet/ms13/cowboy
 				)
-	var/loot11 = list(
+	var/loot10 = list(
 				/obj/item/clothing/suit/ms13/trench/detective,
 				/obj/item/clothing/head/helmet/ms13/fedora/brown
 				)
-	var/loot12 = list(
+	var/loot11 = list(
 				/obj/item/clothing/suit/ms13/ljacket/bomber,
 				/obj/item/clothing/head/helmet/ms13/ushanka
 				)
-	var/loot13 = list(
+	var/loot12 = list(
 				/obj/item/clothing/suit/ms13/ljacket/military,
 				/obj/item/clothing/head/helmet/ms13/military
 				)
-	var/loot14 = list(
+	var/loot13 = list(
 				/obj/item/clothing/suit/ms13/ljacket/wanderer,
 				/obj/item/clothing/head/ms13/hood/cowl
 				)
-	var/loot15 = list(
+	var/loot14 = list(
 				/obj/item/clothing/suit/toggle/ms13/wjacket/blue,
 				/obj/item/clothing/head/helmet/ms13/ushanka/blue
 				)
-	var/loot16 = list(
+	var/loot15 = list(
 				/obj/item/clothing/suit/toggle/ms13/wjacket/orange,
 				/obj/item/clothing/head/helmet/ms13/ushanka
 				)
-	var/loot17 = list(
+	var/loot16 = list(
 				/obj/item/clothing/suit/ms13/ljacket/musty,
 				""
 				)
-	var/loot18 = list(
+	var/loot17 = list(
 				/obj/item/clothing/suit/ms13/trench/brown,
 				""
 				)
-	var/loot19 = list(
+	var/loot18 = list(
 				/obj/item/clothing/suit/armor/ms13/tire,
 				/obj/item/clothing/head/helmet/ms13/batter
 				)
-	var/loot20 = list(
+	var/loot19 = list(
 				/obj/item/clothing/suit/ms13/ljacket/moleskin,
 				/obj/item/clothing/head/helmet/ms13/cowboy
 				)
-	var/loot21 = list(
+	var/loot20 = list(
 				/obj/item/clothing/suit/ms13/ljacket/biker,
 				/obj/item/clothing/head/helmet/ms13/cowboy/black
 				)
 
 
 /obj/effect/spawner/random/ms13/guarenteed/armor/tier1/Initialize() //on mapload, pick what to spawn
-	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11, loot12, loot13, loot14, loot15, loot16, loot17, loot18, loot19, loot20, loot21)
+	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11, loot12, loot13, loot14, loot15, loot16, loot17, loot18, loot19, loot20)
 	. = ..()
 
 /obj/effect/spawner/random/ms13/guarenteed/armor/tier2
