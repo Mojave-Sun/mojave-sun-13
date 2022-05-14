@@ -366,12 +366,6 @@
 
 // Special Armor //
 
-/obj/item/clothing/suit/armor/ms13/stealth
-	name = "stealth suit"
-	desc = "An advanced chinese stealth suit. You'll never see communism coming until it's far too late."
-	icon_state = "stealthsuit"
-	inhand_icon_state = "stealthsuit"
-
 /obj/item/clothing/suit/armor/ms13/assassin
 	name = "assassin armor"
 	desc = "A prototype pre-war lightweight suit of armor that is so light and optimized that it can serve to speed the wearer up and mask the sound of footsteps."
