@@ -232,7 +232,7 @@
 				)
 	var/loot5 = list(
 				/obj/item/clothing/suit/armor/ms13/vest/military,
-				/obj/item/clothing/head/ms13/hood/assault
+				/obj/item/clothing/head/helmet/ms13/army
 				)
 	var/loot6 = list(
 				/obj/item/clothing/suit/ms13/trench/black/armored,
