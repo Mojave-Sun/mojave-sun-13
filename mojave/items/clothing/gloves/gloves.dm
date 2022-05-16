@@ -78,16 +78,15 @@
 
 /obj/item/clothing/gloves/ms13/legion/bracers
     name = "wrist bracers"
-    desc = "Often worn by Legionaries to protect their wrists against rudimentary attacks."
+    desc = "Wrist bracers worn by more senior members of Caesar's Legion."
     icon_state = "leg_bracers"
-    armor = list(melee = 10, bullet = 5, laser = 5, energy = 5, bomb = 0, bio = 0,  fire = 5, acid = 0)
 
-/obj/item/clothing/gloves/ms13/legion/darkwraps
+/obj/item/clothing/gloves/ms13/legion/dark
     name = "dark handwraps"
-    desc = "Some dark handwraps. Good for getting extra grip or protecting from minor cuts."
+    desc = "Some dark handwraps mostly used by Caesar's Legion."
     icon_state = "leg_darkwraps"
 
-/obj/item/clothing/gloves/ms13/legion/tanwraps
+/obj/item/clothing/gloves/ms13/legion/tan
     name = "tan handwraps"
-    desc = "Some tan handwraps. Good for getting extra grip or protecting from minor cuts."
+    desc = "Some tan handwraps mostly used by Caesar's Legion."
     icon_state = "leg_tanwraps"
