@@ -486,10 +486,10 @@
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 0, \
                 CRUSHING = 0, \
-                CUTTING = CLASS1_CUT, \
+                CUTTING = CLASS2_CUT, \
                 PIERCING = 0, \
                 IMPALING = CLASS1_STAB, \
-                LASER = CLASS1_LASER, \
+                LASER = CLASS2_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS2_FIRE)
 	equip_delay_self = 3.5 SECONDS

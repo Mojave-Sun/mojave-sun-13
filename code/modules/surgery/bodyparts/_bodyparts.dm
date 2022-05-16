@@ -300,7 +300,7 @@
 	//MOJAVE EDIT END
 		if(sharpness & SHARP_EDGED)
 			wounding_type = WOUND_SLASH
-		else if (sharpness & SHARP_POINTY)
+		else if (sharpness & SHARP_POINTY || sharpness & SHARP_IMPALING) //MOJAVE EDIT - Makes it so impaling sharpness class inflicts pierce/stab wounds.
 			wounding_type = WOUND_PIERCE
 
 	//Handling for bone only/flesh only(none right now)/flesh and bone targets

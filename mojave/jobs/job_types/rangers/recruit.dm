@@ -16,7 +16,7 @@
 	head = 		 /obj/item/clothing/head/helmet/ms13/cowboy/ranger
 	suit =       /obj/item/clothing/suit/ms13/duster/ranger
 	suit_store = /obj/item/gun/ballistic/shotgun/ms13/lever/cowboy
-	r_pocket =   /obj/item/kitchen/knife/ms13/hunting
+	r_pocket =   /obj/item/knife/ms13/hunting
 	backpack_contents = list(
 		/obj/item/ammo_box/ms13/a357box=1,\
 		/obj/item/stack/medical/gauze/ms13/three=1)
