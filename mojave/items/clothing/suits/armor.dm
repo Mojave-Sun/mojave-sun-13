@@ -11,6 +11,8 @@
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
 	grid_width = 96
 	grid_height = 96
+	equip_delay_self = 2.5 SECONDS
+	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/suit/armor/ms13/Initialize()
 	. = ..()
@@ -50,6 +52,8 @@
                 LASER = 0, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS2_FIRE)
+	equip_delay_self = 2.5 SECONDS
+	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/suit/armor/ms13/kit/reinf
 	name = "reinforced armor kit"
@@ -67,6 +71,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS2_FIRE)
+	equip_delay_self = 3.5 SECONDS
+	equip_delay_other = 5 SECONDS
 
 // Light/Leather Armor //
 
@@ -86,6 +92,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
+	equip_delay_self = 2.5 SECONDS
+	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/suit/armor/ms13/leatherarmor
 	name = "leather armor"
@@ -103,6 +111,8 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
+	equip_delay_self = 3.5 SECONDS
+	equip_delay_other = 5 SECONDS
 
 /obj/item/clothing/suit/armor/ms13/leatherarmor/reinforced
 	name = "reinforced leather armor"
@@ -138,6 +148,8 @@
                 LASER = 0, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	equip_delay_self = 4 SECONDS
+	equip_delay_other = 6 SECONDS
 
 /obj/item/clothing/suit/armor/ms13/metal/reinforced
 	name = "reinforced metal armor"
@@ -187,6 +199,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS2_FIRE)
+	equip_delay_self = 3.5 SECONDS
+	equip_delay_other = 5 SECONDS
 
 // Armor Vests //
 
@@ -207,6 +221,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
+	equip_delay_self = 2.5 SECONDS
+	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/suit/armor/ms13/vest/civilian
 	name = "civilian kevlar vest"
@@ -278,6 +294,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = 0)
+	equip_delay_self = 1.5 SECONDS
+	equip_delay_other = 3 SECONDS
 
 /obj/item/clothing/suit/ms13/raider
 	name = "raider reinforced jacket"
@@ -296,6 +314,8 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
+	equip_delay_self = 2.5 SECONDS
+	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/suit/ms13/raider/plated
 	name = "raider plated jacket"
@@ -348,6 +368,8 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	equip_delay_self = 4 SECONDS
+	equip_delay_other = 6 SECONDS
 
 /obj/item/clothing/suit/armor/ms13/combat/advanced
 	name = "advanced combat armor"
@@ -383,6 +405,8 @@
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS2_FIRE)
 	clothing_traits = list(TRAIT_SILENT_FOOTSTEPS)
+	equip_delay_self = 2.5 SECONDS
+	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/suit/armor/ms13/tesla
 	name = "tesla armor"
@@ -401,6 +425,8 @@
                 LASER = CLASS4_LASER, \
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	equip_delay_self = 3.5 SECONDS
+	equip_delay_other = 5 SECONDS
 
 /obj/item/clothing/suit/armor/ms13/eliteriot
 	name = "elite riot gear"
@@ -418,6 +444,8 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	equip_delay_self = 4 SECONDS
+	equip_delay_other = 6 SECONDS
 
 /obj/item/clothing/suit/ms13/ljacket/bountyhunter
 	name = "bounty hunter's jacket"
@@ -445,6 +473,8 @@
                 FIRE = CLASS5_FIRE)
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	resistance_flags = FIRE_PROOF
+	equip_delay_self = 3.5 SECONDS
+	equip_delay_other = 5 SECONDS
 
 /obj/item/clothing/suit/armor/ms13/radsuit
 	name = "radiation suit"
@@ -462,6 +492,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS2_FIRE)
+	equip_delay_self = 3.5 SECONDS
+	equip_delay_other = 5 SECONDS
 
 /obj/item/clothing/suit/armor/ms13/radsuit/Initialize(mapload)
 	. = ..()
@@ -503,6 +535,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
+	equip_delay_self = 2.5 SECONDS
+	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/suit/armor/ms13/ncr/reinforced
 	name = "\improper NCR reinforced infantry vest"
@@ -551,6 +585,8 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	equip_delay_self = 3.5 SECONDS
+	equip_delay_other = 5 SECONDS
 
 // Legion Armor //
 
@@ -576,6 +612,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
+	equip_delay_self = 2.5 SECONDS
+	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/suit/armor/ms13/legion/prime
 	name = "\improper Legion prime armor"
@@ -590,6 +628,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
+	equip_delay_self = 2.5 SECONDS
+	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/suit/armor/ms13/legion/veteran
 	name = "\improper Legion veteran armor"
@@ -606,6 +646,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	equip_delay_self = 3.5 SECONDS
+	equip_delay_other = 5 SECONDS
 
 /obj/item/clothing/suit/armor/ms13/legion/scout
 	name = "\improper Legion scout armor"
@@ -628,6 +670,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS1_FIRE)
+	equip_delay_self = 1.5 SECONDS
+	equip_delay_other = 3 SECONDS
 
 /obj/item/clothing/suit/armor/ms13/legion/speculatore
 	name = "\improper Legion speculatore armor"
@@ -648,6 +692,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS3_FIRE)
+	equip_delay_self = 2.5 SECONDS
+	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/suit/armor/ms13/legion/praetorian
 	name = "\improper Legion praetorian armor"
@@ -670,6 +716,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	equip_delay_self = 4 SECONDS
+	equip_delay_other = 6 SECONDS
 
 // BOS Armor //
 
@@ -688,6 +736,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = 0)
+	equip_delay_self = 1.5 SECONDS
+	equip_delay_other = 3 SECONDS
 
 /obj/item/clothing/suit/armor/ms13/scribe/head
 	name = "\improper Brotherhood head scribe's robe"
@@ -710,6 +760,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = 0)
+	equip_delay_self = 1.5 SECONDS
+	equip_delay_other = 3 SECONDS
 
 /obj/item/clothing/suit/armor/ms13/vest/bos
 	name = "\improper Brotherhood kevlar vest"
@@ -726,6 +778,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS2_FIRE)
+	equip_delay_self = 2.5 SECONDS
+	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/suit/armor/ms13/combat/bos
 	name = "\improper Brotherhood combat armor"
@@ -742,6 +796,8 @@
                 LASER = CLASS3_LASER, \
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	equip_delay_self = 4 SECONDS
+	equip_delay_other = 6 SECONDS
 
 // Desert Ranger Armor //
 
@@ -761,6 +817,8 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	equip_delay_self = 2.5 SECONDS
+	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/suit/armor/ms13/eliteriot/ranger
 	name = "\improper Elite Desert Ranger armor"
@@ -778,3 +836,5 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	equip_delay_self = 4 SECONDS
+	equip_delay_other = 6 SECONDS

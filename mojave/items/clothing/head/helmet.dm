@@ -11,6 +11,8 @@
 	flags_inv = HIDEHAIR
 	grid_width = 64
 	grid_height = 64
+	equip_delay_self = 1 SECONDS
+	equip_delay_other = 2 SECONDS
 	var/has_fov = FALSE //Whether this has a grim dark FOV or not
 
 /obj/item/clothing/head/helmet/ms13/Initialize()
@@ -35,6 +37,8 @@
 	dynamic_fhair_suffix = ""
 	grid_width = 64
 	grid_height = 64
+	equip_delay_self = 1 SECONDS
+	equip_delay_other = 2 SECONDS
 	var/has_fov = FALSE //Whether this has a grim dark FOV or not
 
 /obj/item/clothing/head/ms13/hood/Initialize()
@@ -96,6 +100,8 @@
                 FIRE = CLASS3_FIRE)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	has_fov = TRUE
+	equip_delay_self = 2 SECONDS
+	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/head/helmet/ms13/flight
 	name = "brown flight helmet"
@@ -115,6 +121,8 @@
 	dynamic_fhair_suffix = ""
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	has_fov = TRUE
+	equip_delay_self = 2 SECONDS
+	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/head/helmet/ms13/flight/yellow
 	name = "yellow flight helmet"
@@ -141,6 +149,8 @@
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS3_FIRE)
 	has_fov = TRUE
+	equip_delay_self = 2 SECONDS
+	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/head/helmet/ms13/junk
 	name = "junk helmet"
@@ -158,6 +168,8 @@
                 FIRE = CLASS3_FIRE)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	has_fov = TRUE
+	equip_delay_self = 2 SECONDS
+	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/head/helmet/ms13/skull
 	name = "radstag skull helmet"
@@ -174,6 +186,8 @@
                 ENERGY = 0, \
                 FIRE = 0)
 	flags_inv = HIDEEARS|HIDEFACE
+	equip_delay_self = 1.5 SECONDS
+	equip_delay_other = 3 SECONDS
 
 /obj/item/clothing/head/helmet/ms13/skull/muffalo
 	name = "brahmiluff skull helmet"
@@ -198,6 +212,8 @@
 	dynamic_fhair_suffix = ""
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	has_fov = TRUE
+	equip_delay_self = 2 SECONDS
+	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/head/helmet/ms13/medical
 	name = "medical helmet"
@@ -217,6 +233,8 @@
 	dynamic_fhair_suffix = ""
 	flags_inv = HIDEEARS|HIDEHAIR
 	has_fov = TRUE
+	equip_delay_self = 1.5 SECONDS
+	equip_delay_other = 3 SECONDS
 
 /obj/item/clothing/head/helmet/ms13/batter
 	name = "batters helmet"
@@ -232,6 +250,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
+	equip_delay_self = 1.5 SECONDS
+	equip_delay_other = 3 SECONDS
 
 /obj/item/clothing/head/helmet/ms13/batter/red
 	name = "red batters helmet"
@@ -257,6 +277,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
+	equip_delay_self = 1.5 SECONDS
+	equip_delay_other = 3 SECONDS
 
 /obj/item/clothing/head/hardhat/ms13/mining
 	name = "mining hardhat"
@@ -279,6 +301,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
+	equip_delay_self = 1.5 SECONDS
+	equip_delay_other = 3 SECONDS
 
 /obj/item/clothing/head/welding/ms13
 	name = "welding helmet"
@@ -298,6 +322,8 @@
                 LASER = 0, \
                 ENERGY = 0, \
                 FIRE = CLASS4_FIRE)
+	equip_delay_self = 2 SECONDS
+	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/head/helmet/ms13/army
 	name = "army helmet"
@@ -313,6 +339,8 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS2_FIRE)
+	equip_delay_self = 1.5 SECONDS
+	equip_delay_other = 3 SECONDS
 
 /obj/item/clothing/head/helmet/ms13/army/civildefence
 	name = "civil defense helmet"
@@ -354,6 +382,8 @@
 	inhand_icon_state = "harmorkit"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	has_fov = TRUE
+	equip_delay_self = 2 SECONDS
+	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/head/ms13/hood/plated
 	name = "plated cowl"
@@ -371,6 +401,8 @@
 	inhand_icon_state = "armorkit"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	has_fov = TRUE
+	equip_delay_self = 2 SECONDS
+	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/head/ms13/hood/cowl
 	name = "cowl"
@@ -404,6 +436,8 @@
 	inhand_icon_state = "headdress_l"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	has_fov = TRUE
+	equip_delay_self = 2 SECONDS
+	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/head/ms13/hood/sack
 	name = "sack hood"
@@ -434,6 +468,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = 0)
+	equip_delay_self = 1.5 SECONDS
+	equip_delay_other = 3 SECONDS
 
 /obj/item/clothing/head/ms13/hood/sack/metal
 	name = "reinforced sack hood"
@@ -448,6 +484,8 @@
                 LASER = 0, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS2_FIRE)
+	equip_delay_self = 1.5 SECONDS
+	equip_delay_other = 3 SECONDS
 
 /obj/item/clothing/head/ms13/hood/green
 	name = "green hood"
@@ -481,6 +519,8 @@
 	inhand_icon_state = "winterglovesbrown"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	has_fov = TRUE
+	equip_delay_self = 1.5 SECONDS
+	equip_delay_other = 3 SECONDS
 
 // Brimmed Hats //
 
@@ -924,6 +964,8 @@
                 ENERGY = CLASS3_PLASMA, \
                 FIRE = CLASS4_FIRE)
 	has_fov = TRUE
+	equip_delay_self = 2 SECONDS
+	equip_delay_other = 4 SECONDS
 
 // Raider Helmets //
 
@@ -945,6 +987,8 @@
                 FIRE = CLASS3_FIRE)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	has_fov = TRUE
+	equip_delay_self = 2 SECONDS
+	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/head/helmet/ms13/combat/advanced
 	name = "advanced combat helmet"
@@ -979,6 +1023,8 @@
                 FIRE = CLASS3_FIRE)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	has_fov = TRUE
+	equip_delay_self = 2 SECONDS
+	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/head/helmet/ms13/eliteriot
 	name = "elite riot helmet"
@@ -998,6 +1044,8 @@
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 	has_fov = TRUE
+	equip_delay_self = 2 SECONDS
+	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/head/helmet/ms13/vaulthelmet
 	name = "vault security helmet"
@@ -1014,6 +1062,8 @@
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS2_FIRE)
 	flags_inv = HIDEEARS|HIDEHAIR
+	equip_delay_self = 1.5 SECONDS
+	equip_delay_other = 3 SECONDS
 
 /obj/item/clothing/head/helmet/ms13/eliteriot/bountyhunter
 	name = "bounty hunter's helmet"
@@ -1046,6 +1096,8 @@
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 	has_fov = TRUE
+	equip_delay_self = 2 SECONDS
+	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/head/helmet/ms13/radiationhood
 	name = "radiation suit hood"
@@ -1064,6 +1116,8 @@
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 	has_fov = TRUE
+	equip_delay_self = 2 SECONDS
+	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/head/helmet/ms13/radiationhood/Initialize(mapload)
 	. = ..()
@@ -1106,6 +1160,8 @@
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
 	flags_cover = NONE
+	equip_delay_self = 1.5 SECONDS
+	equip_delay_other = 3 SECONDS
 
 /obj/item/clothing/head/helmet/ms13/ncr/medic
 	name = "\improper NCR medic helmet"
@@ -1165,6 +1221,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = 0)
+	equip_delay_self = 1 SECONDS
+	equip_delay_other = 2 SECONDS
 
 /obj/item/clothing/head/helmet/ms13/ncr/beret/officer
 	name = "\improper NCR officer beret"
@@ -1188,6 +1246,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS1_FIRE)
+	equip_delay_self = 1.5 SECONDS
+	equip_delay_other = 3 SECONDS
 
 /obj/item/clothing/head/helmet/ms13/legion/recruit
 	name = "\improper Legion recruit helmet"
@@ -1204,6 +1264,8 @@
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
 	flags_inv = HIDEEARS|HIDEHAIR
+	equip_delay_self = 1.5 SECONDS
+	equip_delay_other = 3 SECONDS
 
 /obj/item/clothing/head/helmet/ms13/legion/prime
 	name = "\improper Legion prime helmet"
@@ -1220,6 +1282,8 @@
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
 	flags_inv = HIDEEARS|HIDEHAIR
+	equip_delay_self = 1.5 SECONDS
+	equip_delay_other = 3 SECONDS
 
 /obj/item/clothing/head/helmet/ms13/legion/veteran
 	name = "\improper Legion veteran helmet"
@@ -1237,6 +1301,8 @@
                 FIRE = CLASS3_FIRE)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	has_fov = TRUE
+	equip_delay_self = 2 SECONDS
+	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/head/helmet/ms13/legion/decanus
 	name = "\improper Legion recruit decanus helmet"
@@ -1254,6 +1320,8 @@
                 FIRE = CLASS3_FIRE)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	has_fov = TRUE
+	equip_delay_self = 2 SECONDS
+	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/head/helmet/ms13/legion/decanus/prime
 	name = "\improper Legion prime decanus helmet"
@@ -1281,6 +1349,8 @@
                 FIRE = CLASS3_FIRE)
 	flags_inv = HIDEEARS|HIDEHAIR
 	has_fov = TRUE
+	equip_delay_self = 2 SECONDS
+	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/head/helmet/ms13/legion/praetorian
 	name = "\improper Legion praetorian helmet"
@@ -1312,6 +1382,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = 0)
+	equip_delay_self = 1 SECONDS
+	equip_delay_other = 2 SECONDS
 
 // Brotherhood Helmets //
 
@@ -1329,6 +1401,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS2_FIRE)
+	equip_delay_self = 1.5 SECONDS
+	equip_delay_other = 3 SECONDS
 
 /obj/item/clothing/head/helmet/ms13/combat/bos
 	name = "\improper Brotherhood combat helmet"
@@ -1345,6 +1419,8 @@
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
 	has_fov = TRUE
+	equip_delay_self = 2 SECONDS
+	equip_delay_other = 4 SECONDS
 
 // Desert Ranger Helmets/Hats //
 
@@ -1363,6 +1439,8 @@
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
 	has_fov = TRUE
+	equip_delay_self = 2 SECONDS
+	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/head/helmet/ms13/cowboy/ranger
 	name = "\improper Desert Ranger hat"
