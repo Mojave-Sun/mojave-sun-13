@@ -11,10 +11,16 @@
 	flags_inv = HIDEHAIR
 	grid_width = 64
 	grid_height = 64
+	var/has_fov = FALSE //Whether this has a grim dark FOV or not
 
 /obj/item/clothing/head/helmet/ms13/Initialize()
 	. = ..()
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clothing/clothing_inventory/hats_inventory.dmi')
+	init_fov()
+
+/obj/item/clothing/head/helmet/ms13/proc/init_fov()
+	if (has_fov)
+		AddComponent(/datum/component/clothing_fov_visor, FOV_90_DEGREES)
 
 /obj/item/clothing/head/ms13/hood
 	name = "generic ms13 hood"
@@ -29,10 +35,16 @@
 	dynamic_fhair_suffix = ""
 	grid_width = 64
 	grid_height = 64
+	var/has_fov = FALSE //Whether this has a grim dark FOV or not
 
 /obj/item/clothing/head/ms13/hood/Initialize()
 	. = ..()
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clothing/clothing_inventory/hats_inventory.dmi')
+	init_fov()
+
+/obj/item/clothing/head/ms13/hood/proc/init_fov()
+	if (has_fov)
+		AddComponent(/datum/component/clothing_fov_visor, FOV_90_DEGREES)
 
 /obj/item/clothing/head/hooded/ms13
 	name = "generic ms13 suit hood"
@@ -83,6 +95,7 @@
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
+	has_fov = TRUE
 
 /obj/item/clothing/head/helmet/ms13/flight
 	name = "brown flight helmet"
@@ -101,6 +114,7 @@
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
+	has_fov = TRUE
 
 /obj/item/clothing/head/helmet/ms13/flight/yellow
 	name = "yellow flight helmet"
@@ -126,6 +140,7 @@
                 LASER = 0, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	has_fov = TRUE
 
 /obj/item/clothing/head/helmet/ms13/junk
 	name = "junk helmet"
@@ -142,6 +157,7 @@
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS3_FIRE)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
+	has_fov = TRUE
 
 /obj/item/clothing/head/helmet/ms13/skull
 	name = "radstag skull helmet"
@@ -181,6 +197,7 @@
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
+	has_fov = TRUE
 
 /obj/item/clothing/head/helmet/ms13/medical
 	name = "medical helmet"
@@ -335,6 +352,7 @@
                 FIRE = CLASS3_FIRE)
 	inhand_icon_state = "harmorkit"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
+	has_fov = TRUE
 
 /obj/item/clothing/head/ms13/hood/plated
 	name = "plated cowl"
@@ -351,6 +369,7 @@
                 FIRE = CLASS3_FIRE)
 	inhand_icon_state = "armorkit"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
+	has_fov = TRUE
 
 /obj/item/clothing/head/ms13/hood/cowl
 	name = "cowl"
@@ -375,6 +394,7 @@
 	armor = list("melee" = 50, "bullet" = 40, "laser" = 5, "energy" = 30, "bomb" = 30, "bio" = 10,  "fire" = 40, "acid" = 10, "wound" = 5)
 	inhand_icon_state = "headdress_l"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
+	has_fov = TRUE
 
 /obj/item/clothing/head/ms13/hood/sack
 	name = "sack hood"
@@ -405,6 +425,7 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
+	has_fov = TRUE
 
 /obj/item/clothing/head/ms13/hood/sack/metal
 	name = "reinforced sack hood"
@@ -419,6 +440,7 @@
                 LASER = 0, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	has_fov = TRUE
 
 /obj/item/clothing/head/ms13/hood/green
 	name = "green hood"
@@ -451,6 +473,7 @@
                 FIRE = CLASS2_FIRE)
 	inhand_icon_state = "winterglovesbrown"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
+	has_fov = TRUE
 
 // Brimmed Hats //
 
@@ -655,7 +678,7 @@
 	desc = "A refurbished, good looking pre-war police cap normally in use by the new law enforcers of the cold wastes."
 	icon_state = "deputycap"
 	inhand_icon_state = "deputycap"
-	asubarmor = list(SUBARMOR_FLAGS = NONE, \
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 0, \
                 CRUSHING = 0, \
                 CUTTING = CLASS1_CUT, \
@@ -893,6 +916,7 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = CLASS3_PLASMA, \
                 FIRE = CLASS4_FIRE)
+	has_fov = TRUE
 
 // Raider Helmets //
 
@@ -913,6 +937,7 @@
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
+	has_fov = TRUE
 
 /obj/item/clothing/head/helmet/ms13/combat/advanced
 	name = "advanced combat helmet"
@@ -946,6 +971,7 @@
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
+	has_fov = TRUE
 
 /obj/item/clothing/head/helmet/ms13/eliteriot
 	name = "elite riot helmet"
@@ -964,6 +990,7 @@
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
+	has_fov = TRUE
 
 /obj/item/clothing/head/helmet/ms13/vaulthelmet
 	name = "vault security helmet"
@@ -1011,6 +1038,7 @@
 	resistance_flags = FIRE_PROOF
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
+	has_fov = TRUE
 
 /obj/item/clothing/head/helmet/ms13/radiationhood
 	name = "radiation suit hood"
@@ -1028,6 +1056,7 @@
                 FIRE = CLASS2_FIRE)
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
+	has_fov = TRUE
 
 /obj/item/clothing/head/helmet/ms13/radiationhood/Initialize(mapload)
 	. = ..()
@@ -1200,6 +1229,7 @@
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS3_FIRE)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
+	has_fov = TRUE
 
 /obj/item/clothing/head/helmet/ms13/legion/decanus
 	name = "\improper Legion recruit decanus helmet"
@@ -1216,6 +1246,7 @@
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS3_FIRE)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
+	has_fov = TRUE
 
 /obj/item/clothing/head/helmet/ms13/legion/decanus/prime
 	name = "\improper Legion prime decanus helmet"
@@ -1242,6 +1273,7 @@
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
 	flags_inv = HIDEEARS|HIDEHAIR
+	has_fov = TRUE
 
 /obj/item/clothing/head/helmet/ms13/legion/praetorian
 	name = "\improper Legion praetorian helmet"
@@ -1305,6 +1337,7 @@
                 LASER = CLASS3_LASER, \
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	has_fov = TRUE
 
 // Desert Ranger Helmets/Hats //
 
@@ -1322,6 +1355,7 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	has_fov = TRUE
 
 /obj/item/clothing/head/helmet/ms13/cowboy/ranger
 	name = "\improper Desert Ranger hat"

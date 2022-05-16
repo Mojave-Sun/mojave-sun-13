@@ -25,7 +25,7 @@
 	ADD_TRAIT(src, TRAIT_NODROP, STICKY_NODROP) //Somehow it's stuck to your body, no questioning.
 	radio = new radiotype(src)
 	AddElement(/datum/element/radiation_protected_clothing)
-	AddComponent(/datum/component/clothing_fov_visor, FOV_90_DEGREES)
+	AddComponent(/datum/component/clothing_fov_visor, FOV_180_DEGREES)
 
 /obj/item/radio/headset/ms13/powerarmor
 	name = "integrated power armor headset"
