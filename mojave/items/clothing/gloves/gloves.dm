@@ -65,6 +65,12 @@
 	icon_state = "ncr_standard_gloves"
 	inhand_icon_state = "ncr_standard_gloves"
 
+/obj/item/clothing/gloves/ms13/ranger
+	name = "\improper Desert Ranger patrol gloves"
+	desc = "A pair of long brown gloves used by the Desert Rangers"
+	icon_state = "patrol"
+	inhand_icon_state = "winterglovesbrown"
+
 /obj/item/clothing/gloves/ms13/legion
     name = "generic Legion gloves"
     desc = "Generic gloves worn by Legionaries."

@@ -30,9 +30,9 @@
 		/obj/item/clothing/head/helmet/ms13/flight,\
 		/obj/item/clothing/head/helmet/ms13/flight/yellow,\
 		/obj/item/clothing/head/helmet/ms13/flight/red,\
-		/obj/item/clothing/head/helmet/ms13/skull,\
+		/obj/item/clothing/head/helmet/ms13/batter/blue,\
 		/obj/item/clothing/head/ms13/hood/hunter,\
-		/obj/item/clothing/head/helmet/ms13/ushanka)
+		/obj/item/clothing/head/helmet/ms13/eyebot)
 
 	uniform = pick(
 		/obj/item/clothing/under/ms13/wasteland/rag,\
