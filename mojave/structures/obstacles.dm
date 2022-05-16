@@ -679,6 +679,9 @@
 /obj/structure/railing/ms13/wood/proc/deconstruction_hints(mob/user)
 	return span_notice("You could use a <b>crowbar</b> or similar prying tool to dismantle [src] for planks and parts.")
 
+/obj/structure/railing/ms13/wood/ending
+	icon_state = "wood_end"
+
 /obj/structure/railing/ms13/wood/single
 	icon_state = "wood_solo"
 
@@ -686,6 +689,9 @@
 	name = "wooden fence"
 	desc = "A classic wooden fence. It doesn't get more homely than this."
 	icon_state = "wood_snow_full"
+
+/obj/structure/railing/ms13/wood/snow/ending
+	icon_state = "wood_snow_end"
 
 /obj/structure/railing/ms13/wood/snow/single
 	icon_state = "wood_snow_solo"
