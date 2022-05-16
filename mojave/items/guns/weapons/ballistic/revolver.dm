@@ -58,6 +58,8 @@
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
 	slot_flags = ITEM_SLOT_BACK
+	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/ms13/mts
+	fire_sound = 'mojave/sound/ms13weapons/gunsounds/levershot/levershot1.ogg'
 	force = 25
 	subtractible_armour_penetration = 5
 	fire_delay = 0.55 SECONDS
@@ -211,9 +213,10 @@
 	ammo_type = /obj/item/ammo_casing/shotgun/ms13/buckshot
 	max_ammo = 1
 
-/obj/item/ammo_box/magazine/internal/shot/ms13/mts
+/obj/item/ammo_box/magazine/internal/cylinder/ms13/mts
 	name = "revolver shotgun internal tube"
 	ammo_type = /obj/item/ammo_casing/shotgun/ms13/buckshot
+	caliber = CALIBER_SHOTGUN
 	max_ammo = 6
 
 /obj/item/ammo_box/magazine/internal/shot/ms13/derringer

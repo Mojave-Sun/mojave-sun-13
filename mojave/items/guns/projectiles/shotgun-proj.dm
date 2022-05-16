@@ -3,6 +3,7 @@
 	icon_state = "buckshot"
 	name = "base mojave sun shotgun pellet"
 	speed = 0.6
+	embedding = null
 
 //12 gauge
 /obj/projectile/bullet/pellet/ms13/buckshot
