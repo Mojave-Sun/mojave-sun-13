@@ -42,57 +42,84 @@
 				/obj/item/clothing/head/helmet/ms13/police
 				)
 	var/loot9 = list(
+				/obj/item/clothing/suit/ms13/veteran_coat/black,
+				/obj/item/clothing/head/helmet/ms13/military/officer
+				)
+	var/loot10 = list(
 				/obj/item/clothing/suit/ms13/duster,
 				/obj/item/clothing/head/helmet/ms13/cowboy
 				)
-	var/loot10 = list(
+	var/loot11 = list(
 				/obj/item/clothing/suit/ms13/trench/detective,
 				/obj/item/clothing/head/helmet/ms13/fedora/brown
 				)
-	var/loot11 = list(
+	var/loot12 = list(
 				/obj/item/clothing/suit/ms13/ljacket/bomber,
 				/obj/item/clothing/head/helmet/ms13/ushanka
 				)
-	var/loot12 = list(
+	var/loot13 = list(
 				/obj/item/clothing/suit/ms13/ljacket/military,
 				/obj/item/clothing/head/helmet/ms13/military
 				)
-	var/loot13 = list(
+	var/loot14 = list(
 				/obj/item/clothing/suit/ms13/ljacket/wanderer,
 				/obj/item/clothing/head/ms13/hood/cowl
 				)
-	var/loot14 = list(
+	var/loot15 = list(
 				/obj/item/clothing/suit/toggle/ms13/wjacket/blue,
 				/obj/item/clothing/head/helmet/ms13/ushanka/blue
 				)
-	var/loot15 = list(
+	var/loot16 = list(
 				/obj/item/clothing/suit/toggle/ms13/wjacket/orange,
 				/obj/item/clothing/head/helmet/ms13/ushanka
 				)
-	var/loot16 = list(
-				/obj/item/clothing/suit/ms13/ljacket/musty,
-				""
-				)
 	var/loot17 = list(
-				/obj/item/clothing/suit/ms13/trench/brown,
-				""
+				/obj/item/clothing/suit/ms13/ljacket/musty,
+				/obj/item/clothing/head/ms13/hood/sack
 				)
 	var/loot18 = list(
+				/obj/item/clothing/suit/ms13/trench/brown,
+				/obj/item/clothing/head/helmet/ms13/fedora/brown
+				)
+	var/loot19 = list(
 				/obj/item/clothing/suit/armor/ms13/tire,
 				/obj/item/clothing/head/helmet/ms13/batter
 				)
-	var/loot19 = list(
-				/obj/item/clothing/suit/ms13/ljacket/moleskin,
-				/obj/item/clothing/head/helmet/ms13/cowboy
-				)
 	var/loot20 = list(
+				/obj/item/clothing/suit/ms13/ljacket/moleskin,
+				/obj/item/clothing/head/helmet/ms13/skull
+				)
+	var/loot21 = list(
 				/obj/item/clothing/suit/ms13/ljacket/biker,
 				/obj/item/clothing/head/helmet/ms13/cowboy/black
 				)
-
+	var/loot22 = list(
+				/obj/item/clothing/suit/ms13/trench/black/bruiser,
+				/obj/item/clothing/head/helmet/ms13/batter
+				)
+	var/loot23 = list(
+				/obj/item/clothing/suit/armor/ms13/vest/civilian,
+				""
+				)
+	var/loot24 = list(
+				/obj/item/clothing/suit/armor/ms13/kit,
+				/obj/item/clothing/head/ms13/hood/sack/metal
+				)
+	var/loot25 = list(
+				/obj/item/clothing/suit/ms13/trench/leather,
+				/obj/item/clothing/head/helmet/ms13/tricorn
+				)
+	var/loot26 = list(
+				/obj/item/clothing/suit/ms13/trench,
+				/obj/item/clothing/head/helmet/ms13/fedora/brown
+				)
+	var/loot27 = list(
+				/obj/item/clothing/suit/ms13/trench/black,
+				/obj/item/clothing/head/helmet/ms13/fedora
+				)
 
 /obj/effect/spawner/random/ms13/guarenteed/armor/tier1/Initialize() //on mapload, pick what to spawn
-	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11, loot12, loot13, loot14, loot15, loot16, loot17, loot18, loot19, loot20)
+	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11, loot12, loot13, loot14, loot15, loot16, loot17, loot18, loot19, loot20, loot21, loot22, loot23, loot24, loot25, loot26, loot27)
 	. = ..()
 
 /obj/effect/spawner/random/ms13/guarenteed/armor/tier2
@@ -100,11 +127,11 @@
 	spawn_loot_count = 2
 	var/loot1 = list(
 				/obj/item/clothing/suit/toggle/ms13/wjacket/orange/reinforced,
-				/obj/item/clothing/head/helmet/ms13/ushanka
+				/obj/item/clothing/head/helmet/ms13/flight/yellow
 				)
 	var/loot2 = list(
 				/obj/item/clothing/suit/toggle/ms13/wjacket/brown/reinforced,
-				/obj/item/clothing/head/helmet/ms13/ushanka
+				/obj/item/clothing/head/helmet/ms13/flight/red
 				)
 	var/loot3 = list(
 				/obj/item/clothing/suit/ms13/ljacket/reinforced,
@@ -116,50 +143,50 @@
 				)
 	var/loot5 = list(
 				/obj/item/clothing/suit/toggle/ms13/wjacket/black/reinforced,
-				/obj/item/clothing/head/helmet/ms13/ushanka/blue
+				/obj/item/clothing/head/helmet/ms13/flight
 				)
 	var/loot6 = list(
-				/obj/item/clothing/suit/armor/ms13/kit,
-				""
+				/obj/item/clothing/suit/armor/ms13/leatherarmor,
+				/obj/item/clothing/head/ms13/hood/hunter
 				)
 	var/loot7 = list(
-				/obj/item/clothing/suit/armor/ms13/leatherarmor,
-				/obj/item/clothing/head/helmet/ms13/flight/yellow
-				)
-	var/loot8 = list(
 				/obj/item/clothing/suit/ms13/veteran_coat/reinf,
 				/obj/item/clothing/head/helmet/ms13/military/officer
 				)
-	var/loot9 = list(
+	var/loot8 = list(
 				/obj/item/clothing/suit/armor/ms13/vest,
-				""
+				/obj/item/clothing/head/helmet/ms13/army/civildefence
 				)
-	var/loot10 = list(
+	var/loot9 = list(
 				/obj/item/clothing/suit/armor/ms13/metal,
 				/obj/item/clothing/head/helmet/ms13/bladed
 				)
-	var/loot11 = list(
+	var/loot10 = list(
 				/obj/item/clothing/suit/armor/ms13/vaultvan,
 				/obj/item/clothing/head/helmet/ms13/eyebot
 				)
+	var/loot11 = list(
+				/obj/item/clothing/suit/armor/ms13/kit/reinf,
+				/obj/item/clothing/head/helmet/ms13/junk
+				)
 	var/loot12 = list(
-				/obj/item/clothing/suit/ms13/trench,
-				""
+				/obj/item/clothing/suit/ms13/trench/black/reinf,
+				/obj/item/clothing/head/helmet/ms13/bladed
 				)
 	var/loot13 = list(
 				/obj/item/clothing/suit/toggle/ms13/wjacket/blue/reinforced,
-				/obj/item/clothing/head/helmet/ms13/ushanka/blue
+				/obj/item/clothing/head/helmet/ms13/flight
 				)
 	var/loot14 = list(
-				/obj/item/clothing/suit/ms13/trench/black,
-				/obj/item/clothing/head/helmet/ms13/militia
+				/obj/item/clothing/suit/armor/ms13/radsuit,
+				/obj/item/clothing/head/helmet/ms13/radiationhood
 				)
 	var/loot15 = list(
-				/obj/item/clothing/suit/ms13/trench/black/bruiser,
-				/obj/item/clothing/head/helmet/ms13/prospector
+				/obj/item/clothing/suit/armor/ms13/firesuit,
+				/obj/item/clothing/head/helmet/ms13/firehood
 				)
 
-/obj/effect/spawner/random/ms13/guarenteed/armor/tier2/Initialize()
+/obj/effect/spawner/random/ms13/armor/tier2/Initialize()
 	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11, loot12, loot13, loot14, loot15)
 	. = ..()
 
@@ -172,10 +199,6 @@
 				)
 	var/loot2 = list(
 				/obj/item/clothing/suit/toggle/ms13/wjacket/black/armored,
-				""
-				)
-	var/loot3 = list(
-				/obj/item/clothing/suit/ms13/trench/black/reinf,
 				""
 				)
 	var/loot4 = list(
@@ -191,24 +214,20 @@
 				/obj/item/clothing/head/helmet/ms13/assaultron
 				)
 	var/loot7 = list(
+				/obj/item/clothing/suit/ms13/trench/black/armored,
+				""
+				)
+	var/loot8 = list(
 				/obj/item/clothing/suit/armor/ms13/leatherarmor/reinforced,
 				/obj/item/clothing/head/helmet/ms13/flight
 				)
-	var/loot8 = list(
+	var/loot9 = list(
 				/obj/item/clothing/suit/armor/ms13/combat,
 				/obj/item/clothing/head/helmet/ms13/combat
 				)
-	var/loot9 = list(
-				/obj/item/clothing/suit/armor/ms13/kit/reinf,
-				""
-				)
-	var/loot10 = list(
-				/obj/item/clothing/suit/armor/ms13/vest,
-				""
-				)
 
-/obj/effect/spawner/random/ms13/guarenteed/armor/tier3/Initialize()
-	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10)
+/obj/effect/spawner/random/ms13/armor/tier3/Initialize()
+	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9)
 	. = ..()
 
 /obj/effect/spawner/random/ms13/guarenteed/armor/tier4
@@ -235,16 +254,12 @@
 				/obj/item/clothing/head/helmet/ms13/army
 				)
 	var/loot6 = list(
-				/obj/item/clothing/suit/ms13/trench/black/armored,
-				""
-				)
-	var/loot7 = list(
 				/obj/item/clothing/suit/armor/ms13/assassin,
 				""
 				)
 
-/obj/effect/spawner/random/ms13/guarenteed/armor/tier4/Initialize()
-	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7)
+/obj/effect/spawner/random/ms13/armor/tier4/Initialize()
+	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6)
 	. = ..()
 
 /obj/effect/spawner/random/ms13/guarenteed/armor/lowrandom
@@ -286,11 +301,10 @@
 			/obj/item/clothing/head/hardhat/ms13/mining,
 			/obj/item/clothing/head/ms13/hood/banded,
 			/obj/item/clothing/head/ms13/hood/plated,
-			/obj/item/clothing/head/ms13/hood/cowl,
 			/obj/item/clothing/head/ms13/hood/inquisitor,
 			/obj/item/clothing/head/ms13/hood/sack/padded,
 			/obj/item/clothing/head/ms13/hood/sack/metal,
-			/obj/item/clothing/head/ms13/hood/green,
 			/obj/item/clothing/head/ms13/hood/hunter,
-			/obj/item/clothing/head/welding/ms13
+			/obj/item/clothing/head/welding/ms13,
+			/obj/item/clothing/head/helmet/ms13/army/civildefence
 			)

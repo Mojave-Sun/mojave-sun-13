@@ -216,6 +216,7 @@
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 	flags_inv = HIDEEARS|HIDEHAIR
+	has_fov = TRUE
 
 /obj/item/clothing/head/helmet/ms13/batter
 	name = "batters helmet"
@@ -391,7 +392,15 @@
 	name = "inquisitors helm"
 	desc = "A strange looking piece of armored metal religious headgear. The brass, gold, and iron have a strange shine to them despite the apocalyptic conditions."
 	icon_state = "inquisitor"
-	armor = list("melee" = 50, "bullet" = 40, "laser" = 5, "energy" = 30, "bomb" = 30, "bio" = 10,  "fire" = 40, "acid" = 10, "wound" = 5)
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS4_CUT, \
+                PIERCING = CLASS3_PIERCE, \
+                IMPALING = CLASS4_STAB, \
+                LASER = 0, \
+                ENERGY = CLASS2_PLASMA, \
+                FIRE = CLASS3_FIRE)
 	inhand_icon_state = "headdress_l"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	has_fov = TRUE
@@ -418,14 +427,13 @@
 	icon_state = "sackstrap"
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 0, \
-                CRUSHING = CLASS2_CRUSH, \
-                CUTTING = CLASS2_CUT, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
                 PIERCING = CLASS1_PIERCE, \
-                IMPALING = CLASS1_STAB, \
-                LASER = CLASS2_LASER, \
+                IMPALING = 0, \
+                LASER = CLASS1_LASER, \
                 ENERGY = 0, \
-                FIRE = CLASS2_FIRE)
-	has_fov = TRUE
+                FIRE = 0)
 
 /obj/item/clothing/head/ms13/hood/sack/metal
 	name = "reinforced sack hood"
@@ -433,14 +441,13 @@
 	icon_state = "sackmetal"
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 0, \
-                CRUSHING = CLASS1_CRUSH, \
-                CUTTING = CLASS3_CUT, \
-                PIERCING = CLASS2_PIERCE, \
-                IMPALING = CLASS2_STAB, \
+                CRUSHING = 0, \
+                CUTTING = CLASS2_CUT, \
+                PIERCING = 0, \
+                IMPALING = CLASS1_STAB, \
                 LASER = 0, \
                 ENERGY = CLASS1_PLASMA, \
-                FIRE = CLASS3_FIRE)
-	has_fov = TRUE
+                FIRE = CLASS2_FIRE)
 
 /obj/item/clothing/head/ms13/hood/green
 	name = "green hood"
