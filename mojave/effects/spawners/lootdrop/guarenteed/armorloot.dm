@@ -201,33 +201,33 @@
 				/obj/item/clothing/suit/toggle/ms13/wjacket/black/armored,
 				""
 				)
-	var/loot4 = list(
+	var/loot3 = list(
 				/obj/item/clothing/suit/toggle/ms13/wjacket/orange/armored,
 				""
 				)
-	var/loot5 = list(
+	var/loot4 = list(
 				/obj/item/clothing/suit/toggle/ms13/wjacket/brown/armored,
 				""
 				)
-	var/loot6 = list(
+	var/loot5 = list(
 				/obj/item/clothing/suit/armor/ms13/metal/reinforced,
 				/obj/item/clothing/head/helmet/ms13/assaultron
 				)
-	var/loot7 = list(
+	var/loot6 = list(
 				/obj/item/clothing/suit/ms13/trench/black/armored,
 				""
 				)
-	var/loot8 = list(
+	var/loot7 = list(
 				/obj/item/clothing/suit/armor/ms13/leatherarmor/reinforced,
 				/obj/item/clothing/head/helmet/ms13/flight
 				)
-	var/loot9 = list(
+	var/loot8 = list(
 				/obj/item/clothing/suit/armor/ms13/combat,
 				/obj/item/clothing/head/helmet/ms13/combat
 				)
 
 /obj/effect/spawner/random/ms13/armor/tier3/Initialize()
-	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9)
+	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8)
 	. = ..()
 
 /obj/effect/spawner/random/ms13/guarenteed/armor/tier4

@@ -10,10 +10,10 @@
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	///Icon file for right inhand overlays
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
+	equip_delay_self = 1.5 SECONDS
+	equip_delay_other = 3 SECONDS
 	grid_width = 64
 	grid_height = 96
-    equip_delay_self = 1.5 SECONDS
-	equip_delay_other = 3 SECONDS
 
 /obj/item/clothing/suit/ms13/Initialize()
 	. = ..()
@@ -33,10 +33,10 @@
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	///Icon file for right inhand overlays
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
+	equip_delay_self = 1.5 SECONDS
+	equip_delay_other = 3 SECONDS
 	grid_width = 64
 	grid_height = 96
-    equip_delay_self = 1.5 SECONDS
-	equip_delay_other = 3 SECONDS
 
 /obj/item/clothing/suit/toggle/ms13/Initialize()
 	. = ..()
@@ -142,7 +142,7 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
-    equip_delay_self = 2.5 SECONDS
+	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/suit/ms13/ljacket/reinforced
@@ -161,7 +161,7 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
-    equip_delay_self = 2.5 SECONDS
+	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
 
 // winter jackets //
@@ -200,7 +200,7 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
-    equip_delay_self = 2.5 SECONDS
+	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/suit/toggle/ms13/wjacket/orange/armored
@@ -217,7 +217,7 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
-    equip_delay_self = 3.5 SECONDS
+	equip_delay_self = 3.5 SECONDS
 	equip_delay_other = 5 SECONDS
 
 /obj/item/clothing/suit/toggle/ms13/wjacket/brown
@@ -239,7 +239,7 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
-    equip_delay_self = 2.5 SECONDS
+	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/suit/toggle/ms13/wjacket/brown/armored
@@ -256,7 +256,7 @@
                 LASER = CLASS3_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS3_FIRE)
-    equip_delay_self = 3.5 SECONDS
+	equip_delay_self = 3.5 SECONDS
 	equip_delay_other = 5 SECONDS
 
 /obj/item/clothing/suit/toggle/ms13/wjacket/blue
@@ -278,7 +278,7 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
-    equip_delay_self = 2.5 SECONDS
+	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/suit/toggle/ms13/wjacket/blue/armored
@@ -295,7 +295,7 @@
                 LASER = CLASS3_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS3_FIRE)
-    equip_delay_self = 3.5 SECONDS
+	equip_delay_self = 3.5 SECONDS
 	equip_delay_other = 5 SECONDS
 
 /obj/item/clothing/suit/toggle/ms13/wjacket/black
@@ -317,7 +317,7 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
-    equip_delay_self = 2.5 SECONDS
+	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/suit/toggle/ms13/wjacket/black/armored
@@ -334,7 +334,7 @@
                 LASER = CLASS3_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS3_FIRE)
-    equip_delay_self = 3.5 SECONDS
+	equip_delay_self = 3.5 SECONDS
 	equip_delay_other = 5 SECONDS
 
 // jackets //
@@ -558,7 +558,7 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS2_FIRE)
-    equip_delay_self = 3.5 SECONDS
+	equip_delay_self = 3.5 SECONDS
 	equip_delay_other = 5 SECONDS
 
 /obj/item/clothing/suit/ms13/trench/black/armored
@@ -576,7 +576,7 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
-    equip_delay_self = 4 SECONDS
+	equip_delay_self = 4 SECONDS
 	equip_delay_other = 6 SECONDS
 
 // dusters //
@@ -611,7 +611,7 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
-    equip_delay_self = 2.5 SECONDS
+	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/suit/ms13/duster/ranger
@@ -641,7 +641,7 @@
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0, wound = 0)
 	body_parts_covered = CHEST|ARMS
 	allowed = list(/obj/item/pen,/obj/item/paper,/obj/item/stamp,/obj/item/reagent_containers/food/drinks/flask,/obj/item/storage/box/matches,/obj/item/lighter,/obj/item/clothing/mask/cigarette,/obj/item/storage/fancy/cigarettes,/obj/item/flashlight,/obj/item/ammo_box,/obj/item/ammo_casing,/obj/item/scalpel,/obj/item/surgical_drapes,/obj/item/cautery,/obj/item/hemostat,/obj/item/retractor,/obj/item/storage/dice,/obj/item/dice)
-    equip_delay_self = 1.5 SECONDS
+	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
 
 /obj/item/clothing/suit/ms13/vaultlab
@@ -652,7 +652,7 @@
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0, wound = 0)
 	body_parts_covered = CHEST|ARMS
 	allowed = list(/obj/item/pen,/obj/item/paper,/obj/item/stamp,/obj/item/reagent_containers/food/drinks/flask,/obj/item/storage/box/matches,/obj/item/lighter,/obj/item/clothing/mask/cigarette,/obj/item/storage/fancy/cigarettes,/obj/item/flashlight,/obj/item/ammo_box,/obj/item/ammo_casing,/obj/item/scalpel,/obj/item/surgical_drapes,/obj/item/cautery,/obj/item/hemostat,/obj/item/retractor,/obj/item/storage/dice,/obj/item/dice)
-    equip_delay_self = 1.5 SECONDS
+	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
 
 // other //
