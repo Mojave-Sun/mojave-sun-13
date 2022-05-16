@@ -629,6 +629,7 @@
 		/obj/item/food/meat/slab/ms13/fish/chum = 2,
 		/obj/item/food/meat/slab/ms13/fish/sturgeon = 1,
 		/obj/item/food/meat/slab/ms13/fish/asian = 1)
+
 // Increment fish every 5
 #define fishPopFreq   5 MINUTES
 // Increment fish pop by 5
@@ -644,11 +645,10 @@ GLOBAL_VAR(FishPopNextCalc)
     GLOB.FishPopNextCalc = world.time + fishPopFreq
 
   return GLOB.FishPop
+
 /turf/open/ms13/water/attackby(obj/item/W, mob/user, params)
 	. = ..()
 	if(W.tool_behaviour == TOOL_FISHINGROD)
-		if(!can_fish(user))
-			return TRUE
 		if(!isturf(user.loc))
 			return
 
