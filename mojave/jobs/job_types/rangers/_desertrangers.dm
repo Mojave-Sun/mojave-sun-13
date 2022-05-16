@@ -1,7 +1,7 @@
 /datum/job/ms13/ranger
 	selection_color = "#bdbc76"
 	departments_list = list(
-		/datum/job_department/ncr,
+		/datum/job_department/rangers,
 	)
 	exp_granted_type = EXP_TYPE_RANGERS
 	exp_required_type = EXP_TYPE_RANGERS
