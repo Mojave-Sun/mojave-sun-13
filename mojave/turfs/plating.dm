@@ -629,8 +629,21 @@
 		/obj/item/food/meat/slab/ms13/fish/chum = 2,
 		/obj/item/food/meat/slab/ms13/fish/sturgeon = 1,
 		/obj/item/food/meat/slab/ms13/fish/asian = 1)
-	var/fished = FALSE
+// Increment fish every 5
+#define fishPopFreq   5 MINUTES
+// Increment fish pop by 5
+#define fishPopIncAmt 5
 
+GLOBAL_VAR_INIT(FishPop, 20)
+GLOBAL_VAR(FishPopNextCalc)
+
+/proc/getFishPop()
+  if(world.time > GLOB.FishPopNextCalc)
+    // Increment fishpop since last calc (i.e if 15 minutes, then increment by 5, 3 times)
+    GLOB.FishPop += FLOOR( world.time - GLOB.FishPopNextCalc, fishPopFreq) * fishPopIncAmt
+    GLOB.FishPopNextCalc = world.time + fishPopFreq
+
+  return GLOB.FishPop
 /turf/open/ms13/water/attackby(obj/item/W, mob/user, params)
 	. = ..()
 	if(W.tool_behaviour == TOOL_FISHINGROD)
@@ -649,13 +662,14 @@
 /turf/open/ms13/water/proc/getFished(mob/user)
 	var/spawnFish = pick_weight(fish)
 	new spawnFish(user.loc)
-	fished = TRUE
+	GLOB.FishPop--
 
 /turf/open/ms13/water/proc/can_fish(mob/user)
-	if(!fished)
-		return TRUE
-	if(user)
-		to_chat(user, "<span class='warning'>Looks like there's no fish here!</span>")
+	if(!getFishPop())
+		if(user)
+			to_chat(user, "<span class='warning'>Looks like there's no fish here!</span>")
+		return FALSE
+	return TRUE
 
 /turf/open/ms13/water/deep
 	name = "deep water"
