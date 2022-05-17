@@ -1073,7 +1073,6 @@
 		/obj/item/stack/sheet/bone = 10,
 		/datum/reagent/fuel/oil = 5,
 	)
-	result = /obj/structure/statue/bone/rib
 	subcategory = CAT_PRIMAL
 
 /datum/crafting_recipe/skull
@@ -1083,7 +1082,6 @@
 		/obj/item/stack/sheet/bone = 6,
 		/datum/reagent/fuel/oil = 5,
 	)
-	result = /obj/structure/statue/bone/skull
 	category = CAT_PRIMAL
 
 /datum/crafting_recipe/halfskull
@@ -1093,7 +1091,6 @@
 		/obj/item/stack/sheet/bone = 3,
 		/datum/reagent/fuel/oil = 5,
 	)
-	result = /obj/structure/statue/bone/skull/half
 	category = CAT_PRIMAL
 
 /datum/crafting_recipe/boneshovel

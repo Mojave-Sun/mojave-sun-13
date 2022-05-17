@@ -526,10 +526,7 @@
 //// Unique Computers ////
 
 /obj/machinery/ms13/terminal/pristine/mayor
-
-/obj/machinery/ms13/terminal/pristine/mayor/Initialize(mapload)
-	. = ..()
-	password = "[GLOB.fscpassword]"
+	password = "PsychoticAmerican00"
 
 //// Wasteland Computers ////
 /// Potentially controversial. These are computers that should be primarily scatterd through the wastland. They have a high chance of being inoperable roundstart, and a VERY VERY SLIGHT chance to be visibly rigged to explode. ///

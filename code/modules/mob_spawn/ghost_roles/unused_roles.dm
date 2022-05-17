@@ -287,7 +287,6 @@
 	H.faction |= ROLE_SYNDICATE
 
 /obj/effect/mob_spawn/ghost_role/human/syndicatespace/captain/Destroy()
-	new /obj/structure/fluff/empty_sleeper/syndicate/captain(get_turf(src))
 	return ..()
 
 /datum/outfit/syndicatespace/syndicrew
@@ -318,4 +317,3 @@
 	belt = /obj/item/storage/belt/military/assault
 	id = /obj/item/card/id/advanced/black/syndicate_command/captain_id
 	implants = list(/obj/item/implant/weapons_auth)
-	backpack_contents = list(/obj/item/documents/syndicate/red, /obj/item/paper/fluff/ruins/forgottenship/password, /obj/item/gun/ballistic/automatic/pistol/aps)

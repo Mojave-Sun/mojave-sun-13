@@ -4,7 +4,6 @@
 /datum/blackmarket_item/tool/caravan_wrench
 	name = "Experimental Wrench"
 	desc = "The extra fast and handy wrench you always wanted!"
-	item = /obj/item/wrench/caravan
 	stock = 1
 
 	price_min = 400
@@ -14,7 +13,6 @@
 /datum/blackmarket_item/tool/caravan_wirecutters
 	name = "Experimental Wirecutters"
 	desc = "The extra fast and handy wirecutters you always wanted!"
-	item = /obj/item/wirecutters/caravan
 	stock = 1
 
 	price_min = 400
@@ -24,7 +22,6 @@
 /datum/blackmarket_item/tool/caravan_screwdriver
 	name = "Experimental Screwdriver"
 	desc = "The extra fast and handy screwdriver you always wanted!"
-	item = /obj/item/screwdriver/caravan
 	stock = 1
 
 	price_min = 400
@@ -34,7 +31,6 @@
 /datum/blackmarket_item/tool/caravan_crowbar
 	name = "Experimental Crowbar"
 	desc = "The extra fast and handy crowbar you always wanted!"
-	item = /obj/item/crowbar/red/caravan
 	stock = 1
 
 	price_min = 400

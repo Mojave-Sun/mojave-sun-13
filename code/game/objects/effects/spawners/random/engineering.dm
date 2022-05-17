@@ -25,10 +25,6 @@
 	name = "Advanced tool spawner"
 	icon_state = "wrench"
 	loot = list( // Mail loot spawner. Some sort of random and rare building tool. No alien tech here.
-		/obj/item/wrench/caravan,
-		/obj/item/wirecutters/caravan,
-		/obj/item/screwdriver/caravan,
-		/obj/item/crowbar/red/caravan,
 		/obj/item/weldingtool/largetank,
 	)
 

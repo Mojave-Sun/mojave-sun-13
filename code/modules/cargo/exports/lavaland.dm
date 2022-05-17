@@ -16,11 +16,9 @@
 						/obj/item/ship_in_a_bottle,
 						/obj/item/clothing/shoes/clown_shoes/banana_shoes,
 						/obj/item/gun/magic/staff/honk,
-						/obj/item/knife/envy,
 						/obj/item/gun/ballistic/revolver/russian/soul,
 						/obj/item/veilrender/vealrender,
 						/obj/item/clothing/suit/hooded/berserker,
-						/obj/item/freeze_cube,
 						/obj/item/soulstone/anybody/mining,
 						/obj/item/clothing/gloves/gauntlets,
 						/obj/item/jacobs_ladder,
@@ -33,7 +31,6 @@
 						/obj/item/rod_of_asclepius,
 						/obj/item/dragons_blood,
 						/obj/item/lava_staff,
-						/obj/item/prisoncube,
 						)
 
 //Megafauna loot, except for ash drakes
