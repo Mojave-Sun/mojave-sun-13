@@ -348,12 +348,13 @@
 	baseturfs = /turf/open/floor/plating/ms13/ground/mountain
 	icon = 'mojave/icons/turf/cave.dmi'
 	icon_state = "cave_1"
-	slowdown = 1
+	slowdown = 0.25
 	var/area/curr_area = null
+	var/variants = 7
 
 /turf/open/floor/plating/ms13/ground/mountain/Initialize()
 	. = ..()
-	icon_state = "cave_[rand(1,7)]"
+	icon_state = "cave_[rand(1,(variants))]"
 	curr_area = get_area(src)
 	//If no fences, machines, etc. try to plant mushrooms
 	if(!(\
@@ -376,6 +377,15 @@
 	if(turfPlant)
 		qdel(turfPlant)
 	. =  ..()
+
+/turf/open/floor/plating/ms13/ground/mountain/drought
+	name = "mountain"
+	desc = "Dry cave flooring. Red dust kicks up as you walk by it."
+	baseturfs = /turf/open/floor/plating/ms13/ground/mountain/drought
+	icon = 'mojave/icons/turf/cave_drought.dmi'
+	icon_state = "cave_1"
+	slowdown = 0.20
+	variants = 8
 
 ////Roads////
 
@@ -620,7 +630,7 @@
 		/obj/item/food/meat/slab/ms13/fish/sturgeon = 1,
 		/obj/item/food/meat/slab/ms13/fish/asian = 1)
 
-// Increment fish every 5 
+// Increment fish every 5
 #define fishPopFreq   5 MINUTES
 // Increment fish pop by 5
 #define fishPopIncAmt 5

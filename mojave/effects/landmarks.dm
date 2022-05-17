@@ -116,7 +116,13 @@
 	name = "Legion Recruit Decanus"
 
 /obj/effect/landmark/start/ms13/legion_veteran_legionary
-	name = "Legion Veteran Legionary"
+	name = "Veteran Legionary"
+
+/obj/effect/landmark/start/ms13/legion_prime_legionary
+	name = "Prime Legionary"
+
+/obj/effect/landmark/start/ms13/legion_recruit_legionary
+	name = "Recruit Legionary"
 
 /obj/effect/landmark/start/ms13/legion_speculatore
 	name = "Legion Speculatore"

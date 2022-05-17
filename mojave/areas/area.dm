@@ -211,12 +211,12 @@
 /area/ms13/legioncamp
 	name = "Legion Camp"
 	icon_state = "legioncamp"
-	atmosphere_sound = BUILDING_ATMOSPHERE
 
 /area/ms13/legioncamp/building
 	name = "Legion Building"
 	icon_state = "legion_building"
 	outdoors = FALSE
+	atmosphere_sound = BUILDING_ATMOSPHERE
 
 /area/ms13/rangeroutpost
 	name = "Desert Ranger Outpost"
@@ -225,9 +225,13 @@
 	power_environ = FALSE
 	power_equip = FALSE
 	power_light = TRUE
-	outdoors = FALSE
-	atmosphere_sound = MILLITARY_ATMOSPHERE
+	outdoors = TRUE
 	atmosphere_volume = 150
+
+/area/ms13/rangeroutpost/building
+	name = "Desert Ranger Outpost building"
+	icon_state = "rangerbase"
+	outdoors = FALSE
 
 // Mall/Eagle Lakes Areas //
 
