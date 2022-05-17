@@ -133,22 +133,25 @@
 /obj/effect/landmark/start/ms13/legion_scout
 	name = "Legion Scout"
 
+/obj/effect/landmark/start/ms13/legion_vexillarius
+	name = "Legion Vexillarius"
+
 // Desert Ranger Spawns //
 
 /obj/effect/landmark/start/ms13/ranger_deputy_chief
-	name = "Ranger Deputy-Chief"
+	name = "Desert Ranger Deputy-Chief"
 
 /obj/effect/landmark/start/ms13/ranger_elite
-	name = "Elite Ranger"
+	name = "Elite Desert Ranger"
 
 /obj/effect/landmark/start/ms13/ranger
-	name = "Ranger"
+	name = "Desert Ranger"
 
 /obj/effect/landmark/start/ms13/ranger_recruit
-	name = "Ranger Recruit"
+	name = "Desert Ranger Recruit"
 
 /obj/effect/landmark/start/ms13/ranger_doctor
-	name = "Ranger Doctor"
+	name = "Desert Ranger Doctor"
 
 // Combat Test Spawns //
 
