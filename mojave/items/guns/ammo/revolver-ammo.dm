@@ -50,7 +50,7 @@
 	name = ".45-70 bullet casing"
 	desc = "A .45-70 bullet casing."
 	caliber = "4570"
-	icon_state = "45-70_casing"
+	icon_state = "4570_casing"
 	projectile_type = /obj/projectile/bullet/ms13/c4570
 	stack_size = 10
 	no_inventory_sprite = TRUE
