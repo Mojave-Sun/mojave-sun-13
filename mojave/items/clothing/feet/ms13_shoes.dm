@@ -4,6 +4,8 @@
 	strip_delay = 20
 	grid_width = 64
 	grid_height = 64
+	equip_delay_self = 1 SECONDS
+	equip_delay_other = 4 SECONDS // have you ever put shoes on a full grown adult before
 
 /obj/item/clothing/shoes/ms13/Initialize()
 	. = ..()

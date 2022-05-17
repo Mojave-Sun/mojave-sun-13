@@ -21,6 +21,8 @@
 	component_type = /datum/component/storage/concrete/ms13/grid
 	grid_height = 288 //NO BACKPACK STACKING
 	grid_width = 288 //NO BACKPACK STACKING
+	equip_delay_self = 1 SECONDS
+	equip_delay_other = 2 SECONDS
 
 /obj/item/storage/ms13/Initialize()
 	. = ..()

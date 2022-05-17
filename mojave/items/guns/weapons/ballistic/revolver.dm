@@ -25,7 +25,7 @@
 	force = 15
 	subtractible_armour_penetration = 0
 	fire_delay = 0.5 SECONDS
-	slot_flags = ITEM_SLOT_BELT
+	slot_flags = ITEM_SLOT_SUITSTORE | ITEM_SLOT_BELT
 	slowdown = 0.5
 	w_class = WEIGHT_CLASS_NORMAL
 	weapon_weight = WEAPON_MEDIUM
