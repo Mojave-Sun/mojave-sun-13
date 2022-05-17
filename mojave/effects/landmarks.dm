@@ -90,7 +90,7 @@
 	name = "Raider"
 
 /obj/effect/landmark/start/ms13/sawbone
-	name = "Sawbone"
+	name = 	"Raider Sawbone"
 
 /obj/effect/landmark/start/ms13/enforcer
 	name = "Raider Enforcer"
