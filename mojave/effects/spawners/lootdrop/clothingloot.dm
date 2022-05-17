@@ -22,7 +22,6 @@
 		/obj/item/clothing/under/ms13/wasteland/cowboy/grey,
 		/obj/item/clothing/under/ms13/wasteland/cowboy/tan,
 		/obj/item/clothing/under/ms13/wasteland/manager,
-		/obj/item/clothing/under/ms13/wasteland/followers,
 		/obj/item/clothing/under/ms13/wasteland/wanderer,
 		/obj/item/clothing/under/ms13/wasteland/rancher,
 		/obj/item/clothing/under/ms13/wasteland/vestslacks,

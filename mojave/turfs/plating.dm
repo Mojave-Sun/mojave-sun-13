@@ -348,12 +348,13 @@
 	baseturfs = /turf/open/floor/plating/ms13/ground/mountain
 	icon = 'mojave/icons/turf/cave.dmi'
 	icon_state = "cave_1"
-	slowdown = 1
+	slowdown = 0.25
 	var/area/curr_area = null
+	var/variants = 7
 
 /turf/open/floor/plating/ms13/ground/mountain/Initialize()
 	. = ..()
-	icon_state = "cave_[rand(1,7)]"
+	icon_state = "cave_[rand(1,(variants))]"
 	curr_area = get_area(src)
 	//If no fences, machines, etc. try to plant mushrooms
 	if(!(\
@@ -376,6 +377,15 @@
 	if(turfPlant)
 		qdel(turfPlant)
 	. =  ..()
+
+/turf/open/floor/plating/ms13/ground/mountain/drought
+	name = "mountain"
+	desc = "Dry cave flooring. Red dust kicks up as you walk by it."
+	baseturfs = /turf/open/floor/plating/ms13/ground/mountain/drought
+	icon = 'mojave/icons/turf/cave_drought.dmi'
+	icon_state = "cave_1"
+	slowdown = 0.20
+	variants = 8
 
 ////Roads////
 
@@ -619,13 +629,26 @@
 		/obj/item/food/meat/slab/ms13/fish/chum = 2,
 		/obj/item/food/meat/slab/ms13/fish/sturgeon = 1,
 		/obj/item/food/meat/slab/ms13/fish/asian = 1)
-	var/fished = FALSE
+
+// Increment fish every 5
+#define fishPopFreq   5 MINUTES
+// Increment fish pop by 5
+#define fishPopIncAmt 5
+
+GLOBAL_VAR_INIT(FishPop, 20)
+GLOBAL_VAR(FishPopNextCalc)
+
+/proc/getFishPop()
+  if(world.time > GLOB.FishPopNextCalc)
+    // Increment fishpop since last calc (i.e if 15 minutes, then increment by 5, 3 times)
+    GLOB.FishPop += FLOOR( world.time - GLOB.FishPopNextCalc, fishPopFreq) * fishPopIncAmt
+    GLOB.FishPopNextCalc = world.time + fishPopFreq
+
+  return GLOB.FishPop
 
 /turf/open/ms13/water/attackby(obj/item/W, mob/user, params)
 	. = ..()
 	if(W.tool_behaviour == TOOL_FISHINGROD)
-		if(!can_fish(user))
-			return TRUE
 		if(!isturf(user.loc))
 			return
 
@@ -639,13 +662,14 @@
 /turf/open/ms13/water/proc/getFished(mob/user)
 	var/spawnFish = pick_weight(fish)
 	new spawnFish(user.loc)
-	fished = TRUE
+	GLOB.FishPop--
 
 /turf/open/ms13/water/proc/can_fish(mob/user)
-	if(!fished)
-		return TRUE
-	if(user)
-		to_chat(user, "<span class='warning'>Looks like there's no fish here!</span>")
+	if(!getFishPop())
+		if(user)
+			to_chat(user, "<span class='warning'>Looks like there's no fish here!</span>")
+		return FALSE
+	return TRUE
 
 /turf/open/ms13/water/deep
 	name = "deep water"

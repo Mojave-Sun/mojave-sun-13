@@ -13,7 +13,7 @@
 
 /obj/item/gun/ballistic/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/guns/guns_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/guns/guns_inventory.dmi')
 
 //Mojave Sun version for shotguns
 /obj/item/gun/ballistic/shotgun/ms13
@@ -32,7 +32,7 @@
 
 /obj/item/gun/ballistic/shotgun/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/guns/guns_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/guns/guns_inventory.dmi')
 
 //Automatic shotguns
 /obj/item/gun/ballistic/shotgun/automatic/ms13
@@ -51,7 +51,7 @@
 
 /obj/item/gun/ballistic/shotgun/automatic/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/guns/guns_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/guns/guns_inventory.dmi')
 
 //Revolvers
 /obj/item/gun/ballistic/revolver/ms13
@@ -68,7 +68,7 @@
 
 /obj/item/gun/ballistic/revolver/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/guns/guns_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/guns/guns_inventory.dmi')
 
 /obj/item/gun/ballistic/revolver/ms13/update_icon_state()
 	worn_icon_state = "[initial(icon_state)]"
@@ -105,7 +105,7 @@
 
 /obj/item/gun/ballistic/automatic/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/guns/guns_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/guns/guns_inventory.dmi')
 
 /obj/item/gun/ballistic/automatic/ms13/update_icon_state()
 	. = ..()
@@ -179,7 +179,7 @@
 
 /obj/item/gun/ballistic/automatic/pistol/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/guns/guns_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/guns/guns_inventory.dmi')
 
 /obj/item/gun/ballistic/automatic/pistol/ms13/update_icon_state()
 	. = ..()
@@ -225,7 +225,7 @@
 
 /obj/item/gun/ballistic/rifle/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/guns/guns_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/guns/guns_inventory.dmi')
 
 /obj/item/gun/ballistic/rifle/ms13/update_icon_state()
 	. = ..()
@@ -285,7 +285,7 @@ obj/item/gun/ballistic/rifle/ms13/attackby(obj/item/item, mob/user, params)
 
 /obj/item/ammo_box/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/ammo/ammo_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/ammo/ammo_inventory.dmi')
 
 //Magazines
 /obj/item/ammo_box/magazine/ms13
@@ -297,7 +297,7 @@ obj/item/gun/ballistic/rifle/ms13/attackby(obj/item/item, mob/user, params)
 
 /obj/item/ammo_box/magazine/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/ammo/ammo_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/ammo/ammo_inventory.dmi')
 
 /*
 /obj/item/gun/ballistic/automatic/ms13/minigun

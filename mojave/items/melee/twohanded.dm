@@ -24,7 +24,7 @@
 	. = ..()
 	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, .proc/on_wield)
 	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, .proc/on_unwield)
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/melee/melee_inventory.dmi')
 
 /obj/item/ms13/twohanded/ComponentInitialize()
 	. = ..()
@@ -53,11 +53,11 @@
 	attack_verb_simple = list("cleave", "whack", "chop", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	force = 15
-	armour_penetration = 0
-	wound_bonus = 10
 	throwforce = 10
+	subtractible_armour_penetration = 25
+	wound_bonus = 12
+	bare_wound_bonus = 12
 	throw_range = 3
-	bare_wound_bonus = 0
 	sharpness = IS_SHARP_AXE
 	toolspeed = 0.75
 	grid_height = 192
@@ -65,7 +65,7 @@
 
 /obj/item/ms13/twohanded/fireaxe/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_unwielded = 15, force_wielded = 50)
+	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_unwielded = 15, force_wielded = 45)
 
 /obj/item/ms13/twohanded/bump_sword
 	name = "bumper sword"
@@ -76,10 +76,10 @@
 	attack_verb_simple = list("cleave", "whack", "chop", "lacerate", "stab")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	force = 15
-	armour_penetration = 10
-	wound_bonus = 15
-	bare_wound_bonus = 15
 	throwforce = 10
+	subtractible_armour_penetration = 25
+	wound_bonus = 15
+	bare_wound_bonus = 20
 	throw_range = 3
 	sharpness = SHARP_EDGED
 	grid_height = 192
@@ -98,10 +98,10 @@
 	attack_verb_simple = list("slam", "beat", "hammer", "pummel", "impact")
 	hitsound = 'sound/weapons/genhit3.ogg'
 	force = 10
-	armour_penetration = 10
-	wound_bonus = 0
-	bare_wound_bonus = 0
 	throwforce = 10
+	subtractible_armour_penetration = 30
+	wound_bonus = 5
+	bare_wound_bonus = 5
 	throw_range = 3
 	sharpness = NONE
 	grid_height = 192
@@ -116,7 +116,9 @@
 	desc = "A piece of rebar with concrete still stuck to it. Makes for a great, if heavy, makeshift bludgeon."
 	icon_state = "rebar_club"
 	inhand_icon_state = "rebar_club"
-	armour_penetration = 5
+	subtractible_armour_penetration = 20
+	wound_bonus = 0
+	bare_wound_bonus = 5
 
 /obj/item/ms13/twohanded/hammer/rebar/ComponentInitialize()
 	. = ..()
@@ -124,17 +126,18 @@
 
 /obj/item/ms13/twohanded/hammer/super
 	name = "super sledge"
-	desc = "Using the power of science and engineering, They packed 66% more sledge in this hammer. It's a pain to use in general."
+	desc = "Using the power of science and engineering, they packed 66% more sledge in this hammer. It's a pain to use in general."
 	icon_state = "hammer_power"
 	inhand_icon_state = "hammer_power"
-	armour_penetration = 25
+	subtractible_armour_penetration = 35
 	wound_bonus = 10
+	bare_wound_bonus = 5
 	grid_height = 256
 	grid_width = 96
 
 /obj/item/ms13/twohanded/hammer/super/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_unwielded = 10, force_wielded = 45)
+	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_unwielded = 10, force_wielded = 50)
 
 /obj/item/ms13/twohanded/hammer/super/attack(mob/living/target, mob/living/user)
 	. = ..()
@@ -157,10 +160,11 @@
 	hitsound = 'sound/weapons/rapierhit.ogg'
 	force = 20
 	throwforce = 30
-	armour_penetration = 10
-	wound_bonus = 5
+	subtractible_armour_penetration = 30
+	wound_bonus = 10
+	bare_wound_bonus = 10
 	w_class = WEIGHT_CLASS_HUGE
-	sharpness = SHARP_POINTY
+	sharpness = SHARP_IMPALING
 	grid_height = 32
 	grid_width = 224
 
@@ -173,28 +177,29 @@
 	icon_state = "spear_knife"
 	inhand_icon_state = "spear_knife"
 	force = 15
-	armour_penetration = 5
-	wound_bonus = 2
-	throwforce = 25
+	throwforce = 20
+	subtractible_armour_penetration = 10
+	wound_bonus = 0
+	bare_wound_bonus = 5
 
 /obj/item/ms13/twohanded/spear/knife/ComponentInitialize()
 	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_unwielded = 15, force_wielded = 25)
 
 /obj/item/ms13/twohanded/spear/throwing
 	name = "throwing spear"
-	desc = "A decently well made barbed spear intended to be thrown but can serve fine as a melee weapon in a pinch."
+	desc = "A decently well made barbed spear intended to be thrown but can serve fine as a melee weapon too."
 	icon_state = "spear_throwing"
 	inhand_icon_state = "spear_throwing"
 	force = 15
-	armour_penetration = 10
-	wound_bonus = 5
 	throwforce = 35
-	embedding = list("embedded_pain_multiplier" = 2, "embed_chance" = 65, "embedded_fall_chance" = 35)
-	throw_range = 6
+	subtractible_armour_penetration = 15
+	wound_bonus = 5
+	bare_wound_bonus = 10
+	embedding = list("embedded_pain_multiplier" = 1.5, "embed_chance" = 65, "embedded_fall_chance" = 35)
 	throw_speed = 3
 
 /obj/item/ms13/twohanded/spear/throwing/ComponentInitialize()
-	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_unwielded = 15, force_wielded = 25)
+	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_unwielded = 15, force_wielded = 30)
 
 // TWO HANDS REQUIRED //
 
@@ -217,9 +222,9 @@
 	inhand_icon_state = "auto_axe_off"
 	w_class = WEIGHT_CLASS_HUGE
 	slot_flags = ITEM_SLOT_BACK
-	armour_penetration = 15
-	wound_bonus = 10
-	bare_wound_bonus = 10
+	subtractible_armour_penetration = 20
+	wound_bonus = 15
+	bare_wound_bonus = 20
 	throw_speed = 2
 	throw_range = 4
 	toolspeed = 0.35
@@ -259,11 +264,11 @@
 	inhand_icon_state = "thermiclance_off"
 	w_class = WEIGHT_CLASS_HUGE
 	slot_flags = ITEM_SLOT_BACK
-	armour_penetration = 20
-	wound_bonus = 12
-	bare_wound_bonus = 13
-	throw_speed = 1
-	throw_range = 2
+	subtractible_armour_penetration = 40
+	wound_bonus = 8
+	bare_wound_bonus = 12
+	throw_speed = 2
+	throw_range = 4
 	grid_height = 256
 	grid_width = 256
 	hitsound = "swing_hit"
@@ -280,7 +285,7 @@
 		to_chat(user, "<span class='notice'>As you flip the lever and hit the ignition on [src], it begins to sputter flames out.")
 		hitsound = 'sound/items/welder2.ogg'
 		damtype = "burn"
-		force = 55
+		force = 45
 
 	else
 		attack_verb_continuous = list("pokes", "jabs", "smacks", "whacks",)

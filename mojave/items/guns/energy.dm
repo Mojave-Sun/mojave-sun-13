@@ -98,7 +98,7 @@
 
 /obj/item/gun/energy/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/guns/guns_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/guns/guns_inventory.dmi')
 
 /obj/item/gun/energy/ms13/laser
 	name = "Base class laser gub"
@@ -144,7 +144,7 @@
 
 /obj/item/stock_parts/cell/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/ammo/ammo_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/ammo/ammo_inventory.dmi')
 
 /obj/item/stock_parts/cell/ms13/New()
 	..()
@@ -172,7 +172,7 @@
 	name = "electron charge pack"
 	desc = "An electron charge pack, typically used as ammunition for rapidly-firing energy weapons."
 	icon_state = "mfc"
-	maxcharge = 1250
+	maxcharge = 1000
 	chargerate = 100
 	base_icon = "mfc"
 

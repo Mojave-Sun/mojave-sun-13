@@ -26,7 +26,7 @@
 	///String, used for checking if ammo of different types but still fits can fit inside it; generally used for magazines
 	var/caliber
 	///Allows multiple bullets to be loaded in from one click of another box/magazine
-	var/multiload = TRUE
+	var/multiload = FALSE // MOJAVE SUN EDIT | ORIGINAL VALUE IS "TRUE"
 	///Whether the magazine should start with nothing in it
 	var/start_empty = FALSE
 	///cost of all the bullets in the magazine/box
@@ -42,8 +42,8 @@
 	if(!start_empty)
 		top_off(starting=TRUE)
 
-/obj/item/ammo_box/add_weapon_description()
-	AddElement(/datum/element/weapon_description, attached_proc = .proc/add_notes_box)
+/*/obj/item/ammo_box/add_weapon_description()
+	AddElement(/datum/element/weapon_description, attached_proc = .proc/add_notes_box) //MOJAVE EDIT - Comments out this proc because weapon_description in general is commented out.
 
 /obj/item/ammo_box/proc/add_notes_box()
 	var/list/readout = list()
@@ -57,7 +57,7 @@
 	if(istype(mag_ammo))
 		readout += "\n[mag_ammo.add_notes_ammo()]"
 
-	return readout.Join("\n")
+	return readout.Join("\n")*/ //
 
 /**
  * top_off is used to refill the magazine to max, in case you want to increase the size of a magazine with VV then refill it at once
@@ -121,7 +121,7 @@
 	var/num_loaded = 0
 	if(!can_load(user))
 		return
-	if(istype(A, /obj/item/ammo_box))
+	if(istype(A, /obj/item/ammo_box/magazine/ammo_stack) || (istype(A, /obj/item/ammo_box/ms13/stripper))) // MOJAVE SUN EDIT | INITIAL CODE : if(istype(A, /obj/item/ammo_box))
 		var/obj/item/ammo_box/AM = A
 		for(var/obj/item/ammo_casing/AC in AM.stored_ammo)
 			var/did_load = give_round(AC, replace_spent)

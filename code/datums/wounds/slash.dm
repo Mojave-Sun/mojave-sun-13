@@ -272,9 +272,11 @@
 	occur_text = "is cut open, slowly leaking blood"
 	sound_effect = 'sound/effects/wounds/blood1.ogg'
 	severity = WOUND_SEVERITY_MODERATE
-	initial_flow = 2
-	minimum_flow = 0.5
-	clot_rate = 0.06
+	//MOJAVE EDIT BEGIN
+	initial_flow = 1.5 //Original TG value is 2
+	minimum_flow = 0.25 //Original TG value is 0.5
+	clot_rate = 0.05 //Original TG value is 0.06
+	//MOJAVE EDIT END
 	threshold_minimum = 20
 	threshold_penalty = 10
 	status_effect_type = /datum/status_effect/wound/slash/moderate
@@ -288,10 +290,12 @@
 	occur_text = "is ripped open, veins spurting blood"
 	sound_effect = 'sound/effects/wounds/blood2.ogg'
 	severity = WOUND_SEVERITY_SEVERE
-	initial_flow = 3.25
-	minimum_flow = 2.75
-	clot_rate = 0.03
-	threshold_minimum = 50
+	//MOJAVE EDIT BEGIN
+	initial_flow = 2.5 //Original TG value is 3.25
+	minimum_flow = 2 //Original TG value is 2.75
+	clot_rate = 0.035 //Original TG value is 0.03
+	threshold_minimum = 45 //Original TG value is 50
+	//MOJAVE EDIT END
 	threshold_penalty = 25
 	demotes_to = /datum/wound/slash/moderate
 	status_effect_type = /datum/status_effect/wound/slash/severe
@@ -306,12 +310,10 @@
 	sound_effect = 'sound/effects/wounds/blood3.ogg'
 	severity = WOUND_SEVERITY_CRITICAL
 	//MOJAVE EDIT CHANGE BEGIN
-	initial_flow = 4.5 //Original TG value is 4.25
-	//MOJAVE EDIT CHANGE END
-	minimum_flow = 4
-	clot_rate = -0.025 // critical cuts actively get worse instead of better
-	//MOJAVE EDIT CHANGE BEGIN
-	threshold_minimum = 90 //Original TG value is 80
+	initial_flow = 3.75 //Original TG value is 4.25
+	minimum_flow = 3 //Original TG value is 4
+	clot_rate = -0.01 // critical cuts actively get worse instead of better //Original TG value is -0.025
+	threshold_minimum = 85 //Original TG value is 80
 	//MOJAVE EDIT CHANGE END
 	threshold_penalty = 40
 	demotes_to = /datum/wound/slash/severe

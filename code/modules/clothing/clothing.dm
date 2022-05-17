@@ -312,7 +312,7 @@
 		how_cool_are_your_threads += "</span>"
 		. += how_cool_are_your_threads.Join()
 
-	if(armor.bio || armor.bomb || armor.bullet || armor.energy || armor.laser || armor.melee || armor.fire || armor.acid)
+	/* if(armor.bio || armor.bomb || armor.bullet || armor.energy || armor.laser || armor.melee || armor.fire || armor.acid)
 		. += span_notice("It has a <a href='?src=[REF(src)];list_armor=1'>tag</a> listing its protection classes.")
 
 /obj/item/clothing/Topic(href, href_list)
@@ -386,7 +386,7 @@
 	if (armor_value < 0)
 		. = "-"
 	. += "\Roman[round(abs(armor_value), 10) / 10]"
-	return .
+	return . */ //MOJAVE EDIT - Comments all of this out because, like with the weapon description proc, it is stupid and we shouldn't have it or should implement it in a better, less gamey way. 
 
 /obj/item/clothing/atom_break(damage_flag)
 	. = ..()

@@ -56,7 +56,7 @@
 
 /obj/item/clothing/under/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/uniforms_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clothing/clothing_inventory/uniforms_inventory.dmi')
 
 /obj/item/clothing/under/ms13/wasteland
 	can_adjust = FALSE
@@ -151,12 +151,6 @@
 	name = "office worker clothes"
 	desc = "A set of pre-war clothes meant to show corporate authority."
 	icon_state = "manager"
-	inhand_icon_state = "shirt"
-
-/obj/item/clothing/under/ms13/wasteland/followers
-	name = "followers' outfit"
-	desc = "A set of shirt and extra large slacks denoting a member of the followers."
-	icon_state = "followers"
 	inhand_icon_state = "shirt"
 
 /obj/item/clothing/under/ms13/wasteland/guard

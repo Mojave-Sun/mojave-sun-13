@@ -8,8 +8,10 @@
 #define DEPARTMENT_TOWN "Town"
 #define DEPARTMENT_BITFLAG_WASTELAND (1<<14)
 #define DEPARTMENT_WASTELAND "Wasteland"
-// #define DEPARTMENT_BITFLAG_LEGION (1<<15)
-// #define DEPARTMENT_LEGION "Legion"
+ #define DEPARTMENT_BITFLAG_LEGION (1<<15)
+ #define DEPARTMENT_LEGION "Legion"
+ #define DEPARTMENT_BITFLAG_RANGERS (1<<16)
+ #define DEPARTMENT_RANGERS "Rangers"
 
 // Fancy name for fancy boys
 /datum/job_department/var/department_full_name = null
@@ -24,15 +26,25 @@
 	//label_class = "NCR"
 	//latejoin_color = "#ffddf0"
 
-// /datum/job_department/legion
-// 	department_name = DEPARTMENT_LEGION
-// 	department_bitflags = DEPARTMENT_BITFLAG_LEGION
-// 	department_head = /datum/job/ms13/legion/centurion
-// 	department_experience_type = EXP_TYPE_LEGION
-// 	//display_order = 0
-// 	//label_class = "Legion"
-// 	//latejoin_color = "#ffddf0"
+ /datum/job_department/legion
+ 	department_name = DEPARTMENT_LEGION
+ 	department_bitflags = DEPARTMENT_BITFLAG_LEGION
+ 	department_head = /datum/job/ms13/legion/centurion
+ 	department_experience_type = EXP_TYPE_LEGION
+	department_full_name = "Caesar's Legion"
+ 	//display_order = 0
+ 	//label_class = "Legion"
+ 	//latejoin_color = "#ffddf0"
 
+ /datum/job_department/rangers
+ 	department_name = DEPARTMENT_RANGERS
+ 	department_bitflags = DEPARTMENT_BITFLAG_RANGERS
+ 	department_head = /datum/job/ms13/ranger/deputychief
+ 	department_experience_type = EXP_TYPE_RANGERS
+	department_full_name = "Desert Rangers"
+ 	//display_order = 0
+ 	//label_class = "Legion"
+ 	//latejoin_color = "#ffddf0"
 
 /datum/job_department/bos
 	department_name = DEPARTMENT_BOS
@@ -79,7 +91,8 @@
 /datum/asset/simple/ms13/faction_flags
 	assets = list(
 		"NCR_flag.png" = 'mojave/icons/faction_flags/flag_ncr.png',
-		// "Legion_flag.png" = 'mojave/icons/faction_flags/flag_ncr.png',
+	 	"Legion_flag.png" = 'mojave/icons/faction_flags/flag_legion.png',
+	 	"Rangers_flag.png" = 'mojave/icons/faction_flags/flag_rangers.png',
 		"BOS_flag.png" = 'mojave/icons/faction_flags/flag_brotherhood.png',
 		"Raiders_flag.png" = 'mojave/icons/faction_flags/flag_raiders.png',
 		"Town_flag.png" = 'mojave/icons/faction_flags/flag_towner.png',

@@ -13,7 +13,7 @@
 
 /obj/item/clothing/mask/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/masks_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clothing/clothing_inventory/masks_inventory.dmi')
 
 // Bandanas //
 
@@ -103,9 +103,9 @@
 	desc = "A vibrant and lively blue facewrap."
 	icon_state = "facewrap_blu"
 
-/obj/item/clothing/mask/ms13/legion/clothmask
-	name = "cloth mask"
-	desc = "A simple cloth mask often used by Legionaries for an assortment of reasons."
+/obj/item/clothing/mask/ms13/legion
+	name = "\improper Legion cloth mask"
+	desc = "A simple dark cloth mask often used by members of Caesar's Legion."
 	icon_state = "leg_mask"
 	flags_inv = HIDEFACE
 
@@ -114,7 +114,6 @@
 	desc = "A mask only worn by the near unheard of Speculatores of the Legion."
 	icon_state = "leg_spec"
 	inhand_icon_state = "owl_mask"
-	flags_inv = HIDEFACE
 
 /obj/item/clothing/mask/ms13/ncr
 	name = "\improper NCR cowl"
@@ -144,7 +143,7 @@
 
 /obj/item/clothing/mask/gas/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/masks_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clothing/clothing_inventory/masks_inventory.dmi')
 
 /obj/item/clothing/mask/gas/ms13/modern
 	icon_state = "gasmask"

@@ -66,17 +66,17 @@
 		if(penetrated_text)
 			to_chat(src, span_userdanger("[penetrated_text]"))
 		else
-			to_chat(src, span_userdanger("Your DT armor was penetrated!"))
+			to_chat(src, span_userdanger("Your armor was fully penetrated!"))
 	else if(armor >= 100)
 		if(absorb_text)
 			to_chat(src, span_notice("[absorb_text]"))
 		else
-			to_chat(src, span_notice("Your DT armor absorbs the blow!"))
+			to_chat(src, span_notice("Your armor fully absorbs the blow!"))
 	else
 		if(soften_text)
 			to_chat(src, span_warning("[soften_text]"))
 		else
-			to_chat(src, span_warning("Your DT armor softens the blow!"))
+			to_chat(src, span_warning("Your armor softens the blow!"))
 
 	return max(0, armor - armour_penetration)
 

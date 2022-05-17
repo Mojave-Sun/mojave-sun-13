@@ -662,6 +662,10 @@
 				. += span_danger("It's empty.")
 
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
+	//MOJAVE SUN EDIT BEGIN
+	if(on_examined_check(user, FALSE))
+		user.on_examine_atom(src, FALSE)
+	// MOJAVE SUN EDIT END
 /**
  * Called when a mob examines (shift click or verb) this atom twice (or more) within EXAMINE_MORE_WINDOW (default 1 second)
  *
@@ -673,7 +677,10 @@
 /atom/proc/examine_more(mob/user)
 	. = list()
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE_MORE, user, .)
-
+	// MOJAVE SUN EDIT BEGIN
+	if(on_examined_check(user, TRUE))
+		user.on_examine_atom(src, TRUE)
+	// MOJAVE SUN EDIT END
 /**
  * Updates the appearence of the icon
  *

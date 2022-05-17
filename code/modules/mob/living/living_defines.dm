@@ -131,7 +131,6 @@
 	var/slurring = 0
 	var/cultslurring = 0
 	var/derpspeech = 0
-
 	var/list/implants = null
 
 	var/last_words ///used for database logging

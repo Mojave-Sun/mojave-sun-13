@@ -30,7 +30,7 @@
 */
 /obj/item/stack/sheet/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/crafting/materials_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/crafting/materials_inventory.dmi')
 	update_icon_state()
 
 //MISC. SCRAP//

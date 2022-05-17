@@ -16,7 +16,7 @@
 
 /obj/item/clothing/glasses/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/glasses_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clothing/clothing_inventory/glasses_inventory.dmi')
 
 
 /obj/item/clothing/glasses/ms13/black
