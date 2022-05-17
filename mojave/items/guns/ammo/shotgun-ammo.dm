@@ -14,7 +14,7 @@
 	name = "12 gauge buckshot shell"
 	desc = "A 12 gauge shotgun shell loaded with buckshot."
 	icon_state = "buckshot"
-	pellets = 5
+	pellets = 6
 	variance = 25
 	projectile_type = /obj/projectile/bullet/pellet/ms13/buckshot
 

@@ -118,29 +118,24 @@
 	desc = "Generic boots worn by Legionaries."
 	icon_state = "leg_tanboot"
 	inhand_icon_state = "legionleather"
-	armor = list(melee = 20, bullet = 10, laser = 10, energy = 0, bomb = 10, bio = 0,  fire = 10, acid = 0)
 
 /obj/item/clothing/shoes/ms13/military/legion/tanboots
 	name = "tan leather boots"
-	desc = "A crude pair of leather boots commonly worn by the Caesar's Legion recruits. These ones are made of a tan leather."
+	desc = "A crude pair of leather boots commonly worn by members of Caesar's Legion."
 	icon_state = "leg_tanboot"
 	inhand_icon_state = "legionleather"
-	armor = list(melee = 10, bullet = 5, laser = 10, energy = 0, bomb = 10, bio = 0,  fire = 10, acid = 0)
 
 /obj/item/clothing/shoes/ms13/military/legion/darkboots
 	name = "dark leather boots"
-	desc = "A crude pair of leather boots commonly worn by the Caesar's Legion recruits. These ones are made of a darker leather."
+	desc = "A crude pair of dark leather boots commonly worn by members of Caesar's Legion."
 	icon_state = "leg_darkboot"
 	inhand_icon_state = "legionleather"
-	armor = list(melee = 10, bullet = 5, laser = 10, energy = 0, bomb = 10, bio = 0,  fire = 10, acid = 0)
 
 /obj/item/clothing/shoes/ms13/military/legion/cleats
 	name = "cleats"
 	desc = "A pair of cleats, often sported by mobility focused Legionaries."
 	icon_state = "leg_cleats"
 	inhand_icon_state = "legionmetal"
-	clothing_flags = NOSLIP
-	armor = list(melee = 5, bullet = 10, laser = 10, energy = 10, bomb = 20, bio = 0,  fire = 20, acid = 0)
 
 /obj/item/clothing/shoes/ms13/military/bos
 	name = "\improper BoS combat boots"

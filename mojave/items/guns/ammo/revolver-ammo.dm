@@ -7,6 +7,7 @@
 	projectile_type = /obj/projectile/bullet/ms13/m44
 	stack_size = 12
 	no_inventory_sprite = TRUE
+
 /obj/item/ammo_casing/ms13/m44/junk
 	name = "junk .44 magnum bullet casing"
 	desc = "A makeshift .44 Magnum bullet casing."
@@ -49,7 +50,7 @@
 	name = ".45-70 bullet casing"
 	desc = "A .45-70 bullet casing."
 	caliber = "4570"
-	icon_state = "45-70_casing"
+	icon_state = "4570_casing"
 	projectile_type = /obj/projectile/bullet/ms13/c4570
 	stack_size = 10
 	no_inventory_sprite = TRUE
@@ -75,7 +76,7 @@
 	icon_state = "box4570"
 	ammo_type = /obj/item/ammo_casing/ms13/c4570
 	caliber = "4570"
-	max_ammo = 24
+	max_ammo = 16
 
 //.357
 /obj/item/ammo_casing/ms13/a357

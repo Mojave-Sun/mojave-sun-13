@@ -75,9 +75,9 @@
 	if(user == src)
 		affecting = get_bodypart(check_zone(user.zone_selected)) //we're self-mutilating! yay!
 	else
-		var/zone_hit_chance = 80
+		var/zone_hit_chance = 75 //MOJAVE EDIT - Original value is 80
 		if(body_position == LYING_DOWN) // half as likely to hit a different zone if they're on the ground
-			zone_hit_chance += 10
+			zone_hit_chance += 20 //MOJAVE EDIT - Original value is 10, this makes you 95% likely to hit what you are aiming on a grounded person
 		affecting = get_bodypart(ran_zone(user.zone_selected, zone_hit_chance))
 	if(!affecting) //missing limb? we select the first bodypart (you can never have zero, because of chest)
 		affecting = bodyparts[1]

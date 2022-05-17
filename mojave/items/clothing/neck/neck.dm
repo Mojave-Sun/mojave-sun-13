@@ -7,6 +7,11 @@
 	inhand_icon_state = "qmcloak"
 
 
+/obj/item/clothing/neck/cloak/ms13/shawl
+	name = "leather shawl"
+	desc = "A humble and warm leather shawl."
+	icon_state = "shawl"
+
 /obj/item/clothing/neck/cloak/ms13/legion
 	icon_state = "leg_whitehalf"
 

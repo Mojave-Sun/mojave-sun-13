@@ -12,8 +12,9 @@
 	inhand_icon_state = "hatchet"
 	force = 30
 	throwforce = 25
+	subtractible_armour_penetration = 15
 	wound_bonus = 0
-	bare_wound_bonus = 0
+	bare_wound_bonus = 10
 	embedding = null
 	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = ITEM_SLOT_BELT
@@ -33,8 +34,8 @@
 	icon_state = "hatchet_broad"
 	inhand_icon_state = "hatchet_broad"
 	force = 35
-	armour_penetration = 5
 	throwforce = 30
+	subtractible_armour_penetration = 25
 	toolspeed = 1
 
 /obj/item/hatchet/ms13/icepick
@@ -43,10 +44,11 @@
 	icon_state = "ice_pick"
 	inhand_icon_state = "ice_pick"
 	force = 25
-	throwforce = 20
-	wound_bonus = 2
-	armour_penetration = 10
-	sharpness = SHARP_POINTY
+	throwforce = 25
+	subtractible_armour_penetration = 15
+	wound_bonus = 5
+	bare_wound_bonus = 10
+	sharpness = SHARP_IMPALING
 	tool_behaviour = TOOL_MINING
 
 /obj/item/hatchet/ms13/tomahawk
@@ -56,7 +58,9 @@
 	inhand_icon_state = "tomahawk"
 	force = 20
 	throwforce = 30
-	armour_penetration = 5
+	subtractible_armour_penetration = 15
+	wound_bonus = 5
+	bare_wound_bonus = 10
 	embedding = list("embedded_pain_multiplier" = 2, "embed_chance" = 50, "embedded_fall_chance" = 25)
-	sharpness = SHARP_POINTY
+	sharpness = SHARP_IMPALING
 	log_pickup_and_drop = TRUE

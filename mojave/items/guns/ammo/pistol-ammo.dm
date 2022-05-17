@@ -217,4 +217,4 @@
 	icon_state = "box127"
 	ammo_type = /obj/item/ammo_casing/ms13/m12mm
 	caliber = "12.7mm"
-	max_ammo = 24
+	max_ammo = 21

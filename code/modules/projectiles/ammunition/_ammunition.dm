@@ -54,8 +54,8 @@
 	QDEL_NULL(loaded_projectile)
 	return ..()
 
-/obj/item/ammo_casing/add_weapon_description()
-	AddElement(/datum/element/weapon_description, attached_proc = .proc/add_notes_ammo)
+/*/obj/item/ammo_casing/add_weapon_description()
+	AddElement(/datum/element/weapon_description, attached_proc = .proc/add_notes_ammo) //MOJAVE EDIT - Comments out this proc because weapon_description in general is commented out.
 
 /**
  *
@@ -77,7 +77,7 @@
 		readout += "[!readout.len ? "Most monkeys" : "More fortunate monkeys"] collapsed from exhaustion after [span_warning("[HITS_TO_CRIT(initial(exam_proj.stamina) * pellets)] impact\s")] of these [span_warning("[caliber]")] rounds"
 	if(!readout.len) // Everything else failed, give generic text
 		return "Our legal team has determined the offensive nature of these [span_warning(caliber)] rounds to be esoteric"
-	return readout.Join("\n") // Sending over a single string, rather than the whole list
+	return readout.Join("\n") */ // Sending over a single string, rather than the whole list
 
 /obj/item/ammo_casing/update_icon_state()
 	icon_state = "[initial(icon_state)][loaded_projectile ? "-live" : null]"

@@ -133,8 +133,8 @@
 	update_appearance()
 	RegisterSignal(src, COMSIG_ITEM_RECHARGED, .proc/instant_reload)
 
-/obj/item/gun/ballistic/add_weapon_description()
-	AddElement(/datum/element/weapon_description, attached_proc = .proc/add_notes_ballistic)
+/* /obj/item/gun/ballistic/add_weapon_description()
+	AddElement(/datum/element/weapon_description, attached_proc = .proc/add_notes_ballistic) //MOJAVE EDIT - Comments out this proc because weapon_description in general is commented out.
 
 /**
  *
@@ -146,7 +146,7 @@
 	if(magazine) // Make sure you have a magazine, to get the notes from
 		return "\n[magazine.add_notes_box()]"
 	else
-		return "\nThe warning attached to the magazine is missing..."
+		return "\nThe warning attached to the magazine is missing..." */
 
 /obj/item/gun/ballistic/vv_edit_var(vname, vval)
 	. = ..()

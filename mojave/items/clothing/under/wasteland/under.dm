@@ -151,12 +151,6 @@
 	icon_state = "manager"
 	inhand_icon_state = "shirt"
 
-/obj/item/clothing/under/ms13/wasteland/followers
-	name = "followers' outfit"
-	desc = "A set of shirt and extra large slacks denoting a member of the followers."
-	icon_state = "followers"
-	inhand_icon_state = "shirt"
-
 /obj/item/clothing/under/ms13/wasteland/guard
 	name = "guard clothes"
 	desc = "A set of clothes worn by the hired muscle of the wasteland."
