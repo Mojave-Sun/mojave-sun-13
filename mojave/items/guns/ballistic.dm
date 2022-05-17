@@ -175,7 +175,7 @@
 	log_pickup_and_drop = TRUE
 	force = 10
 	slowdown = 0.5 //A fall back in case someone forgets to define slowdown at the gun level
-	slot_flags = ITEM_SLOT_BELT
+	slot_flags = ITEM_SLOT_SUITSTORE | ITEM_SLOT_BELT
 
 /obj/item/gun/ballistic/automatic/pistol/ms13/Initialize()
 	. = ..()
