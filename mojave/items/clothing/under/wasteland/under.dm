@@ -18,8 +18,8 @@
 	repairable_by = /obj/item/stack/sheet/ms13/cloth
 	limb_integrity = 100
 	max_integrity = 300
-	equip_delay_self = 2 SECONDS
-	equip_delay_other = 4 SECONDS
+	equip_delay_self = 1.5 SECONDS
+	equip_delay_other = 3 SECONDS
 
 /obj/item/clothing/under/ms13/attackby(obj/item/W, mob/user, params)
 	if(!istype(W, repairable_by))
