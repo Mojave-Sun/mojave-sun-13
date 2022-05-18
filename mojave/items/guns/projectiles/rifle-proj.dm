@@ -5,7 +5,7 @@
 	damage = 30
 	subtractible_armour_penetration = 40
 	wound_bonus = 10
-	bare_wound_bonus = 5
+	bare_wound_bonus = 0
 
 /obj/projectile/bullet/ms13/a762/junk
 	subtractible_armour_penetration = 30
@@ -27,7 +27,7 @@
 	damage = 45
 	subtractible_armour_penetration = 45
 	wound_bonus = 10
-	bare_wound_bonus = 10
+	bare_wound_bonus = 5
 
 /obj/projectile/bullet/ms13/a308/junk
 	subtractible_armour_penetration = 35
@@ -49,7 +49,7 @@
 	damage = 25
 	subtractible_armour_penetration = 25
 	wound_bonus = 15
-	bare_wound_bonus = 5
+	bare_wound_bonus = 0
 
 /obj/projectile/bullet/ms13/a556/junk
 	subtractible_armour_penetration = 15
