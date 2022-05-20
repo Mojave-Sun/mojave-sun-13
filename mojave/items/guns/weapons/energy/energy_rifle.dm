@@ -45,9 +45,8 @@
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/sniper)
 	fire_delay = 0.7 SECONDS
 	slowdown = 1
-	zoomable = TRUE
-	zoom_amt = 9
-	zoom_out_amt = 3
+	has_scope = TRUE
+	scope_range = 4
 	grid_width = 224
 	grid_height = 64
 
