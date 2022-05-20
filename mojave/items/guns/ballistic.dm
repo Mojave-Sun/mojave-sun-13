@@ -10,10 +10,15 @@
 	wound_bonus = 0
 	bare_wound_bonus = 0
 	log_pickup_and_drop = TRUE
+	var/has_scope = FALSE
+	var/scope_range = 0
 
 /obj/item/gun/ballistic/ms13/Initialize()
 	. = ..()
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/guns/guns_inventory.dmi')
+
+	if(has_scope)
+		AddComponent(/datum/component/scope, range_modifier = (scope_range))
 
 //Mojave Sun version for shotguns
 /obj/item/gun/ballistic/shotgun/ms13
@@ -29,11 +34,15 @@
 	wound_bonus = 0
 	bare_wound_bonus = 0
 	log_pickup_and_drop = TRUE
+	var/has_scope = FALSE
+	var/scope_range = 0
 
 /obj/item/gun/ballistic/shotgun/ms13/Initialize()
 	. = ..()
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/guns/guns_inventory.dmi')
 
+	if(has_scope)
+		AddComponent(/datum/component/scope, range_modifier = (scope_range))
 //Automatic shotguns
 /obj/item/gun/ballistic/shotgun/automatic/ms13
 	name = "generic ms13 gun"
@@ -48,10 +57,15 @@
 	bare_wound_bonus = 0
 	log_pickup_and_drop = TRUE
 	slowdown = 0.75 //A fall back in case someone forgets to define slowdown at the gun level
+	var/has_scope = FALSE
+	var/scope_range = 0
 
 /obj/item/gun/ballistic/shotgun/automatic/ms13/Initialize()
 	. = ..()
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/guns/guns_inventory.dmi')
+
+	if(has_scope)
+		AddComponent(/datum/component/scope, range_modifier = (scope_range))
 
 //Revolvers
 /obj/item/gun/ballistic/revolver/ms13
@@ -65,10 +79,15 @@
 	bare_wound_bonus = 0
 	log_pickup_and_drop = TRUE
 	slowdown = 0.5 //A fall back in case someone forgets to define slowdown at the gun level
+	var/has_scope = FALSE
+	var/scope_range = 0
 
 /obj/item/gun/ballistic/revolver/ms13/Initialize()
 	. = ..()
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/guns/guns_inventory.dmi')
+
+	if(has_scope)
+		AddComponent(/datum/component/scope, range_modifier = (scope_range))
 
 /obj/item/gun/ballistic/revolver/ms13/update_icon_state()
 	worn_icon_state = "[initial(icon_state)]"
@@ -102,10 +121,15 @@
 	extra_penetration = 0
 	log_pickup_and_drop = TRUE
 	slowdown = 0.75 //A fall back in case someone forgets to define slowdown at the gun level
+	var/has_scope = FALSE
+	var/scope_range = 0
 
 /obj/item/gun/ballistic/automatic/ms13/Initialize()
 	. = ..()
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/guns/guns_inventory.dmi')
+
+	if(has_scope)
+		AddComponent(/datum/component/scope, range_modifier = (scope_range))
 
 /obj/item/gun/ballistic/automatic/ms13/update_icon_state()
 	. = ..()
@@ -176,10 +200,15 @@
 	force = 10
 	slowdown = 0.5 //A fall back in case someone forgets to define slowdown at the gun level
 	slot_flags = ITEM_SLOT_SUITSTORE | ITEM_SLOT_BELT
+	var/has_scope = FALSE
+	var/scope_range = 0
 
 /obj/item/gun/ballistic/automatic/pistol/ms13/Initialize()
 	. = ..()
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/guns/guns_inventory.dmi')
+
+	if(has_scope)
+		AddComponent(/datum/component/scope, range_modifier = (scope_range))
 
 /obj/item/gun/ballistic/automatic/pistol/ms13/update_icon_state()
 	. = ..()
@@ -222,10 +251,15 @@
 	var/jamming_increment = 5
 	var/jammed = FALSE
 	var/can_jam = FALSE
+	var/has_scope = FALSE
+	var/scope_range = 0
 
 /obj/item/gun/ballistic/rifle/ms13/Initialize()
 	. = ..()
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/guns/guns_inventory.dmi')
+
+	if(has_scope)
+		AddComponent(/datum/component/scope, range_modifier = (scope_range))
 
 /obj/item/gun/ballistic/rifle/ms13/update_icon_state()
 	. = ..()

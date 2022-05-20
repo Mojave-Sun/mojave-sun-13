@@ -11,7 +11,7 @@
 	spread = 5
 	recoil = 0.75
 	slowdown = 0.75
-	zoomable = FALSE
+//	zoomable = FALSE
 	mag_type = /obj/item/ammo_box/magazine/ms13/r20
 	grid_width = 192
 	grid_height = 64
@@ -37,9 +37,8 @@
 	recoil = 1.5
 	slowdown = 1
 	mag_type = /obj/item/ammo_box/magazine/ms13/r308
-	zoomable = TRUE
-	zoom_amt = 9
-	zoom_out_amt = 3
+	has_scope = TRUE
+	scope_range = 4
 	grid_width = 224
 	grid_height = 64
 
@@ -66,9 +65,8 @@
 	spread = 2
 	recoil = 0.6
 	slowdown = 0.75
-	zoomable = TRUE
-	zoom_amt = 9
-	zoom_out_amt = 3
+	has_scope = TRUE
+	scope_range = 3
 	grid_width = 192
 	grid_height = 64
 
@@ -115,9 +113,8 @@
 	desc = "A heavy duty semi-automatic .308 rifle with a scope and heavier rifling to reduce spread and recoil, though the added weight will slow down the user."
 	icon_state = "rangemaster"
 	inhand_icon_state = "rangemaster"
-	zoomable = TRUE
-	zoom_amt = 9
-	zoom_out_amt = 3
+	has_scope = TRUE
+	scope_range = 2.5
 	spread = 2
 	recoil = 1.5
 	slowdown = 1
@@ -243,9 +240,8 @@
 	desc = "A heavily modified and customized assault rifle with a scope and suppressor as it's most notable additions to improve accuracy and recoil. The added weight from the scope will slow down the user, but the modifications reduce it's bulk."
 	icon_state = "infiltrator"
 	inhand_icon_state = "infiltrator"
-	zoomable = TRUE
-	zoom_amt = 9
-	zoom_out_amt = 3
+	has_scope = TRUE
+	scope_range = 2.5
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
 	w_class = WEIGHT_CLASS_BULKY
 	spread = 4
@@ -299,9 +295,8 @@
 	desc = "A modified Chinese assault rifle sporting a more stable stock and a scope for improved accuracy and recoil. The added weight from the scope will slow down the user."
 	icon_state = "xuanlong"
 	inhand_icon_state = "xuanlong"
-	zoomable = TRUE
-	zoom_amt = 9
-	zoom_out_amt = 3
+	has_scope = TRUE
+	scope_range = 2
 	spread = 6
 	recoil = 0.75
 	slowdown = 1
