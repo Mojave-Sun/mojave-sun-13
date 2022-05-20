@@ -24,7 +24,7 @@
 	recoil = 1.5
 	slowdown = 1
 	has_scope = TRUE
-	scope_range = 3
+	scope_range = 4
 
 /obj/item/gun/ballistic/rifle/ms13/varmint
 	name = "varmint rifle"
@@ -83,7 +83,7 @@
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
 	w_class = WEIGHT_CLASS_HUGE
 	has_scope = TRUE
-	scope_range = 1.5
+	scope_range = 2
 	grid_height = 32
 	grid_width = 224
 
@@ -98,7 +98,7 @@
 	spread = 2
 	recoil = 4
 	slowdown = 1.5
-	scope_range = 3.5
+	scope_range = 4
 	grid_height = 256
 	grid_width = 64
 

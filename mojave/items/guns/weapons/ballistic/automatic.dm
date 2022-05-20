@@ -38,7 +38,7 @@
 	slowdown = 1
 	mag_type = /obj/item/ammo_box/magazine/ms13/r308
 	has_scope = TRUE
-	scope_range = 4
+	scope_range = 3.5
 	grid_width = 224
 	grid_height = 64
 
