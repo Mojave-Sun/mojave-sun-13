@@ -26,8 +26,9 @@
 	force = 30
 	throwforce = 15
 	subtractible_armour_penetration = 10
+	edge_protection_penetration = 5
 	wound_bonus = 10
-	bare_wound_bonus = 20
+	bare_wound_bonus = 10
 	w_class = WEIGHT_CLASS_NORMAL
 	sharpness = SHARP_EDGED
 	tool_behaviour = TOOL_KNIFE
@@ -43,8 +44,9 @@
 	force = 35
 	throwforce = 20
 	subtractible_armour_penetration = 20
+	edge_protection_penetration = 10
 	wound_bonus = 15
-	bare_wound_bonus = 20
+	bare_wound_bonus = 10
 
 /obj/item/claymore/ms13/machete/katana
 	name = "katana"
@@ -54,8 +56,9 @@
 	force = 35
 	throwforce = 15
 	subtractible_armour_penetration = 20
+	edge_protection_penetration = 10
 	wound_bonus = 10
-	bare_wound_bonus = 15
+	bare_wound_bonus = 10
 
 /obj/item/claymore/ms13/machete/katana/immortal
 	name = "\improper Immortal Blade"
@@ -128,8 +131,9 @@
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
 	subtractible_armour_penetration = 25
+	edge_protection_penetration = 5
 	wound_bonus = 5
-	bare_wound_bonus = 10
+	bare_wound_bonus = 5
 	throwforce = 10
 	grid_width = 64
 	grid_height = 128
@@ -162,7 +166,7 @@
 	icon_state = "ripper_off"
 	inhand_icon_state = "ripper_off"
 	wound_bonus = 10
-	bare_wound_bonus = 15
+	bare_wound_bonus = 10
 	throwforce = 10
 	sharpness = IS_SHARP_AXE
 	w_class = WEIGHT_CLASS_NORMAL
@@ -183,6 +187,7 @@
 		hitsound = 'sound/weapons/chainsawhit.ogg'
 		force = 20
 		subtractible_armour_penetration = 20
+		edge_protection_penetration = 5
 		sharpness = IS_SHARP_AXE
 		toolspeed = 0.75
 		user.changeNext_move(CLICK_CD_MELEE * 0.6)
@@ -216,6 +221,7 @@
 		hitsound = 'sound/weapons/chainsawhit.ogg'
 		force = 30
 		subtractible_armour_penetration = 30
+		edge_protection_penetration = 5
 		sharpness = IS_SHARP_AXE
 		toolspeed = 0.5
 		user.changeNext_move(CLICK_CD_MELEE * 0.6)

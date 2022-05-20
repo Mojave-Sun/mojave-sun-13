@@ -13,7 +13,7 @@
 	throwforce = 10
 	subtractible_armour_penetration = 5
 	wound_bonus = 0
-	bare_wound_bonus = 5
+	bare_wound_bonus = 0
 	attack_verb_continuous = list("smacks", "deconstructs", "pounds", "beats", "bonks", "hammers", "nails")
 	attack_verb_simple = list("smack", "deconstruct", "pound", "beat", "bonk", "hammer", "nail")
 	sharpness = NONE
@@ -45,7 +45,7 @@
 	force = 25
 	subtractible_armour_penetration = 0
 	wound_bonus = 5
-	bare_wound_bonus = 5
+	bare_wound_bonus = 0
 	attack_verb_continuous = list("saws", "slashes", "tears", "rips")
 	attack_verb_simple = list("saw", "slash", "tear", "rip")
 	sharpness = IS_SHARP_AXE // Cut down da TREE. Cut down da WOOD.
@@ -75,7 +75,7 @@
 	force = 25
 	subtractible_armour_penetration = 0
 	wound_bonus = 5
-	bare_wound_bonus = 8
+	bare_wound_bonus = 3
 	attack_verb_continuous = list("drills", "pierces", "stabs", "impales", "jabs")
 	attack_verb_simple = list("drill", "pierce", "stab", "impale", "jab")
 	sharpness = SHARP_IMPALING
@@ -105,7 +105,7 @@
 	throwforce = 10
 	subtractible_armour_penetration = 5
 	wound_bonus = 0
-	bare_wound_bonus = 5
+	bare_wound_bonus = 0
 	sharpness = NONE
 	slot_flags = ITEM_SLOT_BELT
 	w_class = WEIGHT_CLASS_NORMAL
@@ -132,7 +132,7 @@
 	throwforce = 10
 	subtractible_armour_penetration = 10
 	wound_bonus = 5
-	bare_wound_bonus = 5
+	bare_wound_bonus = 0
 	max_fuel = 40
 	light_color = "#7c84a7"
 	w_class = WEIGHT_CLASS_NORMAL
@@ -224,7 +224,7 @@
 	force = 15
 	sharpness = SHARP_IMPALING
 	wound_bonus = 0
-	bare_wound_bonus = 5
+	bare_wound_bonus = 0
 	throwforce = 10
 	random_color = FALSE
 	log_pickup_and_drop = TRUE
