@@ -209,7 +209,7 @@
 	icon_state = "armoredwinterorange"
 	slowdown = 0.3
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
+                EDGE_PROTECTION = CLASS2_EDGE, \
                 CRUSHING = CLASS2_CRUSH, \
                 CUTTING = CLASS3_CUT, \
                 PIERCING = CLASS3_PIERCE, \
@@ -248,7 +248,7 @@
 	icon_state = "armoredwinterbrown"
 	slowdown = 0.15
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
+                EDGE_PROTECTION = CLASS1_EDGE, \
                 CRUSHING = CLASS3_CRUSH, \
                 CUTTING = CLASS3_CUT, \
                 PIERCING = CLASS2_PIERCE, \
@@ -287,7 +287,7 @@
 	icon_state = "armoredwinterblue"
 	slowdown = 0.15
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
+                EDGE_PROTECTION = CLASS1_EDGE, \
                 CRUSHING = CLASS3_CRUSH, \
                 CUTTING = CLASS3_CUT, \
                 PIERCING = CLASS2_PIERCE, \
@@ -326,7 +326,7 @@
 	icon_state = "armoredwinterblack"
 	slowdown = 0.15
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
+                EDGE_PROTECTION = CLASS1_EDGE, \
                 CRUSHING = CLASS3_CRUSH, \
                 CUTTING = CLASS3_CUT, \
                 PIERCING = CLASS2_PIERCE, \
@@ -568,7 +568,7 @@
 	body_parts_covered = CHEST|ARMS|GROIN|LEGS
 	slowdown = 0.3
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
+                EDGE_PROTECTION = CLASS2_EDGE, \
                 CRUSHING = CLASS2_CRUSH, \
                 CUTTING = CLASS3_CUT, \
                 PIERCING = CLASS3_PIERCE, \

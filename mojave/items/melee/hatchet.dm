@@ -13,8 +13,9 @@
 	force = 30
 	throwforce = 25
 	subtractible_armour_penetration = 15
+	edge_protection_penetration = 5
 	wound_bonus = 0
-	bare_wound_bonus = 10
+	bare_wound_bonus = 5
 	embedding = null
 	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = ITEM_SLOT_BELT
@@ -36,6 +37,7 @@
 	force = 35
 	throwforce = 30
 	subtractible_armour_penetration = 25
+	edge_protection_penetration = 10
 	toolspeed = 1
 
 /obj/item/hatchet/ms13/icepick
@@ -46,8 +48,9 @@
 	force = 25
 	throwforce = 25
 	subtractible_armour_penetration = 15
+	edge_protection_penetration = 5
 	wound_bonus = 5
-	bare_wound_bonus = 10
+	bare_wound_bonus = 5
 	sharpness = SHARP_IMPALING
 	tool_behaviour = TOOL_MINING
 
@@ -59,8 +62,9 @@
 	force = 20
 	throwforce = 30
 	subtractible_armour_penetration = 15
+	edge_protection_penetration = 5
 	wound_bonus = 5
-	bare_wound_bonus = 10
+	bare_wound_bonus = 5
 	embedding = list("embedded_pain_multiplier" = 2, "embed_chance" = 50, "embedded_fall_chance" = 25)
 	sharpness = SHARP_IMPALING
 	log_pickup_and_drop = TRUE

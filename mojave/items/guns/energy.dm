@@ -16,10 +16,16 @@
 	var/unload_sound = 'mojave/sound/ms13weapons/gunsounds/lasrifle/energy_unload.ogg'
 	var/load_sound_volume = 40
 	var/load_sound_vary = TRUE
+	var/has_scope = FALSE
+	var/scope_range = 0
 
 /obj/item/gun/energy/ms13/Initialize()
 	. = ..()
 	update_icon()
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/guns/guns_inventory.dmi')
+
+	if(has_scope)
+		AddComponent(/datum/component/scope, range_modifier = (scope_range))
 
 /obj/item/gun/energy/ms13/update_ammo_types()
 	var/obj/item/ammo_casing/energy/shot
@@ -95,10 +101,6 @@
 		eject_magazine(user)
 		return
 	return ..()
-
-/obj/item/gun/energy/ms13/Initialize()
-	. = ..()
-	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/guns/guns_inventory.dmi')
 
 /obj/item/gun/energy/ms13/laser
 	name = "Base class laser gub"

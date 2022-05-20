@@ -47,6 +47,7 @@
 	force = 25
 	throwforce = 10 //Imagine finshing off someone running away by throwing your spiked knuckle at them
 	subtractible_armour_penetration = 25
+	edge_protection_penetration = 5
 	wound_bonus = 10
 	bare_wound_bonus = 10
 	sharpness = SHARP_IMPALING

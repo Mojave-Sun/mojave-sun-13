@@ -138,9 +138,8 @@
 	inhand_icon_state = "scoped_sks"
 	spread = 2
 	slowdown = 1
-	zoomable = TRUE
-	zoom_amt = 9
-	zoom_out_amt = 3
+	has_scope = TRUE
+	scope_range = 3
 	empty_indicator = TRUE
 
 //Magazines

@@ -13,8 +13,9 @@
 	force = 20
 	throwforce = 15
 	subtractible_armour_penetration = 5
+	edge_protection_penetration = 5
 	wound_bonus = 5
-	bare_wound_bonus = 15
+	bare_wound_bonus = 5
 	embedding = null
 	sharpness = SHARP_EDGED
 	toolspeed = 1.25
@@ -36,8 +37,9 @@
 	force = 30
 	throwforce = 25
 	subtractible_armour_penetration = 20
+	edge_protection_penetration = 10
 	wound_bonus = 10
-	bare_wound_bonus = 20
+	bare_wound_bonus = 10
 	toolspeed = 1.6
 
 /obj/item/knife/ms13/combat/soviet
@@ -54,8 +56,9 @@
 	force = 35
 	throwforce = 30
 	subtractible_armour_penetration = 25
+	edge_protection_penetration = 10
 	wound_bonus = 10
-	bare_wound_bonus = 15
+	bare_wound_bonus = 5
 	toolspeed = 0.65
 
 /obj/item/knife/ms13/hunting
@@ -66,8 +69,9 @@
 	force = 25
 	throwforce = 20
 	subtractible_armour_penetration = 15
+	edge_protection_penetration = 5
 	wound_bonus = 10
-	bare_wound_bonus = 15
+	bare_wound_bonus = 5
 	toolspeed = 0.5
 
 /obj/item/knife/ms13/hunting/unique
@@ -88,12 +92,13 @@
 	force = 15
 	throwforce = 20
 	subtractible_armour_penetration = 5
+	edge_protection_penetration = 5
 	throw_speed = 4
 	embedding = list("embedded_pain_multiplier" = 2, "embed_chance" = 35, "embedded_fall_chance" = 20)
 	sharpness = SHARP_IMPALING
 	tool_behaviour = null
 	wound_bonus = -5
-	bare_wound_bonus = 5
+	bare_wound_bonus = 0
 
 /obj/item/knife/ms13/switchblade
 	name = "switchblade"
@@ -101,7 +106,8 @@
 	icon_state = "knife_switch_closed"
 	inhand_icon_state = "knife_switch_closed"
 	wound_bonus = 10
-	bare_wound_bonus = 10
+	bare_wound_bonus = 5
+	edge_protection_penetration = 5
 	toolspeed = 2
 	var/open = FALSE
 
@@ -144,6 +150,7 @@
 	inhand_icon_state = "knife_razor_closed"
 	wound_bonus = 5
 	bare_wound_bonus = 5
+	edge_protection_penetration = 0
 	toolspeed = 4
 
 /obj/item/knife/ms13/switchblade/razor/attack_self(mob/user)
@@ -191,8 +198,9 @@
 	force = 25
 	throwforce = 15
 	subtractible_armour_penetration = 10
+	edge_protection_penetration = 5
 	wound_bonus = 15
-	bare_wound_bonus = 15
+	bare_wound_bonus = 10
 	toolspeed = 1
 	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = ITEM_SLOT_BELT
@@ -212,5 +220,5 @@
 	inhand_icon_state = "knife_cleaver_rust"
 	force = 30
 	wound_bonus = 15
-	bare_wound_bonus = 25
+	bare_wound_bonus = 15
 	toolspeed = 0.75

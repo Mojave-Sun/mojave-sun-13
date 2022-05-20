@@ -13,7 +13,7 @@
 	weapon_weight = WEAPON_HEAVY
 	slot_flags = ITEM_SLOT_SUITSTORE
 	force = 15
-	fire_delay = 0.55 SECONDS
+	fire_delay = 0.65 SECONDS
 	slowdown = 0.75
 	grid_width = 192
 	grid_height = 64
@@ -43,11 +43,10 @@
 	icon_state = "wattzsniper"
 	inhand_icon_state = "wattzsniper"
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/sniper)
-	fire_delay = 0.65 SECONDS
+	fire_delay = 0.7 SECONDS
 	slowdown = 1
-	zoomable = TRUE
-	zoom_amt = 9
-	zoom_out_amt = 3
+	has_scope = TRUE
+	scope_range = 4
 	grid_width = 224
 	grid_height = 64
 
@@ -84,7 +83,7 @@
 	weapon_weight = WEAPON_HEAVY
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/scatter)
 	cell_type = /obj/item/stock_parts/cell/ms13/mfc
-	fire_delay = 0.65 SECONDS
+	fire_delay = 0.7 SECONDS
 	slowdown = 0.75
 	grid_width = 192
 	grid_height = 64

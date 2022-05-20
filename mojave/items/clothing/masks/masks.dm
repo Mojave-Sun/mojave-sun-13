@@ -8,8 +8,8 @@
 	w_class = WEIGHT_CLASS_TINY
 	grid_width = 32
 	grid_height = 32
-	equip_delay_self = 1 SECONDS
-	equip_delay_other = 3 SECONDS
+	equip_delay_self = 0.75 SECONDS
+	equip_delay_other = 2 SECONDS
 
 /obj/item/clothing/mask/ms13/Initialize()
 	. = ..()
@@ -138,8 +138,8 @@
 	inhand_icon_state = "gasmask"
 	var/adjusted = FALSE
 	var/adjustable = TRUE
-	equip_delay_self = 2 SECONDS
-	equip_delay_other = 4 SECONDS
+	equip_delay_self = 1.5 SECONDS
+	equip_delay_other = 3 SECONDS
 
 /obj/item/clothing/mask/gas/ms13/Initialize()
 	. = ..()

@@ -18,8 +18,8 @@
 	repairable_by = /obj/item/stack/sheet/ms13/cloth
 	limb_integrity = 100
 	max_integrity = 300
-	equip_delay_self = 2 SECONDS
-	equip_delay_other = 4 SECONDS
+	equip_delay_self = 1.5 SECONDS
+	equip_delay_other = 3 SECONDS
 
 /obj/item/clothing/under/ms13/attackby(obj/item/W, mob/user, params)
 	if(!istype(W, repairable_by))
@@ -111,6 +111,7 @@
 	desc = "A set of rags worn by those who can't seem to find better, or like things loose."
 	icon_state = "rag"
 	inhand_icon_state = "tribalrag"
+	body_parts_covered = CHEST|GROIN
 	max_integrity = 250
 
 /obj/item/clothing/under/ms13/wasteland/worn
@@ -118,12 +119,14 @@
 	desc = "A set of ragged clothes that have seen better days."
 	icon_state = "worn"
 	inhand_icon_state = "ro_suit"
+	body_parts_covered = CHEST|GROIN|ARMS|LEG_LEFT
 
 /obj/item/clothing/under/ms13/wasteland/doctor
 	name = "wasteland doctor uniform"
 	desc = "A set of identifiably dark green, ragged clothes usually worn by wasteland doctors."
 	icon_state = "doctor"
 	inhand_icon_state = "ro_suit"
+	body_parts_covered = CHEST|GROIN|LEGS
 
 /obj/item/clothing/under/ms13/wasteland/peasant
 	name = "homemade garbs"

@@ -257,7 +257,7 @@
 	light_color = "#d1c58d"
 	radiotype = /obj/item/radio/headset/ms13/powerarmor/t51
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
+                EDGE_PROTECTION = CLASS4_EDGE, \
                 CRUSHING = CLASS5_CRUSH, \
                 CUTTING = CLASS5_CUT, \
                 PIERCING = CLASS5_PIERCE, \
@@ -273,7 +273,7 @@
 	icon_state = "t51_armor"
 	worn_icon_state = "t51_armor"
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
+                EDGE_PROTECTION = CLASS4_EDGE, \
                 CRUSHING = CLASS5_CRUSH, \
                 CUTTING = CLASS5_CUT, \
                 PIERCING = CLASS5_PIERCE, \
@@ -294,7 +294,7 @@
 	light_color = "#dabc7c"
 	radiotype = /obj/item/radio/headset/ms13/powerarmor/t45
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
+                EDGE_PROTECTION = CLASS4_EDGE, \
                 CRUSHING = CLASS5_CRUSH, \
                 CUTTING = CLASS5_CUT, \
                 PIERCING = CLASS5_PIERCE, \
@@ -311,7 +311,7 @@
 	icon_state = "t45_armor"
 	worn_icon_state = "t45_armor"
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
+                EDGE_PROTECTION = CLASS4_EDGE, \
                 CRUSHING = CLASS5_CRUSH, \
                 CUTTING = CLASS5_CUT, \
                 PIERCING = CLASS5_PIERCE, \

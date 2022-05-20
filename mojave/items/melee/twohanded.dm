@@ -55,8 +55,9 @@
 	force = 15
 	throwforce = 10
 	subtractible_armour_penetration = 25
+	edge_protection_penetration = 15
 	wound_bonus = 12
-	bare_wound_bonus = 12
+	bare_wound_bonus = 8
 	throw_range = 3
 	sharpness = IS_SHARP_AXE
 	toolspeed = 0.75
@@ -78,8 +79,9 @@
 	force = 15
 	throwforce = 10
 	subtractible_armour_penetration = 25
+	edge_protection_penetration = 15
 	wound_bonus = 15
-	bare_wound_bonus = 20
+	bare_wound_bonus = 10
 	throw_range = 3
 	sharpness = SHARP_EDGED
 	grid_height = 192
@@ -101,7 +103,7 @@
 	throwforce = 10
 	subtractible_armour_penetration = 30
 	wound_bonus = 5
-	bare_wound_bonus = 5
+	bare_wound_bonus = 0
 	throw_range = 3
 	sharpness = NONE
 	grid_height = 192
@@ -118,7 +120,7 @@
 	inhand_icon_state = "rebar_club"
 	subtractible_armour_penetration = 20
 	wound_bonus = 0
-	bare_wound_bonus = 5
+	bare_wound_bonus = 0
 
 /obj/item/ms13/twohanded/hammer/rebar/ComponentInitialize()
 	. = ..()
@@ -131,7 +133,7 @@
 	inhand_icon_state = "hammer_power"
 	subtractible_armour_penetration = 35
 	wound_bonus = 10
-	bare_wound_bonus = 5
+	bare_wound_bonus = 0
 	grid_height = 256
 	grid_width = 96
 
@@ -161,8 +163,9 @@
 	force = 20
 	throwforce = 30
 	subtractible_armour_penetration = 30
+	edge_protection_penetration = 10
 	wound_bonus = 10
-	bare_wound_bonus = 10
+	bare_wound_bonus = 5
 	w_class = WEIGHT_CLASS_HUGE
 	sharpness = SHARP_IMPALING
 	grid_height = 32
@@ -179,6 +182,7 @@
 	force = 15
 	throwforce = 20
 	subtractible_armour_penetration = 10
+	edge_protection_penetration = 5
 	wound_bonus = 0
 	bare_wound_bonus = 5
 
@@ -193,6 +197,7 @@
 	force = 15
 	throwforce = 35
 	subtractible_armour_penetration = 15
+	edge_protection_penetration = 5
 	wound_bonus = 5
 	bare_wound_bonus = 10
 	embedding = list("embedded_pain_multiplier" = 1.5, "embed_chance" = 65, "embedded_fall_chance" = 35)
@@ -223,6 +228,7 @@
 	w_class = WEIGHT_CLASS_HUGE
 	slot_flags = ITEM_SLOT_BACK
 	subtractible_armour_penetration = 20
+	edge_protection_penetration = 20
 	wound_bonus = 15
 	bare_wound_bonus = 20
 	throw_speed = 2
@@ -265,6 +271,7 @@
 	w_class = WEIGHT_CLASS_HUGE
 	slot_flags = ITEM_SLOT_BACK
 	subtractible_armour_penetration = 40
+	edge_protection_penetration = 20
 	wound_bonus = 8
 	bare_wound_bonus = 12
 	throw_speed = 2
