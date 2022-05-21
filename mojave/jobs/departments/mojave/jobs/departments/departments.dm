@@ -26,21 +26,21 @@
 	//label_class = "NCR"
 	//latejoin_color = "#ffddf0"
 
- /datum/job_department/legion
- 	department_name = DEPARTMENT_LEGION
- 	department_bitflags = DEPARTMENT_BITFLAG_LEGION
- 	department_head = /datum/job/ms13/legion/centurion
- 	department_experience_type = EXP_TYPE_LEGION
+/datum/job_department/legion
+	department_name = DEPARTMENT_LEGION
+	department_bitflags = DEPARTMENT_BITFLAG_LEGION
+	department_head = /datum/job/ms13/legion/centurion
+	department_experience_type = EXP_TYPE_LEGION
 	department_full_name = "Caesar's Legion"
  	//display_order = 0
  	//label_class = "Legion"
  	//latejoin_color = "#ffddf0"
 
- /datum/job_department/rangers
- 	department_name = DEPARTMENT_RANGERS
- 	department_bitflags = DEPARTMENT_BITFLAG_RANGERS
- 	department_head = /datum/job/ms13/ranger/deputychief
- 	department_experience_type = EXP_TYPE_RANGERS
+/datum/job_department/rangers
+	department_name = DEPARTMENT_RANGERS
+	department_bitflags = DEPARTMENT_BITFLAG_RANGERS
+	department_head = /datum/job/ms13/ranger/deputychief
+	department_experience_type = EXP_TYPE_RANGERS
 	department_full_name = "Desert Rangers"
  	//display_order = 0
  	//label_class = "Legion"
