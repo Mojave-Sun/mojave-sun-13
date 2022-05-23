@@ -7,6 +7,8 @@
 	if (!ishuman(user))
 		return .
 
+	var/mob/living/carbon/human/human_user = user
+
 	if (user.combat_mode)
 		context[SCREENTIP_CONTEXT_LMB] = "Attack"
 	else if (user == src)
