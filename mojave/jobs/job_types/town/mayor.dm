@@ -18,11 +18,10 @@
 	id = 		 /obj/item/card/id/ms13/mayor
 	uniform =    /obj/item/clothing/under/ms13/regal
 	shoes =  	 /obj/item/clothing/shoes/ms13/military/vault
-	belt = 		 /obj/item/gun/ballistic/revolver/ms13/derringer
-	r_pocket =   /obj/item/ammo_box/ms13/derringer22
-	l_pocket =   /obj/item/ammo_box/ms13/derringer22
+	belt = 		 /obj/item/gun/ballistic/revolver/ms13/derringer/trimmed
 	backpack_contents = list(
 		/obj/item/stack/medical/ointment/ms13/cream/half=1, \
+		/obj/item/ammo_box/ms13/a357box=1, \
 		/obj/item/stack/medical/gauze/ms13/three=1)
 
 /datum/outfit/job/ms13/town/mayor/pre_equip(mob/living/carbon/human/H)

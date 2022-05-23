@@ -7,7 +7,7 @@
 
 /obj/item/card/id/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/identification/dogtags_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/identification/dogtags_inventory.dmi')
 
 /obj/item/card/id/ms13/doctor
 	name = "doctor's ID badge"
@@ -105,7 +105,7 @@
 /obj/item/card/id/ms13/legrecruit
 	name = "recruit medallion"
 	desc = "A silver disc stamped with the Legion's Bull insignia. Belongs to a recruit."
-	assignment = "Legion Recruit"
+	assignment = "Recruit Legionary"
 	icon_state = "legionmedallionrecruit"
 
 
@@ -116,20 +116,49 @@
 		update_label()
 	return ..()
 
+/obj/item/card/id/ms13/legrecruitdecanus
+	name = "recruit decanus medallion"
+	desc = "A silver disc stamped with the Legion's Bull insignia. Belongs to a recruit decanus."
+	assignment = "Legion Recruit Decanus"
+	icon_state = "legionmedallionrecruit"
+
 /obj/item/card/id/ms13/legprime
 	name = "prime medallion"
 	desc = "A marked silver disc stamped with the Legion's Bull insignia. Belongs to a prime."
 	icon_state = "legionmedallionprime"
+	assignment = "Prime Legionary"
+
+/obj/item/card/id/ms13/legprime/decanus
+	name = "prime decanus medallion"
+	desc = "A marked silver disc stamped with the Legion's Bull insignia. Belongs to a prime decanus."
+	assignment = "Legion Prime Decanus"
+
+/obj/item/card/id/ms13/legprime/explorer
+	name = "explorer medallion"
+	desc = "A marked silver disc stamped with the Legion's Bull insignia. Belongs to an explorer."
+	assignment = "Legion Explorer"
 
 /obj/item/card/id/ms13/legveteran
 	name = "veteran medallion"
 	desc = "A heavily marked silver disc stamped with the Legion's Bull insignia. Belongs to a veteran, and reeks of iron."
 	icon_state = "legionmedallionveteran"
+	assignment = "Veteran Legionary"
+
+/obj/item/card/id/ms13/legveteran/vex
+	name = "vexillarius medallion"
+	desc = "A heavily marked silver disc stamped with the Legion's Bull insignia. Belongs to a Legion vexillarius, and reeks of iron."
+	assignment = "Legion Vexillarius"
+
+/obj/item/card/id/ms13/legveteran/decanus
+	name = "veteran decanus medallion"
+	desc = "A heavily marked silver disc stamped with the Legion's Bull insignia. Belongs to a veteran decanus, and reeks of iron."
+	assignment = "Legion Veteran Decanus"
 
 /obj/item/card/id/ms13/legcenturion
 	name = "centurion medallion"
 	desc = "A golden disc awarded to the most fierce men in the entire Legion. If you are close enough to read the insignia you won't be alive much longer."
 	icon_state = "legionmedallioncent"
+	assignment = "Legion Centurion"
 
 /obj/item/card/id/ms13/raider
 	name = "raider's necklace"
@@ -159,26 +188,31 @@
 	name = "recruit ranger badge"
 	desc = "A silver Ranger star. A pretty basic design with a strong meaning behind it, given to the average recruit in the Desert Rangers."
 	icon_state = "ranger_star_silver"
+	assignment = "Desert Ranger Recruit"
 
 /obj/item/card/id/ms13/ranger
 	name = "ranger badge"
 	desc = "A silver rimmed Ranger badge with a gold star. Worn by your average Desert Ranger."
 	icon_state = "ranger_star_rimmed"
+	assignment = "Desert Ranger"
 
 /obj/item/card/id/ms13/ranger_elite
 	name = "elite ranger badge"
 	desc = "A gold textured Ranger star, issued to Rangers with extensive expertise in the field, with multiple years behind them."
 	icon_state = "ranger_star"
+	assignment = "Elite Desert Ranger"
 
 /obj/item/card/id/ms13/ranger_chief
 	name = "ranger deputy-chief badge"
 	desc = "A banded Ranger star, donned exclusively by the Deputy-Chief of the local Ranger outpost. "
 	icon_state = "ranger_star_chief"
+	assignment = "Desert Ranger Deputy-Chief"
 
 /obj/item/card/id/ms13/ranger_doctor
 	name = "ranger medic badge"
 	desc = "A silver circle encompassing a gold cross. Given to the empathetic healers of the Desert Rangers."
 	icon_state = "ranger_cross"
+	assignment = "Desert Ranger Doctor"
 
 // Brotherhood IDs //
 

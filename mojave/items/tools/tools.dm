@@ -10,14 +10,14 @@
 	inhand_icon_state = "hammer"
 	hitsound = 'sound/weapons/genhit3.ogg'
 	force = 20
-	armour_penetration = 0
-	wound_bonus = -2
+	throwforce = 10
+	subtractible_armour_penetration = 5
+	wound_bonus = 0
 	bare_wound_bonus = 0
 	attack_verb_continuous = list("smacks", "deconstructs", "pounds", "beats", "bonks", "hammers", "nails")
 	attack_verb_simple = list("smack", "deconstruct", "pound", "beat", "bonk", "hammer", "nail")
 	sharpness = NONE
 	slot_flags = ITEM_SLOT_BELT
-	throwforce = 10
 	max_integrity = 200
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0,  FIRE = 100, ACID = 50)
 	resistance_flags = FIRE_PROOF
@@ -30,7 +30,7 @@
 
 /obj/item/ms13/hammer/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
 /obj/item/ms13/handsaw
 	name = "hand saw"
@@ -42,9 +42,10 @@
 	worn_icon_state = "empty_placeholder"
 	icon_state = "handsaw"
 	inhand_icon_state = "handsaw"
-	force = 20
+	force = 25
+	subtractible_armour_penetration = 0
 	wound_bonus = 5
-	bare_wound_bonus = 5
+	bare_wound_bonus = 0
 	attack_verb_continuous = list("saws", "slashes", "tears", "rips")
 	attack_verb_simple = list("saw", "slash", "tear", "rip")
 	sharpness = IS_SHARP_AXE // Cut down da TREE. Cut down da WOOD.
@@ -59,7 +60,7 @@
 
 /obj/item/ms13/handsaw/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
 /obj/item/ms13/handdrill
 	name = "hand drill"
@@ -72,12 +73,12 @@
 	icon_state = "handdrill"
 	inhand_icon_state = "handdrill"
 	force = 25
-	armour_penetration = 10 // da DRILL
-	wound_bonus = 6
-	bare_wound_bonus = 4
+	subtractible_armour_penetration = 0
+	wound_bonus = 5
+	bare_wound_bonus = 3
 	attack_verb_continuous = list("drills", "pierces", "stabs", "impales", "jabs")
 	attack_verb_simple = list("drill", "pierce", "stab", "impale", "jab")
-	sharpness = SHARP_POINTY
+	sharpness = SHARP_IMPALING
 	slot_flags = ITEM_SLOT_BELT
 	tool_behaviour = TOOL_DRILL
 	resistance_flags = FIRE_PROOF
@@ -88,7 +89,7 @@
 
 /obj/item/ms13/handdrill/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
 /obj/item/crowbar/ms13
 	name = "crowbar"
@@ -100,9 +101,11 @@
 	worn_icon_state = "empty_placeholder"
 	icon_state = "crowbar"
 	inhand_icon_state = "crowbar"
-	force = 20
+	force = 25
 	throwforce = 10
-	wound_bonus = 6
+	subtractible_armour_penetration = 5
+	wound_bonus = 0
+	bare_wound_bonus = 0
 	sharpness = NONE
 	slot_flags = ITEM_SLOT_BELT
 	w_class = WEIGHT_CLASS_NORMAL
@@ -113,7 +116,7 @@
 
 /obj/item/crowbar/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
 /obj/item/weldingtool/ms13
 	name = "welding tool"
@@ -127,9 +130,9 @@
 	inhand_icon_state = "torch"
 	force = 10
 	throwforce = 10
-	throwforce = 10
-	wound_bonus = 0
-	bare_wound_bonus = 5
+	subtractible_armour_penetration = 10
+	wound_bonus = 5
+	bare_wound_bonus = 0
 	max_fuel = 40
 	light_color = "#7c84a7"
 	w_class = WEIGHT_CLASS_NORMAL
@@ -140,7 +143,7 @@
 
 /obj/item/weldingtool/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
 /obj/item/weldingtool/ms13/update_icon_state()
 	. = ..()
@@ -170,10 +173,10 @@
 	worn_icon_state = "empty_placeholder"
 	icon_state = "wrench"
 	inhand_icon_state = "wrench"
-	force = 10
+	force = 15
 	throwforce = 15
 	sharpness = NONE
-	wound_bonus = 0
+	wound_bonus = -5
 	bare_wound_bonus = 0
 	w_class = WEIGHT_CLASS_SMALL
 	log_pickup_and_drop = TRUE
@@ -182,7 +185,7 @@
 
 /obj/item/wrench/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
 /obj/item/wirecutters/ms13
 	name = "pliers"
@@ -205,7 +208,7 @@
 
 /obj/item/wirecutters/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
 /obj/item/screwdriver/ms13
 	name = "screwdriver"
@@ -218,10 +221,10 @@
 	icon_state = "screwdriver"
 	inhand_icon_state = "screwdriver"
 	flags_1 = CONDUCT_1
-	force = 10
-	sharpness = SHARP_POINTY
-	wound_bonus = 5
-	bare_wound_bonus = 5
+	force = 15
+	sharpness = SHARP_IMPALING
+	wound_bonus = 0
+	bare_wound_bonus = 0
 	throwforce = 10
 	random_color = FALSE
 	log_pickup_and_drop = TRUE
@@ -230,7 +233,7 @@
 
 /obj/item/screwdriver/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
 /obj/item/shovel/ms13
 	name = "shovel"
@@ -244,10 +247,10 @@
 	inhand_icon_state = "shovel"
 	hitsound = 'sound/weapons/genhit.ogg'
 	force = 25
-	armour_penetration = 10
+	throwforce = 15
+	subtractible_armour_penetration = 15
 	wound_bonus = 5
 	bare_wound_bonus = 0
-	throwforce = 15
 	attack_verb_continuous = list("smacks", "slashes", "jabs", "slaps", "pounds", "beats", "bonks", "digs")
 	attack_verb_simple = list("smack", "slash", "jab", "slap", "pound", "beat", "bonk", "dig")
 	sharpness = NONE
@@ -259,7 +262,7 @@
 
 /obj/item/shovel/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
 /obj/item/shovel/ms13/spade
 	name = "spade"
@@ -267,9 +270,10 @@
 	icon_state = "spade"
 	inhand_icon_state = "spade"
 	force = 20
-	armour_penetration = 0
-	wound_bonus = -2
 	throwforce = 10
+	subtractible_armour_penetration = 15
+	wound_bonus = 5
+	bare_wound_bonus = 0
 	toolspeed = 2
 	sharpness = NONE
 	w_class = WEIGHT_CLASS_NORMAL
@@ -282,9 +286,11 @@
 	desc = "A shovel primarily meant for clearing snow, but could be used to dig somewhat inefficiently."
 	icon_state = "shovel_snow"
 	inhand_icon_state = "shovel_snow"
-	force = 20
-	armour_penetration = 10
-	wound_bonus = 5
+	force = 25
+	throwforce = 10
+	subtractible_armour_penetration = 0
+	wound_bonus = -2
+	bare_wound_bonus = 0
 	throwforce = 10
 	toolspeed = 1.5
 
@@ -293,16 +299,30 @@
 	desc = "A rake used for raking. You could try to dig with it, but it won't do you much good."
 	icon_state = "rake"
 	inhand_icon_state = "rake"
-	force = 20
-	wound_bonus = 5
-	bare_wound_bonus = 5
+	force = 25
 	throwforce = 10
-	armour_penetration = 5
+	subtractible_armour_penetration = 0
+	wound_bonus = 0
+	bare_wound_bonus = 5
 	toolspeed = 2.5
 	attack_verb_continuous = list("smacks", "slashes", "jabs", "slaps", "pounds", "beats", "bonks", "rakes", "assaults")
 	attack_verb_simple = list("smack", "slash", "jabb", "slap", "pound", "beat", "bonk", "rake", "assault")
 	hitsound = 'sound/weapons/genhit.ogg'
-	sharpness = SHARP_POINTY
+	sharpness = SHARP_IMPALING
+
+/obj/item/pickaxe/ms13
+	name = "pickaxe"
+	desc = "An old pickaxe. Ideally, you can use this to break through loose stone."
+	icon = 'mojave/icons/objects/tools/tools_world.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
+	icon_state = "pickaxe"
+	slot_flags = NONE
+	force = 30
+	throwforce = 15
+	w_class = WEIGHT_CLASS_BULKY
+	custom_materials = null
+	toolspeed = 0.25 //grim
 
 /obj/item/ms13/brick
 	name = "brick"
@@ -316,11 +336,11 @@
 	inhand_icon_state = "brick"
 	attack_verb_continuous = list("clonks", "smacks", "clocks", "nails", "bludgeons", "whacks", "bonks", "bricks")
 	attack_verb_simple = list("clonk", "smack", "clock", "nail", "bludgeon", "whack", "bonk", "brick")
-	force = 15
+	force = 20
 	throwforce = 20 //brick
-	armour_penetration = 0
-	wound_bonus = 5
-	bare_wound_bonus = 0
+	subtractible_armour_penetration = 5
+	wound_bonus = 0
+	bare_wound_bonus = 5
 	sharpness = NONE
 	w_class = WEIGHT_CLASS_SMALL
 	max_integrity = 200
@@ -333,4 +353,4 @@
 
 /obj/item/ms13/brick/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')

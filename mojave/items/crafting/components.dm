@@ -13,7 +13,7 @@
 
 /obj/item/ms13/component/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/crafting/components_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/crafting/components_inventory.dmi')
 
 // Components //
 
@@ -64,7 +64,7 @@
 
 /obj/item/light/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/crafting/components_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/crafting/components_inventory.dmi')
 
 /obj/item/light/ms13/tube
 	name = "light tube"

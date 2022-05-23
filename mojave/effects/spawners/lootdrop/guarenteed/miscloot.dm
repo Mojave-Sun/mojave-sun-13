@@ -18,10 +18,9 @@
 	name = "general hardware spawner"
 	loot = list(
 			/obj/effect/spawner/random/ms13/guarenteed/tools/lights = 15,
-			/obj/effect/spawner/random/ms13/guarenteed/tools/radio = 5,
 			/obj/effect/spawner/random/ms13/guarenteed/tools/tool = 50,
 			/obj/effect/spawner/random/ms13/guarenteed/tools/fishing = 5,
-			/obj/effect/spawner/random/ms13/guarenteed/crafting/lowrandom = 25
+			/obj/effect/spawner/random/ms13/guarenteed/crafting/lowrandom = 30
 			)
 
 /obj/effect/spawner/random/ms13/guarenteed/tools/tool

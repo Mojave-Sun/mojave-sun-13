@@ -21,10 +21,13 @@
 	component_type = /datum/component/storage/concrete/ms13/grid
 	grid_height = 288 //NO BACKPACK STACKING
 	grid_width = 288 //NO BACKPACK STACKING
+	equip_delay_self = 0.75 SECONDS
+	equip_delay_other = 2 SECONDS
 
 /obj/item/storage/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, world_sprite = 'mojave/icons/objects/clothing/clothing_world/backpack_world.dmi') //This ones flipped for the pref menu icons
+	//This ones flipped for the pref menu icons
+	AddElement(/datum/element/world_icon, null, 'mojave/icons/objects/clothing/clothing_world/backpack_world.dmi', icon)
 	inhand_icon_state = icon_state
 	worn_icon_state = icon_state
 
