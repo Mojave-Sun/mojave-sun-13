@@ -1103,7 +1103,7 @@
  * the gauze falls off.
  *
  * Arguments:
-  * * new_gauze- Just the gauze stack we're taking a sheet from to apply here	// MOJAVE SUN EDIT - ORIGINAL IS * * gauze- Just the gauze stack we're taking a sheet from to apply here
+ * * new_gauze- Just the gauze stack we're taking a sheet from to apply here	// MOJAVE SUN EDIT - ORIGINAL IS * * gauze- Just the gauze stack we're taking a sheet from to apply here
  */
 /obj/item/bodypart/proc/apply_gauze(obj/item/stack/medical/gauze/new_gauze)// MOJAVE SUN EDIT - ORIGINAL IS /obj/item/bodypart/proc/apply_gauze(obj/item/stack/gauze)
 	if(!istype(new_gauze) || current_gauze)// MOJAVE SUN EDIT - ORIGINAL IS 	if(!istype(gauze) || !gauze.absorption_capacity)
@@ -1118,7 +1118,7 @@
 	// current_gauze = new gauze.type(src, 1)
 	// gauze.use(1)
 	// if(newly_gauzed)
-	// 	SEND_SIGNAL(src, COMSIG_BODYPART_GAUZED, gauze)
+	// SEND_SIGNAL(src, COMSIG_BODYPART_GAUZED, gauze)
 	// MOJAVE SUN EDIT END
 /**
 * apply_splint() much like above, except with a splint // MOJAVE SUN EDIT - ORIGINAL IS seep_gauze() is for when a gauze wrapping absorbs blood or pus from wounds, lowering its absorption capacity.
