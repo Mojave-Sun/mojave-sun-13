@@ -102,7 +102,7 @@
 	integrity = 3
 	/// How effective are we in keeping the bodypart rigid
 	var/splint_factor = 0.3
-	/// Whether the splint prevents the limb from being disabled, with a ruptured tendon or a shattered bone
+	/// Whether the splint prevents the limb from being disabled from a shattered bone
 	var/helps_disabled = TRUE
 	/// Total condition of our splint, the more we use it the more it gets looser. Currently not implemented
 	var/sling_condition = 5

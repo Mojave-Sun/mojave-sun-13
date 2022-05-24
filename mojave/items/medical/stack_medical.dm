@@ -113,7 +113,7 @@
 	amount = 12
 	burn_cleanliness_bonus = 0.5
 	merge_type = /obj/item/stack/medical/gauze/ms13
-	gauze_type = /datum/bodypart_aid/gauze/ms13 // MOJAVE SUN EDIT
+	gauze_type = /datum/bodypart_aid/gauze/ms13
 
 /obj/item/stack/medical/gauze/ms13/attackby(obj/item/I, mob/user, params)
 	return
@@ -138,4 +138,33 @@
 	inhand_icon_state = "bandage_m"
 	burn_cleanliness_bonus = 0.3 //Lower = better
 	merge_type = /obj/item/stack/medical/gauze/ms13/military
-	gauze_type = /datum/bodypart_aid/gauze/ms13/military // MOJAVE SUN EDIT
+	gauze_type = /datum/bodypart_aid/gauze/ms13/military
+
+// Splints //
+
+/obj/item/stack/medical/splint/ms13
+	name = "medical splint"
+	desc = "Medical splints, designed to fastened a limb with ease, perfect for stabilizing broken bones and torn muscles. "
+	icon = 'mojave/icons/objects/medical/medical_world.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
+	singular_name = "medical splint"
+	icon_state = "splint_improv"
+	self_delay = 5 SECONDS
+	other_delay = 2 SECONDS
+	max_amount = 3
+	amount = 3
+	merge_type = /obj/item/stack/medical/splint/ms13
+	splint_type = /datum/bodypart_aid/splint/ms13
+
+/obj/item/stack/medical/splint/ms13/attackby(obj/item/I, mob/user, params)
+	return
+
+/obj/item/stack/medical/splint/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/medical/medical_inventory.dmi')
+
+/obj/item/stack/medical/splint/ms13/two
+	amount = 2
+/obj/item/stack/medical/splint/ms13/one
+	amount = 1
