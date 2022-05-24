@@ -124,7 +124,8 @@ GLOBAL_LIST_INIT(global_all_wound_types, list(/datum/wound/blunt/critical, /datu
 #define MANGLES_BONE (1<<3)
 /// If this wound marks the limb as being allowed to have gauze applied
 #define ACCEPTS_GAUZE (1<<4)
-
+/// If this wound marks the limb as being allowed to have splints applied
+#define ACCEPTS_SPLINT	(1<<5) // MOJAVE SUN EDIT
 
 // ~scar persistence defines
 // The following are the order placements for persistent scar save formats
@@ -149,7 +150,12 @@ GLOBAL_LIST_INIT(global_all_wound_types, list(/datum/wound/blunt/critical, /datu
 #define SCAR_CURRENT_VERSION 3
 /// how many scar slots, per character slot, we have to cycle through for persistent scarring, if enabled in character prefs
 #define PERSISTENT_SCAR_SLOTS 3
-
+// MOJAVE SUN EDIT BEGIN
+/// When a wound is staining the gauze with blood
+#define GAUZE_STAIN_BLOOD 1
+/// When a wound is staining the gauze with pus
+#define GAUZE_STAIN_PUS 2
+// MOJAVE SUN EDIT END
 // ~blood_flow rates of change, these are used by [/datum/wound/proc/get_bleed_rate_of_change] from [/mob/living/carbon/proc/bleed_warn] to let the player know if their bleeding is getting better/worse/the same
 /// Our wound is clotting and will eventually stop bleeding if this continues
 #define BLOOD_FLOW_DECREASING -1

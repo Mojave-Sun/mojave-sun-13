@@ -13,14 +13,17 @@
 #define REVERSE_DIR(dir) ( ((dir & 85) << 1) | ((dir & 170) >> 1) )
 
 //Human Overlays Indexes/////////
-#define MUTATIONS_LAYER 31 //mutations. Tk headglows, cold resistance glow, etc
-#define BODY_BEHIND_LAYER 30 //certain mutantrace features (tail when looking south) that must appear behind the body parts
-#define BODYPARTS_LAYER 29 //Initially "AUGMENTS", this was repurposed to be a catch-all bodyparts flag
-#define BODY_ADJ_LAYER 28 //certain mutantrace features (snout, body markings) that must appear above the body parts
-#define BODY_LAYER 27 //underwear, undershirts, socks, eyes, lips(makeup)
-#define FRONT_MUTATIONS_LAYER 26 //mutations that should appear above body, body_adj and bodyparts layer (e.g. laser eyes)
-#define DAMAGE_LAYER 25 //damage indicators (cuts and burns)
-#define UNIFORM_LAYER 24
+// MOJAVE SUN EDIT BEGIN
+#define MUTATIONS_LAYER 32 //mutations. Tk headglows, cold resistance glow, etc // ORIGINAL VALUE IS - 31
+#define BODY_BEHIND_LAYER 31 //certain mutantrace features (tail when looking south) that must appear behind the body parts // ORIGINAL VALUE IS - 30
+#define BODYPARTS_LAYER 30 //Initially "AUGMENTS", this was repurposed to be a catch-all bodyparts flag // ORIGINAL VALUE IS - 29
+#define BODY_ADJ_LAYER 29 //certain mutantrace features (snout, body markings) that must appear above the body parts // ORIGINAL VALUE IS - 28
+#define BODY_LAYER 28 //underwear, undershirts, socks, eyes, lips(makeup) // ORIGINAL VALUE IS - 27
+#define FRONT_MUTATIONS_LAYER 27 //mutations that should appear above body, body_adj and bodyparts layer (e.g. laser eyes) // ORIGINAL VALUE IS - 26
+#define DAMAGE_LAYER 26 //damage indicators (cuts and burns) // ORIGINAL VALUE IS - 25
+#define UNIFORM_LAYER 25 // ORIGINAL VALUE IS - 24
+#define BANDAGE_LAYER 24 //For bandages and splints
+// MOJAVE SUN EDIT END
 #define ID_LAYER 23
 #define ID_CARD_LAYER 22
 #define HANDS_PART_LAYER 21
@@ -44,7 +47,7 @@
 #define ABOVE_BODY_FRONT_HEAD_LAYER 3 // For the rare cases where something on the head needs to be above everything else (e.g. flowers)
 #define HALO_LAYER 2 //blood cult ascended halo, because there's currently no better solution for adding/removing
 #define FIRE_LAYER 1 //If you're on fire
-#define TOTAL_LAYERS 31 //KEEP THIS UP-TO-DATE OR SHIT WILL BREAK ;_;
+#define TOTAL_LAYERS 32 //KEEP THIS UP-TO-DATE OR SHIT WILL BREAK ;_; // MOJAVE SUN EDIT - ORIGINAL IS '31'
 
 //Bitflags for the layers an external organ can draw on
 #define EXTERNAL_FRONT (1 << 1)

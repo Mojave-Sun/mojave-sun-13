@@ -111,9 +111,6 @@
     other_delay = 1 SECONDS
     max_amount = 12
     amount = 12
-    absorption_rate = 0.12
-    absorption_capacity = 5
-    splint_factor = 0.6
     burn_cleanliness_bonus = 0.5
     merge_type = /obj/item/stack/medical/gauze/ms13
 
@@ -138,8 +135,5 @@
     desc = "A sterile and elastic roll of gauze with a handle used to help pin the dressing down. Very good at soaking up blood from wounds and can be used as a decent splint for a broken bone."
     icon_state = "bandage_m"
     inhand_icon_state = "bandage_m"
-    absorption_rate = 0.18
-    absorption_capacity = 6.5
-    splint_factor = 0.5 //Lower = better
     burn_cleanliness_bonus = 0.3 //Lower = better
     merge_type = /obj/item/stack/medical/gauze/ms13/military
