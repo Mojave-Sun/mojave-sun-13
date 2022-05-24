@@ -142,10 +142,10 @@
 	if(!limb)
 		to_chat(user, span_notice("There's nothing there to bandage!"))
 		return
+	/* MOJAVE SUN EDIT START - Joshua Graham cosplay possible
 	if(!LAZYLEN(limb.wounds))
 		to_chat(user, span_notice("There's no wounds that require bandaging on [user==M ? "your" : "[M]'s"] [limb.name]!")) // good problem to have imo
 		return
-
 	var/gauzeable_wound = FALSE
 	for(var/i in limb.wounds)
 		var/datum/wound/woundies = i
@@ -155,6 +155,7 @@
 	if(!gauzeable_wound)
 		to_chat(user, span_notice("There's no wounds that require bandaging on [user==M ? "your" : "[M]'s"] [limb.name]!")) // good problem to have imo
 		return
+	MOJAVE SUN EDIT END */
 
 	if(limb.current_gauze)	// MOJAVE SUN EDIT - ORIGINAL IS if(limb.current_gauze && (limb.current_gauze.absorption_capacity * 0.8 > absorption_capacity)) // ignore if our new wrap is < 20% better than the current one, so someone doesn't bandage it 5 times in a row
 		to_chat(user, "<span class='warning'>[user==M ? "Your" : "[M]'s"] [limb.name] is already bandaged!</span>")	// MOJAVE SUN EDIT - ORIGINAL IS 	to_chat(user, span_warning("The bandage currently on [user==M ? "your" : "[M]'s"] [limb.name] is still in good condition!"))
@@ -455,8 +456,9 @@
 	if(!limb)
 		to_chat(user, "<span class='notice'>There's nothing there to bandage!</span>")
 		return
+	/* MOJAVE SUN EDIT BEGIN - Joshua Spintam?
 	if(!LAZYLEN(limb.wounds))
-		to_chat(user, "<span class='notice'>There's no wounds that require bandaging on [user==M ? "your" : "[M]'s"] [limb.name]!</span>") // good problem to have imo
+		to_chat(user, "<span class='notice'>There's no wounds that require bandaging on [user==M ? "your" : "[M]'s"] [limb.name]!</span>") // good problem to have imo // MOJAVE SUN EDIT
 		return
 
 	var/splintable_wound = FALSE
@@ -468,6 +470,7 @@
 	if(!splintable_wound)
 		to_chat(user, "<span class='notice'>There's no wounds that require splinting on [user==M ? "your" : "[M]'s"] [limb.name]!</span>") // good problem to have imo
 		return
+	MOJAVE SUN EDIT END */
 
 	if(limb.current_splint)
 		to_chat(user, "<span class='warning'>[user==M ? "Your" : "[M]'s"] [limb.name] is already fastened in a splint!</span>")
