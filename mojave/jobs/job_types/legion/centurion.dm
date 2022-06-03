@@ -2,8 +2,8 @@
 	title = "Legion Centurion"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "Praetorians, The Legate, and Caesar."
-	description = "Command your Centura, leading them to glorious victory at all costs."
+	supervisors = "The Legate, if present. And Caesar himself."
+	description = "Command your Centuria, leading them to glorious victory at all costs."
 	enforce = "The Legion expects you to lead them effectively. Do not be a coward."
 
 	outfit = /datum/outfit/job/ms13/legion/centurion
@@ -15,13 +15,20 @@
 	jobtype = /datum/job/ms13/legion/centurion
 
 	head = /obj/item/clothing/head/helmet/ms13/legion/centurion
-	glasses = /obj/item/clothing/glasses/sunglasses/big
-	backpack = /obj/item/storage/backpack/satchel/leather
-	uniform = /obj/item/clothing/under/ms13/legion/fatigues/redpadded
-	shoes = /obj/item/clothing/shoes/ms13/military/legion/darkboots
+	uniform = /obj/item/clothing/under/ms13/legion/fatigues/red/padded
+	shoes = /obj/item/clothing/shoes/ms13/military/legion/tanboots
+	gloves = /obj/item/clothing/gloves/ms13/legion/bracers
 	suit = /obj/item/clothing/suit/armor/ms13/legion/centurion
-	suit_store = /obj/item/gun/ballistic/automatic/ms13/full/smg10mm
-	r_pocket = /obj/item/ammo_box/magazine/ms13/smgm10mm
+	suit_store = /obj/item/gun/ballistic/rifle/ms13/hunting
+	belt = /obj/item/gun/ballistic/revolver/ms13/caravan/sawed
+	r_pocket = /obj/item/stack/medical/gauze/ms13/half
+	l_pocket = /obj/item/flashlight/flare/ms13
+	r_hand = /obj/item/claymore/ms13/machete/ripper
+	id = /obj/item/card/id/ms13/legcenturion
+	backpack_contents = list(
+		/obj/item/ammo_box/magazine/ms13/r308=2,\
+		/obj/item/ammo_box/ms13/shotgun/buckshot=1,\
+		/obj/item/stack/medical/ointment/ms13/aloe=1)
 
 /datum/outfit/job/ms13/legion/centurion/pre_equip(mob/living/carbon/human/H)
 	..()

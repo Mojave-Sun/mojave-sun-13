@@ -11,10 +11,14 @@
 	w_class = WEIGHT_CLASS_SMALL
 	custom_materials = list(/datum/material/iron=75, /datum/material/glass=25)
 	radio_broadcast = 100 //Cannot broadcast. If someone manages to circumvent, it should be complete static.
+	grid_height = 64
+	grid_width = 32
+	var/static = FALSE //used for inventory only radios
 
 /obj/item/radio/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
+	if(!static)
+		AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
 /obj/item/radio/ms13/can_receive(freq, level, AIuser)
 	if(ishuman(src.loc))
@@ -59,7 +63,7 @@
 		return TRUE
 	..()
 	weapon.play_tool_sound(src)
-	if(do_after(user, 25 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+	if(do_after(user, 30 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
 		deconstruct(disassembled = TRUE)
 		return TRUE
 

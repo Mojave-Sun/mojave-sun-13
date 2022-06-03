@@ -11,7 +11,7 @@
 	vision_range = 12
 	aggro_vision_range = 10
 	minimum_distance = 1
-	retreat_distance = 4
+	retreat_distance = null
 	move_to_delay = 2.5
 	loot = list(/obj/item/stack/sheet/ms13/scrap_steel/two, /obj/effect/decal/cleanable/robot_debris, /obj/item/stack/sheet/ms13/scrap_electronics/two, /obj/item/stack/sheet/ms13/scrap_parts/two, /obj/item/stack/sheet/ms13/circuits/three)
 	speed = 1
@@ -20,7 +20,7 @@
 	sharpness = SHARP_POINTY
 	attack_verb_continuous = "stabs"
 	attack_verb_simple = "stab"
-	stat_attack = CONSCIOUS
+	stat_attack = SOFT_CRIT
 	ranged = TRUE
 	projectiletype = /obj/projectile/beam/ms13/laser/assaultron
 	projectilesound = 'mojave/sound/ms13weapons/gunsounds/lasrifle/laser_heavy.ogg'

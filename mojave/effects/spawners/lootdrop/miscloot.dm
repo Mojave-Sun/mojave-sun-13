@@ -1,3 +1,6 @@
+//// These spawners are NON-STATIC spawns. If you are making changes to these pools, you should probably also make changes to the static spawns outside of the Guarenteed folder. ////
+//// The idea of these spawners it to use these EVERYWHERE. Emphasis on EVERYWHERE!!! These are the spawners you should be slapping in every other building, so that there's variety in loot locations on a per-round basis. ////
+
 /obj/effect/spawner/random/ms13
 	name = "DO NOT USE ME - Mojave Sun loot spawners"
 	icon = 'mojave/icons/effects/random_spawners.dmi'
@@ -16,10 +19,9 @@
 	spawn_loot_chance = 65
 	loot = list(
 			/obj/effect/spawner/random/ms13/tools/lights = 15,
-			/obj/effect/spawner/random/ms13/tools/radio = 5,
 			/obj/effect/spawner/random/ms13/tools/tool = 50,
 			/obj/effect/spawner/random/ms13/tools/fishing = 5,
-			/obj/effect/spawner/random/ms13/crafting/lowrandom = 25
+			/obj/effect/spawner/random/ms13/crafting/lowrandom = 30
 			)
 
 /obj/effect/spawner/random/ms13/tools/tool

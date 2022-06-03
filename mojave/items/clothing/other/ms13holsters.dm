@@ -1,4 +1,4 @@
-/obj/item/storage/belt/holster/ms13
+/obj/item/storage/belt/holster/ms13 // These are pretty busted. Don't use.
 	name = "holster"
 	desc = "A holster able to carry revolvers and other handguns along with some ammo."
 	icon = 'mojave/icons/objects/clothing/clothing_world/belts_world.dmi'
@@ -8,7 +8,7 @@
 
 /obj/item/storage/belt/holster/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/belts_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clothing/clothing_inventory/belts_inventory.dmi')
 
 /obj/item/storage/belt/holster/ms13/equipped(mob/user, slot)
 	. = ..()

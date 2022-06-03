@@ -112,9 +112,9 @@
 	resetChannels()
 
 	if(keyslot)
-		for(var/ch_name in keyslot.channels)
-			if(!(ch_name in channels))
-				channels[ch_name] = keyslot.channels[ch_name]
+		for(var/channel_name in keyslot.channels)
+			if(!(channel_name in channels))
+				channels[channel_name] = keyslot.channels[channel_name]
 
 		if(keyslot.translate_binary)
 			translate_binary = TRUE
@@ -123,8 +123,8 @@
 		if(keyslot.independent)
 			independent = TRUE
 
-	for(var/ch_name in channels)
-		secure_radio_connections[ch_name] = add_radio(src, GLOB.radiochannels[ch_name])
+	for(var/channel_name in channels)
+		secure_radio_connections[channel_name] = add_radio(src, GLOB.radiochannels[channel_name])
 
 // Used for cyborg override
 /obj/item/radio/proc/resetChannels()
@@ -133,6 +133,14 @@
 	translate_binary = FALSE
 	syndie = FALSE
 	independent = FALSE
+
+///goes through all radio channels we should be listening for and readds them to the global list
+/obj/item/radio/proc/readd_listening_radio_channels()
+	for(var/channel_name in channels)
+		add_radio(src, GLOB.radiochannels[channel_name])
+
+	add_radio(src, FREQ_COMMON)
+
 
 /obj/item/radio/proc/make_syndie() // Turns normal radios into Syndicate radios!
 	qdel(keyslot)
@@ -166,59 +174,6 @@
 /obj/item/radio/proc/get_listening()
 	return listening
 
-/obj/item/radio/ui_act(action, params, datum/tgui/ui)
-	. = ..()
-	if(.)
-		return
-	switch(action)
-		if("frequency")
-			if(freqlock)
-				return
-			var/tune = params["tune"]
-			var/adjust = text2num(params["adjust"])
-			if(adjust)
-				tune = frequency + adjust * 10
-				. = TRUE
-			else if(text2num(tune) != null)
-				tune = tune * 10
-				. = TRUE
-			if(.)
-				set_frequency(sanitize_frequency(tune, freerange))
-		if("listen")
-			listening = !listening
-			. = TRUE
-		/* ORIGINAL BROADCAST CDODE
-		if("broadcast")
-			broadcasting = !broadcasting
-			. = TRUE
-		*/
-		if("broadcast") //MOJAVE EDIT START
-			if(radio_broadcast == 100)
-				. = FALSE
-			else
-				broadcasting = !broadcasting
-				. = TRUE //MOJAVE EDIT END
-		if("channel")
-			var/channel = params["channel"]
-			if(!(channel in channels))
-				return
-			if(channels[channel] & FREQ_LISTENING)
-				channels[channel] &= ~FREQ_LISTENING
-			else
-				channels[channel] |= FREQ_LISTENING
-			. = TRUE
-		if("command")
-			use_command = !use_command
-			. = TRUE
-		if("subspace")
-			if(subspace_switchable)
-				subspace_transmission = !subspace_transmission
-				if(!subspace_transmission)
-					channels = list()
-				else
-					recalculateChannels()
-				. = TRUE
-
 /**
  * setter for the listener var, adds or removes this radio from the global radio list if we are also on
  *
@@ -232,8 +187,7 @@
 		should_be_listening = listening
 
 	if(listening && on)
-		recalculateChannels()
-		add_radio(src, frequency)
+		readd_listening_radio_channels()
 	else if(!listening)
 		remove_radio_all(src)
 
@@ -463,8 +417,14 @@
 			set_listening(!listening)
 			. = TRUE
 		if("broadcast")
-			set_broadcasting(!broadcasting)
-			. = TRUE
+		//Mojave Sun Edit
+			if(radio_broadcast == 100)
+				. = FALSE
+			else
+				set_broadcasting(!broadcasting)
+				. = TRUE
+		//End of Mojave Sun Edit
+		
 		if("channel")
 			var/channel = params["channel"]
 			if(!(channel in channels))
@@ -485,6 +445,7 @@
 				else
 					recalculateChannels()
 				. = TRUE
+
 
 /obj/item/radio/suicide_act(mob/living/user)
 	user.visible_message(span_suicide("[user] starts bouncing [src] off [user.p_their()] head! It looks like [user.p_theyre()] trying to commit suicide!"))

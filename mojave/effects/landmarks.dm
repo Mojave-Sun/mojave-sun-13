@@ -90,7 +90,7 @@
 	name = "Raider"
 
 /obj/effect/landmark/start/ms13/sawbone
-	name = "Sawbone"
+	name = 	"Raider Sawbone"
 
 /obj/effect/landmark/start/ms13/enforcer
 	name = "Raider Enforcer"
@@ -116,7 +116,13 @@
 	name = "Legion Recruit Decanus"
 
 /obj/effect/landmark/start/ms13/legion_veteran_legionary
-	name = "Legion Veteran Legionary"
+	name = "Veteran Legionary"
+
+/obj/effect/landmark/start/ms13/legion_prime_legionary
+	name = "Prime Legionary"
+
+/obj/effect/landmark/start/ms13/legion_recruit_legionary
+	name = "Recruit Legionary"
 
 /obj/effect/landmark/start/ms13/legion_speculatore
 	name = "Legion Speculatore"
@@ -127,22 +133,25 @@
 /obj/effect/landmark/start/ms13/legion_scout
 	name = "Legion Scout"
 
+/obj/effect/landmark/start/ms13/legion_vexillarius
+	name = "Legion Vexillarius"
+
 // Desert Ranger Spawns //
 
 /obj/effect/landmark/start/ms13/ranger_deputy_chief
-	name = "Ranger Deputy-Chief"
+	name = "Desert Ranger Deputy-Chief"
 
 /obj/effect/landmark/start/ms13/ranger_elite
-	name = "Elite Ranger"
+	name = "Elite Desert Ranger"
 
 /obj/effect/landmark/start/ms13/ranger
-	name = "Ranger"
+	name = "Desert Ranger"
 
 /obj/effect/landmark/start/ms13/ranger_recruit
-	name = "Ranger Recruit"
+	name = "Desert Ranger Recruit"
 
 /obj/effect/landmark/start/ms13/ranger_doctor
-	name = "Ranger Doctor"
+	name = "Desert Ranger Doctor"
 
 // Combat Test Spawns //
 

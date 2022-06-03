@@ -238,6 +238,13 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		if(damtype == BRUTE)
 			hitsound = "swing_hit"
 
+	//MOJAVE SUN EDIT START - Grid Inventory
+	if(grid_width <= 0)
+		grid_width = (w_class * world.icon_size)
+	if(grid_height <= 0)
+		grid_height = (w_class * world.icon_size)
+	//MOJAVE SUN EDIT END
+
 //	add_weapon_description() MOJAVE SUN EDIT: We don't need this!
 
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_ITEM, src)
@@ -256,8 +263,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	return ..()
 
 /// Adds the weapon_description element, which shows the 'warning label' for especially dangerous objects. Override this for item types with special notes.
-/obj/item/proc/add_weapon_description()
-	AddElement(/datum/element/weapon_description)
+/*/obj/item/proc/add_weapon_description()
+	AddElement(/datum/element/weapon_description) */ //MOJAVE EDIT - Comments out this proc because weapon_description in general is commented out.
 
 /obj/item/proc/check_allowed_items(atom/target, not_inside, target_self)
 	if(((src in target) && !target_self) || (!isturf(target.loc) && !isturf(target) && not_inside))
@@ -488,6 +495,10 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 			return
 
 
+	//MOJAVE EDIT BEGIN
+	if(SEND_SIGNAL(loc, COMSIG_STORAGE_BLOCK_USER_TAKE, src, user, TRUE))
+		return
+	//MOJAVE EDIT END
 	//If the item is in a storage item, take it out
 	SEND_SIGNAL(loc, COMSIG_TRY_STORAGE_TAKE, src, user.loc, TRUE)
 	if(QDELETED(src)) //moving it out of the storage to the floor destroyed it.
@@ -624,25 +635,31 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 /obj/item/proc/equipped(mob/user, slot, initial = FALSE)
 	SHOULD_CALL_PARENT(TRUE)
 	visual_equipped(user, slot, initial)
+	/* MOJAVE EDIT REMOVAL
 	SEND_SIGNAL(src, COMSIG_ITEM_EQUIPPED, user, slot)
 	SEND_SIGNAL(user, COMSIG_MOB_EQUIPPED_ITEM, src, slot)
+	*/
 	for(var/X in actions)
 		var/datum/action/A = X
 		if(item_action_slot_check(slot, user)) //some items only give their actions buttons when in a specific slot.
 			A.Grant(user)
 	item_flags |= IN_INVENTORY
+	//MOJAVE EDIT BEGIN
+	SEND_SIGNAL(src, COMSIG_ITEM_EQUIPPED, user, slot)
+	SEND_SIGNAL(user, COMSIG_MOB_EQUIPPED_ITEM, src, slot)
+	//MOJAVE EDIT END
 	if(!initial)
 		if(equip_sound && (slot_flags & slot))
 			playsound(src, equip_sound, EQUIP_SOUND_VOLUME, TRUE, ignore_walls = FALSE)
 		else if(slot == ITEM_SLOT_HANDS)
 			playsound(src, pickup_sound, PICKUP_SOUND_VOLUME, ignore_walls = FALSE)
 	user.update_equipment_speed_mods()
-//MOJAVE EDIT CHANGE BEGIN
+	//MOJAVE EDIT CHANGE BEGIN
 	if(!log_pickup_and_drop || initial) //This is all to make sure the pick up and drop logging works properly
 		return
 	if(slot == ITEM_SLOT_HANDS)
 		user.log_message("[user] grabbed a [name]", LOG_ATTACK)
-//MOJAVE EDIT CHANGE END
+	//MOJAVE EDIT CHANGE END
 
 ///sometimes we only want to grant the item's action if it's equipped in a specific slot.
 /obj/item/proc/item_action_slot_check(slot, mob/user)

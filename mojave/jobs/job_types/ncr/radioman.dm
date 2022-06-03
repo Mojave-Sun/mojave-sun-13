@@ -18,7 +18,7 @@
 	suit = 		 /obj/item/clothing/suit/armor/ms13/ncr/reinforced
 	suit_store = /obj/item/gun/ballistic/rifle/ms13/varmint
 	belt = 		 /obj/item/gun/ballistic/automatic/pistol/ms13/m9mm
-	back = 		 /obj/item/ms13/storage/backpack/radiopack
+	back = 		 /obj/item/storage/ms13/radiopack
 	r_pocket =   /obj/item/ammo_box/magazine/ms13/r10
 	l_pocket =   /obj/item/knife/ms13/hunting
 	backpack_contents = list(

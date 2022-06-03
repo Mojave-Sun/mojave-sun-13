@@ -59,7 +59,7 @@
 	time = 20 SECONDS
 	tool_paths = list()
 	trait = TRAIT_MEDICAL_TRAINING
-	reqs = list(/obj/item/stack/sheet/ms13/mil_fiber = 6)
+	reqs = list(/obj/item/stack/sheet/ms13/mil_fiber = 5)
 	category = CAT_MEDICAL
 	crafting_interface = CRAFTING_BENCH_ARMTAILOR
 
@@ -107,19 +107,9 @@
 	time = 10 SECONDS
 	tool_behaviors = list(TOOL_KNIFE)
 	tool_paths = list()
-	reqs = list(/obj/item/ms13/hide/molerat = 2, 
+	reqs = list(/obj/item/ms13/hide/molerat = 1, 
 				/obj/item/stack/sheet/ms13/cloth = 2, 
 				/obj/item/stack/sheet/ms13/thread = 1)
-	category = CAT_ARMOR
-	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
-
-/datum/crafting_recipe/shawl
-	name = "leather shawl"
-	result = /obj/item/clothing/suit/ms13/shawl
-	time = 10 SECONDS
-	tool_behaviors = list(TOOL_KNIFE)
-	tool_paths = list()
-	reqs = list(/obj/item/stack/sheet/ms13/leather = 6)
 	category = CAT_ARMOR
 	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
 
@@ -794,6 +784,16 @@
 	category = CAT_MISCCLOTHING
 	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
 
+/datum/crafting_recipe/shawl
+	name = "leather shawl"
+	result = /obj/item/clothing/neck/cloak/ms13/shawl
+	time = 8 SECONDS
+	tool_behaviors = list(TOOL_KNIFE)
+	tool_paths = list()
+	reqs = list(/obj/item/stack/sheet/ms13/leather = 3)
+	category = CAT_MISCCLOTHING
+	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
+
 //WEAPON CRAFTING
 
 /datum/crafting_recipe/knife_spear
@@ -885,8 +885,8 @@
 	time = 12 SECONDS
 	tool_behaviors = list()
 	tool_paths = list(/obj/item/ms13/hammer)
-	reqs = list(/obj/item/stack/sheet/ms13/scrap_steel = 7,
-				/obj/item/stack/sheet/ms13/scrap = 7)
+	reqs = list(/obj/item/stack/sheet/ms13/scrap_steel = 6,
+				/obj/item/stack/sheet/ms13/scrap = 6)
 	category = CAT_WEAPONS
 	crafting_interface = CRAFTING_BENCH_WEAPONS
 
@@ -902,6 +902,94 @@
 	category = CAT_WEAPONS
 	crafting_interface = CRAFTING_BENCH_WEAPONS
 
+/datum/crafting_recipe/shishkebab
+	name = "shishkebab"
+	result = /obj/item/claymore/ms13/machete/shishkebab
+	time = 20 SECONDS
+	tool_behaviors = list(TOOL_DRILL, TOOL_SCREWDRIVER, TOOL_WRENCH)
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/stack/sheet/ms13/scrap = 8,
+				/obj/item/stack/sheet/ms13/refined_steel = 4,
+				/obj/item/stack/sheet/ms13/scrap_parts = 10)
+	category = CAT_WEAPONS
+	crafting_interface = CRAFTING_BENCH_WEAPONS
+
+//GUN CRAFTING
+/* I don't feel like deleting all of this so I'm just going to comment it - Hekzder
+/datum/crafting_recipe/pistol_9mm
+	name = "9mm pistol"
+	result = /obj/item/gun/ballistic/automatic/pistol/ms13/m9mm
+	time = 18 SECONDS
+	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WRENCH, TOOL_SAW)
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(
+				/obj/item/stack/sheet/ms13/refined_steel = 3,
+				/obj/item/stack/sheet/ms13/scrap_parts = 5,
+				/obj/item/stack/sheet/ms13/plank = 1,
+				/obj/item/stack/sheet/ms13/refined_alu = 1
+				)
+	category = CAT_GUNS
+	crafting_interface = CRAFTING_BENCH_WEAPONS
+
+/datum/crafting_recipe/single_shotgun
+	name = "single shotgun"
+	result = /obj/item/gun/ballistic/revolver/ms13/single
+	time = 18 SECONDS
+	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WRENCH, TOOL_SAW)
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(
+				/obj/item/stack/sheet/ms13/refined_steel = 3,
+				/obj/item/stack/sheet/ms13/scrap_parts = 4,
+				/obj/item/stack/sheet/ms13/plank = 3
+				)
+	category = CAT_GUNS
+	crafting_interface = CRAFTING_BENCH_WEAPONS
+
+/datum/crafting_recipe/cara_shotgun
+	name = "caravan shotgun"
+	result = /obj/item/gun/ballistic/revolver/ms13/caravan
+	time = 18 SECONDS
+	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WRENCH, TOOL_SAW)
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(
+				/obj/item/stack/sheet/ms13/refined_steel = 4,
+				/obj/item/stack/sheet/ms13/scrap_parts = 5,
+				/obj/item/stack/sheet/ms13/plank = 4
+				)
+	category = CAT_GUNS
+	crafting_interface = CRAFTING_BENCH_WEAPONS
+
+/datum/crafting_recipe/var_rifle
+	name = "varmint rifle"
+	result = /obj/item/gun/ballistic/rifle/ms13/varmint
+	time = 18 SECONDS
+	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WRENCH, TOOL_SAW)
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(
+				/obj/item/stack/sheet/ms13/refined_steel = 4,
+				/obj/item/stack/sheet/ms13/scrap_parts = 6,
+				/obj/item/stack/sheet/ms13/plank = 3,
+				/obj/item/stack/sheet/ms13/refined_alu = 2
+				)
+	category = CAT_GUNS
+	crafting_interface = CRAFTING_BENCH_WEAPONS
+
+/datum/crafting_recipe/rev_10mm
+	name = "10mm revolver"
+	result = /obj/item/gun/ballistic/revolver/ms13/rev10mm
+	time = 18 SECONDS
+	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WRENCH, TOOL_SAW)
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(
+				/obj/item/stack/sheet/ms13/refined_steel = 3,
+				/obj/item/stack/sheet/ms13/scrap_parts = 6,
+				/obj/item/stack/sheet/ms13/plank = 2,
+				/obj/item/stack/sheet/ms13/refined_alu = 2
+				)
+	category = CAT_GUNS
+	crafting_interface = CRAFTING_BENCH_WEAPONS
+
+*/
 //ELECTRONICS CRAFTING
 
 /datum/crafting_recipe/shart_flashlight
@@ -1001,7 +1089,7 @@
 /datum/crafting_recipe/energy_cell
 	name = "energy cell"
 	result = /obj/item/stock_parts/cell/ms13/ec
-	time = 12 SECONDS
+	time = 10 SECONDS
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	tool_paths = list(/obj/item/wirecutters/ms13)
 	reqs = list(/obj/item/ms13/component/cell = 1,
@@ -1015,7 +1103,7 @@
 /datum/crafting_recipe/mfc
 	name = "microfusion cell"
 	result = /obj/item/stock_parts/cell/ms13/mfc
-	time = 18 SECONDS
+	time = 12 SECONDS
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	tool_paths = list(/obj/item/wirecutters/ms13)
 	trait = TRAIT_SCRIBE_TRAINING
@@ -1030,7 +1118,7 @@
 /datum/crafting_recipe/ecp
 	name = "electron charge pack"
 	result = /obj/item/stock_parts/cell/ms13/ecp
-	time = 20 SECONDS
+	time = 15 SECONDS
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	tool_paths = list(/obj/item/wirecutters/ms13)
 	trait = TRAIT_SCRIBE_TRAINING
@@ -1045,7 +1133,7 @@
 /datum/crafting_recipe/pc
 	name = "plasma cell"
 	result = /obj/item/stock_parts/cell/ms13/pc
-	time = 20 SECONDS
+	time = 15 SECONDS
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	tool_paths = list(/obj/item/wirecutters/ms13)
 	trait = TRAIT_SCRIBE_TRAINING
@@ -1255,20 +1343,20 @@
 //AMMO CRAFTING
 
 /datum/crafting_recipe/junk_casings
-	name = "ten junk bullet casings"
-	result = /obj/item/stack/sheet/ms13/junk_casings/ten
-	time = 4 SECONDS
+	name = "fifteen junk bullet casings"
+	result = /obj/item/stack/sheet/ms13/junk_casings/fifteen
+	time = 6 SECONDS
 	tool_paths = list(/obj/item/ms13/hammer)
-	reqs = list(/obj/item/stack/sheet/ms13/scrap_brass = 5)
+	reqs = list(/obj/item/stack/sheet/ms13/scrap_brass = 6)
 	category = CAT_JUNK_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
 
 /datum/crafting_recipe/junk_bullets
-	name = "ten junk bullets"
-	result = /obj/item/stack/sheet/ms13/junk_bullets/ten
-	time = 4 SECONDS
+	name = "fifteen junk bullets"
+	result = /obj/item/stack/sheet/ms13/junk_bullets/fifteen
+	time = 6 SECONDS
 	tool_paths = list(/obj/item/ms13/hammer)
-	reqs = list(/obj/item/stack/sheet/ms13/scrap_lead = 5)
+	reqs = list(/obj/item/stack/sheet/ms13/scrap_lead = 6)
 	category = CAT_JUNK_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
 
@@ -1395,7 +1483,7 @@
 	time = 12 SECONDS
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	tool_paths = list()
-	reqs = list(/obj/item/stack/sheet/ms13/plastic = 8,
+	reqs = list(/obj/item/stack/sheet/ms13/plastic = 10,
 				/obj/item/stack/sheet/ms13/scrap_lead = 8,
 				/obj/item/ms13/component/gunpowder/lq = 1
 				)
@@ -1403,18 +1491,18 @@
 	crafting_interface = CRAFTING_BENCH_RELOADING
 
 /datum/crafting_recipe/hq_casings
-	name = "ten high quality bullet casings"
-	result = /obj/item/stack/sheet/ms13/hq_casings/ten
-	time = 6 SECONDS
+	name = "fifteen high quality bullet casings"
+	result = /obj/item/stack/sheet/ms13/hq_casings/fifteen
+	time = 8 SECONDS
 	tool_paths = list(/obj/item/ms13/hammer)
 	reqs = list(/obj/item/stack/sheet/ms13/refined_brass = 2)
 	category = CAT_STAN_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
 
 /datum/crafting_recipe/hq_bullets
-	name = "ten high quality bullets"
-	result = /obj/item/stack/sheet/ms13/hq_bullets/ten
-	time = 6 SECONDS
+	name = "fifteen high quality bullets"
+	result = /obj/item/stack/sheet/ms13/hq_bullets/fifteen
+	time = 8 SECONDS
 	tool_paths = list(/obj/item/ms13/hammer)
 	reqs = list(/obj/item/stack/sheet/ms13/refined_lead = 2)
 	category = CAT_STAN_AMMO
@@ -1543,7 +1631,7 @@
 	time = 12 SECONDS
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	tool_paths = list()
-	reqs = list(/obj/item/stack/sheet/ms13/plastic = 8,
+	reqs = list(/obj/item/stack/sheet/ms13/plastic = 10,
 				/obj/item/stack/sheet/ms13/refined_lead = 3,
 				/obj/item/ms13/component/gunpowder = 1
 				)

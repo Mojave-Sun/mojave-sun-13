@@ -226,7 +226,24 @@
 //Applies brute and burn damage to the organ. Returns 1 if the damage-icon states changed at all.
 //Damage will not exceed max_damage using this proc
 //Cannot apply negative damage
+/* MOJAVE EDIT REMOVAL
 /obj/item/bodypart/proc/receive_damage(brute = 0, burn = 0, stamina = 0, blocked = 0, updating_health = TRUE, required_status = null, wound_bonus = 0, bare_wound_bonus = 0, sharpness = NONE, attack_direction = null)
+*/
+//MOJAVE EDIT BEGIN
+/obj/item/bodypart/proc/receive_damage(brute = 0, \
+									burn = 0, \
+									stamina = 0, \
+									blocked = 0, \
+									updating_health = TRUE, \
+									required_status = null, \
+									wound_bonus = 0, \
+									bare_wound_bonus = 0, \
+									sharpness = NONE, \
+									attack_direction = null, \
+									reduced = 0, \
+									edge_protection = 0, \
+									subarmor_flags = NONE)
+//MOJAVE EDIT END
 	var/hit_percent = (100-blocked)/100
 	if((!brute && !burn && !stamina) || hit_percent <= 0)
 		return FALSE
@@ -242,6 +259,16 @@
 	stamina = round(max(stamina * dmg_multi, 0),DAMAGE_PRECISION)
 	brute = max(0, brute - brute_reduction)
 	burn = max(0, burn - burn_reduction)
+	//MOJAVE EDIT BEGIN
+	if(reduced)
+		if(brute >= burn)
+			var/brute_before = brute
+			brute = round(max(brute - reduced, MAXIMUM_ARMOR_REDUCTION * brute), DAMAGE_PRECISION)
+			if(subarmor_flags & SUBARMOR_FLEXIBLE)
+				brute += FLOOR((brute_before - brute) * 0.1, 1)
+		else
+			burn = round(max(burn - reduced, burn * MAXIMUM_ARMOR_REDUCTION), DAMAGE_PRECISION)
+	//MOJAVE EDIT END
 	//No stamina scaling.. for now..
 
 	if(!brute && !burn && !stamina)
@@ -265,11 +292,15 @@
 	var/mangled_state = get_mangled_state()
 	var/bio_state = owner.get_biological_state()
 	var/easy_dismember = HAS_TRAIT(owner, TRAIT_EASYDISMEMBER) // if we have easydismember, we don't reduce damage when redirecting damage to different types (slashing weapons on mangled/skinless limbs attack at 100% instead of 50%)
-
+	/* MOJAVE EDIT REMOVAL
 	if(wounding_type == WOUND_BLUNT && sharpness)
+	*/
+	//MOJAVE EDIT BEGIN
+	if(sharpness && (wounding_type == WOUND_BLUNT) && (wounding_dmg > edge_protection))
+	//MOJAVE EDIT END
 		if(sharpness & SHARP_EDGED)
 			wounding_type = WOUND_SLASH
-		else if (sharpness & SHARP_POINTY)
+		else if (sharpness & SHARP_POINTY || sharpness & SHARP_IMPALING) //MOJAVE EDIT - Makes it so impaling sharpness class inflicts pierce/stab wounds.
 			wounding_type = WOUND_PIERCE
 
 	//Handling for bone only/flesh only(none right now)/flesh and bone targets
