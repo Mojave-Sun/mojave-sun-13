@@ -1,7 +1,7 @@
 //Guns
 /obj/item/gun/ballistic/rifle/ms13/hunting
 	name = "hunting rifle"
-	desc = "A sturdy bolt action hunting rifle, chambered in 308. and in use before the war."
+	desc = "A sturdy bolt action hunting rifle, chambered in .308 and in use before the war."
 	icon_state = "hunting"
 	inhand_icon_state = "hunting"
 	mag_type = /obj/item/ammo_box/magazine/ms13/r308
@@ -9,9 +9,7 @@
 	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	slot_flags = ITEM_SLOT_BACK
-	extra_damage = 40
-	extra_penetration = 15
-	fire_delay = 0.6 SECONDS
+	fire_delay = 0.75 SECONDS
 	spread = 2
 	recoil = 1.75
 	slowdown = 0.75
@@ -20,15 +18,13 @@
 
 /obj/item/gun/ballistic/rifle/ms13/hunting/scoped
 	name = "scoped hunting rifle"
-	desc = "A bolt action hunting rifle with a scope attached and a slightly improved barrel for better penetration and reduced recoil, though the added weight of everything will slow the user down."
+	desc = "A bolt action hunting rifle with a scope attached and a slightly improved barrel for reduced recoil, though the added weight of everything will slow the user down."
 	icon_state = "scoped_hunting"
 	inhand_icon_state = "scoped_hunting"
-	extra_penetration = 20
 	recoil = 1.5
 	slowdown = 1
-	zoomable = TRUE
-	zoom_amt = 9
-	zoom_out_amt = 3
+	has_scope = TRUE
+	scope_range = 4
 
 /obj/item/gun/ballistic/rifle/ms13/varmint
 	name = "varmint rifle"
@@ -39,9 +35,7 @@
 	weapon_weight = WEAPON_HEAVY
 	slot_flags = ITEM_SLOT_BACK
 	fire_sound = 'mojave/sound/ms13weapons/varmint_rifle.ogg'
-	fire_delay = 0.6 SECONDS
-	extra_damage = 30
-	extra_penetration = 5
+	fire_delay = 0.65 SECONDS
 	spread = 2
 	recoil = 0.75
 	slowdown = 0.75
@@ -84,14 +78,12 @@
 	desc = "A uniquely modified varmint rifle with improved rifling, a scope, and supressor attached. The added weight of all the attachments will slow the user down some more."
 	icon_state = "ratslayer"
 	inhand_icon_state = "ratslayer"
-	extra_penetration = 10
-	recoil = 0.5
+	recoil = 0.25
 	slowdown = 1
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
 	w_class = WEIGHT_CLASS_HUGE
-	zoomable = TRUE
-	zoom_amt = 9
-	zoom_out_amt = 3
+	has_scope = TRUE
+	scope_range = 2
 	grid_height = 32
 	grid_width = 224
 
@@ -102,12 +94,11 @@
 	inhand_icon_state = "amr"
 	mag_type = /obj/item/ammo_box/magazine/ms13/amr
 	fire_sound = 'mojave/sound/ms13weapons/amrfire.ogg'
-	fire_delay = 0.8 SECONDS
-	extra_damage = 60
-	extra_penetration = 20
+	fire_delay = 1 SECONDS
 	spread = 2
 	recoil = 4
 	slowdown = 1.5
+	scope_range = 4
 	grid_height = 256
 	grid_width = 64
 
@@ -147,8 +138,6 @@
 	internal_magazine = TRUE
 	mag_type = /obj/item/ammo_box/magazine/internal/ms13/chinese_rifle
 	fire_sound = 'mojave/sound/ms13weapons/hunting_rifle.ogg'
-	extra_damage = 35
-	extra_penetration = 5
 	spread = 2
 	recoil = 1.25
 

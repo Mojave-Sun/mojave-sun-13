@@ -92,7 +92,6 @@
 #define EXP_TYPE_TOWN "Town"
 #define EXP_TYPE_LEGION "Legion"
 #define EXP_TYPE_NCR "NCR"
-#define EXP_TYPE_RANGER "Rangers"
 #define EXP_TYPE_BOS "BOS"
 #define EXP_TYPE_RAIDERS "Raiders"
 #define EXP_TYPE_RANGERS "Rangers"

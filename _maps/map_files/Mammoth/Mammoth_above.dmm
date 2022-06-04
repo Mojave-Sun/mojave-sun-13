@@ -54,7 +54,7 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/closet/ms13/fridge,
 /obj/effect/spawner/random/ms13/food/produce_safe,
-/turf/open/floor/ms13/tile/brown,
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "aaj" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -162,9 +162,7 @@
 "aaD" = (
 /obj/structure/table/ms13/metal,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/machinery/ms13/terminal{
-	dir = 1
-	},
+/obj/structure/ms13/phone,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "aaE" = (
@@ -195,9 +193,10 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "aaI" = (
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/structure/filingcabinet/ms13,
-/turf/open/floor/wood/ms13/common,
+/obj/structure/fluff/ms13/trash/papers{
+	dir = 10
+	},
+/turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "aaJ" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -348,7 +347,7 @@
 /obj/structure/filingcabinet/ms13{
 	dir = 4
 	},
-/turf/open/floor/ms13/tile/brown,
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "abn" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -456,10 +455,12 @@
 /turf/open/floor/wood/ms13/carpet/shaggy/blue,
 /area/ms13/town)
 "abG" = (
-/obj/structure/table/ms13/wood,
-/obj/structure/ms13/phone,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/wood/ms13/carpet,
+/obj/machinery/shower{
+	dir = 4
+	},
+/obj/effect/turf_decal/ms13/showerdrains/small,
+/turf/open/floor/ms13/tile,
 /area/ms13/town)
 "abH" = (
 /obj/structure/closet/ms13/fridge,
@@ -607,14 +608,15 @@
 /area/ms13/town)
 "ach" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/structure/table/ms13/metal,
-/obj/item/radio/ms13/ham,
+/obj/structure/ms13/phone,
+/obj/structure/table/ms13/metal/grate,
 /turf/open/floor/ms13/metal,
 /area/ms13/town)
 "aci" = (
 /obj/item/cigbutt,
-/obj/machinery/light/ms13/bulb,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
+/obj/effect/spawner/random/ms13/armor/highrandom,
+/obj/structure/table/ms13/metal/grate,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/tunnel/maintenance)
 "acj" = (
@@ -647,11 +649,12 @@
 /turf/open/floor/ms13/metal,
 /area/ms13/town)
 "acp" = (
-/obj/structure/table/ms13/wood,
-/obj/item/paper_bin/ms13,
-/obj/item/pen,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/wood/ms13/carpet,
+/obj/machinery/shower{
+	dir = 8
+	},
+/obj/effect/turf_decal/ms13/showerdrains/small,
+/turf/open/floor/ms13/tile,
 /area/ms13/town)
 "acq" = (
 /obj/structure/table/ms13/no_smooth/wood/stand,
@@ -804,12 +807,11 @@
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
 "acU" = (
-/obj/structure/table/ms13/wood,
-/obj/item/newspaper{
-	pixel_y = 4
-	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/wood/ms13/common,
+/obj/structure/ms13/storage/bookshelf{
+	dir = 4
+	},
+/turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "acV" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -982,7 +984,7 @@
 /obj/machinery/door/unpowered/ms13/metal{
 	dir = 8
 	},
-/turf/open/floor/ms13/tile/brown,
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "adz" = (
 /obj/structure/table/ms13/low_wall/concrete,
@@ -1010,6 +1012,7 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/effect/spawner/random/ms13/gun/lowunique,
 /obj/effect/spawner/random/ms13/clothing/hat,
+/obj/item/radio/ms13/ham,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "adE" = (
@@ -1327,8 +1330,15 @@
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "aeN" = (
-/obj/machinery/light/ms13,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/table/ms13/wood,
+/obj/machinery/ms13/coffee{
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/drinks/mug/ms13{
+	pixel_x = 11;
+	pixel_y = 6
+	},
 /turf/open/floor/wood/ms13/carpet,
 /area/ms13/town)
 "aeQ" = (
@@ -1399,10 +1409,10 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "afc" = (
-/obj/machinery/light/ms13/bulb/industrial{
-	dir = 1
-	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
+/obj/machinery/light/ms13/bulb/industrial{
+	dir = 8
+	},
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/bos)
 "afd" = (
@@ -1432,10 +1442,9 @@
 /area/ms13/town)
 "afj" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/machinery/door/unpowered/ms13/metal{
-	dir = 1
-	},
-/turf/open/floor/ms13/tile/brown,
+/obj/structure/table/ms13/metal/grate,
+/obj/effect/spawner/random/ms13/tools/radio,
+/turf/open/floor/ms13/metal,
 /area/ms13/town)
 "afk" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -1494,9 +1503,6 @@
 /obj/structure/railing/ms13/solo{
 	dir = 4
 	},
-/obj/machinery/light/ms13/bulb/industrial{
-	dir = 1
-	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/bos)
@@ -1539,6 +1545,9 @@
 	},
 /obj/structure/table/ms13/metal,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
+/obj/machinery/ms13/terminal{
+	dir = 4
+	},
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/tunnel/maintenance)
 "afF" = (
@@ -1588,6 +1597,7 @@
 /obj/machinery/shower{
 	dir = 4
 	},
+/obj/effect/turf_decal/ms13/showerdrains/small,
 /turf/open/floor/ms13/tile,
 /area/ms13/town)
 "afN" = (
@@ -1680,11 +1690,9 @@
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/tunnel/maintenance)
 "agb" = (
-/obj/machinery/light/ms13/bulb{
-	dir = 1
-	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/wood/ms13/carpet,
+/obj/structure/filingcabinet/ms13,
+/turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "agc" = (
 /obj/structure/railing/ms13/solo,
@@ -1869,13 +1877,6 @@
 	dir = 4
 	},
 /turf/open/floor/ms13/metal,
-/area/ms13/town)
-"agP" = (
-/obj/structure/microscope{
-	pixel_y = 12
-	},
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/ms13/tile/large/white,
 /area/ms13/town)
 "agR" = (
 /obj/structure/lattice/catwalk/ms13,
@@ -2093,11 +2094,11 @@
 /area/ms13/town)
 "ahB" = (
 /obj/structure/table/ms13/wood,
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/machinery/ms13/terminal{
-	dir = 8
+/obj/structure/ms13/phone{
+	pixel_y = 6
 	},
-/turf/open/floor/wood/ms13/carpet,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "ahC" = (
 /obj/structure/ms13/foundation/mosaic/variantthree{
@@ -2239,15 +2240,6 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
 /turf/open/floor/ms13/metal/warning,
 /area/ms13/underground/bos)
-"aif" = (
-/obj/structure/table/ms13/wood,
-/obj/item/camera/detective,
-/obj/machinery/light/ms13/bulb{
-	dir = 1
-	},
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/wood/ms13/common,
-/area/ms13/town)
 "aig" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/ms13/tv{
@@ -2312,7 +2304,7 @@
 /obj/structure/chair/ms13/metal/red/unfinished{
 	dir = 8
 	},
-/turf/open/floor/ms13/tile/brown,
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "air" = (
 /obj/structure/table/ms13/metal,
@@ -2644,14 +2636,17 @@
 	dir = 4
 	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/turf_decal/ms13/showerdrains/small,
 /turf/open/floor/ms13/tile/brown,
 /area/ms13/town)
 "ajG" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/machinery/door/unpowered/ms13/metal{
-	dir = 4
+/obj/structure/table/ms13/wood,
+/obj/item/papercutter/ms13{
+	pixel_y = 4
 	},
-/turf/open/floor/ms13/metal,
+/obj/structure/ms13/storage/vent,
+/turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "ajJ" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -3124,7 +3119,7 @@
 "alt" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/item/chair/ms13/metal/office/red,
-/turf/open/floor/ms13/tile/brown,
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "alu" = (
 /obj/structure/ms13/pot/plant,
@@ -3158,12 +3153,6 @@
 /obj/effect/spawner/random/ms13/tools/lights,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/tunnel/maintenance)
-"alz" = (
-/obj/structure/table/ms13/wood,
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/effect/spawner/random/ms13/clothing/hat,
-/turf/open/floor/wood/ms13/common,
-/area/ms13/town)
 "alA" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/machinery/light/ms13,
@@ -3365,7 +3354,7 @@
 /area/ms13/town)
 "amp" = (
 /obj/machinery/door/unpowered/ms13/wood,
-/turf/open/floor/wood/ms13/common,
+/turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "amq" = (
 /obj/structure/ms13/rug/fancy,
@@ -3553,14 +3542,6 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/tunnel/maintenance)
-"amV" = (
-/obj/structure/table/ms13/metal,
-/obj/machinery/light/ms13{
-	dir = 1
-	},
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/wood/ms13/common,
-/area/ms13/town)
 "amW" = (
 /obj/structure/ms13/rug/mat/rubber,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
@@ -3660,9 +3641,9 @@
 /turf/open/floor/ms13/tile/brown,
 /area/ms13/town)
 "anr" = (
-/obj/structure/table/ms13/metal,
+/obj/item/radio/ms13/ham,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/effect/spawner/random/ms13/gun/lowrandom,
+/obj/structure/table/ms13/metal/grate,
 /turf/open/floor/ms13/metal,
 /area/ms13/town)
 "ans" = (
@@ -3673,7 +3654,9 @@
 "ant" = (
 /obj/structure/table/ms13/metal,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/effect/spawner/random/ms13/tools/radio/high,
+/obj/machinery/ms13/terminal{
+	dir = 1
+	},
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "anu" = (
@@ -3992,7 +3975,7 @@
 "aoy" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /mob/living/simple_animal/hostile/ms13/robot/handy/laser,
-/turf/open/floor/wood/ms13/carpet,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "aoz" = (
 /obj/machinery/door/unpowered/ms13/wood{
@@ -4035,10 +4018,8 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "aoI" = (
-/obj/structure/table/ms13/wood,
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/item/restraints/handcuffs/ms13,
-/turf/open/floor/wood/ms13/common,
+/obj/structure/filingcabinet/ms13,
+/turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "aoK" = (
 /obj/structure/ms13/storage/vent,
@@ -4047,12 +4028,12 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "aoM" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/ms13/storage/bookshelf{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/wood/ms13/common,
+/turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "aoN" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
@@ -4131,7 +4112,7 @@
 /obj/machinery/light/ms13{
 	dir = 4
 	},
-/turf/open/floor/ms13/tile/brown,
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "apb" = (
 /obj/structure/ms13/foundation/common,
@@ -4139,16 +4120,11 @@
 /turf/open/openspace/ms13,
 /area/ms13/town)
 "apc" = (
-/obj/structure/table/ms13/wood,
-/obj/item/clipboard,
-/obj/machinery/light/ms13{
-	dir = 8
-	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/item/paper/ms13{
-	pixel_y = 7
+/obj/structure/ms13/storage/shelf{
+	dir = 4
 	},
-/turf/open/floor/wood/ms13/common,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "apd" = (
 /obj/structure/table/ms13/metal/grate,
@@ -4257,13 +4233,6 @@
 	},
 /turf/open/openspace/ms13,
 /area/ms13/town)
-"apz" = (
-/obj/structure/table/ms13/wood,
-/obj/item/paper_bin/ms13,
-/obj/item/pen,
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/wood/ms13/common,
-/area/ms13/town)
 "apA" = (
 /obj/structure/ms13/storage/large/shelf{
 	dir = 1
@@ -4312,13 +4281,13 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13)
 "apL" = (
-/obj/item/clothing/head/helmet/ms13/trilby,
+/obj/structure/closet,
+/obj/effect/spawner/random/ms13/gun/lowrandom,
+/obj/structure/ms13/storage/vent,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/item/clothing/under/ms13/wasteland/police,
-/obj/structure/closet/crate/ms13/footlocker{
-	dir = 4
-	},
-/turf/open/floor/wood/ms13/common,
+/obj/item/clothing/suit/ms13/trench/detective,
+/obj/item/clothing/head/helmet/ms13/fedora/brown,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "apN" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -4375,7 +4344,7 @@
 /area/ms13/town)
 "apX" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/structure/filingcabinet/ms13,
+/obj/machinery/server,
 /turf/open/floor/ms13/metal,
 /area/ms13/town)
 "apZ" = (
@@ -4458,9 +4427,8 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "aqo" = (
-/obj/structure/table/ms13/metal,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/item/radio/ms13/ham,
+/obj/machinery/recorder,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "aqp" = (
@@ -4479,7 +4447,7 @@
 /obj/machinery/door/unpowered/ms13/wood{
 	dir = 8
 	},
-/turf/open/floor/wood/ms13/common,
+/turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "aqt" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -4526,7 +4494,7 @@
 /obj/structure/railing/ms13/solo{
 	dir = 4
 	},
-/turf/open/floor/wood/ms13/common,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "aqB" = (
 /obj/structure/ms13/storage/bookshelf,
@@ -4571,13 +4539,10 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "aqK" = (
-/obj/structure/table/ms13/wood,
-/obj/item/clipboard,
-/obj/item/folder/yellow{
-	pixel_y = 1
-	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/wood/ms13/common,
+/obj/structure/table/ms13/no_smooth/wood/low,
+/obj/item/radio/ms13/ham/receiver/radioking,
+/turf/open/floor/wood/ms13/carpet,
 /area/ms13/town)
 "aqL" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -4627,7 +4592,7 @@
 "aqT" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /mob/living/basic/ms13/ghoul,
-/turf/open/floor/ms13/tile/brown,
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "aqU" = (
 /obj/structure/barricade/sandbags,
@@ -5204,7 +5169,7 @@
 /obj/structure/chair/ms13/metal/red{
 	dir = 8
 	},
-/turf/open/floor/ms13/tile/brown,
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "ath" = (
 /obj/structure/bed/ms13/mattress/old,
@@ -5266,8 +5231,8 @@
 "ats" = (
 /obj/effect/decal/cleanable/glass,
 /obj/structure/table/ms13/low_wall/reinforced/bunker,
-/obj/machinery/door/poddoor/shutters/indestructible/ms13,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/red/left,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/tunnel/maintenance)
 "att" = (
@@ -5332,8 +5297,8 @@
 /area/ms13/town)
 "atG" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/structure/table/ms13/metal,
-/obj/structure/ms13/phone,
+/obj/item/radio/ms13/ham,
+/obj/structure/table/ms13/metal/grate,
 /turf/open/floor/ms13/metal,
 /area/ms13/town)
 "atH" = (
@@ -5415,7 +5380,10 @@
 /obj/machinery/light/ms13/broken{
 	dir = 1
 	},
-/turf/open/floor/ms13/tile/brown,
+/obj/structure/fluff/ms13/trash/papers{
+	dir = 10
+	},
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "atX" = (
 /obj/structure/lattice/catwalk/ms13,
@@ -5430,8 +5398,9 @@
 /area/ms13/town)
 "atZ" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/structure/safe/ms13/advanced,
+/obj/structure/safe/ms13/wall,
 /obj/effect/spawner/random/ms13/gun/lowunique,
+/obj/structure/ms13/wall_decor/flag,
 /turf/open/floor/wood/ms13/carpet,
 /area/ms13/town)
 "aub" = (
@@ -5499,7 +5468,10 @@
 /obj/machinery/ms13/terminal{
 	dir = 4
 	},
-/turf/open/floor/ms13/tile/brown,
+/obj/structure/ms13/rug/fancy{
+	dir = 4
+	},
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "aus" = (
 /obj/structure/barricade/sandbags,
@@ -5728,10 +5700,10 @@
 /area/ms13/town)
 "avl" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/structure/ms13/wall_decor/clock,
 /obj/machinery/light/ms13/bulb{
 	dir = 8
 	},
+/obj/machinery/server/alt,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "avn" = (
@@ -5766,10 +5738,11 @@
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "avt" = (
-/obj/structure/table/ms13/wood,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/item/folder/yellow,
-/turf/open/floor/wood/ms13/carpet,
+/obj/machinery/door/unpowered/ms13/wood{
+	dir = 4
+	},
+/turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "avu" = (
 /obj/structure/dresser/ms13/orange,
@@ -5810,8 +5783,10 @@
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/tunnel/maintenance)
 "avC" = (
-/obj/structure/fence/fencedoor,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/chair/comfy/ms13/ergo{
+	dir = 4
+	},
 /turf/open/floor/ms13/metal,
 /area/ms13/town)
 "avD" = (
@@ -5829,7 +5804,7 @@
 /obj/machinery/ms13/terminal{
 	dir = 1
 	},
-/turf/open/floor/ms13/tile/brown,
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "avF" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
@@ -5924,7 +5899,15 @@
 /obj/structure/table/ms13/no_smooth/large/wood/desk{
 	dir = 1
 	},
-/turf/open/floor/ms13/tile/brown,
+/obj/structure/ms13/rug/fancy,
+/obj/structure/fluff/ms13/trash/papers{
+	dir = 1
+	},
+/obj/item/ms13/fluff/ruined_book{
+	pixel_x = 8;
+	pixel_y = 8
+	},
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "avY" = (
 /obj/structure/table/ms13/metal,
@@ -6091,9 +6074,13 @@
 /turf/open/openspace/ms13,
 /area/ms13/underground/tunnel/maintenance)
 "awK" = (
-/obj/structure/chair/office/ms13/red,
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/wood/ms13/common,
+/obj/structure/fluff/ms13/trash/papers{
+	dir = 4
+	},
+/obj/machinery/light/ms13/bulb{
+	dir = 4
+	},
+/turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "awL" = (
 /obj/structure/railing/ms13/solo{
@@ -6187,7 +6174,7 @@
 /obj/machinery/light/ms13/bulb{
 	dir = 4
 	},
-/obj/structure/table/ms13/metal,
+/obj/machinery/server/alt,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "axg" = (
@@ -6565,10 +6552,10 @@
 /turf/open/floor/ms13/tile/brown,
 /area/ms13/town)
 "ayC" = (
-/obj/structure/table/ms13/wood,
+/obj/structure/table/ms13/no_smooth/large/wood/desk,
+/obj/machinery/ms13/terminal/wasteland,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/effect/spawner/random/ms13/medical/lowrandom,
-/turf/open/floor/wood/ms13/common,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "ayD" = (
 /obj/structure/chair/office/ms13/red/broken{
@@ -6661,11 +6648,11 @@
 /turf/open/floor/wood/ms13/carpet,
 /area/ms13/town)
 "ayX" = (
-/obj/structure/chair/comfy/ms13/ergo{
-	dir = 8
-	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/ms13/metal,
+/obj/structure/chair/comfy/ms13/armchair{
+	dir = 4
+	},
+/turf/open/floor/wood/ms13/carpet,
 /area/ms13/town)
 "ayY" = (
 /obj/effect/decal/cleanable/glass,
@@ -6714,7 +6701,7 @@
 /obj/structure/chair/office/ms13/red{
 	dir = 4
 	},
-/turf/open/floor/ms13/tile/brown,
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "azi" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -6736,11 +6723,8 @@
 /turf/open/floor/ms13/tile/full/navy,
 /area/ms13/town)
 "azl" = (
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/structure/railing/ms13/solo{
-	dir = 4
-	},
-/turf/open/floor/wood/ms13/common,
+/obj/structure/ms13/storage/trashcan,
+/turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "azm" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
@@ -6765,12 +6749,8 @@
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/bos)
 "azp" = (
-/obj/machinery/light/ms13/bulb{
-	dir = 1
-	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
-/obj/effect/spawner/random/ms13/armor/highrandom,
-/obj/structure/table/ms13/metal,
+/obj/machinery/server,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/tunnel/maintenance)
 "azq" = (
@@ -6810,7 +6790,7 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/closet/ms13/wall/firstaid,
 /obj/effect/spawner/random/ms13/medical/lowrandom,
-/turf/open/floor/ms13/tile/brown,
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "azA" = (
 /obj/effect/decal/cleanable/blood,
@@ -7033,10 +7013,11 @@
 /area/ms13/town)
 "aAs" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/structure/railing/ms13/solo{
-	dir = 8
+/obj/effect/spawner/random/ms13/clothing/hat,
+/obj/machinery/light/ms13/bulb{
+	dir = 1
 	},
-/turf/open/floor/wood/ms13/common,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "aAt" = (
 /obj/structure/filingcabinet/ms13/short{
@@ -7182,9 +7163,9 @@
 "aAR" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/filingcabinet/ms13{
-	dir = 8
+	dir = 1
 	},
-/turf/open/floor/ms13/tile/brown,
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "aAS" = (
 /obj/structure/ms13/storage/vent,
@@ -7247,14 +7228,17 @@
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/tunnel/maintenance)
 "aBf" = (
-/obj/structure/chair/office/ms13/red/broken,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/wood/ms13/common,
+/obj/structure/ms13/wall_decor/flag,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "aBg" = (
-/obj/item/ms13_small_flag/usa,
+/obj/structure/table/ms13/wood,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/wood/ms13/common,
+/obj/structure/fluff/ms13/trash/papers{
+	dir = 1
+	},
+/turf/open/floor/wood/ms13/carpet,
 /area/ms13/town)
 "aBh" = (
 /obj/structure/bed/ms13/bedframe/metal,
@@ -7952,6 +7936,9 @@
 	dir = 1
 	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/item/ms13/fluff/microscope{
+	pixel_y = 9
+	},
 /turf/open/floor/ms13/tile/large/white,
 /area/ms13/town)
 "aDL" = (
@@ -7962,20 +7949,16 @@
 /turf/open/floor/ms13/tile/full/navy,
 /area/ms13/town)
 "aDM" = (
-/obj/structure/chair/office/ms13/red{
-	dir = 1
+/obj/structure/filingcabinet/ms13/short{
+	dir = 8
 	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/wood/ms13/common,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "aDN" = (
-/obj/structure/table/ms13/wood,
-/obj/item/storage/briefcase{
-	pixel_x = -3;
-	pixel_y = 2
-	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/wood/ms13/common,
+/obj/structure/ms13/wall_decor/flag/california,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "aDO" = (
 /obj/structure/filingcabinet/ms13,
@@ -8168,10 +8151,12 @@
 /turf/open/floor/ms13/metal,
 /area/ms13/town)
 "aEw" = (
-/obj/structure/table/ms13/wood,
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/effect/spawner/random/ms13/medical/highrandom,
-/turf/open/floor/wood/ms13/common,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/light/ms13/bulb{
+	dir = 1
+	},
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "aEy" = (
 /obj/machinery/door/unpowered/ms13/metal{
@@ -8184,6 +8169,7 @@
 /obj/structure/table/ms13/no_smooth/large/metal/desk,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/machinery/ms13/terminal,
+/obj/structure/ms13/storage/vent,
 /turf/open/floor/ms13/metal,
 /area/ms13/town)
 "aEE" = (
@@ -8259,9 +8245,8 @@
 /area/ms13/town)
 "aEW" = (
 /obj/effect/decal/cleanable/glass,
-/obj/structure/table/ms13/metal,
-/obj/machinery/ms13/terminal,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
+/obj/machinery/recorder,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/tunnel/maintenance)
 "aEX" = (
@@ -8317,7 +8302,7 @@
 /obj/structure/chair/ms13/metal/red{
 	dir = 1
 	},
-/turf/open/floor/ms13/tile/brown,
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "aFl" = (
 /obj/structure/table/ms13/no_smooth/counter/wood{
@@ -8645,7 +8630,6 @@
 /area/ms13/town)
 "aGx" = (
 /obj/structure/table/ms13/metal,
-/obj/item/storage/fancy/cigarettes/cigpack_robustgold,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/ms13/metal,
 /area/ms13/town)
@@ -8887,14 +8871,10 @@
 /turf/open/floor/ms13/metal,
 /area/ms13/town)
 "aHv" = (
-/obj/structure/table/ms13/wood,
-/obj/item/storage/fancy/cigarettes/cigars{
-	pixel_y = 12
-	},
-/obj/item/clothing/mask/cigarette/cigar/cohiba{
-	pixel_y = 6
-	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/ms13/storage/bookshelf{
+	dir = 8
+	},
 /turf/open/floor/wood/ms13/carpet,
 /area/ms13/town)
 "aHw" = (
@@ -8999,7 +8979,7 @@
 /obj/machinery/light/ms13/bulb{
 	dir = 4
 	},
-/turf/open/floor/ms13/tile/brown,
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "aHS" = (
 /obj/machinery/iv_drip/ms13,
@@ -9297,8 +9277,8 @@
 /area/ms13/town)
 "aJa" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/item/chair/ms13/metal/office/red/broken,
-/turf/open/floor/ms13/tile/brown,
+/obj/machinery/server,
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "aJb" = (
 /obj/structure/table/ms13/wood,
@@ -9562,10 +9542,12 @@
 /turf/open/floor/ms13/tile,
 /area/ms13/town)
 "aKd" = (
-/obj/structure/table/ms13/wood,
+/obj/structure/ms13/rug/fancy,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/effect/spawner/random/ms13/medical/lowrandom,
-/turf/open/floor/wood/ms13/carpet,
+/obj/structure/chair/office/ms13/blue{
+	dir = 1
+	},
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "aKe" = (
 /obj/machinery/door/unpowered/ms13/metal{
@@ -9719,11 +9701,11 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "aKL" = (
-/obj/structure/chair/comfy/ms13/ergo{
-	dir = 4
-	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/ms13/metal,
+/obj/structure/fluff/ms13/trash/papers{
+	dir = 9
+	},
+/turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "aKM" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -9777,7 +9759,6 @@
 	dir = 8
 	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/effect/spawner/random/ms13/tools/radio,
 /turf/open/floor/ms13/metal,
 /area/ms13/town)
 "aKV" = (
@@ -9798,10 +9779,17 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "aKX" = (
-/obj/structure/mopbucket,
-/obj/item/mop,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/ms13/tile/full/navy,
+/obj/structure/table/ms13/no_smooth/large/metal/desk{
+	dir = 4
+	},
+/obj/machinery/ms13/terminal{
+	dir = 8;
+	doc_title_2 = "publicbunker_1";
+	doc_title_3 = "publicbunker_2";
+	doc_title_4 = "publicbunker_3"
+	},
+/turf/open/floor/ms13/metal,
 /area/ms13/town)
 "aKY" = (
 /obj/effect/decal/cleanable/blood/gibs/old,
@@ -10263,6 +10251,12 @@
 "aMP" = (
 /turf/closed/wall/ms13/concrete,
 /area/ms13/underground/tunnel)
+"aMU" = (
+/obj/structure/ms13/wall_decor/clock,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/filingcabinet/ms13/short,
+/turf/open/floor/ms13/tile/long,
+/area/ms13/town)
 "aMV" = (
 /obj/effect/decal/cleanable/glass{
 	dir = 1
@@ -10300,13 +10294,11 @@
 /turf/open/openspace/ms13,
 /area/ms13/town)
 "aNa" = (
-/obj/structure/table/ms13/wood,
-/obj/item/taperecorder{
-	pixel_x = 3
-	},
-/obj/item/folder/yellow,
+/obj/structure/table/ms13/no_smooth/counter/wood,
+/obj/item/radio/ms13/ham/receiver/radioking,
+/obj/structure/ms13/storage/vent,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/wood/ms13/common,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "aNb" = (
 /obj/effect/decal/cleanable/blood/drip{
@@ -10348,9 +10340,9 @@
 /turf/open/floor/wood/ms13/carpet/green,
 /area/ms13/town)
 "aNi" = (
-/obj/structure/table/ms13/metal,
-/obj/item/radio/ms13/ham,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/spawner/random/ms13/gun/lowrandom,
+/obj/structure/table/ms13/metal/grate,
 /turf/open/floor/ms13/metal,
 /area/ms13/town)
 "aNj" = (
@@ -10391,9 +10383,6 @@
 /area/ms13/town)
 "aNt" = (
 /obj/structure/table/ms13/no_smooth/large/metal/desk,
-/obj/structure/microscope{
-	pixel_y = 12
-	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/ms13/tile/large/white,
 /area/ms13/town)
@@ -10453,13 +10442,12 @@
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/bos)
 "aNI" = (
-/obj/structure/table/ms13/metal,
-/obj/item/paper_bin/ms13,
-/obj/item/pen{
-	pixel_y = 6
+/obj/item/ms13/fluff/ruined_book{
+	pixel_x = -11;
+	pixel_y = 10
 	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/ms13/metal,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "aNL" = (
 /obj/structure/ms13/foundation/wide/variantfive{
@@ -10504,22 +10492,23 @@
 "aNR" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/chair/office/ms13/red/broken,
-/turf/open/floor/ms13/tile/brown,
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "aNS" = (
 /obj/machinery/shower{
 	dir = 4
 	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/turf_decal/ms13/showerdrains/small,
 /turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "aNT" = (
-/obj/structure/table/ms13/wood,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/machinery/ms13/terminal{
+/obj/structure/filingcabinet/ms13/short{
 	dir = 8
 	},
-/turf/open/floor/wood/ms13/common,
+/obj/structure/ms13/storage/vent,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "aNU" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
@@ -10705,10 +10694,8 @@
 /area/ms13/town)
 "aOA" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/structure/filingcabinet/ms13/short{
-	dir = 8
-	},
-/turf/open/floor/wood/ms13/common,
+/obj/machinery/door/unpowered/ms13/wood,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "aOB" = (
 /obj/structure/barricade/sandbags,
@@ -10942,6 +10929,7 @@
 	dir = 8
 	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/turf_decal/ms13/showerdrains/small,
 /turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "aPt" = (
@@ -11173,11 +11161,9 @@
 /turf/open/floor/ms13/tile/brown,
 /area/ms13/town)
 "aQo" = (
-/obj/structure/chair/ms13/metal{
-	dir = 8
-	},
+/obj/structure/noticeboard/ms13/cork,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/wood/ms13/common,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "aQq" = (
 /obj/structure/table/ms13/no_smooth/wood/low,
@@ -11372,14 +11358,8 @@
 /turf/open/openspace/ms13,
 /area/ms13)
 "aRa" = (
-/obj/machinery/light/ms13/bulb{
-	dir = 4
-	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/structure/fluff/ms13/trash/papers{
-	dir = 4
-	},
-/turf/open/floor/wood/ms13/common,
+/turf/open/floor/iron/stairs,
 /area/ms13/town)
 "aRb" = (
 /obj/structure/bed/ms13/bedframe/wood,
@@ -11391,17 +11371,24 @@
 "aRc" = (
 /obj/structure/table/ms13/wood,
 /obj/structure/table/ms13/wood,
-/obj/item/folder/yellow,
-/obj/item/folder/yellow,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/wood/ms13/common,
+/obj/item/ms13/fluff/ruined_book{
+	pixel_x = -11;
+	pixel_y = 4
+	},
+/obj/item/ms13/fluff/ruined_book{
+	pixel_x = 6;
+	pixel_y = 8
+	},
+/obj/item/ms13/fluff/ruined_book,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "aRd" = (
-/obj/structure/chair/office/ms13/red/broken{
-	dir = 1
-	},
+/obj/structure/table/ms13/wood,
+/obj/item/clipboard,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/wood/ms13/common,
+/obj/item/ms13/fluff/ruined_book,
+/turf/open/floor/wood/ms13/carpet,
 /area/ms13/town)
 "aRe" = (
 /obj/structure/window/reinforced/fulltile/ms13/glass,
@@ -11827,9 +11814,14 @@
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "aSM" = (
+/obj/structure/ms13/rug/fancy{
+	dir = 4
+	},
+/obj/structure/chair/comfy/ms13/ergo{
+	dir = 4
+	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/item/folder/yellow,
-/turf/open/floor/wood/ms13/common,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "aSN" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
@@ -11926,10 +11918,17 @@
 /turf/open/openspace/ms13,
 /area/ms13/town)
 "aTg" = (
-/obj/structure/table/ms13/metal,
-/obj/structure/ms13/phone,
+/obj/structure/table/ms13/no_smooth/large/wood/desk{
+	dir = 8
+	},
+/obj/item/paper/ms13{
+	pixel_y = 7
+	},
+/obj/item/ms13/fluff/ruined_book{
+	pixel_y = 16
+	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/ms13/metal,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "aTh" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -12067,9 +12066,10 @@
 /area/ms13/underground/tunnel/maintenance)
 "aTM" = (
 /obj/structure/table/ms13/wood,
+/obj/item/paper_bin/ms13,
+/obj/item/pen,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/machinery/ms13/terminal,
-/turf/open/floor/wood/ms13/common,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "aTN" = (
 /obj/structure/ms13/rug/mat/rubber/single,
@@ -12211,6 +12211,9 @@
 "aUm" = (
 /obj/structure/table/ms13/no_smooth/large/metal/desk,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/item/ms13/fluff/microscope{
+	pixel_y = 9
+	},
 /turf/open/floor/ms13/tile/large/white,
 /area/ms13/town)
 "aUn" = (
@@ -12457,9 +12460,12 @@
 /area/ms13/town)
 "aVg" = (
 /obj/structure/table/ms13/wood,
-/obj/item/papercutter/ms13,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/wood/ms13/common,
+/obj/item/clipboard,
+/obj/item/paper/ms13{
+	pixel_y = 7
+	},
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "aVh" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -12606,7 +12612,8 @@
 "aVO" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/effect/spawner/random/ms13/drink/soda,
-/turf/open/floor/ms13/tile/brown,
+/obj/structure/ms13/wall_decor/clock,
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "aVQ" = (
 /obj/effect/spawner/random/ms13/ammo/lowrandom,
@@ -12677,7 +12684,7 @@
 /obj/structure/table/ms13/wood,
 /obj/item/paper_bin/ms13,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/wood/ms13/common,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "aWc" = (
 /obj/structure/railing/ms13/solo{
@@ -12849,10 +12856,8 @@
 /area/ms13/underground/tunnel/maintenance)
 "aWG" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/structure/filingcabinet/ms13/short{
-	dir = 8
-	},
-/turf/open/floor/ms13/metal,
+/obj/structure/noticeboard/ms13/cork,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "aWI" = (
 /obj/structure/chair/ms13/metal/broken,
@@ -12860,9 +12865,7 @@
 /turf/open/floor/ms13/tile/full/navy,
 /area/ms13/town)
 "aWK" = (
-/obj/structure/table/ms13/metal,
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/machinery/ms13/terminal,
+/obj/machinery/server,
 /turf/open/floor/ms13/metal,
 /area/ms13/town)
 "aWL" = (
@@ -12985,9 +12988,11 @@
 /turf/open/floor/wood/ms13/carpet/blue,
 /area/ms13/town)
 "aXm" = (
-/obj/structure/ms13/storage/shelf,
+/obj/structure/filingcabinet/ms13{
+	dir = 4
+	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/wood/ms13/common,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "aXn" = (
 /obj/machinery/light/ms13/broken,
@@ -13005,6 +13010,9 @@
 	dir = 4
 	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
+/obj/machinery/ms13/terminal{
+	dir = 8
+	},
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/tunnel/maintenance)
 "aXq" = (
@@ -13025,12 +13033,12 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "aXu" = (
-/obj/structure/ms13/storage/shelf{
-	dir = 4
-	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/effect/spawner/random/ms13/tools/radio/high,
-/turf/open/floor/ms13/metal,
+/obj/item/ms13/fluff/ruined_book{
+	pixel_x = -11;
+	pixel_y = 16
+	},
+/turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "aXv" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -13160,7 +13168,7 @@
 /obj/structure/filingcabinet/ms13/busted{
 	dir = 4
 	},
-/turf/open/floor/ms13/tile/brown,
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "aXU" = (
 /obj/structure/closet/crate/ms13/army,
@@ -13452,9 +13460,11 @@
 /turf/open/floor/ms13/tile/blue,
 /area/ms13/town)
 "aYR" = (
-/obj/structure/fluff/ms13/trash/papers,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/wood/ms13/common,
+/obj/machinery/door/unpowered/ms13/wood{
+	dir = 1
+	},
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "aYS" = (
 /obj/structure/bed/ms13/bedframe/wire,
@@ -13471,11 +13481,15 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "aYU" = (
-/obj/structure/table/ms13/wood,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/item/paper_bin/ms13,
-/obj/item/pen,
-/turf/open/floor/wood/ms13/common,
+/obj/structure/table/ms13/wood,
+/obj/item/paper_bin/ms13{
+	pixel_y = 6
+	},
+/obj/item/pen{
+	pixel_y = 6
+	},
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "aYW" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -13484,9 +13498,6 @@
 /area/ms13/town)
 "aYY" = (
 /obj/machinery/ms13/terminal/wall,
-/obj/machinery/light/ms13/bulb{
-	dir = 4
-	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/effect/spawner/random/ms13/gun/lowrandom,
 /turf/open/floor/ms13/metal,
@@ -13545,10 +13556,13 @@
 /area/ms13/underground/mountain)
 "aZn" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/structure/table/ms13/no_smooth/large/wood/desk{
+/obj/structure/fluff/ms13/trash/papers{
+	dir = 5
+	},
+/obj/machinery/light/ms13/bulb{
 	dir = 4
 	},
-/turf/open/floor/ms13/tile/brown,
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "aZo" = (
 /obj/effect/decal/cleanable/blood/footprints{
@@ -13715,7 +13729,11 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/table/ms13/no_smooth/wood,
 /obj/effect/spawner/random/ms13/melee/lowrandom,
-/turf/open/floor/ms13/tile/brown,
+/obj/item/ms13/fluff/ashtray{
+	pixel_x = 10;
+	pixel_y = 9
+	},
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "aZT" = (
 /obj/effect/turf_decal/stripes/line{
@@ -13730,13 +13748,6 @@
 	},
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/tunnel/maintenance)
-"aZV" = (
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/machinery/door/unpowered/ms13/metal/mirrored{
-	dir = 4
-	},
-/turf/open/floor/ms13/tile/brown,
-/area/ms13/town)
 "aZX" = (
 /obj/machinery/door/unpowered/ms13/metal/mirrored{
 	dir = 1
@@ -13780,6 +13791,11 @@
 /obj/effect/spawner/random/ms13/tools/radio/high,
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
+"bfr" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
+/obj/structure/table/ms13/metal/heavy,
+/turf/open/floor/ms13/metal/grate/border,
+/area/ms13/underground/bos)
 "bfM" = (
 /obj/structure/ms13/foundation/wide/variantfour,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -13878,6 +13894,12 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
+"bzW" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/chair/office/ms13/blue,
+/obj/structure/noticeboard/ms13/cork,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
 "bBf" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/machinery/light/ms13/bulb{
@@ -13961,6 +13983,12 @@
 /obj/structure/table/ms13/low_wall/brick/gray,
 /turf/open/floor/ms13/tile/long,
 /area/ms13/town)
+"bQj" = (
+/obj/structure/ms13/rug/fancy{
+	dir = 4
+	},
+/turf/open/floor/wood/ms13/mosaic,
+/area/ms13/town)
 "bQr" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/ms13/wall_decor/clock,
@@ -13993,6 +14021,11 @@
 	dir = 4
 	},
 /turf/open/floor/ms13/tile,
+/area/ms13/town)
+"bUw" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/door/unpowered/ms13/metal/mirrored,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "bUH" = (
 /obj/structure/table/ms13/no_smooth/large/wood/square,
@@ -14048,10 +14081,18 @@
 /obj/structure/dresser/ms13/torquise,
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
+"cak" = (
+/obj/effect/decal/cleanable/glass,
+/turf/open/floor/plating/ms13/roof/sheet,
+/area/ms13)
 "cbf" = (
 /obj/structure/ms13/rug/mat/rubber,
 /obj/structure/table/ms13/metal/small,
 /obj/effect/spawner/random/ms13/melee/highrandom,
+/turf/open/floor/plating/ms13/roof,
+/area/ms13)
+"cbW" = (
+/obj/structure/ms13/skeleton,
 /turf/open/floor/plating/ms13/roof,
 /area/ms13)
 "cce" = (
@@ -14089,6 +14130,18 @@
 	},
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
+"ciN" = (
+/obj/effect/spawner/random/ms13/medical/highrandom,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/light/ms13/bulb{
+	dir = 1
+	},
+/obj/item/ms13/fluff/ruined_book{
+	pixel_x = -11;
+	pixel_y = 10
+	},
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
 "ckK" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/machinery/light/ms13/bulb{
@@ -14102,6 +14155,11 @@
 /obj/structure/ms13/rug/rubber,
 /obj/structure/table/rolling/ms13,
 /turf/open/floor/ms13/tile/long,
+/area/ms13/town)
+"cnn" = (
+/obj/machinery/door/unpowered/ms13/wood/red,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "con" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -14145,6 +14203,13 @@
 	},
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
+"cuz" = (
+/obj/structure/table/ms13/metal/alt,
+/obj/machinery/ms13/terminal/wasteland{
+	dir = 1
+	},
+/turf/open/floor/ms13/tile/long,
+/area/ms13/town)
 "cvm" = (
 /obj/structure/ms13/storage/bookshelf{
 	dir = 8
@@ -14166,8 +14231,7 @@
 /area/ms13)
 "cxZ" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/structure/table/ms13/metal,
-/obj/structure/ms13/phone,
+/obj/machinery/server,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "czD" = (
@@ -14289,6 +14353,11 @@
 /obj/effect/spawner/random/ms13/crafting/precious,
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
+"cSq" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/fence/fencedoor,
+/turf/open/floor/ms13/metal,
+/area/ms13/town)
 "cVe" = (
 /obj/machinery/light/ms13/bulb{
 	dir = 1
@@ -14333,6 +14402,9 @@
 /obj/item/ms13_small_flag/usa,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/ms13/concrete/small,
+/area/ms13/town)
+"ddv" = (
+/turf/open/floor/ms13/tile/long,
 /area/ms13/town)
 "deF" = (
 /obj/structure/chair/ms13/metal/broken{
@@ -14416,6 +14488,7 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/effect/spawner/random/ms13/clothing/under,
 /obj/structure/closet/crate/ms13/footlocker,
+/obj/structure/ms13/storage/vent,
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "dtE" = (
@@ -14644,10 +14717,22 @@
 /obj/effect/decal/cleanable/glass,
 /turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
+"dSr" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/recorder,
+/turf/open/floor/ms13/metal,
+/area/ms13/town)
 "dSx" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/dresser/ms13/torquise,
 /turf/open/floor/ms13/tile/long,
+/area/ms13/town)
+"dTZ" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/table/ms13/no_smooth/wood/low,
+/obj/item/ms13/fluff/ashtray,
+/obj/structure/ms13/rug/fancy,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "dUb" = (
 /obj/structure/window/fulltile/ms13/glass,
@@ -14677,6 +14762,11 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/chair/ms13/metal/blue/unfinished,
 /turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
+"dYi" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/table/ms13/metal/alt,
+/turf/open/floor/ms13/tile/long,
 /area/ms13/town)
 "dYE" = (
 /obj/structure/lattice/catwalk/ms13,
@@ -14750,6 +14840,14 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/carpet/shaggy/green,
 /area/ms13/supermarket)
+"eki" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/light/ms13/bulb,
+/obj/item/ms13/fluff/ruined_book{
+	pixel_y = 16
+	},
+/turf/open/floor/wood/ms13/carpet,
+/area/ms13/town)
 "elN" = (
 /obj/machinery/light/ms13/bulb{
 	dir = 8
@@ -14778,6 +14876,12 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/plating/ms13/roof,
 /area/ms13/town)
+"era" = (
+/obj/structure/table/ms13/metal/grate,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/spawner/random/ms13/crafting/electrical,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
 "erk" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/ms13/rug/red,
@@ -14803,6 +14907,8 @@
 "evp" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/table/ms13/wood,
+/obj/item/radio/ms13/ham/receiver/radioking,
+/obj/structure/ms13/wall_decor/clock,
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "evF" = (
@@ -14816,11 +14922,11 @@
 /area/ms13/town)
 "ewz" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/structure/table/ms13/wood,
 /obj/effect/spawner/random/ms13/melee/lowrandom,
 /obj/machinery/light/ms13{
 	dir = 1
 	},
+/obj/structure/table/ms13/no_smooth/counter/wood,
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "eyx" = (
@@ -14888,6 +14994,13 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/carpet,
 /area/ms13/town)
+"eSx" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/ms13/storage/large/shelf{
+	dir = 4
+	},
+/turf/open/floor/ms13/metal,
+/area/ms13/town)
 "eSB" = (
 /obj/structure/table/ms13/no_smooth/wood/low,
 /obj/machinery/light/ms13{
@@ -14936,6 +15049,18 @@
 /mob/living/basic/ms13/robot/handy,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/ms13/tile/long,
+/area/ms13/town)
+"fdo" = (
+/obj/structure/table/ms13/no_smooth/counter/wood,
+/obj/machinery/ms13/coffee{
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/drinks/mug/ms13{
+	pixel_x = 11;
+	pixel_y = 6
+	},
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "feH" = (
 /obj/structure/ms13/barricade{
@@ -15055,6 +15180,12 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/fancy,
 /area/ms13/town)
+"fse" = (
+/obj/structure/ms13/rug/fancy,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/item/chair/ms13/metal/office/blue/broken,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
 "ftN" = (
 /obj/structure/filingcabinet/ms13{
 	dir = 8
@@ -15080,8 +15211,8 @@
 /area/ms13/town)
 "fyd" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/effect/decal/cleanable/glass,
-/turf/open/floor/wood/ms13/carpet/green,
+/obj/machinery/server/alt,
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "fyC" = (
 /obj/structure/chair/ms13/metal,
@@ -15090,6 +15221,16 @@
 	dir = 1
 	},
 /turf/open/floor/ms13/concrete/industrial,
+/area/ms13/town)
+"fyW" = (
+/obj/machinery/ms13/terminal/wasteland{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/item/ms13/fluff/ruined_book{
+	pixel_y = -10
+	},
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "fDC" = (
 /obj/structure/table/ms13/no_smooth/large/metal/desk{
@@ -15166,15 +15307,35 @@
 	},
 /turf/open/openspace/ms13,
 /area/ms13/town)
+"fJq" = (
+/obj/structure/table/ms13/low_wall/brick/alt,
+/obj/effect/decal/cleanable/glass,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/turf/open/floor/plating,
+/area/ms13/town)
 "fJI" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/effect/spawner/random/ms13/clothing/shoe,
 /turf/open/floor/ms13/tile/large/white,
 /area/ms13/town)
+"fJV" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/chair/office/ms13/green{
+	dir = 4
+	},
+/turf/open/floor/ms13/tile/long,
+/area/ms13/town)
 "fMw" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
 /turf/closed/wall/ms13/wood,
 /area/ms13/underground/mountain)
+"fPy" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/table/ms13/metal/small,
+/obj/item/ms13/fluff/ashtray,
+/obj/structure/ms13/storage/vent,
+/turf/open/floor/ms13/tile/large/cream,
+/area/ms13/town)
 "fPD" = (
 /obj/structure/chair/ms13/wood/padded{
 	dir = 8
@@ -15196,6 +15357,11 @@
 	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/ms13/tile/long,
+/area/ms13/town)
+"fRy" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/ms13/storage/vent,
+/turf/open/floor/ms13/metal,
 /area/ms13/town)
 "fRJ" = (
 /obj/structure/table/ms13/no_smooth/counter/wood/bend{
@@ -15232,11 +15398,26 @@
 /obj/structure/filingcabinet/ms13/busted,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
+"ger" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
+/obj/structure/railing/ms13/solo{
+	dir = 4
+	},
+/obj/machinery/server,
+/turf/open/floor/ms13/metal/plate,
+/area/ms13/underground/bos)
 "gfP" = (
 /obj/structure/chair/ms13/wood,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
+"ggu" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/ms13/metal/plate,
+/area/ms13/underground/tunnel/maintenance)
 "ggR" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/ms13/foundation/common/variantsix{
@@ -15257,6 +15438,13 @@
 	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/carpet/shaggy,
+/area/ms13/town)
+"glk" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/fluff/ms13/trash/papers{
+	dir = 4
+	},
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "glm" = (
 /obj/structure/ms13/storage/vent,
@@ -15296,6 +15484,11 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/fancy,
 /area/ms13/town)
+"goc" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/server/alt,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
 "gof" = (
 /obj/structure/ms13/storage/vent,
 /obj/structure/closet/crate/ms13/footlocker,
@@ -15328,6 +15521,14 @@
 /obj/effect/spawner/random/ms13/tools/lights,
 /turf/open/floor/plating/ms13/roof,
 /area/ms13)
+"gqE" = (
+/obj/structure/table/ms13/wood,
+/obj/item/papercutter/ms13{
+	pixel_y = 4
+	},
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
 "gqN" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/chair/comfy/ms13/armchair{
@@ -15469,6 +15670,13 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
+"gPa" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/filingcabinet/ms13{
+	dir = 1
+	},
+/turf/open/floor/ms13/metal,
+/area/ms13/town)
 "gPB" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
 /turf/closed/indestructible/rock/ms13/mammoth,
@@ -15540,6 +15748,17 @@
 	},
 /obj/structure/ms13/skeleton,
 /turf/open/floor/ms13/concrete/industrial,
+/area/ms13/town)
+"hcv" = (
+/obj/structure/table/ms13/no_smooth/large/wood/desk{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/ms13/rug/fancy,
+/obj/machinery/ms13/terminal/wasteland{
+	dir = 1
+	},
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "hdm" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -15645,6 +15864,11 @@
 /obj/effect/spawner/random/ms13/drink/soda,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
+"hrR" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
+/obj/machinery/server/alt,
+/turf/open/floor/ms13/metal,
+/area/ms13/underground/tunnel/maintenance)
 "hsX" = (
 /obj/structure/table/ms13/wood,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -15669,6 +15893,13 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
+"hxl" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/door/unpowered/ms13/metal{
+	dir = 4
+	},
+/turf/open/floor/ms13/tile/long,
+/area/ms13/town)
 "hyL" = (
 /obj/structure/lattice/catwalk/ms13,
 /obj/structure/railing/ms13/solo/industrial{
@@ -15676,6 +15907,15 @@
 	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/openspace/ms13,
+/area/ms13/town)
+"hAM" = (
+/obj/structure/ms13/rug/mat/rubber/single,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/table/rolling/ms13,
+/obj/item/storage/firstaid/ms13/bag{
+	pixel_y = 8
+	},
+/turf/open/floor/ms13/tile/long,
 /area/ms13/town)
 "hBV" = (
 /obj/structure/railing/ms13/solo{
@@ -15716,6 +15956,15 @@
 /obj/structure/ms13/rug/rubber,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"hIX" = (
+/obj/effect/decal/cleanable/glass,
+/obj/structure/table/ms13/low_wall/reinforced/bunker,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/red/right{
+	id = "emergency_lockdown"
+	},
+/turf/open/floor/ms13/metal,
+/area/ms13/underground/tunnel/maintenance)
 "hJy" = (
 /obj/structure/bed/ms13/sleepingbag/green,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -15762,6 +16011,11 @@
 "hNI" = (
 /turf/closed/wall/ms13/scrap,
 /area/ms13)
+"hNO" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/vending/ms13/cigarettes,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
 "hOY" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/ms13/storage/shelf{
@@ -15785,6 +16039,13 @@
 /obj/item/ms13_small_flag/ncr,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/ncr)
+"idk" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/door/unpowered/ms13/metal/mirrored{
+	dir = 4
+	},
+/turf/open/floor/ms13/tile/large/cream,
+/area/ms13/town)
 "idA" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/effect/spawner/random/ms13/melee/lowrandom,
@@ -15803,6 +16064,14 @@
 	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/ms13/concrete/industrial,
+/area/ms13/town)
+"ifZ" = (
+/obj/structure/ms13/rug/fancy,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/item/chair/ms13/metal/office/blue{
+	dir = 1
+	},
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "igj" = (
 /obj/structure/table/ms13/no_smooth/counter/wood{
@@ -15842,12 +16111,21 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
+"ijY" = (
+/obj/item/ammo_casing/ms13/spent,
+/turf/open/floor/plating/ms13/roof,
+/area/ms13)
 "ike" = (
 /obj/structure/railing/ms13/solo{
 	dir = 4
 	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
+"ikj" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/server,
+/turf/open/floor/ms13/metal/plate,
 /area/ms13/town)
 "ily" = (
 /obj/structure/table/ms13/no_smooth/counter/wood,
@@ -15897,6 +16175,14 @@
 /obj/effect/spawner/random/ms13/gun/lowrandom,
 /turf/open/floor/ms13/ceramic,
 /area/ms13)
+"isU" = (
+/obj/machinery/light/ms13{
+	dir = 1
+	},
+/obj/structure/table/ms13/no_smooth/counter/wood,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/turf/open/floor/wood/ms13/mosaic,
+/area/ms13/town)
 "itr" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/chair/ms13/metal,
@@ -15950,10 +16236,27 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "iCf" = (
-/obj/machinery/light/ms13{
-	dir = 8
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/ms13/rug/rubber,
+/turf/open/floor/ms13/tile/large/cream,
+/area/ms13/town)
+"iCg" = (
+/obj/structure/ms13/rug/fancy{
+	dir = 4
 	},
-/turf/open/floor/wood/ms13/mosaic,
+/obj/structure/filingcabinet/ms13{
+	dir = 1;
+	pixel_x = 9
+	},
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
+"iEm" = (
+/obj/structure/chair/comfy/ms13/ergo{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/turf/open/floor/ms13/metal,
 /area/ms13/town)
 "iER" = (
 /obj/structure/railing/ms13/sewer{
@@ -16014,6 +16317,35 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/ms13/tile/long,
 /area/ms13/town)
+"iMb" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/table/ms13/metal/grate,
+/obj/item/paper_bin/ms13,
+/obj/item/pen{
+	pixel_y = 6
+	},
+/turf/open/floor/ms13/metal,
+/area/ms13/town)
+"iMI" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/server/alt,
+/turf/open/floor/ms13/metal/plate,
+/area/ms13/town)
+"iMZ" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/item/paper/ms13{
+	pixel_y = 7
+	},
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
+"iNa" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/table/ms13/wood,
+/obj/machinery/ms13/coffee{
+	pixel_y = 8
+	},
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
 "iNr" = (
 /obj/structure/fluff/ms13/trash/papers,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -16048,6 +16380,11 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/openspace/ms13,
 /area/ms13/town)
+"iQb" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
+/obj/structure/table/ms13/metal/grate,
+/turf/open/floor/ms13/metal,
+/area/ms13/underground/tunnel/maintenance)
 "iQI" = (
 /obj/structure/ms13/rug/mat/rubber,
 /obj/structure/bed/ms13/bedframe/cot,
@@ -16075,7 +16412,7 @@
 /obj/machinery/ms13/coffee{
 	pixel_y = 7
 	},
-/turf/open/floor/ms13/tile/brown,
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "iYI" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -16124,6 +16461,13 @@
 	dir = 1
 	},
 /turf/open/floor/wood/ms13/common,
+/area/ms13/town)
+"jht" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/chair/ms13/metal{
+	dir = 4
+	},
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "jhx" = (
 /obj/structure/railing/ms13/wood{
@@ -16211,6 +16555,15 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/effect/decal/cleanable/glass,
 /turf/open/floor/wood/ms13/fancy,
+/area/ms13/town)
+"jvV" = (
+/obj/machinery/vending/ms13/nuka/pristine,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
+"jwh" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/ms13/storage/shelf,
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "jyS" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -16341,6 +16694,14 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/ms13/tile/long,
 /area/ms13/town)
+"jWo" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/ms13/rug/fancy{
+	dir = 4
+	},
+/obj/machinery/light/ms13,
+/turf/open/floor/wood/ms13/mosaic,
+/area/ms13/town)
 "jXe" = (
 /obj/machinery/light/ms13/bulb{
 	dir = 4
@@ -16391,6 +16752,13 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
+"keA" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/item/radio/ms13/ham,
+/obj/structure/table/ms13/metal/grate,
+/obj/structure/ms13/wall_decor/clock,
+/turf/open/floor/ms13/metal,
+/area/ms13/town)
 "kfH" = (
 /obj/structure/ms13/foundation/wide/variantone{
 	dir = 10
@@ -16398,6 +16766,11 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/openspace/ms13,
 /area/ms13)
+"khh" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/door/poddoor/shutters/ms13/vertical/indestructible/red/mid,
+/turf/open/floor/ms13/tile/long,
+/area/ms13/town)
 "khv" = (
 /obj/machinery/door/unpowered/ms13/metal{
 	dir = 4
@@ -16407,6 +16780,14 @@
 	pixel_x = 7
 	},
 /turf/open/floor/ms13/tile/long,
+/area/ms13/town)
+"khL" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/table/ms13/no_smooth/counter/metal{
+	dir = 1
+	},
+/obj/effect/spawner/random/ms13/crafting/highrandom,
+/turf/open/floor/ms13/metal,
 /area/ms13/town)
 "kiv" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -16425,6 +16806,13 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
 /turf/open/openspace/ms13,
 /area/ms13/underground/mountain)
+"kkt" = (
+/obj/structure/fluff/ms13/trash/papers{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
 "klm" = (
 /obj/structure/table/ms13/no_smooth/large/wood/square{
 	dir = 4
@@ -16473,6 +16861,11 @@
 /obj/structure/bed/ms13/mattress/stale,
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
+"krG" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/chair/office/ms13/green,
+/turf/open/floor/ms13/tile/long,
+/area/ms13/town)
 "ktG" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/structure/bed/ms13/bedframe/cot,
@@ -16497,6 +16890,15 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
+"kvn" = (
+/obj/structure/table/ms13/metal/grate,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/light/ms13{
+	dir = 8
+	},
+/obj/effect/spawner/random/ms13/crafting/highrandom,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
 "kwa" = (
 /obj/structure/ms13/pay_phone/withthephone,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -16511,12 +16913,17 @@
 	dir = 4
 	},
 /mob/living/basic/ms13/ghoul,
-/turf/open/floor/ms13/tile/brown,
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "kyR" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/chair/ms13/wood/padded,
 /turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
+"kAt" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/table/ms13/metal/grate,
+/turf/open/floor/ms13/metal,
 /area/ms13/town)
 "kBF" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -16634,6 +17041,13 @@
 	dir = 1
 	},
 /area/ms13/town)
+"kOC" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
+/obj/machinery/light/ms13/bulb{
+	dir = 8
+	},
+/turf/open/floor/ms13/metal,
+/area/ms13/underground/tunnel/maintenance)
 "kOI" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/chair/comfy/ms13/retro,
@@ -16644,6 +17058,11 @@
 /obj/structure/bonfire/ms13/campfire,
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
+"kOR" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/table/ms13/no_smooth/counter/metal,
+/turf/open/floor/ms13/metal/grate/border,
+/area/ms13/town)
 "kSo" = (
 /obj/structure/window/fulltile/ms13/glass,
 /obj/structure/table/ms13/low_wall/brick,
@@ -16675,6 +17094,11 @@
 /obj/structure/ms13/wall_decor/clock,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/fancy,
+/area/ms13/town)
+"kWS" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/door/unpowered/ms13/metal,
+/turf/open/floor/ms13/tile/long,
 /area/ms13/town)
 "kXm" = (
 /obj/structure/toilet{
@@ -16742,6 +17166,12 @@
 /obj/structure/ms13/rug/mat/rubber/single,
 /turf/open/floor/plating/ms13/roof,
 /area/ms13)
+"lhi" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/table/ms13/metal/grate,
+/obj/effect/spawner/random/ms13/crafting/lowrandom,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
 "lki" = (
 /obj/structure/ms13/rug/mat/rubber/single,
 /obj/structure/table/ms13/metal/grate,
@@ -16767,6 +17197,13 @@
 /obj/structure/window/fulltile/ms13/glass,
 /turf/open/floor/plating,
 /area/ms13/town)
+"loP" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/door/unpowered/ms13/metal{
+	dir = 4
+	},
+/turf/open/floor/ms13/metal,
+/area/ms13/town)
 "lqo" = (
 /obj/structure/ms13/storage/large/shelf{
 	dir = 4
@@ -16785,6 +17222,14 @@
 /obj/item/ammo_casing/ms13/spent,
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
+"lqU" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/item/ms13/fluff/ruined_book{
+	pixel_x = 6;
+	pixel_y = 8
+	},
+/turf/open/floor/ms13/tile/large/cream,
+/area/ms13/town)
 "lqZ" = (
 /obj/structure/ms13/storage/shelf{
 	dir = 4
@@ -17044,6 +17489,14 @@
 	},
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"mdQ" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/item/ms13/fluff/microscope{
+	pixel_y = 9
+	},
+/obj/item/ms13/fluff/chems,
+/turf/open/floor/ms13/tile/large/white,
+/area/ms13/town)
 "mhv" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/ms13/foundation/wide/variantfour{
@@ -17064,10 +17517,23 @@
 	},
 /turf/open/floor/ms13/tile/long,
 /area/ms13/town)
+"mpG" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/chair/ms13/metal{
+	dir = 8
+	},
+/turf/open/floor/ms13/tile/large/cream,
+/area/ms13/town)
 "mqt" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /mob/living/basic/ms13/ghoul,
 /turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
+"mqR" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/closet/ms13/wall/firstaid,
+/obj/effect/spawner/random/ms13/medical/highrandom,
+/turf/open/floor/ms13/tile/long,
 /area/ms13/town)
 "mrl" = (
 /obj/machinery/light/ms13,
@@ -17262,6 +17728,19 @@
 	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/fancy,
+/area/ms13/town)
+"mYs" = (
+/obj/structure/table/ms13/metal/grate,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/spawner/random/ms13/crafting/lowrandom,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
+"mYM" = (
+/obj/machinery/ms13/terminal/wasteland{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "ncm" = (
 /obj/structure/bed/ms13/bedframe/wire,
@@ -17661,6 +18140,13 @@
 /obj/effect/decal/cleanable/glass,
 /turf/open/floor/wood/ms13/fancy,
 /area/ms13/town)
+"okm" = (
+/obj/structure/bodycontainer/ms13/morgue{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/turf/open/floor/ms13/tile/long,
+/area/ms13/town)
 "omi" = (
 /obj/structure/table/ms13/no_smooth/counter/wood/bend,
 /obj/effect/spawner/random/ms13/food/produce_mushrooms,
@@ -17728,6 +18214,11 @@
 	},
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
+"opn" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/ms13/storage/vent,
+/turf/open/floor/ms13/tile/long,
+/area/ms13/town)
 "oqL" = (
 /obj/structure/railing/ms13/solo/industrial{
 	dir = 4
@@ -17771,11 +18262,34 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/fancy,
 /area/ms13/town)
+"oyM" = (
+/obj/effect/decal/cleanable/glass,
+/obj/structure/table/ms13/low_wall/reinforced/bunker,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/red/mid{
+	id = "emergency_lockdown"
+	},
+/turf/open/floor/ms13/metal,
+/area/ms13/underground/tunnel/maintenance)
 "oAS" = (
 /obj/structure/table/ms13/no_smooth/large/metal/desk,
 /obj/machinery/ms13/terminal,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/ms13/tile/long,
+/area/ms13/town)
+"oBe" = (
+/obj/structure/table/ms13/no_smooth/large/wood/desk{
+	dir = 4
+	},
+/obj/structure/fluff/ms13/trash/papers{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/item/ms13/fluff/ashtray{
+	pixel_x = 5;
+	pixel_y = 7
+	},
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "oBB" = (
 /obj/structure/chair/ms13/metal/blue/broken,
@@ -17826,8 +18340,20 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
 /turf/open/openspace/ms13,
 /area/ms13/underground/mountain)
+"oIs" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/fluff/ms13/trash/papers{
+	dir = 5
+	},
+/turf/open/floor/ms13/tile/large/cream,
+/area/ms13/town)
 "oJl" = (
-/turf/open/floor/plating/ms13/roof/sheet,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/item/ms13/fluff/ruined_book{
+	pixel_x = -11;
+	pixel_y = 16
+	},
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "oLS" = (
 /obj/structure/chair/office/ms13/blue,
@@ -18136,6 +18662,13 @@
 	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/ncr)
+"pBL" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/fluff/ms13/trash/papers{
+	dir = 9
+	},
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
 "pCf" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/machinery/ms13/terminal/rusty{
@@ -18267,6 +18800,11 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/plating/ms13/roof,
 /area/ms13/town)
+"pWu" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
+/obj/machinery/server/alt,
+/turf/open/floor/ms13/metal/plate,
+/area/ms13/underground/bos)
 "pWA" = (
 /obj/structure/closet/crate/ms13/woodcrate,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -18325,6 +18863,14 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
+"qgv" = (
+/obj/structure/noticeboard/ms13/cork,
+/obj/structure/fluff/ms13/trash/papers{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
 "qiK" = (
 /obj/structure/table/ms13/no_smooth/large/wood/desk{
 	dir = 8
@@ -18349,6 +18895,14 @@
 /obj/effect/spawner/random/ms13/crafting/electrical,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/ms13/concrete/industrial,
+/area/ms13/town)
+"qlr" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/table/ms13/no_smooth/counter/metal{
+	dir = 1
+	},
+/obj/effect/spawner/random/ms13/crafting/lowrandom,
+/turf/open/floor/ms13/metal,
 /area/ms13/town)
 "qoQ" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -18444,6 +18998,14 @@
 /obj/machinery/iv_drip/ms13,
 /turf/open/floor/ms13/tile/long,
 /area/ms13/town)
+"qBU" = (
+/obj/structure/railing/ms13/solo,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
+/obj/machinery/light/ms13/bulb/industrial{
+	dir = 8
+	},
+/turf/open/floor/ms13/concrete/bricks,
+/area/ms13/underground/bos)
 "qEO" = (
 /obj/structure/chair/ms13/metal/blue/unfinished,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -18464,6 +19026,11 @@
 	},
 /turf/open/floor/ms13/tile/large/white,
 /area/ms13/town)
+"qHK" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/fluff/ms13/trash/papers,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
 "qKv" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/ms13/concrete,
@@ -18478,6 +19045,11 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/carpet/shaggy/green,
 /area/ms13/supermarket)
+"qLk" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
 "qLt" = (
 /obj/structure/railing/ms13/solo{
 	dir = 1
@@ -18544,6 +19116,11 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
+"qYb" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
+/obj/machinery/recorder,
+/turf/open/floor/ms13/metal,
+/area/ms13/underground/tunnel/maintenance)
 "qYB" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/machinery/door/unpowered/ms13/metal{
@@ -18566,10 +19143,28 @@
 /obj/effect/spawner/random/ms13/crafting/highrandom,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"raP" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/server,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
+"rbi" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/grill,
+/turf/open/floor/ms13/tile/large/cream,
+/area/ms13/town)
 "rcb" = (
 /obj/structure/bed/ms13/mattress/stained,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/mosaic,
+/area/ms13/town)
+"reZ" = (
+/obj/structure/table/ms13/metal/alt,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/ms13/phone{
+	pixel_y = 6
+	},
+/turf/open/floor/ms13/tile/long,
 /area/ms13/town)
 "rgV" = (
 /obj/structure/chair/sofa/corp/left{
@@ -18655,6 +19250,12 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
+"rwH" = (
+/obj/structure/bed/ms13/bedframe/wood,
+/obj/structure/bed/ms13/mattress/stained,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/turf/open/floor/wood/ms13/mosaic,
+/area/ms13/town)
 "rxz" = (
 /obj/structure/ms13/rug/red,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -18719,6 +19320,14 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/plating/ms13/roof,
 /area/ms13/town)
+"rFZ" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/table/ms13/metal/alt,
+/obj/item/ms13/fluff/ruined_book{
+	pixel_y = 8
+	},
+/turf/open/floor/ms13/tile/long,
+/area/ms13/town)
 "rJe" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/table/ms13/no_smooth/large/wood/square,
@@ -18727,7 +19336,12 @@
 "rJw" = (
 /obj/structure/table/ms13/wood,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/machinery/ms13/coffee,
+/obj/structure/ms13/phone,
+/obj/structure/ms13/wall_decor/clock,
+/obj/item/ms13/fluff/ashtray{
+	pixel_x = -10;
+	pixel_y = 9
+	},
 /turf/open/floor/wood/ms13/carpet,
 /area/ms13/town)
 "rJU" = (
@@ -18780,6 +19394,13 @@
 	},
 /turf/open/floor/wood/ms13/carpet/green,
 /area/ms13/town)
+"rLV" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/chair/comfy/ms13/armchair{
+	dir = 1
+	},
+/turf/open/floor/wood/ms13/carpet/green,
+/area/ms13/town)
 "rNz" = (
 /obj/machinery/door/unpowered/ms13/seethrough/mirrored/metal,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -18822,6 +19443,11 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/fancy,
 /area/ms13/town)
+"rUQ" = (
+/obj/item/ammo_casing/ms13/spent,
+/obj/item/ammo_casing/ms13/spent,
+/turf/open/floor/plating/ms13/roof,
+/area/ms13)
 "rXR" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/ms13/storage/trashcan,
@@ -18894,9 +19520,10 @@
 /area/ms13/town)
 "sjq" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/effect/decal/cleanable/glass,
-/obj/structure/table/ms13/low_wall/brick/alt,
-/turf/open/floor/wood/ms13/common,
+/obj/structure/fluff/ms13/trash/papers{
+	dir = 8
+	},
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "sju" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -18905,6 +19532,19 @@
 	},
 /turf/open/openspace/ms13,
 /area/ms13/town)
+"skM" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/closet/ms13/wall/firstaid,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
+"snh" = (
+/obj/structure/table/ms13/no_smooth/counter/wood,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/ms13/coffee{
+	pixel_y = 8
+	},
+/turf/open/floor/wood/ms13/mosaic,
+/area/ms13/town)
 "snB" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/ms13/foundation/common/variantfour{
@@ -18912,6 +19552,14 @@
 	},
 /obj/machinery/light/ms13/bulb,
 /turf/open/openspace/ms13,
+/area/ms13/town)
+"spJ" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = 11
+	},
+/turf/open/floor/ms13/tile/long,
 /area/ms13/town)
 "sqg" = (
 /obj/structure/ms13/rug{
@@ -19034,6 +19682,12 @@
 /obj/machinery/ms13/terminal,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
+"sRH" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/noticeboard/ms13/cork,
+/obj/structure/chair/office/ms13/blue/broken,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
 "sYy" = (
 /obj/structure/chair/ms13/overlaypickup/plastic{
 	dir = 8
@@ -19094,6 +19748,10 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
+"tlb" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/turf/open/floor/ms13/metal/grate/border,
+/area/ms13/town)
 "tly" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/machinery/light/ms13,
@@ -19104,6 +19762,16 @@
 /obj/structure/ms13/wall_decor/flag,
 /turf/open/openspace/ms13,
 /area/ms13)
+"tnX" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/table/ms13/metal/alt,
+/obj/item/ms13/fluff/chems,
+/obj/item/ms13/fluff/microscope{
+	pixel_y = 9
+	},
+/obj/machinery/light/ms13,
+/turf/open/floor/ms13/tile/long,
+/area/ms13/town)
 "tqg" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/effect/spawner/random/ms13/melee/lowrandom,
@@ -19119,7 +19787,8 @@
 "trR" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/ms13/skeleton,
-/turf/open/floor/ms13/tile/brown,
+/obj/structure/ms13/storage/vent,
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "tuW" = (
 /obj/machinery/light/ms13,
@@ -19165,6 +19834,11 @@
 /obj/structure/noticeboard/ms13/cork,
 /obj/structure/ms13/storage/trashcan,
 /turf/open/floor/ms13/concrete/industrial,
+/area/ms13/town)
+"tAn" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/ms13/storage/vent,
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "tAD" = (
 /obj/structure/sink/kitchen{
@@ -19271,6 +19945,15 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/ms13/tile/large/checkered,
 /area/ms13/town)
+"tMf" = (
+/obj/structure/ms13/rug/mat/rubber/single,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/ms13/wall_decor/clock,
+/obj/machinery/power/floodlight/ms13/medical_lamp{
+	dir = 1
+	},
+/turf/open/floor/ms13/tile/long,
+/area/ms13/town)
 "tMw" = (
 /obj/structure/dresser/ms13/torquise/tall,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -19310,6 +19993,11 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/carpet/shaggy,
 /area/ms13/town)
+"tSq" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/server/alt,
+/turf/open/floor/ms13/metal,
+/area/ms13/town)
 "tSW" = (
 /obj/structure/bed/ms13/bedframe/wire,
 /obj/structure/bed/ms13/mattress/filthy,
@@ -19327,6 +20015,14 @@
 /mob/living/basic/ms13/ghoul,
 /turf/open/openspace/ms13,
 /area/ms13/town)
+"tTA" = (
+/obj/structure/filingcabinet/ms13{
+	dir = 1;
+	pixel_x = 9
+	},
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
 "tVo" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/chair/office/ms13/green/broken{
@@ -19341,6 +20037,10 @@
 /obj/effect/spawner/random/ms13/guarenteed/medical/lowrandom,
 /turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
+"tVE" = (
+/obj/structure/barricade/sandbags,
+/turf/open/floor/plating/ms13/roof/sheet,
+/area/ms13)
 "tWr" = (
 /obj/structure/noticeboard/ms13/cork,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -19369,6 +20069,17 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/fancy,
 /area/ms13/town)
+"tYW" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/table/ms13/metal/alt,
+/obj/item/paper_bin/ms13{
+	pixel_y = 6
+	},
+/obj/item/pen{
+	pixel_y = 6
+	},
+/turf/open/floor/ms13/tile/long,
+/area/ms13/town)
 "tZt" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
@@ -19395,7 +20106,15 @@
 "ucm" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/effect/spawner/random/ms13/clothing/shoe,
+/obj/structure/ms13/wall_decor/clock,
 /turf/open/floor/wood/ms13/mosaic,
+/area/ms13/town)
+"ucp" = (
+/obj/structure/chair/comfy/ms13/ergo{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/turf/open/floor/ms13/metal,
 /area/ms13/town)
 "ucR" = (
 /obj/structure/table/ms13/wood/constructed,
@@ -19639,6 +20358,7 @@
 /obj/structure/closet/crate/ms13/footlocker{
 	dir = 8
 	},
+/obj/structure/ms13/storage/vent,
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "uUA" = (
@@ -19870,6 +20590,13 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
+"vKq" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/chair/ms13/metal{
+	dir = 1
+	},
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
 "vLN" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/ms13/rug/rubber,
@@ -19889,9 +20616,10 @@
 /area/ms13/town)
 "vPq" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/structure/table/ms13/wood,
-/obj/machinery/ms13/coffee,
-/turf/open/floor/wood/ms13/common,
+/obj/structure/ms13/storage/shelf{
+	dir = 8
+	},
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "vQw" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -20109,6 +20837,11 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
+"wCS" = (
+/obj/structure/ms13/rug/mat/rubber/single,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/turf/open/floor/ms13/tile/long,
+/area/ms13/town)
 "wDb" = (
 /obj/structure/dresser/ms13/orange,
 /turf/open/floor/wood/ms13/fancy,
@@ -20150,6 +20883,12 @@
 /obj/structure/ms13/barricade,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
+"wIa" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/closet,
+/obj/item/clothing/suit/toggle/labcoat/ms13,
+/turf/open/floor/ms13/tile/long,
+/area/ms13/town)
 "wIr" = (
 /obj/structure/ms13/rug/fancy,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -20180,6 +20919,12 @@
 /obj/structure/ms13/barricade,
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
+"wQG" = (
+/obj/structure/bed/ms13/medical/surgery,
+/obj/structure/ms13/rug/mat/rubber/single,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/turf/open/floor/ms13/tile/long,
+/area/ms13/town)
 "wRb" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/ms13/rug/fancy,
@@ -20228,6 +20973,14 @@
 /obj/effect/spawner/random/ms13/medical/tier1,
 /turf/open/floor/ms13/tile,
 /area/ms13/town)
+"xbo" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/sink/kitchen{
+	dir = 4;
+	pixel_x = -12
+	},
+/turf/open/floor/ms13/tile/large/cream,
+/area/ms13/town)
 "xbr" = (
 /obj/structure/table/ms13/wood,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -20249,6 +21002,14 @@
 /obj/structure/ms13/wall_decor/clock,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/mosaic,
+/area/ms13/town)
+"xeD" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/spawner/random/ms13/tools/radio/high,
+/obj/structure/table/ms13/no_smooth/counter/metal{
+	dir = 1
+	},
+/turf/open/floor/ms13/metal,
 /area/ms13/town)
 "xfD" = (
 /obj/structure/table/ms13/low_wall/concrete,
@@ -20280,6 +21041,12 @@
 /obj/structure/table/ms13/no_smooth/wood,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/ncr)
+"xlA" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/ms13/wall_decor/clock,
+/turf/open/floor/wood/ms13/mosaic,
+/area/ms13/town)
 "xlG" = (
 /obj/structure/table/ms13/wood/constructed,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
@@ -20345,6 +21112,18 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/fancy,
 /area/ms13/town)
+"xvJ" = (
+/obj/structure/noticeboard/ms13/cork,
+/obj/structure/table/ms13/wood,
+/obj/item/paper_bin/ms13{
+	pixel_y = 6
+	},
+/obj/item/pen{
+	pixel_y = 6
+	},
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
 "xws" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/carpet/violet,
@@ -20399,12 +21178,29 @@
 	},
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
+"xEU" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/spawner/random/ms13/medical/lowrandom,
+/obj/machinery/light/ms13/bulb,
+/obj/item/ms13/fluff/ruined_book{
+	pixel_x = -11;
+	pixel_y = 10
+	},
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
 "xGx" = (
 /obj/structure/chair/sofa/corp/right{
 	dir = 8
 	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/carpet/violet,
+/area/ms13/town)
+"xHr" = (
+/obj/structure/table/ms13/wood,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/item/radio/ms13/ham/receiver/radioking,
+/obj/structure/ms13/wall_decor/clock,
+/turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "xIV" = (
 /obj/structure/table/ms13/wood,
@@ -20502,6 +21298,13 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/ms13/brick,
 /area/ms13/town)
+"xWB" = (
+/obj/structure/filingcabinet/ms13{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
 "xYr" = (
 /obj/machinery/hydroponics/ms13,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
@@ -20531,6 +21334,13 @@
 	pixel_x = 11
 	},
 /turf/open/floor/wood/ms13/carpet/violet,
+/area/ms13/town)
+"ybX" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/chair/ms13/metal{
+	dir = 1
+	},
+/turf/open/floor/wood/ms13/carpet,
 /area/ms13/town)
 "ycw" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -38495,8 +39305,8 @@ auq
 abm
 abm
 aXT
-aVz
-aVz
+lqU
+jav
 avX
 aXy
 avR
@@ -38794,10 +39604,10 @@ aBo
 aXy
 trR
 alt
-aVz
-aVz
+jav
+sjq
 kxQ
-aVz
+jav
 aNR
 avE
 aXy
@@ -39087,16 +39897,16 @@ avR
 avR
 avR
 aXy
-aXy
-aXy
+dSr
+agO
 aXy
 avR
 avR
 aBo
 aXy
 atV
-aVz
-aVz
+jav
+oJl
 aXy
 aXy
 ady
@@ -39388,23 +40198,23 @@ avR
 avR
 avR
 avR
-avR
-avR
-avR
-avR
+aXy
+aXy
+aXy
+aXy
 avR
 avR
 aBo
 aXy
 aJa
-aVz
-aVz
-afj
-aVz
-aVz
+iCf
+aAR
+aXy
+tAn
+jav
 aai
 iUI
-apj
+rbi
 aXy
 avR
 avR
@@ -39698,15 +40508,15 @@ avR
 avR
 aBo
 aXy
-apO
+fyd
 aZn
 aAR
 aXy
 azh
-aVz
+oIs
 apa
-aVz
-aVz
+jav
+jav
 aXy
 avR
 avR
@@ -40007,7 +40817,7 @@ aXy
 apO
 dJD
 aXy
-aZV
+idk
 aXy
 aXy
 avR
@@ -40306,11 +41116,11 @@ aLc
 aIx
 aXy
 azz
-aVz
-aVz
-aVz
-aVz
-aVz
+jav
+jav
+jav
+jav
+jav
 aXy
 avR
 avR
@@ -40607,11 +41417,11 @@ aXy
 aZi
 aIx
 aXG
-aVz
-aVz
+jav
+jav
 aqT
-aVz
-aVz
+jav
+jav
 aFj
 aXy
 avR
@@ -40909,8 +41719,8 @@ aXy
 aTT
 aIx
 aXy
-aVz
-aVz
+jav
+jav
 aHQ
 atg
 aiq
@@ -41212,7 +42022,7 @@ aXy
 aXy
 aXy
 aXy
-aAq
+eTS
 aXy
 ayt
 ayt
@@ -48917,9 +49727,9 @@ aXG
 awn
 awn
 aCj
-acV
-acV
-acV
+abG
+abG
+abG
 afM
 aeH
 aHe
@@ -50125,10 +50935,10 @@ avP
 awn
 awn
 aCj
-aYE
-aYE
-aYE
-aYE
+acp
+acp
+acp
+acp
 aCj
 aHe
 aHe
@@ -51662,9 +52472,9 @@ aPY
 aPY
 aPY
 aPY
-aPY
-aPY
-aPY
+aLH
+aLH
+aLH
 aPY
 aPY
 aPY
@@ -51963,11 +52773,11 @@ aPY
 aPY
 aPY
 aPY
-aPY
-aPY
-aPY
-aPY
-aPY
+aLH
+aLH
+aLH
+aLH
+aLH
 aPY
 aPY
 aPY
@@ -52259,21 +53069,21 @@ aCj
 aLH
 aLH
 aLH
+aLH
 aPY
 aPY
-aPY
-aPY
-aPY
-aPY
-aPY
-aPY
-aPY
-aPY
-aPY
-aPY
-aPY
-aPY
-aPY
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
 aLH
 aLH
 aLH
@@ -52562,23 +53372,23 @@ aLH
 aLH
 aLH
 aLH
-aPY
-aPY
-aPY
-aPY
-aPY
-aPY
-aPY
-aPY
-aPY
-aPY
-aPY
-aPY
 aLH
 aLH
 aLH
-aLH
-aLH
+aIr
+aCj
+aCj
+aCP
+aCP
+aCj
+aCj
+aCj
+aCj
+aCj
+tVE
+tVE
+aIr
+tVE
 aLH
 aLH
 aLH
@@ -52865,22 +53675,22 @@ aLH
 aLH
 aLH
 aLH
-aPY
-aPY
-aPY
-aPY
-aPY
-aPY
 aLH
 aLH
-aLH
-aLH
-aLH
-aLH
-aLH
-aLH
-aLH
-aLH
+aIr
+aCj
+xHr
+rwH
+lbX
+rwH
+aCj
+aPA
+asU
+aNr
+cak
+aIr
+aIr
+tVE
 aLH
 aLH
 aLH
@@ -53169,20 +53979,20 @@ aLH
 aLH
 aLH
 aLH
-aLH
-aLH
-aLH
-aLH
-aLH
-aLH
-aLH
-aLH
-aLH
-aLH
-aLH
-aLH
-aLH
-aLH
+aIr
+aCj
+isU
+aDG
+aDG
+aDG
+cnn
+ahd
+ahd
+jMK
+aIr
+aIr
+aIr
+tVE
 aLH
 aLH
 aLH
@@ -53471,15 +54281,15 @@ aLH
 aLH
 aLH
 aLH
-aLH
-aLH
-aLH
-aLH
-aLH
-aLH
-aLH
-aLH
-oJl
+aIr
+aCj
+snh
+aDG
+aDG
+rLV
+aCj
+qpB
+ahd
 aCj
 aaJ
 aaJ
@@ -53772,16 +54582,16 @@ abJ
 abJ
 aLH
 aLH
-oJl
-oJl
-aCj
-aCj
-aaJ
-sjq
+aIr
+aIr
 aCj
 aCj
 aCj
 aCj
+aCj
+aCj
+nqT
+ahd
 aCj
 tKs
 cag
@@ -54079,7 +54889,7 @@ aCj
 aCj
 dqZ
 aDG
-fyd
+aDG
 aDG
 aCj
 ahd
@@ -54989,7 +55799,7 @@ aCj
 aCj
 aCj
 ahd
-lXi
+ahd
 aeH
 aeH
 aeH
@@ -55110,8 +55920,8 @@ abJ
 abJ
 abJ
 aYA
-aSv
-aYa
+ikj
+aFu
 aCf
 aCf
 maM
@@ -55284,14 +56094,14 @@ aLH
 aLH
 aCj
 ahd
+bQj
 tCA
 tCA
 tCA
 tCA
-iCf
 tCA
 ahd
-ahd
+jWo
 aax
 lkQ
 xLy
@@ -55412,8 +56222,8 @@ aYA
 aAF
 aYA
 aYA
-aYa
-aYa
+kOR
+tlb
 aYa
 aYa
 uxm
@@ -55585,7 +56395,7 @@ abJ
 aLH
 aLH
 aCj
-ahd
+aNC
 ahd
 qpB
 ahd
@@ -55714,8 +56524,8 @@ aYa
 aYa
 bqn
 aYA
-aYa
-aYa
+kOR
+tlb
 aYa
 lPZ
 nsr
@@ -55897,7 +56707,7 @@ aCP
 aCj
 ahd
 aeH
-dDy
+xlA
 dDy
 sEr
 aaJ
@@ -56016,8 +56826,8 @@ tWr
 aYa
 fwp
 aYA
-aSv
-aYa
+iMI
+aFu
 aYa
 aYa
 nDW
@@ -59329,7 +60139,7 @@ aYA
 avl
 aYa
 aYa
-aYa
+ycw
 agK
 aHe
 aHe
@@ -59628,7 +60438,7 @@ aTi
 aLH
 aLH
 agK
-aYa
+cxZ
 aYa
 aYa
 adD
@@ -59800,8 +60610,7 @@ aLH
 aLH
 aLH
 aLH
-aLH
-aLH
+abJ
 abJ
 abJ
 abJ
@@ -59810,13 +60619,14 @@ aCj
 aCj
 aCj
 aCj
+aCj
+aCj
+aCj
+aCj
 abJ
 abJ
 abJ
-aLH
-aLH
-aLH
-aLH
+abJ
 aLH
 aLH
 aLH
@@ -60101,24 +60911,24 @@ aLH
 aLH
 aLH
 aLH
-aLH
-aLH
+abJ
 abJ
 abJ
 abJ
 abJ
 aCj
+keA
 ach
 atG
-ach
-aCj
-aCj
+aCW
+agA
+eSx
+kAt
 aCj
 abJ
-aLH
-aLH
-aLH
-aLH
+abJ
+abJ
+abJ
 aLH
 aLH
 aLH
@@ -60403,24 +61213,24 @@ aLH
 aLH
 aLH
 aLH
-aLH
-aLH
+abJ
 abJ
 abJ
 abJ
 abJ
 aCP
+dSr
+ucp
 agA
-ayX
 agA
-aNI
-aXu
-aCj
+agA
+agA
+khL
+aCP
 abJ
 abJ
 abJ
 abJ
-aLH
 aLH
 aLH
 aLH
@@ -60537,7 +61347,7 @@ aYA
 axf
 aCl
 aYa
-aYa
+ycw
 bVb
 aHe
 aHe
@@ -60705,24 +61515,24 @@ aLH
 aLH
 aLH
 aLH
-aLH
-aLH
+abJ
 abJ
 abJ
 abJ
 abJ
 aCP
-aTg
+iMb
 agA
 agA
+aCj
+fRy
 agA
-agA
+xeD
 aCP
 abJ
 abJ
 abJ
 abJ
-aLH
 aLH
 aLH
 aLH
@@ -61007,24 +61817,24 @@ aLH
 aLH
 aLH
 aLH
-aLH
-aLH
+abJ
 abJ
 abJ
 abJ
 abJ
 aCP
+dSr
+iEm
 agA
-aKL
 agA
 agA
 agA
+qlr
 aCP
 abJ
 abJ
 abJ
 abJ
-aLH
 aLH
 aLH
 aLH
@@ -61309,24 +62119,24 @@ aLH
 aLH
 aLH
 aLH
-aLH
-aLH
+abJ
 abJ
 abJ
 abJ
 abJ
 aCj
-aNi
 anr
 aNi
-aWG
+anr
+avI
 agA
+agA
+kAt
 aCj
 abJ
 abJ
 abJ
 abJ
-aLH
 aLH
 aLH
 aLH
@@ -61611,10 +62421,6 @@ aLH
 aLH
 aLH
 aLH
-aLH
-aLH
-abJ
-abJ
 abJ
 aCj
 aCj
@@ -61622,13 +62428,17 @@ aCj
 aCj
 aCj
 aCj
-ajG
 aCj
-abJ
-abJ
-abJ
-abJ
-aLH
+aCj
+aCj
+loP
+aax
+aCj
+aCj
+aCj
+aCj
+aax
+aax
 aLH
 aLH
 aLH
@@ -61914,23 +62724,23 @@ aLH
 aLH
 aLH
 aLH
-aLH
-aLH
-abJ
-abJ
 aCP
+aIE
+aIE
+aXm
+aCj
 apL
-acA
-acA
+gqE
+ahB
 aCj
-aAP
-aAP
+apW
+apW
+jht
+dTZ
 aCj
-abJ
-abJ
-abJ
-aLH
-aLH
+aHe
+aHe
+aCj
 aLH
 aLH
 aLH
@@ -62216,23 +63026,23 @@ aLH
 aLH
 aLH
 aLH
-aLH
-aLH
+aCP
+aNI
+aSM
+pBL
+aSW
+apW
+apW
+eaD
 aCj
-aCP
-aCP
-aAP
-aAP
-aAP
+uOa
+apW
+apW
+vKq
 aCj
-aAP
-aAP
-aCP
-abJ
-abJ
-abJ
-aLH
-aLH
+aHe
+aHe
+aCj
 aLH
 aLH
 aLH
@@ -62519,22 +63329,22 @@ aLH
 aLH
 aCj
 aCj
+mYM
+aTg
+apW
 aCj
+aQo
+kkt
+tTA
 aCj
-aDN
-aoI
-aAP
-ahu
-aeN
+apW
+apW
 aCj
-aAP
-aAP
-aCP
-abJ
-abJ
-abJ
-abJ
-abJ
+aax
+aax
+khh
+khh
+aCj
 aLH
 aLH
 aLH
@@ -62820,23 +63630,23 @@ aLH
 aLH
 aLH
 aCj
-aif
-aDM
-aAP
-aAP
-aAP
-aAP
-avt
-avM
+aNa
+apW
+aAD
+eaD
 aCj
-aIH
-aAP
+qgv
+qtX
+iCg
 aCj
-abJ
-abJ
-abJ
-abJ
-abJ
+phB
+apW
+aCj
+okm
+okm
+ddv
+ddv
+aCj
 aLH
 aLH
 aLH
@@ -63122,23 +63932,23 @@ aLH
 aLH
 aLH
 aCj
-aNa
-aoW
-aOA
-aAP
-aSM
-aQo
-aKd
-ahB
+fdo
+apW
+glk
+apW
 aCj
-aAP
-aAP
+xvJ
+fyW
+oBe
 aCj
-abJ
-abJ
-abJ
-abJ
-abJ
+apW
+apW
+aCj
+opn
+agY
+agY
+agY
+aCP
 aLH
 aLH
 aLH
@@ -63426,21 +64236,21 @@ aCj
 aCj
 aCj
 aCj
-aCj
-aKv
+kBF
+aax
 aCj
 aCj
 aCj
 aCj
 aeH
-aAP
-aAP
+apW
+apW
+aCj
+hAM
+wCS
+agY
+dYi
 aCP
-abJ
-abJ
-abJ
-abJ
-abJ
 aLH
 aLH
 aLH
@@ -63725,24 +64535,24 @@ aLH
 aLH
 abJ
 aCj
-aiE
-aiE
-aAP
-aEf
-aEf
-acA
-apz
-aiE
+ayC
+aKd
 aCj
-aAP
-aAP
-aAP
-aCP
-abJ
-abJ
-abJ
-abJ
-abJ
+apW
+apW
+aCj
+sRH
+hcv
+aCj
+jvV
+anj
+apW
+aCj
+wQG
+wCS
+krG
+tnX
+aCj
 aLH
 aLH
 aLH
@@ -63868,8 +64678,8 @@ aYa
 aYa
 aYa
 aYA
-aSv
-aYa
+iMI
+aFu
 aYa
 aYa
 ycw
@@ -64027,24 +64837,24 @@ abJ
 abJ
 abJ
 aCj
-aEw
-aRd
-aAP
-aEf
-aEf
-aAP
-aBf
-aiE
+ciN
+apW
+aOA
+apW
+apW
+aYR
+pBL
+awq
 aCj
-aAP
-aAP
-aAP
+hNO
+apW
+apW
 aCj
-abJ
-abJ
-abJ
-abJ
-aLH
+tMf
+wCS
+spJ
+dYi
+aCj
 aLH
 aLH
 aLH
@@ -64170,8 +64980,8 @@ aYa
 aYa
 aYa
 aYA
-aYa
-aYa
+kOR
+tlb
 aYa
 aYa
 atj
@@ -64330,23 +65140,23 @@ abJ
 abJ
 aCj
 aTM
-aAP
-aAP
+aDM
+aCj
 aoy
-aEf
-aAP
-aAP
-aiE
+apW
+aCj
+aNT
+aYU
 aCj
 aCj
-aAP
-aAP
+apW
+apW
 aCj
 aCj
-abJ
-abJ
-abJ
-aLH
+hxl
+aCj
+aCj
+aCj
 aLH
 aLH
 aLH
@@ -64472,8 +65282,8 @@ aYA
 lJd
 aYA
 aYA
-aYa
-aYa
+kOR
+tlb
 aYa
 lPZ
 sit
@@ -64626,29 +65436,29 @@ aLH
 aLH
 aLH
 abJ
-abJ
-abJ
-abJ
-abJ
 aCj
-aaI
-aAP
-aAP
-aEf
-aEf
-aAP
-aAP
-aqX
-aCj
-aWO
-ayi
-ayi
-aGK
 aCP
-abJ
-abJ
-abJ
-aLH
+aCj
+aCP
+aCj
+aax
+aax
+aCj
+uOa
+aaU
+aCj
+aCj
+aCj
+aCj
+aWG
+qLk
+qLk
+avN
+aCj
+mqR
+agY
+wIa
+aCj
 aLH
 aLH
 aLH
@@ -64774,8 +65584,8 @@ abJ
 abJ
 abJ
 aYA
-aSv
-aYa
+ikj
+aFu
 aYa
 aYa
 mvH
@@ -64928,29 +65738,29 @@ aLH
 aLH
 aLH
 abJ
+aCP
+aeN
+aqK
+ayX
 aCj
-aCP
-aCP
-aCP
+ayC
+fse
 aCj
-aIH
-aAP
-aAP
-aEf
-aEf
-aAP
-aAP
-aAP
+apW
+apW
+apW
+apW
+apW
 aAm
-azl
+axj
 aqA
-ayi
-aAP
+qLk
+apW
+kWS
+agY
+agY
+agY
 aCP
-abJ
-abJ
-abJ
-aLH
 aLH
 aLH
 aLH
@@ -65232,27 +66042,27 @@ aLH
 abJ
 aCj
 atZ
-acp
-ahu
+aEf
+eki
 aCj
-aiE
-acA
-aAP
-aEf
-aEf
-acA
-apz
-ayC
+aAs
+apW
+aOA
+apW
+apW
+apW
+apW
+apW
 aCj
 aHe
 aHe
-aAP
-aAP
+apW
+apW
 aCj
-abJ
-abJ
-abJ
-abJ
+aMU
+fJV
+cuz
+aCP
 aLH
 aLH
 aLH
@@ -65532,29 +66342,29 @@ aLH
 aLH
 aLH
 abJ
-aCj
-agb
-afr
+aCP
+aEf
+aEf
 aHv
 aCj
-alz
+aTM
 aDM
-aAP
-aEf
-aEf
-aAP
-awK
-aiE
+aCj
+aWG
+apW
+aeH
+apW
+aaU
 aCj
 aHe
 aHe
-aAP
-aAP
-aCP
-abJ
-abJ
-abJ
-abJ
+apW
+apW
+aCj
+tYW
+rFZ
+reZ
+aCj
 aLH
 aLH
 aLH
@@ -65835,28 +66645,28 @@ aLH
 aLH
 aCj
 aCj
-aiR
-aEf
-abG
-aCj
-aiE
-aAP
-aAP
-aEf
-aEf
-aAP
-aAP
-aiE
+aeH
+avt
 aCj
 aCj
+aax
 aCj
-aAP
-aAP
-aCP
-abJ
-abJ
-abJ
-abJ
+aCj
+apW
+apW
+ybX
+ybX
+apW
+aCj
+aCj
+aCj
+bQr
+apW
+aCj
+aCj
+aCj
+aCj
+aCj
 aLH
 aLH
 aLH
@@ -66136,29 +66946,29 @@ aLH
 aLH
 aLH
 aCj
-aAP
+acU
 aoM
-aAP
-aGT
+ahd
+ahd
 aFW
-aAP
-aAP
-aAP
-aEf
-aEf
-aAP
-aAP
-aAP
+avN
+apW
+aRa
+apW
+apW
+ybX
+ybX
+apW
 apc
 aRc
 aCj
-aAP
-aAP
+apW
+apW
 aCj
-abJ
-abJ
-abJ
-abJ
+cbW
+abB
+ijY
+aSO
 aLH
 aLH
 aLH
@@ -66438,29 +67248,29 @@ aLH
 aLH
 aLH
 aCP
-aAP
-ayi
-aAP
-aAP
+aKL
+dDy
+aXu
+ahd
 aax
-aAP
-acU
+aBf
+aEf
 aBg
-aEf
-aEf
+apW
+apW
 aNV
 aNV
-aAP
-aAP
+apW
+apW
 aWb
 auy
-aAP
-aAP
-aCj
+apW
+apW
+aok
+aLG
+ijY
 abJ
-abJ
-abJ
-abJ
+aSO
 aLH
 aLH
 aLH
@@ -66743,23 +67553,23 @@ aCP
 aEf
 aAL
 aEf
-aAP
+ahd
 amp
-aAP
-aqK
-aAP
+apW
 aEf
-aEf
-aNV
-aNV
-aAP
-aAP
-aAP
+aRd
+apW
+apW
+apW
+apW
+apW
+apW
+iNa
 auy
-aAP
-aqX
-aCj
-abJ
+apW
+apW
+aok
+aLG
 abJ
 abJ
 abJ
@@ -67045,26 +67855,26 @@ aCP
 aou
 aPB
 aNV
-aAP
+ahd
 aax
-aAP
-akj
-aBg
+aDN
 aEf
-aEf
+aJo
+apW
+apW
 aNV
 aNV
-aAP
-aAP
-aiE
+apW
+apW
+xIV
 auy
-aAP
-aAP
-aCj
+apW
+apW
+auy
 abJ
 abJ
 abJ
-abJ
+aSO
 aLH
 aLH
 aLH
@@ -67347,26 +68157,26 @@ aax
 rJw
 aIC
 aUW
-aAP
+ahd
 aFW
-aAP
-aAP
-aAP
+aSt
+apW
+aRa
+apW
+apW
+ybX
 aEf
-aEf
-aAP
-aAP
-aAP
+apW
 vPq
 aVg
 aCj
-aAP
-aAP
-aCP
+apW
+apW
+aCj
 abJ
 abJ
-abJ
-abJ
+ijY
+aSO
 aLH
 aLH
 aLH
@@ -67651,24 +68461,24 @@ aeH
 aCj
 aqs
 aCj
-aiE
-aAP
-aAP
-aEf
-aEf
-aAP
-aAP
-aiE
 aCj
 aCj
 aCj
-aAP
-aAP
-aCP
-abJ
-abJ
-abJ
-aLH
+apW
+apW
+ybX
+ybX
+apW
+aCj
+aCj
+aCj
+skM
+apW
+aCj
+aCj
+aCj
+aCj
+aCj
 aLH
 aLH
 aLH
@@ -67948,29 +68758,29 @@ aLH
 aLH
 aLH
 abJ
-abJ
-aCj
+aCP
+agb
 aaI
-aYR
+ahd
 aCj
 ayC
-aDM
-aAP
-aEf
-aEf
-aAP
-aBf
-aiE
+aKd
+aCj
+aWG
+apW
+aCj
+apW
+aaU
 aCj
 aHe
 aHe
-ayi
-aAP
+qLk
+apW
 aCj
-abJ
-abJ
-abJ
-aLH
+mYs
+kvn
+era
+aCj
 aLH
 aLH
 aLH
@@ -68250,29 +69060,29 @@ aLH
 aLH
 aLH
 abJ
-abJ
 aCj
-aaI
-aRa
+ajG
+tCA
+ahd
 aCj
-aTM
-apz
-aAP
+aEw
+glk
+aOA
 aoy
-aEf
-aAP
-apz
-aiE
+apW
+apW
+apW
+apW
 aCj
 aHe
 aHe
-ayi
-aAP
+qLk
+apW
 aCj
-abJ
-abJ
-abJ
-aLH
+apW
+apW
+lhi
+aCj
 aLH
 aLH
 aLH
@@ -68552,29 +69362,29 @@ aLH
 aLH
 aLH
 abJ
-abJ
-aeH
-aCj
-aCj
-aCj
-amV
-aAP
-aAP
-aEf
-aEf
-aAP
-aAP
-aAP
-aPM
-aAs
-aAs
-ayi
-aAP
 aCP
-abJ
-abJ
-abJ
-aLH
+aoI
+awK
+azl
+aCj
+aTM
+aDM
+aCj
+apW
+apW
+apW
+apW
+apW
+aPM
+acI
+acI
+qLk
+apW
+bUw
+apW
+apW
+apW
+aCP
 aLH
 aLH
 aLH
@@ -68854,29 +69664,29 @@ aLH
 aLH
 aLH
 abJ
-abJ
-abJ
-abJ
-abJ
-aCj
-aXm
-aAP
-aAP
-aEf
-aEf
-aAP
-aAP
-aqX
-aCj
-aAP
-aAP
-ayi
-aJJ
+aax
 aCP
-abJ
-abJ
-abJ
-aLH
+aCj
+aCP
+aCj
+aax
+aax
+aCj
+uOa
+aaU
+aCj
+aCj
+aCj
+aCj
+aWG
+apW
+qLk
+avo
+aCj
+raP
+apW
+apW
+aCP
 aLH
 aLH
 aLH
@@ -69161,24 +69971,24 @@ abJ
 abJ
 abJ
 aCj
-aiE
-aAP
-aAP
-aEf
-aEf
-aAP
-aAP
-aiE
+ayC
+ifZ
+aCj
+apW
+apW
+aCj
+bzW
+hcv
 aCj
 aCj
-aWX
+idk
+aCj
+aCj
+aCj
+goc
+apW
+apW
 aCP
-aCj
-aCj
-abJ
-abJ
-abJ
-abJ
 aLH
 aLH
 aLH
@@ -69463,24 +70273,24 @@ abJ
 abJ
 abJ
 aCj
-aiE
-aRd
-aAP
-aEf
-aEf
-aAP
-awK
-ayC
+aFQ
+apW
+aOA
+apW
+apW
+aYR
+qHK
+xEU
 aCj
-abJ
-aLG
-abJ
-abJ
-abJ
-abJ
-abJ
-abJ
-abJ
+jwh
+jav
+xbo
+aCj
+ayC
+aUJ
+qHK
+xWB
+aCj
 aLH
 aLH
 aLH
@@ -69766,23 +70576,23 @@ abJ
 abJ
 aCj
 aTM
-apz
-aOA
-aEf
-aEf
-aOA
+aDM
+aCj
+apW
+apW
+aCj
 aNT
 aYU
 aCj
-abJ
-abJ
-abJ
-abJ
-abJ
-abJ
-abJ
-abJ
-abJ
+fPy
+mpG
+jav
+aCj
+iMZ
+akh
+glk
+xWB
+aCj
 aLH
 aLH
 aLH
@@ -70070,21 +70880,21 @@ aCj
 aCP
 aCP
 aCj
-aCP
-aCP
+aax
+aax
 aCj
 aCP
 aCP
 aCj
-abJ
-abJ
-abJ
-abJ
-abJ
-abJ
-abJ
-abJ
-abJ
+aCP
+aCP
+aCP
+aCj
+aCj
+fJq
+aCP
+aCj
+aCj
 aLH
 aLH
 aLH
@@ -70383,7 +71193,7 @@ aLH
 aLH
 aLH
 aLH
-abJ
+aLG
 abJ
 aLH
 aLH
@@ -70865,10 +71675,10 @@ aPC
 aPC
 aCj
 aHf
-agP
+mdQ
 aTA
 aTA
-aTA
+mdQ
 aET
 aan
 aLH
@@ -71116,7 +71926,7 @@ arH
 aPY
 aPY
 arH
-aSR
+ggu
 aTC
 aQA
 ajq
@@ -72073,10 +72883,10 @@ aPC
 aPC
 aCj
 aYd
-agP
 aTA
 aTA
-agP
+aTA
+aTA
 ayP
 aan
 aLH
@@ -72681,7 +73491,7 @@ agA
 agA
 agA
 agA
-agA
+gPa
 aCj
 aLH
 aLH
@@ -72788,7 +73598,7 @@ abJ
 abJ
 abJ
 aSO
-abJ
+ijY
 abJ
 abJ
 akJ
@@ -72978,12 +73788,12 @@ aCj
 aQJ
 aVm
 aCj
-aAS
+tSq
 agA
 agA
 agA
 agA
-agA
+gPa
 aPX
 aLH
 aLH
@@ -73218,10 +74028,10 @@ aPY
 aPY
 aPY
 ahg
+hrR
+kOC
 ajq
-ajq
-ajq
-ajq
+iQb
 ahg
 ajq
 ajq
@@ -73392,7 +74202,7 @@ aOb
 abJ
 aOb
 aSO
-abJ
+rUQ
 atv
 abJ
 atT
@@ -73577,7 +74387,7 @@ aLH
 aCj
 aWI
 aPC
-aKX
+aPC
 aCj
 aCj
 aCj
@@ -73696,7 +74506,7 @@ aOb
 abJ
 aSO
 aSO
-abJ
+ijY
 aSB
 aSB
 atT
@@ -73822,10 +74632,10 @@ aPY
 aPY
 aPY
 ahg
+hrR
 ajq
 ajq
-ajq
-ajq
+iQb
 ahg
 ajq
 ajq
@@ -73995,7 +74805,7 @@ abJ
 abJ
 abJ
 abJ
-atv
+abJ
 abJ
 aSO
 abJ
@@ -74725,7 +75535,7 @@ aLH
 aZI
 aGo
 ats
-aaP
+qYb
 aSA
 aHF
 ajq
@@ -75026,7 +75836,7 @@ aLH
 aLH
 aZm
 aUY
-ats
+oyM
 arU
 ajq
 aKt
@@ -75328,7 +76138,7 @@ aLH
 aLH
 aZI
 aGo
-ats
+hIX
 aEW
 ahX
 anH
@@ -79605,7 +80415,7 @@ aPY
 aPY
 aPY
 aPY
-aPY
+acF
 acF
 acF
 acF
@@ -79907,12 +80717,12 @@ aPY
 aPY
 aPY
 aPY
-aPY
 acF
+pWu
 afc
 ajL
 aeB
-amN
+qBU
 arr
 awm
 acF
@@ -80209,8 +81019,8 @@ aPY
 aPY
 aPY
 aPY
-aPY
 acF
+bfr
 aff
 aeB
 alI
@@ -80511,8 +81321,8 @@ aPY
 aPY
 aPY
 aPY
-aPY
 acF
+bfr
 aeB
 aeB
 aeB
@@ -80813,8 +81623,8 @@ aPY
 aPY
 aPY
 aPY
-aPY
 acF
+ger
 afx
 aeB
 aeB
@@ -88003,10 +88813,10 @@ aLH
 aLH
 aLH
 aCj
-agA
+tSq
 aKT
 agA
-aJf
+cSq
 aAP
 aAP
 aAP
@@ -88306,9 +89116,9 @@ aLH
 aLH
 aCj
 aWK
-aqi
 agA
 avC
+aLB
 aAP
 aAP
 aKW
@@ -88607,9 +89417,9 @@ aLH
 aLH
 aLH
 aCj
+afj
 agA
-agA
-avI
+aKX
 aJf
 aAP
 aHV
