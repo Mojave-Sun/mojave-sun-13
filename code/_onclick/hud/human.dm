@@ -107,7 +107,7 @@
 	*/
 
 	inv_box = new /atom/movable/screen/inventory()
-	inv_box.name = "i_clothing"
+	inv_box.name = "uniform"
 	//inv_box.icon = ui_style
 	inv_box.icon = 'mojave/icons/hud/ms_ui_slots_34.dmi'
 	inv_box.slot_id = ITEM_SLOT_ICLOTHING
@@ -117,7 +117,7 @@
 	toggleable_inventory += inv_box
 
 	inv_box = new /atom/movable/screen/inventory()
-	inv_box.name = "o_clothing"
+	inv_box.name = "suit"
 	//inv_box.icon = ui_style
 	inv_box.icon = 'mojave/icons/hud/ms_ui_slots_34.dmi'
 	inv_box.slot_id = ITEM_SLOT_OCLOTHING
@@ -187,7 +187,7 @@
 	static_inventory += inv_box
 
 	inv_box = new /atom/movable/screen/inventory()
-	inv_box.name = "storage1"
+	inv_box.name = "left pocket"
 	//inv_box.icon = ui_style
 	inv_box.icon = 'mojave/icons/hud/ms_ui_slots_pockets.dmi'
 	//inv_box.icon_state = "pocket"
@@ -198,7 +198,7 @@
 	static_inventory += inv_box
 
 	inv_box = new /atom/movable/screen/inventory()
-	inv_box.name = "storage2"
+	inv_box.name = "right pocket"
 	//inv_box.icon = ui_style
 	inv_box.icon = 'mojave/icons/hud/ms_ui_slots_pockets.dmi'
 	//inv_box.icon_state = "pocket"
