@@ -70,6 +70,7 @@
 
 /obj/machinery/door/poddoor/shutters/ms13/vertical
 	icon_plane = "vertical"
+	pixel_y = 16
 
 /obj/machinery/door/poddoor/shutters/ms13/vertical/indestructible
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
