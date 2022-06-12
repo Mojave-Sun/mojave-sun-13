@@ -2455,6 +2455,14 @@
 /obj/structure/table/wood,
 /turf/open/floor/wood,
 /area/station/commons/vacant_room/office)
+"bdK" = (
+/obj/effect/turf_decal/trimline/blue/filled/corner,
+/obj/effect/turf_decal/trimline/blue/filled/corner{
+	dir = 8
+	},
+/obj/effect/landmark/start/chief_medical_officer,
+/turf/open/floor/iron/dark,
+/area/station/command/heads_quarters/cmo)
 "bdM" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -3888,6 +3896,13 @@
 /obj/effect/spawner/random/clothing/bowler_or_that,
 /turf/open/floor/iron,
 /area/station/service/bar)
+"bAQ" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/obj/effect/landmark/start/psychologist,
+/turf/open/floor/wood/parquet,
+/area/station/medical/psychology)
 "bAS" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/trimline/neutral/filled/line{
@@ -13434,13 +13449,6 @@
 /obj/structure/sign/poster/official/random/directional/south,
 /turf/open/floor/iron,
 /area/station/commons/fitness)
-"eCW" = (
-/obj/structure/chair{
-	dir = 4
-	},
-/obj/effect/landmark/start/chaplain,
-/turf/open/floor/iron/grimy,
-/area/station/service/chapel/office)
 "eDd" = (
 /obj/structure/chair/office{
 	dir = 8
@@ -20717,13 +20725,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/security/office)
-"hbQ" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/landmark/start/chaplain,
-/turf/open/floor/iron/dark,
-/area/station/service/chapel)
 "hce" = (
 /obj/machinery/light/warm/directional/south,
 /turf/open/floor/iron/dark,
@@ -23381,6 +23382,15 @@
 	},
 /turf/open/floor/iron,
 /area/station/security/processing)
+"hYW" = (
+/obj/machinery/door/window/left/directional/east{
+	dir = 1;
+	icon_state = "right";
+	name = "Incoming Mail";
+	req_access = list("shipping")
+	},
+/turf/open/floor/plating,
+/area/station/cargo/sorting)
 "hZb" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
@@ -36969,6 +36979,13 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/dark,
 /area/station/medical/virology)
+"mtb" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/landmark/start/chaplain,
+/turf/open/floor/iron/dark,
+/area/station/service/chapel)
 "mtw" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -37304,15 +37321,6 @@
 "myD" = (
 /turf/closed/wall/r_wall,
 /area/station/maintenance/tram/right)
-"myI" = (
-/obj/machinery/door/window/left/directional/east{
-	dir = 1;
-	icon_state = "right";
-	name = "Incoming Mail";
-	req_access = list("mail_sorting")
-	},
-/turf/open/floor/plating,
-/area/station/cargo/sorting)
 "myM" = (
 /obj/effect/turf_decal/delivery,
 /obj/structure/holosign/barrier/atmos/sturdy,
@@ -43373,6 +43381,15 @@
 	},
 /turf/open/floor/iron,
 /area/station/cargo/storage)
+"oDy" = (
+/obj/item/radio/intercom/chapel/directional/east,
+/obj/structure/chair/wood{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/effect/landmark/start/chaplain,
+/turf/open/floor/wood/tile,
+/area/station/service/chapel)
 "oEt" = (
 /obj/effect/turf_decal/trimline/blue/filled/corner{
 	dir = 1
@@ -47187,6 +47204,26 @@
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron/showroomfloor,
 /area/station/service/kitchen/coldroom)
+"pRd" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/firedoor,
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 8
+	},
+/obj/machinery/door/window/left/directional/west{
+	dir = 1;
+	name = "Delivery Desk";
+	req_access = list("shipping")
+	},
+/obj/structure/disposalpipe/segment,
+/obj/structure/desk_bell{
+	pixel_x = -7
+	},
+/turf/open/floor/plating,
+/area/station/cargo/sorting)
 "pRq" = (
 /obj/structure/chair{
 	dir = 1;
@@ -48666,13 +48703,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/cargo/office)
-"qpS" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 4
-	},
-/obj/effect/landmark/start/psychologist,
-/turf/open/floor/wood/parquet,
-/area/station/medical/psychology)
 "qpY" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -50980,6 +51010,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/closed/wall/r_wall,
 /area/station/maintenance/disposal/incinerator)
+"rdZ" = (
+/obj/structure/chair{
+	dir = 4
+	},
+/obj/effect/landmark/start/chaplain,
+/turf/open/floor/iron/grimy,
+/area/station/service/chapel/office)
 "reU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/camera/directional/south{
@@ -59826,26 +59863,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/science/robotics/lab)
-"ugq" = (
-/obj/structure/table/reinforced,
-/obj/machinery/door/firedoor,
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 4
-	},
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 8
-	},
-/obj/machinery/door/window/left/directional/west{
-	dir = 1;
-	name = "Delivery Desk";
-	req_access = list("mail_sorting")
-	},
-/obj/structure/disposalpipe/segment,
-/obj/structure/desk_bell{
-	pixel_x = -7
-	},
-/turf/open/floor/plating,
-/area/station/cargo/sorting)
 "ugt" = (
 /turf/closed/wall/r_wall,
 /area/station/medical/virology)
@@ -67695,15 +67712,6 @@
 /obj/structure/weightmachine/stacklifter,
 /turf/open/floor/iron,
 /area/station/security/prison/workout)
-"wTf" = (
-/obj/item/radio/intercom/chapel/directional/east,
-/obj/structure/chair/wood{
-	dir = 1
-	},
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/obj/effect/landmark/start/chaplain,
-/turf/open/floor/wood/tile,
-/area/station/service/chapel)
 "wTm" = (
 /obj/machinery/door/airlock/maintenance_hatch,
 /obj/effect/mapping_helpers/airlock/abandoned,
@@ -70692,14 +70700,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
-"xVN" = (
-/obj/effect/turf_decal/trimline/blue/filled/corner,
-/obj/effect/turf_decal/trimline/blue/filled/corner{
-	dir = 8
-	},
-/obj/effect/landmark/start/chief_medical_officer,
-/turf/open/floor/iron/dark,
-/area/station/command/heads_quarters/cmo)
 "xVQ" = (
 /obj/structure/closet/lasertag/red,
 /obj/effect/turf_decal/tile/red/full,
@@ -154108,7 +154108,7 @@ qKm
 eLr
 rAS
 aeD
-eCW
+rdZ
 xIe
 cxA
 dQX
@@ -155132,7 +155132,7 @@ pUw
 trg
 blw
 kzT
-wTf
+oDy
 jEY
 mmL
 tLo
@@ -157193,7 +157193,7 @@ iUs
 dCz
 jKx
 whg
-hbQ
+mtb
 rEu
 tXn
 tCi
@@ -166441,7 +166441,7 @@ tAo
 kce
 wdj
 pwe
-xVN
+bdK
 iTS
 gYg
 wsx
@@ -172342,7 +172342,7 @@ bFq
 bFq
 ksB
 iYm
-qpS
+bAQ
 uOl
 xKH
 ugt
@@ -182848,7 +182848,7 @@ bog
 jIV
 pHq
 rbj
-ugq
+pRd
 kWI
 aHW
 mqt
@@ -183100,7 +183100,7 @@ dNS
 fCL
 nwM
 npM
-myI
+hYW
 whm
 rHW
 iNr
