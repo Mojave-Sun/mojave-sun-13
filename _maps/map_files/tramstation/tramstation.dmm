@@ -18343,6 +18343,14 @@
 /obj/effect/turf_decal/stripes,
 /turf/open/floor/vault,
 /area/station/hallway/primary/tram/left)
+"gno" = (
+/obj/effect/turf_decal/sand/plating,
+/obj/machinery/door/airlock/external,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
+/turf/open/floor/plating/airless,
+/area/station/engineering/supermatter/room)
 "gnp" = (
 /obj/machinery/door/airlock{
 	name = "Bathroom"
@@ -18587,6 +18595,9 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/command/bridge)
+"gri" = (
+/turf/closed/wall/rock,
+/area/station/engineering/supermatter/room)
 "grm" = (
 /obj/effect/turf_decal/stripes/white/corner,
 /obj/effect/turf_decal/stripes/corner,
@@ -22731,6 +22742,12 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/command/heads_quarters/ce)
+"hOk" = (
+/obj/effect/turf_decal/sand/plating,
+/obj/machinery/door/airlock/external,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/turf/open/floor/plating/airless,
+/area/station/engineering/supermatter/room)
 "hOE" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 4
@@ -23382,15 +23399,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/security/processing)
-"hYW" = (
-/obj/machinery/door/window/left/directional/east{
-	dir = 1;
-	icon_state = "right";
-	name = "Incoming Mail";
-	req_access = list("shipping")
-	},
-/turf/open/floor/plating,
-/area/station/cargo/sorting)
 "hZb" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
@@ -29749,12 +29757,6 @@
 "kfO" = (
 /turf/open/floor/plating,
 /area/station/cargo/drone_bay)
-"kfR" = (
-/obj/effect/turf_decal/sand/plating,
-/obj/machinery/door/airlock/external,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper,
-/turf/open/floor/plating/airless,
-/area/mine/explored)
 "kfZ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/random/trash/food_packaging,
@@ -31633,6 +31635,10 @@
 	},
 /turf/closed/wall/r_wall,
 /area/station/science/ordnance/burnchamber)
+"kIz" = (
+/obj/effect/turf_decal/sand/plating,
+/turf/open/floor/plating/airless,
+/area/station/engineering/supermatter/room)
 "kIB" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -32373,14 +32379,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/security/medical)
-"kUk" = (
-/obj/effect/turf_decal/sand/plating,
-/obj/machinery/door/airlock/external,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 1
-	},
-/turf/open/floor/plating/airless,
-/area/mine/explored)
 "kUo" = (
 /turf/open/floor/iron/dark,
 /area/station/service/chapel)
@@ -37321,6 +37319,15 @@
 "myD" = (
 /turf/closed/wall/r_wall,
 /area/station/maintenance/tram/right)
+"myI" = (
+/obj/machinery/door/window/left/directional/east{
+	dir = 1;
+	icon_state = "right";
+	name = "Incoming Mail";
+	req_access = list("shipping")
+	},
+/turf/open/floor/plating,
+/area/station/cargo/sorting)
 "myM" = (
 /obj/effect/turf_decal/delivery,
 /obj/structure/holosign/barrier/atmos/sturdy,
@@ -47204,26 +47211,6 @@
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron/showroomfloor,
 /area/station/service/kitchen/coldroom)
-"pRd" = (
-/obj/structure/table/reinforced,
-/obj/machinery/door/firedoor,
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 4
-	},
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 8
-	},
-/obj/machinery/door/window/left/directional/west{
-	dir = 1;
-	name = "Delivery Desk";
-	req_access = list("shipping")
-	},
-/obj/structure/disposalpipe/segment,
-/obj/structure/desk_bell{
-	pixel_x = -7
-	},
-/turf/open/floor/plating,
-/area/station/cargo/sorting)
 "pRq" = (
 /obj/structure/chair{
 	dir = 1;
@@ -59014,9 +59001,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/commons/vacant_room/office)
-"tRC" = (
-/turf/closed/wall/rock,
-/area/mine/explored)
 "tRE" = (
 /obj/effect/landmark/start/hangover,
 /turf/open/floor/iron,
@@ -59863,6 +59847,26 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/science/robotics/lab)
+"ugq" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/firedoor,
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 8
+	},
+/obj/machinery/door/window/left/directional/west{
+	dir = 1;
+	name = "Delivery Desk";
+	req_access = list("shipping")
+	},
+/obj/structure/disposalpipe/segment,
+/obj/structure/desk_bell{
+	pixel_x = -7
+	},
+/turf/open/floor/plating,
+/area/station/cargo/sorting)
 "ugt" = (
 /turf/closed/wall/r_wall,
 /area/station/medical/virology)
@@ -99132,10 +99136,10 @@ pDT
 sLE
 aRN
 xFs
-lvw
-lvw
-tRC
-lvw
+igy
+igy
+gri
+igy
 xFs
 ajc
 ajc
@@ -99389,10 +99393,10 @@ pKr
 sLE
 aRN
 aRN
-kfR
-aRN
-aRN
-kUk
+hOk
+kIz
+kIz
+gno
 aRN
 ajc
 ajc
@@ -99646,10 +99650,10 @@ pDT
 sLE
 aRN
 xFs
-lvw
-tRC
-lvw
-tRC
+igy
+gri
+igy
+gri
 xFs
 ajc
 ajc
@@ -99903,7 +99907,7 @@ pKr
 sLE
 aRN
 dhe
-dhe
+igy
 dhe
 dhe
 dhe
@@ -100160,7 +100164,7 @@ pDT
 sLE
 aRN
 dhe
-dhe
+igy
 dhe
 dhe
 dDG
@@ -182848,7 +182852,7 @@ bog
 jIV
 pHq
 rbj
-pRd
+ugq
 kWI
 aHW
 mqt
@@ -183100,7 +183104,7 @@ dNS
 fCL
 nwM
 npM
-hYW
+myI
 whm
 rHW
 iNr
