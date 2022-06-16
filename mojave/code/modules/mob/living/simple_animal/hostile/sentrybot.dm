@@ -1,10 +1,10 @@
-/mob/living/simple_animal/hostile/retaliate/ms13/robot/sentrybot
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot
 	name = "sentrybot"
-	desc = "A robot with a scariest arsenal you seen so far, it's a pretty good idea if you stopped looking at it."
+	desc = "A robot with the scariest arsenal you seen so far, it's a pretty good idea if you stopped looking at it."
 	icon = 'mojave/icons/mob/48x48.dmi'
 	icon_state = "sentrybot"
 	mob_size = MOB_SIZE_LARGE
-	footstep_type = null
+	footstep_type = FOOTSTEP_OBJ_MACHINE
 	robust_searching = TRUE
 	idlechance = 15
 	minimum_distance = 5 //We'll decrease this if need be
@@ -27,19 +27,30 @@
 	casingtype = /obj/item/ammo_casing/energy/ms13/laser/sentrybot
 	ranged_cooldown = 6 SECONDS
 	rapid = 30
-	rapid_fire_delay = 0.1 SECONDS //Thankfully I made there be some spread to this
+	rapid_fire_delay = 0.05 SECONDS
 	bot_type = "Sentrybot"
 	shadow_type = "shadow_large"
+	projectilesound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_1.ogg'
+	check_friendly_fire = 0 //no
 	var/datum/action/cooldown/mob_cooldown/launch_rocket/rocket
+	sight = SEE_MOBS //thermal vision
 
-/mob/living/simple_animal/hostile/retaliate/ms13/robot/sentrybot/Initialize()
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/Initialize()
 	. = ..()
 	rocket = new /datum/action/cooldown/mob_cooldown/launch_rocket()
 	rocket.Grant(src)
 
-/mob/living/simple_animal/hostile/retaliate/ms13/robot/sentrybot/Destroy()
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/Destroy()
 	QDEL_NULL(rocket)
 	return ..()
+
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/OpenFire()
+
+	//Automatic usage of abilities by nonclients
+	if(!client)
+		if(rocket.IsAvailable())
+			rocket.Trigger(target = target)
+	. = ..()
 
 //randomspread prerequisite
 /obj/item/ammo_casing/energy/ms13/laser/sentrybot
@@ -66,7 +77,7 @@
 	name = "Launch a rocket"
 	desc = "Launches a cool rocket at the enemy"
 	cooldown_time = 10 SECONDS
-	click_to_activate = FALSE
+	//click_to_activate = FALSE
 	var/obj/projectile/projectile = /obj/projectile/bullet/a84mm/he
 
 /datum/action/cooldown/mob_cooldown/launch_rocket/Activate(atom/target_atom)
