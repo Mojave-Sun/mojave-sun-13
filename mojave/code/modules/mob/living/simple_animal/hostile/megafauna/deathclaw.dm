@@ -17,16 +17,16 @@
 	emote_taunt = list("stares ferociously", "stomps")
 	speak_chance = 10
 	taunt_chance = 25
-	speed = 10
-	move_to_delay = 2.5
+	speed = 8
+	move_to_delay = 2
 	see_in_dark = 8
-	maxHealth = 2500
-	health = 2500
+	maxHealth = 3000
+	health = 3000
 	obj_damage = 60
 	armour_penetration = 30
 	melee_damage_lower = 56
 	melee_damage_upper = 56
-	ranged = TRUE //Charging
+	ranged = TRUE //Charging attacks
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 	faction = list("deathclaw")
 	blood_volume = BLOOD_VOLUME_MAXIMUM
@@ -101,7 +101,9 @@
 /datum/action/cooldown/mob_cooldown/charge/deathclaw
 	charge_delay = 0.6 SECONDS
 	charge_past = 2
-	charge_speed = 1.25
+	charge_speed = 0.8
+	cooldown_time = 10 SECONDS
+	shared_cooldown = null
 
 /datum/action/cooldown/mob_cooldown/charge/deathclaw/do_charge_indicator(mob/charger, atom/charge_target)
 	var/turf/target_turf = get_turf(charge_target)
@@ -119,24 +121,25 @@
 	SIGNAL_HANDLER
 	if(!actively_moving)
 		return COMPONENT_MOVABLE_BLOCK_PRE_MOVE
-	INVOKE_ASYNC(src, .proc/DestroySurroundings, source)
+	//INVOKE_ASYNC(src, .proc/DestroySurroundings, source)
 
 /datum/action/cooldown/mob_cooldown/charge/deathclaw/hit_target(atom/movable/source, atom/target, damage_dealt)
 	. = ..()
 	if(isliving(target))
 		var/mob/living/target_mob = target
-		var/throwlocation = target_mob.loc //Throw them 2 turfs away from impact
-		for(var/x in 1 to 2)
+		var/throwlocation = target_mob.loc //Throw them 3 turfs away from impact
+		for(var/x in 1 to 3)
 			throwlocation = get_step(throwlocation, owner.dir)
 		target_mob.throw_at(throwlocation, 2, 1, owner, TRUE)
-		target_mob.Stun(2 SECONDS, ignore_canstun = TRUE) //Because you should feel real bad
+		target_mob.Knockdown(3 SECONDS, ignore_canstun = FALSE)
 
 //Spooky roar that shakes nearby tiles and screens of players to act as a telegraph
 /datum/action/cooldown/mob_cooldown/deathclaw_roar
 	name = "Deathclaw's Roar"
-	desc = "Makes you do a pretty big scream"
-	cooldown_time = 5 SECONDS
+	desc = "Makes you do a pretty big roar"
+	cooldown_time = 30 SECONDS
 	click_to_activate = FALSE
+	shared_cooldown = null
 
 /datum/action/cooldown/mob_cooldown/deathclaw_roar/Activate(atom/target_atom)
 	StartCooldown(5 SECONDS)
@@ -148,13 +151,29 @@
 	living_owner.SetStun(1.5 SECONDS, ignore_canstun = TRUE)
 	playsound(owner, 'sound/creatures/space_dragon_roar.ogg', 100, TRUE, -1)
 	owner.visible_message(span_colossus("Run."))
-	for(var/turf/affected_tile in range(7, living_owner)) //everything in the 2x3 block is found.
-		affected_tile.Shake(4, 4, 2 SECONDS)
+	new /obj/effect/temp_visual/shockwave(owner.loc, 12)
+	for(var/turf/affected_tile in view(8, living_owner))
+		affected_tile.Shake(12, 12, 1 SECONDS)
 		for(var/i in affected_tile)
 			var/atom/movable/affected = i
-			if(ismob(affected) && affected != owner)
+			if(ismob(affected) && affected != living_owner)
 				var/mob/mob_affected = affected
-				shake_camera(mob_affected, 7, 1)
-			if(!ishuman(affected) && !istype(affected, /obj/item))
-				affected.Shake(4, 4, 2 SECONDS)
+				shake_camera(mob_affected, 14, 3)
+			if(!istype(affected, /obj/item))
+				affected.Shake(12, 12, 1 SECONDS)
 				continue
+
+//TerraGov Marine Corp's explosion shockwave
+/obj/effect/temp_visual/shockwave
+	icon = 'mojave/icons/effects/shockwave.dmi'
+	icon_state = "shockwave"
+	plane = GRAVITY_PULSE_PLANE
+	pixel_x = -496
+	pixel_y = -496
+
+/obj/effect/temp_visual/shockwave/Initialize(mapload, radius)
+	. = ..()
+	deltimer(timerid)
+	timerid = QDEL_IN(src, 0.5 * radius)
+	transform = matrix().Scale(32 / 1024, 32 / 1024)
+	animate(src, time = 1/2 * radius, transform=matrix().Scale((32 / 1024) * radius * 1.5, (32 / 1024) * radius * 1.5))
