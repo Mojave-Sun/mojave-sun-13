@@ -1,3 +1,17 @@
+
+// MOJAVE JOB TRAITS START
+//  GOMBLE TODO move these traits elsewehere yo
+
+
+#define TRAIT_MEDICAL_TRAINING "medical_training" //Trait for medical jobs that allows better crafting of medical items
+
+#define TRAIT_SCRIBE_TRAINING "scribe_training" //Trait for BoS Scribes that allows better electronics crafting
+
+#define TRAIT_LEGION_SMITHING "legion_smithing" //Trait for Legion Blacksmith to make Legion weapon recipes
+
+// MOJAVE JOB TRAITS END
+
+
 #define SIGNAL_ADDTRAIT(trait_ref) "addtrait [trait_ref]"
 #define SIGNAL_REMOVETRAIT(trait_ref) "removetrait [trait_ref]"
 
@@ -896,13 +910,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 /// Ignores body_parts_covered during the add_fingerprint() proc. Works both on the person and the item in the glove slot.
 #define TRAIT_FINGERPRINT_PASSTHROUGH "fingerprint_passthrough"
-// MOJAVE JOB TRAITS START
 
+/// Currently fishing
+#define TRAIT_GONE_FISHING "fishing"
 
-#define TRAIT_MEDICAL_TRAINING "medical_training" //Trait for medical jobs that allows better crafting of medical items
-
-#define TRAIT_SCRIBE_TRAINING "scribe_training" //Trait for BoS Scribes that allows better electronics crafting
-
-#define TRAIT_LEGION_SMITHING "legion_smithing" //Trait for Legion Blacksmith to make Legion weapon recipes
-
-// MOJAVE JOB TRAITS END
