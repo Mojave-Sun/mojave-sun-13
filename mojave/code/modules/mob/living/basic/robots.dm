@@ -29,7 +29,7 @@
 		BB_TARGETTING_DATUM = new /datum/targetting_datum/basic()
 	)
 
-	ai_movement = /datum/ai_movement/basic_avoidance
+	ai_movement = /datum/ai_movement/basic_avoidance/bypass_tables
 	idle_behavior = /datum/idle_behavior/idle_random_walk
 	planning_subtrees = list(
 		/datum/ai_planning_subtree/random_speech/ms13/robot,
@@ -48,8 +48,8 @@
     name = "Mr. Handy"
     desc = "A standard model Mr. Handy unit. It's long lost any rational wires in its circuits."
     icon_state = "mrhandy_claw"
-    health = 150
-    maxHealth = 150
+    health = 135
+    maxHealth = 135
     melee_damage_lower = 15
     melee_damage_upper = 15
     armour_penetration = 5
@@ -77,12 +77,12 @@
 /mob/living/basic/ms13/robot/handy/saw
     desc = "A work model Mr. Handy unit, armed with a horrifyingly sharp saw. It's long lost any rational wires in its circuits."
     icon_state = "mrhandy_saw"
-    melee_damage_lower = 30
-    melee_damage_upper = 30
+    melee_damage_lower = 25
+    melee_damage_upper = 25
     armour_penetration = 10
     sharpness = SHARP_EDGED
-    wound_bonus = 6
-    bare_wound_bonus = 6
+    wound_bonus = 8
+    bare_wound_bonus = 10
     attack_verb_continuous = "saws"
     attack_verb_simple = "saw"
     attack_sound = 'sound/weapons/circsawhit.ogg'

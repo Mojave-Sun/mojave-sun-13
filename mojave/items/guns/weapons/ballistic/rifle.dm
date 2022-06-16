@@ -1,32 +1,30 @@
 //Guns
 /obj/item/gun/ballistic/rifle/ms13/hunting
 	name = "hunting rifle"
-	desc = "A sturdy bolt action hunting rifle, chambered in 308. and in use before the war."
+	desc = "A sturdy bolt action hunting rifle, chambered in .308 and in use before the war."
 	icon_state = "hunting"
 	inhand_icon_state = "hunting"
 	mag_type = /obj/item/ammo_box/magazine/ms13/r308
 	fire_sound = 'mojave/sound/ms13weapons/hunting_rifle.ogg'
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	slot_flags = ITEM_SLOT_BACK
-	extra_damage = 40
-	extra_penetration = 15
-	fire_delay = 0.6 SECONDS
+	fire_delay = 0.75 SECONDS
 	spread = 2
 	recoil = 1.75
 	slowdown = 0.75
+	grid_height = 32
+	grid_width = 224
 
 /obj/item/gun/ballistic/rifle/ms13/hunting/scoped
 	name = "scoped hunting rifle"
-	desc = "A bolt action hunting rifle with a scope attached and a slightly improved barrel for better penetration and reduced recoil, though the added weight of everything will slow the user down."
+	desc = "A bolt action hunting rifle with a scope attached and a slightly improved barrel for reduced recoil, though the added weight of everything will slow the user down."
 	icon_state = "scoped_hunting"
 	inhand_icon_state = "scoped_hunting"
-	extra_penetration = 20
 	recoil = 1.5
 	slowdown = 1
-	zoomable = TRUE
-	zoom_amt = 9
-	zoom_out_amt = 3
+	has_scope = TRUE
+	scope_range = 4
 
 /obj/item/gun/ballistic/rifle/ms13/varmint
 	name = "varmint rifle"
@@ -37,13 +35,13 @@
 	weapon_weight = WEAPON_HEAVY
 	slot_flags = ITEM_SLOT_BACK
 	fire_sound = 'mojave/sound/ms13weapons/varmint_rifle.ogg'
-	fire_delay = 0.6 SECONDS
-	extra_damage = 30
-	extra_penetration = 5
+	fire_delay = 0.65 SECONDS
 	spread = 2
 	recoil = 0.75
 	slowdown = 0.75
 	mag_type = /obj/item/ammo_box/magazine/ms13/r10
+	grid_height = 32
+	grid_width = 192
 
 /obj/item/gun/ballistic/rifle/ms13/varmint/update_icon_state()
 	. = ..()
@@ -80,13 +78,14 @@
 	desc = "A uniquely modified varmint rifle with improved rifling, a scope, and supressor attached. The added weight of all the attachments will slow the user down some more."
 	icon_state = "ratslayer"
 	inhand_icon_state = "ratslayer"
-	extra_penetration = 10
-	recoil = 0.5
+	recoil = 0.25
 	slowdown = 1
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
-	zoomable = TRUE
-	zoom_amt = 9
-	zoom_out_amt = 3
+	w_class = WEIGHT_CLASS_HUGE
+	has_scope = TRUE
+	scope_range = 2
+	grid_height = 32
+	grid_width = 224
 
 /obj/item/gun/ballistic/rifle/ms13/hunting/scoped/amr
 	name = "anti-material rifle"
@@ -95,12 +94,13 @@
 	inhand_icon_state = "amr"
 	mag_type = /obj/item/ammo_box/magazine/ms13/amr
 	fire_sound = 'mojave/sound/ms13weapons/amrfire.ogg'
-	fire_delay = 0.8 SECONDS
-	extra_damage = 60
-	extra_penetration = 20
+	fire_delay = 1 SECONDS
 	spread = 2
 	recoil = 4
 	slowdown = 1.5
+	scope_range = 4
+	grid_height = 256
+	grid_width = 64
 
 /obj/item/gun/ballistic/rifle/ms13/hunting/scoped/amr/update_icon_state()
 	. = ..()
@@ -138,8 +138,6 @@
 	internal_magazine = TRUE
 	mag_type = /obj/item/ammo_box/magazine/internal/ms13/chinese_rifle
 	fire_sound = 'mojave/sound/ms13weapons/hunting_rifle.ogg'
-	extra_damage = 35
-	extra_penetration = 5
 	spread = 2
 	recoil = 1.25
 
@@ -183,7 +181,7 @@
 	empty_alarm_sound = 'mojave/sound/ms13weapons/battlerifleunload.ogg'
 	extra_damage = 45
 	extra_penetration = 15
-*/ 
+*/
 
 //Magazines
 /obj/item/ammo_box/magazine/ms13/r10
@@ -192,7 +190,10 @@
 	icon_state = "556r10"
 	ammo_type = /obj/item/ammo_casing/ms13/a556
 	caliber = "a556"
+	w_class = WEIGHT_CLASS_TINY
 	max_ammo = 10
+	grid_height = 32
+	grid_width = 32
 
 /obj/item/ammo_box/magazine/ms13/r308
 	name = "5 round magazine (.308)"
@@ -200,7 +201,10 @@
 	icon_state = "r308"
 	ammo_type = /obj/item/ammo_casing/ms13/a308
 	caliber = "a308"
+	w_class = WEIGHT_CLASS_TINY
 	max_ammo = 5
+	grid_height = 32
+	grid_width = 32
 
 /obj/item/ammo_box/magazine/ms13/amr
 	name = "6 round magazine (.50)"
@@ -208,7 +212,10 @@
 	icon_state = "50cal"
 	ammo_type = /obj/item/ammo_casing/ms13/a50MG
 	caliber = "a50MG"
+	w_class = WEIGHT_CLASS_SMALL
 	max_ammo = 6
+	grid_height = 64
+	grid_width = 32
 
 /obj/item/ammo_box/magazine/ms13/r308/battlerifle
 	name = "8 round enbloc magazine (.308)"
@@ -234,11 +241,18 @@
 
 //Loaders
 
-/obj/item/ammo_box/ms13/r762
-	name = "rifle stripper clip (7.62)"
+/obj/item/ammo_box/ms13/stripper
+	name = "BASE TYPE MS13 STRIPPER CLIP"
 	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
+	w_class = WEIGHT_CLASS_SMALL
+	multiple_sprites = AMMO_BOX_PER_BULLET
+	grid_height = 32
+	grid_width = 32
+
+/obj/item/ammo_box/ms13/stripper/r762
+	name = "rifle stripper clip (7.62)"
 	icon_state = "762clip"
 	ammo_type = /obj/item/ammo_casing/ms13/a762
 	caliber = "a762"
 	max_ammo = 5
-	multiple_sprites = AMMO_BOX_PER_BULLET
+

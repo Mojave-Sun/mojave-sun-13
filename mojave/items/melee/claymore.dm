@@ -16,7 +16,7 @@
 
 /obj/item/claymore/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/melee/melee_inventory.dmi')
 
 /obj/item/claymore/ms13/machete
 	name = "machete"
@@ -24,14 +24,17 @@
 	icon_state = "machete_scrap"
 	inhand_icon_state = "machete_scrap"
 	force = 30
-	armour_penetration = 0
 	throwforce = 15
-	wound_bonus = 6
-	bare_wound_bonus = 4
+	subtractible_armour_penetration = 10
+	edge_protection_penetration = 5
+	wound_bonus = 10
+	bare_wound_bonus = 10
 	w_class = WEIGHT_CLASS_NORMAL
 	sharpness = SHARP_EDGED
 	tool_behaviour = TOOL_KNIFE
 	toolspeed = 2
+	grid_width = 64
+	grid_height = 96
 
 /obj/item/claymore/ms13/machete/gladius
 	name = "machete gladius"
@@ -39,9 +42,11 @@
 	icon_state = "machete_gladius"
 	inhand_icon_state = "machete_gladius"
 	force = 35
-	armour_penetration = 5
-	wound_bonus = 8
-	bare_wound_bonus = 6
+	throwforce = 20
+	subtractible_armour_penetration = 20
+	edge_protection_penetration = 10
+	wound_bonus = 15
+	bare_wound_bonus = 10
 
 /obj/item/claymore/ms13/machete/katana
 	name = "katana"
@@ -49,17 +54,20 @@
 	icon_state = "katana_black"
 	inhand_icon_state = "katana_black"
 	force = 35
-	armour_penetration = 0
 	throwforce = 15
-	wound_bonus = 12
-	bare_wound_bonus = 13
+	subtractible_armour_penetration = 20
+	edge_protection_penetration = 10
+	wound_bonus = 10
+	bare_wound_bonus = 10
 
 /obj/item/claymore/ms13/machete/katana/immortal
 	name = "\improper Immortal Blade"
 	desc = "A red hilted katana that seems like it has seen it's fair share of warfare and bloodshed. The blade seems to be honed to better pierce armor."
 	icon_state = "katana_red"
 	inhand_icon_state = "katana_red"
-	armour_penetration = 10
+	subtractible_armour_penetration = 30
+	wound_bonus = 12
+	bare_wound_bonus = 18
 
 /obj/item/claymore/ms13/pipe
 	name = "lead pipe"
@@ -70,20 +78,21 @@
 	attack_verb_simple = list("mash", "bash", "pipe", "hit", "bludgeon", "whack", "bonk")
 	hitsound = 'sound/weapons/genhit2.ogg'
 	force = 25
-	armour_penetration = 5
 	throwforce = 10
-	wound_bonus = 6
+	subtractible_armour_penetration = 15
+	wound_bonus = 5
+	bare_wound_bonus = 5
 	w_class= WEIGHT_CLASS_NORMAL
 	sharpness = NONE
 	log_pickup_and_drop = TRUE
+	grid_width = 32
+	grid_height = 128
 
 /obj/item/claymore/ms13/pipe/tireiron
 	name = "tire iron"
 	desc = "A rusty old tire iron, normally used for loosening nuts from car tires. Though now more commonly used for loosening bones in a pinch."
 	icon_state = "tire_iron"
 	inhand_icon_state = "tire_iron"
-	force = 20
-	armour_penetration = 0
 
 /obj/item/claymore/ms13/pipe/humble
 	name = "\improper Humble Cudgel"
@@ -92,6 +101,7 @@
 	inhand_icon_state = "lead_pipe_alt"
 	force = 30
 	wound_bonus = 10
+	bare_wound_bonus = 10
 
 /obj/item/claymore/ms13/baton
 	name = "police baton"
@@ -102,11 +112,15 @@
 	attack_verb_simple = list("mash", "bash", "batter", "hit", "bludgeon", "whack", "bonk")
 	hitsound = 'sound/weapons/genhit2.ogg'
 	force = 25
-	armour_penetration = 10
-	wound_bonus = -5
+	throwforce = 10
+	subtractible_armour_penetration = 15
+	wound_bonus = -10
+	bare_wound_bonus = 0
 	w_class = WEIGHT_CLASS_NORMAL
 	sharpness = NONE
 	log_pickup_and_drop = TRUE
+	grid_width = 32
+	grid_height = 128
 
 /obj/item/claymore/ms13/machete/shishkebab
 	name = "shishkebab"
@@ -116,9 +130,13 @@
 	sharpness = SHARP_EDGED
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
+	subtractible_armour_penetration = 25
+	edge_protection_penetration = 5
 	wound_bonus = 5
 	bare_wound_bonus = 5
 	throwforce = 10
+	grid_width = 64
+	grid_height = 128
 	var/on = FALSE
 
 /obj/item/claymore/ms13/machete/shishkebab/attack_self(mob/user)
@@ -132,7 +150,7 @@
 		to_chat(user, "<span class='notice'>You open the valve and click the igniter, [src] begins to eject flames.")
 		hitsound = 'sound/items/welder2.ogg'
 		damtype = "burn"
-		force = 35
+		force = 30
 
 	else
 		attack_verb_continuous = list("stabs", "slices", "slashes", "cuts", "rends")
@@ -147,13 +165,13 @@
 	desc = "A militarized handheld chainsaw, the sound of it alone is enough to strike fear into the hearts of many. When turned on, the motor allows this to be used as a weapon with quick follow up strikes."
 	icon_state = "ripper_off"
 	inhand_icon_state = "ripper_off"
-	wound_bonus = 8
-	bare_wound_bonus = 6
-	armour_penetration = 10
+	wound_bonus = 10
+	bare_wound_bonus = 10
 	throwforce = 10
 	sharpness = IS_SHARP_AXE
-	toolspeed = 0.75
 	w_class = WEIGHT_CLASS_NORMAL
+	grid_width = 96
+	grid_height = 64
 	var/on = FALSE
 	var/icon_prefix = "ripper"
 
@@ -167,8 +185,11 @@
 		attack_verb_simple = list("jab", "slice", "slash", "cut", "rend", "saw", "tear")
 		to_chat(user, "<span class='notice'>As you yank the starter cord on [src], it roars to life.")
 		hitsound = 'sound/weapons/chainsawhit.ogg'
-		force = 25
+		force = 20
+		subtractible_armour_penetration = 20
+		edge_protection_penetration = 5
 		sharpness = IS_SHARP_AXE
+		toolspeed = 0.75
 		user.changeNext_move(CLICK_CD_MELEE * 0.6)
 
 	else
@@ -177,6 +198,8 @@
 		to_chat(user, "<span class='notice'>You flip off [src], it slows to a halt.")
 		hitsound = "swing_hit"
 		force = 10
+		subtractible_armour_penetration = 5
+		toolspeed = 1.5
 		sharpness = SHARP_EDGED
 
 /obj/item/claymore/ms13/machete/ripper/advanced
@@ -185,9 +208,6 @@
 	icon_state = "ripper_legend_off"
 	inhand_icon_state = "ripper_legend_off"
 	icon_prefix = "ripper_legend"
-	wound_bonus = 12
-	bare_wound_bonus = 13
-	toolspeed = 0.5
 
 /obj/item/claymore/ms13/machete/ripper/advanced/attack_self(mob/user)
 	on = !on
@@ -199,8 +219,11 @@
 		attack_verb_simple = list("jab", "slice", "slash", "cut", "rend", "saw", "tear")
 		to_chat(user, "<span class='notice'>As you yank the starter cord on [src], it roars to life.")
 		hitsound = 'sound/weapons/chainsawhit.ogg'
-		force = 35
+		force = 30
+		subtractible_armour_penetration = 30
+		edge_protection_penetration = 5
 		sharpness = IS_SHARP_AXE
+		toolspeed = 0.5
 		user.changeNext_move(CLICK_CD_MELEE * 0.6)
 
 	else
@@ -209,4 +232,6 @@
 		to_chat(user, "<span class='notice'>You flip off [src], it slows to a halt.")
 		hitsound = "swing_hit"
 		force = 10
+		subtractible_armour_penetration = 5
+		toolspeed = 1.5
 		sharpness = SHARP_EDGED

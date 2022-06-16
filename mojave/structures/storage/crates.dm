@@ -51,36 +51,34 @@
 	if(manifest)
 		tear_manifest(user)
 
-/obj/structure/closet/crate/ms13/woodcrate/attackby(obj/item/W, mob/living/user, params)
-	if(W.tool_behaviour == TOOL_CROWBAR && breakable)
-		if(manifest)
-			tear_manifest(user)
-		if(!prying)
-			user.visible_message("<span class='notice'>[user] starts to break \the [src] open.</span>", \
-					"<span class='notice'>You start to break \the [src] open.</span>", \
-					"<span class='hear'>You hear splitting wood.</span>")
-			playsound(src.loc, 'mojave/sound/ms13effects/wood_deconstruction.ogg', 50, TRUE)
-			prying = TRUE
-			if(do_after(user, 8 SECONDS * W.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_CRATEOPEN))
-				user.visible_message("<span class='notice'>[user] pries \the [src] open.</span>", \
-					"<span class='notice'>You pry open \the [src].</span>", \
-					"<span class='hear'>You hear splitting wood.</span>")
+/obj/structure/closet/crate/ms13/woodcrate/crowbar_act_secondary(mob/living/user, obj/item/tool)
+	if(flags_1&NODECONSTRUCT_1)
+		return TRUE
+	..()
+	user.visible_message("<span class='notice'>[user] starts to break \the [src] open.</span>", \
+		"<span class='notice'>You start to break \the [src] open.</span>", \
+		"<span class='hear'>You hear splitting wood.</span>")
+	tool.play_tool_sound(src)
+	if(do_after(user, 10 SECONDS * tool.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+		playsound(src.loc, 'mojave/sound/ms13effects/wood_deconstruction.ogg', 50, TRUE)
+		user.visible_message("<span class='notice'>[user] pries \the [src] open.</span>", \
+			"<span class='notice'>You pry open \the [src].</span>", \
+			"<span class='hear'>You hear splitting wood.</span>")
+		deconstruct(disassembled = TRUE)
+		return TRUE
 
-				var/turf/T = get_turf(src)
-				for(var/i in 1 to material_drop_amount)
-					new material_drop(src)
-				for(var/atom/movable/AM in contents)
-					AM.forceMove(T)
-
-				qdel(src)
-				prying = FALSE
-				return ..()
-			prying = FALSE
-			return
-	else
-		if(!user.combat_mode && W.tool_behaviour == TOOL_CROWBAR)
-			return FALSE
-	. = ..()
+/obj/structure/closet/crate/ms13/woodcrate/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/plank(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 2)
+		else
+			new /obj/item/stack/sheet/ms13/scrap_wood(loc)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
+	var/turf/T = get_turf(src)
+	for(var/atom/movable/AM in contents)
+		AM.forceMove(T)
+	qdel(src)
 
 /obj/structure/closet/crate/ms13/woodcrate/compact
 	icon_state = "plain_crate"

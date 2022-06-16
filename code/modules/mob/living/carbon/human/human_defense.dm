@@ -180,9 +180,9 @@
 	if(user == src)
 		affecting = get_bodypart(check_zone(user.zone_selected)) //stabbing yourself always hits the right target
 	else
-		var/zone_hit_chance = 80
+		var/zone_hit_chance = 75 //MOJAVE EDIT - Original value is 80
 		if(body_position == LYING_DOWN) // half as likely to hit a different zone if they're on the ground
-			zone_hit_chance += 10
+			zone_hit_chance += 20 //MOJAVE EDIT - Original value is 10, this makes you 95% likely to hit what you are aiming on a grounded person
 		affecting = get_bodypart(ran_zone(user.zone_selected, zone_hit_chance))
 	var/target_area = parse_zone(check_zone(user.zone_selected)) //our intended target
 
@@ -354,8 +354,19 @@
 		affecting = get_bodypart(BODY_ZONE_CHEST)
 	var/armor = run_armor_check(affecting, MELEE, armour_penetration = user.armour_penetration)
 	var/attack_direction = get_dir(user, src)
+	/* MOJAVE EDIT REMOVAL
 	apply_damage(damage, user.melee_damage_type, affecting, armor, wound_bonus = user.wound_bonus, bare_wound_bonus = user.bare_wound_bonus, sharpness = user.sharpness, attack_direction = attack_direction)
-
+	*/
+	//MOJAVE EDIT BEGIN
+	var/subarmor = run_subarmor_check(affecting, MELEE, armour_penetration = user.subtractible_armour_penetration, sharpness = user.sharpness)
+	var/subarmor_flags = get_subarmor_flags(affecting)
+	var/edge_protection = get_edge_protection(affecting)
+	apply_damage(damage, user.melee_damage_type, affecting, armor, \
+				wound_bonus = user.wound_bonus, bare_wound_bonus = user.bare_wound_bonus, \
+				sharpness = user.sharpness, attack_direction = attack_direction, \
+				subarmor_flags = subarmor_flags, edge_protection = edge_protection, \
+				reduced = subarmor)
+	//MOJAVE EDIT END
 
 /mob/living/carbon/human/attack_animal(mob/living/simple_animal/user, list/modifiers)
 	. = ..()

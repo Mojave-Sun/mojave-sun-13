@@ -15,6 +15,9 @@
 	icon_state = "seed"
 	potency = 50
 	growthstages = 5
+	w_class = WEIGHT_CLASS_TINY
+	grid_height = 32
+	grid_width = 32
 	//vars added here to stop compilation issues.  Removed from base botany and will need to be refactored.
 	var/growing_color = ""
 	var/harvest_icon = 1
@@ -26,11 +29,14 @@
 	lefthand_file = 'mojave/icons/mob/inhands/equipment/hydroponics_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/equipment/hydroponics_righthand.dmi'
 	can_distill = TRUE
+	w_class = WEIGHT_CLASS_TINY
+	grid_height = 32
+	grid_width = 32
 	distill_reagent = /datum/reagent/consumable/ethanol/ms13/brew_sludge
 
 /obj/item/food/grown/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/hydroponics/harvest/harvest_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/hydroponics/harvest/harvest_inventory.dmi')
 
 /////////////////////////////////////////////////////////////
 ////////////////// MOJAVE SUN BOTANY ITEMS //////////////////
@@ -469,32 +475,3 @@
 /obj/machinery/hydroponics/ms13/soil/update_icon()
 	. = ..()
 	add_overlay(image(border_icon, icon_state, SOIL_EDGE_LAYER, pixel_x = -8, pixel_y = -8))
-
-/////////////////////////////////////////////////////////////
-////////////////// MOJAVE SUN BOTANY MISC  //////////////////
-/////////////////////////////////////////////////////////////
-
-//forest and snow areas
-
-//#define SNOW_PLANT_DENSE_SPAWN_LIST list(/obj/structure/flora/grass/wasteland/snow = 10, /obj/structure/flora/ms13/tree/tallpine = 7, /obj/structure/flora/ms13/tree/deadsnow = 5, /obj/structure/flora/ms13/tree/smallpine = 5)
-
-/area/ms13/snow
-	name = "Snow"
-	icon_state = "snow"
-	requires_power = FALSE
-	power_environ = FALSE
-	power_equip = FALSE
-	outdoors = TRUE
-	flags_1 = NONE
-
-/area/ms13/snow/deepforest
-	name = "Deep Forest"
-	icon_state = "deepforest"
-
-/area/ms13/snow/forest
-	name = "Forest"
-	icon_state = "forest"
-
-/area/ms13/snow/lightforest
-	name = "Light Forest"
-	icon_state = "lightforest"

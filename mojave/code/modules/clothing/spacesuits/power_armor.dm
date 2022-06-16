@@ -9,7 +9,7 @@
 	strip_delay = 15 SECONDS
 	max_integrity = 500
 	resistance_flags = FIRE_PROOF | ACID_PROOF
-	armor = list(MELEE = 80, BULLET = 80, LASER = 80, ENERGY = 80, BOMB = 80, BIO = 100,  FIRE = 100, ACID = 100, WOUND = 25) //Make the armor the same as the hardsuit one for consistancy
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0,  FIRE = 0, ACID = 0, WOUND = 0)
 	worn_x_dimension = 32
 	worn_y_dimension = 48
 	worn_y_offset = 2
@@ -24,11 +24,13 @@
 	interaction_flags_item &= ~INTERACT_ITEM_ATTACK_HAND_PICKUP
 	ADD_TRAIT(src, TRAIT_NODROP, STICKY_NODROP) //Somehow it's stuck to your body, no questioning.
 	radio = new radiotype(src)
+	AddElement(/datum/element/radiation_protected_clothing)
+	AddComponent(/datum/component/clothing_fov_visor, FOV_180_DEGREES)
 
 /obj/item/radio/headset/ms13/powerarmor
 	name = "integrated power armor headset"
 	actions_types = list(/datum/action/item_action/toggle_radio)
-	icon = 'mojave/icons/objects/hamradio.dmi'
+	icon = 'mojave/icons/objects/tools/tools_inventory.dmi'
 	icon_state = "handradio"
 	subspace_transmission = FALSE
 	freerange = TRUE
@@ -72,7 +74,7 @@
 	strip_delay = 15 SECONDS
 	max_integrity = 500
 	resistance_flags = FIRE_PROOF | ACID_PROOF
-	armor = list(MELEE = 80, BULLET = 80, LASER = 80, ENERGY = 80, BOMB = 80, BIO = 100,  FIRE = 100, ACID = 100, WOUND = 25) //Make the armor the same as the hardsuit one for consistancy
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0,  FIRE = 0, ACID = 0, WOUND = 0)
 	actions_types = null //No helmet toggle, sorry dude
 	worn_x_dimension = 32
 	worn_y_dimension = 20
@@ -82,7 +84,7 @@
 	clothing_traits = list(TRAIT_SILENT_FOOTSTEPS) //No playing regular footsteps over power armor footsteps
 	item_flags = NO_PIXEL_RANDOM_DROP
 	clothing_flags = LARGE_WORN_ICON | STOPSPRESSUREDAMAGE | THICKMATERIAL | SNUG_FIT | BLOCKS_SHOVE_KNOCKDOWN
-	slowdown = 1
+	slowdown = 1.35
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/examine(mob/user)
 	. = ..()
@@ -93,6 +95,7 @@
 	interaction_flags_item &= ~INTERACT_ITEM_ATTACK_HAND_PICKUP
 	ADD_TRAIT(src, TRAIT_NODROP, STICKY_NODROP) //Somehow it's stuck to your body, no questioning.
 	RegisterSignal(src, COMSIG_ATOM_CAN_BE_PULLED, .proc/reject_pulls)
+	AddElement(/datum/element/radiation_protected_clothing)
 
 //We want to be able to strip the PA as usual but also have the benefits of NO_DROP to disallow stuff like drag clicking PA into hand slot
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/canStrip(mob/stripper, mob/owner)
@@ -247,39 +250,72 @@
 /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/t51
 	name = "T-51B Power Armor Helmet"
 	desc = "A more advanced helmet for a more advanced piece of power armor. Comes with a high quality headlamp and integrated radio."
-	armor = list(MELEE = 80, BULLET = 80, LASER = 75, ENERGY = 80, BOMB = 80, BIO = 100,  FIRE = 100, ACID = 100, WOUND = 20) //Make the armor the same as the hardsuit one for consistancy
 	icon_state = "helmet0-t51"
 	hardsuit_type = "t51" //Determines used sprites: hardsuit[on]-[type]
 	light_range = 4.20
 	light_power = 0.9
 	light_color = "#d1c58d"
 	radiotype = /obj/item/radio/headset/ms13/powerarmor/t51
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = CLASS4_EDGE, \
+                CRUSHING = CLASS5_CRUSH, \
+                CUTTING = CLASS5_CUT, \
+                PIERCING = CLASS5_PIERCE, \
+                IMPALING = CLASS5_STAB, \
+                LASER = CLASS5_LASER, \
+                ENERGY = CLASS4_PLASMA, \
+                FIRE = CLASS5_FIRE)
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/t51
 	name = "T-51B Power Armor Suit"
 	desc = "The last widely developed and distributed power armor prior to the nuclear winter, even after all of these years it still outperforms it's previous model iteration."
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/t51
-	armor = list(MELEE = 80, BULLET = 80, LASER = 75, ENERGY = 80, BOMB = 80, BIO = 100,  FIRE = 100, ACID = 100, WOUND = 20)
 	icon_state = "t51_armor"
 	worn_icon_state = "t51_armor"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = CLASS4_EDGE, \
+                CRUSHING = CLASS5_CRUSH, \
+                CUTTING = CLASS5_CUT, \
+                PIERCING = CLASS5_PIERCE, \
+                IMPALING = CLASS5_STAB, \
+                LASER = CLASS5_LASER, \
+                ENERGY = CLASS4_PLASMA, \
+                FIRE = CLASS5_FIRE)
 
 // T-45 PA set //
 
 /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/t45
 	name = "T-45D Power Armor Helmet"
 	desc = "The helmet to a T-45 powered combat armor suit. Stare your foe down as they can only scrape your paint. Comes with a decent quality headlamp and integrated radio."
-	armor = list(MELEE = 75, BULLET = 75, LASER = 70, ENERGY = 75, BOMB = 75, BIO = 100,  FIRE = 100, ACID = 100, WOUND = 15)
 	icon_state = "helmet0-t45"
 	hardsuit_type = "t45"
 	light_range = 4
 	light_power = 0.8
 	light_color = "#dabc7c"
 	radiotype = /obj/item/radio/headset/ms13/powerarmor/t45
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = CLASS4_EDGE, \
+                CRUSHING = CLASS5_CRUSH, \
+                CUTTING = CLASS5_CUT, \
+                PIERCING = CLASS5_PIERCE, \
+                IMPALING = CLASS5_STAB, \
+                LASER = CLASS4_LASER, \
+                ENERGY = CLASS3_PLASMA, \
+                FIRE = CLASS5_FIRE)
+
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/t45
 	name = "T-45D Power Armor Suit"
 	desc = "Supposedly the first power armor to be deployed in the Great War. While it does have it's flaws, it still represents a very robust piece of armor that can withstand great punishment."
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/t45
-	armor = list(MELEE = 75, BULLET = 75, LASER = 70, ENERGY = 75, BOMB = 75, BIO = 100,  FIRE = 100, ACID = 100, WOUND = 15)
 	icon_state = "t45_armor"
 	worn_icon_state = "t45_armor"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = CLASS4_EDGE, \
+                CRUSHING = CLASS5_CRUSH, \
+                CUTTING = CLASS5_CUT, \
+                PIERCING = CLASS5_PIERCE, \
+                IMPALING = CLASS5_STAB, \
+                LASER = CLASS4_LASER, \
+                ENERGY = CLASS3_PLASMA, \
+                FIRE = CLASS5_FIRE)

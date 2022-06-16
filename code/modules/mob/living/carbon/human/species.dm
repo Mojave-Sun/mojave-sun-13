@@ -1159,6 +1159,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		if(ITEM_SLOT_SUITSTORE)
 			if(HAS_TRAIT(I, TRAIT_NODROP))
 				return FALSE
+			/*MOJAVE SUN EDIT BEGIN
 			if(!H.wear_suit)
 				if(!disable_warning)
 					to_chat(H, span_warning("You need a suit before you can attach this [I.name]!"))
@@ -1167,11 +1168,12 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				if(!disable_warning)
 					to_chat(H, span_warning("You somehow have a suit with no defined allowed items for suit storage, stop that."))
 				return FALSE
-			if(I.w_class > WEIGHT_CLASS_BULKY)
+			MOJAVE SUN EDIT END */
+			if(I.w_class > WEIGHT_CLASS_HUGE) //MOJAVE EDIT - Original weight class is bulky, changed to allow for our guns to be huge items.
 				if(!disable_warning)
 					to_chat(H, span_warning("The [I.name] is too big to attach!")) //should be src?
 				return FALSE
-			if( istype(I, /obj/item/pda) || istype(I, /obj/item/pen) || is_type_in_list(I, H.wear_suit.allowed) )
+			if( istype(I, /obj/item/gun)) // MOJAVE SUN EDIT | ORIGINAL IS "if( istype(I, /obj/item/pda) || istype(I, /obj/item/pen) || is_type_in_list(I, H.wear_suit.allowed) )" || This is so we can rebrand the """"""suit slot""""""" into a gun sling spot
 				return TRUE
 			return FALSE
 		if(ITEM_SLOT_HANDCUFFED)
@@ -1351,6 +1353,11 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			return FALSE
 
 		var/armor_block = target.run_armor_check(affecting, MELEE)
+		//MOJAVE EDIT BEGIN
+		var/armor_reduce = target.run_subarmor_check(affecting, MELEE)
+		var/subarmor_flags = target.get_subarmor_flags(affecting)
+		var/edge_protection = target.get_edge_protection(affecting)
+		//MOJAVE EDIT END
 
 		playsound(target.loc, user.dna.species.attack_sound, 25, TRUE, -1)
 
@@ -1367,10 +1374,34 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 		var/attack_direction = get_dir(user, target)
 		if(atk_effect == ATTACK_EFFECT_KICK)//kicks deal 1.5x raw damage
+			/* MOJAVE EDIT REMOVAL
 			target.apply_damage(damage*1.5, user.dna.species.attack_type, affecting, armor_block, attack_direction = attack_direction)
+			*/
+			//MOJAVE EDIT BEGIN
+			target.apply_damage(damage*1.5, \
+								user.dna.species.attack_type, \
+								affecting, \
+								armor_block, \
+								attack_direction = attack_direction, \
+								reduced = armor_reduce, \
+								edge_protection = edge_protection, \
+								subarmor_flags = subarmor_flags)
+			//MOJAVE EDIT END
 			log_combat(user, target, "kicked")
 		else//other attacks deal full raw damage + 1.5x in stamina damage
+			/* MOJAVE EDIT REMOVAL
 			target.apply_damage(damage, user.dna.species.attack_type, affecting, armor_block, attack_direction = attack_direction)
+			*/
+			//MOJAVE EDIT BEGIN
+			target.apply_damage(damage, \
+								user.dna.species.attack_type, \
+								affecting, \
+								armor_block, \
+								attack_direction = attack_direction, \
+								reduced = armor_reduce, \
+								edge_protection = edge_protection, \
+								subarmor_flags = subarmor_flags)
+			//MOJAVE EDIT END
 			target.apply_damage(damage*1.5, STAMINA, affecting, armor_block)
 			log_combat(user, target, "punched")
 
@@ -1449,9 +1480,19 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	hit_area = affecting.name
 	var/def_zone = affecting.body_zone
 
+	/* MOJAVE EDIT REMOVAL
 	var/armor_block = H.run_armor_check(affecting, MELEE, span_notice("Your armor has protected your [hit_area]!"), span_warning("Your armor has softened a hit to your [hit_area]!"),I.armour_penetration, weak_against_armour = I.weak_against_armour)
 	armor_block = min(90,armor_block) //cap damage reduction at 90%
+	*/
 	var/Iwound_bonus = I.wound_bonus
+	//MOJAVE EDIT BEGIN
+	var/armor_block = H.run_armor_check(affecting, MELEE, armour_penetration = I.armour_penetration, weak_against_armour = I.weak_against_armour)
+	armor_block = min(90,armor_block) //cap damage reduction at 90%
+	var/armor_reduce = H.run_subarmor_check(affecting, MELEE, armour_penetration = I.subtractible_armour_penetration, weak_against_armour = I.weak_against_subtractible_armour, sharpness = I.get_sharpness())
+	var/edge_protection = H.get_edge_protection(affecting)
+	edge_protection = max(0, edge_protection - I.edge_protection_penetration)
+	var/subarmor_flags = H.get_subarmor_flags(affecting)
+	//MOJAVE EDIT END
 
 	// this way, you can't wound with a surgical tool on help intent if they have a surgery active and are lying down, so a misclick with a circular saw on the wrong limb doesn't bleed them dry (they still get hit tho)
 	if((I.item_flags & SURGICAL_TOOL) && !user.combat_mode && H.body_position == LYING_DOWN && (LAZYLEN(H.surgeries) > 0))
@@ -1463,7 +1504,23 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 
 	var/attack_direction = get_dir(user, H)
+	/* MOJAVE EDIT REMOVAL
 	apply_damage(I.force * weakness, I.damtype, def_zone, armor_block, H, wound_bonus = Iwound_bonus, bare_wound_bonus = I.bare_wound_bonus, sharpness = I.get_sharpness(), attack_direction = attack_direction)
+	*/
+	//MOJAVE EDIT BEGIN
+	apply_damage(I.force * weakness, \
+				I.damtype, \
+				def_zone, \
+				armor_block, \
+				H, \
+				wound_bonus = Iwound_bonus, \
+				bare_wound_bonus = I.bare_wound_bonus, \
+				sharpness = I.get_sharpness(), \
+				attack_direction = attack_direction, \
+				reduced = armor_reduce, \
+				edge_protection = edge_protection, \
+				subarmor_flags = subarmor_flags)
+	//MOJAVE EDIT END
 
 	if(!I.force)
 		return FALSE //item force is zero

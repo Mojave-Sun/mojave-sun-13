@@ -10,10 +10,28 @@
 	throwforce = 2
 	merge_type = /obj/item/stack/sheet/ms13
 	w_class = WEIGHT_CLASS_NORMAL
-
+	grid_width = 64
+	grid_height = 64
+/*
+/obj/item/stack/sheet/ms13/update_icon_state()
+	if(novariants)
+		return ..()
+	if(amount <= (max_amount * (1/3)))
+		grid_width = 64
+		grid_height = 32
+		return ..()
+	if (amount <= (max_amount * (2/3)))
+		grid_width = 96
+		grid_height = 64
+		return ..()
+	grid_width = 126
+	grid_height = 96
+	return ..()
+*/
 /obj/item/stack/sheet/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/crafting/materials_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/crafting/materials_inventory.dmi')
+	update_icon_state()
 
 //MISC. SCRAP//
 
@@ -25,7 +43,7 @@
 	inhand_icon_state = "scrap"
 	merge_type = /obj/item/stack/sheet/ms13/scrap
 	amount = 1
-	max_amount = 15
+	max_amount = 20
 
 /obj/item/stack/sheet/ms13/scrap/two
 	amount = 2
@@ -56,8 +74,7 @@ GLOBAL_LIST_INIT(scrap_recipes, list ( \
 	inhand_icon_state = "scrap"
 	merge_type = /obj/item/stack/sheet/ms13/scrap_parts
 	amount = 1
-	max_amount = 20
-	w_class = WEIGHT_CLASS_SMALL
+	max_amount = 25
 
 /obj/item/stack/sheet/ms13/scrap_parts/two
 	amount = 2
@@ -80,7 +97,7 @@ GLOBAL_LIST_INIT(scrap_recipes, list ( \
 	icon_state = "rubber"
 	merge_type = /obj/item/stack/sheet/ms13/rubber
 	amount = 1
-	max_amount = 20
+	max_amount = 25
 
 /obj/item/stack/sheet/ms13/rubber/two
 	amount = 2
@@ -120,7 +137,7 @@ GLOBAL_LIST_INIT(scrap_recipes, list ( \
 	icon_state = "ceramic"
 	merge_type = /obj/item/stack/sheet/ms13/ceramic
 	amount = 1
-	max_amount = 20
+	max_amount = 25
 
 /obj/item/stack/sheet/ms13/ceramic/three
 	amount = 3
@@ -140,8 +157,7 @@ GLOBAL_LIST_INIT(scrap_recipes, list ( \
 	icon_state = "scrap_glass"
 	merge_type = /obj/item/stack/sheet/ms13/glass
 	amount = 1
-	max_amount = 20
-	w_class = WEIGHT_CLASS_SMALL
+	max_amount = 25
 
 /obj/item/stack/sheet/ms13/glass/three
 	amount = 3
@@ -164,7 +180,7 @@ GLOBAL_LIST_INIT(scrap_recipes, list ( \
 	inhand_icon_state = "scrap"
 	merge_type = /obj/item/stack/sheet/ms13/scrap_steel
 	amount = 1
-	max_amount = 15
+	max_amount = 20
 
 /obj/item/stack/sheet/ms13/scrap_steel/two
 	amount = 2
@@ -201,7 +217,9 @@ GLOBAL_LIST_INIT(scrap_steel_recipes, list ( \
 	icon_state = "ingot_steel"
 	merge_type = /obj/item/stack/sheet/ms13/refined_steel
 	amount = 1
-	max_amount = 10
+	max_amount = 12
+	grid_width = 96
+	grid_height = 64
 
 /obj/item/stack/sheet/ms13/refined_steel/two
 	amount = 2
@@ -235,7 +253,7 @@ GLOBAL_LIST_INIT(refined_steel_recipes, list ( \
 	inhand_icon_state = "scrap"
 	merge_type = /obj/item/stack/sheet/ms13/scrap_lead
 	amount = 1
-	max_amount = 15
+	max_amount = 20
 
 /obj/item/stack/sheet/ms13/scrap_lead/two
 	amount = 2
@@ -258,7 +276,9 @@ GLOBAL_LIST_INIT(refined_steel_recipes, list ( \
 	icon_state = "ingot_lead"
 	merge_type = /obj/item/stack/sheet/ms13/refined_lead
 	amount = 1
-	max_amount = 10
+	max_amount = 12
+	grid_width = 96
+	grid_height = 64
 
 /obj/item/stack/sheet/ms13/refined_lead/two
 	amount = 2
@@ -280,9 +300,14 @@ GLOBAL_LIST_INIT(refined_steel_recipes, list ( \
 	amount = 1
 	max_amount = 30
 	w_class = WEIGHT_CLASS_SMALL
+	grid_width = 64
+	grid_height = 32
 
 /obj/item/stack/sheet/ms13/junk_bullets/ten
 	amount = 10
+
+/obj/item/stack/sheet/ms13/junk_bullets/fifteen
+	amount = 15
 
 /obj/item/stack/sheet/ms13/hq_bullets
 	name = "high quality bullets"
@@ -293,9 +318,14 @@ GLOBAL_LIST_INIT(refined_steel_recipes, list ( \
 	amount = 1
 	max_amount = 30
 	w_class = WEIGHT_CLASS_SMALL
+	grid_width = 64
+	grid_height = 32
 
 /obj/item/stack/sheet/ms13/hq_bullets/ten
 	amount = 10
+
+/obj/item/stack/sheet/ms13/hq_bullets/fifteen
+	amount = 15
 
 //BRASS//
 
@@ -307,7 +337,7 @@ GLOBAL_LIST_INIT(refined_steel_recipes, list ( \
 	inhand_icon_state = "scrap"
 	merge_type = /obj/item/stack/sheet/ms13/scrap_brass
 	amount = 1
-	max_amount = 15
+	max_amount = 20
 
 /obj/item/stack/sheet/ms13/scrap_brass/two
 	amount = 2
@@ -330,7 +360,9 @@ GLOBAL_LIST_INIT(refined_steel_recipes, list ( \
 	icon_state = "ingot_brass"
 	merge_type = /obj/item/stack/sheet/ms13/refined_brass
 	amount = 1
-	max_amount = 10
+	max_amount = 12
+	grid_width = 96
+	grid_height = 64
 
 /obj/item/stack/sheet/ms13/refined_brass/two
 	amount = 2
@@ -352,9 +384,14 @@ GLOBAL_LIST_INIT(refined_steel_recipes, list ( \
 	amount = 1
 	max_amount = 30
 	w_class = WEIGHT_CLASS_SMALL
+	grid_width = 64
+	grid_height = 32
 
 /obj/item/stack/sheet/ms13/junk_casings/ten
 	amount = 10
+
+/obj/item/stack/sheet/ms13/junk_casings/fifteen
+	amount = 15
 
 /obj/item/stack/sheet/ms13/hq_casings
 	name = "high quality bullet casings"
@@ -365,9 +402,14 @@ GLOBAL_LIST_INIT(refined_steel_recipes, list ( \
 	amount = 1
 	max_amount = 30
 	w_class = WEIGHT_CLASS_SMALL
+	grid_width = 64
+	grid_height = 32
 
 /obj/item/stack/sheet/ms13/hq_casings/ten
 	amount = 10
+
+/obj/item/stack/sheet/ms13/hq_casings/fifteen
+	amount = 15
 
 //ALUMINUM//
 
@@ -379,7 +421,7 @@ GLOBAL_LIST_INIT(refined_steel_recipes, list ( \
 	inhand_icon_state = "scrap"
 	merge_type = /obj/item/stack/sheet/ms13/scrap_alu
 	amount = 1
-	max_amount = 15
+	max_amount = 20
 
 /obj/item/stack/sheet/ms13/scrap_alu/two
 	amount = 2
@@ -413,7 +455,9 @@ GLOBAL_LIST_INIT(scrap_alu_recipes, list ( \
 	icon_state = "ingot_aluminum"
 	merge_type = /obj/item/stack/sheet/ms13/refined_alu
 	amount = 1
-	max_amount = 10
+	max_amount = 12
+	grid_width = 96
+	grid_height = 64
 
 /obj/item/stack/sheet/ms13/refined_alu/two
 	amount = 2
@@ -447,7 +491,7 @@ GLOBAL_LIST_INIT(refined_alu_recipes, list ( \
 	inhand_icon_state = "scrap"
 	merge_type = /obj/item/stack/sheet/ms13/scrap_silver
 	amount = 1
-	max_amount = 15
+	max_amount = 20
 
 /obj/item/stack/sheet/ms13/scrap_silver/two
 	amount = 2
@@ -470,7 +514,9 @@ GLOBAL_LIST_INIT(refined_alu_recipes, list ( \
 	icon_state = "ingot_silver"
 	merge_type = /obj/item/stack/sheet/ms13/refined_silver
 	amount = 1
-	max_amount = 10
+	max_amount = 12
+	grid_width = 96
+	grid_height = 64
 
 /obj/item/stack/sheet/ms13/refined_silver/two
 	amount = 2
@@ -493,7 +539,7 @@ GLOBAL_LIST_INIT(refined_alu_recipes, list ( \
 	inhand_icon_state = "scrap"
 	merge_type = /obj/item/stack/sheet/ms13/scrap_gold
 	amount = 1
-	max_amount = 15
+	max_amount = 20
 
 /obj/item/stack/sheet/ms13/scrap_gold/two
 	amount = 2
@@ -516,7 +562,9 @@ GLOBAL_LIST_INIT(refined_alu_recipes, list ( \
 	icon_state = "ingot_gold"
 	merge_type = /obj/item/stack/sheet/ms13/refined_gold
 	amount = 1
-	max_amount = 10
+	max_amount = 12
+	grid_width = 96
+	grid_height = 64
 
 /obj/item/stack/sheet/ms13/refined_gold/two
 	amount = 2
@@ -539,7 +587,7 @@ GLOBAL_LIST_INIT(refined_alu_recipes, list ( \
 	inhand_icon_state = "scrap"
 	merge_type = /obj/item/stack/sheet/ms13/scrap_copper
 	amount = 1
-	max_amount = 15
+	max_amount = 20
 
 /obj/item/stack/sheet/ms13/scrap_copper/two
 	amount = 2
@@ -563,7 +611,9 @@ GLOBAL_LIST_INIT(refined_alu_recipes, list ( \
 	inhand_icon_state = "scrap"
 	merge_type = /obj/item/stack/sheet/ms13/refined_copper
 	amount = 1
-	max_amount = 10
+	max_amount = 12
+	grid_width = 96
+	grid_height = 64
 
 /obj/item/stack/sheet/ms13/refined_copper/two
 	amount = 2
@@ -586,7 +636,7 @@ GLOBAL_LIST_INIT(refined_alu_recipes, list ( \
 	inhand_icon_state = "scrap"
 	merge_type = /obj/item/stack/sheet/ms13/scrap_electronics
 	amount = 1
-	max_amount = 15
+	max_amount = 20
 
 /obj/item/stack/sheet/ms13/scrap_electronics/two
 	amount = 2
@@ -599,7 +649,7 @@ GLOBAL_LIST_INIT(refined_alu_recipes, list ( \
 	inhand_icon_state = "scrap"
 	merge_type = /obj/item/stack/sheet/ms13/circuits
 	amount = 1
-	max_amount = 15
+	max_amount = 20
 
 /obj/item/stack/sheet/ms13/circuits/three
 	amount = 3
@@ -614,7 +664,8 @@ GLOBAL_LIST_INIT(refined_alu_recipes, list ( \
 	merge_type = /obj/item/stack/sheet/ms13/log
 	amount = 1
 	max_amount = 4
-	w_class = WEIGHT_CLASS_BULKY
+	grid_width = 96
+	grid_height = 64
 
 GLOBAL_LIST_INIT(log_recipes, list ( \
 	new/datum/stack_recipe("crude log wall", /turf/closed/wall/ms13/craftable/wood, 4, time = 40 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
@@ -630,7 +681,7 @@ GLOBAL_LIST_INIT(log_recipes, list ( \
 			user.show_message(span_notice("You can only chop one log at a time!"), MSG_VISUAL)
 			return
 		user.show_message(span_notice("You begin chopping \the [src] into wood planks!"), MSG_VISUAL)
-		if(do_after(user, 4 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_MAKEPLANKS)) 
+		if(do_after(user, 4 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_MAKEPLANKS))
 			user.show_message(span_notice("You make wood planks out of \the [src]!"), MSG_VISUAL)
 			new /obj/item/stack/sheet/ms13/plank/two(user.loc)
 			qdel(src)
@@ -642,7 +693,7 @@ GLOBAL_LIST_INIT(log_recipes, list ( \
 	icon_state = "scrap_wood"
 	merge_type = /obj/item/stack/sheet/ms13/scrap_wood
 	amount = 1
-	max_amount = 15
+	max_amount = 20
 
 /obj/item/stack/sheet/ms13/scrap_wood/two
 	amount = 2
@@ -664,7 +715,9 @@ GLOBAL_LIST_INIT(scrap_wood_recipes, list ( \
 	icon_state = "plank"
 	merge_type = /obj/item/stack/sheet/ms13/plank
 	amount = 1
-	max_amount = 10
+	max_amount = 12
+	grid_width = 96
+	grid_height = 64
 
 /obj/item/stack/sheet/ms13/plank/two
 	amount = 2
@@ -686,7 +739,7 @@ GLOBAL_LIST_INIT(plank_recipes, list ( \
     desc = "Pieces of cloth that can be used for many things. Clothing, armor, weapons, medical supplies. Even making some gauze on the fly!"
     singular_name = "cloth piece"
     icon_state = "cloth"
-    max_amount = 15
+    max_amount = 20
     amount = 1
     merge_type = /obj/item/stack/sheet/ms13/cloth
 
@@ -711,7 +764,7 @@ GLOBAL_LIST_INIT(ms13cloth_recipes, list ( \
 	icon_state = "leather"
 	merge_type = /obj/item/stack/sheet/ms13/leather
 	amount = 1
-	max_amount = 15
+	max_amount = 20
 
 /obj/item/stack/sheet/ms13/leather/two
 	amount = 2
@@ -723,7 +776,7 @@ GLOBAL_LIST_INIT(ms13cloth_recipes, list ( \
 	icon_state = "militaryfiber"
 	merge_type = /obj/item/stack/sheet/ms13/mil_fiber
 	amount = 1
-	max_amount = 15
+	max_amount = 20
 
 /obj/item/stack/sheet/ms13/mil_fiber/three
 	amount = 3
@@ -735,7 +788,7 @@ GLOBAL_LIST_INIT(ms13cloth_recipes, list ( \
 	icon_state = "thread"
 	merge_type = /obj/item/stack/sheet/ms13/thread
 	amount = 1
-	max_amount = 20
+	max_amount = 25
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/stack/sheet/ms13/thread/two

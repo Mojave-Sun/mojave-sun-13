@@ -153,7 +153,10 @@
 	. += "*---------*</span>"
 
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
-
+	// MOJAVE SUN EDIT BEGIN
+	if(on_examined_check(user, FALSE))
+		user.on_examine_atom(src, FALSE)
+	//MOJAVE SUN EDIT END
 /mob/living/carbon/examine_more(mob/user)
 	if(!all_scars)
 		return ..()
@@ -173,5 +176,8 @@
 		var/scar_text = S.get_examine_description(user)
 		if(scar_text)
 			msg += "[scar_text]"
-
+	// MOJAVE SUN EDIT BEGIN
+	if(on_examined_check(user, TRUE))
+		user.on_examine_atom(src, TRUE)
+	// MOJAVE SUN EDIT END
 	return msg

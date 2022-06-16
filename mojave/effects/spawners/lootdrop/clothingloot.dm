@@ -1,3 +1,6 @@
+//// These spawners are NON-STATIC spawns. If you are making changes to these pools, you should probably also make changes to the static spawns outside of the Guarenteed folder. ////
+//// The idea of these spawners it to use these EVERYWHERE. Emphasis on EVERYWHERE!!! These are the spawners you should be slapping in every other building, so that there's variety in loot locations on a per-round basis. ////
+
 /obj/effect/spawner/random/ms13/clothing
 	name = "DO NOT USE ME - Mojave Sun clothing spawners"
 	spawn_loot_chance = 65
@@ -19,7 +22,6 @@
 		/obj/item/clothing/under/ms13/wasteland/cowboy/grey,
 		/obj/item/clothing/under/ms13/wasteland/cowboy/tan,
 		/obj/item/clothing/under/ms13/wasteland/manager,
-		/obj/item/clothing/under/ms13/wasteland/followers,
 		/obj/item/clothing/under/ms13/wasteland/wanderer,
 		/obj/item/clothing/under/ms13/wasteland/rancher,
 		/obj/item/clothing/under/ms13/wasteland/vestslacks,

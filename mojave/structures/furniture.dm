@@ -11,7 +11,7 @@
 	desc = "A message asking the audience to please standby appears on screen."
 	icon = 'icons/obj/computer.dmi'
 	icon_state = "television"
-	max_integrity = 250
+	max_integrity = 225
 	density = TRUE
 
 /obj/structure/ms13/tv/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
@@ -45,16 +45,16 @@
 /obj/structure/ms13/tv/proc/deconstruction_hints(mob/user)
 	return span_notice("You could use a <b>screwdriver</b> to take apart [src] for parts.")
 
-/obj/structure/ms13/phone
+/obj/structure/ms13/pay_phone
 	name = "payphone"
 	desc = "A long unused and dead payphone, sure as hell ain't anyone to call on this thing no more."
 	icon = 'mojave/icons/structure/miscellaneous.dmi'
 	icon_state = "payphone"
-	max_integrity = 300
+	max_integrity = 250
 	density = TRUE
 	anchored = TRUE
 
-/obj/structure/ms13/phone/wrench_act_secondary(mob/living/user, obj/item/weapon)
+/obj/structure/ms13/pay_phone/wrench_act_secondary(mob/living/user, obj/item/weapon)
 	if(flags_1&NODECONSTRUCT_1)
 		return TRUE
 	..()
@@ -63,16 +63,55 @@
 		deconstruct(disassembled = TRUE)
 		return TRUE
 
-/obj/structure/ms13/phone/deconstruct(disassembled = TRUE)
+/obj/structure/ms13/pay_phone/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
 			new /obj/item/stack/sheet/ms13/scrap/two(loc)
 			new /obj/item/stack/sheet/ms13/scrap_parts/two(loc)
 			new /obj/item/stack/sheet/ms13/scrap_electronics(loc)
-			new /obj/item/stack/sheet/ms13/scrap_copper/two(loc)
+			new /obj/item/stack/sheet/ms13/scrap_copper(loc, 3)
 		else
 			new /obj/item/stack/sheet/ms13/scrap(loc)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
+			new /obj/item/stack/sheet/ms13/scrap_copper(loc)
+	qdel(src)
+
+/obj/structure/ms13/pay_phone/examine(mob/user)
+	. = ..()
+	. += deconstruction_hints(user)
+
+/obj/structure/ms13/pay_phone/proc/deconstruction_hints(mob/user)
+	return span_notice("You could use a <b>wrench</b> to take apart [src] for parts.")
+
+/obj/structure/ms13/pay_phone/withthephone
+	icon_state = "payphone_alt"
+
+/obj/structure/ms13/phone
+	name = "phone"
+	desc = "A dusty and scuffed phone. You don't think it'll work again."
+	icon = 'mojave/icons/structure/miscellaneous.dmi'
+	icon_state = "phone_red"
+	max_integrity = 100
+	density = FALSE
+	anchored = TRUE
+
+/obj/structure/ms13/phone/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
+	if(flags_1&NODECONSTRUCT_1)
+		return TRUE
+	..()
+	weapon.play_tool_sound(src)
+	if(do_after(user, 8 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+		deconstruct(disassembled = TRUE)
+		return TRUE
+
+/obj/structure/ms13/phone/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/scrap(loc)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
+			new /obj/item/stack/sheet/ms13/scrap_copper/two(loc)
+		else
+			new /obj/item/stack/sheet/ms13/scrap(loc)
 			new /obj/item/stack/sheet/ms13/scrap_copper(loc)
 	qdel(src)
 
@@ -81,10 +120,10 @@
 	. += deconstruction_hints(user)
 
 /obj/structure/ms13/phone/proc/deconstruction_hints(mob/user)
-	return span_notice("You could use a <b>wrench</b> to take apart [src] for parts.")
+	return span_notice("You could use a <b>screwdriver</b> to take apart [src] for parts.")
 
-/obj/structure/ms13/phone/withthephone
-	icon_state = "payphone_alt"
+/obj/structure/ms13/phone/black
+	icon_state = "phone_black"
 
 //Plumbing//
 
@@ -248,7 +287,7 @@
 	density = TRUE
 	anchored = TRUE
 
-/obj/structure/ms13/jukebox/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
+/obj/structure/ms13/jukebox/wrench_act_secondary(mob/living/user, obj/item/weapon)
 	if(flags_1&NODECONSTRUCT_1)
 		return TRUE
 	..()
@@ -280,4 +319,101 @@
 	. += deconstruction_hints(user)
 
 /obj/structure/ms13/jukebox/proc/deconstruction_hints(mob/user)
-	return span_notice("You could use a <b>screwdriver</b> to carefully take apart [src] for parts.")
+	return span_notice("You could use a <b>wrench</b> to carefully take apart [src] for parts.")
+
+// Plant decor //
+
+/obj/structure/ms13/pot
+	name = "plant pot"
+	desc = "An old ceramic plant pot. It has faint cracks lining it in random patterns, but it holds strong."
+	icon = 'mojave/icons/structure/miscellaneous.dmi'
+	icon_state = "pot_1"
+	max_integrity = 40
+	density = TRUE
+	anchored = TRUE
+
+/obj/structure/ms13/pot/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/ceramic/three(loc)
+		else
+			new /obj/item/stack/sheet/ms13/ceramic(loc)
+	qdel(src)
+
+/obj/structure/ms13/pot/plant
+	name = "plant pot"
+	desc = "An old ceramic plant pot. It has faint cracks lining it in random patterns, but it holds strong. There is a dead plant in it."
+	icon_state = "pot_2"
+
+/obj/structure/ms13/pot/plant/Initialize(mapload)
+	. = ..()
+	if(prob(30))
+		icon_state = "[initial(icon_state)]_[rand(2,4)]"
+
+// Grocery Store Displays //
+
+/obj/structure/ms13/deli
+	name = "deli stand"
+	desc = "Hot food used to be served here to customers, now nothing is left."
+	icon = 'mojave/icons/structure/stand_deli.dmi'
+	icon_state = "deli_stand"
+	density = TRUE
+	anchored = TRUE
+
+/obj/structure/ms13/deli/wrench_act_secondary(mob/living/user, obj/item/weapon)
+	if(flags_1&NODECONSTRUCT_1)
+		return TRUE
+	..()
+	weapon.play_tool_sound(src)
+	if(do_after(user, 30 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+		deconstruct(disassembled = TRUE)
+		return TRUE
+
+
+/obj/structure/ms13/deli/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/scrap_steel(loc, 3)
+		else
+			new /obj/item/stack/sheet/ms13/scrap_steel(loc)
+	qdel(src)
+
+/obj/structure/ms13/deli/examine(mob/user)
+	. = ..()
+	. += deconstruction_hints(user)
+
+/obj/structure/ms13/deli/proc/deconstruction_hints(mob/user)
+	return span_notice("You could use a <b>wrench</b> to take apart [src] for scrap.")
+
+/obj/structure/ms13/fruit_empty
+	name = "fruit stand"
+	desc = "These stands used to be full of the freshest fruit from all over."
+	icon = 'mojave/icons/structure/stand_fruit.dmi'
+	icon_state = "fruitstand_empty"
+	density = TRUE
+	anchored = TRUE
+
+/obj/structure/ms13/fruit_empty/attackby(obj/item/W, mob/user, params)
+	if(W.sharpness == IS_SHARP_AXE)
+		user.show_message(span_notice("You begin chopping \the [src] into scraps of wood!"), MSG_VISUAL)
+		if(do_after(user, 15 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_MAKEPLANKS))
+			user.show_message(span_notice("You make wood scraps out of \the [src]!"), MSG_VISUAL)
+			new /obj/item/stack/sheet/ms13/scrap_wood(loc, 2)
+			qdel(src)
+
+/obj/structure/ms13/fruit_empty/examine(mob/user)
+	. = ..()
+	. += deconstruction_hints(user)
+
+/obj/structure/ms13/fruit_empty/proc/deconstruction_hints(mob/user)
+	return span_notice("You could use an <b>axe</b> to chop up [src] for wood.")
+
+/obj/structure/ms13/fruit_empty/fake
+	name = "fruit stand"
+	desc = "Wait, fruit...? What the f- It's fake!"
+	var/fruit_type = 1
+
+/obj/structure/ms13/fruit_empty/fake/Initialize()
+	fruit_type = rand(1,3)
+	icon_state = "fruitstand-[fruit_type]"
+	return ..()

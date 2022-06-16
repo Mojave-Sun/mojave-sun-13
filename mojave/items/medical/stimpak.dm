@@ -1,4 +1,4 @@
-/obj/item/reagent_containers/hypospray/medipen/ms13/
+/obj/item/reagent_containers/hypospray/medipen/ms13
 	name = "Generic ms13 medipen moment"
 	desc = "Shove it into your arm. Go ahead."
 	icon = 'mojave/icons/objects/medical/medical_world.dmi'
@@ -7,6 +7,8 @@
 	worn_icon = 'mojave/icons/mob/worn_misc.dmi'
 	worn_icon_state = "empty_placeholder"
 	slot_flags = ITEM_SLOT_BELT
+	grid_height = 32
+	grid_width = 32
 
 /obj/item/reagent_containers/hypospray/medipen/ms13/stimpak
 	name = "stimpak"
@@ -20,10 +22,10 @@
 
 /obj/item/reagent_containers/hypospray/medipen/ms13/stimpak/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/medical/medical_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/medical/medical_inventory.dmi')
 
 /obj/item/reagent_containers/hypospray/medipen/ms13/attack(mob/living/M, mob/user)
-	if(do_after(user, 0.75 SECONDS))
+	if(do_after(user, 0.65 SECONDS))
 		inject(M, user)
 
 /obj/item/reagent_containers/hypospray/medipen/ms13/inject(mob/living/M, mob/user)
@@ -36,7 +38,7 @@
 		return
 	if(!user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK, FALSE, FLOOR_OKAY))
 		return
-	if(do_after(user, 0.75 SECONDS))
+	if(do_after(user, 0.65 SECONDS))
 		inject(user)
 		update_icon_state()
 		playsound(src.loc, 'mojave/sound/ms13items/stimpak_inject.ogg', 40, FALSE)

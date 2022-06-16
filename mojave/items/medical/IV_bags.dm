@@ -3,10 +3,13 @@
 /obj/item/reagent_containers/blood/ms13
 	icon = 'mojave/icons/objects/medical/medical_world.dmi'
 	icon_state = "bag_r"
+	w_class = WEIGHT_CLASS_SMALL
+	grid_width = 64
+	grid_height = 32
 
 /obj/item/reagent_containers/blood/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/medical/medical_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/medical/medical_inventory.dmi')
 
 /obj/item/reagent_containers/blood/ms13/a_plus
 	blood_type = "A+"
