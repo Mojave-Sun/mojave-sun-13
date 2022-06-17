@@ -10,6 +10,8 @@
 	name = "Default"
 	jobtype = /datum/job/ms13/bos
 
+	back = /obj/item/storage/ms13/bos
+
 /datum/outfit/job/ms13/bos/pre_equip(mob/living/carbon/human/H)
 	..()
 

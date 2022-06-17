@@ -25,6 +25,7 @@
 	belt = 		 /obj/item/gun/ballistic/automatic/pistol/ms13/m10mm/military
 	r_pocket =   /obj/item/ammo_box/magazine/ms13/m10mm
 	l_pocket = 	 /obj/item/knife/ms13/combat
+	back =       /obj/item/storage/ms13/vault
 	backpack_contents = list(
 		/obj/item/stack/medical/gauze/ms13/half=1, \
 		/obj/item/stack/medical/ointment/ms13/cream/half=1, \
