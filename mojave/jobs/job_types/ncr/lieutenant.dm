@@ -21,6 +21,7 @@
 	shoes = 	 /obj/item/clothing/shoes/ms13/military/ncr/officer
 	r_pocket = 	 /obj/item/ammo_box/magazine/ms13/deagle
 	l_pocket = 	 /obj/item/knife/ms13/hunting
+	back =       /obj/item/storage/ms13/satchel
 	backpack_contents = list(
 		/obj/item/ammo_box/magazine/ms13/deagle=1, \
 		/obj/item/stack/medical/gauze/ms13/half=1,

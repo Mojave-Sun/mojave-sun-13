@@ -161,7 +161,7 @@ GLOBAL_LIST_INIT(backpacklist, list(L_SATCHEL, L_BACKPACK, CORVBAG, COLABAG))
 //Base pre-equip code
 
 /datum/outfit/job/ms13/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	if(back == null)
+	if(back == /obj/item/storage/backpack) //This is the default backpack, so this allows roles to use the backpack prefs but also allow us to have some roles not spawn with a backpack at all.
 		switch(H.backpack)
 			if(L_SATCHEL)
 				back = /obj/item/storage/ms13/satchel
