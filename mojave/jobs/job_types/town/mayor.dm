@@ -20,6 +20,7 @@
 	shoes =  	 /obj/item/clothing/shoes/ms13/military/vault
 	belt = 		 /obj/item/ammo_box/ms13/a357box
 	r_pocket =   /obj/item/gun/ballistic/revolver/ms13/derringer/trimmed
+	back =       null
 
 /datum/outfit/job/ms13/town/mayor/pre_equip(mob/living/carbon/human/H)
 	..()
