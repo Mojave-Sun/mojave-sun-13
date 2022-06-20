@@ -57,10 +57,9 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 	speed = 2
 	move_to_delay = 4
 	attack_sound = "slam"
-	status_flags = CANPUSH
 	loot = list(/obj/item/stack/sheet/ms13/scrap, /obj/item/stack/sheet/ms13/scrap_electronics, /obj/item/stack/sheet/ms13/scrap_parts)
-	vision_range = 16
-	aggro_vision_range = 16
+	vision_range = 10
+	aggro_vision_range = 10
 	maxHealth = 700
 	health = 700
 	melee_damage_lower = 35
@@ -68,8 +67,8 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 	ranged = TRUE
 	stat_attack = HARD_CRIT
 	casingtype = /obj/item/ammo_casing/energy/ms13/laser/sentrybot
-	ranged_cooldown = 6 SECONDS
-	rapid = 10
+	ranged_cooldown = 4 SECONDS
+	rapid = 15
 	rapid_fire_delay = 0.1 SECONDS
 	bot_type = "Sentrybot"
 	shadow_type = "shadow_large"
@@ -100,28 +99,28 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/OpenFire()
 	//Automatic usage of abilities by nonclients
 	if(!client)
-		if(rocket.IsAvailable())
-			rocket.Trigger(target = target)
-			return
 		if(grenade.IsAvailable())
 			grenade.Trigger(target = target)
 			return
-	. = ..()
+		if(rocket.IsAvailable())
+			rocket.Trigger(target = target)
+			return
+	//Main gun time
+	playsound(src, 'mojave/sound/ms13npc/sentrybot/sound_weapons_guns_fire_tank_minigun_start.ogg', 75, FALSE)
+	spawn(4)
+		. = ..()
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/AICanContinue(list/possible_targets)
-	if(!target)
-		. = ..()
-		if((AIStatus == AI_ON) && target)
-			playsound(src, pick(GLOB.sentrybot_hostiles_located_sound), 75, FALSE)
-			to_chat(world, "hostiles located")
-			. = TRUE
-			return .
-		else
-			if(prob(20))
-				playsound(src, pick(GLOB.sentrybot_idle_patrol_sound), 75, FALSE)
-				to_chat(world, "idle patrol")
-				. = FALSE
-				return .
+	var/oldAIStatus = AIStatus
+	. = ..()
+	if((oldAIStatus == AI_IDLE) && (AIStatus == AI_ON))
+		playsound(src, pick(GLOB.sentrybot_hostiles_located_sound), 75, FALSE)
+		to_chat(world, "hostiles located")
+		toggle_ai(AI_ON)
+	else
+		if((AIStatus == AI_IDLE) && prob(20))
+			playsound(src, pick(GLOB.sentrybot_idle_patrol_sound), 75, FALSE)
+			to_chat(world, "idle patrol")
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/AIShouldSleep(list/possible_targets)
 	. = ..()
@@ -137,8 +136,8 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/FindTarget(list/possible_targets, HasTargetsList = 0)
 	var/old_target = target //If we change target (NULL => new target, old target => new target) play a sound effect
-	..()
-	if((old_target != null) && (old_target != target) && !client)
+	. = ..()
+	if((old_target != null) && (old_target != target) && !client && prob(50))
 		playsound(src, pick(GLOB.sentrybot_new_hostile_sound), 75, FALSE)
 		to_chat(world, "new target picked")
 
@@ -146,7 +145,7 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 /obj/item/ammo_casing/energy/ms13/laser/sentrybot
 	projectile_type = /obj/projectile/beam/ms13/laser/sentrybot
 	variance = 30
-	pellets = 3
+	pellets = 2
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/lasrifle/laser_heavy.ogg'
 	randomspread = TRUE
 
@@ -156,7 +155,7 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 		qdel(src)
 
 /obj/projectile/beam/ms13/laser/sentrybot
-	damage = 10
+	damage = 5
 	subtractible_armour_penetration = 5
 	wound_bonus = 0
 	bare_wound_bonus = 5
@@ -178,12 +177,12 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 /datum/action/cooldown/launch_rocket
 	name = "Launch a rocket"
 	desc = "Launches a cool rocket at the enemy"
-	cooldown_time = 10 SECONDS
+	cooldown_time = 12 SECONDS
 	click_to_activate = TRUE
 	var/obj/projectile/projectile = /obj/projectile/bullet/sentrybot_rocket
 
 /datum/action/cooldown/launch_rocket/Activate(atom/target_atom)
-	StartCooldown(10 SECONDS)
+	StartCooldown(12 SECONDS)
 	launch_rocket(target_atom)
 	StartCooldown()
 
@@ -198,12 +197,12 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 /datum/action/cooldown/launch_grenade
 	name = "Launch a shrapnel grenade"
 	desc = "Launches a cool grenade at the enemy"
-	cooldown_time = 6 SECONDS
+	cooldown_time = 12 SECONDS
 	click_to_activate = TRUE
 	var/obj/item/grenade/grenade = /obj/item/grenade/frag/sentrybot
 
 /datum/action/cooldown/launch_grenade/Activate(atom/target_atom)
-	StartCooldown(6 SECONDS)
+	StartCooldown(12 SECONDS)
 	launch_grenade(target_atom)
 	StartCooldown()
 
