@@ -87,7 +87,6 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/Initialize()
 	. = ..()
-	idlesound = GLOB.sentrybot_idle_patrol_sound
 	rocket = new /datum/action/cooldown/launch_rocket()
 	rocket.Grant(src)
 	grenade = new /datum/action/cooldown/launch_grenade()
@@ -97,6 +96,8 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/Destroy()
 	QDEL_NULL(rocket)
+	QDEL_NULL(grenade)
+	QDEL_NULL(flamethrow)
 	return ..()
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/OpenFire()
@@ -115,7 +116,7 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/handle_automated_action()
 	. = ..()
-	if((AIStatus == AI_IDLE) && talk_cooldown < world.time)
+	if(!client && (AIStatus == AI_IDLE) && talk_cooldown < world.time)
 		talk_cooldown = world.time + 5 SECONDS
 		playsound(src, pick(GLOB.sentrybot_idle_patrol_sound), 75, FALSE)
 
