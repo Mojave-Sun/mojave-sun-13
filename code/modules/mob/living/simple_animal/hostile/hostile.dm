@@ -570,7 +570,7 @@
 	//var/cheap_search = isturf(T) && !is_station_level(T.z)
 	//if (cheap_search)
 		//MS13; try out only lazy target search
-		tlist = ListTargetsLazy(T.z)
+	tlist = ListTargetsLazy(T.z)
 	//else
 	//	tlist = ListTargets()
 
