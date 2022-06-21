@@ -78,6 +78,7 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 	var/datum/action/cooldown/launch_rocket/rocket
 	var/datum/action/cooldown/launch_grenade/grenade
 	var/datum/action/cooldown/flamethrow/flamethrow
+	var/talk_cooldown = 0
 	sight = SEE_SELF|SEE_MOBS //thermal vision for fun
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/death(gibbed)
@@ -114,7 +115,8 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/handle_automated_action()
 	. = ..()
-	if((AIStatus == AI_IDLE) && prob(20))
+	if((AIStatus == AI_IDLE) && talk_cooldown < world.time)
+		talk_cooldown = world.time + 5 SECONDS
 		playsound(src, pick(GLOB.sentrybot_idle_patrol_sound), 75, FALSE)
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/toggle_ai(togglestatus)
