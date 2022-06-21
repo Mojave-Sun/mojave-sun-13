@@ -51,7 +51,7 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 	mob_size = MOB_SIZE_LARGE
 	footstep_type = FOOTSTEP_OBJ_MACHINE
 	robust_searching = TRUE
-	idlechance = 15
+	idlechance = 10
 	minimum_distance = 3 //We'll decrease this if need be
 	retreat_distance = 3
 	speed = 2
@@ -62,6 +62,7 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 	aggro_vision_range = 10
 	maxHealth = 700
 	health = 700
+	idlechance = 20
 	melee_damage_lower = 35
 	melee_damage_upper = 35
 	ranged = TRUE
@@ -85,6 +86,7 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/Initialize()
 	. = ..()
+	idlesound = GLOB.sentrybot_idle_patrol_sound
 	rocket = new /datum/action/cooldown/launch_rocket()
 	rocket.Grant(src)
 	grenade = new /datum/action/cooldown/launch_grenade()
@@ -110,36 +112,33 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 	spawn(4)
 		. = ..()
 
-/mob/living/simple_animal/hostile/ms13/robot/sentrybot/AICanContinue(list/possible_targets)
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/handle_automated_action()
+	. = ..()
+	if((AIStatus == AI_IDLE) && prob(20))
+		playsound(src, pick(GLOB.sentrybot_idle_patrol_sound), 75, FALSE)
+
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/toggle_ai(togglestatus)
 	var/oldAIStatus = AIStatus
 	. = ..()
 	if((oldAIStatus == AI_IDLE) && (AIStatus == AI_ON))
 		playsound(src, pick(GLOB.sentrybot_hostiles_located_sound), 75, FALSE)
-		to_chat(world, "hostiles located")
 		toggle_ai(AI_ON)
-	else
-		if((AIStatus == AI_IDLE) && prob(20))
-			playsound(src, pick(GLOB.sentrybot_idle_patrol_sound), 75, FALSE)
-			to_chat(world, "idle patrol")
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/AIShouldSleep(list/possible_targets)
 	. = ..()
 	if(.) //Failed to find new targets, going into idle
 		playsound(src, pick(GLOB.sentrybot_switch_to_patrol_sound), 75, FALSE)
-		to_chat(world, "switch to patrol")
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/adjustHealth(amount, updating_health = TRUE, forced = FALSE)
 	. = ..()
 	if(amount > 10 && prob(10))
 		playsound(src, pick(GLOB.sentrybot_damaged_sound), 75, FALSE)
-		to_chat(world, "damaged")
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/FindTarget(list/possible_targets, HasTargetsList = 0)
 	var/old_target = target //If we change target (NULL => new target, old target => new target) play a sound effect
 	. = ..()
 	if((old_target != null) && (old_target != target) && !client && prob(50))
 		playsound(src, pick(GLOB.sentrybot_new_hostile_sound), 75, FALSE)
-		to_chat(world, "new target picked")
 
 //randomspread prerequisite
 /obj/item/ammo_casing/energy/ms13/laser/sentrybot
