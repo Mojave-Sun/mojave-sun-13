@@ -24,6 +24,7 @@
 	suit_store = /obj/item/gun/energy/ms13/laser/scatter
 	r_pocket = 	/obj/item/stock_parts/cell/ms13/mfc
 	l_pocket =  /obj/item/knife/ms13/combat
+	back =      /obj/item/storage/ms13/satchel
 	backpack_contents = list(
 		/obj/item/stock_parts/cell/ms13/mfc=1,\
 		/obj/item/stack/medical/gauze/ms13/half=1, \

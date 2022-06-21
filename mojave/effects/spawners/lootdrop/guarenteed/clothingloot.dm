@@ -137,5 +137,20 @@
 			/obj/item/clothing/head/helmet/ms13/chef,
 			/obj/item/clothing/head/helmet/ms13/ushanka,
 			/obj/item/clothing/head/helmet/ms13/ushanka/blue,
-			/obj/item/clothing/head/helmet/ms13/ushanka/green
-			)
+			/obj/item/clothing/head/helmet/ms13/ushanka/green)
+
+/obj/effect/spawner/random/ms13/guaranteed/clothing/backpack
+	name = "standard backpack spawner"
+	icon_state = "loot-static"
+	spawn_loot_count = 1
+	loot = list(
+			/obj/item/storage/ms13/satchel,
+			/obj/item/storage/ms13/nuka_bag,
+			/obj/item/storage/ms13/corvega_bag,
+			/obj/item/storage/ms13/leather_backpack)
+
+/obj/effect/spawner/random/ms13/guaranteed/clothing/backpack/high
+	name = "high tier backpack spawner"
+	loot = list(
+			/obj/item/storage/ms13/military,
+			/obj/item/storage/ms13/military_duffel)
