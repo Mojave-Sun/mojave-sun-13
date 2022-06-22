@@ -49,7 +49,7 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 	icon = 'mojave/icons/mob/48x48.dmi'
 	icon_state = "sentrybot"
 	mob_size = MOB_SIZE_LARGE
-	footstep_type = FOOTSTEP_OBJ_MACHINE
+	footstep_type = null //Element is modified in Initialize()
 	robust_searching = TRUE
 	idlechance = 10
 	minimum_distance = 3 //We'll decrease this if need be
@@ -70,15 +70,16 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 	casingtype = /obj/item/ammo_casing/energy/ms13/laser/sentrybot
 	ranged_cooldown = 4 SECONDS
 	rapid = 15
-	rapid_fire_delay = 0.1 SECONDS
+	rapid_fire_delay = 0.06 SECONDS //15 shots in 1 second
 	bot_type = "Sentrybot"
 	shadow_type = "shadow_large"
-	projectilesound = 'mojave/sound/ms13weapons/gunsounds/lasrifle/laser_heavy.ogg'
+	projectilesound = null
 	check_friendly_fire = 0 //no
 	var/datum/action/cooldown/launch_rocket/rocket
 	var/datum/action/cooldown/launch_grenade/grenade
 	var/datum/action/cooldown/flamethrow/flamethrow
 	var/talk_cooldown = 0
+	var/already_firing = FALSE
 	sight = SEE_SELF|SEE_MOBS //thermal vision for fun
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/death(gibbed)
@@ -93,6 +94,11 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 	grenade.Grant(src)
 	flamethrow = new /datum/action/cooldown/flamethrow()
 	flamethrow.Grant(src)
+	RegisterSignal(src, COMSIG_MOVABLE_MOVED, .proc/play_move_sound)
+
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/proc/play_move_sound()
+	SIGNAL_HANDLER
+	playsound(src, 'sound/mecha/mechstep.ogg', 40, TRUE)
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/Destroy()
 	QDEL_NULL(rocket)
@@ -100,7 +106,7 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 	QDEL_NULL(flamethrow)
 	return ..()
 
-/mob/living/simple_animal/hostile/ms13/robot/sentrybot/OpenFire()
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/OpenFire(atom/A, actually_fire = FALSE)
 	//Automatic usage of abilities by nonclients
 	if(!client)
 		if(grenade.IsAvailable())
@@ -110,9 +116,20 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 			rocket.Trigger(target = target)
 			return
 	//Main gun time
-	playsound(src, 'mojave/sound/ms13npc/sentrybot/sound_weapons_guns_fire_tank_minigun_start.ogg', 75, FALSE)
-	spawn(4)
+	if(actually_fire)
 		. = ..()
+		playsound(src, 'mojave/sound/ms13npc/sentrybot/laser_gatling.ogg', 50, FALSE)
+		addtimer(CALLBACK(src, .proc/wind_down_gun), 1 SECONDS)
+	else
+		if(!already_firing)
+			addtimer(CALLBACK(src, .proc/OpenFire, A, TRUE), 1 SECONDS)
+			playsound(src, 'mojave/sound/ms13npc/sentrybot/gatling_windup.ogg', 75, FALSE)
+			already_firing = TRUE
+	return
+
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/proc/wind_down_gun()
+	playsound(src, 'mojave/sound/ms13npc/sentrybot/gatling_winddown.ogg', 75, FALSE)
+	already_firing = FALSE
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/handle_automated_action()
 	. = ..()
@@ -147,7 +164,7 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 /obj/item/ammo_casing/energy/ms13/laser/sentrybot
 	projectile_type = /obj/projectile/beam/ms13/laser/sentrybot
 	variance = 30
-	pellets = 2
+	pellets = 1
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/lasrifle/laser_heavy.ogg'
 	randomspread = TRUE
 
