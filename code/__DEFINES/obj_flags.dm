@@ -40,8 +40,6 @@
 #define IGNORE_DIGITIGRADE (1<<18)
 /// Has contextual screentips when HOVERING OVER OTHER objects
 #define ITEM_HAS_CONTEXTUAL_SCREENTIPS (1 << 19)
-/// Item still allows you to examine items while blind and actively held.
-#define BLIND_TOOL (1 << 20)
 
 #define LOCKING_ITEM (1<<21) // MOJAVE CHANGE - Locks - For lock general interactions
 #define KEY_ITEM (1<<22) // MOJAVE CHANGE - Keys - For key general interactions
