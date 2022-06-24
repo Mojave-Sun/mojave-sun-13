@@ -42,10 +42,10 @@
 	switch(animation)
 		if("opening")
 			flick("opening-[icon_direction]-[icon_plane]-[color_type]", src)
-			playsound(src, 'sound/machines/blastdoor.ogg', 30, TRUE)
+			playsound(src, 'mojave/sound/ms13effects/garage_open.ogg', 30, TRUE)
 		if("closing")
 			flick("closing-[icon_direction]-[icon_plane]-[color_type]", src)
-			playsound(src, 'sound/machines/blastdoor.ogg', 30, TRUE)
+			playsound(src, 'mojave/sound/ms13effects/garage_close.ogg', 30, TRUE)
 
 /obj/machinery/door/poddoor/shutters/ms13/update_icon_state()
 	..()
