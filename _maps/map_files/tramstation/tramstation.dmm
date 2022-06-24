@@ -176,9 +176,7 @@
 /obj/structure/industrial_lift/tram{
 	icon_state = "titanium_white"
 	},
-/obj/machinery/door/window/right/directional/south{
-	id_tag = "tramdoor"
-	},
+/obj/machinery/door/window/right/tram,
 /turf/open/openspace,
 /area/station/hallway/primary/tram/center)
 "adM" = (
@@ -2325,8 +2323,8 @@
 /obj/structure/industrial_lift/tram{
 	icon_state = "plating"
 	},
-/obj/structure/window/reinforced/shuttle,
-/obj/structure/grille,
+/obj/structure/grille/tram,
+/obj/structure/window/reinforced/shuttle/tram,
 /turf/open/openspace,
 /area/station/hallway/primary/tram/center)
 "aZX" = (
@@ -17626,6 +17624,11 @@
 /obj/structure/cable,
 /turf/open/floor/iron/white,
 /area/station/science/explab)
+"gca" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/lattice/catwalk,
+/turf/open/floor/plating,
+/area/station/maintenance/tram/mid)
 "gcm" = (
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 4
@@ -22674,8 +22677,6 @@
 /obj/structure/industrial_lift/tram{
 	icon_state = "plating"
 	},
-/obj/structure/window/reinforced/shuttle,
-/obj/structure/grille,
 /obj/effect/turf_decal/stripes{
 	dir = 1
 	},
@@ -22683,6 +22684,8 @@
 /obj/effect/turf_decal/caution/stand_clear/red{
 	dir = 4
 	},
+/obj/structure/grille/tram,
+/obj/structure/window/reinforced/shuttle/tram,
 /turf/open/floor/vault,
 /area/station/hallway/primary/tram/center)
 "hOh" = (
@@ -25315,11 +25318,11 @@
 /obj/structure/industrial_lift/tram{
 	icon_state = "plating"
 	},
-/obj/structure/window/reinforced/shuttle,
-/obj/structure/grille,
 /obj/structure/fluff/tram_rail{
 	dir = 1
 	},
+/obj/structure/grille/tram,
+/obj/structure/window/reinforced/shuttle/tram,
 /turf/open/openspace,
 /area/station/hallway/primary/tram/center)
 "iHr" = (
@@ -27130,7 +27133,7 @@
 	icon_state = "plating"
 	},
 /obj/structure/tramwall/titanium,
-/obj/structure/shuttle/engine/propulsion/in_wall{
+/obj/structure/shuttle/engine/propulsion/in_wall/tram{
 	dir = 4;
 	pixel_x = 32
 	},
@@ -31914,7 +31917,7 @@
 	icon_state = "plating"
 	},
 /obj/structure/tramwall/titanium,
-/obj/structure/shuttle/engine/propulsion/in_wall{
+/obj/structure/shuttle/engine/propulsion/in_wall/tram{
 	dir = 8;
 	pixel_x = -32
 	},
@@ -34964,9 +34967,7 @@
 /obj/structure/industrial_lift/tram{
 	icon_state = "titanium_white"
 	},
-/obj/machinery/door/window/left/directional/south{
-	id_tag = "tramdoor"
-	},
+/obj/machinery/door/window/left/tram,
 /turf/open/openspace,
 /area/station/hallway/primary/tram/center)
 "lKo" = (
@@ -50102,10 +50103,10 @@
 	dir = 1
 	},
 /obj/effect/landmark/tram/middle_part,
-/obj/structure/industrial_lift/tram/central{
+/obj/machinery/computer/tram_controls,
+/obj/structure/industrial_lift/tram{
 	icon_state = "titanium"
 	},
-/obj/machinery/computer/tram_controls,
 /turf/open/floor/vault,
 /area/station/hallway/primary/tram/center)
 "qNd" = (
@@ -55250,6 +55251,17 @@
 "sDZ" = (
 /turf/closed/wall,
 /area/station/maintenance/disposal/incinerator)
+"sEf" = (
+/obj/effect/turf_decal/stripes,
+/obj/effect/turf_decal/stripes{
+	dir = 1
+	},
+/obj/structure/industrial_lift/tram{
+	icon_state = "titanium"
+	},
+/obj/effect/landmark/lift_id,
+/turf/open/floor/vault,
+/area/station/hallway/primary/tram/center)
 "sEr" = (
 /obj/structure/sign/warning/pods{
 	pixel_x = 32
@@ -57453,9 +57465,9 @@
 /obj/structure/industrial_lift/tram{
 	icon_state = "plating"
 	},
-/obj/structure/window/reinforced/shuttle,
-/obj/structure/grille,
 /obj/structure/fluff/tram_rail,
+/obj/structure/grille/tram,
+/obj/structure/window/reinforced/shuttle/tram,
 /turf/open/openspace,
 /area/station/hallway/primary/tram/center)
 "trr" = (
@@ -60927,9 +60939,7 @@
 /obj/structure/industrial_lift/tram{
 	icon_state = "titanium_white"
 	},
-/obj/machinery/door/window/left/directional/north{
-	id_tag = "tramdoor"
-	},
+/obj/machinery/door/window/left/tram/directional/north,
 /turf/open/openspace,
 /area/station/hallway/primary/tram/center)
 "uyA" = (
@@ -62311,8 +62321,6 @@
 /obj/structure/industrial_lift/tram{
 	icon_state = "plating"
 	},
-/obj/structure/window/reinforced/shuttle,
-/obj/structure/grille,
 /obj/effect/turf_decal/stripes{
 	dir = 1
 	},
@@ -62320,6 +62328,8 @@
 /obj/effect/turf_decal/caution/stand_clear/red{
 	dir = 8
 	},
+/obj/structure/grille/tram,
+/obj/structure/window/reinforced/shuttle/tram,
 /turf/open/floor/vault,
 /area/station/hallway/primary/tram/center)
 "uXK" = (
@@ -65616,9 +65626,7 @@
 /obj/structure/industrial_lift/tram{
 	icon_state = "titanium_white"
 	},
-/obj/machinery/door/window/right/directional/north{
-	id_tag = "tramdoor"
-	},
+/obj/machinery/door/window/right/tram/directional/north,
 /turf/open/openspace,
 /area/station/hallway/primary/tram/center)
 "wgJ" = (
@@ -103695,9 +103703,9 @@ rKD
 cMT
 iui
 mgX
-mgX
-mgX
-mgX
+gca
+gca
+gca
 mgX
 rCM
 pcu
@@ -168975,7 +168983,7 @@ dhw
 vSM
 wgz
 rPU
-sOY
+sEf
 biX
 adD
 vIq

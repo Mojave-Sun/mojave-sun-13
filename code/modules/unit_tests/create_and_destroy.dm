@@ -90,6 +90,8 @@
 	ignore += typesof(/obj/item/toy/cards/cardhand)
 	//Needs a holodeck area linked to it which is not guarenteed to exist and technically is supposed to have a 1:1 relationship with computer anyway.
 	ignore += typesof(/obj/machinery/computer/holodeck)
+	//runtimes if not paired with a landmark
+	ignore += typesof(/obj/structure/industrial_lift)
 
 	// MOJAVE EDIT - Additional blacklists
 	//Grid inventory HATES this
