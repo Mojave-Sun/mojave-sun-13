@@ -70,7 +70,7 @@
 	. = ..()
 	/*MOJAVE SUN EDIT BEGIN
 	if(red_alert_access)
-		if(SSsecurity_level.current_level >= SEC_LEVEL_RED)
+		if(SSsecurity_level.get_current_level_as_number() >= SEC_LEVEL_RED)
 			. += span_notice("Due to a security threat, its access requirements have been lifted!")
 		else
 			. += span_notice("In the event of a red alert, its access requirements will automatically lift.")
@@ -99,8 +99,7 @@
 
 /obj/machinery/door/check_access_list(list/access_list)
 	/*MOJAVE SUN EDIT BEGIN
-	if(red_alert_access && SSsecurity_level.current_level >= SEC_LEVEL_RED)
-		return TRUE
+	if(red_alert_access && SSsecurity_level.get_current_level_as_number() >= SEC_LEVEL_RED)		return TRUE
 	*///MOJAVE SUN EDIT END
 	return ..()
 
