@@ -95,13 +95,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/engineering/gravity_generator)
-"au" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/structure/sign/warning/radiation/rad_area{
-	pixel_y = 32
-	},
-/turf/open/floor/plating,
-/area/station/engineering/gravity_generator)
 "av" = (
 /turf/open/floor/iron/dark,
 /area/station/engineering/gravity_generator)
@@ -1125,6 +1118,12 @@
 /obj/item/gun/magic/wand/resurrection/debug,
 /turf/open/floor/iron,
 /area/station/commons/storage/primary)
+"eb" = (
+/obj/docking_port/stationary/laborcamp_home{
+	dir = 8
+	},
+/turf/open/space/basic,
+/area/space)
 "ec" = (
 /obj/docking_port/stationary{
 	dir = 8;
@@ -1358,12 +1357,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/cargo/storage)
-"eU" = (
-/obj/structure/sign/warning/vacuum/external{
-	pixel_x = 32
-	},
-/turf/open/floor/iron,
-/area/station/medical/medbay)
 "eV" = (
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron,
@@ -1959,6 +1952,10 @@
 /obj/machinery/light_switch/directional/west,
 /turf/open/floor/iron,
 /area/station/construction)
+"iS" = (
+/obj/structure/sign/warning/vacuum/external/directional/east,
+/turf/open/floor/iron,
+/area/station/medical/medbay)
 "jb" = (
 /obj/machinery/door/airlock,
 /obj/structure/cable,
@@ -1999,12 +1996,6 @@
 "lc" = (
 /turf/open/floor/engine,
 /area/station/hallway/secondary/entry)
-"ld" = (
-/obj/docking_port/stationary/mining_home{
-	dir = 8
-	},
-/turf/open/floor/engine,
-/area/station/cargo/miningoffice)
 "lg" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
@@ -2012,6 +2003,11 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/engineering/main)
+"lh" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/structure/sign/warning/radiation/rad_area/directional/north,
+/turf/open/floor/plating,
+/area/station/engineering/gravity_generator)
 "lX" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 1
@@ -2377,12 +2373,12 @@
 	},
 /turf/open/floor/iron,
 /area/station/medical/chemistry)
-"Kq" = (
-/obj/docking_port/stationary/laborcamp_home{
+"Kd" = (
+/obj/docking_port/stationary/mining_home{
 	dir = 8
 	},
-/turf/open/space/basic,
-/area/space)
+/turf/open/floor/engine,
+/area/station/cargo/miningoffice)
 "Kx" = (
 /obj/structure/table,
 /obj/item/analyzer,
@@ -4143,7 +4139,7 @@ qQ
 qQ
 qQ
 qQ
-ld
+Kd
 qQ
 qQ
 qQ
@@ -5433,7 +5429,7 @@ aa
 aa
 aa
 aa
-Kq
+eb
 aa
 aa
 dY
@@ -7821,7 +7817,7 @@ aa
 ad
 af
 ak
-au
+lh
 aI
 aX
 aI
@@ -8289,7 +8285,7 @@ av
 by
 bX
 cm
-eU
+iS
 cy
 Ut
 cm
