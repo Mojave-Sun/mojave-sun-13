@@ -14,37 +14,40 @@ GLOBAL_LIST_INIT(sentrybot_damaged_sound, list(
 									'mojave/sound/ms13npc/sentrybot/damaged5.ogg'
 									))
 
+//Cooldowns for non death/damaged sounds being played; assoc key value laid out as
+//Sound path = cooldown in SECONDS
+
 //Idle search => fight
 GLOBAL_LIST_INIT(sentrybot_hostiles_located_sound, list(
-									'mojave/sound/ms13npc/sentrybot/hostiles_located1.ogg',
-									'mojave/sound/ms13npc/sentrybot/hostiles_located2.ogg',
-									'mojave/sound/ms13npc/sentrybot/hostiles_located3.ogg',
-									'mojave/sound/ms13npc/sentrybot/hostiles_located4.ogg'
+									'mojave/sound/ms13npc/sentrybot/hostiles_located1.ogg' = 5 SECONDS,
+									'mojave/sound/ms13npc/sentrybot/hostiles_located2.ogg' = 6 SECONDS,
+									'mojave/sound/ms13npc/sentrybot/hostiles_located3.ogg' = 4 SECONDS,
+									'mojave/sound/ms13npc/sentrybot/hostiles_located4.ogg' = 6 SECONDS
 									))
 
 GLOBAL_LIST_INIT(sentrybot_idle_patrol_sound, list(
-									'mojave/sound/ms13npc/sentrybot/idle_patrol1.ogg',
-									'mojave/sound/ms13npc/sentrybot/idle_patrol2.ogg',
-									'mojave/sound/ms13npc/sentrybot/idle_patrol3.ogg',
-									'mojave/sound/ms13npc/sentrybot/idle_patrol4.ogg'
+									'mojave/sound/ms13npc/sentrybot/idle_patrol1.ogg' = 5 SECONDS,
+									'mojave/sound/ms13npc/sentrybot/idle_patrol2.ogg' = 9 SECONDS,
+									'mojave/sound/ms13npc/sentrybot/idle_patrol3.ogg' = 5 SECONDS,
+									'mojave/sound/ms13npc/sentrybot/idle_patrol4.ogg' = 4 SECONDS
 									))
 
 //Whenever a new hostile enemy is picked
 GLOBAL_LIST_INIT(sentrybot_new_hostile_sound, list(
-									'mojave/sound/ms13npc/sentrybot/new_hostile_targeted1.ogg',
-									'mojave/sound/ms13npc/sentrybot/new_hostile_targeted2.ogg'
+									'mojave/sound/ms13npc/sentrybot/new_hostile_targeted1.ogg' = 3 SECONDS,
+									'mojave/sound/ms13npc/sentrybot/new_hostile_targeted2.ogg' = 3 SECONDS
 									))
 
 //fight => idle
 GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
-									'mojave/sound/ms13npc/sentrybot/switch_to_patrol1.ogg',
-									'mojave/sound/ms13npc/sentrybot/switch_to_patrol2.ogg',
-									'mojave/sound/ms13npc/sentrybot/switch_to_patrol3.ogg',
-									'mojave/sound/ms13npc/sentrybot/switch_to_patrol4.ogg'
+									'mojave/sound/ms13npc/sentrybot/switch_to_patrol1.ogg' = 5 SECONDS,
+									'mojave/sound/ms13npc/sentrybot/switch_to_patrol2.ogg' = 7 SECONDS,
+									'mojave/sound/ms13npc/sentrybot/switch_to_patrol3.ogg' = 5 SECONDS,
+									'mojave/sound/ms13npc/sentrybot/switch_to_patrol4.ogg' = 5 SECONDS
 									))
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot
-	name = "sentrybot"
+	name = "sentry bot"
 	desc = "A robot with the scariest arsenal you seen so far, it's a pretty good idea if you stopped looking at it."
 	icon = 'mojave/icons/mob/48x48.dmi'
 	icon_state = "sentrybot"
@@ -58,10 +61,10 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 	move_to_delay = 4
 	attack_sound = "slam"
 	loot = list(/obj/item/stack/sheet/ms13/scrap, /obj/item/stack/sheet/ms13/scrap_electronics, /obj/item/stack/sheet/ms13/scrap_parts)
-	vision_range = 10
-	aggro_vision_range = 10
-	maxHealth = 700
-	health = 700
+	vision_range = 14
+	aggro_vision_range = 14
+	maxHealth = 1000
+	health = 1000
 	idlechance = 20
 	melee_damage_lower = 35
 	melee_damage_upper = 35
@@ -69,18 +72,18 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 	stat_attack = HARD_CRIT
 	casingtype = /obj/item/ammo_casing/energy/ms13/laser/sentrybot
 	ranged_cooldown = 4 SECONDS
-	rapid = 15
-	rapid_fire_delay = 0.06 SECONDS //15 shots in 1 second
+	rapid = 20
+	rapid_fire_delay = 0.05 SECONDS //20 shots over 1 second
 	bot_type = "Sentrybot"
 	shadow_type = "shadow_large"
 	projectilesound = null
-	check_friendly_fire = 0 //no
+	check_friendly_fire = FALSE //no
 	var/datum/action/cooldown/launch_rocket/rocket
 	var/datum/action/cooldown/launch_grenade/grenade
 	var/datum/action/cooldown/flamethrow/flamethrow
-	var/talk_cooldown = 0
 	var/already_firing = FALSE
 	sight = SEE_SELF|SEE_MOBS //thermal vision for fun
+	var/speech_cooldown = 0
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/death(gibbed)
 	playsound(src, pick(GLOB.sentrybot_death_sound), 50, TRUE)
@@ -96,6 +99,11 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 	flamethrow.Grant(src)
 	RegisterSignal(src, COMSIG_MOVABLE_MOVED, .proc/play_move_sound)
 
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/ListTargets()
+	. = ..()
+	if(target && get_dist(target, src) < aggro_vision_range)
+		. += target
+
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/proc/play_move_sound()
 	SIGNAL_HANDLER
 	playsound(src, 'sound/mecha/mechstep.ogg', 40, TRUE)
@@ -107,15 +115,14 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 	return ..()
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/OpenFire(atom/A, actually_fire = FALSE)
-	//Automatic usage of abilities by nonclients
-	if(!client)
-		if(grenade.IsAvailable())
-			grenade.Trigger(target = target)
-			return
-		if(rocket.IsAvailable())
-			rocket.Trigger(target = target)
-			return
 	//Main gun time
+	//Go into melee range if we can't actually see the target
+	if(!can_see(src, target, length = 10))
+		minimum_distance = 1
+		retreat_distance = 1
+	else
+		minimum_distance = initial(minimum_distance)
+		retreat_distance = initial(retreat_distance)
 	if(actually_fire)
 		. = ..()
 		playsound(src, 'mojave/sound/ms13npc/sentrybot/laser_gatling.ogg', 50, FALSE)
@@ -125,7 +132,30 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 			addtimer(CALLBACK(src, .proc/OpenFire, A, TRUE), 1 SECONDS)
 			playsound(src, 'mojave/sound/ms13npc/sentrybot/gatling_windup.ogg', 75, FALSE)
 			already_firing = TRUE
+	addtimer(CALLBACK(src, .proc/trigger_abilities, A), rand(1.5 SECONDS, 3 SECONDS))
 	return
+
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/bullet_act(obj/projectile/Proj)
+	if(istype(Proj, /obj/projectile/bullet/shrapnel))
+		visible_message(span_danger("The [Proj] bounces off of the [src]!"))
+		return BULLET_ACT_BLOCK
+	return ..()
+
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/proc/trigger_abilities(atom/A)
+	if(!client)
+		if(grenade.IsAvailable() && can_see(src, target, 10))
+			grenade.Trigger(target = target)
+			return
+		if(rocket.IsAvailable())
+			rocket.Trigger(target = target)
+			return
+
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/AIShouldSleep(list/possible_targets)
+	. = ..()
+	if(.) //Failed to find new targets, going into idle
+		var/random_speech = pick(GLOB.sentrybot_switch_to_patrol_sound)
+		speech_cooldown = world.time + GLOB.sentrybot_switch_to_patrol_sound[random_speech]
+		playsound(src, random_speech, 75, FALSE)
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/proc/wind_down_gun()
 	playsound(src, 'mojave/sound/ms13npc/sentrybot/gatling_winddown.ogg', 75, FALSE)
@@ -133,21 +163,19 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/handle_automated_action()
 	. = ..()
-	if(!client && (AIStatus == AI_IDLE) && talk_cooldown < world.time)
-		talk_cooldown = world.time + 5 SECONDS
-		playsound(src, pick(GLOB.sentrybot_idle_patrol_sound), 75, FALSE)
+	if(!client && (AIStatus == AI_IDLE) && speech_cooldown < world.time)
+		var/random_speech = pick(GLOB.sentrybot_idle_patrol_sound)
+		speech_cooldown = world.time + GLOB.sentrybot_idle_patrol_sound[random_speech]
+		playsound(src, random_speech, 75, FALSE)
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/toggle_ai(togglestatus)
 	var/oldAIStatus = AIStatus
 	. = ..()
 	if((oldAIStatus == AI_IDLE) && (AIStatus == AI_ON))
-		playsound(src, pick(GLOB.sentrybot_hostiles_located_sound), 75, FALSE)
+		var/random_speech = pick(GLOB.sentrybot_hostiles_located_sound)
+		speech_cooldown = world.time + GLOB.sentrybot_hostiles_located_sound[random_speech]
+		playsound(src, random_speech, 75, FALSE)
 		toggle_ai(AI_ON)
-
-/mob/living/simple_animal/hostile/ms13/robot/sentrybot/AIShouldSleep(list/possible_targets)
-	. = ..()
-	if(.) //Failed to find new targets, going into idle
-		playsound(src, pick(GLOB.sentrybot_switch_to_patrol_sound), 75, FALSE)
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/adjustHealth(amount, updating_health = TRUE, forced = FALSE)
 	. = ..()
@@ -158,7 +186,9 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 	var/old_target = target //If we change target (NULL => new target, old target => new target) play a sound effect
 	. = ..()
 	if((old_target != null) && (old_target != target) && !client && prob(50))
-		playsound(src, pick(GLOB.sentrybot_new_hostile_sound), 75, FALSE)
+		var/random_speech = pick(GLOB.sentrybot_new_hostile_sound)
+		speech_cooldown = world.time + GLOB.sentrybot_new_hostile_sound[random_speech]
+		playsound(src, random_speech, 75, FALSE)
 
 //randomspread prerequisite
 /obj/item/ammo_casing/energy/ms13/laser/sentrybot
@@ -175,9 +205,9 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 
 /obj/projectile/beam/ms13/laser/sentrybot
 	damage = 5
-	subtractible_armour_penetration = 5
-	wound_bonus = 0
-	bare_wound_bonus = 5
+	subtractible_armour_penetration = 20
+	wound_bonus = 5
+	bare_wound_bonus = 10
 
 //A special rocket for sentrybot; light explosion fixed with lots of fire
 
@@ -231,16 +261,21 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 	//var/obj/item/grenade/thrown_grenade = new grenade(get_step(owner, get_dir(owner, target_atom)))
 	var/obj/item/grenade/thrown_grenade = new grenade(get_turf(owner))
 	var/original_density = owner.density
+	var/new_target_turf = get_step(target_atom, get_dir(owner, target_atom))
+	new_target_turf = get_step(new_target_turf, get_dir(owner, target_atom))
+	new_target_turf = get_step(new_target_turf, get_dir(owner, target_atom))
 	owner.density = FALSE
-	thrown_grenade.throw_at(get_turf(target_atom), 15, 2, owner, FALSE, FALSE)
+	thrown_grenade.throw_at(new_target_turf, 15, 2, owner, FALSE, FALSE)
 	owner.density = original_density
-	thrown_grenade.arm_grenade(owner, 3 SECONDS, 2, 1, owner, TRUE)
+	thrown_grenade.arm_grenade(owner, 1.5 SECONDS, 2, 1, owner, TRUE)
 
 /obj/item/grenade/frag/sentrybot
 	name = "frag grenade"
 	desc = "An anti-personnel fragmentation grenade, this weapon excels at killing soft targets by shredding them with metal shrapnel."
-	icon_state = "frag"
+	icon = 'mojave/icons/objects/throwables/ms_bomb_sentrybot.dmi'
+	icon_state = "bomb_primed"
 	shrapnel_type = /obj/projectile/bullet/shrapnel
+	pass_flags = PASSMOB
 	shrapnel_radius = 2
 	ex_heavy = 0
 	ex_light = 1
