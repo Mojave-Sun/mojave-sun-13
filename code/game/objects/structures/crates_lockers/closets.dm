@@ -79,6 +79,7 @@
 		return //Why
 	/*var/static/list/loc_connections = list( // MOJAVE SUN EDIT BEGIN - Commented out!
 		COMSIG_CARBON_DISARM_COLLIDE = .proc/locker_carbon,
+		COMSIG_ATOM_MAGICALLY_UNLOCKED = .proc/on_magic_unlock,
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)*/ // MOJAVE SUN EDIT END
 
@@ -724,5 +725,12 @@
 	log_combat(src, target, "shoved", "into [src] (locker/crate)")
 	return COMSIG_CARBON_SHOVE_HANDLED*/
 // MOJAVE SUN EDIT END
+
+/// Signal proc for [COMSIG_ATOM_MAGICALLY_UNLOCKED]. Unlock and open up when we get knock casted.
+/obj/structure/closet/proc/on_magic_unlock(datum/source, obj/effect/proc_holder/spell/aoe_turf/knock/spell, mob/living/caster)
+	SIGNAL_HANDLER
+
+	locked = FALSE
+	INVOKE_ASYNC(src, .proc/open)
 
 #undef LOCKER_FULL
