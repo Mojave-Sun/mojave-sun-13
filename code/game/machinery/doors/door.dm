@@ -282,16 +282,16 @@
 			spark_system.start()
 
 /obj/machinery/door/play_attack_sound(damage_amount, damage_type = BRUTE, damage_flag = 0)
+	//MOJAVE SUN EDIT START - Hit Sounds
 	switch(damage_type)
 		if(BRUTE)
 			if(glass)
 				playsound(loc, 'sound/effects/glasshit.ogg', 90, TRUE)
-			else if(damage_amount)
-				playsound(loc, 'sound/weapons/smash.ogg', 50, TRUE)
 			else
-				playsound(src, 'sound/weapons/tap.ogg', 50, TRUE)
+				return . = ..()
 		if(BURN)
-			playsound(src.loc, 'sound/items/welder.ogg', 100, TRUE)
+			return . = ..()
+	//MOJAVE SUN EDIT END - Hit Sounds
 
 /obj/machinery/door/emp_act(severity)
 	. = ..()

@@ -119,6 +119,8 @@
 	imagery.maptext_width = 100
 	imagery.maptext_x = 253
 	imagery.maptext_y = 150
+	imagery.the_lockpick = lockpick
+	imagery.the_wedge = wedge
 	lock.being_picked = TRUE
 
 	//for blur effect
@@ -157,6 +159,11 @@
 	var/client/clicker
 	//state of the mouse
 	var/mouse_status = LOCKPICK_MOUSEUP
+
+	//the lockpick being used
+	var/the_lockpick
+	//the wedge being used
+	var/the_wedge
 
 	var/obj/picking_object
 
@@ -237,7 +244,25 @@
 	clicker = usercli
 	RegisterSignal(clicker, COMSIG_CLIENT_MOUSEDOWN, .proc/on_mouse_down)
 	RegisterSignal(clicker, COMSIG_CLIENT_MOUSEUP, .proc/on_mouse_up)
-	RegisterSignal(picker,COMSIG_MOVABLE_MOVED,.proc/close_lockpick)
+	RegisterSignal(picker,COMSIG_MOVABLE_MOVED, .proc/close_lockpick)
+	RegisterSignal(picker, COMSIG_PARENT_EXAMINE_MORE, .proc/mob_detection)
+
+	//checks both for each just incase they switch hands for no reason mid lockpick
+	var/obj/item/held_lockmain = picker.get_active_held_item()
+	var/obj/item/held_lockother = picker.get_inactive_held_item()
+
+	var/obj/item/held_wedgemain = picker.get_active_held_item()
+	var/obj/item/held_wedgeother = picker.get_inactive_held_item()
+
+	if(istype(held_lockmain, the_lockpick))
+		RegisterSignal(the_lockpick, COMSIG_ITEM_DROPPED, .proc/close_lockpick)
+	if(istype(held_lockother, the_lockpick))
+		RegisterSignal(the_lockpick, COMSIG_ITEM_DROPPED, .proc/close_lockpick)
+	if(istype(held_wedgemain, the_wedge))
+		RegisterSignal(the_wedge, COMSIG_ITEM_DROPPED, .proc/close_lockpick)
+	if(istype(held_wedgeother, the_wedge))
+		RegisterSignal(the_wedge, COMSIG_ITEM_DROPPED, .proc/close_lockpick)
+
 	START_PROCESSING(SSfastprocess, src)
 
 /atom/movable/screen/movable/snap/ms13/lockpicking/proc/on_mouse_down(client/source, atom/_target, turf/location, control, params)
@@ -262,6 +287,11 @@
 	source.click_intercept_time = world.time //From this point onwards Click() will no longer be triggered.
 
 	INVOKE_ASYNC(src, .proc/move_pick_forward)
+
+/atom/movable/screen/movable/snap/ms13/lockpicking/proc/mob_detection(atom/source, mob/user, list/examine_list)
+	SIGNAL_HANDLER
+
+	examine_list += span_notice("They are picking the [picking_object]'s lock!")
 
 /atom/movable/screen/movable/snap/ms13/lockpicking/proc/close_lockpick(client/source, atom/_target, turf/location, control, params)
 	SIGNAL_HANDLER
@@ -336,7 +366,7 @@
 	if(complete_multiplier >= 1)
 		frozen = TRUE
 		if(picking_object)
-			picking_object.picked(picker)
+			picking_object.picked(picker, the_lockpick)
 			qdel(src)
 		return FALSE
 
@@ -362,7 +392,7 @@
 	if(can_be_picked && lock_locked)
 		AddElement(/datum/element/lockpickable, difficulty = 10)
 
-/obj/proc/picked(mob/living/user)
+/obj/proc/picked(mob/living/user, obj/lockpick_used, obj/machinery/door/unpowered/A, obj/structure/ms13/celldoor/B)
 
 	finish_lockpicking(user)
 
@@ -374,11 +404,16 @@
 		if(has_component)
 			unlock_storage()
 
-	var/obj/machinery/door/unpowered/A = src
-	var/obj/structure/ms13/celldoor/B = src
-	if(istype(src, A) && lock_locked || A.locked)
+	if(prob(50))
+		to_chat(user, "<span class='notice'>Your [lockpick_used.name] broke!</span>")
+		playsound(loc, 'mojave/sound/ms13effects/lockpicking/lockpick_break.ogg', 40)
+		qdel(lockpick_used)
+
+	if(istype(A) && lock_locked)
+		src = A
 		A.locked = FALSE
-	if(istype(src, B) && lock_locked || B.locked)
+	if(istype(B) && lock_locked)
+		src = B
 		B.locked = FALSE
 
 	lock_locked = FALSE

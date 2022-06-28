@@ -212,13 +212,10 @@
 /mob/living/carbon/human/proc/generate_death_examine_text()
 	var/mob/dead/observer/ghost = get_ghost(TRUE, TRUE)
 	var/t_He = p_they(TRUE)
-	var/t_his = p_their()
 	var/t_is = p_are()
 	//This checks to see if the body is revivable
 	if(key || !getorgan(/obj/item/organ/brain) || ghost?.can_reenter_corpse)
-		return span_deadsay("[t_He] [t_is] limp and unresponsive; there are no signs of life...")
-	else
-		return span_deadsay("[t_He] [t_is] limp and unresponsive; there are no signs of life and [t_his] soul has departed...")
+		return span_deadsay("[t_He] [t_is] limp and unresponsive; there are no signs of life...") //MOJAVE SUN EDIT - TG Fluff Removal, yes I ran into this randomly and decided to change it, call the atomization
 
 ///copies over clothing preferences like underwear to another human
 /mob/living/carbon/human/proc/copy_clothing_prefs(mob/living/carbon/human/destination)

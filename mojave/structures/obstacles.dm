@@ -181,10 +181,11 @@
 	anchored = TRUE
 	opacity = FALSE
 	layer = ABOVE_MOB_LAYER
-	max_integrity = 500
+	max_integrity = 1000
 	armor = list(MELEE = 75, BULLET = 75, LASER = 75, ENERGY = 75, BOMB = 25, BIO = 100,  FIRE = 80, ACID = 100)
-	damage_deflection = 10
+	damage_deflection = 25
 	flags_1 = ON_BORDER_1
+	hitted_sound = 'mojave/sound/ms13effects/metal_door_hit.ogg'
 	var/locked = FALSE
 
 	var/door_opened = FALSE //if it's open or not.
@@ -198,6 +199,7 @@
 
 /obj/structure/ms13/celldoor/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
+		playsound(src, 'mojave/sound/ms13effects/metal_door_break.ogg', 100, TRUE)
 		new /obj/item/stack/sheet/ms13/scrap_steel/two(loc)
 	qdel(src)
 

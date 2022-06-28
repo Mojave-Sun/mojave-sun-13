@@ -8,7 +8,7 @@
 	glass_type = /obj/item/stack/sheet/ms13/glass
 	glass_amount = 1
 	break_sound = 'mojave/sound/ms13effects/glass_break.ogg'
-	hit_sound = 'mojave/sound/ms13effects/glass_hit.ogg'
+	hitted_sound = 'mojave/sound/ms13effects/glass_hit.ogg'
 	knock_sound = 'mojave/sound/ms13effects/glass_knock.ogg'
 
 /obj/structure/window/fulltile/ms13/spawnDebris(location)
