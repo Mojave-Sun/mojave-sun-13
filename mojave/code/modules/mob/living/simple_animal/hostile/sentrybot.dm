@@ -129,10 +129,10 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 		addtimer(CALLBACK(src, .proc/wind_down_gun), 1 SECONDS)
 	else
 		if(!already_firing)
+			addtimer(CALLBACK(src, .proc/trigger_abilities, A), rand(1.5 SECONDS, 3 SECONDS))
 			addtimer(CALLBACK(src, .proc/OpenFire, A, TRUE), 1 SECONDS)
 			playsound(src, 'mojave/sound/ms13npc/sentrybot/gatling_windup.ogg', 75, FALSE)
 			already_firing = TRUE
-	addtimer(CALLBACK(src, .proc/trigger_abilities, A), rand(1.5 SECONDS, 3 SECONDS))
 	return
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/bullet_act(obj/projectile/Proj)
@@ -273,7 +273,7 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 	name = "frag grenade"
 	desc = "An anti-personnel fragmentation grenade, this weapon excels at killing soft targets by shredding them with metal shrapnel."
 	icon = 'mojave/icons/objects/throwables/ms_bomb_sentrybot.dmi'
-	icon_state = "bomb_primed"
+	icon_state = "bomb"
 	shrapnel_type = /obj/projectile/bullet/shrapnel
 	pass_flags = PASSMOB
 	shrapnel_radius = 2
