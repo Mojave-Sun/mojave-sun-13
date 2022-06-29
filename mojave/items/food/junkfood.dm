@@ -5,24 +5,29 @@
 	desc = "LOOK AWAY, YOU'RE NOT SUPPOSED TO SEE THIS!"
 	icon = 'mojave/icons/objects/food/prewar_food.dmi'
 
-	var/bite_states = 4
-	var/bitecount = 0
+	var/emptiness = 0
 
-/obj/item/food/ms13/prewarfood/Initialize(mapload)
-	. = ..()
-	bite_consumption = reagents.total_volume / bite_states
-	update_icon()
+/obj/item/food/ms13/prewarfood/MakeEdible()
+    AddComponent(/datum/component/edible,\
+                initial_reagents = food_reagents,\
+                food_flags = food_flags,\
+                foodtypes = foodtypes,\
+                volume = max_volume,\
+                eat_time = eat_time,\
+                tastes = tastes,\
+                eatverbs = eatverbs,\
+                bite_consumption = bite_consumption,\
+                microwaved_type = microwaved_type,\
+                junkiness = junkiness,\
+                after_eat = CALLBACK(src, .proc/after_bite))
 
 /obj/item/food/ms13/prewarfood/update_icon()
 	. = ..()
-	if(!bitecount)
-		. += initial(icon_state)
-		return
-	. += "[initial(icon_state)]_[min(bitecount, 3)]"
+	icon_state = "[(icon_state)]_[emptiness]"
 
 /obj/item/food/ms13/prewarfood/proc/after_bite(mob/living/eater, mob/living/feeder, bitecount)
-	src.bitecount = bitecount
-	update_appearance()
+	src.emptiness += 1
+	update_icon()
 
 // SUBTYPE FOR CANS + CAN OPENING
 
@@ -82,9 +87,9 @@ obj/item/food/ms13/prewarfood/boxed
 	icon_state = "porknbean"
 	foodtypes = MEAT | VEGETABLES | JUNKFOOD
 	tastes = list("meaty" = 3, "savory" = 2, "buttery" = 1)
-	food_reagents = list(/datum/reagent/consumable/nutriment = 14, /datum/reagent/consumable/nutriment/protein = 18)
-	max_volume = 32
-	bite_states = 4
+	food_reagents = list(/datum/reagent/consumable/nutriment = 10, /datum/reagent/consumable/nutriment/protein = 20)
+	max_volume = 30
+	bite_consumption = 10
 
 /obj/item/food/ms13/prewarfood/canned/cajunrice
 	name = "cajun rice and beans"
@@ -92,21 +97,21 @@ obj/item/food/ms13/prewarfood/boxed
 	icon_state = "cajunrice"
 	foodtypes = VEGETABLES | JUNKFOOD | GRAIN
 	tastes = list("savory" = 2, "earthy" = 2, "spicy" = 1)
-	food_reagents = list(/datum/reagent/consumable/nutriment = 16, /datum/reagent/consumable/nutriment/protein = 16)
-	max_volume = 32
-	bite_states = 2
+	food_reagents = list(/datum/reagent/consumable/nutriment = 15, /datum/reagent/consumable/nutriment/protein = 15)
+	max_volume = 30
+	bite_consumption = 15
 
-/obj/item/food/ms13/prewarfood/crisps
+/obj/item/food/ms13/prewarfood/boxed/crisps
 	name = "crisps"
 	desc = "A portion of dainty potato chips, also known as crisps to the wealthy. Cause' they sure are crispy."
 	icon_state = "crisps"
 	foodtypes = VEGETABLES | JUNKFOOD
 	tastes = list("earthy" = 1, "salty" = 2, "savory" = 2)
-	food_reagents = list(/datum/reagent/consumable/nutriment = 20)
-	max_volume = 20
-	bite_states = 3
+	food_reagents = list(/datum/reagent/consumable/nutriment = 10)
+	max_volume = 10
+	bite_consumption = 5
 
-/obj/item/food/ms13/prewarfood/macncheese
+/obj/item/food/ms13/prewarfood/boxed/macncheese
 	name = "macaroni and cheese"
 	desc = "A handful of old pre-war macaronis covered in a fake cheese dust, prime time Americas favourite food!"
 	icon_state = "macncheese"
@@ -116,7 +121,7 @@ obj/item/food/ms13/prewarfood/boxed
 	max_volume = 20
 	bite_consumption = 4
 
-/obj/item/food/ms13/prewarfood/cheesypoof
+/obj/item/food/ms13/prewarfood/boxed/cheesypoof
 	name = "cheesy poofs"
 	desc = "Succelent cheddar infused puffed corn chips, number one in whatever Canada used to be"
 	icon_state = "poofs"
@@ -126,7 +131,7 @@ obj/item/food/ms13/prewarfood/boxed
 	max_volume = 20
 	bite_consumption = 4
 
-/obj/item/food/ms13/prewarfood/sugarbombs
+/obj/item/food/ms13/prewarfood/boxed/sugarbombs
 	name = "sugar bombs cereal"
 	desc = "An extremely sweet pre-war breakfast food, guaranteed to get your day started, no matter the circumstances! (be it nuclear war, etc.)"
 	icon_state = "sugarbombs"
@@ -136,7 +141,7 @@ obj/item/food/ms13/prewarfood/boxed
 	max_volume = 24
 	bite_consumption = 4
 
-/obj/item/food/ms13/prewarfood/deviledeggs
+/obj/item/food/ms13/prewarfood/boxed/deviledeggs
 	name = "yum yum deviled eggs"
 	desc = "Fun fact, this ancient preserved egg snack does not infact contain the devil"
 	icon_state = "yumegg"
@@ -146,7 +151,7 @@ obj/item/food/ms13/prewarfood/boxed
 	max_volume = 20
 	bite_consumption = 4
 
-/obj/item/food/ms13/prewarfood/dandyapples
+/obj/item/food/ms13/prewarfood/boxed/dandyapples
 	name = "dandy boy apple"
 	desc = "A box of freeze dried imitation glazed apples, straight from the Dandy Boy himself!"
 	icon_state = "dandy"
@@ -156,7 +161,7 @@ obj/item/food/ms13/prewarfood/boxed
 	max_volume = 15
 	bite_consumption = 3
 
-/obj/item/food/ms13/prewarfood/snackcake
+/obj/item/food/ms13/prewarfood/boxed/snackcake
 	name = "fancy lad snack cakes"
 	desc = "A box of starchy preserved snack cakes, a sweet treat thats fun to eat!"
 	icon_state = "snackcake"
