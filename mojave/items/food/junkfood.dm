@@ -57,7 +57,7 @@
 // END OF CAN OPENING
 // BOXED SUBTYPE + BOX OPENING
 
-obj/item/food/ms13/prewarfood/boxed
+/obj/item/food/ms13/prewarfood/boxed
 	name = "generic box"
 	desc = "LOOK AWAY! This doesn't exist!"
 	var/boxed_open = FALSE
