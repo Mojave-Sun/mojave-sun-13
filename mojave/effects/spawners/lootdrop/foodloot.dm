@@ -113,6 +113,29 @@
 		/obj/item/food/grown/ms13/nara
 		)
 
+// Pre-War Junkfoods //
+
+/obj/effect/spawner/random/ms13/food/junkfood_canned
+	name = "random prewar canned food spawner"
+	icon_state = "loot"
+	loot = list(
+		/obj/item/food/ms13/prewarfood/canned/porknbeans,
+		/obj/item/food/ms13/prewarfood/canned/cajunrice
+		)
+
+/obj/effect/spawner/random/ms13/food/junkfood_boxed
+	name = "random prewar boxed food spawner"
+	icon_state = "loot"
+	loot = list(
+		/obj/item/food/ms13/prewarfood/boxed/crisps,
+		/obj/item/food/ms13/prewarfood/boxed/macncheese,
+		/obj/item/food/ms13/prewarfood/boxed/cheesypoof,
+		/obj/item/food/ms13/prewarfood/boxed/sugarbombs,
+		/obj/item/food/ms13/prewarfood/boxed/deviledeggs,
+		/obj/item/food/ms13/prewarfood/boxed/dandyapples,
+		/obj/item/food/ms13/prewarfood/boxed/snackcake
+		)
+
 // Seed spawners //
 
 /obj/effect/spawner/random/ms13/seeds/random
