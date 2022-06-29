@@ -23,10 +23,10 @@
 
 /obj/item/food/ms13/prewarfood/update_icon()
 	. = ..()
-	icon_state = "[(icon_state)]_[emptiness]"
+	icon_state = "[initial(icon_state)]_[emptiness]"
 
 /obj/item/food/ms13/prewarfood/proc/after_bite(mob/living/eater, mob/living/feeder, bitecount)
-	src.emptiness += 1
+	src.emptiness+1
 	update_icon()
 
 // SUBTYPE FOR CANS + CAN OPENING
