@@ -117,21 +117,24 @@
 	name = "random prewar canned food spawner"
 	icon_state = "loot"
 	loot = list(
-		/obj/item/food/ms13/prewarfood/canned/porknbeans,
-		/obj/item/food/ms13/prewarfood/canned/cajunrice
+		/obj/item/food/ms13/prewar/canned/porknbeans,
+		/obj/item/food/ms13/prewar/canned/cajunrice,
+		/obj/item/food/ms13/prewar/canned/dogfood
 		)
 
 /obj/effect/spawner/random/ms13/food/junkfood_boxed
 	name = "random prewar boxed food spawner"
 	icon_state = "loot"
 	loot = list(
-		/obj/item/food/ms13/prewarfood/boxed/crisps,
-		/obj/item/food/ms13/prewarfood/boxed/macncheese,
-		/obj/item/food/ms13/prewarfood/boxed/cheesypoof,
-		/obj/item/food/ms13/prewarfood/boxed/sugarbombs,
-		/obj/item/food/ms13/prewarfood/boxed/deviledeggs,
-		/obj/item/food/ms13/prewarfood/boxed/dandyapples,
-		/obj/item/food/ms13/prewarfood/boxed/snackcake
+		/obj/item/food/ms13/prewar/boxed/crisps,
+		/obj/item/food/ms13/prewar/boxed/macncheese,
+		/obj/item/food/ms13/prewar/boxed/cheesypoof,
+		/obj/item/food/ms13/prewar/boxed/sugarbombs,
+		/obj/item/food/ms13/prewar/boxed/deviledeggs,
+		/obj/item/food/ms13/prewar/boxed/dandyapples,
+		/obj/item/food/ms13/prewar/boxed/snackcake,
+		/obj/item/food/ms13/prewar/boxed/salisburysteak,
+		/obj/item/food/ms13/prewar/boxed/instamash
 		)
 
 // Seed spawners //
