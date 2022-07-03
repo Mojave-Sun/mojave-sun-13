@@ -15,7 +15,7 @@ GLOBAL_LIST_INIT(sentrybot_damaged_sound, list(
 									))
 
 //Cooldowns for non death/damaged sounds being played; assoc key value laid out as
-//Sound path = cooldown in SECONDS
+//Path to sound file = cooldown in SECONDS
 
 //Idle search => fight
 GLOBAL_LIST_INIT(sentrybot_hostiles_located_sound, list(
@@ -46,6 +46,14 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 									'mojave/sound/ms13npc/sentrybot/switch_to_patrol4.ogg' = 5 SECONDS
 									))
 
+//In combat
+GLOBAL_LIST_INIT(sentrybot_in_combat_sound, list(
+									'mojave/sound/ms13npc/sentrybot/in_combat1.ogg' = 5 SECONDS,
+									'mojave/sound/ms13npc/sentrybot/in_combat2.ogg' = 4 SECONDS,
+									'mojave/sound/ms13npc/sentrybot/in_combat3.ogg' = 5 SECONDS,
+									'mojave/sound/ms13npc/sentrybot/in_combat4.ogg' = 6 SECONDS,
+									))
+
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot
 	name = "sentry bot"
 	desc = "A robot with the scariest arsenal you seen so far, it's a pretty good idea if you stopped looking at it."
@@ -74,6 +82,8 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 	ranged_cooldown = 4 SECONDS
 	rapid = 20
 	rapid_fire_delay = 0.05 SECONDS //20 shots over 1 second
+	pixel_x = -16
+	base_pixel_x = -16
 	bot_type = "Sentrybot"
 	shadow_type = "shadow_large"
 	projectilesound = null
@@ -81,8 +91,8 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 	var/datum/action/cooldown/launch_rocket/rocket
 	var/datum/action/cooldown/launch_grenade/grenade
 	var/datum/action/cooldown/flamethrow/flamethrow
+
 	var/already_firing = FALSE
-	sight = SEE_SELF|SEE_MOBS //thermal vision for fun
 	var/speech_cooldown = 0
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/death(gibbed)
@@ -95,14 +105,21 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 	rocket.Grant(src)
 	grenade = new /datum/action/cooldown/launch_grenade()
 	grenade.Grant(src)
-	flamethrow = new /datum/action/cooldown/flamethrow()
-	flamethrow.Grant(src)
+	//flamethrow = new /datum/action/cooldown/flamethrow()
+	//flamethrow.Grant(src)
 	RegisterSignal(src, COMSIG_MOVABLE_MOVED, .proc/play_move_sound)
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/ListTargets()
 	. = ..()
 	if(target && get_dist(target, src) < aggro_vision_range)
 		. += target
+
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/proc/play_speech_sound(glob_list_used, bypass_cooldown = FALSE)
+	if(!bypass_cooldown && speech_cooldown < world.time)
+		return
+	var/random_speech = pick(glob_list_used)
+	speech_cooldown = world.time + glob_list_used[random_speech]
+	playsound(src, random_speech, 75, FALSE)
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/proc/play_move_sound()
 	SIGNAL_HANDLER
@@ -153,9 +170,9 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/AIShouldSleep(list/possible_targets)
 	. = ..()
 	if(.) //Failed to find new targets, going into idle
-		var/random_speech = pick(GLOB.sentrybot_switch_to_patrol_sound)
-		speech_cooldown = world.time + GLOB.sentrybot_switch_to_patrol_sound[random_speech]
-		playsound(src, random_speech, 75, FALSE)
+		play_speech_sound(GLOB.sentrybot_switch_to_patrol_sound, bypass_cooldown = TRUE)
+		add_overlay("scanning")
+		set_light(l_range = 1.5, l_power = 8, l_color = "#00ff00")
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/proc/wind_down_gun()
 	playsound(src, 'mojave/sound/ms13npc/sentrybot/gatling_winddown.ogg', 75, FALSE)
@@ -163,19 +180,22 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/handle_automated_action()
 	. = ..()
-	if(!client && (AIStatus == AI_IDLE) && speech_cooldown < world.time)
-		var/random_speech = pick(GLOB.sentrybot_idle_patrol_sound)
-		speech_cooldown = world.time + GLOB.sentrybot_idle_patrol_sound[random_speech]
-		playsound(src, random_speech, 75, FALSE)
+	if(!client)
+		return
+	switch(AIStatus)
+		if(AI_ON)
+			play_speech_sound(GLOB.sentrybot_in_combat_sound, bypass_cooldown = FALSE)
+		if(AI_IDLE)
+			play_speech_sound(GLOB.sentrybot_idle_patrol_sound, bypass_cooldown = FALSE)
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/toggle_ai(togglestatus)
 	var/oldAIStatus = AIStatus
 	. = ..()
 	if((oldAIStatus == AI_IDLE) && (AIStatus == AI_ON))
-		var/random_speech = pick(GLOB.sentrybot_hostiles_located_sound)
-		speech_cooldown = world.time + GLOB.sentrybot_hostiles_located_sound[random_speech]
-		playsound(src, random_speech, 75, FALSE)
+		play_speech_sound(GLOB.sentrybot_hostiles_located_sound, bypass_cooldown = FALSE)
 		toggle_ai(AI_ON)
+		set_light(l_range = 1.5, l_power = 8, l_color = "#ff0000")
+		update_icon()
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/adjustHealth(amount, updating_health = TRUE, forced = FALSE)
 	. = ..()
@@ -185,10 +205,8 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/FindTarget(list/possible_targets, HasTargetsList = 0)
 	var/old_target = target //If we change target (NULL => new target, old target => new target) play a sound effect
 	. = ..()
-	if((old_target != null) && (old_target != target) && !client && prob(50))
-		var/random_speech = pick(GLOB.sentrybot_new_hostile_sound)
-		speech_cooldown = world.time + GLOB.sentrybot_new_hostile_sound[random_speech]
-		playsound(src, random_speech, 75, FALSE)
+	if((old_target != null) && (old_target != target) && !client)
+		play_speech_sound(GLOB.sentrybot_new_hostile_sound, bypass_cooldown = FALSE)
 
 //randomspread prerequisite
 /obj/item/ammo_casing/energy/ms13/laser/sentrybot
@@ -261,9 +279,10 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 	//var/obj/item/grenade/thrown_grenade = new grenade(get_step(owner, get_dir(owner, target_atom)))
 	var/obj/item/grenade/thrown_grenade = new grenade(get_turf(owner))
 	var/original_density = owner.density
-	var/new_target_turf = get_step(target_atom, get_dir(owner, target_atom))
-	new_target_turf = get_step(new_target_turf, get_dir(owner, target_atom))
-	new_target_turf = get_step(new_target_turf, get_dir(owner, target_atom))
+	//Aim ahead of target by 3 steps
+	var/new_target_turf = target_atom
+	for(var/i = 0; i != 3; i++)
+		new_target_turf = get_step(new_target_turf, get_dir(owner, target_atom))
 	owner.density = FALSE
 	thrown_grenade.throw_at(new_target_turf, 15, 2, owner, FALSE, FALSE)
 	owner.density = original_density
