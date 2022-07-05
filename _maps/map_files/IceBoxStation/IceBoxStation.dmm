@@ -5537,10 +5537,6 @@
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/iron/smooth,
 /area/mine/eva)
-"bJi" = (
-/obj/machinery/portable_atmospherics/pump,
-/turf/open/floor/iron/dark,
-/area/station/science/ordnance/office)
 "bJp" = (
 /obj/machinery/camera/directional/east{
 	c_tag = "Security - Permabrig Workout";
@@ -22146,10 +22142,6 @@
 /obj/machinery/light_switch/directional/south,
 /turf/open/floor/iron/showroomfloor,
 /area/station/security/warden)
-"gPB" = (
-/obj/item/radio/intercom/directional/west,
-/turf/open/floor/iron/dark,
-/area/station/engineering/supermatter/room)
 "gPE" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -22372,6 +22364,13 @@
 	},
 /turf/open/openspace,
 /area/station/security/prison)
+"gTJ" = (
+/obj/machinery/camera/directional/east{
+	c_tag = "Engineering Emitter Room Starboard";
+	network = list("ss13","engine")
+	},
+/turf/open/floor/iron/dark,
+/area/station/engineering/supermatter/room)
 "gTK" = (
 /turf/closed/wall,
 /area/station/engineering/engine_smes)
@@ -31484,6 +31483,14 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/service/hydroponics)
+"jOd" = (
+/obj/item/radio/intercom/directional/west,
+/obj/machinery/camera/directional/west{
+	c_tag = "Engineering Emitter Room Port";
+	network = list("ss13","engine")
+	},
+/turf/open/floor/iron/dark,
+/area/station/engineering/supermatter/room)
 "jOe" = (
 /obj/structure/chair{
 	dir = 4
@@ -75336,6 +75343,10 @@
 /obj/structure/cable,
 /turf/open/floor/wood,
 /area/station/security/courtroom)
+"xCc" = (
+/obj/machinery/portable_atmospherics/pump,
+/turf/open/floor/iron/dark,
+/area/station/science/ordnance/office)
 "xCh" = (
 /obj/machinery/button/door/directional/west{
 	id = "xenobio5";
@@ -235928,7 +235939,7 @@ uLH
 mvX
 gka
 miS
-gPB
+jOd
 oNX
 lhC
 maY
@@ -239012,7 +239023,7 @@ nsv
 kAT
 gka
 oWQ
-lhC
+gTJ
 alx
 pMC
 qWJ
@@ -257989,7 +258000,7 @@ kgo
 sCx
 gWr
 iHc
-bJi
+xCc
 gXv
 vaa
 xLq
