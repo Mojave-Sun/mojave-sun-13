@@ -685,6 +685,12 @@
 	},
 /turf/open/floor/plating/icemoon,
 /area/station/science/ordnance/bomb)
+"anR" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/station/maintenance/fore)
 "anY" = (
 /obj/structure/sign/warning/no_smoking/directional/south,
 /obj/machinery/light/directional/south,
@@ -5839,6 +5845,12 @@
 /obj/structure/cable,
 /turf/open/floor/iron/white,
 /area/station/medical/cryo)
+"bOb" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/station/maintenance/fore)
 "bOg" = (
 /obj/item/kirbyplants/random,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -16389,10 +16401,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/service/hydroponics)
-"eZo" = (
-/obj/structure/cable/multilayer/multiz,
-/turf/open/floor/plating,
-/area/station/security/processing)
 "eZp" = (
 /obj/machinery/space_heater,
 /obj/effect/decal/cleanable/dirt,
@@ -22142,6 +22150,14 @@
 /obj/machinery/light_switch/directional/south,
 /turf/open/floor/iron/showroomfloor,
 /area/station/security/warden)
+"gPB" = (
+/obj/item/radio/intercom/directional/west,
+/obj/machinery/camera/directional/west{
+	c_tag = "Engineering Emitter Room Port";
+	network = list("ss13","engine")
+	},
+/turf/open/floor/iron/dark,
+/area/station/engineering/supermatter/room)
 "gPE" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -22364,13 +22380,6 @@
 	},
 /turf/open/openspace,
 /area/station/security/prison)
-"gTJ" = (
-/obj/machinery/camera/directional/east{
-	c_tag = "Engineering Emitter Room Starboard";
-	network = list("ss13","engine")
-	},
-/turf/open/floor/iron/dark,
-/area/station/engineering/supermatter/room)
 "gTK" = (
 /turf/closed/wall,
 /area/station/engineering/engine_smes)
@@ -31483,14 +31492,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/service/hydroponics)
-"jOd" = (
-/obj/item/radio/intercom/directional/west,
-/obj/machinery/camera/directional/west{
-	c_tag = "Engineering Emitter Room Port";
-	network = list("ss13","engine")
-	},
-/turf/open/floor/iron/dark,
-/area/station/engineering/supermatter/room)
 "jOe" = (
 /obj/structure/chair{
 	dir = 4
@@ -40190,9 +40191,6 @@
 	},
 /turf/open/floor/plating,
 /area/station/hallway/primary/starboard)
-"mBW" = (
-/turf/open/floor/plating,
-/area/station/security/processing)
 "mBX" = (
 /obj/structure/table/wood,
 /obj/machinery/airalarm/directional/east,
@@ -42159,6 +42157,15 @@
 /obj/item/radio/intercom/directional/east,
 /turf/open/floor/iron/white,
 /area/station/medical/virology)
+"niq" = (
+/obj/machinery/atmospherics/pipe/multiz/scrubbers/visible/layer2{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/multiz/supply/visible/layer4{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/station/maintenance/fore)
 "niu" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -45129,6 +45136,13 @@
 /obj/effect/spawner/random/structure/steam_vent,
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical/central)
+"oaY" = (
+/obj/machinery/camera/directional/east{
+	c_tag = "Engineering Emitter Room Starboard";
+	network = list("ss13","engine")
+	},
+/turf/open/floor/iron/dark,
+/area/station/engineering/supermatter/room)
 "obj" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
@@ -53748,15 +53762,6 @@
 /obj/effect/mapping_helpers/airlock/access/all/engineering/general,
 /turf/open/floor/plating,
 /area/station/engineering/storage_shared)
-"qMY" = (
-/obj/machinery/atmospherics/pipe/multiz/scrubbers/visible/layer2{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/multiz/supply/visible/layer4{
-	dir = 1
-	},
-/turf/open/floor/plating,
-/area/station/security/processing)
 "qNc" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Service Hall Exit"
@@ -54022,12 +54027,6 @@
 /obj/machinery/status_display/ai/directional/north,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
-"qQK" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/station/security/processing)
 "qQN" = (
 /obj/effect/turf_decal/tile/red,
 /turf/open/floor/iron,
@@ -55173,6 +55172,9 @@
 /obj/structure/sign/poster/official/random/directional/north,
 /turf/open/floor/iron,
 /area/station/hallway/primary/starboard)
+"rjQ" = (
+/turf/closed/wall/r_wall,
+/area/station/maintenance/fore)
 "rjR" = (
 /obj/effect/turf_decal/tile/brown{
 	dir = 8
@@ -60419,10 +60421,6 @@
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
-"sSy" = (
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/station/security/processing)
 "sSD" = (
 /obj/effect/landmark/observer_start,
 /obj/effect/turf_decal/plaque{
@@ -76538,12 +76536,6 @@
 /obj/effect/spawner/random/maintenance/two,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/aft)
-"xWr" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/station/security/processing)
 "xWu" = (
 /obj/structure/rack,
 /obj/item/tank/internals/emergency_oxygen{
@@ -235939,7 +235931,7 @@ uLH
 mvX
 gka
 miS
-jOd
+gPB
 oNX
 lhC
 maY
@@ -238130,10 +238122,10 @@ bln
 rhf
 rhf
 rhf
-mgU
-mgU
-mgU
-mgU
+rjQ
+rjQ
+rjQ
+rjQ
 mBK
 eGj
 gTs
@@ -238387,10 +238379,10 @@ bln
 bln
 bln
 lSu
-ykw
-sSy
-eZo
-kzw
+rjQ
+jOQ
+bxQ
+rjQ
 ipP
 mZD
 aKt
@@ -238644,10 +238636,10 @@ wNO
 wNO
 wNO
 wNO
-ykw
-xWr
-qMY
-kzw
+rjQ
+anR
+niq
+rjQ
 iLe
 aOS
 mQE
@@ -238901,10 +238893,10 @@ wNO
 wNO
 wNO
 wNO
-ykw
-xWr
-mBW
-kzw
+rjQ
+anR
+deY
+rjQ
 kdT
 hQd
 eCH
@@ -239023,7 +239015,7 @@ nsv
 kAT
 gka
 oWQ
-gTJ
+oaY
 alx
 pMC
 qWJ
@@ -239158,10 +239150,10 @@ wNO
 wNO
 wNO
 wNO
-ykw
-qQK
-xWr
-kzw
+rjQ
+bOb
+anR
+rjQ
 kzw
 kzw
 kzw
