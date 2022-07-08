@@ -99,6 +99,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/plane_master_controller)
 		GHOST_PLANE,
 		POINT_PLANE,
 		LIGHTING_PLANE
+		AREA_PLANE,
 	)
 
 /// Controller of all planes we're ok with changing with colorblind logic
@@ -126,5 +127,6 @@ INITIALIZE_IMMEDIATE(/atom/movable/plane_master_controller)
 		RUNECHAT_PLANE,
 		HUD_PLANE,
 		ABOVE_HUD_PLANE,
+		AREA_PLANE,
 	)
 
