@@ -56,17 +56,21 @@ GLOBAL_VAR(command_name)
 
 
 /proc/new_station_name()
+
+	if(TRUE) // GOMBLE - I did this to prevent conflicts because tg keeps changing how they generate names
+		return "Mojave Sun - Open Beta" // Hard coding for now until we change how station name is generated.
+
 	var/random = rand(1,5)
 	var/name = ""
 	var/new_station_name = ""
 
-	/*//Rare: Pre-Prefix MOJAVE SUN EDIT - ??
+	//Rare: Pre-Prefix
 	if (prob(10))
 		name = pick(GLOB.station_prefixes)
 		new_station_name = name + " "
 		name = ""
-	*/
-	if(prob(1))
+
+	if(prob(0.1))
 		random = 999999999 //ridiculously long name in written numbers
 
 	// Prefix
@@ -100,7 +104,9 @@ GLOBAL_VAR(command_name)
 			new_station_name += convert_integer_to_words(rand(-1,99), capitalise = TRUE)
 		if(13)
 			new_station_name += pick("13","XIII","Thirteen")
-	return "Mojave Sun - Open Beta" // Hard coding for now until we change how station name is generated.
+		if(999999999)
+			new_station_name += convert_integer_to_words(rand(111111111,999999999), capitalise = TRUE)
+	return new_station_name
 
 /proc/syndicate_name()
 	var/name = ""
