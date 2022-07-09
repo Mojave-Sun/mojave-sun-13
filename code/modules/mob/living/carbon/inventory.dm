@@ -1,3 +1,5 @@
+// GOMBLE TODO - Inventory
+
 /mob/living/carbon/get_item_by_slot(slot_id)
 	switch(slot_id)
 		if(ITEM_SLOT_BACK)
@@ -116,14 +118,8 @@
 			put_in_hands(I)
 			update_inv_hands()
 		if(ITEM_SLOT_BACKPACK)
-			/* MOJAVE EDIT REMOVAL
-			if(!back || !SEND_SIGNAL(back, COMSIG_TRY_STORAGE_INSERT, I, src, TRUE))
+			if(!back || !back.atom_storage?.attempt_insert(back, I, src, override = TRUE))
 				not_handled = TRUE
-			*/
-			//MOJAVE EDIT BEGIN
-			if(!back || !SEND_SIGNAL(back, COMSIG_TRY_STORAGE_INSERT, I, src, TRUE, initial, TRUE))
-				not_handled = TRUE
-			//MOJAVE EDIT END
 		else
 			not_handled = TRUE
 

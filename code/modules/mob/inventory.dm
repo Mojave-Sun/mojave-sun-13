@@ -1,3 +1,5 @@
+// GOMBLE TODO - Inventory
+
 //These procs handle putting s tuff in your hands
 //as they handle all relevant stuff like adding it to the player's screen and updating their overlays.
 
@@ -127,11 +129,10 @@
 	var/num = 0
 	if(!(i % 2))
 		num = i-2
-		hand += "right hand" // MOJAVE EDIT - hand += "right hand"
+		hand += "right hand"
 	else
 		num = i-1
-		hand += "left hand"// MOJAVE EDIT - hand += "left hand"
-
+		hand += "left hand"
 	num -= (num*0.5)
 	if(num > 1) //"upper left hand #1" seems weird, but "upper left hand #2" is A-ok
 		hand += " #[num]"
@@ -410,12 +411,7 @@
 		if(equip_delay_self)
 			return
 
-	/* MOJAVE EDIT REMOVAL
-	if(M.active_storage && M.active_storage.parent && SEND_SIGNAL(M.active_storage.parent, COMSIG_TRY_STORAGE_INSERT, src,M))
-	*/
-	//MOJAVE EDIT BEGIN
-	if(M.active_storage && M.active_storage.parent && SEND_SIGNAL(M.active_storage.parent, COMSIG_TRY_STORAGE_INSERT, src, M, FALSE, FALSE, TRUE))
-	//MOJAVE EDIT END
+	if(M.active_storage?.attempt_insert(M.active_storage, src, M))
 		return TRUE
 
 	var/list/obj/item/possible = list(M.get_inactive_held_item(), M.get_item_by_slot(ITEM_SLOT_BELT), M.get_item_by_slot(ITEM_SLOT_DEX_STORAGE), M.get_item_by_slot(ITEM_SLOT_BACK))
@@ -423,12 +419,7 @@
 		if(!i)
 			continue
 		var/obj/item/I = i
-		/* MOJAVE EDIT REMOVAL
-		if(SEND_SIGNAL(I, COMSIG_TRY_STORAGE_INSERT, src, M))
-		*/
-		//MOJAVE EDIT BEGIN
-		if(SEND_SIGNAL(I, COMSIG_TRY_STORAGE_INSERT, src, M, FALSE, FALSE, TRUE))
-		//MOJAVE EDIT END
+		if(I.atom_storage?.attempt_insert(I, src, M))
 			return TRUE
 
 	to_chat(M, span_warning("You are unable to equip that!"))
@@ -503,8 +494,8 @@
 	var/i = 0
 	while(i < length(processing_list) )
 		var/atom/A = processing_list[++i]
-		if(SEND_SIGNAL(A, COMSIG_CONTAINS_STORAGE))
+		if(A.atom_storage)
 			var/list/item_stuff = list()
-			SEND_SIGNAL(A, COMSIG_TRY_STORAGE_RETURN_INVENTORY, item_stuff)
+			A.atom_storage.return_inv(item_stuff)
 			processing_list += item_stuff
 	return processing_list

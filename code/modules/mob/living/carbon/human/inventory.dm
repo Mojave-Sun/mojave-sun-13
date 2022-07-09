@@ -1,3 +1,5 @@
+// GOMBLE TODO - Inventory
+
 /mob/living/carbon/human/can_equip(obj/item/I, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE)
 	return dna.species.can_equip(I, slot, disable_warning, src, bypass_equip_delay_self)
 
@@ -198,7 +200,7 @@
 /mob/living/carbon/human/equipped_speed_mods()
 	. = ..()
 	for(var/sloties in get_all_worn_items() - list(l_store, r_store, s_store))
-	// GOMBLE TODO - Re-add belt + back		var/obj/item/thing = sloties
+		var/obj/item/thing = sloties
 		. += thing?.slowdown
 
 /mob/living/carbon/human/doUnEquip(obj/item/I, force, newloc, no_move, invdrop = TRUE, silent = FALSE)
@@ -344,7 +346,7 @@
 		if(equip_to_slot_if_possible(thing, slot_type))
 			update_inv_hands()
 		return
-	var/datum/component/storage/storage = equipped_item.GetComponent(/datum/component/storage)
+	var/datum/storage/storage = equipped_item.atom_storage
 	if(!storage)
 		if(!thing)
 			equipped_item.attack_hand(src)
@@ -352,15 +354,10 @@
 			to_chat(src, span_warning("You can't fit [thing] into your [equipped_item.name]!"))
 		return
 	if(thing) // put thing in storage item
-		/* MOJAVE EDIT REMOVAL
-		if(!SEND_SIGNAL(equipped_item, COMSIG_TRY_STORAGE_INSERT, thing, src))
-		*/
-		//MOJAVE EDIT BEGIN
-		if(!SEND_SIGNAL(equipped_item, COMSIG_TRY_STORAGE_INSERT, thing, src, FALSE, FALSE, TRUE))
-		//MOJAVE EDIT END
+		if(!equipped_item.atom_storage?.attempt_insert(equipped_item, thing, src))
 			to_chat(src, span_warning("You can't fit [thing] into your [equipped_item.name]!"))
 		return
-	var/atom/real_location = storage.real_location()
+	var/atom/real_location = storage.real_location?.resolve()
 	if(!real_location.contents.len) // nothing to take out
 		to_chat(src, span_warning("There's nothing in your [equipped_item.name] to take out!"))
 		return
