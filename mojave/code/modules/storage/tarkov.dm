@@ -48,6 +48,24 @@
 	screen_start_y = 7
 	screen_start_x = 13
 
+/datum/component/storage/concrete/ms13/duffel //main for MS13 basic duffel bags
+	screen_max_columns = 7
+	screen_max_rows = 4
+	screen_start_y = 7
+	screen_start_x = 12
+
+/datum/component/storage/concrete/ms13/biggie_bag //main for MS13 large backpacks
+	screen_max_columns = 6
+	screen_max_rows = 7
+	screen_start_y = 7
+	screen_start_x = 13
+
+/datum/component/storage/concrete/ms13/big_duffel //main for MS13 large duffels
+	screen_max_columns = 7
+	screen_max_rows = 5
+	screen_start_y = 7
+	screen_start_x = 12
+
 /datum/component/storage/concrete/ms13/satchel //for MS13 satchels
 	screen_max_columns = 6
 	screen_max_rows = 4
