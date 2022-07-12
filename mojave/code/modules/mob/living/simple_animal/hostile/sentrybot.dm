@@ -48,10 +48,10 @@ GLOBAL_LIST_INIT(sentrybot_switch_to_patrol_sound, list(
 
 //In combat
 GLOBAL_LIST_INIT(sentrybot_in_combat_sound, list(
-									'mojave/sound/ms13npc/sentrybot/in_combat1.ogg' = 5 SECONDS,
-									'mojave/sound/ms13npc/sentrybot/in_combat2.ogg' = 4 SECONDS,
-									'mojave/sound/ms13npc/sentrybot/in_combat3.ogg' = 5 SECONDS,
-									'mojave/sound/ms13npc/sentrybot/in_combat4.ogg' = 6 SECONDS,
+									'mojave/sound/ms13npc/sentrybot/in_combat1.ogg' = 6 SECONDS,
+									'mojave/sound/ms13npc/sentrybot/in_combat2.ogg' = 5 SECONDS,
+									'mojave/sound/ms13npc/sentrybot/in_combat3.ogg' = 6 SECONDS,
+									'mojave/sound/ms13npc/sentrybot/in_combat4.ogg' = 7 SECONDS,
 									))
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot
@@ -88,6 +88,8 @@ GLOBAL_LIST_INIT(sentrybot_in_combat_sound, list(
 	shadow_type = "shadow_large"
 	projectilesound = null
 	check_friendly_fire = FALSE //no
+	move_resist = INFINITY
+	move_force = MOVE_FORCE_EXTREMELY_STRONG
 	var/datum/action/cooldown/launch_rocket/rocket
 	var/datum/action/cooldown/launch_grenade/grenade
 	var/datum/action/cooldown/flamethrow/flamethrow
@@ -115,11 +117,11 @@ GLOBAL_LIST_INIT(sentrybot_in_combat_sound, list(
 		. += target
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/proc/play_speech_sound(glob_list_used, bypass_cooldown = FALSE)
-	if(!bypass_cooldown && speech_cooldown < world.time)
+	if(!bypass_cooldown && (speech_cooldown > world.time))
 		return
 	var/random_speech = pick(glob_list_used)
 	speech_cooldown = world.time + glob_list_used[random_speech]
-	playsound(src, random_speech, 75, FALSE)
+	playsound(src, random_speech, 100, FALSE)
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/proc/play_move_sound()
 	SIGNAL_HANDLER
@@ -180,7 +182,7 @@ GLOBAL_LIST_INIT(sentrybot_in_combat_sound, list(
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/handle_automated_action()
 	. = ..()
-	if(!client)
+	if(client)
 		return
 	switch(AIStatus)
 		if(AI_ON)
@@ -194,6 +196,7 @@ GLOBAL_LIST_INIT(sentrybot_in_combat_sound, list(
 	if((oldAIStatus == AI_IDLE) && (AIStatus == AI_ON))
 		play_speech_sound(GLOB.sentrybot_hostiles_located_sound, bypass_cooldown = FALSE)
 		toggle_ai(AI_ON)
+		cut_overlays("scanning")
 		set_light(l_range = 1.5, l_power = 8, l_color = "#ff0000")
 		update_icon()
 
