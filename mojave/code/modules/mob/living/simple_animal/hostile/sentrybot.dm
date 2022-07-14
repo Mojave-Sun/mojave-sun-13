@@ -64,13 +64,13 @@ GLOBAL_LIST_INIT(sentrybot_in_combat_sound, list(
 	robust_searching = TRUE
 	idlechance = 10
 	minimum_distance = 3 //We'll decrease this if need be
-	retreat_distance = 3
+	retreat_distance = null
 	speed = 2
 	move_to_delay = 4
 	attack_sound = "slam"
 	loot = list(/obj/item/stack/sheet/ms13/scrap, /obj/item/stack/sheet/ms13/scrap_electronics, /obj/item/stack/sheet/ms13/scrap_parts)
-	vision_range = 14
-	aggro_vision_range = 14
+	vision_range = 12
+	aggro_vision_range = 12
 	maxHealth = 1000
 	health = 1000
 	idlechance = 20
@@ -79,7 +79,7 @@ GLOBAL_LIST_INIT(sentrybot_in_combat_sound, list(
 	ranged = TRUE
 	stat_attack = HARD_CRIT
 	casingtype = /obj/item/ammo_casing/energy/ms13/laser/sentrybot
-	ranged_cooldown = 4 SECONDS
+	ranged_cooldown = 5 SECONDS
 	rapid = 20
 	rapid_fire_delay = 0.05 SECONDS //20 shots over 1 second
 	pixel_x = -16
@@ -93,7 +93,6 @@ GLOBAL_LIST_INIT(sentrybot_in_combat_sound, list(
 	var/datum/action/cooldown/launch_rocket/rocket
 	var/datum/action/cooldown/launch_grenade/grenade
 	var/datum/action/cooldown/flamethrow/flamethrow
-
 	var/already_firing = FALSE
 	var/speech_cooldown = 0
 
@@ -138,10 +137,8 @@ GLOBAL_LIST_INIT(sentrybot_in_combat_sound, list(
 	//Go into melee range if we can't actually see the target
 	if(!can_see(src, target, length = 10))
 		minimum_distance = 1
-		retreat_distance = 1
 	else
 		minimum_distance = initial(minimum_distance)
-		retreat_distance = initial(retreat_distance)
 	if(actually_fire)
 		. = ..()
 		playsound(src, 'mojave/sound/ms13npc/sentrybot/laser_gatling.ogg', 50, FALSE)
@@ -240,7 +237,7 @@ GLOBAL_LIST_INIT(sentrybot_in_combat_sound, list(
 	shrapnel_type = null
 
 /obj/projectile/bullet/sentrybot_rocket/on_hit(atom/target, blocked = FALSE)
-	explosion(get_turf(target), devastation_range = -1, light_impact_range = 1, flame_range = 3, explosion_cause = src)
+	explosion(get_turf(target), devastation_range = -1, heavy_impact_range = -1, light_impact_range = 1, flame_range = 3, explosion_cause = src)
 	return BULLET_ACT_HIT
 
 //Launches a rocket out of you
@@ -299,9 +296,9 @@ GLOBAL_LIST_INIT(sentrybot_in_combat_sound, list(
 	shrapnel_type = /obj/projectile/bullet/shrapnel
 	pass_flags = PASSMOB
 	shrapnel_radius = 2
-	ex_heavy = 0
+	ex_heavy = -1
 	ex_light = 1
-	ex_flame = 1
+	ex_flame = 2
 
 //A flamethrower that's essentially a forward facing backblast of the rocket launcher
 /datum/action/cooldown/flamethrow
