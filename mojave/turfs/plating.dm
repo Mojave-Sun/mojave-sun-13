@@ -348,7 +348,7 @@
 	baseturfs = /turf/open/floor/plating/ms13/ground/mountain
 	icon = 'mojave/icons/turf/cave.dmi'
 	icon_state = "cave_1"
-	slowdown = 0.25
+	slowdown = 0.1
 	var/area/curr_area = null
 	var/variants = 7
 
