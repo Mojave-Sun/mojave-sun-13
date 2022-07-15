@@ -1,11 +1,3 @@
-GLOBAL_LIST_INIT(sentrybot_death_sound, list('mojave/sound/ms13npc/sentrybot/death1.ogg',
-									'mojave/sound/ms13npc/sentrybot/death2.ogg',
-									'mojave/sound/ms13npc/sentrybot/death3.ogg',
-									'mojave/sound/ms13npc/sentrybot/death4.ogg',
-									'mojave/sound/ms13npc/sentrybot/death5.ogg',
-									'mojave/sound/ms13npc/sentrybot/death6.ogg'
-									))
-
 GLOBAL_LIST_INIT(sentrybot_damaged_sound, list(
 									'mojave/sound/ms13npc/sentrybot/damaged1.ogg',
 									'mojave/sound/ms13npc/sentrybot/damaged2.ogg',
@@ -54,6 +46,16 @@ GLOBAL_LIST_INIT(sentrybot_in_combat_sound, list(
 									'mojave/sound/ms13npc/sentrybot/in_combat4.ogg' = 7 SECONDS,
 									))
 
+//Dying before self destruct
+//the seconds refer to the time before actually exploding
+GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
+									'mojave/sound/ms13npc/sentrybot/death1.ogg' = 2.5 SECONDS,
+									'mojave/sound/ms13npc/sentrybot/death2.ogg' = 2.5 SECONDS,
+									'mojave/sound/ms13npc/sentrybot/death3.ogg' = 1.5 SECONDS,
+									'mojave/sound/ms13npc/sentrybot/death4.ogg' = 2.5 SECONDS,
+									'mojave/sound/ms13npc/sentrybot/death5.ogg' = 1.5 SECONDS,
+									))
+
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot
 	name = "sentry bot"
 	desc = "A robot with the scariest arsenal you seen so far, it's a pretty good idea if you stopped looking at it."
@@ -96,10 +98,6 @@ GLOBAL_LIST_INIT(sentrybot_in_combat_sound, list(
 	var/already_firing = FALSE
 	var/speech_cooldown = 0
 
-/mob/living/simple_animal/hostile/ms13/robot/sentrybot/death(gibbed)
-	playsound(src, pick(GLOB.sentrybot_death_sound), 50, TRUE)
-	..(gibbed)
-
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/Initialize()
 	. = ..()
 	rocket = new /datum/action/cooldown/launch_rocket()
@@ -114,6 +112,21 @@ GLOBAL_LIST_INIT(sentrybot_in_combat_sound, list(
 	. = ..()
 	if(target && get_dist(target, src) < aggro_vision_range)
 		. += target
+
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/death(gibbed)
+	LoseTarget()
+	vision_range = 0
+	aggro_vision_range = 0
+	stop_automated_movement = TRUE
+	SSmove_manager.move_to(src, src, minimum_distance = 0, delay = 0)
+	var/the_sound = pick(GLOB.sentrybot_dying_sound)
+	playsound(src, the_sound, 100, FALSE)
+	addtimer(CALLBACK(src, .proc/self_destruct), GLOB.sentrybot_dying_sound[the_sound])
+	..(gibbed)
+
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/proc/self_destruct()
+	explosion(src, devastation_range = 1, heavy_impact_range = 0, light_impact_range = 2, flame_range = 5, flash_range = 5, smoke = TRUE)
+	qdel(src)
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/proc/play_speech_sound(glob_list_used, bypass_cooldown = FALSE)
 	if(!bypass_cooldown && (speech_cooldown > world.time))
@@ -171,7 +184,7 @@ GLOBAL_LIST_INIT(sentrybot_in_combat_sound, list(
 	if(.) //Failed to find new targets, going into idle
 		play_speech_sound(GLOB.sentrybot_switch_to_patrol_sound, bypass_cooldown = TRUE)
 		add_overlay("scanning")
-		set_light(l_range = 1.5, l_power = 8, l_color = "#00ff00")
+		set_light(l_range = 1.5, l_power = 8, l_color = "#ff0000")
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/proc/wind_down_gun()
 	playsound(src, 'mojave/sound/ms13npc/sentrybot/gatling_winddown.ogg', 75, FALSE)
