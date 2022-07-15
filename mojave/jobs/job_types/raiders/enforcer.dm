@@ -17,7 +17,7 @@
 
 	head = 		/obj/item/clothing/head/helmet/ms13/assaultron
 	id = 		/obj/item/card/id/ms13/enforcer
-	suit = 		/obj/item/clothing/suit/ms13/trench/black/reinf/enforcer
+	suit = 		/obj/item/clothing/suit/ms13/trench/black/armored/enforcer
 	uniform =	/obj/item/clothing/under/ms13/wasteland/mercc
 	gloves =	/obj/item/clothing/gloves/ms13/military
 	shoes = 	/obj/item/clothing/shoes/ms13/military/diesel
@@ -27,7 +27,7 @@
 	r_pocket = 	/obj/item/ammo_box/magazine/ms13/r20
 	l_pocket =	/obj/item/knife/ms13/combat/soviet
 	backpack_contents = list(
-		/obj/item/ammo_box/ms13/rev10mm=2, \
+		/obj/item/ammo_box/ms13/c10mm=1, \
 		/obj/item/stack/medical/ointment/ms13/aloe=1, \
 		/obj/item/stack/medical/gauze/ms13/half=1, \
 		/obj/item/flashlight/ms13/crafted=1, \

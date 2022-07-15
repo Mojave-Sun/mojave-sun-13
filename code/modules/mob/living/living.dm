@@ -54,7 +54,7 @@
 		return
 	visible_message(span_danger("[src] crashes into [T] with a sickening noise!"), \
 					span_userdanger("You crash into [T] with a sickening noise!"))
-	adjustBruteLoss((levels * 5) ** 1.5)
+	adjustBruteLoss(levels * 20) // You'll probably think twice before flying off the side of a cliff
 	Knockdown(levels * 50)
 
 //Generic Bump(). Override MobBump() and ObjBump() instead of this.
@@ -786,6 +786,10 @@
 		return FALSE
 
 /mob/living/proc/update_damage_overlays()
+	return
+
+/// Proc that only really gets called for humans, to handle bleeding overlays.
+/mob/living/proc/update_wound_overlays()
 	return
 
 /mob/living/Move(atom/newloc, direct, glide_size_override)

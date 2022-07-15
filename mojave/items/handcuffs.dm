@@ -9,3 +9,6 @@
 	gender = NEUTER
 	slot_flags = ITEM_SLOT_BELT
 
+/obj/item/restraints/handcuffs/ms13
+	grid_height = 32
+	grid_width = 64

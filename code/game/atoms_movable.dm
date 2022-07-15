@@ -194,7 +194,7 @@
 		if(isobj(hurt_atom) || ismob(hurt_atom))
 			if(hurt_atom.layer > highest.layer)
 				highest = hurt_atom
-	INVOKE_ASYNC(src, .proc/SpinAnimation, 5, 2)
+//	INVOKE_ASYNC(src, .proc/SpinAnimation, 5, 2) This looks dumb and it should feel bad about it.
 	return TRUE
 
 /*

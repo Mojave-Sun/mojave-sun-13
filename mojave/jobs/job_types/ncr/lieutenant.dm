@@ -21,11 +21,13 @@
 	shoes = 	 /obj/item/clothing/shoes/ms13/military/ncr/officer
 	r_pocket = 	 /obj/item/ammo_box/magazine/ms13/deagle
 	l_pocket = 	 /obj/item/knife/ms13/hunting
+	back =       /obj/item/storage/ms13/satchel
 	backpack_contents = list(
 		/obj/item/ammo_box/magazine/ms13/deagle=1, \
 		/obj/item/stack/medical/gauze/ms13/half=1,
 		/obj/item/flashlight/ms13=1, \
-		/obj/item/stack/medical/ointment/ms13/cream/half=1)
+		/obj/item/stack/medical/ointment/ms13/cream/half=1,\
+		/obj/item/radio/ms13=1)
 
 /datum/outfit/job/ms13/ncr/lieutenant/pre_equip(mob/living/carbon/human/H)
 	..()

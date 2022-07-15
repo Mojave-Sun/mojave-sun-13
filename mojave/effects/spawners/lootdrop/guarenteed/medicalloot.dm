@@ -48,8 +48,8 @@
 	spawn_loot_count = 1
 
 	loot = list(
-			/obj/effect/spawner/random/ms13/guarenteed/medical/tier2 = 55,
-			/obj/effect/spawner/random/ms13/guarenteed/medical/tier3 = 45
+			/obj/effect/spawner/random/ms13/guarenteed/medical/tier2 = 45,
+			/obj/effect/spawner/random/ms13/guarenteed/medical/tier3 = 55
 			)
 
 /obj/effect/spawner/random/ms13/guarenteed/medical/bloodbag

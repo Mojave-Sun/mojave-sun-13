@@ -606,8 +606,21 @@
 /obj/structure/railing/ms13
 	name = "base state MS13 guard rail"
 	icon = 'mojave/icons/structure/railings.dmi'
-	layer = ABOVE_MOB_LAYER
+	plane = WALL_PLANE
+	layer = CLOSED_TURF_LAYER
 	max_integrity = 150
+	climbable = FALSE //so we can override TG
+
+/obj/structure/railing/ms13/Initialize()
+	. = ..()
+	if(dir == SOUTH)
+		layer = ABOVE_ALL_MOB_LAYER
+		plane = GAME_PLANE_FOV_HIDDEN
+	if(dir == NORTH)
+		layer = ABOVE_ALL_MOB_LAYER
+		plane = GAME_PLANE_FOV_HIDDEN
+
+	AddElement(/datum/element/climbable, climb_time = 3 SECONDS, climb_stun = 0, no_stun = TRUE, jump_over = TRUE, jump_north = 12, jump_south = 17, jump_sides = 12)
 
 /obj/structure/railing/ms13/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
@@ -634,6 +647,41 @@
 	desc = "A classic wooden fence. It doesn't get more homely than this."
 	icon_state = "wood_full"
 
+/obj/structure/railing/ms13/wood/crowbar_act_secondary(mob/living/user, obj/item/tool)
+	if(flags_1&NODECONSTRUCT_1)
+		return TRUE
+	..()
+	user.visible_message("<span class='notice'>[user] starts to break \the [src].</span>", \
+		"<span class='notice'>You start to break \the [src].</span>", \
+		"<span class='hear'>You hear splitting wood.</span>")
+	tool.play_tool_sound(src)
+	if(do_after(user, 10 SECONDS * tool.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+		playsound(src.loc, 'mojave/sound/ms13effects/wood_deconstruction.ogg', 50, TRUE)
+		user.visible_message("<span class='notice'>[user] pries \the [src] into pieces.</span>", \
+			"<span class='notice'>You pry \the [src] into pieces.</span>", \
+			"<span class='hear'>You hear splitting wood.</span>")
+		deconstruct(disassembled = TRUE)
+		return TRUE
+
+/obj/structure/railing/ms13/wood/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/plank(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 2)
+		else
+			new /obj/item/stack/sheet/ms13/scrap_wood(loc)
+	qdel(src)
+
+/obj/structure/railing/ms13/wood/examine(mob/user)
+	. = ..()
+	. += deconstruction_hints(user)
+
+/obj/structure/railing/ms13/wood/proc/deconstruction_hints(mob/user)
+	return span_notice("You could use a <b>crowbar</b> or similar prying tool to dismantle [src] for planks and parts.")
+
+/obj/structure/railing/ms13/wood/ending
+	icon_state = "wood_end"
+
 /obj/structure/railing/ms13/wood/single
 	icon_state = "wood_solo"
 
@@ -641,6 +689,9 @@
 	name = "wooden fence"
 	desc = "A classic wooden fence. It doesn't get more homely than this."
 	icon_state = "wood_snow_full"
+
+/obj/structure/railing/ms13/wood/snow/ending
+	icon_state = "wood_snow_end"
 
 /obj/structure/railing/ms13/wood/snow/single
 	icon_state = "wood_snow_solo"
@@ -660,11 +711,19 @@
 	flags_1 = ON_BORDER_1
 	var/barpasschance = 20
 
-/obj/structure/ms13/barricade/crowbar_act(mob/living/user, obj/item/tool)
+/obj/structure/ms13/barricade/crowbar_act_secondary(mob/living/user, obj/item/tool)
 	if(flags_1&NODECONSTRUCT_1)
 		return TRUE
 	..()
+	user.visible_message("<span class='notice'>[user] starts to break \the [src].</span>", \
+		"<span class='notice'>You start to break \the [src].</span>", \
+		"<span class='hear'>You hear splitting wood.</span>")
+	tool.play_tool_sound(src)
 	if(do_after(user, 6 SECONDS * tool.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+		playsound(src.loc, 'mojave/sound/ms13effects/wood_deconstruction.ogg', 50, TRUE)
+		user.visible_message("<span class='notice'>[user] pries \the [src] into pieces.</span>", \
+			"<span class='notice'>You pry \the [src] into pieces.</span>", \
+			"<span class='hear'>You hear splitting wood.</span>")
 		deconstruct(disassembled = TRUE)
 		return TRUE
 

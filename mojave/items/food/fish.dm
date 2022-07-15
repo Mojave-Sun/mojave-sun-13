@@ -23,7 +23,7 @@
 	fish_size = rand(1,3)
 	icon_state = "[fish_type]-[fish_size]"
 	bite_consumption = fish_size * 2
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/food/fish/fish_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/food/fish/fish_inventory.dmi')
 	return ..()
 
 /obj/item/food/meat/slab/ms13/fish/sockeye
@@ -107,10 +107,10 @@
 
 /obj/item/food/meat/rawcutlet/ms13/fish/MakeGrillable()
 	AddComponent(/datum/component/grillable, fish_cooked_type, rand(30 SECONDS, 60 SECONDS), TRUE, TRUE)
-	
+
 
 /obj/item/food/meat/rawcutlet/ms13/fish/Initialize()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/food/fish/fish_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/food/fish/fish_inventory.dmi')
 	return ..()
 
 /obj/item/food/meat/rawcutlet/ms13/fish/sockeye
@@ -184,7 +184,7 @@
 	foodtypes = MEAT
 
 /obj/item/food/meat/cutlet/ms13/fish/Initialize()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/food/fish/fish_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/food/fish/fish_inventory.dmi')
 	return ..()
 
 

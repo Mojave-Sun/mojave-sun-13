@@ -60,8 +60,8 @@
 	update_appearance()
 	RegisterSignal(src, COMSIG_ITEM_RECHARGED, .proc/instant_recharge)
 
-/obj/item/gun/energy/add_weapon_description()
-	AddElement(/datum/element/weapon_description, attached_proc = .proc/add_notes_energy)
+/* /obj/item/gun/energy/add_weapon_description()
+	AddElement(/datum/element/weapon_description, attached_proc = .proc/add_notes_energy) //MOJAVE EDIT - Comments out this proc because weapon_description in general is commented out.
 
 /**
  *
@@ -90,7 +90,7 @@
 		else
 			readout += "a theoretically infinite number of shots on [span_warning("[for_ammo.select_name]")] mode."
 
-	return readout.Join("\n") // Sending over the singular string, rather than the whole list
+	return readout.Join("\n") */ // Sending over the singular string, rather than the whole list
 
 /obj/item/gun/energy/ComponentInitialize()
 	. = ..()

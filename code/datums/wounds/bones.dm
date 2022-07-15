@@ -8,7 +8,7 @@
 	name = "Blunt (Bone) Wound"
 	sound_effect = 'sound/effects/wounds/crack1.ogg'
 	wound_type = WOUND_BLUNT
-	wound_flags = (BONE_WOUND | ACCEPTS_GAUZE)
+	wound_flags = (BONE_WOUND | ACCEPTS_SPLINT) // MOJAVE SUN EDIT - ORIGINAL IS wound_flags = (BONE_WOUND | ACCEPTS_GAUZE)
 
 	/// Have we been bone gel'd?
 	var/gelled
@@ -34,7 +34,7 @@
 */
 /datum/wound/blunt/wound_injury(datum/wound/old_wound = null, attack_direction = null)
 	// hook into gaining/losing gauze so crit bone wounds can re-enable/disable depending if they're slung or not
-	RegisterSignal(limb, list(COMSIG_BODYPART_GAUZED, COMSIG_BODYPART_GAUZE_DESTROYED), .proc/update_inefficiencies)
+	RegisterSignal(limb, list(COMSIG_BODYPART_SPLINTED, COMSIG_BODYPART_SPLINT_DESTROYED), .proc/update_inefficiencies)// MOJAVE SUN EDIT - ORIGINAL IS RegisterSignal(limb, list(COMSIG_BODYPART_GAUZED, COMSIG_BODYPART_GAUZE_DESTROYED), .proc/update_inefficiencies)
 
 	if(limb.body_zone == BODY_ZONE_HEAD && brain_trauma_group)
 		processes = TRUE
@@ -125,7 +125,7 @@
 			return
 
 	if(limb.body_zone == BODY_ZONE_CHEST && victim.blood_volume && prob(internal_bleeding_chance + wounding_dmg))
-		var/blood_bled = rand(1, wounding_dmg * (severity == WOUND_SEVERITY_CRITICAL ? 2 : 1.5)) // 12 brute toolbox can cause up to 18/24 bleeding with a severe/critical chest wound
+		var/blood_bled = rand(1, wounding_dmg * (severity == WOUND_SEVERITY_CRITICAL ? 1.5 : 1.1)) // 12 brute toolbox can cause up to 18/24 bleeding with a severe/critical chest wound //MOJAVE EDIT - Original values are 2 : 1.5
 		switch(blood_bled)
 			if(1 to 6)
 				victim.bleed(blood_bled, TRUE)
@@ -147,16 +147,16 @@
 
 
 /datum/wound/blunt/get_examine_description(mob/user)
-	if(!limb.current_gauze && !gelled && !taped)
+	if(!limb.current_splint && !gelled && !taped)	// MOJAVE SUN EDIT - ORIGINAL IS if(!limb.current_gauze && !gelled && !taped)
 		return ..()
 
 	var/list/msg = list()
-	if(!limb.current_gauze)
+	if(!limb.current_splint)	// MOJAVE SUN EDIT - ORIGINAL IS if(!limb.current_gauze)
 		msg += "[victim.p_their(TRUE)] [limb.name] [examine_desc]"
 	else
 		var/sling_condition = ""
 		// how much life we have left in these bandages
-		switch(limb.current_gauze.absorption_capacity)
+		switch(limb.current_splint.sling_condition)	// MOJAVE SUN EDIT - ORIGINAL IS switch(limb.current_gauze.absorption_capacity)
 			if(0 to 1.25)
 				sling_condition = "just barely"
 			if(1.25 to 2.75)
@@ -166,7 +166,7 @@
 			if(4 to INFINITY)
 				sling_condition = "tightly"
 
-		msg += "[victim.p_their(TRUE)] [limb.name] is [sling_condition] fastened in a sling of [limb.current_gauze.name]"
+		msg += "[victim.p_their(TRUE)] [limb.name] is [sling_condition] fastened with a [limb.current_splint.name]"		// MOJAVE SUN EDIT - ORIGINAL IS msg += "[victim.p_their(TRUE)] [limb.name] is [sling_condition] fastened in a sling of [limb.current_gauze.name]"
 
 	if(taped)
 		msg += ", [span_notice("and appears to be reforming itself under some surgical tape!")]"
@@ -184,21 +184,21 @@
 	SIGNAL_HANDLER
 
 	if(limb.body_zone in list(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG))
-		if(limb.current_gauze?.splint_factor)
-			limp_slowdown = initial(limp_slowdown) * limb.current_gauze.splint_factor
-			limp_chance = initial(limp_chance) * limb.current_gauze.splint_factor
+		if(limb.current_splint) // MOJAVE SUN EDIT - ORIGINAL IS if(limb.current_gauze?.splint_factor)
+			limp_slowdown = initial(limp_slowdown) * limb.current_splint.splint_factor // MOJAVE SUN EDIT - ORIGINAL IS	limp_slowdown = initial(limp_slowdown) * limb.current_gauze.splint_factor
+			limp_chance = initial(limp_chance) * limb.current_splint.splint_factor	// MOJAVE SUN EDIT - ORIGINAL IS limp_chance = initial(limp_chance) * limb.current_gauze.splint_factor
 		else
 			limp_slowdown = initial(limp_slowdown)
 			limp_chance = initial(limp_chance)
 		victim.apply_status_effect(STATUS_EFFECT_LIMP)
 	else if(limb.body_zone in list(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM))
-		if(limb.current_gauze?.splint_factor)
-			interaction_efficiency_penalty = 1 + ((interaction_efficiency_penalty - 1) * limb.current_gauze.splint_factor)
+		if(limb.current_splint) // MOJAVE SUN EDIT - ORIGINAL IS if(limb.current_gauze?.splint_factor)
+			interaction_efficiency_penalty = 1 + ((interaction_efficiency_penalty - 1) * limb.current_splint.splint_factor) // MOJAVE SUN EDIT - ORIGINAL IS interaction_efficiency_penalty = 1 + ((interaction_efficiency_penalty - 1) * limb.current_gauze.splint_factor)
 		else
 			interaction_efficiency_penalty = initial(interaction_efficiency_penalty)
 
 	if(initial(disabling))
-		set_disabling(!limb.current_gauze)
+		set_disabling(!(limb.current_splint && limb.current_splint.helps_disabled))	// MOJAVE SUN EDIT - ORIGINAL IS set_disabling(!limb.current_gauze)
 
 	limb.update_wounds()
 
@@ -215,9 +215,9 @@
 	interaction_efficiency_penalty = 1.5 //Original TG value is 1.3
 	limp_slowdown = 2.5 //Original TG value is 3
 	limp_chance = 50 //Unchanged
-	threshold_minimum = 30 //Original TG value is 35
+	threshold_minimum = 25 //Original TG value is 35
+	threshold_penalty = 10 //Original TG value is 15
 	//MOJAVE EDIT CHANGE END
-	threshold_penalty = 15
 	treatable_tool = TOOL_BONESET
 	wound_flags = (BONE_WOUND)
 	status_effect_type = /datum/status_effect/wound/blunt/moderate
@@ -330,16 +330,18 @@
 	//MOJAVE EDIT CHANGE BEGIN
 	limp_slowdown = 5 //Original TG value is 6
 	limp_chance = 75 //Original TG value is 60
-	threshold_minimum = 50 //Original TG value is 60
+	threshold_minimum = 55 //Original TG value is 60
+	threshold_penalty = 25 //Original TG value is 30
 	//MOJAVE EDIT CHANGE END
-	threshold_penalty = 30
 	treatable_by = list(/obj/item/stack/sticky_tape/surgical, /obj/item/stack/medical/bone_gel)
 	status_effect_type = /datum/status_effect/wound/blunt/severe
 	scar_keyword = "bluntsevere"
 	brain_trauma_group = BRAIN_TRAUMA_MILD
-	trauma_cycle_cooldown = 1.5 MINUTES
-	internal_bleeding_chance = 40
-	wound_flags = (BONE_WOUND | ACCEPTS_GAUZE | MANGLES_BONE)
+	//MOJAVE EDIT CHANGE BEGIN
+	trauma_cycle_cooldown = 2 MINUTES //Original TG value is 1.5 minutes
+	internal_bleeding_chance = 50 //Original TG value is 40
+	//MOJAVE EDIT CHANGE END
+	wound_flags = (BONE_WOUND | ACCEPTS_SPLINT | MANGLES_BONE)	// MOJAVE SUN EDIT - ORIGINAL IS wound_flags = (BONE_WOUND | ACCEPTS_GAUZE | MANGLES_BONE)
 	regen_ticks_needed = 120 // ticks every 2 seconds, 240 seconds, so roughly 4 minutes default
 
 /// Compound Fracture (Critical Blunt)
@@ -353,20 +355,22 @@
 	severity = WOUND_SEVERITY_CRITICAL
 	interaction_efficiency_penalty = 2.5
 	//MOJAVE EDIT CHANGE BEGIN
-	limp_slowdown = 8 //Orignal TG value is 9
+	limp_slowdown = 7.5 //Orignal TG value is 9
 	limp_chance = 90 //Original TG value is 70
+	sound_effect = 'sound/effects/wounds/crack2.ogg' //Unchanged from original TG value
+	threshold_minimum = 110 //Original TG value is 115
+	threshold_penalty = 45 //Original TG value is 50
 	//MOJAVE EDIT CHANGE END
-	sound_effect = 'sound/effects/wounds/crack2.ogg'
-	threshold_minimum = 115
-	threshold_penalty = 50
 	disabling = TRUE
 	treatable_by = list(/obj/item/stack/sticky_tape/surgical, /obj/item/stack/medical/bone_gel)
 	status_effect_type = /datum/status_effect/wound/blunt/critical
 	scar_keyword = "bluntcritical"
 	brain_trauma_group = BRAIN_TRAUMA_SEVERE
 	trauma_cycle_cooldown = 2.5 MINUTES
-	internal_bleeding_chance = 60
-	wound_flags = (BONE_WOUND | ACCEPTS_GAUZE | MANGLES_BONE)
+	//MOJAVE EDIT CHANGE BEGIN
+	internal_bleeding_chance = 75 //Original TG value is 60
+	//MOJAVE EDIT CHANGE END
+	wound_flags = (BONE_WOUND | ACCEPTS_SPLINT | MANGLES_BONE)	// MOJAVE SUN EDIT - ORIGINAL IS wound_flags = (BONE_WOUND | ACCEPTS_GAUZE | MANGLES_BONE)
 	regen_ticks_needed = 240 // ticks every 2 seconds, 480 seconds, so roughly 8 minutes default
 
 // doesn't make much sense for "a" bone to stick out of your head

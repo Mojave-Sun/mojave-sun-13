@@ -54,8 +54,8 @@
 	spawn_loot_chance = 100
 
 	loot = list(
-			/obj/effect/spawner/random/ms13/medical/tier2 = 55,
-			/obj/effect/spawner/random/ms13/medical/tier3 = 45
+			/obj/effect/spawner/random/ms13/medical/tier2 = 45,
+			/obj/effect/spawner/random/ms13/medical/tier3 = 55
 			)
 
 /obj/effect/spawner/random/ms13/medical/bloodbag

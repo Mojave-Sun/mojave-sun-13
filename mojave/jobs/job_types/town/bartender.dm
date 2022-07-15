@@ -22,6 +22,7 @@
 	shoes =  	 /obj/item/clothing/shoes/ms13/military/vault
 	suit_store = /obj/item/gun/ballistic/revolver/ms13/caravan
 	r_pocket   = /obj/item/ammo_box/ms13/shotgun/buckshot
+	back =       null
 
 /datum/outfit/job/ms13/town/bartender/pre_equip(mob/living/carbon/human/H)
 	..()

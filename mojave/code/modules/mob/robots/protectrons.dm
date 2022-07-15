@@ -3,8 +3,8 @@
 	desc = "A standard protectron, issued in large quantities to establishments across pre-war America. Armed with lasers for 'self defense'."
 	icon_state = "protectron_common"
 	icon_living = "protectron_common"
-	health = 160
-	maxHealth = 160
+	health = 150
+	maxHealth = 150
 	melee_damage_lower = 10
 	melee_damage_upper = 10
 	vision_range = 12
@@ -35,7 +35,7 @@
 	desc = "A pre-war protectron, assigned to a firefighting role apparently. Has a strong swing with a very sharp axe head, beware!"
 	icon_state = "protectron_fireman"
 	icon_living = "protectron_fireman"
-	melee_damage_lower = 35
+	melee_damage_lower = 30
 	melee_damage_upper = 35
 	armour_penetration = 10
 	wound_bonus = 6
@@ -68,8 +68,11 @@
 		melee_damage_upper = 20
 		wound_bonus = -5
 		desc = "A protectron given the duty of upholding law. This one is equipped with a baton and incapacitation unit."
+		minimum_distance = 1
+		retreat_distance = null
 		projectiletype = /obj/projectile/energy/electrode/ms13
 		projectilesound = 'mojave/sound/ms13weapons/gunsounds/bb/wpn_bbgun_fire_2d.ogg'
+		ranged_cooldown = 5 SECONDS
 
 /mob/living/simple_animal/hostile/ms13/robot/protectron/builder
 	desc = "A heavy duty protectron that is equipped with basic tools in order to aid construction workers. Stay clear!"

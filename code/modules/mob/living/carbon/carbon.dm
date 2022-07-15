@@ -3,6 +3,7 @@
 	create_reagents(1000, REAGENT_HOLDER_ALIVE)
 	assign_bodypart_ownership()
 	update_body_parts() //to update the carbon's new bodyparts appearance
+	register_context()
 
 	// Carbons cannot taste anything without a tongue; the tongue organ removes this on Insert
 	ADD_TRAIT(src, TRAIT_AGEUSIA, NO_TONGUE_TRAIT)
@@ -1195,7 +1196,7 @@
 /mob/living/carbon/proc/is_bleeding()
 	for(var/i in bodyparts)
 		var/obj/item/bodypart/BP = i
-		if(BP.get_bleed_rate())
+		if(BP.get_part_bleed_rate())
 			return TRUE
 
 /// get our total bleedrate
@@ -1203,7 +1204,7 @@
 	var/total_bleed_rate = 0
 	for(var/i in bodyparts)
 		var/obj/item/bodypart/BP = i
-		total_bleed_rate += BP.get_bleed_rate()
+		total_bleed_rate += BP.get_part_bleed_rate()
 
 	return total_bleed_rate
 

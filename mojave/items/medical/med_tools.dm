@@ -1,6 +1,7 @@
 //For medical tools like scalpels, hemostats, etc. 
 
 /obj/item/surgical_drapes/ms13
+    desc = "Surgical drapes used to provide optimal safety and infection control when operating on a patient."
     w_class = WEIGHT_CLASS_TINY
     grid_height = 32
     grid_width = 32

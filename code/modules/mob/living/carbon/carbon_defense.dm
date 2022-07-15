@@ -75,9 +75,9 @@
 	if(user == src)
 		affecting = get_bodypart(check_zone(user.zone_selected)) //we're self-mutilating! yay!
 	else
-		var/zone_hit_chance = 80
+		var/zone_hit_chance = 75 //MOJAVE EDIT - Original value is 80
 		if(body_position == LYING_DOWN) // half as likely to hit a different zone if they're on the ground
-			zone_hit_chance += 10
+			zone_hit_chance += 20 //MOJAVE EDIT - Original value is 10, this makes you 95% likely to hit what you are aiming on a grounded person
 		affecting = get_bodypart(ran_zone(user.zone_selected, zone_hit_chance))
 	if(!affecting) //missing limb? we select the first bodypart (you can never have zero, because of chest)
 		affecting = bodyparts[1]
@@ -648,7 +648,12 @@
 		return ..()
 
 	var/obj/item/bodypart/grasped_part = get_bodypart(zone_selected)
-	if(!grasped_part?.get_bleed_rate())
+	// MOJAVE SUN EDIT BEGIN
+	self_grasp_bleeding_limb(grasped_part, supress_message)
+
+/mob/living/carbon/proc/self_grasp_bleeding_limb(obj/item/bodypart/grasped_part, supress_message = FALSE)
+	// MOJAVE SUN EDIT END
+	if(!grasped_part?.get_part_bleed_rate())
 		return
 	var/starting_hand_index = active_hand_index
 	if(starting_hand_index == grasped_part.held_index)
@@ -656,7 +661,7 @@
 		return
 
 	to_chat(src, span_warning("You try grasping at your [grasped_part.name], trying to stop the bleeding..."))
-	if(!do_after(src, 1.5 SECONDS))
+	if(!do_after(src, 1 SECONDS)) //MOJAVE EDIT - Original value is 1.5 SECONDS, bit of a buff to touching yourself.
 		to_chat(src, span_danger("You fail to grasp your [grasped_part.name]."))
 		return
 
@@ -675,7 +680,7 @@
 	inhand_icon_state = "nothing"
 	force = 0
 	throwforce = 0
-	slowdown = 1
+	slowdown = 0.5
 	item_flags = DROPDEL | ABSTRACT | NOBLUDGEON | SLOWS_WHILE_IN_HAND | HAND_ITEM
 	/// The bodypart we're staunching bleeding on, which also has a reference to us in [/obj/item/bodypart/var/grasped_by]
 	var/obj/item/bodypart/grasped_part
