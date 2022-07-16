@@ -60,3 +60,18 @@
 			/obj/item/reagent_containers/blood/ms13/o_minus = 80,
 			/obj/item/reagent_containers/blood/ms13/radaway = 20
 			)
+
+/obj/effect/spawner/random/ms13/guarenteed/medical/surgical
+	name = "surgical item spawner"
+	icon_state = "loot-static"
+	spawn_loot_count = 1
+	loot = list(
+			/obj/item/hemostat/ms13,
+			/obj/item/retractor/ms13,
+			/obj/item/ms13/handsaw/bone,
+			/obj/item/cautery/ms13,
+			/obj/item/scalpel/ms13,
+			/obj/item/surgical_drapes/ms13,
+			/obj/item/stack/medical/bone_gel/ms13,
+			/obj/item/stack/sticky_tape/surgical/ms13
+			)
