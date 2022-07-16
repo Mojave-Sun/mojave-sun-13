@@ -1,7 +1,7 @@
 //For surgical tools and similar medical items
 
 /obj/item/hemostat/ms13
-    name = "hemostat"
+	name = "hemostat"
 	desc = "A surgical tool primarily used for clamping and grasping during surgery."
 	icon = 'mojave/icons/objects/medical/medical-tools_world.dmi'
 	icon_state = "hemostat"
@@ -11,7 +11,7 @@
 
 /obj/item/hemostat/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/medical/medical-tools_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/medical/medical-tools_inventory.dmi')
 
 /obj/item/retractor/ms13
 	name = "retractor"
@@ -24,7 +24,7 @@
 
 /obj/item/retractor/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/medical/medical-tools_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/medical/medical-tools_inventory.dmi')
 
 /obj/item/ms13/handsaw/bone
 	name = "bone saw"
@@ -42,7 +42,7 @@
 
 /obj/item/ms13/handsaw/bone/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/medical/medical-tools_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/medical/medical-tools_inventory.dmi')
 
 /obj/item/cautery/ms13
 	name = "cautery"
@@ -55,10 +55,10 @@
 
 /obj/item/cautery/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/medical/medical-tools_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/medical/medical-tools_inventory.dmi')
 
 /obj/item/scalpel/ms13
-    name = "scalpel"
+	name = "scalpel"
 	desc = "A sharp surgical tool used for making incisions."
 	icon = 'mojave/icons/objects/medical/medical-tools_world.dmi'
 	icon_state = "scalpel"
@@ -70,40 +70,39 @@
 
 /obj/item/scalpel/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/medical/medical-tools_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/medical/medical-tools_inventory.dmi')
 
 //Consumables below
 
 /obj/item/stack/medical/bone_gel/ms13
-    name = "bone gel"
+	name = "bone gel"
 	singular_name = "use" //This is so that examine text says "X uses left in the stack" instead of "X BONE GELS left in the stack"
 	desc = "An advanced medical gel used to treat and help to repair broken bones. Direct application possible but not advised."
-	icon = 'mojave/icons/objects/medical/medical-tools_world.dmi'
+	icon = 'mojave/icons/objects/medical/medical-tools_inventory.dmi'
 	icon_state = "bone_gel"
 	lefthand_file = null
 	righthand_file = null //No in-hand for now, the TG bone gel looks way too different to justify it as a placeholder - Hekzder
 	amount = 4
-    max_amount = 4
+	max_amount = 4
 	self_delay = 3 SECONDS
-    other_delay = 2 SECONDS
-    gender = NEUTER //So examine text says "This is bone gel" instead of "These are some bone gels"
+	other_delay = 2 SECONDS
+	gender = NEUTER //So examine text says "This is bone gel" instead of "These are some bone gels"
 	merge_type = /obj/item/stack/medical/bone_gel/ms13
 
 /obj/item/stack/medical/bone_gel/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/medical/medical-tools_inventory.dmi')
+	AddElement(/datum/element/item_scaling, 0.50, 1)
 
 /obj/item/stack/sticky_tape/surgical/ms13
 	name = "surgical tape"
 	singular_name = "use" //This is so that examine text says "X uses left in the stack" instead of "X SURGICAL TAPES left in the stack"
-	desc = "Surgical sticky tape made mostly for treating broken bones, but could crudely support one in a pinch."
-	icon = 'mojave/icons/objects/medical/medical-tools_world.dmi'
+	desc = "Surgical sticky tape made mostly for treating broken bones."
+	icon = 'mojave/icons/objects/medical/medical-tools_inventory.dmi'
 	icon_state = "surgical_tape"
 	prefix = "surgical"
 	conferred_embed = null
-	splint_factor = 0.75
 	merge_type = /obj/item/stack/sticky_tape/surgical/ms13
 
 /obj/item/stack/sticky_tape/surgical/ms13/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/medical/medical-tools_inventory.dmi')
+	AddElement(/datum/element/item_scaling, 0.50, 1)
