@@ -118,7 +118,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	vision_range = 0
 	aggro_vision_range = 0
 	stop_automated_movement = TRUE
-	SSmove_manager.move_to(src, src, minimum_distance = 0, delay = 0)
+	SSmove_manager.move_to(src, src, min_dist = 0, delay = 0)
 	var/the_sound = pick(GLOB.sentrybot_dying_sound)
 	playsound(src, the_sound, 100, FALSE)
 	addtimer(CALLBACK(src, .proc/self_destruct), GLOB.sentrybot_dying_sound[the_sound])
