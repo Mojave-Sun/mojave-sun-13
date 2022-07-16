@@ -7,10 +7,12 @@
 
 /obj/item/reagent_containers/ms13/flask
 	name = "ceramic flask"
-	desc = "A crudely sealed, rounded ceramic flask, can be used to store liquids. <b>Alt-Click to open or close it.</b>"
+	desc = "A crudely sealed, rounded ceramic flask, can be used to store liquids. <b>If it is open when dropped or put in a bag, it will roll over and spill! <br> Alt-Click to open or close it.</b>"
 	icon_state = "ceramic_flask"
 	volume = 15
 	throwforce = 10
+	grid_width = 32
+	grid_height = 64
 
 /obj/item/reagent_containers/ms13/flask/Initialize()
 	. = ..()
@@ -39,7 +41,7 @@
 		for(var/datum/reagent/reagent as anything in reagents.reagent_list)
 		if(reagents)
 			reagents.clear_reagents()
-			visible_message(span_notice("The [src] spills its contents."))
+			visible_message(span_notice("[src] spills its contents."))
 		else
 			return
 
@@ -82,7 +84,7 @@
 
 /obj/item/reagent_containers/ms13/flask/bitter_drink
 	name = "bitter drink flask"
-	desc = "A painted round bottom ceramic flask, the rim smells of bitterness. <b>Alt-Click to open or close it.</b>"
+	desc = "A painted round bottom ceramic flask, the rim smells of bitterness. <b>If it is open when dropped or put in a bag, it will roll over and spill! <br> Alt-Click to open or close it.</b>"
 	icon_state = "bitter_drink"
 	volume = 15
 	list_reagents = list(/datum/reagent/medicine/bitter_drink = 15)

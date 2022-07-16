@@ -162,6 +162,8 @@
 	merge_type = /obj/item/stack/medical/splint/ms13
 	splint_type = /datum/bodypart_aid/splint/ms13
 	novariants = TRUE
+	grid_width = 64
+	grid_height = 32
 
 /obj/item/stack/medical/splint/ms13/attackby(obj/item/I, mob/user, params)
 	return
