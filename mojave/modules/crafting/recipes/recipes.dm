@@ -93,7 +93,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/ceramic = 2)
 	category = CAT_MEDICAL
-	crafting_interface = CRAFTING_BENCH_GENERAL
+	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_CAMPFIRE
 
 //Herbal crafting
 /datum/crafting_recipe/healing_powder
@@ -131,14 +131,25 @@
 
 /datum/crafting_recipe/bitter_drink
 	name = "bitter drink"
-	result = /obj/item/reagent_containers/ms13/bitter_drink
+	result = /obj/item/reagent_containers/ms13/flask/bitter_drink
 	time = 15 SECONDS
 	tool_paths = list()
-	reqs = list(/datum/crafting_recipe/flask = 1,
+	reqs = list(/obj/item/reagent_containers/ms13/flask = 1,
 			/obj/item/food/grown/ms13/brocflower = 3,
 			/obj/item/food/grown/ms13/xander = 3)
 	category = CAT_MEDICAL
-	crafting_interface = CRAFTING_BENCH_GENERAL
+	crafting_interface = CRAFTING_BENCH_CAMPFIRE
+
+/datum/crafting_recipe/bitter_drink
+	name = "bitter drink flask refill"
+	result = /obj/item/reagent_containers/ms13/flask/bitter_drink
+	time = 15 SECONDS
+	tool_paths = list()
+	reqs = list(/obj/item/reagent_containers/ms13/flask/bitter_drink = 1,
+			/obj/item/food/grown/ms13/brocflower = 3,
+			/obj/item/food/grown/ms13/xander = 3)
+	category = CAT_MEDICAL
+	crafting_interface = CRAFTING_BENCH_CAMPFIRE
 
 //ARMOR CRAFTING
 

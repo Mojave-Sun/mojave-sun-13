@@ -560,7 +560,7 @@
 	overdose_threshold = 15
 	heal_Rate = 20
 	OD_multiplier = 1.5
-	forbidden_double_dose = /datum/reagent/ms13/medicine/stimpak_fluid/
+	forbidden_double_dose = /datum/reagent/ms13/medicine/stimpak_fluid
 	stamina_damage = 20
 	clot_rate = 0.6
 	passive_bleed_modifier = 0.4
@@ -573,13 +573,13 @@
 	reagent_state = LIQUID
 	color ="#aea447"
 	taste_description = "harsh bitterness"
-	metabolization_rate = 4.75 * REAGENTS_METABOLISM // 0.95 per second
+	metabolization_rate = 4.55 * REAGENTS_METABOLISM // 0.95 per second
 	overdose_threshold = 40
 
 /datum/reagent/medicine/bitter_drink/on_mob_life(mob/living/carbon/M)
 	if(!M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid/super))
-		M.adjustFireLoss(-1.6)
-		M.adjustBruteLoss(-1.6)
+		M.adjustFireLoss(-2.5)
+		M.adjustBruteLoss(-2.5)
 		. = TRUE
 	else
 		M.adjustFireLoss(-0.5)

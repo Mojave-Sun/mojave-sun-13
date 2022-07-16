@@ -202,12 +202,6 @@
 	. = ..()
 	AddElement(/datum/element/item_scaling, 0.35, 1)
 
-/obj/item/stack/medical/ms13/healing_powder/is_zero_amount(delete_if_zero = TRUE)
-	. = ..()
-	if (amount == 0)
-		new /obj/item/stack/sheet/cloth(src, 2)
-		return
-
 /obj/item/stack/medical/ms13/healing_powder/poultice
 	name = "healing poultice"
 	desc = "A poultice containing a mixture of broc flower and xander root."
