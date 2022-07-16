@@ -3841,17 +3841,6 @@
 "bja" = (
 /turf/open/floor/plating,
 /area/station/medical/morgue)
-"bji" = (
-/obj/machinery/light/directional/north,
-/obj/effect/turf_decal/tile/brown{
-	dir = 4
-	},
-/obj/effect/turf_decal/stripes/asteroid/corner{
-	dir = 4
-	},
-/obj/structure/cable,
-/turf/open/floor/iron,
-/area/station/cargo/storage)
 "bjl" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
@@ -22661,6 +22650,10 @@
 /obj/effect/turf_decal/tile/red,
 /turf/open/floor/iron,
 /area/station/security/prison/mess)
+"gOT" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/station/cargo/qm)
 "gOU" = (
 /obj/effect/spawner/structure/window/hollow/reinforced/middle{
 	dir = 1
@@ -23185,6 +23178,10 @@
 /obj/item/pen,
 /turf/open/floor/wood,
 /area/station/service/library)
+"gXv" = (
+/obj/machinery/portable_atmospherics/pump/lil_pump,
+/turf/open/floor/iron/dark,
+/area/station/science/ordnance/office)
 "gXy" = (
 /obj/machinery/door/airlock/public/glass{
 	id_tag = "gulag2";
@@ -27140,10 +27137,6 @@
 /obj/effect/landmark/start/hangover,
 /turf/open/floor/iron,
 /area/station/hallway/primary/starboard)
-"ikO" = (
-/obj/effect/spawner/structure/window,
-/turf/open/floor/plating,
-/area/station/cargo/qm)
 "ikW" = (
 /obj/structure/railing/corner{
 	dir = 8
@@ -27333,6 +27326,12 @@
 	},
 /turf/open/floor/iron,
 /area/station/security/prison/mess)
+"ioF" = (
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/structure/cable,
+/obj/machinery/light/directional/north,
+/turf/open/floor/iron,
+/area/station/cargo/storage)
 "ioK" = (
 /obj/effect/spawner/structure/window/hollow/reinforced/middle,
 /turf/open/floor/plating,
@@ -51360,10 +51359,6 @@
 /obj/effect/mapping_helpers/airlock/access/all/command/hop,
 /turf/open/floor/iron,
 /area/station/command/heads_quarters/hop)
-"pJP" = (
-/obj/machinery/portable_atmospherics/pump/lil_pump,
-/turf/open/floor/iron/dark,
-/area/station/science/ordnance/office)
 "pJQ" = (
 /obj/effect/spawner/structure/window,
 /obj/machinery/door/poddoor/preopen{
@@ -59720,6 +59715,16 @@
 /obj/effect/spawner/random/structure/table_fancy,
 /turf/open/floor/wood,
 /area/station/service/library)
+"sqk" = (
+/obj/effect/turf_decal/tile/brown{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/asteroid/corner{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/station/cargo/storage)
 "sqs" = (
 /obj/machinery/skill_station,
 /obj/machinery/newscaster/directional/north,
@@ -62491,11 +62496,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
-"tkk" = (
-/obj/machinery/power/apc/auto_name/directional/north,
-/obj/structure/cable,
-/turf/open/floor/iron,
-/area/station/cargo/storage)
 "tkB" = (
 /obj/machinery/camera/motion/directional/north{
 	c_tag = "EVA Storage North"
@@ -230484,7 +230484,7 @@ tKI
 tKI
 tKI
 tKI
-tkk
+ioF
 vlN
 fya
 vlN
@@ -230740,8 +230740,8 @@ hCu
 vAT
 rEz
 wHl
-ikO
-bji
+gOT
+sqk
 ajw
 ajw
 vlN
@@ -231254,7 +231254,7 @@ kin
 dsU
 alT
 myb
-ikO
+gOT
 gMg
 jhy
 tYR
@@ -259551,7 +259551,7 @@ sCx
 gWr
 iHc
 ybf
-pJP
+gXv
 vaa
 xLq
 grs
