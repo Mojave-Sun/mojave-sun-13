@@ -79,7 +79,7 @@
 /obj/item/stack/medical/ointment/ms13/dressing
 	name = "burn dressing"
 	desc = "Some small dressings meant to be applied to burns to aid in the healing process."
-	singular_name = "dressings"
+	singular_name = "dressing"
 	icon_state = "burndress"
 	inhand_icon_state = null
 	heal_burn = 8
@@ -93,7 +93,7 @@
 
 /obj/item/stack/medical/gauze/ms13
 	name = "gauze"
-	desc = "A roll of cloth intended for soaking up blood from bleeding wounds, mildly supporting a broken bone, or making sure burn wounds stay clean."
+	desc = "A roll of cloth intended for soaking up blood from bleeding wounds or making sure burn wounds stay clean."
 	singular_name = "rolls of gauze"
 	icon = 'mojave/icons/objects/medical/medical_inventory.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'

@@ -7,8 +7,8 @@
 	icon_state = "hemostat"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
-	w_class = WEIGHT_CLASS_SMALL
-	grid_height = 64
+	w_class = WEIGHT_CLASS_TINY
+	grid_height = 32
 	grid_width = 32
 	inhand_icon_state = "clamps" //Going to use placeholder TG in-hands for now, Infra didn't provide any - Hekzder
 
@@ -23,8 +23,8 @@
 	icon_state = "retractor"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
-	w_class = WEIGHT_CLASS_SMALL
-	grid_height = 64
+	w_class = WEIGHT_CLASS_TINY
+	grid_height = 32
 	grid_width = 32
 	inhand_icon_state = "clamps" //Going to use placeholder TG in-hands for now, Infra didn't provide any - Hekzder
 
@@ -94,8 +94,8 @@
 	icon_state = "bonesetter"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
-	w_class = WEIGHT_CLASS_SMALL
-	grid_height = 64
+	w_class = WEIGHT_CLASS_TINY
+	grid_height = 32
 	grid_width = 32
 	inhand_icon_state = "clamps" //Going to use placeholder TG in-hands for now, Infra didn't provide any - Hekzder
 

@@ -55,11 +55,12 @@
 
 /obj/effect/spawner/random/ms13/guarenteed/medical/herbal
 	name = "herbal medicine spawner"
+	spawn_loot_count = 1
 	loot = list(
 			/obj/item/stack/medical/ms13/healing_powder = 35,
 			/obj/item/stack/medical/ms13/healing_powder/burn = 35,
-			/obj/item/stack/medical/ms13/healing_powder/poultice = 20,
-			/obj/item/reagent_containers/ms13/flask/bitter_drink = 10
+			/obj/item/stack/medical/ms13/healing_powder/poultice = 15,
+			/obj/item/reagent_containers/ms13/flask/bitter_drink = 15
 			)
 
 /obj/effect/spawner/random/ms13/guarenteed/medical/bloodbag
