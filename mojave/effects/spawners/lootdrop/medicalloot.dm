@@ -12,20 +12,21 @@
 	name = "tier 1 medical spawner"
 	spawn_loot_chance = 55
 	loot = list(
-			/obj/item/stack/medical/suture/ms13/four = 30,
+			/obj/item/stack/medical/suture/ms13/four = 25,
 			/obj/item/stack/medical/gauze/ms13/half = 40,
-			/obj/item/stack/medical/ointment/ms13/cream/half = 15,
-			/obj/item/stack/medical/ointment/ms13/aloe = 15
+			/obj/item/stack/medical/ointment/ms13/dressing/half = 25,
+			/obj/item/stack/medical/splint/ms13/wooden = 10
 			)
 
 /obj/effect/spawner/random/ms13/medical/tier2
 	name = "tier 2 medical spawner"
 	spawn_loot_chance = 55
 	loot = list(
-			/obj/item/stack/medical/suture/ms13/eight = 35,
-			/obj/item/stack/medical/ointment/ms13/cream = 20,
-			/obj/item/stack/medical/gauze/ms13 = 35,
-			/obj/item/reagent_containers/hypospray/medipen/ms13/stimpak = 10
+			/obj/item/stack/medical/suture/ms13/eight = 25,
+			/obj/item/stack/medical/ointment/ms13/dressing = 25,
+			/obj/item/stack/medical/gauze/ms13 = 30,
+			/obj/item/reagent_containers/hypospray/medipen/ms13/stimpak = 10,
+			/obj/item/stack/medical/splint/ms13 = 10
 			)
 
 /obj/effect/spawner/random/ms13/medical/tier3
@@ -56,6 +57,16 @@
 	loot = list(
 			/obj/effect/spawner/random/ms13/medical/tier2 = 45,
 			/obj/effect/spawner/random/ms13/medical/tier3 = 55
+			)
+
+/obj/effect/spawner/random/ms13/medical/herbal
+	name = "herbal medicine spawner"
+	spawn_loot_chance = 50
+	loot = list(
+			/obj/item/stack/medical/ms13/healing_powder = 35,
+			/obj/item/stack/medical/ms13/healing_powder/burn = 35,
+			/obj/item/stack/medical/ms13/healing_powder/poultice = 20,
+			/obj/item/reagent_containers/ms13/flask/bitter_drink = 10
 			)
 
 /obj/effect/spawner/random/ms13/medical/bloodbag

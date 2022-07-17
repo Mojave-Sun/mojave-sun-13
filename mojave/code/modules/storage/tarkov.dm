@@ -73,7 +73,7 @@
 	screen_start_x = 13
 
 /datum/component/storage/concrete/ms13/d_bag //main for Doctors bags, used for radiopacks currently as well
-	screen_max_columns = 4
+	screen_max_columns = 5
 	screen_max_rows = 4
 	screen_start_y = 5
 	screen_start_x = 15

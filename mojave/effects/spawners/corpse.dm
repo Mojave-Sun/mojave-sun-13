@@ -135,7 +135,7 @@
 		suit_store = null
 
 
-	if(prob(90))
+	if(prob(85))
 		belt = pick(
 		/obj/item/knife/ms13, \
 		/obj/item/knife/ms13/throwingknife, \
@@ -144,7 +144,10 @@
 		/obj/item/ms13/knuckles/weighted, \
 		/obj/item/knife/ms13/hunting, \
 		/obj/item/knife/ms13/switchblade, \
-		/obj/item/knife/butcher/ms13)
+		/obj/item/knife/butcher/ms13, \
+		/obj/item/crowbar/ms13, \
+		/obj/item/weldingtool/ms13, \
+		/obj/item/shovel/ms13/spade)
 	else
 		belt = null
 
@@ -158,23 +161,11 @@
 	if(prob(40))
 		l_pocket = pick(
 		/obj/item/stack/medical/gauze/ms13/half, \
-		/obj/item/stack/medical/ointment/ms13/cream/half)
+		/obj/item/stack/medical/ointment/ms13/dressing/half, \
+		/obj/item/stack/medical/ms13/healing_powder, \
+		/obj/item/stack/medical/ms13/healing_powder/burn)
 	else
 		l_pocket = null
-
-	if(prob(25))
-		r_hand = pick(
-		/obj/item/ms13/hammer, \
-		/obj/item/ms13/handsaw, \
-		/obj/item/wirecutters/ms13, \
-		/obj/item/screwdriver/ms13, \
-		/obj/item/ms13/handdrill, \
-		/obj/item/wrench/ms13, \
-		/obj/item/crowbar/ms13, \
-		/obj/item/weldingtool/ms13, \
-		/obj/item/shovel/ms13/spade)
-	else
-		r_hand = null
 
 	shoes = pick(
         /obj/item/clothing/shoes/ms13/tan, \

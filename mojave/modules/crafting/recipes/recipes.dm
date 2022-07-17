@@ -66,7 +66,7 @@
 /datum/crafting_recipe/splint
 	name = "wood splint"
 	result = /obj/item/stack/medical/splint/ms13/wooden
-	time = 15 SECONDS
+	time = 10 SECONDS
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/cloth = 2,
 				/obj/item/stack/sheet/ms13/plank = 2)
@@ -76,30 +76,19 @@
 /datum/crafting_recipe/splint
 	name = "metal splint"
 	result = /obj/item/stack/medical/splint/ms13
-	time = 20 SECONDS
+	time = 12 SECONDS
 	tool_paths = list()
 	trait = TRAIT_MEDICAL_TRAINING
 	reqs = list(/obj/item/stack/sheet/ms13/cloth = 2,
-				/obj/item/stack/sheet/ms13/scrap = 2)
+				/obj/item/stack/sheet/ms13/scrap_steel = 2)
 	category = CAT_MEDICAL
 	crafting_interface = CRAFTING_BENCH_GENERAL
-
-// Container crafting
-
-/datum/crafting_recipe/flask
-	name = "flask"
-	result = /obj/item/reagent_containers/ms13/flask
-	time = 10 SECONDS
-	tool_paths = list()
-	reqs = list(/obj/item/stack/sheet/ms13/ceramic = 2)
-	category = CAT_MEDICAL
-	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_CAMPFIRE
 
 //Herbal crafting
 /datum/crafting_recipe/healing_powder
 	name = "healing powder"
 	result = /obj/item/stack/medical/ms13/healing_powder
-	time = 12 SECONDS
+	time = 10 SECONDS
 	tool_paths = list()
 	reqs = list(/obj/item/food/grown/ms13/xander = 2,
 				/obj/item/food/grown/ms13/brocflower = 2,
@@ -110,10 +99,11 @@
 /datum/crafting_recipe/burn_powder
 	name = "burn powder"
 	result = /obj/item/stack/medical/ms13/healing_powder/burn
-	time = 12 SECONDS
+	time = 10 SECONDS
 	tool_paths = list()
 	reqs = list(/obj/item/food/grown/ms13/ashrose = 2,
-				/obj/item/food/grown/ms13/aster = 2)
+				/obj/item/food/grown/ms13/aster = 2,
+				/obj/item/stack/sheet/ms13/cloth = 2)
 	category = CAT_MEDICAL
 	crafting_interface = CRAFTING_BENCH_CAMPFIRE
 
@@ -125,14 +115,15 @@
 	reqs = list(/obj/item/food/grown/ms13/xander = 1,
 				/obj/item/food/grown/ms13/brocflower = 1,
 				/obj/item/food/grown/ms13/cavefungus = 2,
-				/obj/item/food/grown/ms13/ashrose = 1)
+				/obj/item/food/grown/ms13/ashrose = 2,
+				/obj/item/stack/sheet/ms13/cloth = 2)
 	category = CAT_MEDICAL
 	crafting_interface = CRAFTING_BENCH_CAMPFIRE
 
 /datum/crafting_recipe/bitter_drink
 	name = "bitter drink"
 	result = /obj/item/reagent_containers/ms13/flask/bitter_drink
-	time = 15 SECONDS
+	time = 12 SECONDS
 	tool_paths = list()
 	reqs = list(/obj/item/reagent_containers/ms13/flask = 1,
 			/obj/item/food/grown/ms13/brocflower = 3,
@@ -143,7 +134,7 @@
 /datum/crafting_recipe/bitter_drink
 	name = "bitter drink flask refill"
 	result = /obj/item/reagent_containers/ms13/flask/bitter_drink
-	time = 15 SECONDS
+	time = 12 SECONDS
 	tool_paths = list()
 	reqs = list(/obj/item/reagent_containers/ms13/flask/bitter_drink = 1,
 			/obj/item/food/grown/ms13/brocflower = 3,
@@ -1273,6 +1264,15 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/scrap_parts = 4,
 				/obj/item/stack/sheet/ms13/scrap = 4)
+	category = CAT_UTILITY
+	crafting_interface = CRAFTING_BENCH_GENERAL
+
+/datum/crafting_recipe/flask
+	name = "ceramic flask"
+	result = /obj/item/reagent_containers/ms13/flask
+	time = 6 SECONDS
+	tool_paths = list()
+	reqs = list(/obj/item/stack/sheet/ms13/ceramic = 2)
 	category = CAT_UTILITY
 	crafting_interface = CRAFTING_BENCH_GENERAL
 

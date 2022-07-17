@@ -27,7 +27,8 @@
 	STR.max_combined_w_class = 100
 	STR.set_holdable(list(
 		/obj/item/reagent_containers/hypospray,
-		/obj/item/stack/medical
+		/obj/item/stack/medical,
+		/obj/item/stack/sticky_tape/surgical
 		))
 
 /obj/item/storage/firstaid/ms13/regular
@@ -35,9 +36,11 @@
 /obj/item/storage/firstaid/ms13/regular/PopulateContents()
 	. = ..()
 	new /obj/item/stack/medical/gauze/ms13(src)
-	new /obj/item/stack/medical/suture/ms13(src)
-	new /obj/item/stack/medical/ointment/ms13/cream(src)
+	new /obj/item/stack/medical/suture/ms13/eight(src)
+	new /obj/item/stack/medical/ointment/ms13/dressing(src)
 	new /obj/item/reagent_containers/hypospray/medipen/ms13/stimpak(src)
+	new /obj/item/stack/medical/splint/ms13/wooden(src)
+	new /obj/item/stack/medical/splint/ms13/wooden(src)
 
 /obj/item/storage/firstaid/ms13/quality
 
@@ -48,6 +51,8 @@
 	new /obj/item/stack/medical/ointment/ms13(src)
 	new /obj/item/reagent_containers/hypospray/medipen/ms13/stimpak(src)
 	new /obj/item/reagent_containers/hypospray/medipen/ms13/stimpak/super(src)
+	new /obj/item/stack/medical/splint/ms13(src)
+	new /obj/item/stack/medical/splint/ms13(src)
 
 /obj/item/storage/firstaid/ms13/bag
 	name = "doctors bag"
@@ -55,14 +60,14 @@
 	icon_state = "doctorsbag"
 	slot_flags = 0
 	component_type = /datum/component/storage/concrete/ms13/d_bag
-	grid_height = 64
+	grid_height = 96
 	grid_width = 96
 
 /obj/item/storage/firstaid/ms13/bag/ComponentInitialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_w_class = WEIGHT_CLASS_NORMAL
-	STR.max_items = 16
+	STR.max_items = 20
 	STR.max_combined_w_class = 100
 	STR.set_holdable(list(
 		/obj/item/lighter,
@@ -72,7 +77,9 @@
 		/obj/item/retractor,
 		/obj/item/cautery,
 		/obj/item/hemostat,
-		/obj/item/scalpel
+		/obj/item/scalpel,
+		/obj/item/stack/sticky_tape/surgical,
+		/obj/item/ms13/handsaw/bone
 		))
 
 /obj/item/storage/firstaid/ms13/bag/filled
@@ -84,6 +91,10 @@
 	new /obj/item/cautery/ms13(src)
 	new /obj/item/bonesetter/ms13(src)
 	new /obj/item/retractor/ms13(src)
+	new /obj/item/ms13/handsaw/bone(src)
+	new /obj/item/stack/medical/splint/ms13/wooden(src)
 	new /obj/item/stack/medical/gauze/ms13/half(src)
 	new /obj/item/stack/medical/suture/ms13/four(src)
-	new /obj/item/stack/medical/ointment/ms13/cream/half(src)
+	new /obj/item/stack/medical/ointment/ms13/dressing/half(src)
+	new /obj/item/stack/medical/bone_gel/ms13(src)
+	new /obj/item/stack/sticky_tape/surgical/ms13(src)
