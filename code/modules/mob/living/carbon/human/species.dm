@@ -1557,7 +1557,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 						H.update_inv_wear_suit()
 					if(H.w_uniform)
 						H.w_uniform.add_mob_blood(H)
-						H.update_inv_w_uniform()
+						H.update_inv_w_uniform() //MOJAVE EDIT - I removed quite a bit of code here because commenting it out would be incredibly obnoxious and also make it hard to actually get this to compile and indent properly - Hekzder
 
 	return TRUE
 
