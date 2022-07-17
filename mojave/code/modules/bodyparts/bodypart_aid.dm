@@ -27,6 +27,12 @@
 
 /datum/bodypart_aid/splint/ms13
 	name = "splint"
-	splint_factor = 0.6
+	splint_factor = 0.45
 	stack_to_drop = /obj/item/stack/medical/splint/ms13
+	overlay_prefix = "splint_improv"
+
+/datum/bodypart_aid/splint/ms13/wooden
+	name = "wooden splint"
+	splint_factor = 0.55
+	stack_to_drop = /obj/item/stack/medical/splint/ms13/wooden
 	overlay_prefix = "splint_improv"

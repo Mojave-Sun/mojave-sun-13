@@ -1,5 +1,11 @@
 //Children of base TG stack medical items should go here
 
+
+/obj/item/stack/medical/ms13/healing_powder
+	name = "generic MS13 healing stack"
+	desc = "wow. cool. woo-ee. AHHHHHHHHHHHHHH"
+	icon = 'mojave/icons/objects/medical/medical_inventory.dmi'
+
 /obj/item/stack/medical
 	grid_width = 32
 	grid_height = 32
@@ -24,21 +30,21 @@
 	name = "suture"
 	singular_name = "use" //This is so that examine text says "X uses left in the stack" instead of "X SUTURES left in the stack"
 	desc = "A medical suture. Used to mend bleeding wounds and tend brute related injuries."
-	icon = 'mojave/icons/objects/medical/medical_world.dmi'
+	icon = 'mojave/icons/objects/medical/medical_inventory.dmi'
 	icon_state = "suture"
 	max_amount = 12
 	amount = 12
 	self_delay = 3.5 SECONDS
 	other_delay = 2 SECONDS
 	repeating = FALSE
-	heal_brute = 10
-	stop_bleeding = 0.65
+	heal_brute = 5
+	stop_bleeding = 0.75
 	gender = NEUTER //So examine text says "This is a suture" instead of "These are some suture"
 	merge_type = /obj/item/stack/medical/suture/ms13
 
 /obj/item/stack/medical/suture/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/medical/medical_inventory.dmi')
+	AddElement(/datum/element/item_scaling, 0.50, 1)
 
 /obj/item/stack/medical/suture/ms13/four
 	amount = 4
@@ -50,7 +56,7 @@
 	name = "bottle of ointment"
 	desc = "A high quality bottle of ointment meant to be applied to burn wounds. Sanitizes and greatly aids in the healing process of burn related injuries."
 	singular_name = "use" //This is so that examine text says "X uses left in the stack" instead of "X OINTMENTS left in the stack"
-	icon = 'mojave/icons/objects/medical/medical_world.dmi'
+	icon = 'mojave/icons/objects/medical/medical_inventory.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
 	icon_state = "ointment"
@@ -68,7 +74,7 @@
 
 /obj/item/stack/medical/ointment/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/medical/medical_inventory.dmi')
+	AddElement(/datum/element/item_scaling, 0.50, 1)
 
 /obj/item/stack/medical/ointment/ms13/aloe
 	name = "aloe"
@@ -102,7 +108,7 @@
 	name = "gauze"
 	desc = "A roll of cloth intended for soaking up blood from bleeding wounds, mildly supporting a broken bone, or making sure burn wounds stay clean."
 	singular_name = "rolls of gauze"
-	icon = 'mojave/icons/objects/medical/medical_world.dmi'
+	icon = 'mojave/icons/objects/medical/medical_inventory.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
 	icon_state = "bandage"
@@ -111,6 +117,7 @@
 	other_delay = 1 SECONDS
 	max_amount = 12
 	amount = 12
+	novariants = TRUE
 	burn_cleanliness_bonus = 0.5
 	merge_type = /obj/item/stack/medical/gauze/ms13
 	gauze_type = /datum/bodypart_aid/gauze/ms13
@@ -120,7 +127,7 @@
 
 /obj/item/stack/medical/gauze/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/medical/medical_inventory.dmi')
+	AddElement(/datum/element/item_scaling, 0.50, 1)
 
 /obj/item/stack/medical/gauze/ms13/half
 	amount = 6
@@ -133,7 +140,7 @@
 
 /obj/item/stack/medical/gauze/ms13/military
 	name = "military gauze"
-	desc = "A sterile and elastic roll of gauze with a handle used to help pin the dressing down. Very good at soaking up blood from wounds and can be used as a decent splint for a broken bone."
+	desc = "A sterile and elastic roll of gauze with a handle used to help pin the dressing down. Very good at soaking up blood from wounds."
 	icon_state = "bandage_m"
 	inhand_icon_state = "bandage_m"
 	burn_cleanliness_bonus = 0.3 //Lower = better
@@ -145,26 +152,77 @@
 /obj/item/stack/medical/splint/ms13
 	name = "medical splint"
 	desc = "Medical splints, designed to fastened a limb with ease, perfect for stabilizing broken bones and torn muscles. "
-	icon = 'mojave/icons/objects/medical/medical_world.dmi'
+	icon = 'mojave/icons/objects/medical/medical_inventory.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
 	singular_name = "medical splint"
-	icon_state = "splint_improv"
-	self_delay = 5 SECONDS
+	icon_state = "splint_metal"
+	self_delay = 4 SECONDS
 	other_delay = 2 SECONDS
-	max_amount = 3
-	amount = 3
 	merge_type = /obj/item/stack/medical/splint/ms13
 	splint_type = /datum/bodypart_aid/splint/ms13
+	novariants = TRUE
+	grid_width = 64
+	grid_height = 32
 
 /obj/item/stack/medical/splint/ms13/attackby(obj/item/I, mob/user, params)
 	return
 
 /obj/item/stack/medical/splint/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/medical/medical_inventory.dmi')
+	AddElement(/datum/element/item_scaling, 0.50, 1)
 
-/obj/item/stack/medical/splint/ms13/two
-	amount = 2
-/obj/item/stack/medical/splint/ms13/one
+/obj/item/stack/medical/splint/ms13/wooden
+	name = "wooden splint"
+	desc = "A wooden splint, used to hold broken bones together to the best of their ability."
+	singular_name = "wooden splint"
+	icon_state = "splint_wood"
+	self_delay = 5 SECONDS
+	other_delay = 2 SECONDS
+	max_amount = 1
 	amount = 1
+	merge_type = /obj/item/stack/medical/splint/ms13/wooden
+	splint_type = /datum/bodypart_aid/splint/ms13/wooden
+
+// Healing Powder //
+
+/obj/item/stack/medical/ms13/healing_powder
+	name = "healing powder"
+	desc = "A bag of healing powder, comprised of a mixture of broc flower and xander root."
+	singular_name = "bag of healing powder"
+	icon_state = "healing_powder"
+	self_delay = 2.5 SECONDS
+	other_delay = 2 SECONDS
+	amount = 5
+	max_amount = 5
+	heal_brute = 10
+	heal_burn = 3
+	novariants = TRUE
+	merge_type = /obj/item/stack/medical/ms13/healing_powder
+
+/obj/item/stack/medical/ms13/healing_powder/Initialize()
+	. = ..()
+	AddElement(/datum/element/item_scaling, 0.35, 1)
+
+/obj/item/stack/medical/ms13/healing_powder/poultice
+	name = "healing poultice"
+	desc = "A poultice containing a mixture of broc flower and xander root."
+	singular_name = "poultice"
+	icon_state = "healing_poultice"
+	amount = 5
+	max_amount = 5
+	heal_brute = 15
+	heal_burn = 8
+	merge_type = /obj/item/stack/medical/ms13/healing_powder/poultice
+
+/obj/item/stack/medical/ms13/healing_powder/burn
+	name = "burn powder"
+	desc = "A bag of burn powder, comprised of a mixture of broc flower and xander root."
+	singular_name = "bag of burn powder"
+	icon_state = "burn_powder"
+	amount = 5
+	max_amount = 5
+	heal_burn = 12
+	flesh_regeneration = 2.75
+	sanitization = 0.75
+	merge_type = /obj/item/stack/medical/ms13/healing_powder/burn

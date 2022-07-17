@@ -7,6 +7,10 @@
     icon_state = "campfire"
     burn_icon = "campfire_lit"
 
+/obj/structure/bonfire/ms13/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/personal_crafting, CRAFTING_BENCH_CAMPFIRE)
+
 /obj/structure/bonfire/ms13/attack_hand(mob/user, list/modifiers)
     return
 
