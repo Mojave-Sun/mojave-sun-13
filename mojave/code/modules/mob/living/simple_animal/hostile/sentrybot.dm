@@ -65,14 +65,17 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	footstep_type = null //Element is modified in Initialize()
 	robust_searching = TRUE
 	idlechance = 10
-	minimum_distance = 3 //We'll decrease this if need be
+	minimum_distance = 3 //We'll decrease this if needed
 	retreat_distance = null
-	speed = 2
+	speed = 1
 	move_to_delay = 4
+	var/last_move_done_at = 0
+	//var/drift_cooldown = 0
 	attack_sound = "slam"
 	loot = list(/obj/item/stack/sheet/ms13/scrap, /obj/item/stack/sheet/ms13/scrap_electronics, /obj/item/stack/sheet/ms13/scrap_parts)
 	vision_range = 12
 	aggro_vision_range = 12
+	dodge_prob = 50
 	maxHealth = 1000
 	health = 1000
 	idlechance = 20
@@ -84,19 +87,29 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	ranged_cooldown = 5 SECONDS
 	rapid = 20
 	rapid_fire_delay = 0.05 SECONDS //20 shots over 1 second
-	pixel_x = -16
-	base_pixel_x = -16
+	pixel_x = -8
+	base_pixel_x = -8
 	bot_type = "Sentrybot"
 	shadow_type = "shadow_large"
 	projectilesound = null
 	check_friendly_fire = FALSE //no
 	move_resist = INFINITY
-	move_force = MOVE_FORCE_EXTREMELY_STRONG
 	var/datum/action/cooldown/launch_rocket/rocket
 	var/datum/action/cooldown/launch_grenade/grenade
 	var/datum/action/cooldown/flamethrow/flamethrow
 	var/already_firing = FALSE
 	var/speech_cooldown = 0
+	var/datum/looping_sound/treads/soundloop
+	stop_automated_movement = TRUE
+
+/datum/looping_sound/treads
+	start_sound = 'mojave/sound/ms13npc/sentrybot/treads_start.mp3'
+	start_length = 1
+	mid_sounds = list('mojave/sound/ms13npc/sentrybot/treads_mid_1.mp3' = 1, 'mojave/sound/ms13npc/sentrybot/treads_mid_2.mp3' = 1, 'mojave/sound/ms13npc/sentrybot/treads_mid_3.mp3' = 1, 'mojave/sound/ms13npc/sentrybot/treads_mid_4.mp3' = 1)
+	mid_length = 1
+	end_sound = 'mojave/sound/ms13npc/sentrybot/treads_end.mp3'
+	vary = FALSE
+	volume = 50
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/Initialize()
 	. = ..()
@@ -104,9 +117,51 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	rocket.Grant(src)
 	grenade = new /datum/action/cooldown/launch_grenade()
 	grenade.Grant(src)
-	//flamethrow = new /datum/action/cooldown/flamethrow()
-	//flamethrow.Grant(src)
 	RegisterSignal(src, COMSIG_MOVABLE_MOVED, .proc/play_move_sound)
+	soundloop = new(src, FALSE)
+
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/proc/play_move_sound()
+	SIGNAL_HANDLER
+	//playsound(src, 'sound/mecha/mechstep.ogg', 40, TRUE)
+	last_move_done_at = world.time
+	addtimer(CALLBACK(src, .proc/check_if_loop_should_continue, world.time), move_to_delay + 0.8 SECONDS)
+	/*
+	if(drift_cooldown > world.time) //Special move cooldown + drifting shouldn't restart the tread sounds
+		return
+	*/
+	soundloop.start()
+
+/*
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/Goto(target, delay, minimum_distance)
+	if(drift_cooldown < world.time)
+		return
+	..()
+*/
+
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/proc/check_if_loop_should_continue(the_time)
+	if(the_time != last_move_done_at)
+		return
+	/*
+	if(drift_cooldown > world.time)
+		return
+	//TOKYO DRIFT
+	*/
+	soundloop.stop()
+	/*
+	playsound(src, 'mojave/sound/ms13npc/sentrybot/drift_king.ogg', 50, FALSE)
+	drift_cooldown = world.time + 5 SECONDS
+	var/time_til_next_move = 0
+	var/turf_move_towards = get_step(src, src.dir)
+	for(var/i = 1, i < 7, i++)
+		time_til_next_move += (i * 0.1)
+		addtimer(CALLBACK(src, .proc/wrapped_move, turf_move_towards, src.dir), (10 * time_til_next_move))
+		turf_move_towards = get_step(turf_move_towards, src.dir)
+
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/proc/wrapped_move(_newLoc, _Dir)
+	if(get_dist(loc, _newLoc) > 1)
+		return
+	Move(_newLoc, _Dir)
+*/
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/ListTargets()
 	. = ..()
@@ -120,7 +175,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	stop_automated_movement = TRUE
 	SSmove_manager.move_to(src, src, min_dist = 0, delay = 0)
 	var/the_sound = pick(GLOB.sentrybot_dying_sound)
-	playsound(src, the_sound, 100, FALSE)
+	playsound(src, the_sound, 50, FALSE)
 	addtimer(CALLBACK(src, .proc/self_destruct), GLOB.sentrybot_dying_sound[the_sound])
 	..(gibbed)
 
@@ -133,11 +188,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 		return
 	var/random_speech = pick(glob_list_used)
 	speech_cooldown = world.time + glob_list_used[random_speech]
-	playsound(src, random_speech, 100, FALSE)
-
-/mob/living/simple_animal/hostile/ms13/robot/sentrybot/proc/play_move_sound()
-	SIGNAL_HANDLER
-	playsound(src, 'sound/mecha/mechstep.ogg', 40, TRUE)
+	playsound(src, random_speech, 50, FALSE)
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/Destroy()
 	QDEL_NULL(rocket)
@@ -187,7 +238,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 		set_light(l_range = 1.5, l_power = 8, l_color = "#ff0000")
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/proc/wind_down_gun()
-	playsound(src, 'mojave/sound/ms13npc/sentrybot/gatling_winddown.ogg', 75, FALSE)
+	playsound(src, 'mojave/sound/ms13npc/sentrybot/gatling_winddown.ogg', 50, FALSE)
 	already_firing = FALSE
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/handle_automated_action()
@@ -213,7 +264,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/adjustHealth(amount, updating_health = TRUE, forced = FALSE)
 	. = ..()
 	if(amount > 10 && prob(10))
-		playsound(src, pick(GLOB.sentrybot_damaged_sound), 75, FALSE)
+		playsound(src, pick(GLOB.sentrybot_damaged_sound), 50, FALSE)
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/FindTarget(list/possible_targets, HasTargetsList = 0)
 	var/old_target = target //If we change target (NULL => new target, old target => new target) play a sound effect
@@ -267,7 +318,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	StartCooldown()
 
 /datum/action/cooldown/launch_rocket/proc/launch_rocket(atom/target_atom)
-	playsound(owner, 'sound/weapons/gun/general/rocket_launch.ogg', 100, TRUE, -1)
+	playsound(owner, 'sound/weapons/gun/general/rocket_launch.ogg', 50, TRUE, -1)
 	var/obj/projectile/projectile_obj = new projectile(get_turf(owner))
 	projectile_obj.firer = owner
 	projectile_obj.preparePixelProjectile(target_atom, owner)
@@ -288,7 +339,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 
 /datum/action/cooldown/launch_grenade/proc/launch_grenade(atom/target_atom)
 	//living_owner.SetStun(1.5 SECONDS, ignore_canstun = TRUE)
-	playsound(owner, 'sound/weapons/gun/general/rocket_launch.ogg', 100, TRUE, -1)
+	playsound(owner, 'sound/weapons/gun/general/rocket_launch.ogg', 50, TRUE, -1)
 	//var/obj/item/grenade/thrown_grenade = new grenade(get_step(owner, get_dir(owner, target_atom)))
 	var/obj/item/grenade/thrown_grenade = new grenade(get_turf(owner))
 	var/original_density = owner.density
