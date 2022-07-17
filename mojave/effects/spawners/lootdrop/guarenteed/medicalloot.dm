@@ -13,7 +13,8 @@
 			/obj/item/stack/medical/suture/ms13/four = 30,
 			/obj/item/stack/medical/gauze/ms13/half = 40,
 			/obj/item/stack/medical/ointment/ms13/cream/half = 15,
-			/obj/item/stack/medical/ointment/ms13/aloe = 15
+			/obj/item/stack/medical/ointment/ms13/aloe = 15,
+			/obj/item/stack/medical/splint/ms13/wooden = 5
 			)
 
 /obj/effect/spawner/random/ms13/guarenteed/medical/tier2
@@ -22,6 +23,7 @@
 			/obj/item/stack/medical/suture/ms13/eight = 35,
 			/obj/item/stack/medical/ointment/ms13/cream = 20,
 			/obj/item/stack/medical/gauze/ms13 = 35,
+			/obj/item/stack/medical/splint/ms13 = 10,
 			/obj/item/reagent_containers/hypospray/medipen/ms13/stimpak = 10
 			)
 
