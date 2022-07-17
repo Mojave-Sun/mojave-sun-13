@@ -1538,25 +1538,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 					user.add_mob_blood(H)
 
 		switch(hit_area)
-			/*if(BODY_ZONE_HEAD)
-				if(!I.get_sharpness() && armor_block < 50)
-					if(prob(I.force))
-						H.adjustOrganLoss(ORGAN_SLOT_BRAIN, 20)
-						if(H.stat == CONSCIOUS)
-							H.visible_message(span_danger("[H] is knocked senseless!"), \
-											span_userdanger("You're knocked senseless!"))
-							H.set_confusion(max(H.get_confusion(), 20))
-							H.adjust_blurriness(10)
-						if(prob(10))
-							H.gain_trauma(/datum/brain_trauma/mild/concussion)
-					else
-						H.adjustOrganLoss(ORGAN_SLOT_BRAIN, I.force * 0.2)*/ //MOJAVE EDIT - This is relatively retarted but not as bad as the RNG knockdown, still probably shouldn't exist for now - Hekzder
-
-					if(H.mind && H.stat == CONSCIOUS && H != user && prob(I.force + ((100 - H.health) * 0.5))) // rev deconversion through blunt trauma.
-						var/datum/antagonist/rev/rev = H.mind.has_antag_datum(/datum/antagonist/rev)
-						if(rev)
-							rev.remove_revolutionary(FALSE, user)
-
+			if(BODY_ZONE_HEAD)
 				if(bloody) //Apply blood
 					if(H.wear_mask)
 						H.wear_mask.add_mob_blood(H)
@@ -1568,13 +1550,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 						H.glasses.add_mob_blood(H)
 						H.update_inv_glasses()
 
-			/*if(BODY_ZONE_CHEST)
-				if(H.stat == CONSCIOUS && !I.get_sharpness() && armor_block < 50)
-					if(prob(I.force))
-						H.visible_message(span_danger("[H] is knocked down!"), \
-									span_userdanger("You're knocked down!"))
-						H.apply_effect(60, EFFECT_KNOCKDOWN, armor_block)*/ //MOJAVE EDIT - This is incredibly retarted and is made even more retarted because our armor doesn't apply to this - Hekzder
-
+			if(BODY_ZONE_CHEST)
 				if(bloody)
 					if(H.wear_suit)
 						H.wear_suit.add_mob_blood(H)
