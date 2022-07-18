@@ -66,9 +66,9 @@
 	repeating = FALSE
 	self_delay = 2.5 SECONDS
 	other_delay = 1.5 SECONDS
-	heal_burn = 10
-	flesh_regeneration = 3.5
-	sanitization = 1.25
+	heal_burn = 12
+	flesh_regeneration = 3
+	sanitization = 1
 	gender = NEUTER //So examine text says "This is a bottle of ointment" instead of "These are some bottle of ointment"
 	merge_type = /obj/item/stack/medical/ointment/ms13
 
@@ -76,37 +76,24 @@
 	. = ..()
 	AddElement(/datum/element/item_scaling, 0.50, 1)
 
-/obj/item/stack/medical/ointment/ms13/aloe
-	name = "aloe"
-	desc = "Some aloe vera that has been prepared for easier application of it's burn healing properties."
-	singular_name = "aloe limb"
-	icon_state = "aloe"
-	inhand_icon_state = "aloe"
-	amount = 10
-	max_amount = 10
-	heal_burn = 5
-	flesh_regeneration = 2
+/obj/item/stack/medical/ointment/ms13/dressing
+	name = "burn dressing"
+	desc = "Some small dressings meant to be applied to burns to aid in the healing process."
+	singular_name = "dressing"
+	icon_state = "burndress"
+	inhand_icon_state = null
+	heal_burn = 8
+	flesh_regeneration = 2.25
 	sanitization = 0.5
 	gender = PLURAL
-	merge_type = /obj/item/stack/medical/ointment/ms13/aloe
+	merge_type = /obj/item/stack/medical/ointment/ms13/dressing
 
-/obj/item/stack/medical/ointment/ms13/cream
-	name = "burn cream"
-	desc = "A small container of healing cream meant for burn related injuries."
-	icon_state = "burncream"
-	inhand_icon_state = "burncream"
-	heal_burn = 8
-	flesh_regeneration = 2.75
-	sanitization = 0.75
-	gender = PLURAL
-	merge_type = /obj/item/stack/medical/ointment/ms13/cream
-
-/obj/item/stack/medical/ointment/ms13/cream/half
+/obj/item/stack/medical/ointment/ms13/dressing/half
 	amount = 6
 
 /obj/item/stack/medical/gauze/ms13
 	name = "gauze"
-	desc = "A roll of cloth intended for soaking up blood from bleeding wounds, mildly supporting a broken bone, or making sure burn wounds stay clean."
+	desc = "A roll of cloth intended for soaking up blood from bleeding wounds or making sure burn wounds stay clean."
 	singular_name = "rolls of gauze"
 	icon = 'mojave/icons/objects/medical/medical_inventory.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
@@ -150,18 +137,21 @@
 // Splints //
 
 /obj/item/stack/medical/splint/ms13
-	name = "medical splint"
-	desc = "Medical splints, designed to fastened a limb with ease, perfect for stabilizing broken bones and torn muscles. "
+	name = "metal splint"
+	desc = "A medical grade metal splint designed to fasten a limb with ease, perfect for stabilizing broken bones and torn muscles. "
 	icon = 'mojave/icons/objects/medical/medical_inventory.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
 	singular_name = "medical splint"
 	icon_state = "splint_metal"
-	self_delay = 4 SECONDS
-	other_delay = 2 SECONDS
+	self_delay = 5 SECONDS
+	other_delay = 3 SECONDS
+	max_amount = 1
+	amount = 1
 	merge_type = /obj/item/stack/medical/splint/ms13
 	splint_type = /datum/bodypart_aid/splint/ms13
 	novariants = TRUE
+	w_class = WEIGHT_CLASS_SMALL
 	grid_width = 64
 	grid_height = 32
 
@@ -174,13 +164,11 @@
 
 /obj/item/stack/medical/splint/ms13/wooden
 	name = "wooden splint"
-	desc = "A wooden splint, used to hold broken bones together to the best of their ability."
+	desc = "A crude wooden splint, used to hold broken bones together to the best of their ability."
 	singular_name = "wooden splint"
 	icon_state = "splint_wood"
-	self_delay = 5 SECONDS
-	other_delay = 2 SECONDS
-	max_amount = 1
-	amount = 1
+	self_delay = 6 SECONDS
+	other_delay = 4 SECONDS
 	merge_type = /obj/item/stack/medical/splint/ms13/wooden
 	splint_type = /datum/bodypart_aid/splint/ms13/wooden
 
@@ -202,11 +190,11 @@
 
 /obj/item/stack/medical/ms13/healing_powder/Initialize()
 	. = ..()
-	AddElement(/datum/element/item_scaling, 0.35, 1)
+	AddElement(/datum/element/item_scaling, 0.4, 1)
 
 /obj/item/stack/medical/ms13/healing_powder/poultice
 	name = "healing poultice"
-	desc = "A poultice containing a mixture of broc flower and xander root."
+	desc = "A potent poultice containing a mixture of various plants."
 	singular_name = "poultice"
 	icon_state = "healing_poultice"
 	amount = 5
@@ -217,12 +205,12 @@
 
 /obj/item/stack/medical/ms13/healing_powder/burn
 	name = "burn powder"
-	desc = "A bag of burn powder, comprised of a mixture of broc flower and xander root."
+	desc = "A bag of burn powder, comprised of a mixture of ashrose and aster flower."
 	singular_name = "bag of burn powder"
 	icon_state = "burn_powder"
 	amount = 5
 	max_amount = 5
 	heal_burn = 12
-	flesh_regeneration = 2.75
-	sanitization = 0.75
+	flesh_regeneration = 1.5
+	sanitization = 0.35
 	merge_type = /obj/item/stack/medical/ms13/healing_powder/burn

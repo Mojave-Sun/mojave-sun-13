@@ -17,7 +17,7 @@
 
 /datum/outfit/job/ms13/wasteland/wastelander/pre_equip(mob/living/carbon/human/H)
 	..()
-	if(prob(70))
+	if(prob(75))
 		head = pick(
 		/obj/item/clothing/head/helmet/ms13/cowboy/black,\
 		/obj/item/clothing/head/helmet/ms13/baseball,\
@@ -135,7 +135,6 @@
 		/obj/item/ms13/knuckles, \
 		/obj/item/ms13/brick, \
 		/obj/item/ms13/handsaw, \
-		/obj/item/ms13/handdrill, \
 		/obj/item/knife/ms13/throwingknife)
 
 	shoes = pick(
