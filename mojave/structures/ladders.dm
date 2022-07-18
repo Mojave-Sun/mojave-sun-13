@@ -3,8 +3,6 @@
 	desc = "A questionable metal ladder. There's got to be stairs around, right?"
 	icon = 'mojave/icons/structure/ladders.dmi'
 	resistance_flags = INDESTRUCTIBLE
-	var/obstructed = FALSE
-	
 
 // TG code edited for SFX //
 
@@ -32,7 +30,7 @@
 	if(obstructed)
 		to_chat(user, span_warning("It's blocked, you'll have to find a way to change that."))
 		return
-	
+
 	var/list/tool_list = list()
 	if (up)
 		tool_list["Up"] = image(icon = 'icons/testing/turf_analysis.dmi', icon_state = "red_arrow", dir = NORTH)
@@ -47,7 +45,11 @@
 		return  // nice try
 	switch(result)
 		if("Up")
-			travel(TRUE, user, is_ghost, up)
+			if(up.obstructed)
+				to_chat(user, span_warning("[src] is obstructed!"))
+				return
+			else
+				travel(TRUE, user, is_ghost, up)
 		if("Down")
 			travel(FALSE, user, is_ghost, down)
 		if("Cancel")
@@ -61,8 +63,8 @@
 /obj/structure/ladder/ms13/manhole
 	name = "manhole"
 
-/obj/structure/ladder/ms13/manhole/attack_hand_secondary(mob/user, list/modifiers)
-	var/obj/item/bodypart/arm = get_bodypart(held_indez % 2 ? BODY_ZONE_L_ARM : BODY_ZONE_R_ARM)
+/obj/structure/ladder/ms13/manhole/attack_hand_secondary(mob/living/user, list/modifiers)
+	var/obj/item/bodypart/arm = user.get_bodypart(user.active_hand_index % 2 ? BODY_ZONE_L_ARM : BODY_ZONE_R_ARM)
 	if(!down)
 		return
 	else
@@ -74,12 +76,12 @@
 			desc = "An open manhole, it still stinks even after all these years. You could use a crowbar or your hands to slide the cover back on."
 			if(prob(100))
 				to_chat(user, "<span class='warning'>MY ARM! THE PAIN!</span>")
-				user.arm.force_wound_upwards(/datum/wound/blunt/moderate)
+				arm.force_wound_upwards(/datum/wound/blunt/moderate)
 		else
 			do_after(user, 10 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS)
 			obstructed = TRUE
 			icon_state = "manhole_closed"
-			desc = "A heavy stamped manhole. You could probably pry it up with a crowbar to access the lower town systems. Or, try using your hands..."			
+			desc = "A heavy stamped manhole. You could probably pry it up with a crowbar to access the lower town systems. Or, try using your hands..."
 
 
 /obj/structure/ladder/ms13/manhole/crowbar_act_secondary(mob/living/user, obj/item/tool)
