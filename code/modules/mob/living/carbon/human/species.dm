@@ -1539,6 +1539,25 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 		switch(hit_area)
 			if(BODY_ZONE_HEAD)
+				/* MOJAVE EDIT REMOVAL - Likely will remove this code once we're synced back upstream.
+				if(!I.get_sharpness() && armor_block < 50)
+					if(prob(I.force))
+						H.adjustOrganLoss(ORGAN_SLOT_BRAIN, 20)
+						if(H.stat == CONSCIOUS)
+							H.visible_message(span_danger("[H] is knocked senseless!"), \
+											span_userdanger("You're knocked senseless!"))
+							H.set_confusion(max(H.get_confusion(), 20))
+							H.adjust_blurriness(10)
+						if(prob(10))
+							H.gain_trauma(/datum/brain_trauma/mild/concussion)
+					else
+						H.adjustOrganLoss(ORGAN_SLOT_BRAIN, I.force * 0.2)
+
+					if(H.mind && H.stat == CONSCIOUS && H != user && prob(I.force + ((100 - H.health) * 0.5))) // rev deconversion through blunt trauma.
+						var/datum/antagonist/rev/rev = H.mind.has_antag_datum(/datum/antagonist/rev)
+						if(rev)
+							rev.remove_revolutionary(FALSE, user)
+				*/
 				if(bloody) //Apply blood
 					if(H.wear_mask)
 						H.wear_mask.add_mob_blood(H)
@@ -1551,13 +1570,20 @@ GLOBAL_LIST_EMPTY(features_by_species)
 						H.update_inv_glasses()
 
 			if(BODY_ZONE_CHEST)
+				/* MOJAVE EDIT REMOVAL - Likely will remove this code once we're synced back upstream.
+				if(H.stat == CONSCIOUS && !I.get_sharpness() && armor_block < 50)
+					if(prob(I.force))
+						H.visible_message(span_danger("[H] is knocked down!"), \
+									span_userdanger("You're knocked down!"))
+						H.apply_effect(60, EFFECT_KNOCKDOWN, armor_block)
+				*/
 				if(bloody)
 					if(H.wear_suit)
 						H.wear_suit.add_mob_blood(H)
 						H.update_inv_wear_suit()
 					if(H.w_uniform)
 						H.w_uniform.add_mob_blood(H)
-						H.update_inv_w_uniform() //MOJAVE EDIT - I removed quite a bit of code here because commenting it out would be incredibly obnoxious and also make it hard to actually get this to compile and indent properly - Hekzder
+						H.update_inv_w_uniform()
 
 	return TRUE
 
