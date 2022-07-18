@@ -161,7 +161,7 @@
 	if(prob(40))
 		l_pocket = pick(
 		/obj/item/stack/medical/gauze/ms13/half, \
-		/obj/item/stack/medical/ointment/ms13/dressing/half, \
+		/obj/item/stack/medical/ointment/ms13/half, \
 		/obj/item/stack/medical/ms13/healing_powder, \
 		/obj/item/stack/medical/ms13/healing_powder/burn)
 	else

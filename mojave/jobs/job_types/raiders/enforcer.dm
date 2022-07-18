@@ -28,7 +28,7 @@
 	l_pocket =	/obj/item/knife/ms13/combat/soviet
 	backpack_contents = list(
 		/obj/item/ammo_box/ms13/c10mm=1, \
-		/obj/item/stack/medical/ointment/ms13/dressing/half=1, \
+		/obj/item/stack/medical/ointment/ms13/half=1, \
 		/obj/item/stack/medical/gauze/ms13/half=1, \
 		/obj/item/flashlight/ms13/crafted=1, \
 		/obj/item/radio/ms13=1)

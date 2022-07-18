@@ -27,7 +27,7 @@
 	l_pocket =  /obj/item/knife/ms13/combat
 	backpack_contents = list(
 		/obj/item/stack/medical/gauze/ms13/half=1, \
-		/obj/item/stack/medical/ointment/ms13/dressing/half=1)
+		/obj/item/stack/medical/ointment/ms13/half=1)
 
 /datum/outfit/job/ms13/bos/paladin/pre_equip(mob/living/carbon/human/H)
 	..()

@@ -14,7 +14,7 @@
 	loot = list(
 			/obj/item/stack/medical/suture/ms13/four = 25,
 			/obj/item/stack/medical/gauze/ms13/half = 40,
-			/obj/item/stack/medical/ointment/ms13/dressing/half = 25,
+			/obj/item/stack/medical/ointment/ms13/half = 25,
 			/obj/item/stack/medical/splint/ms13/wooden = 10
 			)
 
@@ -23,7 +23,7 @@
 	spawn_loot_chance = 55
 	loot = list(
 			/obj/item/stack/medical/suture/ms13/eight = 25,
-			/obj/item/stack/medical/ointment/ms13/dressing = 25,
+			/obj/item/stack/medical/ointment/ms13 = 25,
 			/obj/item/stack/medical/gauze/ms13 = 30,
 			/obj/item/reagent_containers/hypospray/medipen/ms13/stimpak = 10,
 			/obj/item/stack/medical/splint/ms13 = 10
@@ -34,7 +34,7 @@
 	spawn_loot_chance = 65
 	loot = list(
 			/obj/item/stack/medical/gauze/ms13/military = 30,
-			/obj/item/stack/medical/ointment/ms13 = 30,
+			/obj/item/stack/medical/ointment/ms13/dressing = 30,
 			/obj/item/reagent_containers/hypospray/medipen/ms13/stimpak/super = 10,
 			/obj/item/stack/medical/suture/ms13 = 30
 			)

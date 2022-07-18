@@ -54,7 +54,7 @@
 
 /obj/item/stack/medical/ointment/ms13
 	name = "bottle of ointment"
-	desc = "A high quality bottle of ointment meant to be applied to burn wounds. Sanitizes and greatly aids in the healing process of burn related injuries."
+	desc = "A basic bottle of ointment meant to be applied to burn wounds."
 	singular_name = "use" //This is so that examine text says "X uses left in the stack" instead of "X OINTMENTS left in the stack"
 	icon = 'mojave/icons/objects/medical/medical_inventory.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
@@ -66,11 +66,14 @@
 	repeating = FALSE
 	self_delay = 2.5 SECONDS
 	other_delay = 1.5 SECONDS
-	heal_burn = 12
-	flesh_regeneration = 3
-	sanitization = 1
+	heal_burn = 8
+	flesh_regeneration = 2.25
+	sanitization = 0.5
 	gender = NEUTER //So examine text says "This is a bottle of ointment" instead of "These are some bottle of ointment"
 	merge_type = /obj/item/stack/medical/ointment/ms13
+
+/obj/item/stack/medical/ointment/ms13/half
+	amount = 6
 
 /obj/item/stack/medical/ointment/ms13/Initialize()
 	. = ..()
@@ -78,13 +81,13 @@
 
 /obj/item/stack/medical/ointment/ms13/dressing
 	name = "burn dressing"
-	desc = "Some small dressings meant to be applied to burns to aid in the healing process."
+	desc = "Some high quality burn dressings meant to be applied to burns to aid in the healing process."
 	singular_name = "dressing"
 	icon_state = "burndress"
 	inhand_icon_state = null
-	heal_burn = 8
-	flesh_regeneration = 2.25
-	sanitization = 0.5
+	heal_burn = 12
+	flesh_regeneration = 3
+	sanitization = 1
 	gender = PLURAL
 	merge_type = /obj/item/stack/medical/ointment/ms13/dressing
 
