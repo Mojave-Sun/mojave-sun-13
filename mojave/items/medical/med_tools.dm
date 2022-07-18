@@ -5,12 +5,12 @@
 	desc = "A surgical tool primarily used for clamping and grasping during surgery."
 	icon = 'mojave/icons/objects/medical/medical_world.dmi'
 	icon_state = "hemostat"
-	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
+	inhand_icon_state = "hemostat"
 	w_class = WEIGHT_CLASS_TINY
 	grid_height = 32
 	grid_width = 32
-	inhand_icon_state = "clamps" //Going to use placeholder TG in-hands for now, Infra didn't provide any - Hekzder
 
 /obj/item/hemostat/ms13/Initialize()
 	. = ..()
@@ -21,12 +21,12 @@
 	desc = "A surgical tool normally used for holding open a wound or incision."
 	icon = 'mojave/icons/objects/medical/medical_world.dmi'
 	icon_state = "retractor"
-	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
+	inhand_icon_state = "retractor"
 	w_class = WEIGHT_CLASS_TINY
 	grid_height = 32
 	grid_width = 32
-	inhand_icon_state = "clamps" //Going to use placeholder TG in-hands for now, Infra didn't provide any - Hekzder
 
 /obj/item/retractor/ms13/Initialize()
 	. = ..()
@@ -36,10 +36,10 @@
 	name = "bone saw"
 	desc = "A pre-war bone saw. Useful for amputations or cutting open a rib cage."
 	icon = 'mojave/icons/objects/medical/medical_world.dmi'
+	icon_state = "bonesaw"
 	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
-	icon_state = "bonesaw"
-	inhand_icon_state = "handsaw" //Placeholder handsaw in-hand for now, Infra didn't provide a bonesaw in-hand - Hekzder
+	inhand_icon_state = "bonesaw"
 	w_class = WEIGHT_CLASS_NORMAL
 	grid_width = 96
 	grid_height = 32
@@ -58,12 +58,12 @@
 	desc = "A cautery used for stopping bleeding or closing wounds."
 	icon = 'mojave/icons/objects/medical/medical_world.dmi'
 	icon_state = "cautery"
-	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
+	inhand_icon_state = "cautery"
 	w_class = WEIGHT_CLASS_TINY
 	grid_height = 32
 	grid_width = 32
-	inhand_icon_state = "cautery" //Going to use placeholder TG in-hands for now, Infra didn't provide any - Hekzder
 
 /obj/item/cautery/ms13/Initialize()
 	. = ..()
@@ -74,12 +74,12 @@
 	desc = "A sharp surgical tool used for making incisions."
 	icon = 'mojave/icons/objects/medical/medical_world.dmi'
 	icon_state = "scalpel"
-	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
+	inhand_icon_state = "scalpel"
 	w_class = WEIGHT_CLASS_TINY
 	grid_height = 32
 	grid_width = 32
-	inhand_icon_state = "scalpel" //Going to use placeholder TG in-hands for now, Infra didn't provide any - Hekzder
 	wound_bonus = 5
 	bare_wound_bonus = 5
 
@@ -92,12 +92,12 @@
 	desc = "A surgical tool used for setting bones back into place."
 	icon = 'mojave/icons/objects/medical/medical_world.dmi'
 	icon_state = "bonesetter"
-	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
+	inhand_icon_state = "bonesetter"
 	w_class = WEIGHT_CLASS_TINY
 	grid_height = 32
 	grid_width = 32
-	inhand_icon_state = "clamps" //Going to use placeholder TG in-hands for now, Infra didn't provide any - Hekzder
 
 /obj/item/bonesetter/ms13/Initialize()
 	. = ..()
@@ -107,6 +107,9 @@
 	desc = "Surgical drapes used to provide optimal safety and infection control when operating on a patient."
 	icon = 'mojave/icons/objects/medical/medical_world.dmi'
 	icon_state = "surgical_drapes"
+	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
+	inhand_icon_state = "surgical_drapes"
 	w_class = WEIGHT_CLASS_TINY
 	grid_height = 32
 	grid_width = 32

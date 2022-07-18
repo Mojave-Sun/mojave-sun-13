@@ -22,7 +22,7 @@
 
 /obj/item/reagent_containers/hypospray/medipen/ms13/stimpak/Initialize()
 	. = ..()
-	AddElement(/datum/element/item_scaling, 0.35, 1)
+	AddElement(/datum/element/item_scaling, 0.45, 1)
 
 /obj/item/reagent_containers/hypospray/medipen/ms13/attack(mob/living/M, mob/user)
 	if(do_after(user, 0.65 SECONDS))

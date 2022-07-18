@@ -44,7 +44,7 @@
 
 /obj/item/stack/medical/suture/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/item_scaling, 0.50, 1)
+	AddElement(/datum/element/item_scaling, 0.60, 1)
 
 /obj/item/stack/medical/suture/ms13/four
 	amount = 4
@@ -77,7 +77,7 @@
 
 /obj/item/stack/medical/ointment/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/item_scaling, 0.50, 1)
+	AddElement(/datum/element/item_scaling, 0.55, 1)
 
 /obj/item/stack/medical/ointment/ms13/dressing
 	name = "burn dressing"
@@ -117,7 +117,7 @@
 
 /obj/item/stack/medical/gauze/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/item_scaling, 0.50, 1)
+	AddElement(/datum/element/item_scaling, 0.45, 1)
 
 /obj/item/stack/medical/gauze/ms13/half
 	amount = 6
@@ -163,7 +163,7 @@
 
 /obj/item/stack/medical/splint/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/item_scaling, 0.50, 1)
+	AddElement(/datum/element/item_scaling, 0.55, 1)
 
 /obj/item/stack/medical/splint/ms13/wooden
 	name = "wooden splint"
@@ -193,7 +193,7 @@
 
 /obj/item/stack/medical/ms13/healing_powder/Initialize()
 	. = ..()
-	AddElement(/datum/element/item_scaling, 0.4, 1)
+	AddElement(/datum/element/item_scaling, 0.45, 1)
 
 /obj/item/stack/medical/ms13/healing_powder/poultice
 	name = "healing poultice"
