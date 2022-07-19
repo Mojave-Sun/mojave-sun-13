@@ -9846,6 +9846,16 @@
 	},
 /turf/open/floor/plating/airless,
 /area/station/science/ordnance/bomb)
+"duw" = (
+/obj/machinery/door/airlock/engineering{
+	name = "Tech Storage"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/access/all/engineering/tech_storage,
+/turf/open/floor/iron/dark,
+/area/station/engineering/storage/tech)
 "duB" = (
 /turf/closed/wall/r_wall,
 /area/station/security/prison/garden)
@@ -15581,6 +15591,15 @@
 /obj/item/clothing/mask/breath,
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
+"fvA" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table,
+/obj/item/clothing/head/festive{
+	pixel_x = -4;
+	pixel_y = 6
+	},
+/turf/open/floor/iron/smooth,
+/area/station/maintenance/department/crew_quarters/dorms)
 "fvJ" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 1
@@ -24633,15 +24652,6 @@
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
 /area/station/commons/fitness)
-"iGg" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/table,
-/obj/item/clothing/head/festive{
-	pixel_x = -4;
-	pixel_y = 6
-	},
-/turf/open/floor/iron/smooth,
-/area/station/maintenance/department/crew_quarters/dorms)
 "iGl" = (
 /obj/structure/table,
 /obj/item/paper_bin{
@@ -39805,16 +39815,6 @@
 /obj/item/radio/intercom/directional/north,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
-"nNa" = (
-/obj/machinery/door/airlock/engineering{
-	name = "Tech Storage"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/obj/effect/mapping_helpers/airlock/access/all/engineering/construction,
-/turf/open/floor/iron/dark,
-/area/station/engineering/storage/tech)
 "nNc" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line,
 /obj/effect/turf_decal/trimline/neutral/filled/line{
@@ -85446,7 +85446,7 @@ apC
 lgu
 lgu
 gsa
-iGg
+fvA
 rXW
 apC
 dhe
@@ -100071,7 +100071,7 @@ aOn
 aOn
 aOn
 aOn
-nNa
+duw
 jnq
 oQE
 jnq
