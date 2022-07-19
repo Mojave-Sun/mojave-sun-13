@@ -3,6 +3,7 @@
 	desc = "A questionable metal ladder. There's got to be stairs around, right?"
 	icon = 'mojave/icons/structure/ladders.dmi'
 	resistance_flags = INDESTRUCTIBLE
+	travel_time = 2 SECONDS
 
 // TG code edited for SFX //
 
@@ -62,6 +63,7 @@
 
 /obj/structure/ladder/ms13/manhole
 	name = "manhole"
+	travel_time = 2 SECONDS
 
 /obj/structure/ladder/ms13/manhole/attack_hand_secondary(mob/living/user, list/modifiers)
 	var/obj/item/bodypart/arm = user.get_bodypart(user.active_hand_index % 2 ? BODY_ZONE_L_ARM : BODY_ZONE_R_ARM)
@@ -70,13 +72,14 @@
 	else
 		if(obstructed)
 			to_chat(user, "<span class='warning'>It's so heavy! Surely there's a better way of doing this.</span>")
-			do_after(user, 10 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS)
-			obstructed = FALSE
-			icon_state = "manhole_open"
-			desc = "An open manhole, it still stinks even after all these years. You could use a crowbar or your hands to slide the cover back on."
-			if(prob(100))
-				to_chat(user, "<span class='warning'>MY ARM! THE PAIN!</span>")
-				arm.force_wound_upwards(/datum/wound/blunt/moderate)
+			if(do_after(user, 10 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS))
+				obstructed = FALSE
+				icon_state = "manhole_open"
+				desc = "An open manhole, it still stinks even after all these years. You could use a crowbar or your hands to slide the cover back on."
+				if(prob(100))
+					to_chat(user, span_userdanger("MY ARM! THE PAIN!"))
+					arm.force_wound_upwards(/datum/wound/blunt/moderate)
+					arm.receive_damage(10)
 		else
 			do_after(user, 10 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS)
 			obstructed = TRUE
@@ -89,10 +92,10 @@
 		return
 	else
 		if(obstructed)
-			do_after(user, 4 SECONDS * tool.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS)
-			obstructed = FALSE
-			icon_state = "manhole_open"
-			desc = "An open manhole, it still stinks even after all these years. You could use a crowbar or your hands to slide the cover back on."
+			if(do_after(user, 4 SECONDS * tool.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS))
+				obstructed = FALSE
+				icon_state = "manhole_open"
+				desc = "An open manhole, it still stinks even after all these years. You could use a crowbar or your hands to slide the cover back on."
 		else
 			do_after(user, 4 SECONDS * tool.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS)
 			obstructed = TRUE
@@ -111,16 +114,17 @@
 
 /obj/structure/ladder/ms13/bunker
 	name = "bunker"
+	travel_time = 2 SECONDS
 
 /obj/structure/ladder/ms13/bunker/welder_act_secondary(mob/living/user, obj/item/tool)
 	if(!down)
 		return
 	else
 		if(obstructed)
-			do_after(user, 8 SECONDS * tool.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS)
-			obstructed = FALSE
-			icon_state = "bunker_open"
-			desc = "Looks like the entrance to some bunker. The bars on the grate have been cut off, allowing entry."
+			if(do_after(user, 8 SECONDS * tool.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS))
+				obstructed = FALSE
+				icon_state = "bunker_open"
+				desc = "Looks like the entrance to some bunker. The bars on the grate have been cut off, allowing entry."
 		else
 			return
 
@@ -128,7 +132,7 @@
 	. = ..()
 	if(down)
 		name = "bunker grate"
-		desc = "It looks like a grate, leading to some sort of bunker. You could probably weld away some of the bars to slip through."
+		desc = "It looks like a grate, leading to some sort of bunker. You could probably weld the bars off."
 		icon_state = "bunker_closed"
 		obstructed = TRUE
 	else
