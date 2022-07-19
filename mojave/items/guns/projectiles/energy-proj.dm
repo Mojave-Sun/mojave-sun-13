@@ -171,7 +171,7 @@
 	damage = 0
 	wound_bonus = 0
 	bare_wound_bonus = 0
-	speed = 1
+	speed = 0.95
 
 /obj/projectile/bullet/ms13/plasma/stan_pistol
 	damage = 30
