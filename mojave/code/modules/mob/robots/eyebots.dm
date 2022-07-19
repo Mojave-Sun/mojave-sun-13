@@ -22,13 +22,12 @@
 	loot = list(/obj/item/stack/sheet/ms13/scrap, /obj/item/stack/sheet/ms13/scrap_electronics, /obj/item/stack/sheet/ms13/scrap_parts)
 	vision_range = 20
 	aggro_vision_range = 10
-	maxHealth = 75
-	health = 75
+	maxHealth = 70
+	health = 70
 	melee_damage_lower = 1
 	melee_damage_upper = 1
 	ranged = TRUE
-	projectiletype = /obj/projectile/beam/ms13/laser/eyebot
-	projectilesound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_1.ogg'
+	casingtype = /obj/item/ammo_casing/energy/ms13/laser/eyebot
 	ranged_cooldown = 3 SECONDS
 	bot_type = "ED" // Literally just for naming
 	shadow_type = "shadow_small"
@@ -51,7 +50,7 @@
 /mob/living/simple_animal/hostile/retaliate/ms13/robot/eyebot/death()
 	. = ..()
 	do_sparks(3, TRUE, src)
-	explosion(src,0,0,2,1)
+	explosion(src,0,0,1,1)
 	qdel(src)
 
 // Hostile eyebots, dungeon guards.
@@ -75,13 +74,12 @@
 	loot = list(/obj/item/stack/sheet/ms13/scrap, /obj/item/stack/sheet/ms13/scrap_electronics, /obj/item/stack/sheet/ms13/scrap_parts)
 	vision_range = 20
 	aggro_vision_range = 10
-	maxHealth = 75
-	health = 75
+	maxHealth = 70
+	health = 70
 	melee_damage_lower = 1
 	melee_damage_upper = 1
 	ranged = TRUE
-	projectiletype = /obj/projectile/beam/ms13/laser/eyebot
-	projectilesound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_1.ogg'
+	casingtype = /obj/item/ammo_casing/energy/ms13/laser/eyebot
 	ranged_cooldown = 3 SECONDS
 	bot_type = "ED" // Literally just for naming
 	shadow_type = "shadow_small"
@@ -94,7 +92,7 @@
 /mob/living/simple_animal/hostile/ms13/robot/eyebot/death()
 	. = ..()
 	do_sparks(3, TRUE, src)
-	explosion(src,0,0,2,1)
+	explosion(src,0,0,1,1)
 	qdel(src)
 
 /mob/living/simple_animal/hostile/ms13/robot/eyebot/military
@@ -108,7 +106,7 @@
 	loot = list(/obj/item/stack/sheet/ms13/scrap_steel, /obj/item/stack/sheet/ms13/scrap_parts, /obj/item/stack/sheet/ms13/scrap_electronics/two)
 	melee_damage_lower = 5
 	melee_damage_upper = 5
-	projectiletype = /obj/projectile/beam/ms13/laser/eyebot/overcharge
+	casingtype = /obj/item/ammo_casing/energy/ms13/laser/eyebot/overcharge
 	bot_type = "MD"
 
 /mob/living/simple_animal/hostile/ms13/robot/eyebot/prototype

@@ -291,6 +291,7 @@
 	var/offsety = 0
 	var/idlesound = null
 	var/idlechance = 5
+	var/subtractible_armour_penetration = 0
 
 /mob/living/simple_animal/hostile/ms13/Initialize()
 	. = ..()

@@ -50,11 +50,12 @@
 	attack_verb_continuous = "pincers"
 	attack_verb_simple = "pincer"
 	attack_sound = 'sound/weapons/bite.ogg'
-	health = 35
-	maxHealth = 35
+	health = 30
+	maxHealth = 30
 	melee_damage_lower = 10
 	melee_damage_upper = 10
-	speed = -0.25
+	subtractible_armour_penetration = 5
+	speed = -0.35
 	sharpness = NONE
 	wound_bonus = CANT_WOUND
 	faction = list("insect")

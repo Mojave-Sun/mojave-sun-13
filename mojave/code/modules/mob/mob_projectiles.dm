@@ -1,7 +1,16 @@
 // Eyebot Projectiles //
 
+/obj/item/ammo_casing/energy/ms13/laser/eyebot
+	projectile_type = /obj/projectile/beam/ms13/laser/eyebot
+	variance = 15
+	pellets = 1
+	fire_sound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_1.ogg'
+
 /obj/projectile/beam/ms13/laser/eyebot
 	damage = 15
+	subtractible_armour_penetration = 5
+	wound_bonus = 0
+	bare_wound_bonus = 5
 	hitscan_light_intensity = 1
 	hitscan_light_range = 0.25
 	muzzle_flash_intensity = 2
@@ -9,10 +18,14 @@
 	impact_light_intensity = 2.5
 	impact_light_range = 0.75
 
+/obj/item/ammo_casing/energy/ms13/laser/eyebot/overcharge
+	projectile_type = /obj/projectile/beam/ms13/laser/eyebot/overcharge
+
 /obj/projectile/beam/ms13/laser/eyebot/overcharge
 	damage = 20
-	armour_penetration = 5
-	wound_bonus = 0
+	subtractible_armour_penetration = 20
+	wound_bonus = 5
+	bare_wound_bonus = 5
 	hitscan_light_intensity = 1.10
 	hitscan_light_range = 0.25
 	muzzle_flash_intensity = 2.15
@@ -103,9 +116,15 @@
 
 // Assaultron Projectiles //
 
+/obj/item/ammo_casing/energy/ms13/laser/assaultron
+	projectile_type = /obj/projectile/beam/ms13/laser/assaultron
+	variance = 5
+	pellets = 1
+	fire_sound = 'mojave/sound/ms13weapons/gunsounds/lasrifle/laser_heavy.ogg'
+
 /obj/projectile/beam/ms13/laser/assaultron
 	damage = 35
-	armour_penetration = 10
+	subtractible_armour_penetration = 25
 	wound_bonus = 5
 	bare_wound_bonus = 10
 	hitscan_light_intensity = 2.10
