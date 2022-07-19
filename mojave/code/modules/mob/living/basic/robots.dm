@@ -48,18 +48,18 @@
     name = "Mr. Handy"
     desc = "A standard model Mr. Handy unit. It's long lost any rational wires in its circuits."
     icon_state = "mrhandy_claw"
-    health = 135
-    maxHealth = 135
+    health = 140
+    maxHealth = 140
     melee_damage_lower = 15
     melee_damage_upper = 15
-    armour_penetration = 5
-    speed = 0.5
+    subtractible_armour_penetration = 5
+    speed = 0.65
     speak_emote = list("states", "says")
     attack_verb_continuous = "pinches"
     attack_verb_simple = "pinch"
     sharpness = NONE
-    wound_bonus = 5
-    bare_wound_bonus = 5
+    wound_bonus = 8
+    bare_wound_bonus = 4
     shadow_type = "shadow_large"
 
 /mob/living/basic/ms13/robot/handy/New()
@@ -79,10 +79,10 @@
     icon_state = "mrhandy_saw"
     melee_damage_lower = 25
     melee_damage_upper = 25
-    armour_penetration = 10
+    subtractible_armour_penetration = 15
     sharpness = SHARP_EDGED
     wound_bonus = 8
-    bare_wound_bonus = 10
+    bare_wound_bonus = 12
     attack_verb_continuous = "saws"
     attack_verb_simple = "saw"
     attack_sound = 'sound/weapons/circsawhit.ogg'
