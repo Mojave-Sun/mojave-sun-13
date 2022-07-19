@@ -72,17 +72,21 @@
 
 	. = SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	var/obj/item/bodypart/arm = user.get_bodypart(user.active_hand_index % 2 ? BODY_ZONE_L_ARM : BODY_ZONE_R_ARM)
-	if(!down)
-		if(up.obstructed)
-			if(do_after(user, 10 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS))
-				up.icon_state = "manhole_open"
-				up.desc = desc = "An open manhole, it still stinks even after all these years. You could use a crowbar or your hands to slide the cover back on."
-				up.obstructed = FALSE
-			else
-				if(do_after(user, 10 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS))
-					up.icon_state = "manhole_closed"
-					up.desc = desc = "A heavy stamped manhole. You could probably pry it up with a crowbar to access the lower town systems. Or, try using your hands..."
-					up.obstructed = TRUE
+	if(!down && up.obstructed)
+		if(do_after(user, 10 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS))
+			up.icon_state = "manhole_open"
+			up.desc = "An open manhole, it still stinks even after all these years. You could use a crowbar or your hands to slide the cover back on."
+			up.obstructed = FALSE
+			obstructed = FALSE
+			return
+
+	if(!down && !up.obstructed)
+		if(do_after(user, 10 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS))
+			up.icon_state = "manhole_closed"
+			up.desc = "A heavy stamped manhole. You could probably pry it up with a crowbar to access the lower town systems. Or, try using your hands..."
+			up.obstructed = TRUE
+			obstructed = TRUE
+			return
 			
 	else
 		if(obstructed)
