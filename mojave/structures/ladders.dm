@@ -66,6 +66,11 @@
 	travel_time = 2 SECONDS
 
 /obj/structure/ladder/ms13/manhole/attack_hand_secondary(mob/living/user, list/modifiers)
+	. = ..()
+	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
+		return
+
+	. = SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	var/obj/item/bodypart/arm = user.get_bodypart(user.active_hand_index % 2 ? BODY_ZONE_L_ARM : BODY_ZONE_R_ARM)
 	if(!down)
 		return
@@ -76,7 +81,7 @@
 				obstructed = FALSE
 				icon_state = "manhole_open"
 				desc = "An open manhole, it still stinks even after all these years. You could use a crowbar or your hands to slide the cover back on."
-				if(prob(100))
+				if(prob(10))
 					to_chat(user, span_userdanger("MY ARM! THE PAIN!"))
 					arm.force_wound_upwards(/datum/wound/blunt/moderate)
 					arm.receive_damage(10)
