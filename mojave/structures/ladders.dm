@@ -73,7 +73,17 @@
 	. = SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	var/obj/item/bodypart/arm = user.get_bodypart(user.active_hand_index % 2 ? BODY_ZONE_L_ARM : BODY_ZONE_R_ARM)
 	if(!down)
-		return
+		if(up.obstructed)
+			if(do_after(user, 10 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS))
+				up.icon_state = "manhole_open"
+				up.desc = desc = "An open manhole, it still stinks even after all these years. You could use a crowbar or your hands to slide the cover back on."
+				up.obstructed = FALSE
+			else
+				if(do_after(user, 10 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS))
+					up.icon_state = "manhole_closed"
+					up.desc = desc = "A heavy stamped manhole. You could probably pry it up with a crowbar to access the lower town systems. Or, try using your hands..."
+					up.obstructed = TRUE
+			
 	else
 		if(obstructed)
 			to_chat(user, "<span class='warning'>It's so heavy! Surely there's a better way of doing this.</span>")
@@ -86,15 +96,24 @@
 					arm.force_wound_upwards(/datum/wound/blunt/moderate)
 					arm.receive_damage(10)
 		else
-			do_after(user, 10 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS)
-			obstructed = TRUE
-			icon_state = "manhole_closed"
-			desc = "A heavy stamped manhole. You could probably pry it up with a crowbar to access the lower town systems. Or, try using your hands..."
+			if(do_after(user, 10 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS))
+				obstructed = TRUE
+				icon_state = "manhole_closed"
+				desc = "A heavy stamped manhole. You could probably pry it up with a crowbar to access the lower town systems. Or, try using your hands..."
 
 
 /obj/structure/ladder/ms13/manhole/crowbar_act_secondary(mob/living/user, obj/item/tool)
 	if(!down)
-		return
+		if(up.obstructed)
+			if(do_after(user, 10 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS))
+				up.icon_state = "manhole_open"
+				up.obstructed = FALSE
+			else
+				if(do_after(user, 10 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS))
+					up.icon_state = "manhole_closed"
+					up.desc = "A heavy stamped manhole. You could probably pry it up with a crowbar to access the lower town systems. Or, try using your hands..."
+					up.obstructed = TRUE
+			
 	else
 		if(obstructed)
 			if(do_after(user, 4 SECONDS * tool.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS))
@@ -102,10 +121,10 @@
 				icon_state = "manhole_open"
 				desc = "An open manhole, it still stinks even after all these years. You could use a crowbar or your hands to slide the cover back on."
 		else
-			do_after(user, 4 SECONDS * tool.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS)
-			obstructed = TRUE
-			icon_state = "manhole_closed"
-			desc = "A heavy stamped manhole. You could probably pry it up with a crowbar to access the lower town systems. Or, try using your hands..."
+			if(do_after(user, 4 SECONDS * tool.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS))
+				obstructed = TRUE
+				icon_state = "manhole_closed"
+				desc = "A heavy stamped manhole. You could probably pry it up with a crowbar to access the lower town systems. Or, try using your hands..."
 
 /obj/structure/ladder/ms13/manhole/update_icon_state()
 	. = ..()
