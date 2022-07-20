@@ -8,7 +8,8 @@
 	worn_icon_state = "empty_placeholder"
 	icon_state = "hammer"
 	inhand_icon_state = "hammer"
-	hitsound = 'sound/weapons/genhit3.ogg'
+	hitsound = 'mojave/sound/ms13weapons/meleesounds/genericblunt_hit.ogg'
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/general_pickup.ogg'
 	force = 20
 	throwforce = 10
 	subtractible_armour_penetration = 5
@@ -42,6 +43,8 @@
 	worn_icon_state = "empty_placeholder"
 	icon_state = "handsaw"
 	inhand_icon_state = "handsaw"
+	hitsound = 'mojave/sound/ms13weapons/meleesounds/hatchet_hit.ogg'
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/general_pickup.ogg'
 	force = 25
 	subtractible_armour_penetration = 0
 	wound_bonus = 5
@@ -72,6 +75,8 @@
 	worn_icon_state = "empty_placeholder"
 	icon_state = "handdrill"
 	inhand_icon_state = "handdrill"
+	hitsound = 'mojave/sound/ms13weapons/meleesounds/stab_hit.ogg'
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/general_pickup.ogg'
 	force = 25
 	subtractible_armour_penetration = 0
 	wound_bonus = 5
@@ -101,6 +106,8 @@
 	worn_icon_state = "empty_placeholder"
 	icon_state = "crowbar"
 	inhand_icon_state = "crowbar"
+	hitsound = 'mojave/sound/ms13weapons/meleesounds/pipe_hit.ogg'
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/general_pickup.ogg'
 	force = 25
 	throwforce = 10
 	subtractible_armour_penetration = 5
@@ -173,6 +180,8 @@
 	worn_icon_state = "empty_placeholder"
 	icon_state = "wrench"
 	inhand_icon_state = "wrench"
+	hitsound = 'mojave/sound/ms13weapons/meleesounds/genericblunt_hit.ogg'
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/general_pickup.ogg'
 	force = 15
 	throwforce = 15
 	sharpness = NONE
@@ -245,7 +254,8 @@
 	worn_icon_state = "empty_placeholder"
 	icon_state = "shovel"
 	inhand_icon_state = "shovel"
-	hitsound = 'sound/weapons/genhit.ogg'
+	hitsound = 'mojave/sound/ms13weapons/meleesounds/genericblunt_hit.ogg'
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/wooden_pickup.ogg'
 	force = 25
 	throwforce = 15
 	subtractible_armour_penetration = 15
@@ -299,6 +309,7 @@
 	desc = "A rake used for raking. You could try to dig with it, but it won't do you much good."
 	icon_state = "rake"
 	inhand_icon_state = "rake"
+	hitsound = 'mojave/sound/ms13weapons/meleesounds/stab_hit.ogg'
 	force = 25
 	throwforce = 10
 	subtractible_armour_penetration = 0
@@ -307,7 +318,6 @@
 	toolspeed = 2.5
 	attack_verb_continuous = list("smacks", "slashes", "jabs", "slaps", "pounds", "beats", "bonks", "rakes", "assaults")
 	attack_verb_simple = list("smack", "slash", "jabb", "slap", "pound", "beat", "bonk", "rake", "assault")
-	hitsound = 'sound/weapons/genhit.ogg'
 	sharpness = SHARP_IMPALING
 
 /obj/item/pickaxe/ms13
@@ -317,12 +327,19 @@
 	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
 	icon_state = "pickaxe"
+	hitsound = 'mojave/sound/ms13weapons/meleesounds/stab_hit.ogg'
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/wooden_pickup.ogg'
 	slot_flags = NONE
-	force = 30
+	force = 25
 	throwforce = 15
+	subtractible_armour_penetration = 5
+	wound_bonus = 5
+	bare_wound_bonus = 5
 	w_class = WEIGHT_CLASS_BULKY
+	grid_width = 64
+	grid_height = 128
 	custom_materials = null
-	toolspeed = 0.25 //grim
+	toolspeed = 1.5 //grim
 
 /obj/item/ms13/brick
 	name = "brick"
@@ -334,6 +351,8 @@
 	worn_icon_state = "empty_placeholder"
 	icon_state = "brick"
 	inhand_icon_state = "brick"
+	hitsound = 'mojave/sound/ms13weapons/meleesounds/genericblunt_hit.ogg'
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/general_grip.ogg'
 	attack_verb_continuous = list("clonks", "smacks", "clocks", "nails", "bludgeons", "whacks", "bonks", "bricks")
 	attack_verb_simple = list("clonk", "smack", "clock", "nail", "bludgeon", "whack", "bonk", "brick")
 	force = 20

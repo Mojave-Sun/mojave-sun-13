@@ -114,6 +114,7 @@
 	attack_verb_continuous = list("mashes", "bashes", "batters", "hits", "bludgeons", "whacks", "bonks")
 	attack_verb_simple = list("mash", "bash", "batter", "hit", "bludgeon", "whack", "bonk")
 	hitsound = 'mojave/sound/ms13weapons/meleesounds/baton_hit.ogg'
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/general_pickup.ogg'
 	force = 25
 	throwforce = 10
 	subtractible_armour_penetration = 15
