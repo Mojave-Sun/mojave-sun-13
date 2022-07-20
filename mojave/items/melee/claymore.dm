@@ -32,6 +32,8 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	sharpness = SHARP_EDGED
 	tool_behaviour = TOOL_KNIFE
+	hitsound = list('mojave/sound/ms13weapons/meleesounds/blade_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/blade_hit2.ogg')
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/blade_pickup.ogg'
 	toolspeed = 2
 	grid_width = 64
 	grid_height = 96
@@ -76,7 +78,8 @@
 	inhand_icon_state = "lead_pipe"
 	attack_verb_continuous = list("mashes", "bashes", "pipes", "hits", "bludgeons", "whacks", "bonks")
 	attack_verb_simple = list("mash", "bash", "pipe", "hit", "bludgeon", "whack", "bonk")
-	hitsound = 'sound/weapons/genhit2.ogg'
+	hitsound = 'mojave/sound/ms13weapons/meleesounds/pipe_hit.ogg'
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/general_pickup.ogg'
 	force = 25
 	throwforce = 10
 	subtractible_armour_penetration = 15
@@ -110,7 +113,8 @@
 	inhand_icon_state = "tonfa"
 	attack_verb_continuous = list("mashes", "bashes", "batters", "hits", "bludgeons", "whacks", "bonks")
 	attack_verb_simple = list("mash", "bash", "batter", "hit", "bludgeon", "whack", "bonk")
-	hitsound = 'sound/weapons/genhit2.ogg'
+	hitsound = 'mojave/sound/ms13weapons/meleesounds/baton_hit.ogg'
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/general_pickup.ogg'
 	force = 25
 	throwforce = 10
 	subtractible_armour_penetration = 15
@@ -127,6 +131,7 @@
 	desc = "A slightly dull makeshift sword, rigged up to dispense hot injustice at the flip of a switch."
 	icon_state = "shishkebab_off"
 	inhand_icon_state = "shishkebab_off"
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/blade_pickup.ogg'
 	sharpness = SHARP_EDGED
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
@@ -148,7 +153,7 @@
 		attack_verb_continuous = list("burned", "welded", "cauterized", "melted", "charred")
 		attack_verb_simple = list("burn", "weld", "cauterize", "melt", "char")
 		to_chat(user, "<span class='notice'>You open the valve and click the igniter, [src] begins to eject flames.")
-		hitsound = 'sound/items/welder2.ogg'
+		hitsound = list('mojave/sound/ms13weapons/meleesounds/shishkebab_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/shishkebab_hit2.ogg')
 		damtype = "burn"
 		force = 30
 
@@ -156,7 +161,7 @@
 		attack_verb_continuous = list("stabs", "slices", "slashes", "cuts", "rends")
 		attack_verb_simple = list("stab", "slice", "slash", "cut", "rend")
 		to_chat(user, "<span class='notice'>As you close the valve on [src], the flame goes out.")
-		hitsound = "swing_hit"
+		hitsound = list('mojave/sound/ms13weapons/meleesounds/blade_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/blade_hit2.ogg')
 		damtype = "brute"
 		force = 20
 
@@ -165,6 +170,7 @@
 	desc = "A militarized handheld chainsaw, the sound of it alone is enough to strike fear into the hearts of many. When turned on, the motor allows this to be used as a weapon with quick follow up strikes."
 	icon_state = "ripper_off"
 	inhand_icon_state = "ripper_off"
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/general_pickup.ogg'
 	wound_bonus = 10
 	bare_wound_bonus = 10
 	throwforce = 10
@@ -184,7 +190,7 @@
 		attack_verb_continuous = list("jabs", "slices", "slashes", "cuts", "rends", "saws", "tears")
 		attack_verb_simple = list("jab", "slice", "slash", "cut", "rend", "saw", "tear")
 		to_chat(user, "<span class='notice'>As you yank the starter cord on [src], it roars to life.")
-		hitsound = 'sound/weapons/chainsawhit.ogg'
+		hitsound = list('mojave/sound/ms13weapons/meleesounds/ripper_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/ripper_hit2.ogg', 'mojave/sound/ms13weapons/meleesounds/ripper_hit3.ogg')
 		force = 20
 		subtractible_armour_penetration = 20
 		edge_protection_penetration = 5
@@ -196,7 +202,7 @@
 		attack_verb_continuous = list("smacks", "beats", "slashes", "cuts", "clubs")
 		attack_verb_simple = list("smack", "beat", "slash", "cut", "club")
 		to_chat(user, "<span class='notice'>You flip off [src], it slows to a halt.")
-		hitsound = "swing_hit"
+		hitsound = 'mojave/sound/ms13weapons/meleesounds/knife_hit2.ogg'
 		force = 10
 		subtractible_armour_penetration = 5
 		toolspeed = 1.5
@@ -218,7 +224,7 @@
 		attack_verb_continuous = list("jabs", "slices", "slashes", "cuts", "rends", "saws", "tears")
 		attack_verb_simple = list("jab", "slice", "slash", "cut", "rend", "saw", "tear")
 		to_chat(user, "<span class='notice'>As you yank the starter cord on [src], it roars to life.")
-		hitsound = 'sound/weapons/chainsawhit.ogg'
+		hitsound = list('mojave/sound/ms13weapons/meleesounds/ripper_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/ripper_hit2.ogg', 'mojave/sound/ms13weapons/meleesounds/ripper_hit3.ogg')
 		force = 30
 		subtractible_armour_penetration = 30
 		edge_protection_penetration = 5
@@ -230,7 +236,7 @@
 		attack_verb_continuous = list("smacks", "beats", "slashes", "cuts", "clubs")
 		attack_verb_simple = list("smack", "beat", "slash", "cut", "club")
 		to_chat(user, "<span class='notice'>You flip off [src], it slows to a halt.")
-		hitsound = "swing_hit"
+		hitsound = 'mojave/sound/ms13weapons/meleesounds/knife_hit2.ogg'
 		force = 10
 		subtractible_armour_penetration = 5
 		toolspeed = 1.5

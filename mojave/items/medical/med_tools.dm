@@ -47,7 +47,7 @@
 	wound_bonus = 0
 	bare_wound_bonus = 5
 	sharpness = SHARP_EDGED
-	toolspeed = 1.75
+	toolspeed = 1.35 //Slower than a circular saw during surgery, basically
 
 /obj/item/ms13/handsaw/bone/Initialize()
 	. = ..()

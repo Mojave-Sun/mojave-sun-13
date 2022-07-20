@@ -10,6 +10,8 @@
 	worn_icon_state = "empty_placeholder"
 	icon_state = "knife_kitchen"
 	inhand_icon_state = "knife_kitchen"
+	hitsound = list('mojave/sound/ms13weapons/meleesounds/knife_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/knife_hit2.ogg')
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/knife_pickup.ogg'
 	force = 20
 	throwforce = 15
 	subtractible_armour_penetration = 5
@@ -105,6 +107,7 @@
 	desc = "A slick and concealable switchblade."
 	icon_state = "knife_switch_closed"
 	inhand_icon_state = "knife_switch_closed"
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/general_pickup.ogg'
 	wound_bonus = 10
 	bare_wound_bonus = 5
 	edge_protection_penetration = 5
@@ -120,7 +123,7 @@
 	if(open)
 		attack_verb_continuous = list("slashes", "slices", "tears", "lacerates", "rips", "dices", "cuts")
 		attack_verb_simple = list("slash", "slice", "tear", "lacerate", "rip", "dice", "cut")
-		hitsound = 'sound/weapons/bladeslice.ogg'
+		hitsound = list('mojave/sound/ms13weapons/meleesounds/knife_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/knife_hit2.ogg')
 		force = 20
 		throwforce = 15
 		subtractible_armour_penetration = 10
@@ -162,7 +165,7 @@
 	if(open)
 		attack_verb_continuous = list("slashes", "slices", "tears", "lacerates", "rips", "dices", "cuts")
 		attack_verb_simple = list("slash", "slice", "tear", "lacerate", "rip", "dice", "cut")
-		hitsound = 'sound/weapons/bladeslice.ogg'
+		hitsound = list('mojave/sound/ms13weapons/meleesounds/knife_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/knife_hit2.ogg')
 		force = 15
 		throwforce = 5
 		subtractible_armour_penetration = 5
@@ -195,6 +198,8 @@
 	worn_icon_state = "empty_placeholder"
 	icon_state = "knife_cleaver"
 	inhand_icon_state = "knife_cleaver"
+	hitsound = list('mojave/sound/ms13weapons/meleesounds/blade_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/blade_hit2.ogg')
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/knife_pickup.ogg'
 	force = 25
 	throwforce = 15
 	subtractible_armour_penetration = 10
