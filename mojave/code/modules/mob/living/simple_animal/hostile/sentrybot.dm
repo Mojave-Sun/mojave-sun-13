@@ -291,8 +291,8 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 /obj/projectile/beam/ms13/laser/sentrybot
 	damage = 5
 	subtractible_armour_penetration = 25
-	wound_bonus = 15
-	bare_wound_bonus = 15
+	wound_bonus = 24
+	bare_wound_bonus = 12
 
 //A special rocket for sentrybot; light explosion fixed with lots of fire
 
@@ -302,6 +302,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	damage = 0 //Damage comes from the light explosion and fire
 	embedding = null
 	shrapnel_type = null
+	speed = 1 //slower because it's a rocket
 
 /obj/projectile/bullet/sentrybot_rocket/on_hit(atom/target, blocked = FALSE)
 	explosion(get_turf(target), devastation_range = -1, heavy_impact_range = -1, light_impact_range = 2, flame_range = 3, explosion_cause = src)
@@ -311,17 +312,17 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 /datum/action/cooldown/launch_rocket
 	name = "Launch a rocket"
 	desc = "Launches a cool rocket at the enemy"
-	cooldown_time = 15 SECONDS
+	cooldown_time = 14 SECONDS
 	click_to_activate = TRUE
 	var/obj/projectile/projectile = /obj/projectile/bullet/sentrybot_rocket
 
 /datum/action/cooldown/launch_rocket/Activate(atom/target_atom)
-	StartCooldown(15 SECONDS)
+	StartCooldown(14 SECONDS)
 	launch_rocket(target_atom)
 	StartCooldown()
 
 /datum/action/cooldown/launch_rocket/proc/launch_rocket(atom/target_atom)
-	playsound(owner, 'mojave/sound/ms13npc/sentrybot/rocket1.ogg', 50, TRUE, -1)
+	playsound(owner, 'mojave/sound/ms13npc/sentrybot/rocket1.ogg', 60, TRUE, -1)
 	var/obj/projectile/projectile_obj = new projectile(get_turf(owner))
 	projectile_obj.firer = owner
 	projectile_obj.preparePixelProjectile(target_atom, owner)
@@ -342,7 +343,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 
 /datum/action/cooldown/launch_grenade/proc/launch_grenade(atom/target_atom)
 	//living_owner.SetStun(1.5 SECONDS, ignore_canstun = TRUE)
-	playsound(owner, 'mojave/sound/ms13npc/sentrybot/grenade2.ogg', 50, TRUE, -1)
+	playsound(owner, 'mojave/sound/ms13npc/sentrybot/grenade2.ogg', 60, TRUE, -1)
 	//var/obj/item/grenade/thrown_grenade = new grenade(get_step(owner, get_dir(owner, target_atom)))
 	var/obj/item/grenade/thrown_grenade = new grenade(get_turf(owner))
 	var/original_density = owner.density

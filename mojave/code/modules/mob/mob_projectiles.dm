@@ -2,9 +2,15 @@
 
 /obj/item/ammo_casing/energy/ms13/laser/eyebot
 	projectile_type = /obj/projectile/beam/ms13/laser/eyebot
-	variance = 15
+	variance = 21
 	pellets = 1
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_1.ogg'
+	randomspread = TRUE
+
+/obj/item/ammo_casing/energy/ms13/laser/eyebot/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from, extra_damage, extra_penetration)
+	. = ..()
+	if(. && !QDELETED(src))
+		qdel(src)
 
 /obj/projectile/beam/ms13/laser/eyebot
 	name = "weak laser beam"
@@ -48,9 +54,15 @@
 
 /obj/item/ammo_casing/energy/electrode/ms13
 	projectile_type = /obj/projectile/energy/electrode/ms13
-	variance = 5
+	variance = 12
 	pellets = 1
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/bb/wpn_bbgun_fire_2d.ogg'
+	randomspread = TRUE
+
+/obj/item/ammo_casing/energy/electrode/ms13/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from, extra_damage, extra_penetration)
+	. = ..()
+	if(. && !QDELETED(src))
+		qdel(src)
 
 /obj/projectile/energy/electrode/ms13
 	nodamage = FALSE
@@ -64,9 +76,15 @@
 
 /obj/item/ammo_casing/energy/ms13/laser/protectron
 	projectile_type = /obj/projectile/beam/ms13/laser/protectron
-	variance = 10
+	variance = 18
 	pellets = 1
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_3.ogg'
+	randomspread = TRUE
+
+/obj/item/ammo_casing/energy/ms13/laser/protectron/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from, extra_damage, extra_penetration)
+	. = ..()
+	if(. && !QDELETED(src))
+		qdel(src)
 
 /obj/projectile/beam/ms13/laser/protectron
 	name = "laser beam"
@@ -93,9 +111,15 @@
 
 /obj/item/ammo_casing/energy/ms13/laser/robobrain
 	projectile_type = /obj/projectile/beam/ms13/laser/robobrain
-	variance = 5
+	variance = 12
 	pellets = 1
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_5.ogg'
+	randomspread = TRUE
+
+/obj/item/ammo_casing/energy/ms13/laser/robobrain/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from, extra_damage, extra_penetration)
+	. = ..()
+	if(. && !QDELETED(src))
+		qdel(src)
 
 /obj/projectile/beam/ms13/laser/robobrain
 	name = "radiation beam"
@@ -121,9 +145,15 @@
 
 /obj/item/ammo_casing/energy/ms13/laser/handy
 	projectile_type = /obj/projectile/beam/ms13/laser/handy
-	variance = 15
+	variance = 21
 	pellets = 1
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_2.ogg'
+	randomspread = TRUE
+
+/obj/item/ammo_casing/energy/ms13/laser/handy/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from, extra_damage, extra_penetration)
+	. = ..()
+	if(. && !QDELETED(src))
+		qdel(src)
 
 /obj/projectile/beam/ms13/laser/handy
 	name = "laser beam"
@@ -140,9 +170,15 @@
 
 /obj/item/ammo_casing/energy/ms13/plasma/gutsy
 	projectile_type = /obj/projectile/bullet/ms13/plasma/gutsy
-	variance = 10
+	variance = 18
 	pellets = 1
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/plasrifle/plasma_3.ogg'
+	randomspread = TRUE
+
+/obj/item/ammo_casing/energy/ms13/plasma/gutsy/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from, extra_damage, extra_penetration)
+	. = ..()
+	if(. && !QDELETED(src))
+		qdel(src)
 
 /obj/projectile/bullet/ms13/plasma/gutsy
 	damage = 35
@@ -154,9 +190,15 @@
 
 /obj/item/ammo_casing/energy/ms13/laser/assaultron
 	projectile_type = /obj/projectile/beam/ms13/laser/assaultron
-	variance = 5
+	variance = 12
 	pellets = 1
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/lasrifle/laser_heavy.ogg'
+	randomspread = TRUE
+
+/obj/item/ammo_casing/energy/ms13/laser/assaultron/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from, extra_damage, extra_penetration)
+	. = ..()
+	if(. && !QDELETED(src))
+		qdel(src)
 
 /obj/projectile/beam/ms13/laser/assaultron
 	name = "concentrated laser beam"

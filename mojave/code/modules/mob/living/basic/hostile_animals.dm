@@ -66,6 +66,10 @@
 	eggable = TRUE
 	egg_type = /obj/item/food/ms13/egg/ms13/radroach */
 
+/mob/living/basic/ms13/hostile_animal/radroach/death()
+	. = ..()
+	playsound(src, 'mojave/sound/ms13npc/radroach_death1.ogg', 60, TRUE)
+
 /mob/living/basic/ms13/hostile_animal/gecko
 	name = "gecko"
 	desc = "A large mutated bipedal lizard, an angry squatter of the wastes."
@@ -93,6 +97,10 @@
 	rideable = TRUE
 	eggable = TRUE
 	egg_type = /obj/item/food/ms13/egg/ms13/gecko*/
+
+/mob/living/basic/ms13/hostile_animal/gecko/death()
+	. = ..()
+	playsound(src, 'mojave/sound/ms13npc/gecko_death2.ogg', 60, TRUE)
 
 /mob/living/basic/ms13/hostile_animal/gecko/ice
 	icon_state = "icegecko"
@@ -135,6 +143,10 @@
 /mob/living/simple_animal/hostile/ms13/molerat/tamed
 	faction = list("neutral")*/
 
+/mob/living/basic/ms13/hostile_animal/molerat/death()
+	. = ..()
+	playsound(src, 'mojave/sound/ms13npc/molerat_death1.ogg', 60, TRUE)
+
 /mob/living/basic/ms13/hostile_animal/molerat/young
 	name = "young molerat"
 	desc = "A small disgusting flesh beast, known for it's hostility and edible meat. Almost cute"
@@ -175,6 +187,10 @@
 	breedable = TRUE
 	young_type = /mob/living/simple_animal/ms13/pigratyoung
 	adult_type = /mob/living/simple_animal/hostile/ms13/pigrat/tamed*/
+
+/mob/living/basic/ms13/hostile_animal/pigrat/death()
+	. = ..()
+	playsound(src, 'mojave/sound/ms13npc/pigrat_death1.ogg', 60, TRUE)
 
 /mob/living/basic/ms13/hostile_animal/pigrat/young
 	name = "young pigrat"
@@ -220,6 +236,10 @@
 	eggable = TRUE
 	egg_type = /obj/item/food/ms13/egg/ms13/ant*/
 
+/mob/living/basic/ms13/hostile_animal/giantant/death()
+	. = ..()
+	playsound(src, 'mojave/sound/ms13npc/ant_death1.ogg', 60, TRUE)
+
 /mob/living/basic/ms13/hostile_animal/wolf
 	name = "wolf"
 	desc = "An extremely hostile pack wolf, hardened by radiation. A fearsome hunter-killer."
@@ -244,6 +264,10 @@
 	/*food_type = list(/obj/item/food/meat/slab)
 	tame_chance = 5
 	bonus_tame_chance = 5*/
+
+/mob/living/basic/ms13/hostile_animal/wolf/death()
+	. = ..()
+	playsound(src, 'mojave/sound/ms13npc/dog_death1.ogg', 60, TRUE)
 
 /mob/living/basic/ms13/hostile_animal/mirelurk
 	name = "mirelurk"
@@ -271,6 +295,10 @@
 	rideable = TRUE
 	eggable = TRUE
 	egg_type = /obj/item/food/ms13/egg/ms13/mirelurk*/
+
+/mob/living/basic/ms13/hostile_animal/mirelurk/death()
+	. = ..()
+	playsound(src, 'mojave/sound/ms13npc/ant_death1.ogg', 60, TRUE) //placeholder for now, it sounds alright
 
 /mob/living/basic/ms13/hostile_animal/yaoguai
 	name = "yao guai"
@@ -301,6 +329,10 @@
 	rideable = TRUE*/
 	base_pixel_x = -64
 
+/mob/living/basic/ms13/hostile_animal/yaoguai/death()
+	. = ..()
+	playsound(src, 'mojave/sound/ms13npc/yaoguai_death1.ogg', 60, TRUE)
+
 /mob/living/basic/ms13/hostile_animal/hellpig
 	name = "hellpig"
 	desc = "A massive mutated pig. Wild and deadly."
@@ -330,3 +362,7 @@
 	rideable = TRUE*/
 	base_pixel_x = -48
 	status_flags = null
+
+/mob/living/basic/ms13/hostile_animal/hellpig/death()
+	. = ..()
+	playsound(src, 'mojave/sound/ms13npc/hellpig_death2.ogg', 60, TRUE)

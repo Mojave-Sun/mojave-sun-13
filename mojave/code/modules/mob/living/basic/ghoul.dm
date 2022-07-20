@@ -30,6 +30,10 @@
 	AddElement(/datum/element/basic_body_temp_sensitive, cold_damage = 7.5, heat_damage = 7.5)
 	AddElement(/datum/element/atmos_requirements, list("min_oxy" = 5, "max_oxy" = 0, "min_plas" = 0, "max_plas" = 1, "min_co2" = 0, "max_co2" = 5, "min_n2" = 0, "max_n2" = 0), 7.5)
 
+/mob/living/basic/ms13/ghoul/death()
+	. = ..()
+	playsound(src, 'mojave/sound/ms13npc/ghoul_death2.ogg', 60, TRUE)
+
 /datum/ai_controller/basic_controller/ms13/ghoul
 	blackboard = list(
 		BB_TARGETTING_DATUM = new /datum/targetting_datum/basic()

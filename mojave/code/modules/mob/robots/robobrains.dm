@@ -35,6 +35,7 @@
 /mob/living/simple_animal/hostile/ms13/robot/robobrain/death()
 	. = ..()
 	do_sparks(3, TRUE, src)
+	playsound(src, 'mojave/sound/ms13npc/robot_death.ogg', 60, TRUE)
 	qdel(src)
 
 /mob/living/simple_animal/hostile/ms13/robot/robobrain/heavy

@@ -27,6 +27,7 @@
 /mob/living/simple_animal/hostile/ms13/robot/protectron/death()
 	. = ..()
 	do_sparks(3, TRUE, src)
+	playsound(src, 'mojave/sound/ms13npc/robot_death.ogg', 60, TRUE)
 	qdel(src)
 
 /mob/living/simple_animal/hostile/ms13/robot/protectron/fire
@@ -48,8 +49,8 @@
 	ranged = FALSE
 	minimum_distance = 1
 	retreat_distance = null
-	move_to_delay = 4.5
-	speed = 2.5
+	move_to_delay = 4
+	speed = 2
 
 /mob/living/simple_animal/hostile/ms13/robot/protectron/police
 	name = "police protectron"

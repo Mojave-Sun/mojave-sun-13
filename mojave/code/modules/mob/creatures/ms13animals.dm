@@ -43,6 +43,10 @@
 	offsetx = 3
 	offsety = 11
 
+/mob/living/simple_animal/hostile/retaliate/ms13/brahmin/death()
+	. = ..()
+	playsound(src, 'mojave/sound/ms13npc/brahmin_death1.ogg', 60, TRUE)
+
 /mob/living/simple_animal/ms13/brahminyoung
 	name = "brahmin calf"
 	desc = "Mutated cattle, renowed over the wastes for their labor, milk, fertilizer, leather, and meat."
@@ -498,6 +502,10 @@
 	var/poison_per_bite = 20
 	var/poison_type = /datum/reagent/toxin
 
+/mob/living/simple_animal/hostile/ms13/radscorpion/death()
+	. = ..()
+	playsound(src, 'mojave/sound/ms13npc/radscorp_death1.ogg', 60, TRUE)
+
 /mob/living/simple_animal/hostile/ms13/radscorpion/AttackingTarget()
 	. = ..()
 	if(.)
@@ -546,6 +554,10 @@
 	adult_type = /mob/living/simple_animal/hostile/ms13/radstag/tamed
 	offsetx = 2
 	offsety = 7
+
+/mob/living/simple_animal/hostile/ms13/radstag/death()
+	. = ..()
+	playsound(src, 'mojave/sound/ms13npc/radstag_death1.ogg', 60, TRUE)
 
 /mob/living/simple_animal/hostile/ms13/radstag/GiveTarget(new_target)
 	target = new_target

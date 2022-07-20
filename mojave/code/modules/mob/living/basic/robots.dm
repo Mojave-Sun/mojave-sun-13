@@ -73,6 +73,7 @@
 	new /obj/item/stack/sheet/ms13/scrap/two(loc)
 	new /obj/item/stack/sheet/ms13/scrap_parts(loc)
 	new /obj/item/stack/sheet/ms13/scrap_electronics(loc)
+	playsound(src, 'mojave/sound/ms13npc/robot_death.ogg', 60, TRUE)
 	qdel(src)
 
 /mob/living/basic/ms13/robot/handy/saw

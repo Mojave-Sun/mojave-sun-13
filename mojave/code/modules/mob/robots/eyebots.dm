@@ -51,6 +51,7 @@
 	. = ..()
 	do_sparks(3, TRUE, src)
 	explosion(src,0,0,1,1)
+	playsound(src, 'mojave/sound/ms13npc/robot_death.ogg', 60, TRUE)
 	qdel(src)
 
 // Hostile eyebots, dungeon guards.
@@ -93,6 +94,7 @@
 	. = ..()
 	do_sparks(3, TRUE, src)
 	explosion(src,0,0,1,1)
+	playsound(src, 'mojave/sound/ms13npc/robot_death.ogg', 60, TRUE)
 	qdel(src)
 
 /mob/living/simple_animal/hostile/ms13/robot/eyebot/military

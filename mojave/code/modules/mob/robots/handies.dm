@@ -27,6 +27,7 @@
 /mob/living/simple_animal/hostile/ms13/robot/handy/death()
 	. = ..()
 	do_sparks(3, TRUE, src)
+	playsound(src, 'mojave/sound/ms13npc/robot_death.ogg', 60, TRUE)
 	qdel(src)
 
 /mob/living/simple_animal/hostile/ms13/robot/handy/saw
@@ -54,7 +55,7 @@
 	loot = list(/obj/item/stack/sheet/ms13/scrap/two, /obj/effect/decal/cleanable/robot_debris, /obj/item/stack/sheet/ms13/scrap_electronics/two, /obj/item/stack/sheet/ms13/scrap_parts/two, /obj/item/ms13/component/cell)
 	ranged = TRUE
 	ranged_cooldown = 2 SECONDS
-	casingtype = /obj/projectile/beam/ms13/laser/handy
+	casingtype = /obj/item/ammo_casing/energy/ms13/laser/handy
 
 /mob/living/simple_animal/hostile/ms13/robot/handy/gutsy
 	name = "Mr. Gutsy"
@@ -73,5 +74,4 @@
 	loot = list(/obj/item/stack/sheet/ms13/scrap_steel/two, /obj/effect/decal/cleanable/robot_debris, /obj/item/stack/sheet/ms13/scrap_electronics/two, /obj/item/stack/sheet/ms13/scrap_parts/two, /obj/item/ms13/component/plasma_battery, /obj/item/stack/sheet/ms13/circuits)
 	ranged = TRUE
 	ranged_cooldown = 2 SECONDS
-	projectiletype = /obj/projectile/bullet/ms13/plasma/gutsy
-	projectilesound = 'mojave/sound/ms13weapons/gunsounds/plasrifle/plasma_3.ogg'
+	casingtype = /obj/item/ammo_casing/energy/ms13/plasma/gutsy
