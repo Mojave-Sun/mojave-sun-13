@@ -20,7 +20,7 @@
 	attack_verb_simple = "headbutt"
 	turns_per_move = 3
 	butcher_results = list(/obj/item/ms13/hide/brahmin = 1, /obj/item/food/meat/slab/ms13/carcass/large/brahmin/front = 1, /obj/item/food/meat/slab/ms13/carcass/large/brahmin/back = 1, /obj/item/ms13/animalitem/brahmin/horns = 2)//brahmin meat, tongue, horns, hide
-	attack_sound = list('mojave/sound/ms13npc/brahmin_attack1.ogg', 'mojave/sound/ms13npc/brahmin_attack2.ogg', 'mojave/sound/ms13npc/brahmin_attack3.ogg')
+	attack_sound = list('mojave/sound/ms13npc/brahmin_attack1.ogg', 'mojave/sound/ms13npc/brahmin_attack2.ogg')
 	deathsound = 'mojave/sound/ms13npc/brahmin_death1.ogg'
 	idlesound = list('mojave/sound/ms13npc/brahmin_moo1.ogg', 'mojave/sound/ms13npc/brahmin_moo2.ogg', 'mojave/sound/ms13npc/brahmin_moo3.ogg')
 	idlechance = 10

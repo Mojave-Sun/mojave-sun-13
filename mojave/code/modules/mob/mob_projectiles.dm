@@ -7,6 +7,7 @@
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_1.ogg'
 
 /obj/projectile/beam/ms13/laser/eyebot
+	name = "weak laser beam"
 	damage = 15
 	subtractible_armour_penetration = 5
 	wound_bonus = 0
@@ -22,6 +23,7 @@
 	projectile_type = /obj/projectile/beam/ms13/laser/eyebot/overcharge
 
 /obj/projectile/beam/ms13/laser/eyebot/overcharge
+	name = "laser beam"
 	damage = 20
 	subtractible_armour_penetration = 20
 	wound_bonus = 5
@@ -80,7 +82,7 @@
 	name = "radiation beam"
 	damage = 20
 	armour_penetration = 10
-	drowsy = 25
+	drowsy = 20
 	wound_bonus = 12
 	bare_wound_bonus = 10
 	hitscan_light_color_override = COLOR_YELLOW
@@ -98,10 +100,17 @@
 
 // Mr Handy Projectiles //
 
+/obj/item/ammo_casing/energy/ms13/laser/handy
+	projectile_type = /obj/projectile/beam/ms13/laser/handy
+	variance = 15
+	pellets = 1
+	fire_sound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_2.ogg'
+
 /obj/projectile/beam/ms13/laser/handy
+	name = "laser beam"
 	damage = 25
-	armour_penetration = 5
-	wound_bonus = 0
+	subtractible_armour_penetration = 15
+	wound_bonus = 5
 	bare_wound_bonus = 5
 	hitscan_light_intensity = 2
 	hitscan_light_range = 0.50
@@ -110,9 +119,17 @@
 	impact_light_intensity = 5
 	impact_light_range = 1.25
 
+/obj/item/ammo_casing/energy/ms13/plasma/gutsy
+	projectile_type = /obj/projectile/bullet/ms13/plasma
+	variance = 10
+	pellets = 1
+	fire_sound = 'mojave/sound/ms13weapons/gunsounds/plasrifle/plasma_3.ogg'
+
 /obj/projectile/bullet/ms13/plasma/gutsy
 	damage = 35
-	armour_penetration = 10
+	subtractible_armour_penetration = 15
+	wound_bonus = 15
+	bare_wound_bonus = 10
 
 // Assaultron Projectiles //
 
@@ -123,6 +140,7 @@
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/lasrifle/laser_heavy.ogg'
 
 /obj/projectile/beam/ms13/laser/assaultron
+	name = "concentrated laser beam"
 	damage = 35
 	subtractible_armour_penetration = 25
 	wound_bonus = 5

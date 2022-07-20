@@ -28,7 +28,7 @@
 	melee_damage_upper = 1
 	ranged = TRUE
 	casingtype = /obj/item/ammo_casing/energy/ms13/laser/eyebot
-	ranged_cooldown = 3 SECONDS
+	ranged_cooldown = 2.5 SECONDS
 	bot_type = "ED" // Literally just for naming
 	shadow_type = "shadow_small"
 	stop_automated_movement = TRUE //Could interfere with patrolling so this is here
