@@ -3,8 +3,8 @@
 	desc = "A standard protectron, issued in large quantities to establishments across pre-war America. Armed with lasers for 'self defense'."
 	icon_state = "protectron_common"
 	icon_living = "protectron_common"
-	health = 150
-	maxHealth = 150
+	health = 160
+	maxHealth = 160
 	melee_damage_lower = 10
 	melee_damage_upper = 10
 	vision_range = 12
@@ -22,8 +22,7 @@
 	stat_attack = SOFT_CRIT
 	ranged = TRUE
 	ranged_cooldown = 3 SECONDS
-	projectiletype = /obj/projectile/beam/ms13/laser/protectron
-	projectilesound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_3.ogg'
+	casingtype = /obj/item/ammo_casing/energy/ms13/laser/protectron
 
 /mob/living/simple_animal/hostile/ms13/robot/protectron/death()
 	. = ..()
@@ -32,14 +31,16 @@
 
 /mob/living/simple_animal/hostile/ms13/robot/protectron/fire
 	name = "fireman protectron"
-	desc = "A pre-war protectron, assigned to a firefighting role apparently. Has a strong swing with a very sharp axe head, beware!"
+	desc = "A pre-war protectron, assigned to a firefighting role. Has a strong swing with a very sharp axe head, but can't take quite as much punishment as other protectrons."
 	icon_state = "protectron_fireman"
 	icon_living = "protectron_fireman"
-	melee_damage_lower = 30
+	health = 140
+	maxHealth = 140
+	melee_damage_lower = 35
 	melee_damage_upper = 35
-	armour_penetration = 10
-	wound_bonus = 6
-	bare_wound_bonus = 6
+	subtractible_armour_penetration = 20
+	wound_bonus = 5
+	bare_wound_bonus = 10
 	sharpness = SHARP_EDGED
 	attack_verb_continuous = "cleaves"
 	attack_verb_simple = "cleave"
@@ -47,8 +48,8 @@
 	ranged = FALSE
 	minimum_distance = 1
 	retreat_distance = null
-	move_to_delay = 4
-	speed = 2
+	move_to_delay = 4.5
+	speed = 2.5
 
 /mob/living/simple_animal/hostile/ms13/robot/protectron/police
 	name = "police protectron"
@@ -64,14 +65,15 @@
 	else
 		icon_state = "protectron_police_baton"
 		icon_living = "protectron_police_baton"
-		melee_damage_lower = 20
-		melee_damage_upper = 20
-		wound_bonus = -5
+		melee_damage_lower = 25
+		melee_damage_upper = 25
+		subtractible_armour_penetration = 10
+		wound_bonus = -10
+		bare_wound_bonus = 0
 		desc = "A protectron given the duty of upholding law. This one is equipped with a baton and incapacitation unit."
 		minimum_distance = 1
 		retreat_distance = null
-		projectiletype = /obj/projectile/energy/electrode/ms13
-		projectilesound = 'mojave/sound/ms13weapons/gunsounds/bb/wpn_bbgun_fire_2d.ogg'
+		casingtype = /obj/item/ammo_casing/energy/electrode/ms13
 		ranged_cooldown = 5 SECONDS
 
 /mob/living/simple_animal/hostile/ms13/robot/protectron/builder
@@ -92,11 +94,13 @@
 	desc = "A high security variant of a protectron. Built to last and keep up to harsh punishment, the unaging guard that doesn't require payment."
 	icon_state = "protectron_reinforced"
 	icon_living = "protectron_reinforced"
-	health = 200
-	maxHealth = 200
+	health = 210
+	maxHealth = 210
 	melee_damage_lower = 15
 	melee_damage_upper = 15
+	subtractible_armour_penetration = 5
 	loot = list(/obj/item/stack/sheet/ms13/scrap_steel/two, /obj/effect/decal/cleanable/robot_debris, /obj/item/stack/sheet/ms13/glass, /obj/item/stack/sheet/ms13/scrap_electronics/two, /obj/item/stack/sheet/ms13/circuits, /obj/item/stack/sheet/ms13/scrap_parts/two)
 	wound_bonus = 5
+	bare_wound_bonus = 0
 	minimum_distance = 3
 	retreat_distance = 6

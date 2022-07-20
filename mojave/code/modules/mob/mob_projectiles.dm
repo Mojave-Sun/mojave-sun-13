@@ -46,6 +46,12 @@
 	impact_type = /obj/effect/projectile/impact/ms13/laser/blue
 	wound_bonus = 5
 
+/obj/item/ammo_casing/energy/electrode/ms13
+	projectile_type = /obj/projectile/energy/electrode/ms13
+	variance = 5
+	pellets = 1
+	fire_sound = 'mojave/sound/ms13weapons/gunsounds/bb/wpn_bbgun_fire_2d.ogg'
+
 /obj/projectile/energy/electrode/ms13
 	nodamage = FALSE
 	paralyze = 15
@@ -56,11 +62,18 @@
 
 // Protectron Projectiles //
 
+/obj/item/ammo_casing/energy/ms13/laser/protectron
+	projectile_type = /obj/projectile/beam/ms13/laser/protectron
+	variance = 10
+	pellets = 1
+	fire_sound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_3.ogg'
+
 /obj/projectile/beam/ms13/laser/protectron
+	name = "laser beam"
 	damage = 30
-	armour_penetration = 10
-	wound_bonus = 5
-	bare_wound_bonus = 5
+	subtractible_armour_penetration = 15
+	wound_bonus = 8
+	bare_wound_bonus = 8
 	hitscan_light_intensity = 2
 	hitscan_light_range = 0.50
 	muzzle_flash_intensity = 4
@@ -78,12 +91,18 @@
 
 // Robobrain Projectiles //
 
+/obj/item/ammo_casing/energy/ms13/laser/robobrain
+	projectile_type = /obj/projectile/beam/ms13/laser/robobrain
+	variance = 5
+	pellets = 1
+	fire_sound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_5.ogg'
+
 /obj/projectile/beam/ms13/laser/robobrain
 	name = "radiation beam"
 	damage = 20
-	armour_penetration = 10
+	subtractible_armour_penetration = 30
 	drowsy = 20
-	wound_bonus = 12
+	wound_bonus = 10
 	bare_wound_bonus = 10
 	hitscan_light_color_override = COLOR_YELLOW
 	muzzle_flash_color_override = COLOR_YELLOW
@@ -120,7 +139,7 @@
 	impact_light_range = 1.25
 
 /obj/item/ammo_casing/energy/ms13/plasma/gutsy
-	projectile_type = /obj/projectile/bullet/ms13/plasma
+	projectile_type = /obj/projectile/bullet/ms13/plasma/gutsy
 	variance = 10
 	pellets = 1
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/plasrifle/plasma_3.ogg'

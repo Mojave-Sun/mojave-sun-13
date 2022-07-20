@@ -19,7 +19,7 @@
 	speed = 1
 	wound_bonus = 8
 	bare_wound_bonus = 8
-	sharpness = SHARP_POINTY
+	sharpness = SHARP_IMPALING
 	attack_verb_continuous = "stabs"
 	attack_verb_simple = "stab"
 	stat_attack = SOFT_CRIT

@@ -163,7 +163,7 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	subtractible_armour_penetration = 20
-	speed = 0.8
+	speed = 0.65
 	sharpness = SHARP_IMPALING
 	wound_bonus = 8
 	bare_wound_bonus = 2
