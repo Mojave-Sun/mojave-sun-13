@@ -333,6 +333,7 @@
 	force = 25
 	throwforce = 15
 	subtractible_armour_penetration = 5
+	sharpness = SHARP_IMPALING
 	wound_bonus = 5
 	bare_wound_bonus = 5
 	w_class = WEIGHT_CLASS_BULKY
