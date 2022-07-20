@@ -365,10 +365,9 @@
 /turf/open/floor/ms13/tile/large/cafeteria,
 /area/ms13/underground/vault_atrium_middle)
 "alw" = (
-/obj/structure/closet/ms13/metal,
-/obj/effect/spawner/random/ms13/clothing/under,
-/turf/open/floor/ms13/tile/brown,
-/area/ms13/town)
+/obj/structure/filingcabinet/ms13,
+/turf/open/floor/ms13/concrete,
+/area/ms13/underground/tunnel/maintenance)
 "aly" = (
 /obj/structure/table/ms13/no_smooth/counter/wood{
 	dir = 1
@@ -3322,7 +3321,6 @@
 /obj/machinery/light/ms13/built{
 	dir = 4
 	},
-/obj/structure/table/ms13/metal,
 /obj/effect/spawner/random/ms13/ammo/lowrandom,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/tunnel/maintenance)
@@ -4411,6 +4409,8 @@
 /area/ms13/town)
 "dfW" = (
 /obj/structure/table/ms13/metal,
+/obj/structure/table/ms13/metal,
+/obj/item/radio/ms13/ham,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/tunnel/maintenance)
 "dfY" = (
@@ -5896,8 +5896,9 @@
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/town)
 "efs" = (
+/obj/effect/decal/cleanable/vomit/old,
 /obj/structure/table/ms13/metal,
-/obj/item/radio/ms13/ham,
+/obj/structure/ms13/phone,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/tunnel/maintenance)
 "egm" = (
@@ -6389,11 +6390,10 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "ewo" = (
-/obj/structure/ms13/storage/bookshelf{
-	dir = 8
-	},
-/turf/open/floor/ms13/concrete,
-/area/ms13/underground/tunnel/maintenance)
+/obj/structure/closet/ms13/metal,
+/obj/effect/spawner/random/ms13/clothing/under,
+/turf/open/floor/ms13/tile/brown,
+/area/ms13/town)
 "ews" = (
 /obj/machinery/light/ms13/bulb{
 	dir = 1
@@ -7415,7 +7415,10 @@
 /area/ms13/town)
 "fbD" = (
 /obj/structure/ms13/skeleton,
-/obj/item/clothing/mask/gas/ms13/modern,
+/obj/item/clothing/mask/gas/ms13/modern{
+	pixel_x = -1;
+	pixel_y = 8
+	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/tunnel/maintenance)
 "fci" = (
@@ -12136,10 +12139,8 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "hOC" = (
-/obj/machinery/light/ms13/bulb/industrial{
-	dir = 4
-	},
-/turf/open/floor/ms13/concrete/industrial,
+/obj/structure/ms13/rug/mat/rubber/single,
+/turf/open/floor/ms13/tile/brown,
 /area/ms13/town)
 "hOE" = (
 /obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/left,
@@ -16231,10 +16232,6 @@
 /obj/effect/spawner/random/ms13/medical/lowrandom,
 /turf/open/floor/ms13/tile/large/black,
 /area/ms13/underground/vault_atrium_middle)
-"kjX" = (
-/obj/structure/ms13/rug/mat/rubber/single,
-/turf/open/floor/ms13/tile/brown,
-/area/ms13/town)
 "kke" = (
 /obj/structure/chair/office/ms13/red/broken{
 	dir = 8
@@ -20506,12 +20503,6 @@
 /obj/effect/spawner/random/ms13/guarenteed/melee/lowrandom,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
-"njW" = (
-/obj/machinery/light/ms13/bulb/industrial{
-	dir = 1
-	},
-/turf/open/floor/plating/ms13/ground/sidewalk,
-/area/ms13)
 "njZ" = (
 /obj/structure/table/ms13/no_smooth/large/wood,
 /turf/open/floor/wood/ms13/common,
@@ -24782,10 +24773,6 @@
 /obj/structure/table/ms13/low_wall/brick/gray,
 /turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
-"rln" = (
-/obj/structure/filingcabinet/ms13,
-/turf/open/floor/ms13/concrete,
-/area/ms13/underground/tunnel/maintenance)
 "rlJ" = (
 /obj/effect/decal/cleanable/blood/old{
 	pixel_x = -2;
@@ -25887,12 +25874,6 @@
 	},
 /turf/open/floor/ms13/tile/blue/long,
 /area/ms13/town)
-"sHT" = (
-/obj/structure/filingcabinet/ms13{
-	dir = 1
-	},
-/turf/open/floor/ms13/concrete,
-/area/ms13/underground/tunnel/maintenance)
 "sIv" = (
 /obj/machinery/door/unpowered/ms13/wood/mirrored{
 	dir = 1
@@ -27397,6 +27378,9 @@
 "uUw" = (
 /obj/effect/decal/cleanable/blood/old{
 	pixel_x = -7
+	},
+/obj/structure/filingcabinet/ms13{
+	dir = 1
 	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/tunnel/maintenance)
@@ -59828,7 +59812,7 @@ aDo
 gQX
 axO
 pSt
-aRZ
+red
 hPX
 xZD
 ykT
@@ -60432,7 +60416,7 @@ eEa
 hhZ
 red
 fAy
-hOC
+red
 hPX
 xZD
 ykT
@@ -63452,7 +63436,7 @@ lgy
 ooh
 wny
 xPT
-njW
+xZD
 xZD
 xZD
 ykT
@@ -69234,8 +69218,8 @@ jIO
 jIO
 jIO
 jIO
-alw
-kjX
+ewo
+hOC
 oJO
 jIO
 kkA
@@ -70141,7 +70125,7 @@ jIO
 jIO
 jIO
 jVu
-kjX
+hOC
 oJO
 jIO
 ccY
@@ -70443,7 +70427,7 @@ jMB
 jMB
 jIO
 fGX
-kjX
+hOC
 oJO
 jIO
 scA
@@ -88483,8 +88467,8 @@ xJF
 eso
 fVG
 eso
-eso
-evy
+dfW
+efs
 tkl
 khQ
 khQ
@@ -88782,9 +88766,9 @@ vlA
 fIz
 tkl
 fQo
-rln
-hTi
-efs
+eso
+eso
+eso
 eso
 fbD
 tkl
@@ -89083,11 +89067,11 @@ ffD
 mfE
 okK
 tkl
-eso
+alw
 csN
-dfW
-ewo
-sHT
+eso
+eso
+eso
 uUw
 tkl
 khQ

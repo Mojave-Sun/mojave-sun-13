@@ -7,6 +7,10 @@
     desc = "Your mother. LOOK AWAY, THIS DOESN'T EXIST."
     icon = 'mojave/icons/objects/food/prewar_food.dmi'
 
+/obj/item/trash/ms13/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/item_scaling, 0.50, 1)
+
 /obj/item/trash/ms13/cans
     name = "generic can trash"
     desc = "You shouldn't be seeing this, LOOK THE FUCK AWAY."
