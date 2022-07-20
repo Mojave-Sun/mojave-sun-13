@@ -15,11 +15,19 @@
 	infinite = FALSE
 	start_lit = FALSE
 
-/obj/item/candle/ms13/put_out_candle()
+/obj/item/candle/process(delta_time)
 	if(!lit)
-		return
-	lit = FALSE
+		return PROCESS_KILL
+	if(!infinite)
+		wax -= delta_time
+	if(wax <= 0)
+		new /obj/item/trash/ms13/candle(loc)
+		qdel(src)
 	update_appearance()
-	set_light(0)
+	open_flame()
+
+/obj/item/trash/ms13/candle
+	name = "burned candle"
 	desc = "A burned out wax candle. All good things come to an end."
-	return TRUE
+	icon = 'mojave/icons/objects/clutter/clutter_world.dmi'
+	icon_state = "candle4"
