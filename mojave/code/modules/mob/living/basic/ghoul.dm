@@ -14,7 +14,8 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	subtractible_armour_penetration = 5
-	attack_sound = 'sound/weapons/punch1.ogg'
+	attack_sound = list('mojave/sound/ms13npc/ghoul_attack1.ogg', 'mojave/sound/ms13npc/ghoul_attack2.ogg', 'mojave/sound/ms13npc/ghoul_attack3.ogg')
+	deathsound = list('mojave/sound/ms13npc/ghoul_death1.ogg', 'mojave/sound/ms13npc/ghoul_death2.ogg', 'mojave/sound/ms13npc/ghoul_death3.ogg')
 	combat_mode = TRUE
 	faction = list("ghoul")
 	speak_emote = list("grumbles","growls")

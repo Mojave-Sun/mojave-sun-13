@@ -311,17 +311,17 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 /datum/action/cooldown/launch_rocket
 	name = "Launch a rocket"
 	desc = "Launches a cool rocket at the enemy"
-	cooldown_time = 14 SECONDS
+	cooldown_time = 15 SECONDS
 	click_to_activate = TRUE
 	var/obj/projectile/projectile = /obj/projectile/bullet/sentrybot_rocket
 
 /datum/action/cooldown/launch_rocket/Activate(atom/target_atom)
-	StartCooldown(14 SECONDS)
+	StartCooldown(15 SECONDS)
 	launch_rocket(target_atom)
 	StartCooldown()
 
 /datum/action/cooldown/launch_rocket/proc/launch_rocket(atom/target_atom)
-	playsound(owner, 'mojave/sound/ms13weapons/rocket_launcher_fire.ogg', 50, TRUE, -1)
+	playsound(owner, 'mojave/sound/ms13npc/sentrybot/rocket1.ogg', 50, TRUE, -1)
 	var/obj/projectile/projectile_obj = new projectile(get_turf(owner))
 	projectile_obj.firer = owner
 	projectile_obj.preparePixelProjectile(target_atom, owner)
@@ -342,7 +342,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 
 /datum/action/cooldown/launch_grenade/proc/launch_grenade(atom/target_atom)
 	//living_owner.SetStun(1.5 SECONDS, ignore_canstun = TRUE)
-	playsound(owner, 'sound/weapons/gun/general/rocket_launch.ogg', 50, TRUE, -1)
+	playsound(owner, 'mojave/sound/ms13npc/sentrybot/grenade2.ogg', 50, TRUE, -1)
 	//var/obj/item/grenade/thrown_grenade = new grenade(get_step(owner, get_dir(owner, target_atom)))
 	var/obj/item/grenade/thrown_grenade = new grenade(get_turf(owner))
 	var/original_density = owner.density

@@ -49,7 +49,8 @@
 	speak_emote = list("screeches")
 	attack_verb_continuous = "pincers"
 	attack_verb_simple = "pincer"
-	attack_sound = 'sound/weapons/bite.ogg'
+	attack_sound = list('mojave/sound/ms13npc/radroach_attack1.ogg', 'mojave/sound/ms13npc/radroach_attack2.ogg', 'mojave/sound/ms13npc/radroach_attack3.ogg')
+	deathsound = list('mojave/sound/ms13npc/radroach_death1.ogg', 'mojave/sound/ms13npc/radroach_death2.ogg', 'mojave/sound/ms13npc/radroach_death3.ogg')
 	health = 30
 	maxHealth = 30
 	melee_damage_lower = 10
@@ -67,14 +68,15 @@
 
 /mob/living/basic/ms13/hostile_animal/gecko
 	name = "gecko"
-	desc = "A large mutated bipedal lizard, an angry squatter of the wastes, keen to fish-like prey and also rarely used as a mount."
+	desc = "A large mutated bipedal lizard, an angry squatter of the wastes."
 	icon_state = "gecko"
 	icon_dead = "gecko_dead"
 	gender = PLURAL
 	speak_emote = list("hisses")
-	attack_verb_continuous = "scratches"
-	attack_verb_simple = "scratch"
-	attack_sound = 'sound/weapons/slash.ogg'//scratch
+	attack_verb_continuous = "bites"
+	attack_verb_simple = "bite"
+	attack_sound = list('mojave/sound/ms13npc/gecko_attack1.ogg', 'mojave/sound/ms13npc/gecko_attack2.ogg', 'mojave/sound/ms13npc/gecko_attack3.ogg')
+	deathsound = list('mojave/sound/ms13npc/gecko_death1.ogg', 'mojave/sound/ms13npc/gecko_death2.ogg')
 	health = 60
 	maxHealth = 60
 	melee_damage_lower = 15
@@ -110,7 +112,8 @@
 	speak_emote = list("screeches")
 	attack_verb_continuous = "bites"
 	attack_verb_simple = "bite"
-	attack_sound = 'sound/weapons/bite.ogg'
+	attack_sound = list('mojave/sound/ms13npc/molerat_attack1.ogg', 'mojave/sound/ms13npc/molerat_attack2.ogg', 'mojave/sound/ms13npc/molerat_attack3.ogg')
+	deathsound = list('mojave/sound/ms13npc/molerat_death1.ogg', 'mojave/sound/ms13npc/molerat_death2.ogg', 'mojave/sound/ms13npc/molerat_death3.ogg')
 	health = 60
 	maxHealth = 60
 	melee_damage_lower = 15
@@ -153,7 +156,8 @@
 	speak_emote = list("screeches")
 	attack_verb_continuous = "bites"
 	attack_verb_simple = "bite"
-	attack_sound = 'sound/weapons/bite.ogg'
+	attack_sound = list('mojave/sound/ms13npc/pigrat_attack1.ogg', 'mojave/sound/ms13npc/pigrat_attack2.ogg', 'mojave/sound/ms13npc/pigrat_attack3.ogg')
+	deathsound = list('mojave/sound/ms13npc/pigrat_death1.ogg', 'mojave/sound/ms13npc/pigrat_death2.ogg', 'mojave/sound/ms13npc/pigrat_death3.ogg')
 	health = 80
 	maxHealth = 80
 	melee_damage_lower = 15
@@ -198,7 +202,8 @@
 	speak_emote = list("chitters")
 	attack_verb_continuous = "pincers"
 	attack_verb_simple = "pincer"
-	attack_sound = 'sound/weapons/bite.ogg'
+	attack_sound = list('mojave/sound/ms13npc/ant_attack1.ogg', 'mojave/sound/ms13npc/ant_attack2.ogg')
+	deathsound = list('mojave/sound/ms13npc/ant_death1.ogg', 'mojave/sound/ms13npc/ant_death2.ogg')
 	health = 100
 	maxHealth = 100
 	melee_damage_lower = 20
@@ -223,7 +228,8 @@
 	speak_emote = list("howls")
 	attack_verb_continuous = "bites"
 	attack_verb_simple = "bite"
-	attack_sound = 'sound/weapons/bite.ogg'
+	attack_sound = list('mojave/sound/ms13npc/dog_attack1.ogg', 'mojave/sound/ms13npc/dog_attack2.ogg', 'mojave/sound/ms13npc/dog_attack3.ogg')
+	deathsound = list('mojave/sound/ms13npc/dog_death1.ogg', 'mojave/sound/ms13npc/dog_death2.ogg')
 	health = 70
 	maxHealth = 70
 	melee_damage_lower = 15
@@ -247,11 +253,12 @@
 	speak_emote = list("histles")
 	attack_verb_continuous = "claws"
 	attack_verb_simple = "claw"
-	attack_sound = 'sound/weapons/slash.ogg'
+	attack_sound = list('mojave/sound/ms13npc/mirelurk_attack1.ogg', 'mojave/sound/ms13npc/mirelurk_attack2.ogg', 'mojave/sound/ms13npc/mirelurk_attack3.ogg')
+	deathsound = list('mojave/sound/ms13npc/ant_death1.ogg', 'mojave/sound/ms13npc/ant_death2.ogg') //placeholder for now, it sounds alright
 	health = 225
 	maxHealth = 225
-	melee_damage_lower = 20
-	melee_damage_upper = 20
+	melee_damage_lower = 25
+	melee_damage_upper = 25
 	subtractible_armour_penetration = 20
 	speed = 2.5
 	sharpness = SHARP_EDGED
@@ -275,7 +282,8 @@
 	speak_emote = list("growls")
 	attack_verb_continuous = "mauls"
 	attack_verb_simple = "maul"
-	attack_sound = 'mojave/sound/ms13weapons/meleesounds/slam.ogg'
+	attack_sound = list('mojave/sound/ms13npc/yaoguai_attack1.ogg', 'mojave/sound/ms13npc/yaoguai_attack2.ogg', 'mojave/sound/ms13npc/yaoguai_attack3.ogg')
+	deathsound = list('mojave/sound/ms13npc/yaoguai_death1.ogg', 'mojave/sound/ms13npc/yaoguai_death2.ogg') 
 	health = 420
 	maxHealth = 420
 	melee_damage_lower = 45
@@ -301,14 +309,15 @@
 	icon_dead = "hellpig_dead"
 	gender = MALE
 	speak_emote = list("honks")
-	attack_verb_continuous = "chomps"
-	attack_verb_simple = "chomp"
-	attack_sound = 'mojave/sound/ms13weapons/meleesounds/slam.ogg'
+	attack_verb_continuous = "mauls"
+	attack_verb_simple = "maul"
+	attack_sound = list('mojave/sound/ms13npc/hellpig_attack1.ogg', 'mojave/sound/ms13npc/hellpig_attack2.ogg', 'mojave/sound/ms13npc/hellpig_attack3.ogg')
+	deathsound = list('mojave/sound/ms13npc/hellpig_death1.ogg', 'mojave/sound/ms13npc/hellpig_death2.ogg') //Not in love with either of these death or attack sounds but they work for now. Just pulled them from Yaoguai files 
 	health = 550
 	maxHealth = 550
 	melee_damage_lower = 45
 	melee_damage_upper = 45
-	subtractible_armour_penetration = 15
+	subtractible_armour_penetration = 20
 	speed = 2.25
 	sharpness = NONE
 	wound_bonus = 10

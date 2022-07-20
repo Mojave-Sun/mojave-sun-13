@@ -13,6 +13,7 @@
 	melee_damage_lower = 10
 	melee_damage_upper = 10
 	attack_sound = 'sound/weapons/punch1.ogg'
+	deathsound = 'mojave/sound/ms13npc/robot_death.ogg'
 	combat_mode = TRUE
 	faction = list("robots")
 	speak_emote = list("states","dictates")

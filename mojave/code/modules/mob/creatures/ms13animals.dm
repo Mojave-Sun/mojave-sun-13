@@ -20,7 +20,10 @@
 	attack_verb_simple = "headbutt"
 	turns_per_move = 3
 	butcher_results = list(/obj/item/ms13/hide/brahmin = 1, /obj/item/food/meat/slab/ms13/carcass/large/brahmin/front = 1, /obj/item/food/meat/slab/ms13/carcass/large/brahmin/back = 1, /obj/item/ms13/animalitem/brahmin/horns = 2)//brahmin meat, tongue, horns, hide
-	attack_sound = 'sound/weapons/punch1.ogg'
+	attack_sound = list('mojave/sound/ms13npc/brahmin_attack1.ogg', 'mojave/sound/ms13npc/brahmin_attack2.ogg', 'mojave/sound/ms13npc/brahmin_attack3.ogg')
+	deathsound = 'mojave/sound/ms13npc/brahmin_death1.ogg'
+	idlesound = list('mojave/sound/ms13npc/brahmin_moo1.ogg', 'mojave/sound/ms13npc/brahmin_moo2.ogg', 'mojave/sound/ms13npc/brahmin_moo3.ogg')
+	idlechance = 10
 	speed = 3
 	health = 150
 	maxHealth = 150
@@ -76,7 +79,6 @@
 	attack_verb_simple = "headbutt"
 	turns_per_move = 1
 	butcher_results = list(/obj/item/ms13/hide/brahmiluff = 1, /obj/item/food/meat/slab/ms13/carcass/large/brahmiluff = 1, /obj/item/ms13/animalitem/brahmiluff/horns = 2)//brahmiluff meat, tongue, horns, hide, fur
-	attack_sound = 'sound/weapons/punch1.ogg'
 	health = 200
 	maxHealth = 200
 	melee_damage_lower = 10
@@ -477,7 +479,8 @@
 	speak_chance = 20
 	turns_per_move = 4
 	butcher_results = list()//radscoprion meat, radscorpion tail, chitin
-	attack_sound = 'sound/weapons/slash.ogg'
+	attack_sound = list('mojave/sound/ms13npc/radscorp_attack1.ogg', 'mojave/sound/ms13npc/radscorp_attack2.ogg', 'mojave/sound/ms13npc/radscorp_attack3.ogg')
+	deathsound = list('mojave/sound/ms13npc/radscorp_death1.ogg', 'mojave/sound/ms13npc/radscorp_death2.ogg')
 	health = 160
 	maxHealth = 160
 	melee_damage_lower = 20
@@ -519,7 +522,8 @@
 	speak_chance = 10
 	turns_per_move = 1
 	butcher_results = list(/obj/item/ms13/hide/radstag = 1, /obj/item/food/meat/slab/ms13/carcass/large/radstag = 1, /obj/item/ms13/animalitem/radstag/antlers = 2)//radstag meat, radstag hide ,radstag horns
-	attack_sound = 'mojave/sound/ms13weapons/meleesounds/slam.ogg'
+	attack_sound = 'mojave/sound/ms13npc/radstag_attack1.ogg'
+	deathsound = 'mojave/sound/ms13npc/radstag_death1.ogg'
 	health = 125
 	maxHealth = 125
 	melee_damage_lower = 10
