@@ -57,6 +57,7 @@
 	ranged = TRUE
 	ranged_cooldown = 2 SECONDS
 	casingtype = /obj/item/ammo_casing/energy/ms13/laser/handy
+	projectilesound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_2.ogg'
 
 /mob/living/simple_animal/hostile/ms13/robot/handy/gutsy
 	name = "Mr. Gutsy"
@@ -76,3 +77,4 @@
 	ranged = TRUE
 	ranged_cooldown = 2 SECONDS
 	casingtype = /obj/item/ammo_casing/energy/ms13/plasma/gutsy
+	projectilesound = 'mojave/sound/ms13weapons/gunsounds/plasrifle/plasma_3.ogg'

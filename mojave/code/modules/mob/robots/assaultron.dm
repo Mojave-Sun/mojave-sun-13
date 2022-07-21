@@ -26,6 +26,7 @@
 	stat_attack = SOFT_CRIT
 	ranged = TRUE
 	casingtype = /obj/item/ammo_casing/energy/ms13/laser/assaultron
+	projectilesound = 'mojave/sound/ms13weapons/gunsounds/lasrifle/laser_heavy.ogg'
 	ranged_cooldown_time = 6 SECONDS
 
 /mob/living/simple_animal/hostile/ms13/robot/assaultron/death()

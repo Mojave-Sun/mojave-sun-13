@@ -58,7 +58,7 @@
     speak_emote = list("states", "says")
     attack_verb_continuous = "pinches"
     attack_verb_simple = "pinch"
-	attack_sound = 'mojave/sound/ms13weapons/meleesounds/pipe_hit.ogg'
+    attack_sound = 'mojave/sound/ms13weapons/meleesounds/pipe_hit.ogg'
     sharpness = NONE
     wound_bonus = 8
     bare_wound_bonus = 4

@@ -2,7 +2,7 @@
 
 /obj/item/ammo_casing/energy/ms13/laser/eyebot
 	projectile_type = /obj/projectile/beam/ms13/laser/eyebot
-	variance = 21
+	variance = 18
 	pellets = 1
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_1.ogg'
 	randomspread = TRUE
@@ -76,7 +76,7 @@
 
 /obj/item/ammo_casing/energy/ms13/laser/protectron
 	projectile_type = /obj/projectile/beam/ms13/laser/protectron
-	variance = 18
+	variance = 15
 	pellets = 1
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_3.ogg'
 	randomspread = TRUE
@@ -145,7 +145,7 @@
 
 /obj/item/ammo_casing/energy/ms13/laser/handy
 	projectile_type = /obj/projectile/beam/ms13/laser/handy
-	variance = 21
+	variance = 18
 	pellets = 1
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_2.ogg'
 	randomspread = TRUE
@@ -170,7 +170,7 @@
 
 /obj/item/ammo_casing/energy/ms13/plasma/gutsy
 	projectile_type = /obj/projectile/bullet/ms13/plasma/gutsy
-	variance = 18
+	variance = 15
 	pellets = 1
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/plasrifle/plasma_3.ogg'
 	randomspread = TRUE

@@ -24,6 +24,7 @@
 	ranged = TRUE
 	ranged_cooldown = 3 SECONDS
 	casingtype = /obj/item/ammo_casing/energy/ms13/laser/protectron
+	projectilesound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_3.ogg'
 
 /mob/living/simple_animal/hostile/ms13/robot/protectron/death()
 	. = ..()
@@ -48,6 +49,7 @@
 	attack_verb_simple = "cleave"
 	attack_sound = list('mojave/sound/ms13weapons/meleesounds/heavyaxe_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/heavyaxe_hit2.ogg')
 	ranged = FALSE
+	projectilesound = null
 	minimum_distance = 1
 	retreat_distance = null
 	move_to_delay = 4
@@ -77,6 +79,7 @@
 		minimum_distance = 1
 		retreat_distance = null
 		casingtype = /obj/item/ammo_casing/energy/electrode/ms13
+		projectilesound = 'mojave/sound/ms13weapons/gunsounds/bb/wpn_bbgun_fire_2d.ogg'
 		ranged_cooldown = 5 SECONDS
 
 /mob/living/simple_animal/hostile/ms13/robot/protectron/builder

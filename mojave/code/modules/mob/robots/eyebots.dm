@@ -29,6 +29,7 @@
 	attack_sound = null
 	ranged = TRUE
 	casingtype = /obj/item/ammo_casing/energy/ms13/laser/eyebot
+	projectilesound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_1.ogg'
 	ranged_cooldown = 2.5 SECONDS
 	bot_type = "ED" // Literally just for naming
 	shadow_type = "shadow_small"
@@ -82,7 +83,8 @@
 	melee_damage_upper = 1
 	ranged = TRUE
 	casingtype = /obj/item/ammo_casing/energy/ms13/laser/eyebot
-	ranged_cooldown = 3 SECONDS
+	projectilesound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_1.ogg'
+	ranged_cooldown = 2.5 SECONDS
 	bot_type = "ED" // Literally just for naming
 	shadow_type = "shadow_small"
 

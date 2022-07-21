@@ -26,6 +26,7 @@
 	held_items = list(null, null)
 	ranged = TRUE
 	casingtype = /obj/item/ammo_casing/energy/ms13/laser/robobrain
+	projectilesound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_5.ogg'
 	ranged_cooldown_time = 6 SECONDS
 	bot_type = "RB"
 
