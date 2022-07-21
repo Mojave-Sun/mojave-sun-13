@@ -1,10 +1,9 @@
 GLOBAL_LIST_INIT(footstep, list(
 	FOOTSTEP_WOOD = list(list(
-		'sound/effects/footstep/wood1.ogg',
-		'sound/effects/footstep/wood2.ogg',
-		'sound/effects/footstep/wood3.ogg',
-		'sound/effects/footstep/wood4.ogg',
-		'sound/effects/footstep/wood5.ogg'), 100, 0),
+		'mojave/sound/ms13effects/footsteps/ms13wood1.ogg',
+		'mojave/sound/ms13effects/footsteps/ms13wood2.ogg',
+		'mojave/sound/ms13effects/footsteps/ms13wood3.ogg',
+		'mojave/sound/ms13effects/footsteps/ms13wood4.ogg'), 100, 0),
 	FOOTSTEP_FLOOR = list(list(
 		'sound/effects/footstep/floor1.ogg',
 		'sound/effects/footstep/floor2.ogg',
@@ -24,11 +23,10 @@ GLOBAL_LIST_INIT(footstep, list(
 		'sound/effects/footstep/carpet4.ogg',
 		'sound/effects/footstep/carpet5.ogg'), 75, -1),
 	FOOTSTEP_SAND = list(list(
-		'sound/effects/footstep/asteroid1.ogg',
-		'sound/effects/footstep/asteroid2.ogg',
-		'sound/effects/footstep/asteroid3.ogg',
-		'sound/effects/footstep/asteroid4.ogg',
-		'sound/effects/footstep/asteroid5.ogg'), 75, 0),
+		'mojave/sound/ms13effects/footsteps/ms13concrete1.ogg',
+		'mojave/sound/ms13effects/footsteps/ms13concrete2.ogg',
+		'mojave/sound/ms13effects/footsteps/ms13concrete3.ogg',
+		'mojave/sound/ms13effects/footsteps/ms13concrete4.ogg'), 75, 0),
 	FOOTSTEP_GRASS = list(list(
 		'sound/effects/footstep/grass1.ogg',
 		'sound/effects/footstep/grass2.ogg',
