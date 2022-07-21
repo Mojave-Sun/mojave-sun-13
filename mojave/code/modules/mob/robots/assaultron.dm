@@ -22,6 +22,7 @@
 	sharpness = SHARP_IMPALING
 	attack_verb_continuous = "stabs"
 	attack_verb_simple = "stab"
+	attack_sound = 'mojave/sound/ms13weapons/meleesounds/stab_hit.ogg'
 	stat_attack = SOFT_CRIT
 	ranged = TRUE
 	casingtype = /obj/item/ammo_casing/energy/ms13/laser/assaultron

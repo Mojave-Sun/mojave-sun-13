@@ -26,6 +26,7 @@
 	health = 70
 	melee_damage_lower = 1
 	melee_damage_upper = 1
+	attack_sound = null
 	ranged = TRUE
 	casingtype = /obj/item/ammo_casing/energy/ms13/laser/eyebot
 	ranged_cooldown = 2.5 SECONDS

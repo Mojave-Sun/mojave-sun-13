@@ -16,6 +16,7 @@
 	speak_emote = list("states", "says")
 	attack_verb_continuous = "pinches"
 	attack_verb_simple = "pinch"
+	attack_sound = 'mojave/sound/ms13weapons/meleesounds/pipe_hit.ogg'
 	footstep_type = null
 	stat_attack = SOFT_CRIT
 	shadow_type = "shadow_large"

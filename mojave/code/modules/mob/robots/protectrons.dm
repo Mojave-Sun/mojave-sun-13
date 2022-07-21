@@ -18,6 +18,7 @@
 	sharpness = NONE
 	attack_verb_continuous = "smacks"
 	attack_verb_simple = "smack"
+	attack_sound = 'mojave/sound/ms13weapons/meleesounds/general_grip.ogg'
 	loot = list(/obj/item/stack/sheet/ms13/scrap/two, /obj/effect/decal/cleanable/robot_debris, /obj/item/stack/sheet/ms13/glass, /obj/item/stack/sheet/ms13/scrap_electronics, /obj/item/stack/sheet/ms13/scrap_parts)
 	stat_attack = SOFT_CRIT
 	ranged = TRUE
@@ -45,7 +46,7 @@
 	sharpness = SHARP_EDGED
 	attack_verb_continuous = "cleaves"
 	attack_verb_simple = "cleave"
-	attack_sound = 'sound/weapons/bladeslice.ogg'
+	attack_sound = list('mojave/sound/ms13weapons/meleesounds/heavyaxe_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/heavyaxe_hit2.ogg')
 	ranged = FALSE
 	minimum_distance = 1
 	retreat_distance = null
@@ -72,6 +73,7 @@
 		wound_bonus = -10
 		bare_wound_bonus = 0
 		desc = "A protectron given the duty of upholding law. This one is equipped with a baton and incapacitation unit."
+		attack_sound = 'mojave/sound/ms13weapons/meleesounds/baton_hit.ogg'
 		minimum_distance = 1
 		retreat_distance = null
 		casingtype = /obj/item/ammo_casing/energy/electrode/ms13

@@ -17,6 +17,7 @@
 	attack_verb_continuous = "slams"
 	attack_verb_simple = "slam"
 	speak_emote = list("says", "whines", "crackles")
+	attack_sound = 'mojave/sound/ms13weapons/meleesounds/pipe_hit.ogg'
 	mob_size = MOB_SIZE_LARGE
 	footstep_type = FOOTSTEP_OBJ_ROBOT
 	stat_attack = SOFT_CRIT
