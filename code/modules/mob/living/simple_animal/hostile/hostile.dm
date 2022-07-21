@@ -574,7 +574,7 @@
 	//else
 	//	tlist = ListTargets()
 
-	if(AIStatus == AI_IDLE && FindTarget(tlist, HasTargetsList = TRUE))
+	if(AIStatus == AI_IDLE && FindTarget(tlist, HasTargetsList = 1))
 	//	if(cheap_search) //Try again with full effort
 		GiveTarget(null) //Above target may have been acquired without LoS to them; we want LoS to target to trigger AI
 		if(FindTarget())
