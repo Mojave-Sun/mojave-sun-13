@@ -188,6 +188,9 @@ GLOBAL_LIST_INIT(scrap_recipes, list ( \
 /obj/item/stack/sheet/ms13/scrap_steel/five
 	amount = 5
 
+/obj/item/stack/sheet/ms13/scrap_steel/ten
+	amount = 10
+
 GLOBAL_LIST_INIT(scrap_steel_recipes, list ( \
 	new/datum/stack_recipe("crude scrap wall", /turf/closed/wall/ms13/craftable/scrap, 7, time = 40 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("makeshift smelter", /obj/structure/ms13/smelter, 6, time = 30 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
@@ -641,6 +644,9 @@ GLOBAL_LIST_INIT(refined_alu_recipes, list ( \
 /obj/item/stack/sheet/ms13/scrap_electronics/two
 	amount = 2
 
+/obj/item/stack/sheet/ms13/scrap_electronics/ten
+	amount = 10
+
 /obj/item/stack/sheet/ms13/circuits
 	name = "circuits"
 	desc = "Scavenged circuits that can hopefully still be used for something."
@@ -653,6 +659,9 @@ GLOBAL_LIST_INIT(refined_alu_recipes, list ( \
 
 /obj/item/stack/sheet/ms13/circuits/three
 	amount = 3
+
+/obj/item/stack/sheet/ms13/circuits/eight
+	amount = 8
 
 //WOOD//
 

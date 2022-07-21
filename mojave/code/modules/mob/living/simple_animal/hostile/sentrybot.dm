@@ -64,7 +64,6 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	mob_size = MOB_SIZE_LARGE
 	footstep_type = null //Element is modified in Initialize()
 	robust_searching = TRUE
-	idlechance = 10
 	minimum_distance = 3 //We'll decrease this if needed
 	retreat_distance = null
 	speed = 1
@@ -72,15 +71,19 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	var/last_move_done_at = 0
 	//var/drift_cooldown = 0
 	attack_sound = "slam"
-	loot = list(/obj/item/stack/sheet/ms13/scrap, /obj/item/stack/sheet/ms13/scrap_electronics, /obj/item/stack/sheet/ms13/scrap_parts)
+	loot = list(/obj/item/stack/sheet/ms13/scrap_steel/ten, /obj/item/stack/sheet/ms13/scrap_electronics/ten, /obj/item/stack/sheet/ms13/scrap_parts/ten, /obj/item/stack/sheet/ms13/circuits/eight)
 	vision_range = 12
 	aggro_vision_range = 12
 	dodge_prob = 50
 	maxHealth = 1000
 	health = 1000
 	idlechance = 20
-	melee_damage_lower = 35
-	melee_damage_upper = 35
+	melee_damage_lower = 30
+	melee_damage_upper = 30
+	subtractible_armour_penetration = 15
+	sharpness = NONE
+	wound_bonus = 8
+	bare_wound_bonus = 0
 	ranged = TRUE
 	stat_attack = HARD_CRIT
 	casingtype = /obj/item/ammo_casing/energy/ms13/laser/sentrybot
@@ -180,7 +183,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	..(gibbed)
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/proc/self_destruct()
-	explosion(src, devastation_range = 1, heavy_impact_range = 0, light_impact_range = 2, flame_range = 5, flash_range = 5, smoke = TRUE)
+	explosion(src, devastation_range = 0, heavy_impact_range = 1, light_impact_range = 2, flame_range = 4, flash_range = 5, smoke = TRUE)
 	qdel(src)
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/proc/play_speech_sound(glob_list_used, bypass_cooldown = FALSE)
@@ -287,9 +290,9 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 
 /obj/projectile/beam/ms13/laser/sentrybot
 	damage = 5
-	subtractible_armour_penetration = 20
-	wound_bonus = 5
-	bare_wound_bonus = 10
+	subtractible_armour_penetration = 25
+	wound_bonus = 24
+	bare_wound_bonus = 12
 
 //A special rocket for sentrybot; light explosion fixed with lots of fire
 
@@ -299,26 +302,27 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	damage = 0 //Damage comes from the light explosion and fire
 	embedding = null
 	shrapnel_type = null
+	speed = 1 //slower because it's a rocket
 
 /obj/projectile/bullet/sentrybot_rocket/on_hit(atom/target, blocked = FALSE)
-	explosion(get_turf(target), devastation_range = -1, heavy_impact_range = -1, light_impact_range = 1, flame_range = 3, explosion_cause = src)
+	explosion(get_turf(target), devastation_range = -1, heavy_impact_range = -1, light_impact_range = 2, flame_range = 3, explosion_cause = src)
 	return BULLET_ACT_HIT
 
 //Launches a rocket out of you
 /datum/action/cooldown/launch_rocket
 	name = "Launch a rocket"
 	desc = "Launches a cool rocket at the enemy"
-	cooldown_time = 12 SECONDS
+	cooldown_time = 14 SECONDS
 	click_to_activate = TRUE
 	var/obj/projectile/projectile = /obj/projectile/bullet/sentrybot_rocket
 
 /datum/action/cooldown/launch_rocket/Activate(atom/target_atom)
-	StartCooldown(12 SECONDS)
+	StartCooldown(14 SECONDS)
 	launch_rocket(target_atom)
 	StartCooldown()
 
 /datum/action/cooldown/launch_rocket/proc/launch_rocket(atom/target_atom)
-	playsound(owner, 'sound/weapons/gun/general/rocket_launch.ogg', 50, TRUE, -1)
+	playsound(owner, 'mojave/sound/ms13npc/sentrybot/rocket1.ogg', 60, TRUE, -1)
 	var/obj/projectile/projectile_obj = new projectile(get_turf(owner))
 	projectile_obj.firer = owner
 	projectile_obj.preparePixelProjectile(target_atom, owner)
@@ -328,18 +332,18 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 /datum/action/cooldown/launch_grenade
 	name = "Launch a shrapnel grenade"
 	desc = "Launches a cool grenade at the enemy"
-	cooldown_time = 12 SECONDS
+	cooldown_time = 10 SECONDS
 	click_to_activate = TRUE
 	var/obj/item/grenade/grenade = /obj/item/grenade/frag/sentrybot
 
 /datum/action/cooldown/launch_grenade/Activate(atom/target_atom)
-	StartCooldown(12 SECONDS)
+	StartCooldown(10 SECONDS)
 	launch_grenade(target_atom)
 	StartCooldown()
 
 /datum/action/cooldown/launch_grenade/proc/launch_grenade(atom/target_atom)
 	//living_owner.SetStun(1.5 SECONDS, ignore_canstun = TRUE)
-	playsound(owner, 'sound/weapons/gun/general/rocket_launch.ogg', 50, TRUE, -1)
+	playsound(owner, 'mojave/sound/ms13npc/sentrybot/grenade2.ogg', 60, TRUE, -1)
 	//var/obj/item/grenade/thrown_grenade = new grenade(get_step(owner, get_dir(owner, target_atom)))
 	var/obj/item/grenade/thrown_grenade = new grenade(get_turf(owner))
 	var/original_density = owner.density
