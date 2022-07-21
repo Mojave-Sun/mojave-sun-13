@@ -1,45 +1,3 @@
-#define FOOTSTEP_WOOD "wood"
-#define FOOTSTEP_FLOOR "floor"
-#define FOOTSTEP_PLATING "plating"
-#define FOOTSTEP_CARPET "carpet"
-#define FOOTSTEP_SAND "sand"
-#define FOOTSTEP_GRASS "grass"
-#define FOOTSTEP_WATER "water"
-#define FOOTSTEP_LAVA "lava"
-#define FOOTSTEP_MEAT "meat"
-#define FOOTSTEP_CATWALK "catwalk"
-//barefoot sounds
-#define FOOTSTEP_WOOD_BAREFOOT "woodbarefoot"
-#define FOOTSTEP_WOOD_CLAW "woodclaw"
-#define FOOTSTEP_HARD_BAREFOOT "hardbarefoot"
-#define FOOTSTEP_HARD_CLAW "hardclaw"
-#define FOOTSTEP_CARPET_BAREFOOT "carpetbarefoot"
-//misc footstep sounds
-#define FOOTSTEP_GENERIC_HEAVY "heavy"
-
-//footstep mob defines
-#define FOOTSTEP_MOB_CLAW 1
-#define FOOTSTEP_MOB_BAREFOOT 2
-#define FOOTSTEP_MOB_HEAVY 3
-#define FOOTSTEP_MOB_SHOE 4
-#define FOOTSTEP_MOB_HUMAN 5 //Warning: Only works on /mob/living/carbon/human
-#define FOOTSTEP_MOB_SLIME 6
-#define FOOTSTEP_OBJ_MACHINE 7
-#define FOOTSTEP_OBJ_ROBOT 8
-
-/*
-
-id = list(
-list(sounds),
-base volume,
-extra range addition
-)
-
-
-*/
-
-/* MOJAVE EDIT REMOVAL
-
 GLOBAL_LIST_INIT(footstep, list(
 	FOOTSTEP_WOOD = list(list(
 		'sound/effects/footstep/wood1.ogg',
@@ -88,11 +46,10 @@ GLOBAL_LIST_INIT(footstep, list(
 	FOOTSTEP_MEAT = list(list(
 		'sound/effects/meatslap.ogg'), 100, 0),
 	FOOTSTEP_CATWALK = list(list(
-		'sound/effects/footstep/catwalk1.ogg',
-		'sound/effects/footstep/catwalk2.ogg',
-		'sound/effects/footstep/catwalk3.ogg',
-		'sound/effects/footstep/catwalk4.ogg',
-		'sound/effects/footstep/catwalk5.ogg'), 100, 1),
+		'mojave/sound/ms13effects/footsteps/ms13catwalk1.ogg',
+		'mojave/sound/ms13effects/footsteps/ms13catwalk2.ogg',
+		'mojave/sound/ms13effects/footsteps/ms13catwalk3.ogg',
+		'mojave/sound/ms13effects/footsteps/ms13catwalk4.ogg'), 38, 1),
 ))
 //bare footsteps lists
 GLOBAL_LIST_INIT(barefootstep, list(
@@ -199,5 +156,3 @@ GLOBAL_LIST_INIT(heavyfootstep, list(
 	FOOTSTEP_MEAT = list(list(
 		'sound/effects/meatslap.ogg'), 100, 0),
 ))
-
-MOJAVE EDIT REMOVAL END */
