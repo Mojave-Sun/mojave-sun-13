@@ -119,7 +119,7 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/underground/underground_town)
 "aaA" = (
-/obj/machinery/door/poddoor/shutters/preopen/ms13/indestructible{
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/mid/pre_open{
 	id = "sewernorthchoke"
 	},
 /turf/open/floor/ms13/sewer,
@@ -636,7 +636,7 @@
 "acB" = (
 /obj/structure/table/ms13/metal,
 /obj/effect/spawner/random/ms13/tools/radio/high,
-/turf/open/floor/wood/ms13/carpet,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/mountain)
 "acD" = (
 /obj/machinery/ms13/terminal/wall/classic{
@@ -724,7 +724,7 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/underground_town)
 "acS" = (
-/obj/machinery/door/poddoor/shutters/preopen/ms13/indestructible{
+/obj/machinery/door/poddoor/shutters/ms13/vertical/indestructible/red/mid/pre_open{
 	id = "military-crypt"
 	},
 /turf/open/floor/ms13/metal,
@@ -767,9 +767,8 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/sewer)
 "ada" = (
-/turf/open/floor/ms13/metal/stayclear{
-	dir = 1
-	},
+/obj/effect/spawner/random/ms13/medical/highrandom,
+/turf/open/floor/ms13/metal/plate,
 /area/ms13/underground/military_crypt)
 "adb" = (
 /obj/machinery/door/unpowered/ms13/metal{
@@ -778,7 +777,7 @@
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/sewer)
 "add" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/effect/spawner/random/ms13/medical/tier2,
 /turf/open/floor/ms13/tile/navy,
 /area/ms13/underground/enclave_base)
@@ -795,9 +794,7 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/underground_town)
 "adi" = (
-/obj/machinery/door/poddoor/shutters/indestructible/ms13{
-	id = "sewernorth"
-	},
+/obj/machinery/door/poddoor/shutters/ms13/vertical/indestructible/red/mid,
 /turf/open/floor/ms13/sewer,
 /area/ms13/underground/sewer)
 "adk" = (
@@ -1008,7 +1005,8 @@
 	},
 /area/ms13/underground/vault_atrium_lower)
 "aee" = (
-/obj/structure/bed/ms13/bedframe/wood,
+/obj/structure/table/ms13/no_smooth/metal,
+/obj/item/storage/firstaid/ms13/bag/filled,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/military_crypt)
 "aef" = (
@@ -1107,9 +1105,11 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "aeA" = (
-/obj/structure/closet,
-/turf/open/floor/ms13/metal/grate,
-/area/ms13/underground/enclave_base)
+/obj/structure/table/ms13/low_wall/vault,
+/obj/structure/window/reinforced/fulltile/ms13/glass,
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/right/pre_open,
+/turf/open/floor/ms13/metal,
+/area/ms13/underground/vault_atrium_lower)
 "aeB" = (
 /obj/item/reagent_containers/glass/bucket/wooden,
 /turf/open/floor/wood/ms13/common,
@@ -1331,7 +1331,7 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "afC" = (
-/obj/machinery/door/poddoor/shutters/indestructible/ms13{
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/left{
 	id = "crypt_armory"
 	},
 /turf/open/floor/ms13/concrete,
@@ -1363,7 +1363,7 @@
 /turf/open/floor/ms13/tile,
 /area/ms13/underground/vault_atrium_lower)
 "afK" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/item/clothing/under/ms13/wasteland/mechanicprewar/mechanicgreen,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/subway)
@@ -1545,11 +1545,9 @@
 /turf/open/floor/ms13/metal/plate,
 /area/ms13/town)
 "agv" = (
-/obj/machinery/door/poddoor/shutters/indestructible/ms13{
-	id = "radio_warehouse"
-	},
-/turf/open/floor/ms13/concrete/industrial,
-/area/ms13/town)
+/obj/machinery/door/poddoor/shutters/ms13/vertical/indestructible/red/mid,
+/turf/open/ms13/water/sewer/shallow,
+/area/ms13/underground/sewer)
 "agw" = (
 /obj/structure/flora/grass/jungle/b,
 /obj/effect/decal/cleanable/blood/drip,
@@ -1603,7 +1601,7 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "agI" = (
-/obj/machinery/door/poddoor/shutters/preopen/ms13{
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/left/pre_open{
 	id = "enclave_interior"
 	},
 /turf/open/floor/ms13/metal,
@@ -1627,7 +1625,7 @@
 /turf/open/floor/ms13/tile,
 /area/ms13/underground/vault_atrium_lower)
 "agN" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 8
 	},
@@ -1660,10 +1658,11 @@
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/vault_atrium_lower)
 "agW" = (
-/obj/structure/ladder/ms13/manhole,
-/obj/machinery/light/ms13/bulb/industrial,
-/turf/open/floor/ms13/sewer,
-/area/ms13/underground/sewer)
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/right{
+	id = "crypt_armory"
+	},
+/turf/open/floor/ms13/concrete,
+/area/ms13/underground/military_crypt)
 "agX" = (
 /obj/structure/toilet{
 	dir = 4
@@ -1691,10 +1690,10 @@
 /area/ms13/underground/underground_town)
 "ahc" = (
 /obj/structure/table/ms13/metal/alt,
-/obj/item/trash/candy,
 /obj/machinery/light/ms13{
 	dir = 8
 	},
+/obj/effect/spawner/random/ms13/food/trash,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/army_bunker)
 "ahd" = (
@@ -1719,7 +1718,7 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/underground_town)
 "ahh" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 1
 	},
@@ -1979,7 +1978,7 @@
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/enclave_base)
 "ail" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/item/clothing/gloves/ms13/bos,
 /obj/item/clothing/under/ms13/bos,
 /turf/open/floor/ms13/metal,
@@ -2031,7 +2030,7 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/army_bunker)
 "ait" = (
-/obj/machinery/door/poddoor/shutters/preopen/ms13/indestructible{
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/red/left/pre_open{
 	id = "miitary-bunker-crane-door"
 	},
 /turf/open/floor/ms13/metal/walkway,
@@ -2067,7 +2066,7 @@
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/military_crypt)
 "aiC" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/item/clothing/suit/armor/ms13/scribe,
 /obj/item/clothing/suit/armor/ms13/scribe,
 /turf/open/floor/ms13/metal,
@@ -2094,10 +2093,12 @@
 /area/ms13/underground/sewer)
 "aiJ" = (
 /obj/structure/ms13/storage/large/shelf/rust,
+/obj/effect/spawner/random/ms13/food/packaged,
+/obj/effect/spawner/random/ms13/food/packaged,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/army_bunker)
 "aiK" = (
-/obj/machinery/door/poddoor/shutters/indestructible/ms13{
+/obj/machinery/door/poddoor/shutters/ms13/vertical/indestructible/red/mid{
 	id = "sewernorth"
 	},
 /turf/open/ms13/water/sewer/shallow,
@@ -2148,7 +2149,7 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "aiW" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/item/clothing/under/ms13/wasteland/mechanicprewar/mechanicgrey,
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 1
@@ -2160,7 +2161,6 @@
 	dir = 8
 	},
 /obj/item/clothing/head/helmet/ms13/military/officer/chinese,
-/obj/item/gun/ballistic/automatic/pistol/ms13/m10mm/chinese,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/underground_town)
 "aiY" = (
@@ -2301,7 +2301,7 @@
 /turf/open/ms13/water/sewer/medium,
 /area/ms13/underground/sewer)
 "ajw" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/effect/spawner/random/ms13/guarenteed/medical/lowrandom,
 /obj/effect/spawner/random/ms13/medical/lowrandom,
 /turf/open/floor/ms13/tile/navy,
@@ -2318,7 +2318,7 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "ajB" = (
-/obj/machinery/door/poddoor/shutters/indestructible/ms13{
+/obj/machinery/door/poddoor/shutters/ms13/vertical/indestructible/red/mid{
 	id = "sewereast"
 	},
 /turf/open/ms13/water/sewer/medium,
@@ -2364,15 +2364,15 @@
 /area/ms13/underground/sewer)
 "ajJ" = (
 /obj/machinery/light/ms13/bulb,
+/obj/item/reagent_containers/glass/bucket/wooden,
 /turf/open/floor/ms13/metal/grate,
 /area/ms13/underground/army_bunker)
 "ajK" = (
-/obj/structure/table/ms13/metal/grate,
-/obj/item/paper/crumpled/awaymissions/moonoutpost19/hastey_note{
-	info = "I swear we'll have our own can of beans PR'd one day. Have faith"
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/mid{
+	id = "sewernorth"
 	},
-/turf/open/floor/ms13/concrete/industrial,
-/area/ms13/underground/army_bunker)
+/turf/open/floor/ms13/sewer,
+/area/ms13/underground/sewer)
 "ajL" = (
 /obj/structure/flora/rock/jungle,
 /obj/effect/decal/cleanable/blood/tracks,
@@ -2383,7 +2383,7 @@
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/vault_atrium_lower)
 "ajN" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/item/clothing/gloves/ms13/bos,
 /obj/item/clothing/under/ms13/bos,
 /obj/item/clothing/shoes/ms13/military/bos,
@@ -2411,7 +2411,7 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/underground_town)
 "ajT" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/item/clothing/gloves/ms13/bos,
 /obj/item/clothing/under/ms13/bos,
 /obj/item/clothing/mask/ms13/bos,
@@ -2507,9 +2507,9 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/subway)
 "akt" = (
-/obj/item/trash/sosjerky,
 /obj/structure/table/ms13/no_smooth/large/cards,
-/turf/open/floor/wood/ms13/carpet,
+/obj/effect/spawner/random/ms13/food/trash,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/mountain)
 "aku" = (
 /obj/structure/closet/ms13/wall/firstaid,
@@ -2653,10 +2653,9 @@
 /turf/open/floor/ms13/metal/grate/border/warning,
 /area/ms13/underground/bos)
 "akZ" = (
-/obj/item/trash/candy,
-/obj/item/reagent_containers/food/drinks/waterbottle/empty,
-/turf/open/floor/wood/ms13/carpet,
-/area/ms13/underground/mountain)
+/obj/structure/closet/ms13/metal,
+/turf/open/floor/ms13/metal/grate,
+/area/ms13/underground/enclave_base)
 "ala" = (
 /obj/structure/ms13/storage/shelf{
 	dir = 8
@@ -2928,9 +2927,11 @@
 /turf/open/floor/ms13/tile/large/cafeteria,
 /area/ms13/underground/sewer)
 "amf" = (
-/obj/machinery/light/ms13,
-/obj/structure/bed/ms13/bedframe/wood,
-/turf/open/floor/ms13/concrete,
+/obj/structure/ms13/storage/large/shelf{
+	dir = 4
+	},
+/obj/effect/spawner/random/ms13/tools/radio/high,
+/turf/open/floor/ms13/metal/plate,
 /area/ms13/underground/military_crypt)
 "amg" = (
 /obj/structure/table/ms13/low_wall/scrap,
@@ -2972,7 +2973,7 @@
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/bos)
 "amp" = (
-/obj/machinery/door/poddoor/shutters/preopen/ms13/indestructible{
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/mid/pre_open{
 	id = "sewernorthchoke"
 	},
 /turf/open/ms13/water/sewer/medium,
@@ -3226,7 +3227,7 @@
 	},
 /area/ms13/town)
 "ann" = (
-/obj/machinery/door/poddoor/shutters/preopen/ms13/indestructible{
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/left/pre_open{
 	id = "military-crypt-internal"
 	},
 /turf/open/floor/ms13/concrete,
@@ -3329,7 +3330,7 @@
 /turf/closed/wall/ms13/sewer,
 /area/ms13/ncr)
 "anH" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/item/clothing/under/ms13/wasteland/mechanicprewar/mechanicgreen,
 /obj/effect/spawner/random/ms13/tools/lights,
 /turf/open/floor/ms13/concrete/industrial,
@@ -3512,7 +3513,7 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/underground_town)
 "aot" = (
-/obj/machinery/door/poddoor/shutters/indestructible/ms13{
+/obj/machinery/door/poddoor/shutters/ms13/vertical/indestructible/red/mid{
 	id = "sewerwest"
 	},
 /turf/open/ms13/water/sewer/medium,
@@ -3577,12 +3578,13 @@
 /area/ms13/underground/subway)
 "aoJ" = (
 /obj/structure/closet/ms13/fridge,
+/obj/effect/spawner/random/ms13/food/packaged,
+/obj/effect/spawner/random/ms13/food/packaged,
 /turf/open/floor/ms13/tile/full/navy,
 /area/ms13/underground/enclave_base)
 "aoK" = (
 /obj/structure/closet/crate/ms13/army,
-/obj/effect/spawner/random/ms13/armor/highrandom,
-/obj/effect/spawner/random/ms13/armor/tier3,
+/obj/effect/spawner/random/ms13/guarenteed/armor/military,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/military_crypt)
 "aoM" = (
@@ -3592,7 +3594,7 @@
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/subway)
 "aoP" = (
-/obj/machinery/door/poddoor/shutters/indestructible/ms13{
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/mid{
 	id = "sewersouth"
 	},
 /turf/open/ms13/water/sewer/medium,
@@ -3665,7 +3667,7 @@
 /obj/structure/table/ms13/metal,
 /obj/item/paper_bin/ms13,
 /obj/item/pen,
-/turf/open/floor/wood/ms13/carpet,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/mountain)
 "apg" = (
 /obj/effect/decal/cleanable/blood/splatter{
@@ -3730,7 +3732,7 @@
 /turf/closed/wall/ms13/metal/reinforced/industrial,
 /area/ms13/underground/underground_town)
 "apw" = (
-/obj/machinery/door/poddoor/shutters/preopen/ms13/indestructible{
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/red/mid/pre_open{
 	id = "miitary-bunker-crane-door"
 	},
 /turf/open/floor/ms13/metal/border,
@@ -4032,9 +4034,9 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/ncr)
 "aqS" = (
-/mob/living/basic/ms13/robot/handy,
-/turf/open/floor/ms13/concrete/industrial,
-/area/ms13/underground/army_bunker)
+/obj/item/radio/ms13/ham/receiver/radioking/wood,
+/turf/open/floor/ms13/concrete,
+/area/ms13/town)
 "aqT" = (
 /obj/structure/table/ms13/metal/alt,
 /obj/machinery/light/ms13{
@@ -4083,7 +4085,7 @@
 	},
 /obj/effect/spawner/random/ms13/guarenteed/tools/hardware,
 /obj/effect/spawner/random/ms13/guarenteed/tools/hardware,
-/turf/open/floor/ms13/tile/full/green,
+/turf/open/floor/ms13/concrete,
 /area/ms13/underground/military_crypt)
 "arb" = (
 /turf/open/floor/ms13/concrete,
@@ -4098,7 +4100,7 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "are" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/item/clothing/under/ms13/wasteland/mechanicprewar/mechanicgreen,
 /obj/effect/spawner/random/ms13/tools/tool,
 /turf/open/floor/ms13/concrete/industrial,
@@ -4141,16 +4143,17 @@
 /area/ms13/underground/sewer)
 "arm" = (
 /obj/structure/table/ms13/no_smooth/wood/low,
+/obj/effect/spawner/random/ms13/guarenteed/clothing/backpack/high,
 /turf/open/floor/wood/ms13/carpet,
 /area/ms13/underground/enclave_base)
 "arn" = (
-/obj/structure/railing/ms13/sewer{
-	dir = 8
+/obj/structure/ms13/storage/large/shelf/rust{
+	dir = 1
 	},
-/obj/structure/railing/ms13/sewer,
-/obj/effect/landmark/start/ms13/wastelander,
-/turf/open/floor/ms13/sewer,
-/area/ms13/underground/sewer)
+/obj/effect/spawner/random/ms13/clothing/backpack/high,
+/obj/effect/spawner/random/ms13/guarenteed/clothing/backpack/high,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/underground/army_bunker)
 "aro" = (
 /obj/structure/fluff/ms13/barrel/single/toxic/four,
 /turf/open/floor/ms13/metal,
@@ -4171,7 +4174,7 @@
 /turf/open/floor/wood/ms13/carpet/green,
 /area/ms13/underground/underground_town)
 "art" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/effect/spawner/random/ms13/gun/tier1,
 /obj/effect/spawner/random/ms13/ammo/tier1,
 /obj/item/ammo_box/magazine/ms13/r20,
@@ -4298,7 +4301,7 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/army_bunker)
 "arR" = (
-/obj/machinery/door/poddoor/shutters/indestructible/ms13{
+/obj/machinery/door/poddoor/shutters/ms13/vertical/indestructible/red/mid{
 	id = "sewersouth"
 	},
 /turf/open/floor/ms13/sewer,
@@ -4384,7 +4387,7 @@
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/military_crypt)
 "asj" = (
-/obj/machinery/door/poddoor/shutters/indestructible/ms13{
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/mid{
 	id = "sewernorth"
 	},
 /turf/open/ms13/water/sewer/medium,
@@ -4395,11 +4398,13 @@
 /turf/open/floor/ms13/tile/brown,
 /area/ms13/underground/underground_town)
 "asn" = (
-/obj/structure/ms13/storage/vent,
-/turf/open/floor/ms13/metal/pipe{
-	dir = 1
+/obj/structure/ms13/storage/large/shelf{
+	dir = 8
 	},
-/area/ms13/underground/military_crypt)
+/obj/effect/spawner/random/ms13/food/packaged,
+/obj/effect/spawner/random/ms13/food/packaged,
+/turf/open/floor/ms13/concrete,
+/area/ms13/town)
 "asp" = (
 /turf/open/floor/ms13/concrete/industrial/walkway{
 	dir = 1
@@ -4419,9 +4424,9 @@
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
 "ast" = (
-/obj/item/trash/candy,
-/turf/open/floor/wood/ms13/carpet,
-/area/ms13/underground/mountain)
+/obj/effect/spawner/random/ms13/food/trash,
+/turf/open/floor/ms13/sewer,
+/area/ms13/underground/underground_town)
 "asu" = (
 /obj/structure/closet/ms13/wall/firstaid,
 /obj/effect/spawner/random/ms13/medical/highrandom,
@@ -4440,7 +4445,7 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/military_crypt)
 "asx" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/item/clothing/under/ms13/wasteland/mechanicprewar/mechanicgrey,
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 9
@@ -4598,7 +4603,7 @@
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/enclave_base)
 "ath" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/item/clothing/under/ms13/wasteland/mechanicprewar/mechanicgrey,
 /obj/effect/spawner/random/ms13/tools/tool,
 /turf/open/floor/ms13/concrete/industrial,
@@ -4684,7 +4689,7 @@
 /turf/open/floor/ms13/tile/large/cream,
 /area/ms13/underground/sewer)
 "atz" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/item/clothing/under/ms13/wasteland/mechanicprewar/mechanicgrey,
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 8
@@ -4716,7 +4721,7 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/sewer)
 "atG" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 9
 	},
@@ -4751,10 +4756,6 @@
 	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/underground_town)
-"atM" = (
-/obj/effect/spawner/random/ms13/seeds/unique,
-/turf/open/floor/ms13/tile/full/green,
-/area/ms13/underground/military_crypt)
 "atN" = (
 /obj/effect/spawner/random/ms13/ammo/lowrandom,
 /turf/open/floor/plating/ms13/ground/mountain,
@@ -4869,7 +4870,7 @@
 /area/ms13/underground/mountain)
 "auj" = (
 /obj/effect/spawner/random/ms13/melee/lowrandom,
-/turf/open/floor/wood/ms13/carpet,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/mountain)
 "aul" = (
 /obj/machinery/light/ms13{
@@ -4944,11 +4945,6 @@
 	},
 /turf/open/floor/ms13/concrete/industrial/walkway,
 /area/ms13/underground/sewer)
-"auy" = (
-/obj/structure/table/ms13/wood,
-/obj/item/storage/dice,
-/turf/open/floor/wood/ms13/carpet/green,
-/area/ms13/town)
 "auA" = (
 /obj/structure/window/reinforced/fulltile/ms13/glass,
 /obj/structure/table/ms13/low_wall/dungeon,
@@ -4978,10 +4974,10 @@
 /turf/open/ms13/water/sewer/medium,
 /area/ms13/underground/sewer)
 "auI" = (
-/obj/item/clothing/head/helmet/ms13/radiationhood,
-/obj/item/clothing/suit/armor/ms13/radsuit,
-/obj/structure/closet/crate/ms13/army,
-/turf/open/floor/ms13/concrete/industrial,
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/red/left{
+	id = "miitary-bunker-crane-door-upper"
+	},
+/turf/open/floor/ms13/metal/grate/border,
 /area/ms13/underground/army_bunker)
 "auJ" = (
 /obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/left,
@@ -5140,9 +5136,10 @@
 	},
 /area/ms13/underground/sewer)
 "avt" = (
-/obj/effect/spawner/random/ms13/ammo/lowrandom,
-/obj/effect/spawner/random/ms13/guarenteed/ammo/highrandom,
-/turf/open/floor/ms13/concrete/industrial,
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/red/mid{
+	id = "miitary-bunker-crane-door-upper"
+	},
+/turf/open/floor/ms13/metal/grate/border,
 /area/ms13/underground/army_bunker)
 "avu" = (
 /obj/effect/decal/cleanable/vomit/old,
@@ -5153,7 +5150,7 @@
 /turf/open/floor/ms13/tile/blue/long,
 /area/ms13/town)
 "avv" = (
-/obj/machinery/door/poddoor/shutters/indestructible/ms13{
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/red/left{
 	id = "miltary-bunker-alert"
 	},
 /turf/open/floor/ms13/concrete/industrial,
@@ -5242,7 +5239,7 @@
 /area/ms13/underground/sewer)
 "avL" = (
 /obj/structure/table/ms13/metal/heavy,
-/obj/machinery/door/poddoor/shutters/indestructible/ms13{
+/obj/machinery/door/poddoor/shutters/ms13/vertical/red/mid{
 	id = "miltary-bunker-alert"
 	},
 /turf/open/floor/ms13/concrete/industrial,
@@ -5498,8 +5495,10 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "awU" = (
-/obj/item/trash/cheesie,
-/turf/open/floor/wood/ms13/carpet,
+/obj/structure/ms13/foundation/wide/variantfour{
+	dir = 1
+	},
+/turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
 "awV" = (
 /obj/effect/spawner/random/ms13/food/produce_safe,
@@ -5625,7 +5624,7 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/underground_town)
 "axw" = (
-/obj/machinery/door/poddoor/shutters/preopen/ms13/indestructible,
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/red/left/pre_open,
 /turf/open/floor/ms13/metal/walkway,
 /area/ms13/underground/army_bunker)
 "axy" = (
@@ -5674,6 +5673,7 @@
 /obj/effect/turf_decal/trimline/yellow/line,
 /obj/structure/table/ms13/metal/grate,
 /obj/effect/spawner/random/ms13/guarenteed/medical/tier2,
+/obj/effect/spawner/random/ms13/medical/tier1,
 /turf/open/floor/ms13/tile/large/cream,
 /area/ms13/underground/sewer)
 "axL" = (
@@ -5795,20 +5795,14 @@
 /obj/structure/chair/sofa/right{
 	dir = 8
 	},
-/obj/item/trash/cheesie,
-/turf/open/floor/wood/ms13/carpet,
+/obj/effect/spawner/random/ms13/food/trash,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/mountain)
 "aym" = (
 /obj/effect/decal/cleanable/oil,
 /obj/effect/decal/cleanable/robot_debris/up,
 /turf/open/floor/ms13/concrete/small,
 /area/ms13/underground/military_crypt)
-"ayn" = (
-/obj/effect/turf_decal/trimline/yellow/line,
-/obj/effect/spawner/random/ms13/crafting/lowrandom,
-/obj/structure/table/ms13/metal/grate,
-/turf/open/floor/ms13/tile/large/cream,
-/area/ms13/underground/sewer)
 "ayo" = (
 /obj/effect/decal/cleanable/glass{
 	pixel_x = 7;
@@ -5820,7 +5814,7 @@
 /turf/open/floor/ms13/sewer,
 /area/ms13/underground/underground_town)
 "ayp" = (
-/obj/machinery/door/poddoor/shutters/indestructible/ms13{
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/mid{
 	id = "seweraccess"
 	},
 /turf/open/floor/ms13/sewer,
@@ -5917,12 +5911,11 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/sewer)
 "ayK" = (
-/obj/effect/decal/cleanable/blood/old{
-	pixel_x = 13;
-	pixel_y = 16
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/right/pre_open{
+	id = "military-crypt-internal"
 	},
-/turf/open/floor/plating/ms13/ground/road,
-/area/ms13/town)
+/turf/open/floor/ms13/concrete,
+/area/ms13/underground/military_crypt)
 "ayL" = (
 /obj/structure/ms13/bars/rusty{
 	dir = 1
@@ -5930,7 +5923,7 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/subway)
 "ayM" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /turf/open/floor/ms13/metal/plate,
 /area/ms13/town)
 "ayN" = (
@@ -6015,6 +6008,7 @@
 /area/ms13/underground/army_bunker)
 "azb" = (
 /obj/structure/table/ms13/metal/heavy,
+/obj/effect/spawner/random/ms13/clothing/backpack/high,
 /turf/open/floor/ms13/tile/full/green,
 /area/ms13/underground/army_bunker)
 "azc" = (
@@ -6158,7 +6152,7 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/sewer)
 "azz" = (
-/obj/machinery/door/poddoor/shutters/preopen/ms13/indestructible,
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/red/mid/pre_open,
 /turf/open/floor/ms13/metal/border{
 	dir = 1
 	},
@@ -6320,7 +6314,7 @@
 /turf/open/floor/wood/ms13/carpet/shaggy/green,
 /area/ms13/underground/vault_atrium_lower)
 "aAm" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/effect/spawner/random/ms13/gun/lowrandom,
 /obj/effect/spawner/random/ms13/gun/lowrandom,
 /obj/item/ammo_box/magazine/ms13/r20,
@@ -6382,6 +6376,8 @@
 	dir = 1
 	},
 /obj/structure/ms13/storage/vent,
+/obj/effect/spawner/random/ms13/crafting/lowrandom,
+/obj/structure/table/ms13/metal/grate,
 /turf/open/floor/ms13/tile/large/cream,
 /area/ms13/underground/sewer)
 "aAy" = (
@@ -6432,8 +6428,10 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/army_bunker)
 "aAI" = (
-/obj/item/trash/boritos,
-/turf/open/floor/ms13/concrete/industrial,
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/red/right{
+	id = "miitary-bunker-crane-door-upper"
+	},
+/turf/open/floor/ms13/metal/grate/border,
 /area/ms13/underground/army_bunker)
 "aAJ" = (
 /mob/living/basic/ms13/hostile_animal/molerat,
@@ -6626,7 +6624,7 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/army_bunker)
 "aBK" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/item/clothing/under/ms13/wasteland/mechanicprewar/mechanicgrey,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/subway)
@@ -6777,7 +6775,7 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/underground_town)
 "aCt" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 5
 	},
@@ -6821,8 +6819,9 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/army_bunker)
 "aCB" = (
-/obj/structure/ms13/storage/large/shelf,
-/obj/effect/spawner/random/ms13/medical/highrandom,
+/obj/machinery/light/ms13{
+	dir = 4
+	},
 /turf/open/floor/ms13/metal/plate,
 /area/ms13/underground/military_crypt)
 "aCC" = (
@@ -7059,7 +7058,6 @@
 /area/ms13/underground/mountain)
 "aDG" = (
 /obj/structure/table/ms13/wood,
-/obj/item/dice/d20,
 /turf/open/floor/wood/ms13/carpet/green,
 /area/ms13/town)
 "aDH" = (
@@ -7158,8 +7156,8 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "aEa" = (
-/obj/effect/spawner/random/ms13/tools/radio/high,
-/turf/open/floor/ms13/tile/full/green,
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot,
+/turf/open/floor/ms13/concrete,
 /area/ms13/underground/military_crypt)
 "aEb" = (
 /mob/living/basic/ms13/hostile_animal/radroach,
@@ -7196,9 +7194,8 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/underground_town)
 "aEk" = (
-/obj/structure/ms13/storage/large/shelf,
-/obj/effect/spawner/random/ms13/seeds/unique,
-/turf/open/floor/ms13/metal/plate,
+/mob/living/simple_animal/hostile/ms13/robot/assaultron,
+/turf/open/floor/ms13/concrete,
 /area/ms13/underground/military_crypt)
 "aEl" = (
 /turf/open/ms13/water/sewer/shallow,
@@ -7292,7 +7289,9 @@
 /area/ms13/underground/sewer)
 "aEC" = (
 /obj/structure/table/ms13/wood,
-/obj/structure/fluff/ms13/trash/papers,
+/obj/item/candle/ms13{
+	pixel_y = 7
+	},
 /turf/open/floor/wood/ms13/carpet/green,
 /area/ms13/town)
 "aED" = (
@@ -7307,9 +7306,9 @@
 /area/ms13/underground/subway)
 "aEH" = (
 /obj/structure/table/ms13/metal,
-/obj/item/wrench/ms13,
-/obj/item/crowbar/ms13,
 /obj/effect/turf_decal/trimline/yellow/line,
+/obj/effect/spawner/random/ms13/tools/tool,
+/obj/effect/spawner/random/ms13/tools/tool,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/sewer)
 "aEI" = (
@@ -7370,14 +7369,10 @@
 /turf/closed/wall/ms13/sewer,
 /area/ms13/town)
 "aEY" = (
-/obj/machinery/door/poddoor/shutters/preopen/ms13/indestructible{
-	id = "military-bunker-alert"
-	},
-/obj/machinery/door/airlock/ms13{
-	dir = 4
-	},
-/turf/open/floor/ms13/concrete/industrial,
-/area/ms13/underground/army_bunker)
+/obj/structure/table/ms13/metal/alt,
+/obj/effect/spawner/random/ms13/food/packaged,
+/turf/open/floor/ms13/metal,
+/area/ms13/underground/enclave_base)
 "aFa" = (
 /obj/machinery/ms13/terminal,
 /turf/open/floor/ms13/concrete,
@@ -7569,20 +7564,23 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/vault_atrium_lower)
 "aFJ" = (
-/turf/open/floor/ms13/concrete/cable/box,
-/area/ms13/underground/army_bunker)
+/obj/machinery/light/ms13/bulb/industrial{
+	dir = 1
+	},
+/turf/open/ms13/water/deep,
+/area/ms13/underground/sewer)
 "aFK" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/item/clothing/suit/ms13/vaultlab,
 /obj/item/clothing/under/ms13/wasteland/doctor,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/underground_town)
 "aFL" = (
-/obj/machinery/door/poddoor/shutters{
-	id = "BOSrear"
-	},
 /obj/machinery/door/airlock/ms13/brotherhood{
 	dir = 4
+	},
+/obj/machinery/door/poddoor/shutters/ms13/vertical/red/mid{
+	id = "BOSrear"
 	},
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/bos)
@@ -7639,7 +7637,7 @@
 /turf/open/ms13/water/sewer/deep,
 /area/ms13/underground/mountain)
 "aFY" = (
-/obj/machinery/door/poddoor/shutters/preopen/ms13{
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/left/pre_open{
 	id = "enclave_exterior"
 	},
 /turf/open/floor/ms13/metal,
@@ -7679,7 +7677,7 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "aGg" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/effect/spawner/random/ms13/tools/hardware,
 /obj/structure/ms13/wall_decor/clock,
 /turf/open/floor/ms13/concrete/industrial,
@@ -7725,7 +7723,7 @@
 	dir = 8
 	},
 /obj/effect/spawner/random/ms13/guarenteed/tools/radio,
-/turf/open/floor/ms13/tile/full/green,
+/turf/open/floor/ms13/concrete,
 /area/ms13/underground/military_crypt)
 "aGn" = (
 /obj/machinery/door/unpowered/ms13/metal{
@@ -7773,7 +7771,7 @@
 /area/ms13/underground/sewer)
 "aGC" = (
 /obj/structure/table/ms13/no_smooth/dice,
-/turf/open/floor/wood/ms13/carpet,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/mountain)
 "aGD" = (
 /turf/open/floor/ms13/concrete/industrial/walkway/corner{
@@ -7998,7 +7996,7 @@
 /turf/open/floor/ms13/metal/grate,
 /area/ms13/underground/sewer)
 "aHD" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/machinery/light/ms13{
 	dir = 1
 	},
@@ -8084,7 +8082,7 @@
 /area/ms13/underground/underground_town)
 "aHU" = (
 /obj/structure/lattice/catwalk/ms13,
-/obj/machinery/door/poddoor/shutters/indestructible/ms13{
+/obj/machinery/door/poddoor/shutters/ms13/vertical/indestructible/red/mid{
 	id = "sewerwest"
 	},
 /turf/open/ms13/water/sewer/medium,
@@ -8126,7 +8124,7 @@
 /area/ms13/underground/underground_town)
 "aIg" = (
 /obj/machinery/light/ms13,
-/turf/open/floor/ms13/tile/full/green,
+/turf/open/floor/ms13/metal/plate,
 /area/ms13/underground/military_crypt)
 "aIh" = (
 /obj/structure/railing/ms13/solo{
@@ -8172,6 +8170,7 @@
 /area/ms13/underground/underground_town)
 "aIp" = (
 /obj/machinery/ms13/terminal/wall{
+	doc_title_1 = "military_bunker_lockdown";
 	remote_capability = 1;
 	signal_id_1 = "miltary-bunker-alert";
 	signal_title_1 = "Emergency Alert"
@@ -8351,6 +8350,8 @@
 /area/ms13/underground/vault_atrium_lower)
 "aIX" = (
 /obj/structure/table/ms13/metal/grate,
+/obj/effect/spawner/random/ms13/food/produce_safe,
+/obj/effect/spawner/random/ms13/food/produce_safe,
 /turf/open/floor/ms13/tile/large/navy,
 /area/ms13/underground/enclave_base)
 "aIY" = (
@@ -8388,7 +8389,9 @@
 /turf/open/ms13/water/deep,
 /area/ms13/underground/sewer)
 "aJd" = (
-/turf/open/floor/ms13/metal/stayclear,
+/obj/structure/ms13/storage/large/shelf,
+/obj/effect/spawner/random/ms13/medical/highrandom,
+/turf/open/floor/ms13/metal/plate,
 /area/ms13/underground/military_crypt)
 "aJe" = (
 /obj/effect/turf_decal/trimline/yellow/line{
@@ -8463,7 +8466,6 @@
 /area/ms13/underground/sewer)
 "aJs" = (
 /obj/structure/ms13/storage/vent,
-/obj/structure/ms13/storage/large/shelf,
 /obj/effect/spawner/random/ms13/tools/radio/high,
 /turf/open/floor/ms13/metal/plate,
 /area/ms13/underground/military_crypt)
@@ -8572,15 +8574,6 @@
 /obj/structure/table/ms13/metal/small,
 /turf/open/floor/ms13/tile/full/green,
 /area/ms13/underground/army_bunker)
-"aJP" = (
-/obj/machinery/light/ms13{
-	dir = 8
-	},
-/obj/structure/railing/ms13/solo{
-	dir = 4
-	},
-/turf/open/floor/ms13/tile/full/green,
-/area/ms13/underground/military_crypt)
 "aJQ" = (
 /obj/structure/ms13/jukebox,
 /turf/open/floor/wood/ms13/wide,
@@ -8896,6 +8889,7 @@
 "aLf" = (
 /obj/structure/table/ms13/wood,
 /obj/effect/spawner/random/ms13/melee/unique,
+/obj/structure/fluff/ms13/trash/papers,
 /turf/open/floor/wood/ms13/carpet/green,
 /area/ms13/town)
 "aLh" = (
@@ -8915,7 +8909,7 @@
 /turf/open/floor/ms13/metal/grate,
 /area/ms13/underground/enclave_base)
 "aLk" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/item/clothing/suit/hooded/ms13/hazmat,
 /obj/machinery/light/ms13{
 	dir = 1
@@ -8929,15 +8923,15 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/subway)
 "aLm" = (
-/obj/machinery/door/poddoor/shutters/indestructible/ms13{
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/mid{
 	id = "seweraccess"
 	},
 /turf/open/ms13/water/sewer/medium,
 /area/ms13/underground/sewer)
 "aLn" = (
 /obj/structure/closet/ms13/fridge,
-/obj/effect/spawner/random/ms13/food/produce_random,
-/obj/effect/spawner/random/ms13/food/produce_random,
+/obj/effect/spawner/random/ms13/food/packaged,
+/obj/effect/spawner/random/ms13/food/packaged,
 /turf/open/floor/ms13/tile/large/cafeteria,
 /area/ms13/underground/underground_town)
 "aLp" = (
@@ -8945,7 +8939,7 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "aLq" = (
-/obj/machinery/door/poddoor/shutters/preopen/ms13/indestructible{
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/right/pre_open{
 	id = "military-crypt-external"
 	},
 /turf/open/floor/ms13/concrete,
@@ -8971,7 +8965,7 @@
 	},
 /obj/effect/spawner/random/ms13/guarenteed/tools/tool,
 /obj/effect/spawner/random/ms13/guarenteed/tools/tool,
-/turf/open/floor/ms13/tile/full/green,
+/turf/open/floor/ms13/concrete,
 /area/ms13/underground/military_crypt)
 "aLx" = (
 /obj/structure/table/ms13/metal,
@@ -9088,8 +9082,10 @@
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/enclave_base)
 "aLV" = (
-/obj/structure/stairs/north,
-/turf/open/floor/plating/ms13/ground/road,
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/red/right{
+	id = "drug_fac_bay1"
+	},
+/turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "aLW" = (
 /obj/structure/closet/crate/ms13/woodcrate,
@@ -9131,7 +9127,7 @@
 /area/ms13/underground/army_bunker)
 "aMf" = (
 /obj/structure/table/ms13/metal,
-/turf/open/floor/wood/ms13/carpet,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/mountain)
 "aMg" = (
 /turf/open/floor/ms13/concrete/industrial/walkway/corner,
@@ -9141,7 +9137,7 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/subway)
 "aMj" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 10
 	},
@@ -9280,11 +9276,13 @@
 /turf/open/ms13/water/sewer/medium,
 /area/ms13/underground/mountain)
 "aML" = (
-/obj/item/reagent_containers/glass/bucket/wooden,
+/obj/structure/closet/crate/ms13/army,
+/obj/item/clothing/suit/armor/ms13/radsuit,
+/obj/item/clothing/head/helmet/ms13/radiationhood,
 /turf/open/floor/ms13/metal/grate,
 /area/ms13/underground/army_bunker)
 "aMM" = (
-/obj/item/trash/energybar,
+/obj/effect/spawner/random/ms13/food/trash,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/underground/underground_town)
 "aMO" = (
@@ -9295,9 +9293,6 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/army_bunker)
 "aMR" = (
-/obj/structure/filingcabinet/ms13{
-	dir = 8
-	},
 /turf/open/floor/ms13/tile/brown/big,
 /area/ms13/underground/sewer)
 "aMS" = (
@@ -9369,7 +9364,7 @@
 /turf/open/floor/ms13/concrete/industrial/alt,
 /area/ms13/underground/underground_town)
 "aNj" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/effect/spawner/random/ms13/clothing/under,
 /obj/machinery/light/ms13/bulb{
 	dir = 4
@@ -9487,7 +9482,7 @@
 /turf/open/floor/ms13/tile/large/cafeteria,
 /area/ms13/underground/sewer)
 "aNH" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/effect/spawner/random/ms13/clothing/under,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
@@ -9563,7 +9558,7 @@
 "aNV" = (
 /obj/structure/table/ms13/low_wall/vault,
 /obj/structure/window/reinforced/fulltile/ms13/glass,
-/obj/machinery/door/poddoor/shutters/preopen,
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/left/pre_open,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/vault_atrium_lower)
 "aNX" = (
@@ -9597,8 +9592,12 @@
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/vault_atrium_lower)
 "aOc" = (
-/obj/effect/spawner/random/ms13/medical/highrandom,
-/turf/open/floor/ms13/tile/full/green,
+/obj/machinery/light/ms13{
+	dir = 8
+	},
+/turf/open/floor/ms13/metal/pipe{
+	dir = 1
+	},
 /area/ms13/underground/military_crypt)
 "aOd" = (
 /obj/structure/fence/fencenormal{
@@ -9787,7 +9786,7 @@
 /area/ms13/underground/underground_town)
 "aOR" = (
 /obj/structure/closet/ms13/enclave,
-/obj/effect/spawner/random/ms13/armor/tier4,
+/obj/effect/spawner/random/ms13/armor/military,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/enclave_base)
 "aOT" = (
@@ -9824,8 +9823,7 @@
 /obj/structure/railing/ms13/solo{
 	dir = 4
 	},
-/obj/structure/railing/ms13/solo,
-/turf/open/floor/ms13/tile/full/green,
+/turf/closed/wall/ms13/dungeon,
 /area/ms13/underground/military_crypt)
 "aPa" = (
 /obj/structure/table/ms13/wood,
@@ -9869,7 +9867,7 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/sewer)
 "aPi" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/item/clothing/under/ms13/wasteland/mechanicprewar/mechanicgrey,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/sewer)
@@ -10024,8 +10022,7 @@
 /turf/open/floor/ms13/concrete/small,
 /area/ms13/underground/military_crypt)
 "aPW" = (
-/obj/machinery/door/airlock/ms13,
-/turf/open/floor/ms13/concrete/industrial,
+/turf/open/floor/ms13/concrete/cable/box,
 /area/ms13/underground/army_bunker)
 "aPX" = (
 /obj/structure/window/reinforced/fulltile/ms13/glass,
@@ -10052,6 +10049,9 @@
 /obj/structure/ms13/storage/large/shelf/rust{
 	dir = 1
 	},
+/obj/effect/spawner/random/ms13/guarenteed/food/packaged,
+/obj/effect/spawner/random/ms13/food/packaged,
+/obj/effect/spawner/random/ms13/food/packaged,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/army_bunker)
 "aQc" = (
@@ -10084,6 +10084,8 @@
 	dir = 1
 	},
 /obj/machinery/light/ms13,
+/obj/effect/spawner/random/ms13/food/packaged,
+/obj/effect/spawner/random/ms13/food/packaged,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/army_bunker)
 "aQl" = (
@@ -10156,7 +10158,8 @@
 /obj/machinery/light/ms13{
 	dir = 1
 	},
-/obj/effect/spawner/random/ms13/guarenteed/armor/highrandom,
+/obj/effect/spawner/random/ms13/armor/military,
+/obj/effect/spawner/random/ms13/armor/military,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/military_crypt)
 "aQB" = (
@@ -10372,10 +10375,11 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/army_bunker)
 "aRu" = (
-/mob/living/simple_animal/hostile/ms13/robot/robobrain/heavy,
-/turf/open/floor/ms13/concrete/cable/node{
-	dir = 8
+/obj/machinery/button/ms13{
+	dir = 8;
+	id = "miitary-bunker-crane-door-lower"
 	},
+/turf/open/floor/ms13/metal,
 /area/ms13/underground/army_bunker)
 "aRw" = (
 /obj/structure/ms13/foundation/common/variantsix{
@@ -10397,9 +10401,7 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/sewer)
 "aRA" = (
-/obj/structure/ms13/storage/vent,
-/obj/item/storage/firstaid/ms13/bag/filled,
-/obj/structure/table/ms13/no_smooth/metal,
+/obj/structure/bed/ms13/bedframe/wood,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/military_crypt)
 "aRB" = (
@@ -10438,8 +10440,7 @@
 /obj/structure/chair/sofa/left{
 	dir = 1
 	},
-/obj/item/reagent_containers/food/drinks/waterbottle/empty,
-/turf/open/floor/wood/ms13/carpet,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/mountain)
 "aRK" = (
 /obj/structure/closet/crate/ms13/woodcrate,
@@ -10469,7 +10470,7 @@
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/bos)
 "aRQ" = (
-/obj/machinery/door/poddoor/shutters/indestructible/ms13{
+/obj/machinery/door/poddoor/shutters/ms13/vertical/indestructible/red/mid{
 	id = "sewereast"
 	},
 /turf/open/floor/ms13/sewer,
@@ -10532,9 +10533,7 @@
 /turf/open/floor/wood/ms13/fancy,
 /area/ms13/underground/enclave_base)
 "aSd" = (
-/obj/structure/table/ms13/metal,
-/obj/structure/ms13/pot/plant,
-/turf/open/floor/ms13/concrete/bricks,
+/turf/closed/indestructible/rock/ms13/mammoth,
 /area/ms13/underground/underground_town)
 "aSe" = (
 /obj/structure/table/ms13/no_smooth/metal,
@@ -10801,9 +10800,7 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/military_crypt)
 "aTo" = (
-/obj/machinery/door/poddoor/shutters/indestructible/ms13{
-	id = "robot_factory"
-	},
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/left,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/enclave_base)
 "aTp" = (
@@ -10848,8 +10845,10 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/underground/underground_town)
 "aTy" = (
-/obj/effect/decal/cleanable/oil/slippery,
-/turf/open/floor/plating/ms13/ground/road,
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/red/right{
+	id = "drug_fac_bay2"
+	},
+/turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "aTz" = (
 /obj/machinery/ms13/plant_machinery,
@@ -10864,8 +10863,10 @@
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
 "aTD" = (
-/obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/plating/ms13/ground/road,
+/obj/machinery/door/poddoor/shutters/ms13/vertical/red/mid{
+	id = "MayorBunker"
+	},
+/turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "aTE" = (
 /turf/open/ms13/water/sewer/medium,
@@ -10916,7 +10917,7 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/vault_atrium_lower)
 "aTN" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/item/clothing/under/ms13/wasteland/mechanicprewar/mechanicgreen,
 /obj/effect/spawner/random/ms13/tools/tool,
 /turf/open/floor/ms13/concrete/industrial,
@@ -11058,10 +11059,10 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/subway)
 "aUq" = (
-/obj/machinery/door/poddoor/shutters/indestructible/ms13,
-/turf/open/floor/ms13/metal/border{
-	dir = 1
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/red/left{
+	id = "miitary-bunker-crane-door-lower"
 	},
+/turf/open/floor/ms13/metal/grate/border,
 /area/ms13/underground/army_bunker)
 "aUr" = (
 /obj/structure/chair/ms13/metal,
@@ -11113,14 +11114,19 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/sewer)
 "aUG" = (
-/obj/effect/decal/cleanable/oil/streak,
-/turf/open/floor/plating/ms13/ground/road,
+/obj/machinery/door/unpowered/ms13/metal/red{
+	dir = 1
+	},
+/turf/open/floor/ms13/metal,
 /area/ms13/town)
 "aUI" = (
 /obj/machinery/light/ms13/bulb/industrial/broken{
 	dir = 1
 	},
-/turf/open/floor/ms13/concrete/industrial,
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot,
+/turf/open/floor/ms13/concrete/cable/node{
+	dir = 8
+	},
 /area/ms13/underground/army_bunker)
 "aUJ" = (
 /obj/effect/decal/cleanable/blood/tracks{
@@ -11195,7 +11201,7 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/army_bunker)
 "aVd" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/item/clothing/under/ms13/wasteland/mechanicprewar/mechanicgreen,
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 9
@@ -11295,11 +11301,13 @@
 /turf/closed/indestructible/ms13/comb,
 /area/ms13/underground/mountain)
 "aVA" = (
-/obj/machinery/door/poddoor/shutters/indestructible/ms13,
-/turf/open/floor/ms13/metal/border,
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/red/mid{
+	id = "miitary-bunker-crane-door-lower"
+	},
+/turf/open/floor/ms13/metal/grate/border,
 /area/ms13/underground/army_bunker)
 "aVB" = (
-/obj/structure/filingcabinet/ms13/empty{
+/obj/structure/chair/comfy/ms13/armchair{
 	dir = 8
 	},
 /turf/open/floor/ms13/concrete/bricks,
@@ -11592,9 +11600,10 @@
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/enclave_base)
 "aWS" = (
-/obj/structure/closet/ms13/enclave,
-/obj/effect/spawner/random/ms13/guarenteed/armor/highrandom,
 /obj/effect/spawner/random/ms13/guarenteed/ammo/highrandom,
+/obj/effect/spawner/random/ms13/guarenteed/armor/military,
+/obj/effect/spawner/random/ms13/armor/military,
+/obj/structure/closet/ms13/enclave,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/enclave_base)
 "aWT" = (
@@ -11604,17 +11613,18 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/military_crypt)
 "aWU" = (
-/obj/machinery/door/poddoor/shutters/preopen/ms13/indestructible{
+/obj/effect/mob_spawn/corpse/human/ms13/wastelander,
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/left/pre_open{
 	id = "military-crypt-external"
 	},
-/obj/effect/mob_spawn/corpse/human/ms13/wastelander,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/military_crypt)
 "aWV" = (
-/obj/structure/ms13/storage/shelf/rust,
-/obj/effect/spawner/random/ms13/tools/tool,
-/turf/open/floor/wood/ms13/wide,
-/area/ms13/underground/underground_town)
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/right/pre_open{
+	id = "enclave_exterior"
+	},
+/turf/open/floor/ms13/metal,
+/area/ms13/underground/enclave_base)
 "aWW" = (
 /obj/machinery/light/ms13{
 	dir = 4
@@ -11628,7 +11638,7 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/sewer)
 "aWX" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/effect/spawner/random/ms13/clothing/under,
 /obj/effect/spawner/random/ms13/armor/lowrandom,
 /obj/effect/spawner/random/ms13/armor/headgear,
@@ -11680,12 +11690,6 @@
 "aXg" = (
 /turf/open/floor/ms13/metal/grate/border,
 /area/ms13/underground/subway)
-"aXh" = (
-/obj/structure/closet/crate/ms13/woodcrate/compact/army,
-/obj/effect/spawner/random/ms13/armor/highrandom,
-/obj/effect/spawner/random/ms13/guarenteed/armor/highrandom,
-/turf/open/floor/ms13/concrete/industrial,
-/area/ms13/underground/army_bunker)
 "aXi" = (
 /obj/machinery/light/ms13{
 	dir = 8
@@ -11745,7 +11749,10 @@
 /obj/structure/chair/sofa{
 	dir = 1
 	},
-/turf/open/floor/wood/ms13/carpet,
+/obj/structure/ms13/foundation/wide/variantfour{
+	dir = 5
+	},
+/turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
 "aXu" = (
 /turf/closed/wall/ms13/brick/alt,
@@ -11886,10 +11893,6 @@
 	},
 /turf/open/floor/ms13/tile,
 /area/ms13/underground/underground_town)
-"aYd" = (
-/obj/effect/landmark/start/ms13/wastelander,
-/turf/open/floor/ms13/sewer,
-/area/ms13/underground/sewer)
 "aYe" = (
 /turf/open/floor/ms13/metal/pipe{
 	dir = 1
@@ -11946,7 +11949,7 @@
 /obj/structure/chair/sofa{
 	dir = 8
 	},
-/turf/open/floor/wood/ms13/carpet,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/mountain)
 "aYp" = (
 /obj/structure/railing/ms13/sewer,
@@ -12005,7 +12008,7 @@
 /turf/open/floor/wood/ms13/fancy,
 /area/ms13/underground/enclave_base)
 "aYD" = (
-/obj/machinery/door/poddoor/shutters,
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/right,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "aYF" = (
@@ -12029,7 +12032,7 @@
 	},
 /area/ms13/underground/sewer)
 "aYI" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/item/clothing/under/ms13/wasteland/mechanicprewar/mechanicgrey,
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
@@ -12041,9 +12044,11 @@
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/underground_town)
 "aYK" = (
-/mob/living/simple_animal/hostile/ms13/robot/assaultron,
-/turf/open/floor/ms13/concrete,
-/area/ms13/underground/military_crypt)
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/red/right{
+	id = "miitary-bunker-crane-door-lower"
+	},
+/turf/open/floor/ms13/metal/grate/border,
+/area/ms13/underground/army_bunker)
 "aYL" = (
 /obj/structure/table/ms13/metal,
 /obj/item/reagent_containers/food/drinks/bottle/ms13/plain{
@@ -12073,8 +12078,11 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/army_bunker)
 "aYR" = (
-/turf/open/floor/plating/ms13/ground/road,
-/area/ms13/town)
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/right/pre_open{
+	id = "enclave_interior"
+	},
+/turf/open/floor/ms13/metal,
+/area/ms13/underground/enclave_base)
 "aYS" = (
 /obj/structure/table/ms13/metal,
 /obj/item/shovel/ms13/spade,
@@ -12091,9 +12099,9 @@
 /turf/open/floor/ms13/tile/blue/long,
 /area/ms13/town)
 "aYV" = (
-/obj/machinery/door/poddoor/shutters/preopen/ms13,
-/turf/open/floor/ms13/metal,
-/area/ms13/underground/enclave_base)
+/obj/structure/ms13/pot/plant,
+/turf/open/floor/ms13/concrete/bricks,
+/area/ms13/underground/underground_town)
 "aYW" = (
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/sewer)
@@ -12104,10 +12112,10 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/vault_atrium_lower)
 "aYY" = (
-/obj/machinery/light/ms13{
-	dir = 4
+/obj/machinery/door/poddoor/shutters/ms13/vertical/indestructible/red/mid{
+	id = "crypt_armory"
 	},
-/turf/open/floor/ms13/tile/full/green,
+/turf/open/floor/ms13/concrete,
 /area/ms13/underground/military_crypt)
 "aYZ" = (
 /obj/structure/table/ms13/metal,
@@ -12178,7 +12186,7 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "aZo" = (
-/obj/machinery/door/poddoor/shutters/indestructible/ms13{
+/obj/machinery/door/poddoor/shutters/ms13/vertical/indestructible/red/mid{
 	id = "sewerwest"
 	},
 /turf/open/floor/ms13/sewer,
@@ -12213,7 +12221,10 @@
 /obj/structure/chair/sofa/corner{
 	dir = 8
 	},
-/turf/open/floor/wood/ms13/carpet,
+/obj/structure/ms13/foundation/wide/variantfour{
+	dir = 9
+	},
+/turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
 "aZC" = (
 /obj/item/ms13/animalitem/clucker/feather,
@@ -12228,7 +12239,7 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "aZG" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/ncr)
 "aZI" = (
@@ -12272,7 +12283,11 @@
 /turf/open/floor/ms13/tile/brown,
 /area/ms13/underground/underground_town)
 "aZS" = (
-/turf/open/floor/wood/ms13/carpet,
+/obj/structure/ms13/foundation/wide/variantfour{
+	dir = 1
+	},
+/obj/effect/spawner/random/ms13/food/trash,
+/turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
 "aZT" = (
 /obj/structure/table/ms13/metal,
@@ -12295,11 +12310,9 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/subway)
 "aZY" = (
-/obj/effect/spawner/random/ms13/ammo/highrandom,
 /obj/structure/closet/crate/ms13/woodcrate/compact/army,
-/obj/effect/spawner/random/ms13/armor/highrandom,
-/obj/effect/spawner/random/ms13/armor/highrandom,
-/obj/effect/spawner/random/ms13/guarenteed/armor/highrandom,
+/obj/effect/spawner/random/ms13/armor/military,
+/obj/effect/spawner/random/ms13/guarenteed/armor/military,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/army_bunker)
 "aZZ" = (
@@ -12366,6 +12379,12 @@
 /obj/machinery/grill,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/underground_town)
+"bbA" = (
+/obj/structure/ms13/foundation/wide/variantfour{
+	dir = 10
+	},
+/turf/open/floor/plating/ms13/ground/mountain,
+/area/ms13/underground/mountain)
 "bcb" = (
 /obj/effect/spawner/random/ms13/crafting/lowrandom,
 /turf/open/floor/wood/ms13/wide,
@@ -12430,7 +12449,7 @@
 "bor" = (
 /obj/structure/table/ms13/metal,
 /obj/item/radio/ms13/ham/receiver/radioking,
-/turf/open/floor/wood/ms13/carpet,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/mountain)
 "bpy" = (
 /obj/structure/table/ms13/no_smooth/counter/wood/crafted{
@@ -12464,9 +12483,8 @@
 /turf/open/ms13/water/sewer/deep,
 /area/ms13/underground/sewer)
 "bsJ" = (
-/obj/structure/chair/ms13/wood,
-/turf/open/floor/ms13/concrete/bricks,
-/area/ms13/underground/underground_town)
+/turf/open/floor/ms13/tile/blue,
+/area/ms13/town)
 "but" = (
 /obj/structure/table/ms13/metal/grate,
 /obj/machinery/light/ms13,
@@ -12506,6 +12524,10 @@
 /obj/effect/spawner/random/ms13/seeds/random,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/mountain)
+"bBQ" = (
+/obj/machinery/door/poddoor/shutters/ms13/vertical/red/top,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/town)
 "bCu" = (
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/blood/drip{
@@ -12520,6 +12542,12 @@
 	},
 /turf/open/floor/ms13/tile/long,
 /area/ms13/town)
+"bFg" = (
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/right{
+	id = "miltary-bunker-alert"
+	},
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/underground/army_bunker)
 "bFy" = (
 /obj/effect/mob_spawn/corpse/human/charredskeleton,
 /obj/effect/decal/cleanable/blood/splatter,
@@ -12558,6 +12586,12 @@
 /mob/living/basic/ms13/robot/handy,
 /turf/open/floor/ms13/metal,
 /area/ms13/town)
+"bLY" = (
+/obj/structure/ms13/foundation/wide/variantfour{
+	dir = 4
+	},
+/turf/open/floor/plating/ms13/ground/mountain,
+/area/ms13/underground/mountain)
 "bRZ" = (
 /obj/structure/fluff/ms13/barrel/single/toxic/three,
 /turf/open/floor/ms13/concrete/industrial,
@@ -12580,12 +12614,22 @@
 /obj/structure/bed/ms13/mattress/stale,
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/underground_town)
+"bUA" = (
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/mid{
+	id = "miltary-bunker-alert"
+	},
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/underground/army_bunker)
 "bVk" = (
 /obj/machinery/light/ms13/bulb/broken{
 	dir = 1
 	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/sewer)
+"bVn" = (
+/obj/effect/spawner/random/ms13/seeds/unique,
+/turf/open/floor/ms13/metal/plate,
+/area/ms13/underground/military_crypt)
 "ccB" = (
 /obj/effect/spawner/random/ms13/gun/lowunique,
 /obj/effect/spawner/random/ms13/crafting/electrical,
@@ -12675,9 +12719,6 @@
 "coq" = (
 /obj/structure/ms13/barricade{
 	dir = 4
-	},
-/obj/structure/filingcabinet/ms13{
-	dir = 8
 	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
@@ -12802,7 +12843,7 @@
 /area/ms13/underground/underground_town)
 "cOL" = (
 /obj/structure/table/ms13/metal,
-/obj/machinery/ms13/terminal/pristine,
+/obj/machinery/ms13/terminal/rusty,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/underground_town)
 "cPc" = (
@@ -12848,8 +12889,8 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "cUR" = (
-/obj/structure/closet/crate/ms13/woodcrate,
-/turf/open/floor/ms13/metal,
+/obj/structure/stairs/north,
+/turf/open/floor/plating/ms13/ground/road,
 /area/ms13/town)
 "cUW" = (
 /obj/structure/fence/fencedoor,
@@ -12911,12 +12952,8 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/underground_town)
 "djc" = (
-/obj/structure/flora/rock/jungle,
-/obj/structure/ms13/barricade{
-	dir = 1
-	},
-/turf/open/floor/plating/ms13/ground/mountain,
-/area/ms13/underground/mountain)
+/turf/open/floor/plating/ms13/ground/road,
+/area/ms13/town)
 "dkc" = (
 /obj/structure/ms13/storage/shelf{
 	dir = 4
@@ -12975,7 +13012,6 @@
 /area/ms13/underground/military_crypt)
 "dpg" = (
 /obj/structure/table/ms13/no_smooth/large/metal,
-/obj/item/claymore/ms13/baton,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/underground_town)
 "dqv" = (
@@ -13076,11 +13112,8 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "dOc" = (
-/obj/structure/table/ms13/no_smooth/counter/wood/crafted{
-	dir = 1
-	},
-/obj/effect/spawner/random/ms13/drink/soda,
-/turf/open/floor/wood/ms13/wide,
+/obj/structure/ms13/skeleton,
+/turf/open/floor/ms13/sewer,
 /area/ms13/underground/underground_town)
 "dOj" = (
 /mob/living/simple_animal/hostile/ms13/robot/handy/gutsy,
@@ -13116,8 +13149,7 @@
 	dir = 8;
 	pixel_y = 6
 	},
-/obj/item/clothing/head/helmet/ms13/tall/cone,
-/obj/machinery/door/poddoor/shutters/indestructible/ms13{
+/obj/machinery/door/poddoor/shutters/ms13/vertical/red/mid{
 	id = "MayorBunker"
 	},
 /turf/open/floor/ms13/concrete/cable,
@@ -13202,7 +13234,7 @@
 /area/ms13/underground/vault_atrium_lower)
 "egO" = (
 /obj/effect/spawner/random/ms13/melee/tier3,
-/turf/open/floor/ms13/concrete,
+/turf/open/floor/ms13/tile/blue,
 /area/ms13/town)
 "eiI" = (
 /obj/machinery/button/ms13{
@@ -13362,11 +13394,11 @@
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
 "eVJ" = (
-/obj/machinery/door/unpowered/ms13/metal/red{
-	dir = 1
+/obj/item/gun/ballistic/automatic/pistol/ms13/m10mm/chinese{
+	pixel_x = -9
 	},
-/turf/open/floor/ms13/metal,
-/area/ms13/town)
+/turf/open/floor/ms13/sewer,
+/area/ms13/underground/underground_town)
 "eWq" = (
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 6
@@ -13404,7 +13436,7 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/underground_town)
 "ffl" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/item/clothing/under/ms13/wasteland/mechanicprewar/mechanicgrey,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
@@ -13416,6 +13448,12 @@
 	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/underground_town)
+"fgo" = (
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/left{
+	id = "miltary-bunker-alert"
+	},
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/underground/army_bunker)
 "fgw" = (
 /obj/structure/table/ms13/metal/grate,
 /obj/effect/spawner/random/ms13/crafting/electrical,
@@ -13533,9 +13571,9 @@
 /turf/open/floor/ms13/sewer,
 /area/ms13/underground/sewer)
 "fNK" = (
-/obj/machinery/door/airlock/ms13,
-/turf/closed/wall/ms13/sewer,
-/area/ms13/underground/sewer)
+/obj/effect/decal/cleanable/oil/slippery,
+/turf/open/floor/plating/ms13/ground/road,
+/area/ms13/town)
 "fOd" = (
 /obj/machinery/door/unpowered/ms13/wood/red{
 	dir = 4
@@ -13651,6 +13689,14 @@
 /obj/effect/spawner/random/ms13/crafting/electrical,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/army_bunker)
+"gju" = (
+/obj/structure/closet/crate/ms13/footlocker{
+	dir = 1
+	},
+/obj/item/clothing/under/ms13/wasteland/army,
+/obj/effect/spawner/random/ms13/clothing/backpack/high,
+/turf/open/floor/ms13/concrete,
+/area/ms13/underground/military_crypt)
 "glv" = (
 /obj/structure/bonfire/ms13/fire_barrel,
 /turf/open/floor/ms13/concrete,
@@ -13669,7 +13715,7 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/sewer)
 "gnd" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/effect/spawner/random/ms13/tools/tool,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
@@ -13680,7 +13726,7 @@
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 4
 	},
-/obj/machinery/door/poddoor/shutters/indestructible/ms13{
+/obj/machinery/door/poddoor/shutters/ms13/vertical/red/mid{
 	id = "BunkerStoreroom"
 	},
 /turf/open/floor/ms13/concrete/industrial,
@@ -13833,6 +13879,12 @@
 	},
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
+"gRq" = (
+/obj/structure/ms13/foundation/wide/variantfive{
+	dir = 1
+	},
+/turf/open/floor/plating/ms13/ground/mountain,
+/area/ms13/underground/mountain)
 "gSj" = (
 /obj/structure/sink{
 	dir = 8;
@@ -13859,7 +13911,7 @@
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/sewer)
 "gXT" = (
-/obj/machinery/door/poddoor/shutters,
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/left,
 /turf/open/floor/ms13/concrete/industrial/alt,
 /area/ms13/town)
 "hdC" = (
@@ -13903,7 +13955,11 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "hpT" = (
-/turf/open/floor/wood/ms13/fancy,
+/obj/effect/decal/cleanable/blood/old{
+	pixel_x = 13;
+	pixel_y = 16
+	},
+/turf/open/floor/plating/ms13/ground/road,
 /area/ms13/town)
 "hqx" = (
 /obj/effect/decal/cleanable/blood/old{
@@ -13918,6 +13974,10 @@
 	},
 /turf/open/floor/ms13/sewer,
 /area/ms13/underground/sewer)
+"hyh" = (
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/red/right/pre_open,
+/turf/open/floor/ms13/metal/walkway,
+/area/ms13/underground/army_bunker)
 "hBr" = (
 /obj/structure/filingcabinet/ms13{
 	pixel_x = 9
@@ -14145,11 +14205,9 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/underground_town)
 "ilz" = (
-/obj/structure/chair/comfy/ms13/armchair{
-	dir = 4
-	},
-/turf/open/floor/ms13/concrete/bricks,
-/area/ms13/underground/underground_town)
+/mob/living/basic/ms13/ghoul,
+/turf/open/floor/ms13/tile/blue,
+/area/ms13/town)
 "inn" = (
 /obj/machinery/door/unpowered/ms13/seethrough/mirrored/metal{
 	dir = 4
@@ -14172,6 +14230,12 @@
 /obj/structure/ms13/rug/mat/rubber/single,
 /turf/open/floor/ms13/tile/fancy,
 /area/ms13/town)
+"iqP" = (
+/obj/effect/spawner/random/ms13/food/packaged,
+/obj/effect/spawner/random/ms13/food/packaged,
+/obj/effect/spawner/random/ms13/food/packaged,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/underground/army_bunker)
 "irT" = (
 /obj/effect/spawner/random/ms13/medical/tier1,
 /turf/open/floor/ms13/sewer,
@@ -14217,6 +14281,9 @@
 /obj/machinery/light/ms13{
 	dir = 1
 	},
+/obj/structure/filingcabinet/ms13/empty{
+	dir = 8
+	},
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/underground_town)
 "iCu" = (
@@ -14249,11 +14316,14 @@
 /turf/open/floor/ms13/sewer,
 /area/ms13/underground/underground_town)
 "iKD" = (
-/obj/machinery/door/unpowered/ms13/metal/red{
-	dir = 4
-	},
 /turf/open/floor/ms13/concrete/cable,
 /area/ms13/town)
+"iKE" = (
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/red/right{
+	id = "miltary-bunker-alert"
+	},
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/underground/army_bunker)
 "iMG" = (
 /obj/structure/fluff/ms13/trash/papers,
 /turf/open/floor/ms13/tile/long,
@@ -14265,6 +14335,11 @@
 /obj/effect/spawner/random/ms13/clothing/glasses,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/underground_town)
+"iOS" = (
+/obj/effect/spawner/random/ms13/food/packaged,
+/obj/effect/spawner/random/ms13/food/packaged,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/underground/army_bunker)
 "iPH" = (
 /obj/machinery/door/unpowered/ms13/wood/red,
 /turf/open/floor/wood/ms13/carpet/blue,
@@ -14302,10 +14377,15 @@
 	pixel_x = 11
 	},
 /obj/machinery/light/ms13/bulb/industrial{
-	dir = 4
+	dir = 8
 	},
-/turf/open/floor/wood/ms13/fancy,
+/turf/open/floor/wood/ms13/carpet/shaggy,
 /area/ms13/town)
+"iYl" = (
+/turf/open/floor/ms13/metal/grate/border/warning{
+	dir = 1
+	},
+/area/ms13/underground/military_crypt)
 "iZa" = (
 /obj/structure/table/ms13/metal,
 /obj/effect/spawner/random/ms13/tools/tool,
@@ -14444,13 +14524,21 @@
 	},
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
+"jOl" = (
+/obj/structure/ms13/storage/large/shelf/rust{
+	dir = 1
+	},
+/obj/effect/spawner/random/ms13/food/packaged,
+/obj/effect/spawner/random/ms13/food/packaged,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/underground/army_bunker)
 "jRa" = (
 /mob/living/basic/ms13/hostile_animal/radroach,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "jTp" = (
 /obj/structure/stairs/south,
-/turf/open/floor/ms13/concrete,
+/turf/open/floor/ms13/tile/blue,
 /area/ms13/town)
 "jTN" = (
 /obj/structure/ms13/storage/large/shelf{
@@ -14598,7 +14686,7 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/military_crypt)
 "kBy" = (
-/obj/machinery/door/poddoor/shutters{
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/red/left{
 	id = "drug_fac_bay2"
 	},
 /turf/open/floor/ms13/concrete/industrial,
@@ -14627,7 +14715,7 @@
 /obj/machinery/door/airlock/ms13{
 	dir = 4
 	},
-/obj/machinery/door/poddoor/shutters/indestructible/ms13{
+/obj/machinery/door/poddoor/shutters/ms13/vertical/red/mid{
 	id = "miltary-bunker-alert"
 	},
 /turf/open/floor/ms13/concrete/industrial,
@@ -14693,7 +14781,7 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "kTm" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/item/clothing/suit/toggle/labcoat/ms13,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/underground_town)
@@ -14805,6 +14893,10 @@
 /obj/effect/spawner/random/ms13/clothing/under,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/sewer)
+"lhX" = (
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/right,
+/turf/open/floor/ms13/metal,
+/area/ms13/underground/enclave_base)
 "lig" = (
 /obj/effect/spawner/random/ms13/gun/tier2,
 /obj/effect/decal/cleanable/blood/tracks{
@@ -14857,6 +14949,9 @@
 	dir = 1
 	},
 /obj/structure/ms13/rug/rubber,
+/obj/item/candle/ms13{
+	pixel_y = 7
+	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/underground_town)
 "lxZ" = (
@@ -14965,15 +15060,14 @@
 	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/underground_town)
-"lSr" = (
-/obj/structure/ms13/barricade{
-	dir = 4
+"lRJ" = (
+/obj/machinery/light/ms13{
+	dir = 1
 	},
-/obj/structure/filingcabinet/ms13/busted{
-	dir = 8
-	},
-/turf/open/floor/ms13/concrete,
-/area/ms13/town)
+/obj/effect/spawner/random/ms13/guarenteed/ammo/highrandom,
+/obj/effect/spawner/random/ms13/ammo/lowrandom,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/underground/army_bunker)
 "lSB" = (
 /obj/item/reagent_containers/food/drinks/mug/ms13{
 	pixel_x = -4;
@@ -15110,6 +15204,10 @@
 /obj/effect/spawner/random/ms13/guarenteed/ammo/lowrandom,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/sewer)
+"mxj" = (
+/obj/machinery/door/poddoor/shutters/ms13/vertical/red/mid,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/town)
 "myV" = (
 /obj/effect/spawner/random/ms13/crafting/highrandom,
 /turf/open/floor/wood/ms13/wide,
@@ -15121,7 +15219,6 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/underground_town)
 "mBN" = (
-/obj/structure/filingcabinet/ms13/busted,
 /obj/structure/ms13/wall_decor/clock,
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
@@ -15148,12 +15245,7 @@
 /area/ms13/underground/mountain)
 "mJA" = (
 /obj/structure/ms13/rug/mat/rubber/single,
-/obj/structure/ms13/storage/shelf/rust{
-	dir = 1
-	},
-/obj/machinery/light/ms13/bulb/industrial{
-	dir = 4
-	},
+/obj/machinery/light/ms13/bulb/industrial,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "mKs" = (
@@ -15314,6 +15406,12 @@
 	dir = 1
 	},
 /area/ms13/town)
+"nit" = (
+/obj/structure/ms13/foundation/wide/variantfour{
+	dir = 9
+	},
+/turf/open/floor/plating/ms13/ground/mountain,
+/area/ms13/underground/mountain)
 "nji" = (
 /obj/structure/ms13/storage/shelf{
 	dir = 4
@@ -15329,6 +15427,10 @@
 	},
 /turf/open/floor/wood/ms13/carpet/shaggy,
 /area/ms13/town)
+"nkW" = (
+/obj/machinery/light/ms13/bulb/industrial,
+/turf/open/ms13/water/deep,
+/area/ms13/underground/sewer)
 "nnR" = (
 /turf/closed/wall/ms13/scrap/white,
 /area/ms13/underground/sewer)
@@ -15346,13 +15448,20 @@
 /obj/structure/ms13/storage/large/shelf,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/mountain)
+"nvk" = (
+/obj/machinery/button/ms13{
+	id = "miitary-bunker-crane-door-lower"
+	},
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/underground/army_bunker)
 "nwx" = (
-/obj/structure/ms13/rug/red,
-/obj/structure/table/ms13/metal,
+/obj/structure/chair/ms13/wood{
+	dir = 4
+	},
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/underground_town)
 "nxk" = (
-/obj/machinery/door/poddoor/shutters{
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/red/left{
 	id = "drug_fac_bay1"
 	},
 /turf/open/floor/ms13/concrete/industrial,
@@ -15585,6 +15694,12 @@
 /obj/structure/ms13/barricade,
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
+"onN" = (
+/obj/machinery/button/ms13{
+	id = "miitary-bunker-crane-door-upper"
+	},
+/turf/open/floor/ms13/metal/walkway,
+/area/ms13/underground/army_bunker)
 "ooH" = (
 /obj/structure/closet/crate/ms13/woodcrate/compact,
 /turf/open/floor/wood/ms13/wide,
@@ -15659,9 +15774,6 @@
 /area/ms13/underground/underground_town)
 "oFe" = (
 /obj/structure/ms13/rug/mat/rubber/single,
-/obj/machinery/light/ms13/bulb/industrial{
-	dir = 4
-	},
 /obj/structure/fluff/ms13/barrel/triple/yellow/one,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
@@ -15682,6 +15794,13 @@
 	},
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/sewer)
+"oJs" = (
+/obj/structure/closet/crate/ms13/footlocker,
+/obj/item/clothing/under/ms13/wasteland/army,
+/obj/item/clothing/suit/ms13/ljacket/military,
+/obj/effect/spawner/random/ms13/clothing/backpack/high,
+/turf/open/floor/ms13/concrete,
+/area/ms13/underground/military_crypt)
 "oKk" = (
 /obj/structure/chair/office/ms13/green{
 	dir = 8
@@ -15692,14 +15811,11 @@
 /turf/open/floor/ms13/tile/long,
 /area/ms13/town)
 "oKP" = (
-/obj/item/trash/candy{
-	pixel_x = 7;
-	pixel_y = -4
-	},
-/turf/open/floor/ms13/sewer,
-/area/ms13/underground/underground_town)
+/obj/effect/spawner/random/ms13/food/trash,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/underground/mountain)
 "oKZ" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/effect/spawner/random/ms13/melee/highrandom,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
@@ -15712,11 +15828,18 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/mountain)
 "oLE" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/effect/spawner/random/ms13/clothing/under,
 /obj/structure/ms13/storage/vent,
+/obj/effect/spawner/random/ms13/clothing/backpack,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"oNl" = (
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/red/solo{
+	id = "miltary-bunker-alert"
+	},
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/underground/army_bunker)
 "oNM" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = 4;
@@ -15762,7 +15885,7 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "oRV" = (
-/obj/structure/closet,
+/obj/structure/closet/ms13/metal,
 /obj/effect/spawner/random/ms13/armor/lowrandom,
 /obj/effect/spawner/random/ms13/armor/headgear,
 /obj/structure/ms13/storage/vent,
@@ -15965,6 +16088,7 @@
 /area/ms13/underground/mountain)
 "pDv" = (
 /obj/structure/table/ms13/no_smooth/wood/low,
+/obj/effect/spawner/random/ms13/clothing/backpack,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/underground_town)
 "pEP" = (
@@ -16039,11 +16163,9 @@
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/mountain)
 "pRb" = (
-/obj/structure/bed/ms13/bedframe/metal,
-/obj/structure/bed/ms13/mattress/stale,
-/obj/structure/ms13/skeleton,
-/turf/open/floor/ms13/concrete,
-/area/ms13/underground/underground_town)
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/plating/ms13/ground/road,
+/area/ms13/town)
 "pRN" = (
 /obj/structure/table/ms13/metal,
 /obj/item/reagent_containers/food/drinks/drinkingglass/shotglass{
@@ -16055,12 +16177,9 @@
 /turf/open/floor/wood/ms13/carpet,
 /area/ms13/underground/underground_town)
 "pTy" = (
-/obj/item/reagent_containers/glass/bucket/wooden,
-/obj/structure/ms13/storage/large/shelf{
-	dir = 4
-	},
-/turf/open/floor/wood/ms13/wide,
-/area/ms13/underground/underground_town)
+/obj/effect/decal/cleanable/oil/streak,
+/turf/open/floor/plating/ms13/ground/road,
+/area/ms13/town)
 "pTP" = (
 /obj/structure/ms13/rug/red,
 /turf/open/floor/wood/ms13/wide,
@@ -16091,6 +16210,12 @@
 /mob/living/basic/ms13/hostile_animal/molerat,
 /turf/open/floor/ms13/sewer,
 /area/ms13/underground/underground_town)
+"pWI" = (
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/red/right/pre_open{
+	id = "miitary-bunker-crane-door"
+	},
+/turf/open/floor/ms13/metal/walkway,
+/area/ms13/underground/army_bunker)
 "pWX" = (
 /obj/effect/spawner/random/ms13/clothing/gloves,
 /turf/open/floor/ms13/concrete,
@@ -16142,6 +16267,15 @@
 /obj/structure/flora/junglebush/b,
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
+"qfe" = (
+/obj/structure/ms13/storage/large/shelf/rust{
+	dir = 1
+	},
+/obj/effect/spawner/random/ms13/food/packaged,
+/obj/effect/spawner/random/ms13/food/packaged,
+/obj/effect/spawner/random/ms13/food/packaged,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/underground/army_bunker)
 "qlm" = (
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/wood/ms13/carpet/shaggy,
@@ -16155,13 +16289,11 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/underground_town)
 "qnM" = (
+/obj/structure/ms13/storage/vent,
+/obj/structure/filingcabinet/ms13/busted,
 /obj/structure/ms13/barricade{
 	dir = 4
 	},
-/obj/structure/filingcabinet/ms13{
-	dir = 8
-	},
-/obj/structure/ms13/storage/vent,
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "qoS" = (
@@ -16170,7 +16302,7 @@
 /turf/open/floor/wood/ms13/carpet,
 /area/ms13/underground/underground_town)
 "qqk" = (
-/obj/machinery/door/poddoor/shutters/indestructible/ms13{
+/obj/machinery/door/poddoor/shutters/ms13/vertical/red/mid{
 	id = "BunkerStoreroom"
 	},
 /turf/open/floor/ms13/metal,
@@ -16230,6 +16362,11 @@
 /obj/effect/spawner/random/ms13/medical/lowrandom,
 /turf/open/floor/ms13/tile/long,
 /area/ms13/town)
+"qHV" = (
+/obj/structure/ms13/storage/large/shelf/rust,
+/obj/effect/spawner/random/ms13/guarenteed/food/packaged,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/underground/army_bunker)
 "qJq" = (
 /obj/effect/decal/cleanable/blood/footprints{
 	dir = 4
@@ -16288,8 +16425,6 @@
 /area/ms13/underground/mountain)
 "qYs" = (
 /obj/effect/turf_decal/trimline/yellow/line,
-/obj/structure/table/ms13/metal/grate,
-/obj/effect/spawner/random/ms13/medical/tier1,
 /turf/open/floor/ms13/tile/large/cream,
 /area/ms13/underground/sewer)
 "qZS" = (
@@ -16404,7 +16539,7 @@
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
 "rDH" = (
-/obj/machinery/door/poddoor/shutters/indestructible/ms13{
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/solo{
 	id = "BunkerEscape"
 	},
 /turf/open/floor/ms13/metal,
@@ -16449,6 +16584,12 @@
 /obj/effect/spawner/random/ms13/crafting/lowrandom,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/underground_town)
+"rLE" = (
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/mid{
+	id = "sewersouth"
+	},
+/turf/open/floor/ms13/sewer,
+/area/ms13/underground/sewer)
 "rLG" = (
 /obj/structure/table/ms13/no_smooth/counter/wood/crafted,
 /obj/item/radio/ms13/ham/receiver/radioking,
@@ -16561,6 +16702,10 @@
 /obj/structure/ms13/jukebox,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/underground_town)
+"sfV" = (
+/obj/structure/ms13/foundation/wide/variantfour,
+/turf/open/floor/plating/ms13/ground/mountain,
+/area/ms13/underground/mountain)
 "sgn" = (
 /obj/structure/ms13/storage/shelf{
 	dir = 8
@@ -16712,6 +16857,13 @@
 /obj/machinery/iv_drip/ms13,
 /turf/open/floor/ms13/tile/navy,
 /area/ms13/underground/enclave_base)
+"sHf" = (
+/obj/machinery/button/ms13{
+	dir = 8;
+	id = "miitary-bunker-crane-door-upper"
+	},
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/underground/army_bunker)
 "sHS" = (
 /obj/structure/fluff/ms13/barrel/double/grey/two,
 /turf/open/floor/ms13/tile/full/green,
@@ -16737,6 +16889,13 @@
 	},
 /turf/open/floor/wood/ms13/carpet/blue,
 /area/ms13/town)
+"sKx" = (
+/obj/structure/ms13/storage/large/shelf/rust,
+/obj/effect/spawner/random/ms13/guarenteed/food/packaged,
+/obj/effect/spawner/random/ms13/food/packaged,
+/obj/effect/spawner/random/ms13/food/packaged,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/underground/army_bunker)
 "sLT" = (
 /obj/structure/chair/ms13/wood{
 	dir = 8
@@ -16771,9 +16930,9 @@
 /turf/open/floor/wood/ms13/carpet/blue,
 /area/ms13/town)
 "sRb" = (
-/obj/structure/ms13/storage/shelf,
-/turf/open/floor/wood/ms13/wide,
-/area/ms13/underground/underground_town)
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/mid,
+/turf/open/floor/ms13/metal,
+/area/ms13/underground/enclave_base)
 "sSs" = (
 /obj/structure/chair/sofa/corp/corner{
 	dir = 8
@@ -16872,9 +17031,9 @@
 /area/ms13/underground/sewer)
 "tjH" = (
 /obj/structure/closet/ms13/fridge,
-/obj/effect/spawner/random/ms13/guarenteed/food/produce_random,
-/obj/effect/spawner/random/ms13/food/produce_random,
-/obj/effect/spawner/random/ms13/food/produce_random,
+/obj/effect/spawner/random/ms13/food/packaged,
+/obj/effect/spawner/random/ms13/food/packaged,
+/obj/effect/spawner/random/ms13/drink/alcohol,
 /turf/open/floor/ms13/tile/large/cafeteria,
 /area/ms13/underground/underground_town)
 "tkx" = (
@@ -17130,6 +17289,10 @@
 /obj/structure/bed/ms13/bedframe/wire,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/underground_town)
+"ulc" = (
+/obj/structure/ms13/rug/rubber,
+/turf/open/floor/ms13/concrete,
+/area/ms13/underground/military_crypt)
 "unc" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = -7;
@@ -17140,6 +17303,7 @@
 "unX" = (
 /obj/structure/table/ms13/wood,
 /obj/effect/spawner/random/ms13/ammo/lowrandom,
+/obj/structure/ms13/rug/red,
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/underground_town)
 "unZ" = (
@@ -17212,12 +17376,6 @@
 /obj/item/ammo_casing/ms13/spent,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/mountain)
-"uDt" = (
-/obj/structure/filingcabinet/ms13/short/busted{
-	dir = 4
-	},
-/turf/open/floor/ms13/concrete/bricks,
-/area/ms13/underground/underground_town)
 "uEh" = (
 /obj/structure/table/ms13/wood/constructed,
 /obj/effect/spawner/random/ms13/drink/soda,
@@ -17285,8 +17443,6 @@
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 6
 	},
-/obj/structure/closet,
-/obj/item/clothing/suit/toggle/labcoat/ms13,
 /turf/open/floor/ms13/tile/large/cream,
 /area/ms13/underground/sewer)
 "uNB" = (
@@ -17306,8 +17462,6 @@
 "uQD" = (
 /obj/structure/closet/crate/ms13/woodcrate/compact/army,
 /obj/item/clothing/under/ms13/wasteland/army,
-/obj/item/clothing/gloves/ms13/military,
-/obj/item/clothing/head/helmet/ms13/military,
 /obj/item/clothing/shoes/ms13/military,
 /obj/item/clothing/suit/ms13/ljacket/military,
 /turf/open/floor/ms13/sewer,
@@ -17340,7 +17494,7 @@
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/vault_atrium_lower)
 "uWt" = (
-/obj/machinery/door/poddoor/shutters/indestructible/ms13{
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/solo{
 	id = "BunkerEscape"
 	},
 /turf/open/floor/ms13/concrete/industrial,
@@ -17549,6 +17703,9 @@
 /area/ms13/underground/vault_atrium_lower)
 "vJE" = (
 /obj/structure/table/ms13/wood,
+/obj/structure/ms13/phone/black{
+	pixel_y = 6
+	},
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/underground_town)
 "vNi" = (
@@ -17562,6 +17719,11 @@
 	},
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/vault_atrium_lower)
+"vUj" = (
+/obj/structure/ms13/storage/large/shelf,
+/obj/effect/spawner/random/ms13/seeds/unique,
+/turf/open/floor/ms13/metal/plate,
+/area/ms13/underground/military_crypt)
 "vUo" = (
 /obj/structure/bed/ms13/mattress/old,
 /turf/open/floor/ms13/concrete/bricks,
@@ -17709,6 +17871,8 @@
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 5
 	},
+/obj/structure/closet/ms13/metal,
+/obj/item/clothing/suit/toggle/labcoat/ms13,
 /turf/open/floor/ms13/tile/large/cream,
 /area/ms13/underground/sewer)
 "wJm" = (
@@ -17779,6 +17943,7 @@
 /obj/structure/closet/crate/ms13/woodcrate,
 /obj/item/clothing/suit/ms13/ljacket/military,
 /obj/item/clothing/under/ms13/wasteland/combat,
+/obj/effect/spawner/random/ms13/clothing/backpack/high,
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "xbj" = (
@@ -17873,11 +18038,13 @@
 /area/ms13/town)
 "xvf" = (
 /obj/structure/table/ms13/wood,
-/obj/structure/ms13/phone/black{
-	pixel_y = 6
-	},
+/obj/effect/spawner/random/ms13/clothing/backpack,
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/underground_town)
+"xvW" = (
+/obj/machinery/light/ms13,
+/turf/open/floor/ms13/concrete,
+/area/ms13/underground/military_crypt)
 "xvX" = (
 /obj/structure/chair/ms13/overlaypickup/plastic{
 	dir = 8
@@ -17934,7 +18101,6 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/sewer)
 "xCn" = (
-/obj/effect/spawner/random/ms13/food/produce_random,
 /obj/structure/ms13/storage/vent,
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
@@ -17980,13 +18146,6 @@
 	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
-"xOS" = (
-/obj/effect/decal/cleanable/blood/old{
-	pixel_x = -7;
-	pixel_y = -7
-	},
-/turf/open/floor/ms13/concrete/bricks,
-/area/ms13/underground/underground_town)
 "xRo" = (
 /obj/machinery/light/ms13/bulb{
 	dir = 4
@@ -20401,9 +20560,9 @@ afU
 afU
 afU
 aEW
-aYD
-aYD
-aYD
+bBQ
+mxj
+mxj
 aEW
 afU
 afU
@@ -21902,12 +22061,12 @@ afU
 afU
 afU
 afU
-aEQ
-aEQ
-aEQ
-aEQ
-aEQ
-aEQ
+afU
+afU
+afU
+afU
+afU
+afU
 fCf
 aZb
 akx
@@ -22073,7 +22232,7 @@ asP
 asP
 asP
 asP
-aNV
+aeA
 asP
 kkx
 asP
@@ -22153,7 +22312,7 @@ aWo
 aWo
 aWo
 aWo
-aTo
+sRb
 aJg
 aJg
 aJg
@@ -22204,13 +22363,13 @@ afU
 afU
 afU
 afU
-aEQ
-dOc
-abi
-aff
-awO
-aEQ
-ueY
+afU
+afU
+afU
+afU
+afU
+afU
+akx
 asq
 akx
 akx
@@ -22455,7 +22614,7 @@ aWo
 auZ
 aWo
 aWo
-aTo
+lhX
 aJg
 aJg
 aJg
@@ -22506,12 +22665,12 @@ afU
 afU
 afU
 afU
-aEQ
-aff
-aff
-aff
-aff
-aff
+afU
+afU
+afU
+afU
+afU
+afU
 akx
 asq
 akx
@@ -22808,13 +22967,13 @@ afU
 afU
 afU
 afU
-aEQ
-bzB
-aXA
-abi
-cOl
-aEQ
-ueY
+afU
+afU
+afU
+afU
+afU
+afU
+akx
 asq
 akx
 akx
@@ -23110,12 +23269,12 @@ afU
 afU
 afU
 afU
-aEQ
-aEQ
-aEQ
-aEQ
-aEQ
-aEQ
+afU
+afU
+afU
+afU
+afU
+afU
 akx
 akx
 akx
@@ -24249,7 +24408,7 @@ afU
 afU
 afU
 aJM
-aKu
+akZ
 aWo
 aWo
 aKu
@@ -24308,12 +24467,12 @@ afU
 afU
 afU
 afU
-aEQ
-aEQ
-aEQ
-aEQ
-aEQ
-aEQ
+afU
+afU
+afU
+afU
+afU
+afU
 afU
 afU
 afU
@@ -24610,12 +24769,12 @@ afU
 afU
 afU
 afU
-aEQ
-aWV
-bzB
-auR
-abi
-aEQ
+afU
+afU
+afU
+afU
+afU
+afU
 afU
 afU
 afU
@@ -24856,7 +25015,7 @@ aRd
 aLj
 auZ
 auZ
-aeA
+aKu
 aRd
 aoS
 aWo
@@ -24912,12 +25071,12 @@ afU
 afU
 afU
 afU
-aEQ
-aff
-aff
-aff
-aff
-aff
+afU
+afU
+afU
+afU
+afU
+afU
 akx
 akx
 akx
@@ -25169,9 +25328,9 @@ aJM
 aJM
 aRd
 aRd
-aYV
-aYV
-aYV
+aWo
+aWo
+aWo
 aJM
 aJM
 ahZ
@@ -25214,13 +25373,13 @@ afU
 afU
 afU
 afU
-aEQ
-aNI
-aXA
-abi
-cOl
-aEQ
-djc
+afU
+afU
+afU
+afU
+afU
+afU
+aWu
 akx
 akx
 akx
@@ -25516,12 +25675,12 @@ afU
 afU
 afU
 afU
-aEQ
-aEQ
-aEQ
-aEQ
-aEQ
-aEQ
+afU
+afU
+afU
+afU
+afU
+afU
 akx
 akx
 akx
@@ -26058,7 +26217,7 @@ akx
 akx
 akx
 akx
-aFY
+aWV
 aFx
 axu
 aFx
@@ -26066,7 +26225,7 @@ aWo
 aFx
 axu
 aFx
-agI
+aYR
 aWo
 aWo
 aPS
@@ -26532,7 +26691,7 @@ aTT
 aTT
 aTT
 aLH
-adi
+ajK
 aLH
 aLH
 aLH
@@ -27438,7 +27597,7 @@ aRM
 aRM
 ayk
 aLH
-adi
+ajK
 aLH
 aLH
 aLH
@@ -28194,7 +28353,7 @@ aWo
 aPX
 aWo
 aAC
-avO
+aEY
 atf
 aWo
 aRd
@@ -30061,7 +30220,7 @@ akx
 akx
 akx
 akx
-akx
+awI
 akx
 akx
 akx
@@ -30366,7 +30525,7 @@ akx
 akx
 akx
 akx
-awI
+akx
 akx
 akx
 akx
@@ -30474,7 +30633,7 @@ arb
 arb
 arb
 arb
-xIw
+arb
 arb
 wyy
 afU
@@ -32583,7 +32742,7 @@ afU
 wyy
 arb
 arb
-xIw
+arb
 arb
 arb
 wyy
@@ -34320,7 +34479,7 @@ aEQ
 aEQ
 aEQ
 aEQ
-sRb
+aNI
 aff
 ncu
 uIk
@@ -35274,7 +35433,7 @@ afU
 aZW
 adi
 aiK
-aiK
+agv
 adi
 aZW
 afU
@@ -36119,7 +36278,7 @@ afU
 afU
 aNR
 akx
-awI
+akx
 akx
 aNR
 afU
@@ -36733,7 +36892,7 @@ afU
 aEQ
 aEQ
 alR
-pTy
+doq
 aEQ
 spV
 sTR
@@ -37617,7 +37776,7 @@ afU
 aWu
 akx
 akx
-awI
+akx
 akx
 akx
 akx
@@ -39814,7 +39973,7 @@ afU
 afU
 aZW
 amq
-aYd
+aLH
 atl
 aRM
 aRM
@@ -39919,7 +40078,7 @@ aQN
 aYO
 aYO
 aYO
-fNK
+qEs
 aYO
 aYO
 qEs
@@ -40461,7 +40620,7 @@ alW
 adH
 anJ
 aBK
-afK
+adH
 anJ
 atU
 adH
@@ -40512,7 +40671,7 @@ aZW
 aZW
 aAx
 axl
-ayn
+qYs
 aZW
 aBz
 aBz
@@ -40762,7 +40921,7 @@ adH
 alW
 adH
 anJ
-adH
+afK
 adH
 anJ
 aQX
@@ -41115,8 +41274,8 @@ avA
 aVg
 aZW
 aZW
-awB
 aZW
+awB
 aZW
 aul
 blG
@@ -41533,7 +41692,7 @@ atD
 aCF
 aDd
 aaW
-auy
+aDG
 aEC
 aPk
 atD
@@ -44234,7 +44393,7 @@ aPL
 aZW
 aZW
 aLH
-aYd
+aLH
 aLH
 aZW
 aZW
@@ -44350,7 +44509,7 @@ aRM
 aRM
 aIJ
 aTT
-adi
+ajK
 aLH
 aLH
 aLH
@@ -44424,8 +44583,8 @@ aLH
 aLH
 aLH
 aLH
-ayp
 aLH
+ayp
 aLH
 aLH
 aTT
@@ -44448,13 +44607,13 @@ azw
 aux
 aMY
 aZW
+aFJ
 aZh
 aZh
 aZh
 aZh
 aZh
-aZh
-aZh
+nkW
 aZW
 xEi
 aSw
@@ -44570,7 +44729,7 @@ axS
 aLH
 aLH
 aLH
-arR
+rLE
 aTT
 aLH
 aTT
@@ -44726,8 +44885,8 @@ aRM
 aRM
 aRM
 aRM
-aLm
 aRM
+aLm
 aRM
 aRM
 aRM
@@ -45028,8 +45187,8 @@ aRM
 aRM
 aRM
 aRM
-aLm
 aRM
+aLm
 aRM
 aRM
 aRM
@@ -45256,7 +45415,7 @@ aRM
 aRM
 aJr
 afd
-adi
+ajK
 aLH
 aLH
 aLH
@@ -45330,8 +45489,8 @@ aLH
 aLH
 aLH
 aLH
-ayp
 aLH
+ayp
 aLH
 aLH
 afd
@@ -45354,13 +45513,13 @@ avC
 avC
 auS
 aZW
+aFJ
 aZh
 aZh
 aZh
 aZh
 aZh
-aZh
-aZh
+nkW
 aZW
 arl
 avC
@@ -45476,7 +45635,7 @@ aLH
 aLH
 aLH
 aLH
-arR
+rLE
 afd
 aLH
 afd
@@ -45975,7 +46134,7 @@ aZh
 aZh
 aIT
 aYO
-alN
+aAk
 aYO
 atG
 aZW
@@ -47212,8 +47371,8 @@ aRM
 aRM
 aLH
 aZW
+ast
 aPw
-oKP
 pcW
 aRb
 cpH
@@ -47507,8 +47666,8 @@ afU
 afU
 afU
 aZW
-agW
-aYd
+amq
+aLH
 atl
 aRM
 aRM
@@ -49629,7 +49788,7 @@ aRM
 aLH
 aZW
 hJR
-aPw
+dOc
 aPw
 aPw
 aPw
@@ -49931,7 +50090,7 @@ aRM
 aLH
 aZW
 aCf
-aPw
+eVJ
 aPw
 aPw
 aPw
@@ -50844,7 +51003,7 @@ aRb
 aLT
 aJl
 aRb
-pRb
+aaG
 aiX
 aRb
 afU
@@ -52131,7 +52290,7 @@ aaz
 aaz
 aaz
 aaz
-aaz
+aMM
 aaz
 aaz
 tCI
@@ -52799,7 +52958,7 @@ aLH
 aLH
 aLH
 aLH
-adi
+ajK
 aLH
 awq
 aRM
@@ -53705,7 +53864,7 @@ aLH
 aLH
 aLH
 aLH
-adi
+ajK
 aLH
 awr
 aRM
@@ -55140,7 +55299,7 @@ aLH
 axS
 aTT
 aTT
-arR
+rLE
 aTT
 aLH
 aTT
@@ -56046,7 +56205,7 @@ aLH
 aLH
 afd
 afd
-arR
+rLE
 afd
 aLH
 afd
@@ -56595,11 +56754,11 @@ aZW
 afU
 afU
 atD
-aDd
-aDd
-aDd
-aDd
-aDd
+bsJ
+bsJ
+bsJ
+bsJ
+bsJ
 atD
 afU
 afU
@@ -56897,11 +57056,11 @@ aZW
 afU
 afU
 atD
-aDd
-aDd
-aDd
-aDd
-aDd
+bsJ
+bsJ
+bsJ
+bsJ
+bsJ
 atD
 afU
 afU
@@ -56918,8 +57077,8 @@ afU
 afU
 afU
 aNR
-aZS
-aZS
+aOV
+aOV
 acB
 aMf
 afU
@@ -57199,11 +57358,11 @@ aZW
 afU
 afU
 atD
-aDd
+bsJ
 aaH
-aDd
+bsJ
 aaH
-aDd
+bsJ
 atD
 afU
 afU
@@ -57220,10 +57379,10 @@ aNR
 afU
 aNR
 aZS
-aZS
-ast
-aZS
-aZS
+aOV
+aOV
+aOV
+aOV
 aNR
 afU
 afU
@@ -57501,11 +57660,11 @@ aZW
 afU
 afU
 atD
-aDd
+bsJ
 aaH
-aan
+ilz
 aaH
-aDd
+bsJ
 atD
 afU
 afU
@@ -57523,9 +57682,9 @@ afU
 afU
 awU
 aGC
-awU
-aZS
-aZS
+aOV
+aOV
+aOV
 afU
 afU
 afU
@@ -57803,11 +57962,11 @@ aZW
 afU
 afU
 atD
-aDd
+bsJ
 aaH
 egO
 aaH
-aDd
+bsJ
 atD
 afU
 afU
@@ -57823,12 +57982,12 @@ akx
 akx
 akx
 aNR
-aZS
-aZS
+bLY
+aOV
 auj
-aZS
-akZ
-aZS
+aOV
+aOV
+oKP
 aNR
 afU
 afU
@@ -58105,11 +58264,11 @@ aZW
 afU
 afU
 atD
-aDd
+bsJ
 aaH
-aDd
+bsJ
 aaH
-aDd
+bsJ
 atD
 afU
 afU
@@ -58124,13 +58283,13 @@ afU
 aNR
 afU
 akx
-akx
-aZS
-aZS
-aZS
-aZS
-aZS
-aZS
+gRq
+aOV
+aOV
+aOV
+bbA
+sfV
+aOV
 afU
 afU
 afU
@@ -58407,11 +58566,11 @@ aZW
 afU
 afU
 atD
-aDd
-aDd
-aDd
-aDd
-aDd
+bsJ
+bsJ
+bsJ
+bsJ
+bsJ
 atD
 afU
 afU
@@ -58427,12 +58586,12 @@ afU
 afU
 afU
 aNR
-aZS
+aOV
 akt
-aZS
-aZS
-aZS
-aZS
+aOV
+nit
+bLY
+aOV
 aNR
 afU
 afU
@@ -58709,11 +58868,11 @@ aZW
 afU
 afU
 atD
-aDd
-aDd
-aDd
-aDd
-aDd
+bsJ
+bsJ
+bsJ
+bsJ
+bsJ
 atD
 afU
 afU
@@ -58729,11 +58888,11 @@ afU
 afU
 afU
 afU
-aZS
-aZS
-aZS
-aZS
-aZS
+aOV
+aOV
+oKP
+aOV
+aOV
 aRJ
 afU
 afU
@@ -58974,7 +59133,7 @@ tJe
 eCV
 tJe
 iXk
-hpT
+tJe
 iPH
 pLK
 sKj
@@ -59014,7 +59173,7 @@ atD
 atD
 atD
 atD
-aDd
+bsJ
 jTp
 atD
 afU
@@ -59032,10 +59191,10 @@ afU
 afU
 aNR
 aNR
-aZS
-aZS
-aZS
-aZS
+aOV
+aOV
+aOV
+aOV
 aXs
 aNR
 afU
@@ -59335,7 +59494,7 @@ afU
 afU
 afU
 aNR
-aZS
+oKP
 ayl
 aYo
 aZA
@@ -60480,7 +60639,7 @@ fTs
 wJm
 hJK
 atD
-atD
+aTD
 dRH
 atD
 atD
@@ -60781,11 +60940,11 @@ mee
 ofF
 ldS
 hJK
-afU
 atD
+aoT
 iKD
 atD
-cUR
+aNT
 biD
 tbU
 atD
@@ -61083,10 +61242,10 @@ hJK
 hJK
 hJK
 hJK
-afU
 atD
+aoT
 oXS
-eVJ
+atD
 aNT
 oAA
 oQk
@@ -61386,11 +61545,11 @@ afU
 afU
 afU
 afU
-atD
-avh
-atD
+aoT
+aoT
+aUG
 aNT
-biD
+aNT
 lbF
 atD
 afU
@@ -62467,7 +62626,7 @@ aVz
 afU
 akx
 akx
-aRM
+aKR
 aRM
 aZW
 aZW
@@ -62769,7 +62928,7 @@ akx
 akx
 akx
 akx
-abd
+abV
 abd
 abV
 afU
@@ -63071,7 +63230,7 @@ akx
 akx
 akx
 akx
-abd
+abV
 abd
 abV
 akx
@@ -63373,7 +63532,7 @@ akx
 akx
 akx
 abV
-abd
+abV
 abd
 abV
 akx
@@ -63482,10 +63641,10 @@ afU
 aVY
 aVY
 aVY
-agv
-agv
-agv
-agv
+mxj
+mxj
+mxj
+mxj
 aVY
 aVY
 aVY
@@ -63675,8 +63834,8 @@ aew
 akx
 abV
 abV
-abd
-abd
+abV
+abV
 abV
 akx
 aVz
@@ -63978,9 +64137,9 @@ aug
 abV
 abV
 abd
-abd
+abV
 akx
-afU
+akx
 afU
 afU
 afU
@@ -64280,7 +64439,7 @@ aVz
 abV
 abV
 abd
-abd
+abV
 akx
 afU
 afU
@@ -64582,7 +64741,7 @@ afU
 aVz
 abV
 abd
-abd
+abV
 akx
 afU
 afU
@@ -64883,8 +65042,8 @@ akx
 aVz
 afU
 afU
-abd
-abd
+abV
+abV
 akx
 afU
 afU
@@ -65185,8 +65344,8 @@ akx
 aVz
 afU
 afU
-abd
-abd
+abV
+abV
 akx
 afU
 afU
@@ -65487,8 +65646,8 @@ akx
 akx
 aVz
 akx
-abd
-abd
+abV
+abV
 akx
 afU
 afU
@@ -65788,9 +65947,9 @@ afU
 afU
 akx
 akx
-abV
-abd
-abd
+akx
+akx
+akx
 akx
 afU
 afU
@@ -66090,9 +66249,9 @@ aVz
 afU
 afU
 akx
-abV
-abd
-abd
+akx
+akx
+akx
 akx
 afU
 afU
@@ -66391,10 +66550,10 @@ akx
 aVz
 aVz
 aVz
+akx
+akx
 abV
 abV
-abd
-abd
 akx
 afU
 afU
@@ -66614,7 +66773,7 @@ abV
 abV
 abV
 abV
-abV
+akx
 akx
 arB
 akx
@@ -66693,12 +66852,12 @@ akx
 akx
 akx
 akx
-abV
-abV
-abd
-abd
 akx
-afU
+abV
+abV
+abV
+akx
+akx
 afU
 afU
 afU
@@ -66853,10 +67012,10 @@ div
 gbQ
 gtG
 nZq
-ilz
-bsJ
-aVB
 amj
+amj
+amj
+aYV
 nZq
 asm
 aGS
@@ -66914,11 +67073,11 @@ aYb
 akx
 akx
 akx
-ajl
-abV
-abV
-abV
-abV
+afp
+akx
+akx
+akx
+akx
 akx
 afU
 afU
@@ -66998,9 +67157,9 @@ akx
 akx
 aVz
 abd
-abd
 abV
-afU
+abV
+akx
 afU
 afU
 afU
@@ -67155,9 +67314,9 @@ hqx
 aJl
 aHf
 nZq
-uDt
+amj
 nwx
-aSd
+amj
 amj
 nZq
 aZR
@@ -67219,8 +67378,8 @@ akx
 akx
 akx
 akx
-abV
-abV
+akx
+akx
 abV
 akx
 afU
@@ -67300,9 +67459,9 @@ aVz
 aVz
 aVz
 abd
-abd
 abV
-afU
+abV
+akx
 afU
 afU
 afU
@@ -67414,9 +67573,9 @@ aCp
 aoT
 aQU
 atD
-aYD
-aYD
-aYD
+mxj
+mxj
+mxj
 aVY
 akx
 akx
@@ -67602,9 +67761,9 @@ aVz
 afU
 afU
 afU
-abd
+abV
 akx
-afU
+akx
 afU
 afU
 afU
@@ -67760,7 +67919,7 @@ aJl
 aJl
 nZq
 iBj
-amj
+aVB
 ppy
 amj
 nZq
@@ -67904,7 +68063,7 @@ aVz
 aVz
 afU
 afU
-abd
+abV
 akx
 afU
 afU
@@ -68061,9 +68220,9 @@ oiY
 aJl
 aJl
 nZq
+nZq
+nZq
 amj
-axX
-xOS
 amj
 nZq
 buT
@@ -68125,7 +68284,7 @@ afU
 afU
 afU
 afU
-afU
+akx
 akx
 abV
 aWu
@@ -68206,7 +68365,7 @@ akx
 aVz
 aVz
 afU
-abd
+abV
 akx
 afU
 afU
@@ -68363,8 +68522,8 @@ nZq
 aJl
 aJl
 nZq
-amj
-amj
+aSd
+nZq
 amj
 amj
 nZq
@@ -68508,7 +68667,7 @@ akx
 akx
 aVz
 aVz
-abd
+abV
 akx
 afU
 afU
@@ -68810,7 +68969,7 @@ akx
 akx
 akx
 aVz
-afU
+akx
 akx
 afU
 afU
@@ -68923,7 +69082,7 @@ abS
 axe
 aoT
 eiI
-nxk
+aLV
 cPc
 any
 uNO
@@ -69112,8 +69271,8 @@ akx
 akx
 aWm
 akx
-afU
-afU
+akx
+akx
 afU
 afU
 afU
@@ -69829,7 +69988,7 @@ aRX
 adr
 aoT
 aoT
-kBy
+aTy
 aoT
 ajA
 ndK
@@ -70149,7 +70308,7 @@ akx
 afU
 aXu
 xCn
-wmX
+asn
 xyc
 ifQ
 omo
@@ -70241,8 +70400,8 @@ abV
 abV
 abV
 azj
-abV
-afU
+akx
+akx
 afU
 afU
 afU
@@ -70534,18 +70693,18 @@ ahY
 afU
 akx
 aYb
-abV
+akx
 abV
 abV
 abV
 aYb
 akx
 akx
-abV
-aeR
-abV
+akx
 arB
-afU
+akx
+arB
+akx
 aZW
 aZW
 aZW
@@ -70833,10 +70992,10 @@ aLH
 afU
 afU
 abd
-arB
+abd
 aWu
 akx
-abV
+akx
 abV
 abV
 aWu
@@ -70844,11 +71003,11 @@ akx
 afU
 afU
 afU
-abV
-ajh
-abV
 akx
-afU
+aYb
+akx
+akx
+akx
 aLH
 aTT
 aKD
@@ -71054,7 +71213,7 @@ afU
 afU
 afU
 jvK
-aDd
+aqS
 aDd
 jen
 hne
@@ -71137,9 +71296,9 @@ abd
 abd
 abd
 abd
-abV
-abV
-ajl
+akx
+akx
+afp
 akx
 akx
 afU
@@ -71358,7 +71517,7 @@ afU
 aXu
 qnM
 coq
-lSr
+aDd
 iSO
 tgW
 wfD
@@ -71440,7 +71599,7 @@ abd
 abd
 abd
 akx
-abV
+akx
 akx
 akx
 afU
@@ -71681,7 +71840,7 @@ aLH
 aLH
 afd
 aLH
-arn
+aub
 aRM
 aRM
 ayk
@@ -71735,14 +71894,14 @@ aLH
 aLH
 aLH
 aLH
-afU
-afU
+akx
+akx
 akx
 afU
 afU
-afU
+abd
 akx
-abV
+akx
 akx
 akx
 afU
@@ -72037,14 +72196,14 @@ aZW
 aZW
 aZW
 aZW
-afU
-afU
+akx
+akx
 akx
 akx
 afU
 afU
 aEi
-abV
+akx
 abV
 akx
 afU
@@ -72325,7 +72484,7 @@ aRb
 aNk
 aNk
 aRb
-aRb
+aNp
 aRb
 aRb
 afU
@@ -72578,13 +72737,13 @@ afU
 afU
 afU
 afU
-atD
-atD
-atD
-atD
-atD
-atD
-atD
+afU
+afU
+afU
+afU
+afU
+afU
+afU
 afU
 aZW
 aLH
@@ -72880,13 +73039,13 @@ afU
 afU
 afU
 afU
-atD
-aLV
-aYR
-aTy
-aYR
-aYR
-atD
+afU
+afU
+afU
+afU
+afU
+afU
+afU
 afU
 aZW
 aeC
@@ -73183,11 +73342,11 @@ afU
 afU
 afU
 atD
-aLV
-aYR
-aYR
-aUG
-aYR
+atD
+atD
+atD
+atD
+atD
 atD
 afU
 aZW
@@ -73257,7 +73416,7 @@ akx
 abV
 abV
 abV
-abV
+akx
 aHI
 akx
 aeR
@@ -73485,11 +73644,11 @@ afU
 afU
 afU
 atD
-atD
-atD
-atD
-atD
-atD
+cUR
+djc
+fNK
+djc
+djc
 atD
 afU
 aZW
@@ -73558,8 +73717,8 @@ adf
 akx
 akx
 akx
-abV
-abV
+akx
+akx
 akx
 abV
 abV
@@ -73786,13 +73945,13 @@ afU
 afU
 afU
 afU
-afU
-afU
-afU
-afU
-afU
-afU
-afU
+atD
+cUR
+djc
+djc
+pTy
+djc
+atD
 afU
 aZW
 aLH
@@ -73861,7 +74020,7 @@ akx
 aWu
 akx
 akx
-abV
+akx
 abV
 abV
 aEi
@@ -74088,13 +74247,13 @@ afU
 afU
 afU
 afU
-afU
-afU
-afU
-afU
-afU
-afU
-afU
+atD
+atD
+atD
+atD
+atD
+atD
+atD
 afU
 aZW
 aLH
@@ -74390,13 +74549,13 @@ afU
 afU
 afU
 afU
-atD
-atD
-atD
-atD
-atD
-atD
-atD
+afU
+afU
+afU
+afU
+afU
+afU
+afU
 afU
 aZW
 aLH
@@ -74692,13 +74851,13 @@ afU
 afU
 afU
 afU
-atD
-aLV
-aYR
-ayK
-aYR
-aYR
-atD
+afU
+afU
+afU
+afU
+afU
+afU
+afU
 afU
 aZW
 aLH
@@ -74769,7 +74928,7 @@ afU
 afU
 akx
 akx
-abV
+akx
 abV
 akx
 afU
@@ -74995,11 +75154,11 @@ afU
 afU
 afU
 atD
-aLV
-aYR
-aTD
-aYR
-aUG
+atD
+atD
+atD
+atD
+atD
 atD
 afU
 aZW
@@ -75070,9 +75229,9 @@ afU
 afU
 afU
 akx
-abV
-abV
-abV
+akx
+akx
+akx
 akx
 afU
 afU
@@ -75297,11 +75456,11 @@ afU
 afU
 afU
 atD
-atD
-atD
-atD
-atD
-atD
+cUR
+djc
+hpT
+djc
+djc
 atD
 afU
 aZW
@@ -75372,8 +75531,8 @@ afU
 afU
 aYb
 akx
-abV
-abV
+akx
+akx
 afp
 akx
 akx
@@ -75598,13 +75757,13 @@ afU
 afU
 afU
 afU
-afU
-afU
-afU
-afU
-afU
-afU
-afU
+atD
+cUR
+djc
+pRb
+djc
+pTy
+atD
 afU
 aZW
 aLH
@@ -75900,13 +76059,13 @@ afU
 afU
 afU
 afU
-afU
-afU
-afU
-afU
-afU
-afU
-afU
+atD
+atD
+atD
+atD
+atD
+atD
+atD
 afU
 aZW
 aeC
@@ -78421,9 +78580,9 @@ afU
 afU
 akC
 akC
-aEY
+aQv
 akC
-aEY
+aQv
 akC
 akC
 afU
@@ -79332,10 +79491,10 @@ aUt
 aUt
 aQh
 akC
-acT
-acT
-acT
-acT
+afU
+afU
+afU
+afU
 afU
 afU
 afU
@@ -79634,10 +79793,10 @@ aUt
 aUt
 aRW
 akC
-auI
-aUt
-aUt
-acT
+afU
+afU
+afU
+afU
 afU
 afU
 afU
@@ -79936,10 +80095,10 @@ aUt
 asv
 aUt
 akC
-aUt
-aUt
-aQh
-acT
+afU
+afU
+afU
+afU
 afU
 afU
 afU
@@ -80038,7 +80197,7 @@ aEW
 aEW
 aEW
 aDd
-aDd
+aan
 aEW
 afU
 afU
@@ -80238,10 +80397,10 @@ aUt
 aUt
 aUt
 akC
-auI
-aUt
-aUt
-akC
+afU
+afU
+afU
+afU
 afU
 akC
 akC
@@ -80282,7 +80441,7 @@ ajf
 aMO
 aMO
 aMO
-aMO
+ulc
 aMO
 aMO
 ajf
@@ -80542,8 +80701,8 @@ acT
 acT
 acT
 acT
-aUt
-akC
+afU
+afU
 afU
 akC
 sbA
@@ -80580,12 +80739,12 @@ ajf
 aCP
 aMO
 aMO
-apR
-aMO
-aHe
 aMO
 aMO
+aRA
 aMO
+aMO
+aRA
 aMO
 ajf
 azf
@@ -80843,9 +81002,9 @@ aUt
 aUt
 aUt
 aUt
-aPW
-aUt
-akC
+acT
+afU
+afU
 afU
 akC
 aIM
@@ -80884,11 +81043,11 @@ aMO
 aMO
 ajf
 azS
-aee
 aMO
-aee
 aMO
-amf
+ulc
+aMO
+aMO
 ajf
 aZN
 azU
@@ -81129,10 +81288,10 @@ acT
 akC
 akC
 afU
-acT
-acT
-akC
-akC
+afU
+afU
+afU
+afU
 afU
 afU
 akC
@@ -81146,11 +81305,11 @@ aUt
 aUt
 aQh
 acT
-acT
-acT
+afU
+afU
 afU
 akC
-sbA
+arn
 aUt
 sbA
 aUt
@@ -81184,12 +81343,12 @@ ajf
 aAa
 aMO
 aMO
-apR
+ajf
+aCP
+aRA
+aHe
 aMO
-aMO
-aMO
-aMO
-aMO
+aRA
 aMO
 ajf
 azU
@@ -81411,8 +81570,8 @@ afU
 afU
 afU
 acT
-aIn
-aLh
+aUt
+aUt
 akC
 afU
 afU
@@ -81431,10 +81590,10 @@ acT
 afU
 afU
 afU
-acT
-aIn
-aIn
-akC
+afU
+afU
+afU
+afU
 afU
 afU
 akC
@@ -81487,12 +81646,12 @@ aca
 aMO
 aMO
 ajf
-aRA
+aAa
 aee
 aMO
-aee
+ulc
 aMO
-aee
+aMO
 ajf
 aDp
 azU
@@ -81713,8 +81872,8 @@ acT
 acT
 acT
 acT
-avv
-avv
+aUt
+aUt
 akC
 akC
 acT
@@ -81734,8 +81893,8 @@ acT
 akC
 akC
 akC
-avv
-avv
+akC
+akC
 acT
 acT
 acT
@@ -81785,16 +81944,16 @@ aMO
 ajf
 afU
 ajf
-ajf
 aMO
 aMO
+aMO
 ajf
-ajf
-ajf
-ajf
-ajf
-ajf
-ajf
+aCP
+aRA
+aMO
+aMO
+aRA
+aMO
 ajf
 iHn
 azU
@@ -82033,7 +82192,7 @@ aUt
 aUt
 aUt
 aUt
-aUt
+aeD
 aUt
 aUt
 aUt
@@ -82087,16 +82246,16 @@ aMO
 ajf
 afU
 ajf
-aKj
-aQn
-aQn
-aJP
 aOZ
-aWO
-aIx
-aQn
-arj
-aQn
+aMO
+aMO
+aOZ
+aOZ
+ajf
+iYl
+iYl
+ajf
+ajf
 ajf
 azU
 aLc
@@ -82307,13 +82466,13 @@ afU
 akC
 aqi
 aUt
-aUt
-aUt
+avB
+avB
 aUt
 aqi
 aUt
 aUt
-aUt
+aMP
 aUt
 aqi
 aUt
@@ -82328,7 +82487,7 @@ aUt
 aUt
 aza
 aUt
-aAI
+aUt
 aUt
 aUt
 aqi
@@ -82363,7 +82522,7 @@ aUt
 aUt
 aUt
 aUt
-avv
+iKE
 aIn
 acT
 afU
@@ -82389,11 +82548,11 @@ aMO
 ajf
 afU
 ajf
-asn
+akD
 aVh
 ays
 akD
-akD
+aOc
 ant
 aIx
 aQn
@@ -82608,9 +82767,9 @@ afU
 afU
 akC
 akC
-acT
-aQv
-acT
+avB
+avB
+avB
 acT
 acT
 acT
@@ -82655,7 +82814,7 @@ aud
 acT
 aUt
 aUt
-avv
+iKE
 aIn
 acT
 afU
@@ -82699,7 +82858,7 @@ acW
 acW
 aQn
 aQn
-arj
+aQn
 aQn
 aDN
 aMO
@@ -82909,9 +83068,9 @@ afU
 afU
 afU
 afU
-afU
-acT
-aUt
+avB
+avB
+avB
 acT
 afU
 afU
@@ -83001,7 +83160,7 @@ aQn
 aQn
 aQn
 aQn
-arj
+aQn
 aQn
 aDN
 aMO
@@ -83017,7 +83176,7 @@ ajf
 aMO
 aMO
 aMO
-ann
+ayK
 aMO
 aMO
 aMO
@@ -83211,8 +83370,8 @@ afU
 akC
 akC
 akC
-akC
-acT
+avB
+avB
 aUt
 acT
 acT
@@ -83293,7 +83452,7 @@ aMO
 aMO
 aMO
 aMO
-afC
+agW
 aQn
 aQn
 aQn
@@ -83304,7 +83463,7 @@ aQn
 aQn
 auN
 arj
-aQn
+arj
 ajf
 ajf
 ajf
@@ -83589,7 +83748,7 @@ afU
 ajf
 aQA
 aMO
-aMO
+aHe
 akV
 aMO
 aMO
@@ -83598,15 +83757,15 @@ ajf
 ajf
 ajf
 aJs
+amf
 arj
-aEk
 arj
 aCB
 arj
 aQn
 aQn
 arj
-aQn
+aMO
 ajf
 afU
 afU
@@ -83824,8 +83983,8 @@ auA
 auA
 aUt
 aUt
-aVA
-aLB
+aUt
+auI
 apG
 aci
 apG
@@ -83852,10 +84011,10 @@ apG
 apG
 apG
 apG
-aLB
 aUq
 aUt
 aUt
+aUt
 akC
 akC
 akC
@@ -83869,8 +84028,8 @@ acT
 akC
 akC
 akC
-acT
-aQv
+akC
+aUt
 acT
 acT
 afU
@@ -83899,12 +84058,12 @@ aMO
 ajf
 afU
 ajf
-aEa
-aQn
-atM
+ajf
+ajf
 aYY
-aOc
-arj
+aYY
+ajf
+vUj
 aQn
 aQn
 aSm
@@ -84126,8 +84285,8 @@ auA
 auA
 aUt
 aUt
-aVA
-aLB
+aUt
+avt
 apG
 apG
 aVU
@@ -84154,8 +84313,8 @@ apG
 aVU
 apG
 apG
-aLB
-aUq
+aVA
+aUt
 aUt
 aUt
 akC
@@ -84200,17 +84359,17 @@ ajf
 ajf
 ajf
 afU
+afU
+afU
 ajf
+aMO
+aMO
 ajf
-ajf
-ajf
-ajf
-ajf
-arj
+bVn
 aQn
 aQn
 arj
-aQn
+aMO
 ajf
 afU
 afU
@@ -84428,8 +84587,8 @@ auA
 auA
 aUt
 aUt
-aVA
-aLB
+sHf
+aAI
 apG
 apG
 apG
@@ -84455,9 +84614,9 @@ apG
 apG
 apG
 apG
-apG
-aLB
-aUq
+aRu
+aYK
+aUt
 aUt
 aUt
 akC
@@ -84505,9 +84664,9 @@ afU
 afU
 afU
 ajf
-aYK
-abn
-afC
+aEa
+aMO
+ajf
 aJd
 aQn
 aQn
@@ -84733,7 +84892,7 @@ aUt
 acT
 acT
 acT
-aCc
+onN
 aCc
 aCc
 aCc
@@ -84743,10 +84902,10 @@ afU
 afU
 aCc
 aCc
-axw
+hyh
 asr
 asr
-ait
+pWI
 aCc
 aCc
 aCc
@@ -84760,7 +84919,7 @@ aCc
 acT
 acT
 akC
-aUt
+nvk
 aUt
 acT
 afU
@@ -84807,14 +84966,14 @@ ajf
 ajf
 ajf
 ajf
-aYK
-aMO
-afC
+ajf
+ajf
+ajf
 ada
 aQn
 aQn
 arj
-aIg
+xvW
 ajf
 afU
 aby
@@ -85668,7 +85827,7 @@ acT
 acT
 aUt
 aUt
-avv
+iKE
 aLh
 acT
 afU
@@ -86276,7 +86435,7 @@ ayR
 acT
 afU
 afU
-acT
+avB
 aUt
 aUt
 aUt
@@ -86560,8 +86719,8 @@ akC
 akC
 akC
 aUt
-acT
-acT
+aUt
+aUt
 akC
 akC
 akC
@@ -86577,8 +86736,8 @@ aUt
 auL
 acT
 afU
-afU
-acT
+avB
+avB
 aVG
 aFi
 aVG
@@ -86860,11 +87019,11 @@ afU
 afU
 afU
 afU
+akC
+aUt
+aUt
+aUt
 acT
-aQv
-acT
-afU
-afU
 afU
 afU
 afU
@@ -86873,14 +87032,14 @@ afU
 afU
 afU
 akC
-aUt
-aUt
-aUt
 aWx
-akC
-afU
-afU
-akC
+aUt
+aUt
+aUt
+avB
+avB
+avB
+avB
 arv
 aUt
 aTq
@@ -87162,27 +87321,27 @@ afU
 akC
 akC
 akC
-acT
-aUt
-acT
-acT
-acT
 akC
-akC
-afU
-afU
-acT
-acT
-acT
-acT
-aPF
 aUt
 aUt
-avt
+aUt
+acT
+akC
 akC
 afU
-afU
-akC
+acT
+acT
+acT
+acT
+acT
+lRJ
+aUt
+aUt
+aUt
+avB
+avB
+avB
+avB
 aUt
 aUt
 aUt
@@ -87223,7 +87382,7 @@ aMO
 aMO
 aMO
 aMO
-aHs
+aEk
 aMO
 ayD
 aMO
@@ -87444,8 +87603,8 @@ afU
 afU
 afU
 akC
-aIn
-avv
+aUt
+aUt
 aUt
 aUt
 acT
@@ -87472,19 +87631,19 @@ ahc
 aiO
 akC
 afU
-afU
 acT
 aUt
-aFJ
-avv
+aPW
+aUt
+fgo
 aUt
 aUt
 aUt
 aWx
 akC
-afU
-afU
-akC
+avB
+avB
+avB
 aur
 aUt
 aVG
@@ -87746,8 +87905,8 @@ afU
 afU
 afU
 acT
-aIn
-avv
+aUt
+aUt
 aUt
 aUt
 acT
@@ -87768,17 +87927,17 @@ aAH
 aiO
 aOh
 aUt
-aUt
+aLh
 aUt
 aVc
 aVc
 akC
 afU
-afU
 acT
+aUt
 aUI
-aRu
-avv
+aUt
+bUA
 aUt
 aUt
 aUt
@@ -88070,17 +88229,17 @@ aAH
 aYQ
 aOh
 aUt
-aqS
+aUt
 aUt
 aUt
 aUt
 acT
 afU
-afU
 acT
 aUt
 aUt
-avv
+aUt
+bFg
 aUt
 aUt
 aUt
@@ -88124,7 +88283,7 @@ afU
 afU
 afU
 ajf
-afA
+oJs
 asw
 acG
 aOH
@@ -88135,7 +88294,7 @@ ajf
 apa
 asw
 acG
-aJk
+gju
 ajf
 afU
 afU
@@ -88360,9 +88519,9 @@ afU
 afU
 afU
 acT
+iOS
 aUt
-aUt
-aUt
+iqP
 aUt
 acI
 acT
@@ -88378,7 +88537,7 @@ aVx
 aVx
 acT
 afU
-afU
+acT
 akC
 akC
 alt
@@ -88386,7 +88545,7 @@ acT
 aVU
 aUt
 aUt
-avv
+oNl
 aUt
 akC
 afU
@@ -88662,11 +88821,11 @@ afU
 afU
 afU
 acT
-aiJ
+qHV
 aUt
-aQb
+jOl
 aUt
-ajK
+aUR
 acT
 afU
 acT
@@ -88682,7 +88841,7 @@ acT
 afU
 afU
 akC
-aXh
+aZY
 aUt
 acT
 acT
@@ -88755,7 +88914,7 @@ ajf
 apa
 asw
 acG
-aJk
+gju
 ajf
 afU
 afU
@@ -88964,9 +89123,9 @@ afU
 afU
 afU
 acT
+iOS
 aUt
-aUt
-aUt
+iOS
 aUt
 aUR
 acT
@@ -88988,7 +89147,7 @@ aZY
 aUt
 aUt
 aUt
-aMP
+aUt
 aUt
 aUt
 aUt
@@ -89294,7 +89453,7 @@ aUt
 aUt
 aUt
 aUt
-aUt
+aMP
 aTv
 acT
 afU
@@ -89568,9 +89727,9 @@ afU
 afU
 afU
 acT
-aiJ
+sKx
 aUt
-aQb
+qfe
 aUt
 aQi
 acT
@@ -89870,11 +90029,11 @@ afU
 afU
 afU
 acT
+iOS
 aUt
+iqP
 aUt
-aUt
-aUt
-aUt
+iOS
 acT
 afU
 acT

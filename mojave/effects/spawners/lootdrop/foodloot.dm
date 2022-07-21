@@ -212,3 +212,38 @@
 		/obj/item/seeds/ms13/potato,
 		/obj/item/seeds/ms13/tomato
 		)
+
+/obj/effect/spawner/random/ms13/food/random
+	name = "random pre-war food spawner"
+	spawn_loot_count = 1
+	loot = list(
+			/obj/effect/spawner/random/ms13/food/junkfood_boxed = 10,
+			/obj/effect/spawner/random/ms13/guarenteed/food/produce_random = 60,
+			/obj/effect/spawner/random/ms13/food/junkfood_canned = 30,
+			)
+
+/obj/effect/spawner/random/ms13/food/packaged
+	name = "random pre-war food spawner"
+	spawn_loot_count = 1
+	loot = list(
+			/obj/effect/spawner/random/ms13/food/junkfood_boxed = 50,
+			/obj/effect/spawner/random/ms13/food/junkfood_canned = 50,
+			)
+
+/obj/effect/spawner/random/ms13/food/trash
+	name = "random pre-war food trash spawner"
+	loot = list(
+		/obj/item/trash/ms13/cans/dogfood,
+		/obj/item/trash/ms13/cans/porknbeans,
+		/obj/item/trash/ms13/cans/seafood,
+		/obj/item/trash/ms13/cans/cajunrice,
+		/obj/item/trash/ms13/packaging/salisbury,
+		/obj/item/trash/ms13/packaging/crisps,
+		/obj/item/trash/ms13/packaging/dandy,
+		/obj/item/trash/ms13/packaging/snackcake,
+		/obj/item/trash/ms13/packaging/macncheese,
+		/obj/item/trash/ms13/packaging/poofs,
+		/obj/item/trash/ms13/packaging/sugarbombs,
+		/obj/item/trash/ms13/packaging/yumegg,
+		/obj/item/trash/ms13/packaging/instamash
+		)

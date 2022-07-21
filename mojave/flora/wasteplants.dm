@@ -21,10 +21,12 @@
 	var/base_icon
 	var/regrowth_time_low = 8 MINUTES
 	var/regrowth_time_high = 16 MINUTES
+	var/stick_around = TRUE // If the plant comes back later on
+	var/variants = 3 // How many variants of the plant sprite there are
 
 /obj/structure/flora/ms13/forage/Initialize()
 	. = ..()
-	base_icon = "[icon_state][rand(1, 3)]"
+	base_icon = "[icon_state][rand(1, (variants))]"
 	icon_state = base_icon
 	pixel_x = rand(-3, 3)
 	pixel_y = rand(-3, 3)
@@ -45,7 +47,10 @@
 		for(var/i in 1 to rand_harvested)
 			new harvest(get_turf(src))
 
-	icon_state = "[base_icon]p"
+	if(stick_around)
+		icon_state = "[base_icon]p"
+	else
+		qdel(src)
 	name = harvested_name
 	desc = harvested_desc
 	harvested = TRUE
@@ -75,6 +80,25 @@
 		if(do_after(user, harvest_time, target = src))
 			harvest(user)
 
+/obj/structure/flora/ms13/forage/brocflower
+	icon_state = "brocflower"
+	name = "brocflower"
+	desc = "A lanky plant bearing broc flowers"
+	harvested_name = "broc flower"
+	harvested_desc = "A broc flower."
+	harvest = /obj/item/food/grown/ms13/brocflower
+	harvest_amount_high = 3
+	variants = 2
+
+/obj/structure/flora/ms13/forage/xander
+	icon_state = "xander"
+	name = "xander"
+	desc = "A bunch of xander root plants"
+	harvested_name = "xander"
+	harvested_desc = "A xander root."
+	harvest = /obj/item/food/grown/ms13/xander
+	harvest_amount_high = 2
+	variants = 2
 /obj/structure/flora/ms13/forage/tarberry
 	icon_state = "tarberry"
 	name = "tarberry shrub"
@@ -327,7 +351,7 @@
 			if(W.hitsound)
 				playsound(get_turf(src), 'mojave/sound/ms13effects/wood_cutting.ogg', 80, FALSE, FALSE)
 				user.visible_message("<span class='notice'>[user] begins to cut down [src] with [W].</span>","<span class='notice'>You begin to cut down [src] with [W].</span>", "<span class='hear'>You hear the sound of chopping.</span>")
-				if(do_after(user, 30 SECONDS * W.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_CHOPTREE)) 
+				if(do_after(user, 30 SECONDS * W.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_CHOPTREE))
 					user.visible_message("<span class='notice'>[user] fells [src] with the [W].</span>","<span class='notice'>You fell [src] with the [W].</span>", "<span class='hear'>You hear the sound of a tree falling.</span>")
 					playsound(get_turf(src), 'sound/effects/meteorimpact.ogg', 80, FALSE, FALSE)
 					user.log_message("cut down [src] at [AREACOORD(src)]", LOG_ATTACK)
