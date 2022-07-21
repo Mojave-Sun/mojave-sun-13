@@ -131,7 +131,7 @@
 	category = CAT_MEDICAL
 	crafting_interface = CRAFTING_BENCH_CAMPFIRE
 
-/datum/crafting_recipe/bitter_drink
+/datum/crafting_recipe/bitter_drink_refill
 	name = "bitter drink flask refill"
 	result = /obj/item/reagent_containers/ms13/flask/bitter_drink
 	time = 12 SECONDS
