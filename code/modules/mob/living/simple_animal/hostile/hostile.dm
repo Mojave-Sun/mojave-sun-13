@@ -569,15 +569,16 @@
 
 	//var/cheap_search = isturf(T) && !is_station_level(T.z)
 	//if (cheap_search)
-		//MS13; try out only lazy target search
+		//MS13; try out only lazy target search if the mob is off zlevel
 	tlist = ListTargetsLazy(T.z)
 	//else
 	//	tlist = ListTargets()
 
-	if(AIStatus == AI_IDLE && FindTarget(tlist, 1))
+	if(AIStatus == AI_IDLE && FindTarget(tlist, TRUE))
 	//	if(cheap_search) //Try again with full effort
-		FindTarget()
-		toggle_ai(AI_ON)
+		GiveTarget(null) //Above target may have been acquired without LoS to them; we want LoS to target to trigger AI
+		if(FindTarget())
+			toggle_ai(AI_ON)
 
 /mob/living/simple_animal/hostile/proc/ListTargetsLazy(_Z)//Step 1, find out what we can see
 	var/static/hostile_machines = typecacheof(list(/obj/machinery/porta_turret, /obj/vehicle/sealed/mecha))
