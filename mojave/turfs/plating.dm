@@ -773,8 +773,8 @@ GLOBAL_VAR(FishPopNextCalc)
 						addtimer(CALLBACK(src, .proc/transfer_mob_layer, M), 0.2 SECONDS)
 						M.forceMove(src)
 						to_chat(user, "<span class='notice'>You lower yourself in the deep water.</span>")
-						M.adjust_bodytemperature(coldness)
-						M.Jitter(20)
+						//M.adjust_bodytemperature(coldness)
+						//M.Jitter(20)
 				else
 					user.visible_message("<span class='notice'>[M] is being put in the deep water by [user].</span>", \
 									"<span class='notice'>You start lowering [M] in the deep water.")
@@ -783,8 +783,8 @@ GLOBAL_VAR(FishPopNextCalc)
 						addtimer(CALLBACK(src, .proc/transfer_mob_layer, M), 0.2 SECONDS)
 						M.forceMove(src)
 						to_chat(user, "<span class='notice'>You lower [M] in the deep water.</span>")
-						M.adjust_bodytemperature(coldness)
-						M.Jitter(20)
+						//M.adjust_bodytemperature(coldness)
+						//M.Jitter(20)
 						return
 			else
 				return
@@ -817,7 +817,7 @@ GLOBAL_VAR(FishPopNextCalc)
 						playsound(src, 'mojave/sound/ms13effects/splash.ogg', 60, 1, 1)
 						H.Knockdown(20)
 						H.swimming = TRUE
-						M.adjust_bodytemperature(coldness)
+						//M.adjust_bodytemperature(coldness)
 						return
 					else
 						H.dropItemToGround(H.get_active_held_item())
@@ -828,28 +828,28 @@ GLOBAL_VAR(FishPopNextCalc)
 						playsound(src, 'mojave/sound/ms13effects/splash.ogg', 60, 1, 1)
 						H.Knockdown(60)
 						H.swimming = TRUE
-						M.adjust_bodytemperature(coldness)
+						//M.adjust_bodytemperature(coldness)
 				else
 					H.swimming = TRUE
-					M.adjust_bodytemperature(coldness)
+					//M.adjust_bodytemperature(coldness)
 		if(H.body_position == LYING_DOWN)
 			if(M.stat == DEAD)
 				return
 			switch(depth)
 				if(3)
 					H.visible_message("<span class='danger'>[H] flails in the water!</span>",
-										"<span class='userdanger'>Youre drowning!</span>")
+										"<span class='userdanger'>You're drowning!</span>")
 					H.Knockdown(20)
-					M.adjust_bodytemperature(coldness)
+					//M.adjust_bodytemperature(coldness)
 					M.adjustStaminaLoss(20)
 					M.adjustOxyLoss(10)
 					M.adjustOrganLoss(ORGAN_SLOT_LUNGS, 20)
 					playsound(src, 'mojave/sound/ms13effects/drown.ogg', 30, 1, 1)
 				if(2)
 					H.visible_message("<span class='danger'>[H] flails in the shallow water!</span>",
-										"<span class='userdanger'>Youre drowning!</span>")
+										"<span class='userdanger'>You're drowning!</span>")
 					H.Knockdown(10)
-					M.adjust_bodytemperature(coldness)
+					//M.adjust_bodytemperature(coldness)
 					M.adjustStaminaLoss(10)
 					M.adjustOxyLoss(5)
 					M.adjustOrganLoss(ORGAN_SLOT_LUNGS, 10)
@@ -858,17 +858,17 @@ GLOBAL_VAR(FishPopNextCalc)
 			switch(depth)
 				if(3)
 					M.wash(CLEAN_WASH)
-					M.adjust_bodytemperature(coldness)
-					M.Jitter(20)
+					//M.adjust_bodytemperature(coldness)
+					//M.Jitter(20)
 					M.adjustStaminaLoss(3)
 				if(2)
 					M.wash(CLEAN_WASH)
-					M.adjust_bodytemperature(coldness)
-					M.Jitter(20)
+					//M.adjust_bodytemperature(coldness)
+					//M.Jitter(20)
 					M.adjustStaminaLoss(1)
-				else
+				/*else
 					M.adjust_bodytemperature(coldness)
-					M.Jitter(20)
+					M.Jitter(20)*/
 			return
 
 /turf/open/ms13/water/proc/transfer_mob_layer(var/mob/living/carbon/M)
