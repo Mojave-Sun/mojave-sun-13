@@ -180,12 +180,19 @@
 
 // Office Chairs //
 
+/obj/structure/chair/office/Moved()
+	. = ..()
+	if(has_gravity())
+		playsound(src, 'mojave/sound/ms13effects/furniture/chair_office_move.ogg', 75, TRUE)
+
 /obj/structure/chair/office/ms13
 	name = "base class Mojave sun office chair"
 	desc = "Scream at the coders if you see this."
 	icon = 'mojave/icons/structure/chairs.dmi'
 	buildstacktype = /obj/item/stack/sheet/ms13/scrap
 	buildstackamount = 1
+	buckle_sound = 'mojave/sound/ms13effects/furniture/chair_office_sit.ogg'
+	unbuckle_sound = 'mojave/sound/ms13effects/furniture/chair_office_standup.ogg'
 	max_integrity = 100
 
 /obj/structure/chair/office/ms13/wrench_act_secondary(mob/living/user, obj/item/weapon)
