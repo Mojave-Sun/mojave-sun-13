@@ -28,7 +28,7 @@
 	back =       /obj/item/storage/ms13/vault
 	backpack_contents = list(
 		/obj/item/stack/medical/gauze/ms13/half=1, \
-		/obj/item/stack/medical/ointment/ms13/dressing/half=1, \
+		/obj/item/stack/medical/ointment/ms13/half=1, \
 		/obj/item/clothing/head/helmet/ms13/vaulthelmet=1, \
 		/obj/item/claymore/ms13/baton=1, \
 		/obj/item/flashlight/ms13=1, \
