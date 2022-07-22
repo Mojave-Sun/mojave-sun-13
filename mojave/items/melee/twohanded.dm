@@ -227,7 +227,7 @@
 	start_sound = 'mojave/sound/ms13weapons/meleesounds/saw_start.ogg'
 	start_length = 1.8
 	mid_sounds = 'mojave/sound/ms13weapons/meleesounds/saw_loop.ogg'
-	mid_length = 3.8
+	mid_length = 1.8
 	vary = FALSE
 	volume = 67
 
