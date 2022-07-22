@@ -1,5 +1,5 @@
 /datum/job/ms13/raiders/sawbone
-	title = "Sawbone"
+	title = "Raider Sawbone"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "The Boss and the Enforcer"
@@ -11,6 +11,8 @@
 
 	display_order = JOB_DISPLAY_ORDER_MS13_SAWBONE
 
+	mind_traits = list(TRAIT_MEDICAL_TRAINING)
+
 /datum/outfit/job/ms13/raiders/sawbone
 	name = "_Raider Sawbone"
 	jobtype = /datum/job/ms13/raiders/sawbone
@@ -21,7 +23,7 @@
 	uniform =	/obj/item/clothing/under/ms13/wasteland/whiteshirt
 	shoes = 	/obj/item/clothing/shoes/ms13/military/diesel
 	suit_store = /obj/item/gun/ballistic/automatic/pistol/ms13/pistol22
-	belt = 		/obj/item/ms13/handsaw
+	belt = 		/obj/item/ms13/handsaw/bone
 	r_pocket =  /obj/item/ammo_box/magazine/ms13/m22
 	backpack_contents = list(
 		/obj/item/storage/firstaid/ms13/regular=1, \

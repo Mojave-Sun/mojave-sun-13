@@ -54,8 +54,8 @@
 	QDEL_NULL(loaded_projectile)
 	return ..()
 
-/obj/item/ammo_casing/add_weapon_description()
-	AddElement(/datum/element/weapon_description, attached_proc = .proc/add_notes_ammo)
+/*/obj/item/ammo_casing/add_weapon_description()
+	AddElement(/datum/element/weapon_description, attached_proc = .proc/add_notes_ammo) //MOJAVE EDIT - Comments out this proc because weapon_description in general is commented out.
 
 /**
  *
@@ -65,19 +65,19 @@
  */
 /obj/item/ammo_casing/proc/add_notes_ammo()
 	// Try to get a projectile to derive stats from
-	var/obj/projectile/exam_proj = GLOB.proj_by_path_key[projectile_type]
-	if(!istype(exam_proj) || pellets == 0)
+	var/obj/projectile/exam_proj = projectile_type
+	if(!ispath(exam_proj) || pellets == 0)
 		return
 
 	var/list/readout = list()
 	// No dividing by 0
-	if(exam_proj.damage > 0)
-		readout += "Most monkeys our legal team subjected to these [span_warning(caliber)] rounds succumbed to their wounds after [span_warning("[HITS_TO_CRIT(exam_proj.damage * pellets)] shot\s")] at point-blank, taking [span_warning("[pellets] shot\s")] per round"
-	if(exam_proj.stamina > 0)
-		readout += "[!readout.len ? "Most monkeys" : "More fortunate monkeys"] collapsed from exhaustion after [span_warning("[HITS_TO_CRIT(exam_proj.stamina * pellets)] impact\s")] of these [span_warning("[caliber]")] rounds"
+	if(initial(exam_proj.damage) > 0)
+		readout += "Most monkeys our legal team subjected to these [span_warning(caliber)] rounds succumbed to their wounds after [span_warning("[HITS_TO_CRIT(initial(exam_proj.damage) * pellets)] shot\s")] at point-blank, taking [span_warning("[pellets] shot\s")] per round"
+	if(initial(exam_proj.stamina) > 0)
+		readout += "[!readout.len ? "Most monkeys" : "More fortunate monkeys"] collapsed from exhaustion after [span_warning("[HITS_TO_CRIT(initial(exam_proj.stamina) * pellets)] impact\s")] of these [span_warning("[caliber]")] rounds"
 	if(!readout.len) // Everything else failed, give generic text
 		return "Our legal team has determined the offensive nature of these [span_warning(caliber)] rounds to be esoteric"
-	return readout.Join("\n") // Sending over a single string, rather than the whole list
+	return readout.Join("\n") */ // Sending over a single string, rather than the whole list
 
 /obj/item/ammo_casing/update_icon_state()
 	icon_state = "[initial(icon_state)][loaded_projectile ? "-live" : null]"
@@ -105,7 +105,31 @@
 		loaded_projectile = new projectile_type(src, src)
 
 /obj/item/ammo_casing/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/ammo_box))
+	//MOJAVE EDIT BEGIN
+	if(istype(I, /obj/item/ammo_box/magazine/ammo_stack))
+		var/obj/item/ammo_box/magazine/ammo_stack = I
+		if(isturf(loc))
+			var/boolets = 0
+			for(var/obj/item/ammo_casing/bullet in loc)
+				if(bullet == src)
+					continue
+				if(!bullet.loaded_projectile)
+					continue
+				if(length(ammo_stack.stored_ammo) >= ammo_stack.max_ammo)
+					break
+				if(ammo_stack.give_round(bullet, FALSE))
+					boolets++
+					break
+			if((boolets <= 0) && loaded_projectile && !(length(ammo_stack.stored_ammo) >= ammo_stack.max_ammo))
+				if(ammo_stack.give_round(src, FALSE))
+					boolets++
+			if(boolets > 0)
+				ammo_stack.update_appearance()
+				to_chat(user, span_notice("You collect [boolets] shell\s. [ammo_stack] now contains [length(ammo_stack.stored_ammo)] shell\s."))
+			else
+				to_chat(user, span_warning("You fail to collect anything!"))
+		return ..()
+	/*if(istype(I, /obj/item/ammo_box)) //No gaming
 		var/obj/item/ammo_box/box = I
 		if(isturf(loc))
 			var/boolets = 0
@@ -121,7 +145,8 @@
 				box.update_appearance()
 				to_chat(user, span_notice("You collect [boolets] shell\s. [box] now contains [box.stored_ammo.len] shell\s."))
 			else
-				to_chat(user, span_warning("You fail to collect anything!"))
+				to_chat(user, span_warning("You fail to collect anything!"))*/
+	//MOJAVE EDIT END
 	else
 		return ..()
 

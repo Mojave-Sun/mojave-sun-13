@@ -11,6 +11,7 @@
 	integrity_failure = 0.25
 	armor = list(MELEE = 20, BULLET = 10, LASER = 10, ENERGY = 0, BOMB = 10, BIO = 0, FIRE = 70, ACID = 60)
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
+	anchored = TRUE // MOJAVE EDIT - Revert after CAT
 
 	/// The overlay for the closet's door
 	var/obj/effect/overlay/closet_door/door_obj
@@ -51,10 +52,10 @@
 	var/close_sound = 'sound/machines/closet_close.ogg'
 	var/open_sound_volume = 35
 	var/close_sound_volume = 50
-	var/material_drop = /obj/item/stack/sheet/iron
-	var/material_drop_amount = 2
+	var/material_drop = /obj/item/stack/sheet/ms13/scrap //MOJAVE EDIT - Drops our own scrap metal instead of TG iron. Revert after CAT
+	var/material_drop_amount = 1 //MOJAVE EDIT - Original value is 2. Revert after CAT
 	var/delivery_icon = "deliverycloset" //which icon to use when packagewrapped. null to be unwrappable.
-	var/anchorable = TRUE
+	var/anchorable = FALSE // MOJAVE EDIT - Original value is TRUE. Probably revert after CAT.
 	var/icon_welded = "welded"
 	/// How close being inside of the thing provides complete pressure safety. Must be between 0 and 1!
 	contents_pressure_protection = 0
@@ -86,7 +87,6 @@
 	return
 
 /obj/structure/closet/Destroy()
-	dump_contents()
 	QDEL_NULL(door_obj)
 	QDEL_NULL(electronics)
 	return ..()
@@ -185,9 +185,11 @@
 	. = ..()
 	if(welded)
 		. += span_notice("It's welded shut.")
+	/* // MOJAVE SUN EDIT BEGIN
 	if(anchored)
 		. += span_notice("It is <b>bolted</b> to the ground.")
-	if(opened)
+	*/ // MOJAVE SUN EDIT END - No false reports, kids.
+	if(opened && cutting_tool == /obj/item/weldingtool)
 		. += span_notice("The parts are <b>welded</b> together.")
 	else if(secure && !opened)
 		. += span_notice("Right-click to [locked ? "unlock" : "lock"].")
@@ -244,7 +246,7 @@
 	for(var/atom/movable/AM in location)
 		if(AM != src && insert(AM, mapload) == LOCKER_FULL) // limit reached
 			if(mapload) // Yea, it's a mapping issue. Blame mappers.
-				WARNING("Closet storage capacity of [type] exceeded on mapload at [AREACOORD(src)]")
+				log_mapping("Closet storage capacity of [type] exceeded on mapload at [AREACOORD(src)]")
 			break
 	for(var/i in reverse_range(location.get_all_contents()))
 		var/atom/movable/thing = i
@@ -353,6 +355,7 @@
 			var/obj/item/electronics/airlock/electronics_ref = electronics
 			electronics = null
 			electronics_ref.forceMove(drop_location())
+	dump_contents()
 	qdel(src)
 
 /obj/structure/closet/atom_break(damage_flag)
@@ -390,6 +393,8 @@
 									span_notice("You cut \the [src] apart with \the [W]."))
 				deconstruct(TRUE)
 				return
+		if (user.combat_mode)
+			return FALSE
 		if(user.transferItemToLoc(W, drop_location())) // so we put in unlit welder too
 			return
 	else if(W.tool_behaviour == TOOL_WELDER && can_weld_shut)
@@ -576,6 +581,8 @@
 	return TRUE
 
 /obj/structure/closet/container_resist_act(mob/living/user)
+	if(isstructure(loc))
+		relay_container_resist_act(user, loc)
 	if(opened)
 		return
 	if(ismovable(loc))
@@ -604,6 +611,10 @@
 	else
 		if(user.loc == src) //so we don't get the message if we resisted multiple times and succeeded.
 			to_chat(user, span_warning("You fail to break out of [src]!"))
+
+/obj/structure/closet/relay_container_resist_act(mob/living/user, obj/container)
+	container.container_resist_act()
+
 
 /obj/structure/closet/proc/bust_open()
 	SIGNAL_HANDLER
@@ -694,11 +705,13 @@
 		return
 	if(!opened && !shove_blocked)
 		return
-	if(opened)
+	var/was_opened = opened
+	if(!toggle())
+		return
+	if(was_opened)
 		target.forceMove(src)
 	else
 		target.Knockdown(SHOVE_KNOCKDOWN_SOLID)
-	toggle()
 	update_icon()
 	target.visible_message(span_danger("[shover.name] shoves [target.name] into \the [src]!"),
 		span_userdanger("You're shoved into \the [src] by [target.name]!"), span_hear("You hear aggressive shuffling followed by a loud thud!"), COMBAT_MESSAGE_RANGE, src)

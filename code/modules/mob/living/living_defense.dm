@@ -50,10 +50,22 @@
 	return BULLET_ACT_HIT
 
 /mob/living/bullet_act(obj/projectile/P, def_zone, piercing_hit = FALSE)
-	var/armor = run_armor_check(def_zone, P.flag, "","",P.armour_penetration, "", FALSE, P.weak_against_armour)
+	var/armor = run_armor_check(def_zone, P.flag, "","",P.subtractible_armour_penetration, "", FALSE, P.weak_against_armour)
 	var/on_hit_state = P.on_hit(src, armor, piercing_hit)
 	if(!P.nodamage && on_hit_state != BULLET_ACT_BLOCK)
-		apply_damage(P.damage, P.damage_type, def_zone, armor, wound_bonus=P.wound_bonus, bare_wound_bonus=P.bare_wound_bonus, sharpness = P.sharpness)
+		var/attack_direction = get_dir(P.starting, src)
+		//MOJAVE EDIT BEGIN
+		var/subarmor = run_subarmor_check(def_zone, P.flag, armour_penetration = P.subtractible_armour_penetration, weak_against_armour = P.weak_against_subtractible_armour, sharpness = P.sharpness)
+		//MOJAVE EDIT END
+		/* MOJAVE EDIT REMOVAL
+		apply_damage(P.damage, P.damage_type, def_zone, armor, wound_bonus=P.wound_bonus, bare_wound_bonus=P.bare_wound_bonus, sharpness = P.sharpness, attack_direction = attack_direction)
+		*/
+		//MOJAVE EDIT BEGIN
+		apply_damage(P.damage, P.damage_type, def_zone, \
+					armor, wound_bonus=P.wound_bonus, bare_wound_bonus=P.bare_wound_bonus, \
+					sharpness = P.sharpness, attack_direction = attack_direction, \
+					reduced = subarmor)
+		//MOJAVE EDIT END
 		apply_effects(P.stun, P.knockdown, P.unconscious, P.slur, P.stutter, P.eyeblur, P.drowsy, armor, P.stamina, P.jitter, P.paralyze, P.immobilize)
 		if(P.dismemberment)
 			check_projectile_dismemberment(P, def_zone)
@@ -106,7 +118,15 @@
 		if(!thrown_item.throwforce)
 			return
 		var/armor = run_armor_check(zone, MELEE, "Your armor has protected your [parse_zone(zone)].", "Your armor has softened hit to your [parse_zone(zone)].", thrown_item.armour_penetration, "", FALSE, thrown_item.weak_against_armour)
+		/* MOJAVE EDIT REMOVAL
 		apply_damage(thrown_item.throwforce, thrown_item.damtype, zone, armor, sharpness = thrown_item.get_sharpness(), wound_bonus = (nosell_hit * CANT_WOUND))
+		*/
+		//MOJAVE EDIT BEGIN
+		var/subarmor = run_subarmor_check(zone, MELEE, weak_against_armour = thrown_item.weak_against_subtractible_armour, sharpness = thrown_item.get_sharpness())
+		apply_damage(thrown_item.throwforce, thrown_item.damtype, zone, \
+					armor, sharpness = thrown_item.get_sharpness(), wound_bonus = (nosell_hit * CANT_WOUND), \
+					reduced = subarmor)
+		//MOJAVE EDIT END
 		if(QDELETED(src)) //Damage can delete the mob.
 			return
 		if(body_position == LYING_DOWN) // physics says it's significantly harder to push someone by constantly chucking random furniture at them if they are down on the floor.

@@ -45,7 +45,7 @@
 /datum/preference/choiced/facial_hairstyle/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/gender = preferences.read_preference(/datum/preference/choiced/gender)
-	if(gender != MALE)
+	if(gender == FEMALE)
 		return FALSE
 	else
 		return TRUE
@@ -132,11 +132,12 @@
 
 //Backpack/Storage
 
-#define TPACK "Travelpack"
-#define MBACKPACK "Military Backpack"
-#define SATCHEL "Satchel"
+#define L_SATCHEL "Leather satchel"
+#define L_BACKPACK "Leather backpack"
+#define CORVBAG "Corvega backpack"
+#define COLABAG "Nuka Cola backpack"
 
-GLOBAL_LIST_INIT(backpacklist, list(TPACK, MBACKPACK, SATCHEL))
+GLOBAL_LIST_INIT(backpacklist, list(L_SATCHEL, L_BACKPACK, CORVBAG, COLABAG))
 
 /datum/preference/choiced/backpack
 	savefile_key = "backpack"
@@ -148,9 +149,10 @@ GLOBAL_LIST_INIT(backpacklist, list(TPACK, MBACKPACK, SATCHEL))
 /datum/preference/choiced/backpack/init_possible_values()
 	var/list/values = list()
 
-	values[TPACK] = /obj/item/storage/ms13/travel
-	values[MBACKPACK] = /obj/item/storage/ms13/military
-	values[SATCHEL] = /obj/item/storage/backpack/satchel/leather
+	values[L_SATCHEL] = /obj/item/storage/ms13/satchel
+	values[L_BACKPACK] = /obj/item/storage/ms13/leather_backpack
+	values[CORVBAG] = /obj/item/storage/ms13/corvega_bag
+	values[COLABAG] = /obj/item/storage/ms13/nuka_bag
 	return values
 
 /datum/preference/choiced/backpack/apply_to_human(mob/living/carbon/human/target, value)
@@ -159,13 +161,15 @@ GLOBAL_LIST_INIT(backpacklist, list(TPACK, MBACKPACK, SATCHEL))
 //Base pre-equip code
 
 /datum/outfit/job/ms13/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	if(back == null)
+	if(back == /obj/item/storage/backpack) //This is the default backpack, so this allows roles to use the backpack prefs but also allow us to have some roles not spawn with a backpack at all.
 		switch(H.backpack)
-			if(TPACK)
-				back = /obj/item/storage/ms13/travel
-			if(MBACKPACK)
-				back = /obj/item/storage/ms13/military
-			if(SATCHEL)
-				back = /obj/item/storage/backpack/satchel/leather
+			if(L_SATCHEL)
+				back = /obj/item/storage/ms13/satchel
+			if(L_BACKPACK)
+				back = /obj/item/storage/ms13/leather_backpack
+			if(CORVBAG)
+				back = /obj/item/storage/ms13/corvega_bag
+			if(COLABAG)
+				back = /obj/item/storage/ms13/nuka_bag
 	else
 		back = back //Forced backpack

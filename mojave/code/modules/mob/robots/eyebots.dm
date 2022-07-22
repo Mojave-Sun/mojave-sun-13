@@ -9,7 +9,7 @@
 	idlesound = list('mojave/sound/ms13items/radio_1.ogg', 'mojave/sound/ms13items/radio_2.ogg', 'mojave/sound/ms13items/radio_3.ogg', 'mojave/sound/ms13items/radio_4.ogg', 'mojave/sound/ms13items/radio_5.ogg')
 	mob_size = MOB_SIZE_SMALL
 	footstep_type = null
-	stat_attack = CONSCIOUS
+	stat_attack = SOFT_CRIT
 	robust_searching = TRUE
 	idlechance = 15
 	minimum_distance = 8
@@ -18,16 +18,19 @@
 	move_to_delay = 4
 	attack_sound = "slam"
 	status_flags = CANPUSH
+	faction = list("robots", "ghoul", "bear", "pig", "shellfish", "dog_city", "insect", "rat", "gecko")
+	loot = list(/obj/item/stack/sheet/ms13/scrap, /obj/item/stack/sheet/ms13/scrap_electronics, /obj/item/stack/sheet/ms13/scrap_parts)
 	vision_range = 20
 	aggro_vision_range = 10
-	maxHealth = 75
-	health = 75
+	maxHealth = 70
+	health = 70
 	melee_damage_lower = 1
 	melee_damage_upper = 1
+	attack_sound = null
 	ranged = TRUE
-	projectiletype = /obj/projectile/beam/ms13/laser/eyebot
+	casingtype = /obj/item/ammo_casing/energy/ms13/laser/eyebot
 	projectilesound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_1.ogg'
-	ranged_cooldown = 3 SECONDS
+	ranged_cooldown = 2.5 SECONDS
 	bot_type = "ED" // Literally just for naming
 	shadow_type = "shadow_small"
 	stop_automated_movement = TRUE //Could interfere with patrolling so this is here
@@ -49,7 +52,8 @@
 /mob/living/simple_animal/hostile/retaliate/ms13/robot/eyebot/death()
 	. = ..()
 	do_sparks(3, TRUE, src)
-	explosion(src,0,0,2,1)
+	explosion(src,0,0,1,1)
+	playsound(src, 'mojave/sound/ms13npc/robot_death.ogg', 60, TRUE)
 	qdel(src)
 
 // Hostile eyebots, dungeon guards.
@@ -70,16 +74,17 @@
 	move_to_delay = 4
 	attack_sound = "slam"
 	status_flags = CANPUSH
+	loot = list(/obj/item/stack/sheet/ms13/scrap, /obj/item/stack/sheet/ms13/scrap_electronics, /obj/item/stack/sheet/ms13/scrap_parts)
 	vision_range = 20
 	aggro_vision_range = 10
-	maxHealth = 75
-	health = 75
+	maxHealth = 70
+	health = 70
 	melee_damage_lower = 1
 	melee_damage_upper = 1
 	ranged = TRUE
-	projectiletype = /obj/projectile/beam/ms13/laser/eyebot
+	casingtype = /obj/item/ammo_casing/energy/ms13/laser/eyebot
 	projectilesound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_1.ogg'
-	ranged_cooldown = 3 SECONDS
+	ranged_cooldown = 2.5 SECONDS
 	bot_type = "ED" // Literally just for naming
 	shadow_type = "shadow_small"
 
@@ -91,7 +96,8 @@
 /mob/living/simple_animal/hostile/ms13/robot/eyebot/death()
 	. = ..()
 	do_sparks(3, TRUE, src)
-	explosion(src,0,0,2,1)
+	explosion(src,0,0,1,1)
+	playsound(src, 'mojave/sound/ms13npc/robot_death.ogg', 60, TRUE)
 	qdel(src)
 
 /mob/living/simple_animal/hostile/ms13/robot/eyebot/military
@@ -102,9 +108,10 @@
 	retreat_distance = 8
 	maxHealth = 90
 	health = 90
+	loot = list(/obj/item/stack/sheet/ms13/scrap_steel, /obj/item/stack/sheet/ms13/scrap_parts, /obj/item/stack/sheet/ms13/scrap_electronics/two)
 	melee_damage_lower = 5
 	melee_damage_upper = 5
-	projectiletype = /obj/projectile/beam/ms13/laser/eyebot/overcharge
+	casingtype = /obj/item/ammo_casing/energy/ms13/laser/eyebot/overcharge
 	bot_type = "MD"
 
 /mob/living/simple_animal/hostile/ms13/robot/eyebot/prototype

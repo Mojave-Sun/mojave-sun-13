@@ -105,6 +105,7 @@ window "mapwindow"
 		background-color = none
 		saved-params = "pos;size;is-minimized;is-maximized"
 		is-pane = true
+		on-status = ".winset \"status_bar.text=[[*]]\" "
 		outer-size = 758x561
 		inner-size = 736x505
 	elem "hud"
@@ -135,6 +136,7 @@ window "mapwindow"
 		pos = 0,464
 		size = 280x16
 		anchor1 = 0,100
+		is-visible = true
 		anchor2 = -1,-1
 		text-color = #ffffff
 		background-color = #222222

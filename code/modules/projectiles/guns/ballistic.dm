@@ -89,6 +89,8 @@
 	var/flip_cooldown = 0
 	var/suppressor_x_offset ///pixel offset for the suppressor overlay on the x axis.
 	var/suppressor_y_offset ///pixel offset for the suppressor overlay on the y axis.
+	/// Check if you are able to see if a weapon has a bullet loaded in or not.
+	var/hidden_chambered = FALSE
 
 	///Gun internal magazine modification and misfiring
 
@@ -131,8 +133,8 @@
 	update_appearance()
 	RegisterSignal(src, COMSIG_ITEM_RECHARGED, .proc/instant_reload)
 
-/obj/item/gun/ballistic/add_weapon_description()
-	AddElement(/datum/element/weapon_description, attached_proc = .proc/add_notes_ballistic)
+/* /obj/item/gun/ballistic/add_weapon_description()
+	AddElement(/datum/element/weapon_description, attached_proc = .proc/add_notes_ballistic) //MOJAVE EDIT - Comments out this proc because weapon_description in general is commented out.
 
 /**
  *
@@ -144,7 +146,7 @@
 	if(magazine) // Make sure you have a magazine, to get the notes from
 		return "\n[magazine.add_notes_box()]"
 	else
-		return "\nThe warning attached to the magazine is missing..."
+		return "\nThe warning attached to the magazine is missing..." */
 
 /obj/item/gun/ballistic/vv_edit_var(vname, vval)
 	. = ..()
@@ -330,7 +332,7 @@
 			else
 				to_chat(user, span_notice("There's already a [magazine_wording] in [src]."))
 		return
-	if (istype(A, /obj/item/ammo_casing) || istype(A, /obj/item/ammo_box))
+	if (istype(A, /obj/item/ammo_casing) || istype(A, /obj/item/ammo_box/ms13/stripper) || istype(A, /obj/item/ammo_box/magazine/ammo_stack)) // MOJAVE SUN EDIT | ORIGINAL IS "if (istype(A, /obj/item/ammo_casing) || istype(A, /obj/item/ammo_box))"
 		if (bolt_type == BOLT_TYPE_NO_BOLT || internal_magazine)
 			if (chambered && !chambered.loaded_projectile)
 				chambered.forceMove(drop_location())
@@ -491,10 +493,12 @@
 
 /obj/item/gun/ballistic/examine(mob/user)
 	. = ..()
+	/* MOJAVE SUN EDIT BEGIN - I hate gaming.
 	var/count_chambered = !(bolt_type == BOLT_TYPE_NO_BOLT || bolt_type == BOLT_TYPE_OPEN)
-	. += "It has [get_ammo(count_chambered)] round\s remaining."
+	. += "It has [get_ammo(count_chambered)] round\s remaining." */
+	// MOJAVE SUN EDIT END
 
-	if (!chambered)
+	if (!chambered && !hidden_chambered)
 		. += "It does not seem to have a round chambered."
 	if (bolt_locked)
 		. += "The [bolt_wording] is locked back and needs to be released before firing or de-fouling."

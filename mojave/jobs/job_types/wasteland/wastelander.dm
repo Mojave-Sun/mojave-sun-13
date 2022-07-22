@@ -17,7 +17,7 @@
 
 /datum/outfit/job/ms13/wasteland/wastelander/pre_equip(mob/living/carbon/human/H)
 	..()
-	if(prob(70))
+	if(prob(75))
 		head = pick(
 		/obj/item/clothing/head/helmet/ms13/cowboy/black,\
 		/obj/item/clothing/head/helmet/ms13/baseball,\
@@ -104,7 +104,6 @@
 		/obj/item/clothing/suit/ms13/vest/brown,\
 		/obj/item/clothing/suit/ms13/vest/black,\
 		/obj/item/clothing/suit/ms13/vest,\
-		/obj/item/clothing/suit/ms13/shawl,\
 		/obj/item/clothing/suit/ms13/ljacket/moleskin,\
 		/obj/item/clothing/suit/ms13/ljacket/wanderer,\
 		/obj/item/clothing/suit/ms13/ljacket/military,\
@@ -125,17 +124,18 @@
 		/obj/item/gun/ballistic/rifle/ms13/varmint, \
 		/obj/item/gun/ballistic/revolver/ms13/caravan, \
 		/obj/item/gun/ballistic/revolver/ms13/single, \
-		/obj/item/gun/ballistic/automatic/pistol/ms13/m10mm/chinese)
+		/obj/item/gun/ballistic/automatic/pistol/ms13/m10mm/chinese, \
+		/obj/item/gun/ballistic/revolver/ms13/rev10mm)
 
 
 	belt = pick(
-		/obj/item/claymore/ms13/pipe/tireiron, \
 		/obj/item/knife/ms13, \
 		/obj/item/knife/ms13/switchblade/razor, \
 		/obj/item/ms13/hammer, \
 		/obj/item/ms13/knuckles, \
 		/obj/item/ms13/brick, \
-		/obj/item/ms13/handsaw)
+		/obj/item/ms13/handsaw, \
+		/obj/item/knife/ms13/throwingknife)
 
 	shoes = pick(
         /obj/item/clothing/shoes/ms13/tan, \

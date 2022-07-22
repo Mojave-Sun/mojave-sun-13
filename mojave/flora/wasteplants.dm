@@ -21,10 +21,12 @@
 	var/base_icon
 	var/regrowth_time_low = 8 MINUTES
 	var/regrowth_time_high = 16 MINUTES
+	var/stick_around = TRUE // If the plant comes back later on
+	var/variants = 3 // How many variants of the plant sprite there are
 
 /obj/structure/flora/ms13/forage/Initialize()
 	. = ..()
-	base_icon = "[icon_state][rand(1, 3)]"
+	base_icon = "[icon_state][rand(1, (variants))]"
 	icon_state = base_icon
 	pixel_x = rand(-3, 3)
 	pixel_y = rand(-3, 3)
@@ -45,7 +47,10 @@
 		for(var/i in 1 to rand_harvested)
 			new harvest(get_turf(src))
 
-	icon_state = "[base_icon]p"
+	if(stick_around)
+		icon_state = "[base_icon]p"
+	else
+		qdel(src)
 	name = harvested_name
 	desc = harvested_desc
 	harvested = TRUE
@@ -75,6 +80,25 @@
 		if(do_after(user, harvest_time, target = src))
 			harvest(user)
 
+/obj/structure/flora/ms13/forage/brocflower
+	icon_state = "brocflower"
+	name = "brocflower"
+	desc = "A lanky plant bearing broc flowers"
+	harvested_name = "broc flower"
+	harvested_desc = "A broc flower."
+	harvest = /obj/item/food/grown/ms13/brocflower
+	harvest_amount_high = 3
+	variants = 2
+
+/obj/structure/flora/ms13/forage/xander
+	icon_state = "xander"
+	name = "xander"
+	desc = "A bunch of xander root plants"
+	harvested_name = "xander"
+	harvested_desc = "A xander root."
+	harvest = /obj/item/food/grown/ms13/xander
+	harvest_amount_high = 2
+	variants = 2
 /obj/structure/flora/ms13/forage/tarberry
 	icon_state = "tarberry"
 	name = "tarberry shrub"
@@ -252,21 +276,6 @@
 	M.Translate(rand(-5,5),rand(-5,5))
 	transform = M
 
-/obj/structure/flora/grass/wasteland/attackby(obj/item/W, mob/user, params) //we dont use /weapon any more
-	if(W.sharpness && W.force > 0 && !(NODECONSTRUCT_1 in flags_1))
-		to_chat(user, "You begin to harvest [src]...")
-		if(do_after(user, 100/W.force, target = user))
-			to_chat(user, "<span class='notice'>You've collected [src]</span>")
-			var/obj/item/stack/sheet/hay/H = user.get_inactive_held_item()
-			if(istype(H))
-				H.add(1)
-			else
-				new /obj/item/stack/sheet/hay/(get_turf(src))
-			qdel(src)
-			return 1
-	else
-		. = ..()
-
 /obj/structure/flora/grass/wasteland/snow
 	icon = 'mojave/icons/flora/flora.dmi'
 	desc = "Some frozen, virtually dead grass."
@@ -328,7 +337,7 @@
 	layer = ABOVE_ALL_MOB_LAYER
 	pixel_x = -16
 	pixel_y = 5
-	var/log_amount = 10
+	var/log_amount = 1
 
 /obj/structure/flora/ms13/tree/Initialize()
 	. = ..()
@@ -340,16 +349,14 @@
 	if(log_amount && (!(flags_1 & NODECONSTRUCT_1)))
 		if(W.sharpness == IS_SHARP_AXE)
 			if(W.hitsound)
-				playsound(get_turf(src), 'mojave/sound/ms13effects/wood_cutting.ogg', 100, FALSE, FALSE)
+				playsound(get_turf(src), 'mojave/sound/ms13effects/wood_cutting.ogg', 80, FALSE, FALSE)
 				user.visible_message("<span class='notice'>[user] begins to cut down [src] with [W].</span>","<span class='notice'>You begin to cut down [src] with [W].</span>", "<span class='hear'>You hear the sound of chopping.</span>")
-				if(do_after(user, 1000/W.force, target = src)) //5 seconds with 20 force, 8 seconds with a hatchet, 20 seconds with a shard.
+				if(do_after(user, 30 SECONDS * W.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_CHOPTREE))
 					user.visible_message("<span class='notice'>[user] fells [src] with the [W].</span>","<span class='notice'>You fell [src] with the [W].</span>", "<span class='hear'>You hear the sound of a tree falling.</span>")
-					playsound(get_turf(src), 'sound/effects/meteorimpact.ogg', 100 , FALSE, FALSE)
+					playsound(get_turf(src), 'sound/effects/meteorimpact.ogg', 80, FALSE, FALSE)
 					user.log_message("cut down [src] at [AREACOORD(src)]", LOG_ATTACK)
 					for(var/i=1 to log_amount)
-						new /obj/item/grown/log/tree(get_turf(src))
-					var/obj/structure/flora/stump/S = new(loc)
-					S.name = "[name]_stump"
+						new /obj/item/stack/sheet/ms13/log(get_turf(src))
 					qdel(src)
 		else
 			user.visible_message("<span class='notice'>The [W] is uncapable of cutting down the [src].</span>")
@@ -360,7 +367,7 @@
 	desc = "It's a tree. Useful for combustion and/or construction."
 	icon = 'mojave/icons/flora/trees.dmi'
 	icon_state = "snowtree_1"
-	log_amount = 3
+	log_amount = 2
 	max_integrity = 400
 
 /obj/structure/flora/ms13/tree/deadsnow/New()
@@ -393,12 +400,16 @@
 /obj/structure/flora/ms13/tree/tallpine/alt
 	icon_state = "pine_1_alt"
 
+/obj/structure/flora/ms13/tree/tallpine/dead //uh oh placeholder alert
+	icon_state = "bald"
+	log_amount = 1
+
 /obj/structure/flora/ms13/tree/wasteland
 	name = "dead tree"
 	desc = "It's a tree. Useful for combustion and/or construction."
 	icon = 'mojave/icons/flora/trees.dmi'
 	icon_state = "deadtree_1"
-	log_amount = 4
+	log_amount = 2
 	max_integrity = 400
 
 /obj/structure/flora/ms13/tree/wasteland/New()
@@ -409,7 +420,7 @@
 	name = "joshua tree"
 	desc = "A tree named by mormons, who said it's branches mimiced the biblical Joshua, raising his hands in prayer."
 	icon = 'mojave/icons/flora/trees.dmi'
-	log_amount = 3
+	log_amount = 2
 	icon_state = "joshua_1"
 	max_integrity = 400
 

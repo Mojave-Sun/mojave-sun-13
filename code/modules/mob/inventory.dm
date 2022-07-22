@@ -282,13 +282,17 @@
 */
 /mob/proc/dropItemToGround(obj/item/I, force = FALSE, silent = FALSE, invdrop = TRUE)
 	. = doUnEquip(I, force, drop_location(), FALSE, invdrop = invdrop, silent = silent)
-	if(. && I && !(I.item_flags & NO_PIXEL_RANDOM_DROP)) //ensure the item exists and that it was dropped properly.
+	if(!. || !I) //ensure the item exists and that it was dropped properly.
+		return
+	if(!(I.item_flags & NO_PIXEL_RANDOM_DROP))
 		I.pixel_x = I.base_pixel_x + rand(-6, 6)
 		I.pixel_y = I.base_pixel_y + rand(-6, 6)
+	I.do_drop_animation(src)
 
 //for when the item will be immediately placed in a loc other than the ground
 /mob/proc/transferItemToLoc(obj/item/I, newloc = null, force = FALSE, silent = TRUE)
-	return doUnEquip(I, force, newloc, FALSE, silent = silent)
+	. = doUnEquip(I, force, newloc, FALSE, silent = silent)
+	I.do_drop_animation(src)
 
 //visibly unequips I but it is NOT MOVED AND REMAINS IN SRC
 //item MUST BE FORCEMOVE'D OR QDEL'D
@@ -405,7 +409,12 @@
 		if(equip_delay_self)
 			return
 
+	/* MOJAVE EDIT REMOVAL
 	if(M.active_storage && M.active_storage.parent && SEND_SIGNAL(M.active_storage.parent, COMSIG_TRY_STORAGE_INSERT, src,M))
+	*/
+	//MOJAVE EDIT BEGIN
+	if(M.active_storage && M.active_storage.parent && SEND_SIGNAL(M.active_storage.parent, COMSIG_TRY_STORAGE_INSERT, src, M, FALSE, FALSE, TRUE))
+	//MOJAVE EDIT END
 		return TRUE
 
 	var/list/obj/item/possible = list(M.get_inactive_held_item(), M.get_item_by_slot(ITEM_SLOT_BELT), M.get_item_by_slot(ITEM_SLOT_DEX_STORAGE), M.get_item_by_slot(ITEM_SLOT_BACK))
@@ -413,7 +422,12 @@
 		if(!i)
 			continue
 		var/obj/item/I = i
+		/* MOJAVE EDIT REMOVAL
 		if(SEND_SIGNAL(I, COMSIG_TRY_STORAGE_INSERT, src, M))
+		*/
+		//MOJAVE EDIT BEGIN
+		if(SEND_SIGNAL(I, COMSIG_TRY_STORAGE_INSERT, src, M, FALSE, FALSE, TRUE))
+		//MOJAVE EDIT END
 			return TRUE
 
 	to_chat(M, span_warning("You are unable to equip that!"))

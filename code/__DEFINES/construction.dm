@@ -98,6 +98,7 @@
 #define CAT_SEAFOOD "Seafood"
 #define CAT_MISCFOOD "Misc. Food"
 #define CAT_MEXICAN "Mexican Food"
+#define CAT_MOTH "Mothic Food"
 #define CAT_PASTRY "Pastries"
 #define CAT_PIE "Pies"
 #define CAT_PIZZA "Pizzas"
@@ -113,6 +114,18 @@
 // tablecrafting interface types - MOJAVE EDIT START
 
 #define CAT_MEDICAL "Medical"
+#define CAT_ARMOR "Armor"
+#define CAT_HEADGEAR "Headgear"
+#define CAT_UNDER "Uniforms/Clothing"
+#define CAT_MISCCLOTHING "Gloves, Shoes, Masks"
+#define CAT_WEAPONS "Weapons"
+#define CAT_GUNS "Guns"
+#define CAT_JUNK_AMMO "Junk Ammo"
+#define CAT_STAN_AMMO "Standard Ammo"
+#define CAT_ELECTRONICS "Electronics"
+#define CAT_UTILITY "Utility"
+#define CAT_SMELTER "Smelt"
+#define CAT_MELT "Melt down"
 
 #define CRAFTING_BENCH_HANDS      1<<0
 #define CRAFTING_BENCH_GENERAL    1<<1
@@ -120,6 +133,9 @@
 #define CRAFTING_BENCH_ARMTAILOR  1<<3
 #define CRAFTING_BENCH_WEAPONS    1<<4
 #define CRAFTING_BENCH_RELOADING  1<<5
+#define CRAFTING_BENCH_SMELTER    1<<6
+#define CRAFTING_BENCH_CAMPFIRE   1<<7
+
 // tablecrafting interface types - MOJAVE EDIT END
 
 //rcd modes

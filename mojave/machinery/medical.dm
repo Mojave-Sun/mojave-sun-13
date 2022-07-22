@@ -4,6 +4,12 @@
 	icon = 'mojave/icons/structure/medical.dmi'
 	icon_state = "iv_drip"
 	base_icon_state = "iv_drip"
+	max_integrity = 150
+
+/obj/machinery/iv_drip/ms13/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		new /obj/item/stack/sheet/ms13/scrap(loc)
+	qdel(src)
 
 /obj/machinery/power/floodlight/ms13
 	name = "Generic MS13 floodlight"

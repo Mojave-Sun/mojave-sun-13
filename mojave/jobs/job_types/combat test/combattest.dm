@@ -1,5 +1,8 @@
 /datum/job/ms13/combattest
 	selection_color = "#a78765"
+	departments_list = list(
+		/datum/job_department/security,
+	)
 
 /datum/outfit/job/ms13/combattest
 	name = "Default"

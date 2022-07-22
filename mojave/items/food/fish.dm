@@ -3,9 +3,13 @@
 /obj/item/food/meat/slab/ms13/fish
 	name = "fish"
 	desc = "You shouldn't be seeing this."
-	icon = 'mojave/icons/objects/food/fish.dmi'
-	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 4)
+	icon = 'mojave/icons/objects/food/fish/fish_world.dmi'
+	bite_consumption = 4
+	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 8)
 	foodtypes = MEAT | RAW
+	w_class = WEIGHT_CLASS_NORMAL
+	grid_height = 64
+	grid_width = 96
 	//Tells the initialize function which icon to pick
 	var/fish_type = "fish"
 	//Determines what kind of fillet you get when cut
@@ -19,6 +23,7 @@
 	fish_size = rand(1,3)
 	icon_state = "[fish_type]-[fish_size]"
 	bite_consumption = fish_size * 2
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/food/fish/fish_inventory.dmi')
 	return ..()
 
 /obj/item/food/meat/slab/ms13/fish/sockeye
@@ -39,7 +44,7 @@
 	fish_type = "largemouth"
 	name = "largemouth bass"
 	desc = "A largemouth bass. It's meat is usually mushy, gross!"
-	icon_state = "largemouth cutlet"
+	icon_state = "largemouth_cutlet"
 	fillet_type = /obj/item/food/meat/rawcutlet/ms13/fish/largemouth
 
 /obj/item/food/meat/slab/ms13/fish/lamprey
@@ -89,16 +94,24 @@
 /obj/item/food/meat/rawcutlet/ms13/fish
 	name = "raw fish fillet"
 	desc = "A raw fish fillet. You shouldn't be seeing this."
-	icon = 'mojave/icons/objects/food/fish.dmi'
+	icon = 'mojave/icons/objects/food/fish/fish_world.dmi'
 	icon_state = "sockeye_cutlet"
+	w_class = WEIGHT_CLASS_SMALL
+	grid_height = 32
+	grid_width = 64
 	var/fish_cooked_type = /obj/item/food/meat/cutlet/ms13/fish
-	bite_consumption = 4
-	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 4)
+	bite_consumption = 3
+	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 3)
 	tastes = list("fish" = 8)
 	foodtypes = MEAT | RAW
 
 /obj/item/food/meat/rawcutlet/ms13/fish/MakeGrillable()
 	AddComponent(/datum/component/grillable, fish_cooked_type, rand(30 SECONDS, 60 SECONDS), TRUE, TRUE)
+
+
+/obj/item/food/meat/rawcutlet/ms13/fish/Initialize()
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/food/fish/fish_inventory.dmi')
+	return ..()
 
 /obj/item/food/meat/rawcutlet/ms13/fish/sockeye
 	name = "raw sockeye fillet"
@@ -158,58 +171,65 @@
 // Cooked fish fillets
 
 /obj/item/food/meat/cutlet/ms13/fish
-	name = "fish fillet"
+	name = "cooked fish fillet"
 	desc = "A cooked fish fillet."
-	icon = 'mojave/icons/objects/food/fish.dmi'
+	icon = 'mojave/icons/objects/food/fish/fish_world.dmi'
 	icon_state = "sockeye_cutlet"
-	bite_consumption = 4
-	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/consumable/nutriment/vitamin = 2)
+	bite_consumption = 5
+	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 4, /datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("fish" = 5)
+	w_class = WEIGHT_CLASS_SMALL
+	grid_height = 32
+	grid_width = 64
 	foodtypes = MEAT
 
+/obj/item/food/meat/cutlet/ms13/fish/Initialize()
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/food/fish/fish_inventory.dmi')
+	return ..()
+
+
 /obj/item/food/meat/cutlet/ms13/fish/sockeye
-	name = "sockeye fillet"
+	name = "cooked sockeye fillet"
 	desc = "A nice and tasty sockeye fillet. Good eating."
 	icon_state = "sockeye_cutlet"
 
-
 /obj/item/food/meat/cutlet/ms13/fish/smallmouth
-	name = "smallmouth fillet"
+	name = "cooked smallmouth fillet"
 	desc = "A smallmouth bass fillet, despite being a game fish, it does not taste like game."
 	icon_state = "smallmouth_cutlet"
 
 /obj/item/food/meat/cutlet/ms13/fish/largemouth
-	name = "largemouth fillet"
+	name = "cooked largemouth fillet"
 	desc = "A largemouth bass fillet. Mushy and gross, you must be desperate."
 	icon_state = "largemouth_cutlet"
 
 /obj/item/food/meat/cutlet/ms13/fish/lamprey
-	name = "lamprey fillet"
+	name = "cooked lamprey fillet"
 	desc = "A lamprey fillet. Vedius Pollio would be jealous."
 	icon_state = "lamprey_cutlet"
 
 /obj/item/food/meat/cutlet/ms13/fish/pink
-	name = "pink salmon fillet"
+	name = "cooked pink salmon fillet"
 	desc = "A pink salmon fillet. Maybe put it in a salad."
 	icon_state = "pink_cutlet"
 
 /obj/item/food/meat/cutlet/ms13/fish/chum
-	name = "chum salmon fillet"
+	name = "cooked chum salmon fillet"
 	desc = "A chum salmon fillet. You can taste the poverty."
 	icon_state = "chum_cutlet"
 
 /obj/item/food/meat/cutlet/ms13/fish/sturgeon
-	name = "sturgeon fillet"
+	name = "cooked sturgeon fillet"
 	desc = "A white sturgeon fillet."
 	icon_state = "sturgeon_cutlet"
 
 /obj/item/food/meat/cutlet/ms13/fish/asian
-	name = "asian carp fillet"
+	name = "cooked asian carp fillet"
 	desc = "An Asian carp fillet."
 	icon_state = "asian_cutlet"
 
 /obj/item/food/meat/cutlet/ms13/fish/blinky
-	name = "blinky fillet"
+	name = "cooked blinky fillet"
 	desc = "A blinky fillet. What...?"
 	icon_state = "blinky_cutlet"
 	tastes = list("what...?" = 4, "fish" = 4)

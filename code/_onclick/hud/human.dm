@@ -313,23 +313,28 @@
 	rest_icon.screen_loc = ui_above_movement
 	rest_icon.hud = src
 	static_inventory += rest_icon
-
+	/*/MOJAVE SUN EDIT START - UI Removal
 	internals = new /atom/movable/screen/internals()
 	internals.hud = src
 	infodisplay += internals
-
+	*///MOJAVE SUN EDIT START - UI Removal
 	spacesuit = new /atom/movable/screen/spacesuit
 	spacesuit.hud = src
 	infodisplay += spacesuit
-
+	/*/MOJAVE SUN EDIT START - UI Removal
 	healths = new /atom/movable/screen/healths()
 	healths.hud = src
 	infodisplay += healths
-
+	*///MOJAVE SUN EDIT START - UI Removal
 	healthdoll = new /atom/movable/screen/healthdoll()
 	healthdoll.hud = src
 	infodisplay += healthdoll
 
+	/*/MOJAVE SUN EDIT START - UI Removal
+	stamina = new /atom/movable/screen/stamina()
+	stamina.hud = src
+	infodisplay += stamina
+	*///MOJAVE SUN EDIT START - UI Removal
 	pull_icon = new /atom/movable/screen/pull/ms13() // MOJAVE EDIT
 	//pull_icon.icon = ui_style
 	pull_icon.update_appearance()

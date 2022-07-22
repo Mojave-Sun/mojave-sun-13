@@ -12,8 +12,9 @@
 	px_x = 0
 	px_y = -8
 	stam_damage_coeff = 1
+	body_damage_coeff = 1.1 //MOJAVE EDIT - Original value is 1
 	max_stamina_damage = 100
-	wound_resistance = 5
+	wound_resistance = 0 //MOJAVE EDIT - Original value is 5
 	disabled_wound_penalty = 25
 	scars_covered_by_clothes = FALSE
 	grind_results = null
@@ -23,6 +24,9 @@
 	var/obj/item/organ/eyes/eyes
 	var/obj/item/organ/ears/ears
 	var/obj/item/organ/tongue/tongue
+
+	/// Do we show the information about missing organs upon being examined? Defaults to TRUE, useful for Dullahan heads.
+	var/show_organs_on_examine = TRUE
 
 	//Limb appearance info:
 	var/real_name = "" //Replacement name
@@ -69,7 +73,7 @@
 
 /obj/item/bodypart/head/examine(mob/user)
 	. = ..()
-	if(status == BODYPART_ORGANIC)
+	if(status == BODYPART_ORGANIC && show_organs_on_examine)
 		if(!brain)
 			. += span_info("The brain has been removed from [src].")
 		else if(brain.suicided || brainmob?.suiciding)
@@ -196,7 +200,7 @@
 	..()
 
 /obj/item/bodypart/head/update_icon_dropped()
-	var/list/standing = get_limb_icon(1)
+	var/list/standing = get_limb_icon(TRUE)
 	if(!standing.len)
 		icon_state = initial(icon_state)//no overlays found, we default back to initial icon.
 		return

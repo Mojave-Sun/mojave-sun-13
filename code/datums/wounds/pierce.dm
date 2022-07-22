@@ -23,15 +23,30 @@
 	/// If we let off blood when hit, the max blood lost is this * the incoming damage
 	var/internal_bleeding_coefficient
 
-/datum/wound/pierce/wound_injury(datum/wound/old_wound)
+// MOJAVE SUN EDIT BEGIN
+/datum/wound/pierce/show_wound_topic(mob/user)
+	return (user == victim && blood_flow)
+
+/datum/wound/pierce/Topic(href, href_list)
+	. = ..()
+	if(href_list["wound_topic"])
+		if(!usr == victim)
+			return
+		victim.self_grasp_bleeding_limb(limb)
+// MOJAVE SUN EDIT END
+
+/datum/wound/pierce/wound_injury(datum/wound/old_wound = null, attack_direction = null)
 	blood_flow = initial_flow
+	if(attack_direction && victim.blood_volume > BLOOD_VOLUME_OKAY)
+		victim.spray_blood(attack_direction, severity)
+
 
 /datum/wound/pierce/receive_damage(wounding_type, wounding_dmg, wound_bonus)
 	if(victim.stat == DEAD || wounding_dmg < 5)
 		return
 	if(victim.blood_volume && prob(internal_bleeding_chance + wounding_dmg))
-		if(limb.current_gauze?.splint_factor)
-			wounding_dmg *= (1 - limb.current_gauze.splint_factor)
+		if(limb.current_splint && limb.current_splint.splint_factor)	// MOJAVE SUN EDIT - ORIGINAL IS if(limb.current_gauze?.splint_factor)
+			wounding_dmg *= (1 - limb.current_splint.splint_factor)	// MOJAVE SUN EDIT - ORIGINAL IS 	wounding_dmg *= (1 - limb.current_gauze.splint_factor)
 		var/blood_bled = rand(1, wounding_dmg * internal_bleeding_coefficient) // 12 brute toolbox can cause up to 15/18/21 bloodloss on mod/sev/crit
 		switch(blood_bled)
 			if(1 to 6)
@@ -71,9 +86,9 @@
 	if(HAS_TRAIT(victim, TRAIT_BLOODY_MESS))
 		blood_flow += 0.25 * delta_time // old heparin used to just add +2 bleed stacks per tick, this adds 0.5 bleed flow to all open cuts which is probably even stronger as long as you can cut them first
 
-	if(limb.current_gauze)
+	if(limb.current_gauze && limb.current_gauze.seep_gauze(limb.current_gauze.absorption_rate, GAUZE_STAIN_BLOOD))	// MOJAVE SUN EDIT - ORIGINAL IS if(limb.current_gauze)
 		blood_flow -= limb.current_gauze.absorption_rate * gauzed_clot_rate * delta_time
-		limb.current_gauze.absorption_capacity -= limb.current_gauze.absorption_rate * delta_time
+		// limb.current_gauze.absorption_capacity -= limb.current_gauze.absorption_rate * delta_time - MOJAVE SUN EDIT
 
 	if(blood_flow <= 0)
 		qdel(src)
@@ -145,13 +160,13 @@
 	occur_text = "spurts out a thin stream of blood"
 	sound_effect = 'sound/effects/wounds/pierce1.ogg'
 	severity = WOUND_SEVERITY_MODERATE
-	initial_flow = 1.5
 	//MOJAVE EDIT CHANGE BEGIN
-	gauzed_clot_rate = 0.6 //Original TG value is 0.8
+	initial_flow = 1.25 //Original TG value is 1.5
+	gauzed_clot_rate = 0.65 //Original TG value is 0.8
 	internal_bleeding_chance = 35 //Original TG value is 30
-	internal_bleeding_coefficient = 1.25 //Unchanged from original TG value
+	internal_bleeding_coefficient = 0.75 //Original TG value is 1.25
 	threshold_minimum = 25 //Original TG value is 30
-	threshold_penalty = 15 //Original TG value is 20
+	threshold_penalty = 20 //Original TG value is 15
 	//MOJAVE EDIT CHANGE END
 	status_effect_type = /datum/status_effect/wound/pierce/moderate
 	scar_keyword = "piercemoderate"
@@ -165,15 +180,13 @@
 	sound_effect = 'sound/effects/wounds/pierce2.ogg'
 	severity = WOUND_SEVERITY_SEVERE
 	//MOJAVE EDIT CHANGE BEGIN
-	initial_flow = 2.5 //Original TG value is 2.25
+	initial_flow = 2 //Original TG value is 2.25
 	gauzed_clot_rate = 0.5 //Original TG values is 0.6
+	internal_bleeding_chance = 65 //Original TG value is 60
+	internal_bleeding_coefficient = 1 //Original TG value is 1.5
 	//MOJAVE EDIT CHANGE END
-	internal_bleeding_chance = 60
-	internal_bleeding_coefficient = 1.5
 	threshold_minimum = 50
-	//MOJAVE EDIT CHANGE BEGIN
-	threshold_penalty = 30 //Original TG value is 35
-	//MOJAVE EDIT CHANGE END
+	threshold_penalty = 35
 	status_effect_type = /datum/status_effect/wound/pierce/severe
 	scar_keyword = "piercesevere"
 
@@ -186,11 +199,11 @@
 	sound_effect = 'sound/effects/wounds/pierce3.ogg'
 	severity = WOUND_SEVERITY_CRITICAL
 	//MOJAVE EDIT CHANGE BEGIN
-	initial_flow = 3.5 //Original TG value is 3
-	gauzed_clot_rate = 0.3 //Original TG value is 0.4
+	initial_flow = 3 //Original TG value is 3.5
+	gauzed_clot_rate = 0.35 //Original TG value is 0.4
+	internal_bleeding_chance = 90 //Original TG value is 80
+	internal_bleeding_coefficient = 1.25 //Original TG value is 1.75
 	//MOJAVE EDIT CHANGE END
-	internal_bleeding_chance = 80
-	internal_bleeding_coefficient = 1.75
 	threshold_minimum = 100
 	threshold_penalty = 50
 	status_effect_type = /datum/status_effect/wound/pierce/critical

@@ -13,6 +13,7 @@
 	melee_damage_lower = 10
 	melee_damage_upper = 10
 	attack_sound = 'sound/weapons/punch1.ogg'
+	deathsound = 'mojave/sound/ms13npc/robot_death.ogg'
 	combat_mode = TRUE
 	faction = list("robots")
 	speak_emote = list("states","dictates")
@@ -29,7 +30,7 @@
 		BB_TARGETTING_DATUM = new /datum/targetting_datum/basic()
 	)
 
-	ai_movement = /datum/ai_movement/basic_avoidance
+	ai_movement = /datum/ai_movement/basic_avoidance/bypass_tables
 	idle_behavior = /datum/idle_behavior/idle_random_walk
 	planning_subtrees = list(
 		/datum/ai_planning_subtree/random_speech/ms13/robot,
@@ -48,18 +49,19 @@
     name = "Mr. Handy"
     desc = "A standard model Mr. Handy unit. It's long lost any rational wires in its circuits."
     icon_state = "mrhandy_claw"
-    health = 150
-    maxHealth = 150
+    health = 140
+    maxHealth = 140
     melee_damage_lower = 15
     melee_damage_upper = 15
-    armour_penetration = 5
-    speed = 0.5
+    subtractible_armour_penetration = 5
+    speed = 0.65
     speak_emote = list("states", "says")
     attack_verb_continuous = "pinches"
     attack_verb_simple = "pinch"
+    attack_sound = 'mojave/sound/ms13weapons/meleesounds/pipe_hit.ogg'
     sharpness = NONE
-    wound_bonus = 5
-    bare_wound_bonus = 5
+    wound_bonus = 8
+    bare_wound_bonus = 4
     shadow_type = "shadow_large"
 
 /mob/living/basic/ms13/robot/handy/New()
@@ -67,19 +69,23 @@
     add_overlay(image(icon, "[shadow_type]", BELOW_MOB_LAYER, dir))
 
 /mob/living/basic/ms13/robot/handy/death()
-    . = ..()
-    do_sparks(3, TRUE, src)
-    qdel(src)
+	. = ..()
+	do_sparks(3, TRUE, src)
+	new /obj/item/stack/sheet/ms13/scrap/two(loc)
+	new /obj/item/stack/sheet/ms13/scrap_parts(loc)
+	new /obj/item/stack/sheet/ms13/scrap_electronics(loc)
+	playsound(src, 'mojave/sound/ms13npc/robot_death.ogg', 60, TRUE)
+	qdel(src)
 
 /mob/living/basic/ms13/robot/handy/saw
     desc = "A work model Mr. Handy unit, armed with a horrifyingly sharp saw. It's long lost any rational wires in its circuits."
     icon_state = "mrhandy_saw"
-    melee_damage_lower = 30
-    melee_damage_upper = 30
-    armour_penetration = 10
+    melee_damage_lower = 25
+    melee_damage_upper = 25
+    subtractible_armour_penetration = 15
     sharpness = SHARP_EDGED
-    wound_bonus = 6
-    bare_wound_bonus = 6
+    wound_bonus = 8
+    bare_wound_bonus = 12
     attack_verb_continuous = "saws"
     attack_verb_simple = "saw"
-    attack_sound = 'sound/weapons/circsawhit.ogg'
+    attack_sound = list('mojave/sound/ms13weapons/meleesounds/ripper_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/ripper_hit2.ogg')

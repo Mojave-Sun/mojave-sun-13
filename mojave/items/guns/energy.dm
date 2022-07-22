@@ -16,10 +16,16 @@
 	var/unload_sound = 'mojave/sound/ms13weapons/gunsounds/lasrifle/energy_unload.ogg'
 	var/load_sound_volume = 40
 	var/load_sound_vary = TRUE
+	var/has_scope = FALSE
+	var/scope_range = 0
 
 /obj/item/gun/energy/ms13/Initialize()
 	. = ..()
 	update_icon()
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/guns/guns_inventory.dmi')
+
+	if(has_scope)
+		AddComponent(/datum/component/scope, range_modifier = (scope_range))
 
 /obj/item/gun/energy/ms13/update_ammo_types()
 	var/obj/item/ammo_casing/energy/shot
@@ -96,10 +102,6 @@
 		return
 	return ..()
 
-/obj/item/gun/energy/ms13/Initialize()
-	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/guns/guns_inventory.dmi')
-
 /obj/item/gun/energy/ms13/laser
 	name = "Base class laser gub"
 	desc = "Life is heck. Report a bug today"
@@ -107,6 +109,7 @@
 	cell_type = /obj/item/stock_parts/cell/ms13/mfc
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
+	slot_flags = ITEM_SLOT_SUITSTORE
 	extra_damage = 0
 	extra_penetration = 0
 	wound_bonus = 0
@@ -120,6 +123,7 @@
 	cell_type = /obj/item/stock_parts/cell/ms13/pc
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
+	slot_flags = ITEM_SLOT_SUITSTORE
 	extra_damage = 0
 	extra_penetration = 0
 	wound_bonus = 0
@@ -135,12 +139,14 @@
 	w_class = WEIGHT_CLASS_SMALL
 	worn_icon = 'mojave/icons/mob/worn_misc.dmi'
 	worn_icon_state = "empty_placeholder"
+	grid_height = 32
+	grid_width = 32
 	var/base_icon = ""
 	var/multiple_states = FALSE
 
 /obj/item/stock_parts/cell/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/ammo/ammo_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/ammo/ammo_inventory.dmi')
 
 /obj/item/stock_parts/cell/ms13/New()
 	..()
@@ -168,7 +174,7 @@
 	name = "electron charge pack"
 	desc = "An electron charge pack, typically used as ammunition for rapidly-firing energy weapons."
 	icon_state = "mfc"
-	maxcharge = 1250
+	maxcharge = 1000
 	chargerate = 100
 	base_icon = "mfc"
 

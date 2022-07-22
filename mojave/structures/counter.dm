@@ -10,7 +10,7 @@
 	name = "metal counter"
 	desc = "A sterile, culinary and professional metal counter with underneath storage, this one is in good condition." //add alt click open at some point maybe? (Yeah that'd be cool. WYCI.)
 	icon_state = "metal_counter"
-	max_integrity = 200
+	max_integrity = 225
 	frame = /obj/item/stack/sheet/ms13/scrap
 	framestack = /obj/item/stack/sheet/ms13/scrap
 	framestackamount = 2
@@ -30,7 +30,7 @@
 	name = "wooden counter"
 	desc = "Not much can be said about this decrepit wooden counter except that its definitely seen better years."
 	icon_state = "wood_counter"
-	max_integrity = 100
+	max_integrity = 150
 	frame = /obj/item/stack/sheet/ms13/scrap_wood
 	framestack = /obj/item/stack/sheet/ms13/scrap_wood
 	framestackamount = 2

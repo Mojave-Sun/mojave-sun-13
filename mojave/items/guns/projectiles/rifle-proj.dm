@@ -1,77 +1,84 @@
 //7.62
 /obj/projectile/bullet/ms13/a762
+	name = "7.62 bullet"
 	icon_state = "bigroilfe_bullet"
-	armour_penetration = 0
-	wound_bonus = 2
+	damage = 30
+	subtractible_armour_penetration = 40
+	wound_bonus = 10
+	bare_wound_bonus = 0
 
 /obj/projectile/bullet/ms13/a762/junk
-	damage = -5
+	subtractible_armour_penetration = 30
 
 /obj/projectile/bullet/ms13/a762/ap
-	armour_penetration = 10
-	wound_bonus = 5
+	subtractible_armour_penetration = 50
 
 /obj/projectile/bullet/ms13/a762/fmj
-	damage = 5
+	damage = 35
 
 /obj/projectile/bullet/ms13/a762/hv
 	speed = 0.4
-	wound_bonus = 5
+	wound_bonus = 12
 
 //.308
 /obj/projectile/bullet/ms13/a308
+	name = ".308 bullet"
 	icon_state = "bigroilfe_bullet"
-	armour_penetration = 0
-	wound_bonus = 0
+	damage = 45
+	subtractible_armour_penetration = 45
+	wound_bonus = 10
+	bare_wound_bonus = 5
 
 /obj/projectile/bullet/ms13/a308/junk
-	damage = -5
+	subtractible_armour_penetration = 35
 
 /obj/projectile/bullet/ms13/a308/ap
-	armour_penetration = 10
-	wound_bonus = 3
+	subtractible_armour_penetration = 55
 
 /obj/projectile/bullet/ms13/a308/fmj
-	damage = 5
+	damage = 50
 
 /obj/projectile/bullet/ms13/a308/hv
 	speed = 0.4
-	wound_bonus = 3
+	wound_bonus = 12
 
 //5.56
 /obj/projectile/bullet/ms13/a556
+	name = "5.56 bullet"
 	icon_state = "medium_bullet"
-	armour_penetration = 0
-	wound_bonus = 0
+	damage = 25
+	subtractible_armour_penetration = 25
+	wound_bonus = 15
+	bare_wound_bonus = 0
 
 /obj/projectile/bullet/ms13/a556/junk
-	damage = -5
+	subtractible_armour_penetration = 15
 
 /obj/projectile/bullet/ms13/a556/ap
-	armour_penetration = 10
-	wound_bonus = 3
+	subtractible_armour_penetration = 40
 
 /obj/projectile/bullet/ms13/a556/fmj
-	damage = 5
+	damage = 30
 
 /obj/projectile/bullet/ms13/a556/hv
 	speed = 0.4
-	wound_bonus = 3
+	wound_bonus = 18
 
 //50 BMG
 /obj/projectile/bullet/ms13/a50MG
+	name = ".50 BMG bullet"
 	icon_state = "lightfifty_bullet"
-	armour_penetration = 0
-	wound_bonus = 0
+	damage = 60
+	subtractible_armour_penetration = 60
+	wound_bonus = 20
+	bare_wound_bonus = 20
 
 /obj/projectile/bullet/ms13/a50MG/ap
-	armour_penetration = 5
-
-/obj/projectile/bullet/ms13/a50MG/fmj
-	damage = 5
+	subtractible_armour_penetration = 70
 
 /obj/projectile/bullet/ms13/a50MG/hv
 	speed = 0.4
+	wound_bonus = 25
 
 //2mmEC
 /obj/projectile/bullet/ms13/gauss

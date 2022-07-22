@@ -23,6 +23,8 @@
 		/obj/structure/holosign/robot_seat,
 		//Singleton
 		/mob/dview,
+		//Requires a circuit url
+		/obj/effect/mapping_helpers/circuit_spawner,
 	)
 	//Say it with me now, type template
 	ignore += typesof(/obj/effect/mapping_helpers/atom_injector)
@@ -33,8 +35,6 @@
 	ignore += typesof(/obj/item/modular_computer/tablet/integrated)
 	//This one demands a computer, ditto
 	ignore += typesof(/obj/item/modular_computer/processor)
-	//Needs special input, let's be nice
-	ignore += typesof(/obj/effect/abstract/proximity_checker)
 	//Very finiky, blacklisting to make things easier
 	ignore += typesof(/obj/item/poster/wanted)
 	//We can't pass a mind into this
@@ -88,6 +88,10 @@
 	ignore += typesof(/obj/effect/skyfall_landingzone)
 	//Expects a mob to holderize, we have nothing to give
 	ignore += typesof(/obj/item/clothing/head/mob_holder)
+
+	// MOJAVE EDIT - Additional blacklists
+	ignore += typesof(/obj/item/storage/fish_case)
+	ignore += typesof(/obj/item/storage/part_replacer)
 
 	var/list/cached_contents = spawn_at.contents.Copy()
 	var/baseturf_count = length(spawn_at.baseturfs)
