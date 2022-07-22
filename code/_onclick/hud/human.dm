@@ -320,10 +320,7 @@
 	rest_icon.screen_loc = ui_above_movement
 	rest_icon.hud = src
 	static_inventory += rest_icon
-	/*/MOJAVE SUN EDIT START - UI Removal
-	internals = new /atom/movable/screen/internals()
-	internals.hud = src
-	infodisplay += internals
+	/*/MOJAVE SUN EDIT START - UI Removal -- GOMBLE TODO I think this is empty now :) 
 	*///MOJAVE SUN EDIT START - UI Removal
 	spacesuit = new /atom/movable/screen/spacesuit
 	spacesuit.hud = src
