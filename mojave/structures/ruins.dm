@@ -50,6 +50,14 @@
 /obj/structure/ms13/vehicle_ruin/proc/deconstruction_hints(mob/user)
 	return span_notice("You could use a <b>welding tool</b> to painstakingly take apart [src] for parts.")
 
+/obj/structure/ms13/vehicle_ruin/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_WELDER)
+			context[SCREENTIP_CONTEXT_RMB] = "Slowly take apart"
+			return CONTEXTUAL_SCREENTIP_SET
+
 /obj/structure/ms13/vehicle_ruin/coupe
 	body_state = "coupe"
 

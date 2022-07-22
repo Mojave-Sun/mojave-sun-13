@@ -45,6 +45,14 @@
 /obj/structure/ms13/tv/proc/deconstruction_hints(mob/user)
 	return span_notice("You could use a <b>screwdriver</b> to take apart [src] for parts.")
 
+/obj/structure/ms13/tv/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_SCREWDRIVER)
+			context[SCREENTIP_CONTEXT_RMB] = "Disassemble"
+			return CONTEXTUAL_SCREENTIP_SET
+
 /obj/structure/ms13/pay_phone
 	name = "payphone"
 	desc = "A long unused and dead payphone, sure as hell ain't anyone to call on this thing no more."
@@ -82,6 +90,14 @@
 
 /obj/structure/ms13/pay_phone/proc/deconstruction_hints(mob/user)
 	return span_notice("You could use a <b>wrench</b> to take apart [src] for parts.")
+
+/obj/structure/ms13/pay_phone/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_WRENCH)
+			context[SCREENTIP_CONTEXT_RMB] = "Disassemble"
+			return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/ms13/pay_phone/withthephone
 	icon_state = "payphone_alt"
@@ -121,6 +137,14 @@
 
 /obj/structure/ms13/phone/proc/deconstruction_hints(mob/user)
 	return span_notice("You could use a <b>screwdriver</b> to take apart [src] for parts.")
+
+/obj/structure/ms13/phone/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_SCREWDRIVER)
+			context[SCREENTIP_CONTEXT_RMB] = "Disassemble"
+			return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/ms13/phone/black
 	icon_state = "phone_black"
@@ -321,6 +345,14 @@
 /obj/structure/ms13/jukebox/proc/deconstruction_hints(mob/user)
 	return span_notice("You could use a <b>wrench</b> to carefully take apart [src] for parts.")
 
+/obj/structure/ms13/jukebox/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_WRENCH)
+			context[SCREENTIP_CONTEXT_RMB] = "Disassemble"
+			return CONTEXTUAL_SCREENTIP_SET
+
 // Plant decor //
 
 /obj/structure/ms13/pot
@@ -365,10 +397,9 @@
 		return TRUE
 	..()
 	weapon.play_tool_sound(src)
-	if(do_after(user, 30 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+	if(do_after(user, 12 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
 		deconstruct(disassembled = TRUE)
 		return TRUE
-
 
 /obj/structure/ms13/deli/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
@@ -385,6 +416,14 @@
 /obj/structure/ms13/deli/proc/deconstruction_hints(mob/user)
 	return span_notice("You could use a <b>wrench</b> to take apart [src] for scrap.")
 
+/obj/structure/ms13/deli/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_WRENCH)
+			context[SCREENTIP_CONTEXT_RMB] = "Disassemble"
+			return CONTEXTUAL_SCREENTIP_SET
+
 /obj/structure/ms13/fruit_empty
 	name = "fruit stand"
 	desc = "These stands used to be full of the freshest fruit from all over."
@@ -396,7 +435,7 @@
 /obj/structure/ms13/fruit_empty/attackby(obj/item/W, mob/user, params)
 	if(W.sharpness == IS_SHARP_AXE)
 		user.show_message(span_notice("You begin chopping \the [src] into scraps of wood!"), MSG_VISUAL)
-		if(do_after(user, 15 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_MAKEPLANKS))
+		if(do_after(user, 10 SECONDS * W.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_MAKEPLANKS))
 			user.show_message(span_notice("You make wood scraps out of \the [src]!"), MSG_VISUAL)
 			new /obj/item/stack/sheet/ms13/scrap_wood(loc, 2)
 			qdel(src)

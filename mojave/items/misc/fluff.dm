@@ -34,6 +34,14 @@
 /obj/item/ms13/fluff/typewriter/proc/deconstruction_hints(mob/user)
 	return span_notice("You could use a <b>wrench</b> to take apart [src] for parts.")
 
+/obj/item/ms13/fluff/typewriter/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_WRENCH)
+			context[SCREENTIP_CONTEXT_RMB] = "Disassemble"
+			return CONTEXTUAL_SCREENTIP_SET
+
 /obj/item/ms13/fluff/microscope
     name = "microscope"
     desc = "A microscope, used for looking at things really, really closely."
@@ -56,6 +64,14 @@
 
 /obj/item/ms13/fluff/microscope/proc/deconstruction_hints(mob/user)
 	return span_notice("You could use a <b>screwdriver</b> to take apart [src] for parts.")
+
+/obj/item/ms13/fluff/microscope/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_SCREWDRIVER)
+			context[SCREENTIP_CONTEXT_RMB] = "Disassemble"
+			return CONTEXTUAL_SCREENTIP_SET
 
 /obj/item/ms13/fluff/chems
     name = "chemistry glassware"

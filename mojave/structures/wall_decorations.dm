@@ -109,6 +109,14 @@
 /obj/structure/ms13/wall_decor/flag/proc/deconstruction_hints(mob/user)
 	return span_notice("You could use a <b>knife</b> to cut up [src] for cloth.")
 
+/obj/structure/ms13/wall_decor/flag/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_KNIFE)
+			context[SCREENTIP_CONTEXT_RMB] = "Tear up"
+			return CONTEXTUAL_SCREENTIP_SET
+
 /obj/structure/ms13/wall_decor/flag/california
 	desc = "An old California flag. It has a Yao Guai on it, single head and all."
 	icon_state = "flag_cali"

@@ -10,10 +10,18 @@
 /obj/structure/bonfire/ms13/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/personal_crafting, CRAFTING_BENCH_CAMPFIRE)
+	register_context()
 
 /obj/structure/bonfire/ms13/examine(mob/user)
 	. = ..()
 	. += "<span class='notice'>Use <b>CTRL + CLICK</b> on [src] to begin crafting.</span>"
+
+/obj/structure/bonfire/ms13/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	if (isnull(held_item))
+		context[SCREENTIP_CONTEXT_CTRL_LMB] = "Start crafting"
+		return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/bonfire/ms13/attack_hand(mob/user, list/modifiers)
     return

@@ -679,6 +679,14 @@
 /obj/structure/railing/ms13/wood/proc/deconstruction_hints(mob/user)
 	return span_notice("You could use a <b>crowbar</b> or similar prying tool to dismantle [src] for planks and parts.")
 
+/obj/structure/railing/ms13/wood/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_CROWBAR)
+			context[SCREENTIP_CONTEXT_RMB] = "Dismantle"
+			return CONTEXTUAL_SCREENTIP_SET
+
 /obj/structure/railing/ms13/wood/ending
 	icon_state = "wood_end"
 
@@ -741,6 +749,14 @@
 
 /obj/structure/ms13/barricade/proc/deconstruction_hints(mob/user)
 	return span_notice("You could use a <b>crowbar</b> or similar prying tool to dismantle [src] for planks.")
+
+/obj/structure/ms13/barricade/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_CROWBAR)
+			context[SCREENTIP_CONTEXT_RMB] = "Dismantle"
+			return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/ms13/barricade/Initialize() //this shit should really be a component
 	. = ..()

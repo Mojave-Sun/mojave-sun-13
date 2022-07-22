@@ -127,6 +127,14 @@
 /obj/machinery/ms13/terminal/proc/deconstruction_hints(mob/user)
 	return span_notice("You could use a <b>screwdriver</b> to carefully take apart [src] for parts.")
 
+/obj/machinery/ms13/terminal/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_SCREWDRIVER)
+			context[SCREENTIP_CONTEXT_RMB] = "Disassemble"
+			return CONTEXTUAL_SCREENTIP_SET
+
 /obj/machinery/ms13/terminal/proc/FXtoggle() // For overlays/sound
 	if(!broken && active)
 		add_overlay(image(icon, "[screen_icon]", ABOVE_OBJ_LAYER, dir))
