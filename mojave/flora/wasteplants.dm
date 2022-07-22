@@ -99,6 +99,7 @@
 	harvest = /obj/item/food/grown/ms13/xander
 	harvest_amount_high = 2
 	variants = 2
+
 /obj/structure/flora/ms13/forage/tarberry
 	icon_state = "tarberry"
 	name = "tarberry shrub"
@@ -137,7 +138,7 @@
 	harvest_message_low = "You harvest the flowers, but fail to salvage many of them."
 	harvest_message_med = "You harvest the flowers, collecting a small bunch of them."
 	harvest_message_high = "You harvest and collect many flowers from the patch."
-	harvest_amount_high = 3
+	harvest_amount_high = 4
 	regrowth_time_high = 30 MINUTES
 
 /obj/structure/flora/ms13/forage/wildcarrot
@@ -164,7 +165,7 @@
 	harvest_message_med = "You collect a handful of delicate flowers."
 	harvest_message_high = "You delicately pick many flowers, collecting a good harvest."
 	harvest_amount_low = 0
-	harvest_amount_high = 7
+	harvest_amount_high = 4
 	regrowth_time_high = 20 MINUTES
 
 /obj/structure/flora/ms13/forage/mushroom
