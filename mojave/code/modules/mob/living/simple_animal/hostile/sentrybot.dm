@@ -70,7 +70,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	move_to_delay = 4
 	var/last_move_done_at = 0
 	//var/drift_cooldown = 0
-	attack_sound = "slam"
+	attack_sound = 'mojave/sound/ms13weapons/meleesounds/heavyblunt_hit1.ogg'
 	loot = list(/obj/item/stack/sheet/ms13/scrap_steel/ten, /obj/item/stack/sheet/ms13/scrap_electronics/ten, /obj/item/stack/sheet/ms13/scrap_parts/ten, /obj/item/stack/sheet/ms13/circuits/eight)
 	vision_range = 12
 	aggro_vision_range = 12
@@ -78,9 +78,9 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	maxHealth = 1000
 	health = 1000
 	idlechance = 20
-	melee_damage_lower = 20
-	melee_damage_upper = 20
-	subtractible_armour_penetration = 20
+	melee_damage_lower = 25
+	melee_damage_upper = 25
+	subtractible_armour_penetration = 15
 	sharpness = NONE
 	wound_bonus = 8
 	bare_wound_bonus = 0
