@@ -11,6 +11,10 @@
 	. = ..()
 	AddComponent(/datum/component/personal_crafting, CRAFTING_BENCH_CAMPFIRE)
 
+/obj/structure/bonfire/ms13/examine(mob/user)
+	. = ..()
+	. += "<span class='notice'>Use <b>CTRL + CLICK</b> on [src] to begin crafting.</span>"
+
 /obj/structure/bonfire/ms13/attack_hand(mob/user, list/modifiers)
     return
 
