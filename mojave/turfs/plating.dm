@@ -211,6 +211,7 @@
 	icon_state = "snow-255"
 	base_icon_state = "snow"
 	slowdown = 1
+	footstep = FOOTSTEP_SNOW
 	baseturfs = /turf/open/floor/plating/ms13/ground/snow
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_MS13_SNOW)
@@ -471,6 +472,7 @@
 	icon = 'mojave/icons/turf/roof_asphalt.dmi'
 	icon_state = "roof-255"
 	base_icon_state = "roof"
+	footstep = FOOTSTEP_ROOF
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_MS13_ROOF_NORMAL)
 	canSmoothWith = list(SMOOTH_GROUP_MS13_ROOF_NORMAL, WALL_SMOOTHING)

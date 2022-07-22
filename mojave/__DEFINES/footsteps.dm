@@ -1,3 +1,6 @@
+#define FOOTSTEP_ROOF "roof"
+#define FOOTSTEP_SNOW "crunchy snow"
+
 GLOBAL_LIST_INIT(footstep, list(
 	FOOTSTEP_WOOD = list(list(
 		'mojave/sound/ms13effects/footsteps/ms13wood1.ogg',
@@ -5,17 +8,26 @@ GLOBAL_LIST_INIT(footstep, list(
 		'mojave/sound/ms13effects/footsteps/ms13wood3.ogg',
 		'mojave/sound/ms13effects/footsteps/ms13wood4.ogg'), 100, 0),
 	FOOTSTEP_FLOOR = list(list(
-		'sound/effects/footstep/floor1.ogg',
-		'sound/effects/footstep/floor2.ogg',
-		'sound/effects/footstep/floor3.ogg',
-		'sound/effects/footstep/floor4.ogg',
-		'sound/effects/footstep/floor5.ogg'), 75, -1),
+		'mojave/sound/ms13effects/footsteps/ms13general1.ogg',
+		'mojave/sound/ms13effects/footsteps/ms13general2.ogg',
+		'mojave/sound/ms13effects/footsteps/ms13general3.ogg',
+		'mojave/sound/ms13effects/footsteps/ms13general4.ogg'), 75, -1),
 	FOOTSTEP_PLATING = list(list(
 		'sound/effects/footstep/plating1.ogg',
 		'sound/effects/footstep/plating2.ogg',
 		'sound/effects/footstep/plating3.ogg',
 		'sound/effects/footstep/plating4.ogg',
 		'sound/effects/footstep/plating5.ogg'), 100, 1),
+	FOOTSTEP_ROOF = list(list(
+		'mojave/sound/ms13effects/footsteps/ms13roof1.ogg',
+		'mojave/sound/ms13effects/footsteps/ms13roof2.ogg',
+		'mojave/sound/ms13effects/footsteps/ms13roof3.ogg',
+		'mojave/sound/ms13effects/footsteps/ms13roof4.ogg'), 100, 0),
+	FOOTSTEP_SNOW = list(list(
+		'mojave/sound/ms13effects/footsteps/ms13snow1.ogg',
+		'mojave/sound/ms13effects/footsteps/ms13snow2.ogg',
+		'mojave/sound/ms13effects/footsteps/ms13snow3.ogg',
+		'mojave/sound/ms13effects/footsteps/ms13snow4.ogg'), 90, -1),
 	FOOTSTEP_CARPET = list(list(
 		'sound/effects/footstep/carpet1.ogg',
 		'sound/effects/footstep/carpet2.ogg',
@@ -47,7 +59,7 @@ GLOBAL_LIST_INIT(footstep, list(
 		'mojave/sound/ms13effects/footsteps/ms13catwalk1.ogg',
 		'mojave/sound/ms13effects/footsteps/ms13catwalk2.ogg',
 		'mojave/sound/ms13effects/footsteps/ms13catwalk3.ogg',
-		'mojave/sound/ms13effects/footsteps/ms13catwalk4.ogg'), 38, 1),
+		'mojave/sound/ms13effects/footsteps/ms13catwalk4.ogg'), 24, 1),
 ))
 //bare footsteps lists
 GLOBAL_LIST_INIT(barefootstep, list(
