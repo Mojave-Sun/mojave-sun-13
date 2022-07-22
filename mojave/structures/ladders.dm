@@ -66,7 +66,8 @@
 	name = "manhole"
 	desc = "A manhole ladder, you could probably push the cover off from here, or try dragging it back on."
 	travel_time = 2 SECONDS
-	icon = 	"manhole_closed"
+	pixel_y = 7
+	icon_state = "manhole_closed"
 
 /obj/structure/ladder/ms13/manhole/attack_hand_secondary(mob/living/user, list/modifiers)
 	. = ..()
