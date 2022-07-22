@@ -223,6 +223,14 @@
 	playsound(src.loc, 'mojave/sound/ms13weapons/meleesounds/general_grip.ogg', 35, TRUE)
 	wielded = TRUE
 
+/datum/looping_sound/saw_soundloop
+	start_sound = 'mojave/sound/ms13weapons/meleesounds/saw_start.ogg'
+	start_length = 1.8
+	mid_sounds = 'mojave/sound/ms13weapons/meleesounds/saw_loop.ogg'
+	mid_length = 3.8
+	vary = FALSE
+	volume = 67
+
 /obj/item/ms13/twohanded/heavy/autoaxe
 	name = "auto axe"
 	desc = "A modified steel saw, converted into a tool of destruction."
@@ -241,6 +249,15 @@
 	grid_height = 256
 	grid_width = 256
 	var/on = FALSE
+	var/datum/looping_sound/saw_loop/saw_soundloop
+
+/obj/item/ms13/twohanded/heavy/autoaxe/Initialize()
+	. = ..()
+	new saw_soundloop(src, FALSE)
+
+/obj/item/ms13/twohanded/heavy/autoaxe/Destroy()
+	. = ..()
+	QDELL_NULL(saw_soundloop)
 
 /obj/item/ms13/twohanded/heavy/autoaxe/attack_self(mob/user)
 	on = !on
@@ -253,6 +270,7 @@
 		attack_verb_continuous = list("slices", "slashes", "cuts", "rends", "saws", "tears")
 		attack_verb_simple = list("slice", "slash", "cut", "rend", "saw", "tear")
 		hitsound = list('mojave/sound/ms13weapons/meleesounds/ripper_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/ripper_hit2.ogg', 'mojave/sound/ms13weapons/meleesounds/ripper_hit3.ogg')
+		saw_soundloop.start()
 
 	else
 		force = 15
@@ -260,6 +278,7 @@
 		attack_verb_continuous = list("smacks", "beats", "slashes", "cuts", "clubs")
 		attack_verb_simple = list("smack", "beat", "slash", "cut", "club")
 		hitsound = 'mojave/sound/ms13weapons/meleesounds/hatchet_hit.ogg'
+		saw_soundloop.stop()
 
 	if(src == user.get_active_held_item()) //update inhands
 		user.update_inv_hands()

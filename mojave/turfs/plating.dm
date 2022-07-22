@@ -472,7 +472,6 @@
 	icon = 'mojave/icons/turf/roof_asphalt.dmi'
 	icon_state = "roof-255"
 	base_icon_state = "roof"
-	footstep = FOOTSTEP_ROOF
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_MS13_ROOF_NORMAL)
 	canSmoothWith = list(SMOOTH_GROUP_MS13_ROOF_NORMAL, WALL_SMOOTHING)
@@ -489,6 +488,7 @@
 	icon = 'mojave/icons/turf/roof_sheet_noborder.dmi'
 
 /turf/open/floor/plating/ms13/roof/metal
+	footstep = FOOTSTEP_ROOF
 	icon = 'mojave/icons/turf/roof_metal.dmi'
 	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_MS13_ROOF_METAL)
 	canSmoothWith = list(SMOOTH_GROUP_MS13_ROOF_METAL, WALL_SMOOTHING)
