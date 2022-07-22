@@ -2,6 +2,7 @@
 	name = "ladder"
 	desc = "A questionable metal ladder. There's got to be stairs around, right?"
 	icon = 'mojave/icons/structure/ladders.dmi'
+	icon_state = "ladder10"
 	resistance_flags = INDESTRUCTIBLE
 	travel_time = 2 SECONDS
 
@@ -65,6 +66,7 @@
 	name = "manhole"
 	desc = "A manhole ladder, you could probably push the cover off from here, or try dragging it back on."
 	travel_time = 2 SECONDS
+	icon = 	"manhole_closed"
 
 /obj/structure/ladder/ms13/manhole/attack_hand_secondary(mob/living/user, list/modifiers)
 	. = ..()
@@ -141,6 +143,7 @@
 
 /obj/structure/ladder/ms13/bunker
 	name = "bunker"
+	icon_state = "bunker_closed"
 	travel_time = 2 SECONDS
 
 /obj/structure/ladder/ms13/bunker/welder_act_secondary(mob/living/user, obj/item/I)
