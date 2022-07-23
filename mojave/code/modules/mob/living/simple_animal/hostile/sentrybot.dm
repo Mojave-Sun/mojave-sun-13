@@ -112,7 +112,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	mid_length = 1
 	end_sound = 'mojave/sound/ms13npc/sentrybot/treads_end.mp3'
 	vary = FALSE
-	volume = 50
+	volume = 25
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/Initialize()
 	. = ..()
@@ -127,7 +127,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	SIGNAL_HANDLER
 	//playsound(src, 'sound/mecha/mechstep.ogg', 40, TRUE)
 	last_move_done_at = world.time
-	addtimer(CALLBACK(src, .proc/check_if_loop_should_continue, world.time), move_to_delay + 0.8 SECONDS)
+	addtimer(CALLBACK(src, .proc/check_if_loop_should_continue, world.time), move_to_delay + 0.5 SECONDS)
 	/*
 	if(drift_cooldown > world.time) //Special move cooldown + drifting shouldn't restart the tread sounds
 		return
@@ -191,7 +191,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 		return
 	var/random_speech = pick(glob_list_used)
 	speech_cooldown = world.time + glob_list_used[random_speech]
-	playsound(src, random_speech, 50, FALSE)
+	playsound(src, random_speech, 80, FALSE)
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/Destroy()
 	QDEL_NULL(rocket)
