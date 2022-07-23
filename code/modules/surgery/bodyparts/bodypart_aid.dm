@@ -1,7 +1,7 @@
 // PORT FROM CLOSED TGSTATION PR https://github.com/tgstation/tgstation/pull/55795 - MOJAVE SUN EDIT
 
-#define SELF_AID_REMOVE_DELAY 5 SECONDS
-#define OTHER_AID_REMOVE_DELAY 2 SECONDS
+#define SELF_AID_REMOVE_DELAY 3 SECONDS
+#define OTHER_AID_REMOVE_DELAY 1.5 SECONDS
 
 /datum/bodypart_aid
 	var/name

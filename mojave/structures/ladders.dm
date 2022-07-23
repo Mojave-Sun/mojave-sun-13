@@ -69,6 +69,10 @@
 	pixel_y = 7
 	icon_state = "manhole_closed"
 
+/obj/structure/ladder/ms13/manhole/examine(mob/user)
+	. = ..()
+	. += "<span class='notice'>Use <b>RIGHT-CLICK</b> on [src] to open or close it.</span>"
+
 /obj/structure/ladder/ms13/manhole/attack_hand_secondary(mob/living/user, list/modifiers)
 	. = ..()
 	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)

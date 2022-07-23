@@ -30,6 +30,7 @@
 
 /obj/structure/closet/crate/ms13/woodcrate/Initialize(mapload)
 	. = ..()
+	register_context()
 	if(!altstates)
 		return
 
@@ -79,6 +80,14 @@
 	for(var/atom/movable/AM in contents)
 		AM.forceMove(T)
 	qdel(src)
+
+/obj/structure/closet/crate/ms13/woodcrate/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_CROWBAR)
+			context[SCREENTIP_CONTEXT_RMB] = "Open"
+			return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/closet/crate/ms13/woodcrate/compact
 	icon_state = "plain_crate"

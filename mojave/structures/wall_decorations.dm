@@ -88,6 +88,10 @@
 	desc = "A flag from the old world. This one represents America in all of its glory."
 	icon_state = "flag_us"
 
+/obj/structure/ms13/wall_decor/flag/Initialize()
+	. = ..()
+	register_context()
+
 /obj/structure/ms13/wall_decor/flag/attackby(obj/item/I, mob/user, params)
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
 		return
@@ -108,6 +112,14 @@
 
 /obj/structure/ms13/wall_decor/flag/proc/deconstruction_hints(mob/user)
 	return span_notice("You could use a <b>knife</b> to cut up [src] for cloth.")
+
+/obj/structure/ms13/wall_decor/flag/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_KNIFE)
+			context[SCREENTIP_CONTEXT_RMB] = "Tear up"
+			return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/ms13/wall_decor/flag/california
 	desc = "An old California flag. It has a Yao Guai on it, single head and all."

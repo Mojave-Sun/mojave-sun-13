@@ -17,6 +17,9 @@
 	//Used for pre-open states
 	var/pre_open = FALSE
 
+/obj/machinery/door/poddoor/shutters/ms13/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	return
+
 /obj/machinery/door/poddoor/shutters/ms13/Initialize()
 	. = ..()
 	update_appearance()
