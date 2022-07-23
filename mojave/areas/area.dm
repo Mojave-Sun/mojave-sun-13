@@ -25,7 +25,7 @@
 	power_environ = TRUE
 	power_equip = TRUE
 	power_light = TRUE
-	ambientsounds = list()
+	ambientsounds = null
 	atmosphere_sound = BUILDING_ATMOSPHERE
 
 /area/ms13/farmhouse
@@ -95,7 +95,7 @@
 
 /area/ms13/underground/mountain
 	name = "mountain"
-	ambientsounds = list()
+	ambientsounds = null
 	icon_state = "mountain"
 	sound_environment = SOUND_ENVIRONMENT_CAVE
 
