@@ -26,7 +26,7 @@
 		return TRUE
 	..()
 	weapon.play_tool_sound(src)
-	if(do_after(user, 12 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+	if(do_after(user, 10 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
 		deconstruct(disassembled = TRUE)
 		return TRUE
 
@@ -53,12 +53,12 @@
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 2)
 			new /obj/item/stack/sheet/ms13/scrap_copper(loc, 2)
 			new /obj/item/ms13/component/cell(loc)
-            new /obj/item/light/ms13/bulb(loc)
+			new /obj/item/light/ms13/bulb(loc)
 		else
 			new /obj/item/stack/sheet/ms13/scrap(loc)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
 			new /obj/item/stack/sheet/ms13/scrap_copper(loc)
-            new /obj/item/stack/sheet/ms13/glass(loc)
+			new /obj/item/stack/sheet/ms13/glass(loc)
 	qdel(src)
 
 /obj/structure/ms13/prewar_lamp/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
@@ -88,7 +88,7 @@
     max_integrity = 90
     on = FALSE
 
-/obj/structure/ms13/prewar_lamp/makeshift/proc/deconstruction_hints(mob/user)
+/obj/structure/ms13/prewar_lamp/makeshift/deconstruction_hints(mob/user)
 	return span_notice("You could use some <b>pliers</b> to take apart [src] for parts.")
 
 /obj/structure/ms13/prewar_lamp/makeshift/wirecutter_act_secondary(mob/living/user, obj/item/weapon)
@@ -96,7 +96,7 @@
 		return TRUE
 	..()
 	weapon.play_tool_sound(src)
-	if(do_after(user, 8 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+	if(do_after(user, 7.5 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
 		deconstruct(disassembled = TRUE)
 		return TRUE
 
@@ -120,11 +120,11 @@
 		if(disassembled)
 			new /obj/item/stack/sheet/ms13/scrap_lead(loc, 3)
 			new /obj/item/stack/sheet/ms13/scrap_copper(loc, 3)
-            new /obj/item/stack/sheet/ms13/glass(loc, 2)
+			new /obj/item/stack/sheet/ms13/glass(loc, 2)
 		else
 			new /obj/item/stack/sheet/ms13/scrap_lead(loc)
 			new /obj/item/stack/sheet/ms13/scrap_copper(loc)
-            new /obj/item/stack/sheet/ms13/glass(loc)
+			new /obj/item/stack/sheet/ms13/glass(loc)
 	qdel(src)
 
 /obj/structure/ms13/prewar_lamp/makeshift/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
