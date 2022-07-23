@@ -4,15 +4,16 @@
 
 //Appliances//
 
-//Electronics//
+//TVs//
 
 /obj/structure/ms13/tv
-	name = "\improper Radiation King Television"
-	desc = "A message asking the audience to please standby appears on screen."
-	icon = 'icons/obj/computer.dmi'
-	icon_state = "television"
+	name = "base class MS13 television"
+	desc = "A message asking the audience to please not use this asset appears on screen."
+	icon = 'mojave/icons/structure/television.dmi'
+	icon_state = "radking_tv"
 	max_integrity = 225
 	density = TRUE
+	anchored = TRUE
 
 /obj/structure/ms13/tv/Initialize()
 	. = ..()
@@ -23,7 +24,7 @@
 		return TRUE
 	..()
 	weapon.play_tool_sound(src)
-	if(do_after(user, 12 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+	if(do_after(user, 15 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
 		deconstruct(disassembled = TRUE)
 		return TRUE
 
@@ -57,6 +58,86 @@
 			context[SCREENTIP_CONTEXT_RMB] = "Disassemble"
 			return CONTEXTUAL_SCREENTIP_SET
 
+/obj/structure/ms13/tv/rad_king
+	name = "\improper Radiation King television"
+	desc = "A very popular Radiation King television set from before the war. Now just collecting dust."
+	icon_state = "radking_tv"
+
+/obj/structure/ms13/tv/rad_king/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/scrap(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 2)
+			new /obj/item/stack/sheet/ms13/glass(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_copper(loc, 3)
+		else
+			new /obj/item/stack/sheet/ms13/scrap(loc)
+			new /obj/item/stack/sheet/ms13/glass(loc)
+			new /obj/item/stack/sheet/ms13/scrap_electronics(loc)
+			new /obj/item/stack/sheet/ms13/scrap_copper(loc)
+	qdel(src)
+
+/obj/structure/ms13/tv/wooden
+	name = "wood television console"
+	desc = "A television console made of wood. This was probably an antique long before the bombs dropped."
+	icon_state = "wood_tv"
+
+/obj/structure/ms13/tv/wooden/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/scrap_wood(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 2)
+			new /obj/item/stack/sheet/ms13/glass(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_copper(loc, 3)
+		else
+			new /obj/item/stack/sheet/ms13/scrap(loc)
+			new /obj/item/stack/sheet/ms13/glass(loc)
+			new /obj/item/stack/sheet/ms13/scrap_electronics(loc)
+			new /obj/item/stack/sheet/ms13/scrap_copper(loc)
+	qdel(src)
+
+/obj/structure/ms13/tv/wooden/red
+	icon_state = "redwood_tv"
+
+/obj/structure/ms13/tv/wooden/cabinet
+	name = "television cabinet"
+	desc = "A wood cabinet containing a television inside."
+	icon_state = "cabinet_tv"
+
+/obj/structure/ms13/tv/tube
+	name = "tube television"
+	desc = "A classic tube television. You're not exactly sure why it's called a tube television."
+	icon_state = "tube_tv"
+
+/obj/structure/ms13/tv/tube/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/plastic(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 2)
+			new /obj/item/stack/sheet/ms13/glass(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_copper(loc, 3)
+		else
+			new /obj/item/stack/sheet/ms13/scrap(loc)
+			new /obj/item/stack/sheet/ms13/glass(loc)
+			new /obj/item/stack/sheet/ms13/scrap_electronics(loc)
+			new /obj/item/stack/sheet/ms13/scrap_copper(loc)
+	qdel(src)
+
+/obj/structure/ms13/tv/tube/small
+	name = "small tube television"
+	desc = "A small tube television. You're not exactly sure why it's called a tube television."
+	icon_state = "small_tv"
+
+/obj/structure/ms13/tv/tube/tiny
+	name = "tiny television"
+	desc = "A very small TV. Perhaps made for a very small person."
+	icon_state = "tiny_tv"
+
+//Phones//
+
 /obj/structure/ms13/pay_phone
 	name = "payphone"
 	desc = "A long unused and dead payphone, sure as hell ain't anyone to call on this thing no more."
@@ -82,7 +163,7 @@
 /obj/structure/ms13/pay_phone/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/scrap/two(loc)
+			new /obj/item/stack/sheet/ms13/scrap(loc, 3)
 			new /obj/item/stack/sheet/ms13/scrap_parts/two(loc)
 			new /obj/item/stack/sheet/ms13/scrap_electronics(loc)
 			new /obj/item/stack/sheet/ms13/scrap_copper(loc, 3)

@@ -88,10 +88,7 @@
     max_integrity = 90
     on = FALSE
 
-/obj/structure/ms13/prewar_lamp/makeshift/deconstruction_hints(mob/user)
-	return span_notice("You could use some <b>pliers</b> to take apart [src] for parts.")
-
-/obj/structure/ms13/prewar_lamp/makeshift/wirecutter_act_secondary(mob/living/user, obj/item/weapon)
+/obj/structure/ms13/prewar_lamp/makeshift/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
 	if(flags_1&NODECONSTRUCT_1)
 		return TRUE
 	..()
@@ -126,14 +123,6 @@
 			new /obj/item/stack/sheet/ms13/scrap_copper(loc)
 			new /obj/item/stack/sheet/ms13/glass(loc)
 	qdel(src)
-
-/obj/structure/ms13/prewar_lamp/makeshift/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
-	. = ..()
-
-	switch (held_item?.tool_behaviour)
-		if (TOOL_WIRECUTTER)
-			context[SCREENTIP_CONTEXT_RMB] = "Disassemble"
-			return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/ms13/prewar_lamp/makeshift/on
     icon_state = "handmadelamp_on"
