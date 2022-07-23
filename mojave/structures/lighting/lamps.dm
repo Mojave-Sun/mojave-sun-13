@@ -26,7 +26,7 @@
 		return TRUE
 	..()
 	weapon.play_tool_sound(src)
-	if(do_after(user, 10 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+	if(do_after(user, 12 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
 		deconstruct(disassembled = TRUE)
 		return TRUE
 
@@ -117,7 +117,7 @@
 		if(disassembled)
 			new /obj/item/stack/sheet/ms13/scrap_lead(loc, 3)
 			new /obj/item/stack/sheet/ms13/scrap_copper(loc, 3)
-			new /obj/item/stack/sheet/ms13/glass(loc, 2)
+			new /obj/item/light/ms13/bulb(loc)
 		else
 			new /obj/item/stack/sheet/ms13/scrap_lead(loc)
 			new /obj/item/stack/sheet/ms13/scrap_copper(loc)
