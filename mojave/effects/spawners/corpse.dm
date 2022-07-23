@@ -53,16 +53,11 @@
 
 	if(prob(20))
 		mask = pick(
-		/obj/item/clothing/mask/ms13/facewrap,\
-		/obj/item/clothing/mask/ms13/facewrap/red,\
-		/obj/item/clothing/mask/ms13/facewrap/black,\
-		/obj/item/clothing/mask/ms13/facewrap/blue,\
 		/obj/item/clothing/mask/ms13/bandana,\
 		/obj/item/clothing/mask/ms13/bandana/blue,\
 		/obj/item/clothing/mask/ms13/bandana/red,\
 		/obj/item/clothing/mask/ms13/bandana/white, \
-		/obj/item/clothing/mask/ms13/bandana/green, \
-		/obj/item/clothing/mask/ms13/facewrap/halfwrap)
+		/obj/item/clothing/mask/ms13/bandana/green)
 	else
 		mask = null
 

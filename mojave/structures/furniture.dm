@@ -263,7 +263,7 @@
 
 /obj/structure/ms13/storage/store
 	name = "store shelf"
-	desc = "A proud american consumerism displayer, seems commercialism wasnt fully wiped out as intended."
+	desc = "A proud american consumerism displayer, seems commercialism wasn't fully wiped out as intended."
 	icon_state = "store_shelf"
 	materialtype = /obj/item/stack/sheet/ms13/scrap_wood
 
@@ -276,13 +276,18 @@
 /obj/structure/ms13/storage/shelf
 	name = "metal shelf"
 	desc = "Used for storing just about anything you could think of, this one is in good condition."
-	icon_state = "metal_shelf_thin"
+	icon_state = "metal_shelf"
 	opacity = FALSE
 	materialtype = /obj/item/stack/sheet/ms13/scrap
 
-/obj/structure/ms13/storage/shelf/rust
+/obj/structure/ms13/storage/shelf/wood
+	name = "wood shelf"
 	desc = "Used for storing just about anything you could think of."
-	icon_state = "metal_shelf_thin_rust"
+	icon_state = "wood_shelf"
+	materialtype = /obj/item/stack/sheet/ms13/scrap_wood
+
+/obj/structure/ms13/storage/shelf/wood/alt
+	icon_state = "wood_shelf-alt"
 
 /obj/structure/ms13/storage/large
 	name = "generic large ms13 storage"
@@ -309,9 +314,14 @@
 	opacity = FALSE
 	materialtype = /obj/item/stack/sheet/ms13/scrap
 
-/obj/structure/ms13/storage/large/shelf/rust
-	desc = "An extra large, heavy-duty shelf, used for storing just about anything you could think of."
-	icon_state = "metal_shelf_rust"
+/obj/structure/ms13/storage/large/shelf/wood
+	name = "wood shelf"
+	desc = "An extra large, wood shelf, used for storing just about anything you could think of while upkeeping your rustic tones."
+	icon_state = "wood_shelf"
+	materialtype = /obj/item/stack/sheet/ms13/scrap_wood
+
+/obj/structure/ms13/storage/large/shelf/wood/alt
+	icon_state = "wood_shelf-alt"
 
 /obj/structure/ms13/storage/large/clothing
 	name = "clothing rack"

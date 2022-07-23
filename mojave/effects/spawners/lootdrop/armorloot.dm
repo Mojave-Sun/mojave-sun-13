@@ -344,3 +344,8 @@
 				/obj/item/clothing/suit/armor/ms13/combat,
 				/obj/item/clothing/head/helmet/ms13/combat
 				)
+
+
+/obj/effect/spawner/random/ms13/armor/military/Initialize() //on mapload, pick what to spawn
+	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6)
+	. = ..()
