@@ -5565,7 +5565,10 @@
 /area/ms13/underground/vault_atrium_lower)
 "axo" = (
 /obj/structure/table/ms13/wood,
-/obj/structure/ms13/tv,
+/obj/structure/ms13/tv/tube/tiny{
+	dir = 4;
+	pixel_y = 10
+	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "axp" = (
@@ -6779,12 +6782,9 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "aCy" = (
-/obj/structure/ms13/tv{
-	pixel_y = 12
-	},
-/obj/structure/table/ms13/wood,
-/turf/open/floor/wood/ms13/wide,
-/area/ms13/underground/underground_town)
+/obj/structure/ms13/rug/yellow,
+/turf/open/floor/ms13/concrete,
+/area/ms13/town)
 "aCz" = (
 /obj/structure/closet/ms13/fridge,
 /obj/effect/spawner/random/ms13/food/produce_random,
@@ -15159,10 +15159,10 @@
 /area/ms13/underground/sewer)
 "mtj" = (
 /obj/structure/table/ms13/no_smooth/wood,
-/obj/structure/ms13/tv{
-	pixel_y = 12
-	},
 /obj/machinery/light/ms13/bulb/industrial,
+/obj/structure/ms13/tv/tube/tiny{
+	pixel_y = 15
+	},
 /turf/open/floor/wood/ms13/carpet/shaggy,
 /area/ms13/town)
 "mtT" = (
@@ -40169,7 +40169,7 @@ aQK
 aJX
 aPa
 axo
-aJX
+aCy
 atD
 atD
 atD
@@ -56045,7 +56045,7 @@ aTA
 aff
 aff
 aff
-aCy
+aWP
 aEQ
 afU
 afU
