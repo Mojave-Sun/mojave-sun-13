@@ -66,6 +66,10 @@
 	desc = "A manhole ladder, you could probably push the cover off from here, or try dragging it back on."
 	travel_time = 2 SECONDS
 
+/obj/structure/ladder/ms13/manhole/examine(mob/user)
+	. = ..()
+	. += "<span class='notice'>Use <b>RIGHT-CLICK</b> on [src] to open or close it.</span>"
+
 /obj/structure/ladder/ms13/manhole/attack_hand_secondary(mob/living/user, list/modifiers)
 	. = ..()
 	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
