@@ -87,6 +87,7 @@
 
 /obj/machinery/ms13/terminal/Initialize(mapload)
 	. = ..()
+	register_context()
 	chosen_joker = pick(joker_titles)
 	termnumber = "No.[rand(360,620)]" // VERY unlikely to get two identical numbers.
 	FXtoggle()

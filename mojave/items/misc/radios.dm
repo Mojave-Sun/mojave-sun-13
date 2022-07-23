@@ -99,6 +99,7 @@
 	if(!current_area)
 		return
 	RegisterSignal(current_area, COMSIG_AREA_POWER_CHANGE, .proc/AreaPowerCheck)
+	register_context()
 
 /obj/item/radio/ms13/ham/broadcast
 	name = "high end broadcasting set"

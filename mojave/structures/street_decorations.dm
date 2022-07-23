@@ -71,6 +71,7 @@
 /obj/structure/ms13/street_sign/Initialize()
 	. = ..()
 	AddComponent(/datum/component/largetransparency, 1, 1, 1, 1)
+	register_context()
 
 /obj/structure/ms13/street_sign/CanAllowThrough(atom/movable/mover, turf/target)
 	. = ..()

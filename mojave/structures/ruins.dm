@@ -72,6 +72,7 @@
 
 /obj/structure/ms13/vehicle_ruin/Initialize()
 	. = ..()
+	register_context()
 	var/randomiser = rand(1,5)
 	if(!body_state)
 		body_state = pick_weight(RUIN_BODIES)

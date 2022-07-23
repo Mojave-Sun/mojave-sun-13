@@ -30,6 +30,7 @@
 
 /obj/structure/closet/crate/ms13/woodcrate/Initialize(mapload)
 	. = ..()
+	register_context()
 	if(!altstates)
 		return
 

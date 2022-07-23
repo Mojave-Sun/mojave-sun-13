@@ -19,6 +19,10 @@
     grid_height = 64
     grid_width = 64
 
+/obj/item/ms13/fluff/typewriter/Initialize()
+	. = ..()
+	register_context()
+
 /obj/item/ms13/fluff/typewriter/wrench_act_secondary(mob/living/user, obj/item/weapon)
     user.show_message(span_notice("You begin disassembling \the [src]."), MSG_VISUAL)
     if(do_after(user, 8 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
@@ -48,6 +52,10 @@
     icon_state = "microscope"
     grid_height = 64
     grid_width = 32
+
+/obj/item/ms13/fluff/microscope/Initialize()
+	. = ..()
+	register_context()
 
 /obj/item/ms13/fluff/microscope/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
     user.show_message(span_notice("You begin disassembling \the [src] into scrap."), MSG_VISUAL)

@@ -156,6 +156,10 @@
 	var/obj/item/reagent_containers/food/drinks/mug = null
 	max_integrity = 150
 
+/obj/machinery/ms13/coffee/Initialize()
+	. = ..()
+	register_context()
+
 /obj/machinery/ms13/coffee/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
 	if(flags_1&NODECONSTRUCT_1)
 		return TRUE

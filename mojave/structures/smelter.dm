@@ -22,6 +22,7 @@
 /obj/structure/ms13/smelter/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/personal_crafting, crafting_interface)
+	register_context()
 
 /obj/structure/ms13/smelter/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))

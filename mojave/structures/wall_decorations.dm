@@ -88,6 +88,10 @@
 	desc = "A flag from the old world. This one represents America in all of its glory."
 	icon_state = "flag_us"
 
+/obj/structure/ms13/wall_decor/flag/Initialize()
+	. = ..()
+	register_context()
+
 /obj/structure/ms13/wall_decor/flag/attackby(obj/item/I, mob/user, params)
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
 		return

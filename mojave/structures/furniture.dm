@@ -14,6 +14,10 @@
 	max_integrity = 225
 	density = TRUE
 
+/obj/structure/ms13/tv/Initialize()
+	. = ..()
+	register_context()
+
 /obj/structure/ms13/tv/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
 	if(flags_1&NODECONSTRUCT_1)
 		return TRUE
@@ -61,6 +65,10 @@
 	max_integrity = 250
 	density = TRUE
 	anchored = TRUE
+
+/obj/structure/ms13/pay_phone/Initialize()
+	. = ..()
+	register_context()
 
 /obj/structure/ms13/pay_phone/wrench_act_secondary(mob/living/user, obj/item/weapon)
 	if(flags_1&NODECONSTRUCT_1)
@@ -110,6 +118,10 @@
 	max_integrity = 100
 	density = FALSE
 	anchored = TRUE
+
+/obj/structure/ms13/phone/Initialize()
+	. = ..()
+	register_context()
 
 /obj/structure/ms13/phone/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
 	if(flags_1&NODECONSTRUCT_1)
@@ -311,6 +323,10 @@
 	density = TRUE
 	anchored = TRUE
 
+/obj/structure/ms13/jukebox/Initialize()
+	. = ..()
+	register_context()
+
 /obj/structure/ms13/jukebox/wrench_act_secondary(mob/living/user, obj/item/weapon)
 	if(flags_1&NODECONSTRUCT_1)
 		return TRUE
@@ -391,6 +407,10 @@
 	icon_state = "deli_stand"
 	density = TRUE
 	anchored = TRUE
+
+/obj/structure/ms13/deli/Initialize()
+	. = ..()
+	register_context()
 
 /obj/structure/ms13/deli/wrench_act_secondary(mob/living/user, obj/item/weapon)
 	if(flags_1&NODECONSTRUCT_1)

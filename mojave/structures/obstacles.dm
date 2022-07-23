@@ -647,6 +647,10 @@
 	desc = "A classic wooden fence. It doesn't get more homely than this."
 	icon_state = "wood_full"
 
+/obj/structure/railing/ms13/wood/Initialize()
+	. = ..()
+	register_context()
+
 /obj/structure/railing/ms13/wood/crowbar_act_secondary(mob/living/user, obj/item/tool)
 	if(flags_1&NODECONSTRUCT_1)
 		return TRUE
@@ -760,6 +764,7 @@
 
 /obj/structure/ms13/barricade/Initialize() //this shit should really be a component
 	. = ..()
+	register_context()
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_EXIT = .proc/on_exit,
 	)
