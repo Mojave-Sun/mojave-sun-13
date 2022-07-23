@@ -13,7 +13,7 @@
 	var/harvest = /obj/item/food/grown/ms13/tarberry
 	var/harvest_amount_low = 1
 	var/harvest_amount_high = 4
-	var/harvest_time = 60
+	var/harvest_time = 6 SECONDS
 	var/harvest_message_low = "You harvest the berries, but fail to attain many of them."
 	var/harvest_message_med = "You harvest the berries, collecting a decent amount from the forage."
 	var/harvest_message_high = "You harvest and collect many berries from the wild plant."
@@ -97,7 +97,7 @@
 	harvested_name = "xander"
 	harvested_desc = "A xander root."
 	harvest = /obj/item/food/grown/ms13/xander
-	harvest_amount_high = 2
+	harvest_amount_high = 3
 	variants = 2
 /obj/structure/flora/ms13/forage/tarberry
 	icon_state = "tarberry"
@@ -157,7 +157,6 @@
 	name = "aster flowers"
 	desc = "A patch of wild aster flowers."
 	harvested_name = "aster flower"
-	harvest_time = 120
 	harvested_desc = "Some aster flowers."
 	harvest = /obj/item/food/grown/ms13/aster
 	harvest_message_low = "You accidentally destroy the delicate flowers, salvaging nothing."

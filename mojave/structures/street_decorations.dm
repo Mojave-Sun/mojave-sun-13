@@ -71,6 +71,7 @@
 /obj/structure/ms13/street_sign/Initialize()
 	. = ..()
 	AddComponent(/datum/component/largetransparency, 1, 1, 1, 1)
+	register_context()
 
 /obj/structure/ms13/street_sign/CanAllowThrough(atom/movable/mover, turf/target)
 	. = ..()
@@ -111,6 +112,14 @@
 
 /obj/structure/ms13/street_sign/proc/deconstruction_hints(mob/user)
 	return span_notice("You could use a <b>welding tool</b> to take apart [src] for parts.")
+
+/obj/structure/ms13/street_sign/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_WELDER)
+			context[SCREENTIP_CONTEXT_RMB] = "Take apart"
+			return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/ms13/street_sign/interstate // uh oh
 	name = "\improper interstate sign"

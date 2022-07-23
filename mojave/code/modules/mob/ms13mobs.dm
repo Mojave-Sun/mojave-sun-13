@@ -1,5 +1,8 @@
 #define RIDING_LAYER 4.6
 
+/mob/living/simple_animal
+	var/subtractible_armour_penetration = 0
+
 /////////////////////////////////////////////////////////////
 ///////// MOJAVE SUN ANIMALS AND RANCHING CHANGES ///////////
 /////////////////////// BASE CODE ///////////////////////////
@@ -291,7 +294,6 @@
 	var/offsety = 0
 	var/idlesound = null
 	var/idlechance = 5
-	var/subtractible_armour_penetration = 0
 
 /mob/living/simple_animal/hostile/ms13/Initialize()
 	. = ..()

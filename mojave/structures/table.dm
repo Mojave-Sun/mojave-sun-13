@@ -289,6 +289,13 @@
 	. = ..()
 	. += "<span class='notice'>Use <b>CTRL + CLICK</b> on [src] to begin crafting.</span>"
 
+/obj/structure/table/ms13/crafting/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	if (isnull(held_item))
+		context[SCREENTIP_CONTEXT_CTRL_LMB] = "Start crafting"
+		return CONTEXTUAL_SCREENTIP_SET
+
 /obj/structure/table/ms13/crafting/wrench_act_secondary(mob/living/user, obj/item/weapon)
 	return
 
@@ -301,6 +308,7 @@
 /obj/structure/table/ms13/crafting/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/personal_crafting, crafting_interface)
+	register_context()
 
 /obj/structure/table/ms13/crafting/workbench
 	name = "workbench"

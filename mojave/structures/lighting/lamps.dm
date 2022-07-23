@@ -7,7 +7,28 @@
     icon_state = "tablelamp"
     light_range = 4.5
     light_power = 0
+    max_integrity = 125
     var/on = FALSE
+
+/obj/structure/ms13/prewar_lamp/Initialize()
+	. = ..()
+	register_context()
+
+/obj/structure/ms13/prewar_lamp/examine(mob/user)
+	. = ..()
+	. += deconstruction_hints(user)
+
+/obj/structure/ms13/prewar_lamp/proc/deconstruction_hints(mob/user)
+	return span_notice("You could use a <b>screwdriver</b> to take apart [src] for parts.")
+
+/obj/structure/ms13/prewar_lamp/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
+	if(flags_1&NODECONSTRUCT_1)
+		return TRUE
+	..()
+	weapon.play_tool_sound(src)
+	if(do_after(user, 12 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+		deconstruct(disassembled = TRUE)
+		return TRUE
 
 /obj/structure/ms13/prewar_lamp/attack_hand(mob/living/user, list/modifiers) 
     if(!on)
@@ -25,6 +46,28 @@
         icon_state = "tablelamp"
         return
 
+/obj/structure/ms13/prewar_lamp/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/scrap(loc, 3)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_copper(loc, 2)
+			new /obj/item/ms13/component/cell(loc)
+			new /obj/item/light/ms13/bulb(loc)
+		else
+			new /obj/item/stack/sheet/ms13/scrap(loc)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
+			new /obj/item/stack/sheet/ms13/scrap_copper(loc)
+			new /obj/item/stack/sheet/ms13/glass(loc)
+	qdel(src)
+
+/obj/structure/ms13/prewar_lamp/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_SCREWDRIVER)
+			context[SCREENTIP_CONTEXT_RMB] = "Disassemble"
+			return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/ms13/prewar_lamp/on
     on = TRUE
@@ -42,7 +85,17 @@
     layer = BELOW_MOB_LAYER
     light_range = 3.5
     light_power = 0
+    max_integrity = 90
     on = FALSE
+
+/obj/structure/ms13/prewar_lamp/makeshift/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
+	if(flags_1&NODECONSTRUCT_1)
+		return TRUE
+	..()
+	weapon.play_tool_sound(src)
+	if(do_after(user, 7.5 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+		deconstruct(disassembled = TRUE)
+		return TRUE
 
 /obj/structure/ms13/prewar_lamp/makeshift/attack_hand(mob/living/user, list/modifiers)
     if(!on)
@@ -58,7 +111,18 @@
         on = FALSE
         icon_state = "handmadelamp"
         return
-    
+
+/obj/structure/ms13/prewar_lamp/makeshift/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/scrap_lead(loc, 3)
+			new /obj/item/stack/sheet/ms13/scrap_copper(loc, 3)
+			new /obj/item/light/ms13/bulb(loc)
+		else
+			new /obj/item/stack/sheet/ms13/scrap_lead(loc)
+			new /obj/item/stack/sheet/ms13/scrap_copper(loc)
+			new /obj/item/stack/sheet/ms13/glass(loc)
+	qdel(src)
 
 /obj/structure/ms13/prewar_lamp/makeshift/on
     icon_state = "handmadelamp_on"

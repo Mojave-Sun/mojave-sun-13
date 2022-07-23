@@ -156,6 +156,10 @@
 	var/obj/item/reagent_containers/food/drinks/mug = null
 	max_integrity = 150
 
+/obj/machinery/ms13/coffee/Initialize()
+	. = ..()
+	register_context()
+
 /obj/machinery/ms13/coffee/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
 	if(flags_1&NODECONSTRUCT_1)
 		return TRUE
@@ -185,6 +189,14 @@
 
 /obj/machinery/ms13/coffee/proc/deconstruction_hints(mob/user)
 	return span_notice("You could use a <b>screwdriver</b> to take apart [src] for parts.")
+
+/obj/machinery/ms13/coffee/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_SCREWDRIVER)
+			context[SCREENTIP_CONTEXT_RMB] = "Disassemble"
+			return CONTEXTUAL_SCREENTIP_SET
 
 /obj/machinery/ms13/coffee/update_icon()
 	. = ..()

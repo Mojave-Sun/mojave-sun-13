@@ -83,6 +83,14 @@
 			new /obj/item/stack/sheet/ms13/scrap_electronics/two(loc)
 	qdel(src)
 
+/obj/item/radio/ms13/ham/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_SCREWDRIVER)
+			context[SCREENTIP_CONTEXT_RMB] = "Disassemble"
+			return CONTEXTUAL_SCREENTIP_SET
+
 /obj/item/radio/ms13/ham/Initialize(mapload, ndir, building)
 	. = ..()
 	if(building)
@@ -91,6 +99,7 @@
 	if(!current_area)
 		return
 	RegisterSignal(current_area, COMSIG_AREA_POWER_CHANGE, .proc/AreaPowerCheck)
+	register_context()
 
 /obj/item/radio/ms13/ham/broadcast
 	name = "high end broadcasting set"
