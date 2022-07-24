@@ -271,8 +271,6 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 		return
 	if(AIStatus == AI_ON)
 		play_speech_sound(GLOB.sentrybot_in_combat_sound, bypass_cooldown = FALSE)
-	if(AIStatus == AI_OFF || AIStatus == AI_Z_OFF || AIStatus == AI_IDLE)
-		adjustBruteLoss(-8) //Passive healing time
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/handle_automated_speech()
 	. = ..()
@@ -290,13 +288,6 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 		update_icon()
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/adjustHealth(amount, updating_health = TRUE, forced = FALSE)
-	if(amount < 0) //Passive healing shouldn't wake up the sentry bot as that's what ..() will do
-		if(forced || !(status_flags & GODMODE))
-			bruteloss = round(clamp(bruteloss + amount, 0, maxHealth * 2), DAMAGE_PRECISION)
-			if(updating_health)
-				updatehealth()
-			. = amount
-		return
 	. = ..()
 	if(amount > 10 && prob(20))
 		playsound(src, pick(GLOB.sentrybot_damaged_sound), 50, FALSE)
