@@ -195,9 +195,9 @@
 	AddElement(/datum/element/item_scaling, 0.45, 1)
 
 /obj/item/stack/medical/ms13/healing_powder/is_zero_amount(delete_if_zero = TRUE)
-	. = ..()
-	if(amount < 1)
-		new /obj/item/stack/sheet/ms13/cloth/two(get_turf(loc))
+    if(amount < 1)
+        new /obj/item/stack/sheet/ms13/cloth/two(get_turf(loc))
+    return ..()
 
 /obj/item/stack/medical/ms13/healing_powder/poultice
 	name = "healing poultice"
