@@ -182,7 +182,7 @@
 				/obj/item/clothing/head/helmet/ms13/radiationhood
 				)
 
-/obj/effect/spawner/random/ms13/armor/tier2/Initialize()
+/obj/effect/spawner/random/ms13/guarenteed/armor/tier2/Initialize()
 	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11, loot12, loot13, loot14)
 	. = ..()
 
@@ -222,7 +222,7 @@
 				/obj/item/clothing/head/helmet/ms13/combat
 				)
 
-/obj/effect/spawner/random/ms13/armor/tier3/Initialize()
+/obj/effect/spawner/random/ms13/guarenteed/armor/tier3/Initialize()
 	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8)
 	. = ..()
 
@@ -254,7 +254,7 @@
 				""
 				)
 
-/obj/effect/spawner/random/ms13/armor/tier4/Initialize()
+/obj/effect/spawner/random/ms13/guarenteed/armor/tier4/Initialize()
 	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6)
 	. = ..()
 

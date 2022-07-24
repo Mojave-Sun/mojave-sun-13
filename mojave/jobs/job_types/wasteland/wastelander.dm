@@ -118,7 +118,6 @@
 		/obj/item/gun/ballistic/automatic/pistol/ms13/pistol22, \
 		/obj/item/gun/ballistic/rifle/ms13/varmint, \
 		/obj/item/gun/ballistic/revolver/ms13/caravan, \
-		/obj/item/gun/ballistic/revolver/ms13/single, \
 		/obj/item/gun/ballistic/automatic/pistol/ms13/m10mm/chinese, \
 		/obj/item/gun/ballistic/revolver/ms13/rev10mm)
 
@@ -139,3 +138,14 @@
 		/obj/item/clothing/shoes/ms13/rag, \
 		/obj/item/clothing/shoes/ms13/brownie, \
 		/obj/item/clothing/shoes/ms13/crude)
+
+	if(prob(50))
+		r_pocket = /obj/item/flashlight/flare/ms13
+	else
+		r_pocket = null
+
+	if(prob(80))
+		l_pocket = pick(
+			/obj/item/stack/medical/gauze/ms13/three)
+	else
+		l_pocket = null

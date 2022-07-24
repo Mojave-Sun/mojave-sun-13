@@ -1,6 +1,6 @@
 // Lamps!
 
-/obj/structure/ms13/prewar_lamp
+/obj/structure/ms13/lamp
     name = "table lamp"
     desc = "An old prewar table lamp. The fission battery inside still has juice, and it's in good condition."
     icon = 'mojave/icons/structure/lamps.dmi'
@@ -10,18 +10,18 @@
     max_integrity = 125
     var/on = FALSE
 
-/obj/structure/ms13/prewar_lamp/Initialize()
+/obj/structure/ms13/lamp/Initialize()
 	. = ..()
 	register_context()
 
-/obj/structure/ms13/prewar_lamp/examine(mob/user)
+/obj/structure/ms13/lamp/examine(mob/user)
 	. = ..()
 	. += deconstruction_hints(user)
 
-/obj/structure/ms13/prewar_lamp/proc/deconstruction_hints(mob/user)
+/obj/structure/ms13/lamp/proc/deconstruction_hints(mob/user)
 	return span_notice("You could use a <b>screwdriver</b> to take apart [src] for parts.")
 
-/obj/structure/ms13/prewar_lamp/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
+/obj/structure/ms13/lamp/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
 	if(flags_1&NODECONSTRUCT_1)
 		return TRUE
 	..()
@@ -30,7 +30,7 @@
 		deconstruct(disassembled = TRUE)
 		return TRUE
 
-/obj/structure/ms13/prewar_lamp/attack_hand(mob/living/user, list/modifiers) 
+/obj/structure/ms13/lamp/attack_hand(mob/living/user, list/modifiers)
     if(!on)
         to_chat(user, span_notice("You switch the lamp on."))
         playsound(user, 'mojave/sound/ms13effects/buttonpush.ogg', 20)
@@ -46,7 +46,7 @@
         icon_state = "tablelamp"
         return
 
-/obj/structure/ms13/prewar_lamp/deconstruct(disassembled = TRUE)
+/obj/structure/ms13/lamp/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
 			new /obj/item/stack/sheet/ms13/scrap(loc, 3)
@@ -61,7 +61,7 @@
 			new /obj/item/stack/sheet/ms13/glass(loc)
 	qdel(src)
 
-/obj/structure/ms13/prewar_lamp/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+/obj/structure/ms13/lamp/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
 	. = ..()
 
 	switch (held_item?.tool_behaviour)
@@ -69,14 +69,14 @@
 			context[SCREENTIP_CONTEXT_RMB] = "Disassemble"
 			return CONTEXTUAL_SCREENTIP_SET
 
-/obj/structure/ms13/prewar_lamp/on
+/obj/structure/ms13/lamp/on
     on = TRUE
     icon_state = "tablelamp_on"
     light_range = 4.5
     light_power = 1
 
 
-/obj/structure/ms13/prewar_lamp/makeshift
+/obj/structure/ms13/lamp/makeshift
     name = "makeshift lamp"
     desc = "A makeshift lamp fashioned from a battery, a light bulb and some wires. Primitive, but functional."
     icon_state = "handmadelamp"
@@ -88,7 +88,7 @@
     max_integrity = 90
     on = FALSE
 
-/obj/structure/ms13/prewar_lamp/makeshift/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
+/obj/structure/ms13/lamp/makeshift/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
 	if(flags_1&NODECONSTRUCT_1)
 		return TRUE
 	..()
@@ -97,7 +97,7 @@
 		deconstruct(disassembled = TRUE)
 		return TRUE
 
-/obj/structure/ms13/prewar_lamp/makeshift/attack_hand(mob/living/user, list/modifiers)
+/obj/structure/ms13/lamp/makeshift/attack_hand(mob/living/user, list/modifiers)
     if(!on)
         to_chat(user, span_notice("You hook the battery to the light, turning it on."))
         playsound(user, 'mojave/sound/ms13effects/lightson.ogg', 30)
@@ -112,7 +112,7 @@
         icon_state = "handmadelamp"
         return
 
-/obj/structure/ms13/prewar_lamp/makeshift/deconstruct(disassembled = TRUE)
+/obj/structure/ms13/lamp/makeshift/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
 			new /obj/item/stack/sheet/ms13/scrap_lead(loc, 3)
@@ -124,7 +124,7 @@
 			new /obj/item/stack/sheet/ms13/glass(loc)
 	qdel(src)
 
-/obj/structure/ms13/prewar_lamp/makeshift/on
+/obj/structure/ms13/lamp/makeshift/on
     icon_state = "handmadelamp_on"
     light_range = 3.5
     light_power = 0.8
