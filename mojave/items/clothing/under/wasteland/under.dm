@@ -25,10 +25,10 @@
 	if(!istype(W, repairable_by))
 		if(W.tool_behaviour == TOOL_KNIFE)
 			user.show_message(span_notice("You begin shredding [src]."), MSG_VISUAL)
-			if(do_after(user, 3 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_CLOTHSHRED))
+			if(do_after(user, 4.5 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_CLOTHSHRED))
 				user.show_message(span_notice("You get cloth and thread from [src]!"), MSG_VISUAL)
 				new /obj/item/stack/sheet/ms13/thread(user.loc)
-				new /obj/item/stack/sheet/ms13/cloth(user.loc)
+				new /obj/item/stack/sheet/ms13/cloth(user.loc, 2)
 				qdel(src)
 		else
 			return..()
@@ -47,7 +47,7 @@
 				to_chat(user, span_warning("You require 3 [cloth_repair.name] to repair [src]."))
 				return TRUE
 			to_chat(user, span_notice("You begin fixing the damage to [src] with [cloth_repair]..."))
-			if(!do_after(user, 4 SECONDS, src) || !cloth_repair.use(3))
+			if(!do_after(user, 3.5 SECONDS, src) || !cloth_repair.use(3))
 				return TRUE
 			repair(user, params)
 			return TRUE

@@ -47,7 +47,7 @@
 
 /obj/structure/bonfire/ms13/campfire/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
-		new /obj/item/stack/sheet/ms13/scrap_wood(loc)
+		new /obj/item/stack/sheet/ms13/scrap_wood(loc, 2)
 	qdel(src)
 
 
@@ -61,7 +61,7 @@
     icon_state = "fire_barrel"
     burn_icon = "fire_barrel_lit"
     density = TRUE
-    max_integrity = 125
+    max_integrity = 150
 
 /obj/structure/bonfire/ms13/fire_barrel/examine(mob/user)
 	. = ..()

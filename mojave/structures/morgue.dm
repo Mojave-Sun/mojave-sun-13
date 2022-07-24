@@ -11,7 +11,7 @@
 
 /obj/structure/bodycontainer/ms13/morgue/deconstruct(disassembled = TRUE)
 	if (!(flags_1 & NODECONSTRUCT_1))
-		new /obj/item/stack/sheet/ms13/scrap (loc, 5)
+		new /obj/item/stack/sheet/ms13/scrap (loc, 4)
 	recursive_organ_check(src)
 	qdel(src)
 
