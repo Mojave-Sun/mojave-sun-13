@@ -60,3 +60,140 @@
 
 /obj/effect/turf_decal/ms13/sheltersigns/shelteryellow_circle
 	icon_state = "shelteryellow_circle"
+
+// Graffiti
+
+/obj/effect/turf_decal/ms13/graffiti
+	icon = 'mojave/icons/decals/graffiti.dmi'
+
+/obj/effect/turf_decal/ms13/graffiti/questionmarks
+	icon_state = "riddler1"
+
+/obj/effect/turf_decal/ms13/graffiti/questionmarks2
+	icon_state = "riddler2"
+
+/obj/effect/turf_decal/ms13/graffiti/questionmarks3
+	icon_state = "riddler3"
+
+/obj/effect/turf_decal/ms13/graffiti/fuckncr
+	icon_state = "fuckncr"
+
+/obj/effect/turf_decal/ms13/graffiti/fuckyou
+	icon_state = "fuckyou"
+
+/obj/effect/turf_decal/ms13/graffiti/legion
+	icon_state = "legion"
+
+/obj/effect/turf_decal/ms13/graffiti/phoenix
+	icon_state = "phoenix"
+
+/obj/effect/turf_decal/ms13/graffiti/desertrangers
+	icon_state = "rangers"
+
+/obj/effect/turf_decal/ms13/graffiti/fortretard
+	icon_state = "fort"
+
+/obj/effect/turf_decal/ms13/graffiti/stop
+	icon_state = "stop"
+
+/obj/effect/turf_decal/ms13/graffiti/clueless
+	icon_state = "clueless"
+
+/obj/effect/turf_decal/ms13/graffiti/clueless/green
+	icon_state = "clueless_green"
+
+/obj/effect/turf_decal/ms13/graffiti/dontopen
+	icon_state = "dontopen"
+
+/obj/effect/turf_decal/ms13/graffiti/deadinside
+	icon_state = "deadinside"
+
+/obj/effect/turf_decal/ms13/graffiti/gangshit
+	icon_state = "gangshit"
+
+/obj/effect/turf_decal/ms13/graffiti/arrows_yellow
+	icon_state = "arrows_yellow"
+
+/obj/effect/turf_decal/ms13/graffiti/free
+	icon_state = "free"
+
+/obj/effect/turf_decal/ms13/graffiti/moyai
+	icon_state = "moyai"
+
+/obj/effect/turf_decal/ms13/graffiti/ourtown
+	icon_state = "ourtown"
+
+/obj/effect/turf_decal/ms13/graffiti/eyes
+	icon_state = "eyes"
+
+/obj/effect/turf_decal/ms13/graffiti/many_eyes
+	icon_state = "many_eyes"
+
+/obj/effect/turf_decal/ms13/graffiti/mirelurk
+	icon_state = "mirelurk"
+
+/obj/effect/turf_decal/ms13/graffiti/deadcount
+	icon_state = "deadcount"
+
+/obj/effect/turf_decal/ms13/graffiti/ghouls
+	icon_state = "ghouls"
+
+/obj/effect/turf_decal/ms13/graffiti/crabs
+	icon_state = "crabs"
+
+/obj/effect/turf_decal/ms13/graffiti/aid
+	icon_state = "aid"
+
+/obj/effect/turf_decal/ms13/graffiti/guns
+	icon_state = "guns"
+
+/obj/effect/turf_decal/ms13/graffiti/below
+	icon_state = "below"
+
+/obj/effect/turf_decal/ms13/graffiti/followwater
+	icon_state = "follow"
+
+/obj/effect/turf_decal/ms13/graffiti/no_way
+	icon_state = "noway"
+
+/obj/effect/turf_decal/ms13/graffiti/dead
+	icon_state = "dead"
+
+/obj/effect/turf_decal/ms13/graffiti/verydead
+	icon_state = "verydead"
+
+/obj/effect/turf_decal/ms13/graffiti/camp_east
+	icon_state = "camp_east"
+
+/obj/effect/turf_decal/ms13/graffiti/camp_west
+	icon_state = "camp_west"
+
+/obj/effect/turf_decal/ms13/graffiti/camp_north
+	icon_state = "camp_north"
+
+/obj/effect/turf_decal/ms13/graffiti/camp_south
+	icon_state = "camp_south"
+
+/obj/effect/turf_decal/ms13/graffiti/ladder_east
+	icon_state = "ladder_east"
+
+/obj/effect/turf_decal/ms13/graffiti/ladder_west
+	icon_state = "ladder_west"
+
+/obj/effect/turf_decal/ms13/graffiti/ladder_north
+	icon_state = "ladder_north"
+
+/obj/effect/turf_decal/ms13/graffiti/ladder_south
+	icon_state = "ladder_south"
+
+/obj/effect/turf_decal/ms13/graffiti/scorpion_east
+	icon_state = "scorpion_east"
+
+/obj/effect/turf_decal/ms13/graffiti/scorpion_west
+	icon_state = "scorpion_west"
+
+/obj/effect/turf_decal/ms13/graffiti/scorpion_north
+	icon_state = "scorpion_north"
+
+/obj/effect/turf_decal/ms13/graffiti/scorpion_south
+	icon_state = "scorpion_south"
