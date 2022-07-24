@@ -22,11 +22,12 @@
 	name = "tier 2 medical spawner"
 	spawn_loot_chance = 55
 	loot = list(
-			/obj/item/stack/medical/suture/ms13/eight = 25,
+			/obj/item/stack/medical/suture/ms13/eight = 20,
 			/obj/item/stack/medical/ointment/ms13 = 25,
-			/obj/item/stack/medical/gauze/ms13 = 30,
+			/obj/item/stack/medical/gauze/ms13 = 25,
 			/obj/item/reagent_containers/hypospray/medipen/ms13/stimpak = 10,
-			/obj/item/stack/medical/splint/ms13 = 10
+			/obj/item/stack/medical/splint/ms13 = 10,
+			/obj/item/stack/medical/ms13/balm = 10
 			)
 
 /obj/effect/spawner/random/ms13/medical/tier3
@@ -36,7 +37,8 @@
 			/obj/item/stack/medical/gauze/ms13/military = 30,
 			/obj/item/stack/medical/ointment/ms13/dressing = 30,
 			/obj/item/reagent_containers/hypospray/medipen/ms13/stimpak/super = 10,
-			/obj/item/stack/medical/suture/ms13 = 30
+			/obj/item/stack/medical/suture/ms13 = 10,
+			/obj/item/stack/medical/ms13/balm = 20
 			)
 
 /obj/effect/spawner/random/ms13/medical/lowrandom
