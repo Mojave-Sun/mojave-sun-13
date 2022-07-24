@@ -1,7 +1,6 @@
 //Children of base TG stack medical items should go here
 
-
-/obj/item/stack/medical/ms13/healing_powder
+/obj/item/stack/medical/ms13
 	name = "generic MS13 healing stack"
 	desc = "wow. cool. woo-ee. AHHHHHHHHHHHHHH"
 	icon = 'mojave/icons/objects/medical/medical_inventory.dmi'
@@ -195,6 +194,11 @@
 	. = ..()
 	AddElement(/datum/element/item_scaling, 0.45, 1)
 
+/obj/item/stack/medical/ms13/healing_powder/is_zero_amount(delete_if_zero = TRUE)
+	. = ..()
+	if(amount < 1)
+		new /obj/item/stack/sheet/ms13/cloth/two(get_turf(loc))
+
 /obj/item/stack/medical/ms13/healing_powder/poultice
 	name = "healing poultice"
 	desc = "A potent poultice containing a mixture of various plants."
@@ -217,3 +221,19 @@
 	flesh_regeneration = 1.5
 	sanitization = 0.35
 	merge_type = /obj/item/stack/medical/ms13/healing_powder/burn
+
+/obj/item/stack/medical/ms13/balm
+	name = "balm pouch"
+	desc = "A potent healing balm pouch, containing a mixture of various chemicals. The back says something about danger and keeping it away from the eyes."
+	singular_name = "balm pouch"
+	icon_state = "balm"
+	amount = 8
+	max_amount = 8
+	heal_brute = 12
+	heal_burn = 12
+	merge_type = /obj/item/stack/medical/ms13/balm
+	novariants = TRUE
+
+/obj/item/stack/medical/ms13/balm/Initialize()
+	. = ..()
+	AddElement(/datum/element/item_scaling, 0.55, 1)
