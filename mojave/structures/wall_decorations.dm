@@ -98,7 +98,7 @@
 
 	if(I.tool_behaviour == TOOL_KNIFE)
 		if(do_after(user, 10 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
-			new /obj/item/stack/sheet/ms13/cloth(I.drop_location(), 4)
+			new /obj/item/stack/sheet/ms13/cloth(I.drop_location(), 5)
 			user.visible_message(span_notice("[user] cuts [src] into pieces of cloth with [I]."), \
 				span_notice("You cut [src] into pieces of cloth with [I]."), \
 				span_hear("You hear cutting."))

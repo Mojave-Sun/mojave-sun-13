@@ -97,9 +97,9 @@
 /obj/structure/ms13/street_sign/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 2)
-			new /obj/item/stack/sheet/ms13/scrap_alu(loc, 3)
-			new /obj/item/stack/sheet/ms13/scrap(loc, 3)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 3)
+			new /obj/item/stack/sheet/ms13/scrap_alu(loc, 4)
+			new /obj/item/stack/sheet/ms13/scrap(loc, 4)
 		else
 			new /obj/item/stack/sheet/ms13/scrap_alu(loc)
 			new /obj/item/stack/sheet/ms13/scrap(loc)
