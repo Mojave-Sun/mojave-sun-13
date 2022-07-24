@@ -66,10 +66,10 @@
 /obj/structure/ms13/tv/rad_king/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/scrap(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap(loc, 3)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 2)
-			new /obj/item/stack/sheet/ms13/glass(loc, 2)
-			new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 2)
+			new /obj/item/stack/sheet/ms13/glass(loc, 3)
+			new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 3)
 			new /obj/item/stack/sheet/ms13/scrap_copper(loc, 3)
 		else
 			new /obj/item/stack/sheet/ms13/scrap(loc)
@@ -86,10 +86,10 @@
 /obj/structure/ms13/tv/wooden/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/scrap_wood(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_wood(loc, 3)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 2)
-			new /obj/item/stack/sheet/ms13/glass(loc, 2)
-			new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 2)
+			new /obj/item/stack/sheet/ms13/glass(loc, 3)
+			new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 3)
 			new /obj/item/stack/sheet/ms13/scrap_copper(loc, 3)
 		else
 			new /obj/item/stack/sheet/ms13/scrap(loc)
@@ -114,10 +114,10 @@
 /obj/structure/ms13/tv/tube/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/plastic(loc, 2)
+			new /obj/item/stack/sheet/ms13/plastic(loc, 3)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 2)
-			new /obj/item/stack/sheet/ms13/glass(loc, 2)
-			new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 2)
+			new /obj/item/stack/sheet/ms13/glass(loc, 3)
+			new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 3)
 			new /obj/item/stack/sheet/ms13/scrap_copper(loc, 3)
 		else
 			new /obj/item/stack/sheet/ms13/scrap(loc)
@@ -163,10 +163,10 @@
 /obj/structure/ms13/pay_phone/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/scrap(loc, 3)
-			new /obj/item/stack/sheet/ms13/scrap_parts/two(loc)
-			new /obj/item/stack/sheet/ms13/scrap_electronics(loc)
-			new /obj/item/stack/sheet/ms13/scrap_copper(loc, 3)
+			new /obj/item/stack/sheet/ms13/scrap(loc, 4)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 3)
+			new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_copper(loc, 4)
 		else
 			new /obj/item/stack/sheet/ms13/scrap(loc)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
@@ -216,9 +216,9 @@
 /obj/structure/ms13/phone/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/scrap(loc)
-			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
-			new /obj/item/stack/sheet/ms13/scrap_copper/two(loc)
+			new /obj/item/stack/sheet/ms13/scrap(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_copper(loc, 2)
 		else
 			new /obj/item/stack/sheet/ms13/scrap(loc)
 			new /obj/item/stack/sheet/ms13/scrap_copper(loc)
@@ -258,7 +258,7 @@
 
 /obj/structure/ms13/storage/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
-		new materialtype(loc)
+		new materialtype(loc, 2)
 	qdel(src)
 
 /obj/structure/ms13/storage/store
@@ -353,9 +353,9 @@
 
 /obj/structure/dresser/ms13/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
-		new /obj/item/stack/sheet/ms13/scrap(loc)
-		new /obj/item/stack/sheet/ms13/cloth(loc, 4)
-		new /obj/item/stack/sheet/ms13/thread(loc, 2)
+		new /obj/item/stack/sheet/ms13/scrap(loc, 2)
+		new /obj/item/stack/sheet/ms13/cloth(loc, 6)
+		new /obj/item/stack/sheet/ms13/thread(loc, 3)
 	qdel(src)
 
 /obj/structure/dresser/ms13/torquise
@@ -385,7 +385,7 @@
 
 /obj/structure/filingcabinet/ms13/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
-		new /obj/item/stack/sheet/ms13/scrap(loc)
+		new /obj/item/stack/sheet/ms13/scrap(loc, 2)
 		for(var/obj/item/I in src)
 			I.forceMove(loc)
 	qdel(src)
@@ -430,11 +430,11 @@
 /obj/structure/ms13/jukebox/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/scrap/two(loc)
-			new /obj/item/stack/sheet/ms13/scrap_parts/two(loc)
-			new /obj/item/stack/sheet/ms13/glass/three(loc)
-			new /obj/item/stack/sheet/ms13/scrap_electronics/two(loc)
-			new /obj/item/stack/sheet/ms13/scrap_copper/two(loc)
+			new /obj/item/stack/sheet/ms13/scrap(loc, 4)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 5)
+			new /obj/item/stack/sheet/ms13/glass(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 4)
+			new /obj/item/stack/sheet/ms13/scrap_copper(loc, 4)
 			new /obj/item/ms13/component/vacuum_tube(loc)
 			new /obj/item/stack/sheet/ms13/circuits(loc)
 		else
@@ -467,16 +467,16 @@
 	desc = "An old ceramic plant pot. It has faint cracks lining it in random patterns, but it holds strong."
 	icon = 'mojave/icons/structure/miscellaneous.dmi'
 	icon_state = "pot_1"
-	max_integrity = 40
+	max_integrity = 50
 	density = TRUE
 	anchored = TRUE
 
 /obj/structure/ms13/pot/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/ceramic/three(loc)
+			new /obj/item/stack/sheet/ms13/ceramic(loc, 3) //disassembled with what though
 		else
-			new /obj/item/stack/sheet/ms13/ceramic(loc)
+			new /obj/item/stack/sheet/ms13/ceramic(loc, 2)
 	qdel(src)
 
 /obj/structure/ms13/pot/plant
@@ -498,6 +498,7 @@
 	icon_state = "deli_stand"
 	density = TRUE
 	anchored = TRUE
+	max_integrity = 200
 
 /obj/structure/ms13/deli/Initialize()
 	. = ..()
@@ -515,9 +516,9 @@
 /obj/structure/ms13/deli/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/scrap_steel(loc, 3)
+			new /obj/item/stack/sheet/ms13/scrap_steel(loc, 4)
 		else
-			new /obj/item/stack/sheet/ms13/scrap_steel(loc)
+			new /obj/item/stack/sheet/ms13/scrap_steel(loc, 2)
 	qdel(src)
 
 /obj/structure/ms13/deli/examine(mob/user)
@@ -542,13 +543,14 @@
 	icon_state = "fruitstand_empty"
 	density = TRUE
 	anchored = TRUE
+	max_integrity = 200
 
 /obj/structure/ms13/fruit_empty/attackby(obj/item/W, mob/user, params)
 	if(W.sharpness == IS_SHARP_AXE)
 		user.show_message(span_notice("You begin chopping \the [src] into scraps of wood!"), MSG_VISUAL)
 		if(do_after(user, 10 SECONDS * W.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_MAKEPLANKS))
 			user.show_message(span_notice("You make wood scraps out of \the [src]!"), MSG_VISUAL)
-			new /obj/item/stack/sheet/ms13/scrap_wood(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_wood(loc, 4)
 			qdel(src)
 
 /obj/structure/ms13/fruit_empty/examine(mob/user)
