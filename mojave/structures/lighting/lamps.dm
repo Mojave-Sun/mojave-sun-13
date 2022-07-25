@@ -1,4 +1,4 @@
-// Lamps!
+// Pre-war lamp
 
 /obj/structure/ms13/lamp
     name = "table lamp"
@@ -8,6 +8,9 @@
     light_range = 4.5
     light_power = 0
     max_integrity = 125
+    density = FALSE
+    anchored = TRUE
+    layer = BELOW_MOB_LAYER
     var/on = FALSE
 
 /obj/structure/ms13/lamp/Initialize()
@@ -75,14 +78,12 @@
     light_range = 4.5
     light_power = 1
 
+// Makeshift lamp
 
 /obj/structure/ms13/lamp/makeshift
     name = "makeshift lamp"
     desc = "A makeshift lamp fashioned from a battery, a light bulb and some wires. Primitive, but functional."
     icon_state = "handmadelamp"
-    density = FALSE
-    anchored = TRUE
-    layer = BELOW_MOB_LAYER
     light_range = 3.5
     light_power = 0
     max_integrity = 90
@@ -127,5 +128,62 @@
 /obj/structure/ms13/lamp/makeshift/on
     icon_state = "handmadelamp_on"
     light_range = 3.5
+    light_power = 0.8
+    on = TRUE
+
+// Drought mining lamp
+
+/obj/structure/ms13/lamp/drought
+    name = "mining lamp"
+    desc = "Looks like an old mining lamp. Seems like it still has some juice."
+    icon_state = "lamp"
+    light_range = 4.5
+    light_power = 0
+    max_integrity = 100
+    on = FALSE
+
+/obj/structure/ms13/lamp/drought/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
+	if(flags_1&NODECONSTRUCT_1)
+		return TRUE
+	..()
+	weapon.play_tool_sound(src)
+	if(do_after(user, 9 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+		deconstruct(disassembled = TRUE)
+		return TRUE
+
+/obj/structure/ms13/lamp/drought/attack_hand(mob/living/user, list/modifiers)
+    if(!on)
+        to_chat(user, span_notice("You switch it on, and it flicks to life."))
+        playsound(user, 'mojave/sound/ms13effects/buttonpush.ogg', 30)
+        set_light(4.5, 0.8)
+        on = TRUE
+        icon_state = "lamp_on"
+        return
+    else
+        to_chat(user, span_notice("You switch the lamp off."))
+        playsound(user, 'mojave/sound/ms13effects/buttonpush.ogg', 30)
+        set_light(4.5, 0)
+        on = FALSE
+        icon_state = "lamp"
+        return
+
+/obj/structure/ms13/lamp/drought/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/scrap(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
+			new /obj/item/stack/sheet/ms13/scrap_copper(loc)
+			new /obj/item/ms13/component/cell(loc)
+			new /obj/item/light/ms13/bulb(loc)
+		else
+			new /obj/item/stack/sheet/ms13/scrap(loc)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
+			new /obj/item/stack/sheet/ms13/scrap_copper(loc)
+			new /obj/item/stack/sheet/ms13/glass(loc)
+	qdel(src)
+
+/obj/structure/ms13/lamp/drought/on
+    icon_state = "lamp_on"
+    light_range = 4.5
     light_power = 0.8
     on = TRUE
