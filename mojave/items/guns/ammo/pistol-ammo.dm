@@ -144,19 +144,19 @@
 	name = "10mm bullet casing"
 	desc = "A 10mm bullet casing."
 	caliber = "10mm"
-	icon_state = "10mm_ap"
+	icon_state = "10mm_casing"
 	projectile_type = /obj/projectile/bullet/ms13/c10mm
 	stack_size = 12
 
 /obj/item/ammo_casing/ms13/c10mm/junk
 	name = "junk 10mm bullet casing"
 	desc = "A makeshift 10mm bullet casing."
-	icon_state = "10mm_casing"
 	projectile_type = /obj/projectile/bullet/ms13/c10mm/junk
 
 /obj/item/ammo_casing/ms13/c10mm/ap
 	name = "AP 10mm bullet casing"
 	desc = "An armor piercing 10mm bullet casing."
+	icon_state = "10mm_ap"
 	projectile_type = /obj/projectile/bullet/ms13/c10mm/ap
 
 /obj/item/ammo_casing/ms13/c10mm/fmj
