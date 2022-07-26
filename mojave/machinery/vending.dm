@@ -22,3 +22,4 @@
 	name = "cigarette vending machine"
 	desc = "Delicious cigarettes"
 	icon_state = "cigarette"
+	tiltable = FALSE

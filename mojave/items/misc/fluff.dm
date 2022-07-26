@@ -19,12 +19,16 @@
     grid_height = 64
     grid_width = 64
 
+/obj/item/ms13/fluff/typewriter/Initialize()
+	. = ..()
+	register_context()
+
 /obj/item/ms13/fluff/typewriter/wrench_act_secondary(mob/living/user, obj/item/weapon)
     user.show_message(span_notice("You begin disassembling \the [src]."), MSG_VISUAL)
     if(do_after(user, 8 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
         user.show_message(span_notice("You disassemble \the [src] into scrap."), MSG_VISUAL)
-        new /obj/item/stack/sheet/ms13/scrap/two(loc)
-        new /obj/item/stack/sheet/ms13/scrap_parts/two(loc)
+        new /obj/item/stack/sheet/ms13/scrap(loc, 3)
+        new /obj/item/stack/sheet/ms13/scrap_parts(loc, 3)
         qdel(src)
 
 /obj/item/ms13/fluff/typewriter/examine(mob/user)
@@ -34,6 +38,14 @@
 /obj/item/ms13/fluff/typewriter/proc/deconstruction_hints(mob/user)
 	return span_notice("You could use a <b>wrench</b> to take apart [src] for parts.")
 
+/obj/item/ms13/fluff/typewriter/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_WRENCH)
+			context[SCREENTIP_CONTEXT_RMB] = "Disassemble"
+			return CONTEXTUAL_SCREENTIP_SET
+
 /obj/item/ms13/fluff/microscope
     name = "microscope"
     desc = "A microscope, used for looking at things really, really closely."
@@ -41,12 +53,16 @@
     grid_height = 64
     grid_width = 32
 
+/obj/item/ms13/fluff/microscope/Initialize()
+	. = ..()
+	register_context()
+
 /obj/item/ms13/fluff/microscope/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
     user.show_message(span_notice("You begin disassembling \the [src] into scrap."), MSG_VISUAL)
     if(do_after(user, 8 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
         user.show_message(span_notice("You disassemble \the [src] into scrap and parts."), MSG_VISUAL)
-        new /obj/item/stack/sheet/ms13/glass/three(loc)
-        new /obj/item/stack/sheet/ms13/scrap/two(loc)
+        new /obj/item/stack/sheet/ms13/glass(loc, 3)
+        new /obj/item/stack/sheet/ms13/scrap(loc, 2)
         new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 2)
         qdel(src)
 
@@ -56,6 +72,14 @@
 
 /obj/item/ms13/fluff/microscope/proc/deconstruction_hints(mob/user)
 	return span_notice("You could use a <b>screwdriver</b> to take apart [src] for parts.")
+
+/obj/item/ms13/fluff/microscope/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_SCREWDRIVER)
+			context[SCREENTIP_CONTEXT_RMB] = "Disassemble"
+			return CONTEXTUAL_SCREENTIP_SET
 
 /obj/item/ms13/fluff/chems
     name = "chemistry glassware"
