@@ -536,3 +536,37 @@
 		else
 			to_chat(user, span_notice("You fail to find a paper that won't dissolve in your hands. Shame."))
 			qdel(src)
+
+// Cave Decor
+
+/obj/structure/ms13/cave_decor
+	icon = 'mojave/icons/structure/cave_decor.dmi'
+
+/obj/structure/ms13/cave_decor/stalagmite
+	name = "stalagmite"
+	desc = "A column of rock formed over many years by minerals in water solidifying."
+	anchored = TRUE
+	density = TRUE
+
+/obj/structure/ms13/cave_decor/stalagmite/Initialize()
+	. = ..()
+	icon_state = pick("stalagmite", "stalagmite1", "stalagmite2", "stalagmite3", "stalagmite4", "stalagmite5")
+
+/obj/structure/ms13/cave_decor/minecart
+	name = "minecart"
+	desc = "Looks like it's been tipped over and left to rust."
+	icon_state = "minecart_fallen"
+	anchored = TRUE
+	density = TRUE
+
+/obj/structure/ms13/cave_decor/sign_left
+	name = "sign"
+	desc = "A sign, pointing left. But why?"
+	icon_state = "sign_left"
+	anchored = TRUE
+	density = FALSE
+
+/obj/structure/ms13/cave_decor/sign_left/sign_right
+	name = "sign"
+	desc = "A sign pointing right. Well, it's right, so it must be right."
+	icon_state = "sign_right"

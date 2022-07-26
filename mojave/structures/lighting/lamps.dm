@@ -131,9 +131,9 @@
     light_power = 0.8
     on = TRUE
 
-// Drought mining lamp
+// mining_lamp mining lamp
 
-/obj/structure/ms13/lamp/drought
+/obj/structure/ms13/lamp/mining_lamp
     name = "mining lamp"
     desc = "Looks like an old mining lamp. Seems like it still has some juice."
     icon_state = "lamp"
@@ -142,7 +142,7 @@
     max_integrity = 100
     on = FALSE
 
-/obj/structure/ms13/lamp/drought/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
+/obj/structure/ms13/lamp/mining_lamp/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
 	if(flags_1&NODECONSTRUCT_1)
 		return TRUE
 	..()
@@ -151,7 +151,7 @@
 		deconstruct(disassembled = TRUE)
 		return TRUE
 
-/obj/structure/ms13/lamp/drought/attack_hand(mob/living/user, list/modifiers)
+/obj/structure/ms13/lamp/mining_lamp/attack_hand(mob/living/user, list/modifiers)
     if(!on)
         to_chat(user, span_notice("You switch it on, and it flicks to life."))
         playsound(user, 'mojave/sound/ms13effects/buttonpush.ogg', 30)
@@ -167,7 +167,7 @@
         icon_state = "lamp"
         return
 
-/obj/structure/ms13/lamp/drought/deconstruct(disassembled = TRUE)
+/obj/structure/ms13/lamp/mining_lamp/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
 			new /obj/item/stack/sheet/ms13/scrap(loc, 2)
@@ -182,7 +182,7 @@
 			new /obj/item/stack/sheet/ms13/glass(loc)
 	qdel(src)
 
-/obj/structure/ms13/lamp/drought/on
+/obj/structure/ms13/lamp/mining_lamp/on
     icon_state = "lamp_on"
     light_range = 4.5
     light_power = 0.8
