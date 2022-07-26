@@ -4459,10 +4459,6 @@
 /obj/machinery/ms13/coffee,
 /turf/open/floor/ms13/tile/large/white,
 /area/ms13/town)
-"dgq" = (
-/obj/structure/ms13/foundation/common/variantfive,
-/turf/open/openspace/ms13,
-/area/ms13/town)
 "dgw" = (
 /obj/structure/ms13/foundation/variantsix{
 	dir = 8
@@ -4986,10 +4982,12 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "dzu" = (
-/obj/structure/table/ms13/metal,
+/obj/structure/table/ms13/no_smooth/counter/metal{
+	dir = 1
+	},
 /obj/structure/closet/crate/ms13/cash_register{
 	dir = 1;
-	pixel_y = 10
+	pixel_y = 8
 	},
 /turf/open/floor/ms13/tile/full/navy,
 /area/ms13/town)
@@ -8322,8 +8320,10 @@
 /turf/open/floor/ms13/tile/large/black,
 /area/ms13/town)
 "fBz" = (
-/obj/structure/table/ms13/metal,
 /obj/effect/spawner/random/ms13/melee/lowrandom,
+/obj/structure/table/ms13/no_smooth/counter/metal{
+	dir = 1
+	},
 /turf/open/floor/ms13/tile/full/navy,
 /area/ms13/town)
 "fBK" = (
@@ -10568,8 +10568,8 @@
 /turf/open/floor/ms13/tile/large/cafeteria,
 /area/ms13/town)
 "gNa" = (
-/obj/structure/table/ms13/metal,
-/turf/open/floor/ms13/metal,
+/obj/effect/turf_decal/ms13/graffiti/dontopen,
+/turf/closed/wall/ms13/brick,
 /area/ms13/town)
 "gNf" = (
 /obj/structure/closet/ms13/metal,
@@ -12897,9 +12897,9 @@
 /turf/open/floor/wood/ms13/carpet,
 /area/ms13/town)
 "ifk" = (
-/mob/living/basic/ms13/ghoul/frozen,
-/turf/open/floor/plating/ms13/ground/snow,
-/area/ms13/snow/forest)
+/obj/effect/turf_decal/ms13/graffiti/deadcount,
+/turf/closed/wall/ms13/brick/alt,
+/area/ms13/town)
 "ifn" = (
 /obj/effect/decal/cleanable/glass{
 	dir = 8
@@ -18061,8 +18061,8 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "lrO" = (
-/obj/effect/turf_decal/ms13/graffiti/dontopen,
-/turf/closed/wall/ms13/brick,
+/obj/effect/turf_decal/ms13/graffiti/below,
+/turf/closed/wall/ms13/brick/alt,
 /area/ms13/town)
 "lrP" = (
 /turf/open/floor/ms13/concrete,
@@ -18121,8 +18121,8 @@
 /turf/open/openspace/ms13,
 /area/ms13/town)
 "lut" = (
-/obj/effect/turf_decal/ms13/graffiti/deadcount,
-/turf/closed/wall/ms13/brick/alt,
+/obj/structure/ms13/foundation/common/variantfive,
+/turf/open/openspace/ms13,
 /area/ms13/town)
 "luy" = (
 /obj/structure/bed/ms13/mattress/filthy,
@@ -18877,10 +18877,6 @@
 	dir = 8
 	},
 /turf/open/floor/wood/ms13/wide,
-/area/ms13/town)
-"lXM" = (
-/obj/effect/turf_decal/ms13/graffiti/below,
-/turf/closed/wall/ms13/brick/alt,
 /area/ms13/town)
 "lXT" = (
 /obj/structure/table/ms13/no_smooth/counter/metal{
@@ -20725,10 +20721,6 @@
 /obj/structure/table/ms13/no_smooth/counter/metal{
 	dir = 1
 	},
-/turf/open/floor/ms13/tile/full/navy,
-/area/ms13/town)
-"nmE" = (
-/obj/structure/table/ms13/metal,
 /turf/open/floor/ms13/tile/full/navy,
 /area/ms13/town)
 "nmJ" = (
@@ -45391,7 +45383,7 @@ xZD
 xZD
 tqN
 ylG
-lrO
+gNa
 gxp
 axO
 axO
@@ -70867,7 +70859,7 @@ gYH
 jIO
 ctN
 gMg
-gNa
+gMg
 fBz
 lAQ
 lAQ
@@ -71170,7 +71162,7 @@ aAD
 gMg
 gMg
 cnX
-nmE
+nmp
 lkD
 xCr
 hiB
@@ -76979,7 +76971,7 @@ wSc
 wSc
 wSc
 wSc
-dgq
+lut
 wSc
 wSc
 pwP
@@ -77884,7 +77876,7 @@ lol
 lbW
 jIO
 jIO
-lut
+ifk
 xNi
 lyu
 osJ
@@ -78186,7 +78178,7 @@ aLq
 gyg
 aLq
 aLq
-lXM
+lrO
 xNi
 lyD
 lem
@@ -89308,7 +89300,7 @@ khQ
 xsE
 xsE
 xsE
-ifk
+xsE
 xsE
 xsE
 jIO
@@ -90210,7 +90202,7 @@ khQ
 khQ
 ylG
 ylG
-ylG
+kwJ
 ylG
 ylG
 ylG
@@ -95041,7 +95033,7 @@ ylG
 ylG
 ylG
 ylG
-kwJ
+ylG
 ylG
 ylG
 ylG
@@ -95050,7 +95042,7 @@ xsE
 xsE
 xsE
 ylG
-gfq
+jIO
 nzU
 vvF
 iWu
@@ -95352,7 +95344,7 @@ xsE
 xsE
 xsE
 ylG
-gfq
+jIO
 iPO
 iSK
 rgt
@@ -95654,7 +95646,7 @@ xsE
 xsE
 xsE
 ylG
-gfq
+jIO
 nzU
 iSV
 rgt
@@ -96550,7 +96542,7 @@ ylG
 ylG
 ylG
 ylG
-ylG
+kwJ
 ylG
 ylG
 ylG
