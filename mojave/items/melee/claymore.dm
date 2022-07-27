@@ -172,7 +172,7 @@
 	inhand_icon_state = "ripper_off"
 	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/general_pickup.ogg'
 	wound_bonus = 10
-	bare_wound_bonus = 10
+	bare_wound_bonus = 15
 	throwforce = 10
 	sharpness = IS_SHARP_AXE
 	w_class = WEIGHT_CLASS_NORMAL
@@ -191,12 +191,11 @@
 		attack_verb_simple = list("jab", "slice", "slash", "cut", "rend", "saw", "tear")
 		to_chat(user, "<span class='notice'>As you yank the starter cord on [src], it roars to life.")
 		hitsound = list('mojave/sound/ms13weapons/meleesounds/ripper_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/ripper_hit2.ogg', 'mojave/sound/ms13weapons/meleesounds/ripper_hit3.ogg')
-		force = 20
-		subtractible_armour_penetration = 20
-		edge_protection_penetration = 5
+		force = 30
+		subtractible_armour_penetration = 25
+		edge_protection_penetration = 10
 		sharpness = IS_SHARP_AXE
 		toolspeed = 0.75
-		user.changeNext_move(CLICK_CD_MELEE * 0.6)
 
 	else
 		attack_verb_continuous = list("smacks", "beats", "slashes", "cuts", "clubs")
@@ -225,12 +224,11 @@
 		attack_verb_simple = list("jab", "slice", "slash", "cut", "rend", "saw", "tear")
 		to_chat(user, "<span class='notice'>As you yank the starter cord on [src], it roars to life.")
 		hitsound = list('mojave/sound/ms13weapons/meleesounds/ripper_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/ripper_hit2.ogg', 'mojave/sound/ms13weapons/meleesounds/ripper_hit3.ogg')
-		force = 30
-		subtractible_armour_penetration = 30
-		edge_protection_penetration = 5
+		force = 35
+		subtractible_armour_penetration = 35
+		edge_protection_penetration = 10
 		sharpness = IS_SHARP_AXE
 		toolspeed = 0.5
-		user.changeNext_move(CLICK_CD_MELEE * 0.6)
 
 	else
 		attack_verb_continuous = list("smacks", "beats", "slashes", "cuts", "clubs")
