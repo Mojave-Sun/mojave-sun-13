@@ -80,10 +80,11 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	subtractible_armour_penetration = 5
-	speed = -0.35
 	sharpness = SHARP_EDGED
 	wound_bonus = 4
 	bare_wound_bonus = 0
+	light_range = 1.5
+	light_color = "#4ba54f"
 
 /mob/living/basic/ms13/hostile_animal/gecko
 	name = "gecko"
