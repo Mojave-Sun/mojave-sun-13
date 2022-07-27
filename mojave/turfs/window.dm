@@ -20,6 +20,7 @@
 	name = "glass window"
 	desc = ""
 	icon = 'mojave/icons/turf/walls/glass.dmi'
+	max_integrity = 40
 	icon_state = "glass-0"
 	base_icon_state = "glass"
 	smoothing_groups = list(SMOOTH_GROUP_MS13_WINDOW)
