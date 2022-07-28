@@ -321,7 +321,7 @@
 
 
 
-/mob/living/carbon/human/attack_larva(mob/living/carbon/alien/larva/L)
+/mob/living/carbon/human/attack_larva(mob/living/carbon/alien/larva/L, list/modifiers)
 	. = ..()
 	if(!.)
 		return //successful larva bite.
@@ -398,7 +398,7 @@
 	//MOJAVE EDIT END
 
 
-/mob/living/carbon/human/attack_slime(mob/living/simple_animal/slime/M)
+/mob/living/carbon/human/attack_slime(mob/living/simple_animal/slime/M, list/modifiers)
 	. = ..()
 	if(!.) // slime attack failed
 		return
