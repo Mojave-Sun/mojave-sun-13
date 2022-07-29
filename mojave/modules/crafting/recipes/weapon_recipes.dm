@@ -20,8 +20,8 @@
 	tool_behaviors = list(TOOL_SAW)
 	tool_paths = list(/obj/item/ms13/hammer)
 	reqs = list(/obj/item/stack/sheet/ms13/cloth = 3,
-				/obj/item/stack/sheet/ms13/scrap_steel = 8,
-				/obj/item/stack/sheet/ms13/scrap = 8,
+				/obj/item/stack/sheet/ms13/scrap_steel = 6,
+				/obj/item/stack/sheet/ms13/scrap = 6,
 				/obj/item/stack/sheet/ms13/plank = 2)
 	category = CAT_WEAPONS
 	crafting_interface = CRAFTING_BENCH_WEAPONS
@@ -33,8 +33,8 @@
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WELDER)
 	tool_paths = list(/obj/item/ms13/hammer)
 	reqs = list(/obj/item/stack/sheet/ms13/cloth = 3,
-				/obj/item/stack/sheet/ms13/refined_steel = 5,
-				/obj/item/stack/sheet/ms13/scrap_parts = 5)
+				/obj/item/stack/sheet/ms13/refined_steel = 4,
+				/obj/item/stack/sheet/ms13/scrap_parts = 6)
 	category = CAT_WEAPONS
 	crafting_interface = CRAFTING_BENCH_WEAPONS
 
@@ -59,10 +59,10 @@
 	tool_paths = list(/obj/item/ms13/hammer)
 	reqs = list(/obj/item/claymore/ms13/pipe = 1,
 				/obj/item/stack/sheet/ms13/scrap_parts = 2,
-				/obj/item/stack/sheet/ms13/scrap_steel = 4,
+				/obj/item/stack/sheet/ms13/scrap_steel = 3,
 				/obj/item/stack/sheet/ms13/scrap = 2)
 	category = CAT_WEAPONS
-	crafting_interface = CRAFTING_BENCH_WEAPONS
+	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_WEAPONS
 
 /datum/crafting_recipe/broad_hatchet
 	name = "broad hatchet"
@@ -114,7 +114,7 @@
 	time = 20 SECONDS
 	tool_behaviors = list(TOOL_DRILL, TOOL_SCREWDRIVER, TOOL_WRENCH)
 	tool_paths = list(/obj/item/ms13/hammer)
-	reqs = list(/obj/item/stack/sheet/ms13/scrap = 8,
+	reqs = list(/obj/item/stack/sheet/ms13/scrap = 10,
 				/obj/item/stack/sheet/ms13/refined_steel = 4,
 				/obj/item/stack/sheet/ms13/scrap_parts = 10)
 	category = CAT_WEAPONS

@@ -175,8 +175,8 @@ GLOBAL_LIST_INIT(refined_steel_recipes, list ( \
 /obj/item/stack/sheet/ms13/junk_bullets/ten
 	amount = 10
 
-/obj/item/stack/sheet/ms13/junk_bullets/fifteen
-	amount = 15
+/obj/item/stack/sheet/ms13/junk_bullets/twenty
+	amount = 20
 
 /obj/item/stack/sheet/ms13/hq_bullets
 	name = "high quality bullets"
@@ -193,8 +193,8 @@ GLOBAL_LIST_INIT(refined_steel_recipes, list ( \
 /obj/item/stack/sheet/ms13/hq_bullets/ten
 	amount = 10
 
-/obj/item/stack/sheet/ms13/hq_bullets/fifteen
-	amount = 15
+/obj/item/stack/sheet/ms13/hq_bullets/twenty
+	amount = 20
 
 //BRASS//
 
@@ -259,8 +259,8 @@ GLOBAL_LIST_INIT(refined_steel_recipes, list ( \
 /obj/item/stack/sheet/ms13/junk_casings/ten
 	amount = 10
 
-/obj/item/stack/sheet/ms13/junk_casings/fifteen
-	amount = 15
+/obj/item/stack/sheet/ms13/junk_casings/twenty
+	amount = 20
 
 /obj/item/stack/sheet/ms13/hq_casings
 	name = "high quality bullet casings"
@@ -277,8 +277,8 @@ GLOBAL_LIST_INIT(refined_steel_recipes, list ( \
 /obj/item/stack/sheet/ms13/hq_casings/ten
 	amount = 10
 
-/obj/item/stack/sheet/ms13/hq_casings/fifteen
-	amount = 15
+/obj/item/stack/sheet/ms13/hq_casings/twenty
+	amount = 20
 
 //ALUMINUM//
 
@@ -368,6 +368,9 @@ GLOBAL_LIST_INIT(refined_alu_recipes, list ( \
 /obj/item/stack/sheet/ms13/scrap_silver/four
 	amount = 4
 
+/obj/item/stack/sheet/ms13/scrap_silver/five
+	amount = 5
+
 /datum/material/ms13/scrap_silver
 	name = "scrap silver"
 	desc = "Scrap silver. Still shiny."
@@ -415,6 +418,9 @@ GLOBAL_LIST_INIT(refined_alu_recipes, list ( \
 
 /obj/item/stack/sheet/ms13/scrap_gold/four
 	amount = 4
+
+/obj/item/stack/sheet/ms13/scrap_gold/five
+	amount = 5
 
 /datum/material/ms13/scrap_gold
 	name = "scrap gold"

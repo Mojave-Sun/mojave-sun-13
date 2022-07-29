@@ -3,20 +3,20 @@
 //AMMO CRAFTING
 
 /datum/crafting_recipe/junk_casings
-	name = "fifteen junk bullet casings"
-	result = /obj/item/stack/sheet/ms13/junk_casings/fifteen
-	time = 6 SECONDS
+	name = "twenty junk bullet casings"
+	result = /obj/item/stack/sheet/ms13/junk_casings/twenty
+	time = 10 SECONDS
 	tool_paths = list(/obj/item/ms13/hammer)
-	reqs = list(/obj/item/stack/sheet/ms13/scrap_brass = 6)
+	reqs = list(/obj/item/stack/sheet/ms13/scrap_brass = 8)
 	category = CAT_JUNK_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
 
 /datum/crafting_recipe/junk_bullets
-	name = "fifteen junk bullets"
-	result = /obj/item/stack/sheet/ms13/junk_bullets/fifteen
-	time = 6 SECONDS
+	name = "twenty junk bullets"
+	result = /obj/item/stack/sheet/ms13/junk_bullets/twenty
+	time = 10 SECONDS
 	tool_paths = list(/obj/item/ms13/hammer)
-	reqs = list(/obj/item/stack/sheet/ms13/scrap_lead = 6)
+	reqs = list(/obj/item/stack/sheet/ms13/scrap_lead = 8)
 	category = CAT_JUNK_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
 
@@ -151,20 +151,20 @@
 	crafting_interface = CRAFTING_BENCH_RELOADING
 
 /datum/crafting_recipe/hq_casings
-	name = "fifteen high quality bullet casings"
-	result = /obj/item/stack/sheet/ms13/hq_casings/fifteen
-	time = 8 SECONDS
+	name = "twenty high quality bullet casings"
+	result = /obj/item/stack/sheet/ms13/hq_casings/twenty
+	time = 12 SECONDS
 	tool_paths = list(/obj/item/ms13/hammer)
-	reqs = list(/obj/item/stack/sheet/ms13/refined_brass = 2)
+	reqs = list(/obj/item/stack/sheet/ms13/refined_brass = 4)
 	category = CAT_STAN_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
 
 /datum/crafting_recipe/hq_bullets
-	name = "fifteen high quality bullets"
-	result = /obj/item/stack/sheet/ms13/hq_bullets/fifteen
-	time = 8 SECONDS
+	name = "twenty high quality bullets"
+	result = /obj/item/stack/sheet/ms13/hq_bullets/twenty
+	time = 12 SECONDS
 	tool_paths = list(/obj/item/ms13/hammer)
-	reqs = list(/obj/item/stack/sheet/ms13/refined_lead = 2)
+	reqs = list(/obj/item/stack/sheet/ms13/refined_lead = 4)
 	category = CAT_STAN_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
 

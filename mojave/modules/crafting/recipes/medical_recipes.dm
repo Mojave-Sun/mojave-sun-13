@@ -39,7 +39,7 @@
 	tool_paths = list()
 	trait = TRAIT_MEDICAL_TRAINING
 	reqs = list(/obj/item/stack/sheet/ms13/thread = 8,
-				/obj/item/stack/sheet/ms13/scrap = 6)
+				/obj/item/stack/sheet/ms13/scrap = 5)
 	category = CAT_MEDICAL
 	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
 
