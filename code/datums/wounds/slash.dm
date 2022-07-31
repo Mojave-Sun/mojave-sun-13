@@ -18,7 +18,7 @@
 	var/initial_flow
 	/// When we have less than this amount of flow, either from treatment or clotting, we demote to a lower cut or are healed of the wound
 	var/minimum_flow
-	/// How much our blood_flow will naturally decrease per tick, not only do larger cuts bleed more blood faster, they clot slower (higher number = clot quicker, negative = opening up)
+	/// How much our blood_flow will naturally decrease per second, not only do larger cuts bleed more blood faster, they clot slower (higher number = clot quicker, negative = opening up)
 	var/clot_rate
 
 	/// Once the blood flow drops below minimum_flow, we demote it to this type of wound. If there's none, we're all better
@@ -30,13 +30,28 @@
 	/// A bad system I'm using to track the worst scar we earned (since we can demote, we want the biggest our wound has been, not what it was when it was cured (probably moderate))
 	var/datum/scar/highest_scar
 
-/datum/wound/slash/wound_injury(datum/wound/slash/old_wound = null)
-	blood_flow = initial_flow
+// MOJAVE SUN EDIT BEGIN
+/datum/wound/slash/show_wound_topic(mob/user)
+	return (user == victim && blood_flow)
+
+/datum/wound/slash/Topic(href, href_list)
+	. = ..()
+	if(href_list["wound_topic"])
+		if(!usr == victim)
+			return
+		victim.self_grasp_bleeding_limb(limb)
+// MOJAVE SUN EDIT END
+
+/datum/wound/slash/wound_injury(datum/wound/slash/old_wound = null, attack_direction = null)
 	if(old_wound)
 		blood_flow = max(old_wound.blood_flow, initial_flow)
 		if(old_wound.severity > severity && old_wound.highest_scar)
 			set_highest_scar(old_wound.highest_scar)
 			old_wound.clear_highest_scar()
+	else
+		blood_flow = initial_flow
+		if(attack_direction && victim.blood_volume > BLOOD_VOLUME_OKAY)
+			victim.spray_blood(attack_direction, severity)
 
 	if(!highest_scar)
 		var/datum/scar/new_scar = new
@@ -81,15 +96,15 @@
 
 /datum/wound/slash/receive_damage(wounding_type, wounding_dmg, wound_bonus)
 	if(victim.stat != DEAD && wound_bonus != CANT_WOUND && wounding_type == WOUND_SLASH) // can't stab dead bodies to make it bleed faster this way
-		blood_flow += 0.05 * wounding_dmg
+		blood_flow += WOUND_SLASH_DAMAGE_FLOW_COEFF * wounding_dmg
 
 /datum/wound/slash/drag_bleed_amount()
 	// say we have 3 severe cuts with 3 blood flow each, pretty reasonable
 	// compare with being at 100 brute damage before, where you bled (brute/100 * 2), = 2 blood per tile
 	var/bleed_amt = min(blood_flow * 0.1, 1) // 3 * 3 * 0.1 = 0.9 blood total, less than before! the share here is .3 blood of course.
 
-	if(limb.current_gauze) // gauze stops all bleeding from dragging on this limb, but wears the gauze out quicker
-		limb.seep_gauze(bleed_amt * 0.33)
+	if(limb.current_gauze && limb.current_gauze.seep_gauze(bleed_amt * 0.33, GAUZE_STAIN_BLOOD)) // gauze stops all bleeding from dragging on this limb, but wears the gauze out quicker// MOJAVE SUN EDIT - ORIGINAL IS if(limb.current_gauze) // gauze stops all bleeding from dragging on this limb, but wears the gauze out quicker
+	//limb.seep_gauze(bleed_amt * 0.33) - MOJAVE SUN EDIT
 		return
 
 	return bleed_amt
@@ -120,8 +135,8 @@
 	if(limb.current_gauze)
 		if(clot_rate > 0)
 			blood_flow -= clot_rate * delta_time
-		blood_flow -= limb.current_gauze.absorption_rate * delta_time
-		limb.seep_gauze(limb.current_gauze.absorption_rate * delta_time)
+		if(limb.current_gauze && limb.current_gauze.seep_gauze(limb.current_gauze.absorption_rate, GAUZE_STAIN_BLOOD))		// MOJAVE SUN EDIT - ORIGINAL IS blood_flow -= limb.current_gauze.absorption_rate * delta_time
+			blood_flow -= limb.current_gauze.absorption_rate		// MOJAVE SUN EDIT - ORIGINAL IS limb.seep_gauze(limb.current_gauze.absorption_rate * delta_time)
 	else
 		blood_flow -= clot_rate * delta_time
 
@@ -186,12 +201,12 @@
 		user.ForceContractDisease(iter_disease)
 
 	user.visible_message(span_notice("[user] begins licking the wounds on [victim]'s [limb.name]."), span_notice("You begin licking the wounds on [victim]'s [limb.name]..."), ignored_mobs=victim)
-	to_chat(victim, "<span class='notice'>[user] begins to lick the wounds on your [limb.name].</span")
+	to_chat(victim, span_notice("[user] begins to lick the wounds on your [limb.name]."))
 	if(!do_after(user, base_treat_time, target=victim, extra_checks = CALLBACK(src, .proc/still_exists)))
 		return
 
 	user.visible_message(span_notice("[user] licks the wounds on [victim]'s [limb.name]."), span_notice("You lick some of the wounds on [victim]'s [limb.name]"), ignored_mobs=victim)
-	to_chat(victim, "<span class='green'>[user] licks the wounds on your [limb.name]!</span")
+	to_chat(victim, span_green("[user] licks the wounds on your [limb.name]!"))
 	blood_flow -= 0.5
 
 	if(blood_flow > minimum_flow)
@@ -250,6 +265,7 @@
 
 	if(!do_after(user, base_treat_time * self_penalty_mult, target=victim, extra_checks = CALLBACK(src, .proc/still_exists)))
 		return
+
 	user.visible_message(span_green("[user] stitches up some of the bleeding on [victim]."), span_green("You stitch up some of the bleeding on [user == victim ? "yourself" : "[victim]"]."))
 	var/blood_sutured = I.stop_bleeding / self_penalty_mult
 	blood_flow -= blood_sutured
@@ -270,9 +286,11 @@
 	occur_text = "is cut open, slowly leaking blood"
 	sound_effect = 'sound/effects/wounds/blood1.ogg'
 	severity = WOUND_SEVERITY_MODERATE
-	initial_flow = 2
-	minimum_flow = 0.5
-	clot_rate = 0.06
+	//MOJAVE EDIT BEGIN
+	initial_flow = 1.5 //Original TG value is 2
+	minimum_flow = 0.25 //Original TG value is 0.5
+	clot_rate = 0.05 //Original TG value is 0.06
+	//MOJAVE EDIT END
 	threshold_minimum = 20
 	threshold_penalty = 10
 	status_effect_type = /datum/status_effect/wound/slash/moderate
@@ -286,10 +304,12 @@
 	occur_text = "is ripped open, veins spurting blood"
 	sound_effect = 'sound/effects/wounds/blood2.ogg'
 	severity = WOUND_SEVERITY_SEVERE
-	initial_flow = 3.25
-	minimum_flow = 2.75
-	clot_rate = 0.03
-	threshold_minimum = 50
+	//MOJAVE EDIT BEGIN
+	initial_flow = 2.5 //Original TG value is 3.25
+	minimum_flow = 2 //Original TG value is 2.75
+	clot_rate = 0.035 //Original TG value is 0.03
+	threshold_minimum = 45 //Original TG value is 50
+	//MOJAVE EDIT END
 	threshold_penalty = 25
 	demotes_to = /datum/wound/slash/moderate
 	status_effect_type = /datum/status_effect/wound/slash/severe
@@ -304,12 +324,10 @@
 	sound_effect = 'sound/effects/wounds/blood3.ogg'
 	severity = WOUND_SEVERITY_CRITICAL
 	//MOJAVE EDIT CHANGE BEGIN
-	initial_flow = 4.5 //Original TG value is 4.25
-	//MOJAVE EDIT CHANGE END
-	minimum_flow = 4
-	clot_rate = -0.025 // critical cuts actively get worse instead of better
-	//MOJAVE EDIT CHANGE BEGIN
-	threshold_minimum = 90 //Original TG value is 80
+	initial_flow = 3.75 //Original TG value is 4.25
+	minimum_flow = 3 //Original TG value is 4
+	clot_rate = -0.01 // critical cuts actively get worse instead of better //Original TG value is -0.025
+	threshold_minimum = 85 //Original TG value is 80
 	//MOJAVE EDIT CHANGE END
 	threshold_penalty = 40
 	demotes_to = /datum/wound/slash/severe

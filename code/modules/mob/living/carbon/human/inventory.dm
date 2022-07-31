@@ -170,9 +170,9 @@
 
 /mob/living/carbon/human/equipped_speed_mods()
 	. = ..()
-	//MOJAVE EDIT CHANGE BEGIN 
+	//MOJAVE EDIT CHANGE BEGIN
 	for(var/sloties in get_all_slots() - list(l_store, r_store, s_store, belt, back)) //Belt and back were added to this. Original TG is only l_store, r_store, and s-store
-	//MOJAVE EDIT CHANGE END 
+	//MOJAVE EDIT CHANGE END
 		var/obj/item/thing = sloties
 		. += thing?.slowdown
 
@@ -323,20 +323,27 @@
 		if(equip_to_slot_if_possible(thing, slot_type))
 			update_inv_hands()
 		return
-	if(!SEND_SIGNAL(equipped_item, COMSIG_CONTAINS_STORAGE)) // not a storage item
+	var/datum/component/storage/storage = equipped_item.GetComponent(/datum/component/storage)
+	if(!storage)
 		if(!thing)
 			equipped_item.attack_hand(src)
 		else
 			to_chat(src, span_warning("You can't fit [thing] into your [equipped_item.name]!"))
 		return
 	if(thing) // put thing in storage item
+		/* MOJAVE EDIT REMOVAL
 		if(!SEND_SIGNAL(equipped_item, COMSIG_TRY_STORAGE_INSERT, thing, src))
+		*/
+		//MOJAVE EDIT BEGIN
+		if(!SEND_SIGNAL(equipped_item, COMSIG_TRY_STORAGE_INSERT, thing, src, FALSE, FALSE, TRUE))
+		//MOJAVE EDIT END
 			to_chat(src, span_warning("You can't fit [thing] into your [equipped_item.name]!"))
 		return
-	if(!equipped_item.contents.len) // nothing to take out
+	var/atom/real_location = storage.real_location()
+	if(!real_location.contents.len) // nothing to take out
 		to_chat(src, span_warning("There's nothing in your [equipped_item.name] to take out!"))
 		return
-	var/obj/item/stored = equipped_item.contents[equipped_item.contents.len]
+	var/obj/item/stored = real_location.contents[real_location.contents.len]
 	if(!stored || stored.on_found(src))
 		return
 	stored.attack_hand(src) // take out thing from item in storage slot

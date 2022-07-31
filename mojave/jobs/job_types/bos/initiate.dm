@@ -23,7 +23,6 @@
 	belt = /obj/item/claymore/ms13/baton
 	r_pocket = /obj/item/ammo_box/magazine/ms13/m10mm
 	l_pocket = /obj/item/ammo_box/magazine/ms13/m10mm
-	back = /obj/item/storage/backpack/satchel
 	backpack_contents = list(
 		/obj/item/stack/medical/gauze/ms13/three=1)
 

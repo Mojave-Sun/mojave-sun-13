@@ -13,13 +13,13 @@
 
 //The code execution of the emote datum is located at code/datums/emotes.dm
 /mob/proc/emote(act, m_type = null, message = null, intentional = FALSE, force_silence = FALSE)
-	act = lowertext(act)
 	var/param = message
 	var/custom_param = findchar(act, " ")
 	if(custom_param)
 		param = copytext(act, custom_param + length(act[custom_param]))
 		act = copytext(act, 1, custom_param)
 
+	act = lowertext(act)
 	var/list/key_emotes = GLOB.emote_list[act]
 
 	if(!length(key_emotes))
@@ -60,7 +60,7 @@
 	message += "."
 	message = message.Join("")
 	to_chat(user, message)
-
+/* MOJAVE SUN EDIT - Removes Stupid non-RP Emotes
 /datum/emote/flip
 	key = "flip"
 	key_third_person = "flips"
@@ -131,3 +131,4 @@
 #undef BEYBLADE_DIZZINESS_VALUE
 #undef BEYBLADE_CONFUSION_INCREMENT
 #undef BEYBLADE_CONFUSION_LIMIT
+*///MOJAVE SUN EDIT END - Remove stupid non-RP emotes

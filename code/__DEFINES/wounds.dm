@@ -2,9 +2,9 @@
 // ~wound damage/rolling defines
 //MOJAVE EDIT CHANGE BEGIN
 /// the cornerstone of the wound threshold system, your base wound roll for any attack is rand(1, damage^this), after armor reduces said damage. See [/obj/item/bodypart/proc/check_wounding]
-#define WOUND_DAMAGE_EXPONENT 1.35 //TG original value is 1.4
+#define WOUND_DAMAGE_EXPONENT 1.28 //TG original value is 1.4
 /// any damage dealt over this is ignored for damage rolls unless the target has the frail quirk (35^1.4=145, for reference)
-#define WOUND_MAX_CONSIDERED_DAMAGE 40 //TG original value is 35
+#define WOUND_MAX_CONSIDERED_DAMAGE 50 //TG original value is 35
 /// an attack must do this much damage after armor in order to roll for being a wound (so pressure damage/being on fire doesn't proc it)
 #define WOUND_MINIMUM_DAMAGE 5 //Unchanged from TG
 /// an attack must do this much damage after armor in order to be eliigible to dismember a suitably mushed bodypart
@@ -79,10 +79,12 @@ GLOBAL_LIST_INIT(global_all_wound_types, list(/datum/wound/blunt/critical, /datu
 // ~random wound balance defines
 /// how quickly sanitization removes infestation and decays per second
 #define WOUND_BURN_SANITIZATION_RATE 0.075
-/// how much blood you can lose per second per slash max. 4 is a LOT of blood for one cut so don't worry about hitting it easily
-#define WOUND_SLASH_MAX_BLOODFLOW 4
+/// how much blood you can lose per tick per slash max.
+#define WOUND_SLASH_MAX_BLOODFLOW 4.5
 /// dead people don't bleed, but they can clot! this is the minimum amount of clotting per tick on dead people, so even critical cuts will slowly clot in dead people
 #define WOUND_SLASH_DEAD_CLOT_MIN 0.025
+/// further slash attacks on a bodypart with a slash wound have their blood_flow further increased by damage * this (10 damage slash adds .25 flow)
+#define WOUND_SLASH_DAMAGE_FLOW_COEFF 0.025
 /// if we suffer a bone wound to the head that creates brain traumas, the timer for the trauma cycle is +/- by this percent (0-100)
 #define WOUND_BONE_HEAD_TIME_VARIANCE 20
 
@@ -122,7 +124,8 @@ GLOBAL_LIST_INIT(global_all_wound_types, list(/datum/wound/blunt/critical, /datu
 #define MANGLES_BONE (1<<3)
 /// If this wound marks the limb as being allowed to have gauze applied
 #define ACCEPTS_GAUZE (1<<4)
-
+/// If this wound marks the limb as being allowed to have splints applied
+#define ACCEPTS_SPLINT	(1<<5) // MOJAVE SUN EDIT
 
 // ~scar persistence defines
 // The following are the order placements for persistent scar save formats
@@ -147,7 +150,12 @@ GLOBAL_LIST_INIT(global_all_wound_types, list(/datum/wound/blunt/critical, /datu
 #define SCAR_CURRENT_VERSION 3
 /// how many scar slots, per character slot, we have to cycle through for persistent scarring, if enabled in character prefs
 #define PERSISTENT_SCAR_SLOTS 3
-
+// MOJAVE SUN EDIT BEGIN
+/// When a wound is staining the gauze with blood
+#define GAUZE_STAIN_BLOOD 1
+/// When a wound is staining the gauze with pus
+#define GAUZE_STAIN_PUS 2
+// MOJAVE SUN EDIT END
 // ~blood_flow rates of change, these are used by [/datum/wound/proc/get_bleed_rate_of_change] from [/mob/living/carbon/proc/bleed_warn] to let the player know if their bleeding is getting better/worse/the same
 /// Our wound is clotting and will eventually stop bleeding if this continues
 #define BLOOD_FLOW_DECREASING -1

@@ -199,6 +199,10 @@ Sunlight System
 		if(recursionStarted)
 			// This src is acting as a ceiling - so if we are a floor we weatherproof + block the sunlight of our down-Z turf
 			.["SKYVISIBLE"]   = istransparentturf(src) //If we are glass floor, we don't block
+			for(var/obj/structure/thing in src.contents) // Checks to see if weatherproof objects on the tile
+				if(thing.weatherproof == TRUE)
+					.["WEATHERPROOF"] = TRUE // returns true to block the weather
+					return .
 			.["WEATHERPROOF"] = weatherproof //If we are air or space, we aren't weatherproof
 		else //We are open, so assume open to the elements
 			.["SKYVISIBLE"]   = TRUE

@@ -124,11 +124,11 @@ There are several things that need to be remembered:
 
 
 		var/mutable_appearance/uniform_overlay
-
+		/* MOJAVE SUN EDIT - Gender Prefs
 		if(dna?.species.sexes)
 			if(body_type == FEMALE && U.fitted != NO_FEMALE_UNIFORM)
 				uniform_overlay = U.build_worn_icon(default_layer = UNIFORM_LAYER, default_icon_file = 'icons/mob/clothing/under/default.dmi', isinhands = FALSE, femaleuniform = U.fitted, override_state = target_overlay)
-
+		*/
 		if(!uniform_overlay)
 			uniform_overlay = U.build_worn_icon(default_layer = UNIFORM_LAYER, default_icon_file = 'icons/mob/clothing/under/default.dmi', isinhands = FALSE, override_state = target_overlay)
 
@@ -153,10 +153,10 @@ There are several things that need to be remembered:
 
 	if(wear_id)
 		wear_id.screen_loc = ui_id
-		/* MOJAVE EDIT
 		if(client && hud_used?.hud_shown)
-			client.screen += wear_id
-		*/
+			if(hud_used.inventory_shown)  // MOjAVE EDIT -- ID is part if inventory toggle
+				client.screen += wear_id  // MOjAVE EDIT -- ID is part if inventory toggle
+
 		update_observer_view(wear_id)
 
 		//TODO: add an icon file for ID slot stuff, so it's less snowflakey

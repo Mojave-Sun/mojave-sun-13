@@ -34,6 +34,8 @@
 	. = ..()
 	if(.)
 		return
+	if(!user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
+		return
 	if(obj_flags & IN_USE)
 		to_chat(user, span_warning("It's already in use - wait a bit!"))
 		return
@@ -71,7 +73,7 @@
 		sleep(3)
 		animate(user, pixel_y = -4, time = 3)
 		sleep(3)
-		playsound(user, 'goon/sound/effects/spring.ogg', 60, TRUE)
+		playsound(user, 'sound/machines/creak.ogg', 60, TRUE)
 
 /obj/structure/weightmachine/weightlifter
 	icon = 'goon/icons/obj/fitness.dmi'
@@ -89,7 +91,7 @@
 		for (var/innerReps = max(reps, 1), innerReps > 0, innerReps--)
 			sleep(3)
 			animate(user, pixel_y = (user.pixel_y == 3) ? 5 : 3, time = 3)
-		playsound(user, 'goon/sound/effects/spring.ogg', 60, TRUE)
+		playsound(user, 'sound/machines/creak.ogg', 60, TRUE)
 	sleep(3)
 	animate(user, pixel_y = 2, time = 3)
 	sleep(3)

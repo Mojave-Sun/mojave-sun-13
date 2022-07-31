@@ -12,7 +12,7 @@
 /datum/outfit/job/ms13/ncr/staffsergeant
 	name = "_NCR Staff Sergeant"
 	jobtype = 	 /datum/job/ms13/ncr/staffsergeant
-	id = 		 /obj/item/card/id/ms13/ncrsergeant/staff
+	id = 		 /obj/item/card/id/ms13/ncr/staff_sergeant
 	uniform =    /obj/item/clothing/under/ms13/ncr/fatigues
 	head = 	     /obj/item/clothing/head/helmet/ms13/ncr/goggles
 	suit =       /obj/item/clothing/suit/armor/ms13/ncr/mantle/reinforced
@@ -23,6 +23,7 @@
 	backpack_contents = list(
 		/obj/item/stack/medical/gauze/ms13/three=1, \
 		/obj/item/ammo_box/magazine/ms13/m9mm=2, \
+		/obj/item/flashlight/flare/ms13=1, \
 		/obj/item/clothing/head/helmet/ms13/ncr/beret=1)
 
 /datum/outfit/job/ms13/ncr/staffsergeant/pre_equip(mob/living/carbon/human/H)

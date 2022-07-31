@@ -1,5 +1,6 @@
 #define IS_SHARP_AXE	3
 #define STATIC_NUTRIENT_CAPACITY_MS13 50
+#define SOIL_EDGE_LAYER 2.95
 
 /////////////////////////////////////////////////////////////
 //////////// MOJAVE SUN BOTANY TWEAKS DIRECTORY /////////////
@@ -14,19 +15,28 @@
 	icon_state = "seed"
 	potency = 50
 	growthstages = 5
+	w_class = WEIGHT_CLASS_TINY
+	grid_height = 32
+	grid_width = 32
 	//vars added here to stop compilation issues.  Removed from base botany and will need to be refactored.
 	var/growing_color = ""
 	var/harvest_icon = 1
 	var/wholeiconcolor = TRUE
 
 /obj/item/food/grown/ms13
-	icon = 'mojave/icons/hydroponics/harvest.dmi'
+	icon = 'mojave/icons/hydroponics/harvest/harvest_world.dmi'
 	inhand_icon_state = "plant"
 	lefthand_file = 'mojave/icons/mob/inhands/equipment/hydroponics_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/equipment/hydroponics_righthand.dmi'
 	can_distill = TRUE
+	w_class = WEIGHT_CLASS_TINY
+	grid_height = 32
+	grid_width = 32
 	distill_reagent = /datum/reagent/consumable/ethanol/ms13/brew_sludge
 
+/obj/item/food/grown/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/hydroponics/harvest/harvest_inventory.dmi')
 
 /////////////////////////////////////////////////////////////
 ////////////////// MOJAVE SUN BOTANY ITEMS //////////////////
@@ -147,8 +157,8 @@
 /datum/reagent/plantnutriment/ms13/fertilizer/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray)
 	. = ..()
 	if(chems.has_reagent(src.type, 1))
-		mytray.adjustHealth(round(chems.get_reagent_amount(src.type) * 0.25))
-		mytray.adjustPests(-rand(1,2))
+		mytray.adjust_plant_health(round(chems.get_reagent_amount(src.type) * 0.25))
+		mytray.adjust_pestlevel(-rand(1,2))
 
 /datum/reagent/plantnutriment/eznutriment/ms13
 	name = "micronutrient fertilizer"
@@ -321,15 +331,11 @@
 
 //ms13 plant tray
 
-/obj/machinery/hydroponics/ms13/soil
-	name = "soil"
-	desc = "A patch of dirt."
+/obj/machinery/hydroponics/ms13
+	name = "dirt crate"
+	desc = "A dirt filled crate. Could definitely grow plants in it."
 	icon = 'mojave/icons/hydroponics/soil.dmi'
-	icon_state = "soil-0"
-	base_icon_state = "soil"
-	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = list(SMOOTH_GROUP_SOIL)
-	canSmoothWith = list(SMOOTH_GROUP_SOIL)
+	icon_state = "crate_full"
 	pixel_z = 0
 	nutridrain = 0.3
 	maxnutri = 20
@@ -340,7 +346,7 @@
 	flags_1 = NODECONSTRUCT_1
 	unwrenchable = FALSE
 
-/obj/machinery/hydroponics/ms13/soil/examine(mob/user)
+/obj/machinery/hydroponics/ms13/examine(mob/user)
 	if(myseed)
 		to_chat(user, "<span class='info'>It has <span class='name'>[myseed.plantname]</span> planted.</span>")
 		if(in_range(user, src) || isobserver(user))
@@ -388,9 +394,9 @@
 				to_chat(user, "<span class='red'> Its filled with weeds!</span>")
 			if(pestlevel >= 5)
 				to_chat(user, "<span class='red'> Its filled with critters!</span>")
-			if (dead)
+			if (plant_status == HYDROTRAY_PLANT_DEAD)
 				to_chat(user, "<span class='warning'>It's dead!</span>")
-			else if (harvest)
+			else if (plant_status == HYDROTRAY_PLANT_HARVESTABLE)
 				to_chat(user, "<span class='info'>It's ready to harvest.</span>")
 			else if (plant_health <= (myseed.endurance / 2))
 				to_chat(user, "<span class='warning'>It looks unhealthy.</span>")
@@ -403,8 +409,8 @@
 		to_chat(user,"<span class='info'>Nutrient: [reagents.total_volume]/[maxnutri].</span>")
 	return
 
-/obj/machinery/hydroponics/ms13/soil/attackby(obj/item/O, mob/user, params)
-	if(O.tool_behaviour == TOOL_SHOVEL && !istype(O, /obj/item/shovel/spade)) //Doesn't include spades because of uprooting plants
+/obj/machinery/hydroponics/ms13/attackby(obj/item/O, mob/user, params)
+	if(O.tool_behaviour == TOOL_SHOVEL && !istype(O, /obj/item/shovel/ms13/rake)) //Doesn't include rakes because of uprooting plants
 		to_chat(user, "<span class='notice'>You begin clearing up the [src]!</span>")
 		if(do_after(user, 1000, target = src))
 			to_chat(user, "<span class='notice'>You clear up [src]!</span>")
@@ -412,44 +418,60 @@
 	else
 		return ..()
 
-/obj/machinery/hydroponics/ms13/soil/Initialize()
-	//ALRIGHT YOU DEGENERATES. YOU HAD REAGENT HOLDERS FOR AT LEAST 4 YEARS AND NONE OF YOU MADE HYDROPONICS TRAYS HOLD NUTRIENT CHEMS INSTEAD OF USING "Points".
-	//SO HERE LIES THE "nutrilevel" VAR. IT'S DEAD AND I PUT IT OUT OF IT'S MISERY. USE "reagents" INSTEAD. ~ArcaneMusic, accept no substitutes.
-	create_reagents(50)
-	reagents.add_reagent(/datum/reagent/plantnutriment/ms13/fertilizer, 50) //Half filled nutrient trays for dirt trays to have more to grow with in prison/lavaland.
-	. = ..()
-
-/obj/machinery/hydroponics/ms13/soil/update_status_light_overlays()
+/obj/machinery/hydroponics/ms13/update_status_light_overlays()
 	return // Has no lights
 
-/obj/machinery/hydroponics/ms13/soil/CtrlClick(mob/user)
+/obj/machinery/hydroponics/ms13/CtrlClick(mob/user)
 	return //Soil has no electricity.
 
-/////////////////////////////////////////////////////////////
-////////////////// MOJAVE SUN BOTANY MISC  //////////////////
-/////////////////////////////////////////////////////////////
+/obj/machinery/hydroponics/ms13/weedinvasion()
+	var/oldPlantName
+	if(myseed) // In case there's nothing in the tray beforehand
+		oldPlantName = myseed.plantname
+	else
+		oldPlantName = "empty tray"
+	var/obj/item/seeds/new_seed
+	switch(rand(1,18)) // randomly pick predominative weed
+		if(16 to 18)
+			new_seed = new /obj/item/seeds/ms13/nara(src)
+		if(14 to 15)
+			new_seed = new /obj/item/seeds/ms13/lureweed(src)
+		if(12 to 13)
+			new_seed = new /obj/item/seeds/ms13/thistle(src)
+		if(10 to 11)
+			new_seed = new /obj/item/seeds/ms13/blight(src)
+		if(8 to 9)
+			new_seed = new /obj/item/seeds/ms13/firecap(src)
+		if(6 to 7)
+			new_seed = new /obj/item/seeds/ms13/ashblossom(src)
+		if(4 to 5)
+			new_seed = new /obj/item/seeds/ms13/aster(src)
+		else
+			new_seed = new /obj/item/seeds/ms13/coyote(src)
+	set_seed(new_seed)
+	age = 0
+	lastcycle = world.time
+	set_plant_health(myseed.endurance, update_icon = FALSE)
+	set_weedlevel(0, update_icon = FALSE) // Reset
+	set_pestlevel(0) // Reset
+	visible_message(span_warning("The [oldPlantName] is overtaken by some [myseed.plantname]!"))
+	TRAY_NAME_UPDATE
 
-//forest and snow areas
+/obj/machinery/hydroponics/ms13/soil
+	name = "soil"
+	desc = "A patch of dirt."
+	icon = 'mojave/icons/hydroponics/dirt.dmi'
+	icon_state = "dirt-0"
+	base_icon_state = "dirt"
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_SOIL)
+	canSmoothWith = list(SMOOTH_GROUP_SOIL)
+	var/border_icon = 'mojave/icons/hydroponics/dirt_border.dmi'
 
-//#define SNOW_PLANT_DENSE_SPAWN_LIST list(/obj/structure/flora/grass/wasteland/snow = 10, /obj/structure/flora/ms13/tree/tallpine = 7, /obj/structure/flora/ms13/tree/deadsnow = 5, /obj/structure/flora/ms13/tree/smallpine = 5)
+/obj/machinery/hydroponics/ms13/soil/Initialize()
+	. = ..()
+	addtimer(CALLBACK(src, /atom/.proc/update_icon), 1)
 
-/area/ms13/snow
-	name = "Snow"
-	icon_state = "snow"
-	requires_power = FALSE
-	power_environ = FALSE
-	power_equip = FALSE
-	outdoors = TRUE
-	flags_1 = NONE
-
-/area/ms13/snow/deepforest
-	name = "Deep Forest"
-	icon_state = "deepforest"
-
-/area/ms13/snow/forest
-	name = "Forest"
-	icon_state = "forest"
-
-/area/ms13/snow/lightforest
-	name = "Light Forest"
-	icon_state = "lightforest"
+/obj/machinery/hydroponics/ms13/soil/update_icon()
+	. = ..()
+	add_overlay(image(border_icon, icon_state, SOIL_EDGE_LAYER, pixel_x = -8, pixel_y = -8))

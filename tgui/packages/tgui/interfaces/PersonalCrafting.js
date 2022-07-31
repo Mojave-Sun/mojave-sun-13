@@ -4,7 +4,7 @@ import { Window } from '../layouts';
 
 export const PersonalCrafting = (props, context) => {
   const { act, data } = useBackend(context);
-  const { busy, display_craftable_only, display_compact } = data;
+  const { busy, display_craftable_only, display_compact, category } = data;
   const crafting_recipes = data.crafting_recipes || {};
   // Sort everything into flat categories
   const categories = [];
@@ -49,6 +49,16 @@ export const PersonalCrafting = (props, context) => {
   }
   // Sort out the tab state
   const [tab, setTab] = useLocalState(context, 'tab', categories[0]?.name);
+
+  // if our current category is not in our available list (i.e no recipes)
+  // then default to first available category
+  if (categories.filter(cat => cat.name === category).length === 0
+      && categories[0]) {
+    act('set_category', {
+      category: categories[0].category,
+      subcategory: categories[0].subcategory,
+    });
+  }
   const shownRecipes = recipes.filter((recipe) => recipe.category === tab);
   return (
     <Window title="Crafting Menu" width={700} height={700}>
@@ -94,13 +104,14 @@ export const PersonalCrafting = (props, context) => {
                 </>
               }>
               <Section fill scrollable>
-                {!!busy && (
+                {busy ? (
                   <Dimmer fontSize="32px">
                     <Icon name="cog" spin={1} />
                     {' Crafting...'}
                   </Dimmer>
+                ) : (
+                  <CraftingList craftables={shownRecipes} />
                 )}
-                <CraftingList craftables={shownRecipes} />
               </Section>
             </Section>
           </Stack.Item>

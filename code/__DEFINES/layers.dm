@@ -4,6 +4,9 @@
 //NEVER HAVE ANYTHING BELOW THIS PLANE ADJUST IF YOU NEED MORE SPACE
 #define LOWEST_EVER_PLANE -200
 
+#define FIELD_OF_VISION_BLOCKER_PLANE -199
+#define FIELD_OF_VISION_BLOCKER_RENDER_TARGET "*FIELD_OF_VISION_BLOCKER_RENDER_TARGET"
+
 #define CLICKCATCHER_PLANE -99
 
 #define PLANE_SPACE -95
@@ -14,22 +17,30 @@
 #define WEATHER_OVERLAY_PLANE -80 //MOJAVE MODULE OUTDOOR_EFFECTS
 #define WEATHER_RENDER_TARGET "*WEATHER_OVERLAY_PLANE" //MOJAVE MODULE OUTDOOR_EFFECTS
 
-#define GRAVITY_PULSE_PLANE -12 //MOJAVE MODULE OUTDOOR_EFFECTS
+#define GRAVITY_PULSE_PLANE -70 //MOJAVE MODULE OUTDOOR_EFFECTS
 #define GRAVITY_PULSE_RENDER_TARGET "*GRAVPULSE_RENDER_TARGET"
 
 #define OPENSPACE_LAYER 600 //Openspace layer over all
-#define OPENSPACE_PLANE -10 //Openspace plane below all turfs
-#define OPENSPACE_BACKDROP_PLANE -9 //Black square just over openspace plane to guaranteed cover all in openspace turf
+#define TRANSPARENT_FLOOR_PLANE -62 //Transparent plane that shows openspace underneath the floor
+#define OPENSPACE_PLANE -61 //Openspace plane below all turfs
+#define OPENSPACE_BACKDROP_PLANE -60 //Black square just over openspace plane to guaranteed cover all in openspace turf
 
-#define FLOOR_PLANE -8 //MOJAVE MODULE OUTDOOR_EFFECTS
-#define OVER_TILE_PLANE -7 //MOJAVE SUN EDIT - Wallening Testmerge
-#define WALL_PLANE -6 //MOJAVE SUN EDIT - Wallening Testmerge
-#define GAME_PLANE -5 //MOJAVE MODULE OUTDOOR_EFFECTS
-#define WEATHER_EFFECT_PLANE -4 //MOJAVE MODULE OUTDOOR_EFFECTS
-#define UNDER_FRILL_PLANE -3 //MOJAVE SUN EDIT - Wallening Testmerge
+#define FLOOR_PLANE -52 //MOJAVE MODULE OUTDOOR_EFFECTS
+#define OVER_TILE_PLANE -51 //MOJAVE SUN EDIT - Wallening Testmerge
+#define WALL_PLANE -50 //MOJAVE SUN EDIT - Wallening Testmerge
+
+#define GAME_PLANE -42 //MOJAVE MODULE OUTDOOR_EFFECTS
+
+#define WEATHER_EFFECT_PLANE -30 //MOJAVE MODULE OUTDOOR_EFFECTS
+
+
+#define GAME_PLANE_FOV_HIDDEN -21
+#define ABOVE_GAME_PLANE -20
+
+#define UNDER_FRILL_PLANE -12 //MOJAVE SUN EDIT - Wallening Testmerge
 #define UNDER_FRILL_RENDER_TARGET "*UNDER_RENDER_TARGET" //MOJAVE SUN EDIT - Wallening Testmerge
-#define FRILL_PLANE -2 //MOJAVE SUN EDIT - Wallening Testmerge
-#define OVER_FRILL_PLANE -1 //MOJAVE SUN EDIT - Wallening Testmerge
+#define FRILL_PLANE -11 //MOJAVE SUN EDIT - Wallening Testmerge
+#define OVER_FRILL_PLANE -10 //MOJAVE SUN EDIT - Wallening Testmerge
 
 #define SPACE_LAYER 1.8
 //#define TURF_LAYER 2 //For easy recordkeeping; this is a byond define
@@ -56,9 +67,11 @@
 ///catwalk overlay of /turf/open/floor/plating/catwalk_floor
 #define CATWALK_LAYER 2.51
 #define LOW_SIGIL_LAYER 2.52
-#define SIGIL_LAYER 2.54
-#define HIGH_PIPE_LAYER 2.55
-#define HIGH_SIGIL_LAYER 2.56
+#define SIGIL_LAYER 2.53
+#define HIGH_PIPE_LAYER 2.54
+// Anything aboe this layer is not "on" a turf for the purposes of washing
+// I hate this life of ours
+#define FLOOR_CLEAN_LAYER 2.55
 
 #define BELOW_OPEN_DOOR_LAYER 2.6
 #define BLASTDOOR_LAYER 2.65
@@ -158,16 +171,11 @@
 ///AI Camera Static
 #define CAMERA_STATIC_PLANE 200
 
-///Popup Chat Messages
-#define RUNECHAT_PLANE 250
-
-/// Plane for balloon text (text that fades up)
-#define BALLOON_CHAT_PLANE 251
-
 ///Debug Atmos Overlays
 #define ATMOS_GROUP_PLANE 450
 
 ///--------------- FULLSCREEN IMAGES ------------
+
 #define FULLSCREEN_PLANE 500
 #define FLASH_LAYER 1
 #define FULLSCREEN_LAYER 2
@@ -175,7 +183,14 @@
 #define BLIND_LAYER 4
 #define CRIT_LAYER 5
 #define CURSE_LAYER 6
+#define FOV_EFFECTS_LAYER 10000 //Blindness effects are not layer 4, they lie to you
 
+///--------------- FULLSCREEN RUNECHAT BUBBLES ------------
+
+///Popup Chat Messages
+#define RUNECHAT_PLANE 501
+/// Plane for balloon text (text that fades up)
+#define BALLOON_CHAT_PLANE 502
 
 //-------------------- Rendering ---------------------
 #define RENDER_PLANE_GAME 990

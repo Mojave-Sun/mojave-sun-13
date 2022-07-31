@@ -64,20 +64,7 @@
 	var/drop_amount = 3
 
 /obj/structure/barricade/wooden/attackby(obj/item/I, mob/user)
-	if(istype(I,/obj/item/stack/sheet/mineral/wood))
-		var/obj/item/stack/sheet/mineral/wood/W = I
-		if(W.amount < 5)
-			to_chat(user, span_warning("You need at least five wooden planks to make a wall!"))
-			return
-		else
-			to_chat(user, span_notice("You start adding [I] to [src]..."))
-			if(do_after(user, 50, target=src))
-				W.use(5)
-				var/turf/T = get_turf(src)
-				T.PlaceOnTop(/turf/closed/wall/mineral/wood/nonmetal)
-				qdel(src)
-				return
-	return ..()
+	return //MOJAVE EDIT - So people can't turn barricades into full ass walls. Revert after CAT
 
 
 /obj/structure/barricade/wooden/crude
@@ -94,7 +81,7 @@
 	max_integrity = 75
 
 /obj/structure/barricade/wooden/make_debris()
-	new /obj/item/stack/sheet/mineral/wood(get_turf(src), drop_amount)
+	new /obj/item/stack/sheet/ms13/scrap_wood(get_turf(src), drop_amount) //MOJAVE EDIT - Drops our wood instead of TG wood. Revert after CAT
 
 /obj/structure/barricade/sandbags
 	name = "sandbags"
@@ -145,7 +132,7 @@
 	name = "barrier grenade"
 	desc = "Instant cover."
 	icon = 'icons/obj/grenade.dmi'
-	icon_state = "flashbang"
+	icon_state = "wallbang"
 	inhand_icon_state = "flashbang"
 	actions_types = list(/datum/action/item_action/toggle_barrier_spread)
 	var/mode = SINGLE

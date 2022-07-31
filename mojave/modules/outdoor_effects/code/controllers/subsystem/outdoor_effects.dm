@@ -52,7 +52,9 @@ SUBSYSTEM_DEF(outdoor_effects)
 	flags = SS_TICKER
 	init_order = INIT_ORDER_OUTDOOR_EFFECTS
 
-	var/list/atom/movable/screen/fullscreen/lighting_backdrop/Sunlight/sunlighting_planes = list()
+	var/atom/movable/sun_color
+
+	// var/list/atom/movable/screen/fullscreen/lighting_backdrop/Sunlight/sunlighting_planes = list()
 	var/datum/time_of_day/current_step_datum
 	var/datum/time_of_day/next_step_datum
 	var/list/mutable_appearance/sunlight_overlays
@@ -65,6 +67,7 @@ SUBSYSTEM_DEF(outdoor_effects)
 	                                                   new /datum/time_of_day/sunset(),
 	                                                   new /datum/time_of_day/dusk(),
 	                                                   new /datum/time_of_day/midnight())
+	var/next_day = FALSE // Resets when station_time is less than the next start time.
 
 
 
@@ -85,6 +88,13 @@ SUBSYSTEM_DEF(outdoor_effects)
 		InitializeTurfs()
 		initialized = TRUE
 	fire(FALSE, TRUE)
+	// ColorSquare
+	sun_color = new /atom/movable()
+	sun_color.color = current_step_datum.color
+	sun_color.appearance_flags = RESET_COLOR|RESET_ALPHA|RESET_TRANSFORM
+	sun_color.vis_flags = VIS_INHERIT_PLANE|VIS_INHERIT_LAYER
+	sun_color.blend_mode = BLEND_ADD
+	sun_color.filters += filter(type="layer", render_source=SUNLIGHTING_RENDER_TARGET)
 	..()
 
 /datum/controller/subsystem/outdoor_effects/proc/InitializeTurfs(list/targets)
@@ -96,16 +106,21 @@ SUBSYSTEM_DEF(outdoor_effects)
 
 
 /datum/controller/subsystem/outdoor_effects/proc/check_cycle()
-	if(station_time() > next_step_datum.start)
+	if(!next_step_datum)
 		get_time_of_day()
 		return TRUE
+
+	if(station_time() > next_step_datum.start)
+		if(next_day)
+			return FALSE
+		get_time_of_day()
+		return TRUE
+	else if (next_day) // It is now the next morning, reset our next day
+		next_day = FALSE
+
 	return FALSE
 
 /datum/controller/subsystem/outdoor_effects/proc/get_time_of_day()
-
-	//Set our current color as last_color so newly initialized sunlight screens have a color
-	if(current_step_datum)
-		last_color = current_step_datum.color
 
 	//Get the next time step (first time where NOW > START_TIME)
 	//If we don't find one - grab the LAST time step (which should be midnight)
@@ -124,12 +139,17 @@ SUBSYSTEM_DEF(outdoor_effects)
 
 	current_step_datum = new_step
 
-	//If it is round-start, we wouldn't have had a current_step_datum, so set our last_color to the current one
-	if(!last_color)
-		last_color = current_step_datum.color
+	// If the next start time is less than the current start time (i.e 10 PM vs 5 AM) then set our NextDay value
+	if(next_step_datum.start <= current_step_datum.start)
+		next_day = TRUE
 
 /* set sunlight color + add weather effect to clients */
 /datum/controller/subsystem/outdoor_effects/fire(resumed, init_tick_checks)
+
+	// Change the name of our sun_color - this fixes byond not rendering it for some reason
+	if(sun_color)
+		sun_color.name = "SUN_COLOR_[rand()*rand(1,9999999)]" // force rendering refresh because byond is a bitch
+
 	MC_SPLIT_TICK_INIT(3)
 	if(!init_tick_checks)
 		MC_SPLIT_TICK
@@ -217,15 +237,14 @@ SUBSYSTEM_DEF(outdoor_effects)
 		i = 0
 
 	if(check_cycle())
-		for (var/atom/movable/screen/fullscreen/lighting_backdrop/Sunlight/SP in sunlighting_planes)
-			transition_sunlight_color(SP)
+		transition_sunlight_color()
 
 
 //Transition from our last color to our current color (i.e if it is going from daylight (white) to sunset (red), we transition to red in the first hour of sunset)
-/datum/controller/subsystem/outdoor_effects/proc/transition_sunlight_color(atom/movable/screen/fullscreen/lighting_backdrop/Sunlight/SP)
+/datum/controller/subsystem/outdoor_effects/proc/transition_sunlight_color()
 	/* transistion in an hour or time diff from now to our next step, whichever is smaller */
 	var timeDiff = min((1 HOURS / SSticker.station_time_rate_multiplier ),daytimeDiff(station_time(), next_step_datum.start))
-	animate(SP,color=current_step_datum.color, time = timeDiff)
+	animate(sun_color, color=current_step_datum.color, time = timeDiff)
 
 // Updates overlays and vis_contents for outdoor effects
 /datum/controller/subsystem/outdoor_effects/proc/update_outdoor_effect_overlays(atom/movable/outdoor_effect/OE)

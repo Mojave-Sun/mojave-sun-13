@@ -214,9 +214,9 @@
 	if(held_index == hud.mymob.active_hand_index)
 		//MOJAVE EDIT - . += "hand_active"
 		if(hud.mymob.active_hand_index == 1)
-			. += "hand_r_on"
-		else
 			. += "hand_l_on"
+		else
+			. += "hand_r_on"
 
 
 /atom/movable/screen/inventory/hand/Click(location, control, params)
@@ -461,7 +461,7 @@
 	if(master)
 		var/obj/item/I = usr.get_active_held_item()
 		if(I)
-			master.attackby(null, I, usr, params)
+			master.attackby(src, I, usr, params, TRUE) //MOJAVE SUN EDIT - Grid Inventory
 	return TRUE
 
 /atom/movable/screen/throw_catch
@@ -619,6 +619,7 @@
 	if(choice != hud.mymob.zone_selected)
 		hud.mymob.zone_selected = choice
 		update_appearance()
+		SEND_SIGNAL(user, COMSIG_MOB_SELECTED_ZONE_SET, choice)
 
 	return TRUE
 
@@ -693,6 +694,7 @@
 /atom/movable/screen/healthdoll
 	name = "health doll"
 	screen_loc = ui_healthdoll
+	icon = 'mojave/icons/hud/ms_ui_health.dmi' // MS Health doll
 
 /atom/movable/screen/healthdoll/Click()
 	if (iscarbon(usr))
@@ -703,11 +705,13 @@
 	icon_state = "fullhealth0"
 	screen_loc = ui_living_healthdoll
 	var/filtered = FALSE //so we don't repeatedly create the mask of the mob every update
+	icon = 'icons/hud/screen_gen.dmi' // MS Health doll
 
 /atom/movable/screen/mood
 	name = "mood"
 	icon_state = "mood5"
 	screen_loc = ui_mood
+	icon = 'mojave/icons/hud/ms_ui_health.dmi' // MS Health doll
 
 /atom/movable/screen/mood/attack_tk()
 	return
@@ -800,3 +804,8 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/splash)
 		intent_icon.pixel_x = 16 * (i - 1) - 8 * length(streak)
 		add_overlay(intent_icon)
 	return ..()
+
+/atom/movable/screen/stamina
+	name = "stamina"
+	icon_state = "stamina0"
+	screen_loc = ui_stamina

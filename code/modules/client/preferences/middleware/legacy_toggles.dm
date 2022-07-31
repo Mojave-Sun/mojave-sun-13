@@ -28,7 +28,7 @@
 		"sound_lobby" = SOUND_LOBBY,
 		"sound_midi" = SOUND_MIDI,
 		"sound_prayers" = SOUND_PRAYERS,
-		"sound_ship_ambience" = SOUND_SHIP_AMBIENCE,
+		//"sound_ship_ambience" = SOUND_SHIP_AMBIENCE, //MOJAVE SUN EDIT - Removes "Ship Ambience"
 		"split_admin_tabs" = SPLIT_ADMIN_TABS,
 	)
 

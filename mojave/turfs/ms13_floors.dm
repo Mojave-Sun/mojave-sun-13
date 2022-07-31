@@ -9,6 +9,7 @@
 	icon_state = "wood tiles"
 	desc = "Wooden flooring."
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TILE)
+	baseturfs = /turf/baseturf_bottom //No lattices please
 	var/has_alternate_states = TRUE //for damage, alts etc.
 	var/alternate_states = 1
 	var/has_base_states = TRUE //for starting variety (mainly wood)
@@ -34,6 +35,9 @@
 	return FALSE
 
 /turf/open/floor/wood/ms13/try_replace_tile(obj/item/stack/tile/T, mob/user, params)
+	return
+
+/turf/open/floor/wood/screwdriver_act(mob/living/user, obj/item/I)
 	return
 
 /turf/open/floor/wood/ms13/common
@@ -76,6 +80,9 @@
 			continue
 		stack_trace("multiple foundations found in ([loc.x], [loc.y], [loc.z])")
 		return INITIALIZE_HINT_QDEL
+	var/static/list/bad_initialize = list(INITIALIZE_HINT_QDEL, INITIALIZE_HINT_QDEL_FORCE)
+	if(!(. in bad_initialize))
+		AddComponent(/datum/component/footstep_changer, FOOTSTEP_WOOD)
 
 /obj/structure/ms13/foundation/variantone
 	icon_state = "wood_foundation_broken_1"
@@ -282,6 +289,10 @@
 /turf/open/floor/ms13/tile/brown
 	icon_state = "brown"
 
+/turf/open/floor/ms13/tile/brown/big
+	icon_state = "brown_big"
+	has_alternate_states = FALSE
+
 /turf/open/floor/ms13/tile/fancy
 	icon_state = "fancy"
 	alternate_states = 7
@@ -292,6 +303,10 @@
 /turf/open/floor/ms13/tile/large/navy
 	icon_state = "navy_large"
 	alternate_states = 3
+
+/turf/open/floor/ms13/tile/large/cream
+	icon_state = "cream_large"
+	has_alternate_states = FALSE
 
 /turf/open/floor/ms13/tile/large/black
 	icon_state = "black_large"

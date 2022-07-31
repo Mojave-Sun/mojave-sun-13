@@ -69,6 +69,7 @@
 	message = "dances around happily."
 	hands_use_check = TRUE
 
+/* MOJAVE SUN EDIT - Removes Stupid non-RP Emotes
 /datum/emote/living/deathgasp
 	key = "deathgasp"
 	key_third_person = "deathgasps"
@@ -81,6 +82,7 @@
 	message_simple = "stops moving..."
 	cooldown = (15 SECONDS)
 	stat_allowed = HARD_CRIT
+*///MOJAVE SUN EDIT END - Remove stupid non-RP emotes
 
 /datum/emote/living/deathgasp/run_emote(mob/user, params, type_override, intentional)
 	var/mob/living/simple_animal/S = user
@@ -193,6 +195,7 @@
 	message = "jumps!"
 	hands_use_check = TRUE
 
+/* MOJAVE SUN EDIT - Removes Stupid non-RP Emotes
 /datum/emote/living/kiss
 	key = "kiss"
 	key_third_person = "kisses"
@@ -213,6 +216,7 @@
 	else
 		qdel(kiss_blower)
 		to_chat(user, span_warning("You're incapable of blowing a kiss in your current state."))
+*///MOJAVE SUN EDIT END - Remove stupid non-RP emotes
 
 /datum/emote/living/laugh
 	key = "laugh"
@@ -545,4 +549,10 @@
 	key = "exhale"
 	key_third_person = "exhales"
 	message = "breathes out."
+	emote_type = EMOTE_AUDIBLE
+
+/datum/emote/living/swear
+	key = "swear"
+	key_third_person = "swears"
+	message = "says a swear word!"
 	emote_type = EMOTE_AUDIBLE

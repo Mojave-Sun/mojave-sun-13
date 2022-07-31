@@ -4,7 +4,7 @@
 
 /obj/effect/spawner/random/structure/crate
 	name = "crate spawner"
-	icon_state = "crate"
+	icon_state = "crate_secure"
 	loot = list(
 		/obj/effect/spawner/random/structure/crate_loot = 745,
 		/obj/structure/closet/crate/trashcart/filled = 75,
@@ -176,4 +176,23 @@
 	loot = list(
 		/obj/structure/barricade/wooden,
 		/obj/structure/barricade/wooden/crude,
+	)
+
+/obj/effect/spawner/random/structure/billboard
+	name = "billboard spawner"
+	icon = 'icons/obj/billboard.dmi'
+	icon_state = "billboard_random"
+	loot = list(
+		/obj/structure/billboard/azik = 50,
+		/obj/structure/billboard/donk_n_go = 50,
+		/obj/structure/billboard/space_cola = 50,
+		/obj/structure/billboard/nanotrasen = 35,
+		/obj/structure/billboard/nanotrasen/defaced = 15,
+	)
+
+/obj/effect/spawner/random/structure/billboard/nanotrasen //useful for station maps- NT isn't the sort to advertise for competitors
+	name = "\improper Nanotrasen billboard spawner"
+	loot = list(
+		/obj/structure/billboard/nanotrasen = 35,
+		/obj/structure/billboard/nanotrasen/defaced = 15,
 	)

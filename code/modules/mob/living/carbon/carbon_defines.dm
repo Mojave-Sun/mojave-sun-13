@@ -3,7 +3,7 @@
 	gender = MALE
 	pressure_resistance = 15
 	hud_possible = list(HEALTH_HUD,STATUS_HUD,ANTAG_HUD,GLAND_HUD)
-	has_limbs = 1
+	has_limbs = TRUE
 	held_items = list(null, null)
 	num_legs = 0 //Populated on init through list/bodyparts
 	usable_legs = 0 //Populated on init through list/bodyparts
@@ -11,6 +11,8 @@
 	usable_hands = 0 //Populated on init through list/bodyparts
 	mobility_flags = MOBILITY_FLAGS_CARBON_DEFAULT
 	blocks_emissive = NONE
+	throw_range = 2 // MOJAVE SUN EDIT - No more gamer combat
+	throw_speed = 1 // MOJAVE SUN EDIT - Slow em down, too.
 	///List of [/obj/item/organ] in the mob. They don't go in the contents for some reason I don't want to know.
 	var/list/internal_organs = list()
 	///Same as [above][/mob/living/carbon/var/internal_organs], but stores "slot ID" - "organ" pairs for easy access.
@@ -105,5 +107,8 @@
 
 	/// Can other carbons be shoved into this one to make it fall?
 	var/can_be_shoved_into = FALSE
+
+	/// Only load in visual organs
+	var/visual_only_organs = FALSE
 
 	COOLDOWN_DECLARE(bleeding_message_cd)

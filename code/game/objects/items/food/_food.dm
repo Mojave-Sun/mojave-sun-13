@@ -40,8 +40,8 @@
 	var/venue_value
 	///Food that's immune to decomposition.
 	var/preserved_food = FALSE
-	///Does our food normally attract ants?
-	var/ant_attracting = TRUE
+	///Does our food normally attract ants? //MOJAVE EDIT START
+	var/ant_attracting = FALSE //Original TG value is TRUE. We will never want space ants to be honest, so this is just going to be disabled at the base food value. MOJAVE EDIT END
 	///What our food decomposes into.
 	var/decomp_type = /obj/item/food/badrecipe/moldy
 	///Food that needs to be picked up in order to decompose.
@@ -107,4 +107,3 @@
 /obj/item/food/proc/MakeDecompose(mapload)
 	if(!preserved_food)
 		AddComponent(/datum/component/decomposition, mapload, decomp_req_handle, decomp_flags = foodtypes, decomp_result = decomp_type, ant_attracting = ant_attracting)
-

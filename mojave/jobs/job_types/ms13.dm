@@ -22,7 +22,6 @@ Mojave Sun Job Base Class
 	id = null
 	ears = null
 	belt = null
-	back = null
 	shoes = null
 	box = null
 
@@ -31,9 +30,6 @@ Mojave Sun Job Base Class
 	duffelbag = null
 
 	pda_slot = null
-
-/datum/outfit/job/ms13/pre_equip(mob/living/carbon/human/H)
-	//Blank for now, utilize as needed later on.
 
 //These are base jobs, we don't want them appearing at all
 /datum/job/ms13/config_check()

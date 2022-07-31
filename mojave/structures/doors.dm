@@ -8,7 +8,7 @@
 	assemblytype = null
 	can_crush = FALSE
 	spark_system = null
-	max_integrity = 650
+	max_integrity = 500
 	sparks = FALSE
 	var/door_type = null
 	var/solidity = SOLID
@@ -86,11 +86,11 @@
 	return TRUE
 
 /obj/machinery/door/unpowered/ms13/attack_hand(mob/living/M)
-	if(do_after(M, 1 SECONDS))
+	if(do_after(M, 0.5 SECONDS, interaction_key = DOAFTER_SOURCE_DOORS))
 		try_to_activate_door(M)
 
 /obj/machinery/door/unpowered/ms13/attackby(obj/item/I, mob/living/M, params)
-	if(do_after(M, 1.5 SECONDS))
+	if(do_after(M, 1.5 SECONDS, interaction_key = DOAFTER_SOURCE_DOORS))
 		try_to_activate_door(M)
 		return TRUE
 
@@ -104,6 +104,7 @@
 	name = "metal door"
 	icon_state = "metal_closed"
 	door_type = "metal"
+	assemblytype = /obj/item/stack/sheet/ms13/scrap
 
 /obj/machinery/door/unpowered/ms13/metal/mirrored
 	icon_state = "metal_mirrored_closed"
@@ -131,6 +132,7 @@
 	icon_state = "wood_closed"
 	door_type = "wood"
 	frametype = "wood"
+	assemblytype = /obj/item/stack/sheet/ms13/scrap_wood
 
 /obj/machinery/door/unpowered/ms13/wood/mirrored
 	icon_state = "wood_mirrored_closed"
@@ -174,6 +176,7 @@
 	name = "generic ms13 see-through door"
 	glass = TRUE
 	opacity = 0
+	assemblytype = /obj/item/stack/sheet/ms13/scrap
 	var/passthrough_chance = 80
 
 /obj/machinery/door/unpowered/ms13/seethrough/CanAllowThrough(atom/movable/mover, border_dir)

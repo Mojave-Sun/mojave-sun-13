@@ -9,7 +9,7 @@
 	var/cistern = 0 //if the cistern bit is open
 	var/w_items = 0 //the combined w_class of all the items in the cistern
 	var/mob/living/swirlie = null //the mob being given a swirlie
-	var/buildstacktype = /obj/item/stack/sheet/iron //they're iron now, shut up
+	var/buildstacktype = /obj/item/stack/sheet/ms13/ceramic//they're iron now, shut up //MOJAVE EDIT - Drops our ceramic instead of TG iron. Revert after CAT
 	var/buildstackamount = 1
 
 /obj/structure/toilet/Initialize(mapload)
@@ -261,7 +261,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/urinal, 32)
 	///What kind of reagent is produced by this sink by default? (We now have actual plumbing, Arcane, August 2020)
 	var/dispensedreagent = /datum/reagent/water
 	///Material to drop when broken or deconstructed.
-	var/buildstacktype = /obj/item/stack/sheet/iron
+	var/buildstacktype = /obj/item/stack/sheet/ms13/ceramic //MOJAVE EDIT - Drops our ceramic instead of TG iron. Revert/remove after CAT
 	///Number of sheets of material to drop when broken or deconstructed.
 	var/buildstackamount = 1
 	///Does the sink have a water recycler to recollect it's water supply?
@@ -374,12 +374,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/urinal, 32)
 		deconstruct()
 		return
 
-	if(istype(O, /obj/item/stack/medical/gauze))
-		var/obj/item/stack/medical/gauze/G = O
-		new /obj/item/reagent_containers/glass/rag(src.loc)
-		to_chat(user, span_notice("You tear off a strip of gauze and make a rag."))
-		G.use(1)
-		return
+//MOJAVE EDIT - Prevents turning gauze into TG rags on a sink. I don't even know why TG has this. Revert after CAT
 
 	if(istype(O, /obj/item/stack/sheet/cloth))
 		var/obj/item/stack/sheet/cloth/cloth = O
@@ -707,9 +702,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/urinal, 32)
 	toggle()
 
 /obj/structure/curtain/deconstruct(disassembled = TRUE)
-	new /obj/item/stack/sheet/cloth (loc, 2)
-	new /obj/item/stack/sheet/plastic (loc, 2)
-	new /obj/item/stack/rods (loc, 1)
+	new /obj/item/stack/sheet/ms13/plastic (loc, 2) //MOJAVE EDIT - Removed other drops and made it drop our plastic instead of TG plastic. Revert after CAT
 	qdel(src)
 
 /obj/structure/curtain/play_attack_sound(damage_amount, damage_type = BRUTE, damage_flag = 0)
@@ -735,8 +728,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/urinal, 32)
 	opaque_closed = TRUE
 
 /obj/structure/curtain/cloth/deconstruct(disassembled = TRUE)
-	new /obj/item/stack/sheet/cloth (loc, 4)
-	new /obj/item/stack/rods (loc, 1)
+	new /obj/item/stack/sheet/ms13/cloth (loc, 2) //MOJAVE EDIT - Removed other drops and made it drop our cloth instead of TG cloth. Revert after CAT
 	qdel(src)
 
 /obj/structure/curtain/cloth/fancy
@@ -774,3 +766,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/urinal, 32)
 
 /obj/structure/curtain/cloth/fancy/mechanical/attack_hand(mob/user, list/modifiers)
 		return
+
+/obj/structure/curtain/cloth/fancy/mechanical/start_closed
+	icon_state = "cur_fancy-closed"
+
+/obj/structure/curtain/cloth/fancy/mechanical/start_closed/Initialize(mapload)
+	. = ..()
+	close()

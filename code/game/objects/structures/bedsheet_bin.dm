@@ -18,6 +18,7 @@ LINEN BINS
 	inhand_icon_state = "sheetwhite"
 	slot_flags = ITEM_SLOT_NECK
 	layer = MOB_LAYER
+	plane = GAME_PLANE_FOV_HIDDEN
 	throwforce = 0
 	throw_speed = 1
 	throw_range = 2
@@ -27,12 +28,16 @@ LINEN BINS
 
 	dog_fashion = /datum/dog_fashion/head/ghost
 	var/list/dream_messages = list("white")
+	var/stack_amount = 3
 	var/bedsheet_type = BEDSHEET_SINGLE
 
 /obj/item/bedsheet/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/surgery_initiator)
+	AddComponent(/datum/component/surgery_initiator)
 	AddElement(/datum/element/bed_tuckable, 0, 0, 0)
+	if(bedsheet_type == BEDSHEET_DOUBLE)
+		stack_amount *= 2
+		dying_key = DYE_REGISTRY_DOUBLE_BEDSHEET
 
 /obj/item/bedsheet/attack_self(mob/user)
 	if(!user.CanReach(src)) //No telekenetic grabbing.
@@ -53,7 +58,7 @@ LINEN BINS
 /obj/item/bedsheet/attackby(obj/item/I, mob/user, params)
 	if(I.tool_behaviour == TOOL_WIRECUTTER || I.get_sharpness())
 		if (!(flags_1 & HOLOGRAM_1))
-			var/obj/item/stack/sheet/cloth/shreds = new (get_turf(src), 3)
+			var/obj/item/stack/sheet/cloth/shreds = new (get_turf(src), stack_amount)
 			if(!QDELETED(shreds)) //stacks merged
 				transfer_fingerprints_to(shreds)
 				shreds.add_fingerprint(user)
@@ -312,25 +317,21 @@ LINEN BINS
 /obj/item/bedsheet/double
 	icon_state = "double_sheetwhite"
 	worn_icon_state = "sheetwhite"
-	dying_key = DYE_REGISTRY_DOUBLE_BEDSHEET
 	bedsheet_type = BEDSHEET_DOUBLE
 
 /obj/item/bedsheet/blue/double
 	icon_state = "double_sheetblue"
 	worn_icon_state = "sheetblue"
-	dying_key = DYE_REGISTRY_DOUBLE_BEDSHEET
 	bedsheet_type = BEDSHEET_DOUBLE
 
 /obj/item/bedsheet/green/double
 	icon_state = "double_sheetgreen"
 	worn_icon_state = "sheetgreen"
-	dying_key = DYE_REGISTRY_DOUBLE_BEDSHEET
 	bedsheet_type = BEDSHEET_DOUBLE
 
 /obj/item/bedsheet/grey/double
 	icon_state = "double_sheetgrey"
 	worn_icon_state = "sheetgrey"
-	dying_key = DYE_REGISTRY_DOUBLE_BEDSHEET
 	bedsheet_type = BEDSHEET_DOUBLE
 
 /obj/item/bedsheet/orange/double
@@ -342,25 +343,21 @@ LINEN BINS
 /obj/item/bedsheet/purple/double
 	icon_state = "double_sheetpurple"
 	worn_icon_state = "sheetpurple"
-	dying_key = DYE_REGISTRY_DOUBLE_BEDSHEET
 	bedsheet_type = BEDSHEET_DOUBLE
 
 /obj/item/bedsheet/patriot/double
 	icon_state = "double_sheetUSA"
 	worn_icon_state = "sheetUSA"
-	dying_key = DYE_REGISTRY_DOUBLE_BEDSHEET
 	bedsheet_type = BEDSHEET_DOUBLE
 
 /obj/item/bedsheet/rainbow/double
 	icon_state = "double_sheetrainbow"
 	worn_icon_state = "sheetrainbow"
-	dying_key = DYE_REGISTRY_DOUBLE_BEDSHEET
 	bedsheet_type = BEDSHEET_DOUBLE
 
 /obj/item/bedsheet/red/double
 	icon_state = "double_sheetred"
 	worn_icon_state = "sheetred"
-	dying_key = DYE_REGISTRY_DOUBLE_BEDSHEET
 	bedsheet_type = BEDSHEET_DOUBLE
 
 /obj/item/bedsheet/yellow/double
@@ -372,121 +369,101 @@ LINEN BINS
 /obj/item/bedsheet/mime/double
 	icon_state = "double_sheetmime"
 	worn_icon_state = "sheetmime"
-	dying_key = DYE_REGISTRY_DOUBLE_BEDSHEET
 	bedsheet_type = BEDSHEET_DOUBLE
 
 /obj/item/bedsheet/clown/double
 	icon_state = "double_sheetclown"
 	worn_icon_state = "sheetclown"
-	dying_key = DYE_REGISTRY_DOUBLE_BEDSHEET
 	bedsheet_type = BEDSHEET_DOUBLE
 
 /obj/item/bedsheet/captain/double
 	icon_state = "double_sheetcaptain"
 	worn_icon_state = "sheetcaptain"
-	dying_key = DYE_REGISTRY_DOUBLE_BEDSHEET
 	bedsheet_type = BEDSHEET_DOUBLE
 
 /obj/item/bedsheet/rd/double
 	icon_state = "double_sheetrd"
 	worn_icon_state = "sheetrd"
-	dying_key = DYE_REGISTRY_DOUBLE_BEDSHEET
 	bedsheet_type = BEDSHEET_DOUBLE
 
 /obj/item/bedsheet/medical/double
 	icon_state = "double_sheetmedical"
 	worn_icon_state = "sheetmedical"
-	dying_key = DYE_REGISTRY_DOUBLE_BEDSHEET
 	bedsheet_type = BEDSHEET_DOUBLE
 
 /obj/item/bedsheet/cmo/double
 	icon_state = "double_sheetcmo"
 	worn_icon_state = "sheetcmo"
-	dying_key = DYE_REGISTRY_DOUBLE_BEDSHEET
 	bedsheet_type = BEDSHEET_DOUBLE
 
 /obj/item/bedsheet/hos/double
 	icon_state = "double_sheethos"
 	worn_icon_state = "sheethos"
-	dying_key = DYE_REGISTRY_DOUBLE_BEDSHEET
 	bedsheet_type = BEDSHEET_DOUBLE
 
 /obj/item/bedsheet/hop/double
 	icon_state = "double_sheethop"
 	worn_icon_state = "sheethop"
-	dying_key = DYE_REGISTRY_DOUBLE_BEDSHEET
 	bedsheet_type = BEDSHEET_DOUBLE
 
 /obj/item/bedsheet/ce/double
 	icon_state = "double_sheetce"
 	worn_icon_state = "sheetce"
-	dying_key = DYE_REGISTRY_DOUBLE_BEDSHEET
 	bedsheet_type = BEDSHEET_DOUBLE
 
 /obj/item/bedsheet/qm/double
 	icon_state = "double_sheetqm"
 	worn_icon_state = "sheetqm"
-	dying_key = DYE_REGISTRY_DOUBLE_BEDSHEET
 	bedsheet_type = BEDSHEET_DOUBLE
 
 /obj/item/bedsheet/chaplain/double
 	icon_state = "double_sheetchap"
 	worn_icon_state = "sheetchap"
-	dying_key = DYE_REGISTRY_DOUBLE_BEDSHEET
 	bedsheet_type = BEDSHEET_DOUBLE
 
 /obj/item/bedsheet/brown/double
 	icon_state = "double_sheetbrown"
 	worn_icon_state = "sheetbrown"
-	dying_key = DYE_REGISTRY_DOUBLE_BEDSHEET
 	bedsheet_type = BEDSHEET_DOUBLE
 
 /obj/item/bedsheet/black/double
 	icon_state = "double_sheetblack"
 	worn_icon_state = "sheetblack"
-	dying_key = DYE_REGISTRY_DOUBLE_BEDSHEET
 	bedsheet_type = BEDSHEET_DOUBLE
 
 /obj/item/bedsheet/centcom/double
 	icon_state = "double_sheetcentcom"
 	worn_icon_state = "sheetcentcom"
-	dying_key = DYE_REGISTRY_DOUBLE_BEDSHEET
 	bedsheet_type = BEDSHEET_DOUBLE
 
 /obj/item/bedsheet/syndie/double
 	icon_state = "double_sheetsyndie"
 	worn_icon_state = "sheetsyndie"
-	dying_key = DYE_REGISTRY_DOUBLE_BEDSHEET
 	bedsheet_type = BEDSHEET_DOUBLE
 
 /obj/item/bedsheet/cult/double
 	icon_state = "double_sheetcult"
 	worn_icon_state = "sheetcult"
-	dying_key = DYE_REGISTRY_DOUBLE_BEDSHEET
 	bedsheet_type = BEDSHEET_DOUBLE
 
 /obj/item/bedsheet/wiz/double
 	icon_state = "double_sheetwiz"
 	worn_icon_state = "sheetwiz"
-	dying_key = DYE_REGISTRY_DOUBLE_BEDSHEET
 	bedsheet_type = BEDSHEET_DOUBLE
 
 /obj/item/bedsheet/nanotrasen/double
 	icon_state = "double_sheetNT"
 	worn_icon_state = "sheetNT"
-	dying_key = DYE_REGISTRY_DOUBLE_BEDSHEET
 	bedsheet_type = BEDSHEET_DOUBLE
 
 /obj/item/bedsheet/ian/double
 	icon_state = "double_sheetian"
 	worn_icon_state = "sheetian"
-	dying_key = DYE_REGISTRY_DOUBLE_BEDSHEET
 	bedsheet_type = BEDSHEET_DOUBLE
 
 /obj/item/bedsheet/cosmos/double
 	icon_state = "double_sheetcosmos"
 	worn_icon_state = "sheetcosmos"
-	dying_key = DYE_REGISTRY_DOUBLE_BEDSHEET
 	bedsheet_type = BEDSHEET_DOUBLE
 
 /obj/item/bedsheet/dorms_double
@@ -577,10 +554,10 @@ LINEN BINS
 		if(flags_1 & NODECONSTRUCT_1)
 			return
 		if(amount)
-			to_chat(user, "<span clas='warn'>The [src] must be empty first!</span>")
+			to_chat(user, span_warning("The [src] must be empty first!"))
 			return
 		if(I.use_tool(src, user, 5, volume=50))
-			to_chat(user, "<span clas='notice'>You disassemble the [src].</span>")
+			to_chat(user, span_notice("You disassemble the [src]."))
 			new /obj/item/stack/rods(loc, 2)
 			qdel(src)
 

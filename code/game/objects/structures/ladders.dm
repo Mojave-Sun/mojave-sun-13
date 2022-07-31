@@ -11,6 +11,7 @@
 	var/crafted = FALSE
 	/// Optional travel time for ladder in deciseconds
 	var/travel_time = 0
+	var/obstructed = FALSE // MOJAVE SUN BASE EDIT
 
 /obj/structure/ladder/Initialize(mapload, obj/structure/ladder/up, obj/structure/ladder/down)
 	..()
@@ -77,21 +78,9 @@
 			return
 		show_fluff_message(going_up, user)
 
-
-	var/turf/T = get_turf(ladder)
-	var/atom/movable/AM
-	if(user.pulling)
-		AM = user.pulling
-		AM.forceMove(T)
-	user.forceMove(T)
-	if(AM)
-		user.start_pulling(AM)
-
-	//reopening ladder radial menu ahead
-	T = get_turf(user)
-	var/obj/structure/ladder/ladder_structure = locate() in T
-	if (ladder_structure)
-		ladder_structure.use(user)
+	var/turf/target = get_turf(ladder)
+	user.zMove(target = target, z_move_flags = ZMOVE_CHECK_PULLEDBY|ZMOVE_ALLOW_BUCKLED|ZMOVE_INCLUDE_PULLED)
+	ladder.use(user) //reopening ladder radial menu ahead
 
 /obj/structure/ladder/proc/use(mob/user, is_ghost=FALSE)
 	if (!is_ghost && !in_range(src, user))

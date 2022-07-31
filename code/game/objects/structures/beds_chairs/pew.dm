@@ -5,8 +5,8 @@
 	icon_state = "pewmiddle"
 	resistance_flags = FLAMMABLE
 	max_integrity = 70
-	buildstacktype = /obj/item/stack/sheet/mineral/wood
-	buildstackamount = 3
+	buildstacktype = /obj/item/stack/sheet/ms13/scrap_wood //MOJAVE EDIT - Makes it drop our scrap wood instead of TG wood. Revert after CAT
+	buildstackamount = 1 //MOJAVE EDIT - Original value is 3. Revert after CAT
 	item_chair = null
 
 /obj/structure/chair/pew/left
@@ -70,3 +70,16 @@
 /obj/structure/chair/pew/right/post_unbuckle_mob()
 	. = ..()
 	update_rightpewarmrest()
+
+/obj/structure/chair/pew/can_user_rotate(mob/user)
+	. = ..()
+	if(!.)
+		return
+
+	var/mob/living/living_user = user
+	if(!istype(living_user))
+		return
+	var/obj/item/tool = living_user.get_active_held_item()
+	if(!tool || tool.tool_behaviour != TOOL_WRENCH)
+		balloon_alert(user, "you need a wrench!")
+		return FALSE

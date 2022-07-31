@@ -36,14 +36,15 @@
 
 /datum/component/mood/Destroy()
 	STOP_PROCESSING(SSmood, src)
-	REMOVE_TRAIT(parent, TRAIT_AREA_SENSITIVE, MOOD_COMPONENT_TRAIT)
+	var/atom/movable/movable_parent = parent
+	movable_parent.lose_area_sensitivity(MOOD_COMPONENT_TRAIT)
 	unmodify_hud()
 	return ..()
 
 /datum/component/mood/proc/register_job_signals(datum/source, job)
 	SIGNAL_HANDLER
 
-	if(job in list("Research Director", "Scientist", "Roboticist"))
+	if(job in list(JOB_RESEARCH_DIRECTOR, JOB_SCIENTIST, JOB_ROBOTICIST, JOB_GENETICIST))
 		RegisterSignal(parent, COMSIG_ADD_MOOD_EVENT_RND, .proc/add_event) //Mood events that are only for RnD members
 
 /datum/component/mood/proc/print_mood(mob/user)
@@ -132,7 +133,7 @@
 	if(!(owner.client || owner.hud_used))
 		return
 	screen_obj.cut_overlays()
-	screen_obj.color = initial(screen_obj.color)
+	//screen_obj.color = initial(screen_obj.color) - MOJAVE SUN EDIT - Green face removal
 	//lets see if we have any special icons to show instead of the normal mood levels
 	var/list/conflicting_moodies = list()
 	var/highest_absolute_mood = 0
@@ -148,19 +149,21 @@
 			if(absmood > highest_absolute_mood)
 				highest_absolute_mood = absmood
 
-	switch(sanity_level)
-		if(1)
-			screen_obj.color = "#2eeb9a"
-		if(2)
-			screen_obj.color = "#86d656"
-		if(3)
-			screen_obj.color = "#4b96c4"
-		if(4)
-			screen_obj.color = "#dfa65b"
-		if(5)
-			screen_obj.color = "#f38943"
-		if(6)
-			screen_obj.color = "#f15d36"
+	// MOJAVE EDIT BEGIN
+	// switch(sanity_level)
+	// 	if(1)
+	// 		screen_obj.color = "#2eeb9a"
+	// 	if(2)
+	// 		screen_obj.color = "#86d656"
+	// 	if(3)
+	// 		screen_obj.color = "#4b96c4"
+	// 	if(4)
+	// 		screen_obj.color = "#dfa65b"
+	// 	if(5)
+	// 		screen_obj.color = "#f38943"
+	// 	if(6)
+	// 		screen_obj.color = "#f15d36"
+	// MOJAVE EDIT END
 
 	if(!conflicting_moodies.len) //no special icons- go to the normal icon states
 		screen_obj.icon_state = "mood[mood_level]"
@@ -318,7 +321,7 @@
 	var/mob/living/owner = parent
 	var/datum/hud/hud = owner.hud_used
 	screen_obj = new
-	screen_obj.color = "#4b96c4"
+	//screen_obj.color = "#4b96c4" - MOJAVE SUN EDIT - Green face removal
 	hud.infodisplay += screen_obj
 	RegisterSignal(hud, COMSIG_PARENT_QDELETING, .proc/unmodify_hud)
 	RegisterSignal(screen_obj, COMSIG_CLICK, .proc/hud_click)

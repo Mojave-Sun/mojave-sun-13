@@ -62,7 +62,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	/// This is updated by the preference for cheaper reads than would be
 	/// had with a proc call, especially on one of the hottest procs in the
 	/// game (MouseEntered).
-	var/screentips_enabled = TRUE
+	var/screentips_enabled = SCREENTIP_PREFERENCE_ENABLED
 
 	/// The color to use for the screentips.
 	/// This is updated by the preference for cheaper reads than would be
@@ -74,6 +74,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	var/action_buttons_hidden = FALSE
 
 	var/atom/movable/screen/healths
+	var/atom/movable/screen/stamina
 	var/atom/movable/screen/healthdoll
 	var/atom/movable/screen/internals
 	var/atom/movable/screen/wanted/wanted_lvl
@@ -104,7 +105,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 
 	var/datum/preferences/preferences = owner?.client?.prefs
 	screentip_color = preferences?.read_preference(/datum/preference/color/screentip_color)
-	screentips_enabled = preferences?.read_preference(/datum/preference/toggle/enable_screentips)
+	screentips_enabled = preferences?.read_preference(/datum/preference/choiced/enable_screentips)
 	screentip_text = new(null, src)
 	static_inventory += screentip_text
 
@@ -133,6 +134,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	QDEL_LIST(infodisplay)
 
 	healths = null
+	stamina = null
 	healthdoll = null
 	wanted_lvl = null
 	internals = null
@@ -241,25 +243,10 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 		viewmob.hud_used.plane_masters_update()
 
 	// MOJAVE SUN EDIT START - changes for HUD
-	INVOKE_ASYNC(src, .proc/setHudBarVisible, contains_off_screen_hud && display_hud_version != HUD_STYLE_NOHUD, screenmob.client)
+	INVOKE_ASYNC(screenmob.client, /client/.proc/setHudBarVisible )
 	// MOJAVE SUN EDIT END - changes for HUD
 
 	return TRUE
-
-// MOJAVE SUN EDIT START - changes for HUD
-/datum/hud/proc/setHudBarVisible( visible = FALSE, client/C)
-
-	var/list/hudSize = splittext(winget(C, "mapwindow.hud", "size"), "x")
-	var/list/screenSize = splittext(winget(C, "mapwindow", "size"), "x")
-
-	var/mapXPos = visible ? hudSize[1] : 0
-	var/mapWidth = visible ? text2num(screenSize[1]) - text2num(hudSize[1]) : screenSize[1]
-	var/anchor1  = visible ? "13,0" : "0,0" //Hud is 13% of our screen
-
-	winset(C, "mapwindow.map","pos=[mapXPos],0;size=[mapWidth]x[screenSize[2]],anchor1=[anchor1]")
-	//We don't hide this, so it doesn't create a white block
-	//winshow(C, "mapwindow.hud", visible)
-// MOJAVE SUN EDIT END - changes for HUD
 
 /datum/hud/proc/plane_masters_update()
 	// Plane masters are always shown to OUR mob, never to observers
@@ -331,9 +318,9 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 		hand_box.icon_state = "hand_[mymob.held_index_to_dir(i)]"
 		// MOJAVE EDIT
 		if(i == 1)
-			hand_box.screen_loc = "CENTER:-44,SOUTH"
-		else
 			hand_box.screen_loc = "CENTER:2,SOUTH"
+		else
+			hand_box.screen_loc = "CENTER:-44,SOUTH"
 		//hand_box.screen_loc = ui_hand_position(i)
 		hand_box.held_index = i
 		hand_slots["[i]"] = hand_box

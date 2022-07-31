@@ -138,7 +138,7 @@
 
 /proc/random_skin_tone()
 	return pick(GLOB.skin_tones)
-
+//MOJAVE SUN EDIT START - Skin Colours
 GLOBAL_LIST_INIT(skin_tones, sort_list(list(
 	"albino",
 	"caucasian1",
@@ -155,20 +155,20 @@ GLOBAL_LIST_INIT(skin_tones, sort_list(list(
 	)))
 
 GLOBAL_LIST_INIT(skin_tone_names, list(
-	"african1" = "Medium brown",
-	"african2" = "Dark brown",
 	"albino" = "Albino",
-	"arab" = "Light brown",
-	"asian1" = "Ivory",
-	"asian2" = "Beige",
 	"caucasian1" = "Porcelain",
 	"caucasian2" = "Light peach",
 	"caucasian3" = "Peach",
-	"indian" = "Brown",
 	"latino" = "Light beige",
+	"asian1" = "Ivory",
 	"mediterranean" = "Olive",
+	"asian2" = "Beige",
+	"arab" = "Light brown",
+	"indian" = "Brown",
+	"african1" = "Medium brown",
+	"african2" = "Dark brown",
 ))
-
+//MOJAVE SUN EDIT END - Skin Colours
 /// An assoc list of species IDs to type paths
 GLOBAL_LIST_EMPTY(species_list)
 
@@ -203,7 +203,7 @@ GLOBAL_LIST_EMPTY(species_list)
 	var/user_loc = user.loc
 
 	var/drifting = FALSE
-	if(!user.Process_Spacemove(0) && user.inertia_dir)
+	if(SSmove_manager.processing_on(user, SSspacedrift))
 		drifting = TRUE
 
 	var/target_loc = target.loc
@@ -236,7 +236,7 @@ GLOBAL_LIST_EMPTY(species_list)
 		if(!QDELETED(progbar))
 			progbar.update(world.time - starttime)
 
-		if(drifting && !user.inertia_dir)
+		if(drifting && !SSmove_manager.processing_on(user, SSspacedrift))
 			drifting = FALSE
 			user_loc = user.loc
 
@@ -298,7 +298,7 @@ GLOBAL_LIST_EMPTY(species_list)
 	var/atom/user_loc = user.loc
 
 	var/drifting = FALSE
-	if(!user.Process_Spacemove(0) && user.inertia_dir)
+	if(SSmove_manager.processing_on(user, SSspacedrift))
 		drifting = TRUE
 
 	var/holding = user.get_active_held_item()
@@ -319,7 +319,7 @@ GLOBAL_LIST_EMPTY(species_list)
 		if(!QDELETED(progbar))
 			progbar.update(world.time - starttime)
 
-		if(drifting && !user.inertia_dir)
+		if(drifting && !SSmove_manager.processing_on(user, SSspacedrift))
 			drifting = FALSE
 			user_loc = user.loc
 
@@ -364,7 +364,7 @@ GLOBAL_LIST_EMPTY(species_list)
 		time *= user.cached_multiplicative_actions_slowdown
 
 	var/drifting = FALSE
-	if(!user.Process_Spacemove(0) && user.inertia_dir)
+	if(SSmove_manager.processing_on(user, SSspacedrift))
 		drifting = TRUE
 
 	var/list/originalloc = list()
@@ -397,7 +397,7 @@ GLOBAL_LIST_EMPTY(species_list)
 			. = FALSE
 			break
 
-		if(drifting && !user.inertia_dir)
+		if(drifting && !SSmove_manager.processing_on(user, SSspacedrift))
 			drifting = FALSE
 			user_loc = user.loc
 
@@ -440,7 +440,7 @@ GLOBAL_LIST_EMPTY(species_list)
 /proc/ishumanbasic(target)
 	if (!ishuman(target))
 		return FALSE
-	
+
 	var/mob/living/carbon/human/human_target = target
 	return human_target.dna?.species?.type == /datum/species/human
 

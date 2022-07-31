@@ -1,7 +1,7 @@
 /obj/item/ms13_small_flag
 	name = "small flagpole"
 	desc = "An empty flagpole. You feel less patriotic just looking at it."
-	icon = 'mojave/icons/objects/decorative.dmi'
+	icon = 'mojave/icons/objects/clutter/clutter_world.dmi'
 	icon_state = "flagpole"
 
 /obj/item/ms13_small_flag/legion

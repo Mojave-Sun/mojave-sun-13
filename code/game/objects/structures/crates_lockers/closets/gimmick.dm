@@ -9,6 +9,7 @@
 	close_sound_volume = 50
 	max_integrity = 70
 	door_anim_time = 0 // no animation
+	material_drop = /obj/item/stack/sheet/ms13/scrap_wood //MOJAVE EDIT - Drops our scrap wood instead of TG wood. Revert after CAT
 
 /obj/structure/closet/acloset
 	name = "strange closet"
@@ -48,8 +49,8 @@
 	new /obj/item/clothing/mask/gas/sechailer/swat(src)
 	new /obj/item/clothing/shoes/combat/swat(src)
 	new /obj/item/clothing/shoes/combat/swat(src)
-	new /obj/item/clothing/suit/space/hardsuit/deathsquad(src)
-	new /obj/item/clothing/suit/space/hardsuit/deathsquad(src)
+	new /obj/item/mod/control/pre_equipped/apocryphal(src)
+	new /obj/item/mod/control/pre_equipped/apocryphal(src)
 	new /obj/item/clothing/under/syndicate/tacticool(src)
 	new /obj/item/clothing/under/syndicate/tacticool(src)
 

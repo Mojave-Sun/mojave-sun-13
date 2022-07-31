@@ -69,11 +69,12 @@
 #define ui_alert5 "EAST-1:28,CENTER+1:19"
 
 //Middle right (status indicators)
-#define ui_healthdoll "EAST-1:28,CENTER-2:13"
+#define ui_healthdoll "hud:EAST,SOUTH+9.2" // MS health doll
 #define ui_health "EAST-1:28,CENTER-1:15"
-#define ui_internal "EAST-1:28,CENTER-3:10"
-#define ui_mood "EAST-1:28,CENTER:17"
+#define ui_internal "EAST-1:28,CENTER+1:17"
+#define ui_mood "hud:EAST,SOUTH+9.2" // MS health doll
 #define ui_spacesuit "EAST-1:28,CENTER-4:10"
+#define ui_stamina "EAST-1:28,CENTER-3:10"
 
 //Pop-up inventory
 #define ui_shoes "WEST:10,SOUTH:9" // MOJAVE EDIT - #define ui_shoes "WEST+1:8,SOUTH:5"
@@ -177,3 +178,5 @@
 
 //Families
 #define ui_wanted_lvl "NORTH,11"
+
+#define HUD_WIDTH 3 // MOJAVE SUN ADDITION - Width of our sidepanel hud (in tiles)

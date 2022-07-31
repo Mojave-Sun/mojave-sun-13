@@ -47,7 +47,7 @@
 	spin                   = generator("num",-5,5)
 	position               = generator("box", list(-500,-256,0), list(500,500,0))
 	gravity                = list(-5 -1, 0.1)
-	drift                  = generator("circle", 0, 3) + generator("sphere", 0, 1) // Some random movement for variation - squashed sphere
+	drift                  = generator("circle", 0, 3) // Some random movement for variation
 	friction               = 0.3  // shed 30% of velocity and drift every 0.1s
 	//Weather effects, max values
 	maxSpawning           = 50
@@ -64,7 +64,7 @@
 	color_change		   = generator("num",-5,5)
 	position               = generator("box", list(-500,-256,0), list(500,500,0))
 	gravity                = list(-5 -1, 0.1)
-	drift                  = generator("circle", 0, 5) + generator("sphere", 0, 1) // Some random movement for variation - squashed sphere
+	drift                  = generator("circle", 0, 5) // Some random movement for variation
 	friction               = 0.3  // shed 30% of velocity and drift every 0.1s
 	//Weather effects, max values
 	maxSpawning           = 50
