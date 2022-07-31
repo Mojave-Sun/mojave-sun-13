@@ -30,6 +30,7 @@
 	if(isopenturf(T))
 		if(HAS_TRAIT(T, TRAIT_REMOVE_SLOWDOWN))
 			add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/turf_slowdown, multiplicative_slowdown = 0)
+			return
 		add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/turf_slowdown, multiplicative_slowdown = T.slowdown)
 	else
 		remove_movespeed_modifier(/datum/movespeed_modifier/turf_slowdown)
