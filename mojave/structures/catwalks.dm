@@ -12,11 +12,10 @@
 
 	var/turf/my_turf = get_turf(loc)
 	if(my_turf)
-		ADD_TRAIT(my_turf, TRAIT_REMOVE_SLOWDOWN)
-	return ..()
+		ADD_TRAIT(my_turf, TRAIT_REMOVE_SLOWDOWN, TURF_TRAIT)
 
 /obj/structure/lattice/catwalk/ms13/Destroy()
 	var/turf/my_turf = get_turf(loc)
 	if(my_turf)
-		REMOVE_TRAIT(my_turf, TRAIT_REMOVE_SLOWDOWN)
+		REMOVE_TRAIT(my_turf, TRAIT_REMOVE_SLOWDOWN, TURF_TRAIT)
 	return ..()

@@ -28,7 +28,7 @@
 
 /mob/living/proc/update_turf_movespeed(turf/open/T)
 	if(isopenturf(T))
-		if(TRAIT_REMOVE_SLOWDOWN in (src))
+		if(HAS_TRAIT(T, TRAIT_REMOVE_SLOWDOWN))
 			add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/turf_slowdown, multiplicative_slowdown = 0)
 		add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/turf_slowdown, multiplicative_slowdown = T.slowdown)
 	else
