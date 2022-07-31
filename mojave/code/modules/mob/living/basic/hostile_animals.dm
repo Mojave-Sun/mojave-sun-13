@@ -70,6 +70,22 @@
 	. = ..()
 	playsound(src, 'mojave/sound/ms13npc/radroach_death1.ogg', 60, TRUE)
 
+/mob/living/basic/ms13/hostile_animal/radroach/glowie
+	name = "glowroach"
+	desc = "A glowing, irradiated radroach. About as intimidating as a radroach could be."
+	icon_state = "glowroach"
+	icon_dead = "glowroach_dead"
+	health = 50
+	maxHealth = 50
+	melee_damage_lower = 15
+	melee_damage_upper = 15
+	subtractible_armour_penetration = 5
+	sharpness = SHARP_EDGED
+	wound_bonus = 4
+	bare_wound_bonus = 0
+	light_range = 1.5
+	light_color = "#4ba54f"
+
 /mob/living/basic/ms13/hostile_animal/gecko
 	name = "gecko"
 	desc = "A large mutated bipedal lizard, an angry squatter of the wastes."
