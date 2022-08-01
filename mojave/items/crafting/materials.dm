@@ -12,6 +12,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	grid_width = 64
 	grid_height = 32
+	novariants = TRUE
 /*
 /obj/item/stack/sheet/ms13/update_icon_state()
 	if(novariants)
@@ -47,6 +48,7 @@
 	grid_width = 32
 	grid_height = 32
 	w_class = WEIGHT_CLASS_TINY
+	novariants = FALSE
 
 /obj/item/stack/sheet/ms13/scrap_parts/two
 	amount = 2
@@ -119,6 +121,7 @@
 	grid_width = 32
 	grid_height = 32
 	w_class = WEIGHT_CLASS_TINY
+	novariants = FALSE
 
 /obj/item/stack/sheet/ms13/ceramic/two
 	amount = 2
@@ -142,6 +145,7 @@
 	grid_width = 32
 	grid_height = 32
 	w_class = WEIGHT_CLASS_TINY
+	novariants = FALSE
 
 /obj/item/stack/sheet/ms13/glass/two
 	amount = 2
@@ -168,6 +172,7 @@
 	grid_width = 32
 	grid_height = 32
 	w_class = WEIGHT_CLASS_TINY
+	novariants = FALSE
 
 /obj/item/stack/sheet/ms13/scrap_electronics/two
 	amount = 2
@@ -187,6 +192,7 @@
 	grid_width = 32
 	grid_height = 32
 	w_class = WEIGHT_CLASS_TINY
+	novariants = FALSE
 
 /obj/item/stack/sheet/ms13/circuits/two
 	amount = 2
@@ -262,6 +268,7 @@ GLOBAL_LIST_INIT(scrap_wood_recipes, list ( \
 	max_amount = 8
 	grid_width = 96
 	grid_height = 32
+	novariants = FALSE
 
 /obj/item/stack/sheet/ms13/plank/two
 	amount = 2

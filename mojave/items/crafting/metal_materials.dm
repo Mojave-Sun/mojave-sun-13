@@ -13,6 +13,7 @@
 	merge_type = /obj/item/stack/sheet/ms13/scrap
 	amount = 1
 	max_amount = 10
+	novariants = FALSE
 
 /obj/item/stack/sheet/ms13/scrap/two
 	amount = 2
@@ -46,6 +47,7 @@ GLOBAL_LIST_INIT(scrap_recipes, list ( \
 	merge_type = /obj/item/stack/sheet/ms13/scrap_steel
 	amount = 1
 	max_amount = 10
+	novariants = FALSE
 
 /obj/item/stack/sheet/ms13/scrap_steel/two
 	amount = 2
