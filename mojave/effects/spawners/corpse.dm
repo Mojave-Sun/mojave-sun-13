@@ -39,7 +39,7 @@
 	else
 		head = null
 
-	if(prob(25))
+	if(prob(30))
 		glasses = pick(/obj/item/clothing/glasses/ms13/black,\
 		/obj/item/clothing/glasses/ms13/cap,\
 		/obj/item/clothing/glasses/ms13/old,\
@@ -47,7 +47,8 @@
 		/obj/item/clothing/glasses/ms13/goggles, \
 		/obj/item/clothing/glasses/ms13/sunglasses, \
 		/obj/item/clothing/glasses/ms13/cool, \
-		/obj/item/clothing/glasses/ms13/metal)
+		/obj/item/clothing/glasses/ms13/metal, \
+		/obj/item/clothing/glasses/ms13/welding)
 	else
 		glasses = null
 
@@ -146,14 +147,14 @@
 	else
 		belt = null
 
-	if(prob(30))
+	if(prob(35))
 		r_pocket = pick(
 		/obj/item/flashlight/flare/ms13, \
 		/obj/item/flashlight/ms13/crafted)
 	else
 		r_pocket = null
 
-	if(prob(40))
+	if(prob(50))
 		l_pocket = pick(
 		/obj/item/stack/medical/gauze/ms13/half, \
 		/obj/item/stack/medical/ointment/ms13/half, \
@@ -170,7 +171,7 @@
 		/obj/item/clothing/shoes/ms13/brownie, \
 		/obj/item/clothing/shoes/ms13/crude)
 
-	if(prob(50))
+	if(prob(60))
 		back = pick(
 		/obj/item/storage/ms13/satchel, \
 		/obj/item/storage/ms13/nuka_bag, \

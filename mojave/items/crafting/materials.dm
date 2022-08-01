@@ -97,8 +97,8 @@
 	grid_height = 32
 	w_class = WEIGHT_CLASS_TINY
 
-/obj/item/stack/sheet/ms13/plastic/three
-	amount = 3
+/obj/item/stack/sheet/ms13/plastic/two
+	amount = 2
 
 /datum/material/ms13/plastic
 	name = "plastic"
@@ -120,8 +120,8 @@
 	grid_height = 32
 	w_class = WEIGHT_CLASS_TINY
 
-/obj/item/stack/sheet/ms13/ceramic/three
-	amount = 3
+/obj/item/stack/sheet/ms13/ceramic/two
+	amount = 2
 
 /datum/material/ms13/ceramic
 	name = "ceramic shards"
@@ -143,8 +143,8 @@
 	grid_height = 32
 	w_class = WEIGHT_CLASS_TINY
 
-/obj/item/stack/sheet/ms13/glass/three
-	amount = 3
+/obj/item/stack/sheet/ms13/glass/two
+	amount = 2
 
 /datum/material/ms13/glass
 	name = "glass shards"
@@ -188,8 +188,8 @@
 	grid_height = 32
 	w_class = WEIGHT_CLASS_TINY
 
-/obj/item/stack/sheet/ms13/circuits/three
-	amount = 3
+/obj/item/stack/sheet/ms13/circuits/two
+	amount = 2
 
 /obj/item/stack/sheet/ms13/circuits/eight
 	amount = 8
@@ -268,6 +268,7 @@ GLOBAL_LIST_INIT(scrap_wood_recipes, list ( \
 
 GLOBAL_LIST_INIT(plank_recipes, list ( \
 	new/datum/stack_recipe("crude wood table", /obj/structure/table/ms13/wood/constructed, 4, time = 20 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("wood barricade", /obj/structure/ms13/barricade, 4, time = 15 SECONDS, one_per_turf = FALSE, on_floor = TRUE), \
 	new/datum/stack_recipe("wood bed", /obj/structure/bed/ms13/bedframe/wood, 3, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("campfire", /obj/structure/bonfire/ms13/campfire, 3, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 ))
@@ -292,9 +293,6 @@ GLOBAL_LIST_INIT(plank_recipes, list ( \
 
 /obj/item/stack/sheet/ms13/cloth/two
     amount = 2
-
-/obj/item/stack/sheet/ms13/cloth/three
-    amount = 3
 
 GLOBAL_LIST_INIT(ms13cloth_recipes, list ( \
 	new/datum/stack_recipe("roll of gauze", /obj/item/stack/medical/gauze/ms13/one, 2, time = 3 SECONDS, one_per_turf = FALSE, on_floor = FALSE), \
@@ -331,8 +329,8 @@ GLOBAL_LIST_INIT(ms13cloth_recipes, list ( \
 	grid_height = 32
 	w_class = WEIGHT_CLASS_TINY
 
-/obj/item/stack/sheet/ms13/mil_fiber/three
-	amount = 3
+/obj/item/stack/sheet/ms13/mil_fiber/two
+	amount = 2
 
 /obj/item/stack/sheet/ms13/thread
 	name = "thread"

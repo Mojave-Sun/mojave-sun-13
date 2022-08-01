@@ -49,5 +49,5 @@
 	melee_damage_lower = 20
 	melee_damage_upper = 20
 	subtractible_armour_penetration = 15
-	loot = list(/obj/item/stack/sheet/ms13/scrap_steel/two, /obj/effect/decal/cleanable/robot_debris, /obj/item/stack/sheet/ms13/glass, /obj/item/stack/sheet/ms13/scrap_electronics/two, /obj/item/stack/sheet/ms13/circuits/three, /obj/item/stack/sheet/ms13/scrap_parts/two, /obj/item/ms13/component/vacuum_tube)
+	loot = list(/obj/item/stack/sheet/ms13/scrap_steel/two, /obj/effect/decal/cleanable/robot_debris, /obj/item/stack/sheet/ms13/glass, /obj/item/stack/sheet/ms13/scrap_electronics/two, /obj/item/stack/sheet/ms13/circuits/two, /obj/item/stack/sheet/ms13/scrap_parts/two, /obj/item/ms13/component/vacuum_tube)
 	ranged_cooldown_time = 4 SECONDS

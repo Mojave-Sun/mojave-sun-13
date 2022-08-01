@@ -95,7 +95,7 @@
 	reqs = list(/obj/item/clothing/suit/ms13/ljacket = 1,
 				/obj/item/stack/sheet/ms13/leather = 5,
 				/obj/item/stack/sheet/ms13/cloth = 3,
-				/obj/item/stack/sheet/ms13/thread = 1)
+				/obj/item/stack/sheet/ms13/thread = 2)
 	category = CAT_ARMOR
 	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
 
@@ -134,7 +134,7 @@
 	time = 12 SECONDS
 	tool_paths = list()
 	reqs = list(/obj/item/clothing/suit/ms13/veteran_coat = 1,
-				/obj/item/stack/sheet/ms13/leather = 3,
+				/obj/item/stack/sheet/ms13/leather = 2,
 				/obj/item/stack/sheet/ms13/scrap = 2,
 				/obj/item/stack/sheet/ms13/mil_fiber = 1,
 				/obj/item/stack/sheet/ms13/thread = 1)
@@ -160,9 +160,111 @@
 	reqs = list(/obj/item/clothing/suit/ms13/duster = 1,
 				/obj/item/stack/sheet/ms13/leather = 5,
 				/obj/item/stack/sheet/ms13/cloth = 3,
-				/obj/item/stack/sheet/ms13/thread = 1)
+				/obj/item/stack/sheet/ms13/thread = 2)
 	category = CAT_ARMOR
 	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/reinf_orange_jacket
+	name = "reinforced orange winter jacket"
+	result = /obj/item/clothing/suit/toggle/ms13/wjacket/orange/reinforced
+	time = 12 SECONDS
+	tool_paths = list()
+	reqs = list(/obj/item/clothing/suit/toggle/ms13/wjacket/orange = 1,
+				/obj/item/stack/sheet/ms13/leather = 5,
+				/obj/item/stack/sheet/ms13/cloth = 3,
+				/obj/item/stack/sheet/ms13/thread = 2)
+	category = CAT_ARMOR
+	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/reinf_brown_jacket
+	name = "reinforced brown winter jacket"
+	result = /obj/item/clothing/suit/toggle/ms13/wjacket/brown/reinforced
+	time = 12 SECONDS
+	tool_paths = list()
+	reqs = list(/obj/item/clothing/suit/toggle/ms13/wjacket/brown = 1,
+				/obj/item/stack/sheet/ms13/leather = 5,
+				/obj/item/stack/sheet/ms13/cloth = 3,
+				/obj/item/stack/sheet/ms13/thread = 2)
+	category = CAT_ARMOR
+	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/reinf_blue_jacket
+	name = "reinforced blue winter jacket"
+	result = /obj/item/clothing/suit/toggle/ms13/wjacket/blue/reinforced
+	time = 12 SECONDS
+	tool_paths = list()
+	reqs = list(/obj/item/clothing/suit/toggle/ms13/wjacket/blue = 1,
+				/obj/item/stack/sheet/ms13/leather = 5,
+				/obj/item/stack/sheet/ms13/cloth = 3,
+				/obj/item/stack/sheet/ms13/thread = 2)
+	category = CAT_ARMOR
+	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/reinf_black_jacket
+	name = "reinforced black winter jacket"
+	result = /obj/item/clothing/suit/toggle/ms13/wjacket/black/reinforced
+	time = 12 SECONDS
+	tool_paths = list()
+	reqs = list(/obj/item/clothing/suit/toggle/ms13/wjacket/black = 1,
+				/obj/item/stack/sheet/ms13/leather = 5,
+				/obj/item/stack/sheet/ms13/cloth = 3,
+				/obj/item/stack/sheet/ms13/thread = 2)
+	category = CAT_ARMOR
+	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/armor_orange_jacket
+	name = "armored orange winter jacket"
+	result = /obj/item/clothing/suit/toggle/ms13/wjacket/orange/armored
+	time = 15 SECONDS
+	tool_paths = list(/obj/item/ms13/hammer)
+	tool_behaviors = list(TOOL_WELDER)
+	reqs = list(/obj/item/clothing/suit/toggle/ms13/wjacket/orange/reinforced = 1,
+				/obj/item/stack/sheet/ms13/refined_steel = 3,
+				/obj/item/stack/sheet/ms13/leather = 5,
+				/obj/item/stack/sheet/ms13/scrap_parts = 3,
+				/obj/item/stack/sheet/ms13/mil_fiber = 2,
+				/obj/item/stack/sheet/ms13/thread = 3)
+	category = CAT_ARMOR
+	crafting_interface = CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/armor_brown_jacket
+	name = "armored brown winter jacket"
+	result = /obj/item/clothing/suit/toggle/ms13/wjacket/brown/armored
+	time = 15 SECONDS
+	tool_paths = list()
+	tool_behaviors = list(TOOL_KNIFE)
+	reqs = list(/obj/item/clothing/suit/toggle/ms13/wjacket/brown/reinforced = 1,
+				/obj/item/stack/sheet/ms13/leather = 6,
+				/obj/item/stack/sheet/ms13/mil_fiber = 4,
+				/obj/item/stack/sheet/ms13/thread = 4)
+	category = CAT_ARMOR
+	crafting_interface = CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/armor_blue_jacket
+	name = "armored blue winter jacket"
+	result = /obj/item/clothing/suit/toggle/ms13/wjacket/blue/armored
+	time = 15 SECONDS
+	tool_paths = list()
+	tool_behaviors = list(TOOL_KNIFE)
+	reqs = list(/obj/item/clothing/suit/toggle/ms13/wjacket/blue/reinforced = 1,
+				/obj/item/stack/sheet/ms13/leather = 6,
+				/obj/item/stack/sheet/ms13/mil_fiber = 4,
+				/obj/item/stack/sheet/ms13/thread = 4)
+	category = CAT_ARMOR
+	crafting_interface = CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/armor_black_jacket
+	name = "armored black winter jacket"
+	result = /obj/item/clothing/suit/toggle/ms13/wjacket/black/armored
+	time = 15 SECONDS
+	tool_paths = list()
+	tool_behaviors = list(TOOL_KNIFE)
+	reqs = list(/obj/item/clothing/suit/toggle/ms13/wjacket/black/reinforced = 1,
+				/obj/item/stack/sheet/ms13/leather = 6,
+				/obj/item/stack/sheet/ms13/mil_fiber = 4,
+				/obj/item/stack/sheet/ms13/thread = 4)
+	category = CAT_ARMOR
+	crafting_interface = CRAFTING_BENCH_ARMTAILOR
 
 //HEADGEAR CRAFTING
 
