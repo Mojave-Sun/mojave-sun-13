@@ -41,15 +41,19 @@
 	 * *
 	 */
 	var/list/products = list(/obj/item/food/burger/ghost = list(200, INFINITY),
-							/obj/item/food/burger = list(100, INFINITY)
+							/obj/item/food/burger = list(100, 3)
 							)
 	/**
-	 * Format; list(TYPEPATH = list(PRICE, QUANTITY))
+	 * Format; list(TYPEPATH = list(PRICE, QUANTITY, ADDITIONAL_DESCRIPTION))
 	 * Associated list of items able to be sold to the NPC with the money given for them.
 	 * The price given should be the "base" price; any price manipulation based on variables should be done with apply_sell_price_mods()
+	 * ADDITIONAL_DESCRIPTION is any additional text added to explain how the variables of the item effect the price; if it's stack based, it's final price depends how much is in the stack
+	 * EX; /obj/item/stack/sheet/mineral/diamond = list(500, INFINITY, ", per every 2000 cm3 sheet of diamond")
 	 * *
 	*/
-	var/list/wanted_items = list(/obj/item/ectoplasm = list(100, INFINITY))
+	var/list/wanted_items = list(/obj/item/ectoplasm = list(100, INFINITY, ""),
+								/obj/item/stack/sheet/mineral/diamond = list(500, INFINITY, ", per 2000 cm3 sheet of diamond")
+								)
 	///Phrase said when NPC finds none of your inhand items in wanted_items.
 	var/itemrejectphrase = list("Sorry, I'm not a fan of anything you're showing me. Give me something better and we'll talk.")
 	///Phrase said when you cancel selling a thing to the NPC.
@@ -73,6 +77,8 @@
 		"Hello! I am the test trader.",
 		"Oooooooo~!"
 	)
+	///The name of the currency that is used when buying or selling items
+	var/currency_name = "credits"
 
 /mob/living/simple_animal/hostile/retaliate/trader/interact(mob/user)
 	if(user == target)
@@ -111,19 +117,6 @@
 		return FALSE
 	return TRUE
 
-/**
- * Tries to call sell_item on one of the user's held items, if fail gives a chat message
- *
- * Gets both items in the user's hands, and then tries to call sell_item on them, if both fail, he gives a chat message
- * Arguments:
- * * user - The mob trying to sell something
- */
-/mob/living/simple_animal/hostile/retaliate/trader/proc/try_sell(mob/user)
-	var/obj/item/activehanditem = user.get_active_held_item()
-	var/obj/item/inactivehanditem = user.get_inactive_held_item()
-	if(!sell_item(user, activehanditem) && !sell_item(user, inactivehanditem))
-		say(pick(itemrejectphrase))
-
 ///Talk about what items are being sold/wanted by the trader and in what quantity or lore
 /mob/living/simple_animal/hostile/retaliate/trader/proc/discuss(mob/user)
 	var/list/npc_options = list(
@@ -142,24 +135,32 @@
 ///Displays to the user what the trader is willing to buy and how much until a restockpile
 /mob/living/simple_animal/hostile/retaliate/trader/proc/trader_buys_what(mob/user)
 	if(!wanted_items.len)
-		to_chat(user, span_notice("I'm currently buying nothing at the moment."))
+		to_chat(user, span_green("I'm currently buying nothing at the moment."))
 		return
-	var/product_info
-	to_chat(user, span_notice("I'm willing to buy the following; "))
+	var/list/product_info
+	to_chat(user, span_green("I'm willing to buy the following; "))
 	for(var/obj/item/thing as anything in wanted_items)
 		product_info = wanted_items[thing]
-		to_chat(user, span_notice("[initial(thing.name)] for [product_info[1]] CUFRRENCY_UNITS; willing to buy [(product_info[2] == INFINITY ? "as many as I can." : "[product_info[2]] more.")]"))
+		var/tern_op_result = (product_info[2] == INFINITY ? "as many as I can." : "[product_info[2]]") //Coder friendly string concat
+		if(product_info[2] <= 0) //Zero demand
+			to_chat(user, span_notice("[span_red("(DOESN'T WANT MORE)")] [initial(thing.name)] for [product_info[1]] [currency_name][product_info[3]]; willing to buy [span_red("[tern_op_result]")] more."))
+		else
+			to_chat(user, span_notice("[initial(thing.name)] for [product_info[1]] [currency_name][product_info[3]]; willing to buy [span_green("[tern_op_result]")]"))
 
 ///Displays to the user what the trader is selling and how much is in stock
 /mob/living/simple_animal/hostile/retaliate/trader/proc/trader_sells_what(mob/user)
 	if(!products.len)
-		to_chat(user, span_notice("I'm currently selling nothing at the moment."))
+		to_chat(user, span_green("I'm currently selling nothing at the moment."))
 		return
-	var/product_info
-	to_chat(user, span_notice("I'm currently selling the following; "))
+	var/list/product_info
+	to_chat(user, span_green("I'm currently selling the following; "))
 	for(var/obj/item/thing as anything in products)
 		product_info = products[thing]
-		to_chat(user, span_notice("[initial(thing.name)] for [product_info[1]] CUFRRENCY_UNITS; [(product_info[2] == INFINITY ? "an infinite amount" : "[product_info[2]]")] left in stock"))
+		var/tern_op_result = (product_info[2] == INFINITY ? "an infinite amount" : "[product_info[2]]") //Coder friendly string concat
+		if(product_info[2] <= 0) //Out of stock
+			to_chat(user, span_notice("[span_red("(OUT OF STOCK)")] [initial(thing.name)] for [product_info[1]] [currency_name]; [span_red("[tern_op_result]")] left in stock"))
+		else
+			to_chat(user, span_notice("[initial(thing.name)] for [product_info[1]] [currency_name]; [span_green("[tern_op_result]")] left in stock"))
 
 /**
  * Generates a radial of the items the NPC sells and lets the user try to buy one
@@ -172,64 +173,65 @@
 
 	var/list/display_names = list()
 	var/list/items = list()
+	var/list/product_info
 	for(var/obj/item/thing as anything in products)
 		display_names["[initial(thing.name)]"] = thing
 		var/image/item_image = image(icon = initial(thing.icon), icon_state = initial(thing.icon_state))
+		product_info = products[thing]
+		if(product_info[2] <= 0) //out of stock
+			item_image.overlays += image(icon = 'icons/hud/radial.dmi', icon_state = "radial_center")
 		items += list("[initial(thing.name)]" = item_image)
 	var/pick = show_radial_menu(user, src, items, custom_check = CALLBACK(src, .proc/check_menu, user), require_near = TRUE, tooltips = TRUE)
 	if(!pick)
 		return
-	var/path_reference = display_names[pick]
-	try_buy(user, path_reference)
+	var/obj/item/item_to_buy = display_names[pick]
 	face_atom(user)
-
-/**
- * Tries to buy an item from the trader
- * Arguments:
- * * user - The mob trying to buy something
- * * item_to_buy - Item that is being bought
- */
-/mob/living/simple_animal/hostile/retaliate/trader/proc/try_buy(mob/user, obj/item/item_to_buy)
-	//product_info[1] is the cost; product_info[2] is how many is currently in stock
-	var/list/product_info = products[item_to_buy]
+	product_info = products[item_to_buy]
 	if(!product_info[2])
-		to_chat(user, span_notice("The item appears to be out of stock."))
+		to_chat(user, span_red("The item appears to be out of stock."))
 		return
 	to_chat(user, span_notice("It will cost you [product_info[1]] credits to buy \the [initial(item_to_buy.name)]. Are you sure you want to buy it?"))
 	var/list/npc_options = list(
 		"Yes" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_yes"),
 		"No" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_no")
 	)
-	var/npc_result = show_radial_menu(user, src, npc_options, custom_check = CALLBACK(src, .proc/check_menu, user), require_near = TRUE, tooltips = TRUE)
-	if(npc_result != "Yes")
+	var/buyer_will_buy = show_radial_menu(user, src, npc_options, custom_check = CALLBACK(src, .proc/check_menu, user), require_near = TRUE, tooltips = TRUE)
+	if(buyer_will_buy != "Yes")
 		return
 	face_atom(user)
-	var/item_value = calculate_buyer_offhand_value(user)
-	if(item_value < product_info[1])
+	if(!spend_buyer_offhand_money(user, product_info[1]))
 		say(pick(nocashphrase))
 		return
-	//cash.spend(product_info[1])
 	item_to_buy = new item_to_buy(get_turf(user))
 	user.put_in_hands(item_to_buy)
 	playsound(src, sell_sound, 50, TRUE)
 	product_info[2] -= 1
 	say(pick(buyphrase))
 
-///Calculates the value of an item likely held by the buyer; wanted_items determines the base cost, cost that is influenced by the item's variables should use apply_buy_price_mods()
-/mob/living/simple_animal/hostile/retaliate/trader/proc/calculate_buyer_offhand_value(mob/user)
+///Calculates the value of money in the hand of the buyer and spends it if it's sufficient
+/mob/living/simple_animal/hostile/retaliate/trader/proc/spend_buyer_offhand_money(mob/user, the_cost)
 	var/value = 0
 	var/obj/item/holochip/cash
 	cash = user.is_holding_item_of_type(/obj/item/holochip)
 	if(cash)
 		value += cash.credits
-	return value
+	if((value > the_cost) && cash)
+		cash.spend(the_cost)
+		return TRUE
+	return FALSE //Purchase unsuccessful
 
-
-/mob/living/simple_animal/hostile/retaliate/trader/proc/apply_buy_price_mods(obj/item/buying, original_value)
-	if(isstack(buying))
-		var/obj/item/stack/stackoverflow = buying
-		original_value *= stackoverflow.amount
-	return original_value
+/**
+ * Tries to call sell_item on one of the user's held items, if fail gives a chat message
+ *
+ * Gets both items in the user's hands, and then tries to call sell_item on them, if both fail, he gives a chat message
+ * Arguments:
+ * * user - The mob trying to sell something
+ */
+/mob/living/simple_animal/hostile/retaliate/trader/proc/try_sell(mob/user)
+	var/obj/item/activehanditem = user.get_active_held_item()
+	var/obj/item/inactivehanditem = user.get_inactive_held_item()
+	if(!sell_item(user, activehanditem) && !sell_item(user, inactivehanditem))
+		say(pick(itemrejectphrase))
 
 /**
  * Checks if an item is in the list of wanted items and if it is after a Yes/No radial returns generate_cash with the value of the item for the NPC
@@ -243,12 +245,14 @@
 	if(!sellitem)
 		return FALSE
 	var/datum/checked_type = sellitem.type
+	var/list/product_info
 	do
 		if(checked_type in wanted_items)
-			if(!wanted_items[checked_type[2]])
-				to_chat(user, span_notice("I'm not interested in buying that during this time."))
+			product_info = wanted_items[sellitem.type]
+			if(product_info[2] <= 0)
+				to_chat(user, span_notice("I'm not interested in buying [sellitem.name] during this time."))
 				break
-			cost = wanted_items[checked_type[1]]
+			cost = product_info[1]
 			break
 		checked_type = checked_type.parent_type
 	while(checked_type != /obj)
@@ -272,13 +276,16 @@
 	log_econ("[sellitem] has been sold to [src] by [user] for [cost] cash.")
 	if(isstack(sellitem))
 		var/obj/item/stack/the_stack = sellitem
-		the_stack.use(the_stack.amount)
+		var/actually_sold = min(the_stack.amount, product_info[2])
+		the_stack.use(actually_sold)
+		product_info[2] -= (actually_sold)
+	else
+		product_info[2] -= 1
 	generate_cash(cost, user)
-	wanted_items[sellitem[2]] -= 1
 	qdel(sellitem)
 	return TRUE
 
-///Modifies the price of a item
+///Modifies the 'base' price of a item based on certain variables
 /mob/living/simple_animal/hostile/retaliate/trader/proc/apply_sell_price_mods(obj/item/selling, original_cost)
 	if(isstack(selling))
 		var/obj/item/stack/stackoverflow = selling
@@ -287,7 +294,7 @@
 
 
 /**
- * Creates a holochip the value set by the proc and puts it in the user's hands
+ * Creates an item equal to the value set by the proc and puts it in the user's hands if possible
  * Arguments:
  * * value - The amount of cash that will be on the holochip
  * * user - The mob we put the holochip in hands of
