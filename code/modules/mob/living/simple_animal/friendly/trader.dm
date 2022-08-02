@@ -35,22 +35,39 @@
 	interaction_flags_atom = INTERACT_ATOM_NO_FINGERPRINT_ATTACK_HAND|INTERACT_ATOM_ATTACK_HAND|INTERACT_ATOM_NO_FINGERPRINT_INTERACT
 	///Sound used when item sold/bought
 	var/sell_sound = 'sound/effects/cashregister.ogg'
-	///Associated list of items the NPC sells with how much they cost.
-	var/list/products = list(/obj/item/food/burger/ghost = 200)
-	///Associated list of items able to be sold to the NPC with the money given for them.
-	var/list/wanted_items = list(/obj/item/ectoplasm = 100)
+	/**
+	 * Format; list(TYPEPATH = list(PRICE, QUANTITY))
+	 * Associated list of items the NPC sells with how much they cost and the quantity available before a restock
+	 * *
+	 */
+	var/list/products = list(/obj/item/food/burger/ghost = list(200, INFINITY),
+							/obj/item/food/burger = list(100, INFINITY)
+							)
+	/**
+	 * Format; list(TYPEPATH = list(PRICE, QUANTITY))
+	 * Associated list of items able to be sold to the NPC with the money given for them.
+	 * The price given should be the "base" price; any price manipulation based on variables should be done with apply_sell_price_mods()
+	 * *
+	*/
+	var/list/wanted_items = list(/obj/item/ectoplasm = list(100, INFINITY))
 	///Phrase said when NPC finds none of your inhand items in wanted_items.
-	var/itemrejectphrase = "Sorry, I'm not a fan of anything you're showing me. Give me something better and we'll talk."
+	var/itemrejectphrase = list("Sorry, I'm not a fan of anything you're showing me. Give me something better and we'll talk.")
 	///Phrase said when you cancel selling a thing to the NPC.
-	var/itemsellcancelphrase = "What a shame, tell me if you changed your mind."
+	var/itemsellcancelphrase = list("What a shame, tell me if you changed your mind.")
 	///Phrase said when you accept selling a thing to the NPC.
-	var/itemsellacceptphrase = "Pleasure doing business with you."
+	var/itemsellacceptphrase = list("Pleasure doing business with you.")
 	///Phrase said when the NPC finds an item in the wanted_items list in your hands.
-	var/interestedphrase = "Hey, you've got an item that interests me, I'd like to buy it, I'll give you some cash for it, deal?"
+	var/interestedphrase = list("Hey, you've got an item that interests me, I'd like to buy it, I'll give you some cash for it, deal?")
 	///Phrase said when the NPC sells you an item.
-	var/buyphrase = "Pleasure doing business with you."
+	var/buyphrase = list("Pleasure doing business with you.")
 	///Phrase said when you have too little money to buy an item.
-	var/nocashphrase = "Sorry adventurer, I can't give credit! Come back when you're a little mmmmm... richer!"
+	var/nocashphrase = list("Sorry adventurer, I can't give credit! Come back when you're a little mmmmm... richer!")
+	///Phrase said when the requested item is out of stock
+	var/nostockphrase = list("That item seems to be out of stock, you'll have to come back another time.")
+	///Phrase said when the trader doesn't want any more of a item
+	var/notwillingtobuyphrase = list("I don't want to buy that item for the time being, check back another time.")
+	///Phrase said when the value of a item being sold to the trader turns out to be worth nothing after modifiers
+	var/itemisworthless = list("This item seems to be worthless on a closer look, I won't buy this.")
 	///Phrases used when you talk to the NPC
 	var/list/lore = list(
 		"Hello! I am the test trader.",
@@ -76,7 +93,7 @@
 		if("Sell")
 			try_sell(user)
 		if("Talk")
-			deep_lore()
+			discuss(user)
 	face_atom(user)
 	return TRUE
 
@@ -105,11 +122,44 @@
 	var/obj/item/activehanditem = user.get_active_held_item()
 	var/obj/item/inactivehanditem = user.get_inactive_held_item()
 	if(!sell_item(user, activehanditem) && !sell_item(user, inactivehanditem))
-		say(itemrejectphrase)
+		say(pick(itemrejectphrase))
 
-///Makes the NPC say one picked thing from the lore list variable, can be overriden for fun stuff
-/mob/living/simple_animal/hostile/retaliate/trader/proc/deep_lore()
-	say(pick(lore))
+///Talk about what items are being sold/wanted by the trader and in what quantity or lore
+/mob/living/simple_animal/hostile/retaliate/trader/proc/discuss(mob/user)
+	var/list/npc_options = list(
+		"Lore" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_lore"),
+		"Selling?" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_selling"),
+		"Buying?" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_buying")
+	)
+	var/pick = show_radial_menu(user, src, npc_options, custom_check = CALLBACK(src, .proc/check_menu, user), require_near = TRUE, tooltips = TRUE)
+	if(pick == "Lore")
+		say(pick(lore))
+	if(pick == "Selling?")
+		trader_buys_what(user)
+	if(pick == "Buying?")
+		trader_sells_what(user)
+
+///Displays to the user what the trader is willing to buy and how much until a restockpile
+/mob/living/simple_animal/hostile/retaliate/trader/proc/trader_buys_what(mob/user)
+	if(!wanted_items.len)
+		to_chat(user, span_notice("I'm currently buying nothing at the moment."))
+		return
+	var/product_info
+	to_chat(user, span_notice("I'm willing to buy the following; "))
+	for(var/obj/item/thing as anything in wanted_items)
+		product_info = wanted_items[thing]
+		to_chat(user, span_notice("[initial(thing.name)] for [product_info[1]] CUFRRENCY_UNITS; willing to buy [(product_info[2] == INFINITY ? "as many as I can." : "[product_info[2]] more.")]"))
+
+///Displays to the user what the trader is selling and how much is in stock
+/mob/living/simple_animal/hostile/retaliate/trader/proc/trader_sells_what(mob/user)
+	if(!products.len)
+		to_chat(user, span_notice("I'm currently selling nothing at the moment."))
+		return
+	var/product_info
+	to_chat(user, span_notice("I'm currently selling the following; "))
+	for(var/obj/item/thing as anything in products)
+		product_info = products[thing]
+		to_chat(user, span_notice("[initial(thing.name)] for [product_info[1]] CUFRRENCY_UNITS; [(product_info[2] == INFINITY ? "an infinite amount" : "[product_info[2]]")] left in stock"))
 
 /**
  * Generates a radial of the items the NPC sells and lets the user try to buy one
@@ -133,7 +183,6 @@
 	try_buy(user, path_reference)
 	face_atom(user)
 
-
 /**
  * Tries to buy an item from the trader
  * Arguments:
@@ -141,8 +190,12 @@
  * * item_to_buy - Item that is being bought
  */
 /mob/living/simple_animal/hostile/retaliate/trader/proc/try_buy(mob/user, obj/item/item_to_buy)
-	var/cost = products[item_to_buy]
-	to_chat(user, span_notice("It will cost you [cost] credits to buy \the [initial(item_to_buy.name)]. Are you sure you want to buy it?"))
+	//product_info[1] is the cost; product_info[2] is how many is currently in stock
+	var/list/product_info = products[item_to_buy]
+	if(!product_info[2])
+		to_chat(user, span_notice("The item appears to be out of stock."))
+		return
+	to_chat(user, span_notice("It will cost you [product_info[1]] credits to buy \the [initial(item_to_buy.name)]. Are you sure you want to buy it?"))
 	var/list/npc_options = list(
 		"Yes" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_yes"),
 		"No" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_no")
@@ -151,16 +204,32 @@
 	if(npc_result != "Yes")
 		return
 	face_atom(user)
-	var/obj/item/holochip/cash
-	cash = user.is_holding_item_of_type(/obj/item/holochip)
-	if(!cash || cash.credits < products[item_to_buy])
-		say(nocashphrase)
+	var/item_value = calculate_buyer_offhand_value(user)
+	if(item_value < product_info[1])
+		say(pick(nocashphrase))
 		return
-	cash.spend(products[item_to_buy])
+	//cash.spend(product_info[1])
 	item_to_buy = new item_to_buy(get_turf(user))
 	user.put_in_hands(item_to_buy)
 	playsound(src, sell_sound, 50, TRUE)
-	say(buyphrase)
+	product_info[2] -= 1
+	say(pick(buyphrase))
+
+///Calculates the value of an item likely held by the buyer; wanted_items determines the base cost, cost that is influenced by the item's variables should use apply_buy_price_mods()
+/mob/living/simple_animal/hostile/retaliate/trader/proc/calculate_buyer_offhand_value(mob/user)
+	var/value = 0
+	var/obj/item/holochip/cash
+	cash = user.is_holding_item_of_type(/obj/item/holochip)
+	if(cash)
+		value += cash.credits
+	return value
+
+
+/mob/living/simple_animal/hostile/retaliate/trader/proc/apply_buy_price_mods(obj/item/buying, original_value)
+	if(isstack(buying))
+		var/obj/item/stack/stackoverflow = buying
+		original_value *= stackoverflow.amount
+	return original_value
 
 /**
  * Checks if an item is in the list of wanted items and if it is after a Yes/No radial returns generate_cash with the value of the item for the NPC
@@ -176,13 +245,18 @@
 	var/datum/checked_type = sellitem.type
 	do
 		if(checked_type in wanted_items)
-			cost = wanted_items[checked_type]
+			if(!wanted_items[checked_type[2]])
+				to_chat(user, span_notice("I'm not interested in buying that during this time."))
+				break
+			cost = wanted_items[checked_type[1]]
 			break
 		checked_type = checked_type.parent_type
 	while(checked_type != /obj)
-	if(!cost)
+	cost = apply_sell_price_mods(selling, cost)
+	if(cost <= 0)
+		say(pick(itemisworthless))
 		return FALSE
-	say(interestedphrase)
+	say(pick(interestedphrase))
 	to_chat(user, span_notice("You will receive [cost] credits for each one of [sellitem]."))
 	var/list/npc_options = list(
 		"Yes" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_yes"),
@@ -191,20 +265,26 @@
 	var/npc_result = show_radial_menu(user, src, npc_options, custom_check = CALLBACK(src, .proc/check_menu, user), require_near = TRUE, tooltips = TRUE)
 	face_atom(user)
 	if(npc_result != "Yes")
-		say(itemsellcancelphrase)
+		say(pick(itemsellcancelphrase))
 		return TRUE
-	say(itemsellacceptphrase)
+	say(pick(itemsellacceptphrase))
 	playsound(src, sell_sound, 50, TRUE)
-	if(isstack(sellitem))
-		var/obj/item/stack/stackoverflow = sellitem
-		log_econ("[stackoverflow] has been sold to [src] by [user] for [cost * stackoverflow.amount] cash.")
-		generate_cash(cost * stackoverflow.amount, user)
-		stackoverflow.use(stackoverflow.amount)
-		return TRUE
 	log_econ("[sellitem] has been sold to [src] by [user] for [cost] cash.")
+	if(isstack(sellitem))
+		var/obj/item/stack/the_stack = sellitem
+		the_stack.use(the_stack.amount)
 	generate_cash(cost, user)
+	wanted_items[sellitem[2]] -= 1
 	qdel(sellitem)
 	return TRUE
+
+///Modifies the price of a item
+/mob/living/simple_animal/hostile/retaliate/trader/proc/apply_sell_price_mods(obj/item/selling, original_cost)
+	if(isstack(selling))
+		var/obj/item/stack/stackoverflow = selling
+		original_cost *= stackoverflow.amount
+	return original_cost
+
 
 /**
  * Creates a holochip the value set by the proc and puts it in the user's hands
@@ -216,6 +296,16 @@
 	var/obj/item/holochip/chip = new /obj/item/holochip(get_turf(user), value)
 	user.put_in_hands(chip)
 
+///Sets quantity of all products to initial(quanity); this proc is currently not called anywhere on the base class of traders
+/mob/living/simple_animal/hostile/retaliate/trader/proc/restock_products()
+	for(var/item in products)
+		products[item[2]] = initial(products[item[2]])
+
+///Sets quantity of all wanted_items to initial(quanity); this proc is currently not called anywhere on the base class of traders
+/mob/living/simple_animal/hostile/retaliate/trader/proc/renew_item_demands()
+	for(var/item in wanted_items)
+		wanted_items[item[2]] = initial(wanted_items[item[2]])
+
 /mob/living/simple_animal/hostile/retaliate/trader/mrbones
 	name = "Mr. Bones"
 	desc = "A skeleton merchant, he seems very humerus."
@@ -224,15 +314,15 @@
 	sell_sound = 'sound/voice/hiss2.ogg'
 	mob_biotypes = MOB_UNDEAD|MOB_HUMANOID
 	products = list(
-		/obj/item/clothing/head/helmet/skull = 150,
-		/obj/item/clothing/mask/bandana/skull = 50,
-		/obj/item/food/cookie/sugar/spookyskull = 10,
-		/obj/item/instrument/trombone/spectral = 10000,
-		/obj/item/shovel/serrated = 150
+		/obj/item/clothing/head/helmet/skull = list(150, INFINITY),
+		/obj/item/clothing/mask/bandana/skull = list(50, INFINITY),
+		/obj/item/food/cookie/sugar/spookyskull = list(10, INFINITY),
+		/obj/item/instrument/trombone/spectral = list(10000, INFINITY),
+		/obj/item/shovel/serrated = list(150, INFINITY)
 	)
 	wanted_items = list(
-		/obj/item/reagent_containers/food/condiment/milk = 1000,
-		/obj/item/stack/sheet/bone = 420
+		/obj/item/reagent_containers/food/condiment/milk = list(1000, INFINITY),
+		/obj/item/stack/sheet/bone = list(420, INFINITY)
 	)
 	buyphrase = "Bone appetit!"
 	icon_state = "mrbones"
