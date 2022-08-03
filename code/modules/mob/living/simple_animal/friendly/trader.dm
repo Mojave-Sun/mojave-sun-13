@@ -40,19 +40,19 @@
 	 * Associated list of items the NPC sells with how much they cost and the quantity available before a restock
 	 * *
 	 */
-	var/list/products = list(/obj/item/food/burger/ghost = list(200, INFINITY),
-							/obj/item/food/burger = list(100, 3)
+	var/list/products = list(/obj/item/food/burger/ghost = list(200, INFINITY)
 							)
 	/**
+	 * CHILDREN OF TYPEPATHS WILL BE SELLABLE AT THE SAME PRICE AND QUANTITY AS THE PARENT
 	 * Format; list(TYPEPATH = list(PRICE, QUANTITY, ADDITIONAL_DESCRIPTION))
 	 * Associated list of items able to be sold to the NPC with the money given for them.
 	 * The price given should be the "base" price; any price manipulation based on variables should be done with apply_sell_price_mods()
 	 * ADDITIONAL_DESCRIPTION is any additional text added to explain how the variables of the item effect the price; if it's stack based, it's final price depends how much is in the stack
-	 * EX; /obj/item/stack/sheet/mineral/diamond = list(500, INFINITY, ", per every 2000 cm3 sheet of diamond")
+	 * EX; /obj/item/stack/sheet/mineral/diamond = list(500, INFINITY, ", per 2000 cm3 sheet of diamond")
+	 *
 	 * *
 	*/
-	var/list/wanted_items = list(/obj/item/ectoplasm = list(100, INFINITY, ""),
-								/obj/item/stack/sheet/mineral/diamond = list(500, INFINITY, ", per 2000 cm3 sheet of diamond")
+	var/list/wanted_items = list(/obj/item/ectoplasm = list(100, INFINITY, "")
 								)
 	///Phrase said when NPC finds none of your inhand items in wanted_items.
 	var/itemrejectphrase = list("Sorry, I'm not a fan of anything you're showing me. Give me something better and we'll talk.")
@@ -72,6 +72,8 @@
 	var/notwillingtobuyphrase = list("I don't want to buy that item for the time being, check back another time.")
 	///Phrase said when the value of a item being sold to the trader turns out to be worth nothing after modifiers
 	var/itemisworthless = list("This item seems to be worthless on a closer look, I won't buy this.")
+	///Phrase said when the trader already bought enough of this item recently
+	var/traderhasenoughitem = list("I already bought enough of this for the time being.")
 	///Phrases used when you talk to the NPC
 	var/list/lore = list(
 		"Hello! I am the test trader.",
@@ -127,9 +129,9 @@
 	var/pick = show_radial_menu(user, src, npc_options, custom_check = CALLBACK(src, .proc/check_menu, user), require_near = TRUE, tooltips = TRUE)
 	if(pick == "Lore")
 		say(pick(lore))
-	if(pick == "Selling?")
-		trader_buys_what(user)
 	if(pick == "Buying?")
+		trader_buys_what(user)
+	if(pick == "Selling?")
 		trader_sells_what(user)
 
 ///Displays to the user what the trader is willing to buy and how much until a restockpile
@@ -215,7 +217,7 @@
 	cash = user.is_holding_item_of_type(/obj/item/holochip)
 	if(cash)
 		value += cash.credits
-	if((value > the_cost) && cash)
+	if((value >= the_cost) && cash)
 		cash.spend(the_cost)
 		return TRUE
 	return FALSE //Purchase unsuccessful
@@ -239,29 +241,30 @@
  * * user - The mob trying to sell something
  * * selling - The item being sold
  */
-/mob/living/simple_animal/hostile/retaliate/trader/proc/sell_item(mob/user, selling)
-	var/obj/item/sellitem = selling
+/mob/living/simple_animal/hostile/retaliate/trader/proc/sell_item(mob/user, obj/item/selling)
 	var/cost
-	if(!sellitem)
+	if(!selling)
 		return FALSE
-	var/datum/checked_type = sellitem.type
 	var/list/product_info
-	do
-		if(checked_type in wanted_items)
-			product_info = wanted_items[sellitem.type]
-			if(product_info[2] <= 0)
-				to_chat(user, span_notice("I'm not interested in buying [sellitem.name] during this time."))
-				break
-			cost = product_info[1]
+	var/obj/initialized_type //Need to intialize obj to access parent_type and keep a record of the typepath
+	var/sell_typepath = selling.type
+	while(sell_typepath != null && sell_typepath != /obj)
+		initialized_type = new sell_typepath
+		if(wanted_items[sell_typepath])
+			product_info = wanted_items[sell_typepath]
 			break
-		checked_type = checked_type.parent_type
-	while(checked_type != /obj)
-	cost = apply_sell_price_mods(selling, cost)
+		sell_typepath = initialized_type.parent_type
+	if(!product_info) //Nothing interesting to sell
+		return FALSE
+	if(product_info[2] <= 0)
+		say(pick(traderhasenoughitem))
+		return FALSE
+	cost = apply_sell_price_mods(selling, product_info[1])
 	if(cost <= 0)
 		say(pick(itemisworthless))
 		return FALSE
 	say(pick(interestedphrase))
-	to_chat(user, span_notice("You will receive [cost] credits for each one of [sellitem]."))
+	to_chat(user, span_notice("You will receive [cost] credits for each one of [selling]."))
 	var/list/npc_options = list(
 		"Yes" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_yes"),
 		"No" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_no")
@@ -273,17 +276,26 @@
 		return TRUE
 	say(pick(itemsellacceptphrase))
 	playsound(src, sell_sound, 50, TRUE)
-	log_econ("[sellitem] has been sold to [src] by [user] for [cost] cash.")
-	if(isstack(sellitem))
-		var/obj/item/stack/the_stack = sellitem
+	log_econ("[selling] has been sold to [src] by [user] for [cost] cash.")
+	exchange_sold_items(selling, cost, sell_typepath)
+	generate_cash(cost, user)
+	return TRUE
+
+/**
+	Handles modifying/deleting the items to ensure that a proper amount is converted into cash; put into it's own proc to make the children of this not override a 30+ line sell_item()
+
+	original_typepath is for scenarios where a children of a parent is being sold but we want to modify the parent's product information
+ */
+/mob/living/simple_animal/hostile/retaliate/trader/proc/exchange_sold_items(obj/item/selling, value_exchanged_for, original_typepath)
+	var/list/product_info = wanted_items[original_typepath]
+	if(isstack(selling))
+		var/obj/item/stack/the_stack = selling
 		var/actually_sold = min(the_stack.amount, product_info[2])
 		the_stack.use(actually_sold)
 		product_info[2] -= (actually_sold)
 	else
+		qdel(selling)
 		product_info[2] -= 1
-	generate_cash(cost, user)
-	qdel(sellitem)
-	return TRUE
 
 ///Modifies the 'base' price of a item based on certain variables
 /mob/living/simple_animal/hostile/retaliate/trader/proc/apply_sell_price_mods(obj/item/selling, original_cost)
@@ -328,8 +340,8 @@
 		/obj/item/shovel/serrated = list(150, INFINITY)
 	)
 	wanted_items = list(
-		/obj/item/reagent_containers/food/condiment/milk = list(1000, INFINITY),
-		/obj/item/stack/sheet/bone = list(420, INFINITY)
+		/obj/item/reagent_containers/food/condiment/milk = list(1000, INFINITY, ""),
+		/obj/item/stack/sheet/bone = list(420, INFINITY, ", per sheet of bone")
 	)
 	buyphrase = "Bone appetit!"
 	icon_state = "mrbones"
