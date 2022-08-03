@@ -156,3 +156,15 @@
 			/obj/item/stack/sheet/ms13/refined_silver/two = 10,
 			/obj/item/stack/sheet/ms13/refined_gold/two = 10
 	)
+
+/obj/effect/spawner/random/ms13/guarenteed/crafting/refined
+	name = "refined metals spawner"
+	loot = list(
+			/obj/item/stack/sheet/ms13/refined_silver/two,
+			/obj/item/stack/sheet/ms13/refined_gold/two,
+			/obj/item/stack/sheet/ms13/refined_alu/two,
+			/obj/item/stack/sheet/ms13/refined_brass/two,
+			/obj/item/stack/sheet/ms13/refined_lead/two,
+			/obj/item/stack/sheet/ms13/refined_steel/two,
+			/obj/item/stack/sheet/ms13/refined_copper/two
+	)

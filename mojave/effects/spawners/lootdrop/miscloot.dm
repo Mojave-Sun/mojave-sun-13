@@ -178,5 +178,5 @@
 			/obj/item/stack/sheet/ms13/refined_brass/two,
 			/obj/item/stack/sheet/ms13/refined_lead/two,
 			/obj/item/stack/sheet/ms13/refined_steel/two,
-			/obj/item/stack/sheet/ms13/refined_copper/two,
+			/obj/item/stack/sheet/ms13/refined_copper/two
 	)

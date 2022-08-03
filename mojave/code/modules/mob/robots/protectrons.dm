@@ -83,25 +83,30 @@
 		ranged_cooldown = 5 SECONDS
 
 /mob/living/simple_animal/hostile/ms13/robot/protectron/builder
+	name = "builder protectron"
 	desc = "A heavy duty protectron that is equipped with basic tools in order to aid construction workers. Stay clear!"
 	icon_state = "protectron_builder"
 	icon_living = "protectron_builder"
-	melee_damage_lower = 20
-	melee_damage_upper = 20
-	wound_bonus = -5
-	bare_wound_bonus = 5
-	rapid = 2
-	rapid_fire_delay = 3
-	projectiletype = /obj/projectile/bullet/ms13/nail/protectron
+	melee_damage_lower = 15
+	melee_damage_upper = 15
+	subtractible_armour_penetration = 15
+	wound_bonus = 5
+	bare_wound_bonus = 0
+	rapid = 5
+	rapid_fire_delay = 0.35 SECONDS //5 nails over 1.75 seconds
+	ranged_cooldown = 5.75 SECONDS //Then a 4 second delay
+	casingtype = /obj/item/ammo_casing/ms13/nail/protectron
 	projectilesound = 'mojave/sound/ms13weapons/gunsounds/nailgun/nailgun_single.ogg'
+	minimum_distance = 3
+	retreat_distance = 6
 
 /mob/living/simple_animal/hostile/ms13/robot/protectron/reinforced
 	name = "reinforced protectron"
 	desc = "A high security variant of a protectron. Built to last and keep up to harsh punishment, the unaging guard that doesn't require payment."
 	icon_state = "protectron_reinforced"
 	icon_living = "protectron_reinforced"
-	health = 210
-	maxHealth = 210
+	health = 200
+	maxHealth = 200
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	subtractible_armour_penetration = 5
