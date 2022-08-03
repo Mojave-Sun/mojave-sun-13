@@ -9,19 +9,19 @@
 /obj/item/clothing/accessory/armband/ms13/red
 	name = "red armband"
 	desc = "A red armband, usually used for identification among groups."
-	icon_state ='squad_red'
+	icon_state = "squad_red"
 
 /obj/item/clothing/accessory/armband/ms13/blue
 	name = "blue armband"
 	desc = "A blue armband, usually used for identification among groups."
-	icon_state ='squad_blue'
+	icon_state = "squad_blue"
 
 /obj/item/clothing/accessory/armband/ms13/green
 	name = "green armband"
 	desc = "A green armband, usually used for identification among groups."
-	icon_state ='squad_green'
+	icon_state = "squad_green"
 
 /obj/item/clothing/accessory/armband/ms13/purple
 	name = "purple armband"
-	desc = "A red armband, usually used for identification among groups."
-	icon_state ='squad_purple'
+	desc = "A purple armband, usually used for identification among groups."
+	icon_state = "squad_purple"
