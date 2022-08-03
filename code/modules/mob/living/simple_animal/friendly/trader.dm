@@ -38,22 +38,23 @@
 	/**
 	 * Format; list(TYPEPATH = list(PRICE, QUANTITY))
 	 * Associated list of items the NPC sells with how much they cost and the quantity available before a restock
+	 * This list is filled upon Initialize(), if you want to change the starting products, modify initial_products()
 	 * *
 	 */
-	var/list/products = list(/obj/item/food/burger/ghost = list(200, INFINITY)
-							)
+	var/list/products
 	/**
-	 * CHILDREN OF TYPEPATHS WILL BE SELLABLE AT THE SAME PRICE AND QUANTITY AS THE PARENT
+	 * CHILDREN OF TYPEPATHS INCLUDED IN WANTED_ITEMS WILL BE TREATED AS THE PARENT IF NO ENTRY EXISTS FOR THE CHILDREN
+	 *
+	 *
 	 * Format; list(TYPEPATH = list(PRICE, QUANTITY, ADDITIONAL_DESCRIPTION))
 	 * Associated list of items able to be sold to the NPC with the money given for them.
 	 * The price given should be the "base" price; any price manipulation based on variables should be done with apply_sell_price_mods()
 	 * ADDITIONAL_DESCRIPTION is any additional text added to explain how the variables of the item effect the price; if it's stack based, it's final price depends how much is in the stack
 	 * EX; /obj/item/stack/sheet/mineral/diamond = list(500, INFINITY, ", per 2000 cm3 sheet of diamond")
-	 *
+	 * This list is filled upon Initialize(), if you want to change the starting wanted items, modify initial_wanteds()
 	 * *
 	*/
-	var/list/wanted_items = list(/obj/item/ectoplasm = list(100, INFINITY, "")
-								)
+	var/list/wanted_items
 	///Phrase said when NPC finds none of your inhand items in wanted_items.
 	var/itemrejectphrase = list("Sorry, I'm not a fan of anything you're showing me. Give me something better and we'll talk.")
 	///Phrase said when you cancel selling a thing to the NPC.
@@ -81,6 +82,21 @@
 	)
 	///The name of the currency that is used when buying or selling items
 	var/currency_name = "credits"
+
+/mob/living/simple_animal/hostile/retaliate/trader/Initialize()
+	. = ..()
+	restock_products()
+	renew_item_demands()
+
+///Returns a list of the starting price/quanity/fluff text about the product listings; products = initial(products) doesn't work so this exists mainly for restock_products()
+/mob/living/simple_animal/hostile/retaliate/trader/proc/initial_products()
+	return list(/obj/item/food/burger/ghost = list(200, INFINITY)
+				)
+
+///Returns a list of the starting price/quanity/fluff text about the wanted items; wanted_items = initial(wanted_items) doesn't work so this exists mainly for renew_item_demands()
+/mob/living/simple_animal/hostile/retaliate/trader/proc/initial_wanteds()
+	return list(/obj/item/ectoplasm = list(100, INFINITY, "")
+				)
 
 /mob/living/simple_animal/hostile/retaliate/trader/interact(mob/user)
 	if(user == target)
@@ -134,7 +150,7 @@
 	if(pick == "Selling?")
 		trader_sells_what(user)
 
-///Displays to the user what the trader is willing to buy and how much until a restockpile
+///Displays to the user what the trader is willing to buy and how much until a restock happens
 /mob/living/simple_animal/hostile/retaliate/trader/proc/trader_buys_what(mob/user)
 	if(!wanted_items.len)
 		to_chat(user, span_green("I'm currently buying nothing at the moment."))
@@ -317,13 +333,11 @@
 
 ///Sets quantity of all products to initial(quanity); this proc is currently not called anywhere on the base class of traders
 /mob/living/simple_animal/hostile/retaliate/trader/proc/restock_products()
-	for(var/item in products)
-		products[item[2]] = initial(products[item[2]])
+	products = initial_products()
 
 ///Sets quantity of all wanted_items to initial(quanity); this proc is currently not called anywhere on the base class of traders
 /mob/living/simple_animal/hostile/retaliate/trader/proc/renew_item_demands()
-	for(var/item in wanted_items)
-		wanted_items[item[2]] = initial(wanted_items[item[2]])
+	wanted_items = initial_wanteds()
 
 /mob/living/simple_animal/hostile/retaliate/trader/mrbones
 	name = "Mr. Bones"
@@ -332,17 +346,6 @@
 	speech_span = SPAN_SANS
 	sell_sound = 'sound/voice/hiss2.ogg'
 	mob_biotypes = MOB_UNDEAD|MOB_HUMANOID
-	products = list(
-		/obj/item/clothing/head/helmet/skull = list(150, INFINITY),
-		/obj/item/clothing/mask/bandana/skull = list(50, INFINITY),
-		/obj/item/food/cookie/sugar/spookyskull = list(10, INFINITY),
-		/obj/item/instrument/trombone/spectral = list(10000, INFINITY),
-		/obj/item/shovel/serrated = list(150, INFINITY)
-	)
-	wanted_items = list(
-		/obj/item/reagent_containers/food/condiment/milk = list(1000, INFINITY, ""),
-		/obj/item/stack/sheet/bone = list(420, INFINITY, ", per sheet of bone")
-	)
 	buyphrase = "Bone appetit!"
 	icon_state = "mrbones"
 	gender = MALE
@@ -354,3 +357,18 @@
 		"I'm willing to play big prices for BONES! Need materials to make merch, eh?",
 		"It's a beautiful day outside. Birds are singing, Flowers are blooming... On days like these, kids like you... Should be buying my wares!"
 	)
+
+/mob/living/simple_animal/hostile/retaliate/trader/mrbones/initial_products()
+	return list(
+		/obj/item/clothing/head/helmet/skull = list(150, INFINITY),
+		/obj/item/clothing/mask/bandana/skull = list(50, INFINITY),
+		/obj/item/food/cookie/sugar/spookyskull = list(10, INFINITY),
+		/obj/item/instrument/trombone/spectral = list(10000, INFINITY),
+		/obj/item/shovel/serrated = list(150, INFINITY)
+				)
+
+/mob/living/simple_animal/hostile/retaliate/trader/mrbones/initial_wanteds()
+	return list(
+		/obj/item/reagent_containers/food/condiment/milk = list(1000, INFINITY, ""),
+		/obj/item/stack/sheet/bone = list(420, INFINITY, ", per sheet of bone")
+				)
