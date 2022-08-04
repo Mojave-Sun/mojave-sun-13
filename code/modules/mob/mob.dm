@@ -745,26 +745,28 @@
 		to_chat(usr, span_boldnotice("You must be dead to use this!"))
 		return
 
+	log_game("[key_name(usr)] used the respawn button.")
 	if(world.time - src.respawn_timeofdeath < CONFIG_GET(number/respawn_time) && !check_rights_for(usr.client, R_ADMIN))
 		to_chat(usr, span_boldnotice("Respawn timer: [round((CONFIG_GET(number/respawn_time) - (world.time - src.respawn_timeofdeath)) / 10)] seconds remaining."))
 		return
+	
+	usr.log_message("used the respawn button.", LOG_GAME)
 
-	log_game("[key_name(usr)] used the respawn button.")
 
 	to_chat(usr, span_boldnotice("Please roleplay correctly!"))
 
 	if(!client)
-		log_game("[key_name(usr)] respawn failed due to disconnect.")
+		usr.log_message("respawn failed due to disconnect.", LOG_GAME)
 		return
 	client.screen.Cut()
 	client.screen += client.void
 	if(!client)
-		log_game("[key_name(usr)] respawn failed due to disconnect.")
+		usr.log_message("respawn failed due to disconnect.", LOG_GAME)
 		return
 
 	var/mob/dead/new_player/M = new /mob/dead/new_player()
 	if(!client)
-		log_game("[key_name(usr)] respawn failed due to disconnect.")
+		usr.log_message("respawn failed due to disconnect.", LOG_GAME)
 		qdel(M)
 		return
 
