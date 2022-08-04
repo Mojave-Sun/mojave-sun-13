@@ -102,7 +102,7 @@
 	faced_dir = NONE
 	SEND_SIGNAL(source, COMSIG_LIVING_FIXEYE_DISABLED, silent, forced)
 	if(!silent)
-		source.playsound_local(source, 'mojave/sound/ms13interface/fixeye_off.wav', 25, FALSE, pressure_affected = FALSE)
+		source.playsound_local(source, 'mojave/sound/ms13interface/fixeye_off.ogg', 25, FALSE, pressure_affected = FALSE)
 	UnregisterSignal(source, list(COMSIG_ATOM_DIR_CHANGE, COMSIG_MOB_CLIENT_MOVED, COMSIG_MOB_CLICKON))
 
 /// Returns a field of flags that are in both the second arg and our fixeye_flags variable.
