@@ -271,7 +271,7 @@
 	frame = /obj/item/stack/sheet/ms13/scrap
 	framestack = /obj/item/stack/sheet/ms13/scrap
 	framestackamount = 2
-	drag_slowdown = 0.5
+	drag_slowdown = 1
 
 ///// CRAFTING TABLES /////
 

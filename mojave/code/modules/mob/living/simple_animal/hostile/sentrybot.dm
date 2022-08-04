@@ -422,7 +422,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	sharpness = SHARP_POINTY
 	wound_bonus = 10
 	bare_wound_bonus = 15
-	embedding = list("embedded_pain_multiplier" = 2, "embed_chance" = 50, "embedded_fall_chance" = 10, "ignore_throwspeed_threshold" = TRUE)
+	embedding = list("embedded_pain_multiplier" = 1, "embed_chance" = 50, "embedded_fall_chance" = 10, "ignore_throwspeed_threshold" = TRUE)
 
 //A flamethrower that's essentially a forward facing backblast of the rocket launcher
 /datum/action/cooldown/flamethrow

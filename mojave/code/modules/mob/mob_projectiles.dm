@@ -99,13 +99,27 @@
 	impact_light_intensity = 5
 	impact_light_range = 1.25
 
+/obj/item/ammo_casing/ms13/nail/protectron
+	projectile_type = /obj/projectile/bullet/ms13/nail/protectron
+	variance = 22
+	pellets = 1
+	fire_sound = 'mojave/sound/ms13weapons/gunsounds/nailgun/nailgun_single.ogg'
+	randomspread = TRUE
+
+/obj/item/ammo_casing/ms13/nail/protectron/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from, extra_damage, extra_penetration)
+	. = ..()
+	if(. && !QDELETED(src))
+		qdel(src)
+
 /obj/projectile/bullet/ms13/nail/protectron
+	name = "nail"
 	icon_state = "nail"
 	damage = 15
-	armour_penetration = 5
-	wound_bonus = 2
-	wound_bonus = WOUND_MINIMUM_DAMAGE
-	embedding = list(embed_chance=85, fall_chance=2, jostle_chance=0, ignore_throwspeed_threshold=TRUE, pain_stam_pct=0.5, pain_mult=3, rip_time=10)
+	subtractible_armour_penetration = 5
+	wound_bonus = 5
+	bare_wound_bonus = 10
+	sharpness = SHARP_POINTY
+	embedding = list("embedded_pain_multiplier" = 2, "embed_chance" = 60, "embedded_fall_chance" = 20, "ignore_throwspeed_threshold" = TRUE)
 
 // Robobrain Projectiles //
 

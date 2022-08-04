@@ -227,6 +227,8 @@
 	desc = "A potent healing balm pouch, containing a mixture of various chemicals. The back says something about danger and keeping it away from the eyes."
 	singular_name = "balm pouch"
 	icon_state = "balm"
+	self_delay = 2.5 SECONDS
+	other_delay = 2 SECONDS
 	amount = 8
 	max_amount = 8
 	heal_brute = 12

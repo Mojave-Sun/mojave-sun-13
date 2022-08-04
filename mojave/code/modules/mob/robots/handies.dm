@@ -11,8 +11,8 @@
 	move_to_delay = 3
 	speed = 1
 	sharpness = NONE
-	wound_bonus = 5
-	bare_wound_bonus = 2
+	wound_bonus = 4
+	bare_wound_bonus = 4
 	speak_emote = list("states", "says")
 	attack_verb_continuous = "pinches"
 	attack_verb_simple = "pinch"
@@ -69,8 +69,8 @@
 	melee_damage_lower = 20
 	melee_damage_upper = 20
 	subtractible_armour_penetration = 15
-	wound_bonus = 8
-	bare_wound_bonus = 4
+	wound_bonus = 6
+	bare_wound_bonus = 6
 	minimum_distance = 2
 	retreat_distance = 3
 	loot = list(/obj/item/stack/sheet/ms13/scrap_steel/two, /obj/effect/decal/cleanable/robot_debris, /obj/item/stack/sheet/ms13/scrap_electronics/two, /obj/item/stack/sheet/ms13/scrap_parts/two, /obj/item/ms13/component/plasma_battery, /obj/item/stack/sheet/ms13/circuits)
