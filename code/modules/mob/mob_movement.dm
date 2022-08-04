@@ -72,6 +72,7 @@
 	move_delay = world.time + world.tick_lag //this is here because Move() can now be called mutiple times per tick
 	if(!mob || !mob.loc)
 		return FALSE
+	var/old_loc = mob.loc
 	if(!new_loc || !direct)
 		return FALSE
 	if(mob.notransform)
