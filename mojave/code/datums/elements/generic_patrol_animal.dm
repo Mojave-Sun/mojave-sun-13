@@ -60,4 +60,4 @@ The simple animal this is attached to should also be able to destroy obstacles s
 				var/obj/effect/ai_node/linted_current_node = animal_current_node[animal]
 				linted_current_node.set_weight(animal_identifier[animal], NODE_LAST_VISITED, world.time)
 				animal_target_node[animal] =linted_current_node.get_best_adj_node(animal_node_weights[animal], animal_identifier[animal])
-			walk_to(animal, animal_target_node[animal], 0, patrol_move_delay[animal])
+			animal.Goto(target = animal_target_node[animal], delay = patrol_move_delay[animal], minimum_distance = 0)
