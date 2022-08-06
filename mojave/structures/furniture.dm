@@ -476,7 +476,7 @@
 		if(disassembled)
 			new /obj/item/stack/sheet/ms13/ceramic(loc, 3) //disassembled with what though
 		else
-			new /obj/item/stack/sheet/ms13/ceramic(loc, 2)
+			new /obj/item/stack/sheet/ms13/ceramic(loc)
 	qdel(src)
 
 /obj/structure/ms13/pot/plant

@@ -170,7 +170,7 @@
 	desc = "Useful for storing blood, organs, or just about whatever you could wish for. Has some handles and rollers under it for transporation, but is very bulky."
 	icon_state = "medical"
 	anchored = FALSE
-	drag_slowdown = 0.5
+	drag_slowdown = 1
 	material_drop = /obj/item/stack/sheet/ms13/scrap
 	material_drop_amount = 2
 

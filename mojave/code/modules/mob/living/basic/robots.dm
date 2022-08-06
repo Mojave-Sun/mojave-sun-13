@@ -60,8 +60,8 @@
     attack_verb_simple = "pinch"
     attack_sound = 'mojave/sound/ms13weapons/meleesounds/pipe_hit.ogg'
     sharpness = NONE
-    wound_bonus = 8
-    bare_wound_bonus = 4
+    wound_bonus = 5
+    bare_wound_bonus = 5
     shadow_type = "shadow_large"
 
 /mob/living/basic/ms13/robot/handy/New()
@@ -85,7 +85,7 @@
     subtractible_armour_penetration = 15
     sharpness = SHARP_EDGED
     wound_bonus = 8
-    bare_wound_bonus = 12
+    bare_wound_bonus = 10
     attack_verb_continuous = "saws"
     attack_verb_simple = "saw"
     attack_sound = list('mojave/sound/ms13weapons/meleesounds/ripper_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/ripper_hit2.ogg')
