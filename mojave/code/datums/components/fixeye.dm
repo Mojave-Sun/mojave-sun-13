@@ -78,7 +78,7 @@
 	if(!silent)
 		source.playsound_local(source, 'mojave/sound/ms13interface/fixeye_on.ogg', 25, FALSE, pressure_affected = FALSE)
 	faced_dir = source.dir
-	RegisterSignal(source, COMSIG_ATOM_DIR_CHANGE, .proc/on_dir_change)
+	RegisterSignal(source, COMSIG_ATOM_PRE_DIR_CHANGE, .proc/before_dir_change)
 	RegisterSignal(source, COMSIG_MOB_CLIENT_MOVED, .proc/on_client_move)
 	RegisterSignal(source, COMSIG_MOB_CLICKON, .proc/on_clickon)
 
@@ -103,7 +103,7 @@
 	SEND_SIGNAL(source, COMSIG_LIVING_FIXEYE_DISABLED, silent, forced)
 	if(!silent)
 		source.playsound_local(source, 'mojave/sound/ms13interface/fixeye_off.ogg', 25, FALSE, pressure_affected = FALSE)
-	UnregisterSignal(source, list(COMSIG_ATOM_DIR_CHANGE, COMSIG_MOB_CLIENT_MOVED, COMSIG_MOB_CLICKON))
+	UnregisterSignal(source, list(COMSIG_ATOM_PRE_DIR_CHANGE, COMSIG_MOB_CLIENT_MOVED, COMSIG_MOB_CLICKON))
 
 /// Returns a field of flags that are in both the second arg and our fixeye_flags variable.
 /datum/component/fixeye/proc/check_flags(mob/living/source, flags)
@@ -132,7 +132,7 @@
 		client.move_delay += added_delay*0.5
 
 /// Keep that fucking face right where we want it
-/datum/component/fixeye/proc/on_dir_change(mob/living/source, dir, newdir)
+/datum/component/fixeye/proc/before_dir_change(mob/living/source, dir, newdir)
 	SIGNAL_HANDLER
 
 	return COMPONENT_NO_DIR_CHANGE
@@ -160,7 +160,7 @@
 		return
 
 	//This is stupid and evil but it works
-	UnregisterSignal(source, COMSIG_ATOM_DIR_CHANGE)
+	UnregisterSignal(source, COMSIG_ATOM_PRE_DIR_CHANGE)
 	var/new_dir = get_dir(source, A)
 	//Evil switch statement that turns diagonal dirs into acceptable cardinal ones so FoV doesn't shit itself
 	if(!(new_dir in GLOB.cardinals))
@@ -176,4 +176,4 @@
 			else
 				new_dir = NORTH
 	source.setDir(new_dir)
-	RegisterSignal(source, COMSIG_ATOM_DIR_CHANGE, .proc/on_dir_change)
+	RegisterSignal(source, COMSIG_ATOM_PRE_DIR_CHANGE, .proc/before_dir_change)
