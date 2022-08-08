@@ -85,7 +85,7 @@
 
 /obj/structure/ms13/wall_decor/flag
 	name = "flag"
-	desc = "A flag from the old world. This one represents America in all of its glory."
+	desc = "A faded flag depicting vertical stripes. In the top left corner there are 14 small stars, which form a corona around a larger star."
 	icon_state = "flag_us"
 
 /obj/structure/ms13/wall_decor/flag/Initialize()
@@ -134,7 +134,7 @@
 	icon_state = "flag_arizona"
 
 /obj/structure/ms13/wall_decor/flag/enclave
-	desc = "A flag like the days of old but with a giant E representing the Enclave."
+	desc = "A flag of stripes, featuring an E surrounded by stars. It's make shows no wear, as if it were recently made."
 	icon_state = "flag_enclave"
 
 /obj/structure/ms13/wall_decor/flag/ncr
