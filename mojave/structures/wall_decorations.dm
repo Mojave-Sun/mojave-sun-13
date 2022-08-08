@@ -122,7 +122,7 @@
 			return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/ms13/wall_decor/flag/china
-	desc = "This commie flag shouldn't be on American soil! Who put it here?"
+	desc = "A red flag with five golden stars on it's side representing an old world superpower."
 	icon_state = "flag_china"
 
 /obj/structure/ms13/wall_decor/flag/california
@@ -134,7 +134,7 @@
 	icon_state = "flag_arizona"
 
 /obj/structure/ms13/wall_decor/flag/enclave
-	desc = "A flag representing the Enclave. God bless the Enclve, and NOBODY else."
+	desc = "A flag like the days of old but with a giant E representing the Enclave."
 	icon_state = "flag_enclave"
 
 /obj/structure/ms13/wall_decor/flag/ncr
