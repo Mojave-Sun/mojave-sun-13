@@ -121,6 +121,10 @@
 			context[SCREENTIP_CONTEXT_RMB] = "Tear up"
 			return CONTEXTUAL_SCREENTIP_SET
 
+/obj/structure/ms13/wall_decor/flag/china
+	desc = "This commie flag shouldn't be on American soil! Who put it here?"
+	icon_state = "flag_china"
+
 /obj/structure/ms13/wall_decor/flag/california
 	desc = "An old California flag. It has a Yao Guai on it, single head and all."
 	icon_state = "flag_cali"
