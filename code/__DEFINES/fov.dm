@@ -1,5 +1,7 @@
 /// Field of vision defines.
+#define FOV_60_DEGREES 60 //MOJAVE EDIT - Base TG only has 90, 180, 270
 #define FOV_90_DEGREES 90
+#define FOV_120_DEGREES 120 //MOJAVE EDIT - Base TG only has 90, 180, 270
 #define FOV_180_DEGREES 180
 #define FOV_270_DEGREES 270
 

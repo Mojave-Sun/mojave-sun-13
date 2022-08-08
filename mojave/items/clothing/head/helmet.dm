@@ -14,6 +14,7 @@
 	equip_delay_self = 1 SECONDS
 	equip_delay_other = 2 SECONDS
 	var/has_fov = FALSE //Whether this has a grim dark FOV or not
+	var/fov_angle = 60 //What kind of FOV type it has. This should either be 60, 90, 120, or 180
 
 /obj/item/clothing/head/helmet/ms13/Initialize()
 	. = ..()
@@ -22,7 +23,7 @@
 
 /obj/item/clothing/head/helmet/ms13/proc/init_fov()
 	if (has_fov)
-		AddComponent(/datum/component/clothing_fov_visor, FOV_90_DEGREES)
+		AddComponent(/datum/component/clothing_fov_visor, fov_angle)
 
 /obj/item/clothing/head/ms13/hood
 	name = "generic ms13 hood"
@@ -40,6 +41,8 @@
 	equip_delay_self = 1 SECONDS
 	equip_delay_other = 2 SECONDS
 	var/has_fov = FALSE //Whether this has a grim dark FOV or not
+	var/fov_angle = 60 //What kind of FOV type it has. This should either be 60, 90, 120, or 180
+
 
 /obj/item/clothing/head/ms13/hood/Initialize()
 	. = ..()
@@ -48,7 +51,7 @@
 
 /obj/item/clothing/head/ms13/hood/proc/init_fov()
 	if (has_fov)
-		AddComponent(/datum/component/clothing_fov_visor, FOV_90_DEGREES)
+		AddComponent(/datum/component/clothing_fov_visor, fov_angle)
 
 /obj/item/clothing/head/hooded/ms13
 	name = "generic ms13 suit hood"
@@ -100,6 +103,7 @@
                 FIRE = CLASS3_FIRE)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	has_fov = TRUE
+	fov_angle = 120
 	equip_delay_self = 2 SECONDS
 	equip_delay_other = 4 SECONDS
 
@@ -121,6 +125,7 @@
 	dynamic_fhair_suffix = ""
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	has_fov = TRUE
+	fov_angle = 90
 	equip_delay_self = 2 SECONDS
 	equip_delay_other = 4 SECONDS
 
@@ -149,6 +154,7 @@
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS3_FIRE)
 	has_fov = TRUE
+	fov_angle = 120
 	equip_delay_self = 2 SECONDS
 	equip_delay_other = 4 SECONDS
 
@@ -168,6 +174,7 @@
                 FIRE = CLASS3_FIRE)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	has_fov = TRUE
+	fov_angle = 120
 	equip_delay_self = 2 SECONDS
 	equip_delay_other = 4 SECONDS
 
@@ -186,6 +193,8 @@
                 ENERGY = 0, \
                 FIRE = 0)
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0) //No wound armor
+	has_fov = TRUE
+	fov_angle = 60
 	flags_inv = HIDEEARS|HIDEFACE
 	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
@@ -213,6 +222,7 @@
 	dynamic_fhair_suffix = ""
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	has_fov = TRUE
+	fov_angle = 120
 	equip_delay_self = 2 SECONDS
 	equip_delay_other = 4 SECONDS
 
@@ -234,6 +244,7 @@
 	dynamic_fhair_suffix = ""
 	flags_inv = HIDEEARS|HIDEHAIR
 	has_fov = TRUE
+	fov_angle = 60
 	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
 
@@ -251,7 +262,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
-	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0) //No wound armor
+	has_fov = TRUE
+	fov_angle = 60
 	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
 
@@ -344,6 +356,8 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS2_FIRE)
+	has_fov = TRUE
+	fov_angle = 60
 	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
 
@@ -387,6 +401,7 @@
 	inhand_icon_state = "harmorkit"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	has_fov = TRUE
+	fov_angle = 120
 	equip_delay_self = 2 SECONDS
 	equip_delay_other = 4 SECONDS
 
@@ -406,6 +421,7 @@
 	inhand_icon_state = "armorkit"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	has_fov = TRUE
+	fov_angle = 120
 	equip_delay_self = 2 SECONDS
 	equip_delay_other = 4 SECONDS
 
@@ -442,6 +458,7 @@
 	inhand_icon_state = "headdress_l"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	has_fov = TRUE
+	fov_angle = 120
 	equip_delay_self = 2 SECONDS
 	equip_delay_other = 4 SECONDS
 
@@ -476,6 +493,8 @@
                 ENERGY = 0, \
                 FIRE = 0)
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0) //No wound armor
+	has_fov = TRUE
+	fov_angle = 60
 	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
 
@@ -492,6 +511,8 @@
                 LASER = 0, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS2_FIRE)
+	has_fov = TRUE
+	fov_angle = 60
 	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
 
@@ -528,6 +549,7 @@
 	inhand_icon_state = "winterglovesbrown"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	has_fov = TRUE
+	fov_angle = 60
 	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
 
@@ -994,6 +1016,7 @@
                 ENERGY = CLASS3_PLASMA, \
                 FIRE = CLASS4_FIRE)
 	has_fov = TRUE
+	fov_angle = 90
 	equip_delay_self = 2 SECONDS
 	equip_delay_other = 4 SECONDS
 
@@ -1017,6 +1040,7 @@
                 FIRE = CLASS3_FIRE)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	has_fov = TRUE
+	fov_angle = 90
 	equip_delay_self = 2 SECONDS
 	equip_delay_other = 4 SECONDS
 
@@ -1053,6 +1077,7 @@
                 FIRE = CLASS3_FIRE)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	has_fov = TRUE
+	fov_angle = 90
 	equip_delay_self = 2 SECONDS
 	equip_delay_other = 4 SECONDS
 
@@ -1074,6 +1099,7 @@
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 	has_fov = TRUE
+	fov_angle = 90
 	equip_delay_self = 2 SECONDS
 	equip_delay_other = 4 SECONDS
 
@@ -1092,6 +1118,8 @@
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS2_FIRE)
 	flags_inv = HIDEEARS|HIDEHAIR
+	has_fov = TRUE
+	fov_angle = 60
 	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
 
@@ -1127,6 +1155,7 @@
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 	has_fov = TRUE
+	fov_angle = 90
 	equip_delay_self = 2 SECONDS
 	equip_delay_other = 4 SECONDS
 
@@ -1148,6 +1177,7 @@
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 	has_fov = TRUE
+	fov_angle = 90
 	equip_delay_self = 2 SECONDS
 	equip_delay_other = 4 SECONDS
 
@@ -1192,6 +1222,8 @@
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
 	flags_cover = NONE
+	has_fov = TRUE
+	fov_angle = 60
 	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
 
@@ -1254,6 +1286,7 @@
                 ENERGY = 0, \
                 FIRE = 0)
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0) //No wound armor
+	has_fov = FALSE
 	equip_delay_self = 1 SECONDS
 	equip_delay_other = 2 SECONDS
 
@@ -1298,6 +1331,8 @@
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
 	flags_inv = HIDEEARS|HIDEHAIR
+	has_fov = TRUE
+	fov_angle = 60
 	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
 
@@ -1316,6 +1351,8 @@
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
 	flags_inv = HIDEEARS|HIDEHAIR
+	has_fov = TRUE
+	fov_angle = 60
 	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
 
@@ -1335,6 +1372,7 @@
                 FIRE = CLASS3_FIRE)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	has_fov = TRUE
+	fov_angle = 90
 	equip_delay_self = 2 SECONDS
 	equip_delay_other = 4 SECONDS
 
@@ -1354,6 +1392,7 @@
                 FIRE = CLASS3_FIRE)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	has_fov = TRUE
+	fov_angle = 90
 	equip_delay_self = 2 SECONDS
 	equip_delay_other = 4 SECONDS
 
@@ -1383,6 +1422,7 @@
                 FIRE = CLASS3_FIRE)
 	flags_inv = HIDEEARS|HIDEHAIR
 	has_fov = TRUE
+	fov_angle = 120
 	equip_delay_self = 2 SECONDS
 	equip_delay_other = 4 SECONDS
 
@@ -1436,6 +1476,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS2_FIRE)
+	has_fov = TRUE
+	fov_angle = 60
 	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
 
@@ -1454,6 +1496,7 @@
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
 	has_fov = TRUE
+	fov_angle = 90
 	equip_delay_self = 2 SECONDS
 	equip_delay_other = 4 SECONDS
 
@@ -1473,7 +1516,6 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
-	has_fov = TRUE
 	equip_delay_self = 2 SECONDS
 	equip_delay_other = 4 SECONDS
 
