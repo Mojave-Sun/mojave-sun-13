@@ -428,11 +428,12 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	var/mob/living/L = arrived
 	if(!L.ckey)
 		return
-
+//MOJAVE SUN EDIT START - Removes "Ship Ambience"
+/*
 	//Ship ambience just loops if turned on.
 	if(L.client?.prefs.toggles & SOUND_SHIP_AMBIENCE)
-		SEND_SOUND(L, sound('mojave/sound/ms13ambience/general/wasteland.ogg', repeat = 1, wait = 0, volume = 35, channel = CHANNEL_BUZZ)) // MOJAVE SUN EDIT: Original path 'sound/ambience/shipambience.ogg'
-
+		SEND_SOUND(L, sound('sound/ambience/shipambience.ogg', repeat = 1, wait = 0, volume = 35, channel = CHANNEL_BUZZ))
+*///MOJAVE SUN EDIT END - Removes "Ship Ambience"
 
 
 ///Divides total beauty in the room by roomsize to allow us to get an average beauty per tile.

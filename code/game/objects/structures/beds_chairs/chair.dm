@@ -243,11 +243,11 @@
 	item_chair = null
 	icon_state = "officechair_dark"
 
-
+/* MOJAVE EDIT REMOVAL
 /obj/structure/chair/office/Moved()
 	. = ..()
 	if(has_gravity())
-		playsound(src, 'sound/effects/roll.ogg', 100, TRUE)
+		playsound(src, 'sound/effects/roll.ogg', 100, TRUE)*/
 
 /obj/structure/chair/office/electrify_self(obj/item/assembly/shock_kit/input_shock_kit, mob/user, list/overlays_from_child_procs)
 	if(!overlays_from_child_procs)

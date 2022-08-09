@@ -23,6 +23,7 @@
 	gloves = 	 /obj/item/clothing/gloves/color/latex/nitrile
 	shoes =  	 /obj/item/clothing/shoes/ms13/military/vault
 	belt = 		 /obj/item/storage/firstaid/ms13/regular
+	back =       /obj/item/storage/ms13/satchel
 
 /datum/outfit/job/ms13/town/nurse/pre_equip(mob/living/carbon/human/H)
 	..()

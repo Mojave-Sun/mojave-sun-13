@@ -30,15 +30,15 @@
 /obj/structure/ms13/vehicle_ruin/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/scrap(loc, 5)
-			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 5)
-			new /obj/item/stack/sheet/ms13/scrap_steel(loc, 4)
-			new /obj/item/stack/sheet/ms13/scrap_alu(loc, 4)
-			new /obj/item/stack/sheet/ms13/leather(loc, 4)
+			new /obj/item/stack/sheet/ms13/scrap(loc, 6)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 6)
+			new /obj/item/stack/sheet/ms13/scrap_steel(loc, 6)
+			new /obj/item/stack/sheet/ms13/scrap_alu(loc, 5)
+			new /obj/item/stack/sheet/ms13/leather(loc, 5)
 			new /obj/item/stack/sheet/ms13/rubber(loc, 6)
 			new /obj/item/stack/sheet/ms13/glass(loc, 4)
-			new /obj/item/stack/sheet/ms13/scrap_lead(loc, 2)
-			new /obj/item/stack/sheet/ms13/scrap_brass(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_lead(loc, 3)
+			new /obj/item/stack/sheet/ms13/scrap_brass(loc, 3)
 		else
 			new /obj/item/stack/sheet/ms13/scrap(loc)
 	qdel(src)
@@ -49,6 +49,14 @@
 
 /obj/structure/ms13/vehicle_ruin/proc/deconstruction_hints(mob/user)
 	return span_notice("You could use a <b>welding tool</b> to painstakingly take apart [src] for parts.")
+
+/obj/structure/ms13/vehicle_ruin/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_WELDER)
+			context[SCREENTIP_CONTEXT_RMB] = "Slowly take apart"
+			return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/ms13/vehicle_ruin/coupe
 	body_state = "coupe"
@@ -64,6 +72,7 @@
 
 /obj/structure/ms13/vehicle_ruin/Initialize()
 	. = ..()
+	register_context()
 	var/randomiser = rand(1,5)
 	if(!body_state)
 		body_state = pick_weight(RUIN_BODIES)

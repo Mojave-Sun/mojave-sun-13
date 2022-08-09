@@ -22,6 +22,10 @@
 	pickup_sound =  'sound/items/handling/cloth_pickup.ogg'
 	var/leather_amount = 2 //How much leather you get from skinning the hide
 
+/obj/item/ms13/hide/Initialize(mapload)
+	. = ..()
+	register_context()
+
 /obj/item/ms13/hide/attackby(obj/item/W, mob/user, params)
 	if(W.tool_behaviour == TOOL_KNIFE)
 		user.show_message(span_notice("You begin turning [src] into leather."), MSG_VISUAL)
@@ -29,6 +33,14 @@
 			user.show_message(span_notice("You make leather out of [src]!"), MSG_VISUAL)
 			new /obj/item/stack/sheet/ms13/leather(user.loc, 1 * leather_amount)
 			qdel(src)
+
+/obj/item/ms13/hide/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_KNIFE)
+			context[SCREENTIP_CONTEXT_LMB] = "Turn into leather"
+			return CONTEXTUAL_SCREENTIP_SET
 
 /obj/item/ms13/hide/examine(mob/user)
 	. = ..()
@@ -179,11 +191,23 @@
 	drop_sound = 'mojave/sound/ms13items/ms13handling/meat_drop.ogg'
 	pickup_sound =  'mojave/sound/ms13items/ms13handling/meat_pickup.ogg'
 
+/obj/item/food/meat/slab/ms13/carcass/Initialize(mapload)
+	. = ..()
+	register_context()
+
 /obj/item/food/meat/slab/ms13/carcass/proc/harvest(mob/living/user) //used for extra objects etc. in butchering
 	return
 
 /obj/item/food/meat/slab/ms13/carcass/MakeProcessable()
 	AddElement(/datum/element/processable, TOOL_KNIFE,  /obj/item/food/meat/slab, meat_amount, 40 SECONDS * toolspeed)
+
+/obj/item/food/meat/slab/ms13/carcass/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_KNIFE)
+			context[SCREENTIP_CONTEXT_LMB] = "Butcher"
+			return CONTEXTUAL_SCREENTIP_SET
 
 //small/medium
 

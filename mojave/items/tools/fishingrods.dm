@@ -13,7 +13,7 @@
 
 /obj/item/ms13/tools/fishing_rod/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
 /obj/item/ms13/tools/fishing_rod/basic
 	name = "wooden fishing rod"

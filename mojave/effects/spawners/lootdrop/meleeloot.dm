@@ -11,7 +11,7 @@
 	name = "tier 1 melee spawner"
 	spawn_loot_chance = 45
 	loot = list(
-			/obj/item/claymore/ms13/pipe/tireiron,
+			/obj/item/knife/ms13/throwingknife,
 			/obj/item/knife/ms13/switchblade/razor,
 			/obj/item/knife/ms13,
 			/obj/item/ms13/twohanded/spear/knife,
@@ -20,9 +20,9 @@
 			/obj/item/ms13/knuckles,
 			/obj/item/ms13/handsaw,
 			/obj/item/crowbar/ms13,
-			/obj/item/shovel/ms13/spade,
 			/obj/item/shovel/ms13/snow,
-			/obj/item/shovel/ms13/rake
+			/obj/item/shovel/ms13/rake,
+			/obj/item/ms13/handdrill
 			)
 
 /obj/effect/spawner/random/ms13/melee/tier2
@@ -33,18 +33,18 @@
 			/obj/item/hatchet/ms13/icepick,
 			/obj/item/hatchet/ms13/tomahawk,
 			/obj/item/claymore/ms13/pipe,
+			/obj/item/claymore/ms13/pipe/tireiron,
 			/obj/item/claymore/ms13/baton,
 			/obj/item/claymore/ms13/machete,
 			/obj/item/knife/ms13/hunting,
-			/obj/item/knife/ms13/throwingknife,
 			/obj/item/knife/ms13/switchblade,
 			/obj/item/knife/butcher/ms13,
 			/obj/item/ms13/knuckles/weighted,
 			/obj/item/shovel/ms13,
+			/obj/item/shovel/ms13/spade,
 			/obj/item/ms13/twohanded/spear/throwing,
 			/obj/item/ms13/twohanded/hammer/rebar,
-			/obj/item/weldingtool/ms13,
-			/obj/item/ms13/handdrill
+			/obj/item/weldingtool/ms13
 			)
 
 /obj/effect/spawner/random/ms13/melee/tier3

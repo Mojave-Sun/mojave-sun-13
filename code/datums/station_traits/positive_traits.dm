@@ -116,7 +116,7 @@
 
 	// This station trait is checked when loot drops initialize, so it's too late
 	can_revert = FALSE
-
+/* MOJAVE SUN EDIT START - Shuttle Runtime
 /datum/station_trait/quick_shuttle
 	name = "Quick Shuttle"
 	trait_type = STATION_TRAIT_POSITIVE
@@ -128,7 +128,7 @@
 /datum/station_trait/quick_shuttle/on_round_start()
 	. = ..()
 	SSshuttle.supply.callTime *= 0.5
-
+*/// MOJAVE SUN EDIT START - Shuttle Runtime
 /datum/station_trait/deathrattle_department
 	name = "deathrattled department"
 	trait_type = STATION_TRAIT_POSITIVE

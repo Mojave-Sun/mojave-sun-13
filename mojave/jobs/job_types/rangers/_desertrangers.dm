@@ -1,7 +1,7 @@
 /datum/job/ms13/ranger
 	selection_color = "#bdbc76"
 	departments_list = list(
-		/datum/job_department/ncr,
+		/datum/job_department/rangers,
 	)
 	exp_granted_type = EXP_TYPE_RANGERS
 	exp_required_type = EXP_TYPE_RANGERS
@@ -11,9 +11,7 @@
 /datum/outfit/job/ms13/ranger
 	name = "RangerDatums"
 	jobtype = /datum/job/ms13/ranger/
-	back = /obj/item/storage/backpack/satchel/leather
-	shoes = /obj/item/clothing/shoes/ms13/military
-	uniform = /obj/item/clothing/under/ms13/ncr/fatigues
+	shoes = /obj/item/clothing/shoes/ms13/explorer
 
 /datum/outfit/job/ms13/ranger/pre_equip(mob/living/carbon/human/H)
 	..()

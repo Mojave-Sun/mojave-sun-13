@@ -16,7 +16,7 @@
 
 /obj/item/flashlight/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
 /obj/item/flashlight/ms13/mag
 	name = "stick flashlight"
@@ -51,7 +51,7 @@
 
 /obj/item/flashlight/flare/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/tools/tools_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
 	fuel = rand(900, 1200) //This is remaining fuel in seconds, so this puts every flare at between 15-20 minutes of life time.
 
 /obj/item/flashlight/flare/torch/ms13
