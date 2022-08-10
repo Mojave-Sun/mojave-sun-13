@@ -10,6 +10,10 @@
 	var/adjusted_flags = null
 	///Did we install a filtering cloth?
 	var/has_filter = FALSE
+// MOJAVE SUN EDIT BEGIN
+	/// Whether this mask lowers the pitch of the wearer's babbling
+	var/lowers_pitch = FALSE
+// MOJAVE SUN EDIT END
 
 /obj/item/clothing/mask/attack_self(mob/user)
 	if((clothing_flags & VOICEBOX_TOGGLABLE))

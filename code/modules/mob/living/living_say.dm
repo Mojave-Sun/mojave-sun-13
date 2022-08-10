@@ -273,6 +273,7 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 		succumb(TRUE)
 		to_chat(src, compose_message(src, language, message, , spans, message_mods))
 
+	SEND_SIGNAL(src, COMSIG_MOB_POST_SAY, args, spans, message_mods) // MOJAVE SUN ADDITION
 	return TRUE
 
 /mob/living/Hear(message, atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, list/message_mods = list())
