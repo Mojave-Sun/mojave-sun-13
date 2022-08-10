@@ -64,10 +64,7 @@
 	toolspeed = 0.75
 	grid_height = 192
 	grid_width = 64
-
-/obj/item/ms13/twohanded/fireaxe/ComponentInitialize()
-	. = ..()
-	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_unwielded = 15, force_wielded = 45)
+	wield_info = /datum/wield_info/fireaxe
 
 /obj/item/ms13/twohanded/bump_sword
 	name = "bumper sword"

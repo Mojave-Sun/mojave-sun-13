@@ -15,6 +15,7 @@
 	mag_type = /obj/item/ammo_box/magazine/ms13/r20
 	grid_width = 192
 	grid_height = 64
+	wield_info = /datum/wield_info/rifle
 
 /obj/item/gun/ballistic/automatic/ms13/semi/service/maquis
 	name = "\improper Maquis"
