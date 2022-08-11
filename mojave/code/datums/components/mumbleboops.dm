@@ -1,4 +1,4 @@
-#define MAX_mumbleboop_CHARACTERS 40
+#define MAX_MUMBLEBOOP_CHARACTERS 30
 
 /datum/component/mumbleboop
 	var/mumbleboop_sound_override
@@ -52,11 +52,15 @@
 			else
 				initial_mumbleboop_sound = mumbleboop_sound_agender
 	var/initial_volume = volume
+	var/initial_pitch = 0
+	var/initial_falloff = 7
 	if(speech_mods[WHISPER_MODE])
-		initial_volume -= 30
+		initial_volume -= 40
+		initial_falloff -= 5
 	else if(speech_spans[SPAN_YELL])
 		initial_volume += 30
-	var/initial_pitch = 0
+		initial_pitch += 5
+		initial_falloff += 3
 	var/obj/item/clothing/mask/mask = mumblebooper.get_item_by_slot(ITEM_SLOT_MASK)
 	if(istype(mask) && mask.lowers_pitch && !mask.mask_adjusted)
 		initial_pitch -= 10
@@ -67,9 +71,10 @@
 			continue
 		hearers -= hearer
 	var/mumbleboop_delay_cumulative = 0
-	for(var/i in 1 to min(length(message), MAX_mumbleboop_CHARACTERS))
+	for(var/i in 1 to min(length(message), MAX_MUMBLEBOOP_CHARACTERS))
 		var/volume = initial_volume
 		var/pitch = initial_pitch
+		var/falloff_exponent = initial_falloff
 		var/current_delay = initial_delay
 		switch(lowertext(message[i]))
 			if("!")
@@ -136,13 +141,13 @@
 				volume = 0
 			else
 				pitch = 0
-		addtimer(CALLBACK(src, .proc/play_mumbleboop, hearers, mumblebooper, pick(initial_mumbleboop_sound), volume, pitch, initial_mumbleboop_time), mumbleboop_delay_cumulative + current_delay)
+		addtimer(CALLBACK(src, .proc/play_mumbleboop, hearers, mumblebooper, pick(initial_mumbleboop_sound), volume, pitch, initial_mumbleboop_time), mumbleboop_delay_cumulative + current_delay, falloff_exponent)
 		mumbleboop_delay_cumulative += current_delay
 
-/datum/component/mumbleboop/proc/play_mumbleboop(list/hearers, mob/mumblebooper, mumbleboop_sound, volume, pitch, initial_mumbleboop_time)
+/datum/component/mumbleboop/proc/play_mumbleboop(list/hearers, mob/mumblebooper, mumbleboop_sound, volume, pitch, initial_mumbleboop_time, falloff_exponent)
 	if(!volume || (last_mumbleboop != initial_mumbleboop_time))
 		return
 	for(var/mob/hearer as anything in hearers)
-		hearer.playsound_local(get_turf(mumblebooper), mumbleboop_sound, volume, FALSE, pitch)
+		hearer.playsound_local(get_turf(mumblebooper), mumbleboop_sound, volume, FALSE, pitch, falloff_exponent)
 
-#undef MAX_mumbleboop_CHARACTERS
+#undef MAX_MUMBLEBOOP_CHARACTERS
