@@ -1,5 +1,7 @@
 #define MAX_MUMBLEBOOP_CHARACTERS 30
 
+// This system was ported from Concordia and modified
+
 /datum/component/mumbleboop
 	var/mumbleboop_sound_override
 	var/mumbleboop_sound_male = 'mojave/sound/voices/mumbleboop_male.wav'
@@ -37,9 +39,9 @@
 	SIGNAL_HANDLER
 
 	last_mumbleboop = world.time
-	INVOKE_ASYNC(src, .proc/handle_babbling, mumblebooper, speech_args, speech_spans, speech_mods)
+	INVOKE_ASYNC(src, .proc/handle_booping, mumblebooper, speech_args, speech_spans, speech_mods)
 
-/datum/component/mumbleboop/proc/handle_babbling(mob/mumblebooper, list/speech_args, list/speech_spans, list/speech_mods)
+/datum/component/mumbleboop/proc/handle_booping(mob/mumblebooper, list/speech_args, list/speech_spans, list/speech_mods)
 	var/message = speech_args[SPEECH_MESSAGE]
 	var/initial_mumbleboop_time = last_mumbleboop
 	var/initial_mumbleboop_sound = mumbleboop_sound_override
@@ -144,10 +146,10 @@
 		addtimer(CALLBACK(src, .proc/play_mumbleboop, hearers, mumblebooper, pick(initial_mumbleboop_sound), volume, pitch, initial_mumbleboop_time), mumbleboop_delay_cumulative + current_delay, falloff_exponent)
 		mumbleboop_delay_cumulative += current_delay
 
-/datum/component/mumbleboop/proc/play_mumbleboop(list/hearers, mob/mumblebooper, mumbleboop_sound, volume, pitch, initial_mumbleboop_time, falloff_exponent)
+/datum/component/mumbleboop/proc/play_mumbleboop(list/hearers, mob/mumblebooper, mumbleboop_sound, volume, pitch = pitch, initial_mumbleboop_time, falloff_exponent)
 	if(!volume || (last_mumbleboop != initial_mumbleboop_time))
 		return
 	for(var/mob/hearer as anything in hearers)
-		hearer.playsound_local(get_turf(mumblebooper), mumbleboop_sound, volume, FALSE, pitch, falloff_exponent)
+		hearer.playsound_local(get_turf(mumblebooper), mumbleboop_sound, volume, TRUE, pitch, falloff_exponent)
 
 #undef MAX_MUMBLEBOOP_CHARACTERS
