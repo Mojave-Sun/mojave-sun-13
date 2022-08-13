@@ -617,6 +617,19 @@
 	return FALSE
 
 /datum/component/storage/concrete/slave_can_insert_object(datum/component/storage/slave, obj/item/storing, stop_messages = FALSE, mob/user, params, storage_click = FALSE)
+
+	// Attempt to find a valid grid location for the item
+	if(can_fit_item(storing, params, storage_click))
+		return TRUE
+	// If none found, rotate and try again (if not a square or a storage click)
+	if(!storage_click && storing.grid_height != storing.grid_width)
+		storing.inventory_flip(null, TRUE)
+		return can_fit_item(storing, params, storage_click)
+
+	return FALSE
+
+
+/datum/component/storage/concrete/proc/can_fit_item(obj/item/storing, params, storage_click = FALSE)
 	//This is where the pain begins
 	if(grid)
 		var/list/modifiers = params2list(params)
@@ -852,6 +865,10 @@
 
 /atom/movable/screen/storage/MouseMove(location, control, params)
 	. = ..()
+
+	// Store mouse properties so we can force call updateGrid when we rotate objects, swap, etc.
+	lastMouseProps = list(location, control, params)
+
 	if(!usr.client)
 		return
 	usr.client.screen -= hovering
@@ -894,3 +911,14 @@
 	layer = HUD_BACKGROUND_LAYER
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	alpha = 96
+
+/obj/item/proc/inventory_flip(mob/user = null, force = FALSE)
+
+	if(!force && (user && (!user.Adjacent(src) && !user.DirectAccess(src)) || !isliving(user)))
+		return
+
+	var/old_width = grid_width
+	var/old_height = grid_height
+	grid_height = old_width
+	grid_width = old_height
+	// to_chat(usr, span_notice("You flip the item for storage."))
