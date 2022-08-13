@@ -17,6 +17,9 @@
 	//Used for pre-open states
 	var/pre_open = FALSE
 
+/obj/machinery/door/poddoor/shutters/ms13/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	return
+
 /obj/machinery/door/poddoor/shutters/ms13/Initialize()
 	. = ..()
 	update_appearance()
@@ -70,6 +73,7 @@
 
 /obj/machinery/door/poddoor/shutters/ms13/vertical
 	icon_plane = "vertical"
+	pixel_y = 16
 
 /obj/machinery/door/poddoor/shutters/ms13/vertical/indestructible
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF

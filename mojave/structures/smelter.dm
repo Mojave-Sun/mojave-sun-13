@@ -12,9 +12,17 @@
 	. = ..()
 	. += "<span class='notice'>Use <b>CTRL + CLICK</b> on [src] to begin smelting.</span>"
 
+/obj/structure/ms13/smelter/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	if (isnull(held_item))
+		context[SCREENTIP_CONTEXT_CTRL_LMB] = "Start smelting"
+		return CONTEXTUAL_SCREENTIP_SET
+
 /obj/structure/ms13/smelter/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/personal_crafting, crafting_interface)
+	register_context()
 
 /obj/structure/ms13/smelter/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))

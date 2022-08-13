@@ -11,6 +11,10 @@
 	var/max_buckled_mobs = 1
 	/// Whether things buckled to this atom can be pulled while they're buckled
 	var/buckle_prevents_pull = FALSE
+	/// The noise It makes when we buckle
+	var/buckle_sound
+	/// The noise it makes when we unbuckle
+	var/unbuckle_sound
 
 //Interaction
 /atom/movable/attack_hand(mob/living/user, list/modifiers)
@@ -326,6 +330,8 @@
 			M.visible_message(span_warning("[user] buckles [M] to [src]!"),\
 				span_warning("[user] buckles you to [src]!"),\
 				span_hear("You hear metal clanking."))
+		if(buckle_sound)
+			playsound(src, buckle_sound, 65, FALSE)
 /**
  * Handles a user unbuckling a mob from src and sends a visible_message
  *
@@ -348,6 +354,8 @@
 			M.visible_message(span_notice("[M] unbuckles [M.p_them()]self from [src]."),\
 				span_notice("You unbuckle yourself from [src]."),\
 				span_hear("You hear metal clanking."))
+		if(unbuckle_sound)
+			playsound(src, unbuckle_sound, 65, FALSE)
 		add_fingerprint(user)
 		if(isliving(M.pulledby))
 			var/mob/living/L = M.pulledby

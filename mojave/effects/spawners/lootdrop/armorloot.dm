@@ -314,3 +314,38 @@
 			/obj/item/clothing/head/welding/ms13,
 			/obj/item/clothing/head/helmet/ms13/army/civildefence
 			)
+
+/obj/effect/spawner/random/ms13/armor/military
+	name = "military armor spawner"
+	spawn_loot_count = 2
+	spawn_loot_chance = 50
+
+	var/loot1 = list(
+				/obj/item/clothing/suit/armor/ms13/combat/advanced,
+				/obj/item/clothing/head/helmet/ms13/combat/advanced
+				)
+	var/loot2 = list(
+				/obj/item/clothing/suit/armor/ms13/tesla,
+				/obj/item/clothing/head/helmet/ms13/tesla
+				)
+	var/loot3 = list(
+				/obj/item/clothing/suit/armor/ms13/eliteriot,
+				/obj/item/clothing/head/helmet/ms13/eliteriot
+				)
+	var/loot4 = list(
+				/obj/item/clothing/suit/armor/ms13/vest/military,
+				/obj/item/clothing/head/helmet/ms13/army
+				)
+	var/loot5 = list(
+				/obj/item/clothing/suit/armor/ms13/assassin,
+				""
+				)
+	var/loot6 = list(
+				/obj/item/clothing/suit/armor/ms13/combat,
+				/obj/item/clothing/head/helmet/ms13/combat
+				)
+
+
+/obj/effect/spawner/random/ms13/armor/military/Initialize() //on mapload, pick what to spawn
+	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6)
+	. = ..()

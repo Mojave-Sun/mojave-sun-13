@@ -20,6 +20,7 @@
 	name = "glass window"
 	desc = ""
 	icon = 'mojave/icons/turf/walls/glass.dmi'
+	max_integrity = 40
 	icon_state = "glass-0"
 	base_icon_state = "glass"
 	smoothing_groups = list(SMOOTH_GROUP_MS13_WINDOW)
@@ -30,9 +31,8 @@
 	desc = "Scream at the coders"
 	smoothing_flags = SMOOTH_BITMASK
 	layer = ABOVE_OBJ_LAYER
-	armor = list(MELEE = 75, BULLET = 25, LASER = 0, ENERGY = 15, BOMB = 25, BIO = 100, FIRE = 80, ACID = 100)
-	receive_ricochet_chance_mod = 0.75
-	damage_deflection = 10
+	max_integrity = 300
+	damage_deflection = 16 //This basically means it blocks 15 damage weapons and weaker
 	glass_type = /obj/item/stack/sheet/ms13/glass
 	glass_amount = 1
 

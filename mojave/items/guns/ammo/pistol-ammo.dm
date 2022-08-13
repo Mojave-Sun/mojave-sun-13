@@ -156,7 +156,7 @@
 /obj/item/ammo_casing/ms13/c10mm/ap
 	name = "AP 10mm bullet casing"
 	desc = "An armor piercing 10mm bullet casing."
-	icon_state = "10mm_ap_casing"
+	icon_state = "10mm_ap"
 	projectile_type = /obj/projectile/bullet/ms13/c10mm/ap
 
 /obj/item/ammo_casing/ms13/c10mm/fmj

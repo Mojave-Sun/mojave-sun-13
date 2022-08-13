@@ -22,7 +22,6 @@ Mojave Sun Job Base Class
 	id = null
 	ears = null
 	belt = null
-	back = null
 	shoes = null
 	box = null
 

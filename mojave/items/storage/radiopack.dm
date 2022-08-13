@@ -8,7 +8,7 @@
 	lefthand_file = 'mojave/icons/mob/inhands/equipment/backpack_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/equipment/backpack_righthand.dmi'
 
-	component_type = /datum/component/storage/concrete/ms13/d_bag
+	component_type = /datum/component/storage/concrete/ms13/rad_pack
 	storage_flags = 0
 	var/held = 0
 	var/obj/item/radio/ms13/ncr/radio

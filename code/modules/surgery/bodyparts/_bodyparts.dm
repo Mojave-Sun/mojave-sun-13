@@ -76,6 +76,8 @@
 	var/species_flags_list = list()
 	///the type of damage overlay (if any) to use when this bodypart is bruised/burned.
 	var/dmg_overlay_type
+	/// If we're bleeding, which icon are we displaying on this part
+	var/bleed_overlay_icon
 
 	//Damage messages used by help_shake_act()
 	var/light_brute_msg = "bruised"
@@ -105,8 +107,10 @@
 	var/last_maxed
 	/// How much generic bleedstacks we have on this bodypart
 	var/generic_bleedstacks
-	/// If we have a gauze wrapping currently applied (not including splints)
-	var/obj/item/stack/current_gauze
+	/// If we have a gauze wrapping currently applied 	// MOJAVE SUN EDIT - ORIGINAL IS /// If we have a gauze wrapping currently applied (not including splints)
+	var/datum/bodypart_aid/gauze/current_gauze 	// MOJAVE SUN EDIT - ORIGINAL IS var/obj/item/stack/current_gauze
+	/// If we have a splint currently applied // MOJAVE SUN EDIT
+	var/datum/bodypart_aid/splint/current_splint // MOJAVE SUN EDIT
 	/// If something is currently grasping this bodypart and trying to staunch bleeding (see [/obj/item/self_grasp])
 	var/obj/item/self_grasp/grasped_by
 
@@ -131,6 +135,12 @@
 	if(length(wounds))
 		stack_trace("[type] qdeleted with [length(wounds)] uncleared wounds")
 		wounds.Cut()
+	// MOJAVE SUN EDIT BEGIN
+	if(current_gauze)
+		qdel(current_gauze)
+	if(current_splint)
+		qdel(current_splint)
+	// MOJAVE SUN EDIT END
 	return ..()
 
 
@@ -198,7 +208,12 @@
 	var/turf/bodypart_turf = get_turf(src)
 	if(status != BODYPART_ROBOTIC)
 		playsound(bodypart_turf, 'sound/misc/splort.ogg', 50, TRUE, -1)
-	seep_gauze(9999) // destroy any existing gauze if any exists
+	// MOJAVE SUN EDIT BEGIN - ORIGINAL IS seep_gauze(9999) // destroy any existing gauze if any exists
+	if(current_gauze)
+		qdel(current_gauze)
+	if(current_splint)
+		qdel(current_splint)
+	// MOJAVE SUN EDIT END
 	for(var/obj/item/organ/bodypart_organ in get_organs())
 		bodypart_organ.transfer_to_limb(src, owner)
 	for(var/obj/item/item_in_bodypart in src)
@@ -332,6 +347,12 @@
 
 	// now we have our wounding_type and are ready to carry on with wounds and dealing the actual damage
 	if(owner && wounding_dmg >= WOUND_MINIMUM_DAMAGE && wound_bonus != CANT_WOUND)
+	// MOJAVE SUN EDIT BEGIN
+		if(current_gauze)
+			current_gauze.take_damage()
+		if(current_splint)
+			current_splint.take_damage()
+	// MOJAVE SUN EDIT END
 		check_wounding(wounding_type, wounding_dmg, wound_bonus, bare_wound_bonus, attack_direction)
 
 	for(var/datum/wound/iter_wound as anything in wounds)
@@ -990,14 +1011,19 @@
 	for(var/datum/wound/iter_wound as anything in wounds)
 		dam_mul *= iter_wound.damage_mulitplier_penalty
 
-	if(!LAZYLEN(wounds) && current_gauze && !replaced) // no more wounds = no need for the gauze anymore
-		owner.visible_message(span_notice("\The [current_gauze.name] on [owner]'s [name] falls away."), span_notice("The [current_gauze.name] on your [name] falls away."))
-		QDEL_NULL(current_gauze)
+	// if(!LAZYLEN(wounds) && current_gauze && !replaced) // no more wounds = no need for the gauze anymore - MOJAVE SUN EDIT
+	// 	owner.visible_message(span_notice("\The [current_gauze.name] on [owner]'s [name] falls away."), span_notice("The [current_gauze.name] on your [name] falls away.")) - MOJAVE SUN EDIT
+	// 	QDEL_NULL(current_gauze) - MOJAVE SUN EDIT
 
 	wound_damage_multiplier = dam_mul
 
-
-/obj/item/bodypart/proc/get_bleed_rate()
+/**
+ * Calculates how much blood this limb is losing per life tick
+ *
+ * Arguments:
+ * * ignore_modifiers - If TRUE, ignore the bleed reduction for laying down and grabbing your limb
+ */
+/obj/item/bodypart/proc/get_part_bleed_rate(ignore_modifiers = FALSE)
 	if(HAS_TRAIT(owner, TRAIT_NOBLEED))
 		return
 	if(status != BODYPART_ORGANIC) // maybe in the future we can bleed oil from aug parts, but not now
@@ -1013,19 +1039,60 @@
 		if(!embeddies.isEmbedHarmless())
 			bleed_rate += 0.25
 
-	for(var/datum/wound/wound as anything in wounds)
-		bleed_rate += wound.blood_flow
+	for(var/datum/wound/iter_wound as anything in wounds)
+		bleed_rate += iter_wound.blood_flow
 
-	if(owner.body_position == LYING_DOWN)
-		bleed_rate *= 0.75
-
-	if(grasped_by)
-		bleed_rate *= 0.7
+	if(!ignore_modifiers)
+		if(owner.body_position == LYING_DOWN)
+			bleed_rate *= 0.75
+		if(grasped_by)
+			bleed_rate *= 0.7
 
 	if(!bleed_rate)
 		QDEL_NULL(grasped_by)
 
 	return bleed_rate
+
+// how much blood the limb needs to be losing per tick (not counting laying down/self grasping modifiers) to get the different bleed icons
+#define BLEED_OVERLAY_LOW 0.5
+#define BLEED_OVERLAY_MED 1.5
+#define BLEED_OVERLAY_GUSH 3.25
+
+/obj/item/bodypart/proc/update_part_wound_overlay()
+	if(!owner)
+		return FALSE
+	if(HAS_TRAIT(owner, TRAIT_NOBLEED) || status != BODYPART_ORGANIC)
+		if(bleed_overlay_icon)
+			bleed_overlay_icon = null
+			owner.update_wound_overlays()
+		return FALSE
+
+	var/bleed_rate = get_part_bleed_rate(ignore_modifiers = TRUE)
+	var/new_bleed_icon
+
+	switch(bleed_rate)
+		if(-INFINITY to BLEED_OVERLAY_LOW)
+			new_bleed_icon = null
+		if(BLEED_OVERLAY_LOW to BLEED_OVERLAY_MED)
+			new_bleed_icon = "[body_zone]_1"
+		if(BLEED_OVERLAY_MED to BLEED_OVERLAY_GUSH)
+			if(owner.body_position == LYING_DOWN || IS_IN_STASIS(owner) || owner.stat == DEAD)
+				new_bleed_icon = "[body_zone]_2s"
+			else
+				new_bleed_icon = "[body_zone]_2"
+		if(BLEED_OVERLAY_GUSH to INFINITY)
+			if(IS_IN_STASIS(owner) || owner.stat == DEAD)
+				new_bleed_icon = "[body_zone]_2s"
+			else
+				new_bleed_icon = "[body_zone]_3"
+
+	if(new_bleed_icon != bleed_overlay_icon)
+		bleed_overlay_icon = new_bleed_icon
+		return TRUE
+
+#undef BLEED_OVERLAY_LOW
+#undef BLEED_OVERLAY_MED
+#undef BLEED_OVERLAY_GUSH
 
 /**
  * apply_gauze() is used to- well, apply gauze to a bodypart
@@ -1036,37 +1103,48 @@
  * the gauze falls off.
  *
  * Arguments:
- * * gauze- Just the gauze stack we're taking a sheet from to apply here
+ * * new_gauze- Just the gauze stack we're taking a sheet from to apply here	// MOJAVE SUN EDIT - ORIGINAL IS * * gauze- Just the gauze stack we're taking a sheet from to apply here
  */
-/obj/item/bodypart/proc/apply_gauze(obj/item/stack/gauze)
-	if(!istype(gauze) || !gauze.absorption_capacity)
+/obj/item/bodypart/proc/apply_gauze(obj/item/stack/medical/gauze/new_gauze)// MOJAVE SUN EDIT - ORIGINAL IS /obj/item/bodypart/proc/apply_gauze(obj/item/stack/gauze)
+	if(!istype(new_gauze) || current_gauze)// MOJAVE SUN EDIT - ORIGINAL IS 	if(!istype(gauze) || !gauze.absorption_capacity)
 		return
-	var/newly_gauzed = FALSE
-	if(!current_gauze)
-		newly_gauzed = TRUE
-	QDEL_NULL(current_gauze)
-	current_gauze = new gauze.type(src, 1)
-	gauze.use(1)
-	if(newly_gauzed)
-		SEND_SIGNAL(src, COMSIG_BODYPART_GAUZED, gauze)
-
+	// MOJAVE SUN EDIT BEGIN
+	current_gauze = new new_gauze.gauze_type(src)
+	new_gauze.use(1)
+	// var/newly_gauzed = FALSE
+	// if(!current_gauze)
+	//	newly_gauzed = TRUE
+	// QDEL_NULL(current_gauze)
+	// current_gauze = new gauze.type(src, 1)
+	// gauze.use(1)
+	// if(newly_gauzed)
+	// SEND_SIGNAL(src, COMSIG_BODYPART_GAUZED, gauze)
+	// MOJAVE SUN EDIT END
 /**
- * seep_gauze() is for when a gauze wrapping absorbs blood or pus from wounds, lowering its absorption capacity.
+* apply_splint() much like above, except with a splint // MOJAVE SUN EDIT - ORIGINAL IS seep_gauze() is for when a gauze wrapping absorbs blood or pus from wounds, lowering its absorption capacity.
  *
- * The passed amount of seepage is deducted from the bandage's absorption capacity, and if we reach a negative absorption capacity, the bandages falls off and we're left with nothing.
+ * This proc applies a splint to a bodypart. Splints are used to stabilize muscle and bone wounds, aswell as to protect from hits causing internal bleeding // MOJAVE SUN EDIT - ORIGINAL IS The passed amount of seepage is deducted from the bandage's absorption capacity, and if we reach a negative absorption capacity, the bandages falls off and we're left with nothing.
  *
  * Arguments:
- * * seep_amt - How much absorption capacity we're removing from our current bandages (think, how much blood or pus are we soaking up this tick?)
+ * * new_splint- Just the gauze stack we're taking a sheet from to apply here // MOJAVE SUN EDIT - ORIGINAL IS seep_amt - How much absorption capacity we're removing from our current bandages (think, how much blood or pus are we soaking up this tick?)
  */
-/obj/item/bodypart/proc/seep_gauze(seep_amt = 0)
+// MOJAVE SUN EDIT BEGIN
+
+/obj/item/bodypart/proc/apply_splint(obj/item/stack/medical/splint/new_splint)
+	if(!istype(new_splint) || current_splint)
+		return
+	current_splint = new new_splint.splint_type(src)
+	new_splint.use(1)
+
+/*/obj/item/bodypart/proc/seep_gauze(seep_amt = 0)
 	if(!current_gauze)
 		return
 	current_gauze.absorption_capacity -= seep_amt
 	if(current_gauze.absorption_capacity <= 0)
 		owner.visible_message(span_danger("\The [current_gauze.name] on [owner]'s [name] falls away in rags."), span_warning("\The [current_gauze.name] on your [name] falls away in rags."), vision_distance=COMBAT_MESSAGE_RANGE)
 		QDEL_NULL(current_gauze)
-		SEND_SIGNAL(src, COMSIG_BODYPART_GAUZE_DESTROYED)
-
+		SEND_SIGNAL(src, COMSIG_BODYPART_GAUZE_DESTROYED)*/
+// MOJAVE SUN EDIT END
 
 ///Proc to turn bodypart into another.
 /obj/item/bodypart/proc/change_bodypart(obj/item/bodypart/new_type)

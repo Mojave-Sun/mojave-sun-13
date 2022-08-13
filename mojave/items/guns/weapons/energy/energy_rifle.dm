@@ -102,8 +102,6 @@
 	weapon_weight = WEAPON_HEAVY
 	slot_flags = ITEM_SLOT_BACK
 	force = 15
-	extra_damage = 40
-	extra_penetration = 5
 	fire_delay = 0.65 SECONDS
 	slowdown = 0.75
 	spread = 2

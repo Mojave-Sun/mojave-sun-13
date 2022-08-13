@@ -10,6 +10,8 @@
 	worn_icon_state = "empty_placeholder"
 	icon_state = "hatchet"
 	inhand_icon_state = "hatchet"
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/wooden_pickup.ogg'
+	hitsound = 'mojave/sound/ms13weapons/meleesounds/hatchet_hit.ogg'
 	force = 30
 	throwforce = 25
 	subtractible_armour_penetration = 15
@@ -45,6 +47,8 @@
 	desc = "A standard ice pick that is as good at breaking up ice as it is at breaking skulls."
 	icon_state = "ice_pick"
 	inhand_icon_state = "ice_pick"
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/general_pickup.ogg'
+	hitsound = 'mojave/sound/ms13weapons/meleesounds/stab_hit.ogg'
 	force = 25
 	throwforce = 25
 	subtractible_armour_penetration = 15
@@ -59,6 +63,8 @@
 	desc = "A makeshift tomahawk, primarily intended for throwing. Two long spikes protrude, used for digging into the target."
 	icon_state = "tomahawk"
 	inhand_icon_state = "tomahawk"
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/general_pickup.ogg'
+	hitsound = 'mojave/sound/ms13weapons/meleesounds/stab_hit.ogg'
 	force = 20
 	throwforce = 30
 	subtractible_armour_penetration = 15

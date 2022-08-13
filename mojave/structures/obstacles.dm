@@ -14,16 +14,15 @@
 	density = TRUE
 	anchored = TRUE
 	layer = ABOVE_OBJ_LAYER
-	max_integrity = 500
-	armor = list(MELEE = 75, BULLET = 75, LASER = 75, ENERGY = 75, BOMB = 100, BIO = 100,  FIRE = 100, ACID = 100)
-	damage_deflection = 10
+	max_integrity = 650
+	damage_deflection = 21 //Basically meant to encompass 20 damage weapons and below
 	can_atmos_pass = ATMOS_PASS_YES
 	flags_1 = ON_BORDER_1
 	var/barpasschance = 33
 
 /obj/structure/ms13/bars/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
-		new /obj/item/stack/sheet/ms13/scrap_steel/two(loc)
+		new /obj/item/stack/sheet/ms13/scrap_steel(loc, 4)
 	qdel(src)
 
 /obj/structure/ms13/bars/attackby(obj/item/W, mob/user, params)
@@ -174,16 +173,15 @@
 
 /obj/structure/ms13/celldoor
 	name = "cell door"
-	desc = "Better hope you arent rotting on the wrong side slick."
+	desc = "Better hope you aren't rotting on the wrong side, slick."
 	icon = 'mojave/icons/obstacles/tallobstacles.dmi'
 	icon_state = "door"
 	density = TRUE
 	anchored = TRUE
 	opacity = FALSE
 	layer = ABOVE_MOB_LAYER
-	max_integrity = 500
-	armor = list(MELEE = 75, BULLET = 75, LASER = 75, ENERGY = 75, BOMB = 25, BIO = 100,  FIRE = 80, ACID = 100)
-	damage_deflection = 10
+	max_integrity = 650
+	damage_deflection = 21 //Basically meant to encompass 20 damage weapons and below
 	flags_1 = ON_BORDER_1
 	var/locked = FALSE
 
@@ -198,7 +196,7 @@
 
 /obj/structure/ms13/celldoor/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
-		new /obj/item/stack/sheet/ms13/scrap_steel/two(loc)
+		new /obj/item/stack/sheet/ms13/scrap_steel(loc, 4)
 	qdel(src)
 
 /obj/structure/ms13/celldoor/locked
@@ -647,6 +645,10 @@
 	desc = "A classic wooden fence. It doesn't get more homely than this."
 	icon_state = "wood_full"
 
+/obj/structure/railing/ms13/wood/Initialize()
+	. = ..()
+	register_context()
+
 /obj/structure/railing/ms13/wood/crowbar_act_secondary(mob/living/user, obj/item/tool)
 	if(flags_1&NODECONSTRUCT_1)
 		return TRUE
@@ -666,10 +668,10 @@
 /obj/structure/railing/ms13/wood/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/plank(loc, 2)
+			new /obj/item/stack/sheet/ms13/plank(loc, 3)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 2)
 		else
-			new /obj/item/stack/sheet/ms13/scrap_wood(loc)
+			new /obj/item/stack/sheet/ms13/scrap_wood(loc, 2)
 	qdel(src)
 
 /obj/structure/railing/ms13/wood/examine(mob/user)
@@ -678,6 +680,14 @@
 
 /obj/structure/railing/ms13/wood/proc/deconstruction_hints(mob/user)
 	return span_notice("You could use a <b>crowbar</b> or similar prying tool to dismantle [src] for planks and parts.")
+
+/obj/structure/railing/ms13/wood/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_CROWBAR)
+			context[SCREENTIP_CONTEXT_RMB] = "Dismantle"
+			return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/railing/ms13/wood/ending
 	icon_state = "wood_end"
@@ -707,7 +717,6 @@
 	anchored = TRUE
 	layer = ABOVE_OBJ_LAYER
 	max_integrity = 120
-	armor = list("melee" = 0, "bullet" = 20, "laser" = 20, "energy" = 10, "bomb" = 10, "bio" = 0, "fire" = 50, "acid" = 50)
 	flags_1 = ON_BORDER_1
 	var/barpasschance = 20
 
@@ -730,7 +739,8 @@
 /obj/structure/ms13/barricade/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/plank(loc)
+			new /obj/item/stack/sheet/ms13/plank(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
 		else
 			new /obj/item/stack/sheet/ms13/scrap_wood(loc)
 	qdel(src)
@@ -740,10 +750,19 @@
 	. += deconstruction_hints(user)
 
 /obj/structure/ms13/barricade/proc/deconstruction_hints(mob/user)
-	return span_notice("You could use a <b>crowbar</b> or similar prying tool to dismantle [src] for planks.")
+	return span_notice("You could use a <b>crowbar</b> or similar prying tool to dismantle [src] for planks and parts.")
+
+/obj/structure/ms13/barricade/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_CROWBAR)
+			context[SCREENTIP_CONTEXT_RMB] = "Dismantle"
+			return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/ms13/barricade/Initialize() //this shit should really be a component
 	. = ..()
+	register_context()
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_EXIT = .proc/on_exit,
 	)

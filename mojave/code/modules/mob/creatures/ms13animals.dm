@@ -20,7 +20,10 @@
 	attack_verb_simple = "headbutt"
 	turns_per_move = 3
 	butcher_results = list(/obj/item/ms13/hide/brahmin = 1, /obj/item/food/meat/slab/ms13/carcass/large/brahmin/front = 1, /obj/item/food/meat/slab/ms13/carcass/large/brahmin/back = 1, /obj/item/ms13/animalitem/brahmin/horns = 2)//brahmin meat, tongue, horns, hide
-	attack_sound = 'sound/weapons/punch1.ogg'
+	attack_sound = list('mojave/sound/ms13npc/brahmin_attack1.ogg', 'mojave/sound/ms13npc/brahmin_attack2.ogg')
+	deathsound = 'mojave/sound/ms13npc/brahmin_death1.ogg'
+	idlesound = list('mojave/sound/ms13npc/brahmin_moo1.ogg', 'mojave/sound/ms13npc/brahmin_moo2.ogg', 'mojave/sound/ms13npc/brahmin_moo3.ogg')
+	idlechance = 10
 	speed = 3
 	health = 150
 	maxHealth = 150
@@ -39,6 +42,10 @@
 	adult_type = /mob/living/simple_animal/hostile/retaliate/ms13/brahmin
 	offsetx = 3
 	offsety = 11
+
+/mob/living/simple_animal/hostile/retaliate/ms13/brahmin/death()
+	. = ..()
+	playsound(src, 'mojave/sound/ms13npc/brahmin_death1.ogg', 60, TRUE)
 
 /mob/living/simple_animal/ms13/brahminyoung
 	name = "brahmin calf"
@@ -76,7 +83,6 @@
 	attack_verb_simple = "headbutt"
 	turns_per_move = 1
 	butcher_results = list(/obj/item/ms13/hide/brahmiluff = 1, /obj/item/food/meat/slab/ms13/carcass/large/brahmiluff = 1, /obj/item/ms13/animalitem/brahmiluff/horns = 2)//brahmiluff meat, tongue, horns, hide, fur
-	attack_sound = 'sound/weapons/punch1.ogg'
 	health = 200
 	maxHealth = 200
 	melee_damage_lower = 10
@@ -436,14 +442,17 @@
 	attack_verb_continuous = "pincers"
 	attack_verb_simple = "pincer"
 	speak_chance = 60
-	turns_per_move = 3
+	turns_per_move = 2
+	move_to_delay = 4
 	butcher_results = list()//honeybeast meat, queen bee, chitin
 	attack_sound = 'sound/weapons/bite.ogg'
-	health = 180
-	maxHealth = 180
-	melee_damage_lower = 5
-	melee_damage_upper = 10
-	speed = 3
+	health = 160
+	maxHealth = 160
+	melee_damage_lower = 15
+	melee_damage_upper = 15
+	subtractible_armour_penetration = 10
+	sharpness = SHARP_EDGED
+	speed = 2
 	footstep_type = FOOTSTEP_MOB_CLAW
 	food_type = list(/obj/item/food/grown/ms13/pricklypear)
 	tame_chance = 5
@@ -475,13 +484,19 @@
 	attack_verb_continuous = "stings"
 	attack_verb_simple = "sting"
 	speak_chance = 20
-	turns_per_move = 4
+	turns_per_move = 2
+	move_to_delay = 4
 	butcher_results = list()//radscoprion meat, radscorpion tail, chitin
-	attack_sound = 'sound/weapons/slash.ogg'
-	health = 160
-	maxHealth = 160
+	attack_sound = list('mojave/sound/ms13npc/radscorp_attack1.ogg', 'mojave/sound/ms13npc/radscorp_attack2.ogg', 'mojave/sound/ms13npc/radscorp_attack3.ogg')
+	deathsound = list('mojave/sound/ms13npc/radscorp_death1.ogg', 'mojave/sound/ms13npc/radscorp_death2.ogg')
+	health = 140
+	maxHealth = 140
 	melee_damage_lower = 20
-	melee_damage_upper = 30
+	melee_damage_upper = 20
+	subtractible_armour_penetration = 10
+	sharpness = SHARP_EDGED
+	wound_bonus = 4
+	bare_wound_bonus = 8
 	base_pixel_x = -8
 	speed = 2
 	footstep_type = FOOTSTEP_MOB_CLAW
@@ -490,6 +505,10 @@
 	bonus_tame_chance = 5
 	var/poison_per_bite = 20
 	var/poison_type = /datum/reagent/toxin
+
+/mob/living/simple_animal/hostile/ms13/radscorpion/death()
+	. = ..()
+	playsound(src, 'mojave/sound/ms13npc/radscorp_death1.ogg', 60, TRUE)
 
 /mob/living/simple_animal/hostile/ms13/radscorpion/AttackingTarget()
 	. = ..()
@@ -519,7 +538,8 @@
 	speak_chance = 10
 	turns_per_move = 1
 	butcher_results = list(/obj/item/ms13/hide/radstag = 1, /obj/item/food/meat/slab/ms13/carcass/large/radstag = 1, /obj/item/ms13/animalitem/radstag/antlers = 2)//radstag meat, radstag hide ,radstag horns
-	attack_sound = 'mojave/sound/ms13weapons/meleesounds/slam.ogg'
+	attack_sound = 'mojave/sound/ms13npc/radstag_attack1.ogg'
+	deathsound = 'mojave/sound/ms13npc/radstag_death1.ogg'
 	health = 125
 	maxHealth = 125
 	melee_damage_lower = 10
@@ -538,6 +558,10 @@
 	adult_type = /mob/living/simple_animal/hostile/ms13/radstag/tamed
 	offsetx = 2
 	offsety = 7
+
+/mob/living/simple_animal/hostile/ms13/radstag/death()
+	. = ..()
+	playsound(src, 'mojave/sound/ms13npc/radstag_death1.ogg', 60, TRUE)
 
 /mob/living/simple_animal/hostile/ms13/radstag/GiveTarget(new_target)
 	target = new_target
