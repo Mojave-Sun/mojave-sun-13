@@ -37,3 +37,28 @@
 	. = ..()
 	if(prob(50))
 		icon_state = "[initial(icon_state)]-damaged"
+
+/obj/structure/ms13/storage/washingmachine
+	name = "washing machine"
+	desc = "An old washing machine, before the war this did all the washing for you! But now it washes nothing."
+	icon = 'mojave/icons/structure/storage.dmi'
+	icon_state = "normwasher"
+	flags_1 = ACID_PROOF | FIRE_PROOF
+	density = TRUE
+	anchored = TRUE
+	var/closed = TRUE
+
+/obj/structure/ms13/storage/washingmachine/CtrlClick(mob/living/user)
+	if(closed)
+		to_chat(user, span_notice("You open the washing machine."))
+		icon_state = "[initial(icon_state)]_open"
+		closed = FALSE
+	else
+		to_chat(user, span_notice("You close the washing machine."))
+		icon_state = "[initial(icon_state)]"
+		closed = TRUE
+
+/obj/structure/ms13/storage/washingmachine/industrial
+	name = "industrial washing machine"
+	desc = "A large washing machine, for when you need to wash a lot of clothes! Unfortunately, it's been broken for a long time."
+	icon_state = "industwasher"
