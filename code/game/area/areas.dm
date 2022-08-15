@@ -424,10 +424,8 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 		return
 //MOJAVE SUN EDIT START - Removes "Ship Ambience"
 /*
-	if(old_area)
-		L.UnregisterSignal(old_area, COMSIG_AREA_POWER_CHANGE)
-	L.RegisterSignal(src, COMSIG_AREA_POWER_CHANGE, /mob/proc/refresh_looping_ambience)
-	L.refresh_looping_ambience()
+	if(ambient_buzz != old_area.ambient_buzz)
+		L.refresh_looping_ambience()
 *///MOJAVE SUN EDIT END - Removes "Ship Ambience"
 
 ///Tries to play looping ambience to the mobs.
