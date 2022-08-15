@@ -79,77 +79,79 @@
 		var/falloff_exponent = initial_falloff
 		var/current_delay = initial_delay
 		switch(lowertext(message[i]))
-			if("!")
-				pitch += 16
-			if("a")
-				pitch += 12
+			/*if("a") These are all disabled, as they produce really retarded sounds.
+				pitch += 2.32
 			if("b")
-				pitch += 11
+				pitch += 2.30
 			if("c")
-				pitch += 10
+				pitch += 2.28
 			if("d")
-				pitch += 9
+				pitch += 2.26
 			if("e")
-				pitch += 8
+				pitch += 2.24
 			if("f")
-				pitch += 7
+				pitch += 2.22
 			if("g")
-				pitch += 6
+				pitch += 2.2
 			if("h")
-				pitch += 5
+				pitch += 2.18
 			if("i")
-				pitch += 4
+				pitch += 2.16
 			if("j")
-				pitch += 3
+				pitch += 2.14
 			if("k")
-				pitch += 2
+				pitch += 2.12
 			if("m")
-				pitch += 1
+				pitch += 2.10
 			if("n")
-				pitch -= 1
+				pitch -= 2.10
 			if("o")
-				pitch -= 2
+				pitch -= 2.12
 			if("p")
-				pitch -= 3
+				pitch -= 2.14
 			if("q")
-				pitch -= 4
+				pitch -= 2.16
 			if("r")
-				pitch -= 5
+				pitch -= 2.18
 			if("s")
-				pitch -= 6
+				pitch -= 2.2
 			if("t")
-				pitch -= 7
+				pitch -= 2.22
 			if("u")
-				pitch -= 8
+				pitch -= 2.24
 			if("v")
-				pitch -= 9
+				pitch -= 2.26
 			if("w")
-				pitch -= 10
+				pitch -= 2.28
 			if("x")
-				pitch -= 11
+				pitch -= 2.30
 			if("y")
-				pitch -= 12
+				pitch -= 2.32
 			if("z")
-				pitch -= 13
+				pitch -= 2.34 */
+			if("!")
+				volume = 0
+				current_delay *= 1.5
 			if("?")
-				pitch -= 16
+				volume = 0
+				current_delay *= 2
 			if(",", ";", "-")
-				pitch -= 2
+				volume = 0
 				current_delay *= 1.5
 			if(".")
-				pitch -= 4
+				volume = 0
 				current_delay *= 2
 			if(" ")
 				volume = 0
-			else
-				pitch = 0
-		addtimer(CALLBACK(src, .proc/play_mumbleboop, hearers, mumblebooper, pick(initial_mumbleboop_sound), volume, pitch, initial_mumbleboop_time), mumbleboop_delay_cumulative + current_delay, falloff_exponent)
+			//else
+			//	pitch = 0
+		addtimer(CALLBACK(src, .proc/play_mumbleboop, hearers, mumblebooper, pick(initial_mumbleboop_sound), volume, initial_mumbleboop_time), mumbleboop_delay_cumulative + current_delay, falloff_exponent)
 		mumbleboop_delay_cumulative += current_delay
 
-/datum/component/mumbleboop/proc/play_mumbleboop(list/hearers, mob/mumblebooper, mumbleboop_sound, volume, pitch = pitch, initial_mumbleboop_time, falloff_exponent)
+/datum/component/mumbleboop/proc/play_mumbleboop(list/hearers, mob/mumblebooper, mumbleboop_sound, volume, initial_mumbleboop_time, falloff_exponent)
 	if(!volume || (last_mumbleboop != initial_mumbleboop_time))
 		return
 	for(var/mob/hearer as anything in hearers)
-		hearer.playsound_local(get_turf(mumblebooper), mumbleboop_sound, volume, TRUE, pitch, falloff_exponent)
+		hearer.playsound_local(get_turf(mumblebooper), mumbleboop_sound, volume, TRUE, falloff_exponent)
 
 #undef MAX_MUMBLEBOOP_CHARACTERS
