@@ -75,7 +75,7 @@
 	var/mumbleboop_delay_cumulative = 0
 	for(var/i in 1 to min(length(message), MAX_MUMBLEBOOP_CHARACTERS))
 		var/volume = initial_volume
-		var/pitch = initial_pitch
+		//var/pitch = initial_pitch Disabled for now. Doesn't work as intended- seemingly anything above default is dumb sounding
 		var/falloff_exponent = initial_falloff
 		var/current_delay = initial_delay
 		switch(lowertext(message[i]))
