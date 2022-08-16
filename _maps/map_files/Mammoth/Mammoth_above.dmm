@@ -16300,8 +16300,10 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13)
 "iJH" = (
-/obj/effect/spawner/random/ms13/crafting/household,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/washing_machine{
+	pixel_y = 13
+	},
 /turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "iLl" = (
@@ -16693,6 +16695,8 @@
 	dir = 8
 	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/spawner/random/ms13/crafting/household,
+/obj/effect/spawner/random/ms13/crafting/household,
 /turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "jKx" = (
@@ -17048,6 +17052,11 @@
 /obj/structure/table/ms13/metal/grate,
 /turf/open/floor/ms13/metal,
 /area/ms13/town)
+"kAJ" = (
+/obj/structure/table/ms13/low_wall/wood,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/turf/open/floor/wood/ms13/common,
+/area/ms13)
 "kBF" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/machinery/door/unpowered/ms13/wood{
@@ -17164,6 +17173,12 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
+"kNO" = (
+/obj/structure/ms13/rug/fancy,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/decal/cleanable/glass,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13)
 "kOf" = (
 /obj/machinery/light/ms13{
 	dir = 8
@@ -17783,12 +17798,11 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "mte" = (
-/obj/structure/ms13/storage/large/shelf{
-	dir = 8
-	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/effect/spawner/random/ms13/crafting/household,
-/turf/open/floor/ms13/tile/large/cream,
+/obj/structure/table/ms13/no_smooth/counter/metal{
+	dir = 4
+	},
+/turf/open/floor/ms13/tile/brown/big,
 /area/ms13/town)
 "mtR" = (
 /obj/structure/ms13/foundation/fancy/variantfive{
@@ -18599,13 +18613,13 @@
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/tunnel/maintenance)
 "oAp" = (
-/obj/structure/table/ms13/no_smooth/counter/metal{
-	dir = 1
-	},
 /obj/machinery/ms13/coffee{
 	pixel_y = 8
 	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/table/ms13/no_smooth/counter/metal/bend{
+	dir = 4
+	},
 /turf/open/floor/ms13/tile/brown/big,
 /area/ms13/town)
 "oAS" = (
@@ -18881,15 +18895,9 @@
 /turf/open/floor/wood/ms13/fancy,
 /area/ms13/town)
 "pew" = (
-/obj/machinery/washing_machine{
-	pixel_y = 13
-	},
-/obj/machinery/light/ms13{
-	dir = 8
-	},
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/ms13/tile/large/cream,
-/area/ms13/town)
+/obj/effect/decal/cleanable/glass,
+/turf/open/floor/plating/ms13/roof/wood,
+/area/ms13)
 "peU" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/machinery/ms13/substation/rusty,
@@ -20885,6 +20893,11 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
+"uHH" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/decal/cleanable/glass,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13)
 "uIk" = (
 /obj/structure/table/ms13/wood,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -29565,7 +29578,7 @@ aCj
 aCj
 aLH
 aLH
-aPY
+aLH
 aPY
 aPY
 aPY
@@ -29868,7 +29881,7 @@ aCj
 aLH
 aLH
 aLH
-aPY
+aLH
 aPY
 avR
 cro
@@ -30170,9 +30183,9 @@ aCj
 aLH
 aLH
 aLH
-avR
-avR
-avR
+aLH
+aLH
+aLH
 avR
 cro
 cro
@@ -30473,8 +30486,8 @@ aCj
 aCj
 aCj
 aCj
-avR
-avR
+aLH
+aLH
 aLH
 avR
 cro
@@ -30775,8 +30788,8 @@ awz
 aGn
 aQq
 aCj
-avR
-avR
+aLH
+aLH
 aLH
 aCj
 aCj
@@ -31077,7 +31090,7 @@ aVW
 aVW
 aVW
 aCj
-avR
+aLH
 aLH
 aLH
 aCj
@@ -31092,9 +31105,9 @@ aQo
 tXj
 xrr
 wzP
-pew
+yjc
 wzP
-wzP
+jav
 aCj
 aLH
 aLH
@@ -31393,9 +31406,9 @@ aCj
 apW
 apW
 aCj
-jav
+iJH
 lVw
-jav
+iJH
 jav
 aCj
 aLH
@@ -31698,7 +31711,7 @@ tec
 jav
 jav
 jav
-mte
+jav
 aCj
 aLH
 aLH
@@ -32301,7 +32314,7 @@ apW
 aCj
 nQc
 jav
-iJH
+jav
 jJu
 aCj
 aLH
@@ -36226,7 +36239,7 @@ aCj
 aCj
 aCj
 tHT
-fWC
+mte
 oAp
 aCj
 aLH
@@ -37147,8 +37160,8 @@ aPY
 aPY
 aPY
 aPY
-aPY
-apl
+aRK
+acn
 acn
 acn
 acn
@@ -82534,8 +82547,8 @@ anp
 aLH
 anp
 anp
-anp
-anp
+pew
+pew
 anp
 anp
 aLH
@@ -82837,8 +82850,8 @@ aLH
 anp
 pKG
 pKG
-ecn
-ecn
+kAJ
+kAJ
 pKG
 pKG
 anp
@@ -83139,7 +83152,7 @@ aLH
 anp
 pKG
 nhI
-qbH
+kNO
 ufF
 iwv
 pKG
@@ -83442,7 +83455,7 @@ anp
 pKG
 hww
 aLh
-aLh
+uHH
 aLh
 pKG
 pKG

@@ -2261,6 +2261,10 @@
 /obj/effect/spawner/random/ms13/clothing/shoe,
 /turf/open/floor/ms13/tile/full/navy,
 /area/ms13/town)
+"bDB" = (
+/obj/effect/spawner/random/ms13/drink/soda,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/tribal_abandoned)
 "bEf" = (
 /obj/structure/chair/sofa/right{
 	dir = 1
@@ -14050,7 +14054,7 @@
 /area/ms13/underground/bos)
 "iMf" = (
 /obj/machinery/door/poddoor/shutters/ms13/vertical/indestructible/red/mid{
-	id = "wh_private
+	id = "wh_private"
 	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
@@ -14170,6 +14174,8 @@
 /area/ms13/underground/mountain)
 "iQD" = (
 /obj/structure/ms13/storage/shelf/wood,
+/obj/effect/spawner/random/ms13/food/packaged,
+/obj/effect/spawner/random/ms13/food/packaged,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/tribal_abandoned)
 "iQX" = (
@@ -14594,7 +14600,7 @@
 "jcS" = (
 /obj/structure/fence/fencenormal,
 /turf/open/floor/ms13/concrete,
-/area/ms13/town)
+/area/ms13)
 "jcX" = (
 /obj/structure/table/ms13/low_wall/brick,
 /obj/structure/window/fulltile/ms13/glass,
@@ -16593,7 +16599,7 @@
 /area/ms13/town)
 "kln" = (
 /obj/machinery/door/poddoor/shutters/ms13/horizontal/red/right{
-	id = 'wh_private2"
+	id = "wh_private2"
 	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
@@ -18239,9 +18245,11 @@
 /turf/open/floor/ms13/tile/full/navy,
 /area/ms13/town)
 "lqQ" = (
-/obj/structure/closet/ms13/metal,
-/turf/open/floor/wood/ms13/wide,
-/area/ms13/tribal_abandoned)
+/obj/machinery/button/ms13{
+	id = "wh_private2"
+	},
+/turf/open/floor/plating/ms13/ground/snow,
+/area/ms13)
 "lqU" = (
 /obj/structure/chair/comfy/ms13/retro{
 	dir = 1
@@ -22096,11 +22104,11 @@
 /turf/open/floor/ms13/tile/large/white,
 /area/ms13/town)
 "nYC" = (
-/obj/machinery/light/ms13{
-	dir = 8
-	},
 /obj/structure/table/ms13/no_smooth/counter/wood/crafted{
 	dir = 4
+	},
+/obj/machinery/light/ms13/bulb{
+	dir = 8
 	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/tribal_abandoned)
@@ -22498,10 +22506,10 @@
 "ojC" = (
 /obj/machinery/button/ms13{
 	dir = 4;
-	id = "wh_private2"
+	id = "wh_private"
 	},
-/turf/open/floor/wood/ms13/wide,
-/area/ms13/town)
+/turf/open/floor/plating/ms13/ground/snow,
+/area/ms13)
 "ojM" = (
 /obj/structure/ladder/ms13,
 /turf/open/floor/wood/ms13/common,
@@ -22957,7 +22965,7 @@
 /turf/open/floor/ms13/tile/large/checkered,
 /area/ms13/town)
 "ovC" = (
-/turf/open/floor/wood/ms13/wide,
+/turf/open/ms13/water/medium,
 /area/ms13/underground/mountain)
 "owq" = (
 /obj/structure/ms13/storage/bookshelf,
@@ -23110,8 +23118,8 @@
 /turf/open/floor/ms13/tile/brown,
 /area/ms13/ncr)
 "oBh" = (
-/obj/effect/spawner/random/ms13/food/produce_random,
-/turf/closed/wall/ms13/wood,
+/obj/structure/closet/ms13/metal,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/tribal_abandoned)
 "oBl" = (
 /obj/structure/toilet{
@@ -24007,6 +24015,7 @@
 /obj/structure/ms13/storage/shelf{
 	dir = 1
 	},
+/obj/effect/spawner/random/ms13/tools/radio,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/tribal_abandoned)
 "pxz" = (
@@ -25917,7 +25926,7 @@
 /area/ms13/town)
 "rTQ" = (
 /obj/machinery/door/poddoor/shutters/ms13/horizontal/red/mid{
-	id = 'wh_private2"
+	id = "wh_private2"
 	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
@@ -26123,9 +26132,11 @@
 /turf/open/floor/ms13/tile,
 /area/ms13/town)
 "sia" = (
-/obj/structure/table/ms13/wood,
-/obj/effect/spawner/random/ms13/drink/soda,
-/turf/open/floor/wood/ms13/carpet/shaggy/green,
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/machinery/light/ms13{
+	dir = 8
+	},
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/tribal_abandoned)
 "sij" = (
 /obj/structure/table/ms13/no_smooth/counter/wood{
@@ -26741,6 +26752,13 @@
 /mob/living/basic/ms13/hostile_animal/radroach,
 /turf/open/floor/ms13/tile/large/white,
 /area/ms13/town)
+"tcc" = (
+/obj/structure/ms13/storage/shelf/wood{
+	dir = 1
+	},
+/obj/effect/spawner/random/ms13/food/packaged,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/tribal_abandoned)
 "tcW" = (
 /obj/machinery/door/unpowered/ms13/wood/red{
 	dir = 8
@@ -27171,9 +27189,9 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "tCr" = (
-/obj/structure/table/ms13/wood,
 /obj/effect/spawner/random/ms13/medical/lowrandom,
-/turf/open/floor/wood/ms13/carpet/shaggy/green,
+/obj/structure/closet/ms13/wall/firstaid,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/tribal_abandoned)
 "tCN" = (
 /obj/structure/table/ms13/metal,
@@ -36128,7 +36146,7 @@ xvc
 jIO
 iMf
 iMf
-iMf
+jIO
 jIO
 khQ
 khQ
@@ -36430,7 +36448,7 @@ axO
 iRW
 wtg
 uCW
-wtg
+ojC
 jIO
 ntD
 ntD
@@ -37334,7 +37352,7 @@ jIO
 jIO
 jIO
 jIO
-wtg
+lqQ
 wtg
 wtg
 gSf
@@ -37923,7 +37941,7 @@ jIO
 jIO
 wtg
 wtg
-khQ
+wtg
 khQ
 khQ
 khQ
@@ -38226,7 +38244,7 @@ jIO
 wtg
 wtg
 wtg
-khQ
+wtg
 khQ
 khQ
 khQ
@@ -38262,8 +38280,8 @@ khQ
 ylG
 ylG
 jIO
-cbe
-cbe
+xZD
+xZD
 jIO
 jIO
 jIO
@@ -38528,9 +38546,9 @@ jIO
 wtg
 wtg
 wtg
-khQ
-khQ
-khQ
+wtg
+wtg
+wtg
 khQ
 khQ
 khQ
@@ -38541,7 +38559,7 @@ tbj
 tDV
 jIO
 vZi
-ojC
+axO
 axO
 axO
 lft
@@ -38564,8 +38582,8 @@ khQ
 ylG
 ylG
 jcS
-cbe
-cbe
+xZD
+xZD
 jIO
 kly
 joL
@@ -38831,9 +38849,9 @@ jIO
 jIO
 jIO
 jIO
-khQ
-ylG
-ylG
+wtg
+wtg
+wtg
 khQ
 khQ
 khQ
@@ -38866,8 +38884,8 @@ khQ
 ylG
 ylG
 jcS
-cbe
-cbe
+xZD
+xZD
 jIO
 kJF
 axO
@@ -39133,9 +39151,9 @@ hLs
 jYy
 oJO
 jIO
-khQ
-aSC
-aSC
+wtg
+wtg
+wtg
 jIO
 jIO
 jIO
@@ -39168,8 +39186,8 @@ khQ
 ylG
 ylG
 jcS
-cbe
-cbe
+xZD
+xZD
 jIO
 hni
 axO
@@ -39435,7 +39453,7 @@ dHr
 oJO
 aMZ
 jIO
-khQ
+xZD
 xZD
 xZD
 gad
@@ -39737,7 +39755,7 @@ jIO
 gvM
 jIO
 jIO
-khQ
+xZD
 xZD
 xZD
 jIO
@@ -40039,10 +40057,10 @@ bTQ
 wSc
 oog
 jIO
-khQ
 xZD
 xZD
-fmu
+xZD
+kNk
 axO
 uOZ
 axO
@@ -40341,7 +40359,7 @@ owq
 wSc
 wTe
 jIO
-khQ
+xZD
 xZD
 xZD
 jIO
@@ -40643,14 +40661,14 @@ jbx
 wSc
 tkY
 jIO
-khQ
+xZD
 xZD
 xZD
 gad
 axO
 axO
 axO
-fmu
+kNk
 axO
 axO
 jIO
@@ -40945,7 +40963,7 @@ pnl
 wSc
 iIR
 jIO
-khQ
+xZD
 xZD
 xZD
 jIO
@@ -41247,7 +41265,7 @@ wSc
 wSc
 bWU
 jIO
-khQ
+xZD
 xZD
 xZD
 ylG
@@ -41273,7 +41291,7 @@ ylG
 khQ
 khQ
 khQ
-ylG
+khQ
 khQ
 khQ
 khQ
@@ -41553,7 +41571,7 @@ jIO
 xZD
 xZD
 xZD
-fmu
+gUh
 axO
 axO
 axO
@@ -41575,7 +41593,7 @@ khQ
 khQ
 khQ
 khQ
-ylG
+khQ
 khQ
 khQ
 khQ
@@ -41855,7 +41873,7 @@ jIO
 xZD
 xZD
 xZD
-jOQ
+kNk
 axO
 axO
 axO
@@ -41877,8 +41895,8 @@ khQ
 khQ
 khQ
 khQ
-ylG
-ylG
+khQ
+khQ
 khQ
 khQ
 khQ
@@ -42179,8 +42197,8 @@ khQ
 khQ
 khQ
 khQ
-ylG
-ylG
+khQ
+khQ
 khQ
 khQ
 khQ
@@ -42481,12 +42499,12 @@ khQ
 khQ
 khQ
 khQ
+khQ
+khQ
+khQ
+khQ
+khQ
 ylG
-ylG
-khQ
-khQ
-khQ
-aNw
 ylG
 ylG
 jIO
@@ -42783,12 +42801,12 @@ khQ
 khQ
 khQ
 khQ
+khQ
+khQ
+khQ
+khQ
+xsE
 ylG
-ylG
-xsE
-xsE
-xsE
-tqN
 ylG
 ylG
 ylG
@@ -43085,12 +43103,12 @@ khQ
 khQ
 khQ
 khQ
+khQ
+khQ
+khQ
+khQ
+xsE
 ylG
-ylG
-xsE
-xsE
-xsE
-tqN
 ylG
 ylG
 ylG
@@ -43387,12 +43405,12 @@ khQ
 khQ
 khQ
 khQ
+khQ
+khQ
+khQ
+xsE
+xsE
 ylG
-ylG
-xsE
-xsE
-xsE
-tqN
 ylG
 ylG
 ylG
@@ -43673,7 +43691,7 @@ jIO
 ylG
 ylG
 ylG
-gad
+jIO
 ybr
 yfL
 nPD
@@ -43689,12 +43707,12 @@ khQ
 khQ
 khQ
 khQ
-ylG
-ylG
-ylG
+khQ
+khQ
+khQ
 xsE
 xsE
-tqN
+ylG
 ylG
 ylG
 ylG
@@ -43975,7 +43993,7 @@ jIO
 ylG
 ylG
 ylG
-gad
+jIO
 czM
 lSm
 nTL
@@ -43991,12 +44009,12 @@ khQ
 khQ
 khQ
 khQ
-ylG
-ylG
-ylG
+khQ
+khQ
+khQ
 xsE
 xsE
-aNw
+ylG
 ylG
 ylG
 ylG
@@ -44293,12 +44311,12 @@ khQ
 khQ
 khQ
 khQ
-ylG
-ylG
-ylG
+khQ
+khQ
+khQ
+khQ
 xsE
-xsE
-tqN
+ylG
 ylG
 ylG
 ylG
@@ -44595,12 +44613,12 @@ khQ
 khQ
 khQ
 khQ
+khQ
+khQ
+khQ
+khQ
+khQ
 ylG
-ylG
-ylG
-xsE
-xsE
-tqN
 ylG
 ylG
 ylG
@@ -44897,12 +44915,12 @@ ylG
 khQ
 khQ
 khQ
+khQ
+khQ
+khQ
+khQ
+khQ
 ylG
-ylG
-ylG
-ylG
-ylG
-tqN
 ylG
 ylG
 ylG
@@ -45199,12 +45217,12 @@ ylG
 ylG
 khQ
 khQ
+khQ
+khQ
+khQ
+khQ
+khQ
 ylG
-ylG
-ylG
-ylG
-ylG
-tqN
 ylG
 ylG
 ylG
@@ -45501,12 +45519,12 @@ abo
 abo
 khQ
 khQ
-ylG
-ylG
-ylG
-ylG
-ylG
-aNw
+khQ
+khQ
+khQ
+khQ
+oJD
+abo
 abo
 abo
 abo
@@ -45791,22 +45809,22 @@ wtg
 ylG
 ylG
 ylG
-xsE
-xsE
-xsE
-xsE
-xsE
-xsE
-xsE
-xsE
-xsE
-xsE
+ylG
+ylG
+ylG
+ylG
+ylG
+ylG
+ylG
+ylG
+ylG
+ylG
 ylG
 khQ
-ylG
-ylG
-ylG
-ylG
+khQ
+khQ
+khQ
+khQ
 ylG
 ylG
 ylG
@@ -46092,20 +46110,20 @@ wtg
 ylG
 ylG
 ylG
-xsE
-xsE
-xsE
-xsE
-xsE
-xsE
-xsE
-xsE
-xsE
-xsE
-xsE
-xsE
 ylG
-xsE
+ylG
+ylG
+ylG
+ylG
+ylG
+ylG
+ylG
+ylG
+ylG
+ylG
+ylG
+ylG
+ylG
 ylG
 ylG
 ylG
@@ -90276,8 +90294,8 @@ nKM
 nKM
 nKM
 xhG
-oBh
-xva
+nKM
+pql
 xva
 nKM
 nKM
@@ -90578,7 +90596,7 @@ nKM
 wRb
 wRb
 fcQ
-kLJ
+sia
 omM
 omM
 bxB
@@ -91802,7 +91820,7 @@ kLJ
 omM
 omM
 nKM
-omM
+tcc
 omM
 iQD
 nKM
@@ -92077,7 +92095,7 @@ ybZ
 ylG
 ylG
 nKM
-ozW
+gSR
 omM
 nVy
 nKM
@@ -93611,7 +93629,7 @@ xlF
 omM
 wRd
 omE
-tCr
+omE
 aQU
 omM
 xlF
@@ -93910,10 +93928,10 @@ ylG
 ylG
 ylG
 nKM
-omM
+tCr
 kgf
 omE
-sia
+omE
 obM
 omM
 nKM
@@ -95410,7 +95428,7 @@ pxn
 omM
 omM
 omM
-lqQ
+omM
 nKM
 omM
 wcI
@@ -95424,7 +95442,7 @@ nKM
 rYA
 omM
 kLJ
-omM
+bDB
 bBU
 nKM
 xlf
@@ -96312,7 +96330,7 @@ ylG
 ylG
 ylG
 nKM
-pxn
+oBh
 omM
 rEm
 omM
@@ -99056,8 +99074,8 @@ xmo
 xmo
 usd
 usd
-usd
-usd
+ovC
+ovC
 khQ
 khQ
 khQ
@@ -99358,9 +99376,9 @@ xmo
 xmo
 usd
 usd
-usd
-usd
-usd
+ovC
+ovC
+ovC
 khQ
 khQ
 khQ
@@ -99659,10 +99677,10 @@ xmo
 keL
 usd
 usd
-usd
-usd
-usd
-usd
+ovC
+ovC
+ovC
+ovC
 khQ
 khQ
 khQ
@@ -99959,12 +99977,12 @@ fWZ
 nKM
 xmo
 xmo
+usd
+usd
 ovC
 ovC
 ovC
-usd
-usd
-usd
+ovC
 khQ
 khQ
 khQ
@@ -100261,11 +100279,11 @@ omM
 xlF
 xmo
 xmo
-ovC
-ovC
-ovC
 usd
 usd
+ovC
+ovC
+ovC
 khQ
 khQ
 khQ
@@ -100565,9 +100583,9 @@ xmo
 xmo
 usd
 usd
-usd
-usd
-usd
+ovC
+ovC
+ovC
 khQ
 khQ
 khQ
@@ -100868,7 +100886,7 @@ pyY
 xmo
 usd
 usd
-usd
+ovC
 khQ
 khQ
 khQ
