@@ -4,17 +4,17 @@
 
 /datum/component/mumbleboop
 	var/mumbleboop_sound_override
-	var/mumbleboop_sound_male = 'mojave/sound/voices/mumbleboop_male.wav'
-	var/mumbleboop_sound_female = 'mojave/sound/voices/mumbleboop_female.wav'
-	var/mumbleboop_sound_agender = 'mojave/sound/voices/mumbleboop_agender.wav'
+	var/mumbleboop_sound_male = "mojave/sound/voices/male/vowel_male_"
+	var/mumbleboop_sound_female = "mojave/sound/voices/vowel_female_"
+	var/mumbleboop_sound_agender = "mojave/sound/voices/vowel_thing_"
 	var/volume = MUMBLEBOOP_DEFAULT_VOLUME
 	var/duration = MUMBLEBOOP_DEFAULT_DURATION
 	var/last_mumbleboop = 0
 
 /datum/component/mumbleboop/Initialize(mumbleboop_sound_override, \
-								mumbleboop_sound_male = 'mojave/sound/voices/mumbleboop_male.wav', \
-								mumbleboop_sound_female = 'mojave/sound/voices/mumbleboop_female.wav', \
-								mumbleboop_sound_agender = 'mojave/sound/voices/mumbleboop_agender.wav', \
+								mumbleboop_sound_male = "mojave/sound/voices/male/vowel_male_", \
+								mumbleboop_sound_female = "mojave/sound/voices/vowel_female_", \
+								mumbleboop_sound_agender = "mojave/sound/voices/vowel_thing_", \
 								volume = MUMBLEBOOP_DEFAULT_VOLUME, \
 								duration = MUMBLEBOOP_DEFAULT_DURATION)
 	. = ..()
@@ -56,6 +56,8 @@
 	var/initial_volume = volume
 	var/initial_pitch = 0
 	var/initial_falloff = 7
+	var/boop_letter = null
+	var/final_boop = null
 	if(speech_mods[WHISPER_MODE])
 		initial_volume -= 40
 		initial_falloff -= 5
@@ -79,56 +81,56 @@
 		var/falloff_exponent = initial_falloff
 		var/current_delay = initial_delay
 		switch(lowertext(message[i]))
-			/*if("a") These are all disabled, as they produce really retarded sounds.
-				pitch += 2.32
+			if("a")
+				boop_letter = "A"
 			if("b")
-				pitch += 2.30
+				boop_letter = "gen"
 			if("c")
-				pitch += 2.28
+				boop_letter = "gen"
 			if("d")
-				pitch += 2.26
+				boop_letter = "gen"
 			if("e")
-				pitch += 2.24
+				boop_letter = "E"
 			if("f")
-				pitch += 2.22
+				boop_letter = "gen"
 			if("g")
-				pitch += 2.2
+				boop_letter = "gen"
 			if("h")
-				pitch += 2.18
+				boop_letter = "gen"
 			if("i")
-				pitch += 2.16
+				boop_letter = "I"
 			if("j")
-				pitch += 2.14
+				boop_letter = "gen"
 			if("k")
-				pitch += 2.12
+				boop_letter = "gen"
 			if("m")
-				pitch += 2.10
+				boop_letter = "gen"
 			if("n")
-				pitch -= 2.10
+				boop_letter = "gen"
 			if("o")
-				pitch -= 2.12
+				boop_letter = "O"
 			if("p")
-				pitch -= 2.14
+				boop_letter = "gen"
 			if("q")
-				pitch -= 2.16
+				boop_letter = "gen"
 			if("r")
-				pitch -= 2.18
+				boop_letter = "gen"
 			if("s")
-				pitch -= 2.2
+				boop_letter = "gen"
 			if("t")
-				pitch -= 2.22
+				boop_letter = "gen"
 			if("u")
-				pitch -= 2.24
+				boop_letter = "U"
 			if("v")
-				pitch -= 2.26
+				boop_letter = "gen"
 			if("w")
-				pitch -= 2.28
+				boop_letter = "gen"
 			if("x")
-				pitch -= 2.30
+				boop_letter = "gen"
 			if("y")
-				pitch -= 2.32
+				boop_letter = "Y"
 			if("z")
-				pitch -= 2.34 */
+				boop_letter = "gen"
 			if("!")
 				volume = 0
 				current_delay *= 1.5
@@ -145,13 +147,14 @@
 				volume = 0
 			//else
 			//	pitch = 0
-		addtimer(CALLBACK(src, .proc/play_mumbleboop, hearers, mumblebooper, pick(initial_mumbleboop_sound), volume, initial_mumbleboop_time), mumbleboop_delay_cumulative + current_delay, falloff_exponent)
+		final_boop = "[initial_mumbleboop_sound][boop_letter].wav"
+		addtimer(CALLBACK(src, .proc/play_mumbleboop, hearers, mumblebooper, final_boop, volume, initial_mumbleboop_time), mumbleboop_delay_cumulative + current_delay, falloff_exponent)
 		mumbleboop_delay_cumulative += current_delay
 
-/datum/component/mumbleboop/proc/play_mumbleboop(list/hearers, mob/mumblebooper, mumbleboop_sound, volume, initial_mumbleboop_time, falloff_exponent)
+/datum/component/mumbleboop/proc/play_mumbleboop(list/hearers, mob/mumblebooper, final_boop, volume, initial_mumbleboop_time, falloff_exponent)
 	if(!volume || (last_mumbleboop != initial_mumbleboop_time))
 		return
 	for(var/mob/hearer as anything in hearers)
-		hearer.playsound_local(get_turf(mumblebooper), mumbleboop_sound, volume, TRUE, falloff_exponent)
+		hearer.playsound_local(get_turf(mumblebooper), final_boop, volume, TRUE, falloff_exponent)
 
 #undef MAX_MUMBLEBOOP_CHARACTERS
