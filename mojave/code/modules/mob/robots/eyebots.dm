@@ -42,7 +42,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /mob/living/simple_animal/hostile/retaliate/ms13/robot/eyebot/LateInitialize()
-	AddElement(/datum/element/generic_patrol_animal, _animal_node_weights = list(NODE_LAST_VISITED = -1), _animal_identifier = IDENTIFIER_EYEBOT, _patrol_move_delay = 6)
+	AddComponent(/datum/component/generic_animal_patrol, _animal_node_weights = list(NODE_LAST_VISITED = -1), _animal_identifier = IDENTIFIER_EYEBOT, _patrol_move_delay = 6)
 
 /mob/living/simple_animal/hostile/retaliate/ms13/robot/eyebot/LoseAggro()
 	//stop_automated_movement = 0 For patrolling

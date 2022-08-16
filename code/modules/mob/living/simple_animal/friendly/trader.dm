@@ -15,6 +15,13 @@
 //Only valid for wanted_items
 #define TRADER_PRODUCT_INFO_PRICE_MOD_DESCRIPTION 3
 
+#define IDENTIFIER_GENERIC_SIMPLE "identifies_generic_simple"
+#define IDENTIFIER_EYEBOT "identifies_eyebot"
+#define COMSIG_AI_SET_GOAL_NODE "ai_set_goal_node"
+#define COMSIG_AI_NODE_REACHED "ai_node_reached"
+
+GLOBAL_LIST_EMPTY(nodes_trader_destination)
+
 /**
  * # Trader
  *
@@ -116,12 +123,20 @@
 	)
 	///The name of the currency that is used when buying or selling items
 	var/currency_name = "credits"
+	var/reenable_goto_here = 0
+	var/obj/effect/ai_node/restock_node_going_towards = null
+	faction = list("robots", "ghoul", "bear", "pig", "shellfish", "dog_city", "insect", "rat", "gecko")
 
 ///Initializes the products and item demands of the trader
 /mob/living/simple_animal/hostile/retaliate/trader/Initialize()
 	. = ..()
 	restock_products()
 	renew_item_demands()
+	RegisterSignal(src, COMSIG_AI_NODE_REACHED, .proc/reached_next_node)
+	AddComponent(/datum/component/generic_animal_patrol, _animal_node_weights = list(NODE_LAST_VISITED = -1), _animal_identifier = IDENTIFIER_GENERIC_SIMPLE, _patrol_move_delay = 3)
+	if(!restock_node_going_towards && length(GLOB.nodes_trader_destination))
+		restock_node_going_towards = pick(GLOB.nodes_trader_destination)
+		SEND_SIGNAL(src, COMSIG_AI_SET_GOAL_NODE, restock_node_going_towards)
 
 ///Returns a list of the starting price/quanity/fluff text about the product listings; products = initial(products) doesn't work so this exists mainly for restock_products()
 /mob/living/simple_animal/hostile/retaliate/trader/proc/initial_products()
@@ -132,6 +147,28 @@
 /mob/living/simple_animal/hostile/retaliate/trader/proc/initial_wanteds()
 	return list(/obj/item/ectoplasm = list(100, INFINITY, "")
 				)
+
+///Trader will go around to specific nodes by the edges of the map to restock items, otherwise pausing movement for a bit at every node they enter or whenever a trade is being made
+/mob/living/simple_animal/hostile/retaliate/trader/handle_automated_movement()
+	if(reenable_goto_here < world.time)
+		prevent_goto_movement = FALSE
+	if(prevent_goto_movement)
+		return
+	if(get_dist(src, restock_node_going_towards) < 3)
+		restock_products()
+		renew_item_demands()
+		restock_node_going_towards = pick(GLOB.nodes_trader_destination - restock_node_going_towards)
+		SEND_SIGNAL(src, COMSIG_AI_SET_GOAL_NODE, restock_node_going_towards)
+
+/mob/living/simple_animal/hostile/retaliate/trader/proc/reached_next_node(datum/source)
+	if(prob(33))
+		time_til_next_node_move(world.time + 1 SECONDS)
+		prevent_goto_movement = TRUE
+		to_chat(world, "Trader stopping for a bit to wait for traders")
+
+///Modifies reenable_goto_here to be = world.time + time_to_reactivate; use SECONDS
+/mob/living/simple_animal/hostile/retaliate/trader/proc/time_til_next_node_move(time_to_reactivate)
+	reenable_goto_here = time_to_reactivate
 
 /**
  * Depending on the passed parameter/override, returns a randomly picked string out of a list
@@ -393,6 +430,7 @@
 ///Sets quantity of all products to initial(quanity); this proc is currently not called anywhere on the base class of traders
 /mob/living/simple_animal/hostile/retaliate/trader/proc/restock_products()
 	products = initial_products()
+	to_chat(world, "Trader has restocked")
 
 ///Sets quantity of all wanted_items to initial(quanity); this proc is currently not called anywhere on the base class of traders
 /mob/living/simple_animal/hostile/retaliate/trader/proc/renew_item_demands()
