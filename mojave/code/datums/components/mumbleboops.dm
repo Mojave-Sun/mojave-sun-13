@@ -5,16 +5,16 @@
 /datum/component/mumbleboop
 	var/mumbleboop_sound_override
 	var/mumbleboop_sound_male = "mojave/sound/voices/male/vowel_male_"
-	var/mumbleboop_sound_female = "mojave/sound/voices/vowel_female_"
-	var/mumbleboop_sound_agender = "mojave/sound/voices/vowel_thing_"
+	var/mumbleboop_sound_female = "mojave/sound/voices/female/vowel_female_"
+	var/mumbleboop_sound_agender = "mojave/sound/voices/neutral/vowel_agender_"
 	var/volume = MUMBLEBOOP_DEFAULT_VOLUME
 	var/duration = MUMBLEBOOP_DEFAULT_DURATION
 	var/last_mumbleboop = 0
 
 /datum/component/mumbleboop/Initialize(mumbleboop_sound_override, \
 								mumbleboop_sound_male = "mojave/sound/voices/male/vowel_male_", \
-								mumbleboop_sound_female = "mojave/sound/voices/vowel_female_", \
-								mumbleboop_sound_agender = "mojave/sound/voices/vowel_thing_", \
+								mumbleboop_sound_female = "mojave/sound/voices/female/vowel_female_", \
+								mumbleboop_sound_agender = "mojave/sound/voices/neutral/vowel_agender_", \
 								volume = MUMBLEBOOP_DEFAULT_VOLUME, \
 								duration = MUMBLEBOOP_DEFAULT_DURATION)
 	. = ..()
@@ -84,53 +84,55 @@
 			if("a")
 				boop_letter = "A"
 			if("b")
-				boop_letter = "gen"
+				boop_letter = "B"
 			if("c")
-				boop_letter = "gen"
+				boop_letter = "C"
 			if("d")
-				boop_letter = "gen"
+				boop_letter = "D"
 			if("e")
 				boop_letter = "E"
 			if("f")
-				boop_letter = "gen"
+				boop_letter = "F"
 			if("g")
-				boop_letter = "gen"
+				boop_letter = "G"
 			if("h")
-				boop_letter = "gen"
+				boop_letter = "H"
 			if("i")
 				boop_letter = "I"
 			if("j")
-				boop_letter = "gen"
+				boop_letter = "J"
 			if("k")
-				boop_letter = "gen"
+				boop_letter = "K"
+			if("l")
+				boop_letter = "L"
 			if("m")
-				boop_letter = "gen"
+				boop_letter = "M"
 			if("n")
-				boop_letter = "gen"
+				boop_letter = "N"
 			if("o")
 				boop_letter = "O"
 			if("p")
-				boop_letter = "gen"
+				boop_letter = "P"
 			if("q")
-				boop_letter = "gen"
+				boop_letter = "Q"
 			if("r")
-				boop_letter = "gen"
+				boop_letter = "R"
 			if("s")
-				boop_letter = "gen"
+				boop_letter = "S"
 			if("t")
-				boop_letter = "gen"
+				boop_letter = "T"
 			if("u")
 				boop_letter = "U"
 			if("v")
-				boop_letter = "gen"
+				boop_letter = "V"
 			if("w")
-				boop_letter = "gen"
+				boop_letter = "W"
 			if("x")
-				boop_letter = "gen"
+				boop_letter = "X"
 			if("y")
 				boop_letter = "Y"
 			if("z")
-				boop_letter = "gen"
+				boop_letter = "Z"
 			if("!")
 				volume = 0
 				current_delay *= 1.5
@@ -155,6 +157,6 @@
 	if(!volume || (last_mumbleboop != initial_mumbleboop_time))
 		return
 	for(var/mob/hearer as anything in hearers)
-		hearer.playsound_local(get_turf(mumblebooper), final_boop, volume, TRUE, falloff_exponent)
+		hearer.playsound_local(get_turf(mumblebooper), final_boop, volume, FALSE, falloff_exponent)
 
 #undef MAX_MUMBLEBOOP_CHARACTERS
