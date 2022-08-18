@@ -71,7 +71,7 @@
 	var/initial_delay = duration
 	var/list/hearers = GLOB.player_list.Copy()
 	for(var/mob/hearer as anything in hearers)
-		if(hearer.client && hearer.can_hear())
+		if(hearer.client && hearer.can_hear() && hearer.client.prefs.read_preference(/datum/preference/toggle/enable_mumbleboops))
 			continue
 		hearers -= hearer
 	var/mumbleboop_delay_cumulative = 0
