@@ -50,13 +50,17 @@
 
 /obj/structure/ms13/storage/washingmachine/CtrlClick(mob/living/user)
 	if(closed)
-		to_chat(user, span_notice("You open the washing machine."))
-		icon_state = "[initial(icon_state)]_open"
-		closed = FALSE
+		if(do_after(user, 0.5 SECONDS, interaction_key = DOAFTER_SOURCE_DOORS))
+			to_chat(user, span_notice("You open the washing machine."))
+			playsound(src, 'mojave/sound/ms13effects/furniture/washer_open.ogg', 50)
+			icon_state = "[initial(icon_state)]_open"
+			closed = FALSE
 	else
-		to_chat(user, span_notice("You close the washing machine."))
-		icon_state = "[initial(icon_state)]"
-		closed = TRUE
+		if(do_after(user, 0.5 SECONDS, interaction_key = DOAFTER_SOURCE_DOORS))
+			to_chat(user, span_notice("You close the washing machine."))
+			playsound(src, 'mojave/sound/ms13effects/furniture/washer_close.ogg', 50)
+			icon_state = "[initial(icon_state)]"
+			closed = TRUE
 
 /obj/structure/ms13/storage/washingmachine/welder_act_secondary(mob/living/user, obj/item/I)
 	if(!I.tool_start_check(user, amount=0))
