@@ -13857,9 +13857,11 @@
 /turf/open/floor/plating/ms13/ground/snow,
 /area/ms13/snow/lightforest)
 "crF" = (
-/obj/effect/spawner/random/ms13/crafting/lowrandom,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/plating/ms13/roof,
+/obj/machinery/washing_machine{
+	pixel_y = 13
+	},
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "cto" = (
 /obj/item/chair/ms13/metal/office/green,
@@ -15153,6 +15155,11 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
 /turf/closed/wall/ms13/wood,
 /area/ms13/underground/mountain)
+"fMY" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/decal/cleanable/glass,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13)
 "fPy" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/table/ms13/metal/small,
@@ -16301,10 +16308,10 @@
 /area/ms13)
 "iJH" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/machinery/washing_machine{
-	pixel_y = 13
+/obj/structure/table/ms13/no_smooth/counter/metal{
+	dir = 4
 	},
-/turf/open/floor/ms13/tile/large/cream,
+/turf/open/floor/ms13/tile/brown/big,
 /area/ms13/town)
 "iLl" = (
 /obj/structure/sink/kitchen{
@@ -17052,11 +17059,6 @@
 /obj/structure/table/ms13/metal/grate,
 /turf/open/floor/ms13/metal,
 /area/ms13/town)
-"kAJ" = (
-/obj/structure/table/ms13/low_wall/wood,
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/wood/ms13/common,
-/area/ms13)
 "kBF" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/machinery/door/unpowered/ms13/wood{
@@ -17173,12 +17175,6 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
-"kNO" = (
-/obj/structure/ms13/rug/fancy,
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/effect/decal/cleanable/glass,
-/turf/open/floor/wood/ms13/wide,
-/area/ms13)
 "kOf" = (
 /obj/machinery/light/ms13{
 	dir = 8
@@ -17798,11 +17794,7 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "mte" = (
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/structure/table/ms13/no_smooth/counter/metal{
-	dir = 4
-	},
-/turf/open/floor/ms13/tile/brown/big,
+/turf/closed/wall/ms13/scrap/white,
 /area/ms13/town)
 "mtR" = (
 /obj/structure/ms13/foundation/fancy/variantfive{
@@ -17965,7 +17957,7 @@
 /obj/structure/barricade/sandbags,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/plating/ms13/roof,
-/area/ms13/town)
+/area/ms13)
 "mSE" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /mob/living/basic/ms13/hostile_animal/radroach,
@@ -18427,6 +18419,12 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
+"nWI" = (
+/obj/structure/ms13/rug/fancy,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/decal/cleanable/glass,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13)
 "nWS" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/chair/office/ms13/red{
@@ -20242,7 +20240,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating/ms13/ground/snow,
-/area/ms13)
+/area/ms13/snow/lightforest)
 "tdv" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/ms13/storage/large/shelf{
@@ -20893,11 +20891,6 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
-"uHH" = (
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/effect/decal/cleanable/glass,
-/turf/open/floor/wood/ms13/wide,
-/area/ms13)
 "uIk" = (
 /obj/structure/table/ms13/wood,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -21958,10 +21951,11 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "xJa" = (
-/obj/structure/ms13/storage/large/shelf{
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/ms13/storage/shelf{
 	dir = 8
 	},
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/spawner/random/ms13/crafting/lowrandom,
 /turf/open/floor/plating/ms13/roof,
 /area/ms13/town)
 "xJi" = (
@@ -22163,6 +22157,11 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
 /turf/closed/wall/ms13/wood,
 /area/ms13/town)
+"ylD" = (
+/obj/structure/table/ms13/low_wall/wood,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/turf/open/floor/wood/ms13/common,
+/area/ms13)
 
 (1,1,1) = {"
 aPY
@@ -25360,7 +25359,7 @@ aPY
 aPY
 aPY
 cro
-avR
+cro
 cro
 cro
 cro
@@ -25662,7 +25661,7 @@ aPY
 aPY
 cro
 cro
-avR
+cro
 cro
 cro
 aCj
@@ -28090,7 +28089,7 @@ nHu
 aLH
 aLH
 aLH
-aPY
+aLH
 aPY
 aPY
 aPY
@@ -28392,8 +28391,8 @@ cut
 aLH
 aLH
 aLH
-aPY
-aPY
+aLH
+aLH
 aPY
 aPY
 aPY
@@ -28694,9 +28693,9 @@ jMx
 aLH
 aLH
 aLH
-aPY
-aPY
-aPY
+aLH
+aLH
+aLH
 aPY
 aPY
 aPY
@@ -28997,8 +28996,8 @@ aLH
 aLH
 aLH
 aLH
-aPY
-aPY
+aLH
+aLH
 aPY
 aPY
 aPY
@@ -29280,7 +29279,7 @@ aPY
 aPY
 aPY
 aPY
-avR
+cro
 cro
 cro
 cro
@@ -29300,7 +29299,7 @@ aLH
 aLH
 aLH
 aLH
-aLH
+aPY
 aPY
 aPY
 aPY
@@ -29883,7 +29882,7 @@ aLH
 aLH
 aLH
 aPY
-avR
+cro
 cro
 cro
 cro
@@ -30186,7 +30185,7 @@ aLH
 aLH
 aLH
 aLH
-avR
+cro
 cro
 cro
 cro
@@ -30489,7 +30488,7 @@ aCj
 aLH
 aLH
 aLH
-avR
+cro
 cro
 shf
 aCj
@@ -31406,9 +31405,9 @@ aCj
 apW
 apW
 aCj
-iJH
+crF
 lVw
-iJH
+crF
 jav
 aCj
 aLH
@@ -36239,7 +36238,7 @@ aCj
 aCj
 aCj
 tHT
-mte
+iJH
 oAp
 aCj
 aLH
@@ -36888,7 +36887,7 @@ aLH
 abJ
 koy
 mSq
-apx
+axT
 atT
 atT
 atT
@@ -37189,8 +37188,8 @@ aLH
 aLH
 abJ
 mSq
-apx
-apx
+axT
+axT
 atT
 lRP
 jPw
@@ -37491,8 +37490,8 @@ aLH
 aLH
 abJ
 mSq
-apx
-apx
+axT
+axT
 pVO
 apx
 apx
@@ -37793,8 +37792,8 @@ aLH
 aLH
 abJ
 mSq
-apx
-apx
+axT
+axT
 aSB
 nPh
 lNx
@@ -38095,8 +38094,8 @@ aLH
 aLH
 abJ
 wDZ
-apx
-apx
+axT
+axT
 aSB
 aSB
 atT
@@ -39610,7 +39609,7 @@ abJ
 abJ
 atT
 jVv
-crF
+apx
 xJa
 atT
 abJ
@@ -39913,8 +39912,8 @@ aPY
 aPY
 aPY
 cvs
-lZZ
-aPY
+mte
+mte
 aPY
 aPY
 aPY
@@ -63294,17 +63293,17 @@ aLH
 aLH
 aLH
 aLH
-aLH
-aLH
-aLH
-aLH
-aLH
-aLH
-aLH
-aLH
-aLH
-aLH
-aLH
+abJ
+abJ
+abJ
+abJ
+abJ
+abJ
+abJ
+abJ
+abJ
+abJ
+abJ
 aLH
 aLH
 aLH
@@ -67824,17 +67823,17 @@ aLH
 aLH
 aLH
 aLH
-abJ
-abJ
-abJ
-abJ
-abJ
-abJ
-abJ
-abJ
-abJ
-abJ
-abJ
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
+aLH
 aLH
 aLH
 aLH
@@ -68438,7 +68437,7 @@ aLH
 aLH
 aLH
 aLH
-aLH
+abJ
 aLH
 aLH
 aLH
@@ -68740,7 +68739,7 @@ aLH
 aLH
 aLH
 aLH
-abJ
+aLH
 aLH
 aLH
 aLH
@@ -69338,13 +69337,13 @@ aLH
 aLH
 aLH
 aLH
-aLH
-aLH
-aLH
-aLH
-aLH
-aLH
-aLH
+abJ
+abJ
+abJ
+abJ
+abJ
+abJ
+abJ
 aLH
 aLH
 aLH
@@ -82850,8 +82849,8 @@ aLH
 anp
 pKG
 pKG
-kAJ
-kAJ
+ylD
+ylD
 pKG
 pKG
 anp
@@ -83152,7 +83151,7 @@ aLH
 anp
 pKG
 nhI
-kNO
+nWI
 ufF
 iwv
 pKG
@@ -83455,7 +83454,7 @@ anp
 pKG
 hww
 aLh
-uHH
+fMY
 aLh
 pKG
 pKG
