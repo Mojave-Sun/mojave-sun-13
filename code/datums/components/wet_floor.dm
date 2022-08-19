@@ -52,7 +52,7 @@
 /datum/component/wet_floor/proc/update_overlay()
 	var/intended
 	//MOJAVE EDIT ADDITION BEGIN - Ice Overlays
-	if(!istype(parent, /turf/open/floor))
+	if(!isfloorturf(parent))
 		intended = generic_turf_overlay
 	else
 		switch(highest_strength)

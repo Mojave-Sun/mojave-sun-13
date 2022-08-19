@@ -8,7 +8,7 @@
 /obj/item/ammo_casing/caseless/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from, damage_mod, penetration_mod)
 	if (!..()) //failed firing
 		return FALSE
-	if(istype(fired_from, /obj/item/gun))
+	if(isgun(fired_from))
 		var/obj/item/gun/shot_from = fired_from
 		if(shot_from.chambered == src)
 			shot_from.chambered = null //Nuke it. Nuke it now.
