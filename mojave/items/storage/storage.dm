@@ -28,7 +28,8 @@
 	STR.set_holdable(list(
 		/obj/item/reagent_containers/hypospray,
 		/obj/item/stack/medical,
-		/obj/item/stack/sticky_tape/surgical
+		/obj/item/stack/sticky_tape/surgical,
+		/obj/item/reagent_containers/blood/ms13
 		))
 
 /obj/item/storage/firstaid/ms13/regular

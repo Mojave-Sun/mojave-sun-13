@@ -90,3 +90,37 @@
     name = "ashtray"
     desc = "An old plastic ashtray, still good to hold cigarette butts."
     icon_state = "ashtray"
+
+/obj/item/ms13/fluff/alarmclock
+    name = "alarm clock"
+    desc = "An old electronic alarm clock. Not of much use now."
+    icon_state = "alarm"
+
+/obj/item/ms13/fluff/alarmclock/Initialize()
+	. = ..()
+	register_context()
+
+/obj/item/ms13/fluff/alarmclock/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
+    user.show_message(span_notice("You begin disassembling \the [src] into scrap."), MSG_VISUAL)
+    if(do_after(user, 8 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+        user.show_message(span_notice("You disassemble \the [src] into scrap and parts."), MSG_VISUAL)
+        new /obj/item/stack/sheet/ms13/glass(loc, 1)
+        new /obj/item/stack/sheet/ms13/scrap(loc, 2)
+        new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 1)
+        new /obj/item/stack/sheet/ms13/circuits(loc, 1)
+        qdel(src)
+
+/obj/item/ms13/fluff/alarmclock/examine(mob/user)
+	. = ..()
+	. += deconstruction_hints(user)
+
+/obj/item/ms13/fluff/alarmclock/proc/deconstruction_hints(mob/user)
+	return span_notice("You could use a <b>screwdriver</b> to take apart [src] for parts.")
+
+/obj/item/ms13/fluff/alarmclock/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_SCREWDRIVER)
+			context[SCREENTIP_CONTEXT_RMB] = "Disassemble"
+			return CONTEXTUAL_SCREENTIP_SET
