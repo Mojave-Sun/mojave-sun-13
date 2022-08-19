@@ -30,6 +30,9 @@
 	if(isopenturf(T))
 		if(HAS_TRAIT(T, TRAIT_REMOVE_SLOWDOWN)) //MOJAVE SUN EDIT STARTS
 			add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/turf_slowdown, multiplicative_slowdown = 0)
+			return
+		else if(HAS_TRAIT(T, TRAIT_ADD_SLOWDOWN))
+			add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/turf_slowdown, multiplicative_slowdown = 4)
 			return //MOJAVE SUN EDIT ENDS
 		add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/turf_slowdown, multiplicative_slowdown = T.slowdown)
 	else

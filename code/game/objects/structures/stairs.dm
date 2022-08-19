@@ -40,10 +40,20 @@
 
 	AddElement(/datum/element/connect_loc, loc_connections)
 
+	// MOJAVE SUN EDIT BEGIN
+	var/turf/my_turf = get_turf(loc)
+	if(my_turf)
+		ADD_TRAIT(my_turf, TRAIT_ADD_SLOWDOWN, STAIRS_ON_TURF)
+	// MOJAVE SUN EDIT END
 	return ..()
 
 /obj/structure/stairs/Destroy()
 	listeningTo = null
+	// MOJAVE SUN EDIT BEGIN
+	var/turf/my_turf = get_turf(loc)
+	if(my_turf)
+		REMOVE_TRAIT(my_turf, TRAIT_REMOVE_SLOWDOWN, BOARDS_ON_TURF)
+	// MOJAVE SUN EDIT END
 	return ..()
 
 /obj/structure/stairs/Move() //Look this should never happen but...
