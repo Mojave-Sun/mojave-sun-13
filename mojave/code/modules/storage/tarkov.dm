@@ -7,6 +7,12 @@
 /// Must be out of the user to be accessed
 #define STORAGE_NO_EQUIPPED_ACCESS (1<<1)
 
+#define GRID_HEIGHT(target) target.grid_height <= 0 ? w_class * world.icon_size : target.grid_height
+#define GRID_WIDTH(target) target.grid_width <= 0 ? w_class * world.icon_size : target.grid_width
+
+#define GRID_TO_PIXEL(x, y) list((x * world.icon_size) + (y * world.icon_size))
+#define PIXEL_TO_GRID(x, y) list((x / world.icon_size), (y / world.icon_size))
+
 /obj/item
 	// ~Grid INVENTORY VARIABLES
 	/// Width we occupy on the hud - Keep null to generate based on w_class
