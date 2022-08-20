@@ -613,10 +613,8 @@
 	. = ..()
 	if(dir == SOUTH)
 		layer = ABOVE_ALL_MOB_LAYER
-		plane = GAME_PLANE_FOV_HIDDEN
 	if(dir == NORTH)
 		layer = ABOVE_ALL_MOB_LAYER
-		plane = GAME_PLANE_FOV_HIDDEN
 
 	AddElement(/datum/element/climbable, climb_time = 3 SECONDS, climb_stun = 0, no_stun = TRUE, jump_over = TRUE, jump_north = 12, jump_south = 17, jump_sides = 12)
 

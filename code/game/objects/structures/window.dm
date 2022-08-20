@@ -331,7 +331,7 @@
 	cut_overlay(crack_overlay)
 	if(ratio > 75)
 		return
-	crack_overlay = mutable_appearance('icons/obj/structures.dmi', "damage[ratio]", -(layer+0.1))
+	crack_overlay = mutable_appearance('icons/obj/structures.dmi', "damage[ratio]", GAME_PLANE_FOV_HIDDEN)
 	. += crack_overlay
 	//MOJAVE SUN EDIT END - Window Tweaks
 	. = ..()
