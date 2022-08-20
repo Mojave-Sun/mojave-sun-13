@@ -4,7 +4,6 @@
 	see_in_dark = 2
 	hud_possible = list(HEALTH_HUD,STATUS_HUD,ANTAG_HUD)
 	pressure_resistance = 10
-	plane = GAME_PLANE_FOV_HIDDEN
 
 	hud_type = /datum/hud/living
 	flags_1 = CRITICAL_ATOM_1 // MOJAVE SUN EDIT
