@@ -392,9 +392,12 @@
 	. = ..()
 	master = new_master
 
-/atom/movable/screen/storage/Click(location, control, params)
+	// GOMBLE TODO
 
-	var/list/modifiers = params2list(params)
+/atom/movable/screen/storage/Click(location, control, params)
+	var/datum/storage/storage_master = master
+	if(!istype(storage_master))
+		return FALSE
 
 	if(world.time <= usr.next_move)
 		return TRUE
@@ -402,16 +405,11 @@
 		return TRUE
 	if(ismecha(usr.loc)) // stops inventory actions in a mech
 		return TRUE
-	if(master)
-		var/obj/item/I = usr.get_active_held_item()
-		if(I)
-			if(LAZYACCESS(modifiers, CTRL_CLICK))
-				I.inventory_flip(usr)
-				// force update grid
-				if(lastMouseProps.len == 3)
-					MouseMove(lastMouseProps[1], lastMouseProps[2], lastMouseProps[3])
-				return
-			master.attackby(src, I, usr, params, TRUE) //MOJAVE SUN EDIT - Grid Inventory
+
+	var/obj/item/inserted = usr.get_active_held_item()
+	if(inserted)
+		storage_master.attempt_insert(inserted, usr)
+
 	return TRUE
 
 /atom/movable/screen/throw_catch
