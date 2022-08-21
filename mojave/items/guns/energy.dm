@@ -60,22 +60,23 @@
 
 ///Handles all the logic of magazine ejection, if tac_load is set that magazine will be tacloaded in the place of the old eject
 /obj/item/gun/energy/ms13/proc/eject_magazine(mob/user, display_message = TRUE, var/obj/item/stock_parts/cell/ms13/tac_load = null)
-	cell.forceMove(drop_location())
-	var/obj/item/stock_parts/cell/ms13/old_mag = cell
-	playsound(src, unload_sound, load_sound_volume, load_sound_vary)
-	if (tac_load)
-		if (insert_magazine(user, tac_load, FALSE))
-			to_chat(user, "<span class='notice'>You perform a tactical reload on \the [src].</span>")
+	if(cell)
+		cell.forceMove(drop_location())
+		var/obj/item/stock_parts/cell/ms13/old_mag = cell
+		playsound(src, unload_sound, load_sound_volume, load_sound_vary)
+		if (tac_load)
+			if (insert_magazine(user, tac_load, FALSE))
+				to_chat(user, "<span class='notice'>You perform a tactical reload on \the [src].</span>")
+			else
+				to_chat(user, "<span class='warning'>You dropped the old [old_mag.name], but the new one doesn't fit. How embarassing.</span>")
+				cell = null
 		else
-			to_chat(user, "<span class='warning'>You dropped the old [old_mag.name], but the new one doesn't fit. How embarassing.</span>")
 			cell = null
-	else
-		cell = null
-	user.put_in_hands(old_mag)
-	old_mag.update_icon()
-	if (display_message)
-		to_chat(user, "<span class='notice'>You pull the [old_mag.name] out of \the [src].</span>")
-	update_icon()
+		user.put_in_hands(old_mag)
+		old_mag.update_icon()
+		if (display_message)
+			to_chat(user, "<span class='notice'>You pull the [old_mag.name] out of \the [src].</span>")
+		update_icon()
 
 /obj/item/gun/energy/ms13/attackby(obj/item/A, mob/user, params)
 	. = ..()
@@ -152,15 +153,8 @@
 	..()
 	return
 
-/obj/item/stock_parts/cell/ms13/update_icon()
-	if (multiple_states == FALSE)
-		return
-	else
-		if (src.charge == 0)
-			icon_state = "[base_icon]_empty"
-		else
-			icon_state = "[base_icon]"
-	return ..()
+/obj/item/stock_parts/cell/ms13/update_overlays()
+	return
 
 /obj/item/stock_parts/cell/ms13/mfc
 	name = "microfusion cell"
@@ -194,3 +188,10 @@
 	chargerate = 50
 	base_icon = "plasma"
 	multiple_states = TRUE
+
+/obj/item/stock_parts/cell/ms13/pc/update_icon()
+	if (src.charge == 0)
+		icon_state = "[base_icon]_empty"
+	else
+		icon_state = "[base_icon]"
+	return ..()
