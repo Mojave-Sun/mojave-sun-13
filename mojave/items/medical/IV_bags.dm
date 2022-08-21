@@ -10,10 +10,6 @@
 
 	var/mob/living/carbon/human/attached
 
-/obj/item/reagent_containers/blood/ms13/examine(mob/user)
-	. = ..()
-	. += span_notice("Drag-click the bag onto someone, or yourself to do a field transfusion.")
-
 /obj/item/reagent_containers/blood/ms13/Destroy()
 	STOP_PROCESSING(SSobj,src)
 	attached = null

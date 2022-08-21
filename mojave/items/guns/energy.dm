@@ -153,9 +153,6 @@
 	..()
 	return
 
-/obj/item/stock_parts/cell/ms13/update_overlays()
-	return
-
 /obj/item/stock_parts/cell/ms13/mfc
 	name = "microfusion cell"
 	desc = "A microfusion cell, typically used as ammunition for large energy weapons."
