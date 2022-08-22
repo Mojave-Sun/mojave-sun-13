@@ -332,7 +332,7 @@
 
 /obj/item/clothing/head/helmet/ms13/army
 	name = "army helmet"
-	desc = "An old pre-war helmet, even by their standards. Seems to have the addition of quite a bit of ballistic padding on the inside, likely to try and modernize it."
+	desc = "A US army helmet, old by pre-war standards. Seems to have the addition of quite a bit of ballistic padding on the inside, likely to try and modernize it."
 	icon_state = "armyhelmet"
 	inhand_icon_state = "combathelmet"
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
