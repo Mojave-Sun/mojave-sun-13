@@ -342,7 +342,7 @@
 /obj/structure/flora/ms13/tree/Initialize()
 	. = ..()
 	pixel_x = rand(-20,-16)
-	AddComponent(/datum/component/largetransparency, 1, 1, -1, 1)
+	//AddComponent(/datum/component/largetransparency, 1, 1, -1, 1) // Busted right now. After the first time it turns the icon transparent, the entire icon's dimensions block mouse clicks.
 	AddElement(/datum/element/climbable) // People should be able to pass trees hypothetically. Just not quickly... One day, unscuff the text for this.
 
 /obj/structure/flora/ms13/tree/attackby(obj/item/W, mob/user, params)
