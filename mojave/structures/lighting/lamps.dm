@@ -200,7 +200,7 @@
 	anchored = TRUE
 	light_range = 4
 
-/obj/structure/ms13/lamp/attack_hand(mob/living/user, list/modifiers)
+/obj/structure/ms13/lamp/medical_lamp/attack_hand(mob/living/user, list/modifiers)
     if(!on)
         to_chat(user, span_notice("You switch the lamp on."))
         playsound(user, 'mojave/sound/ms13effects/buttonpush.ogg', 20)
