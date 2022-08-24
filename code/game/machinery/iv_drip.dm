@@ -8,7 +8,7 @@
 /obj/machinery/iv_drip
 	name = "\improper IV drip"
 	desc = "An IV drip with an advanced infusion pump that can both drain blood into and inject liquids from attached containers. Blood packs are injected at twice the displayed rate. Right-Click to detach the IV or the attached container."
-	icon = 'icons/obj/iv_drip.dmi'
+	icon = 'icons/obj/medical/iv_drip.dmi'
 	icon_state = "iv_drip"
 	base_icon_state = "iv_drip"
 	anchored = FALSE
@@ -99,8 +99,9 @@
 	var/datum/reagents/target_reagents = get_reagent_holder()
 	if(!target_reagents)
 		return
+// GOMBLE TODO - overlay for iv 
 
-	var/mutable_appearance/filling_overlay = mutable_appearance(icon, "reagent") // Mojave Sun edit, original text: var/mutable_appearance/filling_overlay = mutable_appearance('icons/obj/iv_drip.dmi', "reagent")
+	var/mutable_appearance/filling_overlay = mutable_appearance('icons/obj/medical/iv_drip.dmi', "reagent")
 	var/percent = round((target_reagents.total_volume / target_reagents.maximum_volume) * 100)
 	switch(percent)
 		if(0 to 9)
