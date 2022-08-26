@@ -4324,12 +4324,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/science/genetics)
-"bHX" = (
-/obj/docking_port/stationary/mining_home/common{
-	dir = 4
-	},
-/turf/open/misc/asteroid/airless,
-/area/mine/explored)
 "bIa" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 8
@@ -4952,6 +4946,23 @@
 /obj/effect/mapping_helpers/airlock/access/all/science/xenobio,
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
+"bRq" = (
+/obj/machinery/status_display/door_timer{
+	id = "medcell";
+	name = "Medical Cell";
+	pixel_y = 32
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/effect/turf_decal/trimline/red/filled/line{
+	dir = 5
+	},
+/obj/effect/landmark/start/depsec/medical,
+/obj/machinery/camera/directional/north{
+	c_tag = "Medical - Security Checkpoint";
+	network = list("ss13","medbay","Security")
+	},
+/turf/open/floor/iron,
+/area/station/security/checkpoint/medical)
 "bRs" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
@@ -7275,12 +7286,6 @@
 /obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/department/security)
-"cAM" = (
-/obj/docking_port/stationary/mining_home{
-	dir = 4
-	},
-/turf/open/misc/asteroid/airless,
-/area/mine/explored)
 "cAP" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/firedoor/heavy,
@@ -20470,18 +20475,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
-"hen" = (
-/obj/effect/turf_decal/trimline/red/filled/line{
-	dir = 1
-	},
-/obj/machinery/door_timer{
-	id = "scicell";
-	name = "Science Cell";
-	pixel_y = 32
-	},
-/obj/effect/landmark/start/depsec/science,
-/turf/open/floor/iron,
-/area/station/security/checkpoint/science)
 "heo" = (
 /obj/effect/turf_decal/trimline/brown/filled/corner{
 	dir = 4
@@ -22800,6 +22793,12 @@
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance/departmental,
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/tram/mid)
+"hWV" = (
+/obj/docking_port/stationary/mining_home{
+	dir = 4
+	},
+/turf/open/misc/asteroid/airless,
+/area/mine/explored)
 "hXs" = (
 /obj/structure/railing/corner,
 /obj/effect/turf_decal/siding/thinplating/corner,
@@ -32081,20 +32080,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/command)
-"ldp" = (
-/obj/machinery/door_timer{
-	id = "crgcell";
-	name = "Cargo Cell";
-	pixel_x = 32
-	},
-/obj/effect/turf_decal/trimline/red/filled/line{
-	dir = 4
-	},
-/obj/effect/turf_decal/trimline/red/filled/corner{
-	dir = 8
-	},
-/turf/open/floor/iron,
-/area/station/security/checkpoint/supply)
 "ldz" = (
 /obj/machinery/computer/rdconsole{
 	dir = 8
@@ -37108,6 +37093,18 @@
 /obj/structure/cable,
 /turf/open/floor/carpet,
 /area/station/command/heads_quarters/captain)
+"mIF" = (
+/obj/effect/turf_decal/trimline/red/filled/line{
+	dir = 1
+	},
+/obj/machinery/status_display/door_timer{
+	id = "scicell";
+	name = "Science Cell";
+	pixel_y = 32
+	},
+/obj/effect/landmark/start/depsec/science,
+/turf/open/floor/iron,
+/area/station/security/checkpoint/science)
 "mIO" = (
 /obj/machinery/light/warm/directional/north,
 /obj/structure/cable,
@@ -38608,23 +38605,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/engineering/atmospherics_engine)
-"niv" = (
-/obj/machinery/door_timer{
-	id = "medcell";
-	name = "Medical Cell";
-	pixel_y = 32
-	},
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/obj/effect/turf_decal/trimline/red/filled/line{
-	dir = 5
-	},
-/obj/effect/landmark/start/depsec/medical,
-/obj/machinery/camera/directional/north{
-	c_tag = "Medical - Security Checkpoint";
-	network = list("ss13","medbay","Security")
-	},
-/turf/open/floor/iron,
-/area/station/security/checkpoint/medical)
 "niG" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 6
@@ -40189,20 +40169,6 @@
 /obj/structure/girder,
 /turf/open/floor/iron/dark,
 /area/station/engineering/supermatter/room)
-"nNP" = (
-/obj/machinery/door_timer{
-	id = "engcell";
-	name = "Engineering Cell";
-	pixel_x = -32
-	},
-/obj/effect/turf_decal/trimline/red/filled/line{
-	dir = 10
-	},
-/obj/structure/chair{
-	dir = 1
-	},
-/turf/open/floor/iron,
-/area/station/security/checkpoint/engineering)
 "nNV" = (
 /obj/machinery/door/airlock/maintenance_hatch,
 /obj/effect/decal/cleanable/dirt,
@@ -49033,6 +48999,20 @@
 	},
 /turf/open/floor/iron,
 /area/station/commons/fitness)
+"qQP" = (
+/obj/machinery/status_display/door_timer{
+	id = "crgcell";
+	name = "Cargo Cell";
+	pixel_x = 32
+	},
+/obj/effect/turf_decal/trimline/red/filled/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/red/filled/corner{
+	dir = 8
+	},
+/turf/open/floor/iron,
+/area/station/security/checkpoint/supply)
 "qQX" = (
 /obj/structure/fluff/tram_rail/end{
 	dir = 1
@@ -53585,6 +53565,12 @@
 /obj/effect/mapping_helpers/airlock/access/any/security/maintenance,
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/central/greater)
+"suI" = (
+/obj/docking_port/stationary/mining_home/common{
+	dir = 4
+	},
+/turf/open/misc/asteroid/airless,
+/area/mine/explored)
 "suM" = (
 /obj/machinery/airalarm/directional/north,
 /turf/open/floor/iron,
@@ -60171,6 +60157,20 @@
 /obj/machinery/shower/directional/south,
 /turf/open/floor/iron/freezer,
 /area/station/security/prison)
+"uLA" = (
+/obj/machinery/status_display/door_timer{
+	id = "engcell";
+	name = "Engineering Cell";
+	pixel_x = -32
+	},
+/obj/effect/turf_decal/trimline/red/filled/line{
+	dir = 10
+	},
+/obj/structure/chair{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/station/security/checkpoint/engineering)
 "uLC" = (
 /obj/structure/table,
 /obj/item/paper_bin{
@@ -102087,7 +102087,7 @@ foi
 qaL
 wIA
 cWY
-nNP
+uLA
 roB
 upY
 kIG
@@ -117716,7 +117716,7 @@ dDG
 dDG
 dDG
 dDG
-cAM
+hWV
 dDG
 dDG
 dDG
@@ -170947,7 +170947,7 @@ tDN
 whz
 pio
 whz
-niv
+bRq
 dmt
 xOM
 oIa
@@ -177870,7 +177870,7 @@ whL
 eKt
 tnh
 pOf
-ldp
+qQP
 wkz
 xHd
 xPU
@@ -183031,7 +183031,7 @@ syv
 syv
 syv
 syv
-hen
+mIF
 rfq
 pPD
 hvJ
@@ -185601,7 +185601,7 @@ dDG
 dDG
 dDG
 dDG
-bHX
+suI
 dDG
 dDG
 dDG
