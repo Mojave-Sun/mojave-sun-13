@@ -52,7 +52,7 @@
 	// MOJAVE SUN EDIT BEGIN
 	var/turf/my_turf = get_turf(loc)
 	if(my_turf)
-		REMOVE_TRAIT(my_turf, TRAIT_REMOVE_SLOWDOWN, BOARDS_ON_TURF)
+		REMOVE_TRAIT(my_turf, TRAIT_REMOVE_SLOWDOWN, STAIRS_ON_TURF)
 	// MOJAVE SUN EDIT END
 	return ..()
 
