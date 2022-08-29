@@ -73,6 +73,7 @@
 
 /obj/item/clothing/mask/ms13/bandana/surgical
 	name = "surgical mask"
+	desc = "A mask used by doctors to keep blood out of their mouth and nose."
 	icon_state = "surgical"
 
 // Generic Wasteland Facemasks //

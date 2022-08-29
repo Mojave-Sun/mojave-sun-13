@@ -187,3 +187,37 @@
     light_range = 4.5
     light_power = 0.8
     on = TRUE
+
+// Medical lamp
+
+/obj/structure/ms13/lamp/medical_lamp
+	name = "medical lamp"
+	desc = "A once sterile lamp used in medical areas, good to get a view of your patient."
+	icon = 'mojave/icons/structure/medical.dmi'
+	icon_state = "medlamp"
+	density = TRUE
+	max_integrity = 250
+	anchored = TRUE
+	light_range = 4
+
+/obj/structure/ms13/lamp/medical_lamp/attack_hand(mob/living/user, list/modifiers)
+    if(!on)
+        to_chat(user, span_notice("You switch the lamp on."))
+        playsound(user, 'mojave/sound/ms13effects/buttonpush.ogg', 20)
+        set_light(4, 2, COLOR_WHITE)
+        on = TRUE
+        icon_state = "medlamp_on"
+        return
+    else
+        to_chat(user, span_notice("You switch the lamp off."))
+        playsound(user, 'mojave/sound/ms13effects/buttonpush.ogg', 20)
+        set_light(4, 0, COLOR_WHITE)
+        on = FALSE
+        icon_state = "medlamp"
+        return
+
+/obj/structure/ms13/lamp/medical_lamp/on
+    icon_state = "medlamp_on"
+    on = TRUE
+    light_range = 4
+    light_power = 2

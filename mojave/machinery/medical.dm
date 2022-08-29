@@ -10,26 +10,3 @@
 	if(!(flags_1 & NODECONSTRUCT_1))
 		new /obj/item/stack/sheet/ms13/scrap(loc)
 	qdel(src)
-
-/obj/machinery/power/floodlight/ms13
-	name = "Generic MS13 floodlight"
-	desc = "One day we'll have another so this can be more than just a basetype"
-
-/obj/machinery/power/floodlight/ms13/process()
-	if(setting > FLOODLIGHT_OFF) //If on
-		if(avail(active_power_usage))
-			add_load(active_power_usage)
-		else
-			change_setting(FLOODLIGHT_OFF)
-	else if(avail(idle_power_usage))
-		add_load(idle_power_usage)
-
-/obj/machinery/power/floodlight/ms13/medical_lamp
-	name = "medical lamp"
-	desc = "A once sterile lamp used in medical areas, good to get a view of your patient."
-	icon = 'mojave/icons/structure/medical.dmi'
-	icon_state = "medlamp"
-	density = TRUE
-	max_integrity = 250
-	anchored = TRUE
-	light_power = 1.75
