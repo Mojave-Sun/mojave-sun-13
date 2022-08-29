@@ -329,7 +329,8 @@
 					msg += "[t_He] [t_has] a stupid expression on [t_his] face.\n"
 		if(getorgan(/obj/item/organ/internal/brain))
 			if(ai_controller?.ai_status == AI_STATUS_ON)
-				msg += "[span_deadsay("[t_He] do[t_es]n't appear to be [t_him]self.")]\n"
+				if(!dna.species.ai_controlled_species)
+					msg += "[span_deadsay("[t_He] do[t_es]n't appear to be [t_him]self.")]\n"
 			else if(!key)
 				msg += "[span_deadsay("[t_He] [t_has] a blank, absent-minded stare and appears completely unresponsive to anything.")]\n" //MOJAVE SUN EDIT - Unimmersive space sleep shit
 			else if(!client)
