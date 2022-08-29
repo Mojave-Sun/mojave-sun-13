@@ -13,7 +13,7 @@
 
 /obj/machinery/power/ms13/streetlamp/Initialize()
 	. = ..()
-	AddComponent(/datum/component/largetransparency, 1, 1, 1, 1)
+	//AddComponent(/datum/component/largetransparency, 1, 1, 1, 1) // Busted right now. After the first time it turns the icon transparent, the entire icon's dimensions block mouse clicks.
 
 /obj/machinery/power/ms13/streetlamp/CanAllowThrough(atom/movable/mover, turf/target)
 	. = ..()
@@ -70,7 +70,7 @@
 
 /obj/structure/ms13/street_sign/Initialize()
 	. = ..()
-	AddComponent(/datum/component/largetransparency, 1, 1, 1, 1)
+	//AddComponent(/datum/component/largetransparency, 1, 1, 1, 1) // Busted right now. After the first time it turns the icon transparent, the entire icon's dimensions block mouse clicks.
 	register_context()
 
 /obj/structure/ms13/street_sign/CanAllowThrough(atom/movable/mover, turf/target)
