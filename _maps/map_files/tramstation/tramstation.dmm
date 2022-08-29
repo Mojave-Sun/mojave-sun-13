@@ -4946,23 +4946,6 @@
 /obj/effect/mapping_helpers/airlock/access/all/science/xenobio,
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
-"bRq" = (
-/obj/machinery/status_display/door_timer{
-	id = "medcell";
-	name = "Medical Cell";
-	pixel_y = 32
-	},
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/obj/effect/turf_decal/trimline/red/filled/line{
-	dir = 5
-	},
-/obj/effect/landmark/start/depsec/medical,
-/obj/machinery/camera/directional/north{
-	c_tag = "Medical - Security Checkpoint";
-	network = list("ss13","medbay","Security")
-	},
-/turf/open/floor/iron,
-/area/station/security/checkpoint/medical)
 "bRs" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
@@ -6163,15 +6146,6 @@
 /mob/living/carbon/human/species/monkey/punpun,
 /turf/open/floor/iron/dark,
 /area/station/service/bar)
-"cjd" = (
-/obj/effect/turf_decal/trimline/purple/filled/line{
-	dir = 9
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/turf/open/floor/iron,
-/area/station/science/robotics/lab)
 "cjq" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
@@ -9711,6 +9685,16 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
+"dst" = (
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 9
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/machinery/vending/wardrobe/robo_wardrobe,
+/turf/open/floor/iron,
+/area/station/science/robotics/lab)
 "dsA" = (
 /obj/effect/turf_decal/caution/stand_clear,
 /obj/effect/decal/cleanable/dirt,
@@ -17038,6 +17022,17 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/tram/center)
+"fWl" = (
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 4
+	},
+/obj/machinery/button/door/directional/east{
+	id = "robotics2";
+	name = "Robotics Lockdown";
+	req_access = list("robotics")
+	},
+/turf/open/floor/iron,
+/area/station/science/robotics/lab)
 "fWn" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /turf/closed/wall/r_wall,
@@ -20475,6 +20470,18 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
+"hen" = (
+/obj/effect/turf_decal/trimline/red/filled/line{
+	dir = 1
+	},
+/obj/machinery/status_display/door_timer{
+	id = "scicell";
+	name = "Science Cell";
+	pixel_y = 32
+	},
+/obj/effect/landmark/start/depsec/science,
+/turf/open/floor/iron,
+/area/station/security/checkpoint/science)
 "heo" = (
 /obj/effect/turf_decal/trimline/brown/filled/corner{
 	dir = 4
@@ -32080,6 +32087,20 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/command)
+"ldp" = (
+/obj/machinery/status_display/door_timer{
+	id = "crgcell";
+	name = "Cargo Cell";
+	pixel_x = 32
+	},
+/obj/effect/turf_decal/trimline/red/filled/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/red/filled/corner{
+	dir = 8
+	},
+/turf/open/floor/iron,
+/area/station/security/checkpoint/supply)
 "ldz" = (
 /obj/machinery/computer/rdconsole{
 	dir = 8
@@ -37093,18 +37114,6 @@
 /obj/structure/cable,
 /turf/open/floor/carpet,
 /area/station/command/heads_quarters/captain)
-"mIF" = (
-/obj/effect/turf_decal/trimline/red/filled/line{
-	dir = 1
-	},
-/obj/machinery/status_display/door_timer{
-	id = "scicell";
-	name = "Science Cell";
-	pixel_y = 32
-	},
-/obj/effect/landmark/start/depsec/science,
-/turf/open/floor/iron,
-/area/station/security/checkpoint/science)
 "mIO" = (
 /obj/machinery/light/warm/directional/north,
 /obj/structure/cable,
@@ -38605,6 +38614,23 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/engineering/atmospherics_engine)
+"niv" = (
+/obj/machinery/status_display/door_timer{
+	id = "medcell";
+	name = "Medical Cell";
+	pixel_y = 32
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/effect/turf_decal/trimline/red/filled/line{
+	dir = 5
+	},
+/obj/effect/landmark/start/depsec/medical,
+/obj/machinery/camera/directional/north{
+	c_tag = "Medical - Security Checkpoint";
+	network = list("ss13","medbay","Security")
+	},
+/turf/open/floor/iron,
+/area/station/security/checkpoint/medical)
 "niG" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 6
@@ -40169,6 +40195,20 @@
 /obj/structure/girder,
 /turf/open/floor/iron/dark,
 /area/station/engineering/supermatter/room)
+"nNP" = (
+/obj/machinery/status_display/door_timer{
+	id = "engcell";
+	name = "Engineering Cell";
+	pixel_x = -32
+	},
+/obj/effect/turf_decal/trimline/red/filled/line{
+	dir = 10
+	},
+/obj/structure/chair{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/station/security/checkpoint/engineering)
 "nNV" = (
 /obj/machinery/door/airlock/maintenance_hatch,
 /obj/effect/decal/cleanable/dirt,
@@ -48999,20 +49039,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/commons/fitness)
-"qQP" = (
-/obj/machinery/status_display/door_timer{
-	id = "crgcell";
-	name = "Cargo Cell";
-	pixel_x = 32
-	},
-/obj/effect/turf_decal/trimline/red/filled/line{
-	dir = 4
-	},
-/obj/effect/turf_decal/trimline/red/filled/corner{
-	dir = 8
-	},
-/turf/open/floor/iron,
-/area/station/security/checkpoint/supply)
 "qQX" = (
 /obj/structure/fluff/tram_rail/end{
 	dir = 1
@@ -57000,14 +57026,6 @@
 /obj/effect/turf_decal/trimline/neutral/filled/line,
 /turf/open/floor/iron,
 /area/station/commons/fitness/recreation)
-"tFT" = (
-/obj/machinery/vending/wardrobe/robo_wardrobe,
-/obj/effect/turf_decal/trimline/purple/filled/line{
-	dir = 4
-	},
-/obj/structure/noticeboard/directional/east,
-/turf/open/floor/iron,
-/area/station/science/robotics/lab)
 "tFV" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
@@ -58473,6 +58491,18 @@
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/grass,
 /area/station/service/hydroponics)
+"ugP" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/table,
+/obj/item/scalpel{
+	pixel_y = 16
+	},
+/obj/item/circular_saw,
+/obj/structure/noticeboard/directional/west,
+/turf/open/floor/iron/white,
+/area/station/science/robotics/lab)
 "ugW" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
@@ -60157,20 +60187,6 @@
 /obj/machinery/shower/directional/south,
 /turf/open/floor/iron/freezer,
 /area/station/security/prison)
-"uLA" = (
-/obj/machinery/status_display/door_timer{
-	id = "engcell";
-	name = "Engineering Cell";
-	pixel_x = -32
-	},
-/obj/effect/turf_decal/trimline/red/filled/line{
-	dir = 10
-	},
-/obj/structure/chair{
-	dir = 1
-	},
-/turf/open/floor/iron,
-/area/station/security/checkpoint/engineering)
 "uLC" = (
 /obj/structure/table,
 /obj/item/paper_bin{
@@ -66590,17 +66606,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/engineering/break_room)
-"wYP" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/table,
-/obj/item/scalpel{
-	pixel_y = 16
-	},
-/obj/item/circular_saw,
-/turf/open/floor/iron/white,
-/area/station/science/robotics/lab)
 "wYX" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
@@ -102087,7 +102092,7 @@ foi
 qaL
 wIA
 cWY
-uLA
+nNP
 roB
 upY
 kIG
@@ -170947,7 +170952,7 @@ tDN
 whz
 pio
 whz
-bRq
+niv
 dmt
 xOM
 oIa
@@ -176098,7 +176103,7 @@ rVC
 kcF
 aDg
 qtN
-wYP
+ugP
 syn
 soq
 wJO
@@ -177121,7 +177126,7 @@ nql
 moz
 niI
 wdT
-cjd
+dst
 iKY
 lPf
 aCY
@@ -177636,7 +177641,7 @@ nUg
 fla
 wdT
 dAU
-tFT
+fWl
 ucl
 ugm
 bze
@@ -177870,7 +177875,7 @@ whL
 eKt
 tnh
 pOf
-qQP
+ldp
 wkz
 xHd
 xPU
@@ -183031,7 +183036,7 @@ syv
 syv
 syv
 syv
-mIF
+hen
 rfq
 pPD
 hvJ
