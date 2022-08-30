@@ -10,7 +10,7 @@
 * **Code:** https://github.com/Mojave-Sun/mojave-sun-13
 * **Wiki:** soon
 * **Codedocs:** https://mojave-sun.github.io/mojave-sun-13/
-* **Mojave Sun Discord:** https://discord.gg/6E7vHBxQs3
+* **Mojave Sun Discord:** https://discord.gg/ms13
 * **Coderbus Discord:** https://discord.gg/Vh8TJp9
 
 Mojave Sun is a post-apocalyptic SS13 server based on modern /tg/station.
