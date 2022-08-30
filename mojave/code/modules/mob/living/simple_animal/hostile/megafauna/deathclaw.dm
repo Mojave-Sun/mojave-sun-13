@@ -70,7 +70,7 @@
 			step(B, pick(GLOB.cardinals))
 		else
 			B.setDir(pick(GLOB.cardinals))
-	if(second_wind_available && (health < (maxHealth / 2)))
+	if(!client && second_wind_available && (health < (maxHealth / 2)))
 		roar.Trigger(target = src)
 		second_wind_available = FALSE
 
@@ -137,12 +137,11 @@
 /datum/action/cooldown/mob_cooldown/deathclaw_roar
 	name = "Deathclaw's Roar"
 	desc = "Makes you do a pretty big roar"
-	cooldown_time = 30 SECONDS
+	cooldown_time = 5 SECONDS
 	click_to_activate = FALSE
 	shared_cooldown = null
 
 /datum/action/cooldown/mob_cooldown/deathclaw_roar/Activate(atom/target_atom)
-	StartCooldown(5 SECONDS)
 	roar()
 	StartCooldown()
 
@@ -150,18 +149,19 @@
 	var/mob/living/living_owner = owner
 	living_owner.SetStun(1.5 SECONDS, ignore_canstun = TRUE)
 	playsound(owner, 'sound/creatures/space_dragon_roar.ogg', 100, TRUE, -1)
-	owner.visible_message(span_colossus("Run."))
+	var/list/all_turfs = RANGE_TURFS(12, owner.loc)
 	new /obj/effect/temp_visual/shockwave(owner.loc, 12)
-	for(var/turf/affected_tile in view(8, living_owner))
-		affected_tile.Shake(12, 12, 1 SECONDS)
-		for(var/i in affected_tile)
-			var/atom/movable/affected = i
-			if(ismob(affected) && affected != living_owner)
-				var/mob/mob_affected = affected
-				shake_camera(mob_affected, 14, 3)
-			if(!istype(affected, /obj/item))
-				affected.Shake(12, 12, 1 SECONDS)
+	for(var/i = 0 to 12)
+		for(var/turf/roar_turf in all_turfs)
+			if(get_dist(owner.loc, roar_turf) > i)
 				continue
+			roar_turf.Shake(rand(-3, 3), rand(-3, 3), 0.3 SECONDS)
+			for(var/mob/living/L in roar_turf)
+				if(L == living_owner)
+					continue
+				shake_camera(L, 7, 3)
+			all_turfs -= roar_turf
+		sleep(0.05 SECONDS)
 
 //TerraGov Marine Corp's explosion shockwave
 /obj/effect/temp_visual/shockwave
