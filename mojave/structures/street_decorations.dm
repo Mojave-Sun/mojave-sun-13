@@ -5,7 +5,8 @@
 	icon_state = "streetlight"
 	anchored = TRUE
 	density = TRUE
-	layer = BELOW_OBJ_LAYER
+	layer = ABOVE_ALL_MOB_LAYER
+	plane = ABOVE_GAME_PLANE
 	max_integrity = 2000
 	pixel_x = -32
 	pixel_y = 8
@@ -65,7 +66,7 @@
 	icon = 'mojave/icons/structure/street_signs.dmi'
 	anchored = TRUE
 	density = TRUE
-	layer = LOW_ITEM_LAYER
+	layer = ABOVE_MOB_LAYER
 	max_integrity = 500 // Hardy but not immortal
 
 /obj/structure/ms13/street_sign/Initialize()

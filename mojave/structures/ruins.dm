@@ -19,6 +19,8 @@
 	max_integrity = 10000
 	resistance_flags = INDESTRUCTIBLE
 	var/body_state = null
+	layer = ABOVE_ALL_MOB_LAYER
+	plane = ABOVE_GAME_PLANE
 
 /obj/structure/ms13/vehicle_ruin/welder_act_secondary(mob/living/user, obj/item/I)
 	if(!I.tool_start_check(user, amount=0))
