@@ -14290,6 +14290,13 @@
 "eVz" = (
 /turf/open/floor/grass,
 /area/station/service/hydroponics)
+"eVQ" = (
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 1
+	},
+/obj/machinery/computer/camera_advanced/base_construction/aux,
+/turf/open/floor/iron,
+/area/station/construction/mining/aux_base)
 "eVY" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/public/glass{
@@ -40220,6 +40227,16 @@
 	},
 /turf/open/floor/iron,
 /area/station/security/processing)
+"nOS" = (
+/obj/structure/sign/warning/radiation/rad_area/directional/north,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/trimline/neutral/filled/line{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/construction/engineering)
 "nPe" = (
 /turf/open/floor/carpet,
 /area/station/medical/psychology)
@@ -42287,13 +42304,6 @@
 	},
 /turf/open/space/basic,
 /area/space/nearstation)
-"oEo" = (
-/obj/effect/turf_decal/trimline/yellow/filled/line{
-	dir = 1
-	},
-/obj/machinery/computer/camera_advanced/base_construction/aux,
-/turf/open/floor/iron,
-/area/station/construction/mining/aux_base)
 "oEt" = (
 /obj/effect/turf_decal/trimline/blue/filled/corner{
 	dir = 1
@@ -45382,18 +45392,6 @@
 /obj/machinery/atmospherics/pipe/smart/simple/dark/visible,
 /turf/open/floor/engine,
 /area/station/maintenance/disposal/incinerator)
-"pDW" = (
-/obj/structure/sign/warning/radiation/rad_area/directional/north{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/trimline/neutral/filled/line{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/turf/open/floor/iron,
-/area/station/hallway/secondary/construction/engineering)
 "pEe" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 1
@@ -48831,6 +48829,19 @@
 /obj/machinery/atmospherics/pipe/smart/simple/green/visible,
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
+"qLR" = (
+/obj/structure/sign/warning/radiation/rad_area/directional/north,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/trimline/neutral/filled/line{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/construction/engineering)
 "qMx" = (
 /obj/machinery/door/airlock/external{
 	name = "Port Docking Bay 3"
@@ -51055,6 +51066,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/security/prison)
+"rBi" = (
+/obj/effect/spawner/structure/electrified_grille,
+/obj/effect/turf_decal/sand/plating,
+/turf/open/floor/plating/airless,
+/area/mine/explored)
 "rBu" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -61306,12 +61322,6 @@
 /obj/machinery/power/emitter,
 /turf/open/floor/plating,
 /area/station/engineering/engine_smes)
-"vfU" = (
-/obj/structure/cable,
-/obj/structure/grille,
-/obj/effect/turf_decal/sand/plating,
-/turf/open/floor/plating/airless,
-/area/mine/explored)
 "vfY" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -64571,21 +64581,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/security/checkpoint/engineering)
-"wpo" = (
-/obj/structure/sign/warning/radiation/rad_area/directional/north{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/turf_decal/trimline/neutral/filled/line{
-	dir = 1
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable,
-/turf/open/floor/iron,
-/area/station/hallway/secondary/construction/engineering)
 "wpt" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 4
@@ -87623,12 +87618,12 @@ dhe
 dDG
 dDG
 dDG
-vfU
-vfU
-vfU
-vfU
-vfU
-vfU
+rBi
+rBi
+rBi
+rBi
+rBi
+rBi
 dDG
 dDG
 dDG
@@ -87878,19 +87873,19 @@ dDG
 dhe
 dhe
 dDG
-vfU
-vfU
-vfU
+rBi
+rBi
+rBi
 bhr
 ryo
 bhr
 bhr
-vfU
-vfU
-vfU
-vfU
-vfU
-vfU
+rBi
+rBi
+rBi
+rBi
+rBi
+rBi
 dhe
 jWs
 jvE
@@ -88135,7 +88130,7 @@ dhe
 dhe
 dDG
 dDG
-vfU
+rBi
 bhr
 bhr
 bhr
@@ -88391,8 +88386,8 @@ vXM
 dhe
 dhe
 dDG
-vfU
-vfU
+rBi
+rBi
 kPC
 lFk
 lFk
@@ -88648,7 +88643,7 @@ vXM
 dhe
 dhe
 dDG
-vfU
+rBi
 bhr
 bhr
 lFk
@@ -88905,7 +88900,7 @@ vXM
 dhe
 dhe
 dDG
-vfU
+rBi
 bhr
 lFk
 lFk
@@ -89162,7 +89157,7 @@ vXM
 dhe
 dhe
 dDG
-vfU
+rBi
 ryo
 bCc
 lFk
@@ -89419,7 +89414,7 @@ vXM
 dhe
 dhe
 dDG
-vfU
+rBi
 bhr
 lFk
 lFk
@@ -89676,7 +89671,7 @@ dhe
 dhe
 dhe
 dDG
-vfU
+rBi
 bhr
 cRM
 lFk
@@ -89933,7 +89928,7 @@ dhe
 dhe
 dhe
 dDG
-vfU
+rBi
 ryo
 lFk
 lFk
@@ -90190,7 +90185,7 @@ dhe
 dhe
 dhe
 dDG
-vfU
+rBi
 ryo
 lFk
 lFk
@@ -90447,7 +90442,7 @@ dhe
 dhe
 dhe
 dDG
-vfU
+rBi
 kPC
 lFk
 lFk
@@ -90704,7 +90699,7 @@ dhe
 dhe
 dhe
 dDG
-vfU
+rBi
 bhr
 cRM
 lFk
@@ -90961,7 +90956,7 @@ dhe
 dhe
 dhe
 dDG
-vfU
+rBi
 bhr
 lFk
 lFk
@@ -91218,7 +91213,7 @@ dhe
 dhe
 dhe
 dDG
-vfU
+rBi
 ryo
 fwW
 lFk
@@ -91475,7 +91470,7 @@ dhe
 dhe
 dhe
 dDG
-vfU
+rBi
 bhr
 lFk
 lFk
@@ -91732,7 +91727,7 @@ dhe
 dhe
 dhe
 dDG
-vfU
+rBi
 bhr
 bhr
 lFk
@@ -91989,8 +91984,8 @@ dhe
 dhe
 dhe
 dDG
-vfU
-vfU
+rBi
+rBi
 kPC
 lFk
 lFk
@@ -92247,7 +92242,7 @@ dhe
 dDG
 dDG
 dDG
-vfU
+rBi
 bhr
 bhr
 ryo
@@ -92504,9 +92499,9 @@ dDG
 mEZ
 mEZ
 mEZ
-vfU
-vfU
-vfU
+rBi
+rBi
+rBi
 bhr
 kPC
 bhr
@@ -92763,10 +92758,10 @@ dDG
 dDG
 dhe
 dhe
-vfU
-vfU
-vfU
-vfU
+rBi
+rBi
+rBi
+rBi
 pxW
 gqb
 lnC
@@ -102079,7 +102074,7 @@ cjq
 cSp
 tFV
 fal
-wpo
+qLR
 jbs
 stZ
 cgR
@@ -102593,7 +102588,7 @@ cjq
 aKm
 uLW
 fal
-pDW
+nOS
 jbs
 stZ
 cgR
@@ -149346,7 +149341,7 @@ rlv
 rlv
 rlv
 sXa
-oEo
+eVQ
 bMe
 oQF
 vTB
