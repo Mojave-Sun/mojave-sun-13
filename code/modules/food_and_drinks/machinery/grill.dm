@@ -116,7 +116,8 @@
 		return TRUE
 
 /obj/machinery/grill/deconstruct(disassembled = TRUE)
-	finish_grill()
+	if(grilled_item)
+		finish_grill()
 	if(!(flags_1 & NODECONSTRUCT_1))
 		new /obj/item/stack/sheet/ms13/scrap(loc) //MOJAVE EDIT - Drops our scrap instead of TG iron and rods. Revert after CAT
 		new /obj/item/stack/sheet/ms13/scrap_parts(loc)
@@ -134,9 +135,10 @@
 	return ..()
 
 /obj/machinery/grill/proc/finish_grill()
-	SEND_SIGNAL(grilled_item, COMSIG_GRILL_FOOD, grilled_item, grill_time)
+	if(grilled_item)
+		SEND_SIGNAL(grilled_item, COMSIG_GRILL_FOOD, grilled_item, grill_time)
+		UnregisterSignal(grilled_item, COMSIG_GRILL_COMPLETED)
 	grill_time = 0
-	UnregisterSignal(grilled_item, COMSIG_GRILL_COMPLETED)
 	grill_loop.stop()
 
 ///Called when a food is transformed by the grillable component
