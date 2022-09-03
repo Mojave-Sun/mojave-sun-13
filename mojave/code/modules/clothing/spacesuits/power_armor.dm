@@ -27,6 +27,8 @@
 	AddElement(/datum/element/radiation_protected_clothing)
 	AddComponent(/datum/component/clothing_fov_visor, FOV_180_DEGREES)
 
+/obj/item/radio/headset/ms13/
+	force_superspace = TRUE // ignore tcoms and zlevels
 /obj/item/radio/headset/ms13/powerarmor
 	name = "integrated power armor headset"
 	actions_types = list(/datum/action/item_action/toggle_radio)
