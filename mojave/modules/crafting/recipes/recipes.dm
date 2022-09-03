@@ -1166,7 +1166,7 @@
 
 /datum/crafting_recipe/lockpick
 	name = "lockpick"
-	result = /obj/item/ms13/lockpick
+	result = /obj/item/ms13/lockpick/basic
 	time = 4 SECONDS
 	tool_behaviors = list(TOOL_SAW)
 	tool_paths = list()

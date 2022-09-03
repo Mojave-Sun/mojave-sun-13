@@ -58,6 +58,8 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define IS_PLAYER_COLORABLE_1 (1<<21)
 // Use when this shouldn't be obscured by large icons. // MOJAVE SUN EDIT
 #define CRITICAL_ATOM_1 (1<<22) // MOJAVE SUN EDIT
+// For objects able to be locked, slap this on and it should work, preventing you from interacting
+#define LOCKABLE (1<<23) // MOJAVE SUN EDIT - Locks
 
 // Update flags for [/atom/proc/update_appearance]
 /// Update the atom's name

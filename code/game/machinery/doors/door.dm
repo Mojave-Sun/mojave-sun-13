@@ -249,8 +249,10 @@
 	else if(I.tool_behaviour == TOOL_WELDER)
 		try_to_weld(I, user, params)
 		return TRUE
+	/* MOJAVE SUN EDIT START - Bad Door Code - Fucks up Lockpicking
 	else if((!(I.item_flags & NOBLUDGEON) && !user.combat_mode) && try_to_activate_door(user))
 		return TRUE
+	*/// MOJAVE SUN EDIT END - Bad Door Code
 	return ..()
 
 /obj/machinery/door/attackby_secondary(obj/item/weapon, mob/user, params)

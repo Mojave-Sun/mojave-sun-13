@@ -1,6 +1,6 @@
 /obj/item/ms13/lockpick
 	name = "lockpick"
-	desc = "A generic brass bobby pin, perfect for pushing the pins of a lock with skill. Or you know, for hair."
+	desc = "Hitmen are enroute to your location, delete this."
 	icon = 'mojave/icons/objects/tools/tools_world.dmi'
 	icon_state = "bobby"
 	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
@@ -14,3 +14,7 @@
 /obj/item/ms13/lockpick/Initialize()
 	. = ..()
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
+
+/obj/item/ms13/lockpick/basic
+	name = "lockpick"
+	desc = "A crudely fashioned flexible piece of brass, perfect for jamming in locks and pin pushing."

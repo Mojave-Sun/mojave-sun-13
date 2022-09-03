@@ -12,6 +12,7 @@
 	armor = list(MELEE = 50, BULLET = 80, LASER = 90, ENERGY = 90, BOMB = 30, BIO = 100, FIRE = 80, ACID = 100)
 	damage_deflection = 15
 	sparks = FALSE
+	flags_1 = LOCKABLE
 	var/door_type = null
 	var/solidity = SOLID
 	var/frametype = "metal"
@@ -176,19 +177,26 @@
 		to_chat(M, "<span class='warning'> The [name] is locked.</span>")
 		playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
 		return
+	if(.)
+		return
+	if(flags_1 & LOCKABLE && lock_locked)
+		to_chat(M, span_warning("The [name] is locked."))
+		playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
+		return
 	if(do_after(M, 0.5 SECONDS, interaction_key = DOAFTER_SOURCE_DOORS))
 		try_to_activate_door(M)
 
 /obj/machinery/door/unpowered/ms13/attackby(obj/item/I, mob/living/M, params)
+	. = ..()
 	if(locked && !(M.combat_mode))
 		to_chat(M, "<span class='warning'> The [name] is locked.</span>")
 		playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
 		return
-	if(!(I.item_flags & NOBLUDGEON) && !(M.combat_mode) && do_after(M, 1.5 SECONDS, interaction_key = DOAFTER_SOURCE_DOORS))
+	if(!(I.item_flags & NOBLUDGEON || LOCKING_ITEM) && !(M.combat_mode) && do_after(M, 1.5 SECONDS, interaction_key = DOAFTER_SOURCE_DOORS))
 		open = TRUE
 		try_to_activate_door(M)
 		return TRUE
-	else if(!open)
+	if(!open)
 		update_overlays()
 		return ((obj_flags & CAN_BE_HIT) && I.attack_atom(src, M, params))
 

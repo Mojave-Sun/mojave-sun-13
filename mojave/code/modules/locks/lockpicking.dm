@@ -27,9 +27,9 @@
 			shown_difficulty = "expert"
 		if(10 to 15)
 			shown_difficulty = "standard"
-		if(16 to 25)
+		if(16 to 20)
 			shown_difficulty = "novice"
-		if(26 to 100)
+		if(20 to 100)
 			shown_difficulty = "beginner"
 
 	if(!src.lockpicks)
@@ -41,6 +41,8 @@
 	var/obj/thing = target
 	if(isobj(thing))
 		thing.lock_locked = TRUE
+		for(var/datum/component/storage/storage as anything in thing.GetComponents(/datum/component/storage))
+			storage.locked = TRUE //locks
 
 	RegisterSignal(target, COMSIG_PARENT_ATTACKBY, .proc/check_pick)
 	RegisterSignal(target, COMSIG_LOCKPICK_ATTACKBY, .proc/pick_info)
@@ -379,20 +381,9 @@
 /atom/movable/screen/movable/snap/ms13/lockpicking/proc/turn_sound_reset()
 	playing_lock_sound = FALSE
 
-//obj is told its picked, theoretically can be used for any object
+//obj is told its picked, theoretically can be used for any objects
 
-/obj
-	var/being_picked = FALSE
-	var/can_be_picked = TRUE
-	var/lock_locked = FALSE
-	var/can_have_lock = FALSE
-
-/obj/Initialize()
-	. = ..()
-	if(can_be_picked && lock_locked)
-		AddElement(/datum/element/lockpickable, difficulty = 10)
-
-/obj/proc/picked(mob/living/user, obj/lockpick_used, obj/machinery/door/unpowered/A, obj/structure/ms13/celldoor/B)
+/obj/proc/picked(mob/living/user, obj/lockpick_used)
 
 	finish_lockpicking(user)
 
@@ -409,13 +400,20 @@
 		playsound(loc, 'mojave/sound/ms13effects/lockpicking/lockpick_break.ogg', 40)
 		qdel(lockpick_used)
 
+	//special cases that need telling what to do due to others shartcode
+	var/obj/machinery/door/unpowered/A = src
 	if(istype(A) && lock_locked)
-		src = A
 		A.locked = FALSE
+	var/obj/structure/ms13/celldoor/B = src
 	if(istype(B) && lock_locked)
-		src = B
 		B.locked = FALSE
-
+	var/obj/structure/safe/C = src
+	if(istype(C) && lock_locked)
+		C.has_been_lockpicked = TRUE
+		C.open = TRUE
+	if(lock)
+		lock.item_lock_locked = FALSE
+	RemoveElement(/datum/element/lockpickable)
 	lock_locked = FALSE
 	playsound(loc, 'mojave/sound/ms13effects/lockpicking/lockpicked.ogg', 150)
 	return TRUE
@@ -434,12 +432,6 @@
 	being_picked = FALSE
 
 	return TRUE
-
-/obj/proc/unlock_storage()
-	for(var/datum/component/storage/storage as anything in src.GetComponents(/datum/component/storage))
-		storage.locked = FALSE //unlocks the storage
-	return TRUE
-
 
 /// testing shit ///
 
