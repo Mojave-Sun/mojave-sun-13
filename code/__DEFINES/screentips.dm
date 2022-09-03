@@ -4,13 +4,17 @@
 /// Context applied to RMB actions
 #define SCREENTIP_CONTEXT_RMB "RMB"
 
+/// Context applied to Shift-LMB actions
+#define SCREENTIP_CONTEXT_SHIFT_LMB "Shift-LMB"
+
 /// Context applied to Ctrl-LMB actions
 #define SCREENTIP_CONTEXT_CTRL_LMB "Ctrl-LMB"
 
-// MOJAVE SUN EDIT BEGIN
 /// Context applied to Alt-LMB actions
 #define SCREENTIP_CONTEXT_ALT_LMB "Alt-LMB"
-// MOJAVE SUN EDIT END
+
+/// Context applied to Ctrl-Shift-LMB actions
+#define SCREENTIP_CONTEXT_CTRL_SHIFT_LMB "Ctrl-Shift-LMB"
 
 /// Screentips are always disabled
 #define SCREENTIP_PREFERENCE_DISABLED "Disabled"

@@ -85,22 +85,7 @@
 
 /obj/structure/ms13/rug/mat/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/simple_rotation,ROTATION_ALTCLICK | ROTATION_CLOCKWISE, CALLBACK(src, .proc/can_user_rotate),CALLBACK(src, .proc/can_be_rotated),null)
-
-/obj/structure/ms13/rug/mat/proc/can_be_rotated(mob/user)
-	return TRUE
-
-/obj/structure/ms13/rug/mat/proc/can_user_rotate(mob/user)
-	var/mob/living/L = user
-
-	if(istype(L))
-		if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
-			return FALSE
-		else
-			return TRUE
-	else if(isobserver(user) && CONFIG_GET(flag/ghost_interaction))
-		return TRUE
-	return FALSE
+	AddComponent(/datum/component/simple_rotation)
 
 /obj/structure/ms13/rug/mat/welcome
 	name = "door mat"

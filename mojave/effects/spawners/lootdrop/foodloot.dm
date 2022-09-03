@@ -214,7 +214,7 @@
 		)
 
 /obj/effect/spawner/random/ms13/food/random
-	name = "random pre-war food spawner"
+	name = "random food spawner"
 	spawn_loot_count = 1
 	loot = list(
 			/obj/effect/spawner/random/ms13/food/junkfood_boxed = 10,

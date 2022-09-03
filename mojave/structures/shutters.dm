@@ -5,9 +5,9 @@
 /obj/machinery/door/poddoor/shutters/ms13
 	desc = "Mechanical pre-war shutters, somewhat still functional."
 	icon = 'mojave/icons/structure/shutters.dmi'
+	plane = ABOVE_GAME_PLANE
 	layer = ABOVE_MOB_LAYER
 	closingLayer = ABOVE_MOB_LAYER
-	plane = GAME_PLANE_FOV_HIDDEN
 	//Used for the icon planar (horizontal or vertical) as stated on the sprite in the dmi ie. opening-left-[HERE]-red
 	var/icon_plane
 	//Used for the icon direction as stated on the sprite in the dmi ie. opening-[HERE]-horizon-red
