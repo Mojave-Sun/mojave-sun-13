@@ -85,7 +85,7 @@
 
 /obj/structure/ms13/wall_decor/flag
 	name = "flag"
-	desc = "A flag from the old world. This one represents America in all of its glory."
+	desc = "A faded flag depicting vertical stripes. In the top left corner there are 14 small stars, which form a corona around a larger star."
 	icon_state = "flag_us"
 
 /obj/structure/ms13/wall_decor/flag/Initialize()
@@ -121,6 +121,10 @@
 			context[SCREENTIP_CONTEXT_RMB] = "Tear up"
 			return CONTEXTUAL_SCREENTIP_SET
 
+/obj/structure/ms13/wall_decor/flag/china
+	desc = "A red flag with five golden stars on it's side representing an old world superpower."
+	icon_state = "flag_china"
+
 /obj/structure/ms13/wall_decor/flag/california
 	desc = "An old California flag. It has a Yao Guai on it, single head and all."
 	icon_state = "flag_cali"
@@ -130,7 +134,7 @@
 	icon_state = "flag_arizona"
 
 /obj/structure/ms13/wall_decor/flag/enclave
-	desc = "A flag representing the Enclave. God bless the Enclve, and NOBODY else."
+	desc = "A flag of stripes, featuring an E surrounded by stars. It's make shows no wear, as if it were recently made."
 	icon_state = "flag_enclave"
 
 /obj/structure/ms13/wall_decor/flag/ncr

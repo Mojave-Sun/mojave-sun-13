@@ -115,7 +115,6 @@
 
 /obj/effect/spawner/random/ms13/guarenteed/food/junkfood_canned
 	name = "random prewar canned food spawner"
-	icon_state = "loot"
 	loot = list(
 		/obj/item/food/ms13/prewar/canned/porknbeans,
 		/obj/item/food/ms13/prewar/canned/cajunrice,
@@ -124,7 +123,6 @@
 
 /obj/effect/spawner/random/ms13/guarenteed/food/junkfood_boxed
 	name = "random prewar boxed food spawner"
-	icon_state = "loot"
 	loot = list(
 		/obj/item/food/ms13/prewar/boxed/crisps,
 		/obj/item/food/ms13/prewar/boxed/macncheese,
@@ -212,7 +210,7 @@
 		)
 
 /obj/effect/spawner/random/ms13/guarenteed/food/random
-	name = "random pre-war food spawner"
+	name = "random food spawner"
 	spawn_loot_count = 1
 	loot = list(
 			/obj/effect/spawner/random/ms13/guarenteed/food/junkfood_boxed = 10,
