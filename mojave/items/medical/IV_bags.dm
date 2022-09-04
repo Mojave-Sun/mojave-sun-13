@@ -56,21 +56,21 @@
 		field_transfusion(target, usr)
 
 /obj/item/reagent_containers/blood/ms13/process(delta_time)
-	if(!ismob(loc))
-		return PROCESS_KILL
-
-	if(attached)
-		if(!loc.Adjacent(attached))
-			attached = null
-			visible_message("\The [attached] detaches from \the [src]")
-			update_appearance()
-			return PROCESS_KILL
-	else
+	if(!(get_dist(src, attached) <= 1 && isturf(attached.loc)))
+		attached = null
+		visible_message("\The [attached] detaches from \the [src]")
+		attached = null
+		update_icon()
+		update_overlays()
 		return PROCESS_KILL
 
 	var/mob/M = loc
 	if(M.held_items[LEFT_HANDS] != src && M.held_items[RIGHT_HANDS] != src)
-		return
+		visible_message("\The [attached] detaches from \the [src]")
+		attached = null
+		update_icon()
+		update_overlays()
+		return PROCESS_KILL
 
 	if(!reagents.total_volume)
 		return
