@@ -1643,17 +1643,6 @@
 	name = "Holodeck Projector Floor"
 	},
 /area/station/holodeck/rec_center)
-"aBg" = (
-/obj/machinery/disposal/bin,
-/obj/structure/disposalpipe/trunk{
-	dir = 4
-	},
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron/dark,
-/area/station/medical/storage)
 "aBh" = (
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
@@ -9262,6 +9251,11 @@
 	},
 /turf/open/floor/iron/smooth,
 /area/mine/eva)
+"cKn" = (
+/obj/effect/mapping_helpers/broken_floor,
+/mob/living/simple_animal/bot/secbot/beepsky,
+/turf/open/floor/plating,
+/area/station/maintenance/fore)
 "cKp" = (
 /obj/machinery/door/airlock/glass_large{
 	name = "Hydroponics"
@@ -12921,6 +12915,15 @@
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/aft)
+"dOQ" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/structure/table/wood,
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/mob/living/carbon/human/species/monkey/punpun,
+/turf/open/floor/iron,
+/area/station/service/bar)
 "dOY" = (
 /obj/effect/turf_decal/tile/red/half,
 /obj/effect/spawner/random/vending/snackvend,
@@ -14498,15 +14501,6 @@
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/iron,
 /area/station/science/explab)
-"epQ" = (
-/mob/living/simple_animal/hostile/retaliate/goat{
-	atmos_requirements = list("min_oxy" = 1, "max_oxy" = 0, "min_plas" = 0, "max_plas" = 1, "min_co2" = 0, "max_co2" = 5, "min_n2" = 0, "max_n2" = 0);
-	desc = "Not known for their pleasant disposition. This one seems a bit more hardy to the cold.";
-	minbodytemp = 150;
-	name = "Snowy Pete"
-	},
-/turf/open/misc/asteroid/snow/coldroom,
-/area/station/service/kitchen/coldroom)
 "epW" = (
 /obj/structure/table,
 /obj/machinery/recharger{
@@ -29581,15 +29575,6 @@
 /obj/structure/sign/warning/biohazard,
 /turf/closed/wall/r_wall,
 /area/station/medical/virology)
-"iYQ" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 8
-	},
-/obj/structure/table/wood,
-/obj/effect/turf_decal/tile/bar/opposingcorners,
-/mob/living/carbon/human/species/monkey/punpun,
-/turf/open/floor/iron,
-/area/station/service/bar)
 "iYU" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -36135,11 +36120,6 @@
 	dir = 8
 	},
 /area/station/medical/medbay/central)
-"kWQ" = (
-/obj/effect/mapping_helpers/broken_floor,
-/mob/living/simple_animal/bot/secbot/beepsky,
-/turf/open/floor/plating,
-/area/station/maintenance/fore)
 "kWR" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -36688,6 +36668,17 @@
 	},
 /turf/open/floor/iron,
 /area/station/command/heads_quarters/qm)
+"lfL" = (
+/obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/dark,
+/area/station/medical/storage)
 "lgg" = (
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
@@ -44893,6 +44884,12 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/lobby)
+"nLp" = (
+/obj/item/flashlight/lantern{
+	on = 1
+	},
+/turf/open/misc/asteroid/snow/icemoon,
+/area/icemoon/underground/explored)
 "nLH" = (
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/iron,
@@ -46138,6 +46135,15 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
+"ocF" = (
+/mob/living/simple_animal/hostile/retaliate/goat{
+	atmos_requirements = list("min_oxy" = 1, "max_oxy" = 0, "min_plas" = 0, "max_plas" = 1, "min_co2" = 0, "max_co2" = 5, "min_n2" = 0, "max_n2" = 0);
+	desc = "Not known for their pleasant disposition. This one seems a bit more hardy to the cold.";
+	minbodytemp = 150;
+	name = "Snowy Pete"
+	},
+/turf/open/misc/asteroid/snow/coldroom,
+/area/station/service/kitchen/coldroom)
 "ocT" = (
 /obj/item/toy/snowball{
 	pixel_x = -6
@@ -64420,10 +64426,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos/mix)
-"tOD" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/turf/open/floor/iron/white,
-/area/station/medical/storage)
 "tOF" = (
 /obj/structure/chair/comfy/black{
 	dir = 8
@@ -64632,12 +64634,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/science/robotics/lab)
-"tSs" = (
-/obj/item/flashlight/lantern{
-	light_on = 1
-	},
-/turf/open/misc/asteroid/snow/icemoon,
-/area/icemoon/underground/explored)
 "tSt" = (
 /obj/structure/sign/painting/library,
 /turf/closed/wall,
@@ -65177,6 +65173,10 @@
 	},
 /turf/open/floor/iron/textured,
 /area/station/security/brig)
+"ubq" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/turf/open/floor/iron/white,
+/area/station/medical/storage)
 "ubE" = (
 /obj/machinery/atmospherics/pipe/multiz/scrubbers/visible/layer2{
 	dir = 1
@@ -75754,7 +75754,7 @@
 	},
 /turf/open/floor/iron/dark/smooth_half,
 /area/station/security/office)
-"xlB" = (
+"xlH" = (
 /obj/effect/mapping_helpers/broken_floor,
 /mob/living/simple_animal/mouse/white{
 	desc = "This mouse smells faintly of alcohol.";
@@ -182044,7 +182044,7 @@ doJ
 yjP
 eIa
 wun
-iYQ
+dOQ
 lZG
 fDt
 mSU
@@ -182310,7 +182310,7 @@ dEB
 dMS
 jBB
 mQk
-epQ
+ocF
 wMP
 fwB
 fwB
@@ -186403,7 +186403,7 @@ udC
 udC
 udC
 rcY
-tSs
+nLp
 iDt
 scw
 scw
@@ -242674,7 +242674,7 @@ pwx
 deY
 skl
 gDz
-xlB
+xlH
 kbN
 jOQ
 skl
@@ -243700,7 +243700,7 @@ bUx
 bUx
 aJi
 dqv
-kWQ
+cKn
 ykA
 skl
 kUG
@@ -248130,8 +248130,8 @@ kQM
 upO
 tQc
 vSY
-tOD
-aBg
+ubq
+lfL
 cYR
 isP
 eYg
