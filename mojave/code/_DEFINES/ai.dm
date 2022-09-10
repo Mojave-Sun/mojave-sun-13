@@ -8,6 +8,8 @@
 
 ///A define for a node variable which is the last world.time that a AI visited it
 #define NODE_LAST_VISITED "node_last_visited"
+///A define for how long a trader should stay at this particular node
+#define NODE_TRADER_STAYS_THIS_LONG "node_trader_stays_this_long"
 ///If traders will go to this node for restocking
 #define NODE_TRADER_RESTOCK "node_trader_restock_spot"
 ///Set a new node to path towards; usually over multiple nodes

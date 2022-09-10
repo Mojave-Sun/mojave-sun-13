@@ -9,6 +9,8 @@
 #define ITEM_IS_WORTHLESS_PHRASE "ITEM_IS_WORTHLESS_PHRASE"
 #define TRADER_HAS_ENOUGH_ITEM_PHRASE "TRADER_HAS_ENOUGH_ITEM_PHRASE"
 #define TRADER_LORE_PHRASE "TRADER_LORE_PHRASE"
+#define TRADER_NOT_BUYING_ANYTHING "TRADER_NOT_BUYING_ANYTHING"
+#define TRADER_NOT_SELLING_ANYTHING "TRADER_NOT_SELLING_ANYTHING"
 
 #define TRADER_PRODUCT_INFO_PRICE 1
 #define TRADER_PRODUCT_INFO_QUANTITY 2
@@ -17,6 +19,7 @@
 
 #define IDENTIFIER_GENERIC_SIMPLE "identifies_generic_simple"
 #define IDENTIFIER_EYEBOT "identifies_eyebot"
+#define NODE_TRADER_STAYS_THIS_LONG "node_trader_stays_this_long"
 #define COMSIG_AI_SET_GOAL_NODE "ai_set_goal_node"
 #define COMSIG_AI_NODE_REACHED "ai_node_reached"
 
@@ -119,52 +122,68 @@ GLOBAL_LIST_EMPTY(nodes_trader_destination)
 		TRADER_LORE_PHRASE = list(
 			"Hello! I am the test trader.",
 			"Oooooooo~!"
-		)
+		),
+		TRADER_NOT_BUYING_ANYTHING = list(
+			"I'm currently buying nothing at the moment."
+		),
+		TRADER_NOT_SELLING_ANYTHING = list(
+			"I'm currently selling nothing at the moment."
+		),
 	)
 	///The name of the currency that is used when buying or selling items
 	var/currency_name = "credits"
+	///Next world.time the movement of the trader should be reenabled and GoTo() will start working
 	var/reenable_goto_here = 0
+	///Ideally a node that is acceptable for restocking at; the trader will move towards this one
 	var/obj/effect/ai_node/restock_node_going_towards = null
 	faction = list("robots", "ghoul", "bear", "pig", "shellfish", "dog_city", "insect", "rat", "gecko")
+	///A reference of any human that clicked on this trader to talk to it; the trader won't move away if this list has something in it and things are removed from the list if the mobs are incapacitated or move away
+	var/list/recently_interacted_with = list()
 
 ///Initializes the products and item demands of the trader
-/mob/living/simple_animal/hostile/retaliate/trader/Initialize()
+/mob/living/simple_animal/hostile/retaliate/trader/Initialize(mapload)
 	. = ..()
 	restock_products()
 	renew_item_demands()
 	RegisterSignal(src, COMSIG_AI_NODE_REACHED, .proc/reached_next_node)
-	AddComponent(/datum/component/generic_animal_patrol, _animal_node_weights = list(NODE_LAST_VISITED = -1), _animal_identifier = IDENTIFIER_GENERIC_SIMPLE, _patrol_move_delay = 3)
+	AddComponent(/datum/component/generic_animal_patrol, _animal_node_weights = list(), _animal_identifier = IDENTIFIER_GENERIC_SIMPLE, _patrol_move_delay = 3)
 	if(!restock_node_going_towards && length(GLOB.nodes_trader_destination))
 		restock_node_going_towards = pick(GLOB.nodes_trader_destination)
 		SEND_SIGNAL(src, COMSIG_AI_SET_GOAL_NODE, restock_node_going_towards)
 
 ///Returns a list of the starting price/quanity/fluff text about the product listings; products = initial(products) doesn't work so this exists mainly for restock_products()
 /mob/living/simple_animal/hostile/retaliate/trader/proc/initial_products()
-	return list(/obj/item/food/burger/ghost = list(200, INFINITY)
+	return list(/obj/item/food/burger/ghost = list(200, INFINITY),
 				)
 
 ///Returns a list of the starting price/quanity/fluff text about the wanted items; wanted_items = initial(wanted_items) doesn't work so this exists mainly for renew_item_demands()
 /mob/living/simple_animal/hostile/retaliate/trader/proc/initial_wanteds()
-	return list(/obj/item/ectoplasm = list(100, INFINITY, "")
+	return list(/obj/item/ectoplasm = list(100, INFINITY, ""),
 				)
 
-///Trader will go around to specific nodes by the edges of the map to restock items, otherwise pausing movement for a bit at every node they enter or whenever a trade is being made
+///Trader will go around to nodes with trader_restock_destination = TRUE, preferably by the edges of the map to restock items, otherwise pausing movement for a bit at every node they enter or whenever a trade is being made
 /mob/living/simple_animal/hostile/retaliate/trader/handle_automated_movement()
+	for(var/mob/player in recently_interacted_with)
+		if((get_dist(player, src) > 2) || player.stat != CONSCIOUS)
+			recently_interacted_with -= player
 	if(reenable_goto_here < world.time)
-		prevent_goto_movement = FALSE
+		if(recently_interacted_with.len)
+			reenable_goto_here = world.time + 5 SECONDS
+		else
+			prevent_goto_movement = FALSE
 	if(prevent_goto_movement)
 		return
-	if(get_dist(src, restock_node_going_towards) < 3)
+	if(get_dist(src, restock_node_going_towards) < 3 && restock_node_going_towards.trader_restock_destination)
 		restock_products()
 		renew_item_demands()
 		restock_node_going_towards = pick(GLOB.nodes_trader_destination - restock_node_going_towards)
 		SEND_SIGNAL(src, COMSIG_AI_SET_GOAL_NODE, restock_node_going_towards)
 
+///Reached the next node; send a new request to go somewhere and stop at this node for a while
 /mob/living/simple_animal/hostile/retaliate/trader/proc/reached_next_node(datum/source)
-	if(prob(33))
-		time_til_next_node_move(world.time + 1 SECONDS)
-		prevent_goto_movement = TRUE
-		to_chat(world, "Trader stopping for a bit to wait for traders")
+	var/node_weights = restock_node_going_towards.weights[IDENTIFIER_GENERIC_SIMPLE]
+	time_til_next_node_move(world.time + node_weights[NODE_TRADER_STAYS_THIS_LONG])
+	prevent_goto_movement = TRUE
 
 ///Modifies reenable_goto_here to be = world.time + time_to_reactivate; use SECONDS
 /mob/living/simple_animal/hostile/retaliate/trader/proc/time_til_next_node_move(time_to_reactivate)
@@ -178,7 +197,9 @@ GLOBAL_LIST_EMPTY(nodes_trader_destination)
  * * say_text - (String) a define that matches the key of a entry in say_phrases
  */
 /mob/living/simple_animal/hostile/retaliate/trader/proc/return_trader_phrase(say_text)
-	return (length(say_phrases[say_text]) ? pick(say_phrases[say_text]) : "")
+	if(!length(say_phrases[say_text]))
+		return
+	return pick(say_phrases[say_text])
 
 ///Sets up the radials for the user and calls procs related to the actions the user wants to take
 /mob/living/simple_animal/hostile/retaliate/trader/interact(mob/user)
@@ -194,6 +215,7 @@ GLOBAL_LIST_EMPTY(nodes_trader_destination)
 	if(!npc_options.len)
 		return FALSE
 	var/npc_result = show_radial_menu(user, src, npc_options, custom_check = CALLBACK(src, .proc/check_menu, user), require_near = TRUE, tooltips = TRUE)
+	face_atom(user)
 	switch(npc_result)
 		if("Buy")
 			buy_item(user)
@@ -202,6 +224,7 @@ GLOBAL_LIST_EMPTY(nodes_trader_destination)
 		if("Talk")
 			discuss(user)
 	face_atom(user)
+	recently_interacted_with += user
 	return TRUE
 
 /**
@@ -223,20 +246,21 @@ GLOBAL_LIST_EMPTY(nodes_trader_destination)
 	var/list/npc_options = list(
 		"Lore" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_lore"),
 		"Selling?" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_selling"),
-		"Buying?" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_buying")
+		"Buying?" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_buying"),
 	)
 	var/pick = show_radial_menu(user, src, npc_options, custom_check = CALLBACK(src, .proc/check_menu, user), require_near = TRUE, tooltips = TRUE)
-	if(pick == "Lore")
-		say(return_trader_phrase(TRADER_LORE_PHRASE))
-	if(pick == "Buying?")
-		trader_buys_what(user)
-	if(pick == "Selling?")
-		trader_sells_what(user)
+	switch(pick)
+		if("Lore")
+			say(return_trader_phrase(TRADER_LORE_PHRASE))
+		if("Buying?")
+			trader_buys_what(user)
+		if("Selling?")
+			trader_sells_what(user)
 
 ///Displays to the user what the trader is willing to buy and how much until a restock happens
 /mob/living/simple_animal/hostile/retaliate/trader/proc/trader_buys_what(mob/user)
 	if(!wanted_items.len)
-		to_chat(user, span_green("I'm currently buying nothing at the moment."))
+		say(return_trader_phrase(TRADER_NOT_BUYING_ANYTHING))
 		return
 	var/list/product_info
 	to_chat(user, span_green("I'm willing to buy the following; "))
@@ -251,7 +275,7 @@ GLOBAL_LIST_EMPTY(nodes_trader_destination)
 ///Displays to the user what the trader is selling and how much is in stock
 /mob/living/simple_animal/hostile/retaliate/trader/proc/trader_sells_what(mob/user)
 	if(!products.len)
-		to_chat(user, span_green("I'm currently selling nothing at the moment."))
+		say(return_trader_phrase(TRADER_NOT_SELLING_ANYTHING))
 		return
 	var/list/product_info
 	to_chat(user, span_green("I'm currently selling the following; "))
@@ -271,7 +295,6 @@ GLOBAL_LIST_EMPTY(nodes_trader_destination)
 /mob/living/simple_animal/hostile/retaliate/trader/proc/buy_item(mob/user)
 	if(!LAZYLEN(products))
 		return
-
 	var/list/display_names = list()
 	var/list/items = list()
 	var/list/product_info
@@ -289,9 +312,9 @@ GLOBAL_LIST_EMPTY(nodes_trader_destination)
 	face_atom(user)
 	product_info = products[item_to_buy]
 	if(!product_info[TRADER_PRODUCT_INFO_QUANTITY])
-		to_chat(user, span_red("The item appears to be out of stock."))
+		say("[initial(item_to_buy.name)] appears to be out of stock.")
 		return
-	to_chat(user, span_notice("It will cost you [product_info[TRADER_PRODUCT_INFO_PRICE]] [currency_name] to buy \the [initial(item_to_buy.name)]. Are you sure you want to buy it?"))
+	say("It will cost you [product_info[TRADER_PRODUCT_INFO_PRICE]] [currency_name] to buy \the [initial(item_to_buy.name)]. Are you sure you want to buy it?")
 	var/list/npc_options = list(
 		"Yes" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_yes"),
 		"No" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_no")
@@ -312,13 +335,11 @@ GLOBAL_LIST_EMPTY(nodes_trader_destination)
 ///Calculates the value of money in the hand of the buyer and spends it if it's sufficient
 /mob/living/simple_animal/hostile/retaliate/trader/proc/spend_buyer_offhand_money(mob/user, the_cost)
 	var/value = 0
-	var/obj/item/holochip/cash
-	cash = user.is_holding_item_of_type(/obj/item/holochip)
+	var/obj/item/holochip/cash = user.is_holding_item_of_type(/obj/item/holochip)
 	if(cash)
 		value += cash.credits
 	if((value >= the_cost) && cash)
-		cash.spend(the_cost)
-		return TRUE
+		return cash.spend(the_cost)
 	return FALSE //Purchase unsuccessful
 
 /**
@@ -329,9 +350,12 @@ GLOBAL_LIST_EMPTY(nodes_trader_destination)
  * * user - (Mob REF) The mob trying to sell something
  */
 /mob/living/simple_animal/hostile/retaliate/trader/proc/try_sell(mob/user)
-	var/obj/item/activehanditem = user.get_active_held_item()
-	var/obj/item/inactivehanditem = user.get_inactive_held_item()
-	if(!sell_item(user, activehanditem) && !sell_item(user, inactivehanditem))
+	var/sold_item = FALSE
+	for(var/obj/item/an_item in user.held_items)
+		if(sell_item(user, an_item))
+			sold_item = TRUE
+			break
+	if(!sold_item)
 		say(return_trader_phrase(ITEM_REJECTED_PHRASE))
 
 /**
@@ -368,13 +392,13 @@ GLOBAL_LIST_EMPTY(nodes_trader_destination)
 		say(return_trader_phrase(ITEM_IS_WORTHLESS_PHRASE))
 		return FALSE
 	say(return_trader_phrase(INTERESTED_PHRASE))
-	to_chat(user, span_notice("You will receive [cost] [currency_name] for each one of [selling]."))
+	say("You will receive [cost] [currency_name] for the [selling].")
 	var/list/npc_options = list(
 		"Yes" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_yes"),
-		"No" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_no")
+		"No" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_no"),
 	)
-	var/npc_result = show_radial_menu(user, src, npc_options, custom_check = CALLBACK(src, .proc/check_menu, user), require_near = TRUE, tooltips = TRUE)
 	face_atom(user)
+	var/npc_result = show_radial_menu(user, src, npc_options, custom_check = CALLBACK(src, .proc/check_menu, user), require_near = TRUE, tooltips = TRUE)
 	if(npc_result != "Yes")
 		say(return_trader_phrase(ITEM_SELLING_CANCELED_PHRASE))
 		return TRUE
@@ -430,7 +454,6 @@ GLOBAL_LIST_EMPTY(nodes_trader_destination)
 ///Sets quantity of all products to initial(quanity); this proc is currently not called anywhere on the base class of traders
 /mob/living/simple_animal/hostile/retaliate/trader/proc/restock_products()
 	products = initial_products()
-	to_chat(world, "Trader has restocked")
 
 ///Sets quantity of all wanted_items to initial(quanity); this proc is currently not called anywhere on the base class of traders
 /mob/living/simple_animal/hostile/retaliate/trader/proc/renew_item_demands()
@@ -484,7 +507,13 @@ GLOBAL_LIST_EMPTY(nodes_trader_destination)
 			"I'd really like a refreshing carton of milk!",
 			"I'm willing to play big prices for BONES! Need materials to make merch, eh?",
 			"It's a beautiful day outside. Birds are singing, Flowers are blooming... On days like these, kids like you... Should be buying my wares!"
-		)
+		),
+		TRADER_NOT_BUYING_ANYTHING = list(
+			"I'm currently buying nothing at the moment."
+		),
+		TRADER_NOT_SELLING_ANYTHING = list(
+			"I'm currently selling nothing at the moment."
+		),
 	)
 
 /mob/living/simple_animal/hostile/retaliate/trader/mrbones/initial_products()
@@ -493,11 +522,11 @@ GLOBAL_LIST_EMPTY(nodes_trader_destination)
 		/obj/item/clothing/mask/bandana/skull = list(50, INFINITY),
 		/obj/item/food/cookie/sugar/spookyskull = list(10, INFINITY),
 		/obj/item/instrument/trombone/spectral = list(10000, INFINITY),
-		/obj/item/shovel/serrated = list(150, INFINITY)
+		/obj/item/shovel/serrated = list(150, INFINITY),
 				)
 
 /mob/living/simple_animal/hostile/retaliate/trader/mrbones/initial_wanteds()
 	return list(
 		/obj/item/reagent_containers/food/condiment/milk = list(1000, INFINITY, ""),
-		/obj/item/stack/sheet/bone = list(420, INFINITY, ", per sheet of bone")
+		/obj/item/stack/sheet/bone = list(420, INFINITY, ", per sheet of bone"),
 				)

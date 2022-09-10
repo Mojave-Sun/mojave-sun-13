@@ -58,7 +58,6 @@ The simple animal this is attached to should also be able to destroy obstacles s
 	if(!new_node_target)
 		return
 	animal_nodes_to_walk[source] = get_path(starting_atom = animal_current_node[source], goal_atom = new_node_target, pathing_type = NODE_PATHING)
-	to_chat(world, "path length is [animal_nodes_to_walk[source].len]")
 	animal_target_node[source] = animal_nodes_to_walk[source[length(animal_nodes_to_walk[source])]]
 	var/mob/living/simple_animal/animal = attached_animals[source]
 	animal.Goto(target = animal_target_node[source], delay = patrol_move_delay[source], minimum_distance = 0)
@@ -72,7 +71,6 @@ The simple animal this is attached to should also be able to destroy obstacles s
 				animal_current_node[animal] = animal_target_node[animal]
 				var/obj/effect/ai_node/linted_current_node = animal_current_node[animal]
 				linted_current_node.set_weight(animal_identifier[animal], NODE_LAST_VISITED, world.time)
-				to_chat(world, "length of nodes to walk; [length(animal_nodes_to_walk[animal])]")
 				if(length(animal_nodes_to_walk[animal]))
 					animal_nodes_to_walk[animal].len--
 					animal_target_node[animal] = animal_nodes_to_walk[animal[length(animal_nodes_to_walk[the_animal])]]
