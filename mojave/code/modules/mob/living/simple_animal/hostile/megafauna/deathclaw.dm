@@ -93,7 +93,7 @@
 		span_danger("[src] devours [L]!"),
 		span_userdanger("You feast on [L], restoring your health!"))
 	L.gib()
-	playsound(src, 'sound/creatures/space_dragon_roar.ogg', 100, TRUE, -1)
+	playsound(src, 'mojave/sound/ms13npc/deathclaw/deathclaw_roar.mp3', 100, TRUE, -1)
 	return TRUE
 
 //Deathclaw charge; bubblegum charge with modified GFX
@@ -148,18 +148,43 @@
 /datum/action/cooldown/mob_cooldown/deathclaw_roar/proc/roar()
 	var/mob/living/living_owner = owner
 	living_owner.SetStun(1.5 SECONDS, ignore_canstun = TRUE)
-	playsound(owner, 'sound/creatures/space_dragon_roar.ogg', 100, TRUE, -1)
-	var/list/all_turfs = RANGE_TURFS(12, owner.loc)
+	playsound(owner, 'mojave/sound/ms13npc/deathclaw/deathclaw_roar.mp3', 100, TRUE, -1)
 	new /obj/effect/temp_visual/shockwave(owner.loc, 12)
+	addtimer(CALLBACK(src, .proc/roar_aftershock), 0.31 SECONDS)
+	var/list/all_turfs = RANGE_TURFS(12, owner.loc)
 	for(var/i = 0 to 12)
 		for(var/turf/roar_turf in all_turfs)
 			if(get_dist(owner.loc, roar_turf) > i)
 				continue
-			roar_turf.Shake(rand(-3, 3), rand(-3, 3), 0.3 SECONDS)
+			roar_turf.Shake(rand(-4, 4), rand(-4, 4), 0.3 SECONDS)
 			for(var/mob/living/L in roar_turf)
 				if(L == living_owner)
 					continue
 				shake_camera(L, 7, 3)
+			all_turfs -= roar_turf
+		sleep(0.05 SECONDS)
+
+//Following the initial big shaking of stuff is a slightly less shaking of the tiles as the roar continues
+/datum/action/cooldown/mob_cooldown/deathclaw_roar/proc/roar_aftershock()
+	var/list/all_turfs = RANGE_TURFS(12, owner.loc)
+	for(var/i = 0 to 12)
+		for(var/turf/roar_turf in all_turfs)
+			if(get_dist(owner.loc, roar_turf) > i)
+				continue
+			roar_turf.Shake(rand(-2, 2), rand(-2, 2), 1 SECONDS)
+			for(var/atom/A in roar_turf)
+				A.Shake(rand(-2, 2), rand(-2, 2), 1 SECONDS)
+			all_turfs -= roar_turf
+		sleep(0.05 SECONDS)
+	sleep(0.41 SECONDS)
+	all_turfs = RANGE_TURFS(12, owner.loc)
+	for(var/i = 0 to 12)
+		for(var/turf/roar_turf in all_turfs)
+			if(get_dist(owner.loc, roar_turf) > i)
+				continue
+			roar_turf.Shake(rand(-1, 1), rand(-1, 1), 1 SECONDS)
+			for(var/atom/A in roar_turf)
+				A.Shake(rand(-1, 1), rand(-1, 1), 1 SECONDS)
 			all_turfs -= roar_turf
 		sleep(0.05 SECONDS)
 
