@@ -12,8 +12,10 @@
 	///The move delay for patrolling with
 	var/move_delay
 
-/datum/component/generic_animal_patrol/Initialize(mob/living/simple_animal/animal, _animal_node_weights = list(), _animal_identifier = IDENTIFIER_GENERIC_SIMPLE, _patrol_move_delay = 3)
+/datum/component/generic_animal_patrol/Initialize(_animal_node_weights = list(), _animal_identifier = IDENTIFIER_GENERIC_SIMPLE, _patrol_move_delay = 3)
 	if(!isanimal(parent))
+		var/atom/movable/movable_parent = parent
+		log_mapping("Tried to initialize generic_animal_patrol on a incompatible mob of type [movable_parent.type] at [AREACOORD(movable_parent)]")
 		return COMPONENT_INCOMPATIBLE
 	for(var/obj/effect/ai_node/node in range(7, parent))
 		current_node = node
@@ -21,7 +23,7 @@
 		break
 	if(!current_node)
 		var/atom/movable/atom_parent = parent
-		log_mapping("[atom_parent] was to be attached with a patrol element but no nodes nearby were located near [AREACOORD(atom_parent)]; removing component from self.")
+		log_mapping("[atom_parent] was to be attached with a patrol component but no nodes nearby were located near [AREACOORD(atom_parent)]; removing component from self.")
 		return COMPONENT_INCOMPATIBLE
 	START_PROCESSING(SSdcs, src)
 	node_weights = _animal_node_weights
