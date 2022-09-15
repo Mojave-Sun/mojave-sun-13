@@ -14,6 +14,7 @@
 	component_type = /datum/component/storage/concrete/ms13/firstaid
 	grid_height = 64
 	grid_width = 64
+	flags_1 = LOCKABLE
 
 /obj/item/storage/firstaid/ms13/Initialize()
 	. = ..()
@@ -63,6 +64,7 @@
 	component_type = /datum/component/storage/concrete/ms13/d_bag
 	grid_height = 64
 	grid_width = 96
+	flags_1 = LOCKABLE
 
 /obj/item/storage/firstaid/ms13/bag/ComponentInitialize()
 	. = ..()

@@ -60,6 +60,8 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define CRITICAL_ATOM_1 (1<<22) // MOJAVE SUN EDIT
 /// Whether or not this atom has contextual screentips when hovered OVER
 #define HAS_CONTEXTUAL_SCREENTIPS_1 (1<<23)
+// For objects able to be locked, slap this on and it should work, preventing you from interacting
+#define LOCKABLE (1<<24) // MOJAVE SUN EDIT - Locks
 
 // Update flags for [/atom/proc/update_appearance]
 /// Update the atom's name

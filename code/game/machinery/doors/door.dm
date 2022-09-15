@@ -267,8 +267,10 @@
 	else if(I.tool_behaviour == TOOL_WELDER)
 		try_to_weld(I, user, params)
 		return TRUE
+	/* MOJAVE SUN EDIT START - Bad Door Code - Fucks up Lockpicking
 	else if((!(I.item_flags & NOBLUDGEON) && !user.combat_mode) && try_to_activate_door(user))
 		return TRUE
+	*/// MOJAVE SUN EDIT END - Bad Door Code
 	return ..()
 
 /obj/machinery/door/attackby_secondary(obj/item/weapon, mob/user, params)
@@ -300,6 +302,7 @@
 			spark_system.start()
 
 /obj/machinery/door/play_attack_sound(damage_amount, damage_type = BRUTE, damage_flag = 0)
+	//MOJAVE SUN EDIT START - Hit Sounds
 	switch(damage_type)
 		if(BRUTE)
 			if(glass)
@@ -307,9 +310,10 @@
 			else if(damage_amount)
 				playsound(loc, 'sound/weapons/smash.ogg', 50, TRUE)
 			else
-				playsound(src, 'sound/weapons/tap.ogg', 50, TRUE)
+				return . = ..()
 		if(BURN)
-			playsound(src.loc, 'sound/items/welder.ogg', 100, TRUE)
+			return . = ..()
+	//MOJAVE SUN EDIT END - Hit Sounds
 
 /obj/machinery/door/emp_act(severity)
 	. = ..()
