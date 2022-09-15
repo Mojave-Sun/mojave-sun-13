@@ -73,13 +73,9 @@ FLOOR SAFES
 			to_chat(user, span_notice("You put [attacking_item] in [src]."))
 		else
 			to_chat(user, span_warning("[attacking_item] won't fit in [src]."))
-	else
-		if(istype(attacking_item, /obj/item/clothing/neck/stethoscope))
-			attack_hand(user)
-			return
-		if(istype(attacking_item, /obj/item/clothing/neck/stethoscope))
-			attack_hand(user)
-			return
+	if(istype(attacking_item, /obj/item/clothing/neck/stethoscope))
+		attack_hand(user)
+		return
 		. = ..() //MOJAVE SUN EDIT - Lockpicking
 
 /obj/structure/safe/blob_act(obj/structure/blob/B)

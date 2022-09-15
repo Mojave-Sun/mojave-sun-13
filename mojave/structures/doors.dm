@@ -213,6 +213,18 @@
 	icon_state = "metal_closed"
 	door_type = "metal"
 	assemblytype = /obj/item/stack/sheet/ms13/scrap
+	max_integrity = 2000 //its metal
+	armor = list(MELEE = 80, BULLET = 90, LASER = 60, ENERGY = 90, BOMB = 30, BIO = 100, FIRE = 80, ACID = 100)
+	damage_deflection = 25
+	hitted_sound = 'mojave/sound/ms13effects/metal_door_hit.ogg'
+
+/obj/machinery/door/unpowered/ms13/metal/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		playsound(src, 'mojave/sound/ms13effects/metal_door_break.ogg', 100, TRUE)
+		new /obj/item/stack/sheet/ms13/scrap/two(loc)
+		for(var/obj/item/I in src)
+			I.forceMove(loc)
+	qdel(src)
 
 /obj/machinery/door/unpowered/ms13/metal/mirrored
 	icon_state = "metal_mirrored_closed"
