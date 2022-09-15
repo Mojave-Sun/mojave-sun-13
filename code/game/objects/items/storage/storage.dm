@@ -1,5 +1,5 @@
 /obj/item/storage
-	name = "storage"
+	name = "Spaghetti"
 	icon = 'icons/obj/storage.dmi'
 	w_class = WEIGHT_CLASS_NORMAL
 	var/rummage_if_nodrop = TRUE
