@@ -3,6 +3,7 @@
 //base element injector ms13 edition//
 /obj/effect/mapping_helpers/atom_injector/element_injector/ms13
 	icon = 'mojave/icons/effects/mapping_helpers.dmi'
+	plane = OVER_FRILL_PLANE
 	layer = 5
 
 //Lockpicking Element/Sprite updater for Items to be locked/Lockpickable//
