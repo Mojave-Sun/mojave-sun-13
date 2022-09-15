@@ -35,6 +35,7 @@
 	var/charging = FALSE
 	var/datum/action/cooldown/mob_cooldown/charge/deathclaw/charge
 	var/datum/action/cooldown/mob_cooldown/deathclaw_roar/roar
+	var/datum/action/cooldown/mob_cooldown/projectile_attack/rapid_fire/pocket_sand/pocket_sand
 	var/aggro_roar_available = TRUE
 	var/second_wind_available = TRUE
 
@@ -44,6 +45,8 @@
 	charge.Grant(src)
 	roar = new /datum/action/cooldown/mob_cooldown/deathclaw_roar()
 	roar.Grant(src)
+	pocket_sand = new /datum/action/cooldown/mob_cooldown/projectile_attack/rapid_fire/pocket_sand()
+	pocket_sand.Grant(src)
 
 /mob/living/simple_animal/hostile/megafauna/deathclaw/Destroy()
 	QDEL_NULL(charge)
@@ -51,11 +54,10 @@
 	return ..()
 
 /mob/living/simple_animal/hostile/megafauna/deathclaw/GiveTarget(new_target)
-	. = ..()
-	if(aggro_roar_available && !IsStun())
+	if(!target && aggro_roar_available && !IsStun())
 		roar.Trigger(target = new_target)
 		aggro_roar_available = FALSE
-	return .
+	return ..()
 
 /mob/living/simple_animal/hostile/megafauna/deathclaw/toggle_ai(togglestatus)
 	. = ..()
@@ -76,6 +78,8 @@
 
 /mob/living/simple_animal/hostile/megafauna/deathclaw/OpenFire()
 	if(client)
+		return
+	if(pocket_sand.Trigger(target = target))
 		return
 	charge.Trigger(target = target)
 
@@ -137,7 +141,7 @@
 /datum/action/cooldown/mob_cooldown/deathclaw_roar
 	name = "Deathclaw's Roar"
 	desc = "Makes you do a pretty big roar"
-	cooldown_time = 5 SECONDS
+	cooldown_time = 10 SECONDS
 	click_to_activate = FALSE
 	shared_cooldown = null
 
@@ -149,7 +153,7 @@
 	var/mob/living/living_owner = owner
 	living_owner.SetStun(1.5 SECONDS, ignore_canstun = TRUE)
 	playsound(owner, 'mojave/sound/ms13npc/deathclaw/deathclaw_roar.mp3', 100, TRUE, -1)
-	new /obj/effect/temp_visual/shockwave(owner.loc, 12)
+	new /obj/effect/temp_visual/shockwave(owner.loc, 18)
 	addtimer(CALLBACK(src, .proc/roar_aftershock), 0.31 SECONDS)
 	var/list/all_turfs = RANGE_TURFS(12, owner.loc)
 	for(var/i = 0 to 12)
@@ -161,6 +165,10 @@
 				if(L == living_owner)
 					continue
 				shake_camera(L, 7, 3)
+				L.adjustStaminaLoss(100 / max(1, get_dist(L, living_owner)))
+				if(get_dist(L, living_owner) < 3) //Did you know getting jumpscared by a deathclaw is a bad thing?
+					L.emote("scream")
+					L.Knockdown(2 SECONDS, ignore_canstun = TRUE)
 			all_turfs -= roar_turf
 		sleep(0.05 SECONDS)
 
@@ -188,7 +196,42 @@
 			all_turfs -= roar_turf
 		sleep(0.05 SECONDS)
 
-//TerraGov Marine Corp's explosion shockwave
+//Pocket sand!
+/datum/action/cooldown/mob_cooldown/projectile_attack/rapid_fire/pocket_sand
+	name = "Throw pocket sand"
+	desc = "Throws some sand at a target, disorientating and blinding them"
+	cooldown_time = 5 SECONDS
+	projectile_type = /obj/projectile/bullet/pocket_sand
+	projectile_sound = null
+	default_projectile_spread = 15
+	shot_count = 10
+	shot_delay = 0.0 SECONDS
+
+/obj/projectile/bullet/pocket_sand
+	name = "cloud of pocket sand"
+	desc = "Don't just look at it, run away!"
+	icon = 'icons/obj/meteor.dmi'
+	icon_state = "dust"
+	damage = 0
+	range = 12
+	pass_flags = PASSTABLE | PASSGRILLE
+	projectile_piercing = PASSMOB
+	phasing_ignore_direct_target = TRUE
+	opacity = TRUE
+
+/obj/projectile/bullet/pocket_sand/on_hit(atom/target, blocked = FALSE)
+	. = ..()
+	if(!isliving(target))
+		return
+	var/mob/living/unlucky = target
+	if(unlucky.stat == DEAD)
+		return
+	unlucky.blur_eyes(10)
+	if(unlucky.stat == UNCONSCIOUS || unlucky.eye_blurry) //No emote spam if you're already hit
+		return
+	unlucky.emote("scream")
+
+//TerraGov Marine Corp's explosion shockwave that's repurposed for a sonic boom deathclaw roar
 /obj/effect/temp_visual/shockwave
 	icon = 'mojave/icons/effects/shockwave.dmi'
 	icon_state = "shockwave"
