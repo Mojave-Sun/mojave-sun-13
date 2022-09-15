@@ -11,7 +11,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	custom_materials = list(/datum/material/iron=75, /datum/material/glass=25)
 	radio_broadcast = 100 //Cannot broadcast. If someone manages to circumvent, it should be complete static.
-	grid_height = 64
+	force_superspace = TRUE // ignore tcoms and zlevelsgrid_height = 64
 	grid_width = 32
 	var/static = FALSE //used for inventory only radios
 
@@ -188,14 +188,14 @@
 /obj/item/radio/ms13/ham/ui_state(mob/user)
 	return GLOB.default_state
 
-/obj/item/radio/ms13/ham/can_receive(freq, level)
+/obj/item/radio/ms13/ham/can_receive(freq, list/levels)
 	if(!on)
 		return FALSE
 	if(wires.is_cut(WIRE_RX))
 		return FALSE
-	if(!(0 in level))
+	if(levels != RADIO_NO_Z_LEVEL_RESTRICTION)
 		var/turf/position = get_turf(src)
-		if(isnull(position) || !(position.z in level))
+		if(isnull(position) || !(position.z in levels))
 			return FALSE
 	if(!listening)
 		return FALSE

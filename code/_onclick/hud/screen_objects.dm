@@ -442,16 +442,23 @@
 	return ..()
 
 /atom/movable/screen/storage
-	name = "storage"
+	name = "cubeyCube"
 	icon_state = "block"
 	screen_loc = "7,7 to 10,8"
 	plane = HUD_PLANE
+
+	// Store mouse properties so we can force call updateGrid when we rotate objects, swap, etc.
+	var/list/lastMouseProps
+
 
 /atom/movable/screen/storage/Initialize(mapload, new_master)
 	. = ..()
 	master = new_master
 
 /atom/movable/screen/storage/Click(location, control, params)
+
+	var/list/modifiers = params2list(params)
+
 	if(world.time <= usr.next_move)
 		return TRUE
 	if(usr.incapacitated())
@@ -461,6 +468,12 @@
 	if(master)
 		var/obj/item/I = usr.get_active_held_item()
 		if(I)
+			if(LAZYACCESS(modifiers, CTRL_CLICK))
+				I.inventory_flip(usr)
+				// force update grid
+				if(lastMouseProps.len == 3)
+					MouseMove(lastMouseProps[1], lastMouseProps[2], lastMouseProps[3])
+				return
 			master.attackby(src, I, usr, params, TRUE) //MOJAVE SUN EDIT - Grid Inventory
 	return TRUE
 
@@ -501,6 +514,7 @@
 	MouseMove(location, control, params)
 
 /atom/movable/screen/zone_sel/MouseMove(location, control, params)
+
 	if(isobserver(usr))
 		return
 

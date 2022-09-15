@@ -87,6 +87,7 @@
 	freerange = TRUE  // If true, the radio has access to the full spectrum.
 	freqlock = TRUE  // Frequency lock to stop the user from untuning specialist radios.
 	radio_broadcast = RADIOSTATIC_LIGHT
+	force_superspace = TRUE // ignore tcoms and zlevelsgrid_height = 64
 	var/destroyable = FALSE
 
 /obj/item/radio/intercom/ms13/Initialize(mapload)
