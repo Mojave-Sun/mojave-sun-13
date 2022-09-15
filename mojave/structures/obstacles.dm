@@ -180,8 +180,10 @@
 	anchored = TRUE
 	opacity = FALSE
 	layer = ABOVE_MOB_LAYER
-	max_integrity = 650
-	damage_deflection = 21 //Basically meant to encompass 20 damage weapons and below
+	max_integrity = 1000
+	damage_deflection = 21
+	flags_1 = ON_BORDER_1 | LOCKABLE
+	hitted_sound = 'mojave/sound/ms13effects/metal_door_hit.ogg'
 	flags_1 = ON_BORDER_1
 	var/locked = FALSE
 
@@ -196,6 +198,7 @@
 
 /obj/structure/ms13/celldoor/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
+		playsound(src, 'mojave/sound/ms13effects/metal_door_break.ogg', 100, TRUE)
 		new /obj/item/stack/sheet/ms13/scrap_steel(loc, 4)
 	qdel(src)
 
@@ -231,6 +234,10 @@
 /obj/structure/ms13/celldoor/attack_hand(mob/user)
 	. = ..()
 	if(.)
+		return
+	if(flags_1 & LOCKABLE && lock_locked)
+		to_chat(user, span_warning("The [name] is locked."))
+		playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
 		return
 	return TryToSwitchState(user)
 
@@ -459,6 +466,7 @@
 	icon_state = "fence_door_front_closed"
 	density = 1
 	anchored = 1
+	flags_1 = LOCKABLE
 	var/open_sound = 'mojave/sound/ms13machines/doorchainlink_open.ogg'
 	var/close_sound = 'mojave/sound/ms13machines/doorchainlink_close.ogg'
 
@@ -476,6 +484,12 @@
 	density = !density
 
 /obj/structure/fence/fencedoor/attack_hand(mob/user)
+	if(.)
+		return
+	if(flags_1 & LOCKABLE && lock_locked)
+		to_chat(user, span_warning("The [name] is locked."))
+		playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
+		return
 	if (density)
 		icon_state = "fence_door_front_open"
 		playsound(src.loc, open_sound, 40, 0, 0)
@@ -511,6 +525,7 @@
 	icon_state = "fence_door_side_closed"
 	density = 1
 	anchored = 1
+	flags_1 = LOCKABLE
 	var/open_sound = 'mojave/sound/ms13machines/doorchainlink_open.ogg'
 	var/close_sound = 'mojave/sound/ms13machines/doorchainlink_close.ogg'
 
@@ -524,6 +539,12 @@
 	density = !density
 
 /obj/structure/fence/fencedoorside/attack_hand(mob/user)
+	if(.)
+		return
+	if(flags_1 & LOCKABLE && lock_locked)
+		to_chat(user, span_warning("The [name] is locked."))
+		playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
+		return
 	if (density)
 		icon_state = "fence_door_side_open"
 		playsound(src.loc, open_sound, 40, 0, 0)

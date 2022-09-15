@@ -37,6 +37,8 @@ FLOOR SAFES
 	var/space = 0
 	/// Tough, but breakable if explosion counts reaches set value
 	var/explosion_count = 0
+	/// Lockpicking check for garbage code
+	var/has_been_lockpicked = FALSE //MOJAVE SUN EDIT - Lockpicking
 
 /obj/structure/safe/Initialize(mapload)
 	. = ..()
@@ -75,9 +77,10 @@ FLOOR SAFES
 		if(istype(attacking_item, /obj/item/clothing/neck/stethoscope))
 			attack_hand(user)
 			return
-		else
-			to_chat(user, span_warning("You can't put [attacking_item] into the safe while it is closed!"))
+		if(istype(attacking_item, /obj/item/clothing/neck/stethoscope))
+			attack_hand(user)
 			return
+		. = ..() //MOJAVE SUN EDIT - Lockpicking
 
 /obj/structure/safe/blob_act(obj/structure/blob/B)
 	return
@@ -214,6 +217,12 @@ FLOOR SAFES
 /obj/structure/safe/proc/check_unlocked()
 	if(check_broken())
 		return TRUE
+	//MOJAVE SUN EDIT START - Lockpicking
+	if(has_been_lockpicked)
+		open = TRUE
+		locked = FALSE
+		return TRUE
+	//MOJAVE SUN EDIT END - Lockpicking
 	if(current_tumbler_index > number_of_tumblers)
 		locked = FALSE
 		visible_message(span_boldnotice("[pick("Spring", "Sprang", "Sproing", "Clunk", "Krunk")]!"))

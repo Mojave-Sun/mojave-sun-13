@@ -158,6 +158,8 @@
 
 	var/resistance_flags = NONE // INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ON_FIRE | UNACIDABLE | ACID_PROOF
 
+	var/hitted_sound //MOJAVE SUN EDIT - Hit Sounds, Why the devilshit isnt this a base feature, what goober decided every objects hit sound should be dictated by one fwuarging ogg
+
 /**
  * Called when an atom is created in byond (built in engine proc)
  *

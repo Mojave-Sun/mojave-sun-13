@@ -30,7 +30,7 @@
 	var/break_sound = "shatter"
 	var/knock_sound = 'sound/effects/glassknock.ogg'
 	var/bash_sound = 'sound/effects/glassbash.ogg'
-	var/hit_sound = 'sound/effects/glasshit.ogg'
+	hitted_sound = 'sound/effects/glasshit.ogg' //MOJAVE SUN EDIT - Hit Sounds
 	/// If some inconsiderate jerk has had their blood spilled on this window, thus making it cleanable
 	var/bloodied = FALSE
 
@@ -268,7 +268,7 @@
 	switch(damage_type)
 		if(BRUTE)
 			if(damage_amount)
-				playsound(src, hit_sound, 75, TRUE)
+				playsound(src, hitted_sound, 75, TRUE) //Mojave Sun Edit - Hit Sounds
 			else
 				playsound(src, 'sound/weapons/tap.ogg', 50, TRUE)
 		if(BURN)
@@ -725,7 +725,7 @@
 	knock_sound = "pageturn"
 	bash_sound = 'sound/weapons/slashmiss.ogg'
 	break_sound = 'sound/items/poster_ripped.ogg'
-	hit_sound = 'sound/weapons/slashmiss.ogg'
+	hitted_sound = 'sound/weapons/slashmiss.ogg' //MOJAVE SUN EDIT - Hit Sounds
 	var/static/mutable_appearance/torn = mutable_appearance('icons/obj/smooth_structures/paperframes.dmi',icon_state = "torn", layer = ABOVE_OBJ_LAYER - 0.1)
 	var/static/mutable_appearance/paper = mutable_appearance('icons/obj/smooth_structures/paperframes.dmi',icon_state = "paper", layer = ABOVE_OBJ_LAYER - 0.1)
 

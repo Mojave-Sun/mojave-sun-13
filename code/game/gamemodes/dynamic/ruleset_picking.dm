@@ -88,7 +88,7 @@
 		new_snapshot(rule)
 		return TRUE
 	rule.clean_up()
-	stack_trace("The [rule.ruletype] rule \"[rule.name]\" failed to execute.")
+	//stack_trace("The [rule.ruletype] rule \"[rule.name]\" failed to execute.") //MOJAVE SUN EDIT - Needless TG Runtimes
 	return FALSE
 
 /// Fired when an admin cancels the current midround injection.
