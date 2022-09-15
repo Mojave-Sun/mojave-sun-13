@@ -136,8 +136,8 @@
 	if(status_effect_type)
 		victim.apply_status_effect(status_effect_type, src)
 	SEND_SIGNAL(victim, COMSIG_CARBON_GAIN_WOUND, src, limb)
-	if(!victim.alerts["wound"]) // only one alert is shared between all of the wounds
-		victim.throw_alert("wound", /atom/movable/screen/alert/status_effect/wound)
+	if(!victim.alerts[ALERT_WOUNDED]) // only one alert is shared between all of the wounds
+		victim.throw_alert(ALERT_WOUNDED, /atom/movable/screen/alert/status_effect/wound)
 
 	var/demoted
 	if(old_wound)
@@ -146,7 +146,7 @@
 	if(severity == WOUND_SEVERITY_TRIVIAL)
 		return
 
-	if(!(silent || demoted))
+	if(!silent && !demoted)
 		var/msg = span_danger("[victim]'s [limb.name] [occur_text]!")
 		var/vis_dist = COMBAT_MESSAGE_RANGE
 
@@ -158,8 +158,8 @@
 		if(sound_effect)
 			playsound(L.owner, sound_effect, 70 + 20 * severity, TRUE)
 
+	wound_injury(old_wound, attack_direction = attack_direction)
 	if(!demoted)
-		wound_injury(old_wound, attack_direction = attack_direction)
 		second_wind()
 
 /datum/wound/proc/null_victim()
@@ -196,7 +196,7 @@
 		return
 	LAZYREMOVE(victim.all_wounds, src)
 	if(!victim.all_wounds)
-		victim.clear_alert("wound")
+		victim.clear_alert(ALERT_WOUNDED)
 	SEND_SIGNAL(victim, COMSIG_CARBON_LOSE_WOUND, src, limb)
 
 /**
@@ -403,3 +403,13 @@
 			return "Severe"
 		if(WOUND_SEVERITY_CRITICAL)
 			return "Critical"
+
+// MOJAVE SUN EDIT BEGIN
+/// Whether we should show an interactable topic in examines of the wound. href_list["wound_topic"]
+/datum/wound/proc/show_wound_topic(mob/user)
+	return FALSE
+
+/// Gets the name of the wound with any interactable topic if possible
+/datum/wound/proc/get_topic_name(mob/user)
+	return show_wound_topic(user) ? "<a href='?src=[REF(src)];wound_topic=1'>[lowertext(name)]</a>" : lowertext(name)
+// MOJAVE SUN EDIT END

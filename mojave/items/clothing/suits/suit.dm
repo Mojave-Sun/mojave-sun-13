@@ -187,7 +187,7 @@
 	icon_state = "winterjacketorange"
 
 /obj/item/clothing/suit/toggle/ms13/wjacket/orange/reinforced
-	name = "reinforced orange jacket"
+	name = "reinforced orange winter jacket"
 	desc = "A reinforced and padded orange winter jacket."
 	icon_state = "reinforcedwinterorange"
 	slowdown = 0.15
@@ -204,7 +204,7 @@
 	equip_delay_other = 4 SECONDS
 
 /obj/item/clothing/suit/toggle/ms13/wjacket/orange/armored
-	name = "armored orange jacket"
+	name = "armored orange winter jacket"
 	desc = "An heavily reinforced orange winter jacket with the addition of bulky metal plates."
 	icon_state = "armoredwinterorange"
 	slowdown = 0.3

@@ -11,6 +11,8 @@
 	name = "Default"
 	jobtype = /datum/job/ms13/legion
 
+	back = /obj/item/storage/ms13/leather_backpack
+
 /datum/outfit/job/ms13/legion/pre_equip(mob/living/carbon/human/H)
 	..()
 

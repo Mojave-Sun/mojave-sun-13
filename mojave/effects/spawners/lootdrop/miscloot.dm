@@ -87,7 +87,7 @@
 
 /obj/effect/spawner/random/ms13/crafting/lowrandom
 	name = "low tier random crafting spawner"
-	spawn_loot_chance = 60
+	spawn_loot_chance = 65
 	loot = list(
 			/obj/item/stack/sheet/ms13/scrap_wood/two,
 			/obj/item/stack/sheet/ms13/plank,
@@ -95,7 +95,7 @@
 			/obj/item/stack/sheet/ms13/thread/two,
 			/obj/item/stack/sheet/ms13/scrap_electronics/two,
 			/obj/item/stack/sheet/ms13/scrap_copper/two,
-			/obj/item/stack/sheet/ms13/cloth/three,
+			/obj/item/stack/sheet/ms13/cloth/two,
 			/obj/item/ms13/component/gunpowder/lq,
 			/obj/item/ms13/component/cell,
 			/obj/item/stack/sheet/ms13/scrap_lead/two,
@@ -104,9 +104,9 @@
 			/obj/item/stack/sheet/ms13/scrap_alu/two,
 			/obj/item/stack/sheet/ms13/scrap_brass/two,
 			/obj/item/stack/sheet/ms13/scrap_steel/two,
-			/obj/item/stack/sheet/ms13/glass/three,
-			/obj/item/stack/sheet/ms13/ceramic/three,
-			/obj/item/stack/sheet/ms13/plastic/three,
+			/obj/item/stack/sheet/ms13/glass/two,
+			/obj/item/stack/sheet/ms13/ceramic/two,
+			/obj/item/stack/sheet/ms13/plastic/two,
 			/obj/item/stack/sheet/ms13/rubber/two,
 			/obj/item/stack/sheet/ms13/scrap_parts/two,
 			/obj/item/stack/sheet/ms13/scrap/two
@@ -114,7 +114,7 @@
 
 /obj/effect/spawner/random/ms13/crafting/highrandom
 	name = "high tier random crafting spawner"
-	spawn_loot_chance = 70
+	spawn_loot_chance = 75
 	loot = list(
 			/obj/item/ms13/component/gunpowder,
 			/obj/item/stack/sheet/ms13/refined_lead/two,
@@ -125,36 +125,36 @@
 			/obj/item/stack/sheet/ms13/refined_steel/two,
 			/obj/item/stack/sheet/ms13/refined_copper/two,
 			/obj/item/stack/sheet/ms13/scrap_parts/ten,
-			/obj/item/stack/sheet/ms13/circuits/three,
-			/obj/item/stack/sheet/ms13/mil_fiber/three,
+			/obj/item/stack/sheet/ms13/circuits/two,
+			/obj/item/stack/sheet/ms13/mil_fiber/two,
 			/obj/item/ms13/component/plasma_battery,
 			/obj/item/ms13/component/vacuum_tube
 	)
 
 /obj/effect/spawner/random/ms13/crafting/household
 	name = "household random crafting spawner"
-	spawn_loot_chance = 50
+	spawn_loot_chance = 60
 	loot = list(
 			/obj/item/stack/sheet/ms13/thread/two,
 			/obj/item/stack/sheet/ms13/scrap_electronics/two,
-			/obj/item/stack/sheet/ms13/cloth/three,
+			/obj/item/stack/sheet/ms13/cloth/two,
 			/obj/item/ms13/component/cell,
-			/obj/item/stack/sheet/ms13/glass/three,
-			/obj/item/stack/sheet/ms13/ceramic/three,
-			/obj/item/stack/sheet/ms13/plastic/three,
+			/obj/item/stack/sheet/ms13/glass/two,
+			/obj/item/stack/sheet/ms13/ceramic/two,
+			/obj/item/stack/sheet/ms13/plastic/two,
 			/obj/item/stack/sheet/ms13/rubber/two,
 			/obj/item/stack/sheet/ms13/scrap_parts/two
 	)
 
 /obj/effect/spawner/random/ms13/crafting/electrical
 	name = "electrical random crafting spawner"
-	spawn_loot_chance = 60
+	spawn_loot_chance = 65
 	spawn_loot_count = 1
 	loot = list(
 			/obj/item/stack/sheet/ms13/scrap_electronics/two = 40,
 			/obj/item/ms13/component/cell = 25,
 			/obj/item/ms13/component/vacuum_tube = 10,
-			/obj/item/stack/sheet/ms13/circuits/three = 10,
+			/obj/item/stack/sheet/ms13/circuits/two = 10,
 			/obj/item/stack/sheet/ms13/scrap_copper/two = 25
 	)
 
@@ -166,4 +166,17 @@
 			/obj/item/stack/sheet/ms13/scrap_gold/five = 40,
 			/obj/item/stack/sheet/ms13/refined_silver/two = 10,
 			/obj/item/stack/sheet/ms13/refined_gold/two = 10
+	)
+
+/obj/effect/spawner/random/ms13/crafting/refined
+	name = "refined metals spawner"
+	spawn_loot_chance = 60
+	loot = list(
+			/obj/item/stack/sheet/ms13/refined_silver/two,
+			/obj/item/stack/sheet/ms13/refined_gold/two,
+			/obj/item/stack/sheet/ms13/refined_alu/two,
+			/obj/item/stack/sheet/ms13/refined_brass/two,
+			/obj/item/stack/sheet/ms13/refined_lead/two,
+			/obj/item/stack/sheet/ms13/refined_steel/two,
+			/obj/item/stack/sheet/ms13/refined_copper/two
 	)

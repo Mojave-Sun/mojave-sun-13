@@ -143,7 +143,7 @@
 
 /mob/living/carbon/human/proc/check_block()
 	if(mind)
-		if(mind.martial_art && prob(mind.martial_art.block_chance) && mind.martial_art.can_use(src) && throw_mode && !incapacitated(FALSE, TRUE))
+		if(mind.martial_art && prob(mind.martial_art.block_chance) && mind.martial_art.can_use(src) && throw_mode && !incapacitated(IGNORE_GRAB))
 			return TRUE
 	return FALSE
 
@@ -383,7 +383,19 @@
 		affecting = get_bodypart(BODY_ZONE_CHEST)
 	var/armor = run_armor_check(affecting, MELEE, armour_penetration = user.armour_penetration)
 	var/attack_direction = get_dir(user, src)
+	/* MOJAVE EDIT REMOVAL
 	apply_damage(damage, user.melee_damage_type, affecting, armor, wound_bonus = user.wound_bonus, bare_wound_bonus = user.bare_wound_bonus, sharpness = user.sharpness, attack_direction = attack_direction)
+	*/
+	//MOJAVE EDIT BEGIN
+	var/subarmor = run_subarmor_check(affecting, MELEE, armour_penetration = user.subtractible_armour_penetration, sharpness = user.sharpness)
+	var/subarmor_flags = get_subarmor_flags(affecting)
+	var/edge_protection = get_edge_protection(affecting)
+	apply_damage(damage, user.melee_damage_type, affecting, armor, \
+				wound_bonus = user.wound_bonus, bare_wound_bonus = user.bare_wound_bonus, \
+				sharpness = user.sharpness, attack_direction = attack_direction, \
+				subarmor_flags = subarmor_flags, edge_protection = edge_protection, \
+				reduced = subarmor)
+	//MOJAVE EDIT END
 
 
 /mob/living/carbon/human/attack_slime(mob/living/simple_animal/slime/M)
@@ -709,11 +721,11 @@
 		return
 
 	if(src == M)
-		if(has_status_effect(STATUS_EFFECT_CHOKINGSTRAND))
+		if(has_status_effect(/datum/status_effect/strandling))
 			to_chat(src, span_notice("You attempt to remove the durathread strand from around your neck."))
 			if(do_after(src, 3.5 SECONDS, src))
 				to_chat(src, span_notice("You succesfuly remove the durathread strand."))
-				remove_status_effect(STATUS_EFFECT_CHOKINGSTRAND)
+				remove_status_effect(/datum/status_effect/strandling)
 			return
 		check_self_for_injuries()
 
@@ -797,15 +809,24 @@
 			var/datum/wound/W = thing
 			var/msg
 			switch(W.severity)
+			// MOJAVE SUN EDIT BEGIN
 				if(WOUND_SEVERITY_TRIVIAL)
-					msg = "\t [span_danger("Your [body_part.name] is suffering [W.a_or_from] [lowertext(W.name)].")]"
+					msg = "\t <span class='danger'>Your [body_part.name] is suffering [W.a_or_from] [W.get_topic_name(src)].</span>"	// ORIGINAL IS 	msg = "\t [span_danger("Your [body_part.name] is suffering [W.a_or_from] [lowertext(W.name)].")]"
 				if(WOUND_SEVERITY_MODERATE)
-					msg = "\t [span_warning("Your [body_part.name] is suffering [W.a_or_from] [lowertext(W.name)]!")]"
+					msg = "\t <span class='warning'>Your [body_part.name] is suffering [W.a_or_from] [W.get_topic_name(src)]!</span>"	// ORIGINAL IS 	msg = "\t [span_warning("Your [body_part.name] is suffering [W.a_or_from] [lowertext(W.name)]!")]"
 				if(WOUND_SEVERITY_SEVERE)
-					msg = "\t [span_warning("<b>Your [body_part.name] is suffering [W.a_or_from] [lowertext(W.name)]!</b>")]"
+					msg = "\t <span class='warning'><b>Your [body_part.name] is suffering [W.a_or_from] [W.get_topic_name(src)]!</b></span>"	// ORIGINAL IS 	msg = "\t [span_warning("<b>Your [body_part.name] is suffering [W.a_or_from] [lowertext(W.name)]!</b>")]"
 				if(WOUND_SEVERITY_CRITICAL)
-					msg = "\t [span_warning("<b>Your [body_part.name] is suffering [W.a_or_from] [lowertext(W.name)]!!</b>")]"
+					msg = "\t <span class='warning'><b>Your [body_part.name] is suffering [W.a_or_from] [W.get_topic_name(src)]!!</b></span>"	// ORIGINAL IS 	msg = "\t [span_warning("<b>Your [body_part.name] is suffering [W.a_or_from] [lowertext(W.name)]!!</b>")]"
 			combined_msg += msg
+
+		if(body_part.current_gauze)
+			var/datum/bodypart_aid/current_gauze = body_part.current_gauze
+			combined_msg += "\t <span class='notice'>Your [body_part.name] is [current_gauze.desc_prefix] with <a href='?src=[REF(current_gauze)];remove=1'>[current_gauze.get_description()]</a>.</span>"
+		if(body_part.current_splint)
+			var/datum/bodypart_aid/current_splint = body_part.current_splint
+			combined_msg += "\t <span class='notice'>Your [body_part.name] is [current_splint.desc_prefix] with <a href='?src=[REF(current_splint)];remove=1'>[current_splint.get_description()]</a>.</span>"
+			// MOJAVE SUN EDIT END
 
 		for(var/obj/item/I in body_part.embedded_objects)
 			if(I.isEmbedHarmless())
@@ -820,7 +841,7 @@
 		var/list/obj/item/bodypart/bleeding_limbs = list()
 		for(var/i in bodyparts)
 			var/obj/item/bodypart/BP = i
-			if(BP.get_bleed_rate())
+			if(BP.get_part_bleed_rate())
 				bleeding_limbs += BP
 
 		var/num_bleeds = LAZYLEN(bleeding_limbs)

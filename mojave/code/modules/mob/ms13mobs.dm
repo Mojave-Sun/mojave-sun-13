@@ -1,5 +1,8 @@
 #define RIDING_LAYER 4.6
 
+/mob/living/simple_animal
+	var/subtractible_armour_penetration = 0
+
 /////////////////////////////////////////////////////////////
 ///////// MOJAVE SUN ANIMALS AND RANCHING CHANGES ///////////
 /////////////////////// BASE CODE ///////////////////////////
@@ -409,7 +412,7 @@
 					qdel(O)
 			else if(hunger >= maxhunger)
 				user.visible_message("<span class='notice'>The [src] rejects the [O] they dont seem to be hungry right now.</span>")
-		if(baggable == TRUE)
+		/*if(baggable == TRUE)
 			if(istype(O, /obj/item/storage/ms13/sack) && !bagged)
 				if(tame && do_after(user,55,target=src))
 					playsound(get_turf(src), "rustle", 50, TRUE)
@@ -418,7 +421,7 @@
 					bagged = TRUE
 					bogged()
 					egg_type = null
-					return
+					return */ //Sack no longer exists, so no packing rats
 		if(rideable == TRUE)
 			if(istype(O, /obj/item/saddle) && !saddled)
 				if(tame && do_after(user,55,target=src))
@@ -621,7 +624,7 @@
 					qdel(O)
 			else if(hunger >= maxhunger)
 				user.visible_message("<span class='notice'>The [src] rejects the [O] they dont seem to be hungry right now.</span>")
-		if(baggable == TRUE)
+		/*if(baggable == TRUE)
 			if(istype(O, /obj/item/storage/ms13/sack) && !bagged)
 				if(tame && do_after(user,55,target=src))
 					playsound(get_turf(src), "rustle", 50, TRUE)
@@ -630,7 +633,7 @@
 					bagged = TRUE
 					bogged()
 					egg_type = null
-					return
+					return */ //Sack no longer exists, so no packing rats
 		if(rideable == TRUE)
 			if(istype(O, /obj/item/saddle) && !saddled)
 				if(tame && do_after(user,55,target=src))

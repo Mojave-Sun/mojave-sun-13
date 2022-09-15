@@ -5,7 +5,8 @@
 	icon_state = "streetlight"
 	anchored = TRUE
 	density = TRUE
-	layer = BELOW_OBJ_LAYER
+	layer = ABOVE_ALL_MOB_LAYER
+	plane = ABOVE_GAME_PLANE
 	max_integrity = 2000
 	pixel_x = -32
 	pixel_y = 8
@@ -13,7 +14,7 @@
 
 /obj/machinery/power/ms13/streetlamp/Initialize()
 	. = ..()
-	AddComponent(/datum/component/largetransparency, 1, 1, 1, 1)
+	//AddComponent(/datum/component/largetransparency, 1, 1, 1, 1) // Busted right now. After the first time it turns the icon transparent, the entire icon's dimensions block mouse clicks.
 
 /obj/machinery/power/ms13/streetlamp/CanAllowThrough(atom/movable/mover, turf/target)
 	. = ..()
@@ -65,12 +66,13 @@
 	icon = 'mojave/icons/structure/street_signs.dmi'
 	anchored = TRUE
 	density = TRUE
-	layer = LOW_ITEM_LAYER
+	layer = ABOVE_MOB_LAYER
 	max_integrity = 500 // Hardy but not immortal
 
 /obj/structure/ms13/street_sign/Initialize()
 	. = ..()
-	AddComponent(/datum/component/largetransparency, 1, 1, 1, 1)
+	//AddComponent(/datum/component/largetransparency, 1, 1, 1, 1) // Busted right now. After the first time it turns the icon transparent, the entire icon's dimensions block mouse clicks.
+	register_context()
 
 /obj/structure/ms13/street_sign/CanAllowThrough(atom/movable/mover, turf/target)
 	. = ..()
@@ -96,9 +98,9 @@
 /obj/structure/ms13/street_sign/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 2)
-			new /obj/item/stack/sheet/ms13/scrap_alu(loc, 3)
-			new /obj/item/stack/sheet/ms13/scrap(loc, 3)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 3)
+			new /obj/item/stack/sheet/ms13/scrap_alu(loc, 4)
+			new /obj/item/stack/sheet/ms13/scrap(loc, 4)
 		else
 			new /obj/item/stack/sheet/ms13/scrap_alu(loc)
 			new /obj/item/stack/sheet/ms13/scrap(loc)
@@ -111,6 +113,14 @@
 
 /obj/structure/ms13/street_sign/proc/deconstruction_hints(mob/user)
 	return span_notice("You could use a <b>welding tool</b> to take apart [src] for parts.")
+
+/obj/structure/ms13/street_sign/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_WELDER)
+			context[SCREENTIP_CONTEXT_RMB] = "Take apart"
+			return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/ms13/street_sign/interstate // uh oh
 	name = "\improper interstate sign"

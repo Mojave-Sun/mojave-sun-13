@@ -12,7 +12,8 @@
 	attack_verb_simple = list("punch", "jab", "clock", "nail", "bludgeon", "whack", "bonk")
 	icon_state = "knuckles"
 	inhand_icon_state = "knuckles"
-	hitsound = "sound/weapons/cqchit1.ogg"
+	hitsound = 'mojave/sound/ms13weapons/meleesounds/genericblunt_hit.ogg'
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/general_grip.ogg'
 	w_class = WEIGHT_CLASS_TINY
 	slot_flags = ITEM_SLOT_BELT
 	throwforce = 5
@@ -44,6 +45,7 @@
 	desc = "A steel knuckle with the addition of some pointed spikes. With this, you aren't looking to knock someone out anymore."
 	icon_state = "knuckles_spike"
 	inhand_icon_state = "knuckles_spike"
+	hitsound = 'mojave/sound/ms13weapons/meleesounds/stab_hit.ogg'
 	force = 25
 	throwforce = 10 //Imagine finshing off someone running away by throwing your spiked knuckle at them
 	subtractible_armour_penetration = 25
@@ -60,6 +62,8 @@
 	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
 	icon_state = "powerfist"
 	inhand_icon_state = "powerfist"
+	hitsound = list('mojave/sound/ms13weapons/meleesounds/powerfist_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/powerfist_hit2.ogg', 'mojave/sound/ms13weapons/meleesounds/powerfist_hit3.ogg')
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/powerfist_pickup.ogg'
 	force = 40
 	throwforce = 10
 	subtractible_armour_penetration = 35

@@ -134,6 +134,8 @@
 #define CRAFTING_BENCH_WEAPONS    1<<4
 #define CRAFTING_BENCH_RELOADING  1<<5
 #define CRAFTING_BENCH_SMELTER    1<<6
+#define CRAFTING_BENCH_CAMPFIRE   1<<7
+
 // tablecrafting interface types - MOJAVE EDIT END
 
 //rcd modes

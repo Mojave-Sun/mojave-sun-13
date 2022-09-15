@@ -90,7 +90,7 @@
 	name = "crude metal table"
 	desc = "A crude table made of quality metal. Not too bad, as far as post apocalyptic furniture goes."
 	icon = 'mojave/icons/structure/smooth_structures/tables/table_metal_built.dmi'
-	max_integrity = 125
+	max_integrity = 140
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TABLE_PLAYER) //Don't smooth with SMOOTH_GROUP_TABLES
 	canSmoothWith = list(SMOOTH_GROUP_MS13_TABLE_PLAYER)
 
@@ -98,13 +98,13 @@
 	name = "crude scrap metal table"
 	desc = "A crude table made of scrap metal. Doesn't look pretty and seems barely finished, but it does it's job."
 	icon = 'mojave/icons/structure/smooth_structures/tables/table_metal_built_LQ.dmi'
-	max_integrity = 100
+	max_integrity = 110
 
 /obj/structure/table/ms13/wood/constructed
 	name = "crude wood table"
 	desc = "A crude wood table of decent quality. It probably won't fall apart any time soon."
 	icon = 'mojave/icons/structure/smooth_structures/tables/table_wood_built.dmi'
-	max_integrity = 100
+	max_integrity = 120
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TABLE_PLAYER)
 	canSmoothWith = list(SMOOTH_GROUP_MS13_TABLE_PLAYER)
 
@@ -112,7 +112,7 @@
 	name = "crude scrap wood table"
 	desc = "A crude wood table made of scrap, low quality wood. About as rickety as you'd expect."
 	icon = 'mojave/icons/structure/smooth_structures/tables/table_wood_built_LQ.dmi'
-	max_integrity = 75
+	max_integrity = 90
 
 // Metal Non-Smoothing tables //
 
@@ -271,7 +271,7 @@
 	frame = /obj/item/stack/sheet/ms13/scrap
 	framestack = /obj/item/stack/sheet/ms13/scrap
 	framestackamount = 2
-	drag_slowdown = 0.5
+	drag_slowdown = 1
 
 ///// CRAFTING TABLES /////
 
@@ -289,6 +289,13 @@
 	. = ..()
 	. += "<span class='notice'>Use <b>CTRL + CLICK</b> on [src] to begin crafting.</span>"
 
+/obj/structure/table/ms13/crafting/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	if (isnull(held_item))
+		context[SCREENTIP_CONTEXT_CTRL_LMB] = "Start crafting"
+		return CONTEXTUAL_SCREENTIP_SET
+
 /obj/structure/table/ms13/crafting/wrench_act_secondary(mob/living/user, obj/item/weapon)
 	return
 
@@ -301,6 +308,7 @@
 /obj/structure/table/ms13/crafting/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/personal_crafting, crafting_interface)
+	register_context()
 
 /obj/structure/table/ms13/crafting/workbench
 	name = "workbench"

@@ -24,7 +24,7 @@
 		/obj/item/ammo_box/ms13/c4570box=1,\
 		/obj/item/ammo_box/magazine/ms13/r308=2,\
 		/obj/item/stack/medical/gauze/ms13/half=1,\
-		/obj/item/stack/medical/ointment/ms13/cream/half=1,\
+		/obj/item/stack/medical/ointment/ms13/half=1,\
 		/obj/item/radio/ms13/broadcast/advanced=1)
 
 /datum/outfit/job/ms13/ranger/elite/pre_equip(mob/living/carbon/human/H)

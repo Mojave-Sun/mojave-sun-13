@@ -49,11 +49,14 @@
 			sanitization += 0.3
 			flesh_healing += 0.5
 
-	if(limb.current_gauze)
-		limb.seep_gauze(WOUND_BURN_SANITIZATION_RATE * delta_time)
+	// MOJAVE SUN EDIT BEGIN
+	var/bandage_factor = 1// ORIGINAL IS if(limb.current_gauze)
+	if(limb.current_gauze && limb.current_gauze.seep_gauze(WOUND_BURN_SANITIZATION_RATE, GAUZE_STAIN_PUS)) //  ORIGINAL IS 	limb.seep_gauze(WOUND_BURN_SANITIZATION_RATE * delta_time)
+		bandage_factor = limb.current_gauze.sanitisation_factor
+	// MOJAVE SUN EDIT END
 
 	if(flesh_healing > 0) // good bandages multiply the length of flesh healing
-		var/bandage_factor = limb.current_gauze?.burn_cleanliness_bonus || 1
+		//var/bandage_factor = limb.current_gauze?.burn_cleanliness_bonus || 1 // MOJAVE SUN EDIT
 		flesh_damage = max(flesh_damage - (0.5 * delta_time), 0)
 		flesh_healing = max(flesh_healing - (0.5 * bandage_factor * delta_time), 0) // good bandages multiply the length of flesh healing
 
@@ -69,7 +72,7 @@
 
 	// sanitization is checked after the clearing check but before the actual ill-effects, because we freeze the effects of infection while we have sanitization
 	if(sanitization > 0)
-		var/bandage_factor = limb.current_gauze?.burn_cleanliness_bonus || 1
+		//var/bandage_factor = limb.current_gauze?.burn_cleanliness_bonus || 1	// MOJAVE SUN EDIT
 		infestation = max(infestation - (WOUND_BURN_SANITIZATION_RATE * delta_time), 0)
 		sanitization = max(sanitization - (WOUND_BURN_SANITIZATION_RATE * bandage_factor * delta_time), 0)
 		return

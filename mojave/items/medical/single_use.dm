@@ -33,3 +33,5 @@
 	icon_state = "torniquet_sb"
 	stop_bleeding = 0.6
 	merge_type = /obj/item/stack/medical/suture/ms13/tourniquet/snakebite
+
+// Healing Powder //

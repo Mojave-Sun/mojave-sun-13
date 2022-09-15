@@ -3,6 +3,7 @@
 	desc = "A bulky and secure safe. No possible way to move this thing alone, much too heavy."
 	icon = 'mojave/icons/structure/storage.dmi'
 	icon_state = "safe_spinner"
+	flags_1 = LOCKABLE
 
 /obj/structure/safe/ms13/advanced
 	name = "safe"

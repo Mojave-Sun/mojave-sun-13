@@ -1,7 +1,7 @@
 /obj/projectile/bullet/ms13
 	icon = 'mojave/icons/objects/projectiles/projectiles.dmi'
 	icon_state = "medium_bullet"
-	speed = 0.6 //Vanilla tg is 0.8
+	speed = 0.5 //Vanilla tg is 0.8
 	wound_falloff_tile = 0
 	embedding = null
 	damage = 0
