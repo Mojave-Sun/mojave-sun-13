@@ -9,7 +9,7 @@
 	layer = 4.5
 	closingLayer = CLOSED_DOOR_LAYER
 	hackProof = TRUE
-	flags_1 = LOCKABLE
+	flags_1 = LOCKABLE_1
 	assemblytype = /obj/item/stack/sheet/ms13/scrap/two
 	resistance_flags = INDESTRUCTIBLE
 
@@ -31,7 +31,7 @@
 		return
 	if(.)
 		return
-	if(flags_1 & LOCKABLE && lock_locked)
+	if(flags_1 & LOCKABLE_1 && lock_locked)
 		to_chat(M, span_warning("The [name] is locked."))
 		playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
 		return
