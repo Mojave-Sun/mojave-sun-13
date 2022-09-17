@@ -6,11 +6,15 @@
 	icon = 'mojave/icons/objects/currency.dmi'
 	singular_name = "my money dont jiggle jiggle"
 	amount = 1
-	max_amount = 600
+	max_amount = 850
 	merge_type = /obj/item/stack/ms13/currency
 	full_w_class = WEIGHT_CLASS_SMALL
 	w_class = WEIGHT_CLASS_TINY
 	novariants = FALSE
+
+/obj/item/stack/ms13/currency/Initialize()
+	. = ..()
+	AddElement(/datum/element/item_scaling, 0.40, 1)
 
 /obj/item/stack/ms13/currency/prewar
 	name = "\improper pre-war dollars"
