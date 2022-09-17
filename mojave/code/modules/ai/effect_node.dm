@@ -6,16 +6,15 @@
 	icon = 'mojave/icons/effects/landmarks_static.dmi'
 	icon_state = "x6" //Pure white 'X' with black borders
 	anchored = TRUE //No pulling those nodes yo
-	invisibility = INVISIBILITY_OBSERVER //Why was this visible towrds ghosts, just change it if testing
-	//mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	///Assoc list of adjacent landmark nodes by dir
-	var/list/adjacent_nodes = list()
-	var/trader_restock_destination = FALSE
+	invisibility = INVISIBILITY_MAXIMUM //Why was this visible towrds ghosts, just change it if testing
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	///list of adjacent landmark nodes
+	var/list/adjacent_nodes
 
 	///List of weights for scoring stuff happening here; ultilizes "identifiers" to differentiate different kinds of AI types looking at the same node.
 	var/list/weights = list(
-		IDENTIFIER_GENERIC_SIMPLE = list(NODE_LAST_VISITED = 0, NODE_TRADER_STAYS_THIS_LONG = 10 SECONDS),
-		IDENTIFIER_EYEBOT = list(NODE_LAST_VISITED = 0, NODE_TRADER_STAYS_THIS_LONG = 10 SECONDS)
+		IDENTIFIER_GENERIC_SIMPLE = list(NODE_LAST_VISITED = 0),
+		IDENTIFIER_EYEBOT = list(NODE_LAST_VISITED = 0)
 		)
 	//TODO: MAKE DYNAMICALLY INITIALIZED WHEN REQUESTED
 
@@ -26,8 +25,6 @@
 
 /obj/effect/ai_node/LateInitialize()
 	make_adjacents()
-	if(trader_restock_destination)
-		GLOB.nodes_trader_destination += src
 
 ///Adds to the specific weight of a specific identifier of this node
 /obj/effect/ai_node/proc/increment_weight(identifier, name, amount)
@@ -69,13 +66,13 @@
 /obj/effect/ai_node/proc/get_best_adj_node(list/weight_modifiers, identifier)
 	//No weight modifiers, return a adjacent random node
 	if(!length(weight_modifiers) || !identifier)
-		return adjacent_nodes[pick(adjacent_nodes)]
+		return pick(adjacent_nodes)
 
 	var/obj/effect/ai_node/node_to_return
 	var/current_best_node_score = -INFINITY
-	var/current_score = 0
-	for(var/direction in adjacent_nodes) //We keep a score for the nodes and see which one is best
-		var/obj/effect/ai_node/node = adjacent_nodes[direction]
+	var/current_score
+	for(var/thing in shuffle_inplace(adjacent_nodes)) //We keep a score for the nodes and see which one is best
+		var/obj/effect/ai_node/node = thing
 		current_score = 0
 		for(var/weight in weight_modifiers)
 			current_score += NODE_GET_VALUE_OF_WEIGHT(identifier, node, weight) * weight_modifiers[weight]
@@ -86,30 +83,25 @@
 
 	if(node_to_return)
 		return node_to_return
-	return adjacent_nodes[pick(adjacent_nodes)]
+	else //Just in case no applicable scores are located
+		return pick(adjacent_nodes)
 
-///Clears the adjacencies of src and repopulates it, it will consider nodes "adjacent" to src should it be less 15 turfs away
-/obj/effect/ai_node/proc/make_adjacents(bypass_diagonal_check = FALSE)
-	for(var/obj/effect/ai_node/node in GLOB.allnodes)
-		if(node == src || node.z != z || get_dist(src, node) > MAX_NODE_RANGE || (!bypass_diagonal_check && !Adjacent(node) && ISDIAGONALDIR(get_dir(src, node))))
+///Clears the adjacencies of src and repopulates it, it will consider nodes "adjacent" to src should it be less 15 turfs away and get_dir(src, potential_adjacent_node) returns a cardinal direction
+/obj/effect/ai_node/proc/make_adjacents()
+	adjacent_nodes = list()
+	for(var/atom/node in GLOB.allnodes)
+		if(node == src)
 			continue
-		if(get_dist(src, adjacent_nodes["[get_dir(src, node)]"]) < get_dist(src, node))
+		if(!(get_dist(src, node) < 16))
 			continue
-		if(!is_in_line_of_sight(get_turf(node)))
+		if(ISDIAGONALDIR(get_dir(src, node)))
 			continue
-		adjacent_nodes["[get_dir(src, node)]"] = node
-		node.adjacent_nodes["[get_dir(node, src)]"] = src
+		adjacent_nodes += node
 
-///Returns true if the turf in argument is in line of sight
-/obj/effect/ai_node/proc/is_in_line_of_sight(turf/target_loc)
-	var/turf/turf_to_check = get_turf(src)
-
-	while(turf_to_check != target_loc)
-		if(turf_to_check.density)
-			return FALSE
-		turf_to_check = get_step(turf_to_check, get_dir(turf_to_check, target_loc))
-
-	return TRUE
+	//If there's no adjacent nodes then let's throw a runtime (for mappers) and at admins (if they by any chance were spawning these in)
+	if(!length(adjacent_nodes))
+		message_admins("[ADMIN_VERBOSEJMP(loc)] was unable to connect to any considered-adjacent nodes; place them correctly if you were spawning these in, otherwise report this.")
+		//CRASH("An ai node was repopulating it's node adjacencies but there were no considered-adjacent nodes nearby; this can be because of a mapping/admin spawning issue. Location: AREACOORD(src)")
 
 /obj/effect/ai_node/debug //A debug version of the AINode; makes it visible to allow for easy var editing
 	icon_state = "x6" //Pure white 'X' with black borders

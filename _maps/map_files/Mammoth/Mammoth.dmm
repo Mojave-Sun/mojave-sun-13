@@ -989,9 +989,7 @@
 /area/ms13)
 "aID" = (
 /obj/effect/turf_decal/ms13/road/horizontalline,
-/obj/effect/ai_node{
-	trader_restock_destination = 1
-	},
+/obj/effect/ai_node,
 /obj/effect/landmark/start/ms13/wastelander,
 /turf/open/floor/plating/ms13/ground/road,
 /area/ms13/underground/tunnel)
@@ -1571,8 +1569,8 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "bcs" = (
-/obj/effect/spawner/random/ms13/food/trash,
 /mob/living/basic/ms13/hostile_animal/radroach,
+/obj/effect/spawner/random/ms13/food/trash,
 /turf/open/floor/ms13/tile/large/cafeteria,
 /area/ms13/town)
 "bcE" = (
@@ -2132,8 +2130,8 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "bzv" = (
-/obj/effect/decal/cleanable/blood/tracks,
 /mob/living/basic/ms13/hostile_animal/yaoguai,
+/obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
 "bzF" = (
@@ -3427,10 +3425,10 @@
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "cry" = (
+/mob/living/basic/ms13/ghoul,
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 4
 	},
-/mob/living/basic/ms13/ghoul,
 /turf/open/floor/ms13/concrete,
 /area/ms13/supermarket)
 "crV" = (
@@ -4865,10 +4863,10 @@
 /turf/open/floor/plating/ms13/ground/sidewalk,
 /area/ms13/town)
 "dqF" = (
+/mob/living/basic/ms13/hostile_animal/wolf,
 /obj/machinery/light/ms13/bulb{
 	dir = 1
 	},
-/mob/living/basic/ms13/hostile_animal/wolf,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "dqH" = (
@@ -6041,8 +6039,8 @@
 /turf/open/floor/ms13/tile,
 /area/ms13/town)
 "ecJ" = (
-/obj/machinery/light/ms13/bulb,
 /mob/living/basic/ms13/hostile_animal/radroach,
+/obj/machinery/light/ms13/bulb,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "ecO" = (
@@ -9153,9 +9151,9 @@
 /area/ms13/town)
 "fUG" = (
 /obj/effect/turf_decal/stripes,
+/mob/living/basic/ms13/ghoul,
 /obj/item/ammo_casing/ms13/spent,
 /obj/effect/decal/cleanable/blood,
-/mob/living/basic/ms13/ghoul,
 /turf/open/floor/plating/ms13/ground/road,
 /area/ms13/supermarket)
 "fUN" = (
@@ -9185,10 +9183,10 @@
 /turf/open/floor/ms13/tile/full/navy,
 /area/ms13/town)
 "fVl" = (
+/mob/living/basic/ms13/hostile_animal/giantant,
 /obj/structure/railing/ms13/solo{
 	dir = 1
 	},
-/mob/living/basic/ms13/hostile_animal/giantant,
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "fVo" = (
@@ -11541,13 +11539,6 @@
 /obj/item/clothing/suit/toggle/labcoat/ms13,
 /turf/open/floor/ms13/tile/full/navy,
 /area/ms13/town)
-"hiZ" = (
-/obj/effect/turf_decal/ms13/road/verticalline,
-/obj/effect/ai_node{
-	trader_restock_destination = 1
-	},
-/turf/open/floor/plating/ms13/ground/road,
-/area/ms13)
 "hjj" = (
 /obj/structure/ms13/street_sign/one_way,
 /turf/open/floor/plating/ms13/ground/sidewalk,
@@ -12892,8 +12883,8 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "hYr" = (
-/obj/effect/decal/cleanable/glass,
 /mob/living/basic/ms13/hostile_animal/wolf,
+/obj/effect/decal/cleanable/glass,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "hYD" = (
@@ -19628,13 +19619,6 @@
 /obj/structure/stairs/east,
 /turf/open/floor/plating/ms13/ground/sidewalk,
 /area/ms13)
-"mgP" = (
-/obj/effect/turf_decal/ms13/road/horizontalline,
-/obj/effect/ai_node{
-	trader_restock_destination = 1
-	},
-/turf/open/floor/plating/ms13/ground/road,
-/area/ms13)
 "mgV" = (
 /obj/structure/table/ms13/no_smooth/counter/wood/bend{
 	dir = 4
@@ -21159,8 +21143,8 @@
 /turf/open/floor/ms13/tile/full/navy,
 /area/ms13/town)
 "njc" = (
-/obj/structure/ms13/rug/mat/rubber/single,
 /mob/living/simple_animal/hostile/ms13/robot/protectron/reinforced,
+/obj/structure/ms13/rug/mat/rubber/single,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "njw" = (
@@ -23602,8 +23586,8 @@
 /turf/closed/wall/ms13/concrete,
 /area/ms13/underground/mountain)
 "oJN" = (
-/obj/machinery/light/ms13/bulb,
 /mob/living/basic/ms13/ghoul,
+/obj/machinery/light/ms13/bulb,
 /turf/open/floor/ms13/tile,
 /area/ms13/town)
 "oJO" = (
@@ -25690,13 +25674,13 @@
 /area/ms13/town)
 "roZ" = (
 /obj/structure/closet/ms13/fridge,
+/mob/living/basic/ms13/ghoul/frozen,
 /obj/machinery/light/ms13{
 	dir = 8
 	},
 /obj/effect/spawner/random/ms13/food/random,
 /obj/effect/spawner/random/ms13/food/random,
 /obj/effect/spawner/random/ms13/food/random,
-/mob/living/basic/ms13/ghoul/frozen,
 /turf/open/floor/ms13/tile/brown,
 /area/ms13/supermarket)
 "rpf" = (
@@ -26098,6 +26082,7 @@
 /turf/open/floor/ms13/tile/full/navy,
 /area/ms13/town)
 "rNs" = (
+/mob/living/basic/ms13/robot/handy,
 /obj/machinery/light/ms13/bulb{
 	dir = 1
 	},
@@ -26108,7 +26093,6 @@
 /obj/structure/ms13/storage/shelf{
 	dir = 1
 	},
-/mob/living/basic/ms13/robot/handy,
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "rNG" = (
@@ -26825,8 +26809,8 @@
 /obj/machinery/light/ms13/bulb{
 	dir = 4
 	},
-/obj/effect/spawner/random/ms13/medical/tier1,
 /mob/living/basic/ms13/hostile_animal/radroach,
+/obj/effect/spawner/random/ms13/medical/tier1,
 /turf/open/floor/ms13/tile,
 /area/ms13/town)
 "sKY" = (
@@ -27762,8 +27746,8 @@
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "tYo" = (
-/obj/effect/decal/cleanable/blood/footprints,
 /mob/living/basic/ms13/ghoul,
+/obj/effect/decal/cleanable/blood/footprints,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "tYp" = (
@@ -28602,8 +28586,8 @@
 /turf/open/floor/ms13/tile/full/navy,
 /area/ms13/town)
 "vgQ" = (
-/obj/structure/ms13/storage/vent,
 /mob/living/basic/ms13/hostile_animal/radroach,
+/obj/structure/ms13/storage/vent,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "vii" = (
@@ -28888,8 +28872,8 @@
 /turf/open/floor/ms13/tile/full/navy,
 /area/ms13/town)
 "vDr" = (
-/obj/structure/ms13/storage/washingmachine/industrial,
 /mob/living/basic/ms13/hostile_animal/radroach,
+/obj/structure/ms13/storage/washingmachine/industrial,
 /turf/open/floor/ms13/tile/blue/long,
 /area/ms13/town)
 "vEh" = (
@@ -35464,7 +35448,7 @@ ykZ
 xZD
 ykT
 ykT
-mgP
+xoN
 ykT
 ykT
 tXh
@@ -40462,7 +40446,7 @@ ykT
 ykT
 ykT
 rjl
-dFI
+ykT
 ykT
 ykT
 ykT
@@ -43482,7 +43466,7 @@ xZD
 xZD
 ykT
 ykT
-dFI
+ykT
 ykT
 ykT
 xZD
@@ -45898,7 +45882,7 @@ xZD
 xZD
 ykT
 ykT
-xoN
+rew
 ykT
 ykT
 xZD
@@ -48314,7 +48298,7 @@ xZD
 xZD
 ykT
 ykT
-xoN
+rew
 ykT
 ykT
 xZD
@@ -51636,7 +51620,7 @@ jNx
 aKG
 umf
 umf
-dAD
+dAo
 umf
 umf
 aKG
@@ -54656,7 +54640,7 @@ ylG
 xZD
 ykT
 ykT
-xoN
+rew
 ykT
 ykT
 xZD
@@ -65917,7 +65901,6 @@ aay
 adk
 hTy
 bNj
-hiZ
 xBj
 xBj
 xBj
@@ -65928,7 +65911,8 @@ xBj
 xBj
 xBj
 xBj
-nrf
+xBj
+xBj
 xBj
 xBj
 xBj
@@ -68620,7 +68604,7 @@ xBj
 xBj
 xBj
 xBj
-hiZ
+nrf
 xBj
 xBj
 xBj
@@ -100823,7 +100807,7 @@ ylG
 xZD
 ykT
 ykT
-mgP
+xoN
 ykT
 ykT
 xZD
