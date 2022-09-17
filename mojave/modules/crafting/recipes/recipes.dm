@@ -14,10 +14,10 @@
 /datum/crafting_recipe/lockpick
 	name = "lockpick"
 	result = /obj/item/ms13/lockpick/basic
-	time = 4 SECONDS
-	tool_behaviors = list(TOOL_SAW)
+	time = 6 SECONDS
+	tool_behaviors = list()
 	tool_paths = list()
-	reqs = list(/obj/item/stack/sheet/ms13/scrap_brass = 3)
+	reqs = list(/obj/item/stack/sheet/ms13/scrap = 3)
 	category = CAT_UTILITY
 	crafting_interface = CRAFTING_BENCH_GENERAL
 
@@ -53,6 +53,8 @@
 	reqs = list(/obj/item/stack/sheet/ms13/ceramic = 2)
 	category = CAT_UTILITY
 	crafting_interface = CRAFTING_BENCH_GENERAL
+
+
 
 //SMELTER CRAFTING
 
