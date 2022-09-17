@@ -265,7 +265,7 @@
 		ranged_cooldown = ranged_cooldown_time + world.time
 		update_icons()
 
-/mob/living/simple_animal/hostile/jungle/leaper/Goto(target, delay, minimum_distance)
+/mob/living/simple_animal/hostile/jungle/leaper/Goto()
 	return
 
 /mob/living/simple_animal/hostile/jungle/leaper/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
