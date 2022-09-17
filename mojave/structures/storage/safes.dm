@@ -4,6 +4,7 @@
 	icon = 'mojave/icons/structure/storage.dmi'
 	icon_state = "safe_spinner"
 	flags_1 = LOCKABLE_1
+	maxspace = 2000
 
 /obj/structure/safe/ms13/advanced
 	name = "safe"
