@@ -182,7 +182,7 @@
 	layer = ABOVE_MOB_LAYER
 	max_integrity = 1000
 	damage_deflection = 21
-	flags_1 = ON_BORDER_1 | LOCKABLE
+	flags_1 = ON_BORDER_1 | LOCKABLE_1
 	hitted_sound = 'mojave/sound/ms13effects/metal_door_hit.ogg'
 	flags_1 = ON_BORDER_1
 	var/locked = FALSE
@@ -235,7 +235,7 @@
 	. = ..()
 	if(.)
 		return
-	if(flags_1 & LOCKABLE && lock_locked)
+	if(flags_1 & LOCKABLE_1 && lock_locked)
 		to_chat(user, span_warning("The [name] is locked."))
 		playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
 		return
@@ -466,7 +466,7 @@
 	icon_state = "fence_door_front_closed"
 	density = 1
 	anchored = 1
-	flags_1 = LOCKABLE
+	flags_1 = LOCKABLE_1
 	var/open_sound = 'mojave/sound/ms13machines/doorchainlink_open.ogg'
 	var/close_sound = 'mojave/sound/ms13machines/doorchainlink_close.ogg'
 
@@ -486,7 +486,7 @@
 /obj/structure/fence/fencedoor/attack_hand(mob/user)
 	if(.)
 		return
-	if(flags_1 & LOCKABLE && lock_locked)
+	if(flags_1 & LOCKABLE_1 && lock_locked)
 		to_chat(user, span_warning("The [name] is locked."))
 		playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
 		return
@@ -525,7 +525,7 @@
 	icon_state = "fence_door_side_closed"
 	density = 1
 	anchored = 1
-	flags_1 = LOCKABLE
+	flags_1 = LOCKABLE_1
 	var/open_sound = 'mojave/sound/ms13machines/doorchainlink_open.ogg'
 	var/close_sound = 'mojave/sound/ms13machines/doorchainlink_close.ogg'
 
@@ -541,7 +541,7 @@
 /obj/structure/fence/fencedoorside/attack_hand(mob/user)
 	if(.)
 		return
-	if(flags_1 & LOCKABLE && lock_locked)
+	if(flags_1 & LOCKABLE_1 && lock_locked)
 		to_chat(user, span_warning("The [name] is locked."))
 		playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
 		return

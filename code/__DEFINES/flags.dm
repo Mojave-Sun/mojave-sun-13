@@ -49,19 +49,21 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 /// Is the thing currently spinning?
 #define IS_SPINNING_1 (1<<16)
 #define IS_ONTOP_1 (1<<17)
-#define SUPERMATTER_IGNORES_1 (1<<18)
+//MOJAVE SUN EDIT START - 17/09/2022 - Fix the hardset 23 Flags_1 Bitdefine limit
+#define SUPERMATTER_IGNORES_1 1738 //obviously as a result this dosent work for now, but we dont have supermatters so shouldnt be an issue, and honestly this should be some other flag or variable
 /// If a turf can be made dirty at roundstart. This is also used in areas.
-#define CAN_BE_DIRTY_1 (1<<19)
+#define CAN_BE_DIRTY_1 (1<<18)
 /// Should we use the initial icon for display? Mostly used by overlay only objects
-#define HTML_USE_INITAL_ICON_1 (1<<20)
+#define HTML_USE_INITAL_ICON_1 (1<<19)
 /// Can players recolor this in-game via vendors (and maybe more if support is added)?
-#define IS_PLAYER_COLORABLE_1 (1<<21)
+#define IS_PLAYER_COLORABLE_1 (1<<20)
 // Use when this shouldn't be obscured by large icons. // MOJAVE SUN EDIT
-#define CRITICAL_ATOM_1 (1<<22) // MOJAVE SUN EDIT
+#define CRITICAL_ATOM_1 (1<<21) // MOJAVE SUN EDIT
 /// Whether or not this atom has contextual screentips when hovered OVER
-#define HAS_CONTEXTUAL_SCREENTIPS_1 (1<<23)
+#define HAS_CONTEXTUAL_SCREENTIPS_1 (1<<22)
 // For objects able to be locked, slap this on and it should work, preventing you from interacting
-#define LOCKABLE (1<<24) // MOJAVE SUN EDIT - Locks
+#define LOCKABLE_1 (1<<23) // MOJAVE SUN EDIT - Locks
+//MOJAVE SUN EDIT END
 
 // Update flags for [/atom/proc/update_appearance]
 /// Update the atom's name
