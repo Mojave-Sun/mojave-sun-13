@@ -14,7 +14,7 @@
 
 /obj/item/stack/ms13/currency/Initialize()
 	. = ..()
-	AddElement(/datum/element/item_scaling, 0.40, 1)
+	AddElement(/datum/element/item_scaling, 0.55, 1)
 
 /obj/item/stack/ms13/currency/prewar
 	name = "\improper pre-war dollars"
