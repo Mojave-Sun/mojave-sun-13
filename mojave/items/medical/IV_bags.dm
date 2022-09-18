@@ -8,37 +8,9 @@
 	grid_width = 64
 	grid_height = 32
 	fill_icon_thresholds = list(25, 50, 75, 100)
+	filling_file = 'mojave/icons/objects/medical/iv_fillings.dmi'
 
 	var/mob/living/carbon/human/attached
-
-/obj/item/reagent_containers/update_overlays()
-	. = ..()
-	if(!fill_icon_thresholds)
-		return
-	if(!reagents.total_volume)
-		return
-
-	var/fill_name = fill_icon_state? fill_icon_state : icon_state
-	var/mutable_appearance/filling = mutable_appearance('mojave/icons/objects/medical/iv_fillings.dmi', "[fill_name][fill_icon_thresholds[1]]")
-
-	var/percent = round((reagents.total_volume / volume) * 100)
-	for(var/i in 1 to fill_icon_thresholds.len)
-		var/threshold = fill_icon_thresholds[i]
-		var/threshold_end = (i == fill_icon_thresholds.len)? INFINITY : fill_icon_thresholds[i+1]
-		if(threshold <= percent && percent < threshold_end)
-			filling.icon_state = "[fill_name][fill_icon_thresholds[i]]"
-
-	filling.color = mix_color_from_reagents(reagents.reagent_list)
-	. += filling
-
-
-/obj/item/reagent_containers/blood/ms13/update_icon()
-	. = ..()
-
-	if(attached)
-		icon_state = "iv_empty_injecting"
-	else if(!attached)
-		icon_state = "iv_empty"
 
 /obj/item/reagent_containers/blood/ms13/Destroy()
 	STOP_PROCESSING(SSobj,src)
@@ -51,6 +23,7 @@
 	if(attached)
 		visible_message("\The [attached] is taken off \the [src]")
 		attached = null
+		icon_state = "iv_empty"
 		update_appearance()
 	else
 		field_transfusion(target, usr)
@@ -60,16 +33,14 @@
 		attached = null
 		visible_message("\The [attached] detaches from \the [src]")
 		attached = null
-		update_icon()
-		update_overlays()
+		update_appearance()
 		return PROCESS_KILL
 
 	var/mob/M = loc
 	if(M.held_items[LEFT_HANDS] != src && M.held_items[RIGHT_HANDS] != src)
 		visible_message("\The [attached] detaches from \the [src]")
 		attached = null
-		update_icon()
-		update_overlays()
+		update_appearance()
 		return PROCESS_KILL
 
 	if(!reagents.total_volume)
@@ -85,6 +56,7 @@
 		log_combat(usr, target, "attached", src, "containing: ([reagents.log_list()])")
 		add_fingerprint(usr)
 		attached = target
+		icon_state = "iv_empty_injecting"
 		update_appearance()
 		START_PROCESSING(SSobj, src)
 
