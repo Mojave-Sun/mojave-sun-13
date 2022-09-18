@@ -51,12 +51,8 @@
 	if(!ishuman(usr) || !usr.canUseTopic(src, BE_CLOSE) || !isliving(target))
 		return
 	if(attached)
-		visible_message("The IV needle rips out of \the [attached], leaving an open bleeding wound!")
-		balloon_alert_to_viewers("\The IV needle rips out of \the [src], leaving an open bleeding wound!")
-		var/list/arm_zones = shuffle(list(BODY_ZONE_R_ARM, BODY_ZONE_L_ARM))
-		var/obj/item/bodypart/chosen_limb = attached.get_bodypart(arm_zones[1]) || attached.get_bodypart(arm_zones[2]) || attached.get_bodypart(BODY_ZONE_CHEST)
-		chosen_limb.receive_damage(3)
-		chosen_limb.force_wound_upwards(/datum/wound/pierce/moderate)
+		visible_message("\The [attached] detaches from \the [src]")
+		balloon_alert_to_viewers("\The [attached] is taken off \the [src]")
 		attached = null
 		icon_state = "iv_empty"
 		update_appearance()
@@ -80,15 +76,6 @@
 		update_appearance()
 		return PROCESS_KILL
 
-	var/mob/M = loc
-	if(M.held_items[LEFT_HANDS] != src && M.held_items[RIGHT_HANDS] != src)
-		visible_message("\The [attached] detaches from \the [src]")
-		balloon_alert_to_viewers("\The [attached] is taken off \the [src]")
-		attached = null
-		icon_state = "iv_empty"
-		update_appearance()
-		return PROCESS_KILL
-
 	if(!reagents.total_volume)
 		return
 
@@ -96,6 +83,8 @@
 	reagents.trans_to(attached, 2 * delta_time, methods = INJECT, show_message = FALSE)
 
 /obj/item/reagent_containers/blood/ms13/proc/field_transfusion(mob/living/target, mob/user)
+	if(!usr.Adjacent(target) || !locate(/obj/item/reagent_containers/blood/ms13) in usr.held_items)
+		return
 	loc.visible_message(span_warning("[usr] begins attaching [src] to [target]..."), span_warning("You begin attaching [src] to [target]."))
 	balloon_alert_to_viewers("[usr] begins attaching [src] to [target]...", "You begin attaching [src] to [target].")
 	if(do_after(usr, 1 SECONDS, target))
