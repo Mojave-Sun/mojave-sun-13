@@ -1,7 +1,7 @@
 //Blood//
 
 /obj/item/reagent_containers/blood/ms13
-	icon = 'mojave/icons/objects/medical/medical_world.dmi'
+	icon = 'mojave/icons/objects/medical/medical_inventory.dmi'
 	icon_state = "iv_empty"
 	desc = "A bag for injecting fluids intravenously, it can be hooked to an IV drip or used in the field."
 	w_class = WEIGHT_CLASS_SMALL
@@ -12,34 +12,80 @@
 
 	var/mob/living/carbon/human/attached
 
+/obj/item/reagent_containers/blood/ms13/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/item_scaling, 0.50, 1)
+
 /obj/item/reagent_containers/blood/ms13/Destroy()
 	STOP_PROCESSING(SSobj,src)
 	attached = null
 	. = ..()
 
+/obj/item/reagent_containers/blood/ms13/dropped(mob/user, silent)
+	. = ..()
+	if(attached)
+		visible_message("The IV needle rips out of \the [attached], leaving an open bleeding wound!")
+		balloon_alert_to_viewers("\The IV needle rips out of \the [src], leaving an open bleeding wound!")
+		var/list/arm_zones = shuffle(list(BODY_ZONE_R_ARM, BODY_ZONE_L_ARM))
+		var/obj/item/bodypart/chosen_limb = attached.get_bodypart(arm_zones[1]) || attached.get_bodypart(arm_zones[2]) || attached.get_bodypart(BODY_ZONE_CHEST)
+		chosen_limb.receive_damage(3)
+		chosen_limb.force_wound_upwards(/datum/wound/pierce/moderate)
+		attached = null
+		icon_state = "iv_empty"
+		update_appearance()
+
+/obj/item/reagent_containers/blood/ms13/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
+	. = ..()
+	if(attached)
+		visible_message("The IV needle rips out of \the [attached], leaving an open bleeding wound!")
+		balloon_alert_to_viewers("\The IV needle rips out of \the [src], leaving an open bleeding wound!")
+		var/list/arm_zones = shuffle(list(BODY_ZONE_R_ARM, BODY_ZONE_L_ARM))
+		var/obj/item/bodypart/chosen_limb = attached.get_bodypart(arm_zones[1]) || attached.get_bodypart(arm_zones[2]) || attached.get_bodypart(BODY_ZONE_CHEST)
+		chosen_limb.receive_damage(3)
+		chosen_limb.force_wound_upwards(/datum/wound/pierce/moderate)
+		attached = null
+		icon_state = "iv_empty"
+		update_appearance()
+
 /obj/item/reagent_containers/blood/ms13/MouseDrop(mob/living/target)
 	if(!ishuman(usr) || !usr.canUseTopic(src, BE_CLOSE) || !isliving(target))
 		return
 	if(attached)
-		visible_message("\The [attached] is taken off \the [src]")
+		visible_message("The IV needle rips out of \the [attached], leaving an open bleeding wound!")
+		balloon_alert_to_viewers("\The IV needle rips out of \the [src], leaving an open bleeding wound!")
+		var/list/arm_zones = shuffle(list(BODY_ZONE_R_ARM, BODY_ZONE_L_ARM))
+		var/obj/item/bodypart/chosen_limb = attached.get_bodypart(arm_zones[1]) || attached.get_bodypart(arm_zones[2]) || attached.get_bodypart(BODY_ZONE_CHEST)
+		chosen_limb.receive_damage(3)
+		chosen_limb.force_wound_upwards(/datum/wound/pierce/moderate)
 		attached = null
 		icon_state = "iv_empty"
 		update_appearance()
+		return
 	else
 		field_transfusion(target, usr)
 
 /obj/item/reagent_containers/blood/ms13/process(delta_time)
-	if(!(get_dist(src, attached) <= 1 && isturf(attached.loc)))
+	if(!attached)
+		return PROCESS_KILL
+
+	if(!(get_dist(src, attached) <= 1 && isturf(attached.loc)) && attached)
+		visible_message("The IV needle rips out of \the [attached], leaving an open bleeding wound!")
+		balloon_alert_to_viewers("\The IV needle rips out of \the [src], leaving an open bleeding wound!")
+		var/list/arm_zones = shuffle(list(BODY_ZONE_R_ARM, BODY_ZONE_L_ARM))
+		var/obj/item/bodypart/chosen_limb = attached.get_bodypart(arm_zones[1]) || attached.get_bodypart(arm_zones[2]) || attached.get_bodypart(BODY_ZONE_CHEST)
+		chosen_limb.receive_damage(3)
+		chosen_limb.force_wound_upwards(/datum/wound/pierce/moderate)
 		attached = null
-		visible_message("\The [attached] detaches from \the [src]")
-		attached = null
+		icon_state = "iv_empty"
 		update_appearance()
 		return PROCESS_KILL
 
 	var/mob/M = loc
 	if(M.held_items[LEFT_HANDS] != src && M.held_items[RIGHT_HANDS] != src)
 		visible_message("\The [attached] detaches from \the [src]")
+		balloon_alert_to_viewers("\The [attached] is taken off \the [src]")
 		attached = null
+		icon_state = "iv_empty"
 		update_appearance()
 		return PROCESS_KILL
 
@@ -51,18 +97,16 @@
 
 /obj/item/reagent_containers/blood/ms13/proc/field_transfusion(mob/living/target, mob/user)
 	loc.visible_message(span_warning("[usr] begins attaching [src] to [target]..."), span_warning("You begin attaching [src] to [target]."))
+	balloon_alert_to_viewers("[usr] begins attaching [src] to [target]...", "You begin attaching [src] to [target].")
 	if(do_after(usr, 1 SECONDS, target))
 		usr.visible_message(span_warning("[usr] attaches [src] to [target]."), span_notice("You attach [src] to [target]."))
+		balloon_alert_to_viewers("[usr] attaches [src] to [target].", "You attach [src] to [target].")
 		log_combat(usr, target, "attached", src, "containing: ([reagents.log_list()])")
 		add_fingerprint(usr)
 		attached = target
 		icon_state = "iv_empty_injecting"
 		update_appearance()
 		START_PROCESSING(SSobj, src)
-
-/obj/item/reagent_containers/blood/ms13/Initialize()
-	. = ..()
-	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/medical/medical_inventory.dmi')
 
 /obj/item/reagent_containers/blood/ms13/a_plus
 	blood_type = "A+"
