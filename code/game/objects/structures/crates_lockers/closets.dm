@@ -77,10 +77,10 @@
 	PopulateContents()
 	if(QDELETED(src)) //It turns out populate contents has a 1 in 100 chance of qdeling src on /obj/structure/closet/emcloset
 		return //Why
-	var/static/list/loc_connections = list(
+	/*var/static/list/loc_connections = list( // MOJAVE SUN EDIT BEGIN - Commented out!
 		COMSIG_CARBON_DISARM_COLLIDE = .proc/locker_carbon,
 	)
-	AddElement(/datum/element/connect_loc, loc_connections)
+	AddElement(/datum/element/connect_loc, loc_connections)*/ // MOJAVE SUN EDIT END
 
 //USE THIS TO FILL IT, NOT INITIALIZE OR NEW
 /obj/structure/closet/proc/PopulateContents()
@@ -703,7 +703,8 @@
 /obj/structure/closet/return_temperature()
 	return
 
-/obj/structure/closet/proc/locker_carbon(datum/source, mob/living/carbon/shover, mob/living/carbon/target, shove_blocked)
+// MOJAVE SUN EDIT BEGIN - Comment thisss SHIITTT out
+/*/obj/structure/closet/proc/locker_carbon(datum/source, mob/living/carbon/shover, mob/living/carbon/target, shove_blocked)
 	SIGNAL_HANDLER
 	if(!opened && (locked || welded)) //Yes this could be less code, no I don't care
 		return
@@ -721,6 +722,7 @@
 		span_userdanger("You're shoved into \the [src] by [target.name]!"), span_hear("You hear aggressive shuffling followed by a loud thud!"), COMBAT_MESSAGE_RANGE, src)
 	to_chat(src, span_danger("You shove [target.name] into \the [src]!"))
 	log_combat(src, target, "shoved", "into [src] (locker/crate)")
-	return COMSIG_CARBON_SHOVE_HANDLED
+	return COMSIG_CARBON_SHOVE_HANDLED*/
+// MOJAVE SUN EDIT END
 
 #undef LOCKER_FULL
