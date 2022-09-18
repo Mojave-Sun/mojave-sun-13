@@ -468,7 +468,7 @@
 	icon = 'mojave/icons/structure/miscellaneous.dmi'
 	icon_state = "pot_1"
 	max_integrity = 50
-	density = TRUE
+	density = FALSE
 	anchored = TRUE
 
 /obj/structure/ms13/pot/deconstruct(disassembled = TRUE)
