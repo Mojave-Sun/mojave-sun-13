@@ -5585,10 +5585,12 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "avw" = (
-/obj/item/trash/energybar,
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/floor/ms13/tile/full/navy,
-/area/ms13/town)
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
+/obj/machinery/light/ms13{
+	dir = 8
+	},
+/turf/open/floor/ms13/metal,
+/area/ms13/underground/tunnel/maintenance)
 "avy" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/table/ms13/no_smooth/large/wood/stand{
@@ -7897,12 +7899,11 @@
 /turf/open/floor/ms13/tile/blue/long,
 /area/ms13/town)
 "aEs" = (
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
-/obj/machinery/light/ms13{
-	dir = 8
-	},
-/turf/open/floor/ms13/metal,
-/area/ms13/underground/tunnel/maintenance)
+/obj/structure/table/ms13/low_wall/brick/alt,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/spawner/random/ms13/gun/tier3,
+/turf/open/floor/wood/ms13/common,
+/area/ms13/town)
 "aEt" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/effect/spawner/random/ms13/crafting/lowrandom,
@@ -10581,11 +10582,8 @@
 /area/ms13/underground/bos)
 "aPj" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/machinery/door/unpowered/ms13/seethrough/mirrored/metal{
-	dir = 8
-	},
-/obj/effect/spawner/random/ms13/locked/random/lowchance,
-/turf/open/floor/wood/ms13/common,
+/obj/effect/spawner/random/ms13/armor/headgear,
+/turf/open/floor/wood/ms13/fancy,
 /area/ms13/town)
 "aPk" = (
 /obj/structure/table/ms13/metal,
@@ -11350,6 +11348,15 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/tunnel/maintenance)
+"aSg" = (
+/obj/structure/toilet,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/spawner/random/ms13/medical/lowrandom,
+/obj/effect/spawner/random/ms13/medical/lowrandom,
+/obj/effect/spawner/random/ms13/medical/lowrandom,
+/obj/structure/closet/ms13/wall/firstaid,
+/turf/open/floor/ms13/tile/brown,
+/area/ms13/town)
 "aSh" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/item/ms13/brick,
@@ -14537,8 +14544,8 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13)
 "dOl" = (
-/obj/effect/spawner/random/ms13/melee/tier1,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/spawner/random/ms13/melee/lowrandom,
 /turf/open/floor/wood/ms13/fancy,
 /area/ms13/town)
 "dOP" = (
@@ -16273,6 +16280,11 @@
 /obj/structure/table/rolling/ms13,
 /obj/effect/spawner/random/ms13/medical/lowrandom,
 /turf/open/floor/wood/ms13/common,
+/area/ms13/town)
+"ihR" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/spawner/random/ms13/armor/lowrandom,
+/turf/open/floor/wood/ms13/fancy,
 /area/ms13/town)
 "iiT" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -18464,8 +18476,11 @@
 /area/ms13/town)
 "ngz" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/effect/spawner/random/ms13/medical/lowrandom,
-/turf/open/floor/ms13/tile/brown,
+/obj/machinery/door/unpowered/ms13/seethrough/mirrored/metal{
+	dir = 8
+	},
+/obj/effect/spawner/random/ms13/locked/random/lowchance,
+/turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "nhy" = (
 /obj/structure/ms13/storage/large/shelf{
@@ -18495,6 +18510,9 @@
 /obj/machinery/door/unpowered/ms13/wood,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/effect/spawner/random/ms13/locked/random/lowchance,
+/obj/structure/ms13/barricade{
+	dir = 1
+	},
 /turf/open/floor/wood/ms13/fancy,
 /area/ms13/town)
 "njd" = (
@@ -18912,6 +18930,7 @@
 /obj/structure/table/ms13/no_smooth/wood/stand,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/effect/decal/cleanable/glass,
+/obj/item/radio/ms13/ham/receiver/radioking,
 /turf/open/floor/wood/ms13/fancy,
 /area/ms13/town)
 "okm" = (
@@ -19750,7 +19769,6 @@
 /obj/structure/table/ms13/no_smooth/counter/wood{
 	dir = 1
 	},
-/obj/item/radio/ms13/ham/receiver/radioking,
 /obj/machinery/light/ms13,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/fancy,
@@ -22607,6 +22625,7 @@
 /obj/structure/table/ms13/no_smooth/wood/low,
 /obj/structure/ms13/storage/vent,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/spawner/random/ms13/clothing/backpack,
 /turf/open/floor/wood/ms13/fancy,
 /area/ms13/town)
 "xvJ" = (
@@ -46996,7 +47015,7 @@ aLH
 aLH
 aXy
 aXy
-aPj
+ngz
 aXy
 aXy
 aXy
@@ -52110,7 +52129,7 @@ aLH
 aLH
 aLH
 aCj
-fGL
+aSg
 bZV
 aVz
 aCj
@@ -52414,7 +52433,7 @@ aLH
 aCj
 aDb
 aVz
-ngz
+aVz
 aCj
 atE
 ahd
@@ -53018,7 +53037,7 @@ aLH
 aCj
 xuU
 anJ
-anJ
+ihR
 mXv
 aCj
 kmP
@@ -54525,7 +54544,7 @@ aLH
 aLH
 aLH
 aCj
-anJ
+aPj
 mtR
 aHe
 aiS
@@ -54826,7 +54845,7 @@ aLH
 aLH
 aLH
 aLH
-aok
+aEs
 jvB
 wjS
 ctp
@@ -55735,7 +55754,7 @@ aLH
 aLH
 aCj
 mEJ
-anJ
+dZh
 qiK
 oxO
 aCj
@@ -62408,7 +62427,7 @@ aLH
 aCj
 aWI
 aPC
-avw
+aPC
 aPC
 aDB
 aCj
@@ -78897,7 +78916,7 @@ aSR
 aSR
 ajq
 ajq
-aEs
+avw
 ajq
 aaA
 aaA
