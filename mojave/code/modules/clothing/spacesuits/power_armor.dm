@@ -27,6 +27,8 @@
 	AddElement(/datum/element/radiation_protected_clothing)
 	AddComponent(/datum/component/clothing_fov_visor, FOV_180_DEGREES)
 
+/obj/item/radio/headset/ms13/
+	force_superspace = TRUE // ignore tcoms and zlevels
 /obj/item/radio/headset/ms13/powerarmor
 	name = "integrated power armor headset"
 	actions_types = list(/datum/action/item_action/toggle_radio)
@@ -83,6 +85,7 @@
 	var/mob/listeningTo
 	clothing_traits = list(TRAIT_SILENT_FOOTSTEPS) //No playing regular footsteps over power armor footsteps
 	item_flags = NO_PIXEL_RANDOM_DROP
+	flags_1 = LOCKABLE_1
 	clothing_flags = LARGE_WORN_ICON | STOPSPRESSUREDAMAGE | THICKMATERIAL | SNUG_FIT | BLOCKS_SHOVE_KNOCKDOWN
 	slowdown = 1.35
 
@@ -173,6 +176,12 @@
 
 //Let's get into the power armor (or not)
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/AltClick(mob/living/carbon/human/user)
+	if(.)
+		return
+	if(flags_1 & LOCKABLE_1 && lock_locked)
+		to_chat(user, span_warning("The [name] is locked."))
+		playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
+		return
 	if(!istype(user))
 		return FALSE
 	else

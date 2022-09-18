@@ -239,6 +239,22 @@
 	var/no_damage = TRUE
 	if(take_damage(attacking_item.force, attacking_item.damtype, MELEE, 1))
 		no_damage = FALSE
+
+	//MOJAVE SUN EDIT START - Hit Sounds //essentially means both the weapon and structures sounds are played when hit, more realistic
+	if(isstructure(src) || ismachinery(src))
+		if(attacking_item.hitsound)
+			playsound(src, attacking_item.hitsound, attacking_item.get_clamped_volume(), TRUE, extrarange = attacking_item.stealthy_audio ? SILENCED_SOUND_EXTRARANGE : -1, falloff_distance = 0)
+		else if(!(attacking_item.hitsound))
+			switch(attacking_item.damtype)
+				if(BRUTE)
+					if(attacking_item.force > 10)
+						playsound(src, 'sound/weapons/smash.ogg', attacking_item.get_clamped_volume(), TRUE, extrarange = attacking_item.stealthy_audio ? SILENCED_SOUND_EXTRARANGE : -1, falloff_distance = 0)
+					else
+						playsound(src, 'sound/weapons/tap.ogg', attacking_item.get_clamped_volume(), TRUE, extrarange = attacking_item.stealthy_audio ? SILENCED_SOUND_EXTRARANGE : -1, falloff_distance = 0)
+				if(BURN)
+					playsound(src.loc, 'sound/items/welder.ogg', attacking_item.get_clamped_volume(), TRUE, extrarange = attacking_item.stealthy_audio ? SILENCED_SOUND_EXTRARANGE : -1, falloff_distance = 0)
+	//MOJAVE SUN EDIT END - Hit Sounds
+
 	//only witnesses close by and the victim see a hit message.
 	log_combat(user, src, "attacked", attacking_item)
 	user.visible_message(span_danger("[user] hits [src] with [attacking_item][no_damage ? ", which doesn't leave a mark" : ""]!"), \
@@ -283,7 +299,7 @@
  */
 /obj/item/proc/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	SEND_SIGNAL(src, COMSIG_ITEM_AFTERATTACK, target, user, proximity_flag, click_parameters)
-	SEND_SIGNAL(user, COMSIG_MOB_ITEM_AFTERATTACK, target, user, proximity_flag, click_parameters)
+	SEND_SIGNAL(user, COMSIG_MOB_ITEM_AFTERATTACK, target, src, proximity_flag, click_parameters)
 
 /**
  * Called at the end of the attack chain if the user right-clicked.
@@ -296,7 +312,7 @@
  */
 /obj/item/proc/afterattack_secondary(atom/target, mob/user, proximity_flag, click_parameters)
 	var/signal_result = SEND_SIGNAL(src, COMSIG_ITEM_AFTERATTACK_SECONDARY, target, user, proximity_flag, click_parameters)
-	SEND_SIGNAL(user, COMSIG_MOB_ITEM_AFTERATTACK, target, user, proximity_flag, click_parameters)
+	SEND_SIGNAL(user, COMSIG_MOB_ITEM_AFTERATTACK_SECONDARY, target, src, proximity_flag, click_parameters)
 
 	if(signal_result & COMPONENT_SECONDARY_CANCEL_ATTACK_CHAIN)
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN

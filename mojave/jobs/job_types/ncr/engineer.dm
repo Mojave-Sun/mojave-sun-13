@@ -13,12 +13,13 @@
 	name = "_NCR Engineer"
 	jobtype = /datum/job/ms13/ncr/engineer
 	id = 		 /obj/item/card/id/ms13/ncr/engineer
-	head =       /obj/item/clothing/head/helmet/ms13/ncr/engineer
+	head =       /obj/item/clothing/head/helmet/ms13/ncr //Temporarily don't get the proper NCR engineer helmet until we fix it with FOV - Hekzder
 	suit =       /obj/item/clothing/suit/armor/ms13/ncr
 	suit_store = /obj/item/gun/ballistic/automatic/pistol/ms13/m9mm
 	belt =		 /obj/item/weldingtool/ms13
 	r_pocket =   /obj/item/ammo_box/magazine/ms13/m9mm
 	l_pocket =	 /obj/item/knife/ms13/hunting
+	r_hand =     /obj/item/clothing/glasses/ms13/welding
 	backpack_contents = list(
 		/obj/item/ammo_box/magazine/ms13/m9mm=1, \
 		/obj/item/wrench/ms13=1, \

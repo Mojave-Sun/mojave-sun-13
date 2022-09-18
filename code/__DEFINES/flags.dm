@@ -49,17 +49,21 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 /// Is the thing currently spinning?
 #define IS_SPINNING_1 (1<<16)
 #define IS_ONTOP_1 (1<<17)
-#define SUPERMATTER_IGNORES_1 (1<<18)
+//MOJAVE SUN EDIT START - 17/09/2022 - Fix the hardset 23 Flags_1 Bitdefine limit
+#define SUPERMATTER_IGNORES_1 1738 //obviously as a result this dosent work for now, but we dont have supermatters so shouldnt be an issue, and honestly this should be some other flag or variable
 /// If a turf can be made dirty at roundstart. This is also used in areas.
-#define CAN_BE_DIRTY_1 (1<<19)
+#define CAN_BE_DIRTY_1 (1<<18)
 /// Should we use the initial icon for display? Mostly used by overlay only objects
-#define HTML_USE_INITAL_ICON_1 (1<<20)
+#define HTML_USE_INITAL_ICON_1 (1<<19)
 /// Can players recolor this in-game via vendors (and maybe more if support is added)?
-#define IS_PLAYER_COLORABLE_1 (1<<21)
+#define IS_PLAYER_COLORABLE_1 (1<<20)
 // Use when this shouldn't be obscured by large icons. // MOJAVE SUN EDIT
-#define CRITICAL_ATOM_1 (1<<22) // MOJAVE SUN EDIT
+#define CRITICAL_ATOM_1 (1<<21) // MOJAVE SUN EDIT
 /// Whether or not this atom has contextual screentips when hovered OVER
-#define HAS_CONTEXTUAL_SCREENTIPS_1 (1<<23)
+#define HAS_CONTEXTUAL_SCREENTIPS_1 (1<<22)
+// For objects able to be locked, slap this on and it should work, preventing you from interacting
+#define LOCKABLE_1 (1<<23) // MOJAVE SUN EDIT - Locks
+//MOJAVE SUN EDIT END
 
 // Update flags for [/atom/proc/update_appearance]
 /// Update the atom's name
@@ -260,3 +264,21 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 /// 33554431 (2^24 - 1) is the maximum value our bitflags can reach.
 #define MAX_BITFLAG_DIGITS 8
 
+// timed_action_flags parameter for `/proc/do_after_mob`, `/proc/do_mob` and `/proc/do_after`
+/// Can do the action even if mob moves location
+#define IGNORE_USER_LOC_CHANGE (1<<0)
+/// Can do the action even if the target moves location
+#define IGNORE_TARGET_LOC_CHANGE (1<<1)
+/// Can do the action even if the item is no longer being held
+#define IGNORE_HELD_ITEM (1<<2)
+/// Can do the action even if the mob is incapacitated (ex. handcuffed)
+#define IGNORE_INCAPACITATED (1<<3)
+/// Used to prevent important slowdowns from being abused by drugs like kronkaine
+#define IGNORE_SLOWDOWNS (1<<4)
+
+
+// Spacevine-related flags
+/// Is the spacevine / flower bud heat resistant
+#define SPACEVINE_HEAT_RESISTANT (1 << 0)
+/// Is the spacevine / flower bud cold resistant
+#define SPACEVINE_COLD_RESISTANT (1 << 1)
