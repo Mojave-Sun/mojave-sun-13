@@ -76,7 +76,7 @@ FLOOR SAFES
 	if(istype(attacking_item, /obj/item/clothing/neck/stethoscope))
 		attack_hand(user)
 		return
-		. = ..() //MOJAVE SUN EDIT - Lockpicking
+	. = ..() //MOJAVE SUN EDIT - Lockpicking
 
 /obj/structure/safe/blob_act(obj/structure/blob/B)
 	return

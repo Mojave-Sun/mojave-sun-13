@@ -1,6 +1,6 @@
 /obj/item/organ
 	name = "organ"
-	icon = 'icons/obj/surgery.dmi'
+	icon = 'mojave/icons/objects/organs/organs_world.dmi' // MOJAVE SUN EDIT - ORIGINAL IS icon = 'icons/obj/surgery.dmi'
 	var/mob/living/carbon/owner = null
 	var/status = ORGAN_ORGANIC
 	w_class = WEIGHT_CLASS_SMALL
@@ -44,6 +44,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 
 /obj/item/organ/Initialize(mapload)
 	. = ..()
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/organs/organs_inventory.dmi') // MOJAVE SUN EDIT
 	START_PROCESSING(SSobj, src)
 	if(organ_flags & ORGAN_EDIBLE)
 		AddComponent(/datum/component/edible,\

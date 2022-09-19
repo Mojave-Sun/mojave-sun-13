@@ -21,6 +21,20 @@
 	pixel_y = 10
 	materialtype = /obj/item/stack/sheet/ms13/scrap
 
+/obj/structure/ms13/storage/trashcan/CanAllowThrough(atom/movable/mover, turf/target)
+	. = ..()
+	if(locate(/obj/structure/ms13/storage/trashcan) in get_turf(mover))
+		return TRUE
+	else if(istype(mover, /obj/projectile))
+		if(!anchored)
+			return TRUE
+		var/obj/projectile/proj = mover
+		if(proj.firer && Adjacent(proj.firer))
+			return TRUE
+		if(prob(75))
+			return TRUE
+		return FALSE
+
 /obj/structure/ms13/storage/trashcan/Initialize()
 	. = ..()
 	if(prob(25))
@@ -29,7 +43,7 @@
 
 //signs/flags//
 
-/obj/structure/fluff/ms13/
+/obj/structure/fluff/ms13
 	name = "fluff ms13 basetype"
 	desc = "CALL A CODER. CALL A CODER. But not for me. :reachforthesky:"
 	icon = 'mojave/icons/structure/64x64_misc.dmi'
@@ -156,7 +170,15 @@
 	anchored = TRUE // If they're to be unanchored, you might as well make them toppleable. Go ahead, codersprite it...
 	pixel_y = 12
 	opacity = TRUE
+	density = TRUE
 
+/obj/structure/ms13/medical_curtain/CanAllowThrough(atom/movable/mover, turf/target)
+	. = ..()
+	if(locate(/obj/structure/ms13/medical_curtain) in get_turf(mover))
+		return TRUE
+	else if(istype(mover, /obj/projectile))
+		if(!anchored)
+			return TRUE
 
 // Skeletons //
 
@@ -191,6 +213,20 @@
 	. = ..()
 	if(!unique)
 		icon_state = "[icon_type]_[rand(1, amount)]"
+
+/obj/structure/fluff/ms13/barrel/CanAllowThrough(atom/movable/mover, turf/target)
+	. = ..()
+	if(locate(/obj/structure/fluff/ms13/barrel) in get_turf(mover))
+		return TRUE
+	else if(istype(mover, /obj/projectile))
+		if(!anchored)
+			return TRUE
+		var/obj/projectile/proj = mover
+		if(proj.firer && Adjacent(proj.firer))
+			return TRUE
+		if(prob(65))
+			return TRUE
+		return FALSE
 
 /obj/structure/fluff/ms13/barrel/single
 
