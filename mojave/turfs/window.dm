@@ -2,13 +2,13 @@
 	name = "base class window"
 	desc = "Scream at the coders"
 	smoothing_flags = SMOOTH_BITMASK
-	plane = GAME_PLANE_FOV_HIDDEN
-	layer = ABOVE_OBJ_LAYER
+	layer = ABOVE_ALL_MOB_LAYER
+	plane = ABOVE_GAME_PLANE
 	damage_deflection = 10
 	glass_type = /obj/item/stack/sheet/ms13/glass
 	glass_amount = 1
 	break_sound = 'mojave/sound/ms13effects/glass_break.ogg'
-	hit_sound = 'mojave/sound/ms13effects/glass_hit.ogg'
+	hitted_sound = 'mojave/sound/ms13effects/glass_hit.ogg'
 	knock_sound = 'mojave/sound/ms13effects/glass_knock.ogg'
 
 /obj/structure/window/fulltile/ms13/spawnDebris(location)
@@ -30,7 +30,8 @@
 	name = "base class reinforced window"
 	desc = "Scream at the coders"
 	smoothing_flags = SMOOTH_BITMASK
-	layer = ABOVE_OBJ_LAYER
+	layer = ABOVE_ALL_MOB_LAYER
+	plane = ABOVE_GAME_PLANE
 	max_integrity = 300
 	damage_deflection = 16 //This basically means it blocks 15 damage weapons and weaker
 	glass_type = /obj/item/stack/sheet/ms13/glass

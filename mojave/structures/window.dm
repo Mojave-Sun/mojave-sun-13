@@ -32,7 +32,6 @@
 		AddElement(/datum/element/connect_loc, loc_connections)
 	if(dir == SOUTH)
 		layer = ABOVE_ALL_MOB_LAYER
-		plane = GAME_PLANE_FOV_HIDDEN
 
 /obj/structure/ms13/frame/update_overlays()
 	. = ..()
@@ -128,14 +127,13 @@
 	name = "base MS13 window pane"
 	desc = "A window."
 	icon = 'mojave/icons/structure/windows/panes.dmi'
-	plane = GAME_PLANE_FOV_HIDDEN
 	layer = ABOVE_ALL_MOB_LAYER
 	max_integrity = 35
 	damage_deflection = 5
 	glass_type = /obj/item/stack/sheet/ms13/glass
 	glass_amount = 1
 	break_sound = 'mojave/sound/ms13effects/glass_break.ogg'
-	hit_sound = 'mojave/sound/ms13effects/glass_hit.ogg'
+	hitted_sound = 'mojave/sound/ms13effects/glass_hit.ogg'
 	knock_sound = 'mojave/sound/ms13effects/glass_knock.ogg'
 	var/has_crack_overlay = TRUE
 	var/crack_overlay_type = "basic"

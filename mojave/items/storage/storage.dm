@@ -14,6 +14,7 @@
 	component_type = /datum/component/storage/concrete/ms13/firstaid
 	grid_height = 64
 	grid_width = 64
+	flags_1 = LOCKABLE_1
 
 /obj/item/storage/firstaid/ms13/Initialize()
 	. = ..()
@@ -28,7 +29,8 @@
 	STR.set_holdable(list(
 		/obj/item/reagent_containers/hypospray,
 		/obj/item/stack/medical,
-		/obj/item/stack/sticky_tape/surgical
+		/obj/item/stack/sticky_tape/surgical,
+		/obj/item/reagent_containers/blood/ms13
 		))
 
 /obj/item/storage/firstaid/ms13/regular
@@ -62,6 +64,7 @@
 	component_type = /datum/component/storage/concrete/ms13/d_bag
 	grid_height = 64
 	grid_width = 96
+	flags_1 = LOCKABLE_1
 
 /obj/item/storage/firstaid/ms13/bag/ComponentInitialize()
 	. = ..()

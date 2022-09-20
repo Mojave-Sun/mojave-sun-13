@@ -8,6 +8,9 @@
 	max_integrity = 300
 	anchored = TRUE
 
+/obj/structure/closet/crate/ms13/verb_toggleopen()
+	return
+
 /obj/structure/closet/crate/ms13/woodcrate
 	name = "\improper wooden crate"
 	desc = "A wood storage crate, robust and study to all except a crowbar."

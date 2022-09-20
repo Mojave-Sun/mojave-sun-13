@@ -9,11 +9,33 @@
 	layer = 4.5
 	closingLayer = CLOSED_DOOR_LAYER
 	hackProof = TRUE
+	flags_1 = LOCKABLE_1
 	assemblytype = /obj/item/stack/sheet/ms13/scrap/two
 	resistance_flags = INDESTRUCTIBLE
 
 /obj/machinery/door/airlock/ms13/Bumped(atom/movable/AM)
 	return
+
+//TEMP AIRLOCK LOCKING (will be replaced by hacking)
+/obj/machinery/door/airlock/ms13/attackby(obj/item/I, mob/living/M, params)
+	. = ..()
+	if(locked && !(M.combat_mode))
+		to_chat(M, "<span class='warning'> The [name] is locked.</span>")
+		playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
+		return
+
+/obj/machinery/door/airlock/ms13/attack_hand(mob/living/M)
+	if(locked)
+		to_chat(M, "<span class='warning'> The [name] is locked.</span>")
+		playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
+		return
+	if(.)
+		return
+	if(flags_1 & LOCKABLE_1 && lock_locked)
+		to_chat(M, span_warning("The [name] is locked."))
+		playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
+		return
+	. = ..()
 
 //// Town Doors ////
 

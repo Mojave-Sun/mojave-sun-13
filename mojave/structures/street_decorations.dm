@@ -5,7 +5,8 @@
 	icon_state = "streetlight"
 	anchored = TRUE
 	density = TRUE
-	layer = BELOW_OBJ_LAYER
+	layer = ABOVE_ALL_MOB_LAYER
+	plane = ABOVE_GAME_PLANE
 	max_integrity = 2000
 	pixel_x = -32
 	pixel_y = 8
@@ -13,7 +14,7 @@
 
 /obj/machinery/power/ms13/streetlamp/Initialize()
 	. = ..()
-	AddComponent(/datum/component/largetransparency, 1, 1, 1, 1)
+	//AddComponent(/datum/component/largetransparency, 1, 1, 1, 1) // Busted right now. After the first time it turns the icon transparent, the entire icon's dimensions block mouse clicks.
 
 /obj/machinery/power/ms13/streetlamp/CanAllowThrough(atom/movable/mover, turf/target)
 	. = ..()
@@ -65,12 +66,12 @@
 	icon = 'mojave/icons/structure/street_signs.dmi'
 	anchored = TRUE
 	density = TRUE
-	layer = LOW_ITEM_LAYER
+	layer = ABOVE_MOB_LAYER
 	max_integrity = 500 // Hardy but not immortal
 
 /obj/structure/ms13/street_sign/Initialize()
 	. = ..()
-	AddComponent(/datum/component/largetransparency, 1, 1, 1, 1)
+	//AddComponent(/datum/component/largetransparency, 1, 1, 1, 1) // Busted right now. After the first time it turns the icon transparent, the entire icon's dimensions block mouse clicks.
 	register_context()
 
 /obj/structure/ms13/street_sign/CanAllowThrough(atom/movable/mover, turf/target)

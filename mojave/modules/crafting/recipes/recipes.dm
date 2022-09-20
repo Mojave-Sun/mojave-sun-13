@@ -11,6 +11,16 @@
 
 //UTILITY ITEM CRAFTING
 
+/datum/crafting_recipe/lockpick
+	name = "lockpick"
+	result = /obj/item/ms13/lockpick/basic
+	time = 6 SECONDS
+	tool_behaviors = list()
+	tool_paths = list()
+	reqs = list(/obj/item/stack/sheet/ms13/scrap = 3)
+	category = CAT_UTILITY
+	crafting_interface = CRAFTING_BENCH_GENERAL
+
 /datum/crafting_recipe/fishing_rod
 	name = "wooden fishing rod"
 	result = /obj/item/ms13/tools/fishing_rod/basic
@@ -43,6 +53,8 @@
 	reqs = list(/obj/item/stack/sheet/ms13/ceramic = 2)
 	category = CAT_UTILITY
 	crafting_interface = CRAFTING_BENCH_GENERAL
+
+
 
 //SMELTER CRAFTING
 

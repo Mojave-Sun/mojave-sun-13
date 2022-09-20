@@ -54,6 +54,7 @@
 
 /obj/item/reagent_containers/hypospray/medipen/ms13/stimpak/super
 	name = "super stimpak"
+	desc = "A stimpak augmented with an additional vial of chemicals and a belt to strap it to the point of injection."
 	icon_state = "superstim"
 	inhand_icon_state = "superstim"
 	list_reagents = list(/datum/reagent/ms13/medicine/stimpak_fluid/super = 10)
