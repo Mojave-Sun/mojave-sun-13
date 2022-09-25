@@ -1,3 +1,5 @@
+// GOMBLE TODO Planes
+
 /atom/movable/screen/plane_master
 	screen_loc = "CENTER"
 	icon_state = "blank"
@@ -38,25 +40,16 @@
 	blend_mode = BLEND_MULTIPLY
 	alpha = 255
 
-//MOJAVE SUN EDIT - Depth Blur & Fixes//
 /atom/movable/screen/plane_master/openspace
 	name = "open space plane master"
 	plane = OPENSPACE_PLANE
 	appearance_flags = PLANE_MASTER
-	blend_mode = BLEND_OVERLAY
-	alpha = 255
 
-/atom/movable/screen/plane_master/openspace/Initialize(mapload) //Increase this if making map larger than 7 Zs
+/atom/movable/screen/plane_master/openspace/Initialize(mapload)
 	. = ..()
-	add_filter("z_level_blur", 1, list(type = "blur", size = 0.75))
-	add_filter("first_stage_openspace", 2, drop_shadow_filter(color = "#04080FAA", size = -10))
-	add_filter("second_stage_openspace", 3, drop_shadow_filter(color = "#04080FAA", size = -15))
-	add_filter("third_stage_openspace", 4, drop_shadow_filter(color = "#04080FAA", size = -20))
-	add_filter("fourth_stage_openspace", 5, drop_shadow_filter(color = "#04080FAA", size = -25))
-	add_filter("fifth_stage_openspace", 6, drop_shadow_filter(color = "#04080FAA", size = -30))
-	add_filter("sixth_stage_openspace", 7, drop_shadow_filter(color = "#04080FAA", size = -35))
-	add_filter("seventh_stage_openspace", 8, drop_shadow_filter(color = "#04080FAA", size = -40))
-//MOJAVE SUN EDIT END - Depth Blur & Fixes
+	add_filter("first_stage_openspace", 1, drop_shadow_filter(color = "#04080FAA", size = -10))
+	add_filter("second_stage_openspace", 2, drop_shadow_filter(color = "#04080FAA", size = -15))
+	add_filter("third_stage_openspace", 3, drop_shadow_filter(color = "#04080FAA", size = -20))
 
 ///For any transparent multi-z tiles we want to render
 /atom/movable/screen/plane_master/transparent
@@ -70,20 +63,6 @@
 	plane = FLOOR_PLANE
 	appearance_flags = PLANE_MASTER
 	blend_mode = BLEND_OVERLAY
-
-/atom/movable/screen/plane_master/over_tile
-	name = "over tile world plane master"
-	plane = OVER_TILE_PLANE
-	appearance_flags = PLANE_MASTER //should use client color
-	blend_mode = BLEND_OVERLAY
-	render_relay_plane = RENDER_PLANE_GAME
-
-/atom/movable/screen/plane_master/wall
-	name = "wall plane master"
-	plane = WALL_PLANE
-	appearance_flags = PLANE_MASTER //should use client color
-	blend_mode = BLEND_OVERLAY
-	render_relay_plane = RENDER_PLANE_GAME
 
 ///Contains most things in the game world
 /atom/movable/screen/plane_master/game_world
@@ -107,7 +86,7 @@
 
 /atom/movable/screen/plane_master/game_world_fov_hidden/Initialize(mapload)
 	. = ..()
-	add_filter("vision_cone", 1, alpha_mask_filter(render_source = FIELD_OF_VISION_BLOCKER_RENDER_TARGET, flags = MASK_INVERSE))//MOJAVE SUN EDIT - Wallening Testmerge
+	add_filter("vision_cone", 1, alpha_mask_filter(render_source = FIELD_OF_VISION_BLOCKER_RENDER_TARGET, flags = MASK_INVERSE))
 
 /atom/movable/screen/plane_master/game_world_upper
 	name = "upper game world plane master"
@@ -130,29 +109,14 @@
 	appearance_flags = PLANE_MASTER //should use client color
 	blend_mode = BLEND_OVERLAY
 
-
-/atom/movable/screen/plane_master/frill_under
-	name = "frill under plane master"
-	plane = UNDER_FRILL_PLANE
-	appearance_flags = PLANE_MASTER
-	blend_mode = BLEND_OVERLAY
-	render_relay_plane = RENDER_PLANE_GAME
-
-/atom/movable/screen/plane_master/frill
-	name = "frill plane master"
-	plane = FRILL_PLANE
-	appearance_flags = PLANE_MASTER //should use client color
-	blend_mode = BLEND_OVERLAY
+/atom/movable/screen/plane_master/game_world_above_no_mouse
+	name = "above game world no mouse plane master"
+	plane = ABOVE_GAME_NO_MOUSE_PLANE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	render_relay_plane = RENDER_PLANE_GAME
 
-/atom/movable/screen/plane_master/frill_over
-	name = "frill under plane master"
-	plane = OVER_FRILL_PLANE
+	render_relay_plane = GAME_PLANE
 	appearance_flags = PLANE_MASTER
 	blend_mode = BLEND_OVERLAY
-	render_relay_plane = RENDER_PLANE_GAME
-//MOJAVE SUN EDIT - Wallening Testmerge
 
 /atom/movable/screen/plane_master/massive_obj
 	name = "massive object plane master"
@@ -213,9 +177,6 @@
 	. = ..()
 	add_filter("emissives", 1, alpha_mask_filter(render_source = EMISSIVE_RENDER_TARGET, flags = MASK_INVERSE))
 	add_filter("object_lighting", 2, alpha_mask_filter(render_source = O_LIGHTING_VISUAL_RENDER_TARGET, flags = MASK_INVERSE))
-	// Add our sunlight color
-	if(SSoutdoor_effects.initialized)
-		vis_contents +=  SSoutdoor_effects.sun_color //MOJAVE MODULE OUTDOOR_EFFECTS
 
 
 /**
@@ -297,21 +258,6 @@
 	if(istype(mymob) && mymob.client?.prefs?.read_preference(/datum/preference/toggle/ambient_occlusion))
 		add_filter("AO", 1, drop_shadow_filter(x = 0, y = -2, size = 4, color = "#04080FAA"))
 
-// MOJAVE EDIT BEGIN - Fatties
-/**
- * this exists to make displacement maps have no alpha, while still
- * being considered "visible" by the displacement filter...
- *
- * yes this is jank!
- */
-/atom/movable/screen/plane_master/displacement_maps
-	name = "displacement maps plane"
-	plane = DISPLACEMENT_MAP_PLANE
-	alpha = 0
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	render_relay_plane = null
-// MOJAVE EDIT END - Fatties
-
 /atom/movable/screen/plane_master/gravpulse
 	name = "gravpulse plane"
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
@@ -357,3 +303,5 @@
 	name = "splashscreen plane"
 	plane = SPLASHSCREEN_PLANE
 	render_relay_plane = RENDER_PLANE_NON_GAME
+
+

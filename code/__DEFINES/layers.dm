@@ -1,3 +1,5 @@
+// GOMBLE TODO - Plane setup 
+
 //Defines for atom layers and planes
 //KEEP THESE IN A NICE ACSCENDING ORDER, PLEASE
 
@@ -12,43 +14,28 @@
 #define PLANE_SPACE -95
 #define PLANE_SPACE_PARALLAX -90
 
-
-//Not ever visible, place beneath everything
-#define WEATHER_OVERLAY_PLANE -80 //MOJAVE MODULE OUTDOOR_EFFECTS
-#define WEATHER_RENDER_TARGET "*WEATHER_OVERLAY_PLANE" //MOJAVE MODULE OUTDOOR_EFFECTS
-
-#define GRAVITY_PULSE_PLANE -70 //MOJAVE MODULE OUTDOOR_EFFECTS
+#define GRAVITY_PULSE_PLANE -11
 #define GRAVITY_PULSE_RENDER_TARGET "*GRAVPULSE_RENDER_TARGET"
 
-#define DISPLACEMENT_MAP_PLANE -69 //MOJAVE MODULE FATTIES //also nice lol
-
 #define OPENSPACE_LAYER 600 //Openspace layer over all
-#define TRANSPARENT_FLOOR_PLANE -62 //Transparent plane that shows openspace underneath the floor
-#define OPENSPACE_PLANE -61 //Openspace plane below all turfs
-#define OPENSPACE_BACKDROP_PLANE -60 //Black square just over openspace plane to guaranteed cover all in openspace turf
 
-#define FLOOR_PLANE -52 //MOJAVE MODULE OUTDOOR_EFFECTS
-
-#define OVER_TILE_PLANE -51 //MOJAVE SUN EDIT - Wallening Testmerge
-#define WALL_PLANE -50 //MOJAVE SUN EDIT - Wallening Testmerge
-
-#define GAME_PLANE -42 //MOJAVE MODULE OUTDOOR_EFFECTS
-
-#define WEATHER_EFFECT_PLANE -30 //MOJAVE MODULE OUTDOOR_EFFECTS
+#define TRANSPARENT_FLOOR_PLANE -11 //Transparent plane that shows openspace underneath the floor
+#define OPENSPACE_PLANE -10 //Openspace plane below all turfs
+#define OPENSPACE_BACKDROP_PLANE -9 //Black square just over openspace plane to guaranteed cover all in openspace turf
 
 
-#define GAME_PLANE_FOV_HIDDEN -29
-#define GAME_PLANE_UPPER -28
-#define GAME_PLANE_UPPER_FOV_HIDDEN -27
+#define FLOOR_PLANE -8
 
+#define GAME_PLANE -7
+#define GAME_PLANE_FOV_HIDDEN -6
+#define GAME_PLANE_UPPER -5
+#define GAME_PLANE_UPPER_FOV_HIDDEN -4
 
-#define ABOVE_GAME_PLANE -20
+///Slightly above the game plane but does not catch mouse clicks. Useful for certain visuals that should be clicked through, like seethrough trees
+#define ABOVE_GAME_NO_MOUSE_PLANE -3
+#define ABOVE_GAME_PLANE -2
 
-#define UNDER_FRILL_PLANE -12 //MOJAVE SUN EDIT - Wallening Testmerge
-#define UNDER_FRILL_RENDER_TARGET "*UNDER_RENDER_TARGET" //MOJAVE SUN EDIT - Wallening Testmerge
-#define FRILL_PLANE -11 //MOJAVE SUN EDIT - Wallening Testmerge
-#define OVER_FRILL_PLANE -10 //MOJAVE SUN EDIT - Wallening Testmerge
-
+// PLANE_SPACE layer(s)
 #define SPACE_LAYER 1.8
 
 //#define TURF_LAYER 2 //For easy recordkeeping; this is a byond define. Most floors (FLOOR_PLANE) and walls (GAME_PLANE) use this.
@@ -145,19 +132,7 @@
 #define GHOST_PLANE 80
 #define POINT_PLANE 90
 
-//MOJAVE SUN EDIT - Wallening Testmerge
-#define FRILL_MASK_PLANE 95
-#define FRILL_MASK_RENDER_TARGET "*FRILL_MASK_RENDER_TARGET"
-//MOJAVE SUN EDIT - Wallening Testmerge
-
 //---------- LIGHTING -------------
-
-//MOJAVE MODULE OUTDOOR_EFFECTS -- BEGIN
-// This is not rendered, a fullscreen effect uses the render_target as a layer filter to display on the lighting plane
-#define SUNLIGHTING_PLANE 99
-#define SUNLIGHTING_RENDER_TARGET "*SUNLIGHT_PLANE"
-//MOJAVE MODULE OUTDOOR_EFFECTS -- END
-
 ///Normal 1 per turf dynamic lighting underlays
 #define LIGHTING_PLANE 100
 
@@ -221,7 +196,6 @@
 
 //-------------------- HUD ---------------------
 //HUD layer defines
-#define HUD_BACKGROUND_LAYER 1 //MOJAVE EDIT ADDITION - Mojave HUD
 #define HUD_PLANE 1000
 #define ABOVE_HUD_PLANE 1100
 
