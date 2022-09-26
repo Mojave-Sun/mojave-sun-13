@@ -7759,6 +7759,13 @@
 	},
 /turf/open/floor/engine,
 /area/station/science/cytology)
+"cTt" = (
+/obj/machinery/computer/secure_data{
+	dir = 8
+	},
+/obj/machinery/firealarm/directional/east,
+/turf/open/floor/iron/dark,
+/area/station/security/checkpoint/science)
 "cTC" = (
 /obj/structure/chair,
 /obj/effect/landmark/start/assistant,
@@ -10572,13 +10579,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/security/prison/garden)
-"dTS" = (
-/obj/machinery/computer/security{
-	dir = 8
-	},
-/obj/machinery/firealarm/directional/east,
-/turf/open/floor/iron/dark,
-/area/station/security/checkpoint/science)
 "dTX" = (
 /obj/effect/landmark/start/chemist,
 /turf/open/floor/iron/white,
@@ -12818,14 +12818,6 @@
 "eKP" = (
 /turf/closed/wall/r_wall,
 /area/station/science/ordnance/freezerchamber)
-"eKW" = (
-/obj/structure/sign/map/right{
-	desc = "A framed picture of the station. Clockwise from security at the top (red), you see engineering (yellow), science (purple), escape (red and white), medbay (green), arrivals (blue and white), and finally cargo (brown).";
-	icon_state = "map-right-MS";
-	pixel_y = 32
-	},
-/turf/open/floor/wood,
-/area/station/command/heads_quarters/captain/private)
 "eLb" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
@@ -39876,13 +39868,6 @@
 "ohE" = (
 /turf/closed/wall/r_wall,
 /area/station/maintenance/central)
-"ohH" = (
-/obj/machinery/computer/secure_data{
-	dir = 8
-	},
-/obj/structure/reagent_dispensers/wall/peppertank/directional/east,
-/turf/open/floor/iron/dark,
-/area/station/security/checkpoint/science)
 "ohI" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
 /obj/effect/turf_decal/siding/blue{
@@ -54281,6 +54266,13 @@
 /obj/effect/spawner/structure/window/reinforced/plasma,
 /turf/open/floor/plating,
 /area/station/engineering/supermatter)
+"tfy" = (
+/obj/machinery/computer/security{
+	dir = 8
+	},
+/obj/structure/reagent_dispensers/wall/peppertank/directional/east,
+/turf/open/floor/iron/dark,
+/area/station/security/checkpoint/science)
 "tfz" = (
 /obj/machinery/airalarm/directional/north,
 /turf/open/floor/circuit,
@@ -67229,6 +67221,14 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/command/storage/eva)
+"xFx" = (
+/obj/structure/sign/map/right{
+	desc = "A framed picture of the station. Clockwise from security at the top (red), you see engineering (yellow), science (purple), escape (red and white), medbay (green), arrivals (blue and white), and finally cargo (brown).";
+	icon_state = "map-right-MS";
+	pixel_y = 32
+	},
+/turf/open/floor/wood,
+/area/station/command/heads_quarters/captain/private)
 "xFF" = (
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/stripes/line{
@@ -99361,7 +99361,7 @@ iox
 tyY
 eCB
 tyY
-eKW
+xFx
 sxR
 tAt
 sqJ
@@ -101453,8 +101453,8 @@ mCt
 mCt
 kZx
 olG
-ohH
-dTS
+cTt
+tfy
 gtV
 fAd
 tEt
