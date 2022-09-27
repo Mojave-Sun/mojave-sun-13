@@ -38,6 +38,7 @@ GLOBAL_PROTECT(href_token)
 	// GOMBLE TODO - I think particool is now obsolete ( sad face) - double check if we can rip this out
 	var/datum/particle_editor/particool  //MOJAVE MODULE OUTDOOR_EFFECTS
 	var/datum/colorblind_tester/color_test = new
+	var/datum/plane_master_debug/plane_debug
 
 	/// Whether or not the user tried to connect, but was blocked by 2FA
 	var/blocked_by_2fa = FALSE
@@ -78,6 +79,7 @@ GLOBAL_PROTECT(href_token)
 		activate()
 	else
 		deactivate()
+	plane_debug = new(src)
 
 /datum/admins/Destroy()
 	if(IsAdminAdvancedProcCall())
@@ -96,6 +98,7 @@ GLOBAL_PROTECT(href_token)
 	GLOB.deadmins -= target
 	GLOB.admin_datums[target] = src
 	deadmined = FALSE
+	QDEL_NULL(plane_debug)
 	if (GLOB.directory[target])
 		associate(GLOB.directory[target]) //find the client for a ckey if they are connected and associate them with us
 
