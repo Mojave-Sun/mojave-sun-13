@@ -1077,6 +1077,17 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron,
 /area/station/maintenance/port/fore)
+"asR" = (
+/obj/structure/table,
+/obj/item/wallframe/camera,
+/obj/item/wallframe/camera,
+/obj/item/assembly/prox_sensor{
+	pixel_x = -8;
+	pixel_y = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/station/maintenance/department/electrical)
 "asZ" = (
 /obj/machinery/door/airlock/research{
 	name = "Robotics Lab"
@@ -1469,12 +1480,6 @@
 	},
 /turf/open/floor/iron/freezer,
 /area/station/command/heads_quarters/captain)
-"axD" = (
-/obj/effect/turf_decal/stripes/corner{
-	dir = 1
-	},
-/turf/open/floor/iron/white,
-/area/station/science/xenobiology)
 "axF" = (
 /obj/effect/spawner/random/structure/billboard/nanotrasen,
 /turf/open/lava/plasma/ice_moon,
@@ -11090,16 +11095,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/service)
-"dmj" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
-/obj/machinery/button/door/directional/east{
-	id = "xenobio11";
-	layer = 4;
-	name = "Xenobio Pen 11 Blast DOors";
-	req_access = list("xenobiology")
-	},
-/turf/open/floor/iron/white,
-/area/station/science/xenobiology)
 "dms" = (
 /obj/structure/closet/crate,
 /turf/open/floor/plating,
@@ -13792,6 +13787,16 @@
 /obj/structure/cable,
 /turf/open/floor/iron/large,
 /area/station/engineering/atmos/storage/gas)
+"edH" = (
+/obj/item/storage/briefcase,
+/obj/structure/rack,
+/obj/item/camera/detective,
+/obj/item/taperecorder{
+	pixel_x = -5
+	},
+/obj/structure/cable,
+/turf/open/floor/carpet,
+/area/station/security/detectives_office)
 "edT" = (
 /obj/structure/grille/broken,
 /turf/open/floor/plating,
@@ -16012,11 +16017,6 @@
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/aft/lesser)
-"eNl" = (
-/obj/structure/chair/comfy/black,
-/obj/effect/landmark/start/head_of_security,
-/turf/open/floor/carpet/royalblue,
-/area/station/command/heads_quarters/hos)
 "eNm" = (
 /obj/structure/fermenting_barrel{
 	desc = "A dried up barrel of what appeared to once have been full of wine.";
@@ -19300,6 +19300,12 @@
 /obj/effect/landmark/navigate_destination,
 /turf/open/floor/plating,
 /area/station/hallway/secondary/entry)
+"fNl" = (
+/obj/structure/chair/comfy/black,
+/obj/effect/landmark/start/head_of_security,
+/obj/structure/cable,
+/turf/open/floor/carpet/royalblue,
+/area/station/command/heads_quarters/hos)
 "fNp" = (
 /obj/structure/girder,
 /turf/open/floor/plating/snowed/icemoon,
@@ -25147,6 +25153,11 @@
 /obj/effect/mapping_helpers/airlock/access/all/supply/general,
 /turf/open/floor/plating,
 /area/station/cargo/storage)
+"hFV" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/structure/cable,
+/turf/open/floor/wood/large,
+/area/station/command/heads_quarters/hos)
 "hGf" = (
 /obj/item/clothing/suit/hooded/wintercoat,
 /obj/effect/decal/remains/human,
@@ -30932,6 +30943,17 @@
 /obj/item/stack/sheet/glass/fifty,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/aft)
+"jva" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
+/obj/machinery/button/door/directional/east{
+	id = "xenobio11";
+	layer = 4;
+	name = "Xenobio Pen 11 Blast DOors";
+	req_access = list("xenobiology")
+	},
+/obj/structure/cable,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
 "jvc" = (
 /obj/machinery/door/firedoor/border_only,
 /turf/open/openspace,
@@ -36557,16 +36579,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/engineering/main)
-"ldi" = (
-/obj/structure/table,
-/obj/item/wallframe/camera,
-/obj/item/wallframe/camera,
-/obj/item/assembly/prox_sensor{
-	pixel_x = -8;
-	pixel_y = 4
-	},
-/turf/open/floor/plating,
-/area/station/maintenance/department/electrical)
 "ldr" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron,
@@ -37418,6 +37430,13 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/aft)
+"lqJ" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/floor/iron/white,
+/area/station/science/xenobiology)
 "lqL" = (
 /obj/structure/closet/crate,
 /obj/item/target/alien,
@@ -40382,12 +40401,6 @@
 /obj/machinery/door/poddoor/incinerator_atmos_main,
 /turf/open/floor/engine,
 /area/station/maintenance/disposal/incinerator)
-"msg" = (
-/obj/effect/turf_decal/tile/red/half/contrasted{
-	dir = 1
-	},
-/turf/open/floor/iron/dark/textured,
-/area/station/security/prison)
 "msi" = (
 /obj/structure/rack,
 /obj/item/integrated_circuit/loaded/speech_relay,
@@ -44319,6 +44332,13 @@
 /obj/machinery/power/apc/auto_name/directional/west,
 /turf/open/floor/iron,
 /area/station/security/prison/visit)
+"nCx" = (
+/obj/effect/turf_decal/tile/red/half/contrasted{
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/floor/iron/dark/textured,
+/area/station/security/prison)
 "nCD" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -46710,27 +46730,6 @@
 /obj/effect/turf_decal/tile/blue/full,
 /turf/open/floor/iron/large,
 /area/station/medical/treatment_center)
-"olK" = (
-/obj/structure/table/glass,
-/obj/item/storage/medkit/fire{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/storage/medkit/fire,
-/obj/item/storage/medkit/regular{
-	pixel_x = -3;
-	pixel_y = -3
-	},
-/obj/machinery/door/window/left/directional/north{
-	dir = 4;
-	name = "First-Aid Supplies";
-	red_alert_access = 1;
-	req_access = list("medical")
-	},
-/obj/machinery/status_display/evac/directional/west,
-/obj/effect/turf_decal/tile/blue/full,
-/turf/open/floor/iron/dark/smooth_large,
-/area/station/medical/storage)
 "olO" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/decal/cleanable/blood/footprints,
@@ -47432,11 +47431,6 @@
 /obj/effect/mapping_helpers/airlock/access/any/service/maintenance,
 /turf/open/floor/plating,
 /area/station/maintenance/port/aft)
-"oxJ" = (
-/obj/structure/bed/dogbed/lia,
-/mob/living/simple_animal/hostile/carp/lia,
-/turf/open/floor/carpet/royalblue,
-/area/station/command/heads_quarters/hos)
 "oxO" = (
 /turf/open/floor/plating,
 /area/station/maintenance/aft/lesser)
@@ -63599,6 +63593,27 @@
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/engine/air,
 /area/station/engineering/atmos)
+"tCE" = (
+/obj/structure/table/glass,
+/obj/item/storage/medkit/fire{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/storage/medkit/fire,
+/obj/item/storage/medkit/regular{
+	pixel_x = -3;
+	pixel_y = -3
+	},
+/obj/machinery/door/window/left/directional/north{
+	dir = 4;
+	name = "First-Aid Supplies";
+	red_alert_access = 1;
+	req_access = list("medical")
+	},
+/obj/machinery/status_display/evac/directional/west,
+/obj/effect/turf_decal/tile/blue/full,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/medical/storage)
 "tCF" = (
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/cable,
@@ -64564,6 +64579,12 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/station/medical/storage)
+"tQj" = (
+/obj/structure/bed/dogbed/lia,
+/mob/living/simple_animal/hostile/carp/lia,
+/obj/structure/cable,
+/turf/open/floor/carpet/royalblue,
+/area/station/command/heads_quarters/hos)
 "tQJ" = (
 /obj/machinery/modular_computer/console/preset/civilian,
 /turf/open/floor/iron/white,
@@ -67498,6 +67519,20 @@
 	dir = 1
 	},
 /area/mine/production)
+"uOg" = (
+/obj/structure/table/glass,
+/obj/item/storage/medkit/brute{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/storage/medkit/brute,
+/obj/item/storage/medkit/regular{
+	pixel_x = -3;
+	pixel_y = -3
+	},
+/obj/effect/turf_decal/tile/blue/full,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/medical/storage)
 "uOj" = (
 /turf/open/floor/iron,
 /area/station/command/gateway)
@@ -71480,15 +71515,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/engineering/atmos/storage)
-"vZH" = (
-/obj/item/storage/briefcase,
-/obj/structure/rack,
-/obj/item/camera/detective,
-/obj/item/taperecorder{
-	pixel_x = -5
-	},
-/turf/open/floor/carpet,
-/area/station/security/detectives_office)
 "vZS" = (
 /obj/structure/rack,
 /turf/open/floor/iron/smooth,
@@ -72338,20 +72364,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron,
 /area/mine/eva)
-"wmj" = (
-/obj/structure/table/glass,
-/obj/item/storage/medkit/brute{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/storage/medkit/brute,
-/obj/item/storage/medkit/regular{
-	pixel_x = -3;
-	pixel_y = -3
-	},
-/obj/effect/turf_decal/tile/blue/full,
-/turf/open/floor/iron/dark/smooth_large,
-/area/station/medical/storage)
 "wmu" = (
 /obj/machinery/vending/wardrobe/sec_wardrobe,
 /obj/effect/turf_decal/tile/red,
@@ -72839,10 +72851,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/service/chapel)
-"wtg" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/turf/open/floor/wood/large,
-/area/station/command/heads_quarters/hos)
 "wtj" = (
 /obj/structure/flora/grass/brown/style_2,
 /turf/open/misc/asteroid/snow/icemoon,
@@ -75969,6 +75977,20 @@
 	},
 /turf/open/lava/plasma/ice_moon,
 /area/icemoon/underground/explored)
+"xot" = (
+/obj/machinery/door/firedoor,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/door/poddoor/preopen{
+	id = "xenobiomain";
+	name = "Containment Blast Door"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/station/science/xenobiology)
 "xow" = (
 /obj/machinery/portable_atmospherics/canister/air,
 /obj/machinery/firealarm/directional/west,
@@ -76565,19 +76587,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/security/detectives_office)
-"xyn" = (
-/obj/machinery/door/firedoor,
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/effect/turf_decal/stripes/line,
-/obj/machinery/door/poddoor/preopen{
-	id = "xenobiomain";
-	name = "Containment Blast Door"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
-/turf/open/floor/iron,
-/area/station/science/xenobiology)
 "xyx" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -166889,7 +166898,7 @@ ucN
 cXZ
 cVk
 gFj
-vZH
+edH
 kgz
 iDt
 iDt
@@ -172774,7 +172783,7 @@ gjq
 gjq
 gjq
 upw
-msg
+nCx
 jDG
 iRV
 fiD
@@ -188029,7 +188038,7 @@ cZT
 pXj
 qLY
 wZv
-axD
+lqJ
 qLY
 hez
 jAF
@@ -188284,9 +188293,9 @@ hRC
 liY
 pMF
 sfv
-xyn
-dmj
-pMF
+xot
+jva
+wPd
 fwC
 asb
 ega
@@ -238575,7 +238584,7 @@ lQc
 nbp
 mgU
 nlz
-oxJ
+tQj
 nBx
 azx
 tDw
@@ -238832,7 +238841,7 @@ bln
 lSu
 rhf
 rPP
-eNl
+fNl
 vbF
 mcH
 xyx
@@ -239346,7 +239355,7 @@ oot
 oot
 rhf
 jDt
-wtg
+hFV
 loI
 ehy
 sBt
@@ -247908,8 +247917,8 @@ cIU
 mlR
 rWW
 jjQ
-olK
-wmj
+tCE
+uOg
 kRP
 auq
 mRu
@@ -256595,7 +256604,7 @@ mqO
 fUc
 sBi
 xYA
-ldi
+asR
 lUC
 vhm
 oLG
