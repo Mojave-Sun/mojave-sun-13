@@ -1484,6 +1484,43 @@
 	M.adjustToxLoss(0.2 * REM * delta_time, FALSE) //Only really deadly if you eat over 100u
 	..()
 
+/datum/reagent/medicine/adrenaline // auto-restores a player in crit
+	name = "Adrenaline"
+	reagent_state = LIQUID
+	color = "#D2FFA"
+	metabolization_rate = 0.75 * REAGENTS_METABOLISM
+
+/datum/reagent/medicine/adrenaline/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
+	if(M.health <= M.crit_threshold + 15)
+		M.adjustBruteLoss(-0.75 * REM * delta_time, 0)
+		M.adjustFireLoss(-0.25 * REM * delta_time, 0)
+		M.adjustOxyLoss(-2 * REM * delta_time, 0) // you feel your heat slow down... X10
+	if(M.losebreath >= 4)
+		M.losebreath -= 2 * REM * delta_time
+	if(M.losebreath < 0)
+		M.losebreath = 0
+	M.adjustStaminaLoss(2.5 * REM * delta_time, 0)
+	M.adjustOrganLoss(ORGAN_SLOT_HEART, 7.5 * REM * delta_time, 0)
+	M.adjustOrganLoss(ORGAN_SLOT_LUNGS, 7.5 * REM * delta_time, 0) // Supposdly causes organ damage (No fricking clue if damage does anything)
+	M.adjustOrganLoss(ORGAN_SLOT_LIVER, 7.5 * REM * delta_time, 0)
+	M.blur_eyes(30)
+	M.set_confusion(M.dizziness)
+	if(DT_PROB(25, delta_time))
+		M.drop_all_held_items()
+		M.Jitter(5)
+	if(DT_PROB(10, delta_time))
+		M.vomit()
+	if(DT_PROB(5, delta_time))
+		M.Paralyze(5)
+	..()
+
+/datum/reagent/medicine/adrenaline/on_mob_metabolize(mob/living/M)
+	if(!ishuman(M))
+		return
+
+	var/mob/living/carbon/human/blood_boy = M
+	blood_boy.physiology?.bleed_mod *= 1.15
+
 // helps bleeding wounds clot faster
 /datum/reagent/medicine/coagulant
 	name = "Sanguirite"
