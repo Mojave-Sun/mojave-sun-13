@@ -465,7 +465,7 @@
 	. = ..()
 	if(.)
 		return
-	if(!user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
+	if(!user.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
 		return
 
 	if(bayonet && can_bayonet) //if it has a bayonet, and the bayonet can be removed
@@ -486,7 +486,7 @@
 	. = ..()
 	if(.)
 		return
-	if(!user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
+	if(!user.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
 		return
 	if(pin && user.is_holding(src))
 		user.visible_message(span_warning("[user] attempts to remove [pin] from [src] with [I]."),
@@ -503,7 +503,7 @@
 	. = ..()
 	if(.)
 		return
-	if(!user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
+	if(!user.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
 		return
 	if(pin && user.is_holding(src))
 		user.visible_message(span_warning("[user] attempts to remove [pin] from [src] with [I]."),
