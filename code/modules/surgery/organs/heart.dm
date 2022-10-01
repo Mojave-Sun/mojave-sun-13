@@ -3,7 +3,6 @@
 	desc = "I feel bad for the heartless bastard who lost this."
 	icon_state = "heart-on"
 	base_icon_state = "heart"
-	visual = FALSE
 	zone = BODY_ZONE_CHEST
 	slot = ORGAN_SLOT_HEART
 
@@ -22,6 +21,23 @@
 	var/beat = BEAT_NONE//is this mob having a heatbeat sound played? if so, which?
 	var/failed = FALSE //to prevent constantly running failing code
 	var/operated = FALSE //whether the heart's been operated on to fix some of its damages
+
+	var/dose_available = TRUE
+	var/rid = /datum/reagent/medicine/adren
+	var/ramount = 7.5
+
+/obj/item/organ/heart/on_life(delta_time, times_fired)
+	. = ..()
+	if(dose_available && owner.health <= owner.crit_threshold && !owner.reagents.has_reagent(rid))
+		used_dose()
+
+/obj/item/organ/heart/proc/used_dose()
+	owner.reagents.add_reagent(rid, ramount)
+	dose_available = FALSE
+
+/obj/item/organ/heart/used_dose()
+	. = ..()
+	addtimer(VARSET_CALLBACK(src, dose_available, TRUE), 4 MINUTES)
 
 /obj/item/organ/heart/update_icon_state()
 	icon_state = "[base_icon_state]-[beating ? "on" : "off"]"
@@ -149,7 +165,7 @@
 	name = "Pump your blood"
 
 //You are now brea- pumping blood manually
-/datum/action/item_action/organ_action/cursed_heart/Trigger(trigger_flags)
+/datum/action/item_action/organ_action/cursed_heart/Trigger()
 	. = ..()
 	if(. && istype(target, /obj/item/organ/heart/cursed))
 		var/obj/item/organ/heart/cursed/cursed_heart = target
@@ -184,9 +200,6 @@
 	organ_flags = ORGAN_SYNTHETIC
 	maxHealth = STANDARD_ORGAN_THRESHOLD*0.75 //This also hits defib timer, so a bit higher than its less important counterparts
 
-	var/dose_available = FALSE
-	var/rid = /datum/reagent/medicine/epinephrine
-	var/ramount = 10
 	var/emp_vulnerability = 80 //Chance of permanent effects if emp-ed.
 
 /obj/item/organ/heart/cybernetic/tier2
@@ -196,14 +209,18 @@
 	maxHealth = 1.5 * STANDARD_ORGAN_THRESHOLD
 	dose_available = TRUE
 	emp_vulnerability = 40
+	rid = /datum/reagent/medicine/epinephrine
+	ramount = 5
 
 /obj/item/organ/heart/cybernetic/tier3
 	name = "upgraded cybernetic heart"
-	desc = "An electronic device designed to mimic the functions of an organic human heart. Also holds an emergency dose of epinephrine, used automatically after facing severe trauma. This upgraded model can regenerate its dose after use."
+	desc = "An electronic device designed to mimic the functions of an organic human heart. Also holds an emergency dose of atropine, used automatically after facing severe trauma."
 	icon_state = "heart-c-u2"
 	maxHealth = 2 * STANDARD_ORGAN_THRESHOLD
 	dose_available = TRUE
 	emp_vulnerability = 20
+	rid = /datum/reagent/medicine/atropine
+	ramount = 7.5
 
 /obj/item/organ/heart/cybernetic/emp_act(severity)
 	. = ..()
@@ -225,19 +242,6 @@
 						span_userdanger("You feel a terrible pain in your chest, as if your heart has stopped!"))
 		addtimer(CALLBACK(src, .proc/Restart), 10 SECONDS)
 
-/obj/item/organ/heart/cybernetic/on_life(delta_time, times_fired)
-	. = ..()
-	if(dose_available && owner.health <= owner.crit_threshold && !owner.reagents.has_reagent(rid))
-		used_dose()
-
-/obj/item/organ/heart/cybernetic/proc/used_dose()
-	owner.reagents.add_reagent(rid, ramount)
-	dose_available = FALSE
-
-/obj/item/organ/heart/cybernetic/tier3/used_dose()
-	. = ..()
-	addtimer(VARSET_CALLBACK(src, dose_available, TRUE), 5 MINUTES)
-
 /obj/item/organ/heart/freedom
 	name = "heart of freedom"
 	desc = "This heart pumps with the passion to give... something freedom."
@@ -257,7 +261,6 @@
 /obj/item/organ/heart/ethereal
 	name = "crystal core"
 	icon_state = "ethereal_heart" //Welp. At least it's more unique in functionaliy.
-	visual = TRUE //This is used by the ethereal species for color
 	desc = "A crystal-like organ that functions similarly to a heart for Ethereals. It can revive its owner."
 
 	///Cooldown for the next time we can crystalize
@@ -274,6 +277,7 @@
 /obj/item/organ/heart/ethereal/Initialize(mapload)
 	. = ..()
 	add_atom_colour(ethereal_color, FIXED_COLOUR_PRIORITY)
+
 
 /obj/item/organ/heart/ethereal/Insert(mob/living/carbon/owner, special = 0)
 	. = ..()
