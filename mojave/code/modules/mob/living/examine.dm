@@ -3,7 +3,6 @@
 	if(!client || (!DirectAccess(examined) && get_dist(src, examined) > EYE_CONTACT_RANGE) || (stat >= UNCONSCIOUS) || is_blind())
 		return
 
-	src.balloon_alert_to_viewers("looks at [examined].", "I look at [examined].")
 	if(!ismob(examined))
 		visible_message(span_boldnotice("<span style='color: [chat_color];'><b>[src]</b></span> looks at [examined]."), \
 						span_boldnotice("I look at [examined]."), \

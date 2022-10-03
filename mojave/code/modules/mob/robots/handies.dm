@@ -11,8 +11,8 @@
 	move_to_delay = 3
 	speed = 1
 	sharpness = NONE
-	wound_bonus = 4
-	bare_wound_bonus = 4
+	wound_bonus = 2
+	bare_wound_bonus = 0
 	speak_emote = list("states", "says")
 	attack_verb_continuous = "pinches"
 	attack_verb_simple = "pinch"

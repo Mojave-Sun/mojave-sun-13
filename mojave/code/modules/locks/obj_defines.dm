@@ -25,14 +25,14 @@
 /obj/attack_hand(mob/user, list/modifiers)
 	if(.)
 		return
-	if(flags_1 & LOCKABLE_1 && lock_locked)
+	if(ms13_flags_1 & LOCKABLE_1 && lock_locked)
 		to_chat(user, span_warning("The [name] is locked."))
 		return
 	. = ..()
 
 //for item interaction overrides on all general objects for placing locked items
 /obj/attackby(obj/item/I, mob/living/user, params)
-	if(I.item_flags & LOCKING_ITEM && flags_1 & LOCKABLE_1)
+	if(I.item_flags & LOCKING_ITEM && ms13_flags_1 & LOCKABLE_1)
 		if(lock_locked)
 			to_chat(user, span_warning("The [name] already has a lock."))
 			return

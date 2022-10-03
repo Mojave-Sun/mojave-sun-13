@@ -9,7 +9,7 @@
 	layer = 4.5
 	closingLayer = CLOSED_DOOR_LAYER
 	hackProof = TRUE
-	flags_1 = LOCKABLE_1
+	ms13_flags_1 = LOCKABLE_1
 	assemblytype = /obj/item/stack/sheet/ms13/scrap/two
 	resistance_flags = INDESTRUCTIBLE
 
