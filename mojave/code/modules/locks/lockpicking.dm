@@ -6,6 +6,8 @@
 //base element, tells thing it can be lockpicked
 
 /datum/element/lockpickable
+	element_flags = ELEMENT_BESPOKE | ELEMENT_DETACH
+	id_arg_index = 2
 	///Difficulty of the lock. Smaller is harder.
 	var/difficulty
 	///picks able to be used
