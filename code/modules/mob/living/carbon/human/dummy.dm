@@ -81,6 +81,9 @@ MOJAVE SUN EDIT END */
 	randomize_human(src)
 	dna.initialize_dna(skip_index = TRUE) //Skip stuff that requires full round init.
 
+/mob/living/carbon/human/dummy/log_mob_tag(text)
+	return
+
 /// Provides a dummy that is consistently bald, white, naked, etc.
 /mob/living/carbon/human/dummy/consistent
 
