@@ -16,6 +16,10 @@
 	. = ..()
 	if(shatter_immune)
 		return
+	if(istype(mover, /obj/projectile/beam/ms13))
+		return TRUE
+	if(istype(mover, /obj/projectile/bullet/ms13/plasma))
+		return FALSE
 	else if(istype(mover, /obj/projectile))
 		var/obj/projectile/proj = mover
 		if(proj.damage > 10)
@@ -36,7 +40,7 @@
 					var/type_wound = pick(list(/datum/wound/slash/moderate, /datum/wound/slash/moderate))
 					limb.force_wound_upwards(type_wound)
 				human_yeetus.adjustBruteLoss(rand(10,20))
-				human_yeetus.Knockdown(10)
+				human_yeetus.Knockdown(5)
 			deconstruct(disassembled = FALSE)
 			return TRUE
 
