@@ -4,7 +4,7 @@
 	smoothing_flags = SMOOTH_BITMASK
 	layer = ABOVE_ALL_MOB_LAYER
 	plane = ABOVE_GAME_PLANE
-	damage_deflection = 10
+	max_integrity = 25
 	glass_type = /obj/item/stack/sheet/ms13/glass
 	glass_amount = 1
 	break_sound = 'mojave/sound/ms13effects/glass_break.ogg'
@@ -27,8 +27,16 @@
 			deconstruct(disassembled = FALSE)
 			return TRUE
 	else if(istype(mover, /mob/living))
-		var/mob/living/yeetus_fetus = mover
-		if(yeetus_fetus.throwing && yeetus_fetus.mob_size >= 2)
+		var/mob/living/mob_yote = mover
+		if(mob_yote.throwing && mob_yote.mob_size >= 2)
+			if(istype(mover, /mob/living/carbon/human))
+				var/mob/living/carbon/human/human_yeetus = mover
+				for(var/_limb in human_yeetus.bodyparts)
+					var/obj/item/bodypart/limb = _limb
+					var/type_wound = pick(list(/datum/wound/slash/moderate, /datum/wound/slash/moderate))
+					limb.force_wound_upwards(type_wound)
+				human_yeetus.adjustBruteLoss(rand(10,20))
+				human_yeetus.Knockdown(10)
 			deconstruct(disassembled = FALSE)
 			return TRUE
 
@@ -53,6 +61,7 @@
 	smoothing_flags = SMOOTH_BITMASK
 	layer = ABOVE_ALL_MOB_LAYER
 	plane = ABOVE_GAME_PLANE
+	damage_deflection = 20
 	max_integrity = 300
 	damage_deflection = 16 //This basically means it blocks 15 damage weapons and weaker
 	glass_type = /obj/item/stack/sheet/ms13/glass
