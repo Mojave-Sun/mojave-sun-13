@@ -470,6 +470,7 @@
 	max_integrity = 50
 	density = FALSE
 	anchored = TRUE
+	projectile_passchance = 100
 
 /obj/structure/ms13/pot/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
@@ -499,6 +500,7 @@
 	density = TRUE
 	anchored = TRUE
 	max_integrity = 200
+	projectile_passchance = 80
 
 /obj/structure/ms13/deli/Initialize()
 	. = ..()
@@ -544,6 +546,7 @@
 	density = TRUE
 	anchored = TRUE
 	max_integrity = 200
+	projectile_passchance = 80
 
 /obj/structure/ms13/fruit_empty/attackby(obj/item/W, mob/user, params)
 	if(W.sharpness == IS_SHARP_AXE)

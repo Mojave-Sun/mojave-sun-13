@@ -6,6 +6,7 @@
 	max_integrity = 160
 	density = TRUE
 	anchored = TRUE
+	projectile_passchance = 75
 	var/crafting_interface = CRAFTING_BENCH_SMELTER
 
 /obj/structure/ms13/smelter/examine(mob/user)

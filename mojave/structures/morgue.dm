@@ -3,6 +3,7 @@
 	desc = "A place to keep the dead, until they can be properly buried or cremated."
 	icon = 'mojave/icons/structure/morgue.dmi'
 	icon_state = "morgue"
+	projectile_passchance = 65
 
 /obj/structure/bodycontainer/ms13/morgue/Initialize(mapload)
 	. = ..()

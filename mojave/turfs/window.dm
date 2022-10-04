@@ -10,6 +10,27 @@
 	break_sound = 'mojave/sound/ms13effects/glass_break.ogg'
 	hitted_sound = 'mojave/sound/ms13effects/glass_hit.ogg'
 	knock_sound = 'mojave/sound/ms13effects/glass_knock.ogg'
+	var/shatter_immune = FALSE // immune to passthrough bullshittery
+
+/obj/structure/window/fulltile/ms13/CanAllowThrough(atom/movable/mover, turf/target)
+	. = ..()
+	if(shatter_immune)
+		return
+	else if(istype(mover, /obj/projectile))
+		var/obj/projectile/proj = mover
+		if(proj.damage > 10)
+			deconstruct(disassembled = FALSE)
+			return TRUE
+	else if(istype(mover, /obj/item))
+		var/obj/item/thrown_item = mover
+		if(thrown_item.throwing && thrown_item.throwforce >= 10 || thrown_item.w_class >= WEIGHT_CLASS_NORMAL)
+			deconstruct(disassembled = FALSE)
+			return TRUE
+	else if(istype(mover, /mob/living))
+		var/mob/living/yeetus_fetus = mover
+		if(yeetus_fetus.throwing && yeetus_fetus.mob_size >= 2)
+			deconstruct(disassembled = FALSE)
+			return TRUE
 
 /obj/structure/window/fulltile/ms13/spawnDebris(location)
 	. = list()
