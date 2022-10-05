@@ -35,12 +35,11 @@
 		if(mob_yote.throwing && mob_yote.mob_size >= 2)
 			if(istype(mover, /mob/living/carbon/human))
 				var/mob/living/carbon/human/human_yeetus = mover
-				for(var/_limb in human_yeetus.bodyparts)
-					var/obj/item/bodypart/limb = _limb
-					var/type_wound = pick(list(/datum/wound/slash/moderate, /datum/wound/slash/moderate))
-					limb.force_wound_upwards(type_wound)
+				var/obj/item/bodypart/limb = pick(human_yeetus.bodyparts)
+				var/type_wound = pick(list(/datum/wound/slash/moderate, /datum/wound/slash/severe))
+				limb.force_wound_upwards(type_wound)
 				human_yeetus.adjustBruteLoss(rand(10,20))
-				human_yeetus.Knockdown(5)
+				human_yeetus.Knockdown(10)
 			deconstruct(disassembled = FALSE)
 			return TRUE
 

@@ -338,6 +338,7 @@
 	icon = 'mojave/icons/structure/cabinets.dmi'
 	var/dresser_type = "circabinet_orange"
 	max_integrity = 225
+	projectile_passchance = 85
 
 /obj/structure/dresser/ms13/attack_hand(mob/user)
 	icon_state = "[dresser_type]-open"
@@ -382,6 +383,7 @@
 	icon = 'mojave/icons/structure/cabinets.dmi'
 	icon_state = "filing_cabinet"
 	max_integrity = 150
+	projectile_passchance = 70
 
 /obj/structure/filingcabinet/ms13/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
@@ -413,6 +415,7 @@
 	max_integrity = 350
 	density = TRUE
 	anchored = TRUE
+	projectile_passchance = 65
 
 /obj/structure/ms13/jukebox/Initialize()
 	. = ..()
