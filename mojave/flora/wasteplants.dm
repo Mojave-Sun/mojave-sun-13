@@ -340,7 +340,7 @@
 	var/log_amount = 1
 	layer = ABOVE_ALL_MOB_LAYER
 	plane = ABOVE_GAME_PLANE
-	projectile_passchance = 75 // thin mf tree
+	projectile_passchance = 60 // mf tree
 
 /obj/structure/flora/ms13/tree/Initialize()
 	. = ..()

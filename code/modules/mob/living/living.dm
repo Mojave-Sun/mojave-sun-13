@@ -54,7 +54,14 @@
 		return
 	visible_message(span_danger("[src] crashes into [T] with a sickening noise!"), \
 					span_userdanger("You crash into [T] with a sickening noise!"))
-	adjustBruteLoss(levels * 20) // You'll probably think twice before flying off the side of a cliff
+	adjustBruteLoss(levels * 40) // You'll probably think twice before flying off the side of a cliff // MOJAVE SUN EDIT - ORIGINAL IS 	adjustBruteLoss((levels * 5) ** 1.5)
+	// MOJAVE SUN EDIT BEGIN
+	if(istype(src, /mob/living/carbon/human))
+		var/mob/living/carbon/human/human_yeetus = src
+		var/obj/item/bodypart/limb = pick(human_yeetus.bodyparts)
+		var/type_wound = pick(list(/datum/wound/blunt/severe, /datum/wound/blunt/severe))
+		limb.force_wound_upwards(type_wound)
+	// MOJAVE SUN EDIT END
 	Knockdown(levels * 50)
 
 //Generic Bump(). Override MobBump() and ObjBump() instead of this.
