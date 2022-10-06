@@ -117,6 +117,12 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron,
 /area/shuttle/abandoned/bar)
+"aq" = (
+/obj/machinery/power/shuttle_engine/propulsion/left{
+	dir = 8
+	},
+/turf/open/floor/plating/airless,
+/area/shuttle/abandoned/engine)
 "ar" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/chair/stool/bar/directional/west,
@@ -210,21 +216,6 @@
 "ax" = (
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/abandoned/bar)
-"ay" = (
-/obj/structure/shuttle/engine/propulsion/left{
-	dir = 8
-	},
-/turf/open/floor/plating/airless,
-/area/shuttle/abandoned/engine)
-"az" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/shuttle/engine/heater{
-	dir = 8
-	},
-/turf/open/floor/plating/airless,
-/area/shuttle/abandoned/engine)
 "aA" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -333,12 +324,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/bar)
-"aM" = (
-/obj/structure/shuttle/engine/propulsion/right{
-	dir = 8
-	},
-/turf/open/floor/plating/airless,
-/area/shuttle/abandoned/engine)
 "aN" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -580,6 +565,21 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/structure/cable,
+/turf/open/floor/iron,
+/area/shuttle/abandoned/crew)
+"bo" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/closet/wardrobe/mixed,
+/obj/machinery/atmospherics/components/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/item/storage/wallet/random,
+/obj/item/clothing/under/rank/centcom/official,
+/obj/item/clothing/under/rank/centcom/commander,
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
 /turf/open/floor/iron,
 /area/shuttle/abandoned/crew)
 "bp" = (
@@ -1809,6 +1809,12 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/bar)
+"iw" = (
+/obj/machinery/power/shuttle_engine/propulsion/right{
+	dir = 8
+	},
+/turf/open/floor/plating/airless,
+/area/shuttle/abandoned/engine)
 "iM" = (
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/abandoned/medbay)
@@ -1870,6 +1876,15 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/cargo)
+"qr" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 8
+	},
+/turf/open/floor/plating/airless,
+/area/shuttle/abandoned/engine)
 "sg" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/turf_decal/box/white/corners{
@@ -1986,21 +2001,6 @@
 	},
 /turf/open/floor/iron,
 /area/shuttle/abandoned/bar)
-"Oi" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/closet/wardrobe/mixed,
-/obj/machinery/atmospherics/components/unary/vent_pump/on{
-	dir = 1
-	},
-/obj/item/storage/wallet/random,
-/obj/item/clothing/under/rank/centcom/official,
-/obj/item/clothing/under/rank/centcom/commander,
-/obj/effect/turf_decal/tile/blue,
-/obj/effect/turf_decal/tile/blue{
-	dir = 8
-	},
-/turf/open/floor/iron,
-/area/shuttle/abandoned/crew)
 "Oy" = (
 /obj/structure/table/optable,
 /obj/item/storage/medkit/regular,
@@ -2084,13 +2084,13 @@ aa
 aa
 aa
 ah
-ay
-aM
+aq
+iw
 ah
 aa
 ah
-ay
-aM
+aq
+iw
 ah
 aa
 aa
@@ -2100,27 +2100,27 @@ aa
 (2,1,1) = {"
 aa
 ah
-ay
-aM
+aq
+iw
 ai
-az
-az
+qr
+qr
 ai
 ai
 ai
-az
-az
+qr
+qr
 ai
-ay
-aM
+aq
+iw
 ah
 aa
 "}
 (3,1,1) = {"
 aa
 ai
-az
-az
+qr
+qr
 ai
 by
 bP
@@ -2130,8 +2130,8 @@ ck
 cs
 cB
 ai
-az
-az
+qr
+qr
 ai
 aa
 "}
@@ -2216,7 +2216,7 @@ ac
 aj
 aC
 aQ
-Oi
+bo
 bD
 bS
 bY

@@ -34,31 +34,17 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/caravan/syndicate3)
-"dZ" = (
-/obj/structure/shuttle/engine/propulsion/burst{
+"cS" = (
+/obj/machinery/power/shuttle_engine/propulsion/burst/right{
 	dir = 8
 	},
 /turf/open/floor/plating/airless,
 /area/shuttle/caravan/syndicate3)
-"gl" = (
-/obj/machinery/door/airlock/hatch{
-	id_tag = "caravansyndicate3_bolt_port";
-	name = "External Airlock";
-	normalspeed = 0
+"gd" = (
+/obj/machinery/power/shuttle_engine/propulsion/burst{
+	dir = 8
 	},
-/obj/docking_port/mobile{
-	dir = 2;
-	dwidth = 6;
-	height = 7;
-	shuttle_id = "caravansyndicate3";
-	name = "Syndicate Drop Ship";
-	port_direction = 8;
-	preferred_direction = 4;
-	width = 15
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper,
-/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
-/turf/open/floor/plating,
+/turf/open/floor/plating/airless,
 /area/shuttle/caravan/syndicate3)
 "ha" = (
 /obj/effect/turf_decal/stripes/line{
@@ -84,6 +70,32 @@
 /obj/structure/cable,
 /turf/open/floor/pod/dark,
 /area/shuttle/caravan/syndicate3)
+"ji" = (
+/obj/machinery/power/shuttle_engine/propulsion/burst/left{
+	dir = 8
+	},
+/turf/open/floor/plating/airless,
+/area/shuttle/caravan/syndicate3)
+"jT" = (
+/obj/machinery/door/airlock/hatch{
+	id_tag = "caravansyndicate3_bolt_port";
+	name = "External Airlock";
+	normalspeed = 0
+	},
+/obj/docking_port/mobile{
+	dir = 2;
+	dwidth = 6;
+	height = 7;
+	shuttle_id = "caravansyndicate3";
+	name = "Syndicate Drop Ship";
+	port_direction = 8;
+	preferred_direction = 4;
+	width = 15
+	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/turf/open/floor/plating,
+/area/shuttle/caravan/syndicate3)
 "ka" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
@@ -96,12 +108,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
-/area/shuttle/caravan/syndicate3)
-"mJ" = (
-/obj/structure/shuttle/engine/propulsion/burst/left{
-	dir = 8
-	},
-/turf/open/floor/plating/airless,
 /area/shuttle/caravan/syndicate3)
 "ns" = (
 /obj/structure/table/reinforced,
@@ -155,13 +161,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/shuttle/caravan/syndicate3)
-"rU" = (
-/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
-/obj/machinery/door/poddoor{
-	id = "caravansyndicate3_bridge"
-	},
-/turf/open/floor/plating,
-/area/shuttle/caravan/syndicate3)
 "rV" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
@@ -210,21 +209,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/shuttle/caravan/syndicate3)
-"vQ" = (
-/obj/structure/shuttle/engine/propulsion/burst/right{
-	dir = 8
-	},
-/turf/open/floor/plating/airless,
-/area/shuttle/caravan/syndicate3)
-"wH" = (
-/obj/structure/shuttle/engine/heater{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/open/floor/plating/airless,
-/area/shuttle/caravan/syndicate3)
 "xC" = (
 /obj/machinery/light/small/directional/west,
 /obj/machinery/button/door/directional/west{
@@ -261,6 +245,13 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /turf/open/floor/iron/dark,
+/area/shuttle/caravan/syndicate3)
+"Dc" = (
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
+/obj/machinery/door/poddoor{
+	id = "caravansyndicate3_bridge"
+	},
+/turf/open/floor/plating,
 /area/shuttle/caravan/syndicate3)
 "Dt" = (
 /obj/effect/turf_decal/stripes/line{
@@ -445,6 +436,15 @@
 	},
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
 /area/shuttle/caravan/syndicate3)
+"Rw" = (
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/open/floor/plating/airless,
+/area/shuttle/caravan/syndicate3)
 "Sl" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/toolbox/emergency,
@@ -548,20 +548,20 @@
 
 (1,1,1) = {"
 Jv
-mJ
-dZ
-dZ
-dZ
-vQ
+ji
+gd
+gd
+gd
+cS
 Jv
 "}
 (2,1,1) = {"
 ZB
-wH
-wH
-wH
-wH
-wH
+Rw
+Rw
+Rw
+Rw
+Rw
 ZB
 "}
 (3,1,1) = {"
@@ -619,7 +619,7 @@ Tn
 PL
 "}
 (9,1,1) = {"
-gl
+jT
 xC
 al
 Vr
@@ -655,29 +655,29 @@ Sl
 Tn
 "}
 (13,1,1) = {"
-rU
+Dc
 ns
 Ij
 HM
 Wr
 Ia
-rU
+Dc
 "}
 (14,1,1) = {"
-rU
-rU
+Dc
+Dc
 sb
 rz
 ZK
-rU
-rU
+Dc
+Dc
 "}
 (15,1,1) = {"
 Jv
-rU
-rU
-rU
-rU
-rU
+Dc
+Dc
+Dc
+Dc
+Dc
 Jv
 "}

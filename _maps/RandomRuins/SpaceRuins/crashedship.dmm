@@ -335,6 +335,13 @@
 /obj/effect/mapping_helpers/airlock/access/all/command/captain,
 /turf/open/floor/iron/airless,
 /area/awaymission/bmpship/fore)
+"oz" = (
+/obj/machinery/power/shuttle_engine/propulsion{
+	dir = 8
+	},
+/obj/structure/lattice,
+/turf/template_noop,
+/area/template_noop)
 "oM" = (
 /obj/effect/turf_decal/trimline/brown/filled/warning{
 	dir = 1
@@ -343,13 +350,6 @@
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/plating/airless,
 /area/awaymission/bmpship/aft)
-"oT" = (
-/obj/structure/shuttle/engine/propulsion{
-	dir = 8
-	},
-/obj/structure/lattice,
-/turf/template_noop,
-/area/template_noop)
 "pb" = (
 /obj/effect/turf_decal/trimline/neutral/filled/shrink_cw,
 /obj/structure/cable,
@@ -939,22 +939,16 @@
 /obj/structure/frame/machine,
 /turf/open/floor/plating/airless,
 /area/awaymission/bmpship/aft)
+"GI" = (
+/obj/machinery/power/shuttle_engine/large{
+	dir = 8
+	},
+/turf/template_noop,
+/area/template_noop)
 "GM" = (
 /obj/effect/spawner/random/structure/girder,
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating/airless,
-/area/awaymission/bmpship/aft)
-"Hb" = (
-/obj/structure/shuttle/engine/heater{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/turf/open/floor/engine/airless,
 /area/awaymission/bmpship/aft)
 "Ho" = (
 /obj/effect/spawner/random/structure/girder,
@@ -1089,6 +1083,18 @@
 /obj/structure/cable,
 /turf/open/floor/iron/airless,
 /area/awaymission/bmpship/midship)
+"LW" = (
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/engine/airless,
+/area/awaymission/bmpship/aft)
 "LX" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -1166,12 +1172,6 @@
 	},
 /turf/open/floor/iron/textured_edge,
 /area/awaymission/bmpship/aft)
-"NM" = (
-/obj/structure/shuttle/engine/large{
-	dir = 8
-	},
-/turf/template_noop,
-/area/template_noop)
 "Oy" = (
 /obj/machinery/door/firedoor/closed,
 /obj/effect/turf_decal/stripes/line{
@@ -1614,9 +1614,9 @@ kc
 kc
 kc
 kc
-oT
-oT
-oT
+oz
+oz
+oz
 xF
 kc
 kc
@@ -1642,9 +1642,9 @@ kc
 kc
 kc
 xF
-Hb
-Hb
-Hb
+LW
+LW
+LW
 uF
 kc
 kc
@@ -1696,7 +1696,7 @@ kc
 kc
 kc
 kc
-NM
+GI
 uF
 Fy
 zA
@@ -1751,8 +1751,8 @@ kc
 rm
 pP
 uF
-Hb
-Hb
+LW
+LW
 uF
 qB
 Yw

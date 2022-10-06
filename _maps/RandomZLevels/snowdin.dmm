@@ -25,6 +25,16 @@
 "ae" = (
 /turf/closed/mineral/snowmountain,
 /area/awaymission/snowdin/cave/mountain)
+"af" = (
+/obj/machinery/power/shuttle_engine/propulsion/left{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/snow,
+/turf/open/floor/plating/snowed,
+/area/awaymission/snowdin/cave)
 "ah" = (
 /obj/effect/baseturf_helper/asteroid/snow,
 /turf/closed/wall/ice,
@@ -2100,15 +2110,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/awaymission/snowdin/post/dorm)
-"gj" = (
-/obj/structure/shuttle/engine/propulsion/left{
-	dir = 4
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/turf/open/misc/asteroid/snow,
-/area/awaymission/snowdin/cave)
 "gk" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on,
 /obj/structure/closet/crate{
@@ -5193,13 +5194,6 @@
 /obj/item/shard,
 /turf/open/floor/plating,
 /area/awaymission/snowdin/post/secpost)
-"oj" = (
-/obj/effect/turf_decal/bot_white,
-/obj/machinery/sleeper/self_control{
-	dir = 1
-	},
-/turf/open/floor/iron/dark,
-/area/awaymission/snowdin/cave)
 "ol" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -8047,15 +8041,6 @@
 /obj/effect/decal/cleanable/oil,
 /turf/open/floor/plating,
 /area/awaymission/snowdin/post/minipost)
-"zz" = (
-/obj/structure/shuttle/engine/propulsion/right{
-	dir = 4
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/turf/open/misc/asteroid/snow,
-/area/awaymission/snowdin/cave)
 "zC" = (
 /obj/structure/rack,
 /obj/item/grown/log/tree,
@@ -8475,6 +8460,15 @@
 	slowdown = 1
 	},
 /area/awaymission/snowdin/cave)
+"Bc" = (
+/obj/machinery/power/shuttle_engine/propulsion{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/misc/asteroid/snow,
+/area/awaymission/snowdin/cave)
 "Be" = (
 /obj/effect/landmark/awaystart,
 /obj/effect/turf_decal/tile/neutral{
@@ -8876,29 +8870,6 @@
 /obj/machinery/recharge_station,
 /turf/open/floor/circuit/red,
 /area/awaymission/snowdin/cave)
-"CP" = (
-/obj/structure/shuttle/engine/heater{
-	dir = 4
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/effect/turf_decal/weather/snow,
-/turf/open/floor/plating/snowed,
-/area/awaymission/snowdin/cave)
-"CQ" = (
-/obj/structure/shuttle/engine/propulsion/left{
-	dir = 4
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/obj/effect/turf_decal/weather/snow,
-/turf/open/floor/plating/snowed,
-/area/awaymission/snowdin/cave)
 "CS" = (
 /obj/machinery/light/small/directional/south,
 /obj/effect/light_emitter{
@@ -8944,16 +8915,6 @@
 	},
 /turf/open/floor/circuit/red,
 /area/awaymission/snowdin/cave)
-"Da" = (
-/obj/structure/shuttle/engine/propulsion{
-	dir = 4
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/obj/effect/turf_decal/weather/snow,
-/turf/open/floor/plating/snowed,
-/area/awaymission/snowdin/cave)
 "De" = (
 /obj/structure/table/reinforced,
 /obj/machinery/light/built/directional/west,
@@ -8992,16 +8953,6 @@
 	dir = 4
 	},
 /turf/open/floor/iron/dark,
-/area/awaymission/snowdin/cave)
-"Dl" = (
-/obj/structure/shuttle/engine/propulsion/right{
-	dir = 4
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/obj/effect/turf_decal/weather/snow,
-/turf/open/floor/plating/snowed,
 /area/awaymission/snowdin/cave)
 "Dm" = (
 /obj/effect/light_emitter{
@@ -9096,18 +9047,6 @@
 "DT" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
-/area/awaymission/snowdin/cave)
-"DU" = (
-/obj/structure/shuttle/engine/heater{
-	dir = 4
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/open/floor/plating/snowed,
 /area/awaymission/snowdin/cave)
 "DX" = (
 /obj/item/shard,
@@ -9296,8 +9235,22 @@
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/iron/dark,
 /area/awaymission/snowdin/cave)
+"EN" = (
+/obj/machinery/sleeper/self_control{
+	dir = 1
+	},
+/obj/effect/turf_decal/bot_white,
+/turf/open/floor/iron/dark,
+/area/awaymission/snowdin/cave)
 "EO" = (
 /obj/effect/turf_decal/bot_white,
+/turf/open/floor/iron/dark,
+/area/awaymission/snowdin/cave)
+"EP" = (
+/obj/effect/turf_decal/bot_white,
+/obj/machinery/sleeper/self_control{
+	dir = 1
+	},
 /turf/open/floor/iron/dark,
 /area/awaymission/snowdin/cave)
 "EQ" = (
@@ -10691,6 +10644,16 @@
 	},
 /turf/open/floor/iron,
 /area/awaymission/snowdin/post/messhall)
+"Ke" = (
+/obj/machinery/power/shuttle_engine/propulsion/right{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/snow,
+/turf/open/floor/plating/snowed,
+/area/awaymission/snowdin/cave)
 "Kg" = (
 /obj/structure/ore_box,
 /obj/effect/turf_decal/bot,
@@ -11155,13 +11118,6 @@
 /obj/effect/mob_spawn/corpse/human/assistant,
 /turf/open/misc/asteroid/snow/ice,
 /area/awaymission/snowdin/cave/cavern)
-"LO" = (
-/obj/machinery/sleeper/self_control{
-	dir = 1
-	},
-/obj/effect/turf_decal/bot_white,
-/turf/open/floor/iron/dark,
-/area/awaymission/snowdin/cave)
 "LQ" = (
 /obj/item/stack/rods,
 /turf/open/misc/asteroid/snow,
@@ -11545,6 +11501,15 @@
 /obj/effect/spawner/random/exotic/antag_gear_weak,
 /turf/open/misc/asteroid/snow,
 /area/awaymission/snowdin/cave)
+"NT" = (
+/obj/machinery/power/shuttle_engine/propulsion/left{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/misc/asteroid/snow,
+/area/awaymission/snowdin/cave)
 "NV" = (
 /obj/effect/turf_decal/weather/snow,
 /obj/effect/turf_decal/weather/snow/corner{
@@ -11768,6 +11733,15 @@
 	icon_state = "snow_dug";
 	slowdown = 1
 	},
+/area/awaymission/snowdin/cave)
+"Pl" = (
+/obj/machinery/power/shuttle_engine/propulsion/right{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/misc/asteroid/snow,
 /area/awaymission/snowdin/cave)
 "Pm" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden{
@@ -12052,6 +12026,19 @@
 /obj/item/disk/holodisk/snowdin/weregettingpaidright,
 /turf/open/floor/iron/dark,
 /area/awaymission/snowdin/post/research)
+"QK" = (
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/snow,
+/turf/open/floor/plating/snowed,
+/area/awaymission/snowdin/cave)
 "QM" = (
 /mob/living/simple_animal/hostile/giant_spider/nurse/ice,
 /turf/open/misc/asteroid/snow/ice,
@@ -12860,15 +12847,6 @@
 /mob/living/simple_animal/hostile/bear/snow,
 /turf/open/misc/asteroid/snow,
 /area/awaymission/snowdin/cave)
-"Vl" = (
-/obj/structure/shuttle/engine/propulsion{
-	dir = 4
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/turf/open/misc/asteroid/snow,
-/area/awaymission/snowdin/cave)
 "Vm" = (
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 9
@@ -13030,6 +13008,18 @@
 	},
 /turf/open/floor/iron,
 /area/awaymission/snowdin/post)
+"Wo" = (
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/open/floor/plating/snowed,
+/area/awaymission/snowdin/cave)
 "Wp" = (
 /obj/structure/statue/snow/snowman{
 	anchored = 1;
@@ -13174,6 +13164,16 @@
 /obj/item/stack/rods,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
+/area/awaymission/snowdin/cave)
+"Xf" = (
+/obj/machinery/power/shuttle_engine/propulsion{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/snow,
+/turf/open/floor/plating/snowed,
 /area/awaymission/snowdin/cave)
 "Xh" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -35204,7 +35204,7 @@ CH
 Eu
 Ez
 EH
-LO
+EN
 CC
 Ym
 Zy
@@ -35718,7 +35718,7 @@ DR
 DB
 EA
 Xd
-oj
+EP
 CC
 Ym
 Zy
@@ -36738,9 +36738,9 @@ Rs
 CC
 CC
 CC
-DU
-DU
-DU
+Wo
+Wo
+Wo
 CC
 CC
 CC
@@ -36995,9 +36995,9 @@ CZ
 CD
 AU
 CC
-gj
-Vl
-zz
+NT
+Bc
+Pl
 CC
 AU
 CC
@@ -37246,9 +37246,9 @@ Ym
 Zy
 ZX
 CD
-CP
-CP
-CP
+QK
+QK
+QK
 Wy
 Rm
 Ym
@@ -37258,9 +37258,9 @@ Ym
 Ym
 Ym
 CD
-CP
-CP
-CP
+QK
+QK
+QK
 CC
 AU
 Zy
@@ -37503,9 +37503,9 @@ Ym
 Zy
 Zy
 CE
-CQ
-Da
-Dl
+af
+Xf
+Ke
 AU
 Ym
 Rm
@@ -37515,9 +37515,9 @@ Ym
 Rm
 AU
 QY
-CQ
-Da
-Dl
+af
+Xf
+Ke
 CC
 Ym
 bB
