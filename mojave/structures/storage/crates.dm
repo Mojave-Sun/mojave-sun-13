@@ -172,6 +172,7 @@
 	icon_state = "enclave"
 	material_drop = /obj/item/stack/sheet/ms13/scrap
 	material_drop_amount = 2
+	projectile_passchance = 85
 
 /obj/structure/closet/crate/ms13/medical
 	name = "medical locker"
