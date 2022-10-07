@@ -170,12 +170,6 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating/airless,
 /area/ruin/space/ks13/hallway/central)
-"cg" = (
-/obj/structure/table,
-/obj/item/clothing/head/chefhat,
-/obj/structure/cable,
-/turf/open/floor/iron/airless,
-/area/ruin/space/ks13/service/kitchen)
 "ci" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/mapping_helpers/broken_floor,
@@ -240,6 +234,22 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron,
 /area/ruin/space/ks13/security/court)
+"cR" = (
+/obj/machinery/computer/monitor{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/power/apc/unlocked{
+	dir = 8;
+	environ = 0;
+	equipment = 0;
+	lighting = 0;
+	name = "Aft Solar APC";
+	pixel_x = -25;
+	start_charge = 0
+	},
+/turf/open/floor/iron,
+/area/ruin/space/ks13/engineering/sb_bow_solars_control)
 "de" = (
 /obj/structure/girder/reinforced,
 /turf/open/floor/plating/airless,
@@ -248,6 +258,35 @@
 /obj/structure/closet/radiation,
 /turf/open/floor/iron,
 /area/ruin/space/ks13/engineering/singulo)
+"dm" = (
+/obj/structure/closet/crate,
+/obj/item/clothing/head/rasta,
+/obj/item/clothing/head/beanie/black,
+/obj/item/clothing/head/beanie/christmas,
+/obj/item/clothing/head/beanie/darkblue,
+/obj/item/clothing/head/beanie/red,
+/obj/item/clothing/head/waldo,
+/obj/item/clothing/head/costume/bearpelt,
+/obj/item/clothing/head/beret,
+/obj/item/clothing/head/utility/bomb_hood,
+/obj/item/clothing/head/costume/bunnyhead,
+/obj/item/clothing/head/costume/cardborg,
+/obj/item/clothing/head/cone,
+/obj/item/clothing/head/costume/festive,
+/obj/item/clothing/head/helmet/riot,
+/obj/item/clothing/head/helmet/sec,
+/obj/item/clothing/head/costume/jester,
+/obj/item/clothing/head/chaplain/nun_hood,
+/obj/item/clothing/head/costume/papersack,
+/obj/item/clothing/head/costume/rabbitears,
+/obj/item/clothing/head/costume/snowman,
+/obj/item/clothing/head/costume/sombrero/green,
+/obj/item/clothing/head/wig,
+/obj/item/clothing/head/wizard/fake,
+/obj/item/clothing/head/wizard/santa,
+/obj/item/clothing/head/costume/xenos,
+/turf/open/floor/iron/airless,
+/area/ruin/space/ks13/ai/vault)
 "dn" = (
 /obj/structure/table,
 /obj/item/paper/crumpled,
@@ -431,22 +470,6 @@
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/plating/airless,
 /area/ruin/space/ks13/ai/vault)
-"gx" = (
-/obj/machinery/computer/monitor{
-	dir = 4
-	},
-/obj/structure/cable,
-/obj/machinery/power/apc/unlocked{
-	dir = 8;
-	environ = 0;
-	equipment = 0;
-	lighting = 0;
-	name = "Aft Solar APC";
-	pixel_x = -25;
-	start_charge = 0
-	},
-/turf/open/floor/iron,
-/area/ruin/space/ks13/engineering/sb_bow_solars_control)
 "gy" = (
 /obj/structure/chair{
 	dir = 1
@@ -718,6 +741,19 @@
 	},
 /turf/open/floor/iron/white/airless,
 /area/ruin/space/ks13/dorms)
+"kR" = (
+/obj/structure/table/wood,
+/obj/item/clothing/head/hats/caphat{
+	armor = null;
+	desc = "A worn captains hat. This probably won't protect your noggin too well.";
+	pixel_x = 7;
+	pixel_y = 9
+	},
+/obj/effect/spawner/random/maintenance,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating/airless,
+/area/space/nearstation)
 "kU" = (
 /obj/machinery/door/window/left/directional/south{
 	name = "Bar"
@@ -1252,17 +1288,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/airless,
 /area/ruin/space/ks13/hallway/central)
-"pU" = (
-/obj/docking_port/stationary{
-	dir = 2;
-	dwidth = 11;
-	height = 22;
-	shuttle_id = "whiteship_z4";
-	name = "KSS13: Derelict";
-	width = 35
-	},
-/turf/template_noop,
-/area/space/nearstation)
 "pW" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -1647,19 +1672,6 @@
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/engine/air,
 /area/ruin/space/ks13/science/ordnance)
-"sa" = (
-/obj/structure/table/wood,
-/obj/item/clothing/head/caphat{
-	armor = null;
-	desc = "A worn captains hat. This probably won't protect your noggin too well.";
-	pixel_x = 7;
-	pixel_y = 9
-	},
-/obj/effect/spawner/random/maintenance,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/mapping_helpers/burnt_floor,
-/turf/open/floor/plating/airless,
-/area/space/nearstation)
 "sc" = (
 /turf/open/floor/plating/airless,
 /area/ruin/space/ks13/science/genetics)
@@ -2496,6 +2508,17 @@
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron,
 /area/ruin/space/ks13/command/bridge)
+"wV" = (
+/obj/docking_port/stationary{
+	dir = 2;
+	dwidth = 11;
+	height = 22;
+	shuttle_id = "whiteship_z4";
+	name = "KSS13: Derelict";
+	width = 35
+	},
+/turf/template_noop,
+/area/space/nearstation)
 "wX" = (
 /obj/machinery/light/directional/north,
 /obj/structure/closet/crate,
@@ -4649,6 +4672,12 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating/airless,
 /area/ruin/space/ks13/engineering/singulo)
+"HZ" = (
+/obj/structure/table,
+/obj/item/clothing/head/utility/chefhat,
+/obj/structure/cable,
+/turf/open/floor/iron/airless,
+/area/ruin/space/ks13/service/kitchen)
 "Ib" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/decal/cleanable/blood/old,
@@ -5138,11 +5167,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/airless,
 /area/ruin/space/ks13/dorms)
-"KJ" = (
-/obj/structure/table,
-/obj/item/clothing/head/powdered_wig,
-/turf/open/floor/iron,
-/area/ruin/space/ks13/security/court)
 "KL" = (
 /obj/item/shard{
 	icon_state = "small";
@@ -7266,6 +7290,11 @@
 /obj/structure/cable,
 /turf/open/floor/plating/airless,
 /area/ruin/space/ks13/security/sec)
+"Vo" = (
+/obj/structure/table,
+/obj/item/clothing/head/costume/powdered_wig,
+/turf/open/floor/iron,
+/area/ruin/space/ks13/security/court)
 "Vr" = (
 /obj/structure/table,
 /obj/effect/spawner/random/maintenance,
@@ -7316,35 +7345,6 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/iron/airless,
 /area/ruin/space/ks13/service/hydro)
-"VG" = (
-/obj/structure/closet/crate,
-/obj/item/clothing/head/rasta,
-/obj/item/clothing/head/beanie/black,
-/obj/item/clothing/head/beanie/christmas,
-/obj/item/clothing/head/beanie/darkblue,
-/obj/item/clothing/head/beanie/red,
-/obj/item/clothing/head/waldo,
-/obj/item/clothing/head/bearpelt,
-/obj/item/clothing/head/beret,
-/obj/item/clothing/head/bomb_hood,
-/obj/item/clothing/head/bunnyhead,
-/obj/item/clothing/head/cardborg,
-/obj/item/clothing/head/cone,
-/obj/item/clothing/head/festive,
-/obj/item/clothing/head/helmet/riot,
-/obj/item/clothing/head/helmet/sec,
-/obj/item/clothing/head/jester,
-/obj/item/clothing/head/nun_hood,
-/obj/item/clothing/head/papersack,
-/obj/item/clothing/head/rabbitears,
-/obj/item/clothing/head/snowman,
-/obj/item/clothing/head/sombrero,
-/obj/item/clothing/head/wig,
-/obj/item/clothing/head/wizard/fake,
-/obj/item/clothing/head/wizard/santa,
-/obj/item/clothing/head/xenos,
-/turf/open/floor/iron/airless,
-/area/ruin/space/ks13/ai/vault)
 "VH" = (
 /obj/effect/mapping_helpers/burnt_floor,
 /obj/item/ammo_casing/a357{
@@ -10635,7 +10635,7 @@ Jr
 Jr
 PE
 NZ
-cg
+HZ
 oT
 Cv
 Dq
@@ -11672,7 +11672,7 @@ NW
 aa
 aa
 aa
-pU
+wV
 aa
 aa
 aa
@@ -15327,7 +15327,7 @@ yz
 oP
 wX
 At
-VG
+dm
 At
 oZ
 oP
@@ -15770,7 +15770,7 @@ pR
 pR
 xS
 VB
-gx
+cR
 DU
 yz
 yz
@@ -16029,7 +16029,7 @@ SA
 Am
 rl
 HL
-sa
+kR
 Hu
 IL
 rk
@@ -16604,7 +16604,7 @@ sg
 zN
 uw
 gH
-KJ
+Vo
 JT
 MO
 gy
