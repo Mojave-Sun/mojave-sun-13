@@ -5,7 +5,7 @@
 	desc = "You shouldn't be seeing this."
 	icon = 'mojave/icons/objects/food/fish/fish_world.dmi'
 	bite_consumption = 4
-	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 8)
+	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 6)
 	foodtypes = MEAT | RAW
 	w_class = WEIGHT_CLASS_NORMAL
 	grid_height = 64

@@ -1271,6 +1271,7 @@
 	desc = "A rather plain looking mushroom. Nothing about it stands out in particular."
 	bite_consumption_mod = 1
 	icon_state = "cavefungus"
+	foodtypes = VEGETABLES
 	filling_color = "#64553b"
 	tastes = list("mushroom"= 5)
 
