@@ -5,6 +5,7 @@
 	icon_state = "safe_spinner"
 	ms13_flags_1 = LOCKABLE_1
 	maxspace = 2000
+	projectile_passchance = 80
 
 /obj/structure/safe/ms13/advanced
 	name = "safe"
@@ -17,6 +18,7 @@
 	icon_state = "safe_wall"
 	pixel_y = 32
 	density = FALSE
+	projectile_passchance = 100
 
 /obj/structure/safe/ms13/wall/Initialize(mapload)
 	. = ..()
