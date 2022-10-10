@@ -6,7 +6,7 @@
 	icon = 'mojave/icons/objects/currency.dmi'
 	singular_name = "my money dont jiggle jiggle"
 	amount = 1
-	max_amount = 850
+	max_amount = 750
 	merge_type = /obj/item/stack/ms13/currency
 	full_w_class = WEIGHT_CLASS_SMALL
 	w_class = WEIGHT_CLASS_TINY
