@@ -38,7 +38,7 @@
 	set_target = null
 	return ..()
 
-/mob/living/simple_animal/hostile/asteroid/curseblob/Goto(move_target, delay, minimum_distance) //Observe
+/mob/living/simple_animal/hostile/asteroid/curseblob/Goto(target, delay, minimum_distance) //Observe
 	if(check_for_target())
 		return
 	move_loop(target, delay)
