@@ -91,7 +91,7 @@
 	icon_state = "porknbean"
 	foodtypes = MEAT | VEGETABLES | JUNKFOOD
 	tastes = list("meaty" = 3, "savory" = 2, "buttery" = 1)
-	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/protein = 15)
+	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/protein = 12)
 	max_volume = 20
 	bite_consumption = 5 // Porknbeans has 4 states of "fullness", so it has to be consumed in 5 bites! 20/5 = 4!
 	trash_type = /obj/item/trash/ms13/cans/porknbeans
@@ -161,7 +161,7 @@
 	icon_state = "macncheese"
 	foodtypes = JUNKFOOD | GRAIN | DAIRY
 	tastes = list("salty" = 1, "cheesy" = 3, "savory" = 1)
-	food_reagents = list(/datum/reagent/consumable/nutriment = 14, /datum/reagent/consumable/nutriment/protein = 6)
+	food_reagents = list(/datum/reagent/consumable/nutriment = 14, /datum/reagent/consumable/nutriment/protein = 2)
 	max_volume = 20
 	bite_consumption = 5
 	trash_type = /obj/item/trash/ms13/packaging/macncheese
