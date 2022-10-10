@@ -8,3 +8,5 @@
 
 ///A define for a node variable which is the last world.time that a AI visited it
 #define NODE_LAST_VISITED "node_last_visited"
+//Set this to be TRUE for certain nodes and for pathers that specifically want to stay in those nodes
+#define DUNGEON_AREA "dungeon_related_area"
