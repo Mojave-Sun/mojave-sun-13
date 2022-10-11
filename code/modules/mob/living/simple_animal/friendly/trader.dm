@@ -336,8 +336,6 @@ GLOBAL_LIST_EMPTY(nodes_trader_destination)
 /mob/living/simple_animal/hostile/retaliate/trader/proc/spend_buyer_offhand_money(mob/user, the_cost)
 	var/obj/item/stack/ms13/currency/cash = user.is_holding_item_of_type(/obj/item/stack/ms13/currency)
 	var/value = cash.amount
-	if(user.is_holding_item_of_type(/obj/item/stack/ms13/currency/ncr_dollar))
-		value = cash.amount * 2
 	if((value >= the_cost) && cash)
 		return cash.use(the_cost)
 	return FALSE //Purchase unsuccessful

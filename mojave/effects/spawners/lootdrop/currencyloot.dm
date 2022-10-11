@@ -33,7 +33,7 @@
 	spawn_loot_chance = 65
 	loot = list(
 		/obj/item/stack/ms13/currency/prewar/ten = 60,
-		/obj/item/stack/ms13/currency/ncr_dollar/five = 25,
+		/obj/item/stack/ms13/currency/ncr_dollar/ten = 25,
 		/obj/item/stack/ms13/currency/ncr_coin = 10,
 		/obj/item/stack/ms13/currency/cap/five = 5)
 
@@ -42,7 +42,7 @@
 	spawn_loot_chance = 50
 	loot = list(
 		/obj/item/stack/ms13/currency/prewar/twenty = 60,
-		/obj/item/stack/ms13/currency/ncr_dollar/ten = 25,
+		/obj/item/stack/ms13/currency/ncr_dollar/twenty = 25,
 		/obj/item/stack/ms13/currency/ncr_coin/five = 15)
 
 /obj/effect/spawner/random/ms13/currency/mammoth/tier3
@@ -50,7 +50,7 @@
 	spawn_loot_chance = 40
 	loot = list(
 		/obj/item/stack/ms13/currency/prewar/fifty = 60,
-		/obj/item/stack/ms13/currency/ncr_dollar/twenty = 25,
+		/obj/item/stack/ms13/currency/ncr_dollar/fifty = 25,
 		/obj/item/stack/ms13/currency/ncr_coin/ten = 15)
 
 /obj/effect/spawner/random/ms13/currency/mammoth/tier4
@@ -58,7 +58,7 @@
 	spawn_loot_chance = 25
 	loot = list(
 		/obj/item/stack/ms13/currency/prewar/hunned = 60,
-		/obj/item/stack/ms13/currency/ncr_dollar/fifty = 25)
+		/obj/item/stack/ms13/currency/ncr_dollar/hunned = 25)
 
 // Prewar Currency spawner //
 
@@ -139,8 +139,8 @@
 	name = "high dolla balla status NCR currency spawner"
 	spawn_loot_chance = 45
 	loot = list(
-		/obj/item/stack/ms13/currency/ncr_dollar/twenty,
 		/obj/item/stack/ms13/currency/ncr_dollar/thirty,
 		/obj/item/stack/ms13/currency/ncr_dollar/fourty,
+		/obj/item/stack/ms13/currency/ncr_dollar/fifty,
 		/obj/item/stack/ms13/currency/ncr_coin/ten,
 		/obj/item/stack/ms13/currency/ncr_coin/twenty)

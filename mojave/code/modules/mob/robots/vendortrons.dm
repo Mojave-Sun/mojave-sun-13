@@ -35,7 +35,7 @@
 	currency_name = "dollars"
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/initial_wanteds()
-	return list()
+	return list() //Traders only sell for now, they don't buy
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/gunrunner
 	name = "\improper Gun Runners vendortron"
@@ -75,7 +75,8 @@
 		),
 		TRADER_LORE_PHRASE = list(
 			"All Gun Runner merchandise is constructed at Gun Runner facilities.",
-			"Gun Runners. Supplying only the finest armaments since 2155."
+			"Gun Runners. Supplying only the finest armaments since 2155.",
+			"Acquire a Gun Runners arsenal today!"
 		),
 		TRADER_NOT_BUYING_ANYTHING = list(
 			"This unit is only programmed to sell products."

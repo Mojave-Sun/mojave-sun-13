@@ -29,7 +29,7 @@
 	name = "tier 1 Mammoth currency spawner"
 	loot = list(
 		/obj/item/stack/ms13/currency/prewar/ten = 60,
-		/obj/item/stack/ms13/currency/ncr_dollar/five = 25,
+		/obj/item/stack/ms13/currency/ncr_dollar/ten = 25,
 		/obj/item/stack/ms13/currency/ncr_coin = 10,
 		/obj/item/stack/ms13/currency/cap/five = 5)
 
@@ -37,21 +37,21 @@
 	name = "tier 2 Mammoth currency spawner"
 	loot = list(
 		/obj/item/stack/ms13/currency/prewar/twenty = 60,
-		/obj/item/stack/ms13/currency/ncr_dollar/ten = 25,
+		/obj/item/stack/ms13/currency/ncr_dollar/twenty = 25,
 		/obj/item/stack/ms13/currency/ncr_coin/five = 15)
 
 /obj/effect/spawner/random/ms13/guaranteed/currency/mammoth/tier3
 	name = "tier 3 Mammoth currency spawner"
 	loot = list(
 		/obj/item/stack/ms13/currency/prewar/fifty = 60,
-		/obj/item/stack/ms13/currency/ncr_dollar/twenty = 25,
+		/obj/item/stack/ms13/currency/ncr_dollar/fifty = 25,
 		/obj/item/stack/ms13/currency/ncr_coin/ten = 15)
 
 /obj/effect/spawner/random/ms13/guaranteed/currency/mammoth/tier4
 	name = "tier 4 Mammoth currency spawner"
 	loot = list(
 		/obj/item/stack/ms13/currency/prewar/hunned = 60,
-		/obj/item/stack/ms13/currency/ncr_dollar/fifty = 25)
+		/obj/item/stack/ms13/currency/ncr_dollar/hunned = 25)
 
 // Prewar Currency spawner //
 
@@ -124,8 +124,8 @@
 /obj/effect/spawner/random/ms13/guaranteed/currency/mammoth/ncr/high
 	name = "high dolla balla status NCR currency spawner"
 	loot = list(
-		/obj/item/stack/ms13/currency/ncr_dollar/twenty,
 		/obj/item/stack/ms13/currency/ncr_dollar/thirty,
 		/obj/item/stack/ms13/currency/ncr_dollar/fourty,
+		/obj/item/stack/ms13/currency/ncr_dollar/fifty,
 		/obj/item/stack/ms13/currency/ncr_coin/ten,
 		/obj/item/stack/ms13/currency/ncr_coin/twenty)
