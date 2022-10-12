@@ -191,9 +191,10 @@
 	name = "hydra"
 	description = "A curative agent that anaesthetises and restores crippled limbs. Causes heart damage from the overworking, and tends to make the user feel ill."
 	color = "#60A584"
-	overdose_threshold = 25
+	overdose_threshold = 15
 
-/datum/reagent/ms13/hydra/on_mob_add(mob/living/M, amount)
+/datum/reagent/ms13/hydra/on_mob_metabolize(mob/living/M, amount)
+	. = ..()
 	to_chat(M, span_notice("Your insides start tingling slightly. You can feel things shifting."))
 	return ..()
 
@@ -205,9 +206,8 @@
 	var/datum/wound/blunt/existing_break = locate(/datum/wound/blunt) in bodypart.wounds
 	// If we have an existing burn try to upgrade it
 	if(existing_break)
-		if(chem.volume >= 5) // Can't be effectively microdosed in any way
-			bodypart.force_wound_upwards(/datum/wound/burn/severe)
 		existing_break.remove_wound()
+	return ..()
 
 /datum/reagent/ms13/hydra/on_mob_delete(mob/living/carbon/human/M)
 	. = ..()
@@ -359,6 +359,7 @@
 
 /datum/reagent/ms13/turbo/overdose_start(mob/living/M)
 	to_chat(M, span_userdanger("You start tripping hard!"))
+	M.add_movespeed_modifier(/datum/movespeed_modifier/reagent/ms13/turbo_slow)
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "[type]_overdose", /datum/mood_event/overdose, name)
 	return ..()
 
@@ -493,18 +494,16 @@
 	REMOVE_TRAIT(M, TRAIT_STUNIMMUNE, type)
 	REMOVE_TRAIT(M, TRAIT_SLEEPIMMUNE, type)
 	M.Stun(25)
+	addtimer(CALLBACK(src, .proc/heartsplosion, M), rand(1, 5) SECONDS) // We want to delay the actual removal of the heart a tiny bit so people can get out a "Oh damn" or something. You go ZZZzzz mode the second you don't have one.
 	return ..()
 
 /datum/reagent/ms13/overdrive/overdose_process(mob/living/carbon/M)
-	var/obj/item/organ/heart/our_heart = M.getorganslot(ORGAN_SLOT_HEART)
 	if(prob(35)) // panic
 		to_chat(M, span_userdanger("[pick("OH SHIT!", "THE PAIN!", "AGHHHH!", "OH GOD IT HURTS!")]"))
 	if(prob(10))
 		M.vomit(25, TRUE ,TRUE)
 	M.Jitter(20)
 	M.emote(pick("twitch", "shiver"))
-	if(!our_heart) // If there is no heart, don't bother triggering this again. This isn't under the initial overdose_start proc because it triggers unreliably for some reason.
-		addtimer(CALLBACK(src, .proc/heartsplosion, M), rand(1, 5) SECONDS) // We want to delay the actual removal of the heart a tiny bit so people can get out a "Oh damn" or something. You go ZZZzzz mode the second you don't have one.
 	M.adjustOrganLoss(ORGAN_SLOT_BRAIN, rand(1, 5))
 	return ..()
 

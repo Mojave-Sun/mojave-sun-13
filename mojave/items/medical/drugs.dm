@@ -23,9 +23,9 @@
 	desc = "A somewhat 'natural' remedy condensed into a potent miracle medicine. This has the ability to mend even some of your worst fractures."
 	icon_state = "hydra"
 	base_icon_state = "hydra"
-	volume = 20
-	amount_per_transfer_from_this = 20
-	list_reagents = list(/datum/reagent/ms13/hydra = 20)
+	volume = 15
+	amount_per_transfer_from_this = 15
+	list_reagents = list(/datum/reagent/ms13/hydra = 15)
 
 /obj/item/reagent_containers/hypospray/medipen/ms13/calmex
 	name = "calmex injector"
@@ -43,7 +43,7 @@
 	base_icon_state = "medx"
 	volume = 20
 	amount_per_transfer_from_this = 20
-	list_reagents = list(/datum/reagent/ms13/calmex = 20)
+	list_reagents = list(/datum/reagent/ms13/medx = 20)
 
 /obj/item/reagent_containers/hypospray/medipen/ms13/addictol
 	name = "addictol injector"
