@@ -96,6 +96,12 @@
 	screen_start_y = 4
 	screen_start_x = 15
 
+/datum/component/storage/concrete/ms13/pillbottle // for pill bottles
+	screen_max_columns = 2
+	screen_max_rows = 4
+	screen_start_y = 4
+	screen_start_x = 17
+
 /datum/component/storage
 	screen_max_columns = 8
 	screen_max_rows = 3
