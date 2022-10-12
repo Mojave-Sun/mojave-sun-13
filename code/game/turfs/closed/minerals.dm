@@ -87,7 +87,7 @@
 		if(ismineralturf(src))
 			gets_drilled(user, TRUE)
 			SSblackbox.record_feedback("tally", "pick_used_mining", 1, I.type)
-
+// Gomble todo - why are we overriding last_act here?
 /turf/closed/mineral/attack_hand(mob/user)
 	if(!weak_turf)
 		return ..()
@@ -96,7 +96,8 @@
 		return
 	if(last_act + MINING_MESSAGE_COOLDOWN > world.time)//prevents message spam
 		return
-	last_act = world.time
+	TIMER_COOLDOWN_START(src, REF(user), hand_mine_speed)
+	var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/mining, SKILL_SPEED_MODIFIER) || 1
 	balloon_alert(user, "pulling out pieces...")
 	if(!do_after(user, 15 SECONDS, target = src))
 		return
