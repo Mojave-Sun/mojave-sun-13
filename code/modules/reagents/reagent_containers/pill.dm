@@ -15,6 +15,7 @@
 	var/rename_with_volume = FALSE
 	var/self_delay = 0 //pills are instant, this is because patches inheret their aplication from pills
 	var/dissolvable = TRUE
+	var/chompsound // MOJAVE SUN EDIT
 
 /obj/item/reagent_containers/pill/Initialize(mapload)
 	. = ..()
@@ -33,6 +34,8 @@
 			if(!do_mob(user, M, self_delay))
 				return FALSE
 		to_chat(M, span_notice("You [apply_method] [src]."))
+		playsound(src, chompsound, 35, TRUE, 2)
+
 
 	else
 		M.visible_message(span_danger("[user] attempts to force [M] to [apply_method] [src]."), \
@@ -41,6 +44,8 @@
 			return FALSE
 		M.visible_message(span_danger("[user] forces [M] to [apply_method] [src]."), \
 							span_userdanger("[user] forces you to [apply_method] [src]."))
+		playsound(src, chompsound, 35, TRUE, 2)
+
 
 	return on_consumption(M, user)
 
