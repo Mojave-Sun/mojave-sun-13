@@ -124,13 +124,15 @@
 		descriptive = "furiously hot"
 
 	. += span_notice("It feels [descriptive].")
-
+	
+/* MOJAVE SUN EDIT START - Gets rid of tanks dumping their gas into atmos when destroyed
 /obj/item/tank/deconstruct(disassembled = TRUE)
 	var/atom/location = loc
 	if(location)
 		location.assume_air(air_contents)
 		playsound(location, 'sound/effects/spray.ogg', 10, TRUE, -3)
 	return ..()
+MOJAVE SUN EDIT END*/
 
 /obj/item/tank/suicide_act(mob/user)
 	var/mob/living/carbon/human/H = user

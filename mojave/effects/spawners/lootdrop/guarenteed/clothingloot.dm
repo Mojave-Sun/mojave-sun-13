@@ -99,7 +99,7 @@
 		/obj/item/clothing/mask/ms13/bandana/bloods,
 		/obj/item/clothing/mask/ms13/bandana/grove,
 		/obj/item/clothing/mask/ms13/bandana/surgical,
-		/obj/item/clothing/mask/gas/ms13/modern,
+		/obj/item/clothing/mask/ms13/gas/modern,
 		/obj/item/clothing/head/welding/ms13)
 
 /obj/effect/spawner/random/ms13/guaranteed/clothing/hat

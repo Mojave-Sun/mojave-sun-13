@@ -130,7 +130,7 @@
 	inhand_icon_state = "bos_hood"
 	flags_inv = HIDEHAIR
 
-/obj/item/clothing/mask/gas/ms13
+/obj/item/clothing/mask/ms13/gas
 	name = "gas mask"
 	desc = "An old gas mask. Hypothetically speaking, breathing through it is safer than breathing out of it. The filters are questionable at best."
 	icon = 'mojave/icons/objects/clothing/clothing_world/masks_world.dmi'
@@ -142,40 +142,11 @@
 	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
 
-/obj/item/clothing/mask/gas/ms13/Initialize()
-	. = ..()
-	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clothing/clothing_inventory/masks_inventory.dmi')
-
-/obj/item/clothing/mask/gas/ms13/modern
+/obj/item/clothing/mask/ms13/gas/modern
 	icon_state = "gasmask"
 
-/obj/item/clothing/mask/gas/ms13/ranger
+/obj/item/clothing/mask/ms13/gas/ranger
 	desc = "A heavy duty gas mask, perfect for filtering the air of a very tainted world."
 	icon_state = "ranger_mask"
 	worn_icon_state = "ranger_mask"
 	adjustable = FALSE
-
-/obj/item/clothing/mask/gas/ms13/Initialize()
-	. = ..()
-	update_icon()
-
-/obj/item/clothing/mask/gas/ms13/attack_self(mob/living/user)
-	toggle_mask_style(user)
-
-/obj/item/clothing/mask/gas/ms13/proc/toggle_mask_style(mob/living/user)
-	adjusted = !adjusted
-
-	if(!adjustable)
-		return
-
-	if(adjusted)
-		alternate_worn_layer = ABOVE_BODY_FRONT_LAYER
-		to_chat(user, "<span class='notice'>You adjust the [src] to go over your headwear.</span>")
-		desc = "[initial(desc)] It will go over your headwear."
-		adjusted = TRUE
-	else
-		alternate_worn_layer = UNDER_HEAD_LAYER
-		to_chat(user, "<span class='notice'>You adjust the [src] to go under your headwear.</span>")
-		desc = "[initial(desc)] It will go under your headwear."
-		adjusted = FALSE
-	update_icon()
