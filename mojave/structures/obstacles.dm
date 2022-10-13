@@ -837,3 +837,19 @@
 	if(direction == dir && density)
 		leaving.Bump(src)
 		return COMPONENT_ATOM_BLOCK_EXIT
+
+/obj/structure/barricade/sandbags/ms13
+	name = "sandbags"
+	desc = "A robust and sturdy wall of sandbags."
+	icon = 'mojave/icons/obstacles/sandbags.dmi'
+	icon_state = "sandbags-0"
+	base_icon_state = "sandbags"
+	max_integrity = 280
+
+/obj/structure/barricade/sandbags/ms13/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/cloth(loc, 3)
+		else
+			new /obj/item/stack/sheet/ms13/cloth(loc, 3)
+	qdel(src)
