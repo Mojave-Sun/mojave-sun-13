@@ -26,6 +26,11 @@
 /obj/effect/turf_decal/ms13/road/verticalcrossing
 	icon_state = "vertical_crossing"
 
+// Street drains
+
+/obj/effect/turf_decal/ms13/road/drain
+	icon_state = "drain"
+
 //Water drains
 
 /obj/effect/turf_decal/ms13/showerdrains

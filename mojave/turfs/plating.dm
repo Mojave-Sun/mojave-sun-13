@@ -447,6 +447,7 @@
 	. = ..()
 	addtimer(CALLBACK(src, /atom/.proc/update_icon), 1)
 
+/*
 /turf/open/floor/plating/ms13/ground/sidewalk/update_icon()
 	. = ..()
 	add_overlay(image('mojave/icons/turf/curb.dmi', icon_state, FLOAT_LAYER))
@@ -459,7 +460,7 @@
 
 /turf/open/floor/plating/ms13/ground/sidewalk/cracked/Initialize()
 	. = ..()
-	icon_state = "crack_[rand(1,11)]"
+	icon_state = "crack_[rand(1,11)]"*/
 
 ////Roofing////
 

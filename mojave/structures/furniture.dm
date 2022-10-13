@@ -267,6 +267,10 @@
 	icon_state = "store_shelf"
 	materialtype = /obj/item/stack/sheet/ms13/scrap_wood
 
+/obj/structure/ms13/storage/store/metal
+	icon_state = "store_shelf_metal"
+	materialtype = /obj/item/stack/sheet/ms13/scrap
+
 /obj/structure/ms13/storage/bookshelf
 	name = "bookshelf"
 	desc = "Holder of knowledge, master of all."
@@ -323,12 +327,36 @@
 /obj/structure/ms13/storage/large/shelf/wood/alt
 	icon_state = "wood_shelf-alt"
 
+/obj/structure/ms13/storage/large/shelf/wood/drawers
+	name = "wood shelf"
+	desc = "A large wooden shelf set. There are drawers below for additional storage."
+	icon_state = "wood_shelf_big"
+	materialtype = /obj/item/stack/sheet/ms13/scrap_wood
+
 /obj/structure/ms13/storage/large/clothing
 	name = "clothing rack"
 	desc = "And they say fashion is dead."
 	icon_state = "clothing_rack"
 	materialtype = /obj/item/stack/sheet/ms13/scrap_wood
 	max_integrity = 250
+
+/obj/structure/ms13/storage/large/medical
+	name = "metal shelf"
+	desc = "A wheeled shelfing unit. It has wheels for easy mass transport of items- Too bad the wheels are all worn out considerably."
+	icon_state = "medshelves"
+	materialtype = /obj/item/stack/sheet/ms13/scrap_alu
+
+/obj/structure/ms13/storage/large/shop
+	name = "metal shelf"
+	desc = "Layered metal shelfs, exceptionally tall and wide, prime for loose item storage."
+	icon_state = "shelf_shop"
+	materialtype = /obj/item/stack/sheet/ms13/scrap
+
+/obj/structure/ms13/storage/large/showcase
+	name = "showcase shelf"
+	desc = "A pyramid of shelving units, ready to display wares to the eager world."
+	icon_state = "showcase"
+	materialtype = /obj/item/stack/sheet/ms13/scrap_wood
 
 // Dresser Stuff //
 
