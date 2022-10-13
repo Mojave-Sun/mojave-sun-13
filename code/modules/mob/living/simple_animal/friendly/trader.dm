@@ -146,7 +146,7 @@ GLOBAL_LIST_EMPTY(nodes_trader_destination)
 	restock_products()
 	renew_item_demands()
 	RegisterSignal(src, COMSIG_AI_NODE_REACHED, .proc/reached_next_node)
-	AddComponent(/datum/component/generic_animal_patrol, _animal_node_weights = list(), _animal_identifier = IDENTIFIER_GENERIC_SIMPLE, _patrol_move_delay = 3)
+	AddComponent(/datum/component/generic_animal_patrol, _animal_node_weights = list(), _animal_identifier = IDENTIFIER_GENERIC_SIMPLE, _patrol_move_delay = 8)
 	if(!restock_node_going_towards && length(GLOB.nodes_trader_destination))
 		restock_node_going_towards = pick(GLOB.nodes_trader_destination)
 		SEND_SIGNAL(src, COMSIG_AI_SET_GOAL_NODE, restock_node_going_towards)
@@ -334,12 +334,10 @@ GLOBAL_LIST_EMPTY(nodes_trader_destination)
 
 ///Calculates the value of money in the hand of the buyer and spends it if it's sufficient
 /mob/living/simple_animal/hostile/retaliate/trader/proc/spend_buyer_offhand_money(mob/user, the_cost)
-	var/value = 0
-	var/obj/item/holochip/cash = user.is_holding_item_of_type(/obj/item/holochip)
-	if(cash)
-		value += cash.credits
+	var/obj/item/stack/ms13/currency/cash = user.is_holding_item_of_type(/obj/item/stack/ms13/currency)
+	var/value = cash.amount
 	if((value >= the_cost) && cash)
-		return cash.spend(the_cost)
+		return cash.use(the_cost)
 	return FALSE //Purchase unsuccessful
 
 /**

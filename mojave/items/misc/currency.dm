@@ -6,7 +6,7 @@
 	icon = 'mojave/icons/objects/currency.dmi'
 	singular_name = "my money dont jiggle jiggle"
 	amount = 1
-	max_amount = 850
+	max_amount = 750
 	merge_type = /obj/item/stack/ms13/currency
 	full_w_class = WEIGHT_CLASS_SMALL
 	w_class = WEIGHT_CLASS_TINY
@@ -58,7 +58,7 @@
 
 /obj/item/stack/ms13/currency/ncr_dollar
 	name = "\improper NCR dollars"
-	desc = "Recently printed currency, minted exclusively by the New Californian Republic. Worth quite a bit!"
+	desc = "Recently printed currency, minted exclusively by the New California Republic."
 	icon_state = "ncr"
 	singular_name = "NCR dollar"
 	merge_type = /obj/item/stack/ms13/currency/ncr_dollar
@@ -70,7 +70,7 @@
 	amount = 10
 
 /obj/item/stack/ms13/currency/ncr_dollar/twenty
-	amount = 20
+	amount = 25
 
 /obj/item/stack/ms13/currency/ncr_dollar/thirty
 	amount = 30
@@ -80,6 +80,21 @@
 
 /obj/item/stack/ms13/currency/ncr_dollar/fifty
 	amount = 50
+
+/obj/item/stack/ms13/currency/ncr_dollar/sixty
+	amount = 60
+
+/obj/item/stack/ms13/currency/ncr_dollar/seventy
+	amount = 70
+
+/obj/item/stack/ms13/currency/ncr_dollar/eighty
+	amount = 80
+
+/obj/item/stack/ms13/currency/ncr_dollar/ninety
+	amount = 90
+
+/obj/item/stack/ms13/currency/ncr_dollar/hunned
+	amount = 100
 
 /obj/item/stack/ms13/currency/ncr_coin
 	name = "\improper NCR coins"

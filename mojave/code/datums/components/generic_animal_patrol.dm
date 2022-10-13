@@ -41,7 +41,6 @@
 	if(!new_node_target)
 		return
 	nodes_to_walk = get_path(starting_atom = current_node, goal_atom = new_node_target, pathing_type = NODE_PATHING)
-	to_chat(world, "path length is [nodes_to_walk.len]")
 	target_node = nodes_to_walk[length(nodes_to_walk)]
 	var/mob/living/simple_animal/animal = source
 	animal.Goto(target = target_node, delay = move_delay, minimum_distance = 0)

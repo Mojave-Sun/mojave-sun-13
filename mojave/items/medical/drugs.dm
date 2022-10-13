@@ -29,7 +29,7 @@
 
 /obj/item/reagent_containers/hypospray/medipen/ms13/calmex
 	name = "calmex injector"
-	desc = "A preloaded rapid-inject calmex syringe. Rotate the piston handle completely around to release the optimal stream"
+	desc = "A preloaded rapid-inject calmex syringe. Rotate the piston handle completely around to release the optimal stream."
 	icon_state = "calmex"
 	base_icon_state = "calmex"
 	volume = 20
@@ -37,8 +37,8 @@
 	list_reagents = list(/datum/reagent/ms13/calmex = 20)
 
 /obj/item/reagent_containers/hypospray/medipen/ms13/medx
-	name = "medx injector"
-	desc = "A preloaded rapid-inject medx syringe. Rotate the piston handle completely around to release the optimal stream"
+	name = "med-x injector"
+	desc = "A preloaded rapid-inject med-x syringe. Rotate the piston handle completely around to release the optimal stream."
 	icon_state = "medx"
 	base_icon_state = "medx"
 	volume = 20
@@ -224,7 +224,7 @@
 		))
 
 /obj/item/storage/pill_bottle/ms13/radx
-	name = "bottle of radx pills"
+	name = "bottle of rad-x pills"
 	desc = "Contains pills used to counter radiation."
 
 /obj/item/storage/pill_bottle/ms13/radx/PopulateContents()
@@ -241,7 +241,7 @@
 
 /obj/item/storage/pill_bottle/ms13/buffout
 	name = "bottle of buffout pills"
-	desc = "Contains pills used to bolster enduance of pain."
+	desc = "Contains pills used to bolster endurance of pain."
 
 /obj/item/storage/pill_bottle/ms13/buffout/PopulateContents()
 	for(var/i in 1 to 7)
@@ -257,7 +257,7 @@
 
 /obj/item/storage/pill_bottle/ms13/daytripper
 	name = "bottle of day tripper pills"
-	desc = "Contains pills used to make life seem just a tiny bit more tollerable."
+	desc = "Contains pills used to make life seem just a tiny bit more tolerable."
 
 /obj/item/storage/pill_bottle/ms13/daytripper/PopulateContents()
 	for(var/i in 1 to 7)
