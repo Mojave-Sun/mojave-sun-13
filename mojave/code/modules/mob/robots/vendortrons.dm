@@ -3,8 +3,8 @@
 	desc = "You shouldn't be seeing this...."
 	icon = 'mojave/icons/mob/ms13robots.dmi'
 	icon_state = "vendotron_blue"
-	maxHealth = 300
-	health = 300
+	maxHealth = 350
+	health = 350
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	wound_bonus = 0
@@ -16,7 +16,7 @@
 	loot = list(/obj/item/stack/sheet/ms13/scrap/two, /obj/effect/decal/cleanable/robot_debris, /obj/item/stack/sheet/ms13/glass, /obj/item/stack/sheet/ms13/scrap_electronics, /obj/item/stack/sheet/ms13/scrap_parts)
 	stat_attack = SOFT_CRIT
 	ranged = TRUE
-	ranged_cooldown = 3 SECONDS
+	ranged_cooldown = 2.5 SECONDS
 	casingtype = /obj/item/ammo_casing/energy/ms13/laser/protectron
 	projectilesound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_3.ogg'
 	loot = null
@@ -31,7 +31,7 @@
 	robust_searching = TRUE
 	check_friendly_fire = TRUE
 	speech_span = SPAN_ROBOT
-	speak_emote = list("states", "says")
+	speak_emote = list("states", "says", "responds")
 	currency_name = "dollars"
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/initial_wanteds()
@@ -172,6 +172,15 @@
 		/obj/item/reagent_containers/blood/ms13/o_minus = list(40, rand(0,3)),
 		/obj/item/reagent_containers/blood/ms13/radaway = list(40, rand(0,3)),
 		/obj/item/storage/firstaid/ms13/bag/filled = list(140, rand(0,1)),
+		/obj/item/reagent_containers/hypospray/medipen/ms13/hydra = list(150, rand(0,3)),
+		/obj/item/reagent_containers/hypospray/medipen/ms13/calmex = list(60, rand(1,4)),
+		/obj/item/storage/pill_bottle/ms13/daytripper = list(180, rand(0,2)),
+		/obj/item/reagent_containers/hypospray/medipen/ms13/medx = list(180, rand(0,3)),
+		/obj/item/storage/pill_bottle/ms13/radx = list(200, rand(0,2)),
+		/obj/item/storage/pill_bottle/ms13/cateye = list(220, rand(0,2)),
+		/obj/item/storage/pill_bottle/ms13/buffout = list(320, rand(0,1)),
+		/obj/item/storage/pill_bottle/ms13/mentat = list(200, rand(0,2)),
+		/obj/item/reagent_containers/hypospray/medipen/ms13/addictol = list(360, rand(0,1))
 				)
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/armor
