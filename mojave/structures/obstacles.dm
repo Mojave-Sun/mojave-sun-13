@@ -558,7 +558,21 @@
 		return 1
 	return !density
 
-//Road Barriers
+// Sand bags
+
+/obj/structure/ms13/sandbag
+	name = "sandbag"
+	desc = "Stacked bags of material, designed to cover people from lead rain."
+	icon = 'mojave/icons/structure/smooth_structures/sandbags.dmi'
+	icon_state = "sandbags-0"
+	base_icon_state = "sandbags"
+	density = TRUE
+	anchored = TRUE
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_MS13_SANDBAGS)
+	canSmoothWith = list(SMOOTH_GROUP_MS13_SANDBAGS)
+	max_integrity = 250
+	projectile_passchance = 35
 
 /obj/structure/ms13/road_barrier
 	name = "road barrier"
@@ -566,7 +580,6 @@
 	icon = 'mojave/icons/obstacles/barriers.dmi'
 	icon_state = "road_barrier"
 	density = TRUE
-	anchored = FALSE
 	max_integrity = 150
 	projectile_passchance = 85
 	var/hasaltstates = FALSE

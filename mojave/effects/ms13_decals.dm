@@ -9,6 +9,11 @@
 /obj/effect/turf_decal/ms13/road
 	icon = 'mojave/icons/decals/road_decals.dmi'
 
+/obj/effect/turf_decal/ms13/road/Initialize(mapload)
+	. = ..()
+	if(prob(35))
+		icon_state = "[initial(icon_state)]-[rand(1,2)]"
+
 /obj/effect/turf_decal/ms13/road/horizontalline
 	icon_state = "horizontal_line"
 
