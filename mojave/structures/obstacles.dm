@@ -574,6 +574,18 @@
 	max_integrity = 250
 	projectile_passchance = 35
 
+/obj/structure/ms13/sandbag/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/climbable)
+
+/obj/structure/ms13/sandbag/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/cloth(loc, 3)
+		else
+			new /obj/item/stack/sheet/ms13/cloth(loc, 3)
+	qdel(src)
+
 /obj/structure/ms13/road_barrier
 	name = "road barrier"
 	desc = "A light and portable road barrier, used to direct traffic and stop people from going to dead ends."
