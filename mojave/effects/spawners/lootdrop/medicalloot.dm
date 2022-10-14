@@ -41,7 +41,7 @@
 			/obj/item/stack/medical/ms13/balm = 20
 			)
 
-/obj/effect/spawner/random/ms13/medical/lowrandom
+/obj/effect/spawner/random/ms13/medical/lowrandomf
 	name = "low tier random medical spawner"
 	spawn_loot_count = 1
 	spawn_loot_chance = 100
