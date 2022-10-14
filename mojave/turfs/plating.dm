@@ -408,8 +408,8 @@
 
 /turf/open/floor/plating/ms13/ground/road/update_icon()
 	. = ..() //Inheritance required for road decals
-	var/rand_icon = rand(1,4)
-	var/crack_randomiser = "crack_[rand(1,18)]"
+	var/rand_icon = rand(1,3)
+	var/crack_randomiser = "crack_[rand(1,24)]"
 	var/road_randomiser = rand(-10,10)
 	var/direction_randomiser = rand(0,8)
 
@@ -423,9 +423,6 @@
 		if(3)
 			icon = 'mojave/icons/turf/64x/road_3.dmi'
 			border_icon = 'mojave/icons/turf/64x/road_3_border.dmi'
-		if(4)
-			icon = 'mojave/icons/turf/64x/road_4.dmi'
-			border_icon = 'mojave/icons/turf/64x/road_4_border.dmi'
 
 	if(prob(20))
 		add_overlay(image('mojave/icons/turf/road.dmi', crack_randomiser, TURF_LAYER_ROAD_DECAL, direction_randomiser, road_randomiser, road_randomiser))
@@ -450,6 +447,7 @@
 	. = ..()
 	addtimer(CALLBACK(src, /atom/.proc/update_icon), 1)
 
+/*
 /turf/open/floor/plating/ms13/ground/sidewalk/update_icon()
 	. = ..()
 	add_overlay(image('mojave/icons/turf/curb.dmi', icon_state, FLOAT_LAYER))
@@ -462,7 +460,7 @@
 
 /turf/open/floor/plating/ms13/ground/sidewalk/cracked/Initialize()
 	. = ..()
-	icon_state = "crack_[rand(1,11)]"
+	icon_state = "crack_[rand(1,11)]"*/
 
 ////Roofing////
 

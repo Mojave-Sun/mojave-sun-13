@@ -6,7 +6,7 @@
 	icon = 'mojave/icons/effects/landmarks_static.dmi'
 	icon_state = "x6" //Pure white 'X' with black borders
 	anchored = TRUE //No pulling those nodes yo
-	invisibility = INVISIBILITY_OBSERVER //Why was this visible towrds ghosts, just change it if testing
+	invisibility = INVISIBILITY_MAXIMUM //Why was this visible towrds ghosts, just change it if testing
 	//mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	///Assoc list of adjacent landmark nodes by dir
 	var/list/adjacent_nodes = list()
@@ -14,8 +14,8 @@
 
 	///List of weights for scoring stuff happening here; ultilizes "identifiers" to differentiate different kinds of AI types looking at the same node.
 	var/list/weights = list(
-		IDENTIFIER_GENERIC_SIMPLE = list(NODE_LAST_VISITED = 0, NODE_TRADER_STAYS_THIS_LONG = 12 SECONDS),
-		IDENTIFIER_EYEBOT = list(NODE_LAST_VISITED = 0, NODE_TRADER_STAYS_THIS_LONG = 12 SECONDS)
+		IDENTIFIER_GENERIC_SIMPLE = list(NODE_LAST_VISITED = 0, NODE_TRADER_STAYS_THIS_LONG = 8 SECONDS),
+		IDENTIFIER_EYEBOT = list(NODE_LAST_VISITED = 0, NODE_TRADER_STAYS_THIS_LONG = 8 SECONDS)
 		)
 	//TODO: MAKE DYNAMICALLY INITIALIZED WHEN REQUESTED
 
@@ -119,3 +119,11 @@
 /obj/effect/ai_node/restock
 	name = "Trader Restock AI Node"
 	trader_restock_destination = TRUE
+
+
+/obj/effect/ai_node/wait
+	name = "Trader Waiting AI Node"
+	weights = list(
+		IDENTIFIER_GENERIC_SIMPLE = list(NODE_LAST_VISITED = 0, NODE_TRADER_STAYS_THIS_LONG = 100 SECONDS),
+		IDENTIFIER_EYEBOT = list(NODE_LAST_VISITED = 0, NODE_TRADER_STAYS_THIS_LONG = 100 SECONDS)
+		)

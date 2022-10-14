@@ -5,7 +5,7 @@
 	description = "A highly potent anabolic steroid popular before the war with athletes. Causes mild liver and heart damage."
 	color = "#a19f7c"
 	overdose_threshold = 25
-	metabolization_rate = 15 * REM
+	metabolization_rate = 0.08 * REM
 
 /datum/reagent/ms13/buffout/on_mob_metabolize(mob/living/M)
 	M.maxHealth += 30 // These probably shouldn't ever be too high for the sake of balance. You're only human anyways afterall.
@@ -42,6 +42,7 @@
 	description = "A light anaesthetic. Reduces inhibitions and dulls the senses."
 	color = "#BC13FE"
 	overdose_threshold = 30
+	metabolization_rate = 0.12 * REM
 
 /datum/reagent/ms13/calmex/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(current_cycle >= 5)
@@ -65,6 +66,7 @@
 	description = "A very strong painkilling agent. Renders pain into a foreign concept, and allows you to continue doing whatever you please."
 	color = "#59a1d4"
 	overdose_threshold = 30
+	metabolization_rate = 0.12 * REM
 
 /datum/reagent/ms13/medx/on_mob_add(mob/living/carbon/M, delta_time, times_fired)
 	. = ..()
@@ -125,6 +127,7 @@
 	description = "A chem that enhances the eye's ability to see in the dark."
 	color = "#22ac37"
 	overdose_threshold = 25
+	metabolization_rate = 0.6 * REM
 
 /datum/reagent/ms13/cateye/on_mob_add(mob/living/carbon/M, delta_time, times_fired)
 	. = ..()
@@ -151,6 +154,7 @@
 	color = "#94b8cc"
 	overdose_threshold = 30
 	addiction_types = list(/datum/addiction/ms13/daytripper = 25)
+	metabolization_rate = 0.6 * REM
 
 /datum/reagent/ms13/day_tripper/on_mob_metabolize(mob/living/L)
 	. = ..()
@@ -192,6 +196,7 @@
 	description = "A curative agent that anaesthetises and restores crippled limbs. Causes heart damage from the overworking, and tends to make the user feel ill."
 	color = "#60A584"
 	overdose_threshold = 15
+	metabolization_rate = 1 * REM
 
 /datum/reagent/ms13/hydra/on_mob_metabolize(mob/living/M, amount)
 	. = ..()
@@ -222,6 +227,7 @@
 	color = "#ca4f4f"
 	overdose_threshold = 35
 	addiction_types = list(/datum/addiction/ms13/jet = 45)
+	metabolization_rate = 0.8 * REM
 
 /datum/reagent/ms13/jet/on_mob_add(mob/living/carbon/human/M)
 	if(!M.hud_used)
@@ -270,6 +276,7 @@
 	color = "#a35353"
 	overdose_threshold = 30
 	addiction_types = list(/datum/addiction/ms13/rocket = 40)
+	metabolization_rate = 0.8 * REM
 
 /datum/reagent/ms13/rocket/on_mob_add(mob/living/carbon/human/M)
 	if(!M.hud_used)
@@ -326,6 +333,7 @@
 	color = "#be8585"
 	overdose_threshold = 30
 	addiction_types = list(/datum/addiction/ms13/turbo = 35)
+	metabolization_rate = 1 * REM
 
 /datum/reagent/ms13/turbo/on_mob_add(mob/living/carbon/human/M)
 	if(!M.hud_used)
@@ -376,6 +384,7 @@
 	color = "#a0dfe7"
 	overdose_threshold = 30
 	addiction_types = list(/datum/addiction/ms13/mentats = 25)
+	metabolization_rate = 1 * REM
 
 /datum/reagent/ms13/mentats/on_mob_life(mob/living/carbon/C)
 	C.adjustOrganLoss(ORGAN_SLOT_BRAIN, -2*REM)
@@ -405,6 +414,7 @@
 	overdose_threshold = 25
 	addiction_types = list(/datum/addiction/ms13/psycho = 35)
 	var/datum/brain_trauma/special/psychotic_brawling/bath_salts/rage
+	metabolization_rate = 0.7 * REM
 
 /datum/reagent/ms13/psycho/on_mob_add(mob/living/M)
 	. = ..()
@@ -462,6 +472,7 @@
 	color = "#ac4b4b"
 	overdose_threshold = 30
 	var/datum/brain_trauma/special/psychotic_brawling/bath_salts/rage
+	metabolization_rate = 0.75 * REM
 
 /datum/reagent/ms13/overdrive/on_mob_metabolize(mob/living/M)
 	. = ..()
@@ -526,6 +537,7 @@
 	description = "An effective pre-War medicine that works both physically and psychologically to remove both the symptoms of drug abuse and the craving."
 	color = "#8da070"
 	overdose_threshold = 10
+	metabolization_rate = 0.8 * REM
 
 /datum/reagent/ms13/addictol/on_mob_metabolize(mob/living/carbon/M)
 	. = ..()
