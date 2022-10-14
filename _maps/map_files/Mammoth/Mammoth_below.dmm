@@ -833,9 +833,12 @@
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/enclave_base)
 "adr" = (
-/obj/effect/spawner/random/ms13/medical/lowrandom,
 /obj/structure/closet/crate/ms13/woodcrate/compact,
-/obj/effect/spawner/random/ms13/guaranteed/medical/highrandom,
+/obj/effect/spawner/random/ms13/drugs/prewar,
+/obj/effect/spawner/random/ms13/drugs/prewar,
+/obj/effect/spawner/random/ms13/drugs/prewar,
+/obj/effect/spawner/random/ms13/drugs/prewar,
+/obj/effect/spawner/random/ms13/guaranteed/drugs/prewar,
 /turf/open/floor/ms13/concrete/industrial/walkway{
 	dir = 1
 	},
@@ -1301,13 +1304,6 @@
 	},
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
-"afy" = (
-/obj/item/reagent_containers/food/drinks/drinkingglass/shotglass{
-	pixel_y = 12
-	},
-/obj/structure/table/ms13/wood/bar,
-/turf/open/floor/wood/ms13/common,
-/area/ms13/underground/underground_town)
 "afz" = (
 /obj/structure/ms13/storage/bookshelf,
 /turf/open/floor/ms13/concrete,
@@ -5553,7 +5549,8 @@
 /obj/effect/turf_decal/trimline/yellow/line,
 /obj/structure/table/ms13/metal/grate,
 /obj/machinery/light/ms13,
-/obj/effect/spawner/random/ms13/melee/lowrandom,
+/obj/effect/spawner/random/ms13/drugs/prewar,
+/obj/effect/spawner/random/ms13/drugs/prewar,
 /turf/open/floor/ms13/tile/large/cream,
 /area/ms13/underground/sewer)
 "axk" = (
@@ -10061,6 +10058,7 @@
 /obj/effect/spawner/random/ms13/food/random,
 /obj/effect/spawner/random/ms13/food/random,
 /obj/effect/spawner/random/ms13/food/random,
+/obj/effect/spawner/random/ms13/drugs/lowrandom,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/underground_town)
 "aQh" = (
@@ -11009,6 +11007,8 @@
 /obj/effect/spawner/random/ms13/medical/lowrandom,
 /obj/structure/closet/crate/ms13/woodcrate/compact,
 /obj/effect/spawner/random/ms13/guaranteed/medical/lowrandom,
+/obj/effect/spawner/random/ms13/guaranteed/medical/highrandom,
+/obj/effect/spawner/random/ms13/medical/lowrandom,
 /turf/open/floor/ms13/concrete/industrial/walkway{
 	dir = 1
 	},
@@ -11404,6 +11404,7 @@
 	pixel_x = 4;
 	pixel_y = -6
 	},
+/obj/effect/spawner/random/ms13/drugs/prewar,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/sewer)
 "aVU" = (
@@ -11861,8 +11862,8 @@
 /turf/open/floor/ms13/tile/large/cafeteria,
 /area/ms13/underground/sewer)
 "aXP" = (
-/obj/effect/spawner/random/ms13/medical/highrandom,
 /obj/structure/table/ms13/wood/bar,
+/obj/effect/spawner/random/ms13/drugs/lowrandom,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/underground/underground_town)
 "aXS" = (
@@ -13767,9 +13768,9 @@
 /turf/open/floor/ms13/sewer,
 /area/ms13/underground/sewer)
 "fNK" = (
-/obj/effect/decal/cleanable/oil/slippery,
-/turf/open/floor/plating/ms13/ground/road,
-/area/ms13/town)
+/obj/effect/spawner/random/ms13/drugs/lowrandom,
+/turf/open/floor/plating/ms13/ground/mountain,
+/area/ms13/underground/mountain)
 "fOd" = (
 /obj/machinery/door/unpowered/ms13/wood/red{
 	dir = 4
@@ -13781,6 +13782,11 @@
 /obj/effect/spawner/random/ms13/clothing/under,
 /obj/effect/spawner/random/ms13/clothing/under,
 /turf/open/floor/wood/ms13/carpet/blue,
+/area/ms13/town)
+"fQG" = (
+/obj/structure/table/ms13/metal/grate,
+/obj/effect/spawner/random/ms13/guaranteed/drugs/prewar,
+/turf/open/floor/ms13/tile/blue/long,
 /area/ms13/town)
 "fRu" = (
 /obj/machinery/light/ms13,
@@ -15480,6 +15486,10 @@
 /mob/living/basic/ms13/hostile_animal/radroach,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/underground_town)
+"man" = (
+/mob/living/basic/ms13/robot/handy/saw,
+/turf/open/floor/ms13/metal/plate,
+/area/ms13/underground/sewer)
 "mby" = (
 /obj/structure/fence/fencenormal{
 	dir = 4
@@ -15506,6 +15516,8 @@
 /obj/structure/closet/crate/ms13/woodcrate,
 /obj/effect/spawner/random/ms13/crafting/household,
 /obj/effect/spawner/random/ms13/armor/lowrandom,
+/obj/effect/spawner/random/ms13/drugs/prewar,
+/obj/effect/spawner/random/ms13/drugs/prewar,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "mev" = (
@@ -16633,9 +16645,9 @@
 /turf/closed/indestructible/rock/ms13/mammoth,
 /area/ms13/underground/mountain)
 "pTy" = (
-/obj/effect/decal/cleanable/oil/streak,
-/turf/open/floor/plating/ms13/ground/road,
-/area/ms13/town)
+/obj/effect/spawner/random/ms13/drugs/lowrandom,
+/turf/open/floor/ms13/concrete,
+/area/ms13/underground/subway)
 "pTP" = (
 /obj/structure/ms13/rug/red,
 /turf/open/floor/wood/ms13/wide,
@@ -17861,12 +17873,9 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/mountain)
 "ust" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/mob/living/basic/ms13/robot/handy/saw,
-/turf/open/floor/ms13/metal/grate,
-/area/ms13/underground/sewer)
+/obj/effect/spawner/random/ms13/food/trash,
+/turf/open/floor/ms13/concrete,
+/area/ms13/underground/subway)
 "uvK" = (
 /obj/structure/table/ms13/no_smooth/counter/metal,
 /obj/structure/ms13/storage/vent,
@@ -18462,6 +18471,7 @@
 	},
 /obj/structure/closet/ms13/metal,
 /obj/item/clothing/suit/toggle/labcoat/ms13,
+/obj/effect/spawner/random/ms13/drugs/prewar,
 /turf/open/floor/ms13/tile/large/cream,
 /area/ms13/underground/sewer)
 "wJm" = (
@@ -37992,7 +38002,7 @@ aKR
 aKR
 aow
 aow
-apq
+aow
 apq
 apq
 apq
@@ -38294,7 +38304,7 @@ aKR
 aKR
 aow
 aow
-apq
+aow
 apq
 apq
 apq
@@ -42193,7 +42203,7 @@ rOY
 aMH
 aBz
 aAv
-ust
+aJK
 aHC
 aBz
 aGy
@@ -42493,7 +42503,7 @@ aBz
 aBz
 aBz
 aBz
-aBz
+man
 aBz
 aBz
 aBz
@@ -50177,7 +50187,7 @@ aaz
 aZe
 aTw
 aaz
-afy
+aXP
 xZS
 aaz
 aaz
@@ -51891,7 +51901,7 @@ aJl
 aRb
 tUm
 aJl
-mak
+aJl
 rvZ
 vnq
 aRb
@@ -52193,7 +52203,7 @@ aJl
 aRb
 alE
 aJl
-aJl
+mak
 mHN
 njs
 aRb
@@ -63844,7 +63854,7 @@ abV
 akx
 aVz
 aDF
-aIU
+akx
 aVz
 akx
 akx
@@ -64449,7 +64459,7 @@ akx
 aVz
 aVz
 aVz
-akx
+fNK
 akx
 akx
 akx
@@ -72103,7 +72113,7 @@ atS
 cAP
 apF
 atS
-awk
+fQG
 aVY
 dgu
 aoT
@@ -73531,7 +73541,7 @@ afU
 anJ
 atY
 atY
-atY
+ust
 atY
 pOV
 asZ
@@ -74254,7 +74264,7 @@ afU
 atD
 cUR
 djc
-fNK
+djc
 djc
 djc
 atD
@@ -74557,7 +74567,7 @@ atD
 cUR
 djc
 djc
-pTy
+djc
 djc
 atD
 afU
@@ -75341,7 +75351,7 @@ afU
 afU
 afU
 anJ
-atY
+pTy
 atY
 atY
 atY
@@ -75647,7 +75657,7 @@ atY
 atY
 atY
 atY
-atY
+ust
 asZ
 alW
 adH
@@ -76370,7 +76380,7 @@ cUR
 djc
 pRb
 djc
-pTy
+djc
 atD
 afU
 aZW
@@ -77759,7 +77769,7 @@ afU
 anJ
 atY
 atY
-atY
+ust
 atY
 atY
 asZ
@@ -78837,7 +78847,7 @@ afU
 afU
 afU
 aNR
-akx
+fNK
 akx
 aDk
 aNR

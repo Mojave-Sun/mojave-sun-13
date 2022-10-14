@@ -1,7 +1,7 @@
 // Random trader vendortron spawners - Shouldn't be more than three of these on the map, really.
 
 /obj/effect/spawner/random/ms13/trader
-	name = "DO NOT USE ME - Mojave Sun locked things chance"
+	name = "DO NOT USE ME - Trader spawns"
 	icon = 'mojave/icons/effects/random_spawners.dmi'
 	icon_state = "loot"
 	spawn_loot_double = FALSE
@@ -9,7 +9,7 @@
 	spawn_loot_chance = 100
 
 /obj/effect/spawner/random/ms13/trader
-	name = "DO NOT USE ME - Mojave Sun beginner locks"
+	name = "Random vendortron spawn"
 	loot = list(
 		/mob/living/simple_animal/hostile/retaliate/trader/ms13/armor,
 		/mob/living/simple_animal/hostile/retaliate/trader/ms13/gunrunner,

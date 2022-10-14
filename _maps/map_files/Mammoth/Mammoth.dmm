@@ -1231,7 +1231,6 @@
 /obj/effect/spawner/random/ms13/drugs/prewar,
 /obj/effect/spawner/random/ms13/drugs/prewar,
 /obj/effect/spawner/random/ms13/guaranteed/drugs/prewar,
-/obj/effect/spawner/random/ms13/locked/guaranteed/random,
 /obj/effect/spawner/random/ms13/guaranteed/drugs/prewar,
 /obj/effect/spawner/random/ms13/guaranteed/drugs/prewar,
 /obj/effect/spawner/random/ms13/guaranteed/drugs/prewar,
@@ -2049,8 +2048,11 @@
 /turf/open/floor/wood/ms13/carpet,
 /area/ms13/town)
 "btK" = (
-/obj/effect/decal/cleanable/oil,
-/turf/open/floor/plating/ms13/ground/road,
+/obj/structure/table/ms13/no_smooth/counter/metal{
+	dir = 1
+	},
+/obj/effect/spawner/random/ms13/drugs/highrandom,
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "btT" = (
 /obj/structure/ms13/storage/shelf{
@@ -5868,8 +5870,8 @@
 /area/ms13)
 "dTn" = (
 /obj/structure/closet/ms13/fridge,
-/obj/effect/spawner/random/ms13/food/produce_random,
 /obj/effect/spawner/random/ms13/drink/soda,
+/obj/effect/spawner/random/ms13/food/random,
 /turf/open/floor/ms13/tile/large/white,
 /area/ms13/town)
 "dTy" = (
@@ -11569,10 +11571,11 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "hcj" = (
-/obj/machinery/door/unpowered/ms13/seethrough/grate,
-/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/expert,
-/turf/open/floor/ms13/tile/large/white,
-/area/ms13/supermarket)
+/obj/machinery/light/ms13/bulb/industrial{
+	dir = 1
+	},
+/turf/open/floor/ms13/tile/large/cream,
+/area/ms13/town)
 "hcG" = (
 /obj/effect/decal/cleanable/vomit,
 /turf/open/floor/ms13/tile/blue/long,
@@ -13190,8 +13193,8 @@
 /area/ms13/town)
 "iaj" = (
 /obj/structure/closet/ms13/fridge,
-/obj/effect/spawner/random/ms13/food/produce_random,
 /obj/effect/spawner/random/ms13/food/packaged,
+/obj/effect/spawner/random/ms13/food/random,
 /turf/open/floor/ms13/tile/large/white,
 /area/ms13/town)
 "iam" = (
@@ -16317,9 +16320,10 @@
 /turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "jRb" = (
-/obj/item/ammo_casing/ms13/spent,
-/obj/structure/ms13/sandbag,
-/turf/open/floor/wood/ms13/wide,
+/obj/structure/closet/ms13/fridge,
+/obj/effect/spawner/random/ms13/food/random,
+/obj/effect/spawner/random/ms13/food/random,
+/turf/open/floor/ms13/tile/large/white,
 /area/ms13/town)
 "jRe" = (
 /obj/machinery/light/ms13/bulb/broken{
@@ -17809,7 +17813,6 @@
 /obj/effect/spawner/random/ms13/drugs/prewar,
 /obj/effect/spawner/random/ms13/drugs/prewar,
 /obj/effect/spawner/random/ms13/guaranteed/drugs/prewar,
-/obj/effect/spawner/random/ms13/locked/guaranteed/random,
 /obj/effect/spawner/random/ms13/guaranteed/drugs/prewar,
 /obj/effect/spawner/random/ms13/guaranteed/drugs/prewar,
 /turf/open/floor/ms13/tile/large/white,
@@ -24576,6 +24579,11 @@
 	},
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
+"pjT" = (
+/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/expert,
+/obj/machinery/door/unpowered/ms13/seethrough/grate,
+/turf/open/floor/ms13/tile/brown,
+/area/ms13/supermarket)
 "pld" = (
 /obj/structure/stairs/west,
 /obj/structure/railing/ms13/solo,
@@ -27001,6 +27009,13 @@
 	},
 /turf/open/floor/ms13/concrete/industrial/alt,
 /area/ms13/town)
+"shH" = (
+/obj/machinery/door/unpowered/ms13/seethrough/grate{
+	dir = 1
+	},
+/obj/effect/spawner/random/ms13/locked/random/highchance,
+/turf/open/floor/ms13/tile/large/white,
+/area/ms13/supermarket)
 "shM" = (
 /obj/machinery/door/unpowered/ms13/metal/red,
 /turf/open/floor/wood/ms13/mosaic,
@@ -28550,6 +28565,13 @@
 /mob/living/simple_animal/hostile/ms13/robot/protectron,
 /turf/open/floor/ms13/concrete/industrial/walkway,
 /area/ms13/town)
+"ugH" = (
+/obj/machinery/light/ms13/bulb{
+	dir = 1
+	},
+/obj/structure/ms13/storage/vent,
+/turf/open/floor/ms13/tile/large/white,
+/area/ms13/supermarket)
 "uhf" = (
 /obj/structure/table/ms13/metal/grate,
 /obj/structure/closet/ms13/wall/firstaid,
@@ -39887,7 +39909,7 @@ khQ
 khQ
 khQ
 jIO
-bZd
+jRb
 eIr
 ete
 jIO
@@ -39899,7 +39921,7 @@ ete
 jIO
 hRU
 jIO
-bZd
+jRb
 eIr
 ete
 jIO
@@ -50159,7 +50181,7 @@ wSc
 jIO
 hvX
 jIO
-bZd
+jRb
 eIr
 jIO
 hRU
@@ -64702,8 +64724,8 @@ jGn
 uOZ
 kGR
 mcP
-jRb
-kyo
+axO
+axO
 mzR
 cCk
 cCk
@@ -86464,11 +86486,11 @@ xZD
 xgN
 aPv
 sEp
-sEp
+xgN
+ugH
 sEp
 xgN
-pMC
-ntC
+uZA
 ntC
 ntC
 ntC
@@ -86737,7 +86759,7 @@ uaF
 iZk
 pDz
 mBi
-jit
+mBi
 mBi
 jtg
 tXh
@@ -86766,10 +86788,10 @@ xZD
 xgN
 kIW
 sEp
+shH
 sEp
 sEp
-hcj
-ovj
+pjT
 ntC
 ntC
 ntC
@@ -87071,7 +87093,7 @@ pQz
 xgN
 xgN
 xgN
-ovj
+xgN
 ntC
 lGR
 xgN
@@ -87373,7 +87395,7 @@ sEp
 exz
 bKa
 sWv
-goZ
+ovj
 ntC
 ntC
 xgN
@@ -87641,7 +87663,7 @@ jIO
 kxw
 iZk
 iZk
-btK
+mBi
 mBi
 mBi
 mBi
@@ -89455,7 +89477,7 @@ iZk
 iZk
 jdP
 mBi
-jit
+mBi
 mBi
 hLt
 tXh
@@ -96855,7 +96877,7 @@ cKm
 dVn
 cXi
 sCX
-mNV
+btK
 dVn
 dVn
 xPT
@@ -99574,7 +99596,7 @@ xPT
 aLq
 aLq
 xPT
-dVn
+hcj
 dVn
 xPT
 mKC

@@ -123,7 +123,7 @@
 
 /obj/effect/spawner/random/ms13/drugs/tier1
 	name = "tier 1 drug spawner"
-	spawn_loot_chance = 40
+	spawn_loot_chance = 55
 	loot = list(
 			/obj/item/reagent_containers/hypospray/medipen/ms13/calmex = 20,
 			/obj/item/reagent_containers/ms13/inhaler/jet = 20,
@@ -135,7 +135,7 @@
 
 /obj/effect/spawner/random/ms13/drugs/tier2
 	name = "tier 2 drug spawner"
-	spawn_loot_chance = 55
+	spawn_loot_chance = 60
 	loot = list(
 			/obj/item/reagent_containers/ms13/inhaler/rocket,
 			/obj/item/reagent_containers/hypospray/medipen/ms13/medx,
