@@ -97,3 +97,76 @@
 			/obj/item/stack/medical/bone_gel/ms13,
 			/obj/item/stack/sticky_tape/surgical/ms13
 			)
+
+/obj/effect/spawner/random/ms13/drugs
+	name = "DO NOT USE ME - Mojave Sun drug spawners"
+	icon_state = "loot"
+	spawn_loot_count = 1
+	spawn_loot_chance = 45
+
+/obj/effect/spawner/random/ms13/drugs/tier1
+	name = "tier 1 drug spawner"
+	spawn_loot_chance = 50
+	loot = list(
+			/obj/item/reagent_containers/hypospray/medipen/ms13/calmex = 20,
+			/obj/item/reagent_containers/ms13/inhaler/jet = 20,
+			/obj/item/storage/pill_bottle/ms13/cateye = 10,
+			/obj/item/storage/pill_bottle/ms13/mentat = 20,
+			/obj/item/storage/pill_bottle/ms13/daytripper = 10,
+			/obj/item/storage/pill_bottle/ms13/radx = 20
+			)
+
+/obj/effect/spawner/random/ms13/drugs/tier2
+	name = "tier 2 drug spawner"
+	spawn_loot_chance = 55
+	loot = list(
+			/obj/item/reagent_containers/ms13/inhaler/rocket,
+			/obj/item/reagent_containers/hypospray/medipen/ms13/medx,
+			/obj/item/reagent_containers/hypospray/medipen/ms13/psycho,
+			/obj/item/reagent_containers/hypospray/medipen/ms13/hydra
+			)
+
+/obj/effect/spawner/random/ms13/drugs/tier3
+	name = "tier 3 drug spawner"
+	spawn_loot_chance = 55
+	loot = list(
+			/obj/item/reagent_containers/hypospray/medipen/ms13/overdrive,
+			/obj/item/reagent_containers/hypospray/medipen/ms13/addictol,
+			/obj/item/reagent_containers/ms13/inhaler/turbo,
+			/obj/item/storage/pill_bottle/ms13/buffout
+			)
+
+/obj/effect/spawner/random/ms13/drugs/lowrandom
+	name = "low tier random drug spawner"
+	spawn_loot_count = 1
+	spawn_loot_chance = 100
+
+	loot = list(
+			/obj/effect/spawner/random/ms13/drugs/tier1 = 70,
+			/obj/effect/spawner/random/ms13/drugs/tier2 = 30
+			)
+
+/obj/effect/spawner/random/ms13/drugs/highrandom
+	name = "high tier random drug spawner"
+	spawn_loot_count = 1
+	spawn_loot_chance = 100
+
+	loot = list(
+			/obj/effect/spawner/random/ms13/drugs/tier2 = 45,
+			/obj/effect/spawner/random/ms13/drugs/tier3 = 55
+			)
+
+/obj/effect/spawner/random/ms13/drugs/prewar
+	name = "pre-war drug spawner"
+	spawn_loot_chance = 55
+	loot = list(
+			/obj/item/reagent_containers/hypospray/medipen/ms13/calmex = 15,
+			/obj/item/storage/pill_bottle/ms13/cateye = 10,
+			/obj/item/storage/pill_bottle/ms13/mentat = 15,
+			/obj/item/storage/pill_bottle/ms13/daytripper = 10,
+			/obj/item/storage/pill_bottle/ms13/radx = 15,
+			/obj/item/storage/pill_bottle/ms13/buffout = 10,
+			/obj/item/reagent_containers/hypospray/medipen/ms13/medx = 15,
+			/obj/item/reagent_containers/hypospray/medipen/ms13/psycho = 5,
+			/obj/item/reagent_containers/hypospray/medipen/ms13/addictol = 5
+			)
