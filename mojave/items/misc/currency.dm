@@ -10,6 +10,8 @@
 	merge_type = /obj/item/stack/ms13/currency
 	full_w_class = WEIGHT_CLASS_SMALL
 	w_class = WEIGHT_CLASS_TINY
+	grid_height = 32
+	grid_width = 32
 	novariants = FALSE
 
 /obj/item/stack/ms13/currency/Initialize()
@@ -55,6 +57,9 @@
 
 /obj/item/stack/ms13/currency/prewar/hunned
 	amount = 100
+
+/obj/item/stack/ms13/currency/prewar/mayor
+	amount = 250
 
 /obj/item/stack/ms13/currency/ncr_dollar
 	name = "\improper NCR dollars"
