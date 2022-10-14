@@ -172,7 +172,6 @@
 		/obj/item/reagent_containers/blood/ms13/o_minus = list(40, rand(0,3)),
 		/obj/item/reagent_containers/blood/ms13/radaway = list(40, rand(0,3)),
 		/obj/item/storage/firstaid/ms13/bag/filled = list(140, rand(0,1)),
-		/obj/item/reagent_containers/hypospray/medipen/ms13/hydra = list(150, rand(0,3)),
 		/obj/item/reagent_containers/hypospray/medipen/ms13/calmex = list(60, rand(1,4)),
 		/obj/item/storage/pill_bottle/ms13/daytripper = list(180, rand(0,2)),
 		/obj/item/reagent_containers/hypospray/medipen/ms13/medx = list(180, rand(0,3)),
