@@ -149,11 +149,3 @@
 			/obj/item/stack/medical/gauze/ms13/three)
 	else
 		l_pocket = null
-
-	backpack_contents = list(
-	/obj/effect/spawner/random/ms13/guaranteed/currency/mammoth/highrandom,
-	/obj/effect/spawner/random/ms13/guaranteed/currency/mammoth/highrandom,
-	/obj/effect/spawner/random/ms13/guaranteed/currency/mammoth/highrandom,
-	/obj/effect/spawner/random/ms13/guaranteed/ammo/highrandom,
-	/obj/effect/spawner/random/ms13/guaranteed/ammo/highrandom
-	)
