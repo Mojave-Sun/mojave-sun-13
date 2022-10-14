@@ -41,7 +41,7 @@
 			/obj/item/stack/medical/ms13/balm = 20
 			)
 
-/obj/effect/spawner/random/ms13/medical/lowrandomf
+/obj/effect/spawner/random/ms13/medical/lowrandom
 	name = "low tier random medical spawner"
 	spawn_loot_count = 1
 	spawn_loot_chance = 100
@@ -98,15 +98,32 @@
 			/obj/item/stack/sticky_tape/surgical/ms13
 			)
 
+/obj/effect/spawner/random/ms13/medical/medkit
+	name = "random medkit spawner"
+	icon_state = "ms13_medicalbag"
+	spawn_loot_chance = 30
+	loot = list(
+		/obj/item/storage/firstaid/ms13,
+		/obj/item/storage/firstaid/ms13/regular,
+		/obj/item/storage/firstaid/ms13/quality)
+
+/obj/effect/spawner/random/ms13/medical/dbag
+	name = "random doctor bag spawner"
+	icon_state = "ms13_medicalbag"
+	spawn_loot_chance = 30
+	loot = list(
+		/obj/item/storage/firstaid/ms13/bag,
+		/obj/item/storage/firstaid/ms13/bag/filled)
+
 /obj/effect/spawner/random/ms13/drugs
 	name = "DO NOT USE ME - Mojave Sun drug spawners"
-	icon_state = "loot"
+	icon_state = "ms13_medical"
 	spawn_loot_count = 1
 	spawn_loot_chance = 45
 
 /obj/effect/spawner/random/ms13/drugs/tier1
 	name = "tier 1 drug spawner"
-	spawn_loot_chance = 50
+	spawn_loot_chance = 40
 	loot = list(
 			/obj/item/reagent_containers/hypospray/medipen/ms13/calmex = 20,
 			/obj/item/reagent_containers/ms13/inhaler/jet = 20,
@@ -128,7 +145,7 @@
 
 /obj/effect/spawner/random/ms13/drugs/tier3
 	name = "tier 3 drug spawner"
-	spawn_loot_chance = 55
+	spawn_loot_chance = 65
 	loot = list(
 			/obj/item/reagent_containers/hypospray/medipen/ms13/overdrive,
 			/obj/item/reagent_containers/hypospray/medipen/ms13/addictol,
