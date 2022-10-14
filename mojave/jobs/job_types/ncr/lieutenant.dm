@@ -26,8 +26,9 @@
 		/obj/item/ammo_box/magazine/ms13/deagle=1, \
 		/obj/item/stack/medical/gauze/ms13/half=1,
 		/obj/item/flashlight/ms13=1, \
-		/obj/item/stack/medical/ointment/ms13/half=1,\
-		/obj/item/radio/ms13=1)
+		/obj/item/stack/medical/ointment/ms13/half=1, \
+		/obj/item/radio/ms13=1, \
+		/obj/item/stack/ms13/currency/ncr_dollar/eighty=1)
 
 /datum/outfit/job/ms13/ncr/lieutenant/pre_equip(mob/living/carbon/human/H)
 	..()

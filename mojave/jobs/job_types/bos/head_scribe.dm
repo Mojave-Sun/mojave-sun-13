@@ -27,7 +27,8 @@
 	back =      /obj/item/storage/ms13/satchel
 	backpack_contents = list(
 		/obj/item/stack/medical/gauze/ms13/half=1, \
-		/obj/item/stack/medical/ointment/ms13/half=1)
+		/obj/item/stack/medical/ointment/ms13/half=1, \
+		/obj/item/stack/ms13/currency/prewar/eighty=1)
 
 /datum/outfit/job/ms13/bos/head_scribe/pre_equip(mob/living/carbon/human/H)
 	..()

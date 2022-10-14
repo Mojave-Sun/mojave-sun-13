@@ -23,7 +23,7 @@
 	shoes =  	 /obj/item/clothing/shoes/ms13/military/vault
 	suit_store = /obj/item/gun/ballistic/shotgun/ms13/lever/trail
 	belt = 		 /obj/item/gun/ballistic/automatic/pistol/ms13/m10mm/military
-	r_pocket =   /obj/item/ammo_box/magazine/ms13/m10mm
+	r_pocket =   /obj/item/stack/ms13/currency/prewar/hunned
 	l_pocket = 	 /obj/item/knife/ms13/combat
 	back =       /obj/item/storage/ms13/vault
 	backpack_contents = list(
@@ -33,7 +33,8 @@
 		/obj/item/claymore/ms13/baton=1, \
 		/obj/item/flashlight/ms13=1, \
 		/obj/item/ammo_box/ms13/m44box=1, \
-		/obj/item/radio/ms13/broadcast/advanced=1)
+		/obj/item/radio/ms13/broadcast/advanced=1, \
+		/obj/item/ammo_box/magazine/ms13/m10mm=1)
 
 /datum/outfit/job/ms13/town/sheriff/pre_equip(mob/living/carbon/human/H)
 	..()
