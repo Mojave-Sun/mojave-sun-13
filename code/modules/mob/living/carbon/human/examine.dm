@@ -6,7 +6,6 @@
 	var/t_him = p_them()
 	var/t_has = p_have()
 	var/t_is = p_are()
-	var/t_es = p_es()
 	var/obscure_name
 	var/obscure_examine
 
@@ -337,7 +336,7 @@
 		if(getorgan(/obj/item/organ/internal/brain))
 			if(ai_controller?.ai_status == AI_STATUS_ON)
 				if(!dna.species.ai_controlled_species)
-					msg += "[span_deadsay("[t_He] do[t_es]n't appear to be [t_him]self.")]\n"
+					msg += "[ai_controller.get_human_examine_text()]\n"
 			else if(!key)
 				msg += "[span_deadsay("[t_He] [t_has] a blank, absent-minded stare and appears completely unresponsive to anything.")]\n" //MOJAVE SUN EDIT - Unimmersive space sleep shit
 			else if(!client)
