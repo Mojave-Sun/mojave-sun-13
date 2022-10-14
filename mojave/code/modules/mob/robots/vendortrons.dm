@@ -336,6 +336,8 @@
 		/obj/item/flashlight/ms13 = list(80, rand(1,2)),
 		/obj/item/flashlight/flare/ms13 = list(20, rand(2,4)),
 		/obj/item/flashlight/ms13/mag = list(160, rand(0,2)),
+		/obj/item/clothing/head/helmet/ms13/hardhat = list(50, rand(1,4)),
+		/obj/item/clothing/head/hardhat/ms13/mining = list(100, rand(0,2)),
 		/obj/item/ms13/tools/fishing_rod/telescopic = list(200, rand(0,1)),
 		/obj/item/ms13/twohanded/hammer = list(350, rand(0,1)),
 		/obj/item/stack/sheet/ms13/scrap_parts/five = list(30, rand(4,6)),
