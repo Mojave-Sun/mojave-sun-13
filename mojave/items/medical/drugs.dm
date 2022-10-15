@@ -238,7 +238,7 @@
 	desc = "Contains pills used to enhance low-light vision."
 
 /obj/item/storage/pill_bottle/ms13/cateye/PopulateContents()
-	for(var/i in 1 to 5)
+	for(var/i in 1 to 6)
 		new /obj/item/reagent_containers/pill/ms13/cateye(src)
 
 /obj/item/storage/pill_bottle/ms13/buffout
@@ -246,7 +246,7 @@
 	desc = "Contains pills used to bolster endurance of pain."
 
 /obj/item/storage/pill_bottle/ms13/buffout/PopulateContents()
-	for(var/i in 1 to 6)
+	for(var/i in 1 to 5)
 		new /obj/item/reagent_containers/pill/ms13/buffout(src)
 
 /obj/item/storage/pill_bottle/ms13/mentat
