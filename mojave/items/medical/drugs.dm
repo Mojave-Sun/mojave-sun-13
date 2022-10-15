@@ -207,6 +207,8 @@
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	component_type = /datum/component/storage/concrete/ms13/pillbottle
+	grid_height = 64
+	grid_width = 32
 
 /obj/item/storage/pill_bottle/ms13/Initialize()
 	. = ..()
@@ -236,7 +238,7 @@
 	desc = "Contains pills used to enhance low-light vision."
 
 /obj/item/storage/pill_bottle/ms13/cateye/PopulateContents()
-	for(var/i in 1 to 7)
+	for(var/i in 1 to 5)
 		new /obj/item/reagent_containers/pill/ms13/cateye(src)
 
 /obj/item/storage/pill_bottle/ms13/buffout
@@ -244,7 +246,7 @@
 	desc = "Contains pills used to bolster endurance of pain."
 
 /obj/item/storage/pill_bottle/ms13/buffout/PopulateContents()
-	for(var/i in 1 to 7)
+	for(var/i in 1 to 6)
 		new /obj/item/reagent_containers/pill/ms13/buffout(src)
 
 /obj/item/storage/pill_bottle/ms13/mentat

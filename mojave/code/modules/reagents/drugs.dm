@@ -309,6 +309,7 @@
 	if(prob(12))
 		M.emote("twitch")
 		M.Jitter(5)
+	return ..()
 
 /datum/reagent/ms13/rocket/overdose_start(mob/living/M)
 	var/atom/movable/plane_master_controller/game_plane_master_controller = M.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
