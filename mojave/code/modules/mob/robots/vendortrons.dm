@@ -176,8 +176,8 @@
 		/obj/item/storage/pill_bottle/ms13/daytripper = list(180, rand(0,2)),
 		/obj/item/reagent_containers/hypospray/medipen/ms13/medx = list(180, rand(0,3)),
 		/obj/item/storage/pill_bottle/ms13/radx = list(200, rand(0,2)),
-		/obj/item/storage/pill_bottle/ms13/cateye = list(220, rand(0,2)),
-		/obj/item/storage/pill_bottle/ms13/buffout = list(320, rand(0,1)),
+		/obj/item/storage/pill_bottle/ms13/cateye = list(190, rand(0,2)),
+		/obj/item/storage/pill_bottle/ms13/buffout = list(260, rand(0,1)),
 		/obj/item/storage/pill_bottle/ms13/mentat = list(200, rand(0,2)),
 		/obj/item/reagent_containers/hypospray/medipen/ms13/addictol = list(360, rand(0,1))
 				)
