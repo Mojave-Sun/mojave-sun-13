@@ -90,6 +90,7 @@
 /obj/effect/spawner/random/ms13/guaranteed/medical/medkit
 	name = "random medkit spawner"
 	icon_state = "ms13_medicalbag-static"
+	spawn_loot_count = 1
 	loot = list(
 		/obj/item/storage/firstaid/ms13,
 		/obj/item/storage/firstaid/ms13/regular,
@@ -98,6 +99,7 @@
 /obj/effect/spawner/random/ms13/guaranteed/medical/dbag
 	name = "random doctor bag spawner"
 	icon_state = "ms13_medicalbag-static"
+	spawn_loot_count = 1
 	loot = list(
 		/obj/item/storage/firstaid/ms13/bag,
 		/obj/item/storage/firstaid/ms13/bag/filled)
@@ -125,7 +127,7 @@
 			/obj/item/reagent_containers/ms13/inhaler/rocket,
 			/obj/item/reagent_containers/hypospray/medipen/ms13/medx,
 			/obj/item/reagent_containers/hypospray/medipen/ms13/psycho,
-			/obj/item/reagent_containers/hypospray/medipen/ms13/hydra
+			/obj/item/reagent_containers/ms13/inhaler/hydra
 			)
 
 /obj/effect/spawner/random/ms13/guaranteed/drugs/tier3
