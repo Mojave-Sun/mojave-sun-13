@@ -18,15 +18,6 @@
 	amount_per_transfer_from_this = 25
 	list_reagents = list(/datum/reagent/ms13/overdrive = 25)
 
-/obj/item/reagent_containers/hypospray/medipen/ms13/hydra
-	name = "hydra injector"
-	desc = "A somewhat 'natural' remedy condensed into a potent miracle medicine. This has the ability to mend even some of your worst fractures."
-	icon_state = "hydra"
-	base_icon_state = "hydra"
-	volume = 15
-	amount_per_transfer_from_this = 15
-	list_reagents = list(/datum/reagent/ms13/hydra = 15)
-
 /obj/item/reagent_containers/hypospray/medipen/ms13/calmex
 	name = "calmex injector"
 	desc = "A preloaded rapid-inject calmex syringe. Rotate the piston handle completely around to release the optimal stream."
@@ -150,6 +141,16 @@
 	amount_per_transfer_from_this = 15
 	list_reagents = list(/datum/reagent/ms13/turbo = 15)
 
+
+/obj/item/reagent_containers/ms13/inhaler/hydra
+	name = "hydra inhaler"
+	desc = "A somewhat 'natural' remedy condensed into a potent miracle medicine. This has the ability to mend even some of your worst fractures, simply huff the fun mystery gasses that brew in its container."
+	icon_state = "hydra"
+	base_icon_state = "hydra"
+	volume = 15
+	amount_per_transfer_from_this = 15
+	list_reagents = list(/datum/reagent/ms13/hydra = 15)
+
 // Pills
 
 /obj/item/reagent_containers/pill/ms13
@@ -191,8 +192,8 @@
 	list_reagents = list(/datum/reagent/ms13/day_tripper = 10)
 
 /obj/item/reagent_containers/pill/ms13/radx
-	desc = "A plain brown pill with a split across its face"
-	icon_state = "generic1"
+	desc = "A white and red capsule."
+	icon_state = "radx"
 	list_reagents = list(/datum/reagent/ms13/radx = 10)
 
 // Pill bottles //
