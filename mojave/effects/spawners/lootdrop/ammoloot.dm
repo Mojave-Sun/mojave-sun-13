@@ -27,7 +27,7 @@
 
 /obj/effect/spawner/random/ms13/ammo/tier2
 	name = "tier 2 ammo spawner"
-	spawn_loot_chance = 50
+	spawn_loot_chance = 55
 
 	loot = list(
 			/obj/item/ammo_box/magazine/ms13/m10mm,
@@ -65,7 +65,7 @@
 
 /obj/effect/spawner/random/ms13/ammo/tier4
 	name = "tier 4 ammo spawner"
-	spawn_loot_chance = 60
+	spawn_loot_chance = 65
 
 	loot = list(
 			/obj/item/ammo_box/magazine/ms13/amr,

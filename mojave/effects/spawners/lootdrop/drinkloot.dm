@@ -4,7 +4,7 @@
 /obj/effect/spawner/random/ms13/drink
 	name = "DO NOT USE ME - Mojave Sun drink spawners"
 	spawn_loot_count = 1
-	spawn_loot_chance = 50
+	spawn_loot_chance = 55
 
 /obj/effect/spawner/random/ms13/drink/soda
 	name = "cola spawner"
@@ -65,7 +65,7 @@
 /obj/effect/spawner/random/ms13/drink/alcohol_beer
 	name = "beer spawner"
 	icon_state = "ms13_beer"
-	spawn_loot_chance = 40
+	spawn_loot_chance = 45
 
 	loot = list(
 		/obj/item/reagent_containers/food/drinks/bottle/ms13/trooper_beer,

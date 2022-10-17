@@ -63,7 +63,7 @@
 
 /obj/effect/spawner/random/ms13/medical/herbal
 	name = "herbal medicine spawner"
-	spawn_loot_chance = 50
+	spawn_loot_chance = 55
 	spawn_loot_count = 1
 	loot = list(
 			/obj/item/stack/medical/ms13/healing_powder = 35,

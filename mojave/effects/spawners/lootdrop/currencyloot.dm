@@ -39,7 +39,7 @@
 
 /obj/effect/spawner/random/ms13/currency/mammoth/tier2
 	name = "tier 2 Mammoth currency spawner"
-	spawn_loot_chance = 50
+	spawn_loot_chance = 55
 	loot = list(
 		/obj/item/stack/ms13/currency/prewar/twenty = 60,
 		/obj/item/stack/ms13/currency/ncr_dollar/twenty = 25,
@@ -47,7 +47,7 @@
 
 /obj/effect/spawner/random/ms13/currency/mammoth/tier3
 	name = "tier 3 Mammoth currency spawner"
-	spawn_loot_chance = 40
+	spawn_loot_chance = 45
 	loot = list(
 		/obj/item/stack/ms13/currency/prewar/fifty = 60,
 		/obj/item/stack/ms13/currency/ncr_dollar/fifty = 25,
@@ -55,7 +55,7 @@
 
 /obj/effect/spawner/random/ms13/currency/mammoth/tier4
 	name = "tier 4 Mammoth currency spawner"
-	spawn_loot_chance = 25
+	spawn_loot_chance = 35
 	loot = list(
 		/obj/item/stack/ms13/currency/prewar/hunned = 60,
 		/obj/item/stack/ms13/currency/ncr_dollar/hunned = 25)
@@ -92,7 +92,7 @@
 
 /obj/effect/spawner/random/ms13/currency/mammoth/prewar/tier2
 	name = "tier 2 prewar Mammoth currency spawner"
-	spawn_loot_chance = 50
+	spawn_loot_chance = 55
 	loot = list(
 		/obj/item/stack/ms13/currency/prewar/twenty,
 		/obj/item/stack/ms13/currency/prewar/thirty,
@@ -101,7 +101,7 @@
 
 /obj/effect/spawner/random/ms13/currency/mammoth/prewar/tier3
 	name = "tier 3 prewar Mammoth currency spawner"
-	spawn_loot_chance = 40
+	spawn_loot_chance = 45
 	loot = list(
 		/obj/item/stack/ms13/currency/prewar/thirty,
 		/obj/item/stack/ms13/currency/prewar/fourty,
@@ -111,7 +111,7 @@
 
 /obj/effect/spawner/random/ms13/currency/mammoth/prewar/tier4
 	name = "tier 4 prewar Mammoth currency spawner"
-	spawn_loot_chance = 25
+	spawn_loot_chance = 35
 	loot = list(
 		/obj/item/stack/ms13/currency/prewar/fifty,
 		/obj/item/stack/ms13/currency/prewar/sixty,
@@ -137,7 +137,7 @@
 
 /obj/effect/spawner/random/ms13/currency/mammoth/ncr/high
 	name = "high dolla balla status NCR currency spawner"
-	spawn_loot_chance = 45
+	spawn_loot_chance = 50
 	loot = list(
 		/obj/item/stack/ms13/currency/ncr_dollar/thirty,
 		/obj/item/stack/ms13/currency/ncr_dollar/fourty,
