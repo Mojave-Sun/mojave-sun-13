@@ -9,7 +9,7 @@
 
 /obj/effect/spawner/random/ms13/melee/tier1
 	name = "tier 1 melee spawner"
-	spawn_loot_chance = 45
+	spawn_loot_chance = 50
 	loot = list(
 			/obj/item/knife/ms13/throwingknife,
 			/obj/item/knife/ms13/switchblade/razor,
@@ -27,7 +27,7 @@
 
 /obj/effect/spawner/random/ms13/melee/tier2
 	name = "tier 2 melee spawner"
-	spawn_loot_chance = 50
+	spawn_loot_chance = 55
 	loot = list(
 			/obj/item/hatchet/ms13,
 			/obj/item/hatchet/ms13/icepick,
@@ -65,7 +65,7 @@
 
 /obj/effect/spawner/random/ms13/melee/tier4
 	name = "tier 4 melee spawner"
-	spawn_loot_chance = 60
+	spawn_loot_chance = 65
 	loot = list(
 			/obj/item/knife/ms13/combat/bowie,
 			/obj/item/claymore/ms13/machete/ripper/advanced,
@@ -78,12 +78,12 @@
 
 /obj/effect/spawner/random/ms13/melee/unique
 	name = "unique melee spawner"
-	spawn_loot_chance = 25
+	spawn_loot_chance = 30
 	loot = list(
-			/obj/item/claymore/ms13/machete/katana/immortal,
-			/obj/item/claymore/ms13/pipe/humble,
-			/obj/item/knife/ms13/hunting/unique,
-			/obj/item/knife/butcher/ms13/unique
+			/obj/item/claymore/ms13/machete/katana/immortal = 10,
+			/obj/item/claymore/ms13/pipe/humble = 30,
+			/obj/item/knife/ms13/hunting/unique = 30,
+			/obj/item/knife/butcher/ms13/unique = 30
 			)
 
 /obj/effect/spawner/random/ms13/melee/lowrandom
