@@ -80,10 +80,10 @@
 	name = "unique melee spawner"
 	spawn_loot_chance = 30
 	loot = list(
-			/obj/item/claymore/ms13/machete/katana/immortal,
-			/obj/item/claymore/ms13/pipe/humble,
-			/obj/item/knife/ms13/hunting/unique,
-			/obj/item/knife/butcher/ms13/unique
+			/obj/item/claymore/ms13/machete/katana/immortal = 10,
+			/obj/item/claymore/ms13/pipe/humble = 30,
+			/obj/item/knife/ms13/hunting/unique = 30,
+			/obj/item/knife/butcher/ms13/unique = 30
 			)
 
 /obj/effect/spawner/random/ms13/melee/lowrandom
