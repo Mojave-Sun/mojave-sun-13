@@ -260,7 +260,7 @@
 	harvest_message_low = "Gather a small amount of root from the patch."
 	harvest_message_med = "You collect a decent amount of root from the patch."
 	harvest_message_high = "You collect a hearty harvest from the root patch."
-	harvest_amount_high = 2
+	harvest_amount_high = 3
 
 //Grasses
 
