@@ -147,7 +147,7 @@
 	sharpness = SHARP_IMPALING
 	wound_bonus = 8
 	bare_wound_bonus = 2
-	butcher_results = list(/obj/item/ms13/hide/molerat = 1, /obj/item/food/meat/slab/ms13/carcass/molerat = 1)
+	butcher_results = list(/obj/item/ms13/hide/molerat = 1, /obj/item/food/meat/slab/ms13/carcass/molerat = 1, /obj/item/ms13/animalitem/molerat/teeth = 2)
 	faction = list("rat")
 	/*food_type = list(/obj/item/food/grown/ms13/potato)
 	tame_chance = 20
