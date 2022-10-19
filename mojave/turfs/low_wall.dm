@@ -11,14 +11,6 @@
 	smoothing_groups = list(SMOOTH_GROUP_MS13_LOW_WALL)
 	canSmoothWith= list(SMOOTH_GROUP_MS13_LOW_WALL)
 
-/obj/structure/table/ms13/low_wall/Initialize(mapload)
-	. = ..()
-	for(var/obj/structure/table/ms13/low_wall/LAT in loc)
-		if(LAT == src)
-			continue
-		stack_trace("multiple low_walls found in ([loc.x], [loc.y], [loc.z])")
-		return INITIALIZE_HINT_QDEL
-
 /obj/structure/table/ms13/low_wall/metal
 	name = "low metal wall"
 	desc = ""

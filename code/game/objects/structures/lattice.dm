@@ -25,6 +25,7 @@
 /obj/structure/lattice/proc/deconstruction_hints(mob/user)
 	return span_notice("The rods look like they could be <b>cut</b>. There's space for more <i>rods</i> or a <i>tile</i>.")
 
+/* MOJAVE SUN EDIT START - Stack Checks
 /obj/structure/lattice/Initialize(mapload)
 	. = ..()
 	for(var/obj/structure/lattice/LAT in loc)
@@ -32,6 +33,7 @@
 			continue
 		stack_trace("multiple lattices found in ([loc.x], [loc.y], [loc.z])")
 		return INITIALIZE_HINT_QDEL
+*/// MOJAVE SUN EDIT END - Stack Checks
 
 /obj/structure/lattice/blob_act(obj/structure/blob/B)
 	return
