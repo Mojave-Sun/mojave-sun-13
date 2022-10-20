@@ -849,5 +849,6 @@
 	//INVOKE_ASYNC(src, .proc/DestroySurroundings, source)
 
 /datum/action/cooldown/mob_cooldown/charge/hellpig/Activate(atom/target_atom)
+
 	playsound(get_turf(owner), pick('mojave/sound/ms13npc/hellpig_attack1.ogg', 'mojave/sound/ms13npc/hellpig_attack2.ogg', 'mojave/sound/ms13npc/hellpig_attack3.ogg'), 100, TRUE, 2, TRUE)
 	..()
