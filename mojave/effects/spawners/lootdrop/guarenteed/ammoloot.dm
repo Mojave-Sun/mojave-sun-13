@@ -10,68 +10,68 @@
 /obj/effect/spawner/random/ms13/guaranteed/ammo/tier1
 	name = "tier 1 ammo spawner"
 	loot = list(
-			/obj/item/ammo_box/magazine/ms13/r10,
-			/obj/item/ammo_box/magazine/ms13/m22,
-			/obj/item/ammo_box/ms13/c22box,
-			/obj/item/ammo_box/ms13/a357box,
-			/obj/item/ammo_box/magazine/ms13/m9mm,
-			/obj/item/ammo_box/ms13/c10mm,
-			/obj/item/ammo_box/ms13/stripper/r762,
-			/obj/item/stock_parts/cell/ms13/ec,
-			/obj/item/stock_parts/cell/ms13/mfc,
-			/obj/item/ammo_box/ms13/shotgun/junkshot,
-			/obj/item/ammo_box/ms13/c9mm
+			/obj/item/ammo_box/magazine/ms13/r10 = 3,
+			/obj/item/ammo_box/magazine/ms13/m22 = 3,
+			/obj/item/ammo_box/ms13/c22box = 1,
+			/obj/item/ammo_box/ms13/a357box = 1,
+			/obj/item/ammo_box/magazine/ms13/m9mm = 3,
+			/obj/item/ammo_box/ms13/c10mm = 1,
+			/obj/item/ammo_box/ms13/stripper/r762 = 3,
+			/obj/item/stock_parts/cell/ms13/ec = 2,
+			/obj/item/stock_parts/cell/ms13/mfc = 2,
+			/obj/item/ammo_box/ms13/shotgun/junkshot = 3,
+			/obj/item/ammo_box/ms13/c9mm = 1,
 			)
 
 /obj/effect/spawner/random/ms13/guaranteed/ammo/tier2
 	name = "tier 2 ammo spawner"
 	loot = list(
-			/obj/item/ammo_box/magazine/ms13/m10mm,
-			/obj/item/ammo_box/ms13/a357box,
-			/obj/item/ammo_box/magazine/ms13/m45,
-			/obj/item/ammo_box/magazine/ms13/r20,
-			/obj/item/ammo_box/ms13/stripper/r762,
-			/obj/item/stock_parts/cell/ms13/ec,
-			/obj/item/stock_parts/cell/ms13/mfc,
-			/obj/item/ammo_box/ms13/shotgun/buckshot,
-			/obj/item/ammo_box/magazine/ms13/smgm9mm,
-			/obj/item/ammo_box/ms13/a556/small,
-			/obj/item/ammo_box/ms13/c45,
-			/obj/item/ammo_box/ms13/c10mm
+			/obj/item/ammo_box/magazine/ms13/m10mm = 3,
+			/obj/item/ammo_box/ms13/a357box = 1,
+			/obj/item/ammo_box/magazine/ms13/m45 = 3,
+			/obj/item/ammo_box/magazine/ms13/r20 = 3,
+			/obj/item/ammo_box/ms13/stripper/r762 = 3,
+			/obj/item/stock_parts/cell/ms13/ec = 2,
+			/obj/item/stock_parts/cell/ms13/mfc = 2,
+			/obj/item/ammo_box/ms13/shotgun/buckshot = 3,
+			/obj/item/ammo_box/magazine/ms13/smgm9mm = 3,
+			/obj/item/ammo_box/ms13/a556/small = 1,
+			/obj/item/ammo_box/ms13/c45 = 1,
+			/obj/item/ammo_box/ms13/c10mm = 1,
 			)
 
 /obj/effect/spawner/random/ms13/guaranteed/ammo/tier3
 	name = "tier 3 ammo spawner"
 	loot = list(
-			/obj/item/ammo_box/ms13/m44box,
-			/obj/item/ammo_box/ms13/c4570box,
-			/obj/item/ammo_box/magazine/ms13/r20,
-			/obj/item/ammo_box/magazine/ms13/r308,
-			/obj/item/ammo_box/ms13/a308,
-			/obj/item/ammo_box/magazine/ms13/smgm10mm,
-			/obj/item/ammo_box/magazine/ms13/smgm22,
-			/obj/item/ammo_box/magazine/ms13/smgm45,
-			/obj/item/ammo_box/magazine/ms13/ar762,
-			/obj/item/stock_parts/cell/ms13/pc,
-			/obj/item/stock_parts/cell/ms13/mfc,
-			/obj/item/ammo_box/ms13/shotgun/buckshot
+			/obj/item/ammo_box/ms13/m44box = 1,
+			/obj/item/ammo_box/ms13/c4570box = 1,
+			/obj/item/ammo_box/magazine/ms13/r20 = 3,
+			/obj/item/ammo_box/magazine/ms13/r308 = 3,
+			/obj/item/ammo_box/ms13/a308 = 1,
+			/obj/item/ammo_box/magazine/ms13/smgm10mm = 3,
+			/obj/item/ammo_box/magazine/ms13/smgm22 = 3,
+			/obj/item/ammo_box/magazine/ms13/smgm45 = 3,
+			/obj/item/ammo_box/magazine/ms13/ar762 = 3,
+			/obj/item/stock_parts/cell/ms13/pc = 2,
+			/obj/item/stock_parts/cell/ms13/mfc = 2,
+			/obj/item/ammo_box/ms13/shotgun/buckshot = 3,
 			)
 
 /obj/effect/spawner/random/ms13/guaranteed/ammo/tier4
 	name = "tier 4 ammo spawner"
 	loot = list(
-			/obj/item/ammo_box/magazine/ms13/amr,
-			/obj/item/ammo_box/ms13/c4570box,
-			/obj/item/ammo_box/magazine/ms13/r20,
-			/obj/item/ammo_box/magazine/ms13/smg12mm,
-			/obj/item/ammo_box/magazine/ms13/r308_10,
-			/obj/item/ammo_box/ms13/a308,
-			/obj/item/ammo_box/magazine/ms13/deagle,
-			/obj/item/ammo_box/magazine/ms13/m12mm,
-			/obj/item/ammo_box/magazine/ms13/ar762,
-			/obj/item/stock_parts/cell/ms13/pc,
-			/obj/item/stock_parts/cell/ms13/mfc,
-			/obj/item/stock_parts/cell/ms13/ecp
+			/obj/item/ammo_box/magazine/ms13/amr = 3,
+			/obj/item/ammo_box/ms13/c4570box = 1,
+			/obj/item/ammo_box/magazine/ms13/r20 = 3,
+			/obj/item/ammo_box/magazine/ms13/smg12mm = 3,
+			/obj/item/ammo_box/magazine/ms13/r308_10 = 3,
+			/obj/item/ammo_box/ms13/a308 = 1,
+			/obj/item/ammo_box/magazine/ms13/deagle = 3,
+			/obj/item/ammo_box/magazine/ms13/m12mm = 3,
+			/obj/item/ammo_box/magazine/ms13/ar762 = 3,
+			/obj/item/stock_parts/cell/ms13/pc = 2,
+			/obj/item/stock_parts/cell/ms13/mfc = 2,
+			/obj/item/stock_parts/cell/ms13/ecp = 2,
 			)
 
 /obj/effect/spawner/random/ms13/guaranteed/ammo/lowrandom

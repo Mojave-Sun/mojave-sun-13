@@ -14,8 +14,8 @@
 
 	///List of weights for scoring stuff happening here; ultilizes "identifiers" to differentiate different kinds of AI types looking at the same node.
 	var/list/weights = list(
-		IDENTIFIER_GENERIC_SIMPLE = list(NODE_LAST_VISITED = 0, NODE_TRADER_STAYS_THIS_LONG = 8 SECONDS),
-		IDENTIFIER_EYEBOT = list(NODE_LAST_VISITED = 0, NODE_TRADER_STAYS_THIS_LONG = 8 SECONDS)
+		IDENTIFIER_GENERIC_SIMPLE = list(NODE_LAST_VISITED = 0, NODE_TRADER_STAYS_THIS_LONG = 10 SECONDS),
+		IDENTIFIER_EYEBOT = list(NODE_LAST_VISITED = 0, NODE_TRADER_STAYS_THIS_LONG = 10 SECONDS)
 		)
 	//TODO: MAKE DYNAMICALLY INITIALIZED WHEN REQUESTED
 
@@ -119,7 +119,6 @@
 /obj/effect/ai_node/restock
 	name = "Trader Restock AI Node"
 	trader_restock_destination = TRUE
-
 
 /obj/effect/ai_node/wait
 	name = "Trader Waiting AI Node"

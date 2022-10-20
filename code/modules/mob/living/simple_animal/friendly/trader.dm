@@ -446,8 +446,8 @@ GLOBAL_LIST_EMPTY(nodes_trader_destination)
  * * user - Reference to a mob; The mob we put the holochip in hands of
  */
 /mob/living/simple_animal/hostile/retaliate/trader/proc/generate_cash(value, mob/user)
-	var/obj/item/holochip/chip = new /obj/item/holochip(get_turf(user), value)
-	user.put_in_hands(chip)
+	var/obj/item/stack/ms13/currency/prewar/dollahs = new /obj/item/stack/ms13/currency/prewar(get_turf(user), value)
+	user.put_in_hands(dollahs)
 
 ///Sets quantity of all products to initial(quanity); this proc is currently not called anywhere on the base class of traders
 /mob/living/simple_animal/hostile/retaliate/trader/proc/restock_products()

@@ -6,8 +6,8 @@
 	icon = 'mojave/icons/objects/crafting/materials_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
-	force = 2
-	throwforce = 2
+	force = 0
+	throwforce = 0
 	merge_type = /obj/item/stack/sheet/ms13
 	w_class = WEIGHT_CLASS_SMALL
 	grid_width = 64

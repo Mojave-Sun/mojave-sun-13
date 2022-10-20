@@ -7,7 +7,7 @@
 	result = /obj/item/stack/sheet/ms13/junk_casings/twenty
 	time = 10 SECONDS
 	tool_paths = list(/obj/item/ms13/hammer)
-	reqs = list(/obj/item/stack/sheet/ms13/scrap_brass = 8)
+	reqs = list(/obj/item/stack/sheet/ms13/scrap_brass = 5)
 	category = CAT_JUNK_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
 
@@ -16,7 +16,7 @@
 	result = /obj/item/stack/sheet/ms13/junk_bullets/twenty
 	time = 10 SECONDS
 	tool_paths = list(/obj/item/ms13/hammer)
-	reqs = list(/obj/item/stack/sheet/ms13/scrap_lead = 8)
+	reqs = list(/obj/item/stack/sheet/ms13/scrap_lead = 5)
 	category = CAT_JUNK_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
 
@@ -155,7 +155,7 @@
 	result = /obj/item/stack/sheet/ms13/hq_casings/twenty
 	time = 12 SECONDS
 	tool_paths = list(/obj/item/ms13/hammer)
-	reqs = list(/obj/item/stack/sheet/ms13/refined_brass = 4)
+	reqs = list(/obj/item/stack/sheet/ms13/refined_brass = 2)
 	category = CAT_STAN_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
 
@@ -164,7 +164,7 @@
 	result = /obj/item/stack/sheet/ms13/hq_bullets/twenty
 	time = 12 SECONDS
 	tool_paths = list(/obj/item/ms13/hammer)
-	reqs = list(/obj/item/stack/sheet/ms13/refined_lead = 4)
+	reqs = list(/obj/item/stack/sheet/ms13/refined_lead = 2)
 	category = CAT_STAN_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
 
@@ -291,8 +291,8 @@
 	time = 12 SECONDS
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	tool_paths = list()
-	reqs = list(/obj/item/stack/sheet/ms13/plastic = 10,
-				/obj/item/stack/sheet/ms13/refined_lead = 3,
+	reqs = list(/obj/item/stack/sheet/ms13/plastic = 8,
+				/obj/item/stack/sheet/ms13/refined_lead = 2,
 				/obj/item/ms13/component/gunpowder = 1
 				)
 	category = CAT_STAN_AMMO
