@@ -88,17 +88,17 @@
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/gunrunner/initial_products()
 	return list(
-		/obj/item/gun/ballistic/automatic/pistol/ms13/m9mm = list(80, rand(2,4)),
+		/obj/item/gun/ballistic/automatic/pistol/ms13/m9mm = list(75, rand(2,4)),
 		/obj/item/gun/ballistic/automatic/pistol/ms13/pistol22 = list(50, rand(2,4)),
-		/obj/item/gun/ballistic/revolver/ms13/rev10mm = list(80, rand(2,4)),
-		/obj/item/gun/ballistic/rifle/ms13/varmint = list(80, rand(2,4)),
-		/obj/item/gun/ballistic/revolver/ms13/single = list(50, rand(2,4)),
-		/obj/item/gun/ballistic/revolver/ms13/caravan = list(90, rand(2,3)),
-		/obj/item/gun/ballistic/automatic/pistol/ms13/pistol45 = list(150, rand(1,3)),
-		/obj/item/gun/ballistic/automatic/pistol/ms13/m10mm = list(150, rand(1,3)),
-		/obj/item/gun/ballistic/revolver/ms13/rev556 = list(150, rand(0,3)),
-		/obj/item/gun/ballistic/revolver/ms13/rev357/police = list(160, rand(0,3)),
-		/obj/item/gun/ballistic/revolver/ms13/rev357 = list(160, rand(0,3)),
+		/obj/item/gun/ballistic/revolver/ms13/rev10mm = list(75, rand(2,4)),
+		/obj/item/gun/ballistic/rifle/ms13/varmint = list(75, rand(2,4)),
+		/obj/item/gun/ballistic/revolver/ms13/single = list(45, rand(2,4)),
+		/obj/item/gun/ballistic/revolver/ms13/caravan = list(80, rand(2,3)),
+		/obj/item/gun/ballistic/automatic/pistol/ms13/pistol45 = list(140, rand(1,3)),
+		/obj/item/gun/ballistic/automatic/pistol/ms13/m10mm = list(140, rand(1,3)),
+		/obj/item/gun/ballistic/revolver/ms13/rev556 = list(140, rand(0,3)),
+		/obj/item/gun/ballistic/revolver/ms13/rev357/police = list(150, rand(0,3)),
+		/obj/item/gun/ballistic/revolver/ms13/rev357 = list(150, rand(0,3)),
 		/obj/item/gun/ballistic/automatic/ms13/semi/service = list(300, rand(0,3)),
 		/obj/item/gun/ballistic/automatic/ms13/full/smg9mm = list(320, rand(0,2)),
 		/obj/item/gun/ballistic/shotgun/ms13/lever = list(320, rand(0,2)),
@@ -265,9 +265,9 @@
 		/obj/item/clothing/head/helmet/ms13/army/civildefence = list(80, rand(0,2)),
 		/obj/item/clothing/head/helmet/ms13/assaultron = list(130, rand(0,1)),
 		/obj/item/clothing/head/helmet/ms13/combat = list(150, rand(0,1)),
-		/obj/item/stack/sheet/ms13/cloth/five = list(30, rand(4,6)),
-		/obj/item/stack/sheet/ms13/leather/five = list(30, rand(4,6)),
-		/obj/item/stack/sheet/ms13/thread/six = list(40, rand(2,5))
+		/obj/item/stack/sheet/ms13/cloth/five = list(25, rand(4,6)),
+		/obj/item/stack/sheet/ms13/leather/five = list(25, rand(4,6)),
+		/obj/item/stack/sheet/ms13/thread/six = list(35, rand(2,5))
 				)
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/tools
@@ -340,13 +340,13 @@
 		/obj/item/clothing/head/hardhat/ms13/mining = list(100, rand(0,2)),
 		/obj/item/ms13/tools/fishing_rod/telescopic = list(200, rand(0,1)),
 		/obj/item/ms13/twohanded/hammer = list(350, rand(0,1)),
-		/obj/item/stack/sheet/ms13/scrap_parts/five = list(30, rand(4,6)),
-		/obj/item/stack/sheet/ms13/scrap/five = list(30, rand(4,6)),
-		/obj/item/stack/sheet/ms13/scrap_steel/five = list(30, rand(4,6)),
-		/obj/item/stack/sheet/ms13/scrap_lead/five = list(30, rand(4,6)),
-		/obj/item/stack/sheet/ms13/scrap_brass/five = list(30, rand(4,6)),
-		/obj/item/stack/sheet/ms13/scrap_alu/five = list(30, rand(4,6)),
-		/obj/item/stack/sheet/ms13/plank/two = list(20, rand(4,8))
+		/obj/item/stack/sheet/ms13/scrap_parts/five = list(25, rand(4,6)),
+		/obj/item/stack/sheet/ms13/scrap/five = list(25, rand(4,6)),
+		/obj/item/stack/sheet/ms13/scrap_steel/five = list(25, rand(4,6)),
+		/obj/item/stack/sheet/ms13/scrap_lead/five = list(25, rand(4,6)),
+		/obj/item/stack/sheet/ms13/scrap_brass/five = list(25, rand(4,6)),
+		/obj/item/stack/sheet/ms13/scrap_alu/five = list(25, rand(4,6)),
+		/obj/item/stack/sheet/ms13/plank/two = list(15, rand(4,8))
 				)
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/robco
@@ -401,8 +401,8 @@
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/robco/initial_products()
 	return list(
 		/obj/item/ms13/component/cell = list(40, rand(2,4)),
-		/obj/item/stack/sheet/ms13/scrap_electronics/five = list(30, rand(4,6)),
-		/obj/item/stack/sheet/ms13/scrap_copper/five = list(30, rand(4,6)),
+		/obj/item/stack/sheet/ms13/scrap_electronics/five = list(25, rand(4,6)),
+		/obj/item/stack/sheet/ms13/scrap_copper/five = list(25, rand(4,6)),
 		/obj/item/stack/sheet/ms13/circuits/two = list(40, rand(0,3)),
 		/obj/item/ms13/component/vacuum_tube = list(60, rand(0,2)),
 		/obj/item/stock_parts/cell/ms13/ec = list(50, rand(1,3)),
@@ -412,5 +412,5 @@
 		/obj/item/gun/energy/ms13/laser/rifle/wattz = list(130, rand(0,2)),
 		/obj/item/radio/ms13 = list(90, rand(1,3)),
 		/obj/item/radio/ms13/broadcast = list(150, rand(0,2)),
-		/obj/item/clothing/ms13/stealthboy = list(660, rand(0,1))
+		/obj/item/clothing/ms13/stealthboy = list(650, rand(0,1))
 				)
