@@ -50,7 +50,7 @@
 			/obj/item/ammo_box/ms13/a308 = 1,
 			/obj/item/ammo_box/magazine/ms13/smgm10mm = 2,
 			/obj/item/ammo_box/magazine/ms13/smgm22 = 2,
-			/obj/item/ammo_box/magazine/ms13/smgm45 = ,
+			/obj/item/ammo_box/magazine/ms13/smgm45 = 2,
 			/obj/item/ammo_box/magazine/ms13/ar762 = 2,
 			/obj/item/stock_parts/cell/ms13/pc = 1,
 			/obj/item/stock_parts/cell/ms13/mfc = 1,

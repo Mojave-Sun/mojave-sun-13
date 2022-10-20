@@ -184,11 +184,11 @@
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/medtek/initial_products()
 	return list(
-		/obj/item/stack/medical/gauze/ms13/half = list(30, rand(4,6)),
+		/obj/item/stack/medical/gauze/ms13/half = list(35, rand(4,6)),
 		/obj/item/stack/medical/splint/ms13/wooden = list(20, rand(3,6)),
 		/obj/item/stack/medical/splint/ms13 = list(30, rand(2,5)),
-		/obj/item/stack/medical/suture/ms13/four = list(30, rand(3,6)),
-		/obj/item/stack/medical/ointment/ms13/half = list(30, rand(3,6)),
+		/obj/item/stack/medical/suture/ms13/four = list(35, rand(3,6)),
+		/obj/item/stack/medical/ointment/ms13/half = list(35, rand(3,6)),
 		/obj/item/reagent_containers/hypospray/medipen/ms13/stimpak = list(110, rand(0,2)),
 		/obj/item/reagent_containers/blood/ms13/o_minus = list(40, rand(0,3)),
 		/obj/item/reagent_containers/blood/ms13/radaway = list(40, rand(0,3)),
@@ -384,7 +384,7 @@
 		/obj/item/stack/sheet/ms13/scrap = list(4, rand(5,30), ", per piece of scrap"),
 		/obj/item/stack/sheet/ms13/scrap_steel = list(4, rand(5,30), ", per piece of steel"),
 		/obj/item/stack/sheet/ms13/scrap_alu = list(4, rand(5,30), ", per piece of aluminum"),
-		/obj/item/stack/sheet/ms13/plank = list(6, rand(2,16), ", per plank"),
+		/obj/item/stack/sheet/ms13/plank = list(6, rand(4,20), ", per plank"),
 		/obj/item/stack/sheet/ms13/scrap_copper = list(4, rand(5,30), ", per piece of copper wire")
 				)
 
@@ -461,6 +461,6 @@
 		/obj/item/ms13/component/cell = list(30, rand(0,6), ""),
 		/obj/item/ms13/component/vacuum_tube = list(50, rand(0,6), ""),
 		/obj/item/radio/ms13 = list(75, rand(0,4), ""),
-		/obj/item/radio/ms13/broadcast = list(130, rand(0,3), ""),
-		/obj/item/radio/ms13/broadcast/advanced = list(220, rand(0,3), ""),
+		/obj/item/radio/ms13/broadcast = list(135, rand(0,3), ""),
+		/obj/item/radio/ms13/broadcast/advanced = list(225, rand(0,3), ""),
 				)
