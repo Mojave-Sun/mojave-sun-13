@@ -12,16 +12,16 @@
 	spawn_loot_chance = 50
 
 	loot = list(
-			/obj/item/ammo_box/magazine/ms13/r10 = 3,
-			/obj/item/ammo_box/magazine/ms13/m22 = 3,
+			/obj/item/ammo_box/magazine/ms13/r10 = 2,
+			/obj/item/ammo_box/magazine/ms13/m22 = 2,
 			/obj/item/ammo_box/ms13/c22box = 1,
 			/obj/item/ammo_box/ms13/a357box = 1,
-			/obj/item/ammo_box/magazine/ms13/m9mm = 3,
+			/obj/item/ammo_box/magazine/ms13/m9mm = 2,
 			/obj/item/ammo_box/ms13/c10mm = 1,
-			/obj/item/ammo_box/ms13/stripper/r762 = 3,
-			/obj/item/stock_parts/cell/ms13/ec = 2,
-			/obj/item/stock_parts/cell/ms13/mfc = 2,
-			/obj/item/ammo_box/ms13/shotgun/junkshot = 3,
+			/obj/item/ammo_box/ms13/stripper/r762 = 2,
+			/obj/item/stock_parts/cell/ms13/ec = 1,
+			/obj/item/stock_parts/cell/ms13/mfc = 1,
+			/obj/item/ammo_box/ms13/shotgun/junkshot = 2,
 			/obj/item/ammo_box/ms13/c9mm = 1,
 			)
 
@@ -30,15 +30,15 @@
 	spawn_loot_chance = 55
 
 	loot = list(
-			/obj/item/ammo_box/magazine/ms13/m10mm = 3,
+			/obj/item/ammo_box/magazine/ms13/m10mm = 2,
 			/obj/item/ammo_box/ms13/a357box = 1,
-			/obj/item/ammo_box/magazine/ms13/m45 = 3,
-			/obj/item/ammo_box/magazine/ms13/r20 = 3,
-			/obj/item/ammo_box/ms13/stripper/r762 = 3,
-			/obj/item/stock_parts/cell/ms13/ec = 2,
-			/obj/item/stock_parts/cell/ms13/mfc = 2,
-			/obj/item/ammo_box/ms13/shotgun/buckshot = 3,
-			/obj/item/ammo_box/magazine/ms13/smgm9mm = 3,
+			/obj/item/ammo_box/magazine/ms13/m45 = 2,
+			/obj/item/ammo_box/magazine/ms13/r20 = 2,
+			/obj/item/ammo_box/ms13/stripper/r762 = 2,
+			/obj/item/stock_parts/cell/ms13/ec = 1,
+			/obj/item/stock_parts/cell/ms13/mfc = 1,
+			/obj/item/ammo_box/ms13/shotgun/buckshot = 2,
+			/obj/item/ammo_box/magazine/ms13/smgm9mm = 2,
 			/obj/item/ammo_box/ms13/a556/small = 1,
 			/obj/item/ammo_box/ms13/c45 = 1,
 			/obj/item/ammo_box/ms13/c10mm = 1,
@@ -51,16 +51,16 @@
 	loot = list(
 			/obj/item/ammo_box/ms13/m44box = 1,
 			/obj/item/ammo_box/ms13/c4570box = 1,
-			/obj/item/ammo_box/magazine/ms13/r20 = 3,
-			/obj/item/ammo_box/magazine/ms13/r308 = 3,
+			/obj/item/ammo_box/magazine/ms13/r20 = 2,
+			/obj/item/ammo_box/magazine/ms13/r308 = 2,
 			/obj/item/ammo_box/ms13/a308 = 1,
-			/obj/item/ammo_box/magazine/ms13/smgm10mm = 3,
-			/obj/item/ammo_box/magazine/ms13/smgm22 = 3,
-			/obj/item/ammo_box/magazine/ms13/smgm45 = 3,
-			/obj/item/ammo_box/magazine/ms13/ar762 = 3,
-			/obj/item/stock_parts/cell/ms13/pc = 2,
-			/obj/item/stock_parts/cell/ms13/mfc = 2,
-			/obj/item/ammo_box/ms13/shotgun/buckshot = 3,
+			/obj/item/ammo_box/magazine/ms13/smgm10mm = 2,
+			/obj/item/ammo_box/magazine/ms13/smgm22 = 2,
+			/obj/item/ammo_box/magazine/ms13/smgm45 = 2,
+			/obj/item/ammo_box/magazine/ms13/ar762 = 2,
+			/obj/item/stock_parts/cell/ms13/pc = 1,
+			/obj/item/stock_parts/cell/ms13/mfc = 1,
+			/obj/item/ammo_box/ms13/shotgun/buckshot = 2,
 			)
 
 /obj/effect/spawner/random/ms13/ammo/tier4
@@ -68,18 +68,18 @@
 	spawn_loot_chance = 65
 
 	loot = list(
-			/obj/item/ammo_box/magazine/ms13/amr = 3,
+			/obj/item/ammo_box/magazine/ms13/amr = 2,
 			/obj/item/ammo_box/ms13/c4570box = 1,
-			/obj/item/ammo_box/magazine/ms13/r20 = 3,
-			/obj/item/ammo_box/magazine/ms13/smg12mm = 3,
-			/obj/item/ammo_box/magazine/ms13/r308_10 = 3,
+			/obj/item/ammo_box/magazine/ms13/r20 = 2,
+			/obj/item/ammo_box/magazine/ms13/smg12mm = 2,
+			/obj/item/ammo_box/magazine/ms13/r308_10 = 2,
 			/obj/item/ammo_box/ms13/a308 = 1,
-			/obj/item/ammo_box/magazine/ms13/deagle = 3,
-			/obj/item/ammo_box/magazine/ms13/m12mm = 3,
-			/obj/item/ammo_box/magazine/ms13/ar762 = 3,
-			/obj/item/stock_parts/cell/ms13/pc = 2,
-			/obj/item/stock_parts/cell/ms13/mfc = 2,
-			/obj/item/stock_parts/cell/ms13/ecp = 2,
+			/obj/item/ammo_box/magazine/ms13/deagle = 2,
+			/obj/item/ammo_box/magazine/ms13/m12mm = 2,
+			/obj/item/ammo_box/magazine/ms13/ar762 = 2,
+			/obj/item/stock_parts/cell/ms13/pc = 1,
+			/obj/item/stock_parts/cell/ms13/mfc = 1,
+			/obj/item/stock_parts/cell/ms13/ecp = 1,
 			)
 
 /obj/effect/spawner/random/ms13/ammo/lowrandom
