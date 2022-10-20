@@ -744,6 +744,15 @@
 	offsetx = 8
 	offsety = 8
 
+/obj/effect/temp_visual/ms13/target_indicator
+	name = "generic warning indicator"
+	desc = "Do you even have time to spare looking at this?"
+	icon = 'mojave/icons/effects/target_indicator.dmi'
+	icon_state = "target_indicator"
+	layer = FLY_LAYER
+	plane = ABOVE_GAME_PLANE
+	duration = 10 //1 SECONDS
+
 //hellpig - pig from hell, very good mount if you have 100 human flesh - prolly gonna be ooooh wee mojave sun sekrit mount wowza
 
 /mob/living/simple_animal/hostile/ms13/hellpig
@@ -774,3 +783,71 @@
 	status_flags = null
 	offsetx = 6
 	offsety = 32
+	var/datum/action/cooldown/mob_cooldown/charge/hellpig/charge
+
+/mob/living/simple_animal/hostile/ms13/hellpig/Initialize(mapload)
+	. = ..()
+	charge = new /datum/action/cooldown/mob_cooldown/charge/hellpig()
+	charge.Grant(src)
+
+/mob/living/simple_animal/hostile/ms13/hellpig/AttackingTarget(atom/attacked_target)
+	in_melee = TRUE
+	if(SEND_SIGNAL(src, COMSIG_HOSTILE_PRE_ATTACKINGTARGET, target) & COMPONENT_HOSTILE_NO_ATTACK)
+		return FALSE //but more importantly return before attack_animal called
+
+	var/result = target.attack_animal(src)
+	SEND_SIGNAL(src, COMSIG_HOSTILE_POST_ATTACKINGTARGET, target, result)
+	return result
+
+/mob/living/simple_animal/hostile/ms13/hellpig/OpenFire()
+	if(client)
+		return
+	prevent_goto_movement = TRUE
+	Goto(target = src, delay = move_to_delay, minimum_distance = 0)
+	var/datum/cb = CALLBACK(src,.proc/reset_goto_movement)
+	addtimer(cb,2 SECONDS)
+	charge.Trigger(target = target)
+
+/mob/living/simple_animal/hostile/ms13/hellpig/proc/reset_goto_movement()
+	prevent_goto_movement = FALSE
+
+/datum/action/cooldown/mob_cooldown/charge/hellpig
+	charge_delay = 0.7 SECONDS
+	charge_speed = 0.2 SECONDS
+
+/datum/action/cooldown/mob_cooldown/charge/hellpig/do_charge_indicator(atom/charger, atom/charge_target)
+	var/turf/target_turf = get_turf(charge_target)
+	if(!target_turf)
+		return
+	for(var/turf/t in RANGE_TURFS(1, charge_target))
+		new /obj/effect/temp_visual/ms13/target_indicator(t)
+
+//No fading decoy
+/datum/action/cooldown/mob_cooldown/charge/hellpig/on_move(atom/source, atom/new_loc)
+	SIGNAL_HANDLER
+	if(!actively_moving)
+		return COMPONENT_MOVABLE_BLOCK_PRE_MOVE
+	for(var/turf/t in RANGE_TURFS(1, source))
+		t.Shake(pixelshiftx = rand(-4, 4), pixelshifty = rand(-4, 4), duration = 0.6 SECONDS)
+		for(var/atom/movable/A in t)
+			if(A == owner)
+				continue
+			if(A.anchored)
+				continue
+			var/target_angle = get_angle(owner, A)
+			var/move_target = get_ranged_target_turf(A, angle2dir(target_angle), 3)
+			A.throw_at(move_target, 3, 3)
+			A.visible_message(span_warning("[A] gets thrown back by the force of the shockwave !"), span_warning("The shockwave sends you flying!"))
+			if(isliving(A))
+				var/mob/living/liver = A
+				liver.Knockdown(3 SECONDS, ignore_canstun = FALSE)
+
+//Different sound effect, no destruction
+/datum/action/cooldown/mob_cooldown/charge/hellpig/on_moved(atom/source)
+	SIGNAL_HANDLER
+	playsound(source, pick('mojave/sound/ms13effects/footsteps/ms13heavyfootstep_1.wav', 'mojave/sound/ms13effects/footsteps/ms13heavyfootstep_2.wav'), 100, TRUE, 2, TRUE)
+	//INVOKE_ASYNC(src, .proc/DestroySurroundings, source)
+
+/datum/action/cooldown/mob_cooldown/charge/hellpig/Activate(atom/target_atom)
+	playsound(get_turf(owner), pick('mojave/sound/ms13npc/hellpig_attack1.ogg', 'mojave/sound/ms13npc/hellpig_attack2.ogg', 'mojave/sound/ms13npc/hellpig_attack3.ogg'), 100, TRUE, 2, TRUE)
+	..()
