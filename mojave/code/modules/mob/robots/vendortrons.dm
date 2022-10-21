@@ -392,7 +392,7 @@
 		/obj/item/stack/sheet/ms13/scrap_steel = list(4, rand(5,30), ", per piece of steel"),
 		/obj/item/stack/sheet/ms13/scrap_alu = list(4, rand(5,30), ", per piece of aluminum"),
 		/obj/item/stack/sheet/ms13/plank = list(5, rand(4,20), ", per plank"),
-		/obj/item/stack/sheet/ms13/scrap_copper = list(4, rand(5,30), ", per piece of copper wire")
+		/obj/item/stack/sheet/ms13/scrap_copper = list(4, rand(5,30), ", per piece of copper wire"),
 		/obj/item/stack/sheet/ms13/scrap_gold = list(7, rand(5,25), ", per piece of gold"),
 		/obj/item/stack/sheet/ms13/scrap_silver = list(7, rand(5,25), ", per piece of silver"),
 		/obj/item/stack/sheet/ms13/refined_gold = list(45, rand(1,6), ", per ingot of gold"),
