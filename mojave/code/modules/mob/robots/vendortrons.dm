@@ -125,8 +125,8 @@
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/gunrunner/initial_wanteds()
 	return list(
-		/obj/item/ms13/component/gunpowder/lq = list(40, rand(0,6), ""),
-		/obj/item/ms13/component/gunpowder = list(90, rand(0,5), ""),
+		/obj/item/ms13/component/gunpowder/lq = list(35, rand(0,6), ""),
+		/obj/item/ms13/component/gunpowder = list(85, rand(0,6), ""),
 		/obj/item/stack/sheet/ms13/scrap_lead = list(4, rand(5,30), ", per piece of lead"),
 		/obj/item/stack/sheet/ms13/scrap_brass = list(4, rand(5,30), ", per piece of brass"),
 		/obj/item/stack/sheet/ms13/refined_lead = list(30, rand(0,10), ", per ingot of lead"),
@@ -140,16 +140,16 @@
 
 	say_phrases = list(
 		ITEM_REJECTED_PHRASE = list(
-			"This unit is only programmed to sell products."
+			"This unit is not authorized for such a purchase. If you think this is an error please contact the nearest customer service representative."
 		),
 		ITEM_SELLING_CANCELED_PHRASE = list(
-			"This unit is only programmed to sell products."
+			"Think of what you're losing by not doing business with Med-Tek!"
 		),
 		ITEM_SELLING_ACCEPTED_PHRASE = list(
-		    "Pleasure doing business with you." //unused for now
+			"Med-Tek thanks you for helping the world be a healthier place!"
 		),
 		INTERESTED_PHRASE = list(
-			"Hey, you've got an item that interests me, I'd like to buy it, I'll give you some cash for it, deal?" //unused for now
+			"You have an item of scientific and/or chemical and/or financial interest to Med-Tek. Consider a transaction."
 		),
 		BUY_PHRASE = list(
 			"Thank you for choosing Med-Tek. Stay healthy and stay safe!"
@@ -161,13 +161,13 @@
 			"Product out of stock. Return later."
 		),
 		NOT_WILLING_TO_BUY_PHRASE = list(
-			"This unit is only programmed to sell products."
+			"Unavailable." //unused?
 		),
 		ITEM_IS_WORTHLESS_PHRASE = list(
-			"This unit is only programmed to sell products."
+			"This item has no value."
 		),
 		TRADER_HAS_ENOUGH_ITEM_PHRASE = list(
-			"This unit is only programmed to sell products."
+			"Desired stock has been reached. Med-Tek can no longer offer compensation for that item."
 		),
 		TRADER_LORE_PHRASE = list(
 			"Need help studying? Can't focus? Just want a little edge? Try Mentats today!",
@@ -175,7 +175,7 @@
 			"Join the cutting edge Med-Tek team today at our nearest office in.... Error, locational data not found."
 		),
 		TRADER_NOT_BUYING_ANYTHING = list(
-			"This unit is only programmed to sell products."
+			"This unit is only programmed to sell products." //unused
 		),
 		TRADER_NOT_SELLING_ANYTHING = list(
 			"Product sale is currently unavailable due to unexpected circumstances. Please come back later."
@@ -201,6 +201,13 @@
 		/obj/item/storage/pill_bottle/ms13/buffout = list(260, rand(0,1)),
 		/obj/item/storage/pill_bottle/ms13/mentat = list(200, rand(0,2)),
 		/obj/item/reagent_containers/hypospray/medipen/ms13/addictol = list(360, rand(0,1))
+				)
+
+/mob/living/simple_animal/hostile/retaliate/trader/ms13/medtek/initial_wanteds()
+	return list(
+		/obj/item/stack/sheet/ms13/glass = list(3, rand(5,30), ", per piece of glass"),
+		/obj/item/stack/sheet/ms13/ceramic = list(4, rand(5,30), ", per piece of ceramic"),
+		/obj/item/stack/sheet/ms13/plastic = list(4, rand(5,30), ", per piece of plastic"),
 				)
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/armor
@@ -375,7 +382,7 @@
 		/obj/item/stack/sheet/ms13/scrap_lead/five = list(25, rand(4,6)),
 		/obj/item/stack/sheet/ms13/scrap_brass/five = list(25, rand(4,6)),
 		/obj/item/stack/sheet/ms13/scrap_alu/five = list(25, rand(4,6)),
-		/obj/item/stack/sheet/ms13/plank/two = list(15, rand(4,8))
+		/obj/item/stack/sheet/ms13/plank/four = list(25, rand(3,5))
 				)
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/tools/initial_wanteds()
@@ -384,8 +391,12 @@
 		/obj/item/stack/sheet/ms13/scrap = list(4, rand(5,30), ", per piece of scrap"),
 		/obj/item/stack/sheet/ms13/scrap_steel = list(4, rand(5,30), ", per piece of steel"),
 		/obj/item/stack/sheet/ms13/scrap_alu = list(4, rand(5,30), ", per piece of aluminum"),
-		/obj/item/stack/sheet/ms13/plank = list(6, rand(4,20), ", per plank"),
+		/obj/item/stack/sheet/ms13/plank = list(5, rand(4,20), ", per plank"),
 		/obj/item/stack/sheet/ms13/scrap_copper = list(4, rand(5,30), ", per piece of copper wire")
+		/obj/item/stack/sheet/ms13/scrap_gold = list(7, rand(5,25), ", per piece of gold"),
+		/obj/item/stack/sheet/ms13/scrap_silver = list(7, rand(5,25), ", per piece of silver"),
+		/obj/item/stack/sheet/ms13/refined_gold = list(45, rand(1,6), ", per ingot of gold"),
+		/obj/item/stack/sheet/ms13/refined_silver = list(45, rand(1,6), ", per ingot of silver")
 				)
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/robco
@@ -463,4 +474,8 @@
 		/obj/item/radio/ms13 = list(75, rand(0,4), ""),
 		/obj/item/radio/ms13/broadcast = list(135, rand(0,3), ""),
 		/obj/item/radio/ms13/broadcast/advanced = list(225, rand(0,3), ""),
+		/obj/item/stack/sheet/ms13/scrap_gold = list(7, rand(5,25), ", per piece of gold"),
+		/obj/item/stack/sheet/ms13/scrap_silver = list(7, rand(5,25), ", per piece of silver"),
+		/obj/item/stack/sheet/ms13/refined_gold = list(45, rand(1,6), ", per ingot of gold"),
+		/obj/item/stack/sheet/ms13/refined_silver = list(45, rand(1,6), ", per ingot of silver")
 				)

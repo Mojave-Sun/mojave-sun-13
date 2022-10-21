@@ -279,6 +279,9 @@ GLOBAL_LIST_INIT(scrap_wood_recipes, list ( \
 /obj/item/stack/sheet/ms13/plank/two
 	amount = 2
 
+/obj/item/stack/sheet/ms13/plank/four
+	amount = 4
+
 GLOBAL_LIST_INIT(plank_recipes, list ( \
 	new/datum/stack_recipe("crude wood table", /obj/structure/table/ms13/wood/constructed, 4, time = 20 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("wood barricade", /obj/structure/ms13/barricade, 4, time = 15 SECONDS, one_per_turf = FALSE, on_floor = TRUE), \
