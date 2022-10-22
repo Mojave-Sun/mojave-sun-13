@@ -7,6 +7,7 @@
 	drag_slowdown = 1
 	max_integrity = 300
 	anchored = TRUE
+	hitted_sound = 'mojave/sound/ms13effects/impact/metal/metal_hollow_2.wav'
 
 /obj/structure/closet/crate/ms13/verb_toggleopen()
 	return
@@ -23,6 +24,7 @@
 	integrity_failure = 0 //Makes the crate break when integrity reaches 0, instead of opening and becoming an invisible sprite.
 	open_sound = 'sound/machines/wooden_closet_open.ogg'
 	close_sound = 'sound/machines/wooden_closet_close.ogg'
+	hitted_sound = 'mojave/sound/ms13effects/impact/wood/wood_generic_1.wav'
 	open_sound_volume = 25
 	close_sound_volume = 50
 	max_integrity = 500
@@ -121,6 +123,7 @@
 	material_drop = /obj/item/stack/sheet/ms13/scrap
 	material_drop_amount = 2
 	projectile_passchance = 70
+	hitted_sound = 'mojave/sound/ms13effects/impact/metal/metal_hollow_2.wav'
 
 /obj/structure/closet/crate/ms13/vault_tec/pristine
 	name = "\improper Vault-Tec crate"
@@ -165,6 +168,7 @@
 	material_drop = /obj/item/stack/sheet/ms13/scrap_wood
 	material_drop_amount = 2
 	projectile_passchance = 90
+	hitted_sound = 'mojave/sound/ms13effects/impact/wood/wood_generic_1.wav'
 
 /obj/structure/closet/crate/ms13/enclave
 	name = "high-tech crate"

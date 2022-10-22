@@ -266,6 +266,7 @@
 	desc = "A proud american consumerism displayer, seems commercialism wasn't fully wiped out as intended."
 	icon_state = "store_shelf"
 	materialtype = /obj/item/stack/sheet/ms13/scrap_wood
+	hitted_sound = 'mojave/sound/ms13effects/impact/metal/metal_generic_2.wav'
 
 /obj/structure/ms13/storage/store/metal
 	icon_state = "store_shelf_metal"
@@ -276,6 +277,7 @@
 	desc = "Holder of knowledge, master of all."
 	icon_state = "bookshelf"
 	materialtype = /obj/item/stack/sheet/ms13/scrap_wood
+	hitted_sound = 'mojave/sound/ms13effects/impact/wood/wood_generic_1.wav'
 
 /obj/structure/ms13/storage/shelf
 	name = "metal shelf"
@@ -412,6 +414,7 @@
 	icon_state = "filing_cabinet"
 	max_integrity = 150
 	projectile_passchance = 70
+	hitted_sound = 'mojave/sound/ms13effects/impact/metal/metal_sheet_2.wav'
 
 /obj/structure/filingcabinet/ms13/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
@@ -444,6 +447,7 @@
 	density = TRUE
 	anchored = TRUE
 	projectile_passchance = 65
+	hitted_sound = 'mojave/sound/ms13effects/impact/wood/wood_generic_2.wav'
 
 /obj/structure/ms13/jukebox/Initialize()
 	. = ..()
