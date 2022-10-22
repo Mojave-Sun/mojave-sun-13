@@ -10,6 +10,8 @@
 	closingLayer = CLOSED_DOOR_LAYER
 	hackProof = TRUE
 	ms13_flags_1 = LOCKABLE_1
+	doorOpen = 'mojave/sound/ms13machines/doorblast_open.ogg'
+	doorClose = 'mojave/sound/ms13machines/doorblast_close.ogg'
 	assemblytype = /obj/item/stack/sheet/ms13/scrap/two
 	resistance_flags = INDESTRUCTIBLE
 
