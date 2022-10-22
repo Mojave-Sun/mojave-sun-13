@@ -223,7 +223,6 @@ GLOBAL_LIST_EMPTY(nodes_trader_destination)
 			try_sell(user)
 		if("Talk")
 			discuss(user)
-	face_atom(user)
 	recently_interacted_with += user
 	return TRUE
 
@@ -239,6 +238,7 @@ GLOBAL_LIST_EMPTY(nodes_trader_destination)
 		return FALSE
 	if(user.incapacitated() || !user.Adjacent(src))
 		return FALSE
+	recently_interacted_with += user // MOJAVE SUN EDIT - So that they'll stop TWEAKIN' the second you interact with them, instead of having to ask about LORE or PRICES first
 	return TRUE
 
 ///Talk about what items are being sold/wanted by the trader and in what quantity or lore
