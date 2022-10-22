@@ -317,6 +317,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(response != "Ghost")
 		return FALSE//didn't want to ghost after-all
 	ghostize(FALSE) // FALSE parameter is so we can never re-enter our body. U ded.
+	timeofdeath = world.time
 	return TRUE
 
 /mob/camera/verb/ghost()

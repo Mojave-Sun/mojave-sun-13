@@ -697,7 +697,7 @@
 	if(isliving(src))
 		var/mob/living/living_mob = src
 		if(world.time - living_mob.timeofdeath < 300 SECONDS)
-			to_chat(usr, span_boldnotice("Respawn timer: [(world.time - living_mob.timeofdeath) SECONDS] seconds remaining."))
+			to_chat(usr, span_boldnotice("Respawn timer: [(world.time - living_mob.timeofdeath) / 10] seconds remaining."))
 			return
 
 	log_game("[key_name(usr)] used the respawn button.")
