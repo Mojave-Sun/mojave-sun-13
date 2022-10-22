@@ -25,6 +25,7 @@
 /obj/item/ms13/hide/Initialize(mapload)
 	. = ..()
 	register_context()
+	AddElement(/datum/element/item_scaling, 0.6, 1)
 
 /obj/item/ms13/hide/attackby(obj/item/W, mob/user, params)
 	if(W.tool_behaviour == TOOL_KNIFE)
@@ -194,6 +195,7 @@
 /obj/item/food/meat/slab/ms13/carcass/Initialize(mapload)
 	. = ..()
 	register_context()
+	AddElement(/datum/element/item_scaling, 0.6, 1)
 
 /obj/item/food/meat/slab/ms13/carcass/proc/harvest(mob/living/user) //used for extra objects etc. in butchering
 	return
@@ -405,10 +407,17 @@
 	grid_height = 64
 	grid_width = 64
 
+/obj/item/ms13/animalitem/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/item_scaling, 0.6, 1)
+
 /obj/item/ms13/animalitem/brahmin/tongue
 	name = "brahmin tongue"
 	desc = "The tongue of a brahmin, a tasty morsel and provider of hyper-condensed coagulant"
 	icon_state = "brahmin_tongue"
+	w_class = WEIGHT_CLASS_SMALL
+	grid_height = 32
+	grid_width = 64
 	grind_results = null
 
 /obj/item/ms13/animalitem/brahmin/horns
@@ -417,22 +426,21 @@
 	icon_state = "brahmin_horn"
 	grind_results = null
 
-/obj/item/ms13/animalitem/brahmiluff/tongue
-	name = "brahmiluff tongue"
-	desc = "The tongue of a brahmiluff, more nutritious than its hairless cousins."
-	icon_state = "brahmin_tongue"
-	grind_results = null
-
 /obj/item/ms13/animalitem/brahmiluff/horns
 	name = "brahmiluff horn"
-	desc = "A valued brahmiluff horn, catches a good price."
+	desc = "A valued brahmiluff horn."
 	icon_state = "brahmiluff_horn"
+	grid_height = 128
+	grid_width = 32
 
 /obj/item/ms13/animalitem/clucker/feather
 	name = "clucker feather"
 	desc = "A singular clucker feather, rare commodities in a post-feather society."
 	icon_state = "clucker_feather"
 	throw_range = 2
+	w_class = WEIGHT_CLASS_TINY
+	grid_height = 32
+	grid_width = 32
 
 /obj/item/ms13/animalitem/slepnir/hooves
 	name = "slepnir hoof"
@@ -447,8 +455,11 @@
 
 /obj/item/ms13/animalitem/molerat/teeth
 	name = "molerat tooth"
-	desc = "A molerats tooth, laden with disease."
+	desc = "A grimy, disease laden molerat tooth."
 	icon_state = "molerat_tooth"
+	w_class = WEIGHT_CLASS_SMALL
+	grid_height = 64
+	grid_width = 32
 /*
 /obj/item/ms13/animalitem/radroach/innards
 	name = ""
@@ -474,6 +485,8 @@
 	name = "radstag antler"
 	desc = "A valuable and sturdy radstag antler."
 	icon_state = "radstag_antler"
+	grid_height = 64
+	grid_width = 96
 
 /obj/item/ms13/animalitem/wolf/teeth
 	name = "wolf tooth"

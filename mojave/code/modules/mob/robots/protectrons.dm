@@ -3,8 +3,8 @@
 	desc = "A standard protectron, issued in large quantities to establishments across pre-war America. Armed with lasers for 'self defense'."
 	icon_state = "protectron_common"
 	icon_living = "protectron_common"
-	health = 160
-	maxHealth = 160
+	health = 150
+	maxHealth = 150
 	melee_damage_lower = 10
 	melee_damage_upper = 10
 	vision_range = 12
@@ -37,8 +37,8 @@
 	desc = "A pre-war protectron, assigned to a firefighting role. Has a strong swing with a very sharp axe head, but can't take quite as much punishment as other protectrons."
 	icon_state = "protectron_fireman"
 	icon_living = "protectron_fireman"
-	health = 140
-	maxHealth = 140
+	health = 130
+	maxHealth = 130
 	melee_damage_lower = 35
 	melee_damage_upper = 35
 	subtractible_armour_penetration = 20
@@ -105,8 +105,8 @@
 	desc = "A high security variant of a protectron. Built to last and keep up to harsh punishment, the unaging guard that doesn't require payment."
 	icon_state = "protectron_reinforced"
 	icon_living = "protectron_reinforced"
-	health = 200
-	maxHealth = 200
+	health = 190
+	maxHealth = 190
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	subtractible_armour_penetration = 5

@@ -147,7 +147,7 @@
 	sharpness = SHARP_IMPALING
 	wound_bonus = 8
 	bare_wound_bonus = 2
-	butcher_results = list(/obj/item/ms13/hide/molerat = 1, /obj/item/food/meat/slab/ms13/carcass/molerat = 1)
+	butcher_results = list(/obj/item/ms13/hide/molerat = 1, /obj/item/food/meat/slab/ms13/carcass/molerat = 1, /obj/item/ms13/animalitem/molerat/teeth = 2)
 	faction = list("rat")
 	/*food_type = list(/obj/item/food/grown/ms13/potato)
 	tame_chance = 20
@@ -328,12 +328,12 @@
 	attack_verb_simple = "maul"
 	attack_sound = list('mojave/sound/ms13npc/yaoguai_attack1.ogg', 'mojave/sound/ms13npc/yaoguai_attack2.ogg', 'mojave/sound/ms13npc/yaoguai_attack3.ogg')
 	deathsound = list('mojave/sound/ms13npc/yaoguai_death1.ogg', 'mojave/sound/ms13npc/yaoguai_death2.ogg') 
-	health = 420
-	maxHealth = 420
+	health = 425
+	maxHealth = 425
 	melee_damage_lower = 45
 	melee_damage_upper = 45
 	subtractible_armour_penetration = 15
-	speed = 1.75
+	speed = 1.65
 	sharpness = SHARP_EDGED
 	wound_bonus = 5
 	bare_wound_bonus = 10
@@ -366,7 +366,7 @@
 	melee_damage_lower = 45
 	melee_damage_upper = 45
 	subtractible_armour_penetration = 20
-	speed = 2.25
+	speed = 2
 	sharpness = NONE
 	wound_bonus = 10
 	bare_wound_bonus = 8
