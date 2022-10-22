@@ -5,8 +5,8 @@
 	desc = "I don't think you can assemble stuff with this!"
 	icon = 'mojave/icons/objects/crafting/components_world.dmi'
 	icon_state = "fusion_cell"
-	force = 2
-	throwforce = 2
+	force = 0
+	throwforce = 0
 	w_class = WEIGHT_CLASS_SMALL
 	grid_width = 32
 	grid_height = 32
