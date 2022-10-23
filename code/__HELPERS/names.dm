@@ -97,7 +97,7 @@ GLOBAL_VAR(command_name)
 			new_station_name += pick(GLOB.numbers_as_words)
 		if(13)
 			new_station_name += pick("13","XIII","Thirteen")
-	return new_station_name
+	return "Mojave Sun - Open Beta" // Hard coding for now until we change how station name is generated.
 
 /proc/syndicate_name()
 	var/name = ""

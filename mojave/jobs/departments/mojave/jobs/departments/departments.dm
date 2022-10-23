@@ -26,6 +26,7 @@
 	//label_class = "NCR"
 	//latejoin_color = "#ffddf0"
 
+/*
 /datum/job_department/legion
 	department_name = DEPARTMENT_LEGION
 	department_bitflags = DEPARTMENT_BITFLAG_LEGION
@@ -45,6 +46,7 @@
  	//display_order = 0
  	//label_class = "Legion"
  	//latejoin_color = "#ffddf0"
+*/
 
 /datum/job_department/bos
 	department_name = DEPARTMENT_BOS
