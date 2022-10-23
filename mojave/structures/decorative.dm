@@ -550,6 +550,7 @@
 /obj/structure/ms13/cave_decor/stalagmite
 	name = "stalagmite"
 	desc = "A column of rock formed over many years by minerals in water solidifying."
+	icon_state = "stalagmite"
 	max_integrity = 120
 	anchored = TRUE
 	density = TRUE
