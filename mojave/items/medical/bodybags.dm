@@ -14,6 +14,7 @@
 	desc = "An old body bag. Put your foe into these."
 	icon = 'mojave/icons/structure/medical.dmi'
 	icon_state = "bodybag"
+	anchored = FALSE
 	mob_storage_capacity = 1 // For the sake of not having too many funny guys...
 	material_drop = null
 	drag_slowdown = 0.10

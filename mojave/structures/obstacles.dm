@@ -389,19 +389,6 @@
 	. = ..()
 	layer = 4.2
 
-/obj/structure/fence/fencenormal/CanPass(atom/movable/mover, turf/target, height=0)
-	..()
-	if (!density)
-		return 1
-	if (dir!=SOUTH)
-		return 0
-	if(istype(mover) && (mover.pass_flags & PASSGRILLE))
-		return 1
-	if(get_dir(loc, target) != SOUTH)
-		return 0
-	else
-		return 1
-
 /obj/structure/fence/fencenormal/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/wirecutters))
 		if(do_after(user,50, target = src))
@@ -499,17 +486,6 @@
 		playsound(src.loc, close_sound, 40, 0, 0)
 	density = !density
 
-/obj/structure/fence/fencedoor/CanPass(atom/movable/mover, turf/target, height=0)
-	..()
-	if (!density)
-		return 1
-	if(istype(mover) && (mover.pass_flags & PASSGRILLE))
-		return 1
-	if(get_dir(loc, target) != SOUTH)
-		return 0
-	else
-		return 1
-
 /obj/structure/fence/fencedoorside
 	name = "metal fence door"
 	desc = "It opens and closes."
@@ -551,12 +527,6 @@
 		icon_state = "fence_door_side_closed"
 		playsound(src.loc, close_sound, 40, 0, 0)
 	density = !density
-
-/obj/structure/fence/fencedoorside/CanPass(atom/movable/mover, turf/target, height=0)
-	..()
-	if (mover.loc == loc)
-		return 1
-	return !density
 
 // Sand bags
 

@@ -14,6 +14,7 @@
 	doorClose = 'mojave/sound/ms13machines/doorblast_close.ogg'
 	assemblytype = /obj/item/stack/sheet/ms13/scrap/two
 	resistance_flags = INDESTRUCTIBLE
+	hitted_sound = 'mojave/sound/ms13effects/impact/metal/metal_generic_2.wav'
 
 /obj/machinery/door/airlock/ms13/Bumped(atom/movable/AM)
 	return

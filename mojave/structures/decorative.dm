@@ -6,6 +6,7 @@
 	name = "postbox"
 	desc = "Last pickup, October 22nd, 2077."
 	icon = 'mojave/icons/structure/miscellaneous.dmi'
+	hitted_sound = 'mojave/sound/ms13effects/impact/metal/metal_hollow_2.wav'
 	icon_state = "mailbox"
 	pixel_y = 12
 	projectile_passchance = 50
@@ -549,6 +550,7 @@
 /obj/structure/ms13/cave_decor/stalagmite
 	name = "stalagmite"
 	desc = "A column of rock formed over many years by minerals in water solidifying."
+	icon_state = "stalagmite"
 	max_integrity = 120
 	anchored = TRUE
 	density = TRUE

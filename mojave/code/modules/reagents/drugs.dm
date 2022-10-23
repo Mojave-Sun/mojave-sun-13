@@ -83,24 +83,29 @@
 
 /datum/reagent/ms13/medx/overdose_start(mob/living/M)
 	. = ..()
-	M.visible_message(span_userdanger("[M] begins to take long deep breaths, looking a bit ill."), span_userdanger("You notice it becomes a bit harder to breathe and begin taking deep breaths."), span_hear("You hear heavy panting."))
+	M.visible_message(span_alert("[M] begins to take long deep breaths, looking a bit ill."), span_userdanger("You notice it becomes a bit harder to breathe and begin taking deep breaths."), span_hear("You hear heavy panting."), 4)
 	return ..()
 
 /datum/reagent/ms13/medx/overdose_process(mob/living/M)
 	. = ..()
 	M.adjustOrganLoss(ORGAN_SLOT_LUNGS, 0.2)
 	M.adjustOxyLoss(rand(3, 4))
-	if(prob(10) && M.stat == CONSCIOUS)
+	if(!prob(10))
+		return
+	if(M.stat == CONSCIOUS)
 		M.Stun(15)
-		M.visible_message(span_userdanger("[M] stops for a moment, trying to regain his breath"), span_userdanger("You try to take some deep breaths, struggling to get enough oxygen to kepe you going."), span_hear("You hear heavy panting."))
-
+		M.visible_message(span_alert("[M] stops for a moment, trying to regain his breath."), span_userdanger("You try to take some deep breaths, struggling to get enough oxygen to keep you going."), span_hear("You hear heavy panting."), 4)
+	if(M.stat == UNCONSCIOUS || HARD_CRIT)
+		M.visible_message(span_alert("[M] makes choking sounds as a light foam pours from their mouth."), span_userdanger("You can feel yourself choking on something."), span_hear("You hear choking."), 4)
+		M.emote("twitch")
+		M.Jitter(1)
 	return ..()
 
 // Rad-X //
 
 /datum/reagent/ms13/radx // I would NEVER rename potassium iodine
 	name = "Rad-X"
-	description = "Prevents radiation da"
+	description = "Prevents radiation damaging effects"
 	reagent_state = SOLID
 	color = "#593509"
 	metabolization_rate = 2 * REAGENTS_METABOLISM

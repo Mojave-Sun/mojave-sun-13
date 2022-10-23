@@ -42,6 +42,7 @@ DEFINE_BITFIELD(turret_flags, list(
 	armor = list(MELEE = 50, BULLET = 30, LASER = 30, ENERGY = 30, BOMB = 30, BIO = 0, FIRE = 90, ACID = 90)
 	base_icon_state = "standard"
 	blocks_emissive = EMISSIVE_BLOCK_UNIQUE
+	subsystem_type = /datum/controller/subsystem/processing/fastprocess // MOJAVE SUN EDIT
 
 	///if TRUE this will cause the turret to stop working if the stored_gun var is null in process()
 	var/uses_stored = TRUE
