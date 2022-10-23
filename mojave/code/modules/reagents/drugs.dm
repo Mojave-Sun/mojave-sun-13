@@ -109,6 +109,7 @@
 	reagent_state = SOLID
 	color = "#593509"
 	metabolization_rate = 2 * REAGENTS_METABOLISM
+	overdose_threshold = 30
 	ph = 12 //It's a reducing agent
 
 /datum/reagent/ms13/radx/on_mob_metabolize(mob/living/L)
