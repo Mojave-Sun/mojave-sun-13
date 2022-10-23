@@ -878,6 +878,10 @@
 /obj/structure/stairs/north,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
+"aBr" = (
+/obj/effect/spawner/random/ms13/medical/lowrandom,
+/turf/open/floor/ms13/tile/long,
+/area/ms13/town)
 "aBu" = (
 /obj/structure/chair/ms13/metal/broken{
 	dir = 1
@@ -3439,6 +3443,14 @@
 	},
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"cnB" = (
+/obj/structure/chair/office/ms13/green{
+	dir = 8
+	},
+/obj/effect/landmark/start/ms13/deputy,
+/obj/machinery/light/ms13,
+/turf/open/floor/ms13/metal,
+/area/ms13/underground/vault_atrium_middle)
 "cnG" = (
 /obj/effect/spawner/random/ms13/melee/tier3,
 /obj/structure/ms13/storage/shelf{
@@ -9972,14 +9984,6 @@
 "gjX" = (
 /obj/machinery/door/airlock/ms13,
 /turf/open/floor/ms13/metal/grate/border,
-/area/ms13/underground/vault_atrium_middle)
-"gks" = (
-/obj/structure/chair/office/ms13/green{
-	dir = 8
-	},
-/obj/effect/landmark/start/ms13/deputy,
-/obj/machinery/light/ms13,
-/turf/open/floor/ms13/metal,
 /area/ms13/underground/vault_atrium_middle)
 "gku" = (
 /turf/open/floor/iron/stairs{
@@ -19003,10 +19007,6 @@
 /obj/structure/ms13/foundation/common/variantfive,
 /turf/open/openspace/ms13,
 /area/ms13/town)
-"luv" = (
-/obj/effect/spawner/random/ms13/medical/lowrandom,
-/turf/open/floor/ms13/tile/long,
-/area/ms13/town)
 "luy" = (
 /obj/structure/ms13/storage/store{
 	dir = 8
@@ -24170,6 +24170,11 @@
 "oKl" = (
 /obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/right,
 /turf/open/floor/ms13/metal/plate,
+/area/ms13/town)
+"oKu" = (
+/obj/machinery/door/unpowered/ms13/metal,
+/obj/effect/spawner/random/ms13/locked/random/medchance,
+/turf/open/floor/ms13/tile/long,
 /area/ms13/town)
 "oKv" = (
 /mob/living/simple_animal/hostile/ms13/radstag,
@@ -31765,11 +31770,6 @@
 	dir = 1
 	},
 /turf/open/floor/ms13/tile,
-/area/ms13/town)
-"ybf" = (
-/obj/machinery/door/unpowered/ms13/metal,
-/obj/effect/spawner/random/ms13/locked/random/medchance,
-/turf/open/floor/ms13/tile/long,
 /area/ms13/town)
 "ybr" = (
 /obj/structure/table/ms13/no_smooth/wood/low,
@@ -47816,7 +47816,7 @@ lYF
 rGn
 gAT
 rGn
-gks
+cnB
 ylm
 khQ
 khQ
@@ -55426,7 +55426,7 @@ fiE
 snr
 rgv
 fiE
-ybf
+oKu
 dVn
 dVn
 rkR
@@ -56330,7 +56330,7 @@ ylG
 rRC
 xpF
 rii
-luv
+aBr
 sJG
 rRC
 dVn
@@ -56936,7 +56936,7 @@ wpB
 gYk
 fiE
 fiE
-ybf
+oKu
 dVn
 dVn
 rkR
@@ -87885,11 +87885,11 @@ ylG
 ylG
 ylG
 ylG
-khQ
-khQ
-khQ
-khQ
-khQ
+xZD
+ykT
+ykT
+rew
+ykT
 khQ
 khQ
 khQ
@@ -88193,8 +88193,8 @@ khQ
 khQ
 khQ
 khQ
-khQ
-khQ
+oJD
+oJD
 khQ
 khQ
 khQ
@@ -88495,7 +88495,7 @@ khQ
 khQ
 khQ
 khQ
-khQ
+oJD
 khQ
 khQ
 khQ
