@@ -5181,11 +5181,11 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "dwO" = (
-/obj/structure/table/ms13/no_smooth/large/wood/square{
-	dir = 4
+/obj/structure/ms13/storage/shelf{
+	dir = 1
 	},
-/obj/effect/spawner/random/ms13/melee/tier1,
-/turf/open/floor/wood/ms13/common,
+/obj/effect/spawner/random/ms13/drugs/lowrandom,
+/turf/open/floor/ms13/tile/blue/long,
 /area/ms13/town)
 "dwS" = (
 /obj/structure/chair/comfy/ms13/ergo{
@@ -8590,14 +8590,6 @@
 /obj/structure/kitchenspike/ms13,
 /turf/open/floor/ms13/tile/long,
 /area/ms13/underground/vault_atrium_middle)
-"fwT" = (
-/obj/structure/chair/office/ms13/green{
-	dir = 8
-	},
-/obj/effect/landmark/start/ms13/deputy,
-/obj/machinery/light/ms13,
-/turf/open/floor/ms13/metal,
-/area/ms13/underground/vault_atrium_middle)
 "fwV" = (
 /turf/open/floor/wood/ms13/carpet/shaggy/blue,
 /area/ms13/underground/vault_atrium_middle)
@@ -9981,6 +9973,14 @@
 /obj/machinery/door/airlock/ms13,
 /turf/open/floor/ms13/metal/grate/border,
 /area/ms13/underground/vault_atrium_middle)
+"gks" = (
+/obj/structure/chair/office/ms13/green{
+	dir = 8
+	},
+/obj/effect/landmark/start/ms13/deputy,
+/obj/machinery/light/ms13,
+/turf/open/floor/ms13/metal,
+/area/ms13/underground/vault_atrium_middle)
 "gku" = (
 /turf/open/floor/iron/stairs{
 	dir = 8
@@ -11244,8 +11244,11 @@
 /area/ms13/town)
 "gRL" = (
 /obj/structure/closet/ms13/fridge,
-/obj/effect/spawner/random/ms13/food/produce_random,
-/obj/effect/spawner/random/ms13/food/produce_random,
+/obj/effect/spawner/random/ms13/food/random,
+/obj/effect/spawner/random/ms13/food/random,
+/obj/effect/spawner/random/ms13/food/random,
+/obj/effect/spawner/random/ms13/food/random,
+/obj/effect/spawner/random/ms13/guaranteed/food/random,
 /turf/open/floor/ms13/tile,
 /area/ms13/town)
 "gSb" = (
@@ -13304,8 +13307,9 @@
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "ibj" = (
-/obj/effect/spawner/random/ms13/medical/tier1,
-/turf/open/floor/wood/ms13/mosaic,
+/obj/effect/decal/cleanable/glass,
+/obj/effect/spawner/random/ms13/melee/lowrandom,
+/turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "ibm" = (
 /obj/machinery/light/ms13{
@@ -16049,6 +16053,7 @@
 /obj/structure/table/ms13/metal/alt,
 /obj/structure/ms13/storage/vent,
 /obj/item/paper_bin/ms13,
+/obj/effect/spawner/random/ms13/medical/lowrandom,
 /turf/open/floor/ms13/tile/long,
 /area/ms13/town)
 "jFK" = (
@@ -16947,6 +16952,7 @@
 /obj/structure/table/ms13/no_smooth/counter/metal{
 	dir = 4
 	},
+/obj/effect/spawner/random/ms13/drugs/lowrandom,
 /turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "kgM" = (
@@ -18996,6 +19002,10 @@
 "lut" = (
 /obj/structure/ms13/foundation/common/variantfive,
 /turf/open/openspace/ms13,
+/area/ms13/town)
+"luv" = (
+/obj/effect/spawner/random/ms13/medical/lowrandom,
+/turf/open/floor/ms13/tile/long,
 /area/ms13/town)
 "luy" = (
 /obj/structure/ms13/storage/store{
@@ -21656,6 +21666,7 @@
 /area/ms13/town)
 "njZ" = (
 /obj/structure/table/ms13/no_smooth/large/wood,
+/obj/effect/spawner/random/ms13/drugs/lowrandom,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "nka" = (
@@ -24291,6 +24302,7 @@
 /obj/machinery/light/ms13/bulb{
 	dir = 8
 	},
+/obj/effect/spawner/random/ms13/drugs/lowrandom,
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "oQT" = (
@@ -24706,8 +24718,11 @@
 /turf/open/floor/ms13/tile/long,
 /area/ms13/town)
 "piW" = (
-/obj/effect/spawner/random/ms13/melee/tier1,
-/turf/open/floor/wood/ms13/carpet,
+/obj/machinery/light/ms13/bulb{
+	dir = 1
+	},
+/obj/effect/spawner/random/ms13/melee/lowrandom,
+/turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "pjg" = (
 /obj/structure/window/fulltile/ms13/glass,
@@ -30277,8 +30292,8 @@
 	dir = 1
 	},
 /obj/structure/ms13/storage/shelf,
-/obj/effect/spawner/random/ms13/medical/tier1,
-/obj/effect/spawner/random/ms13/guaranteed/medical/tier1,
+/obj/effect/spawner/random/ms13/medical/lowrandom,
+/obj/effect/spawner/random/ms13/guaranteed/medical/lowrandom,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "wkA" = (
@@ -30379,7 +30394,7 @@
 /area/ms13/town)
 "wqD" = (
 /obj/structure/table/ms13/metal,
-/obj/effect/spawner/random/ms13/medical/tier1,
+/obj/effect/spawner/random/ms13/medical/lowrandom,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "wrq" = (
@@ -30673,6 +30688,7 @@
 "wOE" = (
 /obj/structure/closet/ms13/wall/firstaid,
 /obj/effect/spawner/random/ms13/currency/mammoth/lowrandom,
+/obj/effect/spawner/random/ms13/medical/lowrandom,
 /turf/open/floor/ms13/tile,
 /area/ms13/town)
 "wPy" = (
@@ -30696,6 +30712,7 @@
 "wPR" = (
 /obj/structure/closet/ms13/wall/firstaid,
 /obj/structure/closet/body_bag/ms13,
+/obj/effect/spawner/random/ms13/medical/lowrandom,
 /turf/open/floor/ms13/tile,
 /area/ms13/town)
 "wPX" = (
@@ -31748,6 +31765,11 @@
 	dir = 1
 	},
 /turf/open/floor/ms13/tile,
+/area/ms13/town)
+"ybf" = (
+/obj/machinery/door/unpowered/ms13/metal,
+/obj/effect/spawner/random/ms13/locked/random/medchance,
+/turf/open/floor/ms13/tile/long,
 /area/ms13/town)
 "ybr" = (
 /obj/structure/table/ms13/no_smooth/wood/low,
@@ -47794,7 +47816,7 @@ lYF
 rGn
 gAT
 rGn
-fwT
+gks
 ylm
 khQ
 khQ
@@ -55404,7 +55426,7 @@ fiE
 snr
 rgv
 fiE
-lbo
+ybf
 dVn
 dVn
 rkR
@@ -56308,7 +56330,7 @@ ylG
 rRC
 xpF
 rii
-fiE
+luv
 sJG
 rRC
 dVn
@@ -56914,7 +56936,7 @@ wpB
 gYk
 fiE
 fiE
-lbo
+ybf
 dVn
 dVn
 rkR
@@ -60700,7 +60722,7 @@ pwP
 owq
 xGW
 oiT
-piW
+xGW
 wSc
 pwP
 nrx
@@ -61301,7 +61323,7 @@ wSc
 wSc
 iaD
 pwP
-ybx
+piW
 dvT
 anG
 wSc
@@ -61899,8 +61921,8 @@ ykT
 ykT
 laG
 bSq
-anG
-dwO
+ibj
+dvT
 anG
 wSc
 dvT
@@ -62213,7 +62235,7 @@ wSc
 bWU
 wSc
 pwP
-nrx
+oos
 wSc
 pwP
 pwP
@@ -64015,7 +64037,7 @@ xZD
 oPs
 uTb
 scA
-eCx
+eDh
 eDh
 eDh
 scA
@@ -84977,7 +84999,7 @@ hVl
 xih
 dAc
 hVs
-ibj
+xih
 xih
 jIO
 ieZ
@@ -86817,7 +86839,7 @@ rew
 ykT
 ykT
 xZD
-xZD
+giV
 ykT
 ykT
 ykT
@@ -97078,7 +97100,7 @@ ykT
 xZD
 xZD
 xZD
-xZD
+giV
 ykT
 ykT
 rew
@@ -97387,7 +97409,7 @@ rew
 ykT
 ykT
 xZD
-xZD
+giV
 ykT
 ykT
 ykT
@@ -101757,7 +101779,7 @@ gfw
 aLq
 aLq
 xPT
-gfw
+dwO
 aLq
 aLq
 xPT
@@ -102357,7 +102379,7 @@ xPT
 gdx
 gBe
 xPT
-gfw
+dwO
 gdx
 iqX
 xPT
@@ -102705,7 +102727,7 @@ wTB
 dWh
 pwP
 xZD
-xZD
+giV
 ykT
 ykT
 ykT
