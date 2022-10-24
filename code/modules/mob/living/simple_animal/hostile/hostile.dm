@@ -18,8 +18,7 @@
 	var/projectiletype //set ONLY it and NULLIFY casingtype var, if we have ONLY projectile
 	var/projectilesound
 	var/casingtype //set ONLY it and NULLIFY projectiletype, if we have projectile IN CASING
-	///Delay for automated movement, measured in deciseconds
-	var/move_to_delay = 1.5
+	var/move_to_delay = 3 //delay for the automated movement.
 	var/list/friends = list()
 	var/list/emote_taunt = list()
 	var/taunt_chance = 0
@@ -99,7 +98,7 @@
 
 /mob/living/simple_animal/hostile/update_stamina()
 	. = ..()
-	move_to_delay = (initial(move_to_delay) + (staminaloss * 0.03))
+	move_to_delay = (initial(move_to_delay) + (staminaloss * 0.06))
 
 /mob/living/simple_animal/hostile/proc/sidestep()
 	if(!target || !isturf(target.loc) || !isturf(loc) || stat == DEAD)
@@ -127,7 +126,7 @@
 	if(stat == CONSCIOUS && !target && AIStatus != AI_OFF && !client)
 		if(P.firer && get_dist(src, P.firer) <= aggro_vision_range)
 			FindTarget(list(P.firer), 1)
-		Goto(P.starting, move_to_delay, 1.5)
+		Goto(P.starting, move_to_delay, 3)
 	return ..()
 
 //////////////HOSTILE MOB TARGETTING AND AGGRESSION////////////
@@ -288,7 +287,7 @@
 			return 1
 		if(retreat_distance != null) //If we have a retreat distance, check if we need to run from our target
 			if(target_distance <= retreat_distance) //If target's closer than our retreat distance, run
-				SSmove_manager.move_away(src, target, retreat_distance, move_to_delay)
+				SSmove_manager.move_away(src, target, retreat_distance, move_to_delay, flags = MOVEMENT_LOOP_IGNORE_GLIDE)
 			else
 				Goto(target,move_to_delay,minimum_distance) //Otherwise, get to our minimum distance so we chase them
 		else
@@ -316,12 +315,15 @@
 	LoseTarget()
 	return 0
 
-/mob/living/simple_animal/hostile/proc/Goto(target, delay, minimum_distance)
+/mob/living/simple_animal/hostile/Goto(target, delay, minimum_distance)
+	if(prevent_goto_movement)
+		return FALSE
 	if(target == src.target)
 		approaching_target = TRUE
 	else
 		approaching_target = FALSE
-	SSmove_manager.move_to(src, target, minimum_distance, delay)
+	SSmove_manager.move_to(src, target, minimum_distance, delay, flags = MOVEMENT_LOOP_IGNORE_GLIDE)
+	return TRUE
 
 /mob/living/simple_animal/hostile/adjustHealth(amount, updating_health = TRUE, forced = FALSE)
 	. = ..()
@@ -567,16 +569,18 @@
 		toggle_ai(AI_Z_OFF)
 		return
 
-	var/cheap_search = isturf(T) && !is_station_level(T.z)
-	if (cheap_search)
-		tlist = ListTargetsLazy(T.z)
-	else
-		tlist = ListTargets()
+	//var/cheap_search = isturf(T) && !is_station_level(T.z)
+	//if (cheap_search)
+		//MS13; try out only lazy target search if the mob is off zlevel
+	tlist = ListTargetsLazy(T.z)
+	//else
+	//	tlist = ListTargets()
 
-	if(AIStatus == AI_IDLE && FindTarget(tlist, 1))
-		if(cheap_search) //Try again with full effort
-			FindTarget()
-		toggle_ai(AI_ON)
+	if(AIStatus == AI_IDLE && FindTarget(tlist, TRUE))
+	//	if(cheap_search) //Try again with full effort
+		GiveTarget(null) //Above target may have been acquired without LoS to them; we want LoS to target to trigger AI
+		if(FindTarget())
+			toggle_ai(AI_ON)
 
 /mob/living/simple_animal/hostile/proc/ListTargetsLazy(_Z)//Step 1, find out what we can see
 	var/static/hostile_machines = typecacheof(list(/obj/machinery/porta_turret, /obj/vehicle/sealed/mecha))

@@ -17,7 +17,7 @@
 
 /datum/outfit/job/ms13/wasteland/wastelander/pre_equip(mob/living/carbon/human/H)
 	..()
-	if(prob(70))
+	if(prob(75))
 		head = pick(
 		/obj/item/clothing/head/helmet/ms13/cowboy/black,\
 		/obj/item/clothing/head/helmet/ms13/baseball,\
@@ -55,16 +55,11 @@
 
 	if(prob(25))
 		mask = pick(
-		/obj/item/clothing/mask/ms13/facewrap,\
-		/obj/item/clothing/mask/ms13/facewrap/red,\
-		/obj/item/clothing/mask/ms13/facewrap/black,\
-		/obj/item/clothing/mask/ms13/facewrap/blue,\
 		/obj/item/clothing/mask/ms13/bandana,\
 		/obj/item/clothing/mask/ms13/bandana/blue,\
 		/obj/item/clothing/mask/ms13/bandana/red,\
 		/obj/item/clothing/mask/ms13/bandana/white, \
-		/obj/item/clothing/mask/ms13/bandana/green, \
-		/obj/item/clothing/mask/ms13/facewrap/halfwrap)
+		/obj/item/clothing/mask/ms13/bandana/green)
 	else
 		mask = null
 
@@ -123,7 +118,6 @@
 		/obj/item/gun/ballistic/automatic/pistol/ms13/pistol22, \
 		/obj/item/gun/ballistic/rifle/ms13/varmint, \
 		/obj/item/gun/ballistic/revolver/ms13/caravan, \
-		/obj/item/gun/ballistic/revolver/ms13/single, \
 		/obj/item/gun/ballistic/automatic/pistol/ms13/m10mm/chinese, \
 		/obj/item/gun/ballistic/revolver/ms13/rev10mm)
 
@@ -135,7 +129,6 @@
 		/obj/item/ms13/knuckles, \
 		/obj/item/ms13/brick, \
 		/obj/item/ms13/handsaw, \
-		/obj/item/ms13/handdrill, \
 		/obj/item/knife/ms13/throwingknife)
 
 	shoes = pick(
@@ -145,3 +138,14 @@
 		/obj/item/clothing/shoes/ms13/rag, \
 		/obj/item/clothing/shoes/ms13/brownie, \
 		/obj/item/clothing/shoes/ms13/crude)
+
+	if(prob(50))
+		r_pocket = /obj/item/flashlight/flare/ms13
+	else
+		r_pocket = null
+
+	if(prob(80))
+		l_pocket = pick(
+			/obj/item/stack/medical/gauze/ms13/three)
+	else
+		l_pocket = null

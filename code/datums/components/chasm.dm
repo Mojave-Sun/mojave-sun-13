@@ -25,7 +25,7 @@
 		/obj/effect/dummy/phased_mob,
 		/obj/effect/mapping_helpers,
 		/obj/effect/wisp,
-		))
+	))
 
 /datum/component/chasm/Initialize(turf/target)
 	RegisterSignal(parent, COMSIG_ATOM_ENTERED, .proc/Entered)

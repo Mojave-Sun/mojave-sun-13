@@ -121,7 +121,7 @@
 	inhand_icon_state = "reinforcedleather"
 	slowdown = 0.15
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
+                EDGE_PROTECTION = CLASS1_EDGE, \
                 CRUSHING = CLASS3_CRUSH, \
                 CUTTING = CLASS3_CUT, \
                 PIERCING = CLASS2_PIERCE, \
@@ -140,7 +140,7 @@
 	body_parts_covered = CHEST|LEGS|GROIN|ARM_LEFT
 	slowdown = 0.5
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
+                EDGE_PROTECTION = CLASS1_EDGE, \
                 CRUSHING = CLASS1_CRUSH, \
                 CUTTING = CLASS3_CUT, \
                 PIERCING = CLASS2_PIERCE, \
@@ -158,7 +158,7 @@
 	inhand_icon_state = "reinforcedmetal"
 	body_parts_covered = CHEST|LEGS|GROIN|ARMS
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
+                EDGE_PROTECTION = CLASS1_EDGE, \
                 CRUSHING = CLASS1_CRUSH, \
                 CUTTING = CLASS4_CUT, \
                 PIERCING = CLASS3_PIERCE, \
@@ -174,7 +174,7 @@
 	inhand_icon_state = "heavymetal"
 	body_parts_covered = CHEST|LEGS|GROIN|ARMS
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
+                EDGE_PROTECTION = CLASS2_EDGE, \
                 CRUSHING = CLASS2_CRUSH, \
                 CUTTING = CLASS4_CUT, \
                 PIERCING = CLASS3_PIERCE, \
@@ -213,7 +213,7 @@
 	body_parts_covered = CHEST
 	slowdown = 0.15
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
+                EDGE_PROTECTION = CLASS2_EDGE, \
                 CRUSHING = CLASS1_CRUSH, \
                 CUTTING = CLASS1_CUT, \
                 PIERCING = CLASS3_PIERCE, \
@@ -229,7 +229,7 @@
 	desc = "A bulletproof kevlar vest intended for civilian use, not quite as good as it's police or military counterparts."
 	icon_state = "civ_kevlar"
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
+                EDGE_PROTECTION = CLASS1_EDGE, \
                 CRUSHING = CLASS1_CRUSH, \
                 CUTTING = 0, \
                 PIERCING = CLASS2_PIERCE, \
@@ -245,7 +245,7 @@
 	inhand_icon_state = "militarykevlar"
 	body_parts_covered = CHEST|GROIN
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
+                EDGE_PROTECTION = CLASS3_EDGE, \
                 CRUSHING = CLASS2_CRUSH, \
                 CUTTING = CLASS2_CUT, \
                 PIERCING = CLASS4_PIERCE, \
@@ -260,7 +260,7 @@
 	icon_state = "vaultarmor"
 	body_parts_covered = CHEST|GROIN
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
+                EDGE_PROTECTION = CLASS2_EDGE, \
                 CRUSHING = CLASS2_CRUSH, \
                 CUTTING = CLASS2_CUT, \
                 PIERCING = CLASS2_PIERCE, \
@@ -340,11 +340,11 @@
 	body_parts_covered = CHEST|ARMS|GROIN|LEGS
 	slowdown = 0.15
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
+                EDGE_PROTECTION = CLASS1_EDGE, \
                 CRUSHING = CLASS1_CRUSH, \
                 CUTTING = CLASS1_CUT, \
                 PIERCING = CLASS3_PIERCE, \
-                IMPALING = CLASS1_STAB, \
+                IMPALING = 0, \
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
@@ -360,7 +360,7 @@
 	body_parts_covered = CHEST|ARMS|GROIN|LEGS
 	slowdown = 0.3
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
+                EDGE_PROTECTION = CLASS2_EDGE, \
                 CRUSHING = CLASS2_CRUSH, \
                 CUTTING = CLASS3_CUT, \
                 PIERCING = CLASS3_PIERCE, \
@@ -377,7 +377,7 @@
 	icon_state = "adv_combatarmor"
 	inhand_icon_state = "combat_armor_mk2"
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
+                EDGE_PROTECTION = CLASS2_EDGE, \
                 CRUSHING = CLASS3_CRUSH, \
                 CUTTING = CLASS4_CUT, \
                 PIERCING = CLASS3_PIERCE, \
@@ -417,7 +417,7 @@
 	slowdown = 0.3
 	body_parts_covered = CHEST|LEGS|GROIN|ARM_LEFT
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
+                EDGE_PROTECTION = CLASS1_EDGE, \
                 CRUSHING = CLASS2_CRUSH, \
                 CUTTING = CLASS3_CUT, \
                 PIERCING = CLASS2_PIERCE, \
@@ -436,7 +436,7 @@
 	slowdown = 0.5
 	body_parts_covered = CHEST|LEGS|GROIN|ARMS
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
+                EDGE_PROTECTION = CLASS2_EDGE, \
                 CRUSHING = CLASS4_CRUSH, \
                 CUTTING = CLASS4_CUT, \
                 PIERCING = CLASS3_PIERCE, \
@@ -527,7 +527,7 @@
 	slowdown = 0.15
 	body_parts_covered = CHEST
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
+                EDGE_PROTECTION = CLASS1_EDGE, \
                 CRUSHING = CLASS2_CRUSH, \
                 CUTTING = CLASS2_CUT, \
                 PIERCING = CLASS2_PIERCE, \
@@ -545,7 +545,7 @@
 	inhand_icon_state = "ncr_reinforced_vest"
 	body_parts_covered = CHEST|GROIN
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
+                EDGE_PROTECTION = CLASS1_EDGE, \
                 CRUSHING = CLASS2_CRUSH, \
                 CUTTING = CLASS2_CUT, \
                 PIERCING = CLASS2_PIERCE, \
@@ -560,7 +560,7 @@
 	icon_state = "ncr_standard_mantle"
 	inhand_icon_state = "ncr_standard_mantle"
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
+                EDGE_PROTECTION = CLASS1_EDGE, \
                 CRUSHING = CLASS2_CRUSH, \
                 CUTTING = CLASS2_CUT, \
                 PIERCING = CLASS2_PIERCE, \
@@ -577,7 +577,7 @@
 	slowdown = 0.3
 	body_parts_covered = CHEST|GROIN
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
+                EDGE_PROTECTION = CLASS2_EDGE, \
                 CRUSHING = CLASS3_CRUSH, \
                 CUTTING = CLASS3_CUT, \
                 PIERCING = CLASS3_PIERCE, \
@@ -638,7 +638,7 @@
 	slowdown = 0.3
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
+                EDGE_PROTECTION = CLASS1_EDGE, \
                 CRUSHING = CLASS3_CRUSH, \
                 CUTTING = CLASS3_CUT, \
                 PIERCING = CLASS2_PIERCE, \
@@ -684,7 +684,7 @@
 	desc = "Legion vexillarius armor with it's defining color."
 	icon_state = "leg_vex"
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
+                EDGE_PROTECTION = CLASS1_EDGE, \
                 CRUSHING = CLASS3_CRUSH, \
                 CUTTING = CLASS3_CUT, \
                 PIERCING = CLASS2_PIERCE, \
@@ -708,7 +708,7 @@
 	slowdown = 0.5
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
+                EDGE_PROTECTION = CLASS2_EDGE, \
                 CRUSHING = CLASS3_CRUSH, \
                 CUTTING = CLASS4_CUT, \
                 PIERCING = CLASS3_PIERCE, \
@@ -770,7 +770,7 @@
 	body_parts_covered = CHEST
 	slowdown = 0.15
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
+                EDGE_PROTECTION = CLASS1_EDGE, \
                 CRUSHING = CLASS1_CRUSH, \
                 CUTTING = CLASS1_CUT, \
                 PIERCING = CLASS2_PIERCE, \
@@ -788,7 +788,7 @@
 	body_parts_covered = CHEST|ARMS|GROIN|LEGS
 	slowdown = 0.3
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
+                EDGE_PROTECTION = CLASS2_EDGE, \
                 CRUSHING = CLASS2_CRUSH, \
                 CUTTING = CLASS3_CUT, \
                 PIERCING = CLASS2_PIERCE, \
@@ -809,7 +809,7 @@
 	body_parts_covered = CHEST|GROIN
 	slowdown = 0.15
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
+                EDGE_PROTECTION = CLASS2_EDGE, \
                 CRUSHING = CLASS2_CRUSH, \
                 CUTTING = CLASS3_CUT, \
                 PIERCING = CLASS2_PIERCE, \
@@ -828,7 +828,7 @@
 	inhand_icon_state = "riotgear"
 	slowdown = 0.5
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
+                EDGE_PROTECTION = CLASS2_EDGE, \
                 CRUSHING = CLASS3_CRUSH, \
                 CUTTING = CLASS4_CUT, \
                 PIERCING = CLASS3_PIERCE, \

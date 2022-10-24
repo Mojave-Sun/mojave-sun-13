@@ -14,16 +14,15 @@
 	density = TRUE
 	anchored = TRUE
 	layer = ABOVE_OBJ_LAYER
-	max_integrity = 500
-	armor = list(MELEE = 75, BULLET = 75, LASER = 75, ENERGY = 75, BOMB = 100, BIO = 100,  FIRE = 100, ACID = 100)
-	damage_deflection = 10
+	max_integrity = 650
+	damage_deflection = 21 //Basically meant to encompass 20 damage weapons and below
 	can_atmos_pass = ATMOS_PASS_YES
 	flags_1 = ON_BORDER_1
 	var/barpasschance = 33
 
 /obj/structure/ms13/bars/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
-		new /obj/item/stack/sheet/ms13/scrap_steel/two(loc)
+		new /obj/item/stack/sheet/ms13/scrap_steel(loc, 4)
 	qdel(src)
 
 /obj/structure/ms13/bars/attackby(obj/item/W, mob/user, params)
@@ -174,16 +173,18 @@
 
 /obj/structure/ms13/celldoor
 	name = "cell door"
-	desc = "Better hope you arent rotting on the wrong side slick."
+	desc = "Better hope you aren't rotting on the wrong side, slick."
 	icon = 'mojave/icons/obstacles/tallobstacles.dmi'
 	icon_state = "door"
 	density = TRUE
 	anchored = TRUE
 	opacity = FALSE
 	layer = ABOVE_MOB_LAYER
-	max_integrity = 500
-	armor = list(MELEE = 75, BULLET = 75, LASER = 75, ENERGY = 75, BOMB = 25, BIO = 100,  FIRE = 80, ACID = 100)
-	damage_deflection = 10
+	max_integrity = 1000
+	damage_deflection = 21
+	flags_1 = ON_BORDER_1
+	ms13_flags_1 = LOCKABLE_1
+	hitted_sound = 'mojave/sound/ms13effects/metal_door_hit.ogg'
 	flags_1 = ON_BORDER_1
 	var/locked = FALSE
 
@@ -198,7 +199,8 @@
 
 /obj/structure/ms13/celldoor/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
-		new /obj/item/stack/sheet/ms13/scrap_steel/two(loc)
+		playsound(src, 'mojave/sound/ms13effects/metal_door_break.ogg', 100, TRUE)
+		new /obj/item/stack/sheet/ms13/scrap_steel(loc, 4)
 	qdel(src)
 
 /obj/structure/ms13/celldoor/locked
@@ -233,6 +235,10 @@
 /obj/structure/ms13/celldoor/attack_hand(mob/user)
 	. = ..()
 	if(.)
+		return
+	if(ms13_flags_1 & LOCKABLE_1 && lock_locked)
+		to_chat(user, span_warning("The [name] is locked."))
+		playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
 		return
 	return TryToSwitchState(user)
 
@@ -375,25 +381,13 @@
 	desc = "You see nothing out of the ordinary."
 	icon = 'mojave/icons/obstacles/obstacles.dmi'
 	icon_state = "normal_fence"
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
+	projectile_passchance = 95
 
 /obj/structure/fence/fencenormal/Initialize()
 	. = ..()
 	layer = 4.2
-
-/obj/structure/fence/fencenormal/CanPass(atom/movable/mover, turf/target, height=0)
-	..()
-	if (!density)
-		return 1
-	if (dir!=SOUTH)
-		return 0
-	if(istype(mover) && (mover.pass_flags & PASSGRILLE))
-		return 1
-	if(get_dir(loc, target) != SOUTH)
-		return 0
-	else
-		return 1
 
 /obj/structure/fence/fencenormal/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/wirecutters))
@@ -411,8 +405,6 @@
 	desc = "It's still pretty sturdy.<br>You see nothing out of the ordinary."
 	icon = 'mojave/icons/obstacles/obstacles.dmi'
 	icon_state = "fence_corner"
-	density = 1
-	anchored = 1
 
 /obj/structure/fence/fencecorner/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/wirecutters))
@@ -423,8 +415,6 @@
 	desc = "Intersection of the fence.<br>You see nothing out of the ordinary."
 	icon = 'mojave/icons/obstacles/obstacles.dmi'
 	icon_state = "fence_intersect_middle"
-	density = 1
-	anchored = 1
 
 /obj/structure/fence/fenceintersectmiddle/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/wirecutters))
@@ -435,8 +425,6 @@
 	desc = "Intersection of the fence.<br>You see nothing out of the ordinary."
 	icon = 'mojave/icons/obstacles/obstacles.dmi'
 	icon_state = "fence_intersect_bottom"
-	density = 1
-	anchored = 1
 
 /obj/structure/fence/fenceintersectbottom/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/wirecutters))
@@ -447,8 +435,6 @@
 	desc = "Intersection of the fence.<br>You see nothing out of the ordinary."
 	icon = 'mojave/icons/obstacles/obstacles.dmi'
 	icon_state = "fence_intersect_corner"
-	density = 1
-	anchored = 1
 
 /obj/structure/fence/fencecornerintersect/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/wirecutters))
@@ -459,8 +445,7 @@
 	desc = "The hinges are a bit rusty.<br>Who cares, it's just a door anyway."
 	icon = 'mojave/icons/obstacles/obstacles.dmi'
 	icon_state = "fence_door_front_closed"
-	density = 1
-	anchored = 1
+	ms13_flags_1 = LOCKABLE_1
 	var/open_sound = 'mojave/sound/ms13machines/doorchainlink_open.ogg'
 	var/close_sound = 'mojave/sound/ms13machines/doorchainlink_close.ogg'
 
@@ -478,6 +463,12 @@
 	density = !density
 
 /obj/structure/fence/fencedoor/attack_hand(mob/user)
+	if(.)
+		return
+	if(ms13_flags_1 & LOCKABLE_1 && lock_locked)
+		to_chat(user, span_warning("The [name] is locked."))
+		playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
+		return
 	if (density)
 		icon_state = "fence_door_front_open"
 		playsound(src.loc, open_sound, 40, 0, 0)
@@ -495,24 +486,12 @@
 		playsound(src.loc, close_sound, 40, 0, 0)
 	density = !density
 
-/obj/structure/fence/fencedoor/CanPass(atom/movable/mover, turf/target, height=0)
-	..()
-	if (!density)
-		return 1
-	if(istype(mover) && (mover.pass_flags & PASSGRILLE))
-		return 1
-	if(get_dir(loc, target) != SOUTH)
-		return 0
-	else
-		return 1
-
 /obj/structure/fence/fencedoorside
 	name = "metal fence door"
 	desc = "It opens and closes."
 	icon = 'mojave/icons/obstacles/obstacles.dmi'
 	icon_state = "fence_door_side_closed"
-	density = 1
-	anchored = 1
+	ms13_flags_1 = LOCKABLE_1
 	var/open_sound = 'mojave/sound/ms13machines/doorchainlink_open.ogg'
 	var/close_sound = 'mojave/sound/ms13machines/doorchainlink_close.ogg'
 
@@ -526,6 +505,12 @@
 	density = !density
 
 /obj/structure/fence/fencedoorside/attack_hand(mob/user)
+	if(.)
+		return
+	if(ms13_flags_1 & LOCKABLE_1 && lock_locked)
+		to_chat(user, span_warning("The [name] is locked."))
+		playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
+		return
 	if (density)
 		icon_state = "fence_door_side_open"
 		playsound(src.loc, open_sound, 40, 0, 0)
@@ -543,13 +528,33 @@
 		playsound(src.loc, close_sound, 40, 0, 0)
 	density = !density
 
-/obj/structure/fence/fencedoorside/CanPass(atom/movable/mover, turf/target, height=0)
-	..()
-	if (mover.loc == loc)
-		return 1
-	return !density
+// Sand bags
 
-//Road Barriers
+/obj/structure/ms13/sandbag
+	name = "sandbag"
+	desc = "Stacked bags of material, designed to cover people from lead rain."
+	icon = 'mojave/icons/structure/smooth_structures/sandbags.dmi'
+	icon_state = "sandbags-0"
+	base_icon_state = "sandbags"
+	density = TRUE
+	anchored = TRUE
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_MS13_SANDBAGS)
+	canSmoothWith = list(SMOOTH_GROUP_MS13_SANDBAGS)
+	max_integrity = 250
+	projectile_passchance = 35
+
+/obj/structure/ms13/sandbag/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/climbable)
+
+/obj/structure/ms13/sandbag/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/cloth(loc, 3)
+		else
+			new /obj/item/stack/sheet/ms13/cloth(loc, 3)
+	qdel(src)
 
 /obj/structure/ms13/road_barrier
 	name = "road barrier"
@@ -557,12 +562,12 @@
 	icon = 'mojave/icons/obstacles/barriers.dmi'
 	icon_state = "road_barrier"
 	density = TRUE
-	anchored = FALSE
 	max_integrity = 150
+	projectile_passchance = 85
 	var/hasaltstates = FALSE
 	var/altstates = 0
-	var/proj_pass_rate = 85
 	var/climbable = FALSE
+
 /obj/structure/ms13/road_barrier/Initialize()
 	. = ..()
 	if(climbable)
@@ -580,26 +585,12 @@
 	climbable = TRUE
 	max_integrity = 550
 	altstates = 5
-	proj_pass_rate = 45
+	projectile_passchance = 40
 
 /obj/structure/ms13/road_barrier/concrete/alt
 	desc = "A heavy duty concrete road barrier featuring a pattern that to this day is still somewhat vibrant. Used to direct traffic and prevent going off the lane."
 	icon_state = "concrete_barrier_alt"
 	altstates = 1
-
-/obj/structure/ms13/road_barrier/concrete/CanAllowThrough(atom/movable/mover, turf/target)
-	. = ..()
-	if(locate(/obj/structure/ms13/road_barrier/concrete) in get_turf(mover))
-		return TRUE
-	else if(istype(mover, /obj/projectile))
-		if(!anchored)
-			return TRUE
-		var/obj/projectile/proj = mover
-		if(proj.firer && Adjacent(proj.firer))
-			return TRUE
-		if(prob(proj_pass_rate))
-			return TRUE
-		return FALSE
 
 // Railings //
 
@@ -610,15 +601,14 @@
 	layer = CLOSED_TURF_LAYER
 	max_integrity = 150
 	climbable = FALSE //so we can override TG
+	projectile_passchance = 80
 
 /obj/structure/railing/ms13/Initialize()
 	. = ..()
 	if(dir == SOUTH)
 		layer = ABOVE_ALL_MOB_LAYER
-		plane = GAME_PLANE_FOV_HIDDEN
 	if(dir == NORTH)
 		layer = ABOVE_ALL_MOB_LAYER
-		plane = GAME_PLANE_FOV_HIDDEN
 
 	AddElement(/datum/element/climbable, climb_time = 3 SECONDS, climb_stun = 0, no_stun = TRUE, jump_over = TRUE, jump_north = 12, jump_south = 17, jump_sides = 12)
 
@@ -646,6 +636,11 @@
 	name = "wooden fence"
 	desc = "A classic wooden fence. It doesn't get more homely than this."
 	icon_state = "wood_full"
+	projectile_passchance = 75
+
+/obj/structure/railing/ms13/wood/Initialize()
+	. = ..()
+	register_context()
 
 /obj/structure/railing/ms13/wood/crowbar_act_secondary(mob/living/user, obj/item/tool)
 	if(flags_1&NODECONSTRUCT_1)
@@ -666,10 +661,10 @@
 /obj/structure/railing/ms13/wood/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/plank(loc, 2)
+			new /obj/item/stack/sheet/ms13/plank(loc, 3)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 2)
 		else
-			new /obj/item/stack/sheet/ms13/scrap_wood(loc)
+			new /obj/item/stack/sheet/ms13/scrap_wood(loc, 2)
 	qdel(src)
 
 /obj/structure/railing/ms13/wood/examine(mob/user)
@@ -678,6 +673,14 @@
 
 /obj/structure/railing/ms13/wood/proc/deconstruction_hints(mob/user)
 	return span_notice("You could use a <b>crowbar</b> or similar prying tool to dismantle [src] for planks and parts.")
+
+/obj/structure/railing/ms13/wood/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_CROWBAR)
+			context[SCREENTIP_CONTEXT_RMB] = "Dismantle"
+			return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/railing/ms13/wood/ending
 	icon_state = "wood_end"
@@ -707,7 +710,6 @@
 	anchored = TRUE
 	layer = ABOVE_OBJ_LAYER
 	max_integrity = 120
-	armor = list("melee" = 0, "bullet" = 20, "laser" = 20, "energy" = 10, "bomb" = 10, "bio" = 0, "fire" = 50, "acid" = 50)
 	flags_1 = ON_BORDER_1
 	var/barpasschance = 20
 
@@ -730,7 +732,8 @@
 /obj/structure/ms13/barricade/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/plank(loc)
+			new /obj/item/stack/sheet/ms13/plank(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
 		else
 			new /obj/item/stack/sheet/ms13/scrap_wood(loc)
 	qdel(src)
@@ -740,10 +743,19 @@
 	. += deconstruction_hints(user)
 
 /obj/structure/ms13/barricade/proc/deconstruction_hints(mob/user)
-	return span_notice("You could use a <b>crowbar</b> or similar prying tool to dismantle [src] for planks.")
+	return span_notice("You could use a <b>crowbar</b> or similar prying tool to dismantle [src] for planks and parts.")
+
+/obj/structure/ms13/barricade/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_CROWBAR)
+			context[SCREENTIP_CONTEXT_RMB] = "Dismantle"
+			return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/ms13/barricade/Initialize() //this shit should really be a component
 	. = ..()
+	register_context()
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_EXIT = .proc/on_exit,
 	)

@@ -6,8 +6,10 @@
 	name = "postbox"
 	desc = "Last pickup, October 22nd, 2077."
 	icon = 'mojave/icons/structure/miscellaneous.dmi'
+	hitted_sound = 'mojave/sound/ms13effects/impact/metal/metal_hollow_2.wav'
 	icon_state = "mailbox"
 	pixel_y = 12
+	projectile_passchance = 50
 
 /obj/structure/filingcabinet/ms13/mail/old
 	icon_state = "mailbox_old"
@@ -20,6 +22,7 @@
 	anchored = FALSE
 	pixel_y = 10
 	materialtype = /obj/item/stack/sheet/ms13/scrap
+	projectile_passchance = 65
 
 /obj/structure/ms13/storage/trashcan/Initialize()
 	. = ..()
@@ -29,7 +32,7 @@
 
 //signs/flags//
 
-/obj/structure/fluff/ms13/
+/obj/structure/fluff/ms13
 	name = "fluff ms13 basetype"
 	desc = "CALL A CODER. CALL A CODER. But not for me. :reachforthesky:"
 	icon = 'mojave/icons/structure/64x64_misc.dmi'
@@ -156,7 +159,8 @@
 	anchored = TRUE // If they're to be unanchored, you might as well make them toppleable. Go ahead, codersprite it...
 	pixel_y = 12
 	opacity = TRUE
-
+	density = TRUE
+	projectile_passchance = 95 // occasional dink off a pole or somethin...
 
 // Skeletons //
 
@@ -174,18 +178,18 @@
 	name = "barrel"
 	desc = "A sealed canister of mystery, closed to time."
 	icon = 'mojave/icons/structure/barrels.dmi'
-	max_integrity = 350
-	armor = list("melee" = 20, "bullet" = 25, "laser" = 10, "energy" = 15, "bomb" = 15, "bio" = 0, "fire" = 100, "acid" = 100)
+	max_integrity = 400
 	anchored = TRUE
 	density = TRUE
 	var/icon_type = null
 	var/amount = 3 //used for icon randomisation amount
 	var/unique = FALSE //used to set if the icon is randomised or not
+	projectile_passchance = 65
 
 /obj/structure/fluff/ms13/barrel/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
-		new /obj/item/stack/sheet/ms13/scrap/two(loc)
-		new /obj/item/stack/sheet/ms13/scrap_steel(loc)
+		new /obj/item/stack/sheet/ms13/scrap(loc, 3)
+		new /obj/item/stack/sheet/ms13/scrap_steel(loc, 2)
 	qdel(src)
 
 /obj/structure/fluff/ms13/barrel/Initialize()
@@ -537,3 +541,148 @@
 		else
 			to_chat(user, span_notice("You fail to find a paper that won't dissolve in your hands. Shame."))
 			qdel(src)
+
+// Cave Decor
+
+/obj/structure/ms13/cave_decor
+	icon = 'mojave/icons/structure/cave_decor.dmi'
+
+/obj/structure/ms13/cave_decor/stalagmite
+	name = "stalagmite"
+	desc = "A column of rock formed over many years by minerals in water solidifying."
+	icon_state = "stalagmite"
+	max_integrity = 120
+	anchored = TRUE
+	density = TRUE
+
+/obj/structure/ms13/cave_decor/stalagmite/Initialize()
+	. = ..()
+	icon_state = pick("stalagmite", "stalagmite1", "stalagmite2", "stalagmite3", "stalagmite4", "stalagmite5")
+
+/obj/structure/ms13/cave_decor/minecart
+	name = "minecart"
+	desc = "Looks like it's been tipped over and left to rust."
+	icon_state = "minecart_fallen"
+	max_integrity = 160
+	anchored = TRUE
+	density = TRUE
+
+/obj/structure/ms13/cave_decor/sign_left
+	name = "sign"
+	desc = "A sign, pointing left. But why?"
+	icon_state = "sign_left"
+	max_integrity = 80
+	anchored = TRUE
+	density = FALSE
+
+/obj/structure/ms13/cave_decor/sign_left/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/scrap_wood(loc, 2)
+		else
+			new /obj/item/stack/sheet/ms13/scrap_wood(loc)
+	qdel(src)
+
+/obj/structure/ms13/cave_decor/sign_left/sign_right
+	name = "sign"
+	desc = "A sign pointing right. Well, it's right, so it must be right."
+	icon_state = "sign_right"
+
+// Board walkway bullshit
+
+/obj/structure/ms13/cave_decor/boards
+	name = "boards"
+	desc = "Boards of wood for walking on, how convenient."
+	anchored = TRUE
+	density = FALSE
+	max_integrity = 100
+	var/boards = 1
+
+/obj/structure/ms13/cave_decor/sign_left/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/plank(loc)
+		else
+			new /obj/item/stack/sheet/ms13/scrap_wood(loc)
+	qdel(src)
+
+/obj/structure/ms13/cave_decor/boards/Initialize(mapload)
+	. = ..()
+	var/turf/my_turf = get_turf(loc)
+	if(my_turf)
+		ADD_TRAIT(my_turf, TRAIT_REMOVE_SLOWDOWN, BOARDS_ON_TURF)
+
+/obj/structure/ms13/cave_decor/boards/Destroy()
+	var/turf/my_turf = get_turf(loc)
+	if(my_turf)
+		REMOVE_TRAIT(my_turf, TRAIT_REMOVE_SLOWDOWN, BOARDS_ON_TURF)
+	return ..()
+
+/obj/structure/ms13/cave_decor/boards/mammoth/northsouth
+	icon_state = "boards_mammoth_ns-1"
+
+/obj/structure/ms13/cave_decor/boards/mammoth/northsouth/Initialize(mapload)
+	. = ..()
+	boards = rand(1,6)
+	icon_state = "boards_mammoth_ns-[boards]"
+
+/obj/structure/ms13/cave_decor/boards/mammoth/westeast
+	icon_state = "boards_mammoth_we-1"
+
+/obj/structure/ms13/cave_decor/boards/mammoth/westeast/Initialize(mapload)
+	. = ..()
+	boards = rand(1,6)
+	icon_state = "boards_mammoth_we-[boards]"
+
+/obj/structure/ms13/cave_decor/boards/drought/northsouth
+	icon_state = "boards_drought_ns-1"
+
+/obj/structure/ms13/cave_decor/boards/drought/northsouth/Initialize(mapload)
+	. = ..()
+	boards = rand(1,6)
+	icon_state = "boards_drought_ns-[boards]"
+
+/obj/structure/ms13/cave_decor/boards/drought/westeast
+	icon_state = "boards_drought_we-1"
+
+/obj/structure/ms13/cave_decor/boards/drought/westeast/Initialize(mapload)
+	. = ..()
+	boards = rand(1,6)
+	icon_state = "boards_drought_we-[boards]"
+
+// this sucked
+// Mineshaft supports
+
+/obj/structure/ms13/cave_decor/support
+	name = "support beam"
+	desc = "A support beam, to stabilize the roof of the mineshaft."
+	icon_state = "support"
+	anchored = TRUE
+	density = FALSE
+	pixel_y = 28
+
+/obj/structure/ms13/cave_decor/support/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/plank(loc, 4)
+		else
+			new /obj/item/stack/sheet/ms13/scrap_wood(loc, 3)
+	qdel(src)
+
+/obj/structure/ms13/cave_decor/support/beams
+	name = "support beams"
+	desc = "A couple of upright beams, supporting the roof of the mineshaft."
+	icon_state = "support_beams"
+
+/obj/structure/ms13/cave_decor/support/wall
+	name = "supports and braces"
+	desc = "A couple of support beams, and planks inbetween to brace it."
+	icon_state = "support_wall"
+
+/obj/structure/ms13/cave_decor/support/wall/broken
+	name = "supports and braces"
+	desc = "It looks like this support didn't stand the test of time, it's falling apart."
+	icon_state = "support_wall_broken"
+
+// Maybe make it so you can strap long-fuse/timed/remote-detonated dynamite to this at a later date
+// to collapse a part of a mineshaft, easy escape or trap or ambush, it'd be cool maybe yeah

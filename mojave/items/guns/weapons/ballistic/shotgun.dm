@@ -6,6 +6,7 @@
 	inhand_icon_state = "levershot"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/lever
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/levershot/levershot2.ogg'
+	bolt_wording = "lever"
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
 	force = 25
@@ -113,6 +114,7 @@
 	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/sks/sks1.ogg'
+	bolt_wording = "bolt"
 	fire_delay = 0.6 SECONDS
 	spread = 5
 	recoil = 1.25
@@ -138,9 +140,8 @@
 	inhand_icon_state = "scoped_sks"
 	spread = 2
 	slowdown = 1
-	zoomable = TRUE
-	zoom_amt = 9
-	zoom_out_amt = 3
+	has_scope = TRUE
+	scope_range = 3
 	empty_indicator = TRUE
 
 //Magazines

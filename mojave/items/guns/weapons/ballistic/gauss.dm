@@ -25,9 +25,8 @@
 	extra_damage = 35
 	extra_penetration = 35
 	fire_delay = 10 // Capacitor moment
-	zoomable = TRUE
-	zoom_amt = 10
-	zoom_out_amt = 13
+	has_scope = TRUE
+	scope_range = 4
 
 /obj/item/gun/ballistic/automatic/ms13/semi/gauss/ppk12
 	name = "ppk12 gauss carbine"

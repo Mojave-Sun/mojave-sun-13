@@ -13,7 +13,7 @@
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/stan_pistol)
 	cell_type = /obj/item/stock_parts/cell/ms13/ec
 	force = 10
-	fire_delay = 0.5 SECONDS
+	fire_delay = 0.55 SECONDS
 	slowdown = 0.5
 	grid_width = 64
 	grid_height = 64
@@ -34,7 +34,7 @@
 	icon_state = "boslas_pistol"
 	base_icon_state = "boslas_pistol"
 	inhand_icon_state = "boslas_pistol"
-	fire_delay = 0.45 SECONDS
+	fire_delay = 0.5 SECONDS
 
 /obj/item/gun/energy/ms13/laser/pistol/advanced/defender
 	name = "laser defender"
@@ -44,7 +44,7 @@
 	inhand_icon_state = "laserdefender"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_3.ogg'
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/las_defender)
-	fire_delay = 0.45 SECONDS
+	fire_delay = 0.5 SECONDS
 
 /obj/item/gun/energy/ms13/laser/pistol/wattz
 	name = "\improper Wattz laser pistol"
@@ -64,7 +64,7 @@
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_2.ogg'
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/wattz_heavypistol)
 	cell_type = /obj/item/stock_parts/cell/ms13/mfc
-	fire_delay = 0.6 SECONDS
+	fire_delay = 0.65 SECONDS
 
 // Plasma Pistols //
 

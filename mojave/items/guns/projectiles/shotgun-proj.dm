@@ -2,7 +2,7 @@
 	icon = 'mojave/icons/objects/projectiles/projectiles.dmi'
 	icon_state = "buckshot"
 	name = "base mojave sun shotgun pellet"
-	speed = 0.6
+	speed = 0.5
 	embedding = null
 
 //12 gauge
@@ -35,4 +35,4 @@
 	damage = 45
 	armour_penetration = 15
 	wound_bonus = -5
-	speed = 0.8
+	speed = 0.75

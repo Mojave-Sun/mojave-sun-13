@@ -1,17 +1,17 @@
-//// These spawners are GUARENTEED spawns. If you are making changes to these pools, you should probably also make changes to the non-static spawns outside of the Guarenteed folder. ////
+//// These spawners are GUARANTEED spawns. If you are making changes to these pools, you should probably also make changes to the non-static spawns outside of the guaranteed folder. ////
 //// The idea of these spawners it to use these SPARINGLY. Emphasis on SPARINGLY... Examples of where to use these are: High tier dungeons / Faction bases ////
 
-/obj/effect/spawner/random/ms13/guarenteed/food
+/obj/effect/spawner/random/ms13/guaranteed/food
 	name = "DO NOT USE ME - Mojave Sun food spawners"
 	spawn_loot_count = 1
 
-/obj/effect/spawner/random/ms13/guarenteed/seeds
+/obj/effect/spawner/random/ms13/guaranteed/seeds
 	name = "DO NOT USE ME - Mojave Sun seed spawners"
 	icon_state = "ms13_seeds-static"
 
 // Produce- Vegetables/Fruit //
 
-/obj/effect/spawner/random/ms13/guarenteed/food/produce_random
+/obj/effect/spawner/random/ms13/guaranteed/food/produce_random
 	name = "random produce spawner"
 	icon_state = "ms13_produce-static"
 	loot = list(
@@ -61,7 +61,7 @@
 		/obj/item/food/grown/ms13/nara
 		)
 
-/obj/effect/spawner/random/ms13/guarenteed/food/produce_safe
+/obj/effect/spawner/random/ms13/guaranteed/food/produce_safe
 	name = "safe produce spawner" //For places where you might not randomly find an agressive chaos agent like brainfungus
 	icon_state = "ms13_produce-static"
 	loot = list(
@@ -97,7 +97,7 @@
 		/obj/item/food/grown/ms13/cavefungus
 		)
 
-/obj/effect/spawner/random/ms13/guarenteed/food/produce_mushrooms
+/obj/effect/spawner/random/ms13/guaranteed/food/produce_mushrooms
 	name = "random produce spawner"
 	icon_state = "ms13_mushroom-static"
 	loot = list(
@@ -111,9 +111,33 @@
 		/obj/item/food/grown/ms13/nara
 		)
 
+// Pre-War Junkfoods //
+
+/obj/effect/spawner/random/ms13/guaranteed/food/junkfood_canned
+	name = "random prewar canned food spawner"
+	loot = list(
+		/obj/item/food/ms13/prewar/canned/porknbeans,
+		/obj/item/food/ms13/prewar/canned/cajunrice,
+		/obj/item/food/ms13/prewar/canned/dogfood
+		)
+
+/obj/effect/spawner/random/ms13/guaranteed/food/junkfood_boxed
+	name = "random prewar boxed food spawner"
+	loot = list(
+		/obj/item/food/ms13/prewar/boxed/crisps,
+		/obj/item/food/ms13/prewar/boxed/macncheese,
+		/obj/item/food/ms13/prewar/boxed/cheesypoof,
+		/obj/item/food/ms13/prewar/boxed/sugarbombs,
+		/obj/item/food/ms13/prewar/boxed/deviledeggs,
+		/obj/item/food/ms13/prewar/boxed/dandyapples,
+		/obj/item/food/ms13/prewar/boxed/snackcake,
+		/obj/item/food/ms13/prewar/boxed/salisburysteak,
+		/obj/item/food/ms13/prewar/boxed/instamash
+		)
+
 // Seed spawners //
 
-/obj/effect/spawner/random/ms13/guarenteed/seeds/random
+/obj/effect/spawner/random/ms13/guaranteed/seeds/random
 	name = "seed spawner"
 	loot = list(
 		/obj/item/seeds/ms13/barrelcactus,
@@ -154,7 +178,7 @@
 		/obj/item/seeds/ms13/brocflower
 		)
 
-/obj/effect/spawner/random/ms13/guarenteed/seeds/spores
+/obj/effect/spawner/random/ms13/guaranteed/seeds/spores
 	name = "mushroom spore spawner"
 	loot = list(
 		/obj/item/seeds/ms13/cavefungus,
@@ -169,7 +193,7 @@
 
 // THE TIER FIVE PRODUCE. //
 
-/obj/effect/spawner/random/ms13/guarenteed/food/unique_produce
+/obj/effect/spawner/random/ms13/guaranteed/food/unique_produce
 	name = "UNIQUE produce spawner" // This is a meme.
 	spawn_loot_chance = 5 // FWOOOOAH. TOMATOPOTATO. Tomatos and Potatos are supposed to be 'extict' and combined into one- A tato. I think it'd be funny to have a SUPER LOW CHANCE to find this relic of the past.
 	loot = list(
@@ -177,10 +201,45 @@
 		/obj/item/food/grown/ms13/tomato
 		)
 
-/obj/effect/spawner/random/ms13/guarenteed/seeds/unique
+/obj/effect/spawner/random/ms13/guaranteed/seeds/unique
 	name = "UNIQUE seed spawner"
 	spawn_loot_chance = 5 // FWOOOOAH. TOMATOPOTATO. Tomatos and Potatos are supposed to be 'extict' and combined into one- A tato. I think it'd be funny to have a SUPER LOW CHANCE to find this relic of the past.
 	loot = list(
 		/obj/item/seeds/ms13/potato,
 		/obj/item/seeds/ms13/tomato
 		)
+
+/obj/effect/spawner/random/ms13/guaranteed/food/random
+	name = "random food spawner"
+	spawn_loot_count = 1
+	loot = list(
+			/obj/effect/spawner/random/ms13/guaranteed/food/junkfood_boxed = 10,
+			/obj/effect/spawner/random/ms13/guaranteed/food/produce_random = 60,
+			/obj/effect/spawner/random/ms13/guaranteed/food/junkfood_canned = 30,
+			)
+
+/obj/effect/spawner/random/ms13/guaranteed/food/packaged
+	name = "random pre-war food spawner"
+	spawn_loot_count = 1
+	loot = list(
+			/obj/effect/spawner/random/ms13/guaranteed/food/junkfood_boxed = 50,
+			/obj/effect/spawner/random/ms13/guaranteed/food/junkfood_canned = 50,
+			)
+
+/obj/effect/spawner/random/ms13/guaranteed/food/trash
+	name = "random pre-war food trash spawner"
+	loot = list(
+		/obj/item/trash/ms13/cans/dogfood,
+		/obj/item/trash/ms13/cans/porknbeans,
+		/obj/item/trash/ms13/cans/seafood,
+		/obj/item/trash/ms13/cans/cajunrice,
+		/obj/item/trash/ms13/packaging/salisbury,
+		/obj/item/trash/ms13/packaging/crisps,
+		/obj/item/trash/ms13/packaging/dandy,
+		/obj/item/trash/ms13/packaging/snackcake,
+		/obj/item/trash/ms13/packaging/macncheese,
+		/obj/item/trash/ms13/packaging/poofs,
+		/obj/item/trash/ms13/packaging/sugarbombs,
+		/obj/item/trash/ms13/packaging/yumegg,
+		/obj/item/trash/ms13/packaging/instamash
+	)

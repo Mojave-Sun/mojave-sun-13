@@ -3,7 +3,7 @@
 #define GRASS_SPONTANEOUS 		2
 #define GRASS_WEIGHT 			2
 #define SHROOM_WEIGHT			5
-#define LUSH_PLANT_SPAWN_LIST list(/obj/structure/flora/ms13/tree/tallpine/snow = 7, /obj/structure/flora/ms13/forage/tarberry = 1, /obj/structure/flora/ms13/forage/blackberry = 1, /obj/structure/flora/ms13/forage/mutfruit = 1, /obj/structure/flora/ms13/forage/ashrose = 1, /obj/structure/flora/ms13/forage/wildcarrot = 1, /obj/structure/flora/ms13/forage/aster = 1)
+#define LUSH_PLANT_SPAWN_LIST list(/obj/structure/flora/ms13/tree/tallpine/snow = 7, /obj/structure/flora/ms13/forage/xander = 1, /obj/structure/flora/ms13/forage/brocflower = 1, /obj/structure/flora/ms13/forage/tarberry = 1, /obj/structure/flora/ms13/forage/blackberry = 1, /obj/structure/flora/ms13/forage/mutfruit = 1, /obj/structure/flora/ms13/forage/ashrose = 1, /obj/structure/flora/ms13/forage/wildcarrot = 1, /obj/structure/flora/ms13/forage/aster = 1)
 #define DESOLATE_PLANT_SPAWN_LIST list(/obj/structure/flora/grass/wasteland/snow = 10)
 #define MUSHROOM_SPAWN_LIST list(/obj/structure/flora/ms13/forage/mushroom = 5, /obj/structure/flora/ms13/forage/mushroom/glowing = 5, /obj/structure/flora/ms13/forage/brainshroom = 1, /obj/structure/flora/ms13/forage/fireshroom = 1,/obj/structure/flora/ms13/forage/gutshroom = 1, /obj/structure/flora/ms13/forage/lure = 1, /obj/structure/flora/ms13/forage/nara= 1)
 #define DESERT_LUSH_PLANT_SPAWN_LIST list(/obj/structure/flora/ms13/tree/joshua = 2, /obj/structure/flora/ms13/tree/cactus = 5, /obj/structure/ms13/turfdecor/drought = 10)
@@ -211,6 +211,7 @@
 	icon_state = "snow-255"
 	base_icon_state = "snow"
 	slowdown = 1
+	footstep = FOOTSTEP_SNOW
 	baseturfs = /turf/open/floor/plating/ms13/ground/snow
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_MS13_SNOW)
@@ -348,7 +349,7 @@
 	baseturfs = /turf/open/floor/plating/ms13/ground/mountain
 	icon = 'mojave/icons/turf/cave.dmi'
 	icon_state = "cave_1"
-	slowdown = 0.25
+	slowdown = 0.1
 	var/area/curr_area = null
 	var/variants = 7
 
@@ -407,8 +408,8 @@
 
 /turf/open/floor/plating/ms13/ground/road/update_icon()
 	. = ..() //Inheritance required for road decals
-	var/rand_icon = rand(1,4)
-	var/crack_randomiser = "crack_[rand(1,18)]"
+	var/rand_icon = rand(1,3)
+	var/crack_randomiser = "crack_[rand(1,24)]"
 	var/road_randomiser = rand(-10,10)
 	var/direction_randomiser = rand(0,8)
 
@@ -422,9 +423,6 @@
 		if(3)
 			icon = 'mojave/icons/turf/64x/road_3.dmi'
 			border_icon = 'mojave/icons/turf/64x/road_3_border.dmi'
-		if(4)
-			icon = 'mojave/icons/turf/64x/road_4.dmi'
-			border_icon = 'mojave/icons/turf/64x/road_4_border.dmi'
 
 	if(prob(20))
 		add_overlay(image('mojave/icons/turf/road.dmi', crack_randomiser, TURF_LAYER_ROAD_DECAL, direction_randomiser, road_randomiser, road_randomiser))
@@ -449,6 +447,7 @@
 	. = ..()
 	addtimer(CALLBACK(src, /atom/.proc/update_icon), 1)
 
+/*
 /turf/open/floor/plating/ms13/ground/sidewalk/update_icon()
 	. = ..()
 	add_overlay(image('mojave/icons/turf/curb.dmi', icon_state, FLOAT_LAYER))
@@ -461,7 +460,7 @@
 
 /turf/open/floor/plating/ms13/ground/sidewalk/cracked/Initialize()
 	. = ..()
-	icon_state = "crack_[rand(1,11)]"
+	icon_state = "crack_[rand(1,11)]"*/
 
 ////Roofing////
 
@@ -487,6 +486,7 @@
 	icon = 'mojave/icons/turf/roof_sheet_noborder.dmi'
 
 /turf/open/floor/plating/ms13/roof/metal
+	footstep = FOOTSTEP_ROOF
 	icon = 'mojave/icons/turf/roof_metal.dmi'
 	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_MS13_ROOF_METAL)
 	canSmoothWith = list(SMOOTH_GROUP_MS13_ROOF_METAL, WALL_SMOOTHING)
@@ -773,8 +773,8 @@ GLOBAL_VAR(FishPopNextCalc)
 						addtimer(CALLBACK(src, .proc/transfer_mob_layer, M), 0.2 SECONDS)
 						M.forceMove(src)
 						to_chat(user, "<span class='notice'>You lower yourself in the deep water.</span>")
-						M.adjust_bodytemperature(coldness)
-						M.Jitter(20)
+						//M.adjust_bodytemperature(coldness)
+						//M.Jitter(20)
 				else
 					user.visible_message("<span class='notice'>[M] is being put in the deep water by [user].</span>", \
 									"<span class='notice'>You start lowering [M] in the deep water.")
@@ -783,8 +783,8 @@ GLOBAL_VAR(FishPopNextCalc)
 						addtimer(CALLBACK(src, .proc/transfer_mob_layer, M), 0.2 SECONDS)
 						M.forceMove(src)
 						to_chat(user, "<span class='notice'>You lower [M] in the deep water.</span>")
-						M.adjust_bodytemperature(coldness)
-						M.Jitter(20)
+						//M.adjust_bodytemperature(coldness)
+						//M.Jitter(20)
 						return
 			else
 				return
@@ -817,7 +817,7 @@ GLOBAL_VAR(FishPopNextCalc)
 						playsound(src, 'mojave/sound/ms13effects/splash.ogg', 60, 1, 1)
 						H.Knockdown(20)
 						H.swimming = TRUE
-						M.adjust_bodytemperature(coldness)
+						//M.adjust_bodytemperature(coldness)
 						return
 					else
 						H.dropItemToGround(H.get_active_held_item())
@@ -828,28 +828,28 @@ GLOBAL_VAR(FishPopNextCalc)
 						playsound(src, 'mojave/sound/ms13effects/splash.ogg', 60, 1, 1)
 						H.Knockdown(60)
 						H.swimming = TRUE
-						M.adjust_bodytemperature(coldness)
+						//M.adjust_bodytemperature(coldness)
 				else
 					H.swimming = TRUE
-					M.adjust_bodytemperature(coldness)
+					//M.adjust_bodytemperature(coldness)
 		if(H.body_position == LYING_DOWN)
 			if(M.stat == DEAD)
 				return
 			switch(depth)
 				if(3)
 					H.visible_message("<span class='danger'>[H] flails in the water!</span>",
-										"<span class='userdanger'>Youre drowning!</span>")
+										"<span class='userdanger'>You're drowning!</span>")
 					H.Knockdown(20)
-					M.adjust_bodytemperature(coldness)
+					//M.adjust_bodytemperature(coldness)
 					M.adjustStaminaLoss(20)
 					M.adjustOxyLoss(10)
 					M.adjustOrganLoss(ORGAN_SLOT_LUNGS, 20)
 					playsound(src, 'mojave/sound/ms13effects/drown.ogg', 30, 1, 1)
 				if(2)
 					H.visible_message("<span class='danger'>[H] flails in the shallow water!</span>",
-										"<span class='userdanger'>Youre drowning!</span>")
+										"<span class='userdanger'>You're drowning!</span>")
 					H.Knockdown(10)
-					M.adjust_bodytemperature(coldness)
+					//M.adjust_bodytemperature(coldness)
 					M.adjustStaminaLoss(10)
 					M.adjustOxyLoss(5)
 					M.adjustOrganLoss(ORGAN_SLOT_LUNGS, 10)
@@ -858,17 +858,17 @@ GLOBAL_VAR(FishPopNextCalc)
 			switch(depth)
 				if(3)
 					M.wash(CLEAN_WASH)
-					M.adjust_bodytemperature(coldness)
-					M.Jitter(20)
+					//M.adjust_bodytemperature(coldness)
+					//M.Jitter(20)
 					M.adjustStaminaLoss(3)
 				if(2)
 					M.wash(CLEAN_WASH)
-					M.adjust_bodytemperature(coldness)
-					M.Jitter(20)
+					//M.adjust_bodytemperature(coldness)
+					//M.Jitter(20)
 					M.adjustStaminaLoss(1)
-				else
+				/*else
 					M.adjust_bodytemperature(coldness)
-					M.Jitter(20)
+					M.Jitter(20)*/
 			return
 
 /turf/open/ms13/water/proc/transfer_mob_layer(var/mob/living/carbon/M)

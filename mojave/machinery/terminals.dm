@@ -87,6 +87,7 @@
 
 /obj/machinery/ms13/terminal/Initialize(mapload)
 	. = ..()
+	register_context()
 	chosen_joker = pick(joker_titles)
 	termnumber = "No.[rand(360,620)]" // VERY unlikely to get two identical numbers.
 	FXtoggle()
@@ -105,12 +106,12 @@
 /obj/machinery/ms13/terminal/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/scrap(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap(loc, 3)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 3)
-			new /obj/item/stack/sheet/ms13/glass(loc)
-			new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 3)
+			new /obj/item/stack/sheet/ms13/glass(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 4)
 			new /obj/item/stack/sheet/ms13/scrap_copper(loc, 3)
-			new /obj/item/stack/sheet/ms13/circuits(loc)
+			new /obj/item/stack/sheet/ms13/circuits(loc, 2)
 			new /obj/item/ms13/component/vacuum_tube(loc)
 		else
 			new /obj/item/stack/sheet/ms13/scrap(loc)
@@ -126,6 +127,14 @@
 
 /obj/machinery/ms13/terminal/proc/deconstruction_hints(mob/user)
 	return span_notice("You could use a <b>screwdriver</b> to carefully take apart [src] for parts.")
+
+/obj/machinery/ms13/terminal/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_SCREWDRIVER)
+			context[SCREENTIP_CONTEXT_RMB] = "Disassemble"
+			return CONTEXTUAL_SCREENTIP_SET
 
 /obj/machinery/ms13/terminal/proc/FXtoggle() // For overlays/sound
 	if(!broken && active)

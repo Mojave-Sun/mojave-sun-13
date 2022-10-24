@@ -23,7 +23,7 @@
 	pixel_y = -14
 	base_pixel_y = -14
 	minimum_distance = 3
-	move_to_delay = 10
+	move_to_delay = 20
 	vision_range = 9
 	aggro_vision_range = 15
 	ranged = TRUE
@@ -105,7 +105,7 @@
 	icon_state = "seedling_beam_indicator"
 	screen_loc = "CENTER:-16,CENTER:-16"
 
-/mob/living/simple_animal/hostile/jungle/seedling/Goto()
+/mob/living/simple_animal/hostile/jungle/seedling/Goto(target, delay, minimum_distance)
 	if(combatant_state != SEEDLING_STATE_NEUTRAL)
 		return
 	return ..()

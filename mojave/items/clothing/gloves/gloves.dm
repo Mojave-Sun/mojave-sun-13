@@ -6,8 +6,8 @@
 	grid_height = 32
 	grid_width = 64
 	w_class = WEIGHT_CLASS_SMALL
-	equip_delay_self = 0.25 SECONDS
-	equip_delay_other = 0.5 SECONDS
+	equip_delay_self = 0.5 SECONDS
+	equip_delay_other = 1 SECONDS
 
 /obj/item/clothing/gloves/ms13/Initialize()
 	. = ..()

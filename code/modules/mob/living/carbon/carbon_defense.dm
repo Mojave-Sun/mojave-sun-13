@@ -26,7 +26,7 @@
 	else
 		. += E.bang_protect
 
-/mob/living/carbon/is_mouth_covered(head_only = 0, mask_only = 0)
+/mob/living/carbon/is_mouth_covered(head_only = FALSE, mask_only = FALSE)
 	if( (!mask_only && head && (head.flags_cover & HEADCOVERSMOUTH)) || (!head_only && wear_mask && (wear_mask.flags_cover & MASKCOVERSMOUTH)) )
 		return TRUE
 
@@ -193,6 +193,8 @@
 	if(..()) //successful monkey bite.
 		for(var/thing in user.diseases)
 			var/datum/disease/D = thing
+			if(D.spread_flags & (DISEASE_SPREAD_SPECIAL | DISEASE_SPREAD_NON_CONTAGIOUS))
+				continue
 			ForceContractDisease(D)
 		return TRUE
 
@@ -648,7 +650,12 @@
 		return ..()
 
 	var/obj/item/bodypart/grasped_part = get_bodypart(zone_selected)
-	if(!grasped_part?.get_bleed_rate())
+	// MOJAVE SUN EDIT BEGIN
+	self_grasp_bleeding_limb(grasped_part, supress_message)
+
+/mob/living/carbon/proc/self_grasp_bleeding_limb(obj/item/bodypart/grasped_part, supress_message = FALSE)
+	// MOJAVE SUN EDIT END
+	if(!grasped_part?.get_part_bleed_rate())
 		return
 	var/starting_hand_index = active_hand_index
 	if(starting_hand_index == grasped_part.held_index)
@@ -675,7 +682,7 @@
 	inhand_icon_state = "nothing"
 	force = 0
 	throwforce = 0
-	slowdown = 0.5 //MOJAVE EDIT - Original value is 1 slowdown. Buff to have it make more sense and encouraging touching yourself. 
+	slowdown = 0.5
 	item_flags = DROPDEL | ABSTRACT | NOBLUDGEON | SLOWS_WHILE_IN_HAND | HAND_ITEM
 	/// The bodypart we're staunching bleeding on, which also has a reference to us in [/obj/item/bodypart/var/grasped_by]
 	var/obj/item/bodypart/grasped_part

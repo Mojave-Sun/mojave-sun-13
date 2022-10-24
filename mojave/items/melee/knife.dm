@@ -10,11 +10,14 @@
 	worn_icon_state = "empty_placeholder"
 	icon_state = "knife_kitchen"
 	inhand_icon_state = "knife_kitchen"
+	hitsound = list('mojave/sound/ms13weapons/meleesounds/knife_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/knife_hit2.ogg')
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/knife_pickup.ogg'
 	force = 20
 	throwforce = 15
 	subtractible_armour_penetration = 5
+	edge_protection_penetration = 5
 	wound_bonus = 5
-	bare_wound_bonus = 15
+	bare_wound_bonus = 5
 	embedding = null
 	sharpness = SHARP_EDGED
 	toolspeed = 1.25
@@ -36,8 +39,9 @@
 	force = 30
 	throwforce = 25
 	subtractible_armour_penetration = 20
+	edge_protection_penetration = 10
 	wound_bonus = 10
-	bare_wound_bonus = 20
+	bare_wound_bonus = 10
 	toolspeed = 1.6
 
 /obj/item/knife/ms13/combat/soviet
@@ -54,8 +58,9 @@
 	force = 35
 	throwforce = 30
 	subtractible_armour_penetration = 25
+	edge_protection_penetration = 10
 	wound_bonus = 10
-	bare_wound_bonus = 15
+	bare_wound_bonus = 5
 	toolspeed = 0.65
 
 /obj/item/knife/ms13/hunting
@@ -66,8 +71,9 @@
 	force = 25
 	throwforce = 20
 	subtractible_armour_penetration = 15
+	edge_protection_penetration = 5
 	wound_bonus = 10
-	bare_wound_bonus = 15
+	bare_wound_bonus = 5
 	toolspeed = 0.5
 
 /obj/item/knife/ms13/hunting/unique
@@ -88,20 +94,23 @@
 	force = 15
 	throwforce = 20
 	subtractible_armour_penetration = 5
+	edge_protection_penetration = 5
 	throw_speed = 4
 	embedding = list("embedded_pain_multiplier" = 2, "embed_chance" = 35, "embedded_fall_chance" = 20)
 	sharpness = SHARP_IMPALING
 	tool_behaviour = null
 	wound_bonus = -5
-	bare_wound_bonus = 5
+	bare_wound_bonus = 0
 
 /obj/item/knife/ms13/switchblade
 	name = "switchblade"
 	desc = "A slick and concealable switchblade."
 	icon_state = "knife_switch_closed"
 	inhand_icon_state = "knife_switch_closed"
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/general_pickup.ogg'
 	wound_bonus = 10
-	bare_wound_bonus = 10
+	bare_wound_bonus = 5
+	edge_protection_penetration = 5
 	toolspeed = 2
 	var/open = FALSE
 
@@ -114,7 +123,7 @@
 	if(open)
 		attack_verb_continuous = list("slashes", "slices", "tears", "lacerates", "rips", "dices", "cuts")
 		attack_verb_simple = list("slash", "slice", "tear", "lacerate", "rip", "dice", "cut")
-		hitsound = 'sound/weapons/bladeslice.ogg'
+		hitsound = list('mojave/sound/ms13weapons/meleesounds/knife_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/knife_hit2.ogg')
 		force = 20
 		throwforce = 15
 		subtractible_armour_penetration = 10
@@ -144,6 +153,7 @@
 	inhand_icon_state = "knife_razor_closed"
 	wound_bonus = 5
 	bare_wound_bonus = 5
+	edge_protection_penetration = 0
 	toolspeed = 4
 
 /obj/item/knife/ms13/switchblade/razor/attack_self(mob/user)
@@ -155,7 +165,7 @@
 	if(open)
 		attack_verb_continuous = list("slashes", "slices", "tears", "lacerates", "rips", "dices", "cuts")
 		attack_verb_simple = list("slash", "slice", "tear", "lacerate", "rip", "dice", "cut")
-		hitsound = 'sound/weapons/bladeslice.ogg'
+		hitsound = list('mojave/sound/ms13weapons/meleesounds/knife_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/knife_hit2.ogg')
 		force = 15
 		throwforce = 5
 		subtractible_armour_penetration = 5
@@ -188,11 +198,14 @@
 	worn_icon_state = "empty_placeholder"
 	icon_state = "knife_cleaver"
 	inhand_icon_state = "knife_cleaver"
+	hitsound = list('mojave/sound/ms13weapons/meleesounds/blade_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/blade_hit2.ogg')
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/knife_pickup.ogg'
 	force = 25
 	throwforce = 15
 	subtractible_armour_penetration = 10
+	edge_protection_penetration = 5
 	wound_bonus = 15
-	bare_wound_bonus = 15
+	bare_wound_bonus = 10
 	toolspeed = 1
 	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = ITEM_SLOT_BELT
@@ -212,5 +225,5 @@
 	inhand_icon_state = "knife_cleaver_rust"
 	force = 30
 	wound_bonus = 15
-	bare_wound_bonus = 25
+	bare_wound_bonus = 15
 	toolspeed = 0.75

@@ -7,6 +7,12 @@
 /// Must be out of the user to be accessed
 #define STORAGE_NO_EQUIPPED_ACCESS (1<<1)
 
+#define GRID_HEIGHT(target) target.grid_height <= 0 ? w_class * world.icon_size : target.grid_height
+#define GRID_WIDTH(target) target.grid_width <= 0 ? w_class * world.icon_size : target.grid_width
+
+#define GRID_TO_PIXEL(x, y) list((x * world.icon_size) + (y * world.icon_size))
+#define PIXEL_TO_GRID(x, y) list((x / world.icon_size), (y / world.icon_size))
+
 /obj/item
 	// ~Grid INVENTORY VARIABLES
 	/// Width we occupy on the hud - Keep null to generate based on w_class
@@ -48,13 +54,37 @@
 	screen_start_y = 7
 	screen_start_x = 13
 
+/datum/component/storage/concrete/ms13/duffel //main for MS13 basic duffel bags
+	screen_max_columns = 7
+	screen_max_rows = 4
+	screen_start_y = 7
+	screen_start_x = 12
+
+/datum/component/storage/concrete/ms13/biggie_bag //main for MS13 large backpacks
+	screen_max_columns = 6
+	screen_max_rows = 7
+	screen_start_y = 7
+	screen_start_x = 13
+
+/datum/component/storage/concrete/ms13/big_duffel //main for MS13 large duffels
+	screen_max_columns = 7
+	screen_max_rows = 5
+	screen_start_y = 7
+	screen_start_x = 12
+
 /datum/component/storage/concrete/ms13/satchel //for MS13 satchels
 	screen_max_columns = 6
 	screen_max_rows = 4
 	screen_start_y = 5
 	screen_start_x = 13
 
-/datum/component/storage/concrete/ms13/d_bag //main for Doctors bags, used for radiopacks currently as well
+/datum/component/storage/concrete/ms13/rad_pack //main for Radiopacks
+	screen_max_columns = 4
+	screen_max_rows = 4
+	screen_start_y = 5
+	screen_start_x = 15
+
+/datum/component/storage/concrete/ms13/d_bag //main for Doctors bags
 	screen_max_columns = 4
 	screen_max_rows = 4
 	screen_start_y = 5
@@ -65,6 +95,12 @@
 	screen_max_rows = 3
 	screen_start_y = 4
 	screen_start_x = 15
+
+/datum/component/storage/concrete/ms13/pillbottle // for pill bottles
+	screen_max_columns = 2
+	screen_max_rows = 4
+	screen_start_y = 4
+	screen_start_x = 17
 
 /datum/component/storage
 	screen_max_columns = 8
@@ -593,6 +629,19 @@
 	return FALSE
 
 /datum/component/storage/concrete/slave_can_insert_object(datum/component/storage/slave, obj/item/storing, stop_messages = FALSE, mob/user, params, storage_click = FALSE)
+
+	// Attempt to find a valid grid location for the item
+	if(can_fit_item(storing, params, storage_click))
+		return TRUE
+	// If none found, rotate and try again (if not a square or a storage click)
+	if(!storage_click && storing.grid_height != storing.grid_width)
+		storing.inventory_flip(null, TRUE)
+		return can_fit_item(storing, params, storage_click)
+
+	return FALSE
+
+
+/datum/component/storage/concrete/proc/can_fit_item(obj/item/storing, params, storage_click = FALSE)
 	//This is where the pain begins
 	if(grid)
 		var/list/modifiers = params2list(params)
@@ -828,6 +877,10 @@
 
 /atom/movable/screen/storage/MouseMove(location, control, params)
 	. = ..()
+
+	// Store mouse properties so we can force call updateGrid when we rotate objects, swap, etc.
+	lastMouseProps = list(location, control, params)
+
 	if(!usr.client)
 		return
 	usr.client.screen -= hovering
@@ -870,3 +923,14 @@
 	layer = HUD_BACKGROUND_LAYER
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	alpha = 96
+
+/obj/item/proc/inventory_flip(mob/user = null, force = FALSE)
+
+	if(!force && (user && (!user.Adjacent(src) && !user.DirectAccess(src)) || !isliving(user)))
+		return
+
+	var/old_width = grid_width
+	var/old_height = grid_height
+	grid_height = old_width
+	grid_width = old_height
+	// to_chat(usr, span_notice("You flip the item for storage."))

@@ -47,3 +47,8 @@
 #define CLASS3_FIRE 40
 #define CLASS4_FIRE 50
 #define CLASS5_FIRE 65
+
+#define CLASS1_EDGE 10
+#define CLASS2_EDGE 15
+#define CLASS3_EDGE 25
+#define CLASS4_EDGE 35

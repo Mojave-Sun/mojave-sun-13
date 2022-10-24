@@ -7,11 +7,12 @@
 	inhand_icon_state = "handradio"
 	desc = "A basic handheld radio that recieves over a relatively long range, unfortunately this one can't broadcast."
 	canhear_range = 2
+	force = 0
 	freerange = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	custom_materials = list(/datum/material/iron=75, /datum/material/glass=25)
 	radio_broadcast = 100 //Cannot broadcast. If someone manages to circumvent, it should be complete static.
-	grid_height = 64
+	force_superspace = TRUE // ignore tcoms and zlevelsgrid_height = 64
 	grid_width = 32
 	var/static = FALSE //used for inventory only radios
 
@@ -72,9 +73,9 @@
 		if(disassembled)
 			new /obj/item/stack/sheet/ms13/scrap(loc, 4)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 3)
-			new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 3)
+			new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 4)
 			new /obj/item/stack/sheet/ms13/scrap_copper(loc, 3)
-			new /obj/item/stack/sheet/ms13/circuits(loc)
+			new /obj/item/stack/sheet/ms13/circuits(loc, 2)
 			new /obj/item/ms13/component/vacuum_tube(loc)
 			new /obj/item/ms13/component/cell(loc)
 		else
@@ -82,6 +83,14 @@
 			new /obj/item/stack/sheet/ms13/scrap_parts/two(loc)
 			new /obj/item/stack/sheet/ms13/scrap_electronics/two(loc)
 	qdel(src)
+
+/obj/item/radio/ms13/ham/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_SCREWDRIVER)
+			context[SCREENTIP_CONTEXT_RMB] = "Disassemble"
+			return CONTEXTUAL_SCREENTIP_SET
 
 /obj/item/radio/ms13/ham/Initialize(mapload, ndir, building)
 	. = ..()
@@ -91,6 +100,7 @@
 	if(!current_area)
 		return
 	RegisterSignal(current_area, COMSIG_AREA_POWER_CHANGE, .proc/AreaPowerCheck)
+	register_context()
 
 /obj/item/radio/ms13/ham/broadcast
 	name = "high end broadcasting set"
@@ -103,9 +113,9 @@
 		if(disassembled)
 			new /obj/item/stack/sheet/ms13/scrap(loc, 6)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 6)
-			new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 5)
+			new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 6)
 			new /obj/item/stack/sheet/ms13/scrap_copper(loc, 5)
-			new /obj/item/stack/sheet/ms13/circuits(loc, 3)
+			new /obj/item/stack/sheet/ms13/circuits(loc, 5)
 			new /obj/item/ms13/component/vacuum_tube(loc, 2)
 			new /obj/item/ms13/component/cell(loc, 2)
 		else
@@ -124,10 +134,10 @@
 /obj/item/radio/ms13/ham/receiver/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/scrap/two(loc)
-			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
-			new /obj/item/stack/sheet/ms13/scrap_electronics/two(loc)
-			new /obj/item/stack/sheet/ms13/scrap_copper/two(loc)
+			new /obj/item/stack/sheet/ms13/scrap(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 3)
+			new /obj/item/stack/sheet/ms13/scrap_copper(loc, 2)
 			new /obj/item/ms13/component/cell(loc)
 		else
 			new /obj/item/stack/sheet/ms13/scrap(loc)
@@ -147,10 +157,10 @@
 /obj/item/radio/ms13/ham/receiver/radioking/wood/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/scrap_wood/two(loc)
-			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
-			new /obj/item/stack/sheet/ms13/scrap_electronics/two(loc)
-			new /obj/item/stack/sheet/ms13/scrap_copper/two(loc)
+			new /obj/item/stack/sheet/ms13/scrap_wood(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 3)
+			new /obj/item/stack/sheet/ms13/scrap_copper(loc, 2)
 			new /obj/item/ms13/component/cell(loc)
 		else
 			new /obj/item/stack/sheet/ms13/scrap_wood(loc)
@@ -179,14 +189,14 @@
 /obj/item/radio/ms13/ham/ui_state(mob/user)
 	return GLOB.default_state
 
-/obj/item/radio/ms13/ham/can_receive(freq, level)
+/obj/item/radio/ms13/ham/can_receive(freq, list/levels)
 	if(!on)
 		return FALSE
 	if(wires.is_cut(WIRE_RX))
 		return FALSE
-	if(!(0 in level))
+	if(levels != RADIO_NO_Z_LEVEL_RESTRICTION)
 		var/turf/position = get_turf(src)
-		if(isnull(position) || !(position.z in level))
+		if(isnull(position) || !(position.z in levels))
 			return FALSE
 	if(!listening)
 		return FALSE
