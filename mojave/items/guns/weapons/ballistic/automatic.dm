@@ -8,9 +8,10 @@
 	fire_delay = 0.45 SECONDS
 	slot_flags = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_HUGE
-	spread = 5
-	recoil = 0.75
-	slowdown = 0.75
+	spread = 6
+	recoil = 0.9
+	extra_damage = -15
+	slowdown = 0.8
 //	zoomable = FALSE
 	mag_type = /obj/item/ammo_box/magazine/ms13/r20
 	grid_width = 192
