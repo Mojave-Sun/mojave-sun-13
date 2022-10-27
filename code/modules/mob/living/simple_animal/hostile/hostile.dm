@@ -53,10 +53,18 @@
 	var/attack_all_objects = FALSE //if true, equivalent to having a wanted_objects list containing ALL objects.
 	var/lose_patience_timer_id //id for a timer to call LoseTarget(), used to stop mobs fixating on a target they can't reach
 	var/lose_patience_timeout = 300 //30 seconds by default, so there's no major changes to AI behaviour, beyond actually bailing if stuck forever
+	///Will this mob attempt to return to it's spawn turf upon losing it's target?
+	var/create_home_turf = TRUE
+	///When a hostile mob loses it's patience and gives up, it will begin pathing to this turf, typically it's spawn turf unless otherwise overridden.
+	var/turf/home_turf
 
 /mob/living/simple_animal/hostile/Initialize(mapload)
 	. = ..()
 	wanted_objects = typecacheof(wanted_objects)
+	if(create_home_turf)
+		var/urf/new_home_turf = get_turf(src)
+		if(istype(new_home_turf))
+			home_turf = new_home_turf
 
 /mob/living/simple_animal/hostile/Destroy()
 	//We can't use losetarget here because fucking cursed blobs override it to do nothing the motherfuckers
@@ -364,6 +372,8 @@
 	in_melee = FALSE
 	SSmove_manager.stop_looping(src)
 	LoseAggro()
+	if(isturf(home_turf))
+		Goto(home_turf, move_to_delay, 3)
 
 //////////////END HOSTILE MOB TARGETTING AND AGGRESSION////////////
 
