@@ -6,8 +6,10 @@
 	name = "postbox"
 	desc = "Last pickup, October 22nd, 2077."
 	icon = 'mojave/icons/structure/miscellaneous.dmi'
+	hitted_sound = 'mojave/sound/ms13effects/impact/metal/metal_hollow_2.wav'
 	icon_state = "mailbox"
 	pixel_y = 12
+	projectile_passchance = 50
 
 /obj/structure/filingcabinet/ms13/mail/old
 	icon_state = "mailbox_old"
@@ -20,20 +22,7 @@
 	anchored = FALSE
 	pixel_y = 10
 	materialtype = /obj/item/stack/sheet/ms13/scrap
-
-/obj/structure/ms13/storage/trashcan/CanAllowThrough(atom/movable/mover, turf/target)
-	. = ..()
-	if(locate(/obj/structure/ms13/storage/trashcan) in get_turf(mover))
-		return TRUE
-	else if(istype(mover, /obj/projectile))
-		if(!anchored)
-			return TRUE
-		var/obj/projectile/proj = mover
-		if(proj.firer && Adjacent(proj.firer))
-			return TRUE
-		if(prob(75))
-			return TRUE
-		return FALSE
+	projectile_passchance = 65
 
 /obj/structure/ms13/storage/trashcan/Initialize()
 	. = ..()
@@ -171,14 +160,7 @@
 	pixel_y = 12
 	opacity = TRUE
 	density = TRUE
-
-/obj/structure/ms13/medical_curtain/CanAllowThrough(atom/movable/mover, turf/target)
-	. = ..()
-	if(locate(/obj/structure/ms13/medical_curtain) in get_turf(mover))
-		return TRUE
-	else if(istype(mover, /obj/projectile))
-		if(!anchored)
-			return TRUE
+	projectile_passchance = 95 // occasional dink off a pole or somethin...
 
 // Skeletons //
 
@@ -202,6 +184,7 @@
 	var/icon_type = null
 	var/amount = 3 //used for icon randomisation amount
 	var/unique = FALSE //used to set if the icon is randomised or not
+	projectile_passchance = 65
 
 /obj/structure/fluff/ms13/barrel/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
@@ -213,20 +196,6 @@
 	. = ..()
 	if(!unique)
 		icon_state = "[icon_type]_[rand(1, amount)]"
-
-/obj/structure/fluff/ms13/barrel/CanAllowThrough(atom/movable/mover, turf/target)
-	. = ..()
-	if(locate(/obj/structure/fluff/ms13/barrel) in get_turf(mover))
-		return TRUE
-	else if(istype(mover, /obj/projectile))
-		if(!anchored)
-			return TRUE
-		var/obj/projectile/proj = mover
-		if(proj.firer && Adjacent(proj.firer))
-			return TRUE
-		if(prob(65))
-			return TRUE
-		return FALSE
 
 /obj/structure/fluff/ms13/barrel/single
 
@@ -581,6 +550,7 @@
 /obj/structure/ms13/cave_decor/stalagmite
 	name = "stalagmite"
 	desc = "A column of rock formed over many years by minerals in water solidifying."
+	icon_state = "stalagmite"
 	max_integrity = 120
 	anchored = TRUE
 	density = TRUE

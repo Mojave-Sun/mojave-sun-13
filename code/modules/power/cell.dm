@@ -77,7 +77,7 @@
 		. += mutable_appearance('icons/obj/power.dmi', "grown_wires")
 	if((charge < 0.01) || !charge_light_type)
 		return
-    
+
 	// MOJAVE EDIT REMOVAL BEGIN - Ammo cell overlays
 	/*
 	. += mutable_appearance('icons/obj/power.dmi', "cell-[charge_light_type]-o[(percent() >= 99.5) ? 2 : 1]")

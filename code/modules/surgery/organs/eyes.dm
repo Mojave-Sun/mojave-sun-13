@@ -45,7 +45,7 @@
 		else
 			eye_color = human_owner.eye_color
 		if(HAS_TRAIT(human_owner, TRAIT_NIGHT_VISION) && !lighting_alpha)
-			lighting_alpha = LIGHTING_PLANE_ALPHA_NV_TRAIT
+			lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE // MOJAVE SUN EDIT - ORIGINAL IS lighting_alpha = LIGHTING_PLANE_ALPHA_NV_TRAIT - OG NV trait is casually obtainable, our implementation isn't so easy.
 	eye_owner.update_tint()
 	owner.update_sight()
 	if(eye_owner.has_dna() && ishuman(eye_owner))

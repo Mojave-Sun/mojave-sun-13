@@ -49,8 +49,8 @@
     name = "Mr. Handy"
     desc = "A standard model Mr. Handy unit. It's long lost any rational wires in its circuits."
     icon_state = "mrhandy_claw"
-    health = 140
-    maxHealth = 140
+    health = 130
+    maxHealth = 130
     melee_damage_lower = 15
     melee_damage_upper = 15
     subtractible_armour_penetration = 5

@@ -494,7 +494,7 @@
 	melee_damage_lower = 20
 	melee_damage_upper = 20
 	subtractible_armour_penetration = 10
-	sharpness = SHARP_EDGED
+	sharpness = SHARP_IMPALING
 	wound_bonus = 4
 	bare_wound_bonus = 8
 	base_pixel_x = -8
@@ -503,7 +503,7 @@
 	food_type = list(/obj/item/food/grown/ms13/soot, /obj/item/food/grown/ms13/toxicsoot)
 	tame_chance = 5
 	bonus_tame_chance = 5
-	var/poison_per_bite = 20
+	var/poison_per_bite = 5
 	var/poison_type = /datum/reagent/toxin
 
 /mob/living/simple_animal/hostile/ms13/radscorpion/death()

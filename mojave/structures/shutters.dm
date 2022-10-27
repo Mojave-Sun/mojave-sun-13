@@ -8,6 +8,7 @@
 	plane = ABOVE_GAME_PLANE
 	layer = ABOVE_MOB_LAYER
 	closingLayer = ABOVE_MOB_LAYER
+	hitted_sound = 'mojave/sound/ms13effects/impact/metal/metal_crunch_2.wav'
 	//Used for the icon planar (horizontal or vertical) as stated on the sprite in the dmi ie. opening-left-[HERE]-red
 	var/icon_plane
 	//Used for the icon direction as stated on the sprite in the dmi ie. opening-[HERE]-horizon-red

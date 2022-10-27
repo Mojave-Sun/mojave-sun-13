@@ -1345,10 +1345,11 @@
 		return species.attack_type
 	return ..()
 
-
+/* MOJAVE SUN EDIT BEGIN - FUCK THESE
 /mob/living/carbon/proc/attach_rot()
 	if(mob_biotypes & (MOB_ORGANIC|MOB_UNDEAD))
 		AddComponent(/datum/component/rot, 6 MINUTES, 10 MINUTES, 1)
+MOJAVE SUN EDIT END */
 
 /mob/living/carbon/proc/disarm_precollide(datum/source, mob/living/carbon/shover, mob/living/carbon/target)
 	SIGNAL_HANDLER

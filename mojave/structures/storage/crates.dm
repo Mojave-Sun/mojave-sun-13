@@ -7,6 +7,7 @@
 	drag_slowdown = 1
 	max_integrity = 300
 	anchored = TRUE
+	hitted_sound = 'mojave/sound/ms13effects/impact/metal/metal_hollow_2.wav'
 
 /obj/structure/closet/crate/ms13/verb_toggleopen()
 	return
@@ -23,9 +24,11 @@
 	integrity_failure = 0 //Makes the crate break when integrity reaches 0, instead of opening and becoming an invisible sprite.
 	open_sound = 'sound/machines/wooden_closet_open.ogg'
 	close_sound = 'sound/machines/wooden_closet_close.ogg'
+	hitted_sound = 'mojave/sound/ms13effects/impact/wood/wood_generic_1.wav'
 	open_sound_volume = 25
 	close_sound_volume = 50
 	max_integrity = 500
+	projectile_passchance = 45
 	var/breakable = TRUE
 	var/prying = FALSE
 	var/altstates = 0
@@ -96,6 +99,7 @@
 	anchored = FALSE //smaller bois
 	max_integrity = 400
 	altstates = 3
+	projectile_passchance = 70
 
 /obj/structure/closet/crate/ms13/woodcrate/compact/boom
 	icon_state = "3X_crate"
@@ -118,6 +122,8 @@
 	max_integrity = 400
 	material_drop = /obj/item/stack/sheet/ms13/scrap
 	material_drop_amount = 2
+	projectile_passchance = 70
+	hitted_sound = 'mojave/sound/ms13effects/impact/metal/metal_hollow_2.wav'
 
 /obj/structure/closet/crate/ms13/vault_tec/pristine
 	name = "\improper Vault-Tec crate"
@@ -128,6 +134,7 @@
 	name = "compact Vault-Tec crate"
 	desc = "A crate designed for the rigours of vault life. This one is fun-sized. Looks like it didn't handle life outside too well."
 	icon_state = "vault_compact"
+	projectile_passchance = 85
 
 /obj/structure/closet/crate/ms13/vault_tec/compact/pristine
 	name = "compact Vault-Tec crate"
@@ -160,6 +167,8 @@
 	icon_state = "footlocker_wood"
 	material_drop = /obj/item/stack/sheet/ms13/scrap_wood
 	material_drop_amount = 2
+	projectile_passchance = 90
+	hitted_sound = 'mojave/sound/ms13effects/impact/wood/wood_generic_1.wav'
 
 /obj/structure/closet/crate/ms13/enclave
 	name = "high-tech crate"
@@ -167,6 +176,7 @@
 	icon_state = "enclave"
 	material_drop = /obj/item/stack/sheet/ms13/scrap
 	material_drop_amount = 2
+	projectile_passchance = 85
 
 /obj/structure/closet/crate/ms13/medical
 	name = "medical locker"
@@ -176,6 +186,7 @@
 	drag_slowdown = 1
 	material_drop = /obj/item/stack/sheet/ms13/scrap
 	material_drop_amount = 2
+	projectile_passchance = 60
 
 /obj/structure/closet/crate/ms13/cash_register
 	name = "cash register"
@@ -187,6 +198,7 @@
 	mob_storage_capacity = 1
 	material_drop = /obj/item/stack/sheet/ms13/scrap
 	material_drop_amount = 2
+	projectile_passchance = 50
 
 /obj/structure/closet/crate/ms13/cash_register/prewar
 	name = "pristine cash register"
@@ -199,6 +211,7 @@
 	icon_state = "army"
 	material_drop = /obj/item/stack/sheet/ms13/scrap
 	material_drop_amount = 2
+	projectile_passchance = 85
 
 /obj/structure/closet/crate/ms13/aluminum
 	name = "aluminum crate"
@@ -206,6 +219,7 @@
 	icon_state = "aluminum"
 	material_drop = /obj/item/stack/sheet/ms13/scrap_alu
 	material_drop_amount = 2
+	projectile_passchance = 85
 
 /obj/structure/closet/crate/ms13/red
 	name = "red crate"
@@ -213,6 +227,7 @@
 	icon_state = "red"
 	material_drop = /obj/item/stack/sheet/ms13/scrap
 	material_drop_amount = 2
+	projectile_passchance = 85
 
 /obj/structure/closet/crate/ms13/vault
 	name = "vault crate"
@@ -220,3 +235,4 @@
 	icon_state = "vault"
 	material_drop = /obj/item/stack/sheet/ms13/scrap
 	material_drop_amount = 2
+	projectile_passchance = 85

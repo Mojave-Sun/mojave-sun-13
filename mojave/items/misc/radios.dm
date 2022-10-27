@@ -7,6 +7,7 @@
 	inhand_icon_state = "handradio"
 	desc = "A basic handheld radio that recieves over a relatively long range, unfortunately this one can't broadcast."
 	canhear_range = 2
+	force = 0
 	freerange = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	custom_materials = list(/datum/material/iron=75, /datum/material/glass=25)

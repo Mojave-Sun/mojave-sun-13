@@ -126,7 +126,7 @@
 /obj/effect/spawner/random/ms13/armor/tier2
 	name = "tier 2 armor spawner"
 	spawn_loot_count = 2
-	spawn_loot_chance = 50
+	spawn_loot_chance = 55
 
 	var/loot1 = list(
 				/obj/item/clothing/suit/toggle/ms13/wjacket/orange/reinforced,
@@ -234,7 +234,7 @@
 /obj/effect/spawner/random/ms13/armor/tier4
 	name = "tier 4 armor spawner"
 	spawn_loot_count = 2
-	spawn_loot_chance = 60
+	spawn_loot_chance = 65
 
 	var/loot1 = list(
 				/obj/item/clothing/suit/armor/ms13/combat/advanced,
@@ -318,7 +318,7 @@
 /obj/effect/spawner/random/ms13/armor/military
 	name = "military armor spawner"
 	spawn_loot_count = 2
-	spawn_loot_chance = 50
+	spawn_loot_chance = 55
 
 	var/loot1 = list(
 				/obj/item/clothing/suit/armor/ms13/combat/advanced,
