@@ -62,7 +62,7 @@
 	. = ..()
 	wanted_objects = typecacheof(wanted_objects)
 	if(create_home_turf)
-		var/urf/new_home_turf = get_turf(src)
+		var/turf/new_home_turf = get_turf(src)
 		if(istype(new_home_turf))
 			home_turf = new_home_turf
 
