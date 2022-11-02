@@ -343,7 +343,7 @@
 			readout += "\n<b>ARMOR (DR)</b>"
 			//MOJAVE EDIT END
 			if(armor.bio)
-				readout += "\nTOXIN [armor_to_protection_class(armor.bio)]"
+				readout += "\nBIOHAZARD [armor_to_protection_class(armor.bio)]"
 			if(armor.bomb)
 				readout += "\nEXPLOSIVE [armor_to_protection_class(armor.bomb)]"
 			if(armor.bullet)
