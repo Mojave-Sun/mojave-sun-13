@@ -8,7 +8,7 @@
 	icon_gib = "deathclaw_gib"
 	gender = MALE
 	mob_biotypes = list(MOB_ORGANIC, MOB_BEAST)
-	stat_attack = UNCONSCIOUS
+	stat_attack = DEAD
 	robust_searching = 1
 	anchored = 1
 	speak = list("ROAR!","Rawr!","GRRAAGH!","Growl!")
@@ -18,7 +18,7 @@
 	speak_chance = 10
 	taunt_chance = 25
 	speed = 5
-	move_to_delay = 3
+	move_to_delay = 2.5
 	see_in_dark = 8
 	maxHealth = 3000
 	health = 3000
@@ -32,6 +32,10 @@
 	blood_volume = BLOOD_VOLUME_MAXIMUM
 	footstep_type = FOOTSTEP_MOB_HEAVY
 	move_to_delay = 5
+	pixel_x = -16
+	base_pixel_x = -16
+	aggro_vision_range = 10
+	vision_range = 10
 	var/charging = FALSE
 	var/datum/action/cooldown/mob_cooldown/charge/deathclaw/charge
 	var/datum/action/cooldown/mob_cooldown/charge/deathclaw/combo/combo
@@ -63,15 +67,22 @@
 	return ..()
 
 /mob/living/simple_animal/hostile/megafauna/deathclaw/GiveTarget(new_target)
+	..()
 	if(target && aggro_roar_available && !IsStun())
 		roar.Trigger(target = new_target)
 		aggro_roar_available = FALSE
-	return ..()
+	return (target != null)
 
 /mob/living/simple_animal/hostile/megafauna/deathclaw/toggle_ai(togglestatus)
 	. = ..()
 	if(togglestatus == AI_OFF || togglestatus == AI_Z_OFF || togglestatus == AI_IDLE)
 		aggro_roar_available = TRUE
+
+/mob/living/simple_animal/hostile/megafauna/deathclaw/Life()
+ . = ..()
+	if(AIStatus == AI_IDLE)
+		if(prob(20))
+			playsound(src, pick('mojave/sound/ms13npc/deathclaw/npc_deathclaw_idle_01.wav', 'mojave/sound/ms13npc/deathclaw/npc_deathclaw_idle_02.wav', 'mojave/sound/ms13npc/deathclaw/npc_deathclaw_idle_03.wav', 'mojave/sound/ms13npc/deathclaw/npc_deathclaw_idle_04.wav'), 75, FALSE)
 
 /mob/living/simple_animal/hostile/megafauna/deathclaw/adjustBruteLoss(amount, updating_health = TRUE, forced = FALSE)
 	. = ..()
@@ -100,7 +111,17 @@
 		if(get_dist(target, src) == 1)
 			slash.Activate()
 		else
-			combo.Trigger(target = target)
+			face_atom(target)
+			var/turf/actual_target = get_turf(target)
+			if(prob(50))
+				actual_target = get_ranged_target_turf(actual_target, turn(get_dir(src, actual_target), 90), 3)
+				//for(var/i = 0; i != 3; i++)
+				//actual_target = get_step(actual_target, turn(dir, 90))
+			else
+				actual_target = get_ranged_target_turf(actual_target, turn(get_dir(src, actual_target), -90), 3)
+				//for(var/i = 0; i != 3; i++)
+				//actual_target = get_step(actual_target, turn(dir, -90))
+			combo.Trigger(target = actual_target)
 
 /mob/living/simple_animal/hostile/megafauna/deathclaw/handle_automated_action()
 	. = ..()
@@ -117,57 +138,11 @@
 		for(var/obj/item/bodypart/part in human)
 			part.dismember(dam_type = BRUTE, silent = FALSE)
 	visible_message(
-		span_danger("[src] devours [L]!"),
+		span_danger("[src] eviscerates [L]!"),
 		span_userdanger("You feast on [L], restoring your health!"))
 	L.gib()
 	playsound(src, 'mojave/sound/ms13npc/deathclaw/deathclaw_roar.mp3', 100, TRUE, -1)
 	return TRUE
-
-//Deathclaw charge; bubblegum charge with modified GFX
-
-/datum/action/cooldown/mob_cooldown/charge/deathclaw
-	charge_delay = 0.6 SECONDS
-	charge_past = 2
-	charge_speed = 0.6
-	cooldown_time = 10 SECONDS
-	charge_distance = 10
-	shared_cooldown = null
-
-/datum/action/cooldown/mob_cooldown/charge/deathclaw/do_charge_indicator(mob/charger, atom/charge_target)
-	var/turf/target_turf = get_turf(charge_target)
-	owner.icon_state = "deathclaw_danger"
-	if(!target_turf)
-		return
-	charger.face_atom(target_turf)
-
-/datum/action/cooldown/mob_cooldown/charge/deathclaw/pre_move(datum)
-	. = ..()
-	owner.icon_state = "deathclaw"
-
-//No deathclaw afterimages please
-/datum/action/cooldown/mob_cooldown/charge/deathclaw/on_move(atom/source, atom/new_loc)
-	SIGNAL_HANDLER
-	if(!actively_moving)
-		return COMPONENT_MOVABLE_BLOCK_PRE_MOVE
-	//INVOKE_ASYNC(src, .proc/DestroySurroundings, source)
-
-/datum/action/cooldown/mob_cooldown/charge/deathclaw/IsAvailable()
-	. = ..()
-	if(istype(owner, /mob/living/simple_animal))
-		var/mob/living/simple_animal/animal = owner
-		if(animal.prevent_goto_movement)
-			. = FALSE
-	return .
-
-/datum/action/cooldown/mob_cooldown/charge/deathclaw/hit_target(atom/movable/source, atom/target, damage_dealt)
-	. = ..()
-	if(isliving(target))
-		var/mob/living/target_mob = target
-		var/throwlocation = target_mob.loc //Throw them 3 turfs away from impact
-		for(var/x in 1 to 3)
-			throwlocation = get_step(throwlocation, owner.dir)
-		target_mob.throw_at(throwlocation, 2, 1, owner, TRUE)
-		target_mob.Knockdown(3 SECONDS, ignore_canstun = FALSE)
 
 //Spooky roar that shakes nearby tiles and screens of players to act as a telegraph
 /datum/action/cooldown/mob_cooldown/deathclaw_roar
@@ -211,56 +186,107 @@
 		for(var/turf/roar_turf in all_turfs)
 			if(get_dist(owner.loc, roar_turf) > i)
 				continue
-			roar_turf.Shake(rand(-2, 2), rand(-2, 2), 1 SECONDS)
+			roar_turf.Shake(rand(-2, 2), rand(-2, 2), 1.5 SECONDS)
 			for(var/atom/A in roar_turf)
-				A.Shake(rand(-2, 2), rand(-2, 2), 1 SECONDS)
+				A.Shake(rand(-2, 2), rand(-2, 2), 1.5 SECONDS)
 			all_turfs -= roar_turf
 		sleep(0.05 SECONDS)
-	sleep(0.41 SECONDS)
+	sleep(0.91 SECONDS)
 	all_turfs = RANGE_TURFS(12, owner.loc)
 	for(var/i = 0 to 12)
 		for(var/turf/roar_turf in all_turfs)
 			if(get_dist(owner.loc, roar_turf) > i)
 				continue
-			roar_turf.Shake(rand(-1, 1), rand(-1, 1), 1 SECONDS)
+			roar_turf.Shake(rand(-1, 1), rand(-1, 1), 1.5 SECONDS)
 			for(var/atom/A in roar_turf)
-				A.Shake(rand(-1, 1), rand(-1, 1), 1 SECONDS)
+				A.Shake(rand(-1, 1), rand(-1, 1), 1.5 SECONDS)
 			all_turfs -= roar_turf
 		sleep(0.05 SECONDS)
 
-//Multiple short dashes with aoe attacks
-/datum/action/cooldown/mob_cooldown/charge/deathclaw/combo
+//Deathclaw charge; Heavily modified bubblegum charge
+/datum/action/cooldown/mob_cooldown/charge/deathclaw
+	charge_delay = 0.3 SECONDS
+	charge_past = 1
+	charge_speed = 0.15 SECONDS
 	cooldown_time = 6 SECONDS
-	charge_delay = 0.5 SECONDS
-	charge_past = 3
-	charge_speed = 0.6
-	charge_distance = 4
-
-/datum/action/cooldown/mob_cooldown/charge/deathclaw/combo/charge_sequence(atom/movable/charger, atom/target_atom, delay, past)
-	for(var/i in 0 to 2)
-		do_charge(owner, target_atom, charge_delay - 2 * i, charge_past)
-
-//Leap towards a target
-/datum/action/cooldown/mob_cooldown/charge/deathclaw/leap
 	charge_distance = 99
-	cooldown_time = 10 SECONDS
-	charge_delay = 0.5 SECONDS
-	charge_past = 0
-	charge_speed = 0.3
+	shared_cooldown = null
 
-/datum/action/cooldown/mob_cooldown/charge/deathclaw/leap/do_charge_indicator(atom/charger, atom/charge_target)
+/datum/action/cooldown/mob_cooldown/charge/deathclaw/on_moved(atom/source)
+	SIGNAL_HANDLER
+	playsound(source, pick('mojave/sound/ms13npc/deathclaw/npc_deathclaw_foot_run_01.wav', 'mojave/sound/ms13npc/deathclaw/npc_deathclaw_foot_run_02.wav', 'mojave/sound/ms13npc/deathclaw/npc_deathclaw_foot_run_03.wav', 'mojave/sound/ms13npc/deathclaw/npc_deathclaw_foot_run_04.wav'), 200, TRUE, 2, TRUE)
+	//INVOKE_ASYNC(src, .proc/DestroySurroundings, source)
+
+/datum/action/cooldown/mob_cooldown/charge/deathclaw/do_charge_indicator(mob/charger, atom/charge_target)
+	var/turf/target_turf = get_turf(charge_target)
+	owner.icon_state = "deathclaw_danger"
+	if(!target_turf)
+		return
+	charger.face_atom(target_turf)
 	if(istype(owner, /mob/living/simple_animal))
 		var/mob/living/simple_animal/animal = owner
 		animal.prevent_goto_movement = TRUE
 		addtimer(CALLBACK(src, .proc/reset_goto, animal), 0.5 SECONDS)
-	var/turf/target_turf = get_turf(charge_target)
 	if(!target_turf)
 		return
 	for(var/turf/t in RANGE_TURFS(1, charge_target))
 		new /obj/effect/temp_visual/ms13/target_indicator(t)
 
-/datum/action/cooldown/mob_cooldown/charge/deathclaw/leap/proc/reset_goto(mob/living/simple_animal/animal)
+/datum/action/cooldown/mob_cooldown/charge/deathclaw/proc/reset_goto(mob/living/simple_animal/animal)
 	animal.prevent_goto_movement = FALSE
+
+/datum/action/cooldown/mob_cooldown/charge/deathclaw/pre_move(datum)
+	. = ..()
+	owner.icon_state = "deathclaw"
+
+//No deathclaw afterimages please
+/datum/action/cooldown/mob_cooldown/charge/deathclaw/on_move(atom/source, atom/new_loc)
+	SIGNAL_HANDLER
+	if(!actively_moving)
+		return COMPONENT_MOVABLE_BLOCK_PRE_MOVE
+	//INVOKE_ASYNC(src, .proc/DestroySurroundings, source)
+
+/datum/action/cooldown/mob_cooldown/charge/deathclaw/IsAvailable()
+	. = ..()
+	if(istype(owner, /mob/living/simple_animal))
+		var/mob/living/simple_animal/animal = owner
+		if(animal.prevent_goto_movement)
+			. = FALSE
+	return .
+
+/datum/action/cooldown/mob_cooldown/charge/deathclaw/hit_target(atom/movable/source, atom/target, damage_dealt)
+	. = ..()
+	if(isliving(target))
+		var/mob/living/target_mob = target
+		var/throwlocation = target_mob.loc //Throw them 3 turfs away from impact
+		for(var/x in 1 to 3)
+			throwlocation = get_step(throwlocation, owner.dir)
+		target_mob.throw_at(throwlocation, 2, 1, owner, TRUE)
+		target_mob.Knockdown(3 SECONDS, ignore_canstun = FALSE)
+
+//Dash to a mid way point and not straight towards the target, followed by a dash towards the target
+/datum/action/cooldown/mob_cooldown/charge/deathclaw/combo
+	cooldown_time = 4 SECONDS
+	charge_delay = 0.3 SECONDS
+	charge_past = 0
+	charge_speed = 0.10 SECONDS
+	charge_distance = 80
+
+/datum/action/cooldown/mob_cooldown/charge/deathclaw/combo/charge_sequence(atom/movable/charger, atom/target_atom, delay, past)
+	do_charge(owner, target_atom, charge_delay - 2, charge_past)
+	if(istype(owner, /mob/living/simple_animal/hostile))
+		var/mob/living/simple_animal/hostile/hostile = owner
+		do_charge(owner, hostile.target, charge_delay * (1/3), charge_past + 2)
+	else
+		do_charge(owner, target_atom, charge_delay * (1/3), charge_past + 2)
+
+//Leap towards a target
+/datum/action/cooldown/mob_cooldown/charge/deathclaw/leap
+	charge_distance = 99
+	cooldown_time = 6 SECONDS
+	charge_delay = 0.4 SECONDS
+	charge_past = 1
+	charge_speed = 0.15 SECONDS
 
 /datum/action/cooldown/mob_cooldown/charge/deathclaw/leap/charge_end(datum/move_loop/source)
 	SIGNAL_HANDLER
@@ -295,6 +321,7 @@
 	return .
 
 /datum/action/cooldown/mob_cooldown/deathclaw/slash/Activate(atom/target_atom)
+	owner.face_atom(target_atom)
 	slash()
 	StartCooldown()
 
@@ -303,14 +330,14 @@
 		var/mob/living/simple_animal/animal = owner
 		animal.prevent_goto_movement = TRUE
 	addtimer(CALLBACK(src, .proc/actually_slash), 0.5 SECONDS)
-	new /obj/effect/temp_visual/ms13/target_indicator(get_step(owner, owner.dir))
-	new /obj/effect/temp_visual/ms13/target_indicator(get_step(owner, turn(owner.dir, -45)))
-	new /obj/effect/temp_visual/ms13/target_indicator(get_step(owner, turn(owner.dir, 45)))
+	//3x2 block ahead of the owner
+	for(var/turf/t in block(get_step(get_turf(owner), turn(owner.dir, 45)), get_step(get_step(get_turf(owner), turn(owner.dir, -45)), owner.dir)))
+		new /obj/effect/temp_visual/ms13/target_indicator(t)
 
 /datum/action/cooldown/mob_cooldown/deathclaw/slash/proc/actually_slash()
-	var/list/atom/movable/atoms_to_slash = get_step(owner, owner.dir).contents.Copy()
-	atoms_to_slash += get_step(owner, turn(owner.dir, -45)).contents
-	atoms_to_slash += get_step(owner, turn(owner.dir, 45)).contents
+	var/list/atom/movable/atoms_to_slash = list()
+	for(var/turf/t in block(get_step(get_turf(owner), turn(owner.dir, 45)), get_step(get_step(get_turf(owner), turn(owner.dir, -45)), owner.dir)))
+		atoms_to_slash += t.contents
 	for(var/atom/movable/a in atoms_to_slash)
 		a.attack_animal(owner)
 		if(!a.anchored)
@@ -318,17 +345,33 @@
 	if(istype(owner, /mob/living/simple_animal))
 		var/mob/living/simple_animal/animal = owner
 		animal.prevent_goto_movement = FALSE
-	playsound(owner, 'sound/weapons/bladeslice.ogg', 200, TRUE, 2, TRUE)
+	playsound(owner, pick('mojave/sound/ms13npc/deathclaw/npc_deathclawsm_clawatk_01.wav', 'mojave/sound/ms13npc/deathclaw/npc_deathclawsm_clawatk_02.wav', 'mojave/sound/ms13npc/deathclaw/npc_deathclawsm_clawatk_03.wav', 'mojave/sound/ms13npc/deathclaw/npc_deathclawsm_clawatk_04.wav'), 200, TRUE, 2, TRUE)
 
+#define SMOOTH_GROUP_TARGET_INDICATOR S_OBJ(400)
 
 /obj/effect/temp_visual/ms13/target_indicator
 	name = "generic warning indicator"
-	desc = "Do you even have time to spare looking at this?"
+	desc = "Do you even have the time to spare looking at this?"
 	icon = 'mojave/icons/effects/target_indicator.dmi'
-	icon_state = "target_indicator"
+	icon_state = "target_indicator-0"
+	base_icon_state = "target_indicator"
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_TARGET_INDICATOR)
+	canSmoothWith = list(SMOOTH_GROUP_TARGET_INDICATOR)
 	layer = FLY_LAYER
 	plane = ABOVE_GAME_PLANE
 	duration = 5 //0.5 SECONDS
+
+/obj/effect/temp_visual/ms13/target_indicator/Initialize(mapload)
+	. = ..()
+	if(smoothing_flags & (SMOOTH_BITMASK))
+		QUEUE_SMOOTH_NEIGHBORS(src)
+		QUEUE_SMOOTH(src)
+
+/obj/effect/temp_visual/ms13/target_indicator/Destroy()
+	if(smoothing_flags & (SMOOTH_BITMASK))
+		QUEUE_SMOOTH_NEIGHBORS(src)
+	return ..()
 
 //Pocket sand!
 /datum/action/cooldown/mob_cooldown/projectile_attack/rapid_fire/pocket_sand

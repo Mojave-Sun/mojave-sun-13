@@ -65,7 +65,6 @@
 	. = ..()
 	if(prob(65))
 		desc = "A protectron given the duty of upholding law. This one is equipped with standard laser weaponry."
-
 	else
 		icon_state = "protectron_police_baton"
 		icon_living = "protectron_police_baton"
