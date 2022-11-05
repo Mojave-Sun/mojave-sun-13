@@ -1,3 +1,32 @@
+/obj/item/seeds/ms13
+	growing_icon = 'mojave/icons/hydroponics/growing.dmi'
+	icon = 'mojave/icons/hydroponics/seeds.dmi'
+	icon_state = "seed"
+	potency = 50
+	growthstages = 5
+	w_class = WEIGHT_CLASS_TINY
+	grid_height = 32
+	grid_width = 32
+	//vars added here to stop compilation issues.  Removed from base botany and will need to be refactored.
+	var/growing_color = ""
+	var/harvest_icon = 1
+	var/wholeiconcolor = TRUE
+
+/obj/item/food/grown/ms13
+	icon = 'mojave/icons/hydroponics/harvest/harvest_world.dmi'
+	inhand_icon_state = "plant"
+	lefthand_file = 'mojave/icons/mob/inhands/equipment/hydroponics_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/equipment/hydroponics_righthand.dmi'
+	can_distill = TRUE
+	w_class = WEIGHT_CLASS_TINY
+	grid_height = 32
+	grid_width = 32
+	distill_reagent = /datum/reagent/consumable/ethanol/ms13/brew_sludge
+
+/obj/item/food/grown/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/hydroponics/harvest/harvest_inventory.dmi')
+
 /////////////////////////////////////////////////////////////
 //////////////////////// FRUIT //////////////////////////////
 /////////////////////////////////////////////////////////////
@@ -793,7 +822,7 @@
 	plantname = "Buffalo Vines"
 	harvest_icon = 1
 	genes = list(/datum/plant_gene/trait/squash)
-	product = (/obj/item/food/grown/ms13/)
+	product = /obj/item/food/grown/ms13/buffalo
 	lifespan = 60
 	endurance = 20
 	yield = 8
@@ -1039,7 +1068,6 @@
 	production = 1
 	potency = 50
 	yield = 2
-	potency = 50
 	instability = 15
 	growthstages = 3
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
