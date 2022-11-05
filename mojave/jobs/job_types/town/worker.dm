@@ -29,7 +29,8 @@
 		/obj/item/wrench/ms13=1, \
 		/obj/item/ms13/handsaw=1, \
 		/obj/item/ms13/hammer=1, \
-		/obj/item/screwdriver/ms13=1)
+		/obj/item/screwdriver/ms13=1, \
+		/obj/item/radio/ms13=1)
 
 
 /datum/outfit/job/ms13/town/worker/pre_equip(mob/living/carbon/human/H)
