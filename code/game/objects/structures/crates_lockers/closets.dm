@@ -72,9 +72,12 @@
 	var/contents_initialized = FALSE
 
 /obj/structure/closet/Initialize(mapload)
-	if(mapload && !opened) // if closed, any item at the crate's loc is put in the contents
-		addtimer(CALLBACK(src, .proc/take_contents, TRUE), 0)
 	. = ..()
+
+	// if closed, any item at the crate's loc is put in the contents
+	if (mapload && !opened)
+		. = INITIALIZE_HINT_LATELOAD
+
 	update_appearance()
 	populate_contents_immediate()
 	/*var/static/list/loc_connections = list( // MOJAVE SUN EDIT BEGIN - Commented out!
@@ -82,6 +85,11 @@
 		COMSIG_ATOM_MAGICALLY_UNLOCKED = .proc/on_magic_unlock,
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)*/ // MOJAVE SUN EDIT END
+
+/obj/structure/closet/LateInitialize()
+	. = ..()
+
+	take_contents()
 
 //USE THIS TO FILL IT, NOT INITIALIZE OR NEW
 /obj/structure/closet/proc/PopulateContents()
