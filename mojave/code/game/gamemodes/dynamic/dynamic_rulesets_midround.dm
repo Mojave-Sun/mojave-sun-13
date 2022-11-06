@@ -1,9 +1,9 @@
 /datum/dynamic_ruleset/midround/from_ghosts/bounty_hunter
 	name = "Bounty Hunter"
-	midround_ruleset_style = MIDROUND_RULESET_STYLE_LIGHT
+	//midround_ruleset_style = MIDROUND_RULESET_STYLE_LIGHT
 	antag_datum = /datum/antagonist/bounty_hunter
 	antag_flag = ROLE_BOUNTY_HUNTER_MIDROUND
-	antag_flag_override = ROLE_BOUNTY_HUNTER
+	//antag_flag_override = ROLE_BOUNTY_HUNTER
 	enemy_roles = list(
 		JOB_CAPTAIN,
 		JOB_DETECTIVE,
@@ -14,11 +14,12 @@
 	required_candidates = 1
 	weight = 1
 	cost = 10
-	requirements = REQUIREMENTS_VERY_HIGH_THREAT_NEEDED
+	requirements = list(10,10,10,10,10,10,10,10,10,10)
+	repeatable = TRUE
 	flags = HIGH_IMPACT_RULESET
 
 /datum/dynamic_ruleset/midround/from_ghosts/bounty_hunter/ready(forced = FALSE)
-	if (!check_candidates())
+	if (!required_candidates > (dead_players.len + list_observers.len))
 		return FALSE
 	if(GLOB.bountyhunterstart.len == 0)
 		log_admin("Cannot accept Bounty Hunter ruleset. Couldn't find any bounty hunter spawn points.")
