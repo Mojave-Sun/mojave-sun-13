@@ -744,14 +744,31 @@
 	offsetx = 8
 	offsety = 8
 
+#define SMOOTH_GROUP_TARGET_INDICATOR S_OBJ(400)
+
 /obj/effect/temp_visual/ms13/target_indicator
 	name = "generic warning indicator"
-	desc = "Do you even have time to spare looking at this?"
+	desc = "Do you even have the time to spare looking at this?"
 	icon = 'mojave/icons/effects/target_indicator.dmi'
-	icon_state = "target_indicator"
+	icon_state = "target_indicator-0"
+	base_icon_state = "target_indicator"
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_TARGET_INDICATOR)
+	canSmoothWith = list(SMOOTH_GROUP_TARGET_INDICATOR)
 	layer = FLY_LAYER
 	plane = ABOVE_GAME_PLANE
-	duration = 10 //1 SECONDS
+	duration = 7 //0.7 SECONDS
+
+/obj/effect/temp_visual/ms13/target_indicator/Initialize(mapload)
+	. = ..()
+	if(smoothing_flags & (SMOOTH_BITMASK))
+		QUEUE_SMOOTH_NEIGHBORS(src)
+		QUEUE_SMOOTH(src)
+
+/obj/effect/temp_visual/ms13/target_indicator/Destroy()
+	if(smoothing_flags & (SMOOTH_BITMASK))
+		QUEUE_SMOOTH_NEIGHBORS(src)
+	return ..()
 
 //hellpig - pig from hell, very good mount if you have 100 human flesh - prolly gonna be ooooh wee mojave sun sekrit mount wowza
 
@@ -779,10 +796,9 @@
 	tame_chance = 1
 	bonus_tame_chance = 1
 	rideable = TRUE
-	base_pixel_x = -64
+	base_pixel_x = -16
 	status_flags = null
-	offsetx = 6
-	offsety = 32
+	ranged = TRUE //Charging time
 	var/datum/action/cooldown/mob_cooldown/charge/hellpig/charge
 
 /mob/living/simple_animal/hostile/ms13/hellpig/Initialize(mapload)
@@ -790,17 +806,10 @@
 	charge = new /datum/action/cooldown/mob_cooldown/charge/hellpig()
 	charge.Grant(src)
 
-/mob/living/simple_animal/hostile/ms13/hellpig/AttackingTarget(atom/attacked_target)
-	in_melee = TRUE
-	if(SEND_SIGNAL(src, COMSIG_HOSTILE_PRE_ATTACKINGTARGET, target) & COMPONENT_HOSTILE_NO_ATTACK)
-		return FALSE //but more importantly return before attack_animal called
-
-	var/result = target.attack_animal(src)
-	SEND_SIGNAL(src, COMSIG_HOSTILE_POST_ATTACKINGTARGET, target, result)
-	return result
-
 /mob/living/simple_animal/hostile/ms13/hellpig/OpenFire()
 	if(client)
+		return
+	if(get_dist(src, target) < 3)
 		return
 	prevent_goto_movement = TRUE
 	Goto(target = src, delay = move_to_delay, minimum_distance = 0)
@@ -812,8 +821,10 @@
 	prevent_goto_movement = FALSE
 
 /datum/action/cooldown/mob_cooldown/charge/hellpig
-	charge_delay = 0.7 SECONDS
-	charge_speed = 0.2 SECONDS
+	charge_delay = 0.75 SECONDS
+	charge_speed = 0.15 SECONDS
+	charge_past = 2
+	cooldown_time = 5 SECONDS
 
 /datum/action/cooldown/mob_cooldown/charge/hellpig/do_charge_indicator(atom/charger, atom/charge_target)
 	var/turf/target_turf = get_turf(charge_target)
@@ -833,6 +844,8 @@
 			if(A == owner)
 				continue
 			if(A.anchored)
+				continue
+			if(get_dir(owner, A) == owner.dir) //Don't knock back anyone in front of us so we can actually ram them instead of harmlessly throwing them
 				continue
 			var/target_angle = get_angle(owner, A)
 			var/move_target = get_ranged_target_turf(A, angle2dir(target_angle), 3)
