@@ -606,6 +606,14 @@
 /area/ms13/underground/sewer)
 "acv" = (
 /obj/structure/table/ms13/crafting/workbench,
+/obj/item/screwdriver/ms13{
+	pixel_x = 13;
+	pixel_y = 11
+	},
+/obj/item/wrench/ms13{
+	pixel_x = 23;
+	pixel_y = 11
+	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/bos)
 "acw" = (
@@ -1016,6 +1024,8 @@
 /area/ms13/underground/military_crypt)
 "aeg" = (
 /obj/structure/table/ms13/no_smooth/counter/wood,
+/obj/effect/spawner/random/ms13/guaranteed/tools/tool,
+/obj/effect/spawner/random/ms13/guaranteed/tools/tool,
 /obj/effect/spawner/random/ms13/guaranteed/tools/tool,
 /obj/effect/spawner/random/ms13/guaranteed/tools/tool,
 /turf/open/floor/ms13/concrete/small,
@@ -3544,7 +3554,7 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/mountain)
 "aoC" = (
-/obj/machinery/smartfridge/drying_rack,
+/obj/machinery/griddle,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/underground_town)
 "aoD" = (
@@ -3879,12 +3889,12 @@
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/enclave_base)
 "aqh" = (
-/obj/machinery/light/ms13/bulb/broken{
-	dir = 4
-	},
-/obj/structure/table/ms13/wood,
-/turf/open/floor/wood/ms13/wide,
-/area/ms13/underground/underground_town)
+/obj/structure/closet/ms13/fridge,
+/obj/effect/spawner/random/ms13/food/produce_random,
+/obj/effect/spawner/random/ms13/food/produce_random,
+/obj/effect/spawner/random/ms13/food/produce_random,
+/turf/open/floor/ms13/concrete,
+/area/ms13/underground/subway)
 "aqi" = (
 /obj/machinery/light/ms13{
 	dir = 4
@@ -5542,7 +5552,7 @@
 /turf/open/floor/ms13/tile/large/cream,
 /area/ms13/underground/sewer)
 "axk" = (
-/obj/machinery/grill,
+/obj/machinery/griddle,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/army_bunker)
 "axl" = (
@@ -8225,7 +8235,7 @@
 /turf/open/floor/ms13/metal/plate,
 /area/ms13/underground/military_crypt)
 "aIG" = (
-/obj/machinery/grill,
+/obj/machinery/griddle,
 /turf/open/floor/ms13/tile/full/navy,
 /area/ms13/underground/enclave_base)
 "aIH" = (
@@ -9611,7 +9621,7 @@
 	},
 /area/ms13/underground/underground_town)
 "aOm" = (
-/obj/machinery/grill,
+/obj/structure/table/ms13/no_smooth/counter/wood,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/underground_town)
 "aOn" = (
@@ -12392,7 +12402,7 @@
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/vault_atrium_lower)
 "baw" = (
-/obj/machinery/grill,
+/obj/machinery/griddle,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/underground_town)
 "bbA" = (
@@ -12914,11 +12924,9 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/underground_town)
 "cIr" = (
-/obj/structure/closet/ms13/fridge,
-/obj/effect/spawner/random/ms13/food/produce_random,
-/obj/effect/spawner/random/ms13/food/produce_random,
+/obj/item/crowbar/ms13,
 /turf/open/floor/ms13/concrete,
-/area/ms13/underground/subway)
+/area/ms13/underground/bos)
 "cKc" = (
 /obj/structure/fluff/ms13/barrel/single/toxic/two,
 /turf/open/floor/ms13/concrete/industrial,
@@ -16562,7 +16570,7 @@
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
 "oVA" = (
-/obj/machinery/grill,
+/obj/machinery/griddle,
 /turf/open/floor/ms13/tile,
 /area/ms13/town)
 "oXm" = (
@@ -18584,9 +18592,11 @@
 /turf/open/ms13/water/sewer/medium,
 /area/ms13/underground/sewer)
 "vIn" = (
-/obj/machinery/grill,
-/turf/open/floor/ms13/concrete,
-/area/ms13/underground/subway)
+/obj/machinery/light/ms13/bulb/industrial/broken{
+	dir = 1
+	},
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/underground/army_bunker)
 "vJl" = (
 /obj/machinery/door/airlock/ms13/town{
 	dir = 4
@@ -28091,7 +28101,7 @@ atf
 aTp
 aRd
 aIG
-aIG
+axO
 axO
 aOs
 aJM
@@ -40319,8 +40329,8 @@ aZW
 afU
 aEQ
 aoC
-aqh
-aWP
+aUL
+aff
 aEQ
 aEQ
 aEQ
@@ -56691,7 +56701,7 @@ apv
 afU
 afU
 aEQ
-aOm
+aoC
 aff
 aff
 aYl
@@ -74150,7 +74160,7 @@ afU
 afU
 afU
 anJ
-vIn
+atY
 atY
 atY
 atY
@@ -74452,7 +74462,7 @@ afU
 afU
 afU
 anJ
-cIr
+atY
 atY
 atY
 anJ
@@ -74754,7 +74764,7 @@ afU
 afU
 afU
 anJ
-atY
+aqh
 atY
 atY
 anJ
@@ -83006,7 +83016,7 @@ afU
 alU
 aaP
 aqV
-aqV
+cIr
 aqV
 alU
 alU
@@ -88875,7 +88885,7 @@ aVc
 akC
 afU
 acT
-aUt
+vIn
 aUI
 aUt
 bUA

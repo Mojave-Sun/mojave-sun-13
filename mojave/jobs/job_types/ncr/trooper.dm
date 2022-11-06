@@ -3,7 +3,7 @@
 	total_positions = 8
 	spawn_positions = 8
 	supervisors = "Sergeants and above."
-	description = "Follow and execute orders given to you by your superiors."
+	description = "Follow and execute orders given to you by your superiors. You're currently at edge with the BoS, though not at war, yet."
 
 	outfit = /datum/outfit/job/ms13/ncr/trooper
 
@@ -24,5 +24,3 @@
 
 /datum/outfit/job/ms13/ncr/trooper/pre_equip(mob/living/carbon/human/H)
 	..()
-
-

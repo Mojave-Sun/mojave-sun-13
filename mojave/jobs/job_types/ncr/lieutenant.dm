@@ -3,7 +3,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "A Captain or higher, if present."
-	description = "Organize and command NCR forces in the region. Make sure the Staff Sergeant and Sergeants are doing their jobs."
+	description = "Organize and command NCR forces in the region. Make sure the Staff Sergeant and Sergeants are doing their jobs. You're currently at edge with the BoS, though not at war, yet."
 
 	outfit = /datum/outfit/job/ms13/ncr/lieutenant
 

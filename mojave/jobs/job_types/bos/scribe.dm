@@ -4,7 +4,7 @@
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "The Head Scribe"
-	description = "Ensure the bunker is up to standards, ensure everyone is in good health, and ensure the technology of the Brotherhood is well maintained. Obey orders from the Head Scribe."
+	description = "Ensure the bunker is up to standards, ensure everyone is in good health, and ensure the technology of the Brotherhood is well maintained. Obey orders from the Head Scribe. You're currently at edge with the NCR, though not at war, yet."
 
 	outfit = /datum/outfit/job/ms13/bos/scribe
 

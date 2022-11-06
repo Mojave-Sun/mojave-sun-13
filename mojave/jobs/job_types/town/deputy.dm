@@ -24,7 +24,7 @@
 	suit_store = /obj/item/gun/ballistic/shotgun/ms13/lever/cowboy
 	belt = 		 /obj/item/gun/ballistic/automatic/pistol/ms13/m10mm
 	r_pocket =	 /obj/item/ammo_box/magazine/ms13/m10mm
-	l_pocket =   /obj/item/stack/ms13/currency/prewar/fifty
+	l_pocket =   /obj/item/stack/ms13/currency/prewar/eighty
 	back =       /obj/item/storage/ms13/vault
 	backpack_contents = list(
 		/obj/item/stack/medical/gauze/ms13/three=1, \

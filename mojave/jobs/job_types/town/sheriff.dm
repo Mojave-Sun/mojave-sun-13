@@ -23,7 +23,7 @@
 	shoes =  	 /obj/item/clothing/shoes/ms13/military/vault
 	suit_store = /obj/item/gun/ballistic/shotgun/ms13/lever/trail
 	belt = 		 /obj/item/gun/ballistic/automatic/pistol/ms13/m10mm/military
-	r_pocket =   /obj/item/stack/ms13/currency/prewar/hunned
+	r_pocket =   /obj/item/stack/ms13/currency/prewar/hunnedtwenty
 	l_pocket = 	 /obj/item/knife/ms13/combat
 	back =       /obj/item/storage/ms13/vault
 	backpack_contents = list(
