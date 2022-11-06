@@ -5,7 +5,7 @@
 	spawn_positions = 1
 	supervisors = "The Elder (if present) and Brotherhood High Command"
 	req_admin_notify = 1
-	description = "Lead and organize your team of scribes. Ensure that the technology and overall workings of the bunker are in order. Provide medical assistance to Brotherhood operations as needed."
+	description = "Lead and organize your team of scribes. Ensure that the technology and overall workings of the bunker are in order. Provide medical assistance to Brotherhood operations as needed. You're currently at edge with the NCR, though not at war, yet."
 
 	outfit = /datum/outfit/job/ms13/bos/head_scribe
 

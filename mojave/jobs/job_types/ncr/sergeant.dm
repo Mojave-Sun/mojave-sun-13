@@ -3,7 +3,7 @@
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "The Staff Sergeant and the Lieutenant"
-	description = "Keep troopers in line, obey orders, and relay changes in situations to keep command up to date."
+	description = "Keep troopers in line, obey orders, and relay changes in situations to keep command up to date. You're currently at edge with the BoS, though not at war, yet."
 
 	outfit = /datum/outfit/job/ms13/ncr/sergeant
 
