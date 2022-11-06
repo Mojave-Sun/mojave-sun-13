@@ -18,7 +18,7 @@
 	id =		 /obj/item/card/id/ms13/town
 	uniform =    /obj/item/clothing/under/ms13/vaultsuit
 	shoes =  	 /obj/item/clothing/shoes/ms13/military/vault
-	r_pocket =   /obj/item/stack/ms13/currency/prewar/fourty
+	r_pocket =   /obj/item/stack/ms13/currency/prewar/sixty
 	back =       null
 
 /datum/outfit/job/ms13/town/settler/pre_equip(mob/living/carbon/human/H)
