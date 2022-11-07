@@ -14,6 +14,9 @@
 	plane = ABOVE_GAME_PLANE
 	layer = ABOVE_MOB_LAYER
 
+/obj/structure/ms13/pipes/attackby(obj/item/I, mob/living/user, params) //cant attack due to wall side handling
+	return
+
 //Prop Pipes, Decor
 
 /obj/structure/ms13/pipes/piped
@@ -64,6 +67,10 @@
 	density = TRUE
 	desc = "A hardy metal pipe, going into the floor."
 
+/obj/structure/ms13/pipes/horizontal/down/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/climbable)
+
 /obj/structure/ms13/pipes/horizontal/down/single
 	icon_state = "down"
 
@@ -100,6 +107,10 @@
 /obj/structure/ms13/pipes/horizontal/single/down
 	icon_state = "down_single"
 	desc = "A hardy metal pipe, going into the floor."
+
+/obj/structure/ms13/pipes/horizontal/single/down/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/climbable)
 
 /obj/structure/ms13/pipes/horizontal/single/inwall
 	icon_state = "inwall_single"
