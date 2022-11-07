@@ -60,12 +60,12 @@ GLOBAL_VAR(command_name)
 	var/name = ""
 	var/new_station_name = ""
 
-	//Rare: Pre-Prefix
+	/*//Rare: Pre-Prefix MOJAVE SUN EDIT - 🤫
 	if (prob(10))
 		name = pick(GLOB.station_prefixes)
 		new_station_name = name + " "
 		name = ""
-
+	*/
 	// Prefix
 	var/holiday_name = pick(SSevents.holidays)
 	if(holiday_name)
