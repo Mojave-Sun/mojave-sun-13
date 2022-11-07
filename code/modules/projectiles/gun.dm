@@ -261,7 +261,7 @@
 	/* MOJAVE EDIT REMOVAL
 	var/obj/item/bodypart/other_hand = user.has_hand_for_held_index(user.get_inactive_hand_index()) //returns non-disabled inactive hands
 	if(weapon_weight == WEAPON_HEAVY && (user.get_inactive_held_item() || !other_hand))
-		to_chat(user, span_warning("You need two hands to fire [src]!"))
+		balloon_alert(user, "use both hands!")
 		return
 	*/
 	// MOJAVE EDIT BEGIN
