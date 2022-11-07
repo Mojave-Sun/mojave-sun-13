@@ -1814,6 +1814,13 @@
 /obj/effect/turf_decal/tile/yellow/fourcorners,
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
+"aIA" = (
+/obj/machinery/door/airlock/maintenance{
+	name = "Medbay Maintenance"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/medical/general,
+/turf/open/floor/plating,
+/area/station/maintenance/port/aft)
 "aIC" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -23571,14 +23578,6 @@
 /obj/machinery/holopad,
 /turf/open/floor/wood,
 /area/station/service/cafeteria)
-"iBx" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Surgery C Maintenance"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/access/all/medical/general,
-/turf/open/floor/plating,
-/area/station/maintenance/aft/greater)
 "iBL" = (
 /obj/structure/table/wood,
 /turf/open/floor/wood,
@@ -44800,6 +44799,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/rd)
+"pVE" = (
+/obj/machinery/firealarm/directional/east,
+/turf/open/floor/iron/chapel{
+	dir = 1
+	},
+/area/station/service/chapel)
 "pVM" = (
 /obj/machinery/light/small/directional/south,
 /obj/machinery/camera/directional/south{
@@ -50591,6 +50596,14 @@
 /obj/effect/spawner/random/decoration/showcase,
 /turf/open/floor/carpet,
 /area/station/command/corporate_showroom)
+"rTF" = (
+/obj/machinery/door/airlock/maintenance{
+	name = "Surgery C Maintenance"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/access/all/medical/general,
+/turf/open/floor/plating,
+/area/station/maintenance/aft/greater)
 "rTL" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/public/glass{
@@ -53048,6 +53061,12 @@
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
 /area/station/hallway/primary/central)
+"sLF" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/firealarm/directional/south,
+/turf/open/floor/iron/dark,
+/area/station/service/chapel/funeral)
 "sLN" = (
 /obj/effect/landmark/start/ai/secondary,
 /obj/item/radio/intercom/directional/north{
@@ -56385,13 +56404,6 @@
 /obj/effect/mapping_helpers/airlock/access/all/medical/virology,
 /turf/open/floor/iron/white,
 /area/station/medical/virology)
-"tQK" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Medbay Maintenance"
-	},
-/obj/effect/mapping_helpers/airlock/access/all/medical/general,
-/turf/open/floor/plating,
-/area/station/maintenance/port/aft)
 "tRb" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/cable,
@@ -87622,7 +87634,7 @@ tzE
 ucc
 tSw
 tSw
-iBx
+rTF
 tSw
 tSw
 tSw
@@ -88387,7 +88399,7 @@ sWO
 oxW
 dqN
 vlH
-tQK
+aIA
 miy
 tFr
 nMf
@@ -90983,7 +90995,7 @@ vQg
 gzm
 vQg
 iez
-hto
+sLF
 gYU
 gYU
 gYU
@@ -93293,7 +93305,7 @@ tSw
 oBN
 iZi
 kVN
-qri
+pVE
 mKv
 qri
 iIq
