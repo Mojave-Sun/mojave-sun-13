@@ -757,7 +757,7 @@
 	canSmoothWith = list(SMOOTH_GROUP_TARGET_INDICATOR)
 	layer = FLY_LAYER
 	plane = ABOVE_GAME_PLANE
-	duration = 7 //0.7 SECONDS
+	duration = 5 //0.5 SECONDS
 
 /obj/effect/temp_visual/ms13/target_indicator/Initialize(mapload)
 	. = ..()
@@ -792,11 +792,13 @@
 	melee_damage_lower = 40
 	melee_damage_upper = 60
 	speed = 2
-	food_type = list(/obj/item/food/meat/slab/human)
-	tame_chance = 1
-	bonus_tame_chance = 1
-	rideable = TRUE
+	//Sorry, no taming
+	//food_type = list(/obj/item/food/meat/slab/human)
+	//tame_chance = 1
+	//bonus_tame_chance = 1
+	//rideable = TRUE
 	base_pixel_x = -16
+	pixel_x = -16
 	status_flags = null
 	ranged = TRUE //Charging time
 	var/datum/action/cooldown/mob_cooldown/charge/hellpig/charge
@@ -805,6 +807,10 @@
 	. = ..()
 	charge = new /datum/action/cooldown/mob_cooldown/charge/hellpig()
 	charge.Grant(src)
+
+/mob/living/simple_animal/hostile/ms13/hellpig/death(gibbed)
+	playsound(loc, pick('mojave/sound/ms13npc/hellpig_death1.ogg', 'mojave/sound/ms13npc/hellpig_death1.ogg'), 50, TRUE, -1)
+	..(gibbed)
 
 /mob/living/simple_animal/hostile/ms13/hellpig/OpenFire()
 	if(client)
@@ -819,12 +825,24 @@
 
 /mob/living/simple_animal/hostile/ms13/hellpig/proc/reset_goto_movement()
 	prevent_goto_movement = FALSE
+	if(client || !target)
+		return
+	Goto(target = target, delay = move_to_delay, minimum_distance = 0)
 
 /datum/action/cooldown/mob_cooldown/charge/hellpig
-	charge_delay = 0.75 SECONDS
+	charge_delay = 0.5 SECONDS
 	charge_speed = 0.15 SECONDS
-	charge_past = 2
+	charge_past = 4
 	cooldown_time = 5 SECONDS
+	destroy_objects = FALSE
+
+//destroy_objects is a lie
+/datum/action/cooldown/mob_cooldown/charge/hellpig/on_bump(atom/movable/source, atom/target)
+	SIGNAL_HANDLER
+	if(owner == target)
+		return
+	INVOKE_ASYNC(src, .proc/DestroySurroundings, source)
+	hit_target(source, target, charge_damage)
 
 /datum/action/cooldown/mob_cooldown/charge/hellpig/do_charge_indicator(atom/charger, atom/charge_target)
 	var/turf/target_turf = get_turf(charge_target)
@@ -848,7 +866,7 @@
 			if(get_dir(owner, A) == owner.dir) //Don't knock back anyone in front of us so we can actually ram them instead of harmlessly throwing them
 				continue
 			var/target_angle = get_angle(owner, A)
-			var/move_target = get_ranged_target_turf(A, angle2dir(target_angle), 3)
+			var/move_target = get_ranged_target_turf(A, angle2dir(target_angle), 2)
 			A.throw_at(move_target, 3, 3)
 			A.visible_message(span_warning("[A] gets thrown back by the force of the shockwave !"), span_warning("The shockwave sends you flying!"))
 			if(isliving(A))
