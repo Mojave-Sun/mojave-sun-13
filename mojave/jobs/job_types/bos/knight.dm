@@ -4,7 +4,7 @@
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "The Paladin and Head Paladin"
-	description = "Follow the orders of your superiors and ensure weaponized technology in the wastes is kept contained and in check."
+	description = "Follow the orders of your superiors and ensure weaponized technology in the wastes is kept contained and in check. You're currently at edge with the NCR, though not at war, yet."
 
 	outfit = /datum/outfit/job/ms13/bos/knight
 

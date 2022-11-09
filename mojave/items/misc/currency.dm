@@ -58,8 +58,11 @@
 /obj/item/stack/ms13/currency/prewar/hunned
 	amount = 100
 
+/obj/item/stack/ms13/currency/prewar/hunnedtwenty
+	amount = 120
+
 /obj/item/stack/ms13/currency/prewar/mayor
-	amount = 250
+	amount = 300
 
 /obj/item/stack/ms13/currency/ncr_dollar
 	name = "\improper NCR dollars"

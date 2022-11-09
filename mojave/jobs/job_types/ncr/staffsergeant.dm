@@ -3,7 +3,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "The Lieutenant"
-	description = "Act as the Second in Command for NCR operations in the region. Direct your Sergeants and advise and assist the Lieutenant as needed."
+	description = "Act as the Second in Command for NCR operations in the region. Direct your Sergeants and advise and assist the Lieutenant as needed. You're currently at edge with the BoS, though not at war, yet."
 
 	outfit = /datum/outfit/job/ms13/ncr/staffsergeant
 
@@ -25,6 +25,7 @@
 		/obj/item/ammo_box/magazine/ms13/m9mm=2, \
 		/obj/item/flashlight/flare/ms13=1, \
 		/obj/item/clothing/head/helmet/ms13/ncr/beret=1, \
+		/obj/item/radio/ms13=1, \
 		/obj/item/stack/ms13/currency/ncr_dollar/fifty=1)
 
 /datum/outfit/job/ms13/ncr/staffsergeant/pre_equip(mob/living/carbon/human/H)
