@@ -17,6 +17,12 @@
 	var/waterlevel = 100
 	///The maximum amount of water in the tray
 	var/maxwater = 100
+	///How much nitrogen is in the soil
+	var/nitrolevel
+	///How much phosphorus is in the soil
+	var/phoslevel
+	///How much potassium (K) is in the soil
+	var/potlevel
 	///How many units of nutrients will be drained in the tray.
 	var/nutridrain = 1
 	///The maximum nutrient reagent container size of the tray.
@@ -49,8 +55,6 @@
 	var/rating = 1
 	///Can it be unwrenched to move?
 	var/unwrenchable = TRUE
-	///Have we been visited by a bee recently, so bees dont overpollinate one plant
-	var/recent_bee_visit = FALSE
 	///The last user to add a reagent to the tray, mostly for logging purposes.
 	var/datum/weakref/lastuser
 	///If the tray generates nutrients and water on its own
@@ -251,9 +255,6 @@
 				if(myseed.yield >=3)
 					myseed.adjust_yield(-rand(1,2)) //Weeds choke out the plant's ability to bear more fruit.
 					myseed.set_yield(min((myseed.yield), WEED_HARDY_YIELD_MIN, MAX_PLANT_YIELD))
-
-//This is the part with pollination
-			pollinate()
 
 //This is where stability mutations exist now.
 			if(myseed.instability >= 80)
@@ -573,32 +574,6 @@
 	lastproduce = 0
 	update_appearance()
 	SEND_SIGNAL(src, COMSIG_HYDROTRAY_PLANT_DEATH)
-
-/**
- * Plant Cross-Pollination.
- * Checks all plants in the tray's oview range, then averages out the seed's potency, instability, and yield values.
- * If the seed's instability is >= 20, the seed donates one of it's reagents to that nearby plant.
- * * Range - The Oview range of trays to which to look for plants to donate reagents.
- */
-/obj/machinery/ms13/agriculture/proc/pollinate(range = 1)
-	for(var/obj/machinery/ms13/agriculture/T in oview(src, range))
-		//Here is where we check for window blocking.
-		if(!Adjacent(T) && range <= 1)
-			continue
-		if(T.myseed && T.plant_status != HYDROTRAY_PLANT_DEAD)
-			T.myseed.set_potency(round((T.myseed.potency+(1/10)*(myseed.potency-T.myseed.potency))))
-			T.myseed.set_instability(round((T.myseed.instability+(1/10)*(myseed.instability-T.myseed.instability))))
-			T.myseed.set_yield(round((T.myseed.yield+(1/2)*(myseed.yield-T.myseed.yield))))
-			if(myseed.instability >= 20 && prob(70) && length(T.myseed.reagents_add))
-				var/list/datum/plant_gene/reagent/possible_reagents = list()
-				for(var/datum/plant_gene/reagent/reag in T.myseed.genes)
-					possible_reagents += reag
-				var/datum/plant_gene/reagent/reagent_gene = pick(possible_reagents) //Let this serve as a lession to delete your WIP comments before merge.
-				if(reagent_gene.can_add(myseed))
-					if(!reagent_gene.try_upgrade_gene(myseed))
-						myseed.genes += reagent_gene.Copy()
-					myseed.reagents_from_genes()
-					continue
 
 /obj/machinery/ms13/agriculture/attackby(obj/item/O, mob/user, params)
 	//Called when mob user "attacks" it with object O
