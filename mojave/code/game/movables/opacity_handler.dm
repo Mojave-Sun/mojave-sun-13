@@ -8,6 +8,7 @@
 	desc = "if you are reading this, bob fucked up hard"
 	density = TRUE
 	invisibility = INVISIBILITY_ABSTRACT
+	opacity = FALSE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	var/atom/master
 	var/offset_x = 0//horizontal offset in tiles when facing SOUTH
