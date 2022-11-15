@@ -5,6 +5,10 @@
 #define AIRLOCK_DENY 5
 #define AIRLOCK_EMAG 6
 
+/**
+ * I'm gonna be real, this has a bunch of shitcode that can probably be improved.
+ * Breathing too hard on this will break everything.
+ */
 /obj/machinery/door/airlock/vault/vault_door
 	name = "vault door"
 	desc = "A massive door shielding a vault from the disgusting, irradiated outside world. Operated externally."
@@ -41,6 +45,9 @@
 	var/turf/our_turf = get_turf(src)
 	//basically we only want to let mover pass if he is going through the open portion of the door, this is very dumb code bro
 	if(mover.x != (our_turf.x+1))
+		return FALSE
+	//this basically means we're inside the vault door, aka we shouldn't move sideways
+	else if(border_dir & WEST|EAST)
 		return FALSE
 
 //only opened by the funny button thing
@@ -128,6 +135,7 @@
 	skin = "button"
 	id = VAULT_DOOR_TAG
 	density = TRUE
+	normaldoorcontrol = TRUE
 
 #undef AIRLOCK_CLOSED
 #undef AIRLOCK_CLOSING

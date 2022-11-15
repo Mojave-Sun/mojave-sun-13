@@ -14,13 +14,13 @@
 	var/offset_x = 0//horizontal offset in tiles when facing SOUTH
 	var/offset_y = 0//vertical offset in tiles when facing SOUTH
 
-/atom/movable/opacity_handler/Initialize(mapload, atom/new_master, offset_x, offset_y)
+/atom/movable/opacity_handler/Initialize(mapload, atom/new_master, new_offset_x, new_offset_y)
 	. = ..()
 	moveToNullspace()
 	if(!new_master)
 		CRASH("Tried to create /atom/movable/opacity_handler without a master atom!")
-	set_offset_x(offset_x)
-	set_offset_y(offset_y)
+	set_offset_x(new_offset_x)
+	set_offset_y(new_offset_y)
 	set_master(new_master)
 
 /atom/movable/opacity_handler/proc/set_master(atom/new_master)
