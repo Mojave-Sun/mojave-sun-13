@@ -18,7 +18,8 @@
 	. = ..()
 	moveToNullspace()
 	if(!new_master)
-		CRASH("Tried to create /atom/movable/opacity_handler without a master atom!")
+		stack_trace("Tried to create /atom/movable/opacity_handler without a master atom!")
+		return INITIALIZE_HINT_QDEL
 	set_offset_x(new_offset_x)
 	set_offset_y(new_offset_y)
 	set_master(new_master)
