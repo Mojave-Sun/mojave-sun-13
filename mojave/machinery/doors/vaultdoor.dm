@@ -44,10 +44,11 @@
 		return
 	var/turf/our_turf = get_turf(src)
 	//basically we only want to let mover pass if he is going through the open portion of the door, this is very dumb code bro
-	if(mover.x != (our_turf.x+1))
-		return FALSE
-	//this basically means we're inside the vault door, aka we shouldn't move sideways
-	else if(border_dir & WEST|EAST)
+	if(mover.x == (our_turf.x+1))
+		//we're trying to go sideways inside the door, not good
+		if(border_dir & WEST|EAST)
+			return FALSE
+	else
 		return FALSE
 
 //only opened by the funny button thing
