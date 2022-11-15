@@ -19,7 +19,7 @@
 
 /obj/machinery/door/airlock/vault/vault_door/Initialize(mapload)
 	. = ..()
-	for(var/i in 1 to (bound_width/world.icon_size-1))
+	for(var/i in 1 to round(bound_width/world.icon_size-1, 1))
 		var/atom/movable/opacity_handler/opacity_handler = new /atom/movable/opacity_handler(src, i)
 		LAZYADD(opacity_handlers, opacity_handler)
 
