@@ -6,7 +6,7 @@
 /atom/movable/opacity_handler
 	name = "opacity fucker"
 	desc = "if you are reading this, bob fucked up hard"
-	density = TRUE
+	density = FALSE
 	invisibility = INVISIBILITY_ABSTRACT
 	opacity = FALSE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
