@@ -4,7 +4,7 @@
  * to expand opacity outwards
  */
 /atom/movable/opacity_handler
-	name = "collision fucker"
+	name = "opacity fucker"
 	desc = "if you are reading this, bob fucked up hard"
 	density = TRUE
 	invisibility = INVISIBILITY_ABSTRACT
@@ -13,7 +13,7 @@
 	var/offset_x = 0//horizontal offset in tiles when facing SOUTH
 	var/offset_y = 0//vertical offset in tiles when facing SOUTH
 
-/atom/movable/opacity_handler/Initialize(atom/new_master, offset_x, offset_y)
+/atom/movable/opacity_handler/Initialize(mapload, atom/new_master, offset_x, offset_y)
 	. = ..()
 	moveToNullspace()
 	if(!new_master)
