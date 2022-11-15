@@ -7,7 +7,7 @@
 
 /**
  * I'm gonna be real, this has a bunch of shitcode that can probably be improved.
- * Breathing too hard on this will break everything.
+ * Breathing too hard on this will break everything. Handle with care.
  */
 /obj/machinery/door/airlock/vault/vault_door
 	name = "vault door"
@@ -19,37 +19,30 @@
 	assemblytype = null
 	id_tag = VAULT_DOOR_TAG
 	safe = FALSE
-	var/list/atom/movable/opacity_handler/opacity_handlers
+	var/list/atom/movable/follower/opacity/opacity_handlers
+	var/list/atom/movable/follower/density/density_handlers
 
 /obj/machinery/door/airlock/vault/vault_door/Initialize(mapload)
 	. = ..()
+	var/atom/movable/follower/opacity_handler
+	var/atom/movable/follower/density_handler
 	for(var/i in 1 to round(bound_width/world.icon_size-1, 1))
-		var/atom/movable/opacity_handler/opacity_handler = new /atom/movable/opacity_handler(loc, src, i)
+		opacity_handler = new /atom/movable/follower/opacity(loc, src, i)
 		LAZYADD(opacity_handlers, opacity_handler)
+		density_handler = new /atom/movable/follower/density(loc, src, i)
+		LAZYADD(density_handlers, density_handler)
 
 /obj/machinery/door/airlock/vault/vault_door/Destroy()
 	. = ..()
-	// opacity handlers already deal with qdeling themselves byeah
+	// opacity handlers already deal with qdeling themselves, same for density handlers, byeah
 	opacity_handlers = null
+	density_handlers = null
 
 /obj/machinery/door/airlock/vault/vault_door/setDir(newdir)
 	if(newdir != SOUTH)
 		stack_trace("Called setDir() on /obj/machinery/door/airlock/vault/vault_door with an invalid direction!")
 		newdir = SOUTH
 	return ..()
-
-/obj/machinery/door/airlock/vault/vault_door/CanPass(atom/movable/mover, border_dir)
-	. = ..()
-	if(!.)
-		return
-	var/turf/our_turf = get_turf(src)
-	//basically we only want to let mover pass if he is going through the open portion of the door, this is very dumb code bro
-	if(mover.x == (our_turf.x+1))
-		//we're trying to go sideways inside the door, not good
-		if(border_dir & WEST|EAST)
-			return FALSE
-	else
-		return FALSE
 
 //only opened by the funny button thing
 /obj/machinery/door/airlock/vault/vault_door/allowed(mob/M)
@@ -66,7 +59,11 @@
 		set_opacity(0)
 	update_freelook_sight()
 	sleep(12.4)
-	set_density(FALSE)
+	var/atom/movable/density_handler = LAZYACCESS(opacity_handlers, 1)
+	if(density_handler)
+		density_handler.set_density(FALSE)
+	else
+		set_density(FALSE)
 	flags_1 &= ~PREVENT_CLICK_UNDER_1
 	air_update_turf(TRUE, FALSE)
 	sleep(1)
@@ -80,13 +77,20 @@
 /obj/machinery/door/airlock/vault/vault_door/close_animation(dangerous_close = FALSE)
 	update_icon(ALL, AIRLOCK_CLOSING, 1)
 	layer = CLOSED_DOOR_LAYER
+	var/atom/movable/density_handler = LAZYACCESS(opacity_handlers, 1)
 	if(air_tight)
-		set_density(TRUE)
+		if(density_handler)
+			density_handler.set_density(TRUE)
+		else
+			set_density(TRUE)
 		flags_1 |= PREVENT_CLICK_UNDER_1
 		air_update_turf(TRUE, TRUE)
 	sleep(25.4)
 	if(!air_tight)
-		set_density(TRUE)
+		if(density_handler)
+			density_handler.set_density(TRUE)
+		else
+			set_density(TRUE)
 		flags_1 |= PREVENT_CLICK_UNDER_1
 		air_update_turf(TRUE, TRUE)
 	sleep(4)
@@ -95,9 +99,9 @@
 	if(visible && !glass)
 		var/atom/movable/opacity_handler = LAZYACCESS(opacity_handlers, 1)
 		if(opacity_handler)
-			opacity_handler.set_opacity(1)
+			opacity_handler.set_opacity(TRUE)
 		else
-			set_opacity(1)
+			set_opacity(TRUE)
 	update_freelook_sight()
 	sleep(11.5)
 	update_icon(ALL, AIRLOCK_CLOSED, 1)
@@ -107,7 +111,14 @@
 		CheckForMobs()
 
 /obj/machinery/door/airlock/vault/vault_door/crush()
-	for(var/turf/occupied_turf in locs)
+	var/list/occupied_turfs = list()
+	occupied_turfs += get_turf(src)
+	for(var/atom/density_handler in density_handlers)
+		var/turf/density_handler_turf = get_turf(density_handler)
+		if(!density_handler_turf)
+			continue
+		occupied_turfs += density_handler_turf
+	for(var/turf/occupied_turf as anything in occupied_turfs)
 		for(var/mob/living/L in occupied_turf)
 			L.visible_message(span_warning("[src] closes on [L], crushing [L.p_them()]!"), span_userdanger("[src] closes on you and crushes you!"))
 			SEND_SIGNAL(L, COMSIG_LIVING_DOORCRUSHED, src)
