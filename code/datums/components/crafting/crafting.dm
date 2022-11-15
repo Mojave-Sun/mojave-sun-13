@@ -1,7 +1,11 @@
+// GOMBLE TODO - Fix bench + hand craft removal
+
+/datum/component/personal_crafting/Initialize()
 // MOJAVE EDIT - CRAFTING BENCHES START
 /datum/component/personal_crafting/Initialize(crafting_interface=CRAFTING_BENCH_HANDS)
 	src.crafting_interface = crafting_interface // MOJAVE EDIT - CRAFTING BENCHES
 	if(ismob(parent))
+		RegisterSignal(parent, COMSIG_MOB_CLIENT_LOGIN, PROC_REF(create_mob_button))
 		return // no hand crafting
 		// RegisterSignal(parent, COMSIG_MOB_CLIENT_LOGIN, .proc/create_mob_button)
 	else // Alt click because workbenches are tables, so putting items on them triggers a click
@@ -16,7 +20,7 @@
 	C.icon = H.ui_style
 	H.static_inventory += C
 	CL.screen += C
-	RegisterSignal(C, COMSIG_CLICK, .proc/component_ui_interact)
+	RegisterSignal(C, COMSIG_CLICK, PROC_REF(component_ui_interact))
 
 /datum/component/personal_crafting
 	var/busy
@@ -396,7 +400,7 @@
 	SIGNAL_HANDLER
 
 	if(user == parent)
-		INVOKE_ASYNC(src, .proc/ui_interact, user)
+		INVOKE_ASYNC(src, PROC_REF(ui_interact), user)
 
 // MOJAVE SUN EDIT BEGIN
 /datum/component/personal_crafting/ui_state(mob/user)
