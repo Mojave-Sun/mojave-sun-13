@@ -7,19 +7,54 @@
 
 /obj/machinery/door/airlock/vault/vault_door
 	name = "vault door"
-	desc = "A massive door shielding a vault from the disgusting outside world. Operated externally."
+	desc = "A massive door shielding a vault from the disgusting, irradiated outside world. Operated externally."
 	icon = 'mojave/icons/objects/airlocks/vault.dmi'
 	overlays_file = 'mojave/icons/objects/airlocks/vault_overlays.dmi'
 	note_overlay_file = 'mojave/icons/objects/airlocks/vault_overlays.dmi'
-	bound_width = 128 //literally 4 tiles, this fucker is one big chungus alright
+	bound_width = 128 //big chungus lol
+	assemblytype = null
 	id_tag = VAULT_DOOR_TAG
 	safe = FALSE
+	var/list/atom/movable/opacity_handler/opacity_handlers
+
+/obj/machinery/door/airlock/vault/vault_door/Initialize(mapload)
+	. = ..()
+	for(var/i in 1 to (bound_width/world.icon_size-1))
+		LAZYADD(opacity_handlers, new /atom/movable/opacity_handler(src, i))
+
+/obj/machinery/door/airlock/vault/vault_door/Destroy()
+	. = ..()
+	// opacity handlers already deal with qdeling themselves byeah
+	opacity_handlers = null
+
+/obj/machinery/door/airlock/vault/vault_door/setDir(newdir)
+	if(newdir != SOUTH)
+		stack_trace("Called setDir() on /obj/machinery/door/airlock/vault/vault_door with an invalid direction!")
+		newdir = SOUTH
+	return ..()
+
+/obj/machinery/door/airlock/vault/vault_door/CanPass(atom/movable/mover, border_dir)
+	. = ..()
+	if(!.)
+		return
+	var/turf/our_turf = get_turf(src)
+	//basically we only want to let mover pass if he is going through the open portion of the door, this is very dumb code bro
+	if(mover.x != (our_turf.x+1))
+		return FALSE
+
+//only opened by the funny button thing
+/obj/machinery/door/airlock/vault/vault_door/allowed(mob/M)
+	return FALSE
 
 //top 10 longest airlock animations of all time
 /obj/machinery/door/airlock/vault/vault_door/open_animation()
 	update_icon(ALL, AIRLOCK_OPENING, TRUE)
 	sleep(27.5)
-	set_opacity(0)
+	var/atom/movable/opacity_handler = LAZYACCESS(opacity_handlers, 1)
+	if(opacity_handler)
+		opacity_handler.set_opacity(0)
+	else
+		set_opacity(0)
 	update_freelook_sight()
 	sleep(12.4)
 	set_density(FALSE)
@@ -49,7 +84,11 @@
 	if(dangerous_close)
 		crush()
 	if(visible && !glass)
-		set_opacity(1)
+		var/atom/movable/opacity_handler = LAZYACCESS(opacity_handlers, 1)
+		if(opacity_handler)
+			opacity_handler.set_opacity(1)
+		else
+			set_opacity(1)
 	update_freelook_sight()
 	sleep(11.5)
 	update_icon(ALL, AIRLOCK_CLOSED, 1)
@@ -58,21 +97,36 @@
 	if(!dangerous_close)
 		CheckForMobs()
 
-/obj/machinery/airlock_sensor/vault_door
-	name = "vault door console"
+/obj/machinery/door/airlock/vault/vault_door/crush()
+	for(var/turf/occupied_turf in locs)
+		for(var/mob/living/L in occupied_turf)
+			L.visible_message(span_warning("[src] closes on [L], crushing [L.p_them()]!"), span_userdanger("[src] closes on you and crushes you!"))
+			SEND_SIGNAL(L, COMSIG_LIVING_DOORCRUSHED, src)
+			if(isalien(L))  //For xenos
+				L.adjustBruteLoss(DOOR_CRUSH_DAMAGE * 1.5) //Xenos go into crit after aproximately the same amount of crushes as humans.
+				L.emote("roar")
+			else if(ishuman(L)) //For humans
+				L.adjustBruteLoss(DOOR_CRUSH_DAMAGE)
+				L.emote("scream")
+				L.Paralyze(100)
+			else //for simple_animals & borgs
+				L.adjustBruteLoss(DOOR_CRUSH_DAMAGE)
+			//add_blood doesn't work for borgs/xenos, but add_blood_floor does.
+			L.add_splatter_floor(occupied_turf)
+			log_combat(src, L, "crushed")
+		for(var/obj/vehicle/sealed/mecha/M in get_turf(src))
+			M.take_damage(DOOR_CRUSH_DAMAGE)
+			log_combat(src, M, "crushed")
+
+/obj/machinery/button/door/vault_door
+	name = "vault door button"
 	desc = "It opens one comically large door!"
 	icon = 'mojave/icons/objects/airlocks/vault_console.dmi'
-	id_tag = VAULT_DOOR_TAG
-	master_tag = VAULT_DOOR_CONTROLLER_TAG
-	base_icon_state = "console"
-	icon_state = "console_off"
-
-/obj/machinery/airlock_sensor/vault_door/update_icon_state()
-	. = ..()
-	if(!on)
-		icon_state = "[base_icon_state]_off"
-	else
-		icon_state = "[base_icon_state]_on"
+	icon_state = "button"
+	base_icon_state = "button"
+	skin = "button"
+	id = VAULT_DOOR_TAG
+	density = TRUE
 
 #undef AIRLOCK_CLOSED
 #undef AIRLOCK_CLOSING
