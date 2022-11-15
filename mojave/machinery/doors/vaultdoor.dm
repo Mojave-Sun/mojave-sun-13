@@ -26,7 +26,7 @@
 	. = ..()
 	var/atom/movable/follower/opacity_handler
 	var/atom/movable/follower/density_handler
-	for(var/i in 1 to round(bound_width/world.icon_size-1, 1))
+	for(var/i in 1 to 3)
 		opacity_handler = new /atom/movable/follower/opacity(loc, src, i)
 		LAZYADD(opacity_handlers, opacity_handler)
 		density_handler = new /atom/movable/follower/density(loc, src, i)
