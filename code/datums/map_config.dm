@@ -22,7 +22,10 @@
 	var/space_ruin_levels = 7
 	var/space_empty_levels = 1
 
-	var/minetype = "none" // MOJAVE SUN EDIT - ORIGINAL IS var/minetype = "lavaland"
+	///The type of mining Z-level that should be loaded.
+	var/minetype = "none"
+	///If no minetype is set, this will be the blacklist file used
+	var/blacklist_file
 
 	var/allow_custom_shuttles = TRUE
 	var/shuttles = list(
