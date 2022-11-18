@@ -27,7 +27,6 @@
 	safe = FALSE
 	autoclose = FALSE
 	var/list/atom/movable/follower/opaque_followers
-	COOLDOWN_DECLARE(vaultdoor_cooldown)
 
 /obj/machinery/door/airlock/ms13/vault_door/Initialize(mapload)
 	. = ..()
@@ -144,6 +143,15 @@
 	density = TRUE
 	normaldoorcontrol = TRUE
 	wallmounted = FALSE
+	COOLDOWN_DECLARE(vaultdoor_cooldown)
+
+/obj/machinery/button/ms13/vault_door/attack_hand(mob/user, list/modifiers)
+	if(!COOLDOWN_FINISHED(src, vaultdoor_cooldown))
+		user.visible_message(span_warning("The switch is locked, and the indicator light remains red..."))
+		return
+
+	COOLDOWN_START(src, vaultdoor_cooldown, 25 SECONDS)
+	return ..()
 
 #undef AIRLOCK_CLOSED
 #undef AIRLOCK_CLOSING
