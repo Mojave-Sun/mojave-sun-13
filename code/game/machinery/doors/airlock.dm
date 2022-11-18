@@ -1194,6 +1194,10 @@
 
 	SEND_SIGNAL(src, COMSIG_AIRLOCK_OPEN, forced)
 	operating = TRUE
+	open_animation()
+	return TRUE
+
+/obj/machinery/door/airlock/proc/open_animation()
 	update_icon(ALL, AIRLOCK_OPENING, TRUE)
 	sleep(1)
 	set_opacity(0)
@@ -1209,8 +1213,6 @@
 	if(delayed_close_requested)
 		delayed_close_requested = FALSE
 		addtimer(CALLBACK(src, .proc/close), 1)
-	return TRUE
-
 
 /obj/machinery/door/airlock/close(forced = FALSE, force_crush = FALSE)
 	if(operating || welded || locked || seal)
@@ -1241,6 +1243,10 @@
 		SSexplosions.med_mov_atom += killthis
 	SEND_SIGNAL(src, COMSIG_AIRLOCK_CLOSE, forced)
 	operating = TRUE
+	close_animation(dangerous_close)
+	return TRUE
+
+/obj/machinery/door/airlock/proc/close_animation(dangerous_close = FALSE)
 	update_icon(ALL, AIRLOCK_CLOSING, 1)
 	layer = CLOSED_DOOR_LAYER
 	if(air_tight)
@@ -1264,7 +1270,6 @@
 	delayed_close_requested = FALSE
 	if(!dangerous_close)
 		CheckForMobs()
-	return TRUE
 
 /obj/machinery/door/airlock/proc/prison_open()
 	if(obj_flags & EMAGGED)
