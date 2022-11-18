@@ -3,8 +3,8 @@
 	desc = "An old mop. Essential for attempting to clean up the unspeakable."
 	icon = 'mojave/icons/objects/tools/tools_world.dmi'
 	icon_state = "mop"
-	lefthand_file = 'icons/mob/inhands/equipment/custodial_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/custodial_righthand.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
 	force = 10
 	throwforce = 10
 	throw_speed = 3
