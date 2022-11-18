@@ -587,8 +587,8 @@
 	. = ..()
 	if(closeOtherId)
 		. += span_warning("This airlock cycles on ID: [sanitize(closeOtherId)].")
-	else if(!closeOtherId)
-		. += span_warning("This airlock does not cycle.")
+	else if(!closeOtherId) // MOJAVE SUN EDIT
+		. += span_warning("This airlock does not cycle.") // MOJAVE SUN EDIT
 	if(obj_flags & EMAGGED)
 		. += span_warning("Its access panel is smoking slightly.")
 	if(note)
