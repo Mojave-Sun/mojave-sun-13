@@ -70,3 +70,9 @@
 		/obj/item/gun/ballistic/shotgun/ms13/lever/cowboy,\
 		/obj/item/gun/ballistic/shotgun/ms13/lever,\
 		/obj/item/gun/ballistic/revolver/ms13/caravan/sawed)
+
+	if(prob(80))
+		l_pocket = pick(
+			/obj/item/stack/medical/gauze/ms13/three)
+	else
+		l_pocket = null

@@ -29,7 +29,7 @@
 		/obj/item/flashlight/ms13/crafted=1, \
 		/obj/item/ammo_box/magazine/ms13/smgm10mm=1, \
 		/obj/item/radio/ms13/broadcast=1, \
-		/obj/item/stack/ms13/currency/prewar/hunned=1)
+		/obj/item/stack/ms13/currency/prewar/hunnedtwenty=1)
 
 /datum/outfit/job/ms13/raiders/boss/pre_equip(mob/living/carbon/human/H)
 	..()
