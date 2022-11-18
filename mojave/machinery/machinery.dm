@@ -120,6 +120,7 @@
 	var/specialfunctions = OPEN // Bitflag, see assembly file
 	var/sync_doors = TRUE
 	var/destroyable = FALSE
+	var/wallmounted = TRUE
 
 /obj/machinery/button/ms13/setup_device() //Adds this so we can have our own future functionality, instead of making 4000 button types for each individual thing
 	if(!device)
@@ -135,7 +136,8 @@
 
 /obj/machinery/button/ms13/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/wall_mount)
+	if(wallmounted)
+		AddElement(/datum/element/wall_mount)
 
 /obj/machinery/button/ms13/attackby(obj/item/W, mob/living/user, params)
 	if(!destroyable)
