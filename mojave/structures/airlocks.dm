@@ -40,6 +40,9 @@
 		return
 	. = ..()
 
+/obj/machinery/door/airlock/ms13/screwdriver_act(mob/living/user, obj/item/tool)
+	return
+
 //// Town Doors ////
 
 /obj/machinery/door/airlock/ms13/town
