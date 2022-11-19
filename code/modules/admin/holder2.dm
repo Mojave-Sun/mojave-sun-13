@@ -33,7 +33,8 @@ GLOBAL_PROTECT(href_token)
 
 	var/datum/filter_editor/filteriffic
 	// GOMBLE TODO - I think particool is now obsolete ( sad face) - double check if we can rip this out
-	var/datum/particle_editor/particool  //MOJAVE MODULE OUTDOOR_EFFECTS
+	//var/datum/particle_editor/particool  //MOJAVE MODULE OUTDOOR_EFFECTS
+	var/datum/particle_editor/particle_test
 	var/datum/colorblind_tester/color_test = new
 	var/datum/plane_master_debug/plane_debug
 
