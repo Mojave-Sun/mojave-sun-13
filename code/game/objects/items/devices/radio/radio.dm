@@ -78,6 +78,16 @@
 
 	var/force_superspace = FALSE // MOJAVE EDIT: set true to ignore z levels and tcom machinery, we aren't in space
 
+	/// overlay when speaker is on
+	var/overlay_speaker_idle = "s_idle"
+	/// overlay when recieving a message
+	var/overlay_speaker_active = "s_active"
+
+	/// overlay when mic is on
+	var/overlay_mic_idle = "m_idle"
+	/// overlay when speaking a message (is displayed simultaniously with speaker_active)
+	var/overlay_mic_active = "m_active"
+
 /obj/item/radio/Initialize(mapload)
 	wires = new /datum/wires/radio(src)
 	secure_radio_connections = list()
@@ -192,6 +202,7 @@
 		readd_listening_radio_channels()
 	else if(!listening)
 		remove_radio_all(src)
+	update_icon()
 
 /**
  * setter for broadcasting that makes us not hearing sensitive if not broadcasting and hearing sensitive if broadcasting
@@ -210,6 +221,7 @@
 		become_hearing_sensitive(INNATE_TRAIT)
 	else if(!broadcasting)
 		lose_hearing_sensitivity(INNATE_TRAIT)
+	update_icon()
 
 ///setter for the on var that sets both broadcasting and listening to off or whatever they were supposed to be
 /obj/item/radio/proc/set_on(new_on)
@@ -256,6 +268,8 @@
 
 	if(use_command)
 		spans |= SPAN_COMMAND
+
+	flick_overlay_view(overlay_mic_active, 5 SECONDS)
 
 	/*
 	Roughly speaking, radios attempt to make a subspace transmission (which
@@ -362,6 +376,9 @@
 				return TRUE
 	return FALSE
 
+/obj/item/radio/proc/on_recieve_message()
+	flick_overlay_view(overlay_speaker_active, 5 SECONDS)
+
 /obj/item/radio/ui_state(mob/user)
 	return GLOB.inventory_state
 
@@ -457,6 +474,15 @@
 		. += span_notice("It can be attached and modified.")
 	else
 		. += span_notice("It cannot be modified or attached.")
+
+/obj/item/radio/update_overlays()
+	. = ..()
+	if(unscrewed)
+		return
+	if(broadcasting)
+		. += overlay_mic_idle
+	if(listening)
+		. += overlay_speaker_idle
 
 /obj/item/radio/screwdriver_act(mob/living/user, obj/item/tool)
 	add_fingerprint(user)
