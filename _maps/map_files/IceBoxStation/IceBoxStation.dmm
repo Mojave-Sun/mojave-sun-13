@@ -5830,10 +5830,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/service/chapel)
-"bMs" = (
-/obj/structure/janitorialcart,
-/turf/open/floor/plating,
-/area/station/maintenance/starboard/fore)
 "bMz" = (
 /obj/docking_port/stationary{
 	dir = 8;
@@ -13950,6 +13946,26 @@
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/upper)
+"egT" = (
+/obj/machinery/airalarm/directional/north,
+/obj/structure/rack,
+/obj/item/controller{
+	pixel_x = -7
+	},
+/obj/item/compact_remote{
+	pixel_x = -7
+	},
+/obj/item/compact_remote{
+	pixel_x = -7
+	},
+/obj/item/integrated_circuit/loaded/speech_relay{
+	pixel_x = 7
+	},
+/obj/item/integrated_circuit/loaded/hello_world{
+	pixel_x = 7
+	},
+/turf/open/floor/iron/white/corner,
+/area/station/science/explab)
 "egV" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -19215,6 +19231,10 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/aft)
+"fMI" = (
+/obj/structure/mop_bucket/janitorialcart,
+/turf/open/floor/plating,
+/area/station/maintenance/starboard/fore)
 "fMJ" = (
 /obj/structure/chair{
 	dir = 1
@@ -23709,6 +23729,17 @@
 	dir = 1
 	},
 /area/station/hallway/secondary/service)
+"hih" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/mop_bucket/janitorialcart{
+	dir = 4
+	},
+/obj/item/mop,
+/obj/effect/turf_decal/tile/blue/opposingcorners{
+	dir = 1
+	},
+/turf/open/floor/iron/cafeteria,
+/area/station/security/prison/work)
 "hil" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/plating,
@@ -40270,6 +40301,12 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark/textured,
 /area/station/security/prison)
+"msi" = (
+/obj/machinery/bci_implanter,
+/turf/open/floor/iron/white/side{
+	dir = 4
+	},
+/area/station/science/explab)
 "msl" = (
 /obj/machinery/disposal/delivery_chute{
 	dir = 4
@@ -40523,17 +40560,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
-"mxA" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/janitorialcart{
-	dir = 4
-	},
-/obj/item/mop,
-/obj/effect/turf_decal/tile/blue/opposingcorners{
-	dir = 1
-	},
-/turf/open/floor/iron/cafeteria,
-/area/station/security/prison/work)
 "mxD" = (
 /obj/machinery/holopad,
 /obj/structure/cable,
@@ -45883,10 +45909,6 @@
 	},
 /turf/open/floor/iron/showroomfloor,
 /area/station/security/warden)
-"oaB" = (
-/obj/structure/janitorialcart,
-/turf/open/floor/iron,
-/area/station/service/janitor)
 "oaG" = (
 /obj/effect/turf_decal/tile/dark{
 	dir = 1
@@ -50891,6 +50913,10 @@
 	},
 /turf/open/floor/iron/large,
 /area/station/service/hydroponics/garden)
+"pEQ" = (
+/obj/structure/mop_bucket/janitorialcart,
+/turf/open/floor/iron,
+/area/station/service/janitor)
 "pEX" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -52375,26 +52401,6 @@
 "qck" = (
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical/morgue)
-"qcl" = (
-/obj/machinery/airalarm/directional/north,
-/obj/structure/rack,
-/obj/item/controller{
-	pixel_x = -7
-	},
-/obj/item/compact_remote{
-	pixel_x = -7
-	},
-/obj/item/compact_remote{
-	pixel_x = -7
-	},
-/obj/item/integrated_circuit/loaded/speech_relay{
-	pixel_x = 7
-	},
-/obj/item/integrated_circuit/loaded/hello_world{
-	pixel_x = 7
-	},
-/turf/open/floor/iron/white/corner,
-/area/station/science/explab)
 "qcr" = (
 /obj/machinery/light/small/directional/north,
 /obj/structure/chair/stool/directional/south,
@@ -75147,12 +75153,6 @@
 /obj/machinery/teleport/hub,
 /turf/open/floor/plating,
 /area/station/command/teleporter)
-"xeB" = (
-/obj/machinery/bci_implanter,
-/turf/open/floor/iron/white/side{
-	dir = 4
-	},
-/area/station/science/explab)
 "xeH" = (
 /obj/machinery/airalarm/directional/west,
 /turf/open/floor/wood,
@@ -166746,7 +166746,7 @@ iDt
 hPs
 xLV
 xLV
-mxA
+hih
 vwo
 tCL
 jNf
@@ -240329,7 +240329,7 @@ vXh
 xVK
 xPN
 cNm
-oaB
+pEQ
 cvS
 gDp
 kRP
@@ -254160,7 +254160,7 @@ kKL
 lli
 cvF
 kKL
-bMs
+fMI
 kKL
 kVx
 lNI
@@ -255507,8 +255507,8 @@ lio
 bKm
 xMT
 hjE
-qcl
-xeB
+egT
+msi
 pJc
 iBO
 iji
