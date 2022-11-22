@@ -177,6 +177,8 @@
 
 	/// the datum handler for our contents - see create_storage() for creation method
 	var/datum/storage/atom_storage
+	/// How this atom should react to having its astar blocking checked
+	var/can_astar_pass = CANASTARPASS_DENSITY
 
 	var/hitted_sound //MOJAVE SUN EDIT - Hit Sounds, Why the devilshit isnt this a base feature, what goober decided every objects hit sound should be dictated by one fwuarging ogg
 
@@ -2083,6 +2085,9 @@
  * * to_dir- What direction we're trying to move in, relevant for things like directional windows that only block movement in certain directions
  * * caller- The movable we're checking pass flags for, if we're making any such checks
  * * no_id: When true, doors with public access will count as impassible
+ *
+ * IMPORTANT NOTE: /turf/proc/LinkBlockedWithAccess assumes that overrides of CanAStarPass will always return true if density is FALSE
+ * If this is NOT you, ensure you edit your can_astar_pass variable. Check __DEFINES/path.dm
  **/
 /atom/proc/CanAStarPass(obj/item/card/id/ID, to_dir, atom/movable/caller, no_id = FALSE)
 	if(caller && (caller.pass_flags & pass_flags_self))
