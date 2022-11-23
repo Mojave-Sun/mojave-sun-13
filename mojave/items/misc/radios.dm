@@ -21,14 +21,11 @@
 	if(!static)
 		AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
-/obj/item/radio/ms13/can_receive(freq, level, AIuser)
-	if(ishuman(src.loc))
-		var/mob/living/carbon/human/H = src.loc
-		if(H.is_holding(src))
-			return ..(freq, level)
-	else if(AIuser)
-		return ..(freq, level)
-	return FALSE
+/obj/item/radio/ms13/can_receive(freq, level)
+	if(!listening)
+		return FALSE
+	else 
+		return TRUE
 
 /obj/item/radio/ms13/broadcast
 	name = "broadcast hand radio"
