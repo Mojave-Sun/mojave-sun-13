@@ -21,14 +21,13 @@
 	if(!static)
 		AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
-/obj/item/radio/ms13/can_receive(freq, level, AIuser)
-	if(ishuman(src.loc))
-		var/mob/living/carbon/human/H = src.loc
-		if(H.is_holding(src))
-			return ..(freq, level)
-	else if(AIuser)
-		return ..(freq, level)
-	return FALSE
+/obj/item/radio/ms13/can_receive(freq, level)
+	if(!on)
+		return FALSE
+	if(!listening)
+		return FALSE
+	
+	return TRUE //MOHAVE SUN EDIT: Changed this so that it plays only when someone is listening, but otherwhise can recieve, even when not being held.
 
 /obj/item/radio/ms13/broadcast
 	name = "broadcast hand radio"
