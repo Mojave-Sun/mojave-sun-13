@@ -44,10 +44,8 @@
 /turf/open/floor/ms13/tile/long,
 /area/ms13/desert)
 "dj" = (
-/obj/machinery/ms13/terminal/wall{
-	remote_capability = 1;
-	signal_id_1 = "protectron_wh2";
-	signal_title_1 = "Shutters of Protectron Warehouse 2"
+/obj/machinery/button/ms13{
+	id = "robco_protectron_wh2"
 	},
 /turf/open/floor/ms13/metal/grate/border,
 /area/ms13/town)
@@ -113,10 +111,8 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "kY" = (
-/obj/machinery/ms13/terminal/wall{
-	remote_capability = 1;
-	signal_id_1 = "protectron_wh1";
-	signal_title_1 = "Shutters of Protectron Warehouse 1"
+/obj/machinery/button/ms13{
+	id = "robco_protectron_wh1"
 	},
 /turf/open/floor/ms13/metal/grate/border,
 /area/ms13/town)
@@ -444,13 +440,9 @@
 /obj/structure/noticeboard/ms13/cork,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
-"DQ" = (
-/obj/machinery/ms13/terminal,
-/turf/open/floor/ms13/concrete/industrial,
-/area/ms13/town)
 "Eg" = (
 /obj/machinery/door/poddoor/shutters/ms13/vertical/red/mid/pre_open{
-	id = "protectron_wh2"
+	id = "robco_protectron_wh2"
 	},
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
@@ -464,8 +456,10 @@
 /obj/structure/table/ms13/no_smooth/large/metal/desk,
 /obj/machinery/ms13/terminal{
 	remote_capability = 1;
-	signal_id_1 = "protectron_wh1";
-	signal_title_1 = "Shutters of Protectron Warehouse 1"
+	signal_id_1 = "robco_protectron_wh1";
+	signal_id_2 = "robco_protectron_wh2";
+	signal_title_1 = "Protectron Warehouse 1";
+	signal_title_2 = "Protectron Warehouse 2"
 	},
 /obj/structure/ms13/wall_decor/clock,
 /turf/open/floor/ms13/concrete/industrial,
@@ -672,15 +666,6 @@
 /obj/machinery/light/ms13,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
-"UH" = (
-/obj/structure/ms13/storage/vent,
-/obj/machinery/ms13/terminal{
-	remote_capability = 1;
-	signal_id_1 = "protectron_wh2";
-	signal_title_1 = "Shutters of Protectron Warehouse 2"
-	},
-/turf/open/floor/ms13/concrete/industrial,
-/area/ms13/town)
 "UK" = (
 /turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/underground/mountain)
@@ -715,7 +700,7 @@
 /area/ms13/underground/mountain)
 "Yl" = (
 /obj/machinery/door/poddoor/shutters/ms13/vertical/red/mid/pre_open{
-	id = "protectron_wh1"
+	id = "robco_protectron_wh1"
 	},
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
@@ -3487,7 +3472,7 @@ Le
 Nx
 ex
 Le
-DQ
+pC
 yg
 of
 of
@@ -4289,7 +4274,7 @@ pC
 pC
 pb
 of
-DQ
+pC
 OS
 PO
 pC
@@ -5894,7 +5879,7 @@ Xw
 Xw
 Xw
 of
-UH
+wH
 Jy
 pC
 pC
