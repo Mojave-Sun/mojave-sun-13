@@ -35,13 +35,15 @@
 /obj/effect/abstract/displacement_map/proc/set_owner(atom/movable/new_owner)
 	if(owner)
 		owner = null
-		remove_displacement()
+		remove_displacement(removed)
 	if(!new_owner)
 		return
 	owner = new_owner
-	apply_displacement()
+	apply_displacement(new_owner)
 
 /obj/effect/abstract/displacement_map/proc/apply_displacement(atom/movable/applied)
+	if(!applied)
+		return
 	/// In case priority starts mattering for these, how about you go fuck yourself
 	applied.add_filter("[REF(src)]", length(applied.filter_data), displacement_map_filter(render_source = render_target, x = displacement_x, y = displacement_y, size = displacement_size))
 	/// We need to be inside owner's vis_contents due to the way render_source and render_target work
@@ -49,6 +51,8 @@
 	applied.vis_contents += src
 
 /obj/effect/abstract/displacement_map/proc/remove_displacement(atom/movable/removed)
+	if(!removed)
+		return
 	removed.remove_filter("[REF(src)]")
 	removed.vis_contents -= src
 

@@ -13,11 +13,11 @@
 	displacement_size = 3
 
 /// This uses update_body(), not the standard system, guh
-/obj/effect/abstract/displacement_map/fat/apply_displacement(atom/applied)
-	return
+/obj/effect/abstract/displacement_map/fat/apply_displacement(atom/movable/applied)
+	applied.vis_contents += src
 
-/obj/effect/abstract/displacement_map/fat/remove_displacement(atom/removed)
-	return
+/obj/effect/abstract/displacement_map/fat/remove_displacement(atom/movable/removed)
+	applied.vis_contents -= src
 
 /// Distortion applied to a human's body to turn them fat, not the clothes
 /obj/effect/abstract/displacement_map/fat/body
