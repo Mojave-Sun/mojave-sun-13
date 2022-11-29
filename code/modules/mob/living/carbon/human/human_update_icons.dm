@@ -135,6 +135,9 @@ There are several things that need to be remembered:
 		if(OFFSET_UNIFORM in dna.species.offset_features)
 			uniform_overlay.pixel_x += dna.species.offset_features[OFFSET_UNIFORM][1]
 			uniform_overlay.pixel_y += dna.species.offset_features[OFFSET_UNIFORM][2]
+		// MOJAVE EDIT BEGIN - Fatties
+
+		// MOJAVE EDIT END - Fatties
 		overlays_standing[UNIFORM_LAYER] = uniform_overlay
 
 	apply_overlay(UNIFORM_LAYER)
