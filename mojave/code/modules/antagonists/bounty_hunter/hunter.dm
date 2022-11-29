@@ -22,7 +22,7 @@
 	objectives += objective
 	var/datum/objective/survive/survive = new /datum/objective/survive
 	survive.owner = owner
-	survive.explanation_text = "Ideally you want to survive if you wish to inform your client that the bounty is in fact dead."
+	survive.explanation_text = "Ideally you want to survive if you want to collect the bounty.."
 
 /datum/antagonist/bounty_hunter/greet()
 	to_chat(owner, span_boldannounce("You are not an antagonist in that you may kill whomever you please, but you can do anything to ensure the capture and killing of the bounty."))
@@ -34,13 +34,15 @@
 /datum/objective/assassinate/bounty/find_target(dupe_search_range, blacklist)
 	var/list/potential_job_targets = list()
 	var/datum/job/targetted_job
+	var/actual_target
 	for(var/datum/job/key in SSjob.joinable_occupations.Copy())
 		potential_job_targets[key] = 1 / key.total_positions //Meta-target the high rankers
 
 		while(length(potential_job_targets))
 			targetted_job = pick_weight(potential_job_targets)
 			potential_job_targets -= targetted_job
-			targetted_job = pick_weight(potential_job_targets)
 			for(var/mob/potential_target in GLOB.human_list)
 				if((potential_target.mind.assigned_role == targetted_job) && (potential_target.stat != DEAD))
-
+					actual_target = potential_target
+					break
+	return (actual_target ? actual_target : "free objective")

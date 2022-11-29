@@ -25,7 +25,7 @@
 		log_admin("Cannot accept Bounty Hunter ruleset. Couldn't find any bounty hunter spawn points.")
 		message_admins("Cannot accept Bounty Hunter ruleset. Couldn't find any bounty hunter spawn points.")
 		return FALSE
-	var/list/potential_targets = SSjob.joinable_occupations.Copy()
+	//var/list/potential_targets = SSjob.joinable_occupations.Copy()
 	return ..()
 
 /datum/dynamic_ruleset/midround/from_ghosts/bounty_hunter/finish_setup(mob/new_character, index)
