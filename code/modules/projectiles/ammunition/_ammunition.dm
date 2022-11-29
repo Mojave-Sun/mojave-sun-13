@@ -42,8 +42,9 @@
 	. = ..()
 	if(projectile_type)
 		loaded_projectile = new projectile_type(src)
-	pixel_x = base_pixel_x + rand(-10, 10)
-	pixel_y = base_pixel_y + rand(-10, 10)
+	//pixel_x = base_pixel_x + rand(-10, 10)
+	//pixel_y = base_pixel_y + rand(-10, 10)
+	item_flags |= NO_PIXEL_RANDOM_DROP
 	setDir(pick(GLOB.alldirs))
 	update_appearance()
 
@@ -177,8 +178,10 @@
 
 /obj/item/ammo_casing/proc/actual_bounce(mob/shooter, new_x, new_y, bounce_num)
 	if(bounce_num == 6)
+		SpinAnimation(speed = 0.5 SECONDS, loops = 2, parallel = TRUE)
 		animate(src, pixel_x = new_x, pixel_y = new_y, time = 0.9 SECONDS, easing = SINE_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
 	else
+		SpinAnimation(speed = 0.1 SECONDS, loops = 3, parallel = TRUE)
 		animate(src, pixel_x = new_x, pixel_y = new_y, time = 0.3 SECONDS, easing = LINEAR_EASING, flags = ANIMATION_PARALLEL)
 
 	//var/list/possible_dirs = GLOB.cardinals.Copy()
