@@ -8,7 +8,7 @@
  */
 /obj/effect/abstract/displacement_map/fat
 	name = "fatass"
-	icon = 'mojace/icons/effects/distortion/fat.dmi'
+	icon = 'mojave/icons/effects/distortion/fat.dmi'
 	// DON'T fucking change this, it will break everything, the map is fucking pixel perfect
 	displacement_size = 3
 

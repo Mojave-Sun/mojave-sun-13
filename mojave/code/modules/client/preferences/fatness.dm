@@ -11,5 +11,5 @@
 /datum/preference/choiced/fatness/create_default_value()
 	return "Average"
 
-/datum/preference/choiced/skin_tone/apply_to_human(mob/living/carbon/human/target, value)
-	target.fatness = value
+/datum/preference/choiced/fatness/apply_to_human(mob/living/carbon/human/target, value)
+	target.fatness = lowertext(value)

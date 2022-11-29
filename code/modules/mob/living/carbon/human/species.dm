@@ -821,18 +821,23 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				underwear_overlay = mutable_appearance(underwear.icon, underwear.icon_state, -BODY_LAYER)
 				if(!underwear.use_static)
 					underwear_overlay.color = species_human.underwear_color
+				underwear_overlay = species_human.apply_fatness(underwear_overlay, TRUE)
 				standing += underwear_overlay
 
 		if(species_human.undershirt)
 			var/datum/sprite_accessory/undershirt/undershirt = GLOB.undershirt_list[species_human.undershirt]
 			if(undershirt)
-				standing += mutable_appearance(undershirt.icon, undershirt.icon_state, -BODY_LAYER)
+				var/mutable_appearance/undershirt_overlay = mutable_appearance(undershirt.icon, undershirt.icon_state, -BODY_LAYER)
+				undershirt_overlay = species_human.apply_fatness(undershirt_overlay, TRUE)
+				standing += undershirt_overlay
 				//MOJAVE SUN EDIT END - Gender Prefs
 
 		if(species_human.socks && species_human.num_legs >= 2 && !(DIGITIGRADE in species_traits))
 			var/datum/sprite_accessory/socks/socks = GLOB.socks_list[species_human.socks]
 			if(socks)
-				standing += mutable_appearance(socks.icon, socks.icon_state, -BODY_LAYER)
+				var/mutable_appearance/socks_overlay = mutable_appearance(socks.icon, socks.icon_state, -BODY_LAYER)
+				socks_overlay = species_human.apply_fatness(socks_overlay, TRUE)
+				standing += socks_overlay
 
 	if(standing.len)
 		species_human.overlays_standing[BODY_LAYER] = standing
