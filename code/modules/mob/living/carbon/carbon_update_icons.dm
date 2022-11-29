@@ -283,11 +283,11 @@
 			continue
 		new_limbs += bp_icons
 	if(new_limbs.len)
-		var/mutable_appearance/limb_overlay = mutable_appearance(layer = BODYPARTS_LAYER)
-		limb_overlay.overlays = new_limbs
-		limb_overlay = apply_fatness(limb_overlay, FALSE)
-		overlays_standing[BODYPARTS_LAYER] = limb_overlay
-		limb_icon_cache[icon_render_key] = limb_overlay
+		// i hate this
+		for(var/image/limb_image in new_limbs)
+			limb_image = apply_fatness(limb_image, FALSE)
+		overlays_standing[BODYPARTS_LAYER] = new_limbs
+		limb_icon_cache[icon_render_key] = new_limbs
 
 	apply_overlay(BODYPARTS_LAYER)
 	update_damage_overlays()
