@@ -98,7 +98,8 @@
 	throw_speed = 4
 	embedding = list("embedded_pain_multiplier" = 2, "embed_chance" = 35, "embedded_fall_chance" = 20)
 	sharpness = SHARP_IMPALING
-	tool_behaviour = null
+	tool_behaviour = TOOL_KNIFE
+	toolspeed = 3
 	wound_bonus = -5
 	bare_wound_bonus = 0
 

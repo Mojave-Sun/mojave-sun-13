@@ -77,7 +77,7 @@
 
 	var/matrix/initial_transform = matrix(orbiter.transform)
 	orbiter_list[orbiter] = initial_transform
-
+	/* MOJAVE SUN EDIT BEGIN
 	// Head first!
 	if(pre_rotation)
 		var/matrix/M = matrix(orbiter.transform)
@@ -91,7 +91,7 @@
 	shift.Translate(0, radius)
 	orbiter.transform = shift
 
-	orbiter.SpinAnimation(rotation_speed, -1, clockwise, rotation_segments, parallel = FALSE)
+	orbiter.SpinAnimation(rotation_speed, -1, clockwise, rotation_segments, parallel = FALSE) */ // MOJAVE SUN EDIT END
 
 	if(ismob(orbiter))
 		var/mob/orbiter_mob = orbiter

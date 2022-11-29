@@ -587,8 +587,8 @@
 	. = ..()
 	if(closeOtherId)
 		. += span_warning("This airlock cycles on ID: [sanitize(closeOtherId)].")
-	else if(!closeOtherId)
-		. += span_warning("This airlock does not cycle.")
+	else if(!closeOtherId) // MOJAVE SUN EDIT
+		. += span_warning("This airlock does not cycle.") // MOJAVE SUN EDIT
 	if(obj_flags & EMAGGED)
 		. += span_warning("Its access panel is smoking slightly.")
 	if(note)
@@ -1164,7 +1164,7 @@
 		if(obj_flags & EMAGGED)
 			return FALSE
 		use_power(50)
-		playsound(src, doorOpen, 30, TRUE)
+		playsound(src, doorOpen, 30, FALSE) //MOJAVE SUN EDIT - ORIGINAL IS playsound(src, doorOpen, 30, TRUE)
 	else
 		playsound(src, 'sound/machines/airlockforced.ogg', 30, TRUE)
 
@@ -1233,7 +1233,7 @@
 		if(obj_flags & EMAGGED)
 			return
 		use_power(50)
-		playsound(src, doorClose, 30, TRUE)
+		playsound(src, doorClose, 30, FALSE) // MOJAVE SUN EDIT - ORIGINAL IS playsound(src, doorClose, 30, TRUE)
 
 	else
 		playsound(src, 'sound/machines/airlockforced.ogg', 30, TRUE)
