@@ -154,13 +154,34 @@
 	bounce_away(FALSE, NONE)
 	return ..()
 
-/obj/item/ammo_casing/proc/bounce_away(still_warm = FALSE, bounce_delay = 3)
+/obj/item/ammo_casing/proc/bounce_away(still_warm = FALSE, bounce_delay = 3, mob/shooter)
 	if(!heavy_metal)
 		return
 	update_appearance()
-	SpinAnimation(10, 1)
+	SpinAnimation(speed = 1.5 SECONDS, loops = 1, parallel = TRUE)
 	var/turf/T = get_turf(src)
 	if(still_warm && T?.bullet_sizzle)
-		addtimer(CALLBACK(GLOBAL_PROC, .proc/playsound, src, 'sound/items/welder.ogg', 20, 1), bounce_delay) //If the turf is made of water and the shell casing is still hot, make a sizzling sound when it's ejected.
+		addtimer(CALLBACK(GLOBAL_PROC, .proc/playsound, src, 'sound/items/welder.ogg', 10, 1), bounce_delay) //If the turf is made of water and the shell casing is still hot, make a sizzling sound when it's ejected.
 	else if(T?.bullet_bounce_sound)
-		addtimer(CALLBACK(GLOBAL_PROC, .proc/playsound, src, T.bullet_bounce_sound, 20, 1), bounce_delay) //Soft / non-solid turfs that shouldn't make a sound when a shell casing is ejected over them.
+		addtimer(CALLBACK(GLOBAL_PROC, .proc/playsound, src, T.bullet_bounce_sound, 20, 1), 0.3 SECONDS) //Soft / non-solid turfs that shouldn't make a sound when a shell casing is ejected over them.
+		addtimer(CALLBACK(GLOBAL_PROC, .proc/playsound, src, T.bullet_bounce_sound, 20, 1), 0.6 SECONDS) //Soft / non-solid turfs that shouldn't make a sound when a shell casing is ejected over them.
+		addtimer(CALLBACK(GLOBAL_PROC, .proc/playsound, src, T.bullet_bounce_sound, 20, 1), 0.9 SECONDS) //Soft / non-solid turfs that shouldn't make a sound when a shell casing is ejected over them.
+	var/new_x = rand(-12, 12)
+	var/new_y = rand(18, 36)
+	for(var/bounce_num = 0, bounce_num != 9, bounce_num += 3)
+		//animate(src, pixel_x = pixel_x + rand(-12, 12), pixel_y = pixel_y + rand(-12, 12), time = 1 SECONDS, flags = ANIMATION_PARALLEL)
+		addtimer(CALLBACK(src, .proc/actual_bounce, shooter, new_x, new_y, bounce_num), bounce_num)
+		new_x += rand(-6, 18)
+		new_y += rand(36, 12)
+		//animate(src, pixel_x = pixel_x + rand(-18, 54), pixel_y = pixel_y + rand(108, 36), time = 1.5 SECONDS, easing = BOUNCE_EASING, flags = ANIMATION_PARALLEL)
+
+/obj/item/ammo_casing/proc/actual_bounce(mob/shooter, new_x, new_y, bounce_num)
+	if(bounce_num == 6)
+		animate(src, pixel_x = new_x, pixel_y = new_y, time = 0.9 SECONDS, easing = SINE_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
+	else
+		animate(src, pixel_x = new_x, pixel_y = new_y, time = 0.3 SECONDS, easing = LINEAR_EASING, flags = ANIMATION_PARALLEL)
+
+	//var/list/possible_dirs = GLOB.cardinals.Copy()
+	//possible_dirs -= turn(shooter.dir, -90) //RIP left handed users
+	//var/chosen_dir = pick(possible_dirs)
+	//var/target_turf = get_step_away(get_turf(src), chosen_dir, 1)
