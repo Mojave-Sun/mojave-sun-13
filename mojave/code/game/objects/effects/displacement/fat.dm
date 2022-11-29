@@ -17,7 +17,7 @@
 	applied.vis_contents += src
 
 /obj/effect/abstract/displacement_map/fat/remove_displacement(atom/movable/removed)
-	applied.vis_contents -= src
+	removed.vis_contents -= src
 
 /// Distortion applied to a human's body to turn them fat, not the clothes
 /obj/effect/abstract/displacement_map/fat/body

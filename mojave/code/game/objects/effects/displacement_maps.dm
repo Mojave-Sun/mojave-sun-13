@@ -35,7 +35,7 @@
 /obj/effect/abstract/displacement_map/proc/set_owner(atom/movable/new_owner)
 	if(owner)
 		owner = null
-		remove_displacement(removed)
+		remove_displacement(owner)
 	if(!new_owner)
 		return
 	owner = new_owner
