@@ -38868,6 +38868,11 @@
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
+"lTL" = (
+/obj/machinery/dna_infuser,
+/obj/item/infuser_book,
+/turf/open/floor/iron/dark,
+/area/station/science/genetics)
 "lTN" = (
 /obj/structure/table,
 /obj/machinery/recharger,
@@ -38948,6 +38953,21 @@
 	dir = 4
 	},
 /area/station/engineering/storage_shared)
+"lVp" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/airlock/medical{
+	name = "Surgery South"
+	},
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/turf_decal/tile/blue/full,
+/obj/effect/mapping_helpers/airlock/access/all/medical/surgery,
+/turf/open/floor/iron/white/smooth_large,
+/area/station/medical/medbay/aft)
 "lVs" = (
 /obj/structure/table,
 /obj/item/clothing/mask/surgical,
@@ -39907,21 +39927,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/commons/dorms)
-"mmB" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/door/airlock/medical{
-	name = "Surgery B"
-	},
-/obj/structure/cable,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/obj/effect/turf_decal/tile/blue/full,
-/obj/effect/mapping_helpers/airlock/access/all/medical/surgery,
-/turf/open/floor/iron/white/smooth_large,
-/area/station/medical/medbay/aft)
 "mmR" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -45998,11 +46003,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
-"ocE" = (
-/obj/machinery/dna_infuser,
-/obj/item/infuser_book,
-/turf/open/floor/iron/dark,
-/area/station/science/genetics)
 "ocF" = (
 /mob/living/simple_animal/hostile/retaliate/goat{
 	atmos_requirements = list("min_oxy"=1,"max_oxy"=0,"min_plas"=0,"max_plas"=1,"min_co2"=0,"max_co2"=5,"min_n2"=0,"max_n2"=0);
@@ -53163,6 +53163,21 @@
 	dir = 1
 	},
 /area/station/security/office)
+"qqP" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/airlock/medical{
+	name = "Surgery North"
+	},
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/turf_decal/tile/blue/full,
+/obj/effect/mapping_helpers/airlock/access/all/medical/surgery,
+/turf/open/floor/iron/white/smooth_large,
+/area/station/medical/medbay/aft)
 "qrc" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/turf_decal/tile/blue{
@@ -59406,6 +59421,32 @@
 /obj/machinery/power/apc/auto_name/directional/south,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
+"spg" = (
+/obj/structure/table,
+/obj/item/storage/box/monkeycubes{
+	pixel_x = 6;
+	pixel_y = 7
+	},
+/obj/item/storage/box/monkeycubes{
+	pixel_x = -5
+	},
+/obj/item/storage/box/bodybags{
+	pixel_x = -1;
+	pixel_y = 6
+	},
+/obj/item/storage/box/disks{
+	pixel_x = 1;
+	pixel_y = 5
+	},
+/obj/item/storage/box/monkeycubes{
+	pixel_x = 6;
+	pixel_y = 7
+	},
+/obj/item/storage/box/monkeycubes{
+	pixel_x = -5
+	},
+/turf/open/floor/iron/dark,
+/area/station/science/genetics)
 "spq" = (
 /obj/machinery/atmospherics/pipe/smart/manifold/supply/visible{
 	dir = 1
@@ -66376,32 +66417,6 @@
 /obj/machinery/air_sensor/incinerator_tank,
 /turf/open/floor/engine,
 /area/station/maintenance/disposal/incinerator)
-"uxI" = (
-/obj/structure/table,
-/obj/item/storage/box/monkeycubes{
-	pixel_x = 6;
-	pixel_y = 7
-	},
-/obj/item/storage/box/monkeycubes{
-	pixel_x = -5
-	},
-/obj/item/storage/box/bodybags{
-	pixel_x = -1;
-	pixel_y = 6
-	},
-/obj/item/storage/box/disks{
-	pixel_x = 1;
-	pixel_y = 5
-	},
-/obj/item/storage/box/monkeycubes{
-	pixel_x = 6;
-	pixel_y = 7
-	},
-/obj/item/storage/box/monkeycubes{
-	pixel_x = -5
-	},
-/turf/open/floor/iron/dark,
-/area/station/science/genetics)
 "uxK" = (
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/engine/vacuum,
@@ -250110,11 +250125,11 @@ cTJ
 klc
 aSo
 aSo
-mmB
+qqP
 aSo
 aSo
 aSo
-mmB
+lVp
 aSo
 aSo
 tMO
@@ -258838,7 +258853,7 @@ pUy
 eSJ
 pUy
 mzG
-uxI
+spg
 sca
 xiC
 ciS
@@ -259352,7 +259367,7 @@ ouX
 ero
 itj
 fXu
-ocE
+lTL
 mEJ
 oXJ
 fbl
