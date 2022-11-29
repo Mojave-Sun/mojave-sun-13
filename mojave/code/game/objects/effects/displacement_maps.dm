@@ -24,8 +24,6 @@
 	if(!istype(new_owner))
 		return INITIALIZE_HINT_QDEL
 	render_target = "[REF(src)]"
-	/// We should never be outside of nullspace
-	moveToNullspace()
 	set_owner(new_owner)
 
 /obj/effect/abstract/displacement_map/Destroy(force)
@@ -36,11 +34,15 @@
 
 /obj/effect/abstract/displacement_map/proc/set_owner(atom/movable/new_owner)
 	if(owner)
-		owner = null
+		UnregisterSignal(owner, COMSIG_PARENT_QDELETING)
 		remove_displacement(owner)
+		owner = null
+	moveToNullspace()
 	if(!new_owner)
 		return
+	forceMove(new_owner)
 	owner = new_owner
+	RegisterSignal(owner, COMSIG_PARENT_QDELETING, .proc/owner_qdeleted)
 	apply_displacement(new_owner)
 
 /obj/effect/abstract/displacement_map/proc/apply_displacement(atom/movable/applied)
@@ -60,3 +62,9 @@
 
 /obj/effect/abstract/displacement_map/proc/get_displacement_filter()
 	return filter(type = "displace", render_source = render_target, x = displacement_x, y = displacement_y, size = displacement_size)
+
+///rest in piss bozo #packwatch
+/obj/effect/abstract/displacement_map/proc/owner_qdeleted()
+	SIGNAL_HANDLER
+
+	qdel(src)
