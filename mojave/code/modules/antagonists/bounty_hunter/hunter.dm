@@ -32,3 +32,15 @@
 /datum/objective/assassinate/bounty
 
 /datum/objective/assassinate/bounty/find_target(dupe_search_range, blacklist)
+	var/list/potential_job_targets = list()
+	var/datum/job/targetted_job
+	for(var/datum/job/key in SSjob.joinable_occupations.Copy())
+		potential_job_targets[key] = 1 / key.total_positions //Meta-target the high rankers
+
+		while(length(potential_job_targets))
+			targetted_job = pick_weight(potential_job_targets)
+			potential_job_targets -= targetted_job
+			targetted_job = pick_weight(potential_job_targets)
+			for(var/mob/potential_target in GLOB.human_list)
+				if((potential_target.mind.assigned_role == targetted_job) && (potential_target.stat != DEAD))
+
