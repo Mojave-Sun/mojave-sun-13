@@ -4,7 +4,9 @@
 /obj/effect/abstract/displacement_map
 	name = "displacement map"
 	icon = 'mojave/icons/effects/distortion/distort.dmi'
-	vis_flags = VIS_HIDE | VIS_INHERIT_DIR
+	vis_flags = VIS_INHERIT_DIR
+	anchored = TRUE
+	density = FALSE
 	opacity = FALSE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	/// Atom we are currently applying the displacement filter on
@@ -18,12 +20,12 @@
 
 /obj/effect/abstract/displacement_map/Initialize(mapload, atom/movable/new_owner)
 	. = ..()
-	/// Displacement maps are of no use if you don't apply them to anything
+	/// Displacement maps are of no use if you don't apply them to an atom
 	if(!istype(new_owner))
 		return INITIALIZE_HINT_QDEL
+	render_target = "[REF(src)]"
 	/// We should never be outside of nullspace
 	moveToNullspace()
-	render_target = "[REF(src)]"
 	set_owner(new_owner)
 
 /obj/effect/abstract/displacement_map/Destroy(force)
