@@ -170,7 +170,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 		L[DNA_SKIN_TONE_BLOCK] = construct_block(GLOB.skin_tones.Find(H.skin_tone), GLOB.skin_tones.len)
 		L[DNA_EYE_COLOR_BLOCK] = sanitize_hexcolor(H.eye_color, include_crunch = FALSE)
 		// MOJAVE EDIT BEGIN - Fatties
-		L[DNA_FAT_BLOCK] = construct_block(GLOB.fat_types.Find(H.fatness), GLOB.fat_types.len)
+		L[DNA_FAT_BLOCK] = construct_block(GLOB.fatness_types.Find(H.fatness), GLOB.fatness_types.len)
 		// MOJAVE EDIT END - Fatties
 
 	for(var/blocknum in 1 to DNA_UNI_IDENTITY_BLOCKS)
@@ -307,7 +307,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 			set_uni_identity_block(blocknumber, construct_block(GLOB.hairstyles_list.Find(H.hairstyle), GLOB.hairstyles_list.len))
 		// MOJAVE EDIT BEGIN - Fatties
 		if(DNA_FAT_BLOCK)
-			set_uni_identity_block(blocknumber, construct_block(GLOB.fat_types.Find(H.fatness), GLOB.fat_types.len))
+			set_uni_identity_block(blocknumber, construct_block(GLOB.fatness_types.Find(H.fatness), GLOB.fatness_types.len))
 		// MOJAVE EDIT END - Fatties
 
 /datum/dna/proc/update_uf_block(blocknumber)
@@ -566,7 +566,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	facial_hairstyle = GLOB.facial_hairstyles_list[deconstruct_block(get_uni_identity_block(structure, DNA_FACIAL_HAIRSTYLE_BLOCK), GLOB.facial_hairstyles_list.len)]
 	hairstyle = GLOB.hairstyles_list[deconstruct_block(get_uni_identity_block(structure, DNA_HAIRSTYLE_BLOCK), GLOB.hairstyles_list.len)]
 	// MOJAVE EDIT BEGIN - Fatties
-	fatness = GLOB.fat_types[deconstruct_block(get_uni_identity_block(structure, DNA_FAT_BLOCK), GLOB.fat_types.len)]
+	fatness = GLOB.fatness_types[deconstruct_block(get_uni_identity_block(structure, DNA_FAT_BLOCK), GLOB.fatness_types.len)]
 	// MOJAVE EDIT END - Fatties
 	var/features = dna.unique_features
 	if(dna.features["mcolor"])

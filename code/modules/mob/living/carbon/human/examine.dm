@@ -346,6 +346,12 @@
 				msg += "[t_He] [t_has] a holy aura about [t_him].\n"
 				SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "religious_comfort", /datum/mood_event/religiously_comforted)
 
+		// MOJAVE EDIT BEGIN - Fatties
+		switch(fatness)
+			if(FATNESS_OBESE)
+				msg += "[t_He] [t_is] a bumbling piece of lard."
+		// MOJAVE EDIT END - Fatties
+
 		switch(stat)
 			if(UNCONSCIOUS, HARD_CRIT)
 				msg += "[t_He] [t_is]n't responding to anything around [t_him] and seem[p_s()] to be asleep.\n"

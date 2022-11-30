@@ -283,11 +283,17 @@
 			continue
 		new_limbs += bp_icons
 	if(new_limbs.len)
-		// i hate this
-		for(var/image/limb_image as anything in new_limbs)
-			limb_image = apply_fatness_filter(limb_image, FALSE)
-		overlays_standing[BODYPARTS_LAYER] = new_limbs
+		// MOJAVE EDIT BEGIN - Fatties
+		// i know this kind of fucks with the entire concept of the limb cache but its the only way this could work afaik
 		limb_icon_cache[icon_render_key] = new_limbs
+		var/list/final_limbs = list()
+		var/image/copy
+		for(var/image/limb as anything in new_limbs)
+			copy = new(limb)
+			copy = apply_fatness_filter(copy, FALSE)
+			final_limbs += copy
+		overlays_standing[BODYPARTS_LAYER] = final_limbs
+		// MOJAVE EDIT END - Fatties
 
 	apply_overlay(BODYPARTS_LAYER)
 	update_damage_overlays()
@@ -333,11 +339,14 @@
 	if(limb_icon_cache[icon_render_key])
 		remove_overlay(BODYPARTS_LAYER)
 		// MOJAVE EDIT BEGIN - Fatties
-		// i know this kind of fucks with the entire concept of the limb cache but its the only way this could work
-		var/list/limbs = limb_icon_cache[icon_render_key]
-		for(var/image/overlay in overlays)
-			overlay = apply_fatness_filter(overlay, FALSE)
-		overlays_standing[BODYPARTS_LAYER] = limbs
+		// i know this kind of fucks with the entire concept of the limb cache but its the only way this could work afaik
+		var/list/final_limbs = list()
+		var/image/copy
+		for(var/image/limb as anything in limb_icon_cache[icon_render_key])
+			copy = new(limb)
+			copy = apply_fatness_filter(copy, FALSE)
+			final_limbs += copy
+		overlays_standing[BODYPARTS_LAYER] = final_limbs
 		// MOJAVE EDIT END - Fatties
 		apply_overlay(BODYPARTS_LAYER)
 	update_damage_overlays()

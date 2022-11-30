@@ -179,9 +179,9 @@ GLOBAL_LIST_INIT(skin_tone_names, list(
 //MOJAVE SUN EDIT END - Skin Colours
 
 // MOJAVE SUN EDIT BEGIN - Fatties
-GLOBAL_LIST_INIT(fat_types, sort_list(list(
-	"average",
-	"obese",
+GLOBAL_LIST_INIT(fatness_types, sort_list(list(
+	FATNESS_AVERAGE,
+	FATNESS_OBESE,
 	)))
 // MOJAVE SUN EDIT END - Fatties
 
