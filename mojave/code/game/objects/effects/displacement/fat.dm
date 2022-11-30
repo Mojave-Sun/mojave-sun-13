@@ -29,7 +29,7 @@
 		return
 	removed.vis_contents -= src
 
-/// Distortion applied to a human's body to turn them fat, not the clothes
+/// Distortion applied to a human's bodyparts to turn them fat, but not the clothes
 /obj/effect/abstract/displacement_map/fat/body
 	name = "fatass body"
 	icon_state = "body"

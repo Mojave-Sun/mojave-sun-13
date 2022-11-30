@@ -136,7 +136,7 @@ There are several things that need to be remembered:
 			uniform_overlay.pixel_x += dna.species.offset_features[OFFSET_UNIFORM][1]
 			uniform_overlay.pixel_y += dna.species.offset_features[OFFSET_UNIFORM][2]
 		// MOJAVE EDIT BEGIN - Fatties
-		uniform_overlay = apply_fatness(uniform_overlay, TRUE)
+		uniform_overlay = apply_fatness_filter(uniform_overlay, TRUE)
 		// MOJAVE EDIT END - Fatties
 		overlays_standing[UNIFORM_LAYER] = uniform_overlay
 
@@ -178,7 +178,7 @@ There are several things that need to be remembered:
 				id_card_overlay.pixel_y += dna.species.offset_features[OFFSET_ID][2]
 
 			// MOJAVE EDIT BEGIN - Fatties
-			id_card_overlay = apply_fatness(id_card_overlay, TRUE)
+			id_card_overlay = apply_fatness_filter(id_card_overlay, TRUE)
 			// MOJAVE EDIT END - Fatties
 			overlays_standing[ID_CARD_LAYER] = id_card_overlay
 
@@ -202,7 +202,7 @@ There are several things that need to be remembered:
 				bloody_overlay.icon_state = "bloodyhands_right"
 
 		// MOJAVE EDIT BEGIN - Fatties
-		bloody_overlay = apply_fatness(bloody_overlay, TRUE)
+		bloody_overlay = apply_fatness_filter(bloody_overlay, TRUE)
 		// MOJAVE EDIT END - Fatties
 		overlays_standing[GLOVES_LAYER] = bloody_overlay
 
@@ -219,7 +219,7 @@ There are several things that need to be remembered:
 			gloves_overlay.pixel_x += dna.species.offset_features[OFFSET_GLOVES][1]
 			gloves_overlay.pixel_y += dna.species.offset_features[OFFSET_GLOVES][2]
 		// MOJAVE EDIT BEGIN - Fatties
-		gloves_overlay = apply_fatness(gloves_overlay, TRUE)
+		gloves_overlay = apply_fatness_filter(gloves_overlay, TRUE)
 		// MOJAVE EDIT END - Fatties
 	overlays_standing[GLOVES_LAYER] = gloves_overlay
 	apply_overlay(GLOVES_LAYER)
@@ -356,7 +356,7 @@ There are several things that need to be remembered:
 			belt_overlay.pixel_x += dna.species.offset_features[OFFSET_BELT][1]
 			belt_overlay.pixel_y += dna.species.offset_features[OFFSET_BELT][2]
 		// MOJAVE EDIT BEGIN - Fatties
-		belt_overlay = apply_fatness(belt_overlay, TRUE)
+		belt_overlay = apply_fatness_filter(belt_overlay, TRUE)
 		// MOJAVE EDIT END - Fatties
 		overlays_standing[BELT_LAYER] = belt_overlay
 
@@ -383,7 +383,7 @@ There are several things that need to be remembered:
 			suit_overlay.pixel_x += dna.species.offset_features[OFFSET_SUIT][1]
 			suit_overlay.pixel_y += dna.species.offset_features[OFFSET_SUIT][2]
 		// MOJAVE EDIT BEGIN - Fatties
-		suit_overlay = apply_fatness(suit_overlay, TRUE)
+		suit_overlay = apply_fatness_filter(suit_overlay, TRUE)
 		// MOJAVE EDIT END - Fatties
 		overlays_standing[SUIT_LAYER] = suit_overlay
 	update_hair()
@@ -604,9 +604,6 @@ generate/load female uniform sprites matching all previously decided variables
 		. += "-not_coloured"
 
 	. += "-[body_type]"
-	// MOJAVE EDIT BEGIN - Fatties
-	. += "-[fatness]"
-	// MOJAVE EDIT END - Fatties
 
 	for(var/X in bodyparts)
 		var/obj/item/bodypart/BP = X

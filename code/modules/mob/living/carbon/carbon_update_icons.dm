@@ -284,11 +284,10 @@
 		new_limbs += bp_icons
 	if(new_limbs.len)
 		// i hate this
-		var/list/final_limbs = list()
 		for(var/image/limb_image as anything in new_limbs)
-			final_limbs += apply_fatness(limb_image, FALSE)
-		overlays_standing[BODYPARTS_LAYER] = final_limbs
-		limb_icon_cache[icon_render_key] = final_limbs
+			limb_image = apply_fatness_filter(limb_image, FALSE)
+		overlays_standing[BODYPARTS_LAYER] = new_limbs
+		limb_icon_cache[icon_render_key] = new_limbs
 
 	apply_overlay(BODYPARTS_LAYER)
 	update_damage_overlays()
@@ -328,14 +327,18 @@
 	if(HAS_TRAIT(src, TRAIT_HUSK))
 		. += "-husk"
 
-	. += "-[fatness]"
-
 
 //change the mob's icon to the one matching its key
 /mob/living/carbon/proc/load_limb_from_cache()
 	if(limb_icon_cache[icon_render_key])
 		remove_overlay(BODYPARTS_LAYER)
-		overlays_standing[BODYPARTS_LAYER] = limb_icon_cache[icon_render_key]
+		// MOJAVE EDIT BEGIN - Fatties
+		// i know this kind of fucks with the entire concept of the limb cache but its the only way this could work
+		var/list/limbs = limb_icon_cache[icon_render_key]
+		for(var/image/overlay in overlays)
+			overlay = apply_fatness_filter(overlay, FALSE)
+		overlays_standing[BODYPARTS_LAYER] = limbs
+		// MOJAVE EDIT END - Fatties
 		apply_overlay(BODYPARTS_LAYER)
 	update_damage_overlays()
 

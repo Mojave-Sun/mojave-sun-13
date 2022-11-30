@@ -6,7 +6,7 @@
 /atom/movable/proc/add_displacement_map(displacement_map_type)
 	if(!displacement_map_type)
 		return
-	var/map = new displacement_map_type(loc, src)
+	var/map = new displacement_map_type(null, src)
 	return map
 
 /atom/movable/proc/remove_displacement_map(displacement_map_type)
