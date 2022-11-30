@@ -383,7 +383,7 @@ There are several things that need to be remembered:
 			suit_overlay.pixel_x += dna.species.offset_features[OFFSET_SUIT][1]
 			suit_overlay.pixel_y += dna.species.offset_features[OFFSET_SUIT][2]
 		// MOJAVE EDIT BEGIN - Fatties
-		wear_suit = apply_fatness(wear_suit, TRUE)
+		suit_overlay = apply_fatness(suit_overlay, TRUE)
 		// MOJAVE EDIT END - Fatties
 		overlays_standing[SUIT_LAYER] = suit_overlay
 	update_hair()
