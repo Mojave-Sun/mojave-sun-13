@@ -604,7 +604,9 @@ generate/load female uniform sprites matching all previously decided variables
 		. += "-not_coloured"
 
 	. += "-[body_type]"
+	// MOJAVE EDIT BEGIN - Fatties
 	. += "-[fatness]"
+	// MOJAVE EDIT END - Fatties
 
 	for(var/X in bodyparts)
 		var/obj/item/bodypart/BP = X
