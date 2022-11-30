@@ -604,6 +604,7 @@ generate/load female uniform sprites matching all previously decided variables
 		. += "-not_coloured"
 
 	. += "-[body_type]"
+	. += "-[fatness]"
 
 	for(var/X in bodyparts)
 		var/obj/item/bodypart/BP = X
