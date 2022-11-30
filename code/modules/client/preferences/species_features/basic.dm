@@ -93,7 +93,7 @@
 	relevant_species_trait = FACEHAIR
 
 /datum/preference/choiced/facial_hair_gradient/init_possible_values()
-	return assoc_to_keys(GLOB.facial_hair_gradients_list)
+	return assoc_to_keys_features(GLOB.facial_hair_gradients_list)
 
 /datum/preference/choiced/facial_hair_gradient/apply_to_human(mob/living/carbon/human/target, value)
 	LAZYSETLEN(target.grad_style, GRADIENTS_LEN)
@@ -156,7 +156,7 @@
 	relevant_species_trait = HAIR
 
 /datum/preference/choiced/hair_gradient/init_possible_values()
-	return assoc_to_keys(GLOB.hair_gradients_list)
+	return assoc_to_keys_features(GLOB.hair_gradients_list)
 
 /datum/preference/choiced/hair_gradient/apply_to_human(mob/living/carbon/human/target, value)
 	LAZYSETLEN(target.grad_style, GRADIENTS_LEN)

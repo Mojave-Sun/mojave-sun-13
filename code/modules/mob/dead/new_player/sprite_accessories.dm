@@ -17,8 +17,7 @@
 	conversion in savefile.dm
 */
 /* MOJAVE - moved to mojave directory
-/proc/init_sprite_accessory_subtypes(prototype, list/L, list/male, list/female,roundstart = FALSE)//Roundstart argument builds a specific list for roundstart parts where some parts may be locked
-/proc/init_sprite_accessory_subtypes(prototype, list/L, list/male, list/female,roundstart = FALSE, add_blank)//Roundstart argument builds a specific list for roundstart parts where some parts may be locked
+/proc/init_sprite_accessory_subtypes(prototype, list/L, list/male, list/female, add_blank)//Roundstart argument builds a specific list for roundstart parts where some parts may be locked
 	if(!istype(L))
 		L = list()
 	if(!istype(male))
@@ -27,10 +26,6 @@
 		female = list()
 
 	for(var/path in subtypesof(prototype))
-		if(roundstart)
-			var/datum/sprite_accessory/P = path
-			if(initial(P.locked))
-				continue
 		var/datum/sprite_accessory/D = new path()
 
 		if(D.icon_state)
@@ -1857,6 +1852,7 @@
 	icon_state = "fox"
 	hasinner = TRUE
 	color_src = HAIR
+	locked = TRUE
 
 /datum/sprite_accessory/wings/none
 	name = "None"
