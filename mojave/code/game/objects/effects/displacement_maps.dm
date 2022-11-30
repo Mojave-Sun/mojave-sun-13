@@ -5,7 +5,7 @@
 /obj/effect/abstract/displacement_map
 	name = "displacement map"
 	icon = 'mojave/icons/effects/distortion/distort.dmi'
-	vis_flags = VIS_INHERIT_DIR
+	vis_flags = VIS_HIDE|VIS_INHERIT_DIR
 	anchored = TRUE
 	density = FALSE
 	opacity = FALSE
@@ -45,7 +45,7 @@
 		return
 	forceMove(new_owner)
 	owner = new_owner
-	LAZYADDASSOC(owner.displacement_maps, type, src)
+	LAZYSET(owner.displacement_maps, type, src)
 	RegisterSignal(owner, COMSIG_PARENT_QDELETING, .proc/owner_qdeleted)
 	apply_displacement(owner)
 
