@@ -349,7 +349,7 @@
 		// MOJAVE EDIT BEGIN - Fatties
 		switch(fatness)
 			if(FATNESS_OBESE)
-				msg += "[t_He] [t_is] a bumbling piece of lard."
+				msg += "[t_He] [t_is] a bumbling tub of lard."
 		// MOJAVE EDIT END - Fatties
 
 		switch(stat)

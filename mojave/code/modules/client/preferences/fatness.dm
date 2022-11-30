@@ -12,4 +12,8 @@
 	return capitalize(FATNESS_AVERAGE)
 
 /datum/preference/choiced/fatness/apply_to_human(mob/living/carbon/human/target, value)
-	target.fatness = lowertext(value)
+	var/lowertext_value = lowertext(value)
+	target.fatness = lowertext_value
+	//fat fucks start with a full belly, obviously - go run some laps lardass
+	if(lowertext_value == FATNESS_OBESE)
+		target.set_nutrition(NUTRITION_LEVEL_FAT + 50)
