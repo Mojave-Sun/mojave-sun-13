@@ -285,7 +285,7 @@
 	if(new_limbs.len)
 		// i hate this
 		var/list/final_limbs = list()
-		for(var/image/limb_image in new_limbs)
+		for(var/image/limb_image as anything in new_limbs)
 			final_limbs += apply_fatness(limb_image, FALSE)
 		overlays_standing[BODYPARTS_LAYER] = final_limbs
 		limb_icon_cache[icon_render_key] = final_limbs

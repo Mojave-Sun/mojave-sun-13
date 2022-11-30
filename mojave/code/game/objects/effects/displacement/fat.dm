@@ -15,7 +15,7 @@
 /obj/effect/abstract/displacement_map/fat
 	name = "fatass"
 	icon = 'mojave/icons/effects/distortion/fat.dmi'
-	// DON'T fucking change this, it will break everything, the map is fucking pixel perfect
+	// DON'T fucking change this, it will break everything, the map is fucking pixel perfect you fucking swine
 	displacement_size = 3
 
 /// This uses update_body(), not the standard system, guh

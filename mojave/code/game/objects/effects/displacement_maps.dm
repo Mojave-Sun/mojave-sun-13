@@ -5,11 +5,12 @@
 /obj/effect/abstract/displacement_map
 	name = "displacement map"
 	icon = 'mojave/icons/effects/distortion/distort.dmi'
-	vis_flags = VIS_HIDE|VIS_INHERIT_DIR
+	vis_flags = VIS_INHERIT_DIR
 	anchored = TRUE
 	density = FALSE
 	opacity = FALSE
 	blocks_emissive = FALSE
+	invisibility = INVISIBILITY_ABSTRACT
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	/// Atom we are currently applying the displacement filter on
 	var/atom/movable/owner
@@ -25,6 +26,8 @@
 	/// Displacement maps are of no use if you don't apply them to an atom
 	if(!istype(new_owner))
 		return INITIALIZE_HINT_QDEL
+	// Going inside the atom's contents creates issues so we go to nullspace
+	moveToNullspace()
 	render_target = "[REF(src)]"
 	set_owner(new_owner)
 
@@ -41,9 +44,7 @@
 		remove_displacement(owner)
 		owner = null
 	if(!new_owner)
-		moveToNullspace()
 		return
-	forceMove(new_owner)
 	owner = new_owner
 	LAZYSET(owner.displacement_maps, type, src)
 	RegisterSignal(owner, COMSIG_PARENT_QDELETING, .proc/owner_qdeleted)
