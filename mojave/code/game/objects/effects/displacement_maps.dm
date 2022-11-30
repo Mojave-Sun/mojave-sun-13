@@ -1,5 +1,6 @@
 /**
- * This object exists because sadly, there is no support for displacement filters changing direction according to owner atom
+ * This object exists because sadly, there is no support for displacement filters changing direction according to owner atom.
+ * Just use a filter if you don't care about having a matching dir. Please.
  */
 /obj/effect/abstract/displacement_map
 	name = "displacement map"
@@ -8,9 +9,10 @@
 	anchored = TRUE
 	density = FALSE
 	opacity = FALSE
+	blocks_emissive = FALSE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	/// Atom we are currently applying the displacement filter on
-	var/atom/owner
+	var/atom/movable/owner
 	/// X of the filter
 	var/displacement_x = 0
 	/// Y of the filter
@@ -34,16 +36,18 @@
 
 /obj/effect/abstract/displacement_map/proc/set_owner(atom/movable/new_owner)
 	if(owner)
+		LAZYREMOVE(owner.displacement_maps, type)
 		UnregisterSignal(owner, COMSIG_PARENT_QDELETING)
 		remove_displacement(owner)
 		owner = null
-	moveToNullspace()
 	if(!new_owner)
+		moveToNullspace()
 		return
 	forceMove(new_owner)
 	owner = new_owner
+	LAZYADDASSOC(owner.displacement_maps, type, src)
 	RegisterSignal(owner, COMSIG_PARENT_QDELETING, .proc/owner_qdeleted)
-	apply_displacement(new_owner)
+	apply_displacement(owner)
 
 /obj/effect/abstract/displacement_map/proc/apply_displacement(atom/movable/applied)
 	if(!applied)
