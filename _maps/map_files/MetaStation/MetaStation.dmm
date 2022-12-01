@@ -2378,6 +2378,16 @@
 /obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/central)
+"aQZ" = (
+/obj/structure/sign/poster/official/get_your_legs{
+	pixel_y = 32
+	},
+/obj/structure/chair/sofa/right/brown,
+/obj/item/toy/plush/moth{
+	name = "Mender Moff"
+	},
+/turf/open/floor/carpet,
+/area/station/medical/psychology)
 "aRo" = (
 /obj/structure/table,
 /obj/item/paper_bin{
@@ -15869,15 +15879,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/service/hydroponics)
-"fTb" = (
-/obj/effect/turf_decal/siding/purple{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/obj/machinery/dna_infuser,
-/obj/item/infuser_book,
-/turf/open/floor/iron/dark,
-/area/station/science/genetics)
 "fTn" = (
 /obj/structure/table/wood,
 /obj/item/folder/blue,
@@ -17587,10 +17588,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/station/maintenance/port/aft)
-"gzJ" = (
-/obj/structure/chair/sofa/left,
-/turf/open/floor/carpet,
-/area/station/medical/psychology)
 "gzO" = (
 /obj/machinery/firealarm/directional/west,
 /obj/machinery/camera/directional/west{
@@ -23604,6 +23601,15 @@
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/medical/morgue)
+"iCi" = (
+/obj/effect/turf_decal/siding/purple{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/machinery/dna_infuser,
+/obj/item/infuser_book,
+/turf/open/floor/iron/dark,
+/area/station/science/genetics)
 "iCz" = (
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/machinery/door/airlock/vault{
@@ -29591,6 +29597,26 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/secondary/command)
+"kBu" = (
+/obj/structure/table,
+/obj/effect/turf_decal/siding/purple/corner{
+	dir = 1
+	},
+/obj/item/storage/box/bodybags{
+	pixel_x = -4;
+	pixel_y = 9
+	},
+/obj/item/storage/box/disks{
+	pixel_x = 6;
+	pixel_y = 3
+	},
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/item/clothing/gloves/color/latex{
+	pixel_x = 4;
+	pixel_y = 9
+	},
+/turf/open/floor/iron/dark,
+/area/station/science/genetics)
 "kBQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/electrolyzer,
@@ -29727,26 +29753,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/construction/mining/aux_base)
-"kFk" = (
-/obj/structure/table,
-/obj/effect/turf_decal/siding/purple/corner{
-	dir = 1
-	},
-/obj/item/storage/box/bodybags{
-	pixel_x = -4;
-	pixel_y = 9
-	},
-/obj/item/storage/box/disks{
-	pixel_x = 6;
-	pixel_y = 3
-	},
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/obj/item/clothing/gloves/color/latex{
-	pixel_x = 4;
-	pixel_y = 9
-	},
-/turf/open/floor/iron/dark,
-/area/station/science/genetics)
 "kFC" = (
 /obj/machinery/door/poddoor/shutters/preopen{
 	dir = 8;
@@ -31428,11 +31434,50 @@
 /obj/structure/sign/barsign,
 /turf/closed/wall,
 /area/station/commons/lounge)
+"lkL" = (
+/obj/structure/table,
+/obj/effect/turf_decal/siding/purple{
+	dir = 4
+	},
+/obj/item/radio/headset/headset_medsci{
+	pixel_x = -7;
+	pixel_y = 4
+	},
+/obj/item/storage/box/monkeycubes{
+	pixel_x = 6;
+	pixel_y = 9
+	},
+/obj/item/storage/box/gloves{
+	pixel_x = 5;
+	pixel_y = 1
+	},
+/obj/machinery/button/door/directional/east{
+	id = "rdgene2";
+	name = "Secondary Genetics Shutters Control";
+	pixel_y = -6;
+	req_access = list("science")
+	},
+/obj/machinery/button/door/directional/east{
+	id = "rdgene";
+	name = "Primary Genetics Shutters Control";
+	pixel_y = 6;
+	req_access = list("science")
+	},
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/item/storage/box/monkeycubes{
+	pixel_x = 4
+	},
+/turf/open/floor/iron/dark,
+/area/station/science/genetics)
 "lkW" = (
 /obj/machinery/light/small/directional/east,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/station/engineering/storage/tech)
+"lkX" = (
+/obj/structure/chair/sofa/left/brown,
+/turf/open/floor/carpet,
+/area/station/medical/psychology)
 "llh" = (
 /obj/effect/spawner/random/structure/closet_maintenance,
 /obj/effect/spawner/random/maintenance,
@@ -50941,16 +50986,6 @@
 /obj/item/reagent_containers/syringe,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/lesser)
-"rYS" = (
-/obj/structure/sign/poster/official/get_your_legs{
-	pixel_y = 32
-	},
-/obj/structure/chair/sofa/right,
-/obj/item/toy/plush/moth{
-	name = "Mender Moff"
-	},
-/turf/open/floor/carpet,
-/area/station/medical/psychology)
 "rZt" = (
 /obj/machinery/atmospherics/pipe/smart/manifold/purple/visible{
 	dir = 8
@@ -61045,41 +61080,6 @@
 /obj/item/clothing/mask/cigarette/pipe,
 /turf/open/floor/plating,
 /area/station/maintenance/port)
-"vwl" = (
-/obj/structure/table,
-/obj/effect/turf_decal/siding/purple{
-	dir = 4
-	},
-/obj/item/radio/headset/headset_medsci{
-	pixel_x = -7;
-	pixel_y = 4
-	},
-/obj/item/storage/box/monkeycubes{
-	pixel_x = 6;
-	pixel_y = 9
-	},
-/obj/item/storage/box/gloves{
-	pixel_x = 5;
-	pixel_y = 1
-	},
-/obj/machinery/button/door/directional/east{
-	id = "rdgene2";
-	name = "Secondary Genetics Shutters Control";
-	pixel_y = -6;
-	req_access = list("science")
-	},
-/obj/machinery/button/door/directional/east{
-	id = "rdgene";
-	name = "Primary Genetics Shutters Control";
-	pixel_y = 6;
-	req_access = list("science")
-	},
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/obj/item/storage/box/monkeycubes{
-	pixel_x = 4
-	},
-/turf/open/floor/iron/dark,
-/area/station/science/genetics)
 "vwp" = (
 /obj/machinery/door/airlock{
 	id_tag = "FitnessShower";
@@ -90494,7 +90494,7 @@ jsO
 cpR
 lxC
 uYp
-rYS
+aQZ
 sfA
 eQO
 xjI
@@ -90751,7 +90751,7 @@ oAj
 qOV
 qQu
 uYp
-gzJ
+lkX
 sfA
 dvn
 qkJ
@@ -97430,7 +97430,7 @@ kQe
 cDM
 poS
 byf
-kFk
+kBu
 oir
 wal
 mXt
@@ -97684,7 +97684,7 @@ gle
 mOx
 syC
 gqm
-fTb
+iCi
 lOr
 sNS
 dbo
@@ -98201,7 +98201,7 @@ gqm
 jZP
 cDA
 jrb
-vwl
+lkL
 bkm
 cDA
 edH
