@@ -294,7 +294,7 @@ SUBSYSTEM_DEF(explosions)
 	var/orig_heavy_range = heavy_impact_range
 	var/orig_light_range = light_impact_range
 
-	var/orig_max_distance = max(devastation_range, heavy_impact_range, light_impact_range, flame_range, flash_range)
+	//var/orig_max_distance = max(devastation_range, heavy_impact_range, light_impact_range, flame_range, flash_range)
 
 	//Zlevel specific bomb cap multiplier
 	var/cap_multiplier = SSmapping.level_trait(epicenter.z, ZTRAIT_BOMBCAP_MULTIPLIER)
@@ -361,8 +361,8 @@ SUBSYSTEM_DEF(explosions)
 	far_dist += heavy_impact_range * 15
 	far_dist += devastation_range * 20
 
-	if(!silent)
-		shake_the_room(epicenter, orig_max_distance, far_dist, devastation_range, heavy_impact_range)
+	//if(!silent)
+		//shake_the_room(epicenter, orig_max_distance, far_dist, devastation_range, heavy_impact_range)
 
 	if(heavy_impact_range > 1)
 		var/datum/effect_system/explosion/E
@@ -730,7 +730,7 @@ SUBSYSTEM_DEF(explosions)
 					var/atom_throw_range = rand(throw_range, max_range)
 					var/turf/throw_at = get_ranged_target_turf(A, throw_dir, atom_throw_range)
 					//A.throw_at(throw_at, atom_throw_range, EXPLOSION_THROW_SPEED, quickstart = FALSE)
-					A.AddElement(/datum/element/object_physics, _horizontal_velocity = rand(12, 13), _vertical_velocity = rand(6,8), _horizontal_friction = 0.25, _z_gravity = 9.80665, _z_floor = rand(0, 16), _angle_of_movement = get_angle(A, throw_at))
+					A.AddComponent(/datum/component/movable_physics, _horizontal_velocity = rand(12, 13), _vertical_velocity = rand(6,8), _horizontal_friction = 0.25, _z_gravity = 9.80665, _z_floor = rand(0, 16), _angle_of_movement = get_angle(A, throw_at)+ rand(-15, 15))
 
 		cost_throwturf = MC_AVERAGE(cost_throwturf, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
 

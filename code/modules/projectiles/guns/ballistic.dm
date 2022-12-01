@@ -225,7 +225,7 @@
 			chambered = null
 		else if(casing_ejector || !from_firing)
 			casing.forceMove(drop_location()) //Eject casing onto ground.
-			casing.AddElement(/datum/element/object_physics, _horizontal_velocity = rand(6.5, 7.5), _vertical_velocity = rand(3, 4), _horizontal_friction = 0.25, _z_gravity = 9.80665, _z_floor = rand(0, -16), _angle_of_movement = 180)
+			casing.AddComponent(/datum/component/movable_physics, _horizontal_velocity = rand(6.5, 7.5), _vertical_velocity = rand(3, 4), _horizontal_friction = 0.25, _z_gravity = 9.80665, _z_floor = rand(0, 16), _angle_of_movement = 180)
 			//casing.bounce_away(TRUE, shooter)
 			SEND_SIGNAL(casing, COMSIG_CASING_EJECTED)
 			chambered = null

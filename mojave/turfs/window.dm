@@ -51,7 +51,7 @@
 		glass.icon = 'mojave/icons/objects/crafting/materials_world.dmi'
 		glass.icon_state = "scrap_glass"
 		glass.pixel_z = 8
-		glass.AddElement(/datum/element/object_physics, _horizontal_velocity = rand(5.5, 8.5), _vertical_velocity = 0, _horizontal_friction = 0.25, _z_gravity = EARTHS_GRAVITY, _z_floor = rand(0, 16), _angle_of_movement = rand(160, 200))
+		glass.AddComponent(/datum/component/movable_physics, _horizontal_velocity = rand(5.5, 8.5), _vertical_velocity = 0, _horizontal_friction = 0.25, _z_gravity = 8, _z_floor = rand(0, 16), _angle_of_movement = rand(160, 200))
 
 	. += new /obj/effect/decal/cleanable/glass(location)
 

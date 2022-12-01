@@ -189,7 +189,7 @@
 /obj/item/ammo_casing/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	//bounce_away(FALSE, NONE)
 	pixel_z = 8
-	AddElement(/datum/element/object_physics, _horizontal_velocity = rand(4.5, 5.5), _vertical_velocity = rand(3, 4), _horizontal_friction = 0.25, _z_gravity = 9.80665, _z_floor = rand(0, 16), _angle_of_movement = get_angle(src, throwingdatum.target_turf))
+	AddComponent(/datum/component/movable_physics, _horizontal_velocity = rand(4.5, 5.5), _vertical_velocity = rand(3, 4), _horizontal_friction = 0.25, _z_gravity = 9.80665, _z_floor = rand(0, 16), _angle_of_movement = get_angle(src, throwingdatum.target_turf))
 	return ..()
 
 /// BALL MOVEMENT ///
@@ -319,3 +319,11 @@
 
 /obj/item/ammo_casing/proc/gravity_exists(new_y)
 	//animate(src, pixel_y = base_pixel_y, time = 0.15 SECONDS, flags = ANIMATION_PARALLEL)
+
+
+/obj/item/ammo_casing/spent/bouncy
+
+/obj/item/ammo_casing/spent/bouncy/Initialize()
+	. = ..()
+	pixel_z = 8
+	AddComponent(/datum/component/movable_physics, _horizontal_velocity = rand(4.5, 5.5), _vertical_velocity = rand(3, 4), _horizontal_friction = 0.0, _z_gravity = 9.80665, _z_floor = rand(0, 16), _angle_of_movement = rand(0, 360))

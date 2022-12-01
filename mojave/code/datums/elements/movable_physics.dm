@@ -93,7 +93,8 @@
 		if(moving_atom.pixel_z <= z_floor[moving_atom] && (vertical_velocity[moving_atom] < 0)) //z bounce
 			z_floor_bounce(moving_atom)
 			moving_atom.pixel_z = z_floor[moving_atom]
-			vertical_velocity[moving_atom] = max(0, ((vertical_velocity[moving_atom] * -1) * 0.8) - 2)
+			//vertical_velocity[moving_atom] = max(0, ((vertical_velocity[moving_atom] * -1) * 0.8) - 2)
+			vertical_velocity[moving_atom] = max(0, ((vertical_velocity[moving_atom] * -1)))
 
 		var/cached_move_type = moving_atom.animate_movement //No glitchy gliding
 		moving_atom.animate_movement = NO_STEPS
@@ -108,7 +109,7 @@
 			if(moving_atom.Move(get_step(moving_atom, WEST)))
 				moving_atom.pixel_x = 16
 			else
-				moving_atom.pixel_x = 0
+				moving_atom.pixel_x = -16
 				ricochet(moving_atom, 0)
 
 		if(moving_atom.pixel_y > 16)
@@ -141,7 +142,7 @@
 	if(angle_of_movement[moving_atom] < 0)
 		angle_of_movement[moving_atom] += 360
 	//velocity loss for collision. might need to adjust this number. (maybe scaled based on current velocity??)
-	horizontal_velocity[moving_atom] -= 1
+	//horizontal_velocity[moving_atom] -= 1
 	var/turf/a_turf = get_turf(moving_atom)
 	playsound(src, a_turf.bullet_bounce_sound, 50, TRUE)
 
