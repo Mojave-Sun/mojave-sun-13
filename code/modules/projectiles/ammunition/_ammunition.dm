@@ -62,11 +62,11 @@
 	var/friction = 0.5 //how much x/y velocity is lost every update
 
 /obj/item/ammo_casing/proc/start_movement()
-	START_PROCESSING(SSprojectiles, src) //this will be moved to a seperate subsystem when I make that.
+	//START_PROCESSING(SSprojectiles, src) //this will be moved to a seperate subsystem when I make that.
 	moving = TRUE
 
 /obj/item/ammo_casing/proc/end_movement()
-	STOP_PROCESSING(SSprojectiles, src)
+	//STOP_PROCESSING(SSprojectiles, src)
 	moving = FALSE
 
 /obj/item/ammo_casing/spent
@@ -187,7 +187,9 @@
 		return ..()
 
 /obj/item/ammo_casing/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
-	bounce_away(FALSE, NONE)
+	//bounce_away(FALSE, NONE)
+	pixel_z = 8
+	AddElement(/datum/element/object_physics, _horizontal_velocity = rand(4.5, 5.5), _vertical_velocity = rand(3, 4), _horizontal_friction = 0.25, _z_gravity = 9.80665, _z_floor = rand(0, 16), _angle_of_movement = get_angle(src, throwingdatum.target_turf))
 	return ..()
 
 /// BALL MOVEMENT ///
