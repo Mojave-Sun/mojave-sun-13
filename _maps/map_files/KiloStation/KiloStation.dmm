@@ -31475,17 +31475,6 @@
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/security/execution/education)
-"iQx" = (
-/obj/effect/mapping_helpers/airlock/access/all/science/ordnance,
-/obj/effect/mapping_helpers/airlock/locked,
-/obj/machinery/door/airlock/research/glass/incinerator/ordmix_interior{
-	name = "Burn Chamber Interior Airlock"
-	},
-/obj/machinery/embedded_controller/radio/airlock_controller/incinerator_ordmix{
-	pixel_x = -32
-	},
-/turf/open/floor/engine,
-/area/station/science/ordnance/burnchamber)
 "iQK" = (
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/dirt,
@@ -37572,25 +37561,6 @@
 /obj/machinery/status_display/ai/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/engineering/storage/tech)
-"kIh" = (
-/obj/machinery/computer/order_console/mining,
-/obj/effect/turf_decal/bot,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/machinery/status_display/supply{
-	pixel_y = -32
-	},
-/obj/machinery/camera/directional/south{
-	c_tag = "Mining Dock";
-	name = "cargo camera";
-	network = list("ss13","qm")
-	},
-/turf/open/floor/iron/dark,
-/area/station/cargo/miningoffice)
 "kIz" = (
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/delivery,
@@ -38489,6 +38459,19 @@
 /obj/structure/cable,
 /turf/open/floor/grass,
 /area/station/medical/psychology)
+"kUy" = (
+/obj/machinery/computer/order_console/cook{
+	dir = 8
+	},
+/obj/effect/turf_decal/bot,
+/obj/machinery/newscaster/directional/east,
+/obj/machinery/camera/directional/east{
+	c_tag = "Kitchen Coldroom";
+	name = "kitchen camera"
+	},
+/obj/machinery/light/cold/directional/east,
+/turf/open/floor/iron/freezer,
+/area/station/service/kitchen/coldroom)
 "kUB" = (
 /obj/structure/table,
 /obj/effect/turf_decal/tile/neutral,
@@ -45211,6 +45194,25 @@
 /obj/structure/cable,
 /turf/open/floor/iron/showroomfloor,
 /area/station/science/xenobiology)
+"mQj" = (
+/obj/machinery/computer/order_console/mining,
+/obj/effect/turf_decal/bot,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/machinery/status_display/supply{
+	pixel_y = -32
+	},
+/obj/machinery/camera/directional/south{
+	c_tag = "Mining Dock";
+	name = "cargo camera";
+	network = list("ss13","qm")
+	},
+/turf/open/floor/iron/dark,
+/area/station/cargo/miningoffice)
 "mQk" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
@@ -60791,6 +60793,17 @@
 /obj/effect/turf_decal/tile/neutral,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
+"rsR" = (
+/obj/effect/mapping_helpers/airlock/access/all/science/ordnance,
+/obj/effect/mapping_helpers/airlock/locked,
+/obj/machinery/door/airlock/research/glass/incinerator/ordmix_interior{
+	name = "Burn Chamber Interior Airlock"
+	},
+/obj/machinery/airlock_controller/incinerator_ordmix{
+	pixel_x = -32
+	},
+/turf/open/floor/engine,
+/area/station/science/ordnance/burnchamber)
 "rsT" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
@@ -64484,19 +64497,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/security/prison)
-"ssG" = (
-/obj/machinery/computer/order_console/cook{
-	dir = 8
-	},
-/obj/effect/turf_decal/bot,
-/obj/machinery/newscaster/directional/east,
-/obj/machinery/camera/directional/east{
-	c_tag = "Kitchen Coldroom";
-	name = "kitchen camera"
-	},
-/obj/machinery/light/cold/directional/east,
-/turf/open/floor/iron/freezer,
-/area/station/service/kitchen/coldroom)
 "ssI" = (
 /obj/structure/chair/pew/right{
 	dir = 8
@@ -72654,23 +72654,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/security/prison/mess)
-"uJp" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/smart/simple/dark/visible{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer2,
-/obj/machinery/door/airlock/public/glass/incinerator/atmos_interior,
-/obj/effect/mapping_helpers/airlock/locked,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 4
-	},
-/obj/machinery/embedded_controller/radio/airlock_controller/incinerator_atmos{
-	pixel_y = -24
-	},
-/obj/effect/mapping_helpers/airlock/access/all/engineering/atmos,
-/turf/open/floor/engine,
-/area/station/maintenance/disposal/incinerator)
 "uJs" = (
 /obj/machinery/computer/security/telescreen/cmo{
 	dir = 1;
@@ -82813,6 +82796,23 @@
 "xvW" = (
 /turf/closed/wall,
 /area/station/medical/paramedic)
+"xwj" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/smart/simple/dark/visible{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer2,
+/obj/machinery/door/airlock/public/glass/incinerator/atmos_interior,
+/obj/effect/mapping_helpers/airlock/locked,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 4
+	},
+/obj/machinery/airlock_controller/incinerator_atmos{
+	pixel_y = -24
+	},
+/obj/effect/mapping_helpers/airlock/access/all/engineering/atmos,
+/turf/open/floor/engine,
+/area/station/maintenance/disposal/incinerator)
 "xwk" = (
 /obj/machinery/computer/security/mining,
 /obj/effect/turf_decal/tile/neutral{
@@ -112405,7 +112405,7 @@ vCV
 mLN
 ekp
 dtb
-uJp
+xwj
 yma
 yma
 kPK
@@ -119280,7 +119280,7 @@ bXz
 bXz
 wIL
 ffv
-ssG
+kUy
 dyX
 xPk
 laE
@@ -127509,7 +127509,7 @@ pNY
 bRx
 rcp
 mjW
-kIh
+mQj
 qAR
 aaa
 aaa
@@ -127748,7 +127748,7 @@ nFN
 fLH
 apu
 pii
-iQx
+rsR
 lkB
 lkB
 lkB
