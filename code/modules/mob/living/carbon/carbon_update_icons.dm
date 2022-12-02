@@ -120,6 +120,9 @@
 			if(iter_part.burnstate)
 				damage_overlay.add_overlay("[iter_part.dmg_overlay_type]_[iter_part.body_zone]_0[iter_part.burnstate]")
 
+	// MOJAVE EDIT BEGIN - Fatties
+	damage_overlay = apply_fatness_filter(damage_overlay, TRUE)
+	// MOJAVE EDIT END - Fatties
 	apply_overlay(DAMAGE_LAYER)
 
 /mob/living/carbon/update_wound_overlays()
