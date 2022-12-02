@@ -17,6 +17,8 @@
 	var/angle_of_movement
 	///Flags for turning on certain physic properties, see the top of the file for more information on flags
 	var/physic_flags
+	///The cached animate_movement of the parent; any kind of gliding when doing Move() makes the physics look derpy, so we'll just make Move() be instant
+	var/cached_animate_movement
 
 /datum/component/movable_physics/Initialize(_horizontal_velocity = 0, _vertical_velocity = 0, _horizontal_friction = 0, _z_gravity = 0, _z_floor = 0, _angle_of_movement = 0, _physic_flags = 0)
 	. = ..()
@@ -35,10 +37,16 @@
 
 ///Let's get moving
 /datum/component/movable_physics/proc/start_movement()
+	var/atom/movable/moving_atom = parent
+	cached_animate_movement = moving_atom.animate_movement
+	moving_atom.animate_movement = NO_STEPS
+	moving_atom.SpinAnimation(speed = 0.1 SECONDS, loops = 3)
 	START_PROCESSING(SSmovablephysics, src)
 
 ///Alright it's time to stop
 /datum/component/movable_physics/proc/stop_movement()
+	var/atom/movable/moving_atom = parent
+	moving_atom.animate_movement = cached_animate_movement
 	STOP_PROCESSING(SSmovablephysics, src)
 	if(physic_flags & QDEL_WHEN_NO_MOVEMENT)
 		qdel(src)
@@ -53,10 +61,10 @@
 
 /datum/component/movable_physics/proc/z_floor_bounce(atom/movable/moving_atom)
 	angle_of_movement += rand(-20, 20)
-	horizontal_velocity += max(0, (vertical_velocity * -1) / 4)
-	vertical_velocity -= ((vertical_velocity * -1) / 4)
+	horizontal_velocity += max(0, (vertical_velocity * -1) / 2)
 	var/turf/a_turf = get_turf(moving_atom)
 	playsound(moving_atom, a_turf.bullet_bounce_sound, 50, TRUE)
+	moving_atom.SpinAnimation(speed = 0.1, loops = 3)
 
 /datum/component/movable_physics/proc/ricochet(atom/movable/moving_atom, bounce_angle)
 	angle_of_movement = ((180 - bounce_angle) - angle_of_movement)
@@ -98,7 +106,7 @@
 		z_floor_bounce(moving_atom)
 		moving_atom.pixel_z = z_floor
 
-		vertical_velocity = max(0, ((vertical_velocity * -0.66) - (z_gravity / 9)))
+		vertical_velocity = max(0, ((vertical_velocity * - 0.8) - 0.2))
 
 	if(moving_atom.pixel_x > 16)
 		if(moving_atom.Move(get_step(moving_atom, EAST)))
