@@ -468,7 +468,7 @@
 	// MOJAVE EDIT BEGIN
 	switch(fatness)
 		if(FATNESS_OBESE)
-			. += list(span_warning("[t_He] [t_is] a bumbling tub of lard."))
+			. += list(span_warning("[p_they(TRUE)] [p_are()] a bumbling tub of lard."))
 	if(on_examined_check(user, TRUE))
 		user.on_examine_atom(src, TRUE)
 	// MOJAVE EDIT END
