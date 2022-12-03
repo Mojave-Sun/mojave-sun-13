@@ -298,6 +298,10 @@ GLOBAL_VAR_INIT(dynamic_forced_threat_level, -1)
 	return ..()
 
 /datum/game_mode/dynamic/proc/send_intercept()
+	if(SScommunications.block_command_report) //If we don't want the report to be printed just yet, we put it off until it's ready
+		addtimer(CALLBACK(src, PROC_REF(send_intercept)), 10 SECONDS)
+		return
+
 	. = "<b><i>Nanotrasen Department of Intelligence Threat Advisory, Spinward Sector, TCD [time2text(world.realtime, "DDD, MMM DD")], [CURRENT_STATION_YEAR]:</i></b><hr>"
 	switch(round(shown_threat))
 		if(0 to 19)
@@ -338,6 +342,10 @@ GLOBAL_VAR_INIT(dynamic_forced_threat_level, -1)
 	. += generate_station_goal_report()
 	. += generate_station_trait_report()
 	/* MOJAVE SUN EDIT - SECURITY LEVEL REMOVAL
+	if(length(SScommunications.command_report_footnotes))
+		. += generate_report_footnote()
+
+	print_command_report(., "Central Command Status Summary", announce=FALSE)
 	if(greenshift)
 		priority_announce("Thanks to the tireless efforts of our security and intelligence divisions, there are currently no credible threats to [station_name()]. All station construction projects have been authorized. Have a secure shift!", "Security Report", SSstation.announcer.get_rand_report_sound())
 	else
