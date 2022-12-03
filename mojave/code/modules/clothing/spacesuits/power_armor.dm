@@ -81,17 +81,15 @@
 	worn_x_dimension = 32
 	worn_y_dimension = 20
 	helmettype = null //no helmet; default PA is frame = /obj/item/clothing/head/helmet/space/hardsuit/power_armor
-	var/footstep = 1
-	var/mob/listeningTo
 	clothing_traits = list(TRAIT_SILENT_FOOTSTEPS) //No playing regular footsteps over power armor footsteps
 	item_flags = NO_PIXEL_RANDOM_DROP
 	ms13_flags_1 = LOCKABLE_1
 	clothing_flags = LARGE_WORN_ICON | STOPSPRESSUREDAMAGE | THICKMATERIAL | SNUG_FIT | BLOCKS_SHOVE_KNOCKDOWN
 	slowdown = 1.35
-
-/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/examine(mob/user)
-	. = ..()
-	. += "Alt+left click this power armor to get into and out of it."
+	/// Literally just whether or not we allow fatties to wear this power armor
+	var/no_fatties = TRUE
+	var/footstep = 1
+	var/mob/listeningTo
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/Initialize()
 	. = ..()
@@ -99,6 +97,20 @@
 	ADD_TRAIT(src, TRAIT_NODROP, STICKY_NODROP) //Somehow it's stuck to your body, no questioning.
 	RegisterSignal(src, COMSIG_ATOM_CAN_BE_PULLED, .proc/reject_pulls)
 	AddElement(/datum/element/radiation_protected_clothing)
+
+/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/examine(mob/user)
+	. = ..()
+	. += "Alt+left click this power armor to get into and out of it."
+	var/mob/living/carbon/carbon_user = user
+	if(istype(carbon_user) && (carbon_user.fatness == FATNESS_OBESE))
+		. += span_warning("Your fat ass probably won't fit inside.")
+
+/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/mob_can_equip(mob/living/M, mob/living/equipper, slot, disable_warning, bypass_equip_delay_self)
+	if((slot == ITEM_SLOT_OCLOTHING) && no_fatties && iscarbon(M))
+		var/mob/living/carbon/carbon_fatass = M
+		if(carbon_fatass.fatness == FATNESS_OBESE)
+			return FALSE
+	return ..()
 
 //We want to be able to strip the PA as usual but also have the benefits of NO_DROP to disallow stuff like drag clicking PA into hand slot
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/canStrip(mob/stripper, mob/owner)
