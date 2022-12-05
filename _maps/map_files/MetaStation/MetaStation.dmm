@@ -9035,6 +9035,14 @@
 /obj/structure/closet/emcloset,
 /turf/open/floor/plating,
 /area/station/hallway/secondary/entry)
+"dqF" = (
+/obj/machinery/light_switch/directional/north,
+/obj/effect/turf_decal/siding/wood{
+	dir = 5
+	},
+/mob/living/basic/pet/dog/corgi/puppy/slime,
+/turf/open/floor/grass,
+/area/station/science/research)
 "dqI" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/vending/cigarette,
@@ -11193,6 +11201,21 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/station/maintenance/fore)
+"eef" = (
+/obj/structure/closet/crate/necropolis{
+	desc = "Presumably placed here by top men.";
+	name = "\improper Ark of the Covenant"
+	},
+/obj/item/toy/clockwork_watch{
+	desc = "An ancient piece of machinery, made from an unknown metal by an unknown maker.";
+	name = "\improper Ancient Relic"
+	},
+/mob/living/basic/pet/dog/corgi{
+	desc = "Make sure you give him plenty of bellyrubs, or he'll melt your skin off.";
+	name = "\improper Keeper of the Ark"
+	},
+/turf/open/floor/plating,
+/area/station/maintenance/port/aft)
 "eeg" = (
 /turf/closed/wall/mineral/plastitanium,
 /area/station/hallway/secondary/entry)
@@ -12684,6 +12707,10 @@
 	},
 /turf/open/floor/iron,
 /area/station/cargo/storage)
+"eFU" = (
+/obj/structure/chair/sofa/left/brown,
+/turf/open/floor/carpet,
+/area/station/medical/psychology)
 "eGd" = (
 /obj/machinery/door/window{
 	dir = 1;
@@ -15323,18 +15350,6 @@
 /obj/effect/turf_decal/siding/purple,
 /turf/open/floor/iron/white,
 /area/station/science/ordnance/testlab)
-"fJk" = (
-/obj/structure/disposalpipe/segment{
-	dir = 9
-	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/computer/order_console/cook{
-	dir = 8
-	},
-/obj/effect/mapping_helpers/burnt_floor,
-/turf/open/floor/plating,
-/area/station/maintenance/starboard/greater)
 "fJp" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -15389,18 +15404,6 @@
 /obj/item/mop,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/lesser)
-"fKs" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/dark/visible,
-/obj/effect/mapping_helpers/airlock/locked,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper,
-/obj/machinery/airlock_controller/incinerator_atmos{
-	pixel_x = 40;
-	pixel_y = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer2,
-/obj/machinery/door/airlock/public/glass/incinerator/atmos_interior,
-/turf/open/floor/engine,
-/area/station/maintenance/disposal/incinerator)
 "fKG" = (
 /obj/effect/landmark/blobstart,
 /turf/open/floor/engine/cult,
@@ -17404,12 +17407,6 @@
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/port/aft)
-"gvl" = (
-/obj/machinery/status_display/evac/directional/north,
-/obj/structure/bed/dogbed/ian,
-/mob/living/simple_animal/pet/dog/corgi/ian,
-/turf/open/floor/wood,
-/area/station/command/heads_quarters/hop)
 "gvm" = (
 /obj/effect/landmark/start/hangover,
 /turf/open/floor/wood,
@@ -17578,10 +17575,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/station/maintenance/port/aft)
-"gzJ" = (
-/obj/structure/chair/sofa/left/brown,
-/turf/open/floor/carpet,
-/area/station/medical/psychology)
 "gzO" = (
 /obj/machinery/firealarm/directional/west,
 /obj/machinery/camera/directional/west{
@@ -19101,16 +19094,6 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/turret_protected/aisat_interior)
-"hao" = (
-/obj/machinery/light/directional/north,
-/obj/effect/turf_decal/siding/wood{
-	dir = 9
-	},
-/mob/living/simple_animal/pet/dog/corgi/puppy/void{
-	dir = 4
-	},
-/turf/open/floor/grass,
-/area/station/science/research)
 "haq" = (
 /obj/item/kirbyplants/random,
 /turf/open/floor/iron,
@@ -21425,6 +21408,19 @@
 /obj/structure/sign/warning/vacuum/external/directional/north,
 /turf/open/floor/plating,
 /area/station/maintenance/port/fore)
+"hTh" = (
+/obj/structure/cable,
+/obj/structure/bed/dogbed/mcgriff,
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/machinery/firealarm/directional/west{
+	pixel_y = 26
+	},
+/mob/living/basic/pet/dog/pug/mcgriff,
+/obj/effect/turf_decal/trimline/dark_red/filled/line{
+	dir = 9
+	},
+/turf/open/floor/iron,
+/area/station/security/warden)
 "hTn" = (
 /obj/structure/disposalpipe/segment{
 	dir = 6
@@ -23604,6 +23600,18 @@
 /obj/item/infuser_book,
 /turf/open/floor/iron/dark,
 /area/station/science/genetics)
+"iCj" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/dark/visible,
+/obj/effect/mapping_helpers/airlock/locked,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/machinery/airlock_controller/incinerator_atmos{
+	pixel_x = 40;
+	pixel_y = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer2,
+/obj/machinery/door/airlock/public/glass/incinerator/atmos_interior,
+/turf/open/floor/engine,
+/area/station/maintenance/disposal/incinerator)
 "iCz" = (
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/machinery/door/airlock/vault{
@@ -23906,23 +23914,6 @@
 /obj/effect/spawner/random/trash/grille_or_waste,
 /turf/open/floor/plating,
 /area/station/maintenance/aft/lesser)
-"iHw" = (
-/obj/machinery/door/airlock/research/glass/incinerator/ordmix_interior,
-/obj/effect/mapping_helpers/airlock/locked,
-/obj/machinery/airlock_controller/incinerator_ordmix{
-	pixel_x = -24
-	},
-/obj/machinery/button/ignition/incinerator/ordmix{
-	pixel_x = 24;
-	pixel_y = -6
-	},
-/obj/machinery/button/door/incinerator_vent_ordmix{
-	pixel_x = 24;
-	pixel_y = 8
-	},
-/obj/effect/mapping_helpers/airlock/access/all/science/ordnance,
-/turf/open/floor/engine,
-/area/station/science/ordnance/burnchamber)
 "iHy" = (
 /obj/machinery/rnd/production/circuit_imprinter,
 /obj/effect/turf_decal/bot,
@@ -30840,21 +30831,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance)
-"kXU" = (
-/obj/structure/closet/crate/necropolis{
-	desc = "Presumably placed here by top men.";
-	name = "\improper Ark of the Covenant"
-	},
-/obj/item/toy/clockwork_watch{
-	desc = "An ancient piece of machinery, made from an unknown metal by an unknown maker.";
-	name = "\improper Ancient Relic"
-	},
-/mob/living/simple_animal/pet/dog/corgi{
-	desc = "Make sure you give him plenty of bellyrubs, or he'll melt your skin off.";
-	name = "\improper Keeper of the Ark"
-	},
-/turf/open/floor/plating,
-/area/station/maintenance/port/aft)
 "kXY" = (
 /obj/effect/turf_decal/trimline/purple/line{
 	dir = 8
@@ -32595,6 +32571,18 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/medical/break_room)
+"lFo" = (
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/computer/order_console/cook{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
+/area/station/maintenance/starboard/greater)
 "lFq" = (
 /obj/structure/sign/warning/biohazard,
 /turf/closed/wall/r_wall,
@@ -35140,6 +35128,13 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/medical/morgue)
+"mAy" = (
+/obj/machinery/computer/order_console/mining,
+/obj/effect/turf_decal/tile/brown/anticorner/contrasted{
+	dir = 8
+	},
+/turf/open/floor/iron,
+/area/station/cargo/miningoffice)
 "mAJ" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -38612,6 +38607,23 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/lockers)
+"nJA" = (
+/obj/machinery/door/airlock/research/glass/incinerator/ordmix_interior,
+/obj/effect/mapping_helpers/airlock/locked,
+/obj/machinery/airlock_controller/incinerator_ordmix{
+	pixel_x = -24
+	},
+/obj/machinery/button/ignition/incinerator/ordmix{
+	pixel_x = 24;
+	pixel_y = -6
+	},
+/obj/machinery/button/door/incinerator_vent_ordmix{
+	pixel_x = 24;
+	pixel_y = 8
+	},
+/obj/effect/mapping_helpers/airlock/access/all/science/ordnance,
+/turf/open/floor/engine,
+/area/station/science/ordnance/burnchamber)
 "nJG" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -47428,14 +47440,6 @@
 "qPJ" = (
 /turf/closed/wall,
 /area/station/security/checkpoint/medical)
-"qPS" = (
-/obj/machinery/light_switch/directional/north,
-/obj/effect/turf_decal/siding/wood{
-	dir = 5
-	},
-/mob/living/simple_animal/pet/dog/corgi/puppy/slime,
-/turf/open/floor/grass,
-/area/station/science/research)
 "qPT" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
@@ -48682,6 +48686,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/lesser)
+"rpk" = (
+/obj/machinery/status_display/evac/directional/north,
+/obj/structure/bed/dogbed/ian,
+/mob/living/basic/pet/dog/corgi/ian,
+/turf/open/floor/wood,
+/area/station/command/heads_quarters/hop)
 "rps" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
@@ -49660,13 +49670,6 @@
 	},
 /turf/open/floor/wood,
 /area/station/service/library)
-"rFF" = (
-/obj/machinery/computer/order_console/mining,
-/obj/effect/turf_decal/tile/brown/anticorner/contrasted{
-	dir = 8
-	},
-/turf/open/floor/iron,
-/area/station/cargo/miningoffice)
 "rFR" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 4
@@ -50290,19 +50293,6 @@
 /obj/effect/spawner/random/structure/crate,
 /turf/open/floor/plating,
 /area/station/maintenance/port/fore)
-"rOA" = (
-/obj/structure/cable,
-/obj/structure/bed/dogbed/mcgriff,
-/obj/machinery/power/apc/auto_name/directional/north,
-/obj/machinery/firealarm/directional/west{
-	pixel_y = 26
-	},
-/mob/living/simple_animal/pet/dog/pug/mcgriff,
-/obj/effect/turf_decal/trimline/dark_red/filled/line{
-	dir = 9
-	},
-/turf/open/floor/iron,
-/area/station/security/warden)
 "rOF" = (
 /turf/closed/wall,
 /area/station/medical/psychology)
@@ -50993,16 +50983,6 @@
 /obj/item/reagent_containers/syringe,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/lesser)
-"rYS" = (
-/obj/structure/sign/poster/official/get_your_legs{
-	pixel_y = 32
-	},
-/obj/structure/chair/sofa/right/brown,
-/obj/item/toy/plush/moth{
-	name = "Mender Moff"
-	},
-/turf/open/floor/carpet,
-/area/station/medical/psychology)
 "rZt" = (
 /obj/machinery/atmospherics/pipe/smart/manifold/purple/visible{
 	dir = 8
@@ -52297,6 +52277,16 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/security/prison/safe)
+"swS" = (
+/obj/machinery/light/directional/north,
+/obj/effect/turf_decal/siding/wood{
+	dir = 9
+	},
+/mob/living/basic/pet/dog/corgi/puppy/void{
+	dir = 4
+	},
+/turf/open/floor/grass,
+/area/station/science/research)
 "swV" = (
 /obj/effect/turf_decal/trimline/purple/line{
 	dir = 4
@@ -59178,6 +59168,16 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/department/engine)
+"uNq" = (
+/obj/structure/sign/poster/official/get_your_legs{
+	pixel_y = 32
+	},
+/obj/structure/chair/sofa/right/brown,
+/obj/item/toy/plush/moth{
+	name = "Mender Moff"
+	},
+/turf/open/floor/carpet,
+/area/station/medical/psychology)
 "uNs" = (
 /obj/effect/turf_decal/delivery,
 /obj/machinery/door/firedoor,
@@ -84307,7 +84307,7 @@ ybm
 jUb
 wgl
 jUb
-kXU
+eef
 jUb
 qkm
 vmY
@@ -87069,7 +87069,7 @@ gQv
 jXu
 jXu
 jXu
-rFF
+mAy
 cLj
 kRe
 aFd
@@ -90494,7 +90494,7 @@ jsO
 cpR
 lxC
 uYp
-rYS
+uNq
 sfA
 eQO
 xjI
@@ -90751,7 +90751,7 @@ oAj
 qOV
 qQu
 uYp
-gzJ
+eFU
 sfA
 dvn
 qkJ
@@ -93781,7 +93781,7 @@ tUH
 vPW
 lDo
 pJR
-gvl
+rpk
 hip
 fJp
 wBu
@@ -95805,7 +95805,7 @@ aeq
 dfE
 fYJ
 ycM
-rOA
+hTh
 dsk
 ewC
 iAN
@@ -100780,7 +100780,7 @@ fhi
 fhi
 fhi
 twy
-iHw
+nJA
 nZL
 bEv
 cgP
@@ -106155,7 +106155,7 @@ qXb
 mBK
 tUn
 wXF
-hao
+swS
 gcV
 nNe
 nbS
@@ -106926,7 +106926,7 @@ jkV
 pRu
 pFN
 wXF
-qPS
+dqF
 wZg
 ojo
 kWB
@@ -107931,7 +107931,7 @@ ggM
 gIS
 xNG
 gYV
-fJk
+lFo
 qpn
 tHk
 unL
@@ -108202,7 +108202,7 @@ lWq
 lWq
 lWq
 qIq
-fKs
+iCj
 rDm
 smg
 crg
