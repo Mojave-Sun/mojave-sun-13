@@ -236,3 +236,15 @@
 	material_drop = /obj/item/stack/sheet/ms13/scrap
 	material_drop_amount = 2
 	projectile_passchance = 85
+
+/obj/structure/closet/crate/ms13/woodcrate/compact/broken
+	name = "\improper broken wooden crate"
+	desc = "A wood storage crate, robust and study to all except a crowbar. This one seems already broken into."
+
+/obj/structure/closet/crate/ms13/woodcrate/compact/broken/Initialize(mapload)
+	. = ..()
+	register_context()
+	if(!altstates)
+		return
+		
+	icon_state = "[initial(icon_state)]-[rand(1,(altstates))]"
