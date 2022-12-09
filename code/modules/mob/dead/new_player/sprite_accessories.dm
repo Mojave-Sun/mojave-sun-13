@@ -128,6 +128,10 @@
 	name = "Bedhead 3"
 	icon_state = "hair_bedheadv3"
 
+/datum/sprite_accessory/hair/bedheadv4
+	name = "BedHead 4X"
+	icon_state = "hair_bedheadv4"
+
 /datum/sprite_accessory/hair/bedheadlong
 	name = "Long Bedhead"
 	icon_state = "hair_long_bedhead"
@@ -135,6 +139,10 @@
 /datum/sprite_accessory/hair/bedheadfloorlength
 	name = "Floorlength Bedhead"
 	icon_state = "hair_floorlength_bedhead"
+
+/datum/sprite_accessory/hair/BadlyCut
+	name = "Marginally shorter yet Long Bedhead"
+	icon_state = "hair_verybadlycut"
 
 /datum/sprite_accessory/hair/beehive
 	name = "Beehive"
