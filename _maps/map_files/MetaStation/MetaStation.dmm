@@ -9035,14 +9035,6 @@
 /obj/structure/closet/emcloset,
 /turf/open/floor/plating,
 /area/station/hallway/secondary/entry)
-"dqF" = (
-/obj/machinery/light_switch/directional/north,
-/obj/effect/turf_decal/siding/wood{
-	dir = 5
-	},
-/mob/living/basic/pet/dog/corgi/puppy/slime,
-/turf/open/floor/grass,
-/area/station/science/research)
 "dqI" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/vending/cigarette,
@@ -11201,21 +11193,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/station/maintenance/fore)
-"eef" = (
-/obj/structure/closet/crate/necropolis{
-	desc = "Presumably placed here by top men.";
-	name = "\improper Ark of the Covenant"
-	},
-/obj/item/toy/clockwork_watch{
-	desc = "An ancient piece of machinery, made from an unknown metal by an unknown maker.";
-	name = "\improper Ancient Relic"
-	},
-/mob/living/basic/pet/dog/corgi{
-	desc = "Make sure you give him plenty of bellyrubs, or he'll melt your skin off.";
-	name = "\improper Keeper of the Ark"
-	},
-/turf/open/floor/plating,
-/area/station/maintenance/port/aft)
 "eeg" = (
 /turf/closed/wall/mineral/plastitanium,
 /area/station/hallway/secondary/entry)
@@ -17407,6 +17384,12 @@
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/port/aft)
+"gvl" = (
+/obj/machinery/status_display/evac/directional/north,
+/obj/structure/bed/dogbed/ian,
+/mob/living/basic/pet/dog/corgi/ian,
+/turf/open/floor/wood,
+/area/station/command/heads_quarters/hop)
 "gvm" = (
 /obj/effect/landmark/start/hangover,
 /turf/open/floor/wood,
@@ -19094,6 +19077,16 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/turret_protected/aisat_interior)
+"hao" = (
+/obj/machinery/light/directional/north,
+/obj/effect/turf_decal/siding/wood{
+	dir = 9
+	},
+/mob/living/basic/pet/dog/corgi/puppy/void{
+	dir = 4
+	},
+/turf/open/floor/grass,
+/area/station/science/research)
 "haq" = (
 /obj/item/kirbyplants/random,
 /turf/open/floor/iron,
@@ -21408,19 +21401,6 @@
 /obj/structure/sign/warning/vacuum/external/directional/north,
 /turf/open/floor/plating,
 /area/station/maintenance/port/fore)
-"hTh" = (
-/obj/structure/cable,
-/obj/structure/bed/dogbed/mcgriff,
-/obj/machinery/power/apc/auto_name/directional/north,
-/obj/machinery/firealarm/directional/west{
-	pixel_y = 26
-	},
-/mob/living/basic/pet/dog/pug/mcgriff,
-/obj/effect/turf_decal/trimline/dark_red/filled/line{
-	dir = 9
-	},
-/turf/open/floor/iron,
-/area/station/security/warden)
 "hTn" = (
 /obj/structure/disposalpipe/segment{
 	dir = 6
@@ -22530,6 +22510,20 @@
 /obj/effect/mapping_helpers/airlock/access/any/engineering/general,
 /turf/open/floor/iron,
 /area/station/engineering/storage_shared)
+"ilV" = (
+/obj/machinery/door/poddoor/shutters{
+	id = "teleshutter";
+	name = "Teleporter Access Shutter"
+	},
+/obj/effect/turf_decal/delivery,
+/obj/machinery/button/door/directional/east{
+	id = "teleshutter";
+	name = "Teleporter Shutter Control";
+	pixel_y = 5;
+	req_access = list("teleporter")
+	},
+/turf/open/floor/iron,
+/area/station/command/teleporter)
 "ilY" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/rack,
@@ -30831,6 +30825,21 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance)
+"kXU" = (
+/obj/structure/closet/crate/necropolis{
+	desc = "Presumably placed here by top men.";
+	name = "\improper Ark of the Covenant"
+	},
+/obj/item/toy/clockwork_watch{
+	desc = "An ancient piece of machinery, made from an unknown metal by an unknown maker.";
+	name = "\improper Ancient Relic"
+	},
+/mob/living/basic/pet/dog/corgi{
+	desc = "Make sure you give him plenty of bellyrubs, or he'll melt your skin off.";
+	name = "\improper Keeper of the Ark"
+	},
+/turf/open/floor/plating,
+/area/station/maintenance/port/aft)
 "kXY" = (
 /obj/effect/turf_decal/trimline/purple/line{
 	dir = 8
@@ -35861,20 +35870,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
-"mLY" = (
-/obj/machinery/door/poddoor/shutters{
-	id = "teleshutter";
-	name = "Teleporter Access Shutter"
-	},
-/obj/effect/turf_decal/delivery,
-/obj/machinery/button/door/directional/east{
-	id = "teleshutter";
-	name = "Teleporter Shutter Control";
-	pixel_y = 5;
-	req_access = list("command")
-	},
-/turf/open/floor/iron,
-/area/station/command/teleporter)
 "mMl" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
@@ -47440,6 +47435,14 @@
 "qPJ" = (
 /turf/closed/wall,
 /area/station/security/checkpoint/medical)
+"qPS" = (
+/obj/machinery/light_switch/directional/north,
+/obj/effect/turf_decal/siding/wood{
+	dir = 5
+	},
+/mob/living/basic/pet/dog/corgi/puppy/slime,
+/turf/open/floor/grass,
+/area/station/science/research)
 "qPT" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
@@ -48686,12 +48689,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/lesser)
-"rpk" = (
-/obj/machinery/status_display/evac/directional/north,
-/obj/structure/bed/dogbed/ian,
-/mob/living/basic/pet/dog/corgi/ian,
-/turf/open/floor/wood,
-/area/station/command/heads_quarters/hop)
 "rps" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
@@ -50293,6 +50290,19 @@
 /obj/effect/spawner/random/structure/crate,
 /turf/open/floor/plating,
 /area/station/maintenance/port/fore)
+"rOA" = (
+/obj/structure/cable,
+/obj/structure/bed/dogbed/mcgriff,
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/machinery/firealarm/directional/west{
+	pixel_y = 26
+	},
+/mob/living/basic/pet/dog/pug/mcgriff,
+/obj/effect/turf_decal/trimline/dark_red/filled/line{
+	dir = 9
+	},
+/turf/open/floor/iron,
+/area/station/security/warden)
 "rOF" = (
 /turf/closed/wall,
 /area/station/medical/psychology)
@@ -52277,16 +52287,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/security/prison/safe)
-"swS" = (
-/obj/machinery/light/directional/north,
-/obj/effect/turf_decal/siding/wood{
-	dir = 9
-	},
-/mob/living/basic/pet/dog/corgi/puppy/void{
-	dir = 4
-	},
-/turf/open/floor/grass,
-/area/station/science/research)
 "swV" = (
 /obj/effect/turf_decal/trimline/purple/line{
 	dir = 4
@@ -84307,7 +84307,7 @@ ybm
 jUb
 wgl
 jUb
-eef
+kXU
 jUb
 qkm
 vmY
@@ -93781,7 +93781,7 @@ tUH
 vPW
 lDo
 pJR
-rpk
+gvl
 hip
 fJp
 wBu
@@ -94312,7 +94312,7 @@ vnp
 vnp
 vnp
 exN
-mLY
+ilV
 gqX
 cfb
 laK
@@ -95805,7 +95805,7 @@ aeq
 dfE
 fYJ
 ycM
-hTh
+rOA
 dsk
 ewC
 iAN
@@ -106155,7 +106155,7 @@ qXb
 mBK
 tUn
 wXF
-swS
+hao
 gcV
 nNe
 nbS
@@ -106926,7 +106926,7 @@ jkV
 pRu
 pFN
 wXF
-dqF
+qPS
 wZg
 ojo
 kWB

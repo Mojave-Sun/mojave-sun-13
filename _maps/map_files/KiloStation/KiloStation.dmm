@@ -6304,49 +6304,6 @@
 /obj/effect/landmark/blobstart,
 /turf/open/floor/engine,
 /area/station/science/xenobiology)
-"bXb" = (
-/obj/structure/table,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/machinery/light/directional/north,
-/obj/machinery/button/door{
-	id = "bridge blast";
-	name = "Bridge Lockdown Toggle";
-	pixel_x = 6;
-	pixel_y = 8;
-	req_access = list("command")
-	},
-/obj/machinery/button/door{
-	id = "bridge-maint";
-	name = "Bridge Maintenance Lockdown Toggle";
-	pixel_x = 6;
-	pixel_y = -2;
-	req_access = list("command")
-	},
-/obj/machinery/button/door{
-	id = "teleshutter";
-	name = "Teleporter Shutter Toggle";
-	pixel_x = -6;
-	pixel_y = 8;
-	req_access = list("command")
-	},
-/obj/machinery/button/door{
-	id = "evashutter";
-	name = "E.V.A. Storage Shutter Toggle";
-	pixel_x = -6;
-	pixel_y = -2;
-	req_access = list("command")
-	},
-/obj/machinery/camera/directional/north{
-	c_tag = "Bridge Control";
-	name = "command camera"
-	},
-/turf/open/floor/iron/dark,
-/area/station/command/bridge)
 "bXe" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
@@ -14205,6 +14162,49 @@
 	},
 /turf/open/floor/iron,
 /area/station/commons/vacant_room/commissary)
+"elB" = (
+/obj/structure/table,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/machinery/light/directional/north,
+/obj/machinery/button/door{
+	id = "bridge blast";
+	name = "Bridge Lockdown Toggle";
+	pixel_x = 6;
+	pixel_y = 8;
+	req_access = list("command")
+	},
+/obj/machinery/button/door{
+	id = "bridge-maint";
+	name = "Bridge Maintenance Lockdown Toggle";
+	pixel_x = 6;
+	pixel_y = -2;
+	req_access = list("command")
+	},
+/obj/machinery/button/door{
+	id = "teleshutter";
+	name = "Teleporter Shutter Toggle";
+	pixel_x = -6;
+	pixel_y = 8;
+	req_access = list("teleporter")
+	},
+/obj/machinery/button/door{
+	id = "evashutter";
+	name = "E.V.A. Storage Shutter Toggle";
+	pixel_x = -6;
+	pixel_y = -2;
+	req_access = list("command")
+	},
+/obj/machinery/camera/directional/north{
+	c_tag = "Bridge Control";
+	name = "command camera"
+	},
+/turf/open/floor/iron/dark,
+/area/station/command/bridge)
 "elD" = (
 /obj/machinery/vending/dinnerware,
 /obj/effect/turf_decal/bot,
@@ -16454,6 +16454,29 @@
 	},
 /turf/open/floor/iron/showroomfloor,
 /area/station/medical/surgery/aft)
+"eSW" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/machinery/camera/directional/north{
+	c_tag = "Central Hallway Teleporter Access";
+	name = "central camera"
+	},
+/obj/machinery/button/door/directional/north{
+	id = "teleshutter";
+	name = "Teleporter Shutter Toggle";
+	req_access = list("teleporter")
+	},
+/turf/open/floor/iron,
+/area/station/hallway/primary/central)
 "eTh" = (
 /obj/machinery/atmospherics/pipe/smart/manifold/yellow/visible{
 	dir = 1
@@ -29931,24 +29954,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/hallway/primary/aft)
-"iuP" = (
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/machinery/computer/teleporter{
-	dir = 8
-	},
-/obj/effect/turf_decal/bot,
-/obj/machinery/button/door/directional/east{
-	id = "teleshutter";
-	name = "Teleporter Shutter Toggle";
-	req_access = list("command")
-	},
-/turf/open/floor/iron/dark,
-/area/station/command/teleporter)
 "ivh" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen{
@@ -41943,6 +41948,18 @@
 /obj/effect/mapping_helpers/airlock/access/all/engineering/external,
 /turf/open/floor/iron/dark,
 /area/station/maintenance/starboard/fore)
+"lSt" = (
+/obj/structure/cable,
+/obj/structure/bed/dogbed/ian,
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/mob/living/basic/pet/dog/corgi/ian{
+	dir = 8
+	},
+/turf/open/floor/wood,
+/area/station/command/heads_quarters/hop)
 "lSE" = (
 /obj/machinery/conveyor{
 	dir = 1;
@@ -44395,6 +44412,24 @@
 /obj/effect/mapping_helpers/airlock/access/all/security/hos,
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/hos)
+"mDK" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/machinery/computer/teleporter{
+	dir = 8
+	},
+/obj/effect/turf_decal/bot,
+/obj/machinery/button/door/directional/east{
+	id = "teleshutter";
+	name = "Teleporter Shutter Toggle";
+	req_access = list("teleporter")
+	},
+/turf/open/floor/iron/dark,
+/area/station/command/teleporter)
 "mDM" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -47265,18 +47300,6 @@
 	luminosity = 2
 	},
 /area/station/engineering/storage/tech)
-"nwm" = (
-/obj/structure/cable,
-/obj/structure/bed/dogbed/ian,
-/obj/machinery/power/apc/auto_name/directional/north,
-/obj/effect/turf_decal/siding/wood{
-	dir = 8
-	},
-/mob/living/basic/pet/dog/corgi/ian{
-	dir = 8
-	},
-/turf/open/floor/wood,
-/area/station/command/heads_quarters/hop)
 "nwp" = (
 /obj/structure/table,
 /obj/item/paper_bin{
@@ -80509,29 +80532,6 @@
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
-"wNs" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/tile/blue{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/machinery/camera/directional/north{
-	c_tag = "Central Hallway Teleporter Access";
-	name = "central camera"
-	},
-/obj/machinery/button/door/directional/north{
-	id = "teleshutter";
-	name = "Teleporter Shutter Toggle";
-	req_access = list("command")
-	},
-/turf/open/floor/iron,
-/area/station/hallway/primary/central)
 "wNQ" = (
 /obj/machinery/disposal/bin,
 /obj/effect/turf_decal/bot,
@@ -114155,7 +114155,7 @@ rKj
 fYh
 fYh
 cEr
-nwm
+lSt
 ept
 cfC
 dPn
@@ -116199,7 +116199,7 @@ cYG
 mZW
 sIf
 dyK
-bXb
+elB
 jRe
 pgQ
 fnu
@@ -117501,7 +117501,7 @@ pOd
 pjm
 kOJ
 lfU
-iuP
+mDK
 nnV
 mmF
 hyl
@@ -117760,7 +117760,7 @@ tqz
 jlh
 jlh
 bBS
-wNs
+eSW
 kVv
 nrv
 sPP
