@@ -39,7 +39,7 @@
 				/obj/item/ammo_box/magazine/ms13/r10
 				)
 	var/loot7 = list(
-				/obj/item/gun/ballistic/rifle/ms13/hunting/chinese,
+				/obj/item/gun/ballistic/rifle/ms13/hunting/surplus,
 				/obj/item/ammo_box/ms13/stripper/r762,
 				/obj/item/ammo_box/ms13/stripper/r762
 				)

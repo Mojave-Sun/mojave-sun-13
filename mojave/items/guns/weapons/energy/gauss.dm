@@ -1,44 +1,59 @@
 // Guns //
 
-/obj/item/gun/ballistic/automatic/ms13/semi/gauss
+/obj/item/gun/energy/ms13/gauss
 	name = "base class gauss weapon"
 	desc = "Good god. HELP! A BASE CLASS!"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/gauss/gauss_fire_heavy.ogg'
 	load_sound = 'mojave/sound/ms13weapons/gunsounds/gauss/gauss_reload.ogg'
 	eject_sound = 'mojave/sound/ms13weapons/gunsounds/gauss/gauss_unload.ogg'
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
-	internal_magazine = FALSE
-	mag_type = /obj/item/ammo_box/magazine/ms13/a2mmEC
-	extra_damage = 30
-	extra_penetration = 35
-	fire_delay = 10 // Capacitor moment
+	slot_flags = ITEM_SLOT_SUITSTORE
+	force = 15
+	cell_type = /obj/item/stock_parts/cell/ms13/gauss
 	select = 0
 	burst_size = 1
 	actions_types = null
 
-/obj/item/gun/ballistic/automatic/ms13/semi/gauss/m72
-	name = "M72 gauss rifle"
-	desc = "The M72 is a weapon that electromagnetically fires its projectiles- at least so you've heard. All you really know is that it can punch through metal like it was never there."
+/obj/item/gun/energy/ms13/gauss/rifle
+	name = "gauss rifle"
+	desc = "A bulky, slow firing, but devastating gauss rifle."
+	icon_state = "usgauss"
+	inhand_icon_state = "usgauss"
+	ammo_type = list(/obj/item/ammo_casing/energy/ms13/gauss/rifle)
+	fire_delay = 0.9 SECONDS
+	slowdown = 1
+	grid_height = 256
+	grid_width = 64
+
+/obj/item/gun/energy/ms13/gauss/sniper
+	name = "gauss sniper"
+	desc = "A gauss rifle with a scope attached, intended for the best of the best marksmen."
 	icon_state = "m72"
 	inhand_icon_state = "m72"
-	extra_damage = 35
-	extra_penetration = 35
-	fire_delay = 10 // Capacitor moment
+	ammo_type = list(/obj/item/ammo_casing/energy/ms13/gauss/sniper)
+	fire_delay = 0.8 SECONDS
+	slowdown = 1
 	has_scope = TRUE
-	scope_range = 4
+	scope_range = 3
+	grid_height = 256
+	grid_width = 64
 
-/obj/item/gun/ballistic/automatic/ms13/semi/gauss/ppk12
-	name = "ppk12 gauss carbine"
-	desc = "More akin to a handgun, this light weight gauss weapon is able to be fired in one hand while retaining a decent amount of power from other gauss weaponry."
+/obj/item/gun/energy/ms13/gauss/pistol
+	name = "gauss pistol"
+	desc = "A lightweight, one handed gauss weapon. Don't let it's size fool you."
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/gauss/gauss_fire_light.ogg'
 	icon_state = "ppk12"
 	inhand_icon_state = "ppk12"
+	ammo_type = list(/obj/item/ammo_casing/energy/ms13/gauss/pistol)
+	slot_flags = ITEM_SLOT_SUITSTORE | ITEM_SLOT_BELT
 	w_class = WEIGHT_CLASS_NORMAL
 	weapon_weight = WEAPON_MEDIUM
-	extra_damage = 25
-	extra_penetration = 25
-	fire_delay = 6
+	force = 10
+	slowdown = 0.5
+	fire_delay = 0.6 SECONDS
+	grid_width = 96
+	grid_height = 64
 
 /* Someone else has to figure out this thing's gimmick. Won't be me.
 /obj/item/gun/ballistic/automatic/ms13/semi/gauss/chinese
@@ -52,14 +67,3 @@
 	extra_penetration = 35
 	fire_delay = 10 // Capacitor moment
 */
-
-// Magazines //
-
-/obj/item/ammo_box/magazine/ms13/a2mmEC
-	name = "20 round magazine (2mmEC)"
-	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
-	icon_state = "2mmec"
-	ammo_type = /obj/item/ammo_casing/caseless/ms13/a2mmEC
-	caliber = "2mmEC"
-	max_ammo = 20
-	multiple_sprites = AMMO_BOX_FULL_EMPTY
