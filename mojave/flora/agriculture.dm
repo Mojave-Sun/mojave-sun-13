@@ -57,10 +57,11 @@
 	var/self_sustaining = FALSE
 
 /obj/machinery/ms13/agriculture/Initialize(mapload)
-	//ALRIGHT YOU DEGENERATES. YOU HAD REAGENT HOLDERS FOR AT LEAST 4 YEARS AND NONE OF YOU MADE HYDROPONICS TRAYS HOLD NUTRIENT CHEMS INSTEAD OF USING "Points".
-	//SO HERE LIES THE "nutrilevel" VAR. IT'S DEAD AND I PUT IT OUT OF IT'S MISERY. USE "reagents" INSTEAD. ~ArcaneMusic, accept no substitutes.
-	create_reagents(maxnutri)
-	reagents.add_reagent(/datum/reagent/plantnutriment/eznutriment, 10) //Half filled nutrient trays for dirt trays to have more to grow with in prison/lavaland.
+	create_reagents(20)
+	//Nutrients are dead, I've killed them, FUCK nutrients. We love NPK now.
+	nitrolevel = maxnutri
+	phoslevel = maxnutri
+	potlevel = maxnutri
 	. = ..()
 
 // Need to either remove or edit this screentip below eventually, perhaps when agri is more fleshed out.
@@ -172,18 +173,20 @@
 
 //Nutrients//////////////////////////////////////////////////////////////
 			// Nutrients deplete at a constant rate, since new nutrients can boost stats far easier.
-			apply_chemicals(lastuser?.resolve())
-
+			var/drained_nutrient
 			// Looks ugly but it serves its purpose for now. Might expand upon later.
 			if(myseed.nutrient_type == "N")
-				adjust_nitrolevel(nutridrain)
+				adjust_nitrolevel(-nutridrain)
+				drained_nutrient = nitrolevel
 			if(myseed.nutrient_type == "P")
-				adjust_phoslevel(nutridrain)
+				adjust_phoslevel(-nutridrain)
+				drained_nutrient = phoslevel
 			if(myseed.nutrient_type == "K")
-				adjust_potlevel(nutridrain)
+				adjust_potlevel(-nutridrain)
+				drained_nutrient = potlevel
 
 			// Lack of nutrients hurts non-weeds
-			if(reagents.total_volume <= 0 && !myseed.get_gene(/datum/plant_gene/trait/plant_type/weed_hardy))
+			if(drained_nutrient <= 0 && !myseed.get_gene(/datum/plant_gene/trait/plant_type/weed_hardy))
 				adjust_plant_health(-rand(1,3))
 
 //Photosynthesis/////////////////////////////////////////////////////////
@@ -206,7 +209,7 @@
 					adjust_plant_health(-rand(0,2) / rating)
 
 			// Sufficient water level and nutrient level = plant healthy
-			else if(waterlevel > 10 && reagents.total_volume > 0)
+			else if(waterlevel > 10 && drained_nutrient > 0)
 				adjust_plant_health(rand(1,2) / rating)
 
 //Toxins/////////////////////////////////////////////////////////////////
@@ -287,14 +290,6 @@
 			plant_overlay.icon_state = "[myseed.icon_grow][t_growthstate]"
 	return plant_overlay
 
-/obj/machinery/ms13/agriculture/proc/apply_chemicals(mob/user)
-	///Contains the reagents within the tray.
-	if(myseed)
-		myseed.on_chem_reaction(reagents) //In case seeds have some special interactions with special chems, currently only used by vines
-	for(var/c in reagents.reagent_list)
-		var/datum/reagent/chem = c
-		chem.on_hydroponics_apply(myseed, reagents, src, user)
-
 ///Sets a new value for the myseed variable, which is the seed of the plant that's growing inside the tray.
 /obj/machinery/ms13/agriculture/proc/set_seed(obj/item/seeds/new_seed, delete_old_seed = TRUE)
 	var/old_seed = myseed
@@ -322,6 +317,25 @@
 	update_appearance()
 
 	SEND_SIGNAL(src, COMSIG_HYDROTRAY_SET_SELFSUSTAINING, new_value)
+
+// NPK Stuff
+/obj/machinery/ms13/agriculture/proc/set_nitrolevel(new_nitrolevel)
+	if(nitrolevel == new_nitrolevel)
+		return
+	SEND_SIGNAL(src, COMSIG_HYDROTRAY_SET_NITROLEVEL, new_nitrolevel)
+	nitrolevel = new_nitrolevel
+
+/obj/machinery/ms13/agriculture/proc/set_phoslevel(new_phoslevel)
+	if(phoslevel == new_phoslevel)
+		return
+	SEND_SIGNAL(src, COMSIG_HYDROTRAY_SET_PHOSLEVEL, new_phoslevel)
+	phoslevel = new_phoslevel
+
+/obj/machinery/ms13/agriculture/proc/set_potlevel(new_potlevel)
+	if(potlevel == new_potlevel)
+		return
+	SEND_SIGNAL(src, COMSIG_HYDROTRAY_SET_POTLEVEL, new_potlevel)
+	potlevel = new_potlevel
 
 /obj/machinery/ms13/agriculture/proc/set_waterlevel(new_waterlevel, update_icon = TRUE)
 	if(waterlevel == new_waterlevel)
@@ -410,7 +424,9 @@
 		. += span_info("It's empty.")
 
 	. += span_info("Water: [waterlevel]/[maxwater].")
-	. += span_info("Nutrient: [reagents.total_volume]/[maxnutri].")
+	. += span_info("N: [nitrolevel]/[maxnutri].")
+	. += span_info("P: [phoslevel]/[maxnutri].")
+	. += span_info("K: [potlevel]/[maxnutri].")
 	if(self_sustaining)
 		. += span_info("The tray's autogrow is active, protecting it from species mutations, weeds, and pests.")
 
