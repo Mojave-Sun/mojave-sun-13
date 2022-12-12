@@ -16,4 +16,4 @@
 	/// The item icon that will be used when wielded
 	var/icon_wielded = null
 	/// Pixel_x when wielded, multiplied by -1 when on the right hand
-	var/pixel_x_wielded = 16
+	var/pixel_x_wielded = 21
