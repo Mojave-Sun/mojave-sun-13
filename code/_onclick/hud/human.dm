@@ -219,13 +219,20 @@
 	inv_box.hud = src
 	static_inventory += inv_box
 
-	/*
 	using = new /atom/movable/screen/resist()
-	using.icon = ui_style
-	using.screen_loc = ui_above_intent
+	//using.icon = ui_style
+	using.icon = 'mojave/icons/hud/ms_ui_combat.dmi'
+	//using.screen_loc = ui_above_intent
+	using.screen_loc = ui_resist
 	using.hud = src
 	hotkeybuttons += using
-	*/
+
+	using = new /atom/movable/screen/wield()
+	//using.icon = ui_style
+	using.icon = 'mojave/icons/hud/ms_ui_combat.dmi'
+	using.screen_loc = ui_wield
+	using.hud = src
+	hotkeybuttons += using
 
 	using = new /atom/movable/screen/human/toggle/ms13() // MS EDIT
 	//using.icon = ui_style
