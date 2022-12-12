@@ -18,7 +18,7 @@
 	var/datum/wield_info/wield_datum = GLOB.path_to_wield_info[wield_info]
 	if(!wield_datum || (wield_datum.wield_flags & WIELD_WIELDABLE))
 		return
-	wield_component = LoadComponent(/datum/component/two_handed, \
+	wield_component = AddComponent(/datum/component/two_handed, \
 				require_twohands = (wield_datum.wield_flags & WIELD_ALWAYS_TWOHANDED),\
 				wieldsound = wield_datum.wield_sound, \
 				unwieldsound = wield_datum.unwield_sound, \
