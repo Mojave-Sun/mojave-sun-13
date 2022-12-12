@@ -442,3 +442,92 @@
 			/obj/effect/spawner/random/ms13/gun/tier3 = 60,
 			/obj/effect/spawner/random/ms13/gun/tier4 = 30,
 			)
+
+/obj/effect/spawner/random/ms13/gun/military
+	name = "military gun spawner"
+	spawn_loot_count = 3
+	spawn_loot_chance = 50
+	var/loot1 = list(
+				/obj/item/gun/ballistic/rifle/ms13/hunting/scoped/amr,
+				/obj/item/ammo_box/magazine/ms13/amr,
+				/obj/item/ammo_box/magazine/ms13/amr
+				)
+	var/loot2 = list(
+				/obj/item/gun/ballistic/automatic/pistol/ms13/m12mm,
+				/obj/item/ammo_box/magazine/ms13/m12mm,
+				/obj/item/ammo_box/magazine/ms13/m12mm
+				)
+	var/loot3 = list(
+				/obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/chinese,
+				/obj/item/ammo_box/magazine/ms13/ar762,
+				""
+				)
+	var/loot4 = list(
+				/obj/item/gun/ballistic/automatic/ms13/full/assaultrifle,
+				/obj/item/ammo_box/magazine/ms13/r20,
+				""
+				)
+	var/loot5 = list(
+				/obj/item/gun/ballistic/automatic/ms13/full/smg12mm,
+				/obj/item/ammo_box/magazine/ms13/smg12mm,
+				""
+				)
+	var/loot6 = list(
+				/obj/item/gun/ballistic/automatic/ms13/semi/sniper,
+				/obj/item/ammo_box/magazine/ms13/r308,
+				/obj/item/ammo_box/magazine/ms13/r308
+				)
+	var/loot7 = list(
+				/obj/item/gun/energy/ms13/laser/pistol/advanced/defender,
+				/obj/item/stock_parts/cell/ms13/mfc,
+				""
+				)
+	var/loot8 = list(
+				/obj/item/gun/energy/ms13/laser/rifle/advanced,
+				/obj/item/stock_parts/cell/ms13/mfc,
+				""
+				)
+	var/loot9 = list(
+				/obj/item/gun/energy/ms13/laser/scatter,
+				/obj/item/stock_parts/cell/ms13/mfc,
+				""
+				)
+	var/loot10 = list(
+				/obj/item/gun/energy/ms13/plasma/pistol/defender,
+				/obj/item/stock_parts/cell/ms13/pc,
+				""
+				)
+	var/loot11 = list(
+				/obj/item/gun/energy/ms13/plasma/rifle,
+				/obj/item/stock_parts/cell/ms13/pc,
+				""
+				)
+	var/loot12 = list(
+				/obj/item/gun/energy/ms13/plasma/pistol/advanced,
+				/obj/item/stock_parts/cell/ms13/pc,
+				""
+				)
+	var/loot13 = list(
+				/obj/item/gun/energy/ms13/plasma/multi,
+				/obj/item/stock_parts/cell/ms13/pc,
+				""
+				)
+	var/loot14 = list(
+				/obj/item/gun/energy/ms13/gauss/pistol,
+				/obj/item/stock_parts/cell/ms13/gauss,
+				/obj/item/stock_parts/cell/ms13/gauss
+				)
+	var/loot15 = list(
+				/obj/item/gun/energy/ms13/gauss/rifle,
+				/obj/item/stock_parts/cell/ms13/gauss,
+				/obj/item/stock_parts/cell/ms13/gauss
+				)
+	var/loot16 = list(
+				/obj/item/gun/energy/ms13/gauss/sniper,
+				/obj/item/stock_parts/cell/ms13/gauss,
+				/obj/item/stock_parts/cell/ms13/gauss
+				)
+
+/obj/effect/spawner/random/ms13/gun/military/Initialize()
+	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11, loot12, loot13, loot14, loot15, loot16)
+	. = ..()

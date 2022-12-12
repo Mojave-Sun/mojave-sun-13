@@ -5,23 +5,23 @@
 	desc = "Good god. HELP! A BASE CLASS!"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/gauss/gauss_fire_heavy.ogg'
 	load_sound = 'mojave/sound/ms13weapons/gunsounds/gauss/gauss_reload.ogg'
-	eject_sound = 'mojave/sound/ms13weapons/gunsounds/gauss/gauss_unload.ogg'
+	unload_sound = 'mojave/sound/ms13weapons/gunsounds/gauss/gauss_unload.ogg'
 	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	slot_flags = ITEM_SLOT_SUITSTORE
 	force = 15
 	cell_type = /obj/item/stock_parts/cell/ms13/gauss
-	select = 0
-	burst_size = 1
-	actions_types = null
 
 /obj/item/gun/energy/ms13/gauss/rifle
 	name = "gauss rifle"
 	desc = "A bulky, slow firing, but devastating gauss rifle."
+	base_icon_state = "usgauss"
 	icon_state = "usgauss"
 	inhand_icon_state = "usgauss"
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/gauss/rifle)
 	fire_delay = 0.9 SECONDS
+	recoil = 1.5
+	spread = 3
 	slowdown = 1
 	grid_height = 256
 	grid_width = 64
@@ -29,10 +29,13 @@
 /obj/item/gun/energy/ms13/gauss/sniper
 	name = "gauss sniper"
 	desc = "A gauss rifle with a scope attached, intended for the best of the best marksmen."
+	base_icon_state = "m72"
 	icon_state = "m72"
 	inhand_icon_state = "m72"
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/gauss/sniper)
 	fire_delay = 0.8 SECONDS
+	recoil = 1
+	spread = 2
 	slowdown = 1
 	has_scope = TRUE
 	scope_range = 3
@@ -43,6 +46,7 @@
 	name = "gauss pistol"
 	desc = "A lightweight, one handed gauss weapon. Don't let it's size fool you."
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/gauss/gauss_fire_light.ogg'
+	base_icon_state = "ppk12"
 	icon_state = "ppk12"
 	inhand_icon_state = "ppk12"
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/gauss/pistol)
@@ -50,6 +54,8 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	weapon_weight = WEAPON_MEDIUM
 	force = 10
+	recoil = 1.25
+	spread = 6
 	slowdown = 0.5
 	fire_delay = 0.6 SECONDS
 	grid_width = 96
