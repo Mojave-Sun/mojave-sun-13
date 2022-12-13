@@ -85,7 +85,6 @@ MOJAVE SUN EDIT END */
 	return
 
 /proc/create_consistent_human_dna(mob/living/carbon/human/target)
-	target.create_dna()
 	target.dna.initialize_dna(skip_index = TRUE)
 	target.dna.features["body_markings"] = "None"
 	target.dna.features["ears"] = "None"
