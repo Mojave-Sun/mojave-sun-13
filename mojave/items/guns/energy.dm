@@ -192,3 +192,13 @@
 	else
 		icon_state = "[base_icon]"
 	return ..()
+
+/obj/item/stock_parts/cell/ms13/gauss
+	name = "2mm electromagnetic cartridge"
+	desc = "A combination battery pack and magazine used as ammunition for gauss weaponry."
+	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
+	icon_state = "2mmec"
+	maxcharge = 600
+	chargerate = 50
+	base_icon = "2mmec"
+	multiple_states = TRUE

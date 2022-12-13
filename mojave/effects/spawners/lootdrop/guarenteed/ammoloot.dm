@@ -72,6 +72,7 @@
 			/obj/item/stock_parts/cell/ms13/pc = 1,
 			/obj/item/stock_parts/cell/ms13/mfc = 1,
 			/obj/item/stock_parts/cell/ms13/ecp = 1,
+			/obj/item/stock_parts/cell/ms13/gauss = 1
 			)
 
 /obj/effect/spawner/random/ms13/guaranteed/ammo/lowrandom
