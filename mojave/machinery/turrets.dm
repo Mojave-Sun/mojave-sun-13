@@ -26,13 +26,21 @@
 	base_icon_state = "turret_stand"
 	desc = "A ballistic machine gun auto-turret utilizing a fast rate of fire with low caliber projectiles."
 	shot_delay = 4
+	max_integrity = 150
+
+/obj/machinery/porta_turret/ms13/ballistic/anchored
+	name = "autoturret"
+	icon_state = "turret"
+	base_icon_state = "turret"
+	desc = "A beefy ballistic machine gun auto-turret utilizing a fast rate of fire with low caliber projectiles."
+	shot_delay = 4
+	max_integrity = 200
 
 /obj/projectile/bullet/ms13/c9mm/turret
-	name = "rustic 9mm bullet"
+	name = "9mm bullet"
 	icon_state = "merehandgun_bullet"
 	damage = 20
 	subtractible_armour_penetration = 10
 	wound_bonus = 10
 	bare_wound_bonus = 5
 	spread = 5
-
