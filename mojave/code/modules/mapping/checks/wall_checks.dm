@@ -1,6 +1,4 @@
-///\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\\
-///\/\/\/\/\/\/\/\/ MOJAVE SUN INWALL CHECKS \/\/\/\/\/\/\/\/\\\
-///\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\\
+/// MOJAVE SUN INWALL CHECKS FOR BAD MAPPERS
 
 //checks if things are in walls when they shouldnt be, add the thing here if you dont want it to be placed in walls during mapping
 

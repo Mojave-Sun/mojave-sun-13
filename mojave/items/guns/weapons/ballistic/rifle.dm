@@ -130,9 +130,9 @@
 		icon_state = "[initial(icon_state)]_mag_empty"
 		////yes this has extensive ammounts, some might be unecassary but are in place as a failsafe
 
-/obj/item/gun/ballistic/rifle/ms13/hunting/chinese
-	name = "\improper Chinese hunting rifle"
-	desc = "A Chinese bolt action hunting rifle, chambered in 7.62 with an internal magazine."
+/obj/item/gun/ballistic/rifle/ms13/hunting/surplus
+	name = "surplus hunting rifle"
+	desc = "A cheap bolt action hunting rifle, chambered in 7.62 with an internal magazine."
 	icon_state = "chinesehunting"
 	inhand_icon_state = "chinesehunting"
 	internal_magazine = TRUE
