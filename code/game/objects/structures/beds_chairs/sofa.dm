@@ -15,6 +15,7 @@ path/corner/color_name {\
 
 /obj/structure/chair/sofa
 	name = "old ratty sofa"
+	icon_state = "error"
 	icon = 'icons/obj/sofa.dmi'
 	buildstacktype = /obj/item/stack/sheet/ms13/leather //MOJAVE EDIT - Makes sofas drop our own leather instead of TG iron. Revert after CAT
 	buildstackamount = 1
