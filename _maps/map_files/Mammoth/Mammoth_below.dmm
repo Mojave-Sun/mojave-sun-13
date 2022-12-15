@@ -2269,10 +2269,10 @@
 /turf/open/ms13/water/deep,
 /area/ms13/underground/sewer)
 "aju" = (
-/obj/effect/spawner/random/ms13/guaranteed/gun/highrandom,
 /obj/structure/ms13/storage/large/shelf{
 	dir = 1
 	},
+/obj/effect/spawner/random/ms13/guaranteed/gun/military,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/military_crypt)
 "ajv" = (
@@ -3737,8 +3737,8 @@
 /turf/open/floor/ms13/tile/blue/long,
 /area/ms13/town)
 "apD" = (
-/obj/effect/spawner/random/ms13/guaranteed/gun/highrandom,
 /obj/structure/ms13/storage/shelf,
+/obj/effect/spawner/random/ms13/guaranteed/gun/military,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/enclave_base)
 "apE" = (
@@ -4835,15 +4835,11 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/sewer)
 "aur" = (
-/obj/structure/closet/crate/ms13/footlocker{
-	dir = 8
+/obj/machinery/porta_turret/ms13/ballistic/anchored{
+	dir = 5
 	},
-/obj/item/clothing/under/ms13/wasteland/army,
-/obj/machinery/light/ms13{
-	dir = 1
-	},
-/turf/open/floor/ms13/concrete/industrial,
-/area/ms13/underground/army_bunker)
+/turf/open/floor/ms13/concrete,
+/area/ms13/underground/military_crypt)
 "aus" = (
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/ms13/metal/grate,
@@ -5583,6 +5579,7 @@
 "axF" = (
 /obj/structure/closet/crate/ms13/army,
 /obj/effect/spawner/random/ms13/gun/highunique,
+/obj/effect/spawner/random/ms13/guaranteed/gun/military,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/army_bunker)
 "axG" = (
@@ -8952,11 +8949,8 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "aLW" = (
-/obj/structure/closet/crate/ms13/woodcrate,
-/obj/effect/spawner/random/ms13/ammo/highrandom,
-/obj/effect/spawner/random/ms13/ammo/highrandom,
-/obj/effect/spawner/random/ms13/ammo/highrandom,
-/obj/effect/spawner/random/ms13/ammo/highrandom,
+/obj/structure/closet/crate/ms13/woodcrate/compact/army,
+/obj/effect/spawner/random/ms13/guaranteed/gun/lowunique,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/military_crypt)
 "aLX" = (
@@ -11909,8 +11903,11 @@
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/underground_town)
 "aYG" = (
-/obj/structure/closet/crate/ms13/woodcrate/compact/army,
-/obj/effect/spawner/random/ms13/guaranteed/gun/lowunique,
+/obj/structure/closet/crate/ms13/woodcrate,
+/obj/effect/spawner/random/ms13/ammo/highrandom,
+/obj/effect/spawner/random/ms13/ammo/highrandom,
+/obj/effect/spawner/random/ms13/ammo/highrandom,
+/obj/effect/spawner/random/ms13/ammo/highrandom,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/military_crypt)
 "aYH" = (
@@ -13676,7 +13673,9 @@
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
 "fDr" = (
-/obj/machinery/porta_turret/ms13/ballistic,
+/obj/machinery/porta_turret/ms13/ballistic{
+	dir = 10
+	},
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/army_bunker)
 "fEd" = (
@@ -14168,8 +14167,8 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/underground_town)
 "hlx" = (
-/obj/effect/turf_decal/ms13/graffiti/no_way,
-/turf/open/floor/plating/ms13/ground/mountain,
+/obj/effect/turf_decal/ms13/graffiti/deadcount,
+/turf/closed/wall/ms13/concrete,
 /area/ms13/underground/mountain)
 "hns" = (
 /obj/structure/flora/rock/pile/largejungle,
@@ -14606,6 +14605,10 @@
 /obj/structure/fluff/ms13/trash/papers,
 /turf/open/floor/ms13/tile/long,
 /area/ms13/town)
+"iNW" = (
+/obj/structure/ms13/cave_decor/boards/mammoth/northsouth,
+/turf/open/floor/plating/ms13/ground/mountain,
+/area/ms13/underground/sewer)
 "iOm" = (
 /obj/structure/table/ms13/no_smooth/large/metal{
 	dir = 8
@@ -15225,7 +15228,7 @@
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/underground_town)
 "kYI" = (
-/obj/effect/turf_decal/ms13/graffiti/deadcount,
+/obj/effect/turf_decal/ms13/graffiti/dead,
 /turf/closed/wall/ms13/concrete,
 /area/ms13/underground/mountain)
 "kYP" = (
@@ -17048,7 +17051,9 @@
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
 "qLg" = (
-/obj/machinery/porta_turret/ms13/ballistic,
+/obj/machinery/porta_turret/ms13/ballistic{
+	dir = 1
+	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/mountain)
 "qLu" = (
@@ -17518,14 +17523,7 @@
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
 "stw" = (
-/obj/effect/mob_spawn/corpse/human/ms13/wastelander,
-/obj/effect/decal/cleanable/blood{
-	icon_state = "floor4"
-	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "floor7";
-	pixel_x = 11
-	},
+/obj/effect/turf_decal/ms13/graffiti/no_way,
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
 "svg" = (
@@ -17817,8 +17815,15 @@
 /turf/open/floor/ms13/metal,
 /area/ms13/town)
 "twy" = (
-/obj/effect/turf_decal/ms13/graffiti/dead,
-/turf/closed/wall/ms13/concrete,
+/obj/effect/mob_spawn/corpse/human/ms13/wastelander,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "floor4"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "floor7";
+	pixel_x = 11
+	},
+/turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
 "twB" = (
 /obj/structure/rustic_extractor,
@@ -18159,6 +18164,12 @@
 /obj/structure/ms13/cave_decor/boards/mammoth/westeast,
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
+"uBn" = (
+/obj/machinery/porta_turret/ms13/ballistic{
+	dir = 9
+	},
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/underground/army_bunker)
 "uBu" = (
 /obj/structure/ms13/departure,
 /turf/open/floor/plating/ms13/ground/mountain,
@@ -25597,7 +25608,7 @@ afU
 afU
 afU
 afU
-akx
+rvc
 akx
 akx
 akx
@@ -25899,7 +25910,7 @@ akx
 afU
 afU
 afU
-afU
+rvc
 akx
 akx
 akx
@@ -26200,7 +26211,7 @@ akx
 akx
 afU
 afU
-afU
+rvc
 rvc
 akx
 akx
@@ -26500,12 +26511,12 @@ abd
 abd
 akx
 akx
-afU
-afU
-rvc
-arb
-arb
 akx
+akx
+akx
+iSv
+akx
+twy
 akx
 akx
 akx
@@ -26802,11 +26813,11 @@ afU
 abd
 akx
 akx
-afU
-afU
-rvc
-arb
-qLg
+akx
+akx
+akx
+iSv
+akx
 akx
 akx
 akx
@@ -27105,10 +27116,10 @@ afU
 akx
 akx
 akx
-afU
-rvc
-arb
-arb
+akx
+akx
+akx
+akx
 akx
 akx
 akx
@@ -27407,10 +27418,10 @@ rvc
 akx
 akx
 akx
-afU
-afU
-rvc
-rvc
+akx
+akx
+akx
+akx
 akx
 akx
 akx
@@ -27707,14 +27718,14 @@ afU
 afU
 rvc
 akx
-asv
-rvc
-afU
-afU
-afU
-afU
-afU
-afU
+akx
+akx
+akx
+akx
+aRW
+akx
+akx
+akx
 akx
 akx
 akx
@@ -28010,13 +28021,13 @@ afU
 rvc
 akx
 akx
-rvc
-afU
-afU
-afU
-afU
-afU
-afU
+akx
+akx
+akx
+akx
+akx
+akx
+akx
 akx
 akx
 akx
@@ -28311,15 +28322,15 @@ afU
 afU
 rvc
 akx
+kJi
 akx
-rvc
-rvc
-afU
-afU
-afU
-afU
-rvc
-rvc
+akx
+akx
+akx
+akx
+akx
+akx
+akx
 akx
 akx
 akx
@@ -28613,15 +28624,15 @@ afU
 rvc
 rvc
 akx
+kJi
 akx
 akx
-afU
-afU
-afU
-afU
-afU
-afU
+akx
+akx
 rvc
+rvc
+afU
+akx
 akx
 akx
 akx
@@ -28917,17 +28928,17 @@ afU
 akx
 akx
 akx
-afU
-afU
-afU
-afU
-afU
-afU
-afU
 akx
 akx
-stw
+akx
 rvc
+afU
+afU
+afU
+afU
+afU
+afU
+afU
 afU
 afU
 afU
@@ -29216,20 +29227,20 @@ afU
 afU
 afU
 afU
-afU
-afU
 akx
 akx
-afU
-afU
-afU
-afU
-afU
-afU
+akx
 akx
 akx
 akx
 rvc
+afU
+afU
+afU
+afU
+afU
+afU
+afU
 afU
 afU
 afU
@@ -29519,19 +29530,19 @@ afU
 afU
 afU
 afU
-afU
 akx
 akx
-afU
-afU
-afU
-afU
-afU
-rvc
-mLi
+akx
 akx
 akx
 rvc
+afU
+afU
+afU
+afU
+afU
+afU
+afU
 afU
 afU
 afU
@@ -29825,14 +29836,14 @@ afU
 akx
 akx
 akx
-afU
-afU
-afU
-afU
-kYI
-eNX
 akx
-akx
+rvc
+afU
+afU
+afU
+afU
+afU
+afU
 afU
 afU
 afU
@@ -30124,6 +30135,7 @@ afU
 afU
 afU
 afU
+hlx
 akx
 akx
 akx
@@ -30131,10 +30143,9 @@ afU
 afU
 afU
 afU
-rvc
-aRW
-akx
-akx
+afU
+afU
+afU
 afU
 afU
 afU
@@ -30426,18 +30437,18 @@ afU
 afU
 afU
 afU
-afU
-akx
-akx
-akx
-afU
-afU
-afU
 rvc
 akx
 akx
-akx
-rvc
+kJi
+afU
+afU
+afU
+afU
+afU
+afU
+afU
+afU
 afU
 afU
 afU
@@ -30728,19 +30739,19 @@ afU
 afU
 afU
 afU
-afU
+rvc
 akx
 akx
-afU
-afU
+kJi
+rvc
 afU
 rvc
-twy
-akx
-hlx
-akx
-rvc
-rvc
+afU
+afU
+afU
+afU
+afU
+afU
 afU
 afU
 afU
@@ -31030,19 +31041,19 @@ afU
 afU
 afU
 afU
+kYI
+akx
+stw
+kJi
+akx
+akx
+akx
+akx
 afU
 afU
-akx
-akx
 afU
 afU
 afU
-akx
-akx
-akx
-akx
-akx
-akx
 afU
 afU
 afU
@@ -31336,15 +31347,15 @@ afU
 afU
 akx
 akx
+akx
+akx
+akx
+akx
+akx
 afU
 afU
-akx
-akx
-akx
-akx
-akx
-akx
-akx
+afU
+afU
 afU
 afU
 afU
@@ -31638,16 +31649,16 @@ afU
 afU
 afU
 akx
+kJi
 akx
 akx
 akx
 akx
 akx
-akx
-akx
-akx
-akx
-akx
+afU
+afU
+afU
+afU
 afU
 afU
 afU
@@ -31939,18 +31950,18 @@ afU
 afU
 afU
 afU
+akx
+akx
+akx
+akx
+akx
+akx
+akx
 afU
-akx
-akx
-akx
-akx
-akx
-akx
-akx
-akx
-akx
-akx
-akx
+afU
+afU
+afU
+afU
 afU
 afU
 afU
@@ -32240,19 +32251,19 @@ afU
 afU
 afU
 afU
+akx
+akx
+akx
+akx
+akx
+akx
+akx
+akx
+akx
+akx
+akx
 afU
 afU
-afU
-akx
-akx
-akx
-akx
-akx
-akx
-akx
-akx
-afU
-akx
 afU
 afU
 afU
@@ -32542,20 +32553,20 @@ afU
 afU
 afU
 afU
+akx
+akx
+akx
+akx
+akx
+akx
+akx
+akx
+akx
+akx
+akx
+akx
 afU
 afU
-akx
-akx
-akx
-akx
-akx
-akx
-akx
-akx
-akx
-akx
-akx
-akx
 afU
 afU
 afU
@@ -32844,11 +32855,11 @@ afU
 afU
 afU
 afU
-afU
-afU
 akx
 akx
-afU
+akx
+akx
+akx
 akx
 akx
 akx
@@ -33146,12 +33157,12 @@ afU
 afU
 afU
 afU
-afU
-afU
 akx
 akx
-afU
-afU
+akx
+akx
+akx
+akx
 akx
 akx
 akx
@@ -33447,16 +33458,16 @@ afU
 afU
 afU
 afU
+akx
+akx
+akx
+akx
 afU
 afU
 akx
 akx
-afU
-afU
-afU
-akx
-akx
-akx
+bbD
+bbD
 akx
 akx
 akx
@@ -33749,17 +33760,17 @@ afU
 afU
 afU
 afU
+akx
+akx
+akx
+akx
+afU
+afU
 afU
 afU
 akx
 akx
-afU
-afU
-afU
-afU
-akx
-akx
-akx
+bbD
 akx
 akx
 akx
@@ -34051,8 +34062,8 @@ afU
 afU
 afU
 afU
-afU
-afU
+akx
+akx
 akx
 akx
 afU
@@ -34353,7 +34364,7 @@ afU
 afU
 afU
 afU
-afU
+akx
 akx
 akx
 akx
@@ -34365,7 +34376,7 @@ afU
 afU
 rvc
 akx
-akx
+kJi
 akx
 akx
 akx
@@ -34655,7 +34666,7 @@ afU
 afU
 afU
 afU
-afU
+akx
 akx
 akx
 akx
@@ -34667,7 +34678,7 @@ afU
 afU
 rvc
 akx
-akx
+kJi
 akx
 akx
 akx
@@ -34957,19 +34968,19 @@ afU
 afU
 afU
 afU
-afU
 akx
 akx
 akx
 akx
 akx
-afU
-afU
-afU
-afU
-afU
-afU
 akx
+afU
+afU
+afU
+afU
+afU
+afU
+kJi
 akx
 akx
 akx
@@ -39198,7 +39209,7 @@ afU
 afU
 afU
 abV
-akx
+kJi
 akx
 afU
 afU
@@ -39500,7 +39511,7 @@ afU
 afU
 afU
 abV
-akx
+kJi
 akx
 afU
 afU
@@ -39802,7 +39813,7 @@ afU
 afU
 afU
 abV
-akx
+kJi
 afU
 afU
 afU
@@ -41618,7 +41629,7 @@ afU
 afU
 akx
 akx
-akx
+bbD
 akx
 afU
 aZW
@@ -41922,8 +41933,8 @@ afU
 akx
 akx
 akx
-akx
-aPL
+bbD
+iNW
 aLH
 aRM
 aRM
@@ -55792,7 +55803,7 @@ akx
 akx
 akx
 akx
-apq
+abd
 akx
 akx
 afU
@@ -56094,7 +56105,7 @@ aei
 akx
 akx
 akx
-apq
+abd
 apq
 akx
 afU
@@ -81295,7 +81306,7 @@ fDr
 aUt
 aUt
 aUt
-fDr
+uBn
 akC
 afU
 afU
@@ -82838,9 +82849,9 @@ aju
 aMO
 ajf
 ajx
-aKk
-aYG
 aMO
+aMO
+aur
 ajf
 afU
 ajf
@@ -84652,7 +84663,7 @@ aMO
 akV
 aMO
 aMO
-xvW
+aKk
 ajf
 ajf
 ajf
@@ -84954,7 +84965,7 @@ aPv
 ajf
 aMO
 aMO
-aMO
+aYG
 ajf
 afU
 ajf
@@ -88544,7 +88555,7 @@ akC
 avB
 avB
 avB
-aur
+aPz
 aUt
 aVG
 aUt
