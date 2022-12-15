@@ -226,7 +226,10 @@
 		else if(casing_ejector || !from_firing)
 			casing.forceMove(drop_location()) //Eject casing onto ground.
 			pixel_z = 8 //bounce time
-			casing.AddComponent(/datum/component/movable_physics, _horizontal_velocity = rand(4.5, 5.5), _vertical_velocity = rand(5, 7), _horizontal_friction = 0.25, _z_gravity = 9.80665, _z_floor = rand(0, -16), _angle_of_movement = rand(-20, 20) + dir2angle(turn(shooter.dir, 180)))
+			pixel_x = rand(-4, 4)
+			pixel_y = rand(-4, 4)
+			casing.SpinAnimation(speed = 3 SECONDS, loops = 1)
+			casing.AddComponent(/datum/component/movable_physics, _horizontal_velocity = rand(450, 550) / 100, _vertical_velocity = rand(400, 450) / 100, _horizontal_friction = rand(20, 24) / 100, _z_gravity = 9.80665, _z_floor = 0, _angle_of_movement = (rand(-3000, 3000) / 100) + dir2angle(turn(shooter.dir, 180)))
 			//casing.bounce_away(TRUE, shooter)
 			SEND_SIGNAL(casing, COMSIG_CASING_EJECTED)
 			chambered = null
@@ -258,7 +261,7 @@
 		bolt_locked = FALSE
 	if (user)
 		to_chat(user, span_notice("You rack the [bolt_wording] of [src]."))
-	process_chamber(!chambered, FALSE)
+	process_chamber(!chambered, FALSE, shooter = user)
 	if (bolt_type == BOLT_TYPE_LOCKING && !chambered)
 		bolt_locked = TRUE
 		playsound(src, lock_back_sound, lock_back_sound_volume, lock_back_sound_vary)

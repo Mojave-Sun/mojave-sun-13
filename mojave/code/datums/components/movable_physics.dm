@@ -19,8 +19,10 @@
 	var/physic_flags
 	///The cached animate_movement of the parent; any kind of gliding when doing Move() makes the physics look derpy, so we'll just make Move() be instant
 	var/cached_animate_movement
+	///The sound effect to play when bouncing off of something
+	var/bounce_sound
 
-/datum/component/movable_physics/Initialize(_horizontal_velocity = 0, _vertical_velocity = 0, _horizontal_friction = 0, _z_gravity = 0, _z_floor = 0, _angle_of_movement = 0, _physic_flags = 0)
+/datum/component/movable_physics/Initialize(_horizontal_velocity = 0, _vertical_velocity = 0, _horizontal_friction = 0, _z_gravity = 0, _z_floor = 0, _angle_of_movement = 0, _physic_flags = 0, _bounce_sound)
 	. = ..()
 	if(!ismovable(parent))
 		return COMPONENT_INCOMPATIBLE
@@ -32,6 +34,7 @@
 	z_floor = _z_floor
 	angle_of_movement = _angle_of_movement
 	physic_flags = _physic_flags
+	bounce_sound = _bounce_sound
 	if(vertical_velocity || horizontal_velocity)
 		start_movement()
 
@@ -40,8 +43,8 @@
 	var/atom/movable/moving_atom = parent
 	cached_animate_movement = moving_atom.animate_movement
 	moving_atom.animate_movement = NO_STEPS
-	moving_atom.SpinAnimation(speed = 0.1 SECONDS, loops = 3)
 	START_PROCESSING(SSmovablephysics, src)
+	moving_atom.SpinAnimation(speed = 2 SECONDS, loops = 2)
 
 ///Alright it's time to stop
 /datum/component/movable_physics/proc/stop_movement()
@@ -60,20 +63,20 @@
 	ricochet(atom_source, get_angle(atom_source, throwingdatum.target_turf))
 
 /datum/component/movable_physics/proc/z_floor_bounce(atom/movable/moving_atom)
-	angle_of_movement += rand(-20, 20)
-	horizontal_velocity += max(0, (vertical_velocity * -1) / 2)
+	angle_of_movement += rand(-3000, 3000) / 100
 	var/turf/a_turf = get_turf(moving_atom)
 	playsound(moving_atom, a_turf.bullet_bounce_sound, 50, TRUE)
-	moving_atom.SpinAnimation(speed = 0.1, loops = 3)
+	moving_atom.SpinAnimation(speed = 1 SECONDS, loops = 1)
+	moving_atom.pixel_z = z_floor
+	horizontal_velocity = max(0, horizontal_velocity + (vertical_velocity * -0.8))
+	vertical_velocity = max(0, ((vertical_velocity * -0.8) - 0.2))
 
 /datum/component/movable_physics/proc/ricochet(atom/movable/moving_atom, bounce_angle)
 	angle_of_movement = ((180 - bounce_angle) - angle_of_movement)
 	if(angle_of_movement < 0)
 		angle_of_movement += 360
-	//velocity loss for collision. might need to adjust this number. (maybe scaled based on current velocity??)
-	//horizontal_velocity -= 1
-	var/turf/a_turf = get_turf(moving_atom)
-	playsound(src, a_turf.bullet_bounce_sound, 50, TRUE)
+	//var/turf/a_turf = get_turf(moving_atom)
+	//playsound(src, a_turf.bullet_bounce_sound, 50, TRUE)
 
 /datum/component/movable_physics/proc/fix_angle(angle, atom/moving_atom)//fixes an angle below 0 or above 360
 	if(!(angle_of_movement > 360) && !(angle_of_movement < 0))
@@ -100,13 +103,10 @@
 
 	moving_atom.pixel_z = max(z_floor, moving_atom.pixel_z + vertical_velocity)
 	if(moving_atom.pixel_z > z_floor)
-		vertical_velocity -= (z_gravity * 0.1)
+		vertical_velocity -= (z_gravity * 0.05)
 
 	if(moving_atom.pixel_z <= z_floor && (vertical_velocity != 0)) //z bounce
 		z_floor_bounce(moving_atom)
-		moving_atom.pixel_z = z_floor
-
-		vertical_velocity = max(0, ((vertical_velocity * - 0.8) - 0.2))
 
 	if(moving_atom.pixel_x > 16)
 		if(moving_atom.Move(get_step(moving_atom, EAST)))
@@ -114,12 +114,15 @@
 		else
 			moving_atom.pixel_x = 16
 			ricochet(moving_atom, 0)
+		return
+
 	if(moving_atom.pixel_x < -16)
 		if(moving_atom.Move(get_step(moving_atom, WEST)))
 			moving_atom.pixel_x = 16
 		else
 			moving_atom.pixel_x = -16
 			ricochet(moving_atom, 0)
+		return
 
 	if(moving_atom.pixel_y > 16)
 		if(moving_atom.Move(get_step(moving_atom, NORTH)))
@@ -127,6 +130,8 @@
 		else
 			moving_atom.pixel_y = 16
 			ricochet(moving_atom, 180)
+		return
+
 	if(moving_atom.pixel_y < -16)
 		if(moving_atom.Move(get_step(moving_atom, SOUTH)))
 			moving_atom.pixel_y = 16
