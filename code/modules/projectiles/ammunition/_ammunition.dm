@@ -1,5 +1,3 @@
-#define EARTH_GRAVITY 9.80665 //In meter / second^2
-
 /obj/item/ammo_casing
 	name = "bullet casing"
 	desc = "A bullet casing."
@@ -36,39 +34,6 @@
 	///pacifism check for boolet, set to FALSE if bullet is non-lethal
 	var/harmful = TRUE
 
-	animate_movement = NO_STEPS //No need for this. We're moving that ball for real.
-
-	var/putting = FALSE //is someone lining up a shot?
-	var/moving = FALSE //is the ball in motion
-
-	var/putt_vel = 0 //strength of the lined up shot
-	var/putt_angle = 0 //angle of the lined up shot
-
-	//location on a 32x32 grid.
-	var/ball_x = 16
-	var/ball_y = 16
-	var/ball_z = 0 //Current ball z; floor is the minimum it can go to
-	var/ball_z_floor = 0 //Ideally somewhere between 0 and -16
-
-
-	//x and y velocity
-	var/vel_x = 0
-	var/vel_y = 0
-	var/vel_z = 0
-
-	var/ball_angle = 0 //should be between 0 and 360. 0 is considered East, and it increments counter-clockwise.
-	var/ball_velocity = 0 //the velocity of the ball, before converting to x and y velocity.
-
-	var/friction = 0.5 //how much x/y velocity is lost every update
-
-/obj/item/ammo_casing/proc/start_movement()
-	//START_PROCESSING(SSprojectiles, src) //this will be moved to a seperate subsystem when I make that.
-	moving = TRUE
-
-/obj/item/ammo_casing/proc/end_movement()
-	//STOP_PROCESSING(SSprojectiles, src)
-	moving = FALSE
-
 /obj/item/ammo_casing/spent
 	name = "spent bullet casing"
 	loaded_projectile = null
@@ -77,8 +42,8 @@
 	. = ..()
 	if(projectile_type)
 		loaded_projectile = new projectile_type(src)
-	//pixel_x = base_pixel_x + rand(-10, 10)
-	//pixel_y = base_pixel_y + rand(-10, 10)
+	pixel_x = base_pixel_x + rand(-10, 10)
+	pixel_y = base_pixel_y + rand(-10, 10)
 	item_flags |= NO_PIXEL_RANDOM_DROP
 	setDir(pick(GLOB.alldirs))
 	update_appearance()
@@ -187,143 +152,16 @@
 		return ..()
 
 /obj/item/ammo_casing/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
-	//bounce_away(FALSE, NONE)
-	pixel_z = 8 //bounce time
-	AddComponent(/datum/component/movable_physics, _horizontal_velocity = rand(4.5, 5.5), _vertical_velocity = rand(5, 7), _horizontal_friction = 0.25, _z_gravity = 9.80665, _z_floor = rand(0, -16), _angle_of_movement = get_angle(src, throwingdatum.target_turf))
+	bounce_away(FALSE, NONE)
 	return ..()
 
-/// BALL MOVEMENT ///
-/obj/item/ammo_casing/proc/bounce(bounce_angle)
-	ball_angle = ((180 - bounce_angle) - ball_angle)
-	if(ball_angle < 0)
-		ball_angle += 360
-
-	//velocity loss for collision. might need to adjust this number. (maybe scaled based on current velocity??)
-	ball_velocity -= 1
-	var/turf/a_turf = get_turf(src)
-	playsound(src, a_turf.bullet_bounce_sound, 50, TRUE)
-
-/obj/item/ammo_casing/proc/fix_angle(angle)//fixes an angle below 0 or above 360
-	if(!(angle > 360) && !(angle < 0))
-		return angle //early return if it doesn't need to change
-	var/new_angle
-	if(angle > 360)
-		new_angle = angle - 360
-	if(angle < 0)
-		new_angle = angle + 360
-	return new_angle
-
-/obj/item/ammo_casing/process(delta_time)
-	ball_angle = fix_angle(ball_angle)
-	if(ball_velocity <= 0 && ball_z == 0)
-		ball_velocity = 0
-		end_movement()
-
-	vel_x = (ball_velocity * (cos(ball_angle)))
-	vel_y = (ball_velocity * (sin(ball_angle)))
-
-	ball_velocity = max(0, ball_velocity - friction)
-
-	ball_x += vel_x
-	ball_y += vel_y
-
-	ball_z = max(ball_z_floor, ball_z + vel_z)
-	if(ball_z > ball_z_floor)
-		vel_z -= (EARTH_GRAVITY * 0.1)
-
-	if(ball_z == ball_z_floor && (vel_z < 0)) //bounce time
-		actual_bounce(null, null, null, null)
-		vel_z = max(0, ((vel_z * 0.8) * -1) - 0.8)
-
-	if(ball_x > 32)
-		if(Move(get_step(src, EAST)))
-			ball_x = 0
-		else
-			ball_x = 32
-			bounce(0)
-	if(ball_x < 0)
-		if(Move(get_step(src, WEST)))
-			ball_x = 32
-		else
-			ball_x = 0
-			bounce(0)
-
-	if(ball_y > 32)
-		if(Move(get_step(src, NORTH)))
-			ball_y = 0
-		else
-			ball_y = 32
-			bounce(180)
-	if(ball_y < 0)
-		if(Move(get_step(src, SOUTH)))
-			ball_y = 32
-		else
-			ball_y = 0
-			bounce(180)
-
-	//change the pixel offset of the ball so that we can see it "move"
-	pixel_x = (ball_x - 16)
-	pixel_y = (ball_y - 16)
-	pixel_z = (ball_z)
-
-/obj/item/ammo_casing/proc/bounce_away(still_warm = FALSE, bounce_delay = 3, mob/shooter)
+/obj/item/ammo_casing/proc/bounce_away(still_warm = FALSE, bounce_delay = 3)
 	if(!heavy_metal)
 		return
 	update_appearance()
-
-	ball_velocity = rand(6.5, 7.5)
-	vel_z = rand(3, 4)
-	ball_z = 8
-	ball_z_floor = rand(0, -16)
-	ball_angle = rand(-20, 20)
-	start_movement()
-
-	SpinAnimation(speed = 2.0 SECONDS, loops = 1, parallel = TRUE)
+	SpinAnimation(10, 1)
 	var/turf/T = get_turf(src)
 	if(still_warm && T?.bullet_sizzle)
-		addtimer(CALLBACK(GLOBAL_PROC, .proc/playsound, src, 'sound/items/welder.ogg', 10, 1), bounce_delay) //If the turf is made of water and the shell casing is still hot, make a sizzling sound when it's ejected.
-	//else if(T?.bullet_bounce_sound)
-	//	addtimer(CALLBACK(GLOBAL_PROC, .proc/playsound, src, T.bullet_bounce_sound, 20, 1), 0.3 SECONDS) //Soft / non-solid turfs that shouldn't make a sound when a shell casing is ejected over them.
-	//	addtimer(CALLBACK(GLOBAL_PROC, .proc/playsound, src, T.bullet_bounce_sound, 20, 1), 0.6 SECONDS) //Soft / non-solid turfs that shouldn't make a sound when a shell casing is ejected over them.
-	//	addtimer(CALLBACK(GLOBAL_PROC, .proc/playsound, src, T.bullet_bounce_sound, 20, 1), 0.9 SECONDS) //Soft / non-solid turfs that shouldn't make a sound when a shell casing is ejected over them.
-	var/new_x = 0
-	var/new_y = 0
-	for(var/bounce_num = 0, bounce_num != 9, bounce_num += 3)
-		//animate(src, pixel_x = pixel_x + rand(-12, 12), pixel_y = pixel_y + rand(-12, 12), time = 1 SECONDS, flags = ANIMATION_PARALLEL)
-		//addtimer(CALLBACK(src, .proc/actual_bounce, shooter, new_x, new_y, bounce_num), bounce_num)
-		//addtimer(CALLBACK(src, .proc/gravity_exists, new_y), bounce_num + 0.15 SECONDS)
-		new_x += rand(-6, 18)
-		new_y += rand(36, 12)
-		//animate(src, pixel_x = pixel_x + rand(-18, 54), pixel_y = pixel_y + rand(108, 36), time = 1.5 SECONDS, easing = BOUNCE_EASING, flags = ANIMATION_PARALLEL)
-
-/obj/item/ammo_casing/proc/actual_bounce(mob/shooter, new_x, new_y, bounce_num)
-
-	ball_angle += rand(-20, 20)
-	ball_velocity += max(0, (vel_z * -1) / 2)
-	var/turf/a_turf = get_turf(src)
-	playsound(src, a_turf.bullet_bounce_sound, 50, TRUE)
-	//animate(src, pixel_y = rand(16, 32), time = 0.15 SECONDS, flags = ANIMATION_PARALLEL)
-
-	//if(bounce_num == 6)
-		//SpinAnimation(speed = 0.5 SECONDS, loops = 2, parallel = TRUE)
-		//animate(src, pixel_x = new_x, pixel_y = new_y, time = 0.9 SECONDS, easing = SINE_EASING | EASE_OUT, flags = ANIMATION_PARALLEL)
-	//else
-		//SpinAnimation(speed = 0.1 SECONDS, loops = 3, parallel = TRUE)
-		//animate(src, pixel_x = new_x, pixel_y = new_y, time = 0.3 SECONDS, easing = LINEAR_EASING, flags = ANIMATION_PARALLEL)
-
-
-	//var/list/possible_dirs = GLOB.cardinals.Copy()
-	//possible_dirs -= turn(shooter.dir, -90) //RIP left handed users
-	//var/chosen_dir = pick(possible_dirs)
-	//var/target_turf = get_step_away(get_turf(src), chosen_dir, 1)
-
-/obj/item/ammo_casing/proc/gravity_exists(new_y)
-	//animate(src, pixel_y = base_pixel_y, time = 0.15 SECONDS, flags = ANIMATION_PARALLEL)
-
-
-/obj/item/ammo_casing/spent/bouncy
-
-/obj/item/ammo_casing/spent/bouncy/Initialize()
-	. = ..()
-	pixel_z = 8
-	AddComponent(/datum/component/movable_physics, _horizontal_velocity = rand(4.5, 5.5), _vertical_velocity = rand(3, 4), _horizontal_friction = 0.0, _z_gravity = 9.80665, _z_floor = rand(0, 16), _angle_of_movement = rand(0, 360))
+		addtimer(CALLBACK(GLOBAL_PROC, .proc/playsound, src, 'sound/items/welder.ogg', 20, 1), bounce_delay) //If the turf is made of water and the shell casing is still hot, make a sizzling sound when it's ejected.
+	else if(T?.bullet_bounce_sound)
+		addtimer(CALLBACK(GLOBAL_PROC, .proc/playsound, src, T.bullet_bounce_sound, 20, 1), bounce_delay) //Soft / non-solid turfs that shouldn't make a sound when a shell casing is ejected over them.
