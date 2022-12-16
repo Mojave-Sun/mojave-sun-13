@@ -502,13 +502,7 @@
 
 	if(hud_version != HUD_STYLE_NOHUD)
 		for(var/obj/item/I in H.held_items)
-			// MOJAVE EDIT
-			//I.screen_loc = ui_hand_position(H.get_held_index_of_item(I))
-			if(H.get_held_index_of_item(I) == 1)
-				I.screen_loc = "CENTER:2,SOUTH"
-			else
-				I.screen_loc = "CENTER:-44,SOUTH"
-			// MOJAVE EDIT END
+			I.screen_loc = ui_hand_position(H.get_held_index_of_item(I))
 			screenmob.client.screen += I
 	else
 		for(var/obj/item/I in H.held_items)
