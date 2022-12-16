@@ -6,6 +6,6 @@
 		return
 
 	if(hud.wield_active)
-		icon_state += "_wielded"
+		icon_state += "_wield"
 	else if(hud.mymob.active_hand_index == held_index)
 		icon_state += "_active"
