@@ -123,7 +123,7 @@
 		/obj/item/gun/ballistic/automatic/pistol/ms13/m10mm/chinese, \
 		/obj/item/gun/ballistic/revolver/ms13/rev10mm, \
 		/obj/item/gun/energy/ms13/laser/pistol/wattz, \
-		/obj/item/gun/ballistic/rifle/ms13/hunting/chinese, \
+		/obj/item/gun/ballistic/rifle/ms13/hunting/surplus, \
 		/obj/item/gun/ballistic/automatic/pistol/ms13/pistol45, \
 		/obj/item/gun/ballistic/automatic/pistol/ms13/m10mm, \
 		/obj/item/gun/ballistic/revolver/ms13/rev357)

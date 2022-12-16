@@ -110,6 +110,20 @@
 	if(istype(carbon_user) && (carbon_user.fatness == FATNESS_OBESE))
 		. += span_warning("Your fat ass probably won't fit inside.")
 
+/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/examine(mob/user)
+	. = ..()
+	. += "Alt+left click this power armor to get into and out of it."
+	var/mob/living/carbon/carbon_user = user
+	if(istype(carbon_user) && (carbon_user.fatness == FATNESS_OBESE))
+		. += span_warning("Your fat ass probably won't fit inside.")
+
+/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/mob_can_equip(mob/living/M, mob/living/equipper, slot, disable_warning, bypass_equip_delay_self)
+	if((slot == ITEM_SLOT_OCLOTHING) && no_fatties && iscarbon(M))
+		var/mob/living/carbon/carbon_fatass = M
+		if(carbon_fatass.fatness == FATNESS_OBESE)
+			return FALSE
+	return ..()
+
 //We want to be able to strip the PA as usual but also have the benefits of NO_DROP to disallow stuff like drag clicking PA into hand slot
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/canStrip(mob/stripper, mob/owner)
 	return !(item_flags & ABSTRACT)
