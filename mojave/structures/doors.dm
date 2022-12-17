@@ -199,7 +199,7 @@
 		try_to_activate_door(M)
 		return TRUE
 	if(!open)
-		update_appearance()
+		update_overlays()
 		return ((obj_flags & CAN_BE_HIT) && I.attack_atom(src, M, params))
 
 /obj/machinery/door/unpowered/ms13/do_animate(animation)

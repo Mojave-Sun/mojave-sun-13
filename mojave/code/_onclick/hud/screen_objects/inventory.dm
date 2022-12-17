@@ -6,15 +6,6 @@
 		return
 
 	if(hud.wield_active)
-		icon_state += "_wield"
+		icon_state += "_wielded"
 	else if(hud.mymob.active_hand_index == held_index)
 		icon_state += "_active"
-
-//MIND THE GAP
-/atom/movable/screen/inventory/hand/update_overlays()
-	. = ..()
-	if((held_index % RIGHT_HANDS) || !hud?.wield_active)
-		return
-	var/image/gap = image(icon, "gap")
-	gap.pixel_x = 42
-	. += gap

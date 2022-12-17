@@ -16,7 +16,7 @@
 	else if(!wield_info || QDELETED(src))
 		return
 	var/datum/wield_info/wield_datum = GLOB.path_to_wield_info[wield_info]
-	if(!wield_datum || !(wield_datum.wield_flags & WIELD_WIELDABLE))
+	if(!wield_datum || (wield_datum.wield_flags & WIELD_WIELDABLE))
 		return
 	wield_component = AddComponent(/datum/component/two_handed, \
 				require_twohands = (wield_datum.wield_flags & WIELD_ALWAYS_TWOHANDED),\
