@@ -24,7 +24,7 @@
 	///How much potassium (K) is in the soil
 	var/potlevel
 	///How many units of nutrients will be drained in the tray.
-	var/nutridrain = 1
+	var/nutridrain = 100
 	///The maximum nutrient reagent container size of the tray.
 	var/maxnutri = 20
 	///Nutriment's effect on yield
@@ -57,6 +57,7 @@
 	var/self_sustaining = FALSE
 
 /obj/machinery/ms13/agriculture/Initialize(mapload)
+	// The soil needs a place to put reagents in order for water to work. Might change how water works later.
 	create_reagents(20)
 	//Nutrients are dead, I've killed them, FUCK nutrients. We love NPK now.
 	nitrolevel = maxnutri
@@ -162,6 +163,12 @@
 
 	if(world.time > (lastcycle + cycledelay))
 		lastcycle = world.time
+
+		// The soil slowly replenishes itself over time. Later on this'll be supplemented by fertilizers.
+		adjust_nitrolevel(rand(5, 15))
+		adjust_phoslevel(rand(5, 15))
+		adjust_potlevel(rand(5, 15))
+
 		if(myseed && plant_status != HYDROTRAY_PLANT_DEAD)
 			// Advance age
 			age++
@@ -172,23 +179,23 @@
 
 
 //Nutrients//////////////////////////////////////////////////////////////
-			// Nutrients deplete at a constant rate, since new nutrients can boost stats far easier.
+			// The nutrient being used by the planted seeds, used to check if the plant has enough to keep growing.
 			var/drained_nutrient
 			// Looks ugly but it serves its purpose for now. Might expand upon later.
-			if(myseed.nutrient_type == "N")
-				adjust_nitrolevel(-nutridrain)
-				drained_nutrient = nitrolevel
-			if(myseed.nutrient_type == "P")
-				adjust_phoslevel(-nutridrain)
-				drained_nutrient = phoslevel
-			if(myseed.nutrient_type == "K")
-				adjust_potlevel(-nutridrain)
-				drained_nutrient = potlevel
+			if(plant_status != HYDROTRAY_PLANT_HARVESTABLE)
+				if(myseed.nutrient_type == "N")
+					adjust_nitrolevel(-nutridrain)
+					drained_nutrient = nitrolevel
+				if(myseed.nutrient_type == "P")
+					adjust_phoslevel(-nutridrain)
+					drained_nutrient = phoslevel
+				if(myseed.nutrient_type == "K")
+					adjust_potlevel(-nutridrain)
+					drained_nutrient = potlevel
 
 			// Lack of nutrients hurts non-weeds
-			if(drained_nutrient <= 0 && !myseed.get_gene(/datum/plant_gene/trait/plant_type/weed_hardy))
-				adjust_plant_health(-rand(1,3))
-
+				if(drained_nutrient <= 0 && !myseed.get_gene(/datum/plant_gene/trait/plant_type/weed_hardy))
+					adjust_plant_health(-rand(1,3))
 //Photosynthesis/////////////////////////////////////////////////////////
 			// Lack of light hurts non-mushrooms
 			if(isturf(loc))
@@ -200,17 +207,18 @@
 
 //Water//////////////////////////////////////////////////////////////////
 			// Drink random amount of water
-			adjust_waterlevel(-rand(1,6) / rating)
+			if(plant_status != HYDROTRAY_PLANT_HARVESTABLE)
+				adjust_waterlevel(-rand(1,6) / rating)
 
 			// If the plant is dry, it loses health pretty fast, unless mushroom
-			if(waterlevel <= 10 && !myseed.get_gene(/datum/plant_gene/trait/plant_type/fungal_metabolism))
-				adjust_plant_health(-rand(0,1) / rating)
+				if(waterlevel <= 10 && !myseed.get_gene(/datum/plant_gene/trait/plant_type/fungal_metabolism))
+					adjust_plant_health(-rand(0,1) / rating)
 				if(waterlevel <= 0)
 					adjust_plant_health(-rand(0,2) / rating)
 
 			// Sufficient water level and nutrient level = plant healthy
-			else if(waterlevel > 10 && drained_nutrient > 0)
-				adjust_plant_health(rand(1,2) / rating)
+				else if(waterlevel > 10 && drained_nutrient > 0)
+					adjust_plant_health(rand(1,2) / rating)
 
 //Toxins/////////////////////////////////////////////////////////////////
 
@@ -378,13 +386,13 @@
  * Raises or lowers the values during growing and when left to fallow, or when fertilized.
 */
 /obj/machinery/ms13/agriculture/proc/adjust_nitrolevel(amt)
-	set_nitrolevel(clamp(nitrolevel + amt, 0, maxnutri))
+	set_nitrolevel(clamp(nitrolevel + amt, 0.00, maxnutri))
 
 /obj/machinery/ms13/agriculture/proc/adjust_phoslevel(amt)
-	set_phoslevel(clamp(phoslevel + amt, 0, maxnutri))
+	set_phoslevel(clamp(phoslevel + amt, 0.00, maxnutri))
 
 /obj/machinery/ms13/agriculture/proc/adjust_potlevel(amt)
-	set_potlevel(clamp(potlevel + amt, 0, maxnutri))
+	set_potlevel(clamp(potlevel + amt, 0.00, maxnutri))
 
 /**
  * Adjust water.
@@ -424,9 +432,9 @@
 		. += span_info("It's empty.")
 
 	. += span_info("Water: [waterlevel]/[maxwater].")
-	. += span_info("N: [nitrolevel]/[maxnutri].")
-	. += span_info("P: [phoslevel]/[maxnutri].")
-	. += span_info("K: [potlevel]/[maxnutri].")
+	. += span_info("N: [nitrolevel / maxnutri * 100]%")
+	. += span_info("P: [phoslevel / maxnutri * 100]%")
+	. += span_info("K: [potlevel / maxnutri * 100]%")
 	if(self_sustaining)
 		. += span_info("The tray's autogrow is active, protecting it from species mutations, weeds, and pests.")
 
@@ -482,7 +490,7 @@
 			to_chat(user, span_warning("[reagent_source] is empty!"))
 			return 1
 
-		if(reagents.total_volume >= reagents.maximum_volume && !reagent_source.reagents.has_reagent(/datum/reagent/water, 1))
+		if(reagents.total_volume >= reagents.maximum_volume && !reagent_source.reagents.has_reagent(water_types, 1))
 			to_chat(user, span_notice("[src] is full."))
 			return
 
@@ -510,10 +518,18 @@
 		for(var/obj/machinery/ms13/agriculture/H in trays)
 		//cause I don't want to feel like im juggling 15 tamagotchis and I can get to my real work of ripping flooring apart in hopes of validating my life choices of becoming a space-gardener
 			//This was originally in apply_chemicals, but due to apply_chemicals only holding nutrients, we handle it here now.
-			if(reagent_source.reagents.has_reagent(/datum/reagent/water, 1))
-				var/water_amt = reagent_source.reagents.get_reagent_amount(/datum/reagent/water) * transfer_amount / reagent_source.reagents.total_volume
+			if(reagent_source.reagents.has_reagent(/datum/reagent/consumable/ms13/water, 1))
+				var/water_amt = reagent_source.reagents.get_reagent_amount(/datum/reagent/consumable/ms13/water) * transfer_amount / reagent_source.reagents.total_volume
 				H.adjust_waterlevel(round(water_amt))
-				reagent_source.reagents.remove_reagent(/datum/reagent/water, water_amt)
+				reagent_source.reagents.remove_reagent(/datum/reagent/consumable/ms13/water, water_amt)
+			if(reagent_source.reagents.has_reagent(/datum/reagent/consumable/ms13/unfiltered_water, 1))
+				var/water_amt = reagent_source.reagents.get_reagent_amount(/datum/reagent/consumable/ms13/unfiltered_water) * transfer_amount / reagent_source.reagents.total_volume
+				H.adjust_waterlevel(round(water_amt))
+				reagent_source.reagents.remove_reagent(/datum/reagent/consumable/ms13/unfiltered_water, water_amt)
+			if(reagent_source.reagents.has_reagent(/datum/reagent/consumable/ms13/dirty_water, 1))
+				var/water_amt = reagent_source.reagents.get_reagent_amount(/datum/reagent/consumable/ms13/dirty_water) * transfer_amount / reagent_source.reagents.total_volume
+				H.adjust_waterlevel(round(water_amt))
+				reagent_source.reagents.remove_reagent(/datum/reagent/consumable/ms13/dirty_water, water_amt)
 			reagent_source.reagents.trans_to(H.reagents, transfer_amount, transfered_by = user)
 			lastuser = WEAKREF(user)
 			if(IS_EDIBLE(reagent_source) || istype(reagent_source, /obj/item/reagent_containers/pill))
@@ -658,7 +674,7 @@
 	use_power = NO_POWER_USE
 	flags_1 = NODECONSTRUCT_1
 	unwrenchable = FALSE
-	maxnutri = 15
+	maxnutri = 5000
 	var/border_icon = 'mojave/icons/hydroponics/dirt_border.dmi'
 
 /obj/machinery/ms13/agriculture/soil/update_icon()
