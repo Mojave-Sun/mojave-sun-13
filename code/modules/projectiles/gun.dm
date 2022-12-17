@@ -252,18 +252,10 @@
 	if(check_botched(user, target))
 		return
 
-	/* MOJAVE EDIT REMOVAL
 	var/obj/item/bodypart/other_hand = user.has_hand_for_held_index(user.get_inactive_hand_index()) //returns non-disabled inactive hands
 	if(weapon_weight == WEAPON_HEAVY && (user.get_inactive_held_item() || !other_hand))
 		to_chat(user, span_warning("You need two hands to fire [src]!"))
 		return
-	*/
-	// MOJAVE EDIT BEGIN
-	var/datum/component/two_handed/two_handed = GetComponent(/datum/component/two_handed)
-	if(weapon_weight == WEAPON_HEAVY && !(two_handed?.wielded))
-		to_chat(user, span_warning("You need to wield [src] with two hands!"))
-		return
-	// MOJAVE EDIT END
 	//DUAL (or more!) WIELDING
 	var/bonus_spread = 0
 	var/loop_counter = 0

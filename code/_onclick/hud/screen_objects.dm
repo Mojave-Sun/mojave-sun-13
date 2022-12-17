@@ -210,10 +210,14 @@
 		if(held_index)
 			if(!C.has_hand_for_held_index(held_index))
 				. += blocked_overlay
-/* MOJAVE EDIT REMOVAL
+
 	if(held_index == hud.mymob.active_hand_index)
-		. += "hand_active"
-*/
+		//MOJAVE EDIT - . += "hand_active"
+		if(hud.mymob.active_hand_index == 1)
+			. += "hand_l_on"
+		else
+			. += "hand_r_on"
+
 
 /atom/movable/screen/inventory/hand/Click(location, control, params)
 	// At this point in client Click() code we have passed the 1/10 sec check and little else
