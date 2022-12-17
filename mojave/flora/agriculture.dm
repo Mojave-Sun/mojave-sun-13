@@ -490,7 +490,7 @@
 			to_chat(user, span_warning("[reagent_source] is empty!"))
 			return 1
 
-		if(reagents.total_volume >= reagents.maximum_volume && !reagent_source.reagents.has_reagent(water_types, 1))
+		if(reagents.total_volume >= reagents.maximum_volume && !reagent_source.reagents.has_reagent(datum/reagent/water))
 			to_chat(user, span_notice("[src] is full."))
 			return
 
