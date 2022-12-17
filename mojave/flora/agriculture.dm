@@ -58,7 +58,7 @@
 
 /obj/machinery/ms13/agriculture/Initialize(mapload)
 	// The soil needs a place to put reagents in order for water to work. Might change how water works later.
-	create_reagents(20)
+	create_reagents(1000)
 	//Nutrients are dead, I've killed them, FUCK nutrients. We love NPK now.
 	nitrolevel = maxnutri
 	phoslevel = maxnutri
@@ -490,7 +490,7 @@
 			to_chat(user, span_warning("[reagent_source] is empty!"))
 			return 1
 
-		if(reagents.total_volume >= reagents.maximum_volume && !reagent_source.reagents.has_reagent(datum/reagent/water))
+		if(reagents.total_volume >= reagents.maximum_volume && (!reagent_source.reagents.has_reagent(/datum/reagent/consumable/ms13/water) || !reagent_source.reagents.has_reagent(/datum/reagent/consumable/ms13/unfiltered_water) || !reagent_source.reagents.has_reagent(/datum/reagent/consumable/ms13/dirty_water)))
 			to_chat(user, span_notice("[src] is full."))
 			return
 
