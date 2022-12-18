@@ -56,6 +56,9 @@
 /obj/machinery/door/airlock/ms13/town/doctor
 	req_access = list(ACCESS_TOWN_DOCTOR)
 
+/obj/machinery/door/airlock/ms13/town/worker
+	req_access = list(ACCESS_TOWN_WORKER)
+
 //// Brotherhood doors ////
 
 /obj/machinery/door/airlock/ms13/brotherhood

@@ -25,14 +25,14 @@
 	desc = "A gold star badge with a blue stamp in the middle, indicating this badge belongs to the Mayor."
 	assignment = "Town Mayor"
 	icon_state = "mayor"
-	access = list(ACCESS_TOWN_MAYOR, ACCESS_TOWN_LAW, ACCESS_TOWN_DOCTOR)
+	access = list(ACCESS_TOWN_MAYOR, ACCESS_TOWN_LAW, ACCESS_TOWN_DOCTOR, ACCESS_TOWN_WORKER)
 
 /obj/item/card/id/ms13/deputy
 	name = "deputy's badge"
 	desc = "A dull silver Deputy's badge. Classic."
 	assignment = "Town Deputy"
 	icon_state = "deputy"
-	access = list(ACCESS_TOWN_LAW, ACCESS_TOWN_DOCTOR)
+	access = list(ACCESS_TOWN_LAW, ACCESS_TOWN_DOCTOR, ACCESS_TOWN_WORKER)
 
 /obj/item/card/id/ms13/deputy/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/card/id/ms13/sheriff))
@@ -46,7 +46,7 @@
 	desc = "A golden Sheriff's badge. Strikes fear into the hearts of wrongdoers."
 	assignment = "Town Sheriff"
 	icon_state = "sheriff"
-	access = list(ACCESS_TOWN_MAYOR, ACCESS_TOWN_LAW, ACCESS_TOWN_DOCTOR)
+	access = list(ACCESS_TOWN_MAYOR, ACCESS_TOWN_LAW, ACCESS_TOWN_DOCTOR, ACCESS_TOWN_WORKER)
 
 /obj/item/card/id/ms13/town
 	name = "town passport"
@@ -56,6 +56,7 @@
 
 /obj/item/card/id/ms13/town/worker
 	assignment = "Town Worker"
+	access = list(ACCESS_TOWN_WORKER)
 
 /obj/item/card/id/ms13/town/bartender
 	assignment = "Town Bartender"
