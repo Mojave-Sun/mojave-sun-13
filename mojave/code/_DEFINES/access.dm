@@ -8,6 +8,8 @@
 #define ACCESS_TOWN_DOCTOR 3
 // Town Worker rooms
 #define ACCESS_TOWN_WORKER 4
+// All Townie rooms
+#define ACCESS_TOWN_ALL 5
 
 //// Brotherhood Area Access ////
 
