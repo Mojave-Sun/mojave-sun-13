@@ -334,12 +334,11 @@
 	name = "tree"
 	desc = "A large tree."
 	density = TRUE
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = 4.9
+	plane = ABOVE_GAME_PLANE
 	pixel_x = -16
 	pixel_y = 5
 	var/log_amount = 1
-	layer = ABOVE_ALL_MOB_LAYER
-	plane = ABOVE_GAME_PLANE
 	projectile_passchance = 60 // mf tree
 
 /obj/structure/flora/ms13/tree/Initialize()
