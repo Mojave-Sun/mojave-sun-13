@@ -1,6 +1,4 @@
-///\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\\
-///\/\/\/\/\/\/\/\/ MOJAVE SUN SAMETYPE STACK CHECKS \/\/\/\/\/\/\/\/\\\
-///\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\\
+/// MOJAVE SUN SAMETYPE STACK CHECKS FOR BAD MAPPERS
 
 //checks if sametype objects/structures are on itself on mapload when the code is applied, add here if you want this on something
 //there is no better way to do it with byondcode, I tried - but it is more robust now, picks up stuff it wasnt before

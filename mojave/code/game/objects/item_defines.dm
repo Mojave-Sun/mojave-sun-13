@@ -1,4 +1,9 @@
 /obj/item
+	/**
+	 * A datum that gives us simple information on how we should behave on wielding.
+	 * Wield info datums are singletons, and should not be created or deleted in the middle of a round.
+	 */
+	var/wield_info = /datum/wield_info/default
 	/// How much to remove from edge_protection
 	var/edge_protection_penetration = 0
 	/// Armour penetration that only applies to subtractible armor

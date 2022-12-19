@@ -219,13 +219,20 @@
 	inv_box.hud = src
 	static_inventory += inv_box
 
-	/*
 	using = new /atom/movable/screen/resist()
-	using.icon = ui_style
-	using.screen_loc = ui_above_intent
+	//using.icon = ui_style
+	using.icon = 'mojave/icons/hud/ms_ui_combat.dmi'
+	//using.screen_loc = ui_above_intent
+	using.screen_loc = ui_resist
 	using.hud = src
 	hotkeybuttons += using
-	*/
+
+	using = new /atom/movable/screen/wield()
+	//using.icon = ui_style
+	using.icon = 'mojave/icons/hud/ms_ui_combat.dmi'
+	using.screen_loc = ui_wield
+	using.hud = src
+	hotkeybuttons += using
 
 	using = new /atom/movable/screen/human/toggle/ms13() // MS EDIT
 	//using.icon = ui_style
@@ -495,13 +502,7 @@
 
 	if(hud_version != HUD_STYLE_NOHUD)
 		for(var/obj/item/I in H.held_items)
-			// MOJAVE EDIT
-			//I.screen_loc = ui_hand_position(H.get_held_index_of_item(I))
-			if(H.get_held_index_of_item(I) == 1)
-				I.screen_loc = "CENTER:2,SOUTH"
-			else
-				I.screen_loc = "CENTER:-44,SOUTH"
-			// MOJAVE EDIT END
+			I.screen_loc = ui_hand_position(H.get_held_index_of_item(I))
 			screenmob.client.screen += I
 	else
 		for(var/obj/item/I in H.held_items)

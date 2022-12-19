@@ -617,6 +617,8 @@
 	plane = FLOOR_PLANE
 	layer = TURF_LAYER_WATER_BASE
 	slowdown = 0.5
+	// What type of water it'll give you when you fill a container from it.
+	var/dispensedreagent = /datum/reagent/consumable/ms13/unfiltered_water
 	var/next_splash = 1
 	var/atom/watereffect = /obj/effect/overlay/ms13/water/medium
 	var/atom/watertop = /obj/effect/overlay/ms13/water/top/medium
@@ -659,6 +661,16 @@ GLOBAL_VAR(FishPopNextCalc)
 			to_chat(user, "<span class='notice'>You reel in your catch.</span>")
 			getFished(user)
 
+	if(istype(W, /obj/item/reagent_containers))
+		var/obj/item/reagent_containers/container = W
+		if(container.is_refillable())
+			if(!container.reagents.holder_full())
+				container.reagents.add_reagent(dispensedreagent, min(container.volume - container.reagents.total_volume, container.amount_per_transfer_from_this))
+				to_chat(user, span_notice("You fill [container] from [src]."))
+				return TRUE
+			to_chat(user, span_notice("\The [container] is full."))
+			return FALSE
+
 /turf/open/ms13/water/proc/getFished(mob/user)
 	var/spawnFish = pick_weight(fish)
 	new spawnFish(user.loc)
@@ -696,10 +708,8 @@ GLOBAL_VAR(FishPopNextCalc)
 
 /turf/open/ms13/water/Initialize()
 	. = ..()
-	create_reagents(1000)
 	new watereffect(src)
 	new watertop(src)
-	reagents.add_reagent(/datum/reagent/consumable/ms13/unfiltered_water, 1000)
 
 /obj/effect/overlay/ms13/water
 	name = "water"
@@ -883,6 +893,7 @@ GLOBAL_VAR(FishPopNextCalc)
 	name = "sewer water"
 	desc = "Murky and foul smelling water, if you could call it that."
 	baseturfs = /turf/open/ms13/water/sewer
+	dispensedreagent = /datum/reagent/consumable/ms13/dirty_water
 	fish = list(/obj/item/food/meat/slab/ms13/fish/lamprey = 2,
 		/obj/item/food/meat/slab/ms13/fish/largemouth = 1,
 		/obj/item/food/meat/slab/ms13/fish/chum = 3,
