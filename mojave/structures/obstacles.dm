@@ -620,10 +620,10 @@
 /obj/machinery/door/unpowered/ms13/seethrough/fence/Initialize()
 	. = ..()
 	if(dir == NORTH)
-		pixel_y = 0
+		pixel_y = -8
 
 	if(dir == SOUTH)
-		pixel_y = 0
+		pixel_y = -8
 
 	if(dir == EAST)
 		pixel_x = -16

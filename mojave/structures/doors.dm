@@ -3,7 +3,7 @@
 	name = "base state ms13 door"
 	pixel_x = -16
 	pixel_y = -8
-	plane = ABOVE_GAME_PLANE
+	plane = GAME_PLANE_FOV_HIDDEN
 	layer = ABOVE_MOB_LAYER
 	density = TRUE
 	assemblytype = null
@@ -37,17 +37,23 @@
 	if(dir == EAST)
 		pixel_x = -3
 		pixel_y = 16
-		add_overlay(image(icon,icon_state="[frametype]_frame_vertical_overlay"))
+		add_overlay(image(icon,icon_state="[frametype]_frame_vertical_overlay", layer = ABOVE_ALL_MOB_LAYER))
 
 	if(dir == WEST)
 		pixel_x = -28
 		pixel_y = 16
-		add_overlay(image(icon,icon_state="[frametype]_frame_vertical_overlay"))
+		add_overlay(image(icon,icon_state="[frametype]_frame_vertical_overlay", layer = ABOVE_ALL_MOB_LAYER))
 
 /obj/machinery/door/unpowered/ms13/update_overlays()
 	. = ..()
 
 	cut_overlays()
+
+	if(dir == EAST)
+		add_overlay(image(icon,icon_state="[frametype]_frame_vertical_overlay", layer = ABOVE_ALL_MOB_LAYER))
+
+	if(dir == WEST)
+		add_overlay(image(icon,icon_state="[frametype]_frame_vertical_overlay", layer = ABOVE_ALL_MOB_LAYER))
 
 	if(has_damage_overlay) //stunning code, code of the year
 		switch(open)
