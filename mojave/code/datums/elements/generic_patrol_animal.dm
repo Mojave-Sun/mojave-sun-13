@@ -14,7 +14,7 @@ The simple animal this is attached to should also be able to destroy obstacles s
 	///The "node" the animal wants to walk towards
 	var/list/animal_target_node = list()
 	///A list of nodes to walk through to make it to the first node in the list
-	var/list/animal_nodes_to_walk = list()
+	var/list/list/animal_nodes_to_walk = list()
 	///The identifier associated with the weights
 	var/list/animal_identifier = list()
 	///The move delay for patrolling with

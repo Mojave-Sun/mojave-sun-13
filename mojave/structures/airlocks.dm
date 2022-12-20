@@ -40,6 +40,9 @@
 		return
 	. = ..()
 
+/obj/machinery/door/airlock/ms13/screwdriver_act(mob/living/user, obj/item/tool)
+	return
+
 //// Town Doors ////
 
 /obj/machinery/door/airlock/ms13/town
@@ -52,6 +55,12 @@
 
 /obj/machinery/door/airlock/ms13/town/doctor
 	req_access = list(ACCESS_TOWN_DOCTOR)
+
+/obj/machinery/door/airlock/ms13/town/worker
+	req_access = list(ACCESS_TOWN_WORKER)
+
+/obj/machinery/door/airlock/ms13/town/all
+	req_access = list(ACCESS_TOWN_ALL)
 
 //// Brotherhood doors ////
 

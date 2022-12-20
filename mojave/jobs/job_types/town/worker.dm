@@ -22,7 +22,7 @@
 	shoes =  	 /obj/item/clothing/shoes/ms13/military/vault
 	belt =		 /obj/item/weldingtool/ms13
 	r_pocket =   /obj/item/wirecutters/ms13
-	l_pocket =	 /obj/item/stack/ms13/currency/prewar/hunned
+	l_pocket =	 /obj/item/stack/ms13/currency/prewar/eighty
 	back =       /obj/item/storage/ms13/vault
 	backpack_contents = list(
 		/obj/item/clothing/glasses/ms13/welding=1, \

@@ -76,12 +76,12 @@
 	target_trait = PARTICLEWEATHER_RAIN
 
 //Makes you a little chilly
-/datum/particle_weather/rain_gentle/weather_act(mob/living/L)
-	L.adjust_bodytemperature(-rand(1,3))
+/*/datum/particle_weather/rain_gentle/weather_act(mob/living/L)
+	L.adjust_bodytemperature(-rand(1,3))*/ //Commented out for now because base TG body temperature is pretty dumb - Hekzder
 
 /datum/particle_weather/rain_storm
-	name = "Rain"
-	desc = "Gentle Rain, la la description."
+	name = "Rain Storm"
+	desc = "Intense rain."
 	particleEffectType = /particles/weather/rain
 
 	scale_vol_with_severity = TRUE
@@ -97,12 +97,12 @@
 	target_trait = PARTICLEWEATHER_RAIN
 
 //Makes you a bit chilly
-/datum/particle_weather/rain_storm/weather_act(mob/living/L)
-	L.adjust_bodytemperature(-rand(3,5))
+/*/datum/particle_weather/rain_storm/weather_act(mob/living/L)
+	L.adjust_bodytemperature(-rand(3,5))*/ //Commented out for now because base TG body temperature is pretty dumb - Hekzder
 
 /datum/particle_weather/snow_gentle
-	name = "Rain"
-	desc = "Gentle Rain, la la description."
+	name = "Snow"
+	desc = "Light snowfall."
 	particleEffectType = /particles/weather/snow
 
 	scale_vol_with_severity = TRUE
@@ -118,14 +118,14 @@
 	target_trait = PARTICLEWEATHER_SNOW
 
 //Makes you a little chilly
-/datum/particle_weather/snow_gentle/weather_act(mob/living/L)
-	L.adjust_bodytemperature(-rand(1,3))
+/*/datum/particle_weather/snow_gentle/weather_act(mob/living/L)
+	L.adjust_bodytemperature(-rand(1,3))*/ //Commented out for now because base TG body temperature is pretty dumb - Hekzder
 
 
 /datum/particle_weather/snow_storm
-	name = "Rain"
-	desc = "Gentle Rain, la la description."
-	particleEffectType = /particles/weather/snow
+	name = "Snowstorm"
+	desc = "Intense snowstorm that impairs vision."
+	particleEffectType = /particles/weather/snowstorm
 
 	scale_vol_with_severity = TRUE
 	weather_sounds = list(/datum/looping_sound/snow)
@@ -133,13 +133,14 @@
 
 	minSeverity = 40
 	maxSeverity = 100
-	maxSeverityChange = 50
-	severitySteps = 50
+	maxSeverityChange = 60
+	severitySteps = 10
 	immunity_type = TRAIT_SNOWSTORM_IMMUNE
 	probability = 1
 	target_trait = PARTICLEWEATHER_SNOW
 
 //Makes you a lot little chilly
 /datum/particle_weather/snow_storm/weather_act(mob/living/L)
-	L.adjust_bodytemperature(-rand(5,15))
+	if(ishuman(L))
+		L.blur_eyes(5)
 

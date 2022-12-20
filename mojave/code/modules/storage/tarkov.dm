@@ -102,6 +102,33 @@
 	screen_start_y = 4
 	screen_start_x = 17
 
+/datum/component/storage/concrete/ms13/shoes
+	screen_max_columns = 1
+	screen_max_rows = 2
+	screen_start_y = 4
+	screen_start_x = 17
+	quickdraw = TRUE
+	silent = TRUE
+	attack_hand_interact = FALSE
+	rustle_sound = FALSE
+
+/datum/component/storage/concrete/ms13/shoes/Initialize()
+	. = ..()
+	set_holdable(list(
+		/obj/item/knife,
+		/obj/item/switchblade,
+		/obj/item/pen,
+		/obj/item/scalpel,
+		/obj/item/reagent_containers/syringe,
+		/obj/item/reagent_containers/hypospray/medipen,
+		/obj/item/screwdriver,
+		/obj/item/ms13/lockpick/basic,
+		/obj/item/gun/ballistic/automatic/pistol/ms13/pistol22,
+		/obj/item/gun/ballistic/revolver/ms13/derringer,
+		/obj/item/gun/ballistic/revolver/ms13/rev357/police,
+		/obj/item/stack/ms13/currency/prewar,
+		/obj/item/stack/ms13/currency/ncr_dollar))
+
 /datum/component/storage
 	screen_max_columns = 8
 	screen_max_rows = 3
