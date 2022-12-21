@@ -129,8 +129,6 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	if(drift_cooldown > world.time) //Special move cooldown + drifting shouldn't restart the tread sounds
 		return
 	*/
-	if(soundloop.timerid)
-		return
 	soundloop.start()
 
 /*
