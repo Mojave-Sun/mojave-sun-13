@@ -45,6 +45,7 @@
 
 /obj/structure/window/fulltile/ms13/spawnDebris(location)
 	. = list()
+	. += new /obj/item/stack/sheet/ms13/glass(location)
 /*
 	for(var/num = 0; num != 6; num++)
 		var/obj/item/shard/glass = new(location)

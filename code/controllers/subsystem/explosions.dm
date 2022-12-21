@@ -294,7 +294,7 @@ SUBSYSTEM_DEF(explosions)
 	var/orig_heavy_range = heavy_impact_range
 	var/orig_light_range = light_impact_range
 
-	//var/orig_max_distance = max(devastation_range, heavy_impact_range, light_impact_range, flame_range, flash_range)
+	var/orig_max_distance = max(devastation_range, heavy_impact_range, light_impact_range, flame_range, flash_range)
 
 	//Zlevel specific bomb cap multiplier
 	var/cap_multiplier = SSmapping.level_trait(epicenter.z, ZTRAIT_BOMBCAP_MULTIPLIER)
@@ -361,8 +361,8 @@ SUBSYSTEM_DEF(explosions)
 	far_dist += heavy_impact_range * 15
 	far_dist += devastation_range * 20
 
-	//if(!silent)
-		//shake_the_room(epicenter, orig_max_distance, far_dist, devastation_range, heavy_impact_range)
+	if(!silent)
+		shake_the_room(epicenter, orig_max_distance, far_dist, devastation_range, heavy_impact_range)
 
 	if(heavy_impact_range > 1)
 		var/datum/effect_system/explosion/E
