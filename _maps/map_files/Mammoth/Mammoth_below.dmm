@@ -470,6 +470,7 @@
 "abU" = (
 /obj/structure/table/ms13/no_smooth/counter/metal,
 /obj/effect/spawner/random/ms13/crafting/electrical,
+/obj/effect/spawner/random/ms13/crafting/electrical,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "abV" = (
@@ -3274,9 +3275,7 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/ncr)
 "anB" = (
-/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/left/pre_open{
-	id = "canned_meat_factory_elev"
-	},
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/left,
 /turf/open/floor/ms13/metal/grate/border,
 /area/ms13/town)
 "anC" = (
@@ -10281,9 +10280,7 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/military_crypt)
 "aRB" = (
-/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/right/pre_open{
-	id = "canned_meat_factory_elev"
-	},
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/right,
 /turf/open/floor/ms13/metal/grate/border,
 /area/ms13/town)
 "aRC" = (
@@ -12067,10 +12064,11 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/underground_town)
 "aZy" = (
-/obj/machinery/button/ms13{
-	dir = 8;
-	id = "canned_meat_factory_elev"
+/obj/structure/ms13/storage/shelf{
+	dir = 1
 	},
+/obj/effect/spawner/random/ms13/crafting/lowrandom,
+/obj/effect/spawner/random/ms13/crafting/lowrandom,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "aZz" = (
@@ -13249,9 +13247,10 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/underground_town)
 "dUS" = (
-/obj/effect/spawner/random/ms13/tools/tool,
-/obj/structure/ms13/pipes/horizontal/end,
-/turf/closed/wall/ms13/sewer,
+/obj/structure/table/ms13/metal/grate,
+/obj/effect/spawner/random/ms13/crafting/electrical,
+/obj/effect/spawner/random/ms13/crafting/electrical,
+/turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "dUT" = (
 /obj/item/stack/sheet/ms13/scrap_electronics/two,
@@ -13728,11 +13727,11 @@
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/underground_town)
 "fHf" = (
-/obj/machinery/button/ms13{
-	dir = 8;
-	id = "canned_meat_factory_elev"
-	},
-/turf/open/floor/ms13/metal/plate,
+/obj/structure/table/ms13/metal/grate,
+/obj/effect/spawner/random/ms13/crafting/electrical,
+/obj/effect/spawner/random/ms13/crafting/electrical,
+/obj/effect/spawner/random/ms13/crafting/electrical,
+/turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "fHm" = (
 /obj/structure/bed/ms13/bedframe/metal,
@@ -14894,6 +14893,7 @@
 /obj/structure/closet/crate/ms13/woodcrate,
 /obj/effect/spawner/random/ms13/food/junkfood_canned,
 /obj/effect/spawner/random/ms13/food/junkfood_canned,
+/obj/effect/spawner/random/ms13/food/junkfood_canned,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "jGR" = (
@@ -15062,6 +15062,8 @@
 /area/ms13/underground/underground_town)
 "kpj" = (
 /obj/structure/closet/crate/ms13/woodcrate/compact,
+/obj/effect/spawner/random/ms13/food/junkfood_canned,
+/obj/effect/spawner/random/ms13/food/junkfood_canned,
 /obj/effect/spawner/random/ms13/food/junkfood_canned,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
@@ -17461,6 +17463,8 @@
 /obj/structure/ms13/storage/shelf{
 	dir = 8
 	},
+/obj/effect/spawner/random/ms13/crafting/lowrandom,
+/obj/effect/spawner/random/ms13/crafting/lowrandom,
 /obj/effect/spawner/random/ms13/crafting/lowrandom,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
@@ -80110,7 +80114,7 @@ afU
 afU
 afU
 aau
-apo
+att
 agE
 apo
 aPs
@@ -81020,7 +81024,7 @@ abU
 aoT
 aoT
 aoT
-dUS
+jnd
 aOX
 aoT
 aoT
@@ -81036,7 +81040,7 @@ aEW
 ybQ
 aoT
 kMi
-alf
+kpj
 uXB
 aEW
 afU
@@ -81338,7 +81342,7 @@ aEW
 aqD
 aan
 aoT
-abG
+aoT
 kpj
 aEW
 afU
@@ -81637,7 +81641,7 @@ aoT
 aoT
 aoT
 qvw
-abG
+aoT
 aoT
 aoT
 aoT
@@ -81924,7 +81928,7 @@ afL
 aan
 sfK
 aoT
-aZy
+aoT
 aoT
 aoT
 aoT
@@ -82832,12 +82836,12 @@ sfK
 aoT
 aRB
 aZL
-fHf
+aZL
 aEW
-aqD
+aZy
 aoT
 aoT
-bhy
+eDi
 aEW
 dHb
 dHb
@@ -84350,7 +84354,7 @@ aGF
 aZL
 aoT
 aoT
-fgw
+dUS
 fIQ
 mrk
 aoT
@@ -84652,7 +84656,7 @@ tAf
 bgK
 aoT
 aoT
-apo
+fgw
 aEW
 aEW
 adm
@@ -85262,7 +85266,7 @@ aKM
 aoT
 aoT
 aoT
-fgw
+fHf
 aEW
 afU
 afU
