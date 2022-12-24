@@ -286,7 +286,7 @@
 		how_cool_are_your_threads += "</span>"
 		. += how_cool_are_your_threads.Join()
 
-	if(armor.bio || armor.bomb || armor.bullet || armor.energy || armor.laser || armor.melee || armor.fire || armor.acid || flags_cover & HEADCOVERSMOUTH || flags_cover & PEPPERPROOF)
+	if(armor.has_any_armor() || flags_cover & HEADCOVERSMOUTH || flags_cover & PEPPERPROOF)
 		. += span_notice("It has a <a href='?src=[REF(src)];list_armor=1'>tag</a> listing its protection classes.")
 // GOMBLE TODO - what is this
 /obj/item/clothing/Topic(href, href_list)
@@ -294,57 +294,27 @@
 
 	if(href_list["list_armor"])
 		var/list/readout = list("<span class='notice'><u><b>PROTECTION CLASSES</u></b>")
-		//MOJAVE EDIT BEGIN
-		if(subarmor.edge_protection || subarmor.crushing || subarmor.cutting || subarmor.piercing || subarmor.impaling || subarmor.laser \
-			|| subarmor.energy || subarmor.bomb  || subarmor.fire || subarmor.acid)
-			readout += "\n<b>ARMOR (DT)</b>"
-			if(subarmor.subarmor_flags & SUBARMOR_FLEXIBLE)
-				readout += "\nFLEXIBLE"
-			if(subarmor.edge_protection)
-				readout += "\nEDGE PROTECTION [armor_to_protection_class(subarmor.edge_protection)]"
-			if(subarmor.crushing)
-				readout += "\nCRUSHING [armor_to_protection_class(subarmor.crushing)]"
-			if(subarmor.cutting)
-				readout += "\nCUTTING [armor_to_protection_class(subarmor.cutting)]"
-			if(subarmor.piercing)
-				readout += "\nPIERCING [armor_to_protection_class(subarmor.piercing)]"
-			if(subarmor.impaling)
-				readout += "\nIMPALING [armor_to_protection_class(subarmor.impaling)]"
-			if(subarmor.laser)
-				readout += "\nLASER [armor_to_protection_class(subarmor.laser)]"
-			if(subarmor.energy)
-				readout += "\nENERGY [armor_to_protection_class(subarmor.energy)]"
-			if(subarmor.bomb)
-				readout += "\nBOMB [armor_to_protection_class(subarmor.bomb)]"
-			if(subarmor.fire)
-				readout += "\nFIRE [armor_to_protection_class(subarmor.fire)]"
-			if(subarmor.acid)
-				readout += "\nACID [armor_to_protection_class(subarmor.acid)]"
-		//MOJAVE EDIT END
-		if(armor.bio || armor.bomb || armor.bullet || armor.energy || armor.laser || armor.melee)
-			readout += "\n<b>ARMOR (I-X)</b>"
-			*/
-			//MOJAVE EDIT BEGIN
-			readout += "\n<b>ARMOR (DR)</b>"
-			//MOJAVE EDIT END
-			if(armor.bio)
-				readout += "\nBIOHAZARD [armor_to_protection_class(armor.bio)]"
-			if(armor.bomb)
-				readout += "\nEXPLOSIVE [armor_to_protection_class(armor.bomb)]"
-			if(armor.bullet)
-				readout += "\nBULLET [armor_to_protection_class(armor.bullet)]"
-			if(armor.energy)
-				readout += "\nENERGY [armor_to_protection_class(armor.energy)]"
-			if(armor.laser)
-				readout += "\nLASER [armor_to_protection_class(armor.laser)]"
-			if(armor.melee)
-				readout += "\nMELEE [armor_to_protection_class(armor.melee)]"
-		if(armor.fire || armor.acid)
-			readout += "\n<b>DURABILITY (I-X)</b>"
-			if(armor.fire)
-				readout += "\nFIRE [armor_to_protection_class(armor.fire)]"
-			if(armor.acid)
-				readout += "\nACID [armor_to_protection_class(armor.acid)]"
+
+		var/added_damage_header = FALSE
+		for(var/damage_key in ARMOR_LIST_DAMAGE())
+			var/rating = armor.get_rating(damage_key)
+			if(!rating)
+				continue
+			if(!added_damage_header)
+				readout += "\n<b>ARMOR (I-X)</b>"
+				added_damage_header = TRUE
+			readout += "\n[armor_to_protection_name(damage_key)] [armor_to_protection_class(rating)]"
+
+		var/added_durability_header = FALSE
+		for(var/durability_key in ARMOR_LIST_DURABILITY())
+			var/rating = armor.get_rating(durability_key)
+			if(!rating)
+				continue
+			if(!added_durability_header)
+				readout += "\n<b>DURABILITY (I-X)</b>"
+				added_damage_header = TRUE
+			readout += "\n[armor_to_protection_name(durability_key)] [armor_to_protection_class(durability_key)]"
+
 		if(flags_cover & HEADCOVERSMOUTH || flags_cover & PEPPERPROOF)
 			var/list/things_blocked = list()
 			if(flags_cover & HEADCOVERSMOUTH)

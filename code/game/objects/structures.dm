@@ -10,12 +10,17 @@
 	pass_flags_self = PASSSTRUCTURE
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 	var/broken = FALSE
+
+	// GOMBLE TODO - Review the new armor subtypes - we might be able to use them instead of the system we wangled?
 	var/weatherproof = FALSE //MOJAVE SUN EDIT - Weather
-	var/projectile_passchance = 0 // MOJAVE SUN EDIT - projectile passthrough chance 100% always goes through, 0% never goes through. Definition isn't required if structure doesn't have density, duh.
+	var/projectile_passchance = 0 // MOJAVE SUN EDIT - projectile passthrough chance 100% always goes through, 0% never goes through. Definition isn't required if structure doesn't have density, duh. -- This could also be armor subtypey
+	armor_type = /datum/armor/obj_structure
+
+/datum/armor/obj_structure
+	fire = 50
+	acid = 50
 
 /obj/structure/Initialize(mapload)
-	if (!armor)
-		armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 50, ACID = 50)
 	. = ..()
 	if(smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK))
 		QUEUE_SMOOTH(src)
