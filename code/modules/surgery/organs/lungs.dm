@@ -610,7 +610,7 @@
 		organ_flags |= ORGAN_SYNTHETIC_EMP //Starts organ faliure - gonna need replacing soon.
 
 
-/obj/item/organ/internal/lungs/ashwalker
+/obj/item/organ/internal/lungs/lavaland
 	name = "blackened frilled lungs" // blackened from necropolis exposure
 	desc = "Exposure to the necropolis has mutated these lungs to breathe the air of Indecipheres, the lava-covered moon."
 	icon_state = "lungs-ashwalker"
@@ -619,9 +619,9 @@
 // to 16 kPa. So it follows that ashwalkers, as humanoids, follow the same rules.
 #define GAS_TOLERANCE 5
 
-/*
-// MOJAVE SUN REMOVAL START - Remove ashwalker lung gas mix
-/obj/item/organ/internal/lungs/ashwalker/Initialize(mapload)
+/obj/item/organ/internal/lungs/lavaland/Initialize(mapload)
+	// MOJAVE SUN REMOVAL START - Remove ashwalker lung gas mix
+	return // GOMBLE TODO - fixy?
 	. = ..()
 
 	var/datum/gas_mixture/immutable/planetary/mix = SSair.planetary[LAVALAND_DEFAULT_ATMOS]
