@@ -1441,15 +1441,6 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/station/cargo/storage)
-"fi" = (
-/obj/docking_port/stationary{
-	dwidth = 1;
-	height = 4;
-	roundstart_template = /datum/map_template/shuttle/escape_pod/default;
-	width = 3
-	},
-/turf/open/floor/plating,
-/area/station/hallway/secondary/entry)
 "fj" = (
 /obj/structure/sign/warning/docking,
 /turf/closed/wall/r_wall,
@@ -1675,6 +1666,13 @@
 /area/station/commons/storage/primary)
 "fS" = (
 /obj/machinery/power/apc/auto_name/directional/north,
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/exit/departure_lounge)
+"fW" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
+	dir = 6
+	},
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/exit/departure_lounge)
@@ -1919,10 +1917,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/science)
-"jf" = (
-/obj/machinery/light/directional/north,
-/turf/open/floor/iron,
-/area/station/hallway/secondary/exit/departure_lounge)
 "jE" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 8
@@ -1965,6 +1959,12 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/engineering/main)
+"lH" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
+	dir = 6
+	},
+/turf/open/floor/iron,
+/area/station/hallway/secondary/exit/departure_lounge)
 "lX" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 1
@@ -2010,6 +2010,10 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/iron,
 /area/station/medical/chemistry)
+"pv" = (
+/obj/machinery/light/directional/north,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/exit/departure_lounge)
 "pA" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/closed/wall/r_wall,
@@ -2055,12 +2059,6 @@
 /obj/item/storage/box/shipping,
 /turf/open/floor/iron,
 /area/station/commons/storage/primary)
-"tm" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
-	dir = 6
-	},
-/turf/open/floor/iron,
-/area/station/hallway/secondary/exit/departure_lounge)
 "tE" = (
 /obj/machinery/door/airlock/research,
 /turf/open/floor/iron/dark,
@@ -2300,10 +2298,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
-"EV" = (
-/obj/machinery/camera/directional/north,
-/turf/open/floor/iron,
-/area/station/hallway/secondary/exit/departure_lounge)
 "EX" = (
 /obj/structure/table,
 /obj/item/screwdriver{
@@ -2315,6 +2309,10 @@
 /obj/machinery/rnd/production/techfab/department,
 /turf/open/floor/iron,
 /area/station/science)
+"Ih" = (
+/obj/machinery/camera/directional/north,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/exit/departure_lounge)
 "Ir" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -2335,6 +2333,10 @@
 	},
 /turf/open/floor/iron,
 /area/station/cargo/miningoffice)
+"Je" = (
+/obj/docking_port/stationary/escape_pod,
+/turf/open/floor/plating,
+/area/station/hallway/secondary/entry)
 "Jp" = (
 /obj/machinery/gravity_generator/main,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
@@ -2417,13 +2419,6 @@
 /obj/item/disk/tech_disk/debug,
 /turf/open/floor/iron,
 /area/station/science)
-"PP" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
-	dir = 6
-	},
-/obj/structure/cable,
-/turf/open/floor/iron,
-/area/station/hallway/secondary/exit/departure_lounge)
 "Qi" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
@@ -2471,6 +2466,13 @@
 	},
 /turf/open/floor/iron/white/corner,
 /area/station/medical/medbay)
+"Sp" = (
+/obj/machinery/airalarm/unlocked{
+	dir = 1;
+	pixel_y = 23
+	},
+/turf/open/floor/iron,
+/area/station/hallway/secondary/exit/departure_lounge)
 "Td" = (
 /obj/machinery/light/directional/east,
 /obj/effect/turf_decal/stripes/line{
@@ -2497,13 +2499,6 @@
 /obj/item/healthanalyzer/advanced,
 /turf/open/floor/iron,
 /area/station/medical/medbay)
-"UO" = (
-/obj/machinery/airalarm/unlocked{
-	dir = 1;
-	pixel_y = 23
-	},
-/turf/open/floor/iron,
-/area/station/hallway/secondary/exit/departure_lounge)
 "Vg" = (
 /obj/machinery/light/directional/south,
 /obj/structure/cable,
@@ -4589,7 +4584,7 @@ el
 dV
 dV
 dV
-fi
+Je
 dP
 ex
 eh
@@ -8108,7 +8103,7 @@ dJ
 dJ
 cS
 fS
-tm
+lH
 gb
 fO
 gk
@@ -8199,8 +8194,8 @@ eH
 eH
 fH
 fR
-PP
-tm
+fW
+lH
 fO
 fO
 ga
@@ -8291,7 +8286,7 @@ dl
 dx
 dE
 cS
-jf
+pv
 fO
 fO
 fO
@@ -8383,7 +8378,7 @@ cS
 cS
 cS
 cS
-EV
+Ih
 fO
 fO
 fO
@@ -8475,7 +8470,7 @@ eu
 eu
 eu
 et
-UO
+Sp
 fO
 fO
 fO

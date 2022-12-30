@@ -2369,15 +2369,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
-"aFk" = (
-/obj/machinery/computer/security/telescreen/entertainment/directional/south,
-/obj/structure/reagent_dispensers/wall/peppertank/directional/east,
-/obj/structure/bed/dogbed/cayenne{
-	name = "Lia's bed"
-	},
-/mob/living/basic/carp/pet/lia,
-/turf/open/floor/iron/dark,
-/area/station/command/heads_quarters/hos)
 "aFn" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -4026,6 +4017,12 @@
 /obj/effect/landmark/start/hangover,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/fore)
+"bjC" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/space/basic,
+/area/space/nearstation)
 "bjJ" = (
 /obj/machinery/door/airlock/external{
 	name = "Atmospherics External Airlock"
@@ -5203,6 +5200,14 @@
 	},
 /turf/open/floor/iron,
 /area/station/cargo/sorting)
+"bCD" = (
+/obj/docking_port/stationary/random{
+	dir = 4;
+	name = "lavaland";
+	shuttle_id = "pod_4_lavaland"
+	},
+/turf/open/space,
+/area/space/nearstation)
 "bCO" = (
 /obj/item/paper_bin{
 	pixel_x = -4;
@@ -5431,15 +5436,6 @@
 	},
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
-"bFQ" = (
-/obj/docking_port/stationary{
-	dwidth = 1;
-	height = 4;
-	roundstart_template = /datum/map_template/shuttle/escape_pod/default;
-	width = 3
-	},
-/turf/open/space/basic,
-/area/space)
 "bGx" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /obj/effect/decal/cleanable/dirt,
@@ -6616,16 +6612,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/station/maintenance/port/lesser)
-"ccg" = (
-/obj/docking_port/stationary{
-	dir = 4;
-	dwidth = 1;
-	height = 4;
-	roundstart_template = /datum/map_template/shuttle/escape_pod/default;
-	width = 3
-	},
-/turf/open/space/basic,
-/area/space)
 "ccr" = (
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/turf_decal/stripes/line{
@@ -7358,14 +7344,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/cargo/warehouse)
-"cjK" = (
-/mob/living/basic/carp{
-	environment_smash = 0;
-	name = "Tuna";
-	real_name = "Tuna"
-	},
-/turf/open/misc/asteroid/airless,
-/area/space/nearstation)
 "cjN" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
@@ -9182,16 +9160,6 @@
 /obj/effect/turf_decal/sand/plating,
 /turf/open/floor/plating/lowpressure,
 /area/space/nearstation)
-"cOd" = (
-/obj/docking_port/stationary{
-	dir = 8;
-	dwidth = 1;
-	height = 4;
-	roundstart_template = /datum/map_template/shuttle/escape_pod/default;
-	width = 3
-	},
-/turf/open/space/basic,
-/area/space)
 "cOf" = (
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -14422,6 +14390,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/science/lab)
+"eoK" = (
+/obj/docking_port/stationary/escape_pod{
+	dir = 2
+	},
+/turf/open/space/basic,
+/area/space)
 "eoM" = (
 /obj/machinery/door/poddoor/preopen{
 	id = "brigfrontdoor";
@@ -23511,17 +23485,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/supermatter/room)
-"gKV" = (
-/obj/docking_port/stationary{
-	dir = 2;
-	dwidth = 1;
-	height = 4;
-	name = "escape pod loader";
-	roundstart_template = /datum/map_template/shuttle/escape_pod/default;
-	width = 3
-	},
-/turf/open/space/basic,
-/area/space)
 "gLm" = (
 /obj/machinery/status_display/ai/directional/south,
 /obj/effect/decal/cleanable/dirt,
@@ -41297,6 +41260,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/service/chapel)
+"lHp" = (
+/obj/docking_port/stationary/escape_pod{
+	dir = 4
+	},
+/turf/open/space/basic,
+/area/space)
 "lHy" = (
 /obj/structure/table,
 /obj/item/clothing/gloves/color/latex,
@@ -51745,6 +51714,10 @@
 	},
 /turf/open/floor/iron,
 /area/station/cargo/sorting)
+"oOM" = (
+/obj/structure/lattice/catwalk,
+/turf/open/space/basic,
+/area/space)
 "oOW" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -52923,6 +52896,10 @@
 /obj/structure/sign/poster/contraband/red_rum,
 /turf/closed/wall/rust,
 /area/station/maintenance/port/greater)
+"phm" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/space/basic,
+/area/space/nearstation)
 "phF" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -58661,6 +58638,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/storage_shared)
+"qOn" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/space/basic,
+/area/space/nearstation)
 "qOq" = (
 /obj/effect/turf_decal/loading_area,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
@@ -69910,6 +69893,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark,
 /area/station/service/chapel)
+"tTK" = (
+/obj/docking_port/stationary/escape_pod{
+	dir = 8
+	},
+/turf/open/space/basic,
+/area/space)
 "tUc" = (
 /obj/effect/turf_decal/tile/yellow,
 /obj/effect/turf_decal/tile/yellow{
@@ -70404,6 +70393,10 @@
 /obj/structure/flora/bush/pale/style_random,
 /turf/open/misc/asteroid,
 /area/station/maintenance/port/lesser)
+"uac" = (
+/obj/structure/lattice,
+/turf/open/space/basic,
+/area/space)
 "uap" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -76856,6 +76849,15 @@
 "vOX" = (
 /turf/closed/wall/rust,
 /area/station/maintenance/starboard)
+"vOZ" = (
+/obj/machinery/computer/security/telescreen/entertainment/directional/south,
+/obj/structure/reagent_dispensers/wall/peppertank/directional/east,
+/obj/structure/bed/dogbed/cayenne{
+	name = "Lia's bed"
+	},
+/mob/living/basic/carp/pet/lia,
+/turf/open/floor/iron/dark,
+/area/station/command/heads_quarters/hos)
 "vPd" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
@@ -78749,6 +78751,14 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/security/prison)
+"woH" = (
+/mob/living/basic/carp{
+	environment_smash = 0;
+	name = "Tuna";
+	real_name = "Tuna"
+	},
+/turf/open/misc/asteroid/airless,
+/area/space/nearstation)
 "woJ" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
@@ -79333,15 +79343,6 @@
 	luminosity = 2
 	},
 /area/station/engineering/supermatter)
-"wxy" = (
-/obj/docking_port/stationary/random{
-	dir = 4;
-	name = "lavaland";
-	shuttle_id = "pod_4_lavaland"
-	},
-/obj/structure/lattice,
-/turf/open/space,
-/area/space/nearstation)
 "wxF" = (
 /obj/structure/table/wood,
 /obj/effect/spawner/random/maintenance,
@@ -85275,6 +85276,10 @@
 /mob/living/simple_animal/chicken,
 /turf/open/misc/sandy_dirt,
 /area/station/service/hydroponics/garden)
+"ygb" = (
+/obj/docking_port/stationary/escape_pod,
+/turf/open/space/basic,
+/area/space)
 "ygj" = (
 /obj/item/radio/intercom/directional/east,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -96678,9 +96683,9 @@ wDI
 aeu
 aeu
 aDT
-beK
+bjC
 lHD
-beK
+bjC
 sRm
 aeu
 ycx
@@ -97707,7 +97712,7 @@ ycx
 vjh
 vjh
 aaa
-cOd
+tTK
 aaa
 ycx
 vjh
@@ -99990,7 +99995,7 @@ aeu
 aeU
 aeU
 coy
-cjK
+woH
 aDS
 tpp
 bFI
@@ -102639,7 +102644,7 @@ aaa
 aaa
 aaa
 cry
-aoe
+phm
 acK
 aaa
 aaa
@@ -102892,7 +102897,7 @@ gDy
 hOU
 aHz
 kZK
-gKV
+eoK
 aaa
 aaa
 cry
@@ -103153,7 +103158,7 @@ aaa
 aaa
 aaa
 cry
-aoe
+phm
 acK
 aaa
 aaa
@@ -105975,7 +105980,7 @@ lZr
 jPG
 sYu
 mIR
-aFk
+vOZ
 afL
 aeu
 aeU
@@ -126186,7 +126191,7 @@ aaa
 aaa
 aaa
 acK
-aDU
+qOn
 cry
 aaa
 aaa
@@ -126447,7 +126452,7 @@ iak
 cry
 aaa
 aaa
-bFQ
+ygb
 fRt
 oBf
 nxa
@@ -126700,7 +126705,7 @@ aaB
 aaa
 aaa
 acK
-aDU
+qOn
 cry
 aaa
 aaa
@@ -130074,7 +130079,7 @@ rZV
 vOX
 vOX
 aaa
-ccg
+lHp
 aaa
 rZV
 mtc
@@ -131101,9 +131106,9 @@ cmU
 aeU
 aof
 qJs
-acK
-wxy
-acK
+cry
+bCD
+cry
 qJs
 aeu
 aeU
@@ -131358,9 +131363,9 @@ cmU
 aeU
 aeU
 aaQ
-aaa
-aaa
-aaa
+oOM
+uac
+oOM
 acm
 aeu
 aeu
