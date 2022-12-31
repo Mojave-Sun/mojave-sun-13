@@ -27358,32 +27358,6 @@
 	dir = 8
 	},
 /area/station/service/chapel)
-"isa" = (
-/obj/structure/chair/office{
-	dir = 8
-	},
-/obj/machinery/button/flasher{
-	pixel_y = -32;
-	id = "hopflash"
-	},
-/obj/machinery/button/door/directional/south{
-	pixel_x = -8;
-	req_access = list("hop");
-	id = "hopqueue";
-	name = "Queue Shutters Control"
-	},
-/obj/machinery/button/door/directional/south{
-	pixel_y = -24;
-	pixel_x = 8;
-	name = "Privacy Shutters Control";
-	req_access = list("hop");
-	id = "hop"
-	},
-/obj/effect/turf_decal/tile/blue/anticorner/contrasted{
-	dir = 8
-	},
-/turf/open/floor/iron,
-/area/station/command/heads_quarters/hop)
 "isb" = (
 /obj/machinery/atmospherics/components/binary/pump/off{
 	dir = 1;
@@ -31128,6 +31102,36 @@
 	},
 /turf/open/floor/iron,
 /area/station/science/xenobiology)
+"jAI" = (
+/obj/structure/chair/office{
+	dir = 8
+	},
+/obj/machinery/button/flasher{
+	pixel_y = -32;
+	id = "hopflash";
+	pixel_x = 8
+	},
+/obj/machinery/button/door/directional/south{
+	pixel_x = -8;
+	req_access = list("hop");
+	id = "hopqueue";
+	name = "Queue Shutters Control"
+	},
+/obj/machinery/button/door/directional/south{
+	pixel_x = 8;
+	name = "Privacy Shutters Control";
+	req_access = list("hop");
+	id = "hop"
+	},
+/obj/effect/turf_decal/tile/blue/anticorner/contrasted{
+	dir = 8
+	},
+/obj/machinery/button/ticket_machine{
+	pixel_x = -8;
+	pixel_y = -32
+	},
+/turf/open/floor/iron,
+/area/station/command/heads_quarters/hop)
 "jAO" = (
 /obj/effect/turf_decal/siding/yellow{
 	dir = 8
@@ -37029,6 +37033,10 @@
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/cmo)
+"lmR" = (
+/obj/docking_port/stationary/escape_pod,
+/turf/open/floor/plating/snowed/icemoon,
+/area/icemoon/surface/outdoors/nospawn)
 "lnc" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -40400,12 +40408,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
-"mvT" = (
-/obj/docking_port/stationary/escape_pod{
-	dir = 4
-	},
-/turf/open/floor/plating/snowed/icemoon,
-/area/icemoon/surface/outdoors/nospawn)
 "mvU" = (
 /obj/machinery/button/door/directional/east{
 	id = "cmoprivacy";
@@ -52097,10 +52099,6 @@
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/iron,
 /area/station/cargo/storage)
-"pYV" = (
-/obj/docking_port/stationary/escape_pod,
-/turf/open/floor/plating/snowed/icemoon,
-/area/icemoon/surface/outdoors/nospawn)
 "pZh" = (
 /obj/effect/spawner/random/vending/snackvend,
 /turf/open/floor/wood,
@@ -58887,6 +58885,12 @@
 	},
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
+"shl" = (
+/obj/docking_port/stationary/escape_pod{
+	dir = 4
+	},
+/turf/open/floor/plating/snowed/icemoon,
+/area/icemoon/surface/outdoors/nospawn)
 "shB" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -66244,12 +66248,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/secondary/exit/departure_lounge)
-"uvG" = (
-/obj/docking_port/stationary/escape_pod{
-	dir = 8
-	},
-/turf/open/floor/plating/snowed/icemoon,
-/area/icemoon/surface/outdoors/nospawn)
 "uvM" = (
 /obj/effect/spawner/structure/window/hollow/reinforced/middle,
 /turf/open/floor/plating,
@@ -69019,6 +69017,12 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood/parquet,
 /area/station/commons/lounge)
+"vpI" = (
+/obj/docking_port/stationary/escape_pod{
+	dir = 8
+	},
+/turf/open/floor/plating/snowed/icemoon,
+/area/icemoon/surface/outdoors/nospawn)
 "vpR" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
@@ -218162,7 +218166,7 @@ bln
 sEB
 bln
 sEB
-uvG
+vpI
 sEB
 bln
 bln
@@ -218176,7 +218180,7 @@ bln
 bln
 bln
 sEB
-uvG
+vpI
 sEB
 bln
 bln
@@ -235932,7 +235936,7 @@ wjv
 pec
 fJl
 iaS
-isa
+jAI
 cpm
 dnq
 ylU
@@ -241263,7 +241267,7 @@ xiI
 bln
 bln
 bln
-pYV
+lmR
 pDC
 clq
 qgO
@@ -243685,7 +243689,7 @@ kcG
 qwF
 wYJ
 sEB
-mvT
+shl
 sEB
 nyA
 njm
