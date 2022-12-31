@@ -44,7 +44,7 @@
 	cached_animate_movement = moving_atom.animate_movement
 	moving_atom.animate_movement = NO_STEPS
 	START_PROCESSING(SSmovablephysics, src)
-	moving_atom.SpinAnimation(speed = 2 SECONDS, loops = 2)
+	moving_atom.SpinAnimation(speed = 3 SECONDS, loops = 2)
 
 ///Alright it's time to stop
 /datum/component/movable_physics/proc/stop_movement()
