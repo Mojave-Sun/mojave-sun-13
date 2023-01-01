@@ -34,6 +34,9 @@
 	/// Dictionary of job sub-typepath to template changes dictionary
 	var/job_changes = list()
 
+	/// Joinable jobs override
+	var/list/datum/job/jobs_override = list()
+
 	//List of particle_weather types for this map
 	var/particle_weather = list() //MOJAVE MODULE OUTDOOR_EFFECTS
 
@@ -117,44 +120,44 @@
 
 	map_file = json["map_file"]
 	// "map_file": "MetaStation.dmm"
-	if (istext(map_file))
+	if(istext(map_file))
 		if (!fexists("_maps/[map_path]/[map_file]"))
 			log_world("Map file ([map_path]/[map_file]) does not exist!")
 			return
 	// "map_file": ["Lower.dmm", "Upper.dmm"]
-	else if (islist(map_file))
-		for (var/file in map_file)
-			if (!fexists("_maps/[map_path]/[file]"))
+	else if(islist(map_file))
+		for(var/file in map_file)
+			if(!fexists("_maps/[map_path]/[file]"))
 				log_world("Map file ([map_path]/[file]) does not exist!")
 				return
 	else
 		log_world("map_file missing from json!")
 		return
 
-	if (islist(json["shuttles"]))
+	if(islist(json["shuttles"]))
 		var/list/L = json["shuttles"]
 		for(var/key in L)
 			var/value = L[key]
 			shuttles[key] = value
-	else if ("shuttles" in json)
+	else if("shuttles" in json)
 		log_world("map_config shuttles is not a list!")
 		return
 
 	traits = json["traits"]
 	// "traits": [{"Linkage": "Cross"}, {"Space Ruins": true}]
-	if (islist(traits))
+	if(islist(traits))
 		// "Station" is set by default, but it's assumed if you're setting
 		// traits you want to customize which level is cross-linked
-		for (var/level in traits)
-			if (!(ZTRAIT_STATION in level))
+		for(var/level in traits)
+			if(!(ZTRAIT_STATION in level))
 				level[ZTRAIT_STATION] = TRUE
 	// "traits": null or absent -> default
-	else if (!isnull(traits))
+	else if(!isnull(traits))
 		log_world("map_config traits is not a list!")
 		return
 
 	//MOJAVE MODULE OUTDOOR_EFFECTS -- BEGIN
-	if ("particle_weather" in json)
+	if("particle_weather" in json)
 		if(!islist(json["particle_weather"]))
 			log_world("map_config \"particle_weather\" field is missing or invalid!")
 			return
@@ -162,29 +165,43 @@
 	//MOJAVE MODULE OUTDOOR_EFFECTS -- END
 
 	var/temp = json["space_ruin_levels"]
-	if (isnum(temp))
+	if(isnum(temp))
 		space_ruin_levels = temp
-	else if (!isnull(temp))
+	else if(!isnull(temp))
 		log_world("map_config space_ruin_levels is not a number!")
 		return
 
 	temp = json["space_empty_levels"]
-	if (isnum(temp))
+	if(isnum(temp))
 		space_empty_levels = temp
-	else if (!isnull(temp))
+	else if(!isnull(temp))
 		log_world("map_config space_empty_levels is not a number!")
 		return
 
-	if ("minetype" in json)
+	if("minetype" in json)
 		minetype = json["minetype"]
 
 	allow_custom_shuttles = json["allow_custom_shuttles"] != FALSE
 
-	if ("job_changes" in json)
+	if("job_changes" in json)
 		if(!islist(json["job_changes"]))
 			log_world("map_config \"job_changes\" field is missing or invalid!")
 			return
 		job_changes = json["job_changes"]
+
+	if("jobs_override" in json)
+		var/jobs_pregen = json["jobs_override"]
+		if(!islist(jobs_pregen))
+			log_world("map_config \"jobs_override\" field is missing or invalid!")
+			return
+		for(var/str in jobs_pregen)
+			if(istype(str, /datum/job))
+				log_world("map_config \"jobs_override\" error: [str] is not a job datum, fuck yourself!")
+				continue
+			jobs_override += new str
+
+		if(SSjob.initialized)//for sure, if someneone try load jobs sub and after that mapping sub
+			SSjob.joinable_occupations = jobs_override
 
 	defaulted = FALSE
 	return TRUE

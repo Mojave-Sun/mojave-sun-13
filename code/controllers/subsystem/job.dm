@@ -154,7 +154,7 @@ SUBSYSTEM_DEF(job)
 			new_experience_jobs_map[department.department_experience_type] = department.department_jobs.Copy()
 
 	all_occupations = new_all_occupations
-	joinable_occupations = sortTim(new_joinable_occupations, /proc/cmp_job_display_asc)
+	joinable_occupations = sortTim(SSmapping?.config?.jobs_override ? SSmapping.config.jobs_override : new_joinable_occupations, /proc/cmp_job_display_asc)
 	joinable_departments = new_joinable_departments
 	joinable_departments_by_type = new_joinable_departments_by_type
 	experience_jobs_map = new_experience_jobs_map
