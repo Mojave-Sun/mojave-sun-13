@@ -134,3 +134,10 @@ GLOBAL_LIST_INIT(megafauna_spawn_list, list(
 	/mob/living/simple_animal/hostile/megafauna/colossus = 2,
 	/mob/living/simple_animal/hostile/megafauna/dragon = 4,
 ))
+
+//closing and opening positions, for other edit use map job_changes
+GLOBAL_LIST_INIT(jobs_override_presets, list(
+	"test_jobs_setup" = list(
+		/datum/job/ms13/wasteland/wastelander
+	),
+))

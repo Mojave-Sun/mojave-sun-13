@@ -169,7 +169,7 @@
 	if(eligibility_check != JOB_AVAILABLE)
 		return eligibility_check
 
-	if(latejoin && (!job.special_check_latejoin(client) || !(job in SSjob.joinable_occupations)))
+	if(latejoin && !job.special_check_latejoin(client))
 		return JOB_UNAVAILABLE_GENERIC
 	return JOB_AVAILABLE
 
@@ -296,7 +296,7 @@
 		dat += "<legend align='center' style='color: [department_color]'>[department.department_name]</legend>"
 		var/list/dept_data = list()
 		for(var/datum/job/job_datum as anything in department.department_jobs)
-			if(IsJobUnavailable(job_datum.title, TRUE) != JOB_AVAILABLE)
+			if(!(job_datum in SSjob.joinable_occupations) || IsJobUnavailable(job_datum.title, TRUE) != JOB_AVAILABLE)
 				continue
 			var/command_bold = ""
 			if(job_datum.departments_bitflags & DEPARTMENT_BITFLAG_COMMAND)

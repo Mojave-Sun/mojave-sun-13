@@ -191,17 +191,10 @@
 
 	if("jobs_override" in json)
 		var/jobs_pregen = json["jobs_override"]
-		if(!islist(jobs_pregen))
-			log_world("map_config \"jobs_override\" field is missing or invalid!")
+		if(!GLOB.jobs_override_presets[jobs_pregen])
+			log_world("map_config \"jobs_override\" field is invalid!")
 			return
-		for(var/str in jobs_pregen)
-			if(istype(str, /datum/job))
-				log_world("map_config \"jobs_override\" error: [str] is not a job datum, fuck yourself!")
-				continue
-			jobs_override += new str
-
-		if(SSjob.initialized)//for sure, if someneone try load jobs sub and after that mapping sub
-			SSjob.joinable_occupations = jobs_override
+		jobs_override = GLOB.jobs_override_presets[jobs_pregen]
 
 	defaulted = FALSE
 	return TRUE
