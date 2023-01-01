@@ -35,7 +35,7 @@
 	var/job_changes = list()
 
 	/// Joinable jobs override
-	var/list/datum/job/jobs_override = list()
+	var/list/jobs_override = ""
 
 	//List of particle_weather types for this map
 	var/particle_weather = list() //MOJAVE MODULE OUTDOOR_EFFECTS
@@ -194,7 +194,11 @@
 		if(!GLOB.jobs_override_presets[jobs_pregen])
 			log_world("map_config \"jobs_override\" field is invalid!")
 			return
-		jobs_override = GLOB.jobs_override_presets[jobs_pregen]
+		for(var/str in GLOB.jobs_override_presets[jobs_pregen])
+		jobs_override = new str
+
+		if(SSjob.initialized)
+			SSjob.joinable_occupations = jobs_override
 
 	defaulted = FALSE
 	return TRUE

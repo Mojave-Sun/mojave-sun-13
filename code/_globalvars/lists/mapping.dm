@@ -138,6 +138,6 @@ GLOBAL_LIST_INIT(megafauna_spawn_list, list(
 //closing and opening positions, for other edit use map job_changes
 GLOBAL_LIST_INIT(jobs_override_presets, list(
 	"test_jobs_setup" = list(
-		/datum/job/ms13/wasteland/wastelander
+		/datum/job/ms13/town/settler
 	),
 ))
