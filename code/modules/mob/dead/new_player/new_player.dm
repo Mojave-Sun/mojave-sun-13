@@ -169,7 +169,7 @@
 	if(eligibility_check != JOB_AVAILABLE)
 		return eligibility_check
 
-	if(latejoin && !job.special_check_latejoin(client))
+	if(latejoin && (!job.special_check_latejoin(client) || !(job in SSjob.joinable_occupations)))
 		return JOB_UNAVAILABLE_GENERIC
 	return JOB_AVAILABLE
 
