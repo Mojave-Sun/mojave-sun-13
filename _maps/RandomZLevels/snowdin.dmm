@@ -465,6 +465,17 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/awaymission/snowdin/post/research)
+"bG" = (
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/tile/yellow{
+	dir = 8
+	},
+/obj/machinery/computer/atmos_control/noreconnect{
+	atmos_chambers = list("snowdinn2"="Nitrogen Supply");
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/awaymission/snowdin/post/engineering)
 "bH" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden{
 	dir = 4;
@@ -1451,16 +1462,6 @@
 	},
 /turf/open/floor/iron,
 /area/awaymission/snowdin/post/dorm)
-"ef" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on{
-	piping_layer = 4;
-	pixel_x = 5;
-	pixel_y = 5
-	},
-/obj/structure/mop_bucket/janitorialcart,
-/obj/item/mop,
-/turf/open/floor/iron/dark,
-/area/awaymission/snowdin/post/custodials)
 "eh" = (
 /obj/structure/bed,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
@@ -2476,6 +2477,17 @@
 	},
 /turf/open/floor/iron/white,
 /area/awaymission/snowdin/post)
+"hi" = (
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/tile/yellow{
+	dir = 8
+	},
+/obj/machinery/computer/atmos_control/noreconnect{
+	atmos_chambers = list("snowdino2"="Oxygen Supply");
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/awaymission/snowdin/post/engineering)
 "hj" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/plating,
@@ -4041,6 +4053,16 @@
 /turf/open/floor/iron/dark,
 /area/awaymission/snowdin/post/custodials)
 "ll" = (
+/turf/open/floor/iron/dark,
+/area/awaymission/snowdin/post/custodials)
+"lm" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on{
+	piping_layer = 4;
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/structure/mop_bucket/janitorialcart,
+/obj/item/mop,
 /turf/open/floor/iron/dark,
 /area/awaymission/snowdin/post/custodials)
 "ln" = (
@@ -6167,14 +6189,6 @@
 	},
 /turf/open/floor/iron,
 /area/awaymission/snowdin/post/engineering)
-"qX" = (
-/obj/machinery/computer/atmos_control/noreconnect{
-	atmos_chambers = list("snowdinmix" = "Mix Chamber");
-	dir = 1
-	},
-/obj/effect/mapping_helpers/broken_floor,
-/turf/open/floor/plating,
-/area/awaymission/snowdin/post/engineering)
 "qY" = (
 /obj/effect/turf_decal/tile/yellow,
 /obj/effect/turf_decal/tile/yellow{
@@ -6187,28 +6201,6 @@
 /obj/effect/turf_decal/tile/yellow,
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
-	},
-/turf/open/floor/iron,
-/area/awaymission/snowdin/post/engineering)
-"ra" = (
-/obj/effect/turf_decal/tile/yellow,
-/obj/effect/turf_decal/tile/yellow{
-	dir = 8
-	},
-/obj/machinery/computer/atmos_control/noreconnect{
-	atmos_chambers = list("snowdino2" = "Oxygen Supply");
-	dir = 1
-	},
-/turf/open/floor/iron,
-/area/awaymission/snowdin/post/engineering)
-"rb" = (
-/obj/effect/turf_decal/tile/yellow,
-/obj/effect/turf_decal/tile/yellow{
-	dir = 8
-	},
-/obj/machinery/computer/atmos_control/noreconnect{
-	atmos_chambers = list("snowdinn2" = "Nitrogen Supply");
-	dir = 1
 	},
 /turf/open/floor/iron,
 /area/awaymission/snowdin/post/engineering)
@@ -6805,6 +6797,10 @@
 /mob/living/simple_animal/hostile/skeleton/ice,
 /turf/open/floor/plating/snowed/cavern,
 /area/awaymission/snowdin/cave/cavern)
+"tC" = (
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
+/turf/open/floor/plating,
+/area/awaymission/snowdin/cave)
 "tE" = (
 /turf/closed/indestructible/rock/snow,
 /area/awaymission/snowdin/cave)
@@ -7424,6 +7420,23 @@
 /obj/machinery/light/small/broken/directional/east,
 /turf/open/misc/asteroid/snow/ice,
 /area/awaymission/snowdin/post/cavern1)
+"xr" = (
+/obj/machinery/button/door/directional/south{
+	id = "snowdinturbineoutlet";
+	name = "Turbine Outlet Release";
+	pixel_y = -32
+	},
+/obj/machinery/button/door/directional/south{
+	id = "snowdinturbinegas";
+	name = "Turbine Gas Release"
+	},
+/obj/machinery/computer/atmos_control/fixed{
+	atmos_chambers = list("snowdinincin"="Incinerator Chamber");
+	dir = 1
+	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
+/area/awaymission/snowdin/post/engineering)
 "xs" = (
 /obj/item/gun/energy/e_gun{
 	dead_cell = 1
@@ -9054,11 +9067,6 @@
 	dir = 4
 	},
 /turf/open/floor/mineral/plastitanium/red,
-/area/awaymission/snowdin/cave)
-"DH" = (
-/obj/structure/window/reinforced/plasma/plastitanium,
-/obj/structure/grille,
-/turf/open/floor/plating,
 /area/awaymission/snowdin/cave)
 "DI" = (
 /obj/structure/grille/broken,
@@ -11608,6 +11616,14 @@
 /obj/machinery/light/small/broken/directional/south,
 /turf/open/floor/iron/showroomfloor,
 /area/awaymission/snowdin/post/dorm)
+"Oi" = (
+/obj/machinery/computer/atmos_control/noreconnect{
+	atmos_chambers = list("snowdinmix"="Mix Chamber");
+	dir = 1
+	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
+/area/awaymission/snowdin/post/engineering)
 "Oj" = (
 /obj/structure/fence,
 /turf/open/misc/asteroid/snow/ice,
@@ -12300,23 +12316,6 @@
 /mob/living/simple_animal/hostile/giant_spider/hunter/ice,
 /turf/open/misc/asteroid/snow/ice,
 /area/awaymission/snowdin/cave/cavern)
-"Sj" = (
-/obj/machinery/button/door/directional/south{
-	id = "snowdinturbineoutlet";
-	name = "Turbine Outlet Release";
-	pixel_y = -32
-	},
-/obj/machinery/button/door/directional/south{
-	id = "snowdinturbinegas";
-	name = "Turbine Gas Release"
-	},
-/obj/machinery/computer/atmos_control/fixed{
-	atmos_chambers = list("snowdinincin" = "Incinerator Chamber");
-	dir = 1
-	},
-/obj/effect/mapping_helpers/broken_floor,
-/turf/open/floor/plating,
-/area/awaymission/snowdin/post/engineering)
 "Sk" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -21928,7 +21927,7 @@ it
 jm
 jR
 jR
-ef
+lm
 mb
 mG
 mG
@@ -26564,7 +26563,7 @@ oO
 pv
 pT
 qu
-Sj
+xr
 rp
 SK
 rp
@@ -27849,7 +27848,7 @@ oR
 nt
 pX
 qw
-qX
+Oi
 rt
 rN
 Un
@@ -28620,7 +28619,7 @@ oT
 nN
 qa
 qy
-ra
+hi
 rt
 rP
 SG
@@ -29391,7 +29390,7 @@ oV
 nN
 qd
 qB
-rb
+bG
 rt
 rR
 TD
@@ -34168,9 +34167,9 @@ wS
 an
 Dx
 CC
-DH
+tC
 bC
-DH
+tC
 CC
 Em
 Mq
@@ -34681,11 +34680,11 @@ wS
 an
 Mq
 fe
-DH
+tC
 ka
 Ea
 PQ
-DH
+tC
 Eo
 XD
 Mq
@@ -35195,11 +35194,11 @@ CH
 De
 CH
 CH
-DH
+tC
 ka
 Eb
 PQ
-DH
+tC
 CH
 Eu
 Ez
