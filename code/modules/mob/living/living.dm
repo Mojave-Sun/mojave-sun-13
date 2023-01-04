@@ -1194,6 +1194,8 @@
 		return FALSE
 	if(is_away_level(T.z))
 		return FALSE
+	if(onSyndieBase() && !(ROLE_SYNDICATE in user.faction))
+		return FALSE
 	if(user != null && src == user)
 		return FALSE
 	if(invisibility || alpha == 0)//cloaked
