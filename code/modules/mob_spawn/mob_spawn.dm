@@ -70,7 +70,7 @@
 		if(facial_haircolor)
 			spawned_human.facial_hair_color = facial_haircolor
 		else
-			spawned_human.facial_hair_color = "#[random_color()]"
+			spawned_human.facial_hair_color = spawned_human.hair_color //Do we want two unique hair colors?
 		if(skin_tone)
 			spawned_human.skin_tone = skin_tone
 		else
