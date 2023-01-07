@@ -260,7 +260,7 @@
 "cL" = (
 /obj/structure/lattice/catwalk/ms13,
 /obj/machinery/light/ms13/bulb/industrial,
-/turf/open/space/basic,
+/turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "cO" = (
 /obj/machinery/light/ms13{
@@ -593,7 +593,7 @@
 /obj/machinery/light/ms13/bulb/industrial{
 	dir = 1
 	},
-/turf/open/space/basic,
+/turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "gX" = (
 /obj/structure/railing/ms13/solo{
@@ -783,7 +783,7 @@
 /area/ms13/underground/mountain)
 "iS" = (
 /obj/structure/lattice/catwalk/ms13,
-/turf/open/space/basic,
+/turf/open/openspace/ms13,
 /area/ms13/town)
 "iT" = (
 /obj/structure/table/ms13/metal,
@@ -1132,7 +1132,7 @@
 "mE" = (
 /obj/structure/lattice/catwalk/ms13,
 /obj/structure/railing/ms13/solo/industrial,
-/turf/open/space/basic,
+/turf/open/openspace/ms13,
 /area/ms13/town)
 "mH" = (
 /obj/machinery/light/ms13/bulb{
@@ -1227,8 +1227,11 @@
 /turf/open/floor/wood/ms13/carpet,
 /area/ms13/town)
 "nu" = (
-/obj/effect/spawner/random/ms13/tools/tool,
+/obj/structure/ms13/storage/shelf{
+	dir = 4
+	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/spawner/random/ms13/tools/tool,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "nB" = (
@@ -2169,7 +2172,7 @@
 "yy" = (
 /obj/structure/lattice/catwalk/ms13,
 /obj/structure/railing/ms13/solo/industrial,
-/turf/open/openspace/ms13,
+/turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "yz" = (
 /obj/structure/railing/ms13/solo{
@@ -2681,7 +2684,7 @@
 /obj/machinery/light/ms13/bulb/industrial{
 	dir = 1
 	},
-/turf/open/space/basic,
+/turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "EU" = (
 /obj/structure/table/ms13/no_smooth/large/wood,
@@ -2766,9 +2769,6 @@
 /area/ms13/desert)
 "Ga" = (
 /obj/structure/safe/ms13,
-/obj/effect/spawner/random/ms13/guaranteed/currency/mammoth/prewar/lowrandom,
-/obj/effect/spawner/random/ms13/guaranteed/currency/mammoth/prewar/lowrandom,
-/obj/effect/spawner/random/ms13/currency/mammoth/prewar/highrandom,
 /obj/effect/spawner/random/ms13/locked/guaranteed/random,
 /obj/structure/ms13/storage/vent,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -3470,10 +3470,10 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "Oo" = (
-/obj/machinery/vending/ms13/nuka{
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/vending/ms13/sarsaparilla{
 	dir = 8
 	},
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "Oq" = (
@@ -3818,7 +3818,7 @@
 /area/ms13/town)
 "So" = (
 /obj/structure/lattice/catwalk/ms13,
-/turf/open/openspace/ms13,
+/turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "Ss" = (
 /obj/machinery/door/unpowered/ms13/wood,
@@ -25411,8 +25411,8 @@ Ly
 hY
 ac
 IF
+Ug
 nu
-Uk
 hY
 yY
 Ug
