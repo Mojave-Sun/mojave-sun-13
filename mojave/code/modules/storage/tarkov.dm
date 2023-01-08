@@ -7,6 +7,12 @@
 /// Must be out of the user to be accessed
 #define STORAGE_NO_EQUIPPED_ACCESS (1<<1)
 
+#define GRID_HEIGHT(target) target.grid_height <= 0 ? w_class * world.icon_size : target.grid_height
+#define GRID_WIDTH(target) target.grid_width <= 0 ? w_class * world.icon_size : target.grid_width
+
+#define GRID_TO_PIXEL(x, y) list((x * world.icon_size) + (y * world.icon_size))
+#define PIXEL_TO_GRID(x, y) list((x / world.icon_size), (y / world.icon_size))
+
 /obj/item
 	// ~Grid INVENTORY VARIABLES
 	/// Width we occupy on the hud - Keep null to generate based on w_class
@@ -89,6 +95,39 @@
 	screen_max_rows = 3
 	screen_start_y = 4
 	screen_start_x = 15
+
+/datum/component/storage/concrete/ms13/pillbottle // for pill bottles
+	screen_max_columns = 2
+	screen_max_rows = 4
+	screen_start_y = 4
+	screen_start_x = 17
+
+/datum/component/storage/concrete/ms13/shoes
+	screen_max_columns = 1
+	screen_max_rows = 2
+	screen_start_y = 4
+	screen_start_x = 17
+	quickdraw = TRUE
+	silent = TRUE
+	attack_hand_interact = FALSE
+	rustle_sound = FALSE
+
+/datum/component/storage/concrete/ms13/shoes/Initialize()
+	. = ..()
+	set_holdable(list(
+		/obj/item/knife,
+		/obj/item/switchblade,
+		/obj/item/pen,
+		/obj/item/scalpel,
+		/obj/item/reagent_containers/syringe,
+		/obj/item/reagent_containers/hypospray/medipen,
+		/obj/item/screwdriver,
+		/obj/item/ms13/lockpick/basic,
+		/obj/item/gun/ballistic/automatic/pistol/ms13/pistol22,
+		/obj/item/gun/ballistic/revolver/ms13/derringer,
+		/obj/item/gun/ballistic/revolver/ms13/rev357/police,
+		/obj/item/stack/ms13/currency/prewar,
+		/obj/item/stack/ms13/currency/ncr_dollar))
 
 /datum/component/storage
 	screen_max_columns = 8
@@ -617,6 +656,19 @@
 	return FALSE
 
 /datum/component/storage/concrete/slave_can_insert_object(datum/component/storage/slave, obj/item/storing, stop_messages = FALSE, mob/user, params, storage_click = FALSE)
+
+	// Attempt to find a valid grid location for the item
+	if(can_fit_item(storing, params, storage_click))
+		return TRUE
+	// If none found, rotate and try again (if not a square or a storage click)
+	if(!storage_click && storing.grid_height != storing.grid_width)
+		storing.inventory_flip(null, TRUE)
+		return can_fit_item(storing, params, storage_click)
+
+	return FALSE
+
+
+/datum/component/storage/concrete/proc/can_fit_item(obj/item/storing, params, storage_click = FALSE)
 	//This is where the pain begins
 	if(grid)
 		var/list/modifiers = params2list(params)
@@ -852,6 +904,10 @@
 
 /atom/movable/screen/storage/MouseMove(location, control, params)
 	. = ..()
+
+	// Store mouse properties so we can force call updateGrid when we rotate objects, swap, etc.
+	lastMouseProps = list(location, control, params)
+
 	if(!usr.client)
 		return
 	usr.client.screen -= hovering
@@ -894,3 +950,14 @@
 	layer = HUD_BACKGROUND_LAYER
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	alpha = 96
+
+/obj/item/proc/inventory_flip(mob/user = null, force = FALSE)
+
+	if(!force && (user && (!user.Adjacent(src) && !user.DirectAccess(src)) || !isliving(user)))
+		return
+
+	var/old_width = grid_width
+	var/old_height = grid_height
+	grid_height = old_width
+	grid_width = old_height
+	// to_chat(usr, span_notice("You flip the item for storage."))

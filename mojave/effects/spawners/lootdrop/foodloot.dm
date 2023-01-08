@@ -1,15 +1,15 @@
-//// These spawners are NON-STATIC spawns. If you are making changes to these pools, you should probably also make changes to the static spawns outside of the Guarenteed folder. ////
+//// These spawners are NON-STATIC spawns. If you are making changes to these pools, you should probably also make changes to the static spawns outside of the guaranteed folder. ////
 //// The idea of these spawners it to use these EVERYWHERE. Emphasis on EVERYWHERE!!! These are the spawners you should be slapping in every other building, so that there's variety in loot locations on a per-round basis. ////
 
 /obj/effect/spawner/random/ms13/food
 	name = "DO NOT USE ME - Mojave Sun food spawners"
 	spawn_loot_count = 1
-	spawn_loot_chance = 25 // Low spawn chance is a reoccuring theme here.
+	spawn_loot_chance = 30 // Low spawn chance is a reoccuring theme here.
 
 /obj/effect/spawner/random/ms13/seeds
 	name = "DO NOT USE ME - Mojave Sun seed spawners"
 	icon_state = "ms13_seeds"
-	spawn_loot_chance = 25 // Low chance- Like I said above.
+	spawn_loot_chance = 30 // Low chance- Like I said above.
 
 // Produce- Vegetables/Fruit //
 
@@ -214,11 +214,11 @@
 		)
 
 /obj/effect/spawner/random/ms13/food/random
-	name = "random pre-war food spawner"
+	name = "random food spawner"
 	spawn_loot_count = 1
 	loot = list(
 			/obj/effect/spawner/random/ms13/food/junkfood_boxed = 10,
-			/obj/effect/spawner/random/ms13/guarenteed/food/produce_random = 60,
+			/obj/effect/spawner/random/ms13/guaranteed/food/produce_random = 60,
 			/obj/effect/spawner/random/ms13/food/junkfood_canned = 30,
 			)
 

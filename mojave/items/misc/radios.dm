@@ -7,11 +7,12 @@
 	inhand_icon_state = "handradio"
 	desc = "A basic handheld radio that recieves over a relatively long range, unfortunately this one can't broadcast."
 	canhear_range = 2
+	force = 0
 	freerange = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	custom_materials = list(/datum/material/iron=75, /datum/material/glass=25)
 	radio_broadcast = 100 //Cannot broadcast. If someone manages to circumvent, it should be complete static.
-	grid_height = 64
+	force_superspace = TRUE // ignore tcoms and zlevelsgrid_height = 64
 	grid_width = 32
 	var/static = FALSE //used for inventory only radios
 
@@ -20,14 +21,13 @@
 	if(!static)
 		AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
-/obj/item/radio/ms13/can_receive(freq, level, AIuser)
-	if(ishuman(src.loc))
-		var/mob/living/carbon/human/H = src.loc
-		if(H.is_holding(src))
-			return ..(freq, level)
-	else if(AIuser)
-		return ..(freq, level)
-	return FALSE
+/obj/item/radio/ms13/can_receive(freq, level)
+	if(!on)
+		return FALSE
+	if(!listening)
+		return FALSE
+	
+	return TRUE //MOHAVE SUN EDIT: Changed this so that it plays only when someone is listening, but otherwhise can recieve, even when not being held.
 
 /obj/item/radio/ms13/broadcast
 	name = "broadcast hand radio"
@@ -188,14 +188,14 @@
 /obj/item/radio/ms13/ham/ui_state(mob/user)
 	return GLOB.default_state
 
-/obj/item/radio/ms13/ham/can_receive(freq, level)
+/obj/item/radio/ms13/ham/can_receive(freq, list/levels)
 	if(!on)
 		return FALSE
 	if(wires.is_cut(WIRE_RX))
 		return FALSE
-	if(!(0 in level))
+	if(levels != RADIO_NO_Z_LEVEL_RESTRICTION)
 		var/turf/position = get_turf(src)
-		if(isnull(position) || !(position.z in level))
+		if(isnull(position) || !(position.z in levels))
 			return FALSE
 	if(!listening)
 		return FALSE

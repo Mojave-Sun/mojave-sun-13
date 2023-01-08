@@ -334,15 +334,17 @@
 	name = "tree"
 	desc = "A large tree."
 	density = TRUE
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = 4.9
+	plane = ABOVE_GAME_PLANE
 	pixel_x = -16
 	pixel_y = 5
 	var/log_amount = 1
+	projectile_passchance = 60 // mf tree
 
 /obj/structure/flora/ms13/tree/Initialize()
 	. = ..()
 	pixel_x = rand(-20,-16)
-	AddComponent(/datum/component/largetransparency, 1, 1, -1, 1)
+	//AddComponent(/datum/component/largetransparency, 1, 1, -1, 1) // Busted right now. After the first time it turns the icon transparent, the entire icon's dimensions block mouse clicks.
 	AddElement(/datum/element/climbable) // People should be able to pass trees hypothetically. Just not quickly... One day, unscuff the text for this.
 
 /obj/structure/flora/ms13/tree/attackby(obj/item/W, mob/user, params)

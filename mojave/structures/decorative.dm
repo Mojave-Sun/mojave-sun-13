@@ -6,8 +6,10 @@
 	name = "postbox"
 	desc = "Last pickup, October 22nd, 2077."
 	icon = 'mojave/icons/structure/miscellaneous.dmi'
+	hitted_sound = 'mojave/sound/ms13effects/impact/metal/metal_hollow_2.wav'
 	icon_state = "mailbox"
 	pixel_y = 12
+	projectile_passchance = 50
 
 /obj/structure/filingcabinet/ms13/mail/old
 	icon_state = "mailbox_old"
@@ -20,6 +22,7 @@
 	anchored = FALSE
 	pixel_y = 10
 	materialtype = /obj/item/stack/sheet/ms13/scrap
+	projectile_passchance = 65
 
 /obj/structure/ms13/storage/trashcan/Initialize()
 	. = ..()
@@ -29,7 +32,7 @@
 
 //signs/flags//
 
-/obj/structure/fluff/ms13/
+/obj/structure/fluff/ms13
 	name = "fluff ms13 basetype"
 	desc = "CALL A CODER. CALL A CODER. But not for me. :reachforthesky:"
 	icon = 'mojave/icons/structure/64x64_misc.dmi'
@@ -156,7 +159,8 @@
 	anchored = TRUE // If they're to be unanchored, you might as well make them toppleable. Go ahead, codersprite it...
 	pixel_y = 12
 	opacity = TRUE
-
+	density = TRUE
+	projectile_passchance = 95 // occasional dink off a pole or somethin...
 
 // Skeletons //
 
@@ -180,6 +184,7 @@
 	var/icon_type = null
 	var/amount = 3 //used for icon randomisation amount
 	var/unique = FALSE //used to set if the icon is randomised or not
+	projectile_passchance = 65
 
 /obj/structure/fluff/ms13/barrel/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
@@ -545,6 +550,7 @@
 /obj/structure/ms13/cave_decor/stalagmite
 	name = "stalagmite"
 	desc = "A column of rock formed over many years by minerals in water solidifying."
+	icon_state = "stalagmite"
 	max_integrity = 120
 	anchored = TRUE
 	density = TRUE

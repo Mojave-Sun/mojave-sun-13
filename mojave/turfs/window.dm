@@ -2,14 +2,46 @@
 	name = "base class window"
 	desc = "Scream at the coders"
 	smoothing_flags = SMOOTH_BITMASK
-	plane = GAME_PLANE_FOV_HIDDEN
-	layer = ABOVE_OBJ_LAYER
-	damage_deflection = 10
+	layer = ABOVE_ALL_MOB_LAYER
+	plane = ABOVE_GAME_PLANE
+	max_integrity = 25
 	glass_type = /obj/item/stack/sheet/ms13/glass
 	glass_amount = 1
 	break_sound = 'mojave/sound/ms13effects/glass_break.ogg'
-	hit_sound = 'mojave/sound/ms13effects/glass_hit.ogg'
+	hitted_sound = 'mojave/sound/ms13effects/glass_hit.ogg'
 	knock_sound = 'mojave/sound/ms13effects/glass_knock.ogg'
+	var/shatter_immune = FALSE // immune to passthrough bullshittery
+
+/obj/structure/window/fulltile/ms13/CanAllowThrough(atom/movable/mover, turf/target)
+	. = ..()
+	if(shatter_immune)
+		return
+	if(istype(mover, /obj/projectile/beam/ms13))
+		return TRUE
+	if(istype(mover, /obj/projectile/bullet/ms13/plasma))
+		return FALSE
+	else if(istype(mover, /obj/projectile))
+		var/obj/projectile/proj = mover
+		if(proj.damage > 10)
+			deconstruct(disassembled = FALSE)
+			return TRUE
+	else if(istype(mover, /obj/item))
+		var/obj/item/thrown_item = mover
+		if(thrown_item.throwing && thrown_item.throwforce >= 10 || thrown_item.w_class >= WEIGHT_CLASS_NORMAL)
+			deconstruct(disassembled = FALSE)
+			return TRUE
+	else if(istype(mover, /mob/living))
+		var/mob/living/mob_yote = mover
+		if(mob_yote.throwing && mob_yote.mob_size >= 2)
+			if(istype(mover, /mob/living/carbon/human))
+				var/mob/living/carbon/human/human_yeetus = mover
+				var/obj/item/bodypart/limb = pick(human_yeetus.bodyparts)
+				var/type_wound = pick(list(/datum/wound/slash/moderate, /datum/wound/slash/severe))
+				limb.force_wound_upwards(type_wound)
+				human_yeetus.adjustBruteLoss(rand(10,20))
+				human_yeetus.Knockdown(10)
+			deconstruct(disassembled = FALSE)
+			return TRUE
 
 /obj/structure/window/fulltile/ms13/spawnDebris(location)
 	. = list()
@@ -30,7 +62,9 @@
 	name = "base class reinforced window"
 	desc = "Scream at the coders"
 	smoothing_flags = SMOOTH_BITMASK
-	layer = ABOVE_OBJ_LAYER
+	layer = ABOVE_ALL_MOB_LAYER
+	plane = ABOVE_GAME_PLANE
+	damage_deflection = 20
 	max_integrity = 300
 	damage_deflection = 16 //This basically means it blocks 15 damage weapons and weaker
 	glass_type = /obj/item/stack/sheet/ms13/glass

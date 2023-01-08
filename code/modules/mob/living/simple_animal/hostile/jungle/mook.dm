@@ -58,7 +58,7 @@
 		return
 	return ..()
 
-/mob/living/simple_animal/hostile/jungle/mook/Goto()
+/mob/living/simple_animal/hostile/jungle/mook/Goto(target, delay, minimum_distance)
 	if(attack_state != MOOK_ATTACK_NEUTRAL)
 		return
 	return ..()
@@ -220,6 +220,7 @@
 	icon = 'icons/mob/jungle/mook.dmi'
 	icon_state = "mook_leap_cloud"
 	layer = BELOW_MOB_LAYER
+	plane = GAME_PLANE
 	pixel_x = -16
 	base_pixel_x = -16
 	pixel_y = -16

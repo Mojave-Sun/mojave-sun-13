@@ -9,6 +9,11 @@
 /obj/effect/turf_decal/ms13/road
 	icon = 'mojave/icons/decals/road_decals.dmi'
 
+/obj/effect/turf_decal/ms13/road/Initialize(mapload)
+	. = ..()
+	if(prob(35))
+		icon_state = "[initial(icon_state)]-[rand(1,2)]"
+
 /obj/effect/turf_decal/ms13/road/horizontalline
 	icon_state = "horizontal_line"
 
@@ -20,6 +25,11 @@
 
 /obj/effect/turf_decal/ms13/road/verticalcrossing
 	icon_state = "vertical_crossing"
+
+// Street drains
+
+/obj/effect/turf_decal/ms13/road/drain
+	icon_state = "drain"
 
 //Water drains
 
@@ -197,3 +207,58 @@
 
 /obj/effect/turf_decal/ms13/graffiti/scorpion_south
 	icon_state = "scorpion_south"
+
+// Posters
+
+/obj/effect/turf_decal/ms13/poster
+	icon = 'mojave/icons/decals/posters.dmi'
+
+/obj/effect/turf_decal/ms13/poster/vault
+	icon_state = "vault_sign"
+
+//Wallpapers and Wall Coverings
+
+/obj/effect/turf_decal/ms13/covering
+	icon = 'mojave/icons/decals/wallcovering.dmi'
+
+//Wallpapers
+
+/obj/effect/turf_decal/ms13/covering/wallpaper/green
+	icon_state = "wallpaper_green"
+
+/obj/effect/turf_decal/ms13/covering/wallpaper/blue
+	icon_state = "wallpaper_blue"
+
+/obj/effect/turf_decal/ms13/covering/wallpaper/blue/stripes
+	icon_state = "wallpaper_stripes"
+
+/obj/effect/turf_decal/ms13/covering/wallpaper/red
+	icon_state = "wallpaper_red"
+
+//Tiles
+
+/obj/effect/turf_decal/ms13/covering/tiles/blue
+	icon_state = "tiles_cyan"
+
+/obj/effect/turf_decal/ms13/covering/tiles/white
+	icon_state = "tiles_white"
+
+//Paint
+
+/obj/effect/turf_decal/ms13/covering/paint/gray
+	icon_state = "paint_gray"
+
+/obj/effect/turf_decal/ms13/covering/paint/white
+	icon_state = "paint_white"
+
+/obj/effect/turf_decal/ms13/covering/paint/red
+	icon_state = "paint_red"
+
+/obj/effect/turf_decal/ms13/covering/paint/yellow
+	icon_state = "paint_yellow"
+
+/obj/effect/turf_decal/ms13/covering/paint/green
+	icon_state = "paint_green"
+
+/obj/effect/turf_decal/ms13/covering/paint/blue
+	icon_state = "paint_blue"

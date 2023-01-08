@@ -15,13 +15,13 @@ $include interviews.txt
 # There are various options which are hard-locked for security reasons.
 
 ## Server name: This appears at the top of the screen in-game and in the BYOND hub. Uncomment and replace 'tgstation' with the name of your choice.
-SERVERNAME Mojave Sun
+SERVERNAME Mojave Sun - Open Beta
 
 ## Server SQL name: This is the name used to identify the server to the SQL DB, distinct from SERVERNAME as it must be at most 32 characters.
 # SERVERSQLNAME tgstation
 
 ## Station name: The name of the station as it is referred to in-game. If commented out, the game will generate a random name instead.
-STATIONNAME Mojave Sun
+STATIONNAME Mojave Sun - Open Beta
 
 ## Put on byond hub: Uncomment this to put your server on the byond hub.
 #HUB
@@ -160,6 +160,9 @@ LOG_CLONING
 ## log shuttle actions
 LOG_SHUTTLE
 
+## log tool interactions [/atom/proc/tool_act]
+LOG_TOOLS
+
 ## Log all timers on timer auto reset
 # LOG_TIMERS_ON_BUCKET_RESET
 
@@ -206,10 +209,10 @@ VOTE_PERIOD 600
 # DEFAULT_NO_VOTE
 
 ## disable abandon mob
-NORESPAWN
+# NORESPAWN
 
 ## set a hosted by name for unix platforms
-HOSTEDBY Yournamehere
+HOSTEDBY Mojave Sun
 
 ## Uncomment this to stop people connecting to your server without a registered ckey. (i.e. guest-* are all blocked from connecting)
 GUEST_BAN
@@ -246,16 +249,16 @@ CHECK_RANDOMIZER
 # SERVER ss13.example.com:2506
 
 ## forum address
-# FORUMURL http://tgstation13.org/phpBB/index.php
+FORUMURL https://discord.gg/ms13
 
 ## Wiki address
 # WIKIURL http://www.tgstation13.org/wiki
 
 ## Rules address
-# RULESURL http://www.tgstation13.org/wiki/Rules
+RULESURL https://docs.google.com/document/d/1oQRTz-WbaOEoGLtMmMyaUQ6zXZLTkhfwsc8Pohgoa3w/edit?usp=sharing
 
 ## Github address
-# GITHUBURL https://www.github.com/tgstation/tgstation
+GITHUBURL https://github.com/Mojave-Sun/mojave-sun-13
 
 ## Discord bot command prefix, if the discord bot is used
 # DISCORDBOTCOMMANDPREFIX ?
@@ -572,6 +575,11 @@ URGENT_AHELP_COOLDOWN 300
 ## The message that the player receives whenever prompted whether they want to send an urgent ahelp or not.
 #URGENT_AHELP_USER_PROMPT This'll ping the admins!
 
+## The link that the title of a ticket can link to.
+## If not set, it will link nowhere
+## use $RID for the round ID and $TID for the ticket ID
+#ADMINHELP_AHELP_LINK
+
 ## The URL for the pfp of the webhook
 #ADMINHELP_WEBHOOK_PFP
 
@@ -595,3 +603,13 @@ CACHE_ASSETS 0
 ## You should only enable this if you can guarantee a station name doesn't break BYOND's TOS.
 ## BYOND staff have gotten upset at us in the past for inappropriate station names.
 #STATION_NAME_IN_HUB_ENTRY
+
+## The number of PR announcements allowed for the same pull request per round
+## This makes sure that somebody can only spam a few reopens and closes before being ignored
+PR_ANNOUNCEMENTS_PER_ROUND 5
+
+## Uncomment to block all attempts to profile, for performance reasons
+#FORBID_ALL_PROFILING
+
+## Uncomment to block granting profiling privileges to users with R_DEBUG, for performance purposes
+#FORBID_ADMIN_PROFILING

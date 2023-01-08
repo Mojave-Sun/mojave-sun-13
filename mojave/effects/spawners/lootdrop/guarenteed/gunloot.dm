@@ -1,11 +1,11 @@
-//// These spawners are GUARENTEED spawns. If you are making changes to these pools, you should probably also make changes to the non-static spawns outside of the Guarenteed folder. ////
+//// These spawners are GUARANTEED spawns. If you are making changes to these pools, you should probably also make changes to the non-static spawns outside of the guaranteed folder. ////
 //// The idea of these spawners it to use these SPARINGLY. Emphasis on SPARINGLY... Examples of where to use these are: High tier dungeons / Faction bases ////
 
-/obj/effect/spawner/random/ms13/guarenteed/gun
+/obj/effect/spawner/random/ms13/guaranteed/gun
 	name = "DO NOT USE ME - Mojave Sun gun spawners"
 	icon_state = "ms13_gun-static"
 
-/obj/effect/spawner/random/ms13/guarenteed/gun/tier1
+/obj/effect/spawner/random/ms13/guaranteed/gun/tier1
 	name = "tier 1 gun spawner"
 	spawn_loot_count = 3
 	var/loot1 = list(
@@ -39,7 +39,7 @@
 				/obj/item/ammo_box/magazine/ms13/r10
 				)
 	var/loot7 = list(
-				/obj/item/gun/ballistic/rifle/ms13/hunting/chinese,
+				/obj/item/gun/ballistic/rifle/ms13/hunting/surplus,
 				/obj/item/ammo_box/ms13/stripper/r762,
 				/obj/item/ammo_box/ms13/stripper/r762
 				)
@@ -64,11 +64,11 @@
 				""
 				)
 
-/obj/effect/spawner/random/ms13/guarenteed/gun/tier1/Initialize()
+/obj/effect/spawner/random/ms13/guaranteed/gun/tier1/Initialize()
 	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11)
 	. = ..()
 
-/obj/effect/spawner/random/ms13/guarenteed/gun/tier2
+/obj/effect/spawner/random/ms13/guaranteed/gun/tier2
 	name = "tier 2 gun spawner"
 	spawn_loot_count = 3
 	var/loot1 = list(
@@ -147,11 +147,11 @@
 				""
 				)
 
-/obj/effect/spawner/random/ms13/guarenteed/gun/tier2/Initialize()
+/obj/effect/spawner/random/ms13/guaranteed/gun/tier2/Initialize()
 	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11, loot12, loot13, loot14, loot15)
 	. = ..()
 
-/obj/effect/spawner/random/ms13/guarenteed/gun/tier3
+/obj/effect/spawner/random/ms13/guaranteed/gun/tier3
 	name = "tier 3 gun spawner"
 	spawn_loot_count = 3
 	var/loot1 = list(
@@ -240,11 +240,11 @@
 				""
 				)
 
-/obj/effect/spawner/random/ms13/guarenteed/gun/tier3/Initialize()
+/obj/effect/spawner/random/ms13/guaranteed/gun/tier3/Initialize()
 	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11, loot12, loot13, loot14, loot15, loot16, loot17)
 	. = ..()
 
-/obj/effect/spawner/random/ms13/guarenteed/gun/tier4
+/obj/effect/spawner/random/ms13/guaranteed/gun/tier4
 	name = "tier 4 gun spawner"
 	spawn_loot_count = 3
 	var/loot1 = list(
@@ -338,11 +338,11 @@
 				""
 				)
 
-/obj/effect/spawner/random/ms13/guarenteed/gun/tier4/Initialize()
+/obj/effect/spawner/random/ms13/guaranteed/gun/tier4/Initialize()
 	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11, loot12, loot13, loot14, loot15, loot16, loot17, loot18)
 	. = ..()
 
-/obj/effect/spawner/random/ms13/guarenteed/gun/lowunique
+/obj/effect/spawner/random/ms13/guaranteed/gun/lowunique
 	name = "low tier unique gun spawner"
 	spawn_loot_count = 3
 	var/loot1 = list(
@@ -371,11 +371,11 @@
 				/obj/item/ammo_box/magazine/ms13/m45
 				)
 
-/obj/effect/spawner/random/ms13/guarenteed/gun/lowunique/Initialize()
+/obj/effect/spawner/random/ms13/guaranteed/gun/lowunique/Initialize()
 	loot = pick(loot1, loot2, loot3, loot4, loot5)
 	. = ..()
 
-/obj/effect/spawner/random/ms13/guarenteed/gun/highunique
+/obj/effect/spawner/random/ms13/guaranteed/gun/highunique
 	name = "high tier unique gun spawner"
 	spawn_loot_count = 3
 	var/loot1 = list(
@@ -414,23 +414,112 @@
 				""
 				)
 
-/obj/effect/spawner/random/ms13/guarenteed/gun/highunique/Initialize()
+/obj/effect/spawner/random/ms13/guaranteed/gun/highunique/Initialize()
 	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7)
 	. = ..()
 
-/obj/effect/spawner/random/ms13/guarenteed/gun/lowrandom
+/obj/effect/spawner/random/ms13/guaranteed/gun/lowrandom
 	name = "low tier random gun spawner"
 	spawn_loot_count = 1
 	loot = list(
-			/obj/effect/spawner/random/ms13/guarenteed/gun/tier1 = 70,
-			/obj/effect/spawner/random/ms13/guarenteed/gun/tier2 = 30,
+			/obj/effect/spawner/random/ms13/guaranteed/gun/tier1 = 70,
+			/obj/effect/spawner/random/ms13/guaranteed/gun/tier2 = 30,
 			)
 
-/obj/effect/spawner/random/ms13/guarenteed/gun/highrandom
+/obj/effect/spawner/random/ms13/guaranteed/gun/highrandom
 	name = "high tier random gun spawner"
 	spawn_loot_count = 1
 	loot = list(
-			/obj/effect/spawner/random/ms13/guarenteed/gun/tier2 = 10,
-			/obj/effect/spawner/random/ms13/guarenteed/gun/tier3 = 60,
-			/obj/effect/spawner/random/ms13/guarenteed/gun/tier4 = 30,
+			/obj/effect/spawner/random/ms13/guaranteed/gun/tier2 = 10,
+			/obj/effect/spawner/random/ms13/guaranteed/gun/tier3 = 60,
+			/obj/effect/spawner/random/ms13/guaranteed/gun/tier4 = 30,
 			)
+
+/obj/effect/spawner/random/ms13/guaranteed/gun/military
+	name = "military gun spawner"
+	spawn_loot_count = 3
+	spawn_loot_chance = 50
+	var/loot1 = list(
+				/obj/item/gun/ballistic/rifle/ms13/hunting/scoped/amr,
+				/obj/item/ammo_box/magazine/ms13/amr,
+				/obj/item/ammo_box/magazine/ms13/amr
+				)
+	var/loot2 = list(
+				/obj/item/gun/ballistic/automatic/pistol/ms13/m12mm,
+				/obj/item/ammo_box/magazine/ms13/m12mm,
+				/obj/item/ammo_box/magazine/ms13/m12mm
+				)
+	var/loot3 = list(
+				/obj/item/gun/ballistic/automatic/ms13/full/assaultrifle/chinese,
+				/obj/item/ammo_box/magazine/ms13/ar762,
+				""
+				)
+	var/loot4 = list(
+				/obj/item/gun/ballistic/automatic/ms13/full/assaultrifle,
+				/obj/item/ammo_box/magazine/ms13/r20,
+				""
+				)
+	var/loot5 = list(
+				/obj/item/gun/ballistic/automatic/ms13/full/smg12mm,
+				/obj/item/ammo_box/magazine/ms13/smg12mm,
+				""
+				)
+	var/loot6 = list(
+				/obj/item/gun/ballistic/automatic/ms13/semi/sniper,
+				/obj/item/ammo_box/magazine/ms13/r308,
+				/obj/item/ammo_box/magazine/ms13/r308
+				)
+	var/loot7 = list(
+				/obj/item/gun/energy/ms13/laser/pistol/advanced/defender,
+				/obj/item/stock_parts/cell/ms13/mfc,
+				""
+				)
+	var/loot8 = list(
+				/obj/item/gun/energy/ms13/laser/rifle/advanced,
+				/obj/item/stock_parts/cell/ms13/mfc,
+				""
+				)
+	var/loot9 = list(
+				/obj/item/gun/energy/ms13/laser/scatter,
+				/obj/item/stock_parts/cell/ms13/mfc,
+				""
+				)
+	var/loot10 = list(
+				/obj/item/gun/energy/ms13/plasma/pistol/defender,
+				/obj/item/stock_parts/cell/ms13/pc,
+				""
+				)
+	var/loot11 = list(
+				/obj/item/gun/energy/ms13/plasma/rifle,
+				/obj/item/stock_parts/cell/ms13/pc,
+				""
+				)
+	var/loot12 = list(
+				/obj/item/gun/energy/ms13/plasma/pistol/advanced,
+				/obj/item/stock_parts/cell/ms13/pc,
+				""
+				)
+	var/loot13 = list(
+				/obj/item/gun/energy/ms13/plasma/multi,
+				/obj/item/stock_parts/cell/ms13/pc,
+				""
+				)
+	var/loot14 = list(
+				/obj/item/gun/energy/ms13/gauss/pistol,
+				/obj/item/stock_parts/cell/ms13/gauss,
+				/obj/item/stock_parts/cell/ms13/gauss
+				)
+	var/loot15 = list(
+				/obj/item/gun/energy/ms13/gauss/rifle,
+				/obj/item/stock_parts/cell/ms13/gauss,
+				/obj/item/stock_parts/cell/ms13/gauss
+				)
+	var/loot16 = list(
+				/obj/item/gun/energy/ms13/gauss/sniper,
+				/obj/item/stock_parts/cell/ms13/gauss,
+				/obj/item/stock_parts/cell/ms13/gauss
+				)
+
+/obj/effect/spawner/random/ms13/guaranteed/gun/military/Initialize()
+	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11, loot12, loot13, loot14, loot15, loot16)
+	. = ..()

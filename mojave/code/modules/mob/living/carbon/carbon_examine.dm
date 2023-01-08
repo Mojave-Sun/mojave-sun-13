@@ -9,7 +9,6 @@
 	if(CHECK_BITFIELD(wear_mask?.flags_inv, HIDEFACE) || CHECK_BITFIELD(head?.flags_inv, HIDEFACE) || CHECK_BITFIELD(glasses?.flags_inv, HIDEFACE))
 		return
 
-	src.balloon_alert_to_viewers("looks at [examined].", "I look at [examined].")
 	if(!ismob(examined))
 		visible_message(span_boldnotice("<span style='color: [chat_color];'><b>[src]</b></span> looks at [examined]."), \
 						span_boldnotice("I look at [examined]."), \

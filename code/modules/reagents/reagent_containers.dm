@@ -16,6 +16,7 @@
 	var/spillable = FALSE
 	var/list/fill_icon_thresholds = null
 	var/fill_icon_state = null // Optional custom name for reagent fill icon_state prefix
+	var/filling_file = 'icons/obj/reagentfillings.dmi' // MOJAVE EDIT - de-hardcode reagent filling file
 
 /obj/item/reagent_containers/Initialize(mapload, vol)
 	. = ..()
@@ -222,7 +223,7 @@
 		return
 
 	var/fill_name = fill_icon_state? fill_icon_state : icon_state
-	var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[fill_name][fill_icon_thresholds[1]]")
+	var/mutable_appearance/filling = mutable_appearance(filling_file, "[fill_name][fill_icon_thresholds[1]]") // MOJAVE EDIT - de-hardcode reagent filling file
 
 	var/percent = round((reagents.total_volume / volume) * 100)
 	for(var/i in 1 to fill_icon_thresholds.len)

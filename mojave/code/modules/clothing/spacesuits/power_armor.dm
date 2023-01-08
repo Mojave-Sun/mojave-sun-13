@@ -27,6 +27,8 @@
 	AddElement(/datum/element/radiation_protected_clothing)
 	AddComponent(/datum/component/clothing_fov_visor, FOV_180_DEGREES)
 
+/obj/item/radio/headset/ms13/
+	force_superspace = TRUE // ignore tcoms and zlevels
 /obj/item/radio/headset/ms13/powerarmor
 	name = "integrated power armor headset"
 	actions_types = list(/datum/action/item_action/toggle_radio)
@@ -79,23 +81,48 @@
 	worn_x_dimension = 32
 	worn_y_dimension = 20
 	helmettype = null //no helmet; default PA is frame = /obj/item/clothing/head/helmet/space/hardsuit/power_armor
-	var/footstep = 1
-	var/mob/listeningTo
 	clothing_traits = list(TRAIT_SILENT_FOOTSTEPS) //No playing regular footsteps over power armor footsteps
 	item_flags = NO_PIXEL_RANDOM_DROP
+	ms13_flags_1 = LOCKABLE_1
 	clothing_flags = LARGE_WORN_ICON | STOPSPRESSUREDAMAGE | THICKMATERIAL | SNUG_FIT | BLOCKS_SHOVE_KNOCKDOWN
 	slowdown = 1.35
-
-/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/examine(mob/user)
-	. = ..()
-	. += "Alt+left click this power armor to get into and out of it."
+	/// Literally just whether or not we allow fatties to wear this power armor
+	var/no_fatties = TRUE
+	var/footstep = 1
+	var/mob/listeningTo
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/Initialize()
 	. = ..()
 	interaction_flags_item &= ~INTERACT_ITEM_ATTACK_HAND_PICKUP
 	ADD_TRAIT(src, TRAIT_NODROP, STICKY_NODROP) //Somehow it's stuck to your body, no questioning.
-	RegisterSignal(src, COMSIG_ATOM_CAN_BE_PULLED, .proc/reject_pulls)
 	AddElement(/datum/element/radiation_protected_clothing)
+	RegisterSignal(src, COMSIG_ATOM_CAN_BE_PULLED, .proc/reject_pulls)
+
+/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/Destroy()
+	listeningTo = null
+	UnregisterSignal(src, COMSIG_ATOM_CAN_BE_PULLED)
+	return ..()
+
+/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/examine(mob/user)
+	. = ..()
+	. += "Alt+left click this power armor to get into and out of it."
+	var/mob/living/carbon/carbon_user = user
+	if(istype(carbon_user) && (carbon_user.fatness == FATNESS_OBESE))
+		. += span_warning("Your fat ass probably won't fit inside.")
+
+/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/examine(mob/user)
+	. = ..()
+	. += "Alt+left click this power armor to get into and out of it."
+	var/mob/living/carbon/carbon_user = user
+	if(istype(carbon_user) && (carbon_user.fatness == FATNESS_OBESE))
+		. += span_warning("Your fat ass probably won't fit inside.")
+
+/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/mob_can_equip(mob/living/M, mob/living/equipper, slot, disable_warning, bypass_equip_delay_self)
+	if((slot == ITEM_SLOT_OCLOTHING) && no_fatties && iscarbon(M))
+		var/mob/living/carbon/carbon_fatass = M
+		if(carbon_fatass.fatness == FATNESS_OBESE)
+			return FALSE
+	return ..()
 
 //We want to be able to strip the PA as usual but also have the benefits of NO_DROP to disallow stuff like drag clicking PA into hand slot
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/canStrip(mob/stripper, mob/owner)
@@ -108,18 +135,6 @@
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/hit_reaction(owner, hitby, attack_text, final_block_chance, damage, attack_type)
 	if((damage > 10) && prob(35)) //SPARK
 		do_sparks(2, FALSE, src)
-
-//Hardcode goes brrr; borrowed from ancient hardsuits
-/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/proc/on_mob_move()
-	SIGNAL_HANDLER
-	var/mob/living/carbon/human/H = loc
-	if(!istype(H) || H.wear_suit != src)
-		return
-	if(footstep >= 1)
-		playsound(src, 'sound/mecha/mechstep.ogg', 100, TRUE)
-		footstep = 0
-	else
-		footstep++
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/equipped(mob/user, slot)
 	. = ..()
@@ -140,12 +155,6 @@
 	ADD_TRAIT(user, TRAIT_PUSHIMMUNE, "power_armor")
 	RegisterSignal(user, COMSIG_ATOM_CAN_BE_PULLED, .proc/reject_pulls)
 
-/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/proc/reject_pulls(datum/source, mob/living/puller)
-	SIGNAL_HANDLER
-	if(puller != loc) // != the wearer
-		to_chat(puller, span_warning("The power armor resists your attempt at pulling it!"))
-		return COMSIG_ATOM_CANT_PULL
-
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/dropped(mob/user)
 	. = ..()
 	user.base_pixel_y = user.base_pixel_y - 6
@@ -160,10 +169,23 @@
 	REMOVE_TRAIT(user, TRAIT_PUSHIMMUNE, "power_armor")
 	UnregisterSignal(user, COMSIG_ATOM_CAN_BE_PULLED)
 
-/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/Destroy()
-	listeningTo = null
-	UnregisterSignal(src, COMSIG_ATOM_CAN_BE_PULLED)
-	return ..()
+//Hardcode goes brrr; borrowed from ancient hardsuits
+/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/proc/on_mob_move()
+	SIGNAL_HANDLER
+	var/mob/living/carbon/human/H = loc
+	if(!istype(H) || H.wear_suit != src)
+		return
+	if(footstep >= 1)
+		playsound(src, 'sound/mecha/mechstep.ogg', 100, TRUE)
+		footstep = 0
+	else
+		footstep++
+
+/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/proc/reject_pulls(datum/source, mob/living/puller)
+	SIGNAL_HANDLER
+	if(puller != loc) // != the wearer
+		to_chat(puller, span_warning("The power armor resists your attempt at pulling it!"))
+		return COMSIG_ATOM_CANT_PULL
 
 //No helmet toggles for now when helmet is up
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/ToggleHelmet()
@@ -173,6 +195,12 @@
 
 //Let's get into the power armor (or not)
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/AltClick(mob/living/carbon/human/user)
+	if(.)
+		return
+	if(ms13_flags_1 & LOCKABLE_1 && lock_locked)
+		to_chat(user, span_warning("The [name] is locked."))
+		playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
+		return
 	if(!istype(user))
 		return FALSE
 	else
@@ -184,6 +212,9 @@
 			return FALSE
 
 	if(!CheckEquippedClothing(user) || get_dist(user, src) > 1)
+		return FALSE
+	if(user.fatness == FATNESS_OBESE)
+		to_chat(user, span_warning("Your fat ass is too huge to fit in."))
 		return FALSE
 	to_chat(user, "You begin entering the [src].")
 	if(do_after(user, 8 SECONDS, target = user) && CheckEquippedClothing(user) && density == TRUE)
@@ -243,10 +274,9 @@
 	if(prob(50))
 		var/datum/effect_system/spark_spread/spark_system = new /datum/effect_system/spark_spread
 		spark_system.start()
-	..()
+	return ..()
 
 // T-51 PA set //
-
 /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/t51
 	name = "T-51B Power Armor Helmet"
 	desc = "A more advanced helmet for a more advanced piece of power armor. Comes with a high quality headlamp and integrated radio."
@@ -283,7 +313,6 @@
                 FIRE = CLASS5_FIRE)
 
 // T-45 PA set //
-
 /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/t45
 	name = "T-45D Power Armor Helmet"
 	desc = "The helmet to a T-45 powered combat armor suit. Stare your foe down as they can only scrape your paint. Comes with a decent quality headlamp and integrated radio."

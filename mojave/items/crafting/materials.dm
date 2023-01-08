@@ -6,8 +6,8 @@
 	icon = 'mojave/icons/objects/crafting/materials_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
-	force = 2
-	throwforce = 2
+	force = 0
+	throwforce = 0
 	merge_type = /obj/item/stack/sheet/ms13
 	w_class = WEIGHT_CLASS_SMALL
 	grid_width = 64
@@ -52,6 +52,9 @@
 
 /obj/item/stack/sheet/ms13/scrap_parts/two
 	amount = 2
+
+/obj/item/stack/sheet/ms13/scrap_parts/five
+	amount = 5
 
 /obj/item/stack/sheet/ms13/scrap_parts/ten
 	amount = 10
@@ -177,6 +180,9 @@
 /obj/item/stack/sheet/ms13/scrap_electronics/two
 	amount = 2
 
+/obj/item/stack/sheet/ms13/scrap_electronics/five
+	amount = 5
+
 /obj/item/stack/sheet/ms13/scrap_electronics/ten
 	amount = 10
 
@@ -273,6 +279,9 @@ GLOBAL_LIST_INIT(scrap_wood_recipes, list ( \
 /obj/item/stack/sheet/ms13/plank/two
 	amount = 2
 
+/obj/item/stack/sheet/ms13/plank/four
+	amount = 4
+
 GLOBAL_LIST_INIT(plank_recipes, list ( \
 	new/datum/stack_recipe("crude wood table", /obj/structure/table/ms13/wood/constructed, 4, time = 20 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("wood barricade", /obj/structure/ms13/barricade, 4, time = 15 SECONDS, one_per_turf = FALSE, on_floor = TRUE), \
@@ -301,6 +310,9 @@ GLOBAL_LIST_INIT(plank_recipes, list ( \
 /obj/item/stack/sheet/ms13/cloth/two
     amount = 2
 
+/obj/item/stack/sheet/ms13/cloth/five
+    amount = 5
+
 GLOBAL_LIST_INIT(ms13cloth_recipes, list ( \
 	new/datum/stack_recipe("roll of gauze", /obj/item/stack/medical/gauze/ms13/one, 2, time = 3 SECONDS, one_per_turf = FALSE, on_floor = FALSE), \
 ))
@@ -323,6 +335,9 @@ GLOBAL_LIST_INIT(ms13cloth_recipes, list ( \
 
 /obj/item/stack/sheet/ms13/leather/two
 	amount = 2
+
+/obj/item/stack/sheet/ms13/leather/five
+	amount = 5
 
 /obj/item/stack/sheet/ms13/mil_fiber
 	name = "military fiber"
@@ -353,6 +368,9 @@ GLOBAL_LIST_INIT(ms13cloth_recipes, list ( \
 
 /obj/item/stack/sheet/ms13/thread/two
 	amount = 2
+
+/obj/item/stack/sheet/ms13/thread/six
+	amount = 6
 
 //Old Stuff Below, Be Warned//
 
