@@ -81,6 +81,12 @@
 
 	overlays_standing[HANDS_LAYER] = hands
 	apply_overlay(HANDS_LAYER)
+	//MOJAVE EDIT BEGIN
+	//SILLY MOMENTS WILL HAPPEN IF WE DON'T UPDATE UI WIELD HERE!!!
+	var/obj/item/active_item = get_active_held_item()
+	if(active_item)
+		wield_ui_update(SEND_SIGNAL(active_item, COMSIG_TWOHANDED_CHECK))
+	//MOJAVE EDIT END
 
 //MOJAVE EDIT ADDITION BEGIN: Adds special offsets for power armor
 /mob/living/carbon/proc/getItemPixelShiftY()

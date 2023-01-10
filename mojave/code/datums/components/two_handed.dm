@@ -2,6 +2,14 @@
 	/// Stores the wield flags we use, currently only matters for WIELD_HAS_INHANDS but oh well
 	var/wield_flags = NONE
 
+/datum/component/two_handed/RegisterWithParent()
+	. = ..()
+	RegisterSignal(parent, COMSIG_TWOHANDED_CHECK, .proc/check_wielded)
+
+/datum/component/two_handed/UnregisterFromParent()
+	. = ..()
+	UnregisterSignal(parent, COMSIG_TWOHANDED_CHECK)
+
 /datum/component/two_handed/on_update_icon(obj/item/source)
 	. = NONE
 	if(!wielded)
@@ -29,6 +37,9 @@
 	if(!isliving(user) || (wielded == old_wielded))
 		return
 	user.wield_ui_update(wielded)
+
+/datum/component/two_handed/proc/check_wielded(obj/item/source)
+	return wielded
 
 /obj/item/offhand
 	icon = null
