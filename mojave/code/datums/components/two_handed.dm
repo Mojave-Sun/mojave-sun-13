@@ -14,7 +14,6 @@
 		source.inhand_icon_state = "[initial(source.inhand_icon_state)]_wielded"
 
 /datum/component/two_handed/wield(mob/living/carbon/user)
-	var/old_wielded = wielded
 	. = ..()
 	//This is VERY retarded but for some reason TURFS are being sent as user???? WHAT???
 	//I don't fucking care what actually causes this, I am blaming Technobug
@@ -23,7 +22,6 @@
 	user.wield_ui_update(wielded)
 
 /datum/component/two_handed/unwield(mob/living/carbon/user)
-	var/old_wielded = wielded
 	. = ..()
 	if(!isliving(user) || (wielded == old_wielded))
 		return
