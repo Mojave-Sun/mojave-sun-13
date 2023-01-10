@@ -11,7 +11,10 @@
 		. = COMSIG_ATOM_NO_UPDATE_ICON_STATE
 	//Consider adding base inhand state, because this SUCKS!
 	if(wield_flags & WIELD_HAS_INHANDS)
-		source.inhand_icon_state = "[initial(source.inhand_icon_state)]_wielded"
+		if(wielded)
+			source.inhand_icon_state = "[initial(source.inhand_icon_state)]_wielded"
+		else
+			source.inhand_icon_state = initial(source.inhand_icon_state)
 
 /datum/component/two_handed/wield(mob/living/carbon/user)
 	. = ..()
