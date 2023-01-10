@@ -14,7 +14,7 @@
 	desc = "A very crisp and clean medical identification badge. Even has a clip. By Wasteland standards, this is incredibly professional."
 	assignment = "Town Doctor"
 	icon_state = "doctor"
-	access = list(ACCESS_TOWN_DOCTOR)
+	access = list(ACCESS_TOWN_DOCTOR, ACCESS_TOWN_ALL)
 
 /obj/item/card/id/ms13/doctor/nurse
 	name = "nurse's ID badge"
@@ -25,14 +25,14 @@
 	desc = "A gold star badge with a blue stamp in the middle, indicating this badge belongs to the Mayor."
 	assignment = "Town Mayor"
 	icon_state = "mayor"
-	access = list(ACCESS_TOWN_MAYOR, ACCESS_TOWN_LAW, ACCESS_TOWN_DOCTOR)
+	access = list(ACCESS_TOWN_MAYOR, ACCESS_TOWN_LAW, ACCESS_TOWN_DOCTOR, ACCESS_TOWN_WORKER, ACCESS_TOWN_ALL)
 
 /obj/item/card/id/ms13/deputy
 	name = "deputy's badge"
 	desc = "A dull silver Deputy's badge. Classic."
 	assignment = "Town Deputy"
 	icon_state = "deputy"
-	access = list(ACCESS_TOWN_LAW, ACCESS_TOWN_DOCTOR)
+	access = list(ACCESS_TOWN_LAW, ACCESS_TOWN_DOCTOR, ACCESS_TOWN_WORKER, ACCESS_TOWN_ALL)
 
 /obj/item/card/id/ms13/deputy/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/card/id/ms13/sheriff))
@@ -46,16 +46,18 @@
 	desc = "A golden Sheriff's badge. Strikes fear into the hearts of wrongdoers."
 	assignment = "Town Sheriff"
 	icon_state = "sheriff"
-	access = list(ACCESS_TOWN_MAYOR, ACCESS_TOWN_LAW, ACCESS_TOWN_DOCTOR)
+	access = list(ACCESS_TOWN_MAYOR, ACCESS_TOWN_LAW, ACCESS_TOWN_DOCTOR, ACCESS_TOWN_WORKER, ACCESS_TOWN_ALL)
 
 /obj/item/card/id/ms13/town
 	name = "town passport"
 	desc = "A fancy looking passport proving residency in the Town. Stamped by the Mayor to prove it's authenticity."
 	assignment = "Town Settler"
 	icon_state = "passport"
+	access = list(ACCESS_TOWN_ALL)
 
 /obj/item/card/id/ms13/town/worker
 	assignment = "Town Worker"
+	access = list(ACCESS_TOWN_WORKER, ACCESS_TOWN_ALL)
 
 /obj/item/card/id/ms13/town/bartender
 	assignment = "Town Bartender"
