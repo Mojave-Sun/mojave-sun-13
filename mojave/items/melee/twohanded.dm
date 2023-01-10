@@ -18,7 +18,7 @@
 	resistance_flags = FIRE_PROOF
 	slot_flags = ITEM_SLOT_BACK
 	log_pickup_and_drop = TRUE
-	wield_info = /datum/wield_info/default/inhands
+	wield_info = /datum/wield_info/twohanded //silly default that probably won't be used much honestly
 	var/wielded = FALSE
 
 /obj/item/ms13/twohanded/Initialize()
@@ -55,14 +55,11 @@
 	wound_bonus = 12
 	bare_wound_bonus = 8
 	throw_range = 3
-	sharpness = IS_SHARP_AXE
+	sharpness = SHARP_EDGED | SHARP_AXE
 	toolspeed = 0.75
 	grid_height = 192
 	grid_width = 64
-
-/obj/item/ms13/twohanded/fireaxe/ComponentInitialize()
-	. = ..()
-	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_unwielded = 15, force_wielded = 45)
+	wield_info = /datum/wield_info/twohanded/fireaxe
 
 /obj/item/ms13/twohanded/bump_sword
 	name = "bumper sword"
@@ -261,7 +258,7 @@
 
 	if(on)
 		force = 60
-		sharpness = IS_SHARP_AXE
+		sharpness = SHARP_EDGED | SHARP_AXE
 		attack_verb_continuous = list("slices", "slashes", "cuts", "rends", "saws", "tears")
 		attack_verb_simple = list("slice", "slash", "cut", "rend", "saw", "tear")
 		hitsound = list('mojave/sound/ms13weapons/meleesounds/ripper_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/ripper_hit2.ogg', 'mojave/sound/ms13weapons/meleesounds/ripper_hit3.ogg')
@@ -269,7 +266,7 @@
 
 	else
 		force = 15
-		sharpness = SHARP_EDGED
+		sharpness = NONE
 		attack_verb_continuous = list("smacks", "beats", "slashes", "cuts", "clubs")
 		attack_verb_simple = list("smack", "beat", "slash", "cut", "club")
 		hitsound = 'mojave/sound/ms13weapons/meleesounds/hatchet_hit.ogg'

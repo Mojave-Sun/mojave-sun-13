@@ -34,7 +34,7 @@
 
 /datum/component/two_handed/unwield(mob/living/carbon/user)
 	. = ..()
-	if(!isliving(user) || (wielded == old_wielded))
+	if(!isliving(user))
 		return
 	user.wield_ui_update(wielded)
 
