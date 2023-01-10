@@ -194,11 +194,11 @@
 		if(!GLOB.jobs_override_presets[jobs_pregen])
 			log_world("map_config \"jobs_override\" field is invalid!")
 			return
+		jobs_override = list()
 		for(var/str in GLOB.jobs_override_presets[jobs_pregen])
 			jobs_override += new str
-
 		if(SSjob.initialized)
-			SSjob.joinable_occupations = jobs_override
+			SSjob.SetupOccupations()
 
 	defaulted = FALSE
 	return TRUE
