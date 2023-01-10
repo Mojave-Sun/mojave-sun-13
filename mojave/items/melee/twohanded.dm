@@ -18,6 +18,7 @@
 	resistance_flags = FIRE_PROOF
 	slot_flags = ITEM_SLOT_BACK
 	log_pickup_and_drop = TRUE
+	wield_info = /datum/wield_info/default/inhands
 	var/wielded = FALSE
 
 /obj/item/ms13/twohanded/Initialize()
@@ -26,21 +27,15 @@
 	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, .proc/on_unwield)
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/melee/melee_inventory.dmi')
 
-/obj/item/ms13/twohanded/ComponentInitialize()
-	. = ..()
-	AddComponent(/datum/component/two_handed, require_twohands=FALSE)
-
 // triggered on wielding of a two handed item.
 /obj/item/ms13/twohanded/proc/on_wield(obj/item/source, mob/user)
 	SIGNAL_HANDLER
-	inhand_icon_state = "[initial(inhand_icon_state)]_wielded" // subtype compatability ftw
 	playsound(src.loc, 'mojave/sound/ms13weapons/meleesounds/general_grip.ogg', 50, TRUE)
 	wielded = TRUE
 
 // triggered on unwielding of two handed item.
 /obj/item/ms13/twohanded/proc/on_unwield(obj/item/source, mob/user)
 	SIGNAL_HANDLER
-	inhand_icon_state = "[initial(inhand_icon_state)]"
 	playsound(src.loc, 'mojave/sound/ms13weapons/meleesounds/general_grip.ogg', 35, TRUE)
 	wielded = FALSE
 
