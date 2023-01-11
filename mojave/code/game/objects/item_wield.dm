@@ -1,6 +1,7 @@
 // Wielding any item very poggers
 /obj/item/proc/wield_act(mob/living/carbon/user)
 	// Check if we can even wield the item, if not we error out
+	// I know using getcomponent for something rather common is not exactly poggers but turning this into signals is not viable
 	var/datum/component/two_handed/wield_comp = get_wield_component()
 	if(!wield_comp)
 		to_chat(user, span_warning("\The [src] cannot be wielded in any way!"))
@@ -31,4 +32,5 @@
 	//hacky bullcrap
 	if(wield_datum.wield_flags & WIELD_NO_ATTACK_SELF)
 		wield_component.UnregisterSignal(src, COMSIG_ITEM_ATTACK_SELF)
+	wield_component.wield_flags = wield_datum.wield_flags
 	return wield_component

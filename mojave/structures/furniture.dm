@@ -584,7 +584,7 @@
 	projectile_passchance = 80
 
 /obj/structure/ms13/fruit_empty/attackby(obj/item/W, mob/user, params)
-	if(W.sharpness == IS_SHARP_AXE)
+	if(W.sharpness & SHARP_AXE)
 		user.show_message(span_notice("You begin chopping \the [src] into scraps of wood!"), MSG_VISUAL)
 		if(do_after(user, 10 SECONDS * W.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_MAKEPLANKS))
 			user.show_message(span_notice("You make wood scraps out of \the [src]!"), MSG_VISUAL)
