@@ -38,6 +38,8 @@
 #define IGNORE_DIGITIGRADE (1<<18)
 /// Has contextual screentips when HOVERING OVER OTHER objects
 #define ITEM_HAS_CONTEXTUAL_SCREENTIPS (1 << 19)
+/// No blood overlay is allowed to appear on this item, and it cannot gain blood DNA forensics 
+#define NO_BLOOD_ON_ITEM (1 << 20)
 
 #define LOCKING_ITEM (1<<21) // MOJAVE CHANGE - Locks - For lock general interactions
 #define KEY_ITEM (1<<22) // MOJAVE CHANGE - Keys - For key general interactions
