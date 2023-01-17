@@ -5860,8 +5860,8 @@
 /area/ms13/desert)
 "FC" = (
 /obj/structure/chair/comfy/ms13/ergo,
-/obj/structure/sign/poster/ms13/vacation,
 /obj/structure/safe/ms13/wall,
+/obj/structure/sign/poster/ms13/planet,
 /turf/open/floor/wood/ms13/carpet/shaggy,
 /area/ms13/town)
 "FD" = (
@@ -6178,7 +6178,11 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/factory)
 "HQ" = (
-/obj/machinery/light/ms13/bulb/broken,
+/obj/effect/decal/cleanable/glass{
+	dir = 8;
+	pixel_y = 6
+	},
+/obj/machinery/light/ms13/bulb,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "HS" = (
@@ -6621,6 +6625,9 @@
 "KW" = (
 /obj/structure/chair/ms13/metal/blue/unfinished{
 	dir = 1
+	},
+/obj/machinery/light/ms13/bulb{
+	dir = 4
 	},
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
@@ -7522,7 +7529,7 @@
 /area/ms13/town)
 "Rb" = (
 /obj/machinery/light/ms13/bulb{
-	dir = 1
+	dir = 8
 	},
 /turf/open/floor/wood/ms13/carpet/shaggy,
 /area/ms13/town)
@@ -7683,6 +7690,9 @@
 	signal_title_1 = "Protectron Warehouse 1";
 	signal_title_2 = "Protectron Warehouse 2"
 	},
+/obj/machinery/light/ms13/bulb{
+	dir = 1
+	},
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "Sv" = (
@@ -7719,6 +7729,10 @@
 /obj/structure/table/ms13/metal/alt,
 /obj/structure/ms13/phone/black,
 /turf/open/floor/wood/ms13/common,
+/area/ms13/town)
+"SL" = (
+/obj/machinery/door/unpowered/ms13/wood/mirrored,
+/turf/open/floor/wood/ms13/carpet/shaggy,
 /area/ms13/town)
 "SM" = (
 /obj/machinery/door/unpowered/ms13/seethrough/fence/wire/barb{
@@ -7810,7 +7824,7 @@
 /area/ms13/town)
 "Tp" = (
 /obj/structure/table/ms13/no_smooth/wood/low,
-/obj/machinery/light/ms13/bulb/broken,
+/obj/machinery/light/ms13/bulb,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "Tq" = (
@@ -7822,6 +7836,7 @@
 /area/ms13/town)
 "Tr" = (
 /obj/item/ms13_small_flag/usa,
+/obj/machinery/light/ms13/bulb,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "Ts" = (
@@ -48456,13 +48471,13 @@ Xv
 Xv
 qo
 pk
-sx
+aC
 sx
 gr
 sx
 KZ
+aC
 sx
-HQ
 qo
 FS
 qo
@@ -49676,7 +49691,7 @@ sx
 bK
 sx
 qo
-sx
+ap
 sx
 sx
 Tr
@@ -50279,8 +50294,8 @@ sx
 sx
 DV
 sx
+XQ
 sx
-ep
 qo
 mW
 sx
@@ -50679,11 +50694,11 @@ IQ
 In
 Mq
 qo
+oR
 Rb
 oR
 oR
-oR
-oR
+Rb
 HK
 qo
 vC
@@ -50887,7 +50902,7 @@ oR
 oR
 oR
 oR
-fI
+SL
 sx
 bK
 sx
@@ -51089,12 +51104,12 @@ Xx
 oR
 oR
 oR
-fI
+qo
+ap
 sx
 sx
-sx
-ci
-Vo
+HQ
+qo
 Xv
 Xv
 Xv
