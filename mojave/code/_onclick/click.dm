@@ -9,7 +9,7 @@
 		return
 	if(user.body_position == LYING_DOWN)
 		return
-	user.visible_message("<span class='notice'>[user] peers towards the [src.dir].</span>")
+	user.visible_message("<span class='notice'>[user] peers into the distance.</span>")
 	user.face_atom(src)
 	user.do_zoom(src)
 	return
