@@ -214,6 +214,8 @@
 		parent_item.force -= sharpened_increase
 	if(force_multiplier)
 		parent_item.force /= force_multiplier
+	if(icon_wielded)
+		parent_item.inhand_icon_state = "[initial(parent_item.inhand_icon_state)]"
 	else if(force_unwielded)
 		parent_item.force = force_unwielded
 
