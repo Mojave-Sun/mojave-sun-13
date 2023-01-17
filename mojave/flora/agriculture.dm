@@ -1,6 +1,5 @@
 //// MS13 Agriculture Using Stripped Down & Modified TG Botany ////
 
-#define IS_SHARP_AXE	3
 #define SOIL_EDGE_LAYER 2.95
 
 /obj/machinery/ms13/agriculture

@@ -9,9 +9,12 @@
 /turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/underground/mountain)
 "ax" = (
-/obj/structure/table/ms13/metal,
-/obj/item/clothing/head/helmet/ms13/beanie,
-/turf/open/floor/wood/ms13/common,
+/obj/structure/table/ms13/metal/grate,
+/obj/effect/spawner/random/ms13/guaranteed/crafting/lowrandom,
+/obj/machinery/light/ms13{
+	dir = 1
+	},
+/turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "aV" = (
 /obj/effect/decal/cleanable/blood/tracks{
@@ -26,10 +29,20 @@
 /obj/effect/spawner/random/ms13/tools/tool,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"br" = (
+/obj/structure/closet/crate/ms13/woodcrate/compact,
+/obj/effect/spawner/random/ms13/crafting/lowrandom,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/town)
 "bu" = (
 /obj/structure/stairs/north,
 /turf/open/floor/ms13/tile/long,
 /area/ms13/desert)
+"bz" = (
+/obj/structure/table/ms13/metal/grate,
+/obj/machinery/light/ms13,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/legioncamp/building)
 "bJ" = (
 /obj/machinery/door/unpowered/ms13/metal/mirrored/red{
 	dir = 1
@@ -43,12 +56,21 @@
 /obj/structure/stairs/south,
 /turf/open/floor/ms13/tile/long,
 /area/ms13/desert)
+"cG" = (
+/obj/machinery/light/ms13,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/legioncamp/building)
 "dj" = (
 /obj/machinery/button/ms13{
 	id = "robco_protectron_wh2"
 	},
 /turf/open/floor/ms13/metal/grate/border,
 /area/ms13/town)
+"do" = (
+/turf/open/floor/ms13/metal/stayclear{
+	dir = 1
+	},
+/area/ms13/legioncamp/building)
 "dp" = (
 /obj/structure/table/ms13/no_smooth/counter/metal/bend{
 	dir = 1
@@ -56,9 +78,16 @@
 /obj/effect/spawner/random/ms13/tools/hardware,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"du" = (
+/obj/structure/fluff/ms13/barrel/single/flammable/one,
+/obj/structure/ms13/storage/vent,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/town)
 "dH" = (
-/obj/machinery/light/ms13/bulb,
-/turf/open/floor/wood/ms13/common,
+/obj/machinery/ms13/terminal/wall{
+	id = "car_junk_storage1"
+	},
+/turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "ex" = (
 /obj/machinery/button/ms13{
@@ -71,15 +100,61 @@
 /obj/structure/table/ms13/metal/heavy,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"eP" = (
+/obj/structure/ms13/pipes/horizontal/box,
+/turf/closed/wall/ms13/brick,
+/area/ms13/legioncamp/building)
+"fk" = (
+/obj/structure/ms13/pipes/horizontal/down/single{
+	dir = 1
+	},
+/turf/closed/wall/ms13/brick,
+/area/ms13/legioncamp/building)
+"fx" = (
+/obj/effect/turf_decal/trimline/yellow/line{
+	dir = 4
+	},
+/turf/open/floor/ms13/metal/grate,
+/area/ms13/legioncamp/building)
+"fH" = (
+/obj/structure/table/ms13/no_smooth/counter/metal{
+	dir = 1
+	},
+/obj/machinery/light/ms13,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/legioncamp/building)
+"fL" = (
+/obj/structure/ms13/storage/large/shelf/wood,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/legioncamp/building)
+"gr" = (
+/obj/machinery/door/poddoor/shutters/ms13/vertical/red/mid{
+	id = "car_junk_storage1"
+	},
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/town)
+"gU" = (
+/turf/closed/wall/ms13/concrete,
+/area/ms13/legioncamp)
+"gY" = (
+/obj/structure/fluff/ms13/barrel/quadruple/yellow/one,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/town)
 "hA" = (
 /mob/living/simple_animal/hostile/ms13/robot/protectron,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"hG" = (
+/obj/structure/ms13/storage/large/shelf{
+	dir = 4
+	},
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/legioncamp/building)
 "hY" = (
-/obj/machinery/light/ms13{
+/obj/structure/railing/ms13/solo/industrial{
 	dir = 8
 	},
-/turf/open/floor/wood/ms13/common,
+/turf/open/floor/ms13/metal/plate,
 /area/ms13/town)
 "iA" = (
 /obj/machinery/door/poddoor/shutters/ms13/vertical/red/mid{
@@ -87,6 +162,13 @@
 	},
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"iB" = (
+/turf/closed/wall/ms13/brick,
+/area/ms13/legioncamp/building)
+"iN" = (
+/obj/structure/stairs/west,
+/turf/open/floor/plating/ms13/ground/desert,
+/area/ms13/legioncamp)
 "iT" = (
 /obj/effect/spawner/random/ms13/crafting/highrandom,
 /turf/open/floor/ms13/concrete/industrial,
@@ -95,9 +177,20 @@
 /obj/item/shovel/ms13/rake,
 /turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/underground/mountain)
+"jj" = (
+/obj/structure/fluff/ms13/barrel/quadruple/red/one,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/town)
 "jv" = (
 /obj/structure/ms13/storage/shelf{
 	dir = 1
+	},
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/town)
+"jO" = (
+/obj/structure/fluff/ms13/barrel/double/yellow/two,
+/obj/machinery/light/ms13{
+	dir = 8
 	},
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
@@ -122,6 +215,12 @@
 	},
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"lN" = (
+/obj/effect/turf_decal/trimline/yellow/line{
+	dir = 8
+	},
+/turf/open/floor/ms13/metal/grate,
+/area/ms13/legioncamp/building)
 "mv" = (
 /obj/machinery/light/ms13{
 	dir = 4
@@ -146,6 +245,10 @@
 "of" = (
 /turf/closed/wall/ms13/brick/alt,
 /area/ms13/town)
+"oh" = (
+/obj/structure/ms13/storage/vent,
+/turf/open/floor/ms13/metal/plate,
+/area/ms13/legioncamp/building)
 "oi" = (
 /obj/machinery/light/ms13{
 	dir = 8
@@ -156,6 +259,12 @@
 /obj/structure/noticeboard/ms13/cork,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"oq" = (
+/obj/effect/turf_decal/trimline/yellow/line{
+	dir = 10
+	},
+/turf/open/floor/ms13/metal/grate,
+/area/ms13/legioncamp/building)
 "ox" = (
 /obj/structure/table/ms13/no_smooth/counter/metal,
 /obj/structure/ms13/wall_decor/clock,
@@ -200,6 +309,10 @@
 /mob/living/simple_animal/hostile/ms13/giantant,
 /turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/underground/mountain)
+"qf" = (
+/obj/structure/ms13/pipes/horizontal,
+/turf/closed/wall/ms13/brick,
+/area/ms13/legioncamp/building)
 "qh" = (
 /turf/closed/wall/ms13/concrete,
 /area/ms13/town)
@@ -207,6 +320,11 @@
 /obj/structure/rack,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
+"qm" = (
+/obj/structure/ms13/pipes/vertical/east/corner,
+/obj/structure/table/ms13/wood/constructed,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/legioncamp/building)
 "qz" = (
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
@@ -215,9 +333,16 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "qQ" = (
-/obj/machinery/door/unpowered/ms13/metal/red,
-/turf/open/floor/wood/ms13/common,
+/obj/structure/closet/crate/ms13/woodcrate,
+/obj/effect/spawner/random/ms13/guaranteed/crafting/highrandom,
+/turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"rb" = (
+/obj/effect/turf_decal/trimline/yellow/line{
+	dir = 6
+	},
+/turf/open/floor/ms13/metal/grate,
+/area/ms13/legioncamp/building)
 "rd" = (
 /obj/structure/table/ms13/metal/grate,
 /turf/open/floor/ms13/concrete/industrial,
@@ -232,17 +357,28 @@
 	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
+"rv" = (
+/obj/structure/ms13/smelter,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/legioncamp/building)
 "rF" = (
 /obj/machinery/door/unpowered/ms13/seethrough/mirrored/grate,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"rJ" = (
+/obj/structure/ms13/pipes/horizontal/random_alt,
+/turf/closed/wall/ms13/brick,
+/area/ms13/legioncamp/building)
 "sj" = (
 /obj/structure/table/ms13/metal,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "sq" = (
-/obj/effect/spawner/random/ms13/food/trash,
-/turf/open/floor/wood/ms13/common,
+/mob/living/simple_animal/hostile/ms13/robot/protectron,
+/obj/machinery/light/ms13{
+	dir = 4
+	},
+/turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "sr" = (
 /obj/structure/stairs/north,
@@ -275,8 +411,13 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "uo" = (
-/turf/open/floor/wood/ms13/common,
+/obj/structure/table/ms13/metal/grate,
+/obj/effect/spawner/random/ms13/tools/lights,
+/turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"us" = (
+/turf/open/floor/plating/ms13/ground/desert,
+/area/ms13/legioncamp)
 "uv" = (
 /obj/structure/ms13/storage/vent,
 /turf/open/floor/ms13/metal/plate,
@@ -294,12 +435,32 @@
 	},
 /turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/underground/mountain)
+"vB" = (
+/obj/structure/table/ms13/metal/grate,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/legioncamp/building)
 "vF" = (
 /obj/machinery/light/ms13/bulb/industrial{
 	dir = 4
 	},
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"vN" = (
+/obj/structure/ms13/pipes/vertical/east/random,
+/turf/open/floor/ms13/metal/pipe,
+/area/ms13/legioncamp/building)
+"vU" = (
+/obj/structure/table/ms13/wood/constructed,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/legioncamp/building)
+"wl" = (
+/obj/structure/ms13/pipes/horizontal/down/single,
+/turf/closed/wall/ms13/brick,
+/area/ms13/legioncamp/building)
+"wm" = (
+/obj/structure/ms13/pipes/vertical/west/corner/single,
+/turf/open/floor/ms13/metal,
+/area/ms13/legioncamp/building)
 "wr" = (
 /mob/living/simple_animal/hostile/ms13/giantant,
 /turf/open/floor/wood/ms13/wide,
@@ -312,15 +473,22 @@
 /obj/structure/fermenting_barrel/ms13,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
+"wG" = (
+/obj/structure/table/ms13/no_smooth/counter/metal{
+	dir = 1
+	},
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/legioncamp/building)
 "wH" = (
 /obj/structure/ms13/storage/vent,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "wX" = (
-/obj/machinery/light/ms13/bulb{
+/obj/structure/ms13/storage/large/shelf{
 	dir = 8
 	},
-/turf/open/floor/wood/ms13/wide,
+/obj/effect/spawner/random/ms13/crafting/lowrandom,
+/turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "xE" = (
 /obj/structure/ms13/foundation/wide/varianttwo{
@@ -347,6 +515,11 @@
 	},
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"yi" = (
+/obj/structure/table/ms13/crafting/weaponbench,
+/obj/structure/noticeboard/ms13/cork,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/legioncamp/building)
 "ym" = (
 /obj/structure/table/ms13/metal/heavy,
 /obj/effect/spawner/random/ms13/crafting/electrical,
@@ -357,14 +530,20 @@
 /obj/machinery/light/ms13/broken,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
+"zg" = (
+/obj/structure/ms13/pipes/vertical/west/corner/down,
+/turf/open/floor/ms13/metal,
+/area/ms13/legioncamp/building)
 "zn" = (
 /obj/structure/table/ms13/metal/grate,
 /obj/effect/spawner/random/ms13/crafting/electrical,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "zv" = (
-/obj/structure/ms13/storage/washingmachine,
-/turf/open/floor/wood/ms13/common,
+/obj/structure/closet/crate/ms13/woodcrate,
+/obj/effect/spawner/random/ms13/crafting/lowrandom,
+/obj/effect/spawner/random/ms13/crafting/lowrandom,
+/turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "zK" = (
 /obj/structure/table/ms13/no_smooth/counter/metal{
@@ -372,6 +551,10 @@
 	},
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"zR" = (
+/obj/machinery/ms13/plant_machinery/broken,
+/turf/open/floor/ms13/metal/grate,
+/area/ms13/legioncamp/building)
 "zS" = (
 /obj/structure/ms13/foundation/variantsix{
 	dir = 10
@@ -383,6 +566,12 @@
 /obj/effect/spawner/random/ms13/crafting/lowrandom,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"Aq" = (
+/obj/effect/turf_decal/trimline/yellow/line{
+	dir = 9
+	},
+/turf/open/floor/ms13/metal/grate,
+/area/ms13/legioncamp/building)
 "Ar" = (
 /obj/structure/ms13/foundation/variantsix{
 	dir = 5
@@ -415,6 +604,11 @@
 	},
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"Bg" = (
+/obj/structure/stairs/north,
+/obj/structure/stairs/north,
+/turf/closed/indestructible/rock/ms13/drought,
+/area/ms13/legioncamp/building)
 "Bm" = (
 /obj/machinery/light/ms13/bulb/industrial{
 	dir = 4
@@ -422,8 +616,14 @@
 /turf/open/floor/ms13/metal/plate,
 /area/ms13/town)
 "BR" = (
-/obj/structure/ms13/storage/large/shelf/wood/drawers,
-/turf/open/floor/wood/ms13/common,
+/obj/structure/ms13/pipes/piped,
+/turf/closed/wall/ms13/brick/alt,
+/area/ms13/town)
+"BY" = (
+/obj/structure/ms13/storage/large/shelf{
+	dir = 8
+	},
+/turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "CG" = (
 /obj/structure/table/ms13/metal/grate,
@@ -431,8 +631,12 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "Dl" = (
-/obj/machinery/light/ms13/bulb,
-/turf/open/floor/wood/ms13/wide,
+/obj/machinery/door/unpowered/ms13/metal,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/town)
+"Dt" = (
+/obj/structure/fluff/ms13/barrel/quadruple/grey,
+/turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "DD" = (
 /obj/structure/table/ms13/metal/grate,
@@ -446,12 +650,26 @@
 	},
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
-"FX" = (
-/obj/machinery/light/ms13/bulb/broken{
-	dir = 4
+"EQ" = (
+/obj/structure/table/ms13/crafting/armorbench,
+/obj/structure/noticeboard/ms13/cork,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/legioncamp/building)
+"Fm" = (
+/obj/effect/turf_decal/trimline/yellow/line{
+	dir = 1
 	},
-/turf/open/floor/wood/ms13/common,
+/turf/open/floor/ms13/metal/grate,
+/area/ms13/legioncamp/building)
+"FX" = (
+/obj/machinery/door/unpowered/ms13/metal{
+	dir = 8
+	},
+/turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"Gb" = (
+/turf/open/floor/ms13/metal/plate,
+/area/ms13/legioncamp/building)
 "Gs" = (
 /obj/structure/table/ms13/no_smooth/large/metal/desk,
 /obj/machinery/ms13/terminal{
@@ -464,10 +682,20 @@
 /obj/structure/ms13/wall_decor/clock,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"Gu" = (
+/obj/machinery/door/unpowered/ms13/seethrough/grate,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/legioncamp/building)
 "GB" = (
 /mob/living/basic/ms13/robot/handy,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"GO" = (
+/obj/effect/turf_decal/trimline/yellow/line{
+	dir = 5
+	},
+/turf/open/floor/ms13/metal/grate,
+/area/ms13/legioncamp/building)
 "GY" = (
 /obj/structure/ms13/storage/vent,
 /turf/open/floor/ms13/metal/grate/border,
@@ -490,9 +718,22 @@
 	},
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"Ia" = (
+/obj/structure/table/ms13/crafting/workbench,
+/obj/structure/noticeboard/ms13/cork,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/town)
 "Iq" = (
 /obj/structure/table/ms13/metal/heavy,
 /obj/machinery/light/ms13,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/town)
+"IG" = (
+/obj/structure/ms13/pipes/horizontal/valve,
+/turf/closed/wall/ms13/brick,
+/area/ms13/legioncamp/building)
+"IP" = (
+/obj/structure/ladder/ms13,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "Jo" = (
@@ -501,8 +742,11 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "Jq" = (
-/obj/structure/stairs/south,
-/turf/open/floor/wood/ms13/wide,
+/obj/structure/table/ms13/metal/heavy,
+/obj/structure/ms13/lamp/makeshift{
+	pixel_y = 4
+	},
+/turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "Jr" = (
 /obj/machinery/light/ms13/bulb/industrial{
@@ -516,6 +760,15 @@
 	},
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"JB" = (
+/obj/structure/ms13/skeleton,
+/turf/open/floor/plating/ms13/ground/desert,
+/area/ms13/legioncamp)
+"JM" = (
+/turf/open/floor/ms13/metal/grate/border{
+	dir = 1
+	},
+/area/ms13/legioncamp/building)
 "Kg" = (
 /obj/structure/ms13/wall_decor/flag/arizona,
 /obj/effect/spawner/random/ms13/tools/radio,
@@ -536,8 +789,8 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "Lb" = (
-/obj/structure/table/ms13/metal,
-/turf/open/floor/wood/ms13/common,
+/obj/structure/ms13/storage/shelf,
+/turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "Le" = (
 /obj/machinery/light/ms13{
@@ -549,15 +802,26 @@
 /obj/structure/stairs/east,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"LI" = (
+/obj/structure/ms13/storage/shelf/wood/alt,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/legioncamp/building)
+"LR" = (
+/obj/machinery/light/ms13{
+	dir = 4
+	},
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/legioncamp/building)
 "LT" = (
 /obj/structure/table/ms13/metal/grate,
 /obj/structure/ms13/wall_decor/clock,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "Ma" = (
-/obj/structure/bed/ms13/sleepingbag/green,
-/obj/effect/decal/cleanable/cobweb/cobweb2,
-/turf/open/floor/wood/ms13/common,
+/obj/structure/table/ms13/metal/grate,
+/obj/effect/spawner/random/ms13/crafting/electrical,
+/obj/machinery/light/ms13,
+/turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "Mg" = (
 /obj/structure/table/ms13/metal/heavy,
@@ -573,6 +837,9 @@
 /mob/living/simple_animal/hostile/ms13/robot/protectron/reinforced,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"Nd" = (
+/turf/open/floor/ms13/metal/stayclear,
+/area/ms13/legioncamp/building)
 "Ns" = (
 /obj/machinery/light/ms13{
 	dir = 1
@@ -584,10 +851,20 @@
 /obj/effect/spawner/random/ms13/guaranteed/crafting/refined,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"NA" = (
+/obj/machinery/ms13/fusion_generator,
+/turf/open/floor/ms13/metal/grate/border{
+	dir = 1
+	},
+/area/ms13/legioncamp/building)
 "Oj" = (
 /obj/machinery/ms13/terminal/wall,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"Oq" = (
+/obj/structure/ms13/pipes/vertical/east/random,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/legioncamp/building)
 "OS" = (
 /obj/structure/ms13/storage/large/shelf{
 	dir = 4
@@ -595,13 +872,24 @@
 /obj/effect/spawner/random/ms13/crafting/lowrandom,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"OW" = (
+/turf/open/floor/plating/ms13/ground/desertalt,
+/area/ms13/legioncamp)
 "Pj" = (
-/turf/closed/wall/ms13/brick,
+/obj/structure/table/ms13/no_smooth/counter/metal{
+	dir = 1
+	},
+/obj/effect/spawner/random/ms13/tools/lights,
+/turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "Pl" = (
 /mob/living/simple_animal/hostile/ms13/robot/protectron,
 /turf/open/floor/ms13/metal/plate,
 /area/ms13/town)
+"PA" = (
+/obj/structure/ms13/pipes/vertical/east,
+/turf/open/floor/ms13/metal,
+/area/ms13/legioncamp/building)
 "PO" = (
 /obj/structure/closet/crate/ms13/woodcrate,
 /obj/effect/spawner/random/ms13/guaranteed/crafting/lowrandom,
@@ -621,11 +909,16 @@
 	},
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"QG" = (
+/obj/structure/ms13/pipes/piped,
+/turf/closed/wall/ms13/brick,
+/area/ms13/legioncamp/building)
 "QQ" = (
-/obj/machinery/light/ms13/bulb/broken{
+/obj/structure/table/ms13/no_smooth/counter/metal{
 	dir = 1
 	},
-/turf/open/floor/wood/ms13/common,
+/obj/effect/spawner/random/ms13/melee/lowrandom,
+/turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "QY" = (
 /turf/open/water,
@@ -658,6 +951,14 @@
 	},
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"Ua" = (
+/obj/structure/ms13/pipes/vertical/east/valve,
+/turf/open/floor/ms13/metal,
+/area/ms13/legioncamp/building)
+"Ux" = (
+/obj/structure/ms13/pipes/vertical/west/random,
+/turf/open/floor/ms13/metal/pipe,
+/area/ms13/legioncamp/building)
 "Uz" = (
 /obj/effect/spawner/random/ms13/tools/lights,
 /turf/open/floor/ms13/concrete/industrial,
@@ -669,45 +970,85 @@
 "UK" = (
 /turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/underground/mountain)
+"UL" = (
+/obj/structure/ms13/rug/rubber,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/legioncamp/building)
 "UN" = (
 /obj/effect/spawner/random/ms13/guaranteed/crafting/electrical,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"UQ" = (
+/obj/structure/noticeboard/ms13/cork,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/legioncamp/building)
 "Vb" = (
-/obj/structure/ms13/storage/shelf{
-	dir = 1
+/obj/structure/stairs/north{
+	dir = 2
 	},
-/turf/open/floor/wood/ms13/common,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/town)
+"Vu" = (
+/obj/effect/turf_decal/trimline/yellow/line,
+/turf/open/floor/ms13/metal/grate,
+/area/ms13/legioncamp/building)
+"Vy" = (
+/obj/structure/fluff/ms13/barrel/single/hazard/two,
+/turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "VN" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/underground/mountain)
+"We" = (
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/legioncamp/building)
 "Wg" = (
 /turf/open/floor/ms13/metal/grate/border,
 /area/ms13/town)
+"WN" = (
+/obj/structure/ms13/storage/shelf,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/legioncamp/building)
 "WP" = (
 /obj/structure/table/ms13/no_smooth/counter/metal/bend,
 /obj/effect/spawner/random/ms13/crafting/lowrandom,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
-"Xr" = (
-/obj/machinery/light/ms13/bulb/built,
-/turf/open/floor/wood/ms13/wide,
-/area/ms13/town)
 "Xw" = (
 /turf/closed/indestructible/rock/ms13/drought,
 /area/ms13/underground/mountain)
+"XA" = (
+/obj/structure/table/ms13/crafting/weaponbench,
+/obj/structure/table/ms13/crafting/weaponbench,
+/obj/structure/noticeboard/ms13/cork,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/town)
 "Yl" = (
 /obj/machinery/door/poddoor/shutters/ms13/vertical/red/mid/pre_open{
 	id = "robco_protectron_wh1"
 	},
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
-"ZO" = (
-/obj/structure/bed/ms13/sleepingbag/red,
-/turf/open/floor/wood/ms13/common,
+"Ym" = (
+/obj/structure/fluff/ms13/barrel/single/red/one,
+/obj/machinery/light/ms13{
+	dir = 8
+	},
+/turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"YV" = (
+/obj/machinery/light/ms13/bulb/industrial{
+	dir = 4
+	},
+/turf/open/floor/ms13/metal/plate,
+/area/ms13/legioncamp/building)
+"Zo" = (
+/obj/machinery/door/unpowered/ms13/seethrough/grate{
+	dir = 8
+	},
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/legioncamp/building)
 
 (1,1,1) = {"
 Xw
@@ -21939,18 +22280,18 @@ Xw
 Xw
 Xw
 Xw
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
 Xw
 Xw
 Xw
@@ -22142,17 +22483,17 @@ Xw
 Xw
 UK
 UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
 Xw
 Xw
 Xw
@@ -22344,16 +22685,16 @@ Xw
 UK
 UK
 UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
 Xw
 Xw
 Xw
@@ -22547,16 +22888,16 @@ UK
 UK
 UK
 UK
+Ki
+Ki
+Ki
+Ki
+Ki
+Ki
+Ki
 UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
+Xw
+Xw
 Xw
 Xw
 Xw
@@ -22749,13 +23090,13 @@ UK
 UK
 UK
 UK
+Ki
 UK
 UK
 UK
 UK
 UK
-UK
-UK
+Ki
 UK
 UK
 UK
@@ -23924,12 +24265,12 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+of
+of
+of
+of
+of
+of
 Xw
 Xw
 Xw
@@ -24126,12 +24467,12 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+of
+pC
+pC
+pC
+Vb
+of
 Xw
 Xw
 Xw
@@ -24328,12 +24669,12 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+of
+pC
+pC
+pC
+Vb
+of
 Xw
 Xw
 Xw
@@ -24530,12 +24871,12 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+of
+of
+of
+of
+of
+of
 Xw
 Xw
 Xw
@@ -24567,13 +24908,13 @@ UK
 UK
 UK
 UK
+Ki
 UK
 UK
 UK
 UK
 UK
-UK
-UK
+Ki
 UK
 UK
 UK
@@ -24769,33 +25110,13 @@ UK
 UK
 UK
 UK
+Ki
+Ki
+Ki
 UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+Ki
+Ki
+Ki
 UK
 UK
 UK
@@ -24816,6 +25137,20 @@ Xw
 Xw
 Xw
 Xw
+UK
+UK
+UK
+UK
+UK
+UK
+UK
+UK
+UK
+UK
+UK
+UK
+UK
+UK
 Xw
 Xw
 Xw
@@ -24909,16 +25244,6 @@ Xw
 Xw
 Xw
 Xw
-Pj
-Pj
-Pj
-Pj
-Pj
-Pj
-Pj
-Pj
-Pj
-Pj
 Xw
 Xw
 Xw
@@ -24940,6 +25265,22 @@ Xw
 Xw
 Xw
 Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+of
+of
+of
+of
+of
+of
 Xw
 Xw
 Xw
@@ -24971,38 +25312,18 @@ UK
 UK
 UK
 UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-Xw
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-Xw
-Xw
-Xw
 Xw
 Xw
 Xw
 UK
 UK
+Xw
+Xw
 UK
 UK
 UK
+Xw
+Xw
 UK
 UK
 UK
@@ -25018,6 +25339,20 @@ Xw
 Xw
 Xw
 Xw
+UK
+UK
+UK
+UK
+UK
+UK
+UK
+UK
+UK
+UK
+UK
+UK
+UK
+UK
 Xw
 Xw
 Xw
@@ -25111,16 +25446,6 @@ Xw
 Xw
 Xw
 Xw
-Pj
-zv
-hY
-uo
-Pj
-qz
-wX
-Jq
-Jq
-Pj
 Xw
 Xw
 Xw
@@ -25142,6 +25467,22 @@ Xw
 Xw
 Xw
 Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+of
+pC
+pC
+pC
+Vb
+of
 Xw
 Xw
 Xw
@@ -25166,29 +25507,17 @@ UK
 UK
 UK
 UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
+Xw
+Xw
+Xw
+Xw
 UK
 UK
 UK
 Xw
 Xw
-Xw
-Xw
-Xw
+UK
+UK
 UK
 UK
 Xw
@@ -25201,16 +25530,6 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-UK
-UK
-UK
-UK
-UK
-UK
-UK
 UK
 UK
 Xw
@@ -25226,6 +25545,15 @@ Xw
 Xw
 Xw
 Xw
+UK
+UK
+UK
+UK
+UK
+UK
+UK
+UK
+UK
 Xw
 Xw
 Xw
@@ -25313,16 +25641,6 @@ Xw
 Xw
 Xw
 Xw
-Pj
-zv
-uo
-uo
-Pj
-qz
-qz
-Jq
-Jq
-Pj
 Xw
 Xw
 Xw
@@ -25344,6 +25662,29 @@ Xw
 Xw
 Xw
 Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+of
+pC
+pC
+pC
+Vb
+of
 Xw
 Xw
 Xw
@@ -25367,21 +25708,16 @@ UK
 UK
 UK
 UK
+Xw
+Xw
+Xw
+Xw
 UK
 UK
 UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
+Xw
+Xw
+Xw
 UK
 UK
 UK
@@ -25515,16 +25851,6 @@ Xw
 Xw
 Xw
 Xw
-Pj
-Lb
-uo
-uo
-Pj
-qz
-Pj
-Pj
-Pj
-Pj
 Xw
 Xw
 Xw
@@ -25546,6 +25872,21 @@ Xw
 Xw
 Xw
 Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+of
+of
+of
+of
+of
+of
 Xw
 Xw
 Xw
@@ -25569,23 +25910,17 @@ UK
 UK
 UK
 UK
+Xw
+Xw
+Xw
 UK
 UK
 UK
 UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
+Xw
+Xw
+Xw
+Xw
 UK
 UK
 Xw
@@ -25717,13 +26052,19 @@ Xw
 Xw
 Xw
 Xw
-Pj
-Lb
-uo
-uo
-Pj
-qz
-Pj
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
 Xw
 Xw
 Xw
@@ -25777,18 +26118,6 @@ UK
 UK
 UK
 UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
 Xw
 Xw
 Xw
@@ -25919,13 +26248,25 @@ Xw
 Xw
 Xw
 Xw
-Pj
-Vb
-sq
-uo
-qQ
-qz
-Pj
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
 Xw
 Xw
 Xw
@@ -25979,18 +26320,6 @@ UK
 UK
 UK
 UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
-UK
 Xw
 Xw
 Xw
@@ -26121,13 +26450,25 @@ Xw
 Xw
 Xw
 Xw
-Pj
-Vb
-FX
-uo
-Pj
-Xr
-Pj
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
 Xw
 Xw
 Xw
@@ -26175,6 +26516,9 @@ Xw
 Xw
 Xw
 Xw
+UK
+UK
+UK
 Xw
 Xw
 Xw
@@ -26323,13 +26667,10 @@ Xw
 Xw
 Xw
 Xw
-Pj
-Pj
-Pj
-Pj
-Pj
-qz
-Pj
+Xw
+Xw
+Xw
+Xw
 Xw
 Xw
 Xw
@@ -26525,13 +26866,13 @@ Xw
 Xw
 Xw
 Xw
-Pj
-Vb
-uo
-uo
-Pj
-qz
-Pj
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
 Xw
 Xw
 Xw
@@ -26727,13 +27068,13 @@ Xw
 Xw
 Xw
 Xw
-Pj
-Vb
-uo
-uo
-Pj
-qz
-Pj
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
 Xw
 Xw
 Xw
@@ -26929,13 +27270,13 @@ Xw
 Xw
 Xw
 Xw
-Pj
-BR
-sq
-uo
-Pj
-qz
-Pj
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
 Xw
 Xw
 Xw
@@ -27131,13 +27472,13 @@ Xw
 Xw
 Xw
 Xw
-Pj
-uo
-uo
-dH
-Pj
-qz
-Pj
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
 Xw
 Xw
 Xw
@@ -27333,13 +27674,13 @@ Xw
 Xw
 Xw
 Xw
-Pj
-ax
-uo
-uo
-Pj
-qz
-Pj
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
 Xw
 Xw
 Xw
@@ -27535,13 +27876,13 @@ Xw
 Xw
 Xw
 Xw
-Pj
-zv
-uo
-uo
-qQ
-Dl
-Pj
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
 Xw
 Xw
 Xw
@@ -27737,13 +28078,13 @@ Xw
 Xw
 Xw
 Xw
-Pj
-zv
-uo
-uo
-Pj
-qz
-Pj
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
 Xw
 Xw
 Xw
@@ -27939,13 +28280,13 @@ Xw
 Xw
 Xw
 Xw
-Pj
-Pj
-Pj
-Pj
-Pj
-qz
-Pj
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
 Xw
 Xw
 Xw
@@ -28141,13 +28482,13 @@ Xw
 Xw
 Xw
 Xw
-Pj
-uo
-uo
-uo
-Pj
-qz
-Pj
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
 Xw
 Xw
 Xw
@@ -28343,13 +28684,13 @@ Xw
 Xw
 Xw
 Xw
-Pj
-sq
-uo
-ZO
-Pj
-qz
-Pj
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
 Xw
 Xw
 Xw
@@ -28545,13 +28886,13 @@ Xw
 Xw
 Xw
 Xw
-Pj
-uo
-uo
-uo
-uo
-qz
-Pj
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
 Xw
 Xw
 Xw
@@ -28747,13 +29088,13 @@ Xw
 Xw
 Xw
 Xw
-Pj
-QQ
-uo
-uo
-uo
-Dl
-Pj
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
 Xw
 Xw
 Xw
@@ -28949,13 +29290,13 @@ Xw
 Xw
 Xw
 Xw
-Pj
-uo
-uo
-uo
-Pj
-qz
-Pj
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
 Xw
 Xw
 Xw
@@ -29151,13 +29492,13 @@ Xw
 Xw
 Xw
 Xw
-Pj
-uo
-uo
-sq
-Pj
-qz
-Pj
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
 Xw
 Xw
 Xw
@@ -29353,13 +29694,6 @@ Xw
 Xw
 Xw
 Xw
-Pj
-Ma
-uo
-uo
-Pj
-qz
-Pj
 Xw
 Xw
 Xw
@@ -29371,11 +29705,18 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+of
+of
+of
+of
+of
+of
+of
+of
+of
+of
+of
+of
 Xw
 Xw
 Xw
@@ -29555,13 +29896,6 @@ Xw
 Xw
 Xw
 Xw
-Pj
-Pj
-Pj
-Pj
-Pj
-Pj
-Pj
 Xw
 Xw
 Xw
@@ -29573,11 +29907,18 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+of
+br
+BY
+qQ
+Ym
+qG
+wX
+jO
+pu
+ww
+BY
+of
 Xw
 Xw
 Xw
@@ -29768,18 +30109,18 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+of
+du
+pC
+pC
+pC
+pC
+br
+pC
+pC
+pC
+jj
+of
 Xw
 Xw
 Xw
@@ -29970,18 +30311,18 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+of
+gY
+pC
+pC
+MR
+pC
+pC
+pC
+pC
+pC
+Vy
+of
 Xw
 Xw
 Xw
@@ -30172,18 +30513,18 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+of
+ax
+pC
+pC
+pC
+pC
+pC
+pC
+pC
+pC
+Ma
+of
 Xw
 Xw
 Xw
@@ -30374,18 +30715,18 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+of
+zn
+br
+pC
+pC
+Dt
+zv
+pC
+pC
+pC
+CG
+of
 Xw
 Xw
 Xw
@@ -30576,18 +30917,18 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+of
+of
+of
+gr
+gr
+of
+of
+gr
+gr
+of
+of
+of
 Xw
 Xw
 Xw
@@ -30779,16 +31120,16 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+of
+rd
+pC
+pC
+IP
+BR
+pC
+pC
+CG
+of
 Xw
 Xw
 Xw
@@ -30981,16 +31322,16 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+of
+dH
+pC
+pC
+pC
+pC
+pC
+pC
+Az
+of
 Xw
 Xw
 Xw
@@ -31183,16 +31524,16 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+of
+hY
+hY
+pC
+pC
+pC
+pC
+pC
+UB
+of
 Xw
 Xw
 Xw
@@ -31385,16 +31726,16 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+of
+pb
+pb
+sq
+pC
+of
+wH
+pC
+Lb
+of
 Xw
 Xw
 Xw
@@ -31586,18 +31927,18 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+of
+of
+of
+of
+of
+of
+of
+of
+FX
+of
+of
+of
 Xw
 Xw
 Xw
@@ -31788,18 +32129,18 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+of
+Ia
+Rs
+pC
+Az
+uo
+of
+jv
+pC
+pC
+Pj
+of
 Xw
 Xw
 Xw
@@ -31990,18 +32331,18 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+of
+ok
+pC
+pC
+pC
+pC
+of
+pC
+pC
+pC
+QQ
+of
 Xw
 Xw
 Xw
@@ -32192,18 +32533,18 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+of
+Ns
+pC
+pC
+pC
+pC
+Dl
+pC
+pC
+pC
+UB
+of
 Xw
 Xw
 Xw
@@ -32394,18 +32735,18 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+of
+XA
+Rs
+pC
+pC
+pC
+of
+wH
+pC
+pC
+pC
+of
 Xw
 Xw
 Xw
@@ -32596,18 +32937,18 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+of
+ok
+pC
+pC
+ww
+BY
+of
+tI
+Jq
+Ag
+tI
+of
 Xw
 Xw
 Xw
@@ -32798,18 +33139,18 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+of
+of
+of
+of
+of
+of
+of
+of
+of
+of
+of
+of
 Xw
 Xw
 Xw
@@ -40338,17 +40679,17 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 Xw
 Xw
 Xw
@@ -40540,17 +40881,17 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+iB
+EQ
+UL
+vU
+vU
+vU
+QG
+We
+We
+WN
+iB
 Xw
 Xw
 Xw
@@ -40742,17 +41083,17 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+iB
+UQ
+We
+We
+We
+cG
+iB
+We
+We
+bz
+iB
 Xw
 Xw
 Xw
@@ -40944,17 +41285,17 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+iB
+rv
+We
+We
+We
+We
+Gu
+We
+We
+vB
+iB
 Xw
 Xw
 Xw
@@ -41146,18 +41487,18 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+iB
+yi
+UL
+We
+We
+LI
+fk
+We
+We
+iB
+iB
+iB
 Xw
 Xw
 Xw
@@ -41348,18 +41689,18 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+iB
+UQ
+We
+LR
+We
+LI
+IG
+We
+We
+We
+hG
+iB
 Xw
 Xw
 Xw
@@ -41548,20 +41889,20 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+iB
+iB
+iB
+iB
+Zo
+iB
+iB
+iB
+wl
+We
+We
+We
+fH
+iB
 Xw
 Xw
 Xw
@@ -41750,20 +42091,20 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+fk
+zg
+Ux
+wm
+We
+fL
+iB
+Bg
+Bg
+We
+We
+We
+wG
+iB
 Xw
 Xw
 Xw
@@ -41952,20 +42293,20 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+eP
+Aq
+lN
+oq
+We
+We
+iB
+Bg
+Bg
+We
+We
+We
+hG
+iB
 Xw
 Xw
 Xw
@@ -42154,20 +42495,20 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+qf
+Fm
+zR
+Vu
+We
+cG
+iB
+iB
+iB
+Zo
+iB
+iB
+iB
+iB
 Xw
 Xw
 Xw
@@ -42356,19 +42697,19 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+rJ
+GO
+fx
+rb
+We
+vU
+iB
+oh
+Gb
+We
+vB
+vB
+iB
 Xw
 Xw
 Xw
@@ -42558,19 +42899,19 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+wl
+PA
+vN
+Ua
+Oq
+qm
+iB
+NA
+Nd
+We
+We
+We
+iB
 Xw
 Xw
 Xw
@@ -42760,19 +43101,19 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+JM
+do
+We
+We
+We
+iB
 Xw
 Xw
 Xw
@@ -42968,13 +43309,13 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+iB
+YV
+Gb
+We
+We
+hG
+iB
 Xw
 Xw
 Xw
@@ -43170,13 +43511,13 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 Xw
 Xw
 Xw
@@ -43953,15 +44294,15 @@ Xw
 Xw
 Xw
 Xw
+us
+JB
 Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+gU
+gU
+gU
 Xw
 Xw
 Xw
@@ -44155,15 +44496,15 @@ Xw
 Xw
 Xw
 Xw
+us
+us
+OW
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+gU
+iN
+gU
 Xw
 Xw
 Xw
@@ -44357,18 +44698,18 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+us
+OW
+OW
+gU
+gU
+gU
+gU
+iN
+gU
+gU
+gU
+gU
 Xw
 Xw
 Xw
@@ -44559,18 +44900,18 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+us
+OW
+OW
+OW
+OW
+OW
+OW
+OW
+OW
+OW
+us
+JB
 Xw
 Xw
 Xw
@@ -44762,17 +45103,17 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+us
+OW
+OW
+OW
+OW
+OW
+OW
+OW
+OW
+OW
+us
 Xw
 Xw
 Xw
@@ -44964,16 +45305,16 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+JB
+us
+OW
+OW
+OW
+OW
+OW
+OW
+OW
+OW
 Xw
 Xw
 Xw
@@ -45167,15 +45508,15 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+us
+us
+OW
+OW
+OW
+OW
+OW
+us
+JB
 Xw
 Xw
 Xw
@@ -45371,12 +45712,12 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+JB
+us
+OW
+OW
+OW
+us
 Xw
 Xw
 Xw
@@ -45574,9 +45915,9 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
+us
+us
+us
 Xw
 Xw
 Xw
