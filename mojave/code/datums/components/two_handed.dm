@@ -11,6 +11,7 @@
 	UnregisterSignal(parent, COMSIG_TWOHANDED_CHECK)
 
 /datum/component/two_handed/on_update_icon(obj/item/source)
+/datum/component/two_handed/on_update_icon(obj/item/source)
 	. = NONE
 	//Consider adding base inhand state, because this SUCKS!
 	if(wield_flags & WIELD_HAS_INHANDS)
