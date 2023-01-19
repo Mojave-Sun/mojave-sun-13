@@ -19,14 +19,18 @@
 				var/mob/living/carbon/human/H = src
 				H.zoomed = TRUE
 				animate(client, pixel_x = world.icon_size*_x, pixel_y = world.icon_size*_y, time = 5, easing = SINE_EASING)
-				face_atom(dir)//Face what we're zoomed in on.
+				visible_message(span_notice("[src] peers into the distance"), vision_distance = 2)
+				overlay_fullscreen("peeper", /atom/movable/screen/fullscreen/bluespace_sparkle)
+				add_movespeed_modifier(/datum/movespeed_modifier/ms13/peeper) //Too busy peeping the horror to walk the chungus
 	else
-		if(do_normal_zoom)
-			if(ishuman(src))
-				animate(client, pixel_x = 0, pixel_y = 0, time = 2, easing = SINE_EASING)
-				face_atom(FALSE)//Reset us back to normal.
-		zoomed = FALSE
+		reset_zoom()
 
-/mob/living/carbon/human/proc/reset_zoom()
+/mob/living/proc/reset_zoom()
 	animate(client, pixel_x = 0, pixel_y = 0, time = 2, easing = SINE_EASING)
+	remove_movespeed_modifier(/datum/movespeed_modifier/ms13/peeper) //Too busy peeping the horror to walk the chungus
+	clear_fullscreen("peeper")
+	visible_message(span_notice("[src] focuses near themselves again."), vision_distance = 2)
 	zoomed = FALSE
+
+/datum/movespeed_modifier/ms13/peeper
+	multiplicative_slowdown = 1
