@@ -12,17 +12,15 @@
 
 /datum/component/two_handed/on_update_icon(obj/item/source)
 	. = NONE
-	if(!wielded)
-		return
-	if(icon_wielded)
-		source.icon_state = icon_wielded
-		. = COMSIG_ATOM_NO_UPDATE_ICON_STATE
 	//Consider adding base inhand state, because this SUCKS!
 	if(wield_flags & WIELD_HAS_INHANDS)
 		if(wielded)
 			source.inhand_icon_state = "[initial(source.inhand_icon_state)]_wielded"
 		else
 			source.inhand_icon_state = initial(source.inhand_icon_state)
+	if(icon_wielded && wielded)
+		source.icon_state = icon_wielded
+		return COMSIG_ATOM_NO_UPDATE_ICON_STATE
 
 /datum/component/two_handed/wield(mob/living/carbon/user)
 	. = ..()
