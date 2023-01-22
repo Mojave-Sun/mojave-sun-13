@@ -729,7 +729,6 @@ SUBSYSTEM_DEF(explosions)
 				if(!A.anchored && A.move_resist != INFINITY)
 					var/atom_throw_range = rand(throw_range, max_range)
 					var/turf/throw_at = get_ranged_target_turf(A, throw_dir, atom_throw_range)
-					//A.AddComponent(/datum/component/movable_physics, _horizontal_velocity = rand(6, 8), _vertical_velocity = rand(6,8), _horizontal_friction = 0.25, _z_gravity = 9.80665, _z_floor = 0, _angle_of_movement = get_angle(A, throw_at) + rand(-15, 15))
 					A.throw_at(throw_at, atom_throw_range, EXPLOSION_THROW_SPEED, quickstart = FALSE)
 
 		cost_throwturf = MC_AVERAGE(cost_throwturf, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))

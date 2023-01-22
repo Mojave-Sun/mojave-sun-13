@@ -245,18 +245,6 @@
 		var/turf/closed/wall/W = target_loca
 		if(impact_effect_type && !hitscan)
 			new impact_effect_type(target_loca, hitx, hity)
-
-/* Experimental turning projectiles into deformed projectiles upon hitting a wall
-		//Time to bounce off the wall
-		var/obj/projectile/project = new(get_turf(W))
-		project.pixel_x = pixel_x
-		project.pixel_y = pixel_y
-		project.icon_state = "deformed_bullet"
-		project.pixel_z = 4 //bounce time
-		project.SpinAnimation(speed = 3 SECONDS, loops = 1)
-		to_chat(world, "trajectory.angle: [trajectory.angle]")
-		project.AddComponent(/datum/component/movable_physics, _horizontal_velocity = rand(500, 600) / 100, _vertical_velocity = rand(400, 450) / 100, _horizontal_friction = rand(20, 24) / 100, _z_gravity = 9.80665, _z_floor = 0, _angle_of_movement = (180 - trajectory.angle))
-*/
 		W.add_dent(WALL_DENT_SHOT, hitx, hity)
 
 		return BULLET_ACT_HIT
