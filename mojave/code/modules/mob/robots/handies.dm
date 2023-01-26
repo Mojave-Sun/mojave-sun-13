@@ -3,8 +3,8 @@
 	desc = "A standard model Mr. Handy unit. It's long lost any rational wires in its circuits."
 	icon_state = "mrhandy_claw"
 	icon_living = "mrhandy_claw"
-	health = 140
-	maxHealth = 140
+	health = 130
+	maxHealth = 130
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	subtractible_armour_penetration = 5
@@ -64,8 +64,8 @@
 	desc = "A militarized version of the Handy model. Equiped with a compact plasma rifle, it's a dangerous foe."
 	icon_state = "mrhandy_gutsy"
 	icon_living = "mrhandy_gutsy"
-	health = 175
-	maxHealth = 175
+	health = 160
+	maxHealth = 160
 	melee_damage_lower = 20
 	melee_damage_upper = 20
 	subtractible_armour_penetration = 15

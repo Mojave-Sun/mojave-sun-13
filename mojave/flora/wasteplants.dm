@@ -334,12 +334,11 @@
 	name = "tree"
 	desc = "A large tree."
 	density = TRUE
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = 4.9
+	plane = ABOVE_GAME_PLANE
 	pixel_x = -16
 	pixel_y = 5
 	var/log_amount = 1
-	layer = ABOVE_ALL_MOB_LAYER
-	plane = ABOVE_GAME_PLANE
 	projectile_passchance = 60 // mf tree
 
 /obj/structure/flora/ms13/tree/Initialize()
@@ -350,7 +349,7 @@
 
 /obj/structure/flora/ms13/tree/attackby(obj/item/W, mob/user, params)
 	if(log_amount && (!(flags_1 & NODECONSTRUCT_1)))
-		if(W.sharpness == IS_SHARP_AXE)
+		if(W.sharpness & SHARP_AXE)
 			if(W.hitsound)
 				playsound(get_turf(src), 'mojave/sound/ms13effects/wood_cutting.ogg', 80, FALSE, FALSE)
 				user.visible_message("<span class='notice'>[user] begins to cut down [src] with [W].</span>","<span class='notice'>You begin to cut down [src] with [W].</span>", "<span class='hear'>You hear the sound of chopping.</span>")

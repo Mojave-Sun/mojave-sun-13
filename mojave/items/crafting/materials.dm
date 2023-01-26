@@ -6,8 +6,8 @@
 	icon = 'mojave/icons/objects/crafting/materials_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
-	force = 2
-	throwforce = 2
+	force = 0
+	throwforce = 0
 	merge_type = /obj/item/stack/sheet/ms13
 	w_class = WEIGHT_CLASS_SMALL
 	grid_width = 64
@@ -228,7 +228,7 @@ GLOBAL_LIST_INIT(log_recipes, list ( \
 	. += GLOB.log_recipes
 
 /obj/item/stack/sheet/ms13/log/attackby(obj/item/W, mob/user, params)
-	if(W.sharpness == IS_SHARP_AXE)
+	if(W.sharpness & SHARP_AXE)
 		if(amount > 1)
 			user.show_message(span_notice("You can only chop one log at a time!"), MSG_VISUAL)
 			return
@@ -278,6 +278,9 @@ GLOBAL_LIST_INIT(scrap_wood_recipes, list ( \
 
 /obj/item/stack/sheet/ms13/plank/two
 	amount = 2
+
+/obj/item/stack/sheet/ms13/plank/four
+	amount = 4
 
 GLOBAL_LIST_INIT(plank_recipes, list ( \
 	new/datum/stack_recipe("crude wood table", /obj/structure/table/ms13/wood/constructed, 4, time = 20 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \

@@ -174,7 +174,7 @@
 	wound_bonus = 10
 	bare_wound_bonus = 15
 	throwforce = 10
-	sharpness = IS_SHARP_AXE
+	sharpness = NONE
 	w_class = WEIGHT_CLASS_NORMAL
 	grid_width = 96
 	grid_height = 64
@@ -194,7 +194,7 @@
 		force = 30
 		subtractible_armour_penetration = 25
 		edge_protection_penetration = 10
-		sharpness = IS_SHARP_AXE
+		sharpness = SHARP_EDGED | SHARP_AXE
 		toolspeed = 0.75
 
 	else
@@ -205,7 +205,7 @@
 		force = 10
 		subtractible_armour_penetration = 5
 		toolspeed = 1.5
-		sharpness = SHARP_EDGED
+		sharpness = NONE
 
 /obj/item/claymore/ms13/machete/ripper/advanced
 	name = "advanced ripper"
@@ -227,7 +227,7 @@
 		force = 35
 		subtractible_armour_penetration = 35
 		edge_protection_penetration = 10
-		sharpness = IS_SHARP_AXE
+		sharpness = SHARP_EDGED | SHARP_AXE
 		toolspeed = 0.5
 
 	else
@@ -238,4 +238,4 @@
 		force = 10
 		subtractible_armour_penetration = 5
 		toolspeed = 1.5
-		sharpness = SHARP_EDGED
+		sharpness = NONE

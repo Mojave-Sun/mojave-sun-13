@@ -68,19 +68,19 @@
 // MOJAVE SUN EDIT BEGIN - This is put here so that we don't have to redefine this on every single structure and can do it cleaner.
 
 /obj/structure/CanAllowThrough(atom/movable/mover, border_dir)
-    . = ..()
-    if(istype(loc, /obj/structure) in get_turf(mover))
-        return TRUE
-    else if(istype(mover, /obj/projectile))
-        if(!projectile_passchance)
-            return TRUE
-        if(!anchored)
-            return TRUE
-        var/obj/projectile/proj = mover
-        if(proj.firer && Adjacent(proj.firer))
-            return TRUE
-        if(prob((projectile_passchance)))
-            return TRUE
-        return FALSE
+	. = ..()
+	if(istype(loc, /obj/structure) in get_turf(mover))
+		return TRUE
+	else if(istype(mover, /obj/projectile))
+		if(!projectile_passchance)
+			return
+		if(!anchored)
+			return TRUE
+		var/obj/projectile/proj = mover
+		if(proj.firer && Adjacent(proj.firer))
+			return TRUE
+		if(prob((projectile_passchance)))
+			return TRUE
+		return FALSE
 
 // MOJAVE SUN EDIT END

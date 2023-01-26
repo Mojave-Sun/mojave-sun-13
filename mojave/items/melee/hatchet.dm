@@ -21,7 +21,7 @@
 	embedding = null
 	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = ITEM_SLOT_BELT
-	sharpness = IS_SHARP_AXE
+	sharpness = SHARP_EDGED | SHARP_AXE
 	toolspeed = 1.25
 	log_pickup_and_drop = TRUE
 	grid_width = 64

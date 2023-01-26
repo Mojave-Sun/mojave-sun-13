@@ -3,6 +3,7 @@
 	desc = "Holds wastelands, while being attatched to a wall, presumably."
 	pixel_y = 32
 	density = FALSE
+	hitted_sound = 'mojave/sound/ms13effects/impact/metal/metal_sheet_2.wav'
 
 /obj/structure/closet/ms13/wall/Initialize()
 	. = ..()
@@ -32,6 +33,7 @@
 	flags_1 = INDESTRUCTIBLE | ACID_PROOF | FIRE_PROOF
 	pixel_y = 24
 	density = FALSE
+	hitted_sound = 'mojave/sound/ms13effects/impact/metal/metal_sheet_2.wav'
 
 /obj/structure/ms13/storage/vent/Initialize()
 	. = ..()

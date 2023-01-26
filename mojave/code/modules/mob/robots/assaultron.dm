@@ -5,8 +5,8 @@
 	icon_living = "assaultron"
 	idlesound = list('mojave/sound/ms13items/tracker_far.ogg')
 	idlechance = 10
-	health = 165
-	maxHealth = 165
+	health = 160
+	maxHealth = 160
 	melee_damage_lower = 20
 	melee_damage_upper = 20
 	subtractible_armour_penetration = 30

@@ -235,6 +235,7 @@
 	righthand_file = 'mojave/icons/mob/inhands/misc/chairs_righthand.dmi'
 	custom_materials = null
 	origin_type = /obj/structure/chair/ms13
+	break_chance = 0
 
 // Metal Chair Items //
 

@@ -6,7 +6,7 @@
 	icon = 'mojave/icons/objects/currency.dmi'
 	singular_name = "my money dont jiggle jiggle"
 	amount = 1
-	max_amount = 750
+	max_amount = 650
 	merge_type = /obj/item/stack/ms13/currency
 	full_w_class = WEIGHT_CLASS_SMALL
 	w_class = WEIGHT_CLASS_TINY
@@ -58,8 +58,11 @@
 /obj/item/stack/ms13/currency/prewar/hunned
 	amount = 100
 
+/obj/item/stack/ms13/currency/prewar/hunnedtwenty
+	amount = 120
+
 /obj/item/stack/ms13/currency/prewar/mayor
-	amount = 250
+	amount = 300
 
 /obj/item/stack/ms13/currency/ncr_dollar
 	name = "\improper NCR dollars"

@@ -147,7 +147,7 @@
 	sharpness = SHARP_IMPALING
 	wound_bonus = 8
 	bare_wound_bonus = 2
-	butcher_results = list(/obj/item/ms13/hide/molerat = 1, /obj/item/food/meat/slab/ms13/carcass/molerat = 1)
+	butcher_results = list(/obj/item/ms13/hide/molerat = 1, /obj/item/food/meat/slab/ms13/carcass/molerat = 1, /obj/item/ms13/animalitem/molerat/teeth = 2)
 	faction = list("rat")
 	/*food_type = list(/obj/item/food/grown/ms13/potato)
 	tame_chance = 20
@@ -327,13 +327,13 @@
 	attack_verb_continuous = "mauls"
 	attack_verb_simple = "maul"
 	attack_sound = list('mojave/sound/ms13npc/yaoguai_attack1.ogg', 'mojave/sound/ms13npc/yaoguai_attack2.ogg', 'mojave/sound/ms13npc/yaoguai_attack3.ogg')
-	deathsound = list('mojave/sound/ms13npc/yaoguai_death1.ogg', 'mojave/sound/ms13npc/yaoguai_death2.ogg') 
-	health = 420
-	maxHealth = 420
+	deathsound = list('mojave/sound/ms13npc/yaoguai_death1.ogg', 'mojave/sound/ms13npc/yaoguai_death2.ogg')
+	health = 425
+	maxHealth = 425
 	melee_damage_lower = 45
 	melee_damage_upper = 45
 	subtractible_armour_penetration = 15
-	speed = 1.75
+	speed = 1.65
 	sharpness = SHARP_EDGED
 	wound_bonus = 5
 	bare_wound_bonus = 10
@@ -352,21 +352,21 @@
 /mob/living/basic/ms13/hostile_animal/hellpig
 	name = "hellpig"
 	desc = "A massive mutated pig. Wild and deadly."
-	icon = 'mojave/icons/mob/64x64.dmi'
-	icon_state = "hellpig"
-	icon_dead = "hellpig_dead"
+	icon = 'mojave/icons/mob/80x80.dmi'
+	icon_state = "koban"
+	icon_dead = "koban_dead"
 	gender = MALE
 	speak_emote = list("honks")
 	attack_verb_continuous = "mauls"
 	attack_verb_simple = "maul"
 	attack_sound = list('mojave/sound/ms13npc/hellpig_attack1.ogg', 'mojave/sound/ms13npc/hellpig_attack2.ogg', 'mojave/sound/ms13npc/hellpig_attack3.ogg')
-	deathsound = list('mojave/sound/ms13npc/hellpig_death1.ogg', 'mojave/sound/ms13npc/hellpig_death2.ogg') //Not in love with either of these death or attack sounds but they work for now. Just pulled them from Yaoguai files 
+	deathsound = list('mojave/sound/ms13npc/hellpig_death1.ogg', 'mojave/sound/ms13npc/hellpig_death2.ogg') //Not in love with either of these death or attack sounds but they work for now. Just pulled them from Yaoguai files
 	health = 550
 	maxHealth = 550
 	melee_damage_lower = 45
 	melee_damage_upper = 45
 	subtractible_armour_penetration = 20
-	speed = 2.25
+	speed = 2
 	sharpness = NONE
 	wound_bonus = 10
 	bare_wound_bonus = 8
@@ -376,7 +376,8 @@
 	tame_chance = 1
 	bonus_tame_chance = 1
 	rideable = TRUE*/
-	base_pixel_x = -48
+	base_pixel_x = -100
+	pixel_x = -20
 	status_flags = null
 
 /mob/living/basic/ms13/hostile_animal/hellpig/death()

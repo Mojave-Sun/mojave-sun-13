@@ -10,8 +10,11 @@
 	closingLayer = CLOSED_DOOR_LAYER
 	hackProof = TRUE
 	ms13_flags_1 = LOCKABLE_1
+	doorOpen = 'mojave/sound/ms13machines/doorblast_open.ogg'
+	doorClose = 'mojave/sound/ms13machines/doorblast_close.ogg'
 	assemblytype = /obj/item/stack/sheet/ms13/scrap/two
 	resistance_flags = INDESTRUCTIBLE
+	hitted_sound = 'mojave/sound/ms13effects/impact/metal/metal_generic_2.wav'
 
 /obj/machinery/door/airlock/ms13/Bumped(atom/movable/AM)
 	return
@@ -37,6 +40,9 @@
 		return
 	. = ..()
 
+/obj/machinery/door/airlock/ms13/screwdriver_act(mob/living/user, obj/item/tool)
+	return
+
 //// Town Doors ////
 
 /obj/machinery/door/airlock/ms13/town
@@ -49,6 +55,12 @@
 
 /obj/machinery/door/airlock/ms13/town/doctor
 	req_access = list(ACCESS_TOWN_DOCTOR)
+
+/obj/machinery/door/airlock/ms13/town/worker
+	req_access = list(ACCESS_TOWN_WORKER)
+
+/obj/machinery/door/airlock/ms13/town/all
+	req_access = list(ACCESS_TOWN_ALL)
 
 //// Brotherhood doors ////
 

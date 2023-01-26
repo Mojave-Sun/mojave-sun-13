@@ -374,189 +374,345 @@
 	. = ..()
 	air_update_turf(TRUE)
 
-//Metal fence
-//HOLY fuck this shitcode needs culling
-/obj/structure/fence/fencenormal
-	name = "metal fence"
-	desc = "You see nothing out of the ordinary."
-	icon = 'mojave/icons/obstacles/obstacles.dmi'
-	icon_state = "normal_fence"
+
+
+// BASE FENCES! //
+
+//Base Fence - For obj interaction
+
+/obj/structure/ms13/fence
+	name = "base fence"
+	desc = "Get this shit off the map mappa!"
+	icon = 'mojave/icons/structure/fences.dmi'
+	icon_state = "wirefence"
 	density = TRUE
 	anchored = TRUE
-	projectile_passchance = 95
+	plane = ABOVE_GAME_PLANE
+	layer = ABOVE_OBJ_LAYER
+	max_integrity = 400
+	damage_deflection = 15
+	can_atmos_pass = ATMOS_PASS_YES
+	flags_1 = ON_BORDER_1
+	hitted_sound = 'mojave/sound/ms13effects/impact/chain fence/chainfence.ogg'
+	var/fencepasschance = 90
+	var/basetype = /obj/structure/ms13/fence //used for corner debugging
+	var/canpass = FALSE // if projectiles can go through
+	var/cansqueeze = TRUE //turn off for vertical states - for people
+	var/breakmats = /obj/item/stack/sheet/ms13/scrap/two //not sure this isnt a thing on everything
 
-/obj/structure/fence/fencenormal/Initialize()
+/obj/structure/ms13/fence/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		playsound(src, 'mojave/sound/ms13effects/impact/chain fence/chainfence.ogg', 100, TRUE)
+		new breakmats(loc)
+		for(var/obj/item/I in src)
+			I.forceMove(loc)
+	qdel(src)
+
+/obj/structure/ms13/fence/vertical
+	icon_state = null
+	flags_1 = NONE
+	cansqueeze = FALSE
+
+/obj/structure/ms13/fence/corner
+	icon_state = null
+	var/obj/cornersetter
+
+/obj/structure/ms13/fence/junction
+	icon_state = null
+	flags_1 = NONE
+	cansqueeze = FALSE
+
+/obj/structure/ms13/fence/junction/Initialize()
+	if(dir == NORTH)
+		cansqueeze = TRUE
 	. = ..()
-	layer = 4.2
 
-/obj/structure/fence/fencenormal/CanPass(atom/movable/mover, turf/target, height=0)
-	..()
-	if (!density)
-		return 1
-	if (dir!=SOUTH)
-		return 0
-	if(istype(mover) && (mover.pass_flags & PASSGRILLE))
-		return 1
-	if(get_dir(loc, target) != SOUTH)
-		return 0
-	else
-		return 1
-
-/obj/structure/fence/fencenormal/attackby(obj/item/W, mob/user, params)
-	if(istype(W, /obj/item/wirecutters))
-		if(do_after(user,50, target = src))
-			playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
-			user.visible_message("<span class='notice'>[user] cuts a hole in the fence.</span>", \
-								 "<span class='notice'>You cut a hole in the fence.</span>")
-			density = 0
-			icon_state = "cut_fence"
-			desc = "You have no idea what could make that hole..."
-
-
-/obj/structure/fence/fencecorner
-	name = "metal fence"
-	desc = "It's still pretty sturdy.<br>You see nothing out of the ordinary."
-	icon = 'mojave/icons/obstacles/obstacles.dmi'
-	icon_state = "fence_corner"
-
-/obj/structure/fence/fencecorner/attackby(obj/item/W, mob/user, params)
-	if(istype(W, /obj/item/wirecutters))
-		user << "<span class='warning'>Even if I cut through here, I'll get hurt if I try to get through.<br>Let's find some better options.</span>"
-
-/obj/structure/fence/fenceintersectmiddle
-	name = "metal fence"
-	desc = "Intersection of the fence.<br>You see nothing out of the ordinary."
-	icon = 'mojave/icons/obstacles/obstacles.dmi'
-	icon_state = "fence_intersect_middle"
-
-/obj/structure/fence/fenceintersectmiddle/attackby(obj/item/W, mob/user, params)
-	if(istype(W, /obj/item/wirecutters))
-		user << "<span class='warning'>It's not the best place to cut the fence.<br>I got to find better options.</span>"
-
-/obj/structure/fence/fenceintersectbottom
-	name = "metal fence"
-	desc = "Intersection of the fence.<br>You see nothing out of the ordinary."
-	icon = 'mojave/icons/obstacles/obstacles.dmi'
-	icon_state = "fence_intersect_bottom"
-
-/obj/structure/fence/fenceintersectbottom/attackby(obj/item/W, mob/user, params)
-	if(istype(W, /obj/item/wirecutters))
-		user << "<span class='warning'>The fence here is too strong - it wouldn't cut!<br>Maybe there's a better spot to try again.</span>"
-
-/obj/structure/fence/fencecornerintersect
-	name = "metal fence"
-	desc = "Intersection of the fence.<br>You see nothing out of the ordinary."
-	icon = 'mojave/icons/obstacles/obstacles.dmi'
-	icon_state = "fence_intersect_corner"
-
-/obj/structure/fence/fencecornerintersect/attackby(obj/item/W, mob/user, params)
-	if(istype(W, /obj/item/wirecutters))
-		user << "<span class='warning'><br>The fence here is too strong - it wouldn't cut!</br>Let's find some better options now.</span>"
-
-/obj/structure/fence/fencedoor
-	name = "metal fence door"
-	desc = "The hinges are a bit rusty.<br>Who cares, it's just a door anyway."
-	icon = 'mojave/icons/obstacles/obstacles.dmi'
-	icon_state = "fence_door_front_closed"
-	ms13_flags_1 = LOCKABLE_1
-	var/open_sound = 'mojave/sound/ms13machines/doorchainlink_open.ogg'
-	var/close_sound = 'mojave/sound/ms13machines/doorchainlink_close.ogg'
-
-/obj/structure/fence/fencedoor/Initialize()
+/obj/structure/ms13/fence/Initialize()
 	. = ..()
-	layer = 4.2
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_EXIT = .proc/on_exit,
+	)
 
-/obj/structure/fence/fencedoor/attackby(obj/item/I, mob/living/user, params)
-	if (density)
-		icon_state = "fence_door_front_open"
-		playsound(src.loc, open_sound, 40, 0, 0)
-	else
-		icon_state = "fence_door_front_closed"
-		playsound(src.loc, close_sound, 40, 0, 0)
-	density = !density
+	if (flags_1 & ON_BORDER_1)
+		AddElement(/datum/element/connect_loc, loc_connections)
+	switch(dir)
+		if(SOUTH)
+			layer = ABOVE_ALL_MOB_LAYER + 0.1
+		if(NORTH)
+			layer = OBJ_LAYER
 
-/obj/structure/fence/fencedoor/attack_hand(mob/user)
+/obj/structure/ms13/fence/corner/Initialize()
+	. = ..()
+	ghostfence(FALSE)
+
+/obj/structure/ms13/fence/corner/proc/ghostfence(destroyed)
+	cornersetter = new basetype(loc)
+	switch(dir)
+		if(NORTH)
+			cornersetter.dir = SOUTH
+		if(SOUTH)
+			cornersetter.dir = SOUTH
+		if(EAST)
+			cansqueeze = FALSE
+		if(WEST)
+			cansqueeze = FALSE
+
+	cornersetter.invisibility = INVISIBILITY_ABSTRACT
+	if(destroyed)
+		qdel(cornersetter)
+
+/obj/structure/ms13/fence/corner/Destroy()
+	. = ..()
+	ghostfence(TRUE)
+
+/proc/valid_fence_location(turf/dest_turf, test_dir)
+	if(!dest_turf)
+		return FALSE
+	for(var/obj/turf_content in dest_turf)
+		if(istype(turf_content, /obj/structure/ms13/fence))
+			if((turf_content.dir == test_dir))
+				return FALSE
+	return TRUE
+
+/obj/structure/ms13/fence/CanAllowThrough(atom/movable/mover, border_dir)
+	. = ..()
+
+	if(istype(mover, /obj/projectile))
+		return TRUE
+
+	if(istype(mover, /obj/projectile/bullet))
+		return TRUE
+
+	if(istype(mover, /obj/item))
+		var/obj/item/I = mover
+		if(I.w_class == WEIGHT_CLASS_TINY)
+			return TRUE
+
 	if(.)
 		return
-	if(ms13_flags_1 & LOCKABLE_1 && lock_locked)
-		to_chat(user, span_warning("The [name] is locked."))
-		playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
-		return
-	if (density)
-		icon_state = "fence_door_front_open"
-		playsound(src.loc, open_sound, 40, 0, 0)
-	else
-		icon_state = "fence_door_front_closed"
-		playsound(src.loc, close_sound, 40, 0, 0)
-	density = !density
 
-/obj/structure/fence/fencedoor/attack_tk(mob/user)
-	if (density)
-		icon_state = "fence_door_front_open"
-		playsound(src.loc, open_sound, 40, 0, 0)
-	else
-		icon_state = "fence_door_front_closed"
-		playsound(src.loc, close_sound, 40, 0, 0)
-	density = !density
+	if(cansqueeze)
+		if(ismob(mover))
+			if(get_dir(loc, src) == dir)
+				return
 
-/obj/structure/fence/fencedoor/CanPass(atom/movable/mover, turf/target, height=0)
-	..()
-	if (!density)
-		return 1
-	if(istype(mover) && (mover.pass_flags & PASSGRILLE))
-		return 1
-	if(get_dir(loc, target) != SOUTH)
-		return 0
-	else
-		return 1
+		if(border_dir == dir)
+			return FALSE
 
-/obj/structure/fence/fencedoorside
-	name = "metal fence door"
-	desc = "It opens and closes."
-	icon = 'mojave/icons/obstacles/obstacles.dmi'
-	icon_state = "fence_door_side_closed"
-	ms13_flags_1 = LOCKABLE_1
-	var/open_sound = 'mojave/sound/ms13machines/doorchainlink_open.ogg'
-	var/close_sound = 'mojave/sound/ms13machines/doorchainlink_close.ogg'
+		if(istype(mover, /obj/structure/ms13/fence))
+			var/obj/structure/ms13/fence/moved_fence = mover
+			return valid_fence_location(loc, moved_fence.dir)
 
-/obj/structure/fence/fencedoorside/attackby(obj/item/I, mob/living/user, params)
-	if (density)
-		icon_state = "fence_door_side_open"
-		playsound(src.loc, open_sound, 40, 0, 0)
-	else
-		icon_state = "fence_door_side_closed"
-		playsound(src.loc, close_sound, 40, 0, 0)
-	density = !density
+	if(!cansqueeze)
+		return FALSE
 
-/obj/structure/fence/fencedoorside/attack_hand(mob/user)
-	if(.)
-		return
-	if(ms13_flags_1 & LOCKABLE_1 && lock_locked)
-		to_chat(user, span_warning("The [name] is locked."))
-		playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
-		return
-	if (density)
-		icon_state = "fence_door_side_open"
-		playsound(src.loc, open_sound, 40, 0, 0)
-	else
-		icon_state = "fence_door_side_closed"
-		playsound(src.loc, close_sound, 40, 0, 0)
-	density = !density
+	return TRUE
 
-/obj/structure/fence/fencedoorside/attack_tk(mob/user)
-	if (density)
-		icon_state = "fence_door_side_open"
-		playsound(src.loc, open_sound, 40, 0, 0)
-	else
-		icon_state = "fence_door_side_closed"
-		playsound(src.loc, close_sound, 40, 0, 0)
-	density = !density
+/obj/structure/ms13/fence/proc/on_exit(datum/source, atom/movable/leaving, direction)
+	SIGNAL_HANDLER
 
-/obj/structure/fence/fencedoorside/CanPass(atom/movable/mover, turf/target, height=0)
-	..()
-	if (mover.loc == loc)
-		return 1
-	return !density
+	if(canpass)
+		if(istype(leaving, /obj/projectile) && prob(fencepasschance))
+			return
+
+		if(istype(leaving, /obj/projectile/bullet) && prob(fencepasschance))
+			return
+
+		if(istype(leaving, /obj/item))
+			var/obj/item/I = leaving
+			if(I.w_class == WEIGHT_CLASS_TINY && prob(fencepasschance))
+				return
+			else
+				return COMPONENT_ATOM_BLOCK_EXIT
+
+	if(cansqueeze)
+		if(leaving == src)
+			return // Let's not block ourselves.
+
+		if (leaving.pass_flags & pass_flags_self)
+			return
+
+		if(direction == dir && density)
+			leaving.Bump(src)
+			return COMPONENT_ATOM_BLOCK_EXIT
+
+// WIRE FENCES! //
+
+//Plain Wire Fence
+
+/obj/structure/ms13/fence/wire
+	name = "wire fence"
+	desc = "A basic wire fence, rusted and still standing."
+	icon_state = "wirefence"
+	max_integrity = 400
+	damage_deflection = 15
+	fencepasschance = 80
+	basetype = /obj/structure/ms13/fence/wire
+
+/obj/structure/ms13/fence/wire/end/east
+	icon_state = "wirefence_end_east"
+
+/obj/structure/ms13/fence/wire/end/west
+	icon_state = "wirefence_end_west"
+
+/obj/structure/ms13/fence/vertical/wire
+	name = "wire fence"
+	desc = "A basic wire fence, rusted and still standing."
+	icon_state = null //purely for mapping sanity
+	max_integrity = 400
+	damage_deflection = 15
+	fencepasschance = 80
+	basetype = /obj/structure/ms13/fence/wire
+	cansqueeze = FALSE
+
+/obj/structure/ms13/fence/vertical/wire/east
+	icon_state = "wirefence_east"
+
+/obj/structure/ms13/fence/vertical/wire/west
+	icon_state = "wirefence_west"
+
+/obj/structure/ms13/fence/junction/wire
+	name = "wire fence"
+	desc = "A basic wire fence, rusted and still standing."
+	icon_state = null //purely for mapping sanity
+	max_integrity = 400
+	damage_deflection = 15
+	fencepasschance = 80
+	basetype = /obj/structure/ms13/fence/wire
+	cansqueeze = FALSE
+
+/obj/structure/ms13/fence/junction/wire/east
+	icon_state = "wirefence_east_T"
+
+/obj/structure/ms13/fence/junction/wire/west
+	icon_state = "wirefence_west_T"
+
+/obj/structure/ms13/fence/corner/wire
+	name = "wire fence"
+	desc = "A basic wire fence, rusted and still standing."
+	icon_state = "wirefence_corner"
+	max_integrity = 400
+	damage_deflection = 15
+	fencepasschance = 80
+	basetype = /obj/structure/ms13/fence/wire
+
+//Wire fence door, seperated unfortunately
+
+/obj/machinery/door/unpowered/ms13/seethrough/fence/wire
+	name = "wire fence door"
+	desc = "A wire fence door, the clattered gateway to freedom perhaps."
+	icon_state = "wirefence_closed"
+	door_type = "wirefence"
+	plane = ABOVE_GAME_PLANE
+	layer = ABOVE_MOB_LAYER
+	damage_deflection = 15
+	max_integrity = 600
+	armor = list(MELEE = 50, BULLET = 60, LASER = 40, ENERGY = 50, BOMB = 30, BIO = 100, FIRE = 40, ACID = 100)
+
+/obj/machinery/door/unpowered/ms13/seethrough/fence/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		playsound(src, 'mojave/sound/ms13effects/metal_door_break.ogg', 100, TRUE)
+		new /obj/item/stack/sheet/ms13/scrap/two(loc)
+		for(var/obj/item/I in src)
+			I.forceMove(loc)
+	qdel(src)
+
+/obj/machinery/door/unpowered/ms13/seethrough/fence/Initialize()
+	. = ..()
+	if(dir == NORTH)
+		pixel_y = -8
+
+	if(dir == SOUTH)
+		pixel_y = -8
+
+	if(dir == EAST)
+		pixel_x = -16
+		pixel_y = 0
+
+	if(dir == WEST)
+		pixel_x = -16
+		pixel_y = 0
+
+/obj/machinery/door/unpowered/ms13/seethrough/fence/open()
+	. = ..()
+	plane = GAME_PLANE
+
+/obj/machinery/door/unpowered/ms13/seethrough/fence/close()
+	. = ..()
+	if(safe)
+		for(var/atom/movable/M in get_turf(src))
+			if(M.density && M != src) //something is blocking the door
+				return
+	plane = initial(plane)
+
+//Barbed Wire Fence
+
+/obj/structure/ms13/fence/wire/barb
+	name = "barbed wire fence"
+	desc = "A menacing wire fence, topped with rusted and deadly barbed wire."
+	icon_state = "barbfence"
+	max_integrity = 800 //no difference yet except its stronger
+	damage_deflection = 20
+	fencepasschance = 70
+	basetype = /obj/structure/ms13/fence/wire/barb
+
+/obj/structure/ms13/fence/wire/end/east/barb
+	icon_state = "barbfence_end_east"
+
+/obj/structure/ms13/fence/wire/end/west/barb
+	icon_state = "barbfence_end_west"
+
+/obj/structure/ms13/fence/vertical/wire/barb
+	name = "barbed wire fence"
+	desc = "A menacing wire fence, topped with rusted and deadly barbed wire."
+	icon_state = null //purely for mapping sanity
+	max_integrity = 800
+	damage_deflection = 20
+	fencepasschance = 70
+	basetype = /obj/structure/ms13/fence/wire/barb
+	cansqueeze = FALSE
+
+/obj/structure/ms13/fence/vertical/wire/east/barb
+	icon_state = "barbfence_east"
+
+/obj/structure/ms13/fence/vertical/wire/west/barb
+	icon_state = "barbfence_west"
+
+/obj/structure/ms13/fence/junction/wire/barb
+	name = "barbed wire fence"
+	desc = "A menacing wire fence, topped with rusted and deadly barbed wire."
+	icon_state = null
+	max_integrity = 800
+	damage_deflection = 20
+	fencepasschance = 70
+	basetype = /obj/structure/ms13/fence/wire/barb
+	cansqueeze = FALSE
+
+/obj/structure/ms13/fence/junction/wire/east/barb
+	icon_state = "barbfence_east_T"
+
+/obj/structure/ms13/fence/junction/wire/west/barb
+	icon_state = "barbfence_west_T"
+
+/obj/structure/ms13/fence/corner/wire/barb
+	name = "barbed wire fence"
+	desc = "A menacing wire fence, topped with rusted and deadly barbed wire."
+	icon_state = "barbfence_corner"
+	max_integrity = 800
+	damage_deflection = 20
+	fencepasschance = 70
+	basetype = /obj/structure/ms13/fence/wire/barb
+
+//Barbed Wire fence door
+
+/obj/machinery/door/unpowered/ms13/seethrough/fence/wire/barb
+	name = "barbed wire fence door"
+	desc = "A menacing wire fence door, no jumping this one, keep out!"
+	icon_state = "barbfence_closed"
+	door_type = "barbfence"
+	max_integrity = 900
+	damage_deflection = 20
+	armor = list(MELEE = 70, BULLET = 80, LASER = 50, ENERGY = 60, BOMB = 40, BIO = 100, FIRE = 40, ACID = 100)
 
 // Sand bags
 
