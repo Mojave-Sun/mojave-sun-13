@@ -19,7 +19,7 @@ SUBSYSTEM_DEF(particle_weather)
 		else if(running_weather)
 			msg = "P:Current event of unknown type ([running_weather]) - [time_left] seconds left"
 	else if(running_weather)
-		var/time_left = next_weather_start_in ? (next_weather_start_in - world.time) / 10 : "\[incorrect argument\]"
+		var/time_left = COOLDOWN_TIMELEFT(src, next_weather_start)
 		if(running_weather?.display_name)
 			msg = "P:Next event: [running_weather.display_name] hit in [time_left] seconds"
 		else if(running_weather)
@@ -31,7 +31,7 @@ SUBSYSTEM_DEF(particle_weather)
 /datum/controller/subsystem/particle_weather/Initialize(start_timeofday)
 	for(var/i in subtypesof(/datum/particle_weather))
 		var/datum/particle_weather/particle_weather = new i
-		if(particle_weather.target_trait in SSmapping.configs[GROUND_MAP].weather)
+		if(particle_weather.target_trait in SSmapping.config.particle_weathers)
 			elligble_weathers[i] = particle_weather.probability
 	return ..()
 
@@ -46,7 +46,7 @@ SUBSYSTEM_DEF(particle_weather)
 				COOLDOWN_START(src, next_weather_start, rand(-3000, 3000) + initial(next_hit.weather_duration_upper) / 5)
 				break
 
-/datum/controller/subsystem/weather/proc/run_weather(datum/particle_weather/weather_datum_type, force = 0)
+/datum/controller/subsystem/particle_weather/proc/run_weather(datum/particle_weather/weather_datum_type, force = 0)
 	if(running_weather)
 		if(force)
 			running_weather.end()
@@ -57,6 +57,7 @@ SUBSYSTEM_DEF(particle_weather)
 		CRASH("run_weather called with invalid weather_datum_type: [weather_datum_type || "null"]")
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_WEATHER_CHANGE)
 	running_weather = weather_datum_type
+	running_weather.start()
 	weather_datum_type = null
 
 /datum/controller/subsystem/particle_weather/proc/make_eligible(possible_weather, probability = 10)

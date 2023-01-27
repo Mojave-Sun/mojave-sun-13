@@ -62,3 +62,6 @@
 #define COMSIG_GLOB_NUKE_DEVICE_ARMED "!nuclear_device_armed"
 /// global signal sent when a nuclear device is disarmed (/obj/machinery/nuclearbomb/nuke/disarmed_nuke)
 #define COMSIG_GLOB_NUKE_DEVICE_DISARMED "!nuclear_device_disarmed"
+
+// Used for smothering fires upon weather event start/stop
+#define COMSIG_GLOB_WEATHER_CHANGE "!weather_event_changed"

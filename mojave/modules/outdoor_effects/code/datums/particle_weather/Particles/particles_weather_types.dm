@@ -17,8 +17,8 @@
 	friction               = 0.3  // shed 30% of velocity and drift every 0.1s
 	transform 			   = null // Rain is directional - so don't make it "3D"
 	//Weather effects, max values
-	maxSpawning            = 100
-	minSpawning            = 50
+	max_spawning            = 100
+	min_spawning            = 50
 	wind                   = 2
 	spin                   = 0 // explicitly set spin to 0 - there is a bug that seems to carry generators over from old particle effects
 
@@ -33,8 +33,8 @@
 	drift                  = generator("circle", 0, 3) // Some random movement for variation
 	friction               = 0.3  // shed 30% of velocity and drift every 0.1s
 	//Weather effects, max values
-	maxSpawning           = 50
-	minSpawning           = 10
+	max_spawning           = 50
+	min_spawning           = 10
 	wind                  = 2
 
 /particles/weather/snowstorm
@@ -46,8 +46,8 @@
 	drift                  = generator("circle", 0, 3.5) // Some random movement for variation
 	friction               = 0.3  // shed 30% of velocity and drift every 0.1s
 	//Weather effects, max values
-	maxSpawning           = 80
-	minSpawning           = 50
+	max_spawning           = 80
+	min_spawning           = 50
 	wind                  = 2.5
 
 
@@ -63,8 +63,8 @@
 	drift                  = generator("circle", 0, 3) // Some random movement for variation
 	friction               = 0.3  // shed 30% of velocity and drift every 0.1s
 	//Weather effects, max values
-	maxSpawning           = 50
-	minSpawning           = 20
+	max_spawning           = 50
+	min_spawning           = 20
 	wind                  = 10
 
 
@@ -80,7 +80,7 @@
 	drift                  = generator("circle", 0, 5) // Some random movement for variation
 	friction               = 0.3  // shed 30% of velocity and drift every 0.1s
 	//Weather effects, max values
-	maxSpawning           = 50
-	minSpawning           = 20
+	max_spawning           = 50
+	min_spawning           = 20
 	wind                  = 10
 
