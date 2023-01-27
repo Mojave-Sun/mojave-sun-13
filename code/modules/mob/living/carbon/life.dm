@@ -3,6 +3,9 @@
 	if(notransform)
 		return
 
+	if(SSweather.running_weather)
+		handle_weather(delta_time)
+
 	if(damageoverlaytemp)
 		damageoverlaytemp = 0
 		update_damage_hud()

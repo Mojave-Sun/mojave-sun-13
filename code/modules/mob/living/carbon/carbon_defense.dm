@@ -723,3 +723,12 @@
 	return TRUE
 
 #undef SHAKE_ANIMATION_OFFSET
+
+/mob/living/carbon/proc/handle_weather(var/delta_time = 1)
+	var/area/area = get_area(src)
+	// Check if we're supposed to be something affected by weather
+	if(!SSweather.running_weather || !(area.flags_area_effects & AREA_EFFECTS_WEATHER))
+		current_weather_effect_type = null
+	else
+		current_weather_effect_type = SSweather.running_weather
+	SSweather.running_weather.process_mob_effect(src, delta_time)
