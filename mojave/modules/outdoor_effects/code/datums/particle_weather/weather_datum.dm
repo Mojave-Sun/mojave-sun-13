@@ -449,7 +449,7 @@
 	name = "Rain Storm"
 	display_name = "Rain Storm"
 	desc = "Intense rain."
-	particle_effect_type = /particles/weather/rain
+	particle_effect_type = /particles/weather/rain/storm
 
 	scale_vol_with_severity = TRUE
 	weather_sounds = list(/datum/looping_sound/storm)

@@ -724,6 +724,7 @@
 
 #undef SHAKE_ANIMATION_OFFSET
 
+//Mojave sun edit begin
 /mob/living/carbon/proc/handle_weather(var/delta_time = 1)
 	var/turf/turf = get_turf(src)
 	// Check if we're supposed to be something affected by weather
@@ -732,3 +733,4 @@
 	else
 		current_weather_effect_type = SSparticle_weather.running_weather
 	SSparticle_weather.running_weather.process_mob_effect(src, delta_time)
+//Mojave sun edit end
