@@ -13,10 +13,10 @@
 	if(fov_view)
 		if(rel_x >= -1 && rel_x <= 1 && rel_y >= -1 && rel_y <= 1) //Cheap way to check inside that 3x3 box around you
 			return TRUE //Also checks if both are 0 to stop division by zero
-	
+
 		// Get the vector length so we can create a good directional vector
 		var/vector_len = sqrt(abs(rel_x) ** 2 + abs(rel_y) ** 2)
-	
+
 		/// Getting a direction vector
 		var/dir_x
 		var/dir_y
@@ -33,10 +33,10 @@
 			if(WEST)
 				dir_x = -vector_len
 				dir_y = 0
-	
+
 		///Calculate angle
 		var/angle = arccos((dir_x * rel_x + dir_y * rel_y) / (sqrt(dir_x**2 + dir_y**2) * sqrt(rel_x**2 + rel_y**2)))
-	
+
 		/// Calculate vision angle and compare
 		var/vision_angle = (360 - fov_view) / 2
 		if(angle < vision_angle)
@@ -56,7 +56,24 @@
 		if((rel_x >= NEARSIGHTNESS_FOV_BLINDNESS || rel_x <= -NEARSIGHTNESS_FOV_BLINDNESS) || (rel_y >= NEARSIGHTNESS_FOV_BLINDNESS || rel_y <= -NEARSIGHTNESS_FOV_BLINDNESS))
 			return FALSE
 
+// MOJAVE SUN EDIT BEGIN
+
 /// Updates the applied FOV value and applies the handler to client if able
+/mob/living/proc/update_fov()
+    var/highest_fov
+    if(CONFIG_GET(flag/native_fov))
+        highest_fov = native_fov
+    for(var/trait_type in fov_traits)
+        var/fov_type = fov_traits[trait_type]
+        if(fov_type == "no_fov")
+            highest_fov = 0
+            break
+        if(fov_type > highest_fov)
+            highest_fov = fov_type
+    fov_view = highest_fov
+    update_fov_client()
+
+/*/// Updates the applied FOV value and applies the handler to client if able // ORIGINAL TG PROC
 /mob/living/proc/update_fov()
 	var/highest_fov
 	if(CONFIG_GET(flag/native_fov))
@@ -66,8 +83,9 @@
 		if(fov_type > highest_fov)
 			highest_fov = fov_type
 	fov_view = highest_fov
-	update_fov_client()
+	update_fov_client()*/
 
+// MOJAVE SUN EDIT END
 /// Updates the FOV for the client.
 /mob/living/proc/update_fov_client()
 	if(!client)
