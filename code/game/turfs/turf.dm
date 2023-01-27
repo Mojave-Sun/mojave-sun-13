@@ -164,7 +164,7 @@ GLOBAL_LIST_EMPTY(station_turfs)
 	var/turf/T = SSmapping.get_turf_above(src)
 	if(T)
 		T.multiz_turf_del(src, DOWN)
-	else if(!T || !istype(T, /turf/open/openspace))
+	if(!T || !istype(T, /turf/open/openspace))
 		turf_flags |= TURF_WEATHER
 	T = SSmapping.get_turf_below(src)
 	if(T)
