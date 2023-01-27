@@ -6,10 +6,10 @@
 	icon = 'icons/effects/particles/particle.dmi'
 
 
-	spawning = 0
+	spawning               = 0
 	width                  = 800  // I think this is supposed to be in pixels, but it doesn't match bounds, so idk - 800x800 seems to prevent particle-less edges
 	height                 = 800
-	count                  = 3000 // 3000 particles
+	count                  = 4000 // 3000 particles
 	//Set bounds to rough screensize + some extra on the side and top movement for "wind"
 	bound1                 = list(-500, -256, -10)
 	bound2                 = list(500, 500, 10)
@@ -56,7 +56,6 @@
 	gravity                = list(0, -12, 0.5)
 	drift                  = generator("circle", 0, 1) // Some random movement for variation
 	friction               = 0.3  // shed 30% of velocity and drift every 0.1s
-	transform 			   = null // Rain is directional - so don't make it "3D"
 	//Weather effects, max values
 	max_spawning           = 200
 	min_spawning           = 50
