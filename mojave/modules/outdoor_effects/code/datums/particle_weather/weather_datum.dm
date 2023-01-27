@@ -87,14 +87,9 @@
 	affecting_value = list("min_value" = 20, "max_value" = 80)
 	max_stages = 2
 	stage = GLE_STAGE_FIRST
-	var/sound_effects = list(
-		'sound/weather/rain/wind_1.ogg', 'sound/weather/rain/wind_2.ogg', 'sound/weather/rain/wind_3.ogg',
-		'sound/weather/rain/wind_4.ogg', 'sound/weather/rain/wind_5.ogg', 'sound/weather/rain/wind_6.ogg',
-	)
 
 /datum/weather_event/wind/start_process()
 	duration = duration + rand(-duration, duration)
-	initiator_ref.wind_sounds = sound_effects
 	stage_processing = TRUE
 	stage_process()
 
@@ -137,7 +132,7 @@
 	var/list/weather_messages = list()
 	var/list/weather_warnings = list("siren" = null, "message" = TRUE)
 	var/list/weather_sounds = list()
-	var/list/wind_sounds = list()
+	var/list/wind_sounds = list(/datum/looping_sound/wind)
 	var/scale_vol_with_severity = TRUE
 
 	var/particles/weather/particle_effect_type = /particles/weather/rain
@@ -308,7 +303,7 @@
 			current_sound.volume = initial(current_sound.volume) * severity_mod()
 		current_sound.start()
 
-	if(wind_severity)
+	if(wind_severity && weather_sounds)
 		var/datum/looping_sound/current_wind_sound = current_wind_sounds[L]
 		if(current_wind_sound)
 			//SET VOLUME
@@ -318,7 +313,7 @@
 				current_wind_sound.start()
 			return
 
-		var/temp_wind_sound = scale_range_pick(min_severity, max_severity, severity, weather_sounds)
+		var/temp_wind_sound = scale_range_pick(min_severity, max_severity, severity, wind_sounds)
 		if(temp_wind_sound)
 			current_wind_sound = new temp_wind_sound(L, FALSE, TRUE, FALSE, CHANNEL_WEATHER)
 			current_wind_sounds[L] = current_wind_sound
@@ -332,6 +327,9 @@
 	var/datum/looping_sound/current_sound = current_sounds[L]
 	if(current_sound)
 		current_sound.stop()
+	var/datum/looping_sound/current_wind_sound = current_wind_sounds[L]
+	if(current_wind_sound)
+		current_wind_sound.stop()
 
 /datum/particle_weather/proc/weather_message(mob/living/L)
 	messaged_mobs[L] = world.time + WEATHER_MESSAGE_DELAY
@@ -378,6 +376,14 @@
 
 /datum/looping_sound/wind
 	mid_sounds = 'sound/weather/rain/wind_1.ogg'
+	mid_sounds = list(
+		'sound/weather/rain/wind_1.ogg'=1,
+		'sound/weather/rain/wind_2.ogg'=1,
+		'sound/weather/rain/wind_3.ogg'=1,
+		'sound/weather/rain/wind_4.ogg'=1,
+		'sound/weather/rain/wind_5.ogg'=1,
+		'sound/weather/rain/wind_6.ogg'=1
+		)
 	mid_length = 30 SECONDS
 	volume = 150
 
