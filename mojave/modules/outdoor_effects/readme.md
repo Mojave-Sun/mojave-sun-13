@@ -30,7 +30,6 @@ Weather is affected by whether or not the roof above is weatherproof - for now t
 	- code/_onclick/hud/rendering/plane_master.dm
 	- code/_onclick/hud/rendering/plane_master_controller.dm
 	- code/controllers/configuration/config_entry.dm
-	- code/datums/looping_sounds/_looping_sound.dm
 	- code/datums/map_config.dm
 	- code/game/atoms_movable.dm
 	- code/game/turfs/change_turf.dm

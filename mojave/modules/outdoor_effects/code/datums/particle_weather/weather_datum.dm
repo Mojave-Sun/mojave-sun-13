@@ -110,7 +110,7 @@
 			affecting_value = rand(0, affecting_value["min_value"])
 			initiator_ref.wind_severity = affecting_value
 
-	change_severity(FALSE)
+	initiator_ref.change_severity(FALSE)
 
 	sleep(duration)
 	stage++
@@ -308,23 +308,23 @@
 		current_sound.start()
 
 	if(wind_severity)
-		var/datum/looping_sound/current_sound = current_wind_sounds[L]
-		if(current_sound)
+		var/datum/looping_sound/current_wind_sound = current_wind_sounds[L]
+		if(current_wind_sound)
 			//SET VOLUME
 			if(scale_vol_with_severity)
-				current_sound.volume = initial(current_sound.volume) * severity_mod()
-			if(!current_sound.loop_started) //don't restart already playing sounds
-				current_sound.start()
+				current_wind_sound.volume = initial(current_wind_sound.volume) * severity_mod()
+			if(!current_wind_sound.loop_started) //don't restart already playing sounds
+				current_wind_sound.start()
 			return
 
-		var/temp_sound = scale_range_pick(min_severity, max_severity, severity, weather_sounds)
-		if(temp_sound)
-			current_sound = new temp_sound(L, FALSE, TRUE, FALSE, CHANNEL_WEATHER)
-			current_wind_sounds[L] = current_sound
+		var/temp_wind_sound = scale_range_pick(min_severity, max_severity, severity, weather_sounds)
+		if(temp_wind_sound)
+			current_wind_sound = new temp_wind_sound(L, FALSE, TRUE, FALSE, CHANNEL_WEATHER)
+			current_wind_sounds[L] = current_wind_sound
 			//SET VOLUME
 			if(scale_vol_with_severity)
-				current_sound.volume = initial(current_sound.volume) * severity_mod()
-			current_sound.start()
+				current_wind_sound.volume = initial(current_wind_sound.volume) * severity_mod()
+			current_wind_sound.start()
 
 
 /datum/particle_weather/proc/stop_weather_sound_effect(mob/living/L)
@@ -440,7 +440,7 @@
 	probability = 1
 	target_trait = PARTICLEWEATHER_RAIN
 
-	weather_additional_events = list("thunder" = list(5, /datum/special_globalight_event/thunder))
+	weather_additional_events = list("thunder" = list(10, /datum/weather_event/thunder), "wind" = list(40, /datum/weather_event/wind))
 	weather_warnings = list("siren" = null, "message" = FALSE)
 	fire_smothering_strength = 6
 
@@ -463,7 +463,7 @@
 	probability = 1
 	target_trait = PARTICLEWEATHER_RAIN
 
-	weather_additional_events = list("thunder" = list(5, /datum/special_globalight_event/thunder))
+	weather_additional_events = list("thunder" = list(25, /datum/weather_event/thunder), "wind" = list(80, /datum/weather_event/wind))
 	weather_warnings = list("siren" = null, "message" = FALSE)
 	fire_smothering_strength = 6
 
