@@ -96,14 +96,11 @@
 /datum/weather_event/wind/stage_process()
 	switch(stage)
 		if(GLE_STAGE_FIRST)
-			affecting_value = rand(affecting_value["min_value"], affecting_value["max_value"])
-			initiator_ref.wind_severity = affecting_value
+			initiator_ref.wind_severity = rand(affecting_value["min_value"], affecting_value["max_value"])
 		if(GLE_STAGE_SECOND)
-			affecting_value = rand(0, affecting_value["max_value"])
-			initiator_ref.wind_severity = affecting_value
+			initiator_ref.wind_severity = rand(0, affecting_value["max_value"])
 		if(GLE_STAGE_THIRD)
-			affecting_value = rand(0, affecting_value["min_value"])
-			initiator_ref.wind_severity = affecting_value
+			initiator_ref.wind_severity = rand(0, affecting_value["min_value"])
 
 	initiator_ref.change_severity(FALSE)
 
