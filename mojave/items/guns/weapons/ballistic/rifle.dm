@@ -133,8 +133,8 @@
 /obj/item/gun/ballistic/rifle/ms13/hunting/surplus
 	name = "surplus hunting rifle"
 	desc = "A cheap bolt action hunting rifle, chambered in 7.62 with an internal magazine."
-	icon_state = "chinesehunting"
-	inhand_icon_state = "chinesehunting"
+	icon_state = "surplushunting"
+	inhand_icon_state = "surplushunting"
 	internal_magazine = TRUE
 	mag_type = /obj/item/ammo_box/magazine/internal/ms13/chinese_rifle
 	fire_sound = 'mojave/sound/ms13weapons/hunting_rifle.ogg'

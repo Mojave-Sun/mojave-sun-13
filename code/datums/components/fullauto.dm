@@ -249,10 +249,12 @@
 	if(!can_shoot())
 		shoot_with_empty_chamber(shooter)
 		return FALSE
-	var/obj/item/bodypart/other_hand = shooter.has_hand_for_held_index(shooter.get_inactive_hand_index())
+	// MOJAVE SUN EDIT END
+	/*var/obj/item/bodypart/other_hand = shooter.has_hand_for_held_index(shooter.get_inactive_hand_index())
 	if(weapon_weight == WEAPON_HEAVY && (shooter.get_inactive_held_item() || !other_hand))
 		to_chat(shooter, span_warning("You need two hands to fire [src]!"))
-		return FALSE
+		return FALSE */
+	// MOJAVE SUN EDIT END
 	return TRUE
 
 
