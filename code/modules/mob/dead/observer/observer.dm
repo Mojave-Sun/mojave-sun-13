@@ -339,6 +339,7 @@ Works together with spawning an observer, noted above.
 			ghost.can_reenter_corpse = can_reenter_corpse
 			ghost.key = key
 			ghost.client?.init_verbs()
+			ghost.respawn_timeofdeath = respawn_timeofdeath
 			if(!can_reenter_corpse)// Disassociates observer mind from the body mind
 				ghost.mind = null
 			return ghost
@@ -366,7 +367,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(response != "Ghost")
 		return FALSE//didn't want to ghost after-all
 	ghostize(FALSE) // FALSE parameter is so we can never re-enter our body. U ded.
-	timeofdeath = world.time
+	respawn_timeofdeath = world.time
 	return TRUE
 
 /mob/camera/verb/ghost()

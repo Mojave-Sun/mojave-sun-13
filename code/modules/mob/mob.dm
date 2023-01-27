@@ -694,11 +694,9 @@
 		to_chat(usr, span_boldnotice("You must be dead to use this!"))
 		return
 
-	if(isliving(src))
-		var/mob/living/living_mob = src
-		if(world.time - living_mob.timeofdeath < 300 SECONDS)
-			to_chat(usr, span_boldnotice("Respawn timer: [(world.time - living_mob.timeofdeath) / 10] seconds remaining."))
-			return
+	if(world.time - src.respawn_timeofdeath < CONFIG_GET(number/respawn_time))
+		to_chat(usr, span_boldnotice("Respawn timer: [(CONFIG_GET(number/respawn_time) - (world.time - src.respawn_timeofdeath)) / 10] seconds remaining."))
+		return
 
 	log_game("[key_name(usr)] used the respawn button.")
 
