@@ -72,7 +72,7 @@
 	set_stat(DEAD)
 	unset_machine()
 	timeofdeath = world.time
-	respawn_timeofdeath = timeofdeath
+	respawn_timeofdeath = world.time
 	tod = station_time_timestamp()
 	var/turf/T = get_turf(src)
 	if(mind && mind.name && mind.active && !istype(T.loc, /area/ctf))
