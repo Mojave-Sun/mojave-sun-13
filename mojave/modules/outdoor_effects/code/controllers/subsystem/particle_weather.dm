@@ -1,82 +1,79 @@
-SUBSYSTEM_DEF(ParticleWeather)
+SUBSYSTEM_DEF(particle_weather)
 	name = "Particle Weather"
 	flags = SS_BACKGROUND
 	wait = 10
 	runlevels = RUNLEVEL_GAME
-	var/list/elligble_weather = list()
-	var/datum/particle_weather/runningWeather
-	// var/list/next_hit = list() //Used by barometers to know when the next storm is coming
+	var/list/elligble_weathers = list()
+	var/datum/particle_weather/next_hit
+	COOLDOWN_DECLARE(next_weather_start)
 
-	var/particles/weather/particleEffect
-	var/obj/weatherEffect
+	var/datum/particle_weather/running_weather
+	var/particles/weather/particle_effect
+	var/obj/weather_effect
 
-/datum/controller/subsystem/ParticleWeather/fire()
-	// process active weather
-	if(runningWeather)
-		if(runningWeather.running)
-			runningWeather.tick()
-			for(var/mob/act_on as anything in GLOB.mob_living_list)
-				runningWeather.try_weather_act(act_on)
+/datum/controller/subsystem/particle_weather/stat_entry(msg)
+	if(running_weather?.running)
+		var/time_left = COOLDOWN_TIMELEFT(running_weather, time_left)
+		if(running_weather?.display_name)
+			msg = "P:Current event: [running_weather.display_name] - [time_left] seconds left"
+		else if(running_weather)
+			msg = "P:Current event of unknown type ([running_weather]) - [time_left] seconds left"
+	else if(running_weather)
+		var/time_left = next_weather_start_in ? (next_weather_start_in - world.time) / 10 : "\[incorrect argument\]"
+		if(running_weather?.display_name)
+			msg = "P:Next event: [running_weather.display_name] hit in [time_left] seconds"
+		else if(running_weather)
+			msg = "P:Next event of unknown type ([running_weather]) hit in [time_left] seconds"
 	else
-		// start random weather
-		var/datum/particle_weather/our_event = pick_weight(elligble_weather) //possible_weather
-		if(our_event)
-			run_weather(our_event)
-
-
-//This has been mangled - currently only supports 1 weather effect serverwide so I can finish this
-/datum/controller/subsystem/ParticleWeather/Initialize(start_timeofday)
-	for(var/V in subtypesof(/datum/particle_weather))
-		var/datum/particle_weather/W = V
-		var/probability = initial(W.probability)
-		var/target_trait = initial(W.target_trait)
-
-		// any weather with a probability set may occur at random
-		if (probability && SSmapping.config.particle_weather[target_trait])
-			LAZYINITLIST(elligble_weather)
-			elligble_weather[W] = probability
+		msg = "P:No event"
 	return ..()
 
-/datum/controller/subsystem/ParticleWeather/proc/run_weather(datum/particle_weather/weather_datum_type, force = 0)
-	if(runningWeather)
+/datum/controller/subsystem/particle_weather/Initialize(start_timeofday)
+	for(var/i in subtypesof(/datum/particle_weather))
+		var/datum/particle_weather/particle_weather = new i
+		if(particle_weather.target_trait in SSmapping.configs[GROUND_MAP].weather)
+			elligble_weathers[i] = particle_weather.probability
+	return ..()
+
+/datum/controller/subsystem/particle_weather/fire()
+	if(!running_weather && next_hit && COOLDOWN_FINISHED(src, next_weather_start))
+		run_weather(next_hit)
+
+	if(!running_weather && length(elligble_weathers))
+		for(var/our_event in pick(elligble_weathers))
+			if(our_event && rand(1, 1000) < elligble_weathers[our_event])
+				next_hit = new our_event()
+				COOLDOWN_START(src, next_weather_start, rand(-3000, 3000) + initial(next_hit.weather_duration_upper) / 5)
+				break
+
+/datum/controller/subsystem/weather/proc/run_weather(datum/particle_weather/weather_datum_type, force = 0)
+	if(running_weather)
 		if(force)
-			runningWeather.end()
+			running_weather.end()
 		else
 			return
-	if (istext(weather_datum_type))
-		for (var/V in subtypesof(/datum/particle_weather))
-			var/datum/particle_weather/W = V
-			if (initial(W.name) == weather_datum_type)
-				weather_datum_type = V
-				break
-	if (!ispath(weather_datum_type, /datum/particle_weather))
+
+	if(!ispath(weather_datum_type, /datum/particle_weather))
 		CRASH("run_weather called with invalid weather_datum_type: [weather_datum_type || "null"]")
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_WEATHER_CHANGE)
+	running_weather = weather_datum_type
+	weather_datum_type = null
 
-	runningWeather = new weather_datum_type()
+/datum/controller/subsystem/particle_weather/proc/make_eligible(possible_weather, probability = 10)
+	elligble_weathers[possible_weather] = probability
 
-	if(force)
-		runningWeather.start()
-	else
-		var/randTime = rand(0, 6000) + initial(runningWeather.weather_duration_upper)
-		addtimer(CALLBACK(runningWeather, /datum/particle_weather/proc/start), randTime, TIMER_UNIQUE|TIMER_STOPPABLE) //Around 0-10 minutes between weathers
+/datum/controller/subsystem/particle_weather/proc/get_weather_effect()
+	if(!weather_effect)
+		weather_effect = new /obj()
+		weather_effect.particles = particle_effect
+		weather_effect.filters += filter(type="alpha", render_source=WEATHER_RENDER_TARGET)
+		weather_effect.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	return weather_effect
 
+/datum/controller/subsystem/particle_weather/proc/set_particle_effect(particles/P)
+	particle_effect = P
+	weather_effect.particles = particle_effect
 
-/datum/controller/subsystem/ParticleWeather/proc/make_eligible(possible_weather)
-	elligble_weather = possible_weather
-// 	next_hit = null
-
-/datum/controller/subsystem/ParticleWeather/proc/getweatherEffect()
-	if(!weatherEffect)
-		weatherEffect = new /obj()
-		weatherEffect.particles = particleEffect
-		weatherEffect.filters += filter(type="alpha", render_source=WEATHER_RENDER_TARGET)
-		weatherEffect.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	return weatherEffect
-
-/datum/controller/subsystem/ParticleWeather/proc/SetparticleEffect(particles/P)
-	particleEffect = P
-	weatherEffect.particles = particleEffect
-
-/datum/controller/subsystem/ParticleWeather/proc/stopWeather()
-	QDEL_NULL(runningWeather)
-	QDEL_NULL(particleEffect)
+/datum/controller/subsystem/particle_weather/proc/stop_weather()
+	QDEL_NULL(running_weather)
+	QDEL_NULL(particle_effect)
