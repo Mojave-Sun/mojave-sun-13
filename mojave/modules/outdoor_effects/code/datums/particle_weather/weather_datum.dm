@@ -364,14 +364,14 @@
 	mid_length = 40 SECONDS
 	volume = 150
 
-/datum/looping_sound/snow
-	mid_sounds = 'sound/weather/snow/weather_snow.ogg'
-	mid_length = 50 SECONDS
-	volume = 150
-
 /datum/looping_sound/storm
 	mid_sounds = 'sound/weather/rain/weather_storm.ogg'
 	mid_length = 30 SECONDS
+	volume = 150
+
+/datum/looping_sound/snow
+	mid_sounds = 'sound/weather/snow/weather_snow.ogg'
+	mid_length = 50 SECONDS
 	volume = 150
 
 /datum/looping_sound/wind
@@ -458,7 +458,7 @@
 	particle_effect_type = /particles/weather/rain/storm
 
 	scale_vol_with_severity = TRUE
-	weather_sounds = list(/datum/looping_sound/storm)
+	weather_sounds = list(/datum/looping_sound/rain)
 	weather_messages = list("The rain cools your skin.", "The storm is really picking up!")
 
 	damage_type = TOX
