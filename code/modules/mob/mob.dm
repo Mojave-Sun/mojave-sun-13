@@ -695,7 +695,7 @@
 		return
 
 	if(world.time - src.respawn_timeofdeath < CONFIG_GET(number/respawn_time))
-		to_chat(usr, span_boldnotice("Respawn timer: [(CONFIG_GET(number/respawn_time) - (world.time - src.respawn_timeofdeath)) / 10] seconds remaining."))
+		to_chat(usr, span_boldnotice("Respawn timer: [round((CONFIG_GET(number/respawn_time) - (world.time - src.respawn_timeofdeath)) / 10)] seconds remaining."))
 		return
 
 	log_game("[key_name(usr)] used the respawn button.")
