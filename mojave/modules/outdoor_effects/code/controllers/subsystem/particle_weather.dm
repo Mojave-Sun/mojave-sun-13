@@ -39,7 +39,7 @@ SUBSYSTEM_DEF(particle_weather)
 	if(!running_weather && next_hit && COOLDOWN_FINISHED(src, next_weather_start))
 		run_weather(next_hit)
 
-	if(!running_weather && length(elligble_weathers))
+	if(!running_weather && !next_hit && length(elligble_weathers))
 		for(var/our_event in pick(elligble_weathers))
 			if(our_event && rand(1, 1000) < elligble_weathers[our_event])
 				next_hit = new our_event()
@@ -53,7 +53,7 @@ SUBSYSTEM_DEF(particle_weather)
 		else
 			return
 
-	if(!ispath(weather_datum_type, /datum/particle_weather))
+	if(!istype(weather_datum_type, /datum/particle_weather))
 		CRASH("run_weather called with invalid weather_datum_type: [weather_datum_type || "null"]")
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_WEATHER_CHANGE)
 	running_weather = weather_datum_type

@@ -111,4 +111,6 @@
 	/// Only load in visual organs
 	var/visual_only_organs = FALSE
 
+	var/current_weather_effect_type
+
 	COOLDOWN_DECLARE(bleeding_message_cd)
