@@ -694,7 +694,7 @@
 		to_chat(usr, span_boldnotice("You must be dead to use this!"))
 		return
 
-	if(world.time - src.respawn_timeofdeath < CONFIG_GET(number/respawn_time))
+	if(world.time - src.respawn_timeofdeath < CONFIG_GET(number/respawn_time) || !check_rights_for(usr.client, R_ADMIN))
 		to_chat(usr, span_boldnotice("Respawn timer: [round((CONFIG_GET(number/respawn_time) - (world.time - src.respawn_timeofdeath)) / 10)] seconds remaining."))
 		return
 
