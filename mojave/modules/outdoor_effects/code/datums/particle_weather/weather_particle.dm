@@ -56,6 +56,7 @@
 	gravity                = list(0, -12, 0.5)
 	drift                  = generator("circle", 0, 1) // Some random movement for variation
 	friction               = 0.3  // shed 30% of velocity and drift every 0.1s
+	transform 			   = null // Rain is directional - so don't make it "3D"
 	//Weather effects, max values
 	max_spawning           = 200
 	min_spawning           = 50

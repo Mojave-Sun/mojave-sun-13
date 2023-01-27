@@ -130,14 +130,12 @@ GLOBAL_LIST_EMPTY(station_turfs)
 	var/turf/T = SSmapping.get_turf_above(src)
 	if(T)
 		T.multiz_turf_new(src, DOWN)
-	else //lazy to make clearly proc
-		turf_flags |= TURF_WEATHER
 
 	T = SSmapping.get_turf_below(src)
 	if(T)
 		T.multiz_turf_new(src, UP)
 
-	if (opacity)
+	if(opacity)
 		directional_opacity = ALL_CARDINALS
 
 	// apply materials properly from the default custom_materials value
@@ -166,6 +164,8 @@ GLOBAL_LIST_EMPTY(station_turfs)
 	var/turf/T = SSmapping.get_turf_above(src)
 	if(T)
 		T.multiz_turf_del(src, DOWN)
+	else if(!T || !istype(T, /turf/open/openspace))
+		turf_flags |= TURF_WEATHER
 	T = SSmapping.get_turf_below(src)
 	if(T)
 		T.multiz_turf_del(src, UP)
