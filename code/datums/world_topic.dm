@@ -192,6 +192,7 @@
 	. = list()
 	.["version"] = GLOB.game_version
 	.["respawn"] = config ? !CONFIG_GET(flag/norespawn) : FALSE
+	.["respawn_time"] = CONFIG_GET(number/respawn_time) || 0
 	.["enter"] = !LAZYACCESS(SSlag_switch.measures, DISABLE_NON_OBSJOBS)
 	.["ai"] = CONFIG_GET(flag/allow_ai)
 	.["host"] = world.host ? world.host : null
