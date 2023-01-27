@@ -123,6 +123,7 @@
 	else if(stage > max_stages)
 		SSoutdoor_effects.weather_light_affecting_event = null
 		SSoutdoor_effects.transition_sunlight_color()
+		initiator_ref.wind_severity = 0
 		qdel(src)
 		return
 
@@ -440,7 +441,7 @@
 	probability = 1
 	target_trait = PARTICLEWEATHER_RAIN
 
-	weather_additional_events = list("thunder" = list(10, /datum/weather_event/thunder), "wind" = list(40, /datum/weather_event/wind))
+	weather_additional_events = list("thunder" = list(3, /datum/weather_event/thunder), "wind" = list(4, /datum/weather_event/wind))
 	weather_warnings = list("siren" = null, "message" = FALSE)
 	fire_smothering_strength = 6
 
@@ -463,7 +464,7 @@
 	probability = 1
 	target_trait = PARTICLEWEATHER_RAIN
 
-	weather_additional_events = list("thunder" = list(25, /datum/weather_event/thunder), "wind" = list(80, /datum/weather_event/wind))
+	weather_additional_events = list("thunder" = list(6, /datum/weather_event/thunder), "wind" = list(8, /datum/weather_event/wind))
 	weather_warnings = list("siren" = null, "message" = FALSE)
 	fire_smothering_strength = 6
 
@@ -521,6 +522,8 @@
 	probability = 1
 	target_trait = PARTICLEWEATHER_SNOW
 
+	weather_additional_events = list("wind" = list(5, /datum/weather_event/wind))
+
 /datum/particle_weather/snow_storm
 	name = "Snowstorm"
 	display_name = "Snowstorm"
@@ -541,6 +544,7 @@
 	probability = 1
 	target_trait = PARTICLEWEATHER_SNOW
 
+	weather_additional_events = list("wind" = list(10, /datum/weather_event/wind))
 	weather_warnings = list("siren" = "WARNING. A POTENTIALLY DANGEROUS WEATHER ANOMALY HAS BEEN DETECTED. SEEK SHELTER IMMEDIATELY", "message" = TRUE)
 	fire_smothering_strength = 4
 
