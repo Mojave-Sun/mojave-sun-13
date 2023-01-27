@@ -237,8 +237,8 @@ SUBSYSTEM_DEF(outdoor_effects)
 		GLOB.SUNLIGHT_QUEUE_CORNER.Cut(1, i+1)
 		i = 0
 
-	if(check_cycle())
-		transition_sunlight_color()
+	check_cycle()
+	transition_sunlight_color()
 
 
 //Transition from our last color to our current color (i.e if it is going from daylight (white) to sunset (red), we transition to red in the first hour of sunset)
