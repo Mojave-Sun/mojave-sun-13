@@ -199,7 +199,7 @@
 	weather_start_time = world.time
 	running = TRUE
 	addtimer(CALLBACK(src, .proc/wind_down), weather_duration)
-
+	weather_warnings()
 	if(particle_effect_type)
 		SSparticle_weather.set_particle_effect(new particle_effect_type);
 

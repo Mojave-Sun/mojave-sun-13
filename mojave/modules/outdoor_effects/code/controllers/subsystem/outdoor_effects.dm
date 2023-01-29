@@ -60,7 +60,6 @@ SUBSYSTEM_DEF(outdoor_effects)
 	var/datum/weather_event/weather_light_affecting_event
 	var/list/mutable_appearance/sunlight_overlays
 	var/list/atom/movable/screen/plane_master/weather_effect/weather_planes_need_vis = list()
-	var/last_color = null
 	//Ensure midnight is the liast step
 	var/list/datum/time_of_day/time_cycle_steps = list(new /datum/time_of_day/dawn(),
 	                                                   new /datum/time_of_day/sunrise(),
@@ -77,10 +76,10 @@ SUBSYSTEM_DEF(outdoor_effects)
 	return ..()
 
 /datum/controller/subsystem/outdoor_effects/proc/fullPlonk()
-	for (var/z in SSmapping.levels_by_trait(ZTRAIT_STATION))
-		for (var/turf/T in block(locate(1,1,z), locate(world.maxx,world.maxy,z)))
+	for(var/z in SSmapping.levels_by_trait(ZTRAIT_STATION))
+		for(var/turf/T in block(locate(1,1,z), locate(world.maxx,world.maxy,z)))
 			var/area/TArea = T.loc
-			if (TArea.static_lighting)
+			if(TArea.static_lighting)
 				GLOB.SUNLIGHT_QUEUE_WORK += T
 
 /datum/controller/subsystem/outdoor_effects/Initialize(timeofday)
