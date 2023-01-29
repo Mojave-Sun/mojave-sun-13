@@ -242,13 +242,13 @@ SUBSYSTEM_DEF(outdoor_effects)
 
 //Transition from our last color to our current color (i.e if it is going from daylight (white) to sunset (red), we transition to red in the first hour of sunset)
 /datum/controller/subsystem/outdoor_effects/proc/transition_sunlight_color()
-	/* transistion in an hour or time diff from now to our next step, whichever is smaller */
 	if(!weather_light_affecting_event)
 		var/time = station_time()
-		var/time_to_animate = min((1 HOURS / SSticker.station_time_rate_multiplier ),daytimeDiff(time, next_step_datum.start_at))
-		var/blend_amount = (time - current_step_datum.start_at) / next_step_datum.start_at - current_step_datum.start_at
+		var/time_to_animate = min((1 HOURS / SSticker.station_time_rate_multiplier), daytimeDiff(time, next_step_datum.start_at))
+		var/blend_amount = (time - current_step_datum.start_at) / (next_step_datum.start_at - current_step_datum.start_at)
 		current_color = BlendRGB(current_step_datum.color, next_step_datum.color, blend_amount)
 		animate(sun_color, color = current_color, time = time_to_animate)
+
 
 // Updates overlays and vis_contents for outdoor effects
 /datum/controller/subsystem/outdoor_effects/proc/update_outdoor_effect_overlays(atom/movable/outdoor_effect/OE)

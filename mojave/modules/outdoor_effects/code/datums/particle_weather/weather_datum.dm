@@ -433,7 +433,7 @@
 
 	scale_vol_with_severity = TRUE
 	weather_sounds = list(/datum/looping_sound/rain)
-	weather_messages = list("The rain cools your skin.")
+	weather_messages = list("The rain cools your skin.", "The rain bluring your eyes.")
 
 	damage_type = TOX
 	min_severity = 1
@@ -480,7 +480,7 @@
 
 	scale_vol_with_severity = TRUE
 	weather_sounds = list(/datum/looping_sound/dust_storm)
-	weather_messages = list("The whipping sand stings your eyes!")
+	weather_messages = list("The whipping sand stings your eyes!", "Sand hitting you very hard")
 
 	damage_type = BRUTE
 	damage_per_tick = 1
@@ -513,7 +513,7 @@
 
 	scale_vol_with_severity = TRUE
 	weather_sounds = list(/datum/looping_sound/snow)
-	weather_messages = list("It's snowing!","You feel a chill")
+	weather_messages = list("It's snowing!", "You feel a chill")
 
 	damage_type = BURN
 	damage_per_tick = 4
