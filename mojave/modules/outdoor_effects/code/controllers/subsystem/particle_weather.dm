@@ -13,7 +13,7 @@ SUBSYSTEM_DEF(particle_weather)
 
 /datum/controller/subsystem/particle_weather/stat_entry(msg)
 	if(running_weather?.running)
-		var/time_left = COOLDOWN_TIMELEFT(running_weather, time_left)
+		var/time_left = COOLDOWN_TIMELEFT(running_weather, time_left)/10
 		if(running_weather?.display_name)
 			msg = "P:Current event: [running_weather.display_name] - [time_left] seconds left"
 		else if(running_weather)
