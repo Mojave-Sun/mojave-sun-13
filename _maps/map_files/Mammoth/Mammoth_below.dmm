@@ -4898,7 +4898,9 @@
 /turf/open/floor/ms13/metal/grate/border,
 /area/ms13/underground/army_bunker)
 "auJ" = (
-/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/left,
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/left{
+	id = "reactor_storage_1"
+	},
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/underground_town)
 "auK" = (
@@ -12563,9 +12565,12 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/subway)
 "caQ" = (
-/obj/effect/turf_decal/ms13/graffiti/mirelurk,
-/turf/closed/wall/ms13/sewer,
-/area/ms13/underground/sewer)
+/obj/machinery/button/ms13{
+	dir = 8;
+	id = "reactor_storage_1"
+	},
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/underground/underground_town)
 "ccB" = (
 /obj/structure/ms13/storage/large/shelf,
 /obj/effect/spawner/random/ms13/crafting/highrandom,
@@ -12630,6 +12635,11 @@
 /obj/machinery/door/unpowered/ms13/seethrough/metal,
 /turf/open/floor/ms13/tile/long,
 /area/ms13/town)
+"cjX" = (
+/obj/machinery/door/unpowered/ms13/seethrough/fence/wire/barb,
+/obj/effect/spawner/random/ms13/locked/random/medchance,
+/turf/open/floor/plating/ms13/ground/mountain,
+/area/ms13/underground/mountain)
 "cld" = (
 /obj/structure/fluff/ms13/trash/papers{
 	dir = 6
@@ -12797,6 +12807,10 @@
 "cKc" = (
 /obj/structure/fluff/ms13/barrel/single/toxic/two,
 /turf/open/floor/ms13/concrete/industrial,
+/area/ms13/underground/underground_town)
+"cKF" = (
+/obj/structure/ladder/ms13,
+/turf/open/floor/ms13/metal,
 /area/ms13/underground/underground_town)
 "cKM" = (
 /obj/effect/spawner/random/ms13/drink/soda,
@@ -15545,6 +15559,13 @@
 /obj/structure/table/ms13/crafting/workbench,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/underground_town)
+"lIB" = (
+/obj/machinery/button/ms13{
+	dir = 8;
+	id = "reactor_storage_2"
+	},
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/underground/underground_town)
 "lJN" = (
 /obj/effect/decal/cleanable/blood/footprints{
 	dir = 4
@@ -16208,6 +16229,12 @@
 /obj/machinery/door/airlock/ms13/town/security,
 /turf/open/floor/ms13/metal/grate/border,
 /area/ms13/underground/vault_atrium_lower)
+"nQU" = (
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/right{
+	id = "reactor_storage_2"
+	},
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/underground/underground_town)
 "nRP" = (
 /obj/machinery/button/ms13{
 	id = "bank_shutters"
@@ -16377,7 +16404,9 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/underground_town)
 "oqt" = (
-/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/right,
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/right{
+	id = "reactor_storage_1"
+	},
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/underground_town)
 "oqB" = (
@@ -16711,6 +16740,12 @@
 /obj/machinery/light/ms13/bulb/broken,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/underground_town)
+"pkI" = (
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/left{
+	id = "reactor_storage_2"
+	},
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/underground/underground_town)
 "pmT" = (
 /obj/structure/closet/crate/ms13/woodcrate,
 /obj/effect/spawner/random/ms13/guaranteed/food/junkfood_canned,
@@ -16815,6 +16850,10 @@
 /obj/structure/table/ms13/no_smooth/large/metal,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/vault_atrium_lower)
+"pId" = (
+/obj/structure/ms13/fence/wire/barb,
+/turf/open/floor/plating/ms13/ground/mountain,
+/area/ms13/underground/mountain)
 "pIF" = (
 /obj/structure/stairs/north,
 /turf/open/floor/ms13/concrete,
@@ -17010,6 +17049,11 @@
 /obj/effect/spawner/random/ms13/crafting/lowrandom,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/underground_town)
+"qfa" = (
+/obj/structure/ms13/cave_decor/boards/mammoth/westeast,
+/obj/structure/ladder/ms13,
+/turf/open/floor/plating/ms13/ground/mountain,
+/area/ms13/underground/mountain)
 "qfe" = (
 /obj/effect/spawner/random/ms13/food/packaged,
 /obj/effect/spawner/random/ms13/food/packaged,
@@ -17290,6 +17334,12 @@
 "roD" = (
 /turf/open/floor/ms13/metal/grate/border,
 /area/ms13/underground/underground_town)
+"roK" = (
+/obj/structure/ms13/lamp/mining_lamp{
+	pixel_y = 29
+	},
+/turf/open/floor/plating/ms13/ground/mountain,
+/area/ms13/underground/mountain)
 "rqe" = (
 /mob/living/basic/ms13/robot/handy,
 /turf/open/floor/ms13/metal,
@@ -17841,6 +17891,10 @@
 	},
 /turf/open/floor/wood/ms13/carpet,
 /area/ms13/underground/underground_town)
+"sSG" = (
+/obj/effect/turf_decal/ms13/graffiti/no_way,
+/turf/closed/indestructible/rock/ms13/mammoth,
+/area/ms13/underground/mountain)
 "sTR" = (
 /obj/structure/table/ms13/wood/constructed,
 /obj/structure/ms13/rug/red{
@@ -19315,6 +19369,10 @@
 /obj/structure/ms13/medical_curtain,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/underground_town)
+"yfV" = (
+/obj/effect/turf_decal/ms13/graffiti/mirelurk,
+/turf/closed/indestructible/rock/ms13/mammoth,
+/area/ms13/underground/mountain)
 "ygI" = (
 /obj/structure/table/ms13/metal/alt,
 /obj/structure/ms13/phone{
@@ -53240,11 +53298,11 @@ afU
 afU
 afU
 afU
-afU
-afU
-afU
-afU
-afU
+apv
+apv
+apv
+apv
+apv
 afU
 afU
 afU
@@ -53543,9 +53601,9 @@ afU
 afU
 afU
 apv
-apv
-apv
-apv
+cKF
+aUD
+aUD
 apv
 afU
 afU
@@ -55053,7 +55111,7 @@ apv
 apv
 apv
 apv
-aLs
+bRZ
 aLs
 aLs
 apv
@@ -55660,7 +55718,7 @@ auJ
 aLs
 aLs
 aLs
-auJ
+pkI
 aLs
 aLs
 aXl
@@ -55962,7 +56020,7 @@ oqt
 aLs
 aNi
 aLs
-oqt
+nQU
 aLs
 aLs
 aLs
@@ -56259,13 +56317,13 @@ apK
 aLs
 aSK
 aLs
-aLs
+caQ
 apv
-bRZ
+caQ
 aLs
-aLs
+lIB
 apv
-aLs
+lIB
 aLs
 aLs
 aLs
@@ -63361,7 +63419,7 @@ afU
 afU
 afU
 afU
-afU
+yfV
 akx
 akx
 akx
@@ -65174,7 +65232,7 @@ afU
 afU
 afU
 afU
-aEi
+akx
 akx
 akx
 abV
@@ -67287,7 +67345,7 @@ afU
 afU
 afU
 afU
-akx
+aEi
 kJi
 akx
 abV
@@ -73322,7 +73380,7 @@ aZW
 aZW
 aZW
 aZW
-caQ
+aZW
 akx
 akx
 akx
@@ -75784,10 +75842,10 @@ akx
 akx
 akx
 akx
-afU
-afU
-afU
-afU
+akx
+akx
+akx
+akx
 afU
 afU
 afU
@@ -76086,11 +76144,11 @@ akx
 akx
 akx
 akx
-afU
-afU
-afU
-afU
-afU
+akx
+bbD
+bbD
+akx
+akx
 afU
 afU
 afU
@@ -76390,10 +76448,10 @@ akx
 akx
 afU
 afU
-afU
-afU
-afU
-afU
+akx
+akx
+akx
+akx
 afU
 afU
 afU
@@ -76695,9 +76753,9 @@ afU
 afU
 afU
 afU
-afU
-afU
-afU
+roK
+akx
+akx
 afU
 afU
 afU
@@ -76998,9 +77056,9 @@ afU
 afU
 afU
 afU
-afU
-afU
-afU
+akx
+akx
+akx
 afU
 afU
 afU
@@ -77301,10 +77359,10 @@ afU
 afU
 afU
 afU
-afU
-afU
-afU
-afU
+akx
+akx
+akx
+akx
 afU
 afU
 afU
@@ -77604,10 +77662,10 @@ afU
 afU
 afU
 afU
-afU
-afU
-afU
-afU
+akx
+akx
+akx
+akx
 afU
 afU
 afU
@@ -77907,10 +77965,10 @@ afU
 afU
 afU
 afU
-afU
-afU
-afU
-afU
+akx
+akx
+kJi
+akx
 afU
 afU
 afU
@@ -78202,6 +78260,7 @@ akx
 akx
 akx
 akx
+akx
 afU
 afU
 afU
@@ -78209,10 +78268,9 @@ afU
 afU
 afU
 afU
-afU
-afU
-afU
-afU
+akx
+kJi
+akx
 afU
 afU
 afU
@@ -78504,6 +78562,8 @@ akx
 akx
 akx
 akx
+akx
+akx
 afU
 afU
 afU
@@ -78511,10 +78571,8 @@ afU
 afU
 afU
 afU
-afU
-afU
-afU
-afU
+akx
+akx
 afU
 afU
 afU
@@ -78806,20 +78864,20 @@ akx
 akx
 akx
 akx
+akx
+bbD
+bbD
+akx
 afU
 afU
 afU
 afU
-afU
-afU
-afU
-afU
-afU
-afU
-afU
-afU
-afU
-afU
+akx
+akx
+akx
+pId
+akx
+akx
 afU
 afU
 afU
@@ -79110,18 +79168,18 @@ akx
 afU
 afU
 afU
-afU
-afU
-afU
-afU
-afU
-afU
-afU
-afU
-afU
-afU
-afU
-afU
+roK
+akx
+akx
+akx
+akx
+akx
+akx
+akx
+akx
+pId
+akx
+akx
 afU
 afU
 afU
@@ -79415,16 +79473,16 @@ afU
 afU
 afU
 afU
-afU
-afU
-afU
-afU
-afU
-afU
-afU
-afU
-afU
-afU
+akx
+akx
+akx
+akx
+bbD
+bbD
+cjX
+bbD
+akx
+akx
 afU
 afU
 afU
@@ -79720,13 +79778,13 @@ afU
 afU
 afU
 afU
-afU
-afU
-afU
-afU
-afU
-afU
-afU
+akx
+akx
+akx
+pId
+akx
+akx
+akx
 afU
 afU
 afU
@@ -80022,14 +80080,14 @@ afU
 afU
 afU
 afU
+akx
+akx
 afU
-afU
-afU
-afU
-afU
-afU
-afU
-afU
+sSG
+akx
+akx
+akx
+akx
 afU
 afU
 afU
@@ -80329,10 +80387,10 @@ afU
 afU
 afU
 afU
-afU
-afU
-afU
-afU
+akx
+akx
+akx
+akx
 afU
 afU
 afU
@@ -80631,10 +80689,10 @@ afU
 afU
 afU
 afU
-afU
-afU
-afU
-afU
+akx
+akx
+kJi
+akx
 afU
 afU
 afU
@@ -80934,10 +80992,10 @@ afU
 afU
 afU
 afU
-afU
-afU
-afU
-afU
+akx
+kJi
+akx
+akx
 afU
 afU
 "}
@@ -81236,11 +81294,11 @@ afU
 afU
 afU
 afU
-afU
-afU
-afU
-afU
-afU
+roK
+akx
+akx
+akx
+akx
 afU
 "}
 (206,1,1) = {"
@@ -81538,11 +81596,11 @@ akC
 akC
 afU
 afU
-afU
-afU
-afU
-afU
-afU
+akx
+akx
+akx
+qfa
+akx
 afU
 "}
 (207,1,1) = {"
@@ -81841,9 +81899,9 @@ akC
 afU
 afU
 afU
-afU
-afU
-afU
+akx
+akx
+akx
 afU
 afU
 "}
@@ -82143,8 +82201,8 @@ akC
 afU
 afU
 afU
-afU
-afU
+akx
+akx
 afU
 afU
 afU
