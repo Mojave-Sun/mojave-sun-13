@@ -31,7 +31,7 @@
 	if(M == user)
 		M.visible_message(span_notice("[user] attempts to [apply_method] [src]."))
 		if(self_delay)
-			if(!do_mob(user, M, self_delay))
+			if(!do_after(user, self_delay, M))
 				return FALSE
 		to_chat(M, span_notice("You [apply_method] [src]."))
 		playsound(src, chompsound, 35, TRUE, 2)
@@ -40,7 +40,7 @@
 	else
 		M.visible_message(span_danger("[user] attempts to force [M] to [apply_method] [src]."), \
 							span_userdanger("[user] attempts to force you to [apply_method] [src]."))
-		if(!do_mob(user, M, CHEM_INTERACT_DELAY(3 SECONDS, user)))
+		if(!do_after(user, CHEM_INTERACT_DELAY(3 SECONDS, user), M))
 			return FALSE
 		M.visible_message(span_danger("[user] forces [M] to [apply_method] [src]."), \
 							span_userdanger("[user] forces you to [apply_method] [src]."))
