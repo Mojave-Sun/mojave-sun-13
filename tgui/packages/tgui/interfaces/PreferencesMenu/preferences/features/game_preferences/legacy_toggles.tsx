@@ -1,3 +1,6 @@
+//GOMBLE TODO - Ship Ambience
+
+
 import { multiline } from 'common/string';
 import { FeatureToggle, CheckboxInput, CheckboxInputInverse } from '../base';
 
@@ -93,12 +96,5 @@ export const sound_adminhelp: FeatureToggle = {
 export const sound_prayers: FeatureToggle = {
   name: 'Enable prayer sound',
   category: 'ADMIN',
-  component: CheckboxInput,
-};
-/* //MOJAVE SUN EDIT START - Removes "Ship Ambience"
-export const split_admin_tabs: FeatureToggle = {
-  name: 'Split admin tabs',
-  category: 'ADMIN',
-  description: "When enabled, will split the 'Admin' panel into several tabs.",
   component: CheckboxInput,
 };
