@@ -465,17 +465,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/awaymission/snowdin/post/research)
-"bG" = (
-/obj/effect/turf_decal/tile/yellow,
-/obj/effect/turf_decal/tile/yellow{
-	dir = 8
-	},
-/obj/machinery/computer/atmos_control/noreconnect{
-	atmos_chambers = list("snowdinn2"="Nitrogen Supply");
-	dir = 1
-	},
-/turf/open/floor/iron,
-/area/awaymission/snowdin/post/engineering)
 "bH" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden{
 	dir = 4;
@@ -2477,17 +2466,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/awaymission/snowdin/post)
-"hi" = (
-/obj/effect/turf_decal/tile/yellow,
-/obj/effect/turf_decal/tile/yellow{
-	dir = 8
-	},
-/obj/machinery/computer/atmos_control/noreconnect{
-	atmos_chambers = list("snowdino2"="Oxygen Supply");
-	dir = 1
-	},
-/turf/open/floor/iron,
-/area/awaymission/snowdin/post/engineering)
 "hj" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/plating,
@@ -2870,7 +2848,7 @@
 	},
 /area/awaymission/snowdin/cave/cavern)
 "in" = (
-/mob/living/simple_animal/hostile/netherworld/blankbody{
+/mob/living/basic/blankbody{
 	desc = "It's Caleb Reed, but their flesh has an ashy texture, and their face is featureless save an eerie smile.";
 	name = "Caleb Reed"
 	},
@@ -3568,7 +3546,7 @@
 /turf/open/floor/plating,
 /area/awaymission/snowdin/post/garage)
 "jO" = (
-/mob/living/simple_animal/hostile/netherworld/blankbody{
+/mob/living/basic/blankbody{
 	desc = "It's Jacob Ullman, but their flesh has an ashy texture, and their face is featureless save an eerie smile.";
 	name = "Jacob Ullman"
 	},
@@ -6189,6 +6167,14 @@
 	},
 /turf/open/floor/iron,
 /area/awaymission/snowdin/post/engineering)
+"qX" = (
+/obj/machinery/computer/atmos_control/noreconnect{
+	atmos_chambers = list("snowdinmix"="Mix Chamber");
+	dir = 1
+	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
+/area/awaymission/snowdin/post/engineering)
 "qY" = (
 /obj/effect/turf_decal/tile/yellow,
 /obj/effect/turf_decal/tile/yellow{
@@ -6201,6 +6187,28 @@
 /obj/effect/turf_decal/tile/yellow,
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
+	},
+/turf/open/floor/iron,
+/area/awaymission/snowdin/post/engineering)
+"ra" = (
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/tile/yellow{
+	dir = 8
+	},
+/obj/machinery/computer/atmos_control/noreconnect{
+	atmos_chambers = list("snowdino2"="Oxygen Supply");
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/awaymission/snowdin/post/engineering)
+"rb" = (
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/tile/yellow{
+	dir = 8
+	},
+/obj/machinery/computer/atmos_control/noreconnect{
+	atmos_chambers = list("snowdinn2"="Nitrogen Supply");
+	dir = 1
 	},
 /turf/open/floor/iron,
 /area/awaymission/snowdin/post/engineering)
@@ -6453,7 +6461,7 @@
 /turf/open/floor/wood,
 /area/awaymission/snowdin/igloo)
 "rZ" = (
-/mob/living/simple_animal/hostile/netherworld/migo,
+/mob/living/basic/migo,
 /turf/open/floor/engine/cult,
 /area/awaymission/snowdin/post/cavern2)
 "sa" = (
@@ -6797,10 +6805,6 @@
 /mob/living/simple_animal/hostile/skeleton/ice,
 /turf/open/floor/plating/snowed/cavern,
 /area/awaymission/snowdin/cave/cavern)
-"tC" = (
-/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
-/turf/open/floor/plating,
-/area/awaymission/snowdin/cave)
 "tE" = (
 /turf/closed/indestructible/rock/snow,
 /area/awaymission/snowdin/cave)
@@ -7420,23 +7424,6 @@
 /obj/machinery/light/small/broken/directional/east,
 /turf/open/misc/asteroid/snow/ice,
 /area/awaymission/snowdin/post/cavern1)
-"xr" = (
-/obj/machinery/button/door/directional/south{
-	id = "snowdinturbineoutlet";
-	name = "Turbine Outlet Release";
-	pixel_y = -32
-	},
-/obj/machinery/button/door/directional/south{
-	id = "snowdinturbinegas";
-	name = "Turbine Gas Release"
-	},
-/obj/machinery/computer/atmos_control/fixed{
-	atmos_chambers = list("snowdinincin"="Incinerator Chamber");
-	dir = 1
-	},
-/obj/effect/mapping_helpers/broken_floor,
-/turf/open/floor/plating,
-/area/awaymission/snowdin/post/engineering)
 "xs" = (
 /obj/item/gun/energy/e_gun{
 	dead_cell = 1
@@ -7504,7 +7491,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/mob/living/simple_animal/hostile/netherworld/migo,
+/mob/living/basic/migo,
 /turf/open/floor/iron,
 /area/awaymission/snowdin/post/mining_dock)
 "xB" = (
@@ -8662,7 +8649,7 @@
 /turf/open/misc/asteroid/snow,
 /area/awaymission/snowdin/cave)
 "BJ" = (
-/mob/living/simple_animal/hostile/netherworld/blankbody{
+/mob/living/basic/blankbody{
 	desc = "It's Caleb Reed, but their flesh has an ashy texture, and their face is featureless save an eerie smile.";
 	name = "Caleb Reed"
 	},
@@ -9067,6 +9054,10 @@
 	dir = 4
 	},
 /turf/open/floor/mineral/plastitanium/red,
+/area/awaymission/snowdin/cave)
+"DH" = (
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/cave)
 "DI" = (
 /obj/structure/grille/broken,
@@ -9766,7 +9757,7 @@
 /turf/open/floor/iron,
 /area/awaymission/snowdin/post/mining_dock)
 "Hb" = (
-/mob/living/simple_animal/hostile/netherworld/migo,
+/mob/living/basic/migo,
 /turf/open/floor/iron,
 /area/awaymission/snowdin/post/mining_dock)
 "Hc" = (
@@ -9965,7 +9956,7 @@
 /area/awaymission/snowdin/post/mining_main/mechbay)
 "HQ" = (
 /obj/effect/turf_decal/stripes/line,
-/mob/living/simple_animal/hostile/netherworld/migo,
+/mob/living/basic/migo,
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating,
 /area/awaymission/snowdin/post/mining_main/mechbay)
@@ -11616,14 +11607,6 @@
 /obj/machinery/light/small/broken/directional/south,
 /turf/open/floor/iron/showroomfloor,
 /area/awaymission/snowdin/post/dorm)
-"Oi" = (
-/obj/machinery/computer/atmos_control/noreconnect{
-	atmos_chambers = list("snowdinmix"="Mix Chamber");
-	dir = 1
-	},
-/obj/effect/mapping_helpers/broken_floor,
-/turf/open/floor/plating,
-/area/awaymission/snowdin/post/engineering)
 "Oj" = (
 /obj/structure/fence,
 /turf/open/misc/asteroid/snow/ice,
@@ -12316,6 +12299,23 @@
 /mob/living/simple_animal/hostile/giant_spider/hunter/ice,
 /turf/open/misc/asteroid/snow/ice,
 /area/awaymission/snowdin/cave/cavern)
+"Sj" = (
+/obj/machinery/button/door/directional/south{
+	id = "snowdinturbineoutlet";
+	name = "Turbine Outlet Release";
+	pixel_y = -32
+	},
+/obj/machinery/button/door/directional/south{
+	id = "snowdinturbinegas";
+	name = "Turbine Gas Release"
+	},
+/obj/machinery/computer/atmos_control/fixed{
+	atmos_chambers = list("snowdinincin"="Incinerator Chamber");
+	dir = 1
+	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
+/area/awaymission/snowdin/post/engineering)
 "Sk" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -12839,7 +12839,7 @@
 /turf/open/misc/asteroid/snow,
 /area/awaymission/snowdin/cave)
 "Vd" = (
-/mob/living/simple_animal/hostile/netherworld/migo,
+/mob/living/basic/migo,
 /turf/open/floor/iron/white,
 /area/awaymission/snowdin/post/mining_main/robotics)
 "Ve" = (
@@ -26563,7 +26563,7 @@ oO
 pv
 pT
 qu
-xr
+Sj
 rp
 SK
 rp
@@ -27848,7 +27848,7 @@ oR
 nt
 pX
 qw
-Oi
+qX
 rt
 rN
 Un
@@ -28619,7 +28619,7 @@ oT
 nN
 qa
 qy
-hi
+ra
 rt
 rP
 SG
@@ -29390,7 +29390,7 @@ oV
 nN
 qd
 qB
-bG
+rb
 rt
 rR
 TD
@@ -34167,9 +34167,9 @@ wS
 an
 Dx
 CC
-tC
+DH
 bC
-tC
+DH
 CC
 Em
 Mq
@@ -34680,11 +34680,11 @@ wS
 an
 Mq
 fe
-tC
+DH
 ka
 Ea
 PQ
-tC
+DH
 Eo
 XD
 Mq
@@ -35194,11 +35194,11 @@ CH
 De
 CH
 CH
-tC
+DH
 ka
 Eb
 PQ
-tC
+DH
 CH
 Eu
 Ez
