@@ -11,6 +11,7 @@
 	slot_flags = ITEM_SLOT_SUITSTORE
 	force = 15
 	cell_type = /obj/item/stock_parts/cell/ms13/gauss
+	wield_info = /datum/wield_info/default/inhands
 
 /obj/item/gun/energy/ms13/gauss/rifle
 	name = "gauss rifle"
@@ -60,6 +61,7 @@
 	fire_delay = 0.6 SECONDS
 	grid_width = 96
 	grid_height = 64
+	wield_info = /datum/wield_info/default
 
 /* Someone else has to figure out this thing's gimmick. Won't be me.
 /obj/item/gun/ballistic/automatic/ms13/semi/gauss/chinese

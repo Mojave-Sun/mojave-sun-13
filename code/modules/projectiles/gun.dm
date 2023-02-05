@@ -146,11 +146,11 @@
 		. += "It has a <b>bayonet</b> lug on it."
 
 //called after the gun has successfully fired its chambered ammo.
-/obj/item/gun/proc/process_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE)
-	handle_chamber(empty_chamber, from_firing, chamber_next_round)
+/obj/item/gun/proc/process_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE, atom/shooter = null)
+	handle_chamber(empty_chamber, from_firing, chamber_next_round, shooter = shooter)
 	SEND_SIGNAL(src, COMSIG_GUN_CHAMBER_PROCESSED)
 
-/obj/item/gun/proc/handle_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE)
+/obj/item/gun/proc/handle_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE, atom/shooter = null)
 	return
 
 //check if there's enough ammo/energy/whatever to shoot one time
@@ -159,8 +159,8 @@
 	return TRUE
 
 /obj/item/gun/proc/shoot_with_empty_chamber(mob/living/user as mob|obj)
-	to_chat(user, span_danger("*click*"))
-	playsound(src, dry_fire_sound, 30, TRUE)
+	to_chat(user, span_danger("[user] pulls the trigger of [src], but it doesn't go off!"))// MOJAVE SUN EDIT - Original is to_chat(user, span_danger("*click*"))
+	playsound(src, dry_fire_sound, 5, TRUE) // MOJAVE SUN EDIT - ORIGINAL SOUND VALUE IS 30
 
 
 /obj/item/gun/proc/shoot_live_shot(mob/living/user, pointblank = 0, atom/pbtarget = null, message = 1)
@@ -348,7 +348,7 @@
 		shoot_with_empty_chamber(user)
 		firing_burst = FALSE
 		return FALSE
-	process_chamber()
+	process_chamber(shooter = user)
 	update_appearance()
 	return TRUE
 
@@ -406,7 +406,7 @@
 		else
 			shoot_with_empty_chamber(user)
 			return
-		process_chamber()
+		process_chamber(shooter = user)
 		update_appearance()
 		semicd = TRUE
 		addtimer(CALLBACK(src, .proc/reset_semicd), modified_delay)

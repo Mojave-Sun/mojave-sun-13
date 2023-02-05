@@ -44,6 +44,7 @@
 		loaded_projectile = new projectile_type(src)
 	pixel_x = base_pixel_x + rand(-10, 10)
 	pixel_y = base_pixel_y + rand(-10, 10)
+	item_flags |= NO_PIXEL_RANDOM_DROP
 	setDir(pick(GLOB.alldirs))
 	update_appearance()
 
