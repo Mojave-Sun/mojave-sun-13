@@ -789,6 +789,7 @@
 	attack_sound = 'mojave/sound/ms13weapons/meleesounds/slam.ogg'
 	health = 600
 	maxHealth = 600
+	obj_damage = 150
 	melee_damage_lower = 40
 	melee_damage_upper = 60
 	speed = 2
@@ -829,20 +830,43 @@
 		return
 	Goto(target = target, delay = move_to_delay, minimum_distance = 0)
 
+/mob/living/simple_animal/hostile/ms13/hellpig/CanSmashTurfs(turf/T)
+	return FALSE
+
 /datum/action/cooldown/mob_cooldown/charge/hellpig
 	charge_delay = 0.5 SECONDS
-	charge_speed = 0.15 SECONDS
+	charge_speed = 0.075 SECONDS
 	charge_past = 4
 	cooldown_time = 5 SECONDS
-	destroy_objects = FALSE
 
-//destroy_objects is a lie
 /datum/action/cooldown/mob_cooldown/charge/hellpig/on_bump(atom/movable/source, atom/target)
 	SIGNAL_HANDLER
 	if(owner == target)
 		return
-	INVOKE_ASYNC(src, .proc/DestroySurroundings, source)
 	hit_target(source, target, charge_damage)
+
+//Doesn't destroy turfs
+/datum/action/cooldown/mob_cooldown/charge/hellpig/DestroySurroundings(atom/movable/charger)
+	if(!destroy_objects)
+		return
+	if(!isanimal(charger))
+		return
+	for(var/dir in GLOB.cardinals)
+		var/turf/next_turf = get_step(charger, dir)
+		if(!next_turf)
+			continue
+		for(var/obj/object in next_turf.contents)
+			if(!object.Adjacent(charger))
+				continue
+			if(!ismachinery(object) && !isstructure(object))
+				continue
+			if(!object.density || object.IsObscured())
+				continue
+			if(!isanimal(charger))
+				SSexplosions.med_mov_atom += target
+				break
+			object.attack_animal(charger)
+			break
 
 /datum/action/cooldown/mob_cooldown/charge/hellpig/do_charge_indicator(atom/charger, atom/charge_target)
 	var/turf/target_turf = get_turf(charge_target)
