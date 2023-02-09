@@ -128,23 +128,23 @@
 /obj/item/ammo_casing/attackby(obj/item/attacking_item, mob/user, params)
 	. = ..()
 	if(!istype(attacking_item, /obj/item/ammo_casing))
-		return
+		return FALSE
 	var/obj/item/ammo_casing/ammo_casing = attacking_item
 	if(!ammo_casing.stack_type)
 		to_chat(user, span_warning("[ammo_casing] can't be stacked."))
-		return
+		return FALSE
 	if(!stack_type)
 		to_chat(user, span_warning("[src] can't be stacked."))
-		return
+		return FALSE
 	if(caliber != ammo_casing.caliber)
 		to_chat(user, span_warning("I can't stack different calibers."))
-		return
+		return FALSE
 	if(stack_type != ammo_casing.stack_type)
 		to_chat(user, span_warning("I can't stack [ammo_casing] with [src]."))
-		return
+		return FALSE
 	if(!loaded_projectile || !ammo_casing.loaded_projectile)
 		to_chat(user, span_warning("I can't stack empty casings."))
-		return
+		return FALSE
 	var/obj/item/ammo_box/magazine/ammo_stack/ammo_stack = new stack_type(drop_location())
 	if(generic_stacking)
 		ammo_stack.name = "[capitalize(caliber)] rounds"
@@ -161,3 +161,4 @@
 	user.put_in_hands(ammo_stack)
 	ammo_stack.update_appearance()
 	to_chat(user, span_notice("[src] has been stacked with [ammo_casing]."))
+	return TRUE

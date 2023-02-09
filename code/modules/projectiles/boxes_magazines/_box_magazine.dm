@@ -117,27 +117,43 @@
 /obj/item/ammo_box/proc/can_load(mob/user)
 	return TRUE
 
+
+/obj/item/ammo_box/proc/get_ammo(obj/item/ammo_box/AM, replace_spent = 0)
+	var/num_loaded = 0
+	for(var/obj/item/ammo_casing/AC in stored_ammo)
+		var/did_load = AM.give_round(AC, replace_spent)
+		if(did_load)
+			stored_ammo -= AC
+			num_loaded++
+		if(!did_load || !multiload)
+			break
+	if(num_loaded)
+		update_ammo_count()
+	return num_loaded
+
 /obj/item/ammo_box/attackby(obj/item/A, mob/user, params, silent = FALSE, replace_spent = 0)
 	var/num_loaded = 0
 	if(!can_load(user))
 		return
+	var/list/modifiers = params2list(params)
 	if(istype(A, /obj/item/ammo_box/magazine/ammo_stack) || (istype(A, /obj/item/ammo_box/ms13/stripper))) // MOJAVE SUN EDIT | INITIAL CODE : if(istype(A, /obj/item/ammo_box))
 		var/obj/item/ammo_box/AM = A
-		for(var/obj/item/ammo_casing/AC in AM.stored_ammo)
-			var/did_load = give_round(AC, replace_spent)
-			if(did_load)
-				AM.stored_ammo -= AC
-				num_loaded++
-			if(!did_load || !multiload)
-				break
-		if(num_loaded)
-			AM.update_ammo_count()
+		if(LAZYACCESS(modifiers, RIGHT_CLICK))
+			num_loaded += get_ammo(AM, replace_spent)
+		else
+			num_loaded += AM.get_ammo(src, replace_spent)
+
 	if(istype(A, /obj/item/ammo_casing))
 		var/obj/item/ammo_casing/AC = A
-		if(give_round(AC, replace_spent))
-			user.transferItemToLoc(AC, src, TRUE)
-			num_loaded++
-			AC.update_appearance()
+		if(LAZYACCESS(modifiers, RIGHT_CLICK))
+			var/obj/item/ammo_casing/ACU = stored_ammo[length(stored_ammo)]
+			if(AC.attackby(ACU, user))
+				stored_ammo -= AC
+		else
+			if(give_round(AC, replace_spent))
+				user.transferItemToLoc(AC, src, TRUE)
+				num_loaded++
+				AC.update_appearance()
 
 	if(num_loaded)
 		if(!silent)
