@@ -148,7 +148,7 @@
 		if(LAZYACCESS(modifiers, RIGHT_CLICK))
 			var/obj/item/ammo_casing/ACU = stored_ammo[length(stored_ammo)]
 			if(AC.attackby(ACU, user))
-				stored_ammo -= AC
+				stored_ammo -= ACU
 		else
 			if(give_round(AC, replace_spent))
 				user.transferItemToLoc(AC, src, TRUE)
