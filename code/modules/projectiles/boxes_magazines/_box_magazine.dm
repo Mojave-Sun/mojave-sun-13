@@ -140,7 +140,8 @@
 			num_loaded += get_ammo(AM, replace_spent)
 		else
 			num_loaded += AM.get_ammo(src, replace_spent)
-		AM.update_ammo_count()
+		if(num_loaded)
+			AM.update_ammo_count()
 
 	if(istype(A, /obj/item/ammo_casing))
 		var/obj/item/ammo_casing/AC = A
@@ -152,7 +153,8 @@
 			if(give_round(AC, replace_spent))
 				user.transferItemToLoc(AC, src, TRUE)
 				num_loaded++
-		AC.update_appearance()
+		if(num_loaded)
+			AC.update_appearance()
 
 	if(num_loaded)
 		if(!silent)
