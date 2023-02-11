@@ -128,7 +128,6 @@
 		if(!did_load || !multiload)
 			break
 	if(num_loaded)
-		update_ammo_count()
 		AM.update_ammo_count()
 	return num_loaded
 
