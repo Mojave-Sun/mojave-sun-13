@@ -152,7 +152,7 @@
 			if(give_round(AC, replace_spent))
 				user.transferItemToLoc(AC, src, TRUE)
 				num_loaded++
-		AC.update_ammo_count()
+		AC.update_appearance()
 
 	if(num_loaded)
 		if(!silent)
