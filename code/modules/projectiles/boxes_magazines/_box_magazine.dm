@@ -129,6 +129,7 @@
 			break
 	if(num_loaded)
 		update_ammo_count()
+		AM.update_ammo_count()
 	return num_loaded
 
 /obj/item/ammo_box/attackby(obj/item/A, mob/user, params, silent = FALSE, replace_spent = 0)
