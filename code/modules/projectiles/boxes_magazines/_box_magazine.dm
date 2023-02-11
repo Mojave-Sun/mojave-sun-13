@@ -153,7 +153,7 @@
 			if(give_round(AC, replace_spent))
 				user.transferItemToLoc(AC, src, TRUE)
 				num_loaded++
-				AC.update_appearance()
+		AC.update_appearance()
 
 	if(num_loaded)
 		if(!silent)
