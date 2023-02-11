@@ -127,8 +127,6 @@
 			num_loaded++
 		if(!did_load || !multiload)
 			break
-	if(num_loaded)
-		AM.update_ammo_count()
 	return num_loaded
 
 /obj/item/ammo_box/attackby(obj/item/A, mob/user, params, silent = FALSE, replace_spent = 0)
@@ -142,6 +140,7 @@
 			num_loaded += get_ammo(AM, replace_spent)
 		else
 			num_loaded += AM.get_ammo(src, replace_spent)
+		AM.update_ammo_count()
 
 	if(istype(A, /obj/item/ammo_casing))
 		var/obj/item/ammo_casing/AC = A
@@ -153,14 +152,13 @@
 			if(give_round(AC, replace_spent))
 				user.transferItemToLoc(AC, src, TRUE)
 				num_loaded++
-		AC.update_appearance()
+		AC.update_ammo_count()
 
 	if(num_loaded)
 		if(!silent)
 			to_chat(user, span_notice("You load [num_loaded] shell\s into \the [src]!"))
 			playsound(src, 'sound/weapons/gun/general/mag_bullet_insert.ogg', 60, TRUE)
 		update_ammo_count()
-
 	return num_loaded
 
 /obj/item/ammo_box/attack_self(mob/user)
