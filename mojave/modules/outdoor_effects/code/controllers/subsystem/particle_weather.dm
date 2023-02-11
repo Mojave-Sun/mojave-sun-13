@@ -40,8 +40,8 @@ SUBSYSTEM_DEF(particle_weather)
 		run_weather(next_hit)
 
 	if(!running_weather && !next_hit && length(elligble_weathers))
-		for(var/our_event in pick(elligble_weathers))
-			if(our_event && rand(1, 1000) < elligble_weathers[our_event])
+		for(var/our_event in elligble_weathers)
+			if(our_event && prob(elligble_weathers[our_event]))
 				next_hit = new our_event()
 				COOLDOWN_START(src, next_weather_start, rand(-3000, 3000) + initial(next_hit.weather_duration_upper) / 5)
 				break
