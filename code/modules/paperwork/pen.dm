@@ -314,12 +314,12 @@
 /obj/item/pen/ms13
 	icon = 'mojave/icons/objects/clutter/clutter_world.dmi'
 	icon_state = "pen"
-	inhand_icon_state = "pen"
-	worn_icon_state = "pen"
+
+/obj/item/pen/ms13/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clutter/clutter_inventory.dmi')
 
 /obj/item/pen/ms13/pencil
 	name = "pencil"
 	desc = "An orange pencil with a pink eraser"
 	icon_state = "pencil"
-	inhand_icon_state = "pencil"
-	worn_icon_state = "pencil"
