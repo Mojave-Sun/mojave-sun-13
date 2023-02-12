@@ -41,6 +41,11 @@
     burn_icon = "campfire_lit"
     max_integrity = 80
 
+/obj/structure/bonfire/ms13/campfire/process(delta_time)
+	. = ..()
+	var/turf/my_turf = get_turf(src)
+	my_turf.VapourListTurf(list(/datum/vapours/smoke = 150, /datum/vapours/carbon_air_vapour = 80), VAPOUR_ACTIVE_EMITTER_CAP)
+
 /obj/structure/bonfire/ms13/campfire/attackby(obj/item/used_item, mob/living/user, params)
 	if(used_item.get_temperature())
 		start_burning()
@@ -62,6 +67,11 @@
     burn_icon = "fire_barrel_lit"
     density = TRUE
     max_integrity = 150
+
+/obj/structure/bonfire/ms13/fire_barrel/process(delta_time)
+	. = ..()
+	var/turf/my_turf = get_turf(src)
+	my_turf.VapourListTurf(list(/datum/vapours/smoke = 30, /datum/vapours/carbon_air_vapour = 5), VAPOUR_ACTIVE_EMITTER_CAP)
 
 /obj/structure/bonfire/ms13/fire_barrel/examine(mob/user)
 	. = ..()

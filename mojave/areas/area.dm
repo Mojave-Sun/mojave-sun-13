@@ -13,6 +13,7 @@
 	static_lighting = TRUE
 	ambientsounds = GENERIC_AMBIENCE // To Do, Make actual Ambience and Seperate Music Component - Scar 2022
 	flags_1 = NONE
+	var/dissipation_rate = 0.5 // higher numbers = quicker dissipation, 1 is neutral //default indoor rate
 
 /area/ms13/admeme
 	icon_state = "secret"
@@ -65,6 +66,7 @@
 	name = "Vault Outer"
 	icon_state = "vault_outer"
 	atmosphere_sound = CAVE_ATMOSPHERE
+	dissipation_rate = 30 //them gotdang firebarrels
 
 /area/ms13/supermarket
 	name = "Supermarket"
@@ -92,6 +94,7 @@
 	requires_power = FALSE
 	outdoors = FALSE
 	atmosphere_sound = CAVE_ATMOSPHERE
+	dissipation_rate = 20
 
 /area/ms13/underground/mountain
 	name = "mountain"

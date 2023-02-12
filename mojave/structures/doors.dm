@@ -173,11 +173,14 @@
 		icon_state = "[door_type]_open"
 
 /obj/machinery/door/unpowered/ms13/try_to_activate_door(mob/living/M)
-	add_fingerprint(M)
+	var/turf/location = get_turf(src)
 	if(density)
 		open()
 	else
 		close()
+	add_fingerprint(M)
+	air_update_turf(TRUE, FALSE)
+	location.air_update_turf(TRUE, FALSE)
 	return TRUE
 
 /obj/machinery/door/unpowered/ms13/attack_hand(mob/living/M)

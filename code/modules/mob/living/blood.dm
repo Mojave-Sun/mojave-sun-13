@@ -333,6 +333,7 @@
 		var/obj/effect/decal/cleanable/blood/drip/drop = locate() in T
 		if(drop)
 			if(drop.drips < 5)
+				T.VapourTurf(/datum/vapours/metallic_scent, 5) //MOJAVE SUN EDIT - Vapour
 				drop.drips++
 				drop.add_overlay(pick(drop.random_icon_states))
 				drop.transfer_mob_blood_dna(src)
@@ -341,6 +342,7 @@
 				temp_blood_DNA = drop.return_blood_DNA() //we transfer the dna from the drip to the splatter
 				qdel(drop)//the drip is replaced by a bigger splatter
 		else
+			T.VapourTurf(/datum/vapours/metallic_scent, 5) //MOJAVE SUN EDIT - Vapour
 			drop = new(T, get_static_viruses())
 			drop.transfer_mob_blood_dna(src)
 			return
