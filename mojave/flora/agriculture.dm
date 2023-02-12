@@ -502,7 +502,7 @@
 /obj/machinery/ms13/agriculture/attackby(obj/item/O, mob/user, params)
 	//Called when mob user "attacks" it with object O
 	if(istype(O, /obj/item/stack/ms13/fertilizer))
-		var/obj/item/stack/ms13/fertilizer/fertilizer
+		var/obj/item/stack/ms13/fertilizer/fertilizer = O
 		fertilizer.amount--
 		if(fertilizer.nitro > 0)
 			n_fertilizer = clamp(n_fertilizer + fertilizer.nitro, 0.00, fertilizer_cap)
