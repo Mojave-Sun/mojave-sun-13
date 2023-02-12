@@ -315,6 +315,9 @@
 	icon = 'mojave/icons/objects/clutter/clutter_world.dmi'
 	icon_state = "pen"
 
+/obj/item/pen/ms13/attack_self(mob/living/carbon/user)
+  return
+
 /obj/item/pen/ms13/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clutter/clutter_inventory.dmi')
@@ -323,3 +326,5 @@
 	name = "pencil"
 	desc = "An orange pencil with a pink eraser"
 	icon_state = "pencil"
+	colour = "dimgray"
+	font = CHARCOAL_FONT
