@@ -142,7 +142,7 @@
 /obj/structure/snow
 	name = "Snow"
 	desc = "Big pile of snow"
-	icon = 'icons/effects/snow.dmi'
+//	icon = 'icons/effects/snow.dmi'
 	icon_state = "snow_1"
 	var/icon_prefix = "snow"
 	anchored = TRUE
@@ -158,12 +158,10 @@
 	var/bleed_layer = 1
 	var/pts = 0
 	var/list/layer_name = list("Snow", "Snow", "Snow", "Snow", "Snow", "Snow")
-	var/list/variants = list()
+	var/list/overlays_by_mob = list()
+	var/list/corners_overlays = list()
 	var/atom/movable/overlay
-	var/s = FALSE
-	var/n = FALSE
-	var/w = FALSE
-	var/e = FALSE
+	var/list/diged = list(SOUTH = FALSE, NORTH = FALSE, WEST = FALSE, EAST = FALSE)
 
 /obj/structure/snow/New()
 	setDir(pick(GLOB.alldirs))
@@ -178,40 +176,41 @@
 	return throwpass
 
 /obj/structure/snow/update_icon()
-	if(length(variants) && variants[bleed_layer])
-		icon_state = "[icon_prefix]_[bleed_layer]_[pick(variants[bleed_layer])]"
-	else
-		icon_state = "[icon_prefix]_[bleed_layer]"
+	icon_state = "[icon_prefix]_[bleed_layer]"
 	setDir(pick(NORTH,SOUTH,EAST,WEST,NORTHEAST,NORTHWEST,SOUTHEAST,SOUTHWEST))
 
 	var/name_to_set = layer_name[bleed_layer]
 	throwpass = bleed_layer < 4 ? TRUE : FALSE
 	density = bleed_layer < 5 ? FALSE : TRUE
 	layer = bleed_layer < 4 ? LOW_OBJ_LAYER : OBJ_LAYER
-	overlay = GLOB.tall_overlays[bleed_layer]
+//	overlay = GLOB.tall_overlays[bleed_layer]
 
 	name = name_to_set
 
-	update_overlay()
+	update_corners()
+	update_overlays()
 
 	..()
 
-/obj/structure/snow/proc/update_overlay()
+/obj/structure/snow/update_overlays()
+	. = ..()
+	if(overlays)
+		overlays.Cut()
+
 	var/new_overlay = ""
-	overlays.Cut()
-	if(s == TRUE)
-		new_overlay += "s"
-	if(n == TRUE)
-		new_overlay += "n"
-	if(w == TRUE)
-		new_overlay += "w"
-	if(e == TRUE)
-		new_overlay += "e"
+	for(var/i in diged)
+		new_overlay += i
 	overlays += "[new_overlay]"
 
+	for(var/image/i in corners_overlays)
+		overlays += corners_overlays
+
+/obj/structure/snow/proc/update_corners()
 	for(var/dirn in GLOB.alldirs)
-		var/turf/T = get_step(get_turf(src), dirn)
-		var/obj/structure/snow/turf_snow = T.snow
+		var/turf/turf = get_step(get_turf(src), dirn)
+		if(!turf)
+			continue
+		var/obj/structure/snow/turf_snow = turf.snow
 		if(!turf_snow || turf_snow.bleed_layer < bleed_layer)
 			var/image/I = new(icon, "snow_[(dirn & (dirn-1)) ? "outercorner" : pick("innercorner", "outercorner")]", dir = dirn)
 			switch(dirn)
@@ -237,11 +236,14 @@
 					I.pixel_y = -32
 
 			I.layer = layer + 0.001 + bleed_layer * 0.0001
-			overlays += I
+			corners_overlays += I
 
 /obj/structure/snow/proc/weathered(datum/weather_effect/effect)
 	if(pts < bleed_layer * 4)
 		pts++
+		for(var/i in diged)
+			diged[i] = FALSE
+		update_overlays()
 	else
 		pts = 0
 		changing_layer(min(bleed_layer + 1, MAX_LAYER_CUTTING_LEVELS))
@@ -253,6 +255,11 @@
 	bleed_layer = max(0, new_layer)
 	for(var/obj/structure/snow/snow in connected_snow)
 		snow.update_icon()
+
+	for(var/mob/living/carbon/carbon in overlays_by_mob)
+		carbon.overlays -= overlays_by_mob[carbon]
+		overlays_by_mob[carbon] = overlay
+		carbon.overlays += overlays_by_mob[carbon]
 
 	if(!bleed_layer)
 		qdel(src)
@@ -273,67 +280,34 @@
 			if(bleed_layer)
 				addtimer(CALLBACK(src, .proc/changing_layer, 0), 1)
 
-/obj/structure/snow/Cross(atom/movable/AM)
-	if(iscarbon(AM) && bleed_layer > 1)
-		var/mob/living/carbon/carbon = AM
-		carbon.overlays += overlay
-//		var/slow_amount = 0.35 REPLACE WITH WORKING THING
-//		var/can_stuck = 1 REPLACE WITH WORKING THING
-//		var/new_slowdown = carbon.next_move_slowdown + (slow_amount * bleed_layer) REPLACE WITH WORKING THING
-		if(prob(2))
-			to_chat(carbon, span_warning("Moving through [src] slows you down.")) //Warning only
-		else if(can_stuck && bleed_layer == 4 && prob(2))
-			to_chat(carbon, span_warning("You get stuck in [src] for a moment!"))
-//			new_slowdown += 10 REPLACE WITH WORKING THING
-		//INPUT SLOWDOWN APPLY
-		if(carbon.dir == SOUTH)
-			n = TRUE
-			spawn(30 SECONDS)
-				n = FALSE
-				update_overlay()
-		if(carbon.dir == NORTH)
-			s = TRUE
-			spawn(30 SECONDS)
-				s = FALSE
-				update_overlay()
-		if(carbon.dir == WEST)
-			e = TRUE
-			spawn(30 SECONDS)
-				e = FALSE
-				update_overlay()
-		if(carbon.dir == EAST)
-			w = TRUE
-			spawn(30 SECONDS)
-				w = FALSE
-				update_overlay()
-		update_overlay()
+/obj/structure/snow/Entered(atom/movable/arrived)
+	if(iscarbon(arrived))
+		var/mob/living/carbon/carbon = arrived
+		if(bleed_layer > 1)
+			overlays_by_mob[carbon] = overlay
+			carbon.overlays += overlays_by_mob[carbon]
+	//		var/slow_amount = 0.35
+	//		var/can_stuck = 1
+	//		var/new_slowdown = carbon.next_move_slowdown + (slow_amount * bleed_layer)
+			if(prob(2))
+				to_chat(carbon, span_warning("Moving through [src] slows you down.")) //Warning only
+			else if(bleed_layer == 4 && prob(2))
+				to_chat(carbon, span_warning("You get stuck in [src] for a moment!"))
+	//			new_slowdown += 10
+	//		carbon.next_move_slowdown = new_slowdown
+		set_diged_ways(REVERSE_DIR(carbon.dir))
 	..()
 
-/obj/structure/snow/Crossed(atom/movable/AM)
-	if(iscarbon(AM))
-		var/mob/living/carbon/carbon = AM
-		if(carbon.dir == SOUTH)
-			s = TRUE
-			spawn(30 SECONDS)
-				s = FALSE
-				update_overlay()
-		if(carbon.dir == NORTH)
-			n = TRUE
-			spawn(30 SECONDS)
-				n = FALSE
-				update_overlay()
-		if(carbon.dir == WEST)
-			w = TRUE
-			spawn(30 SECONDS)
-				w = FALSE
-				update_overlay()
-		if(carbon.dir == EAST)
-			e = TRUE
-			spawn(30 SECONDS)
-				e = FALSE
-				update_overlay()
-		update_overlay()
+/obj/structure/snow/Exited(atom/movable/gone, direction)
+	if(iscarbon(gone))
+		var/mob/living/carbon/carbon = gone
+		carbon.overlays -= overlays_by_mob[carbon]
+		set_diged_ways(direction)
 	..()
+
+/obj/structure/snow/proc/set_diged_ways(dir)
+	diged[dir] = TRUE
+	update_overlays()
 
 /datum/particle_weather
 	var/name = "set this"
