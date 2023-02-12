@@ -6,8 +6,10 @@ GLOBAL_LIST_EMPTY(station_turfs)
 	vis_flags = VIS_INHERIT_ID | VIS_INHERIT_PLANE// Important for interaction with and visualization of openspace.
 	luminosity = 1
 
-	/// Turf bitflags, see code/__DEFINES/flags.dm
 	var/turf_flags = NONE
+	var/weather_affectable = TRUE
+
+	var/obj/structure/snow/snow
 
 	/// If there's a tile over a basic floor that can be ripped out
 	var/overfloor_placed = FALSE
@@ -164,8 +166,6 @@ GLOBAL_LIST_EMPTY(station_turfs)
 	var/turf/T = SSmapping.get_turf_above(src)
 	if(T)
 		T.multiz_turf_del(src, DOWN)
-	if(!T || !istype(T, /turf/open/openspace))
-		turf_flags |= TURF_WEATHER
 	T = SSmapping.get_turf_below(src)
 	if(T)
 		T.multiz_turf_del(src, UP)

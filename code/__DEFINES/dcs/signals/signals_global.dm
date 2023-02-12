@@ -65,3 +65,5 @@
 
 // Used for smothering fires upon weather event start/stop
 #define COMSIG_GLOB_WEATHER_CHANGE "!weather_event_changed"
+
+#define COMSIG_GLOB_WEATHER_EFFECT "!weather_effect_update"

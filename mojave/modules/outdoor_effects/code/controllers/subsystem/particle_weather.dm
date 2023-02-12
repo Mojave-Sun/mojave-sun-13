@@ -9,6 +9,7 @@ SUBSYSTEM_DEF(particle_weather)
 
 	var/datum/particle_weather/running_weather
 	var/particles/weather/particle_effect
+	var/datum/weather_effect/weather_special_effect
 	var/obj/weather_effect
 
 /datum/controller/subsystem/particle_weather/stat_entry(msg)
@@ -33,7 +34,7 @@ SUBSYSTEM_DEF(particle_weather)
 		var/datum/particle_weather/particle_weather = new i
 		if(particle_weather.target_trait in SSmapping.config.particle_weathers)
 			elligble_weathers[i] = particle_weather.probability
-	return ..()
+	..()
 
 /datum/controller/subsystem/particle_weather/fire()
 	if(!running_weather && next_hit && COOLDOWN_FINISHED(src, next_weather_start))
@@ -45,6 +46,9 @@ SUBSYSTEM_DEF(particle_weather)
 				next_hit = new our_event()
 				COOLDOWN_START(src, next_weather_start, rand(-3000, 3000) + initial(next_hit.weather_duration_upper) / 5)
 				break
+
+	if(weather_special_effect)
+		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_WEATHER_EFFECT, weather_special_effect)
 
 /datum/controller/subsystem/particle_weather/proc/run_weather(datum/particle_weather/weather_datum_type, force = 0)
 	if(running_weather)

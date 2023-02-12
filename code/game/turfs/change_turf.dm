@@ -83,6 +83,8 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	var/old_bp = blueprint_data
 	blueprint_data = null
 
+	var/obj/structure/snow/old_snow = snow
+
 	var/list/old_baseturfs = baseturfs
 	var/old_type = type
 
@@ -106,6 +108,8 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 
 	for(var/datum/callback/callback as anything in post_change_callbacks)
 		callback.InvokeAsync(W)
+
+	W.snow = old_snow
 
 	if(new_baseturfs)
 		W.baseturfs = baseturfs_string_list(new_baseturfs, W)

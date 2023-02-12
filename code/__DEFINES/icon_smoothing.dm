@@ -163,4 +163,6 @@ DEFINE_BITFIELD(smoothing_flags, list(
 
 #define SMOOTH_GROUP_GAS_TANK S_OBJ(71)
 
-#define MAX_S_OBJ SMOOTH_GROUP_GAS_TANK //Always match this value with the one above it.
+#define SMOOTH_GROUP_SNOW S_TURF(72)
+
+#define MAX_S_OBJ SMOOTH_GROUP_SNOW //Always match this value with the one above it.

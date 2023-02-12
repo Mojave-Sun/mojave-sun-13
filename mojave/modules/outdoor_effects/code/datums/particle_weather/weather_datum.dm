@@ -121,6 +121,220 @@
 
 	stage_process()
 
+
+/datum/weather_effect
+	var/name = "effect"
+	var/probability = 0
+	var/datum/particle_weather/initiator_ref
+
+/datum/weather_effect/proc/create_effect(turf/target_turf)
+	return FALSE
+
+/datum/weather_effect/snow
+	name = "snow effect"
+	probability = 10
+
+/datum/weather_effect/snow/create_effect(turf/target_turf)
+	if(prob(probability))
+		target_turf.snow = new /obj/structure/snow(target_turf)
+
+
+/obj/structure/snow
+	name = "Snow"
+	desc = "Big pile of snow"
+	icon = 'icons/effects/snow.dmi'
+	icon_state = "snow_1"
+	var/icon_prefix = "snow"
+	anchored = TRUE
+	density = FALSE
+	var/throwpass = TRUE //You can throw objects over this, despite its density.
+	plane = GAME_PLANE
+	layer = LOW_OBJ_LAYER
+	flags_1 = ON_BORDER_1
+	smoothing_flags = SMOOTH_BITMASK|SMOOTH_BORDER
+	smoothing_groups = list(SMOOTH_GROUP_SNOW, SMOOTH_GROUP_TURF_OPEN)
+	canSmoothWith = list(SMOOTH_GROUP_SNOW, SMOOTH_GROUP_TURF_OPEN)
+	var/list/obj/structure/snow/connected_snow = list()
+	var/bleed_layer = 1
+	var/pts = 0
+	var/list/layer_name = list("Snow", "Snow", "Snow", "Snow", "Snow", "Snow")
+	var/list/variants = list()
+	var/atom/movable/overlay
+	var/s = FALSE
+	var/n = FALSE
+	var/w = FALSE
+	var/e = FALSE
+
+/obj/structure/snow/New()
+	setDir(pick(GLOB.alldirs))
+	QUEUE_SMOOTH(src)
+	for(var/direction in GLOB.alldirs)
+		var/turf/T = get_step(get_turf(src), direction)
+		if(T)
+			connected_snow += T.snow
+	update_icon()
+/obj/structure/snow/CanPass(atom/movable/mover, border_dir)
+	. = ..()
+	return throwpass
+
+/obj/structure/snow/update_icon()
+	if(length(variants) && variants[bleed_layer])
+		icon_state = "[icon_prefix]_[bleed_layer]_[pick(variants[bleed_layer])]"
+	else
+		icon_state = "[icon_prefix]_[bleed_layer]"
+	setDir(pick(NORTH,SOUTH,EAST,WEST,NORTHEAST,NORTHWEST,SOUTHEAST,SOUTHWEST))
+
+	var/name_to_set = layer_name[bleed_layer]
+	throwpass = bleed_layer < 4 ? TRUE : FALSE
+	density = bleed_layer < 5 ? FALSE : TRUE
+	layer = bleed_layer < 4 ? LOW_OBJ_LAYER : OBJ_LAYER
+	overlay = GLOB.tall_overlays[bleed_layer]
+
+	name = name_to_set
+
+	update_overlay()
+
+	..()
+
+/obj/structure/snow/proc/update_overlay()
+	var/new_overlay = ""
+	overlays.Cut()
+	if(s == TRUE)
+		new_overlay += "s"
+	if(n == TRUE)
+		new_overlay += "n"
+	if(w == TRUE)
+		new_overlay += "w"
+	if(e == TRUE)
+		new_overlay += "e"
+	overlays += "[new_overlay]"
+
+	for(var/dirn in GLOB.alldirs)
+		var/turf/T = get_step(get_turf(src), dirn)
+		var/obj/structure/snow/turf_snow = T.snow
+		if(!turf_snow || turf_snow.bleed_layer < bleed_layer)
+			var/image/I = new(icon, "snow_[(dirn & (dirn-1)) ? "outercorner" : pick("innercorner", "outercorner")]", dir = dirn)
+			switch(dirn)
+				if(NORTH)
+					I.pixel_y = 32
+				if(SOUTH)
+					I.pixel_y = -32
+				if(EAST)
+					I.pixel_x = 32
+				if(WEST)
+					I.pixel_x = -32
+				if(NORTHEAST)
+					I.pixel_x = 32
+					I.pixel_y = 32
+				if(SOUTHEAST)
+					I.pixel_x = 32
+					I.pixel_y = -32
+				if(NORTHWEST)
+					I.pixel_x = -32
+					I.pixel_y = 32
+				if(SOUTHWEST)
+					I.pixel_x = -32
+					I.pixel_y = -32
+
+			I.layer = layer + 0.001 + bleed_layer * 0.0001
+			overlays += I
+
+/obj/structure/snow/proc/weathered(datum/weather_effect/effect)
+	if(pts < bleed_layer * 4)
+		pts++
+	else
+		pts = 0
+		changing_layer(min(bleed_layer + 1, MAX_LAYER_CUTTING_LEVELS))
+
+/obj/structure/snow/proc/changing_layer(var/new_layer)
+	if(isnull(new_layer) || new_layer == bleed_layer)
+		return
+
+	bleed_layer = max(0, new_layer)
+	for(var/obj/structure/snow/snow in connected_snow)
+		snow.update_icon()
+
+	if(!bleed_layer)
+		qdel(src)
+
+	update_icon()
+
+/obj/structure/snow/ex_act(severity)
+	switch(severity)
+		if(0 to 100)
+			if(prob(20) && bleed_layer)
+				var/new_bleed_layer = min(0, bleed_layer - 1)
+				addtimer(CALLBACK(src, .proc/changing_layer, new_bleed_layer), 1)
+		if(100 to 200)
+			if(prob(60) && bleed_layer)
+				var/new_bleed_layer = max(bleed_layer - 2, 0)
+				addtimer(CALLBACK(src, .proc/changing_layer, new_bleed_layer), 1)
+		if(300 to INFINITY)
+			if(bleed_layer)
+				addtimer(CALLBACK(src, .proc/changing_layer, 0), 1)
+
+/obj/structure/snow/Cross(atom/movable/AM)
+	if(iscarbon(AM) && bleed_layer > 1)
+		var/mob/living/carbon/carbon = AM
+		carbon.overlays += overlay
+//		var/slow_amount = 0.35 REPLACE WITH WORKING THING
+//		var/can_stuck = 1 REPLACE WITH WORKING THING
+//		var/new_slowdown = carbon.next_move_slowdown + (slow_amount * bleed_layer) REPLACE WITH WORKING THING
+		if(prob(2))
+			to_chat(carbon, span_warning("Moving through [src] slows you down.")) //Warning only
+		else if(can_stuck && bleed_layer == 4 && prob(2))
+			to_chat(carbon, span_warning("You get stuck in [src] for a moment!"))
+//			new_slowdown += 10 REPLACE WITH WORKING THING
+		//INPUT SLOWDOWN APPLY
+		if(carbon.dir == SOUTH)
+			n = TRUE
+			spawn(30 SECONDS)
+				n = FALSE
+				update_overlay()
+		if(carbon.dir == NORTH)
+			s = TRUE
+			spawn(30 SECONDS)
+				s = FALSE
+				update_overlay()
+		if(carbon.dir == WEST)
+			e = TRUE
+			spawn(30 SECONDS)
+				e = FALSE
+				update_overlay()
+		if(carbon.dir == EAST)
+			w = TRUE
+			spawn(30 SECONDS)
+				w = FALSE
+				update_overlay()
+		update_overlay()
+	..()
+
+/obj/structure/snow/Crossed(atom/movable/AM)
+	if(iscarbon(AM))
+		var/mob/living/carbon/carbon = AM
+		if(carbon.dir == SOUTH)
+			s = TRUE
+			spawn(30 SECONDS)
+				s = FALSE
+				update_overlay()
+		if(carbon.dir == NORTH)
+			n = TRUE
+			spawn(30 SECONDS)
+				n = FALSE
+				update_overlay()
+		if(carbon.dir == WEST)
+			w = TRUE
+			spawn(30 SECONDS)
+				w = FALSE
+				update_overlay()
+		if(carbon.dir == EAST)
+			e = TRUE
+			spawn(30 SECONDS)
+				e = FALSE
+				update_overlay()
+		update_overlay()
+	..()
+
 /datum/particle_weather
 	var/name = "set this"
 	var/display_name = "set this"
@@ -157,6 +371,7 @@
 	var/weather_duration = 0
 	var/weather_start_time = 0
 
+	var/weather_special_effect
 	var/list/weather_additional_events = list()
 	var/list/datum/weather_event/weather_additional_ongoing_events = list()
 	var/list/messaged_mobs = list()
@@ -202,6 +417,8 @@
 	weather_warnings()
 	if(particle_effect_type)
 		SSparticle_weather.set_particle_effect(new particle_effect_type);
+
+	SSparticle_weather.weather_special_effect = new weather_special_effect(src)
 
 	change_severity()
 
@@ -423,136 +640,3 @@
 	name = "Weather Siren"
 	desc = "A siren used to play weather warnings for the colony."
 	siren_lt = "weather"
-
-
-/datum/particle_weather/rain_gentle
-	name = "Rain"
-	display_name = "Rain"
-	desc = "Gentle Rain, la la description."
-	particle_effect_type = /particles/weather/rain
-
-	scale_vol_with_severity = TRUE
-	weather_sounds = list(/datum/looping_sound/rain)
-	weather_messages = list("The rain cools your skin.", "The rain bluring your eyes.")
-
-	damage_type = TOX
-	min_severity = 1
-	max_severity = 10
-	max_severity_change = 5
-	severity_steps = 5
-	immunity_type = TRAIT_RAINSTORM_IMMUNE
-	probability = 1
-	target_trait = PARTICLEWEATHER_RAIN
-
-	weather_additional_events = list("thunder" = list(3, /datum/weather_event/thunder), "wind" = list(4, /datum/weather_event/wind))
-	weather_warnings = list("siren" = null, "message" = FALSE)
-	fire_smothering_strength = 6
-
-/datum/particle_weather/rain_storm
-	name = "Rain Storm"
-	display_name = "Rain Storm"
-	desc = "Intense rain."
-	particle_effect_type = /particles/weather/rain/storm
-
-	scale_vol_with_severity = TRUE
-	weather_sounds = list(/datum/looping_sound/rain)
-	weather_messages = list("The rain cools your skin.", "The storm is really picking up!")
-
-	damage_type = TOX
-	min_severity = 4
-	max_severity = 150
-	max_severity_change = 50
-	severity_steps = 50
-	immunity_type = TRAIT_RAINSTORM_IMMUNE
-	probability = 1
-	target_trait = PARTICLEWEATHER_RAIN
-
-	weather_additional_events = list("thunder" = list(6, /datum/weather_event/thunder), "wind" = list(8, /datum/weather_event/wind))
-	weather_warnings = list("siren" = null, "message" = FALSE)
-	fire_smothering_strength = 6
-
-
-/datum/particle_weather/dust_storm
-	name = "Dust"
-	display_name = "Dust"
-	desc = "Gentle Rain, la la description."
-	particle_effect_type = /particles/weather/dust
-
-	scale_vol_with_severity = TRUE
-	weather_sounds = list(/datum/looping_sound/dust_storm)
-	weather_messages = list("The whipping sand stings your eyes!", "Sand hitting you very hard")
-
-	damage_type = BRUTE
-	damage_per_tick = 1
-	min_severity = 1
-	max_severity = 50
-	max_severity_change = 10
-	severity_steps = 20
-	immunity_type = TRAIT_DUSTSTORM_IMMUNE
-	probability = 1
-	target_trait = PARTICLEWEATHER_DUST
-
-	weather_warnings = list("siren" = "WARNING. A POTENTIALLY DANGEROUS WEATHER ANOMALY HAS BEEN DETECTED. SEEK SHELTER IMMEDIATELY.", "message" = TRUE)
-	fire_smothering_strength = 2
-
-//Makes you a little chilly
-/datum/particle_weather/dust_storm/affect_mob_effect(mob/living/L, delta_time, calculated_damage)
-	. = ..()
-	if(ishuman(L))
-		var/mob/living/carbon/human/H = L
-		var/internal_damage = calculated_damage * (rand(1, 20) / 10) - H.get_eye_protection()
-		var/obj/item/organ/eyes/eyes = H.getorganslot(ORGAN_SLOT_EYES)
-		eyes?.applyOrganDamage(internal_damage - H.get_eye_protection())
-
-
-/datum/particle_weather/snow_gentle
-	name = "Snow"
-	display_name = "Snow"
-	desc = "Light snowfall."
-	particle_effect_type = /particles/weather/snow
-
-	scale_vol_with_severity = TRUE
-	weather_sounds = list(/datum/looping_sound/snow)
-	weather_messages = list("It's snowing!", "You feel a chill")
-
-	damage_type = BURN
-	damage_per_tick = 4
-	min_severity = 1
-	max_severity = 10
-	max_severity_change = 5
-	severity_steps = 5
-	immunity_type = TRAIT_SNOWSTORM_IMMUNE
-	probability = 1
-	target_trait = PARTICLEWEATHER_SNOW
-
-	weather_additional_events = list("wind" = list(5, /datum/weather_event/wind))
-
-/datum/particle_weather/snow_storm
-	name = "Snowstorm"
-	display_name = "Snowstorm"
-	desc = "Intense snowstorm that impairs vision."
-	particle_effect_type = /particles/weather/snowstorm
-
-	scale_vol_with_severity = TRUE
-	weather_sounds = list(/datum/looping_sound/snow)
-	weather_messages = list("You feel a chill", "The cold wind is freezing you to the bone", "How can a man who is warm, understand a man who is cold?")
-
-	damage_type = BURN
-	damage_per_tick = 2
-	min_severity = 40
-	max_severity = 100
-	max_severity_change = 60
-	severity_steps = 10
-	immunity_type = TRAIT_SNOWSTORM_IMMUNE
-	probability = 1
-	target_trait = PARTICLEWEATHER_SNOW
-
-	weather_additional_events = list("wind" = list(10, /datum/weather_event/wind))
-	weather_warnings = list("siren" = "WARNING. A POTENTIALLY DANGEROUS WEATHER ANOMALY HAS BEEN DETECTED. SEEK SHELTER IMMEDIATELY", "message" = TRUE)
-	fire_smothering_strength = 4
-
-//Makes you a lot little chilly
-/datum/particle_weather/snow_storm/affect_mob_effect(mob/living/L, delta_time, calculated_damage)
-	. = ..()
-	if(ishuman(L))
-		L.blur_eyes(5)
