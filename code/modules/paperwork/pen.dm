@@ -310,3 +310,16 @@
 	toolspeed = 10 //You will never willingly choose to use one of these over a shovel.
 	font = FOUNTAIN_PEN_FONT
 	colour = "blue"
+
+/obj/item/pen/ms13
+	icon = 'mojave/icons/objects/clutter/clutter_world.dmi'
+	icon_state = "pen"
+	inhand_icon_state = "pen"
+	worn_icon_state = "pen"
+
+/obj/item/pen/ms13/pencil
+	name = "pencil"
+	desc = "An orange pencil with a pink eraser"
+	icon_state = "pencil"
+	inhand_icon_state = "pencil"
+	worn_icon_state = "pencil"
