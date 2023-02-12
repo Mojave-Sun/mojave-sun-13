@@ -316,7 +316,7 @@
 	icon_state = "pen"
 
 /obj/item/pen/ms13/attack_self(mob/living/carbon/user)
-  return
+	return
 
 /obj/item/pen/ms13/Initialize(mapload)
 	. = ..()
