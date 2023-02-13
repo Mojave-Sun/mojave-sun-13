@@ -60,18 +60,18 @@
 
 /// Updates the applied FOV value and applies the handler to client if able
 /mob/living/proc/update_fov()
-    var/highest_fov
-    if(CONFIG_GET(flag/native_fov))
-        highest_fov = native_fov
-    for(var/trait_type in fov_traits)
-        var/fov_type = fov_traits[trait_type]
-        if(fov_type == "no_fov")
-            highest_fov = 0
-            break
-        if(fov_type > highest_fov)
-            highest_fov = fov_type
-    fov_view = highest_fov
-    update_fov_client()
+	var/highest_fov
+	if(CONFIG_GET(flag/native_fov))
+		highest_fov = native_fov
+	for(var/trait_type in fov_traits)
+		var/fov_type = fov_traits[trait_type]
+		if(fov_type == "no_fov")
+			highest_fov = 0
+			break
+		if(fov_type > highest_fov)
+			highest_fov = fov_type
+	fov_view = highest_fov
+	update_fov_client()
 
 /*/// Updates the applied FOV value and applies the handler to client if able // ORIGINAL TG PROC
 /mob/living/proc/update_fov()
