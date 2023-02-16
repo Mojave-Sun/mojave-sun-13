@@ -162,3 +162,13 @@
 	. = ..()
 	if(prob(25))
 		dir = pick(GLOB.cardinals)
+
+/obj/structure/ms13/wall_decor/cross
+	name = "cross"
+	desc = "A big wooden cross."
+	icon_state = "cross"
+
+/obj/structure/ms13/wall_decor/calendar
+	name = "calendar"
+	desc = "A calendar turned to October 2077, there's some random circled dates on here."
+	icon_state = "calendar"

@@ -30,16 +30,6 @@
 	desc = "A book that's seems to have a cross on it's front cover. It's filled with a bunch of verses."
 	icon_state = "bible"
 
-/obj/item/ms13/fluff/cross
-	name = "cross"
-	desc = "A big wooden cross."
-	icon_state = "cross"
-
-/obj/item/ms13/fluff/calendar
-	name = "calendar"
-	desc = "A calendar turned to October 2077, there's some random circled dates on here."
-	icon_state = "calendar"
-
 /obj/item/ms13/fluff/typewriter
 	name = "typewriter"
 	desc = "An old typewriter. It seems to be broken."
