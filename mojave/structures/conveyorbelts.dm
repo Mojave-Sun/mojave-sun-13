@@ -7,9 +7,8 @@
 	icon_state = "gray_straight"
 	anchored = TRUE
 	density = TRUE
-	smoothing_flags = FALSE
-	smoothing_groups = FALSE
-	canSmoothWith= FALSE
+	smoothing_flags = NONE
+	canSmoothWith = null
 
 /obj/structure/table/ms13/conveyor_belt/wrench_act_secondary(mob/living/user, obj/item/weapon)
 	if(flags_1&NODECONSTRUCT_1)
