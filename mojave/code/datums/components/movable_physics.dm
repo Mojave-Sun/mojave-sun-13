@@ -26,15 +26,23 @@
 	. = ..()
 	if(!ismovable(parent))
 		return COMPONENT_INCOMPATIBLE
-	RegisterSignal(parent, COMSIG_MOVABLE_IMPACT, .proc/throw_impact_ricochet, override = TRUE)
-	horizontal_velocity = _horizontal_velocity
-	vertical_velocity = _vertical_velocity
-	horizontal_friction = _horizontal_friction
-	z_gravity = _z_gravity
-	z_floor = _z_floor
-	angle_of_movement = _angle_of_movement
+	if(SSmovablephysics.override_all_parameters)
+		horizontal_velocity = rand(SSmovablephysics._horizontal_velocity * (1 - SSmovablephysics._error_of_margain_velocity), SSmovablephysics._horizontal_velocity * (1 + SSmovablephysics._error_of_margain_velocity))
+		horizontal_velocity = rand(SSmovablephysics._vertical_velocity * (1 - SSmovablephysics._error_of_margain_velocity), SSmovablephysics._vertical_velocity * (1 + SSmovablephysics._error_of_margain_velocity))
+		z_gravity = SSmovablephysics._z_gravity
+		z_floor = SSmovablephysics._z_floor
+
+	else
+		horizontal_velocity = _horizontal_velocity
+		vertical_velocity = _vertical_velocity
+		horizontal_friction = _horizontal_friction
+		z_gravity = _z_gravity
+		z_floor = _z_floor
+		angle_of_movement = _angle_of_movement
+
 	physic_flags = _physic_flags
 	bounce_sound = _bounce_sound
+	RegisterSignal(parent, COMSIG_MOVABLE_IMPACT, .proc/throw_impact_ricochet, override = TRUE)
 	if(vertical_velocity || horizontal_velocity)
 		start_movement()
 
@@ -44,7 +52,7 @@
 	cached_animate_movement = moving_atom.animate_movement
 	moving_atom.animate_movement = NO_STEPS
 	START_PROCESSING(SSmovablephysics, src)
-	moving_atom.SpinAnimation(speed = 3 SECONDS, loops = 2)
+	moving_atom.SpinAnimation(speed = 2 SECONDS, loops = 1)
 
 ///Alright it's time to stop
 /datum/component/movable_physics/proc/stop_movement()
@@ -66,10 +74,10 @@
 	angle_of_movement += rand(-3000, 3000) / 100
 	var/turf/a_turf = get_turf(moving_atom)
 	playsound(moving_atom, a_turf.bullet_bounce_sound, 50, TRUE)
-	moving_atom.SpinAnimation(speed = 1.5 SECONDS, loops = 2)
+	moving_atom.SpinAnimation(speed = 2 SECONDS, loops = 1)
 	moving_atom.pixel_z = z_floor
 	horizontal_velocity = max(0, horizontal_velocity + (vertical_velocity * -0.8))
-	vertical_velocity = max(0, ((vertical_velocity * -0.8) - 0.2))
+	vertical_velocity = max(0, (vertical_velocity * -0.75))
 
 /datum/component/movable_physics/proc/ricochet(atom/movable/moving_atom, bounce_angle)
 	angle_of_movement = ((180 - bounce_angle) - angle_of_movement)
@@ -109,7 +117,7 @@
 		z_floor_bounce(moving_atom)
 
 	if(moving_atom.pixel_x > 16)
-		if(moving_atom.Move(get_step(moving_atom, EAST)))
+		if(moving_atom.CanPass(get_step(moving_atom, EAST)))
 			moving_atom.pixel_x = -16
 		else
 			moving_atom.pixel_x = 16

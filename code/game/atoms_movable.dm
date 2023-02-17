@@ -1054,8 +1054,26 @@
 	else
 		target_zone = thrower.zone_selected
 
-	var/datum/thrownthing/thrown_thing = new(src, target, get_dir(src, target), range, speed, thrower, diagonals_first, force, gentle, callback, target_zone)
+	//var/datum/thrownthing/thrown_thing = new(src, target, get_dir(src, target), range, speed, thrower, diagonals_first, force, gentle, callback, target_zone)
+	if(istype(thrower)) //If it's being thrown by a mob, then we'll adjust our pixel z to appear as though we're throwing it from our hands
+		pixel_z = 8
+	speed = speed / 3 //We don't want some ultra fast throwing yet
+	var/time_to_target_s = (get_dist(loc, target) < range ? get_dist(thrower, target) : range) / (speed * 10)
+	var/pixels_to_target = (get_dist(loc, target) < range ? get_dist(thrower, target) : range) * 32
+	/*
+	Whenever we're throwing something, we'll try to make the thrown object bounce on the get_turf(target) and overshoot a bit
+	The vertical velocity will also be set so that even with friction, the object will make it to the target
+	We'll also a bit more vertical velocity so some is left over to keep on moving after the initial bounce while obeying the amount of time it takes to get to the target
+	Given how fast the vanilla throw speed is, we'll tone it down so there isn't a substantial amount of overshoot and you can actually see the object in motion
+	*/
 
+	var/new_vertical_velocity = ((time_to_target_s * _z_gravity))
+	//If we're starting on the ground, we'll likely just stick to the ground if the object is heavy and otherwise fly a bit up into the air for aesthetic purposes
+	//So we'll just try to give enough inital velocity to get the object up to (pixel_z + 8) and hope it's below (pixel_z = 16) so the object doesn't look like it's clipping through walls
+
+
+	AddComponent(/datum/component/movable_physics, _horizontal_velocity = rand(3, 6), _vertical_velocity = rand(7, 8), _horizontal_friction = 0.25, _z_gravity = 8, _z_floor = 0, _angle_of_movement = get_angle(get_turf(src), target) + rand(-15, 15))
+	/*
 	var/dist_x = abs(target.x - src.x)
 	var/dist_y = abs(target.y - src.y)
 	var/dx = (target.x > src.x) ? EAST : WEST
@@ -1092,6 +1110,7 @@
 		SSthrowing.currentrun[src] = thrown_thing
 	if (quickstart)
 		thrown_thing.tick()
+*/
 
 /atom/movable/proc/handle_buckled_mob_movement(newloc, direct, glide_size_override)
 	for(var/mob/living/buckled_mob as anything in buckled_mobs)
