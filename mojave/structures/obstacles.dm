@@ -526,6 +526,17 @@
 				return COMPONENT_ATOM_BLOCK_EXIT
 
 	if(cansqueeze)
+		if(istype(leaving, /obj/projectile) && prob(fencepasschance))
+			return
+
+		if(istype(leaving, /obj/projectile/bullet) && prob(fencepasschance))
+			return
+
+		if(istype(leaving, /obj/item))
+			var/obj/item/I = leaving
+			if(I.w_class == WEIGHT_CLASS_TINY && prob(fencepasschance))
+				return
+
 		if(leaving == src)
 			return // Let's not block ourselves.
 
