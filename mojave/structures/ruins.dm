@@ -134,12 +134,3 @@
 			if(prob(50))
 				add_overlay(image(icon, "van-part-2-[randomiser]", FLOAT_LAYER, dir))
 			return
-
-/obj/structure/ms13/vehicle_ruin/corvega
-	name = "corvega wreck"
-	desc = "An old pre-war corvega car, this one seems like the Atomic V-8 Model like those billboards... 'Driving Paradise', yeah right."
-	icon_state = "atomicv8"
-
-/obj/structure/ms13/vehicle_ruin/corvega/blitz
-	desc = "An old pre-war corvega car, this one seems like the Blitz Model, fits all the family in those four seats! Or at least it did..."
-	icon_state = "corvegablitz"

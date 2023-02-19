@@ -177,3 +177,8 @@
 	name = "exit sign"
 	desc = "An exit sign in red, pointing you to the exit of the building incase of an emergency."
 	icon_state = "exit"
+
+/obj/structure/ms13/wall_decor/wallscreen
+	name = "wallscreens"
+	desc = "Three monitors stuck to the wall, in-case you needed more monitors."
+	icon_state = "wallscreen"
