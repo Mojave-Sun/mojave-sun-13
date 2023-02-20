@@ -1,5 +1,37 @@
-//Pre-War Meats
+//Base defines for meat
+/obj/item/food/meat/slab/ms13
+	icon = 'mojave/icons/objects/food/meat.dmi'
+	icon_state = "lean"
 
+/obj/item/food/meat/slab/ms13/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/item_scaling, 0.50, 1)
+
+/obj/item/food/meat/steak/plain/ms13
+	icon = 'mojave/icons/objects/food/meat.dmi'
+	icon_state = "lean_roasted"
+
+/obj/item/food/meat/steak/plain/ms13/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/item_scaling, 0.50, 1)
+
+/obj/item/food/meat/rawcutlet/plain/ms13
+	icon = 'mojave/icons/objects/food/meat.dmi'
+	icon_state = "generic"
+
+/obj/item/food/meat/rawcutlet/plain/ms13/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/item_scaling, 0.50, 1)
+
+/obj/item/food/meat/cutlet/plain/ms13
+	icon = 'mojave/icons/objects/food/meat.dmi'
+	icon_state = "generic_roasted"
+
+/obj/item/food/meat/cutlet/plain/ms13/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/item_scaling, 0.50, 1)
+
+//Pre-War Meats
 /obj/item/food/ms13/ingredient/dogfood
 	name = "dog food"
 	desc = "A portion of century old beef, gravy and barely recognizable vegetables, made for mutts, are you really that desperate?"
