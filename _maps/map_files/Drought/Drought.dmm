@@ -2120,6 +2120,9 @@
 "jy" = (
 /obj/structure/window/fulltile/ms13/glass,
 /obj/structure/table/ms13/low_wall/brick,
+/obj/structure/ms13/bars/rusty{
+	dir = 1
+	},
 /turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "jA" = (
@@ -2170,6 +2173,15 @@
 "jM" = (
 /obj/machinery/door/unpowered/ms13/wood/green,
 /turf/open/floor/wood/ms13/carpet/shaggy/green,
+/area/ms13/town)
+"jR" = (
+/obj/structure/chair/pew/right{
+	dir = 4
+	},
+/obj/machinery/light/ms13/bulb{
+	dir = 8
+	},
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "jS" = (
 /obj/machinery/door/unpowered/ms13/seethrough/fence/wire{
@@ -2274,6 +2286,9 @@
 	},
 /obj/structure/closet/crate/ms13/cash_register{
 	dir = 8
+	},
+/obj/structure/ms13/bars/rusty{
+	dir = 4
 	},
 /obj/structure/ms13/wall_decor/clock{
 	dir = 4
@@ -3661,8 +3676,10 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "qw" = (
-/obj/structure/ms13/deli,
 /obj/structure/ms13/storage/vent,
+/obj/structure/ms13/deli{
+	dir = 8
+	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "qx" = (
@@ -5096,8 +5113,13 @@
 /turf/open/floor/ms13/tile/blue,
 /area/ms13/town)
 "wN" = (
-/obj/structure/ms13/deli,
-/turf/open/floor/wood/ms13/wide,
+/obj/structure/table/ms13/no_smooth/counter/metal{
+	dir = 8
+	},
+/obj/structure/ms13/bars/slot/rusty{
+	dir = 4
+	},
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "wP" = (
 /obj/structure/ms13/storage/store{
@@ -5988,9 +6010,6 @@
 /turf/open/floor/wood/ms13/carpet/shaggy/blue,
 /area/ms13/town)
 "Ba" = (
-/obj/machinery/light/ms13{
-	dir = 8
-	},
 /obj/structure/table/ms13/no_smooth/large/wood/square{
 	dir = 4
 	},
@@ -6995,7 +7014,7 @@
 /obj/structure/table/ms13/no_smooth/counter/wood{
 	dir = 4
 	},
-/obj/machinery/light/ms13{
+/obj/machinery/light/ms13/bulb{
 	dir = 8
 	},
 /turf/open/floor/wood/ms13/wide,
@@ -7067,6 +7086,15 @@
 "GX" = (
 /turf/open/floor/iron/stairs,
 /area/ms13/desert)
+"Hb" = (
+/obj/structure/chair/pew/left{
+	dir = 4
+	},
+/obj/machinery/light/ms13/bulb{
+	dir = 8
+	},
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
 "Hc" = (
 /obj/structure/ms13/storage/vent,
 /turf/open/floor/wood/ms13/wide,
@@ -7521,9 +7549,11 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "Jv" = (
-/obj/structure/ms13/pay_phone/withthephone,
-/turf/open/floor/plating/ms13/ground/sidewalk,
-/area/ms13/desert)
+/obj/structure/ms13/deli{
+	dir = 8
+	},
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
 "Jw" = (
 /obj/item/chair/ms13/metal/unfinished{
 	dir = 4
@@ -8413,10 +8443,7 @@
 /obj/effect/decal/cleanable/glass{
 	dir = 1
 	},
-/obj/structure/ms13/pay_phone/withthephone{
-	dir = 1
-	},
-/turf/open/floor/plating/ms13/ground/sidewalk,
+/turf/open/floor/plating/ms13/ground/desert,
 /area/ms13/desert)
 "OF" = (
 /mob/living/basic/ms13/hostile_animal/radroach,
@@ -9667,6 +9694,10 @@
 /obj/structure/chair/ms13/overlaypickup/plastic,
 /turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/underground/mountain)
+"UZ" = (
+/obj/structure/stairs/west,
+/turf/open/floor/ms13/concrete,
+/area/ms13/town)
 "Va" = (
 /obj/structure/table/ms13/wood,
 /obj/item/radio/ms13/ham/receiver/radioking,
@@ -10186,6 +10217,12 @@
 /obj/effect/spawner/random/ms13/crafting/electrical,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/factory)
+"XE" = (
+/obj/machinery/light/ms13/bulb{
+	dir = 4
+	},
+/turf/open/floor/wood/ms13/carpet,
+/area/ms13/town)
 "XG" = (
 /obj/structure/bed/ms13/bedframe/metal,
 /obj/structure/bed/ms13/mattress/yellowed,
@@ -23893,7 +23930,7 @@ Ki
 pF
 cz
 cz
-cz
+pu
 pu
 Xv
 Xv
@@ -24095,7 +24132,7 @@ pF
 pF
 cz
 cz
-cz
+UZ
 pu
 Xv
 Xv
@@ -24297,7 +24334,7 @@ cz
 cz
 cz
 cz
-cz
+UZ
 pu
 Xv
 Xv
@@ -39252,16 +39289,16 @@ Tc
 Tc
 Tc
 Tc
-Tc
-Tc
-Tc
-Tc
-Tc
-Tc
-Tc
-Tc
-Tc
-Tc
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
 Xv
 Xv
 Xv
@@ -41686,9 +41723,9 @@ Tc
 Tc
 Tc
 Tc
-Tc
-Tc
-Tc
+Xv
+Xv
+Xv
 Xv
 Xv
 Xv
@@ -42686,11 +42723,11 @@ EG
 Br
 GL
 GL
+Xv
 Tc
 Tc
 Tc
-Tc
-Tc
+Xv
 GL
 GL
 sP
@@ -42888,7 +42925,7 @@ EH
 gQ
 GG
 HE
-Jv
+Xv
 Tc
 Tc
 Tc
@@ -43090,7 +43127,7 @@ gQ
 gQ
 gQ
 HE
-Jv
+Xv
 Tc
 Tc
 Tc
@@ -43463,7 +43500,7 @@ Tc
 GL
 kV
 ks
-Yf
+wN
 GL
 kV
 Tz
@@ -44243,13 +44280,13 @@ GL
 GL
 GL
 GL
-Xv
+Tc
 Tc
 aX
 aX
 aX
 Tc
-Xv
+Tc
 mE
 fW
 Tz
@@ -44855,7 +44892,7 @@ aX
 Vm
 aX
 Tc
-Xv
+Tc
 mE
 uZ
 Tz
@@ -45051,7 +45088,7 @@ GL
 GL
 GL
 GL
-Xv
+Tc
 Tc
 aX
 aX
@@ -47310,7 +47347,7 @@ GL
 Tc
 Tc
 qb
-wN
+gQ
 gQ
 gQ
 gQ
@@ -47512,7 +47549,7 @@ GL
 Tc
 Tc
 qb
-wN
+gQ
 gQ
 gQ
 gQ
@@ -47716,7 +47753,7 @@ Tc
 fc
 qw
 gQ
-gQ
+Jv
 gQ
 gQ
 gQ
@@ -49955,7 +49992,7 @@ sU
 gQ
 gQ
 gQ
-gQ
+tW
 qo
 ER
 qo
@@ -50760,10 +50797,10 @@ aX
 Tc
 Mt
 zJ
-Ag
+Hb
 dU
 dU
-zJ
+jR
 Ag
 LF
 FY
@@ -51358,7 +51395,7 @@ uS
 gQ
 wb
 qo
-Tc
+Xv
 Tc
 aX
 Vm
@@ -52368,7 +52405,7 @@ qo
 vZ
 qo
 qo
-Tc
+Xv
 Tc
 aX
 aX
@@ -52376,14 +52413,14 @@ aX
 Tc
 Mt
 gQ
+XE
 dU
-hu
 dU
-dU
+XE
 gQ
 LF
 gQ
-Wg
+un
 DC
 qo
 dp

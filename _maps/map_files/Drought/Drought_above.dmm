@@ -2884,6 +2884,9 @@
 /obj/structure/table/ms13/wood/constructed,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/item/ms13/fluff/bible,
+/obj/structure/ms13/lamp/mining_lamp{
+	pixel_y = 30
+	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "sz" = (
@@ -4323,9 +4326,14 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "CL" = (
-/obj/structure/ms13/lamp/mining_lamp,
+/obj/structure/railing/ms13/solo{
+	dir = 8
+	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/closed/wall/ms13/wood,
+/obj/structure/chair/ms13/metal{
+	dir = 4
+	},
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "CO" = (
 /obj/structure/chair/sofa/corp/right{
@@ -5573,7 +5581,6 @@
 	dir = 8
 	},
 /obj/structure/table/ms13/metal/small,
-/obj/item/ms13/fluff/ashtray,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
@@ -7579,7 +7586,7 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "YL" = (
-/turf/closed/wall/ms13/brick/alt,
+/turf/closed/wall/ms13/concrete/alt,
 /area/ms13/desert)
 "YM" = (
 /obj/structure/table/ms13/low_wall/brick/alt,
@@ -20005,13 +20012,13 @@ Ly
 Ly
 Ly
 Ly
-YL
+mt
 Ly
 Ly
 Ly
 Ly
 Ly
-YL
+mt
 Ly
 Ly
 Ly
@@ -20592,8 +20599,8 @@ mJ
 mJ
 mJ
 mJ
-Ly
-Ly
+YL
+YL
 Ly
 Ly
 Ly
@@ -20794,8 +20801,8 @@ Hf
 Hf
 Hf
 Hf
-Ly
-Ly
+YV
+YL
 Ly
 Ly
 Ly
@@ -20996,8 +21003,8 @@ Hf
 Hf
 Hf
 Hf
-Ly
-Ly
+YV
+YL
 Ly
 Ly
 Ly
@@ -21197,9 +21204,9 @@ Xd
 Xd
 TS
 Hf
-Hf
+wC
 Ly
-Ly
+YL
 Ly
 Ly
 Ly
@@ -21399,9 +21406,9 @@ ZX
 ZX
 XN
 Hf
-Hf
+wC
 Ly
-Ly
+YL
 Ly
 Ly
 Ly
@@ -21601,9 +21608,9 @@ ZX
 ZX
 XN
 Hf
-Hf
+wC
 Ly
-Ly
+YL
 Ly
 Ly
 Ly
@@ -21804,8 +21811,8 @@ mJ
 mJ
 Hq
 mJ
-Ly
-Ly
+YL
+YL
 Ly
 Ly
 Ly
@@ -22005,7 +22012,7 @@ mJ
 Hq
 Hq
 Hq
-Hq
+mJ
 Ly
 Ly
 Ly
@@ -22207,7 +22214,7 @@ Lo
 Hq
 Hq
 Hq
-Hq
+mJ
 Ly
 Ly
 Ly
@@ -22409,7 +22416,7 @@ Lo
 Hq
 Hq
 Hq
-Hq
+mJ
 Ly
 Ly
 Ly
@@ -22611,7 +22618,7 @@ Lo
 Hq
 Hq
 Hq
-Hq
+mJ
 Ly
 Ly
 Ly
@@ -22813,7 +22820,7 @@ mJ
 Hq
 Hq
 Hq
-Hq
+mJ
 Ly
 Ly
 Ly
@@ -23016,8 +23023,8 @@ mJ
 mJ
 Hq
 mJ
-Ly
-Ly
+YL
+YL
 Ly
 Ly
 Ly
@@ -23217,9 +23224,9 @@ ZX
 ZX
 XN
 Hf
-Hf
+wC
 Ly
-Ly
+YL
 Ly
 Ly
 Ly
@@ -23419,9 +23426,9 @@ ZX
 ZX
 XN
 Hf
-Hf
+wC
 Ly
-Ly
+YL
 Ly
 Ly
 Ly
@@ -23621,9 +23628,9 @@ Li
 Li
 YQ
 Hf
-Hf
+wC
 Ly
-Ly
+YL
 Ly
 Ly
 Ly
@@ -23824,8 +23831,8 @@ Hf
 Hf
 Hf
 Hf
-Ly
-Ly
+YV
+YL
 Ly
 Ly
 Ly
@@ -24026,8 +24033,8 @@ Hf
 Hf
 Hf
 Hf
-Ly
-Ly
+YV
+YL
 Ly
 Ly
 Ly
@@ -24228,8 +24235,8 @@ mJ
 mJ
 mJ
 mJ
-Ly
-Ly
+YL
+YL
 Ly
 Ly
 Ly
@@ -26087,7 +26094,7 @@ YW
 Ly
 Ly
 Ly
-YX
+mt
 Ly
 Ly
 Ly
@@ -35665,7 +35672,7 @@ xy
 xy
 xy
 Ld
-fG
+Ng
 pR
 ws
 zl
@@ -41795,7 +41802,7 @@ rG
 eJ
 UM
 Du
-aU
+QG
 Ly
 Ly
 Ly
@@ -42199,7 +42206,7 @@ rG
 KE
 SI
 xj
-aU
+QG
 Ly
 Ly
 Ly
@@ -43806,9 +43813,9 @@ QG
 QG
 Ly
 Ly
-AR
+QG
 Ng
-bV
+CL
 KL
 QG
 Dy
@@ -44011,7 +44018,7 @@ Ly
 AR
 Ng
 Ng
-mp
+Ng
 tr
 GC
 Ng
@@ -44211,7 +44218,7 @@ aU
 Ly
 Ly
 hk
-Ju
+Ng
 au
 MM
 hO
@@ -44614,7 +44621,7 @@ eh
 QG
 Ly
 Ly
-aU
+QG
 DE
 fL
 xj
@@ -45018,7 +45025,7 @@ mq
 aU
 Ly
 Ly
-aU
+QG
 eJ
 UM
 Bh
@@ -48271,7 +48278,7 @@ Ly
 Ly
 Ly
 Uj
-CL
+to
 sv
 IZ
 Ng
@@ -52505,8 +52512,8 @@ OK
 OK
 OK
 OK
-Ly
-Ly
+OK
+OK
 Ly
 Ly
 Ly
@@ -52708,8 +52715,8 @@ OK
 OK
 OK
 OK
-Ly
-Ly
+OK
+OK
 Ly
 Ly
 Ly
