@@ -50,6 +50,7 @@
 	light_power = 0.3
 	light_on = FALSE
 	var/on = FALSE
+	var/broken = FALSE
 	var/datum/looping_sound/ms13/holotable/soundloop
 	max_integrity = 800
 
@@ -82,7 +83,6 @@
 	if(atom_integrity < 400)
 		broken = TRUE
 		desc = "[initial(desc)] It looks broken."
-		FXtoggle()
 		update_icon_state()
 
 /obj/machinery/ms13/wartable/update_icon_state()
