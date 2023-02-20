@@ -1,4 +1,5 @@
 /obj/item/bodypart
+	/// The meat we turn into when butchered yum
 	var/meat_type = /obj/item/food/meat/slab/ms13/bodypart
 
 /obj/item/bodypart/attackby(obj/item/weapon, mob/user, params)
@@ -10,7 +11,7 @@
 			playsound(loc, 'sound/weapons/slice.ogg', 50, TRUE, -1)
 			user.visible_message(span_warning("[user] begins to tear open [src]."),\
 				span_notice("You begin to tear open [src]..."))
-			if(do_after(user, FLOOR(butchering_component.speed/2, 1), target = src))
+			if(do_after(user, FLOOR(butchering_component.speed, 1), target = src))
 				drop_organs(user, TRUE)
 				visible_message(span_warning("\The [src] spills it's organs out."))
 			return
@@ -20,7 +21,7 @@
 			return
 		user.visible_message(span_warning("[user] begins to butcher [src]..."),\
 				span_notice("You begin to butcher [src]..."))
-		if(do_after(user, FLOOR(butchering_component.speed/2, 1), target = src))
+		if(do_after(user, FLOOR(butchering_component.speed, 1), target = src))
 			user.visible_message(span_warning("[user] butchers [src]."),\
 					span_notice("You butcher [src]."))
 			new meat_type(drop_location())
