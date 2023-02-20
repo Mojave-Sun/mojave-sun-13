@@ -17,6 +17,7 @@
 	icon_state = ""
 	cut_overlays()
 	var/mutable_appearance/parent_appearance = new(organ_parent)
+	parent_appearance.transform = matrix() //resets the transform because le shrink element shenanigans
 	add_overlay(organ_parent)
 	name = "roasted [organ_parent]"
 	color = COLOR_DARK_ORANGE
