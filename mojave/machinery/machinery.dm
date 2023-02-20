@@ -57,7 +57,9 @@
 	soundloop = new(src, on)
 
 /obj/machinery/ms13/wartable/Destroy()
+	QDEL_NULL(soundloop)
 	icon_state = "wartable_broken"
+	return ..()
 
 /obj/machinery/ms13/wartable/attack_hand(mob/living/user)
 	. = ..()
