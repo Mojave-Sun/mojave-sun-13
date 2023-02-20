@@ -51,6 +51,7 @@
 	light_on = FALSE
 	var/on = FALSE
 	var/datum/looping_sound/ms13/holotable/soundloop
+	max_integrity = 800
 
 /obj/machinery/ms13/wartable/Initialize()
 	. = ..()
@@ -58,7 +59,6 @@
 
 /obj/machinery/ms13/wartable/Destroy()
 	QDEL_NULL(soundloop)
-	icon_state = "wartable_broken"
 	return ..()
 
 /obj/machinery/ms13/wartable/attack_hand(mob/living/user)
@@ -74,6 +74,21 @@
 			soundloop.start()
 		set_light_on(on)
 		update_light()
+
+/obj/machinery/ms13/wartable/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration)
+	. = ..()
+	if(prob(35))
+		do_sparks(1, FALSE, src)
+	if(atom_integrity < 400)
+		broken = TRUE
+		desc = "[initial(desc)] It looks broken."
+		FXtoggle()
+		update_icon_state()
+
+/obj/machinery/ms13/wartable/update_icon_state()
+	. = ..()
+	if(broken)
+		icon_state = "wartable_broken"
 
 // Intercoms //
 
