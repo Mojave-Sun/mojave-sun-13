@@ -1533,7 +1533,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				subarmor_flags = subarmor_flags)
 
 	//COOL BABY BACK RIBS CODE HERE
-	if(can_be_mcribs && !length(H.internal_organs) && (length(H.bodyparts) <= 1))
+	if(can_be_mcribs && (def_zone == BODY_ZONE_CHEST) && !length(H.internal_organs) && (length(H.bodyparts) <= 1))
 		var/obj/item/bodypart/chest = H.get_bodypart(BODY_ZONE_CHEST)
 		if(chest?.get_damage() >= 100)
 			INVOKE_ASYNC(src, .proc/try_to_mcrib, user, I, H)

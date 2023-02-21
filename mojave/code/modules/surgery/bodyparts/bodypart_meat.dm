@@ -1,6 +1,7 @@
 /obj/item/food/meat/slab/ms13/bodypart
 	name = "lean meat"
 	desc = "A slab of \"meat\"."
+	gender = PLURAL
 	tastes = list("tender meat" = 1)
 
 /obj/item/food/meat/slab/ms13/bodypart/MakeGrillable()
@@ -12,6 +13,7 @@
 /obj/item/food/meat/slab/ms13/bodypart/ribs
 	name = "ribs"
 	desc = "A slab of \"ribs\"."
+	icon_state = "ribs"
 	tastes = list("juicy meat" = 1)
 
 /obj/item/food/meat/slab/ms13/bodypart/ribs/MakeGrillable()
@@ -24,6 +26,10 @@
 	tastes = list("tender meat" = 1)
 
 /obj/item/food/meat/steak/plain/ms13/bodypart/ribs
+	name = "roasted ribs"
+	desc = "A piece of juicy ribs."
+	gender = PLURAL
+	icon_state = "ribs_roasted"
 	tastes = list("juicy meat" = 1)
 
 /obj/item/food/meat/rawcutlet/plain/ms13/bodypart
