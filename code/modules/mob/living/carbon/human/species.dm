@@ -1474,7 +1474,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	else
 		help(M, H, attacker_style)
 
-/datum/species/proc/spec_attacked_by(obj/item/I, mob/living/user, obj/item/bodypart/affecting, mob/living/carbon/human/H)
+/datum/species/proc/spec_attacked_by(obj/item/I, mob/living/user, obj/item/bodypart/affecting, mob/living/carbon/human/H, params)
 	// Allows you to put in item-specific reactions based on species
 	if(user != H)
 		if(H.check_shields(I, I.force, "the [I.name]", MELEE_ATTACK, I.armour_penetration))
@@ -1531,6 +1531,16 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				reduced = armor_reduce, \
 				edge_protection = edge_protection, \
 				subarmor_flags = subarmor_flags)
+
+	//COOL BABY BACK RIBS CODE HERE
+	var/list/modifiers = params2list(params)
+	if(can_be_mcribs && (def_zone == BODY_ZONE_CHEST) && LAZYACCESS(modifiers, RIGHT_CLICK) && \
+		!length(H.internal_organs) && (length(H.bodyparts) <= 1))
+		var/obj/item/bodypart/chest = H.get_bodypart(BODY_ZONE_CHEST)
+		if(chest?.get_damage() >= 100)
+			INVOKE_ASYNC(src, .proc/try_to_mcrib, user, I, H)
+			return TRUE
+
 	//MOJAVE EDIT END
 
 	if(!I.force)
