@@ -3,7 +3,6 @@
 	description = "Don't breathe this in."
 	color = "#42330a"
 	taste_description = "burning chemical taste"
-	overdose_threshold = 1
 
 /datum/reagent/toxin/ms13/glass_powder
 	name = "glass powder"
