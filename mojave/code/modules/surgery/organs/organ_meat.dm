@@ -10,7 +10,7 @@
 	)
 	color = COLOR_DARK_ORANGE
 
-/obj/item/food/meat/slab/ms13/organ/proc/get_inheritance(obj/item/organ/organ_parent)
+/obj/item/food/meat/steak/plain/ms13/organ/proc/get_inheritance(obj/item/organ/organ_parent)
 	//ooh yeah baby this is stupid!!!!
 	var/old_flags = organ_parent.item_flags
 	organ_parent.item_flags |= IN_INVENTORY
