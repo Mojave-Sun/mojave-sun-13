@@ -1,3 +1,8 @@
+/obj/item/shard
+	grind_results = list(
+		/datum/reagent/toxin/ms13/fiberglass = 10,
+	)
+
 //yummy glass shard yum yum
 /obj/item/shard/Initialize(mapload)
 	. = ..()
