@@ -20,9 +20,12 @@
 
 /obj/item/food/meat/steak/plain/ms13/organ/brain
 	name = "roasted brain"
+	desc = "Looks repugnant... But it's probably a delicacy in one of those weird eastern countries, right?"
 	icon = 'mojave/icons/objects/organs/organs_inventory.dmi'
 	icon_state = "brain"
-	food_reagents = list(/datum/reagent/consumable/nutriment/organ_tissue = 4,
-						/datum/reagent/consumable/nutriment/protein = 4,
-						/datum/reagent/consumable/nutriment/protein/prions = 2,
-						/datum/reagent/consumable/nutriment/vitamin = 1)
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment/organ_tissue = 4,
+		/datum/reagent/consumable/nutriment/protein = 4,
+		/datum/reagent/consumable/nutriment/protein/prions = 2,
+		/datum/reagent/consumable/nutriment/vitamin = 1,
+	)
