@@ -9,4 +9,12 @@
 /obj/item/organ/Initialize(mapload)
 	. = ..()
 	if((organ_flags & ORGAN_EDIBLE) && grilled_type)
-		AddComponent(/datum/component/grillable, /obj/item/food/meat/steak/plain/ms13/organ, rand(30 SECONDS, 90 SECONDS), TRUE, TRUE)
+		AddComponent(/datum/component/grillable, grilled_type, rand(30 SECONDS, 90 SECONDS), TRUE, TRUE)
+		RegisterSignal(src, COMSIG_GRILL_COMPLETED, .proc/on_grill_completed)
+
+/obj/item/organ/proc/on_grill_completed(datum/source, obj/item/grill_result)
+	SIGNAL_HANDLER
+
+	if(istype(grill_result, /obj/item/food/meat/slab/ms13/organ))
+		var/obj/item/food/meat/slab/ms13/organ/organ_meat = grill_result
+		organ_meat.get_inheritance(src)

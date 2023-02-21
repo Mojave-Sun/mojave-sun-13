@@ -8,18 +8,14 @@
 						/datum/reagent/consumable/nutriment/protein = 4,
 						/datum/reagent/consumable/nutriment/vitamin = 1)
 
-/obj/item/food/meat/slab/ms13/organ/Initialize(mapload, amount, obj/item/organ/organ_parent)
-	. = ..()
-	if(!organ_parent)
-		return
-	get_inheritance(organ_parent)
-
 /obj/item/food/meat/slab/ms13/organ/proc/get_inheritance(obj/item/organ/organ_parent)
-	icon_state = ""
-	cut_overlays()
-	var/mutable_appearance/parent_appearance = new(organ_parent)
-	parent_appearance.transform = matrix() //resets the transform because le shrink element shenanigans
-	add_overlay(organ_parent)
+	//ooh yeah baby this is stupid!!!!
+	var/old_flags = organ_parent.item_flags
+	organ_parent.item_flags |= IN_INVENTORY
+	organ_parent.update_appearance()
+	organ_parent.item_flags = old_flags
+	icon = organ_parent.icon
+	icon_state = organ_parent.icon_state
 	name = "roasted [organ_parent]"
 
 /obj/item/food/meat/steak/plain/ms13/organ/brain
@@ -30,10 +26,3 @@
 						/datum/reagent/consumable/nutriment/protein = 4,
 						/datum/reagent/consumable/nutriment/protein/prions = 2,
 						/datum/reagent/consumable/nutriment/vitamin = 1)
-
-/obj/item/food/meat/slab/ms13/organ/get_inheritance(obj/item/organ/organ_parent)
-	icon_state = ""
-	cut_overlays()
-	var/mutable_appearance/parent_appearance = new(organ_parent)
-	parent_appearance.transform = matrix() //resets the transform because le shrink element shenanigans
-	add_overlay(organ_parent)

@@ -71,7 +71,7 @@
 
 	if(istype(parent, /obj/item/stack)) //Check if its a sheet, for grilling multiple things in a stack
 		var/obj/item/stack/itemstack = original_object
-		var/atom/grilled_result = new cook_result(original_object.loc, itemstack.amount, parent) // MOJAVE SUN EDIT
+		var/atom/grilled_result = new cook_result(original_object.loc, itemstack.amount)
 		SEND_SIGNAL(parent, COMSIG_GRILL_COMPLETED, grilled_result)
 		currently_grilling = FALSE
 		grill_source.visible_message("<span class='[positive_result ? "notice" : "warning"]'>[parent] turns into \a [grilled_result]!</span>")
@@ -80,7 +80,7 @@
 		qdel(parent)
 		return
 
-	var/atom/grilled_result = new cook_result(original_object.loc, 1, parent) // MOJAVE SUN EDIT
+	var/atom/grilled_result = new cook_result(original_object.loc)
 
 	if(original_object.custom_materials)
 		grilled_result.set_custom_materials(original_object.custom_materials, 1)
