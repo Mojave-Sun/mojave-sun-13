@@ -13,7 +13,7 @@
 /obj/item/food/meat/slab/ms13/bodypart/ribs
 	name = "ribs"
 	desc = "A slab of \"ribs\"."
-	icon_state = "ribs"
+	icon_state = "fatty"
 	tastes = list("juicy meat" = 1)
 
 /obj/item/food/meat/slab/ms13/bodypart/ribs/MakeGrillable()
@@ -29,7 +29,7 @@
 	name = "roasted ribs"
 	desc = "A piece of juicy ribs."
 	gender = PLURAL
-	icon_state = "ribs_roasted"
+	icon_state = "fatty_roasted"
 	tastes = list("juicy meat" = 1)
 
 /obj/item/food/meat/rawcutlet/plain/ms13/bodypart
