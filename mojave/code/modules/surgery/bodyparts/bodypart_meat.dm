@@ -9,8 +9,22 @@
 /obj/item/food/meat/slab/ms13/bodypart/MakeProcessable()
 	AddElement(/datum/element/processable, TOOL_KNIFE,  /obj/item/food/meat/rawcutlet/plain/ms13/bodypart, 3, 30)
 
+/obj/item/food/meat/slab/ms13/bodypart/ribs
+	name = "ribs"
+	desc = "A slab of \"ribs\"."
+	tastes = list("juicy meat" = 1)
+
+/obj/item/food/meat/slab/ms13/bodypart/ribs/MakeGrillable()
+	AddComponent(/datum/component/grillable, /obj/item/food/meat/steak/plain/ms13/bodypart/ribs, rand(30 SECONDS, 90 SECONDS), TRUE, TRUE)
+
+/obj/item/food/meat/slab/ms13/bodypart/ribs/MakeProcessable()
+	AddElement(/datum/element/processable, TOOL_KNIFE,  /obj/item/food/meat/rawcutlet/plain/ms13/bodypart, 3, 30)
+
 /obj/item/food/meat/steak/plain/ms13/bodypart
 	tastes = list("tender meat" = 1)
+
+/obj/item/food/meat/steak/plain/ms13/bodypart/ribs
+	tastes = list("juicy meat" = 1)
 
 /obj/item/food/meat/rawcutlet/plain/ms13/bodypart
 	tastes = list("tender meat" = 1)
