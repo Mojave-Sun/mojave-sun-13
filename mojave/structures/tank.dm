@@ -21,13 +21,15 @@
 	name = "huge chemical storage tank"
 	desc = "A huge chemical storage tank with pipes running from it. It's covered in forboding symbols."
 	icon_state = "largetank_chemical_huge"
+	pixel_x = -9
 
 /obj/structure/ms13/tank/chemical/container
 	name = "chemical container tank"
-	desc = "A wide chemical container tank. It's covered in forboding symbols."
-	icon_state = "largetank_chemical_huge"
+	desc = "A wide chemical container tank. It has one giant forboding symbol in the middle."
+	icon_state = "chemical_container"
+	bound_width = 64
 
 /obj/structure/ms13/tank/chemical/container/broken
 	name = "chemical container tank"
-	desc = "A wide chemical container tank. It's covered in forboding symbols, it also appears it exploded from the inside."
-	icon_state = "largetank_chemical_huge"
+	desc = "A wide chemical container tank. It has one giant forboding symbol in the middle, it also appears it exploded from the inside."
+	icon_state = "chemical_container_broken"
