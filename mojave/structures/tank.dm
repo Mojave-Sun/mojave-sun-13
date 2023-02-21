@@ -27,7 +27,7 @@
 	name = "chemical container tank"
 	desc = "A wide chemical container tank. It has one giant forboding symbol in the middle."
 	icon_state = "chemical_container"
-	bound_width = 32
+	bound_width = 64
 
 /obj/structure/ms13/tank/chemical/container/broken
 	name = "chemical container tank"
