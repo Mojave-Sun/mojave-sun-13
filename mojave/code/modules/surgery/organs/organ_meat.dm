@@ -4,9 +4,11 @@
 	icon_state = "fatty_roasted"
 	color = COLOR_DARK_ORANGE
 	tastes = list("gamey meat" = 1)
-	food_reagents = list(/datum/reagent/consumable/nutriment/organ_tissue = 4,
-						/datum/reagent/consumable/nutriment/protein = 4,
-						/datum/reagent/consumable/nutriment/vitamin = 1)
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment/organ_tissue = 4,
+		/datum/reagent/consumable/nutriment/protein = 4,
+		/datum/reagent/consumable/nutriment/vitamin = 1,
+	)
 
 /obj/item/food/meat/slab/ms13/organ/proc/get_inheritance(obj/item/organ/organ_parent)
 	//ooh yeah baby this is stupid!!!!
