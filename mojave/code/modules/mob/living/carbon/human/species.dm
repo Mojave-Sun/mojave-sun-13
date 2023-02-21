@@ -17,6 +17,7 @@
 				span_notice("You butcher [victim]."))
 		new chest.meat_type(victim.drop_location())
 		new /obj/effect/gibspawner/generic(get_turf(victim))
+		victim.unequip_everything()
 		qdel(victim)
 		return TRUE
 	return FALSE
