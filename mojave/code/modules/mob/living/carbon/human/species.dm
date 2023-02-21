@@ -15,7 +15,7 @@
 	if(do_mob(user, FLOOR(butchering_component.speed, 1), target = victim))
 		user.visible_message(span_warning("[user] butchers [victim]."),\
 				span_notice("You butcher [victim]."))
-		playsound(victim, 'mojave/sound/ms13gore/dissection.ogg', 100, FALSE)
+		playsound(victim, 'mojave/sound/ms13gore/dissection.ogg', 80, FALSE)
 		new chest.meat_type(victim.drop_location())
 		new /obj/effect/gibspawner/generic(get_turf(victim))
 		victim.unequip_everything()
