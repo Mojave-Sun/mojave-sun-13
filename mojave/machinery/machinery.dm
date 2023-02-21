@@ -75,6 +75,7 @@
 			soundloop.start()
 		set_light_on(on)
 		update_light()
+		update_icon_state()
 
 /obj/machinery/ms13/wartable/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration)
 	. = ..()
