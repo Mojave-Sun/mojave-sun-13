@@ -13,5 +13,5 @@
 /datum/reagent/toxin/ms13/glass_powder/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	. = ..()
 	for(var/obj/item/organ/organ as anything in M.internal_organs)
-		organ.applyOrganDamage(rand(0,3))
+		organ.applyOrganDamage(pick(0,rand(2,4)))
 	M.take_bodypart_damage(rand(1,2))
