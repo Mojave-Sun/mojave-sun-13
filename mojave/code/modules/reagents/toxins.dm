@@ -21,7 +21,11 @@
 	for(var/organ_slot in valid_organ_slots)
 		current_organ = M.getorganslot(organ_slot)
 		if(current_organ)
-			current_organ.applyOrganDamage(rand(2,4))
-	M.apply_damage(rand(1,2), BRUTE, def_zone = BODY_ZONE_CHEST)
+			//organs are really brittle right now so the amount of damage is lesser than the brute damage
+			current_organ.applyOrganDamage(1 * REM * normalise_creation_purity() * delta_time)
+	M.apply_damage(2 * REM * normalise_creation_purity() * delta_time, BRUTE, def_zone = BODY_ZONE_CHEST)
 	if(DT_PROB(5, delta_time))
 		M.emote("cough")
+		//can also make u cough up blood sometimes
+		if(DT_PROB(50, delta_time))
+			M.bleed(3)
