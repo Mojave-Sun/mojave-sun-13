@@ -16,6 +16,7 @@
 		user.visible_message(span_warning("[user] butchers [victim]."),\
 				span_notice("You butcher [victim]."))
 		new chest.meat_type(victim.drop_location())
+		new /obj/effect/gibspawner/generic(get_turf(victim))
 		qdel(victim)
 		return TRUE
 	return FALSE
