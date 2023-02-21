@@ -149,6 +149,16 @@
 	grid_height = 32
 	w_class = WEIGHT_CLASS_TINY
 	novariants = FALSE
+	grind_results = list(
+		/datum/reagent/toxin/ms13/fiberglass = 10,
+	)
+
+/obj/item/stack/sheet/ms13/glass/Initialize()
+	. = ..()
+	AddComponent(/datum/component/edible,\
+				initial_reagents = grind_results,\
+				foodtypes = GROSS,\
+				volume = 10)
 
 /obj/item/stack/sheet/ms13/glass/two
 	amount = 2
