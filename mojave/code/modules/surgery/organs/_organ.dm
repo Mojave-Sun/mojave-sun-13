@@ -15,6 +15,6 @@
 /obj/item/organ/proc/on_grill_completed(datum/source, obj/item/grill_result)
 	SIGNAL_HANDLER
 
-	if(istype(grill_result, /obj/item/food/meat/slab/ms13/organ))
+	if(istype(grill_result, /obj/item/food/meat/steak/plain/ms13/organ))
 		var/obj/item/food/meat/slab/ms13/organ/organ_meat = grill_result
 		organ_meat.get_inheritance(src)
