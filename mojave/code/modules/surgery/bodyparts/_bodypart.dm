@@ -14,7 +14,7 @@
 			if(do_after(user, FLOOR(butchering_component.speed, 1), target = src))
 				drop_organs(user, TRUE)
 				visible_message(span_warning("\The [src] spills it's organs out."))
-				playsound(victim, 'mojave/sound/ms13gore/flesh1.ogg', 80, FALSE)
+				playsound(src, 'mojave/sound/ms13gore/flesh1.ogg', 80, FALSE)
 			return
 		//sorry we can't really use the processable component here
 		if(!meat_type)
