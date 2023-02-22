@@ -20,6 +20,17 @@
 	/// Height we occupy on the hud - Keep null to generate based on w_class
 	var/grid_height
 
+/obj/item/proc/inventory_flip(mob/user = null, force = FALSE)
+	if(!force && (user && (!user.Adjacent(src) && !user.DirectAccess(src)) || !isliving(user)))
+		return
+
+	var/old_width = grid_width
+	var/old_height = grid_height
+	grid_height = old_width
+	grid_width = old_height
+	if(user)
+		to_chat(user, span_notice("You flip the [src] for storage."))
+
 /obj/item/proc/reset_grid_inventory()
 	//this is stupid shitcode but grid inventory sadly requires it
 	var/drop_location = drop_location()
@@ -632,7 +643,7 @@
 	var/final_y
 	var/validate_x = (storing.grid_width/grid_box_size)-1
 	var/validate_y = (storing.grid_height/grid_box_size)-1
-	//this loops through all cells we overlap given these coordinates
+	//this loops through all cells we overlap given these coordinates and adds the item to the associated lists
 	for(var/current_x in 0 to validate_x)
 		for(var/current_y in 0 to validate_y)
 			final_x = coordinate_x+current_x
@@ -680,9 +691,11 @@
 			var/final_y = 0
 			var/final_coordinates = ""
 			var/grid_location_found = FALSE
-			for(var/current_x in 0 to ((screen_max_rows*grid_box_ratio)-1))
-				for(var/current_y in 0 to ((screen_max_columns*grid_box_ratio)-1))
-					final_y = current_y
+			var/rows = ((screen_max_rows*grid_box_ratio)-1)
+			var/columns = ((screen_max_columns*grid_box_ratio)-1)
+			for(var/current_x in 0 to columns)
+				for(var/current_y in 0 to rows)
+					final_y = rows - current_y
 					final_x = current_x
 					final_coordinates = "[final_x],[final_y]"
 					if(validate_grid_coordinates(final_coordinates, storing.grid_width, storing.grid_height, storing))
@@ -951,14 +964,3 @@
 	layer = HUD_BACKGROUND_LAYER
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	alpha = 96
-
-/obj/item/proc/inventory_flip(mob/user = null, force = FALSE)
-
-	if(!force && (user && (!user.Adjacent(src) && !user.DirectAccess(src)) || !isliving(user)))
-		return
-
-	var/old_width = grid_width
-	var/old_height = grid_height
-	grid_height = old_width
-	grid_width = old_height
-	// to_chat(usr, span_notice("You flip the item for storage."))
