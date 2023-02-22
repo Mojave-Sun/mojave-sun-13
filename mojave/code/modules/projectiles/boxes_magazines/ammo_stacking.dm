@@ -152,8 +152,8 @@
 /obj/item/ammo_casing/proc/stack_with(obj/item/ammo_casing/other_casing)
 	var/obj/item/ammo_box/magazine/ammo_stack/ammo_stack = new stack_type(drop_location())
 	if(generic_stacking)
-		name = "[capitalize(caliber)] rounds"
-		base_icon_state = initial(icon_state)
+		ammo_stack.name = "[capitalize(caliber)] rounds"
+		ammo_stack.base_icon_state = initial(icon_state)
 		if(istype(ammo_stack))
 			ammo_stack.world_icon_state = initial(icon_state)
 		ammo_stack.caliber = caliber
