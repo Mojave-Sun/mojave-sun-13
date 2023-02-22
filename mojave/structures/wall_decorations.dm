@@ -172,3 +172,13 @@
 	name = "calendar"
 	desc = "A calendar turned to October 2077, there's some random circled dates on here."
 	icon_state = "calendar"
+
+/obj/structure/ms13/wall_decor/exit
+	name = "exit sign"
+	desc = "An exit sign in red, pointing you to the exit of the building incase of an emergency."
+	icon_state = "exit"
+
+/obj/structure/ms13/wall_decor/wallscreen
+	name = "wallscreens"
+	desc = "Three monitors stuck to the wall, in-case you needed more monitors."
+	icon_state = "wallscreen"
