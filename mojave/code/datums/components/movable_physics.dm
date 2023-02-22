@@ -26,9 +26,12 @@
 	. = ..()
 	if(!ismovable(parent))
 		return COMPONENT_INCOMPATIBLE
-	if(SSmovablephysics.override_all_parameters)
-		horizontal_velocity = rand(SSmovablephysics._horizontal_velocity * (1 - SSmovablephysics._error_of_margain_velocity), SSmovablephysics._horizontal_velocity * (1 + SSmovablephysics._error_of_margain_velocity))
-		horizontal_velocity = rand(SSmovablephysics._vertical_velocity * (1 - SSmovablephysics._error_of_margain_velocity), SSmovablephysics._vertical_velocity * (1 + SSmovablephysics._error_of_margain_velocity))
+	RegisterSignal(parent, COMSIG_MOVABLE_IMPACT, .proc/throw_impact_ricochet, override = TRUE)
+
+	if(SSmovablephysics._override_all_parameters)
+		horizontal_velocity = rand(100 * SSmovablephysics._horizontal_velocity * (1 - SSmovablephysics._error_of_margin), 100 * SSmovablephysics._horizontal_velocity * (1 + SSmovablephysics._error_of_margin)) / 100
+		vertical_velocity = rand(100 * SSmovablephysics._vertical_velocity * (1 - SSmovablephysics._error_of_margin), 100 * SSmovablephysics._vertical_velocity * (1 + SSmovablephysics._error_of_margin)) / 100
+		horizontal_friction = rand(100 * SSmovablephysics._horizontal_friction * (1 - SSmovablephysics._error_of_margin), 100 * SSmovablephysics._horizontal_friction * (1 + SSmovablephysics._error_of_margin)) / 100
 		z_gravity = SSmovablephysics._z_gravity
 		z_floor = SSmovablephysics._z_floor
 
@@ -76,8 +79,8 @@
 	playsound(moving_atom, a_turf.bullet_bounce_sound, 50, TRUE)
 	moving_atom.SpinAnimation(speed = 2 SECONDS, loops = 1)
 	moving_atom.pixel_z = z_floor
-	horizontal_velocity = max(0, horizontal_velocity + (vertical_velocity * -0.8))
-	vertical_velocity = max(0, (vertical_velocity * -0.75))
+	//horizontal_velocity = max(0, horizontal_velocity + (vertical_velocity * -0.8))
+	vertical_velocity = max(0, ((vertical_velocity * -0.8) - 0.2))
 
 /datum/component/movable_physics/proc/ricochet(atom/movable/moving_atom, bounce_angle)
 	angle_of_movement = ((180 - bounce_angle) - angle_of_movement)
@@ -108,6 +111,7 @@
 	moving_atom.pixel_y += (horizontal_velocity * (sin(angle_of_movement)))
 
 	horizontal_velocity = max(0, horizontal_velocity - horizontal_friction)
+	//horizontal_velocity = max(0, (horizontal_velocity - (horizontal_velocity * horizontal_friction) - 0.1))
 
 	moving_atom.pixel_z = max(z_floor, moving_atom.pixel_z + vertical_velocity)
 	if(moving_atom.pixel_z > z_floor)

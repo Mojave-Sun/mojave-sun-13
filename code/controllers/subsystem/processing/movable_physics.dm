@@ -4,16 +4,16 @@ PROCESSING_SUBSYSTEM_DEF(movablephysics)
 	wait = 0.05 SECONDS
 	stat_tag = "MP"
 	priority = FIRE_PRIORITY_MOVABLE_PHYSICS
-	///Setting this to true makes all newly initialized physics components to have set parameters, mainly for debugging without needing to recompile the code
-	var/override_all_parameters = FALSE
+	///Setting this to TRUE or 1 makes all newly initialized physics components to have set parameters, mainly for debugging without needing to recompile the code
+	var/_override_all_parameters = FALSE
 	//Using _ helps keep the variables towards the top of the var editor so it's easy to get to and is organized
 	///Currently setup to set initial velocity to rand(initial_velocity * 0.90, initial_velocity * 1.1
-	var/_error_of_margain_velocity = 0.1
-	var/_horizontal_velocity = 0
-	var/_vertical_velocity = 0
-	var/_horizontal_friction = 0
-	var/_z_gravity = 9.80665
-	var/_z_floor = -16
+	var/_error_of_margin = 0.1
+	var/_horizontal_velocity = 5
+	var/_vertical_velocity = 4
+	var/_horizontal_friction = 0.2
+	var/_z_gravity = 8
+	var/_z_floor = 0
 
 /datum/controller/subsystem/processing/movablephysics/fire(resumed = FALSE)
 	if (!resumed)
