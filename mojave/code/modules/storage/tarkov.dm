@@ -421,7 +421,7 @@
 /datum/component/storage/signal_take_obj(datum/source, atom/movable/taken, atom/new_location, force = FALSE)
 	if(!(taken in real_location()))
 		return FALSE
-	return remove_from_storage(taken, new_loc)
+	return remove_from_storage(taken, new_location)
 
 /datum/component/storage/remove_from_storage(atom/movable/removed, atom/new_location)
 	if(!istype(removed))
