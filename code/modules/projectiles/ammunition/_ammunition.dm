@@ -134,8 +134,9 @@
 				to_chat(user, span_notice("You collect [src] into [ammo_stack]."))
 			else
 				to_chat(user, span_warning("You fail to collect anything!"))
-		return ..()
-	/*if(istype(I, /obj/item/ammo_box)) //No gaming
+	return ..()
+	/*
+	if(istype(I, /obj/item/ammo_box)) //No gaming
 		var/obj/item/ammo_box/box = I
 		if(isturf(loc))
 			var/boolets = 0
@@ -151,10 +152,11 @@
 				box.update_appearance()
 				to_chat(user, span_notice("You collect [boolets] shell\s. [box] now contains [box.stored_ammo.len] shell\s."))
 			else
-				to_chat(user, span_warning("You fail to collect anything!"))*/
-	//MOJAVE EDIT END
+				to_chat(user, span_warning("You fail to collect anything!"))
 	else
 		return ..()
+	*/
+	//MOJAVE EDIT END
 
 /obj/item/ammo_casing/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	bounce_away(FALSE, NONE)
