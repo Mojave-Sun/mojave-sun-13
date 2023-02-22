@@ -20,6 +20,16 @@
 	/// Height we occupy on the hud - Keep null to generate based on w_class
 	var/grid_height
 
+/obj/item/proc/reset_grid_inventory()
+	//this is stupid shitcode but grid inventory sadly requires it
+	var/drop_location = drop_location()
+	for(var/obj/item/item_in_source in contents)
+		if(drop_location)
+			item_in_source.forceMove(drop_location)
+		else
+			item_in_source.moveToNullspace()
+		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, item_in_source, null, TRUE, TRUE, FALSE)
+
 /obj/item/storage
 	var/grid = TRUE
 	var/storage_flags = NONE
@@ -30,18 +40,7 @@
 	if(STR)
 		STR.grid = grid
 		STR.storage_flags = storage_flags
-	update_grid_inventory()
-
-/obj/item/storage/proc/update_grid_inventory()
-	//this is stupid shitcode but grid inventory sadly requires it
-	var/drop_location = drop_location()
-	for(var/obj/item/item_in_source in contents)
-		if(drop_location)
-			item_in_source.forceMove(drop_location)
-		else
-			item_in_source.moveToNullspace()
-		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, item_in_source, null, TRUE, TRUE, FALSE)
-
+	reset_grid_inventory()
 
 // storage types //
 

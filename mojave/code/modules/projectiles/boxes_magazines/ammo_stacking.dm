@@ -20,7 +20,7 @@
 	var/world_icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	/// World icon state
 	var/world_icon_state = "9mm_casing"
-	///Placeholder icons
+	/// Uses barbaric placeholder icon generation
 	var/no_inventory_sprite = FALSE
 
 /obj/item/ammo_box/magazine/ammo_stack/Initialize(mapload)
@@ -122,7 +122,7 @@
 	/// TRUE if the ammo stack is generic and we should give it info based on the casing
 	var/generic_stacking = TRUE
 	var/stack_size = 20
-	/// Used if we don't have a pre-made inventory sprite. Resorts to the barbaric methods of random gen icon state
+	/// Used if we don't have a pre-made inventory sprite - Resorts to the barbaric methods of random gen icon state
 	var/no_inventory_sprite = FALSE
 
 /obj/item/ammo_casing/attackby(obj/item/attacking_item, mob/user, params)
@@ -145,19 +145,21 @@
 	if(!loaded_projectile || !ammo_casing.loaded_projectile)
 		to_chat(user, span_warning("I can't stack empty casings."))
 		return
+	var/obj/item/ammo_box/magazine/ammo_stack/ammo_stack = ammo_casing.stack_with(src)
+	user.put_in_hands(ammo_stack)
+	to_chat(user, span_notice("[src] has been stacked with [ammo_casing]."))
+
+/obj/item/ammo_casing/proc/stack_with(obj/item/ammo_casing/other_casing)
 	var/obj/item/ammo_box/magazine/ammo_stack/ammo_stack = new stack_type(drop_location())
 	if(generic_stacking)
-		ammo_stack.name = "[capitalize(caliber)] rounds"
-		ammo_stack.base_icon_state = initial(icon_state)
+		name = "[capitalize(caliber)] rounds"
+		base_icon_state = initial(icon_state)
 		if(istype(ammo_stack))
 			ammo_stack.world_icon_state = initial(icon_state)
-		ammo_stack.caliber = src.caliber
-	ammo_stack.max_ammo = ammo_casing.stack_size
-	ammo_stack.no_inventory_sprite = ammo_casing.no_inventory_sprite
-	user.transferItemToLoc(src, ammo_stack, silent = TRUE)
+		ammo_stack.caliber = caliber
+	ammo_stack.max_ammo = stack_size
+	ammo_stack.no_inventory_sprite = no_inventory_sprite
 	ammo_stack.give_round(src)
-	user.transferItemToLoc(ammo_casing, ammo_stack, silent = TRUE)
-	ammo_stack.give_round(ammo_casing)
-	user.put_in_hands(ammo_stack)
+	ammo_stack.give_round(other_casing)
 	ammo_stack.update_appearance()
-	to_chat(user, span_notice("[src] has been stacked with [ammo_casing]."))
+	return ammo_stack
