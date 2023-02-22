@@ -752,9 +752,11 @@
 			var/final_y = 0
 			var/final_coordinates = ""
 			var/grid_location_found = FALSE
-			for(var/current_x in 0 to ((screen_max_rows*grid_box_ratio)-1))
-				for(var/current_y in 0 to ((screen_max_columns*grid_box_ratio)-1))
-					final_y = current_y
+			var/rows = ((screen_max_rows*grid_box_ratio)-1)
+			var/columns = ((screen_max_columns*grid_box_ratio)-1)
+			for(var/current_x in 0 to columns)
+				for(var/current_y in 0 to rows)
+					final_y = rows - current_y
 					final_x = current_x
 					final_coordinates = "[final_x],[final_y]"
 					if(validate_grid_coordinates(final_coordinates, storing.grid_width, storing.grid_height, storing))
