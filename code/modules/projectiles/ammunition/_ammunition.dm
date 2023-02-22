@@ -129,6 +129,11 @@
 				to_chat(user, span_notice("You collect [boolets] shell\s. [ammo_stack] now contains [length(ammo_stack.stored_ammo)] shell\s."))
 			else
 				to_chat(user, span_warning("You fail to collect anything!"))
+		else
+			if(ammo_stack.give_round(src, FALSE))
+				to_chat(user, span_notice("You collect [src] into [ammo_stack]."))
+			else
+				to_chat(user, span_warning("You fail to collect anything!"))
 		return ..()
 	/*if(istype(I, /obj/item/ammo_box)) //No gaming
 		var/obj/item/ammo_box/box = I
