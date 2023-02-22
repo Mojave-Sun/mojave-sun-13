@@ -399,7 +399,26 @@
 		parent.add_fingerprint(user)
 	return master.handle_item_insertion_from_slave(src, storing, prevent_warning, user, params = params, storage_click = storage_click)
 
-/datum/component/storage/signal_take_obj(datum/source, atom/movable/taken, new_loc, force = FALSE)
+/datum/component/storage/handle_mass_item_insertion(list/things, datum/component/storage/src_object, mob/user, datum/progressbar/progress)
+	var/atom/source_real_location = src_object.real_location()
+	for(var/obj/item/stored_item in things)
+		things -= stored_item
+		if(stored_item.loc != source_real_location)
+			continue
+		if(user.active_storage != src_object)
+			if(stored_item.on_found(user))
+				break
+		if(can_be_inserted(stored_item, FALSE, user))
+			SEND_SIGNAL(stored_item.loc, COMSIG_TRY_STORAGE_TAKE, stored_item, parent)
+			handle_item_insertion(stored_item, TRUE, user)
+		if(TICK_CHECK)
+			progress.update(progress.goal - things.len)
+			return TRUE
+
+	progress.update(progress.goal - things.len)
+	return FALSE
+
+/datum/component/storage/signal_take_obj(datum/source, atom/movable/taken, atom/new_location, force = FALSE)
 	if(!(taken in real_location()))
 		return FALSE
 	return remove_from_storage(taken, new_loc)
