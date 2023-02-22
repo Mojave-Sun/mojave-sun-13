@@ -1,7 +1,6 @@
 /**
- * The ammo stack object itself, making this a magazine was the easiest way to handle it
- * Practically every casing type needs an associated ammo stack type, because that was the easiest
- * way for me to handle it.
+ * The ammo stack object itself, making this a magazine was the easiest way to handle it since
+ * a lot of behavior is shared between the two.
  */
 /obj/item/ammo_box/magazine/ammo_stack
 	name = "ammo stack"
@@ -15,7 +14,7 @@
 	start_empty = TRUE
 	max_ammo = 12
 	/// Max ammo amount for the baked inventory sprite
-	var/max_ammo_inventory = 5
+	var/max_ammo_inventory_icon = 5
 	/// World icon for this stack
 	var/world_icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	/// World icon state
@@ -39,12 +38,12 @@
 		cut_overlays()
 		icon_state = ""
 		for(var/casing in stored_ammo)
-			var/image/bullet = image(initial(icon), src, "[base_icon_state]-live")
+			var/image/bullet = image(icon, src, "[base_icon_state]-live")
 			bullet.pixel_x = rand(-8, 8)
 			bullet.pixel_y = rand(-8, 8)
 			add_overlay(bullet)
 		return UPDATE_ICON_STATE | UPDATE_OVERLAYS
-	icon_state = "[base_icon_state]-live-[min(ammo_count(TRUE), max_ammo_inventory)]"
+	icon_state = "[base_icon_state]-live-[min(ammo_count(TRUE), max_ammo_inventory_icon)]"
 
 /obj/item/ammo_box/magazine/ammo_stack/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
     . = ..()
@@ -53,15 +52,7 @@
         var/obj/item/ammo = get_round(FALSE)
         ammo.forceMove(loc_before_del)
         ammo.throw_at(loc_before_del)
-    check_for_del()
-
-/obj/item/ammo_box/magazine/ammo_stack/handle_atom_del(atom/A)
-	. = ..()
-	check_for_del()
-
-/obj/item/ammo_box/magazine/ammo_stack/empty_magazine()
-	. = ..()
-	check_for_del()
+    update_ammo_count()
 
 /obj/item/ammo_box/magazine/ammo_stack/update_ammo_count()
 	. = ..()
@@ -86,12 +77,11 @@
 
 // ammo casing attackby code here
 /obj/item/ammo_casing
-	/**
-	 * What this casing can be stacked into.
-	 */
+	/// What this casing can be stacked into
 	var/obj/item/ammo_box/magazine/stack_type
 	/// TRUE if the ammo stack is generic and we should give it info based on the casing
 	var/generic_stacking = TRUE
+	/// Maximum size an ammo stack of this casing can reach
 	var/stack_size = 20
 	/// Used if we don't have a pre-made inventory sprite - Resorts to the barbaric methods of random gen icon state
 	var/no_inventory_sprite = FALSE

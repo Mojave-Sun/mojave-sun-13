@@ -198,6 +198,7 @@
 	var/list/L = stored_ammo.Copy()
 	if(drop_list)
 		stored_ammo.Cut()
+		update_ammo_count()
 	return L
 
 ///drops the entire contents of the magazine on the floor
@@ -206,6 +207,7 @@
 	for(var/obj/item/ammo in stored_ammo)
 		ammo.forceMove(turf_mag)
 		stored_ammo -= ammo
+	update_ammo_count()
 
 /obj/item/ammo_box/magazine/handle_atom_del(atom/A)
 	stored_ammo -= A
