@@ -161,7 +161,11 @@
 		return
 	var/obj/item/ammo_casing/stacker_casing = new loaded_casing.type(H.loc)
 	var/obj/item/ammo_box/magazine/ammo_stack/ammo_stack = stacker_casing.stack_with(new loaded_casing.type(H.loc))
-	ammo_stack.top_off(loaded_casing.type)
+	ammo_stack.top_off(loaded_casing.type, starting = TRUE)
+	//this is fucking dumb but top_off has weird behavior
+	if(length(ammo_stack.stored_ammo) > ammo_stack.max_ammo)
+		stacker_casing = ammo_stack.get_round(keep = FALSE)
+		qdel(stacker_casing)
 	H.put_in_hands(ammo_stack)
 	var/obj/item/backpack = H.get_item_by_slot(ITEM_SLOT_BACK)
 	if(!backpack)
