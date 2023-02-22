@@ -44,8 +44,7 @@
 			bullet.pixel_y = rand(-8, 8)
 			add_overlay(bullet)
 		return UPDATE_ICON_STATE | UPDATE_OVERLAYS
-	else
-		icon_state = "[base_icon_state]-live-[min(ammo_count(TRUE), max_ammo_inventory)]"
+	icon_state = "[base_icon_state]-live-[min(ammo_count(TRUE), max_ammo_inventory)]"
 
 /obj/item/ammo_box/magazine/ammo_stack/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
     . = ..()
