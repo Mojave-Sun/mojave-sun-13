@@ -71,11 +71,11 @@
 			soundloop.stop()
 		else
 			on = TRUE
-				if(broken)
+			if(broken)
 				icon_state = "wartable_broken"
-				else
-					icon_state = "wartable_on"
-					soundloop.start()
+			else
+				icon_state = "wartable_on"
+				soundloop.start()
 		set_light_on(on)
 		update_light()
 
@@ -86,12 +86,8 @@
 	if(atom_integrity < 400)
 		broken = TRUE
 		desc = "[initial(desc)] It looks broken."
-		update_icon_state()
-
-/obj/machinery/ms13/wartable/update_icon_state()
-	. = ..()
-	if(broken)
-		icon_state = "wartable_broken"
+		if(on)
+			icon_state = "wartable_broken"
 
 // Intercoms //
 
