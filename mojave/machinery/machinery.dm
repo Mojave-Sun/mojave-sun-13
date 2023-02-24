@@ -65,6 +65,10 @@
 /obj/machinery/ms13/wartable/attack_hand(mob/living/user)
 	. = ..()
 	if(user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY)) //Can only actually activate this from the base tile in the bottom left due to the size of it. :Thinking://
+		if(broken)
+			broken = TRUE
+			icon_state = "wartable_broken"
+			soundloop.stop()
 		if(on)
 			on = FALSE
 			icon_state = "wartable_off"
