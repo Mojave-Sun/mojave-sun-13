@@ -88,6 +88,7 @@
 		desc = "[initial(desc)] It looks broken."
 		if(on)
 			icon_state = "wartable_broken"
+			soundloop.stop()
 
 // Intercoms //
 
