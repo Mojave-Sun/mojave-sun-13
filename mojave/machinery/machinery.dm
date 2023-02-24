@@ -65,21 +65,19 @@
 /obj/machinery/ms13/wartable/attack_hand(mob/living/user)
 	. = ..()
 	if(user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY)) //Can only actually activate this from the base tile in the bottom left due to the size of it. :Thinking://
-		if(broken)
-			broken = TRUE
-			icon_state = "wartable_broken"
-			soundloop.stop()
 		if(on)
 			on = FALSE
 			icon_state = "wartable_off"
 			soundloop.stop()
 		else
 			on = TRUE
-			icon_state = "wartable_on"
-			soundloop.start()
+				if(broken)
+				icon_state = "wartable_broken"
+				else
+					icon_state = "wartable_on"
+					soundloop.start()
 		set_light_on(on)
 		update_light()
-		update_icon_state()
 
 /obj/machinery/ms13/wartable/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration)
 	. = ..()
