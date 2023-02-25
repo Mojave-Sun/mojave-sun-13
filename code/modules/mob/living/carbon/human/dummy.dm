@@ -119,6 +119,9 @@ MOJAVE SUN EDIT END */
 	if(is_creating)
 		fully_replace_character_name(real_name, "John Doe")
 
+/mob/living/carbon/human/consistent/domutcheck()
+	return // We skipped adding any mutations so this runtimes
+
 //Inefficient pooling/caching way.
 GLOBAL_LIST_EMPTY(human_dummy_list)
 GLOBAL_LIST_EMPTY(dummy_mob_list)
