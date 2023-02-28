@@ -565,7 +565,9 @@
 /area/ms13/town)
 "dl" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/machinery/door/unpowered/ms13/metal/red,
+/obj/machinery/door/unpowered/ms13/metal/red{
+	dir = 1
+	},
 /turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "dm" = (
@@ -3454,7 +3456,7 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/effect/spawner/random/ms13/locked/random/lowchance,
 /obj/machinery/door/unpowered/ms13/metal/red{
-	dir = 4
+	dir = 8
 	},
 /turf/open/floor/ms13/metal/plate,
 /area/ms13/town)
@@ -4061,6 +4063,13 @@
 	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/carpet,
+/area/ms13/town)
+"zI" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/door/unpowered/ms13/wood{
+	dir = 8
+	},
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "zL" = (
 /obj/structure/railing/ms13/solo{
@@ -4678,7 +4687,9 @@
 "DH" = (
 /obj/effect/spawner/random/ms13/locked/random/highchance,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/machinery/door/unpowered/ms13/seethrough/bar,
+/obj/machinery/door/unpowered/ms13/seethrough/bar{
+	dir = 1
+	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "DI" = (
@@ -40747,7 +40758,7 @@ mt
 mt
 QG
 QG
-vB
+zI
 QG
 QG
 mj
