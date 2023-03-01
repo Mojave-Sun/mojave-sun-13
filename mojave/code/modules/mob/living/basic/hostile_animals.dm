@@ -59,6 +59,7 @@
 	speed = -0.35
 	sharpness = NONE
 	wound_bonus = CANT_WOUND
+	butcher_results = list(/obj/item/food/meat/slab/ms13/animal/radroach = 1)
 	faction = list("insect")
 	/*food_type = list(/obj/item/food/)//they eat anything
 	tame_chance = 5
@@ -85,6 +86,7 @@
 	bare_wound_bonus = 0
 	light_range = 1.5
 	light_color = "#4ba54f"
+	butcher_results = list(/obj/item/food/meat/slab/ms13/animal/glowroach = 1)
 
 /mob/living/basic/ms13/hostile_animal/gecko
 	name = "gecko"
@@ -121,7 +123,7 @@
 /mob/living/basic/ms13/hostile_animal/gecko/ice
 	icon_state = "icegecko"
 	icon_dead = "icegecko_dead"
-	butcher_results = list(/obj/item/ms13/hide/gecko/ice = 1, /obj/item/food/meat/slab/ms13/carcass/gecko = 1, /obj/item/ms13/animalitem/gecko/claws = 1)
+	butcher_results = list(/obj/item/food/meat/slab/ms13/carcass/gecko = 1, /obj/item/ms13/animalitem/gecko/claws = 1)
 
 /mob/living/basic/ms13/hostile_animal/gecko/sand
 	icon_state = "sandgecko"
@@ -129,7 +131,7 @@
 
 /mob/living/basic/ms13/hostile_animal/molerat
 	name = "molerat"
-	desc = "A disgusting flesh beast, known for it's hostility and edible meat."
+	desc = "A large, fur covered abomination. More dangerous than it looks."
 	icon_state = "molerat"
 	icon_dead = "molerat_dead"
 	gender = PLURAL
@@ -138,16 +140,16 @@
 	attack_verb_simple = "bite"
 	attack_sound = list('mojave/sound/ms13npc/molerat_attack1.ogg', 'mojave/sound/ms13npc/molerat_attack2.ogg', 'mojave/sound/ms13npc/molerat_attack3.ogg')
 	deathsound = list('mojave/sound/ms13npc/molerat_death1.ogg', 'mojave/sound/ms13npc/molerat_death2.ogg', 'mojave/sound/ms13npc/molerat_death3.ogg')
-	health = 60
-	maxHealth = 60
+	health = 80
+	maxHealth = 80
 	melee_damage_lower = 15
 	melee_damage_upper = 15
-	subtractible_armour_penetration = 5
-	speed = 0.25
+	subtractible_armour_penetration = 20
+	speed = 0.65
 	sharpness = SHARP_IMPALING
 	wound_bonus = 8
 	bare_wound_bonus = 2
-	butcher_results = list(/obj/item/ms13/hide/molerat = 1, /obj/item/food/meat/slab/ms13/carcass/molerat = 1, /obj/item/ms13/animalitem/molerat/teeth = 2)
+	butcher_results = list(/obj/item/food/meat/slab/ms13/carcass/molerat = 1, /obj/item/ms13/animalitem/molerat/teeth = 2)
 	faction = list("rat")
 	/*food_type = list(/obj/item/food/grown/ms13/potato)
 	tame_chance = 20
@@ -177,7 +179,7 @@
 
 /mob/living/basic/ms13/hostile_animal/pigrat
 	name = "pigrat"
-	desc = "A foul abomination of the earth's two most filthy creatures, initially wild beasts but if tamed are known to be a source of nutritious meat and milk."
+	desc = "A disgusting flesh beast, known for it's hostility and edible meat."
 	icon_state = "pigrat"
 	icon_dead = "pigrat_dead"
 	gender = PLURAL
@@ -186,12 +188,12 @@
 	attack_verb_simple = "bite"
 	attack_sound = list('mojave/sound/ms13npc/pigrat_attack1.ogg', 'mojave/sound/ms13npc/pigrat_attack2.ogg', 'mojave/sound/ms13npc/pigrat_attack3.ogg')
 	deathsound = list('mojave/sound/ms13npc/pigrat_death1.ogg', 'mojave/sound/ms13npc/pigrat_death2.ogg', 'mojave/sound/ms13npc/pigrat_death3.ogg')
-	health = 80
-	maxHealth = 80
+	health = 60
+	maxHealth = 60
 	melee_damage_lower = 15
 	melee_damage_upper = 15
-	subtractible_armour_penetration = 20
-	speed = 0.65
+	subtractible_armour_penetration = 5
+	speed = 0.25
 	sharpness = SHARP_IMPALING
 	wound_bonus = 8
 	bare_wound_bonus = 2
@@ -245,6 +247,7 @@
 	sharpness = NONE
 	wound_bonus = 5
 	bare_wound_bonus = 5
+	butcher_results = list(/obj/item/food/meat/slab/ms13/animal/ant = 2)
 	faction = list("insect")
 	/*food_type = list(/obj/item/food/grown/ms13/pungafruit, /obj/item/food/grown/ms13/geigpungafruit)
 	tame_chance = 5
@@ -275,7 +278,7 @@
 	sharpness = SHARP_EDGED
 	wound_bonus = 4
 	bare_wound_bonus = 12
-	butcher_results = list(/obj/item/ms13/hide/wolf = 1, /obj/item/food/meat/slab/ms13/carcass/wolf = 1, /obj/item/ms13/animalitem/wolf/teeth = 2)
+	butcher_results = list(/obj/item/food/meat/slab/ms13/carcass/wolf = 1, /obj/item/ms13/animalitem/wolf/teeth = 2)
 	faction = list("dog_city")
 	/*food_type = list(/obj/item/food/meat/slab)
 	tame_chance = 5
@@ -304,6 +307,7 @@
 	sharpness = SHARP_EDGED
 	wound_bonus = 8
 	bare_wound_bonus = 4
+	butcher_results = list(/obj/item/food/meat/slab/ms13/animal/mirelurk = 2)
 	faction = list("shellfish")
 	/*food_type = list(/obj/item/food/meat/slab)
 	tame_chance = 5
@@ -315,6 +319,22 @@
 /mob/living/basic/ms13/hostile_animal/mirelurk/death()
 	. = ..()
 	playsound(src, 'mojave/sound/ms13npc/ant_death1.ogg', 60, TRUE) //placeholder for now, it sounds alright
+
+/mob/living/basic/ms13/hostile_animal/mirelurk/glowie
+	name = "radlurk"
+	desc = "A heavily mutated and irradiated mirelurk that glows brightly. Even more of a reason to stay away from it."
+	icon_state = "radlurk"
+	icon_dead = "radlurk_dead"
+	health = 250
+	maxHealth = 250
+	melee_damage_lower = 30
+	melee_damage_upper = 30
+	subtractible_armour_penetration = 20
+	wound_bonus = 12
+	bare_wound_bonus = 8
+	light_range = 3.5
+	light_color = "#4ba54f"
+	butcher_results = list(/obj/item/food/meat/slab/ms13/animal/radlurk = 2)
 
 /mob/living/basic/ms13/hostile_animal/yaoguai
 	name = "yao guai"

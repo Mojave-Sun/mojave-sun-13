@@ -340,8 +340,8 @@
 // jackets //
 
 /obj/item/clothing/suit/ms13/ljacket/moleskin
-	name = "moleskin jacket"
-	desc = "A durable moleskin jacket."
+	name = "ratskin jacket"
+	desc = "A durable jacket made from pigrat hide."
 	icon_state = "moleskinjacket"
 	inhand_icon_state = "duster"
 	body_parts_covered = CHEST|ARMS
