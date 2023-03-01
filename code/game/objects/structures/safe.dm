@@ -62,13 +62,13 @@ FLOOR SAFES
 		return INITIALIZE_HINT_LATELOAD
 
 /obj/structure/safe/LateInitialize(mapload)
-    // Put as many items on our turf inside as possible
-    for(var/obj/item/inserting_item in loc)
-        if(space >= maxspace)
-            return
-        if(inserting_item.w_class + space <= maxspace)
-            space += inserting_item.w_class
-            inserting_item.forceMove(src)
+	// Put as many items on our turf inside as possible
+	for(var/obj/item/inserting_item in loc)
+		if(space >= maxspace)
+			return
+		if(inserting_item.w_class + space <= maxspace)
+			space += inserting_item.w_class
+			inserting_item.forceMove(src)
 
 // MOJAVE SUN EDIT END
 
