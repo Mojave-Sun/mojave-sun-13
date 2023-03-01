@@ -1,7 +1,9 @@
 //Base defines for meat
 /obj/item/food/meat/slab/ms13
 	icon = 'mojave/icons/objects/food/meat.dmi'
-	icon_state = "lean"
+	icon_state = "meat"
+	drop_sound = 'mojave/sound/ms13items/ms13handling/meat_drop.ogg'
+	pickup_sound =  'mojave/sound/ms13items/ms13handling/meat_pickup.ogg'
 
 /obj/item/food/meat/slab/ms13/Initialize(mapload)
 	. = ..()
@@ -9,7 +11,9 @@
 
 /obj/item/food/meat/steak/plain/ms13
 	icon = 'mojave/icons/objects/food/meat.dmi'
-	icon_state = "lean_roasted"
+	icon_state = "meat_roasted"
+	drop_sound = 'mojave/sound/ms13items/ms13handling/meat_drop.ogg'
+	pickup_sound =  'mojave/sound/ms13items/ms13handling/meat_pickup.ogg'
 
 /obj/item/food/meat/steak/plain/ms13/Initialize(mapload)
 	. = ..()
@@ -17,7 +21,9 @@
 
 /obj/item/food/meat/rawcutlet/plain/ms13
 	icon = 'mojave/icons/objects/food/meat.dmi'
-	icon_state = "generic"
+	icon_state = "meatcube"
+	drop_sound = 'mojave/sound/ms13items/ms13handling/meat_drop.ogg'
+	pickup_sound =  'mojave/sound/ms13items/ms13handling/meat_pickup.ogg'
 
 /obj/item/food/meat/rawcutlet/plain/ms13/Initialize(mapload)
 	. = ..()
@@ -25,7 +31,9 @@
 
 /obj/item/food/meat/cutlet/plain/ms13
 	icon = 'mojave/icons/objects/food/meat.dmi'
-	icon_state = "generic_roasted"
+	icon_state = "meatcube_roasted"
+	drop_sound = 'mojave/sound/ms13items/ms13handling/meat_drop.ogg'
+	pickup_sound =  'mojave/sound/ms13items/ms13handling/meat_pickup.ogg'
 
 /obj/item/food/meat/cutlet/plain/ms13/Initialize(mapload)
 	. = ..()
