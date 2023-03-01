@@ -59,6 +59,7 @@
 	speed = -0.35
 	sharpness = NONE
 	wound_bonus = CANT_WOUND
+	butcher_results = list(/obj/item/food/meat/slab/ms13/animal/radroach = 1)
 	faction = list("insect")
 	/*food_type = list(/obj/item/food/)//they eat anything
 	tame_chance = 5
@@ -85,6 +86,7 @@
 	bare_wound_bonus = 0
 	light_range = 1.5
 	light_color = "#4ba54f"
+	butcher_results = list(/obj/item/food/meat/slab/ms13/animal/glowroach = 1)
 
 /mob/living/basic/ms13/hostile_animal/gecko
 	name = "gecko"
@@ -121,7 +123,7 @@
 /mob/living/basic/ms13/hostile_animal/gecko/ice
 	icon_state = "icegecko"
 	icon_dead = "icegecko_dead"
-	butcher_results = list(/obj/item/ms13/hide/gecko/ice = 1, /obj/item/food/meat/slab/ms13/carcass/gecko = 1, /obj/item/ms13/animalitem/gecko/claws = 1)
+	butcher_results = list(/obj/item/food/meat/slab/ms13/carcass/gecko = 1, /obj/item/ms13/animalitem/gecko/claws = 1)
 
 /mob/living/basic/ms13/hostile_animal/gecko/sand
 	icon_state = "sandgecko"
@@ -147,7 +149,7 @@
 	sharpness = SHARP_IMPALING
 	wound_bonus = 8
 	bare_wound_bonus = 2
-	butcher_results = list(/obj/item/ms13/hide/molerat = 1, /obj/item/food/meat/slab/ms13/carcass/molerat = 1, /obj/item/ms13/animalitem/molerat/teeth = 2)
+	butcher_results = list(/obj/item/food/meat/slab/ms13/carcass/molerat = 1, /obj/item/ms13/animalitem/molerat/teeth = 2)
 	faction = list("rat")
 	/*food_type = list(/obj/item/food/grown/ms13/potato)
 	tame_chance = 20
@@ -245,6 +247,7 @@
 	sharpness = NONE
 	wound_bonus = 5
 	bare_wound_bonus = 5
+	butcher_results = list(/obj/item/food/meat/slab/ms13/animal/ant = 2)
 	faction = list("insect")
 	/*food_type = list(/obj/item/food/grown/ms13/pungafruit, /obj/item/food/grown/ms13/geigpungafruit)
 	tame_chance = 5
@@ -275,7 +278,7 @@
 	sharpness = SHARP_EDGED
 	wound_bonus = 4
 	bare_wound_bonus = 12
-	butcher_results = list(/obj/item/ms13/hide/wolf = 1, /obj/item/food/meat/slab/ms13/carcass/wolf = 1, /obj/item/ms13/animalitem/wolf/teeth = 2)
+	butcher_results = list(/obj/item/food/meat/slab/ms13/carcass/wolf = 1, /obj/item/ms13/animalitem/wolf/teeth = 2)
 	faction = list("dog_city")
 	/*food_type = list(/obj/item/food/meat/slab)
 	tame_chance = 5
@@ -304,6 +307,7 @@
 	sharpness = SHARP_EDGED
 	wound_bonus = 8
 	bare_wound_bonus = 4
+	butcher_results = list(/obj/item/food/meat/slab/ms13/animal/mirelurk = 2)
 	faction = list("shellfish")
 	/*food_type = list(/obj/item/food/meat/slab)
 	tame_chance = 5
@@ -330,6 +334,7 @@
 	bare_wound_bonus = 8
 	light_range = 3.5
 	light_color = "#4ba54f"
+	butcher_results = list(/obj/item/food/meat/slab/ms13/animal/radlurk = 2)
 
 /mob/living/basic/ms13/hostile_animal/yaoguai
 	name = "yao guai"
