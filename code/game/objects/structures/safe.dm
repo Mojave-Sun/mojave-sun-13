@@ -46,17 +46,31 @@ FLOOR SAFES
 	// Combination generation
 	for(var/iterating in 1 to number_of_tumblers)
 		tumblers.Add(rand(0, 99))
+	// MOJAVE SUN EDIT BEGIN
+	//if(!mapload)
+	//	return
 
-	if(!mapload)
-		return
-
-	// Put as many items on our turf inside as possible
+	/*// Put as many items on our turf inside as possible
 	for(var/obj/item/inserting_item in loc)
 		if(space >= maxspace)
 			return
 		if(inserting_item.w_class + space <= maxspace)
 			space += inserting_item.w_class
-			inserting_item.forceMove(src)
+			inserting_item.forceMove(src)*/
+
+	if(mapload)
+		return INITIALIZE_HINT_LATELOAD
+
+/obj/structure/safe/LateInitialize(mapload)
+    // Put as many items on our turf inside as possible
+    for(var/obj/item/inserting_item in loc)
+        if(space >= maxspace)
+            return
+        if(inserting_item.w_class + space <= maxspace)
+            space += inserting_item.w_class
+            inserting_item.forceMove(src)
+
+// MOJAVE SUN EDIT END
 
 /obj/structure/safe/update_icon_state()
 	icon_state = "[initial(icon_state)][open ? "-open" : null]"
