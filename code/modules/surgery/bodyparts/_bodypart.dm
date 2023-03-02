@@ -117,6 +117,8 @@
 	///A list of all the external organs we've got stored to draw horns, wings and stuff with (special because we are actually in the limbs unlike normal organs :/ )
 	var/list/obj/item/organ/external/external_organs = list()
 
+	/// The meat we turn into when butchered yum
+	var/meat_type = /obj/item/food/meat/slab/ms13/bodypart
 
 /obj/item/bodypart/Initialize(mapload)
 	. = ..()
@@ -180,23 +182,36 @@
 					human_victim.visible_message(span_warning("[user] jams [src] into [human_victim]'s empty socket!"),\
 					span_notice("[user] forces [src] into your empty socket, and it locks into place!"))
 				return
-	..()
+	return ..()
 
-/* MOJAVE SUN EDIT REMOVAL
 /obj/item/bodypart/attackby(obj/item/weapon, mob/user, params)
-	if(weapon.get_sharpness())
+	//bad component usage omg!!!!
+	var/datum/component/butchering/butchering_component = weapon.GetComponent(/datum/component/butchering)
+	if(butchering_component?.butchering_enabled)
 		add_fingerprint(user)
-		if(!contents.len)
-			to_chat(user, span_warning("There is nothing left inside [src]!"))
+		if(length(contents))
+			playsound(loc, 'sound/weapons/slice.ogg', 50, TRUE, -1)
+			user.visible_message(span_warning("[user] begins to tear open [src]."),\
+				span_notice("You begin to tear open [src]..."))
+			if(do_after(user, FLOOR(butchering_component.speed, 1), target = src))
+				drop_organs(user, TRUE)
+				visible_message(span_warning("\The [src] spills it's organs out."))
+				playsound(src, 'mojave/sound/ms13gore/flesh1.ogg', 65, FALSE)
 			return
-		playsound(loc, 'sound/weapons/slice.ogg', 50, TRUE, -1)
-		user.visible_message(span_warning("[user] begins to cut open [src]."),\
-			span_notice("You begin to cut open [src]..."))
-		if(do_after(user, 54, target = src))
-			drop_organs(user, TRUE)
-	else
-		return ..()
-*/
+		//sorry we can't really use the processable component here
+		if(!meat_type)
+			to_chat(user, span_warning("\The [src] cannot be butchered for any meat."))
+			return
+		user.visible_message(span_warning("[user] begins to butcher [src]..."),\
+				span_notice("You begin to butcher [src]..."))
+		if(do_after(user, FLOOR(butchering_component.speed, 1), target = src))
+			user.visible_message(span_warning("[user] butchers [src]."),\
+					span_notice("You butcher [src]."))
+			playsound(src, 'mojave/sound/ms13gore/flesh2.ogg', 65, FALSE)
+			new meat_type(drop_location())
+			qdel(src)
+		return
+	return ..()
 
 /obj/item/bodypart/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	..()
@@ -243,10 +258,6 @@
 //Applies brute and burn damage to the organ. Returns 1 if the damage-icon states changed at all.
 //Damage will not exceed max_damage using this proc
 //Cannot apply negative damage
-/* MOJAVE EDIT REMOVAL
-/obj/item/bodypart/proc/receive_damage(brute = 0, burn = 0, stamina = 0, blocked = 0, updating_health = TRUE, required_status = null, wound_bonus = 0, bare_wound_bonus = 0, sharpness = NONE, attack_direction = null)
-*/
-//MOJAVE EDIT BEGIN
 /obj/item/bodypart/proc/receive_damage(brute = 0, \
 									burn = 0, \
 									stamina = 0, \
@@ -260,7 +271,6 @@
 									reduced = 0, \
 									edge_protection = 0, \
 									subarmor_flags = NONE)
-//MOJAVE EDIT END
 	var/hit_percent = (100-blocked)/100
 	if((!brute && !burn && !stamina) || hit_percent <= 0)
 		return FALSE
@@ -271,12 +281,11 @@
 		return FALSE
 
 	var/dmg_multi = CONFIG_GET(number/damage_multiplier) * hit_percent
-	brute = round(max(brute * dmg_multi, 0),DAMAGE_PRECISION)
-	burn = round(max(burn * dmg_multi, 0),DAMAGE_PRECISION)
-	stamina = round(max(stamina * dmg_multi, 0),DAMAGE_PRECISION)
+	brute = round(max(brute * dmg_multi, 0), DAMAGE_PRECISION)
+	burn = round(max(burn * dmg_multi, 0), DAMAGE_PRECISION)
+	stamina = round(max(stamina * dmg_multi, 0), DAMAGE_PRECISION)
 	brute = max(0, brute - brute_reduction)
 	burn = max(0, burn - burn_reduction)
-	//MOJAVE EDIT BEGIN
 	if(reduced)
 		if(brute >= burn)
 			var/brute_before = brute
@@ -285,9 +294,8 @@
 				brute += FLOOR((brute_before - brute) * 0.1, 1)
 		else
 			burn = round(max(burn - reduced, burn * MAXIMUM_ARMOR_REDUCTION), DAMAGE_PRECISION)
-	//MOJAVE EDIT END
-	//No stamina scaling.. for now..
 
+	//No stamina scaling.. for now..
 	if(!brute && !burn && !stamina)
 		return FALSE
 
@@ -368,8 +376,8 @@
 	var/can_inflict = max_damage - get_damage()
 	var/total_damage = brute + burn
 	if(total_damage > can_inflict && total_damage > 0) // TODO: the second part of this check should be removed once disabling is all done
-		brute = round(brute * (can_inflict / total_damage),DAMAGE_PRECISION)
-		burn = round(burn * (can_inflict / total_damage),DAMAGE_PRECISION)
+		brute = round(brute * (can_inflict / total_damage), DAMAGE_PRECISION)
+		burn = round(burn * (can_inflict / total_damage), DAMAGE_PRECISION)
 
 	if(can_inflict <= 0)
 		return FALSE
