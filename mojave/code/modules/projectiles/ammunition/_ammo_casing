@@ -15,6 +15,7 @@
 		var/obj/item/ammo_casing/other_casing = ammo_box.get_round(TRUE)
 		if(try_stacking(other_casing, user))
 			ammo_box.stored_ammo -= other_casing
+			ammo_box.update_ammo_count()
 		return
 	else if(istype(attacking_item, /obj/item/ammo_box/magazine/ammo_stack) && isturf(loc))
 		add_fingerprint(user)
