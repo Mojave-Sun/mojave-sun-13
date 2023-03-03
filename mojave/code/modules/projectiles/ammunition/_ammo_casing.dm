@@ -15,6 +15,7 @@
 		var/obj/item/ammo_casing/other_casing = ammo_box.get_round(TRUE)
 		if(try_stacking(other_casing, user))
 			ammo_box.stored_ammo -= other_casing
+			ammo_box.update_ammo_count()
 		return
 	else if(istype(attacking_item, /obj/item/ammo_box/magazine/ammo_stack))
 		add_fingerprint(user)
@@ -35,7 +36,7 @@
 				if(ammo_stack.give_round(src, FALSE))
 					boolets++
 			if(boolets > 0)
-				ammo_stack.update_appearance()
+				ammo_stack.update_ammo_count()
 				to_chat(user, span_notice("You collect [boolets] shell\s. [ammo_stack] now contains [length(ammo_stack.stored_ammo)] shell\s."))
 			else
 				to_chat(user, span_warning("You fail to collect anything!"))
@@ -94,5 +95,5 @@
 	ammo_stack.no_inventory_sprite = no_inventory_sprite
 	ammo_stack.give_round(src)
 	ammo_stack.give_round(other_casing)
-	ammo_stack.update_appearance()
+	ammo_stack.update_ammo_count()
 	return ammo_stack
