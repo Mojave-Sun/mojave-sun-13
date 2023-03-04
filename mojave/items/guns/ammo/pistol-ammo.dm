@@ -38,7 +38,7 @@
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 	w_class = WEIGHT_CLASS_NORMAL
 	grid_width = 32
-	grid_height = 64
+	grid_height = 32
 
 /obj/item/ammo_box/ms13/c45/junk
 	name = "junk .45 ammo box"
@@ -85,9 +85,9 @@
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 	w_class = WEIGHT_CLASS_NORMAL
 	grid_width = 32
-	grid_height = 64
+	grid_height = 32
 
-/obj/item/ammo_box/ms13/c22/junk
+/obj/item/ammo_box/ms13/c22box/junk
 	name = "junk .22 ammo box"
 	desc = "A crude box containing junk quality .22 ammo."
 	ammo_type = /obj/item/ammo_casing/ms13/c22/junk
@@ -132,7 +132,7 @@
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 	w_class = WEIGHT_CLASS_NORMAL
 	grid_width = 32
-	grid_height = 64
+	grid_height = 32
 
 /obj/item/ammo_box/ms13/c9mm/junk
 	name = "junk 9mm ammo box"
@@ -179,7 +179,7 @@
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 	w_class = WEIGHT_CLASS_NORMAL
 	grid_width = 32
-	grid_height = 64
+	grid_height = 32
 
 /obj/item/ammo_box/ms13/c10mm/junk
 	name = "junk 10mm ammo box"

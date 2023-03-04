@@ -22,7 +22,7 @@
 
 /datum/crafting_recipe/junk_22lr
 	name = "junk .22 ammo box"
-	result = /obj/item/ammo_box/ms13/c22/junk
+	result = /obj/item/ammo_box/ms13/c22box/junk
 	time = 12 SECONDS
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	tool_paths = list()
@@ -170,7 +170,7 @@
 
 /datum/crafting_recipe/stan_22lr
 	name = "standard .22 ammo box"
-	result = /obj/item/ammo_box/ms13/c22
+	result = /obj/item/ammo_box/ms13/c22box
 	time = 12 SECONDS
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	tool_paths = list()
