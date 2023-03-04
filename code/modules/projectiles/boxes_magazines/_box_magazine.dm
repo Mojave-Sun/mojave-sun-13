@@ -121,7 +121,7 @@
 	var/num_loaded = 0
 	if(!can_load(user))
 		return
-	if(istype(A, /obj/item/ammo_box/magazine/ammo_stack) || istype(A, /obj/item/ammo_box/ms13/stripper)) // MOJAVE SUN EDIT | INITIAL CODE : if(istype(A, /obj/item/ammo_box))
+	if(istype(A, /obj/item/ammo_box))
 		var/obj/item/ammo_box/AM = A
 		for(var/obj/item/ammo_casing/AC in AM.stored_ammo)
 			var/did_load = give_round(AC, replace_spent)
@@ -153,7 +153,7 @@
 		return
 
 	A.forceMove(drop_location())
-	if(!user.is_holding(src) || !user.put_in_hands(A)) //incase they're using TK
+	if(!user.is_holding(src) && !user.put_in_hands(A)) //incase they're using TK
 		A.bounce_away(FALSE, NONE)
 	playsound(src, 'sound/weapons/gun/general/mag_bullet_insert.ogg', 60, TRUE)
 	to_chat(user, span_notice("You remove a round from [src]!"))
