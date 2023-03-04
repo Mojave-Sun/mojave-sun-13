@@ -25,7 +25,7 @@
 	///How many units of nutrients will be drained in the tray.
 	var/nutridrain = 100
 	///The maximum nutrient reagent container size of the tray.
-	var/maxnutri = 20
+	var/maxnutri = 5000
 	///Nutriment's effect on yield
 	var/yieldmod = 1
 	///Nutriment's effect on mutations
@@ -54,6 +54,14 @@
 	var/datum/weakref/lastuser
 	///If the tray generates nutrients and water on its own
 	var/self_sustaining = FALSE
+
+	// FERTILIZER VARS //
+	//How much fertilizer the soil can hold
+	var/fertilizer_cap = 100
+	//How much N, P or K fertilizer is in the soil
+	var/n_fertilizer = 0
+	var/p_fertilizer = 0
+	var/k_fertilizer = 0
 
 /obj/machinery/ms13/agriculture/Initialize(mapload)
 	// The soil needs a place to put reagents in order for water to work. Might change how water works later.
@@ -192,6 +200,17 @@
 					adjust_potlevel(-nutridrain)
 					drained_nutrient = potlevel
 
+			// Soil consumes fertilizer and creates N, P or K in the soil.
+			if(n_fertilizer > 0)
+				adjust_nitrolevel(rand(40, 60))
+				n_fertilizer -= 1
+			if(p_fertilizer > 0)
+				adjust_phoslevel(rand(40, 60))
+				p_fertilizer -= 1
+			if(k_fertilizer > 0)
+				adjust_potlevel(rand(40, 60))
+				k_fertilizer -= 1
+
 			// Lack of nutrients hurts non-weeds
 				if(drained_nutrient <= 0 && !myseed.get_gene(/datum/plant_gene/trait/plant_type/weed_hardy))
 					adjust_plant_health(-rand(1,3))
@@ -207,7 +226,7 @@
 //Water//////////////////////////////////////////////////////////////////
 			// Drink random amount of water
 			if(plant_status != HYDROTRAY_PLANT_HARVESTABLE)
-				adjust_waterlevel(-rand(1,6) / rating)
+				adjust_waterlevel(-rand(1,2) / rating)
 
 			// If the plant is dry, it loses health pretty fast, unless mushroom
 				if(waterlevel <= 10 && !myseed.get_gene(/datum/plant_gene/trait/plant_type/fungal_metabolism))
@@ -482,6 +501,18 @@
 
 /obj/machinery/ms13/agriculture/attackby(obj/item/O, mob/user, params)
 	//Called when mob user "attacks" it with object O
+	if(istype(O, /obj/item/stack/ms13/fertilizer))
+		var/obj/item/stack/ms13/fertilizer/fertilizer = O
+		fertilizer.amount--
+		if(fertilizer.nitro > 0)
+			n_fertilizer = clamp(n_fertilizer + fertilizer.nitro, 0.00, fertilizer_cap)
+		if(fertilizer.phos > 0)
+			p_fertilizer = clamp(n_fertilizer + fertilizer.phos, 0.00, fertilizer_cap)
+		if(fertilizer.pot > 0)
+			k_fertilizer = clamp(k_fertilizer + fertilizer.pot, 0.00, fertilizer_cap)
+		visible_message(span_notice("[user] spreads [O] through the soil."))
+		return
+
 	if(IS_EDIBLE(O) || istype(O, /obj/item/reagent_containers))  // Syringe stuff (and other reagent containers now too)
 		var/obj/item/reagent_containers/reagent_source = O
 
@@ -495,28 +526,21 @@
 
 		var/list/trays = list(src)//makes the list just this in cases of syringes and compost etc
 		var/target = myseed ? myseed.plantname : src
-		var/visi_msg = ""
 		var/transfer_amount
 
 		if(IS_EDIBLE(reagent_source) || istype(reagent_source, /obj/item/reagent_containers/pill))
-			visi_msg="[user] composts [reagent_source], spreading it through [target]"
-			transfer_amount = reagent_source.reagents.total_volume
-			SEND_SIGNAL(reagent_source, COMSIG_ITEM_ON_COMPOSTED, user)
+			return
 		else
 			transfer_amount = reagent_source.amount_per_transfer_from_this
 			if(istype(reagent_source, /obj/item/reagent_containers/syringe/))
 				var/obj/item/reagent_containers/syringe/syr = reagent_source
-				visi_msg="[user] injects [target] with [syr]"
+				visible_message(span_notice("[user] injects [target] with [syr]."))
 			// Beakers, bottles, buckets, etc.
 			if(reagent_source.is_drainable())
 				playsound(loc, 'sound/effects/slosh.ogg', 25, TRUE)
 
-		if(visi_msg)
-			visible_message(span_notice("[visi_msg]."))
-
 		for(var/obj/machinery/ms13/agriculture/H in trays)
-		//cause I don't want to feel like im juggling 15 tamagotchis and I can get to my real work of ripping flooring apart in hopes of validating my life choices of becoming a space-gardener
-			//This was originally in apply_chemicals, but due to apply_chemicals only holding nutrients, we handle it here now.
+			//This looks awful, a result of having 3 water types, all are applicable for watering crops
 			if(reagent_source.reagents.has_reagent(/datum/reagent/consumable/ms13/water, 1))
 				var/water_amt = reagent_source.reagents.get_reagent_amount(/datum/reagent/consumable/ms13/water) * transfer_amount / reagent_source.reagents.total_volume
 				H.adjust_waterlevel(round(water_amt))
@@ -752,3 +776,20 @@
 	. = ..()
 	pixel_x = rand(-5, 5)
 	pixel_y = rand(-5, 5)
+
+
+/// Fertilizers ///
+/obj/item/stack/ms13/fertilizer
+	name = "fertilizer bag"
+	desc = "The labels are worn and the bag in bad condition, but it appears to be garden fertilizer."
+	icon = 'mojave/icons/hydroponics/equipment.dmi'
+	icon_state = "daesack3"
+	amount = 3
+	max_amount = 3
+	grid_width = 96
+	grid_height = 128
+
+	// Value of 'N', 'P' or 'K' (potassium) added to the soil's fertilizer pool when added
+	var/nitro = 10
+	var/phos = 10
+	var/pot = 10
