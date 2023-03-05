@@ -72,6 +72,8 @@ GLOBAL_LIST_INIT(construct_radial_images, list(
 	CONSTRUCT_ARTIFICER = image(icon = 'icons/mob/cult.dmi', icon_state = "artificer")
 ))
 
+GLOBAL_LIST_INIT(tall_overlays, generate_tall_overlays())
+
 /proc/update_config_movespeed_type_lookup(update_mobs = TRUE)
 	var/list/mob_types = list()
 	var/list/entry_value = CONFIG_GET(keyed_list/multiplicative_movespeed)
@@ -116,3 +118,16 @@ GLOBAL_LIST_INIT(construct_radial_images, list(
 		if(mind)
 			minds += mind
 	return minds
+
+/proc/generate_tall_overlays()
+	var/list/atom/movable/gen_overlays = list()
+	gen_overlays.len = MAX_LAYER_CUTTING_LEVELS
+	for(var/i = 1, i < MAX_LAYER_CUTTING_LEVELS, i++)
+		var/atom/movable/new_overlay = new /atom/movable()
+		new_overlay.icon = 'icons/effects/layer_cutter.dmi'
+		new_overlay.icon_state = "layer_[i]"
+		new_overlay.plane = LAYER_CUTTER_VISUAL_PLANE
+		new_overlay.invisibility	= INVISIBILITY_LIGHTING
+		new_overlay.blend_mode	= BLEND_OVERLAY
+		gen_overlays[i] = new_overlay
+	return gen_overlays

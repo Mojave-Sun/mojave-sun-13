@@ -47,8 +47,11 @@ SUBSYSTEM_DEF(particle_weather)
 				COOLDOWN_START(src, next_weather_start, rand(-3000, 3000) + initial(next_hit.weather_duration_upper) / 5)
 				break
 
-	if(weather_special_effect)
-		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_WEATHER_EFFECT, weather_special_effect)
+	if(running_weather)
+		running_weather.tick()
+
+		if(weather_special_effect)
+			SEND_GLOBAL_SIGNAL(COMSIG_GLOB_WEATHER_EFFECT, weather_special_effect)
 
 /datum/controller/subsystem/particle_weather/proc/run_weather(datum/particle_weather/weather_datum_type, force = 0)
 	if(running_weather)
@@ -64,14 +67,14 @@ SUBSYSTEM_DEF(particle_weather)
 	running_weather.start()
 	weather_datum_type = null
 
-/datum/controller/subsystem/particle_weather/proc/make_eligible(possible_weather, probability = 10)
+/datum/controller/subsystem/particle_weather/proc/make_eligible(datum/particle_weather/possible_weather, probability = 10)
 	elligble_weathers[possible_weather] = probability
 
 /datum/controller/subsystem/particle_weather/proc/get_weather_effect()
 	if(!weather_effect)
 		weather_effect = new /obj()
 		weather_effect.particles = particle_effect
-		weather_effect.filters += filter(type="alpha", render_source=WEATHER_RENDER_TARGET)
+		weather_effect.add_filter("weather_alpha_mask", 1, alpha_mask_filter(render_source = WEATHER_RENDER_TARGET))
 		weather_effect.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	return weather_effect
 
@@ -80,5 +83,6 @@ SUBSYSTEM_DEF(particle_weather)
 	weather_effect.particles = particle_effect
 
 /datum/controller/subsystem/particle_weather/proc/stop_weather()
+	QDEL_NULL(weather_special_effect)
 	QDEL_NULL(running_weather)
 	QDEL_NULL(particle_effect)
