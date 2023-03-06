@@ -45,6 +45,7 @@
 	icon = 'mojave/icons/turf/walls/scrapblue.dmi'
 
 /obj/structure/table/ms13/low_wall/concrete
+	name = "low concrete wall"
 	icon = 'mojave/icons/turf/walls/concrete.dmi'
 
 /obj/structure/table/ms13/low_wall/adobe
