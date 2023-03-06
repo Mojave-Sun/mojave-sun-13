@@ -443,9 +443,9 @@
 /area/ruin/space/ks13/medical/medbay)
 "fH" = (
 /obj/machinery/door/morgue{
-	name = "Chaplains Office"
+	name = "Chaplains Office";
+	req_access = list("chapel_office")
 	},
-/obj/effect/mapping_helpers/airlock/access/all/service/chapel_office,
 /turf/open/floor/iron/dark,
 /area/ruin/space/ks13/service/chapel_office)
 "fJ" = (
@@ -5026,6 +5026,15 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/airless,
 /area/ruin/space/ks13/dorms)
+"JK" = (
+/obj/structure/chair{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/chapel{
+	dir = 1
+	},
+/area/ruin/space/ks13/service/chapel)
 "JL" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/airless,
@@ -6566,15 +6575,6 @@
 /obj/structure/closet/firecloset,
 /turf/open/floor/iron,
 /area/ruin/space/ks13/command/bridge_hall)
-"Sd" = (
-/obj/structure/chair{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/iron/chapel{
-	dir = 1
-	},
-/area/ruin/space/ks13/service/chapel)
 "Se" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/mapping_helpers/burnt_floor,
@@ -9154,7 +9154,7 @@ Qu
 Ye
 Hs
 SC
-Sd
+JK
 Ty
 Qu
 uf
