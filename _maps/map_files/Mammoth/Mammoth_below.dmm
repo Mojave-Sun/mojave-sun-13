@@ -8565,12 +8565,14 @@
 /turf/open/floor/ms13/tile,
 /area/ms13/underground/underground_town)
 "aKy" = (
-/obj/effect/decal/cleanable/robot_debris,
-/obj/machinery/light/ms13{
-	dir = 8
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
 	},
-/turf/open/floor/ms13/concrete/industrial,
-/area/ms13/underground/army_bunker)
+/obj/machinery/light/ms13{
+	dir = 1
+	},
+/turf/open/floor/ms13/metal/grate,
+/area/ms13/underground/sewer)
 "aKz" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/blood/drip{
@@ -8682,14 +8684,9 @@
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/underground_town)
 "aKW" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/obj/machinery/light/ms13{
-	dir = 1
-	},
-/turf/open/floor/ms13/metal/grate,
-/area/ms13/underground/sewer)
+/obj/effect/turf_decal/ms13/graffiti/clueless/green,
+/turf/closed/wall/ms13/concrete,
+/area/ms13/underground/mountain)
 "aKX" = (
 /turf/open/floor/ms13/metal/walkway/corner{
 	dir = 8
@@ -10826,8 +10823,12 @@
 /turf/open/floor/ms13/sewer,
 /area/ms13/underground/underground_town)
 "aTY" = (
-/obj/effect/turf_decal/ms13/graffiti/clueless/green,
-/turf/closed/wall/ms13/concrete,
+/mob/living/simple_animal/hostile/ms13/robot/protectron/builder,
+/obj/item/food/grown/ms13/potato,
+/obj/machinery/light/ms13/bulb{
+	dir = 1
+	},
+/turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/mountain)
 "aTZ" = (
 /obj/structure/ms13/fence/wire,
@@ -11958,11 +11959,7 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/vault_atrium_lower)
 "aYY" = (
-/mob/living/simple_animal/hostile/ms13/robot/protectron/builder,
-/obj/item/food/grown/ms13/potato,
-/obj/machinery/light/ms13/bulb{
-	dir = 1
-	},
+/obj/machinery/door/unpowered/ms13/metal,
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/mountain)
 "aZa" = (
@@ -12699,8 +12696,14 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/underground_town)
 "csM" = (
-/obj/machinery/door/unpowered/ms13/metal,
-/turf/open/floor/ms13/concrete/bricks,
+/obj/structure/lattice/catwalk/ms13,
+/obj/structure/railing/ms13/sewer{
+	dir = 8
+	},
+/obj/structure/railing/ms13/sewer{
+	dir = 4
+	},
+/turf/open/ms13/water/sewer/medium,
 /area/ms13/underground/mountain)
 "cuc" = (
 /obj/structure/table/ms13/metal,
@@ -13049,10 +13052,10 @@
 "dph" = (
 /obj/structure/lattice/catwalk/ms13,
 /obj/structure/railing/ms13/sewer{
-	dir = 8
+	dir = 4
 	},
 /obj/structure/railing/ms13/sewer{
-	dir = 4
+	dir = 8
 	},
 /turf/open/ms13/water/sewer/medium,
 /area/ms13/underground/mountain)
@@ -13410,15 +13413,12 @@
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
 "erm" = (
-/obj/structure/lattice/catwalk/ms13,
-/obj/structure/railing/ms13/sewer{
+/obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/obj/structure/railing/ms13/sewer{
-	dir = 8
-	},
-/turf/open/ms13/water/sewer/medium,
-/area/ms13/underground/mountain)
+/obj/machinery/light/ms13,
+/turf/open/floor/ms13/metal/grate,
+/area/ms13/underground/sewer)
 "ero" = (
 /obj/structure/bed/ms13/sleepingbag/green,
 /turf/open/floor/ms13/concrete,
@@ -13856,12 +13856,9 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/underground/underground_town)
 "gbN" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/obj/machinery/light/ms13,
-/turf/open/floor/ms13/metal/grate,
-/area/ms13/underground/sewer)
+/obj/effect/turf_decal/ms13/graffiti/free,
+/turf/open/floor/plating/ms13/ground/mountain,
+/area/ms13/underground/mountain)
 "gbQ" = (
 /obj/structure/bed/ms13/mattress/yellowed,
 /turf/open/floor/ms13/concrete,
@@ -14432,9 +14429,12 @@
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
 "hVK" = (
-/obj/effect/turf_decal/ms13/graffiti/free,
-/turf/open/floor/plating/ms13/ground/mountain,
-/area/ms13/underground/mountain)
+/obj/structure/railing/ms13/solo{
+	dir = 8
+	},
+/mob/living/simple_animal/hostile/ms13/robot/robobrain,
+/turf/open/floor/ms13/metal,
+/area/ms13/underground/enclave_base)
 "hWG" = (
 /obj/structure/table/ms13/no_smooth/wood/end,
 /obj/machinery/ms13/coffee{
@@ -15128,10 +15128,9 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "kBx" = (
-/obj/structure/railing/ms13/solo{
-	dir = 8
+/obj/machinery/porta_turret/ms13/ballistic{
+	dir = 9
 	},
-/mob/living/simple_animal/hostile/ms13/robot/robobrain,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/enclave_base)
 "kBy" = (
@@ -15426,11 +15425,9 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/sewer)
 "llU" = (
-/obj/machinery/porta_turret/ms13/ballistic{
-	dir = 9
-	},
-/turf/open/floor/ms13/metal,
-/area/ms13/underground/enclave_base)
+/mob/living/basic/ms13/hostile_animal/mirelurk/glowie,
+/turf/open/ms13/water/sewer/deep,
+/area/ms13/underground/mountain)
 "lni" = (
 /obj/effect/turf_decal/ms13/graffiti/crabs,
 /turf/closed/wall/ms13/sewer,
@@ -17215,10 +17212,6 @@
 /obj/effect/spawner/random/ms13/crafting/lowrandom,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/underground/underground_town)
-"qLe" = (
-/mob/living/basic/ms13/hostile_animal/mirelurk/glowie,
-/turf/open/ms13/water/sewer/deep,
-/area/ms13/underground/mountain)
 "qLg" = (
 /obj/machinery/porta_turret/ms13/ballistic{
 	dir = 1
@@ -31033,7 +31026,7 @@ aDV
 aDV
 aWo
 aWo
-kBx
+hVK
 aDV
 aWo
 aWo
@@ -31643,7 +31636,7 @@ aWo
 aWo
 aWo
 aWo
-llU
+kBx
 aRd
 aBF
 aLC
@@ -41695,7 +41688,7 @@ afU
 afU
 afU
 apq
-qLe
+llU
 apq
 apq
 afU
@@ -50298,14 +50291,14 @@ aYO
 aYO
 azT
 aZW
-aKW
+aKy
 aHC
 aBz
 asz
 asz
 aBz
 aAv
-gbN
+erm
 aZW
 fUs
 abd
@@ -50316,14 +50309,14 @@ abV
 fUs
 fUs
 aZW
-aKW
+aKy
 aHC
 aBz
 asz
 asz
 aBz
 aAv
-gbN
+erm
 aZW
 qQW
 aYO
@@ -75366,12 +75359,12 @@ afU
 afU
 afU
 afU
+aKW
 aTY
 aYY
 csM
 dph
-erm
-hVK
+gbN
 akx
 akx
 akx
@@ -84842,7 +84835,7 @@ akC
 ais
 aPZ
 aUt
-aKy
+aZZ
 aUt
 ahR
 acT
