@@ -5,6 +5,9 @@
 	. = ..()
 	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
 		return
+	//no gaming
+	if(item_flags & IN_STORAGE)
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	add_fingerprint(user)
 	var/obj/item/ammo_casing/casing = get_round(FALSE)
 	if(casing)
@@ -20,6 +23,9 @@
 	. = ..()
 	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
 		return
+	//no gaming
+	if(item_flags & IN_STORAGE)
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	if(istype(weapon, /obj/item/ammo_box) || istype(weapon, /obj/item/ammo_casing))
 		weapon.attackby(src, user)
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN

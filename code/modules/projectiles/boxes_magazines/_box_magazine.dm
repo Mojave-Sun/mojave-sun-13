@@ -125,6 +125,9 @@
 	if(istype(A, /obj/item/ammo_box))
 	*/
 	//MOJAVE EDIT BEGIN
+	//no gaming
+	if(item_flags & IN_STORAGE)
+		return
 	if(istype(A, /obj/item/ammo_box) && !istype(src, /obj/item/ammo_box/magazine/internal))
 	//MOJAVE EDIT END
 		var/obj/item/ammo_box/AM = A
