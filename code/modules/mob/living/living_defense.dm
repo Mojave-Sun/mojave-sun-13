@@ -91,7 +91,7 @@
 
 /mob/living/bullet_act(obj/projectile/P, def_zone, piercing_hit = FALSE)
 	. = ..()
-	if(!P.nodamage && (. != BULLET_ACT_BLOCK))
+	if(P.is_hostile_projectile() && (. != BULLET_ACT_BLOCK))
 		var/attack_direction = get_dir(P.starting, src)
 		//MOJAVE EDIT BEGIN
 		var/subarmor = run_subarmor_check(def_zone, P.flag, armour_penetration = P.subtractible_armour_penetration, weak_against_armour = P.weak_against_subtractible_armour, sharpness = P.sharpness)
