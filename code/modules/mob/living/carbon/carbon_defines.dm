@@ -12,12 +12,12 @@
 	mobility_flags = MOBILITY_FLAGS_CARBON_DEFAULT
 	blocks_emissive = NONE
 	///List of [/obj/item/organ/internal] in the mob. They don't go in the contents for some reason I don't want to know.
-	var/list/obj/item/organ/internal/internal_organs = list()
+	var/list/obj/item/organ/internal/organs = list()
+	///Same as [above][/mob/living/carbon/var/organs], but stores "slot ID" - "organ" pairs for easy access.
+	var/list/organs_slot = list()
+
 	throw_range = 2 // MOJAVE SUN EDIT - No more gamer combat
-	throw_speed = 1 // MOJAVE SUN EDIT - Slow em down, too.
-	///Same as [above][/mob/living/carbon/var/internal_organs], but stores "slot ID" - "organ" pairs for easy access.
-	var/list/internal_organs_slot = list()
-	///How many dream images we have left to send
+	throw_speed = 1 // MOJAVE SUN EDIT - Slow em down, too.	///How many dream images we have left to send
 	var/dreaming = 0
 
 	///Whether or not the mob is handcuffed
