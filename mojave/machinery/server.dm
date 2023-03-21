@@ -29,6 +29,7 @@
 	desc = "A large super computer. Probably the fastest looking computer you've ever seen."
 	icon = 'mojave/icons/structure/mainframe.dmi'
 	icon_state = "mainframe"
+	bound_width = 96
 	density = TRUE
 
 /obj/machinery/ms13/mainframe/update_overlays()
