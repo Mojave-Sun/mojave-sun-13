@@ -24,18 +24,18 @@
 	. = ..()
 	set_light(1.4,0.7,"#FF2A2A")
 
-/obj/machinery/mainframe
+/obj/machinery/ms13/mainframe
 	name = "mainframe"
 	desc = "A large super computer. Probably the fastest looking computer you've ever seen."
 	icon = 'mojave/icons/structure/mainframe.dmi'
 	icon_state = "mainframe"
 	density = TRUE
 
-/obj/machinery/mainframe/update_overlays()
+/obj/machinery/ms13/mainframe/update_overlays()
 	. = ..()
 	. += mutable_appearance(icon, "[icon_state]_on")
 	. += emissive_appearance(icon, "[icon_state]_on")
 
-/obj/machinery/mainframe/Initialize(mapload)
+/obj/machinery/ms13/mainframe/Initialize(mapload)
 	. = ..()
 	set_light(1.4,0.7,"#FF2A2A")
