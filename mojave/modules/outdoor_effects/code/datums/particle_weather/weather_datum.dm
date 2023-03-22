@@ -41,7 +41,7 @@
 	)
 
 /datum/weather_event/thunder/start_process()
-	repeats = prob(30) ? 2 : 1
+	repeats = rand(1, 3)
 	duration = duration + rand(-duration*5, duration*10)/10
 	SSoutdoor_effects.weather_light_affecting_event = src
 	stage_processing = TRUE
@@ -124,17 +124,26 @@
 	var/probability = 0
 	var/datum/particle_weather/initiator_ref
 
-/datum/weather_effect/proc/create_effect(turf/target_turf)
+/datum/weather_effect/proc/effect_affect(turf/target_turf)
 	return FALSE
+
+/datum/weather_effect/rain
+	name = "rain effect"
+	probability = 20
+
+/datum/weather_effect/rain/effect_affect(turf/target_turf)
+	for(var/obj/effect/decal/cleanable/decal in target_turf)
+		qdel(decal)
 
 /datum/weather_effect/snow
 	name = "snow effect"
 	probability = 10
 
-/datum/weather_effect/snow/create_effect(turf/target_turf)
-	if(prob(probability))
+/datum/weather_effect/snow/effect_affect(turf/target_turf)
+	if(!target_turf.snow)
 		target_turf.snow = new /obj/structure/snow(target_turf)
-
+	else
+		target_turf.snow.weathered(src)
 
 /obj/structure/snow
 	name = "Snow"
@@ -147,9 +156,12 @@
 	plane = GAME_PLANE
 	layer = LOW_OBJ_LAYER
 	alpha = 0
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = .proc/on_entered,
+		COMSIG_ATOM_EXIT = .proc/on_exit,
+	)
 	var/bleed_layer = 1
 	var/pts = 0
-	var/list/overlays_by_mob = list()
 	var/list/image/snow_corners_overlays = list()
 	var/list/obj/structure/snow/border_snows = list()
 	var/list/diged = list("2" = FALSE, "1" = FALSE, "8" = FALSE, "4" = FALSE)
@@ -164,12 +176,25 @@
 		border_snows += turf.snow
 		turf.snow.border_snows += src
 
+	var/turf/my_turf = get_turf(loc)
+	if(my_turf)
+		ADD_TRAIT(my_turf, TRAIT_ADD_SLOWDOWN, SNOW_ON_TURF)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 	AddElement(/datum/element/icon_cutter)
 
 	update_icon()
 
+/obj/structure/snow/Destroy()
+	var/turf/my_turf = get_turf(loc)
+	if(my_turf)
+		REMOVE_TRAIT(my_turf, TRAIT_REMOVE_SLOWDOWN, SNOW_ON_TURF)
+	return ..()
+
 /obj/structure/snow/update_icon()
 	set waitfor = FALSE
+	. = ..()
 	icon_state = "[icon_prefix]_[bleed_layer]"
 	density = bleed_layer < 5 ? FALSE : TRUE
 	layer = bleed_layer < 4 ? LOW_OBJ_LAYER : OBJ_LAYER
@@ -236,7 +261,7 @@
 				if(!turf)
 					continue
 				if(!turf.snow)
-					effect.create_effect(turf)
+					effect.effect_affect(turf)
 					break
 			for(var/obj/structure/snow/turf_snow in border_snows)
 				if(bleed_layer < MAX_LAYER_CUTTING_LEVELS)
@@ -270,26 +295,21 @@
 			if(bleed_layer)
 				addtimer(CALLBACK(src, .proc/changing_layer, 0), 1)
 
-/obj/structure/snow/Crossed(atom/movable/arrived)
+/obj/structure/snow/proc/on_entered(datum/source, atom/movable/arrived)
+	SIGNAL_HANDLER
 	if(isliving(arrived))
 		var/mob/living/living = arrived
 		if(bleed_layer > 1)
-			var/new_slowdown = living.next_move_slowdown + (0.35 * bleed_layer)
 			if(prob(2))
-				to_chat(living, SPAN_WARNING("Moving through [src] slows you down.")) //Warning only
-			else if(bleed_layer == 4 && prob(2))
-				to_chat(living, SPAN_WARNING("You get stuck in [src] for a moment!"))
-				new_slowdown += 1 SECONDS
-			living.next_move_slowdown = new_slowdown
-		set_diged_ways(GLOB.reverse_dir[living.dir])
+				to_chat(living, span_warning("Moving through [src] slows you down."))
+		set_diged_ways(REVERSE_DIR(dir))
 		SEND_SIGNAL(src, COMSIG_OVERLAY_CUTTER_FIRST, arrived, bleed_layer)
-	..()
 
-/obj/structure/snow/Uncrossed(atom/movable/gone)
-	if(isliving(gone))
-		set_diged_ways(gone.dir)
-		SEND_SIGNAL(src, COMSIG_OVERLAY_CUTTER_SECOND, gone, bleed_layer)
-	..()
+/obj/structure/snow/proc/on_exit(datum/source, atom/movable/leaving, direction)
+	SIGNAL_HANDLER
+	if(isliving(leaving))
+		set_diged_ways(leaving.dir)
+		SEND_SIGNAL(src, COMSIG_OVERLAY_CUTTER_SECOND, leaving, bleed_layer)
 
 /obj/structure/snow/proc/set_diged_ways(dir)
 	diged["[dir]"] = TRUE
@@ -567,3 +587,40 @@
 		)
 	mid_length = 30 SECONDS
 	volume = 150
+
+//IDK WHERE SUPPOSED TO PUT
+/obj/machinery/siren
+	name = "Siren"
+	desc = "A siren used to play warnings for the colony."
+	icon = 'icons/obj/machines/loudspeaker.dmi'
+	icon_state = "loudspeaker"
+	density = 0
+	anchored = 1
+	use_power = 0
+	machine_stat = NOPOWER
+	var/message = "BLA BLA BLA"
+	var/sound = 'sound/effects/weather_warning.ogg'
+
+/obj/machinery/siren/proc/siren_warning(var/msg = "WARNING, bla bla bla bluh.", var/sound_ch = 'sound/effects/weather_warning.ogg')
+	playsound(loc, sound_ch, 80, 0)
+	visible_message(span_danger("[src] make signal. [msg]."))
+
+/obj/machinery/siren/proc/siren_warning_start(var/msg, var/sound_ch = 'sound/effects/weather_warning.ogg')
+	if(!msg)
+		return
+	message = msg
+	sound = sound_ch
+	START_PROCESSING(SSmachines, src)
+
+/obj/machinery/siren/proc/siren_warning_stop()
+	STOP_PROCESSING(SSmachines, src)
+
+/obj/machinery/siren/process()
+	if(prob(2))
+		playsound(loc, sound, 80, 0)
+		visible_message(span_danger("[src] make signal. [message]."))
+
+
+/obj/machinery/siren/weather
+	name = "Weather Siren"
+	desc = "A siren used to play weather warnings for the city."

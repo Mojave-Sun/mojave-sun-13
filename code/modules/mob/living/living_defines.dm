@@ -172,6 +172,10 @@
 	///The x amount a mob's sprite should be offset due to the current position they're in
 	var/body_position_pixel_y_offset = 0
 
+	var/current_weather_effect_type
+
+	var/atom/movable/icon_cutter
+
 	/// FOV view that is applied from either nativeness or traits
 	var/fov_view
 	/// Native FOV that will be applied if a config is enabled

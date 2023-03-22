@@ -234,13 +234,10 @@ Sunlight System
 
 /turf/proc/apply_weather_effect(datum/source, datum/weather_effect/effect)
 	SIGNAL_HANDLER
-	if(!weather_affectable)
+	if(!weather_affectable || !prob(effect.probability))
 		return
 
-	if(!snow)
-		effect.create_effect(src)
-	else
-		snow.weathered(effect)
+	effect.effect_affect(src)
 
 /* moved this out of reconsider lights so we can call it in multiz refresh  */
 /turf/proc/reconsider_sunlight()
