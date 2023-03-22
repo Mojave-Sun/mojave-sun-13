@@ -31,5 +31,17 @@
 
 /obj/structure/ms13/tank/chemical/container/broken
 	name = "chemical container tank"
-	desc = "A wide chemical container tank. It has one giant forboding symbol in the middle, it also appears it exploded from the inside."
+	desc = "A wide chemical container tank. It has one giant forboding symbol in the middle, it also appears it has exploded from the inside."
 	icon_state = "chemical_container_broken"
+
+/obj/structure/ms13/tank/massive
+	name = "massive storage tank"
+	desc = "A massive empty storage tank. The contents have long since evaporated."
+	icon = 'mojave/icons/structure/tank_large.dmi'
+	icon_state = "big_tank"
+	bound_width = 96
+
+/obj/structure/ms13/tank/massive/broken
+	name = "massive storage tank"
+	desc = "A massive empty storage tank. It appears that it's contents have exploded it inside out."
+	icon_state = "big_tank_broken"
