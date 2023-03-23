@@ -142,3 +142,35 @@
 		if (TOOL_SCREWDRIVER)
 			context[SCREENTIP_CONTEXT_RMB] = "Disassemble"
 			return CONTEXTUAL_SCREENTIP_SET
+
+/obj/item/ms13/fluff/trifoldflag
+	name = "trifold American flag"
+	desc = "A flag of old folded into a triangle and inserted a wooden box with glass to allow it to be seen, usually given to grieving families who lost someone during service or people who served during the Great War."
+	icon_state = "trifold"
+
+/obj/item/ms13/fluff/trifoldflag/Initialize()
+	. = ..()
+	register_context()
+
+/obj/item/ms13/fluff/trifoldflag/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
+	user.show_message(span_notice("You begin disassembling \the [src] into scrap."), MSG_VISUAL)
+	if(do_after(user, 8 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+		user.show_message(span_notice("You disassemble \the [src] into scrap and parts."), MSG_VISUAL)
+		new /obj/item/stack/sheet/ms13/cloth(loc, 3)
+		new /obj/item/stack/sheet/ms13/scrap_wood(loc, 2)
+		qdel(src)
+
+/obj/item/ms13/fluff/trifoldflag/examine(mob/user)
+	. = ..()
+	. += deconstruction_hints(user)
+
+/obj/item/ms13/fluff/trifoldflag/proc/deconstruction_hints(mob/user)
+	return span_notice("You could use a <b>screwdriver</b> to take apart [src] for parts.")
+
+/obj/item/ms13/fluff/trifoldflag/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_SCREWDRIVER)
+			context[SCREENTIP_CONTEXT_RMB] = "Disassemble"
+			return CONTEXTUAL_SCREENTIP_SET
