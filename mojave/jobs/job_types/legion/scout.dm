@@ -1,4 +1,4 @@
-/datum/job/ms13/legion/scout
+/datum/job/ms13/legion/scout // Depreciated
 	title = "Legion Scout"
 	total_positions = 1
 	spawn_positions = 1
