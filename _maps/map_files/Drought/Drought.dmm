@@ -2877,9 +2877,9 @@
 /turf/open/floor/plating/ms13/ground/desertalt,
 /area/ms13/desert)
 "lc" = (
-/obj/structure/table/ms13/low_wall/brick,
-/obj/structure/window/fulltile/ms13/glass,
-/turf/open/space/basic,
+/obj/effect/turf_decal/ms13/covering/paint/green,
+/obj/effect/turf_decal/ms13/covering/paint/white,
+/turf/closed/wall/ms13/brick,
 /area/ms13/town)
 "ld" = (
 /obj/machinery/light/ms13/bulb{
@@ -3284,14 +3284,17 @@
 /turf/closed/wall/ms13/brick/alt,
 /area/ms13/town)
 "mF" = (
-/obj/structure/fluff/ms13/trash/papers{
-	pixel_y = -28
+/obj/structure/ms13/pot/plant{
+	pixel_y = 5
 	},
-/obj/structure/table/ms13/no_smooth/large/wood/desk{
-	dir = 1
+/obj/structure/table/ms13/no_smooth/wood,
+/obj/item/reagent_containers/food/drinks/mug/ms13{
+	pixel_x = 9;
+	pixel_y = 11
 	},
-/obj/machinery/ms13/terminal{
-	dir = 1
+/obj/item/reagent_containers/food/drinks/mug/ms13{
+	pixel_y = 1;
+	pixel_x = -7
 	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
@@ -3753,6 +3756,18 @@
 /obj/item/ms13/fluff/ruined_book{
 	pixel_x = -11;
 	pixel_y = 16
+	},
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
+"on" = (
+/obj/structure/fluff/ms13/trash/papers{
+	pixel_y = -28
+	},
+/obj/structure/table/ms13/no_smooth/large/wood/desk{
+	dir = 1
+	},
+/obj/machinery/ms13/terminal{
+	dir = 1
 	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
@@ -4470,6 +4485,15 @@
 	dir = 4
 	},
 /turf/open/floor/ms13/concrete,
+/area/ms13/town)
+"rl" = (
+/obj/machinery/light/ms13/bulb{
+	dir = 4
+	},
+/obj/structure/filingcabinet/ms13/short{
+	dir = 8
+	},
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "rm" = (
 /obj/structure/bed/ms13/bedframe/wood,
@@ -6599,15 +6623,6 @@
 /obj/structure/ms13/storage/trashcan,
 /turf/open/floor/ms13/tile/blue,
 /area/ms13/town)
-"Bk" = (
-/obj/machinery/light/ms13/bulb{
-	dir = 4
-	},
-/obj/structure/filingcabinet/ms13/short{
-	dir = 8
-	},
-/turf/open/floor/wood/ms13/wide,
-/area/ms13/town)
 "Bl" = (
 /obj/structure/ms13/fence/wire,
 /turf/open/floor/plating/ms13/ground/desert,
@@ -7250,6 +7265,12 @@
 	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
+"DZ" = (
+/obj/effect/turf_decal/ms13/covering/paint/white,
+/obj/effect/turf_decal/ms13/covering/paint/white,
+/obj/effect/turf_decal/ms13/covering/paint/green,
+/turf/closed/wall/ms13/brick,
+/area/ms13/town)
 "Ea" = (
 /obj/effect/spawner/random/ms13/crafting/lowrandom,
 /turf/open/floor/ms13/concrete/industrial,
@@ -7467,11 +7488,12 @@
 /turf/closed/wall/ms13/brick/alt,
 /area/ms13/town)
 "Fa" = (
-/mob/living/basic/ms13/hostile_animal/radroach,
-/obj/machinery/light/ms13/bulb{
-	dir = 4
+/obj/structure/table/ms13/low_wall/brick,
+/obj/effect/decal/cleanable/glass{
+	dir = 8;
+	pixel_y = 6
 	},
-/turf/open/floor/wood/ms13/wide,
+/turf/open/space/basic,
 /area/ms13/town)
 "Fc" = (
 /obj/structure/table/ms13/low_wall/brick,
@@ -8613,21 +8635,6 @@
 /obj/effect/spawner/random/ms13/crafting/electrical,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
-"Kr" = (
-/obj/structure/ms13/pot/plant{
-	pixel_y = 5
-	},
-/obj/structure/table/ms13/no_smooth/wood,
-/obj/item/reagent_containers/food/drinks/mug/ms13{
-	pixel_x = 9;
-	pixel_y = 11
-	},
-/obj/item/reagent_containers/food/drinks/mug/ms13{
-	pixel_y = 1;
-	pixel_x = -7
-	},
-/turf/open/floor/wood/ms13/wide,
-/area/ms13/town)
 "Kt" = (
 /obj/machinery/light/ms13,
 /turf/open/floor/ms13/concrete/industrial,
@@ -9436,12 +9443,11 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "NT" = (
-/obj/structure/table/ms13/low_wall/brick,
-/obj/effect/decal/cleanable/glass{
-	dir = 8;
-	pixel_y = 6
+/mob/living/basic/ms13/hostile_animal/radroach,
+/obj/machinery/light/ms13/bulb{
+	dir = 4
 	},
-/turf/open/space/basic,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "NU" = (
 /obj/structure/ms13/bars/rusty{
@@ -9693,6 +9699,15 @@
 	id = "car_junk_press_door"
 	},
 /turf/open/floor/ms13/concrete/industrial,
+/area/ms13/town)
+"OV" = (
+/obj/machinery/light/ms13/bulb{
+	dir = 8
+	},
+/obj/structure/ms13/rug/fancy{
+	dir = 4
+	},
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "OW" = (
 /obj/structure/table/ms13/crafting/workbench,
@@ -10384,15 +10399,6 @@
 "RO" = (
 /obj/structure/fluff/ms13/barrel/quadruple/red/two,
 /turf/open/floor/ms13/concrete,
-/area/ms13/town)
-"RP" = (
-/obj/machinery/light/ms13/bulb{
-	dir = 8
-	},
-/obj/structure/ms13/rug/fancy{
-	dir = 4
-	},
-/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "RQ" = (
 /obj/structure/table/ms13/no_smooth/wood/stand,
@@ -11714,9 +11720,9 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "Xq" = (
-/obj/effect/turf_decal/ms13/covering/paint/green,
-/obj/effect/turf_decal/ms13/covering/paint/white,
-/turf/closed/wall/ms13/brick,
+/obj/structure/table/ms13/low_wall/brick,
+/obj/structure/window/fulltile/ms13/glass,
+/turf/open/space/basic,
 /area/ms13/town)
 "Xr" = (
 /obj/structure/table/ms13/no_smooth/counter/wood/crafted{
@@ -12071,12 +12077,6 @@
 /obj/structure/table/ms13/no_smooth/large/metal/desk,
 /obj/machinery/ms13/terminal/wasteland,
 /turf/open/floor/ms13/concrete,
-/area/ms13/town)
-"YM" = (
-/obj/effect/turf_decal/ms13/covering/paint/white,
-/obj/effect/turf_decal/ms13/covering/paint/white,
-/obj/effect/turf_decal/ms13/covering/paint/green,
-/turf/closed/wall/ms13/brick,
 /area/ms13/town)
 "YN" = (
 /obj/machinery/vending/ms13/nuka{
@@ -40709,10 +40709,10 @@ Xv
 jf
 kT
 gQ
-mF
+on
 gQ
 gQ
-RP
+OV
 gQ
 sU
 Tc
@@ -41112,11 +41112,11 @@ Xv
 Xv
 jf
 GP
-Bk
+rl
 jf
 LZ
 oH
-Kr
+mF
 oH
 GL
 Xv
@@ -41315,7 +41315,7 @@ Xv
 jf
 Ie
 GL
-YM
+DZ
 Ie
 GL
 GL
@@ -41724,7 +41724,7 @@ sM
 gQ
 na
 nc
-NT
+Fa
 Xv
 Tc
 aX
@@ -41926,7 +41926,7 @@ nm
 mW
 xb
 nr
-lc
+Xq
 Xv
 Tc
 aX
@@ -42328,7 +42328,7 @@ un
 gQ
 gQ
 gQ
-Fa
+NT
 xD
 GL
 Xv
@@ -42523,14 +42523,14 @@ Xv
 Xv
 Xv
 Xv
-GL
+Fm
 uI
 GL
 jf
 gQ
 nl
 mV
-Xq
+lc
 XJ
 GL
 GL
@@ -42732,7 +42732,7 @@ jf
 gQ
 Wi
 lW
-Xq
+lc
 mQ
 gp
 GL
@@ -42934,7 +42934,7 @@ jf
 BB
 Is
 Is
-Xq
+lc
 CW
 mG
 GL
