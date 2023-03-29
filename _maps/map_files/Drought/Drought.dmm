@@ -51,7 +51,7 @@
 /obj/structure/ms13/barricade{
 	dir = 1
 	},
-/turf/open/floor/ms13/brick,
+/turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "ak" = (
 /turf/open/floor/ms13/concrete,
@@ -206,8 +206,10 @@
 /turf/open/floor/ms13/tile/large/checkered,
 /area/ms13/town)
 "aQ" = (
-/obj/machinery/door/unpowered/ms13/seethrough/metal,
-/turf/open/floor/ms13/tile/large/checkered,
+/obj/machinery/door/unpowered/ms13/seethrough/metal{
+	dir = 1
+	},
+/turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "aR" = (
 /obj/structure/toilet{
@@ -255,7 +257,7 @@
 /obj/structure/ms13/barricade{
 	dir = 1
 	},
-/turf/open/floor/ms13/brick,
+/turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "aZ" = (
 /obj/machinery/vending/ms13/cigarettes{
@@ -674,7 +676,7 @@
 	dir = 8;
 	icon_state = "wood_mosaic_broken_1"
 	},
-/turf/open/floor/wood/ms13/mosaic,
+/turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/town)
 "cu" = (
 /obj/structure/closet/crate/ms13/footlocker{
@@ -728,11 +730,10 @@
 /turf/open/floor/plating/ms13/ground/desertalt,
 /area/ms13/desert)
 "cD" = (
-/obj/structure/ms13/foundation/variantone{
-	dir = 1;
-	icon_state = "wood_foundation_broken_1"
-	},
 /obj/item/stack/sheet/ms13/scrap_wood,
+/obj/structure/ms13/foundation/variantsix{
+	dir = 9
+	},
 /turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/town)
 "cE" = (
@@ -793,7 +794,7 @@
 	dir = 9;
 	icon_state = "wood_mosaic_broken_2"
 	},
-/turf/open/floor/wood/ms13/mosaic,
+/turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/town)
 "cP" = (
 /obj/machinery/light/ms13/bulb/industrial{
@@ -881,7 +882,7 @@
 /obj/structure/ms13/barricade{
 	dir = 8
 	},
-/turf/open/floor/ms13/brick,
+/turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "df" = (
 /obj/structure/table/ms13/no_smooth/large/wood/stand{
@@ -1105,8 +1106,11 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/factory)
 "dQ" = (
-/obj/structure/ms13/foundation/variantfour{
-	dir = 9
+/obj/structure/ms13/foundation/variantsix{
+	dir = 10
+	},
+/obj/structure/ms13/foundation/variantsix{
+	dir = 1
 	},
 /turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/town)
@@ -1271,8 +1275,7 @@
 /area/ms13/desert)
 "es" = (
 /obj/structure/ms13/tv/wooden/cabinet{
-	dir = 8;
-	icon_state = "cabinet_tv"
+	dir = 8
 	},
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
@@ -1358,7 +1361,7 @@
 /area/ms13/town)
 "eJ" = (
 /obj/structure/table/ms13/low_wall/brick,
-/turf/open/floor/ms13/brick,
+/turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "eK" = (
 /turf/open/openspace/ms13,
@@ -1451,7 +1454,7 @@
 	dir = 10;
 	icon_state = "wood_mosaic_broken_2"
 	},
-/turf/open/floor/wood/ms13/mosaic,
+/turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/town)
 "eZ" = (
 /obj/structure/table/ms13/low_wall/brick/alt,
@@ -1558,9 +1561,11 @@
 /turf/open/floor/ms13/tile/large/navy,
 /area/ms13/town)
 "fv" = (
-/obj/structure/ms13/foundation,
 /obj/structure/fluff/ms13/trash/papers{
 	dir = 8
+	},
+/obj/structure/ms13/foundation/variantfour{
+	dir = 5
 	},
 /turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/town)
@@ -1585,7 +1590,7 @@
 	dir = 6;
 	icon_state = "wood_mosaic_broken_1"
 	},
-/turf/open/floor/wood/ms13/mosaic,
+/turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/town)
 "fz" = (
 /obj/structure/ms13/storage/shelf,
@@ -1616,11 +1621,13 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "fF" = (
-/obj/structure/ms13/foundation,
 /obj/structure/closet/crate/ms13/woodcrate,
 /obj/effect/spawner/random/ms13/crafting/lowrandom,
 /obj/effect/spawner/random/ms13/crafting/lowrandom,
 /obj/effect/spawner/random/ms13/crafting/lowrandom,
+/obj/structure/ms13/foundation/variantfive{
+	dir = 4
+	},
 /turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/town)
 "fG" = (
@@ -1959,10 +1966,10 @@
 /turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "gP" = (
-/obj/structure/ms13/foundation/variantfour,
 /obj/structure/chair/ms13/overlaypickup/plastic{
 	dir = 4
 	},
+/obj/structure/ms13/foundation,
 /turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/town)
 "gQ" = (
@@ -2004,7 +2011,7 @@
 	dir = 4;
 	icon_state = "wood_mosaic_broken_1"
 	},
-/turf/open/floor/wood/ms13/mosaic,
+/turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/town)
 "gY" = (
 /obj/structure/ms13/foundation/variantsix{
@@ -2362,9 +2369,11 @@
 /turf/open/floor/plating/ms13/ground/road,
 /area/ms13/town)
 "ie" = (
-/obj/structure/ms13/foundation/varianttwo,
 /obj/structure/fluff/ms13/trash/papers{
 	dir = 4
+	},
+/obj/structure/ms13/foundation/variantfive{
+	dir = 10
 	},
 /turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/town)
@@ -2375,8 +2384,8 @@
 /turf/open/floor/wood/ms13/carpet/shaggy,
 /area/ms13/town)
 "ig" = (
-/obj/structure/ms13/foundation/variantsix{
-	dir = 10
+/obj/structure/ms13/foundation/variantfive{
+	dir = 5
 	},
 /turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/town)
@@ -2881,7 +2890,7 @@
 	dir = 10;
 	icon_state = "wood_mosaic_broken_4"
 	},
-/turf/open/floor/wood/ms13/mosaic,
+/turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/town)
 "jS" = (
 /obj/machinery/door/unpowered/ms13/seethrough/fence/wire{
@@ -2949,7 +2958,7 @@
 	dir = 5;
 	icon_state = "wood_mosaic_broken_4"
 	},
-/turf/open/floor/wood/ms13/mosaic,
+/turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/town)
 "ke" = (
 /obj/structure/chair/sofa/right{
@@ -2997,8 +3006,7 @@
 /area/ms13/desert)
 "kl" = (
 /obj/machinery/door/unpowered/ms13/wood/mirrored/white{
-	dir = 8;
-	icon_state = "wood_white_mirrored_closed"
+	dir = 8
 	},
 /turf/open/floor/ms13/tile/large/white,
 /area/ms13/town)
@@ -3461,6 +3469,9 @@
 /obj/structure/ms13/pipes/horizontal{
 	pixel_y = 22
 	},
+/obj/structure/ms13/foundation/variantfour{
+	dir = 8
+	},
 /turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/town)
 "lL" = (
@@ -3490,14 +3501,14 @@
 /turf/open/floor/wood/ms13/carpet/shaggy,
 /area/ms13/town)
 "lP" = (
-/obj/structure/ms13/foundation/varianttwo{
-	dir = 8
-	},
 /obj/structure/ms13/pipes/horizontal{
 	pixel_y = 22
 	},
 /obj/machinery/light/ms13/bulb{
 	dir = 4
+	},
+/obj/structure/ms13/foundation/variantfour{
+	dir = 9
 	},
 /turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/town)
@@ -3508,9 +3519,9 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/factory)
 "lR" = (
-/obj/structure/ms13/foundation/variantsix,
 /obj/structure/ms13/storage/vent,
 /obj/structure/ms13/wall_decor/clock,
+/obj/structure/ms13/foundation/variantsix,
 /turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/town)
 "lS" = (
@@ -3529,7 +3540,7 @@
 	icon_state = "wood_mosaic_broken_4"
 	},
 /obj/structure/closet/ms13/wall/firstaid,
-/turf/open/floor/wood/ms13/mosaic,
+/turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/town)
 "lU" = (
 /obj/structure/table/ms13/no_smooth/counter/wood{
@@ -3568,7 +3579,7 @@
 	dir = 4;
 	icon_state = "wood_mosaic_broken_2"
 	},
-/turf/open/floor/wood/ms13/mosaic,
+/turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/town)
 "lZ" = (
 /obj/effect/turf_decal/ms13/covering/tiles/white,
@@ -3914,21 +3925,13 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
 "nf" = (
-/obj/structure/filingcabinet/ms13/short{
-	pixel_x = -5;
-	pixel_y = 5
+/obj/structure/filingcabinet/ms13/busted{
+	pixel_x = 10;
+	pixel_y = 8
 	},
 /obj/structure/filingcabinet/ms13/short{
-	pixel_x = 8;
-	pixel_y = 5
-	},
-/obj/structure/filingcabinet/ms13/short/busted{
-	pixel_x = -5;
-	pixel_y = 20
-	},
-/obj/structure/filingcabinet/ms13/short{
-	pixel_x = 8;
-	pixel_y = 20
+	pixel_x = -4;
+	pixel_y = 3
 	},
 /turf/open/floor/wood/ms13/carpet/shaggy/blue,
 /area/ms13/town)
@@ -4038,11 +4041,11 @@
 /turf/open/floor/plating/ms13/ground/desert,
 /area/ms13/desert)
 "ny" = (
-/obj/structure/ms13/foundation/variantsix{
-	dir = 5
-	},
-/obj/structure/ms13/foundation/variantsix{
+/obj/structure/ms13/foundation/variantfour{
 	dir = 1
+	},
+/obj/structure/ms13/foundation/variantfour{
+	dir = 5
 	},
 /turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/town)
@@ -4065,10 +4068,10 @@
 /turf/open/floor/plating/ms13/ground/sidewalk,
 /area/ms13/desert)
 "nC" = (
-/obj/structure/ms13/foundation/variantsix{
+/obj/item/stack/sheet/ms13/scrap_wood,
+/obj/structure/ms13/foundation/variantfour{
 	dir = 4
 	},
-/obj/item/stack/sheet/ms13/scrap_wood,
 /turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/town)
 "nD" = (
@@ -4110,7 +4113,7 @@
 	dir = 6;
 	icon_state = "wood_mosaic_broken_2"
 	},
-/turf/open/floor/wood/ms13/mosaic,
+/turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/town)
 "nK" = (
 /obj/structure/chair/ms13/metal/red/broken{
@@ -4191,7 +4194,7 @@
 "nV" = (
 /obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/standard,
 /obj/machinery/door/unpowered/ms13/wood/red{
-	dir = 4
+	dir = 8
 	},
 /turf/open/floor/wood/ms13/carpet/shaggy/blue,
 /area/ms13/town)
@@ -4352,7 +4355,7 @@
 /area/ms13/town)
 "ox" = (
 /obj/structure/ms13/foundation/mosaic/variantone,
-/turf/open/floor/wood/ms13/mosaic,
+/turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/town)
 "oy" = (
 /turf/open/floor/ms13/metal/pipe,
@@ -4402,8 +4405,8 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "oI" = (
-/obj/structure/ms13/foundation/varianttwo,
 /obj/item/crowbar/ms13,
+/obj/structure/ms13/foundation/variantthree,
 /turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/town)
 "oJ" = (
@@ -4670,15 +4673,12 @@
 /turf/open/openspace/ms13,
 /area/ms13/factory)
 "py" = (
-/obj/structure/ms13/foundation/variantsix{
-	dir = 10
-	},
-/obj/structure/ms13/foundation/variantsix{
-	dir = 1
-	},
 /obj/item/ms13/brick{
 	pixel_x = 7;
 	pixel_y = 12
+	},
+/obj/structure/ms13/foundation/variantthree{
+	dir = 1
 	},
 /turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/town)
@@ -4704,11 +4704,11 @@
 /turf/open/floor/ms13/tile/large/cafeteria,
 /area/ms13/town)
 "pC" = (
-/obj/structure/ms13/foundation/variantsix{
-	dir = 1
-	},
 /obj/machinery/light/ms13{
 	dir = 4
+	},
+/obj/structure/ms13/foundation/variantsix{
+	dir = 1
 	},
 /turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/town)
@@ -4938,12 +4938,7 @@
 /turf/open/floor/wood/ms13/carpet/shaggy,
 /area/ms13/town)
 "qs" = (
-/obj/structure/ms13/foundation/variantsix{
-	dir = 1
-	},
-/obj/structure/ms13/foundation/variantfour{
-	dir = 9
-	},
+/obj/structure/ms13/foundation/variantsix,
 /turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/town)
 "qt" = (
@@ -5143,6 +5138,14 @@
 	pixel_y = 0
 	},
 /obj/effect/decal/cleanable/glass,
+/obj/item/stack/sheet/ms13/plank{
+	pixel_x = 11;
+	pixel_y = -3
+	},
+/obj/item/stack/sheet/ms13/plank{
+	pixel_x = 7;
+	pixel_y = 5
+	},
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "re" = (
@@ -5191,9 +5194,11 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "rl" = (
-/obj/structure/ms13/foundation/variantfour,
 /obj/structure/closet/ms13/fridge,
 /obj/effect/spawner/random/ms13/drink/soda,
+/obj/structure/ms13/foundation/variantthree{
+	dir = 4
+	},
 /turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/town)
 "rm" = (
@@ -5243,6 +5248,10 @@
 /area/ms13/town)
 "rt" = (
 /obj/structure/table/ms13/low_wall/brick,
+/obj/item/stack/sheet/ms13/plank{
+	pixel_x = -5;
+	pixel_y = -3
+	},
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "ru" = (
@@ -5522,8 +5531,7 @@
 /area/ms13/town)
 "sv" = (
 /obj/machinery/door/unpowered/ms13/seethrough/fence/wire{
-	dir = 4;
-	icon_state = "wirefence_closed"
+	dir = 4
 	},
 /turf/open/floor/plating/ms13/ground/sidewalk,
 /area/ms13/desert)
@@ -9334,6 +9342,10 @@
 /obj/structure/ms13/storage/shelf/wood/alt{
 	dir = 8
 	},
+/turf/open/floor/plating/ms13/ground/mountain/drought,
+/area/ms13/town)
+"Kz" = (
+/obj/structure/ms13/foundation/variantfour,
 /turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/town)
 "KA" = (
@@ -35929,9 +35941,9 @@ Tc
 aY
 bR
 ct
-lM
+dQ
 eY
-fm
+Kz
 GL
 Fm
 jN
@@ -36131,11 +36143,11 @@ Tc
 aY
 mK
 cD
-dQ
+fm
 fm
 fF
 ie
-lM
+qs
 mK
 Fm
 lK
