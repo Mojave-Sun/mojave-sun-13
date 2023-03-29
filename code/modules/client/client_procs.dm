@@ -1340,3 +1340,11 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 				continue
 
 		screen -= object
+
+#undef ADMINSWARNED_AT
+#undef CURRENT_MINUTE
+#undef CURRENT_SECOND
+#undef LIMITER_SIZE
+#undef MINUTE_COUNT
+#undef SECOND_COUNT
+#undef UPLOAD_LIMIT_ADMIN

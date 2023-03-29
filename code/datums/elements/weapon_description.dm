@@ -1,4 +1,3 @@
-#define HITS_TO_CRIT(damage) round(100 / damage, 0.1)
 
 //MOJAVE EDIT - Commenting all of this out because frankly it's stupid and I hate seeing it on almost all of our items.
 
