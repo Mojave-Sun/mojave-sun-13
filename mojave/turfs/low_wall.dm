@@ -51,7 +51,7 @@
 /obj/structure/table/ms13/low_wall/adobe
 	name = "low adobe wall"
 	desc = ""
-	icon = 'mojave/icons/turf/walls/adobe.dmi'
+	icon = 'mojave/icons/turf/walls/drought/adobe.dmi'
 
 /obj/structure/table/ms13/low_wall/brick
 	name = "low brick wall"

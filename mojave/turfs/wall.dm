@@ -65,8 +65,8 @@
 /turf/closed/wall/ms13/adobe //need
 	name = "adobe wall"
 	desc = ""
-	icon = 'mojave/icons/turf/walls/adobe.dmi'
-	frill_icon = 'mojave/icons/turf/walls/adobe_frill.dmi'
+	icon = 'mojave/icons/turf/walls/drought/adobe.dmi'
+	frill_icon = 'mojave/icons/turf/walls/drought/adobe_frill.dmi'
 
 /turf/closed/wall/ms13/brick
 	name = "brick wall"
