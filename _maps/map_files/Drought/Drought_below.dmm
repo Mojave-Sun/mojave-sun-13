@@ -286,8 +286,8 @@
 /turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "dG" = (
-/obj/structure/ms13/pipes/horizontal/down/single,
-/turf/closed/wall/ms13/concrete,
+/obj/structure/ms13/pipes/horizontal,
+/turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "dH" = (
 /obj/machinery/ms13/terminal/wall{
@@ -780,10 +780,9 @@
 /turf/open/floor/ms13/metal/grate/border,
 /area/ms13/town)
 "la" = (
-/obj/structure/ms13/pipes/horizontal/end{
-	dir = 1
-	},
-/turf/closed/wall/ms13/concrete,
+/obj/structure/ms13/rug/mat/rubber,
+/obj/structure/ms13/pipes/horizontal/down/single,
+/turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "le" = (
 /obj/machinery/door/unpowered/ms13/metal/mirrored/alt,
@@ -797,8 +796,12 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "lh" = (
-/obj/structure/ms13/pipes/horizontal/valve,
-/turf/closed/wall/ms13/concrete,
+/obj/machinery/shower{
+	dir = 4
+	},
+/obj/effect/turf_decal/ms13/showerdrains/small,
+/obj/structure/ms13/pipes/horizontal/brown,
+/turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "ll" = (
 /obj/structure/closet/crate/ms13/woodcrate/compact,
@@ -957,10 +960,6 @@
 /turf/open/floor/ms13/metal/grate/border{
 	dir = 1
 	},
-/area/ms13/town)
-"nW" = (
-/obj/structure/ms13/pipes/horizontal/box,
-/turf/closed/wall/ms13/concrete,
 /area/ms13/town)
 "oc" = (
 /obj/structure/kitchenspike/ms13,
@@ -1631,12 +1630,6 @@
 	},
 /turf/open/floor/ms13/metal/plate,
 /area/ms13/town)
-"xv" = (
-/obj/structure/ms13/pipes/horizontal/down/single{
-	dir = 1
-	},
-/turf/closed/wall/ms13/concrete,
-/area/ms13/town)
 "xw" = (
 /obj/machinery/shower{
 	dir = 8
@@ -1764,6 +1757,7 @@
 /obj/machinery/light/ms13/bulb{
 	dir = 1
 	},
+/obj/structure/ms13/pipes/horizontal/down/single,
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "zn" = (
@@ -2066,6 +2060,7 @@
 /area/ms13/underground/mountain)
 "Ea" = (
 /obj/structure/fluff/ms13/barrel/double/red/one,
+/obj/structure/ms13/pipes/horizontal/box,
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "Eg" = (
@@ -2259,10 +2254,6 @@
 	},
 /turf/open/floor/ms13/tile/blue/long,
 /area/ms13/town)
-"Hw" = (
-/obj/structure/ms13/pipes/horizontal,
-/turf/closed/wall/ms13/concrete,
-/area/ms13/town)
 "Hx" = (
 /obj/effect/decal/cleanable/blood/old{
 	pixel_x = -2;
@@ -2357,6 +2348,9 @@
 /area/ms13/town)
 "Jl" = (
 /obj/structure/fluff/ms13/barrel/triple/grey/one,
+/obj/structure/ms13/pipes/horizontal/end{
+	dir = 1
+	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "Jm" = (
@@ -2561,6 +2555,9 @@
 /area/ms13/legioncamp/building)
 "LO" = (
 /obj/structure/fluff/ms13/barrel/quadruple/red/one,
+/obj/structure/ms13/pipes/horizontal/down/single{
+	dir = 1
+	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "LR" = (
@@ -3281,6 +3278,7 @@
 "VV" = (
 /obj/structure/fluff/ms13/barrel/double/grey,
 /obj/structure/ms13/storage/vent,
+/obj/structure/ms13/pipes/horizontal/valve,
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "Wa" = (
@@ -3289,10 +3287,6 @@
 	dir = 4
 	},
 /turf/open/floor/ms13/concrete/industrial,
-/area/ms13/town)
-"Wd" = (
-/obj/structure/ms13/pipes/horizontal/brown,
-/turf/closed/wall/ms13/concrete,
 /area/ms13/town)
 "We" = (
 /turf/open/floor/ms13/concrete/industrial,
@@ -15878,8 +15872,8 @@ Xw
 Xw
 Xw
 Xw
-Hw
-Mc
+nm
+dG
 ZS
 sA
 Mc
@@ -16080,8 +16074,8 @@ Xw
 Xw
 Xw
 Xw
-dG
-Ks
+nm
+la
 Ks
 Mc
 Ks
@@ -16484,13 +16478,13 @@ Xw
 Xw
 Xw
 Xw
-la
+nm
 Jl
 iv
 Mc
 Ks
 Ks
-xv
+nm
 LO
 Mc
 Mc
@@ -16686,13 +16680,13 @@ Xw
 Xw
 Xw
 Xw
-lh
+nm
 VV
 MB
 Ws
 Mc
 sv
-nW
+nm
 Ea
 Rn
 Mc
@@ -17096,8 +17090,8 @@ Xw
 Xw
 Xw
 Xw
-Wd
-zd
+nm
+lh
 zd
 Mc
 Ta
@@ -17298,7 +17292,7 @@ Xw
 Xw
 Xw
 Xw
-dG
+nm
 zm
 Mc
 Mc
