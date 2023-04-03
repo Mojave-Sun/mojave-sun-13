@@ -67,7 +67,7 @@
 /obj/structure/table/ms13/low_wall/siding/green
 	icon = 'mojave/icons/turf/walls/drought/siding_green.dmi'
 
-/obj/structure/table/ms13/low_wall/siding/prison
+/obj/structure/table/ms13/low_wall/prison
 	icon = 'mojave/icons/turf/walls/drought/prison.dmi'
 
 /obj/structure/table/ms13/low_wall/brick

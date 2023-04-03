@@ -162,7 +162,7 @@
 	icon = 'mojave/icons/turf/walls/drought/prison.dmi'
 	frill_icon = 'mojave/icons/turf/walls/drought/prison_frill.dmi'
 
-/turf/closed/wall/ms13/siding/prison/Initialize()
+/turf/closed/wall/ms13/prison/Initialize()
 	. = ..()
 	var/state = rand(1,4)
 	switch(state)

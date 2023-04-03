@@ -13,6 +13,7 @@
 	anchored = TRUE
 	plane = ABOVE_GAME_PLANE
 	layer = ABOVE_MOB_LAYER
+	pixel_y = 32
 
 /obj/structure/ms13/pipes/attackby(obj/item/I, mob/living/user, params) //cant attack due to wall side handling
 	return
