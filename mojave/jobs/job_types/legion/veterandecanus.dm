@@ -15,7 +15,7 @@
 
 	head = /obj/item/clothing/head/helmet/ms13/legion/decanus/veteran
 	glasses = /obj/item/clothing/glasses/ms13/leather
-	uniform = /obj/item/clothing/under/ms13/legion/fatigues/red/padded
+	uniform = /obj/item/clothing/under/ms13/legion/fatigues
 	shoes = /obj/item/clothing/shoes/ms13/military/legion/tanboots
 	suit = /obj/item/clothing/suit/armor/ms13/legion/veteran
 	gloves = /obj/item/clothing/gloves/ms13/legion/bracers

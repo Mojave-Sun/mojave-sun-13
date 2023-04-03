@@ -1425,6 +1425,7 @@
 	fov_angle = 120
 	equip_delay_self = 2 SECONDS
 	equip_delay_other = 4 SECONDS
+	worn_y_offset = 16
 
 /obj/item/clothing/head/helmet/ms13/legion/praetorian
 	name = "\improper Legion praetorian helmet"
