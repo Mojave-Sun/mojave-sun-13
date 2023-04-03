@@ -1444,8 +1444,8 @@
 	flags_inv = HIDEEARS
 
 /obj/item/clothing/head/helmet/ms13/legion/explorer
-	name = "\improper Legion explorer cap"
-	desc = "A relatively preserved pre-war baseball cap now pridefully adopted by Legion explorers."
+	name = "\improper Legion explorer hood"
+	desc = "A lightly padded hood worn by Legion Explorers."
 	icon_state = "leg_exp"
 	inhand_icon_state = "owl_mask"
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
