@@ -185,6 +185,14 @@
 	grid_width = 64
 	meat_type = /obj/item/food/meat/slab/ms13/animal/gecko
 
+/obj/item/food/meat/slab/ms13/carcass/gecko/desert
+	meat_type = /obj/item/food/meat/slab/ms13/animal/gecko/desert
+
+/obj/item/food/meat/slab/ms13/carcass/gecko/golden
+	name = "golden gecko carcass"
+	desc = "A skinned body of a golden gecko."
+	meat_type = /obj/item/food/meat/slab/ms13/animal/gecko/golden
+
 /obj/item/food/meat/slab/ms13/carcass/wolf
 	name = "wolf carcass"
 	desc = "A skinned body of a wolf."
@@ -473,6 +481,25 @@
 	desc = "A piece of grilled gecko meat."
 	icon_state = "icegecko_roasted"
 
+/obj/item/food/meat/slab/ms13/animal/gecko/desert
+	icon_state = "silvergecko"
+	steak_type = /obj/item/food/meat/steak/ms13/animal/gecko/desert
+
+/obj/item/food/meat/steak/ms13/animal/gecko/desert
+	icon_state = "silvergecko_roasted"
+
+/obj/item/food/meat/slab/ms13/animal/gecko/golden
+	name = "golden gecko meat"
+	desc = "Raw meat from a golden gecko. Considered to be highly nutritious, once cooked."
+	icon_state = "goldengecko"
+	steak_type = /obj/item/food/meat/steak/ms13/animal/gecko/golden
+
+/obj/item/food/meat/steak/ms13/animal/gecko/golden
+	name = "grilled golden gecko"
+	desc = "A piece of grilled golden gecko meat. Something of a desert delicacy."
+	icon_state = "goldengecko_roasted"
+	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 10, /datum/reagent/consumable/nutriment/vitamin = 1)
+
 /obj/item/food/meat/slab/ms13/animal/radroach
 	name = "radroach meat"
 	desc = "Disgusting, uncooked radroach meat. Only the truly impoverished would consider eating this."
@@ -551,6 +578,36 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 12, /datum/reagent/uranium = 4)
 	tastes = list("disgusting" = 3, "radiation" = 3)
 	foodtypes = MEAT | GROSS | TOXIC
+
+/obj/item/food/meat/slab/ms13/animal/bark_scorp
+	name = "bark scorpion meat"
+	desc = "An raw chunk of meat from a bark scorpion's tail. Probably not safe to eat it like this."
+	icon_state = "barkscorpiontail"
+	steak_type = /obj/item/food/meat/steak/ms13/animal/bark_scorp
+	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/toxin = 3)
+	foodtypes = MEAT | GROSS | TOXIC
+
+/obj/item/food/meat/steak/ms13/animal/bark_scorp
+	name = "grilled bark scorpion meat"
+	desc = "A grilled piece of a bark scorpion tail. Tastier than it looks."
+	icon_state = "barkscorpiontail_roasted"
+	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 9, /datum/reagent/consumable/nutriment/vitamin = 1)
+
+/obj/item/food/meat/slab/ms13/animal/rad_scorp
+	name = "rad scorpion meat"
+	desc = "Raw rad scorpion meat. Properly cooked and prepared, this can make a fine meal."
+	icon_state = "scorpiontail"
+	steak_type = /obj/item/food/meat/steak/ms13/animal/rad_scorp
+	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 8, /datum/reagent/toxin = 6)
+	foodtypes = MEAT | GROSS | TOXIC
+
+/obj/item/food/meat/steak/ms13/animal/rad_scorp
+	name = "grilled rad scorpion meat"
+	desc = "A finely cooked piece of rad scorpion tail. A delicious wasteland treat."
+	icon_state = "scorpiontail_roasted"
+	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 12, /datum/reagent/consumable/nutriment/vitamin = 3)
+	tastes = list("succulent" = 3, "meat" = 2)
+
 
 
 /*
