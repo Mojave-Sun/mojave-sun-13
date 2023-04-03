@@ -477,6 +477,7 @@
 	desc = "A large mutated scorpion, found across the wastes, extremely lethal with not only its menacing pincers but toxic stinger to boot."
 	icon = 'mojave/icons/mob/48x48.dmi'
 	icon_state = "radscorpion"
+	icon_dead = "radscorpion_dead"
 	speak = list("ckkkckkckc","snapsnapsnap","chcthchthcthcthh")
 	speak_emote = list("hisses")
 	emote_hear = list("clicks")
@@ -486,11 +487,11 @@
 	speak_chance = 20
 	turns_per_move = 2
 	move_to_delay = 4
-	butcher_results = list()//radscoprion meat, radscorpion tail, chitin
+	butcher_results = list(/obj/item/food/meat/slab/ms13/animal/rad_scorp = 2)
 	attack_sound = list('mojave/sound/ms13npc/radscorp_attack1.ogg', 'mojave/sound/ms13npc/radscorp_attack2.ogg', 'mojave/sound/ms13npc/radscorp_attack3.ogg')
 	deathsound = list('mojave/sound/ms13npc/radscorp_death1.ogg', 'mojave/sound/ms13npc/radscorp_death2.ogg')
-	health = 140
-	maxHealth = 140
+	health = 135
+	maxHealth = 135
 	melee_damage_lower = 20
 	melee_damage_upper = 20
 	subtractible_armour_penetration = 10
@@ -499,6 +500,7 @@
 	bare_wound_bonus = 8
 	base_pixel_x = -8
 	speed = 2
+	faction = list("insect")
 	footstep_type = FOOTSTEP_MOB_CLAW
 	food_type = list(/obj/item/food/grown/ms13/soot, /obj/item/food/grown/ms13/toxicsoot)
 	tame_chance = 5
@@ -520,7 +522,21 @@
 		L.reagents.add_reagent(poison_type, poison_per_bite)
 
 /mob/living/simple_animal/hostile/ms13/radscorpion/desert
-	icon_state = "radscorpion_bark"
+	name = "bark scorpion"
+	desc = "A lesser mutated scorpion found only in deserts. Don't let it's smaller size fool you."
+	icon = 'mojave/icons/mob/ms13animals.dmi'
+	icon_state = "barkscorpion"
+	icon_dead = "barkscorpion_dead"
+	move_to_delay = 3.65
+	butcher_results = list(/obj/item/food/meat/slab/ms13/animal/bark_scorp = 2)
+	health = 90
+	maxHealth = 90
+	subtractible_armour_penetration = 0
+	wound_bonus = 2
+	bare_wound_bonus = 6
+	base_pixel_x = 0
+	speed = 1.75
+	poison_per_bite = 3
 
 //radstag - hunting animal, runs from the user, gotta use binoculars/scope to get it before it runs
 
