@@ -656,7 +656,6 @@
 /obj/structure/window/reinforced/tinted
 	name = "tinted window"
 	icon_state = "twindow"
-	opacity = TRUE
 /obj/structure/window/reinforced/tinted/frosted
 	name = "frosted window"
 	icon_state = "fwindow"
@@ -737,6 +736,8 @@
 	smoothing_groups = SMOOTH_GROUP_WINDOW_FULLTILE
 	canSmoothWith = SMOOTH_GROUP_WINDOW_FULLTILE
 	glass_amount = 2
+	// Not on the parent because directional opacity does NOT WORK
+	opacity = TRUE
 
 /obj/structure/window/reinforced/fulltile/ice
 	icon = 'icons/obj/smooth_structures/rice_window.dmi'
