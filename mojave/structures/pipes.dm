@@ -165,3 +165,36 @@
 	name = "pipes"
 	icon_state = "top"
 	desc = "A hardy metal pipe, long empty of whatever it held."
+
+
+// For large pipes. Ground based, not on the wall... cool
+
+/obj/structure/ms13/large_pipe
+	name = "pipe"
+	desc = "A large pipe. There doesn't seem to be anything flowing through it currently."
+	icon = 'mojave/icons/structure/pipes.dmi'
+	icon_state = "large_pipe_straight"
+	max_integrity = 1000
+	density = TRUE
+	anchored = TRUE
+	plane = ABOVE_GAME_PLANE
+	layer = ABOVE_MOB_LAYER
+
+/obj/structure/ms13/large_pipe/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/climbable, climb_time = 3 SECONDS, climb_stun = 0, no_stun = TRUE, jump_over = TRUE, jump_north = 12, jump_south = 17, jump_sides = 12)
+
+/obj/structure/ms13/large_pipe/corner
+	icon_state = "large_pipe_corner"
+
+/obj/structure/ms13/large_pipe/pump
+	icon_state = "large_pipe_pump"
+
+/obj/structure/ms13/large_pipe/intersection
+	icon_state = "large_pipe_intersection"
+
+/obj/structure/ms13/large_pipe/intersection_t
+	icon_state = "large_pipe_intersection-t"
+
+/obj/structure/ms13/large_pipe/ground
+	icon_state = "large_pipe_ground"
