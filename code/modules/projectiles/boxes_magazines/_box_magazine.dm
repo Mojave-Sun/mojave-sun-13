@@ -121,7 +121,15 @@
 	var/num_loaded = 0
 	if(!can_load(user))
 		return
+	/* MOJAVE EDIT REMOVAL
 	if(istype(A, /obj/item/ammo_box))
+	*/
+	//MOJAVE EDIT BEGIN
+	//no gaming
+	if(item_flags & IN_STORAGE)
+		return
+	if(istype(A, /obj/item/ammo_box) && (!istype(src, /obj/item/ammo_box/magazine/internal) || istype(A, /obj/item/ammo_box/magazine/ammo_stack)))
+	//MOJAVE EDIT END
 		var/obj/item/ammo_box/AM = A
 		for(var/obj/item/ammo_casing/AC in AM.stored_ammo)
 			var/did_load = give_round(AC, replace_spent)
