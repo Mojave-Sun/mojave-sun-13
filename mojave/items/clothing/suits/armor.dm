@@ -636,7 +636,6 @@
 	desc = "A full suit of Legion armor with plenty of hardened leather, padding, and metal reinforcements. Worn by feared Legion Veterans."
 	icon_state = "leg_vet"
 	slowdown = 0.3
-	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = CLASS1_EDGE, \
                 CRUSHING = CLASS3_CRUSH, \
@@ -660,7 +659,6 @@
 	desc = "A light and agile suit of Legion armor worn by Explorers."
 	icon_state = "leg_exp"
 	slowdown = 0
-	body_parts_covered = CHEST|GROIN
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 0, \
                 CRUSHING = CLASS2_CRUSH, \
