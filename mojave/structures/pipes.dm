@@ -41,16 +41,18 @@
 /obj/structure/ms13/pipes/horizontal/random
 	icon_state = "rand"
 
+/*
 /obj/structure/ms13/pipes/horizontal/random/Initialize(mapload)
 	. = ..()
-	dir = rand(1,4)
+	dir = rand(1,4) */
 
 /obj/structure/ms13/pipes/horizontal/random_alt
 	icon_state = "cont"
 
+/*
 /obj/structure/ms13/pipes/horizontal/random_alt/Initialize(mapload)
 	. = ..()
-	dir = rand(1,8)
+	dir = rand(1,8)*/
 
 /obj/structure/ms13/pipes/horizontal/box
 	icon_state = "box"

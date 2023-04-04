@@ -166,6 +166,33 @@
 	amount = 10
 
 /obj/item/stack/ms13/currency/cap/twenty
-	amount = 20
+	amount = 25
+
+/obj/item/stack/ms13/currency/cap/thirty
+	amount = 30
+
+/obj/item/stack/ms13/currency/cap/fourty
+	amount = 40
+
+/obj/item/stack/ms13/currency/cap/fifty
+	amount = 50
+
+/obj/item/stack/ms13/currency/cap/sixty
+	amount = 60
+
+/obj/item/stack/ms13/currency/cap/seventy
+	amount = 70
+
+/obj/item/stack/ms13/currency/cap/eighty
+	amount = 80
+
+/obj/item/stack/ms13/currency/cap/ninety
+	amount = 90
+
+/obj/item/stack/ms13/currency/cap/hunned
+	amount = 100
+
+/obj/item/stack/ms13/currency/cap/hunnedtwenty
+	amount = 120
 
 // Ideas- NCR dollar spawns 20% of the time.
