@@ -332,7 +332,7 @@
 /turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "dG" = (
-/obj/structure/ms13/pipes/horizontal,
+/obj/structure/ms13/pipes/horizontal/random_alt,
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "dH" = (
@@ -514,8 +514,8 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "ga" = (
-/obj/structure/ladder/ms13,
-/turf/open/floor/plating/ms13/ground/mountain/drought,
+/mob/living/basic/ms13/ghoul/brown,
+/turf/open/floor/ms13/metal/grate,
 /area/ms13/underground/mountain)
 "gb" = (
 /obj/machinery/light/ms13{
@@ -546,10 +546,8 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "gv" = (
-/obj/structure/ms13/lamp/mining_lamp{
-	pixel_y = 30
-	},
-/obj/structure/ms13/cave_decor/support/wall,
+/obj/effect/decal/cleanable/blood/drip,
+/mob/living/basic/ms13/ghoul/brown,
 /turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/underground/mountain)
 "gB" = (
@@ -676,9 +674,9 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "ip" = (
-/mob/living/basic/ms13/ghoul/brown,
-/turf/open/floor/ms13/metal/grate,
-/area/ms13/underground/mountain)
+/obj/structure/ms13/pipes/piped,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/town)
 "it" = (
 /obj/structure/table/ms13/no_smooth/counter/metal{
 	dir = 1
@@ -1026,9 +1024,10 @@
 /turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "np" = (
-/obj/structure/closet/crate/ms13/woodcrate,
+/obj/structure/closet/crate/ms13/woodcrate/compact,
+/obj/effect/spawner/random/ms13/seeds/random,
 /turf/open/floor/ms13/concrete,
-/area/ms13/underground/mountain_bunker)
+/area/ms13/town)
 "nt" = (
 /obj/structure/table/ms13/no_smooth/counter/metal,
 /obj/machinery/light/ms13{
@@ -1109,10 +1108,14 @@
 /turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "of" = (
-/obj/effect/decal/cleanable/blood/drip,
-/mob/living/basic/ms13/ghoul/brown,
-/turf/open/floor/plating/ms13/ground/mountain/drought,
-/area/ms13/underground/mountain)
+/obj/structure/closet/crate/ms13/woodcrate,
+/obj/effect/spawner/random/ms13/seeds/unique,
+/obj/effect/spawner/random/ms13/seeds/random,
+/obj/effect/spawner/random/ms13/seeds/random,
+/obj/effect/spawner/random/ms13/seeds/random,
+/obj/effect/spawner/random/ms13/seeds/random,
+/turf/open/floor/ms13/concrete,
+/area/ms13/town)
 "oh" = (
 /obj/structure/ms13/storage/vent,
 /turf/open/floor/ms13/metal/plate,
@@ -1581,6 +1584,7 @@
 /area/ms13/town)
 "tU" = (
 /obj/structure/closet/crate/ms13/woodcrate/compact/army,
+/obj/effect/spawner/random/ms13/gun/lowrandom,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/mountain_bunker)
 "tV" = (
@@ -1695,7 +1699,9 @@
 /turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/underground/mountain)
 "vh" = (
-/obj/structure/closet/crate/ms13/woodcrate/compact/boom,
+/obj/machinery/light/ms13{
+	dir = 8
+	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/mountain_bunker)
 "vj" = (
@@ -2214,9 +2220,10 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "BR" = (
-/obj/structure/ms13/pipes/piped,
-/turf/open/floor/ms13/concrete/industrial,
-/area/ms13/town)
+/obj/structure/closet/crate/ms13/woodcrate/compact/army,
+/obj/effect/spawner/random/ms13/gun/highrandom,
+/turf/open/floor/ms13/concrete,
+/area/ms13/underground/mountain_bunker)
 "BY" = (
 /obj/structure/ms13/storage/large/shelf{
 	dir = 8
@@ -2701,6 +2708,7 @@
 /obj/structure/table/ms13/no_smooth/counter/metal{
 	dir = 1
 	},
+/obj/effect/spawner/random/ms13/gun/lowrandom,
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/mountain_bunker)
 "Kc" = (
@@ -3139,11 +3147,6 @@
 	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
-"Pi" = (
-/obj/structure/closet/crate/ms13/woodcrate/compact,
-/obj/effect/spawner/random/ms13/seeds/random,
-/turf/open/floor/ms13/concrete,
-/area/ms13/town)
 "Pj" = (
 /obj/structure/table/ms13/no_smooth/counter/metal{
 	dir = 1
@@ -3455,15 +3458,6 @@
 	},
 /turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/underground/mountain)
-"Tj" = (
-/obj/structure/closet/crate/ms13/woodcrate,
-/obj/effect/spawner/random/ms13/seeds/unique,
-/obj/effect/spawner/random/ms13/seeds/random,
-/obj/effect/spawner/random/ms13/seeds/random,
-/obj/effect/spawner/random/ms13/seeds/random,
-/obj/effect/spawner/random/ms13/seeds/random,
-/turf/open/floor/ms13/concrete,
-/area/ms13/town)
 "Tk" = (
 /obj/structure/chair/ms13/overlaypickup/plastic{
 	dir = 1
@@ -18097,7 +18091,7 @@ Xw
 yd
 UK
 UK
-of
+gv
 UK
 hy
 UK
@@ -18463,7 +18457,7 @@ nx
 UK
 eG
 cJ
-ip
+ga
 cJ
 KN
 UK
@@ -28295,7 +28289,7 @@ Xw
 UK
 jY
 kx
-kx
+vh
 kx
 mv
 jY
@@ -28705,7 +28699,7 @@ kx
 kx
 kx
 kx
-kx
+vh
 kx
 kx
 kx
@@ -28908,7 +28902,7 @@ kx
 kx
 kx
 kx
-yh
+kx
 kx
 kx
 kx
@@ -29301,11 +29295,11 @@ Xw
 UK
 UK
 UK
-Xw
+UK
 UK
 jY
 kx
-kx
+IG
 kx
 mv
 jY
@@ -29481,28 +29475,28 @@ Xw
 Xw
 Xw
 Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
 UK
 UK
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
 UK
 UK
-Xw
-Xw
 Xw
 Xw
 jY
@@ -29681,29 +29675,29 @@ Xw
 Xw
 Xw
 Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
 UK
 UK
 UK
-UK
-UK
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
-UK
-UK
-Xw
 Xw
 Xw
 Xw
@@ -29883,12 +29877,12 @@ Xw
 Xw
 Xw
 Xw
-UK
-UK
-UK
-UK
-UK
-UK
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
 Xw
 Xw
 Xw
@@ -29930,7 +29924,7 @@ jY
 jY
 BA
 kx
-np
+kx
 JS
 jY
 Xw
@@ -30085,11 +30079,11 @@ Xw
 Xw
 Xw
 Xw
-UK
-UK
-ga
-UK
-UK
+Xw
+Xw
+Xw
+Xw
+Xw
 UK
 UK
 UK
@@ -30132,7 +30126,7 @@ Ue
 jY
 aR
 Ls
-vh
+kx
 JS
 jY
 Xw
@@ -30287,10 +30281,10 @@ Xw
 Xw
 Xw
 Xw
-UK
-UK
-UK
-UK
+Xw
+Xw
+Xw
+Xw
 UK
 UK
 UK
@@ -30334,7 +30328,7 @@ Yk
 jY
 Fp
 IG
-tU
+BR
 qS
 jY
 Xw
@@ -30490,7 +30484,7 @@ Xw
 Xw
 Xw
 Xw
-UK
+Xw
 UK
 UK
 UK
@@ -30694,7 +30688,7 @@ Xw
 Xw
 Xw
 Xw
-gv
+UK
 UK
 Xw
 Xw
@@ -31720,8 +31714,8 @@ Xw
 Xw
 UK
 UK
-Xw
-Xw
+UK
+UK
 Xw
 Xw
 Xw
@@ -31923,8 +31917,8 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
+UK
+UK
 Xw
 Xw
 Xw
@@ -32112,12 +32106,11 @@ Xw
 Xw
 Xw
 Xw
-uE
-UK
-Xw
 UK
 UK
 Xw
+UK
+UK
 Xw
 Xw
 Xw
@@ -32126,7 +32119,8 @@ Xw
 Xw
 Xw
 Xw
-Xw
+UK
+UK
 Xw
 Xw
 Xw
@@ -32328,8 +32322,8 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
+UK
+UK
 Xw
 Xw
 Xw
@@ -32505,8 +32499,8 @@ nm
 MS
 Rf
 Mc
-Pi
-Tj
+np
+of
 Mc
 sv
 nm
@@ -32530,8 +32524,8 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
+UK
+UK
 Xw
 Xw
 Xw
@@ -32733,8 +32727,8 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
+UK
+UK
 Xw
 Xw
 Xw
@@ -32935,8 +32929,8 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
+UK
+UK
 Xw
 Xw
 Xw
@@ -33137,8 +33131,8 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
+UK
+UK
 Xw
 Xw
 Xw
@@ -33339,8 +33333,8 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
+UK
+UK
 Xw
 Xw
 Xw
@@ -33542,8 +33536,8 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
+UK
+UK
 Xw
 Xw
 Xw
@@ -33744,8 +33738,8 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
+UK
+UK
 Xw
 Xw
 Xw
@@ -33946,8 +33940,8 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
+UK
+UK
 Xw
 Xw
 Xw
@@ -34148,8 +34142,8 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
+UK
+UK
 Xw
 Xw
 Xw
@@ -34172,7 +34166,7 @@ pC
 pC
 IP
 nm
-BR
+ip
 pC
 CG
 nm
@@ -34350,9 +34344,9 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
-Xw
+UK
+UK
+UK
 Xw
 Xw
 Xw
@@ -34553,8 +34547,8 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
+UK
+UK
 Xw
 Xw
 Xw
@@ -34754,8 +34748,8 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
+UK
+UK
 Xw
 Xw
 Xw
@@ -34956,8 +34950,8 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
+UK
+UK
 Xw
 Xw
 Xw
@@ -35158,8 +35152,8 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
+UK
+UK
 Xw
 Xw
 Xw
@@ -35360,8 +35354,8 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
+UK
+UK
 Xw
 Xw
 Xw
@@ -35562,8 +35556,8 @@ Xw
 Xw
 Xw
 Xw
-Xw
-Xw
+UK
+UK
 Xw
 Xw
 Xw
@@ -35765,7 +35759,7 @@ Xw
 Xw
 UK
 UK
-Xw
+UK
 Xw
 Xw
 Xw
@@ -39940,7 +39934,7 @@ nm
 kF
 nm
 nm
-BR
+ip
 pC
 rd
 nm
