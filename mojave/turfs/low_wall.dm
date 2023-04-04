@@ -68,6 +68,8 @@
 	icon = 'mojave/icons/turf/walls/drought/siding_green.dmi'
 
 /obj/structure/table/ms13/low_wall/prison
+	name = "low sided wall"
+	desc = ""
 	icon = 'mojave/icons/turf/walls/drought/prison.dmi'
 
 /obj/structure/table/ms13/low_wall/brick
