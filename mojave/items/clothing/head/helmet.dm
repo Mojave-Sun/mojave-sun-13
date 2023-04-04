@@ -1420,7 +1420,7 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
-	flags_inv = HIDEEARS|HIDEHAIR
+	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	has_fov = TRUE
 	fov_angle = 120
 	equip_delay_self = 2 SECONDS
