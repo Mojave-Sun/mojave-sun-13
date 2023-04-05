@@ -9,7 +9,7 @@
 
 	outfit = /datum/outfit/job/ms13/town_drought/enforcer
 
-	display_order = JOB_DISPLAY_ORDER_MS13_DEPUTY
+	display_order = JOB_DISPLAY_ORDER_MS13_TOWNENFORCER
 
 /datum/outfit/job/ms13/town_drought/enforcer
 	name = "_Town Enforcer"

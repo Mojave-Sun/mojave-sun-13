@@ -9,7 +9,7 @@
 
 	outfit = /datum/outfit/job/ms13/town_drought/clinician
 
-	display_order = JOB_DISPLAY_ORDER_MS13_DOCTOR
+	display_order = JOB_DISPLAY_ORDER_MS13_CLINICIAN
 
 	mind_traits = list(TRAIT_MEDICAL_TRAINING)
 

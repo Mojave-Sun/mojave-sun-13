@@ -7,9 +7,9 @@
 	forbid = ""
 	enforce = ""
 
-	outfit = /datum/outfit/job/ms13/town/barkeep
+	outfit = /datum/outfit/job/ms13/town_drought/barkeep
 
-	display_order = JOB_DISPLAY_ORDER_MS13_BARTENDER
+	display_order = JOB_DISPLAY_ORDER_MS13_BARKEEP
 
 /datum/outfit/job/ms13/town_drought/barkeep
 	name = "_Town Barkeep"

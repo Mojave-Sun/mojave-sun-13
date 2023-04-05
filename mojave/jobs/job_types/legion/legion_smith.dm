@@ -7,7 +7,7 @@
 
 	outfit = /datum/outfit/job/ms13/legion/legion_smith
 
-	display_order = JOB_DISPLAY_ORDER_MS13_RECRUITLEGIONARY
+	display_order = JOB_DISPLAY_ORDER_MS13_LEGIONSMITH
 
 	mind_traits = list(TRAIT_LEGION_SMITHING)
 

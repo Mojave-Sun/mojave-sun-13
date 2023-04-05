@@ -9,7 +9,7 @@
 
 	outfit = /datum/outfit/job/ms13/town_drought/baron
 
-	display_order = JOB_DISPLAY_ORDER_MS13_MAYOR
+	display_order = JOB_DISPLAY_ORDER_MS13_BARON
 
 /datum/outfit/job/ms13/town_drought/baron
 	name = "_Town Baron"
@@ -17,7 +17,7 @@
 
 	id =         null
 	head =		 /obj/item/clothing/head/helmet/ms13/metal/baron
-	uniform =    /obj/item/clothing/under/ms13/regal
+	uniform =    /obj/item/clothing/under/ms13/wasteland/baron
 	shoes =      /obj/item/clothing/shoes/ms13/military/diesel
 	suit_store = /obj/item/gun/ballistic/automatic/pistol/ms13/pistol45
 	belt =		 /obj/item/knife/ms13/switchblade

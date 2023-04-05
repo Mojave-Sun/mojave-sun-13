@@ -9,7 +9,7 @@
 
 	outfit = /datum/outfit/job/ms13/town_drought/denizen
 
-	display_order = JOB_DISPLAY_ORDER_MS13_SETTLER
+	display_order = JOB_DISPLAY_ORDER_MS13_DENIZEN
 
 /datum/outfit/job/ms13/town_drought/denizen
 	name = "_Town Denizen"
