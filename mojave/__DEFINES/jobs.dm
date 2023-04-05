@@ -103,4 +103,5 @@
 #define EXP_TYPE_BOS "BOS"
 #define EXP_TYPE_RAIDERS "Raiders"
 #define EXP_TYPE_RANGERS "Rangers"
+#define EXP_TYPE_DROUGHTTOWN "Town"
 #define EXP_TYPE_COMBATTEST "Combattest"

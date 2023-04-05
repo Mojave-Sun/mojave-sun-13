@@ -13,7 +13,7 @@
 #define DEPARTMENT_BITFLAG_RANGERS (1<<16)
 #define DEPARTMENT_RANGERS "Rangers"
 #define DEPARTMENT_BITFLAG_DROUGHTTOWN (1<<17)
-#define DEPARTMENT_DROUGHTTOWN "Town"
+#define DEPARTMENT_DROUGHTTOWN "Barony"
 
 // Fancy name for fancy boys
 /datum/job_department/var/department_full_name = null
@@ -93,6 +93,7 @@
 	department_bitflags = DEPARTMENT_BITFLAG_DROUGHTTOWN
 	department_head = /datum/job/ms13/town_drought/baron
 	department_experience_type = EXP_TYPE_DROUGHTTOWN
+	department_full_name = "The Barony"
 	//display_order = 0
 	//label_class = "TOWN"
 	//latejoin_color = "#ffddf0"
@@ -110,5 +111,5 @@
 		"Raiders_flag.png" = 'mojave/icons/faction_flags/flag_raiders.png',
 		"Town_flag.png" = 'mojave/icons/faction_flags/flag_towner.png',
 		"Wasteland_flag.png" = 'mojave/icons/faction_flags/flag_wastelanders.png',
-		"Droughttown_flag.png" = 'mojave/icons/faction_flags/flag_wastelanders.png'
+		"Barony_flag.png" = 'mojave/icons/faction_flags/flag_wastelanders.png'
 	)

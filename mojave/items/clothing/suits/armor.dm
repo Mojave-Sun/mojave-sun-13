@@ -694,8 +694,8 @@
 
 /obj/item/clothing/suit/armor/ms13/legion/vexillarius
 	name = "\improper Legion vexillarius armor"
-	desc = "Legion vexillarius armor with it's defining color."
-	icon_state = "leg_vex"
+	desc = "Legion vexillarius armor. Lighter than his typical Veteran counterparts."
+	icon_state = "leg_prime" //placeholder for now
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = CLASS1_EDGE, \
                 CRUSHING = CLASS3_CRUSH, \

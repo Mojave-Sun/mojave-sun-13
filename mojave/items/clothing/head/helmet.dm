@@ -1147,7 +1147,7 @@
                 ENERGY = 0, \
                 FIRE = 0)
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0) //No wound armor
-	flags_inv = HIDEEARS|HIDEFACE
+	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 
 /obj/item/clothing/head/helmet/ms13/metal/baron
 	name = "\improper Baron's Visage"
