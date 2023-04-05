@@ -468,22 +468,6 @@
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
 
-/obj/item/clothing/suit/armor/ms13/kit/baron
-	name = "\improper Chains of the Baron"
-	desc = "A menacing metal chain harness belonging to a very specific and very powerful individual."
-	icon_state = "baron"
-	body_parts_covered = CHEST|ARMS|GROIN
-	slowdown = 0
-	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = 0, \
-                CRUSHING = 0, \
-                CUTTING = CLASS1_CUT, \
-                PIERCING = 0, \
-                IMPALING = 0, \
-                LASER = 0, \
-                ENERGY = CLASS1_PLASMA, \
-                FIRE = CLASS1_FIRE)
-
 // Enviro Armor //
 
 /obj/item/clothing/suit/armor/ms13/firesuit
