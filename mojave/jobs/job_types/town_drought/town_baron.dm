@@ -17,6 +17,7 @@
 
 	id =         null
 	head =		 /obj/item/clothing/head/helmet/ms13/metal/baron
+	neck = 		 /obj/item/clothing/neck/cloak/ms13/baron
 	uniform =    /obj/item/clothing/under/ms13/wasteland/baron
 	shoes =      /obj/item/clothing/shoes/ms13/military/diesel
 	suit_store = /obj/item/gun/ballistic/automatic/pistol/ms13/pistol45

@@ -33,8 +33,9 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "aq" = (
-/obj/structure/table/ms13/no_smooth/wood/square,
-/obj/structure/table/ms13/no_smooth/wood/square,
+/obj/machinery/light/ms13/bulb{
+	dir = 4
+	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "au" = (
@@ -273,6 +274,13 @@
 	},
 /turf/open/floor/ms13/metal/plate,
 /area/ms13/underground/mountain_bunker)
+"dl" = (
+/obj/structure/ms13/rug/rubber{
+	dir = 4
+	},
+/obj/machinery/light/ms13/bulb,
+/turf/open/floor/ms13/tile/large/cream,
+/area/ms13/town)
 "dp" = (
 /obj/machinery/button/ms13{
 	dir = 4;
@@ -1607,6 +1615,9 @@
 /area/ms13/town)
 "sV" = (
 /obj/structure/ms13/pipes/piped,
+/obj/machinery/light/ms13/bulb{
+	dir = 4
+	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "sX" = (
@@ -2181,10 +2192,8 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "Ar" = (
-/obj/structure/table/ms13/crafting/weaponbench,
-/obj/structure/table/ms13/crafting/weaponbench,
-/obj/structure/noticeboard/ms13/cork,
-/turf/open/floor/ms13/concrete/industrial,
+/obj/machinery/light/ms13/bulb,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "Ax" = (
 /obj/structure/ms13/storage/shelf{
@@ -2379,6 +2388,9 @@
 /obj/effect/spawner/random/ms13/medical/bloodbag,
 /obj/effect/spawner/random/ms13/guaranteed/medical/bloodbag,
 /obj/effect/spawner/random/ms13/guaranteed/medical/bloodbag,
+/obj/machinery/light/ms13/bulb{
+	dir = 4
+	},
 /turf/open/floor/ms13/tile,
 /area/ms13/town)
 "DI" = (
@@ -2438,11 +2450,12 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "Eh" = (
-/obj/machinery/light/ms13/bulb/industrial{
+/obj/structure/table/ms13/metal/grate,
+/obj/machinery/light/ms13/bulb{
 	dir = 4
 	},
-/turf/open/floor/ms13/metal/plate,
-/area/ms13/legioncamp/building)
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/town)
 "Ej" = (
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 5
@@ -2549,6 +2562,12 @@
 	dir = 8
 	},
 /turf/open/floor/ms13/concrete,
+/area/ms13/town)
+"Ft" = (
+/obj/machinery/light/ms13/bulb{
+	dir = 8
+	},
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "Fv" = (
 /obj/structure/ms13/pipes/vertical/east/corner/down,
@@ -3525,6 +3544,12 @@
 /obj/machinery/door/unpowered/ms13/metal/mirrored/alt,
 /turf/open/floor/ms13/tile/blue,
 /area/ms13/underground/mountain_bunker)
+"Re" = (
+/obj/machinery/light/ms13/bulb/industrial{
+	dir = 4
+	},
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/legioncamp/building)
 "Rh" = (
 /obj/structure/table/ms13/no_smooth/counter/metal/bend,
 /obj/effect/spawner/random/ms13/crafting/lowrandom,
@@ -31525,12 +31550,12 @@ lh
 AO
 no
 fP
-fP
+Ar
 lh
 lh
 lh
 Nf
-OO
+xP
 lh
 uD
 uD
@@ -32129,7 +32154,7 @@ uD
 lh
 zh
 fP
-fP
+UL
 fP
 fP
 rS
@@ -32734,7 +32759,7 @@ uD
 uD
 lh
 qT
-fP
+UL
 fP
 fP
 dw
@@ -32754,7 +32779,7 @@ Cn
 Cn
 aF
 QI
-OO
+xP
 vu
 vu
 vu
@@ -33340,7 +33365,7 @@ uD
 uD
 lh
 dy
-fP
+aq
 WC
 WC
 Kt
@@ -33548,7 +33573,7 @@ lh
 lh
 lh
 zF
-QE
+Eh
 zF
 lh
 uD
@@ -34773,7 +34798,7 @@ OO
 aF
 pL
 eB
-OO
+Ft
 OO
 vu
 vu
@@ -35173,7 +35198,7 @@ aF
 Un
 hy
 UM
-hy
+dl
 aF
 pL
 eB
@@ -35906,7 +35931,7 @@ uD
 uD
 uD
 vu
-Ar
+yu
 DU
 VU
 VU
@@ -45346,7 +45371,7 @@ fP
 JD
 fP
 fP
-aq
+nD
 MB
 uD
 uD
@@ -46480,9 +46505,9 @@ uD
 uD
 uD
 RL
-Eh
 uX
-Wc
+uX
+Re
 Wc
 YB
 RL

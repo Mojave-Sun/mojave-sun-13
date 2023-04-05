@@ -13,15 +13,12 @@
 	desc = "A humble and warm leather shawl."
 	icon_state = "shawl"
 
-/obj/item/clothing/neck/cloak/ms13/legion
-	icon_state = "leg_whitehalf"
-
-/obj/item/clothing/neck/cloak/ms13/legion/whitehalfcloak
+/obj/item/clothing/neck/cloak/ms13/baron
 	name = "white half cloak"
-	desc = "A white half cloak used by Legionaries. Good for snowy environments."
-	icon_state = "leg_whitehalf"
+	desc = "A fine white half cloak, worn by the Baron, typically. It's made of a fine textile, smooth to the touch."
+	icon_state = "baron_cape"
 
-/obj/item/clothing/neck/cloak/ms13/legion/redhalfcloak
+/obj/item/clothing/neck/cloak/ms13/legion
 	name = "red half cloak"
 	desc = "A red half cloak worn by certain Legionaries. It's got the symbol of the bull on its back."
 	icon_state = "leg_redhalf"
