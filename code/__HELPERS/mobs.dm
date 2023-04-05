@@ -116,6 +116,22 @@
 		if(!findname(.))
 			break
 
+// MOJAVE SUN EDIT BEGIN
+/proc/random_unique_legion_name(gender, attempts_to_find_unique_name=10)
+	for(var/i in 1 to attempts_to_find_unique_name)
+		. = capitalize(pick(GLOB.first_names_legion)) + " " + capitalize(pick(GLOB.last_names_legion))
+
+		if(!findname(.))
+			break
+
+/proc/random_unique_raider_name(gender, attempts_to_find_unique_name=10)
+	for(var/i in 1 to attempts_to_find_unique_name)
+		. = capitalize(pick(GLOB.raider_names))
+
+		if(!findname(.))
+			break
+// MOJAVE SUN EDIT END
+
 /proc/random_unique_lizard_name(gender, attempts_to_find_unique_name=10)
 	for(var/i in 1 to attempts_to_find_unique_name)
 		. = capitalize(lizard_name(gender))
