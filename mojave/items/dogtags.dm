@@ -140,6 +140,11 @@
 	desc = "A marked silver disc stamped with the Legion's Bull insignia. Belongs to an explorer."
 	assignment = "Legion Explorer"
 
+/obj/item/card/id/ms13/legprime/blacksmith
+	name = "blacksmith medallion"
+	desc = "A marked silver disc stamped with the Legion's Bull insignia. Belongs to a Legion blacksmith."
+	assignment = "Legion Blacksmith"
+
 /obj/item/card/id/ms13/legveteran
 	name = "veteran medallion"
 	desc = "A heavily marked silver disc stamped with the Legion's Bull insignia. Belongs to a veteran, and reeks of iron."

@@ -136,6 +136,9 @@
 /obj/effect/landmark/start/ms13/legion_vexillarius
 	name = "Legion Vexillarius"
 
+/obj/effect/landmark/start/ms13/legion_smith
+	name = "Legion Blacksmith"
+
 // Desert Ranger Spawns //
 
 /obj/effect/landmark/start/ms13/ranger_deputy_chief
@@ -152,6 +155,26 @@
 
 /obj/effect/landmark/start/ms13/ranger_doctor
 	name = "Desert Ranger Doctor"
+
+// Drought Town Spawns //
+
+/obj/effect/landmark/start/ms13/baron
+	name = "Town Baron"
+
+/obj/effect/landmark/start/ms13/denizen
+	name = "Town Denizen"
+
+/obj/effect/landmark/start/ms13/barkeep
+	name = "Town Barkeep"
+
+/obj/effect/landmark/start/ms13/laborer
+	name = "Town Laborer"
+
+/obj/effect/landmark/start/ms13/clinician
+	name = "Town Clinician"
+
+/obj/effect/landmark/start/ms13/town_enforcer
+	name = "Town Enforcer"
 
 // Combat Test Spawns //
 
