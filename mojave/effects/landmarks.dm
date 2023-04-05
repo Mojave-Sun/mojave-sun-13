@@ -15,6 +15,9 @@
 /obj/effect/landmark/start/ms13/hubologist
 	name = "Hubologist"
 
+/obj/effect/landmark/start/ms13/nomad
+	name = "Nomad"
+
 // Mammoth Town Spawns //
 
 /obj/effect/landmark/start/ms13/mayor

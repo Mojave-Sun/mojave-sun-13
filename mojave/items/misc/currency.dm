@@ -32,7 +32,7 @@
 	amount = 10
 
 /obj/item/stack/ms13/currency/prewar/twenty
-	amount = 25
+	amount = 20
 
 /obj/item/stack/ms13/currency/prewar/thirty
 	amount = 30
@@ -136,6 +136,15 @@
 /obj/item/stack/ms13/currency/aurelius/twenty
 	amount = 20
 
+/obj/item/stack/ms13/currency/aurelius/thirty
+	amount = 30
+
+/obj/item/stack/ms13/currency/aurelius/fourty
+	amount = 40
+
+/obj/item/stack/ms13/currency/aurelius/fifty
+	amount = 50
+
 /obj/item/stack/ms13/currency/denarius
 	name = "\improper denarius"
 	desc = "Silver coin. There is an image of a bull and a head."
@@ -152,6 +161,15 @@
 /obj/item/stack/ms13/currency/denarius/twenty
 	amount = 20
 
+/obj/item/stack/ms13/currency/denarius/thirty
+	amount = 30
+
+/obj/item/stack/ms13/currency/denarius/fourty
+	amount = 40
+
+/obj/item/stack/ms13/currency/denarius/fifty
+	amount = 50
+
 /obj/item/stack/ms13/currency/cap
 	name = "\improper bottle cap"
 	desc = "Standard nuka cola bottlecaps are found everywhere. Perhaps they're worth something to someone."
@@ -166,7 +184,7 @@
 	amount = 10
 
 /obj/item/stack/ms13/currency/cap/twenty
-	amount = 25
+	amount = 20
 
 /obj/item/stack/ms13/currency/cap/thirty
 	amount = 30

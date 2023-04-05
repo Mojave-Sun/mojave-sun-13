@@ -369,6 +369,7 @@
 	var/dresser_type = "circabinet_orange"
 	max_integrity = 225
 	projectile_passchance = 85
+	pixel_y = 12
 
 /obj/structure/dresser/ms13/attack_hand(mob/user)
 	icon_state = "[dresser_type]-open"

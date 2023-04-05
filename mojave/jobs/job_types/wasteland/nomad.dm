@@ -100,7 +100,6 @@
 		/obj/item/gun/ballistic/automatic/pistol/ms13/pistol22, \
 		/obj/item/gun/ballistic/rifle/ms13/varmint, \
 		/obj/item/gun/ballistic/revolver/ms13/caravan, \
-		/obj/item/gun/ballistic/automatic/pistol/ms13/m10mm/chinese, \
 		/obj/item/gun/ballistic/revolver/ms13/rev10mm)
 
 

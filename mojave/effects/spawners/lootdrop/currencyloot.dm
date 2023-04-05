@@ -171,32 +171,72 @@
 	spawn_loot_chance = 65
 	loot = list(
 		/obj/item/stack/ms13/currency/cap/ten = 60,
-		/obj/item/stack/ms13/currency/ncr_dollar/ten = 25,
-		/obj/item/stack/ms13/currency/ncr_coin = 10,
-		/obj/item/stack/ms13/currency/cap/five = 5)
+		/obj/item/stack/ms13/currency/denarius = 25,
+		/obj/item/stack/ms13/currency/aurelius = 10,
+		/obj/item/stack/ms13/currency/prewar/five = 5)
 
 /obj/effect/spawner/random/ms13/currency/drought/tier2
 	name = "tier 2 Drought currency spawner"
 	spawn_loot_chance = 55
 	loot = list(
 		/obj/item/stack/ms13/currency/cap/twenty = 60,
-		/obj/item/stack/ms13/currency/ncr_dollar/twenty = 25,
-		/obj/item/stack/ms13/currency/ncr_coin/five = 15)
+		/obj/item/stack/ms13/currency/denarius/twenty = 25,
+		/obj/item/stack/ms13/currency/aurelius/five = 15)
 
 /obj/effect/spawner/random/ms13/currency/drought/tier3
 	name = "tier 3 Drought currency spawner"
 	spawn_loot_chance = 45
 	loot = list(
 		/obj/item/stack/ms13/currency/cap/fifty = 60,
-		/obj/item/stack/ms13/currency/ncr_dollar/fifty = 25,
-		/obj/item/stack/ms13/currency/ncr_coin/ten = 15)
+		/obj/item/stack/ms13/currency/denarius/fifty = 25,
+		/obj/item/stack/ms13/currency/aurelius/ten = 15)
 
 /obj/effect/spawner/random/ms13/currency/drought/tier4
 	name = "tier 4 Drought currency spawner"
 	spawn_loot_chance = 35
 	loot = list(
 		/obj/item/stack/ms13/currency/cap/hunned = 60,
-		/obj/item/stack/ms13/currency/ncr_dollar/hunned = 25)
+		/obj/item/stack/ms13/currency/aurelius/twenty = 25)
+
+/obj/effect/spawner/random/ms13/currency/drought/legion
+	spawn_loot_chance = 75
+
+/obj/effect/spawner/random/ms13/currency/drought/legion/lowrandom
+	name = "low tier random Legion currency spawner"
+	spawn_loot_chance = 100
+	loot = list(
+		/obj/effect/spawner/random/ms13/currency/drought/legion/tier1 = 50,
+		/obj/effect/spawner/random/ms13/currency/drought/legion/tier2 = 35,
+		/obj/effect/spawner/random/ms13/currency/drought/legion/tier3 = 15)
+
+/obj/effect/spawner/random/ms13/currency/drought/legion/highrandom
+	name = "high tier random Legion currency spawner"
+	spawn_loot_chance = 100
+	loot = list(
+		/obj/effect/spawner/random/ms13/currency/drought/legion/tier1 = 35,
+		/obj/effect/spawner/random/ms13/currency/drought/legion/tier2 = 50,
+		/obj/effect/spawner/random/ms13/currency/drought/legion/tier3 = 15)
+
+/obj/effect/spawner/random/ms13/currency/drought/legion/tier1
+	name = "tier 1 Legion currency spawner"
+	spawn_loot_chance = 65
+	loot = list(
+		/obj/item/stack/ms13/currency/aurelius/five = 40,
+		/obj/item/stack/ms13/currency/denarius/ten = 60)
+
+/obj/effect/spawner/random/ms13/currency/drought/legion/tier2
+	name = "tier 2 Legion currency spawner"
+	spawn_loot_chance = 55
+	loot = list(
+		/obj/item/stack/ms13/currency/aurelius/ten = 40,
+		/obj/item/stack/ms13/currency/denarius/twenty = 60)
+
+/obj/effect/spawner/random/ms13/currency/drought/legion/tier3
+	name = "tier 3 Legion currency spawner"
+	spawn_loot_chance = 45
+	loot = list(
+		/obj/item/stack/ms13/currency/aurelius/twenty = 40,
+		/obj/item/stack/ms13/currency/denarius/fifty = 60)
 
 // Drought Prewar Currency spawner //
 
