@@ -1,7 +1,7 @@
 /obj/item/card/id/ms13
 	name = "\improper ID tag"
 	desc = "A simple identification tag. This is a base class and you shouldn't be seeing it."
-	icon = 'mojave/icons/objects/identification/dogtags_world.dmi'
+	icon = 'mojave/icons/objects/identification/dogtags_inventory.dmi'
 	icon_state = "bos_holotag"
 	var/datum/bank_account = null
 
@@ -149,7 +149,7 @@
 /obj/item/card/id/ms13/legveteran
 	name = "veteran medallion"
 	desc = "A well worn silver disc stamped with the Legion's Bull insignia. Belongs to a Veteran, and reeks of iron."
-	icon_state = "leg_vet"
+	icon_state = "leg_veteran"
 	assignment = "Veteran Legionary"
 
 /obj/item/card/id/ms13/legveteran/vex
@@ -231,18 +231,22 @@
 /obj/item/card/id/ms13/drought_slave
 	desc = "Stamped identification papers for a citizen of the Barony. This has special clearance for labor and maintenance duties included."
 	assignment = "Town Laborer"
+	icon_state = "drought_town"
 
 /obj/item/card/id/ms13/drought_barkeep
 	desc = "Stamped identification papers for a citizen of the Barony. This has special clearance for operation of a dining and drinking establishment within the Barony."
 	assignment = "Town Barkeep"
+	icon_state = "drought_town"
 
 /obj/item/card/id/ms13/drought_doctor
 	desc = "Stamped identification papers for a citizen of the Barony. This has special clearance for operation of a clinic and medical duties within the Barony."
 	assignment = "Town Clinician"
+	icon_state = "drought_town"
 
 /obj/item/card/id/ms13/drought_enforcer
 	desc = "Stamped identification papers for a citizen of the Barony. This has an extra stamp on it with a large skull, indicating this belongs to an Enforcer of the Baron."
 	assignment = "Town Enforcer"
+	icon_state = "drought_town"
 
 /obj/item/card/id/ms13/drought_baron
 	name = "\improper Baron's golden pin"
