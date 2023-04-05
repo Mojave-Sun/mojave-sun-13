@@ -233,6 +233,16 @@
 	icon_state = "rangerbase"
 	outdoors = FALSE
 
+/area/ms13/water_baron
+	name = "The Barony"
+	icon_state = "barony"
+	atmosphere_sound = INDUSTRIAL_ATMOSPHERE
+	atmosphere_volume = 150
+
+/area/ms13/water_baron/interior
+	name = "The Barony building"
+	icon_state = "baronyinterior"
+
 // Mall/Eagle Lakes Areas //
 
 /area/ms13/mall
