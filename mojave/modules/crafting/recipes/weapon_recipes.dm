@@ -190,12 +190,12 @@
 /datum/crafting_recipe/bumper_sword_legion
 	name = "Legion bumper sword"
 	result = /obj/item/ms13/twohanded/bump_sword
-	time = 30 SECONDS
+	time = 25 SECONDS
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WELDER, TOOL_DRILL, TOOL_KNIFE)
 	tool_paths = list(/obj/item/ms13/hammer)
 	trait = TRAIT_LEGION_SMITHING
-	reqs = list(/obj/item/stack/sheet/ms13/refined_steel = 8,
-				/obj/item/stack/sheet/ms13/refined_alu = 2,
+	reqs = list(/obj/item/stack/sheet/ms13/refined_steel = 9,
+				/obj/item/stack/sheet/ms13/refined_alu = 3,
 				/obj/item/stack/sheet/ms13/scrap_parts = 4,
 				/obj/item/stack/sheet/ms13/leather = 3)
 	category = CAT_WEAPONS

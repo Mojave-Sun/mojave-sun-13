@@ -453,6 +453,37 @@
 	icon_state = "bountyhunter"
 	inhand_icon_state = "armoredwinterblack"
 
+/obj/item/clothing/suit/armor/ms13/combat/enforcer
+	name = "surplus combat armor"
+	desc = "Cheap, surplus combat armor likely acquired from some kind of pre-war reserve armory. Still gets the job done."
+	icon_state = "enforcer"
+	body_parts_covered = CHEST|GROIN|LEGS
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = CLASS2_EDGE, \
+                CRUSHING = CLASS2_CRUSH, \
+                CUTTING = CLASS3_CUT, \
+                PIERCING = CLASS2_PIERCE, \
+                IMPALING = CLASS3_STAB, \
+                LASER = CLASS2_LASER, \
+                ENERGY = CLASS2_PLASMA, \
+                FIRE = CLASS3_FIRE)
+
+/obj/item/clothing/suit/armor/ms13/kit/baron
+	name = "\improper Chains of the Baron"
+	desc = "A menacing metal chain harness belonging to a very specific and very powerful individual."
+	icon_state = "baron"
+	body_parts_covered = CHEST|ARMS|GROIN
+	slowdown = 0
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = 0, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = 0, \
+                IMPALING = 0, \
+                LASER = 0, \
+                ENERGY = CLASS1_PLASMA, \
+                FIRE = CLASS1_FIRE)
+
 // Enviro Armor //
 
 /obj/item/clothing/suit/armor/ms13/firesuit
