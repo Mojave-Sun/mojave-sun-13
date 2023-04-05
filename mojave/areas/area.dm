@@ -205,6 +205,7 @@
 	requires_power = FALSE
 	power_environ = FALSE
 	power_equip = FALSE
+	power_light = FALSE
 	outdoors = TRUE
 	flags_1 = NONE
 
@@ -236,7 +237,7 @@
 /area/ms13/water_baron
 	name = "The Barony"
 	icon_state = "barony"
-	atmosphere_sound = INDUSTRIAL_ATMOSPHERE
+	ambientsounds = GENERIC_AMBIENCE
 	atmosphere_volume = 150
 
 /area/ms13/water_baron/interior
