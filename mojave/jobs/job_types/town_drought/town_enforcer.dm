@@ -15,7 +15,7 @@
 	name = "_Town Enforcer"
 	jobtype = /datum/job/ms13/town_drought/enforcer
 
-	id = 		 null
+	id = 		 /obj/item/card/id/ms13/drought_enforcer
 	head =		 /obj/item/clothing/head/helmet/ms13/enforcer
 	glasses =	 /obj/item/clothing/glasses/ms13/sunglasses
 	suit =       /obj/item/clothing/suit/armor/ms13/combat/enforcer

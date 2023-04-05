@@ -23,7 +23,7 @@
 	belt = /obj/item/claymore/ms13/machete/gladius
 	r_pocket = /obj/item/ms13/hammer
 	l_pocket = /obj/item/flashlight/flare/ms13
-	id = /obj/item/card/id/ms13/legprime/blacksmith
+	id = /obj/item/card/id/ms13/blacksmith
 	backpack_contents = list(
 		/obj/item/ammo_box/ms13/shotgun/junkshot=1,
 		/obj/item/ms13/handsaw=1)

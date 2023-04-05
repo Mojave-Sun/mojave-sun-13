@@ -15,7 +15,7 @@
 	name = "_Town Laborer"
 	jobtype = /datum/job/ms13/town_drought/laborer
 
-	id = 		 null
+	id = 		 /obj/item/card/id/ms13/drought_slave
 	shoes =  	 /obj/item/clothing/shoes/ms13/explorer
 	belt =		 /obj/item/weldingtool/ms13
 	r_pocket =   /obj/item/wirecutters/ms13

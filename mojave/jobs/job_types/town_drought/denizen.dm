@@ -15,7 +15,7 @@
 	name = "_Town Denizen"
 	jobtype = /datum/job/ms13/town_drought/denizen
 
-	id =		 null
+	id =		 /obj/item/card/id/ms13/drought_denizen
 	r_pocket =   null
 	back =       null
 
