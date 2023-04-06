@@ -72,12 +72,13 @@ require only minor tweaks.
 #define ZTRAIT_ASHSTORM "Weather_Ashstorm"
 #define ZTRAIT_VOIDSTORM "Weather_Voidstorm"
 
-//MOJAVE MODULE OUTDOOR_EFFECTS -- BEGIN
-// boolean - particle weather types that occur on the level
-#define PARTICLEWEATHER_RAIN "Weather_Rain"
-#define PARTICLEWEATHER_SNOW "Weather_Snow"
-#define PARTICLEWEATHER_DUST "Weather_Dust"
-#define PARTICLEWEATHER_RADS "Weather_Rads"
+/// Probabilities of a weather event occurring each tick, per map
+#define WEATHER_MESSAGE_DELAY 30 SECONDS
+/// boolean - particle weather types that occur on the level
+#define PARTICLEWEATHER_RAIN "weather_rain"
+#define PARTICLEWEATHER_SNOW "weather_snow"
+#define PARTICLEWEATHER_DUST "weather_dust"
+
 //MOJAVE MODULE OUTDOOR_EFFECTS -- END
 
 /// boolean - does this z prevent ghosts from observing it
@@ -174,7 +175,7 @@ require only minor tweaks.
 #define BIOME_HIGH_HUMIDITY "high_humidity"
 
 // Bluespace shelter deploy checks for survival capsules
-/// Shelter spot is allowed 
+/// Shelter spot is allowed
 #define SHELTER_DEPLOY_ALLOWED "allowed"
 /// Shelter spot has turfs that restrict deployment
 #define SHELTER_DEPLOY_BAD_TURFS "bad turfs"
@@ -182,5 +183,5 @@ require only minor tweaks.
 #define SHELTER_DEPLOY_BAD_AREA "bad area"
 /// Shelter spot has anchored objects that restrict deployment
 #define SHELTER_DEPLOY_ANCHORED_OBJECTS "anchored objects"
-/// Shelter spot is out of bounds from the maps x/y coordinates 
+/// Shelter spot is out of bounds from the maps x/y coordinates
 #define SHELTER_DEPLOY_OUTSIDE_MAP "outside map"

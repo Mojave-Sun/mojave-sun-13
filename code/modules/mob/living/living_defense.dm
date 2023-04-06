@@ -524,3 +524,14 @@
 	for(var/reagent in reagents)
 		var/datum/reagent/R = reagent
 		. |= R.expose_mob(src, methods, reagents[R], show_message, touch_protection)
+
+//Mojave sun edit begin
+/mob/living/carbon/proc/handle_weather(delta_time = 1)
+	var/turf/turf = get_turf(src)
+	// Check if we're supposed to be something affected by weather
+	if(!SSparticle_weather.running_weather || !(turf.turf_flags & TURF_WEATHER))
+		current_weather_effect_type = null
+	else
+		current_weather_effect_type = SSparticle_weather.running_weather
+	SSparticle_weather.running_weather.process_mob_effect(src, delta_time)
+//Mojave sun edit end

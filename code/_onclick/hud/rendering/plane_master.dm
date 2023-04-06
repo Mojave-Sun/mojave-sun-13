@@ -98,6 +98,25 @@
 	if(istype(mymob) && mymob.client?.prefs?.read_preference(/datum/preference/toggle/ambient_occlusion))
 		add_filter("AO", 1, drop_shadow_filter(x = 0, y = -2, size = 4, color = "#04080FAA"))
 
+///Contains mobs things in the game world
+/atom/movable/screen/plane_master/mob_world
+	name = "mob world plane master"
+	plane = MOB_PLANE
+	appearance_flags = PLANE_MASTER //should use client color
+	render_relay_plane = GAME_PLANE_FOV_HIDDEN
+	blend_mode = BLEND_OVERLAY
+
+/atom/movable/screen/plane_master/mob_world/Initialize()
+	. = ..()
+	add_filter("cutterout", 1, alpha_mask_filter(render_source = LAYER_CUTTER_VISUAL_RENDER_TARGET, flags = MASK_INVERSE))
+
+/atom/movable/screen/plane_master/layer_cutter
+	name = "layer cutter visual plane master"
+	plane = LAYER_CUTTER_VISUAL_PLANE
+	render_target = LAYER_CUTTER_VISUAL_RENDER_TARGET
+	render_relay_plane = null
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+
 /atom/movable/screen/plane_master/game_world_fov_hidden
 	name = "game world fov hidden plane master"
 	plane = GAME_PLANE_FOV_HIDDEN

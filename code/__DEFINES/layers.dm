@@ -34,6 +34,8 @@
 
 #define GAME_PLANE -42 //MOJAVE MODULE OUTDOOR_EFFECTS
 
+#define MOB_PLANE -41
+
 #define WEATHER_EFFECT_PLANE -30 //MOJAVE MODULE OUTDOOR_EFFECTS
 
 
@@ -48,6 +50,9 @@
 #define UNDER_FRILL_RENDER_TARGET "*UNDER_RENDER_TARGET" //MOJAVE SUN EDIT - Wallening Testmerge
 #define FRILL_PLANE -11 //MOJAVE SUN EDIT - Wallening Testmerge
 #define OVER_FRILL_PLANE -10 //MOJAVE SUN EDIT - Wallening Testmerge
+
+#define LAYER_CUTTER_VISUAL_PLANE -1
+#define LAYER_CUTTER_VISUAL_RENDER_TARGET "*LAYER_CUTTER_PLANE"
 
 #define SPACE_LAYER 1.8
 
@@ -134,7 +139,6 @@
 //#define FLY_LAYER 5 //For easy recordkeeping; this is a byond define
 #define GASFIRE_LAYER 5.05
 #define RIPPLE_LAYER 5.1
-
 
 #define BLACKNESS_PLANE 0 //To keep from conflicts with SEE_BLACKNESS internals
 

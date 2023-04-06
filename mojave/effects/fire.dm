@@ -16,6 +16,7 @@
 	var/firelevel //Tracks how much "fire" there is. Basically the timer of how long the fire burns
 	var/burnlevel = 10 //Tracks how HOT the fire is. This is basically the heat level of the fire and determines the temperature.
 	var/flame_color = "red"
+	var/weather_smothering_strength = 0
 
 /obj/ms13/fire/Initialize(mapload, fire_lvl, burn_lvl, f_color, fire_stacks = 0, fire_damage = 0)
 
@@ -45,6 +46,8 @@
 	AddElement(/datum/element/connect_loc, loc_connections)
 	process()
 	updateicon()
+	update_in_weather_status()
+	RegisterSignal(SSdcs, COMSIG_GLOB_WEATHER_CHANGE, .proc/update_in_weather_status)
 	. = ..()
 
 /obj/ms13/fire/Destroy()
@@ -54,6 +57,16 @@
 /obj/ms13/fire/extinguish()
 	qdel(src)
 	return
+
+/obj/ms13/fire/proc/update_in_weather_status()
+	SIGNAL_HANDLER
+	var/turf/turf = get_turf(src)
+	if(!turf)
+		return
+	if(SSparticle_weather.running_weather && turf.turf_flags & TURF_WEATHER)
+		weather_smothering_strength = SSparticle_weather.running_weather.fire_smothering_strength
+	else
+		weather_smothering_strength = 0
 
 /obj/ms13/fire/proc/on_entered(datum/source, mob/living/M) //Only way to get it to reliable do it when you walk into it.
 	SIGNAL_HANDLER
@@ -116,7 +129,7 @@
 			continue
 		A.flamer_fire_act(burnlevel, firelevel)
 
-	firelevel -= 2 //reduce the intensity by 2 per tick
+	firelevel -= 2 + weather_smothering_strength //reduce the intensity by 2 per tick
 	return
 
 /atom/proc/flamer_fire_act()

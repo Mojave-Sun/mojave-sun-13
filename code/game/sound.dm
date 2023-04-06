@@ -205,6 +205,13 @@ distance_multiplier - Can be used to multiply the distance at which the sound is
 /proc/get_rand_frequency()
 	return rand(32000, 55000) //Frequency stuff only works with 45kbps oggs.
 
+/// Play sound for all on-map clients on a given Z-level. Good for ambient sounds.
+/proc/playsound_z(z, soundin, volume = 100)
+	var/sound/S = sound(soundin)
+	for(var/mob/M in GLOB.player_list)
+		if(M.z in z)
+			M.playsound_local(get_turf(M), soundin, volume, channel = CHANNEL_Z, S = S)
+
 /proc/get_sfx(soundin)
 	if(istext(soundin))
 		switch(soundin)

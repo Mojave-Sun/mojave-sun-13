@@ -3,6 +3,11 @@
 	if(notransform)
 		return
 
+	//Mojave sun edit begin
+	if(SSparticle_weather.running_weather)
+		handle_weather(delta_time)
+	//Mojave sun edit end
+
 	if(damageoverlaytemp)
 		damageoverlaytemp = 0
 		update_damage_hud()

@@ -2,43 +2,43 @@
 /datum/time_of_day
 	var/name = ""
 	var/color = ""
-	var/start = 216000 // 6:00 am
+	var/start_at = 216000 // 6:00 am
 
 
 // /datum/time_of_day/Midnight_am
 //  name = "Midnight AM"
 //  color = "#050d29"
-//  start = "0" //12:00:00 AM
+//  start_at = "0" //12:00:00 AM
 
 /datum/time_of_day/dawn
  name = "Dawn"
  color = "#31211b"
- start = 4 HOURS //4:00:00 AM
+ start_at = 4 HOURS //4:00:00 AM
 
 /datum/time_of_day/sunrise
  name = "Sunrise"
  color = "#F598AB"
- start = 5 HOURS  //5:00:00 AM
+ start_at = 5 HOURS  //5:00:00 AM
 
 /datum/time_of_day/daytime
  name = "Daytime"
  color = "#FFFFFF"
- start = 5.5 HOURS //5:30:00 AM
+ start_at = 5.5 HOURS //5:30:00 AM
 
 /datum/time_of_day/sunset
  name = "Sunset"
  color = "#ff8a63"
- start = 19 HOURS //7:00:00 PM
+ start_at = 19 HOURS //7:00:00 PM
 
 /datum/time_of_day/dusk
  name = "Dusk"
  color = "#221f33"
- start = 19.5 HOURS //7:30:00 PM
+ start_at = 19.5 HOURS //7:30:00 PM
 
 /datum/time_of_day/midnight
  name = "Midnight"
  color = "#000032"
- start = 20 HOURS //8:00:00 PM
+ start_at = 20 HOURS //8:00:00 PM
 
 
 GLOBAL_VAR_INIT(GLOBAL_LIGHT_RANGE, 5)
@@ -57,9 +57,9 @@ SUBSYSTEM_DEF(outdoor_effects)
 	// var/list/atom/movable/screen/fullscreen/lighting_backdrop/Sunlight/sunlighting_planes = list()
 	var/datum/time_of_day/current_step_datum
 	var/datum/time_of_day/next_step_datum
+	var/datum/weather_event/weather_light_affecting_event
 	var/list/mutable_appearance/sunlight_overlays
 	var/list/atom/movable/screen/plane_master/weather_effect/weather_planes_need_vis = list()
-	var/last_color = null
 	//Ensure midnight is the liast step
 	var/list/datum/time_of_day/time_cycle_steps = list(new /datum/time_of_day/dawn(),
 	                                                   new /datum/time_of_day/sunrise(),
@@ -68,7 +68,7 @@ SUBSYSTEM_DEF(outdoor_effects)
 	                                                   new /datum/time_of_day/dusk(),
 	                                                   new /datum/time_of_day/midnight())
 	var/next_day = FALSE // Resets when station_time is less than the next start time.
-
+	var/current_color
 
 
 /datum/controller/subsystem/outdoor_effects/stat_entry(msg)
@@ -76,10 +76,10 @@ SUBSYSTEM_DEF(outdoor_effects)
 	return ..()
 
 /datum/controller/subsystem/outdoor_effects/proc/fullPlonk()
-	for (var/z in SSmapping.levels_by_trait(ZTRAIT_STATION))
-		for (var/turf/T in block(locate(1,1,z), locate(world.maxx,world.maxy,z)))
+	for(var/z in SSmapping.levels_by_trait(ZTRAIT_STATION))
+		for(var/turf/T in block(locate(1,1,z), locate(world.maxx,world.maxy,z)))
 			var/area/TArea = T.loc
-			if (TArea.static_lighting)
+			if(TArea.static_lighting)
 				GLOB.SUNLIGHT_QUEUE_WORK += T
 
 /datum/controller/subsystem/outdoor_effects/Initialize(timeofday)
@@ -110,7 +110,7 @@ SUBSYSTEM_DEF(outdoor_effects)
 		get_time_of_day()
 		return TRUE
 
-	if(station_time() > next_step_datum.start)
+	if(station_time() > next_step_datum.start_at)
 		if(next_day)
 			return FALSE
 		get_time_of_day()
@@ -128,7 +128,7 @@ SUBSYSTEM_DEF(outdoor_effects)
 	var/datum/time_of_day/new_step = null
 
 	for(var/i in 1 to length(time_cycle_steps))
-		if(time >= time_cycle_steps[i].start)
+		if(time >= time_cycle_steps[i].start_at)
 			new_step = time_cycle_steps[i]
 			next_step_datum = i == length(time_cycle_steps) ? time_cycle_steps[1] : time_cycle_steps[i + 1]
 
@@ -140,7 +140,7 @@ SUBSYSTEM_DEF(outdoor_effects)
 	current_step_datum = new_step
 
 	// If the next start time is less than the current start time (i.e 10 PM vs 5 AM) then set our NextDay value
-	if(next_step_datum.start <= current_step_datum.start)
+	if(next_step_datum.start_at <= current_step_datum.start_at)
 		next_day = TRUE
 
 /* set sunlight color + add weather effect to clients */
@@ -156,11 +156,11 @@ SUBSYSTEM_DEF(outdoor_effects)
 	var/i = 0
 
 	//Add our weather particle obj to any new weather screens
-	if(SSParticleWeather.initialized)
+	if(SSparticle_weather.initialized)
 		for (i in 1 to weather_planes_need_vis.len)
 			var/atom/movable/screen/plane_master/weather_effect/W = weather_planes_need_vis[i]
 			if(W)
-				W.vis_contents = list(SSParticleWeather.getweatherEffect())
+				W.vis_contents = list(SSparticle_weather.get_weather_effect())
 			if(init_tick_checks)
 				CHECK_TICK
 			else if (MC_TICK_CHECK)
@@ -236,15 +236,19 @@ SUBSYSTEM_DEF(outdoor_effects)
 		GLOB.SUNLIGHT_QUEUE_CORNER.Cut(1, i+1)
 		i = 0
 
-	if(check_cycle())
-		transition_sunlight_color()
+	check_cycle()
+	transition_sunlight_color()
 
 
 //Transition from our last color to our current color (i.e if it is going from daylight (white) to sunset (red), we transition to red in the first hour of sunset)
 /datum/controller/subsystem/outdoor_effects/proc/transition_sunlight_color()
-	/* transistion in an hour or time diff from now to our next step, whichever is smaller */
-	var timeDiff = min((1 HOURS / SSticker.station_time_rate_multiplier ),daytimeDiff(station_time(), next_step_datum.start))
-	animate(sun_color, color=current_step_datum.color, time = timeDiff)
+	if(!weather_light_affecting_event)
+		var/time = station_time()
+		var/time_to_animate = min((1 HOURS / SSticker.station_time_rate_multiplier), daytimeDiff(time, next_step_datum.start_at))
+		var/blend_amount = (time - current_step_datum.start_at) / (next_step_datum.start_at - current_step_datum.start_at)
+		current_color = BlendRGB(current_step_datum.color, next_step_datum.color, blend_amount)
+		animate(sun_color, color = current_color, time = time_to_animate)
+
 
 // Updates overlays and vis_contents for outdoor effects
 /datum/controller/subsystem/outdoor_effects/proc/update_outdoor_effect_overlays(atom/movable/outdoor_effect/OE)

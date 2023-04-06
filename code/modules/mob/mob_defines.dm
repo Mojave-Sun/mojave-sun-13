@@ -10,7 +10,8 @@
 	datum_flags = DF_USE_TAG
 	density = TRUE
 	layer = MOB_LAYER
-	plane = GAME_PLANE_FOV_HIDDEN
+	vis_flags = VIS_INHERIT_PLANE|VIS_INHERIT_LAYER
+	plane = MOB_PLANE
 	animate_movement = SLIDE_STEPS
 	hud_possible = list(ANTAG_HUD)
 	pressure_resistance = 8
@@ -26,9 +27,6 @@
 	var/client/canon_client
 
 	var/shift_to_open_context_menu = TRUE
-
-	///when this be added to vis_contents of something it inherit something.plane, important for visualisation of mob in openspace.
-	vis_flags = VIS_INHERIT_PLANE
 
 	var/lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
 	var/datum/mind/mind

@@ -34,8 +34,8 @@
 	/// Dictionary of job sub-typepath to template changes dictionary
 	var/job_changes = list()
 
-	//List of particle_weather types for this map
-	var/particle_weather = list() //MOJAVE MODULE OUTDOOR_EFFECTS
+	//List of particle_weathers types for this map
+	var/particle_weathers = list() //MOJAVE MODULE OUTDOOR_EFFECTS
 
 /**
  * Proc that simply loads the default map config, which should always be functional.
@@ -154,11 +154,11 @@
 		return
 
 	//MOJAVE MODULE OUTDOOR_EFFECTS -- BEGIN
-	if ("particle_weather" in json)
-		if(!islist(json["particle_weather"]))
-			log_world("map_config \"particle_weather\" field is missing or invalid!")
+	if ("particle_weathers" in json)
+		if(!islist(json["particle_weathers"]))
+			log_world("map_config \"particle_weathers\" field is missing or invalid!")
 			return
-		particle_weather = json["particle_weather"]
+		particle_weathers = json["particle_weathers"]
 	//MOJAVE MODULE OUTDOOR_EFFECTS -- END
 
 	var/temp = json["space_ruin_levels"]

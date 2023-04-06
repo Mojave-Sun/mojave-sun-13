@@ -3,3 +3,4 @@
 #define CATWALK_ON_TURF "catwalk_on_turf" // Source for adding/removing traits, namely the above trait
 #define BOARDS_ON_TURF "boards_on_turf" // Like above, but for board walkways
 #define STAIRS_ON_TURF "stairs_on_turf" // Like above, but for stairs!
+#define SNOW_ON_TURF "snow_on_turf" // Like above, but for snow!
