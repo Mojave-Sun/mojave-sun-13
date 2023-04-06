@@ -35,7 +35,7 @@
 		/obj/item/stack/ms13/currency/prewar/ten = 60,
 		/obj/item/stack/ms13/currency/ncr_dollar/ten = 25,
 		/obj/item/stack/ms13/currency/ncr_coin = 10,
-		/obj/item/stack/ms13/currency/cap/five = 5)
+		/obj/item/stack/ms13/currency/cap/ten = 5)
 
 /obj/effect/spawner/random/ms13/currency/mammoth/tier2
 	name = "tier 2 Mammoth currency spawner"
@@ -235,7 +235,7 @@
 	loot = list(
 		/obj/item/stack/ms13/currency/denarius/two = 25,
 		/obj/item/stack/ms13/currency/denarius/five = 45,
-		/obj/item/stack/ms13/currency/denarius/ten = 20
+		/obj/item/stack/ms13/currency/denarius/ten = 20,
 		/obj/item/stack/ms13/currency/aurelius/two = 10)
 
 /obj/effect/spawner/random/ms13/currency/drought/legion/tier2
