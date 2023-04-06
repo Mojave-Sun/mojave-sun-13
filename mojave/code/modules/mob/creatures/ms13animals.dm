@@ -320,7 +320,7 @@
 	icon_state = "icegecko"
 
 /mob/living/simple_animal/hostile/ms13/gecko/sand
-	icon_state = "sandgecko"
+	icon_state = "goldgecko"
 
 //mirelurk
 
