@@ -1,13 +1,13 @@
 /obj/item/card/id/ms13
 	name = "\improper ID tag"
 	desc = "A simple identification tag. This is a base class and you shouldn't be seeing it."
-	icon = 'mojave/icons/objects/identification/dogtags_world.dmi'
+	icon = 'mojave/icons/objects/identification/dogtags_inventory.dmi'
 	icon_state = "bos_holotag"
 	var/datum/bank_account = null
 
 /obj/item/card/id/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/identification/dogtags_inventory.dmi')
+	AddElement(/datum/element/item_scaling, 0.45, 1)
 
 /obj/item/card/id/ms13/doctor
 	name = "doctor's ID badge"
@@ -105,11 +105,10 @@
 	assignment = "NCR Lieutenant"
 
 /obj/item/card/id/ms13/legrecruit
-	name = "recruit medallion"
-	desc = "A silver disc stamped with the Legion's Bull insignia. Belongs to a recruit."
+	name = "recruit blade"
+	desc = "A tiny, dull blade on a string. Used to identify recruits and new blood in Caesar's Legion."
 	assignment = "Recruit Legionary"
-	icon_state = "legionmedallionrecruit"
-
+	icon_state = "leg_recruit"
 
 /obj/item/card/id/ms13/legrecruit/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/card/id/ms13/legcenturion))
@@ -119,52 +118,54 @@
 	return ..()
 
 /obj/item/card/id/ms13/legrecruitdecanus
-	name = "recruit decanus medallion"
-	desc = "A silver disc stamped with the Legion's Bull insignia. Belongs to a recruit decanus."
+	name = "recruit decanus blade"
+	desc = "A tiny, dull blade on a string. This one looks well worn, likely belonging to a Recruit Decanus."
 	assignment = "Legion Recruit Decanus"
-	icon_state = "legionmedallionrecruit"
+	icon_state = "leg_recruit"
 
 /obj/item/card/id/ms13/legprime
 	name = "prime medallion"
-	desc = "A marked silver disc stamped with the Legion's Bull insignia. Belongs to a prime."
-	icon_state = "legionmedallionprime"
+	desc = "A marked red disc stamped with the Legion's Bull insignia. Belongs to a Prime."
+	icon_state = "leg_prime"
 	assignment = "Prime Legionary"
 
 /obj/item/card/id/ms13/legprime/decanus
 	name = "prime decanus medallion"
-	desc = "A marked silver disc stamped with the Legion's Bull insignia. Belongs to a prime decanus."
+	desc = "A marked red disc stamped with the Legion's Bull insignia. Belongs to a Prime Decanus."
 	assignment = "Legion Prime Decanus"
 
-/obj/item/card/id/ms13/legprime/explorer
+/obj/item/card/id/ms13/explorer
 	name = "explorer medallion"
-	desc = "A marked silver disc stamped with the Legion's Bull insignia. Belongs to an explorer."
+	desc = "A marked dark colored disc stamped with the Legion's Bull insignia. Belongs to an Explorer."
+	icon_state = "leg_aux"
 	assignment = "Legion Explorer"
 
-/obj/item/card/id/ms13/legprime/blacksmith
+/obj/item/card/id/ms13/blacksmith
 	name = "blacksmith medallion"
-	desc = "A marked silver disc stamped with the Legion's Bull insignia. Belongs to a Legion blacksmith."
+	desc = "A marked dark colored disc stamped with the Legion's Bull insignia. Belongs to a Legion blacksmith."
+	icon_state = "leg_aux"
 	assignment = "Legion Blacksmith"
 
 /obj/item/card/id/ms13/legveteran
 	name = "veteran medallion"
-	desc = "A heavily marked silver disc stamped with the Legion's Bull insignia. Belongs to a veteran, and reeks of iron."
-	icon_state = "legionmedallionveteran"
+	desc = "A well worn silver disc stamped with the Legion's Bull insignia. Belongs to a Veteran, and reeks of iron."
+	icon_state = "leg_veteran"
 	assignment = "Veteran Legionary"
 
 /obj/item/card/id/ms13/legveteran/vex
 	name = "vexillarius medallion"
-	desc = "A heavily marked silver disc stamped with the Legion's Bull insignia. Belongs to a Legion vexillarius, and reeks of iron."
+	desc = "A well worn silver disc stamped with the Legion's Bull insignia. Belongs to a Legion Vexillarius, and reeks of iron."
 	assignment = "Legion Vexillarius"
 
 /obj/item/card/id/ms13/legveteran/decanus
 	name = "veteran decanus medallion"
-	desc = "A heavily marked silver disc stamped with the Legion's Bull insignia. Belongs to a veteran decanus, and reeks of iron."
+	desc = "A well worn silver disc stamped with the Legion's Bull insignia. Belongs to a Veteran Decanus, and reeks of iron."
 	assignment = "Legion Veteran Decanus"
 
 /obj/item/card/id/ms13/legcenturion
 	name = "centurion medallion"
 	desc = "A golden disc awarded to the most fierce men in the entire Legion. If you are close enough to read the insignia you won't be alive much longer."
-	icon_state = "legionmedallioncent"
+	icon_state = "leg_cent"
 	assignment = "Legion Centurion"
 
 /obj/item/card/id/ms13/raider
@@ -220,6 +221,38 @@
 	desc = "A silver circle encompassing a gold cross. Given to the empathetic healers of the Desert Rangers."
 	icon_state = "ranger_cross"
 	assignment = "Desert Ranger Doctor"
+
+/obj/item/card/id/ms13/drought_denizen
+	name = "\improper Barony identification papers"
+	desc = "Stamped identification papers for a citizen of the Barony. This has no special assignment on it and likely belongs to a typical Denizen."
+	icon_state = "drought_town"
+	assignment = "Town Denizen"
+
+/obj/item/card/id/ms13/drought_slave
+	desc = "Stamped identification papers for a citizen of the Barony. This has special clearance for labor and maintenance duties included."
+	assignment = "Town Laborer"
+	icon_state = "drought_town"
+
+/obj/item/card/id/ms13/drought_barkeep
+	desc = "Stamped identification papers for a citizen of the Barony. This has special clearance for operation of a dining and drinking establishment within the Barony."
+	assignment = "Town Barkeep"
+	icon_state = "drought_town"
+
+/obj/item/card/id/ms13/drought_doctor
+	desc = "Stamped identification papers for a citizen of the Barony. This has special clearance for operation of a clinic and medical duties within the Barony."
+	assignment = "Town Clinician"
+	icon_state = "drought_town"
+
+/obj/item/card/id/ms13/drought_enforcer
+	desc = "Stamped identification papers for a citizen of the Barony. This has an extra stamp on it with a large skull, indicating this belongs to an Enforcer of the Baron."
+	assignment = "Town Enforcer"
+	icon_state = "drought_town"
+
+/obj/item/card/id/ms13/drought_baron
+	name = "\improper Baron's golden pin"
+	desc = "A golden pin with a skull belonging to the Baron himself."
+	icon_state = "baron"
+	assignment = "Town Baron"
 
 // Brotherhood IDs //
 

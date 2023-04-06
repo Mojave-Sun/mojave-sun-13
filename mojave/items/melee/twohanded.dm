@@ -80,10 +80,7 @@
 	sharpness = SHARP_EDGED
 	grid_height = 192
 	grid_width = 64
-
-/obj/item/ms13/twohanded/bump_sword/ComponentInitialize()
-	. = ..()
-	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_unwielded = 15, force_wielded = 50)
+	wield_info = /datum/wield_info/twohanded/bump_sword
 
 /obj/item/ms13/twohanded/hammer
 	name = "sledge hammer"
@@ -103,10 +100,7 @@
 	sharpness = NONE
 	grid_height = 192
 	grid_width = 64
-
-/obj/item/ms13/twohanded/hammer/ComponentInitialize()
-	. = ..()
-	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_unwielded = 10, force_wielded = 45)
+	wield_info = /datum/wield_info/twohanded/sledge
 
 /obj/item/ms13/twohanded/hammer/rebar
 	name = "rebar club"
@@ -116,10 +110,7 @@
 	subtractible_armour_penetration = 20
 	wound_bonus = 0
 	bare_wound_bonus = 0
-
-/obj/item/ms13/twohanded/hammer/rebar/ComponentInitialize()
-	. = ..()
-	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_unwielded = 10, force_wielded = 40)
+	wield_info = /datum/wield_info/twohanded/rebar
 
 /obj/item/ms13/twohanded/hammer/super
 	name = "super sledge"
@@ -131,10 +122,7 @@
 	bare_wound_bonus = 0
 	grid_height = 256
 	grid_width = 96
-
-/obj/item/ms13/twohanded/hammer/super/ComponentInitialize()
-	. = ..()
-	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_unwielded = 10, force_wielded = 50)
+	wield_info = /datum/wield_info/twohanded/super_sledge
 
 /obj/item/ms13/twohanded/hammer/super/attack(mob/living/target, mob/living/user)
 	. = ..()
@@ -165,9 +153,7 @@
 	sharpness = SHARP_IMPALING
 	grid_height = 32
 	grid_width = 224
-
-/obj/item/ms13/twohanded/spear/ComponentInitialize()
-	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_unwielded = 20, force_wielded = 35)
+	wield_info = /datum/wield_info/twohanded/metal_spear
 
 /obj/item/ms13/twohanded/spear/knife
 	name = "knife spear"
@@ -180,9 +166,7 @@
 	edge_protection_penetration = 5
 	wound_bonus = 0
 	bare_wound_bonus = 5
-
-/obj/item/ms13/twohanded/spear/knife/ComponentInitialize()
-	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_unwielded = 15, force_wielded = 25)
+	wield_info = /datum/wield_info/twohanded/knife_spear
 
 /obj/item/ms13/twohanded/spear/throwing
 	name = "throwing spear"
@@ -197,9 +181,7 @@
 	bare_wound_bonus = 10
 	embedding = list("embedded_pain_multiplier" = 1.5, "embed_chance" = 65, "embedded_fall_chance" = 35)
 	throw_speed = 3
-
-/obj/item/ms13/twohanded/spear/throwing/ComponentInitialize()
-	AddComponent(/datum/component/two_handed, require_twohands=FALSE, force_unwielded = 15, force_wielded = 30)
+	wield_info = /datum/wield_info/twohanded/throw_spear
 
 // TWO HANDS REQUIRED //
 

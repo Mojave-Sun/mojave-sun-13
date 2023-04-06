@@ -15,7 +15,7 @@
 	name = "_Town Baron"
 	jobtype = /datum/job/ms13/town_drought/baron
 
-	id =         null
+	id =         /obj/item/card/id/ms13/drought_baron
 	head =		 /obj/item/clothing/head/helmet/ms13/metal/baron
 	neck = 		 /obj/item/clothing/neck/cloak/ms13/baron
 	uniform =    /obj/item/clothing/under/ms13/wasteland/baron

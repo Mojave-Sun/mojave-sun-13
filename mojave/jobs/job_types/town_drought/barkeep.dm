@@ -15,7 +15,7 @@
 	name = "_Town Barkeep"
 	jobtype = /datum/job/ms13/town_drought/barkeep
 
-	id =		 null
+	id =		 /obj/item/card/id/ms13/drought_barkeep
 	suit =       /obj/item/clothing/suit/ms13/vest
 	uniform =    /obj/item/clothing/under/ms13/wasteland/vestslacks
 	shoes =  	 /obj/item/clothing/shoes/ms13/brownie

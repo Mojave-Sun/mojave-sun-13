@@ -17,7 +17,7 @@
 	name = "_Town Clinician"
 	jobtype = /datum/job/ms13/town_drought/clinician
 
-	id = 		 null
+	id = 		 /obj/item/card/id/ms13/drought_doctor
 	suit =       /obj/item/clothing/suit/toggle/labcoat/ms13
 	uniform =    /obj/item/clothing/under/ms13/wasteland/whiteshirt
 	shoes =  	 /obj/item/clothing/shoes/ms13/tan
