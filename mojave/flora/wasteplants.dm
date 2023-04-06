@@ -376,8 +376,8 @@
 	max_integrity = 400
 
 /obj/structure/flora/tree/drought/dead/Initialize()
-	. = ..()
 	icon_state = "dead_tree[rand(1,3)]"
+	..()
 
 
 // Cacti
