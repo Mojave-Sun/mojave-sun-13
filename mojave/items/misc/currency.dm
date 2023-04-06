@@ -122,7 +122,7 @@
 	amount = 20
 
 /obj/item/stack/ms13/currency/aurelius
-	name = "\improper aurelius"
+	name = "\improper Legion aurelii"
 	desc = "Golden coin. There is an image of a bull and a head."
 	icon_state = "aurelius"
 	singular_name = "Aurelius coin"
@@ -151,7 +151,7 @@
 	amount = 30
 
 /obj/item/stack/ms13/currency/denarius
-	name = "\improper denarius"
+	name = "\improper Legion denarii"
 	desc = "Silver coin. There is an image of a bull and a head."
 	icon_state = "denarius"
 	singular_name = "Denarius coin"
@@ -180,7 +180,7 @@
 	amount = 30
 
 /obj/item/stack/ms13/currency/cap
-	name = "\improper bottle cap"
+	name = "\improper bottle caps"
 	desc = "Standard nuka cola bottlecaps are found everywhere. Perhaps they're worth something to someone."
 	icon_state = "caps"
 	singular_name = "bottle cap"
