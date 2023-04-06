@@ -170,56 +170,56 @@
 
 /obj/item/card/id/ms13/raider
 	name = "raider's necklace"
-	desc = "A necklace composed of random bits of teeth and bone. If someone's wearing this, they are no doubt a part of a raider gang."
+	desc = "A necklace composed of small caliber rounds. If someone's wearing this, they are no doubt a part of a raider gang."
 	assignment = "Raider"
 	icon_state = "raider"
 
 /obj/item/card/id/ms13/sawbone
-	name = "sawbone's patch"
-	desc = "A nice rectangular patch with a little hole to loop a string through if you really wanted to. It's a bit bloody."
+	name = "sawbone's necklace"
+	desc = "A small blade on a string to make a necklace. The blade looks dull and slightly rusty, probably not very sanitary or sterile."
 	assignment = "Raider Sawbone"
 	icon_state = "sawbone"
 
 /obj/item/card/id/ms13/enforcer
 	name = "enforcer's necklace"
-	desc = "A necklace composed of random bits of teeth and bone, along with bullets of varying caliber strung up. An intimidating symbol of authority."
+	desc = "A necklace consisting of a spent shotgun shell. An intimidating symbol of authority."
 	assignment = "Raider Enforcer"
 	icon_state = "enforcer"
 
 /obj/item/card/id/ms13/boss
-	name = "boss's collar"
-	desc = "A brave fashion statement. This is a seemingly non-functional bomb collar. The person wearing this must truly be an alpha."
+	name = "boss's necklace"
+	desc = "Various bullets of various calibers on a string. Worn by someone both important and intimidating."
 	assignment = "Raider Boss"
 	icon_state = "boss"
 
 /obj/item/card/id/ms13/ranger_recruit
 	name = "recruit ranger badge"
 	desc = "A silver Ranger star. A pretty basic design with a strong meaning behind it, given to the average recruit in the Desert Rangers."
-	icon_state = "ranger_star_silver"
+	icon_state = "ranger_recruit"
 	assignment = "Desert Ranger Recruit"
 
 /obj/item/card/id/ms13/ranger
 	name = "ranger badge"
-	desc = "A silver rimmed Ranger badge with a gold star. Worn by your average Desert Ranger."
-	icon_state = "ranger_star_rimmed"
+	desc = "A gold rimmed Ranger badge with a silver star. Worn by your average Desert Ranger."
+	icon_state = "ranger"
 	assignment = "Desert Ranger"
 
 /obj/item/card/id/ms13/ranger_elite
 	name = "elite ranger badge"
-	desc = "A gold textured Ranger star, issued to Rangers with extensive expertise in the field, with multiple years behind them."
-	icon_state = "ranger_star"
+	desc = "A solid gold Ranger star, issued to Rangers with extensive expertise in the field, with multiple years behind them."
+	icon_state = "ranger_elite"
 	assignment = "Elite Desert Ranger"
 
 /obj/item/card/id/ms13/ranger_chief
 	name = "ranger deputy-chief badge"
-	desc = "A banded Ranger star, donned exclusively by the Deputy-Chief of the local Ranger outpost. "
-	icon_state = "ranger_star_chief"
+	desc = "A large, golden Ranger star. Donned exclusively by the Deputy-Chief of the local Ranger outpost."
+	icon_state = "ranger_chief"
 	assignment = "Desert Ranger Deputy-Chief"
 
 /obj/item/card/id/ms13/ranger_doctor
-	name = "ranger medic badge"
-	desc = "A silver circle encompassing a gold cross. Given to the empathetic healers of the Desert Rangers."
-	icon_state = "ranger_cross"
+	name = "ranger doctor ID badge"
+	desc = "A very crisp and clean medical identification badge. Even has a clip. By Wasteland standards, this is incredibly professional."
+	icon_state = "doctor"
 	assignment = "Desert Ranger Doctor"
 
 /obj/item/card/id/ms13/drought_denizen
@@ -244,9 +244,10 @@
 	icon_state = "drought_town"
 
 /obj/item/card/id/ms13/drought_enforcer
-	desc = "Stamped identification papers for a citizen of the Barony. This has an extra stamp on it with a large skull, indicating this belongs to an Enforcer of the Baron."
+	name = "enforcer's golden pin"
+	desc = "A gold talon pin, worn by Enforcers of the Baron. An intimidating sight."
 	assignment = "Town Enforcer"
-	icon_state = "drought_town"
+	icon_state = "drought_enforcer"
 
 /obj/item/card/id/ms13/drought_baron
 	name = "\improper Baron's golden pin"
