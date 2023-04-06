@@ -90,6 +90,10 @@
 	harvest_amount_high = 3
 	variants = 2
 
+/obj/structure/flora/ms13/forage/brocflower/drought
+	icon_state = "d_brocflower"
+	variants = 1
+
 /obj/structure/flora/ms13/forage/xander
 	icon_state = "xander"
 	name = "xander"
@@ -99,6 +103,30 @@
 	harvest = /obj/item/food/grown/ms13/xander
 	harvest_amount_high = 3
 	variants = 2
+
+/obj/structure/flora/ms13/forage/xander/drought
+	icon_state = "d_xander"
+	variants = 1
+
+/obj/structure/flora/ms13/forage/yucca
+	icon_state = "yucca"
+	name = "yucca"
+	desc = "A yucca plant, bearing starchy yucca fruits."
+	harvested_name = "yucca"
+	harvested_desc = "A yucca fruit."
+	harvest = /obj/item/food/grown/ms13/yucca
+	harvest_amount_high = 3
+	variants = 1
+
+/obj/structure/flora/ms13/forage/barrel_cactus
+	icon_state = "barrelc"
+	name = "barrel cactus"
+	desc = "A barrel cactus, be careful of the spines."
+	harvested_name = "barrel cactus fruit"
+	harvested_desc = "Some barrel cactus fruit."
+	harvest = /obj/item/food/grown/ms13/barrelcactus
+	harvest_amount_high = 3
+	variants = 3
 
 /obj/structure/flora/ms13/forage/tarberry
 	icon_state = "tarberry"
@@ -287,52 +315,12 @@
 
 //Mojave Sun Trees/Large Foliage
 
-//shrubs
-/obj/structure/flora/ms13/shrub
-	name = "shrub"
-	desc = "An evergreen bush."
-	anchored = TRUE
-	pixel_x = -16
-	pixel_y = 12
-	icon = 'mojave/icons/flora/trees.dmi'
-	icon_state = "snowshrub_1"
-	max_integrity = 50
-	var/proj_pass_rate = 100
-
-/obj/structure/flora/ms13/shrub/New()
-	icon_state = "snowshrub_[rand(1,3)]"
-	..()
-
-/obj/structure/flora/bush/ms13
-	name = "bush"
-	desc = "Some type of shrub."
-	icon = 'mojave/icons/flora/flora.dmi'
-	icon_state = "snowbush1"
-	anchored = TRUE
-
-/obj/structure/flora/bush/ms13/Initialize()
-	icon_state = "snowbush_[rand(1,3)]"
-	. = ..()
-
-/obj/structure/flora/ms13/shrub/CanAllowThrough(atom/movable/mover, turf/target)//So bullets will fly over and stuff.
-	. = ..()
-	if(locate(/obj/structure/flora/ms13/shrub) in get_turf(mover))
-		return TRUE
-	else if(istype(mover, /obj/projectile))
-		if(!anchored)
-			return TRUE
-		var/obj/projectile/proj = mover
-		if(proj.firer && Adjacent(proj.firer))
-			return TRUE
-		if(prob(proj_pass_rate))
-			return TRUE
-		return FALSE
-
 //trees
 
 /obj/structure/flora/ms13/tree
 	name = "tree"
 	desc = "A large tree."
+	icon = 'mojave/icons/flora/trees.dmi'
 	density = TRUE
 	layer = 4.9
 	plane = ABOVE_GAME_PLANE
@@ -364,34 +352,9 @@
 			user.visible_message("<span class='notice'>The [W] is uncapable of cutting down the [src].</span>")
 			return ..()
 
-/obj/structure/flora/ms13/tree/deadsnow
-	name = "dead tree"
-	desc = "It's a tree. Useful for combustion and/or construction."
-	icon = 'mojave/icons/flora/trees.dmi'
-	icon_state = "snowtree_1"
-	log_amount = 2
-	max_integrity = 400
-
-/obj/structure/flora/ms13/tree/deadsnow/New()
-	icon_state = "snowtree_[rand(1,3)]"
-	..()
-
-/obj/structure/flora/ms13/tree/smallpine
-	name = "pine tree"
-	desc = "An small evergreen, Evergreen even when the bombs dropped."
-	icon = 'mojave/icons/flora/trees.dmi'
-	icon_state = "pine_1"
-	log_amount = 1
-	max_integrity = 400
-
-/obj/structure/flora/ms13/tree/smallpine/New()
-	icon_state = "pine_[rand(1,2)]"
-	..()
-
 /obj/structure/flora/ms13/tree/tallpine
 	name = "pine tree"
 	desc = "An tall evergreen, Evergreen even when the bombs dropped."
-	icon = 'mojave/icons/flora/talltrees.dmi'
 	icon_state = "pine_1"
 	log_amount = 4
 	max_integrity = 400
@@ -406,36 +369,49 @@
 	icon_state = "bald"
 	log_amount = 1
 
-/obj/structure/flora/ms13/tree/wasteland
+/obj/structure/flora/ms13/tree/drought/dead
 	name = "dead tree"
-	desc = "It's a tree. Useful for combustion and/or construction."
-	icon = 'mojave/icons/flora/trees.dmi'
-	icon_state = "deadtree_1"
-	log_amount = 2
+	desc = "This tree lived a long life to get this big. Now it's dead."
+	icon_state = "dead_tree1"
 	max_integrity = 400
 
-/obj/structure/flora/ms13/tree/wasteland/New()
-	icon_state = "deadtree_[rand(1,6)]"
+/obj/structure/flora/tree/drought/dead/Initialize()
+	. = ..()
+	icon_state = "dead_tree[rand(1,3)]"
+
+
+// Cacti
+
+/obj/structure/flora/ms13/cactus
+	name = "cactus"
+	desc = "A short cactus, spiny and spiky."
+	icon = 'mojave/icons/flora/flora.dmi'
+	icon_state = "short_cactus1"
+	max_integrity = 200
+
+/obj/structure/flora/ms13/cactus/Initialize()
+	icon_state = "short_cactus[rand(1,3)]"
 	..()
 
-/obj/structure/flora/ms13/tree/joshua
-	name = "joshua tree"
-	desc = "A tree named by mormons, who said it's branches mimiced the biblical Joshua, raising his hands in prayer."
-	icon = 'mojave/icons/flora/trees.dmi'
-	log_amount = 2
-	icon_state = "joshua_1"
-	max_integrity = 400
+/obj/structure/flora/ms13/cactus/tall
+	desc = "A tall cactus, spiky and spiny."
+	icon_state = "tall_cactus1"
+	max_integrity = 250
 
-/obj/structure/flora/tree/joshua/ms13/Initialize()
-	. = ..()
-	icon_state = "joshua_[rand(1,4)]"
+/obj/structure/flora/ms13/cactus/tall/Initialize()
+	icon_state = "tall_cactus[rand(1,3)]"
+	..()
 
-/obj/structure/flora/ms13/tree/cactus
-	name = "cactus"
-	desc = "It's a giant cowboy hat! It's waving hello! It wants you to hug it!"
-	icon = 'mojave/icons/flora/trees.dmi'
-	icon_state = "cactus"
-	log_amount = 2
-	max_integrity = 400
+// Generic leaf-plant
+
+/obj/structure/flora/ms13/leafy
+	name = "leafy plant"
+	desc = "A tuft of leaf-blades, it's some hardy desert plant."
+	icon = 'mojave/icons/flora/flora.dmi'
+	icon_state = "leafy_plant1"
+
+/obj/structure/flora/ms13/leafy/Initialize()
+	icon_state = "leafy_plant[rand(1,3)]"
+	..()
 
 //for more ms13 snow plants (grass etc. search /obj/structure/flora/grass)
