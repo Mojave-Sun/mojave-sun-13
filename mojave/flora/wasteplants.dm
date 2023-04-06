@@ -195,6 +195,10 @@
 	harvest_amount_high = 4
 	regrowth_time_high = 20 MINUTES
 
+/obj/structure/flora/ms13/forage/aster/drought
+	icon_state = "d_aster"
+	variants = 2
+
 /obj/structure/flora/ms13/forage/mushroom
 	icon_state = "shroom"
 	name = "cave fungus"
@@ -375,7 +379,7 @@
 	icon_state = "dead_tree1"
 	max_integrity = 400
 
-/obj/structure/flora/tree/drought/dead/Initialize()
+/obj/structure/flora/ms13/tree/drought/dead/Initialize()
 	. = ..()
 	icon_state = "dead_tree[rand(1,3)]"
 
