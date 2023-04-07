@@ -109,6 +109,7 @@
 	desc = "Recently stamped NCR coin. Seemingly made of solid gold."
 	icon_state = "ncr_gold"
 	singular_name = "NCR coin"
+	max_amount = 50
 	merge_type = /obj/item/stack/ms13/currency/ncr_coin
 
 /obj/item/stack/ms13/currency/ncr_coin/five
@@ -121,11 +122,15 @@
 	amount = 20
 
 /obj/item/stack/ms13/currency/aurelius
-	name = "\improper aurelius"
+	name = "\improper Legion aurelii"
 	desc = "Golden coin. There is an image of a bull and a head."
 	icon_state = "aurelius"
 	singular_name = "Aurelius coin"
+	max_amount = 50
 	merge_type = /obj/item/stack/ms13/currency/aurelius
+
+/obj/item/stack/ms13/currency/aurelius/two
+	amount = 2
 
 /obj/item/stack/ms13/currency/aurelius/five
 	amount = 5
@@ -133,24 +138,28 @@
 /obj/item/stack/ms13/currency/aurelius/ten
 	amount = 10
 
+/obj/item/stack/ms13/currency/aurelius/fifteen
+	amount = 15
+
 /obj/item/stack/ms13/currency/aurelius/twenty
 	amount = 20
+
+/obj/item/stack/ms13/currency/aurelius/twentyfive
+	amount = 25
 
 /obj/item/stack/ms13/currency/aurelius/thirty
 	amount = 30
 
-/obj/item/stack/ms13/currency/aurelius/fourty
-	amount = 40
-
-/obj/item/stack/ms13/currency/aurelius/fifty
-	amount = 50
-
 /obj/item/stack/ms13/currency/denarius
-	name = "\improper denarius"
+	name = "\improper Legion denarii"
 	desc = "Silver coin. There is an image of a bull and a head."
 	icon_state = "denarius"
 	singular_name = "Denarius coin"
+	max_amount = 50
 	merge_type = /obj/item/stack/ms13/currency/denarius
+
+/obj/item/stack/ms13/currency/denarius/two
+	amount = 2
 
 /obj/item/stack/ms13/currency/denarius/five
 	amount = 5
@@ -158,39 +167,40 @@
 /obj/item/stack/ms13/currency/denarius/ten
 	amount = 10
 
+/obj/item/stack/ms13/currency/denarius/fifteen
+	amount = 15
+
 /obj/item/stack/ms13/currency/denarius/twenty
 	amount = 20
+
+/obj/item/stack/ms13/currency/denarius/twentyfive
+	amount = 25
 
 /obj/item/stack/ms13/currency/denarius/thirty
 	amount = 30
 
-/obj/item/stack/ms13/currency/denarius/fourty
-	amount = 40
-
-/obj/item/stack/ms13/currency/denarius/fifty
-	amount = 50
-
 /obj/item/stack/ms13/currency/cap
-	name = "\improper bottle cap"
+	name = "\improper bottle caps"
 	desc = "Standard nuka cola bottlecaps are found everywhere. Perhaps they're worth something to someone."
 	icon_state = "caps"
 	singular_name = "bottle cap"
+	max_amount = 400
 	merge_type = /obj/item/stack/ms13/currency/cap
 
-/obj/item/stack/ms13/currency/cap/five
-	amount = 5
+/obj/item/stack/ms13/currency/cap/four
+	amount = 4
 
 /obj/item/stack/ms13/currency/cap/ten
 	amount = 10
 
-/obj/item/stack/ms13/currency/cap/twenty
-	amount = 20
+/obj/item/stack/ms13/currency/cap/fifteen
+	amount = 15
 
-/obj/item/stack/ms13/currency/cap/thirty
-	amount = 30
+/obj/item/stack/ms13/currency/cap/twentyfive
+	amount = 25
 
-/obj/item/stack/ms13/currency/cap/fourty
-	amount = 40
+/obj/item/stack/ms13/currency/cap/thirtyfive
+	amount = 35
 
 /obj/item/stack/ms13/currency/cap/fifty
 	amount = 50
@@ -210,7 +220,7 @@
 /obj/item/stack/ms13/currency/cap/hunned
 	amount = 100
 
-/obj/item/stack/ms13/currency/cap/hunnedtwenty
-	amount = 120
+/obj/item/stack/ms13/currency/cap/hunnedtwentyfive
+	amount = 125
 
 // Ideas- NCR dollar spawns 20% of the time.
