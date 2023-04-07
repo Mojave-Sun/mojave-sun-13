@@ -184,7 +184,7 @@
 	desc = "Standard nuka cola bottlecaps are found everywhere. Perhaps they're worth something to someone."
 	icon_state = "caps"
 	singular_name = "bottle cap"
-	max_amount = 400
+	max_amount = 450
 	merge_type = /obj/item/stack/ms13/currency/cap
 
 /obj/item/stack/ms13/currency/cap/four
