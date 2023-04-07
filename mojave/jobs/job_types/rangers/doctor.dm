@@ -16,6 +16,7 @@
 	belt = 	     /obj/item/storage/firstaid/ms13/regular
 	r_hand =     /obj/item/storage/firstaid/ms13/bag/filled
 	r_pocket =   /obj/item/gun/ballistic/revolver/ms13/rev357/police
+	l_pocket =   /obj/item/stack/ms13/currency/prewar/thirty
 	back =       /obj/item/storage/ms13/satchel
 	uniform = 	 /obj/item/clothing/under/ms13/wasteland/doctor
 	backpack_contents = list(/obj/item/stack/medical/ointment/ms13/half=1,\

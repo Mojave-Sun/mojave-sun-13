@@ -25,7 +25,8 @@
 	l_pocket = /obj/item/flashlight/flare/ms13
 	id = /obj/item/card/id/ms13/legveteran/vex
 	backpack_contents = list(
-		/obj/item/ammo_box/ms13/shotgun/buckshot=1)
+		/obj/item/ammo_box/ms13/shotgun/buckshot=1,\
+		/obj/item/stack/ms13/currency/aurelius/two=1)
 
 /datum/outfit/job/ms13/legion/vexillarius/pre_equip(mob/living/carbon/human/H)
 	..()

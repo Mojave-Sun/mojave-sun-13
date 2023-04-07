@@ -223,4 +223,7 @@
 /obj/item/stack/ms13/currency/cap/hunnedtwentyfive
 	amount = 125
 
+/obj/item/stack/ms13/currency/cap/baron
+	amount = 200
+
 // Ideas- NCR dollar spawns 20% of the time.

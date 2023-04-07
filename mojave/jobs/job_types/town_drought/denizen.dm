@@ -16,7 +16,7 @@
 	jobtype = /datum/job/ms13/town_drought/denizen
 
 	id =		 /obj/item/card/id/ms13/drought_denizen
-	r_pocket =   null
+	r_pocket =   /obj/item/stack/ms13/currency/cap/twentyfive
 	back =       null
 
 /datum/outfit/job/ms13/town_drought/denizen/pre_equip(mob/living/carbon/human/H)

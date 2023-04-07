@@ -1,7 +1,7 @@
 /datum/job/ms13/legion/scout // Depreciated
 	title = "Legion Scout"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 	supervisors = "The Centurion, Speculatores, Explorers."
 	description = "Assist the Legion by scouting out the land, taking out targets strategically."
 

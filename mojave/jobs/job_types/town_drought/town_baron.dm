@@ -24,7 +24,7 @@
 	belt =		 /obj/item/knife/ms13/switchblade
 	r_pocket =   /obj/item/ammo_box/magazine/ms13/m45
 	r_hand =     /obj/item/radio/ms13/broadcast
-	l_pocket =   null
+	l_pocket =   /obj/item/stack/ms13/currency/cap/baron
 	back =       null
 
 /datum/outfit/job/ms13/town_drought/baron/pre_equip(mob/living/carbon/human/H)

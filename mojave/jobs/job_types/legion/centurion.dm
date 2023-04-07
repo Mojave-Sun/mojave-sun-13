@@ -27,7 +27,9 @@
 	id = /obj/item/card/id/ms13/legcenturion
 	backpack_contents = list(
 		/obj/item/ammo_box/magazine/ms13/r308=2,\
-		/obj/item/ammo_box/ms13/shotgun/buckshot=1)
+		/obj/item/ammo_box/ms13/shotgun/buckshot=1,\
+		/obj/item/stack/ms13/currency/aurelius/five=1,\
+		/obj/item/stack/ms13/currency/denarius/fifteen=1)
 
 /datum/outfit/job/ms13/legion/centurion/pre_equip(mob/living/carbon/human/H)
 	..()

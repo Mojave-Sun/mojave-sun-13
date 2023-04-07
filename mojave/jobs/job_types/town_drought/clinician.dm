@@ -23,7 +23,7 @@
 	shoes =  	 /obj/item/clothing/shoes/ms13/tan
 	belt = 		 /obj/item/storage/firstaid/ms13/regular
 	r_hand =     /obj/item/storage/firstaid/ms13/bag/filled
-	r_pocket =   null
+	r_pocket =   /obj/item/stack/ms13/currency/cap/hunned
 	back =       /obj/item/storage/ms13/satchel
 
 /datum/outfit/job/ms13/town_drought/clinician/pre_equip(mob/living/carbon/human/H)

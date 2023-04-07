@@ -19,7 +19,7 @@
 	shoes =  	 /obj/item/clothing/shoes/ms13/explorer
 	belt =		 /obj/item/weldingtool/ms13
 	r_pocket =   /obj/item/wirecutters/ms13
-	l_pocket =	 null
+	l_pocket =	 /obj/item/stack/ms13/currency/cap/sixty
 	backpack_contents = list(
 		/obj/item/clothing/glasses/ms13/welding=1, \
 		/obj/item/wrench/ms13=1, \

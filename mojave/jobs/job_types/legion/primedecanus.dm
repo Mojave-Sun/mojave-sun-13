@@ -24,7 +24,8 @@
 	l_pocket = /obj/item/flashlight/flare/ms13
 	id = /obj/item/card/id/ms13/legprime/decanus
 	backpack_contents = list(
-		/obj/item/ammo_box/magazine/ms13/smgm9mm=1)
+		/obj/item/ammo_box/magazine/ms13/smgm9mm=1,\
+		/obj/item/stack/ms13/currency/denarius/fifteen=1)
 
 /datum/outfit/job/ms13/legion/primedecanus/pre_equip(mob/living/carbon/human/H)
 	..()

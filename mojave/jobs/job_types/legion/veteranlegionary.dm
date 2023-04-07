@@ -21,6 +21,7 @@
 	gloves = /obj/item/clothing/gloves/ms13/legion/bracers
 	suit_store = /obj/item/gun/ballistic/shotgun/ms13/lever
 	r_pocket = /obj/item/stack/medical/gauze/ms13/three
+	l_pocket = /obj/item/stack/ms13/currency/aurelius/two
 	belt = /obj/item/claymore/ms13/machete/gladius
 	id = /obj/item/card/id/ms13/legveteran
 	backpack_contents = list(
