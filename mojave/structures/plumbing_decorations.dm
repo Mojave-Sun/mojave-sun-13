@@ -1,14 +1,24 @@
-/obj/structure/toilet/ms13
+/obj/structure/ms13/toilet
 	name = "toilet"
 	desc = "An old toilet. It's obviously seen better years, alas you think you can still see some water in it. Care for a drink?"
 	icon = 'mojave/icons/structure/miscellaneous.dmi'
 	icon_state = "toilet"
 	density = FALSE
 	anchored = TRUE
-	buildstacktype = /obj/item/stack/sheet/ms13/ceramic
+	var/buildstacktype = /obj/item/stack/sheet/ms13/ceramic
+	var/buildstackamount = 1
 
-/obj/structure/toilet/ms13/attack_hand()
-	return
+/obj/structure/ms13/toilet/deconstruct()
+	if(!(flags_1 & NODECONSTRUCT_1))
+		for(var/obj/toilet_item in contents)
+			toilet_item.forceMove(drop_location())
+		if(buildstacktype)
+			new buildstacktype(loc,buildstackamount)
+		else
+			for(var/i in custom_materials)
+				var/datum/material/M = i
+				new M.sheet_type(loc, FLOOR(custom_materials[M] / MINERAL_MATERIAL_AMOUNT, 1))
+	..()
 
 /obj/structure/sink/ms13
 	name = "sink"
