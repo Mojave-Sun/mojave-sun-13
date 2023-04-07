@@ -552,6 +552,13 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
+"cg" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/ms13/foundation/wide/variantfive{
+	dir = 9
+	},
+/turf/open/openspace/ms13,
+/area/ms13/town)
 "ch" = (
 /obj/structure/window/fulltile/ms13/glass,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -1384,6 +1391,7 @@
 	dir = 1
 	},
 /obj/effect/spawner/random/ms13/guaranteed/ammo/highrandom,
+/obj/machinery/light/ms13/bulb,
 /turf/open/floor/wood/ms13/carpet/shaggy/blue,
 /area/ms13/town)
 "fx" = (
@@ -2160,6 +2168,12 @@
 /obj/machinery/light/ms13/bulb/industrial,
 /turf/open/floor/ms13/concrete,
 /area/ms13/water_baron)
+"iz" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/table/ms13/low_wall/siding,
+/obj/structure/window/fulltile/ms13/glass,
+/turf/open/floor/wood/ms13/common,
+/area/ms13/town)
 "iA" = (
 /obj/structure/railing/ms13/solo,
 /obj/structure/railing/ms13/solo{
@@ -3037,7 +3051,6 @@
 /area/ms13/town)
 "lO" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/structure/closet/ms13/wall/firstaid,
 /turf/open/floor/ms13/tile/brown,
 /area/ms13/town)
 "lP" = (
@@ -3191,8 +3204,8 @@
 /area/ms13/town)
 "mu" = (
 /obj/structure/closet/ms13/wall/firstaid,
-/obj/effect/spawner/random/ms13/drugs/lowrandom,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/spawner/random/ms13/medical/lowrandom,
 /turf/open/floor/ms13/tile/brown/big,
 /area/ms13/town)
 "mv" = (
@@ -3298,8 +3311,8 @@
 "mO" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/closet/ms13/wall/firstaid,
-/obj/effect/spawner/random/ms13/drugs/lowrandom,
-/obj/effect/spawner/random/ms13/drugs/lowrandom,
+/obj/effect/spawner/random/ms13/drugs/prewar,
+/obj/effect/spawner/random/ms13/medical/lowrandom,
 /turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "mP" = (
@@ -3357,7 +3370,7 @@
 "na" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/machinery/door/unpowered/ms13/wood{
-	dir = 4
+	dir = 8
 	},
 /turf/open/floor/wood/ms13/carpet/shaggy/blue,
 /area/ms13/town)
@@ -3800,6 +3813,7 @@
 	dir = 1
 	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/light/ms13/bulb,
 /turf/open/floor/ms13/tile/navy,
 /area/ms13/town)
 "oF" = (
@@ -4148,6 +4162,7 @@
 /obj/structure/closet/ms13/wall/firstaid,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/effect/spawner/random/ms13/medical/lowrandom,
+/obj/effect/spawner/random/ms13/medical/lowrandom,
 /turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "pR" = (
@@ -4207,8 +4222,8 @@
 	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/closet/ms13/wall/firstaid,
-/obj/effect/spawner/random/ms13/drugs/lowrandom,
-/obj/effect/spawner/random/ms13/drugs/lowrandom,
+/obj/effect/spawner/random/ms13/medical/lowrandom,
+/obj/effect/spawner/random/ms13/drugs/prewar,
 /turf/open/floor/ms13/tile/brown/big,
 /area/ms13/town)
 "qf" = (
@@ -4342,12 +4357,10 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/legioncamp/building)
 "qL" = (
-/obj/structure/ms13/foundation/wide/variantfive{
-	dir = 9
-	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/turf/open/openspace/ms13,
-/area/ms13/town)
+/obj/effect/landmark/start/ms13/ranger_doctor,
+/turf/open/floor/ms13/tile/large/cream,
+/area/ms13/rangeroutpost/building)
 "qM" = (
 /obj/structure/railing/ms13/solo/industrial{
 	dir = 1
@@ -4431,6 +4444,12 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/ms13/concrete,
 /area/ms13/water_baron)
+"ra" = (
+/obj/structure/ms13/storage/vent,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/landmark/start/ms13/legion_veteran_legionary,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/legioncamp/building)
 "rb" = (
 /obj/effect/turf_decal/ms13/covering/wallpaper/red,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -5427,6 +5446,11 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/closed/wall/ms13/brick/gray,
 /area/ms13/town)
+"uP" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/landmark/start/ms13/legion_vexillarius,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/legioncamp/building)
 "uQ" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/machinery/light/ms13/bulb{
@@ -5742,11 +5766,11 @@
 /area/ms13/town)
 "vR" = (
 /obj/structure/closet/ms13/wall/firstaid,
-/obj/effect/spawner/random/ms13/drugs/lowrandom,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/sink/ms13{
 	dir = 4
 	},
+/obj/effect/spawner/random/ms13/medical/lowrandom,
 /turf/open/floor/ms13/tile/brown/big,
 /area/ms13/town)
 "vS" = (
@@ -6826,6 +6850,7 @@
 	dir = 8
 	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/landmark/start/ms13/legion_explorer,
 /turf/open/floor/plating/ms13/roof/metal/rusty,
 /area/ms13/legioncamp/building)
 "Ab" = (
@@ -7128,6 +7153,13 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/fancy,
 /area/ms13/town)
+"Bd" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/ms13/foundation/wide/variantfive{
+	dir = 10
+	},
+/turf/open/openspace/ms13,
+/area/ms13/town)
 "Be" = (
 /obj/structure/table/ms13/no_smooth/counter/wood/crafted{
 	dir = 8
@@ -7259,6 +7291,7 @@
 /obj/structure/chair/ms13/metal/broken{
 	dir = 8
 	},
+/obj/effect/landmark/start/ms13/ranger,
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "BF" = (
@@ -8119,6 +8152,11 @@
 /obj/structure/table/ms13/wood/constructed,
 /turf/open/openspace/ms13,
 /area/ms13/desert)
+"Fc" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/spawner/random/ms13/melee/lowrandom,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
 "Fd" = (
 /obj/structure/ms13/wall_decor/exit,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -8889,6 +8927,11 @@
 	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
+"HY" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/landmark/start/ms13/legion_veteran_legionary,
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/legioncamp/building)
 "HZ" = (
 /obj/structure/railing/ms13/solo{
 	dir = 4
@@ -9346,6 +9389,11 @@
 	},
 /turf/open/openspace/ms13,
 /area/ms13/desert)
+"JF" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/landmark/start/ms13/ranger_elite,
+/turf/open/floor/ms13/concrete,
+/area/ms13/town)
 "JG" = (
 /obj/structure/ms13/foundation/wide/variantfive,
 /obj/structure/chair/office/ms13/blue,
@@ -11343,7 +11391,7 @@
 /area/ms13/town)
 "QM" = (
 /obj/structure/closet/crate/ms13/footlocker,
-/obj/structure/closet/crate/ms13/footlocker,
+/obj/effect/spawner/random/ms13/gun/lowrandom,
 /turf/open/floor/ms13/concrete,
 /area/ms13/desert)
 "QN" = (
@@ -11514,6 +11562,14 @@
 	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
+"Rs" = (
+/obj/structure/railing/ms13/solo/industrial{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/landmark/start/ms13/ranger,
+/turf/open/floor/ms13/concrete,
+/area/ms13/town)
 "Rt" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/mirror/ms13{
@@ -11683,6 +11739,7 @@
 	dir = 8
 	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/landmark/start/ms13/legion_explorer,
 /turf/open/floor/plating/ms13/roof,
 /area/ms13/legioncamp/building)
 "Sc" = (
@@ -11874,6 +11931,12 @@
 /obj/structure/ms13/storage/large/shelf/wood/drawers,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
+"SR" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/table/ms13/low_wall/siding,
+/obj/structure/window/fulltile/ms13/glass,
+/turf/open/floor/ms13/tile/fancy,
 /area/ms13/town)
 "SS" = (
 /obj/structure/sink/ms13{
@@ -12091,6 +12154,7 @@
 /obj/structure/bed/ms13/mattress/filthy,
 /obj/structure/ms13/wall_decor/clock,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/spawner/random/ms13/medical/lowrandom,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "TE" = (
@@ -12685,6 +12749,11 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/openspace/ms13,
 /area/ms13/town)
+"VS" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/landmark/start/ms13/ranger_deputy_chief,
+/turf/open/floor/wood/ms13/mosaic,
+/area/ms13/rangeroutpost/building)
 "VU" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/machinery/light/ms13/bulb/broken{
@@ -16426,7 +16495,7 @@ qi
 id
 co
 nU
-nU
+JF
 wG
 Qp
 qi
@@ -18019,7 +18088,7 @@ nU
 nU
 YX
 qU
-Cq
+Rs
 Cq
 Cq
 Cq
@@ -20840,7 +20909,7 @@ qi
 ct
 vX
 MN
-MN
+qL
 MN
 Yu
 zZ
@@ -21476,7 +21545,7 @@ qi
 id
 Tu
 LA
-nU
+JF
 wG
 Qp
 qi
@@ -22070,7 +22139,7 @@ ip
 ip
 fm
 rV
-qt
+VS
 xM
 jc
 qt
@@ -38710,7 +38779,7 @@ XF
 SC
 MF
 SC
-hF
+SC
 hF
 JG
 rX
@@ -38911,8 +38980,8 @@ qi
 NQ
 SC
 SC
-qP
-Pw
+SC
+Bd
 Pw
 Lh
 Qy
@@ -39113,8 +39182,8 @@ qi
 XF
 gC
 Xn
-qL
-pf
+SC
+cg
 pf
 UB
 BS
@@ -40726,7 +40795,7 @@ qi
 uq
 uL
 SC
-SC
+GB
 SC
 SC
 Gt
@@ -41130,7 +41199,7 @@ qi
 uq
 fM
 SC
-XF
+uq
 na
 XF
 XF
@@ -41331,7 +41400,7 @@ qi
 qi
 uq
 SC
-SC
+hz
 uq
 ok
 ok
@@ -48564,7 +48633,7 @@ iu
 Po
 We
 iu
-XF
+iz
 qi
 qi
 qi
@@ -49372,7 +49441,7 @@ iu
 sh
 sh
 gM
-XF
+SR
 qi
 qi
 qi
@@ -49772,7 +49841,7 @@ PN
 XF
 XF
 XF
-XF
+iz
 XF
 XF
 XF
@@ -49993,7 +50062,7 @@ Fx
 yy
 SC
 SC
-SC
+Fc
 KN
 XF
 ip
@@ -51568,7 +51637,7 @@ Zk
 ZR
 Xp
 pB
-vN
+uP
 uF
 Es
 Es
@@ -51761,7 +51830,7 @@ ZR
 FV
 DT
 ZR
-Xp
+ra
 pB
 pB
 pB
@@ -53590,7 +53659,7 @@ Es
 Es
 Es
 uF
-pB
+HY
 pB
 pB
 pB
