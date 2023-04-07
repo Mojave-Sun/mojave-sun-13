@@ -261,6 +261,9 @@ GLOBAL_LIST_INIT(log_recipes, list ( \
 /obj/item/stack/sheet/ms13/scrap_wood/two
 	amount = 2
 
+/obj/item/stack/sheet/ms13/scrap_wood/five
+	amount = 5
+
 GLOBAL_LIST_INIT(scrap_wood_recipes, list ( \
 	new/datum/stack_recipe("crude scrap wood table", /obj/structure/table/ms13/wood/constructed/cobbled, 8, time = 20 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("wood bed", /obj/structure/bed/ms13/bedframe/wood, 5, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
