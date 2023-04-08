@@ -1465,10 +1465,10 @@
 /area/ms13/town)
 "bSc" = (
 /obj/structure/sink/ms13{
-	dir = 4
+	pixel_y = 14
 	},
-/turf/open/floor/plating/ms13/ground/desertalt,
-/area/ms13/legioncamp)
+/turf/open/floor/ms13/concrete/industrial,
+/area/ms13/legioncamp/building)
 "bSi" = (
 /obj/structure/fluff/ms13/barrel/single/flammable/two,
 /turf/open/floor/wood/ms13/wide,
@@ -3542,8 +3542,10 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "ezu" = (
-/obj/structure/ms13/pipes/horizontal/end,
-/turf/closed/wall/ms13/concrete,
+/obj/structure/ms13/pipes/horizontal/down/single{
+	dir = 1
+	},
+/turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "eAT" = (
 /turf/open/floor/ms13/metal/plate,
@@ -12702,6 +12704,9 @@
 /area/ms13/water_baron/interior)
 "qzs" = (
 /obj/effect/spawner/random/ms13/guaranteed/medical/dbag,
+/obj/item/mop/ms13{
+	pixel_y = 19
+	},
 /turf/open/floor/ms13/tile/blue,
 /area/ms13/water_baron/interior)
 "qAd" = (
@@ -14469,8 +14474,8 @@
 /turf/open/floor/ms13/concrete/industrial/walkway,
 /area/ms13/factory)
 "sPZ" = (
-/obj/structure/ms13/pipes/horizontal/random,
-/turf/closed/wall/ms13/concrete,
+/obj/structure/ms13/pipes/horizontal/valve,
+/turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "sQm" = (
 /obj/structure/ms13/storage/large/shelf{
@@ -16011,8 +16016,8 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/water_baron/interior)
 "uKh" = (
-/obj/structure/ms13/pipes/horizontal/valve,
-/turf/closed/wall/ms13/concrete,
+/obj/structure/ms13/pipes/horizontal/random,
+/turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "uKm" = (
 /obj/machinery/vending/ms13/cigarettes,
@@ -16551,10 +16556,10 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/rangeroutpost/building)
 "vnA" = (
-/obj/structure/ms13/pipes/horizontal/down/single{
-	dir = 1
-	},
-/turf/closed/wall/ms13/concrete,
+/obj/structure/closet/ms13/metal,
+/obj/effect/spawner/random/ms13/clothing/under,
+/obj/structure/ms13/pipes/horizontal/end,
+/turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "vnQ" = (
 /obj/structure/table/ms13/no_smooth/wood/square,
@@ -24359,8 +24364,8 @@ wIP
 wIP
 kTl
 wIP
-vnA
-ylS
+wIP
+ezu
 ylS
 ylS
 wIP
@@ -24561,8 +24566,8 @@ rXk
 ylS
 ylS
 rBm
-uKh
-ylS
+wIP
+sPZ
 ylS
 oUr
 wIP
@@ -24731,7 +24736,7 @@ oPv
 oPv
 oPv
 oPv
-jeR
+lHw
 ylS
 ylS
 ifb
@@ -24763,8 +24768,8 @@ vHL
 ylS
 ylS
 quv
-sPZ
-ylS
+wIP
+uKh
 ylS
 neK
 wIP
@@ -24965,8 +24970,8 @@ yhv
 ylS
 tEs
 wkh
-ezu
-thD
+wIP
+vnA
 thD
 neK
 wIP
@@ -27158,7 +27163,7 @@ oPv
 oPv
 oPv
 oPv
-ndC
+iAP
 clN
 clN
 clN
@@ -59490,7 +59495,7 @@ fnt
 kLw
 kLw
 ocZ
-ums
+qLX
 ums
 ums
 ums
@@ -59692,7 +59697,7 @@ fnt
 kLw
 kLw
 ocZ
-qLX
+bSc
 ums
 ums
 ums
@@ -60298,7 +60303,7 @@ cQL
 kLw
 kLw
 vSY
-bSc
+fnt
 kLw
 kLw
 ocZ
