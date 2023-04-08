@@ -1,7 +1,7 @@
 /mob/living/simple_animal/hostile/retaliate/trader/ms13
 	name = "vendortron"
 	desc = "You shouldn't be seeing this...."
-	icon = 'mojave/icons/mob/ms13robots.dmi'
+	icon = 'mojave/icons/mob/ms13vendotrons.dmi'
 	icon_state = "vendotron_blue"
 	maxHealth = 350
 	health = 350
@@ -739,6 +739,9 @@
 		/obj/item/stack/medical/splint/ms13 = list(25, rand(2,5)),
 		/obj/item/stack/medical/suture/ms13/four = list(30, rand(3,6)),
 		/obj/item/stack/medical/ointment/ms13/half = list(30, rand(3,6)),
+		/obj/item/stack/medical/ms13/healing_powder = list(35, rand(1,4)),
+		/obj/item/stack/medical/ms13/healing_powder/burn = list(30, rand(1,4)),
+		/obj/item/stack/medical/ms13/healing_powder/poultice = list(60, rand(0,3)),
 		/obj/item/reagent_containers/hypospray/medipen/ms13/stimpak = list(90, rand(0,2)),
 		/obj/item/reagent_containers/blood/ms13/o_minus = list(30, rand(0,4)),
 		/obj/item/reagent_containers/blood/ms13/radaway = list(30, rand(0,4)),
@@ -831,6 +834,7 @@
 		/obj/item/food/ms13/prewar/canned/cajunrice = list(20, rand(1,3)),
 		/obj/item/food/ms13/prewar/canned/dogfood = list(15, rand(0,2)),
 		/obj/item/food/ms13/prewar/boxed/snackcake = list(25, rand(1,3)),
+		/obj/item/stack/medical/ms13/healing_powder = list(35, rand(1,3)),
 		/obj/item/stack/sheet/ms13/scrap/five = list(20, rand(3,6)),
 		/obj/item/stack/sheet/ms13/scrap_wood/five = list(20, rand(3,6)),
 		/obj/item/stack/sheet/ms13/scrap_parts/five = list(20, rand(3,6)),
@@ -860,6 +864,8 @@
 	return list(
 		/obj/item/reagent_containers/food/drinks/soda_cans/ms13/nuka_quartz = list(50, rand(0,1), ""),
 		/obj/item/reagent_containers/food/drinks/soda_cans/ms13/nuka_quantum = list(50, rand(0,1), ""),
+		/obj/item/reagent_containers/food/drinks/soda_cans/ms13/nuka_dark = list(50, rand(0,1), ""),
+		/obj/item/reagent_containers/food/drinks/soda_cans/ms13/nuka_victory = list(40, rand(0,2), ""),
 		/obj/item/stack/sheet/ms13/scrap_gold = list(8, rand(3,15), ", per piece of gold"),
 		/obj/item/stack/sheet/ms13/scrap_silver = list(6, rand(3,15), ", per piece of silver"),
 		/obj/item/stack/sheet/ms13/refined_gold = list(50, rand(1,5), ", per ingot of gold"),
