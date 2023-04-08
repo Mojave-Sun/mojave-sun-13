@@ -21,6 +21,7 @@
 	gloves = /obj/item/clothing/gloves/ms13/legion/dark
 	r_hand = /obj/item/ms13/twohanded/spear/throwing
 	r_pocket = /obj/item/stack/medical/gauze/ms13/three
+	l_pocket = /obj/item/stack/ms13/currency/denarius/two
 	belt = /obj/item/claymore/ms13/machete
 	id = /obj/item/card/id/ms13/legprime
 

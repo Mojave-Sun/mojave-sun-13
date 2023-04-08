@@ -1,7 +1,7 @@
 /datum/job/ms13/legion/speculatore
 	title = "Legion Speculatore"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 	supervisors = "Caesar, Praetorians, Legates."
 	description = "Take out high value targets and gather information from the dark. You are the all-seeing eye and the all-reaping blade."
 
