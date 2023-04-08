@@ -14,8 +14,8 @@
 	icon_state = "shawl"
 
 /obj/item/clothing/neck/cloak/ms13/baron
-	name = "white half cloak"
-	desc = "A fine white half cloak, worn by the Baron, typically. It's made of a fine textile, smooth to the touch."
+	name = "dark cape"
+	desc = "A rough cloth cape. It screams authority while retaining brutish roots."
 	icon_state = "baron_cape"
 
 /obj/item/clothing/neck/cloak/ms13/legion

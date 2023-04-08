@@ -520,7 +520,7 @@
 			to_chat(user, span_warning("[reagent_source] is empty!"))
 			return 1
 
-		if(reagents.total_volume >= reagents.maximum_volume && (!reagent_source.reagents.has_reagent(/datum/reagent/consumable/ms13/water) || !reagent_source.reagents.has_reagent(/datum/reagent/consumable/ms13/unfiltered_water) || !reagent_source.reagents.has_reagent(/datum/reagent/consumable/ms13/dirty_water)))
+		if(reagents.total_volume >= reagents.maximum_volume && (!reagent_source.reagents.has_reagent(/datum/reagent/consumable/ms13/water) || !reagent_source.reagents.has_reagent(/datum/reagent/consumable/ms13/water/unfiltered) || !reagent_source.reagents.has_reagent(/datum/reagent/consumable/ms13/water/dirty)))
 			to_chat(user, span_notice("[src] is full."))
 			return
 
@@ -545,14 +545,14 @@
 				var/water_amt = reagent_source.reagents.get_reagent_amount(/datum/reagent/consumable/ms13/water) * transfer_amount / reagent_source.reagents.total_volume
 				H.adjust_waterlevel(round(water_amt))
 				reagent_source.reagents.remove_reagent(/datum/reagent/consumable/ms13/water, water_amt)
-			if(reagent_source.reagents.has_reagent(/datum/reagent/consumable/ms13/unfiltered_water, 1))
-				var/water_amt = reagent_source.reagents.get_reagent_amount(/datum/reagent/consumable/ms13/unfiltered_water) * transfer_amount / reagent_source.reagents.total_volume
+			if(reagent_source.reagents.has_reagent(/datum/reagent/consumable/ms13/water/unfiltered, 1))
+				var/water_amt = reagent_source.reagents.get_reagent_amount(/datum/reagent/consumable/ms13/water/unfiltered) * transfer_amount / reagent_source.reagents.total_volume
 				H.adjust_waterlevel(round(water_amt))
-				reagent_source.reagents.remove_reagent(/datum/reagent/consumable/ms13/unfiltered_water, water_amt)
-			if(reagent_source.reagents.has_reagent(/datum/reagent/consumable/ms13/dirty_water, 1))
-				var/water_amt = reagent_source.reagents.get_reagent_amount(/datum/reagent/consumable/ms13/dirty_water) * transfer_amount / reagent_source.reagents.total_volume
+				reagent_source.reagents.remove_reagent(/datum/reagent/consumable/ms13/water/unfiltered, water_amt)
+			if(reagent_source.reagents.has_reagent(/datum/reagent/consumable/ms13/water/dirty, 1))
+				var/water_amt = reagent_source.reagents.get_reagent_amount(/datum/reagent/consumable/ms13/water/dirty) * transfer_amount / reagent_source.reagents.total_volume
 				H.adjust_waterlevel(round(water_amt))
-				reagent_source.reagents.remove_reagent(/datum/reagent/consumable/ms13/dirty_water, water_amt)
+				reagent_source.reagents.remove_reagent(/datum/reagent/consumable/ms13/water/dirty, water_amt)
 			reagent_source.reagents.trans_to(H.reagents, transfer_amount, transfered_by = user)
 			lastuser = WEAKREF(user)
 			if(IS_EDIBLE(reagent_source) || istype(reagent_source, /obj/item/reagent_containers/pill))

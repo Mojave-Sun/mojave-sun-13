@@ -25,7 +25,7 @@
 	icon = 'mojave/icons/structure/miscellaneous.dmi'
 	icon_state = "sink"
 	desc = "An old sink, typically dispensing clean water. Hard to really tell if it's the case anymore, though."
-	dispensedreagent = /datum/reagent/consumable/ms13/unfiltered_water
+	dispensedreagent = /datum/reagent/consumable/ms13/water/unfiltered
 	buildstacktype = /obj/item/stack/sheet/ms13/ceramic
 	has_water_reclaimer = TRUE
 	reclaim_rate = 0.1

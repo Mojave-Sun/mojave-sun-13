@@ -121,7 +121,7 @@
 			border_icon = 'mojave/icons/turf/64x/drought_3_border.dmi'
 
 	add_overlay(image(border_icon, icon_state, TURF_LAYER_DESERT_BORDER, pixel_x = -16, pixel_y = -16))
-
+/*
 /turf/open/floor/plating/ms13/ground/desert/attackby(obj/item/W, mob/user, params)
 	. = ..()
 	if(!.)
@@ -150,7 +150,7 @@
 	new digResult(src, 5)
 	icon_state = "[icon_state]_dug"
 	dug = TRUE
-
+*/
 //Pass PlantForce for admin stuff I guess?
 /turf/open/floor/plating/ms13/ground/proc/plantGrass(Plantforce = FALSE)
 	var/Weight = 0
@@ -618,7 +618,7 @@
 	layer = TURF_LAYER_WATER_BASE
 	slowdown = 0.5
 	// What type of water it'll give you when you fill a container from it.
-	var/dispensedreagent = /datum/reagent/consumable/ms13/unfiltered_water
+	var/dispensedreagent = /datum/reagent/consumable/ms13/water/unfiltered
 	var/next_splash = 1
 	var/atom/watereffect = /obj/effect/overlay/ms13/water/medium
 	var/atom/watertop = /obj/effect/overlay/ms13/water/top/medium

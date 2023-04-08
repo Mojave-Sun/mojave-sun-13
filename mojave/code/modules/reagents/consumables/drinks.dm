@@ -8,8 +8,28 @@
 	taste_description = "water"
 	glass_name = "glass of clear liquid"
 	glass_desc = "A clear liquid with no smell. Nothing out of the ordinary."
+	var/clean_types = CLEAN_WASH
 
-/datum/reagent/consumable/ms13/unfiltered_water
+/datum/reagent/consumable/ms13/water/expose_turf(turf/open/exposed_turf, reac_volume) // easiest paste of my life
+	. = ..()
+	if(!istype(exposed_turf))
+		return
+
+	if(reac_volume >= 5)
+		exposed_turf.MakeSlippery(TURF_WET_WATER, 10 SECONDS, min(reac_volume*1.5 SECONDS, 60 SECONDS))
+	exposed_turf.wash(clean_types)
+	
+	for(var/mob/living/simple_animal/slime/exposed_slime in exposed_turf)
+		exposed_slime.apply_water()
+
+	var/obj/effect/hotspot/hotspot = (locate(/obj/effect/hotspot) in exposed_turf)
+	if(hotspot && !isspaceturf(exposed_turf))
+		if(exposed_turf.air)
+			var/datum/gas_mixture/air = exposed_turf.air
+			air.react(src)
+			qdel(hotspot)
+
+/datum/reagent/consumable/ms13/water/unfiltered
 	name = "Unfiltered Water"
 	description = "Water... Questionable water. Should run it through some filtering or something."
 	color = "#d8d3cfa1"
@@ -17,7 +37,7 @@
 	glass_name = "glass of clear liquid"
 	glass_desc = "A clear liquid with some stray particles seen floating around peacefully inside."
 
-/datum/reagent/consumable/ms13/dirty_water
+/datum/reagent/consumable/ms13/water/dirty
 	name = "Dirty Water"
 	description = "An ubiquitous chemical substance that is composed of hydrogen and oxygen, this one is impure and toxic to drink."
 	color = "#4439288c"
