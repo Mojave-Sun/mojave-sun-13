@@ -169,6 +169,10 @@
 	harvest_amount_high = 4
 	regrowth_time_high = 30 MINUTES
 
+/obj/structure/flora/ms13/forage/ashrose/drought
+	icon_state = "d_ashrose"
+	variants = 1
+
 /obj/structure/flora/ms13/forage/wildcarrot
 	icon_state = "root"
 	name = "wild carrot patch"
@@ -197,7 +201,7 @@
 
 /obj/structure/flora/ms13/forage/aster/drought
 	icon_state = "d_aster"
-	variants = 2
+	variants = 1
 
 /obj/structure/flora/ms13/forage/mushroom
 	icon_state = "shroom"
