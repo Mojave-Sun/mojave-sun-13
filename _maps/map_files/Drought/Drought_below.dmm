@@ -891,8 +891,9 @@
 /turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "jd" = (
-/turf/open/floor/ms13/metal/stayclear,
-/area/ms13/legioncamp/building)
+/obj/structure/ms13/wall_decor/cross,
+/turf/closed/indestructible/rock/ms13/drought,
+/area/ms13/underground/mountain)
 "jj" = (
 /obj/structure/ms13/barricade,
 /turf/open/floor/plating/ms13/ground/mountain/drought,
@@ -1258,7 +1259,11 @@
 /area/ms13/town)
 "mt" = (
 /obj/structure/ms13/storage/vent,
-/turf/open/floor/ms13/metal/plate,
+/obj/structure/ms13/storage/large/shelf{
+	dir = 1
+	},
+/obj/effect/spawner/random/ms13/crafting/lowrandom,
+/turf/open/floor/ms13/concrete/industrial,
 /area/ms13/legioncamp/building)
 "mu" = (
 /obj/machinery/light/ms13/bulb/industrial{
@@ -2052,9 +2057,6 @@
 	},
 /turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
-"uX" = (
-/turf/open/floor/ms13/metal/plate,
-/area/ms13/legioncamp/building)
 "va" = (
 /obj/effect/decal/cleanable/blood/footprints{
 	dir = 8
@@ -2146,9 +2148,11 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "vX" = (
-/turf/open/floor/ms13/metal/grate/border{
+/obj/structure/ms13/storage/large/shelf{
 	dir = 1
 	},
+/obj/effect/spawner/random/ms13/crafting/electrical,
+/turf/open/floor/ms13/concrete/industrial,
 /area/ms13/legioncamp/building)
 "vZ" = (
 /obj/machinery/light/ms13,
@@ -2264,6 +2268,7 @@
 /obj/machinery/light/ms13/bulb/industrial{
 	dir = 4
 	},
+/obj/structure/table/ms13/metal/grate,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/legioncamp/building)
 "xP" = (
@@ -3018,11 +3023,6 @@
 	},
 /turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/underground/mountain)
-"Gj" = (
-/turf/open/floor/ms13/metal/stayclear{
-	dir = 1
-	},
-/area/ms13/legioncamp/building)
 "Gk" = (
 /obj/structure/table/ms13/no_smooth/counter/metal{
 	dir = 1
@@ -4741,10 +4741,8 @@
 /turf/open/floor/plating/ms13/ground/mountain/drought,
 /area/ms13/underground/mountain)
 "Zt" = (
-/obj/machinery/ms13/fusion_generator,
-/turf/open/floor/ms13/metal/grate/border{
-	dir = 1
-	},
+/obj/structure/ms13/wall_decor/cross,
+/turf/closed/wall/ms13/brick/gray,
 /area/ms13/legioncamp/building)
 "Zv" = (
 /obj/structure/closet/crate/ms13/woodcrate,
@@ -45046,7 +45044,7 @@ uD
 uD
 uD
 uD
-uD
+jd
 uD
 RL
 pp
@@ -46468,7 +46466,7 @@ Wc
 Ru
 RL
 mt
-uX
+Wc
 Wc
 Qz
 ur
@@ -46669,8 +46667,8 @@ HZ
 il
 OI
 RL
-Zt
-jd
+Wc
+Wc
 Wc
 Wc
 Wc
@@ -46872,11 +46870,11 @@ RL
 RL
 RL
 vX
-Gj
 Wc
 Wc
 Wc
-RL
+Wc
+Zt
 uD
 uD
 uD
@@ -47073,8 +47071,8 @@ uD
 uD
 uD
 RL
-uX
-uX
+Wc
+Wc
 xu
 Wc
 YB
