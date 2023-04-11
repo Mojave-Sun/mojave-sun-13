@@ -135,6 +135,10 @@
 /datum/component/fixeye/proc/before_dir_change(mob/living/source, dir, newdir)
 	SIGNAL_HANDLER
 
+	// You can change dir while holding alt, as a treat
+	if(!(fixeye_flags & FIXEYE_LOCKED) && source.client.keys_held["Alt"])
+		return
+
 	return COMPONENT_NO_DIR_CHANGE
 
 /// Handles dir change when clicking, and only when clicking (yes this is hacky)

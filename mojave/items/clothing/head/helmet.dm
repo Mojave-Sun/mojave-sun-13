@@ -1133,6 +1133,41 @@
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 
+/obj/item/clothing/head/helmet/ms13/enforcer
+	name = "padded black hat and mask"
+	desc = "A black hat and mask with quite a bit of extra padding for protection. Something about this is quite intimidating."
+	icon_state = "enforcer"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = 0, \
+                LASER = CLASS1_LASER, \
+                ENERGY = 0, \
+                FIRE = 0)
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0) //No wound armor
+	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
+
+/obj/item/clothing/head/helmet/ms13/metal/baron
+	name = "\improper Baron's Visage"
+	desc = "A cold, insidious metal mask belonging to a very particular and very feared man."
+	icon_state = "baron"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = CLASS1_EDGE, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS3_CUT, \
+                PIERCING = CLASS2_PIERCE, \
+                IMPALING = CLASS2_STAB, \
+                LASER = 0, \
+                ENERGY = CLASS1_PLASMA, \
+                FIRE = CLASS3_FIRE)
+	has_fov = TRUE
+	fov_angle = 90
+	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
+	dynamic_hair_suffix = ""
+	dynamic_fhair_suffix = ""
+
 // Enviro Helmets //
 
 /obj/item/clothing/head/helmet/ms13/firehood
@@ -1420,11 +1455,12 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
-	flags_inv = HIDEEARS|HIDEHAIR
+	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	has_fov = TRUE
 	fov_angle = 120
 	equip_delay_self = 2 SECONDS
 	equip_delay_other = 4 SECONDS
+	worn_y_offset = 16
 
 /obj/item/clothing/head/helmet/ms13/legion/praetorian
 	name = "\improper Legion praetorian helmet"
@@ -1443,8 +1479,8 @@
 	flags_inv = HIDEEARS
 
 /obj/item/clothing/head/helmet/ms13/legion/explorer
-	name = "\improper Legion explorer cap"
-	desc = "A relatively preserved pre-war baseball cap now pridefully adopted by Legion explorers."
+	name = "\improper Legion explorer hood"
+	desc = "A lightly padded hood worn by Legion Explorers."
 	icon_state = "leg_exp"
 	inhand_icon_state = "owl_mask"
 	subarmor = list(SUBARMOR_FLAGS = NONE, \

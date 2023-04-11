@@ -72,8 +72,8 @@
 /mob/living/basic/ms13/ghoul/radioactive
 	name = "glowing feral ghoul"
 	desc = "A glowing, calloused ghoul. It looks like it has spent is entire lifetime sitting in a radioactive lake, as the damn thing can probably power a building if you hooked it up."
-	icon_state = "glowinghoul"
-	icon_dead = "glowinghoul_dead"
+	icon_state = "glowingghoul"
+	icon_dead = "glowingghoul_dead"
 	health = 125
 	maxHealth = 125
 	melee_damage_lower = 20

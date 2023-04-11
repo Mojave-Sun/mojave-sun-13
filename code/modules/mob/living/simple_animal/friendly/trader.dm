@@ -59,6 +59,8 @@ GLOBAL_LIST_EMPTY(nodes_trader_destination)
 	robust_searching = TRUE
 	check_friendly_fire = TRUE
 	interaction_flags_atom = INTERACT_ATOM_NO_FINGERPRINT_ATTACK_HAND|INTERACT_ATOM_ATTACK_HAND|INTERACT_ATOM_NO_FINGERPRINT_INTERACT
+	///What type of currency this trader uses for buying and selling, MS13 addition
+	var/accepted_currency = /obj/item/stack/ms13/currency
 	///Sound used when item sold/bought
 	var/sell_sound = 'sound/effects/cashregister.ogg'
 	/**
@@ -334,7 +336,7 @@ GLOBAL_LIST_EMPTY(nodes_trader_destination)
 
 ///Calculates the value of money in the hand of the buyer and spends it if it's sufficient
 /mob/living/simple_animal/hostile/retaliate/trader/proc/spend_buyer_offhand_money(mob/user, the_cost)
-	var/obj/item/stack/ms13/currency/cash = user.is_holding_item_of_type(/obj/item/stack/ms13/currency)
+	var/obj/item/stack/ms13/currency/cash = user.is_holding_item_of_type(accepted_currency)
 	var/value = cash.amount
 	if((value >= the_cost) && cash)
 		return cash.use(the_cost)
@@ -446,7 +448,7 @@ GLOBAL_LIST_EMPTY(nodes_trader_destination)
  * * user - Reference to a mob; The mob we put the holochip in hands of
  */
 /mob/living/simple_animal/hostile/retaliate/trader/proc/generate_cash(value, mob/user)
-	var/obj/item/stack/ms13/currency/prewar/dollahs = new /obj/item/stack/ms13/currency/prewar(get_turf(user), value)
+	var/obj/item/stack/ms13/currency/dollahs = new accepted_currency(get_turf(user), value)
 	user.put_in_hands(dollahs)
 
 ///Sets quantity of all products to initial(quanity); this proc is currently not called anywhere on the base class of traders

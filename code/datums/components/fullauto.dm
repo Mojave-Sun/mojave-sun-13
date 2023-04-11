@@ -117,6 +117,13 @@
 	if(get_dist(source.mob, _target) < 2) //Adjacent clicking.
 		return
 
+	// MOJAVE SUN EDIT BEGIN
+	if(isgun(parent))
+		var/obj/item/gun/strapazine = parent
+		if(strapazine.weapon_weight == WEAPON_HEAVY && !HAS_TRAIT(parent, TRAIT_WIELDED))
+			to_chat(src, span_warning("You need to wield [src] with two hands!"))
+			return
+	// MOJAVE SUN EDIT END
 	if(isnull(location) || control == ("mapwindow.hud")) //MOJAVE EDIT Clicking on a screen object.
 		if(_target.plane != CLICKCATCHER_PLANE) //The clickcatcher is a special case. We want the click to trigger then, under it.
 			return //If we click and drag on our worn backpack, for example, we want it to open instead.
@@ -249,10 +256,12 @@
 	if(!can_shoot())
 		shoot_with_empty_chamber(shooter)
 		return FALSE
-	var/obj/item/bodypart/other_hand = shooter.has_hand_for_held_index(shooter.get_inactive_hand_index())
+	// MOJAVE SUN EDIT END
+	/*var/obj/item/bodypart/other_hand = shooter.has_hand_for_held_index(shooter.get_inactive_hand_index())
 	if(weapon_weight == WEAPON_HEAVY && (shooter.get_inactive_held_item() || !other_hand))
 		to_chat(shooter, span_warning("You need two hands to fire [src]!"))
-		return FALSE
+		return FALSE */
+	// MOJAVE SUN EDIT END
 	return TRUE
 
 

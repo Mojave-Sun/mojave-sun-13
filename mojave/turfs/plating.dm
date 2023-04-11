@@ -6,8 +6,8 @@
 #define LUSH_PLANT_SPAWN_LIST list(/obj/structure/flora/ms13/tree/tallpine/snow = 7, /obj/structure/flora/ms13/forage/xander = 1, /obj/structure/flora/ms13/forage/brocflower = 1, /obj/structure/flora/ms13/forage/tarberry = 1, /obj/structure/flora/ms13/forage/blackberry = 1, /obj/structure/flora/ms13/forage/mutfruit = 1, /obj/structure/flora/ms13/forage/ashrose = 1, /obj/structure/flora/ms13/forage/wildcarrot = 1, /obj/structure/flora/ms13/forage/aster = 1)
 #define DESOLATE_PLANT_SPAWN_LIST list(/obj/structure/flora/grass/wasteland/snow = 10)
 #define MUSHROOM_SPAWN_LIST list(/obj/structure/flora/ms13/forage/mushroom = 5, /obj/structure/flora/ms13/forage/mushroom/glowing = 5, /obj/structure/flora/ms13/forage/brainshroom = 1, /obj/structure/flora/ms13/forage/fireshroom = 1,/obj/structure/flora/ms13/forage/gutshroom = 1, /obj/structure/flora/ms13/forage/lure = 1, /obj/structure/flora/ms13/forage/nara= 1)
-#define DESERT_LUSH_PLANT_SPAWN_LIST list(/obj/structure/flora/ms13/tree/joshua = 2, /obj/structure/flora/ms13/tree/cactus = 5, /obj/structure/ms13/turfdecor/drought = 10)
-#define DESERT_DESOLATE_PLANT_SPAWN_LIST list(/obj/structure/flora/grass/wasteland = 8)
+#define DESERT_LUSH_PLANT_SPAWN_LIST list(/obj/structure/flora/ms13/tree/drought/dead = 2, /obj/structure/flora/ms13/cactus = 2.5, /obj/structure/flora/ms13/cactus/tall = 2.5, /obj/structure/flora/ms13/leafy = 1, /obj/structure/ms13/turfdecor/drought = 10, /obj/structure/flora/ms13/forage/xander/drought = 1, /obj/structure/flora/ms13/forage/brocflower/drought = 1, /obj/structure/flora/ms13/forage/ashrose/drought = 1, /obj/structure/flora/ms13/forage/aster/drought = 1, /obj/structure/flora/ms13/forage/yucca = 1, /obj/structure/flora/ms13/forage/barrel_cactus = 1)
+#define DESERT_DESOLATE_PLANT_SPAWN_LIST list(/obj/structure/flora/grass/wasteland = 8, /obj/structure/flora/ms13/leafy = 1)
 
 #define TURF_LAYER_SNOW 2.003
 #define TURF_LAYER_SNOW_BORDER 2.2
@@ -121,7 +121,7 @@
 			border_icon = 'mojave/icons/turf/64x/drought_3_border.dmi'
 
 	add_overlay(image(border_icon, icon_state, TURF_LAYER_DESERT_BORDER, pixel_x = -16, pixel_y = -16))
-
+/*
 /turf/open/floor/plating/ms13/ground/desert/attackby(obj/item/W, mob/user, params)
 	. = ..()
 	if(!.)
@@ -150,7 +150,7 @@
 	new digResult(src, 5)
 	icon_state = "[icon_state]_dug"
 	dug = TRUE
-
+*/
 //Pass PlantForce for admin stuff I guess?
 /turf/open/floor/plating/ms13/ground/proc/plantGrass(Plantforce = FALSE)
 	var/Weight = 0
@@ -618,7 +618,7 @@
 	layer = TURF_LAYER_WATER_BASE
 	slowdown = 0.5
 	// What type of water it'll give you when you fill a container from it.
-	var/dispensedreagent = /datum/reagent/consumable/ms13/unfiltered_water
+	var/dispensedreagent = /datum/reagent/consumable/ms13/water/unfiltered
 	var/next_splash = 1
 	var/atom/watereffect = /obj/effect/overlay/ms13/water/medium
 	var/atom/watertop = /obj/effect/overlay/ms13/water/top/medium

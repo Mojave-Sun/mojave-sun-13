@@ -22,9 +22,10 @@
 	belt = /obj/item/claymore/ms13/machete
 	r_pocket = /obj/item/stack/medical/gauze/ms13/three
 	l_pocket = /obj/item/flashlight/flare/ms13
-	id = /obj/item/card/id/ms13/legprime/explorer
+	id = /obj/item/card/id/ms13/explorer
 	backpack_contents = list(
-		/obj/item/ammo_box/ms13/stripper/r762=2)
+		/obj/item/ammo_box/ms13/stripper/r762=2,\
+		/obj/item/stack/ms13/currency/denarius/ten=1)
 
 /datum/outfit/job/ms13/legion/explorer/pre_equip(mob/living/carbon/human/H)
 	..()

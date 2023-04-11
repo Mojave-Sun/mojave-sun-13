@@ -149,6 +149,16 @@
 	grid_height = 32
 	w_class = WEIGHT_CLASS_TINY
 	novariants = FALSE
+	grind_results = list(
+		/datum/reagent/toxin/ms13/fiberglass = 10,
+	)
+
+/obj/item/stack/sheet/ms13/glass/Initialize()
+	. = ..()
+	AddComponent(/datum/component/edible,\
+				initial_reagents = grind_results,\
+				foodtypes = GROSS,\
+				volume = 10)
 
 /obj/item/stack/sheet/ms13/glass/two
 	amount = 2
@@ -228,7 +238,7 @@ GLOBAL_LIST_INIT(log_recipes, list ( \
 	. += GLOB.log_recipes
 
 /obj/item/stack/sheet/ms13/log/attackby(obj/item/W, mob/user, params)
-	if(W.sharpness == IS_SHARP_AXE)
+	if(W.sharpness & SHARP_AXE)
 		if(amount > 1)
 			user.show_message(span_notice("You can only chop one log at a time!"), MSG_VISUAL)
 			return
@@ -250,6 +260,9 @@ GLOBAL_LIST_INIT(log_recipes, list ( \
 
 /obj/item/stack/sheet/ms13/scrap_wood/two
 	amount = 2
+
+/obj/item/stack/sheet/ms13/scrap_wood/five
+	amount = 5
 
 GLOBAL_LIST_INIT(scrap_wood_recipes, list ( \
 	new/datum/stack_recipe("crude scrap wood table", /obj/structure/table/ms13/wood/constructed/cobbled, 8, time = 20 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \

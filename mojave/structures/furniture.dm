@@ -369,6 +369,7 @@
 	var/dresser_type = "circabinet_orange"
 	max_integrity = 225
 	projectile_passchance = 85
+	pixel_y = 12
 
 /obj/structure/dresser/ms13/attack_hand(mob/user)
 	icon_state = "[dresser_type]-open"
@@ -584,7 +585,7 @@
 	projectile_passchance = 80
 
 /obj/structure/ms13/fruit_empty/attackby(obj/item/W, mob/user, params)
-	if(W.sharpness == IS_SHARP_AXE)
+	if(W.sharpness & SHARP_AXE)
 		user.show_message(span_notice("You begin chopping \the [src] into scraps of wood!"), MSG_VISUAL)
 		if(do_after(user, 10 SECONDS * W.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_MAKEPLANKS))
 			user.show_message(span_notice("You make wood scraps out of \the [src]!"), MSG_VISUAL)

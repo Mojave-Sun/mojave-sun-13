@@ -136,7 +136,7 @@
 	if((damage > 10) && prob(35)) //SPARK
 		do_sparks(2, FALSE, src)
 
-/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/equipped(mob/user, slot)
+/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/equipped(mob/living/carbon/human/user, slot)
 	. = ..()
 	if(slot != ITEM_SLOT_OCLOTHING)
 		if(listeningTo)
@@ -146,6 +146,8 @@
 		UnregisterSignal(listeningTo, COMSIG_MOVABLE_MOVED)
 	RegisterSignal(user, COMSIG_MOVABLE_MOVED, .proc/on_mob_move)
 	listeningTo = user
+	// How do you buckle a suit of power armor to something?
+	user.can_buckle_to = FALSE
 	user.base_pixel_y = user.base_pixel_y + 6
 	user.pixel_y = user.base_pixel_y
 	ADD_TRAIT(user, TRAIT_FORCED_STANDING, "power_armor") //It's a suit of armor, it ain't going to fall over just because the pilot is dead
@@ -155,8 +157,10 @@
 	ADD_TRAIT(user, TRAIT_PUSHIMMUNE, "power_armor")
 	RegisterSignal(user, COMSIG_ATOM_CAN_BE_PULLED, .proc/reject_pulls)
 
-/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/dropped(mob/user)
+/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/dropped(mob/living/carbon/human/user)
 	. = ..()
+	// So that you can be buckled again on leaving the suit of armor.
+	user.can_buckle_to = TRUE
 	user.base_pixel_y = user.base_pixel_y - 6
 	user.pixel_y = user.base_pixel_y
 	if(listeningTo)

@@ -62,11 +62,122 @@
 	icon = 'mojave/icons/turf/walls/scrapblue.dmi'
 	frill_icon = 'mojave/icons/turf/walls/scrapblue_frill.dmi'
 
-/turf/closed/wall/ms13/adobe //need
+/turf/closed/wall/ms13/adobe
 	name = "adobe wall"
 	desc = ""
-	icon = 'mojave/icons/turf/walls/adobe.dmi'
-	frill_icon = 'mojave/icons/turf/walls/adobe_frill.dmi'
+	icon = 'mojave/icons/turf/walls/drought/adobe.dmi'
+	frill_icon = 'mojave/icons/turf/walls/drought/adobe_frill.dmi'
+
+/turf/closed/wall/ms13/siding
+	name = "sided wall"
+	desc = ""
+	icon = 'mojave/icons/turf/walls/drought/siding.dmi'
+	frill_icon = 'mojave/icons/turf/walls/drought/siding_frill.dmi'
+
+/turf/closed/wall/ms13/siding/Initialize()
+	. = ..()
+	var/state = rand(1,4)
+	switch(state)
+		if(1)
+			icon = 'mojave/icons/turf/walls/drought/siding_1.dmi'
+			frill_icon = 'mojave/icons/turf/walls/drought/siding_1_frill.dmi'
+		if(2)
+			icon = 'mojave/icons/turf/walls/drought/siding_2.dmi'
+			frill_icon = 'mojave/icons/turf/walls/drought/siding_2_frill.dmi'
+		if(3)
+			icon = 'mojave/icons/turf/walls/drought/siding_3.dmi'
+			frill_icon = 'mojave/icons/turf/walls/drought/siding_3_frill.dmi'
+		else
+			return
+
+/turf/closed/wall/ms13/siding/blue
+	name = "sided wall"
+	desc = ""
+	icon = 'mojave/icons/turf/walls/drought/siding_blue.dmi'
+	frill_icon = 'mojave/icons/turf/walls/drought/siding_blue_frill.dmi'
+
+/turf/closed/wall/ms13/siding/blue/Initialize()
+	. = ..()
+	var/state = rand(1,4)
+	switch(state)
+		if(1)
+			icon = 'mojave/icons/turf/walls/drought/siding_blue_1.dmi'
+			frill_icon = 'mojave/icons/turf/walls/drought/siding_blue_1_frill.dmi'
+		if(2)
+			icon = 'mojave/icons/turf/walls/drought/siding_blue_2.dmi'
+			frill_icon = 'mojave/icons/turf/walls/drought/siding_blue_2_frill.dmi'
+		if(3)
+			icon = 'mojave/icons/turf/walls/drought/siding_blue_3.dmi'
+			frill_icon = 'mojave/icons/turf/walls/drought/siding_blue_3_frill.dmi'
+		else
+			return
+
+/turf/closed/wall/ms13/siding/green
+	name = "sided wall"
+	desc = ""
+	icon = 'mojave/icons/turf/walls/drought/siding_green.dmi'
+	frill_icon = 'mojave/icons/turf/walls/drought/siding_green_frill.dmi'
+
+/turf/closed/wall/ms13/siding/green/Initialize()
+	. = ..()
+	var/state = rand(1,4)
+	switch(state)
+		if(1)
+			icon = 'mojave/icons/turf/walls/drought/siding_green_1.dmi'
+			frill_icon = 'mojave/icons/turf/walls/drought/siding_green_1_frill.dmi'
+		if(2)
+			icon = 'mojave/icons/turf/walls/drought/siding_green_2.dmi'
+			frill_icon = 'mojave/icons/turf/walls/drought/siding_green_2_frill.dmi'
+		if(3)
+			icon = 'mojave/icons/turf/walls/drought/siding_green_3.dmi'
+			frill_icon = 'mojave/icons/turf/walls/drought/siding_green_3_frill.dmi'
+		else
+			return
+
+/turf/closed/wall/ms13/siding/red
+	name = "sided wall"
+	desc = ""
+	icon = 'mojave/icons/turf/walls/drought/siding_red.dmi'
+	frill_icon = 'mojave/icons/turf/walls/drought/siding_red.dmi'
+
+/turf/closed/wall/ms13/siding/red/Initialize()
+	. = ..()
+	var/state = rand(1,4)
+	switch(state)
+		if(1)
+			icon = 'mojave/icons/turf/walls/drought/siding_red_1.dmi'
+			frill_icon = 'mojave/icons/turf/walls/drought/siding_red_1_frill.dmi'
+		if(2)
+			icon = 'mojave/icons/turf/walls/drought/siding_red_2.dmi'
+			frill_icon = 'mojave/icons/turf/walls/drought/siding_red_2_frill.dmi'
+		if(3)
+			icon = 'mojave/icons/turf/walls/drought/siding_red_3.dmi'
+			frill_icon = 'mojave/icons/turf/walls/drought/siding_red_3_frill.dmi'
+		else
+			return
+
+/turf/closed/wall/ms13/prison
+	name = "prison wall"
+	desc = ""
+	icon = 'mojave/icons/turf/walls/drought/prison.dmi'
+	frill_icon = 'mojave/icons/turf/walls/drought/prison_frill.dmi'
+
+/turf/closed/wall/ms13/prison/Initialize()
+	. = ..()
+	var/state = rand(1,4)
+	switch(state)
+		if(1)
+			icon = 'mojave/icons/turf/walls/drought/prison_1.dmi'
+			frill_icon = 'mojave/icons/turf/walls/drought/prison_1_frill.dmi'
+		if(2)
+			icon = 'mojave/icons/turf/walls/drought/prison_2.dmi'
+			frill_icon = 'mojave/icons/turf/walls/drought/prison_2_frill.dmi'
+		if(3)
+			icon = 'mojave/icons/turf/walls/drought/prison_3.dmi'
+			frill_icon = 'mojave/icons/turf/walls/drought/prison_3_frill.dmi'
+		else
+			return
+
 
 /turf/closed/wall/ms13/brick
 	name = "brick wall"

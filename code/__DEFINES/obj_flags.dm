@@ -91,3 +91,4 @@
 /// Flags for sharpness in obj/item
 #define SHARP_EDGED (1<<0)
 #define SHARP_POINTY (1<<1)
+#define SHARP_AXE (1<<2)

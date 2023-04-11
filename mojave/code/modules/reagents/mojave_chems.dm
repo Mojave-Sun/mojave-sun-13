@@ -5,7 +5,6 @@
 	description = "Don't breathe this in."
 	color = "#42330a"
 	taste_description = "burning chemical taste"
-	overdose_threshold = 1
 
 /datum/reagent/consumable/ms13
 	name = "Generic MS13 yummy liquid"

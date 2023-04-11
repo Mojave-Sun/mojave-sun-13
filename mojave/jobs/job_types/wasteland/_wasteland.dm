@@ -2,14 +2,11 @@
 	selection_color = "#e08960"
 	departments_list = list(
 		/datum/job_department/wasteland,
-		)
+	)
 
 /datum/outfit/job/ms13/wasteland
 	name = "Default"
 	jobtype = /datum/job/ms13/wasteland
-
-/datum/outfit/job/ms13/wasteland/pre_equip(mob/living/carbon/human/H)
-	..()
 
 //These are base jobs, we don't want them appearing at all
 /datum/job/ms13/wasteland/config_check()

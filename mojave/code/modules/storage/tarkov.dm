@@ -13,12 +13,33 @@
 #define GRID_TO_PIXEL(x, y) list((x * world.icon_size) + (y * world.icon_size))
 #define PIXEL_TO_GRID(x, y) list((x / world.icon_size), (y / world.icon_size))
 
+//this is stupid shitcode but grid inventory sadly requires it
+/atom/proc/reset_grid_inventory()
+	var/drop_location = drop_location()
+	for(var/obj/item/item_in_source in contents)
+		if(drop_location)
+			item_in_source.forceMove(drop_location)
+		else
+			item_in_source.moveToNullspace()
+		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, item_in_source, null, TRUE, TRUE, FALSE)
+
 /obj/item
-	// ~Grid INVENTORY VARIABLES
+	// ~GRID INVENTORY VARIABLES
 	/// Width we occupy on the hud - Keep null to generate based on w_class
 	var/grid_width
 	/// Height we occupy on the hud - Keep null to generate based on w_class
 	var/grid_height
+
+/obj/item/proc/inventory_flip(mob/user, force = FALSE)
+	if(!force && (user && ((!user.Adjacent(src) && !user.DirectAccess(src)) || !isliving(user))))
+		return
+
+	var/old_width = grid_width
+	var/old_height = grid_height
+	grid_height = old_width
+	grid_width = old_height
+	if(user)
+		to_chat(user, span_notice("You flip the [src] for storage."))
 
 /obj/item/storage
 	var/grid = TRUE
@@ -30,18 +51,7 @@
 	if(STR)
 		STR.grid = grid
 		STR.storage_flags = storage_flags
-	update_grid_inventory()
-
-/obj/item/storage/proc/update_grid_inventory()
-	//this is stupid shitcode but grid inventory sadly requires it
-	var/drop_location = drop_location()
-	for(var/obj/item/item_in_source in contents)
-		if(drop_location)
-			item_in_source.forceMove(drop_location)
-		else
-			item_in_source.moveToNullspace()
-		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, item_in_source, null, TRUE, TRUE, FALSE)
-
+	reset_grid_inventory()
 
 // storage types //
 
@@ -145,20 +155,26 @@
 	)
 	/// Exactly what it sounds like, this makes it use the new RE4-like inventory system
 	var/grid = FALSE
-	var/static/grid_box_size
+	var/grid_box_size
 	var/static/list/mutable_appearance/underlay_appearances_by_size = list()
 	var/list/grid_coordinates_to_item
 	var/list/item_to_grid_coordinates
 	var/maximum_depth = 1
 	var/storage_flags = NONE
 
+/datum/component/storage/proc/get_grid_box_size()
+	return world.icon_size
+
 /datum/component/storage/Initialize(datum/component/storage/concrete/master)
 	if(!grid_box_size)
-		grid_box_size = world.icon_size
+		grid_box_size = get_grid_box_size()
 	. = ..()
 	if(.)
 		return
 	RegisterSignal(parent, COMSIG_STORAGE_BLOCK_USER_TAKE, .proc/should_block_user_take)
+	if(grid)
+		var/atom/atom_parent = parent
+		atom_parent.reset_grid_inventory()
 
 /datum/component/storage/orient2hud()
 	var/atom/real_location = real_location()
@@ -191,15 +207,15 @@
 		var/screen_y
 		var/screen_pixel_x
 		var/screen_pixel_y
+		//i'm gonna be real i did NOT test numbered items this probably doesn't work
 		if(islist(numerical_display_contents))
 			for(var/index in numerical_display_contents)
 				var/datum/numbered_display/numbered_display = numerical_display_contents[index]
 				var/obj/item/stored_item = numbered_display.sample_object
 				stored_item.mouse_opacity = MOUSE_OPACITY_OPAQUE
-				bound_underlay = LAZYACCESS(underlay_appearances_by_size, "[stored_item.grid_width]x[stored_item.grid_height]")
+				bound_underlay = get_bound_underlay(stored_item.grid_width, stored_item.grid_height)
 				if(!bound_underlay)
 					bound_underlay = generate_bound_underlay(stored_item.grid_width, stored_item.grid_height)
-					underlay_appearances_by_size["[stored_item.grid_width]x[stored_item.grid_height]"] = bound_underlay
 				stored_item.underlays += bound_underlay
 				screen_loc = LAZYACCESSASSOC(master.item_to_grid_coordinates, stored_item, 1)
 				screen_loc = master.grid_coordinates_to_screen_loc(screen_loc)
@@ -220,10 +236,9 @@
 				if(QDELETED(stored_item))
 					continue
 				stored_item.mouse_opacity = MOUSE_OPACITY_OPAQUE
-				bound_underlay = LAZYACCESS(underlay_appearances_by_size, "[stored_item.grid_width]x[stored_item.grid_height]")
+				bound_underlay = get_bound_underlay(stored_item.grid_width, stored_item.grid_height)
 				if(!bound_underlay)
 					bound_underlay = generate_bound_underlay(stored_item.grid_width, stored_item.grid_height)
-					underlay_appearances_by_size["[stored_item.grid_width]x[stored_item.grid_height]"] = bound_underlay
 				stored_item.underlays += bound_underlay
 				screen_loc = LAZYACCESSASSOC(master.item_to_grid_coordinates, stored_item, 1)
 				screen_loc = master.grid_coordinates_to_screen_loc(screen_loc)
@@ -384,10 +399,29 @@
 		parent.add_fingerprint(user)
 	return master.handle_item_insertion_from_slave(src, storing, prevent_warning, user, params = params, storage_click = storage_click)
 
-/datum/component/storage/signal_take_obj(datum/source, atom/movable/taken, new_loc, force = FALSE)
+/datum/component/storage/handle_mass_item_insertion(list/things, datum/component/storage/src_object, mob/user, datum/progressbar/progress)
+	var/atom/source_real_location = src_object.real_location()
+	for(var/obj/item/stored_item in things)
+		things -= stored_item
+		if(stored_item.loc != source_real_location)
+			continue
+		if(user.active_storage != src_object)
+			if(stored_item.on_found(user))
+				break
+		if(can_be_inserted(stored_item, FALSE, user))
+			SEND_SIGNAL(stored_item.loc, COMSIG_TRY_STORAGE_TAKE, stored_item, parent)
+			handle_item_insertion(stored_item, TRUE, user)
+		if(TICK_CHECK)
+			progress.update(progress.goal - things.len)
+			return TRUE
+
+	progress.update(progress.goal - things.len)
+	return FALSE
+
+/datum/component/storage/signal_take_obj(datum/source, atom/movable/taken, atom/new_location, force = FALSE)
 	if(!(taken in real_location()))
 		return FALSE
-	return remove_from_storage(taken, new_loc)
+	return remove_from_storage(taken, new_location)
 
 /datum/component/storage/remove_from_storage(atom/movable/removed, atom/new_location)
 	if(!istype(removed))
@@ -582,48 +616,60 @@
 				return FALSE
 	return TRUE
 
-/datum/component/storage/proc/generate_bound_underlay(grid_width = 32, grid_height = 32)
-	var/mutable_appearance/bound_underlay = mutable_appearance(icon = 'mojave/icons/hud/storage.dmi')
+/datum/component/storage/proc/get_bound_underlay(grid_width = world.icon_size, grid_height = world.icon_size)
+	return LAZYACCESS(underlay_appearances_by_size, "[grid_width]x[grid_height]")
+
+/**
+ * Generates and caches an underlay for the given width and height.
+ *
+ * USING APPEARANCES HERE IS MOST LIKELY THE CULPRIT OF THE GOD AWFUL INVENTORY LAG PROBLEM.
+ * I HAD NO CHOICE BUT TO CONVERT THIS TO USE ICONS.
+ *
+ * I. FUCKING. HATE. ICONS.
+ */
+/datum/component/storage/proc/generate_bound_underlay(grid_width = world.icon_size, grid_height = world.icon_size)
+	var/mutable_appearance/final_appearance = mutable_appearance()
+	final_appearance.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
+	var/icon/final_icon = icon('mojave/icons/hud/storage.dmi', "blank")
+	final_icon.Scale(grid_width, grid_height)
 	var/static/list/scale_both = list("block_under")
 	var/static/list/scale_x_states = list("up", "down")
-	var/static/list/scale_y_states = list("left", "right")
+	var/static/list/scale_y_states = list("right", "left")
 
-	var/scale_x = grid_width/world.icon_size
-	var/scale_y = grid_height/world.icon_size
-	var/width_constant = (world.icon_size/2)*((grid_width/world.icon_size)-1)
-	var/height_constant = (world.icon_size/2)*((grid_height/world.icon_size)-1)
+	var/width_offset = world.icon_size * ((grid_width/world.icon_size)-1)
+	var/height_offset = world.icon_size * ((grid_height/world.icon_size)-1)
+
+	var/icon/scaled_icon
 	for(var/scaled_both in scale_both)
-		var/image/scaled_image = image(bound_underlay.icon, scaled_both)
-		scaled_image.transform = scaled_image.transform.Scale(scale_x, scale_y)
-		bound_underlay.add_overlay(scaled_image)
-	var/caralho_louco = -1
+		scaled_icon = icon('mojave/icons/hud/storage.dmi', scaled_both)
+		scaled_icon.Scale(grid_width, grid_height)
+		final_icon.Blend(scaled_icon, ICON_OVERLAY)
+	var/multiplier = 0
 	for(var/scaled_x in scale_x_states)
-		caralho_louco = -caralho_louco
-		var/image/scaled_image = image(bound_underlay.icon, scaled_x)
-		scaled_image.transform = scaled_image.transform.Scale(scale_x, 1)
-		scaled_image.transform = scaled_image.transform.Translate(1, height_constant * caralho_louco)
-		bound_underlay.add_overlay(scaled_image)
-	caralho_louco = 1
+		multiplier = !multiplier
+		scaled_icon = icon('mojave/icons/hud/storage.dmi', scaled_x)
+		scaled_icon.Scale(grid_width, world.icon_size)
+		final_icon.Blend(scaled_icon, ICON_OVERLAY, 1, 1 + (height_offset * multiplier))
+	multiplier = 0
 	for(var/scaled_y in scale_y_states)
-		caralho_louco = -caralho_louco
-		var/image/scaled_image = image(bound_underlay.icon, scaled_y)
-		scaled_image.transform = scaled_image.transform.Scale(1, scale_y)
-		scaled_image.transform = scaled_image.transform.Translate(width_constant * caralho_louco, 1)
-		bound_underlay.add_overlay(scaled_image)
-	var/image/corner_left_down = image(bound_underlay.icon, "corner_left_down")
-	corner_left_down.transform = corner_left_down.transform.Translate(-width_constant, -height_constant)
-	bound_underlay.add_overlay(corner_left_down)
-	var/image/corner_right_down = image(bound_underlay.icon, "corner_right_down")
-	corner_right_down.transform = corner_right_down.transform.Translate(width_constant, -height_constant)
-	bound_underlay.add_overlay(corner_right_down)
-	var/image/corner_left_up = image(bound_underlay.icon, "corner_left_up")
-	corner_left_up.transform = corner_left_up.transform.Translate(-width_constant, height_constant)
-	bound_underlay.add_overlay(corner_left_up)
-	var/image/corner_right_up = image(bound_underlay.icon, "corner_right_up")
-	corner_right_up.transform = corner_right_up.transform.Translate(width_constant, height_constant)
-	bound_underlay.add_overlay(corner_right_up)
+		multiplier = !multiplier
+		scaled_icon = icon('mojave/icons/hud/storage.dmi', scaled_y)
+		scaled_icon.Scale(world.icon_size, grid_height)
+		final_icon.Blend(scaled_icon, ICON_OVERLAY, 1 + (width_offset * multiplier), 1)
+	var/corner_pos_x = 1 + (grid_width - world.icon_size)
+	var/corner_pos_y = 1 + (grid_height - world.icon_size)
+	var/icon/corner_left_down = icon('mojave/icons/hud/storage.dmi', "corner_left_down")
+	final_icon.Blend(corner_left_down, ICON_OVERLAY, 1, 1)
+	var/icon/corner_right_down = icon('mojave/icons/hud/storage.dmi', "corner_right_down")
+	final_icon.Blend(corner_right_down, ICON_OVERLAY, corner_pos_x, 1)
+	var/icon/corner_left_up = icon('mojave/icons/hud/storage.dmi', "corner_left_up")
+	final_icon.Blend(corner_left_up, ICON_OVERLAY, 1, corner_pos_y)
+	var/icon/corner_right_up = icon('mojave/icons/hud/storage.dmi', "corner_right_up")
+	final_icon.Blend(corner_right_up, ICON_OVERLAY, corner_pos_x, corner_pos_y)
 
-	return bound_underlay
+	final_appearance.icon = final_icon
+	final_appearance.transform = final_appearance.transform.Translate(-width_offset/2, -height_offset/2)
+	return final_appearance
 
 /datum/component/storage/proc/grid_add_item(obj/item/storing, coordinates)
 	var/coordinate_x = text2num(copytext(coordinates, 1, findtext(coordinates, ",")))
@@ -633,7 +679,7 @@
 	var/final_y
 	var/validate_x = (storing.grid_width/grid_box_size)-1
 	var/validate_y = (storing.grid_height/grid_box_size)-1
-	//this loops through all cells we overlap given these coordinates
+	//this loops through all cells we overlap given these coordinates and adds the item to the associated lists
 	for(var/current_x in 0 to validate_x)
 		for(var/current_y in 0 to validate_y)
 			final_x = coordinate_x+current_x
@@ -681,9 +727,11 @@
 			var/final_y = 0
 			var/final_coordinates = ""
 			var/grid_location_found = FALSE
-			for(var/current_x in 0 to ((screen_max_rows*grid_box_ratio)-1))
-				for(var/current_y in 0 to ((screen_max_columns*grid_box_ratio)-1))
-					final_y = current_y
+			var/rows = ((screen_max_rows*grid_box_ratio)-1)
+			var/columns = ((screen_max_columns*grid_box_ratio)-1)
+			for(var/current_x in 0 to columns)
+				for(var/current_y in 0 to rows)
+					final_y = rows - current_y
 					final_x = current_x
 					final_coordinates = "[final_x],[final_y]"
 					if(validate_grid_coordinates(final_coordinates, storing.grid_width, storing.grid_height, storing))
@@ -753,9 +801,11 @@
 			var/final_y = 0
 			var/final_coordinates = ""
 			var/grid_location_found = FALSE
-			for(var/current_x in 0 to ((screen_max_rows*grid_box_ratio)-1))
-				for(var/current_y in 0 to ((screen_max_columns*grid_box_ratio)-1))
-					final_y = current_y
+			var/rows = ((screen_max_rows*grid_box_ratio)-1)
+			var/columns = ((screen_max_columns*grid_box_ratio)-1)
+			for(var/current_x in 0 to columns)
+				for(var/current_y in 0 to rows)
+					final_y = rows - current_y
 					final_x = current_x
 					final_coordinates = "[final_x],[final_y]"
 					if(validate_grid_coordinates(final_coordinates, storing.grid_width, storing.grid_height, storing))
@@ -876,6 +926,7 @@
 	testing("[screen_x]:[screen_pixel_x],[screen_y]:[screen_pixel_y]")
 
 /atom/movable/screen/storage
+	name = "storage"
 	icon = 'mojave/icons/hud/storage.dmi'
 	icon_state = "background"
 	layer = HUD_BACKGROUND_LAYER
@@ -950,14 +1001,3 @@
 	layer = HUD_BACKGROUND_LAYER
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	alpha = 96
-
-/obj/item/proc/inventory_flip(mob/user = null, force = FALSE)
-
-	if(!force && (user && (!user.Adjacent(src) && !user.DirectAccess(src)) || !isliving(user)))
-		return
-
-	var/old_width = grid_width
-	var/old_height = grid_height
-	grid_height = old_width
-	grid_width = old_height
-	// to_chat(usr, span_notice("You flip the item for storage."))

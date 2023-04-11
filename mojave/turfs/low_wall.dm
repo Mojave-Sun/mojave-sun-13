@@ -45,12 +45,32 @@
 	icon = 'mojave/icons/turf/walls/scrapblue.dmi'
 
 /obj/structure/table/ms13/low_wall/concrete
+	name = "low concrete wall"
 	icon = 'mojave/icons/turf/walls/concrete.dmi'
 
 /obj/structure/table/ms13/low_wall/adobe
 	name = "low adobe wall"
 	desc = ""
-	icon = 'mojave/icons/turf/walls/adobe.dmi'
+	icon = 'mojave/icons/turf/walls/drought/adobe.dmi'
+
+/obj/structure/table/ms13/low_wall/siding
+	name = "low sided wall"
+	desc = ""
+	icon = 'mojave/icons/turf/walls/drought/siding.dmi'
+
+/obj/structure/table/ms13/low_wall/siding/blue
+	icon = 'mojave/icons/turf/walls/drought/siding_blue.dmi'
+
+/obj/structure/table/ms13/low_wall/siding/red
+	icon = 'mojave/icons/turf/walls/drought/siding_red.dmi'
+
+/obj/structure/table/ms13/low_wall/siding/green
+	icon = 'mojave/icons/turf/walls/drought/siding_green.dmi'
+
+/obj/structure/table/ms13/low_wall/prison
+	name = "low sided wall"
+	desc = ""
+	icon = 'mojave/icons/turf/walls/drought/prison.dmi'
 
 /obj/structure/table/ms13/low_wall/brick
 	name = "low brick wall"

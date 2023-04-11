@@ -63,9 +63,9 @@
 	drift                  = generator("circle", 0, 3) // Some random movement for variation
 	friction               = 0.3  // shed 30% of velocity and drift every 0.1s
 	//Weather effects, max values
-	maxSpawning           = 50
-	minSpawning           = 20
-	wind                  = 10
+	maxSpawning           = 75
+	minSpawning           = 35
+	wind                  = 8
 
 
 //Rads - goes fucking everywhere

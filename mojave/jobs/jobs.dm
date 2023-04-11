@@ -48,7 +48,8 @@ GLOBAL_LIST_INIT(legion_positions, list(
 	"Legion Vexillarius",
 	"Legion Speculatore",
 	"Legion Explorer",
-	"Legion Scout",))
+	"Legion Scout",
+	"Legion Blacksmith",))
 
 GLOBAL_LIST_INIT(ranger_positions, list(
 	"Ranger Deputy-Chief",
@@ -57,6 +58,13 @@ GLOBAL_LIST_INIT(ranger_positions, list(
 	"Ranger Recruit",
 	"Ranger Doctor",))
 
+GLOBAL_LIST_INIT(drought_town_positions, list(
+	"Town Baron",
+	"Town Denizen",
+	"Town Laborer",
+	"Town Barkeep",
+	"Town Clinician",
+	"Town Enforcer"))
 
 GLOBAL_LIST_INIT(combattest_positions, list(
 	"Blue ganger",
@@ -70,6 +78,7 @@ GLOBAL_LIST_INIT(ms13_position_categories, list(
 	EXP_TYPE_BOS = list("jobs" = bos_positions, "color" = "#737592"),
 	EXP_TYPE_RAIDERS = list("jobs" = raiders_positions, "color" = "#30389c"),
 	EXP_TYPE_RANGERS = list("jobs" = ranger_positions, "color" = "#bdbc76"),
+	EXP_TYPE_DROUGHTTOWN = list("jobs" = drought_town_positions, "color " = "#12491a"),
 	EXP_TYPE_COMBATTEST= list("jobs" = combattest_positions, "color" = "#4e2e04")
 
 ))
@@ -81,6 +90,7 @@ GLOBAL_LIST_INIT(ms13_exp_jobsmap, list(
 	EXP_TYPE_BOS = list("titles" = bos_positions),
 	EXP_TYPE_RAIDERS = list("titles" = raiders_positions),
 	EXP_TYPE_RANGERS = list("titles" = ranger_positions),
+	EXP_TYPE_DROUGHTTOWN = list("jobs" = drought_town_positions),
 	EXP_TYPE_COMBATTEST = list("titles" = combattest_positions)
 
 ))
