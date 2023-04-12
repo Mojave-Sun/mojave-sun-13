@@ -2052,14 +2052,9 @@
 /turf/open/floor/plating/ms13/ground/road,
 /area/ms13/town)
 "cDX" = (
-/obj/structure/ms13/foundation/wide/variantfive{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/blood/footprints{
-	dir = 4
-	},
-/turf/open/openspace/ms13,
-/area/ms13/town)
+/obj/structure/bonfire/ms13/fire_barrel,
+/turf/open/floor/plating/ms13/ground/desertalt,
+/area/ms13/legioncamp)
 "cEe" = (
 /obj/structure/closet/crate/ms13/woodcrate,
 /obj/effect/spawner/random/ms13/crafting/lowrandom,
@@ -2737,11 +2732,12 @@
 /turf/open/floor/ms13/ceramic,
 /area/ms13/town)
 "dwk" = (
-/obj/structure/ms13/foundation/wide/variantfive{
-	dir = 9
+/obj/item/mop/ms13{
+	pixel_x = -18;
+	pixel_y = 19
 	},
-/turf/open/openspace/ms13,
-/area/ms13/town)
+/turf/open/floor/ms13/tile,
+/area/ms13/water_baron/interior)
 "dwo" = (
 /obj/effect/decal/cleanable/glass{
 	dir = 1
@@ -3669,9 +3665,9 @@
 /turf/open/floor/wood/ms13/carpet/shaggy,
 /area/ms13/town)
 "eMV" = (
-/obj/structure/closet/ms13/wall/firstaid,
-/obj/effect/spawner/random/ms13/guaranteed/medical/medkit,
-/obj/effect/spawner/random/ms13/guaranteed/medical/lowrandom,
+/obj/structure/ms13/lamp/medical_lamp{
+	dir = 1
+	},
 /turf/open/floor/ms13/tile/blue,
 /area/ms13/water_baron/interior)
 "eNG" = (
@@ -6670,10 +6666,7 @@
 /turf/open/floor/ms13/tile,
 /area/ms13/town)
 "iJC" = (
-/obj/structure/bonfire/ms13/fire_barrel{
-	pixel_y = 15
-	},
-/obj/structure/table/ms13/metal/constructed,
+/obj/structure/bonfire/ms13/fire_barrel,
 /turf/open/floor/plating/ms13/ground/desertalt,
 /area/ms13/water_baron)
 "iJI" = (
@@ -8265,6 +8258,7 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "kSU" = (
+/obj/structure/ms13/sandbag,
 /obj/structure/ms13/foundation/wide/variantfive{
 	dir = 4
 	},
@@ -9906,12 +9900,6 @@
 /obj/effect/decal/cleanable/glass,
 /turf/open/floor/plating/ms13/ground/desert,
 /area/ms13/desert)
-"ncM" = (
-/obj/structure/ms13/foundation/wide/variantfive{
-	dir = 10
-	},
-/turf/open/openspace/ms13,
-/area/ms13/town)
 "ndw" = (
 /obj/structure/chair/ms13/metal/folding{
 	dir = 1
@@ -10095,10 +10083,10 @@
 /turf/open/floor/wood/ms13/carpet/shaggy/green,
 /area/ms13/town)
 "noR" = (
-/obj/machinery/door/unpowered/ms13/metal/mirrored/red{
-	dir = 4
-	},
 /obj/effect/spawner/random/ms13/locked/random/lowchance,
+/obj/machinery/door/unpowered/ms13/metal/mirrored/red{
+	dir = 8
+	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "noU" = (
@@ -11465,7 +11453,10 @@
 /area/ms13/desert)
 "oZU" = (
 /obj/structure/ms13/foundation/wide/variantfive{
-	dir = 5
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood/footprints{
+	dir = 4
 	},
 /turf/open/openspace/ms13,
 /area/ms13/town)
@@ -12469,9 +12460,9 @@
 /obj/structure/table/ms13/metal/heavy,
 /obj/machinery/ms13/terminal/rusty{
 	dir = 4;
+	remote_capability = 1;
 	signal_id_1 = "town-gate";
-	signal_title_1 = "Gate";
-	remote_capability = 1
+	signal_title_1 = "Gate"
 	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
@@ -12668,10 +12659,9 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/water_baron/interior)
 "qzs" = (
-/obj/effect/spawner/random/ms13/guaranteed/medical/dbag,
-/obj/item/mop/ms13{
-	pixel_y = 19
-	},
+/obj/structure/closet/ms13/wall/firstaid,
+/obj/effect/spawner/random/ms13/guaranteed/medical/medkit,
+/obj/effect/spawner/random/ms13/guaranteed/medical/lowrandom,
 /turf/open/floor/ms13/tile/blue,
 /area/ms13/water_baron/interior)
 "qAd" = (
@@ -14330,7 +14320,10 @@
 /area/ms13/town)
 "sGK" = (
 /obj/structure/ms13/sandbag,
-/turf/open/floor/wood/ms13/wide,
+/obj/structure/ms13/foundation/wide/variantfive{
+	dir = 6
+	},
+/turf/open/openspace/ms13,
 /area/ms13/town)
 "sHt" = (
 /obj/structure/table/ms13/metal/grate,
@@ -14665,15 +14658,6 @@
 /obj/effect/spawner/random/ms13/drugs/lowrandom,
 /turf/open/floor/wood/ms13/carpet/shaggy/green,
 /area/ms13/town)
-"tbN" = (
-/obj/machinery/ms13/terminal/rusty{
-	dir = 4;
-	signal_id_1 = "town-gate";
-	signal_title_1 = "Gate";
-	remote_capability = 1
-	},
-/turf/open/floor/plating/ms13/ground/desert,
-/area/ms13/desert)
 "tcv" = (
 /mob/living/simple_animal/hostile/ms13/robot/protectron/reinforced,
 /turf/open/floor/ms13/concrete/industrial,
@@ -14808,12 +14792,6 @@
 	},
 /obj/effect/spawner/random/ms13/tools/tool,
 /turf/open/floor/ms13/concrete,
-/area/ms13/town)
-"til" = (
-/obj/structure/ms13/foundation/wide/variantfive{
-	dir = 1
-	},
-/turf/open/openspace/ms13,
 /area/ms13/town)
 "tjb" = (
 /obj/machinery/door/unpowered/ms13/metal/alt,
@@ -17082,7 +17060,7 @@
 /area/ms13/rangeroutpost/building)
 "vYZ" = (
 /obj/structure/ms13/foundation/wide/variantfive{
-	dir = 6
+	dir = 1
 	},
 /turf/open/openspace/ms13,
 /area/ms13/town)
@@ -18363,6 +18341,7 @@
 /turf/open/floor/ms13/tile/large/cream,
 /area/ms13/legioncamp/building)
 "xQn" = (
+/obj/effect/spawner/random/ms13/guaranteed/medical/dbag,
 /turf/open/floor/ms13/tile/blue,
 /area/ms13/water_baron/interior)
 "xRc" = (
@@ -25827,7 +25806,7 @@ wHx
 hQa
 jJD
 mnl
-gpM
+mnl
 hkE
 rvK
 utG
@@ -26635,7 +26614,7 @@ wHx
 hQa
 jJD
 mnl
-gpM
+mnl
 lRk
 rvK
 rvK
@@ -27245,7 +27224,7 @@ xSy
 rvK
 okf
 vcF
-gpM
+mnl
 tCw
 rvK
 ubW
@@ -32642,7 +32621,7 @@ jAt
 jAt
 vYq
 vDA
-rpg
+dwk
 rpg
 dDv
 nDJ
@@ -39738,7 +39717,7 @@ jAt
 wIP
 xgo
 wIP
-tbN
+oSs
 oSs
 oSs
 oSs
@@ -52281,9 +52260,9 @@ crx
 sqC
 crx
 fYk
-ncM
-cDX
-kQm
+crx
+crx
+crx
 iyP
 aiH
 ovJ
@@ -52484,8 +52463,8 @@ wxq
 crx
 drT
 oZU
-qOn
-til
+kQm
+crx
 iyP
 lmG
 aiH
@@ -52685,9 +52664,9 @@ crx
 cXR
 cXR
 fYk
-dwk
+qOn
 vYZ
-kSU
+crx
 vzq
 aiH
 aiH
@@ -52888,8 +52867,8 @@ fYk
 lfo
 tlg
 sGK
-sGK
-crx
+kSU
+ePG
 iyP
 ihi
 aiH
@@ -53293,7 +53272,7 @@ nvU
 nvU
 tkB
 crx
-ePG
+crx
 iyP
 iTK
 msV
@@ -59052,7 +59031,7 @@ fnt
 fnt
 fnt
 ocM
-xzK
+cDX
 gVc
 fnt
 fnt
