@@ -9,12 +9,10 @@
 	receive_ricochet_chance_mod = 0.6
 	pass_flags_self = PASSSTRUCTURE
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
-	var/broken = FALSE
-
-	// GOMBLE TODO - Review the new armor subtypes - we might be able to use them instead of the system we wangled?
-	var/weatherproof = FALSE //MOJAVE SUN EDIT - Weather
-	var/projectile_passchance = 0 // MOJAVE SUN EDIT - projectile passthrough chance 100% always goes through, 0% never goes through. Definition isn't required if structure doesn't have density, duh. -- This could also be armor subtypey
 	armor_type = /datum/armor/obj_structure
+	burning_particles = /particles/smoke/burning
+	var/broken = FALSE
+	// GOMBLE TODO - Review the new armor subtypes - we might be able to use them instead of the system we wangled?
 
 /datum/armor/obj_structure
 	fire = 50
