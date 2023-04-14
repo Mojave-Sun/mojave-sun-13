@@ -318,7 +318,7 @@
 	should_draw_greyscale = FALSE
 	px_x = 0
 	px_y = 0
-	dismemberable = FALSE
+	bodypart_flags = BODYPART_UNREMOVABLE
 	max_damage = 500
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ALIEN | BODYTYPE_ORGANIC
 
@@ -331,6 +331,6 @@
 	should_draw_greyscale = FALSE
 	px_x = 0
 	px_y = 0
-	dismemberable = FALSE
+	bodypart_flags = BODYPART_UNREMOVABLE
 	max_damage = 50
 	bodytype = BODYTYPE_LARVA_PLACEHOLDER | BODYTYPE_ORGANIC
