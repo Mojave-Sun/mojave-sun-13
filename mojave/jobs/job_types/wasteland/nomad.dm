@@ -92,8 +92,6 @@
 		/obj/item/clothing/suit/ms13/trench/leather, \
 		/obj/item/clothing/suit/ms13/trench/brown, \
 		/obj/item/clothing/suit/ms13/trench)
-	else
-		suit = null
 
 	suit_store = pick(
 		/obj/item/gun/ballistic/automatic/pistol/ms13/m9mm, \
