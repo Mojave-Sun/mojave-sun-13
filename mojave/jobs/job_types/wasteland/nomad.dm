@@ -77,23 +77,21 @@
 		/obj/item/clothing/under/ms13/wasteland/roving,\
 		/obj/item/clothing/under/ms13/wasteland/mechanicprewar/mechanicgrey,\
 		/obj/item/clothing/under/ms13/wasteland/mechanicprewar/mechanicgreen)
-	if(prob(25))
-		suit = pick(
-			/obj/item/clothing/suit/ms13/vest/brown,\
-			/obj/item/clothing/suit/ms13/vest/black,\
-			/obj/item/clothing/suit/ms13/vest,\
-			/obj/item/clothing/suit/ms13/ljacket/moleskin,\
-			/obj/item/clothing/suit/ms13/ljacket/wanderer,\
-			/obj/item/clothing/suit/ms13/ljacket/military,\
-			/obj/item/clothing/suit/ms13/ljacket/musty,\
-			/obj/item/clothing/suit/ms13/ljacket/biker,\
-			/obj/item/clothing/suit/ms13/ljacket/bomber, \
-			/obj/item/clothing/suit/ms13/ljacket, \
-			/obj/item/clothing/suit/ms13/trench/leather, \
-			/obj/item/clothing/suit/ms13/trench/brown, \
-			/obj/item/clothing/suit/ms13/trench)
-	else
-		suit = null
+
+	suit = pick(
+		/obj/item/clothing/suit/ms13/vest/brown,\
+		/obj/item/clothing/suit/ms13/vest/black,\
+		/obj/item/clothing/suit/ms13/vest,\
+		/obj/item/clothing/suit/ms13/ljacket/moleskin,\
+		/obj/item/clothing/suit/ms13/ljacket/wanderer,\
+		/obj/item/clothing/suit/ms13/ljacket/military,\
+		/obj/item/clothing/suit/ms13/ljacket/musty,\
+		/obj/item/clothing/suit/ms13/ljacket/biker,\
+		/obj/item/clothing/suit/ms13/ljacket/bomber, \
+		/obj/item/clothing/suit/ms13/ljacket, \
+		/obj/item/clothing/suit/ms13/trench/leather, \
+		/obj/item/clothing/suit/ms13/trench/brown, \
+		/obj/item/clothing/suit/ms13/trench)
 
 	suit_store = pick(
 		/obj/item/gun/ballistic/automatic/pistol/ms13/m9mm, \
