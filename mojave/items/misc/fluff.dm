@@ -148,6 +148,10 @@
 	desc = "A flag of old folded into a triangle and inserted a wooden box with glass to allow it to be seen, usually given to grieving families who lost someone during service or people who served during the Great War."
 	icon_state = "trifold"
 
+/obj/item/ms13/fluff/trifoldflag/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clutter/clutter_inventory.dmi')
+
 /obj/item/ms13/fluff/trifoldflag/Initialize()
 	. = ..()
 	register_context()
