@@ -246,6 +246,7 @@
 	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	multiple_sprites = AMMO_BOX_PER_BULLET
+	multiload = TRUE
 	grid_height = 32
 	grid_width = 32
 
