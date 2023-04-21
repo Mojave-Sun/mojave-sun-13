@@ -30,11 +30,20 @@
 	has_water_reclaimer = TRUE
 	reclaim_rate = 0.1
 
+/obj/structure/sink/ms13/vile
+	desc = "An old sink. There doesn't seem to be any water flow. Whatever is in it... is probably disgusting and old."
+	dispensedreagent = /datum/reagent/consumable/ms13/water/dirty
+
 /obj/structure/sink/ms13/functional
 	name = "sink"
 	icon_state = "sink"
 	desc = "A sink. This one looks pretty alright, and might even give you some decent water!"
 	dispensedreagent = /datum/reagent/consumable/ms13/water
-	buildstacktype = /obj/item/stack/sheet/ms13/ceramic
 	has_water_reclaimer = TRUE
-	reclaim_rate = 0.5
+	reclaim_rate = 1
+
+/obj/structure/sink/ms13/functional/tainted // For Barony scrub locations.
+	name = "sink"
+	icon_state = "sink"
+	desc = "A sink. This one seems to function well, but there's a gross buildup around the faucet end."
+	dispensedreagent = /datum/reagent/consumable/ms13/water/unfiltered
