@@ -242,18 +242,21 @@
 	desc = "Stamped identification papers for a citizen of the Barony. This has special clearance for operation of a clinic and medical duties within the Barony."
 	assignment = "Town Clinician"
 	icon_state = "drought_town"
+	access = list(ACCESS_BARONY_DOCTOR)
 
 /obj/item/card/id/ms13/drought_enforcer
 	name = "enforcer's golden pin"
 	desc = "A gold talon pin, worn by Enforcers of the Baron. An intimidating sight."
 	assignment = "Town Enforcer"
 	icon_state = "drought_enforcer"
+	access = list(ACCESS_BARONY_RESTRICTED, ACCESS_BARONY_DOCTOR)
 
 /obj/item/card/id/ms13/drought_baron
 	name = "\improper Baron's golden pin"
 	desc = "A golden pin with a skull belonging to the Baron himself."
 	icon_state = "baron"
 	assignment = "Town Baron"
+	access = list(ACCESS_BARONY_RESTRICTED, ACCESS_BARON_QUARTERS, ACCESS_BARONY_DOCTOR)
 
 // Brotherhood IDs //
 

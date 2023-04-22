@@ -41,18 +41,8 @@
 /obj/structure/ms13/pipes/horizontal/random
 	icon_state = "rand"
 
-/*
-/obj/structure/ms13/pipes/horizontal/random/Initialize(mapload)
-	. = ..()
-	dir = rand(1,4) */
-
 /obj/structure/ms13/pipes/horizontal/random_alt
 	icon_state = "cont"
-
-/*
-/obj/structure/ms13/pipes/horizontal/random_alt/Initialize(mapload)
-	. = ..()
-	dir = rand(1,8)*/
 
 /obj/structure/ms13/pipes/horizontal/box
 	icon_state = "box"
@@ -76,10 +66,6 @@
 	icon_state = "valve"
 	desc = "A hardy metal pipe, fitted with an old red valve."
 
-/obj/structure/ms13/pipes/horizontal/valve/Initialize(mapload)
-	. = ..()
-	dir = rand(1,4)
-
 /obj/structure/ms13/pipes/horizontal/end
 	icon_state = "inwall"
 
@@ -90,10 +76,6 @@
 
 /obj/structure/ms13/pipes/horizontal/single/random
 	icon_state = "rand_single"
-
-/obj/structure/ms13/pipes/horizontal/single/random/Initialize(mapload)
-	. = ..()
-	dir = rand(1,4)
 
 /obj/structure/ms13/pipes/horizontal/single/valve
 	icon_state = "valve_single"
@@ -119,10 +101,6 @@
 /obj/structure/ms13/pipes/vertical/east/random
 	icon_state = "upeastrand"
 
-/obj/structure/ms13/pipes/vertical/east/random/Initialize(mapload)
-	. = ..()
-	dir = rand(1,4)
-
 /obj/structure/ms13/pipes/vertical/east/valve
 	icon_state = "valve_upeast"
 	desc = "A hardy metal pipe, fitted with an old red valve."
@@ -143,10 +121,6 @@
 
 /obj/structure/ms13/pipes/vertical/west/random
 	icon_state = "upwestrand"
-
-/obj/structure/ms13/pipes/vertical/west/random/Initialize(mapload)
-	. = ..()
-	dir = rand(1,4)
 
 /obj/structure/ms13/pipes/vertical/west/valve
 	icon_state = "valve_upwest"
@@ -182,9 +156,9 @@
 	plane = ABOVE_GAME_PLANE
 	layer = ABOVE_MOB_LAYER
 
-/obj/structure/ms13/large_pipe/Initialize(mapload)
+/* /obj/structure/ms13/large_pipe/Initialize(mapload) // Looks dumb rn... :(
 	. = ..()
-	AddElement(/datum/element/climbable, climb_time = 3 SECONDS, climb_stun = 0, no_stun = TRUE, jump_over = TRUE, jump_north = 12, jump_south = 17, jump_sides = 12)
+	AddElement(/datum/element/climbable, climb_time = 3 SECONDS, climb_stun = 0, no_stun = TRUE, jump_over = TRUE, jump_north = 12, jump_south = 17, jump_sides = 12) */
 
 /obj/structure/ms13/large_pipe/corner
 	icon_state = "large_pipe_corner"

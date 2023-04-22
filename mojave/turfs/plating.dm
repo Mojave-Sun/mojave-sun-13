@@ -893,7 +893,7 @@ GLOBAL_VAR(FishPopNextCalc)
 	name = "sewer water"
 	desc = "Murky and foul smelling water, if you could call it that."
 	baseturfs = /turf/open/ms13/water/sewer
-	dispensedreagent = /datum/reagent/consumable/ms13/dirty_water
+	dispensedreagent = /datum/reagent/consumable/ms13/water/dirty
 	fish = list(/obj/item/food/meat/slab/ms13/fish/lamprey = 2,
 		/obj/item/food/meat/slab/ms13/fish/largemouth = 1,
 		/obj/item/food/meat/slab/ms13/fish/chum = 3,
