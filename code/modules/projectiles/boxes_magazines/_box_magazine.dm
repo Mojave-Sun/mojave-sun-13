@@ -128,7 +128,8 @@
 	//no gaming
 	if(item_flags & IN_STORAGE)
 		return
-	if(istype(A, /obj/item/ammo_box) && (!istype(src, /obj/item/ammo_box/magazine/internal) || istype(A, /obj/item/ammo_box/magazine/ammo_stack)))
+	//THIS IS THE WORST FUCKING LINE OF CODE, EVER, OF ALL TIME
+	if(istype(A, /obj/item/ammo_box) && (!istype(A, /obj/item/ammo_box/magazine) || istype(A, /obj/item/ammo_box/magazine/ammo_stack)))
 	//MOJAVE EDIT END
 		var/obj/item/ammo_box/AM = A
 		for(var/obj/item/ammo_casing/AC in AM.stored_ammo)
