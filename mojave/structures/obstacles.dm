@@ -1029,3 +1029,31 @@
 	if(direction == dir && density)
 		leaving.Bump(src)
 		return COMPONENT_ATOM_BLOCK_EXIT
+
+// Bone Piles //
+
+/obj/structure/ms13/bonepile
+	name = "pile of bones"
+	desc = "A seemingly never ending pile of bones... There's been a lot of death, here."
+	icon = 'mojave/icons/structure/smooth_structures/bone_pile.dmi'
+	icon_state = "icon-0"
+	base_icon_state = "icon"
+	density = FALSE
+	anchored = TRUE
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_MS13_BONEPILE)
+	canSmoothWith = list(SMOOTH_GROUP_MS13_BONEPILE, SMOOTH_GROUP_MS13_WALL, SMOOTH_GROUP_MS13_LOW_WALL)
+
+/obj/structure/ms13/bonepile/Initialize(mapload)
+	. = ..()
+
+	var/turf/my_turf = get_turf(loc)
+	if(my_turf)
+		ADD_TRAIT(my_turf, TRAIT_ADD_SLOWDOWN, STAIRS_ON_TURF)
+
+/obj/structure/ms13/bonepile/Destroy()
+	. = ..()
+
+	var/turf/my_turf = get_turf(loc)
+	if(my_turf)
+		REMOVE_TRAIT(my_turf, TRAIT_REMOVE_SLOWDOWN, STAIRS_ON_TURF)

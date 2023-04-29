@@ -122,6 +122,7 @@
 /obj/machinery/light/ms13/bulb/industrial{
 	dir = 1
 	},
+/obj/effect/landmark/start/ms13/denizen,
 /turf/open/floor/ms13/concrete,
 /area/ms13/water_baron/interior)
 "ajB" = (
@@ -247,6 +248,14 @@
 	pixel_y = 5
 	},
 /turf/open/floor/ms13/tile/large/checkered,
+/area/ms13/town)
+"aqH" = (
+/obj/structure/ms13/storage/large/medical{
+	dir = 4
+	},
+/obj/effect/spawner/random/ms13/medical/highrandom,
+/obj/effect/spawner/random/ms13/drugs/prewar,
+/turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "aqP" = (
 /obj/structure/table/ms13/no_smooth/counter/metal{
@@ -4698,6 +4707,14 @@
 /obj/structure/bed/ms13/mattress/filthy,
 /turf/open/floor/wood/ms13/common,
 /area/ms13/water_baron/interior)
+"fZq" = (
+/obj/structure/ms13/storage/large/medical{
+	dir = 4
+	},
+/obj/effect/spawner/random/ms13/medical/lowrandom,
+/obj/effect/spawner/random/ms13/drugs/prewar,
+/turf/open/floor/ms13/tile/large/cream,
+/area/ms13/town)
 "gav" = (
 /obj/structure/ms13/storage/store/metal{
 	dir = 8
@@ -5728,9 +5745,6 @@
 "hqx" = (
 /obj/structure/table/ms13/metal/constructed,
 /obj/structure/chair/comfy/ms13/armchair,
-/obj/structure/ms13/barricade{
-	dir = 1
-	},
 /turf/open/floor/plating/ms13/ground/desertalt,
 /area/ms13/water_baron)
 "hqz" = (
@@ -11345,6 +11359,7 @@
 "oCB" = (
 /obj/structure/bed/ms13/mattress/dirty,
 /obj/effect/spawner/random/ms13/drugs/lowrandom,
+/obj/effect/landmark/start/ms13/denizen,
 /turf/open/floor/ms13/metal,
 /area/ms13/water_baron/interior)
 "oDw" = (
@@ -14837,6 +14852,7 @@
 /obj/structure/ms13/wall_decor/clock{
 	dir = 8
 	},
+/obj/effect/spawner/random/ms13/clothing/backpack/high,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "sKi" = (
@@ -15407,6 +15423,7 @@
 /obj/structure/ms13/storage/store/metal{
 	dir = 4
 	},
+/obj/effect/spawner/random/ms13/drugs/prewar,
 /turf/open/floor/ms13/tile/full/green,
 /area/ms13/town)
 "tsj" = (
@@ -17018,13 +17035,6 @@
 /obj/machinery/door/unpowered/ms13/seethrough/fence/wire,
 /turf/open/floor/plating/ms13/ground/desertalt,
 /area/ms13/desert)
-"vkv" = (
-/obj/structure/table/ms13/metal/constructed,
-/obj/structure/ms13/barricade{
-	dir = 1
-	},
-/turf/open/floor/plating/ms13/ground/desertalt,
-/area/ms13/water_baron)
 "vkN" = (
 /obj/structure/table/ms13/no_smooth/counter/metal{
 	dir = 4
@@ -27242,7 +27252,7 @@ oSs
 oSs
 oSs
 oSs
-oSs
+lFz
 oSs
 oSs
 oSs
@@ -28662,7 +28672,7 @@ oSs
 oSs
 oSs
 oSs
-lFz
+oSs
 oSs
 oSs
 oSs
@@ -30670,7 +30680,7 @@ oSs
 oSs
 oSs
 oSs
-oSs
+lFz
 oSs
 oSs
 oSs
@@ -31276,7 +31286,7 @@ oSs
 oSs
 oSs
 oSs
-lFz
+oSs
 oSs
 oSs
 oSs
@@ -33299,7 +33309,7 @@ vYq
 vYq
 vYq
 vYq
-oSs
+lFz
 oSs
 oSs
 oSs
@@ -34514,7 +34524,7 @@ vYq
 oSs
 oSs
 oSs
-lFz
+oSs
 oSs
 oSs
 oSs
@@ -36938,7 +36948,7 @@ oSs
 oSs
 oSs
 oSs
-oSs
+lFz
 oSs
 oSs
 oSs
@@ -37951,7 +37961,7 @@ oSs
 oSs
 oSs
 oSs
-lFz
+oSs
 oSs
 oSs
 oSs
@@ -38721,7 +38731,7 @@ myZ
 fXv
 ewR
 vYq
-vkv
+yhI
 yhI
 iJC
 jAt
@@ -38923,7 +38933,7 @@ vYq
 vYq
 vYq
 vYq
-vkv
+yhI
 yhI
 yhI
 aKh
@@ -39327,7 +39337,7 @@ uDo
 myZ
 hQE
 vYq
-vkv
+yhI
 yhI
 yhI
 aKh
@@ -39529,7 +39539,7 @@ myZ
 gvR
 fuj
 vYq
-vkv
+yhI
 yhI
 iJC
 aKh
@@ -51451,10 +51461,10 @@ wHx
 hQa
 jJD
 kqA
-sbA
+aqH
 sbA
 rSy
-pDg
+fZq
 kqA
 gfS
 ntX
