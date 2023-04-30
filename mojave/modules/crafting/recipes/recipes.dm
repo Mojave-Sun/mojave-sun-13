@@ -14,10 +14,10 @@
 /datum/crafting_recipe/lockpick
 	name = "lockpick"
 	result = /obj/item/ms13/lockpick/basic
-	time = 4 SECONDS
-	tool_behaviors = list(TOOL_SAW)
+	time = 6 SECONDS
+	tool_behaviors = list()
 	tool_paths = list()
-	reqs = list(/obj/item/stack/sheet/ms13/scrap_brass = 3)
+	reqs = list(/obj/item/stack/sheet/ms13/scrap = 3)
 	category = CAT_UTILITY
 	crafting_interface = CRAFTING_BENCH_GENERAL
 
@@ -53,6 +53,8 @@
 	reqs = list(/obj/item/stack/sheet/ms13/ceramic = 2)
 	category = CAT_UTILITY
 	crafting_interface = CRAFTING_BENCH_GENERAL
+
+
 
 //SMELTER CRAFTING
 
@@ -193,6 +195,46 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/refined_gold = 1,
 				/obj/item/stack/sheet/ms13/plank = 1)
+	category = CAT_MELT
+	crafting_interface = CRAFTING_BENCH_SMELTER
+
+/datum/crafting_recipe/melt_ncr
+	name = "melt down and reforge NCR coins"
+	result = /obj/item/stack/sheet/ms13/refined_gold
+	time = 10 SECONDS
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/stack/ms13/currency/ncr_coin = 8,
+				/obj/item/stack/sheet/ms13/plank = 1)
+	category = CAT_MELT
+	crafting_interface = CRAFTING_BENCH_SMELTER
+
+/datum/crafting_recipe/melt_denarius
+	name = "melt down and reforge Legion denarii"
+	result = /obj/item/stack/sheet/ms13/refined_silver
+	time = 10 SECONDS
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/stack/ms13/currency/denarius = 8,
+				/obj/item/stack/sheet/ms13/plank = 1)
+	category = CAT_MELT
+	crafting_interface = CRAFTING_BENCH_SMELTER
+
+/datum/crafting_recipe/melt_aurelius
+	name = "melt down and reforge Legion aurelii"
+	result = /obj/item/stack/sheet/ms13/refined_gold
+	time = 10 SECONDS
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/stack/ms13/currency/aurelius = 3,
+				/obj/item/stack/sheet/ms13/plank = 1)
+	category = CAT_MELT
+	crafting_interface = CRAFTING_BENCH_SMELTER
+
+/datum/crafting_recipe/melt_bottlecap
+	name = "melt down bottle caps"
+	result = /obj/item/stack/sheet/ms13/scrap_alu/five
+	time = 6 SECONDS
+	tool_paths = list()
+	reqs = list(/obj/item/stack/ms13/currency/cap = 15,
+				/obj/item/stack/sheet/ms13/plank = 2)
 	category = CAT_MELT
 	crafting_interface = CRAFTING_BENCH_SMELTER
 

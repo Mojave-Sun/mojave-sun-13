@@ -116,6 +116,22 @@
 		if(!findname(.))
 			break
 
+// MOJAVE SUN EDIT BEGIN
+/proc/random_unique_legion_name(gender, attempts_to_find_unique_name=10)
+	for(var/i in 1 to attempts_to_find_unique_name)
+		. = capitalize(pick(GLOB.first_names_legion)) + " " + capitalize(pick(GLOB.last_names_legion))
+
+		if(!findname(.))
+			break
+
+/proc/random_unique_raider_name(gender, attempts_to_find_unique_name=10)
+	for(var/i in 1 to attempts_to_find_unique_name)
+		. = capitalize(pick(GLOB.raider_names))
+
+		if(!findname(.))
+			break
+// MOJAVE SUN EDIT END
+
 /proc/random_unique_lizard_name(gender, attempts_to_find_unique_name=10)
 	for(var/i in 1 to attempts_to_find_unique_name)
 		. = capitalize(lizard_name(gender))
@@ -177,6 +193,14 @@ GLOBAL_LIST_INIT(skin_tone_names, list(
 	"african2" = "Dark brown",
 ))
 //MOJAVE SUN EDIT END - Skin Colours
+
+// MOJAVE SUN EDIT BEGIN - Fatties
+GLOBAL_LIST_INIT(fatness_types, sort_list(list(
+	FATNESS_AVERAGE,
+	FATNESS_OBESE,
+	)))
+// MOJAVE SUN EDIT END - Fatties
+
 /// An assoc list of species IDs to type paths
 GLOBAL_LIST_EMPTY(species_list)
 

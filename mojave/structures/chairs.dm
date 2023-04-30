@@ -5,6 +5,7 @@
 	item_chair = /obj/item/chair/ms13
 	layer = BELOW_OBJ_LAYER
 	max_integrity = 100
+	projectile_passchance = 100
 
 /obj/structure/chair/ms13/wrench_act_secondary(mob/living/user, obj/item/weapon)
 	return
@@ -234,6 +235,7 @@
 	righthand_file = 'mojave/icons/mob/inhands/misc/chairs_righthand.dmi'
 	custom_materials = null
 	origin_type = /obj/structure/chair/ms13
+	break_chance = 0
 
 // Metal Chair Items //
 

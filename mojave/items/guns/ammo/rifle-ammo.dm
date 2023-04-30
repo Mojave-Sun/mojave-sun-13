@@ -38,7 +38,7 @@
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 	w_class = WEIGHT_CLASS_NORMAL
 	grid_width = 64
-	grid_height = 64
+	grid_height = 32
 
 /obj/item/ammo_box/ms13/a762/junk
 	name = "junk 7.62 ammo box"
@@ -85,7 +85,7 @@
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 	w_class = WEIGHT_CLASS_NORMAL
 	grid_width = 64
-	grid_height = 64
+	grid_height = 32
 
 /obj/item/ammo_box/ms13/a308/junk
 	name = "junk .308 ammo box"
@@ -131,11 +131,13 @@
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 	w_class = WEIGHT_CLASS_NORMAL
 	grid_width = 64
-	grid_height = 64
+	grid_height = 32
 
 /obj/item/ammo_box/ms13/a556/small
 	name = "small 5.56 ammo box" //This is basically a snowflake for the 5.56 rev
 	max_ammo = 24
+	grid_width = 32
+	grid_height = 32
 
 /obj/item/ammo_box/ms13/a556/junk
 	name = "junk 5.56 ammo box"
@@ -161,6 +163,18 @@
 	name = "HV .50MG bullet casing"
 	desc = "A high velocity .50MG bullet casing."
 	projectile_type = /obj/projectile/bullet/ms13/a50MG/hv
+
+/obj/item/ammo_box/ms13/a50MG
+	name = "standard .50MG ammo box"
+	desc = "A box containing standard .50MG ammo."
+	icon_state = "box50"
+	ammo_type = /obj/item/ammo_casing/ms13/a50MG
+	caliber = "a556"
+	max_ammo = 12
+	multiple_sprites = AMMO_BOX_FULL_EMPTY
+	w_class = WEIGHT_CLASS_NORMAL
+	grid_width = 64
+	grid_height = 32
 
 //2mmEC
 /obj/item/ammo_casing/caseless/ms13/a2mmEC

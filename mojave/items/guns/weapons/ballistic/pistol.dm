@@ -136,7 +136,7 @@
 	inhand_icon_state = "22pistol"
 	mag_type = /obj/item/ammo_box/magazine/ms13/m22
 	w_class = WEIGHT_CLASS_SMALL
-	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
+	fire_sound = 'mojave/sound/ms13weapons/gunsounds/22/22pistol.ogg'
 	fire_delay = 0.45 SECONDS
 	spread = 8
 	recoil = 0.1

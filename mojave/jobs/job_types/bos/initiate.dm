@@ -3,7 +3,7 @@
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "Knights, Scribes, and above"
-	description = "You are an inexperienced Brotherhood recruit. Learn what it means to be a member of the Brotherhood and execute orders given to you by anyone that is not a fellow Initiate."
+	description = "You are an inexperienced Brotherhood recruit. Learn what it means to be a member of the Brotherhood and execute orders given to you by anyone that is not a fellow Initiate. You're currently at edge with the NCR, though not at war, yet."
 
 	outfit = /datum/outfit/job/ms13/bos/initiate
 

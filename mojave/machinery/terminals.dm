@@ -468,6 +468,7 @@
 	desc = "A miracle of man- A terminal that has been locally produced by a wastelander, as can be clearly seen by the quality."
 	icon_state = "terminal_handmade"
 	screen_icon = "terminal_handmade_screen"
+	pixel_y = 12
 
 //// Wall mounted terminals ////
 /obj/machinery/ms13/terminal/wall

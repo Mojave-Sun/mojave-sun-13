@@ -49,8 +49,8 @@
     name = "Mr. Handy"
     desc = "A standard model Mr. Handy unit. It's long lost any rational wires in its circuits."
     icon_state = "mrhandy_claw"
-    health = 140
-    maxHealth = 140
+    health = 130
+    maxHealth = 130
     melee_damage_lower = 15
     melee_damage_upper = 15
     subtractible_armour_penetration = 5
@@ -60,8 +60,8 @@
     attack_verb_simple = "pinch"
     attack_sound = 'mojave/sound/ms13weapons/meleesounds/pipe_hit.ogg'
     sharpness = NONE
-    wound_bonus = 5
-    bare_wound_bonus = 5
+    wound_bonus = 0 // These dudes for real will usually one shot dislocate limbs if they're given anything above one apparently. I'd rather them never do it than always do it.
+    bare_wound_bonus = 0
     shadow_type = "shadow_large"
 
 /mob/living/basic/ms13/robot/handy/New()

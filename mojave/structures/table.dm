@@ -247,6 +247,12 @@
 	icon_state = "dice_clean"
 	max_integrity = 200
 
+/obj/structure/table/ms13/no_smooth/cable_reel
+	name = "cable reel"
+	desc = "An old cable reel for holding, you guessed it, cable. Now all it's good for though is holding your stuff."
+	icon_state = "cable_reel"
+	frame = /obj/item/stack/sheet/ms13/scrap_wood
+
 // Misc Large tables //
 
 /obj/structure/table/ms13/no_smooth/large/pool

@@ -25,7 +25,8 @@
 		/obj/item/ammo_box/ms13/shotgun/buckshot=1,\
 		/obj/item/stack/medical/gauze/ms13/half=1,\
 		/obj/item/stack/medical/ointment/ms13/half=1,\
-		/obj/item/radio/ms13=1)
+		/obj/item/radio/ms13=1,\
+		/obj/item/stack/ms13/currency/prewar/sixty=1)
 
 /datum/outfit/job/ms13/ranger/deputychief/pre_equip(mob/living/carbon/human/H)
 	..()

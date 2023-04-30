@@ -3,7 +3,7 @@
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "Sergeants and above"
-	description = "Act as a relay between your squad and command. Assist your assigned Sergeant in organizing your squad as the second in command."
+	description = "Act as a relay between your squad and command. Assist your assigned Sergeant in organizing your squad as the second in command. You're currently at edge with the BoS, though not at war, yet."
 
 	outfit = /datum/outfit/job/ms13/ncr/radioman
 
@@ -25,7 +25,8 @@
 		/obj/item/ammo_box/magazine/ms13/m9mm=1, \
 		/obj/item/stack/medical/gauze/ms13/three=1, \
 		/obj/item/flashlight/flare/ms13=1, \
-		/obj/item/clothing/mask/ms13/ncr=1)
+		/obj/item/clothing/mask/ms13/ncr=1, \
+		/obj/item/stack/ms13/currency/ncr_dollar/twenty=1)
 
 /datum/outfit/job/ms13/ncr/radioman/pre_equip(mob/living/carbon/human/H)
 	..()

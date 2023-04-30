@@ -18,6 +18,9 @@
 /obj/item/stack/sheet/ms13/scrap/two
 	amount = 2
 
+/obj/item/stack/sheet/ms13/scrap/five
+	amount = 5
+
 GLOBAL_LIST_INIT(scrap_recipes, list ( \
 	new/datum/stack_recipe("crude scrap wall", /turf/closed/wall/ms13/craftable/scrap, 8, time = 40 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("makeshift smelter", /obj/structure/ms13/smelter, 6, time = 30 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
@@ -54,6 +57,9 @@ GLOBAL_LIST_INIT(scrap_recipes, list ( \
 
 /obj/item/stack/sheet/ms13/scrap_steel/four
 	amount = 4
+
+/obj/item/stack/sheet/ms13/scrap_steel/five
+	amount = 5
 
 /obj/item/stack/sheet/ms13/scrap_steel/ten
 	amount = 10
@@ -131,6 +137,9 @@ GLOBAL_LIST_INIT(refined_steel_recipes, list ( \
 
 /obj/item/stack/sheet/ms13/scrap_lead/four
 	amount = 4
+
+/obj/item/stack/sheet/ms13/scrap_lead/five
+	amount = 5
 
 /datum/material/ms13/scrap_lead
 	name = "scrap lead"
@@ -216,6 +225,9 @@ GLOBAL_LIST_INIT(refined_steel_recipes, list ( \
 /obj/item/stack/sheet/ms13/scrap_brass/four
 	amount = 4
 
+/obj/item/stack/sheet/ms13/scrap_brass/five
+	amount = 5
+
 /datum/material/ms13/scrap_brass
 	name = "scrap brass"
 	desc = "Brass scrap metal."
@@ -299,6 +311,9 @@ GLOBAL_LIST_INIT(refined_steel_recipes, list ( \
 
 /obj/item/stack/sheet/ms13/scrap_alu/four
 	amount = 4
+
+/obj/item/stack/sheet/ms13/scrap_alu/five
+	amount = 5
 
 /datum/material/ms13/scrap_alu
 	name = "scrap aluminum"
@@ -474,6 +489,9 @@ GLOBAL_LIST_INIT(refined_alu_recipes, list ( \
 
 /obj/item/stack/sheet/ms13/scrap_copper/four
 	amount = 4
+
+/obj/item/stack/sheet/ms13/scrap_copper/five
+	amount = 5
 
 /datum/material/ms13/scrap_copper
 	name = "copper wire"

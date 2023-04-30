@@ -1,11 +1,11 @@
-//// These spawners are GUARENTEED spawns. If you are making changes to these pools, you should probably also make changes to the non-static spawns outside of the Guarenteed folder. ////
+//// These spawners are GUARANTEED spawns. If you are making changes to these pools, you should probably also make changes to the non-static spawns outside of the guaranteed folder. ////
 //// The idea of these spawners it to use these SPARINGLY. Emphasis on SPARINGLY... Examples of where to use these are: High tier dungeons / Faction bases ////
 
-/obj/effect/spawner/random/ms13/guarenteed/drink
+/obj/effect/spawner/random/ms13/guaranteed/drink
 	name = "DO NOT USE ME - Mojave Sun drink spawners"
 	spawn_loot_count = 1
 
-/obj/effect/spawner/random/ms13/guarenteed/drink/soda
+/obj/effect/spawner/random/ms13/guaranteed/drink/soda
 	name = "cola spawner"
 	icon_state = "ms13_cola-static"
 	loot = list(
@@ -22,7 +22,7 @@
 		/obj/item/reagent_containers/food/drinks/soda_cans/ms13/nuka_quantum
 		)
 
-/obj/effect/spawner/random/ms13/guarenteed/drink/soda_uncommon
+/obj/effect/spawner/random/ms13/guaranteed/drink/soda_uncommon
 	name = "uncommon cola spawner"
 	icon_state = "ms13_cola-static"
 	loot = list(
@@ -34,7 +34,7 @@
 
 // Alcohol spawners //
 
-/obj/effect/spawner/random/ms13/guarenteed/drink/alcohol
+/obj/effect/spawner/random/ms13/guaranteed/drink/alcohol
 	name = "broad alcoholic spawner"
 	icon_state = "ms13_alcohol-static"
 	loot = list(
@@ -59,7 +59,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/ms13/nukashine
 		)
 
-/obj/effect/spawner/random/ms13/guarenteed/drink/alcohol_beer
+/obj/effect/spawner/random/ms13/guaranteed/drink/alcohol_beer
 	name = "beer spawner"
 	icon_state = "ms13_beer-static"
 	loot = list(
@@ -68,7 +68,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/ms13/plain,
 		)
 
-/obj/effect/spawner/random/ms13/guarenteed/drink/alcohol_uncommon // Breathe some artificial inflation up in there
+/obj/effect/spawner/random/ms13/guaranteed/drink/alcohol_uncommon // Breathe some artificial inflation up in there
 	name = "uncommon alcohol spawner"
 	icon_state = "ms13_alcohol-static"
 	loot = list(

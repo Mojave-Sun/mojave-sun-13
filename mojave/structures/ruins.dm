@@ -21,6 +21,7 @@
 	var/body_state = null
 	layer = ABOVE_ALL_MOB_LAYER
 	plane = ABOVE_GAME_PLANE
+	projectile_passchance = 45
 
 /obj/structure/ms13/vehicle_ruin/welder_act_secondary(mob/living/user, obj/item/I)
 	if(!I.tool_start_check(user, amount=0))
@@ -71,6 +72,7 @@
 
 /obj/structure/ms13/vehicle_ruin/van
 	body_state = "van"
+	projectile_passchance = 35
 
 /obj/structure/ms13/vehicle_ruin/Initialize()
 	. = ..()
@@ -123,6 +125,7 @@
 			name = "van wreck"
 			desc = "An old pre-war van, scrapped and destroyed beyond repair."
 			icon_state =  "van-[randomiser]"
+			projectile_passchance = 45
 			add_overlay(image(icon, "van-tires-[randomiser]", FLOAT_LAYER, dir))
 			if(prob(50))
 				add_overlay(image(icon, "van-bumper-[randomiser]", FLOAT_LAYER, dir))

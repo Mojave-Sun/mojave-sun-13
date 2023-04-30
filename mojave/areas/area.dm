@@ -205,6 +205,7 @@
 	requires_power = FALSE
 	power_environ = FALSE
 	power_equip = FALSE
+	power_light = FALSE
 	outdoors = TRUE
 	flags_1 = NONE
 
@@ -232,6 +233,16 @@
 	name = "Desert Ranger Outpost building"
 	icon_state = "rangerbase"
 	outdoors = FALSE
+
+/area/ms13/water_baron
+	name = "The Barony"
+	icon_state = "barony"
+	ambientsounds = GENERIC_AMBIENCE
+	atmosphere_volume = 150
+
+/area/ms13/water_baron/interior
+	name = "The Barony building"
+	icon_state = "baronyinterior"
 
 // Mall/Eagle Lakes Areas //
 

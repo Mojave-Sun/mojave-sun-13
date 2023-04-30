@@ -16,6 +16,10 @@
 	COOLDOWN_DECLARE(stealthboy_cooldown)
 	actions_types = list(/datum/action/item_action/toggle)
 
+/obj/item/clothing/ms13/stealthboy/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/item_scaling, 0.45, 1)
+
 /obj/item/clothing/ms13/stealthboy/dropped(mob/user)
 	..()
 	if(stealthboy_on)
@@ -29,7 +33,7 @@
 		return
 	if(!COOLDOWN_FINISHED(src, stealthboy_cooldown))
 		return
-	playsound(get_turf(src), 'mojave/items/stealth/stealthboy_sfx/stealthboy_activate.ogg', 20, 1, 0)
+	playsound(get_turf(src), 'mojave/items/stealth/stealthboy_sfx/stealthboy_activate.ogg', 20, 50, 0)
 	stealthboy_on = !stealthboy_on
 	if(stealthboy_on)
 		user.alpha = 25
@@ -48,5 +52,5 @@
 		user.alpha = initial(user.alpha)
 		stealthboy_on = FALSE
 	COOLDOWN_START(src, stealthboy_cooldown, 180 SECONDS)
-	playsound(get_turf(src), 'mojave/items/stealth/stealthboy_sfx/stealthboy_deactivate.ogg', 20, 1, 0)
+	playsound(get_turf(src), 'mojave/items/stealth/stealthboy_sfx/stealthboy_deactivate.ogg', 20, 50, 0)
 	to_chat(user, "<span class='notice'>[src] deactivates.</span>")

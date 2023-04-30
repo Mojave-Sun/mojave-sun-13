@@ -233,6 +233,8 @@
 	max_amount = 8
 	heal_brute = 12
 	heal_burn = 12
+	flesh_regeneration = 1.5
+	sanitization = 0.15
 	merge_type = /obj/item/stack/medical/ms13/balm
 	novariants = TRUE
 

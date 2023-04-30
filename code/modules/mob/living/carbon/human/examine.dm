@@ -465,7 +465,10 @@
 		if(101 to INFINITY)
 			age_text = "withering away"
 	. += list(span_notice("[p_they(TRUE)] appear[p_s()] to be [age_text]."))
-	// MOJAVE SUN EDIT BEGIN
+	// MOJAVE EDIT BEGIN
+	switch(fatness)
+		if(FATNESS_OBESE)
+			. += list(span_warning("[p_they(TRUE)] [p_are()] a bumbling tub of lard."))
 	if(on_examined_check(user, TRUE))
 		user.on_examine_atom(src, TRUE)
-	// MOJAVE SUN EDIT END
+	// MOJAVE EDIT END

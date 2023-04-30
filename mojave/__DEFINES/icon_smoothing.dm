@@ -41,4 +41,7 @@
 #define SMOOTH_GROUP_MS13_TABLE_SMALL S_OBJ_FO(34)			///obj/structure/table/ms13/metal/small
 #define SMOOTH_GROUP_MS13_TABLE_PLAYER S_OBJ_FO(35) 	 	///obj/structure/table/ms13/metal/cobbled
 
+#define SMOOTH_GROUP_MS13_SANDBAGS S_OBJ_FO(36) 	 	////obj/structure/ms13/sandbag
+#define SMOOTH_GROUP_MS13_BONEPILE S_OBJ_FO(37) 	 	////obj/structure/ms13/bonepile
+
 #define MAX_S_TURF_FO SMOOTH_GROUP_MS13_TABLE_PLAYER //Always match this value with the one above it.

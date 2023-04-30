@@ -3,7 +3,7 @@
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "Sergeants and above"
-	description = "You are one of the few NCR medics in the region in charge of providing medical support to your platoon and their operations. You are primarily a non-combat role and as such, should focus on self preservation to ensure you can continue to save the lives of your comrades."
+	description = "You are one of the few NCR medics in the region in charge of providing medical support to your platoon and their operations. You are primarily a non-combat role and as such, should focus on self preservation to ensure you can continue to save the lives of your comrades. You're currently at edge with the BoS, though not at war, yet."
 
 	outfit = /datum/outfit/job/ms13/ncr/medic
 

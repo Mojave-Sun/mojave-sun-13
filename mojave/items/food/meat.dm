@@ -1,5 +1,46 @@
-//Pre-War Meats
+//Base defines for meat
+/obj/item/food/meat/slab/ms13
+	icon = 'mojave/icons/objects/food/meat.dmi'
+	icon_state = "meat"
+	drop_sound = 'mojave/sound/ms13items/ms13handling/meat_drop.ogg'
+	pickup_sound =  'mojave/sound/ms13items/ms13handling/meat_pickup.ogg'
 
+/obj/item/food/meat/slab/ms13/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/item_scaling, 0.50, 1)
+
+/obj/item/food/meat/steak/plain/ms13
+	icon = 'mojave/icons/objects/food/meat.dmi'
+	icon_state = "meat_roasted"
+	drop_sound = 'mojave/sound/ms13items/ms13handling/meat_drop.ogg'
+	pickup_sound =  'mojave/sound/ms13items/ms13handling/meat_pickup.ogg'
+
+/obj/item/food/meat/steak/plain/ms13/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/item_scaling, 0.50, 1)
+
+/obj/item/food/meat/rawcutlet/plain/ms13
+	icon = 'mojave/icons/objects/food/meat.dmi'
+	icon_state = "meatcube"
+	drop_sound = 'mojave/sound/ms13items/ms13handling/meat_drop.ogg'
+	pickup_sound =  'mojave/sound/ms13items/ms13handling/meat_pickup.ogg'
+
+/obj/item/food/meat/rawcutlet/plain/ms13/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/item_scaling, 0.50, 1)
+
+/obj/item/food/meat/cutlet/plain/ms13
+	icon = 'mojave/icons/objects/food/meat.dmi'
+	icon_state = "meatcube_roasted"
+	drop_sound = 'mojave/sound/ms13items/ms13handling/meat_drop.ogg'
+	pickup_sound =  'mojave/sound/ms13items/ms13handling/meat_pickup.ogg'
+
+/obj/item/food/meat/cutlet/plain/ms13/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/item_scaling, 0.50, 1)
+
+//Pre-War Meats
+/* THIS SHIT IS BROKEN!
 /obj/item/food/ms13/ingredient/dogfood
 	name = "dog food"
 	desc = "A portion of century old beef, gravy and barely recognizable vegetables, made for mutts, are you really that desperate?"
@@ -73,3 +114,4 @@
 	min_cook = 40 SECONDS
 	min_cook = 80 SECONDS
 	overlay_state = "salisbury"
+*/

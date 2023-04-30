@@ -17,6 +17,7 @@
 	slowdown = 0.75
 	grid_width = 192
 	grid_height = 64
+	wield_info = /datum/wield_info/default/inhands
 
 /obj/item/gun/energy/ms13/laser/rifle/advanced
 	name = "advanced laser rifle"
@@ -66,6 +67,7 @@
 	slowdown = 0.75
 	grid_width = 160
 	grid_height = 64
+	wield_info = /datum/wield_info/default/inhands
 
 /obj/item/gun/energy/ms13/laser/rcw/Initialize()
 	. = ..()
@@ -87,6 +89,7 @@
 	slowdown = 0.75
 	grid_width = 192
 	grid_height = 64
+	wield_info = /datum/wield_info/default/inhands
 
 // Plasma Rifles //
 
@@ -108,6 +111,7 @@
 	recoil = 0.75
 	grid_width = 192
 	grid_height = 64
+	wield_info = /datum/wield_info/default/inhands
 
 /obj/item/gun/energy/ms13/plasma/rifle/carbine
 	name = "plasma carbine"
@@ -139,3 +143,4 @@
 	recoil = 0.75
 	grid_width = 192
 	grid_height = 64
+	wield_info = /datum/wield_info/default/inhands

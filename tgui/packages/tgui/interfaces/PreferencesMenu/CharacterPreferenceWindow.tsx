@@ -94,11 +94,11 @@ export const CharacterPreferenceWindow = (props, context) => {
             />
           </Stack.Item>
 
-          {!data.content_unlocked && (
+          {/* !data.content_unlocked && ( // MOJAVE SUN EDIT
             <Stack.Item align="center">
               Buy BYOND premium for more slots!
             </Stack.Item>
-          )}
+          )*/}
 
           <Stack.Divider />
 

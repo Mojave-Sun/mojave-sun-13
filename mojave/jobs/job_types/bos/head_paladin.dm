@@ -5,7 +5,7 @@
 	spawn_positions = 1
 	supervisors = "The Elder (if present) and Brotherhood High Command"
 	req_admin_notify = 1
-	description = "Give orders to your Paladin and ensure the Knights are working properly in the region. Work with the Head Scribe to coordinate efforts for the Brotherhood's mission in the region."
+	description = "Give orders to your Paladin and ensure the Knights are working properly in the region. Work with the Head Scribe to coordinate efforts for the Brotherhood's mission in the region. You're currently at edge with the NCR, though not at war, yet."
 
 	outfit = /datum/outfit/job/ms13/bos/head_paladin
 
@@ -28,7 +28,8 @@
 	backpack_contents = list(
 		/obj/item/stock_parts/cell/ms13/mfc=1,\
 		/obj/item/stack/medical/gauze/ms13/half=1, \
-		/obj/item/stack/medical/ointment/ms13/half=1)
+		/obj/item/stack/medical/ointment/ms13/half=1, \
+		/obj/item/stack/ms13/currency/prewar/eighty=1)
 
 /datum/outfit/job/ms13/bos/head_paladin/pre_equip(mob/living/carbon/human/H)
 	..()

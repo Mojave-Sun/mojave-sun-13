@@ -310,3 +310,21 @@
 	toolspeed = 10 //You will never willingly choose to use one of these over a shovel.
 	font = FOUNTAIN_PEN_FONT
 	colour = "blue"
+
+/obj/item/pen/ms13
+	icon = 'mojave/icons/objects/clutter/clutter_world.dmi'
+	icon_state = "pen"
+
+/obj/item/pen/ms13/attack_self(mob/living/carbon/user)
+	return
+
+/obj/item/pen/ms13/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clutter/clutter_inventory.dmi')
+
+/obj/item/pen/ms13/pencil
+	name = "pencil"
+	desc = "An orange pencil with a pink eraser"
+	icon_state = "pencil"
+	colour = "dimgray"
+	font = CHARCOAL_FONT

@@ -130,11 +130,11 @@
 		icon_state = "[initial(icon_state)]_mag_empty"
 		////yes this has extensive ammounts, some might be unecassary but are in place as a failsafe
 
-/obj/item/gun/ballistic/rifle/ms13/hunting/chinese
-	name = "\improper Chinese hunting rifle"
-	desc = "A Chinese bolt action hunting rifle, chambered in 7.62 with an internal magazine."
-	icon_state = "chinesehunting"
-	inhand_icon_state = "chinesehunting"
+/obj/item/gun/ballistic/rifle/ms13/hunting/surplus
+	name = "surplus hunting rifle"
+	desc = "A cheap bolt action hunting rifle, chambered in 7.62 with an internal magazine."
+	icon_state = "surplushunting"
+	inhand_icon_state = "surplushunting"
 	internal_magazine = TRUE
 	mag_type = /obj/item/ammo_box/magazine/internal/ms13/chinese_rifle
 	fire_sound = 'mojave/sound/ms13weapons/hunting_rifle.ogg'
@@ -246,6 +246,7 @@
 	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	multiple_sprites = AMMO_BOX_PER_BULLET
+	multiload = TRUE
 	grid_height = 32
 	grid_width = 32
 

@@ -69,7 +69,7 @@
 	body_part = ARM_LEFT
 	aux_zone = BODY_ZONE_PRECISE_L_HAND
 	aux_layer = HANDS_PART_LAYER
-	body_damage_coeff = 0.7 //MOJAVE EDIT - Original TG value is 0.75
+	body_damage_coeff = 0.6 //MOJAVE EDIT - Original TG value is 0.75
 	held_index = 1
 	px_x = -6
 	px_y = 0
@@ -168,7 +168,7 @@
 	body_part = ARM_RIGHT
 	aux_zone = BODY_ZONE_PRECISE_R_HAND
 	aux_layer = HANDS_PART_LAYER
-	body_damage_coeff = 0.7 //MOJAVE EDIT - Original TG value is 0.75
+	body_damage_coeff = 0.6 //MOJAVE EDIT - Original TG value is 0.75
 	held_index = 2
 	px_x = 6
 	px_y = 0
@@ -266,7 +266,7 @@
 	//MOJAVE EDIT END
 	body_zone = BODY_ZONE_L_LEG
 	body_part = LEG_LEFT
-	body_damage_coeff = 0.7 //MOJAVE EDIT - Original TG value is 0.75
+	body_damage_coeff = 0.6 //MOJAVE EDIT - Original TG value is 0.75
 	px_x = -2
 	px_y = 12
 	can_be_disabled = TRUE
@@ -361,7 +361,7 @@
 	//MOJAVE EDIT END
 	body_zone = BODY_ZONE_R_LEG
 	body_part = LEG_RIGHT
-	body_damage_coeff = 0.7 //MOJAVE EDIT - Original TG value is 0.75
+	body_damage_coeff = 0.6 //MOJAVE EDIT - Original TG value is 0.75
 	px_x = 2
 	px_y = 12
 	can_be_disabled = TRUE

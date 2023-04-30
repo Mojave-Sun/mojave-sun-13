@@ -58,7 +58,7 @@
 		return
 	return ..()
 
-/mob/living/simple_animal/hostile/jungle/mook/Goto()
+/mob/living/simple_animal/hostile/jungle/mook/Goto(target, delay, minimum_distance)
 	if(attack_state != MOOK_ATTACK_NEUTRAL)
 		return
 	return ..()

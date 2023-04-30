@@ -1,10 +1,10 @@
-//// These spawners are GUARENTEED spawns. If you are making changes to these pools, you should probably also make changes to the non-static spawns outside of the Guarenteed folder. ////
+//// These spawners are GUARANTEED spawns. If you are making changes to these pools, you should probably also make changes to the non-static spawns outside of the guaranteed folder. ////
 //// The idea of these spawners it to use these SPARINGLY. Emphasis on SPARINGLY... Examples of where to use these are: High tier dungeons / Faction bases ////
 
-/obj/effect/spawner/random/ms13/guarenteed/clothing
+/obj/effect/spawner/random/ms13/guaranteed/clothing
 	name = "DO NOT USE ME - Mojave Sun clothing spawners"
 
-/obj/effect/spawner/random/ms13/guarenteed/clothing/under
+/obj/effect/spawner/random/ms13/guaranteed/clothing/under
 	name = "miscellaneous undersuit spawner"
 	icon_state = "ms13_under-static"
 	spawn_loot_count = 1
@@ -40,7 +40,7 @@
 		/obj/item/clothing/under/ms13/wasteland/gentlemansuit/vintage,
 		/obj/item/clothing/under/ms13/wasteland/barmansuit)
 
-/obj/effect/spawner/random/ms13/guarenteed/clothing/shoe
+/obj/effect/spawner/random/ms13/guaranteed/clothing/shoe
 	name = "miscellaneous shoe spawner"
 	icon_state = "ms13_shoes-static"
 	spawn_loot_count = 1
@@ -57,7 +57,7 @@
 		/obj/item/clothing/shoes/ms13/military/diesel,
 		/obj/item/clothing/shoes/ms13/military/diesel/female)
 
-/obj/effect/spawner/random/ms13/guarenteed/clothing/glasses
+/obj/effect/spawner/random/ms13/guaranteed/clothing/glasses
 	name = "miscellaneous glasses spawner"
 	icon_state = "ms13_glasses-static"
 	spawn_loot_count = 1
@@ -74,7 +74,7 @@
 		/obj/item/clothing/glasses/ms13/sunglasses,
 		/obj/item/clothing/glasses/ms13/welding)
 
-/obj/effect/spawner/random/ms13/guarenteed/clothing/gloves
+/obj/effect/spawner/random/ms13/guaranteed/clothing/gloves
 	name = "miscellaneous gloves spawner"
 	icon_state = "ms13_gloves-static"
 	spawn_loot_count = 1
@@ -84,7 +84,7 @@
 		/obj/item/clothing/gloves/ms13/baseball,
 		/obj/item/clothing/gloves/ms13/leather)
 
-/obj/effect/spawner/random/ms13/guarenteed/clothing/mask
+/obj/effect/spawner/random/ms13/guaranteed/clothing/mask
 	name = "miscellaneous mask spawner"
 	spawn_loot_count = 1
 	loot = list(
@@ -102,7 +102,7 @@
 		/obj/item/clothing/mask/gas/ms13/modern,
 		/obj/item/clothing/head/welding/ms13)
 
-/obj/effect/spawner/random/ms13/guarenteed/clothing/hat
+/obj/effect/spawner/random/ms13/guaranteed/clothing/hat
 	name = "miscellaneous hat spawner"
 	icon_state = "ms13_hat-static"
 	spawn_loot_count = 1
@@ -139,7 +139,7 @@
 			/obj/item/clothing/head/helmet/ms13/ushanka/blue,
 			/obj/item/clothing/head/helmet/ms13/ushanka/green)
 
-/obj/effect/spawner/random/ms13/guarenteed/clothing/backpack
+/obj/effect/spawner/random/ms13/guaranteed/clothing/backpack
 	name = "standard backpack spawner"
 	icon_state = "loot-static"
 	spawn_loot_count = 1
@@ -149,7 +149,7 @@
 			/obj/item/storage/ms13/corvega_bag,
 			/obj/item/storage/ms13/leather_backpack)
 
-/obj/effect/spawner/random/ms13/guarenteed/clothing/backpack/high
+/obj/effect/spawner/random/ms13/guaranteed/clothing/backpack/high
 	name = "high tier backpack spawner"
 	loot = list(
 			/obj/item/storage/ms13/military,

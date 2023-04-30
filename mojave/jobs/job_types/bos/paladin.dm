@@ -5,7 +5,7 @@
 	spawn_positions = 1
 	supervisors = "The Head Paladin"
 	req_admin_notify = 1
-	description = "Lead and coordinate the Knights while following and relaying the orders of the Head Paladin. Cooperate with the Scribes to ensure smooth operations in the region and the safety of your bunker."
+	description = "Lead and coordinate the Knights while following and relaying the orders of the Head Paladin. Cooperate with the Scribes to ensure smooth operations in the region and the safety of your bunker. You're currently at edge with the NCR, though not at war, yet."
 
 	outfit = /datum/outfit/job/ms13/bos/paladin
 
@@ -27,7 +27,8 @@
 	l_pocket =  /obj/item/knife/ms13/combat
 	backpack_contents = list(
 		/obj/item/stack/medical/gauze/ms13/half=1, \
-		/obj/item/stack/medical/ointment/ms13/half=1)
+		/obj/item/stack/medical/ointment/ms13/half=1, \
+		/obj/item/stack/ms13/currency/prewar/sixty=1)
 
 /datum/outfit/job/ms13/bos/paladin/pre_equip(mob/living/carbon/human/H)
 	..()

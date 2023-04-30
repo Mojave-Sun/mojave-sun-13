@@ -90,8 +90,13 @@
 	ignore += typesof(/obj/item/clothing/head/mob_holder)
 
 	// MOJAVE EDIT - Additional blacklists
+	//Grid inventory HATES this
 	ignore += typesof(/obj/item/storage/fish_case)
+	//Grid inventory HATES this
 	ignore += typesof(/obj/item/storage/part_replacer)
+	//Expects a master atom to be attached to
+	ignore += typesof(/atom/movable/follower)
+	// MOJAVE EDIT END
 
 	var/list/cached_contents = spawn_at.contents.Copy()
 	var/baseturf_count = length(spawn_at.baseturfs)

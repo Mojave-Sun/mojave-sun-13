@@ -53,3 +53,35 @@
 	. = ..()
 	new /obj/item/documents/syndicate/mining(src)
 	update_appearance()
+
+/obj/item/folder/ms13
+	name = "debug name"
+	desc = "you're not supposed to be seeing this"
+	icon = 'mojave/icons/objects/clutter/clutter_world.dmi'
+	grid_height = 32
+	grid_width = 32
+
+/obj/item/folder/ms13/update_overlays()
+	. = ..()
+	if(contents.len)
+		. += "folder_paper"
+
+/obj/item/folder/ms13/brown
+	name = "folder"
+	desc = "A brown folder."
+	icon_state = "folder_brown"
+
+/obj/item/folder/ms13/red
+	name = "folder"
+	desc = "A red folder."
+	icon_state = "folder_red"
+
+/obj/item/folder/ms13/blue
+	name = "folder"
+	desc = "A blue folder."
+	icon_state = "folder_blue"
+
+/obj/item/folder/ms13/green
+	name = "folder"
+	desc = "A green folder."
+	icon_state = "folder_green"

@@ -16,6 +16,7 @@
 	weapon_weight = WEAPON_HEAVY
 	grid_width = 160
 	grid_height = 64
+	wield_info = /datum/wield_info/default/inhands
 
 /obj/item/gun/ballistic/revolver/ms13/caravan/sawed
 	name = "sawed-off shotgun"
@@ -67,6 +68,7 @@
 	slowdown = 0.75
 	grid_width = 160
 	grid_height = 64
+	wield_info = /datum/wield_info/default/inhands
 
 ////////////////////////// revolvers////////////////
 /obj/item/gun/ballistic/revolver/ms13/derringer

@@ -17,4 +17,4 @@
 
 /obj/item/ms13/lockpick/basic
 	name = "lockpick"
-	desc = "A crudely fashioned flexible piece of brass, perfect for jamming in locks and pin pushing."
+	desc = "A crudely fashioned flexible piece of metal, perfect for jamming in locks and pin pushing."

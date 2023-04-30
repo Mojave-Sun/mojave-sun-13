@@ -89,3 +89,21 @@
 	variance = 25
 	select_name = "scatter"
 	e_cost = 60 //Combined with PC capacity this gives 10 shots
+
+// Gauss //
+
+/obj/item/ammo_casing/energy/ms13/gauss //DO NOT USE ME - Base type
+	projectile_type = /obj/projectile/bullet/ms13/gauss
+	select_name = "gauss bullet"
+
+/obj/item/ammo_casing/energy/ms13/gauss/pistol
+	projectile_type = /obj/projectile/bullet/ms13/gauss/pistol
+	e_cost = 50 //Combined with 2mmEC capacity this gives 12 shots
+
+/obj/item/ammo_casing/energy/ms13/gauss/rifle
+	projectile_type = /obj/projectile/bullet/ms13/gauss/rifle
+	e_cost = 75 //Combined with 2mmEC capacity this gives 8 shots
+
+/obj/item/ammo_casing/energy/ms13/gauss/sniper
+	projectile_type = /obj/projectile/bullet/ms13/gauss/sniper
+	e_cost = 60 //Combined with 2mmEC capacity this gives 10 shots

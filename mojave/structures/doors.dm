@@ -3,7 +3,7 @@
 	name = "base state ms13 door"
 	pixel_x = -16
 	pixel_y = -8
-	plane = ABOVE_GAME_PLANE
+	plane = GAME_PLANE_FOV_HIDDEN
 	layer = ABOVE_MOB_LAYER
 	density = TRUE
 	assemblytype = null
@@ -13,7 +13,7 @@
 	armor = list(MELEE = 50, BULLET = 80, LASER = 90, ENERGY = 90, BOMB = 30, BIO = 100, FIRE = 80, ACID = 100)
 	damage_deflection = 15
 	sparks = FALSE
-	flags_1 = LOCKABLE
+	ms13_flags_1 = LOCKABLE_1
 	var/door_type = null
 	var/solidity = SOLID
 	var/frametype = "metal"
@@ -37,17 +37,23 @@
 	if(dir == EAST)
 		pixel_x = -3
 		pixel_y = 16
-		add_overlay(image(icon,icon_state="[frametype]_frame_vertical_overlay"))
+		add_overlay(image(icon,icon_state="[frametype]_frame_vertical_overlay", layer = ABOVE_ALL_MOB_LAYER))
 
 	if(dir == WEST)
 		pixel_x = -28
 		pixel_y = 16
-		add_overlay(image(icon,icon_state="[frametype]_frame_vertical_overlay"))
+		add_overlay(image(icon,icon_state="[frametype]_frame_vertical_overlay", layer = ABOVE_ALL_MOB_LAYER))
 
 /obj/machinery/door/unpowered/ms13/update_overlays()
 	. = ..()
 
 	cut_overlays()
+
+	if(dir == EAST)
+		add_overlay(image(icon,icon_state="[frametype]_frame_vertical_overlay", layer = ABOVE_ALL_MOB_LAYER))
+
+	if(dir == WEST)
+		add_overlay(image(icon,icon_state="[frametype]_frame_vertical_overlay", layer = ABOVE_ALL_MOB_LAYER))
 
 	if(has_damage_overlay) //stunning code, code of the year
 		switch(open)
@@ -181,7 +187,7 @@
 		return
 	if(.)
 		return
-	if(flags_1 & LOCKABLE && lock_locked)
+	if(ms13_flags_1 & LOCKABLE_1 && lock_locked)
 		to_chat(M, span_warning("The [name] is locked."))
 		playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
 		return
@@ -199,7 +205,7 @@
 		try_to_activate_door(M)
 		return TRUE
 	if(!open)
-		update_overlays()
+		update_appearance()
 		return ((obj_flags & CAN_BE_HIT) && I.attack_atom(src, M, params))
 
 /obj/machinery/door/unpowered/ms13/do_animate(animation)

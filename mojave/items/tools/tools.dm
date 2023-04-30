@@ -51,7 +51,7 @@
 	bare_wound_bonus = 0
 	attack_verb_continuous = list("saws", "slashes", "tears", "rips")
 	attack_verb_simple = list("saw", "slash", "tear", "rip")
-	sharpness = IS_SHARP_AXE // Cut down da TREE. Cut down da WOOD.
+	sharpness = SHARP_EDGED | SHARP_AXE // Cut down da TREE. Cut down da WOOD.
 	tool_behaviour = TOOL_SAW
 	slot_flags = ITEM_SLOT_BELT
 	resistance_flags = FIRE_PROOF

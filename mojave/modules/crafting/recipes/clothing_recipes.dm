@@ -39,12 +39,12 @@
 	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
 
 /datum/crafting_recipe/mole_jacket
-	name = "moleskin jacket"
+	name = "ratskin jacket"
 	result = /obj/item/clothing/suit/ms13/ljacket/moleskin
 	time = 10 SECONDS
 	tool_behaviors = list(TOOL_KNIFE)
 	tool_paths = list()
-	reqs = list(/obj/item/ms13/hide/molerat = 1,
+	reqs = list(/obj/item/ms13/hide/pigrat = 1,
 				/obj/item/stack/sheet/ms13/cloth = 2,
 				/obj/item/stack/sheet/ms13/thread = 1)
 	category = CAT_ARMOR

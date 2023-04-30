@@ -148,7 +148,7 @@
 	weapon_weight = WEAPON_HEAVY
 	slot_flags = ITEM_SLOT_BACK
 	mag_type = /obj/item/ammo_box/magazine/ms13/smgm22
-	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
+	fire_sound = 'mojave/sound/ms13weapons/gunsounds/22/22smg.ogg'
 	fire_delay = 0.2 SECONDS
 	spread = 12
 	recoil = 0.2
