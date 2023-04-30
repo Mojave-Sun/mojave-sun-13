@@ -7,6 +7,7 @@
 	base_icon_state = "stanlas_pistol"
 	inhand_icon_state = "stanlas_pistol"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_1.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/laser_pistol.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 	weapon_weight = WEAPON_MEDIUM
 	slot_flags = ITEM_SLOT_SUITSTORE | ITEM_SLOT_BELT
@@ -75,6 +76,7 @@
 	base_icon_state = "plasmapistol"
 	inhand_icon_state = "plasmapistol"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/plaspistol/plasma_3.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/plasma_pistol.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 	weapon_weight = WEAPON_MEDIUM
 	slot_flags = ITEM_SLOT_SUITSTORE | ITEM_SLOT_BELT

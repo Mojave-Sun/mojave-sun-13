@@ -6,6 +6,7 @@
 	inhand_icon_state = "hunting"
 	mag_type = /obj/item/ammo_box/magazine/ms13/r308
 	fire_sound = 'mojave/sound/ms13weapons/hunting_rifle.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/hunting_rifle.ogg'
 	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	slot_flags = ITEM_SLOT_BACK
@@ -35,6 +36,7 @@
 	weapon_weight = WEAPON_HEAVY
 	slot_flags = ITEM_SLOT_BACK
 	fire_sound = 'mojave/sound/ms13weapons/varmint_rifle.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/varmint_rifle.ogg'
 	fire_delay = 0.65 SECONDS
 	spread = 2
 	recoil = 0.75
@@ -81,6 +83,7 @@
 	recoil = 0.25
 	slowdown = 1
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
+	far_fire_sound = null
 	w_class = WEIGHT_CLASS_HUGE
 	has_scope = TRUE
 	scope_range = 2
@@ -94,6 +97,7 @@
 	inhand_icon_state = "amr"
 	mag_type = /obj/item/ammo_box/magazine/ms13/amr
 	fire_sound = 'mojave/sound/ms13weapons/amrfire.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/amr.ogg'
 	fire_delay = 1 SECONDS
 	spread = 2
 	recoil = 4
@@ -138,6 +142,7 @@
 	internal_magazine = TRUE
 	mag_type = /obj/item/ammo_box/magazine/internal/ms13/chinese_rifle
 	fire_sound = 'mojave/sound/ms13weapons/hunting_rifle.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/hunting_rifle.ogg'
 	spread = 2
 	recoil = 1.25
 
