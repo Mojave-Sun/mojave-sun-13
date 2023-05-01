@@ -30,10 +30,13 @@
 	var/turf/below_turf = SSmapping.get_turf_below(turf_source)
 	var/list/listeners = list()
 	listeners += SSmobs.clients_by_zlevel[source_z]
+	listeners += SSmobs.dead_players_by_zlevel[source_z]
 	if(above_turf && istransparentturf(above_turf))
 		listeners += SSmobs.clients_by_zlevel[above_turf.z]
+		listeners += SSmobs.dead_players_by_zlevel[above_turf.z]
 	if(below_turf && istransparentturf(turf_source))
 		listeners += SSmobs.clients_by_zlevel[below_turf.z]
+		listeners += SSmobs.dead_players_by_zlevel[below_turf.z]
 	for(var/mob/listening_mob as anything in listeners)
 		var/distance = get_dist(listening_mob, turf_source)
 		//close listener
