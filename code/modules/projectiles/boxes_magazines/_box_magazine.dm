@@ -129,7 +129,12 @@
 	if(item_flags & IN_STORAGE)
 		return
 	//THIS IS THE WORST FUCKING LINE OF CODE, EVER, OF ALL TIME
-	if(istype(A, /obj/item/ammo_box) && (!istype(A, /obj/item/ammo_box/magazine) || istype(A, /obj/item/ammo_box/magazine/ammo_stack)))
+	//UPDATE: IT HAS GOTTEN WORSE. THIS SINGLE FUCKING LINE OF CODE HAS ONCE AGAIN MANAGED TO TRIP ME UP.
+	//FUCKUPS CAUSED BY THIS CRAPSO FAR: 3
+	if(istype(A, /obj/item/ammo_box) \
+		&& ((!istype(A, /obj/item/ammo_box/magazine) || istype(A, /obj/item/ammo_box/magazine/ammo_stack)) \
+		|| (istype(src, /obj/item/ammo_box/magazine/ammo_stack) && istype(A, /obj/item/ammo_box/magazine/internal))) \
+	)
 	//MOJAVE EDIT END
 		var/obj/item/ammo_box/AM = A
 		for(var/obj/item/ammo_casing/AC in AM.stored_ammo)
