@@ -8,7 +8,7 @@
 	icon_gib = "deathclaw_gib"
 	gender = MALE
 	mob_biotypes = list(MOB_ORGANIC, MOB_BEAST)
-	stat_attack = DEAD
+	stat_attack = HARD_CRIT
 	robust_searching = 1
 	anchored = 1
 	speak = list("ROAR!","Rawr!","GRRAAGH!","Growl!")
@@ -36,6 +36,7 @@
 	base_pixel_x = -16
 	aggro_vision_range = 10
 	vision_range = 10
+	wander = FALSE
 	var/charging = FALSE
 	var/datum/action/cooldown/mob_cooldown/charge/deathclaw/charge
 	var/datum/action/cooldown/mob_cooldown/charge/deathclaw/combo/combo
@@ -45,6 +46,13 @@
 	var/datum/action/cooldown/mob_cooldown/projectile_attack/rapid_fire/pocket_sand/pocket_sand
 	var/aggro_roar_available = TRUE
 	var/second_wind_available = TRUE
+
+	///The ai_node we'll go back to with dead bodies and store them over there, extra flavor for roaming deathclaw
+	var/obj/effect/ai_node/nest_node = null
+	///Determine if we make it here and if we do, stop dragging a body
+	var/turf/dropoff_location = null
+	///OFF TO THE NEST!
+	var/pulled_victim = null
 
 /mob/living/simple_animal/hostile/megafauna/deathclaw/Initialize()
 	. = ..()
@@ -60,6 +68,22 @@
 	slash.Grant(src)
 	//pocket_sand = new /datum/action/cooldown/mob_cooldown/projectile_attack/rapid_fire/pocket_sand()
 	//pocket_sand.Grant(src)
+	RegisterSignal(src, COMSIG_AI_NODE_REACHED, .proc/check_node)
+	AddComponent(/datum/component/generic_animal_patrol, _animal_node_weights = list(NODE_LAST_VISITED = -1), _animal_identifier = IDENTIFIER_GENERIC_SIMPLE, _patrol_move_delay = 3)
+	for(var/obj/effect/ai_node/node in range(7, src))
+		nest_node = node
+		break
+
+//If we reach the node nest, pick a spot to go towards to drop off the body
+/mob/living/simple_animal/hostile/megafauna/deathclaw/proc/check_node(datum/source)
+	var/datum/component/generic_animal_patrol/patrol = GetComponent(/datum/component/generic_animal_patrol)
+	if((nest_node == patrol.current_node) && pulled_victim && pulling)
+		for(var/turf/T in shuffle(range(2, src)))
+			dropoff_location = T
+			prevent_goto_movement = FALSE
+			Goto(dropoff_location, move_to_delay, minimum_distance = 0)
+			break
+		prevent_goto_movement = TRUE
 
 /mob/living/simple_animal/hostile/megafauna/deathclaw/Destroy()
 	QDEL_NULL(charge)
@@ -79,10 +103,39 @@
 		aggro_roar_available = TRUE
 
 /mob/living/simple_animal/hostile/megafauna/deathclaw/Life()
- . = ..()
+	. = ..()
 	if(AIStatus == AI_IDLE)
 		if(prob(20))
 			playsound(src, pick('mojave/sound/ms13npc/deathclaw/npc_deathclaw_idle_01.wav', 'mojave/sound/ms13npc/deathclaw/npc_deathclaw_idle_02.wav', 'mojave/sound/ms13npc/deathclaw/npc_deathclaw_idle_03.wav', 'mojave/sound/ms13npc/deathclaw/npc_deathclaw_idle_04.wav'), 75, FALSE)
+
+		if(loc == dropoff_location)
+			stop_pulling()
+			dropoff_location = null
+			pulled_victim = null
+			prevent_goto_movement = FALSE
+
+		var/datum/component/generic_animal_patrol/patrol = GetComponent(/datum/component/generic_animal_patrol)
+		if(!pulled_victim && !(nest_node == patrol.current_node))
+			for(var/mob/living/carbon/human/rip in range(7, src))
+				if(rip && ((rip.stat == DEAD) || (rip.stat == HARD_CRIT)))
+					pulled_victim = rip
+					break
+
+		//We got too distracted
+		if(pulled_victim && get_dist(src, pulled_victim) > 10)
+			pulled_victim = null
+			prevent_goto_movement = FALSE
+
+		if(pulled_victim && !pulling)
+			Goto(pulled_victim, move_to_delay, minimum_distance = 0)
+			prevent_goto_movement = TRUE //Don't let generic patrol disturb us
+			if(get_dist(src, pulled_victim) < 2)
+				start_pulling(pulled_victim)
+
+		//Life() optimization? Never heard of it, let's get back to the CAVE
+		if(pulled_victim == pulling && (nest != patrol.target_node) && (nest != patrol.current_node))
+			SEND_SIGNAL(src, COMSIG_AI_SET_GOAL_NODE, nest_node)
+			prevent_goto_movement = FALSE
 
 /mob/living/simple_animal/hostile/megafauna/deathclaw/adjustBruteLoss(amount, updating_health = TRUE, forced = FALSE)
 	. = ..()
@@ -125,12 +178,13 @@
 
 /mob/living/simple_animal/hostile/megafauna/deathclaw/handle_automated_action()
 	. = ..()
-	if(AIStatus == AI_OFF || AIStatus == AI_Z_OFF || AIStatus == AI_IDLE)
+	if((health != maxHealth) && (AIStatus == AI_OFF || AIStatus == AI_Z_OFF || AIStatus == AI_IDLE))
 		adjustBruteLoss(-20) //Passive healing time
 		if(health == maxHealth)
 			second_wind_available = TRUE
 
 /mob/living/simple_animal/hostile/megafauna/deathclaw/devour(mob/living/L)
+	/*
 	if(!L)
 		return FALSE
 	if(istype(L, /mob/living/carbon/human))
@@ -142,6 +196,7 @@
 		span_userdanger("You feast on [L], restoring your health!"))
 	L.gib()
 	playsound(src, 'mojave/sound/ms13npc/deathclaw/deathclaw_roar.mp3', 100, TRUE, -1)
+	*/
 	return TRUE
 
 //Spooky roar that shakes nearby tiles and screens of players to act as a telegraph
