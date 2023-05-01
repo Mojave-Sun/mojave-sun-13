@@ -133,7 +133,7 @@
 	//FUCKUPS CAUSED BY THIS CRAPSO FAR: 3
 	if(istype(A, /obj/item/ammo_box) \
 		&& ((!istype(A, /obj/item/ammo_box/magazine) || istype(A, /obj/item/ammo_box/magazine/ammo_stack)) \
-		|| (istype(src, /obj/item/ammo_box/magazine/ammo_stack) && istype(A, /obj/item/ammo_box/magazine/internal))) \
+		|| (istype(src, /obj/item/ammo_box/magazine/ammo_stack) && istype(A, /obj/item/ammo_box/magazine))) \
 	)
 	//MOJAVE EDIT END
 		var/obj/item/ammo_box/AM = A
