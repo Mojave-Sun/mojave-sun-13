@@ -341,6 +341,8 @@
 	grid_height = 128
 	custom_materials = null
 	toolspeed = 1.5 //grim
+	var/mining_mult = 0
+	mining_mult = 8
 
 /obj/item/ms13/brick
 	name = "brick"
