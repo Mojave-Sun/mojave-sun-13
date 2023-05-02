@@ -18,7 +18,7 @@
 	var/mob/living/mob_parent = parent
 	var/obj/item/clothing/clothing_parent = parent
 	src.fov_angle = fov_angle
-	src.deactivated = clothing_parent.active //Initial values could vary, so we need to get it.
+	src.deactivated = clothing_parent.is_activated //Initial values could vary, so we need to get it.
 	on_dir_change(mob_parent, mob_parent.dir, mob_parent.dir)
 
 /datum/component/fov_nightvision/RegisterWithParent()
