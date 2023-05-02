@@ -15,12 +15,13 @@
 
 	head = /obj/item/clothing/head/helmet/ms13/legion/veteran
 	glasses = /obj/item/clothing/glasses/ms13/leather
-	uniform = /obj/item/clothing/under/ms13/legion/fatigues/red
+	uniform = /obj/item/clothing/under/ms13/legion/fatigues
 	shoes = /obj/item/clothing/shoes/ms13/military/legion/tanboots
 	suit = /obj/item/clothing/suit/armor/ms13/legion/veteran
 	gloves = /obj/item/clothing/gloves/ms13/legion/bracers
 	suit_store = /obj/item/gun/ballistic/shotgun/ms13/lever
 	r_pocket = /obj/item/stack/medical/gauze/ms13/three
+	l_pocket = /obj/item/stack/ms13/currency/aurelius/two
 	belt = /obj/item/claymore/ms13/machete/gladius
 	id = /obj/item/card/id/ms13/legveteran
 	backpack_contents = list(

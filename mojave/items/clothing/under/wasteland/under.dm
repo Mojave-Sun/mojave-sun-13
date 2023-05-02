@@ -262,6 +262,11 @@
 	icon_state = "mechanicalt"
 	inhand_icon_state = "g_suit"
 
+/obj/item/clothing/under/ms13/wasteland/baron
+	name = "\improper Chains of the Baron"
+	desc = "A menacing metal chain harness belonging to a very specific and very powerful individual."
+	icon_state = "baron"
+
 // suits//fancy //
 
 /obj/item/clothing/under/ms13/wasteland/heeledsuit

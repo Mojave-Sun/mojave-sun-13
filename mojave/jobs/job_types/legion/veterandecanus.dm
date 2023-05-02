@@ -14,8 +14,7 @@
 	jobtype = /datum/job/ms13/legion/veterandecanus
 
 	head = /obj/item/clothing/head/helmet/ms13/legion/decanus/veteran
-	glasses = /obj/item/clothing/glasses/ms13/leather
-	uniform = /obj/item/clothing/under/ms13/legion/fatigues/red/padded
+	uniform = /obj/item/clothing/under/ms13/legion/fatigues
 	shoes = /obj/item/clothing/shoes/ms13/military/legion/tanboots
 	suit = /obj/item/clothing/suit/armor/ms13/legion/veteran
 	gloves = /obj/item/clothing/gloves/ms13/legion/bracers
@@ -25,7 +24,8 @@
 	l_pocket = /obj/item/flashlight/flare/ms13
 	id = /obj/item/card/id/ms13/legveteran/decanus
 	backpack_contents = list(
-		/obj/item/ammo_box/magazine/ms13/ar762=1)
+		/obj/item/ammo_box/magazine/ms13/ar762=1,\
+		/obj/item/stack/ms13/currency/aurelius/five=1)
 
 /datum/outfit/job/ms13/legion/veterandecanus/pre_equip(mob/living/carbon/human/H)
 	..()

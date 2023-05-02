@@ -190,7 +190,7 @@
 	max_ammo = 12
 	w_class = WEIGHT_CLASS_SMALL
 	multiload = 0
-	grid_height = 64
+	grid_height = 32
 	grid_width = 64
 
 /obj/item/ammo_box/ms13/shotgun/junkshot

@@ -88,6 +88,31 @@
 	light_color = "#4ba54f"
 	butcher_results = list(/obj/item/food/meat/slab/ms13/animal/glowroach = 1)
 
+/mob/living/basic/ms13/hostile_animal/mantis
+	name = "giant mantis"
+	desc = "A large, mutated preying mantis. Best not to let it get too close."
+	icon_state = "mantis"
+	icon_dead = "mantis_dead"
+	speak_emote = list("chitters")
+	attack_verb_continuous = "swipes"
+	attack_verb_simple = "swipe"
+	attack_sound = list('mojave/sound/ms13npc/ant_attack1.ogg', 'mojave/sound/ms13npc/ant_attack2.ogg') //placeholder for now
+	deathsound = 'mojave/sound/ms13npc/mantis_death.ogg'
+	health = 25
+	maxHealth = 25
+	melee_damage_lower = 15
+	melee_damage_upper = 15
+	subtractible_armour_penetration = 10
+	speed = 0
+	sharpness = SHARP_EDGED
+	wound_bonus = 6
+	bare_wound_bonus = 6
+	faction = list("insect")
+
+/mob/living/basic/ms13/hostile_animal/mantis/death()
+	. = ..()
+	playsound(src, 'mojave/sound/ms13npc/mantis_death.ogg', 65, TRUE)
+
 /mob/living/basic/ms13/hostile_animal/gecko
 	name = "gecko"
 	desc = "A large mutated bipedal lizard, an angry squatter of the wastes."
@@ -109,6 +134,7 @@
 	wound_bonus = 6
 	bare_wound_bonus = 8
 	faction = list("gecko")
+	butcher_results = list(/obj/item/food/meat/slab/ms13/carcass/gecko/desert = 1, /obj/item/ms13/animalitem/gecko/claws = 1)
 	/*food_type = null //insert TECHNOFISH TM HERE
 	tame_chance = 5
 	bonus_tame_chance = 15
@@ -125,9 +151,17 @@
 	icon_dead = "icegecko_dead"
 	butcher_results = list(/obj/item/food/meat/slab/ms13/carcass/gecko = 1, /obj/item/ms13/animalitem/gecko/claws = 1)
 
-/mob/living/basic/ms13/hostile_animal/gecko/sand
-	icon_state = "sandgecko"
-	icon_dead = "sandgecko_dead"
+/mob/living/basic/ms13/hostile_animal/gecko/golden
+	name = "golden gecko"
+	desc = "A golden gecko. Notorious for their durable hides and nutritious meat."
+	icon_state = "goldgecko"
+	icon_dead = "goldgecko_dead"
+	health = 85
+	maxHealth = 85
+	subtractible_armour_penetration = 10
+	wound_bonus = 8
+	bare_wound_bonus = 12
+	butcher_results = list(/obj/item/food/meat/slab/ms13/carcass/gecko/golden = 1, /obj/item/ms13/animalitem/gecko/claws = 1)
 
 /mob/living/basic/ms13/hostile_animal/molerat
 	name = "molerat"

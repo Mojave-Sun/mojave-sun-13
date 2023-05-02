@@ -453,6 +453,21 @@
 	icon_state = "bountyhunter"
 	inhand_icon_state = "armoredwinterblack"
 
+/obj/item/clothing/suit/armor/ms13/combat/enforcer
+	name = "surplus combat armor"
+	desc = "Cheap, surplus combat armor likely acquired from some kind of pre-war reserve armory. Still gets the job done."
+	icon_state = "enforcer"
+	body_parts_covered = CHEST|GROIN|LEGS
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = CLASS2_EDGE, \
+                CRUSHING = CLASS2_CRUSH, \
+                CUTTING = CLASS3_CUT, \
+                PIERCING = CLASS2_PIERCE, \
+                IMPALING = CLASS3_STAB, \
+                LASER = CLASS2_LASER, \
+                ENERGY = CLASS2_PLASMA, \
+                FIRE = CLASS3_FIRE)
+
 // Enviro Armor //
 
 /obj/item/clothing/suit/armor/ms13/firesuit
@@ -636,7 +651,6 @@
 	desc = "A full suit of Legion armor with plenty of hardened leather, padding, and metal reinforcements. Worn by feared Legion Veterans."
 	icon_state = "leg_vet"
 	slowdown = 0.3
-	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = CLASS1_EDGE, \
                 CRUSHING = CLASS3_CRUSH, \
@@ -660,7 +674,6 @@
 	desc = "A light and agile suit of Legion armor worn by Explorers."
 	icon_state = "leg_exp"
 	slowdown = 0
-	body_parts_covered = CHEST|GROIN
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 0, \
                 CRUSHING = CLASS2_CRUSH, \
@@ -681,8 +694,8 @@
 
 /obj/item/clothing/suit/armor/ms13/legion/vexillarius
 	name = "\improper Legion vexillarius armor"
-	desc = "Legion vexillarius armor with it's defining color."
-	icon_state = "leg_vex"
+	desc = "Legion vexillarius armor. Lighter than his typical Veteran counterparts."
+	icon_state = "leg_prime" //placeholder for now
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = CLASS1_EDGE, \
                 CRUSHING = CLASS3_CRUSH, \

@@ -118,7 +118,7 @@
 				/obj/item/clothing/head/helmet/ms13/fedora
 				)
 
-/obj/effect/spawner/random/ms13/guaranteed/armor/tier1/Initialize() //on mapload, pick what to spawn
+/obj/effect/spawner/random/ms13/guaranteed/armor/tier1/Initialize(mapload) //on mapload, pick what to spawn
 	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11, loot12, loot13, loot14, loot15, loot16, loot17, loot18, loot19, loot20, loot21, loot22, loot23, loot24, loot25, loot26, loot27)
 	. = ..()
 
@@ -182,7 +182,7 @@
 				/obj/item/clothing/head/helmet/ms13/radiationhood
 				)
 
-/obj/effect/spawner/random/ms13/guaranteed/armor/tier2/Initialize()
+/obj/effect/spawner/random/ms13/guaranteed/armor/tier2/Initialize(mapload)
 	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11, loot12, loot13, loot14)
 	. = ..()
 
@@ -222,7 +222,7 @@
 				/obj/item/clothing/head/helmet/ms13/combat
 				)
 
-/obj/effect/spawner/random/ms13/guaranteed/armor/tier3/Initialize()
+/obj/effect/spawner/random/ms13/guaranteed/armor/tier3/Initialize(mapload)
 	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8)
 	. = ..()
 
@@ -254,7 +254,7 @@
 				""
 				)
 
-/obj/effect/spawner/random/ms13/guaranteed/armor/tier4/Initialize()
+/obj/effect/spawner/random/ms13/guaranteed/armor/tier4/Initialize(mapload)
 	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6)
 	. = ..()
 
@@ -335,6 +335,6 @@
 				)
 
 
-/obj/effect/spawner/random/ms13/guaranteed/armor/military/Initialize() //on mapload, pick what to spawn
+/obj/effect/spawner/random/ms13/guaranteed/armor/military/Initialize(mapload) //on mapload, pick what to spawn
 	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6)
 	. = ..()

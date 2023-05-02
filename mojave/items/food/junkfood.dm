@@ -91,9 +91,9 @@
 	icon_state = "porknbean"
 	foodtypes = MEAT | VEGETABLES | JUNKFOOD
 	tastes = list("meaty" = 3, "savory" = 2, "buttery" = 1)
-	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/protein = 12)
-	max_volume = 20
-	bite_consumption = 5 // Porknbeans has 4 states of "fullness", so it has to be consumed in 5 bites! 20/5 = 4!
+	food_reagents = list(/datum/reagent/consumable/nutriment = 10, /datum/reagent/consumable/nutriment/protein = 15)
+	max_volume = 25
+	bite_consumption = 5
 	trash_type = /obj/item/trash/ms13/cans/porknbeans
 
 /obj/item/food/ms13/prewar/canned/cajunrice
@@ -113,7 +113,7 @@
 	icon_state = "dogfood"
 	foodtypes = MEAT | VEGETABLES | GROSS | JUNKFOOD
 	tastes = list("meaty" = 3, "sour" = 1, "old" = 1)
-	food_reagents = list(/datum/reagent/consumable/nutriment = 10, /datum/reagent/consumable/nutriment/protein = 10)
+	food_reagents = list(/datum/reagent/consumable/nutriment = 12, /datum/reagent/consumable/nutriment/protein = 8)
 	max_volume = 20
 	bite_consumption = 5
 	trash_type = /obj/item/trash/ms13/cans/dogfood

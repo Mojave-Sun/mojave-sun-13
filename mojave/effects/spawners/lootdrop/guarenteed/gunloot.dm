@@ -64,7 +64,7 @@
 				""
 				)
 
-/obj/effect/spawner/random/ms13/guaranteed/gun/tier1/Initialize()
+/obj/effect/spawner/random/ms13/guaranteed/gun/tier1/Initialize(mapload)
 	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11)
 	. = ..()
 
@@ -147,7 +147,7 @@
 				""
 				)
 
-/obj/effect/spawner/random/ms13/guaranteed/gun/tier2/Initialize()
+/obj/effect/spawner/random/ms13/guaranteed/gun/tier2/Initialize(mapload)
 	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11, loot12, loot13, loot14, loot15)
 	. = ..()
 
@@ -240,7 +240,7 @@
 				""
 				)
 
-/obj/effect/spawner/random/ms13/guaranteed/gun/tier3/Initialize()
+/obj/effect/spawner/random/ms13/guaranteed/gun/tier3/Initialize(mapload)
 	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11, loot12, loot13, loot14, loot15, loot16, loot17)
 	. = ..()
 
@@ -338,7 +338,7 @@
 				""
 				)
 
-/obj/effect/spawner/random/ms13/guaranteed/gun/tier4/Initialize()
+/obj/effect/spawner/random/ms13/guaranteed/gun/tier4/Initialize(mapload)
 	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11, loot12, loot13, loot14, loot15, loot16, loot17, loot18)
 	. = ..()
 
@@ -371,7 +371,7 @@
 				/obj/item/ammo_box/magazine/ms13/m45
 				)
 
-/obj/effect/spawner/random/ms13/guaranteed/gun/lowunique/Initialize()
+/obj/effect/spawner/random/ms13/guaranteed/gun/lowunique/Initialize(mapload)
 	loot = pick(loot1, loot2, loot3, loot4, loot5)
 	. = ..()
 
@@ -414,7 +414,7 @@
 				""
 				)
 
-/obj/effect/spawner/random/ms13/guaranteed/gun/highunique/Initialize()
+/obj/effect/spawner/random/ms13/guaranteed/gun/highunique/Initialize(mapload)
 	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7)
 	. = ..()
 
@@ -520,6 +520,6 @@
 				/obj/item/stock_parts/cell/ms13/gauss
 				)
 
-/obj/effect/spawner/random/ms13/guaranteed/gun/military/Initialize()
+/obj/effect/spawner/random/ms13/guaranteed/gun/military/Initialize(mapload)
 	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11, loot12, loot13, loot14, loot15, loot16)
 	. = ..()

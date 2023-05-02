@@ -135,7 +135,7 @@
 
 /obj/structure/ms13/turfdecor/drought/Initialize()
 	. = ..()
-	icon_state = "drought_[rand(1,31)]"
+	icon_state = "drought_[rand(1,32)]"
 
 	switch(icon_state)
 		if("drought_31")

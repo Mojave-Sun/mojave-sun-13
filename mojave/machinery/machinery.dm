@@ -50,7 +50,9 @@
 	light_power = 0.3
 	light_on = FALSE
 	var/on = FALSE
+	var/broken = FALSE
 	var/datum/looping_sound/ms13/holotable/soundloop
+	max_integrity = 800
 
 /obj/machinery/ms13/wartable/Initialize()
 	. = ..()
@@ -69,10 +71,24 @@
 			soundloop.stop()
 		else
 			on = TRUE
-			icon_state = "wartable_on"
-			soundloop.start()
+			if(broken)
+				icon_state = "wartable_broken"
+			else
+				icon_state = "wartable_on"
+				soundloop.start()
 		set_light_on(on)
 		update_light()
+
+/obj/machinery/ms13/wartable/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration)
+	. = ..()
+	if(prob(35))
+		do_sparks(1, FALSE, src)
+	if(atom_integrity < 400)
+		broken = TRUE
+		desc = "[initial(desc)] It looks broken."
+		if(on)
+			icon_state = "wartable_broken"
+			soundloop.stop()
 
 // Intercoms //
 

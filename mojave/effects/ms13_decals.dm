@@ -208,6 +208,21 @@
 /obj/effect/turf_decal/ms13/graffiti/scorpion_south
 	icon_state = "scorpion_south"
 
+/obj/effect/turf_decal/ms13/graffiti/large
+	icon = 'mojave/icons/decals/graffiti64x32.dmi'
+
+/obj/effect/turf_decal/ms13/graffiti/large/nogod_red
+	icon_state = "nogod_red"
+
+/obj/effect/turf_decal/ms13/graffiti/large/nogod_black
+	icon_state = "nogod_black"
+
+/obj/effect/turf_decal/ms13/graffiti/large/nofuture_red
+	icon_state = "nofuture_red"
+
+/obj/effect/turf_decal/ms13/graffiti/large/nofuture_black
+	icon_state = "nofuture_black"
+
 // Posters
 
 /obj/effect/turf_decal/ms13/poster

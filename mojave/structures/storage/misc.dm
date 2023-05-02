@@ -48,6 +48,7 @@
 	flags_1 = ACID_PROOF | FIRE_PROOF
 	density = TRUE
 	anchored = TRUE
+	pixel_y = 12
 	var/closed = TRUE
 
 /obj/structure/ms13/storage/washingmachine/CtrlClick(mob/living/user)

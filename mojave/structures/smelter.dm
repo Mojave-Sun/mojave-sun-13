@@ -7,6 +7,7 @@
 	density = TRUE
 	anchored = TRUE
 	projectile_passchance = 75
+	pixel_y = 12
 	var/crafting_interface = CRAFTING_BENCH_SMELTER
 
 /obj/structure/ms13/smelter/examine(mob/user)
