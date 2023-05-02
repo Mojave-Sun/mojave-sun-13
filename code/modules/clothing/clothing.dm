@@ -11,6 +11,7 @@
 	var/flash_protect = FLASH_PROTECTION_NONE
 	var/tint = 0 //Sets the item's level of visual impairment tint, normally set to the same as flash_protect
 	var/up = 0 //but separated to allow items to protect but not impair vision, like space helmets
+	var/active = FALSE // MOJAVE SUN EDIT - Currently for nightvision but could be a generic check for other stuff too? Idk... I be coolin
 	var/visor_flags = 0 //flags that are added/removed when an item is adjusted up/down
 	var/visor_flags_inv = 0 //same as visor_flags, but for flags_inv
 	var/visor_flags_cover = 0 //same as above, but for flags_cover
@@ -386,7 +387,7 @@
 	if (armor_value < 0)
 		. = "-"
 	. += "\Roman[round(abs(armor_value), 10) / 10]"
-	return . */ //MOJAVE EDIT - Comments all of this out because, like with the weapon description proc, it is stupid and we shouldn't have it or should implement it in a better, less gamey way. 
+	return . */ //MOJAVE EDIT - Comments all of this out because, like with the weapon description proc, it is stupid and we shouldn't have it or should implement it in a better, less gamey way.
 
 /obj/item/clothing/atom_break(damage_flag)
 	. = ..()

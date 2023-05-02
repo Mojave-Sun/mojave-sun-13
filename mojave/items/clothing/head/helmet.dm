@@ -1103,6 +1103,10 @@
 	equip_delay_self = 2 SECONDS
 	equip_delay_other = 4 SECONDS
 
+/obj/item/clothing/head/helmet/ms13/eliteriot/Initialize()
+	. = ..()
+	AddComponent(/datum/component/fov_nightvision, fov_angle)
+
 /obj/item/clothing/head/helmet/ms13/vaulthelmet
 	name = "vault security helmet"
 	desc = "A rather pristine vault-tec security helmet with the addition of some ballistic fiber padding for the changing, post apocalypse world."
