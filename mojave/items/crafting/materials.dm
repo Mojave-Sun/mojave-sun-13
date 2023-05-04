@@ -155,10 +155,18 @@
 
 /obj/item/stack/sheet/ms13/glass/Initialize()
 	. = ..()
+	var/static/list/food_results = list(
+		/datum/reagent/toxin/ms13/fiberglass = 10,
+	)
 	AddComponent(/datum/component/edible,\
-				initial_reagents = grind_results,\
+				initial_reagents = food_results,\
 				foodtypes = GROSS,\
-				volume = 10)
+				after_eat = CALLBACK(src, PROC_REF(on_bite)), \
+				volume = INFINITY)
+
+/// Called when someone bites this food, subtract one from our stack
+/obj/item/stack/sheet/ms13/glass/proc/on_bite(mob/eater)
+	use(1)
 
 /obj/item/stack/sheet/ms13/glass/two
 	amount = 2
