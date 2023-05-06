@@ -4,6 +4,7 @@
 	name = "base class gauss weapon"
 	desc = "Good god. HELP! A BASE CLASS!"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/gauss/gauss_fire_heavy.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/gauss_heavy_2.ogg'
 	load_sound = 'mojave/sound/ms13weapons/gunsounds/gauss/gauss_reload.ogg'
 	unload_sound = 'mojave/sound/ms13weapons/gunsounds/gauss/gauss_unload.ogg'
 	w_class = WEIGHT_CLASS_HUGE
@@ -47,6 +48,7 @@
 	name = "gauss pistol"
 	desc = "A lightweight, one handed gauss weapon. Don't let it's size fool you."
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/gauss/gauss_fire_light.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/gauss_light.ogg'
 	base_icon_state = "ppk12"
 	icon_state = "ppk12"
 	inhand_icon_state = "ppk12"
