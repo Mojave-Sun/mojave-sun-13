@@ -17,6 +17,8 @@
 		return COMPONENT_INCOMPATIBLE
 	var/obj/item/clothing/clothing_parent = parent
 	src.fov_angle = fov_angle
+	src.alpha = alpha
+	src.color = color
 	src.visor_up = clothing_parent.up //Initial values could vary, so we need to get it.
 
 /datum/component/clothing_nv_visor/RegisterWithParent()

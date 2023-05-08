@@ -1,9 +1,9 @@
 /// Updates the applied NV value and applies the handler to client if able
 /mob/living/proc/update_nv()
 	var/highest_fov_type
-	var/highest_fov_data
+	var/list/highest_fov_data
 	for(var/trait_type in nv_traits)
-		var/fov_data = nv_traits[trait_type]
+		var/list/fov_data = nv_traits[trait_type]
 		if(fov_data["type"] > highest_fov_type)
 			highest_fov_type = fov_data["type"]
 			highest_fov_data = fov_data
