@@ -1,4 +1,4 @@
-GLOBAL_VAR_INIT_TYPED(nv_fov_icon, /icon, init_nv_fov_icon())
+GLOBAL_DATUM_INIT(nv_fov_icon, /icon, init_nv_fov_icon())
 
 // doing shit with code is easier than opening up photoshop #thuglife
 /proc/init_nv_fov_icon()
