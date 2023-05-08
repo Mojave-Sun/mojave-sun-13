@@ -1,11 +1,14 @@
-GLOBAL_DATUM_INIT(nv_fov_icon, /icon, init_nv_fov_icon())
+GLOBAL_LIST_EMPTY(nv_fov_icons)
 
 // doing shit with code is easier than opening up photoshop #thuglife
-/proc/init_nv_fov_icon()
+/proc/get_nv_icon(fov_type = FOV_180_DEGREES)
+	if(GLOB.nv_fov_icons["[fov_type]"])
+		return GLOB.nv_fov_icons["[fov_type]"]
 	var/atom/movable/screen/night_vision/fake_shit
-	var/icon/original = icon(initial(fake_shit.icon))
+	var/icon/original = icon(initial(fake_shit.icon), "[fov_type]_v")
 	var/icon/final = icon(original)
-	final.MapColors(-1,0,0,0, 0,-1,0,0, 0,0,-1,0, 0,0,0,1, 1,1,1,0) //invert colors
+	final.MapColors(-1,0,0, 0,-1,0, 0,0,-1, 1,1,1) //invert colors
+	GLOB.nv_fov_icons["[fov_type]"] = final
 	return final
 
 /// Component which handles night vision masking for clients, mostly copy paste from the FOV handler
@@ -49,8 +52,7 @@ GLOBAL_DATUM_INIT(nv_fov_icon, /icon, init_nv_fov_icon())
 
 /datum/component/nv_handler/proc/set_nv_angle(new_angle)
 	fov_angle = new_angle
-	nv_mask.icon = GLOB.nv_fov_icon
-	nv_mask.icon_state = "[fov_angle]"
+	nv_mask.icon = get_nv_icon(new_angle)
 
 /// Updates the size of the FOV masks by comparing them to client view size.
 /datum/component/nv_handler/proc/update_nv_size()

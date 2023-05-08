@@ -41,7 +41,6 @@
 
 /atom/movable/screen/night_vision
 	icon = 'mojave/icons/effects/ms_fov.dmi'
-	icon_state = "90"
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	plane = O_LIGHTING_VISUAL_PLANE
 	layer = 3
