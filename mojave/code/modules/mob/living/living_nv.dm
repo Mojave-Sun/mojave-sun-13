@@ -43,5 +43,5 @@
 	icon = 'mojave/icons/effects/ms_fov.dmi'
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	plane = O_LIGHTING_VISUAL_PLANE
-	layer = 3
+	layer = 1
 	screen_loc = "BOTTOM,LEFT"
