@@ -3,7 +3,7 @@ GLOBAL_DATUM_INIT(nv_fov_icon, /icon, init_nv_fov_icon())
 // doing shit with code is easier than opening up photoshop #thuglife
 /proc/init_nv_fov_icon()
 	var/atom/movable/screen/night_vision/fake_shit
-	var/icon/original = icon(init(fake_shit.icon))
+	var/icon/original = icon(initial(fake_shit.icon))
 	var/icon/final = icon(original)
 	final.MapColors(-1,0,0,0, 0,-1,0,0, 0,0,-1,0, 0,0,0,1, 1,1,1,0) //invert colors
 	return final
