@@ -109,6 +109,9 @@
 
 	var/atom/movable/screen/click_catcher/void
 
+	mouse_pointer_icon = 'mojave/icons/effects/mouse_pointers/mojave_pointer.dmi' //MOJAVE Edit
+	var/mojave_pointer_icon = 'mojave/icons/effects/mouse_pointers/mojave_pointer.dmi' //MOJAVE Add
+
 	///used to make a special mouse cursor, this one for mouse up icon
 	var/mouse_up_icon = null
 	///used to make a special mouse cursor, this one for mouse up icon
