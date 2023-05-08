@@ -1,3 +1,12 @@
+GLOBAL_VAR_INIT_TYPED(nv_fov_icon, /icon, init_nv_fov_icon())
+
+/proc/init_nv_fov_icon()
+	var/atom/movable/screen/night_vision/fake_shit
+	var/icon/original = icon(init(fake_shit.icon))
+	var/icon/final = icon(original)
+	final.MapColors(-1,0,0,0, 0,-1,0,0, 0,0,-1,0, 0,0,0,1, 1,1,1,0) //invert colors
+	return final
+
 /// Component which handles night vision masking for clients, mostly copy paste from the FOV handler
 /datum/component/nv_handler
 	/// Currently applied x size of the fov masks
@@ -39,11 +48,13 @@
 
 /datum/component/nv_handler/proc/set_nv_angle(new_angle)
 	fov_angle = new_angle
-	nv_mask.icon_state = "[fov_angle]_v"
+	nv_mask.icon = GLOB.nv_fov_icon
+	nv_mask.icon_state = "[fov_angle]"
 
 /// Updates the size of the FOV masks by comparing them to client view size.
 /datum/component/nv_handler/proc/update_nv_size()
 	SIGNAL_HANDLER
+
 	var/mob/parent_mob = parent
 	var/client/parent_client = parent_mob.client
 	if(!parent_client) //Love client volatility!!

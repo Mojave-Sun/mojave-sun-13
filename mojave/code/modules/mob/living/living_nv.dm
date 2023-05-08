@@ -7,7 +7,7 @@
 		if(fov_data["type"] > highest_fov_type)
 			highest_fov_type = fov_data["type"]
 			highest_fov_data = fov_data
-	nv_fov_data = highest_fov_data
+	nv_data = highest_fov_data
 	update_nv_client()
 
 /// Updates the FOV for the client.
@@ -15,13 +15,13 @@
 	if(!client)
 		return
 	var/datum/component/nv_handler/nv_handler = GetComponent(/datum/component/nv_handler)
-	if(nv_fov_data)
+	if(nv_data)
 		if(!nv_handler)
-			AddComponent(/datum/component/nv_handler, nv_fov_data["type"], nv_fov_data["alpha"], nv_fov_data["color"])
+			AddComponent(/datum/component/nv_handler, nv_data["type"], nv_data["alpha"], nv_data["color"])
 		else
-			nv_handler.set_nv_angle(nv_fov_data["type"])
-			nv_handler.nv_mask.alpha = nv_fov_data["alpha"]
-			nv_handler.nv_mask.color = nv_fov_data["color"]
+			nv_handler.set_nv_angle(nv_data["type"])
+			nv_handler.nv_mask.alpha = nv_data["alpha"]
+			nv_handler.nv_mask.color = nv_data["color"]
 	else if(nv_handler)
 		qdel(nv_handler)
 
@@ -41,7 +41,7 @@
 
 /atom/movable/screen/night_vision
 	icon = 'mojave/icons/effects/ms_fov.dmi'
-	icon_state = "90_v"
+	icon_state = "90"
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	plane = O_LIGHTING_VISUAL_PLANE
 	layer = 3
