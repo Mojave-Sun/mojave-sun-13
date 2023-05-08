@@ -70,7 +70,7 @@
 	I.pixel_x = -round(I.maptext_width/2) + 70
 	I.pixel_y = 2
 
-	var/style = "font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px; color: #f0dd5f;"
+	var/style = "font-family: 'Small Fonts'; font-size: 7px; color: #f0dd5f;"
 	I.maptext = "<center><span style=\"[style]\">[message]</span></center>"
 
 	add_overlay(I)
@@ -80,21 +80,47 @@
 	name = "Brutal"
 	message = "You have become addicted to Vodka."
 
+/atom/movable/screen/alert/text/dead
+	icon_state = "dead"
+	name = "Dead"
+
+/atom/movable/screen/alert/text/cry
+	icon_state = "cry"
+	name = "Cry"
+
+/atom/movable/screen/alert/text/sad
+	icon_state = "sad"
+	name = "Sad"
+
+/atom/movable/screen/alert/text/nohappy
+	icon_state = "nohappy"
+	name = "Nohappy"
+
+/atom/movable/screen/alert/text/normal
+	icon_state = "normal"
+	name = "Normal"
+
+/atom/movable/screen/alert/text/smallhappy
+	icon_state = "smallhappy"
+	name = "Small happy"
+
+/atom/movable/screen/alert/text/joke
+	icon_state = "joke"
+	name = "Joke"
+
 // Re-render all alert texts - also called in /datum/hud/show_hud() because it's needed there
 /datum/hud/proc/reorganize_alert_texts(mob/viewmob)
 	var/mob/screenmob = viewmob || mymob
 	if(!screenmob.client)
-		return
+		return FALSE
 	var/list/alert_texts = mymob.stored_alert_text
 	if(!hud_shown)
 		for(var/atom/movable/screen/alert/text/i in alert_texts)
 			screenmob.client.screen -= i
-		return 1
+		return TRUE
 	var/iCounter = 0
 	for(var/atom/movable/screen/alert/text/i in alert_texts)
 		iCounter++
-		if(i.icon_state == "template")
-			i.icon = ui_style
 		switch(iCounter)
 			if(1)
 				. = ui_alerttext1
@@ -113,13 +139,4 @@
 	if(!viewmob)
 		for(var/M in mymob.observers)
 			reorganize_alert_texts(M)
-	return 1
-
-/client/verb/test(msg as text)
-	set name = "Test"
-	set category = "Test"
-
-	if(!mob)
-		return
-
-	mob.throw_alert_text(/atom/movable/screen/alert/text, msg)
+	return TRUE
