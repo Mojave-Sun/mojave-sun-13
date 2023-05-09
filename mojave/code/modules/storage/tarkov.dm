@@ -51,7 +51,6 @@
 	if(STR)
 		STR.grid = grid
 		STR.storage_flags = storage_flags
-	reset_grid_inventory()
 
 // storage types //
 
