@@ -98,7 +98,7 @@
 						background: #40628a;
 						border: 1px solid #161616;
 						margin: 0 2px 0 0;
-						cursor:default;
+						cursor: url("default_mousepointer.ico"), default;
 					}
 
 					.remove-reagent {

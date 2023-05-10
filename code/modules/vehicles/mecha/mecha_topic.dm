@@ -13,7 +13,7 @@
 					hr {border: 1px solid #0f0; color: #0f0; background-color: #0f0;}
 					a {padding:2px 5px;;color:#0f0;}
 					.wr {margin-bottom: 5px;}
-					.header {cursor:pointer;}
+					.header {cursor: url("drag_mousepointer.ico"), pointer;}
 					.open, .closed {background: #32CD32; color:#000; padding:1px 2px;}
 					.links a {margin-bottom: 2px;padding-top:3px;}
 					.visible {display: block;}
