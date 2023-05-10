@@ -74,9 +74,21 @@
 	density = TRUE //It's a suit of armor man
 	anchored = TRUE
 	strip_delay = 15 SECONDS
+	integrity_failure = 0.5
 	max_integrity = 500
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0,  FIRE = 0, ACID = 0, WOUND = 0)
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+					EDGE_PROTECTION = CLASS2_EDGE, \
+					CRUSHING = CLASS2_CRUSH, \
+					CUTTING = CLASS2_CUT, \
+					PIERCING = CLASS2_PIERCE, \
+					IMPALING = CLASS2_STAB, \
+					LASER = CLASS2_LASER, \
+					ENERGY = CLASS2_PLASMA, \
+					FIRE = CLASS2_FIRE)
+
+	var/list/module_armor = list(BODY_ZONE_CHEST = null, BODY_ZONE_L_ARM = null, BODY_ZONE_R_ARM = null, BODY_ZONE_L_LEG = null, BODY_ZONE_R_LEG = null)
 	actions_types = null //No helmet toggle, sorry dude
 	worn_x_dimension = 32
 	worn_y_dimension = 20
@@ -133,8 +145,47 @@
 	return TRUE
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/hit_reaction(owner, hitby, attack_text, final_block_chance, damage, attack_type)
-	if((damage > 10) && prob(35)) //SPARK
+	if(listeningTo)
+		ADD_TRAIT(listeningTo, TRAIT_IMMOBILIZED, "power_armor")
+		ADD_TRAIT(listeningTo, TRAIT_HANDS_BLOCKED, "power_armor")
+		ADD_TRAIT(listeningTo, TRAIT_INCAPACITATED, "power_armor")
+
+/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration)
+	if(!uses_integrity)
+		CRASH("[src] had /atom/proc/take_damage() called on it without it being a type that has uses_integrity = TRUE!")
+	if(QDELETED(src))
+		CRASH("[src] taking damage after deletion")
+	if(atom_integrity <= 0)
+		return
+	if(sound_effect)
+		play_attack_sound(damage_amount, damage_type, damage_flag)
+	if(resistance_flags & INDESTRUCTIBLE)
+		return
+	damage_amount = run_atom_subarmor(damage_amount, damage_type, damage_flag, attack_dir, armour_penetration)
+	if(damage_amount < DAMAGE_PRECISION)
+		return
+	if(SEND_SIGNAL(src, COMSIG_ATOM_TAKE_DAMAGE, damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration) & COMPONENT_NO_TAKE_DAMAGE)
+		return
+
+	. = damage_amount
+
+	update_integrity(atom_integrity - damage_amount)
+
+	//BREAKING FIRST
+	if(integrity_failure && atom_integrity <= integrity_failure * max_integrity)
+		atom_break(damage_flag)
+
+	//DESTROYING SECOND
+	if(atom_integrity <= 0)
+		atom_destruction(damage_flag)
+
+/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/atom_break(damage_flag)
+	. = ..()
+	if(prob(35)) //SPARK
 		do_sparks(2, FALSE, src)
+
+/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/atom_destruction(damage_flag)
+	subarmor = subarmor.setRating(NONE, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/equipped(mob/living/carbon/human/user, slot)
 	. = ..()
@@ -155,6 +206,10 @@
 	ADD_TRAIT(user, TRAIT_STUNIMMUNE, "power_armor")
 	ADD_TRAIT(user, TRAIT_NOMOBSWAP, "power_armor")
 	ADD_TRAIT(user, TRAIT_PUSHIMMUNE, "power_armor")
+	if(atom_integrity == 0)
+		ADD_TRAIT(user, TRAIT_IMMOBILIZED, "power_armor")
+		ADD_TRAIT(user, TRAIT_HANDS_BLOCKED, "power_armor")
+		ADD_TRAIT(user, TRAIT_INCAPACITATED, "power_armor")
 	RegisterSignal(user, COMSIG_ATOM_CAN_BE_PULLED, .proc/reject_pulls)
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/dropped(mob/living/carbon/human/user)
@@ -171,6 +226,9 @@
 	REMOVE_TRAIT(user, TRAIT_STUNIMMUNE, "power_armor")
 	REMOVE_TRAIT(user, TRAIT_NOMOBSWAP, "power_armor")
 	REMOVE_TRAIT(user, TRAIT_PUSHIMMUNE, "power_armor")
+	REMOVE_TRAIT(user, TRAIT_IMMOBILIZED, "power_armor")
+	REMOVE_TRAIT(user, TRAIT_HANDS_BLOCKED, "power_armor")
+	REMOVE_TRAIT(user, TRAIT_INCAPACITATED, "power_armor")
 	UnregisterSignal(user, COMSIG_ATOM_CAN_BE_PULLED)
 
 //Hardcode goes brrr; borrowed from ancient hardsuits
@@ -179,11 +237,9 @@
 	var/mob/living/carbon/human/H = loc
 	if(!istype(H) || H.wear_suit != src)
 		return
-	if(footstep >= 1)
+	if(footstep++ > 1)
 		playsound(src, 'sound/mecha/mechstep.ogg', 100, TRUE)
 		footstep = 0
-	else
-		footstep++
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/proc/reject_pulls(datum/source, mob/living/puller)
 	SIGNAL_HANDLER
@@ -199,8 +255,6 @@
 
 //Let's get into the power armor (or not)
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/AltClick(mob/living/carbon/human/user)
-	if(.)
-		return
 	if(ms13_flags_1 & LOCKABLE_1 && lock_locked)
 		to_chat(user, span_warning("The [name] is locked."))
 		playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
@@ -210,7 +264,7 @@
 	else
 		if(user.wear_suit == src)
 			to_chat(user, "You begin exiting the [src].")
-			if(do_after(user, 8 SECONDS, target = user) && density != TRUE && (get_dist(user, src) <= 1))
+			if(do_after(user, 8 SECONDS, target = user) && !density && (get_dist(user, src) <= 1))
 				GetOutside(user)
 				return TRUE
 			return FALSE
@@ -221,7 +275,7 @@
 		to_chat(user, span_warning("Your fat ass is too huge to fit in."))
 		return FALSE
 	to_chat(user, "You begin entering the [src].")
-	if(do_after(user, 8 SECONDS, target = user) && CheckEquippedClothing(user) && density == TRUE)
+	if(do_after(user, 8 SECONDS, target = user) && CheckEquippedClothing(user) && density)
 		GetInside(user)
 		return TRUE
 	return FALSE
