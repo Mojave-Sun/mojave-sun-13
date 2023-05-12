@@ -1519,18 +1519,20 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	apply_damage(I.force * weakness, I.damtype, def_zone, armor_block, H, wound_bonus = Iwound_bonus, bare_wound_bonus = I.bare_wound_bonus, sharpness = I.get_sharpness(), attack_direction = attack_direction)
 	*/
 	//MOJAVE EDIT BEGIN
-	apply_damage(I.force * weakness, \
-				I.damtype, \
-				def_zone, \
-				armor_block, \
-				H, \
-				wound_bonus = Iwound_bonus, \
-				bare_wound_bonus = I.bare_wound_bonus, \
-				sharpness = I.get_sharpness(), \
-				attack_direction = attack_direction, \
-				reduced = armor_reduce, \
-				edge_protection = edge_protection, \
-				subarmor_flags = subarmor_flags)
+	var/no_defended = -(H.damage_armor(I.force * weakness, MELEE, I.damtype, def_zone = def_zone))
+	if(no_defended > 0 )
+		apply_damage(no_defended, \
+					I.damtype, \
+					def_zone, \
+					armor_block, \
+					H, \
+					wound_bonus = Iwound_bonus, \
+					bare_wound_bonus = I.bare_wound_bonus, \
+					sharpness = I.get_sharpness(), \
+					attack_direction = attack_direction, \
+					reduced = armor_reduce, \
+					edge_protection = edge_protection, \
+					subarmor_flags = subarmor_flags)
 
 	//COOL BABY BACK RIBS CODE HERE
 	var/list/modifiers = params2list(params)

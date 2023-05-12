@@ -68,8 +68,9 @@
 		apply_damage(P.damage, P.damage_type, def_zone, armor_check, wound_bonus=P.wound_bonus, bare_wound_bonus=P.bare_wound_bonus, sharpness = P.sharpness, attack_direction = attack_direction)
 		*/
 		//MOJAVE EDIT BEGIN
-		if(damage_armor(P.damage, P.flag, P.damage_type, P.sharpness, def_zone))
-			apply_damage(P.damage, P.damage_type, def_zone, \
+		var/no_defended = -(damage_armor(P.damage, P.flag, P.damage_type, P.sharpness, def_zone))
+		if(no_defended > 0)
+			apply_damage(no_defended, P.damage_type, def_zone, \
 						armor, wound_bonus=P.wound_bonus, bare_wound_bonus=P.bare_wound_bonus, \
 						sharpness = P.sharpness, attack_direction = attack_direction, \
 						reduced = subarmor)

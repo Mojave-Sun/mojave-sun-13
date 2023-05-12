@@ -117,3 +117,29 @@
 			new /obj/item/stack/sheet/ms13/scrap_alu(loc, 2)
 			new /obj/item/stack/sheet/ms13/scrap(loc, 2)
 	qdel(src)
+
+/obj/structure/ms13/workbench
+	name = "Workbench for power armors"
+	icon = 'mojave/icons/objects/workbench.dmi'
+	icon_state = "station"
+	pixel_y = -16
+	pixel_x = -16
+	var/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/obj_connected = null
+
+/obj/structure/ms13/workbench/AltClick(mob/user)
+	if(!obj_connected)
+		obj_connected = locate(/obj/item/clothing/suit/space/hardsuit/ms13/power_armor) in loc
+		if(istype(obj_connected))
+			var/icon/chains = new(icon, "chains")
+			add_overlay(chains)
+			obj_connected.link_to = src
+			to_chat(user, span_notice("You connect power armor to workbench!"))
+			return TRUE
+		obj_connected = null
+	else
+		cut_overlays()
+		obj_connected.link_to = null
+		obj_connected = null
+		to_chat(user, span_notice("You disconnect power armor to workbench!"))
+		return TRUE
+	return FALSE
