@@ -341,7 +341,9 @@
 		var/radial_result = show_radial_menu(user, src, radial_options, require_near = TRUE, tooltips = TRUE)
 		if(do_after(user, 5 SECONDS, target = user))
 			var/obj/item/power_armor/PA = module_armor[radial_result]
-			user.put_in_hand(PA)
+			var/hand = user.get_empty_held_index_for_side(LEFT_HANDS) || user.get_empty_held_index_for_side(RIGHT_HANDS)
+			if(!user.put_in_hand(PA, hand))
+				I.forceMove(user)
 			module_armor[radial_result] = null
 			to_chat(user, span_notice("You successfully uninstall \the [I] into [src]."))
 			update_parts_icons()
