@@ -124,7 +124,12 @@
 	icon_state = "station"
 	pixel_y = -16
 	pixel_x = -16
+	anchored = TRUE
 	var/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/obj_connected = null
+
+/obj/structure/ms13/workbench/examine(mob/user)
+	. = ..()
+	. += "Alt+left click this workbench for connect to power armor."
 
 /obj/structure/ms13/workbench/AltClick(mob/user)
 	if(!obj_connected)

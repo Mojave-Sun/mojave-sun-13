@@ -338,12 +338,18 @@
 				continue
 			var/obj/item/power_armor/PA = module_armor[i]
 			radial_options[i] = image(PA.icon, PA.icon_state)
+		if(!radial_options.len)
+			to_chat(user, span_warning("Power armor don't have modules!"))
 		var/radial_result = show_radial_menu(user, src, radial_options, require_near = TRUE, tooltips = TRUE)
-		if(do_after(user, 5 SECONDS, target = user))
+		var/hand = user.get_empty_held_index_for_side(LEFT_HANDS) || user.get_empty_held_index_for_side(RIGHT_HANDS)
+		if(!user.can_put_in_hand(I, hand))
+			to_chat(user, span_warning("You need free hand!"))
+			return
+		if(radial_result && do_after(user, 5 SECONDS, target = user))
 			var/obj/item/power_armor/PA = module_armor[radial_result]
-			var/hand = user.get_empty_held_index_for_side(LEFT_HANDS) || user.get_empty_held_index_for_side(RIGHT_HANDS)
 			if(!user.put_in_hand(PA, hand))
-				I.forceMove(user)
+				to_chat(user, span_warning("You need free hand!"))
+				return
 			module_armor[radial_result] = null
 			to_chat(user, span_notice("You successfully uninstall \the [I] into [src]."))
 			update_parts_icons()

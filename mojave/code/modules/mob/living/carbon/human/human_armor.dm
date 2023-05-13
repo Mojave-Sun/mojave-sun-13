@@ -74,6 +74,11 @@
 	return protection
 
 /mob/living/carbon/human/damage_armor(damage = 0, damage_flag = MELEE, damage_type = BRUTE, sharpness = NONE, def_zone = BODY_ZONE_CHEST)
+	if(wear_suit && istype(wear_suit, /obj/item/clothing/suit/space/hardsuit/ms13/power_armor))
+		if((def_zone == BODY_ZONE_HEAD || def_zone == BODY_ZONE_PRECISE_EYES || def_zone == BODY_ZONE_PRECISE_MOUTH) && !wear_suit:helmettype)
+			return -damage
+		return wear_suit.get_integrity() - wear_suit.take_damage(damage, damage_type, damage_flag, 0, def_zone = def_zone)
+
 	var/obj/item/bodypart/affecting
 	if(def_zone)
 		if(isbodypart(def_zone))
@@ -82,11 +87,11 @@
 			affecting = get_bodypart(check_zone(def_zone))
 
 	if(!affecting)
-		return FALSE
+		return -damage
 
 	var/list/clothings = clothingonpart(affecting)
 	for(var/obj/item/clothing/clothing as anything in clothings)
 		if(clothing.take_damage_zone(def_zone, damage, damage_flag, damage_type, sharpness, 100))
-			return TRUE
+			return -damage
 
-	return FALSE
+	return -damage
