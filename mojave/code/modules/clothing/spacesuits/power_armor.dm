@@ -274,11 +274,11 @@
 			to_chat(user, span_warning("You need connect power armor to workbench for modify!"))
 			return
 		if(istype(I, /obj/item/power_armor/head))
-			if(helmettype)
+			if(module_armor[BODY_ZONE_HEAD])
 				to_chat(user, span_warning("This module power armor already in power armor!"))
 				return
 			if(do_after(user, 5 SECONDS, target = user) && user.transferItemToLoc(I))
-				module_armor[BODY_ZONE_CHEST] = I
+				module_armor[BODY_ZONE_HEAD] = I
 				helmettype = I:type_helmet
 				MakeHelmet()
 				to_chat(user, span_notice("You successfully install \the [I] into [src]."))
@@ -351,6 +351,8 @@
 				to_chat(user, span_warning("You need free hand!"))
 				return
 			module_armor[radial_result] = null
+			if(radial_result == BODY_ZONE_HEAD)
+				RemoveHelmet()
 			to_chat(user, span_notice("You successfully uninstall \the [I] into [src]."))
 			update_parts_icons()
 		return

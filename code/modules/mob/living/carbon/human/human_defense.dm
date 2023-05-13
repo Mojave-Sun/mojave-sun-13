@@ -361,11 +361,13 @@
 	var/subarmor = run_subarmor_check(affecting, MELEE, armour_penetration = user.subtractible_armour_penetration, sharpness = user.sharpness)
 	var/subarmor_flags = get_subarmor_flags(affecting)
 	var/edge_protection = get_edge_protection(affecting)
-	apply_damage(damage, user.melee_damage_type, affecting, armor, \
-				wound_bonus = user.wound_bonus, bare_wound_bonus = user.bare_wound_bonus, \
-				sharpness = user.sharpness, attack_direction = attack_direction, \
-				subarmor_flags = subarmor_flags, edge_protection = edge_protection, \
-				reduced = subarmor)
+	var/no_defended = -damage_armor(damage, MELEE, user.melee_damage_type, def_zone = dam_zone)
+	if(no_defended > 0)
+		apply_damage(no_defended, user.melee_damage_type, affecting, armor, \
+					wound_bonus = user.wound_bonus, bare_wound_bonus = user.bare_wound_bonus, \
+					sharpness = user.sharpness, attack_direction = attack_direction, \
+					subarmor_flags = subarmor_flags, edge_protection = edge_protection, \
+					reduced = subarmor)
 	//MOJAVE EDIT END
 
 /mob/living/carbon/human/attack_animal(mob/living/simple_animal/user, list/modifiers)
@@ -390,11 +392,13 @@
 	var/subarmor = run_subarmor_check(affecting, MELEE, armour_penetration = user.subtractible_armour_penetration, sharpness = user.sharpness)
 	var/subarmor_flags = get_subarmor_flags(affecting)
 	var/edge_protection = get_edge_protection(affecting)
-	apply_damage(damage, user.melee_damage_type, affecting, armor, \
-				wound_bonus = user.wound_bonus, bare_wound_bonus = user.bare_wound_bonus, \
-				sharpness = user.sharpness, attack_direction = attack_direction, \
-				subarmor_flags = subarmor_flags, edge_protection = edge_protection, \
-				reduced = subarmor)
+	var/no_defended = -damage_armor(damage, MELEE, user.melee_damage_type, def_zone = dam_zone)
+	if(no_defended > 0)
+		apply_damage(no_defended, user.melee_damage_type, affecting, armor, \
+					wound_bonus = user.wound_bonus, bare_wound_bonus = user.bare_wound_bonus, \
+					sharpness = user.sharpness, attack_direction = attack_direction, \
+					subarmor_flags = subarmor_flags, edge_protection = edge_protection, \
+					reduced = subarmor)
 	//MOJAVE EDIT END
 
 
