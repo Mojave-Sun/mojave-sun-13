@@ -16,6 +16,50 @@
 	max_integrity = 100
 	var/icon_state_pa
 	var/chanse = 0 //Weight for pick
+	var/list/modules = list(MAIN_MODULE_PA = null, PASSIVE_MODULE_PA = null)
+	var/list/actions_modules = list()
+	var/zone = null
+
+/obj/item/power_armor/attackby(obj/item/I, mob/living/user, params)
+	if(I.tool_behaviour == TOOL_SCREWDRIVER)
+		var/list/radial_options = list()
+		var/list/part_to_zone = list()
+		for(var/i in modules)
+			if(isnull(modules[i]))
+				continue
+			var/obj/item/pa_module/PA = modules[i]
+			radial_options[PA.name] = image(PA.icon, PA.icon_state)
+			part_to_zone[PA.name] = i
+
+		if(!radial_options.len)
+			to_chat(user, span_warning("\the [I] don't have modules!"))
+			return
+
+		var/radial_result = part_to_zone[show_radial_menu(user, src, radial_options, require_near = TRUE, tooltips = TRUE)]
+		var/hand = user.get_empty_held_index_for_side(LEFT_HANDS) || user.get_empty_held_index_for_side(RIGHT_HANDS)
+
+		if(radial_result && do_after(user, 5 SECONDS, target = user))
+			var/obj/item/pa_module/PA = modules[radial_result]
+			if(!user.put_in_hand(PA, hand))
+				PA.forceMove(user.loc)
+			modules[radial_result] = null
+			to_chat(user, span_notice("You successfully uninstall \the [I] into [src]."))
+		return
+
+	else if(istype(I, /obj/item/pa_module))
+		var/obj/item/pa_module/module = I
+		if(!module.zone == zone)
+			to_chat(user, span_warning("You can't install this module to [src]."))
+			return
+		if(modules[module.class_type])
+			to_chat(user, span_warning("[src] already have module there."))
+			return
+		if(do_after(user, 5 SECONDS, user) && user.transferItemToLoc(module, src))
+			modules[module.class_type] = module
+			actions_modules |= module.actions_modules
+			to_chat(user, span_notice("You successfully install \the [module] into [src]."))
+		return
+	return
 
 /obj/item/power_armor/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration)
 	if(!uses_integrity)
@@ -56,6 +100,7 @@
 
 /obj/item/power_armor/leg/left
 	name = "Left leg power armor"
+	zone = BODY_ZONE_L_LEG
 
 /obj/item/power_armor/leg/left/t51
 	name = "Left leg PA T51"
@@ -75,6 +120,7 @@
 
 /obj/item/power_armor/leg/right
 	name = "Right leg power armor"
+	zone = BODY_ZONE_R_LEG
 
 /obj/item/power_armor/leg/right/t51
 	name = "Right leg PA T51"
@@ -94,6 +140,7 @@
 
 /obj/item/power_armor/chest
 	name = "Chest power armor"
+	zone = BODY_ZONE_CHEST
 
 /obj/item/power_armor/chest/t51
 	name = "Chest PA T51"
@@ -116,6 +163,7 @@
 
 /obj/item/power_armor/arm/left
 	name = "Left arm power armor"
+	zone = BODY_ZONE_L_ARM
 
 /obj/item/power_armor/arm/left/t51
 	name = "Left arm PA T51"
@@ -135,6 +183,7 @@
 
 /obj/item/power_armor/arm/right
 	name = "Right arm power armor"
+	zone = BODY_ZONE_R_ARM
 
 /obj/item/power_armor/arm/right/t51
 	name = "Right arm PA T51"
@@ -154,6 +203,7 @@
 
 /obj/item/power_armor/head
 	name = "Helmet power armor"
+	zone = BODY_ZONE_HEAD
 	var/type_helmet = null
 
 /obj/item/power_armor/head/t51

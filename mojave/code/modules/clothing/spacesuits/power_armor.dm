@@ -76,7 +76,7 @@
 	. = ..()
 	interaction_flags_item &= ~INTERACT_ITEM_ATTACK_HAND_PICKUP
 
-/obj/item/radio/headset/ms13/powerarmor/attackby(obj/item/W, mob/user, params)
+/obj/item/radio/headset/ms13/powerarmor/attackby(obj/item/I, mob/user, params)
 	return
 
 /obj/item/radio/headset/ms13/powerarmor/ui_action_click(mob/user, action)
@@ -97,9 +97,9 @@
 /datum/action/item_action/toggle_radio
 	name = "Toggle Internal Radio Settings"
 
-//Generic power armor based off of the hardsuit
+//Frame power armor based off of the hardsuit
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor
-	name = "Generic Power Armor"
+	name = "Frame Power Armor"
 	desc = "Don't ever use this in the video game please."
 	icon = 'mojave/icons/mob/large-worn-icons/32x48/armor.dmi'
 	worn_icon = 'mojave/icons/mob/large-worn-icons/32x48/armor.dmi'
@@ -145,6 +145,7 @@
 	var/footstep = 1
 	var/mob/listeningTo
 	var/obj/structure/ms13/workbench/link_to
+	var/list/actions_modules = list()
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/Initialize()
 	. = ..()
@@ -167,6 +168,29 @@
 		module_armor[i] = PA_part
 		var/icon/PA = new(icon, icon_state = PA_part.icon_state_pa)
 		add_overlay(PA)
+
+/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/Destroy()
+	. = ..()
+	link_to = null
+	for(var/i in module_armor)
+		if(isnull(module_armor[i]))
+			continue
+		qdel(module_armor[i])
+	actions_modules = list()
+	listeningTo = null
+	UnregisterSignal(src, COMSIG_ATOM_CAN_BE_PULLED)
+
+/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/proc/update_actions()
+	if(!actions_types)
+		actions_types = list()
+	actions_types.Remove(actions_modules)
+	actions_modules = list()
+	for(var/i in module_armor)
+		if(isnull(module_armor[i]))
+			continue
+		var/obj/item/power_armor/PA = module_armor[i]
+		actions_modules |= PA.actions_modules
+	actions_types.Add(actions_modules)
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/proc/update_parts_icons()
 	cut_overlays()
@@ -191,11 +215,6 @@
 		standing.overlays.Add(PA)
 
 	return standing
-
-/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/Destroy()
-	listeningTo = null
-	UnregisterSignal(src, COMSIG_ATOM_CAN_BE_PULLED)
-	return ..()
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/examine(mob/user)
 	. = ..()
@@ -273,87 +292,48 @@
 		if(!link_to)
 			to_chat(user, span_warning("You need connect power armor to workbench for modify!"))
 			return
-		if(istype(I, /obj/item/power_armor/head))
-			if(module_armor[BODY_ZONE_HEAD])
-				to_chat(user, span_warning("This module power armor already in power armor!"))
-				return
-			if(do_after(user, 5 SECONDS, target = user) && user.transferItemToLoc(I))
-				module_armor[BODY_ZONE_HEAD] = I
-				helmettype = I:type_helmet
+		var/obj/item/power_armor/PA = I
+		if(module_armor[PA.zone])
+			to_chat(user, span_warning("This module power armor already in power armor!"))
+			return
+		if(do_after(user, 5 SECONDS, target = user) && user.transferItemToLoc(I, src))
+			module_armor[PA.zone] = PA
+			if(PA.zone == BODY_ZONE_HEAD)
+				helmettype = PA:type_helmet
 				MakeHelmet()
-				to_chat(user, span_notice("You successfully install \the [I] into [src]."))
-			return
-		if(istype(I, /obj/item/power_armor/chest))
-			if(module_armor[BODY_ZONE_CHEST])
-				to_chat(user, span_warning("This module power armor already in power armor!"))
-				return
-			if(do_after(user, 5 SECONDS, target = user) && user.transferItemToLoc(I))
-				module_armor[BODY_ZONE_CHEST] = I
-				update_parts_icons()
-				to_chat(user, span_notice("You successfully install \the [I] into [src]."))
-			return
-		else if(istype(I, /obj/item/power_armor/arm/left))
-			if(module_armor[BODY_ZONE_L_ARM])
-				to_chat(user, span_warning("This module power armor already in power armor!"))
-				return
-			if(do_after(user, 5 SECONDS, target = user) && user.transferItemToLoc(I))
-				module_armor[BODY_ZONE_L_ARM] = I
-				update_parts_icons()
-				to_chat(user, span_notice("You successfully install \the [I] into [src]."))
-			return
-		else if(istype(I, /obj/item/power_armor/arm/right))
-			if(module_armor[BODY_ZONE_R_ARM])
-				to_chat(user, span_warning("This module power armor already in power armor!"))
-				return
-			if(do_after(user, 5 SECONDS, target = user) && user.transferItemToLoc(I))
-				module_armor[BODY_ZONE_R_ARM] = I
-				update_parts_icons()
-				to_chat(user, span_notice("You successfully install \the [I] into [src]."))
-			return
-		else if(istype(I, /obj/item/power_armor/leg/left))
-			if(module_armor[BODY_ZONE_L_LEG])
-				to_chat(user, span_warning("This module power armor already in power armor!"))
-				return
-			if(do_after(user, 5 SECONDS, target = user) && user.transferItemToLoc(I))
-				module_armor[BODY_ZONE_L_LEG] = I
-				update_parts_icons()
-				to_chat(user, span_notice("You successfully install \the [I] into [src]."))
-			return
-		else if(istype(I, /obj/item/power_armor/leg/right))
-			if(module_armor[BODY_ZONE_R_LEG])
-				to_chat(user, span_warning("This module power armor already in power armor!"))
-				return
-			if(do_after(user, 5 SECONDS, target = user) && user.transferItemToLoc(I))
-				module_armor[BODY_ZONE_R_LEG] = I
-				update_parts_icons()
-				to_chat(user, span_notice("You successfully install \the [I] into [src]."))
-			return
+			update_actions()
+			update_parts_icons()
+			to_chat(user, span_notice("You successfully install \the [PA] into [src]."))
+		return
 	else if(I.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!link_to)
 			to_chat(user, span_warning("You need connect power armor to workbench for modify!"))
 			return
+
 		var/list/radial_options = list()
+		var/list/part_to_zone = list()
 		for(var/i in module_armor)
 			if(isnull(module_armor[i]))
 				continue
 			var/obj/item/power_armor/PA = module_armor[i]
-			radial_options[i] = image(PA.icon, PA.icon_state)
+			radial_options[PA.name] = image(PA.icon, PA.icon_state)
+			part_to_zone[PA.name] = PA.zone
+
 		if(!radial_options.len)
 			to_chat(user, span_warning("Power armor don't have modules!"))
-		var/radial_result = show_radial_menu(user, src, radial_options, require_near = TRUE, tooltips = TRUE)
-		var/hand = user.get_empty_held_index_for_side(LEFT_HANDS) || user.get_empty_held_index_for_side(RIGHT_HANDS)
-		if(!user.can_put_in_hand(I, hand))
-			to_chat(user, span_warning("You need free hand!"))
 			return
-		if(radial_result && do_after(user, 5 SECONDS, target = user))
+
+		var/radial_result = part_to_zone[show_radial_menu(user, src, radial_options, require_near = TRUE, tooltips = TRUE)]
+		var/hand = user.get_empty_held_index_for_side(LEFT_HANDS) || user.get_empty_held_index_for_side(RIGHT_HANDS)
+
+		if(radial_result && do_after(user, 5 SECONDS, user))
 			var/obj/item/power_armor/PA = module_armor[radial_result]
 			if(!user.put_in_hand(PA, hand))
-				to_chat(user, span_warning("You need free hand!"))
-				return
+				PA.forceMove(user.loc)
 			module_armor[radial_result] = null
 			if(radial_result == BODY_ZONE_HEAD)
 				RemoveHelmet()
-			to_chat(user, span_notice("You successfully uninstall \the [I] into [src]."))
+			to_chat(user, span_notice("You successfully uninstall \the [PA] into [src]."))
 			update_parts_icons()
 		return
 
