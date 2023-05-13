@@ -5,7 +5,7 @@ GLOBAL_LIST_EMPTY(nv_fov_icons)
 	if(GLOB.nv_fov_icons["[fov_type]"])
 		return GLOB.nv_fov_icons["[fov_type]"]
 	var/atom/movable/screen/night_vision/fake_shit
-	var/icon/original = icon(initial(fake_shit.icon), "[fov_type]_v")
+	var/icon/original = icon(initial(fake_shit.icon), "[fov_type]")
 	var/icon/final = icon(original)
 	final.MapColors(-1,0,0, 0,-1,0, 0,0,-1, 1,1,1) //invert colors
 	GLOB.nv_fov_icons["[fov_type]"] = final
