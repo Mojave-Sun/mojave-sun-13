@@ -484,7 +484,7 @@
 	else
 		if(user.wear_suit == src)
 			to_chat(user, "You begin exiting the [src].")
-			if(do_after(user, 8 SECONDS, target = user) && !density && (get_dist(user, src) <= 1))
+			if(do_after(user, 8 SECONDS, user, IGNORE_INCAPACITATED) && !density && (get_dist(user, src) <= 1))
 				GetOutside(user)
 				return TRUE
 			return FALSE
@@ -495,7 +495,7 @@
 		to_chat(user, span_warning("Your fat ass is too huge to fit in."))
 		return FALSE
 	to_chat(user, "You begin entering the [src].")
-	if(do_after(user, 8 SECONDS, target = user) && CheckEquippedClothing(user) && density)
+	if(do_after(user, 8 SECONDS, user) && CheckEquippedClothing(user) && density)
 		GetInside(user)
 		return TRUE
 	return FALSE
@@ -540,7 +540,7 @@
 	//Nothing can possibly go wrong
 	user.dna.species.no_equip -= ITEM_SLOT_BACK
 	user.dna.species.no_equip -= ITEM_SLOT_BELT
-	var/obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/helmet2 = module_armor[BODY_ZONE_HEAD]
+	var/obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/helmet2 = helmet
 	if(helmet2?.radio)
 		user.transferItemToLoc(helmet2.radio, helmet)
 		for(var/X in helmet2.radio.actions)
