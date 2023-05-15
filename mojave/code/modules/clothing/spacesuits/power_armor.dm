@@ -1,3 +1,4 @@
+#define FOOTSTEP_PA "footsteppa"
 //Generic power armor helmet
 /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor
 	name = "Generic Power Armor Helmet"
@@ -356,10 +357,10 @@
 
 	var/obj/item/power_armor/PA_item = module_armor[def_zone]
 	if(istype(PA_item) && PA_item.get_integrity() > 0)
-		var/damage_to_frame = - (PA_item.get_integrity() - PA_item.take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration, def_zone))
-		if(damage_to_frame > 0)
-			return take_damage(damage_to_frame, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration, def_zone)
-		return 0
+		var/damage_to_frame = - (PA_item.get_integrity() - PA_item.take_damage(damage_amount, damage_type, damage_flag, null, attack_dir, armour_penetration, def_zone))
+		if(damage_to_frame <= 0)
+			return 0
+		damage_amount = damage_to_frame
 
 	damage_amount = run_atom_subarmor(damage_amount, damage_type, damage_flag, attack_dir, armour_penetration)
 	if(damage_amount < DAMAGE_PRECISION)
@@ -398,6 +399,7 @@
 	if(listeningTo)
 		UnregisterSignal(listeningTo, COMSIG_MOVABLE_MOVED)
 	RegisterSignal(user, COMSIG_MOVABLE_MOVED, .proc/on_mob_move)
+	user.RemoveElement(/datum/element/footstep, FOOTSTEP_MOB_HUMAN, 1, -6)
 	listeningTo = user
 	// How do you buckle a suit of power armor to something?
 	user.can_buckle_to = FALSE
@@ -421,6 +423,7 @@
 	user.pixel_y = user.base_pixel_y
 	if(listeningTo)
 		UnregisterSignal(listeningTo, COMSIG_MOVABLE_MOVED)
+	user.AddElement(/datum/element/footstep, FOOTSTEP_MOB_HUMAN, 1, -6)
 	listeningTo = null
 	REMOVE_TRAIT(user, TRAIT_FORCED_STANDING, "power_armor") //It's a suit of armor, it ain't going to fall over just because the pilot is dead
 	REMOVE_TRAIT(user, TRAIT_NOSLIPALL, "power_armor")
