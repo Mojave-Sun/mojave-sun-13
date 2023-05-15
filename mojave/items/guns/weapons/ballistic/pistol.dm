@@ -6,6 +6,7 @@
 	inhand_icon_state = "police10mm"
 	mag_type = /obj/item/ammo_box/magazine/ms13/m10mm
 	fire_sound = 'mojave/sound/ms13weapons/10mm_fire_02.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/10mm_pistol.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 	fire_delay = 0.45 SECONDS
 	spread = 8
@@ -27,6 +28,7 @@
 	inhand_icon_state = "cpistol"
 	mag_type = /obj/item/ammo_box/magazine/internal/ms13/cpistol
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/chinese/chinese1.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/10mm_chinese.ogg'
 	fire_delay = 0.5 SECONDS
 	internal_magazine = TRUE
 
@@ -53,6 +55,7 @@
 	inhand_icon_state = "9mm"
 	mag_type = /obj/item/ammo_box/magazine/ms13/m9mm
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/9mm/9mm2.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/9mmpistol.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 	fire_delay = 0.45 SECONDS
 	spread = 8
@@ -82,6 +85,7 @@
 	inhand_icon_state = "m12mm"
 	mag_type = /obj/item/ammo_box/magazine/ms13/m12mm
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/12mm/m12mm1.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/12mm_smg.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 	fire_delay = 0.5 SECONDS
 	spread = 6
@@ -98,6 +102,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	mag_type = /obj/item/ammo_box/magazine/ms13/m45
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/45/45auto1.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/45_pistol.ogg'
 	can_suppress = FALSE
 	fire_delay = 0.45 SECONDS
 	spread = 8
@@ -121,6 +126,7 @@
 	inhand_icon_state = "deagle"
 	mag_type = /obj/item/ammo_box/magazine/ms13/deagle
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/44/44mag1.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/44_revolver.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 	fire_delay = 0.45 SECONDS
 	spread = 6
@@ -137,6 +143,7 @@
 	mag_type = /obj/item/ammo_box/magazine/ms13/m22
 	w_class = WEIGHT_CLASS_SMALL
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/22/22pistol.ogg'
+	far_fire_sound = null
 	fire_delay = 0.45 SECONDS
 	spread = 8
 	recoil = 0.1
