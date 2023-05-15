@@ -624,7 +624,7 @@
 	var/obj/item/power_armor/part
 	for(var/obj/item/power_armor/i as anything in L)
 		part = new i(null)
-		L[i] = part.chanse
+		L[i] = part.chance
 		qdel(part)
 
 	L["None"] = 50
@@ -635,7 +635,7 @@
 	L = subtypesof(/obj/item/power_armor/leg/left)
 	for(var/obj/item/power_armor/i as anything in L)
 		part = new i(null)
-		L[i] = part.chanse
+		L[i] = part.chance
 		qdel(part)
 
 	L["None"] = 50
@@ -646,7 +646,7 @@
 	L = subtypesof(/obj/item/power_armor/leg/right)
 	for(var/obj/item/power_armor/i as anything in L)
 		part = new i(null)
-		L[i] = part.chanse
+		L[i] = part.chance
 		qdel(part)
 
 	L["None"] = 50
@@ -657,7 +657,7 @@
 	L = subtypesof(/obj/item/power_armor/chest)
 	for(var/obj/item/power_armor/i as anything in L)
 		part = new i(null)
-		L[i] = part.chanse
+		L[i] = part.chance
 		qdel(part)
 
 	L["None"] = 50
@@ -668,7 +668,7 @@
 	L = subtypesof(/obj/item/power_armor/arm/left)
 	for(var/obj/item/power_armor/i as anything in L)
 		part = new i(null)
-		L[i] = part.chanse
+		L[i] = part.chance
 		qdel(part)
 
 	L["None"] = 50
@@ -679,7 +679,7 @@
 	L = subtypesof(/obj/item/power_armor/arm/right)
 	for(var/obj/item/power_armor/i as anything in L)
 		part = new i(null)
-		L[i] = part.chanse
+		L[i] = part.chance
 		qdel(part)
 
 	L["None"] = 50

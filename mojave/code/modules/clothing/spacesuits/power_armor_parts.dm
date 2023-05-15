@@ -15,7 +15,7 @@
 	uses_integrity = TRUE
 	max_integrity = 100
 	var/icon_state_pa
-	var/chanse = 0 //Weight for pick
+	var/chance = 0 //Weight for pick
 	var/list/modules = list(MAIN_MODULE_PA = null, PASSIVE_MODULE_PA = null)
 	var/list/actions_modules = list()
 	var/zone = null
@@ -116,7 +116,7 @@
 					LASER = 0, \
 					ENERGY = 0, \
 					FIRE = 0)
-	chanse = 20
+	chance = 20
 
 /obj/item/power_armor/leg/right
 	name = "Right leg power armor"
@@ -136,7 +136,7 @@
 					LASER = 0, \
 					ENERGY = 0, \
 					FIRE = 0)
-	chanse = 20
+	chance = 20
 
 /obj/item/power_armor/chest
 	name = "Chest power armor"
@@ -156,7 +156,7 @@
 					LASER = 0, \
 					ENERGY = 0, \
 					FIRE = 0)
-	chanse = 20
+	chance = 20
 
 /obj/item/power_armor/arm
 	name = "Arm power armor"
@@ -179,7 +179,7 @@
 					LASER = 0, \
 					ENERGY = 0, \
 					FIRE = 0)
-	chanse = 20
+	chance = 20
 
 /obj/item/power_armor/arm/right
 	name = "Right arm power armor"
@@ -199,7 +199,7 @@
 					LASER = 0, \
 					ENERGY = 0, \
 					FIRE = 0)
-	chanse = 20
+	chance = 20
 
 /obj/item/power_armor/head
 	name = "Helmet power armor"
