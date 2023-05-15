@@ -12,6 +12,7 @@
 	max_stamina_damage = 120
 	grind_results = null
 	wound_resistance = 0 //MOJAVE EDIT - Original value is 10
+	meat_type = /obj/item/food/meat/slab/ms13/bodypart/ribs
 	var/obj/item/cavity_item
 
 /obj/item/bodypart/chest/can_dismember(obj/item/item)

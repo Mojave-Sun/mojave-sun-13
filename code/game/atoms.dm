@@ -162,6 +162,11 @@
 
 	var/hitted_sound //MOJAVE SUN EDIT - Hit Sounds, Why the devilshit isnt this a base feature, what goober decided every objects hit sound should be dictated by one fwuarging ogg
 
+	/**
+	 *  Basically the level of dirtiness on an atom, which will spread to wounds and stuff and cause infections
+	 */
+	var/germ_level = GERM_LEVEL_AMBIENT
+
 /**
  * Called when an atom is created in byond (built in engine proc)
  *
@@ -2204,3 +2209,12 @@
 		new /datum/merger(id, allowed_types, src)
 		candidate = mergers[id]
 	return candidate
+
+/// Used to add or reduce germ level on the atom
+/atom/proc/adjust_germ_level(add_germs, minimum_germs = 0, maximum_germs = GERM_LEVEL_MAXIMUM)
+	germ_level = clamp(germ_level + add_germs, minimum_germs, maximum_germs)
+
+/// Force set the germ level
+/atom/proc/set_germ_level(germs)
+	var/delta = (germs - germ_level)
+	return adjust_germ_level(delta)

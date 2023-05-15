@@ -12,6 +12,7 @@
 	var/icon_robotic = DEFAULT_BODYPART_ICON_ROBOTIC
 	layer = BELOW_MOB_LAYER //so it isn't hidden behind objects when on the floor
 	grind_results = list(/datum/reagent/bone_dust = 10, /datum/reagent/liquidgibs = 5) // robotic bodyparts and chests/heads cannot be ground
+	juice_results = list(/datum/reagent/blood = 20)
 	var/mob/living/carbon/owner
 	var/datum/weakref/original_owner
 	var/status = BODYPART_ORGANIC
@@ -127,6 +128,7 @@
 		RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_PARALYSIS), .proc/on_paralysis_trait_loss)
 	if(status != BODYPART_ORGANIC)
 		grind_results = null
+		juice_results = null
 
 /obj/item/bodypart/Destroy()
 	if(owner)

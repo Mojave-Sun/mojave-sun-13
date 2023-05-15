@@ -46,7 +46,7 @@
 	if(overlay_prefix && bodypart.owner)
 		bodypart.owner.update_bandage_overlays()
 	bodypart = null
-	..()
+	return ..()
 
 /**
  * take_damage() called when the bandage gets damaged
