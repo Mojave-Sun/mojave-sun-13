@@ -568,36 +568,7 @@
 	)
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/t51/random/Initialize()
-	var/list/L = list(module_armor[BODY_ZONE_HEAD] = 5, "None" = 5)
-	var/item = pick_weight(L)
-	if(item == "None")
-		module_armor[BODY_ZONE_HEAD] = null
-
-	L  = list(module_armor[BODY_ZONE_CHEST] = 5, "None" = 5)
-	item = pick_weight(L)
-	if(item == "None")
-		module_armor[BODY_ZONE_CHEST] = null
-
-	L = list(module_armor[BODY_ZONE_L_ARM] = 5, "None" = 5)
-	item = pick_weight(L)
-	if(item == "None")
-		module_armor[BODY_ZONE_L_ARM] = null
-
-	L = list(module_armor[BODY_ZONE_R_ARM] = 5, "None" = 5)
-	item = pick_weight(L)
-	if(item == "None")
-		module_armor[BODY_ZONE_R_ARM] = null
-
-	L = list(module_armor[BODY_ZONE_L_LEG] = 5, "None" = 5)
-	item = pick_weight(L)
-	if(item == "None")
-		module_armor[BODY_ZONE_L_LEG] = null
-
-	L = list(module_armor[BODY_ZONE_R_LEG] = 5, "None" = 5)
-	item = pick_weight(L)
-	if(item == "None")
-		module_armor[BODY_ZONE_R_LEG] = null
-
+	random_type()
 	. = ..()
 
 // T-45 PA set //
@@ -643,6 +614,10 @@
                 LASER = CLASS4_LASER, \
                 ENERGY = CLASS3_PLASMA, \
                 FIRE = CLASS5_FIRE)
+
+/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/t45/random/Initialize()
+	random_type()
+	. = ..()
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/random/Initialize()
 	var/list/L = subtypesof(/obj/item/power_armor/head)
@@ -714,3 +689,34 @@
 
 
 	. = ..()
+
+/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/proc/random_type()
+	var/list/L = list(module_armor[BODY_ZONE_HEAD] = 5, "None" = 5)
+	var/item = pick_weight(L)
+	if(item == "None")
+		module_armor[BODY_ZONE_HEAD] = null
+
+	L  = list(module_armor[BODY_ZONE_CHEST] = 5, "None" = 5)
+	item = pick_weight(L)
+	if(item == "None")
+		module_armor[BODY_ZONE_CHEST] = null
+
+	L = list(module_armor[BODY_ZONE_L_ARM] = 5, "None" = 5)
+	item = pick_weight(L)
+	if(item == "None")
+		module_armor[BODY_ZONE_L_ARM] = null
+
+	L = list(module_armor[BODY_ZONE_R_ARM] = 5, "None" = 5)
+	item = pick_weight(L)
+	if(item == "None")
+		module_armor[BODY_ZONE_R_ARM] = null
+
+	L = list(module_armor[BODY_ZONE_L_LEG] = 5, "None" = 5)
+	item = pick_weight(L)
+	if(item == "None")
+		module_armor[BODY_ZONE_L_LEG] = null
+
+	L = list(module_armor[BODY_ZONE_R_LEG] = 5, "None" = 5)
+	item = pick_weight(L)
+	if(item == "None")
+		module_armor[BODY_ZONE_R_LEG] = null
