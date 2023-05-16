@@ -16,6 +16,8 @@
 	var/footstep_sounds
 	///Whether or not to add variation to the sounds played
 	var/sound_vary = FALSE
+	///Play step on 1,3,5 and etc
+	var/play_step = FALSE // MOJAVE ADD
 
 /datum/element/footstep/Attach(datum/target, footstep_type = FOOTSTEP_MOB_BAREFOOT, volume = 0.5, e_range = -8, sound_vary = FALSE)
 	. = ..()
@@ -50,6 +52,11 @@
 			footstep_sounds = 'sound/effects/tank_treads.ogg'
 			RegisterSignal(target, COMSIG_MOVABLE_MOVED, .proc/play_simplestep_machine)
 			return
+		if(FOOTSTEP_PA)
+			footstep_sounds  = 'sound/mecha/mechstep.ogg'
+			RegisterSignal(target, COMSIG_MOVABLE_MOVED, .proc/play_simplestep_pa)
+			return
+
 	RegisterSignal(target, COMSIG_MOVABLE_MOVED, .proc/play_simplestep)
 	steps_for_living[target] = 0
 
@@ -162,5 +169,19 @@
 	if(!istype(source_loc))
 		return
 	playsound(source_loc, footstep_sounds, 50, falloff_distance = 1, vary = sound_vary)
+
+/datum/element/footstep/proc/play_simplestep_pa(atom/movable/source)
+	SIGNAL_HANDLER
+
+	if (SHOULD_DISABLE_FOOTSTEPS(source))
+		return
+
+	var/turf/open/source_loc = get_turf(source)
+	if(!istype(source_loc))
+		return
+	if(!play_step)
+		playsound(source_loc, footstep_sounds, 100, falloff_distance = 1, vary = sound_vary)
+
+	play_step = !play_step
 
 #undef SHOULD_DISABLE_FOOTSTEPS

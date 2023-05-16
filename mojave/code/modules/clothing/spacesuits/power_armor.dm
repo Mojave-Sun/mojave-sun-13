@@ -1,4 +1,3 @@
-#define FOOTSTEP_PA "footsteppa"
 //Generic power armor helmet
 /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor
 	name = "Generic Power Armor Helmet"
@@ -136,14 +135,13 @@
 	worn_x_dimension = 32
 	worn_y_dimension = 20
 	helmettype = null //no helmet; default PA is frame = /obj/item/clothing/head/helmet/space/hardsuit/power_armor
-	clothing_traits = list(TRAIT_SILENT_FOOTSTEPS) //No playing regular footsteps over power armor footsteps
+	clothing_traits = list()
 	item_flags = NO_PIXEL_RANDOM_DROP
 	ms13_flags_1 = LOCKABLE_1
 	clothing_flags = LARGE_WORN_ICON | STOPSPRESSUREDAMAGE | THICKMATERIAL | SNUG_FIT | BLOCKS_SHOVE_KNOCKDOWN
 	slowdown = 1.35
 	/// Literally just whether or not we allow fatties to wear this power armor
 	var/no_fatties = TRUE
-	var/footstep = 1
 	var/mob/listeningTo
 	var/obj/structure/ms13/workbench/link_to
 	var/list/actions_modules = list()
@@ -166,9 +164,16 @@
 			continue
 		var/type = module_armor[i]
 		var/obj/item/power_armor/PA_part = new type(null)
+		PA_part.frame = src
 		module_armor[i] = PA_part
 		var/icon/PA = new(icon, icon_state = PA_part.icon_state_pa)
 		add_overlay(PA)
+
+		for(var/k in PA_part.modules)
+			if(isnull(PA_part.modules[k]))
+				continue
+			var/obj/item/pa_module/PA_m = PA_part.modules[k]
+			PA_m.added_to_pa()
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/Destroy()
 	. = ..()
@@ -302,6 +307,12 @@
 				MakeHelmet()
 			update_actions()
 			update_parts_icons()
+			PA.frame = src
+			for(var/k in PA.modules)
+				if(isnull(PA.modules[k]))
+					continue
+				var/obj/item/pa_module/PA_m = PA.modules[k]
+				PA_m.added_to_pa()
 			to_chat(user, span_notice("You successfully install \the [PA] into [src]."))
 		return
 	else if(I.tool_behaviour == TOOL_SCREWDRIVER)
@@ -332,8 +343,14 @@
 			module_armor[radial_result] = null
 			if(radial_result == BODY_ZONE_HEAD)
 				RemoveHelmet()
-			to_chat(user, span_notice("You successfully uninstall \the [PA] into [src]."))
 			update_parts_icons()
+			PA.frame = null
+			for(var/k in PA.modules)
+				if(isnull(PA.modules[k]))
+					continue
+				var/obj/item/pa_module/PA_m = PA.modules[k]
+				PA_m.removed_from_pa()
+			to_chat(user, span_notice("You successfully uninstall \the [PA] into [src]."))
 		return
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration, def_zone = BODY_ZONE_CHEST)
@@ -393,13 +410,9 @@
 		actions = actions_modules
 	. = ..()
 	if(slot != ITEM_SLOT_OCLOTHING)
-		if(listeningTo)
-			UnregisterSignal(listeningTo, COMSIG_MOVABLE_MOVED)
 		return
-	if(listeningTo)
-		UnregisterSignal(listeningTo, COMSIG_MOVABLE_MOVED)
-	RegisterSignal(user, COMSIG_MOVABLE_MOVED, .proc/on_mob_move)
 	user.RemoveElement(/datum/element/footstep, FOOTSTEP_MOB_HUMAN, 1, -6)
+	user.AddElement(/datum/element/footstep, FOOTSTEP_PA, 1, -6, sound_vary = TRUE)
 	listeningTo = user
 	// How do you buckle a suit of power armor to something?
 	user.can_buckle_to = FALSE
@@ -421,8 +434,7 @@
 	user.can_buckle_to = TRUE
 	user.base_pixel_y = user.base_pixel_y - 6
 	user.pixel_y = user.base_pixel_y
-	if(listeningTo)
-		UnregisterSignal(listeningTo, COMSIG_MOVABLE_MOVED)
+	user.RemoveElement(/datum/element/footstep, FOOTSTEP_PA, 1, -6, sound_vary = TRUE)
 	user.AddElement(/datum/element/footstep, FOOTSTEP_MOB_HUMAN, 1, -6)
 	listeningTo = null
 	REMOVE_TRAIT(user, TRAIT_FORCED_STANDING, "power_armor") //It's a suit of armor, it ain't going to fall over just because the pilot is dead
@@ -433,16 +445,6 @@
 	REMOVE_TRAIT(user, TRAIT_IMMOBILIZED, "power_armor")
 	REMOVE_TRAIT(user, TRAIT_INCAPACITATED, "power_armor")
 	UnregisterSignal(user, COMSIG_ATOM_CAN_BE_PULLED)
-
-//Hardcode goes brrr; borrowed from ancient hardsuits
-/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/proc/on_mob_move()
-	SIGNAL_HANDLER
-	var/mob/living/carbon/human/H = loc
-	if(!istype(H) || H.wear_suit != src)
-		return
-	if(footstep++ > 1)
-		playsound(src, 'sound/mecha/mechstep.ogg', 100, TRUE)
-		footstep = 0
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/proc/reject_pulls(datum/source, mob/living/puller)
 	SIGNAL_HANDLER
@@ -593,8 +595,6 @@
 
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/t45
-	name = "T-45D Power Armor Suit"
-	desc = "Supposedly the first power armor to be deployed in the Great War. While it does have it's flaws, it still represents a very robust piece of armor that can withstand great punishment."
 	module_armor = list(
 		BODY_ZONE_HEAD = /obj/item/power_armor/head/t45,
 		BODY_ZONE_CHEST = null,
@@ -605,15 +605,6 @@
 	)
 	icon_state = "t45_armor"
 	worn_icon_state = "t45_armor"
-	subarmor = list(SUBARMOR_FLAGS = NONE, \
-                EDGE_PROTECTION = CLASS4_EDGE, \
-                CRUSHING = CLASS5_CRUSH, \
-                CUTTING = CLASS5_CUT, \
-                PIERCING = CLASS5_PIERCE, \
-                IMPALING = CLASS5_STAB, \
-                LASER = CLASS4_LASER, \
-                ENERGY = CLASS3_PLASMA, \
-                FIRE = CLASS5_FIRE)
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/t45/random/Initialize()
 	random_type()

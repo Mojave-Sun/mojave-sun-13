@@ -12,6 +12,13 @@
 	var/class_type = MAIN_MODULE_PA
 	var/list/actions_modules = null
 	var/zone = null
+	var/obj/item/power_armor/part_pa = null
+
+/obj/item/pa_module/proc/added_to_pa()
+	return
+
+/obj/item/pa_module/proc/removed_from_pa()
+	return
 
 /obj/item/pa_module/Initialize(mapload)
 	. = ..()

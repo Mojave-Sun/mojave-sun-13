@@ -19,6 +19,7 @@
 	var/list/modules = list(MAIN_MODULE_PA = null, PASSIVE_MODULE_PA = null)
 	var/list/actions_modules = null
 	var/zone = null
+	var/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/frame = null
 
 /obj/item/power_armor/attackby(obj/item/I, mob/living/user, params)
 	if(I.tool_behaviour == TOOL_SCREWDRIVER)
