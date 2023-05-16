@@ -182,16 +182,14 @@
 	UnregisterSignal(src, COMSIG_ATOM_CAN_BE_PULLED)
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/proc/update_actions()
-	if(!actions_types)
-		actions_types = list()
-	actions_types.Remove(actions_modules)
-	actions_modules = list()
+	actions_modules = null
 	for(var/i in module_armor)
 		if(isnull(module_armor[i]))
 			continue
 		var/obj/item/power_armor/PA = module_armor[i]
-		actions_modules |= PA.actions_modules
-	actions_types.Add(actions_modules)
+		if(PA.actions_modules)
+			LAZYINITLIST(actions_modules)
+			actions_modules |= PA.actions_modules
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/proc/update_parts_icons()
 	cut_overlays()
@@ -391,6 +389,8 @@
 		ADD_TRAIT(listeningTo, TRAIT_INCAPACITATED, "power_armor")
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/equipped(mob/living/carbon/human/user, slot)
+	if(actions_modules)
+		actions = actions_modules
 	. = ..()
 	if(slot != ITEM_SLOT_OCLOTHING)
 		if(listeningTo)

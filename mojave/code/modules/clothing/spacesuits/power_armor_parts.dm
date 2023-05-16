@@ -17,7 +17,7 @@
 	var/icon_state_pa
 	var/chance = 0 //Weight for pick
 	var/list/modules = list(MAIN_MODULE_PA = null, PASSIVE_MODULE_PA = null)
-	var/list/actions_modules = list()
+	var/list/actions_modules = null
 	var/zone = null
 
 /obj/item/power_armor/attackby(obj/item/I, mob/living/user, params)
@@ -43,6 +43,8 @@
 			if(!user.put_in_hand(PA, hand))
 				PA.forceMove(user.loc)
 			modules[radial_result] = null
+			if(PA.actions_modules)
+				actions_modules.Remove(PA.actions_modules)
 			to_chat(user, span_notice("You successfully uninstall \the [I] into [src]."))
 		return
 
@@ -56,7 +58,9 @@
 			return
 		if(do_after(user, 5 SECONDS, user) && user.transferItemToLoc(module, src))
 			modules[module.class_type] = module
-			actions_modules |= module.actions_modules
+			if(module.actions_modules)
+				LAZYINITLIST(actions_modules)
+				actions_modules |= module.actions_modules
 			to_chat(user, span_notice("You successfully install \the [module] into [src]."))
 		return
 	return
