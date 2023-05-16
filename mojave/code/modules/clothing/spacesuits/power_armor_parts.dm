@@ -72,7 +72,7 @@
 	if(QDELETED(src))
 		CRASH("[src] taking damage after deletion")
 	if(atom_integrity <= 0)
-		return
+		return damage_amount
 	if(sound_effect)
 		play_attack_sound(damage_amount, damage_type, damage_flag)
 	if(resistance_flags & INDESTRUCTIBLE)
@@ -113,14 +113,14 @@
 	icon_state_pa = "t51_leftleg"
 	max_integrity = 250
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-					EDGE_PROTECTION = 0, \
-					CRUSHING = 0, \
-					CUTTING = 0, \
-					PIERCING = 0, \
-					IMPALING = 0, \
-					LASER = 0, \
-					ENERGY = 0, \
-					FIRE = 0)
+					EDGE_PROTECTION = CLASS4_EDGE, \
+					CRUSHING = CLASS5_CRUSH, \
+					CUTTING = CLASS5_CUT, \
+					PIERCING = CLASS5_PIERCE, \
+					IMPALING = CLASS5_STAB, \
+					LASER = CLASS5_LASER, \
+					ENERGY = CLASS4_PLASMA, \
+					FIRE = CLASS5_FIRE)
 	chance = 20
 
 /obj/item/power_armor/leg/right
@@ -133,14 +133,14 @@
 	icon_state_pa = "t51_rightleg"
 	max_integrity = 250
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-					EDGE_PROTECTION = 0, \
-					CRUSHING = 0, \
-					CUTTING = 0, \
-					PIERCING = 0, \
-					IMPALING = 0, \
-					LASER = 0, \
-					ENERGY = 0, \
-					FIRE = 0)
+					EDGE_PROTECTION = CLASS4_EDGE, \
+					CRUSHING = CLASS5_CRUSH, \
+					CUTTING = CLASS5_CUT, \
+					PIERCING = CLASS5_PIERCE, \
+					IMPALING = CLASS5_STAB, \
+					LASER = CLASS5_LASER, \
+					ENERGY = CLASS4_PLASMA, \
+					FIRE = CLASS5_FIRE)
 	chance = 20
 
 /obj/item/power_armor/chest
@@ -153,14 +153,14 @@
 	icon_state_pa = "t51_chest"
 	max_integrity = 700
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-					EDGE_PROTECTION = 0, \
-					CRUSHING = 0, \
-					CUTTING = 0, \
-					PIERCING = 0, \
-					IMPALING = 0, \
-					LASER = 0, \
-					ENERGY = 0, \
-					FIRE = 0)
+					EDGE_PROTECTION = CLASS4_EDGE, \
+					CRUSHING = CLASS5_CRUSH, \
+					CUTTING = CLASS5_CUT, \
+					PIERCING = CLASS5_PIERCE, \
+					IMPALING = CLASS5_STAB, \
+					LASER = CLASS5_LASER, \
+					ENERGY = CLASS4_PLASMA, \
+					FIRE = CLASS5_FIRE)
 	chance = 20
 
 /obj/item/power_armor/arm
@@ -176,14 +176,14 @@
 	icon_state_pa = "t51_lefthand"
 	max_integrity = 300
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-					EDGE_PROTECTION = 0, \
-					CRUSHING = 0, \
-					CUTTING = 0, \
-					PIERCING = 0, \
-					IMPALING = 0, \
-					LASER = 0, \
-					ENERGY = 0, \
-					FIRE = 0)
+					EDGE_PROTECTION = CLASS4_EDGE, \
+					CRUSHING = CLASS5_CRUSH, \
+					CUTTING = CLASS5_CUT, \
+					PIERCING = CLASS5_PIERCE, \
+					IMPALING = CLASS5_STAB, \
+					LASER = CLASS5_LASER, \
+					ENERGY = CLASS4_PLASMA, \
+					FIRE = CLASS5_FIRE)
 	chance = 20
 
 /obj/item/power_armor/arm/right
@@ -196,14 +196,14 @@
 	icon_state_pa = "t51_righthand"
 	max_integrity = 300
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
-					EDGE_PROTECTION = 0, \
-					CRUSHING = 0, \
-					CUTTING = 0, \
-					PIERCING = 0, \
-					IMPALING = 0, \
-					LASER = 0, \
-					ENERGY = 0, \
-					FIRE = 0)
+					EDGE_PROTECTION = CLASS4_EDGE, \
+					CRUSHING = CLASS5_CRUSH, \
+					CUTTING = CLASS5_CUT, \
+					PIERCING = CLASS5_PIERCE, \
+					IMPALING = CLASS5_STAB, \
+					LASER = CLASS5_LASER, \
+					ENERGY = CLASS4_PLASMA, \
+					FIRE = CLASS5_FIRE)
 	chance = 20
 
 /obj/item/power_armor/head
