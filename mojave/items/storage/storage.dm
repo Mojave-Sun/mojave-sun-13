@@ -1,5 +1,8 @@
-// Storage code
+/obj/item/storage/ms13/Initialize()
+	. = ..()
+	reset_grid_inventory()
 
+// Storage code
 /obj/item/storage/firstaid/ms13
 	name = "first aid kit"
 	desc = "A first aid kit, can be used for easy storage and access of critical medical supplies."
