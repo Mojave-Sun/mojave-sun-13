@@ -231,6 +231,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	persistent_inventory_update(screenmob)
 	screenmob.update_action_buttons(1)
 	reorganize_alerts(screenmob)
+	reorganize_alert_texts(screenmob) //MOJAVE SUN ADD
 	screenmob.reload_fullscreen()
 	update_parallax_pref(screenmob)
 
