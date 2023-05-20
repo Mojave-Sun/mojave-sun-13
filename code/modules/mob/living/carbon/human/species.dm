@@ -1390,15 +1390,14 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			*/
 			//MOJAVE EDIT BEGIN
 			var/no_defended = target.damage_armor(damage, MELEE, user.dna.species.attack_type, def_zone = user.zone_selected)
-			if(no_defended > 0)
-				target.apply_damage(no_defended*1.5, \
-									user.dna.species.attack_type, \
-									affecting, \
-									armor_block, \
-									attack_direction = attack_direction, \
-									reduced = armor_reduce, \
-									edge_protection = edge_protection, \
-									subarmor_flags = subarmor_flags)
+			target.apply_damage(no_defended*1.5, \
+								user.dna.species.attack_type, \
+								affecting, \
+								armor_block, \
+								attack_direction = attack_direction, \
+								reduced = armor_reduce, \
+								edge_protection = edge_protection, \
+								subarmor_flags = subarmor_flags)
 			//MOJAVE EDIT END
 			log_combat(user, target, "kicked")
 		else//other attacks deal full raw damage + 1.5x in stamina damage
@@ -1407,17 +1406,16 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			*/
 			//MOJAVE EDIT BEGIN
 			var/no_defended = target.damage_armor(damage, MELEE, user.dna.species.attack_type, def_zone = user.zone_selected)
-			if(no_defended > 0)
-				target.apply_damage(no_defended, \
-									user.dna.species.attack_type, \
-									affecting, \
-									armor_block, \
-									attack_direction = attack_direction, \
-									reduced = armor_reduce, \
-									edge_protection = edge_protection, \
-									subarmor_flags = subarmor_flags)
+			target.apply_damage(no_defended, \
+								user.dna.species.attack_type, \
+								affecting, \
+								armor_block, \
+								attack_direction = attack_direction, \
+								reduced = armor_reduce, \
+								edge_protection = edge_protection, \
+								subarmor_flags = subarmor_flags)
 			//MOJAVE EDIT END
-				target.apply_damage(no_defended*1.5, STAMINA, affecting, armor_block)
+			target.apply_damage(no_defended*1.5, STAMINA, affecting, armor_block)
 			log_combat(user, target, "punched")
 
 		if((target.stat != DEAD) && damage >= user.dna.species.punchstunthreshold)
@@ -1524,19 +1522,18 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	*/
 	//MOJAVE EDIT BEGIN
 	var/no_defended = H.damage_armor(I.force * weakness, MELEE, I.damtype, def_zone = def_zone)
-	if(no_defended > 0 )
-		apply_damage(no_defended, \
-					I.damtype, \
-					def_zone, \
-					armor_block, \
-					H, \
-					wound_bonus = Iwound_bonus, \
-					bare_wound_bonus = I.bare_wound_bonus, \
-					sharpness = I.get_sharpness(), \
-					attack_direction = attack_direction, \
-					reduced = armor_reduce, \
-					edge_protection = edge_protection, \
-					subarmor_flags = subarmor_flags)
+	apply_damage(no_defended, \
+				I.damtype, \
+				def_zone, \
+				armor_block, \
+				H, \
+				wound_bonus = Iwound_bonus, \
+				bare_wound_bonus = I.bare_wound_bonus, \
+				sharpness = I.get_sharpness(), \
+				attack_direction = attack_direction, \
+				reduced = armor_reduce, \
+				edge_protection = edge_protection, \
+				subarmor_flags = subarmor_flags)
 
 	//COOL BABY BACK RIBS CODE HERE
 	var/list/modifiers = params2list(params)
