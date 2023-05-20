@@ -14,6 +14,7 @@
 /datum/preference/choiced/fatness/apply_to_human(mob/living/carbon/human/target, value)
 	var/lowertext_value = lowertext(value)
 	target.fatness = lowertext_value
-	//fat fucks start with a full belly, obviously - go run some laps lardass
-	if(lowertext_value == FATNESS_OBESE)
-		target.set_nutrition(NUTRITION_LEVEL_FAT + 50)
+	target.add_movespeed_modifier(/datum/movespeed_modifier/ms13/fat)
+
+/datum/movespeed_modifier/ms13/fat
+	multiplicative_slowdown = 0.1
