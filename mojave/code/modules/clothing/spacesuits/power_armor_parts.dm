@@ -100,6 +100,21 @@
 /obj/item/power_armor/atom_destruction(damage_flag)
 	return
 
+/obj/item/power_armor/get_examine_string(mob/user, thats, damage = TRUE)
+	var/damage_txt = ""
+	if(damage)
+		if(atom_integrity <= 0)
+			damage_txt ="This part is a broken."
+		if(atom_integrity > 0 && (atom_integrity < (max_integrity / 3)))
+			damage_txt ="This part is a heavily damaged."
+		if((atom_integrity > (max_integrity / 3)) && (atom_integrity < (max_integrity * (2/3))))
+			damage_txt = "This part is a damaged [src]."
+		if((atom_integrity > (max_integrity * (2/3))) && (atom_integrity < max_integrity))
+			damage_txt = "This part is a lightly damaged."
+		if(atom_integrity == max_integrity)
+			damage_txt = "This part is a non-damaged."
+	return "[icon2html(src, user)] [thats? "That's ":""][get_examine_name(user)]. [damage_txt]"
+
 /obj/item/power_armor/leg
 	name = "Leg power armor"
 

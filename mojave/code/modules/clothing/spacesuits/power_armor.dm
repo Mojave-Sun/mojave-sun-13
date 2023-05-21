@@ -33,7 +33,7 @@
 	if(QDELETED(src))
 		CRASH("[src] taking damage after deletion")
 	if(atom_integrity <= 0)
-		return
+		return damage_amount
 	if(sound_effect)
 		play_attack_sound(damage_amount, damage_type, damage_flag)
 	if(resistance_flags & INDESTRUCTIBLE)
@@ -159,6 +159,7 @@
 		if(i == BODY_ZONE_HEAD)
 			var/type = module_armor[i]
 			var/obj/item/power_armor/head/H = new type(null)
+			module_armor[i] = H
 			helmettype = H.type_helmet
 			MakeHelmet()
 			continue
@@ -226,6 +227,9 @@
 		if(isnull(module_armor[i]))
 			continue
 		var/obj/item/power_armor/PA = module_armor[i]
+		if(PA.zone == BODY_ZONE_HEAD)
+			. +=  "[PA.get_examine_string(user, TRUE, FALSE)]"
+			continue
 		. += "[PA.get_examine_string(user, TRUE)]"
 	. += "Alt+left click this power armor to get into and out of it."
 	var/mob/living/carbon/carbon_user = user
@@ -372,10 +376,14 @@
 
 	var/obj/item/power_armor/PA_item = module_armor[def_zone]
 	if(istype(PA_item) && PA_item.get_integrity() > 0)
-		var/damage_to_frame = - (PA_item.get_integrity() - PA_item.take_damage(damage_amount, damage_type, damage_flag, null, attack_dir, armour_penetration, def_zone))
-		if(damage_to_frame <= 0)
+		if(def_zone == BODY_ZONE_HEAD)
+			helmet.take_damage(damage_amount, damage_type, damage_flag, null, attack_dir, armour_penetration, def_zone)
 			return 0
-		damage_amount = damage_to_frame
+		else
+			var/damage_to_frame = - (PA_item.get_integrity() - PA_item.take_damage(damage_amount, damage_type, damage_flag, null, attack_dir, armour_penetration, def_zone))
+			if(damage_to_frame <= 0)
+				return 0
+			damage_amount = damage_to_frame
 
 	damage_amount = run_atom_subarmor(damage_amount, damage_type, damage_flag, attack_dir, armour_penetration)
 	if(damage_amount < DAMAGE_PRECISION)
