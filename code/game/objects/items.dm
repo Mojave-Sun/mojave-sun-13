@@ -208,6 +208,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 //MOJAVE EDIT CHANGE BEGIN
 	var/log_pickup_and_drop = FALSE //For logging in the attack logs certain items (mostly weapons) being equipped, dropped, or taken into hand
+	var/mining_mult = 0 //For Mojave Sun custom mining code, intended to multiply the force of an object when mining deposit
 //MOJAVE EDIT CHANGE END
 
 	/// Used in obj/item/examine to give additional notes on what the weapon does, separate from the predetermined output variables
