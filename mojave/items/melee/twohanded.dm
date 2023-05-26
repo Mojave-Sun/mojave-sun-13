@@ -74,10 +74,6 @@
 	throw_range = 3
 	wield_info = /datum/wield_info/twohanded/fireaxe
 
-/obj/item/ms13/twohanded/fireaxe/drylander/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/item_scaling, 0.55, 1)
-
 /obj/item/ms13/twohanded/bump_sword
 	name = "bumper sword"
 	desc = "A large, intimidating sword made fashioned from the bumper of a car. The peak of post-war blades."

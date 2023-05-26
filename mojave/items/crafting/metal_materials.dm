@@ -186,6 +186,9 @@ GLOBAL_LIST_INIT(refined_steel_recipes, list ( \
 /obj/item/stack/sheet/ms13/junk_bullets/ten
 	amount = 10
 
+/obj/item/stack/sheet/ms13/junk_bullets/twelve
+	amount = 12
+
 /obj/item/stack/sheet/ms13/junk_bullets/twenty
 	amount = 20
 
@@ -272,6 +275,9 @@ GLOBAL_LIST_INIT(refined_steel_recipes, list ( \
 
 /obj/item/stack/sheet/ms13/junk_casings/ten
 	amount = 10
+
+/obj/item/stack/sheet/ms13/junk_casings/twelve
+	amount = 12
 
 /obj/item/stack/sheet/ms13/junk_casings/twenty
 	amount = 20
