@@ -47,12 +47,12 @@ const DescSection = (props, context) => {
     <Stack vertical fill>
       <Stack.Item grow>
         <Section fill scrollable title="Description">
-          {description ? description : "Nothing!"}
+          {description ? description : "Nothingburger."}
         </Section>
       </Stack.Item>
       <Stack.Item>
         <Section title="Supervisors">
-          {supervisors ? supervisors : "Nobody!"}
+          {supervisors ? supervisors : "No gods, no masters."}
         </Section>
       </Stack.Item>
     </Stack>
