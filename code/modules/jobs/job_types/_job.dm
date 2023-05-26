@@ -116,12 +116,6 @@
 	///RPG job names, for the memes
 	var/rpg_title
 
-	// MS13 EDIT BEGIN //
-	var/forbid = ""
-
-	var/enforce = ""
-
-	// MS13 EDIT END //
 /datum/job/New()
 	. = ..()
 	var/list/jobs_changes = get_map_changes()
