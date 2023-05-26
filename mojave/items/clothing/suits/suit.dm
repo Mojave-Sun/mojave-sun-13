@@ -679,3 +679,49 @@
 	desc = "A perfectly preserved pre-war VINTAGE Manny Mammoth suit! It smells of crusty pizza."
 	icon_state = "mannybody"
 	inhand_icon_state = "mannyhead"
+
+// Drylanders //
+
+/obj/item/clothing/suit/ms13/drylander
+	name = "base type Drylander suit"
+	desc = "You shouldn't be seeing this."
+	body_parts_covered = CHEST|GROIN|LEGS
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = 0, \
+                LASER = CLASS1_LASER, \
+                ENERGY = 0, \
+                FIRE = 0)
+
+/obj/item/clothing/suit/ms13/drylander/hunter
+	name = "\improper Drylander hunter padded robes"
+	desc = "Lightly padded robes worn by hunters of the Drylander tribe. Light, breathable, and still somewhat protective."
+	icon_state = "hunter"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = 0, \
+                LASER = CLASS1_LASER, \
+                ENERGY = 0, \
+                FIRE = 0)
+
+/obj/item/clothing/suit/ms13/drylander/headtaker
+	name = "\improper Drylander Headtaker padded robes"
+	desc = "Padded robes worn by the notorious Headtakers of the Drylander tribe. A frightening sight."
+	body_parts_covered = CHEST|GROIN|LEGS
+	slowdown = 0.15
+	icon_state = "headtaker"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS2_CRUSH, \
+                CUTTING = CLASS2_CUT, \
+                PIERCING = CLASS2_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS2_LASER, \
+                ENERGY = 0, \
+                FIRE = CLASS2_FIRE)

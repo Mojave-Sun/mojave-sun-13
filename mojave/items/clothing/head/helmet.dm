@@ -1570,3 +1570,43 @@
                 ENERGY = 0, \
                 FIRE = 0)
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0) //No wound armor
+
+// Drylander Hoods //
+
+/obj/item/clothing/head/helmet/ms13/drylander
+	name = "base type drylander hood"
+	desc = "You shouldn't be seeing this."
+	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
+
+/obj/item/clothing/head/helmet/ms13/drylander/hunter
+	name = "\improper Drylander hunter hood"
+	desc = "A lightly padded hood worn by Drylander hunters."
+	icon_state = "hunter_dry"
+	worn_icon_state = "hunter_dry"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = 0, \
+                LASER = CLASS1_LASER, \
+                ENERGY = 0, \
+                FIRE = 0)
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0) //No wound armor
+
+/obj/item/clothing/head/helmet/ms13/drylander/headtaker
+	name = "\improper Drylander Headtaker hood"
+	desc = "A protective hood worn by Headtakers of the Drylander tribe. The sight alone strikes fear into the locals."
+	icon_state = "headtaker"
+	worn_icon_state = "headtaker"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS2_CRUSH, \
+                CUTTING = CLASS2_CUT, \
+                PIERCING = CLASS2_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS2_LASER, \
+                ENERGY = 0, \
+                FIRE = CLASS2_FIRE)
+	has_fov = TRUE
+	fov_angle = 60
