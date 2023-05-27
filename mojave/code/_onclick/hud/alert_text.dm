@@ -42,7 +42,7 @@
 
 /atom/movable/screen/alert/text
 	icon = 'mojave/icons/hud/ms_ui_alerttext.dmi'
-	icon_state = "brutal"
+	icon_state = "empty"
 	name = "Alert Text"
 	timeout = 5 SECONDS
 
@@ -103,6 +103,10 @@
 /atom/movable/screen/alert/text/smallhappy
 	icon_state = "smallhappy"
 	name = "Small happy"
+
+/atom/movable/screen/alert/text/happy
+	icon_state = "happy"
+	name = "Happy"
 
 /atom/movable/screen/alert/text/joke
 	icon_state = "joke"

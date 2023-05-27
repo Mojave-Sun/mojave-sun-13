@@ -331,6 +331,7 @@ GLOBAL_LIST_EMPTY(nodes_trader_destination)
 	item_to_buy = new item_to_buy(get_turf(user))
 	user.put_in_hands(item_to_buy)
 	playsound(src, sell_sound, 50, TRUE)
+	user.throw_alert_text(/atom/movable/screen/alert/text/smallhappy, "You purchase [item_to_buy.name] for [product_info[TRADER_PRODUCT_INFO_PRICE]] [currency_name]", override = FALSE) // MOJAVE SUN EDIT - FO text alert
 	product_info[TRADER_PRODUCT_INFO_QUANTITY] -= 1
 	say(return_trader_phrase(BUY_PHRASE))
 
@@ -404,6 +405,7 @@ GLOBAL_LIST_EMPTY(nodes_trader_destination)
 		return TRUE
 	say(return_trader_phrase(ITEM_SELLING_ACCEPTED_PHRASE))
 	playsound(src, sell_sound, 50, TRUE)
+	user.throw_alert_text(/atom/movable/screen/alert/text/happy, "You sell [selling.name] for [cost] [currency_name]", override = FALSE) // MOJAVE SUN EDIT - FO text alert
 	log_econ("[selling] has been sold to [src] (typepath used for product info; [typepath_for_product_info]) by [user] for [cost] cash.")
 	exchange_sold_items(selling, cost, typepath_for_product_info)
 	generate_cash(cost, user)
