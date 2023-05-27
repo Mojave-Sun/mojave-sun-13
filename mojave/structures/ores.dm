@@ -240,10 +240,13 @@
 #define DEPOSIT_WEIGHT			2
 
 /turf/open/floor/plating/ms13/ground/mountain/Initialize()
+	. = ..()
 	//var/Weight = 0
 	var/randDeposit = null
 
 	//spontaneously spawn deposits
+	if(src.is_blocked_turf(TRUE)) //can't put ores on a tile that has dense stuff
+		return
 	if(prob(DEPOSIT_SPONTANEOUS))
 		randDeposit = pick_weight(DEPOSIT_SPAWN_LIST) //Create a new deposit object at this location, and assign var
 		var/turfDeposit = new randDeposit(src)
