@@ -252,3 +252,15 @@
 		var/turfDeposit = new randDeposit(src)
 		. = TRUE //in case we ever need this to return if we spawned
 		return .
+
+/turf/open/floor/plating/ms13/ground/mountain/drought/Initialize()
+	. = ..()
+	var/randDeposit = null
+
+	if(src.is_blocked_turf(TRUE))
+		return
+	if(prob(DEPOSIT_SPONTANEOUS))
+		randDeposit = pick_weight(DEPOSIT_SPAWN_LIST)
+		var/turfDeposit = new randDeposit(src)
+		. = TRUE
+		return .
