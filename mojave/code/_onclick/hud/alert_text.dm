@@ -65,8 +65,7 @@
 	I.layer = FLY_LAYER
 	I.maptext_width = 96
 	I.maptext_height = 24
-	I.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
-	I.plane = ABOVE_LIGHTING_PLANE
+	I.plane =  ABOVE_HUD_PLANE
 	I.pixel_x = -round(I.maptext_width/2) + 70
 	I.pixel_y = 2
 
