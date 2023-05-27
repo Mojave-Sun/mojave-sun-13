@@ -229,6 +229,7 @@
 	icon_state = "drylander_building"
 	outdoors = FALSE
 	atmosphere_sound = BUILDING_ATMOSPHERE
+
 /area/ms13/rangeroutpost
 	name = "Desert Ranger Outpost"
 	icon_state = "ranger_outpost"
