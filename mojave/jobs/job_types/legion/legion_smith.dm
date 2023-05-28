@@ -2,8 +2,8 @@
 	title = "Legion Blacksmith"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "The Centurion and the Decanii"
-	description = "Ensure your fellow Legionaries are properly supplied and armed for the fights to come, maintain the camp when not otherwise busy, and listen to orders from the Decanii and the Centurion."
+	supervisors = "The Veteran Decanus"
+	description = "Ensure your fellow Legionaries are properly supplied and armed for the fights to come. Listen to orders from the Decanus."
 
 	outfit = /datum/outfit/job/ms13/legion/legion_smith
 

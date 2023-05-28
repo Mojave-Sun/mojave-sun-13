@@ -155,6 +155,9 @@
 	icon_state = "jezzail"
 	inhand_icon_state = "jezzail"
 	internal_magazine = TRUE
+	w_class = WEIGHT_CLASS_HUGE
+	weapon_weight = WEAPON_HEAVY
+	slot_flags = ITEM_SLOT_BACK
 	mag_type = /obj/item/ammo_box/magazine/internal/ms13/jezzail
 	bolt_wording = "chamber"
 	rack_sound = 'mojave/sound/ms13weapons/breakaction_open.ogg'
@@ -162,6 +165,8 @@
 	bolt_drop_sound = 'mojave/sound/ms13weapons/breakaction_close.ogg'
 	fire_sound = 'mojave/sound/ms13weapons/hunting_rifle.ogg'
 	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/hunting_rifle.ogg' //placeholder sounds for now
+	load_empty_sound = 'mojave/sound/ms13weapons/gunsounds/antique_sniper/antique_load.ogg'
+	load_sound = 'mojave/sound/ms13weapons/gunsounds/antique_sniper/antique_load.ogg'
 	fire_delay = 1 SECONDS
 	rack_delay = 1 SECONDS
 	spread = 0
@@ -175,6 +180,9 @@
 	icon_state = "antique"
 	inhand_icon_state = "antique"
 	internal_magazine = TRUE
+	w_class = WEIGHT_CLASS_HUGE
+	weapon_weight = WEAPON_HEAVY
+	slot_flags = ITEM_SLOT_BACK
 	mag_type = /obj/item/ammo_box/magazine/internal/ms13/antique
 	bolt_wording = "trap"
 	rack_sound = 'mojave/sound/ms13weapons/gunsounds/antique_sniper/antique_open.ogg'
@@ -182,6 +190,8 @@
 	bolt_drop_sound = 'mojave/sound/ms13weapons/gunsounds/antique_sniper/antique_close.ogg'
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/antique_sniper/antique_fire.ogg'
 	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/antique.ogg'
+	load_empty_sound = 'mojave/sound/ms13weapons/gunsounds/antique_sniper/antique_load.ogg'
+	load_sound = 'mojave/sound/ms13weapons/gunsounds/antique_sniper/antique_load.ogg'
 	fire_delay = 1 SECONDS
 	rack_delay = 1 SECONDS
 	spread = 0

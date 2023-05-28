@@ -1,8 +1,8 @@
 /datum/job/ms13/legion/explorer
 	title = "Legion Explorer"
-	total_positions = 2
-	spawn_positions = 2
-	supervisors = "The Centurion and the Decanii."
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "The Veteran Decanus."
 	description = "Assist the Legion by scouting out the land, taking out targets strategically."
 
 	outfit = /datum/outfit/job/ms13/legion/explorer

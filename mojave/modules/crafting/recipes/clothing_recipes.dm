@@ -629,6 +629,75 @@
 	category = CAT_UNDER
 	crafting_interface = CRAFTING_BENCH_ARMTAILOR
 
+//LEGION CRAFTING
+
+/datum/crafting_recipe/leg_fatigues
+	name = "Legion fatigues"
+	result = /obj/item/clothing/under/ms13/legion/fatigues
+	time = 8 SECONDS
+	tool_paths = list()
+	trait = TRAIT_LEGION_SMITHING
+	reqs = list(/obj/item/stack/sheet/ms13/cloth = 2,
+				/obj/item/stack/sheet/ms13/leather = 1,
+				/obj/item/stack/sheet/ms13/thread = 1)
+	category = CAT_UNDER
+	crafting_interface = CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/leg_recruit
+	name = "Legion recruit armor"
+	result = /obj/item/clothing/suit/armor/ms13/legion/recruit
+	time = 12 SECONDS
+	tool_behaviors = list()
+	tool_paths = list(/obj/item/ms13/hammer)
+	trait = TRAIT_LEGION_SMITHING
+	reqs = list(/obj/item/stack/sheet/ms13/leather = 5,
+				/obj/item/stack/sheet/ms13/cloth = 3,
+				/obj/item/stack/sheet/ms13/thread = 2,
+				/obj/item/stack/sheet/ms13/scrap = 2
+				)
+	category = CAT_ARMOR
+	crafting_interface = CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/leg_recruithelm
+	name = "Legion recruit helmet"
+	result = /obj/item/clothing/head/helmet/ms13/legion/recruit
+	time = 8 SECONDS
+	tool_paths = list()
+	trait = TRAIT_LEGION_SMITHING
+	reqs = list(/obj/item/stack/sheet/ms13/leather = 4,
+				/obj/item/stack/sheet/ms13/cloth = 2,
+				/obj/item/stack/sheet/ms13/thread = 1)
+	category = CAT_HEADGEAR
+	crafting_interface = CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/leg_prime
+	name = "Legion prime armor"
+	result = /obj/item/clothing/suit/armor/ms13/legion/prime
+	time = 15 SECONDS
+	tool_behaviors = list()
+	tool_paths = list(/obj/item/ms13/hammer)
+	trait = TRAIT_LEGION_SMITHING
+	reqs = list(/obj/item/stack/sheet/ms13/leather = 5,
+				/obj/item/stack/sheet/ms13/thread = 1,
+				/obj/item/stack/sheet/ms13/scrap_steel = 6,
+				/obj/item/clothing/suit/armor/ms13/legion/recruit = 1
+				)
+	category = CAT_ARMOR
+	crafting_interface = CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/leg_primehelm
+	name = "Legion prime helmet"
+	result = /obj/item/clothing/head/helmet/ms13/legion/prime
+	time = 8 SECONDS
+	tool_paths = list(/obj/item/ms13/hammer)
+	trait = TRAIT_LEGION_SMITHING
+	reqs = list(/obj/item/stack/sheet/ms13/leather = 4,
+				/obj/item/stack/sheet/ms13/cloth = 3,
+				/obj/item/clothing/head/helmet/ms13/legion/recruit = 1
+				)
+	category = CAT_HEADGEAR
+	crafting_interface = CRAFTING_BENCH_ARMTAILOR
+
 //MISC CLOTHING ITEMS (GLOVES, SHOES, MASKS)
 
 /datum/crafting_recipe/leather_gloves
