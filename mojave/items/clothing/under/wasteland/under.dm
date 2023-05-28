@@ -417,3 +417,10 @@
 	desc = "A plain white shirt and slacks."
 	icon_state = "shirt"
 	inhand_icon_state = "bar_suit"
+
+// Drylander //
+
+/obj/item/clothing/under/ms13/drylander
+	name = "\improper Drylander under robes"
+	desc = "Very light robes worn by the Drylander tribe. Meant to be worn under heavier robes."
+	icon_state = "drylander"

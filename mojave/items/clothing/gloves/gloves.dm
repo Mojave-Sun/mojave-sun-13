@@ -92,3 +92,8 @@
     name = "tan handwraps"
     desc = "Some tan handwraps mostly used by Caesar's Legion."
     icon_state = "leg_tanwraps"
+
+/obj/item/clothing/gloves/ms13/drylander
+    name = "\improper Drylander handwraps"
+    desc = "Cloth handwraps worn by the Drylander tribe."
+    icon_state = "drylander"

@@ -1577,6 +1577,15 @@
 	name = "base type drylander hood"
 	desc = "You shouldn't be seeing this."
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = 0, \
+                IMPALING = 0, \
+                LASER = 0, \
+                ENERGY = 0, \
+                FIRE = 0)
 
 /obj/item/clothing/head/helmet/ms13/drylander/hunter
 	name = "\improper Drylander hunter hood"
@@ -1588,10 +1597,12 @@
                 CRUSHING = CLASS2_CRUSH, \
                 CUTTING = CLASS2_CUT, \
                 PIERCING = CLASS1_PIERCE, \
-                IMPALING = 0, \
-                LASER = CLASS2_LASER, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS1_FIRE)
+	has_fov = TRUE
+	fov_angle = 60
 
 /obj/item/clothing/head/helmet/ms13/drylander/headtaker
 	name = "\improper Drylander Headtaker hood"
@@ -1603,9 +1614,46 @@
                 CRUSHING = CLASS2_CRUSH, \
                 CUTTING = CLASS2_CUT, \
                 PIERCING = CLASS2_PIERCE, \
-                IMPALING = CLASS1_STAB, \
+                IMPALING = CLASS2_STAB, \
                 LASER = CLASS2_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
 	has_fov = TRUE
 	fov_angle = 60
+
+/obj/item/clothing/head/helmet/ms13/drylander/shaman
+	name = "\improper Drylander shaman hood"
+	desc = "A lightly padded hood worn by the shaman of the Drylander tribe."
+	icon_state = "shaman"
+	worn_icon_state = "shaman"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS2_CRUSH, \
+                CUTTING = CLASS2_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS1_LASER, \
+                ENERGY = 0, \
+                FIRE = CLASS1_FIRE)
+	has_fov = TRUE
+	fov_angle = 60
+
+/obj/item/clothing/head/helmet/ms13/drylander/hood
+	name = "\improper Drylander hood"
+	desc = "A basic masked hood worn by the Drylander tribe."
+	icon_state = "dry_hood"
+
+/obj/item/clothing/head/helmet/ms13/drylander/wrap
+	name = "\improper Drylander facewrap"
+	desc = "A specific facewrap worn mostly by the Drylander tribe."
+	icon_state = "dry_wrap"
+
+/obj/item/clothing/head/helmet/ms13/drylander/goggles
+	name = "\improper Drylander goggles facewrap"
+	desc = "A facewrap and goggles worn by the Drylander tribe. Sometimes they hate sand, it gets everywhere."
+	icon_state = "dry_goggles"
+
+/obj/item/clothing/head/helmet/ms13/drylander/shemagh
+	name = "\improper Drylander shemagh"
+	desc = "A shemagh worn by the Drylander tribe. Mysterious."
+	icon_state = "dry_shemagh"
