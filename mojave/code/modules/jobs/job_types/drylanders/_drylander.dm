@@ -13,11 +13,11 @@
 
 //These are base jobs, we don't want them appearing at all
 /datum/job/ms13/drylander/config_check()
-	if(type == /datum/job/ms13/town_drought)
+	if(type == /datum/job/ms13/drylander)
 		return FALSE
 	return ..()
 
 /datum/job/ms13/drylander/map_check()
-	if(type == /datum/job/ms13/town_drought)
+	if(type == /datum/job/ms13/drylander)
 		return FALSE
 	return ..()
