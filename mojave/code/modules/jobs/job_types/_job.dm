@@ -15,7 +15,7 @@
 /datum/job/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "JobInfo", name)
+		ui = new(user, src, "JobInfo", title)
 		ui.set_autoupdate(FALSE)
 		ui.open()
 
