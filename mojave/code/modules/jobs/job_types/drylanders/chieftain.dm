@@ -20,7 +20,7 @@
 	r_pocket =   /obj/item/stack/medical/ms13/healing_powder/poultice
 	l_pocket =   /obj/item/stack/ms13/currency/aurelius/five
 	r_hand =     /obj/item/flashlight/ms13/crafted
-	l_hand =     /obj/item/ammo_box/ms13/shotgun/buckshot
+	l_hand =     /obj/item/ammo_box/ms13/shotgun/slug
 	back =       null
 
 /datum/outfit/job/ms13/drylander/chieftain/pre_equip(mob/living/carbon/human/H)

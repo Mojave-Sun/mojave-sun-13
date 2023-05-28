@@ -403,3 +403,18 @@
 				)
 	category = CAT_STAN_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
+
+/datum/crafting_recipe/slugs
+	name = "12 gauge slug shotgun ammo box"
+	result = /obj/item/ammo_box/ms13/shotgun/slug
+	time = 14 SECONDS
+	trait = TRAIT_DRY_SHAMAN
+	tool_behaviors = list(TOOL_SCREWDRIVER)
+	tool_paths = list()
+	reqs = list(/obj/item/stack/sheet/ms13/plastic = 8,
+				/obj/item/stack/sheet/ms13/refined_lead = 4,
+				/obj/item/ms13/component/gunpowder = 1
+				)
+	category = CAT_STAN_AMMO
+	crafting_interface = CRAFTING_BENCH_RELOADING
+

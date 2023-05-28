@@ -27,7 +27,9 @@
 					/obj/item/stack/medical/ms13/healing_powder/burn=2, \
 					/obj/item/stack/medical/ms13/healing_powder/poultice=2, \
 					/obj/item/stack/medical/gauze/ms13=1, \
-					/obj/item/stack/medical/splint/ms13/wooden=2
+					/obj/item/stack/medical/splint/ms13/wooden=2,\
+					/obj/item/ms13/hammer=1,\
+					/obj/item/screwdriver/ms13=1
 	)
 
 /datum/outfit/job/ms13/drylander/headtaker/pre_equip(mob/living/carbon/human/H)
