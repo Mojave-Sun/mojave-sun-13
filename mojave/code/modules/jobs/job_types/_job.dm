@@ -4,9 +4,11 @@
 
 /datum/job/after_spawn(mob/living/spawned, client/player_client)
 	. = ..()
-	open_job_info(spawned, player_client)
+	try_open_job_info(spawned, player_client)
 
-/datum/job/proc/give_job_info(mob/living/spawned, client/player_client)
+/datum/job/proc/try_open_job_info(mob/living/spawned, client/player_client)
+	if(!player_client)
+		return
 	spawned.open_job_info()
 
 /datum/job/ui_interact(mob/user, datum/tgui/ui)
@@ -20,13 +22,11 @@
 
 /datum/job/ui_static_data(mob/user)
 	var/list/data = list()
-	if(!target)
-		return
 
-	var/datum/job/job_target = target
-	data["title"] = job_target.title
-	data["description"] = job_target.description
-	data["supervisors"] = job_target.supervisors
-	data["forbid"] = job_target.forbid
-	data["enforce"] = job_target.enforce
+	data["title"] = title
+	data["description"] = description
+	data["supervisors"] = supervisors
+	data["forbid"] = forbid
+	data["enforce"] = enforce
+
 	return data
