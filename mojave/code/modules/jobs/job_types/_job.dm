@@ -15,6 +15,7 @@
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "JobInfo", name)
+		ui.set_autoupdate(FALSE)
 		ui.open()
 
 /datum/job/ui_state(mob/user)
