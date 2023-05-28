@@ -18,6 +18,9 @@
 
 /datum/outfit/job/ms13/legion/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
+	if(H.gender != MALE)
+		H.gender = MALE
+		H.body_type = MALE
 
 //These are base jobs, we don't want them appearing at all
 /datum/job/ms13/legion/config_check()
