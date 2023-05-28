@@ -26,7 +26,7 @@ SUBSYSTEM_DEF(job)
 	var/list/prioritized_jobs = list()
 	var/list/latejoin_trackers = list()
 
-	var/overflow_role = /datum/job/ms13/wasteland/wastelander // MS13 Edit - ORIGINAL IS 	var/overflow_role = /datum/job/assistant
+	var/overflow_role = /datum/job/ms13/wasteland/nomad // MS13 Edit - ORIGINAL IS 	var/overflow_role = /datum/job/assistant
 
 	var/list/level_order = list(JP_HIGH,JP_MEDIUM,JP_LOW)
 
