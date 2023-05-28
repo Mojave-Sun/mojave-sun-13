@@ -2,8 +2,8 @@
 	title = "Legion Veteran Decanus"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "The Centurion."
-	description = "Assist the Centurion in handling your soldiers, keep them in line and focused on the goals at hand."
+	supervisors = "The Will of Caesar."
+	description = "Further the Legion's goals in the region and keep the Drylander tribe in check and on the path to assimilation."
 
 	outfit = /datum/outfit/job/ms13/legion/veterandecanus
 

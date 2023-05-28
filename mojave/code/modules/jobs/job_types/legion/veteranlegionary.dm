@@ -1,8 +1,8 @@
 /datum/job/ms13/legion/veteranlegionary
 	title = "Veteran Legionary"
-	total_positions = 3
-	spawn_positions = 3
-	supervisors = "The Centurion and the Veteran Decanus."
+	total_positions = 2
+	spawn_positions = 2
+	supervisors = "The Veteran Decanus."
 	description = "Fight in the name of Caesar, and claim the lands for the Bull! Listen to your superiors, they will guide you to victory."
 
 	outfit = /datum/outfit/job/ms13/legion/veteranlegionary

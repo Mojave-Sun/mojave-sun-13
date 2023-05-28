@@ -228,3 +228,18 @@
 	wound_bonus = 15
 	bare_wound_bonus = 15
 	toolspeed = 0.75
+
+/obj/item/knife/ms13/tribal
+	name = "improvised shiv"
+	desc = "A makeshift, dangerous looking shiv. No good for cutting someone, but excellent at getting a few stabs in in a pinch."
+	icon_state = "tribal_knife"
+	inhand_icon_state = "tribal_knife"
+	force = 25
+	throwforce = 15
+	subtractible_armour_penetration = 10
+	edge_protection_penetration = 5
+	wound_bonus = 6
+	bare_wound_bonus = 8
+	toolspeed = 1.75
+	sharpness = SHARP_IMPALING
+	tool_behaviour = TOOL_KNIFE

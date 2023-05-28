@@ -14,6 +14,8 @@
 #define DEPARTMENT_RANGERS "Rangers"
 #define DEPARTMENT_BITFLAG_DROUGHTTOWN (1<<17)
 #define DEPARTMENT_DROUGHTTOWN "Barony"
+#define DEPARTMENT_BITFLAG_DRYLANDER (1<<18)
+#define DEPARTMENT_DRYLANDER "Drylanders"
 
 // Fancy name for fancy boys
 /datum/job_department/var/department_full_name = null
@@ -32,7 +34,7 @@
 /datum/job_department/legion
 	department_name = DEPARTMENT_LEGION
 	department_bitflags = DEPARTMENT_BITFLAG_LEGION
-	department_head = /datum/job/ms13/legion/centurion
+	department_head = /datum/job/ms13/legion/veterandecanus
 	department_experience_type = EXP_TYPE_LEGION
 	department_full_name = "Caesar's Legion"
  	//display_order = 0
@@ -98,6 +100,16 @@
 	//label_class = "TOWN"
 	//latejoin_color = "#ffddf0"
 
+/datum/job_department/drylander
+	department_name = DEPARTMENT_DRYLANDER
+	department_bitflags = DEPARTMENT_BITFLAG_DRYLANDER
+	department_head = /datum/job/ms13/drylander/chieftain
+	department_experience_type = EXP_TYPE_DRYLANDERS
+	department_full_name = "Drylander Tribe"
+	//display_order = 0
+	//label_class = "TOWN"
+	//latejoin_color = "#ffddf0"
+
 
 
 // FLAG DEFINES
@@ -111,5 +123,6 @@
 		"Raiders_flag.png" = 'mojave/icons/faction_flags/flag_raiders.png',
 		"Town_flag.png" = 'mojave/icons/faction_flags/flag_towner.png',
 		"Wasteland_flag.png" = 'mojave/icons/faction_flags/flag_wastelanders.png',
-		"Barony_flag.png" = 'mojave/icons/faction_flags/flag_wastelanders.png'
+		"Barony_flag.png" = 'mojave/icons/faction_flags/flag_wastelanders.png',
+		"Drylanders_flag.png" = 'mojave/icons/faction_flags/flag_wastelanders.png'
 	)

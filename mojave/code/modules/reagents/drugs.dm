@@ -700,8 +700,8 @@
 
 /datum/reagent/medicine/bitter_drink/on_mob_life(mob/living/carbon/M)
 	if(!M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid/super))
-		M.adjustFireLoss(-2.5)
-		M.adjustBruteLoss(-2.5)
+		M.adjustFireLoss(-3.35)
+		M.adjustBruteLoss(-3.35)
 		. = TRUE
 	else
 		M.adjustFireLoss(-0.5)
