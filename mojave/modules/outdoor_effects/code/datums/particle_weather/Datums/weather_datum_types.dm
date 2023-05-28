@@ -6,7 +6,7 @@
 
 	scale_vol_with_severity = TRUE
 	weather_sounds = list(/datum/looping_sound/dust_storm)
-	weather_messages = list("The whipping sand gets in your eyes!", "The intense sandstorm makes it hard to see!")
+	weather_messages = list("The whipping sand grates against you!", "The intense sandstorm makes it harder to see!")
 
 	minSeverity = 20
 	maxSeverity = 80
@@ -16,10 +16,9 @@
 	probability = 1
 	target_trait = PARTICLEWEATHER_DUST
 
-/datum/particle_weather/dust_storm/weather_act(mob/living/L)
-	if(ishuman(L))
+/datum/particle_weather/dust_storm/weather_act(mob/living/carbon/L)
+	if(ishuman(L) && !L.is_eyes_covered())
 		L.blur_eyes(6.5)
-
 
 /datum/particle_weather/radiation_storm
 	name = "Rain"
