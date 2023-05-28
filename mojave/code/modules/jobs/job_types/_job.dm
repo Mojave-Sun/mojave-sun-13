@@ -4,9 +4,10 @@
 
 /datum/job/after_spawn(mob/living/spawned, client/player_client)
 	. = ..()
-	try_open_job_info(spawned, player_client)
+	if(ishuman(spawned))
+		try_open_job_info(spawned, player_client)
 
-/datum/job/proc/try_open_job_info(mob/living/spawned, client/player_client)
+/datum/job/proc/try_open_job_info(mob/living/carbon/human/spawned, client/player_client)
 	if(!player_client)
 		return
 	spawned.open_job_info()
