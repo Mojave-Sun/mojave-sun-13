@@ -27,3 +27,9 @@
 	if(type == /datum/job/ms13/drylander)
 		return FALSE
 	return ..()
+
+/datum/job/ms13/drylander/after_spawn(mob/living/spawned, client/player_client)
+	. = ..()
+	if(!ishuman(spawned))
+		return
+	spawned.apply_pref_name(/datum/preference/name/drylander_name, player_client)

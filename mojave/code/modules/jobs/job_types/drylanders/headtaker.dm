@@ -36,9 +36,3 @@
 	if(H.gender != MALE)
 		H.gender = MALE
 		H.body_type = MALE
-		H.real_name = random_unique_drylander_name(MALE)
-		H.name = H.real_name
-		if(H.wear_id)
-			var/obj/item/card/id/L = H.wear_id
-			L.registered_name = H.name
-			L.update_label()
