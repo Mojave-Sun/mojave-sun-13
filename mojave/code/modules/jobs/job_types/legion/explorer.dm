@@ -19,7 +19,7 @@
 	suit = /obj/item/clothing/suit/armor/ms13/legion/explorer
 	gloves = /obj/item/clothing/gloves/ms13/legion/dark
 	suit_store = /obj/item/gun/ballistic/shotgun/automatic/ms13/sks/scoped
-	belt = /obj/item/claymore/ms13/machete
+	belt = /obj/item/claymore/ms13/machete/gladius
 	r_pocket = /obj/item/stack/medical/gauze/ms13/three
 	l_pocket = /obj/item/flashlight/flare/ms13
 	id = /obj/item/card/id/ms13/explorer

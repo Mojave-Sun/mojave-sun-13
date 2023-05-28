@@ -14,6 +14,8 @@
 #define DEPARTMENT_RANGERS "Rangers"
 #define DEPARTMENT_BITFLAG_DROUGHTTOWN (1<<17)
 #define DEPARTMENT_DROUGHTTOWN "Barony"
+#define DEPARTMENT_BITFLAG_DRYLANDER (1<<18)
+#define DEPARTMENT_DRYLANDER "Drylanders"
 
 // Fancy name for fancy boys
 /datum/job_department/var/department_full_name = null
@@ -94,6 +96,16 @@
 	department_head = /datum/job/ms13/town_drought/baron
 	department_experience_type = EXP_TYPE_DROUGHTTOWN
 	department_full_name = "The Barony"
+	//display_order = 0
+	//label_class = "TOWN"
+	//latejoin_color = "#ffddf0"
+
+/datum/job_department/drylander
+	department_name = DEPARTMENT_DRYLANDER
+	department_bitflags = DEPARTMENT_BITFLAG_DRYLANDER
+	department_head = /datum/job/ms13/drylander/chief
+	department_experience_type = EXP_TYPE_DRYLANDERS
+	department_full_name = "Drylander Tribe"
 	//display_order = 0
 	//label_class = "TOWN"
 	//latejoin_color = "#ffddf0"

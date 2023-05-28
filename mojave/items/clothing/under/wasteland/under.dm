@@ -421,6 +421,6 @@
 // Drylander //
 
 /obj/item/clothing/under/ms13/drylander
-	name = "\improper Drylander under robes"
-	desc = "Very light robes worn by the Drylander tribe. Meant to be worn under heavier robes."
+	name = "\improper Drylander tunic"
+	desc = "Very light tunic and pants worn by the Drylander tribe. Meant to be worn under robes."
 	icon_state = "drylander"
