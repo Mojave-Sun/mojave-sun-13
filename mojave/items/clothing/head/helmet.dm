@@ -1585,14 +1585,13 @@
 	worn_icon_state = "hunter_dry"
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 0, \
-                CRUSHING = CLASS1_CRUSH, \
-                CUTTING = CLASS1_CUT, \
+                CRUSHING = CLASS2_CRUSH, \
+                CUTTING = CLASS2_CUT, \
                 PIERCING = CLASS1_PIERCE, \
                 IMPALING = 0, \
-                LASER = CLASS1_LASER, \
+                LASER = CLASS2_LASER, \
                 ENERGY = 0, \
-                FIRE = 0)
-	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0) //No wound armor
+                FIRE = CLASS1_FIRE)
 
 /obj/item/clothing/head/helmet/ms13/drylander/headtaker
 	name = "\improper Drylander Headtaker hood"

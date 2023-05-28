@@ -177,11 +177,11 @@
 	internal_magazine = TRUE
 	mag_type = /obj/item/ammo_box/magazine/internal/ms13/antique
 	bolt_wording = "trap"
-	rack_sound = 'mojave/sound/ms13weapons/breakaction_open.ogg'
-	lock_back_sound = 'mojave/sound/ms13weapons/breakaction_open.ogg'
-	bolt_drop_sound = 'mojave/sound/ms13weapons/breakaction_close.ogg'
-	fire_sound = 'mojave/sound/ms13weapons/brushfire.ogg'
-	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/brushfire.ogg' //placeholder sounds for now
+	rack_sound = 'mojave/sound/ms13weapons/gunsounds/antique_sniper/antique_open.ogg'
+	lock_back_sound = 'mojave/sound/ms13weapons/gunsounds/antique_sniper/antique_open.ogg'
+	bolt_drop_sound = 'mojave/sound/ms13weapons/gunsounds/antique_sniper/antique_close.ogg'
+	fire_sound = 'mojave/sound/ms13weapons/gunsounds/antique_sniper/antique_fire.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/antique.ogg'
 	fire_delay = 1 SECONDS
 	rack_delay = 1 SECONDS
 	spread = 0
