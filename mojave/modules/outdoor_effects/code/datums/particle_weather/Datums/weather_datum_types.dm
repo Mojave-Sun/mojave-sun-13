@@ -17,9 +17,8 @@
 	target_trait = PARTICLEWEATHER_DUST
 
 /datum/particle_weather/dust_storm/weather_act(mob/living/L)
-	if(ishuman(L))
+	if(ishuman(L) && L.is_eyes_covered(TRUE, FALSE, FALSE))
 		L.blur_eyes(6.5)
-
 
 /datum/particle_weather/radiation_storm
 	name = "Rain"
