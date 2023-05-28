@@ -1577,6 +1577,8 @@
 	name = "base type drylander hood"
 	desc = "You shouldn't be seeing this."
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
+	dynamic_hair_suffix = ""
+    dynamic_fhair_suffix = ""
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 0, \
                 CRUSHING = CLASS1_CRUSH, \

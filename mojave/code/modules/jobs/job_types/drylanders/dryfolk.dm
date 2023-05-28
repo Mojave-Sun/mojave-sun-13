@@ -4,8 +4,6 @@
 	spawn_positions = 6
 	supervisors = "The Chieftain and the Shaman"
 	description = "You are a proud member of the Drylander tribe. You have no particular role or specialization, but should do what you can to help the tribe prosper. Listen to the Chieftain and Shaman's orders."
-	forbid = ""
-	enforce = ""
 
 	outfit = /datum/outfit/job/ms13/drylander/dryfolk
 

@@ -34,7 +34,7 @@
 /datum/job_department/legion
 	department_name = DEPARTMENT_LEGION
 	department_bitflags = DEPARTMENT_BITFLAG_LEGION
-	department_head = /datum/job/ms13/legion/centurion
+	department_head = /datum/job/ms13/legion/veterandecanus
 	department_experience_type = EXP_TYPE_LEGION
 	department_full_name = "Caesar's Legion"
  	//display_order = 0
@@ -103,7 +103,7 @@
 /datum/job_department/drylander
 	department_name = DEPARTMENT_DRYLANDER
 	department_bitflags = DEPARTMENT_BITFLAG_DRYLANDER
-	department_head = /datum/job/ms13/drylander/chief
+	department_head = /datum/job/ms13/drylander/chieftain
 	department_experience_type = EXP_TYPE_DRYLANDERS
 	department_full_name = "Drylander Tribe"
 	//display_order = 0
@@ -123,5 +123,6 @@
 		"Raiders_flag.png" = 'mojave/icons/faction_flags/flag_raiders.png',
 		"Town_flag.png" = 'mojave/icons/faction_flags/flag_towner.png',
 		"Wasteland_flag.png" = 'mojave/icons/faction_flags/flag_wastelanders.png',
-		"Barony_flag.png" = 'mojave/icons/faction_flags/flag_wastelanders.png'
+		"Barony_flag.png" = 'mojave/icons/faction_flags/flag_wastelanders.png',
+		"Drylanders_flag.png" = 'mojave/icons/faction_flags/flag_wastelanders.png'
 	)

@@ -4,8 +4,6 @@
 	spawn_positions = 1
 	supervisors = "The well being and survival of your tribe."
 	description = "You are the chief and leader of the Drylander tribe. Navigate your tribe through this tumultuous and rapidly changing period, and make the ultimate decisions for the tribe."
-	forbid = ""
-	enforce = ""
 
 	outfit = /datum/outfit/job/ms13/drylander/chieftain
 

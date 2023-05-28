@@ -4,8 +4,6 @@
 	spawn_positions = 2
 	supervisors = "The Chieftain"
 	description = "You are an elite and hardened veteran of the Drylander tribe. Skilled in sniping, scouting, and covert operations. Carry out the will of the chieftain using your expertise."
-	forbid = ""
-	enforce = ""
 
 	outfit = /datum/outfit/job/ms13/drylander/headtaker
 

@@ -86,9 +86,8 @@ GLOBAL_LIST_INIT(ms13_position_categories, list(
 	EXP_TYPE_RAIDERS = list("jobs" = raiders_positions, "color" = "#30389c"),
 	EXP_TYPE_RANGERS = list("jobs" = ranger_positions, "color" = "#bdbc76"),
 	EXP_TYPE_DROUGHTTOWN = list("jobs" = drought_town_positions, "color " = "#12491a"),
-	EXP_TYPE_DRYLANDERS = list("jobs" = drylander_positions, "color" = "#4e2e04")
+	EXP_TYPE_DRYLANDERS = list("jobs" = drylander_positions, "color" = "#4e2e04"),
 	EXP_TYPE_COMBATTEST = list("jobs" = combattest_positions, "color" = "#4e2e04")
-
 ))
 
 GLOBAL_LIST_INIT(ms13_exp_jobsmap, list(
@@ -101,7 +100,6 @@ GLOBAL_LIST_INIT(ms13_exp_jobsmap, list(
 	EXP_TYPE_DROUGHTTOWN = list("titles" = drought_town_positions),
 	EXP_TYPE_DRYLANDERS = list("titles" = drylander_positions),
 	EXP_TYPE_COMBATTEST = list("titles" = combattest_positions)
-
 ))
 
 GLOBAL_PROTECT(ms13_exp_jobsmap)
