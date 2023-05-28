@@ -3,7 +3,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "The Chieftain"
-	description = "You are an elite and hardened veteran of the Drylander tribe. Skilled in sniping, scouting, and covert operations. Carry out the will of the chieftain using your expertise."
+	description = "You are the Shaman of the Drylander tribe. Coordinate the common folk of the tribe, listen to and advise the Chieftain, and ensure the Hunters and Headtakers of the tribe are well equipped and cared for."
 
 	outfit = /datum/outfit/job/ms13/drylander/shaman
 

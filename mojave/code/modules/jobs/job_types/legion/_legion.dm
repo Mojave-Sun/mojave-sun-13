@@ -21,12 +21,6 @@
 	if(H.gender != MALE)
 		H.gender = MALE
 		H.body_type = MALE
-		H.real_name = random_unique_legion_name(MALE)
-		H.name = H.real_name
-		if(H.wear_id)
-			var/obj/item/card/id/L = H.wear_id
-			L.registered_name = H.name
-			L.update_label()
 
 //These are base jobs, we don't want them appearing at all
 /datum/job/ms13/legion/config_check()
@@ -38,3 +32,9 @@
 	if(type == /datum/job/ms13/legion)
 		return FALSE
 	return ..()
+
+/datum/job/ms13/legion/after_spawn(mob/living/spawned, client/player_client)
+	. = ..()
+	if(!ishuman(spawned))
+		return
+	spawned.apply_pref_name(/datum/preference/name/legion_name, player_client)
