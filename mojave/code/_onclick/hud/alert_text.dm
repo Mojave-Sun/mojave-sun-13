@@ -42,7 +42,7 @@
 
 /atom/movable/screen/alert/text
 	icon = 'mojave/icons/hud/ms_ui_alerttext.dmi'
-	icon_state = "brutal"
+	icon_state = "empty"
 	name = "Alert Text"
 	timeout = 5 SECONDS
 
@@ -65,8 +65,7 @@
 	I.layer = FLY_LAYER
 	I.maptext_width = 96
 	I.maptext_height = 24
-	I.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
-	I.plane = ABOVE_LIGHTING_PLANE
+	I.plane =  ABOVE_HUD_PLANE
 	I.pixel_x = -round(I.maptext_width/2) + 70
 	I.pixel_y = 2
 
@@ -103,6 +102,10 @@
 /atom/movable/screen/alert/text/smallhappy
 	icon_state = "smallhappy"
 	name = "Small happy"
+
+/atom/movable/screen/alert/text/happy
+	icon_state = "happy"
+	name = "Happy"
 
 /atom/movable/screen/alert/text/joke
 	icon_state = "joke"

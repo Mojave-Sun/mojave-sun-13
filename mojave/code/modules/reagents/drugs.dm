@@ -44,6 +44,10 @@
 	overdose_threshold = 30
 	metabolization_rate = 0.12 * REM
 
+/datum/reagent/ms13/calmex/on_mob_metabolize(mob/living/M)
+	M.throw_alert_text(/atom/movable/screen/alert/text, "You feel empty inside.", override = FALSE)
+	return ..()
+
 /datum/reagent/ms13/calmex/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(current_cycle >= 5)
 		SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "numb", /datum/mood_event/narcotic_medium, name)
@@ -433,6 +437,7 @@
 	M.visible_message(span_danger("[M]'s eyes go empty, with their face quickly shifting to a scorn"), span_narsiesmall("Your mind suddenly begins to drift- you begin to feel ANGRY."))
 	ADD_TRAIT(M, TRAIT_SLEEPIMMUNE, type)
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "gone_psycho", /datum/mood_event/stimulant_heavy, name)
+	M.throw_alert_text(/atom/movable/screen/alert/text, "You feel a burning urge to harm.", override = FALSE)
 
 /datum/reagent/ms13/psycho/on_mob_life(mob/living/M)
 	if(prob(75))
@@ -452,6 +457,7 @@
 
 /datum/reagent/ms13/psycho/overdose_start(mob/living/M)
 	to_chat(M, span_narsiesmall("YOU FEEL AN INSATIABLE BLOODLUST!")) // pitbull
+	M.throw_alert_text(/atom/movable/screen/alert/text, "These people should all be dead!", override = FALSE)
 	return ..()
 
 /datum/reagent/ms13/psycho/overdose_process(mob/living/M)
@@ -492,6 +498,7 @@
 		rage = new()
 		C.gain_trauma(rage, TRAUMA_RESILIENCE_ABSOLUTE)
 	M.overlay_fullscreen("overdrive", /atom/movable/screen/fullscreen/color_vision/red)
+	M.throw_alert_text(/atom/movable/screen/alert/text, "You feel a burning urge to harm.", override = FALSE)
 
 /datum/reagent/ms13/overdrive/on_mob_end_metabolize(mob/living/M)
 	REMOVE_TRAIT(M, TRAIT_STUNIMMUNE, type)
@@ -511,8 +518,9 @@
 	M.visible_message(span_userdanger("[M]'s chest produces an audible pop. They look visibly stunned and in pain."), span_userdanger("A pop is heard coming from your chest and sudden pain appears- It's INTOLERABLE! What happened?"), span_hear("You hear a pop."))
 	REMOVE_TRAIT(M, TRAIT_STUNIMMUNE, type)
 	REMOVE_TRAIT(M, TRAIT_SLEEPIMMUNE, type)
-	M.Stun(25)
-	addtimer(CALLBACK(src, .proc/heartsplosion, M), rand(1, 5) SECONDS) // We want to delay the actual removal of the heart a tiny bit so people can get out a "Oh damn" or something. You go ZZZzzz mode the second you don't have one.
+	M.throw_alert_text(/atom/movable/screen/alert/text/sad, "Ohhh shit...", override = FALSE)
+	M.Stun(50)
+	addtimer(CALLBACK(src, .proc/heartsplosion, M), rand(3, 8) SECONDS) // We want to delay the actual removal of the heart a tiny bit so people can get out a "Oh damn" or something. You go ZZZzzz mode the second you don't have one.
 	return ..()
 
 /datum/reagent/ms13/overdrive/overdose_process(mob/living/carbon/M)
@@ -529,6 +537,7 @@
 	var/obj/item/organ/heart/our_heart = M.getorganslot(ORGAN_SLOT_HEART)
 	qdel(our_heart) // jhkljl;;....jlhlj;.
 	M.visible_message(span_notice("[M] looks faint and begins to close their eyes."), span_alert("This doesn't feel good at all..."))
+	M.throw_alert_text(/atom/movable/screen/alert/text/cry, "You feel the area where your heart should be get a lot sloshier.", override = FALSE)
 
 /datum/reagent/ms13/overdrive/on_mob_life(mob/living/M)
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "gone_OVERDRIVE", /datum/mood_event/stimulant_heavy, name)
@@ -594,6 +603,7 @@
 
 /datum/reagent/ms13/medicine/stimpak_fluid/on_mob_metabolize(mob/living/M)
 	ADD_TRAIT(M, TRAIT_COAGULATING, /datum/reagent/ms13/medicine/stimpak_fluid)
+	M.throw_alert_text(/atom/movable/screen/alert/text/brutal, "You feel your body start mending itself rapidly.", override = FALSE)
 	return ..()
 
 /datum/reagent/ms13/medicine/stimpak_fluid/on_mob_end_metabolize(mob/living/M)
