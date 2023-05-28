@@ -1579,7 +1579,7 @@
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
-	flags_cover = GLASSESCOVERSEYES // Built in protection from the dust. yippie.
+	flags_cover = HEADCOVERSEYES // Built in protection from the dust. yippie.
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 0, \
                 CRUSHING = CLASS1_CRUSH, \
