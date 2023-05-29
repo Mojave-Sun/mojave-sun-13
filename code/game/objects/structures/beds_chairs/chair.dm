@@ -18,7 +18,7 @@
 
 /obj/structure/chair/examine(mob/user)
 	. = ..()
-	. += span_notice("It's held together by a couple of <b>bolts</b>.")
+	//. += span_notice("It's held together by a couple of <b>bolts</b>.") // Mojave sun comment out- What the HELL why is this here instead of on the decon hint proc... Big shoutout.
 	if(!has_buckled_mobs() && can_buckle)
 		. += span_notice("While standing on [src], drag and drop your sprite onto [src] to buckle to it.")
 

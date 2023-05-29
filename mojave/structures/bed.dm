@@ -2,6 +2,7 @@
 	name = "base class Mojave Sun bed"
 	desc = "Scream at the coders if you see this."
 	icon = 'mojave/icons/structure/beds.dmi'
+	bolts = FALSE // for real, TG?
 
 /obj/structure/bed/ms13/wrench_act_secondary(mob/living/user, obj/item/weapon)
 	return
