@@ -82,7 +82,7 @@
 	///How much this focus helps overall progress
 	var/time_per_click
 	///Sound played when clicked
-	var/focus_sound = 'sound/machines/click.ogg'
+	var/focus_sound = list('sound/machines/click.ogg' = 1)
 	///Secondary object used to block clicks, provide special animation, etc.
 	var/obj/effect/hallucination/simple/extra_effect
 	///How many times this focus can be used
@@ -94,13 +94,11 @@
 
 /obj/effect/hallucination/simple/progress_focus/Initialize(mapload, mob/target_mob, datum/progressbar/target_bar, bonus_time, f_sound)
 	. = ..()
-	var/fastest_possible_time = target_bar.goal - bonus_time
-	max_uses = round(fastest_possible_time/10/max_use_frequency, 1)
 	target = target_mob
 	linked_bar = target_bar
-	time_per_click = bonus_time/max_uses
+	time_per_click = bonus_time
 	if (f_sound)
-		focus_sound = f_sound
+		focus_sound = pick(f_sound)
 	build_extra_effect()
 
 /obj/effect/hallucination/simple/progress_focus/proc/build_extra_effect()
@@ -109,10 +107,6 @@
 /obj/effect/hallucination/simple/progress_focus/attackby(obj/item/I, mob/user, params)
 	. = ..()
 	on_boost(user)
-	uses += 1
-	if (uses >= max_uses)
-		linked_bar.booster = null
-		qdel(src)
 
 /obj/effect/hallucination/simple/progress_focus/proc/on_boost(mob/user)
 	user.playsound_local(user, focus_sound, 50, TRUE)
@@ -146,7 +140,7 @@
 /obj/effect/hallucination/simple/progress_trap/attackby(obj/item/I, mob/user, params)
 	. = ..()
 	linked_bar.boost_progress(loss_per_click)
-	user.playsound_local(user, 'sound/machines/buzz-sigh.ogg', 50, TRUE)
+	user.playsound_local(user, 'sound/machines/buzz-sigh.ogg', 30, TRUE)
 
 /obj/effect/hallucination/simple/progress_focus/skillcheck
 	name = "skill check"
@@ -174,10 +168,10 @@
 	QDEL_IN(temp_effect, spin_speed)
 	if (time_diff > (spin_speed/2 * 0.6) && time_diff < spin_speed - (spin_speed/2 * 0.6))
 		linked_bar.boost_progress(time_per_click)
-		user.playsound_local(user, focus_sound, 50, TRUE)
+		user.playsound_local(user, focus_sound, 100, TRUE)
 	else
 		linked_bar.boost_progress(-1 * time_per_click)
-		user.playsound_local(user, 'sound/machines/buzz-sigh.ogg', 50, TRUE)
+		user.playsound_local(user, 'sound/machines/buzz-sigh.ogg', 20, TRUE)
 
 /obj/effect/hallucination/simple/skill_marker
 	name = ""

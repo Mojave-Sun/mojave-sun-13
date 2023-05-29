@@ -78,12 +78,16 @@
 		to_chat(sniffer, span_notice(smell_string))
 
 /datum/vapour/proc/ScrubAmount(amount_to_scrub, update_active = TRUE, planetary_multiplier = FALSE)
-	var/turf/upper_open_check = get_step_multiz(my_turf, UP) // check if outside
+	var/turf/upper_open_check = get_step_multiz(my_turf, UP) // check if up is outside//if we are at the top Z level
+	var/obj/effect/upper_inside_check = get_step_multiz(my_turf, UP) // check if up is inside// if we are at the top Z and inside
 	var/area/ms13/area_check = get_area(my_turf) //check for indoor/outdoor areas and what they change
 	if(amount_to_scrub >= total_amount)
 		qdel(src)
 		return
-	if(planetary_multiplier && upper_open_check && istype(upper_open_check, /turf/open/openspace)) //Dissipate faster when openspace is above
+	if(!upper_open_check && !istype(upper_inside_check, /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter)) //We are at the highest z-level and outside
+		qdel(src) //floats into the sky
+		return
+	if(planetary_multiplier && upper_open_check && istype(upper_open_check, /turf/open/openspace) && !istype(upper_inside_check, /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter)) //Dissipate faster when outside openspace is above
 		amount_to_scrub *= VAPOUR_DISSIPATION_OUTDOOR_MULTIPLIER
 	if(area_check.dissipation_rate > 1 || area_check.dissipation_rate < 1) //if its unchanged, ignore
 		amount_to_scrub *= area_check.dissipation_rate

@@ -11,9 +11,9 @@
 	scent = "smoke"
 
 /datum/vapours/smoke/BreatheAct(mob/living/carbon/victim, amount)
-	if(amount <= 20)
+	if(amount <= 40)
 		return
-	if(prob(50))
+	if(prob(80))
 		victim.emote("cough")
 
 ///Dust from mining drills

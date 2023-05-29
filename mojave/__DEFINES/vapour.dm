@@ -24,7 +24,7 @@
 
 #define SMELL_COOLDOWN 1 MINUTES
 
-#define VAPOUR_DISSIPATION_OUTDOOR_MULTIPLIER 60
+#define VAPOUR_DISSIPATION_OUTDOOR_MULTIPLIER 120
 
 //Bitflags for vapours
 ///VAPOUR has an appearance
@@ -36,7 +36,7 @@
 ///VAPOUR calls SmellAct() on people breathing it in
 #define VAPOUR_BREATHE_ACT (1<<3)
 
-#define VAPOUR_APPEARANCE_THICKNESS_THRESHOLD 30
+#define VAPOUR_APPEARANCE_THICKNESS_THRESHOLD 10
 #define THICKNESS_ALPHA_COEFFICIENT 0.005
 
 //.Cap for active emitters that can be running for a very long time

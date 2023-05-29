@@ -228,3 +228,19 @@
 	wound_bonus = 15
 	bare_wound_bonus = 15
 	toolspeed = 0.75
+
+/obj/item/knife/ms13/scissors
+	name = "scissors"
+	desc = "An old pair of scissors. Used for cutting precisely."
+	icon = 'mojave/icons/objects/tools/tools_world.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
+	icon_state = "scissors"
+	inhand_icon_state = "scissors"
+	force = 15
+	throwforce = 5
+	toolspeed = 2
+
+/obj/item/knife/ms13/scissors/Initialize()
+	. = ..()
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
