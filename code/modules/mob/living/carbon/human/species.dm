@@ -1184,7 +1184,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				if(!disable_warning)
 					to_chat(H, span_warning("The [I.name] is too big to attach!")) //should be src?
 				return FALSE
-			if( istype(I, /obj/item/gun)) // MOJAVE SUN EDIT | ORIGINAL IS "if( istype(I, /obj/item/pda) || istype(I, /obj/item/pen) || is_type_in_list(I, H.wear_suit.allowed) )" || This is so we can rebrand the """"""suit slot""""""" into a gun sling spot
+			if( istype(I, /obj/item/gun) || istype(I, /obj/item/ms13/twohanded)) // MOJAVE SUN EDIT | ORIGINAL IS "if( istype(I, /obj/item/pda) || istype(I, /obj/item/pen) || is_type_in_list(I, H.wear_suit.allowed) )" || This is so we can rebrand the """"""suit slot""""""" into a gun sling spot
 				return TRUE
 			return FALSE
 		if(ITEM_SLOT_HANDCUFFED)
