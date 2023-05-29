@@ -9,6 +9,9 @@
 	framestack = /obj/item/stack/sheet/ms13/scrap
 	framestackamount = 2
 
+/obj/structure/table/ms13/deconstruction_hints(mob/user)
+	return
+
 /obj/structure/table/ms13/metal
 	name = "metal table"
 	desc = "A square piece of metal standing on four metal legs. It can not move."
@@ -274,10 +277,14 @@
 	icon_state = "table_rolling"
 	max_integrity = 200
 	buildstack = null
+	custom_materials = null
 	frame = /obj/item/stack/sheet/ms13/scrap
 	framestack = /obj/item/stack/sheet/ms13/scrap
 	framestackamount = 2
 	drag_slowdown = 1
+
+/obj/structure/table/rolling/ms13/deconstruction_hints(mob/user)
+	return
 
 ///// CRAFTING TABLES /////
 
