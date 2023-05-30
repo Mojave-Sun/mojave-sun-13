@@ -12,6 +12,7 @@
 	slowdown = 0.75
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/caravan
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravan.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/shotgun.ogg'
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
 	grid_width = 160
@@ -46,6 +47,7 @@
 	slowdown = 0.75
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/single
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravan2.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/shotgun.ogg'
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
 	grid_width = 192
@@ -61,6 +63,7 @@
 	slot_flags = ITEM_SLOT_BACK
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/ms13/mts
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/levershot/levershot1.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/shotgun_lever.ogg'
 	force = 25
 	subtractible_armour_penetration = 5
 	fire_delay = 0.55 SECONDS
@@ -79,6 +82,7 @@
 	force = 5
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/derringer
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/357/357fire1.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/357_revolver.ogg'
 	w_class = WEIGHT_CLASS_SMALL
 	slowdown = 0.5
 	fire_delay = 0.4 SECONDS
@@ -100,6 +104,7 @@
 	inhand_icon_state = "44magnum"
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/ms13/rev44
 	fire_sound = 'mojave/sound/ms13weapons/44mag.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/44_revolver.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 	fire_delay = 0.6 SECONDS
 	spread = 6
@@ -121,6 +126,7 @@
 	icon_state = "rev357"
 	inhand_icon_state = "rev357"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/357/357fire3.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/357_revolver.ogg'
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/ms13/rev357
 	w_class = WEIGHT_CLASS_NORMAL
 	fire_delay = 0.6 SECONDS
@@ -143,6 +149,7 @@
 	icon_state = "policerev"
 	inhand_icon_state = "policerev"
 	fire_sound = 'mojave/sound/ms13weapons/policepistol.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/policepistol.ogg'
 	w_class = WEIGHT_CLASS_SMALL
 	fire_delay = 0.6 SECONDS
 	spread = 10
@@ -158,6 +165,7 @@
 	inhand_icon_state = "rev10mm"
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/ms13/rev10mm
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/10mm/10mmfire2.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/10mm_pistol.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 	fire_delay = 0.45 SECONDS
 	spread = 6
@@ -173,6 +181,7 @@
 	inhand_icon_state = "huntingrev"
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/ms13/rev4570
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/huntingrev/huntingrev5.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/huntingrev.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 	fire_delay = 0.65 SECONDS
 	spread = 6
@@ -196,6 +205,7 @@
 	inhand_icon_state = "556rev"
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/ms13/rev556
 	fire_sound = 'mojave/sound/ms13weapons/that_gun.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/that_gun.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 	fire_delay = 0.45 SECONDS
 	spread = 6

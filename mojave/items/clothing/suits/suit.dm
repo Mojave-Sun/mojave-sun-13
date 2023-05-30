@@ -679,3 +679,92 @@
 	desc = "A perfectly preserved pre-war VINTAGE Manny Mammoth suit! It smells of crusty pizza."
 	icon_state = "mannybody"
 	inhand_icon_state = "mannyhead"
+
+// Drylanders //
+
+/obj/item/clothing/suit/ms13/drylander
+	name = "base type Drylander suit"
+	desc = "You shouldn't be seeing this."
+	body_parts_covered = CHEST|GROIN|ARMS|LEGS
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = 0, \
+                IMPALING = CLASS1_STAB, \
+                LASER = 0, \
+                ENERGY = 0, \
+                FIRE = 0)
+
+/obj/item/clothing/suit/ms13/drylander/hunter
+	name = "\improper Drylander hunter padded robes"
+	desc = "Lightly padded robes worn by hunters of the Drylander tribe. Light, breathable, and still somewhat protective."
+	icon_state = "hunter"
+	body_parts_covered = CHEST|GROIN|LEGS
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = 0, \
+                ENERGY = 0, \
+                FIRE = 0)
+
+/obj/item/clothing/suit/ms13/drylander/headtaker
+	name = "\improper Drylander Headtaker padded robes"
+	desc = "Padded robes worn by the notorious Headtakers of the Drylander tribe. A frightening sight."
+	body_parts_covered = CHEST|GROIN|LEGS|ARM_RIGHT
+	slowdown = 0.15
+	icon_state = "headtaker"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS2_CRUSH, \
+                CUTTING = CLASS2_CUT, \
+                PIERCING = CLASS2_PIERCE, \
+                IMPALING = CLASS2_STAB, \
+                LASER = CLASS2_LASER, \
+                ENERGY = 0, \
+                FIRE = CLASS2_FIRE)
+
+/obj/item/clothing/suit/ms13/drylander/simple
+	name = "\improper Drylander simple robes"
+	desc = "Basic robes worn by Drylander tribals. Nothing too special about these."
+	icon_state = "dry_simple"
+
+/obj/item/clothing/suit/ms13/drylander/poncho
+	name = "\improper Drylander poncho"
+	desc = "A light, loose poncho worn by Drylander tribals."
+	icon_state = "dry_poncho"
+
+/obj/item/clothing/suit/ms13/drylander/forager
+	name = "\improper Drylander forager robes"
+	desc = "Robes worn by Drylander tribals. Mostly used for foraging and brief excursions."
+	icon_state = "dry_forager"
+
+/obj/item/clothing/suit/ms13/drylander/bando
+	name = "\improper Drylander bandolier robes"
+	desc = "Light robes with a bandolier strewn across to help with storage. Doesn't seem to be very effective though."
+	body_parts_covered = CHEST|GROIN|LEGS|ARM_RIGHT
+	icon_state = "dry_bando"
+
+/obj/item/clothing/suit/ms13/drylander/chief
+	name = "\improper Drylander chieftain robes"
+	desc = "An impressive set of robes worn by the chieftain of the Drylander tribe. This commands respect."
+	body_parts_covered = CHEST|GROIN|ARMS
+	icon_state = "chief"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = 0, \
+                ENERGY = 0, \
+                FIRE = 0)
+
+/obj/item/clothing/suit/ms13/drylander/shaman
+	name = "\improper Drylander shaman robes"
+	desc = "Well made robes worn by the shaman of the Drylander tribe."
+	icon_state = "shaman"
+

@@ -857,7 +857,9 @@
 		/obj/item/ammo_box/ms13/a357box = list(190, rand(0,2)),
 		/obj/item/ammo_box/ms13/a308 = list(240, rand(0,1)),
 		/obj/item/ammo_box/ms13/a762 = list(240, rand(0,2)),
-		/obj/item/ammo_box/ms13/shotgun/buckshot = list(175, rand(0,3))
+		/obj/item/ammo_box/ms13/shotgun/buckshot = list(175, rand(0,3)),
+		/obj/item/ms13/component/gunpowder = list(70, rand(0,3)),
+		/obj/item/ms13/component/gunpowder/lq = list(30, rand(1,4))
 				)
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/drought/general_goods/initial_wanteds()
@@ -870,8 +872,6 @@
 		/obj/item/stack/sheet/ms13/scrap_silver = list(6, rand(3,15), ", per piece of silver"),
 		/obj/item/stack/sheet/ms13/refined_gold = list(50, rand(1,5), ", per ingot of gold"),
 		/obj/item/stack/sheet/ms13/refined_silver = list(40, rand(1,5), ", per ingot of silver"),
-		/obj/item/ms13/component/gunpowder/lq = list(30, rand(0,4), ""),
-		/obj/item/ms13/component/gunpowder = list(75, rand(0,2), ""),
 		/obj/item/stack/sheet/ms13/scrap_lead = list(3, rand(3,15), ", per piece of lead"),
 		/obj/item/stack/sheet/ms13/scrap_brass = list(3, rand(3,15), ", per piece of brass"),
 		/obj/item/food/meat/slab/ms13/animal/gecko/golden = list(6, rand(1,6)),

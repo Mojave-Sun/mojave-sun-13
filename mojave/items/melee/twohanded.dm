@@ -61,6 +61,19 @@
 	grid_width = 64
 	wield_info = /datum/wield_info/twohanded/fireaxe
 
+/obj/item/ms13/twohanded/fireaxe/drylander
+	name = "\improper Drylander axe"
+	desc = "A well made heavy axe. A favored weapon of the Drylander tribe."
+	icon_state = "dry_axe"
+	inhand_icon_state = "dry_axe"
+	force = 15
+	subtractible_armour_penetration = 15
+	edge_protection_penetration = 10
+	wound_bonus = 12
+	bare_wound_bonus = 10
+	throw_range = 3
+	wield_info = /datum/wield_info/twohanded/fireaxe
+
 /obj/item/ms13/twohanded/bump_sword
 	name = "bumper sword"
 	desc = "A large, intimidating sword made fashioned from the bumper of a car. The peak of post-war blades."

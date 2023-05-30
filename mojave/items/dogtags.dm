@@ -258,6 +258,32 @@
 	assignment = "Town Baron"
 	access = list(ACCESS_BARONY_RESTRICTED, ACCESS_BARON_QUARTERS, ACCESS_BARONY_DOCTOR)
 
+/obj/item/card/id/ms13/drylander
+	name = "\improper Drylander blade"
+	desc = "A tiny, dull blade on a string. This is used to identify members of the Drylander tribe. This belongs to literally no one."
+	assignment = "drylander"
+	icon_state = "leg_recruit" //placeholder
+
+/obj/item/card/id/ms13/drylander/chief
+	desc = "A tiny, dull blade on a string. This is used to identify members of the Drylander tribe. This belongs to the Chieftain."
+	assignment = "Drylander Chieftain"
+
+/obj/item/card/id/ms13/drylander/headtaker
+	desc = "A tiny, dull blade on a string. This is used to identify members of the Drylander tribe. This belongs to a Headtaker."
+	assignment = "Drylander Headtaker"
+
+/obj/item/card/id/ms13/drylander/shaman
+	desc = "A tiny, dull blade on a string. This is used to identify members of the Drylander tribe. This belongs to the Shaman."
+	assignment = "Drylander Shaman"
+
+/obj/item/card/id/ms13/drylander/hunter
+	desc = "A tiny, dull blade on a string. This is used to identify members of the Drylander tribe. This belongs to a Hunter."
+	assignment = "Drylander Hunter"
+
+/obj/item/card/id/ms13/drylander/dryfolk
+	desc = "A tiny, dull blade on a string. This is used to identify members of the Drylander tribe."
+	assignment = "Drylander Folk"
+
 // Brotherhood IDs //
 
 /obj/item/card/id/ms13/bos

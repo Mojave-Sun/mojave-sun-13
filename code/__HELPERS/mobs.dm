@@ -130,6 +130,14 @@
 
 		if(!findname(.))
 			break
+
+/proc/random_unique_drylander_name(gender, attempts_to_find_unique_name=10)
+	for(var/i in 1 to attempts_to_find_unique_name)
+		. = capitalize(pick(GLOB.first_names_drylander)) + " " + capitalize(pick(GLOB.last_names_drylander))
+
+		if(!findname(.))
+			break
+
 // MOJAVE SUN EDIT END
 
 /proc/random_unique_lizard_name(gender, attempts_to_find_unique_name=10)

@@ -453,6 +453,7 @@
 						if(EXPLODE_LIGHT)
 							SSexplosions.low_mov_atom += thing
 				gib()
+				throw_alert_text(/atom/movable/screen/alert/text/dead, "HOLY SHI-", override = FALSE) // MOJAVE SUN EDIT - FO text alert
 				return
 			else
 				brute_loss = 500
@@ -461,6 +462,7 @@
 				damage_clothes(400 - bomb_armor, BRUTE, BOMB)
 
 		if (EXPLODE_HEAVY)
+			throw_alert_text(/atom/movable/screen/alert/text/sad, "What the f-", override = FALSE) // MOJAVE SUN EDIT - FO text alert
 			brute_loss = 60
 			burn_loss = 60
 			if(bomb_armor)
@@ -473,6 +475,7 @@
 			Knockdown(200 - (bomb_armor * 1.6)) //between ~4 and ~20 seconds of knockdown depending on bomb armor
 
 		if(EXPLODE_LIGHT)
+			throw_alert_text(/atom/movable/screen/alert/text/nohappy, "That's not good!", override = FALSE) // MOJAVE SUN EDIT - FO text alert
 			brute_loss = 30
 			if(bomb_armor)
 				brute_loss = 15*(2 - round(bomb_armor*0.01, 0.05))
