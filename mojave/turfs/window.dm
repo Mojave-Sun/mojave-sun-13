@@ -11,6 +11,7 @@
 	hitted_sound = 'mojave/sound/ms13effects/glass_hit.ogg'
 	knock_sound = 'mojave/sound/ms13effects/glass_knock.ogg'
 	var/shatter_immune = FALSE // immune to passthrough bullshittery
+	var/breaking = FALSE
 
 /obj/structure/window/fulltile/ms13/CanAllowThrough(atom/movable/mover, turf/target)
 	. = ..()
@@ -43,6 +44,44 @@
 			deconstruct(disassembled = FALSE)
 			return TRUE
 
+/obj/structure/window/fulltile/ms13/attack_hand_secondary(mob/user, params)
+	. = ..()
+	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
+		return
+	if(!iscarbon(user))
+		return
+	var/mob/living/carbon/C = user
+	if(!C.combat_mode)
+		return
+	if(!breaking)
+		visible_message(span_warning("[C] is attempting to bash down the [src]!"))
+		to_chat(C, span_notice("You attempt to bash the [src] with your elbow!"))
+		breaking = TRUE
+		if(do_after(C, 5))
+			if(C.gloves && armor.melee < 50)
+				visible_message(span_warning("[C] bashes against the [src], cracking it!"))
+				take_damage(15, BRUTE, MELEE)
+				update_appearance()
+				playsound(loc, 'mojave/sound/ms13effects/glass_hit.ogg', 25, 1, -1)
+				breaking = FALSE
+				return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+			else
+				visible_message(span_warning("[C] bashes against the [src] with their bare arm."))
+				take_damage(10, BRUTE, MELEE)
+				update_appearance()
+				playsound(loc, 'mojave/sound/ms13effects/glass_hit.ogg', 25, 1, -1)
+				var/which_hand = BODY_ZONE_L_ARM
+				if(!(C.active_hand_index % 2))
+					which_hand = BODY_ZONE_R_ARM
+				var/obj/item/bodypart/ouch = C.get_bodypart(which_hand)
+				if(prob(20))
+					ouch.receive_damage(5, wound_bonus = 5)
+				breaking = FALSE
+				return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+		else
+			breaking = FALSE
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
 /obj/structure/window/fulltile/ms13/spawnDebris(location)
 	. = list()
 	. += new /obj/item/stack/sheet/ms13/glass(location)
@@ -69,9 +108,48 @@
 	damage_deflection = 16 //This basically means it blocks 15 damage weapons and weaker
 	glass_type = /obj/item/stack/sheet/ms13/glass
 	glass_amount = 1
-
-/obj/structure/window/reinforced/attackby_secondary(obj/item/tool, mob/user, params)
-	return
+	var/breaking = FALSE
+	
+/obj/structure/window/reinforced/fulltile/ms13/attack_hand_secondary(mob/user, params) // Same as with the other windows. Just very likely to break your arm if you keep doing it.
+	. = ..()
+	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
+		return
+	if(!iscarbon(user))
+		return
+	var/mob/living/carbon/C = user
+	if(!C.combat_mode)
+		return
+	var/which_hand = BODY_ZONE_L_ARM
+	if(!(C.active_hand_index % 2))
+		which_hand = BODY_ZONE_R_ARM
+	var/obj/item/bodypart/ouch = C.get_bodypart(which_hand)
+	if(!breaking)
+		visible_message(span_warning("[C] is attempting to bash down the [src]!"))
+		to_chat(C, span_notice("You attempt to bash the [src] with your elbow!"))
+		breaking = TRUE
+		if(do_after(C, 5))
+			if(C.gloves && armor.melee < 50)
+				visible_message(span_warning("[C] bashes against the [src], cracking it!"))
+				take_damage(15, BRUTE, MELEE)
+				update_appearance()
+				playsound(loc, 'mojave/sound/ms13effects/glass_hit.ogg', 25, 1, -1)
+				breaking = FALSE
+				return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+			else
+				visible_message(span_warning("[C] bashes against the [src] with their bare arm, ouch!"))
+				take_damage(5, BRUTE, MELEE)
+				update_appearance()
+				playsound(loc, 'mojave/sound/ms13effects/glass_hit.ogg', 25, 1, -1)
+				ouch.receive_damage(5, wound_bonus = 10)
+				if(prob(25))
+					C.emote("scream")
+					C.Jitter(1)
+					ouch.receive_damage(10, wound_bonus = 25) // hit WRONG..
+				breaking = FALSE
+				return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+		else
+			breaking = FALSE
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/structure/window/reinforced/examine(mob/user)
 	return
