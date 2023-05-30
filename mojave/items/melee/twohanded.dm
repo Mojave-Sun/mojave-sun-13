@@ -44,6 +44,7 @@
 	desc = "A pre-war fire axe, once used by firemen, now used by maniacs."
 	icon_state = "fire_axe"
 	inhand_icon_state = "fire_axe"
+	worn_icon_state = "fire_axe"
 	attack_verb_continuous = list("cleaves", "whacks", "chops", "cuts")
 	attack_verb_simple = list("cleave", "whack", "chop", "cut")
 	hitsound = list('mojave/sound/ms13weapons/meleesounds/heavyaxe_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/heavyaxe_hit2.ogg')
@@ -66,6 +67,7 @@
 	desc = "A well made heavy axe. A favored weapon of the Drylander tribe."
 	icon_state = "dry_axe"
 	inhand_icon_state = "dry_axe"
+	worn_icon_state = "dry_axe"
 	force = 15
 	subtractible_armour_penetration = 15
 	edge_protection_penetration = 10
@@ -79,6 +81,7 @@
 	desc = "A large, intimidating sword made fashioned from the bumper of a car. The peak of post-war blades."
 	icon_state = "bumper_sword"
 	inhand_icon_state = "bumper_sword"
+	worn_icon_state = "bumper_sword"
 	attack_verb_continuous = list("cleaves", "whacks", "chops", "lacerates", "stabs")
 	attack_verb_simple = list("cleave", "whack", "chop", "lacerate", "stab")
 	hitsound = 'mojave/sound/ms13weapons/meleesounds/heavyblade_hit.ogg'
@@ -100,6 +103,7 @@
 	desc = "A heavy sledge hammer. Used mostly for demolition of walls pre-war, has now been repurposed for demolition of bones."
 	icon_state = "hammer_sledge"
 	inhand_icon_state = "hammer_sledge"
+	worn_icon_state = "hammer_sledge"
 	attack_verb_continuous = list("slams", "beats", "hammers", "pummels", "impacts")
 	attack_verb_simple = list("slam", "beat", "hammer", "pummel", "impact")
 	hitsound = list('mojave/sound/ms13weapons/meleesounds/heavyblunt_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/heavyblunt_hit2.ogg', 'mojave/sound/ms13weapons/meleesounds/heavyblunt_hit3.ogg')
@@ -120,6 +124,7 @@
 	desc = "A piece of rebar with concrete still stuck to it. Makes for a great, if heavy, makeshift bludgeon."
 	icon_state = "rebar_club"
 	inhand_icon_state = "rebar_club"
+	worn_icon_state = "rebar_club"
 	subtractible_armour_penetration = 20
 	wound_bonus = 0
 	bare_wound_bonus = 0
@@ -130,6 +135,7 @@
 	desc = "Using the power of science and engineering, they packed 66% more sledge in this hammer. It's a pain to use in general."
 	icon_state = "hammer_power"
 	inhand_icon_state = "hammer_power"
+	worn_icon_state = "hammer_power"
 	subtractible_armour_penetration = 35
 	wound_bonus = 10
 	bare_wound_bonus = 0
@@ -154,6 +160,7 @@
 	desc = "A well made, dangerous, and versatile spear."
 	icon_state = "spear"
 	inhand_icon_state = "spear"
+	worn_icon_state = "spear"
 	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/general_pickup.ogg'
 	hitsound = 'mojave/sound/ms13weapons/meleesounds/stab_hit.ogg'
 	force = 20
@@ -173,6 +180,7 @@
 	desc = "A very crude spear made from a simple knife and a scrap metal pole."
 	icon_state = "spear_knife"
 	inhand_icon_state = "spear_knife"
+	worn_icon_state = "spear_knife"
 	force = 15
 	throwforce = 20
 	subtractible_armour_penetration = 10
@@ -186,6 +194,7 @@
 	desc = "A decently well made barbed spear intended to be thrown but can serve fine as a melee weapon too."
 	icon_state = "spear_throwing"
 	inhand_icon_state = "spear_throwing"
+	worn_icon_state = "spear_throwing"
 	force = 15
 	throwforce = 35
 	subtractible_armour_penetration = 15
@@ -223,6 +232,7 @@
 	desc = "A modified steel saw, converted into a tool of destruction."
 	icon_state = "auto_axe_off"
 	inhand_icon_state = "auto_axe_off"
+	worn_icon_state = "auto_axe"
 	w_class = WEIGHT_CLASS_HUGE
 	slot_flags = ITEM_SLOT_BACK
 	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/heavy_pickup.ogg'
