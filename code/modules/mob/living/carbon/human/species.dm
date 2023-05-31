@@ -1184,6 +1184,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				if(!disable_warning)
 					to_chat(H, span_warning("The [I.name] is too big to attach!")) //should be src?
 				return FALSE
+			// MOJAVE SUN EDIT BEGIN
 			if(istype(I, /obj/item/ms13/twohanded))
 				var/obj/item/ms13/twohanded/W = I
 				if(!W.stowable)
