@@ -759,7 +759,7 @@
                 CUTTING = CLASS1_CUT, \
                 PIERCING = CLASS1_PIERCE, \
                 IMPALING = CLASS1_STAB, \
-                LASER = 0, \
+                LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = 0)
 

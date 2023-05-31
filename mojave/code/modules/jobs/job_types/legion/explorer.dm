@@ -14,6 +14,7 @@
 	jobtype = /datum/job/ms13/legion/explorer
 
 	head = /obj/item/clothing/head/helmet/ms13/legion/explorer
+	glasses = /obj/item/clothing/glasses/ms13/leather
 	uniform = /obj/item/clothing/under/ms13/legion/fatigues/dark
 	shoes = /obj/item/clothing/shoes/ms13/military/legion/cleats
 	suit = /obj/item/clothing/suit/armor/ms13/legion/explorer
