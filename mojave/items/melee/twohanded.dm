@@ -20,6 +20,7 @@
 	log_pickup_and_drop = TRUE
 	wield_info = /datum/wield_info/twohanded //silly default that probably won't be used much honestly
 	var/wielded = FALSE
+	var/stowable = TRUE //determines if the item can go on the suit slot or not
 
 /obj/item/ms13/twohanded/Initialize()
 	. = ..()
@@ -211,6 +212,7 @@
 	name = "heavy weapon"
 	desc = "Generic heavy weapon go haha BRRR"
 	slot_flags = null
+	stowable = FALSE
 
 /obj/item/ms13/twohanded/heavy/ComponentInitialize()
 	. = ..()
