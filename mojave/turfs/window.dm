@@ -51,13 +51,15 @@
 	if(!iscarbon(user))
 		return
 	var/mob/living/carbon/C = user
-	if(!C.combat_mode)
+	var/which_hand = BODY_ZONE_L_ARM
+	if(!(C.active_hand_index % 2))
+		which_hand = BODY_ZONE_R_ARM
+	var/obj/item/bodypart/ouch = C.get_bodypart(which_hand)
+	if(!C.combat_mode || ouch.bodypart_disabled)
 		return
 	if(!breaking)
-		visible_message(span_warning("[C] is attempting to bash down the [src]!"))
-		to_chat(C, span_notice("You attempt to bash the [src] with your elbow!"))
 		breaking = TRUE
-		if(do_after(C, 5))
+		if(do_after(C, 5, interaction_key = DOAFTER_SOURCE_WINDOWBASH))
 			if(C.gloves && armor.melee < 50)
 				visible_message(span_warning("[C] bashes against the [src], cracking it!"))
 				take_damage(15, BRUTE, MELEE)
@@ -70,10 +72,6 @@
 				take_damage(10, BRUTE, MELEE)
 				update_appearance()
 				playsound(loc, 'mojave/sound/ms13effects/glass_hit.ogg', 25, 1, -1)
-				var/which_hand = BODY_ZONE_L_ARM
-				if(!(C.active_hand_index % 2))
-					which_hand = BODY_ZONE_R_ARM
-				var/obj/item/bodypart/ouch = C.get_bodypart(which_hand)
 				if(prob(20))
 					ouch.receive_damage(5, wound_bonus = 5)
 				breaking = FALSE
@@ -117,36 +115,26 @@
 	if(!iscarbon(user))
 		return
 	var/mob/living/carbon/C = user
-	if(!C.combat_mode)
-		return
 	var/which_hand = BODY_ZONE_L_ARM
 	if(!(C.active_hand_index % 2))
 		which_hand = BODY_ZONE_R_ARM
 	var/obj/item/bodypart/ouch = C.get_bodypart(which_hand)
+	if(!C.combat_mode || ouch.bodypart_disabled)
+		return
 	if(!breaking)
-		visible_message(span_warning("[C] is attempting to bash down the [src]!"))
-		to_chat(C, span_notice("You attempt to bash the [src] with your elbow!"))
 		breaking = TRUE
-		if(do_after(C, 5))
-			if(C.gloves && armor.melee < 50)
-				visible_message(span_warning("[C] bashes against the [src], cracking it!"))
-				take_damage(15, BRUTE, MELEE)
-				update_appearance()
-				playsound(loc, 'mojave/sound/ms13effects/glass_hit.ogg', 25, 1, -1)
-				breaking = FALSE
-				return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
-			else
-				visible_message(span_warning("[C] bashes against the [src] with their bare arm, ouch!"))
-				take_damage(5, BRUTE, MELEE)
-				update_appearance()
-				playsound(loc, 'mojave/sound/ms13effects/glass_hit.ogg', 25, 1, -1)
-				ouch.receive_damage(5, wound_bonus = 10)
-				if(prob(25))
-					C.emote("scream")
-					C.Jitter(1)
-					ouch.receive_damage(10, wound_bonus = 25) // hit WRONG..
-				breaking = FALSE
-				return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+		if(do_after(C, 5, interaction_key = DOAFTER_SOURCE_WINDOWBASH))
+			visible_message(span_warning("[C] bashes against the [src] with their bare arm, seemingly only hurting themselves!"))
+			take_damage(5, BRUTE, MELEE)
+			update_appearance()
+			playsound(loc, 'mojave/sound/ms13effects/glass_hit.ogg', 25, 1, -1)
+			ouch.receive_damage(5, wound_bonus = 10)
+			if(prob(25))
+				C.emote("scream")
+				C.Jitter(1)
+				ouch.receive_damage(10, wound_bonus = 25) // hit WRONG..
+			breaking = FALSE
+			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 		else
 			breaking = FALSE
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
