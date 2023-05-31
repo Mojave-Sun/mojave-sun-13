@@ -62,7 +62,6 @@
 	var/registered_name = null
 	/// Linked bank account.
 	var/datum/bank_account/registered_account
-
 	/// Linked holopay.
 	var/obj/structure/holopay/my_store
 	/// Cooldown between projecting holopays
@@ -117,8 +116,8 @@
 /obj/item/card/id/Destroy()
 	if (registered_account)
 		registered_account.bank_cards -= src
-	if (my_store)
-		QDEL_NULL(my_store)
+//	if (my_store) // MOJAVE SUN EDIT =FREAK OF
+//		QDEL_NULL(my_store) // MOJAVE SUN EDOT =FREAK OF
 	return ..()
 
 /obj/item/card/id/get_id_examine_strings(mob/user)
@@ -405,6 +404,7 @@
 			minor = " <b>(MINOR)</b>"
 		user.visible_message(span_notice("[user] shows you: [icon2html(src, viewers(user))] [src.name][minor]."), span_notice("You show \the [src.name][minor]."))
 	add_fingerprint(user)
+/* // MOJAVE SUN EDIT BEGIN
 
 /obj/item/card/id/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
@@ -620,7 +620,6 @@
 	registered_account = account
 	to_chat(user, span_notice("The provided account has been linked to this ID card."))
 	return TRUE
-
 /obj/item/card/id/AltClick(mob/living/user)
 	if(!alt_click_can_use_id(user))
 		return
@@ -648,6 +647,7 @@
 	else
 		var/difference = amount_to_remove - registered_account.account_balance
 		registered_account.bank_card_talk(span_warning("ERROR: The linked account requires [difference] more credit\s to perform that withdrawal."), TRUE)
+*/ // MOJAVE SUN END
 
 /obj/item/card/id/examine(mob/user)
 	. = ..()
@@ -1479,9 +1479,11 @@
 				forged = FALSE
 				to_chat(user, span_notice("You successfully reset the ID card."))
 				return
+		/* // MOJAVE SUN EDIT BEGIN
 		if (popup_input == "Change Account ID")
 			set_new_account(user)
 			return
+		*/ // MOJAVE SUN EDIT END
 	return ..()
 
 /// A special variant of the classic chameleon ID card which accepts all access.
