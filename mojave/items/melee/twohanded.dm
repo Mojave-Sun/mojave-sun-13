@@ -210,6 +210,7 @@
 /obj/item/ms13/twohanded/heavy
 	name = "heavy weapon"
 	desc = "Generic heavy weapon go haha BRRR"
+	slot_flags = null
 
 /obj/item/ms13/twohanded/heavy/ComponentInitialize()
 	. = ..()
@@ -234,7 +235,6 @@
 	inhand_icon_state = "auto_axe_off"
 	worn_icon_state = "auto_axe"
 	w_class = WEIGHT_CLASS_HUGE
-	slot_flags = ITEM_SLOT_BACK
 	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/heavy_pickup.ogg'
 	subtractible_armour_penetration = 20
 	edge_protection_penetration = 20
@@ -288,8 +288,8 @@
 	desc = "A heavy duty thermic lance, used primarily for melting steel beams before the war. But now is used for melting faces and through armor."
 	icon_state = "thermiclance_off"
 	inhand_icon_state = "thermiclance_off"
+	worn_icon_state = "thermic_lance"
 	w_class = WEIGHT_CLASS_HUGE
-	slot_flags = ITEM_SLOT_BACK
 	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/general_pickup.ogg'
 	subtractible_armour_penetration = 40
 	edge_protection_penetration = 20
