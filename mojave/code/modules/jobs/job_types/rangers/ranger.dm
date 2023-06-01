@@ -32,3 +32,8 @@
 	uniform = pick(/obj/item/clothing/under/ms13/ranger,\
 		/obj/item/clothing/under/ms13/ranger/casual,\
 		/obj/item/clothing/under/ms13/ranger/patrol)
+
+	if(prob(50))
+		r_hand = /obj/item/clothing/mask/gas/ms13/ranger
+	else
+		r_hand = null

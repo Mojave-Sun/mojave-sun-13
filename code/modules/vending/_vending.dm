@@ -253,13 +253,16 @@
 		return
 	set_light(powered() ? MINIMUM_USEFUL_LIGHT_RANGE : 0)
 
-
+// MOJAVE SUN EDIT BEGIN
+/*
 /obj/machinery/vending/update_icon_state()
 	if(machine_stat & BROKEN)
 		icon_state = "[initial(icon_state)]-broken"
 		return ..()
 	icon_state = "[initial(icon_state)][powered() ? null : "-off"]"
 	return ..()
+*/
+// MOJAVE SUN EDIT END - Freak this
 
 
 /obj/machinery/vending/update_overlays()

@@ -151,7 +151,7 @@
 
 /obj/item/gun/ballistic/rifle/ms13/jezzail
 	name = "handmade jezzail"
-	desc = "A crude but effective and accurate handmade single shot rifle."
+	desc = "A crude but effective and accurate handmade single shot rifle. It seems to be chambered in 7.62"
 	icon_state = "jezzail"
 	inhand_icon_state = "jezzail"
 	internal_magazine = TRUE
@@ -176,7 +176,7 @@
 
 /obj/item/gun/ballistic/rifle/ms13/antique_sniper
 	name = "antique sniper"
-	desc = "A very old single shot sniper rifle from long before the war. A prized possession, even now."
+	desc = "A very old single shot sniper rifle from long before the war. A prized possession, even now. It is chambered in the ever so hefty 45-70."
 	icon_state = "antique"
 	inhand_icon_state = "antique"
 	internal_magazine = TRUE
