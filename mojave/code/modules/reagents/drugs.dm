@@ -715,6 +715,31 @@
 	..()
 	. = TRUE
 
+// Nicotine - NIC!!! //
+
+/datum/reagent/ms13/nicotine
+	name = "Nicotine"
+	description = "That good shit, enhances focus and relaxes."
+	reagent_state = LIQUID
+	color = "#3b2c1d" // rgb: 96, 165, 132
+	taste_description = "smoke"
+	metabolization_rate = 0.05 //lets keep this simple, 18 for 6 minutes of effects
+	overdose_threshold = 0
+
+/datum/reagent/ms13/nicotine/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
+	M.AdjustStun(-50  * REM * delta_time) //these are here because theyre balanced already
+	M.AdjustKnockdown(-50 * REM * delta_time)
+	M.AdjustUnconscious(-50 * REM * delta_time)
+	M.AdjustParalyzed(-50 * REM * delta_time)
+	M.AdjustImmobilized(-50 * REM * delta_time)
+	..()
+	. = TRUE
+
+/datum/reagent/ms13/nicotine/menthol
+	name = "Menthol/Nicotine"
+	description = "That good fresh shit, enhances focus and relaxes."
+	color = "#1d3b2f" // rgb: 96, 165, 132
+	taste_description = "cool minty smoke"
 
 /////// Movespeed Modifiers ///////
 

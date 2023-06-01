@@ -25,6 +25,10 @@
 	var/is_open = FALSE
 	/// What this container folds up into when it's empty.
 	var/obj/fold_result = /obj/item/stack/sheet/cardboard
+	//MOJAVE SUN EDIT - Fancy Storage
+	var/folds = TRUE ///does this storage thing fold when empty
+	var/fresh = FALSE //fresh pack of THING, this a post-apoc world after all
+	var/freshsound //the sound it plays upon first opening
 
 /obj/item/storage/fancy/PopulateContents()
 	if(!spawn_type)
@@ -47,24 +51,30 @@
 		. += "There are [contents.len <= 0 ? "no" : "[contents.len]"] [contents_tag]s left."
 
 /obj/item/storage/fancy/attack_self(mob/user)
+	//MOJAVE SUN EDIT START - Fancy Storage
+	if(fresh && !is_open)
+		playsound(src, freshsound, 100)
+		fresh = FALSE
 	is_open = !is_open
 	update_appearance()
 	. = ..()
 	if(contents.len)
 		return
-	new fold_result(user.drop_location())
-	to_chat(user, span_notice("You fold the [src] into [initial(fold_result.name)]."))
-	user.put_in_active_hand(fold_result)
-	qdel(src)
+	if(folds)
+		new fold_result(user.drop_location())
+		to_chat(user, span_notice("You fold the [src] into [initial(fold_result.name)]."))
+		user.put_in_active_hand(fold_result)
+		qdel(src)
+	//MOJAVE SUN EDIT END - Fancy Storage
 
 /obj/item/storage/fancy/Exited(atom/movable/gone, direction)
 	. = ..()
-	is_open = TRUE
+	//is_open = TRUE //MOJAVE SUN EDIT - Fancy Storage
 	update_appearance()
 
 /obj/item/storage/fancy/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	. = ..()
-	is_open = TRUE
+	//is_open = TRUE //MOJAVE SUN EDIT - Fancy Storage
 	update_appearance()
 
 #define DONUT_INBOX_SPRITE_WIDTH 3

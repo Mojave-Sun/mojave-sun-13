@@ -41,6 +41,15 @@
     burn_icon = "campfire_lit"
     max_integrity = 80
 
+/obj/structure/bonfire/ms13/campfire/process(delta_time)
+	. = ..()
+	var/turf/my_turf = get_turf(src)
+	var/turf/upper_open_check = get_step_multiz(my_turf, UP) // check if up is outside//if we are at the top Z level
+	if(upper_open_check && istype(upper_open_check, /turf/open/openspace)) //outside, less smog, blown away or something
+		my_turf.VapourListTurf(list(/datum/vapours/smoke = 80, /datum/vapours/carbon_air_vapour = 30), VAPOUR_ACTIVE_EMITTER_CAP)
+	else
+		my_turf.VapourListTurf(list(/datum/vapours/smoke = 150, /datum/vapours/carbon_air_vapour = 80), VAPOUR_ACTIVE_EMITTER_CAP)
+
 /obj/structure/bonfire/ms13/campfire/attackby(obj/item/used_item, mob/living/user, params)
 	if(used_item.get_temperature())
 		start_burning()
@@ -67,6 +76,11 @@
 	. = ..()
 	if(!grill)
 		. += span_notice("You could add a grill to [src] with some <b>scrap metal</b>.")
+
+/obj/structure/bonfire/ms13/fire_barrel/process(delta_time)
+	. = ..()
+	var/turf/my_turf = get_turf(src)
+	my_turf.VapourListTurf(list(/datum/vapours/smoke = 30, /datum/vapours/carbon_air_vapour = 5), VAPOUR_ACTIVE_EMITTER_CAP)
 
 /obj/structure/bonfire/ms13/fire_barrel/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))

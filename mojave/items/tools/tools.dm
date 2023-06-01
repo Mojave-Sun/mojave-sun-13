@@ -342,6 +342,22 @@
 	custom_materials = null
 	toolspeed = 1.5 //grim
 
+/obj/item/knife/ms13/scissors
+	name = "scissors"
+	desc = "An old pair of scissors. Used for cutting precisely."
+	icon = 'mojave/icons/objects/tools/tools_world.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
+	icon_state = "scissors"
+	inhand_icon_state = "scissors"
+	force = 15
+	throwforce = 5
+	toolspeed = 2
+
+/obj/item/knife/ms13/scissors/Initialize()
+	. = ..()
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
+
 /obj/item/ms13/brick
 	name = "brick"
 	desc = "A literal brick. Nothing more."

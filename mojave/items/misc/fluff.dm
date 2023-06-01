@@ -11,24 +11,36 @@
 	name = "ruined book"
 	desc = "A book that's been rendered unreadable from decades of decay."
 	icon_state = "book"
+	drop_sound = 'sound/items/handling/book_drop.ogg'
+	pickup_sound = 'sound/items/handling/book_pickup.ogg'
 
 /obj/item/ms13/fluff/ruined_book/Initialize(mapload)
 	. = ..()
 	icon_state = pick("book2","book3","book4","book5","book6")
+	AddElement(/datum/element/craftable, /obj/item/knife/ms13, /obj/item/paper/ms13, rand(1,5), 30 SECONDS, crafting_sound_start = 'mojave/sound/ms13effects/book_open.ogg', crafting_focus_sound = list('mojave/sound/ms13effects/crafting/scissorsnip1.ogg' = 1, 'mojave/sound/ms13effects/crafting/scissorsnip2.ogg' = 1, 'mojave/sound/ms13effects/crafting/scissorsnip3.ogg' = 1))
 
 /obj/item/ms13/fluff/burnt_book
 	name = "burnt book"
 	desc = "A book that's been rendered unreadable due to severe burns."
 	icon_state = "book_burnt"
+	drop_sound = 'sound/items/handling/book_drop.ogg'
+	pickup_sound = 'sound/items/handling/book_pickup.ogg'
 
-/obj/item/ms13/fluff/burnt_book/Initialize(mapload)
+/obj/item/ms13/fluff/burnt_book/Initialize(mapload) //huge shoutout to techno for making all of these seperate
 	. = ..()
 	icon_state = pick("book_burnt2","book_burnt3")
+	AddElement(/datum/element/craftable, /obj/item/knife/ms13, /obj/item/paper/ms13, rand(1,3), 30 SECONDS, crafting_sound_start = 'mojave/sound/ms13effects/book_open.ogg', crafting_focus_sound = list('mojave/sound/ms13effects/crafting/scissorsnip1.ogg' = 1, 'mojave/sound/ms13effects/crafting/scissorsnip2.ogg' = 1, 'mojave/sound/ms13effects/crafting/scissorsnip3.ogg' = 1))
 
 /obj/item/ms13/fluff/bible
 	name = "bible"
 	desc = "A book that's seems to have a cross on it's front cover. It's filled with a bunch of verses."
 	icon_state = "bible"
+	drop_sound = 'sound/items/handling/book_drop.ogg'
+	pickup_sound = 'sound/items/handling/book_pickup.ogg'
+
+/obj/item/ms13/fluff/bible/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/craftable, /obj/item/knife/ms13, /obj/item/paper/ms13, rand(1,6), 30 SECONDS, crafting_sound_start = 'mojave/sound/ms13effects/book_open.ogg', crafting_focus_sound = list('mojave/sound/ms13effects/crafting/scissorsnip1.ogg' = 1, 'mojave/sound/ms13effects/crafting/scissorsnip2.ogg' = 1, 'mojave/sound/ms13effects/crafting/scissorsnip3.ogg' = 1))
 
 /obj/item/ms13/fluff/typewriter
 	name = "typewriter"
