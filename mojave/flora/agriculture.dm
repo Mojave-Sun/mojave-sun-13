@@ -249,16 +249,11 @@
 				adjust_toxic(-rating * 3)
 
 //This is where stability mutations exist now.
-			if(myseed.instability >= 80)
-				return
+			
 			if(myseed.instability >= 60)
 				if(prob((myseed.instability)/2) && !self_sustaining && LAZYLEN(myseed.mutatelist)) //Minimum 30%, Maximum 50% chance of mutating every age tick when not on autogrow.
 					mutatespecie()
 					myseed.set_instability(myseed.instability/2)
-			if(myseed.instability >= 40)
-				return
-			if(myseed.instability >= 20 )
-				return
 
 //Health & Age///////////////////////////////////////////////////////////
 
