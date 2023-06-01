@@ -154,6 +154,7 @@
 	icon_state = "ranger_mask"
 	worn_icon_state = "ranger_mask"
 	adjustable = FALSE
+	has_fov = FALSE //placeholder for now until we make this more useful to justify a FOV
 
 /obj/item/clothing/mask/gas/ms13/Initialize()
 	. = ..()

@@ -14,6 +14,7 @@
 	jobtype = 	 /datum/job/ms13/ranger/deputychief
 	suit = 	  	 /obj/item/clothing/suit/ms13/vest/brown
 	head =       /obj/item/clothing/head/helmet/ms13/cowboy/ranger
+	glasses =	 /obj/item/clothing/glasses/ms13/sunglasses
 	uniform =    /obj/item/clothing/under/ms13/ranger/casual
 	belt =  	 /obj/item/gun/ballistic/revolver/ms13/rev44
 	id = 		 /obj/item/card/id/ms13/ranger_chief
