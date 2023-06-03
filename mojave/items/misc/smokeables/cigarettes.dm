@@ -43,7 +43,6 @@
 	var/butt_desc = "A used cigarette butt, still holds a little nicotine."
 	var/buttwarn = FALSE //tells the smoker the butt is down to the end, continuing makes them sick
 	var/butt_transform = FALSE //alright butt
-	var/smoke_type = null //Used for shortening
 	var/fresh = TRUE //unlit, fresh out the pack
 
 /obj/item/ms13/cigarette/Initialize()
@@ -56,19 +55,29 @@
 	AddComponent(/datum/component/knockoff, 100, null, list(ITEM_SLOT_MASK))
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/smokeables/smokeables_inventory.dmi', world_state, inventory_state)
 
-/obj/item/ms13/cigarette/butt
-	name = "butt"
+/obj/item/ms13/cigarette/butt //prespawned ciggie butts
+	name = "cigarette butt"
 	desc = "A used cigarette butt, still holds a little nicotine."
 	icon_state = "butt"
 	inventory_state = "butt"
 	world_state = "butt"
+	worn_icon_state = "butt"
+	inhand_icon_state = "butt"
+	lit_mutable = "butt_lit"
+	extinguished_mutable = "butt_extinguished"
 	smoketime = 1 SMOKEMINUTE
+	list_reagents = list(/datum/reagent/ms13/nicotine = 4.2)
+	smoking_damage = 0.05
+	butt_transform = TRUE //infinite butt dupe glitch real any % wr
 
 /obj/item/ms13/ash
 	name = "ash"
 	desc = "A small pile of ash."
 	icon = 'mojave/icons/objects/smokeables/smokeables_world.dmi'
 	icon_state = "ash"
+	grid_width = 32
+	grid_height = 32
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/ms13/cigarette/proc/light() //removes lit and unlit states
 	if(lit)
@@ -99,10 +108,10 @@
 
 /obj/item/ms13/cigarette/worn_overlays(mutable_appearance/standing, isinhands)
 	. = ..()
-	var/mutable_appearance/litty = mutable_appearance('mojave/icons/objects/smokeables/smokeables_mob.dmi', "lit")
-	var/mutable_appearance/extinguished = mutable_appearance('mojave/icons/objects/smokeables/smokeables_mob.dmi', "extinguished")
-	var/mutable_appearance/litty_ih = mutable_appearance(icon_state = "lit")
-	var/mutable_appearance/extinguished_ih = mutable_appearance(icon_state = "extinguished")
+	var/mutable_appearance/litty = mutable_appearance('mojave/icons/objects/smokeables/smokeables_mob.dmi', lit_mutable)
+	var/mutable_appearance/extinguished = mutable_appearance('mojave/icons/objects/smokeables/smokeables_mob.dmi', extinguished_mutable)
+	var/mutable_appearance/litty_ih = mutable_appearance(icon_state = lit_mutable)
+	var/mutable_appearance/extinguished_ih = mutable_appearance(icon_state = extinguished_mutable)
 	if(!isinhands && lit)
 		. += litty
 	if(!isinhands && !lit && !fresh)
@@ -213,11 +222,15 @@
 				buttwarn = TRUE
 		if(0 to 60)
 			if(!butt_transform)
+				name = "[name] [butt_name]"
+				desc = "[butt_desc]"
 				icon_state = "[butt_icon]"
 				inventory_state = "[butt_icon]"
 				world_state = "[butt_icon]"
-				name = "[name] [butt_name]"
-				desc = "[butt_desc]"
+				worn_icon_state = "[butt_icon]"
+				inhand_icon_state = "[butt_icon]"
+				lit_mutable = "butt_lit"
+				extinguished_mutable = "butt_extinguished"
 				smoking_damage = 0.05 //not good
 				butt_transform = TRUE
 			if(prob(40) && ismob(M))
@@ -232,13 +245,13 @@
 		var/mob/living/carbon/human/C = loc
 		var/obj/item/organ/lungs/L = C.getorganslot(ORGAN_SLOT_LUNGS)
 		if(prob(30))
-			playsound(C, pick(SMOKING_SMOLDER_SOUNDS), 100)
-		if(prob(10) && C.gender == MALE || C.gender == PLURAL)
-			playsound(C, pick(SMOKING_INHALE_MALE_SOUNDS), 100)
-		if(prob(10) && C.gender == FEMALE)
-			playsound(C, pick(SMOKING_INHALE_FEMALE_SOUNDS), 100)
+			playsound(C, pick(SMOKING_SMOLDER_SOUNDS), 90)
 		if(src == C.wear_mask)
 			L.smoking = TRUE
+			if(prob(10) && C.gender == MALE || C.gender == PLURAL)
+				playsound(C, pick(SMOKING_INHALE_MALE_SOUNDS), 90)
+			if(prob(10) && C.gender == FEMALE)
+				playsound(C, pick(SMOKING_INHALE_FEMALE_SOUNDS), 90)
 			if((reagents && reagents.total_volume) && (nextdragtime <= world.time))
 				nextdragtime = world.time + dragtime
 				handle_reagents()
@@ -354,8 +367,8 @@
 	icon_state = "rollie"
 	inventory_state = "rollie"
 	world_state = "rollie"
-	worn_icon_state = "cigarette"
-	inhand_icon_state = "cigarette"
+	worn_icon_state = "rollie"
+	inhand_icon_state = "rollie"
 	list_reagents = list(/datum/reagent/ms13/nicotine = 14) //less potent, 4 minutes of effect, roach is extra 1 minute
 	nicotine_potency = 0.10 //less potent
 	smoking_damage = 0.005 //organic
@@ -370,6 +383,9 @@
 	icon_state = "roach"
 	inventory_state = "roach"
 	world_state = "roach"
+	worn_icon_state = "roach"
+	inhand_icon_state = "roach"
+	list_reagents = list(/datum/reagent/ms13/nicotine = 2.8)
 
 /obj/item/ms13/cigarette/rollie/republic
 	desc = "A rolled joint, featuring the iconic red star of the <B>NCR</B>."

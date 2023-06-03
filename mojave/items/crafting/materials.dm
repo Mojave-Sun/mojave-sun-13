@@ -393,6 +393,7 @@ GLOBAL_LIST_INIT(ms13cloth_recipes, list ( \
 /obj/item/stack/sheet/ms13/thread/six
 	amount = 6
 
+
 //Old Stuff Below, Be Warned//
 
 //COTTON//

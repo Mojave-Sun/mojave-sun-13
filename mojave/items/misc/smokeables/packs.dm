@@ -4,7 +4,7 @@
 	name = "\improper cigarette pack"
 	desc = "A unbranded, generic cigarette pack, how the hell did you get this. A label on the packaging reads, \"There is no label, report this to a developer.\""
 	icon = 'mojave/icons/objects/smokeables/smokeables_world.dmi'
-	icon_state = "generic_pack"
+	icon_state = "generic"
 	inventory_state = "generic_pack"
 	world_state = "generic"
 	lefthand_file = 'mojave/icons/mob/inhands/misc/smokeables_lefthand.dmi'
@@ -24,6 +24,10 @@
 	var/othertype = FALSE
 	var/pack_overlay = "cig"
 
+/obj/item/storage/fancy/ms13/cigarettes/examine(mob/user)
+	. = ..()
+	. += "<span class='notice'>Click in offhand to take one out. Use to open/close.</span>"
+
 /obj/item/storage/fancy/ms13/cigarettes/PopulateContents()
 	. = ..()
 	if(contents.len == 8) //full pack, unopened
@@ -36,9 +40,12 @@
 	STR.set_holdable(list(/obj/item/ms13/cigarette))
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/smokeables/smokeables_inventory.dmi', world_state, inventory_state)
 
-/obj/item/storage/fancy/ms13/cigarettes/examine(mob/user)
-	. = ..()
-	. += "<span class='notice'>Click in offhand to take one out. Use to open/close.</span>"
+/obj/item/storage/fancy/ms13/cigarettes/MouseDrop()
+	if(!is_open && (usr.stat != DEAD))
+		to_chat(usr, "<span class='danger'>The [src] is closed.</span>")
+		return COMPONENT_NO_MOUSEDROP
+	else
+		return . = ..()
 
 /obj/item/storage/fancy/ms13/cigarettes/update_icon_state()
 	if(is_open && !othertype)
@@ -108,7 +115,7 @@
 /obj/item/storage/fancy/ms13/cigarettes/marlboro
 	name = "\improper Marlboro pack"
 	desc = "A cool red cigarette packet. A label on the packaging reads, \"<b>Marlboro</b>. Where theres a man, theres a Marlboro.\""
-	icon_state = "marl_pack"
+	icon_state = "marl"
 	inventory_state = "marl_pack"
 	world_state = "marl"
 	inhand_icon_state = "red"
@@ -117,7 +124,7 @@
 /obj/item/storage/fancy/ms13/cigarettes/winston
 	name = "\improper Winston pack"
 	desc = "A refined red cigarette packet. A label on the packaging reads, \"<b>Winston</b>. Winston tastes good, like a cigarette should!\""
-	icon_state = "wins_pack"
+	icon_state = "wins"
 	inventory_state = "wins_pack"
 	world_state = "wins"
 	inhand_icon_state = "red"
@@ -126,7 +133,7 @@
 /obj/item/storage/fancy/ms13/cigarettes/luckystrike
 	name = "\improper Lucky Strike pack"
 	desc = "A white cigarette packet with a large red circle on it. A label on the packaging reads, \"<b>Lucky Strike</b>. Be Happy - Go Lucky!\""
-	icon_state = "lucky_pack"
+	icon_state = "lucky"
 	inventory_state = "lucky_pack"
 	world_state = "lucky"
 	inhand_icon_state = "lucky"
@@ -143,7 +150,7 @@
 /obj/item/storage/fancy/ms13/cigarettes/salem
 	name = "\improper Salem pack"
 	desc = "A refined green cigarette packet. A label on the packaging reads, \"<b>Salem</b>. Refreshes your taste.\""
-	icon_state = "salem_pack"
+	icon_state = "salem"
 	inventory_state = "salem_pack"
 	world_state = "salem"
 	inhand_icon_state = "green"
@@ -152,7 +159,7 @@
 /obj/item/storage/fancy/ms13/cigarettes/kools
 	name = "\improper Kools pack"
 	desc = "A kool green cigarette packet. A label on the packaging reads, \"<b>KOOL</b>. So good, it's got to be KOOL!\""
-	icon_state = "kool_pack"
+	icon_state = "kool"
 	inventory_state = "kool_pack"
 	world_state = "kool"
 	inhand_icon_state = "green"
@@ -164,7 +171,7 @@
 /obj/item/storage/fancy/ms13/cigarettes/rollies //generic craftable pack
 	name = "\improper cardboard pack"
 	desc = "A simple hand-made cardboard cigarette pack."
-	icon_state = "custom_pack"
+	icon_state = "custom"
 	inventory_state = "custom_pack"
 	world_state = "custom"
 	inhand_icon_state = "brown"
@@ -178,7 +185,7 @@
 /obj/item/storage/fancy/ms13/cigarettes/rollies/republics
 	name = "\improper Republics pack"
 	desc = "A rustic cardboard cigarette pack with the flag of the New Californian Republic on it. A label on the packaging reads, \"<b>Republics</b>. Taste the freedom, feel the burn.\""
-	icon_state = "repub_pack"
+	icon_state = "repub"
 	inventory_state = "repub_pack"
 	world_state = "repub"
 	inhand_icon_state = "brown"

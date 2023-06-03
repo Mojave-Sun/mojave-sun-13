@@ -45,6 +45,7 @@
 	var/cuffsound = 'sound/weapons/handcuffs.ogg'
 	///If set, handcuffs will be destroyed on application and leave behind whatever this is set to.
 	var/trashtype = null
+	var/cuff_time = 15 SECONDS //MOJAVE SUN EDIT - Handcuffs
 
 /obj/item/restraints/handcuffs/attack(mob/living/carbon/C, mob/living/user)
 	if(!istype(C))
@@ -65,7 +66,13 @@
 				to_chat(C, span_userdanger("You feel someone grab your wrists, the cold metal of [name] starting to dig into your skin!"))
 			playsound(loc, cuffsound, 30, TRUE, -2)
 			log_combat(user, C, "attempted to handcuff")
-			if(do_mob(user, C, 30, timed_action_flags = IGNORE_SLOWDOWNS) && C.canBeHandcuffed())
+			//MOJAVE SUN EDIT - Handcuffs
+			if(C.body_position == STANDING_UP) //harder to cuff someone standing up
+				cuff_time = cuff_time * 2
+			else
+				cuff_time = cuff_time
+			if(do_mob(user, C, cuff_time, timed_action_flags = IGNORE_SLOWDOWNS) && C.canBeHandcuffed())
+			//MOJAVE SUN EDIT END - Handcuffs
 				if(iscyborg(user))
 					apply_cuffs(C, user, TRUE)
 				else

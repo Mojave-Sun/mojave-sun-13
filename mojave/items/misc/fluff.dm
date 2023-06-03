@@ -121,6 +121,49 @@
 	desc = "An old plastic ashtray, still good to hold cigarette butts."
 	icon_state = "ashtray"
 
+/obj/item/ms13/fluff/ashtray/Initialize(mapload)
+	. = ..()
+	LoadComponent(/datum/component/storage/concrete/ms13/ashtray)
+	for(var/i = 0 to rand(0,6))
+		new /obj/item/ms13/cigarette/butt(src)
+	for(var/i = 0 to rand(0,10))
+		new /obj/item/ms13/ash(src)
+	reset_grid_inventory()
+
+/obj/item/ms13/fluff/ashtray/examine(mob/user)
+	. = ..()
+	. += "There are [contents.len] butts in it."
+
+/obj/item/ms13/fluff/ashtray/attackby(obj/item/attacking_item, mob/user, params) // some REAL soul
+	if(istype(attacking_item, /obj/item/ms13/cigarette))
+		var/obj/item/ms13/cigarette/fella = attacking_item
+		var/alright_butt
+		if(fella.smoketime <= 120 && fella.lit && !fella.butt_transform)
+			if(istype(fella, /obj/item/ms13/cigarette))
+				alright_butt = /obj/item/ms13/cigarette/butt
+			if(istype(fella, /obj/item/ms13/cigarette/rollie))
+				alright_butt = /obj/item/ms13/cigarette/butt/roach
+			new alright_butt(src)
+			new /obj/item/ms13/ash(src)
+			playsound(src, 'mojave/sound/ms13effects/smokeables/cigsnuff.ogg', 25, 1)
+			user.visible_message("<span class='notice'>[user] puts out \the [attacking_item], in the [name].</span>")
+			qdel(attacking_item)
+			return
+		if(fella.smoketime <= 60 && fella.lit && fella.butt_transform)
+			extinguish(fella)
+			user.visible_message("<span class='notice'>[user] puts out \the [attacking_item] in the [name].</span>")
+			fella.forceMove(src)
+			return
+		else if(fella.lit)
+			fella.smoketime -= 30
+			fella.update_overlays()
+			fella.update_icon_state()
+			fella.extinguish()
+			playsound(src, 'mojave/sound/ms13effects/smokeables/cigsnuff.ogg', 25, 1)
+			user.visible_message("<span class='notice'>[user] puts out \the end of [attacking_item] in the [name].</span>")
+			return
+	. = ..()
+
 /obj/item/ms13/fluff/alarmclock
 	name = "alarm clock"
 	desc = "An old electronic alarm clock. Not of much use now."

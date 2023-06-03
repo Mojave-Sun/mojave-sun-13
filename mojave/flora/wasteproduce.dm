@@ -34,6 +34,7 @@
 	grid_height = 32
 	grid_width = 32
 	distill_reagent = /datum/reagent/consumable/ethanol/ms13/brew_sludge
+	var/can_dry = FALSE //used for drying racks
 
 /obj/item/food/grown/ms13/Initialize()
 	. = ..()
@@ -679,6 +680,15 @@
 	filling_color = "#2f2424"
 	tastes = list("bitterness"= 5)
 
+/obj/item/food/grown/ms13/xander/MakeProcessable()
+	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/grown/ms13/xander/cut, 1, 30)
+
+/obj/item/food/grown/ms13/xander/cut
+	name = "sliced xander root"
+	desc = "A xander root that has been cut into thinner parts, you think you could hang this to dry."
+	icon_state = "cut_xander"
+	can_dry = TRUE
+
 //////////////////////// CARROT /////////////////////////////
 
 /obj/item/seeds/ms13/carrot
@@ -1114,12 +1124,13 @@
 
 /obj/item/food/grown/ms13/coyote
 	seed = /obj/item/seeds/ms13/coyote
-	name = "coyote"
+	name = "coyote tobacco"
 	desc = "A coyote tobacco leaf. Smells quite nice."
 	bite_consumption_mod = 1
 	foodtypes = GROSS
-	icon_state = "coyote"
+	icon_state = "tobacco"
 	filling_color = "#1d3821"
+	can_dry = TRUE
 
 ////////////////////////// ASTER ////////////////////////////
 
@@ -1289,6 +1300,7 @@
 	icon_state = "brocflower"
 	filling_color = "#493d28"
 	tastes = list("broc"= 5)
+	can_dry = TRUE
 
 /////////////////////////////////////////////////////////////
 //////////////////////// FUNGUS /////////////////////////////
