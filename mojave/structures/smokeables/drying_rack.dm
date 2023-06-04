@@ -9,9 +9,14 @@
 	density = TRUE
 	anchored = TRUE
 	max_integrity = 200
+	bound_width = 64
 	var/has_rope = FALSE
 
-/obj/structure/ms13/drying_rack/Initialize(mapload)
+/obj/structure/ms13/drying_rack/pre_roped
+	icon_state = "drying_rack_roped"
+	has_rope = TRUE
+
+/obj/structure/ms13/drying_rack/update_appearance(updates)
 	. = ..()
 	if(has_rope)
 		icon_state = "drying_rack_roped"
@@ -30,4 +35,6 @@
 
 /obj/structure/ms13/drying_rack/attackby(obj/item/I, mob/living/user, params)
 	. = ..()
-	if(istype(I, /obj/item/restraints/handcuffs/ms13/rope) && !has_rope && do_after)
+	if(istype(I, /obj/item/restraints/handcuffs/ms13/rope) && !has_rope && do_after(user, 10 SECONDS))
+		has_rope = TRUE
+		update_appearance()

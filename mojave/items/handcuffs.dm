@@ -6,8 +6,8 @@
 	worn_icon_state = "rope"
 	worn_icon = 'icons/mob/clothing/hands.dmi'
 	inhand_icon_state = "rope"
-	lefthand_file = 'icons/mob/inhands/equipment/items_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/items_righthand.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
 	grid_width = 64
 	grid_height = 64
 	w_class = WEIGHT_CLASS_NORMAL
