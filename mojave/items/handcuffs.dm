@@ -14,7 +14,7 @@
 	cuffsound = 'mojave/sound/ms13effects/hogtie.ogg'
 	cuff_time = 10 SECONDS
 
-/obj/item/stack/sheet/ms13/Initialize()
+/obj/item/restraints/handcuffs/ms13/rope/Initialize()
 	. = ..()
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/crafting/materials_inventory.dmi')
 	update_icon_state()
