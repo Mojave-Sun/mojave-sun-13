@@ -15,6 +15,7 @@
 
 	id =         /obj/item/card/id/ms13/drylander/chief
 	suit =       /obj/item/clothing/suit/ms13/drylander/chief
+	head =		 /obj/item/clothing/head/helmet/ms13/drylander/chief
 	suit_store = /obj/item/gun/ballistic/revolver/ms13/caravan/sawed
 	belt =		 /obj/item/knife/ms13/combat/bowie
 	r_pocket =   /obj/item/stack/medical/ms13/healing_powder/poultice
