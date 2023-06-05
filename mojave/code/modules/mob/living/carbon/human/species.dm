@@ -17,7 +17,7 @@
 				span_notice("You butcher [victim]."))
 		playsound(victim, 'mojave/sound/ms13gore/dissection.ogg', 80, FALSE)
 		new chest.meat_type(victim.drop_location())
-		new /obj/effect/gibspawner/generic(get_turf(victim))
+		// new /obj/effect/gibspawner/generic(get_turf(victim)) // Disabled until we get a better gib sprite
 		victim.unequip_everything()
 		qdel(victim)
 		return TRUE
