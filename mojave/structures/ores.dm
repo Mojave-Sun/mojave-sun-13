@@ -1,7 +1,7 @@
 /obj/structure/ms13/ore_deposit
 	name = "base ore deposit"
 	desc = "Full of valuable errors to sell to coders!"
-	icon = ""
+	icon = 'mojave/icons/structure/deposits.dmi'
 	icon_state = ""
 	max_integrity = 400
 	density = FALSE
@@ -32,210 +32,192 @@
 	qdel(src)
 
 //deposits
+//randomises integrity for deposits
+
+/obj/structure/ms13/ore_deposit/Initialize()
+	. = ..()
+	max_integrity = rand(340, 490)
 
 /obj/structure/ms13/ore_deposit/copper
-	name = "Copper ore deposit"
+	name = "copper ore deposit"
 	desc = "Full of copper ore, useful!"
-	icon = 'mojave/icons/structure/deposits.dmi'
 	icon_state = "copper-deposit"
-	density = FALSE
-	anchored = TRUE
-	deposit_type = /obj/item/stack/sheet/ms13/nugget_copper
+	deposit_type = /obj/item/stack/sheet/ms13/nugget/nugget_copper
 
 /obj/structure/ms13/ore_deposit/lead
-	name = "Lead ore deposit"
+	name = "lead ore deposit"
 	desc = "Full of lead ore, tasty!"
-	icon = 'mojave/icons/structure/deposits.dmi'
 	icon_state = "lead-deposit"
-	density = FALSE
-	anchored = TRUE
-	deposit_type = /obj/item/stack/sheet/ms13/nugget_lead
+	deposit_type = /obj/item/stack/sheet/ms13/nugget/nugget_lead
 
 /obj/structure/ms13/ore_deposit/alu
-	name = "Aluminum ore deposit"
+	name = "aluminium ore deposit"
 	desc = "Full of lead ore, lightweight!"
-	icon = 'mojave/icons/structure/deposits.dmi'
-	icon_state = "aluminum-deposit"
-	density = FALSE
-	anchored = TRUE
-	deposit_type = /obj/item/stack/sheet/ms13/nugget_alu
+	icon_state = "aluminium-deposit"
+	deposit_type = /obj/item/stack/sheet/ms13/nugget/nugget_alu
 
 /obj/structure/ms13/ore_deposit/silver
-	name = "Silver ore desposit"
+	name = "silver ore desposit"
 	desc = "Full of silver, shiny!"
-	icon = 'mojave/icons/structure/deposits.dmi'
 	icon_state = "silver-deposit"
-	density = FALSE
-	anchored = TRUE
-	deposit_type = /obj/item/stack/sheet/ms13/nugget_silver
+	deposit_type = /obj/item/stack/sheet/ms13/nugget/nugget_silver
 
 /obj/structure/ms13/ore_deposit/gold
-	name = "Gold ore deposit"
+	name = "gold ore deposit"
 	desc = "Full of gold, valuable!"
-	icon = 'mojave/icons/structure/deposits.dmi'
 	icon_state = "gold-deposit"
-	density = FALSE
-	anchored = TRUE
-	deposit_type = /obj/item/stack/sheet/ms13/nugget_gold
+	deposit_type = /obj/item/stack/sheet/ms13/nugget/nugget_gold
 
 /obj/structure/ms13/ore_deposit/coal
-	name = "Coal deposit"
+	name = "coal deposit"
 	desc = "Full of coal, flammable!"
-	icon = 'mojave/icons/structure/deposits.dmi'
 	icon_state = "coal-deposit"
-	density = FALSE
-	anchored = TRUE
-	deposit_type = /obj/item/stack/sheet/ms13/nugget_coal
+	deposit_type = /obj/item/stack/sheet/ms13/nugget/nugget_coal
 
 /obj/structure/ms13/ore_deposit/uranium
-	name = "Coal deposit"
+	name = "uranium deposit"
 	desc = "Full of uranium, warm!"
-	icon = 'mojave/icons/structure/deposits.dmi'
 	icon_state = "uranium-deposit"
-	density = FALSE
-	anchored = TRUE
-	deposit_type = /obj/item/stack/sheet/ms13/nugget_uranium
+	deposit_type = /obj/item/stack/sheet/ms13/nugget/nugget_uranium
 
 /obj/structure/ms13/ore_deposit/iron
-	name = "Iron deposit"
+	name = "iron deposit"
 	desc = "Full of iron, tough!"
-	icon = 'mojave/icons/structure/deposits.dmi'
 	icon_state = "iron-deposit"
-	density = FALSE
-	anchored = TRUE
-	deposit_type = /obj/item/stack/sheet/ms13/nugget_iron
+	deposit_type = /obj/item/stack/sheet/ms13/nugget/nugget_iron
 
 /obj/structure/ms13/ore_deposit/brass
-	name = "Brass deposit"
+	name = "brass deposit"
 	desc = "Full of brass, pre-mixed!"
-	icon = 'mojave/icons/structure/deposits.dmi'
 	icon_state = "brass-deposit"
-	density = FALSE
-	anchored = TRUE
-	deposit_type = /obj/item/stack/sheet/ms13/nugget_iron
+	deposit_type = /obj/item/stack/sheet/ms13/nugget/nugget_brass
 
 //Nuggets
 
-/obj/item/stack/sheet/ms13/nugget_brass
+/obj/item/stack/sheet/ms13/nugget/Initialize()
+	. = ..()
+	AddElement(/datum/element/item_scaling, 0.45, 1)
+
+/obj/item/stack/sheet/ms13/nugget/nugget_brass
 	name = "brass nuggets"
 	desc = "A hard lump of brass, Useless now."
 	singular_name = "brass nugget"
 	icon = 'mojave/icons/objects/crafting/materials_inventory.dmi'
 	icon_state = "brass"
-	merge_type = /obj/item/stack/sheet/ms13/nugget_brass
+	merge_type = /obj/item/stack/sheet/ms13/nugget/nugget_brass
 	amount = 1
 	max_amount = 16
 
-/obj/item/stack/sheet/ms13/nugget_brass/two
+/obj/item/stack/sheet/ms13/nugget/nugget_brass/two
 	amount = 2
 
-/obj/item/stack/sheet/ms13/nugget_iron
+/obj/item/stack/sheet/ms13/nugget/nugget_iron
 	name = "iron ore nuggets"
 	desc = "A hard lump of iron, Useless now."
 	singular_name = "iron ore nugget"
 	icon = 'mojave/icons/objects/crafting/materials_inventory.dmi'
 	icon_state = "iron"
-	merge_type = /obj/item/stack/sheet/ms13/nugget_iron
+	merge_type = /obj/item/stack/sheet/ms13/nugget/nugget_iron
 	amount = 1
 	max_amount = 16
 
-/obj/item/stack/sheet/ms13/nugget_iron/two
+/obj/item/stack/sheet/ms13/nugget/nugget_iron/two
 	amount = 2
 
-/obj/item/stack/sheet/ms13/nugget_uranium
+/obj/item/stack/sheet/ms13/nugget/nugget_uranium
 	name = "pitchblende nuggets"
 	desc = "A hard lump of uranium, Useless now."
 	singular_name = "pitchblende nugget"
 	icon = 'mojave/icons/objects/crafting/materials_inventory.dmi'
 	icon_state = "uranium"
-	merge_type = /obj/item/stack/sheet/ms13/nugget_uranium
+	merge_type = /obj/item/stack/sheet/ms13/nugget/nugget_uranium
 	amount = 1
 	max_amount = 16
 
-/obj/item/stack/sheet/ms13/nugget_uranium/two
+/obj/item/stack/sheet/ms13/nugget/nugget_uranium/two
 	amount = 2
 
-/obj/item/stack/sheet/ms13/nugget_coal
+/obj/item/stack/sheet/ms13/nugget/nugget_coal
 	name = "coal chunks"
 	desc = "A hard lump of coal, careful with any flames."
 	singular_name = "coal chunk"
 	icon = 'mojave/icons/objects/crafting/materials_inventory.dmi'
 	icon_state = "coal"
-	merge_type = /obj/item/stack/sheet/ms13/nugget_coal
+	merge_type = /obj/item/stack/sheet/ms13/nugget/nugget_coal
 	amount = 1
 	max_amount = 16
 
-/obj/item/stack/sheet/ms13/nugget_coal/two
+/obj/item/stack/sheet/ms13/nugget/nugget_coal/two
 	amount = 2
 
-/obj/item/stack/sheet/ms13/nugget_copper
+/obj/item/stack/sheet/ms13/nugget/nugget_copper
 	name = "copper ore nuggets"
 	desc = "Full of potential copper. Useless now."
 	singular_name = "copper ore nugget"
 	icon = 'mojave/icons/objects/crafting/materials_inventory.dmi'
 	icon_state = "copper"
-	merge_type = /obj/item/stack/sheet/ms13/nugget_copper
+	merge_type = /obj/item/stack/sheet/ms13/nugget/nugget_copper
 	amount = 1
 	max_amount = 16
 
-/obj/item/stack/sheet/ms13/nugget_copper/two
+/obj/item/stack/sheet/ms13/nugget/nugget_copper/two
 	amount = 2
 
-/obj/item/stack/sheet/ms13/nugget_lead
+/obj/item/stack/sheet/ms13/nugget/nugget_lead
 	name = "lead ore nuggets"
 	desc = "Full of potential lead. Useless now."
 	singular_name = "lead ore nugget"
 	icon = 'mojave/icons/objects/crafting/materials_inventory.dmi'
 	icon_state = "lead"
-	merge_type = /obj/item/stack/sheet/ms13/nugget_lead
+	merge_type = /obj/item/stack/sheet/ms13/nugget/nugget_lead
 	amount = 1
 	max_amount = 16
 
-/obj/item/stack/sheet/ms13/nugget_lead/two
+/obj/item/stack/sheet/ms13/nugget/nugget_lead/two
 	amount = 2
 
-/obj/item/stack/sheet/ms13/nugget_alu
-	name = "aluminum ore nuggets"
-	desc = "Full of potential aluminum. Useless now."
-	singular_name = "aluminum ore nugget"
+/obj/item/stack/sheet/ms13/nugget/nugget_alu
+	name = "aluminium ore nuggets"
+	desc = "Full of potential aluminium. Useless now."
+	singular_name = "aluminium ore nugget"
 	icon = 'mojave/icons/objects/crafting/materials_inventory.dmi'
-	icon_state = "aluminum"
-	merge_type = /obj/item/stack/sheet/ms13/nugget_alu
+	icon_state = "aluminium"
+	merge_type = /obj/item/stack/sheet/ms13/nugget/nugget_alu
 	amount = 1
 	max_amount = 16
 
-/obj/item/stack/sheet/ms13/nugget_alu/two
+/obj/item/stack/sheet/ms13/nugget/nugget_alu/two
 	amount = 2
 
-/obj/item/stack/sheet/ms13/nugget_silver
+/obj/item/stack/sheet/ms13/nugget/nugget_silver
 	name = "silver ore nuggets"
 	desc = "Full of potential silver. Useless now."
 	singular_name = "silver ore nugget"
 	icon = 'mojave/icons/objects/crafting/materials_inventory.dmi'
 	icon_state = "silver"
-	merge_type = /obj/item/stack/sheet/ms13/nugget_silver
+	merge_type = /obj/item/stack/sheet/ms13/nugget/nugget_silver
 	amount = 1
 	max_amount = 16
 
-/obj/item/stack/sheet/ms13/nugget_silver/two
+/obj/item/stack/sheet/ms13/nugget/nugget_silver/two
 	amount = 2
 
-/obj/item/stack/sheet/ms13/nugget_gold
+/obj/item/stack/sheet/ms13/nugget/nugget_gold
 	name = "gold ore nuggets"
 	desc = "Full of potential gold. Useless now."
 	singular_name = "gold ore nugget"
 	icon = 'mojave/icons/objects/crafting/materials_inventory.dmi'
 	icon_state = "gold"
-	merge_type = /obj/item/stack/sheet/ms13/nugget_gold
+	merge_type = /obj/item/stack/sheet/ms13/nugget/nugget_gold
 	amount = 1
 	max_amount = 16
 
-/obj/item/stack/sheet/ms13/nugget_gold/two
+/obj/item/stack/sheet/ms13/nugget/nugget_gold/two
 	amount = 2
 
 //Deposit generation
 
-#define DEPOSIT_SPAWN_LIST list(/obj/structure/ms13/ore_deposit/gold = 1, /obj/structure/ms13/ore_deposit/silver = 2, /obj/structure/ms13/ore_deposit/alu = 6, /obj/structure/ms13/ore_deposit/lead = 6, /obj/structure/ms13/ore_deposit/copper = 5)
+#define DEPOSIT_SPAWN_LIST list(/obj/structure/ms13/ore_deposit/gold = 1, /obj/structure/ms13/ore_deposit/silver = 2, /obj/structure/ms13/ore_deposit/alu = 6, /obj/structure/ms13/ore_deposit/lead = 6, /obj/structure/ms13/ore_deposit/copper = 5, /obj/structure/ms13/ore_deposit/coal = 5)
 #define DEPOSIT_SPONTANEOUS 		4
 #define DEPOSIT_WEIGHT			2
 

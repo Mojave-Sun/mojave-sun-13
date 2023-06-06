@@ -252,7 +252,8 @@
 	name = "refine copper ore"
 	result = /obj/item/stack/sheet/ms13/refined_copper/two
 	time = 3 SECONDS
-	reqs = list(/obj/item/stack/sheet/ms13/nugget_copper = 4,
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/stack/sheet/ms13/nugget/nugget_copper = 4,
 				/obj/item/stack/sheet/ms13/plank = 2)
 	category = CAT_SMELTER
 	crafting_interface = CRAFTING_BENCH_SMELTER
@@ -261,7 +262,8 @@
 	name = "refine lead ore"
 	result = /obj/item/stack/sheet/ms13/refined_lead/two
 	time = 3 SECONDS
-	reqs = list(/obj/item/stack/sheet/ms13/nugget_lead = 4,
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/stack/sheet/ms13/nugget/nugget_lead = 4,
 				/obj/item/stack/sheet/ms13/plank = 2)
 	category = CAT_SMELTER
 	crafting_interface = CRAFTING_BENCH_SMELTER
@@ -270,7 +272,8 @@
 	name = "refine aluminum ore"
 	result = /obj/item/stack/sheet/ms13/refined_alu/two
 	time = 3 SECONDS
-	reqs = list(/obj/item/stack/sheet/ms13/nugget_alu = 4,
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/stack/sheet/ms13/nugget/nugget_alu = 4,
 				/obj/item/stack/sheet/ms13/plank = 2)
 	category = CAT_SMELTER
 	crafting_interface = CRAFTING_BENCH_SMELTER
@@ -279,7 +282,8 @@
 	name = "refine silver ore"
 	result = /obj/item/stack/sheet/ms13/refined_silver/two
 	time = 3 SECONDS
-	reqs = list(/obj/item/stack/sheet/ms13/nugget_silver = 4,
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/stack/sheet/ms13/nugget/nugget_silver = 4,
 				/obj/item/stack/sheet/ms13/plank = 2)
 	category = CAT_SMELTER
 	crafting_interface = CRAFTING_BENCH_SMELTER
@@ -288,7 +292,8 @@
 	name = "refine gold ore"
 	result = /obj/item/stack/sheet/ms13/refined_gold/two
 	time = 3 SECONDS
-	reqs = list(/obj/item/stack/sheet/ms13/nugget_gold = 4,
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/stack/sheet/ms13/nugget/nugget_gold = 4,
 				/obj/item/stack/sheet/ms13/plank = 2)
 	category = CAT_SMELTER
 	crafting_interface = CRAFTING_BENCH_SMELTER
@@ -297,7 +302,8 @@
 // 	name = "refine pitchblende ore"
 // 	result = To be added later
 // 	time = 3 SECONDS
-// 	reqs = list(/obj/item/stack/sheet/ms13/nugget_uranium = 4,
+//	tool_paths = list(/obj/item/ms13/hammer)
+// 	reqs = list(/obj/item/stack/sheet/ms13/nugget/nugget_uranium = 4,
 // 				/obj/item/stack/sheet/ms13/plank = 2)
 // 	category = CAT_SMELTER
 // 	crafting_interface = CRAFTING_BENCH_SMELTER
@@ -306,7 +312,9 @@
 	name = "refine iron ore"
 	result = /obj/item/stack/sheet/ms13/refined_steel/two
 	time = 3 SECONDS
-	reqs = list(/obj/item/stack/sheet/ms13/nugget_iron = 4,
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/stack/sheet/ms13/nugget/nugget_iron = 4,
+				/obj/item/stack/sheet/ms13/nugget/nugget_coal = 4,
 				/obj/item/stack/sheet/ms13/plank = 2)
 	category = CAT_SMELTER
 	crafting_interface = CRAFTING_BENCH_SMELTER
@@ -315,7 +323,8 @@
 	name = "refine brass ore"
 	result = /obj/item/stack/sheet/ms13/refined_brass/two
 	time = 3 SECONDS
-	reqs = list(/obj/item/stack/sheet/ms13/nugget_brass = 4,
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/stack/sheet/ms13/nugget/nugget_brass = 4,
 				/obj/item/stack/sheet/ms13/plank = 2)
 	category = CAT_SMELTER
 	crafting_interface = CRAFTING_BENCH_SMELTER
