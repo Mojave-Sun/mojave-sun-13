@@ -206,10 +206,7 @@
 	known_skills[skill][SKILL_LVL] = update_skill_level(skill)//Check what the current skill level is based on that skill's exp
 	if(silent)
 		return
-	if(known_skills[skill][SKILL_LVL] > old_level)
-		S.level_gained(src, known_skills[skill][SKILL_LVL], old_level)
-	else if(known_skills[skill][SKILL_LVL] < old_level)
-		S.level_lost(src, known_skills[skill][SKILL_LVL], old_level)
+	S.level_changed(src, known_skills[skill][SKILL_LVL], old_level)
 
 ///Set experience of a specific skill to a number
 /datum/mind/proc/set_experience(skill, amt, silent = FALSE)
@@ -232,11 +229,6 @@
 			continue
 		return i - 1 //Return level based on the last exp requirement that we were greater than
 	return i //If we had greater EXP than even the last exp threshold, we return the last level
-
-///Gets the skill's singleton and returns the result of its get_skill_modifier
-/datum/mind/proc/get_skill_modifier(skill, modifier)
-	var/datum/skill/S = GetSkillRef(skill)
-	return S.get_skill_modifier(modifier, known_skills[skill][SKILL_LVL])
 
 ///Gets the player's current level number from the relevant skill
 /datum/mind/proc/get_skill_level(skill)

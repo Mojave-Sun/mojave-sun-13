@@ -30,37 +30,11 @@
 			var/list/skilldata = list(
 				"name" = skill.name,
 				"desc" = skill.desc,
-				"title" = skill.title,
 				"lvl_name" = lvl_name
 			)
 			if (exp && xp_req_to_level)
 				skilldata["progress_percent"] = (xp_req_to_level-xp_prog_to_level)/xp_req_to_level
 				skilldata["overall_percent"] = exp / SKILL_EXP_LIST[length(SKILL_EXP_LIST)]
-			if (lvl_num >= length(SKILL_EXP_LIST) && !(type in targetmind.skills_rewarded))
-				skilldata["reward"] = TRUE
 			skills[++skills.len] = skilldata
 
 	return data
-
-/datum/computer_file/program/skill_tracker/proc/find_skilltype(name)
-	for(var/type in GLOB.skill_types)
-		var/datum/skill/skill = GetSkillRef(type)
-		if(skill.name == name)
-			return type
-
-	return null
-
-/datum/computer_file/program/skill_tracker/ui_act(action, params, datum/tgui/ui)
-	. = ..()
-	if(.)
-		return
-
-	switch(action)
-		if("PRG_reward")
-			var/skill_type = find_skilltype(params["skill"])
-			if(skill_type)
-				var/datum/skill/skill = GetSkillRef(skill_type)
-				var/datum/mind/mind = ui.user.mind
-				var/new_level = mind.get_skill_level(skill_type)
-				skill.try_skill_reward(mind, new_level)
-				return TRUE

@@ -80,7 +80,7 @@
 		if(I.use_tool(src, user, 40, volume=50))
 			if(ismineralturf(src))
 				to_chat(user, span_notice("You finish cutting into the rock."))
-				gets_drilled(user, TRUE)
+				gets_drilled(user)
 				SSblackbox.record_feedback("tally", "pick_used_mining", 1, I.type)
 	else
 		return attack_hand(user)
@@ -101,17 +101,12 @@
 		to_chat(user, span_notice("You finish pulling apart [src]."))
 		gets_drilled(user)
 
-/turf/closed/mineral/proc/gets_drilled(user, give_exp = FALSE)
+/turf/closed/mineral/proc/gets_drilled(user)
 	if (mineralType && (mineralAmt > 0))
 		new mineralType(src, mineralAmt)
 		SSblackbox.record_feedback("tally", "ore_mined", mineralAmt, mineralType)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(give_exp)
-			if (mineralType && (mineralAmt > 0))
-				H.mind.adjust_experience(/datum/skill/mining, initial(mineralType.mine_experience) * mineralAmt)
-			else
-				H.mind.adjust_experience(/datum/skill/mining, 4)
 
 	for(var/obj/effect/temp_visual/mining_overlay/M in src)
 		qdel(M)
@@ -167,18 +162,18 @@
 	. = ..()
 	switch(severity)
 		if(EXPLODE_DEVASTATE)
-			gets_drilled(null, FALSE)
+			gets_drilled(null)
 		if(EXPLODE_HEAVY)
 			if(prob(90))
-				gets_drilled(null, FALSE)
+				gets_drilled(null)
 		if(EXPLODE_LIGHT)
 			if(prob(75))
-				gets_drilled(null, FALSE)
+				gets_drilled(null)
 	return
 
 /turf/closed/mineral/blob_act(obj/structure/blob/B)
 	if(prob(50))
-		gets_drilled(give_exp = FALSE)
+		gets_drilled()
 
 /turf/closed/mineral/random
 	var/list/mineralSpawnChanceList = list(/obj/item/stack/ore/uranium = 5, /obj/item/stack/ore/diamond = 1, /obj/item/stack/ore/gold = 10,
@@ -596,7 +591,7 @@
 			det_time = 0
 		visible_message(span_notice("The chain reaction stopped! The gibtonite had [det_time] reactions left till the explosion!"))
 
-/turf/closed/mineral/gibtonite/gets_drilled(mob/user, give_exp = FALSE, triggered_by_explosion = FALSE)
+/turf/closed/mineral/gibtonite/gets_drilled(mob/user, triggered_by_explosion = FALSE)
 	if(stage == GIBTONITE_UNSTRUCK && mineralAmt >= 1) //Gibtonite deposit is activated
 		playsound(src,'sound/effects/hit_on_shattered_glass.ogg',50,TRUE)
 		explosive_reaction(user, triggered_by_explosion)
@@ -648,7 +643,7 @@
 
 /turf/closed/mineral/strong
 	name = "Very strong rock"
-	desc = "Seems to be stronger than the other rocks in the area. Only a master of mining techniques could destroy this."
+	desc = "Seems to be much stronger than the other rocks in the area."
 	environment_type = "basalt"
 	turf_type = /turf/open/floor/plating/asteroid/basalt/lava_land_surface
 	baseturfs = /turf/open/floor/plating/asteroid/basalt/lava_land_surface
@@ -662,18 +657,14 @@
 	if(!ishuman(user))
 		to_chat(usr, span_warning("Only a more advanced species could break a rock such as this one!"))
 		return FALSE
-	if(user.mind?.get_skill_level(/datum/skill/mining) >= SKILL_LEVEL_MASTER)
-		. = ..()
 	else
-		to_chat(usr, span_warning("The rock seems to be too strong to destroy. Maybe I can break it once I become a master miner."))
+		to_chat(usr, span_warning("The rock seems to be too strong to destroy."))
 
 
-/turf/closed/mineral/strong/gets_drilled(mob/user, give_exp = FALSE)
+/turf/closed/mineral/strong/gets_drilled(mob/user)
 	if(!ishuman(user))
 		return // see attackby
 	var/mob/living/carbon/human/H = user
-	if(!(H.mind?.get_skill_level(/datum/skill/mining) >= SKILL_LEVEL_MASTER))
-		return
 	drop_ores()
 	H.client.give_award(/datum/award/achievement/skill/legendary_miner, H)
 	var/flags = NONE
@@ -684,7 +675,6 @@
 	addtimer(CALLBACK(src, .proc/AfterChange, flags, old_type), 1, TIMER_UNIQUE)
 	playsound(src, 'sound/effects/break_stone.ogg', 50, TRUE) //beautiful destruction
 	mined.update_visuals()
-	H.mind?.adjust_experience(/datum/skill/mining, 100) //yay!
 
 /turf/closed/mineral/strong/proc/drop_ores()
 	if(prob(10))

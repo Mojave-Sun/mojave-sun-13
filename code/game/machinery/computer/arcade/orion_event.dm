@@ -10,27 +10,15 @@
 	///default emag effect of events is to play an audible message and sound
 	var/emag_message
 	var/emag_sound
-	///gaming skill level of the player
-	var/gamer_skill_level = 0
-	///gaming skill of the player
-	var/gamer_skill = 0
-	///some other metric that makes it easier to do randoms with skill testing, god really 3 vars guys
-	var/gamer_skill_rands = 0
 
 /**
  * What happens when this event is selected to trigger, sets vars. also can set some event pre-encounter randomization
  *
  * Arguments:
  * * game: arcade machine calling this
- * * gamer_skill: gaming skill of the player
- * * gamer_skill_level: gaming skill level of the player
- * * gamer_skill_rands: See above but it's another metric, you can just look at gaming skill to see how it chalks that up
  */
-/datum/orion_event/proc/on_select(obj/machinery/computer/arcade/orion_trail/game, gamer_skill, gamer_skill_level, gamer_skill_rands)
+/datum/orion_event/proc/on_select(obj/machinery/computer/arcade/orion_trail/game)
 	SHOULD_CALL_PARENT(TRUE)
-	src.gamer_skill_level = gamer_skill_level
-	src.gamer_skill = gamer_skill
-	src.gamer_skill_rands = gamer_skill_rands
 
 /**
  * What happens when you respond to this event by choosing one of the buttons
@@ -49,8 +37,6 @@
  * Arguments:
  * * game: arcade machine calling this
  * * gamer: victim to apply effects to
- * * gamer_skill: skill of the gamer, because gamers gods can lessen the effects of the emagged machine
- * * gamer_skill_level: skill level of the gamer, another way to measure emag downside avoidance
  */
 /datum/orion_event/proc/emag_effect(obj/machinery/computer/arcade/orion_trail/game, mob/living/gamer)
 	if(emag_message)
@@ -72,7 +58,7 @@
 	weight = 2
 	event_responses = list()
 
-/datum/orion_event/engine_part/on_select(obj/machinery/computer/arcade/orion_trail/game, gamer_skill, gamer_skill_level, gamer_skill_rands)
+/datum/orion_event/engine_part/on_select(obj/machinery/computer/arcade/orion_trail/game)
 	..()
 	if(game.engine >= 1)
 		event_responses += BUTTON_FIX_ENGINE
@@ -98,7 +84,7 @@
 	//set by select
 	event_responses = list()
 
-/datum/orion_event/electronic_part/on_select(obj/machinery/computer/arcade/orion_trail/game, gamer_skill, gamer_skill_level, gamer_skill_rands)
+/datum/orion_event/electronic_part/on_select(obj/machinery/computer/arcade/orion_trail/game)
 	..()
 	if(game.electronics >= 1)
 		event_responses += BUTTON_REPAIR_ELECTRONICS
@@ -142,7 +128,7 @@
 	weight = 2
 	event_responses = list()
 
-/datum/orion_event/hull_part/on_select(obj/machinery/computer/arcade/orion_trail/game, gamer_skill, gamer_skill_level, gamer_skill_rands)
+/datum/orion_event/hull_part/on_select(obj/machinery/computer/arcade/orion_trail/game)
 	..()
 	if(game.hull >= 1)
 		event_responses += BUTTON_RESTORE_HULL
@@ -157,7 +143,7 @@
 	..()
 
 /datum/orion_event/hull_part/emag_effect(obj/machinery/computer/arcade/orion_trail/game, mob/living/gamer)
-	if(prob(10+gamer_skill))
+	if(prob(10))
 		game.say("Something slams into the floor around [src] - luckily, it didn't get through!")
 		playsound(game, 'sound/effects/bang.ogg', 50, TRUE)
 		return
@@ -203,7 +189,7 @@
 	//set by on_select
 	event_responses = list()
 
-/datum/orion_event/exploring_derelict/on_select(obj/machinery/computer/arcade/orion_trail/game, gamer_skill, gamer_skill_level, gamer_skill_rands)
+/datum/orion_event/exploring_derelict/on_select(obj/machinery/computer/arcade/orion_trail/game)
 	..()
 	switch(rand(100))
 		if(0 to 14)
@@ -242,7 +228,7 @@
 	weight = 3
 	event_responses = list(BUTTON_CONTINUE)
 
-/datum/orion_event/raiders/on_select(obj/machinery/computer/arcade/orion_trail/game, gamer_skill, gamer_skill_level, gamer_skill_rands)
+/datum/orion_event/raiders/on_select(obj/machinery/computer/arcade/orion_trail/game)
 	..()
 	text = "Raiders have come aboard your ship! "
 	if(prob(50))
@@ -258,7 +244,7 @@
 		text += "Fortunately, you fended them off without any trouble."
 
 /datum/orion_event/raiders/emag_effect(obj/machinery/computer/arcade/orion_trail/game, mob/living/gamer)
-	if(prob(50-gamer_skill))
+	if(prob(50))
 		to_chat(usr, span_userdanger("You hear battle shouts. The tramping of boots on cold metal. Screams of agony. The rush of venting air. Are you going insane?"))
 		gamer.hallucination += 30
 	else
@@ -272,16 +258,13 @@
 	weight = 3
 	event_responses = list(BUTTON_CONTINUE)
 
-/datum/orion_event/illness/on_select(obj/machinery/computer/arcade/orion_trail/game, gamer_skill, gamer_skill_level, gamer_skill_rands)
+/datum/orion_event/illness/on_select(obj/machinery/computer/arcade/orion_trail/game)
 	..()
 	var/deadname = game.remove_crewmember()
 	text = "A deadly illness has been contracted! [deadname] was killed by the disease."
 
 /datum/orion_event/illness/emag_effect(obj/machinery/computer/arcade/orion_trail/game, mob/living/gamer)
-	var/maxSeverity = 3
-	if(gamer_skill_level >= SKILL_LEVEL_EXPERT)
-		maxSeverity = 2 //part of gitting gud is rng mitigation
-	var/severity = rand(1,maxSeverity) //pray to RNGesus. PRAY, PIGS
+	var/severity = rand(1, 3) //pray to RNGesus. PRAY, PIGS
 	if(severity == 1)
 		to_chat(gamer, span_userdanger("You suddenly feel slightly nauseated.") )
 		gamer.adjust_disgust(50)
@@ -315,7 +298,7 @@
 		..()
 
 /datum/orion_event/flux/emag_effect(obj/machinery/computer/arcade/orion_trail/game, mob/living/gamer)
-	if(prob(25 + gamer_skill))//withstand the wind with your GAMER SKILL
+	if(prob(25))
 		to_chat(gamer, span_userdanger("A violent gale blows past you, and you barely manage to stay standing!"))
 		return
 	gamer.Paralyze(60)
@@ -328,7 +311,7 @@
 	weight = 3
 	event_responses = list(BUTTON_CONTINUE)
 
-/datum/orion_event/changeling_infiltration/on_select(obj/machinery/computer/arcade/orion_trail/game, gamer_skill, gamer_skill_level, gamer_skill_rands)
+/datum/orion_event/changeling_infiltration/on_select(obj/machinery/computer/arcade/orion_trail/game)
 	. = ..()
 	text = "Strange reports warn of changelings infiltrating crews on trips to Orion..."
 	if(game.settlers.len <= 2)
@@ -349,7 +332,7 @@
 	name = "Changeling Attack"
 	event_responses = list(BUTTON_CONTINUE)
 
-/datum/orion_event/changeling_attack/on_select(obj/machinery/computer/arcade/orion_trail/game, gamer_skill, gamer_skill_level, gamer_skill_rands)
+/datum/orion_event/changeling_attack/on_select(obj/machinery/computer/arcade/orion_trail/game)
 	. = ..()
 	text = ""
 	if(game.lings_aboard <= 0) //shouldn't trigger, but hey.
@@ -411,7 +394,7 @@
 		game.fuel -= 15
 		game.turns += 1
 		return ..()
-	if(prob(75-gamer_skill))
+	if(prob(75))
 		game.encounter_event(/datum/orion_event/black_hole_death)
 		return
 	game.turns += 1
@@ -452,7 +435,7 @@
 	weight = 2
 	event_responses = list(BUTTON_DOCK)
 
-/datum/orion_event/space_port/on_select(obj/machinery/computer/arcade/orion_trail/game, gamer_skill, gamer_skill_level, gamer_skill_rands)
+/datum/orion_event/space_port/on_select(obj/machinery/computer/arcade/orion_trail/game)
 	. = ..()
 	//If your crew is pathetic you can get freebies (provided you haven't already gotten one from this port)
 	if(game.fuel > 20 && game.food > 20) //but you don't need one
@@ -496,18 +479,17 @@
 
 	event_responses = list(BUTTON_CONTINUE)
 
-/datum/orion_event/space_port_raid/on_select(obj/machinery/computer/arcade/orion_trail/game, gamer_skill, gamer_skill_level, gamer_skill_rands)
+/datum/orion_event/space_port_raid/on_select(obj/machinery/computer/arcade/orion_trail/game)
 	. = ..()
-	var/success = min(15 * game.alive + gamer_skill,100) //default crew (4) have a 60% chance
+	var/success = min(15 * game.alive, 100) //default crew (4) have a 60% chance
 	game.spaceport_raided = TRUE
 
 	var/fuel = 0
 	var/food = 0
 	if(prob(success))
-		fuel = rand(5 + gamer_skill_rands,15 + gamer_skill_rands)
-		food = rand(5 + gamer_skill_rands,15 + gamer_skill_rands)
+		fuel = rand(5,15)
+		food = rand(5,15)
 		text = "You successfully raided the spaceport! You gained [fuel] Fuel and [food] Food! (+[fuel] fuel, +[food] food)"
-		usr?.mind?.adjust_experience(/datum/skill/gaming, 10)
 	else
 		fuel = rand(-5,-15)
 		food = rand(-5,-15)

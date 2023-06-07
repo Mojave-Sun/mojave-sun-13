@@ -291,8 +291,6 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_SPECIAL_TRAUMA_BOOST "special_trauma_boost"
 #define TRAIT_BLOODCRAWL_EAT "bloodcrawl_eat"
 #define TRAIT_SPACEWALK "spacewalk"
-/// Gets double arcade prizes
-#define TRAIT_GAMERGOD "gamer-god"
 #define TRAIT_GIANT "giant"
 #define TRAIT_DWARF "dwarf"
 /// makes your footsteps completely silent

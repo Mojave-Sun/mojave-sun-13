@@ -137,7 +137,6 @@ GLOBAL_LIST_INIT(orion_events, generate_orion_events())
 		gamers[gamer] = ORION_GAMER_PAMPHLET //next report send a pamph
 
 		gamer.client.give_award(/datum/award/achievement/misc/gamer, gamer) // PSYCH REPORT NOTE: patient kept rambling about how they did it for an "achievement", recommend continued holding for observation
-		gamer.mind?.adjust_experience(/datum/skill/gaming, 50) // cheevos make u better
 
 		if(!isnull(GLOB.data_core.general))
 			for(var/datum/data/record/insanity_records in GLOB.data_core.general)
@@ -200,19 +199,6 @@ GLOBAL_LIST_INIT(orion_events, generate_orion_events())
 
 	. = TRUE
 
-
-
-	var/gamer_skill_level = 0
-	var/gamer_skill = 0
-	var/gamer_skill_rands = 0
-
-	if(gamer?.mind)
-		gamer_skill_level = gamer.mind.get_skill_level(/datum/skill/gaming)
-		gamer_skill = gamer.mind.get_skill_modifier(/datum/skill/gaming, SKILL_PROBS_MODIFIER)
-		gamer_skill_rands = gamer.mind.get_skill_modifier(/datum/skill/gaming, SKILL_RANDS_MODIFIER)
-
-	var/xp_gained = 0
-
 	gamer.played_game()
 
 	if(event)
@@ -244,31 +230,29 @@ GLOBAL_LIST_INIT(orion_events, generate_orion_events())
 				return
 			if(turns >= ORION_TRAIL_WINTURN)
 				win(gamer)
-				xp_gained += 34
 				return
-			gamer.mind.adjust_experience(/datum/skill/gaming, xp_gained+1)
 			food -= (alive+lings_aboard)*2
 			fuel -= 5
 			turns += 1
 			//out of supplies, die
 			if(food <= 0 || fuel <= 0)
 				set_game_over(gamer)
-			if(turns == 2 && prob(30-gamer_skill)) //asteroids part of the trip
-				encounter_event(/datum/orion_event/hull_part, gamer, gamer_skill, gamer_skill_level, gamer_skill_rands)
+			if(turns == 2 && prob(30)) //asteroids part of the trip
+				encounter_event(/datum/orion_event/hull_part, gamer)
 				return
 			if(turns == 4) //halfway mark
-				encounter_event(/datum/orion_event/space_port/tau_ceti, gamer, gamer_skill, gamer_skill_level, gamer_skill_rands)
+				encounter_event(/datum/orion_event/space_port/tau_ceti, gamer)
 				return
 			if(turns == 7) //black hole part of the trip
-				encounter_event(/datum/orion_event/black_hole, gamer, gamer_skill, gamer_skill_level, gamer_skill_rands)
+				encounter_event(/datum/orion_event/black_hole, gamer)
 				return
 			//an uneventful (get it) turn
-			if(prob(25 + gamer_skill))
+			if(prob(25))
 				return
-			encounter_event(null, gamer, gamer_skill, gamer_skill_level)
-			if(lings_aboard && (istype(event, /datum/orion_event/changeling_infiltration) || prob(45 + gamer_skill)))
+			encounter_event(null, gamer)
+			if(lings_aboard && (istype(event, /datum/orion_event/changeling_infiltration) || prob(45)))
 				//upgrade infiltration/whatever else we got to attack right away
-				encounter_event(/datum/orion_event/changeling_attack, gamer, gamer_skill, gamer_skill_level, gamer_skill_rands)
+				encounter_event(/datum/orion_event/changeling_attack, gamer)
 		if("random_kill")
 			execute_crewmember(gamer)
 		if("target_kill")
@@ -298,7 +282,7 @@ GLOBAL_LIST_INIT(orion_events, generate_orion_events())
 			if(gameStatus != ORION_STATUS_MARKET)
 				return
 			spaceport_raided = TRUE
-			encounter_event(/datum/orion_event/space_port_raid, gamer, gamer_skill, gamer_skill_level, gamer_skill_rands)
+			encounter_event(/datum/orion_event/space_port_raid, gamer)
 		if("buyparts")
 			if(!spaceport_raided && fuel > ORION_TRADE_RATE && gameStatus == ORION_STATUS_MARKET)
 				switch(params["part"])
@@ -329,11 +313,8 @@ GLOBAL_LIST_INIT(orion_events, generate_orion_events())
  * Arguments:
  * * path: if we want a specific event, this is the path of the wanted one
  * * gamer: person using the arcade, used in emag effects
- * * gamer_skill: gaming skill of the player
- * * gamer_skill_level: gaming skill level of the player
- * * gamer_skill_rands: See above but for random chances, you can just look at gaming skill to see how it chalks that up
  */
-/obj/machinery/computer/arcade/orion_trail/proc/encounter_event(path, gamer, gamer_skill, gamer_skill_level, gamer_skill_rands)
+/obj/machinery/computer/arcade/orion_trail/proc/encounter_event(path, gamer)
 	if(!path)
 		event = pick_weight(events)
 	else
@@ -343,7 +324,7 @@ GLOBAL_LIST_INIT(orion_events, generate_orion_events())
 				break
 	if(!event)
 		CRASH("Woah, hey! we could not find the specified event \"[path]\"! Add it to the events list, numb nuts!")
-	event.on_select(src, gamer_skill, gamer_skill_level, gamer_skill_rands)
+	event.on_select(src)
 	if(obj_flags & EMAGGED)
 		event.emag_effect(src, gamer)
 
@@ -376,10 +357,9 @@ GLOBAL_LIST_INIT(orion_events, generate_orion_events())
 		gamer.death()
 		obj_flags &= ~EMAGGED //removes the emagged status after you lose
 		gameStatus = ORION_STATUS_START
-		name = "The Orion Trail"
-		desc = "Learn how our ancestors got to Orion, and have fun in the process!"
+		name = initial(name)
+		desc = initial(desc)
 
-	gamer?.mind?.adjust_experience(/datum/skill/gaming, 10)//learning from your mistakes is the first rule of roguelikes
 	return reason
 
 //Add Random/Specific crewmember
@@ -437,7 +417,6 @@ GLOBAL_LIST_INIT(orion_events, generate_orion_events())
 			gamer.death()
 		set_game_over(gamer, "Your last pioneer committed suicide.")
 		if(killed_crew >= ORION_STARTING_CREW_COUNT)
-			gamer.mind?.adjust_experience(/datum/skill/gaming, -15)//no cheating by spamming game overs
 			report_player(gamer)
 	else if(obj_flags & EMAGGED)
 		if(findtext(gamer.name, sheriff))

@@ -107,7 +107,7 @@
 /mob/living/basic/cow/wisdom/attack_hand(mob/living/carbon/user, list/modifiers)
 	if(!stat && !user.combat_mode)
 		to_chat(user, span_nicegreen("[src] whispers you some intense wisdoms and then disappears!"))
-		user.mind?.adjust_experience(pick(GLOB.skill_types), 500)
+		//user.mind?.adjust_experience(pick(GLOB.skill_types), 500)
 		do_smoke(1, get_turf(src))
 		qdel(src)
 		return

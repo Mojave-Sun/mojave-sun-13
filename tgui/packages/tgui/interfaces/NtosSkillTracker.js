@@ -14,9 +14,9 @@ export const NtosSkillTracker = (props, context) => {
       <NtosWindow.Content scrollable>
         <Section
           title="Skill Tracker">
-          {skills.map((skill, idx) => (
+          {skills.map((skill, index) => (
             <Section
-              key={idx}
+              key={index}
               level={2}
               title={skill.name}>
               <BlockQuote>
@@ -64,18 +64,6 @@ export const NtosSkillTracker = (props, context) => {
                       ) : ('—')}
                     </Table.Cell>
                   </Table.Row>
-                  {!!skill.reward && (
-                    <Table.Row className="candystripe">
-                      <Table.Cell textAlign="center" colspan="3">
-                        <Button
-                          icon="trophy"
-                          style={{ margin: '8px' }}
-                          onClick={() => act('PRG_reward', { skill: skill.name })}>
-                          Contact the Professional {skill.title} Association
-                        </Button>
-                      </Table.Cell>
-                    </Table.Row>
-                  )}
                 </Table>
               </Section>
             </Section>
