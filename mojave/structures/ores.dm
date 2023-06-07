@@ -86,11 +86,11 @@
 	icon_state = "iron-deposit"
 	deposit_type = /obj/item/stack/sheet/ms13/nugget/nugget_iron
 
-/obj/structure/ms13/ore_deposit/brass
-	name = "brass deposit"
-	desc = "Full of brass, pre-mixed!"
+/obj/structure/ms13/ore_deposit/zinc
+	name = "zinc deposit"
+	desc = "Full of zinc, not silver!"
 	icon_state = "brass-deposit"
-	deposit_type = /obj/item/stack/sheet/ms13/nugget/nugget_brass
+	deposit_type = /obj/item/stack/sheet/ms13/nugget/nugget_zinc
 
 //Nuggets
 
@@ -98,17 +98,17 @@
 	. = ..()
 	AddElement(/datum/element/item_scaling, 0.45, 1)
 
-/obj/item/stack/sheet/ms13/nugget/nugget_brass
-	name = "brass nuggets"
-	desc = "A hard lump of brass, Useless now."
-	singular_name = "brass nugget"
+/obj/item/stack/sheet/ms13/nugget/nugget_zinc
+	name = "zinc nuggets"
+	desc = "A hard lump of zinc, Useless now."
+	singular_name = "zinc nugget"
 	icon = 'mojave/icons/objects/crafting/materials_inventory.dmi'
 	icon_state = "brass"
-	merge_type = /obj/item/stack/sheet/ms13/nugget/nugget_brass
+	merge_type = /obj/item/stack/sheet/ms13/nugget/nugget_zinc
 	amount = 1
 	max_amount = 16
 
-/obj/item/stack/sheet/ms13/nugget/nugget_brass/two
+/obj/item/stack/sheet/ms13/nugget/nugget_zinc/two
 	amount = 2
 
 /obj/item/stack/sheet/ms13/nugget/nugget_iron

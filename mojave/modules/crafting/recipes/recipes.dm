@@ -309,7 +309,7 @@
 // 	crafting_interface = CRAFTING_BENCH_SMELTER
 
 /datum/crafting_recipe/smelt_iron
-	name = "refine iron ore"
+	name = "smelt steel"
 	result = /obj/item/stack/sheet/ms13/refined_steel/two
 	time = 3 SECONDS
 	tool_paths = list(/obj/item/ms13/hammer)
@@ -319,12 +319,13 @@
 	category = CAT_SMELTER
 	crafting_interface = CRAFTING_BENCH_SMELTER
 
-/datum/crafting_recipe/smelt_brass
-	name = "refine brass ore"
+/datum/crafting_recipe/smelt_zinc
+	name = "alloy brass"
 	result = /obj/item/stack/sheet/ms13/refined_brass/two
 	time = 3 SECONDS
 	tool_paths = list(/obj/item/ms13/hammer)
-	reqs = list(/obj/item/stack/sheet/ms13/nugget/nugget_brass = 4,
+	reqs = list(/obj/item/stack/sheet/ms13/nugget/nugget_copper = 4,
+				/obj/item/stack/sheet/ms13/nugget/nugget_zinc = 4,
 				/obj/item/stack/sheet/ms13/plank = 2)
 	category = CAT_SMELTER
 	crafting_interface = CRAFTING_BENCH_SMELTER
