@@ -45,6 +45,16 @@
 	desc = "A crude box containing junk quality 7.62 ammo."
 	ammo_type = /obj/item/ammo_casing/ms13/a762/junk
 
+/obj/item/ammo_box/ms13/a762/ap
+	name = "armor piercing 7.62 ammo box"
+	desc = "A box containing high quality 7.62 armor piercing ammo."
+	ammo_type = /obj/item/ammo_casing/ms13/a762/ap
+
+/obj/item/ammo_box/ms13/a762/hv
+	name = "high velocity 7.62 ammo box"
+	desc = "A box containing high quality 7.62 high velocity ammo."
+	ammo_type = /obj/item/ammo_casing/ms13/a762/hv
+
 //.308
 /obj/item/ammo_casing/ms13/a308
 	name = ".308 bullet casing"

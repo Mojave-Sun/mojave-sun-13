@@ -1935,6 +1935,7 @@
 			if(. >= UNCONSCIOUS)
 				REMOVE_TRAIT(src, TRAIT_IMMOBILIZED, TRAIT_KNOCKEDOUT)
 			ADD_TRAIT(src, TRAIT_CRITICAL_CONDITION, STAT_TRAIT)
+			throw_alert_text(/atom/movable/screen/alert/text/sad, "You are too hurt to fight back!", override = FALSE) // MOJAVE SUN EDIT - FO text alert
 		if(UNCONSCIOUS)
 			if(. != HARD_CRIT)
 				become_blind(UNCONSCIOUS_TRAIT)
@@ -1945,8 +1946,10 @@
 		if(HARD_CRIT)
 			if(. != UNCONSCIOUS)
 				become_blind(UNCONSCIOUS_TRAIT)
+			throw_alert_text(/atom/movable/screen/alert/text/cry, "You can feel yourself fading away!", override = FALSE) // MOJAVE SUN EDIT - FO text alert
 			ADD_TRAIT(src, TRAIT_CRITICAL_CONDITION, STAT_TRAIT)
 		if(DEAD)
+			throw_alert_text(/atom/movable/screen/alert/text/dead, "You are no longer among the living.", override = FALSE) // MOJAVE SUN EDIT - FO text alert
 			REMOVE_TRAIT(src, TRAIT_CRITICAL_CONDITION, STAT_TRAIT)
 			remove_from_alive_mob_list()
 			add_to_dead_mob_list()

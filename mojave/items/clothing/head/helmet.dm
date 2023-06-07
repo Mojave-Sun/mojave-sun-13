@@ -9,6 +9,7 @@
 	dynamic_hair_suffix = "+generic"
 	dynamic_fhair_suffix = "+generic"
 	flags_inv = HIDEHAIR
+	flags_cover = 0
 	grid_width = 64
 	grid_height = 64
 	equip_delay_self = 1 SECONDS
@@ -34,6 +35,7 @@
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0, wound = 5)
 	flags_inv = HIDEHAIR
+	flags_cover = 0
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 	grid_width = 64
@@ -62,6 +64,7 @@
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0, wound = 5)
 	flags_inv = HIDEHAIR
+	flags_cover = 0
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 
@@ -124,6 +127,7 @@
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
+	flags_cover = HEADCOVERSEYES // Built in protection from the dust. yippie.
 	has_fov = TRUE
 	fov_angle = 90
 	equip_delay_self = 2 SECONDS
@@ -221,6 +225,7 @@
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
+	flags_cover = HEADCOVERSEYES // Built in protection from the dust. yippie.
 	has_fov = TRUE
 	fov_angle = 120
 	equip_delay_self = 2 SECONDS
@@ -400,6 +405,7 @@
                 FIRE = CLASS3_FIRE)
 	inhand_icon_state = "harmorkit"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
+	flags_cover = HEADCOVERSEYES // Built in protection from the dust. yippie.
 	has_fov = TRUE
 	fov_angle = 120
 	equip_delay_self = 2 SECONDS
@@ -457,6 +463,7 @@
                 FIRE = CLASS3_FIRE)
 	inhand_icon_state = "headdress_l"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
+	flags_cover = HEADCOVERSEYES // Built in protection from the dust. yippie.
 	has_fov = TRUE
 	fov_angle = 120
 	equip_delay_self = 2 SECONDS
@@ -1039,6 +1046,7 @@
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
+	flags_cover = HEADCOVERSEYES // Built in protection from the dust. yippie.
 	has_fov = TRUE
 	fov_angle = 90
 	equip_delay_self = 2 SECONDS
@@ -1076,6 +1084,7 @@
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
+	flags_cover = HEADCOVERSEYES // Built in protection from the dust. yippie.
 	has_fov = TRUE
 	fov_angle = 90
 	equip_delay_self = 2 SECONDS
@@ -1096,6 +1105,7 @@
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
+	flags_cover = HEADCOVERSEYES // Built in protection from the dust. yippie.
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 	has_fov = TRUE
@@ -1118,6 +1128,7 @@
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS2_FIRE)
 	flags_inv = HIDEEARS|HIDEHAIR
+	flags_cover = HEADCOVERSEYES // Built in protection from the dust. yippie.
 	has_fov = TRUE
 	fov_angle = 60
 	equip_delay_self = 1.5 SECONDS
@@ -1165,6 +1176,7 @@
 	has_fov = TRUE
 	fov_angle = 90
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
+	flags_cover = HEADCOVERSEYES // Built in protection from the dust. yippie.
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 
@@ -1426,6 +1438,7 @@
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS3_FIRE)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
+	flags_cover = HEADCOVERSEYES // Built in protection from the dust. yippie.
 	has_fov = TRUE
 	fov_angle = 90
 	equip_delay_self = 2 SECONDS
@@ -1570,3 +1583,110 @@
                 ENERGY = 0, \
                 FIRE = 0)
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0) //No wound armor
+
+// Drylander Hoods //
+
+/obj/item/clothing/head/helmet/ms13/drylander
+	name = "base type drylander hood"
+	desc = "You shouldn't be seeing this."
+	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
+	dynamic_hair_suffix = ""
+	dynamic_fhair_suffix = ""
+	flags_cover = HEADCOVERSEYES // Built in protection from the dust. yippie.
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = 0, \
+                IMPALING = 0, \
+                LASER = 0, \
+                ENERGY = 0, \
+                FIRE = 0)
+
+/obj/item/clothing/head/helmet/ms13/drylander/hunter
+	name = "\improper Drylander hunter hood"
+	desc = "A lightly padded hood worn by Drylander hunters."
+	icon_state = "hunter_dry"
+	worn_icon_state = "hunter_dry"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS2_CRUSH, \
+                CUTTING = CLASS2_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS1_LASER, \
+                ENERGY = 0, \
+                FIRE = CLASS1_FIRE)
+	has_fov = TRUE
+	fov_angle = 60
+
+/obj/item/clothing/head/helmet/ms13/drylander/headtaker
+	name = "\improper Drylander Headtaker hood"
+	desc = "A protective hood worn by Headtakers of the Drylander tribe. The sight alone strikes fear into the locals."
+	icon_state = "headtaker"
+	worn_icon_state = "headtaker"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS2_CRUSH, \
+                CUTTING = CLASS2_CUT, \
+                PIERCING = CLASS2_PIERCE, \
+                IMPALING = CLASS2_STAB, \
+                LASER = CLASS2_LASER, \
+                ENERGY = 0, \
+                FIRE = CLASS2_FIRE)
+	has_fov = TRUE
+	fov_angle = 60
+
+/obj/item/clothing/head/helmet/ms13/drylander/shaman
+	name = "\improper Drylander shaman hood"
+	desc = "A lightly padded hood worn by the shaman of the Drylander tribe."
+	icon_state = "shaman"
+	worn_icon_state = "shaman"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS2_CRUSH, \
+                CUTTING = CLASS2_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS1_LASER, \
+                ENERGY = 0, \
+                FIRE = CLASS1_FIRE)
+	has_fov = TRUE
+	fov_angle = 60
+
+/obj/item/clothing/head/helmet/ms13/drylander/chief
+	name = "cracked Deathclaw skull helmet"
+	desc = "A hollowed out Deathclaw skull with padding to be fashioned into a sturdy helmet. It has a sizeable crack over the left eye. Perhaps one day it can be returned to it's former glory."
+	icon_state = "chieftain"
+	worn_icon_state = "chieftain"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = CLASS1_EDGE, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS3_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = CLASS2_STAB, \
+                LASER = CLASS2_LASER, \
+                ENERGY = CLASS1_PLASMA, \
+                FIRE = CLASS2_FIRE)
+	has_fov = TRUE
+	fov_angle = 60
+
+/obj/item/clothing/head/helmet/ms13/drylander/hood
+	name = "\improper Drylander hood"
+	desc = "A basic masked hood worn by the Drylander tribe."
+	icon_state = "dry_hood"
+
+/obj/item/clothing/head/helmet/ms13/drylander/wrap
+	name = "\improper Drylander facewrap"
+	desc = "A specific facewrap worn mostly by the Drylander tribe."
+	icon_state = "dry_wrap"
+
+/obj/item/clothing/head/helmet/ms13/drylander/goggles
+	name = "\improper Drylander goggles facewrap"
+	desc = "A facewrap and goggles worn by the Drylander tribe. Sometimes they hate sand, it gets everywhere."
+	icon_state = "dry_goggles"
+
+/obj/item/clothing/head/helmet/ms13/drylander/shemagh
+	name = "\improper Drylander shemagh"
+	desc = "A shemagh worn by the Drylander tribe. Mysterious."
+	icon_state = "dry_shemagh"

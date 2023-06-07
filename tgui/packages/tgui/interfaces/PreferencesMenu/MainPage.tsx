@@ -181,7 +181,7 @@ const GenderButton = (props: {
       genderMenuOpen
         && (
           <Stack backgroundColor="white" ml={0.5} p={0.3}>
-            {[Gender.Male, Gender.Female, Gender.Other].map(gender => {
+            {[Gender.Male, Gender.Female].map(gender => { // MS13 EDIT -other
               return (
                 <Stack.Item key={gender}>
                   <Button
