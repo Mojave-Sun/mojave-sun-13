@@ -83,6 +83,26 @@
 
 	ReCalculating()
 
+/datum/special/proc/checkRating(strength, perception, endurance, charisma, intelligence, agility, luck)
+	if(!isnull(strength) && src.strength < strength)
+		return FALSE
+	if(!isnull(perception) && src.perception < perception)
+		return FALSE
+	if(!isnull(endurance) && src.endurance < endurance)
+		return FALSE
+	if(!isnull(charisma) && src.charisma < charisma)
+		return FALSE
+	if(!isnull(intelligence) && src.intelligence < intelligence)
+		return FALSE
+	if(!isnull(agility) && src.agility < agility)
+		return FALSE
+	if(!isnull(luck) && src.luck < luck)
+		return FALSE
+
+	return TRUE
+
+/datum/special/proc/getRating(rating)
+	return vars[rating] - 5 // RETURN -5, BECAUSE 5 DON'T HAVE EFFECT
 
 /datum/special/proc/AddPerk(datum/perk/type_or_id)
 	if(QDELETED(owner))
@@ -125,3 +145,71 @@
 			p.remove_effect()
 			qdel(p)
 			return
+
+/datum/special/proc/HasPerk(datum/perk/type_or_id)
+	if(QDELETED(owner))
+		return FALSE
+	if(isnull(type_or_id))
+		return FALSE
+	var/datum/perk/p
+	if(istype(type_or_id))
+		for(p as anything in perks)
+			if(type_or_id != p.type)
+				continue
+			return TRUE
+
+	else if (istext(type_or_id))
+		for(p as anything in perks)
+			if(type_or_id != p.id)
+				continue
+			return TRUE
+
+	return FALSE
+
+//Calculating chance SPECIAL. WE WILL RETURN ONLY NUMBERS, BECAUSE THERE ONLY CALCULATING SPECIAL LEVEL LOGIC.
+/datum/special/proc/chanse_mellee_act()
+	. = 30
+	. += 2 * (agility + strength)
+
+/datum/special/proc/chanse_mellee_item_act()
+	. = 55
+	. += max(strength, agility)
+
+/datum/special/proc/chanse_bullet_light_act()
+	. = 5
+	. += 4 * agility
+
+/datum/special/proc/chanse_bullet_heavy_act()
+	. = 2 * agility
+
+/datum/special/proc/chanse_laser_act()
+	. = 2
+	. += 2 * perception
+	. += luck / 2
+
+/datum/special/proc/chanse_first_aid_help()
+	. = 30
+	. += perception + intelligence
+
+/datum/special/proc/chanse_hack()
+	. = 20
+	. += (perception + agility) / 2
+
+/datum/special/proc/chanse_steal()
+	. = 20
+	. += agility
+
+/datum/special/proc/chanse_stels()
+	. = 5
+	if(!HasPerk(PERK_SILENT_RINNING))
+		. += 3 * agility
+
+/datum/special/proc/chanse_naturalist()
+	. = 2 * (endurance + intelligence)
+
+/datum/special/proc/chanse_traps()
+	. = 10
+	. += agility + endurance
+
+/datum/special/proc/chanse_eloquence()
+	. = 5 * charisma

@@ -1,5 +1,5 @@
 GLOBAL_LIST_INIT(perks, list(
-
+PERK_SILENT_RINNING = /datum/perk/silent_rinning
 ))
 
 /proc/getPerk(id)
