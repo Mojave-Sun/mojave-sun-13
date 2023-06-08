@@ -605,14 +605,12 @@
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/t45
 	module_armor = list(
 		BODY_ZONE_HEAD = /obj/item/power_armor/head/t45,
-		BODY_ZONE_CHEST = null,
-		BODY_ZONE_L_ARM = null,
-		BODY_ZONE_R_ARM = null,
-		BODY_ZONE_L_LEG = null,
-		BODY_ZONE_R_LEG = null
+		BODY_ZONE_CHEST = /obj/item/power_armor/chest/t45,
+		BODY_ZONE_L_ARM = /obj/item/power_armor/arm/left/t45,
+		BODY_ZONE_R_ARM = /obj/item/power_armor/arm/right/t45,
+		BODY_ZONE_L_LEG = /obj/item/power_armor/leg/left/t45,
+		BODY_ZONE_R_LEG = /obj/item/power_armor/leg/right/t45
 	)
-	icon_state = "t45_armor"
-	worn_icon_state = "t45_armor"
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/t45/random/Initialize()
 	random_type()
