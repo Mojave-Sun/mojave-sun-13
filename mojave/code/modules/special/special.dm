@@ -102,7 +102,7 @@
 	return TRUE
 
 /datum/special/proc/getRating(rating)
-	return vars[rating] - 5 // RETURN -5, BECAUSE 5 DON'T HAVE EFFECT
+	return vars[rating]
 
 /datum/special/proc/AddPerk(datum/perk/type_or_id)
 	if(QDELETED(owner))
