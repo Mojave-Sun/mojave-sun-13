@@ -5,11 +5,6 @@
 	qdel(special)
 	. = ..()
 
-/mob/living/proc/getSpecial(strength = 5, perception = 5, endurance = 5, charisma = 5, intelligence = 5, agility = 5, luck = 5)
-	. = src.special
-	if (!.)
-		. = new /datum/special(src, strength, perception, endurance, charisma, intelligence, agility, luck)
-
 /datum/special
 	//5 value no give buffs and debuffs
 	var/strength = 5
@@ -100,9 +95,6 @@
 		return FALSE
 
 	return TRUE
-
-/datum/special/proc/getRating(rating)
-	return vars[rating]
 
 /datum/special/proc/AddPerk(datum/perk/type_or_id)
 	if(QDELETED(owner))

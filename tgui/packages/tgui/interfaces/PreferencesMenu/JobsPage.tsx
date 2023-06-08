@@ -182,7 +182,7 @@ const JobRow = (props: {
   job: Job,
   name: string,
 }, context) => {
-  const { data } = useBackend<PreferencesMenuData>(context);
+  const { data, act } = useBackend<PreferencesMenuData>(context);
   const { className, job, name } = props;
 
   const isOverflow = data.overflow_role === name;
@@ -240,12 +240,12 @@ const JobRow = (props: {
           content={job.description}
           position="bottom-start"
         >
-          <Stack.Item className="job-name" width="50%" style={{
+          <Button className="job-name" width="50%" onClick={() => act("special", { ref: job })} style={{
             "padding-left": "0.3em",
           }}>
 
             {name}
-          </Stack.Item>
+          </Button>
         </Tooltip>
 
         <Stack.Item grow className="options">

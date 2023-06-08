@@ -115,3 +115,11 @@
 			data += job.title
 
 	return data
+
+/datum/preference_middleware/jobs/ui_act(action, params)
+	. = ..()
+	if(.)
+		return
+
+	switch(action)
+		if("special")
