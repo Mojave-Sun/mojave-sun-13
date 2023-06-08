@@ -121,8 +121,6 @@
 		p.added_effect()
 
 /datum/special/proc/RemovePerk(datum/perk/type_or_id)
-	if(QDELETED(owner))
-		return
 	if(isnull(type_or_id))
 		return
 	var/datum/perk/p
@@ -147,8 +145,6 @@
 			return
 
 /datum/special/proc/HasPerk(datum/perk/type_or_id)
-	if(QDELETED(owner))
-		return FALSE
 	if(isnull(type_or_id))
 		return FALSE
 	var/datum/perk/p
