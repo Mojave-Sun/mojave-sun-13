@@ -229,7 +229,7 @@
 	name = "Helmet PA T51"
 	icon_state = "t51_helmet"
 	type_helmet = /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/t51
-	chanse = 20
+	chance = 20
 
 //T-45
 /obj/item/power_armor/leg/left/t45
