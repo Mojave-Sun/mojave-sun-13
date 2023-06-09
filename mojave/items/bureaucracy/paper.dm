@@ -18,6 +18,14 @@
 /obj/item/paper/ms13/AltClick(mob/living/user, obj/item/I)
 	return //aint no paper airplanes, NO FUN ALLOWED
 
+/obj/item/paper/ms13/wash(clean_types, mob/living/user)
+	if(do_after(user, 10 SECONDS))
+		var/obj/I = new /obj/item/ms13/rolling_paper(src)
+		to_chat(user, "<span class='notice'>You process the [name] into [I] making it thinner and cleaner than before.</span>")
+		user.put_in_hands(I)
+		qdel(src)
+		. = ..()
+
 /obj/item/paper/ms13/paperslip
 	name = "paper slip"
 	desc = "A little slip of paper left over after a larger piece was cut. Whoa."

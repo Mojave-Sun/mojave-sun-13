@@ -1134,7 +1134,7 @@
  * Arguments:
  * * clean_types: any of the CLEAN_ constants
  */
-/atom/proc/wash(clean_types)
+/atom/proc/wash(clean_types, mob/living/user) //MOJAVE SUN EDIT - Who is the washer
 	SHOULD_CALL_PARENT(TRUE)
 
 	. = FALSE

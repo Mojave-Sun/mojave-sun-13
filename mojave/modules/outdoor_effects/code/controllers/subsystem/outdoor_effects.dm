@@ -60,6 +60,7 @@ SUBSYSTEM_DEF(outdoor_effects)
 	var/list/mutable_appearance/sunlight_overlays
 	var/list/atom/movable/screen/plane_master/weather_effect/weather_planes_need_vis = list()
 	var/last_color = null
+	var/time //added here so things can pick up the time of day
 	//Ensure midnight is the liast step
 	var/list/datum/time_of_day/time_cycle_steps = list(new /datum/time_of_day/dawn(),
 	                                                   new /datum/time_of_day/sunrise(),
@@ -110,6 +111,9 @@ SUBSYSTEM_DEF(outdoor_effects)
 		get_time_of_day()
 		return TRUE
 
+	for(var/turf/T as anything in GLOB.sunlight_act_upon_list)
+		T.outdoor_effect.time_of_day = time
+
 	if(station_time() > next_step_datum.start)
 		if(next_day)
 			return FALSE
@@ -124,7 +128,7 @@ SUBSYSTEM_DEF(outdoor_effects)
 
 	//Get the next time step (first time where NOW > START_TIME)
 	//If we don't find one - grab the LAST time step (which should be midnight)
-	var/time = station_time()
+	time = station_time()
 	var/datum/time_of_day/new_step = null
 
 	for(var/i in 1 to length(time_cycle_steps))

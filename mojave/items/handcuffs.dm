@@ -4,15 +4,18 @@
 	icon_state = "rope"
 	icon = 'mojave/icons/objects/crafting/materials_world.dmi'
 	worn_icon_state = "rope"
-	worn_icon = 'icons/mob/clothing/hands.dmi'
+	worn_icon = 'mojave/icons/mob/clothing/hands.dmi'
 	inhand_icon_state = "rope"
+	handcuffed_icon = 'mojave/icons/mob/clothing/hands.dmi'
+	handcuffed_icon_state = "rope"
 	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
 	grid_width = 64
 	grid_height = 64
 	w_class = WEIGHT_CLASS_NORMAL
 	cuffsound = 'mojave/sound/ms13effects/hogtie.ogg'
-	cuff_time = 10 SECONDS
+	cuff_time = 3 SECONDS
+	cuff_verb = "hogtie"
 
 /obj/item/restraints/handcuffs/ms13/rope/Initialize()
 	. = ..()

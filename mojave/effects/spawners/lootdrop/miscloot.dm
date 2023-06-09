@@ -40,7 +40,9 @@
 			/obj/item/shovel/ms13/spade,
 			/obj/item/shovel/ms13/snow,
 			/obj/item/shovel/ms13/rake,
-			/obj/item/ms13/brick
+			/obj/item/ms13/brick,
+			/obj/item/restraints/handcuffs/ms13/rope,
+			/obj/item/knife/ms13/scissors
 			)
 
 /obj/effect/spawner/random/ms13/tools/lights
@@ -109,7 +111,8 @@
 			/obj/item/stack/sheet/ms13/plastic/two,
 			/obj/item/stack/sheet/ms13/rubber/two,
 			/obj/item/stack/sheet/ms13/scrap_parts/two,
-			/obj/item/stack/sheet/ms13/scrap/two
+			/obj/item/stack/sheet/ms13/scrap/two,
+			/obj/item/restraints/handcuffs/ms13/rope
 	)
 
 /obj/effect/spawner/random/ms13/crafting/highrandom

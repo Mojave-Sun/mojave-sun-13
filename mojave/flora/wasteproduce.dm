@@ -35,6 +35,9 @@
 	grid_width = 32
 	distill_reagent = /datum/reagent/consumable/ethanol/ms13/brew_sludge
 	var/can_dry = FALSE //used for drying racks
+	var/dry_time = 10 MINUTES
+	var/dried_type //the thing it dries into
+	var/time_drying = 0 //how long has this been drying
 
 /obj/item/food/grown/ms13/Initialize()
 	. = ..()
@@ -688,6 +691,8 @@
 	desc = "A xander root that has been cut into thinner parts, you think you could hang this to dry."
 	icon_state = "cut_xander"
 	can_dry = TRUE
+	dry_time = 15 MINUTES
+	dried_type = /obj/item/ms13/dried/xander
 
 //////////////////////// CARROT /////////////////////////////
 
@@ -1131,6 +1136,7 @@
 	icon_state = "tobacco"
 	filling_color = "#1d3821"
 	can_dry = TRUE
+	dried_type = /obj/item/ms13/dried/tobacco
 
 ////////////////////////// ASTER ////////////////////////////
 
@@ -1301,6 +1307,8 @@
 	filling_color = "#493d28"
 	tastes = list("broc"= 5)
 	can_dry = TRUE
+	dry_time = 8 MINUTES
+	dried_type = /obj/item/ms13/dried/broc
 
 /////////////////////////////////////////////////////////////
 //////////////////////// FUNGUS /////////////////////////////

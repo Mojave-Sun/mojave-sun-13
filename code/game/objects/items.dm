@@ -211,6 +211,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	//for custom inventory and world states, yeah I know its jank but I hate components
 	var/inventory_state
 	var/world_state
+
+	var/place_slot = 0 //for use in slotted structures, drying racks, shelves, etc.
 //MOJAVE EDIT CHANGE END
 
 	/// Used in obj/item/examine to give additional notes on what the weapon does, separate from the predetermined output variables
