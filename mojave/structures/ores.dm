@@ -12,7 +12,7 @@
 	var/deposit_type = null
 	var/last_act = 0
 	var/mining_bonus_damage = 0
-	
+
 //Ore deposit mining process
 
 /obj/structure/ms13/ore_deposit/attackby(obj/item/W, mob/user)
@@ -32,6 +32,7 @@
 	qdel(src)
 
 //deposits
+
 //randomises integrity for deposits
 
 /obj/structure/ms13/ore_deposit/Initialize()
@@ -217,32 +218,31 @@
 
 //Deposit generation
 
+//currently not spawning in uranium deposits as there is no use for them
 #define DEPOSIT_SPAWN_LIST list(/obj/structure/ms13/ore_deposit/gold = 1, /obj/structure/ms13/ore_deposit/silver = 2, /obj/structure/ms13/ore_deposit/alu = 6, /obj/structure/ms13/ore_deposit/lead = 6, /obj/structure/ms13/ore_deposit/copper = 5, /obj/structure/ms13/ore_deposit/coal = 5, /obj/structure/ms13/ore_deposit/iron = 3)
 #define DEPOSIT_SPONTANEOUS 		4
 #define DEPOSIT_WEIGHT			2
 
 /turf/open/floor/plating/ms13/ground/mountain/Initialize()
 	. = ..()
-	//var/Weight = 0
 	var/randDeposit = null
-
 	//spontaneously spawn deposits
-	if(src.is_blocked_turf(TRUE)) //can't put ores on a tile that has dense stuff
+	if( (locate(/obj/machinery) in src) || (locate(/obj/structure) in src) ) //can't put ores on a tile that has already has stuff
 		return
 	if(prob(DEPOSIT_SPONTANEOUS))
 		randDeposit = pick_weight(DEPOSIT_SPAWN_LIST) //Create a new deposit object at this location, and assign var
-		var/turfDeposit = new randDeposit(src)
+		new randDeposit(src)
 		. = TRUE //in case we ever need this to return if we spawned
 		return .
 
 /turf/open/floor/plating/ms13/ground/mountain/drought/Initialize()
 	. = ..()
 	var/randDeposit = null
-
-	if(src.is_blocked_turf(TRUE))
+	//spontaneously spawn deposits
+	if( (locate(/obj/machinery) in src) || (locate(/obj/structure) in src) ) //can't put ores on a tile that has already has stuff
 		return
 	if(prob(DEPOSIT_SPONTANEOUS))
-		randDeposit = pick_weight(DEPOSIT_SPAWN_LIST)
-		var/turfDeposit = new randDeposit(src)
-		. = TRUE
+		randDeposit = pick_weight(DEPOSIT_SPAWN_LIST) //Create a new deposit object at this location, and assign var
+		new randDeposit(src)
+		. = TRUE //in case we ever need this to return if we spawned
 		return .
