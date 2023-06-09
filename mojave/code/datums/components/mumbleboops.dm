@@ -4,17 +4,17 @@
 
 /datum/component/mumbleboop
 	var/mumbleboop_sound_override
-	var/mumbleboop_sound_male = "mojave/sound/voices/grim/s_"
-	var/mumbleboop_sound_female = "mojave/sound/voices/me/s_"
-	var/mumbleboop_sound_agender = "mojave/sound/voices/neutral/vowel_agender_"
+	var/mumbleboop_sound_male = "mojave/sound/voices/male_04/s_"
+	var/mumbleboop_sound_female = "mojave/sound/voices/female_02/s_"
+	var/mumbleboop_sound_agender = "mojave/sound/voices/female_01/s_"
 	var/volume = MUMBLEBOOP_DEFAULT_VOLUME
 	var/duration = MUMBLEBOOP_DEFAULT_DURATION
 	var/last_mumbleboop = 0
 
 /datum/component/mumbleboop/Initialize(mumbleboop_sound_override, \
-								mumbleboop_sound_male = "mojave/sound/voices/grim/s_", \
-								mumbleboop_sound_female = "mojave/sound/voices/me/s_", \
-								mumbleboop_sound_agender = "mojave/sound/voices/neutral/vowel_agender_", \
+								mumbleboop_sound_male = "mojave/sound/voices/male_04/s_", \
+								mumbleboop_sound_female = "mojave/sound/voices/female_02/s_", \
+								mumbleboop_sound_agender = "mojave/sound/voices/female_01/s_", \
 								volume = MUMBLEBOOP_DEFAULT_VOLUME, \
 								duration = MUMBLEBOOP_DEFAULT_DURATION)
 	. = ..()
@@ -145,7 +145,7 @@
 			if(".")
 				volume = 0
 				current_delay *= 2
-			if(" ")
+			if(" ", "'")
 				volume = 0
 			//else
 			//	pitch = 0
