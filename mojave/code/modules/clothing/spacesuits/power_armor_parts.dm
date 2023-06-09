@@ -108,7 +108,7 @@
 		if(atom_integrity > 0 && (atom_integrity < (max_integrity / 3)))
 			damage_txt ="This part is a heavily damaged."
 		if((atom_integrity > (max_integrity / 3)) && (atom_integrity < (max_integrity * (2/3))))
-			damage_txt = "This part is a damaged [src]."
+			damage_txt = "This part is a damaged."
 		if((atom_integrity > (max_integrity * (2/3))) && (atom_integrity < max_integrity))
 			damage_txt = "This part is a lightly damaged."
 		if(atom_integrity == max_integrity)

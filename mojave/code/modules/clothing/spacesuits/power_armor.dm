@@ -27,6 +27,12 @@
 	AddElement(/datum/element/radiation_protected_clothing)
 	AddComponent(/datum/component/clothing_fov_visor, FOV_180_DEGREES)
 
+/obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/Destroy()
+	if(suit.helmet)
+		suit.helmet = null
+	suit = null
+	. = ..()
+
 /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration, def_zone)
 	if(!uses_integrity)
 		CRASH("[src] had /atom/proc/take_damage() called on it without it being a type that has uses_integrity = TRUE!")
@@ -60,6 +66,21 @@
 
 /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/atom_destruction(damage_flag)
 	return
+
+/obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/get_examine_string(mob/user, thats, damage = TRUE)
+	var/damage_txt = ""
+	if(damage)
+		if(atom_integrity <= 0)
+			damage_txt ="This part is a broken."
+		if(atom_integrity > 0 && (atom_integrity < (max_integrity / 3)))
+			damage_txt ="This part is a heavily damaged."
+		if((atom_integrity > (max_integrity / 3)) && (atom_integrity < (max_integrity * (2/3))))
+			damage_txt = "This part is a damaged."
+		if((atom_integrity > (max_integrity * (2/3))) && (atom_integrity < max_integrity))
+			damage_txt = "This part is a lightly damaged."
+		if(atom_integrity == max_integrity)
+			damage_txt = "This part is a non-damaged."
+	return "[icon2html(src, user)] [thats? "That's ":""][get_examine_name(user)]. [damage_txt]"
 
 /obj/item/radio/headset/ms13/
 	force_superspace = TRUE // ignore tcoms and zlevels
@@ -221,6 +242,21 @@
 
 	return standing
 
+/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/get_examine_string(mob/user, thats, damage = TRUE)
+	var/damage_txt = ""
+	if(damage)
+		if(atom_integrity <= 0)
+			damage_txt ="The frame is a broken."
+		if(atom_integrity > 0 && (atom_integrity < (max_integrity / 3)))
+			damage_txt ="The frame is a heavily damaged."
+		if((atom_integrity > (max_integrity / 3)) && (atom_integrity < (max_integrity * (2/3))))
+			damage_txt = "The frame is a damaged."
+		if((atom_integrity > (max_integrity * (2/3))) && (atom_integrity < max_integrity))
+			damage_txt = "The frame is a lightly damaged."
+		if(atom_integrity == max_integrity)
+			damage_txt = "The frame is a non-damaged."
+	return "[icon2html(src, user)] [thats? "That's ":""][get_examine_name(user)]. [damage_txt]"
+
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/examine(mob/user)
 	. = ..()
 	for(var/i in module_armor)
@@ -228,7 +264,7 @@
 			continue
 		var/obj/item/power_armor/PA = module_armor[i]
 		if(PA.zone == BODY_ZONE_HEAD)
-			. +=  "[PA.get_examine_string(user, TRUE, FALSE)]"
+			. +=  "[helmet.get_examine_string(user, TRUE)]"
 			continue
 		. += "[PA.get_examine_string(user, TRUE)]"
 	. += "Alt+left click this power armor to get into and out of it."
@@ -346,7 +382,8 @@
 				PA.forceMove(user.loc)
 			module_armor[radial_result] = null
 			if(radial_result == BODY_ZONE_HEAD)
-				RemoveHelmet()
+				helmettype = null
+				qdel(helmet)
 			update_parts_icons()
 			PA.frame = null
 			for(var/k in PA.modules)
@@ -374,16 +411,19 @@
 	if(def_zone == BODY_ZONE_PRECISE_EYES || def_zone == BODY_ZONE_PRECISE_MOUTH)
 		def_zone = BODY_ZONE_HEAD
 
+	if(def_zone == BODY_ZONE_HEAD)
+		if(helmet && helmet.get_integrity() > 0)
+			var/damage_to_human = - (helmet.get_integrity() - helmet.take_damage(damage_amount, damage_type, damage_flag, null, attack_dir, armour_penetration, def_zone))
+			return max(0, damage_to_human)
+		else
+			return damage_amount
+
 	var/obj/item/power_armor/PA_item = module_armor[def_zone]
 	if(istype(PA_item) && PA_item.get_integrity() > 0)
-		if(def_zone == BODY_ZONE_HEAD)
-			helmet.take_damage(damage_amount, damage_type, damage_flag, null, attack_dir, armour_penetration, def_zone)
+		var/damage_to_frame = - (PA_item.get_integrity() - PA_item.take_damage(damage_amount, damage_type, damage_flag, null, attack_dir, armour_penetration, def_zone))
+		if(damage_to_frame <= 0)
 			return 0
-		else
-			var/damage_to_frame = - (PA_item.get_integrity() - PA_item.take_damage(damage_amount, damage_type, damage_flag, null, attack_dir, armour_penetration, def_zone))
-			if(damage_to_frame <= 0)
-				return 0
-			damage_amount = damage_to_frame
+		damage_amount = damage_to_frame
 
 	damage_amount = run_atom_subarmor(damage_amount, damage_type, damage_flag, attack_dir, armour_penetration)
 	if(damage_amount < DAMAGE_PRECISION)
@@ -391,7 +431,7 @@
 	if(SEND_SIGNAL(src, COMSIG_ATOM_TAKE_DAMAGE, damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration) & COMPONENT_NO_TAKE_DAMAGE)
 		return
 
-	. = damage_amount
+	. = max(damage_amount - atom_integrity, 0)
 
 	update_integrity(atom_integrity - damage_amount)
 

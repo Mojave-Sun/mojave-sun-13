@@ -86,11 +86,7 @@
 			damage_flag = CUTTING
 
 	if(wear_suit && istype(wear_suit, /obj/item/clothing/suit/space/hardsuit/ms13/power_armor))
-		if((def_zone == BODY_ZONE_HEAD || def_zone == BODY_ZONE_PRECISE_EYES || def_zone == BODY_ZONE_PRECISE_MOUTH))
-			if(!wear_suit:helmettype)
-				return damage
-			return max(-(head.get_integrity() - head.take_damage(damage, damage_type, damage_flag, 0, def_zone = def_zone)), 0)
-		return max(-(wear_suit.get_integrity() - wear_suit.take_damage(damage, damage_type, damage_flag, 0, def_zone = def_zone)), 0)
+		return wear_suit.take_damage(damage, damage_type, damage_flag, 0, def_zone = def_zone)
 
 	var/obj/item/bodypart/affecting
 	if(def_zone)
