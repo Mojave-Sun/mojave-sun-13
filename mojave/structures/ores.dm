@@ -238,11 +238,10 @@
 /turf/open/floor/plating/ms13/ground/mountain/drought/Initialize()
 	. = ..()
 	var/randDeposit = null
-	//spontaneously spawn deposits
-	if( (locate(/obj/machinery) in src) || (locate(/obj/structure) in src) ) //can't put ores on a tile that has already has stuff
+	if( (locate(/obj/machinery) in src) || (locate(/obj/structure) in src) )
 		return
 	if(prob(DEPOSIT_SPONTANEOUS))
-		randDeposit = pick_weight(DEPOSIT_SPAWN_LIST) //Create a new deposit object at this location, and assign var
+		randDeposit = pick_weight(DEPOSIT_SPAWN_LIST)
 		new randDeposit(src)
-		. = TRUE //in case we ever need this to return if we spawned
+		. = TRUE
 		return .
