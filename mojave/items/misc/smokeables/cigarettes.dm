@@ -166,12 +166,17 @@
 			return
 		if(smoketime < 120 && !butt_transform)
 			smoketime = 50
+			name = "[name] [butt_name]"
+			desc = "[butt_desc]"
 			icon_state = "[butt_icon]"
 			inventory_state = "[butt_icon]"
 			world_state = "[butt_icon]"
+			worn_icon_state = "[butt_icon]"
+			inhand_icon_state = "[butt_icon]"
+			lit_mutable = "butt_lit"
+			extinguished_mutable = "butt_extinguished"
+			smoking_damage = (initial(smoking_damage) * 6.25)
 			user.visible_message("<span class='notice'>[user] puts out \the [src], flicking the butt away.</span>")
-			name = "[name] [butt_name]"
-			desc = "[butt_desc]"
 			butt_transform = TRUE
 			forceMove(drop_location())
 			extinguish(src)
@@ -231,7 +236,7 @@
 				inhand_icon_state = "[butt_icon]"
 				lit_mutable = "butt_lit"
 				extinguished_mutable = "butt_extinguished"
-				smoking_damage = 0.05 //not good
+				smoking_damage = (initial(smoking_damage) * 6.25) //not good
 				butt_transform = TRUE
 			if(prob(40) && ismob(M))
 				to_chat(M, "<span class='warning'>[pick("You taste something burnt.", "You taste something foul.")]</span>")
@@ -372,7 +377,7 @@
 	list_reagents = list(/datum/reagent/ms13/nicotine = 14) //less potent, 4 minutes of effect, roach is extra 1 minute
 	nicotine_potency = 0.10 //less potent
 	smoking_damage = 0.005 //organic
-	lit_type = "ciglit" //Lit Overlay type
+	lit_type = "rollit"
 	butt_icon = "roach"
 	butt_name = "roach"
 	butt_desc = "The burnt end of a rollie, really scraping the barrel if you smoke this."

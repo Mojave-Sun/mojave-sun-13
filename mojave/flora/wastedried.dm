@@ -13,6 +13,7 @@
 	grid_height = 32
 	grid_width = 32
 	var/can_dry = FALSE //idk maybe future drying stages or something
+	var/indentifier
 
 /obj/item/ms13/dried/Initialize()
 	. = ..()
@@ -22,16 +23,19 @@
 	name = "dried xander"
 	desc = "A rock-hard handful of xander root, brittle and cracked. It smells earthy."
 	icon_state = "cut_xander_dried"
+	indentifier = "x"
 
 /obj/item/ms13/dried/broc
 	name = "dried broc flower"
 	desc = "A crisp and delicate head of a once orange flower. It smells bitter and fruity."
 	icon_state = "brocflower_dried"
+	indentifier = "b"
 
 /obj/item/ms13/dried/tobacco
 	name = "dried tobacco"
 	desc = "A crisp bundle of brown leaves. It smells sweet and smoky."
 	icon_state = "tobacco_dried"
+	indentifier = "t"
 
 //drying process
 
