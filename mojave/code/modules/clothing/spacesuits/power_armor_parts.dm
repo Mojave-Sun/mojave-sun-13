@@ -316,3 +316,89 @@
 	icon_state = "t45_helmet"
 	type_helmet = /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/t45
 	chance = 30
+
+/obj/item/power_armor/head/advanced
+	name = "Helmet APA"
+	icon_state = "apa_helmet"
+	type_helmet = /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/advanced
+	chance = 0
+
+/obj/item/power_armor/chest/advanced
+	name = "Chest APA"
+	icon_state = "apa_chest"
+	icon_state_pa = "apa_chest"
+	max_integrity = 1000
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = CLASS4_EDGE, \
+                CRUSHING = CLASS5_CRUSH, \
+                CUTTING = CLASS5_CUT, \
+                PIERCING = CLASS5_PIERCE, \
+                IMPALING = CLASS5_STAB, \
+                LASER = CLASS5_LASER, \
+                ENERGY = CLASS4_PLASMA, \
+                FIRE = CLASS5_FIRE)
+	chance = 0
+
+/obj/item/power_armor/arm/left/advanced
+	name = "Left arm APA"
+	icon_state = "apa_lefthand"
+	icon_state_pa = "apa_lefthand"
+	max_integrity = 500
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = CLASS4_EDGE, \
+                CRUSHING = CLASS5_CRUSH, \
+                CUTTING = CLASS5_CUT, \
+                PIERCING = CLASS5_PIERCE, \
+                IMPALING = CLASS5_STAB, \
+                LASER = CLASS4_LASER, \
+                ENERGY = CLASS3_PLASMA, \
+                FIRE = CLASS5_FIRE)
+	chance = 0
+
+/obj/item/power_armor/arm/right/advanced
+	name = "Right arm APA"
+	icon_state = "apa_righthand"
+	icon_state_pa = "apa_righthand"
+	max_integrity = 500
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = CLASS4_EDGE, \
+                CRUSHING = CLASS5_CRUSH, \
+                CUTTING = CLASS5_CUT, \
+                PIERCING = CLASS5_PIERCE, \
+                IMPALING = CLASS5_STAB, \
+                LASER = CLASS5_LASER, \
+                ENERGY = CLASS4_PLASMA, \
+                FIRE = CLASS5_FIRE)
+	chance = 0
+
+/obj/item/power_armor/leg/left/advanced
+	name = "Left leg APA"
+	icon_state = "apa_leftleg"
+	icon_state_pa = "apa_leftleg"
+	max_integrity = 400
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = CLASS4_EDGE, \
+                CRUSHING = CLASS5_CRUSH, \
+                CUTTING = CLASS5_CUT, \
+                PIERCING = CLASS5_PIERCE, \
+                IMPALING = CLASS5_STAB, \
+                LASER = CLASS5_LASER, \
+                ENERGY = CLASS4_PLASMA, \
+                FIRE = CLASS5_FIRE)
+	chance = 0
+
+/obj/item/power_armor/leg/right/advanced
+	name = "Right leg APA"
+	icon_state = "apa_rightleg"
+	icon_state_pa = "apa_rightleg"
+	max_integrity = 400
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = CLASS4_EDGE, \
+                CRUSHING = CLASS5_CRUSH, \
+                CUTTING = CLASS5_CUT, \
+                PIERCING = CLASS5_PIERCE, \
+                IMPALING = CLASS5_STAB, \
+                LASER = CLASS5_LASER, \
+                ENERGY = CLASS4_PLASMA, \
+                FIRE = CLASS5_FIRE)
+	chance = 0

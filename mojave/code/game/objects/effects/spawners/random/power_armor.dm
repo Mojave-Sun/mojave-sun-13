@@ -26,3 +26,10 @@
 	loot = list(
 		/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/t51/random
 	)
+
+/obj/effect/spawner/random/power_armor/advanced
+	name = "APA"
+	spawn_loot_chance = 1
+	loot = list(
+		/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/advanced/random
+	)

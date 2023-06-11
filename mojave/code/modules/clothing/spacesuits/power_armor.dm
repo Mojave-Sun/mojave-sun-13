@@ -114,6 +114,11 @@
     desc = "A high quality radio internally attached to a T-51B power armor helmet."
     radio_broadcast = RADIOSTATIC_LIGHT
 
+/obj/item/radio/headset/ms13/powerarmor/advanced
+	name = "integrated advanced power armor radio"
+	desc = "A high quality radio internally attached to a advanced power armor helmet."
+	radio_broadcast = RADIOSTATIC_HEAVY
+
 //Click the ability to access the settings of the integrated radio
 /datum/action/item_action/toggle_radio
 	name = "Toggle Internal Radio Settings"
@@ -399,8 +404,6 @@
 		CRASH("[src] had /atom/proc/take_damage() called on it without it being a type that has uses_integrity = TRUE!")
 	if(QDELETED(src))
 		CRASH("[src] taking damage after deletion")
-	if(atom_integrity <= 0)
-		return damage_amount
 	if(sound_effect)
 		play_attack_sound(damage_amount, damage_type, damage_flag)
 	if(resistance_flags & INDESTRUCTIBLE)
@@ -424,6 +427,9 @@
 		if(damage_to_frame <= 0)
 			return 0
 		damage_amount = damage_to_frame
+
+	if(atom_integrity <= 0)
+		return damage_amount
 
 	damage_amount = run_atom_subarmor(damage_amount, damage_type, damage_flag, attack_dir, armour_penetration)
 	if(damage_amount < DAMAGE_PRECISION)
@@ -653,6 +659,39 @@
 	)
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/t45/random/Initialize()
+	random_type()
+	. = ..()
+
+/obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/advanced
+	name = "Advanced Power Armor Helmet"
+	desc = "A more advanced helmet for a more advanced piece of power armor. Comes with a high quality headlamp and integrated radio."
+	icon_state = "helmet0-apa"
+	hardsuit_type = "advanced" //Determines used sprites: hardsuit[on]-[type]
+	light_range = 4.20
+	light_power = 0.9
+	light_color = "#d1c58d"
+	radiotype = /obj/item/radio/headset/ms13/powerarmor/advanced
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = CLASS4_EDGE, \
+                CRUSHING = CLASS5_CRUSH, \
+                CUTTING = CLASS5_CUT, \
+                PIERCING = CLASS5_PIERCE, \
+                IMPALING = CLASS5_STAB, \
+                LASER = CLASS5_LASER, \
+                ENERGY = CLASS4_PLASMA, \
+                FIRE = CLASS5_FIRE)
+
+/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/advanced
+	module_armor = list(
+		BODY_ZONE_HEAD = /obj/item/power_armor/head/advanced,
+		BODY_ZONE_CHEST = /obj/item/power_armor/chest/advanced,
+		BODY_ZONE_L_ARM = /obj/item/power_armor/arm/left/advanced,
+		BODY_ZONE_R_ARM = /obj/item/power_armor/arm/right/advanced,
+		BODY_ZONE_L_LEG = /obj/item/power_armor/leg/left/advanced,
+		BODY_ZONE_R_LEG = /obj/item/power_armor/leg/right/advanced
+	)
+
+/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/advanced/random/Initialize()
 	random_type()
 	. = ..()
 
