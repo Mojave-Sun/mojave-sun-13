@@ -24,7 +24,7 @@ PERK_SILENT_RINNING = /datum/perk/silent_rinning
 	var/luck = 0
 
 	//Attached special
-	var/datum/special/special
+	var/datum/stats/special
 
 /datum/perk/New(special)
 	src.special = special

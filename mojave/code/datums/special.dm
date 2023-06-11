@@ -2,7 +2,7 @@
 	var/datum/stats_browser/stats
 
 /datum/stats_browser
-	var/datum/special/temp_special
+	var/datum/stats/temp_special
 
 /datum/stats_browser/ui_state()
 	return GLOB.always_state

@@ -1,7 +1,7 @@
 /datum/job
 	var/forbid = ""
 	var/enforce = ""
-	var/special_type = /datum/special
+	var/special_type = /datum/stats
 
 /datum/job/after_spawn(mob/living/spawned, client/player_client)
 	. = ..()
