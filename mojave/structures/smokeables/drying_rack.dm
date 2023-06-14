@@ -136,6 +136,7 @@
 		return
 	var/obj/item/drying_removal = display_names[pick]
 	user.put_in_hands(drying_removal)
+	playsound(user, 'mojave/sound/ms13effects/smokeables/rackattach.ogg', 100)
 	remove_check(drying_removal)
 	drying_check_after()
 

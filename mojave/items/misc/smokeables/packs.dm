@@ -20,7 +20,8 @@
 	freshsound = 'mojave/sound/ms13effects/smokeables/freshpack.ogg'
 	drop_sound = 'mojave/sound/ms13effects/smokeables/packdrop.ogg'
 	pickup_sound = 'mojave/sound/ms13effects/smokeables/packgrab.ogg'
-	var/amount = 8
+	var/amount = 8 //the amount spawned in the pack
+	var/max_amount = 8 //the max amount allowed in the pack
 	var/othertype = FALSE
 	var/pack_overlay = "cig"
 
@@ -29,14 +30,17 @@
 	. += "<span class='notice'>Click in offhand to take one out. Use to open/close.</span>"
 
 /obj/item/storage/fancy/ms13/cigarettes/PopulateContents()
-	. = ..()
-	if(contents.len == 8) //full pack, unopened
+	if(!spawn_type)
+		return
+	for(var/i = 1 to amount)
+		new spawn_type(src)
+	if(contents.len == max_amount) //full pack, unopened
 		fresh = TRUE
 
 /obj/item/storage/fancy/ms13/cigarettes/ComponentInitialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_items = amount
+	STR.max_items = max_amount
 	STR.set_holdable(list(/obj/item/ms13/cigarette))
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/smokeables/smokeables_inventory.dmi', world_state, inventory_state)
 
@@ -139,13 +143,9 @@
 	inhand_icon_state = "lucky"
 	spawn_type = /obj/item/ms13/cigarette/lucky
 	amount = 7
+	max_amount = 7
 	pack_overlay = "lucky"
 	othertype = TRUE
-
-/obj/item/storage/fancy/ms13/cigarettes/luckystrike/PopulateContents()
-	. = ..()
-	if(contents.len == 7) //full pack, unopened
-		fresh = TRUE
 
 /obj/item/storage/fancy/ms13/cigarettes/salem
 	name = "\improper Salem pack"
@@ -180,7 +180,7 @@
 	pack_overlay = "rolled"
 
 /obj/item/storage/fancy/ms13/cigarettes/rollies/empty
-	amount = 0
+	spawn_type = null
 
 /obj/item/storage/fancy/ms13/cigarettes/rollies/republics
 	name = "\improper Republics pack"

@@ -741,6 +741,93 @@
 	color = "#1d3b2f" // rgb: 96, 165, 132
 	taste_description = "cool minty smoke"
 
+// Rollie Reagents - Ghetto Smokeable Chems //
+
+/datum/reagent/ms13/medicine/bitter_mix
+	name = "Bitter mix"
+	description = "A herbal remedy known for its healing properies upon smoking, created from a mix of dried Xander and Broc."
+	reagent_state = SOLID
+	color ="#462d25"
+	taste_description = "bitter smoke"
+	metabolization_rate = REAGENTS_METABOLISM // 0.2 per second
+	overdose_threshold = 0
+
+/datum/reagent/ms13/medicine/bitter_mix/on_mob_life(mob/living/carbon/M) //minor healing over a threshhold
+	if(!M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid/super) || !M.reagents.has_reagent(/datum/reagent/medicine/bitter_drink))
+		if(M.getFireLoss() >= 60)
+			M.adjustFireLoss(-1.35)
+			. = TRUE
+		if(M.getBruteLoss() >= 60)
+			M.adjustBruteLoss(-1.35)
+			. = TRUE
+
+//xanderinos
+
+/datum/reagent/ms13/medicine/concentrated_xander
+	name = "Concentrated Xander"
+	description = "A highly dense amount of dried Xander root, compacted and heals upon smoking."
+	reagent_state = SOLID
+	color ="#524945"
+	taste_description = "acrid earthy smoke"
+	metabolization_rate = 3 * REAGENTS_METABOLISM // 0.6 per second
+	overdose_threshold = 0
+
+/datum/reagent/ms13/medicine/concentrated_xander/on_mob_life(mob/living/carbon/M) //minor healing over a threshhold
+	if(!M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid/super) || !M.reagents.has_reagent(/datum/reagent/medicine/bitter_drink) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/dried_xander))
+		if(M.getBruteLoss() >= 30)
+			M.adjustBruteLoss(-4)
+			M.adjustStaminaLoss(3)
+			. = TRUE
+
+/datum/reagent/ms13/medicine/dried_xander
+	name = "Dried Xander"
+	description = "A small amount of dried and crushed Xander root, heals upon smoking."
+	reagent_state = SOLID
+	color ="#7a6a63"
+	taste_description = "earthy smoke"
+	metabolization_rate = 3 * REAGENTS_METABOLISM // 0.6 per second
+	overdose_threshold = 0
+
+/datum/reagent/ms13/medicine/dried_xander/on_mob_life(mob/living/carbon/M) //minor healing over a threshhold
+	if(!M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid/super) || !M.reagents.has_reagent(/datum/reagent/medicine/bitter_drink) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/concentrated_xander))
+		if(M.getBruteLoss() >= 60)
+			M.adjustBruteLoss(-2)
+			M.adjustStaminaLoss(1)
+			. = TRUE
+
+//the brocmeister
+
+/datum/reagent/ms13/medicine/concentrated_broc
+	name = "Concentrated Broc"
+	description = "A highly dense amount of dried Broc Flowers, compacted and soothes burns upon smoking."
+	reagent_state = SOLID
+	color ="#524945"
+	taste_description = "sour floral smoke"
+	metabolization_rate = 3 * REAGENTS_METABOLISM // 0.6 per second
+	overdose_threshold = 0
+
+/datum/reagent/ms13/medicine/concentrated_broc/on_mob_life(mob/living/carbon/M) //minor healing over a threshhold
+	if(!M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid/super) || !M.reagents.has_reagent(/datum/reagent/medicine/bitter_drink) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/dried_broc))
+		if(M.getBruteLoss() >= 30)
+			M.adjustFireLoss(-4)
+			M.adjustStaminaLoss(1)
+			. = TRUE
+
+/datum/reagent/ms13/medicine/dried_broc
+	name = "Dried Broc"
+	description = "A small amount of dried and crushed Broc root, soothes burns upon smoking."
+	reagent_state = SOLID
+	color ="#524945"
+	taste_description = "floral smoke"
+	metabolization_rate = 3 * REAGENTS_METABOLISM // 0.6 per second
+	overdose_threshold = 0
+
+/datum/reagent/ms13/medicine/dried_broc/on_mob_life(mob/living/carbon/M) //minor healing over a threshhold
+	if(!M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid/super) || !M.reagents.has_reagent(/datum/reagent/medicine/bitter_drink) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/concentrated_broc))
+		if(M.getBruteLoss() >= 60)
+			M.adjustFireLoss(-2)
+			. = TRUE
+
 /////// Movespeed Modifiers ///////
 
 /datum/movespeed_modifier/reagent/ms13

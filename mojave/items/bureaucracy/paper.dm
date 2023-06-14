@@ -19,12 +19,12 @@
 	return //aint no paper airplanes, NO FUN ALLOWED
 //
 /obj/item/paper/ms13/wash(clean_types, mob/living/user, obj/structure/S)
-	to_chat(user, "<span class='notice'>You start scrubbing and working the [name].</span>")
-	if(do_after(S, 10 SECONDS))
+	to_chat(user, "<span class='notice'>You start drying and working the [name].</span>")
+	if(do_after(user, 10 SECONDS, S))
 		var/obj/I = new /obj/item/ms13/rolling_paper(src)
 		to_chat(user, "<span class='notice'>You process the [name] into [I] making it thinner and cleaner than before.</span>")
-		user.put_in_hands(I)
 		qdel(src)
+		user.put_in_active_hand(I)
 
 /obj/item/paper/ms13/paperslip
 	name = "paper slip"
