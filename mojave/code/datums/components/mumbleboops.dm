@@ -4,17 +4,15 @@
 
 /datum/component/mumbleboop
 	var/mumbleboop_sound_override
-	var/mumbleboop_sound_male = "mojave/sound/voices/male_04/s_"
-	var/mumbleboop_sound_female = "mojave/sound/voices/female_02/s_"
-	var/mumbleboop_sound_agender = "mojave/sound/voices/female_01/s_"
+	var/mumbleboop_sound_male = "mojave/sound/voices/male_1/s_"
+	var/mumbleboop_sound_female = "mojave/sound/voices/female_01/s_"
+	var/mumbleboop_sound_agender = "mojave/sound/voices/depreciated_neutral_01/vowel_agender_"
+	var/chosen_boop
 	var/volume = MUMBLEBOOP_DEFAULT_VOLUME
 	var/duration = MUMBLEBOOP_DEFAULT_DURATION
 	var/last_mumbleboop = 0
 
-/datum/component/mumbleboop/Initialize(mumbleboop_sound_override, \
-								mumbleboop_sound_male = "mojave/sound/voices/male_04/s_", \
-								mumbleboop_sound_female = "mojave/sound/voices/female_02/s_", \
-								mumbleboop_sound_agender = "mojave/sound/voices/female_01/s_", \
+/datum/component/mumbleboop/Initialize(mob/living/target, mumbleboop_sound_override,
 								volume = MUMBLEBOOP_DEFAULT_VOLUME, \
 								duration = MUMBLEBOOP_DEFAULT_DURATION)
 	. = ..()
@@ -26,6 +24,7 @@
 	src.mumbleboop_sound_agender = mumbleboop_sound_agender
 	src.volume = volume
 	src.duration = duration
+	chosen_boop = target?.voice_type || random_voice_type(target?.gender)
 
 /datum/component/mumbleboop/RegisterWithParent()
 	. = ..()
@@ -44,15 +43,6 @@
 /datum/component/mumbleboop/proc/handle_booping(mob/mumblebooper, list/speech_args, list/speech_spans, list/speech_mods)
 	var/message = speech_args[SPEECH_MESSAGE]
 	var/initial_mumbleboop_time = last_mumbleboop
-	var/initial_mumbleboop_sound = mumbleboop_sound_override
-	if(!initial_mumbleboop_sound)
-		switch(mumblebooper.gender)
-			if(MALE)
-				initial_mumbleboop_sound = mumbleboop_sound_male
-			if(FEMALE)
-				initial_mumbleboop_sound = mumbleboop_sound_female
-			else
-				initial_mumbleboop_sound = mumbleboop_sound_agender
 	var/initial_volume = volume
 	var/initial_pitch = 0
 	var/initial_falloff = 7
@@ -145,11 +135,11 @@
 			if(".")
 				volume = 0
 				current_delay *= 2
-			if(" ", "'")
+
+			else
 				volume = 0
-			//else
-			//	pitch = 0
-		final_boop = "[initial_mumbleboop_sound][boop_letter].wav"
+
+		final_boop = "mojave/sound/voices/[chosen_boop]/s_[boop_letter].wav"
 		addtimer(CALLBACK(src, .proc/play_mumbleboop, hearers, mumblebooper, final_boop, volume, initial_mumbleboop_time), mumbleboop_delay_cumulative + current_delay, falloff_exponent)
 		mumbleboop_delay_cumulative += current_delay
 

@@ -1,3 +1,6 @@
+/mob/living
+	var/voice_type
+
 /// Wielding procs
 /mob/living/proc/wield_active_hand()
 	var/obj/item/active = get_active_held_item()

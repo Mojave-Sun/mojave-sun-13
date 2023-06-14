@@ -21,3 +21,28 @@
 		values[name] = final_icon
 
 	return values
+
+// Voices
+
+/datum/preference/choiced/voice_type
+	savefile_key = "voice_type"
+	savefile_identifier = PREFERENCE_CHARACTER
+	main_feature_name = "Voice type"
+	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+
+/proc/generate_possible_mumbleboops(datum/preferences/preferences)
+	var/gender = preferences.read_preference(/datum/preference/choiced/gender)
+	if(gender == MALE)
+		return GLOB.male_voice_type_list
+	if(gender == FEMALE)
+		return GLOB.female_voice_type_list
+	else
+		return GLOB.female_voice_type_list + GLOB.female_voice_type_list
+
+/datum/preference/choiced/voice_type/init_possible_values()
+ return generate_possible_mumbleboops(GLOB.male_voice_type_list)
+
+/datum/preference/choiced/voice_type/apply_to_human(mob/living/carbon/human/target, value)
+	target.voice_type = value
+
+
