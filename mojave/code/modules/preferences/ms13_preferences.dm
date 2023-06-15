@@ -44,10 +44,9 @@
 	return GLOB.male_voice_type_list
 
 /datum/preference/choiced/voice_type/apply_to_human(mob/living/carbon/human/target, value)
-	if(target.gender == MALE)
-		target.voice_type = value
-	else
-		return
+	if(target.gender == FEMALE)
+		return FALSE
+	target.voice_type = value
 
 // Female Voices
 
@@ -69,7 +68,6 @@
 	return GLOB.female_voice_type_list
 
 /datum/preference/choiced/voice_type_female/apply_to_human(mob/living/carbon/human/target, value)
-	if(target.gender == FEMALE)
-		target.voice_type = value
-	else
-		return
+	if(target.gender == MALE)
+		return FALSE
+	target.voice_type = value
