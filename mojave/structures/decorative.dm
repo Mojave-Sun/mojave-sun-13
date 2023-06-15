@@ -578,9 +578,9 @@
 /obj/structure/ms13/cave_decor/sign_left/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/scrap_wood(loc, 2)
+			new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc, 2)
 		else
-			new /obj/item/stack/sheet/ms13/scrap_wood(loc)
+			new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc)
 	qdel(src)
 
 /obj/structure/ms13/cave_decor/sign_left/sign_right
@@ -601,9 +601,9 @@
 /obj/structure/ms13/cave_decor/sign_left/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/plank(loc)
+			new /obj/item/stack/sheet/ms13/wood/plank(loc)
 		else
-			new /obj/item/stack/sheet/ms13/scrap_wood(loc)
+			new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc)
 	qdel(src)
 
 /obj/structure/ms13/cave_decor/boards/Initialize(mapload)
@@ -664,9 +664,9 @@
 /obj/structure/ms13/cave_decor/support/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/plank(loc, 4)
+			new /obj/item/stack/sheet/ms13/wood/plank(loc, 4)
 		else
-			new /obj/item/stack/sheet/ms13/scrap_wood(loc, 3)
+			new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc, 3)
 	qdel(src)
 
 /obj/structure/ms13/cave_decor/support/beams

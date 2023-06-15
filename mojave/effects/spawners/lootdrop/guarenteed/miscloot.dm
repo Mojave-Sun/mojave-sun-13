@@ -82,8 +82,8 @@
 /obj/effect/spawner/random/ms13/guaranteed/crafting/lowrandom
 	name = "low tier random crafting spawner"
 	loot = list(
-			/obj/item/stack/sheet/ms13/scrap_wood/two,
-			/obj/item/stack/sheet/ms13/plank,
+			/obj/item/stack/sheet/ms13/wood/scrap_wood/two,
+			/obj/item/stack/sheet/ms13/wood/plank,
 			/obj/item/stack/sheet/ms13/leather/two,
 			/obj/item/stack/sheet/ms13/thread/two,
 			/obj/item/stack/sheet/ms13/scrap_electronics/two,

@@ -84,7 +84,7 @@
 	desc = "An antique wooden chair with a small green cushion."
 	icon_state = "wood_chair"
 	item_chair = /obj/item/chair/ms13/wood
-	buildstacktype = /obj/item/stack/sheet/ms13/scrap_wood
+	buildstacktype = /obj/item/stack/sheet/ms13/wood/scrap_wood
 	buildstackamount = 1
 
 /obj/structure/chair/ms13/wood/padded
