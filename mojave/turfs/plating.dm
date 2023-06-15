@@ -1,13 +1,13 @@
 #define WALL_SMOOTHING SMOOTH_GROUP_MS13_SIDEWALK, SMOOTH_GROUP_MS13_WALL, SMOOTH_GROUP_MS13_WALL_METAL, SMOOTH_GROUP_MS13_WALL_WOOD, SMOOTH_GROUP_MS13_WALL_SCRAP, SMOOTH_GROUP_MS13_LOW_WALL,SMOOTH_GROUP_MS13_WALL_ADOBE, SMOOTH_GROUP_MS13_WALL_BRICK, SMOOTH_GROUP_MS13_WALL_REINFORCED, SMOOTH_GROUP_MS13_WINDOW, SMOOTH_GROUP_MS13_MINERALS
 #define DESERT_SMOOTHING SMOOTH_GROUP_MS13_DESERT, SMOOTH_GROUP_MS13_SIDEWALK, SMOOTH_GROUP_MS13_TILE, SMOOTH_GROUP_MS13_SNOW, SMOOTH_GROUP_MS13_ROAD, SMOOTH_GROUP_MS13_WATER
 #define GRASS_SPONTANEOUS 		2.5
-#define GRASS_WEIGHT 			2.5
+#define GRASS_WEIGHT 			2.4
 #define SHROOM_WEIGHT			5
 #define LUSH_PLANT_SPAWN_LIST list(/obj/structure/flora/ms13/tree/tallpine/snow = 7, /obj/structure/flora/ms13/forage/xander = 1, /obj/structure/flora/ms13/forage/brocflower = 1, /obj/structure/flora/ms13/forage/tarberry = 1, /obj/structure/flora/ms13/forage/blackberry = 1, /obj/structure/flora/ms13/forage/mutfruit = 1, /obj/structure/flora/ms13/forage/ashrose = 1, /obj/structure/flora/ms13/forage/wildcarrot = 1, /obj/structure/flora/ms13/forage/aster = 1)
 #define DESOLATE_PLANT_SPAWN_LIST list(/obj/structure/flora/grass/wasteland/snow = 10)
 #define MUSHROOM_SPAWN_LIST list(/obj/structure/flora/ms13/forage/mushroom = 5, /obj/structure/flora/ms13/forage/mushroom/glowing = 5, /obj/structure/flora/ms13/forage/brainshroom = 1, /obj/structure/flora/ms13/forage/fireshroom = 1,/obj/structure/flora/ms13/forage/gutshroom = 1, /obj/structure/flora/ms13/forage/lure = 1, /obj/structure/flora/ms13/forage/nara= 1)
-#define DESERT_LUSH_PLANT_SPAWN_LIST list(/obj/structure/flora/ms13/tree/drought/dead = 2, /obj/structure/flora/ms13/cactus = 2, /obj/structure/flora/ms13/cactus/tall = 2, /obj/structure/flora/ms13/leafy = 1.5, /obj/structure/ms13/turfdecor/drought = 4, /obj/structure/flora/ms13/forage/xander/drought = 1.5, /obj/structure/flora/ms13/forage/brocflower/drought = 1.5, /obj/structure/flora/ms13/forage/ashrose/drought = 1.5, /obj/structure/flora/ms13/forage/aster/drought = 1.5, /obj/structure/flora/ms13/forage/yucca = 1.5, /obj/structure/flora/ms13/forage/barrel_cactus = 2)
-#define DESERT_DESOLATE_PLANT_SPAWN_LIST list(/obj/structure/flora/grass/wasteland = 6, /obj/structure/flora/ms13/leafy = 1, /obj/structure/flora/ms13/cactus = 1)
+#define DESERT_LUSH_PLANT_SPAWN_LIST list(/obj/structure/flora/grass/wasteland = 2.5, /obj/structure/flora/ms13/tree/drought/dead = 2, /obj/structure/flora/ms13/cactus = 2.5, /obj/structure/flora/ms13/cactus/tall = 2.5, /obj/structure/flora/ms13/leafy = 2, /obj/structure/flora/ms13/forage/xander/drought = 1.5, /obj/structure/flora/ms13/forage/brocflower/drought = 1.5, /obj/structure/flora/ms13/forage/ashrose/drought = 1, /obj/structure/flora/ms13/forage/aster/drought = 1, /obj/structure/flora/ms13/forage/yucca = 1.5, /obj/structure/flora/ms13/forage/barrel_cactus = 2)
+#define DESERT_DESOLATE_PLANT_SPAWN_LIST list(/obj/structure/flora/grass/wasteland = 6, /obj/structure/flora/ms13/leafy = 1, /obj/structure/flora/ms13/cactus = 1, /obj/structure/flora/ms13/cactus/tall = 1)
 
 #define TURF_LAYER_SNOW 2.003
 #define TURF_LAYER_SNOW_BORDER 2.2

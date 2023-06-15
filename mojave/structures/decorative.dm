@@ -127,9 +127,9 @@
 //Turf Decor//
 
 /obj/structure/ms13/turfdecor
-	invisibility = INVISIBILITY_MAXIMUM
+	density = FALSE
 
-/obj/structure/ms13/turfdecor/drought
+/obj/structure/ms13/turfdecor/drought //this shit looks whack af right now
 	icon = 'mojave/icons/structure/turf_decor.dmi'
 	icon_state = "drought_1"
 
