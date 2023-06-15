@@ -90,4 +90,4 @@
 	return NONE
 
 /mob/living/proc/damage_armor(damage = 0, damage_flag = MELEE, damage_type = BRUTE, sharpness = NONE, def_zone = BODY_ZONE_CHEST)
-	return FALSE
+	return damage
