@@ -9,15 +9,12 @@
 	var/duration = MUMBLEBOOP_DEFAULT_DURATION // Affects how fast the next phonetic will play, affects general speech speed.
 	var/last_mumbleboop = 0
 
-/datum/component/mumbleboop/Initialize(mob/living/target,
-								volume = MUMBLEBOOP_DEFAULT_VOLUME, \
-								duration = MUMBLEBOOP_DEFAULT_DURATION)
+/datum/component/mumbleboop/Initialize(mob/living/target, volume = MUMBLEBOOP_DEFAULT_VOLUME, duration = MUMBLEBOOP_DEFAULT_DURATION)
 	. = ..()
 	if(!ismob(parent))
 		return COMPONENT_INCOMPATIBLE
 	src.volume = volume
 	src.duration = duration
-	chosen_boop = target?.voice_type || random_voice_type(target?.gender)
 
 /datum/component/mumbleboop/RegisterWithParent()
 	. = ..()
@@ -33,7 +30,8 @@
 	last_mumbleboop = world.time
 	INVOKE_ASYNC(src, .proc/handle_booping, mumblebooper, speech_args, speech_spans, speech_mods)
 
-/datum/component/mumbleboop/proc/handle_booping(mob/mumblebooper, list/speech_args, list/speech_spans, list/speech_mods)
+/datum/component/mumbleboop/proc/handle_booping(mob/living/mumblebooper, list/speech_args, list/speech_spans, list/speech_mods)
+	chosen_boop = mumblebooper?.voice_type || random_voice_type(mumblebooper?.gender) // Uses the boop chosen by the player. If it's null for whatever unholy reason, it should chose a completely random voice for every single phonetic which should be funny.
 	var/message = speech_args[SPEECH_MESSAGE]
 	var/initial_mumbleboop_time = last_mumbleboop
 	var/initial_volume = volume
@@ -131,6 +129,7 @@
 
 			else // This is to avoid any special characters not covered doing some weird stuff. Things like the ' symbol would duplicate the last played phonetic ~3 times. Sounded weird.
 				volume = 0
+				current_delay -= 1
 
 		final_boop = "mojave/sound/voices/[chosen_boop]/s_[boop_letter].wav"
 		addtimer(CALLBACK(src, .proc/play_mumbleboop, hearers, mumblebooper, final_boop, volume, initial_mumbleboop_time), mumbleboop_delay_cumulative + current_delay, falloff_exponent)
