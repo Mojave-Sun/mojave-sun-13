@@ -7,7 +7,7 @@
 	density = FALSE
 	anchored = TRUE
 	resistance_flags = UNACIDABLE | FIRE_PROOF | LAVA_PROOF
-	armor = list(MELEE = 45, BULLET = 90, LASER = 90, ENERGY = 90, BOMB = 0, BIO = 100, FIRE = 100, ACID = 100)
+	armor = list(MELEE = 20, BULLET = 90, LASER = 90, ENERGY = 90, BOMB = 0, BIO = 100, FIRE = 100, ACID = 100)
 	hitted_sound = 'sound/effects/break_stone.ogg'
 	var/deposit_type = null
 	var/last_act = 0
@@ -16,7 +16,7 @@
 //Ore deposit mining process
 
 /obj/structure/ms13/ore_deposit/attackby(obj/item/W, mob/user)
-	src.mining_bonus_damage = W.force * W.mining_mult 
+	src.mining_bonus_damage = W.force * W.mining_mult
 	W.force += mining_bonus_damage
 	. = ..()
 	W.force -= mining_bonus_damage
@@ -28,7 +28,7 @@
 /obj/structure/ms13/ore_deposit/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(!disassembled)
-			new deposit_type(src.loc, rand(2,6))
+			new deposit_type(src.loc, rand(2,5))
 	qdel(src)
 
 //deposits
@@ -37,7 +37,7 @@
 
 /obj/structure/ms13/ore_deposit/Initialize()
 	. = ..()
-	max_integrity = rand(340, 490)
+	max_integrity = rand(380, 525)
 
 /obj/structure/ms13/ore_deposit/copper
 	name = "copper ore deposit"
@@ -219,9 +219,8 @@
 //Deposit generation
 
 //currently not spawning in uranium deposits as there is no use for them
-#define DEPOSIT_SPAWN_LIST list(/obj/structure/ms13/ore_deposit/gold = 1, /obj/structure/ms13/ore_deposit/silver = 2, /obj/structure/ms13/ore_deposit/alu = 6, /obj/structure/ms13/ore_deposit/lead = 6, /obj/structure/ms13/ore_deposit/copper = 5, /obj/structure/ms13/ore_deposit/coal = 5, /obj/structure/ms13/ore_deposit/iron = 3)
-#define DEPOSIT_SPONTANEOUS 		4
-#define DEPOSIT_WEIGHT			2
+#define DEPOSIT_SPAWN_LIST list(/obj/structure/ms13/ore_deposit/gold = 1, /obj/structure/ms13/ore_deposit/silver = 3, /obj/structure/ms13/ore_deposit/alu = 4, /obj/structure/ms13/ore_deposit/lead = 5, /obj/structure/ms13/ore_deposit/copper = 5, /obj/structure/ms13/ore_deposit/coal = 4, /obj/structure/ms13/ore_deposit/iron = 4, /obj/structure/ms13/ore_deposit/zinc = 4) //The total sum of this right now is 30, so finding prob is X/30. If you change these numbers please update this comment.
+#define DEPOSIT_SPAWN_CHANCE	2.5
 
 /turf/open/floor/plating/ms13/ground/mountain/Initialize()
 	. = ..()
@@ -229,7 +228,7 @@
 	//spontaneously spawn deposits
 	if( (locate(/obj/machinery) in src) || (locate(/obj/structure) in src) ) //can't put ores on a tile that has already has stuff
 		return
-	if(prob(DEPOSIT_SPONTANEOUS))
+	if(prob(DEPOSIT_SPAWN_CHANCE))
 		randDeposit = pick_weight(DEPOSIT_SPAWN_LIST) //Create a new deposit object at this location, and assign var
 		new randDeposit(src)
 		. = TRUE //in case we ever need this to return if we spawned
@@ -240,7 +239,7 @@
 	var/randDeposit = null
 	if( (locate(/obj/machinery) in src) || (locate(/obj/structure) in src) )
 		return
-	if(prob(DEPOSIT_SPONTANEOUS))
+	if(prob(DEPOSIT_SPAWN_CHANCE))
 		randDeposit = pick_weight(DEPOSIT_SPAWN_LIST)
 		new randDeposit(src)
 		. = TRUE

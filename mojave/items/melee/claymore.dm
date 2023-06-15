@@ -38,6 +38,7 @@
 	toolspeed = 2
 	grid_width = 64
 	grid_height = 96
+	mining_mult = -0.65
 
 /obj/item/claymore/ms13/machete/gladius
 	name = "machete gladius"
@@ -146,6 +147,7 @@
 	throwforce = 10
 	grid_width = 64
 	grid_height = 128
+	mining_mult = -0.65
 	var/on = FALSE
 
 /obj/item/claymore/ms13/machete/shishkebab/attack_self(mob/user)
