@@ -38,7 +38,8 @@
 			/obj/item/shovel/ms13/spade,
 			/obj/item/shovel/ms13/snow,
 			/obj/item/shovel/ms13/rake,
-			/obj/item/ms13/brick
+			/obj/item/ms13/brick,
+			/obj/item/pickaxe/ms13
 			)
 
 /obj/effect/spawner/random/ms13/guaranteed/tools/lights

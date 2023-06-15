@@ -3,7 +3,6 @@
 	desc = "Full of valuable errors to sell to coders!"
 	icon = 'mojave/icons/structure/deposits.dmi'
 	icon_state = ""
-	max_integrity = 400
 	density = FALSE
 	anchored = TRUE
 	resistance_flags = UNACIDABLE | FIRE_PROOF | LAVA_PROOF
@@ -38,6 +37,7 @@
 /obj/structure/ms13/ore_deposit/Initialize()
 	. = ..()
 	max_integrity = rand(380, 525)
+	atom_integrity = max_integrity
 
 /obj/structure/ms13/ore_deposit/copper
 	name = "copper ore deposit"
