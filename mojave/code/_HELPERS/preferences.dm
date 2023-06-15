@@ -169,10 +169,14 @@ GLOBAL_LIST_INIT(male_voice_type_list, sort_list(list(
 	"male_02",
 	"male_03",
 	"male_04",
+	"male_05",
+	"male_06",
+	"male_07",
 	)))
 
 GLOBAL_LIST_INIT(female_voice_type_list, sort_list(list(
 	"female_01",
 	"female_02",
+	"female_03",
 	)))
 

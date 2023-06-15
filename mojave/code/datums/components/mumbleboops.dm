@@ -1,27 +1,20 @@
 #define MAX_MUMBLEBOOP_CHARACTERS 30
 
 // This system was ported from Concordia and modified
-
+// Pseudo-Voice system. Vaguely TTS without being actual reliable TTS and hopefully avoiding the shortcomings of TTS.
+// Gives nice ambience for when people is talking but is GENERALLY useless for information
 /datum/component/mumbleboop
-	var/mumbleboop_sound_override
-	var/mumbleboop_sound_male = "mojave/sound/voices/male_1/s_"
-	var/mumbleboop_sound_female = "mojave/sound/voices/female_01/s_"
-	var/mumbleboop_sound_agender = "mojave/sound/voices/depreciated_neutral_01/vowel_agender_"
-	var/chosen_boop
+	var/chosen_boop // The voice type assigned by preferences
 	var/volume = MUMBLEBOOP_DEFAULT_VOLUME
-	var/duration = MUMBLEBOOP_DEFAULT_DURATION
+	var/duration = MUMBLEBOOP_DEFAULT_DURATION // Affects how fast the next phonetic will play, affects general speech speed.
 	var/last_mumbleboop = 0
 
-/datum/component/mumbleboop/Initialize(mob/living/target, mumbleboop_sound_override,
+/datum/component/mumbleboop/Initialize(mob/living/target,
 								volume = MUMBLEBOOP_DEFAULT_VOLUME, \
 								duration = MUMBLEBOOP_DEFAULT_DURATION)
 	. = ..()
 	if(!ismob(parent))
 		return COMPONENT_INCOMPATIBLE
-	src.mumbleboop_sound_override = mumbleboop_sound_override
-	src.mumbleboop_sound_male = mumbleboop_sound_male
-	src.mumbleboop_sound_female = mumbleboop_sound_female
-	src.mumbleboop_sound_agender = mumbleboop_sound_agender
 	src.volume = volume
 	src.duration = duration
 	chosen_boop = target?.voice_type || random_voice_type(target?.gender)
@@ -44,22 +37,22 @@
 	var/message = speech_args[SPEECH_MESSAGE]
 	var/initial_mumbleboop_time = last_mumbleboop
 	var/initial_volume = volume
-	var/initial_pitch = 0
+	var/initial_pitch = 0 // We shouldn't use this probably. Actual Pitch variation won't be possible until the BYOND update, this stuff SUCKS. It's basically just play speed. Evidence of this will be left below, but it's not applied to the final sound.
 	var/initial_falloff = 7
 	var/boop_letter = null
 	var/final_boop = null
-	if(speech_mods[WHISPER_MODE])
+	if(speech_mods[WHISPER_MODE]) // Makes you quieter when whispering...
 		initial_volume -= 40
 		initial_falloff -= 5
-	else if(speech_spans[SPAN_YELL])
+	else if(speech_spans[SPAN_YELL]) // And louder when yelling
 		initial_volume += 30
 		initial_pitch += 5
 		initial_falloff += 3
 	var/obj/item/clothing/mask/mask = mumblebooper.get_item_by_slot(ITEM_SLOT_MASK)
-	if(istype(mask) && mask.lowers_pitch && !mask.mask_adjusted)
+	if(istype(mask) && mask.lowers_pitch && !mask.mask_adjusted) // Helps muffle a little bit
 		initial_pitch -= 10
 	var/initial_delay = duration
-	var/list/hearers = GLOB.player_list.Copy()
+	var/list/hearers = GLOB.player_list.Copy() 	// This stuff is for people that don't want to hear it
 	for(var/mob/hearer as anything in hearers)
 		if(hearer.client && hearer.can_hear() && hearer.client.prefs.read_preference(/datum/preference/toggle/enable_mumbleboops))
 			continue
@@ -70,7 +63,7 @@
 		//var/pitch = initial_pitch Disabled for now. Doesn't work as intended- seemingly anything above default is dumb sounding
 		var/falloff_exponent = initial_falloff
 		var/current_delay = initial_delay
-		switch(lowertext(message[i]))
+		switch(lowertext(message[i])) // A super convoluted list of checks, I know. I doubt there's a better way to do it.
 			if("a")
 				boop_letter = "A"
 			if("b")
@@ -136,7 +129,7 @@
 				volume = 0
 				current_delay *= 2
 
-			else
+			else // This is to avoid any special characters not covered doing some weird stuff. Things like the ' symbol would duplicate the last played phonetic ~3 times. Sounded weird.
 				volume = 0
 
 		final_boop = "mojave/sound/voices/[chosen_boop]/s_[boop_letter].wav"

@@ -22,7 +22,7 @@
 
 	return values
 
-// Voices
+// Male Voices
 
 /datum/preference/choiced/voice_type
 	savefile_key = "voice_type"
@@ -30,19 +30,45 @@
 	main_feature_name = "Voice type"
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 
-/proc/generate_possible_mumbleboops(datum/preferences/preferences)
+/datum/preference/choiced/voice_type/is_accessible(datum/preferences/preferences)
+	. = ..()
 	var/gender = preferences.read_preference(/datum/preference/choiced/gender)
-	if(gender == MALE)
-		return GLOB.male_voice_type_list
 	if(gender == FEMALE)
-		return GLOB.female_voice_type_list
+		return FALSE
 	else
-		return GLOB.female_voice_type_list + GLOB.female_voice_type_list
+		return TRUE
 
 /datum/preference/choiced/voice_type/init_possible_values()
- return generate_possible_mumbleboops(GLOB.male_voice_type_list)
+	return GLOB.male_voice_type_list
 
 /datum/preference/choiced/voice_type/apply_to_human(mob/living/carbon/human/target, value)
-	target.voice_type = value
+	if(target.gender == MALE)
+		target.voice_type = value
+	else
+		return
 
+// Female Voices ---- We actually need to split these up because using the proc that gets possible selections actually DOESN'T UPDATE ON THE FLY, and thus putting this into a singular action... currently isn't possible. awesome, TG.
+// Luckily you don't really notice anything jarring in-game but... If you're here.... YOU KNOW...
 
+/datum/preference/choiced/voice_type_female
+	savefile_key = "voice_type_female"
+	savefile_identifier = PREFERENCE_CHARACTER
+	main_feature_name = "Voice type"
+	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+
+/datum/preference/choiced/voice_type_female/is_accessible(datum/preferences/preferences)
+	. = ..()
+	var/gender = preferences.read_preference(/datum/preference/choiced/gender)
+	if(gender == FEMALE)
+		return TRUE
+	else
+		return FALSE
+
+/datum/preference/choiced/voice_type_female/init_possible_values()
+	return GLOB.female_voice_type_list
+
+/datum/preference/choiced/voice_type_female/apply_to_human(mob/living/carbon/human/target, value)
+	if(target.gender == FEMALE)
+		target.voice_type = value
+	else
+		return
