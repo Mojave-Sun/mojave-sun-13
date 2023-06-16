@@ -3,6 +3,8 @@
 	name = "power armor part"
 	desc = ""
 	icon = 'mojave/icons/objects/pa_items.dmi'
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/general_pickup.ogg'
+	drop_sound = 'mojave/sound/ms13effects/impact/metal/metal_hollow_2.wav'
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0,  FIRE = 0, ACID = 0, WOUND = 0)
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
 					EDGE_PROTECTION = 0, \
@@ -76,13 +78,14 @@
 		user.visible_message(
 			span_notice("[user] begins patching up the [src] with [I]."),
 			span_notice("You begin restoring the [src]..."))
+		playsound(src, 'mojave/sound/ms13effects/crafting/welding-2.ogg', 45, TRUE)
 		if(!I.use_tool(src, user, 1.5 SECONDS, volume=0, amount=1))
 			return
 		user.visible_message(
 			span_notice("[user] fixes up [src]!"),
 			span_notice("You mend the damage of [src]."))
 		atom_integrity += 15
-		playsound(src, 'mojave/sound/ms13effects/crafting/welding-4.ogg', 45, TRUE)
+		playsound(src, 'mojave/sound/ms13effects/crafting/welding-3.ogg', 45, TRUE)
 		update_appearance()
 		return ..()
 

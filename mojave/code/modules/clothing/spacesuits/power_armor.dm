@@ -344,6 +344,7 @@
 		if(module_armor[PA.zone])
 			to_chat(user, span_warning("This module power armor is already in power armor!"))
 			return
+		playsound(src, 'mojave/sound/ms13effects/crafting/wrenchturn.ogg', 25, TRUE)
 		if(do_after(user, 5 SECONDS, target = user) && user.transferItemToLoc(I, src))
 			module_armor[PA.zone] = PA
 			if(PA.zone == BODY_ZONE_HEAD)
@@ -357,6 +358,7 @@
 					continue
 				var/obj/item/ms13/pa_module/PA_m = PA.modules[k]
 				PA_m.added_to_pa()
+			playsound(src, 'mojave/sound/ms13effects/crafting/wrenchthreeturn.ogg', 25, TRUE)
 			to_chat(user, span_notice("You successfully install \the [PA] into [src]."))
 		return
 	else if(I.tool_behaviour == TOOL_WRENCH)
@@ -398,10 +400,10 @@
 				PA_m.removed_from_pa()
 			to_chat(user, span_notice("You successfully uninstall \the [PA] into [src]."))
 	else if(I.tool_behaviour == TOOL_WELDER)
-		//var/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/PA
-		//for(var/obj/item/ms13/power_armor/parts as anything in PA.module_armor)
-		//	if(parts)
-		//		return
+		for(var/i in module_armor)
+			if(!isnull(module_armor[i]))
+				to_chat(user, span_notice("You need to remove all armour from the [src]."))
+				return
 		if(!(atom_integrity <= max_integrity - 10))
 			to_chat(user, span_warning("The [src] doesn't need repairs."))
 			return
@@ -410,14 +412,16 @@
 		user.visible_message(
 			span_notice("[user] begins patching up the [src] with [I]."),
 			span_notice("You begin restoring the [src]..."))
+		playsound(src, 'mojave/sound/ms13effects/crafting/welding-2.ogg', 45, TRUE)
 		if(!I.use_tool(src, user, 1.5 SECONDS, volume=0, amount=1))
 			return
 		user.visible_message(
 			span_notice("[user] fixes up the [src]!"),
 			span_notice("You mend the damage of the [src]."))
-		atom_integrity += 10
-		playsound(src, 'mojave/sound/ms13effects/crafting/welding-4.ogg', 45, TRUE)
+		atom_integrity += 25
+		playsound(src, 'mojave/sound/ms13effects/crafting/welding-3.ogg', 45, TRUE)
 		update_appearance()
+		update_overlays()
 		return ..()
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration, def_zone = BODY_ZONE_CHEST)
@@ -497,6 +501,7 @@
 	ADD_TRAIT(user, TRAIT_NOSLIPALL, "power_armor")
 	ADD_TRAIT(user, TRAIT_STUNIMMUNE, "power_armor")
 	ADD_TRAIT(user, TRAIT_NOMOBSWAP, "power_armor")
+	ADD_TRAIT(user, TRAIT_PIERCEIMMUNE, "power_armor")
 	ADD_TRAIT(user, TRAIT_PUSHIMMUNE, "power_armor")
 	RegisterSignal(user, COMSIG_ATOM_CAN_BE_PULLED, .proc/reject_pulls)
 
@@ -514,6 +519,7 @@
 	REMOVE_TRAIT(user, TRAIT_NOSLIPALL, "power_armor")
 	REMOVE_TRAIT(user, TRAIT_STUNIMMUNE, "power_armor")
 	REMOVE_TRAIT(user, TRAIT_NOMOBSWAP, "power_armor")
+	REMOVE_TRAIT(user, TRAIT_PIERCEIMMUNE, "power_armor")
 	REMOVE_TRAIT(user, TRAIT_PUSHIMMUNE, "power_armor")
 	UnregisterSignal(user, COMSIG_ATOM_CAN_BE_PULLED)
 
