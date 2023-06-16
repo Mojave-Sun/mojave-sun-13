@@ -383,7 +383,7 @@
 		/obj/item/stack/sheet/ms13/scrap_lead/five = list(25, rand(4,6)),
 		/obj/item/stack/sheet/ms13/scrap_brass/five = list(25, rand(4,6)),
 		/obj/item/stack/sheet/ms13/scrap_alu/five = list(25, rand(4,6)),
-		/obj/item/stack/sheet/ms13/plank/four = list(25, rand(3,5))
+		/obj/item/stack/sheet/ms13/wood/plank/four = list(25, rand(3,5))
 				)
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/tools/initial_wanteds()
@@ -392,7 +392,7 @@
 		/obj/item/stack/sheet/ms13/scrap = list(4, rand(5,30), ", per piece of scrap"),
 		/obj/item/stack/sheet/ms13/scrap_steel = list(4, rand(5,30), ", per piece of steel"),
 		/obj/item/stack/sheet/ms13/scrap_alu = list(4, rand(5,30), ", per piece of aluminum"),
-		/obj/item/stack/sheet/ms13/plank = list(5, rand(4,20), ", per plank"),
+		/obj/item/stack/sheet/ms13/wood/plank = list(5, rand(4,20), ", per plank"),
 		/obj/item/stack/sheet/ms13/scrap_copper = list(4, rand(5,30), ", per piece of copper wire"),
 		/obj/item/stack/sheet/ms13/scrap_gold = list(7, rand(5,25), ", per piece of gold"),
 		/obj/item/stack/sheet/ms13/scrap_silver = list(7, rand(5,25), ", per piece of silver"),
@@ -657,7 +657,7 @@
 		/obj/item/stack/sheet/ms13/scrap_lead/five = list(20, rand(3,6)),
 		/obj/item/stack/sheet/ms13/scrap_brass/five = list(20, rand(3,6)),
 		/obj/item/stack/sheet/ms13/scrap_alu/five = list(20, rand(3,6)),
-		/obj/item/stack/sheet/ms13/plank/four = list(20, rand(3,6))
+		/obj/item/stack/sheet/ms13/wood/plank/four = list(20, rand(3,6))
 				)
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/drought/crimson/initial_wanteds()
@@ -666,7 +666,7 @@
 		/obj/item/stack/sheet/ms13/scrap = list(3, rand(4,20), ", per piece of scrap"),
 		/obj/item/stack/sheet/ms13/scrap_steel = list(3, rand(4,20), ", per piece of steel"),
 		/obj/item/stack/sheet/ms13/scrap_alu = list(3, rand(4,20), ", per piece of aluminum"),
-		/obj/item/stack/sheet/ms13/plank = list(4, rand(2,15), ", per plank"),
+		/obj/item/stack/sheet/ms13/wood/plank = list(4, rand(2,15), ", per plank"),
 		/obj/item/stack/sheet/ms13/scrap_copper = list(3, rand(4,20), ", per piece of copper wire"),
 		/obj/item/stack/sheet/ms13/scrap_gold = list(8, rand(3,15), ", per piece of gold"),
 		/obj/item/stack/sheet/ms13/scrap_silver = list(6, rand(3,15), ", per piece of silver"),
@@ -836,7 +836,7 @@
 		/obj/item/food/ms13/prewar/boxed/snackcake = list(25, rand(1,3)),
 		/obj/item/stack/medical/ms13/healing_powder = list(35, rand(1,3)),
 		/obj/item/stack/sheet/ms13/scrap/five = list(20, rand(3,6)),
-		/obj/item/stack/sheet/ms13/scrap_wood/five = list(20, rand(3,6)),
+		/obj/item/stack/sheet/ms13/wood/scrap_wood/five = list(20, rand(3,6)),
 		/obj/item/stack/sheet/ms13/scrap_parts/five = list(20, rand(3,6)),
 		/obj/item/stack/sheet/ms13/cloth/five = list(20, rand(3,6)),
 		/obj/item/stack/sheet/ms13/leather/five = list(20, rand(3,6)),
@@ -857,7 +857,9 @@
 		/obj/item/ammo_box/ms13/a357box = list(190, rand(0,2)),
 		/obj/item/ammo_box/ms13/a308 = list(240, rand(0,1)),
 		/obj/item/ammo_box/ms13/a762 = list(240, rand(0,2)),
-		/obj/item/ammo_box/ms13/shotgun/buckshot = list(175, rand(0,3))
+		/obj/item/ammo_box/ms13/shotgun/buckshot = list(175, rand(0,3)),
+		/obj/item/ms13/component/gunpowder = list(70, rand(0,3)),
+		/obj/item/ms13/component/gunpowder/lq = list(30, rand(1,4))
 				)
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/drought/general_goods/initial_wanteds()
@@ -870,8 +872,6 @@
 		/obj/item/stack/sheet/ms13/scrap_silver = list(6, rand(3,15), ", per piece of silver"),
 		/obj/item/stack/sheet/ms13/refined_gold = list(50, rand(1,5), ", per ingot of gold"),
 		/obj/item/stack/sheet/ms13/refined_silver = list(40, rand(1,5), ", per ingot of silver"),
-		/obj/item/ms13/component/gunpowder/lq = list(30, rand(0,4), ""),
-		/obj/item/ms13/component/gunpowder = list(75, rand(0,2), ""),
 		/obj/item/stack/sheet/ms13/scrap_lead = list(3, rand(3,15), ", per piece of lead"),
 		/obj/item/stack/sheet/ms13/scrap_brass = list(3, rand(3,15), ", per piece of brass"),
 		/obj/item/food/meat/slab/ms13/animal/gecko/golden = list(6, rand(1,6)),

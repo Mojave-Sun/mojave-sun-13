@@ -218,6 +218,7 @@ Primarily used in reagents/reaction_agents
 /// Called when an overdose starts
 /datum/reagent/proc/overdose_start(mob/living/M)
 	to_chat(M, span_userdanger("You feel like you took too much of [name]!"))
+	M.throw_alert_text(/atom/movable/screen/alert/text/cry, "You think you're overdosing!", override = FALSE)
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "[type]_overdose", /datum/mood_event/overdose, name)
 	return
 

@@ -440,6 +440,26 @@ if (!Array.prototype['forEach']) {
 </script>
 
 <style>
+html, body{
+  cursor: url("default_mousepointer.ico"), auto;
+}
+
+.Button, .Tabs, .TitleBar__close {
+  cursor: url("drag_mousepointer.ico"), pointer;
+}
+
+.Knob, .NumberInput, .Window__resizeHandle__s {
+  cursor: url("n-resize_mousepointer.ico"), s-resize;
+}
+
+.Window__resizeHandle__e {
+  cursor: url("e-resize_mousepointer.ico"), e-resize;
+}
+
+.Window__resizeHandle__se {
+  cursor: url("se-resize_mousepointer.ico"), se-resize;
+}
+
 .FatalError {
   display: none;
   position: absolute;

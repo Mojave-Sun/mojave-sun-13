@@ -2,6 +2,24 @@
 	name = "base class MS13 vending machine"
 	desc = "Alert a coder/mapper if you see this."
 	icon = 'mojave/icons/structure/vending.dmi'
+	circuit = null
+	light_power = 0
+	active = 0
+
+/obj/machinery/vending/ms13/can_vend(user, silent)
+	return FALSE
+
+/obj/machinery/vending/ms13/vend(list/params, list/greyscale_colors)
+	return
+
+/obj/machinery/vending/ms13/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		new /obj/item/stack/sheet/ms13/scrap_steel(loc, 1)
+		new /obj/item/stack/sheet/ms13/scrap_alu(loc, 2)
+		new /obj/item/stack/sheet/ms13/scrap_alu(loc, 2)
+	for(var/obj/item/I in src)
+		I.forceMove(loc)
+	qdel(src)
 
 /obj/machinery/vending/ms13/nuka
 	name = "Nuka Cola vending machine"

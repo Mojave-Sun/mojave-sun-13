@@ -524,11 +524,6 @@ SUBSYSTEM_DEF(job)
 
 	if(player_client)
 		to_chat(player_client, "<span class='infoplain'><b>As the [job.title] you answer directly to [job.supervisors]. Special circumstances may change this.</b></span>")
-		// MS13 EDIT BEGIN //
-		to_chat(player_client, "<FONT color='blue'><B>[job.description]</b>")
-		to_chat(player_client, "<FONT color='red'><b>[job.forbid]</b>")
-		to_chat(player_client, "<FONT color='green'><b>[job.enforce]</b>")
-		// MS13 EDIT END //
 	job.radio_help_message(equipping)
 
 	if(player_client)

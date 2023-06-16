@@ -7,6 +7,11 @@
 <meta http-equiv="Cache-Control" content="max-age=15; must-revalidate" />
 <link id="goonStyle" rel="stylesheet" type="text/css" href="browserOutput_white.css" media="all" />
 <style>
+
+	html {
+		cursor: url("default_mousepointer.ico"), auto;
+	}
+
 	body {
 		font-family: Verdana, Geneva, Tahoma, sans-serif;
 		font-size: 12px !important;
@@ -14,6 +19,7 @@
 		padding: 0 !important;
 		overflow-x: hidden;
 		overflow-y: scroll;
+		cursor: url("default_mousepointer.ico"), auto;
 	}
 
 	body.dark {
@@ -45,7 +51,8 @@
 
 	a {
 		color: black;
-		text-decoration: none
+		text-decoration: none;
+		cursor: url("drag_mousepointer.ico"), pointer;
 	}
 
 	.dark a {
@@ -73,6 +80,7 @@
 		text-align: center;
 		padding: 14px 16px;
 		text-decoration: none;
+		cursor: url("drag_mousepointer.ico"), pointer;
 	}
 
 	li a:hover:not(.active) {
@@ -99,7 +107,7 @@
 		text-decoration: none;
 		font-size: 12px;
 		margin: 0;
-		cursor: pointer;
+		cursor: url("drag_mousepointer.ico"), pointer;
 		transition-duration: 100ms;
 		order: 3;
 		min-width: 40px;
@@ -209,7 +217,7 @@
 		padding: 7px 14px;
 		color: black;
 		text-decoration: none;
-		cursor: pointer;
+		cursor: url("drag_mousepointer.ico"), pointer;
 		font-size: 13px;
 		margin: 2px 2px;
 	}

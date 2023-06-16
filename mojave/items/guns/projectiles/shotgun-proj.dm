@@ -33,6 +33,6 @@
 	icon_state = "slug"
 	name = "12g slug"
 	damage = 45
-	armour_penetration = 15
+	subtractible_armour_penetration = 20
 	wound_bonus = -5
 	speed = 0.75

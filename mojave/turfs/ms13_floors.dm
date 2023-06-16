@@ -492,7 +492,10 @@
 	if(!istype(M))
 		return
 
-	if(prob(30))
+	for(var/obj/structure/lattice/catwalk/C in get_turf(M))
+		return
+
+	if(prob(30) && M.m_intent == MOVE_INTENT_RUN && M.body_position != LYING_DOWN)
 		M.slip(5, M.loc, GALOSHES_DONT_HELP, 0, FALSE)
 		playsound(M, 'sound/effects/bang.ogg', 10, 1)
 		to_chat(usr, "<span class='warning'>You trip on the pipes!</span>")

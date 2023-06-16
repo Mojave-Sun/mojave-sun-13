@@ -14,6 +14,15 @@
 //// Brotherhood Area Access ////
 
 // General Brotherhood access
-#define ACCESS_BROTHERHOOD 4
+#define ACCESS_BROTHERHOOD 6
 // Head Paladin's personal quarters
-#define ACCESS_BROTHERHOOD_HPALADIN 5
+#define ACCESS_BROTHERHOOD_HPALADIN 7
+
+//// Drought Barony Area Access ////
+
+// Head Paladin's personal quarters
+#define ACCESS_BARON_QUARTERS 8
+// Enforcer restricted points
+#define ACCESS_BARONY_RESTRICTED 9
+// Doctor's storage/general
+#define ACCESS_BARONY_DOCTOR 10

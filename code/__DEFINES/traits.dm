@@ -858,4 +858,6 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 #define TRAIT_LEGION_SMITHING "legion_smithing" //Trait for Legion Blacksmith to make Legion weapon recipes
 
+#define TRAIT_DRY_SHAMAN "drylander_shaman" //Trait for the Drylander Shaman to make ammo
+
 // MOJAVE JOB TRAITS END
