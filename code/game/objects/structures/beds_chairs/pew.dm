@@ -5,7 +5,7 @@
 	icon_state = "pewmiddle"
 	resistance_flags = FLAMMABLE
 	max_integrity = 70
-	buildstacktype = /obj/item/stack/sheet/ms13/scrap_wood //MOJAVE EDIT - Makes it drop our scrap wood instead of TG wood. Revert after CAT
+	buildstacktype = /obj/item/stack/sheet/ms13/wood/scrap_wood //MOJAVE EDIT - Makes it drop our scrap wood instead of TG wood. Revert after CAT
 	buildstackamount = 1 //MOJAVE EDIT - Original value is 3. Revert after CAT
 	item_chair = null
 

@@ -161,7 +161,7 @@
 	if(do_after(user, 8 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
 		user.show_message(span_notice("You disassemble \the [src] into scrap and parts."), MSG_VISUAL)
 		new /obj/item/stack/sheet/ms13/cloth(loc, 3)
-		new /obj/item/stack/sheet/ms13/scrap_wood(loc, 2)
+		new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc, 2)
 		qdel(src)
 
 /obj/item/ms13/fluff/trifoldflag/examine(mob/user)

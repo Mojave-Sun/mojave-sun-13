@@ -375,7 +375,7 @@
 	icon = 'mojave/icons/turf/walls/woodfresh.dmi'
 	frill_icon = 'mojave/icons/turf/walls/woodfresh_frill.dmi'
 	girder_type = null
-	sheet_type = /obj/item/stack/sheet/ms13/log
+	sheet_type = /obj/item/stack/sheet/ms13/wood/log
 	sheet_amount = 2
 	slicing_duration = 30 SECONDS
 
