@@ -26,6 +26,7 @@
 	log_pickup_and_drop = TRUE
 	grid_width = 64
 	grid_height = 32
+	mining_mult = -0.75
 
 /obj/item/knife/ms13/Initialize()
 	. = ..()

@@ -156,3 +156,27 @@ GLOBAL_LIST_INIT(underwear_colors, sort_list(list(
 			. = "#555555"
 		if("White")
 			. = "#FFFFFF"
+
+/proc/random_voice_type(gender)
+	switch(gender)
+		if(MALE)
+			return pick(GLOB.male_voice_type_list)
+		if(FEMALE)
+			return pick(GLOB.female_voice_type_list)
+
+GLOBAL_LIST_INIT(male_voice_type_list, sort_list(list(
+	"male_01",
+	"male_02",
+	"male_03",
+	"male_04",
+	"male_05",
+	"male_06",
+	"male_07",
+	)))
+
+GLOBAL_LIST_INIT(female_voice_type_list, sort_list(list(
+	"female_01",
+	"female_02",
+	"female_03",
+	)))
+

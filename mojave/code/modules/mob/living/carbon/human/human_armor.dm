@@ -74,6 +74,20 @@
 	return protection
 
 /mob/living/carbon/human/damage_armor(damage = 0, damage_flag = MELEE, damage_type = BRUTE, sharpness = NONE, def_zone = BODY_ZONE_CHEST)
+	//We need to convert attack flags into actually useful subarmor variables
+	var/static/list/conversion_table = list(MELEE, BULLET)
+	if(damage_flag in conversion_table)
+		damage_flag = CRUSHING
+		if(sharpness & SHARP_IMPALING)
+			damage_flag = IMPALING
+		else if(sharpness & SHARP_POINTY)
+			damage_flag = PIERCING
+		else if(sharpness & SHARP_EDGED)
+			damage_flag = CUTTING
+
+	if(wear_suit && istype(wear_suit, /obj/item/clothing/suit/space/hardsuit/ms13/power_armor))
+		return wear_suit.take_damage(damage, damage_type, damage_flag, 0, def_zone = def_zone)
+
 	var/obj/item/bodypart/affecting
 	if(def_zone)
 		if(isbodypart(def_zone))
@@ -82,11 +96,11 @@
 			affecting = get_bodypart(check_zone(def_zone))
 
 	if(!affecting)
-		return FALSE
+		return damage
 
 	var/list/clothings = clothingonpart(affecting)
 	for(var/obj/item/clothing/clothing as anything in clothings)
 		if(clothing.take_damage_zone(def_zone, damage, damage_flag, damage_type, sharpness, 100))
-			return TRUE
+			return damage
 
-	return FALSE
+	return damage

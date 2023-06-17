@@ -28,6 +28,7 @@
 	log_pickup_and_drop = TRUE
 	grid_width = 32
 	grid_height = 64
+	mining_mult = 0.75
 
 /obj/item/ms13/hammer/Initialize()
 	. = ..()
@@ -60,6 +61,7 @@
 	log_pickup_and_drop = TRUE
 	grid_width = 96
 	grid_height = 32
+	mining_mult = -0.5
 
 /obj/item/ms13/handsaw/Initialize()
 	. = ..()
@@ -91,6 +93,7 @@
 	log_pickup_and_drop = TRUE
 	grid_width = 64
 	grid_height = 64
+	mining_mult = 1.2
 
 /obj/item/ms13/handdrill/Initialize()
 	. = ..()
@@ -305,6 +308,7 @@
 	slot_flags = ITEM_SLOT_BELT
 	grid_width = 64
 	grid_height = 64
+	mining_mult = -0.5
 
 /obj/item/shovel/ms13/snow
 	name = "snow shovel"
@@ -356,6 +360,7 @@
 	grid_height = 128
 	custom_materials = null
 	toolspeed = 1.5 //grim
+	mining_mult = 5
 
 /obj/item/knife/ms13/scissors
 	name = "scissors"
@@ -401,6 +406,7 @@
 	log_pickup_and_drop = TRUE
 	grid_width = 64
 	grid_height = 32
+	mining_mult = 0.75 //funny brick utility
 
 /obj/item/ms13/brick/Initialize()
 	. = ..()

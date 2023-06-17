@@ -42,7 +42,8 @@
 			/obj/item/shovel/ms13/spade,
 			/obj/item/ms13/twohanded/spear/throwing,
 			/obj/item/ms13/twohanded/hammer/rebar,
-			/obj/item/weldingtool/ms13
+			/obj/item/weldingtool/ms13,
+			/obj/item/pickaxe/ms13
 			)
 
 /obj/effect/spawner/random/ms13/guaranteed/melee/tier3

@@ -45,7 +45,8 @@
 			/obj/item/knife/ms13/scissors,
 			/obj/item/lighter/ms13/zippo,
 			/obj/item/reagent_containers/ms13/lighterfluid,
-			/obj/item/storage/box/matches/ms13
+			/obj/item/storage/box/matches/ms13,
+			/obj/item/pickaxe/ms13
 			)
 
 /obj/effect/spawner/random/ms13/tools/lights
@@ -94,8 +95,8 @@
 	name = "low tier random crafting spawner"
 	spawn_loot_chance = 65
 	loot = list(
-			/obj/item/stack/sheet/ms13/scrap_wood/two,
-			/obj/item/stack/sheet/ms13/plank,
+			/obj/item/stack/sheet/ms13/wood/scrap_wood/two,
+			/obj/item/stack/sheet/ms13/wood/plank,
 			/obj/item/stack/sheet/ms13/leather/two,
 			/obj/item/stack/sheet/ms13/thread/two,
 			/obj/item/stack/sheet/ms13/scrap_electronics/two,
