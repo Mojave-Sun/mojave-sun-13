@@ -6,7 +6,7 @@
 /datum/component/mumbleboop
 	var/chosen_boop // The voice type assigned by preferences
 	var/volume = MUMBLEBOOP_DEFAULT_VOLUME
-	var/falloff = 4.5
+	var/falloff = 7
 	var/duration = MUMBLEBOOP_DEFAULT_DURATION // Affects how fast the next phonetic will play, affects general speech speed.
 	var/last_mumbleboop = 0
 
@@ -41,7 +41,7 @@
 	var/boop_letter = null
 	var/final_boop = null
 	if(speech_mods[WHISPER_MODE]) // Makes you quieter when whispering...
-		initial_volume -= 25
+		initial_volume -= 30
 		initial_falloff -= 5
 	else if(speech_spans[SPAN_YELL]) // And louder when yelling
 		initial_volume += 15
