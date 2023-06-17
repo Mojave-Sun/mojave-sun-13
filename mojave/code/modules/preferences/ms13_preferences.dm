@@ -21,3 +21,55 @@
 		values[name] = final_icon
 
 	return values
+
+// Male Voices ---- We actually need to split these up because using the proc that gets possible selections actually DOESN'T UPDATE ON THE FLY, and thus putting this into a singular action... currently isn't possible. awesome, TG.
+// Luckily you don't really notice anything jarring in-game but... If you're here.... YOU KNOW...
+
+/datum/preference/choiced/voice_type
+	savefile_key = "voice_type"
+	savefile_identifier = PREFERENCE_CHARACTER
+	main_feature_name = "Voice type"
+	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	priority = PREFERENCE_PRIORITY_NAME_MODIFICATIONS
+
+/datum/preference/choiced/voice_type/is_accessible(datum/preferences/preferences)
+	. = ..()
+	var/gender = preferences.read_preference(/datum/preference/choiced/gender)
+	if(gender == MALE)
+		return TRUE
+	else
+		return FALSE
+
+
+/datum/preference/choiced/voice_type/init_possible_values()
+	return GLOB.male_voice_type_list
+
+/datum/preference/choiced/voice_type/apply_to_human(mob/living/carbon/human/target, value)
+	if(target.gender == FEMALE)
+		return
+	target.voice_type = value
+
+// Female Voices
+
+/datum/preference/choiced/voice_type_female
+	savefile_key = "voice_type_female"
+	savefile_identifier = PREFERENCE_CHARACTER
+	main_feature_name = "Voice type"
+	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	priority = PREFERENCE_PRIORITY_NAME_MODIFICATIONS
+
+/datum/preference/choiced/voice_type_female/is_accessible(datum/preferences/preferences)
+	. = ..()
+	var/gender = preferences.read_preference(/datum/preference/choiced/gender)
+	if(gender == FEMALE)
+		return TRUE
+	else
+		return FALSE
+
+/datum/preference/choiced/voice_type_female/init_possible_values()
+	return GLOB.female_voice_type_list
+
+/datum/preference/choiced/voice_type_female/apply_to_human(mob/living/carbon/human/target, value)
+	if(target.gender == MALE)
+		return
+	target.voice_type = value

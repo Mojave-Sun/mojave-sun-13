@@ -81,7 +81,10 @@
 	/* #define SPEECH_IGNORE_SPAM 6
 	#define SPEECH_FORCED 7 */
 	#define SPEECH_RANGE 8
-
+// MOJAVE SUN EDIT BEGIN
+///from /mob/living/say(): ()
+#define COMSIG_MOB_POST_SAY "mob_post_say"
+// MOJAVE SUN EDIT END
 ///from /mob/say_dead(): (mob/speaker, message)
 #define COMSIG_MOB_DEADSAY "mob_deadsay"
 	#define MOB_DEADSAY_SIGNAL_INTERCEPT (1<<0)
