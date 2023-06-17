@@ -33,7 +33,7 @@
 	suit = null
 	. = ..()
 
-/obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration, def_zone)
+/obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir, subtractible_armour_penetration, def_zone)
 	if(!uses_integrity)
 		CRASH("[src] had /atom/proc/take_damage() called on it without it being a type that has uses_integrity = TRUE!")
 	if(QDELETED(src))
@@ -44,10 +44,10 @@
 		play_attack_sound(damage_amount, damage_type, damage_flag)
 	if(resistance_flags & INDESTRUCTIBLE)
 		return
-	damage_amount = run_atom_subarmor(damage_amount, damage_type, damage_flag, attack_dir, armour_penetration)
+	damage_amount = run_atom_subarmor(damage_amount, damage_type, damage_flag, attack_dir, subtractible_armour_penetration)
 	if(damage_amount < DAMAGE_PRECISION)
 		return
-	if(SEND_SIGNAL(src, COMSIG_ATOM_TAKE_DAMAGE, damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration) & COMPONENT_NO_TAKE_DAMAGE)
+	if(SEND_SIGNAL(src, COMSIG_ATOM_TAKE_DAMAGE, damage_amount, damage_type, damage_flag, sound_effect, attack_dir, subtractible_armour_penetration) & COMPONENT_NO_TAKE_DAMAGE)
 		return
 
 	. = damage_amount
@@ -135,7 +135,7 @@
 	anchored = TRUE
 	strip_delay = 15 SECONDS
 	integrity_failure = 0.5
-	max_integrity = 500
+	max_integrity = 525
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0,  FIRE = 0, ACID = 0, WOUND = 0)
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
@@ -145,7 +145,7 @@
 					PIERCING = CLASS2_PIERCE, \
 					IMPALING = CLASS2_STAB, \
 					LASER = CLASS2_LASER, \
-					ENERGY = CLASS2_PLASMA, \
+					ENERGY = CLASS1_PLASMA, \
 					FIRE = CLASS2_FIRE)
 
 	var/list/module_armor = list(
@@ -424,7 +424,7 @@
 		update_overlays()
 		return ..()
 
-/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration, def_zone = BODY_ZONE_CHEST)
+/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir, subtractible_armour_penetration, def_zone = BODY_ZONE_CHEST)
 	if(!uses_integrity)
 		CRASH("[src] had /atom/proc/take_damage() called on it without it being a type that has uses_integrity = TRUE!")
 	if(QDELETED(src))
@@ -441,14 +441,14 @@
 
 	if(def_zone == BODY_ZONE_HEAD)
 		if(helmet && helmet.get_integrity() > 0)
-			var/damage_to_human = - (helmet.get_integrity() - helmet.take_damage(damage_amount, damage_type, damage_flag, null, attack_dir, armour_penetration, def_zone))
+			var/damage_to_human = - (helmet.get_integrity() - helmet.take_damage(damage_amount, damage_type, damage_flag, null, attack_dir, subtractible_armour_penetration, def_zone))
 			return max(0, damage_to_human)
 		else
 			return damage_amount
 
 	var/obj/item/ms13/power_armor/PA_item = module_armor[def_zone]
 	if(istype(PA_item) && PA_item.get_integrity() > 0)
-		var/damage_to_frame = - (PA_item.get_integrity() - PA_item.take_damage(damage_amount, damage_type, damage_flag, null, attack_dir, armour_penetration, def_zone))
+		var/damage_to_frame = - (PA_item.get_integrity() - PA_item.take_damage(damage_amount, damage_type, damage_flag, null, attack_dir, subtractible_armour_penetration, def_zone))
 		if(damage_to_frame <= 0)
 			return 0
 		damage_amount = damage_to_frame
@@ -456,10 +456,10 @@
 	if(atom_integrity <= 0)
 		return damage_amount
 
-	damage_amount = run_atom_subarmor(damage_amount, damage_type, damage_flag, attack_dir, armour_penetration)
+	damage_amount = run_atom_subarmor(damage_amount, damage_type, damage_flag, attack_dir, subtractible_armour_penetration)
 	if(damage_amount < DAMAGE_PRECISION)
 		return
-	if(SEND_SIGNAL(src, COMSIG_ATOM_TAKE_DAMAGE, damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration) & COMPONENT_NO_TAKE_DAMAGE)
+	if(SEND_SIGNAL(src, COMSIG_ATOM_TAKE_DAMAGE, damage_amount, damage_type, damage_flag, sound_effect, attack_dir, subtractible_armour_penetration) & COMPONENT_NO_TAKE_DAMAGE)
 		return
 
 	. = max(damage_amount - atom_integrity, 0)
@@ -627,12 +627,13 @@
 	light_range = 4.20
 	light_power = 0.9
 	light_color = "#d1c58d"
+	max_integrity = 380
 	radiotype = /obj/item/radio/headset/ms13/powerarmor/t51
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = CLASS4_EDGE, \
                 CRUSHING = CLASS5_CRUSH, \
                 CUTTING = CLASS5_CUT, \
-                PIERCING = CLASS5_PIERCE, \
+                PIERCING = CLASS4_PIERCE, \
                 IMPALING = CLASS5_STAB, \
                 LASER = CLASS5_LASER, \
                 ENERGY = CLASS4_PLASMA, \
@@ -661,12 +662,13 @@
 	light_range = 4
 	light_power = 0.8
 	light_color = "#dabc7c"
+	max_integrity = 300
 	radiotype = /obj/item/radio/headset/ms13/powerarmor/t45
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = CLASS4_EDGE, \
-                CRUSHING = CLASS5_CRUSH, \
+                CRUSHING = CLASS4_CRUSH, \
                 CUTTING = CLASS5_CUT, \
-                PIERCING = CLASS5_PIERCE, \
+                PIERCING = CLASS4_PIERCE, \
                 IMPALING = CLASS5_STAB, \
                 LASER = CLASS4_LASER, \
                 ENERGY = CLASS3_PLASMA, \
@@ -726,7 +728,7 @@
 		L[i] = part.chance
 		qdel(part)
 
-	L["None"] = 50
+	L["None"] = 60
 	var/item = pick_weight(L)
 	if(item != "None")
 		module_armor[BODY_ZONE_HEAD] = item
@@ -737,7 +739,7 @@
 		L[i] = part.chance
 		qdel(part)
 
-	L["None"] = 50
+	L["None"] = 60
 	item = pick_weight(L)
 	if(item != "None")
 		module_armor[BODY_ZONE_L_LEG] = item
@@ -748,7 +750,7 @@
 		L[i] = part.chance
 		qdel(part)
 
-	L["None"] = 50
+	L["None"] = 60
 	item = pick_weight(L)
 	if(item != "None")
 		module_armor[BODY_ZONE_R_LEG] = item
@@ -759,7 +761,7 @@
 		L[i] = part.chance
 		qdel(part)
 
-	L["None"] = 50
+	L["None"] = 60
 	item = pick_weight(L)
 	if(item != "None")
 		module_armor[BODY_ZONE_CHEST] = item
@@ -770,7 +772,7 @@
 		L[i] = part.chance
 		qdel(part)
 
-	L["None"] = 50
+	L["None"] = 60
 	item = pick_weight(L)
 	if(item != "None")
 		module_armor[BODY_ZONE_L_ARM] = item
@@ -781,7 +783,7 @@
 		L[i] = part.chance
 		qdel(part)
 
-	L["None"] = 50
+	L["None"] = 60
 	item = pick_weight(L)
 	if(item != "None")
 		module_armor[BODY_ZONE_R_ARM] = item
@@ -790,32 +792,32 @@
 	. = ..()
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/proc/random_type()
-	var/list/L = list(module_armor[BODY_ZONE_HEAD] = 5, "None" = 5)
+	var/list/L = list(module_armor[BODY_ZONE_HEAD] = 7, "None" = 3)
 	var/item = pick_weight(L)
 	if(item == "None")
 		module_armor[BODY_ZONE_HEAD] = null
 
-	L  = list(module_armor[BODY_ZONE_CHEST] = 5, "None" = 5)
+	L  = list(module_armor[BODY_ZONE_CHEST] = 7, "None" = 3)
 	item = pick_weight(L)
 	if(item == "None")
 		module_armor[BODY_ZONE_CHEST] = null
 
-	L = list(module_armor[BODY_ZONE_L_ARM] = 5, "None" = 5)
+	L = list(module_armor[BODY_ZONE_L_ARM] = 7, "None" = 3)
 	item = pick_weight(L)
 	if(item == "None")
 		module_armor[BODY_ZONE_L_ARM] = null
 
-	L = list(module_armor[BODY_ZONE_R_ARM] = 5, "None" = 5)
+	L = list(module_armor[BODY_ZONE_R_ARM] = 7, "None" = 3)
 	item = pick_weight(L)
 	if(item == "None")
 		module_armor[BODY_ZONE_R_ARM] = null
 
-	L = list(module_armor[BODY_ZONE_L_LEG] = 5, "None" = 5)
+	L = list(module_armor[BODY_ZONE_L_LEG] = 7, "None" = 3)
 	item = pick_weight(L)
 	if(item == "None")
 		module_armor[BODY_ZONE_L_LEG] = null
 
-	L = list(module_armor[BODY_ZONE_R_LEG] = 5, "None" = 5)
+	L = list(module_armor[BODY_ZONE_R_LEG] = 7, "None" = 3)
 	item = pick_weight(L)
 	if(item == "None")
 		module_armor[BODY_ZONE_R_LEG] = null
