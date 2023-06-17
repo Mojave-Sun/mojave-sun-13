@@ -19,7 +19,7 @@
 
 /obj/item/restraints/handcuffs/ms13/rope/Initialize()
 	. = ..()
-	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/crafting/materials_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/crafting/rope_inventory.dmi') //fix post merge
 	update_icon_state()
 
 /obj/item/restraints/legcuffs/bola/ms13
