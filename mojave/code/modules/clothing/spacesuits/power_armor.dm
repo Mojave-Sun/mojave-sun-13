@@ -502,6 +502,7 @@
 	ADD_TRAIT(user, TRAIT_STUNIMMUNE, "power_armor")
 	ADD_TRAIT(user, TRAIT_NOMOBSWAP, "power_armor")
 	ADD_TRAIT(user, TRAIT_PIERCEIMMUNE, "power_armor")
+	ADD_TRAIT(user, TRAIT_QUICKER_CARRY, "power_armor")
 	ADD_TRAIT(user, TRAIT_PUSHIMMUNE, "power_armor")
 	RegisterSignal(user, COMSIG_ATOM_CAN_BE_PULLED, .proc/reject_pulls)
 
@@ -520,6 +521,7 @@
 	REMOVE_TRAIT(user, TRAIT_STUNIMMUNE, "power_armor")
 	REMOVE_TRAIT(user, TRAIT_NOMOBSWAP, "power_armor")
 	REMOVE_TRAIT(user, TRAIT_PIERCEIMMUNE, "power_armor")
+	REMOVE_TRAIT(user, TRAIT_QUICKER_CARRY, "power_armor")
 	REMOVE_TRAIT(user, TRAIT_PUSHIMMUNE, "power_armor")
 	UnregisterSignal(user, COMSIG_ATOM_CAN_BE_PULLED)
 

@@ -24,10 +24,6 @@
 	var/zone = null
 	var/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/frame = null
 
-/obj/item/ms13/power_armor/ComponentInitialize()
-	. = ..()
-	AddComponent(/datum/component/two_handed, require_twohands=TRUE)
-
 /obj/item/ms13/power_armor/attackby(obj/item/I, mob/living/user, params)
 	if(I.tool_behaviour == TOOL_SCREWDRIVER)
 		var/list/radial_options = list()
@@ -171,9 +167,6 @@
 	name = "Helmet power armor"
 	zone = BODY_ZONE_HEAD
 	var/type_helmet = null
-
-/obj/item/ms13/power_armor/head/ComponentInitialize()
-	return
 
 //T-51 SET
 /obj/item/ms13/power_armor/leg/left/t51

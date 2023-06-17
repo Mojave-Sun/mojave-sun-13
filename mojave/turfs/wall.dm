@@ -140,7 +140,7 @@
 	name = "sided wall"
 	desc = ""
 	icon = 'mojave/icons/turf/walls/drought/siding_red.dmi'
-	frill_icon = 'mojave/icons/turf/walls/drought/siding_red.dmi'
+	frill_icon = 'mojave/icons/turf/walls/drought/siding_red_frill.dmi'
 
 /turf/closed/wall/ms13/siding/red/Initialize()
 	. = ..()
