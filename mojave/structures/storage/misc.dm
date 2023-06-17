@@ -119,8 +119,8 @@
 	qdel(src)
 
 /obj/structure/ms13/pa_jack
-	name = "power armor jack"
-	desc = "A heavy duty jack used to stabilize and lift the incredibly hefty power armours in order to modify and repair them."
+	name = "power armor hoist"
+	desc = "A heavy duty hoist used to stabilize and lift the incredibly hefty power armours in order to modify and repair them."
 	icon = 'mojave/icons/objects/workbench.dmi'
 	icon_state = "station"
 	pixel_y = -16
@@ -136,18 +136,22 @@
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
 		return
 	if(!obj_connected)
-		obj_connected = locate(/obj/item/clothing/suit/space/hardsuit/ms13/power_armor) in loc
-		if(istype(obj_connected))
-			var/icon/chains = new(icon, "chains")
-			add_overlay(chains)
-			obj_connected.link_to = src
-			to_chat(user, span_notice("You connect the power armor to the [src]!"))
-			return TRUE
-		obj_connected = null
+		playsound(src, 'mojave/sound/ms13effects/chain_jostle.ogg', 25, TRUE)
+		if(do_after(user, 4 SECONDS, interaction_key = DOAFTER_SOURCE_PAHOIST))
+			obj_connected = locate(/obj/item/clothing/suit/space/hardsuit/ms13/power_armor) in loc
+			if(istype(obj_connected))
+				var/icon/chains = new(icon, "chains")
+				add_overlay(chains)
+				obj_connected.link_to = src
+				to_chat(user, span_notice("You connect the power armor to the [src]!"))
+				return TRUE
+			obj_connected = null
 	else
-		cut_overlays()
-		obj_connected.link_to = null
-		obj_connected = null
-		to_chat(user, span_notice("You disconnect the power armor to the [src]!"))
-		return TRUE
+		playsound(src, 'mojave/sound/ms13effects/chain_jostle.ogg', 25, TRUE)
+		if(do_after(user, 4 SECONDS, interaction_key = DOAFTER_SOURCE_PAHOIST))
+			cut_overlays()
+			obj_connected.link_to = null
+			obj_connected = null
+			to_chat(user, span_notice("You disconnect the power armor to the [src]!"))
+			return TRUE
 	return FALSE

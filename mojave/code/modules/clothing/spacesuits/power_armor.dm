@@ -359,7 +359,7 @@
 				var/obj/item/ms13/pa_module/PA_m = PA.modules[k]
 				PA_m.added_to_pa()
 			playsound(src, 'mojave/sound/ms13effects/crafting/wrenchthreeturn.ogg', 25, TRUE)
-			to_chat(user, span_notice("You successfully install \the [PA] into [src]."))
+			to_chat(user, span_notice("You successfully install \the [PA] onto the [src]."))
 		return
 	else if(I.tool_behaviour == TOOL_WRENCH)
 		if(!link_to)
@@ -380,13 +380,13 @@
 			return
 
 		var/radial_result = part_to_zone[show_radial_menu(user, src, radial_options, require_near = TRUE, tooltips = TRUE)]
-		var/hand = user.get_empty_held_index_for_side(LEFT_HANDS) || user.get_empty_held_index_for_side(RIGHT_HANDS)
+		//var/hand = user.get_empty_held_index_for_side(LEFT_HANDS) || user.get_empty_held_index_for_side(RIGHT_HANDS) // Heavy ahhh armour. Just put it on the ground now fow now
 		playsound(src, 'mojave/sound/ms13effects/crafting/wrenchthreeturn.ogg', 25, TRUE)
 		if(radial_result && do_after(user, 5 SECONDS, user))
 			playsound(src, 'mojave/sound/ms13effects/crafting/wrenchturn.ogg', 25, TRUE)
 			var/obj/item/ms13/power_armor/PA = module_armor[radial_result]
-			if(!user.put_in_hand(PA, hand))
-				PA.forceMove(user.loc)
+			//if(!user.put_in_hand(PA, hand))
+			PA.forceMove(user.loc)
 			module_armor[radial_result] = null
 			if(radial_result == BODY_ZONE_HEAD)
 				helmettype = null
@@ -398,7 +398,7 @@
 					continue
 				var/obj/item/ms13/pa_module/PA_m = PA.modules[k]
 				PA_m.removed_from_pa()
-			to_chat(user, span_notice("You successfully uninstall \the [PA] into [src]."))
+			to_chat(user, span_notice("You successfully uninstall [PA] from the [src]."))
 	else if(I.tool_behaviour == TOOL_WELDER)
 		for(var/i in module_armor)
 			if(!isnull(module_armor[i]))
