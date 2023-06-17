@@ -17,6 +17,7 @@
 					FIRE = 0)
 	uses_integrity = TRUE
 	max_integrity = 100
+	throw_range = 3 //heavy LOL!
 	var/icon_state_pa
 	var/chance = 0 //Weight for pick
 	var/list/modules = list(MAIN_MODULE_PA = null, PASSIVE_MODULE_PA = null)
@@ -144,6 +145,9 @@
 
 /obj/item/ms13/power_armor/leg
 	name = "Leg power armor"
+	w_class = WEIGHT_CLASS_BULKY
+	grid_height = 128
+	grid_width = 96
 
 /obj/item/ms13/power_armor/leg/left
 	name = "power armor"
@@ -155,6 +159,9 @@
 
 /obj/item/ms13/power_armor/arm
 	name = "Arm power armor"
+	w_class = WEIGHT_CLASS_BULKY
+	grid_height = 128
+	grid_width = 96
 
 /obj/item/ms13/power_armor/arm/left
 	name = "Left arm power armor"
@@ -167,10 +174,17 @@
 /obj/item/ms13/power_armor/chest
 	name = "Chest power armor"
 	zone = BODY_ZONE_CHEST
+	w_class = WEIGHT_CLASS_HUGE
+	grid_height = 256
+	grid_width = 256
+
 /obj/item/ms13/power_armor/head
 	name = "Helmet power armor"
 	zone = BODY_ZONE_HEAD
 	var/type_helmet = null
+	w_class = WEIGHT_CLASS_BULKY
+	grid_height = 96
+	grid_width = 96
 
 /obj/item/ms13/power_armor/head/ComponentInitialize()
 	return
@@ -225,7 +239,7 @@
 	chance = 25
 
 /obj/item/ms13/power_armor/arm/left/t51
-	name = "T51 Power Armor left arm"
+	name = "T-51 Power Armor left arm"
 	icon_state = "t51_lefthand"
 	icon_state_pa = "t51_lefthand"
 	max_integrity = 280
@@ -241,7 +255,7 @@
 	chance = 35
 
 /obj/item/ms13/power_armor/arm/right/t51
-	name = "T51 Power Armor right arm"
+	name = "T-51 Power Armor right arm"
 	icon_state = "t51_righthand"
 	icon_state_pa = "t51_righthand"
 	max_integrity = 280
