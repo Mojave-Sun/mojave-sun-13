@@ -47,7 +47,7 @@
 
 /obj/structure/bonfire/ms13/campfire/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
-		new /obj/item/stack/sheet/ms13/scrap_wood(loc, 2)
+		new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc, 2)
 	qdel(src)
 
 

@@ -179,6 +179,23 @@
 /obj/effect/landmark/start/ms13/town_enforcer
 	name = "Town Enforcer"
 
+// Drylander Spawns //
+
+/obj/effect/landmark/start/ms13/dry_chief
+	name = "Drylander Chieftain"
+
+/obj/effect/landmark/start/ms13/dry_headtaker
+	name = "Drylander Headtaker"
+
+/obj/effect/landmark/start/ms13/dry_shaman
+	name = "Drylander Shaman"
+
+/obj/effect/landmark/start/ms13/dry_hunter
+	name = "Drylander Hunter"
+
+/obj/effect/landmark/start/ms13/dryfolk
+	name = "Drylander Folk"
+
 // Combat Test Spawns //
 
 /obj/effect/landmark/start/ms13/bluegang

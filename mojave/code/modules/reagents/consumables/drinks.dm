@@ -18,7 +18,7 @@
 	if(reac_volume >= 5)
 		exposed_turf.MakeSlippery(TURF_WET_WATER, 10 SECONDS, min(reac_volume*1.5 SECONDS, 60 SECONDS))
 	exposed_turf.wash(clean_types)
-	
+
 	for(var/mob/living/simple_animal/slime/exposed_slime in exposed_turf)
 		exposed_slime.apply_water()
 
@@ -45,10 +45,10 @@
 	glass_name = "glass of murky liquid"
 	glass_desc = "A murky green liquid with a pungeant vile smell. Not so sure about this one."
 
-/datum/reagent/consumable/ms13/dirty_water/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
-	M.adjust_disgust(10)
+/datum/reagent/consumable/ms13/water/dirty/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
+	M.adjust_disgust(5)
 	if(prob(50))
-		M.adjustToxLoss(5)
+		M.adjustToxLoss(1.5)
 
 	if(prob(10))
 		M.vomit(lost_nutrition = 25, distance = 1, purge_ratio = 0.2)

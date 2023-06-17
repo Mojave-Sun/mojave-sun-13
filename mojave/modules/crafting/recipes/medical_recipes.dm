@@ -59,7 +59,7 @@
 	time = 10 SECONDS
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/cloth = 2,
-				/obj/item/stack/sheet/ms13/plank = 2)
+				/obj/item/stack/sheet/ms13/wood/plank = 2)
 	category = CAT_MEDICAL
 	crafting_interface = CRAFTING_BENCH_GENERAL
 

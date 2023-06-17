@@ -22,7 +22,7 @@
 	reqs = list(/obj/item/stack/sheet/ms13/cloth = 3,
 				/obj/item/stack/sheet/ms13/scrap_steel = 6,
 				/obj/item/stack/sheet/ms13/scrap = 6,
-				/obj/item/stack/sheet/ms13/plank = 2)
+				/obj/item/stack/sheet/ms13/wood/plank = 2)
 	category = CAT_WEAPONS
 	crafting_interface = CRAFTING_BENCH_WEAPONS
 
@@ -44,7 +44,7 @@
 	time = 12 SECONDS
 	tool_behaviors = list(TOOL_SAW)
 	tool_paths = list(/obj/item/ms13/hammer)
-	reqs = list(/obj/item/stack/sheet/ms13/scrap_wood = 3,
+	reqs = list(/obj/item/stack/sheet/ms13/wood/scrap_wood = 3,
 				/obj/item/stack/sheet/ms13/cloth = 3,
 				/obj/item/stack/sheet/ms13/scrap = 6,
 				/obj/item/stack/sheet/ms13/scrap_steel = 6)
@@ -131,7 +131,7 @@
 	reqs = list(/obj/item/stack/sheet/ms13/cloth = 2,
 				/obj/item/stack/sheet/ms13/scrap_steel = 5,
 				/obj/item/stack/sheet/ms13/scrap = 5,
-				/obj/item/stack/sheet/ms13/plank = 2)
+				/obj/item/stack/sheet/ms13/wood/plank = 2)
 	category = CAT_WEAPONS
 	crafting_interface = CRAFTING_BENCH_WEAPONS
 
@@ -155,7 +155,7 @@
 	tool_behaviors = list(TOOL_SAW)
 	tool_paths = list(/obj/item/ms13/hammer)
 	trait = TRAIT_LEGION_SMITHING
-	reqs = list(/obj/item/stack/sheet/ms13/scrap_wood = 2,
+	reqs = list(/obj/item/stack/sheet/ms13/wood/scrap_wood = 2,
 				/obj/item/stack/sheet/ms13/cloth = 2,
 				/obj/item/stack/sheet/ms13/scrap = 5,
 				/obj/item/stack/sheet/ms13/scrap_steel = 5)

@@ -7,6 +7,7 @@
 	icon_state = "stanlas_rifle"
 	inhand_icon_state = "stanlas_rifle"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/lasrifle/las_rifle_1.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/laser_rifle.ogg'
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/stan_rifle)
 	cell_type = /obj/item/stock_parts/cell/ms13/mfc
 	w_class = WEIGHT_CLASS_HUGE
@@ -60,6 +61,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/lasrcw/rcw_5.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/rcw.ogg'
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/las_rcw)
 	cell_type = /obj/item/stock_parts/cell/ms13/ecp
 	fire_delay = 0.25 SECONDS
@@ -78,6 +80,7 @@
 	desc = "A modified laser rifle equipped with a special lens that spreads its bolts, often called a 'tri-beam'. You wouldn't believe why."
 	icon = 'mojave/icons/objects/guns/guns_world.dmi'
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/tribeam/tribeam_1.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/tribeam.ogg'
 	icon_state = "lasershotgun"
 	base_icon_state = "lasershotgun"
 	inhand_icon_state = "lasershotgun"
@@ -100,6 +103,7 @@
 	base_icon_state = "enclaveplasma"
 	inhand_icon_state = "enclaveplasma"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/plasrifle/plasma_3.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/plasma_3.ogg'
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/plasma/plas_rifle)
 	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
@@ -134,6 +138,7 @@
 	base_icon_state = "multiplas"
 	inhand_icon_state = "multiplas"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/plasrifle/plasma_1.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/plasma_1.ogg'
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/plasma/scatter)
 	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY

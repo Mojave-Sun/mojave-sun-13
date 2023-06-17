@@ -1184,7 +1184,14 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				if(!disable_warning)
 					to_chat(H, span_warning("The [I.name] is too big to attach!")) //should be src?
 				return FALSE
-			if( istype(I, /obj/item/gun)) // MOJAVE SUN EDIT | ORIGINAL IS "if( istype(I, /obj/item/pda) || istype(I, /obj/item/pen) || is_type_in_list(I, H.wear_suit.allowed) )" || This is so we can rebrand the """"""suit slot""""""" into a gun sling spot
+			// MOJAVE SUN EDIT BEGIN
+			if(istype(I, /obj/item/ms13/twohanded))
+				var/obj/item/ms13/twohanded/W = I
+				if(!W.stowable)
+					return FALSE
+				return TRUE
+			// MOJAVE SUN EDIT END
+			if(istype(I, /obj/item/gun)) // MOJAVE SUN EDIT | ORIGINAL IS "if( istype(I, /obj/item/pda) || istype(I, /obj/item/pen) || is_type_in_list(I, H.wear_suit.allowed) )" || This is so we can rebrand the """"""suit slot""""""" into a gun sling spot
 				return TRUE
 			return FALSE
 		if(ITEM_SLOT_HANDCUFFED)
@@ -1389,7 +1396,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			target.apply_damage(damage*1.5, user.dna.species.attack_type, affecting, armor_block, attack_direction = attack_direction)
 			*/
 			//MOJAVE EDIT BEGIN
-			target.apply_damage(damage*1.5, \
+			var/no_defended = target.damage_armor(damage, MELEE, user.dna.species.attack_type, def_zone = user.zone_selected)
+			target.apply_damage(no_defended*1.5, \
 								user.dna.species.attack_type, \
 								affecting, \
 								armor_block, \
@@ -1404,7 +1412,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			target.apply_damage(damage, user.dna.species.attack_type, affecting, armor_block, attack_direction = attack_direction)
 			*/
 			//MOJAVE EDIT BEGIN
-			target.apply_damage(damage, \
+			var/no_defended = target.damage_armor(damage, MELEE, user.dna.species.attack_type, def_zone = user.zone_selected)
+			target.apply_damage(no_defended, \
 								user.dna.species.attack_type, \
 								affecting, \
 								armor_block, \
@@ -1413,7 +1422,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 								edge_protection = edge_protection, \
 								subarmor_flags = subarmor_flags)
 			//MOJAVE EDIT END
-			target.apply_damage(damage*1.5, STAMINA, affecting, armor_block)
+			target.apply_damage(no_defended*1.5, STAMINA, affecting, armor_block)
 			log_combat(user, target, "punched")
 
 		if((target.stat != DEAD) && damage >= user.dna.species.punchstunthreshold)
@@ -1519,7 +1528,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	apply_damage(I.force * weakness, I.damtype, def_zone, armor_block, H, wound_bonus = Iwound_bonus, bare_wound_bonus = I.bare_wound_bonus, sharpness = I.get_sharpness(), attack_direction = attack_direction)
 	*/
 	//MOJAVE EDIT BEGIN
-	apply_damage(I.force * weakness, \
+	var/no_defended = H.damage_armor(I.force * weakness, MELEE, I.damtype, def_zone = def_zone)
+	apply_damage(no_defended, \
 				I.damtype, \
 				def_zone, \
 				armor_block, \

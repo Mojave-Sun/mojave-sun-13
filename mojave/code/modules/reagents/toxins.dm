@@ -1,5 +1,5 @@
 /datum/reagent/toxin/ms13
-	name = "generic MS13 chem"
+	name = "generic MS13 toxin"
 	description = "Don't breathe this in."
 	color = "#42330a"
 	taste_description = "burning chemical taste"

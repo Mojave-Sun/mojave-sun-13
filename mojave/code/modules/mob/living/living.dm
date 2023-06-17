@@ -1,5 +1,9 @@
 /mob/living
 	var/voice_type
+  
+/mob/living/Initialize(mapload)
+	. = ..()
+	update_nv()
 
 /// Wielding procs
 /mob/living/proc/wield_active_hand()
