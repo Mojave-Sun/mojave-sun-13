@@ -307,12 +307,12 @@
 /obj/examine(mob/user)
 	. = ..()
 	if(obj_flags & UNIQUE_RENAME)
-		 // MOJAVE SUN EDIT START - Descriptor Changes
+		// MOJAVE SUN EDIT START - Descriptor Changes
 		if(obj_flags & UNIQUE_RENAME_NO_DESCRIPTION)
 			. += span_notice("Use a pen on it to give it a custom name.")
 		else
 			. += span_notice("Use a pen on it to rename it or change its description.")
-		 // MOJAVE SUN EDIT END - Descriptor Changes
+		// MOJAVE SUN EDIT END - Descriptor Changes
 	if(unique_reskin && !current_skin)
 		. += span_notice("Alt-click it to reskin it.")
 
