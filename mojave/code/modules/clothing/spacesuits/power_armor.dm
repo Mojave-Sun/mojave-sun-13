@@ -726,7 +726,7 @@
 		L[i] = part.chance
 		qdel(part)
 
-	L["None"] = 50
+	L["None"] = 60
 	var/item = pick_weight(L)
 	if(item != "None")
 		module_armor[BODY_ZONE_HEAD] = item
@@ -737,7 +737,7 @@
 		L[i] = part.chance
 		qdel(part)
 
-	L["None"] = 50
+	L["None"] = 60
 	item = pick_weight(L)
 	if(item != "None")
 		module_armor[BODY_ZONE_L_LEG] = item
@@ -748,7 +748,7 @@
 		L[i] = part.chance
 		qdel(part)
 
-	L["None"] = 50
+	L["None"] = 60
 	item = pick_weight(L)
 	if(item != "None")
 		module_armor[BODY_ZONE_R_LEG] = item
@@ -759,7 +759,7 @@
 		L[i] = part.chance
 		qdel(part)
 
-	L["None"] = 50
+	L["None"] = 60
 	item = pick_weight(L)
 	if(item != "None")
 		module_armor[BODY_ZONE_CHEST] = item
@@ -770,7 +770,7 @@
 		L[i] = part.chance
 		qdel(part)
 
-	L["None"] = 50
+	L["None"] = 60
 	item = pick_weight(L)
 	if(item != "None")
 		module_armor[BODY_ZONE_L_ARM] = item
@@ -781,7 +781,7 @@
 		L[i] = part.chance
 		qdel(part)
 
-	L["None"] = 50
+	L["None"] = 60
 	item = pick_weight(L)
 	if(item != "None")
 		module_armor[BODY_ZONE_R_ARM] = item
@@ -790,32 +790,32 @@
 	. = ..()
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/proc/random_type()
-	var/list/L = list(module_armor[BODY_ZONE_HEAD] = 5, "None" = 5)
+	var/list/L = list(module_armor[BODY_ZONE_HEAD] = 7, "None" = 3)
 	var/item = pick_weight(L)
 	if(item == "None")
 		module_armor[BODY_ZONE_HEAD] = null
 
-	L  = list(module_armor[BODY_ZONE_CHEST] = 5, "None" = 5)
+	L  = list(module_armor[BODY_ZONE_CHEST] = 7, "None" = 3)
 	item = pick_weight(L)
 	if(item == "None")
 		module_armor[BODY_ZONE_CHEST] = null
 
-	L = list(module_armor[BODY_ZONE_L_ARM] = 5, "None" = 5)
+	L = list(module_armor[BODY_ZONE_L_ARM] = 7, "None" = 3)
 	item = pick_weight(L)
 	if(item == "None")
 		module_armor[BODY_ZONE_L_ARM] = null
 
-	L = list(module_armor[BODY_ZONE_R_ARM] = 5, "None" = 5)
+	L = list(module_armor[BODY_ZONE_R_ARM] = 7, "None" = 3)
 	item = pick_weight(L)
 	if(item == "None")
 		module_armor[BODY_ZONE_R_ARM] = null
 
-	L = list(module_armor[BODY_ZONE_L_LEG] = 5, "None" = 5)
+	L = list(module_armor[BODY_ZONE_L_LEG] = 7, "None" = 3)
 	item = pick_weight(L)
 	if(item == "None")
 		module_armor[BODY_ZONE_L_LEG] = null
 
-	L = list(module_armor[BODY_ZONE_R_LEG] = 5, "None" = 5)
+	L = list(module_armor[BODY_ZONE_R_LEG] = 7, "None" = 3)
 	item = pick_weight(L)
 	if(item == "None")
 		module_armor[BODY_ZONE_R_LEG] = null

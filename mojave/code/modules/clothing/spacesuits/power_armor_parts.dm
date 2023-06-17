@@ -190,7 +190,7 @@
 					LASER = CLASS5_LASER, \
 					ENERGY = CLASS4_PLASMA, \
 					FIRE = CLASS5_FIRE)
-	chance = 20
+	chance = 35
 
 /obj/item/ms13/power_armor/leg/right/t51
 	name = "T-51 Power Armor right leg"
@@ -206,7 +206,7 @@
 					LASER = CLASS5_LASER, \
 					ENERGY = CLASS4_PLASMA, \
 					FIRE = CLASS5_FIRE)
-	chance = 20
+	chance = 35
 
 /obj/item/ms13/power_armor/chest/t51
 	name = "T-51 Power Armor chest"
@@ -222,7 +222,7 @@
 					LASER = CLASS5_LASER, \
 					ENERGY = CLASS4_PLASMA, \
 					FIRE = CLASS5_FIRE)
-	chance = 20
+	chance = 25
 
 /obj/item/ms13/power_armor/arm/left/t51
 	name = "T51 Power Armor left arm"
@@ -238,7 +238,7 @@
 					LASER = CLASS5_LASER, \
 					ENERGY = CLASS4_PLASMA, \
 					FIRE = CLASS5_FIRE)
-	chance = 20
+	chance = 35
 
 /obj/item/ms13/power_armor/arm/right/t51
 	name = "T51 Power Armor right arm"
@@ -254,13 +254,13 @@
 					LASER = CLASS5_LASER, \
 					ENERGY = CLASS4_PLASMA, \
 					FIRE = CLASS5_FIRE)
-	chance = 20
+	chance = 35
 
 /obj/item/ms13/power_armor/head/t51
 	name = "T-51 Power Armor helmet"
 	icon_state = "t51_helmet"
 	type_helmet = /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/t51
-	chance = 20
+	chance = 25
 
 //T-45
 /obj/item/ms13/power_armor/leg/left/t45
@@ -277,7 +277,7 @@
                 LASER = CLASS4_LASER, \
                 ENERGY = CLASS3_PLASMA, \
                 FIRE = CLASS5_FIRE)
-	chance = 30
+	chance = 65
 
 /obj/item/ms13/power_armor/leg/right/t45
 	name = "T-45 Power Armor right leg"
@@ -293,7 +293,7 @@
                 LASER = CLASS4_LASER, \
                 ENERGY = CLASS3_PLASMA, \
                 FIRE = CLASS5_FIRE)
-	chance = 30
+	chance = 65
 
 /obj/item/ms13/power_armor/chest/t45
 	name = "T-45 Power Armor chest"
@@ -309,7 +309,7 @@
                 LASER = CLASS4_LASER, \
                 ENERGY = CLASS3_PLASMA, \
                 FIRE = CLASS5_FIRE)
-	chance = 30
+	chance = 75
 
 /obj/item/ms13/power_armor/arm/left/t45
 	name = "T-45 Power Armor left arm"
@@ -325,7 +325,7 @@
                 LASER = CLASS4_LASER, \
                 ENERGY = CLASS3_PLASMA, \
                 FIRE = CLASS5_FIRE)
-	chance = 30
+	chance = 65
 
 /obj/item/ms13/power_armor/arm/right/t45
 	name = "T-45 Power Armor right arm"
@@ -341,13 +341,13 @@
                 LASER = CLASS4_LASER, \
                 ENERGY = CLASS3_PLASMA, \
                 FIRE = CLASS5_FIRE)
-	chance = 30
+	chance = 65
 
 /obj/item/ms13/power_armor/head/t45
 	name = "T-45 Power Armor helmet"
 	icon_state = "t45_helmet"
 	type_helmet = /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/t45
-	chance = 30
+	chance = 75
 
 /obj/item/ms13/power_armor/head/advanced
 	name = "APA helmet"
