@@ -6,7 +6,7 @@
 /datum/component/mumbleboop
 	var/chosen_boop // The voice type assigned by preferences
 	var/volume = MUMBLEBOOP_DEFAULT_VOLUME
-	var/falloff = 7
+	var/falloff = 6
 	var/duration = MUMBLEBOOP_DEFAULT_DURATION // Affects how fast the next phonetic will play, affects general speech speed.
 	var/last_mumbleboop = 0
 
@@ -140,6 +140,6 @@
 	if(!volume || (last_mumbleboop != initial_mumbleboop_time))
 		return
 	for(var/mob/hearer as anything in hearers)
-		hearer.playsound_local(get_turf(mumblebooper), final_boop, volume, FALSE, falloff_exponent, max_distance = 20)
+		hearer.playsound_local(get_turf(mumblebooper), final_boop, volume, FALSE, falloff_exponent, max_distance = 16)
 
 #undef MAX_MUMBLEBOOP_CHARACTERS
