@@ -30,6 +30,7 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 	main_feature_name = "Voice type"
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	priority = PREFERENCE_PRIORITY_NAME_MODIFICATIONS
 
 /datum/preference/choiced/voice_type/is_accessible(datum/preferences/preferences)
 	. = ..()
@@ -45,7 +46,7 @@
 
 /datum/preference/choiced/voice_type/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.gender == FEMALE)
-		return FALSE
+		return
 	target.voice_type = value
 
 // Female Voices
@@ -55,6 +56,7 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 	main_feature_name = "Voice type"
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	priority = PREFERENCE_PRIORITY_NAME_MODIFICATIONS
 
 /datum/preference/choiced/voice_type_female/is_accessible(datum/preferences/preferences)
 	. = ..()
@@ -69,5 +71,5 @@
 
 /datum/preference/choiced/voice_type_female/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.gender == MALE)
-		return FALSE
+		return
 	target.voice_type = value

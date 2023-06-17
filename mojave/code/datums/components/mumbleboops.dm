@@ -140,6 +140,6 @@
 	if(!volume || (last_mumbleboop != initial_mumbleboop_time))
 		return
 	for(var/mob/hearer as anything in hearers)
-		hearer.playsound_local(get_turf(mumblebooper), final_boop, volume, FALSE, falloff_exponent)
+		hearer.playsound_local(get_turf(mumblebooper), final_boop, volume, FALSE, falloff_exponent, max_distance = 14)
 
 #undef MAX_MUMBLEBOOP_CHARACTERS
