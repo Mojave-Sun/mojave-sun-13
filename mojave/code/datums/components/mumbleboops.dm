@@ -6,6 +6,7 @@
 /datum/component/mumbleboop
 	var/chosen_boop // The voice type assigned by preferences
 	var/volume = MUMBLEBOOP_DEFAULT_VOLUME
+	var/falloff = 4.5
 	var/duration = MUMBLEBOOP_DEFAULT_DURATION // Affects how fast the next phonetic will play, affects general speech speed.
 	var/last_mumbleboop = 0
 
@@ -36,7 +37,7 @@
 	var/initial_mumbleboop_time = last_mumbleboop
 	var/initial_volume = volume
 	var/initial_pitch = 0 // We shouldn't use this probably. Actual Pitch variation won't be possible until the BYOND update, this stuff SUCKS. It's basically just play speed. Evidence of this will be left below, but it's not applied to the final sound.
-	var/initial_falloff = 7
+	var/initial_falloff = falloff
 	var/boop_letter = null
 	var/final_boop = null
 	if(speech_mods[WHISPER_MODE]) // Makes you quieter when whispering...
