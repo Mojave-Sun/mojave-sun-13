@@ -2307,7 +2307,9 @@
 /turf/open/floor/plating/ms13/ground/desertalt,
 /area/ms13/water_baron)
 "cFO" = (
-/obj/structure/railing/ms13/sewer,
+/obj/effect/turf_decal/trimline/yellow/line{
+	dir = 8
+	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/water_baron/interior)
 "cFX" = (
@@ -6231,7 +6233,9 @@
 /turf/open/floor/wood/ms13/common,
 /area/ms13/water_baron/interior)
 "hvJ" = (
-/obj/structure/stairs/east,
+/obj/effect/turf_decal/trimline/yellow/line{
+	dir = 9
+	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/water_baron/interior)
 "hvY" = (
@@ -7042,8 +7046,8 @@
 /turf/open/floor/wood/ms13/carpet/shaggy/blue,
 /area/ms13/town)
 "irF" = (
-/obj/structure/stairs/east,
-/turf/open/floor/ms13/concrete/small,
+/obj/effect/turf_decal/trimline/yellow/line,
+/turf/open/floor/ms13/concrete,
 /area/ms13/water_baron/interior)
 "isI" = (
 /obj/structure/ms13/storage/large/shelf{
@@ -8552,6 +8556,12 @@
 /obj/structure/fluff/ms13/barrel/quadruple/red/two,
 /turf/open/floor/ms13/metal/pipe,
 /area/ms13/water_baron/interior)
+"knY" = (
+/obj/effect/turf_decal/trimline/yellow/line{
+	dir = 10
+	},
+/turf/open/floor/ms13/concrete,
+/area/ms13/water_baron/interior)
 "kof" = (
 /turf/open/floor/iron/stairs{
 	dir = 4
@@ -9626,6 +9636,18 @@
 	id = "town_hotel_shutters"
 	},
 /turf/open/floor/wood/ms13/wide,
+/area/ms13/water_baron/interior)
+"lro" = (
+/obj/structure/railing/ms13/sewer{
+	dir = 4
+	},
+/obj/structure/railing/ms13/sewer,
+/obj/structure/railing/ms13/sewer{
+	dir = 1
+	},
+/turf/open/floor/ms13/metal/pipe/intersection{
+	dir = 8
+	},
 /area/ms13/water_baron/interior)
 "lrq" = (
 /obj/structure/table/ms13/low_wall/wood,
@@ -33133,8 +33155,8 @@ oMv
 brk
 vYq
 eKb
-cFO
-hvJ
+aKJ
+aKJ
 lsn
 msv
 oXf
@@ -33335,8 +33357,8 @@ vYq
 vYq
 vYq
 eSQ
-oKz
-irF
+cor
+cor
 vYq
 mTU
 cor
@@ -33538,8 +33560,8 @@ bvh
 cUG
 kOs
 kOs
-vYq
-vYq
+kOs
+lro
 nmx
 kOs
 kOs
@@ -33940,9 +33962,9 @@ oMv
 nHI
 cor
 aKJ
-aKJ
-aKJ
-aKJ
+hvJ
+cFO
+knY
 aKJ
 aKJ
 aKJ
@@ -34142,9 +34164,9 @@ oMv
 vYq
 xan
 ddU
-aKJ
-aKJ
-aKJ
+tOy
+vLt
+irF
 vYq
 nzQ
 ddU
