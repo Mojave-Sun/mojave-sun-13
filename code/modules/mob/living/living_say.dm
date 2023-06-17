@@ -190,7 +190,7 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 			to_chat(src, span_warning("You find yourself unable to speak!"))
 			return
 
-	var/message_range = 7
+	var/message_range = 10 //MS13 Edit - Default value is 7
 
 	var/succumbed = FALSE
 
@@ -335,7 +335,7 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 	show_message(message, MSG_AUDIBLE, deaf_message, deaf_type, avoid_highlight)
 	return message
 
-/mob/living/send_speech(message, message_range = 6, obj/source = src, bubble_type = bubble_icon, list/spans, datum/language/message_language=null, list/message_mods = list())
+/mob/living/send_speech(message, message_range = 10, obj/source = src, bubble_type = bubble_icon, list/spans, datum/language/message_language=null, list/message_mods = list()) //MS13 Edit - Default message_range value is 6
 	var/eavesdrop_range = 0
 	if(message_mods[WHISPER_MODE]) //If we're whispering
 		eavesdrop_range = EAVESDROP_EXTRA_RANGE
