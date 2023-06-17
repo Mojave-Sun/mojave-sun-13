@@ -1,7 +1,7 @@
 //Generic power armor helmet
 /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor
 	name = "Generic Power Armor Helmet"
-	desc = "Don't ever use this in the video game please."
+	desc = "A helmet belonging to Power Armor"
 	icon = 'mojave/icons/mob/large-worn-icons/32x48/head.dmi'
 	worn_icon = 'mojave/icons/mob/large-worn-icons/32x48/head.dmi'
 	icon_state = "null"
@@ -71,15 +71,15 @@
 	var/damage_txt = ""
 	if(damage)
 		if(atom_integrity <= 0)
-			damage_txt ="This part is a broken."
+			damage_txt ="This part is broken"
 		if(atom_integrity > 0 && (atom_integrity < (max_integrity / 3)))
-			damage_txt ="This part is a heavily damaged."
+			damage_txt ="This part is heavily damaged"
 		if((atom_integrity > (max_integrity / 3)) && (atom_integrity < (max_integrity * (2/3))))
-			damage_txt = "This part is a damaged."
+			damage_txt = "This part is damaged"
 		if((atom_integrity > (max_integrity * (2/3))) && (atom_integrity < max_integrity))
-			damage_txt = "This part is a lightly damaged."
+			damage_txt = "This part is lightly damaged"
 		if(atom_integrity == max_integrity)
-			damage_txt = "This part is a non-damaged."
+			damage_txt = "This part is not damaged"
 	return "[icon2html(src, user)] [thats? "That's ":""][get_examine_name(user)]. [damage_txt]"
 
 /obj/item/radio/headset/ms13/
@@ -125,13 +125,12 @@
 
 //Frame power armor based off of the hardsuit
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor
-	name = "Frame Power Armor"
-	desc = "Don't ever use this in the video game please."
+	name = "Power Armor"
+	desc = "A power armour frame. It is capable of accepting any armor module with a bit of elbow grease."
 	icon = 'mojave/icons/mob/large-worn-icons/32x48/armor.dmi'
 	worn_icon = 'mojave/icons/mob/large-worn-icons/32x48/armor.dmi'
 	icon_state = "frame"
 	worn_icon_state = "frame"
-	allowed = list(/obj/item/storage/box/matches,/obj/item/lighter,/obj/item/clothing/mask/cigarette,/obj/item/storage/fancy/cigarettes,/obj/item/flashlight,/obj/item/gun,/obj/item/ammo_box,/obj/item/ammo_casing)
 	density = TRUE //It's a suit of armor man
 	anchored = TRUE
 	strip_delay = 15 SECONDS
@@ -169,7 +168,7 @@
 	/// Literally just whether or not we allow fatties to wear this power armor
 	var/no_fatties = TRUE
 	var/mob/listeningTo
-	var/obj/structure/ms13/workbench/link_to
+	var/obj/structure/ms13/pa_jack/link_to
 	var/list/actions_modules = list()
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/Initialize()
@@ -184,13 +183,13 @@
 			continue
 		if(i == BODY_ZONE_HEAD)
 			var/type = module_armor[i]
-			var/obj/item/power_armor/head/H = new type(null)
+			var/obj/item/ms13/power_armor/head/H = new type(null)
 			module_armor[i] = H
 			helmettype = H.type_helmet
 			MakeHelmet()
 			continue
 		var/type = module_armor[i]
-		var/obj/item/power_armor/PA_part = new type(null)
+		var/obj/item/ms13/power_armor/PA_part = new type(null)
 		PA_part.frame = src
 		module_armor[i] = PA_part
 		var/icon/PA = new(icon, icon_state = PA_part.icon_state_pa)
@@ -199,7 +198,7 @@
 		for(var/k in PA_part.modules)
 			if(isnull(PA_part.modules[k]))
 				continue
-			var/obj/item/pa_module/PA_m = PA_part.modules[k]
+			var/obj/item/ms13/pa_module/PA_m = PA_part.modules[k]
 			PA_m.added_to_pa()
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/Destroy()
@@ -218,7 +217,7 @@
 	for(var/i in module_armor)
 		if(isnull(module_armor[i]))
 			continue
-		var/obj/item/power_armor/PA = module_armor[i]
+		var/obj/item/ms13/power_armor/PA = module_armor[i]
 		if(PA.actions_modules)
 			LAZYINITLIST(actions_modules)
 			actions_modules |= PA.actions_modules
@@ -230,7 +229,7 @@
 			continue
 		if(i == BODY_ZONE_HEAD)
 			continue
-		var/obj/item/power_armor/PA_part = module_armor[i]
+		var/obj/item/ms13/power_armor/PA_part = module_armor[i]
 		var/icon/PA = new(icon, icon_state = PA_part.icon_state_pa)
 		add_overlay(PA)
 
@@ -241,7 +240,7 @@
 			continue
 		if(i == BODY_ZONE_HEAD)
 			continue
-		var/obj/item/power_armor/PA_part = module_armor[i]
+		var/obj/item/ms13/power_armor/PA_part = module_armor[i]
 		var/icon/PA = new(icon, icon_state = PA_part.icon_state_pa)
 		standing.overlays.Add(PA)
 
@@ -251,15 +250,15 @@
 	var/damage_txt = ""
 	if(damage)
 		if(atom_integrity <= 0)
-			damage_txt ="The frame is a broken."
+			damage_txt ="The frame is broken"
 		if(atom_integrity > 0 && (atom_integrity < (max_integrity / 3)))
-			damage_txt ="The frame is a heavily damaged."
+			damage_txt ="The frame is heavily damaged"
 		if((atom_integrity > (max_integrity / 3)) && (atom_integrity < (max_integrity * (2/3))))
-			damage_txt = "The frame is a damaged."
+			damage_txt = "The frame is damaged"
 		if((atom_integrity > (max_integrity * (2/3))) && (atom_integrity < max_integrity))
-			damage_txt = "The frame is a lightly damaged."
+			damage_txt = "The frame is lightly damaged"
 		if(atom_integrity == max_integrity)
-			damage_txt = "The frame is a non-damaged."
+			damage_txt = "The frame is not damaged"
 	return "[icon2html(src, user)] [thats? "That's ":""][get_examine_name(user)]. [damage_txt]"
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/examine(mob/user)
@@ -267,7 +266,7 @@
 	for(var/i in module_armor)
 		if(isnull(module_armor[i]))
 			continue
-		var/obj/item/power_armor/PA = module_armor[i]
+		var/obj/item/ms13/power_armor/PA = module_armor[i]
 		if(PA.zone == BODY_ZONE_HEAD)
 			. +=  "[helmet.get_examine_string(user, TRUE)]"
 			continue
@@ -337,14 +336,15 @@
 			to_chat(user, span_notice("You have successfully repaired [src]'s helmet."))
 			new /obj/item/light/bulb/broken(drop_location())
 			return
-	else if(istype(I, /obj/item/power_armor))
+	else if(istype(I, /obj/item/ms13/power_armor))
 		if(!link_to)
-			to_chat(user, span_warning("You need connect power armor to workbench for modify!"))
+			to_chat(user, span_warning("You need connect power armor to a jack to modify!"))
 			return
-		var/obj/item/power_armor/PA = I
+		var/obj/item/ms13/power_armor/PA = I
 		if(module_armor[PA.zone])
-			to_chat(user, span_warning("This module power armor already in power armor!"))
+			to_chat(user, span_warning("This module power armor is already in power armor!"))
 			return
+		playsound(src, 'mojave/sound/ms13effects/crafting/wrenchturn.ogg', 25, TRUE)
 		if(do_after(user, 5 SECONDS, target = user) && user.transferItemToLoc(I, src))
 			module_armor[PA.zone] = PA
 			if(PA.zone == BODY_ZONE_HEAD)
@@ -356,13 +356,14 @@
 			for(var/k in PA.modules)
 				if(isnull(PA.modules[k]))
 					continue
-				var/obj/item/pa_module/PA_m = PA.modules[k]
+				var/obj/item/ms13/pa_module/PA_m = PA.modules[k]
 				PA_m.added_to_pa()
-			to_chat(user, span_notice("You successfully install \the [PA] into [src]."))
+			playsound(src, 'mojave/sound/ms13effects/crafting/wrenchthreeturn.ogg', 25, TRUE)
+			to_chat(user, span_notice("You successfully install \the [PA] onto the [src]."))
 		return
-	else if(I.tool_behaviour == TOOL_SCREWDRIVER)
+	else if(I.tool_behaviour == TOOL_WRENCH)
 		if(!link_to)
-			to_chat(user, span_warning("You need connect power armor to workbench for modify!"))
+			to_chat(user, span_warning("You need connect the power armor to a jack to modify!"))
 			return
 
 		var/list/radial_options = list()
@@ -370,21 +371,22 @@
 		for(var/i in module_armor)
 			if(isnull(module_armor[i]))
 				continue
-			var/obj/item/power_armor/PA = module_armor[i]
+			var/obj/item/ms13/power_armor/PA = module_armor[i]
 			radial_options[PA.name] = image(PA.icon, PA.icon_state)
 			part_to_zone[PA.name] = PA.zone
 
 		if(!radial_options.len)
-			to_chat(user, span_warning("Power armor don't have modules!"))
+			to_chat(user, span_warning("The Power armor doesn't have modules!"))
 			return
 
 		var/radial_result = part_to_zone[show_radial_menu(user, src, radial_options, require_near = TRUE, tooltips = TRUE)]
-		var/hand = user.get_empty_held_index_for_side(LEFT_HANDS) || user.get_empty_held_index_for_side(RIGHT_HANDS)
-
+		//var/hand = user.get_empty_held_index_for_side(LEFT_HANDS) || user.get_empty_held_index_for_side(RIGHT_HANDS) // Heavy ahhh armour. Just put it on the ground now fow now
+		playsound(src, 'mojave/sound/ms13effects/crafting/wrenchthreeturn.ogg', 25, TRUE)
 		if(radial_result && do_after(user, 5 SECONDS, user))
-			var/obj/item/power_armor/PA = module_armor[radial_result]
-			if(!user.put_in_hand(PA, hand))
-				PA.forceMove(user.loc)
+			playsound(src, 'mojave/sound/ms13effects/crafting/wrenchturn.ogg', 25, TRUE)
+			var/obj/item/ms13/power_armor/PA = module_armor[radial_result]
+			//if(!user.put_in_hand(PA, hand))
+			PA.forceMove(user.loc)
 			module_armor[radial_result] = null
 			if(radial_result == BODY_ZONE_HEAD)
 				helmettype = null
@@ -394,10 +396,33 @@
 			for(var/k in PA.modules)
 				if(isnull(PA.modules[k]))
 					continue
-				var/obj/item/pa_module/PA_m = PA.modules[k]
+				var/obj/item/ms13/pa_module/PA_m = PA.modules[k]
 				PA_m.removed_from_pa()
-			to_chat(user, span_notice("You successfully uninstall \the [PA] into [src]."))
-		return
+			to_chat(user, span_notice("You successfully uninstall [PA] from the [src]."))
+	else if(I.tool_behaviour == TOOL_WELDER)
+		for(var/i in module_armor)
+			if(!isnull(module_armor[i]))
+				to_chat(user, span_notice("You need to remove all armour from the [src]."))
+				return
+		if(!(atom_integrity <= max_integrity - 10))
+			to_chat(user, span_warning("The [src] doesn't need repairs."))
+			return
+		if(!I.tool_start_check(user, amount=1))
+			return
+		user.visible_message(
+			span_notice("[user] begins patching up the [src] with [I]."),
+			span_notice("You begin restoring the [src]..."))
+		playsound(src, 'mojave/sound/ms13effects/crafting/welding-2.ogg', 45, TRUE)
+		if(!I.use_tool(src, user, 1.5 SECONDS, volume=0, amount=1))
+			return
+		user.visible_message(
+			span_notice("[user] fixes up the [src]!"),
+			span_notice("You mend the damage of the [src]."))
+		atom_integrity += 25
+		playsound(src, 'mojave/sound/ms13effects/crafting/welding-3.ogg', 45, TRUE)
+		update_appearance()
+		update_overlays()
+		return ..()
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration, def_zone = BODY_ZONE_CHEST)
 	if(!uses_integrity)
@@ -421,7 +446,7 @@
 		else
 			return damage_amount
 
-	var/obj/item/power_armor/PA_item = module_armor[def_zone]
+	var/obj/item/ms13/power_armor/PA_item = module_armor[def_zone]
 	if(istype(PA_item) && PA_item.get_integrity() > 0)
 		var/damage_to_frame = - (PA_item.get_integrity() - PA_item.take_damage(damage_amount, damage_type, damage_flag, null, attack_dir, armour_penetration, def_zone))
 		if(damage_to_frame <= 0)
@@ -455,9 +480,7 @@
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/atom_destruction(damage_flag)
 	subarmor = subarmor.setRating(NONE, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-	if(listeningTo)
-		ADD_TRAIT(listeningTo, TRAIT_IMMOBILIZED, "power_armor")
-		ADD_TRAIT(listeningTo, TRAIT_INCAPACITATED, "power_armor")
+	listeningTo?.add_movespeed_modifier(/datum/movespeed_modifier/ms13/pa_broken)
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/equipped(mob/living/carbon/human/user, slot)
 	if(actions_modules)
@@ -472,14 +495,14 @@
 	user.can_buckle_to = FALSE
 	user.base_pixel_y = user.base_pixel_y + 6
 	user.pixel_y = user.base_pixel_y
+	if(atom_integrity == 0)
+		listeningTo.add_movespeed_modifier(/datum/movespeed_modifier/ms13/pa_broken)
 	ADD_TRAIT(user, TRAIT_FORCED_STANDING, "power_armor") //It's a suit of armor, it ain't going to fall over just because the pilot is dead
 	ADD_TRAIT(user, TRAIT_NOSLIPALL, "power_armor")
 	ADD_TRAIT(user, TRAIT_STUNIMMUNE, "power_armor")
 	ADD_TRAIT(user, TRAIT_NOMOBSWAP, "power_armor")
+	ADD_TRAIT(user, TRAIT_PIERCEIMMUNE, "power_armor")
 	ADD_TRAIT(user, TRAIT_PUSHIMMUNE, "power_armor")
-	if(atom_integrity == 0)
-		ADD_TRAIT(user, TRAIT_IMMOBILIZED, "power_armor")
-		ADD_TRAIT(user, TRAIT_INCAPACITATED, "power_armor")
 	RegisterSignal(user, COMSIG_ATOM_CAN_BE_PULLED, .proc/reject_pulls)
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/dropped(mob/living/carbon/human/user)
@@ -490,14 +513,14 @@
 	user.pixel_y = user.base_pixel_y
 	user.RemoveElement(/datum/element/footstep, FOOTSTEP_PA, 1, -6, sound_vary = TRUE)
 	user.AddElement(/datum/element/footstep, FOOTSTEP_MOB_HUMAN, 1, -6)
+	listeningTo.remove_movespeed_modifier(/datum/movespeed_modifier/ms13/pa_broken)
 	listeningTo = null
 	REMOVE_TRAIT(user, TRAIT_FORCED_STANDING, "power_armor") //It's a suit of armor, it ain't going to fall over just because the pilot is dead
 	REMOVE_TRAIT(user, TRAIT_NOSLIPALL, "power_armor")
 	REMOVE_TRAIT(user, TRAIT_STUNIMMUNE, "power_armor")
 	REMOVE_TRAIT(user, TRAIT_NOMOBSWAP, "power_armor")
+	REMOVE_TRAIT(user, TRAIT_PIERCEIMMUNE, "power_armor")
 	REMOVE_TRAIT(user, TRAIT_PUSHIMMUNE, "power_armor")
-	REMOVE_TRAIT(user, TRAIT_IMMOBILIZED, "power_armor")
-	REMOVE_TRAIT(user, TRAIT_INCAPACITATED, "power_armor")
 	UnregisterSignal(user, COMSIG_ATOM_CAN_BE_PULLED)
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/proc/reject_pulls(datum/source, mob/living/puller)
@@ -615,12 +638,12 @@
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/t51
 	module_armor = list(
-		BODY_ZONE_HEAD =  /obj/item/power_armor/head/t51,
-		BODY_ZONE_CHEST = /obj/item/power_armor/chest/t51,
-		BODY_ZONE_L_ARM = /obj/item/power_armor/arm/left/t51,
-		BODY_ZONE_R_ARM = /obj/item/power_armor/arm/right/t51,
-		BODY_ZONE_L_LEG = /obj/item/power_armor/leg/left/t51,
-		BODY_ZONE_R_LEG = /obj/item/power_armor/leg/right/t51
+		BODY_ZONE_HEAD =  /obj/item/ms13/power_armor/head/t51,
+		BODY_ZONE_CHEST = /obj/item/ms13/power_armor/chest/t51,
+		BODY_ZONE_L_ARM = /obj/item/ms13/power_armor/arm/left/t51,
+		BODY_ZONE_R_ARM = /obj/item/ms13/power_armor/arm/right/t51,
+		BODY_ZONE_L_LEG = /obj/item/ms13/power_armor/leg/left/t51,
+		BODY_ZONE_R_LEG = /obj/item/ms13/power_armor/leg/right/t51
 	)
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/t51/random/Initialize()
@@ -650,12 +673,12 @@
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/t45
 	module_armor = list(
-		BODY_ZONE_HEAD = /obj/item/power_armor/head/t45,
-		BODY_ZONE_CHEST = /obj/item/power_armor/chest/t45,
-		BODY_ZONE_L_ARM = /obj/item/power_armor/arm/left/t45,
-		BODY_ZONE_R_ARM = /obj/item/power_armor/arm/right/t45,
-		BODY_ZONE_L_LEG = /obj/item/power_armor/leg/left/t45,
-		BODY_ZONE_R_LEG = /obj/item/power_armor/leg/right/t45
+		BODY_ZONE_HEAD = /obj/item/ms13/power_armor/head/t45,
+		BODY_ZONE_CHEST = /obj/item/ms13/power_armor/chest/t45,
+		BODY_ZONE_L_ARM = /obj/item/ms13/power_armor/arm/left/t45,
+		BODY_ZONE_R_ARM = /obj/item/ms13/power_armor/arm/right/t45,
+		BODY_ZONE_L_LEG = /obj/item/ms13/power_armor/leg/left/t45,
+		BODY_ZONE_R_LEG = /obj/item/ms13/power_armor/leg/right/t45
 	)
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/t45/random/Initialize()
@@ -667,9 +690,7 @@
 	desc = "A more advanced helmet for a more advanced piece of power armor. Comes with a high quality headlamp and integrated radio."
 	icon_state = "helmet0-apa"
 	hardsuit_type = "advanced" //Determines used sprites: hardsuit[on]-[type]
-	light_range = 4.20
-	light_power = 0.9
-	light_color = "#d1c58d"
+	actions_types = null // No light for this one. When we get our NV working, we can make it a module and make them usually come with it, though.
 	radiotype = /obj/item/radio/headset/ms13/powerarmor/advanced
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = CLASS4_EDGE, \
@@ -683,12 +704,12 @@
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/advanced
 	module_armor = list(
-		BODY_ZONE_HEAD = /obj/item/power_armor/head/advanced,
-		BODY_ZONE_CHEST = /obj/item/power_armor/chest/advanced,
-		BODY_ZONE_L_ARM = /obj/item/power_armor/arm/left/advanced,
-		BODY_ZONE_R_ARM = /obj/item/power_armor/arm/right/advanced,
-		BODY_ZONE_L_LEG = /obj/item/power_armor/leg/left/advanced,
-		BODY_ZONE_R_LEG = /obj/item/power_armor/leg/right/advanced
+		BODY_ZONE_HEAD = /obj/item/ms13/power_armor/head/advanced,
+		BODY_ZONE_CHEST = /obj/item/ms13/power_armor/chest/advanced,
+		BODY_ZONE_L_ARM = /obj/item/ms13/power_armor/arm/left/advanced,
+		BODY_ZONE_R_ARM = /obj/item/ms13/power_armor/arm/right/advanced,
+		BODY_ZONE_L_LEG = /obj/item/ms13/power_armor/leg/left/advanced,
+		BODY_ZONE_R_LEG = /obj/item/ms13/power_armor/leg/right/advanced
 	)
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/advanced/random/Initialize()
@@ -696,9 +717,9 @@
 	. = ..()
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/random/Initialize()
-	var/list/L = subtypesof(/obj/item/power_armor/head)
-	var/obj/item/power_armor/part
-	for(var/obj/item/power_armor/i as anything in L)
+	var/list/L = subtypesof(/obj/item/ms13/power_armor/head)
+	var/obj/item/ms13/power_armor/part
+	for(var/obj/item/ms13/power_armor/i as anything in L)
 		part = new i(null)
 		L[i] = part.chance
 		qdel(part)
@@ -708,8 +729,8 @@
 	if(item != "None")
 		module_armor[BODY_ZONE_HEAD] = item
 
-	L = subtypesof(/obj/item/power_armor/leg/left)
-	for(var/obj/item/power_armor/i as anything in L)
+	L = subtypesof(/obj/item/ms13/power_armor/leg/left)
+	for(var/obj/item/ms13/power_armor/i as anything in L)
 		part = new i(null)
 		L[i] = part.chance
 		qdel(part)
@@ -719,8 +740,8 @@
 	if(item != "None")
 		module_armor[BODY_ZONE_L_LEG] = item
 
-	L = subtypesof(/obj/item/power_armor/leg/right)
-	for(var/obj/item/power_armor/i as anything in L)
+	L = subtypesof(/obj/item/ms13/power_armor/leg/right)
+	for(var/obj/item/ms13/power_armor/i as anything in L)
 		part = new i(null)
 		L[i] = part.chance
 		qdel(part)
@@ -730,8 +751,8 @@
 	if(item != "None")
 		module_armor[BODY_ZONE_R_LEG] = item
 
-	L = subtypesof(/obj/item/power_armor/chest)
-	for(var/obj/item/power_armor/i as anything in L)
+	L = subtypesof(/obj/item/ms13/power_armor/chest)
+	for(var/obj/item/ms13/power_armor/i as anything in L)
 		part = new i(null)
 		L[i] = part.chance
 		qdel(part)
@@ -741,8 +762,8 @@
 	if(item != "None")
 		module_armor[BODY_ZONE_CHEST] = item
 
-	L = subtypesof(/obj/item/power_armor/arm/left)
-	for(var/obj/item/power_armor/i as anything in L)
+	L = subtypesof(/obj/item/ms13/power_armor/arm/left)
+	for(var/obj/item/ms13/power_armor/i as anything in L)
 		part = new i(null)
 		L[i] = part.chance
 		qdel(part)
@@ -752,8 +773,8 @@
 	if(item != "None")
 		module_armor[BODY_ZONE_L_ARM] = item
 
-	L = subtypesof(/obj/item/power_armor/arm/right)
-	for(var/obj/item/power_armor/i as anything in L)
+	L = subtypesof(/obj/item/ms13/power_armor/arm/right)
+	for(var/obj/item/ms13/power_armor/i as anything in L)
 		part = new i(null)
 		L[i] = part.chance
 		qdel(part)
@@ -796,3 +817,9 @@
 	item = pick_weight(L)
 	if(item == "None")
 		module_armor[BODY_ZONE_R_LEG] = null
+
+
+// PA Slowdowns
+
+/datum/movespeed_modifier/ms13/pa_broken
+	multiplicative_slowdown = 3

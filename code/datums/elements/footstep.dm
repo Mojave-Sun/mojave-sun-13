@@ -52,11 +52,12 @@
 			footstep_sounds = 'sound/effects/tank_treads.ogg'
 			RegisterSignal(target, COMSIG_MOVABLE_MOVED, .proc/play_simplestep_machine)
 			return
+		// MOJAVE SUN EDIT BEGIN
 		if(FOOTSTEP_PA)
-			footstep_sounds  = 'sound/mecha/mechstep.ogg'
+			footstep_sounds = list('mojave/sound/ms13effects/footsteps/pa/PA_01.ogg', 'mojave/sound/ms13effects/footsteps/pa/PA_02.ogg', 'mojave/sound/ms13effects/footsteps/pa/PA_03.ogg', 'mojave/sound/ms13effects/footsteps/pa/PA_04.ogg', 'mojave/sound/ms13effects/footsteps/pa/PA_05.ogg', 'mojave/sound/ms13effects/footsteps/pa/PA_06.ogg')
 			RegisterSignal(target, COMSIG_MOVABLE_MOVED, .proc/play_simplestep_pa)
 			return
-
+		// MOJAVE SUN EDIT END
 	RegisterSignal(target, COMSIG_MOVABLE_MOVED, .proc/play_simplestep)
 	steps_for_living[target] = 0
 
@@ -170,11 +171,12 @@
 		return
 	playsound(source_loc, footstep_sounds, 50, falloff_distance = 1, vary = sound_vary)
 
+// MOJAVE SUN EDIT BEGIN
 /datum/element/footstep/proc/play_simplestep_pa(atom/movable/source)
 	SIGNAL_HANDLER
 
-	if (SHOULD_DISABLE_FOOTSTEPS(source))
-		return
+	//if (SHOULD_DISABLE_FOOTSTEPS(source)) // No silent PA?
+	//	return
 
 	var/turf/open/source_loc = get_turf(source)
 	if(!istype(source_loc))
@@ -183,5 +185,5 @@
 		playsound(source_loc, footstep_sounds, 100, falloff_distance = 1, vary = sound_vary)
 
 	play_step = !play_step
-
+// MOJAVE SUN EDIT END
 #undef SHOULD_DISABLE_FOOTSTEPS
