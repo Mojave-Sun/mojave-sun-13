@@ -66,10 +66,11 @@
 					continue
 				collision_turf.Shake(rand(-16, 16), rand(-16, 16), 3 SECONDS)
 				for (var/mob/living/L in collision_turf)
+					var/mob/living/carbon/human/poor_fucker = L // The ownee.
 					if(L.loc == savage.loc && L != savage)
 						L.adjustBruteLoss(rand(50,150))
 						L.emote("scream")
-						if(prob(25))
+						if(!istype(poor_fucker.wear_suit, /obj/item/clothing/suit/space/hardsuit/ms13/power_armor) && prob(25)) // This is for a check to make sure we're not gibbing an ENTIRE SUIT OF POWER ARMOUR with another.
 							L.gib()
 					if(get_dist(L, savage) < 3 && L != savage)
 						shake_camera(L, 3, 1.5)
@@ -86,6 +87,7 @@
 		var/obj/item/bodypart/limb = pick(human_yeetus.bodyparts)
 		var/type_wound = pick(list(/datum/wound/blunt/severe, /datum/wound/blunt/severe))
 		limb.force_wound_upwards(type_wound)
+		playsound(src, 'mojave/sound/ms13effects/body_fall.ogg', 75, TRUE)
 	Knockdown(levels * 50)
 /*
 /mob/living/proc/ZImpactDamage(turf/T, levels)
