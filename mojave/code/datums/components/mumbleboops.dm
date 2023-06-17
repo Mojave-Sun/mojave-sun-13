@@ -41,10 +41,10 @@
 	var/boop_letter = null
 	var/final_boop = null
 	if(speech_mods[WHISPER_MODE]) // Makes you quieter when whispering...
-		initial_volume -= 40
+		initial_volume -= 25
 		initial_falloff -= 5
 	else if(speech_spans[SPAN_YELL]) // And louder when yelling
-		initial_volume += 30
+		initial_volume += 15
 		initial_pitch += 5
 		initial_falloff += 3
 	var/obj/item/clothing/mask/mask = mumblebooper.get_item_by_slot(ITEM_SLOT_MASK)
