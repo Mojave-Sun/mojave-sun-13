@@ -208,7 +208,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 //MOJAVE EDIT CHANGE BEGIN
 	var/log_pickup_and_drop = FALSE //For logging in the attack logs certain items (mostly weapons) being equipped, dropped, or taken into hand
-	//for custom inventory and world states, yeah I know its jank but I hate components
+	var/mining_mult = 0 //For Mojave Sun custom mining code, intended to multiply the force of an object when mining deposit
+//for custom inventory and world states, yeah I know its jank but I hate components
 	var/inventory_state
 	var/world_state
 

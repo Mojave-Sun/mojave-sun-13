@@ -1,3 +1,6 @@
+/mob/living
+	var/voice_type
+  
 /mob/living/Initialize(mapload)
 	. = ..()
 	update_nv()

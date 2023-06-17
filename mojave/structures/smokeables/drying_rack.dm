@@ -50,7 +50,7 @@
 
 /obj/structure/ms13/drying_rack/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
-		new /obj/item/stack/sheet/ms13/scrap_wood(loc, 3)
+		new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc, 3)
 	for(var/atom/movable/M in contents)
 		M.forceMove(get_turf(src))
 	qdel(src)

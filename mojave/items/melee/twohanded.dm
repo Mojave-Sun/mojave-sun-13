@@ -62,6 +62,7 @@
 	grid_height = 192
 	grid_width = 64
 	wield_info = /datum/wield_info/twohanded/fireaxe
+	mining_mult = -0.5
 
 /obj/item/ms13/twohanded/fireaxe/drylander
 	name = "\improper Drylander axe"
@@ -98,6 +99,7 @@
 	grid_height = 192
 	grid_width = 64
 	wield_info = /datum/wield_info/twohanded/bump_sword
+	mining_mult = -0.5
 
 /obj/item/ms13/twohanded/hammer
 	name = "sledge hammer"
@@ -119,6 +121,7 @@
 	grid_height = 192
 	grid_width = 64
 	wield_info = /datum/wield_info/twohanded/sledge
+	mining_mult = 1
 
 /obj/item/ms13/twohanded/hammer/rebar
 	name = "rebar club"
@@ -130,6 +133,7 @@
 	wound_bonus = 0
 	bare_wound_bonus = 0
 	wield_info = /datum/wield_info/twohanded/rebar
+	mining_mult = 0.5
 
 /obj/item/ms13/twohanded/hammer/super
 	name = "super sledge"
@@ -143,6 +147,7 @@
 	grid_height = 256
 	grid_width = 96
 	wield_info = /datum/wield_info/twohanded/super_sledge
+	mining_mult = 2
 
 /obj/item/ms13/twohanded/hammer/super/attack(mob/living/target, mob/living/user)
 	. = ..()
@@ -175,6 +180,7 @@
 	grid_height = 32
 	grid_width = 224
 	wield_info = /datum/wield_info/twohanded/metal_spear
+	mining_mult = -0.65
 
 /obj/item/ms13/twohanded/spear/knife
 	name = "knife spear"
@@ -247,6 +253,7 @@
 	toolspeed = 0.35
 	grid_height = 256
 	grid_width = 256
+	mining_mult = 0.5
 	var/on = FALSE
 	var/datum/looping_sound/saw/soundloop
 
@@ -302,6 +309,7 @@
 	grid_height = 256
 	grid_width = 256
 	hitsound = "swing_hit"
+	mining_mult = 0.65
 	var/on = FALSE
 
 /obj/item/ms13/twohanded/heavy/lance/attack_self(mob/user)

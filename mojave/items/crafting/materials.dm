@@ -226,12 +226,16 @@
 
 //WOOD//
 
-/obj/item/stack/sheet/ms13/log
+/obj/item/stack/sheet/ms13/wood
+	name = "of any type of wood" //This makes it so crafting recipes state "2 of any type of wood". This base path is used so we can have crafting recipes, as the name implies, take any kind of wood.
+	desc = "I am a crafting parent type placeholder."
+
+/obj/item/stack/sheet/ms13/wood/log
 	name = "logs"
 	desc = "Sturdy wood logs."
 	singular_name = "log"
 	icon_state = "log"
-	merge_type = /obj/item/stack/sheet/ms13/log
+	merge_type = /obj/item/stack/sheet/ms13/wood/log
 	amount = 1
 	max_amount = 6
 	grid_width = 96
@@ -241,11 +245,11 @@ GLOBAL_LIST_INIT(log_recipes, list ( \
 	new/datum/stack_recipe("crude log wall", /turf/closed/wall/ms13/craftable/wood, 4, time = 40 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 ))
 
-/obj/item/stack/sheet/ms13/log/get_main_recipes()
+/obj/item/stack/sheet/ms13/wood/log/get_main_recipes()
 	. = ..()
 	. += GLOB.log_recipes
 
-/obj/item/stack/sheet/ms13/log/attackby(obj/item/W, mob/user, params)
+/obj/item/stack/sheet/ms13/wood/log/attackby(obj/item/W, mob/user, params)
 	if(W.sharpness & SHARP_AXE)
 		if(amount > 1)
 			user.show_message(span_notice("You can only chop one log at a time!"), MSG_VISUAL)
@@ -253,23 +257,23 @@ GLOBAL_LIST_INIT(log_recipes, list ( \
 		user.show_message(span_notice("You begin chopping \the [src] into wood planks!"), MSG_VISUAL)
 		if(do_after(user, 4 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_MAKEPLANKS))
 			user.show_message(span_notice("You make wood planks out of \the [src]!"), MSG_VISUAL)
-			new /obj/item/stack/sheet/ms13/plank/two(user.loc)
+			new /obj/item/stack/sheet/ms13/wood/plank/two(user.loc)
 			qdel(src)
 
-/obj/item/stack/sheet/ms13/scrap_wood
+/obj/item/stack/sheet/ms13/wood/scrap_wood
 	name = "scrap wood"
 	desc = "Various scrap, low quality pieces of wood."
 	singular_name = "scrap wood piece"
 	icon_state = "scrap_wood"
 	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/wooden_pickup.ogg'
-	merge_type = /obj/item/stack/sheet/ms13/scrap_wood
+	merge_type = /obj/item/stack/sheet/ms13/wood/scrap_wood
 	amount = 1
 	max_amount = 10
 
-/obj/item/stack/sheet/ms13/scrap_wood/two
+/obj/item/stack/sheet/ms13/wood/scrap_wood/two
 	amount = 2
 
-/obj/item/stack/sheet/ms13/scrap_wood/five
+/obj/item/stack/sheet/ms13/wood/scrap_wood/five
 	amount = 5
 
 GLOBAL_LIST_INIT(scrap_wood_recipes, list ( \
@@ -279,11 +283,11 @@ GLOBAL_LIST_INIT(scrap_wood_recipes, list ( \
 	new/datum/stack_recipe("drying rack", /obj/structure/ms13/drying_rack, 6, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 ))
 
-/obj/item/stack/sheet/ms13/scrap_wood/get_main_recipes()
+/obj/item/stack/sheet/ms13/wood/scrap_wood/get_main_recipes()
 	. = ..()
 	. += GLOB.scrap_wood_recipes
 
-/obj/item/stack/sheet/ms13/plank
+/obj/item/stack/sheet/ms13/wood/plank
 	name = "wood planks"
 	desc = "Robust wood planks. Perfect for crafting."
 	singular_name = "wood plank"
@@ -291,17 +295,17 @@ GLOBAL_LIST_INIT(scrap_wood_recipes, list ( \
 	force = 10 //funny bonk
 	hitsound = list('mojave/sound/ms13weapons/meleesounds/wooden_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/wooden_hit2.ogg', 'mojave/sound/ms13weapons/meleesounds/wooden_hit3.ogg')
 	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/wooden_pickup.ogg'
-	merge_type = /obj/item/stack/sheet/ms13/plank
+	merge_type = /obj/item/stack/sheet/ms13/wood/plank
 	amount = 1
 	max_amount = 8
 	grid_width = 96
 	grid_height = 32
 	novariants = FALSE
 
-/obj/item/stack/sheet/ms13/plank/two
+/obj/item/stack/sheet/ms13/wood/plank/two
 	amount = 2
 
-/obj/item/stack/sheet/ms13/plank/four
+/obj/item/stack/sheet/ms13/wood/plank/four
 	amount = 4
 
 GLOBAL_LIST_INIT(plank_recipes, list ( \
@@ -312,7 +316,7 @@ GLOBAL_LIST_INIT(plank_recipes, list ( \
 	new/datum/stack_recipe("drying rack", /obj/structure/ms13/drying_rack, 4, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 ))
 
-/obj/item/stack/sheet/ms13/plank/get_main_recipes()
+/obj/item/stack/sheet/ms13/wood/plank/get_main_recipes()
 	. = ..()
 	. += GLOB.plank_recipes
 

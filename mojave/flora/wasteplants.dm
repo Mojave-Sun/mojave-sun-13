@@ -354,7 +354,7 @@
 					playsound(get_turf(src), 'sound/effects/meteorimpact.ogg', 80, FALSE, FALSE)
 					user.log_message("cut down [src] at [AREACOORD(src)]", LOG_ATTACK)
 					for(var/i=1 to log_amount)
-						new /obj/item/stack/sheet/ms13/log(get_turf(src))
+						new /obj/item/stack/sheet/ms13/wood/log(get_turf(src))
 					qdel(src)
 		else
 			user.visible_message("<span class='notice'>The [W] is uncapable of cutting down the [src].</span>")
