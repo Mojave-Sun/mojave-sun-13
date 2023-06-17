@@ -24,6 +24,7 @@
 	var/max_amount = 8 //the max amount allowed in the pack
 	var/othertype = FALSE
 	var/pack_overlay = "cig"
+	var/is_randomised = FALSE //surely you aint gonna find a whole ass pack in the apocalypse
 
 /obj/item/storage/fancy/ms13/cigarettes/examine(mob/user)
 	. = ..()
@@ -32,8 +33,12 @@
 /obj/item/storage/fancy/ms13/cigarettes/PopulateContents()
 	if(!spawn_type)
 		return
-	for(var/i = 1 to amount)
-		new spawn_type(src)
+	if(!is_randomised)
+		for(var/i = 1 to amount)
+			new spawn_type(src)
+	else
+		for(var/i = 0 to rand(0, amount))
+			new spawn_type(src)
 	if(contents.len == max_amount) //full pack, unopened
 		fresh = TRUE
 
@@ -46,7 +51,7 @@
 
 /obj/item/storage/fancy/ms13/cigarettes/MouseDrop()
 	if(!is_open && (usr.stat != DEAD))
-		to_chat(usr, "<span class='danger'>The [src] is closed.</span>")
+		to_chat(usr, "<span class='danger'>[src] is closed.</span>")
 		return COMPONENT_NO_MOUSEDROP
 	else
 		return . = ..()
@@ -99,7 +104,7 @@
 	if(!loc == user)
 		return . = ..()
 	if(!is_open)
-		to_chat(user, "<span class='danger'>The [src] is closed.</span>")
+		to_chat(user, "<span class='danger'>[src] is closed.</span>")
 		return
 	var/obj/item/ms13/cigarette/cig = locate(/obj/item/ms13/cigarette) in contents
 	if(cig)
@@ -125,6 +130,9 @@
 	inhand_icon_state = "red"
 	spawn_type = /obj/item/ms13/cigarette/marlboro
 
+/obj/item/storage/fancy/ms13/cigarettes/marlboro/random
+	is_randomised = TRUE
+
 /obj/item/storage/fancy/ms13/cigarettes/winston
 	name = "\improper Winston pack"
 	desc = "A refined red cigarette packet. A label on the packaging reads, \"<b>Winston</b>. Winston tastes good, like a cigarette should!\""
@@ -133,6 +141,9 @@
 	world_state = "wins"
 	inhand_icon_state = "red"
 	spawn_type = /obj/item/ms13/cigarette/winston
+
+/obj/item/storage/fancy/ms13/cigarettes/winston/random
+	is_randomised = TRUE
 
 /obj/item/storage/fancy/ms13/cigarettes/luckystrike
 	name = "\improper Lucky Strike pack"
@@ -147,6 +158,9 @@
 	pack_overlay = "lucky"
 	othertype = TRUE
 
+/obj/item/storage/fancy/ms13/cigarettes/luckystrike/random
+	is_randomised = TRUE
+
 /obj/item/storage/fancy/ms13/cigarettes/salem
 	name = "\improper Salem pack"
 	desc = "A refined green cigarette packet. A label on the packaging reads, \"<b>Salem</b>. Refreshes your taste.\""
@@ -155,6 +169,9 @@
 	world_state = "salem"
 	inhand_icon_state = "green"
 	spawn_type = /obj/item/ms13/cigarette/salem
+
+/obj/item/storage/fancy/ms13/cigarettes/salem/random
+	is_randomised = TRUE
 
 /obj/item/storage/fancy/ms13/cigarettes/kools
 	name = "\improper Kools pack"
@@ -165,6 +182,9 @@
 	inhand_icon_state = "green"
 	spawn_type = /obj/item/ms13/cigarette/kools
 	othertype = FALSE
+
+/obj/item/storage/fancy/ms13/cigarettes/kools/random
+	is_randomised = TRUE
 
 //Rollie Packs
 
@@ -179,6 +199,9 @@
 	othertype = FALSE
 	pack_overlay = "rolled"
 
+/obj/item/storage/fancy/ms13/cigarettes/rollies/random
+	is_randomised = TRUE
+
 /obj/item/storage/fancy/ms13/cigarettes/rollies/empty
 	spawn_type = null
 
@@ -190,3 +213,6 @@
 	world_state = "repub"
 	inhand_icon_state = "brown"
 	spawn_type = /obj/item/ms13/cigarette/rollie/republic
+
+/obj/item/storage/fancy/ms13/cigarettes/rollies/republics/random
+	is_randomised = TRUE

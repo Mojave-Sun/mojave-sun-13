@@ -165,6 +165,21 @@
 		force = 10
 		damtype = BRUTE
 
+/obj/item/weldingtool/ms13/attackby(obj/item/I, mob/user, params)
+	. = ..()
+	if(istype(I, /obj/item/reagent_containers/ms13/lighterfluid))
+		if(!I.reagents.has_reagent(/datum/reagent/fuel))
+			to_chat(user, span_warning("[src] is out of fluid!"))
+			return
+		if(reagents.has_reagent(/datum/reagent/fuel, max_fuel))
+			to_chat(user, span_warning("Your [name] is already full!"))
+			return
+		I.reagents.trans_to(src, max_fuel, transfered_by = user)
+		user.visible_message(span_notice("[user] refills [user.p_their()] [name]."), span_notice("You refill [name]."))
+		playsound(src, 'sound/effects/refill.ogg', 50, TRUE)
+		update_appearance()
+	return ..()
+
 /obj/item/weldingtool/ms13/update_overlays()
 	. = ..()
 	if(welding)

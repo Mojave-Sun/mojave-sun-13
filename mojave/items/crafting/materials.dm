@@ -276,6 +276,7 @@ GLOBAL_LIST_INIT(scrap_wood_recipes, list ( \
 	new/datum/stack_recipe("crude scrap wood table", /obj/structure/table/ms13/wood/constructed/cobbled, 8, time = 20 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("wood bed", /obj/structure/bed/ms13/bedframe/wood, 5, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("campfire", /obj/structure/bonfire/ms13/campfire, 5, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("drying rack", /obj/structure/ms13/drying_rack, 6, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 ))
 
 /obj/item/stack/sheet/ms13/scrap_wood/get_main_recipes()
@@ -308,6 +309,7 @@ GLOBAL_LIST_INIT(plank_recipes, list ( \
 	new/datum/stack_recipe("wood barricade", /obj/structure/ms13/barricade, 4, time = 15 SECONDS, one_per_turf = FALSE, on_floor = TRUE), \
 	new/datum/stack_recipe("wood bed", /obj/structure/bed/ms13/bedframe/wood, 3, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("campfire", /obj/structure/bonfire/ms13/campfire, 3, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("drying rack", /obj/structure/ms13/drying_rack, 4, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 ))
 
 /obj/item/stack/sheet/ms13/plank/get_main_recipes()

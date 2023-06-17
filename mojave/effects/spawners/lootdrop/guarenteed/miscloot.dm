@@ -38,7 +38,12 @@
 			/obj/item/shovel/ms13/spade,
 			/obj/item/shovel/ms13/snow,
 			/obj/item/shovel/ms13/rake,
-			/obj/item/ms13/brick
+			/obj/item/ms13/brick,
+			/obj/item/restraints/handcuffs/ms13/rope,
+			/obj/item/knife/ms13/scissors,
+			/obj/item/lighter/ms13/zippo,
+			/obj/item/reagent_containers/ms13/lighterfluid,
+			/obj/item/storage/box/matches/ms13
 			)
 
 /obj/effect/spawner/random/ms13/guaranteed/tools/lights
@@ -168,3 +173,39 @@
 			/obj/item/stack/sheet/ms13/refined_steel/two,
 			/obj/item/stack/sheet/ms13/refined_copper/two
 	)
+
+// CIGARETTE SPAWNERS BELOW //
+
+/obj/effect/spawner/random/ms13/guaranteed/smokeable
+	name = "DO NOT USE ME - Mojave Sun smokeable spawners"
+	spawn_loot_count = 1
+
+/obj/effect/spawner/random/ms13/guaranteed/smokeable/general
+	name = "general guaranteed smokeables spawner"
+	loot = list(
+			/obj/effect/spawner/random/ms13/guaranteed/smokeable/highrandom = 30,
+			/obj/effect/spawner/random/ms13/guaranteed/smokeable/lowrandom = 70,
+			)
+
+/obj/effect/spawner/random/ms13/guaranteed/smokeable/highrandom
+	name = "high tier random smokeables spawner"
+	loot = list(
+			/obj/item/storage/fancy/ms13/cigarettes/marlboro = 20,
+			/obj/item/storage/fancy/ms13/cigarettes/winston = 20,
+			/obj/item/storage/fancy/ms13/cigarettes/salem = 40,
+			/obj/item/storage/fancy/ms13/cigarettes/kools = 30,
+			/obj/item/ms13/rolling_paper = 20,
+			/obj/item/storage/fancy/ms13/cigarettes/rollies = 2
+			)
+
+/obj/effect/spawner/random/ms13/guaranteed/smokeable/lowrandom
+	name = "low tier random smokeables spawner"
+	loot = list(
+			/obj/item/storage/fancy/ms13/cigarettes/marlboro/random = 40,
+			/obj/item/storage/fancy/ms13/cigarettes/winston/random = 40,
+			/obj/item/storage/fancy/ms13/cigarettes/salem/random = 30,
+			/obj/item/storage/fancy/ms13/cigarettes/kools/random = 10,
+			/obj/item/storage/fancy/ms13/cigarettes/rollies/republics/random = 20,
+			/obj/item/ms13/rolling_paper = 10,
+			/obj/item/storage/fancy/ms13/cigarettes/rollies/random = 1
+			)

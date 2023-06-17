@@ -25,8 +25,10 @@
 
 /mob/living/carbon/human/death(gibbed)
 	. = ..()
-	if(stat == DEAD)
-		addtimer(CALLBACK(src, .proc/rot), rand(45 MINUTES, 60 MINUTES))
+	if(stat == DEAD & !PRE_SPAWN)
+		addtimer(CALLBACK(src, .proc/rot), rand(30 MINUTES, 45 MINUTES))
+	if(stat == DEAD & PRE_SPAWN)
+		addtimer(CALLBACK(src, .proc/rot), rand(75 MINUTES, 90 MINUTES))
 
 /mob/living/carbon/human/proc/rot()
 	rotting = TRUE

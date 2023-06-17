@@ -9,6 +9,9 @@
 /obj/machinery/vending/ms13/can_vend(user, silent)
 	return FALSE
 
+/obj/machinery/vending/ui_interact(mob/user, datum/tgui/ui)
+	return
+
 /obj/machinery/vending/ms13/vend(list/params, list/greyscale_colors)
 	return
 
@@ -36,8 +39,24 @@
 	desc = "One of the few to challenge Nuka's dominance, this Sunset Sarsaparilla machine still stands."
 	icon_state = "sarsaparilla"
 
+#define CIGARETTE_VENDOR_DROP_RARE list()
+#define CIGARETTE_VENDOR_DROP_HIGH list()
+#define CIGARETTE_VENDOR_DROP_MEDIUM list()
+#define CIGARETTE_VENDOR_DROP_LOW list()
+
 /obj/machinery/vending/ms13/cigarettes
 	name = "cigarette vending machine"
 	desc = "Delicious cigarettes"
 	icon_state = "cigarette"
 	tiltable = FALSE
+
+/obj/machinery/vending/ms13/cigarettes/deconstruct(disassembled)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		new /obj/item/stack/sheet/ms13/scrap_steel(loc, 1)
+		new /obj/item/stack/sheet/ms13/scrap_alu(loc, 2)
+		new /obj/item/stack/sheet/ms13/scrap_alu(loc, 2)
+	//switch(prob)
+		//if()
+
+/obj/machinery/vending/ms13/cigarettes/attack_hand(mob/user, list/modifiers)
+	. = ..()

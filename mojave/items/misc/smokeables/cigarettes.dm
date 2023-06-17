@@ -88,6 +88,10 @@
 		fresh = FALSE
 	START_PROCESSING(SSobj, src)
 	lit = TRUE
+	if(!butt_transform)
+		world_state = "[initial(world_state)]_lit"
+	else
+		world_state = "[initial(butt_icon)]_lit"
 	update_overlays()
 	update_icon_state()
 	hitsound = 'sound/items/welder.ogg'
@@ -130,6 +134,10 @@
 	STOP_PROCESSING(SSobj, src)
 	lit = FALSE
 	set_light_on(FALSE)
+	if(!butt_transform)
+		world_state = "[initial(world_state)]"
+	else
+		world_state = "[initial(butt_icon)]"
 	update_overlays()
 	update_icon_state()
 	if(ismob(loc))
