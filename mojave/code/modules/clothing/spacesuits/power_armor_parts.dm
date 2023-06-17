@@ -177,30 +177,31 @@
 
 //T-51 SET
 /obj/item/ms13/power_armor/leg/left/t51
-	name = "T51 left leg"
+	name = "T-51 Power Armor left leg"
 	icon_state = "t51_leftleg"
 	icon_state_pa = "t51_leftleg"
-	max_integrity = 250
+	max_integrity = 280
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
 					EDGE_PROTECTION = CLASS4_EDGE, \
 					CRUSHING = CLASS5_CRUSH, \
 					CUTTING = CLASS5_CUT, \
-					PIERCING = CLASS5_PIERCE, \
+					PIERCING = CLASS4_PIERCE, \
 					IMPALING = CLASS5_STAB, \
 					LASER = CLASS5_LASER, \
 					ENERGY = CLASS4_PLASMA, \
 					FIRE = CLASS5_FIRE)
 	chance = 20
+
 /obj/item/ms13/power_armor/leg/right/t51
-	name = "T51 right left"
+	name = "T-51 Power Armor right leg"
 	icon_state = "t51_rightleg"
 	icon_state_pa = "t51_rightleg"
-	max_integrity = 250
+	max_integrity = 280
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
 					EDGE_PROTECTION = CLASS4_EDGE, \
 					CRUSHING = CLASS5_CRUSH, \
 					CUTTING = CLASS5_CUT, \
-					PIERCING = CLASS5_PIERCE, \
+					PIERCING = CLASS4_PIERCE, \
 					IMPALING = CLASS5_STAB, \
 					LASER = CLASS5_LASER, \
 					ENERGY = CLASS4_PLASMA, \
@@ -208,15 +209,15 @@
 	chance = 20
 
 /obj/item/ms13/power_armor/chest/t51
-	name = "T51 chest"
+	name = "T-51 Power Armor chest"
 	icon_state = "t51_chest"
 	icon_state_pa = "t51_chest"
-	max_integrity = 700
+	max_integrity = 550
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
 					EDGE_PROTECTION = CLASS4_EDGE, \
 					CRUSHING = CLASS5_CRUSH, \
 					CUTTING = CLASS5_CUT, \
-					PIERCING = CLASS5_PIERCE, \
+					PIERCING = CLASS4_PIERCE, \
 					IMPALING = CLASS5_STAB, \
 					LASER = CLASS5_LASER, \
 					ENERGY = CLASS4_PLASMA, \
@@ -224,15 +225,15 @@
 	chance = 20
 
 /obj/item/ms13/power_armor/arm/left/t51
-	name = "T51 left arm"
+	name = "T51 Power Armor left arm"
 	icon_state = "t51_lefthand"
 	icon_state_pa = "t51_lefthand"
-	max_integrity = 300
+	max_integrity = 280
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
 					EDGE_PROTECTION = CLASS4_EDGE, \
 					CRUSHING = CLASS5_CRUSH, \
 					CUTTING = CLASS5_CUT, \
-					PIERCING = CLASS5_PIERCE, \
+					PIERCING = CLASS4_PIERCE, \
 					IMPALING = CLASS5_STAB, \
 					LASER = CLASS5_LASER, \
 					ENERGY = CLASS4_PLASMA, \
@@ -240,15 +241,15 @@
 	chance = 20
 
 /obj/item/ms13/power_armor/arm/right/t51
-	name = "T51 right arm"
+	name = "T51 Power Armor right arm"
 	icon_state = "t51_righthand"
 	icon_state_pa = "t51_righthand"
-	max_integrity = 300
+	max_integrity = 280
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
 					EDGE_PROTECTION = CLASS4_EDGE, \
 					CRUSHING = CLASS5_CRUSH, \
 					CUTTING = CLASS5_CUT, \
-					PIERCING = CLASS5_PIERCE, \
+					PIERCING = CLASS4_PIERCE, \
 					IMPALING = CLASS5_STAB, \
 					LASER = CLASS5_LASER, \
 					ENERGY = CLASS4_PLASMA, \
@@ -256,37 +257,38 @@
 	chance = 20
 
 /obj/item/ms13/power_armor/head/t51
-	name = "T51 helmet"
+	name = "T-51 Power Armor helmet"
 	icon_state = "t51_helmet"
 	type_helmet = /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/t51
 	chance = 20
 
 //T-45
 /obj/item/ms13/power_armor/leg/left/t45
-	name = "T45 left leg"
+	name = "T-45 Power Armor left leg"
 	icon_state = "t45_leftleg"
 	icon_state_pa = "t45_leftleg"
-	max_integrity = 150
+	max_integrity = 225
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = CLASS4_EDGE, \
-                CRUSHING = CLASS5_CRUSH, \
+                CRUSHING = CLASS4_CRUSH, \
                 CUTTING = CLASS5_CUT, \
-                PIERCING = CLASS5_PIERCE, \
+                PIERCING = CLASS4_PIERCE, \
                 IMPALING = CLASS5_STAB, \
                 LASER = CLASS4_LASER, \
                 ENERGY = CLASS3_PLASMA, \
                 FIRE = CLASS5_FIRE)
 	chance = 30
+
 /obj/item/ms13/power_armor/leg/right/t45
-	name = "T45 right leg"
+	name = "T-45 Power Armor right leg"
 	icon_state = "t45_rightleg"
 	icon_state_pa = "t45_rightleg"
-	max_integrity = 150
+	max_integrity = 225
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = CLASS4_EDGE, \
-                CRUSHING = CLASS5_CRUSH, \
+                CRUSHING = CLASS4_CRUSH, \
                 CUTTING = CLASS5_CUT, \
-                PIERCING = CLASS5_PIERCE, \
+                PIERCING = CLASS4_PIERCE, \
                 IMPALING = CLASS5_STAB, \
                 LASER = CLASS4_LASER, \
                 ENERGY = CLASS3_PLASMA, \
@@ -294,15 +296,15 @@
 	chance = 30
 
 /obj/item/ms13/power_armor/chest/t45
-	name = "T45 chest"
+	name = "T-45 Power Armor chest"
 	icon_state = "t45_chest"
 	icon_state_pa = "t45_chest"
-	max_integrity = 400
+	max_integrity = 440
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = CLASS4_EDGE, \
-                CRUSHING = CLASS5_CRUSH, \
+                CRUSHING = CLASS4_CRUSH, \
                 CUTTING = CLASS5_CUT, \
-                PIERCING = CLASS5_PIERCE, \
+                PIERCING = CLASS4_PIERCE, \
                 IMPALING = CLASS5_STAB, \
                 LASER = CLASS4_LASER, \
                 ENERGY = CLASS3_PLASMA, \
@@ -310,15 +312,15 @@
 	chance = 30
 
 /obj/item/ms13/power_armor/arm/left/t45
-	name = "T45 left arm"
+	name = "T-45 Power Armor left arm"
 	icon_state = "t45_lefthand"
 	icon_state_pa = "t45_lefthand"
-	max_integrity = 200
+	max_integrity = 225
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = CLASS4_EDGE, \
-                CRUSHING = CLASS5_CRUSH, \
+                CRUSHING = CLASS4_CRUSH, \
                 CUTTING = CLASS5_CUT, \
-                PIERCING = CLASS5_PIERCE, \
+                PIERCING = CLASS4_PIERCE, \
                 IMPALING = CLASS5_STAB, \
                 LASER = CLASS4_LASER, \
                 ENERGY = CLASS3_PLASMA, \
@@ -326,15 +328,15 @@
 	chance = 30
 
 /obj/item/ms13/power_armor/arm/right/t45
-	name = "T45 right arm"
+	name = "T-45 Power Armor right arm"
 	icon_state = "t45_righthand"
 	icon_state_pa = "t45_righthand"
-	max_integrity = 200
+	max_integrity = 225
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = CLASS4_EDGE, \
-                CRUSHING = CLASS5_CRUSH, \
+                CRUSHING = CLASS4_CRUSH, \
                 CUTTING = CLASS5_CUT, \
-                PIERCING = CLASS5_PIERCE, \
+                PIERCING = CLASS4_PIERCE, \
                 IMPALING = CLASS5_STAB, \
                 LASER = CLASS4_LASER, \
                 ENERGY = CLASS3_PLASMA, \
@@ -342,7 +344,7 @@
 	chance = 30
 
 /obj/item/ms13/power_armor/head/t45
-	name = "T45 helmet"
+	name = "T-45 Power Armor helmet"
 	icon_state = "t45_helmet"
 	type_helmet = /obj/item/clothing/head/helmet/space/hardsuit/ms13/power_armor/t45
 	chance = 30
