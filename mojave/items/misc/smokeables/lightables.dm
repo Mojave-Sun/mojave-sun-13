@@ -44,13 +44,20 @@
 
 /obj/item/storage/box/matches/attackby_secondary(obj/item/match/W as obj, mob/user, params)
 	if(istype(W, /obj/item/match))
-		W.matchignite()
+		W.matchignite(user)
+		W.update_appearance()
+		W.update_overlays()
+		W.update_icon()
+		W.build_worn_icon()
+		user.update_inv_hands()
+		W.set_light_on(TRUE)
 		. = SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	else
 		. = ..()
 
 /obj/item/storage/box/matches/ms13/update_icon_state()
 	. = ..()
+	box_check()
 	update_overlays()
 
 /obj/item/storage/box/matches/ms13/update_overlays()
@@ -84,6 +91,7 @@
 		to_chat(user, "<span class='danger'>[src] is closed.</span>")
 		return
 	var/obj/item/match/ms13/match = locate(/obj/item/match/ms13) in contents
+	box_check()
 	if(match)
 		if(user && contents.len > 0)
 			var/obj/item/match/ms13/W = match
@@ -150,19 +158,24 @@
 	grind_results = null
 	grid_width = 32
 	grid_height = 32
+	light_system = MOVABLE_LIGHT
+	light_range = 1
+	light_power = 0.6
+	light_color = LIGHT_COLOR_FIRE
 
 /obj/item/match/ms13/ComponentInitialize()
 	. = ..()
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/lightables_inventory.dmi', world_state, inventory_state)
+
+/obj/item/match/ms13/Initialize(mapload)
+	. = ..()
+	set_light_on(FALSE)
 
 /obj/item/match/ms13/process(delta_time)
 	smoketime -= 1 SECONDS
 	if(lit)
 		world_state = "match_lit"
 		inhand_icon_state = "match_lit"
-	update_appearance()
-	update_overlays()
-	update_icon()
 	if(smoketime <= 0)
 		matchburnout()
 	else
@@ -191,12 +204,13 @@
 		inhand_icon_state = "match_burnt"
 		return
 
-/obj/item/match/ms13/matchignite()
+/obj/item/match/ms13/matchignite(mob/user)
 	if(lit || burnt)
 		return
 
 	playsound(src, 'mojave/sound/ms13effects/matchlight.ogg', 100, TRUE)
 	lit = TRUE
+	set_light_on(TRUE)
 	damtype = BURN
 	force = 3
 	hitsound = 'sound/items/welder.ogg'
@@ -207,16 +221,17 @@
 	desc = "A [initial(name)]. This one is lit."
 	attack_verb_continuous = string_list(list("burns", "singes"))
 	attack_verb_simple = string_list(list("burn", "singe"))
+	START_PROCESSING(SSobj, src)
 	update_appearance()
 	update_overlays()
 	update_icon()
-	START_PROCESSING(SSobj, src)
 
 /obj/item/match/ms13/matchburnout()
 	if(!lit)
 		return
 
 	lit = FALSE
+	set_light_on(FALSE)
 	burnt = TRUE
 	damtype = BRUTE
 	force = initial(force)

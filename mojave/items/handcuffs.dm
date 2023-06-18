@@ -16,6 +16,7 @@
 	cuffsound = 'mojave/sound/ms13effects/hogtie.ogg'
 	cuff_time = 3 SECONDS
 	cuff_verb = "hogtie"
+	does_shrink = FALSE
 
 /obj/item/restraints/handcuffs/ms13/rope/Initialize()
 	. = ..()
@@ -36,7 +37,9 @@
 /obj/item/restraints/handcuffs/ms13
 	grid_height = 32
 	grid_width = 64
+	var/does_shrink = TRUE
 
 /obj/item/restraints/handcuffs/ms13/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/item_scaling, 0.45, 1)
+	if(does_shrink)
+		AddElement(/datum/element/item_scaling, 0.45, 1)
