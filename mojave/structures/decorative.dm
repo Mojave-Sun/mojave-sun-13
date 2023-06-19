@@ -63,7 +63,8 @@
 	name = "cable"
 	icon = 'mojave/icons/objects/cables.dmi'
 	density = FALSE
-
+	anchored = TRUE
+	opacity = FALSE
 /obj/structure/ms13/cable/red
 	icon_state = "cable_red_straight"
 
