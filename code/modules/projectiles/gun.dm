@@ -176,7 +176,7 @@
 		if(!istype(H.wear_suit, /obj/item/clothing/suit/space/hardsuit/ms13/power_armor)) // If they're wearing PA, cut that shid in half
 			recoil_camera(user, recoil+1, (recoil*recoil_backtime_multiplier) + 1, recoil, angle)
 		else
-			recoil_camera(user, recoil/2, (recoil*recoil_backtime_multiplier/2) + 1, recoil/2, angle/2)
+			recoil_camera(user, recoil/2, (recoil*recoil_backtime_multiplier/2) + 1, recoil/2, angle)
 
 	//MOJAVE EDIT CHANGE END
 
