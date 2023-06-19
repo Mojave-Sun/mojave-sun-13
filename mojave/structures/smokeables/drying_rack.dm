@@ -13,21 +13,21 @@
 	var/has_rope = FALSE
 	//Having a mental breakdown so this is how its gonna be, if anyone knows something better please do tell me
 	var/is_processing = FALSE
-	var/slot_1
+	var/obj/slot_1
 	var/mutable_appearance/slot_1m
-	var/slot_2
+	var/obj/slot_2
 	var/mutable_appearance/slot_2m
-	var/slot_3
+	var/obj/slot_3
 	var/mutable_appearance/slot_3m
-	var/slot_4
+	var/obj/slot_4
 	var/mutable_appearance/slot_4m
-	var/slot_5
+	var/obj/slot_5
 	var/mutable_appearance/slot_5m
-	var/slot_6
+	var/obj/slot_6
 	var/mutable_appearance/slot_6m
-	var/slot_7
+	var/obj/slot_7
 	var/mutable_appearance/slot_7m
-	var/slot_8
+	var/obj/slot_8
 	var/mutable_appearance/slot_8m
 
 /obj/structure/ms13/drying_rack/Initialize(mapload)

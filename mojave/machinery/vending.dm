@@ -51,15 +51,15 @@
 						vend_loot = pick_weight(loot_high)
 					if("rare")
 						vend_loot = pick_weight(loot_rare)
-				new vend_loot(loc)
+				var/obj/item/vend_loot_name = new vend_loot(loc)
+				to_chat(user, span_green("You rummage around a feel something inside, you carefully pull out \a [vend_loot_name.name]!"))
 				user.put_in_active_hand(vend_loot)
 				loot_inside -= 1
-				to_chat(user, span_green("You rummage around a feel something inside, you carefully pull out \a [vend_loot.name]!"))
 				return
 			if(75 to 100) //arm break
 				var/mob/living/carbon/vender_victim = user
 				var/obj/item/bodypart/affecting = vender_victim.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
-				to_chat(user, span_danger("You feel a horrible pain as your arm gets stuck in the [src] [pick("mechanisms", "parts", "gears")]!"))
+				to_chat(user, span_danger("You feel a horrible pain as your arm gets stuck in the [src]s [pick("mechanisms", "parts", "gears")]!"))
 				if(affecting?.receive_damage(30))
 					var/type_wound = pick(list(/datum/wound/blunt/critical, /datum/wound/blunt/severe, /datum/wound/blunt/moderate))
 					affecting.force_wound_upwards(type_wound)

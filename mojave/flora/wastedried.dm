@@ -47,32 +47,56 @@
 	if(S.slot_1 == src) // HELP
 		S.slot_1 = result
 		qdel(src)
+		S.cut_overlay(S.slot_1m)
+		S.slot_1m = mutable_appearance(S.icon, "[S.slot_1.icon_state]_1", layer + 1)
+		S.add_overlay(S.slot_1m)
 		return
 	if(S.slot_2 == src)
 		S.slot_2 = result
 		qdel(src)
+		S.cut_overlay(S.slot_2m)
+		S.slot_2m = mutable_appearance(S.icon, "[S.slot_2.icon_state]_2", layer + 1)
+		S.add_overlay(S.slot_2m)
 		return
 	if(S.slot_3 == src)
 		S.slot_3 = result
 		qdel(src)
+		S.cut_overlay(S.slot_3m)
+		S.slot_3m = mutable_appearance(S.icon, "[S.slot_3.icon_state]_3", layer + 1)
+		S.add_overlay(S.slot_3m)
 		return
 	if(S.slot_4 == src)
 		S.slot_4 = result
 		qdel(src)
+		S.cut_overlay(S.slot_4m)
+		S.slot_4m = mutable_appearance(S.icon, "[S.slot_4.icon_state]_4", layer + 1)
+		S.add_overlay(S.slot_4m)
 		return
 	if(S.slot_5 == src)
 		S.slot_5 = result
 		qdel(src)
+		S.cut_overlay(S.slot_5m)
+		S.slot_5m = mutable_appearance(S.icon, "[S.slot_5.icon_state]_5", layer + 1)
+		S.add_overlay(S.slot_5m)
 		return
 	if(S.slot_6 == src)
 		S.slot_6 = result
 		qdel(src)
+		S.cut_overlay(S.slot_6m)
+		S.slot_6m = mutable_appearance(S.icon, "[S.slot_6.icon_state]_6", layer + 1)
+		S.add_overlay(S.slot_6m)
 		return
 	if(S.slot_7 == src)
 		S.slot_7 = result
 		qdel(src)
+		S.cut_overlay(S.slot_7m)
+		S.slot_7m = mutable_appearance(S.icon, "[S.slot_7.icon_state]_7", layer + 1)
+		S.add_overlay(S.slot_7m)
 		return
 	if(S.slot_8 == src)
 		S.slot_8 = result
 		qdel(src)
+		S.cut_overlay(S.slot_8m)
+		S.slot_8m = mutable_appearance(S.icon, "[S.slot_8.icon_state]_8", layer + 1)
+		S.add_overlay(S.slot_8m)
 		return

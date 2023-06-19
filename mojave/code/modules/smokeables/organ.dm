@@ -100,8 +100,12 @@
 				owner.Jitter(8)
 			if(prob(1))
 				owner.blur_eyes(10)
+			if(owner?.hud_used)
+				var/atom/movable/plane_master_controller/pm_controller = owner.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
+				for(var/atom/movable/screen/plane_master/plane as anything in pm_controller.controlled_planes)
+					animate(pm_controller.controlled_planes[plane], transform = matrix(), time = 5, easing = QUAD_EASING)
 		if(18 to 20.9) //6 cigarettes
-			var/list/screens = list(owner.hud_used.plane_masters["[FLOOR_PLANE]"], owner.hud_used.plane_masters["[GAME_PLANE]"], owner.hud_used.plane_masters["[LIGHTING_PLANE]"])
+			var/atom/movable/plane_master_controller/pm_controller = owner.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
 			owner.adjustOrganLoss(ORGAN_SLOT_LUNGS, 0.04)
 			if(prob(1))
 				to_chat(owner, "<span class='userdanger'>[pick("Your throat feels incredibly tight!", "Your head is hurting like hell!")]</span>")
@@ -112,11 +116,11 @@
 			if(prob(3))
 				owner.blur_eyes(10)
 			if(owner.hud_used)
-				for(var/whole_screen in screens)
-					animate(whole_screen, transform = matrix(5, MATRIX_ROTATE), time = 5, easing = QUAD_EASING, loop = -1)
+				for(var/atom/movable/screen/plane_master/plane as anything in pm_controller.controlled_planes)
+					animate(pm_controller.controlled_planes[plane], transform = matrix(5, MATRIX_ROTATE), time = 5, easing = QUAD_EASING, loop = -1)
 					animate(transform = matrix(-5, MATRIX_ROTATE), time = 5, easing = QUAD_EASING)
 		if(21 to 100) //7 cigarettes, pack a day smokers in tears
-			var/list/screens = list(owner.hud_used.plane_masters["[FLOOR_PLANE]"], owner.hud_used.plane_masters["[GAME_PLANE]"], owner.hud_used.plane_masters["[LIGHTING_PLANE]"])
+			var/atom/movable/plane_master_controller/pm_controller = owner.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
 			owner.adjustOrganLoss(ORGAN_SLOT_LUNGS, 1)
 			if(prob(1))
 				to_chat(owner, "<span class='userdanger'>[pick("You feel extremely weak! Finding it near impossible to breathe! Your head pounding like hell!")]</span>")
@@ -130,6 +134,6 @@
 			if(prob(3))
 				owner.vomit(20)
 			if(owner.hud_used)
-				for(var/whole_screen in screens)
-					animate(whole_screen, transform = matrix(10, MATRIX_ROTATE), time = 5, easing = QUAD_EASING, loop = -1)
+				for(var/atom/movable/screen/plane_master/plane as anything in pm_controller.controlled_planes)
+					animate(pm_controller.controlled_planes[plane], transform = matrix(10, MATRIX_ROTATE), time = 5, easing = QUAD_EASING, loop = -1)
 					animate(transform = matrix(-10, MATRIX_ROTATE), time = 5, easing = QUAD_EASING)
