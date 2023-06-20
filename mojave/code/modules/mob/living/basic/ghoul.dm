@@ -8,18 +8,20 @@
 	gender = MALE
 	health = 100
 	maxHealth = 100
-	speed = 0
+	speed = 0.25
 	attack_verb_continuous = "tears"
 	attack_verb_simple = "claws"
-	melee_damage_lower = 10
+	melee_damage_lower = 15
 	melee_damage_upper = 15
-	attack_sound = 'sound/weapons/punch1.ogg'
+	subtractible_armour_penetration = 5
+	attack_sound = list('mojave/sound/ms13npc/ghoul_attack1.ogg', 'mojave/sound/ms13npc/ghoul_attack2.ogg', 'mojave/sound/ms13npc/ghoul_attack3.ogg')
+	deathsound = list('mojave/sound/ms13npc/ghoul_death1.ogg', 'mojave/sound/ms13npc/ghoul_death2.ogg', 'mojave/sound/ms13npc/ghoul_death3.ogg')
 	combat_mode = TRUE
 	faction = list("ghoul")
 	speak_emote = list("grumbles","growls")
 	sharpness = SHARP_EDGED
 	wound_bonus = 6
-	bare_wound_bonus = 4
+	bare_wound_bonus = 6
 
 	ai_controller = /datum/ai_controller/basic_controller/ms13/ghoul
 
@@ -28,12 +30,16 @@
 	AddElement(/datum/element/basic_body_temp_sensitive, cold_damage = 7.5, heat_damage = 7.5)
 	AddElement(/datum/element/atmos_requirements, list("min_oxy" = 5, "max_oxy" = 0, "min_plas" = 0, "max_plas" = 1, "min_co2" = 0, "max_co2" = 5, "min_n2" = 0, "max_n2" = 0), 7.5)
 
+/mob/living/basic/ms13/ghoul/death()
+	. = ..()
+	playsound(src, 'mojave/sound/ms13npc/ghoul_death2.ogg', 60, TRUE)
+
 /datum/ai_controller/basic_controller/ms13/ghoul
 	blackboard = list(
 		BB_TARGETTING_DATUM = new /datum/targetting_datum/basic()
 	)
 
-	ai_movement = /datum/ai_movement/basic_avoidance
+	ai_movement = /datum/ai_movement/basic_avoidance/bypass_tables
 	idle_behavior = /datum/idle_behavior/idle_random_walk
 	planning_subtrees = list(
 		/datum/ai_planning_subtree/simple_find_target,
@@ -58,19 +64,22 @@
 	icon_dead = "iceghoul_dead"
 	health = 140
 	maxHealth = 140
-	speed = 1
+	speed = 1.35
 	melee_damage_lower = 15
-	melee_damage_upper = 20
-	armour_penetration = 5
+	melee_damage_upper = 15
+	subtractible_armour_penetration = 20
 
 /mob/living/basic/ms13/ghoul/radioactive
 	name = "glowing feral ghoul"
 	desc = "A glowing, calloused ghoul. It looks like it has spent is entire lifetime sitting in a radioactive lake, as the damn thing can probably power a building if you hooked it up."
-	icon_state = "glowinghoul"
-	icon_dead = "glowinghoul_dead"
+	icon_state = "glowingghoul"
+	icon_dead = "glowingghoul_dead"
 	health = 125
 	maxHealth = 125
-	melee_damage_lower = 15
-	melee_damage_upper = 25
+	melee_damage_lower = 20
+	melee_damage_upper = 20
+	subtractible_armour_penetration = 20
+	wound_bonus = 8
+	bare_wound_bonus = 8
 	light_range = 2
 	light_color = "#4ba54f"

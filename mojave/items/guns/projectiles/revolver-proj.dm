@@ -1,56 +1,62 @@
 //.44
 /obj/projectile/bullet/ms13/m44
+	name = ".44 bullet"
 	icon_state = "medium_bullet"
-	armour_penetration = 0
-	wound_bonus = 0
+	damage = 40
+	subtractible_armour_penetration = 15
+	wound_bonus = 15
+	bare_wound_bonus = 10
 
 /obj/projectile/bullet/ms13/m44/junk
-	damage = -5
+	subtractible_armour_penetration = 5
 
 /obj/projectile/bullet/ms13/m44/ap
-	armour_penetration = 10
-	wound_bonus = 3
+	subtractible_armour_penetration = 25
 
 /obj/projectile/bullet/ms13/m44/fmj
-	damage = 5
+	damage = 45
 
 /obj/projectile/bullet/ms13/m44/hv
 	speed = 0.4
-	wound_bonus = 3
+	wound_bonus = 18
 
 //45-70
 /obj/projectile/bullet/ms13/c4570
+	name = ".45-70 bullet"
 	icon_state = "medium_bullet"
-	armour_penetration = 0
-	wound_bonus = 2
+	damage = 50
+	subtractible_armour_penetration = 20
+	wound_bonus = 15
+	bare_wound_bonus = 10
 
 /obj/projectile/bullet/ms13/c4570/ap
-	armour_penetration = 10
-	wound_bonus = 5
+	subtractible_armour_penetration = 30
 
 /obj/projectile/bullet/ms13/c4570/fmj
-	damage = 5
+	damage = 55
 
 /obj/projectile/bullet/ms13/c4570/hv
 	speed = 0.4
-	wound_bonus = 5
+	wound_bonus = 18
 
 //.357
 /obj/projectile/bullet/ms13/a357
+	name = ".357 bullet"
 	icon_state = "medium_bullet"
-	armour_penetration = 0
-	wound_bonus = 2
+	damage = 35
+	subtractible_armour_penetration = 10
+	wound_bonus = 10
+	bare_wound_bonus = 10
 
 /obj/projectile/bullet/ms13/a357/junk
-	damage = -5
+	subtractible_armour_penetration = 0
 
 /obj/projectile/bullet/ms13/a357/ap
-	armour_penetration = 10
-	wound_bonus = 5
+	subtractible_armour_penetration = 25
 
 /obj/projectile/bullet/ms13/a357/fmj
-	damage = 5
+	damage = 40
 
 /obj/projectile/bullet/ms13/a357/hv
 	speed = 0.4
-	wound_bonus = 5
+	wound_bonus = 12

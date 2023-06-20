@@ -7,6 +7,22 @@
     icon_state = "campfire"
     burn_icon = "campfire_lit"
 
+/obj/structure/bonfire/ms13/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/personal_crafting, CRAFTING_BENCH_CAMPFIRE)
+	register_context()
+
+/obj/structure/bonfire/ms13/examine(mob/user)
+	. = ..()
+	. += "<span class='notice'>Use <b>CTRL + CLICK</b> on [src] to begin crafting.</span>"
+
+/obj/structure/bonfire/ms13/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	if (isnull(held_item))
+		context[SCREENTIP_CONTEXT_CTRL_LMB] = "Start crafting"
+		return CONTEXTUAL_SCREENTIP_SET
+
 /obj/structure/bonfire/ms13/attack_hand(mob/user, list/modifiers)
     return
 
@@ -31,7 +47,7 @@
 
 /obj/structure/bonfire/ms13/campfire/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
-		new /obj/item/stack/sheet/ms13/scrap_wood(loc)
+		new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc, 2)
 	qdel(src)
 
 
@@ -45,7 +61,7 @@
     icon_state = "fire_barrel"
     burn_icon = "fire_barrel_lit"
     density = TRUE
-    max_integrity = 125
+    max_integrity = 150
 
 /obj/structure/bonfire/ms13/fire_barrel/examine(mob/user)
 	. = ..()

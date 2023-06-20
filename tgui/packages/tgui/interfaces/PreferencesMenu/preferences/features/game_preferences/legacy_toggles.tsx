@@ -138,13 +138,13 @@ export const sound_prayers: FeatureToggle = {
   category: "ADMIN",
   component: CheckboxInput,
 };
-
+/* //MOJAVE SUN EDIT START - Removes "Ship Ambience"
 export const sound_ship_ambience: FeatureToggle = {
   name: "Enable ship ambience",
   category: "SOUND",
   component: CheckboxInput,
 };
-
+*/
 export const split_admin_tabs: FeatureToggle = {
   name: "Split admin tabs",
   category: "ADMIN",

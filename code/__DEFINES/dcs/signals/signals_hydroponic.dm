@@ -33,3 +33,11 @@
 ///from base of /obj/machinery/hydroponics/plantdies()
 #define COMSIG_HYDROTRAY_PLANT_DEATH "hydrotray_plant_death"
 ///from base of obj/item/attack(): (/mob/living/target, /mob/living/user)
+
+//MS13 Agri signals
+///from base of /obj/machinery/ms13/agriculture/proc/set_nitrolevel() : (new_value)
+#define COMSIG_HYDROTRAY_SET_NITROLEVEL "hydrotray_set_nitrolevel"
+///from base of /obj/machinery/ms13/agriculture/proc/set_phoslevel() : (new_value)
+#define COMSIG_HYDROTRAY_SET_PHOSLEVEL "hydrotray_set_phoslevel"
+///from base of /obj/machinery/ms13/agriculture/proc/set_potlevel() : (new_value)
+#define COMSIG_HYDROTRAY_SET_POTLEVEL "hydrotray_set_potlevel"

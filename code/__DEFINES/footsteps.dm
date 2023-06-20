@@ -26,6 +26,7 @@
 #define FOOTSTEP_MOB_SLIME 6
 #define FOOTSTEP_OBJ_MACHINE 7
 #define FOOTSTEP_OBJ_ROBOT 8
+#define FOOTSTEP_PA 9 //MOJAVE ADD
 
 /*
 
@@ -37,6 +38,8 @@ extra range addition
 
 
 */
+
+/* MOJAVE EDIT REMOVAL
 
 GLOBAL_LIST_INIT(footstep, list(
 	FOOTSTEP_WOOD = list(list(
@@ -198,3 +201,4 @@ GLOBAL_LIST_INIT(heavyfootstep, list(
 		'sound/effects/meatslap.ogg'), 100, 0),
 ))
 
+MOJAVE EDIT REMOVAL END */

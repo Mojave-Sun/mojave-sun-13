@@ -2,8 +2,6 @@
 ////////////////// MOJAVE SUN GLASS "FLOORS" ////////////////
 /////////////////////////////////////////////////////////////
 
-////Fuck Turfs Edition////
-		//WYSI//
   ////Glass floors////
 
 /obj/structure/ms13/glassfloor
@@ -23,14 +21,6 @@
 	smoothing_groups = list(SMOOTH_GROUP_MS13_GLASS)
 	canSmoothWith = list(SMOOTH_GROUP_MS13_GLASS, SMOOTH_GROUP_OPEN_FLOOR, SMOOTH_GROUP_WALLS)
 	weatherproof = TRUE
-
-/obj/structure/ms13/glassfloor/Initialize(mapload)
-	. = ..()
-	for(var/obj/structure/ms13/glassfloor/LAT in loc)
-		if(LAT == src)
-			continue
-		stack_trace("multiple glass floors found in ([loc.x], [loc.y], [loc.z])")
-		return INITIALIZE_HINT_QDEL
 
 /obj/structure/ms13/glassfloor/reinforced //unbreakable variant
 	icon = 'icons/turf/floors/reinf_glass.dmi'

@@ -126,12 +126,14 @@
 	. = ..()
 	if(.)
 		return
-
-	var/deg = tgui_input_number(user, "What angle would you like to rotate the pen head to? (1-360)", "Rotate Pen Head", max_value = 360)
-	if(isnull(deg))
+	if(loc != user)
+		to_chat(user, span_warning("You must be holding the pen to continue!"))
 		return
-	degrees = round(deg)
-	to_chat(user, span_notice("You rotate the top of the pen to [degrees] degrees."))
+	var/deg = tgui_input_number(user, "What angle would you like to rotate the pen head to? (0-360)", "Rotate Pen Head", max_value = 360)
+	if(isnull(deg) || QDELETED(user) || QDELETED(src) || !user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK) || loc != user)
+		return
+	degrees = deg
+	to_chat(user, span_notice("You rotate the top of the pen to [deg] degrees."))
 	SEND_SIGNAL(src, COMSIG_PEN_ROTATED, deg, user)
 
 /obj/item/pen/attack(mob/living/M, mob/user, params)
@@ -148,7 +150,7 @@
 	. = ..()
 	//Changing name/description of items. Only works if they have the UNIQUE_RENAME object flag set
 	if(isobj(O) && proximity && (O.obj_flags & UNIQUE_RENAME))
-		var/penchoice = tgui_alert(user, "What would you like to edit?", "Pen Setting", list("Rename","Description","Reset"))
+		var/penchoice = tgui_input_list(user, "What would you like to edit?", "Pen Setting", list("Rename", "Description", "Reset"))
 		if(QDELETED(O) || !user.canUseTopic(O, BE_CLOSE))
 			return
 		if(penchoice == "Rename")
@@ -308,3 +310,21 @@
 	toolspeed = 10 //You will never willingly choose to use one of these over a shovel.
 	font = FOUNTAIN_PEN_FONT
 	colour = "blue"
+
+/obj/item/pen/ms13
+	icon = 'mojave/icons/objects/clutter/clutter_world.dmi'
+	icon_state = "pen"
+
+/obj/item/pen/ms13/attack_self(mob/living/carbon/user)
+	return
+
+/obj/item/pen/ms13/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clutter/clutter_inventory.dmi')
+
+/obj/item/pen/ms13/pencil
+	name = "pencil"
+	desc = "An orange pencil with a pink eraser"
+	icon_state = "pencil"
+	colour = "dimgray"
+	font = CHARCOAL_FONT

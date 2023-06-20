@@ -55,13 +55,7 @@
 	var/list/hands = list()
 	for(var/obj/item/I in held_items)
 		if(client && hud_used && hud_used.hud_version != HUD_STYLE_NOHUD)
-			//I.screen_loc = ui_hand_position(get_held_index_of_item(I))
-			// MOJAVE EDIT
-			if(get_held_index_of_item(I) == 1)
-				I.screen_loc = "CENTER:2,SOUTH"
-			else
-				I.screen_loc = "CENTER:-44,SOUTH"
-			// MOJAVE EDIT END
+			I.screen_loc = ui_hand_position(get_held_index_of_item(I))
 			client.screen += I
 			if(length(observers))
 				for(var/mob/dead/observe as anything in observers)
@@ -87,6 +81,12 @@
 
 	overlays_standing[HANDS_LAYER] = hands
 	apply_overlay(HANDS_LAYER)
+	//MOJAVE EDIT BEGIN
+	//SILLY MOMENTS WILL HAPPEN IF WE DON'T UPDATE UI WIELD HERE!!!
+	var/obj/item/active_item = get_active_held_item()
+	if(active_item)
+		wield_ui_update(SEND_SIGNAL(active_item, COMSIG_TWOHANDED_CHECK))
+	//MOJAVE EDIT END
 
 //MOJAVE EDIT ADDITION BEGIN: Adds special offsets for power armor
 /mob/living/carbon/proc/getItemPixelShiftY()
@@ -113,16 +113,29 @@
 	var/mutable_appearance/damage_overlay = mutable_appearance('icons/mob/dam_mob.dmi', "blank", -DAMAGE_LAYER)
 	overlays_standing[DAMAGE_LAYER] = damage_overlay
 
-	for(var/X in bodyparts)
-		var/obj/item/bodypart/BP = X
-		if(BP.dmg_overlay_type)
-			if(BP.brutestate)
-				damage_overlay.add_overlay("[BP.dmg_overlay_type]_[BP.body_zone]_[BP.brutestate]0") //we're adding icon_states of the base image as overlays
-			if(BP.burnstate)
-				damage_overlay.add_overlay("[BP.dmg_overlay_type]_[BP.body_zone]_0[BP.burnstate]")
+	for(var/obj/item/bodypart/iter_part as anything in bodyparts)
+		if(iter_part.dmg_overlay_type)
+			if(iter_part.brutestate)
+				damage_overlay.add_overlay("[iter_part.dmg_overlay_type]_[iter_part.body_zone]_[iter_part.brutestate]0") //we're adding icon_states of the base image as overlays
+			if(iter_part.burnstate)
+				damage_overlay.add_overlay("[iter_part.dmg_overlay_type]_[iter_part.body_zone]_0[iter_part.burnstate]")
 
+	// MOJAVE EDIT BEGIN - Fatties
+	damage_overlay = apply_fatness_filter(damage_overlay, TRUE)
+	// MOJAVE EDIT END - Fatties
 	apply_overlay(DAMAGE_LAYER)
 
+/mob/living/carbon/update_wound_overlays()
+	remove_overlay(WOUND_LAYER)
+
+	var/mutable_appearance/wound_overlay = mutable_appearance('icons/mob/bleed_overlays.dmi', "blank", -WOUND_LAYER)
+	overlays_standing[WOUND_LAYER] = wound_overlay
+
+	for(var/obj/item/bodypart/iter_part as anything in bodyparts)
+		if(iter_part.bleed_overlay_icon)
+			wound_overlay.add_overlay(iter_part.bleed_overlay_icon)
+
+	apply_overlay(WOUND_LAYER)
 
 /mob/living/carbon/update_inv_wear_mask()
 	remove_overlay(FACEMASK_LAYER)
@@ -268,13 +281,26 @@
 	var/draw_features = !HAS_TRAIT(src, TRAIT_INVISIBLE_MAN)
 	for(var/X in bodyparts)
 		var/obj/item/bodypart/BP = X
-		new_limbs += BP.get_limb_icon(draw_external_organs = draw_features)
+		var/list/bp_icons = BP.get_limb_icon(draw_external_organs = draw_features)
+		if(!LAZYLEN(bp_icons))
+			continue
+		new_limbs += bp_icons
 	if(new_limbs.len)
-		overlays_standing[BODYPARTS_LAYER] = new_limbs
+		// MOJAVE EDIT BEGIN - Fatties
+		// i know this kind of fucks with the entire concept of the limb cache but its the only way this could work afaik
 		limb_icon_cache[icon_render_key] = new_limbs
+		var/list/final_limbs = list()
+		var/image/copy
+		for(var/image/limb as anything in new_limbs)
+			copy = new(limb)
+			copy = apply_fatness_filter(copy, FALSE)
+			final_limbs += copy
+		overlays_standing[BODYPARTS_LAYER] = final_limbs
+		// MOJAVE EDIT END - Fatties
 
 	apply_overlay(BODYPARTS_LAYER)
 	update_damage_overlays()
+	update_wound_overlays()
 
 
 
@@ -315,6 +341,41 @@
 /mob/living/carbon/proc/load_limb_from_cache()
 	if(limb_icon_cache[icon_render_key])
 		remove_overlay(BODYPARTS_LAYER)
-		overlays_standing[BODYPARTS_LAYER] = limb_icon_cache[icon_render_key]
+		// MOJAVE EDIT BEGIN - Fatties
+		// i know this kind of fucks with the entire concept of the limb cache but its the only way this could work afaik
+		var/list/final_limbs = list()
+		var/image/copy
+		for(var/image/limb as anything in limb_icon_cache[icon_render_key])
+			copy = new(limb)
+			copy = apply_fatness_filter(copy, FALSE)
+			final_limbs += copy
+		overlays_standing[BODYPARTS_LAYER] = final_limbs
+		// MOJAVE EDIT END - Fatties
 		apply_overlay(BODYPARTS_LAYER)
 	update_damage_overlays()
+
+// MOJAVE SUN EDIT BEGIN
+
+//Updating overlays related to on bodypart bandages
+/mob/living/carbon/proc/update_bandage_overlays()
+	remove_overlay(BANDAGE_LAYER)
+
+	var/mutable_appearance/overlays = mutable_appearance('icons/mob/bandage_overlays.dmi', "", -BANDAGE_LAYER)
+	overlays_standing[BANDAGE_LAYER] = overlays
+
+	for(var/b in bodyparts)
+		var/obj/item/bodypart/BP = b
+		if(BP.current_gauze && BP.current_gauze.overlay_prefix)
+			var/bp_suffix = BP.body_zone
+			if(BP.use_digitigrade)
+				bp_suffix += "_digitigrade"
+			overlays.add_overlay("[BP.current_gauze.overlay_prefix]_[bp_suffix]")
+		if(BP.current_splint && BP.current_splint.overlay_prefix)
+			var/bp_suffix = BP.body_zone
+			if(BP.use_digitigrade)
+				bp_suffix += "_digitigrade"
+			overlays.add_overlay("[BP.current_splint.overlay_prefix]_[bp_suffix]")
+
+	apply_overlay(BANDAGE_LAYER)
+
+// MOJAVE SUN EDIT

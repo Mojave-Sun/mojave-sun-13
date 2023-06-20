@@ -36,7 +36,7 @@
 	LAZYSET(victim_mind.active_addictions, type, 1) //Start at first cycle.
 	SEND_SIGNAL(victim_mind.current, COMSIG_CARBON_GAIN_ADDICTION, victim_mind)
 	log_game("[key_name(victim_mind.current)] has become addicted to [name].")
-
+	victim_mind.current.throw_alert_text(/atom/movable/screen/alert/text/brutal, "You've become addicted to [src.name]", override = FALSE) // MOJAVE SUN EDIT - FO text alert
 
 ///Called when you lose addiction poitns somehow. Takes a mind as argument and sees if you lost the addiction
 /datum/addiction/proc/on_lose_addiction_points(datum/mind/victim_mind)

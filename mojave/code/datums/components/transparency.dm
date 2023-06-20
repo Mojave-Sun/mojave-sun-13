@@ -1,5 +1,5 @@
 // Ported from Fortune, made by Rohesie //
-
+// Busted right now. After the first time it turns the icon transparent, the entire icon's dimensions block mouse clicks.
 ///Makes large icons partially see through if high priority atoms are behind them.
 /datum/component/largetransparency
 	//Can be positive or negative. Determines how far away from parent the first registered turf is.

@@ -81,7 +81,7 @@
 	max_integrity = 75
 
 /obj/structure/barricade/wooden/make_debris()
-	new /obj/item/stack/sheet/ms13/scrap_wood(get_turf(src), drop_amount) //MOJAVE EDIT - Drops our wood instead of TG wood. Revert after CAT
+	new /obj/item/stack/sheet/ms13/wood/scrap_wood(get_turf(src), drop_amount) //MOJAVE EDIT - Drops our wood instead of TG wood. Revert after CAT
 
 /obj/structure/barricade/sandbags
 	name = "sandbags"
@@ -159,6 +159,9 @@
 
 /obj/item/grenade/barrier/detonate(mob/living/lanced_by)
 	. = ..()
+	if(!.)
+		return
+
 	new /obj/structure/barricade/security(get_turf(src.loc))
 	switch(mode)
 		if(VERTICAL)

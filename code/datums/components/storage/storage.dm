@@ -93,7 +93,12 @@
 	RegisterSignal(parent, COMSIG_ITEM_PRE_ATTACK, .proc/preattack_intercept)
 	RegisterSignal(parent, COMSIG_ITEM_ATTACK_SELF, .proc/attack_self)
 	RegisterSignal(parent, COMSIG_ITEM_PICKUP, .proc/signal_on_pickup)
+	/* MOJAVE EDIT REMOVAL
 	RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, .proc/update_actions)
+	*/
+	//MOJAVE EDIT BEGIN
+	RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, .proc/on_equipped)
+	//MOJAVE EDIT END
 
 	RegisterSignal(parent, COMSIG_MOVABLE_POST_THROW, .proc/close_all)
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, .proc/on_move)
@@ -815,6 +820,11 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		close(user)
 		. = COMPONENT_CANCEL_ATTACK_CHAIN
 		return
+
+	//MOJAVE EDIT BEGIN
+	if(!worn_check(A, user, TRUE))
+		return COMPONENT_CANCEL_ATTACK_CHAIN
+	//MOJAVE EDIT END
 
 	if(rustle_sound)
 		playsound(A, "rustle", 50, TRUE, -5)

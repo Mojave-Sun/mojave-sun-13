@@ -49,11 +49,14 @@
 			sanitization += 0.3
 			flesh_healing += 0.5
 
-	if(limb.current_gauze)
-		limb.seep_gauze(WOUND_BURN_SANITIZATION_RATE * delta_time)
+	// MOJAVE SUN EDIT BEGIN
+	var/bandage_factor = 1// ORIGINAL IS if(limb.current_gauze)
+	if(limb.current_gauze && limb.current_gauze.seep_gauze(WOUND_BURN_SANITIZATION_RATE, GAUZE_STAIN_PUS)) //  ORIGINAL IS 	limb.seep_gauze(WOUND_BURN_SANITIZATION_RATE * delta_time)
+		bandage_factor = limb.current_gauze.sanitisation_factor
+	// MOJAVE SUN EDIT END
 
 	if(flesh_healing > 0) // good bandages multiply the length of flesh healing
-		var/bandage_factor = limb.current_gauze?.burn_cleanliness_bonus || 1
+		//var/bandage_factor = limb.current_gauze?.burn_cleanliness_bonus || 1 // MOJAVE SUN EDIT
 		flesh_damage = max(flesh_damage - (0.5 * delta_time), 0)
 		flesh_healing = max(flesh_healing - (0.5 * bandage_factor * delta_time), 0) // good bandages multiply the length of flesh healing
 
@@ -69,7 +72,7 @@
 
 	// sanitization is checked after the clearing check but before the actual ill-effects, because we freeze the effects of infection while we have sanitization
 	if(sanitization > 0)
-		var/bandage_factor = limb.current_gauze?.burn_cleanliness_bonus || 1
+		//var/bandage_factor = limb.current_gauze?.burn_cleanliness_bonus || 1	// MOJAVE SUN EDIT
 		infestation = max(infestation - (WOUND_BURN_SANITIZATION_RATE * delta_time), 0)
 		sanitization = max(sanitization - (WOUND_BURN_SANITIZATION_RATE * bandage_factor * delta_time), 0)
 		return
@@ -265,7 +268,7 @@
 	damage_mulitplier_penalty = 1.1
 	//MOJAVE EDIT CHANGE BEGIN
 	threshold_minimum = 30 //Original TG value is 40
-	threshold_penalty = 25 // burns cause significant decrease in limb integrity compared to other wounds //Original TG value is 30
+	threshold_penalty = 20 //Original TG value is 30
 	//MOJAVE EDIT CHANGE END
 	status_effect_type = /datum/status_effect/wound/burn/moderate
 	flesh_damage = 5
@@ -278,15 +281,17 @@
 	examine_desc = "appears seriously charred, with aggressive red splotches"
 	occur_text = "chars rapidly, exposing ruined tissue and spreading angry red burns"
 	severity = WOUND_SEVERITY_SEVERE
-	damage_mulitplier_penalty = 1.2
 	//MOJAVE EDIT CHANGE BEGIN
+	damage_mulitplier_penalty = 1.15 //Original TG value is 1.2
 	threshold_minimum = 70 //Original TG value is 80
 	//MOJAVE EDIT CHANGE END
 	threshold_penalty = 40
 	status_effect_type = /datum/status_effect/wound/burn/severe
 	treatable_by = list(/obj/item/flashlight/pen/paramedic, /obj/item/stack/medical/ointment, /obj/item/stack/medical/mesh)
-	infestation_rate = 0.07 // appx 9 minutes to reach sepsis without any treatment
-	flesh_damage = 12.5
+	//MOJAVE EDIT CHANGE BEGIN
+	infestation_rate = 0.06 //Original TG value is 0.07
+	flesh_damage = 10 //Original TG value is 12.5
+	//MOJAVE EDIT CHANGE END
 	scar_keyword = "burnsevere"
 
 /datum/wound/burn/critical
@@ -296,16 +301,18 @@
 	examine_desc = "is a ruined mess of blanched bone, melted fat, and charred tissue"
 	occur_text = "vaporizes as flesh, bone, and fat melt together in a horrifying mess"
 	severity = WOUND_SEVERITY_CRITICAL
-	damage_mulitplier_penalty = 1.3
-	sound_effect = 'sound/effects/wounds/sizzle2.ogg'
 	//MOJAVE EDIT CHANGE BEGIN
+	damage_mulitplier_penalty = 1.25 //Original TG value is 1.3
+	sound_effect = 'sound/effects/wounds/sizzle2.ogg' //Unchanged from original TG value
 	threshold_minimum = 120 //Original TG value is 140
-	threshold_penalty = 75 //Original TG value is 80
+	threshold_penalty = 65 //Original TG value is 80
 	//MOJAVE EDIT CHANGE END
 	status_effect_type = /datum/status_effect/wound/burn/critical
 	treatable_by = list(/obj/item/flashlight/pen/paramedic, /obj/item/stack/medical/ointment, /obj/item/stack/medical/mesh)
-	infestation_rate = 0.075 // appx 4.33 minutes to reach sepsis without any treatment
-	flesh_damage = 20
+	//MOJAVE EDIT CHANGE BEGIN
+	infestation_rate = 0.035 //Original TG value is 0.075
+	flesh_damage = 17.5 //Original TG value is 20
+	//MOJAVE EDIT CHANGE END
 	scar_keyword = "burncritical"
 
 ///special severe wound caused by sparring interference or other god related punishments.

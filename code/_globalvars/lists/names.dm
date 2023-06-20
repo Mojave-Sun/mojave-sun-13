@@ -8,6 +8,13 @@ GLOBAL_LIST_INIT(first_names, world.file2list("strings/names/first.txt"))
 GLOBAL_LIST_INIT(first_names_male, world.file2list("strings/names/first_male.txt"))
 GLOBAL_LIST_INIT(first_names_female, world.file2list("strings/names/first_female.txt"))
 GLOBAL_LIST_INIT(last_names, world.file2list("strings/names/last.txt"))
+// MOJAVE SUN EDIT BEGIN
+GLOBAL_LIST_INIT(first_names_legion, world.file2list("mojave/strings/names/legion_first_names.txt"))
+GLOBAL_LIST_INIT(last_names_legion, world.file2list("mojave/strings/names/legion_last_names.txt"))
+GLOBAL_LIST_INIT(raider_names, world.file2list("mojave/strings/names/problematic_raider.txt"))
+GLOBAL_LIST_INIT(first_names_drylander, world.file2list("mojave/strings/names/drylander_first_names.txt"))
+GLOBAL_LIST_INIT(last_names_drylander, world.file2list("mojave/strings/names/drylander_last_names.txt"))
+// MOJAVE SUN EDIT END
 GLOBAL_LIST_INIT(lizard_names_male, world.file2list("strings/names/lizard_male.txt"))
 GLOBAL_LIST_INIT(lizard_names_female, world.file2list("strings/names/lizard_female.txt"))
 GLOBAL_LIST_INIT(clown_names, world.file2list("strings/names/clown.txt"))

@@ -19,11 +19,14 @@
 	max_integrity = 10000
 	resistance_flags = INDESTRUCTIBLE
 	var/body_state = null
+	layer = ABOVE_ALL_MOB_LAYER
+	plane = ABOVE_GAME_PLANE
+	projectile_passchance = 45
 
 /obj/structure/ms13/vehicle_ruin/welder_act_secondary(mob/living/user, obj/item/I)
 	if(!I.tool_start_check(user, amount=0))
 		return TRUE
-	if(I.use_tool(src, user, 60 SECONDS, volume=80))
+	if(I.use_tool(src, user, 65 SECONDS, volume=80))
 		deconstruct(disassembled = TRUE)
 		return TRUE
 
@@ -31,12 +34,14 @@
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
 			new /obj/item/stack/sheet/ms13/scrap(loc, 6)
-			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 4)
-			new /obj/item/stack/sheet/ms13/scrap_steel(loc, 3)
-			new /obj/item/stack/sheet/ms13/scrap_alu(loc, 3)
-			new /obj/item/stack/sheet/ms13/leather(loc, 3)
-			new /obj/item/stack/sheet/ms13/rubber(loc, 4)
-			new /obj/item/stack/sheet/ms13/glass(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 6)
+			new /obj/item/stack/sheet/ms13/scrap_steel(loc, 6)
+			new /obj/item/stack/sheet/ms13/scrap_alu(loc, 5)
+			new /obj/item/stack/sheet/ms13/leather(loc, 5)
+			new /obj/item/stack/sheet/ms13/rubber(loc, 6)
+			new /obj/item/stack/sheet/ms13/glass(loc, 4)
+			new /obj/item/stack/sheet/ms13/scrap_lead(loc, 3)
+			new /obj/item/stack/sheet/ms13/scrap_brass(loc, 3)
 		else
 			new /obj/item/stack/sheet/ms13/scrap(loc)
 	qdel(src)
@@ -47,6 +52,14 @@
 
 /obj/structure/ms13/vehicle_ruin/proc/deconstruction_hints(mob/user)
 	return span_notice("You could use a <b>welding tool</b> to painstakingly take apart [src] for parts.")
+
+/obj/structure/ms13/vehicle_ruin/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_WELDER)
+			context[SCREENTIP_CONTEXT_RMB] = "Slowly take apart"
+			return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/ms13/vehicle_ruin/coupe
 	body_state = "coupe"
@@ -59,9 +72,11 @@
 
 /obj/structure/ms13/vehicle_ruin/van
 	body_state = "van"
+	projectile_passchance = 35
 
 /obj/structure/ms13/vehicle_ruin/Initialize()
 	. = ..()
+	register_context()
 	var/randomiser = rand(1,5)
 	if(!body_state)
 		body_state = pick_weight(RUIN_BODIES)
@@ -110,6 +125,7 @@
 			name = "van wreck"
 			desc = "An old pre-war van, scrapped and destroyed beyond repair."
 			icon_state =  "van-[randomiser]"
+			projectile_passchance = 45
 			add_overlay(image(icon, "van-tires-[randomiser]", FLOAT_LAYER, dir))
 			if(prob(50))
 				add_overlay(image(icon, "van-bumper-[randomiser]", FLOAT_LAYER, dir))

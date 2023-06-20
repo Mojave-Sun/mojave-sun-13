@@ -11,6 +11,7 @@
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 	var/broken = FALSE
 	var/weatherproof = FALSE //MOJAVE SUN EDIT - Weather
+	var/projectile_passchance = 0 // MOJAVE SUN EDIT - projectile passthrough chance 100% always goes through, 0% never goes through. Definition isn't required if structure doesn't have density, duh.
 
 /obj/structure/Initialize(mapload)
 	if (!armor)
@@ -63,3 +64,23 @@
 		take_damage(power/8000, BURN, "energy")
 	power -= power/2000 //walls take a lot out of ya
 	. = ..()
+
+// MOJAVE SUN EDIT BEGIN - This is put here so that we don't have to redefine this on every single structure and can do it cleaner.
+
+/obj/structure/CanAllowThrough(atom/movable/mover, border_dir)
+	. = ..()
+	if(istype(loc, /obj/structure) in get_turf(mover))
+		return TRUE
+	else if(istype(mover, /obj/projectile))
+		if(!projectile_passchance)
+			return
+		if(!anchored)
+			return TRUE
+		var/obj/projectile/proj = mover
+		if(proj.firer && Adjacent(proj.firer))
+			return TRUE
+		if(prob((projectile_passchance)))
+			return TRUE
+		return FALSE
+
+// MOJAVE SUN EDIT END

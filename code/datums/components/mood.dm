@@ -24,7 +24,7 @@
 	RegisterSignal(parent, COMSIG_LIVING_REVIVE, .proc/on_revive)
 	RegisterSignal(parent, COMSIG_MOB_HUD_CREATED, .proc/modify_hud)
 	RegisterSignal(parent, COMSIG_JOB_RECEIVED, .proc/register_job_signals)
-	RegisterSignal(parent, COMSIG_VOID_MASK_ACT, .proc/direct_sanity_drain)
+	RegisterSignal(parent, COMSIG_HERETIC_MASK_ACT, .proc/direct_sanity_drain)
 	RegisterSignal(parent, COMSIG_ON_CARBON_SLIP, .proc/on_slip)
 
 	var/mob/living/owner = parent
@@ -133,7 +133,7 @@
 	if(!(owner.client || owner.hud_used))
 		return
 	screen_obj.cut_overlays()
-	screen_obj.color = initial(screen_obj.color)
+	//screen_obj.color = initial(screen_obj.color) - MOJAVE SUN EDIT - Green face removal
 	//lets see if we have any special icons to show instead of the normal mood levels
 	var/list/conflicting_moodies = list()
 	var/highest_absolute_mood = 0
@@ -321,7 +321,7 @@
 	var/mob/living/owner = parent
 	var/datum/hud/hud = owner.hud_used
 	screen_obj = new
-	screen_obj.color = "#4b96c4"
+	//screen_obj.color = "#4b96c4" - MOJAVE SUN EDIT - Green face removal
 	hud.infodisplay += screen_obj
 	RegisterSignal(hud, COMSIG_PARENT_QDELETING, .proc/unmodify_hud)
 	RegisterSignal(screen_obj, COMSIG_CLICK, .proc/hud_click)
@@ -433,4 +433,3 @@
 
 #undef MINOR_INSANITY_PEN
 #undef MAJOR_INSANITY_PEN
-

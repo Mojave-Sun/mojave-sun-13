@@ -135,6 +135,9 @@ There are several things that need to be remembered:
 		if(OFFSET_UNIFORM in dna.species.offset_features)
 			uniform_overlay.pixel_x += dna.species.offset_features[OFFSET_UNIFORM][1]
 			uniform_overlay.pixel_y += dna.species.offset_features[OFFSET_UNIFORM][2]
+		// MOJAVE EDIT BEGIN - Fatties
+		uniform_overlay = apply_fatness_filter(uniform_overlay, TRUE)
+		// MOJAVE EDIT END - Fatties
 		overlays_standing[UNIFORM_LAYER] = uniform_overlay
 
 	apply_overlay(UNIFORM_LAYER)
@@ -174,6 +177,9 @@ There are several things that need to be remembered:
 				id_card_overlay.pixel_x += dna.species.offset_features[OFFSET_ID][1]
 				id_card_overlay.pixel_y += dna.species.offset_features[OFFSET_ID][2]
 
+			// MOJAVE EDIT BEGIN - Fatties
+			id_card_overlay = apply_fatness_filter(id_card_overlay, TRUE)
+			// MOJAVE EDIT END - Fatties
 			overlays_standing[ID_CARD_LAYER] = id_card_overlay
 
 	apply_overlay(ID_LAYER)
@@ -195,6 +201,9 @@ There are several things that need to be remembered:
 			else if(has_right_hand(FALSE))
 				bloody_overlay.icon_state = "bloodyhands_right"
 
+		// MOJAVE EDIT BEGIN - Fatties
+		bloody_overlay = apply_fatness_filter(bloody_overlay, TRUE)
+		// MOJAVE EDIT END - Fatties
 		overlays_standing[GLOVES_LAYER] = bloody_overlay
 
 	var/mutable_appearance/gloves_overlay = overlays_standing[GLOVES_LAYER]
@@ -209,6 +218,9 @@ There are several things that need to be remembered:
 		if(OFFSET_GLOVES in dna.species.offset_features)
 			gloves_overlay.pixel_x += dna.species.offset_features[OFFSET_GLOVES][1]
 			gloves_overlay.pixel_y += dna.species.offset_features[OFFSET_GLOVES][2]
+		// MOJAVE EDIT BEGIN - Fatties
+		gloves_overlay = apply_fatness_filter(gloves_overlay, TRUE)
+		// MOJAVE EDIT END - Fatties
 	overlays_standing[GLOVES_LAYER] = gloves_overlay
 	apply_overlay(GLOVES_LAYER)
 
@@ -343,6 +355,9 @@ There are several things that need to be remembered:
 		if(OFFSET_BELT in dna.species.offset_features)
 			belt_overlay.pixel_x += dna.species.offset_features[OFFSET_BELT][1]
 			belt_overlay.pixel_y += dna.species.offset_features[OFFSET_BELT][2]
+		// MOJAVE EDIT BEGIN - Fatties
+		belt_overlay = apply_fatness_filter(belt_overlay, TRUE)
+		// MOJAVE EDIT END - Fatties
 		overlays_standing[BELT_LAYER] = belt_overlay
 
 	apply_overlay(BELT_LAYER)
@@ -367,6 +382,9 @@ There are several things that need to be remembered:
 		if(OFFSET_SUIT in dna.species.offset_features)
 			suit_overlay.pixel_x += dna.species.offset_features[OFFSET_SUIT][1]
 			suit_overlay.pixel_y += dna.species.offset_features[OFFSET_SUIT][2]
+		// MOJAVE EDIT BEGIN - Fatties
+		suit_overlay = apply_fatness_filter(suit_overlay, TRUE)
+		// MOJAVE EDIT END - Fatties
 		overlays_standing[SUIT_LAYER] = suit_overlay
 	update_hair()
 	update_mutant_bodyparts()
@@ -422,7 +440,7 @@ There are several things that need to be remembered:
 
 /mob/living/carbon/human/update_inv_legcuffed()
 	remove_overlay(LEGCUFF_LAYER)
-	clear_alert("legcuffed")
+	clear_alert(ALERT_LEGCUFFED)
 	if(legcuffed)
 		var/mutable_appearance/legcuff_overlay = mutable_appearance('icons/mob/mob.dmi', "legcuff1", -LEGCUFF_LAYER)
 		if(legcuffed.blocks_emissive)
@@ -430,7 +448,7 @@ There are several things that need to be remembered:
 
 		overlays_standing[LEGCUFF_LAYER] = legcuff_overlay
 		apply_overlay(LEGCUFF_LAYER)
-		throw_alert("legcuffed", /atom/movable/screen/alert/restrained/legcuffed, new_master = src.legcuffed)
+		throw_alert(ALERT_LEGCUFFED, /atom/movable/screen/alert/restrained/legcuffed, new_master = src.legcuffed)
 
 /proc/wear_female_version(t_color, icon, layer, type, greyscale_colors)
 	var/index = "[t_color]-[greyscale_colors]"
@@ -574,7 +592,7 @@ generate/load female uniform sprites matching all previously decided variables
 /mob/living/carbon/human/generate_icon_render_key()
 	. = "[dna.species.limbs_id]"
 
-	if(dna.check_mutation(HULK))
+	if(dna.check_mutation(/datum/mutation/human/hulk))
 		. += "-coloured-hulk"
 	else if(dna.species.use_skintones)
 		. += "-coloured-[skin_tone]"

@@ -9,6 +9,9 @@
 	framestack = /obj/item/stack/sheet/ms13/scrap
 	framestackamount = 2
 
+/obj/structure/table/ms13/deconstruction_hints(mob/user)
+	return
+
 /obj/structure/table/ms13/metal
 	name = "metal table"
 	desc = "A square piece of metal standing on four metal legs. It can not move."
@@ -54,8 +57,8 @@
 	max_integrity = 150
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TABLE_WOOD)
 	canSmoothWith = list(SMOOTH_GROUP_MS13_TABLE_WOOD)
-	frame = /obj/item/stack/sheet/ms13/scrap_wood
-	framestack = /obj/item/stack/sheet/ms13/scrap_wood
+	frame = /obj/item/stack/sheet/ms13/wood/scrap_wood
+	framestack = /obj/item/stack/sheet/ms13/wood/scrap_wood
 	framestackamount = 2
 
 /obj/structure/table/ms13/wood/bar
@@ -81,7 +84,7 @@
 	desc = "Four wooden legs with four framing wooden rods for a wooden table. You could easily pass through this."
 	icon_state = "tableframe_wood"
 	resistance_flags = FLAMMABLE
-	framestack = /obj/item/stack/sheet/ms13/scrap_wood
+	framestack = /obj/item/stack/sheet/ms13/wood/scrap_wood
 	framestackamount = 2
 
 // Player-Made tables //
@@ -90,7 +93,7 @@
 	name = "crude metal table"
 	desc = "A crude table made of quality metal. Not too bad, as far as post apocalyptic furniture goes."
 	icon = 'mojave/icons/structure/smooth_structures/tables/table_metal_built.dmi'
-	max_integrity = 125
+	max_integrity = 140
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TABLE_PLAYER) //Don't smooth with SMOOTH_GROUP_TABLES
 	canSmoothWith = list(SMOOTH_GROUP_MS13_TABLE_PLAYER)
 
@@ -98,13 +101,13 @@
 	name = "crude scrap metal table"
 	desc = "A crude table made of scrap metal. Doesn't look pretty and seems barely finished, but it does it's job."
 	icon = 'mojave/icons/structure/smooth_structures/tables/table_metal_built_LQ.dmi'
-	max_integrity = 100
+	max_integrity = 110
 
 /obj/structure/table/ms13/wood/constructed
 	name = "crude wood table"
 	desc = "A crude wood table of decent quality. It probably won't fall apart any time soon."
 	icon = 'mojave/icons/structure/smooth_structures/tables/table_wood_built.dmi'
-	max_integrity = 100
+	max_integrity = 120
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TABLE_PLAYER)
 	canSmoothWith = list(SMOOTH_GROUP_MS13_TABLE_PLAYER)
 
@@ -112,7 +115,7 @@
 	name = "crude scrap wood table"
 	desc = "A crude wood table made of scrap, low quality wood. About as rickety as you'd expect."
 	icon = 'mojave/icons/structure/smooth_structures/tables/table_wood_built_LQ.dmi'
-	max_integrity = 75
+	max_integrity = 90
 
 // Metal Non-Smoothing tables //
 
@@ -181,7 +184,7 @@
 	desc = "A simple round wooden table. You wish you could make something this nice."
 	icon_state = "table_wood_round"
 	max_integrity = 150
-	frame = /obj/item/stack/sheet/ms13/scrap_wood
+	frame = /obj/item/stack/sheet/ms13/wood/scrap_wood
 
 /obj/structure/table/ms13/no_smooth/wood/square
 	name = "wood table"
@@ -210,7 +213,7 @@
 	desc = "A large oval shaped wood table. Perfect for displaying the 200 year old family photos you found."
 	icon_state = "table_wood_wide_oval"
 	max_integrity = 200
-	frame = /obj/item/stack/sheet/ms13/scrap_wood/two
+	frame = /obj/item/stack/sheet/ms13/wood/scrap_wood/two
 
 /obj/structure/table/ms13/no_smooth/large/wood/square
 	desc = "A large rectangular wood table. Very sturdy."
@@ -241,11 +244,17 @@
 	desc = "Shoot the dice with your friends. Preferably not literally."
 	icon_state = "dice_dirty"
 	max_integrity = 150
-	frame = /obj/item/stack/sheet/ms13/scrap_wood
+	frame = /obj/item/stack/sheet/ms13/wood/scrap_wood
 
 /obj/structure/table/ms13/no_smooth/dice/pristine
 	icon_state = "dice_clean"
 	max_integrity = 200
+
+/obj/structure/table/ms13/no_smooth/cable_reel
+	name = "cable reel"
+	desc = "An old cable reel for holding, you guessed it, cable. Now all it's good for though is holding your stuff."
+	icon_state = "cable_reel"
+	frame = /obj/item/stack/sheet/ms13/wood/scrap_wood
 
 // Misc Large tables //
 
@@ -254,7 +263,7 @@
 	desc = "A favourite of students and drunkards alike. Watch out for sharks!"
 	icon_state = "table_pool"
 	max_integrity = 200
-	frame = /obj/item/stack/sheet/ms13/scrap_wood/two
+	frame = /obj/item/stack/sheet/ms13/wood/scrap_wood/two
 
 /obj/structure/table/ms13/no_smooth/large/cards
 	name = "cards table"
@@ -268,10 +277,14 @@
 	icon_state = "table_rolling"
 	max_integrity = 200
 	buildstack = null
+	custom_materials = null
 	frame = /obj/item/stack/sheet/ms13/scrap
 	framestack = /obj/item/stack/sheet/ms13/scrap
 	framestackamount = 2
+	drag_slowdown = 1
 
+/obj/structure/table/rolling/ms13/deconstruction_hints(mob/user)
+	return
 
 ///// CRAFTING TABLES /////
 
@@ -288,7 +301,14 @@
 /obj/structure/table/ms13/crafting/examine(mob/user)
 	. = ..()
 	. += "<span class='notice'>Use <b>CTRL + CLICK</b> on [src] to begin crafting.</span>"
-	
+
+/obj/structure/table/ms13/crafting/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	if (isnull(held_item))
+		context[SCREENTIP_CONTEXT_CTRL_LMB] = "Start crafting"
+		return CONTEXTUAL_SCREENTIP_SET
+
 /obj/structure/table/ms13/crafting/wrench_act_secondary(mob/living/user, obj/item/weapon)
 	return
 
@@ -301,6 +321,7 @@
 /obj/structure/table/ms13/crafting/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/personal_crafting, crafting_interface)
+	register_context()
 
 /obj/structure/table/ms13/crafting/workbench
 	name = "workbench"

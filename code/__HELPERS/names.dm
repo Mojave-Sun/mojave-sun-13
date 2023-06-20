@@ -60,12 +60,12 @@ GLOBAL_VAR(command_name)
 	var/name = ""
 	var/new_station_name = ""
 
-	//Rare: Pre-Prefix
+	/*//Rare: Pre-Prefix MOJAVE SUN EDIT - 🤫
 	if (prob(10))
 		name = pick(GLOB.station_prefixes)
 		new_station_name = name + " "
 		name = ""
-
+	*/
 	// Prefix
 	var/holiday_name = pick(SSevents.holidays)
 	if(holiday_name)
@@ -97,7 +97,7 @@ GLOBAL_VAR(command_name)
 			new_station_name += pick(GLOB.numbers_as_words)
 		if(13)
 			new_station_name += pick("13","XIII","Thirteen")
-	return new_station_name
+	return "Mojave Sun - Open Beta" // Hard coding for now until we change how station name is generated.
 
 /proc/syndicate_name()
 	var/name = ""
@@ -198,7 +198,12 @@ GLOBAL_DATUM(syndicate_code_response_regex, /regex)
 								new_name += pick(GLOB.last_names)
 								. += new_name
 					if(2)
-						. += pick(SSjob.station_jobs)//Returns a job.
+						var/datum/job/job = pick(SSjob.joinable_occupations)
+						if(job)
+							. += job.title //Returns a job.
+						else
+							stack_trace("Failed to pick(SSjob.joinable_occupations) on generate_code_phrase()")
+							. += "Bug"
 				safety -= 1
 			if(2)
 				switch(rand(1,3))//Food, drinks, or places. Only selectable once.

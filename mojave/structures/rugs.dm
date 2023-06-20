@@ -85,28 +85,43 @@
 
 /obj/structure/ms13/rug/mat/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/simple_rotation,ROTATION_ALTCLICK | ROTATION_CLOCKWISE, CALLBACK(src, .proc/can_user_rotate),CALLBACK(src, .proc/can_be_rotated),null)
-
-/obj/structure/ms13/rug/mat/proc/can_be_rotated(mob/user)
-	return TRUE
-
-/obj/structure/ms13/rug/mat/proc/can_user_rotate(mob/user)
-	var/mob/living/L = user
-
-	if(istype(L))
-		if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
-			return FALSE
-		else
-			return TRUE
-	else if(isobserver(user) && CONFIG_GET(flag/ghost_interaction))
-		return TRUE
-	return FALSE
+	AddComponent(/datum/component/simple_rotation)
 
 /obj/structure/ms13/rug/mat/welcome
 	name = "door mat"
 	desc = "A small door mat, it's got the word WELCOME across it for the complete cozy home experience."
 	icon_state = "mat_welcome"
 	item_rug = /obj/item/ms13/rug/mat/welcome
+
+/obj/structure/ms13/rug/mat/vulgar
+	name = "door mat"
+	desc = "You shouldn't be seeing this mat."
+	icon = 'mojave/icons/structure/32x32_rugs.dmi'
+
+/obj/structure/ms13/rug/mat/vulgar/getfucked
+	desc = "A small door mat, it's got the words GET FUCKED sprayed across it by what looks to be blood."
+	icon_state = "mat_vulgar"
+	item_rug = /obj/item/ms13/rug/mat/vulgar/getfucked
+
+/obj/structure/ms13/rug/mat/vulgar/fuckoff
+	desc = "A small door mat, it's got the words FUCK OFF!! across it, looks like someone doesn't want visitors."
+	icon_state = "mat_vulgar_2"
+	item_rug = /obj/item/ms13/rug/mat/vulgar/fuckoff
+
+/obj/structure/ms13/rug/mat/vulgar/shittown
+	desc = "A small door mat, it's got the words SHIT TOWN across it, someone doesn't like this town."
+	icon_state = "mat_town"
+	item_rug = /obj/item/ms13/rug/mat/vulgar/shittown
+
+/obj/structure/ms13/rug/mat/vulgar/ncrsucks
+	desc = "A small door mat, it's got the words NCR SUCKS across it, the average raider probably wrote this."
+	icon_state = "mat_ncr"
+	item_rug = /obj/item/ms13/rug/mat/vulgar/ncrsucks
+
+/obj/structure/ms13/rug/mat/vulgar/bosblows
+	desc = "A small door mat, it's got the words BOS BLOWS across it, probably means the Brotherhood stole another energy gun from someone."
+	icon_state = "mat_bos"
+	item_rug = /obj/item/ms13/rug/mat/vulgar/bosblows
 
 /obj/structure/ms13/rug/mat/rubber
 	name = "rubber mats"
@@ -146,7 +161,7 @@
 /obj/item/ms13/rug
 	name = "rug"
 	desc = "A common rug, used to cover your boring floor. It's currently rolled up, but peeking through you can see it's blue."
-	icon = 'mojave/icons/objects/decorative.dmi'
+	icon = 'mojave/icons/objects/clutter/clutter_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
 	icon_state = "rug"
@@ -154,6 +169,10 @@
 	throw_range = 2
 	w_class = WEIGHT_CLASS_BULKY
 	var/obj/structure/ms13/rug/origin_type = /obj/structure/ms13/rug
+
+/obj/item/ms13/rug/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clutter/clutter_inventory.dmi')
 
 /obj/item/ms13/rug/ComponentInitialize()
 	. = ..()
@@ -192,9 +211,6 @@
 /obj/item/ms13/rug/mat
 	name = "door mat"
 	desc = "A small door mat, It's rolled and ready for transport."
-	icon = 'mojave/icons/objects/decorative.dmi'
-	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
-	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
 	icon_state = "rug"
 	inhand_icon_state = "mat"
 	throw_range = 6
@@ -206,6 +222,26 @@
 
 /obj/item/ms13/rug/mat/welcome
 	origin_type = /obj/structure/ms13/rug/mat/welcome
+
+/obj/item/ms13/rug/mat/vulgar/getfucked
+	desc = "A small door mat, It's rolled and ready for transport. Red markings are visible."
+	origin_type = /obj/structure/ms13/rug/mat/vulgar/getfucked
+
+/obj/item/ms13/rug/mat/vulgar/fuckoff
+	desc = "A small door mat, It's rolled and ready for transport. Red markings are visible."
+	origin_type = /obj/structure/ms13/rug/mat/vulgar/fuckoff
+
+/obj/item/ms13/rug/mat/vulgar/shittown
+	desc = "A small door mat, It's rolled and ready for transport. Red markings are visible."
+	origin_type = /obj/structure/ms13/rug/mat/vulgar/shittown
+
+/obj/item/ms13/rug/mat/vulgar/ncrsucks
+	desc = "A small door mat, It's rolled and ready for transport. Red markings are visible."
+	origin_type = /obj/structure/ms13/rug/mat/vulgar/ncrsucks
+
+/obj/item/ms13/rug/mat/vulgar/bosblows
+	desc = "A small door mat, It's rolled and ready for transport. Red markings are visible."
+	origin_type = /obj/structure/ms13/rug/mat/vulgar/bosblows
 
 /obj/item/ms13/rug/mat/rubber
 	name = "rubber mats"

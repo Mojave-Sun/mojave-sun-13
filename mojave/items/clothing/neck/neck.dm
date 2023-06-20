@@ -5,17 +5,20 @@
 	worn_icon = 'mojave/icons/mob/clothing/neck.dmi'
 	icon_state = "qmcloak"
 	inhand_icon_state = "qmcloak"
+	equip_delay_self = 1 SECONDS
+	equip_delay_other = 2 SECONDS
 
+/obj/item/clothing/neck/cloak/ms13/shawl
+	name = "leather shawl"
+	desc = "A humble and warm leather shawl."
+	icon_state = "shawl"
+
+/obj/item/clothing/neck/cloak/ms13/baron
+	name = "dark cape"
+	desc = "A rough cloth cape. It screams authority while retaining brutish roots."
+	icon_state = "baron_cape"
 
 /obj/item/clothing/neck/cloak/ms13/legion
-	icon_state = "leg_whitehalf"
-
-/obj/item/clothing/neck/cloak/ms13/legion/whitehalfcloak
-	name = "white half cloak"
-	desc = "A white half cloak used by Legionaries. Good for snowy environments."
-	icon_state = "leg_whitehalf"
-
-/obj/item/clothing/neck/cloak/ms13/legion/redhalfcloak
 	name = "red half cloak"
 	desc = "A red half cloak worn by certain Legionaries. It's got the symbol of the bull on its back."
 	icon_state = "leg_redhalf"

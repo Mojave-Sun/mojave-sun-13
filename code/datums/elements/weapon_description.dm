@@ -1,11 +1,15 @@
 #define HITS_TO_CRIT(damage) round(100 / damage, 0.1)
+
+//MOJAVE EDIT - Commenting all of this out because frankly it's stupid and I hate seeing it on almost all of our items.
+
+
 /**
  *
  * The purpose of this element is to widely provide the ability to examine an object and determine its stats, with the ability to add
  * additional notes or information based on type or other factors
  *
  */
-/datum/element/weapon_description
+/*/datum/element/weapon_description
 	element_flags = ELEMENT_BESPOKE | ELEMENT_DETACH
 	id_arg_index = 2
 
@@ -125,4 +129,4 @@
 		if(76 to INFINITY)
 			return "EXTREMELY CAPABLE"
 		else
-			return "STRANGELY CAPABLE"
+			return "STRANGELY CAPABLE" */ 

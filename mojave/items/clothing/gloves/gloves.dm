@@ -1,12 +1,17 @@
 /obj/item/clothing/gloves/ms13/
-    name = "generic ms13 gloves"
-    desc = "this doesn't even exist"
-    icon = 'mojave/icons/objects/clothing/clothing_world/gloves_world.dmi'
-    worn_icon = 'mojave/icons/mob/clothing/hands.dmi'
+	name = "generic ms13 gloves"
+	desc = "this doesn't even exist"
+	icon = 'mojave/icons/objects/clothing/clothing_world/gloves_world.dmi'
+	worn_icon = 'mojave/icons/mob/clothing/hands.dmi'
+	grid_height = 32
+	grid_width = 64
+	w_class = WEIGHT_CLASS_SMALL
+	equip_delay_self = 0.5 SECONDS
+	equip_delay_other = 1 SECONDS
 
 /obj/item/clothing/gloves/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/gloves_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clothing/clothing_inventory/gloves_inventory.dmi')
 
 /obj/item/clothing/gloves/ms13/winter
 	name = "brown winter gloves"
@@ -62,6 +67,12 @@
 	icon_state = "ncr_standard_gloves"
 	inhand_icon_state = "ncr_standard_gloves"
 
+/obj/item/clothing/gloves/ms13/ranger
+	name = "\improper Desert Ranger patrol gloves"
+	desc = "A pair of long brown gloves used by the Desert Rangers"
+	icon_state = "patrol"
+	inhand_icon_state = "winterglovesbrown"
+
 /obj/item/clothing/gloves/ms13/legion
     name = "generic Legion gloves"
     desc = "Generic gloves worn by Legionaries."
@@ -69,16 +80,20 @@
 
 /obj/item/clothing/gloves/ms13/legion/bracers
     name = "wrist bracers"
-    desc = "Often worn by Legionaries to protect their wrists against rudimentary attacks."
+    desc = "Wrist bracers worn by more senior members of Caesar's Legion."
     icon_state = "leg_bracers"
-    armor = list(melee = 10, bullet = 5, laser = 5, energy = 5, bomb = 0, bio = 0,  fire = 5, acid = 0)
 
-/obj/item/clothing/gloves/ms13/legion/darkwraps
+/obj/item/clothing/gloves/ms13/legion/dark
     name = "dark handwraps"
-    desc = "Some dark handwraps. Good for getting extra grip or protecting from minor cuts."
+    desc = "Some dark handwraps mostly used by Caesar's Legion."
     icon_state = "leg_darkwraps"
 
-/obj/item/clothing/gloves/ms13/legion/tanwraps
+/obj/item/clothing/gloves/ms13/legion/tan
     name = "tan handwraps"
-    desc = "Some tan handwraps. Good for getting extra grip or protecting from minor cuts."
+    desc = "Some tan handwraps mostly used by Caesar's Legion."
     icon_state = "leg_tanwraps"
+
+/obj/item/clothing/gloves/ms13/drylander
+    name = "\improper Drylander handwraps"
+    desc = "Cloth handwraps worn by the Drylander tribe."
+    icon_state = "drylander"

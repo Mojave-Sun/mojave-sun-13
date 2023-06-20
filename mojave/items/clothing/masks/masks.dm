@@ -5,10 +5,15 @@
 	worn_icon = 'mojave/icons/mob/clothing/mask.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
+	w_class = WEIGHT_CLASS_TINY
+	grid_width = 32
+	grid_height = 32
+	equip_delay_self = 0.75 SECONDS
+	equip_delay_other = 2 SECONDS
 
 /obj/item/clothing/mask/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/masks_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clothing/clothing_inventory/masks_inventory.dmi')
 
 // Bandanas //
 
@@ -68,6 +73,7 @@
 
 /obj/item/clothing/mask/ms13/bandana/surgical
 	name = "surgical mask"
+	desc = "A mask used by doctors to keep blood out of their mouth and nose."
 	icon_state = "surgical"
 
 // Generic Wasteland Facemasks //
@@ -98,9 +104,9 @@
 	desc = "A vibrant and lively blue facewrap."
 	icon_state = "facewrap_blu"
 
-/obj/item/clothing/mask/ms13/legion/clothmask
-	name = "cloth mask"
-	desc = "A simple cloth mask often used by Legionaries for an assortment of reasons."
+/obj/item/clothing/mask/ms13/legion
+	name = "\improper Legion cloth mask"
+	desc = "A simple dark cloth mask often used by members of Caesar's Legion."
 	icon_state = "leg_mask"
 	flags_inv = HIDEFACE
 
@@ -109,7 +115,6 @@
 	desc = "A mask only worn by the near unheard of Speculatores of the Legion."
 	icon_state = "leg_spec"
 	inhand_icon_state = "owl_mask"
-	flags_inv = HIDEFACE
 
 /obj/item/clothing/mask/ms13/ncr
 	name = "\improper NCR cowl"
@@ -134,10 +139,12 @@
 	inhand_icon_state = "gasmask"
 	var/adjusted = FALSE
 	var/adjustable = TRUE
+	equip_delay_self = 1.5 SECONDS
+	equip_delay_other = 3 SECONDS
 
 /obj/item/clothing/mask/gas/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/masks_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clothing/clothing_inventory/masks_inventory.dmi')
 
 /obj/item/clothing/mask/gas/ms13/modern
 	icon_state = "gasmask"
@@ -147,6 +154,7 @@
 	icon_state = "ranger_mask"
 	worn_icon_state = "ranger_mask"
 	adjustable = FALSE
+	has_fov = FALSE //placeholder for now until we make this more useful to justify a FOV
 
 /obj/item/clothing/mask/gas/ms13/Initialize()
 	. = ..()

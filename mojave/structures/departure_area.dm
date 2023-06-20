@@ -27,5 +27,5 @@
 	dat = "[dat] [stuff.Join(", ")]."
 	message_admins(dat)
 	log_admin(dat)
-	departing_mob.visible_message("<span class='notice'>[departing_mob] walks off into the distance, departarting this area.</span>")
+	departing_mob.visible_message("<span class='notice'>[departing_mob] walks off into the distance, departing this area.</span>")
 	qdel(departing_mob)

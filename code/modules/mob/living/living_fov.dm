@@ -122,14 +122,14 @@
 		addtimer(CALLBACK(GLOBAL_PROC, .proc/remove_image_from_client, fov_image, mob_client), 30)
 
 /atom/movable/screen/fov_blocker
-	icon = 'icons/effects/fov/field_of_view.dmi'
+	icon = 'mojave/icons/effects/ms_fov.dmi' //MOJAVE EDIT - Original path is icons/effects/fov/field_of_view.dmi
 	icon_state = "90"
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	plane = FIELD_OF_VISION_BLOCKER_PLANE
 	screen_loc = "BOTTOM,LEFT"
 
 /atom/movable/screen/fov_shadow
-	icon = 'icons/effects/fov/field_of_view.dmi'
+	icon = 'mojave/icons/effects/ms_fov.dmi' //MOJAVE EDIT - Original path is icons/effects/fov/field_of_view.dmi
 	icon_state = "90_v"
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	plane = ABOVE_LIGHTING_PLANE

@@ -33,10 +33,11 @@
 		playsound(loc, 'sound/items/gavel.ogg', 50, TRUE, -1)
 		return (BRUTELOSS)
 
-
+/* MOJAVE SUN EDIT BEGIN
 /obj/item/papercutter/update_icon_state()
 	icon_state = (storedcutter ? "[initial(icon_state)]-cutter" : "[initial(icon_state)]")
 	return ..()
+MOJAVE SUN EDIT END */
 
 /obj/item/papercutter/update_overlays()
 	. =..()
@@ -53,6 +54,7 @@
 		storedpaper = P
 		update_appearance()
 		return
+/*MOJAVE SUN EDIT BEGIN
 	if(istype(P, /obj/item/hatchet/cutterblade) && !storedcutter)
 		if(!user.transferItemToLoc(P, src))
 			return
@@ -66,6 +68,7 @@
 		to_chat(user, span_notice("[storedcutter] has been [cuttersecured ? "unsecured" : "secured"]."))
 		cuttersecured = !cuttersecured
 		return
+	MOJAVE SUN EDIT END*/
 	..()
 
 /obj/item/papercutter/attack_hand(mob/user, list/modifiers)
@@ -88,8 +91,8 @@
 		to_chat(user, span_notice("You neatly cut [storedpaper]."))
 		storedpaper = null
 		qdel(storedpaper)
-		new /obj/item/paperslip(get_turf(src))
-		new /obj/item/paperslip(get_turf(src))
+		new /obj/item/paper/ms13/paperslip(get_turf(src)) //EXTREMELY TEMPORARY MOJAVE SUN EDIT - Paper
+		new /obj/item/paper/ms13/paperslip(get_turf(src)) //EXTREMELY TEMPORARY MOJAVE SUN EDIT - Paper
 		update_appearance()
 
 /obj/item/papercutter/MouseDrop(atom/over_object)

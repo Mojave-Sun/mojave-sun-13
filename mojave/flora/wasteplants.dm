@@ -13,7 +13,7 @@
 	var/harvest = /obj/item/food/grown/ms13/tarberry
 	var/harvest_amount_low = 1
 	var/harvest_amount_high = 4
-	var/harvest_time = 60
+	var/harvest_time = 6 SECONDS
 	var/harvest_message_low = "You harvest the berries, but fail to attain many of them."
 	var/harvest_message_med = "You harvest the berries, collecting a decent amount from the forage."
 	var/harvest_message_high = "You harvest and collect many berries from the wild plant."
@@ -21,10 +21,12 @@
 	var/base_icon
 	var/regrowth_time_low = 8 MINUTES
 	var/regrowth_time_high = 16 MINUTES
+	var/stick_around = TRUE // If the plant comes back later on
+	var/variants = 3 // How many variants of the plant sprite there are
 
 /obj/structure/flora/ms13/forage/Initialize()
 	. = ..()
-	base_icon = "[icon_state][rand(1, 3)]"
+	base_icon = "[icon_state][rand(1, (variants))]"
 	icon_state = base_icon
 	pixel_x = rand(-3, 3)
 	pixel_y = rand(-3, 3)
@@ -45,7 +47,10 @@
 		for(var/i in 1 to rand_harvested)
 			new harvest(get_turf(src))
 
-	icon_state = "[base_icon]p"
+	if(stick_around)
+		icon_state = "[base_icon]p"
+	else
+		qdel(src)
 	name = harvested_name
 	desc = harvested_desc
 	harvested = TRUE
@@ -74,6 +79,54 @@
 		user.visible_message("<span class='notice'>[user] starts to harvest from [src].</span>","<span class='notice'>You begin to harvest from [src].</span>")
 		if(do_after(user, harvest_time, target = src))
 			harvest(user)
+
+/obj/structure/flora/ms13/forage/brocflower
+	icon_state = "brocflower"
+	name = "brocflower"
+	desc = "A lanky plant bearing broc flowers"
+	harvested_name = "broc flower"
+	harvested_desc = "A broc flower."
+	harvest = /obj/item/food/grown/ms13/brocflower
+	harvest_amount_high = 3
+	variants = 2
+
+/obj/structure/flora/ms13/forage/brocflower/drought
+	icon_state = "d_brocflower"
+	variants = 1
+
+/obj/structure/flora/ms13/forage/xander
+	icon_state = "xander"
+	name = "xander"
+	desc = "A bunch of xander root plants"
+	harvested_name = "xander"
+	harvested_desc = "A xander root."
+	harvest = /obj/item/food/grown/ms13/xander
+	harvest_amount_high = 3
+	variants = 2
+
+/obj/structure/flora/ms13/forage/xander/drought
+	icon_state = "d_xander"
+	variants = 1
+
+/obj/structure/flora/ms13/forage/yucca
+	icon_state = "yucca"
+	name = "yucca"
+	desc = "A yucca plant, bearing starchy yucca fruits."
+	harvested_name = "yucca"
+	harvested_desc = "A yucca fruit."
+	harvest = /obj/item/food/grown/ms13/yucca
+	harvest_amount_high = 3
+	variants = 1
+
+/obj/structure/flora/ms13/forage/barrel_cactus
+	icon_state = "barrelc"
+	name = "barrel cactus"
+	desc = "A barrel cactus, be careful of the spines."
+	harvested_name = "barrel cactus fruit"
+	harvested_desc = "Some barrel cactus fruit."
+	harvest = /obj/item/food/grown/ms13/barrelcactus
+	harvest_amount_high = 3
+	variants = 3
 
 /obj/structure/flora/ms13/forage/tarberry
 	icon_state = "tarberry"
@@ -113,8 +166,12 @@
 	harvest_message_low = "You harvest the flowers, but fail to salvage many of them."
 	harvest_message_med = "You harvest the flowers, collecting a small bunch of them."
 	harvest_message_high = "You harvest and collect many flowers from the patch."
-	harvest_amount_high = 3
+	harvest_amount_high = 4
 	regrowth_time_high = 30 MINUTES
+
+/obj/structure/flora/ms13/forage/ashrose/drought
+	icon_state = "d_ashrose"
+	variants = 1
 
 /obj/structure/flora/ms13/forage/wildcarrot
 	icon_state = "root"
@@ -133,15 +190,18 @@
 	name = "aster flowers"
 	desc = "A patch of wild aster flowers."
 	harvested_name = "aster flower"
-	harvest_time = 120
 	harvested_desc = "Some aster flowers."
 	harvest = /obj/item/food/grown/ms13/aster
 	harvest_message_low = "You accidentally destroy the delicate flowers, salvaging nothing."
 	harvest_message_med = "You collect a handful of delicate flowers."
 	harvest_message_high = "You delicately pick many flowers, collecting a good harvest."
 	harvest_amount_low = 0
-	harvest_amount_high = 7
+	harvest_amount_high = 4
 	regrowth_time_high = 20 MINUTES
+
+/obj/structure/flora/ms13/forage/aster/drought
+	icon_state = "d_aster"
+	variants = 1
 
 /obj/structure/flora/ms13/forage/mushroom
 	icon_state = "shroom"
@@ -263,109 +323,46 @@
 
 //Mojave Sun Trees/Large Foliage
 
-//shrubs
-/obj/structure/flora/ms13/shrub
-	name = "shrub"
-	desc = "An evergreen bush."
-	anchored = TRUE
-	pixel_x = -16
-	pixel_y = 12
-	icon = 'mojave/icons/flora/trees.dmi'
-	icon_state = "snowshrub_1"
-	max_integrity = 50
-	var/proj_pass_rate = 100
-
-/obj/structure/flora/ms13/shrub/New()
-	icon_state = "snowshrub_[rand(1,3)]"
-	..()
-
-/obj/structure/flora/bush/ms13
-	name = "bush"
-	desc = "Some type of shrub."
-	icon = 'mojave/icons/flora/flora.dmi'
-	icon_state = "snowbush1"
-	anchored = TRUE
-
-/obj/structure/flora/bush/ms13/Initialize()
-	icon_state = "snowbush_[rand(1,3)]"
-	. = ..()
-
-/obj/structure/flora/ms13/shrub/CanAllowThrough(atom/movable/mover, turf/target)//So bullets will fly over and stuff.
-	. = ..()
-	if(locate(/obj/structure/flora/ms13/shrub) in get_turf(mover))
-		return TRUE
-	else if(istype(mover, /obj/projectile))
-		if(!anchored)
-			return TRUE
-		var/obj/projectile/proj = mover
-		if(proj.firer && Adjacent(proj.firer))
-			return TRUE
-		if(prob(proj_pass_rate))
-			return TRUE
-		return FALSE
-
 //trees
 
 /obj/structure/flora/ms13/tree
 	name = "tree"
 	desc = "A large tree."
+	icon = 'mojave/icons/flora/trees.dmi'
 	density = TRUE
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = 4.9
+	plane = ABOVE_GAME_PLANE
 	pixel_x = -16
 	pixel_y = 5
 	var/log_amount = 1
+	projectile_passchance = 60 // mf tree
 
 /obj/structure/flora/ms13/tree/Initialize()
 	. = ..()
 	pixel_x = rand(-20,-16)
-	AddComponent(/datum/component/largetransparency, 1, 1, -1, 1)
+	//AddComponent(/datum/component/largetransparency, 1, 1, -1, 1) // Busted right now. After the first time it turns the icon transparent, the entire icon's dimensions block mouse clicks.
 	AddElement(/datum/element/climbable) // People should be able to pass trees hypothetically. Just not quickly... One day, unscuff the text for this.
 
 /obj/structure/flora/ms13/tree/attackby(obj/item/W, mob/user, params)
 	if(log_amount && (!(flags_1 & NODECONSTRUCT_1)))
-		if(W.sharpness == IS_SHARP_AXE)
+		if(W.sharpness & SHARP_AXE)
 			if(W.hitsound)
 				playsound(get_turf(src), 'mojave/sound/ms13effects/wood_cutting.ogg', 80, FALSE, FALSE)
 				user.visible_message("<span class='notice'>[user] begins to cut down [src] with [W].</span>","<span class='notice'>You begin to cut down [src] with [W].</span>", "<span class='hear'>You hear the sound of chopping.</span>")
-				if(do_after(user, 30 SECONDS * W.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_CHOPTREE)) 
+				if(do_after(user, 30 SECONDS * W.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_CHOPTREE))
 					user.visible_message("<span class='notice'>[user] fells [src] with the [W].</span>","<span class='notice'>You fell [src] with the [W].</span>", "<span class='hear'>You hear the sound of a tree falling.</span>")
 					playsound(get_turf(src), 'sound/effects/meteorimpact.ogg', 80, FALSE, FALSE)
 					user.log_message("cut down [src] at [AREACOORD(src)]", LOG_ATTACK)
 					for(var/i=1 to log_amount)
-						new /obj/item/stack/sheet/ms13/log(get_turf(src))
+						new /obj/item/stack/sheet/ms13/wood/log(get_turf(src))
 					qdel(src)
 		else
 			user.visible_message("<span class='notice'>The [W] is uncapable of cutting down the [src].</span>")
 			return ..()
 
-/obj/structure/flora/ms13/tree/deadsnow
-	name = "dead tree"
-	desc = "It's a tree. Useful for combustion and/or construction."
-	icon = 'mojave/icons/flora/trees.dmi'
-	icon_state = "snowtree_1"
-	log_amount = 2
-	max_integrity = 400
-
-/obj/structure/flora/ms13/tree/deadsnow/New()
-	icon_state = "snowtree_[rand(1,3)]"
-	..()
-
-/obj/structure/flora/ms13/tree/smallpine
-	name = "pine tree"
-	desc = "An small evergreen, Evergreen even when the bombs dropped."
-	icon = 'mojave/icons/flora/trees.dmi'
-	icon_state = "pine_1"
-	log_amount = 1
-	max_integrity = 400
-
-/obj/structure/flora/ms13/tree/smallpine/New()
-	icon_state = "pine_[rand(1,2)]"
-	..()
-
 /obj/structure/flora/ms13/tree/tallpine
 	name = "pine tree"
 	desc = "An tall evergreen, Evergreen even when the bombs dropped."
-	icon = 'mojave/icons/flora/talltrees.dmi'
 	icon_state = "pine_1"
 	log_amount = 4
 	max_integrity = 400
@@ -380,36 +377,49 @@
 	icon_state = "bald"
 	log_amount = 1
 
-/obj/structure/flora/ms13/tree/wasteland
+/obj/structure/flora/ms13/tree/drought/dead
 	name = "dead tree"
-	desc = "It's a tree. Useful for combustion and/or construction."
-	icon = 'mojave/icons/flora/trees.dmi'
-	icon_state = "deadtree_1"
-	log_amount = 2
+	desc = "This tree lived a long life to get this big. Now it's dead."
+	icon_state = "dead_tree1"
 	max_integrity = 400
 
-/obj/structure/flora/ms13/tree/wasteland/New()
-	icon_state = "deadtree_[rand(1,6)]"
+/obj/structure/flora/ms13/tree/drought/dead/Initialize()
+	. = ..()
+	icon_state = "dead_tree[rand(1,3)]"
+
+
+// Cacti
+
+/obj/structure/flora/ms13/cactus
+	name = "cactus"
+	desc = "A short cactus, spiny and spiky."
+	icon = 'mojave/icons/flora/flora.dmi'
+	icon_state = "short_cactus1"
+	max_integrity = 200
+
+/obj/structure/flora/ms13/cactus/Initialize()
+	icon_state = "short_cactus[rand(1,3)]"
 	..()
 
-/obj/structure/flora/ms13/tree/joshua
-	name = "joshua tree"
-	desc = "A tree named by mormons, who said it's branches mimiced the biblical Joshua, raising his hands in prayer."
-	icon = 'mojave/icons/flora/trees.dmi'
-	log_amount = 2
-	icon_state = "joshua_1"
-	max_integrity = 400
+/obj/structure/flora/ms13/cactus/tall
+	desc = "A tall cactus, spiky and spiny."
+	icon_state = "tall_cactus1"
+	max_integrity = 250
 
-/obj/structure/flora/tree/joshua/ms13/Initialize()
-	. = ..()
-	icon_state = "joshua_[rand(1,4)]"
+/obj/structure/flora/ms13/cactus/tall/Initialize()
+	icon_state = "tall_cactus[rand(1,3)]"
+	..()
 
-/obj/structure/flora/ms13/tree/cactus
-	name = "cactus"
-	desc = "It's a giant cowboy hat! It's waving hello! It wants you to hug it!"
-	icon = 'mojave/icons/flora/trees.dmi'
-	icon_state = "cactus"
-	log_amount = 2
-	max_integrity = 400
+// Generic leaf-plant
+
+/obj/structure/flora/ms13/leafy
+	name = "leafy plant"
+	desc = "A tuft of leaf-blades, it's some hardy desert plant."
+	icon = 'mojave/icons/flora/flora.dmi'
+	icon_state = "leafy_plant1"
+
+/obj/structure/flora/ms13/leafy/Initialize()
+	icon_state = "leafy_plant[rand(1,3)]"
+	..()
 
 //for more ms13 snow plants (grass etc. search /obj/structure/flora/grass)

@@ -79,12 +79,6 @@
 	var/flight_x_offset = 0
 	var/flight_y_offset = 0
 
-	//Zooming
-	var/zoomable = FALSE //whether the gun generates a Zoom action on creation
-	var/zoomed = FALSE //Zoom toggle
-	var/zoom_amt = 3 //Distance in TURFs to move the user's screen forward (the "zoom" effect)
-	var/zoom_out_amt = 0
-	var/datum/action/toggle_scope_zoom/azoom
 	var/pb_knockback = 0
 
 /obj/item/gun/Initialize(mapload)
@@ -93,7 +87,6 @@
 		pin = new pin(src)
 	if(gun_light)
 		alight = new(src)
-	build_zooming()
 
 /obj/item/gun/Destroy()
 	if(isobj(pin)) //Can still be the initial path, then we skip
@@ -104,8 +97,6 @@
 		QDEL_NULL(bayonet)
 	if(chambered) //Not all guns are chambered (EMP'ed energy guns etc)
 		QDEL_NULL(chambered)
-	if(azoom)
-		QDEL_NULL(azoom)
 	if(isatom(suppressed)) //SUPPRESSED IS USED AS BOTH A TRUE/FALSE AND AS A REF, WHAT THE FUCKKKKKKKKKKKKKKKKK
 		QDEL_NULL(suppressed)
 	return ..()
@@ -154,17 +145,12 @@
 	if(can_bayonet)
 		. += "It has a <b>bayonet</b> lug on it."
 
-/obj/item/gun/equipped(mob/living/user, slot)
-	. = ..()
-	if(zoomed && user.get_active_held_item() != src)
-		zoom(user, user.dir, FALSE) //we can only stay zoomed in if it's in our hands //yeah and we only unzoom if we're actually zoomed using the gun!!
-
 //called after the gun has successfully fired its chambered ammo.
-/obj/item/gun/proc/process_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE)
-	handle_chamber(empty_chamber, from_firing, chamber_next_round)
+/obj/item/gun/proc/process_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE, atom/shooter = null)
+	handle_chamber(empty_chamber, from_firing, chamber_next_round, shooter = shooter)
 	SEND_SIGNAL(src, COMSIG_GUN_CHAMBER_PROCESSED)
 
-/obj/item/gun/proc/handle_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE)
+/obj/item/gun/proc/handle_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE, atom/shooter = null)
 	return
 
 //check if there's enough ammo/energy/whatever to shoot one time
@@ -173,25 +159,36 @@
 	return TRUE
 
 /obj/item/gun/proc/shoot_with_empty_chamber(mob/living/user as mob|obj)
-	to_chat(user, span_danger("*click*"))
-	playsound(src, dry_fire_sound, 30, TRUE)
+	to_chat(user, span_danger("[user] pulls the trigger of [src], but it doesn't go off!"))// MOJAVE SUN EDIT - Original is to_chat(user, span_danger("*click*"))
+	playsound(src, dry_fire_sound, 5, TRUE) // MOJAVE SUN EDIT - ORIGINAL SOUND VALUE IS 30
 
 
 /obj/item/gun/proc/shoot_live_shot(mob/living/user, pointblank = 0, atom/pbtarget = null, message = 1)
 	//MOJAVE EDIT CHANGE BEGIN - GUN_RECOIL
-	//if(recoil) - Original
-	//	shake_camera(user, recoil + 1, recoil) - Original
+	/* Original
+	if(recoil) - Original
+		shake_camera(user, recoil + 1, recoil)
+	*/
 	var/angle = get_angle(user, pbtarget)+rand(-recoil_deviation, recoil_deviation) + 180
-	if(angle > 360)
-		angle -= 360
+	angle = SIMPLIFY_DEGREES(angle)
 	if(recoil)
-		recoil_camera(user, recoil+1, (recoil*recoil_backtime_multiplier) + 1, recoil, angle)
+		var/mob/living/carbon/human/H = user
+		if(!istype(H.wear_suit, /obj/item/clothing/suit/space/hardsuit/ms13/power_armor)) // If they're wearing PA, cut that shid in half
+			recoil_camera(user, recoil+1, (recoil*recoil_backtime_multiplier) + 1, recoil, angle)
+		else
+			recoil_camera(user, recoil/2, (recoil*recoil_backtime_multiplier/2) + 1, recoil/2, angle/2)
+
 	//MOJAVE EDIT CHANGE END
 
 	if(suppressed)
 		playsound(user, suppressed_sound, suppressed_volume, vary_fire_sound, ignore_walls = FALSE, extrarange = SILENCED_SOUND_EXTRARANGE, falloff_distance = 0)
 	else
+		//MOJAVE EDIT BEGIN
+		/* Original
 		playsound(user, fire_sound, fire_sound_volume, vary_fire_sound)
+		*/
+		fire_sounds(user, pbtarget)
+		//MOJAVE EDIT END
 		if(message)
 			if(pointblank)
 				user.visible_message(span_danger("[user] fires [src] point blank at [pbtarget]!"), \
@@ -233,6 +230,8 @@
 		return
 	if(firing_burst)
 		return
+	if(SEND_SIGNAL(src, COMSIG_GUN_TRY_FIRE, user, target, flag, params) & COMPONENT_CANCEL_GUN_FIRE)
+		return
 	if(flag) //It's adjacent, is the user, or is on the user's person
 		if(target in user.contents) //can't shoot stuff inside us.
 			return
@@ -264,10 +263,18 @@
 	if(check_botched(user, target))
 		return
 
+	/* MOJAVE EDIT REMOVAL
 	var/obj/item/bodypart/other_hand = user.has_hand_for_held_index(user.get_inactive_hand_index()) //returns non-disabled inactive hands
 	if(weapon_weight == WEAPON_HEAVY && (user.get_inactive_held_item() || !other_hand))
 		to_chat(user, span_warning("You need two hands to fire [src]!"))
 		return
+	*/
+	// MOJAVE EDIT BEGIN
+	var/datum/component/two_handed/two_handed = GetComponent(/datum/component/two_handed)
+	if(weapon_weight == WEAPON_HEAVY && !(two_handed?.wielded))
+		to_chat(user, span_warning("You need to wield [src] with two hands!"))
+		return
+	// MOJAVE EDIT END
 	//DUAL (or more!) WIELDING
 	var/bonus_spread = 0
 	var/loop_counter = 0
@@ -352,7 +359,7 @@
 		shoot_with_empty_chamber(user)
 		firing_burst = FALSE
 		return FALSE
-	process_chamber()
+	process_chamber(shooter = user)
 	update_appearance()
 	return TRUE
 
@@ -390,7 +397,7 @@
 			addtimer(CALLBACK(src, .proc/process_burst, user, target, message, params, zone_override, sprd, randomized_gun_spread, randomized_bonus_spread, rand_spr, i), modified_delay * (i - 1))
 	else
 		if(chambered)
-			if(HAS_TRAIT(user, TRAIT_PACIFISM)) // If the user has the pacifist trait, then they won't be able to fire [src] if the round chambered inside of [src] is lethal.
+			if(user && HAS_TRAIT(user, TRAIT_PACIFISM)) // If the user has the pacifist trait, then they won't be able to fire [src] if the round chambered inside of [src] is lethal.
 				if(chambered.harmful) // Is the bullet chambered harmful?
 					to_chat(user, span_warning("[src] is lethally chambered! You don't want to risk harming anyone..."))
 					return
@@ -410,7 +417,7 @@
 		else
 			shoot_with_empty_chamber(user)
 			return
-		process_chamber()
+		process_chamber(shooter = user)
 		update_appearance()
 		semicd = TRUE
 		addtimer(CALLBACK(src, .proc/reset_semicd), modified_delay)
@@ -480,7 +487,7 @@
 		var/obj/item/item_to_remove = tgui_input_list(user, "Attachment to remove", "Attachment Removal", sort_names(possible_items))
 		if(isnull(item_to_remove))
 			return
-		if(user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
+		if(!user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 			return
 		return remove_gun_attachment(user, I, item_to_remove)
 
@@ -617,18 +624,6 @@
 	update_appearance()
 	update_action_buttons()
 
-/obj/item/gun/pickup(mob/user)
-	..()
-	if(azoom)
-		azoom.Grant(user)
-
-/obj/item/gun/dropped(mob/user)
-	. = ..()
-	if(azoom)
-		azoom.Remove(user)
-	if(zoomed)
-		zoom(user, user.dir, FALSE)
-
 /obj/item/gun/update_overlays()
 	. = ..()
 	if(gun_light)
@@ -700,67 +695,6 @@
 //Happens before the actual projectile creation
 /obj/item/gun/proc/before_firing(atom/target,mob/user)
 	return
-
-/////////////
-// ZOOMING //
-/////////////
-
-/datum/action/toggle_scope_zoom
-	name = "Toggle Scope"
-	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_HANDS_BLOCKED|AB_CHECK_IMMOBILE|AB_CHECK_LYING
-	icon_icon = 'icons/mob/actions/actions_items.dmi'
-	button_icon_state = "sniper_zoom"
-	var/obj/item/gun/gun = null
-
-/datum/action/toggle_scope_zoom/Trigger(trigger_flags)
-	. = ..()
-	if(!.)
-		return
-	gun.zoom(owner, owner.dir)
-
-/datum/action/toggle_scope_zoom/IsAvailable()
-	. = ..()
-	if(owner.get_active_held_item() != gun)
-		. = FALSE
-	if(!. && gun)
-		gun.zoom(owner, owner.dir, FALSE)
-
-/datum/action/toggle_scope_zoom/Remove(mob/living/L)
-	gun.zoom(L, L.dir, FALSE)
-	..()
-
-/obj/item/gun/proc/rotate(atom/thing, old_dir, new_dir)
-	SIGNAL_HANDLER
-
-	if(ismob(thing))
-		var/mob/lad = thing
-		lad.client.view_size.zoomOut(zoom_out_amt, zoom_amt, new_dir)
-
-/obj/item/gun/proc/zoom(mob/living/user, direc, forced_zoom)
-	if(!user || !user.client)
-		return
-
-	if(isnull(forced_zoom))
-		zoomed = !zoomed
-	else
-		zoomed = forced_zoom
-
-	if(zoomed)
-		RegisterSignal(user, COMSIG_ATOM_DIR_CHANGE, .proc/rotate)
-		user.client.view_size.zoomOut(zoom_out_amt, zoom_amt, direc)
-	else
-		UnregisterSignal(user, COMSIG_ATOM_DIR_CHANGE)
-		user.client.view_size.zoomIn()
-	return zoomed
-
-//Proc, so that gun accessories/scopes/etc. can easily add zooming.
-/obj/item/gun/proc/build_zooming()
-	if(azoom)
-		return
-
-	if(zoomable)
-		azoom = new()
-		azoom.gun = src
 
 #undef FIRING_PIN_REMOVAL_DELAY
 #undef DUALWIELD_PENALTY_EXTRA_MULTIPLIER

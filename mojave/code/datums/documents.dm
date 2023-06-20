@@ -17,6 +17,11 @@
 	content = "	Bad data. Cannot read \
 	<br><br>Contact Administrator for assistance or send a letter to your local RobCo facility and fill a repair request."
 
+/datum/terminal/document/joker //For rigged terminals
+	title = "Got you!"
+	content = "Hear that ticking? I bet you do. That's right- you fell for it. You're an IDIOT. By the time you even finish reading this, the bomb stashed in the back of the terminal is destined to go off. Should have used your eyes, you damn idiot.\
+		I would say let this be a lesson- But you're already dead, no?"
+
 // Mammoth specific notes //
 
 /datum/terminal/document/water_plant_notice // For the water plant terminal with sewer control
@@ -102,3 +107,69 @@
 /datum/terminal/document/toystore_notetoself // same as above, immersive
 	title = "NOTE TO SELF"
 	content = "remember to get clay and paint for train diorama"
+
+/datum/terminal/document/principals_office // School Principal's Office - First Log
+	title = "Unruly Brats"
+	content = "Another week another damn prankster. This time it was the usual Steve Brown, he decided it would be a 'funny' prank to clog all the female toilets and wait outside the toilets and laugh as all the students came running out.\
+		 I told his mother this isn't good behavior and that I will kick Steve out incase he tries anything else, again. But my words fall on deaf ears.."
+
+/datum/terminal/document/waste_management
+	title = "Rapture of Barrel"
+	content = "One of the waste barrels sent to us from the local power plant had it's lid loose, thank god Adams spotted it quickly before it irradiated more of the place.\
+		<br><br> Other than the minor radiation leak from the barrel, everything here is a-okay, none of us three have puked in months, so hoorah to us right?"
+
+/datum/terminal/document/hospital_storage_notice // Hospital storage room wall terminal notice
+	title = "Notice"
+	content = "Due to suspected theft, operation of the storage safety lock is no longer manually overridable. Please buzz the Director's secretary for access.\
+		<br><br> Anyone found attempting to override this and access it by hand will be stipped of their position. Additionally, two Protectron security enforcers have been placed within the storage. Please have your identification tag visible at all times as to avoid issues.\
+		The association is not liable for any damages and by continuing forward you agree to this."
+
+/datum/terminal/document/mansion_rant // North-West mansion bedroom terminal
+	title = "Torn to Pieces"
+	content = "I've worked pretty much my whole life. Most people couldn't picture that. From the age of ten years old I was working in a corn field. By the time I was sixteen I was enrolled in a college in nuclear engineering.\
+		<br><br> The thing that they neglect to tell you about life is that no matter how much hard work you put in- Sometimes you can't just have it all. I was recently let go from my job for something I had nothing to do with in any way- shape NOR form.\
+		There's nothing quite like being put on blast and thrown to the pits after ten years of servitude- but it's fine.\
+		<br><br>So I fetch a ride all the way home early from work- Walk through my front doors in this beautiful home I've gathered for our family...\
+		<br><br> I feel like I don't need to transcribe what I had seen in my bedroom involving my wife, so I won't. It just goes to show you how predictable women are, ALWAYS doing shit like this. The fact that I mustn't even note it down to let you know exactly\
+		what had happened is enough proof to me that our country is to ruins. I don't think I'll trust a woman again. So now, I've thrown away our beautiful double queen bed and got us two twins. Unfortunately we'll still share a room until the whore's sister can\
+		move her out.\
+		<br><br> At least I've got my son in all this, as secluded as he is in his tinkering. Due to his condition, it seems like he hasn't really noticed much going on between his mother and I. Oh well... I have faith in god an opportunity to repay her will arise."
+
+/datum/terminal/document/mansion_confession // North-West mansion bunker terminal
+	title = "Redemption"
+	content = "I write this not in celebration of my actions, but in regret. Every moment I take a breath, it's nearly met with violent vomiting. I've sinned greatly. It's been four or so months since I've plunged into this shelter with my son...\
+		<br><br> It had just happened so fast, I hadn't had time to clear my mind and just think- In the heat of the moment any human could make the mistake... But I left Mary to die out there. We had been merely playing pool together, my son and I.\
+		Of course Mary came in nagging as her usual self... Over the radio, we heard the notice, I suppose as many of the rest had. Nuclear annihilation guarenteed- I bolted to the shelter, my son's wrist in hand. Mary tried to follow us down the stairs\
+		but... I just snapped... I pulled my thirty-eight out from my holster and drew it on her out of panic- I didn't wish to hurt her, but there's no way I could let the woman I trusted so much into safety with us. She betrayed me before, she could again, right?\
+		I have been... Overcome with grief, to say the least. Thomas hasn't been taking it well, and by extension I haven't either. He's hardly messed around and made a single thing since the bombs dropped. I think the whole thing with Mary banging on the shutters really shook him."
+
+/datum/terminal/document/mansion_end // North-West mansion bedroom terminal - Log 2
+	title = "The End"
+	content = "Sleep. I don't remember the last time I had it. It's been about a week since Thomas passed away in his sleep. I don't quite know from what, but he's been acting strangely on the medication I've been giving him... I suspect I'm the culprit for another\
+		family member's demise. I'm a horrible person and deserve what is coming to me. Let it be known that Malcolm Robinson isn't a coward and has owned up to the grim reality of what he's done- I intend on doing it briefly after this log, but I am scheduled\
+		to depart this hellhole of a prison I call my new home. Not through physical freedom, but mental. It won't be long until I'm dead and at the gates, in God's judgement. I only wish that my family can forgive me for the sins I've committed against them."
+
+/datum/terminal/document/publicbunker_1 //public bunker big cheese room terminal entry 1 kind of in the middle of the map
+	title = "Nuclear Holocaust"
+	content = "It finally happened. The Reds launched the big ones. I hope we took a good chunk of them out.<br>Not important. We are safe in this public bunker, not some stupid subscription like those Vaults or whatever. I'm sure those are nicer, but we still need a\
+		place for the less fortunate of us. I am the leader, I suppose, though it's not like I'm going to get arrested if I don't want to. No more cops. Feels good to be able to say that.<br>Guess I should document something important on here. Well, the sirens were\
+		blaring, and I don't really think this place was being guarded, but we all kinda knew it was here. We just rushed in. Lots of people, honestly. Maybe too many. It got claustrophibic quick. We're probably gonna need some more space, figure no one will care if\
+		we dig a hole in a wall for more beds. After everyone was inside, I counted about 30, including myself. I donjg people are bugging me to help take mattress off of bedframes ill come back to this"
+
+/datum/terminal/document/publicbunker_2 //public bunker big cheese room terminal entry 2
+	title = "Holes"
+	content = "Well, we managed to dig a hole. Big problem though. It seems like the outside world is radioactive, despite none of the nukes hitting around here, I thought? Whatever was in these walls was protecting us. The people I had mine the thing out are losing hair\
+		at a disgusting pace. Worst part is I had them dig into the wall of the main hallway, so the cafeteria is not safe, and we already set up lots of beds in the hallway. This is fucked. Fuck fuck fuck fuck fuck"
+
+/datum/terminal/document/publicbunker_3 //public bunker big cheese room terminal entry 3
+	title = "New Entry"
+	content = "The peopel are mutating oh godf theyre attacking everyone its like zombies man fuck i locked myself in my room. THey canyt get me in here right? saving opne bullet for myself God fuckikng dammit FUCKim so sorry I know they can't hear this but I'm so sorry.\
+		I didn't mean to fuck us all. I wanted to keep as many of us in here as I could and I fucked up in the process, this fucking piece of shit bunker was only meant for 20 people not 30. I'm goign to hell fucking shit man fuck"
+
+/datum/terminal/document/oopersuperbmed // The superB market :)
+	title = "Surge of drug addicts"
+	content = "Hey Martin! I'm leaving this for when you start your shift on the twenty-third. Hope you had a good vacation! You'll have to tell me about it when our schedules align again! Anyways, we had a tiny bit of a break-in! It's not too bad though, the overnight caught them.\
+		Anyways, we've been told to put a bunch of our stuff up on lockup, and I'm sure you noticed the new bars and heard about that new law passed. I'm sure you've read up on it already, but we're supposed to keep the grand majority of our supply locked up when we're not in business.\
+		Unfortunately, that entails we'll have to pull you back a shift and you'll do opening. Nothing too drastic should change, other than it being sun-up when you arrive. When we next see each other, I can give you the keys for lockup. There's a few of them, actually. That was also mandated...\
+		<br><br>\
+		So... Yeah. If you do end up coming in on the twenty-third and see this before I can snag you up or Rich got to you first, just hang around and work as usual, we'll get together to talk a bit more about the new protocol. -Rebecca."

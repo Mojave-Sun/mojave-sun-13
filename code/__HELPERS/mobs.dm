@@ -1,3 +1,11 @@
+//check_target_facings() return defines
+/// Two mobs are facing the same direction
+#define FACING_SAME_DIR 1
+/// Two mobs are facing each others
+#define FACING_EACHOTHER 2
+/// Two mobs one is facing a person, but the other is perpendicular
+#define FACING_INIT_FACING_TARGET_TARGET_FACING_PERPENDICULAR 3 //Do I win the most informative but also most stupid define award?
+
 /proc/random_blood_type()
 	return pick(4;"O-", 36;"O+", 3;"A-", 28;"A+", 1;"B-", 20;"B+", 1;"AB-", 5;"AB+")
 /* MOJAVE SUN EDIT START - Unused Eye Colour Proc
@@ -108,6 +116,30 @@
 		if(!findname(.))
 			break
 
+// MOJAVE SUN EDIT BEGIN
+/proc/random_unique_legion_name(gender, attempts_to_find_unique_name=10)
+	for(var/i in 1 to attempts_to_find_unique_name)
+		. = capitalize(pick(GLOB.first_names_legion)) + " " + capitalize(pick(GLOB.last_names_legion))
+
+		if(!findname(.))
+			break
+
+/proc/random_unique_raider_name(gender, attempts_to_find_unique_name=10)
+	for(var/i in 1 to attempts_to_find_unique_name)
+		. = capitalize(pick(GLOB.raider_names))
+
+		if(!findname(.))
+			break
+
+/proc/random_unique_drylander_name(gender, attempts_to_find_unique_name=10)
+	for(var/i in 1 to attempts_to_find_unique_name)
+		. = capitalize(pick(GLOB.first_names_drylander)) + " " + capitalize(pick(GLOB.last_names_drylander))
+
+		if(!findname(.))
+			break
+
+// MOJAVE SUN EDIT END
+
 /proc/random_unique_lizard_name(gender, attempts_to_find_unique_name=10)
 	for(var/i in 1 to attempts_to_find_unique_name)
 		. = capitalize(lizard_name(gender))
@@ -169,6 +201,14 @@ GLOBAL_LIST_INIT(skin_tone_names, list(
 	"african2" = "Dark brown",
 ))
 //MOJAVE SUN EDIT END - Skin Colours
+
+// MOJAVE SUN EDIT BEGIN - Fatties
+GLOBAL_LIST_INIT(fatness_types, sort_list(list(
+	FATNESS_AVERAGE,
+	FATNESS_OBESE,
+	)))
+// MOJAVE SUN EDIT END - Fatties
+
 /// An assoc list of species IDs to type paths
 GLOBAL_LIST_EMPTY(species_list)
 
@@ -685,6 +725,8 @@ GLOBAL_LIST_EMPTY(species_list)
 
 #define ISADVANCEDTOOLUSER(mob) (HAS_TRAIT(mob, TRAIT_ADVANCEDTOOLUSER) && !HAS_TRAIT(mob, TRAIT_DISCOORDINATED_TOOL_USER))
 
+#define IS_IN_STASIS(mob) (mob.has_status_effect(/datum/status_effect/grouped/stasis))
+
 /// Gets the client of the mob, allowing for mocking of the client.
 /// You only need to use this if you know you're going to be mocking clients somewhere else.
 #define GET_CLIENT(mob) (##mob.client || ##mob.mock_client)
@@ -883,3 +925,7 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 	else
 		. = invoked_callback.Invoke()
 	usr = temp
+
+#undef FACING_SAME_DIR
+#undef FACING_EACHOTHER
+#undef FACING_INIT_FACING_TARGET_TARGET_FACING_PERPENDICULAR

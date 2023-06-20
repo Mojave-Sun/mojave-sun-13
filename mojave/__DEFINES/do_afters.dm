@@ -10,3 +10,6 @@
 #define DOAFTER_SOURCE_LEATHER "doafter_leather"
 #define DOAFTER_SOURCE_CLOTHSHRED "doafter_clothshred"
 #define DOAFTER_SOURCE_ADDGRILL "doafter_addgrill"
+#define DOAFTER_SOURCE_LADDERBLOCKERS "doafter_ladderblockers"
+#define DOAFTER_SOURCE_WINDOWBASH "doafter_windowbash"
+#define DOAFTER_SOURCE_PAHOIST "doafter_pahoist"

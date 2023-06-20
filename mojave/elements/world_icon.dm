@@ -4,49 +4,64 @@
 
 // Slap onto something to give it a world icon that differs from the inventory one (allows for realistically sized objects and all that) //
 // To fix 25/06/2021 : Blood Decals, Mutable Overlays and other baked in bitch ass overlays that need to be remade when the icon changes //
+// Fixed 07/05/2022: Now you can deal with the above by handling everything with attached_proc instead
 
-//Easiest way to do this is making the initial icon be the world folder and the element one be the inventory folder (for objects with world icons, else just initially do the inventory one [and get whooped])
-
-/datum/element/inworld_sprite
-	element_flags = ELEMENT_BESPOKE
+/datum/element/world_icon
 	id_arg_index = 2
-	var/world_sprite
-	var/inventory_sprite
+	element_flags = ELEMENT_BESPOKE | ELEMENT_DETACH
+	/**
+	 * If we want COMPLEX world icon behavior, this proc will handle icon updating when the item is NOT in the inventory.
+	 * I just assumed that the default update_icon is for inventory sprites because ss13 basically focuses on how the sprites
+	 * look on your hand, not how they realistically look in the world.
+	 */
+	var/attached_proc
+	/// Only used if attached_proc doesn't exist, simply changes the icon of target to this when it's in the inventory
+	var/inventory_icon
+	/// Only used if attached_proc doesn't exist, simply changes the icon of target to this when it's NOT in the inventory
+	var/world_icon
 
-/datum/element/inworld_sprite/Attach(datum/target, inventory_sprite, world_sprite)
+/datum/element/world_icon/Attach(obj/item/target, attached_proc, world_icon, inventory_icon)
 	. = ..()
-	if(!isatom(target))
+	if(!istype(target))
 		return ELEMENT_INCOMPATIBLE
-	icon_change(target, world_sprite)
 
-	src.world_sprite = world_sprite
-	src.inventory_sprite = inventory_sprite
+	src.attached_proc = attached_proc
+	src.world_icon = world_icon
+	src.inventory_icon = inventory_icon
+	RegisterSignal(target, COMSIG_ATOM_UPDATE_ICON, .proc/update_icon)
+	RegisterSignal(target, list(COMSIG_ITEM_EQUIPPED, COMSIG_STORAGE_ENTERED, COMSIG_ITEM_DROPPED, COMSIG_STORAGE_EXITED), .proc/inventory_updated)
+	target.update_appearance(UPDATE_ICON)
 
-	RegisterSignal(target, list(COMSIG_ITEM_DROPPED, COMSIG_STORAGE_EXITED), .proc/icon_world)
-	RegisterSignal(target, list(COMSIG_ITEM_EQUIPPED, COMSIG_STORAGE_ENTERED), .proc/icon_inventory)
+/datum/element/world_icon/Detach(obj/item/source)
+	. = ..()
+	UnregisterSignal(source, COMSIG_ATOM_UPDATE_ICON)
+	UnregisterSignal(source, list(COMSIG_ITEM_EQUIPPED, COMSIG_STORAGE_ENTERED, COMSIG_ITEM_DROPPED, COMSIG_STORAGE_EXITED))
+	source.update_appearance(UPDATE_ICON)
 
-/datum/element/inworld_sprite/Detach(datum/target)
-	UnregisterSignal(target, list(
-		COMSIG_ITEM_PICKUP,
-		COMSIG_ITEM_DROPPED,
-		COMSIG_STORAGE_ENTERED,
-		COMSIG_STORAGE_EXITED,
-	))
-	return ..()
+/datum/element/world_icon/proc/update_icon(obj/item/source, updates)
+	SIGNAL_HANDLER
 
-/datum/element/inworld_sprite/proc/icon_change(datum/source, icon_folder)
-	var/atom/target_object = source
-	if(!icon_folder)
-		target_object.icon = initial(target_object.icon)
+	if((source.item_flags & IN_INVENTORY) || (source.loc && SEND_SIGNAL(source.loc, COMSIG_CONTAINS_STORAGE)))
+		if(attached_proc)
+			return
+		return default_inventory_icon(source)
+
+	if(attached_proc)
+		return call(source, attached_proc)(updates)
 	else
-		target_object.icon = icon_folder
+		return default_world_icon(source)
 
-/datum/element/inworld_sprite/proc/icon_world(datum/source)
+/datum/element/world_icon/proc/inventory_updated(obj/item/source)
 	SIGNAL_HANDLER
 
-	icon_change(source, world_sprite)
+	source.update_appearance(UPDATE_ICON)
 
-/datum/element/inworld_sprite/proc/icon_inventory(datum/source)
+/datum/element/world_icon/proc/default_inventory_icon(obj/item/source)
 	SIGNAL_HANDLER
 
-	icon_change(source, inventory_sprite)
+	source.icon = inventory_icon
+
+/datum/element/world_icon/proc/default_world_icon(obj/item/source)
+	SIGNAL_HANDLER
+
+	source.icon = world_icon

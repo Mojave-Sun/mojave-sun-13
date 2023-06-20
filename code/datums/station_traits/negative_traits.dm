@@ -116,7 +116,7 @@
 	var/datum/job/picked_job = pick(SSjob.joinable_occupations)
 	chosen_job_name = lowertext(picked_job.title) // like Chief Engineers vs like chief engineers
 	SSjob.set_overflow_role(picked_job.type)
-
+/* MOJAVE SUN EDIT START - Shuttle Runtime
 /datum/station_trait/slow_shuttle
 	name = "Slow Shuttle"
 	trait_type = STATION_TRAIT_NEGATIVE
@@ -128,7 +128,7 @@
 /datum/station_trait/slow_shuttle/on_round_start()
 	. = ..()
 	SSshuttle.supply.callTime *= 1.5
-
+*/// MOJAVE SUN EDIT START - Shuttle Runtime
 /datum/station_trait/bot_languages
 	name = "Bot Language Matrix Malfunction"
 	trait_type = STATION_TRAIT_NEGATIVE

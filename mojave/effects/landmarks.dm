@@ -15,6 +15,9 @@
 /obj/effect/landmark/start/ms13/hubologist
 	name = "Hubologist"
 
+/obj/effect/landmark/start/ms13/nomad
+	name = "Nomad"
+
 // Mammoth Town Spawns //
 
 /obj/effect/landmark/start/ms13/mayor
@@ -90,7 +93,7 @@
 	name = "Raider"
 
 /obj/effect/landmark/start/ms13/sawbone
-	name = "Sawbone"
+	name = 	"Raider Sawbone"
 
 /obj/effect/landmark/start/ms13/enforcer
 	name = "Raider Enforcer"
@@ -116,7 +119,13 @@
 	name = "Legion Recruit Decanus"
 
 /obj/effect/landmark/start/ms13/legion_veteran_legionary
-	name = "Legion Veteran Legionary"
+	name = "Veteran Legionary"
+
+/obj/effect/landmark/start/ms13/legion_prime_legionary
+	name = "Prime Legionary"
+
+/obj/effect/landmark/start/ms13/legion_recruit_legionary
+	name = "Recruit Legionary"
 
 /obj/effect/landmark/start/ms13/legion_speculatore
 	name = "Legion Speculatore"
@@ -127,22 +136,65 @@
 /obj/effect/landmark/start/ms13/legion_scout
 	name = "Legion Scout"
 
+/obj/effect/landmark/start/ms13/legion_vexillarius
+	name = "Legion Vexillarius"
+
+/obj/effect/landmark/start/ms13/legion_smith
+	name = "Legion Blacksmith"
+
 // Desert Ranger Spawns //
 
 /obj/effect/landmark/start/ms13/ranger_deputy_chief
-	name = "Ranger Deputy-Chief"
+	name = "Desert Ranger Deputy-Chief"
 
 /obj/effect/landmark/start/ms13/ranger_elite
-	name = "Elite Ranger"
+	name = "Elite Desert Ranger"
 
 /obj/effect/landmark/start/ms13/ranger
-	name = "Ranger"
+	name = "Desert Ranger"
 
 /obj/effect/landmark/start/ms13/ranger_recruit
-	name = "Ranger Recruit"
+	name = "Desert Ranger Recruit"
 
 /obj/effect/landmark/start/ms13/ranger_doctor
-	name = "Ranger Doctor"
+	name = "Desert Ranger Doctor"
+
+// Drought Town Spawns //
+
+/obj/effect/landmark/start/ms13/baron
+	name = "Town Baron"
+
+/obj/effect/landmark/start/ms13/denizen
+	name = "Town Denizen"
+
+/obj/effect/landmark/start/ms13/barkeep
+	name = "Town Barkeep"
+
+/obj/effect/landmark/start/ms13/laborer
+	name = "Town Laborer"
+
+/obj/effect/landmark/start/ms13/clinician
+	name = "Town Clinician"
+
+/obj/effect/landmark/start/ms13/town_enforcer
+	name = "Town Enforcer"
+
+// Drylander Spawns //
+
+/obj/effect/landmark/start/ms13/dry_chief
+	name = "Drylander Chieftain"
+
+/obj/effect/landmark/start/ms13/dry_headtaker
+	name = "Drylander Headtaker"
+
+/obj/effect/landmark/start/ms13/dry_shaman
+	name = "Drylander Shaman"
+
+/obj/effect/landmark/start/ms13/dry_hunter
+	name = "Drylander Hunter"
+
+/obj/effect/landmark/start/ms13/dryfolk
+	name = "Drylander Folk"
 
 // Combat Test Spawns //
 

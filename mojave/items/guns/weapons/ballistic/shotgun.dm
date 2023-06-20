@@ -6,12 +6,18 @@
 	inhand_icon_state = "levershot"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/lever
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/levershot/levershot2.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/shotgun_lever.ogg'
+	bolt_wording = "lever"
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
 	force = 25
-	fire_delay = 0.55 SECONDS
+	subtractible_armour_penetration = 5
+	fire_delay = 0.6 SECONDS
+	rack_delay = 0.6 SECONDS
 	slowdown = 0.75
 	recoil = 1.5
+	grid_width = 160
+	grid_height = 64
 
 /obj/item/gun/ballistic/shotgun/ms13/lever/update_icon_state()
 	. = ..()
@@ -30,12 +36,17 @@
 	inhand_icon_state = "huntingshot"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/huntingshot
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/huntingshot/huntingshot2.ogg'
-	w_class = WEIGHT_CLASS_BULKY
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/shotgun_hunting.ogg'
+	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	force = 30
-	fire_delay = 0.5 SECONDS
+	subtractible_armour_penetration = 10
+	fire_delay = 0.6 SECONDS
+	rack_delay = 0.6 SECONDS
 	slowdown = 0.75
 	recoil = 1.5
+	grid_width = 192
+	grid_height = 64
 
 /obj/item/gun/ballistic/shotgun/ms13/huntingshot/update_icon_state()
 	. = ..()
@@ -49,20 +60,22 @@
 
 /obj/item/gun/ballistic/shotgun/ms13/lever/trail
 	name = "trail carbine"
-	desc = "A lever action repeater chambered for .44 Magnum with a solid capacity in exchange for a slightly slower fire rate."
+	desc = "A lever action repeater chambered for .44 Magnum with a solid capacity."
 	icon_state = "trail"
 	inhand_icon_state = "trail"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/tube44
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	fire_sound = 'mojave/sound/ms13weapons/trailfire.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/trailfire.ogg'
 	fire_delay = 0.55 SECONDS
-	extra_damage = 40
-	extra_penetration = 10
-	spread = 5
-	recoil = 1.5
+	rack_delay = 0.55 SECONDS
+	spread = 4
+	recoil = 1
 	force = 15
 	empty_indicator = TRUE
+	grid_width = 192
+	grid_height = 32
 
 /obj/item/gun/ballistic/shotgun/ms13/lever/cowboy
 	name = "cowboy repeater"
@@ -70,50 +83,56 @@
 	icon_state = "cowboy"
 	inhand_icon_state = "cowboy"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/tube357
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/repeater/repeater1.ogg'
-	fire_delay = 0.5 SECONDS
-	extra_damage = 35
-	extra_penetration = 10
-	spread = 5
-	recoil = 1.25
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/repeater.ogg'
+	fire_delay = 0.55 SECONDS
+	rack_delay = 0.55 SECONDS
+	spread = 4
+	recoil = 0.85
 	force = 15
 	empty_indicator = TRUE
+	grid_width = 192
+	grid_height = 32
 
 /obj/item/gun/ballistic/shotgun/ms13/lever/brush
 	name = "brush gun"
-	desc = "A lever action repeater chambered for the deadly .45-70 cartridge. Can't carry a lot of rounds and has quite a bit of recoil, but with so much damage does that really matter?"
+	desc = "A lever action repeater chambered for the deadly .45-70 cartridge. Can't carry a lot of rounds, but with so much damage does that really matter?"
 	icon_state = "brush"
 	inhand_icon_state = "brush"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/tube4570
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	fire_sound = 'mojave/sound/ms13weapons/brushfire.ogg'
-	fire_delay = 0.5 SECONDS
-	extra_damage = 55
-	extra_penetration = 5
-	spread = 5
-	recoil = 2
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/brushfire.ogg'
+	fire_delay = 0.55 SECONDS
+	rack_delay = 0.55 SECONDS
+	spread = 4
+	recoil = 1.5
 	force = 15
 	empty_indicator = TRUE
+	grid_width = 192
+	grid_height = 32
 
 /obj/item/gun/ballistic/shotgun/automatic/ms13/sks
-	name = "\improper European battle rifle"
-	desc = "An old European semi-automatic rifle chambered for 7.62 rounds and normally fed from 10 round stripper clips."
+	name = "\improper Soviet battle rifle"
+	desc = "An old Soviet semi-automatic rifle chambered for 7.62 rounds and normally fed from 10 round stripper clips."
 	icon_state = "sks"
 	inhand_icon_state = "sks"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/sks
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/sks/sks1.ogg'
-	fire_delay = 0.5 SECONDS
-	extra_damage = 30
-	extra_penetration = 10
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/sks.ogg'
+	bolt_wording = "bolt"
+	fire_delay = 0.6 SECONDS
 	spread = 5
 	recoil = 1.25
 	slowdown = 0.75
 	empty_indicator = TRUE
+	grid_width = 192
+	grid_height = 64
 
 /obj/item/gun/ballistic/shotgun/automatic/ms13/sks/update_icon_state()
 	. = ..()
@@ -126,16 +145,14 @@
 		icon_state = "[initial(icon_state)]"
 
 /obj/item/gun/ballistic/shotgun/automatic/ms13/sks/scoped
-	name = "scoped European battle rifle"
-	desc = "A European battle rifle with a scope attached and some improved rifling for better penetration and accuracy. The added weight of the scope will slow the user down."
+	name = "scoped Soviet battle rifle"
+	desc = "A Soviet battle rifle with a scope attached and some improved rifling for better accuracy. The added weight of the scope will slow the user down."
 	icon_state = "scoped_sks"
 	inhand_icon_state = "scoped_sks"
-	extra_penetration = 15
 	spread = 2
 	slowdown = 1
-	zoomable = TRUE
-	zoom_amt = 9
-	zoom_out_amt = 3
+	has_scope = TRUE
+	scope_range = 3
 	empty_indicator = TRUE
 
 //Magazines
@@ -143,7 +160,7 @@
 	name = "4570 internal tube magazine"
 	ammo_type = /obj/item/ammo_casing/ms13/c4570
 	caliber = "4570"
-	max_ammo = 6
+	max_ammo = 8
 
 /obj/item/ammo_box/magazine/internal/shot/ms13/tube44
 	name = ".44 magnum internal tube magazine"
@@ -155,7 +172,7 @@
 	name = ".357 magnum internal tube magazine"
 	ammo_type = /obj/item/ammo_casing/ms13/a357
 	caliber = "357"
-	max_ammo = 7
+	max_ammo = 8
 
 /obj/item/ammo_box/magazine/internal/shot/ms13/sks
 	name = "SKS internal magazine (7.62)"
@@ -173,34 +190,6 @@
 	ammo_type = /obj/item/ammo_casing/shotgun/ms13/buckshot
 	max_ammo = 8
 
-//Loaders
-/obj/item/ammo_box/ms13/tube4570
-	name = ".45-70 speed loader tube"
-	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
-	icon_state = "4570tube"
-	ammo_type = /obj/item/ammo_casing/ms13/c4570
-	caliber = "4570"
-	max_ammo = 6
-	multiple_sprites = AMMO_BOX_PER_BULLET
-
-/obj/item/ammo_box/ms13/tube44
-	name = ".44 speed loader tube"
-	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
-	icon_state = "44tube"
-	ammo_type = /obj/item/ammo_casing/ms13/m44
-	caliber = "44"
-	max_ammo = 8
-	multiple_sprites = AMMO_BOX_PER_BULLET
-
-/obj/item/ammo_box/ms13/tube357
-	name = ".357 speed loader tube"
-	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
-	icon_state = "357tube"
-	ammo_type = /obj/item/ammo_casing/ms13/a357
-	caliber = "357"
-	max_ammo = 7
-	multiple_sprites = AMMO_BOX_PER_BULLET
-
 //Shotgun ammo boxes
 
 /obj/item/ammo_box/ms13/shotgun
@@ -209,9 +198,11 @@
 	icon_state = "junkbox"
 	ammo_type = /obj/item/ammo_casing/shotgun/ms13
 	caliber = "shotgun"
-	max_ammo = 8
+	max_ammo = 12
 	w_class = WEIGHT_CLASS_SMALL
 	multiload = 0
+	grid_height = 32
+	grid_width = 64
 
 /obj/item/ammo_box/ms13/shotgun/junkshot
 	name = "12 gauge junkshot shotgun ammo box"

@@ -42,6 +42,7 @@ DEFINE_BITFIELD(turret_flags, list(
 	armor = list(MELEE = 50, BULLET = 30, LASER = 30, ENERGY = 30, BOMB = 30, BIO = 0, FIRE = 90, ACID = 90)
 	base_icon_state = "standard"
 	blocks_emissive = EMISSIVE_BLOCK_UNIQUE
+	subsystem_type = /datum/controller/subsystem/processing/fastprocess // MOJAVE SUN EDIT
 
 	///if TRUE this will cause the turret to stop working if the stored_gun var is null in process()
 	var/uses_stored = TRUE
@@ -439,17 +440,17 @@ DEFINE_BITFIELD(turret_flags, list(
 			if(ispAI(A))
 				continue
 
-			if((turret_flags & TURRET_FLAG_SHOOT_BORGS) && sillycone.stat != DEAD && iscyborg(sillycone))
-				targets += sillycone
-				continue
-
-			if(sillycone.stat || in_faction(sillycone))
-				continue
-
 			if(iscyborg(sillycone))
 				var/mob/living/silicon/robot/sillyconerobot = A
-				if(LAZYLEN(faction) && (ROLE_SYNDICATE in faction) && sillyconerobot.emagged == TRUE)
+				if(sillyconerobot.stat != CONSCIOUS)
 					continue
+				if((turret_flags & TURRET_FLAG_SHOOT_BORGS))
+					targets += sillyconerobot
+					continue
+				if(in_faction(sillyconerobot))
+					continue
+				if((ROLE_SYNDICATE in faction) && !sillyconerobot.emagged)
+					targets += sillyconerobot
 
 		else if(iscarbon(A))
 			var/mob/living/carbon/C = A

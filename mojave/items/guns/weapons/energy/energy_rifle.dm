@@ -7,16 +7,18 @@
 	icon_state = "stanlas_rifle"
 	inhand_icon_state = "stanlas_rifle"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/lasrifle/las_rifle_1.ogg'
-	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser)
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/laser_rifle.ogg'
+	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/stan_rifle)
 	cell_type = /obj/item/stock_parts/cell/ms13/mfc
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
-	slot_flags = ITEM_SLOT_BACK
+	slot_flags = ITEM_SLOT_SUITSTORE
 	force = 15
-	extra_damage = 30
-	extra_penetration = 0
-	fire_delay = 0.5 SECONDS
+	fire_delay = 0.65 SECONDS
 	slowdown = 0.75
+	grid_width = 192
+	grid_height = 64
+	wield_info = /datum/wield_info/default/inhands
 
 /obj/item/gun/energy/ms13/laser/rifle/advanced
 	name = "advanced laser rifle"
@@ -25,8 +27,7 @@
 	icon_state = "advlas_rifle"
 	inhand_icon_state = "advlas_rifle"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/lasrifle/las_rifle_1.ogg'
-	extra_damage = 35
-	extra_penetration = 5
+	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/adv_rifle)
 
 /obj/item/gun/energy/ms13/laser/rifle/wattz
 	name = "\improper Wattz laser rifle"
@@ -35,9 +36,7 @@
 	icon_state = "wattzrifle"
 	inhand_icon_state = "wattzrifle"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/lasrifle/las_rifle_2.ogg'
-	extra_damage = 25
-	extra_penetration = 0
-	fire_delay = 0.5 SECONDS
+	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/wattz_rifle)
 
 /obj/item/gun/energy/ms13/laser/rifle/wattz/sniper
 	name = "\improper Wattz laser sniper"
@@ -46,13 +45,12 @@
 	icon_state = "wattzsniper"
 	inhand_icon_state = "wattzsniper"
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/sniper)
-	extra_damage = 30
-	extra_penetration = 10
-	fire_delay = 0.55 SECONDS
+	fire_delay = 0.7 SECONDS
 	slowdown = 1
-	zoomable = TRUE
-	zoom_amt = 9
-	zoom_out_amt = 3
+	has_scope = TRUE
+	scope_range = 4
+	grid_width = 224
+	grid_height = 64
 
 /obj/item/gun/energy/ms13/laser/rcw
 	name = "laser RCW"
@@ -63,13 +61,15 @@
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/lasrcw/rcw_5.ogg'
-	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser)
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/rcw.ogg'
+	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/las_rcw)
 	cell_type = /obj/item/stock_parts/cell/ms13/ecp
-	extra_damage = 15
-	extra_penetration = 0
 	fire_delay = 0.25 SECONDS
-	spread = 5
+	spread = 4
 	slowdown = 0.75
+	grid_width = 160
+	grid_height = 64
+	wield_info = /datum/wield_info/default/inhands
 
 /obj/item/gun/energy/ms13/laser/rcw/Initialize()
 	. = ..()
@@ -80,15 +80,19 @@
 	desc = "A modified laser rifle equipped with a special lens that spreads its bolts, often called a 'tri-beam'. You wouldn't believe why."
 	icon = 'mojave/icons/objects/guns/guns_world.dmi'
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/tribeam/tribeam_1.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/tribeam.ogg'
 	icon_state = "lasershotgun"
 	base_icon_state = "lasershotgun"
 	inhand_icon_state = "lasershotgun"
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/scatter)
 	cell_type = /obj/item/stock_parts/cell/ms13/mfc
-	fire_delay = 0.6 SECONDS
+	fire_delay = 0.7 SECONDS
 	slowdown = 0.75
+	grid_width = 192
+	grid_height = 64
+	wield_info = /datum/wield_info/default/inhands
 
 // Plasma Rifles //
 
@@ -99,29 +103,33 @@
 	base_icon_state = "enclaveplasma"
 	inhand_icon_state = "enclaveplasma"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/plasrifle/plasma_3.ogg'
-	ammo_type = list(/obj/item/ammo_casing/energy/ms13/plasma)
-	w_class = WEIGHT_CLASS_BULKY
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/plasma_3.ogg'
+	ammo_type = list(/obj/item/ammo_casing/energy/ms13/plasma/plas_rifle)
+	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	slot_flags = ITEM_SLOT_BACK
 	force = 15
-	extra_damage = 40
-	extra_penetration = 5
-	fire_delay = 0.5 SECONDS
+	fire_delay = 0.65 SECONDS
 	slowdown = 0.75
-	spread = 3
-	recoil = 0.5
+	spread = 2
+	recoil = 0.75
+	grid_width = 192
+	grid_height = 64
+	wield_info = /datum/wield_info/default/inhands
 
 /obj/item/gun/energy/ms13/plasma/rifle/carbine
 	name = "plasma carbine"
-	desc = "A slightly more compact, faster firing plasma weapon that is between a rifle and a pistol, hence a carbine. Not as accurate or controllable as it's bigger rifle brother."
+	desc = "A slightly more compact plasma weapon that is between a rifle and a pistol, hence a carbine."
 	icon_state = "plasmacarabine"
 	base_icon_state = "plasmacarabine"
 	inhand_icon_state = "plasmacarabine"
-	extra_damage = 35
-	extra_penetration = 0
-	fire_delay = 0.45 SECONDS
+	ammo_type = list(/obj/item/ammo_casing/energy/ms13/plasma/plas_carbine)
+	w_class = WEIGHT_CLASS_BULKY
+	fire_delay = 0.6 SECONDS
 	spread = 5
-	recoil = 0.75
+	recoil = 0.65
+	grid_width = 160
+	grid_height = 64
 
 /obj/item/gun/energy/ms13/plasma/multi
 	name = "multiplas rifle"
@@ -130,10 +138,14 @@
 	base_icon_state = "multiplas"
 	inhand_icon_state = "multiplas"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/plasrifle/plasma_1.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/plasma_1.ogg'
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/plasma/scatter)
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	slot_flags = ITEM_SLOT_BACK
-	fire_delay = 0.65 SECONDS
+	fire_delay = 0.7 SECONDS
 	slowdown = 0.75
 	recoil = 0.75
+	grid_width = 192
+	grid_height = 64
+	wield_info = /datum/wield_info/default/inhands

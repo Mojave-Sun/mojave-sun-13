@@ -1,3 +1,6 @@
+//// These spawners are NON-STATIC spawns. If you are making changes to these pools, you should probably also make changes to the static spawns outside of the guaranteed folder. ////
+//// The idea of these spawners it to use these EVERYWHERE. Emphasis on EVERYWHERE!!! These are the spawners you should be slapping in every other building, so that there's variety in loot locations on a per-round basis. ////
+
 /obj/effect/spawner/random/ms13/clothing
 	name = "DO NOT USE ME - Mojave Sun clothing spawners"
 	spawn_loot_chance = 65
@@ -19,7 +22,6 @@
 		/obj/item/clothing/under/ms13/wasteland/cowboy/grey,
 		/obj/item/clothing/under/ms13/wasteland/cowboy/tan,
 		/obj/item/clothing/under/ms13/wasteland/manager,
-		/obj/item/clothing/under/ms13/wasteland/followers,
 		/obj/item/clothing/under/ms13/wasteland/wanderer,
 		/obj/item/clothing/under/ms13/wasteland/rancher,
 		/obj/item/clothing/under/ms13/wasteland/vestslacks,
@@ -135,5 +137,21 @@
 			/obj/item/clothing/head/helmet/ms13/chef,
 			/obj/item/clothing/head/helmet/ms13/ushanka,
 			/obj/item/clothing/head/helmet/ms13/ushanka/blue,
-			/obj/item/clothing/head/helmet/ms13/ushanka/green
-			)
+			/obj/item/clothing/head/helmet/ms13/ushanka/green)
+
+/obj/effect/spawner/random/ms13/clothing/backpack
+	name = "standard backpack spawner"
+	icon_state = "loot" //:wploot:
+	spawn_loot_count = 1
+	loot = list(
+			/obj/item/storage/ms13/satchel,
+			/obj/item/storage/ms13/nuka_bag,
+			/obj/item/storage/ms13/corvega_bag,
+			/obj/item/storage/ms13/leather_backpack)
+
+/obj/effect/spawner/random/ms13/clothing/backpack/high
+	name = "high tier backpack spawner"
+	spawn_loot_chance = 60
+	loot = list(
+			/obj/item/storage/ms13/military,
+			/obj/item/storage/ms13/military_duffel)

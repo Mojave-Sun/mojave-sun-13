@@ -26,7 +26,7 @@
 	///String, used for checking if ammo of different types but still fits can fit inside it; generally used for magazines
 	var/caliber
 	///Allows multiple bullets to be loaded in from one click of another box/magazine
-	var/multiload = TRUE
+	var/multiload = FALSE // MOJAVE SUN EDIT | ORIGINAL VALUE IS "TRUE"
 	///Whether the magazine should start with nothing in it
 	var/start_empty = FALSE
 	///cost of all the bullets in the magazine/box
@@ -42,8 +42,8 @@
 	if(!start_empty)
 		top_off(starting=TRUE)
 
-/obj/item/ammo_box/add_weapon_description()
-	AddElement(/datum/element/weapon_description, attached_proc = .proc/add_notes_box)
+/*/obj/item/ammo_box/add_weapon_description()
+	AddElement(/datum/element/weapon_description, attached_proc = .proc/add_notes_box) //MOJAVE EDIT - Comments out this proc because weapon_description in general is commented out.
 
 /obj/item/ammo_box/proc/add_notes_box()
 	var/list/readout = list()
@@ -57,7 +57,7 @@
 	if(istype(mag_ammo))
 		readout += "\n[mag_ammo.add_notes_ammo()]"
 
-	return readout.Join("\n")
+	return readout.Join("\n")*/ //
 
 /**
  * top_off is used to refill the magazine to max, in case you want to increase the size of a magazine with VV then refill it at once
@@ -121,7 +121,21 @@
 	var/num_loaded = 0
 	if(!can_load(user))
 		return
+	/* MOJAVE EDIT REMOVAL
 	if(istype(A, /obj/item/ammo_box))
+	*/
+	//MOJAVE EDIT BEGIN
+	//no gaming
+	if(item_flags & IN_STORAGE)
+		return
+	//THIS IS THE WORST FUCKING LINE OF CODE, EVER, OF ALL TIME
+	//UPDATE: IT HAS GOTTEN WORSE. THIS SINGLE FUCKING LINE OF CODE HAS ONCE AGAIN MANAGED TO TRIP ME UP.
+	//FUCKUPS CAUSED BY THIS CRAPSO FAR: 3
+	if(istype(A, /obj/item/ammo_box) \
+		&& ((!istype(A, /obj/item/ammo_box/magazine) || istype(A, /obj/item/ammo_box/magazine/ammo_stack)) \
+		|| (istype(src, /obj/item/ammo_box/magazine/ammo_stack) && istype(A, /obj/item/ammo_box/magazine))) \
+	)
+	//MOJAVE EDIT END
 		var/obj/item/ammo_box/AM = A
 		for(var/obj/item/ammo_casing/AC in AM.stored_ammo)
 			var/did_load = give_round(AC, replace_spent)
@@ -198,6 +212,7 @@
 	var/list/L = stored_ammo.Copy()
 	if(drop_list)
 		stored_ammo.Cut()
+		update_ammo_count()
 	return L
 
 ///drops the entire contents of the magazine on the floor
@@ -206,6 +221,7 @@
 	for(var/obj/item/ammo in stored_ammo)
 		ammo.forceMove(turf_mag)
 		stored_ammo -= ammo
+	update_ammo_count()
 
 /obj/item/ammo_box/magazine/handle_atom_del(atom/A)
 	stored_ammo -= A

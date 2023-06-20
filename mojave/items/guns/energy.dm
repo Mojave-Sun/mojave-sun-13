@@ -16,10 +16,16 @@
 	var/unload_sound = 'mojave/sound/ms13weapons/gunsounds/lasrifle/energy_unload.ogg'
 	var/load_sound_volume = 40
 	var/load_sound_vary = TRUE
+	var/has_scope = FALSE
+	var/scope_range = 0
 
 /obj/item/gun/energy/ms13/Initialize()
 	. = ..()
 	update_icon()
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/guns/guns_inventory.dmi')
+
+	if(has_scope)
+		AddComponent(/datum/component/scope, range_modifier = (scope_range))
 
 /obj/item/gun/energy/ms13/update_ammo_types()
 	var/obj/item/ammo_casing/energy/shot
@@ -54,22 +60,23 @@
 
 ///Handles all the logic of magazine ejection, if tac_load is set that magazine will be tacloaded in the place of the old eject
 /obj/item/gun/energy/ms13/proc/eject_magazine(mob/user, display_message = TRUE, var/obj/item/stock_parts/cell/ms13/tac_load = null)
-	cell.forceMove(drop_location())
-	var/obj/item/stock_parts/cell/ms13/old_mag = cell
-	playsound(src, unload_sound, load_sound_volume, load_sound_vary)
-	if (tac_load)
-		if (insert_magazine(user, tac_load, FALSE))
-			to_chat(user, "<span class='notice'>You perform a tactical reload on \the [src].</span>")
+	if(cell)
+		cell.forceMove(drop_location())
+		var/obj/item/stock_parts/cell/ms13/old_mag = cell
+		playsound(src, unload_sound, load_sound_volume, load_sound_vary)
+		if (tac_load)
+			if (insert_magazine(user, tac_load, FALSE))
+				to_chat(user, "<span class='notice'>You perform a tactical reload on \the [src].</span>")
+			else
+				to_chat(user, "<span class='warning'>You dropped the old [old_mag.name], but the new one doesn't fit. How embarassing.</span>")
+				cell = null
 		else
-			to_chat(user, "<span class='warning'>You dropped the old [old_mag.name], but the new one doesn't fit. How embarassing.</span>")
 			cell = null
-	else
-		cell = null
-	user.put_in_hands(old_mag)
-	old_mag.update_icon()
-	if (display_message)
-		to_chat(user, "<span class='notice'>You pull the [old_mag.name] out of \the [src].</span>")
-	update_icon()
+		user.put_in_hands(old_mag)
+		old_mag.update_icon()
+		if (display_message)
+			to_chat(user, "<span class='notice'>You pull the [old_mag.name] out of \the [src].</span>")
+		update_icon()
 
 /obj/item/gun/energy/ms13/attackby(obj/item/A, mob/user, params)
 	. = ..()
@@ -96,10 +103,6 @@
 		return
 	return ..()
 
-/obj/item/gun/energy/ms13/Initialize()
-	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/guns/guns_inventory.dmi')
-
 /obj/item/gun/energy/ms13/laser
 	name = "Base class laser gub"
 	desc = "Life is heck. Report a bug today"
@@ -107,6 +110,7 @@
 	cell_type = /obj/item/stock_parts/cell/ms13/mfc
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
+	slot_flags = ITEM_SLOT_SUITSTORE
 	extra_damage = 0
 	extra_penetration = 0
 	wound_bonus = 0
@@ -120,6 +124,7 @@
 	cell_type = /obj/item/stock_parts/cell/ms13/pc
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
+	slot_flags = ITEM_SLOT_SUITSTORE
 	extra_damage = 0
 	extra_penetration = 0
 	wound_bonus = 0
@@ -135,26 +140,18 @@
 	w_class = WEIGHT_CLASS_SMALL
 	worn_icon = 'mojave/icons/mob/worn_misc.dmi'
 	worn_icon_state = "empty_placeholder"
+	grid_height = 32
+	grid_width = 32
 	var/base_icon = ""
 	var/multiple_states = FALSE
 
 /obj/item/stock_parts/cell/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/ammo/ammo_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/ammo/ammo_inventory.dmi')
 
 /obj/item/stock_parts/cell/ms13/New()
 	..()
 	return
-
-/obj/item/stock_parts/cell/ms13/update_icon()
-	if (multiple_states == FALSE)
-		return
-	else
-		if (src.charge == 0)
-			icon_state = "[base_icon]_empty"
-		else
-			icon_state = "[base_icon]"
-	return ..()
 
 /obj/item/stock_parts/cell/ms13/mfc
 	name = "microfusion cell"
@@ -168,7 +165,7 @@
 	name = "electron charge pack"
 	desc = "An electron charge pack, typically used as ammunition for rapidly-firing energy weapons."
 	icon_state = "mfc"
-	maxcharge = 1250
+	maxcharge = 1000
 	chargerate = 100
 	base_icon = "mfc"
 
@@ -187,4 +184,21 @@
 	maxcharge = 600
 	chargerate = 50
 	base_icon = "plasma"
+	multiple_states = TRUE
+
+/obj/item/stock_parts/cell/ms13/pc/update_icon()
+	if (src.charge == 0)
+		icon_state = "[base_icon]_empty"
+	else
+		icon_state = "[base_icon]"
+	return ..()
+
+/obj/item/stock_parts/cell/ms13/gauss
+	name = "2mm electromagnetic cartridge"
+	desc = "A combination battery pack and magazine used as ammunition for gauss weaponry."
+	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
+	icon_state = "2mmec"
+	maxcharge = 600
+	chargerate = 50
+	base_icon = "2mmec"
 	multiple_states = TRUE

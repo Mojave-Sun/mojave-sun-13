@@ -170,9 +170,9 @@
 
 /mob/living/carbon/human/equipped_speed_mods()
 	. = ..()
-	//MOJAVE EDIT CHANGE BEGIN 
+	//MOJAVE EDIT CHANGE BEGIN
 	for(var/sloties in get_all_slots() - list(l_store, r_store, s_store, belt, back)) //Belt and back were added to this. Original TG is only l_store, r_store, and s-store
-	//MOJAVE EDIT CHANGE END 
+	//MOJAVE EDIT CHANGE END
 		var/obj/item/thing = sloties
 		. += thing?.slowdown
 
@@ -331,7 +331,12 @@
 			to_chat(src, span_warning("You can't fit [thing] into your [equipped_item.name]!"))
 		return
 	if(thing) // put thing in storage item
+		/* MOJAVE EDIT REMOVAL
 		if(!SEND_SIGNAL(equipped_item, COMSIG_TRY_STORAGE_INSERT, thing, src))
+		*/
+		//MOJAVE EDIT BEGIN
+		if(!SEND_SIGNAL(equipped_item, COMSIG_TRY_STORAGE_INSERT, thing, src, FALSE, FALSE, TRUE))
+		//MOJAVE EDIT END
 			to_chat(src, span_warning("You can't fit [thing] into your [equipped_item.name]!"))
 		return
 	var/atom/real_location = storage.real_location()

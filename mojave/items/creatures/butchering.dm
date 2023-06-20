@@ -15,65 +15,44 @@
 	lefthand_file = 'mojave/icons/mob/inhands/misc/butchering_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/misc/butchering_righthand.dmi'
 	throw_range = 3
-	w_class = WEIGHT_CLASS_NORMAL
+	w_class = WEIGHT_CLASS_BULKY
+	grid_height = 96
+	grid_width = 96
 	drop_sound = 'sound/items/handling/cloth_drop.ogg'
 	pickup_sound =  'sound/items/handling/cloth_pickup.ogg'
 	var/leather_amount = 2 //How much leather you get from skinning the hide
 
+/obj/item/ms13/hide/Initialize(mapload)
+	. = ..()
+	register_context()
+	AddElement(/datum/element/item_scaling, 0.6, 1)
+
 /obj/item/ms13/hide/attackby(obj/item/W, mob/user, params)
 	if(W.tool_behaviour == TOOL_KNIFE)
 		user.show_message(span_notice("You begin turning [src] into leather."), MSG_VISUAL)
-		if(do_after(user, 15 SECONDS * W.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_LEATHER)) 
+		if(do_after(user, 15 SECONDS * W.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_LEATHER))
 			user.show_message(span_notice("You make leather out of [src]!"), MSG_VISUAL)
 			new /obj/item/stack/sheet/ms13/leather(user.loc, 1 * leather_amount)
 			qdel(src)
 
+/obj/item/ms13/hide/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_KNIFE)
+			context[SCREENTIP_CONTEXT_LMB] = "Turn into leather"
+			return CONTEXTUAL_SCREENTIP_SET
+
 /obj/item/ms13/hide/examine(mob/user)
 	. = ..()
 	. += span_notice("You could use a <b>knife</b> to turn [src] into leather.")
-
-/obj/item/ms13/hide/gecko
-	name = "gecko hide"
-	desc = "A skinned gecko hide."
-	icon_state = "gecko_hide"
-	inhand_icon_state = "gecko_hide"
-	leather_amount = 2
-
-/obj/item/ms13/hide/gecko/ice
-	icon_state = "icegecko_hide"
-	inhand_icon_state = "icegecko_hide"
-
-/obj/item/ms13/hide/gecko/sand
-	icon_state = "sandgecko_hide"
-	inhand_icon_state = "sandgecko_hide"
-
-/obj/item/ms13/hide/wolf
-	name = "wolf hide"
-	desc = "A skinned wolf hide."
-	icon_state = "wolf_hide"
-	inhand_icon_state = "wolf_hide"
-	leather_amount = 3
-
-/obj/item/ms13/hide/mongrel
-	name = "mongrel hide"
-	desc = "A skinned mongrel hide."
-	icon_state = "mongrel_hide"
-	inhand_icon_state = "mongrel_hide"
-	throw_range = 3
-
-/obj/item/ms13/hide/molerat
-	name = "molerat hide"
-	desc = "A skinned molerat hide."
-	icon_state = "molerat_hide"
-	inhand_icon_state = "molerat_hide"
-	leather_amount = 2
 
 /obj/item/ms13/hide/pigrat
 	name = "pigrat hide"
 	desc = "A skinned pigrat hide."
 	icon_state = "pigrat_hide"
 	inhand_icon_state = "pigrat_hide"
-	leather_amount = 3
+	leather_amount = 4
 
 /obj/item/ms13/hide/brahmin
 	name = "brahmin hide"
@@ -81,8 +60,9 @@
 	icon_state = "brahmin_hide"
 	inhand_icon_state = "brahmin_hide"
 	throw_range = 2
-	w_class = WEIGHT_CLASS_BULKY
-	leather_amount = 6
+	leather_amount = 10
+	grid_height = 96
+	grid_width = 128
 
 /obj/item/ms13/hide/radstag
 	name = "radstag hide"
@@ -90,8 +70,9 @@
 	icon_state = "radstag_hide"
 	inhand_icon_state = "radstag_hide"
 	throw_range = 2
-	w_class = WEIGHT_CLASS_BULKY
-	leather_amount = 5
+	leather_amount = 8
+	grid_height = 96
+	grid_width = 128
 
 /obj/item/ms13/hide/brahmiluff
 	name = "brahmiluff hide"
@@ -99,33 +80,9 @@
 	icon_state = "brahmiluff_hide"
 	inhand_icon_state = "brahmiluff_hide"
 	throw_range = 2
-	w_class = WEIGHT_CLASS_BULKY
-	leather_amount = 8
-
-/obj/item/ms13/hide/tunneler
-	name = "tunneler hide"
-	desc = "A skinned tunneler hide."
-	icon_state = "tunneler_hide"
-	inhand_icon_state = "tunneler_hide"
-	throw_range = 2
-	w_class = WEIGHT_CLASS_BULKY
-
-/obj/item/ms13/hide/nightstalker
-	name = "nightstalker hide"
-	desc = "A skinned nightstalker hide."
-	icon_state = "nightstalker_hide"
-	inhand_icon_state = "nightstalker_hide"
-	throw_range = 2
-	w_class = WEIGHT_CLASS_BULKY
-
-/obj/item/ms13/hide/yaoguai
-	name = "yaoguai hide"
-	desc = "A skinned yaoguai hide."
-	icon_state = "yaoguai_hide"
-	inhand_icon_state = "yaoguai_hide"
-	throw_range = 2
-	w_class = WEIGHT_CLASS_BULKY
-	leather_amount = 10
+	leather_amount = 12
+	grid_height = 96
+	grid_width = 128
 
 /obj/item/ms13/hide/slepnir
 	name = "slepnir hide"
@@ -133,8 +90,20 @@
 	icon_state = "slepnir_hide"
 	inhand_icon_state = "slepnir_hide"
 	throw_range = 2
-	w_class = WEIGHT_CLASS_BULKY
-	leather_amount = 6
+	leather_amount = 10
+	grid_height = 96
+	grid_width = 128
+
+/obj/item/ms13/hide/large/yaoguai
+	name = "yaoguai hide"
+	desc = "A skinned yaoguai hide."
+	icon_state = "yaoguai_hide"
+	inhand_icon_state = "yaoguai_hide"
+	throw_range = 2
+	w_class = WEIGHT_CLASS_HUGE
+	leather_amount = 15
+	grid_height = 128
+	grid_width = 128
 
 /obj/item/ms13/hide/large/hellpig
 	name = "hellpig hide"
@@ -143,7 +112,9 @@
 	inhand_icon_state = "hellpig_hide"
 	throw_range = 2
 	w_class = WEIGHT_CLASS_HUGE
-	leather_amount = 12
+	leather_amount = 20
+	grid_height = 128
+	grid_width = 128
 
 /obj/item/ms13/hide/large/ComponentInitialize()
 	. = ..()
@@ -170,12 +141,26 @@
 	var/meat_amount = 1 //For determining how much meat you get after butchering the carcass
 	drop_sound = 'mojave/sound/ms13items/ms13handling/meat_drop.ogg'
 	pickup_sound =  'mojave/sound/ms13items/ms13handling/meat_pickup.ogg'
+	var/meat_type = /obj/item/food/meat/slab/ms13/animal
+
+/obj/item/food/meat/slab/ms13/carcass/Initialize(mapload)
+	. = ..()
+	register_context()
+	AddElement(/datum/element/item_scaling, 0.6, 1)
 
 /obj/item/food/meat/slab/ms13/carcass/proc/harvest(mob/living/user) //used for extra objects etc. in butchering
 	return
 
 /obj/item/food/meat/slab/ms13/carcass/MakeProcessable()
-	AddElement(/datum/element/processable, TOOL_KNIFE,  /obj/item/food/meat/slab, meat_amount, 40 SECONDS * toolspeed)
+	AddElement(/datum/element/processable, TOOL_KNIFE,  meat_type, meat_amount, 40 SECONDS * toolspeed)
+
+/obj/item/food/meat/slab/ms13/carcass/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_KNIFE)
+			context[SCREENTIP_CONTEXT_LMB] = "Butcher"
+			return CONTEXTUAL_SCREENTIP_SET
 
 //small/medium
 
@@ -186,14 +171,27 @@
 	inhand_icon_state = "clucker_carcass"
 	throw_range = 4
 	w_class = WEIGHT_CLASS_NORMAL
-	meat_amount = 1
+	meat_amount = 2
+	grid_height = 64
+	grid_width = 64
 
 /obj/item/food/meat/slab/ms13/carcass/gecko
 	name = "gecko carcass"
 	desc = "A skinned body of a gecko."
 	icon_state = "gecko_carcass"
 	inhand_icon_state = "gecko_carcass"
-	meat_amount = 2
+	meat_amount = 3
+	grid_height = 96
+	grid_width = 64
+	meat_type = /obj/item/food/meat/slab/ms13/animal/gecko
+
+/obj/item/food/meat/slab/ms13/carcass/gecko/desert
+	meat_type = /obj/item/food/meat/slab/ms13/animal/gecko/desert
+
+/obj/item/food/meat/slab/ms13/carcass/gecko/golden
+	name = "golden gecko carcass"
+	desc = "A skinned body of a golden gecko."
+	meat_type = /obj/item/food/meat/slab/ms13/animal/gecko/golden
 
 /obj/item/food/meat/slab/ms13/carcass/wolf
 	name = "wolf carcass"
@@ -201,6 +199,8 @@
 	icon_state = "dog_carcass"
 	inhand_icon_state = "dog_carcass"
 	meat_amount = 3
+	grid_height = 64
+	grid_width = 96
 
 /obj/item/food/meat/slab/ms13/carcass/mongrel
 	name = "mongrel carcass"
@@ -208,18 +208,24 @@
 	icon_state = "dog_carcass"
 	inhand_icon_state = "dog_carcass"
 	meat_amount = 3
+	grid_height = 64
+	grid_width = 96
 
 /obj/item/food/meat/slab/ms13/carcass/molerat
 	name = "molerat carcass"
 	desc = "A skinned body of a molerat."
 	icon_state = "rat_carcass"
 	inhand_icon_state = "rat_carcass"
-	meat_amount = 2
+	meat_amount = 3
+	grid_height = 64
+	grid_width = 96
 
 /obj/item/food/meat/slab/ms13/carcass/molerat/pig
 	name = "pigrat carcass"
 	desc = "A skinned body of a pigrat."
-	meat_amount = 3
+	meat_amount = 2
+	grid_height = 64
+	grid_width = 96
 
 //large
 
@@ -237,27 +243,17 @@
 	icon_state = "radstag_carcass"
 	inhand_icon_state = "radstag_carcass"
 	meat_amount = 5
-
-/obj/item/food/meat/slab/ms13/carcass/large/tunneller
-	name = "tunneler carcass"
-	desc = "A skinned body of a tunneler."
-	icon_state = "tunneller_carcass"
-	inhand_icon_state = "tunneller_carcass"
-	meat_amount = 4
-
-/obj/item/food/meat/slab/ms13/carcass/large/nightstalker
-	name = "nightstalker carcass"
-	desc = "A skinned body of a nightstalker."
-	icon_state = "nightstalker_carcass"
-	inhand_icon_state = "nightstalker_carcass"
-	meat_amount = 4
+	grid_height = 64
+	grid_width = 160
 
 /obj/item/food/meat/slab/ms13/carcass/large/brahmiluff
 	name = "brahmiluff carcass"
 	desc = "A skinned body of a brahmiluff."
 	icon_state = "brahmiluff_carcass"
 	inhand_icon_state = "brahmiluff_carcass"
-	meat_amount = 6
+	meat_amount = 5
+	grid_height = 96
+	grid_width = 128
 
 /obj/item/food/meat/slab/ms13/carcass/large/brahmiluff/front
 	icon_state = "cowbeastfront_carcass"
@@ -272,7 +268,9 @@
 	desc = "A skinned body of a brahmin."
 	icon_state = "brahmin_carcass"
 	inhand_icon_state = "brahmin_carcass"
-	meat_amount = 3
+	meat_amount = 4
+	grid_height = 96
+	grid_width = 128
 
 /obj/item/food/meat/slab/ms13/carcass/large/brahmin/front
 	icon_state = "cowbeastfront_carcass"
@@ -286,6 +284,8 @@
 	name = "yaoguai carcass"
 	desc = "A skinned body section of a yaoguai."
 	meat_amount = 8
+	grid_height = 128
+	grid_width = 128
 
 /obj/item/food/meat/slab/ms13/carcass/large/yaoguai/front
 	icon_state = "yaoguaifront_carcass"
@@ -303,15 +303,21 @@
 /obj/item/food/meat/slab/ms13/carcass/large/slepnir/front
 	icon_state = "slepnirfront_carcass"
 	inhand_icon_state = "slepnirfront_carcass"
+	grid_height = 64
+	grid_width = 160
 
 /obj/item/food/meat/slab/ms13/carcass/large/slepnir/back
 	icon_state = "slepnirback_carcass"
 	inhand_icon_state = "slepnirback_carcass"
+	grid_height = 96
+	grid_width = 96
 
 /obj/item/food/meat/slab/ms13/carcass/large/hellpig
 	name = "hellpig carcass"
 	desc = "A skinned body section of a hellpig."
-	meat_amount = 4
+	meat_amount = 5
+	grid_height = 128
+	grid_width = 128
 
 /obj/item/food/meat/slab/ms13/carcass/large/hellpig/front
 	icon_state = "hellpigfront_carcass"
@@ -327,6 +333,8 @@
 	inhand_icon_state = "hellpigleg_carcass"
 	w_class = WEIGHT_CLASS_BULKY
 	meat_amount = 3
+	grid_height = 128
+	grid_width = 96
 
 /////////////////////////////////////////////////////////////
 ////////////////////////// ITEMS ////////////////////////////
@@ -342,11 +350,20 @@
 	righthand_file = 'mojave/icons/mob/inhands/misc/butchering_righthand.dmi'
 	throw_range = 5
 	w_class = WEIGHT_CLASS_NORMAL
+	grid_height = 64
+	grid_width = 64
+
+/obj/item/ms13/animalitem/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/item_scaling, 0.6, 1)
 
 /obj/item/ms13/animalitem/brahmin/tongue
 	name = "brahmin tongue"
 	desc = "The tongue of a brahmin, a tasty morsel and provider of hyper-condensed coagulant"
 	icon_state = "brahmin_tongue"
+	w_class = WEIGHT_CLASS_SMALL
+	grid_height = 32
+	grid_width = 64
 	grind_results = null
 
 /obj/item/ms13/animalitem/brahmin/horns
@@ -355,22 +372,21 @@
 	icon_state = "brahmin_horn"
 	grind_results = null
 
-/obj/item/ms13/animalitem/brahmiluff/tongue
-	name = "brahmiluff tongue"
-	desc = "The tongue of a brahmiluff, more nutritious than its hairless cousins."
-	icon_state = "brahmin_tongue"
-	grind_results = null
-
 /obj/item/ms13/animalitem/brahmiluff/horns
 	name = "brahmiluff horn"
-	desc = "A valued brahmiluff horn, catches a good price."
+	desc = "A valued brahmiluff horn."
 	icon_state = "brahmiluff_horn"
+	grid_height = 128
+	grid_width = 32
 
 /obj/item/ms13/animalitem/clucker/feather
 	name = "clucker feather"
 	desc = "A singular clucker feather, rare commodities in a post-feather society."
 	icon_state = "clucker_feather"
 	throw_range = 2
+	w_class = WEIGHT_CLASS_TINY
+	grid_height = 32
+	grid_width = 32
 
 /obj/item/ms13/animalitem/slepnir/hooves
 	name = "slepnir hoof"
@@ -385,8 +401,11 @@
 
 /obj/item/ms13/animalitem/molerat/teeth
 	name = "molerat tooth"
-	desc = "A molerats tooth, laden with disease."
+	desc = "A grimy, disease laden molerat tooth."
 	icon_state = "molerat_tooth"
+	w_class = WEIGHT_CLASS_SMALL
+	grid_height = 64
+	grid_width = 32
 /*
 /obj/item/ms13/animalitem/radroach/innards
 	name = ""
@@ -412,11 +431,185 @@
 	name = "radstag antler"
 	desc = "A valuable and sturdy radstag antler."
 	icon_state = "radstag_antler"
+	grid_height = 64
+	grid_width = 96
 
 /obj/item/ms13/animalitem/wolf/teeth
 	name = "wolf tooth"
 	desc = "A valuable and sacred wolf tooth."
 	icon_state = "wolf_tooth"
+
+/////////////////////////////////////////////////////////////
+////////////////////////// MEAT /////////////////////////////
+/////////////////////////////////////////////////////////////
+
+/obj/item/food/meat/slab/ms13/animal
+	name = "raw meat"
+	desc = "Raw, uncooked meat. You should probably try cooking this, but if you're really desperate...."
+	grid_height = 32
+	grid_width = 64
+	w_class = WEIGHT_CLASS_SMALL
+	var/steak_type = /obj/item/food/meat/steak/ms13/animal
+
+/obj/item/food/meat/slab/ms13/animal/MakeProcessable()
+	return
+
+/obj/item/food/meat/slab/ms13/animal/MakeGrillable()
+	AddComponent(/datum/component/grillable, steak_type, rand(40 SECONDS, 75 SECONDS), TRUE, TRUE)
+
+/obj/item/food/meat/steak/ms13/animal
+	name = "grilled meat"
+	desc = "Deliciously juicy grilled meat. Yum!"
+	icon = 'mojave/icons/objects/food/meat.dmi'
+	icon_state = "meat_roasted"
+	grid_height = 32
+	grid_width = 64
+	w_class = WEIGHT_CLASS_SMALL
+
+/obj/item/food/meat/steak/ms13/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/item_scaling, 0.50, 1)
+
+/obj/item/food/meat/slab/ms13/animal/gecko
+	name = "gecko meat"
+	desc = "Raw meat from a gecko. A common source of protein in the wastes."
+	icon_state = "icegecko"
+	steak_type = /obj/item/food/meat/steak/ms13/animal/gecko
+
+/obj/item/food/meat/steak/ms13/animal/gecko
+	name = "grilled gecko"
+	desc = "A piece of grilled gecko meat."
+	icon_state = "icegecko_roasted"
+
+/obj/item/food/meat/slab/ms13/animal/gecko/desert
+	icon_state = "silvergecko"
+	steak_type = /obj/item/food/meat/steak/ms13/animal/gecko/desert
+
+/obj/item/food/meat/steak/ms13/animal/gecko/desert
+	icon_state = "silvergecko_roasted"
+
+/obj/item/food/meat/slab/ms13/animal/gecko/golden
+	name = "golden gecko meat"
+	desc = "Raw meat from a golden gecko. Considered to be highly nutritious, once cooked."
+	icon_state = "goldengecko"
+	steak_type = /obj/item/food/meat/steak/ms13/animal/gecko/golden
+
+/obj/item/food/meat/steak/ms13/animal/gecko/golden
+	name = "grilled golden gecko"
+	desc = "A piece of grilled golden gecko meat. Something of a desert delicacy."
+	icon_state = "goldengecko_roasted"
+	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 10, /datum/reagent/consumable/nutriment/vitamin = 1)
+
+/obj/item/food/meat/slab/ms13/animal/radroach
+	name = "radroach meat"
+	desc = "Disgusting, uncooked radroach meat. Only the truly impoverished would consider eating this."
+	icon_state = "radroach"
+	steak_type = /obj/item/food/meat/steak/ms13/animal/radroach
+	tastes = list("gross" = 4, "meat" = 1)
+	foodtypes = MEAT | GROSS
+
+/obj/item/food/meat/steak/ms13/animal/radroach
+	name = "grilled radroach"
+	desc = "Well cooked, seared radroach. Will only help it taste just a bit better."
+	icon_state = "radroach_roasted"
+	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 6)
+	tastes = list("gross" = 2, "meat" = 1)
+	foodtypes = MEAT | GROSS
+
+/obj/item/food/meat/slab/ms13/animal/glowroach
+	name = "glowroach meat"
+	desc = "Irradiated radroach meat. You shouldn't even touch this, let alone eat it."
+	icon_state = "glowroach"
+	steak_type = /obj/item/food/meat/steak/ms13/animal/glowroach
+	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 4, /datum/reagent/uranium = 3)
+	tastes = list("disgusting" = 4, "radiation" = 4)
+	foodtypes = MEAT | GROSS | TOXIC
+
+/obj/item/food/meat/steak/ms13/animal/glowroach
+	name = "grilled glowroach"
+	desc = "Grilled glowroach meat. You really still should not eat this."
+	icon_state = "glowroach_roasted"
+	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/uranium = 2)
+	tastes = list("disgusting" = 3, "radiation" = 3)
+	foodtypes = MEAT | GROSS | TOXIC
+
+/obj/item/food/meat/slab/ms13/animal/ant
+	name = "ant meat"
+	desc = "An uncooked chunk of meat from a giant ant."
+	icon_state = "fatty"
+	steak_type = /obj/item/food/meat/steak/ms13/animal/ant
+	tastes = list("gross" = 4, "protein" = 1)
+	foodtypes = MEAT | GROSS
+
+/obj/item/food/meat/steak/ms13/animal/ant
+	name = "grilled ant meat"
+	desc = "A grilled piece of ant meat. Quite nutritious, even if not very tasty."
+	icon_state = "fatty_roasted"
+	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 10, /datum/reagent/consumable/nutriment/vitamin = 1)
+	tastes = list("gross" = 2, "protein" = 1)
+	foodtypes = MEAT | GROSS
+
+/obj/item/food/meat/slab/ms13/animal/mirelurk
+	name = "mirelurk claw"
+	desc = "The claw of a mirelurk. Said to contain very tasty meat inside once cooked."
+	icon_state = "mirelurk"
+	steak_type = /obj/item/food/meat/steak/ms13/animal/mirelurk
+
+/obj/item/food/meat/steak/ms13/animal/mirelurk
+	name = "grilled mirelurk claw"
+	desc = "A mirelurk claw that has been grilled. Your delicious reward awaits!"
+	icon_state = "mirelurk_roasted"
+	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 12, /datum/reagent/consumable/nutriment/vitamin = 3)
+	tastes = list("succulent" = 3, "meat" = 2)
+
+/obj/item/food/meat/slab/ms13/animal/radlurk
+	name = "radlurk claw"
+	desc = "A radlurk claw. Quite the triumph to be able to claim this, makes for a nice trophy."
+	icon_state = "radlurk"
+	steak_type = /obj/item/food/meat/steak/ms13/animal/radlurk
+	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 8, /datum/reagent/uranium = 6)
+	tastes = list("disgusting" = 4, "radiation" = 4)
+	foodtypes = MEAT | GROSS | TOXIC
+
+/obj/item/food/meat/steak/ms13/animal/radlurk
+	name = "grilled radlurk claw"
+	desc = "A cooked radlurk claw. You aren't considering eating this, are you?"
+	icon_state = "radlurk_roasted"
+	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 12, /datum/reagent/uranium = 4)
+	tastes = list("disgusting" = 3, "radiation" = 3)
+	foodtypes = MEAT | GROSS | TOXIC
+
+/obj/item/food/meat/slab/ms13/animal/bark_scorp
+	name = "bark scorpion meat"
+	desc = "An raw chunk of meat from a bark scorpion's tail. Probably not safe to eat it like this."
+	icon_state = "barkscorpiontail"
+	steak_type = /obj/item/food/meat/steak/ms13/animal/bark_scorp
+	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/toxin = 3)
+	foodtypes = MEAT | GROSS | TOXIC
+
+/obj/item/food/meat/steak/ms13/animal/bark_scorp
+	name = "grilled bark scorpion meat"
+	desc = "A grilled piece of a bark scorpion tail. Tastier than it looks."
+	icon_state = "barkscorpiontail_roasted"
+	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 9, /datum/reagent/consumable/nutriment/vitamin = 1)
+
+/obj/item/food/meat/slab/ms13/animal/rad_scorp
+	name = "rad scorpion meat"
+	desc = "Raw rad scorpion meat. Properly cooked and prepared, this can make a fine meal."
+	icon_state = "scorpiontail"
+	steak_type = /obj/item/food/meat/steak/ms13/animal/rad_scorp
+	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 8, /datum/reagent/toxin = 6)
+	foodtypes = MEAT | GROSS | TOXIC
+
+/obj/item/food/meat/steak/ms13/animal/rad_scorp
+	name = "grilled rad scorpion meat"
+	desc = "A finely cooked piece of rad scorpion tail. A delicious wasteland treat."
+	icon_state = "scorpiontail_roasted"
+	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 12, /datum/reagent/consumable/nutriment/vitamin = 3)
+	tastes = list("succulent" = 3, "meat" = 2)
+
+
+
 /*
 /obj/item/ms13/animalitem/tunneler/spike
 	name = "tunneller_spike"

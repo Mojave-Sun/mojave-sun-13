@@ -1,5 +1,7 @@
 /// Field of vision defines.
+#define FOV_60_DEGREES 60 //MOJAVE EDIT - Base TG only has 90, 180, 270
 #define FOV_90_DEGREES 90
+#define FOV_120_DEGREES 120 //MOJAVE EDIT - Base TG only has 90, 180, 270
 #define FOV_180_DEGREES 180
 #define FOV_270_DEGREES 270
 
@@ -9,3 +11,9 @@
 
 /// Range at which FOV effects treat nearsightness as blind and play
 #define NEARSIGHTNESS_FOV_BLINDNESS 2
+
+//Fullscreen overlay resolution in tiles for the clients view.
+/// The fullscreen overlay in tiles for x axis
+#define FULLSCREEN_OVERLAY_RESOLUTION_X 15
+/// The fullscreen overlay in tiles for y axis
+#define FULLSCREEN_OVERLAY_RESOLUTION_Y 15

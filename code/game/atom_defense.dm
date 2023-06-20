@@ -1,6 +1,6 @@
 
 /// The essential proc to call when an atom must receive damage of any kind.
-/atom/proc/take_damage(damage_amount, damage_type = BRUTE, damage_flag = "", sound_effect = TRUE, attack_dir, armour_penetration = 0)
+/atom/proc/take_damage(damage_amount, damage_type = BRUTE, damage_flag = "", sound_effect = TRUE, attack_dir, armour_penetration = 0, def_zone = BODY_ZONE_CHEST)
 	if(!uses_integrity)
 		CRASH("[src] had /atom/proc/take_damage() called on it without it being a type that has uses_integrity = TRUE!")
 	if(QDELETED(src))
@@ -78,14 +78,19 @@
 
 ///the sound played when the atom is damaged.
 /atom/proc/play_attack_sound(damage_amount, damage_type = BRUTE, damage_flag = 0)
-	switch(damage_type)
-		if(BRUTE)
-			if(damage_amount)
-				playsound(src, 'sound/weapons/smash.ogg', 50, TRUE)
-			else
-				playsound(src, 'sound/weapons/tap.ogg', 50, TRUE)
-		if(BURN)
-			playsound(src.loc, 'sound/items/welder.ogg', 100, TRUE)
+	//MOJAVE SUN EDIT START - Hit Sounds
+	if(hitted_sound && damage_amount)
+		playsound(src, hitted_sound, 50, TRUE)
+	else if(!(hitted_sound))
+		switch(damage_type)
+			if(BRUTE)
+				if(damage_amount)
+					playsound(src, 'sound/weapons/smash.ogg', 50, TRUE)
+				else
+					playsound(src, 'sound/weapons/tap.ogg', 50, TRUE)
+			if(BURN)
+				playsound(src.loc, 'sound/items/welder.ogg', 100, TRUE)
+	//MOJAVE SUN EDIT END - Hit Sounds
 
 ///Called to get the damage that hulks will deal to the atom.
 /atom/proc/hulk_damage()
@@ -130,3 +135,7 @@
 		atom_break(damage_type)
 		return TRUE
 	return FALSE
+
+/// A cut-out proc for [/atom/proc/bullet_act] so living mobs can have their own armor behavior checks without causing issues with needing their own on_hit call
+/atom/proc/check_projectile_armor(def_zone, obj/projectile/impacting_projectile, is_silent)
+	return 0

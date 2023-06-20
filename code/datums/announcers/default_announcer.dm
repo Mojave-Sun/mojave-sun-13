@@ -1,6 +1,6 @@
 // MOJAVE SUN EDIT BEGIN //
 /datum/centcom_announcer/default
-	welcome_sounds = list('mojave/sound/ms13/begin1.ogg', 'mojave/sound/ms13/begin2.ogg', 'mojave/sound/ms13/begin3.ogg', 'mojave/sound/ms13/begin4.ogg', 'mojave/sound/ms13/begin5.ogg', 'mojave/sound/ms13/begin6.ogg')
+	welcome_sounds = list('mojave/sound/ms13/quest.ogg')
 	alert_sounds = list('mojave/sound/ms13/broadcast.ogg')
 	command_report_sounds = list('mojave/sound/ms13/broadcast.ogg')
 	event_sounds = list(ANNOUNCER_AIMALF = null,

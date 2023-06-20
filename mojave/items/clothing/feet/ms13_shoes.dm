@@ -2,18 +2,25 @@
 	icon = 'mojave/icons/objects/clothing/clothing_world/shoes_world.dmi'
 	worn_icon = 'mojave/icons/mob/clothing/feet.dmi'
 	strip_delay = 20
+	grid_width = 64
+	grid_height = 64
+	equip_delay_self = 1 SECONDS
+	equip_delay_other = 4 SECONDS // have you ever put shoes on a full grown adult before
 
 /obj/item/clothing/shoes/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/shoes_inventory.dmi')
-
-/obj/item/clothing/shoes/ms13
-	pocket_storage_component_path = /datum/component/storage/concrete/pockets/shoes
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clothing/clothing_inventory/shoes_inventory.dmi')
 
 /obj/item/clothing/shoes/ms13/rag
 	name = "footcloths"
 	desc = "Simple ragged cloth for your feet. Anything is better than nothing."
 	icon_state = "rag"
+	inhand_icon_state = "rag"
+
+/obj/item/clothing/shoes/ms13/drylander
+	name = "\improper Drylander footcloths"
+	desc = "Simple ragged cloth footwraps worn by the Drylander tribe to cross the sands."
+	icon_state = "drylander"
 	inhand_icon_state = "rag"
 
 /obj/item/clothing/shoes/ms13/crude
@@ -46,6 +53,7 @@
 	icon_state = "winterbootsbrown"
 	inhand_icon_state = "winterbootsbrown"
 	strip_delay = 40
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/shoes
 
 /obj/item/clothing/shoes/ms13/winter/black
 	name = "dark winter boots"
@@ -59,12 +67,14 @@
 	icon_state = "cowboy"
 	inhand_icon_state = "cowboy"
 	strip_delay = 40
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/shoes
 
 /obj/item/clothing/shoes/ms13/explorer
 	name = "explorer boots"
 	desc = "A rugged pair of boots great for explorers of the wastes. They can take you almost anywhere."
 	icon_state = "explorer"
 	strip_delay = 40
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/shoes
 
 /obj/item/clothing/shoes/ms13/military
 	name = "military boots"
@@ -73,6 +83,7 @@
 	inhand_icon_state = "military"
 	strip_delay = 40
 	resistance_flags = 0
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/shoes
 
 /obj/item/clothing/shoes/ms13/military/vault
 	name = "vault boots"
@@ -116,29 +127,24 @@
 	desc = "Generic boots worn by Legionaries."
 	icon_state = "leg_tanboot"
 	inhand_icon_state = "legionleather"
-	armor = list(melee = 20, bullet = 10, laser = 10, energy = 0, bomb = 10, bio = 0,  fire = 10, acid = 0)
 
 /obj/item/clothing/shoes/ms13/military/legion/tanboots
 	name = "tan leather boots"
-	desc = "A crude pair of leather boots commonly worn by the Caesar's Legion recruits. These ones are made of a tan leather."
+	desc = "A crude pair of leather boots commonly worn by members of Caesar's Legion."
 	icon_state = "leg_tanboot"
 	inhand_icon_state = "legionleather"
-	armor = list(melee = 10, bullet = 5, laser = 10, energy = 0, bomb = 10, bio = 0,  fire = 10, acid = 0)
 
 /obj/item/clothing/shoes/ms13/military/legion/darkboots
 	name = "dark leather boots"
-	desc = "A crude pair of leather boots commonly worn by the Caesar's Legion recruits. These ones are made of a darker leather."
+	desc = "A crude pair of dark leather boots commonly worn by members of Caesar's Legion."
 	icon_state = "leg_darkboot"
 	inhand_icon_state = "legionleather"
-	armor = list(melee = 10, bullet = 5, laser = 10, energy = 0, bomb = 10, bio = 0,  fire = 10, acid = 0)
 
 /obj/item/clothing/shoes/ms13/military/legion/cleats
 	name = "cleats"
 	desc = "A pair of cleats, often sported by mobility focused Legionaries."
 	icon_state = "leg_cleats"
 	inhand_icon_state = "legionmetal"
-	clothing_flags = NOSLIP
-	armor = list(melee = 5, bullet = 10, laser = 10, energy = 10, bomb = 20, bio = 0,  fire = 20, acid = 0)
 
 /obj/item/clothing/shoes/ms13/military/bos
 	name = "\improper BoS combat boots"

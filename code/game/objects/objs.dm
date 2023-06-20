@@ -26,7 +26,7 @@
 
 	var/renamedByPlayer = FALSE //set when a player uses a pen on a renamable object
 
-	var/drag_slowdown // Amont of multiplicative slowdown applied if pulled. >1 makes you slower, <1 makes you faster.
+	var/drag_slowdown = 1 // Amont of multiplicative slowdown applied if pulled. >1 makes you slower, <1 makes you faster. // Mojave Sun edit - So that no matter what, shit can't be drag exploited | Original is "var/drag_slowdown // Amont of multiplicative slowdown applied if pulled. >1 makes you slower, <1 makes you faster."
 
 	vis_flags = VIS_INHERIT_PLANE //when this be added to vis_contents of something it inherit something.plane, important for visualisation of obj in openspace.
 
@@ -76,7 +76,7 @@
 		/// Needs to run before as ComponentInitialize runs after this statement...why do we have ComponentInitialize again?
 
 
-/obj/Destroy(force=FALSE)
+/obj/Destroy(force)
 	if(!ismachinery(src))
 		STOP_PROCESSING(SSobj, src) // TODO: Have a processing bitflag to reduce on unnecessary loops through the processing lists
 	SStgui.close_uis(src)
@@ -141,7 +141,7 @@
 			var/mob/living/carbon/human/H = usr
 			if(!(usr in nearby))
 				if(usr.client && usr.machine==src)
-					if(H.dna.check_mutation(TK))
+					if(H.dna.check_mutation(/datum/mutation/human/telekinesis))
 						is_in_use = TRUE
 						ui_interact(usr)
 		if (is_in_use)

@@ -331,6 +331,12 @@
 	item = /obj/item/ammo_box/magazine/sniper_rounds/soporific
 	cost = 6
 
+/datum/uplink_item/ammo/sniper/marksman
+	name = ".50 Marksman Magazine"
+	desc = "A 5-round magazine of marksman ammo designed for use with .50 sniper rifles. Blast your enemies with instant shots!"
+	item = /obj/item/ammo_box/magazine/sniper_rounds/marksman
+	cost = 5
+
 /datum/uplink_item/ammo/carbine
 	name = "5.56mm Toploader Magazine"
 	desc = "An additional 30-round 5.56mm magazine; suitable for use with the M-90gl carbine. \
@@ -624,13 +630,6 @@
 			within a short duration and will rapidly recharge while not under fire."
 	item = /obj/item/mod/module/energy_shield
 	cost = 15
-	purchasable_from = UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS
-
-/datum/uplink_item/suits/noslip
-	name = "MODsuit Anti-Slip Module"
-	desc = "A MODsuit module preventing the user from slipping on water."
-	item = /obj/item/mod/module/noslip
-	cost = 4
 	purchasable_from = UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS
 
 /datum/uplink_item/suits/paint

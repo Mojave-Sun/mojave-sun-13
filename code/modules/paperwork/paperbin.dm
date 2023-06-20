@@ -141,6 +141,7 @@
 		icon_state = "[initial(icon_state)]"
 	return ..()
 
+/* MOJAVE SUN EDIT BEGIN
 /obj/item/paper_bin/update_overlays()
 	. = ..()
 
@@ -171,6 +172,7 @@
 
 	if(bin_pen)
 		. += pen_overlay
+	MOJAVE SUN EDIT END */
 
 /obj/item/paper_bin/construction
 	name = "construction paper bin"

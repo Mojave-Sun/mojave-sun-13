@@ -5,6 +5,8 @@
 	caliber = ".45"
 	icon_state = "45acp_casing"
 	projectile_type = /obj/projectile/bullet/ms13/c45
+	stack_size = 12
+	no_inventory_sprite = TRUE
 
 /obj/item/ammo_casing/ms13/c45/junk
 	name = "junk .45 bullet casing"
@@ -35,6 +37,8 @@
 	max_ammo = 21
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 	w_class = WEIGHT_CLASS_NORMAL
+	grid_width = 32
+	grid_height = 32
 
 /obj/item/ammo_box/ms13/c45/junk
 	name = "junk .45 ammo box"
@@ -48,6 +52,8 @@
 	caliber = ".22"
 	icon_state = "22lr_casing"
 	projectile_type = /obj/projectile/bullet/ms13/c22
+	stack_size = 20
+	no_inventory_sprite = TRUE
 
 /obj/item/ammo_casing/ms13/c22/junk
 	name = "junk .22 bullet casing"
@@ -69,7 +75,7 @@
 	desc = "A high velocity .22 bullet casing."
 	projectile_type = /obj/projectile/bullet/ms13/c22/hv
 
-/obj/item/ammo_box/ms13/c22
+/obj/item/ammo_box/ms13/c22box
 	name = "standard .22 ammo box"
 	desc = "A box containing standard .22 ammo."
 	icon_state = "box22lr"
@@ -78,8 +84,10 @@
 	max_ammo = 32
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 	w_class = WEIGHT_CLASS_NORMAL
+	grid_width = 32
+	grid_height = 32
 
-/obj/item/ammo_box/ms13/c22/junk
+/obj/item/ammo_box/ms13/c22box/junk
 	name = "junk .22 ammo box"
 	desc = "A crude box containing junk quality .22 ammo."
 	ammo_type = /obj/item/ammo_casing/ms13/c22/junk
@@ -91,6 +99,8 @@
 	caliber = "9mm"
 	icon_state = "9mm_casing"
 	projectile_type = /obj/projectile/bullet/ms13/c9mm
+	stack_size = 15
+	no_inventory_sprite = TRUE
 
 /obj/item/ammo_casing/ms13/c9mm/junk
 	name = "junk 9mm bullet casing"
@@ -121,6 +131,8 @@
 	max_ammo = 30
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 	w_class = WEIGHT_CLASS_NORMAL
+	grid_width = 32
+	grid_height = 32
 
 /obj/item/ammo_box/ms13/c9mm/junk
 	name = "junk 9mm ammo box"
@@ -134,6 +146,7 @@
 	caliber = "10mm"
 	icon_state = "10mm_casing"
 	projectile_type = /obj/projectile/bullet/ms13/c10mm
+	stack_size = 12
 
 /obj/item/ammo_casing/ms13/c10mm/junk
 	name = "junk 10mm bullet casing"
@@ -143,7 +156,7 @@
 /obj/item/ammo_casing/ms13/c10mm/ap
 	name = "AP 10mm bullet casing"
 	desc = "An armor piercing 10mm bullet casing."
-	icon_state = "10mm_ap_casing"
+	icon_state = "10mm_ap"
 	projectile_type = /obj/projectile/bullet/ms13/c10mm/ap
 
 /obj/item/ammo_casing/ms13/c10mm/fmj
@@ -165,6 +178,8 @@
 	max_ammo = 24
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 	w_class = WEIGHT_CLASS_NORMAL
+	grid_width = 32
+	grid_height = 32
 
 /obj/item/ammo_box/ms13/c10mm/junk
 	name = "junk 10mm ammo box"
@@ -178,6 +193,8 @@
 	caliber = "12.7mm"
 	icon_state = "127_casing"
 	projectile_type = /obj/projectile/bullet/ms13/m12mm
+	stack_size = 10
+	no_inventory_sprite = TRUE
 
 /obj/item/ammo_casing/ms13/m12mm/ap
 	name = "AP 12.7mm bullet casing"
@@ -193,3 +210,11 @@
 	name = "HV 12.7mm bullet casing"
 	desc = "A high velocity 12.7mm bullet casing."
 	projectile_type = /obj/projectile/bullet/ms13/m12mm/hv
+
+/obj/item/ammo_box/ms13/m12mmbox
+	name = "standard 12.7 ammo box"
+	desc = "A box containing standard 12.7 ammo."
+	icon_state = "box127"
+	ammo_type = /obj/item/ammo_casing/ms13/m12mm
+	caliber = "12.7mm"
+	max_ammo = 21

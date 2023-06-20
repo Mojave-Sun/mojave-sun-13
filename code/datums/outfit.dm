@@ -232,12 +232,27 @@
 			backpack_contents[box] = 1
 
 		if(backpack_contents)
+			/* MOJAVE EDIT REMOVAL
 			for(var/path in backpack_contents)
 				var/number = backpack_contents[path]
 				if(!isnum(number))//Default to 1
 					number = 1
 				for(var/i in 1 to number)
 					EQUIP_OUTFIT_ITEM(path, ITEM_SLOT_BACKPACK)
+			*/
+			//MOJAVE EDIT BEGIN
+			//This is outrageously stupid, forgive me
+			var/obj/item/backpack = H.back
+			if(backpack)
+				for(var/path in backpack_contents)
+					var/number = backpack_contents[path]
+					if(!isnum(number))//Default to 1
+						number = 1
+					for(var/i in 1 to number)
+						var/obj/item/item = new path(H.loc)
+						if(!SEND_SIGNAL(backpack, COMSIG_TRY_STORAGE_INSERT, item, null, TRUE, FALSE, FALSE))
+							qdel(item)
+			//MOJAVE EDIT END
 
 	post_equip(H, visualsOnly)
 

@@ -1,6 +1,4 @@
 /*
-	output_atoms (list of atoms) The destination(s) for the sounds
-
 	mid_sounds (list or soundfile) Since this can be either a list or a single soundfile you can have random sounds. May contain further lists but must contain a soundfile at the end.
 	mid_length (num) The length to wait between playing mid_sounds
 
@@ -63,7 +61,7 @@
 		return
 	on_start()
 
-/datum/looping_sound/proc/stop(null_parent)
+/datum/looping_sound/proc/stop(null_parent = FALSE)
 	if(null_parent)
 		set_parent(null)
 	if(!timerid)
@@ -116,6 +114,9 @@
 	parent = new_parent
 	if(parent)
 		RegisterSignal(parent, COMSIG_PARENT_QDELETING, .proc/handle_parent_del)
+
+/datum/looping_sound/proc/is_active()
+	return !!timerid
 
 /datum/looping_sound/proc/handle_parent_del(datum/source)
 	SIGNAL_HANDLER

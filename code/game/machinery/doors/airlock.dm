@@ -587,8 +587,8 @@
 	. = ..()
 	if(closeOtherId)
 		. += span_warning("This airlock cycles on ID: [sanitize(closeOtherId)].")
-	else if(!closeOtherId)
-		. += span_warning("This airlock does not cycle.")
+	else if(!closeOtherId) // MOJAVE SUN EDIT
+		. += span_warning("This airlock does not cycle.") // MOJAVE SUN EDIT
 	if(obj_flags & EMAGGED)
 		. += span_warning("Its access panel is smoking slightly.")
 	if(note)
@@ -626,6 +626,58 @@
 		. += span_notice("Ctrl-click [src] to [ locked ? "raise" : "drop"] its bolts.")
 		. += span_notice("Alt-click [src] to [ secondsElectrified ? "un-electrify" : "permanently electrify"] it.")
 		. += span_notice("Ctrl-Shift-click [src] to [ emergency ? "disable" : "enable"] emergency access.")
+
+/obj/machinery/door/airlock/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	. = ..()
+
+	if(isAI(user) || iscyborg(user))
+		if(!(machine_stat & BROKEN))
+			var/ui = SStgui.try_update_ui(user, src)
+			if(!ui && !held_item)
+				context[SCREENTIP_CONTEXT_LMB] = "Open UI"
+			context[SCREENTIP_CONTEXT_SHIFT_LMB] = density ? "Open" : "Close"
+			context[SCREENTIP_CONTEXT_CTRL_LMB] = locked ? "Unbolt" : "Bolt"
+			context[SCREENTIP_CONTEXT_ALT_LMB] = isElectrified() ? "Unelectrify" : "Electrify"
+			context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = emergency ? "Unset emergency access" : "Set emergency access"
+			. = CONTEXTUAL_SCREENTIP_SET
+
+	if(!isliving(user))
+		return .
+
+	if(!Adjacent(user))
+		return .
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_SCREWDRIVER)
+			context[SCREENTIP_CONTEXT_LMB] = panel_open ? "Close panel" : "Open panel"
+			return CONTEXTUAL_SCREENTIP_SET
+		if (TOOL_CROWBAR)
+			if (panel_open)
+				if (security_level == AIRLOCK_SECURITY_PLASTEEL_O_S || security_level == AIRLOCK_SECURITY_PLASTEEL_I_S)
+					context[SCREENTIP_CONTEXT_LMB] = "Remove shielding"
+					return CONTEXTUAL_SCREENTIP_SET
+				else if (should_try_removing_electronics())
+					context[SCREENTIP_CONTEXT_LMB] = "Remove electronics"
+					return CONTEXTUAL_SCREENTIP_SET
+
+			// Not always contextually true, but is contextually false in ways that make gameplay interesting.
+			// For example, trying to pry open an airlock, only for the bolts to be down and the lights off.
+			context[SCREENTIP_CONTEXT_LMB] = "Pry open"
+
+			return CONTEXTUAL_SCREENTIP_SET
+		if (TOOL_WELDER)
+			context[SCREENTIP_CONTEXT_RMB] = "Weld shut"
+
+			if (panel_open)
+				switch (security_level)
+					if (AIRLOCK_SECURITY_IRON, AIRLOCK_SECURITY_PLASTEEL_I, AIRLOCK_SECURITY_PLASTEEL_O)
+						context[SCREENTIP_CONTEXT_LMB] = "Cut shielding"
+						return CONTEXTUAL_SCREENTIP_SET
+
+			context[SCREENTIP_CONTEXT_LMB] = "Repair"
+			return CONTEXTUAL_SCREENTIP_SET
+
+	return .
 
 /obj/machinery/door/airlock/attack_ai(mob/user)
 	if(!canAIControl(user))
@@ -762,6 +814,30 @@
 	else
 		updateDialog()
 
+/obj/machinery/door/airlock/screwdriver_act(mob/living/user, obj/item/tool)
+	. = TRUE
+	if(panel_open && detonated)
+		to_chat(user, span_warning("[src] has no maintenance panel!"))
+		return
+	panel_open = !panel_open
+	to_chat(user, span_notice("You [panel_open ? "open":"close"] the maintenance panel of the airlock."))
+	tool.play_tool_sound(src)
+	update_appearance()
+
+/obj/machinery/door/airlock/wirecutter_act(mob/living/user, obj/item/tool)
+	if(note)
+		if(user.CanReach(src))
+			user.visible_message(span_notice("[user] cuts down [note] from [src]."), span_notice("You remove [note] from [src]."))
+		else //telekinesis
+			visible_message(span_notice("[tool] cuts down [note] from [src]."))
+		tool.play_tool_sound(src)
+		note.forceMove(tool.drop_location())
+		note = null
+		update_appearance()
+		return TRUE
+	else
+		return FALSE
+
 
 /obj/machinery/door/airlock/attackby(obj/item/C, mob/user, params)
 	if(!issilicon(user) && !isAdminGhostAI(user))
@@ -769,7 +845,7 @@
 			return
 	add_fingerprint(user)
 
-	if(panel_open)
+	if(panel_open || !is_wire_tool(C))
 		switch(security_level)
 			if(AIRLOCK_SECURITY_NONE)
 				if(istype(C, /obj/item/stack/sheet/iron))
@@ -885,24 +961,8 @@
 											span_notice("You cut through \the [src]'s outer grille."))
 						security_level = AIRLOCK_SECURITY_PLASTEEL_O
 					return
-	if(C.tool_behaviour == TOOL_SCREWDRIVER)
-		if(panel_open && detonated)
-			to_chat(user, span_warning("[src] has no maintenance panel!"))
-			return
-		panel_open = !panel_open
-		to_chat(user, span_notice("You [panel_open ? "open":"close"] the maintenance panel of the airlock."))
-		C.play_tool_sound(src)
-		update_appearance()
-	else if((C.tool_behaviour == TOOL_WIRECUTTER) && note)
-		if(user.CanReach(src))
-			user.visible_message(span_notice("[user] cuts down [note] from [src]."), span_notice("You remove [note] from [src]."))
-		else //telekinesis
-			visible_message(span_notice("[C] cuts down [note] from [src]."))
-		C.play_tool_sound(src)
-		note.forceMove(C.drop_location())
-		note = null
-		update_appearance()
-	else if(is_wire_tool(C) && panel_open)
+
+	if(is_wire_tool(C) && panel_open)
 		attempt_wire_interaction(user)
 		return
 	else if(istype(C, /obj/item/pai_cable))
@@ -1018,16 +1078,38 @@
 	update_appearance()
 	return TRUE
 
+/// Returns if a crowbar would remove the airlock electronics
+/obj/machinery/door/airlock/proc/should_try_removing_electronics()
+	if (security_level != 0)
+		return FALSE
+
+	if (!panel_open)
+		return FALSE
+
+	if (obj_flags & EMAGGED)
+		return TRUE
+
+	if (!density)
+		return FALSE
+
+	if (!welded)
+		return FALSE
+
+	if (hasPower())
+		return FALSE
+
+	if (locked)
+		return FALSE
+
+	return TRUE
 
 /obj/machinery/door/airlock/try_to_crowbar(obj/item/I, mob/living/user, forced = FALSE)
-	if(I)
-		var/beingcrowbarred = (I.tool_behaviour == TOOL_CROWBAR)
-		if(!security_level && (beingcrowbarred && panel_open && ((obj_flags & EMAGGED) || (density && welded && !operating && !hasPower() && !locked))))
-			user.visible_message(span_notice("[user] removes the electronics from the airlock assembly."), \
-				span_notice("You start to remove electronics from the airlock assembly..."))
-			if(I.use_tool(src, user, 40, volume=100))
-				deconstruct(TRUE, user)
-				return
+	if(I?.tool_behaviour == TOOL_CROWBAR && should_try_removing_electronics() && !operating)
+		user.visible_message(span_notice("[user] removes the electronics from the airlock assembly."), \
+			span_notice("You start to remove electronics from the airlock assembly..."))
+		if(I.use_tool(src, user, 40, volume=100))
+			deconstruct(TRUE, user)
+			return
 	if(seal)
 		to_chat(user, span_warning("Remove the seal first!"))
 		return
@@ -1082,7 +1164,7 @@
 		if(obj_flags & EMAGGED)
 			return FALSE
 		use_power(50)
-		playsound(src, doorOpen, 30, TRUE)
+		playsound(src, doorOpen, 30, FALSE) //MOJAVE SUN EDIT - ORIGINAL IS playsound(src, doorOpen, 30, TRUE)
 	else
 		playsound(src, 'sound/machines/airlockforced.ogg', 30, TRUE)
 
@@ -1112,6 +1194,10 @@
 
 	SEND_SIGNAL(src, COMSIG_AIRLOCK_OPEN, forced)
 	operating = TRUE
+	open_animation()
+	return TRUE
+
+/obj/machinery/door/airlock/proc/open_animation()
 	update_icon(ALL, AIRLOCK_OPENING, TRUE)
 	sleep(1)
 	set_opacity(0)
@@ -1127,8 +1213,6 @@
 	if(delayed_close_requested)
 		delayed_close_requested = FALSE
 		addtimer(CALLBACK(src, .proc/close), 1)
-	return TRUE
-
 
 /obj/machinery/door/airlock/close(forced = FALSE, force_crush = FALSE)
 	if(operating || welded || locked || seal)
@@ -1149,7 +1233,7 @@
 		if(obj_flags & EMAGGED)
 			return
 		use_power(50)
-		playsound(src, doorClose, 30, TRUE)
+		playsound(src, doorClose, 30, FALSE) // MOJAVE SUN EDIT - ORIGINAL IS playsound(src, doorClose, 30, TRUE)
 
 	else
 		playsound(src, 'sound/machines/airlockforced.ogg', 30, TRUE)
@@ -1159,6 +1243,10 @@
 		SSexplosions.med_mov_atom += killthis
 	SEND_SIGNAL(src, COMSIG_AIRLOCK_CLOSE, forced)
 	operating = TRUE
+	close_animation(dangerous_close)
+	return TRUE
+
+/obj/machinery/door/airlock/proc/close_animation(dangerous_close = FALSE)
 	update_icon(ALL, AIRLOCK_CLOSING, 1)
 	layer = CLOSED_DOOR_LAYER
 	if(air_tight)
@@ -1182,7 +1270,6 @@
 	delayed_close_requested = FALSE
 	if(!dangerous_close)
 		CheckForMobs()
-	return TRUE
 
 /obj/machinery/door/airlock/proc/prison_open()
 	if(obj_flags & EMAGGED)

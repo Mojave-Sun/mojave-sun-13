@@ -7,16 +7,36 @@
 	var/climb_stun = (2 SECONDS)
 	///Assoc list of object being climbed on - climbers.  This allows us to check who needs to be shoved off a climbable object when its clicked on.
 	var/list/current_climbers
+	//MOJAVE SUN EDIT: Makes stuns removable from climbing
+	var/no_stun = FALSE
+	//MOJAVE SUN EDIT: Makes an animation play when vaulting
+	var/jump_over = FALSE
+	//MOJAVE SUN EDIT: Jump Height for Animation
+	var/jump_north
+	//MOJAVE SUN EDIT: Jump Height for Animation
+	var/jump_south
+	//MOJAVE SUN EDIT: Jump Height for Animation
+	var/jump_sides
 
-/datum/element/climbable/Attach(datum/target, climb_time, climb_stun)
+/datum/element/climbable/Attach(datum/target, climb_time, climb_stun, no_stun, jump_over, jump_north, jump_south, jump_sides) //MOJAVE SUN EDIT: Climbing tweaks
 	. = ..()
 
 	if(!isatom(target) || isarea(target))
 		return ELEMENT_INCOMPATIBLE
 	if(climb_time)
 		src.climb_time = climb_time
-	if(climb_stun)
+	if(climb_stun) //MOJAVE SUN EDIT: Makes stuns removable from climbing
 		src.climb_stun = climb_stun
+	if(no_stun) //MOJAVE SUN EDIT: Makes stuns removable from climbing
+		src.no_stun = no_stun
+	if(jump_over) //MOJAVE SUN EDIT: Makes an animation play when vaulting
+		src.jump_over = jump_over //MOJAVE SUN EDIT: Makes an animation play when vaulting
+	if(jump_north) //MOJAVE SUN EDIT: Makes an animation play when vaulting
+		src.jump_north = jump_north //MOJAVE SUN EDIT: Makes an animation play when vaulting
+	if(jump_south) //MOJAVE SUN EDIT: Animation jump height
+		src.jump_south = jump_south //MOJAVE SUN EDIT: Animation jump height
+	if(jump_sides) //MOJAVE SUN EDIT: Animation jump height
+		src.jump_sides = jump_sides //MOJAVE SUN EDIT: Animation jump height
 
 	RegisterSignal(target, COMSIG_ATOM_ATTACK_HAND, .proc/attack_hand)
 	RegisterSignal(target, COMSIG_PARENT_EXAMINE, .proc/on_examine)
@@ -72,16 +92,41 @@
 	if(do_after(user, adjusted_climb_time, climbed_thing))
 		if(QDELETED(climbed_thing)) //Checking if structure has been destroyed
 			return
+		//MOJAVE SUN EDIT START: Climbing Animation and Stun changes/Fixes
 		if(do_climb(climbed_thing, user, params))
+			if(jump_over)
+				var/jump_height
+				switch(climbed_thing.dir)
+					if(NORTH)
+						user.layer = 4.6
+						jump_height = jump_north
+					if(SOUTH)
+						user.layer = 4.6
+						jump_height = jump_south
+					if(EAST)
+						jump_height = jump_sides
+					if(WEST)
+						jump_height = jump_sides
+				playsound(user.loc, 'mojave/sound/ms13effects/vaulted.ogg', 80, TRUE)
+				animate(user, pixel_y = jump_height, time = 1, easing = SINE_EASING)
+				addtimer(CALLBACK(src, .proc/climb_shift_reset, user), 2)
 			user.visible_message(span_warning("[user] climbs onto [climbed_thing]."), \
 								span_notice("You climb onto [climbed_thing]."))
 			log_combat(user, climbed_thing, "climbed onto")
-			if(adjusted_climb_stun)
+			if(adjusted_climb_stun && !no_stun)
 				user.Stun(adjusted_climb_stun)
+			if(no_stun && jump_over)
+				user.Stun(0.5) //stops them nyooming off, barely noticable
+			//MOJAVE SUN EDIT END: Climbing Animation and Stun changes/Fixes
 		else
 			to_chat(user, span_warning("You fail to climb onto [climbed_thing]."))
 	LAZYREMOVEASSOC(current_climbers, climbed_thing, user)
 
+//MOJAVE SUN EDIT START: Climbing Animation and Stun changes/Fixes
+/datum/element/climbable/proc/climb_shift_reset(mob/living/user)
+	user.pixel_y = user.base_pixel_y
+	user.layer = initial(user.layer)
+//MOJAVE SUN EDIT END: Climbing Animation and Stun changes/Fixes
 
 /datum/element/climbable/proc/do_climb(atom/climbed_thing, mob/living/user, params)
 	if(!can_climb(climbed_thing, user))

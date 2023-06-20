@@ -102,7 +102,8 @@
 	var/less_input_message
 	if(SSlag_switch.measures[DISABLE_DEAD_KEYLOOP])
 		less_input_message = " - Notice: Observer freelook is currently disabled."
-	var/this_is_like_playing_right = tgui_alert(usr, "Are you sure you wish to observe? You will not be able to play this round![less_input_message]", "Observe", list("Yes", "No"))
+	// Don't convert this to tgui please, it's way too important
+	var/this_is_like_playing_right = alert(usr, "Are you sure you wish to observe? You will not be able to play this round![less_input_message]", "Observe", "Yes", "No")
 	if(QDELETED(src) || !src.client || this_is_like_playing_right != "Yes")
 		ready = PLAYER_NOT_READY
 		return FALSE
@@ -127,6 +128,7 @@
 		observer.client.init_verbs()
 	observer.update_appearance()
 	observer.stop_sound_channel(CHANNEL_LOBBYMUSIC)
+	observer.respawn_timeofdeath = world.time
 	deadchat_broadcast(" has observed.", "<b>[observer.real_name]</b>", follow_target = observer, turf_target = get_turf(observer), message_type = DEADCHAT_DEATHRATTLE)
 	QDEL_NULL(mind)
 	qdel(src)

@@ -11,13 +11,7 @@
 	outdoors = TRUE
 	has_gravity = STANDARD_GRAVITY
 	static_lighting = TRUE
-	ambientsounds = list('mojave/sound/ms13ambience/general/ambigen_1.ogg', 'mojave/sound/ms13ambience/general/ambigen_3.ogg',
-	'mojave/sound/ms13ambience/general/ambigen_4.ogg', 'mojave/sound/ms13ambience/general/ambigen_5.ogg',
-	'mojave/sound/ms13ambience/general/ambigen_6.ogg', 'mojave/sound/ms13ambience/general/ambigen_7.ogg',
-	'mojave/sound/ms13ambience/general/ambigen_8.ogg', 'mojave/sound/ms13ambience/general/ambigen_9.ogg',
-	'mojave/sound/ms13ambience/general/ambigen_10.ogg', 'mojave/sound/ms13ambience/general/ambigen_11.ogg',
-	'mojave/sound/ms13ambience/general/ambigen_12.ogg', 'mojave/sound/ms13ambience/general/ambigen_14.ogg',
-	'mojave/sound/ms13ambience/general/ambigen_15.ogg') // This is scuffed, I know. But the other system isn't working right now and I don't want this last hour to have been a complete waste.
+	ambientsounds = GENERIC_AMBIENCE // To Do, Make actual Ambience and Seperate Music Component - Scar 2022
 	flags_1 = NONE
 
 /area/ms13/admeme
@@ -31,63 +25,77 @@
 	power_environ = TRUE
 	power_equip = TRUE
 	power_light = TRUE
-	ambientsounds = list('mojave/sound/ms13ambience/general/building.ogg')
-	sound_environment = SOUND_ENVIRONMENT_ROOM
+	ambientsounds = null
+	atmosphere_sound = BUILDING_ATMOSPHERE
 
 /area/ms13/farmhouse
 	name = "Farmhouse"
 	icon_state = "farmhouse"
+	atmosphere_sound = BUILDING_ATMOSPHERE
 
 /area/ms13/powerplant
 	name = "Power Plant"
 	icon_state = "powerplant"
-	ambientsounds = AMBIENCE_ENGI
+	atmosphere_sound = INDUSTRIAL_ATMOSPHERE
 
 /area/ms13/factory
 	name = "Factory"
 	icon_state = "factory"
+	atmosphere_sound = INDUSTRIAL_ATMOSPHERE
 
 /area/ms13/underground/vault_atrium_upper
 	name = "Vault atrium upper"
 	icon_state = "vault_atrium_upper"
+	atmosphere_sound = VAULT_ATMOSPHERE
+	atmosphere_volume = 150
 
 /area/ms13/underground/vault_atrium_middle
 	name = "Vault atrium middle"
 	icon_state = "vault_atrium_middle"
+	atmosphere_sound = VAULT_ATMOSPHERE
+	atmosphere_volume = 150
 
 /area/ms13/underground/vault_atrium_lower
 	name = "Vault atrium lower"
 	icon_state = "vault_atrium_lower"
+	atmosphere_sound = VAULT_ATMOSPHERE
+	atmosphere_volume = 150
 
 /area/ms13/underground/vault_outer
 	name = "Vault Outer"
 	icon_state = "vault_outer"
+	atmosphere_sound = CAVE_ATMOSPHERE
 
 /area/ms13/supermarket
 	name = "Supermarket"
 	icon_state = "supermarket"
+	atmosphere_sound = BUILDING_ATMOSPHERE
 
 /area/ms13/supermarket/basement
 	name = "Supermarket Basement"
 	icon_state = "supermarket_basement"
+	atmosphere_sound = BUNKER_ATMOSPHERE
 
 /area/ms13/underground/enclave_base
 	name = "Enclave Base"
 	icon_state = "enclave"
+	atmosphere_sound = BUNKER_ATMOSPHERE
 
 /area/ms13/underground/army_bunker
 	name = "Army Bunker"
 	icon_state = "army_base"
+	atmosphere_sound = BUNKER_ATMOSPHERE
 
 // Generic Underground Areas //
 
 /area/ms13/underground
 	requires_power = FALSE
 	outdoors = FALSE
+	atmosphere_sound = CAVE_ATMOSPHERE
 
 /area/ms13/underground/mountain
 	name = "mountain"
-	ambientsounds = list('mojave/sound/ms13ambience/cave/cave_idle.ogg', 'mojave/sound/ms13ambience/cave/cave_spooky.ogg')
+	ambientsounds = null
 	icon_state = "mountain"
 	sound_environment = SOUND_ENVIRONMENT_CAVE
 
@@ -100,12 +108,14 @@
 	icon_state = "sewer"
 	outdoors = FALSE
 	sound_environment = SOUND_ENVIRONMENT_SEWER_PIPE
+	atmosphere_sound = SEWER_ATMOSPHERE
 
 /area/ms13/underground/subway
 	name = "Subway"
 	outdoors = FALSE
 	icon_state = "subway"
 	sound_environment = SOUND_ENVIRONMENT_HALLWAY
+	atmosphere_sound = SEWER_ATMOSPHERE
 
 /area/ms13/underground/underground_town
 	name = "Lower Town"
@@ -117,10 +127,38 @@
 	outdoors = FALSE
 	icon_state = "tunnels"
 	sound_environment = SOUND_ENVIRONMENT_HALLWAY
+	atmosphere_sound = SEWER_ATMOSPHERE
 
 /area/ms13/underground/tunnel/maintenance
 	name = "Maintenance Passages"
 	icon_state = "maintenance"
+	atmosphere_sound = SEWER_ATMOSPHERE
+	atmosphere_volume = 200
+
+// Forest Areas //
+
+/area/ms13/snow
+	name = "Snow"
+	icon_state = "snow"
+	requires_power = FALSE
+	power_environ = FALSE
+	power_equip = FALSE
+	outdoors = TRUE
+	flags_1 = NONE
+
+/area/ms13/snow/deepforest
+	name = "Deep Forest"
+	icon_state = "deepforest"
+	atmosphere_sound = FOREST_ATMOSPHERE
+
+/area/ms13/snow/forest
+	name = "Forest"
+	icon_state = "forest"
+	atmosphere_sound = FOREST_ATMOSPHERE
+
+/area/ms13/snow/lightforest
+	name = "Light Forest"
+	icon_state = "lightforest"
 
 // Mammoth Areas //
 
@@ -128,6 +166,8 @@
 	name = "NCR Mainbase"
 	icon_state = "NCR"
 	requires_power = FALSE
+	atmosphere_sound = MILLITARY_ATMOSPHERE
+	atmosphere_volume = 150
 
 /area/ms13/ncr/building
 	name = "NCR building"
@@ -141,6 +181,7 @@
 	name = "Raider stronghold"
 	icon_state = "raiders"
 	requires_power = FALSE
+	atmosphere_sound = BUILDING_ATMOSPHERE
 
 /area/ms13/raiders/building
 	name = "Raider building"
@@ -149,10 +190,12 @@
 /area/ms13/tribal_abandoned
 	name = "abandoned Tribal building"
 	icon_state = "town"
+	atmosphere_sound = BUILDING_ATMOSPHERE
 
 /area/ms13/underground/military_crypt
 	name = "Abandoned Outpost Bunker"
 	icon_state = "military_crypt"
+	atmosphere_sound = BUNKER_ATMOSPHERE
 
 // Drought Areas //
 
@@ -162,6 +205,7 @@
 	requires_power = FALSE
 	power_environ = FALSE
 	power_equip = FALSE
+	power_light = FALSE
 	outdoors = TRUE
 	flags_1 = NONE
 
@@ -173,6 +217,18 @@
 	name = "Legion Building"
 	icon_state = "legion_building"
 	outdoors = FALSE
+	atmosphere_sound = BUILDING_ATMOSPHERE
+
+
+/area/ms13/drylanders
+	name = "Drylander Camp"
+	icon_state = "drylanders"
+
+/area/ms13/drylanders/building
+	name = "Drylander Building"
+	icon_state = "drylander_building"
+	outdoors = FALSE
+	atmosphere_sound = BUILDING_ATMOSPHERE
 
 /area/ms13/rangeroutpost
 	name = "Desert Ranger Outpost"
@@ -181,13 +237,30 @@
 	power_environ = FALSE
 	power_equip = FALSE
 	power_light = TRUE
+	outdoors = TRUE
+	atmosphere_volume = 150
+
+/area/ms13/rangeroutpost/building
+	name = "Desert Ranger Outpost building"
+	icon_state = "rangerbase"
 	outdoors = FALSE
+
+/area/ms13/water_baron
+	name = "The Barony"
+	icon_state = "barony"
+	ambientsounds = GENERIC_AMBIENCE
+	atmosphere_volume = 150
+
+/area/ms13/water_baron/interior
+	name = "The Barony building"
+	icon_state = "baronyinterior"
 
 // Mall/Eagle Lakes Areas //
 
 /area/ms13/mall
 	name = "Mall"
 	icon_state = "mall"
+	atmosphere_sound = BUILDING_ATMOSPHERE
 
 /area/ms13/mall/convenience
 	name = "Convenience Store"
@@ -257,8 +330,10 @@
 	name = "combat arena building"
 	icon_state = "combatarena_building"
 	outdoors = FALSE
+	atmosphere_sound = BUILDING_ATMOSPHERE
 
 /area/ms13/combattest/tunnels
 	name = "combat arena tunnel"
 	icon_state = "combatarena_tunnels"
 	outdoors = FALSE
+	atmosphere_sound = CAVE_ATMOSPHERE

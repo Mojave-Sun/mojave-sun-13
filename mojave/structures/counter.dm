@@ -31,8 +31,8 @@
 	desc = "Not much can be said about this decrepit wooden counter except that its definitely seen better years."
 	icon_state = "wood_counter"
 	max_integrity = 150
-	frame = /obj/item/stack/sheet/ms13/scrap_wood
-	framestack = /obj/item/stack/sheet/ms13/scrap_wood
+	frame = /obj/item/stack/sheet/ms13/wood/scrap_wood
+	framestack = /obj/item/stack/sheet/ms13/wood/scrap_wood
 	framestackamount = 2
 
 /obj/structure/table/ms13/no_smooth/counter/wood/bend

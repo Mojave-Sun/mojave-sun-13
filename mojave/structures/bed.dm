@@ -2,6 +2,7 @@
 	name = "base class Mojave Sun bed"
 	desc = "Scream at the coders if you see this."
 	icon = 'mojave/icons/structure/beds.dmi'
+	bolts = FALSE // for real, TG?
 
 /obj/structure/bed/ms13/wrench_act_secondary(mob/living/user, obj/item/weapon)
 	return
@@ -13,6 +14,7 @@
 	desc = "Scream at the coders if you see this."
 	buildstacktype = /obj/item/stack/sheet/ms13/scrap
 	buildstackamount = 1
+	hitted_sound = 'mojave/sound/ms13effects/impact/metal/metal_generic_3.wav'
 
 /obj/structure/bed/ms13/bedframe/wire
 	name = "wireframe bed"
@@ -33,8 +35,9 @@
 	name = "wood bed"
 	desc = "A panel bed made from wood."
 	icon_state = "wood_bed"
-	buildstacktype = /obj/item/stack/sheet/ms13/scrap_wood
+	buildstacktype = /obj/item/stack/sheet/ms13/wood/scrap_wood
 	buildstackamount = 1
+	hitted_sound = 'mojave/sound/ms13effects/impact/wood/wood_generic_3.wav'
 
 //mattress//
 
@@ -103,6 +106,7 @@
 	density = TRUE // tallboi
 	buildstacktype = /obj/item/stack/sheet/ms13/scrap
 	buildstackamount = 1
+	hitted_sound = 'mojave/sound/ms13effects/impact/metal/metal_generic_2.wav'
 
 /obj/structure/bed/ms13/medical/post_buckle_mob(mob/living/M)
 	M.pixel_y = M.base_pixel_y
@@ -123,6 +127,7 @@
 	icon_state = "rollingbed_down"
 	buildstacktype = /obj/item/stack/sheet/ms13/scrap
 	buildstackamount = 1
+	hitted_sound = 'mojave/sound/ms13effects/impact/metal/metal_generic_2.wav'
 
 /obj/structure/bed/roller/ms13/post_buckle_mob(mob/living/M)
 	set_density(TRUE)

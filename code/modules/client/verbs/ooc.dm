@@ -74,7 +74,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	var/keyname = key
 	if(prefs.unlock_content)
 		if(prefs.toggles & MEMBER_PUBLIC)
-			keyname = "<font color='[prefs.read_preference(/datum/preference/color/ooc_color) || GLOB.normal_ooc_colour]'>[icon2html('icons/member_content.dmi', world, "blag")][keyname]</font>"
+			keyname = "<font color='[prefs.read_preference(/datum/preference/color/ooc_color) || GLOB.normal_ooc_colour]'>[icon2html('icons/ui_icons/chat/member_content.dmi', world, "blag")][keyname]</font>"
 	if(prefs.hearted)
 		var/datum/asset/spritesheet/sheet = get_asset_datum(/datum/asset/spritesheet/chat)
 		keyname = "[sheet.icon_tag("emoji-heart")][keyname]"
@@ -347,7 +347,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 
 	// Fetch aspect ratio
 	var/view_size = getviewsize(view)
-	var/aspect_ratio = view_size[1] / view_size[2]
+	var/aspect_ratio = (view_size[1] + HUD_LEFT_TILE_SIZE) / view_size[2]
 
 	// Calculate desired pixel width using window size and aspect ratio
 	var/list/sizes = params2list(winget(src, "mainwindow.split;mapwindow", "size"))

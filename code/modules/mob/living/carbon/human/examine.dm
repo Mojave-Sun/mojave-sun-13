@@ -256,7 +256,7 @@
 
 		for(var/i in bodyparts)
 			var/obj/item/bodypart/body_part = i
-			if(body_part.get_bleed_rate())
+			if(body_part.get_part_bleed_rate())
 				bleeding_limbs += body_part
 			if(body_part.grasped_by)
 				grasped_limbs += body_part
@@ -358,7 +358,7 @@
 			if(ai_controller?.ai_status == AI_STATUS_ON)
 				msg += "[span_deadsay("[t_He] do[t_es]n't appear to be [t_him]self.")]\n"
 			else if(!key)
-				msg += "[span_deadsay("[t_He] [t_is] totally catatonic. The stresses of life in deep-space must have been too much for [t_him]. Any recovery is unlikely.")]\n"
+				msg += "[span_deadsay("[t_He] [t_has] a blank, absent-minded stare and appears completely unresponsive to anything.")]\n" //MOJAVE SUN EDIT - Unimmersive space sleep shit
 			else if(!client)
 				msg += "[t_He] [t_has] a blank, absent-minded stare and appears completely unresponsive to anything. [t_He] may snap out of it soon.\n"
 
@@ -429,7 +429,10 @@
 	. += "*---------*</span>"
 
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
-
+	// MOJAVE SUN EDIT BEGIN
+	if(on_examined_check(user, FALSE))
+		user.on_examine_atom(src, FALSE)
+	// MOJAVE SUN EDIT END
 /mob/living/proc/status_effect_examines(pronoun_replacement) //You can include this in any mob's examine() to show the examine texts of status effects!
 	var/list/dat = list()
 	if(!pronoun_replacement)
@@ -462,3 +465,10 @@
 		if(101 to INFINITY)
 			age_text = "withering away"
 	. += list(span_notice("[p_they(TRUE)] appear[p_s()] to be [age_text]."))
+	// MOJAVE EDIT BEGIN
+	switch(fatness)
+		if(FATNESS_OBESE)
+			. += list(span_warning("[p_they(TRUE)] [p_are()] a bumbling tub of lard."))
+	if(on_examined_check(user, TRUE))
+		user.on_examine_atom(src, TRUE)
+	// MOJAVE EDIT END

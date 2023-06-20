@@ -119,6 +119,7 @@
 #define CAT_UNDER "Uniforms/Clothing"
 #define CAT_MISCCLOTHING "Gloves, Shoes, Masks"
 #define CAT_WEAPONS "Weapons"
+#define CAT_GUNS "Guns"
 #define CAT_JUNK_AMMO "Junk Ammo"
 #define CAT_STAN_AMMO "Standard Ammo"
 #define CAT_ELECTRONICS "Electronics"
@@ -133,6 +134,8 @@
 #define CRAFTING_BENCH_WEAPONS    1<<4
 #define CRAFTING_BENCH_RELOADING  1<<5
 #define CRAFTING_BENCH_SMELTER    1<<6
+#define CRAFTING_BENCH_CAMPFIRE   1<<7
+
 // tablecrafting interface types - MOJAVE EDIT END
 
 //rcd modes

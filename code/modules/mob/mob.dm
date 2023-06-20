@@ -33,6 +33,8 @@
 	if(length(progressbars))
 		stack_trace("[src] destroyed with elements in its progressbars list")
 		progressbars = null
+	for (var/alert_text in stored_alert_text)
+		clear_alert_text(alert_text, TRUE)
 	for (var/alert in alerts)
 		clear_alert(alert, TRUE)
 	if(observers?.len)
@@ -212,7 +214,7 @@
 		//This entire if/else chain could be in two lines but isn't for readibilties sake.
 		var/msg = message
 		var/msg_type = MSG_VISUAL
-		
+
 		if(M.see_invisible < invisibility)//if src is invisible to M
 			msg = blind_message
 			msg_type = MSG_AUDIBLE
@@ -301,7 +303,7 @@
 
 
 ///Is the mob incapacitated
-/mob/proc/incapacitated(ignore_restraints = FALSE, ignore_grab = FALSE, ignore_stasis = FALSE)
+/mob/proc/incapacitated(flags)
 	return
 
 /**
@@ -694,6 +696,10 @@
 		to_chat(usr, span_boldnotice("You must be dead to use this!"))
 		return
 
+	if(world.time - src.respawn_timeofdeath < CONFIG_GET(number/respawn_time) && !check_rights_for(usr.client, R_ADMIN))
+		to_chat(usr, span_boldnotice("Respawn timer: [round((CONFIG_GET(number/respawn_time) - (world.time - src.respawn_timeofdeath)) / 10)] seconds remaining."))
+		return
+
 	log_game("[key_name(usr)] used the respawn button.")
 
 	to_chat(usr, span_boldnotice("Please roleplay correctly!"))
@@ -971,7 +977,7 @@
 	if(isAdminGhostAI(src) || Adjacent(A))
 		return TRUE
 	var/datum/dna/mob_dna = has_dna()
-	if(mob_dna?.check_mutation(TK) && tkMaxRangeCheck(src, A))
+	if(mob_dna?.check_mutation(/datum/mutation/human/telekinesis) && tkMaxRangeCheck(src, A))
 		return TRUE
 
 	//range check
@@ -1040,7 +1046,7 @@
 	if(!istext(newname) && !isnull(newname))
 		stack_trace("[src] attempted to change its name from [oldname] to the non string value [newname]")
 		return FALSE
-		
+
 	log_message("[src] name changed from [oldname] to [newname]", LOG_OWNERSHIP)
 
 	log_played_names(ckey, newname)
@@ -1127,7 +1133,7 @@
 /mob/proc/update_mouse_pointer()
 	if(!client)
 		return
-	client.mouse_pointer_icon = initial(client.mouse_pointer_icon)
+	client.mouse_pointer_icon = client.mojave_pointer_icon
 	if(examine_cursor_icon && client.keys_held["Shift"]) //mouse shit is hardcoded, make this non hard-coded once we make mouse modifiers bindable
 		client.mouse_pointer_icon = examine_cursor_icon
 	if(istype(loc, /obj/vehicle/sealed))
@@ -1334,7 +1340,7 @@
 /mob/proc/become_uncliented()
 	if(!canon_client)
 		return
-		
+
 	for(var/foo in canon_client.player_details.post_logout_callbacks)
 		var/datum/callback/CB = foo
 		CB.Invoke()

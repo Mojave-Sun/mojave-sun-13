@@ -1,20 +1,20 @@
 /obj/item/card/id/ms13
 	name = "\improper ID tag"
 	desc = "A simple identification tag. This is a base class and you shouldn't be seeing it."
-	icon = 'mojave/icons/objects/identification/dogtags_world.dmi'
+	icon = 'mojave/icons/objects/identification/dogtags_inventory.dmi'
 	icon_state = "bos_holotag"
 	var/datum/bank_account = null
 
 /obj/item/card/id/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/identification/dogtags_inventory.dmi')
+	AddElement(/datum/element/item_scaling, 0.45, 1)
 
 /obj/item/card/id/ms13/doctor
 	name = "doctor's ID badge"
 	desc = "A very crisp and clean medical identification badge. Even has a clip. By Wasteland standards, this is incredibly professional."
 	assignment = "Town Doctor"
 	icon_state = "doctor"
-	access = list(ACCESS_TOWN_DOCTOR)
+	access = list(ACCESS_TOWN_DOCTOR, ACCESS_TOWN_ALL)
 
 /obj/item/card/id/ms13/doctor/nurse
 	name = "nurse's ID badge"
@@ -25,14 +25,14 @@
 	desc = "A gold star badge with a blue stamp in the middle, indicating this badge belongs to the Mayor."
 	assignment = "Town Mayor"
 	icon_state = "mayor"
-	access = list(ACCESS_TOWN_MAYOR, ACCESS_TOWN_LAW, ACCESS_TOWN_DOCTOR)
+	access = list(ACCESS_TOWN_MAYOR, ACCESS_TOWN_LAW, ACCESS_TOWN_DOCTOR, ACCESS_TOWN_WORKER, ACCESS_TOWN_ALL)
 
 /obj/item/card/id/ms13/deputy
 	name = "deputy's badge"
 	desc = "A dull silver Deputy's badge. Classic."
 	assignment = "Town Deputy"
 	icon_state = "deputy"
-	access = list(ACCESS_TOWN_LAW, ACCESS_TOWN_DOCTOR)
+	access = list(ACCESS_TOWN_LAW, ACCESS_TOWN_DOCTOR, ACCESS_TOWN_WORKER, ACCESS_TOWN_ALL)
 
 /obj/item/card/id/ms13/deputy/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/card/id/ms13/sheriff))
@@ -46,16 +46,18 @@
 	desc = "A golden Sheriff's badge. Strikes fear into the hearts of wrongdoers."
 	assignment = "Town Sheriff"
 	icon_state = "sheriff"
-	access = list(ACCESS_TOWN_MAYOR, ACCESS_TOWN_LAW, ACCESS_TOWN_DOCTOR)
+	access = list(ACCESS_TOWN_MAYOR, ACCESS_TOWN_LAW, ACCESS_TOWN_DOCTOR, ACCESS_TOWN_WORKER, ACCESS_TOWN_ALL)
 
 /obj/item/card/id/ms13/town
 	name = "town passport"
 	desc = "A fancy looking passport proving residency in the Town. Stamped by the Mayor to prove it's authenticity."
 	assignment = "Town Settler"
 	icon_state = "passport"
+	access = list(ACCESS_TOWN_ALL)
 
 /obj/item/card/id/ms13/town/worker
 	assignment = "Town Worker"
+	access = list(ACCESS_TOWN_WORKER, ACCESS_TOWN_ALL)
 
 /obj/item/card/id/ms13/town/bartender
 	assignment = "Town Bartender"
@@ -103,11 +105,10 @@
 	assignment = "NCR Lieutenant"
 
 /obj/item/card/id/ms13/legrecruit
-	name = "recruit medallion"
-	desc = "A silver disc stamped with the Legion's Bull insignia. Belongs to a recruit."
-	assignment = "Legion Recruit"
-	icon_state = "legionmedallionrecruit"
-
+	name = "recruit blade"
+	desc = "A tiny, dull blade on a string. Used to identify recruits and new blood in Caesar's Legion."
+	assignment = "Recruit Legionary"
+	icon_state = "leg_recruit"
 
 /obj/item/card/id/ms13/legrecruit/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/card/id/ms13/legcenturion))
@@ -116,69 +117,172 @@
 		update_label()
 	return ..()
 
+/obj/item/card/id/ms13/legrecruitdecanus
+	name = "recruit decanus blade"
+	desc = "A tiny, dull blade on a string. This one looks well worn, likely belonging to a Recruit Decanus."
+	assignment = "Legion Recruit Decanus"
+	icon_state = "leg_recruit"
+
 /obj/item/card/id/ms13/legprime
 	name = "prime medallion"
-	desc = "A marked silver disc stamped with the Legion's Bull insignia. Belongs to a prime."
-	icon_state = "legionmedallionprime"
+	desc = "A marked red disc stamped with the Legion's Bull insignia. Belongs to a Prime."
+	icon_state = "leg_prime"
+	assignment = "Prime Legionary"
+
+/obj/item/card/id/ms13/legprime/decanus
+	name = "prime decanus medallion"
+	desc = "A marked red disc stamped with the Legion's Bull insignia. Belongs to a Prime Decanus."
+	assignment = "Legion Prime Decanus"
+
+/obj/item/card/id/ms13/explorer
+	name = "explorer medallion"
+	desc = "A marked dark colored disc stamped with the Legion's Bull insignia. Belongs to an Explorer."
+	icon_state = "leg_aux"
+	assignment = "Legion Explorer"
+
+/obj/item/card/id/ms13/blacksmith
+	name = "blacksmith medallion"
+	desc = "A marked dark colored disc stamped with the Legion's Bull insignia. Belongs to a Legion blacksmith."
+	icon_state = "leg_aux"
+	assignment = "Legion Blacksmith"
 
 /obj/item/card/id/ms13/legveteran
 	name = "veteran medallion"
-	desc = "A heavily marked silver disc stamped with the Legion's Bull insignia. Belongs to a veteran, and reeks of iron."
-	icon_state = "legionmedallionveteran"
+	desc = "A well worn silver disc stamped with the Legion's Bull insignia. Belongs to a Veteran, and reeks of iron."
+	icon_state = "leg_veteran"
+	assignment = "Veteran Legionary"
+
+/obj/item/card/id/ms13/legveteran/vex
+	name = "vexillarius medallion"
+	desc = "A well worn silver disc stamped with the Legion's Bull insignia. Belongs to a Legion Vexillarius, and reeks of iron."
+	assignment = "Legion Vexillarius"
+
+/obj/item/card/id/ms13/legveteran/decanus
+	name = "veteran decanus medallion"
+	desc = "A well worn silver disc stamped with the Legion's Bull insignia. Belongs to a Veteran Decanus, and reeks of iron."
+	assignment = "Legion Veteran Decanus"
 
 /obj/item/card/id/ms13/legcenturion
 	name = "centurion medallion"
 	desc = "A golden disc awarded to the most fierce men in the entire Legion. If you are close enough to read the insignia you won't be alive much longer."
-	icon_state = "legionmedallioncent"
+	icon_state = "leg_cent"
+	assignment = "Legion Centurion"
 
 /obj/item/card/id/ms13/raider
 	name = "raider's necklace"
-	desc = "A necklace composed of random bits of teeth and bone. If someone's wearing this, they are no doubt a part of a raider gang."
+	desc = "A necklace composed of small caliber rounds. If someone's wearing this, they are no doubt a part of a raider gang."
 	assignment = "Raider"
 	icon_state = "raider"
 
 /obj/item/card/id/ms13/sawbone
-	name = "sawbone's patch"
-	desc = "A nice rectangular patch with a little hole to loop a string through if you really wanted to. It's a bit bloody."
+	name = "sawbone's necklace"
+	desc = "A small blade on a string to make a necklace. The blade looks dull and slightly rusty, probably not very sanitary or sterile."
 	assignment = "Raider Sawbone"
 	icon_state = "sawbone"
 
 /obj/item/card/id/ms13/enforcer
 	name = "enforcer's necklace"
-	desc = "A necklace composed of random bits of teeth and bone, along with bullets of varying caliber strung up. An intimidating symbol of authority."
+	desc = "A necklace consisting of a spent shotgun shell. An intimidating symbol of authority."
 	assignment = "Raider Enforcer"
 	icon_state = "enforcer"
 
 /obj/item/card/id/ms13/boss
-	name = "boss's collar"
-	desc = "A brave fashion statement. This is a seemingly non-functional bomb collar. The person wearing this must truly be an alpha."
+	name = "boss's necklace"
+	desc = "Various bullets of various calibers on a string. Worn by someone both important and intimidating."
 	assignment = "Raider Boss"
 	icon_state = "boss"
 
 /obj/item/card/id/ms13/ranger_recruit
 	name = "recruit ranger badge"
 	desc = "A silver Ranger star. A pretty basic design with a strong meaning behind it, given to the average recruit in the Desert Rangers."
-	icon_state = "ranger_star_silver"
+	icon_state = "ranger_recruit"
+	assignment = "Desert Ranger Recruit"
 
 /obj/item/card/id/ms13/ranger
 	name = "ranger badge"
-	desc = "A silver rimmed Ranger badge with a gold star. Worn by your average Desert Ranger."
-	icon_state = "ranger_star_rimmed"
+	desc = "A gold rimmed Ranger badge with a silver star. Worn by your average Desert Ranger."
+	icon_state = "ranger"
+	assignment = "Desert Ranger"
 
 /obj/item/card/id/ms13/ranger_elite
 	name = "elite ranger badge"
-	desc = "A gold textured Ranger star, issued to Rangers with extensive expertise in the field, with multiple years behind them."
-	icon_state = "ranger_star"
+	desc = "A solid gold Ranger star, issued to Rangers with extensive expertise in the field, with multiple years behind them."
+	icon_state = "ranger_elite"
+	assignment = "Elite Desert Ranger"
 
 /obj/item/card/id/ms13/ranger_chief
 	name = "ranger deputy-chief badge"
-	desc = "A banded Ranger star, donned exclusively by the Deputy-Chief of the local Ranger outpost. "
-	icon_state = "ranger_star_chief"
+	desc = "A large, golden Ranger star. Donned exclusively by the Deputy-Chief of the local Ranger outpost."
+	icon_state = "ranger_chief"
+	assignment = "Desert Ranger Deputy-Chief"
 
 /obj/item/card/id/ms13/ranger_doctor
-	name = "ranger medic badge"
-	desc = "A silver circle encompassing a gold cross. Given to the empathetic healers of the Desert Rangers."
-	icon_state = "ranger_cross"
+	name = "ranger doctor ID badge"
+	desc = "A very crisp and clean medical identification badge. Even has a clip. By Wasteland standards, this is incredibly professional."
+	icon_state = "doctor"
+	assignment = "Desert Ranger Doctor"
+
+/obj/item/card/id/ms13/drought_denizen
+	name = "\improper Barony identification papers"
+	desc = "Stamped identification papers for a citizen of the Barony. This has no special assignment on it and likely belongs to a typical Denizen."
+	icon_state = "drought_town"
+	assignment = "Town Denizen"
+
+/obj/item/card/id/ms13/drought_slave
+	desc = "Stamped identification papers for a citizen of the Barony. This has special clearance for labor and maintenance duties included."
+	assignment = "Town Laborer"
+	icon_state = "drought_town"
+
+/obj/item/card/id/ms13/drought_barkeep
+	desc = "Stamped identification papers for a citizen of the Barony. This has special clearance for operation of a dining and drinking establishment within the Barony."
+	assignment = "Town Barkeep"
+	icon_state = "drought_town"
+
+/obj/item/card/id/ms13/drought_doctor
+	desc = "Stamped identification papers for a citizen of the Barony. This has special clearance for operation of a clinic and medical duties within the Barony."
+	assignment = "Town Clinician"
+	icon_state = "drought_town"
+	access = list(ACCESS_BARONY_DOCTOR)
+
+/obj/item/card/id/ms13/drought_enforcer
+	name = "enforcer's golden pin"
+	desc = "A gold talon pin, worn by Enforcers of the Baron. An intimidating sight."
+	assignment = "Town Enforcer"
+	icon_state = "drought_enforcer"
+	access = list(ACCESS_BARONY_RESTRICTED, ACCESS_BARONY_DOCTOR)
+
+/obj/item/card/id/ms13/drought_baron
+	name = "\improper Baron's golden pin"
+	desc = "A golden pin with a skull belonging to the Baron himself."
+	icon_state = "baron"
+	assignment = "Town Baron"
+	access = list(ACCESS_BARONY_RESTRICTED, ACCESS_BARON_QUARTERS, ACCESS_BARONY_DOCTOR)
+
+/obj/item/card/id/ms13/drylander
+	name = "\improper Drylander blade"
+	desc = "A tiny, dull blade on a string. This is used to identify members of the Drylander tribe. This belongs to literally no one."
+	assignment = "drylander"
+	icon_state = "leg_recruit" //placeholder
+
+/obj/item/card/id/ms13/drylander/chief
+	desc = "A tiny, dull blade on a string. This is used to identify members of the Drylander tribe. This belongs to the Chieftain."
+	assignment = "Drylander Chieftain"
+
+/obj/item/card/id/ms13/drylander/headtaker
+	desc = "A tiny, dull blade on a string. This is used to identify members of the Drylander tribe. This belongs to a Headtaker."
+	assignment = "Drylander Headtaker"
+
+/obj/item/card/id/ms13/drylander/shaman
+	desc = "A tiny, dull blade on a string. This is used to identify members of the Drylander tribe. This belongs to the Shaman."
+	assignment = "Drylander Shaman"
+
+/obj/item/card/id/ms13/drylander/hunter
+	desc = "A tiny, dull blade on a string. This is used to identify members of the Drylander tribe. This belongs to a Hunter."
+	assignment = "Drylander Hunter"
+
+/obj/item/card/id/ms13/drylander/dryfolk
+	desc = "A tiny, dull blade on a string. This is used to identify members of the Drylander tribe."
+	assignment = "Drylander Folk"
 
 // Brotherhood IDs //
 

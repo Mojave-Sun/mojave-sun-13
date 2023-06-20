@@ -10,43 +10,46 @@
 	worn_icon_state = "empty_placeholder"
 	icon_state = "knife_kitchen"
 	inhand_icon_state = "knife_kitchen"
-	force = 15
+	hitsound = list('mojave/sound/ms13weapons/meleesounds/knife_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/knife_hit2.ogg')
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/knife_pickup.ogg'
+	force = 20
 	throwforce = 15
-	wound_bonus = 8
-	bare_wound_bonus = 6
+	subtractible_armour_penetration = 5
+	edge_protection_penetration = 5
+	wound_bonus = 5
+	bare_wound_bonus = 5
 	embedding = null
 	sharpness = SHARP_EDGED
 	toolspeed = 1.25
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = ITEM_SLOT_BELT
 	log_pickup_and_drop = TRUE
+	grid_width = 64
+	grid_height = 32
+	mining_mult = -0.75
 
 /obj/item/knife/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/melee/melee_inventory.dmi')
 
 /obj/item/knife/ms13/combat
 	name = "combat knife"
-	desc = "A well made, serrated combat knife. Very effective at wounding thanks to it's serrated blade."
+	desc = "A well made, serrated combat knife. Not to be underestimated."
 	icon_state = "knife_bayonet"
 	inhand_icon_state = "knife_bayonet"
-	force = 25
-	armour_penetration = 10
+	force = 30
+	throwforce = 25
+	subtractible_armour_penetration = 20
+	edge_protection_penetration = 10
 	wound_bonus = 10
 	bare_wound_bonus = 10
 	toolspeed = 1.6
-	throwforce = 25
 
 /obj/item/knife/ms13/combat/soviet
-	name = "\improper European combat knife"
-	desc = "A slick, straight back combat knife of European make. Seems quite old, and has a faint engraving reading NKVD. The plain, straight blade reduces it's effectiveness at wounding a target."
+	name = "\improper Soviet combat knife"
+	desc = "A slick, straight back combat knife of Soviet make. Seems quite old, and has a faint engraving reading NKVD."
 	icon_state = "knife_soviet"
 	inhand_icon_state = "knife_soviet"
-	force = 30
-	armour_penetration = 5
-	wound_bonus = 2
-	bare_wound_bonus = 3
-	toolspeed = 1.6
 
 /obj/item/knife/ms13/combat/bowie
 	name = "bowie knife"
@@ -54,21 +57,25 @@
 	icon_state = "knife_bowie"
 	inhand_icon_state = "knife_bowie"
 	force = 35
-	armour_penetration = 10
-	wound_bonus = 4
-	bare_wound_bonus = 4
+	throwforce = 30
+	subtractible_armour_penetration = 25
+	edge_protection_penetration = 10
+	wound_bonus = 10
+	bare_wound_bonus = 5
 	toolspeed = 0.65
-	throwforce = 35
 
 /obj/item/knife/ms13/hunting
 	name = "hunting knife"
 	desc = "A standard hunting knife, a useful tool for anyone in the post apocalypse."
 	icon_state = "knife_hunting"
 	inhand_icon_state = "knife_hunting"
-	force = 20
-	armour_penetration = 5
-	toolspeed = 0.5
+	force = 25
 	throwforce = 20
+	subtractible_armour_penetration = 15
+	edge_protection_penetration = 5
+	wound_bonus = 10
+	bare_wound_bonus = 5
+	toolspeed = 0.5
 
 /obj/item/knife/ms13/hunting/unique
 	name = "\improper Hunter's Pride"
@@ -76,42 +83,36 @@
 	icon_state = "knife_hunting_u"
 	inhand_icon_state = "knife_hunting_u"
 	force = 25
-	armour_penetration = 10
-	wound_bonus = 10
-	bare_wound_bonus = 10
-	toolspeed = 0.35
 	throwforce = 25
+	subtractible_armour_penetration = 25
+	toolspeed = 0.35
 
 /obj/item/knife/ms13/throwingknife
 	name = "throwing knife"
 	desc = "A sharp, pointed knife designed to be thrown."
-	icon = 'mojave/icons/objects/melee/melee_world.dmi'
-	lefthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_left.dmi'
-	righthand_file = 'mojave/icons/mob/inhands/weapons/melee_inhand_right.dmi'
-	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
-	worn_icon_state = "empty_placeholder"
 	icon_state = "knife_throwing"
 	inhand_icon_state = "knife_throwing"
 	force = 15
-	throwforce = 25
+	throwforce = 20
+	subtractible_armour_penetration = 5
+	edge_protection_penetration = 5
 	throw_speed = 4
-	armour_penetration = 10
-	embedding = list("embedded_pain_multiplier" = 2, "embed_chance" = 40, "embedded_fall_chance" = 20)
-	w_class = WEIGHT_CLASS_SMALL
-	slot_flags = ITEM_SLOT_BELT
-	sharpness = SHARP_POINTY
-	tool_behaviour = null
-	wound_bonus = 5
-	bare_wound_bonus = 5
-	log_pickup_and_drop = TRUE
+	embedding = list("embedded_pain_multiplier" = 2, "embed_chance" = 35, "embedded_fall_chance" = 20)
+	sharpness = SHARP_IMPALING
+	tool_behaviour = TOOL_KNIFE
+	toolspeed = 3
+	wound_bonus = -5
+	bare_wound_bonus = 0
 
 /obj/item/knife/ms13/switchblade
 	name = "switchblade"
 	desc = "A slick and concealable switchblade."
 	icon_state = "knife_switch_closed"
 	inhand_icon_state = "knife_switch_closed"
-	wound_bonus = 2
-	bare_wound_bonus = 3
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/general_pickup.ogg'
+	wound_bonus = 10
+	bare_wound_bonus = 5
+	edge_protection_penetration = 5
 	toolspeed = 2
 	var/open = FALSE
 
@@ -124,12 +125,15 @@
 	if(open)
 		attack_verb_continuous = list("slashes", "slices", "tears", "lacerates", "rips", "dices", "cuts")
 		attack_verb_simple = list("slash", "slice", "tear", "lacerate", "rip", "dice", "cut")
-		hitsound = 'sound/weapons/bladeslice.ogg'
+		hitsound = list('mojave/sound/ms13weapons/meleesounds/knife_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/knife_hit2.ogg')
 		force = 20
 		throwforce = 15
+		subtractible_armour_penetration = 10
 		sharpness = SHARP_EDGED
 		w_class = WEIGHT_CLASS_SMALL
 		tool_behaviour = TOOL_KNIFE
+		grid_width = 64
+		grid_height = 32
 
 	else
 		attack_verb_continuous = list("stubs", "pokes")
@@ -137,17 +141,21 @@
 		hitsound = 'sound/weapons/genhit.ogg'
 		force = 5
 		throwforce = 5
+		subtractible_armour_penetration = 0
 		sharpness = NONE
 		w_class = WEIGHT_CLASS_TINY
 		tool_behaviour = null
+		grid_width = 32
+		grid_height = 32
 
 /obj/item/knife/ms13/switchblade/razor
 	name = "straight razor"
 	desc = "A men's shaving tool, now more commonly used to cut throats instead of beards."
 	icon_state = "knife_razor_closed"
 	inhand_icon_state = "knife_razor_closed"
-	wound_bonus = 0
-	bare_wound_bonus = 0
+	wound_bonus = 5
+	bare_wound_bonus = 5
+	edge_protection_penetration = 0
 	toolspeed = 4
 
 /obj/item/knife/ms13/switchblade/razor/attack_self(mob/user)
@@ -159,12 +167,15 @@
 	if(open)
 		attack_verb_continuous = list("slashes", "slices", "tears", "lacerates", "rips", "dices", "cuts")
 		attack_verb_simple = list("slash", "slice", "tear", "lacerate", "rip", "dice", "cut")
-		hitsound = 'sound/weapons/bladeslice.ogg'
+		hitsound = list('mojave/sound/ms13weapons/meleesounds/knife_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/knife_hit2.ogg')
 		force = 15
 		throwforce = 5
+		subtractible_armour_penetration = 5
 		sharpness = SHARP_EDGED
 		w_class = WEIGHT_CLASS_SMALL
 		tool_behaviour = TOOL_KNIFE
+		grid_width = 64
+		grid_height = 32
 
 	else
 		attack_verb_continuous = list("stubs", "pokes")
@@ -172,9 +183,12 @@
 		hitsound = 'sound/weapons/genhit.ogg'
 		force = 5
 		throwforce = 5
+		subtractible_armour_penetration = 0
 		sharpness = NONE
 		w_class = WEIGHT_CLASS_TINY
 		tool_behaviour = null
+		grid_width = 32
+		grid_height = 32
 
 /obj/item/knife/butcher/ms13
 	name = "cleaver"
@@ -186,19 +200,25 @@
 	worn_icon_state = "empty_placeholder"
 	icon_state = "knife_cleaver"
 	inhand_icon_state = "knife_cleaver"
+	hitsound = list('mojave/sound/ms13weapons/meleesounds/blade_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/blade_hit2.ogg')
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/knife_pickup.ogg'
 	force = 25
 	throwforce = 15
-	wound_bonus = 12
-	bare_wound_bonus = 13
+	subtractible_armour_penetration = 10
+	edge_protection_penetration = 5
+	wound_bonus = 15
+	bare_wound_bonus = 10
 	toolspeed = 1
 	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = ITEM_SLOT_BELT
 	sharpness = SHARP_EDGED
 	log_pickup_and_drop = TRUE
+	grid_width = 64
+	grid_height = 64
 
 /obj/item/knife/butcher/ms13/Initialize()
 	. = ..()
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/melee/melee_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/melee/melee_inventory.dmi')
 
 /obj/item/knife/butcher/ms13/unique
 	name = "\improper Chopper"
@@ -208,3 +228,19 @@
 	force = 30
 	wound_bonus = 15
 	bare_wound_bonus = 15
+	toolspeed = 0.75
+
+/obj/item/knife/ms13/tribal
+	name = "improvised shiv"
+	desc = "A makeshift, dangerous looking shiv. No good for cutting someone, but excellent at getting a few stabs in in a pinch."
+	icon_state = "tribal_knife"
+	inhand_icon_state = "tribal_knife"
+	force = 25
+	throwforce = 15
+	subtractible_armour_penetration = 10
+	edge_protection_penetration = 5
+	wound_bonus = 6
+	bare_wound_bonus = 8
+	toolspeed = 1.75
+	sharpness = SHARP_IMPALING
+	tool_behaviour = TOOL_KNIFE

@@ -1,37 +1,37 @@
-/obj/item/ms13/storage/backpack/radiopack
+/obj/item/storage/ms13/radiopack
 	name = "radiopack"
-	icon = 'mojave/icons/objects/clothing/clothing_world/backpack_world.dmi'
-	worn_icon = 'mojave/icons/mob/clothing/back.dmi'
-	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
-	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
+	desc = "A radio backpack primarily in use by the NCR. The peak of NCR communication, when they feel like using it."
+	icon = 'mojave/icons/objects/clothing/clothing_inventory/backpack_inventory.dmi'
 	icon_state = "radiopack"
 	inhand_icon_state = "radiopack"
-	desc = "A radio backpack primarily in use by the NCR. The peak of NCR communication, when they feel like using it."
-	slot_flags = ITEM_SLOT_BACK
-	throw_speed = 3
-	throw_range = 7
-	w_class = WEIGHT_CLASS_NORMAL
-	custom_materials = list(/datum/material/iron=75, /datum/material/glass=25)
+	worn_icon = 'mojave/icons/mob/clothing/back.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/equipment/backpack_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/equipment/backpack_righthand.dmi'
+
+	component_type = /datum/component/storage/concrete/ms13/rad_pack
+	storage_flags = 0
 	var/held = 0
 	var/obj/item/radio/ms13/ncr/radio
 
-/obj/item/ms13/storage/backpack/radiopack/Initialize()
+/obj/item/storage/ms13/radiopack/Initialize()
+	. = ..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	STR.max_w_class = WEIGHT_CLASS_NORMAL
+	STR.max_items = 16
+	STR.max_combined_w_class = 100
+
+/obj/item/storage/ms13/radiopack/PopulateContents()
 	. = ..()
 	radio = new(src)
 	START_PROCESSING(SSobj, src)
-	var/datum/component/storage/STR = AddComponent(/datum/component/storage/concrete)
-	STR.max_w_class = WEIGHT_CLASS_NORMAL
-	STR.max_combined_w_class = 18
-	STR.max_items = 6
-	AddElement(/datum/element/inworld_sprite, 'mojave/icons/objects/clothing/clothing_inventory/backpack_inventory.dmi')
 
-/obj/item/ms13/storage/backpack/radiopack/Destroy()
+/obj/item/storage/ms13/radiopack/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	QDEL_NULL(radio)
 	return ..()
 
 /* Broken ""feature"". Tends to break the radio and/or delete stuff.
-/obj/item/ms13/storage/backpack/radiopack/AltClick(var/mob/living/carbon/user)
+/obj/item/storage/ms13/radiopack/AltClick(var/mob/living/carbon/user)
 	if(src.loc == user)
 		if(!held)
 			if(user.get_item_by_slot(ITEM_SLOT_BACK) == src)
@@ -47,18 +47,18 @@
 	else
 		..() */
 
-/obj/item/ms13/storage/backpack/radiopack/attackby(obj/item/W, mob/user, params)
+/obj/item/storage/ms13/radiopack/attackby(obj/item/W, mob/user, params)
 	if(W == radio)
 		user.dropItemToGround(radio, TRUE)
 	else
 		..()
 
-/obj/item/ms13/storage/backpack/radiopack/dropped(mob/user)
+/obj/item/storage/ms13/radiopack/dropped(mob/user)
 	. = ..()
 	if(held)
 		user.dropItemToGround(radio, TRUE)
 
-/obj/item/ms13/storage/backpack/radiopack/MouseDrop(atom/over_object)
+/obj/item/storage/ms13/radiopack/MouseDrop(atom/over_object)
 	. = ..()
 	if(held)
 		return
@@ -74,7 +74,7 @@
 				var/atom/movable/screen/inventory/hand/H = over_object
 				M.putItemFromInventoryInHandIfPossible(src, H.held_index)
 
-/obj/item/ms13/storage/backpack/radiopack/proc/attach_radio(var/mob/user)
+/obj/item/storage/ms13/radiopack/proc/attach_radio(var/mob/user)
 	if(!radio)
 		radio = new(src)
 	radio.forceMove(src)
@@ -87,19 +87,20 @@
 
 /obj/item/radio/ms13/ncr
 	name = "walkie-talkie"
+	icon = 'mojave/icons/objects/tools/tools_inventory.dmi'
 	icon_state = "handradio"
 	inhand_icon_state = "handradio"
 	desc = "The important bit of the radiopack, this broadcasts and recieves radio messages in high quality with an amplified volume."
-	flags_1 = CONDUCT_1
 	canhear_range = 3
-	freerange = TRUE
-	w_class = WEIGHT_CLASS_SMALL
 	radio_broadcast = RADIOSTATIC_LIGHT
+	static = TRUE
+	grid_height = 32
+	grid_width = 32
 	var/req_radio = TRUE
-	var/obj/item/ms13/storage/backpack/radiopack/radiopack
+	var/obj/item/storage/ms13/radiopack/radiopack
 
 /obj/item/radio/ms13/ncr/Initialize()
-	if(istype(loc, /obj/item/ms13/storage/backpack/radiopack))
+	if(istype(loc, /obj/item/storage/ms13/radiopack))
 		radiopack = loc
 
 	else

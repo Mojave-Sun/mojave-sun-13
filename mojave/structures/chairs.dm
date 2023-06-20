@@ -5,6 +5,7 @@
 	item_chair = /obj/item/chair/ms13
 	layer = BELOW_OBJ_LAYER
 	max_integrity = 100
+	projectile_passchance = 100
 
 /obj/structure/chair/ms13/wrench_act_secondary(mob/living/user, obj/item/weapon)
 	return
@@ -83,7 +84,7 @@
 	desc = "An antique wooden chair with a small green cushion."
 	icon_state = "wood_chair"
 	item_chair = /obj/item/chair/ms13/wood
-	buildstacktype = /obj/item/stack/sheet/ms13/scrap_wood
+	buildstacktype = /obj/item/stack/sheet/ms13/wood/scrap_wood
 	buildstackamount = 1
 
 /obj/structure/chair/ms13/wood/padded
@@ -180,12 +181,19 @@
 
 // Office Chairs //
 
+/obj/structure/chair/office/Moved()
+	. = ..()
+	if(has_gravity())
+		playsound(src, 'mojave/sound/ms13effects/furniture/chair_office_move.ogg', 75, TRUE)
+
 /obj/structure/chair/office/ms13
 	name = "base class Mojave sun office chair"
 	desc = "Scream at the coders if you see this."
 	icon = 'mojave/icons/structure/chairs.dmi'
 	buildstacktype = /obj/item/stack/sheet/ms13/scrap
 	buildstackamount = 1
+	buckle_sound = 'mojave/sound/ms13effects/furniture/chair_office_sit.ogg'
+	unbuckle_sound = 'mojave/sound/ms13effects/furniture/chair_office_standup.ogg'
 	max_integrity = 100
 
 /obj/structure/chair/office/ms13/wrench_act_secondary(mob/living/user, obj/item/weapon)
@@ -227,6 +235,7 @@
 	righthand_file = 'mojave/icons/mob/inhands/misc/chairs_righthand.dmi'
 	custom_materials = null
 	origin_type = /obj/structure/chair/ms13
+	break_chance = 0
 
 // Metal Chair Items //
 

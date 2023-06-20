@@ -169,6 +169,9 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 		L[DNA_FACIAL_HAIR_COLOR_BLOCK] = sanitize_hexcolor(H.facial_hair_color, include_crunch = FALSE)
 		L[DNA_SKIN_TONE_BLOCK] = construct_block(GLOB.skin_tones.Find(H.skin_tone), GLOB.skin_tones.len)
 		L[DNA_EYE_COLOR_BLOCK] = sanitize_hexcolor(H.eye_color, include_crunch = FALSE)
+		// MOJAVE EDIT BEGIN - Fatties
+		L[DNA_FAT_BLOCK] = construct_block(GLOB.fatness_types.Find(H.fatness), GLOB.fatness_types.len)
+		// MOJAVE EDIT END - Fatties
 
 	for(var/blocknum in 1 to DNA_UNI_IDENTITY_BLOCKS)
 		. += L[blocknum] || random_string(GET_UI_BLOCK_LEN(blocknum), GLOB.hex_characters)
@@ -221,8 +224,8 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	mutation_index.Cut()
 	default_mutation_genes.Cut()
 	shuffle_inplace(mutations_temp)
-	mutation_index[RACEMUT] = create_sequence(RACEMUT, FALSE)
-	default_mutation_genes[RACEMUT] = mutation_index[RACEMUT]
+	mutation_index[/datum/mutation/human/race] = create_sequence(/datum/mutation/human/race, FALSE)
+	default_mutation_genes[/datum/mutation/human/race] = mutation_index[/datum/mutation/human/race]
 	for(var/i in 2 to DNA_MUTATION_BLOCKS)
 		var/datum/mutation/human/M = mutations_temp[i]
 		mutation_index[M.type] = create_sequence(M.type, FALSE, M.difficulty)
@@ -302,6 +305,10 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 			set_uni_identity_block(blocknumber, construct_block(GLOB.facial_hairstyles_list.Find(H.facial_hairstyle), GLOB.facial_hairstyles_list.len))
 		if(DNA_HAIRSTYLE_BLOCK)
 			set_uni_identity_block(blocknumber, construct_block(GLOB.hairstyles_list.Find(H.hairstyle), GLOB.hairstyles_list.len))
+		// MOJAVE EDIT BEGIN - Fatties
+		if(DNA_FAT_BLOCK)
+			set_uni_identity_block(blocknumber, construct_block(GLOB.fatness_types.Find(H.fatness), GLOB.fatness_types.len))
+		// MOJAVE EDIT END - Fatties
 
 /datum/dna/proc/update_uf_block(blocknumber)
 	if(!blocknumber)
@@ -399,7 +406,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 				if(-INFINITY to 0)
 					message = span_boldwarning("You can feel your DNA exploding, we need to do something fast!")
 		if(stability <= 0)
-			holder.apply_status_effect(STATUS_EFFECT_DNA_MELT)
+			holder.apply_status_effect(/datum/status_effect/dna_melt)
 		if(message)
 			to_chat(holder, message)
 
@@ -558,6 +565,9 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	eye_color = sanitize_hexcolor(get_uni_identity_block(structure, DNA_EYE_COLOR_BLOCK))
 	facial_hairstyle = GLOB.facial_hairstyles_list[deconstruct_block(get_uni_identity_block(structure, DNA_FACIAL_HAIRSTYLE_BLOCK), GLOB.facial_hairstyles_list.len)]
 	hairstyle = GLOB.hairstyles_list[deconstruct_block(get_uni_identity_block(structure, DNA_HAIRSTYLE_BLOCK), GLOB.hairstyles_list.len)]
+	// MOJAVE EDIT BEGIN - Fatties
+	fatness = GLOB.fatness_types[deconstruct_block(get_uni_identity_block(structure, DNA_FAT_BLOCK), GLOB.fatness_types.len)]
+	// MOJAVE EDIT END - Fatties
 	var/features = dna.unique_features
 	if(dna.features["mcolor"])
 		dna.features["mcolor"] = sanitize_hexcolor(get_uni_feature_block(features, DNA_MUTANT_COLOR_BLOCK))
@@ -698,7 +708,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 		if((!sequence || dna.mutation_in_sequence(A.type)) && !dna.get_mutation(A.type))
 			possible += A.type
 	if(exclude_monkey)
-		possible.Remove(RACEMUT)
+		possible.Remove(/datum/mutation/human/race)
 	if(LAZYLEN(possible))
 		var/mutation = pick(possible)
 		. = dna.activate_mutation(mutation)
@@ -804,7 +814,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 				to_chat(src, span_notice("Oh, I actually feel quite alright!"))
 				reagents.add_reagent(/datum/reagent/aslimetoxin, 10)
 			if(6)
-				apply_status_effect(STATUS_EFFECT_GO_AWAY)
+				apply_status_effect(/datum/status_effect/go_away)
 			if(7)
 				to_chat(src, span_notice("Oh, I actually feel quite alright!"))
 				ForceContractDisease(new/datum/disease/decloning()) //slow acting, non-viral clone damage based GBS

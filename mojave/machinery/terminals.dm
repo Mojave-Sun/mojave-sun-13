@@ -18,20 +18,26 @@
 	density = TRUE
 	var/broken = FALSE // Used for pre-broken terminals
 	var/active = TRUE // These should usually probably start off
-	var/screen_icon = "terminal_screen"
+	var/screen_icon = "terminal_screen" // The icon grabbed for the screen icon overlay
 	var/termtag = "Home" // We use this for flavor.
 	var/termnumber = null // Flavor
 	var/mode = 0 // What page we're on. 0 is the main menu. 1 is the text editor. 2 is the document viewer. 3 is the optional utility page
+	var/system = "ROBCO50" // Flavour text on the top indicating system type. Very awesome stuff.
 	var/prog_notekeeper = TRUE // Almost all consoles have the word processor installed, but we can remove it if we want to
 	var/remote_capability = FALSE // For special terminals that can activate certain things. Wall terminals / The quirky ones with antennas namely
 	var/rigged = FALSE // Ultra cursed var. If true, terminal explodes violently on certain interaction. Delightfully devilish.
+	var/riggable = TRUE // To determine rigging eligibility
 	var/datum/looping_sound/ms13/terminal/soundloop
+	var/password_needed = FALSE
+	var/password
+	var/unlocked = FALSE
 	var/joker_titles = list("Safe codes",
 	"Stash location",
 	"About the safe",
 	"Weapons cache details",
 	"Your payment",
 	"Pickup location",
+	"Something really important",
 	"Looking for a good time",
 	"Power Armor unlock code",
 	"Bunker Location",
@@ -69,6 +75,9 @@
 	var/signal_id_5 = "null"
 	var/signal_title_6 = ""
 	var/signal_id_6 = "null"
+	var/signal_title_single = "" //single use commands
+	var/signal_id_single = "null"
+	var/used = FALSE
 	var/id = null // Currently selected ID
 
 // Notekeeper vars
@@ -78,8 +87,9 @@
 
 /obj/machinery/ms13/terminal/Initialize(mapload)
 	. = ..()
+	register_context()
 	chosen_joker = pick(joker_titles)
-	termnumber = rand(360,620) // VERY unlikely to get two identical numbers.
+	termnumber = "No.[rand(360,620)]" // VERY unlikely to get two identical numbers.
 	FXtoggle()
 	if(!broken)
 		write_documents()
@@ -96,12 +106,13 @@
 /obj/machinery/ms13/terminal/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/scrap(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap(loc, 3)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 3)
-			new /obj/item/stack/sheet/ms13/glass(loc)
-			new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 3)
+			new /obj/item/stack/sheet/ms13/glass(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 4)
 			new /obj/item/stack/sheet/ms13/scrap_copper(loc, 3)
-			new /obj/item/stack/sheet/ms13/circuits(loc)
+			new /obj/item/stack/sheet/ms13/circuits(loc, 2)
+			new /obj/item/ms13/component/vacuum_tube(loc)
 		else
 			new /obj/item/stack/sheet/ms13/scrap(loc)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
@@ -116,6 +127,14 @@
 
 /obj/machinery/ms13/terminal/proc/deconstruction_hints(mob/user)
 	return span_notice("You could use a <b>screwdriver</b> to carefully take apart [src] for parts.")
+
+/obj/machinery/ms13/terminal/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_SCREWDRIVER)
+			context[SCREENTIP_CONTEXT_RMB] = "Disassemble"
+			return CONTEXTUAL_SCREENTIP_SET
 
 /obj/machinery/ms13/terminal/proc/FXtoggle() // For overlays/sound
 	if(!broken && active)
@@ -162,12 +181,30 @@
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
 		return
 
+	if(password_needed && !unlocked)
+		var/guess = tgui_input_text(user, "Enter the password", "Password")
+		if(guess == !password)
+			return
+		if(!guess)
+			return
+		unlocked = TRUE
+		to_chat(user, span_notice("You unlock the computer."))
+
 	var/clicksound = pick('mojave/sound/ms13machines/terminals/ui_hacking_charenter_01.ogg','mojave/sound/ms13machines/terminals/ui_hacking_charenter_02.ogg', 'mojave/sound/ms13machines/terminals/ui_hacking_charenter_03.ogg',)
 	playsound(src, clicksound, 50, FALSE)
 	var/dat = ""
-	dat += "<head><style>body {padding: 0; margin: 15px; background-color: [main_color]; color: [secondary_color]; line-height: 170%;} a, button, a:link, a:visited, a:active, .linkOn, .linkOff {color: [secondary_color]; text-decoration: none; background: [main_color]; border: none; padding: 1px 4px 1px 4px; margin: 0 2px 0 0; cursor:default;} a:hover {color: [main_color]; background: [secondary_color]; border: 1px solid [secondary_color]} a.white, a.white:link, a.white:visited, a.white:active {color: [secondary_color]; text-decoration: none; background: [secondary_color]; border: 1px solid #161616; padding: 1px 4px 1px 4px; margin: 0 2px 0 0; cursor:default;} a.white:hover {color: [main_color]; background: [secondary_color];} .linkOn, a.linkOn:link, a.linkOn:visited, a.linkOn:active, a.linkOn:hover {color: [secondary_color]; background: [main_color]; border-color: [main_color];} .linkOff, a.linkOff:link, a.linkOff:visited, a.linkOff:active, a.linkOff:hover{color: [secondary_color]; background: [main_color]; border-color: [main_color];}</style></head><font face='courier'>"
-	dat += "<center><b>ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM v.92</b><br>"
-	dat += "<b>COPYRIGHT 2075-2077 ROBCO INDUSTRIES</b><br>"
+	dat += "<head><style>body {padding: 0; margin: 15px; background-color: [main_color]; color: [secondary_color]; line-height: 170%;} a, button, a:link, a:visited, a:active, .linkOn, .linkOff {color: [secondary_color]; text-decoration: none; background: [main_color]; border: none; padding: 1px 4px 1px 4px; margin: 0 2px 0 0; cursor: url('default_mousepointer.ico'), default;} a:hover {color: [main_color]; background: [secondary_color]; border: 1px solid [secondary_color]} a.white, a.white:link, a.white:visited, a.white:active {color: [secondary_color]; text-decoration: none; background: [secondary_color]; border: 1px solid #161616; padding: 1px 4px 1px 4px; margin: 0 2px 0 0; cursor: url('default_mousepointer.ico'), default;} a.white:hover {color: [main_color]; background: [secondary_color];} .linkOn, a.linkOn:link, a.linkOn:visited, a.linkOn:active, a.linkOn:hover {color: [secondary_color]; background: [main_color]; border-color: [main_color];} .linkOff, a.linkOff:link, a.linkOff:visited, a.linkOff:active, a.linkOff:hover{color: [secondary_color]; background: [main_color]; border-color: [main_color];}</style></head><font face='courier'>"
+	switch (system)
+		if ("ROBCO50")
+			dat += "<center><b>ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM V.5.0</b><br>"
+			dat += "<b>COPYRIGHT 2075-2077 ROBCO INDUSTRIES</b><br>"
+		if ("ROBCO38")
+			dat += "<center><b>ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM V.3.8</b><br>"
+			dat += "<b>COPYRIGHT 2072-2075 ROBCO INDUSTRIES</b><br>"
+		if ("APRICOT")
+			dat += "<center><b>APRICOT COMPUTING SYSTEM VERSION 4B</b><br>"
+			dat += "<b>COPYRIGHT 2069-2070 APRICOT COMPUTING INC.</b><br>"
+
 	switch (mode) // Text at the top of the page
 		if (0) // If we're on the home page
 			dat += "= [termtag] Terminal [termnumber] =</center>"
@@ -230,6 +267,9 @@
 				dat += "<a href='byond://?src=[REF(src)];choice=signal_five'>\>  [signal_title_5]</a><br>"
 			if(signal_title_6)
 				dat += "<a href='byond://?src=[REF(src)];choice=signal_six'>\>  [signal_title_6]</a><br>"
+			if(signal_title_single && !used)
+				dat += "<a href='byond://?src=[REF(src)];choice=signal_single'>\>  [signal_title_single]</a><br>"
+				used = TRUE
 		dat += "<a href='byond://?src=[REF(src)];choice=Return'>\>  Return</a>"
 
 	dat += "</font></div>"
@@ -249,13 +289,13 @@
 
 // Notekeeper
 			if ("Title")
-				var/t = stripped_multiline_input(U, "Please enter your entry title", name, title, 25)
+				var/t = tgui_input_text(U, "Please enter your entry title", "entry title", max_length = 25)
 				if (in_range(src, U))
 					if (mode == 1 && t)
 						title = t
 
 			if ("Contents")
-				var/n = stripped_multiline_input(U, "Please enter your entry contents", name, note)
+				var/n = tgui_input_text(U, "Please enter your entry contents", "entry contents")
 				if (in_range(src, U))
 					if (mode == 1 && n)
 						note = n
@@ -313,6 +353,7 @@
 				loaded_title = doc_title_5
 				loaded_content = doc_content_5
 				mode = 2
+
 // Signal sender - Should have a few of these just in case.
 			if("signal_one")
 				id = signal_id_1
@@ -338,9 +379,17 @@
 				id = signal_id_6
 				transmit_signal()
 
+			if("signal_single")
+				id = signal_id_single
+				transmit_signal()
+
+// Joker - AKA character killer
 			if("joker") // It's go time. Used for rigged terminals.
-				loaded_title = doc_title_1
-				loaded_content = doc_content_1
+				var/file_in_memory = /datum/terminal/document/joker
+				var/datum/terminal/document/J = new file_in_memory
+
+				loaded_title = J.title
+				loaded_content = J.content
 				mode = 2
 				addtimer(CALLBACK(src, .proc/Boom), 2 SECONDS)
 				message_admins("A rigged terminal has been triggered. [ADMIN_JMP(src)].")
@@ -403,6 +452,24 @@
 /obj/machinery/ms13/terminal/rusty
 	icon_state = "terminal_rusted"
 
+/obj/machinery/ms13/terminal/vault
+	name = "terminal stand"
+	desc = "A multi-monitored heavy duty vault-tec terminal stand. Very uncommon to see anywhere else."
+	icon_state = "terminal_vault"
+	screen_icon = "terminal_vault_screen"
+	termtag = "vault"
+	system = "ROBCO38"
+	light_color = LIGHT_COLOR_DARK_BLUE
+	main_color = "#2b84bb"
+	secondary_color = "#093b4d"
+
+/obj/machinery/ms13/terminal/crafted
+	name = "crafted terminal"
+	desc = "A miracle of man- A terminal that has been locally produced by a wastelander, as can be clearly seen by the quality."
+	icon_state = "terminal_handmade"
+	screen_icon = "terminal_handmade_screen"
+	pixel_y = 12
+
 //// Wall mounted terminals ////
 /obj/machinery/ms13/terminal/wall
 	name = "wall mounted terminal"
@@ -413,6 +480,7 @@
 	termtag = "Utility"
 	active = FALSE
 	density = FALSE
+	riggable = FALSE
 	var/flippable = TRUE
 
 /obj/machinery/ms13/terminal/wall/Initialize(mapload)
@@ -460,6 +528,31 @@
 	base_icon_state = "terminal_classic"
 	screen_icon = "terminal_classic_screen"
 	light_color = LIGHT_COLOR_DARK_BLUE
-	main_color = "#1e3645"
-	secondary_color = "#597d89"
+	main_color = "#1f7cb6"
+	secondary_color = "#012c3b"
 	flippable = FALSE
+	system = "APRICOT"
+
+//// Unique Computers ////
+
+/obj/machinery/ms13/terminal/pristine/mayor
+
+/obj/machinery/ms13/terminal/pristine/mayor/Initialize(mapload)
+	. = ..()
+	password = "[GLOB.fscpassword]"
+
+//// Wasteland Computers ////
+/// Potentially controversial. These are computers that should be primarily scatterd through the wastland. They have a high chance of being inoperable roundstart, and a VERY VERY SLIGHT chance to be visibly rigged to explode. ///
+
+/obj/machinery/ms13/terminal/wasteland
+
+/obj/machinery/ms13/terminal/wasteland/Initialize(mapload)
+/*	if(prob(65))
+		broken = TRUE
+		riggable = FALSE
+		update_icon_state() */
+	if(!riggable)
+		return
+	else if(prob(1)) // Ultra rare pre-rigged terminals. Stay woke out there.
+		rigged = TRUE
+	. = ..()

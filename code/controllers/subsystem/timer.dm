@@ -128,6 +128,8 @@ SUBSYSTEM_DEF(timer)
 		callBack.InvokeAsync()
 
 		if(ctime_timer.flags & TIMER_LOOP)
+			if (QDELETED(ctime_timer)) // Don't re-insert timers deleted inside their callbacks.
+				continue
 			ctime_timer.spent = 0
 			ctime_timer.timeToRun = REALTIMEOFDAY + ctime_timer.wait
 			BINARY_INSERT(ctime_timer, clienttime_timers, /datum/timedevent, ctime_timer, timeToRun, COMPARE_KEY)
@@ -174,6 +176,8 @@ SUBSYSTEM_DEF(timer)
 				last_invoke_tick = world.time
 
 			if (timer.flags & TIMER_LOOP) // Prepare looping timers to re-enter the queue
+				if(QDELETED(timer)) // If a loop is deleted in its callback, we need to avoid re-inserting it.
+					continue
 				timer.spent = 0
 				timer.timeToRun = world.time + timer.wait
 				timer.bucketJoin()
@@ -261,6 +265,7 @@ SUBSYSTEM_DEF(timer)
 	alltimers += second_queue
 
 	for (var/datum/timedevent/t as anything in alltimers)
+		t.timer_subsystem = src // Recovered timers need to be reparented
 		t.bucket_joined = FALSE
 		t.bucket_pos = -1
 		t.prev = null
@@ -331,15 +336,20 @@ SUBSYSTEM_DEF(timer)
 
 
 /datum/controller/subsystem/timer/Recover()
-	//Find the current timer sub-subsystem in global and recover its buckets etc
+	// Find the current timer sub-subsystem in global and recover its buckets etc
 	var/datum/controller/subsystem/timer/timerSS = null
 	for(var/global_var in global.vars)
 		if (istype(global.vars[global_var],src.type))
 			timerSS = global.vars[global_var]
-	second_queue |= timerSS.second_queue
-	hashes |= timerSS.hashes
-	timer_id_dict |= timerSS.timer_id_dict
-	bucket_list |= timerSS.bucket_list
+
+	hashes = timerSS.hashes
+	timer_id_dict = timerSS.timer_id_dict
+
+	bucket_list = timerSS.bucket_list
+	second_queue = timerSS.second_queue
+
+	// The buckets are FUBAR
+	reset_buckets()
 
 /**
  * # Timed Event
