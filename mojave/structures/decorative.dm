@@ -37,6 +37,9 @@
 	desc = "CALL A CODER. CALL A CODER. But not for me. :reachforthesky:"
 	icon = 'mojave/icons/structure/64x64_misc.dmi'
 	icon_state = "base_class"
+	density = FALSE
+	anchored = TRUE
+	opacity = FALSE
 
 /obj/structure/ms13/mammoth_sign
 	name = "\improper Mammoth Lakes sign"
@@ -63,8 +66,7 @@
 	name = "cable"
 	icon = 'mojave/icons/objects/cables.dmi'
 	density = FALSE
-	anchored = TRUE
-	opacity = FALSE
+
 /obj/structure/ms13/cable/red
 	icon_state = "cable_red_straight"
 
