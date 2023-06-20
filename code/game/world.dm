@@ -35,6 +35,8 @@ GLOBAL_VAR(restart_counter)
  */
 /world/New()
 
+	init_byond_tracy()
+
 	log_world("World loaded at [time_stamp()]!")
 
 	make_datum_references_lists() //initialises global lists for referencing frequently used datums (so that we only ever do it once)
@@ -378,6 +380,21 @@ GLOBAL_VAR(restart_counter)
 
 /world/proc/on_tickrate_change()
 	SStimer?.reset_buckets()
+
+/world/proc/init_byond_tracy()
+	var/library
+
+	switch (system_type)
+		if (MS_WINDOWS)
+			library = "prof.dll"
+		if (UNIX)
+			library = "libprof.so"
+		else
+			CRASH("Unsupported platform: [system_type]")
+
+	var/init_result = call(library, "init")()
+	if (init_result != "0")
+		CRASH("Error initializing byond-tracy: [init_result]")
 
 /world/Profile(command, type, format)
 	if((command & PROFILE_STOP) || !global.config?.loaded || !CONFIG_GET(flag/forbid_all_profiling))
