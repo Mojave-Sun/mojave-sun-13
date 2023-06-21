@@ -52,7 +52,7 @@
 /obj/item/food/badrecipe/moldy/ms13/Initialize()
 	. = ..()
 	icon_state = "rot_[rand(1,4)]"
-	AddElement(/datum/element/item_scaling, 0.8, 1)
+	AddElement(/datum/element/item_scaling, 0.7, 1)
 
 //Pre-War Meats
 /* THIS SHIT IS BROKEN!
