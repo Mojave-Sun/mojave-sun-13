@@ -11,7 +11,7 @@
 	scent = "smoke"
 
 /datum/vapours/smoke/BreatheAct(mob/living/carbon/victim, amount)
-	if(amount <= 40)
+	if(amount <= 60)
 		return
 	if(prob(80))
 		victim.emote("cough")
@@ -70,7 +70,7 @@
 /datum/vapours/carbon_air_vapour/BreatheAct(mob/living/carbon/victim, amount)
 	if(victim.body_position == LYING_DOWN)
 		amount *= 0.35 //The victim is inhaling roughly a third when laying down
-	if(amount <= 10)
+	if(amount <= 40)
 		return
 	victim.adjustOxyLoss(rand(10,30))
 	victim.adjustToxLoss(1)
