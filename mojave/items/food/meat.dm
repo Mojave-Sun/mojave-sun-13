@@ -4,6 +4,7 @@
 	icon_state = "meat"
 	drop_sound = 'mojave/sound/ms13items/ms13handling/meat_drop.ogg'
 	pickup_sound =  'mojave/sound/ms13items/ms13handling/meat_pickup.ogg'
+	decomp_type = /obj/item/food/badrecipe/moldy/ms13
 
 /obj/item/food/meat/slab/ms13/Initialize(mapload)
 	. = ..()
@@ -14,6 +15,7 @@
 	icon_state = "meat_roasted"
 	drop_sound = 'mojave/sound/ms13items/ms13handling/meat_drop.ogg'
 	pickup_sound =  'mojave/sound/ms13items/ms13handling/meat_pickup.ogg'
+	decomp_type = /obj/item/food/badrecipe/moldy/ms13
 
 /obj/item/food/meat/steak/plain/ms13/Initialize(mapload)
 	. = ..()
@@ -24,6 +26,7 @@
 	icon_state = "meatcube"
 	drop_sound = 'mojave/sound/ms13items/ms13handling/meat_drop.ogg'
 	pickup_sound =  'mojave/sound/ms13items/ms13handling/meat_pickup.ogg'
+	decomp_type = /obj/item/food/badrecipe/moldy/ms13
 
 /obj/item/food/meat/rawcutlet/plain/ms13/Initialize(mapload)
 	. = ..()
@@ -34,10 +37,22 @@
 	icon_state = "meatcube_roasted"
 	drop_sound = 'mojave/sound/ms13items/ms13handling/meat_drop.ogg'
 	pickup_sound =  'mojave/sound/ms13items/ms13handling/meat_pickup.ogg'
+	decomp_type = /obj/item/food/badrecipe/moldy/ms13
 
 /obj/item/food/meat/cutlet/plain/ms13/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/item_scaling, 0.50, 1)
+
+/obj/item/food/badrecipe/moldy/ms13
+	name = "rotten mess"
+	desc = "A disgusting pile of moldy, rotten food. Some poor desperate wasteland soul would probably still eat this."
+	icon = 'mojave/icons/effects/gurps.dmi'
+	icon_state = "rot_1"
+
+/obj/item/food/badrecipe/moldy/ms13/Initialize()
+	. = ..()
+	icon_state = "rot_[rand(1,4)]"
+	AddElement(/datum/element/item_scaling, 0.8, 1)
 
 //Pre-War Meats
 /* THIS SHIT IS BROKEN!
