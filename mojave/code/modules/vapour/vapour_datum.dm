@@ -81,16 +81,17 @@
 	var/turf/upper_open_check = get_step_multiz(my_turf, UP) // check if up is outside//if we are at the top Z level
 	var/obj/effect/upper_inside_check = get_step_multiz(my_turf, UP) // check if up is inside// if we are at the top Z and inside
 	var/area/ms13/area_check = get_area(my_turf) //check for indoor/outdoor areas and what they change
-	if(amount_to_scrub >= total_amount)
-		qdel(src)
-		return
 	if(!upper_open_check && !istype(upper_inside_check, /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter)) //We are at the highest z-level and outside
 		qdel(src) //floats into the sky
 		return
 	if(planetary_multiplier && upper_open_check && istype(upper_open_check, /turf/open/openspace) && !istype(upper_inside_check, /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter)) //Dissipate faster when outside openspace is above
-		amount_to_scrub *= VAPOUR_DISSIPATION_OUTDOOR_MULTIPLIER
+		if(area_check == /area/ms13 || /area/ms13/desert || /area/ms13/legioncamp || /area/ms13/drylanders || /area/ms13/rangeroutpost || /area/ms13/water_baron || /area/ms13 || /area/ms13/snow/lightforest || /area/ms13/snow/forest || /area/ms13/snow/deepforest || /area/ms13/snow)
+			amount_to_scrub *= VAPOUR_DISSIPATION_OUTDOOR_MULTIPLIER
 	if(area_check.dissipation_rate > 1 || area_check.dissipation_rate < 1) //if its unchanged, ignore
 		amount_to_scrub *= area_check.dissipation_rate
+	if(amount_to_scrub >= total_amount)
+		qdel(src)
+		return
 	for(var/type in vapours_t)
 		vapours_t[type] -= amount_to_scrub * vapours_t[type] / total_amount
 	total_amount -= amount_to_scrub
@@ -232,7 +233,7 @@
 	if(!total_thickness || total_thickness < VAPOUR_APPEARANCE_THICKNESS_THRESHOLD)
 		return
 
-	var/mutable_appearance/overlay = mutable_appearance('mojave/icons/effects/smoke.dmi', "smoke", FLY_LAYER, VAPOUR_PLANE, appearance_flags = KEEP_APART|RESET_TRANSFORM|RESET_COLOR)
+	var/mutable_appearance/overlay = mutable_appearance('mojave/icons/effects/smoke.dmi', "smoke", VAPOUR_LAYER, VAPOUR_PLANE, appearance_flags = KEEP_APART|RESET_TRANSFORM|RESET_COLOR)
 	overlay.pixel_x = -8
 	overlay.pixel_y = 6
 	overlay.alpha = FLOOR(vapours.alpha * total_thickness * THICKNESS_ALPHA_COEFFICIENT, 1)
