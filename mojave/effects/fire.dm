@@ -128,10 +128,10 @@
 		return
 	adjust_fire_stacks(burnlevel) //If i stand in the fire i deserve all of this. Also Napalm stacks quickly.
 	IgniteMob()
-	adjustFireLoss(rand(10 , burnlevel)) //Including the fire should be way stronger.
+	adjustFireLoss(rand(5 , burnlevel)) //Including the fire should be way stronger.
 	to_chat(src, "<span class='warning'>You are burned!</span>")
 
-/proc/flame_radius(radius = 1, turf/epicenter, burn_intensity = 25, burn_duration = 25, burn_damage = 25, fire_stacks = 15, int_var = 0.5, dur_var = 0.5, colour = "red") //~Art updated fire.
+/proc/flame_radius(radius = 1, turf/epicenter, burn_intensity = 15, burn_duration = 40, burn_damage = 8, fire_stacks = 8, int_var = 0.5, dur_var = 0.5, colour = "red") //~Art updated fire.
 	if(!isturf(epicenter))
 		CRASH("flame_radius used without a valid turf parameter")
 	for(var/T in filled_turfs(epicenter, radius, "circle"))
