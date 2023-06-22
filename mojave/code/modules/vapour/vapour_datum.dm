@@ -78,22 +78,34 @@
 		to_chat(sniffer, span_notice(smell_string))
 
 /datum/vapour/proc/ScrubAmount(amount_to_scrub, update_active = TRUE, planetary_multiplier = FALSE)
-	var/turf/upper_open_check = get_step_multiz(my_turf, UP) // check if up is outside//if we are at the top Z level
-	var/obj/effect/upper_inside_check = get_step_multiz(my_turf, UP) // check if up is inside// if we are at the top Z and inside
-	var/area/ms13/area_check = get_area(my_turf) //check for indoor/outdoor areas and what they change
-	if(!upper_open_check && !istype(upper_inside_check, /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter)) //We are at the highest z-level and outside
-		qdel(src) //floats into the sky
-		return
-	if(planetary_multiplier && upper_open_check && istype(upper_open_check, /turf/open/openspace) && !istype(upper_inside_check, /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter)) //Dissipate faster when outside openspace is above
-		if(area_check == /area/ms13 || /area/ms13/desert || /area/ms13/legioncamp || /area/ms13/drylanders || /area/ms13/rangeroutpost || /area/ms13/water_baron || /area/ms13 || /area/ms13/snow/lightforest || /area/ms13/snow/forest || /area/ms13/snow/deepforest || /area/ms13/snow)
+	var/turf/upper_open_check = get_step_multiz(my_turf, UP) // z level above, if there is none this is the highest level
+	var/obj/effect/upper_inside_check = locate(/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter) in my_turf // roof
+	var/area/ms13/area_check = get_area(my_turf) //check for indoor/outdoor areas for the planetary multiplier to apply
+	//Dissipate faster when outdoors (no roof, openspace above us or highest z level)
+	if(planetary_multiplier && !upper_inside_check && (!upper_open_check || istype(upper_open_check, /turf/open/openspace)))
+		//This really should use a blacklist not a fucking whitelist, but whatever
+		var/static/list/area_whitelist = list(
+			/area/ms13 = TRUE,
+			/area/ms13/desert = TRUE,
+			/area/ms13/legioncamp = TRUE,
+			/area/ms13/drylanders = TRUE,
+			/area/ms13/rangeroutpost = TRUE,
+			/area/ms13/water_baron = TRUE,
+			/area/ms13/snow = TRUE,
+			/area/ms13/snow/forest = TRUE,
+			/area/ms13/snow/lightforest = TRUE,
+			/area/ms13/snow/deepforest = TRUE,
+		)
+		if(area_whitelist[area_check.type])
 			amount_to_scrub *= VAPOUR_DISSIPATION_OUTDOOR_MULTIPLIER
-	if(area_check.dissipation_rate > 1 || area_check.dissipation_rate < 1) //if its unchanged, ignore
-		amount_to_scrub *= area_check.dissipation_rate
+	amount_to_scrub *= area_check.dissipation_rate
+	//check if we can survive the scrubbing
 	if(amount_to_scrub >= total_amount)
+		//it's over
 		qdel(src)
 		return
 	for(var/type in vapours_t)
-		vapours_t[type] -= amount_to_scrub * vapours_t[type] / total_amount
+		vapours_t[type] -= amount_to_scrub * (vapours_t[type] / total_amount)
 	total_amount -= amount_to_scrub
 	UpdateHeight()
 	HandleOverlay()
