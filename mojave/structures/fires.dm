@@ -43,14 +43,14 @@
 
 /obj/structure/bonfire/ms13/campfire/process(delta_time)
 	. = ..()
-	var/turf/open/gassy_turf = get_turf(src)
-	if(!istype(gassy_turf))
+	var/turf/open/my_turf = get_turf(src)
+	if(!istype(my_turf))
 		return
-	//TOO GASSY, STOP, LET IT SPREAD OUT AT LEAST JESUS CHRIST
-	if(gassy_turf.vapour?.total_amount >= 160)
+	//Lets the vapour spread out
+	if(my_turf.vapour?.total_amount >= 160)
 		return
 	//a campfire emits 4x what a turf fire does (very gassy)
-	gassy_turf.VapourListTurf(list(/datum/vapours/smoke = 60, /datum/vapours/carbon_air_vapour = 20), VAPOUR_ACTIVE_EMITTER_CAP)
+	my_turf.VapourListTurf(list(/datum/vapours/smoke = 60, /datum/vapours/carbon_air_vapour = 20), VAPOUR_ACTIVE_EMITTER_CAP)
 
 /obj/structure/bonfire/ms13/campfire/attackby(obj/item/used_item, mob/living/user, params)
 	if(used_item.get_temperature())
@@ -82,9 +82,11 @@
 /obj/structure/bonfire/ms13/fire_barrel/process(delta_time)
 	. = ..()
 	var/turf/open/my_turf = get_turf(src)
-	if(my_turf.vapour)
-		if(my_turf.vapour.total_amount >= 90)
-			return
+	if(!istype(my_turf))
+		return
+	//Lets the vapour spread out
+	if(my_turf.vapour?.total_amount >= 90)
+		return
 	my_turf.VapourListTurf(list(/datum/vapours/smoke = 30, /datum/vapours/carbon_air_vapour = 5), VAPOUR_ACTIVE_EMITTER_CAP)
 
 /obj/structure/bonfire/ms13/fire_barrel/deconstruct(disassembled = TRUE)

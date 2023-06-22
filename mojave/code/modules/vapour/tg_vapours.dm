@@ -70,8 +70,9 @@
 /datum/vapours/carbon_air_vapour/BreatheAct(mob/living/carbon/victim, amount)
 	if(victim.body_position == LYING_DOWN)
 		amount *= 0.35 //The victim is inhaling roughly a third when laying down
-	if(amount <= 40)
+	if(amount <= 20)
 		return
+	victim.throw_alert_text(/atom/movable/screen/alert/text/dead, "You can barely breathe! Get out of here!", override = FALSE)
 	victim.adjustOxyLoss(rand(10,30))
 	victim.adjustToxLoss(1)
 	if(prob(amount))

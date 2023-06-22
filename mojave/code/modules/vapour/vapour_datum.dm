@@ -100,8 +100,8 @@
 		)
 		if(area_whitelist[area_check.type])
 			amount_to_scrub *= SSvapour.vapour_dissipation_outdoor_multiplier
-	amount_to_scrub *= area_check.dissipation_rate
 	amount_to_scrub *= SSvapour.vapour_dissipation_multiplier
+	amount_to_scrub *= area_check.dissipation_rate
 	//check if we can survive the scrubbing
 	if(amount_to_scrub >= total_amount)
 		//it's over
