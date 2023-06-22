@@ -140,6 +140,7 @@
 	update_appearance()
 	set_opacity(0)
 	operating = FALSE
+	air_update_turf(TRUE, FALSE)
 	update_freelook_sight()
 	playsound(src, (opensound), 50, TRUE)
 	return TRUE
