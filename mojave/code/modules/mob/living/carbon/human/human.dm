@@ -1,5 +1,6 @@
 /mob/living/carbon/human
 	var/rotting = FALSE //dead body stink
+	var/pre_spawn = FALSE
 
 /mob/living/carbon/human/Initialize(mapload)
 	. = ..()
@@ -26,9 +27,9 @@
 
 /mob/living/carbon/human/death(gibbed)
 	. = ..()
-	if(stat == DEAD & !PRE_SPAWN)
+	if(stat == DEAD && !pre_spawn)
 		addtimer(CALLBACK(src, .proc/rot), rand(30 MINUTES, 45 MINUTES))
-	if(stat == DEAD & PRE_SPAWN)
+	if(stat == DEAD && pre_spawn)
 		addtimer(CALLBACK(src, .proc/rot), rand(75 MINUTES, 90 MINUTES))
 
 /mob/living/carbon/human/proc/rot()
