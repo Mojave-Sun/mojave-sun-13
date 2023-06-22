@@ -24,7 +24,7 @@
 
 #define SMELL_COOLDOWN 30 SECONDS
 
-#define VAPOUR_DISSIPATION_OUTDOOR_MULTIPLIER 360 //dissipation runs every TICKS_TO_DISSIPATE ticks so this needs to be quite high
+#define VAPOUR_DISSIPATION_OUTDOOR_MULTIPLIER 3 //dissipation runs every TICKS_TO_DISSIPATE, remember that
 
 //Bitflags for vapours
 ///VAPOUR has an appearance

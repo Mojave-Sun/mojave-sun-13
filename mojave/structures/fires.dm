@@ -43,9 +43,13 @@
 
 /obj/structure/bonfire/ms13/campfire/process(delta_time)
 	. = ..()
-	if(my_turf.vapour?.total_amount >= 160)
+	var/turf/open/gassy_turf = get_turf(src)
+	if(!istype(gassy_turf))
 		return
-	my_turf.VapourListTurf(list(/datum/vapours/smoke = 30, /datum/vapours/carbon_air_vapour = 10), VAPOUR_ACTIVE_EMITTER_CAP)
+	if(gassy_turf.vapour?.total_amount >= 160)
+		return
+	//a campfire emits 4x what a turf fire does (very gassy)
+	gassy_turf.VapourListTurf(list(/datum/vapours/smoke = 60, /datum/vapours/carbon_air_vapour = 20), VAPOUR_ACTIVE_EMITTER_CAP)
 
 /obj/structure/bonfire/ms13/campfire/attackby(obj/item/used_item, mob/living/user, params)
 	if(used_item.get_temperature())
