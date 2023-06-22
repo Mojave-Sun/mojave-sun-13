@@ -5,11 +5,12 @@
 	circuit = null
 	light_power = 0
 	active = 0
+	max_integrity = 350
 	var/loot_inside //amount of times you can rummage in here/what you can get
 	//loot tables and chances
-	var/rare_chance = 25
+	var/rare_chance = 20
 	var/list/loot_rare
-	var/high_chance = 25
+	var/high_chance = 30
 	var/list/loot_high
 	var/medium_chance = 50
 	var/list/loot_medium
@@ -19,7 +20,7 @@
 
 /obj/machinery/vending/ms13/Initialize(mapload)
 	. = ..()
-	loot_inside = rand(0, 3)
+	loot_inside = rand(0, 5)
 	if(loot_inside == 0)
 		desc = "[desc] It seems to be empty."
 
@@ -33,16 +34,16 @@
 		to_chat(user, span_notice("You start rumamging your hand around in [src] flap, trying to get something out!</span>"))
 		tell_em = TRUE
 		playsound(src, 'mojave/sound/ms13effects/vending_rattle.ogg', 100, TRUE)
-	if(do_after(user, 20 SECONDS, src))
+	if(do_after(user, 16 SECONDS, src))
 		tell_em = FALSE
 		playsound(src, 'mojave/sound/ms13effects/vending_rattle.ogg', 100, TRUE)
 		var/obj/item/vend_loot
 		var/whathappens = (rand(1,100))
 		switch(whathappens)
-			if(1 to 25) //nothing
+			if(1 to 24) //nothing
 				to_chat(user, span_danger("You feel a slight discomfort and feel nothing in reach.</span>"))
 				return
-			if(26 to 74) //winner winner
+			if(25 to 79) //winner winner
 				var/chance = pick_weight(list("medium" = medium_chance, "high" = high_chance, "rare" = rare_chance))
 				switch(chance)
 					if("medium")
@@ -52,11 +53,11 @@
 					if("rare")
 						vend_loot = pick_weight(loot_rare)
 				var/obj/item/vend_loot_name = new vend_loot(loc)
-				to_chat(user, span_green("You rummage around a feel something inside, you carefully pull out \a [vend_loot_name.name]!"))
+				to_chat(user, span_green("You rummage around and feel something inside, you carefully pull out \a [vend_loot_name.name]!"))
 				user.put_in_active_hand(vend_loot)
 				loot_inside -= 1
 				return
-			if(75 to 100) //arm break
+			if(80 to 100) //arm break
 				var/mob/living/carbon/vender_victim = user
 				var/obj/item/bodypart/affecting = vender_victim.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
 				to_chat(user, span_danger("You feel a horrible pain as your arm gets stuck in the [src]s [pick("mechanisms", "parts", "gears")]!"))
@@ -69,9 +70,9 @@
 
 /obj/machinery/vending/ms13/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
-		new /obj/item/stack/sheet/ms13/scrap_steel(loc, 1)
-		new /obj/item/stack/sheet/ms13/scrap_alu(loc, 2)
-		new /obj/item/stack/sheet/ms13/scrap_alu(loc, 2)
+		new /obj/item/stack/sheet/ms13/scrap_steel(loc, 3)
+		new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 2)
+		new /obj/item/stack/sheet/ms13/scrap_parts(loc, 2)
 	if(loot_inside > 0)
 		for(var/B = 1 to loot_inside)
 			var/obj/item/vend_loot
@@ -130,9 +131,3 @@
 	loot_high = CIGARETTE_VENDOR_DROP_HIGH
 	loot_medium = CIGARETTE_VENDOR_DROP_MEDIUM
 	loot_low = CIGARETTE_VENDOR_DROP_LOW
-
-/obj/machinery/vending/ms13/cigarettes/deconstruct(disassembled)
-	if(!(flags_1 & NODECONSTRUCT_1))
-		new /obj/item/stack/sheet/ms13/scrap_steel(loc, 1)
-		new /obj/item/stack/sheet/ms13/scrap_alu(loc, 2)
-		new /obj/item/stack/sheet/ms13/scrap_alu(loc, 2)
