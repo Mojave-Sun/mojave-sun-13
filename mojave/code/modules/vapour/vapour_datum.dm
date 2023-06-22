@@ -81,12 +81,8 @@
 	var/turf/upper_open_check = get_step_multiz(my_turf, UP) // z level above, if there is none this is the highest level
 	var/obj/effect/upper_inside_check = locate(/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter) in my_turf // roof
 	var/area/ms13/area_check = get_area(my_turf) //check for indoor/outdoor areas for the planetary multiplier to apply
-	if(!upper_open_check && !upper_inside_check)
-		//We don't have a roof, and we are on the highest z level!
-		qdel(src) //float into the sky
-		return
-	//Dissipate faster when outside openspace is above us
-	if(planetary_multiplier && !upper_inside_check && istype(upper_open_check, /turf/open/openspace))
+	//Dissipate faster when outdoors (no roof, openspace above us or highest z level)
+	if(planetary_multiplier && !upper_inside_check && (!upper_open_check || istype(upper_open_check, /turf/open/openspace)))
 		//This really should use a blacklist not a fucking whitelist, but whatever
 		var/static/list/area_whitelist = list(
 			/area/ms13 = TRUE,
