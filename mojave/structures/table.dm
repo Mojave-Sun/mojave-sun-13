@@ -1,7 +1,7 @@
 // Metal Smoothing Tables //
 
 /obj/structure/table/ms13
-	name = "table"
+	name = "base class Mojave Sun table"
 	desc = "Scream at the coders if you see this."
 	buildstack = null
 	custom_materials = null

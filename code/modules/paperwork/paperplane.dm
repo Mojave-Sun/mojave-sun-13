@@ -113,7 +113,7 @@
 
 /obj/item/paper/examine(mob/user)
 	. = ..()
-	///. += span_notice("Alt-click [src] to fold it into a paper plane.") MOJAVE SUN EDIT - shit yourself
+	. += span_notice("Alt-click [src] to fold it into a paper plane.")
 
 /obj/item/paper/AltClick(mob/living/user, obj/item/I)
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))

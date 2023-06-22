@@ -13,11 +13,7 @@
 	if(client)
 		client.images.Remove(frill_oval_mask)
 	frill_oval_mask = null
-	//MOJAVE SUN EDIT - Wallening Testmerge/Vapour
-	if(client)
-		client.images.Remove(vapour_alpha_mask)
-	vapour_alpha_mask = null
-	//MOJAVE SUN EDIT - Vapour
+	//MOJAVE SUN EDIT - Wallening Testmerge
 	..()
 
 	if(loc)

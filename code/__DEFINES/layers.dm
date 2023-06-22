@@ -44,9 +44,6 @@
 
 #define ABOVE_GAME_PLANE -20
 
-#define VAPOUR_PLANE -13 //MOJAVE SUN EDIT - Vapour
-#define VAPOUR_PLANE_RENDER_TARGET "MOUSE_TRANSPARENT_PLANE" //MOJAVE SUN EDIT - Vapour
-
 #define UNDER_FRILL_PLANE -12 //MOJAVE SUN EDIT - Wallening Testmerge
 #define UNDER_FRILL_RENDER_TARGET "*UNDER_RENDER_TARGET" //MOJAVE SUN EDIT - Wallening Testmerge
 #define FRILL_PLANE -11 //MOJAVE SUN EDIT - Wallening Testmerge
@@ -137,7 +134,7 @@
 //#define FLY_LAYER 5 //For easy recordkeeping; this is a byond define
 #define GASFIRE_LAYER 5.05
 #define RIPPLE_LAYER 5.1
-#define VAPOUR_LAYER 5.2 //MOJAVE SUN EDIT - Vapour
+
 
 #define BLACKNESS_PLANE 0 //To keep from conflicts with SEE_BLACKNESS internals
 
@@ -246,5 +243,3 @@
 
 ///Plane master controller keys
 #define PLANE_MASTERS_GAME "plane_masters_game"
-#define PLANE_MASTERS_NON_MASTER "plane_masters_non_master" //MOJAVE EDIT ADDITION - Plane Upstream
-#define PLANE_MASTERS_COLORBLIND "plane_masters_colorblind" //MOJAVE EDIT ADDITION - Plane Upstream
