@@ -162,6 +162,7 @@
 	if(visible && !glass)
 		set_opacity(1)
 	operating = FALSE
+	air_update_turf(TRUE, FALSE)
 	update_freelook_sight()
 	playsound(src, (closesound), 50, TRUE)
 	return TRUE
