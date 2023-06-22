@@ -1,3 +1,5 @@
+#define SPREAD_PROBABILITY 50
+
 /datum/vapour
 	/// Reference to the turf we're on
 	var/turf/open/my_turf
@@ -160,12 +162,15 @@
 	var/list/already_processed_cache = SSvapour.processed_this_run
 	var/list/potential_activers = list()
 	for(var/turf/open/open_turf as anything in my_turf.atmos_adjacent_turfs)
-		if(!already_processed_cache[open_turf])
+		if(!already_processed_cache[open_turf] && prob(SPREAD_PROBABILITY))
 			if(CanShareWith(open_turf))
 				sharing_turfs[open_turf] = TRUE
 			else
 				potential_activers[open_turf] = TRUE
 	if(!sharing_turfs.len)
+		for(var/turf/open/open_turf as anything in potential_activers)
+			if(open_turf.vapour?.CanShareWith(my_turf))
+				SET_ACTIVE_VAPOUR(open_turf.vapour)
 		SET_UNACTIVE_VAPOUR(src)
 		return
 	sharing_turfs[my_turf] = TRUE
@@ -258,3 +263,5 @@
 	for(var/turf/open/open_turf as anything in atmos_adjacent_turfs)
 		if(open_turf.vapour)
 			SET_ACTIVE_VAPOUR(open_turf.vapour)
+
+#undef SPREAD_PROBABILITY
