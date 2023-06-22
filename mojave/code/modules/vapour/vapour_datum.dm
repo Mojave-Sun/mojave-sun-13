@@ -78,11 +78,11 @@
 		to_chat(sniffer, span_notice(smell_string))
 
 /datum/vapour/proc/ScrubAmount(amount_to_scrub, update_active = TRUE, planetary_multiplier = FALSE)
-	var/turf/upper_open_check = get_step_multiz(my_turf, UP) // z level above, if there is none this is the highest level
-	var/obj/effect/upper_inside_check = locate(/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter) in my_turf // roof
+	var/turf/above_turf = get_step_multiz(my_turf, UP) // z level above, if there is none this is the highest level
+	var/pseudo_roof = my_turf.pseudo_roof // roof
 	var/area/ms13/area_check = get_area(my_turf) //check for indoor/outdoor areas for the planetary multiplier to apply
 	//Dissipate faster when outdoors (no roof, openspace above us or highest z level)
-	if(planetary_multiplier && !upper_inside_check && (!upper_open_check || istype(upper_open_check, /turf/open/openspace)))
+	if(planetary_multiplier && !pseudo_roof && (!above_turf || istype(above_turf, /turf/open/openspace)))
 		//This really should use a blacklist not a fucking whitelist, but whatever
 		var/static/list/area_whitelist = list(
 			/area/ms13 = TRUE,
@@ -97,8 +97,9 @@
 			/area/ms13/snow/deepforest = TRUE,
 		)
 		if(area_whitelist[area_check.type])
-			amount_to_scrub *= VAPOUR_DISSIPATION_OUTDOOR_MULTIPLIER
+			amount_to_scrub *= SSvapour.vapour_dissipation_outdoor_multiplier
 	amount_to_scrub *= area_check.dissipation_rate
+	amount_to_scrub *= SSvapour.vapour_dissipation_multiplier
 	//check if we can survive the scrubbing
 	if(amount_to_scrub >= total_amount)
 		//it's over
@@ -199,7 +200,7 @@
 		cached_vapour.height = new_heights
 		SET_ACTIVE_VAPOUR(cached_vapour)
 	for(var/turf/open/open_turf as anything in potential_activers)
-		if(open_turf.vapour && open_turf.vapour.CanShareWith(my_turf))
+		if(open_turf.vapour?.CanShareWith(my_turf))
 			SET_ACTIVE_VAPOUR(open_turf.vapour)
 
 /datum/vapour/proc/CanShareWith(turf/open/shareto)

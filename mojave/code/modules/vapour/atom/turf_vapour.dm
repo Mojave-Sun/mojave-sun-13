@@ -1,9 +1,6 @@
 //open_turfs
 
 /turf/open/VapourTurf(vapours_type, amount, cap)
-	var/turf/upper_open_check = get_step_multiz(src, UP) // check if outside
-	if(upper_open_check && istype(upper_open_check, /turf/open/openspace))
-		return //dont Vapour
 	if(!vapour)
 		vapour = new(src)
 	if(cap && vapour.total_amount >= cap)
