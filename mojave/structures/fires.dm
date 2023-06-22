@@ -46,7 +46,8 @@
 	var/turf/open/gassy_turf = get_turf(src)
 	if(!istype(gassy_turf))
 		return
-	if(gassy_turf.vapour?.total_amount >= 160)
+	//TOO GASSY, STOP, LET IT SPREAD OUT AT LEAST JESUS CHRIST
+	if(gassy_turf.vapour?.total_amount >= 150)
 		return
 	//a campfire emits 4x what a turf fire does (very gassy)
 	gassy_turf.VapourListTurf(list(/datum/vapours/smoke = 60, /datum/vapours/carbon_air_vapour = 20), VAPOUR_ACTIVE_EMITTER_CAP)
