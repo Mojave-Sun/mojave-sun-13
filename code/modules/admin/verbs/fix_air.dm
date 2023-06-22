@@ -19,7 +19,3 @@
 			GM.parse_gas_string(F.initial_gas_mix)
 			F.copy_air(GM)
 			F.update_visuals()
-			//MOJAVE SUN EDIT - Vapour
-			if(F.vapour)
-				qdel(F.vapour)
-			//MOJAVE SUN EDIT - Vapour

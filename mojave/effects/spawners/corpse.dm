@@ -13,7 +13,6 @@
 
 /datum/outfit/job/ms13/wasteland/corpse/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.stat += PRE_SPAWN
 	if(prob(65))
 		head = pick(
 		/obj/item/clothing/head/helmet/ms13/cowboy/black,\

@@ -1134,8 +1134,8 @@
  * Arguments:
  * * clean_types: any of the CLEAN_ constants
  */
-/atom/proc/wash(clean_types, mob/living/user, obj/washthing) //MOJAVE SUN EDIT - Who is the washer
-	//SHOULD_CALL_PARENT(TRUE) MOJAVE SUN EDIT - No, I dont think it should
+/atom/proc/wash(clean_types)
+	SHOULD_CALL_PARENT(TRUE)
 
 	. = FALSE
 	if(SEND_SIGNAL(src, COMSIG_COMPONENT_CLEAN_ACT, clean_types) & COMPONENT_CLEANED)

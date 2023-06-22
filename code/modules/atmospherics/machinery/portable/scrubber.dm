@@ -69,11 +69,6 @@
 
 	var/atom/target = holding || get_turf(src)
 	scrub(target.return_air())
-	//MOJAVE SUN EDIT - Vapour
-	for(var/turf/open/open_turf in view(3, src))
-		if(open_turf.vapour)
-			open_turf.vapour.ScrubAmount(10) //VAPOUR_HEIGHT_DIVISOR
-	//MOJAVE SUN EDIT - Vapour
 
 
 	return ..()

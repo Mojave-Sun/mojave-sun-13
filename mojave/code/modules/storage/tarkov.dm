@@ -112,31 +112,6 @@
 	screen_start_y = 4
 	screen_start_x = 17
 
-/datum/component/storage/concrete/ms13/cigarettes //for cig packs
-	screen_max_columns = 4
-	screen_max_rows = 2
-	screen_start_y = 4
-	screen_start_x = 8
-	rustle_sound = FALSE
-
-/datum/component/storage/concrete/ms13/matchbox //for matchboxes
-	screen_max_columns = 5
-	screen_max_rows = 4
-	screen_start_y = 5
-	screen_start_x = 14
-	rustle_sound = FALSE
-
-/datum/component/storage/concrete/ms13/ashtray //for ashtrays
-	screen_max_columns = 4
-	screen_max_rows = 4
-	screen_start_y = 5
-	screen_start_x = 13
-	rustle_sound = FALSE
-
-/datum/component/storage/concrete/ms13/ashtray/Initialize()
-	. = ..()
-	set_holdable(list(/obj/item/ms13/cigarette/butt, /obj/item/ms13/ash))
-
 /datum/component/storage/concrete/ms13/shoes
 	screen_max_columns = 1
 	screen_max_rows = 2
