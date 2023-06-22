@@ -43,18 +43,9 @@
 
 /obj/structure/bonfire/ms13/campfire/process(delta_time)
 	. = ..()
-	var/turf/open/my_turf = get_turf(src)
-	var/turf/upper_open_check = get_step_multiz(my_turf, UP) // check if up is outside//if we are at the top Z level
-	if(upper_open_check && istype(upper_open_check, /turf/open/openspace)) //outside, less smog, blown away or something
-		if(my_turf.vapour)
-			if(my_turf.vapour.total_amount >= 160)
-				return
-		my_turf.VapourListTurf(list(/datum/vapours/smoke = 80, /datum/vapours/carbon_air_vapour = 30), VAPOUR_ACTIVE_EMITTER_CAP)
-	else
-		if(my_turf.vapour)
-			if(my_turf.vapour.total_amount >= 300)
-				return
-		my_turf.VapourListTurf(list(/datum/vapours/smoke = 150, /datum/vapours/carbon_air_vapour = 80), VAPOUR_ACTIVE_EMITTER_CAP)
+	if(my_turf.vapour?.total_amount >= 160)
+		return
+	my_turf.VapourListTurf(list(/datum/vapours/smoke = 30, /datum/vapours/carbon_air_vapour = 10), VAPOUR_ACTIVE_EMITTER_CAP)
 
 /obj/structure/bonfire/ms13/campfire/attackby(obj/item/used_item, mob/living/user, params)
 	if(used_item.get_temperature())
