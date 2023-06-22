@@ -8,6 +8,7 @@
 #define UNCONSCIOUS 2
 #define HARD_CRIT 3
 #define DEAD 4
+#define PRE_SPAWN 6 //MOJAVE SUN EDIT - Corpses
 
 //Maximum healthiness an individual can have
 #define MAX_SATIETY 600

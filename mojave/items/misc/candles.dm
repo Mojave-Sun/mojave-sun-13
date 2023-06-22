@@ -3,7 +3,7 @@
 /obj/item/candle/ms13
 	name = "candle"
 	desc = "An old wax candle, ready to be lit and provide a false sense of comfort."
-	icon = 'mojave/icons/objects/clutter/clutter_world.dmi'
+	icon = 'mojave/icons/objects/tools/lightables_world.dmi'
 	icon_state = "candle1"
 	inhand_icon_state = "candle1"
 	w_class = WEIGHT_CLASS_TINY
@@ -14,6 +14,10 @@
 	lit = FALSE
 	infinite = FALSE
 	start_lit = FALSE
+
+/obj/item/candle/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/lightables_inventory.dmi')
 
 /obj/item/candle/process(delta_time)
 	if(!lit)
@@ -29,5 +33,5 @@
 /obj/item/trash/ms13/candle
 	name = "burned candle"
 	desc = "A burned out wax candle. All good things come to an end."
-	icon = 'mojave/icons/objects/clutter/clutter_world.dmi'
+	icon = 'mojave/icons/objects/tools/lightables_world.dmi'
 	icon_state = "candle4"

@@ -20,9 +20,10 @@
 	STR.max_items = 16
 	STR.max_combined_w_class = 100
 
+	radio = new(src)
+
 /obj/item/storage/ms13/radiopack/PopulateContents()
 	. = ..()
-	radio = new(src)
 	START_PROCESSING(SSobj, src)
 
 /obj/item/storage/ms13/radiopack/Destroy()
