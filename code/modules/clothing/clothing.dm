@@ -301,10 +301,10 @@
 			how_cool_are_your_threads += "[src]'s storage opens when clicked.\n"
 		else
 			how_cool_are_your_threads += "[src]'s storage opens when dragged to yourself.\n"
-		if (pockets.can_hold?.len) // If pocket type can hold anything, vs only specific items
+		/*if (pockets.can_hold?.len) // If pocket type can hold anything, vs only specific items
 			how_cool_are_your_threads += "[src] can store [pockets.max_items] <a href='?src=[REF(src)];show_valid_pocket_items=1'>item\s</a>.\n"
 		else
-			how_cool_are_your_threads += "[src] can store [pockets.max_items] item\s that are [weight_class_to_text(pockets.max_w_class)] or smaller.\n"
+			how_cool_are_your_threads += "[src] can store [pockets.max_items] item\s that are [weight_class_to_text(pockets.max_w_class)] or smaller.\n"*/ //Mojave Edit - This is dumb, doesn't apply to us, and would be annoying to change on a per suit basis so I'm just disabling it. It's pretty redundant anyways - Hekzder
 		if(pockets.quickdraw)
 			how_cool_are_your_threads += "You can quickly remove an item from [src] using Right-Click.\n"
 		if(pockets.silent)
@@ -386,7 +386,7 @@
 	if (armor_value < 0)
 		. = "-"
 	. += "\Roman[round(abs(armor_value), 10) / 10]"
-	return . */ //MOJAVE EDIT - Comments all of this out because, like with the weapon description proc, it is stupid and we shouldn't have it or should implement it in a better, less gamey way. 
+	return . */ //MOJAVE EDIT - Comments all of this out because, like with the weapon description proc, it is stupid and we shouldn't have it or should implement it in a better, less gamey way.
 
 /obj/item/clothing/atom_break(damage_flag)
 	. = ..()
