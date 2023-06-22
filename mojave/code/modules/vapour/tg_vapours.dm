@@ -13,8 +13,7 @@
 /datum/vapours/smoke/BreatheAct(mob/living/carbon/victim, amount)
 	if(amount <= 60)
 		return
-	if(prob(80))
-		victim.emote("cough")
+	victim.emote("cough")
 
 ///Dust from mining drills
 /datum/vapours/dust
@@ -77,6 +76,7 @@
 	victim.adjustToxLoss(1)
 	if(prob(amount))
 		victim.losebreath += 3
+		victim.emote("gasp")
 
 
 ///Food related smells
