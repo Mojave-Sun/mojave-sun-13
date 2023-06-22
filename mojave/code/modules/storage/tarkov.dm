@@ -149,7 +149,7 @@
 	attack_hand_interact = TRUE
 	rustle_sound = FALSE
 
-/datum/component/storage/concrete/ms13/suit/small //a 2x1 for minimal suit storage
+/datum/component/storage/concrete/ms13/suit/small //a 1x2 for minimal suit storage
 	screen_max_columns = 1
 	screen_max_rows = 2
 
@@ -157,8 +157,8 @@
 	screen_max_columns = 2
 	screen_max_rows = 2
 
-/datum/component/storage/concrete/ms13/suit/large //a 3x2 meant almost exclusively for non-armor suits
-	screen_max_columns = 3
+/datum/component/storage/concrete/ms13/suit/large //a 4x2 meant almost exclusively for non-armor suits
+	screen_max_columns = 4
 	screen_max_rows = 2
 	screen_start_x = 16
 
@@ -219,7 +219,9 @@
 		/obj/item/gun/ballistic/revolver/ms13/rev556,
 		/obj/item/gun/ballistic/automatic/pistol/ms13/m9mm,
 		/obj/item/gun/ballistic/automatic/pistol/ms13/m10mm,
-		/obj/item/gun/ballistic/automatic/pistol/ms13/pistol45
+		/obj/item/gun/ballistic/automatic/pistol/ms13/pistol45,
+		/obj/item/gun/ballistic/automatic/ms13/full/smg10mm,
+		/obj/item/gun/ballistic/automatic/ms13/full/smg9mm
 		))
 
 /datum/component/storage
