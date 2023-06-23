@@ -4,6 +4,7 @@
 	name = "junkfood"
 	desc = "LOOK AWAY, YOU'RE NOT SUPPOSED TO SEE THIS!"
 	icon = 'mojave/icons/objects/food/prewar_food.dmi'
+	decomp_type = /obj/item/food/badrecipe/moldy/ms13
 
 	var/emptiness = 0
 

@@ -875,5 +875,6 @@
 		/obj/item/stack/sheet/ms13/scrap_lead = list(3, rand(3,15), ", per piece of lead"),
 		/obj/item/stack/sheet/ms13/scrap_brass = list(3, rand(3,15), ", per piece of brass"),
 		/obj/item/food/meat/slab/ms13/animal/gecko/golden = list(6, rand(1,6)),
-		/obj/item/food/meat/slab/ms13/animal/bark_scorp = list(10, rand(0,5))
+		/obj/item/food/meat/slab/ms13/animal/bark_scorp = list(10, rand(0,5)),
+		/obj/item/ms13/animalitem/pigrat/snout = list(10, rand(0,4))
 				)

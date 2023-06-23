@@ -39,7 +39,7 @@
 
 /datum/looping_sound/New(_parent, start_immediately=FALSE, _direct=FALSE, _skip_starting_sounds = FALSE, _channel = 0)  // MOJAVE MODULE OUTDOOR_EFFECTS
 	if(!mid_sounds)
-		WARNING("A looping sound datum was created without sounds to play.")
+		//WARNING("A looping sound datum was created without sounds to play.") MOJAVE SUN EDIT - feature
 		return
 
 	set_parent(_parent)

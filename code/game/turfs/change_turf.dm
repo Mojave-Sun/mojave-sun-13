@@ -158,14 +158,29 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 
 /turf/open/ChangeTurf(path, list/new_baseturfs, flags) //Resist the temptation to make this default to keeping air.
 	if ((flags & CHANGETURF_INHERIT_AIR) && ispath(path, /turf/open))
+		//MOJAVE SUN EDIT - Vapour
+		var/turf_fire_ref
+		if(turf_fire)
+			if(ispath(path, /turf/open/openspace) || ispath(path, /turf/open/space))
+				qdel(turf_fire)
+			else
+				turf_fire_ref = turf_fire
+		//MOJAVE SUN EDIT - Vapour
 		var/datum/gas_mixture/stashed_air = new()
 		stashed_air.copy_from(air)
 		var/stashed_state = excited
+		var/datum/vapour/stashed_vapour = vapour //MOJAVE SUN EDIT - Vapour
 		var/datum/excited_group/stashed_group = excited_group
 		. = ..() //If path == type this will return us, don't bank on making a new type
 		if (!.) // changeturf failed or didn't do anything
 			return
 		var/turf/open/newTurf = .
+		//MOJAVE SUN EDIT - Vapour
+		newTurf.turf_fire = turf_fire_ref
+		if(stashed_vapour)
+			newTurf.vapour = stashed_vapour
+			stashed_vapour.HandleOverlay()
+		//MOJAVE SUN EDIT - Vapour
 		newTurf.air.copy_from(stashed_air)
 		newTurf.excited = stashed_state
 		newTurf.excited_group = stashed_group
@@ -177,6 +192,12 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 			if(stashed_group.should_display || SSair.display_all_groups)
 				stashed_group.display_turf(newTurf)
 	else
+		//MOJAVE SUN EDIT - Vapour
+		if(vapour)
+			qdel(vapour)
+		if(turf_fire)
+			qdel(turf_fire)
+		//MOJAVE SUN EDIT - Vapour
 		SSair.remove_from_active(src) //Clean up wall excitement, and refresh excited groups
 		if(ispath(path,/turf/closed) || ispath(path,/turf/cordon))
 			flags |= CHANGETURF_RECALC_ADJACENT

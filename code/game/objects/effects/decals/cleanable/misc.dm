@@ -133,7 +133,7 @@
 /obj/effect/decal/cleanable/vomit
 	name = "vomit"
 	desc = "Gosh, how unpleasant."
-	icon = 'icons/effects/blood.dmi'
+	icon = 'mojave/icons/effects/gurps.dmi' //Mojave Edit - Our vomit. GURPS reference lol!
 	icon_state = "vomit_1"
 	random_icon_states = list("vomit_1", "vomit_2", "vomit_3", "vomit_4")
 	beauty = -150
@@ -163,7 +163,7 @@
 
 /obj/effect/decal/cleanable/vomit/old/Initialize(mapload, list/datum/disease/diseases)
 	. = ..()
-	icon_state += "-old"
+	/*icon_state += "-old"*/ //Mojave Edit - We don't have old variants right now
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_SLUDGE, CELL_VIRUS_TABLE_GENERIC, rand(2,4), 10)
 
 

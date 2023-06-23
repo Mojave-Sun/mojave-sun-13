@@ -95,6 +95,16 @@
 
 //Nuggets
 
+/obj/item/stack/sheet/ms13/nugget
+	name = "base type nugget"
+	desc = "Full of BUGS! You shouldn't be seeing this."
+	icon = 'mojave/icons/objects/crafting/materials_inventory.dmi'
+	w_class = WEIGHT_CLASS_TINY
+	grid_height = 32
+	grid_width = 32
+	amount = 1
+	max_amount = 8
+
 /obj/item/stack/sheet/ms13/nugget/Initialize()
 	. = ..()
 	AddElement(/datum/element/item_scaling, 0.45, 1)
@@ -103,11 +113,8 @@
 	name = "zinc nuggets"
 	desc = "A hard lump of zinc, Useless now."
 	singular_name = "zinc nugget"
-	icon = 'mojave/icons/objects/crafting/materials_inventory.dmi'
 	icon_state = "brass"
 	merge_type = /obj/item/stack/sheet/ms13/nugget/nugget_zinc
-	amount = 1
-	max_amount = 16
 
 /obj/item/stack/sheet/ms13/nugget/nugget_zinc/two
 	amount = 2
@@ -116,11 +123,8 @@
 	name = "iron ore nuggets"
 	desc = "A hard lump of iron, Useless now."
 	singular_name = "iron ore nugget"
-	icon = 'mojave/icons/objects/crafting/materials_inventory.dmi'
 	icon_state = "iron"
 	merge_type = /obj/item/stack/sheet/ms13/nugget/nugget_iron
-	amount = 1
-	max_amount = 16
 
 /obj/item/stack/sheet/ms13/nugget/nugget_iron/two
 	amount = 2
@@ -129,11 +133,8 @@
 	name = "pitchblende nuggets"
 	desc = "A hard lump of uranium, Useless now."
 	singular_name = "pitchblende nugget"
-	icon = 'mojave/icons/objects/crafting/materials_inventory.dmi'
 	icon_state = "uranium"
 	merge_type = /obj/item/stack/sheet/ms13/nugget/nugget_uranium
-	amount = 1
-	max_amount = 16
 
 /obj/item/stack/sheet/ms13/nugget/nugget_uranium/two
 	amount = 2
@@ -142,11 +143,8 @@
 	name = "coal chunks"
 	desc = "A hard lump of coal, careful with any flames."
 	singular_name = "coal chunk"
-	icon = 'mojave/icons/objects/crafting/materials_inventory.dmi'
 	icon_state = "coal"
 	merge_type = /obj/item/stack/sheet/ms13/nugget/nugget_coal
-	amount = 1
-	max_amount = 16
 
 /obj/item/stack/sheet/ms13/nugget/nugget_coal/two
 	amount = 2
@@ -155,11 +153,8 @@
 	name = "copper ore nuggets"
 	desc = "Full of potential copper. Useless now."
 	singular_name = "copper ore nugget"
-	icon = 'mojave/icons/objects/crafting/materials_inventory.dmi'
 	icon_state = "copper"
 	merge_type = /obj/item/stack/sheet/ms13/nugget/nugget_copper
-	amount = 1
-	max_amount = 16
 
 /obj/item/stack/sheet/ms13/nugget/nugget_copper/two
 	amount = 2
@@ -168,11 +163,8 @@
 	name = "lead ore nuggets"
 	desc = "Full of potential lead. Useless now."
 	singular_name = "lead ore nugget"
-	icon = 'mojave/icons/objects/crafting/materials_inventory.dmi'
 	icon_state = "lead"
 	merge_type = /obj/item/stack/sheet/ms13/nugget/nugget_lead
-	amount = 1
-	max_amount = 16
 
 /obj/item/stack/sheet/ms13/nugget/nugget_lead/two
 	amount = 2
@@ -181,11 +173,8 @@
 	name = "aluminium ore nuggets"
 	desc = "Full of potential aluminium. Useless now."
 	singular_name = "aluminium ore nugget"
-	icon = 'mojave/icons/objects/crafting/materials_inventory.dmi'
 	icon_state = "aluminium"
 	merge_type = /obj/item/stack/sheet/ms13/nugget/nugget_alu
-	amount = 1
-	max_amount = 16
 
 /obj/item/stack/sheet/ms13/nugget/nugget_alu/two
 	amount = 2
@@ -194,11 +183,8 @@
 	name = "silver ore nuggets"
 	desc = "Full of potential silver. Useless now."
 	singular_name = "silver ore nugget"
-	icon = 'mojave/icons/objects/crafting/materials_inventory.dmi'
 	icon_state = "silver"
 	merge_type = /obj/item/stack/sheet/ms13/nugget/nugget_silver
-	amount = 1
-	max_amount = 16
 
 /obj/item/stack/sheet/ms13/nugget/nugget_silver/two
 	amount = 2
@@ -207,11 +193,8 @@
 	name = "gold ore nuggets"
 	desc = "Full of potential gold. Useless now."
 	singular_name = "gold ore nugget"
-	icon = 'mojave/icons/objects/crafting/materials_inventory.dmi'
 	icon_state = "gold"
 	merge_type = /obj/item/stack/sheet/ms13/nugget/nugget_gold
-	amount = 1
-	max_amount = 16
 
 /obj/item/stack/sheet/ms13/nugget/nugget_gold/two
 	amount = 2
