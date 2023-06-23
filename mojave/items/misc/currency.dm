@@ -187,6 +187,10 @@
 	max_amount = 450
 	merge_type = /obj/item/stack/ms13/currency/cap
 
+/obj/item/stack/ms13/currency/cap/Initialize()
+	. = ..()
+	AddElement(/datum/element/item_scaling, 0.45, 1)
+
 /obj/item/stack/ms13/currency/cap/four
 	amount = 4
 
