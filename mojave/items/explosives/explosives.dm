@@ -68,7 +68,7 @@
 	lefthand_file = 'mojave/icons/mob/inhands/weapons/grenades_inhand_left.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/weapons/grenades_inhand_right.dmi'
 	icon_state = "molotov"
-	throw_speed = 1.25
+	throw_speed = 1.5
 	var/arm_sound = 'sound/items/welder.ogg'
 
 /obj/item/grenade/ms13/molotov/Initialize()
@@ -104,7 +104,7 @@
 
 /obj/item/grenade/ms13/molotov/detonate(mob/living/lanced_by)
 	playsound(loc, 'sound/effects/hit_on_shattered_glass.ogg', 35, TRUE, 4)
-	flame_radius(2, get_turf(src))
+	flame_radius(1, get_turf(src))
 	playsound(loc, 'mojave/sound/ms13effects/explosion_fire_grenade.ogg', 30, TRUE, 4)
 	qdel(src)
 
