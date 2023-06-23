@@ -13,9 +13,18 @@
 /obj/item/paper/ms13/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clutter/clutter_inventory.dmi')
+	AddElement(/datum/element/craftable, /obj/item/knife/ms13/scissors, /obj/item/storage/fancy/ms13/cigarettes/rollies/empty, 1, 60 SECONDS, crafting_sound_start = 'mojave/sound/ms13effects/crafting/paperfoldstart.ogg', crafting_sound_mid = list('mojave/sound/ms13effects/crafting/paperfold1.ogg' = 1, 'mojave/sound/ms13effects/crafting/paperfold2.ogg' = 1, 'mojave/sound/ms13effects/crafting/paperfold3.ogg' = 1, 'mojave/sound/ms13effects/crafting/paperfold4.ogg' = 1), surface_type = /obj/structure/table/ms13, crafting_focus_sound = list('mojave/sound/ms13effects/crafting/scissorsnip1.ogg' = 1, 'mojave/sound/ms13effects/crafting/scissorsnip2.ogg' = 1, 'mojave/sound/ms13effects/crafting/scissorsnip3.ogg' = 1))
 
 /obj/item/paper/ms13/AltClick(mob/living/user, obj/item/I)
 	return //aint no paper airplanes, NO FUN ALLOWED
+//
+/obj/item/paper/ms13/wash(clean_types, mob/living/user, obj/structure/S)
+	to_chat(user, "<span class='notice'>You start drying and working the [name].</span>")
+	if(do_after(user, 10 SECONDS, S))
+		var/obj/I = new /obj/item/ms13/rolling_paper(S.loc)
+		to_chat(user, "<span class='notice'>You process the [name] into [I] making it thinner and cleaner than before.</span>")
+		qdel(src)
+		user.put_in_active_hand(I)
 
 /obj/item/paper/ms13/paperslip
 	name = "paper slip"

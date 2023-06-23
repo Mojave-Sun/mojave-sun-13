@@ -5,3 +5,5 @@
 #define CRAFTING_SOUND "craftsound"
 #define CRAFTING_SURFACE "craftsurface"
 #define CRAFTING_FOCUS_SOUND "craftfocussound"
+#define CRAFTING_FOCUS_TYPE "craftfocustype"
+#define CRAFTING_THING_USED  "craftthingused"
