@@ -130,7 +130,7 @@
 		.["user"] = list()
 		.["user"]["name"] = account.account_holder
 		.["user"]["balance"] = account.account_balance
-
+/* // MOJAVE SUN EDIT BEGIN
 /obj/structure/holopay/ui_act(action, list/params, datum/tgui/ui)
 	. = ..()
 	if(.)
@@ -153,7 +153,7 @@
 			linked_card.set_holopay_name(params["name"])
 			name = linked_card.holopay_name
 	return FALSE
-
+*/ // MOJAVE SUN EDIT END
 /**
  * Links the source card to the holopay. Begins checking if its in range.
  *

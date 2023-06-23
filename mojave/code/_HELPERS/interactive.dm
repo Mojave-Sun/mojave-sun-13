@@ -76,13 +76,13 @@
 	desc = "If I focus, I might be able to speed up my progress a little bit."
 	image_icon = 'mojave/icons/effects/interactive.dmi'
 	image_state = "progress_focus"
-	image_layer = HUD_PLANE
+	image_plane = GAME_PLANE_UPPER
 	///The progress bar that this booster is linked to
 	var/datum/progressbar/linked_bar
 	///How much this focus helps overall progress
 	var/time_per_click
 	///Sound played when clicked
-	var/focus_sound = 'sound/machines/click.ogg'
+	var/focus_sound = list('sound/machines/click.ogg' = 1)
 	///Secondary object used to block clicks, provide special animation, etc.
 	var/obj/effect/hallucination/simple/extra_effect
 	///How many times this focus can be used
@@ -94,28 +94,23 @@
 
 /obj/effect/hallucination/simple/progress_focus/Initialize(mapload, mob/target_mob, datum/progressbar/target_bar, bonus_time, f_sound)
 	. = ..()
-	var/fastest_possible_time = target_bar.goal - bonus_time
-	max_uses = round(fastest_possible_time/10/max_use_frequency, 1)
 	target = target_mob
 	linked_bar = target_bar
-	time_per_click = bonus_time/max_uses
+	time_per_click = bonus_time
 	if (f_sound)
-		focus_sound = f_sound
-	build_extra_effect()
+		focus_sound = pick(f_sound)
+	if(type != /obj/effect/hallucination/simple/progress_focus/skillcheck)
+		build_extra_effect() //called in progressbars.dm
 
-/obj/effect/hallucination/simple/progress_focus/proc/build_extra_effect()
+/obj/effect/hallucination/simple/progress_focus/proc/build_extra_effect(targeted)
 	extra_effect = new /obj/effect/hallucination/simple/progress_trap(get_turf(src), target, linked_bar, time_per_click)
 
 /obj/effect/hallucination/simple/progress_focus/attackby(obj/item/I, mob/user, params)
 	. = ..()
 	on_boost(user)
-	uses += 1
-	if (uses >= max_uses)
-		linked_bar.booster = null
-		qdel(src)
 
 /obj/effect/hallucination/simple/progress_focus/proc/on_boost(mob/user)
-	user.playsound_local(user, focus_sound, 50, TRUE)
+	user.playsound_local(user, focus_sound, 100, TRUE)
 	linked_bar.boost_progress(time_per_click)
 	var/new_x = rand(-12,12)
 	var/new_y = rand(-12,12)
@@ -146,45 +141,50 @@
 /obj/effect/hallucination/simple/progress_trap/attackby(obj/item/I, mob/user, params)
 	. = ..()
 	linked_bar.boost_progress(loss_per_click)
-	user.playsound_local(user, 'sound/machines/buzz-sigh.ogg', 50, TRUE)
+	user.playsound_local(user, 'sound/machines/buzz-sigh.ogg', 20, TRUE)
 
 /obj/effect/hallucination/simple/progress_focus/skillcheck
 	name = "skill check"
 	desc = "If I get my timing right, I could get my work done a little more efficiently."
 	image_state = "skill_ring"
 	max_use_frequency = 2.5
+	image_layer = HUD_PLANE
 	var/start_time
 	var/spin_speed = 0.5 SECONDS
 
 /obj/effect/hallucination/simple/progress_focus/skillcheck/Initialize(mapload, mob/target_mob, datum/progressbar/target_bar, bonus_time, f_sound)
 	. = ..()
-	extra_effect.SpinAnimation(spin_speed, -1)
 	start_time = REALTIMEOFDAY
 
-/obj/effect/hallucination/simple/progress_focus/skillcheck/build_extra_effect()
-	extra_effect = new /obj/effect/hallucination/simple/skill_marker(get_turf(src), target)
+/obj/effect/hallucination/simple/progress_focus/skillcheck/build_extra_effect(atom/targeted)
+	extra_effect = new /obj/effect/hallucination/simple/skill_marker(targeted.loc, target)
+	extra_effect.SpinAnimation(spin_speed, -1)
+	if(isitem(targeted))
+		extra_effect.pixel_x = targeted.pixel_x
+		extra_effect.pixel_y = targeted.pixel_y + 40
 
 /obj/effect/hallucination/simple/progress_focus/skillcheck/on_boost(mob/user)
 	var/current_time = REALTIMEOFDAY
 
 	var/time_diff = (current_time - start_time) % spin_speed
 	var/degrees = time_diff * 360/spin_speed
-	var/obj/effect/hallucination/simple/skill_marker/temp_effect = new(get_turf(src), target)
+	var/obj/effect/hallucination/simple/skill_marker/temp_effect = new(src.loc, target)
+	temp_effect.pixel_y = src.pixel_y
+	temp_effect.pixel_x = src.pixel_x
 	temp_effect.transform = matrix().Turn(degrees)
 	QDEL_IN(temp_effect, spin_speed)
 	if (time_diff > (spin_speed/2 * 0.6) && time_diff < spin_speed - (spin_speed/2 * 0.6))
 		linked_bar.boost_progress(time_per_click)
-		user.playsound_local(user, focus_sound, 50, TRUE)
+		playsound(user, focus_sound, 50, TRUE)
 	else
 		linked_bar.boost_progress(-1 * time_per_click)
-		user.playsound_local(user, 'sound/machines/buzz-sigh.ogg', 50, TRUE)
+		user.playsound_local(user, 'sound/machines/buzz-sigh.ogg', 20, TRUE)
 
 /obj/effect/hallucination/simple/skill_marker
 	name = ""
 	desc = ""
 	image_icon = 'mojave/icons/effects/interactive.dmi'
 	image_state = "skill_arrow"
+	image_plane = ABOVE_GAME_PLANE
 	image_layer = ABOVE_HUD_PLANE
-
-
 //

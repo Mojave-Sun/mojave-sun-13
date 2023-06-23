@@ -218,6 +218,14 @@
 /datum/particle_weather/proc/weather_act(mob/living/L)
 	return
 
+//weather effects for objects
+/datum/particle_weather/proc/weather_obj_act(obj/L)
+	if(can_weather_act_obj(L))
+		L.weather = TRUE
+	else
+		L.weather = FALSE
+
+
 //Not using looping_sounds properly. somebody smart should fix this
 /datum/particle_weather/proc/weather_sound_effect(mob/living/L)
 	var/datum/looping_sound/currentSound = currentSounds[L]
@@ -248,3 +256,11 @@
 	last_message = scale_range_pick(minSeverity, maxSeverity, severity, weather_messages)
 	if(last_message)
 		to_chat(L, last_message)
+
+/datum/particle_weather/proc/can_weather_act_obj(obj/obj_to_check)
+	var/turf/obj_turf = get_turf(obj_to_check)
+
+	if(!obj_turf)
+		return
+
+	return TRUE

@@ -33,6 +33,8 @@
 	pickup_sound = 'sound/items/handling/cardboardbox_pickup.ogg'
 	var/foldable = /obj/item/stack/sheet/cardboard
 	var/illustration = "writing"
+	//MOJAVE SUN EDIT - Boxes
+	var/folds = TRUE ///does this storage thing fold when empty
 
 /obj/item/storage/box/Initialize(mapload)
 	. = ..()
@@ -723,11 +725,15 @@
 	SEND_SIGNAL(src, COMSIG_TRY_STORAGE_FILL_TYPE, /obj/item/match)
 
 /obj/item/storage/box/matches/attackby(obj/item/match/W as obj, mob/user as mob, params)
+	. = ..()
+	/*MOJAVE SUN EDIT START - Matches
 	if(istype(W, /obj/item/match))
 		W.matchignite()
+	*///MOJAVE SUN EDIT END - Matches
 
 /obj/item/storage/box/matches/update_icon_state()
 	. = ..()
+	/*MOJAVE SUN EDIT START - Matches
 	switch(length(contents))
 		if(10)
 			icon_state = base_icon_state
@@ -737,6 +743,7 @@
 			icon_state = "[base_icon_state]_almostempty"
 		if(0)
 			icon_state = "[base_icon_state]_e"
+	*///MOJAVE SUN EDIT END - Matches
 
 /obj/item/storage/box/lights
 	name = "box of replacement bulbs"

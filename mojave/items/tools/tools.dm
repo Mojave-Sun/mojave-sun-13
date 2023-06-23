@@ -168,6 +168,21 @@
 		force = 10
 		damtype = BRUTE
 
+/obj/item/weldingtool/ms13/attackby(obj/item/I, mob/user, params)
+	. = ..()
+	if(istype(I, /obj/item/reagent_containers/ms13/lighterfluid))
+		if(!I.reagents.has_reagent(/datum/reagent/fuel))
+			to_chat(user, span_warning("[src] is out of fluid!"))
+			return
+		if(reagents.has_reagent(/datum/reagent/fuel, max_fuel))
+			to_chat(user, span_warning("Your [name] is already full!"))
+			return
+		I.reagents.trans_to(src, max_fuel, transfered_by = user)
+		user.visible_message(span_notice("[user] refills [user.p_their()] [name]."), span_notice("You refill [name]."))
+		playsound(src, 'sound/effects/refill.ogg', 50, TRUE)
+		update_appearance()
+	return ..()
+
 /obj/item/weldingtool/ms13/update_overlays()
 	. = ..()
 	if(welding)
@@ -346,6 +361,22 @@
 	custom_materials = null
 	toolspeed = 1.5 //grim
 	mining_mult = 5
+
+/obj/item/knife/ms13/scissors
+	name = "scissors"
+	desc = "An old pair of scissors. Used for cutting precisely."
+	icon = 'mojave/icons/objects/tools/tools_world.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
+	icon_state = "scissors"
+	inhand_icon_state = "scissors"
+	force = 15
+	throwforce = 5
+	toolspeed = 2
+
+/obj/item/knife/ms13/scissors/Initialize()
+	. = ..()
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
 /obj/item/ms13/brick
 	name = "brick"
