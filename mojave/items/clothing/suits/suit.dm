@@ -60,6 +60,7 @@
                 LASER = 0, \
                 ENERGY = 0, \
                 FIRE = 0)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/large
 
 /obj/item/clothing/suit/ms13/vest/brown
 	name = "brown vest"
@@ -106,6 +107,7 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = 0)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/large
 
 /obj/item/clothing/suit/ms13/veteran_coat
 	name = "merc veteran coat"
@@ -122,6 +124,7 @@
                 LASER = 0, \
                 ENERGY = 0, \
                 FIRE = 0)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/large
 
 /obj/item/clothing/suit/ms13/veteran_coat/black
 	name = "black veteran coat"
@@ -147,6 +150,7 @@
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
 	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
 
 /obj/item/clothing/suit/ms13/ljacket/reinforced
 	name = "reinforced leather jacket"
@@ -168,6 +172,7 @@
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 50, acid = 0, wound = 0)
 	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
 
 // winter jackets //
 
@@ -185,6 +190,7 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = 0)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/large
 
 /obj/item/clothing/suit/toggle/ms13/wjacket/orange
 	name = "orange winter jacket"
@@ -209,6 +215,7 @@
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
 	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
 
 /obj/item/clothing/suit/toggle/ms13/wjacket/orange/armored
 	name = "armored orange winter jacket"
@@ -228,6 +235,7 @@
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 50, acid = 0, wound = 0)
 	equip_delay_self = 3.5 SECONDS
 	equip_delay_other = 5 SECONDS
+	pocket_storage_component_path = null
 
 /obj/item/clothing/suit/toggle/ms13/wjacket/brown
 	name = "brown winter jacket"
@@ -252,6 +260,7 @@
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
 	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
 
 /obj/item/clothing/suit/toggle/ms13/wjacket/brown/armored
 	name = "armored brown jacket"
@@ -271,6 +280,7 @@
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 50, acid = 0, wound = 0)
 	equip_delay_self = 3.5 SECONDS
 	equip_delay_other = 5 SECONDS
+	pocket_storage_component_path = null
 
 /obj/item/clothing/suit/toggle/ms13/wjacket/blue
 	name = "blue winter jacket"
@@ -295,6 +305,7 @@
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
 	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
 
 /obj/item/clothing/suit/toggle/ms13/wjacket/blue/armored
 	name = "armored blue winter jacket"
@@ -314,6 +325,7 @@
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 50, acid = 0, wound = 0)
 	equip_delay_self = 3.5 SECONDS
 	equip_delay_other = 5 SECONDS
+	pocket_storage_component_path = null
 
 /obj/item/clothing/suit/toggle/ms13/wjacket/black
 	name = "black winter jacket"
@@ -338,6 +350,7 @@
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
 	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
 
 /obj/item/clothing/suit/toggle/ms13/wjacket/black/armored
 	name = "armored black winter jacket"
@@ -357,6 +370,7 @@
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 50, acid = 0, wound = 0)
 	equip_delay_self = 3.5 SECONDS
 	equip_delay_other = 5 SECONDS
+	pocket_storage_component_path = null
 
 // jackets //
 
@@ -423,6 +437,7 @@
                 LASER = 0, \
                 ENERGY = 0, \
                 FIRE = 0)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
 
 /obj/item/clothing/suit/ms13/ljacket/biker
 	name = "biker jacket"
@@ -488,6 +503,7 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = 0)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/large
 
 /obj/item/clothing/suit/ms13/trench/detective
 	name = "detective's trenchcoat"
@@ -583,6 +599,7 @@
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
 	equip_delay_self = 3.5 SECONDS
 	equip_delay_other = 5 SECONDS
+	pocket_storage_component_path = null
 
 /obj/item/clothing/suit/ms13/trench/black/armored
 	name = "armored black trenchcoat"
@@ -603,6 +620,7 @@
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 50, acid = 0, wound = 0)
 	equip_delay_self = 4 SECONDS
 	equip_delay_other = 6 SECONDS
+	pocket_storage_component_path = null
 
 // dusters //
 
@@ -621,6 +639,7 @@
                 LASER = 0, \
                 ENERGY = 0, \
                 FIRE = 0)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/large
 
 /obj/item/clothing/suit/ms13/duster/reinforced
 	name = "reinforced duster"
@@ -640,6 +659,7 @@
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
 	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
 
 /obj/item/clothing/suit/ms13/duster/ranger
 	name = "\improper Desert Ranger duster"
@@ -655,6 +675,7 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = 0)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
 
 // labcoats //
 
@@ -722,6 +743,7 @@
                 LASER = 0, \
                 ENERGY = 0, \
                 FIRE = 0)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/large
 
 /obj/item/clothing/suit/ms13/drylander/hunter
 	name = "\improper Drylander hunter padded robes"
@@ -739,6 +761,7 @@
                 FIRE = 0)
 	max_integrity = 350
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 10, acid = 0, wound = 0)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
 
 /obj/item/clothing/suit/ms13/drylander/headtaker
 	name = "\improper Drylander Headtaker padded robes"
@@ -757,6 +780,7 @@
                 FIRE = CLASS2_FIRE)
 	max_integrity = 450
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
 
 /obj/item/clothing/suit/ms13/drylander/simple
 	name = "\improper Drylander simple robes"

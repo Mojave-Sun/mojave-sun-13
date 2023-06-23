@@ -237,6 +237,7 @@
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
 	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
 
 /obj/item/clothing/suit/armor/ms13/vest/civilian
 	name = "civilian kevlar vest"
@@ -252,6 +253,7 @@
                 ENERGY = 0, \
                 FIRE = CLASS1_FIRE)
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 10, acid = 0, wound = 0)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/small
 
 /obj/item/clothing/suit/armor/ms13/vest/military
 	name = "military kevlar vest"
@@ -313,6 +315,7 @@
                 FIRE = 0)
 	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
 
 /obj/item/clothing/suit/ms13/raider
 	name = "raider reinforced jacket"
@@ -335,6 +338,7 @@
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
 	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/small
 
 /obj/item/clothing/suit/ms13/raider/plated
 	name = "raider plated jacket"
@@ -588,6 +592,7 @@
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
 	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/small
 
 /obj/item/clothing/suit/armor/ms13/ncr/reinforced
 	name = "\improper NCR reinforced infantry vest"
@@ -799,6 +804,7 @@
                 FIRE = 0)
 	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
 
 /obj/item/clothing/suit/armor/ms13/scribe/head
 	name = "\improper Brotherhood head scribe's robe"
@@ -823,6 +829,7 @@
                 FIRE = 0)
 	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
 
 /obj/item/clothing/suit/armor/ms13/vest/bos
 	name = "\improper Brotherhood kevlar vest"
@@ -843,6 +850,7 @@
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
 	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/small
 
 /obj/item/clothing/suit/armor/ms13/combat/bos
 	name = "\improper Brotherhood combat armor"
@@ -886,6 +894,7 @@
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 50, acid = 0, wound = 0)
 	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/small
 
 /obj/item/clothing/suit/armor/ms13/eliteriot/ranger
 	name = "\improper Elite Desert Ranger armor"
