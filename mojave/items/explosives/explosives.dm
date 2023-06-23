@@ -73,7 +73,7 @@
 
 /obj/item/grenade/ms13/molotov/Initialize()
 	. = ..()
-	det_time = rand(25,80) //2.5-8 seconds
+	det_time = rand(25,60) //2.5-6 seconds
 
 /obj/item/grenade/ms13/molotov/attackby(obj/item/I, mob/user, params)
 	if(I.get_temperature() && !active)

@@ -1444,7 +1444,7 @@
 
 //Mobs on Fire
 /mob/living/proc/IgniteMob()
-	if(fire_stacks > 0 && !on_fire)
+	if(fire_stacks > 0 && !on_fire && !HAS_TRAIT(src, TRAIT_NON_FLAMMABLE))
 		on_fire = TRUE
 		src.visible_message(span_warning("[src] catches fire!"), \
 						span_userdanger("You're set on fire!"))
