@@ -68,6 +68,7 @@
 	lefthand_file = 'mojave/icons/mob/inhands/weapons/grenades_inhand_left.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/weapons/grenades_inhand_right.dmi'
 	icon_state = "molotov"
+	throwforce = 10
 	throw_speed = 1.5
 	var/arm_sound = 'sound/items/welder.ogg'
 
