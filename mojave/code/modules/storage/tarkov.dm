@@ -173,6 +173,7 @@
 	silent = TRUE
 	attack_hand_interact = TRUE
 	rustle_sound = FALSE
+	max_w_class = WEIGHT_CLASS_NORMAL
 
 /datum/component/storage/concrete/ms13/suit/small //a 1x2 for minimal suit storage
 	screen_max_columns = 1
@@ -185,7 +186,7 @@
 /datum/component/storage/concrete/ms13/suit/large //a 4x2 meant almost exclusively for non-armor suits
 	screen_max_columns = 4
 	screen_max_rows = 2
-	screen_start_x = 16
+	screen_start_x = 15
 
 /datum/component/storage/concrete/ms13/suit/Initialize()
 	. = ..()
@@ -207,8 +208,6 @@
 		/obj/item/radio/ms13,
 		/obj/item/stack/medical/ms13,
 		/obj/item/food/ms13/prewar/canned,
-		/obj/item/reagent_containers/food/drinks/bottle/ms13/trooper_beer,
-		/obj/item/reagent_containers/food/drinks/bottle/ms13/caligary_beer,
 		/obj/item/stack/sheet/ms13/nugget,
 		/obj/item/stack/sheet/ms13/scrap_parts,
 		/obj/item/stack/sheet/ms13/rubber,
@@ -246,7 +245,9 @@
 		/obj/item/gun/ballistic/automatic/pistol/ms13/m10mm,
 		/obj/item/gun/ballistic/automatic/pistol/ms13/pistol45,
 		/obj/item/gun/ballistic/automatic/ms13/full/smg10mm,
-		/obj/item/gun/ballistic/automatic/ms13/full/smg9mm
+		/obj/item/gun/ballistic/automatic/ms13/full/smg9mm,
+		/obj/item/reagent_containers/food/drinks/bottle/ms13,
+		/obj/item/grenade/ms13/molotov
 		))
 
 /datum/component/storage

@@ -70,6 +70,9 @@
 	icon_state = "molotov"
 	throwforce = 10
 	throw_speed = 1.5
+	w_class = WEIGHT_CLASS_NORMAL //Kind of weird but I don't want people running around with pocket molotovs - Hekzder
+	grid_width = 32
+	grid_height = 96
 	var/arm_sound = 'sound/items/welder.ogg'
 
 /obj/item/grenade/ms13/molotov/Initialize()
