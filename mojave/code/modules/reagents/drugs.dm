@@ -808,7 +808,7 @@
 
 /datum/reagent/ms13/medicine/concentrated_broc/on_mob_life(mob/living/carbon/M) //minor healing over a threshhold
 	if(!M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid/super) || !M.reagents.has_reagent(/datum/reagent/medicine/bitter_drink) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/dried_broc))
-		if(M.getBruteLoss() >= 30)
+		if(M.getFireLoss() >= 30)
 			M.adjustFireLoss(-4)
 			M.adjustStaminaLoss(1)
 			. = TRUE
@@ -824,7 +824,7 @@
 
 /datum/reagent/ms13/medicine/dried_broc/on_mob_life(mob/living/carbon/M) //minor healing over a threshhold
 	if(!M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid/super) || !M.reagents.has_reagent(/datum/reagent/medicine/bitter_drink) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/concentrated_broc))
-		if(M.getBruteLoss() >= 60)
+		if(M.getFireLoss() >= 60)
 			M.adjustFireLoss(-2)
 			. = TRUE
 
