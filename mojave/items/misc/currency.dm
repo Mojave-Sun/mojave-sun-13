@@ -114,6 +114,7 @@
 	max_amount = 50
 	merge_type = /obj/item/stack/ms13/currency/ncr_coin
 	pickup_sound = 'mojave/sound/ms13items/doubloon.ogg'
+	drop_sound = 'mojave/sound/ms13items/doubloon.ogg'
 
 /obj/item/stack/ms13/currency/ncr_coin/five
 	amount = 5
@@ -132,6 +133,7 @@
 	max_amount = 50
 	merge_type = /obj/item/stack/ms13/currency/aurelius
 	pickup_sound = 'mojave/sound/ms13items/doubloon.ogg'
+	drop_sound = 'mojave/sound/ms13items/doubloon.ogg'
 
 /obj/item/stack/ms13/currency/aurelius/two
 	amount = 2
@@ -162,6 +164,7 @@
 	max_amount = 50
 	merge_type = /obj/item/stack/ms13/currency/denarius
 	pickup_sound = 'mojave/sound/ms13items/doubloon.ogg'
+	drop_sound = 'mojave/sound/ms13items/doubloon.ogg'
 
 /obj/item/stack/ms13/currency/denarius/two
 	amount = 2
@@ -192,6 +195,7 @@
 	max_amount = 450
 	merge_type = /obj/item/stack/ms13/currency/cap
 	pickup_sound = 'mojave/sound/ms13items/doubloon.ogg'
+	drop_sound = 'mojave/sound/ms13items/doubloon.ogg'
 
 /obj/item/stack/ms13/currency/cap/four
 	amount = 4
