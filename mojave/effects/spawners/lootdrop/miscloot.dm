@@ -196,7 +196,7 @@
 
 /obj/effect/spawner/random/ms13/smokeable/general
 	name = "general smokeables spawner"
-	spawn_loot_chance = 65
+	spawn_loot_chance = 75
 	loot = list(
 			/obj/effect/spawner/random/ms13/guaranteed/smokeable/highrandom = 30,
 			/obj/effect/spawner/random/ms13/guaranteed/smokeable/lowrandom = 70,
