@@ -80,24 +80,27 @@ INITIALIZE_IMMEDIATE(/atom/movable/plane_master_controller)
 		pm_iterator.update_atom_colour()
 
 //TODO RECHECK
+//MOJAVE SUN EDIT START - Planes
+/// Exists for convienience when referencing all game render plates
 /atom/movable/plane_master_controller/game
 	name = PLANE_MASTERS_GAME
 	controlled_planes = list(
-		FLOOR_PLANE,
-		OVER_TILE_PLANE, //MOJAVE SUN EDIT - Wallening Testmerge
-		WALL_PLANE, //MOJAVE SUN EDIT - Wallening Testmerge
-		GAME_PLANE,
-		GAME_PLANE_FOV_HIDDEN,
-		GAME_PLANE_UPPER,
-		GAME_PLANE_UPPER_FOV_HIDDEN,
-		ABOVE_GAME_PLANE,
-		UNDER_FRILL_PLANE, //MOJAVE SUN EDIT - Wallening Testmerge
-		FRILL_PLANE, //MOJAVE SUN EDIT - Wallening Testmerge
-		OVER_FRILL_PLANE, //MOJAVE SUN EDIT - Wallening Testmerge
-		MASSIVE_OBJ_PLANE,
-		GHOST_PLANE,
-		POINT_PLANE,
-		LIGHTING_PLANE
+		RENDER_PLANE_GAME
 	)
 
+/// Exists for convienience when referencing all non-master render plates.
+/// This is the whole game and the UI, but not the escape menu.
+/atom/movable/plane_master_controller/non_master
+	name = PLANE_MASTERS_NON_MASTER
+	controlled_planes = list(
+		RENDER_PLANE_GAME,
+		RENDER_PLANE_NON_GAME,
+	)
 
+/// Exists for convienience when referencing all game render plates
+/atom/movable/plane_master_controller/colorblind
+	name = PLANE_MASTERS_COLORBLIND
+	controlled_planes = list(
+		RENDER_PLANE_MASTER
+	)
+//MOJAVE SUN EDIT END - Planes

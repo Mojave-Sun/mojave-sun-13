@@ -142,6 +142,7 @@
 	drop_sound = 'mojave/sound/ms13items/ms13handling/meat_drop.ogg'
 	pickup_sound =  'mojave/sound/ms13items/ms13handling/meat_pickup.ogg'
 	var/meat_type = /obj/item/food/meat/slab/ms13/animal
+	decomp_type = /obj/item/food/badrecipe/moldy/ms13
 
 /obj/item/food/meat/slab/ms13/carcass/Initialize(mapload)
 	. = ..()
@@ -232,6 +233,7 @@
 /obj/item/food/meat/slab/ms13/carcass/large
 	w_class = WEIGHT_CLASS_HUGE
 	throw_range = 1
+	decomp_type = /obj/item/food/badrecipe/moldy/ms13
 
 /obj/item/food/meat/slab/ms13/carcass/large/ComponentInitialize()
 	. = ..()
@@ -396,7 +398,7 @@
 
 /obj/item/ms13/animalitem/pigrat/snout
 	name = "pigrat snout"
-	desc = "A pigrats snout, a laden fine delicacy."
+	desc = "A pigrats snout, someone might want this."
 	icon_state = "pigrat_snout"
 
 /obj/item/ms13/animalitem/molerat/teeth
@@ -450,6 +452,7 @@
 	grid_width = 64
 	w_class = WEIGHT_CLASS_SMALL
 	var/steak_type = /obj/item/food/meat/steak/ms13/animal
+	decomp_type = /obj/item/food/badrecipe/moldy/ms13
 
 /obj/item/food/meat/slab/ms13/animal/MakeProcessable()
 	return

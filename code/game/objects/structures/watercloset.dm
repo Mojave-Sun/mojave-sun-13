@@ -401,7 +401,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/urinal, 32)
 			busy = FALSE
 			return 1
 		busy = FALSE
-		O.wash(CLEAN_WASH)
+		O.wash(CLEAN_WASH, user, src) //MOJAVE SUN EDIT - Who is the washer
 		reagents.expose(O, TOUCH, 5 / max(reagents.total_volume, 5))
 		user.visible_message(span_notice("[user] washes [O] using [src]."), \
 							span_notice("You wash [O] using [src]."))

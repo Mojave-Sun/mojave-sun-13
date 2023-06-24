@@ -140,6 +140,7 @@
 	update_appearance()
 	set_opacity(0)
 	operating = FALSE
+	air_update_turf(TRUE, FALSE)
 	update_freelook_sight()
 	playsound(src, (opensound), 50, TRUE)
 	return TRUE
@@ -161,6 +162,7 @@
 	if(visible && !glass)
 		set_opacity(1)
 	operating = FALSE
+	air_update_turf(TRUE, FALSE)
 	update_freelook_sight()
 	playsound(src, (closesound), 50, TRUE)
 	return TRUE
@@ -259,13 +261,13 @@
 	icon_state = "wood_closed"
 	door_type = "wood"
 	frametype = "wood"
-	assemblytype = /obj/item/stack/sheet/ms13/scrap_wood
+	assemblytype = /obj/item/stack/sheet/ms13/wood/scrap_wood
 	hitted_sound = 'mojave/sound/ms13effects/wood_door_hit.ogg'
 
 /obj/machinery/door/unpowered/ms13/wood/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		playsound(src, 'mojave/sound/ms13effects/wood_door_break.ogg', 100, TRUE)
-		new /obj/item/stack/sheet/ms13/scrap_wood/two(loc)
+		new /obj/item/stack/sheet/ms13/wood/scrap_wood/two(loc)
 		for(var/obj/item/I in src)
 			I.forceMove(loc)
 	qdel(src)

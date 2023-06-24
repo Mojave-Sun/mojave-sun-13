@@ -320,7 +320,7 @@ GLOBAL_LIST_EMPTY(species_list)
  * given `delay`. Returns `TRUE` on success or `FALSE` on failure.
  * Interaction_key is the assoc key under which the do_after is capped, with max_interact_count being the cap. Interaction key will default to target if not set.
  */
-/proc/do_after(mob/user, delay, atom/target, timed_action_flags = NONE, progress = TRUE, datum/callback/extra_checks, interaction_key, max_interact_count = 1)
+/proc/do_after(mob/user, delay, atom/target, timed_action_flags = NONE, progress = TRUE, datum/callback/extra_checks, interaction_key, max_interact_count = 1, sleeper = TRUE) //MOJAVE SUN EDIT - Stoplag toggle
 	if(!user)
 		return FALSE
 	var/atom/target_loc = null
@@ -354,7 +354,8 @@ GLOBAL_LIST_EMPTY(species_list)
 	var/starttime = world.time
 	. = TRUE
 	while (world.time < endtime)
-		stoplag(1)
+		if(sleeper)
+			stoplag(1)
 
 		if(!QDELETED(progbar))
 			progbar.update(world.time - starttime)

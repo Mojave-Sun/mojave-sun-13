@@ -65,7 +65,10 @@
 /datum/component/movable_physics/proc/z_floor_bounce(atom/movable/moving_atom)
 	angle_of_movement += rand(-3000, 3000) / 100
 	var/turf/a_turf = get_turf(moving_atom)
-	playsound(moving_atom, a_turf.bullet_bounce_sound, 50, TRUE)
+	if(istype(moving_atom, /obj/item/ammo_casing))
+		playsound(moving_atom, a_turf.bullet_bounce_sound, 50, TRUE)
+	else
+		playsound(moving_atom, bounce_sound, 50, TRUE)
 	moving_atom.SpinAnimation(speed = 1.5 SECONDS, loops = 2)
 	moving_atom.pixel_z = z_floor
 	horizontal_velocity = max(0, horizontal_velocity + (vertical_velocity * -0.8))

@@ -21,11 +21,11 @@
 		if(EXPLODE_LIGHT)
 			take_damage(rand(10, 90), BRUTE, BOMB, 0)
 
-/obj/bullet_act(obj/projectile/P)
+/obj/bullet_act(obj/projectile/P, def_zone)
 	. = ..()
 	playsound(src, P.hitsound, 50, TRUE)
 	var/no_damage = FALSE
-	if(!QDELETED(src) && !take_damage(P.damage, P.damage_type, P.flag, 0, turn(P.dir, 180), P.armour_penetration)) //Bullet on_hit effect might have already destroyed this object
+	if(!QDELETED(src) && !take_damage(P.damage, P.damage_type, P.flag, 0, turn(P.dir, 180), P.armour_penetration, def_zone)) //Bullet on_hit effect might have already destroyed this object
 		no_damage = TRUE
 	if(P.suppressed != SUPPRESSED_VERY)
 		visible_message(span_danger("[src] is hit by \a [P][no_damage ? ", which doesn't leave a mark" : ""]!"), null, null, COMBAT_MESSAGE_RANGE)

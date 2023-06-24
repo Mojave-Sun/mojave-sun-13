@@ -31,6 +31,7 @@ Sunlight System
 	var/weatherproof			 = FALSE        // If we have a weather overlay
 	var/turf/source_turf
 	var/list/datum/lighting_corner/affecting_corners
+	var/time_of_day
 
 /atom/movable/outdoor_effect/Destroy(force)
 	if (!force)

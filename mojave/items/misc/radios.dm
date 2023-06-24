@@ -26,7 +26,7 @@
 		return FALSE
 	if(!listening)
 		return FALSE
-	
+
 	return TRUE //MOHAVE SUN EDIT: Changed this so that it plays only when someone is listening, but otherwhise can recieve, even when not being held.
 
 /obj/item/radio/ms13/broadcast
@@ -156,13 +156,13 @@
 /obj/item/radio/ms13/ham/receiver/radioking/wood/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/scrap_wood(loc, 2)
+			new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc, 2)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 2)
 			new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 3)
 			new /obj/item/stack/sheet/ms13/scrap_copper(loc, 2)
 			new /obj/item/ms13/component/cell(loc)
 		else
-			new /obj/item/stack/sheet/ms13/scrap_wood(loc)
+			new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
 			new /obj/item/stack/sheet/ms13/scrap_electronics(loc)
 	qdel(src)

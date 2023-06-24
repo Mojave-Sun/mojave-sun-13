@@ -78,7 +78,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	matchburnout()
 
 /obj/item/match/dropped(mob/user)
-	matchburnout()
+	//MOJAVE SUN EDIT START - Matches
+	//matchburnout()
+	//MOJAVE SUN EDIT END - Matches
 	return ..()
 
 /obj/item/match/attack(mob/living/carbon/M, mob/living/carbon/user)
@@ -271,7 +273,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	reagents.flags |= NO_REACT
 	lit = FALSE
 	update_icon()
-	
+
 	if(ismob(loc))
 		var/mob/living/M = loc
 		to_chat(M, span_notice("Your [name] goes out."))
@@ -698,12 +700,12 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		return BRUTELOSS
 
 /obj/item/lighter/update_icon_state()
-	icon_state = "[initial(icon_state)][lit ? "-on" : ""]"
+	//icon_state = "[initial(icon_state)][lit ? "-on" : ""]" MOJAVE SUN EDIT - Sharted
 	return ..()
 
 /obj/item/lighter/update_overlays()
 	. = ..()
-	. += create_lighter_overlay()
+	//. += create_lighter_overlay() MOJAVE SUN EDIT - No hardbaked lighting overlays
 
 /// Generates an overlay used by this lighter.
 /obj/item/lighter/proc/create_lighter_overlay()
