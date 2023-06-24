@@ -183,9 +183,9 @@
 	slot_flags = ITEM_SLOT_BACK
 	mag_type = /obj/item/ammo_box/magazine/internal/ms13/jezzail
 	bolt_wording = "chamber"
-	rack_sound = 'mojave/sound/ms13weapons/breakaction_open.ogg'
-	lock_back_sound = 'mojave/sound/ms13weapons/breakaction_open.ogg'
-	bolt_drop_sound = 'mojave/sound/ms13weapons/breakaction_close.ogg'
+	rack_sound = 'mojave/sound/ms13weapons/breakaction_open2.ogg'
+	lock_back_sound = 'mojave/sound/ms13weapons/breakaction_open2.ogg'
+	bolt_drop_sound = 'mojave/sound/ms13weapons/breakaction_close2.ogg'
 	fire_sound = 'mojave/sound/ms13weapons/hunting_rifle.ogg'
 	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/hunting_rifle.ogg' //placeholder sounds for now
 	load_empty_sound = 'mojave/sound/ms13weapons/gunsounds/antique_sniper/antique_load.ogg'

@@ -223,7 +223,7 @@ distance_multiplier - Can be used to multiply the distance at which the sound is
 			if ("bodyfall")
 				soundin = pick('sound/effects/bodyfall1.ogg','sound/effects/bodyfall2.ogg','sound/effects/bodyfall3.ogg','sound/effects/bodyfall4.ogg')
 			if ("punch")
-				soundin = pick('sound/weapons/punch1.ogg','sound/weapons/punch2.ogg','sound/weapons/punch3.ogg','sound/weapons/punch4.ogg')
+				soundin = pick('mojave/sound/ms13weapons/meleesounds/punch_1.ogg','mojave/sound/ms13weapons/meleesounds/punch_2.ogg','mojave/sound/ms13weapons/meleesounds/punch_3.ogg') //Mojave Edit - Our punch sounds, a lot easier than replacing each instance of this one at a time.
 			if ("clownstep")
 				soundin = pick('sound/effects/clownstep1.ogg','sound/effects/clownstep2.ogg')
 			if ("suitstep")

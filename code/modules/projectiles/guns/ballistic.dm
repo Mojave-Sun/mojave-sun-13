@@ -17,13 +17,13 @@
 	///sound of racking
 	var/rack_sound = 'sound/weapons/gun/general/bolt_rack.ogg'
 	///volume of racking
-	var/rack_sound_volume = 15 //Mojave Edit - Brings down to 15 from 60
+	var/rack_sound_volume = 20 //Mojave Edit - Brings down to 20 from 60
 	///whether racking sound should vary
 	var/rack_sound_vary = TRUE
 	///sound of when the bolt is locked back manually
 	var/lock_back_sound = 'sound/weapons/gun/general/slide_lock_1.ogg'
 	///volume of lock back
-	var/lock_back_sound_volume = 15 //Mojave Edit - Brings down to 15 from 60
+	var/lock_back_sound_volume = 20 //Mojave Edit - Brings down to 20 from 60
 	///whether lock back varies
 	var/lock_back_sound_vary = TRUE
 	///Sound of ejecting a magazine
@@ -37,7 +37,7 @@
 	///sound of dropping the bolt or releasing a slide
 	var/bolt_drop_sound = 'sound/weapons/gun/general/bolt_drop.ogg'
 	///volume of bolt drop/slide release
-	var/bolt_drop_sound_volume = 15 //Mojave Edit - Brings down to 15 from 40
+	var/bolt_drop_sound_volume = 20 //Mojave Edit - Brings down to 20 from 40
 	///empty alarm sound (if enabled)
 	var/empty_alarm_sound = 'sound/weapons/gun/general/empty_alarm.ogg'
 	///empty alarm volume sound
