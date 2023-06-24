@@ -24,6 +24,7 @@
 	icon_state = "prewar"
 	singular_name = "pre-war dollar"
 	merge_type = /obj/item/stack/ms13/currency/prewar
+	pickup_sound = 'mojave/sound/ms13items/dollabill.ogg'
 
 /obj/item/stack/ms13/currency/prewar/five
 	amount = 5
@@ -70,6 +71,7 @@
 	icon_state = "ncr"
 	singular_name = "NCR dollar"
 	merge_type = /obj/item/stack/ms13/currency/ncr_dollar
+	pickup_sound = 'mojave/sound/ms13items/dollabill.ogg'
 
 /obj/item/stack/ms13/currency/ncr_dollar/five
 	amount = 5
@@ -111,6 +113,7 @@
 	singular_name = "NCR coin"
 	max_amount = 50
 	merge_type = /obj/item/stack/ms13/currency/ncr_coin
+	pickup_sound = 'mojave/sound/ms13items/doubloon.ogg'
 
 /obj/item/stack/ms13/currency/ncr_coin/five
 	amount = 5
@@ -128,6 +131,7 @@
 	singular_name = "Aurelius coin"
 	max_amount = 50
 	merge_type = /obj/item/stack/ms13/currency/aurelius
+	pickup_sound = 'mojave/sound/ms13items/doubloon.ogg'
 
 /obj/item/stack/ms13/currency/aurelius/two
 	amount = 2
@@ -157,6 +161,7 @@
 	singular_name = "Denarius coin"
 	max_amount = 50
 	merge_type = /obj/item/stack/ms13/currency/denarius
+	pickup_sound = 'mojave/sound/ms13items/doubloon.ogg'
 
 /obj/item/stack/ms13/currency/denarius/two
 	amount = 2
@@ -186,6 +191,7 @@
 	singular_name = "bottle cap"
 	max_amount = 450
 	merge_type = /obj/item/stack/ms13/currency/cap
+	pickup_sound = 'mojave/sound/ms13items/doubloon.ogg'
 
 /obj/item/stack/ms13/currency/cap/four
 	amount = 4

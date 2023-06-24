@@ -11,8 +11,8 @@
 	recoil = 1.5
 	slowdown = 0.75
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/caravan
-	load_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravanload.ogg'
-	load_empty_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravanload.ogg'
+	load_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravanload2.ogg'
+	load_empty_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravanload2.ogg'
 	eject_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravanunload.ogg'
 	eject_empty_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravanunload.ogg'
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravan.ogg'
@@ -50,8 +50,8 @@
 	recoil = 1.5
 	slowdown = 0.75
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/single
-	load_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravanload.ogg'
-	load_empty_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravanload.ogg'
+	load_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravanload2.ogg'
+	load_empty_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravanload2.ogg'
 	eject_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravanunload.ogg'
 	eject_empty_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravanunload.ogg'
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravan2.ogg'
@@ -70,8 +70,8 @@
 	weapon_weight = WEAPON_HEAVY
 	slot_flags = ITEM_SLOT_BACK
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/ms13/mts
-	load_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravanload.ogg' //placeholder
-	load_empty_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravanload.ogg' //placeholder
+	load_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravanload3.ogg'
+	load_empty_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravanload3.ogg'
 	eject_sound = 'mojave/sound/ms13weapons/gunsounds/44/magnumeject.ogg' //placeholder
 	eject_empty_sound = 'mojave/sound/ms13weapons/gunsounds/44/magnumeject.ogg' //placeholder
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/levershot/levershot1.ogg'

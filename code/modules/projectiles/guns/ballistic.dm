@@ -302,9 +302,9 @@
 	if(bolt_type == BOLT_TYPE_OPEN)
 		chambered = null
 	if (magazine.ammo_count())
-		playsound(src, load_sound, load_sound_volume, load_sound_vary)
+		playsound(src, eject_sound, load_sound_volume, load_sound_vary) //MOJAVE EDIT - Original is load_sound, why? I don't know. I hate TGstation - Hekzder
 	else
-		playsound(src, load_empty_sound, load_sound_volume, load_sound_vary)
+		playsound(src, eject_empty_sound, load_sound_volume, load_sound_vary) //MOJAVE EDIT - Original is load_sound, why? I don't know. I hate TGstation - Hekzder
 	magazine.forceMove(drop_location())
 	var/obj/item/ammo_box/magazine/old_mag = magazine
 	if (tac_load)
