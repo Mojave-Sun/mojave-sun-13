@@ -1,7 +1,7 @@
 /obj/item/grenade/ms13/Initialize()
 	. = ..()
 	inhand_icon_state = initial(icon_state)
-	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/melee/melee_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/throwables/grenades_inventory.dmi')
 
 /obj/item/grenade/ms13/examine(mob/user)
 	return
@@ -63,16 +63,21 @@
 
 /obj/item/grenade/ms13/molotov
 	name = "molotov cocktail"
-	desc = "The firestarters best friend, a very simple grenade consisting of a rag and a full bottle of alcohol. Light those suckers up."
+	desc = "The firestarters best friend, a very simple grenade consisting of a rag and a bottle of alcohol. Light those suckers up."
 	icon = 'mojave/icons/objects/throwables/grenades_world.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/weapons/grenades_inhand_left.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/weapons/grenades_inhand_right.dmi'
 	icon_state = "molotov"
+	throwforce = 10
+	throw_speed = 1.5
+	w_class = WEIGHT_CLASS_NORMAL //Kind of weird but I don't want people running around with pocket molotovs - Hekzder
+	grid_width = 32
+	grid_height = 96
 	var/arm_sound = 'sound/items/welder.ogg'
 
 /obj/item/grenade/ms13/molotov/Initialize()
 	. = ..()
-	det_time = rand(20,80)
+	det_time = rand(25,60) //2.5-6 seconds
 
 /obj/item/grenade/ms13/molotov/attackby(obj/item/I, mob/user, params)
 	if(I.get_temperature() && !active)
@@ -115,5 +120,5 @@
 		detonate()
 	else
 		playsound(src, "shatter", 70, TRUE)
-		new /obj/item/shard(src.loc)
+		new /obj/item/stack/sheet/ms13/glass(src.loc)
 		qdel(src)

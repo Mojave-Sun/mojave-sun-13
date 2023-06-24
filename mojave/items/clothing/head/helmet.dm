@@ -10,6 +10,7 @@
 	dynamic_fhair_suffix = "+generic"
 	flags_inv = HIDEHAIR
 	flags_cover = 0
+	max_integrity = 150
 	grid_width = 64
 	grid_height = 64
 	equip_delay_self = 1 SECONDS
@@ -38,6 +39,7 @@
 	flags_cover = 0
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
+	max_integrity = 150
 	grid_width = 64
 	grid_height = 64
 	equip_delay_self = 1 SECONDS
@@ -104,6 +106,8 @@
                 LASER = 0, \
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	max_integrity = 325
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 60, acid = 0, wound = 5)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	has_fov = TRUE
 	fov_angle = 120
@@ -124,6 +128,8 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
+	max_integrity = 260
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 5)
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
@@ -157,6 +163,8 @@
                 LASER = 0, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	max_integrity = 325
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 60, acid = 0, wound = 5)
 	has_fov = TRUE
 	fov_angle = 120
 	equip_delay_self = 2 SECONDS
@@ -176,6 +184,8 @@
                 LASER = 0, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	max_integrity = 325
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 60, acid = 0, wound = 5)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	has_fov = TRUE
 	fov_angle = 120
@@ -196,6 +206,7 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = 0)
+	max_integrity = 200
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0) //No wound armor
 	has_fov = TRUE
 	fov_angle = 60
@@ -222,6 +233,8 @@
                 LASER = 0, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	max_integrity = 325
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 60, acid = 0, wound = 5)
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
@@ -245,6 +258,8 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
+	max_integrity = 260
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 5)
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 	flags_inv = HIDEEARS|HIDEHAIR
@@ -267,6 +282,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
+	max_integrity = 260
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 5)
 	has_fov = TRUE
 	fov_angle = 60
 	equip_delay_self = 1.5 SECONDS
@@ -296,7 +313,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
-	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0) //No wound armor
+	max_integrity = 260
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
 	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
 
@@ -321,7 +339,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
-	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0) //No wound armor
+	max_integrity = 260
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
 	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
 
@@ -334,6 +353,7 @@
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
 	inhand_icon_state = "welding"
+	resistance_flags = FIRE_PROOF
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 0, \
                 CRUSHING = CLASS1_CRUSH, \
@@ -343,7 +363,8 @@
                 LASER = 0, \
                 ENERGY = 0, \
                 FIRE = CLASS4_FIRE)
-	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0) //No wound armor
+	max_integrity = 325
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 75, acid = 0, wound = 0)
 	equip_delay_self = 2 SECONDS
 	equip_delay_other = 4 SECONDS
 
@@ -361,6 +382,8 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS2_FIRE)
+	max_integrity = 325
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 5)
 	has_fov = TRUE
 	fov_angle = 60
 	equip_delay_self = 1.5 SECONDS
@@ -379,6 +402,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
+	max_integrity = 325
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 5)
 
 // Hoods //
 
@@ -403,6 +428,8 @@
                 LASER = 0, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	max_integrity = 325
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 60, acid = 0, wound = 5)
 	inhand_icon_state = "harmorkit"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	flags_cover = HEADCOVERSEYES // Built in protection from the dust. yippie.
@@ -424,6 +451,8 @@
                 LASER = 0, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	max_integrity = 300
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 50, acid = 0, wound = 5)
 	inhand_icon_state = "armorkit"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	has_fov = TRUE
@@ -461,6 +490,8 @@
                 LASER = 0, \
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	max_integrity = 325
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 60, acid = 0, wound = 5)
 	inhand_icon_state = "headdress_l"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	flags_cover = HEADCOVERSEYES // Built in protection from the dust. yippie.
@@ -499,6 +530,7 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = 0)
+	max_integrity = 260
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0) //No wound armor
 	has_fov = TRUE
 	fov_angle = 60
@@ -518,6 +550,8 @@
                 LASER = 0, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS2_FIRE)
+	max_integrity = 300
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 5)
 	has_fov = TRUE
 	fov_angle = 60
 	equip_delay_self = 1.5 SECONDS
@@ -553,6 +587,8 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
+	max_integrity = 260
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 5)
 	inhand_icon_state = "winterglovesbrown"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	has_fov = TRUE
@@ -1022,6 +1058,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = CLASS3_PLASMA, \
                 FIRE = CLASS4_FIRE)
+	max_integrity = 375
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 75, acid = 0, wound = 5)
 	has_fov = TRUE
 	fov_angle = 90
 	equip_delay_self = 2 SECONDS
@@ -1045,6 +1083,8 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	max_integrity = 325
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 60, acid = 0, wound = 5)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	flags_cover = HEADCOVERSEYES // Built in protection from the dust. yippie.
 	has_fov = TRUE
@@ -1066,6 +1106,7 @@
                 LASER = CLASS3_LASER, \
                 ENERGY = CLASS3_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	max_integrity = 375
 
 // Special Helmets //
 
@@ -1083,6 +1124,8 @@
                 LASER = CLASS4_LASER, \
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	max_integrity = 375
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 60, acid = 0, wound = 5)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	flags_cover = HEADCOVERSEYES // Built in protection from the dust. yippie.
 	has_fov = TRUE
@@ -1104,6 +1147,8 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	max_integrity = 375
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 60, acid = 0, wound = 5)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	flags_cover = HEADCOVERSEYES // Built in protection from the dust. yippie.
 	dynamic_hair_suffix = ""
@@ -1127,6 +1172,8 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS2_FIRE)
+	max_integrity = 325
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 5)
 	flags_inv = HIDEEARS|HIDEHAIR
 	flags_cover = HEADCOVERSEYES // Built in protection from the dust. yippie.
 	has_fov = TRUE
@@ -1157,7 +1204,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = 0)
-	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0) //No wound armor
+	max_integrity = 200
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 10, acid = 0, wound = 0)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 
 /obj/item/clothing/head/helmet/ms13/metal/baron
@@ -1173,6 +1221,8 @@
                 LASER = 0, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	max_integrity = 325
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 60, acid = 0, wound = 0)
 	has_fov = TRUE
 	fov_angle = 90
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
@@ -1196,7 +1246,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS5_FIRE)
-	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0) //No wound armor
+	max_integrity = 260
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 95, acid = 0, wound = 0) //No wound armor
 	heat_protection = HEAD
 	resistance_flags = FIRE_PROOF
 	dynamic_hair_suffix = ""
@@ -1268,6 +1319,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
+	max_integrity = 260
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 5)
 	flags_cover = NONE
 	has_fov = TRUE
 	fov_angle = 60
@@ -1359,7 +1412,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS1_FIRE)
-	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0) //No wound armor
+	max_integrity = 200
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 10, acid = 0, wound = 0) //No wound armor
 	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
 
@@ -1377,6 +1431,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
+	max_integrity = 260
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 5)
 	flags_inv = HIDEEARS|HIDEHAIR
 	has_fov = TRUE
 	fov_angle = 60
@@ -1397,6 +1453,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
+	max_integrity = 260
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 5)
 	flags_inv = HIDEEARS|HIDEHAIR
 	has_fov = TRUE
 	fov_angle = 60
@@ -1417,6 +1475,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	max_integrity = 300
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 50, acid = 0, wound = 5)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	has_fov = TRUE
 	fov_angle = 90
@@ -1437,6 +1497,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	max_integrity = 300
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 50, acid = 0, wound = 5)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	flags_cover = HEADCOVERSEYES // Built in protection from the dust. yippie.
 	has_fov = TRUE
@@ -1468,6 +1530,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	max_integrity = 375
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 60, acid = 0, wound = 5)
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	has_fov = TRUE
 	fov_angle = 120
@@ -1505,6 +1569,7 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = 0)
+	max_integrity = 200
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0) //No wound armor
 	equip_delay_self = 1 SECONDS
 	equip_delay_other = 2 SECONDS
@@ -1525,6 +1590,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS2_FIRE)
+	max_integrity = 260
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 5)
 	has_fov = TRUE
 	fov_angle = 60
 	equip_delay_self = 1.5 SECONDS
@@ -1544,6 +1611,8 @@
                 LASER = CLASS3_LASER, \
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	max_integrity = 325
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 60, acid = 0, wound = 5)
 	has_fov = TRUE
 	fov_angle = 90
 	equip_delay_self = 2 SECONDS
@@ -1582,6 +1651,7 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = 0)
+	max_integrity = 200
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0) //No wound armor
 
 // Drylander Hoods //
@@ -1602,6 +1672,7 @@
                 LASER = 0, \
                 ENERGY = 0, \
                 FIRE = 0)
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0)
 
 /obj/item/clothing/head/helmet/ms13/drylander/hunter
 	name = "\improper Drylander hunter hood"
@@ -1617,6 +1688,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS1_FIRE)
+	max_integrity = 200
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 10, acid = 0, wound = 5)
 	has_fov = TRUE
 	fov_angle = 60
 
@@ -1634,6 +1707,8 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
+	max_integrity = 260
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 25, acid = 0, wound = 5)
 	has_fov = TRUE
 	fov_angle = 60
 
@@ -1651,6 +1726,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS1_FIRE)
+	max_integrity = 200
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 10, acid = 0, wound = 5)
 	has_fov = TRUE
 	fov_angle = 60
 
@@ -1668,6 +1745,8 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS2_FIRE)
+	max_integrity = 260
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 5)
 	has_fov = TRUE
 	fov_angle = 60
 
