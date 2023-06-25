@@ -17,6 +17,8 @@
 	component_type = /datum/component/storage/concrete/ms13/cigarettes
 	contents_tag = "cigarette"
 	folds = FALSE
+	grid_width = 32
+	grid_height = 32
 	freshsound = 'mojave/sound/ms13effects/smokeables/freshpack.ogg'
 	drop_sound = 'mojave/sound/ms13effects/smokeables/packdrop.ogg'
 	pickup_sound = 'mojave/sound/ms13effects/smokeables/packgrab.ogg'
@@ -95,6 +97,22 @@
 			playsound(user, 'mojave/sound/ms13effects/smokeables/packopen.ogg', 100)
 		if(is_open)
 			playsound(user, 'mojave/sound/ms13effects/smokeables/packclose.ogg', 100)
+
+/obj/item/storage/fancy/ms13/cigarettes/attack_hand_secondary(mob/user, list/modifiers)
+	attack_hand(user, modifiers)
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
+/obj/item/storage/fancy/ms13/cigarettes/attackby_secondary(obj/item/weapon, mob/user, params)
+	attackby(weapon, user)
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
+/obj/item/storage/fancy/ms13/cigarettes/alt_click_on_secondary(mob/user)
+	attack_hand(user)
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
+/obj/item/storage/fancy/ms13/cigarettes/AltClick(mob/user)
+	attack_hand(user)
+	return
 
 /obj/item/storage/fancy/ms13/cigarettes/attack_hand(mob/user, list/modifiers)
 	if(!ismob(user))

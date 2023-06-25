@@ -131,10 +131,12 @@
 	screen_max_rows = 4
 	screen_start_y = 5
 	screen_start_x = 13
-	rustle_sound = FALSE
+	rustle_sounds = list('mojave/sound/ms13effects/genericplip.ogg')
 
 /datum/component/storage/concrete/ms13/ashtray/Initialize()
 	. = ..()
+	max_items = 16
+	max_combined_w_class = 1000
 	set_holdable(list(/obj/item/ms13/cigarette/butt, /obj/item/ms13/ash))
 
 /datum/component/storage/concrete/ms13/shoes
@@ -256,7 +258,7 @@
 	screen_pixel_y = 0
 	screen_start_x = 6
 	screen_start_y = 5
-	rustle_sound = list(
+	var/rustle_sounds = list(
 		'sound/effects/rustle1.ogg',
 		'sound/effects/rustle2.ogg',
 		'sound/effects/rustle3.ogg',
