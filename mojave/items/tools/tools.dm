@@ -143,7 +143,7 @@
 	subtractible_armour_penetration = 10
 	wound_bonus = 5
 	bare_wound_bonus = 0
-	max_fuel = 40
+	max_fuel = 75
 	light_color = "#7c84a7"
 	w_class = WEIGHT_CLASS_NORMAL
 	log_pickup_and_drop = TRUE
@@ -153,7 +153,11 @@
 
 /obj/item/weldingtool/ms13/Initialize()
 	. = ..()
+	var/fuel_start = rand(25, max_fuel)
+	create_reagents(fuel_start)
+	reagents.add_reagent(/datum/reagent/fuel, fuel_start)
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
+	update_appearance()
 
 /obj/item/weldingtool/ms13/update_icon_state()
 	. = ..()

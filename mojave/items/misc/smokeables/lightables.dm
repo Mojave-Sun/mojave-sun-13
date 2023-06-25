@@ -271,13 +271,13 @@
 	lefthand_file = 'mojave/icons/mob/inhands/misc/lightables_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/misc/lightables_righthand.dmi'
 	inhand_icon_state = "zippo"
-	var/max_fuel = 40
+	var/max_fuel = 50
 	overlay_list = null
 	var/is_open = FALSE
 
 /obj/item/lighter/ms13/zippo/Initialize(mapload)
 	. = ..()
-	var/fuel_start = rand(5, max_fuel)
+	var/fuel_start = rand(10, max_fuel)
 	create_reagents(fuel_start)
 	reagents.add_reagent(/datum/reagent/fuel, fuel_start)
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/lightables_inventory.dmi', world_state, inventory_state)

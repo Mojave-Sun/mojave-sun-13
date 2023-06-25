@@ -108,7 +108,8 @@
 			/obj/item/stack/sheet/ms13/plastic/two,
 			/obj/item/stack/sheet/ms13/rubber/two,
 			/obj/item/stack/sheet/ms13/scrap_parts/two,
-			/obj/item/stack/sheet/ms13/scrap/two
+			/obj/item/stack/sheet/ms13/scrap/two,
+			/obj/item/restraints/handcuffs/ms13/rope
 	)
 
 /obj/effect/spawner/random/ms13/guaranteed/crafting/highrandom
