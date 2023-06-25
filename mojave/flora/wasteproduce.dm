@@ -34,6 +34,7 @@
 	grid_height = 32
 	grid_width = 32
 	distill_reagent = /datum/reagent/consumable/ethanol/ms13/brew_sludge
+	decomp_type = /obj/item/food/badrecipe/moldy/ms13
 	var/can_dry = FALSE //used for drying racks
 	var/dry_time = 10 MINUTES
 	var/dried_type //the thing it dries into
