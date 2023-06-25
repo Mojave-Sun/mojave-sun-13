@@ -126,6 +126,7 @@
 #define CAT_UTILITY "Utility"
 #define CAT_SMELTER "Smelt"
 #define CAT_MELT "Melt down"
+#define CAT_FARMING "Farming"
 
 #define CRAFTING_BENCH_HANDS      1<<0
 #define CRAFTING_BENCH_GENERAL    1<<1
