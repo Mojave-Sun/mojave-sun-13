@@ -42,19 +42,26 @@
 		for(var/i = 0 to rand(0, max_amount))
 			new /obj/item/match/ms13(src)
 
-/obj/item/storage/box/matches/attack_hand_secondary(mob/user, list/modifiers)
+/obj/item/storage/box/matches/ms13/attack_hand_secondary(mob/user, list/modifiers)
 	attack_hand(user, modifiers)
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
-/obj/item/storage/box/matches/alt_click_on_secondary(mob/user)
+/obj/item/storage/box/matches/ms13/alt_click_on_secondary(mob/user)
 	attack_hand(user)
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
-/obj/item/storage/box/matches/AltClick(mob/user)
+/obj/item/storage/box/matches/ms13/AltClick(mob/user)
 	attack_hand(user)
 	return
 
-/obj/item/storage/box/matches/attackby_secondary(obj/item/match/W as obj, mob/user, params)
+/obj/item/storage/box/matches/ms13/attackby(obj/item/I, mob/living/user, params)
+	if(istype(I, /obj/item/match) && !is_open)
+		to_chat(user, "<span class='danger'>[src] is closed.</span>")
+		return
+	else
+		. = ..()
+
+/obj/item/storage/box/matches/ms13/attackby_secondary(obj/item/match/W as obj, mob/user, params)
 	if(istype(W, /obj/item/match))
 		W.matchignite(user)
 		W.update_appearance()

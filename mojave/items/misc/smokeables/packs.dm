@@ -10,6 +10,7 @@
 	lefthand_file = 'mojave/icons/mob/inhands/misc/smokeables_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/misc/smokeables_righthand.dmi'
 	inhand_icon_state = "lucky"
+	worn_icon_state = null
 	w_class = WEIGHT_CLASS_SMALL
 	gender = PLURAL
 	slot_flags = ITEM_SLOT_BELT
@@ -57,6 +58,13 @@
 		return COMPONENT_NO_MOUSEDROP
 	else
 		return . = ..()
+
+/obj/item/storage/fancy/ms13/cigarettes/attackby(obj/item/I, mob/living/user, params)
+	if(istype(I, /obj/item/ms13/cigarette) && !is_open)
+		to_chat(user, "<span class='danger'>[src] is closed.</span>")
+		return
+	else
+		. = ..()
 
 /obj/item/storage/fancy/ms13/cigarettes/update_icon_state()
 	if(is_open && !othertype)
