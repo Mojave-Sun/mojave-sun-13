@@ -172,9 +172,9 @@
 		lastcycle = world.time
 
 		// The soil slowly replenishes itself over time. Later on this'll be supplemented by fertilizers.
-		adjust_nitrolevel(rand(5, 15))
-		adjust_phoslevel(rand(5, 15))
-		adjust_potlevel(rand(5, 15))
+		adjust_nitrolevel(rand(8, 18))
+		adjust_phoslevel(rand(8, 18))
+		adjust_potlevel(rand(8, 18))
 
 		if(myseed && plant_status != HYDROTRAY_PLANT_DEAD)
 			// Advance age
@@ -249,7 +249,7 @@
 				adjust_toxic(-rating * 3)
 
 //This is where stability mutations exist now.
-			
+
 			if(myseed.instability >= 60)
 				if(prob((myseed.instability)/2) && !self_sustaining && LAZYLEN(myseed.mutatelist)) //Minimum 30%, Maximum 50% chance of mutating every age tick when not on autogrow.
 					mutatespecie()

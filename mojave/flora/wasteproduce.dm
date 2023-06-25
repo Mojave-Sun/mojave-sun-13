@@ -59,12 +59,12 @@
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	product = /obj/item/food/grown/ms13/barrelcactus
 	mutatelist = list(/obj/item/seeds/ms13/pricklypear)
-	lifespan = 60
-	endurance = 20
-	yield = 2
+	lifespan = 85
+	endurance = 45
+	yield = 6
 	growthstages = 4
-	production = 5
-	maturation = 5
+	production = 100
+	maturation = 20
 	reagents_add = list(/datum/reagent/toxin = 0.04, /datum/reagent/consumable/nutriment = 0.2)
 	nutrient_type = "K"
 
@@ -91,12 +91,12 @@
 	genes = list(/datum/plant_gene/trait/repeated_harvest, /datum/plant_gene/trait/squash)
 	product = /obj/item/food/grown/ms13/mutfruit
 	mutatelist = list(/obj/item/seeds/ms13/cmutfruit)
-	lifespan = 30
-	endurance = 20
-	yield = 3
+	lifespan = 100
+	endurance = 45
+	yield = 6
 	growthstages = 4
-	production = 5
-	maturation = 5
+	production = 72
+	maturation = 24
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "P"
 
@@ -123,11 +123,11 @@
 	product = /obj/item/food/grown/ms13/cmutfruit
 	mutatelist = list()
 	lifespan = 80
-	endurance = 60
-	yield = 3
+	endurance = 35
+	yield = 5
 	growthstages = 3
-	production = 1
-	maturation = 6
+	production = 40
+	maturation = 10
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "P"
 
@@ -153,11 +153,11 @@
 	harvest_icon = 1
 	product = /obj/item/food/grown/ms13/apple
 	mutatelist = list(/obj/item/seeds/ms13/cmutfruit)
-	lifespan = 100
-	endurance = 30
-	yield = 5
+	lifespan = 115
+	endurance = 40
+	yield = 8
 	growthstages = 5
-	production = 6
+	production = 50
 	maturation = 10
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "N"
@@ -185,12 +185,12 @@
 	genes = list(/datum/plant_gene/trait/repeated_harvest,/datum/plant_gene/trait/stinging) //could be a bad idea idk
 	product = /obj/item/food/grown/ms13/pricklypear
 	mutatelist = list(/obj/item/seeds/ms13/barrelcactus)
-	lifespan = 60
-	endurance = 20
-	yield = 2
+	lifespan = 75
+	endurance = 40
+	yield = 4
 	growthstages = 4
-	production = 4
-	maturation = 5
+	production = 80
+	maturation = 20
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "N"
 
@@ -233,12 +233,12 @@
 	harvest_icon = 1
 	genes = list(/datum/plant_gene/trait/plant_type/fungal_metabolism, /datum/plant_gene/trait/repeated_harvest, /datum/plant_gene/trait/squash)
 	product = /obj/item/food/grown/ms13/pungafruit
-	lifespan = 80
-	endurance = 30
-	maturation = 15
-	production = 1
-	yield = 3
+	lifespan = 95
+	endurance = 50
+	yield = 8
 	growthstages = 4
+	production = 125
+	maturation = 25
 	reagents_add = list(/datum/reagent/toxin = 0.04, /datum/reagent/consumable/nutriment = 0.2)
 	nutrient_type = "P"
 
@@ -264,13 +264,12 @@
 	harvest_icon = 1
 	genes = list(/datum/plant_gene/trait/plant_type/fungal_metabolism, /datum/plant_gene/trait/repeated_harvest, /datum/plant_gene/trait/squash)
 	product = /obj/item/food/grown/ms13/geigpungafruit
-	lifespan = 100
-	endurance = 20
-	maturation = 8
-	instability = 100
-	production = 4
-	yield = 2
+	lifespan = 70
+	endurance = 25
+	yield = 8
 	growthstages = 4
+	production = 100
+	maturation = 20
 	reagents_add = list(/datum/reagent/toxin = 0.08, /datum/reagent/consumable/nutriment = 0.2)
 	nutrient_type = "P"
 
@@ -295,12 +294,12 @@
 	wholeiconcolor = TRUE
 	plantname = "Snaptail Reeds"
 	product = /obj/item/food/grown/ms13/snaptail
-	lifespan = 40
+	lifespan = 45
 	endurance = 50
-	yield = 5
+	yield = 6
 	growthstages = 5
-	production = 2
-	maturation = 8
+	production = 60
+	maturation = 10
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1, /datum/reagent/consumable/sugar = 0.1)
 	nutrient_type = "K"
 
@@ -328,12 +327,12 @@
 	product = /obj/item/food/grown/ms13/tarberry
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	mutatelist = list(/obj/item/seeds/ms13/blackberry)
-	lifespan = 30
-	endurance = 30
-	yield = 8
+	lifespan = 50
+	endurance = 35
+	yield = 5
 	growthstages = 3
-	production = 5
-	maturation = 2
+	production = 60
+	maturation = 12
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "N"
 
@@ -361,12 +360,12 @@
 	product = /obj/item/food/grown/ms13/blackberry
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	mutatelist = list(/obj/item/seeds/ms13/radberry, /obj/item/seeds/ms13/tarberry)
-	lifespan = 40
-	endurance = 20
-	yield = 5
+	lifespan = 45
+	endurance = 30
+	yield = 4
 	growthstages = 4
-	production = 3
-	maturation = 4
+	production = 40
+	maturation = 8
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.02, /datum/reagent/consumable/nutriment = 0.08)
 	nutrient_type = "P"
 
@@ -421,12 +420,12 @@
 	species = "yucca"
 	plantname = "yucca plant"
 	product = /obj/item/food/grown/ms13/yucca
-	lifespan = 50
-	endurance = 30
-	yield = 3
+	lifespan = 60
+	endurance = 60
+	yield = 6
 	growthstages = 4
-	production = 2
-	maturation = 4
+	production = 75
+	maturation = 15
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.08, /datum/reagent/consumable/nutriment = 0.15)
 	nutrient_type = "K"
