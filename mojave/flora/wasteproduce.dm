@@ -34,8 +34,9 @@
 	grid_height = 32
 	grid_width = 32
 	distill_reagent = /datum/reagent/consumable/ethanol/ms13/brew_sludge
+	decomp_type = /obj/item/food/badrecipe/moldy/ms13
 	var/can_dry = FALSE //used for drying racks
-	var/dry_time = 10 MINUTES
+	var/dry_time = 600 // 10 Minutes
 	var/dried_type //the thing it dries into
 	var/time_drying = 0 //how long has this been drying
 
@@ -693,7 +694,7 @@
 	desc = "A xander root that has been cut into thinner parts, you think you could hang this to dry."
 	icon_state = "cut_xander"
 	can_dry = TRUE
-	dry_time = 15 MINUTES
+	dry_time = 900 // 15 Minutes
 	dried_type = /obj/item/ms13/dried/xander
 
 //////////////////////// CARROT /////////////////////////////
@@ -1319,7 +1320,7 @@
 	filling_color = "#493d28"
 	tastes = list("broc"= 5)
 	can_dry = TRUE
-	dry_time = 8 MINUTES
+	dry_time = 480 //8 minutes
 	dried_type = /obj/item/ms13/dried/broc
 
 /////////////////////////////////////////////////////////////

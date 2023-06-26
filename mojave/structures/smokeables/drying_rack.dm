@@ -77,7 +77,7 @@
 	if(contents.len == 9)
 		to_chat(user, "<span class='warning'>The [name] is at maximum space!</span>")
 		return
-	if(istype(I, /obj/item/food/grown/ms13))
+	if(istype(I, /obj/item/food/grown/ms13) || istype(I, /obj/item/ms13/dried))
 		var/obj/item/food/grown/ms13/place_dry = I
 		if(place_dry.can_dry)
 			to_chat(user, "<span class='notice'>You hang [place_dry.name] to dry on the [name].</span>")

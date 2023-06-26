@@ -71,6 +71,7 @@
 	throwforce = 10
 	throw_speed = 1.5
 	w_class = WEIGHT_CLASS_NORMAL //Kind of weird but I don't want people running around with pocket molotovs - Hekzder
+	var/extra_POWER // Used for scaling flame power based on alcoholpwr. This number, usually 0-100, will be divided by 75 to get the flame radius.
 	grid_width = 32
 	grid_height = 96
 	var/arm_sound = 'sound/items/welder.ogg'
@@ -100,7 +101,7 @@
 		AddComponent(/datum/component/pellet_cloud, projectile_type=shrapnel_type, magnitude=shrapnel_radius)
 	playsound(src, arm_sound, volume, TRUE)
 	active = TRUE
-	icon_state = initial(icon_state) + "_active"
+	icon_state = icon_state + "_active"
 	inhand_icon_state = icon_state
 	SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time, delayoverride)
 	addtimer(CALLBACK(src, .proc/detonate), isnull(delayoverride)? det_time : delayoverride)
@@ -108,7 +109,7 @@
 
 /obj/item/grenade/ms13/molotov/detonate(mob/living/lanced_by)
 	playsound(loc, 'sound/effects/hit_on_shattered_glass.ogg', 35, TRUE, 4)
-	flame_radius(1, get_turf(src))
+	flame_radius(extra_POWER, get_turf(src))
 	playsound(loc, 'mojave/sound/ms13effects/explosion_fire_grenade.ogg', 30, TRUE, 4)
 	qdel(src)
 

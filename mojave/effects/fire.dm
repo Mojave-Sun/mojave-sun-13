@@ -135,7 +135,7 @@
 /proc/flame_radius(radius = 1, turf/epicenter, burn_duration = 45, burn_intensity = 25, burn_damage = 12, fire_stacks = 12, int_var = 0.5, dur_var = 0.5, colour = "red") //~Art updated fire.
 	if(!isturf(epicenter))
 		CRASH("flame_radius used without a valid turf parameter")
-	for(var/T in filled_turfs(epicenter, radius, "circle"))
+	for(var/T in filled_turfs(epicenter, radius, "circle", FALSE))
 		radius = clamp(radius, 1, 50) //Sanitize inputs
 		int_var = clamp(int_var, 0.1,0.5)
 		dur_var = clamp(int_var, 0.1,0.5)

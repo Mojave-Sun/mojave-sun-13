@@ -109,7 +109,7 @@
 	icon_state = "gib1"
 	layer = LOW_OBJ_LAYER
 	plane = GAME_PLANE
-	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gib6", "gib7", "gib8")
+	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gib6", "gib7")
 	mergeable_decal = FALSE
 	turf_loc_check = FALSE
 
@@ -177,25 +177,23 @@ MOJAVE SUN EDIT END */
 
 /obj/effect/decal/cleanable/blood/gibs/up
 	icon_state = "gib6"
-	random_icon_states = list("gib6", "gib4", "gib5", "gib3") //Mojave Edit - Replaces with our gibs
+	random_icon_states = list("gib6", "gib4", "gib5", "gibhead") //Mojave Edit - Replaces with our gibs
 
 /obj/effect/decal/cleanable/blood/gibs/down
 	icon_state = "gib7"
-	random_icon_states = list("gib7", "gib8", "gib2", "gib1") //Mojave Edit - Replaces with our gibs
+	random_icon_states = list("gib7", "gib2", "gib1", "giblimb1", "giblimb4") //Mojave Edit - Replaces with our gibs
 
 /obj/effect/decal/cleanable/blood/gibs/body
-	icon_state = "gibtorso"
-	random_icon_states = list("gibhead", "gibtorso")
-	icon = 'icons/effects/blood.dmi' //Mojave Edit - Redirecting this to base TG gibs since we don't have our own of these yet
+	icon_state = "gib5"
+	random_icon_states = list("gib1", "gib2", "gib7", "gib3", "gib5") //Mojave Edit - Replaces with our gibs
 
 /obj/effect/decal/cleanable/blood/gibs/torso
 	icon_state = "gib7"
-	random_icon_states = list("gib7", "gib1", "gib2", "gib3", "gib6")
+	random_icon_states = list("gib7", "gib1", "gib2", "gib3", "gib6") //Mojave Edit - Replaces with our gibs
 
 /obj/effect/decal/cleanable/blood/gibs/limb
-	icon_state = "gibleg"
-	random_icon_states = list("gibleg", "gibarm")
-	icon = 'icons/effects/blood.dmi' //Mojave Edit - Redirecting this to base TG gibs since we don't have our own of these yet
+	icon_state = "giblimb2"
+	random_icon_states = list("giblimb1", "giblimb2", "giblimb3", "giblimb4") //Mojave Edit - Replaces with our gibs
 
 /obj/effect/decal/cleanable/blood/gibs/core
 	icon_state = "gib2"
@@ -209,7 +207,7 @@ MOJAVE SUN EDIT END */
 	should_dry = FALSE
 	dryname = "old rotting gibs"
 	drydesc = "Terrible smelling rotting gibs. They don't look much better either."
-	random_icon_states =  list("gib1-old", "gib2-old", "gib3-old", "gib4-old", "gib5-old", "gib6-old", "gib7-old", "gib8-old") //Mojave Edit - Proper icon randomization
+	random_icon_states =  list("gib1-old", "gib2-old", "gib3-old", "gib4-old", "gib5-old", "gib6-old", "gib7-old") //Mojave Edit - Proper icon randomization
 
 /obj/effect/decal/cleanable/blood/gibs/old/Initialize(mapload, list/datum/disease/diseases)
 	. = ..()
