@@ -562,7 +562,7 @@
 
 /obj/item/food/grown/ms13/jalepeno
 	seed = /obj/item/seeds/ms13/jalepeno
-	name = "jalepeno"
+	name = "jalapeno"
 	desc = "A moderately sized thin green pepper. Has no smell to it."
 	bite_consumption_mod = 1
 	foodtypes = VEGETABLES
@@ -1418,7 +1418,7 @@
 
 /obj/item/food/grown/ms13/blight
 	seed = /obj/item/seeds/ms13/blight
-	name = "blight"
+	name = "blight mushroom"
 	desc = "A dark, strange spotted mushroom. Has a thick trunk and is firm."
 	bite_consumption_mod = 1
 	icon_state = "blight"

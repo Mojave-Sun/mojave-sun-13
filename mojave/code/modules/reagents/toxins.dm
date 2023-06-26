@@ -38,16 +38,17 @@
 	color = "#c9e5f1"
 	taste_description = "harsh bitterness"
 	metabolization_rate = 0.55 * REAGENTS_METABOLISM //0.11 per second
-	toxpwr = 2.25
+	toxpwr = 2.5
 
 /datum/reagent/toxin/ms13/dark_datura/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(DT_PROB(15, delta_time))
 		M.hallucination += 8
 		M.losebreath += 2
 		M.adjustOrganLoss(ORGAN_SLOT_EYES, rand(6, 10))
-	if(DT_PROB(8, delta_time))
-		to_chat(M, span_danger("You feel horrendously weak!"))
 		M.emote("cough")
-		M.Stun(60)
-		M.adjustToxLoss(rand(5,8))
+	if(DT_PROB(8, delta_time))
+		to_chat(M, span_danger("You feel horrendously weak and ill!"))
+		M.emote("scream")
+		M.Knockdown(rand(50,80))
+		M.adjustToxLoss(rand(6,8))
 	return ..()

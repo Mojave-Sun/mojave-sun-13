@@ -66,10 +66,12 @@
 	spawn_loot_chance = 55
 	spawn_loot_count = 1
 	loot = list(
-			/obj/item/stack/medical/ms13/healing_powder = 35,
-			/obj/item/stack/medical/ms13/healing_powder/burn = 35,
-			/obj/item/stack/medical/ms13/healing_powder/poultice = 15,
-			/obj/item/reagent_containers/ms13/flask/bitter_drink = 15
+			/obj/item/stack/medical/ms13/healing_powder = 30,
+			/obj/item/stack/medical/ms13/healing_powder/burn = 30,
+			/obj/item/stack/medical/ms13/healing_powder/poultice = 10,
+			/obj/item/reagent_containers/ms13/flask/bitter_drink = 10,
+			/obj/item/reagent_containers/ms13/flask/herbal_antitox = 10,
+			/obj/item/reagent_containers/ms13/flask/burn_remedy = 10
 			)
 
 /obj/effect/spawner/random/ms13/medical/bloodbag

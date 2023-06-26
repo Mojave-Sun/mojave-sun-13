@@ -205,7 +205,7 @@
 	name = "hydra"
 	description = "A curative agent that anaesthetises and restores crippled limbs. Causes heart damage from the overworking, and tends to make the user feel ill."
 	color = "#60A584"
-	overdose_threshold = 15
+	overdose_threshold = 18
 	metabolization_rate = 1 * REM
 
 /datum/reagent/ms13/hydra/on_mob_metabolize(mob/living/M, amount)
@@ -1024,7 +1024,7 @@
 /datum/movespeed_modifier/reagent/ms13
 
 /datum/movespeed_modifier/reagent/ms13/trail
-	multiplicative_slowdown = -0.05
+	multiplicative_slowdown = -0.03
 
 /datum/movespeed_modifier/reagent/ms13/jet
 	multiplicative_slowdown = -0.1
