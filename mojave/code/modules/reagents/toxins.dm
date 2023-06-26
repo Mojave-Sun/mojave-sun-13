@@ -28,3 +28,26 @@
 		//can also make u cough up blood sometimes
 		if(prob(50))
 			M.bleed(8)
+
+// Dark Datura //
+
+/datum/reagent/toxin/ms13/dark_datura
+	name = "Dark Datura"
+	description = "An infamous poison made using concentrated Datura Flowers and Radrose. A Wasteland assassin's best friend."
+	reagent_state = LIQUID
+	color = "#c9e5f1"
+	taste_description = "harsh bitterness"
+	metabolization_rate = 0.55 * REAGENTS_METABOLISM //0.11 per second
+	toxpwr = 2
+
+/datum/reagent/toxin/ms13/dark_datura/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
+	if(DT_PROB(10, delta_time))
+		M.hallucination += 8
+		M.losebreath += 2
+		M.adjustOrganLoss(ORGAN_SLOT_EYE, rand(6, 10))
+	if(DT_PROB(5, delta_time))
+		to_chat(M, span_danger("You feel horrendously weak!"))
+		M.emote("cough")
+		M.Stun(60)
+		M.adjustToxLoss(rand(5,8))
+	return ..()

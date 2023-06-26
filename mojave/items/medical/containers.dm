@@ -85,6 +85,5 @@
 /obj/item/reagent_containers/ms13/flask/bitter_drink
 	name = "bitter drink flask"
 	desc = "A painted round bottom ceramic flask, the rim smells of bitterness. <b>If it is open when dropped or put in a bag, it will roll over and spill! <br> Alt-Click to open or close it.</b>"
-	icon_state = "bitter_drink"
 	volume = 15
 	list_reagents = list(/datum/reagent/medicine/bitter_drink = 15)
