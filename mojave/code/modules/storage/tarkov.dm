@@ -249,7 +249,10 @@
 		/obj/item/gun/ballistic/automatic/ms13/full/smg10mm,
 		/obj/item/gun/ballistic/automatic/ms13/full/smg9mm,
 		/obj/item/reagent_containers/food/drinks/bottle/ms13,
-		/obj/item/grenade/ms13/molotov
+		/obj/item/grenade/ms13/molotov,
+		/obj/item/seeds/ms13,
+		/obj/item/food/grown/ms13,
+		/obj/item/reagent_containers/ms13/flask
 		))
 
 /datum/component/storage

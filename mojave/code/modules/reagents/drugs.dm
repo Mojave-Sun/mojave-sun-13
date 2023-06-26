@@ -849,7 +849,7 @@
 	if(prob(4))
 		M.emote(pick("sniff", "sneeze"))
 		M.Jitter(2)
-		M.setOrganLoss(ORGAN_SLOT_BRAIN, rand(0.5, 2))
+		M.setOrganLoss(ORGAN_SLOT_BRAIN, rand(0.75, 2))
 	return ..()
 
 // Radtura Mix //
