@@ -41,14 +41,16 @@
 	toxpwr = 2.5
 
 /datum/reagent/toxin/ms13/dark_datura/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
-	if(DT_PROB(15, delta_time))
+	if(DT_PROB(14, delta_time))
 		M.hallucination += 8
 		M.losebreath += 2
 		M.adjustOrganLoss(ORGAN_SLOT_EYES, rand(6, 10))
 		M.emote("cough")
-	if(DT_PROB(8, delta_time))
+		M.Stun(15)
+	if(DT_PROB(6, delta_time))
 		to_chat(M, span_danger("You feel horrendously weak and ill!"))
 		M.emote("scream")
-		M.Knockdown(rand(50,80))
-		M.adjustToxLoss(rand(6,8))
+		M.Knockdown(rand(60,80))
+		M.Stun(40)
+		M.adjustToxLoss(rand(7,11))
 	return ..()
