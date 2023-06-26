@@ -150,7 +150,7 @@
 			qdel(attacking_item)
 			return
 		if(fella.smoketime <= 60 && fella.lit && fella.butt_transform)
-			extinguish(fella)
+			fella.extinguish()
 			user.visible_message("<span class='notice'>[user] puts out \the [attacking_item] in the [name].</span>")
 			fella.forceMove(src)
 			return
