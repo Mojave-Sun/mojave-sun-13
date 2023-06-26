@@ -700,8 +700,8 @@
 
 /datum/reagent/medicine/bitter_drink/on_mob_life(mob/living/carbon/M)
 	if(!M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid/super))
-		M.adjustFireLoss(-3.35)
-		M.adjustBruteLoss(-3.35)
+		M.adjustFireLoss(-3.75)
+		M.adjustBruteLoss(-3.75)
 		. = TRUE
 	else
 		M.adjustFireLoss(-0.5)
@@ -724,12 +724,12 @@
 	color ="#d85d47"
 	taste_description = "sour burning"
 	metabolization_rate = 4.75 * REAGENTS_METABOLISM // 0.95 per second
-	overdose_threshold = 25
+	overdose_threshold = 22
 
 /datum/reagent/medicine/blood_remedy/on_mob_life(mob/living/carbon/M)
 	if(!M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid/super) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/radaway))
 		M.adjustToxLoss(-1.75)
-		M.adjustBruteLoss(-2)
+		M.adjustBruteLoss(-2.5)
 		. = TRUE
 	else
 		M.adjustToxLoss(-0.5)
@@ -737,7 +737,7 @@
 		M.adjustStaminaLoss(1)
 	..()
 
-/datum/reagent/medicine/blood_remedy/overdose_process(mob/living/M)
+/datum/reagent/medicine/blood_remedy/overdose_process(mob/living/M, delta_time, times_fired)
 	if(!M.blood_volume)
 		return
 
@@ -770,14 +770,14 @@
 
 /datum/reagent/medicine/herb_antitox/on_mob_life(mob/living/carbon/M)
 	if(!M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid/super) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/radaway))
-		M.adjustToxLoss(-3.5)
+		M.adjustToxLoss(-5)
 		. = TRUE
 	else
 		M.adjustToxLoss(-0.6)
 		M.adjustStaminaLoss(1)
 	..()
 
-/datum/reagent/medicine/herb_antitox/overdose_process(mob/living/M)
+/datum/reagent/medicine/herb_antitox/overdose_process(mob/living/M, delta_time, times_fired)
 	if(!iscarbon(M))
 		return
 	var/mob/living/carbon/carbie = M
@@ -800,20 +800,20 @@
 
 /datum/reagent/medicine/burn_remedy/on_mob_life(mob/living/carbon/M)
 	if(!M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid/super))
-		M.adjustFireLoss(-5)
+		M.adjustFireLoss(-6.5)
 		. = TRUE
 	else
 		M.adjustFireLoss(-0.75)
 		M.adjustStaminaLoss(1.5)
 		M.losebreath += rand(3, 4)
-	if(prob(2))
+	if(prob(5))
 		M.losebreath += rand(3, 5)
 		to_chat(M, span_userdanger("The spice from the remedy briefly overpowers you!"))
 		M.emote("gasp")
 
 	..()
 
-/datum/reagent/medicine/burn_remedy/overdose_process(mob/living/M)
+/datum/reagent/medicine/burn_remedy/overdose_process(mob/living/M, delta_time, times_fired)
 	if(current_cycle >= 10)
 		M.Stun(50 * REM * delta_time)
 		. = TRUE
@@ -861,7 +861,7 @@
 	color ="#155205b9"
 	taste_description = "bitter warmth"
 	metabolization_rate = 6 * REAGENTS_METABOLISM // 1.2 per second
-	overdose_threshold = 20
+	overdose_threshold = 18
 
 /datum/reagent/medicine/radtura_mix/on_mob_add(mob/living/carbon/human/M)
 	if(isliving(M))
@@ -879,10 +879,9 @@
 	return ..()
 
 /datum/reagent/medicine/radtura_mix/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
-	/datum/reagent/medicine/bitter_drink/on_mob_life(mob/living/carbon/M)
 	if(!M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid/super) ||  !M.reagents.has_reagent(/datum/reagent/ms13/medicine/radaway))
-		M.adjustFireLoss(-7.5)
-		M.adjustBruteLoss(-7.5)
+		M.adjustFireLoss(-8.25)
+		M.adjustBruteLoss(-8.25)
 		. = TRUE
 	else
 		M.adjustFireLoss(-0.5)
@@ -891,8 +890,8 @@
 		M.vomit()
 	..()
 
-/datum/reagent/medicine/radtura_mix/overdose_process(mob/living/M)
-	if(DT_PROB(10, delta_time))
+/datum/reagent/medicine/radtura_mix/overdose_process(mob/living/carbon/M, delta_time, times_fired)
+	if(DT_PROB(15, delta_time))
 		M.losebreath += rand(4, 6)
 		M.adjustOxyLoss(rand(4, 8))
 		if(prob(60))
@@ -902,7 +901,7 @@
 			var/obj/item/organ/heart/our_heart = M.getorganslot(ORGAN_SLOT_HEART)
 			our_heart.applyOrganDamage(2)
 
-	if(DT_PROB(6, delta_time))
+	if(DT_PROB(10, delta_time))
 		to_chat(M, span_danger("You can feel your blood going toxic!"))
 		M.adjustToxLoss(8)
 		M.vomit()
