@@ -14,7 +14,7 @@
 	name = "absinthe"
 	description = "An old popular drink. Very strong."
 	color = "#cecbc5"
-	boozepwr = 75
+	boozepwr = 65
 	taste_description = "strong alcohol and strange herb-y sugar"
 	glass_name = "glass of clear green liquid"
 	glass_desc = "A clear green liquid with an intense alcoholic smell. Vaguely sweet herb aroma."
@@ -23,7 +23,7 @@
 	name = "moonshine"
 	description = "A bland alcohol. Basically a party gimmick unless you're a masochist."
 	color = "#cecbc5"
-	boozepwr = 70
+	boozepwr = 65
 	taste_description = "strong bland alcohol"
 	glass_name = "glass of clear liquid"
 	glass_desc = "A clear liquid with an intense alcoholic smell."
@@ -42,7 +42,7 @@
 	name = "vodka"
 	description = "Another bland yet strong alcohol. This one is a classic ingredient."
 	color = "#e7e5e1"
-	boozepwr = 75
+	boozepwr = 65
 	taste_description = "strong alcohol with subtle flavors"
 	glass_name = "glass of clear liquid"
 	glass_desc = "A clear liquid with no smell. Nothing out of the ordinary." // ☻
@@ -316,7 +316,7 @@
 	description = "An acidic wine. You could almost melt something with it"
 	quality = DRINK_NICE
 	color = "#33d64e"
-	boozepwr = 75
+	boozepwr = 60
 	taste_description = "rancid punga fruit and alcohol"
 	glass_name = "glass of green liquid"
 	glass_desc = "A bright green murky liquid. Heavy alcoholic aromas waft from it."
