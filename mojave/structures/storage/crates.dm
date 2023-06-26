@@ -4,6 +4,7 @@
 	name = "wasteland crate"
 	desc = "Holds wastelands, presumably."
 	icon = 'mojave/icons/structure/crates.dmi'
+	ms13_flags_1 = LOCKABLE_1
 	drag_slowdown = 1
 	max_integrity = 300
 	anchored = TRUE

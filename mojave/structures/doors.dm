@@ -183,16 +183,11 @@
 	return TRUE
 
 /obj/machinery/door/unpowered/ms13/attack_hand(mob/living/M)
-	if(locked)
-		to_chat(M, "<span class='warning'> The [name] is locked.</span>")
-		playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
-		return
-	if(.)
-		return
 	if(ms13_flags_1 & LOCKABLE_1 && lock_locked)
-		to_chat(M, span_warning("The [name] is locked."))
-		playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
-		return
+		if(lock && lock.item_lock_locked) //for manually locked things
+			return . = ..()
+	if(locked)
+		return . = ..()
 	if(do_after(M, 0.5 SECONDS, interaction_key = DOAFTER_SOURCE_DOORS))
 		try_to_activate_door(M)
 

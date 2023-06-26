@@ -292,22 +292,74 @@
 	return TRUE
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/attackby(obj/item/I, mob/user, params)
+	if(I.item_flags & KEY_ITEM && lock) //gotta add it here cause clothing code is FUCKED on attackbys, never shouldve made this shit a hardsuit fellas
+		var/obj/item/ms13/key/key = I
+		//alignment checks
+		if(key.bitt_1 != lock.pin_1)
+			playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+			to_chat(user, span_notice("The key dosen't turn in [name]."))
+			return
+		if(key.bitt_2 != lock.pin_2)
+			playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+			to_chat(user, span_notice("The key dosen't turn in [name]."))
+			return
+		if(key.bitt_3 != lock.pin_3)
+			playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+			to_chat(user, span_notice("The key dosen't turn in [name]."))
+			return
+		if(key.bitt_4 != lock.pin_4)
+			playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+			to_chat(user, span_notice("The key dosen't turn in [name]."))
+			return
+		if(key.bitt_5 != lock.pin_5)
+			playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+			to_chat(user, span_notice("The key dosen't turn in [name]."))
+			return
+		if(key.bitt_6 != lock.pin_6)
+			playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+			to_chat(user, span_notice("The key dosen't turn in [name]."))
+			return
+		if(!lock.item_lock_locked)
+			playsound(src, 'mojave/sound/ms13effects/key_lock.ogg', 50, TRUE)
+			to_chat(user, span_notice("You lock the [name]."))
+			lock.item_lock_locked = TRUE
+			return
+		if(lock.item_lock_locked)
+			playsound(src, 'mojave/sound/ms13effects/key_unlock.ogg', 50, TRUE)
+			to_chat(user, span_notice("You unlock the [name]."))
+			lock.item_lock_locked = FALSE
+			return
+	//lock interactions
 	if(I.item_flags & LOCKING_ITEM && ms13_flags_1 & LOCKABLE_1)
+		var/obj/item/ms13/lock/potential_lock = I
 		if(lock_locked)
 			to_chat(user, span_warning("The [name] already has a lock."))
 			return
-		if(!can_be_picked)
+		if(potential_lock.item_lock_locked)
+			to_chat(user, span_notice("The [name] is locked."))
+			playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 20, TRUE)
 			return
-		var/obj/item/ms13/lock/L = I
-		if(!L.lock_open)
-			to_chat(user, span_warning("The [name] is closed."))
+		if(!potential_lock.lock_open)
+			to_chat(user, span_warning("The [lock.name] is shut, open it!"))
 			return
-		if(!user.transferItemToLoc(L, src))
-			return
-		lock = I
-		to_chat(user, span_notice("You attach the [lock.name] to the [name]."))
-		update_appearance()
-		return
+		if(!potential_lock.item_lock_locked && potential_lock.lock_open)
+			if(!do_after(user, 0.5 SECONDS, src))
+				return
+			if(!user.transferItemToLoc(lock, src))
+				return
+			lock = potential_lock
+			can_be_picked = TRUE
+			lock.item_lock_locked = TRUE
+			lock.lock_open = FALSE
+			lock_locked = TRUE
+			lock.moveToNullspace()
+			AddComponent(/datum/component/lockpickable, difficulty = lock.lock_difficulty)
+			for(var/datum/component/storage/storage as anything in GetComponents(/datum/component/storage))
+				storage.locked = TRUE //locks
+			playsound(src, 'mojave/sound/ms13effects/lock_close.ogg', 50, TRUE)
+			to_chat(user, span_notice("You attach the [lock.name] to the [name] and clasp it shut."))
+			user.visible_message("<span class='notice'[user.name] attaches the [lock.name] to the [name].")
+			update_appearance()
 	else if(I.tool_behaviour == TOOL_CROWBAR)
 		toggle_spacesuit_cell(user)
 		return
@@ -545,10 +597,7 @@
 
 //Let's get into the power armor (or not)
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/AltClick(mob/living/carbon/human/user)
-	if(ms13_flags_1 & LOCKABLE_1 && lock_locked)
-		to_chat(user, span_warning("The [name] is locked."))
-		playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
-		return
+	. = ..()
 	if(!istype(user))
 		return FALSE
 	else

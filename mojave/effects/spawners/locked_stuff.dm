@@ -11,7 +11,7 @@
 /obj/effect/spawner/random/ms13/locked/beginner
 	name = "DO NOT USE ME - Mojave Sun beginner locks"
 	loot = list(
-		/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/beginner)
+		/obj/effect/mapping_helpers/atom_injector/component_injector/ms13/lockedpickable/beginner)
 
 /obj/effect/spawner/random/ms13/locked/beginner/lowchance
 	name = "beginner lock low chance spawner"
@@ -28,7 +28,7 @@
 /obj/effect/spawner/random/ms13/locked/novice
 	name = "DO NOT USE ME - Mojave Sun novice locks"
 	loot = list(
-		/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/novice)
+		/obj/effect/mapping_helpers/atom_injector/component_injector/ms13/lockedpickable/novice)
 
 /obj/effect/spawner/random/ms13/locked/novice/lowchance
 	name = "novice lock low chance spawner"
@@ -45,7 +45,7 @@
 /obj/effect/spawner/random/ms13/locked/standard
 	name = "DO NOT USE ME - Mojave Sun standard locks"
 	loot = list(
-		/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/standard)
+		/obj/effect/mapping_helpers/atom_injector/component_injector/ms13/lockedpickable/standard)
 
 /obj/effect/spawner/random/ms13/locked/standard/lowchance
 	name = "standard lock low chance spawner"
@@ -62,7 +62,7 @@
 /obj/effect/spawner/random/ms13/locked/expert
 	name = "DO NOT USE ME - Mojave Sun expert locks"
 	loot = list(
-		/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/expert)
+		/obj/effect/mapping_helpers/atom_injector/component_injector/ms13/lockedpickable/expert)
 
 /obj/effect/spawner/random/ms13/locked/expert/lowchance
 	name = "expert lock low chance spawner"
@@ -79,7 +79,7 @@
 /obj/effect/spawner/random/ms13/locked/master
 	name = "DO NOT USE ME - Mojave Sun master locks"
 	loot = list(
-		/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/master)
+		/obj/effect/mapping_helpers/atom_injector/component_injector/ms13/lockedpickable/master)
 
 /obj/effect/spawner/random/ms13/locked/master/lowchance
 	name = "master lock low chance spawner"
@@ -100,31 +100,31 @@
 	name = "random lock low chance spawner"
 	spawn_loot_chance = 25
 	loot = list(
-		/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/beginner,
-		/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/novice,
-		/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/standard,
-		/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/expert,
-		/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/master)
+		/obj/effect/mapping_helpers/atom_injector/component_injector/ms13/lockedpickable/beginner,
+		/obj/effect/mapping_helpers/atom_injector/component_injector/ms13/lockedpickable/novice,
+		/obj/effect/mapping_helpers/atom_injector/component_injector/ms13/lockedpickable/standard,
+		/obj/effect/mapping_helpers/atom_injector/component_injector/ms13/lockedpickable/expert,
+		/obj/effect/mapping_helpers/atom_injector/component_injector/ms13/lockedpickable/master)
 
 /obj/effect/spawner/random/ms13/locked/random/medchance
 	name = "random lock medium chance spawner"
 	spawn_loot_chance = 50
 	loot = list(
-		/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/beginner,
-		/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/novice,
-		/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/standard,
-		/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/expert,
-		/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/master)
+		/obj/effect/mapping_helpers/atom_injector/component_injector/ms13/lockedpickable/beginner,
+		/obj/effect/mapping_helpers/atom_injector/component_injector/ms13/lockedpickable/novice,
+		/obj/effect/mapping_helpers/atom_injector/component_injector/ms13/lockedpickable/standard,
+		/obj/effect/mapping_helpers/atom_injector/component_injector/ms13/lockedpickable/expert,
+		/obj/effect/mapping_helpers/atom_injector/component_injector/ms13/lockedpickable/master)
 
 /obj/effect/spawner/random/ms13/locked/random/highchance
 	name = "random lock high chance spawner"
 	spawn_loot_chance = 70
 	loot = list(
-		/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/beginner,
-		/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/novice,
-		/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/standard,
-		/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/expert,
-		/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/master)
+		/obj/effect/mapping_helpers/atom_injector/component_injector/ms13/lockedpickable/beginner,
+		/obj/effect/mapping_helpers/atom_injector/component_injector/ms13/lockedpickable/novice,
+		/obj/effect/mapping_helpers/atom_injector/component_injector/ms13/lockedpickable/standard,
+		/obj/effect/mapping_helpers/atom_injector/component_injector/ms13/lockedpickable/expert,
+		/obj/effect/mapping_helpers/atom_injector/component_injector/ms13/lockedpickable/master)
 
 /obj/effect/spawner/random/ms13/locked/guaranteed // This is so ensure variety in static spawning locks... Safes and stuff.
 	name = "DO NOT USE ME - random lock spawner"
@@ -133,8 +133,8 @@
 /obj/effect/spawner/random/ms13/locked/guaranteed/random
 	name = "Guaranteed random locks"
 	loot = list(
-		/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/beginner,
-		/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/novice,
-		/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/standard,
-		/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/expert,
-		/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/master)
+		/obj/effect/mapping_helpers/atom_injector/component_injector/ms13/lockedpickable/beginner,
+		/obj/effect/mapping_helpers/atom_injector/component_injector/ms13/lockedpickable/novice,
+		/obj/effect/mapping_helpers/atom_injector/component_injector/ms13/lockedpickable/standard,
+		/obj/effect/mapping_helpers/atom_injector/component_injector/ms13/lockedpickable/expert,
+		/obj/effect/mapping_helpers/atom_injector/component_injector/ms13/lockedpickable/master)

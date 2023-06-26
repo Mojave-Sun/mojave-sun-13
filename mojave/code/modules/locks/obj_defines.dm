@@ -7,11 +7,7 @@
 	//check if lock can be picked
 	var/can_be_picked = TRUE
 	//check if obj has lock and can be picked
-	var/lock_locked = FALSE
-	//tells the element what difficulty the objs picking is at (1 Master, 5 Expert, 10 Standard, 17 Novice, 20+ Beginner)
-	var/lock_difficulty
-	//allows for players to attach their own lock
-	var/can_have_lock = FALSE
+	var/lock_locked = FALSE //essentially - "has lock"
 	//moves the lock to the obj so it can be taken off etc.
 	var/obj/item/ms13/lock/lock
 
@@ -21,84 +17,181 @@
 		storage.locked = FALSE //unlocks the storage
 	return TRUE
 
+//for denying access/interaction with general locked items - mainly for stuff like PA
+/obj/AltClick(mob/user)
+	if(.)
+		return
+	if(ms13_flags_1 & LOCKABLE_1 && lock_locked)
+		if(lock && lock.item_lock_locked) //for manually locked things
+			to_chat(user, span_warning("The [name] is locked."))
+			playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
+			return
+		if(!lock) //for pre-spawn locked things
+			to_chat(user, span_warning("The [name] is locked."))
+			playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
+			return
+	. = ..()
+
 //for denying access/interaction with general locked items
 /obj/attack_hand(mob/user, list/modifiers)
 	if(.)
 		return
 	if(ms13_flags_1 & LOCKABLE_1 && lock_locked)
-		to_chat(user, span_warning("The [name] is locked."))
-		return
+		if(lock && lock.item_lock_locked) //for manually locked things
+			to_chat(user, span_warning("The [name] is locked."))
+			playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
+			return
+		if(!lock) //for pre-spawn locked things
+			to_chat(user, span_warning("The [name] is locked."))
+			playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
+			return
 	. = ..()
 
 //for item interaction overrides on all general objects for placing locked items
-/obj/attackby(obj/item/I, mob/living/user, params)
+/obj/attackby(obj/item/I, mob/living/user, params) //good lordy this is some bad code, didnt know much back in 2022 and I can confirm this is levels of slopitude that I didnt know possible from me, but hell it works
+	//key interactions
+	if(I.item_flags & KEY_ITEM && lock)
+		var/obj/item/ms13/key/key = I
+		//alignment checks
+		if(key.bitt_1 != lock.pin_1)
+			playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+			to_chat(user, span_notice("The key dosen't turn in [name]."))
+			return
+		if(key.bitt_2 != lock.pin_2)
+			playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+			to_chat(user, span_notice("The key dosen't turn in [name]."))
+			return
+		if(key.bitt_3 != lock.pin_3)
+			playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+			to_chat(user, span_notice("The key dosen't turn in [name]."))
+			return
+		if(key.bitt_4 != lock.pin_4)
+			playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+			to_chat(user, span_notice("The key dosen't turn in [name]."))
+			return
+		if(key.bitt_5 != lock.pin_5)
+			playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+			to_chat(user, span_notice("The key dosen't turn in [name]."))
+			return
+		if(key.bitt_6 != lock.pin_6)
+			playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+			to_chat(user, span_notice("The key dosen't turn in [name]."))
+			return
+		if(!lock.item_lock_locked)
+			playsound(src, 'mojave/sound/ms13effects/key_lock.ogg', 50, TRUE)
+			to_chat(user, span_notice("You lock the [name]."))
+			lock.item_lock_locked = TRUE
+			return
+		if(lock.item_lock_locked)
+			playsound(src, 'mojave/sound/ms13effects/key_unlock.ogg', 50, TRUE)
+			to_chat(user, span_notice("You unlock the [name]."))
+			lock.item_lock_locked = FALSE
+			return
+	//lock interactions
 	if(I.item_flags & LOCKING_ITEM && ms13_flags_1 & LOCKABLE_1)
+		var/obj/item/ms13/lock/potential_lock = I
 		if(lock_locked)
 			to_chat(user, span_warning("The [name] already has a lock."))
 			return
-		if(!can_be_picked)
+		if(potential_lock.item_lock_locked)
+			to_chat(user, span_notice("The [name] is locked."))
+			playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 20, TRUE)
 			return
-		var/obj/item/ms13/lock/L = I
-		if(!L.lock_open)
-			to_chat(user, span_warning("The [name] is closed."))
+		if(!potential_lock.lock_open)
+			to_chat(user, span_warning("The [lock.name] is shut, open it!"))
 			return
-		if(!user.transferItemToLoc(L, src))
+		if(istype(src, /obj/structure/closet))
+			var/obj/structure/closet/thing = src
+			if(thing.opened)
+				to_chat(user, span_warning("The [name] is open, close it first."))
+				return
+		if(istype(src, /obj/structure/ms13/celldoor))
+			var/obj/structure/ms13/celldoor/thing = src
+			if(thing.door_opened)
+				to_chat(user, span_warning("The [name] is open, close it first."))
+				return
+		if(istype(src, /obj/machinery/door/unpowered/ms13))
+			var/obj/machinery/door/unpowered/ms13/thing = src
+			if(thing.open)
+				to_chat(user, span_warning("The [name] is open, close it first."))
+				return
+		if(istype(src, /obj/machinery/door/airlock/ms13))
+			var/obj/machinery/door/airlock/ms13/thing = src
+			if(thing.open)
+				to_chat(user, span_warning("The [name] is open, close it first."))
+				return
+		if(!potential_lock.item_lock_locked && potential_lock.lock_open)
+			if(!do_after(user, 0.5 SECONDS, src))
+				return
+			if(!user.transferItemToLoc(lock, src))
+				return
+			lock = potential_lock
+			can_be_picked = TRUE
+			lock.item_lock_locked = TRUE
+			lock.lock_open = FALSE
+			lock_locked = TRUE
+			lock.moveToNullspace()
+			AddComponent(/datum/component/lockpickable, difficulty = lock.lock_difficulty)
+			for(var/datum/component/storage/storage as anything in GetComponents(/datum/component/storage))
+				storage.locked = TRUE //locks
+			playsound(src, 'mojave/sound/ms13effects/lock_close.ogg', 50, TRUE)
+			to_chat(user, span_notice("You attach the [lock.name] to the [name] and clasp it shut."))
+			user.visible_message("<span class='notice'[user.name] attaches the [lock.name] to the [name].")
+			update_appearance()
 			return
-		lock = I
-		to_chat(user, span_notice("You attach the [lock.name] to the [name]."))
-		update_appearance()
 		return
 	. = ..()
-
+///
 //for taking the lock off of objects if its open
 /obj/attack_hand_secondary(mob/user, list/modifiers)
-	if(.)
-		return
 	if(lock)
-		if(lock.lock_open)
-			var/list/choices = list("Close Lock", "Remove Lock")
-			var/choice = tgui_input_list(user, "What do you wish to do to the lock?", "Lock Adjustment", choices)
-			switch(choice)
-				if("Close Lock")
-					lock.lock_open = FALSE
-					to_chat(user, span_notice("You close the [lock.name] not yet locked."))
-					return
-				if("Remove Lock")
-					user.put_in_hands(lock)
-					lock = null
-					to_chat(user, span_notice("You take the [lock.name] off the [name]."))
-					update_appearance()
-					return
-		if(!(lock.lock_open))
-			if(lock.item_lock_locked)
-				to_chat(user, span_notice("The [lock.name] is locked."))
-				playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 20, TRUE)
+		if(!lock.item_lock_locked && do_after(user, 0.6 SECONDS, src))
+			var/datum/component/lockpickable/lockpickable = GetComponent(/datum/component/lockpickable)
+			qdel(lockpickable)
+			lock_locked = FALSE
+			lock.lock_open = TRUE
+			can_be_picked = FALSE
+			if(istype(src, /obj/machinery/door/unpowered) && lock_locked)
+				var/obj/machinery/door/unpowered/thing = src
+				thing.locked = FALSE
+			if(istype(src, /obj/structure/ms13/celldoor) && lock_locked)
+				var/obj/structure/ms13/celldoor/thing = src
+				thing.locked = FALSE
+			if(istype(src, /obj/machinery/door/unpowered) && lock_locked)
+				var/obj/structure/closet/thing = src
+				thing.locked = FALSE
+			//the rest of the normal shit
+			to_chat(user, span_notice("You take the [lock.name] off the [name]."))
+			playsound(src, 'mojave/sound/ms13effects/lock_open.ogg', 50, TRUE)
+			update_appearance()
+			if(!user.put_in_hands(lock))
 				return
-			if(!(lock.item_lock_locked))
-				var/list/choices = list("Lock It", "Open Lock")
-				var/choice = tgui_input_list(user, "What do you wish to do to the lock?", "Lock Adjustment", choices)
-				switch(choice)
-					if("Lock It")
-						if(do_after(user, 0.5 SECONDS))
-							to_chat(user, span_notice("You shut and clasp the [lock.name]."))
-							lock.item_lock_locked = TRUE
-							AddElement(/datum/element/lockpickable, lock.lock_difficulty)
-							playsound(src, 'mojave/sound/ms13effects/lock_close.ogg', 50, TRUE)
-							return
-					if("Open Lock")
-						lock.lock_open = TRUE
-						to_chat(user, span_notice("You swing open the [lock.name], still attached to the door."))
-						return
+			lock = null
+			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	. = ..()
 
 //Lock on examine updates, for checking the lock states
 /obj/examine(mob/user)
 	. = ..()
 	if(lock)
-		if(lock.lock_open)
-			. += "<u>The [lock.name] is open and able to be removed or closed.</u>."
-		if(!(lock.lock_open) && !(lock.item_lock_locked))
-			. += "<u>The [lock.name] is closed and able to be clasped shut or opened.</u>."
-		if(!(lock.lock_open) && lock.item_lock_locked)
+		if(!lock.item_lock_locked)
+			. += "<u>The [lock.name] is unlocked and able to be removed or re-locked.</u>."
+		if(lock.item_lock_locked)
 			. += "<u>The [lock.name] is closed and clasped shut.</u>."
 		. += "<u>It seems fairly new compared to the things around it.</u>."
+
+//snowflake code for shart closets
+/obj/structure/closet/can_open(mob/living/user, force = FALSE)
+	if(lock_locked && lock.item_lock_locked)
+		playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE) //MOJAVE SUN EDIT - Locks
+		return
+	. = ..()
+
+//snowflake code for safes
+/obj/structure/safe/ms13/ui_act(action, params)
+	if(lock_locked && lock)
+		if(!lock.item_lock_locked)
+			locked = FALSE
+		if(lock.item_lock_locked)
+			locked = TRUE
+	. = ..()

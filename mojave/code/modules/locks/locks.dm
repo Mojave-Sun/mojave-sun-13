@@ -12,40 +12,58 @@
 	item_flags = LOCKING_ITEM
 	grid_width = 32
 	grid_height = 32
-	//(1 Master, 5 Expert, 10 Standard, 17 Novice, 20+ Beginner)
-	lock_difficulty = 10
-	//if the lock is open and free to use
+	//if the lock is item is open
 	var/lock_open = FALSE
 	//if the lock object is locked
 	var/item_lock_locked = FALSE
+	//tells the element what difficulty the objs picking is at (1 Master, 5 Expert, 10 Standard, 17 Novice, 20+ Beginner)
+	var/lock_difficulty = 10
+	//Custom pin shapes for corresponding with the identical key type bitts
+	//Pins seperated into sloppy seperates so players can edit them and interaction with locks
+	var/pin_1
+	var/pin_2
+	var/pin_3
+	var/pin_4
+	var/pin_5
+	var/pin_6
 
 /obj/item/ms13/lock/Initialize()
 	. = ..()
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/locks_inventory.dmi')
+	generate_pin_order()
 
-/obj/item/ms13/lock/attack_hand_secondary(mob/user, list/modifiers)
+/obj/item/ms13/lock/proc/generate_pin_order()
+	var/static/list/pin_lengths = list("A","B","C","D","E","F")
+	pin_1 = pick(pin_lengths)
+	pin_2 = pick(pin_lengths)
+	pin_3 = pick(pin_lengths)
+	pin_4 = pick(pin_lengths)
+	pin_5 = pick(pin_lengths)
+	pin_6 = pick(pin_lengths)
+
+/obj/item/ms13/lock/attack_self(mob/user, list/modifiers)
 	. = ..()
-	if(!lock_open && !item_lock_locked)
+	open_lock_item(user)
+
+/obj/item/ms13/lock/proc/open_lock_item(mob/user)
+	if(!lock_open && !item_lock_locked && do_after(user, 0.6 SECONDS, src))
 		icon_state = "[initial(icon_state)]_open"
 		lock_open = TRUE
-	if(lock_open)
+		item_lock_locked = FALSE //fixes bugs where its open but locked somehow
+		playsound(src, 'mojave/sound/ms13effects/lock_open.ogg', 20, TRUE)
+		return
+	if(lock_open && do_after(user, 0.6 SECONDS, src))
 		icon_state = initial(icon_state)
 		lock_open = FALSE
-
-/*
-/obj/item/ms13/lock/attack_atom(atom/attacked_atom, mob/living/user, params)
-	. = ..()
-	if(!isobj(attacked_atom))
+		playsound(src, 'mojave/sound/ms13effects/lock_open.ogg', 20, TRUE)
 		return
-	var/obj/obj_to_lock = attacked_atom
-	if(can_have_lock && !lock_locked)
-		if(!user.transferItemToLoc(obj_to_lock.lock, src))
-			return
-		obj_to_lock.lock = src
-		obj_to_lock.lock_locked = TRUE
-		to_chat(user, span_notice("You attach the [name] to the [obj_to_lock.name]."))
-		if(istype(obj_to_lock, /obj/machinery/door/unpowered/ms13))
-			var/obj/machinery/door/door = obj_to_lock
-			door.locked = TRUE
-			AddElement(/datum/element/lockpickable, lock_difficulty)
-*/
+
+/obj/item/ms13/lock/test
+
+/obj/item/ms13/lock/test/generate_pin_order()
+	pin_1 = "A"
+	pin_2 = "A"
+	pin_3 = "A"
+	pin_4 = "A"
+	pin_5 = "A"
+	pin_6 = "A"

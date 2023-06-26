@@ -5,9 +5,7 @@
 
 //base element, tells thing it can be lockpicked
 
-/datum/element/lockpickable
-	element_flags = ELEMENT_BESPOKE | ELEMENT_DETACH
-	id_arg_index = 2
+/datum/component/lockpickable
 	///Difficulty of the lock. Smaller is harder.
 	var/difficulty
 	///picks able to be used
@@ -17,9 +15,9 @@
 	///shows the lock difficulty level on examine, like fallout
 	var/shown_difficulty
 
-/datum/element/lockpickable/Attach(datum/target, list/lockpicks, list/wedges, difficulty, shown_difficulty)
+/datum/component/lockpickable/Initialize(lockpicks, wedges, difficulty, shown_difficulty)
 	. = ..()
-	if(!isatom(target))
+	if(!isatom(parent))
 		return ELEMENT_INCOMPATIBLE
 
 	switch(difficulty)
@@ -35,32 +33,33 @@
 			shown_difficulty = "beginner"
 
 	if(!src.lockpicks)
-		src.lockpicks = lockpicks.Copy()
+		src.lockpicks = lockpicks
 	if(!src.wedges)
-		src.wedges = wedges.Copy()
+		src.wedges = wedges
 	src.difficulty = difficulty
 	src.shown_difficulty = shown_difficulty
-	var/obj/thing = target
-	if(isobj(thing))
+	if(isobj(parent))
+		var/obj/thing = parent
 		thing.lock_locked = TRUE
 		for(var/datum/component/storage/storage as anything in thing.GetComponents(/datum/component/storage))
 			storage.locked = TRUE //locks
 
-	RegisterSignal(target, COMSIG_PARENT_ATTACKBY, .proc/check_pick)
-	RegisterSignal(target, COMSIG_LOCKPICK_ATTACKBY, .proc/pick_info)
-	RegisterSignal(target, COMSIG_PARENT_EXAMINE, .proc/examine)
-
-
-/datum/element/lockpickable/Detach(datum/target)
+/datum/component/lockpickable/RegisterWithParent()
 	. = ..()
-	UnregisterSignal(target, list(COMSIG_PARENT_ATTACKBY, COMSIG_PARENT_EXAMINE))
+	RegisterSignal(parent, COMSIG_PARENT_ATTACKBY, .proc/check_pick)
+	RegisterSignal(parent, COMSIG_LOCKPICK_ATTACKBY, .proc/pick_info)
+	RegisterSignal(parent, COMSIG_PARENT_EXAMINE, .proc/examine)
 
-/datum/element/lockpickable/proc/examine(atom/source, mob/user, list/examine_list)
+/datum/component/lockpickable/UnregisterFromParent()
+	. = ..()
+	UnregisterSignal(parent, list(COMSIG_PARENT_ATTACKBY, COMSIG_PARENT_EXAMINE, COMSIG_LOCKPICK_ATTACKBY))
+
+/datum/component/lockpickable/proc/examine(atom/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
 
 	examine_list += span_notice("[source] is fitted with a [shown_difficulty] difficulty lock.")
 
-/datum/element/lockpickable/proc/pick_info(datum/source, list/mutable_lockpicks, list/mutable_wedges, mutable_difficulty)
+/datum/component/lockpickable/proc/pick_info(datum/source, list/mutable_lockpicks, list/mutable_wedges, mutable_difficulty)
 	SIGNAL_HANDLER
 
 	mutable_lockpicks += list(lockpicks)
@@ -68,9 +67,11 @@
 	mutable_difficulty += difficulty
 	return COMPONENT_BLOCK_LOCKPICK
 
-/datum/element/lockpickable/proc/check_pick(atom/source, obj/item/L, mob/living/user)
+/datum/component/lockpickable/proc/check_pick(atom/source, obj/item/L, mob/living/user)
 	SIGNAL_HANDLER
+	INVOKE_ASYNC(src, .proc/check_lockpick, source, L, user)
 
+/datum/component/lockpickable/proc/check_lockpick(atom/source, obj/item/L, mob/living/user)
 	user.try_pick(source, L, lockpicks, wedges, user, difficulty, shown_difficulty)
 	return COMPONENT_BLOCK_LOCKPICK
 
@@ -82,6 +83,8 @@
 		if(!(P.lock_locked))
 			return
 		if(P.being_picked)
+			return
+		if(!P.can_be_picked)
 			return
 
 	var/obj/item/the_wedge = user.get_inactive_held_item()
@@ -299,6 +302,10 @@
 
 /atom/movable/screen/movable/snap/ms13/lockpicking/proc/close_lockpick(client/source, atom/_target, turf/location, control, params)
 	SIGNAL_HANDLER
+	UnregisterSignal(clicker, list(COMSIG_CLIENT_MOUSEDOWN, COMSIG_CLIENT_MOUSEUP))
+	UnregisterSignal(picker, list(COMSIG_MOVABLE_MOVED, COMSIG_PARENT_EXAMINE_MORE))
+	UnregisterSignal(the_lockpick, COMSIG_ITEM_DROPPED)
+	UnregisterSignal(the_wedge, COMSIG_ITEM_DROPPED)
 	qdel(src)
 	picking_object.being_picked = FALSE
 
@@ -371,6 +378,10 @@
 		frozen = TRUE
 		if(picking_object)
 			picking_object.picked(picker, the_lockpick)
+			UnregisterSignal(clicker, list(COMSIG_CLIENT_MOUSEDOWN, COMSIG_CLIENT_MOUSEUP))
+			UnregisterSignal(picker, list(COMSIG_MOVABLE_MOVED, COMSIG_PARENT_EXAMINE_MORE))
+			UnregisterSignal(the_lockpick, COMSIG_ITEM_DROPPED)
+			UnregisterSignal(the_wedge, COMSIG_ITEM_DROPPED)
 			qdel(src)
 		return FALSE
 
@@ -384,7 +395,7 @@
 	playing_lock_sound = FALSE
 
 //obj is told its picked, theoretically can be used for any objects
-
+//
 /obj/proc/picked(mob/living/user, obj/lockpick_used)
 
 	finish_lockpicking(user)
@@ -411,12 +422,19 @@
 		B.locked = FALSE
 	var/obj/structure/safe/C = src
 	if(istype(C) && lock_locked)
-		C.has_been_lockpicked = TRUE
 		C.open = TRUE
+		C.locked = FALSE
+		C.update_icon_state()
+	var/obj/structure/closet/D = src
+	if(istype(D) && lock_locked)
+		D.locked = FALSE
 	if(lock)
 		lock.item_lock_locked = FALSE
-	RemoveElement(/datum/element/lockpickable)
-	lock_locked = FALSE
+		lock.lock_open = TRUE
+		can_be_picked = FALSE
+	if(!lock) //pre_spawn lockpicker thing
+		var/datum/component/lockpickable/lockpickable = GetComponent(/datum/component/lockpickable)
+		qdel(lockpickable)
 	playsound(loc, 'mojave/sound/ms13effects/lockpicking/lockpicked.ogg', 150)
 	return TRUE
 
@@ -444,7 +462,7 @@
 
 /obj/structure/lockpicking_lawyer/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/lockpickable, difficulty = 10)
+	AddComponent(/datum/component/lockpickable, difficulty = 10)
 
 /obj/structure/lockpicking_lawyer/o
 	name = "test lockpicking thing"
@@ -453,4 +471,4 @@
 
 /obj/structure/lockpicking_lawyer/o/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/lockpickable, difficulty = 50)
+	AddComponent(/datum/component/lockpickable, difficulty = 50)
