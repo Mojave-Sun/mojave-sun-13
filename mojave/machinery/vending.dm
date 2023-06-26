@@ -24,6 +24,10 @@
 	if(loot_inside == 0)
 		desc = "[desc] It seems to be empty."
 
+/obj/machinery/vending/ms13/examine(mob/user)
+	. = ..()
+	. += "<span class='notice'>You might be able to search inside of [src] for some goods.</span>"
+
 /obj/machinery/vending/ms13/attack_hand(mob/user, list/modifiers)
 	. = ..()
 	if(loot_inside <= 0)
