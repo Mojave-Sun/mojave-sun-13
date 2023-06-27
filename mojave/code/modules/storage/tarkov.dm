@@ -166,6 +166,18 @@
 		/obj/item/stack/ms13/currency/prewar,
 		/obj/item/stack/ms13/currency/ncr_dollar))
 
+/datum/component/storage/concrete/ms13/h_bag //harvesting bag
+	screen_max_columns = 4
+	screen_max_rows = 4
+	screen_start_y = 5
+	screen_start_x = 15
+
+/datum/component/storage/concrete/ms13/h_bag/Initialize()
+	. = ..()
+	set_holdable(list(
+		/obj/item/seeds/ms13,
+		/obj/item/food/grown/ms13))
+
 /datum/component/storage/concrete/ms13/suit //base type suit storage to avoid redundant defines
 	screen_max_columns = 1
 	screen_max_rows = 2

@@ -885,3 +885,18 @@
 	reqs = list(/obj/item/stack/sheet/ms13/leather = 3)
 	category = CAT_MISCCLOTHING
 	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
+
+//STORAGE ITEMS
+
+/datum/crafting_recipe/harvest_bag
+	name = "harvesting sack"
+	result = /obj/item/storage/ms13/harvest_sack
+	time = 16 SECONDS
+	tool_behaviors = list(TOOL_KNIFE)
+	tool_paths = list()
+	reqs = list(/obj/item/stack/sheet/ms13/leather = 5,
+				/obj/item/stack/sheet/ms13/cloth = 8,
+				/obj/item/restraints/handcuffs/ms13/rope = 1,
+				/obj/item/stack/sheet/ms13/thread = 3)
+	category = CAT_STORAGE
+	crafting_interface = CRAFTING_BENCH_ARMTAILOR

@@ -13,9 +13,9 @@
 	circuit = null
 	use_power = NO_POWER_USE
 	///The amount of water in the tray
-	var/waterlevel = 160
+	var/waterlevel = 150
 	///The maximum amount of water in the tray
-	var/maxwater = 160
+	var/maxwater = 150
 	///How much nitrogen is in the soil
 	var/nitrolevel
 	///How much phosphorus is in the soil

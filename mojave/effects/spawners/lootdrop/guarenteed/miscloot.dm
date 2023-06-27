@@ -85,7 +85,8 @@
 		/obj/item/ms13/fertilizer = 10,
 		/obj/item/reagent_containers/glass/bucket/ms13 = 30,
 		/obj/item/shovel/ms13/spade = 30,
-		/obj/item/shovel/ms13/rake = 20
+		/obj/item/shovel/ms13/rake = 18,
+		/obj/item/storage/ms13/harvest_sack = 2
 	)
 
 //CRAFTING SPAWNERS BELOW//
