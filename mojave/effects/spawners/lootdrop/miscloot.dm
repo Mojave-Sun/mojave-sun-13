@@ -41,7 +41,6 @@
 			/obj/item/shovel/ms13/snow,
 			/obj/item/shovel/ms13/rake,
 			/obj/item/ms13/brick,
-			/obj/item/restraints/handcuffs/ms13/rope,
 			/obj/item/knife/ms13/scissors,
 			/obj/item/lighter/ms13/zippo,
 			/obj/item/reagent_containers/ms13/lighterfluid,

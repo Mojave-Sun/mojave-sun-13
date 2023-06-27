@@ -285,13 +285,6 @@
 	max_items = 6
 	circuit = null
 	variant = null
-	var/datum/looping_sound/grill_meat/meat_sound
-
-/obj/machinery/griddle/ms13/Initialize(mapload)
-	. = ..()
-	grill_loop = new(src, FALSE)
-	meat_sound = new(src, FALSE)
-	RegisterSignal(src, COMSIG_ATOM_EXPOSE_REAGENT, .proc/on_expose_reagent)
 
 /obj/machinery/griddle/ms13/crowbar_act(mob/living/user, obj/item/I)
 	return

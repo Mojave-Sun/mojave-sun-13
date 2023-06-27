@@ -8618,8 +8618,8 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "Ed" = (
-/obj/machinery/griddle,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/griddle/ms13,
 /turf/open/floor/ms13/tile/large/cream,
 /area/ms13/town)
 "Ef" = (
@@ -10162,6 +10162,13 @@
 /obj/effect/spawner/random/ms13/ammo/highrandom,
 /turf/open/floor/plating/ms13/roof/wood,
 /area/ms13/desert)
+"Jj" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/griddle/ms13{
+	dir = 1
+	},
+/turf/open/floor/ms13/tile/large/cream,
+/area/ms13/town)
 "Jl" = (
 /obj/structure/chair/sofa/corp/right{
 	dir = 4
@@ -10948,7 +10955,9 @@
 /area/ms13/town)
 "LM" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/machinery/griddle,
+/obj/machinery/griddle/ms13{
+	dir = 1
+	},
 /turf/open/floor/ms13/tile/fancy,
 /area/ms13/town)
 "LO" = (
@@ -12734,9 +12743,11 @@
 /area/ms13/desert)
 "RS" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/machinery/griddle,
 /obj/machinery/light/ms13/bulb{
 	dir = 4
+	},
+/obj/machinery/griddle/ms13{
+	dir = 8
 	},
 /turf/open/floor/ms13/tile/fancy,
 /area/ms13/town)
@@ -14767,8 +14778,10 @@
 /turf/open/floor/wood/ms13/carpet,
 /area/ms13/town)
 "Ze" = (
-/obj/machinery/griddle,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/griddle/ms13{
+	dir = 1
+	},
 /turf/open/floor/ms13/tile/navy,
 /area/ms13/town)
 "Zf" = (
@@ -47679,7 +47692,7 @@ pr
 kA
 uj
 Fu
-Ed
+Jj
 XF
 qi
 qi
