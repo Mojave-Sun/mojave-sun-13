@@ -3,7 +3,7 @@
 // these could be clipped to less silly lengths
 /datum/looping_sound/dust_storm
 	mid_sounds = 'mojave/modules/outdoor_effects/sound/weather_dust.ogg'
-	mid_length = 80
+	mid_length = 80 SECONDS
 	volume = 150
 
 /datum/looping_sound/rad_storm

@@ -272,3 +272,39 @@
 /obj/machinery/ms13/plant_machinery/broken
 	desc = "The label on this says something about fresh water- But what side do you take a sip from? It appears broken down, missing crucial parts."
 	icon_state = "watertreatment_broken"
+
+// Kitchen Machinery //
+
+/obj/machinery/griddle/ms13
+	name = "flat-top griddle"
+	desc = "A propane fueled flat-top griddle. Perfect for grilling. Lucky this seems to have a full tank of propane still."
+	icon = 'mojave/icons/structure/machinery.dmi'
+	icon_state = "griddle"
+	use_power = 0
+	idle_power_usage = 0
+	max_items = 6
+	circuit = null
+	variant = null
+	var/datum/looping_sound/grill_meat/meat_sound
+
+/obj/machinery/griddle/ms13/Initialize(mapload)
+	. = ..()
+	grill_loop = new(src, FALSE)
+	meat_sound = new(src, FALSE)
+	RegisterSignal(src, COMSIG_ATOM_EXPOSE_REAGENT, .proc/on_expose_reagent)
+
+/obj/machinery/griddle/ms13/crowbar_act(mob/living/user, obj/item/I)
+	return
+
+/obj/machinery/griddle/ms13/wrench_act(mob/living/user, obj/item/I)
+	return
+
+/obj/machinery/griddle/ms13/update_icon_state()
+	. = ..()
+	return
+
+/obj/machinery/griddle/ms13/update_grill_audio()
+	if(on && griddled_objects.len)
+		meat_sound.start()
+	else
+		meat_sound.stop()
