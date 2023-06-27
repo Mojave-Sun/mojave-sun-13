@@ -62,7 +62,7 @@
 	mutatelist = list(/obj/item/seeds/ms13/pricklypear)
 	lifespan = 225 //Good for roughly 4 harvests
 	endurance = 45
-	yield = 4 //16 fruit/seed
+	yield = 3 //12 fruit/seed
 	growthstages = 4
 	production = 30 //produces every 10 minutes
 	maturation = 60 //20 minutes to mature
@@ -125,9 +125,9 @@
 	mutatelist = list()
 	lifespan = 75
 	endurance = 35
-	yield = 6
+	yield = 4
 	growthstages = 3
-	production = 10 //3m 20s to produce
+	production = 14 //4m 40s to produce
 	maturation = 32 //10m 40s to mature
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "P"
@@ -154,12 +154,12 @@
 	harvest_icon = 1
 	product = /obj/item/food/grown/ms13/apple
 	mutatelist = list(/obj/item/seeds/ms13/cmutfruit)
-	lifespan = 90
+	lifespan = 96
 	endurance = 40
-	yield = 8
+	yield = 5
 	growthstages = 5
-	production = 18 //6m to produce
-	maturation = 45 //15m to mature
+	production = 20 //6m 40s to produce
+	maturation = 48 //16m to mature
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "N"
 
@@ -186,11 +186,11 @@
 	genes = list(/datum/plant_gene/trait/repeated_harvest,/datum/plant_gene/trait/stinging) //could be a bad idea idk
 	product = /obj/item/food/grown/ms13/pricklypear
 	mutatelist = list(/obj/item/seeds/ms13/barrelcactus)
-	lifespan = 110 //Good for roughly 3 harvests
+	lifespan = 120 //Good for roughly 3 harvests
 	endurance = 35
 	yield = 3 //9 fruit/seed
 	growthstages = 4
-	production = 14 //4m 40s to produce
+	production = 16 //5m 20s to produce
 	maturation = 64 //21m 20s to mature
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "N"
@@ -234,11 +234,11 @@
 	harvest_icon = 1
 	genes = list(/datum/plant_gene/trait/plant_type/fungal_metabolism, /datum/plant_gene/trait/repeated_harvest, /datum/plant_gene/trait/squash)
 	product = /obj/item/food/grown/ms13/pungafruit
-	lifespan = 210 //Good for roughly 5 harvests
+	lifespan = 215 //Good for roughly 5 harvests
 	endurance = 50
-	yield = 5 //25 fruit/seed
+	yield = 3 //15 fruit/seed
 	growthstages = 4
-	production = 20 //6m 40s to produce
+	production = 21 //7m to produce
 	maturation = 90 //30m to mature
 	reagents_add = list(/datum/reagent/toxin = 0.04, /datum/reagent/consumable/nutriment = 0.2)
 	nutrient_type = "P"
@@ -297,10 +297,10 @@
 	product = /obj/item/food/grown/ms13/snaptail
 	lifespan = 75
 	endurance = 50
-	yield = 6
+	yield = 5
 	growthstages = 5
 	production = 18 //6m to produce
-	maturation = 40 //13m 20s to mature
+	maturation = 42 //14m to mature
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1, /datum/reagent/consumable/sugar = 0.1)
 	nutrient_type = "K"
 
@@ -328,11 +328,11 @@
 	product = /obj/item/food/grown/ms13/tarberry
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	mutatelist = list(/obj/item/seeds/ms13/blackberry)
-	lifespan = 100 //Good for roughly 4 harvests
+	lifespan = 110 //Good for roughly 4 harvests
 	endurance = 35
 	yield = 2 //8 fruit/seed
 	growthstages = 3
-	production = 12 //4m to produce
+	production = 16 //5m 20s to produce
 	maturation = 50 //16m 40s to mature
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "N"
@@ -361,12 +361,12 @@
 	product = /obj/item/food/grown/ms13/blackberry
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	mutatelist = list(/obj/item/seeds/ms13/radberry, /obj/item/seeds/ms13/tarberry)
-	lifespan = 75 //Good for roughly 4 harvests
+	lifespan = 95 //Good for roughly 4 harvests
 	endurance = 15
 	yield = 2 //8 fruit/seed
 	growthstages = 4
-	production = 9 //3m to produce
-	maturation = 40 //13m 20s to mature
+	production = 12 //4m to produce
+	maturation = 45 //15m to mature
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.02, /datum/reagent/consumable/nutriment = 0.08)
 	nutrient_type = "P"
 
@@ -395,9 +395,9 @@
 	lifespan = 30
 	endurance = 30
 	instability = 90
-	yield = 5
+	yield = 4
 	growthstages = 3
-	production = 5 //1m 40s to produce
+	production = 12 //4m to produce
 	maturation = 24 //8m to mature
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.02, /datum/reagent/consumable/nutriment = 0.08)
 	nutrient_type = "P"
@@ -421,11 +421,11 @@
 	species = "yucca"
 	plantname = "yucca plant"
 	product = /obj/item/food/grown/ms13/yucca
-	lifespan = 100 //Good for roughly 3 harvests
+	lifespan = 104 //Good for roughly 3 harvests
 	endurance = 45
 	yield = 3 //9 fruit/seed
 	growthstages = 4
-	production = 12 //4m to produce
+	production = 13 //4m 20s to produce
 	maturation = 64 //21m 20s to mature
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.08, /datum/reagent/consumable/nutriment = 0.15)
@@ -454,12 +454,12 @@
 	genes = list(/datum/plant_gene/trait/squash, /datum/plant_gene/trait/repeated_harvest)
 	product = /obj/item/food/grown/ms13/tomato
 	mutatelist = list(/obj/item/seeds/ms13/tato, /datum/plant_gene/trait/repeated_harvest)
-	lifespan = 60 //Good for roughly 3 harvests
+	lifespan = 72 //Good for roughly 3 harvests
 	endurance = 20
 	yield = 2 //6 tomatoes/seed
 	growthstages = 4
-	production = 8 //2m 40s to produce
-	maturation = 36 //12m to mature
+	production = 10 //3m 20s to produce
+	maturation = 40 //13m 20s to mature
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "N"
 
@@ -521,7 +521,7 @@
 	mutatelist = list(/obj/item/seeds/ms13/tato)
 	lifespan = 50
 	endurance = 60
-	yield = 6
+	yield = 4
 	growthstages = 3
 	production = 9 //3m to produce
 	maturation = 28 //9m 20s to mature
@@ -551,12 +551,12 @@
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	product = /obj/item/food/grown/ms13/jalepeno
 	mutatelist = list(/obj/item/seeds/ms13/radpepper)
-	lifespan = 75 //Good for roughly 4 harvests
+	lifespan = 90 //Good for roughly 4 harvests
 	endurance = 35
 	yield = 3 //12 peppers/seed
 	growthstages = 4
-	production = 10 //3m 20s to produce
-	maturation = 33 //11m to mature
+	production = 13 //4m 20s to produce
+	maturation = 35 //11m 40s to mature
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.01, /datum/reagent/consumable/nutriment = 0.05, /datum/reagent/consumable/capsaicin = 0.025)
 	nutrient_type = "P"
 
@@ -582,12 +582,12 @@
 	genes = list(/datum/plant_gene/trait/squash, /datum/plant_gene/trait/repeated_harvest)
 	product = /obj/item/food/grown/ms13/radpepper
 	mutatelist = list(/obj/item/seeds/ms13/jalepeno)
-	lifespan = 75 //Good for roughly 4 harvests
+	lifespan = 82 //Good for roughly 4 harvests
 	instability = 90
 	endurance = 30
-	yield = 3
+	yield = 3 //12 peppers/seed
 	growthstages = 4
-	production = 8 //2m 40s to produce
+	production = 11 //3m 40s to produce
 	maturation = 42 //14m to mature
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.01, /datum/reagent/consumable/nutriment = 0.05, /datum/reagent/consumable/capsaicin = 0.25)
 	nutrient_type = "P"
@@ -615,8 +615,8 @@
 	endurance = 50
 	yield = 4
 	growthstages = 3
-	production = 7 //2m 20s to produce
-	maturation = 22 //7m 20s to mature
+	production = 10 //3m 20s to produce
+	maturation = 24 //8m to mature
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "P"
 
@@ -642,8 +642,8 @@
 	lifespan = 65
 	endurance = 50
 	maturation = 38 //12m 40s to mature
-	production = 8 //2m 40s to produce
-	yield = 6
+	production = 9 //3m to produce
+	yield = 4
 	instability = 15
 	growthstages = 3
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
@@ -667,11 +667,11 @@
 	species = "root"
 	plantname = "Xander Roots"
 	product = /obj/item/food/grown/ms13/xander
-	lifespan = 70
+	lifespan = 76
 	endurance = 50
-	maturation = 44 //14m 40s to mature
-	production = 10 //3m 20s to produce
-	yield = 6
+	maturation = 48 //16m to mature
+	production = 12 //4m to produce
+	yield = 4
 	growthstages = 3
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "N"
@@ -707,10 +707,10 @@
 	product = /obj/item/food/grown/ms13/carrot
 	lifespan = 45
 	endurance = 40
-	yield = 5
+	yield = 4
 	growthstages = 3
-	production = 7 //2m 20s to produce
-	maturation = 32 //10m 40s to mature
+	production = 9 //3m to produce
+	maturation = 35 //11m 40s to mature
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "K"
 
@@ -737,9 +737,9 @@
 	product = /obj/item/food/grown/ms13/razorgrain
 	lifespan = 70
 	endurance = 60
-	yield = 6
+	yield = 4
 	growthstages = 5
-	production = 12 //4m to produce
+	production = 13 //4m 20s to produce
 	maturation = 38 //12m 40s to mature
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "N"
@@ -767,10 +767,10 @@
 	product = /obj/item/food/grown/ms13/baifan
 	lifespan = 75
 	endurance = 65
-	yield = 7
+	yield = 5
 	growthstages = 5
-	production = 13 //4m 20s to produce
-	maturation = 40 //13m 20s to mature
+	production = 14 //4m 40s to produce
+	maturation = 44 //14m 40s to mature
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "P"
 
@@ -797,10 +797,10 @@
 	product = /obj/item/food/grown/ms13/cabbage
 	lifespan = 65
 	endurance = 60
-	yield = 5
+	yield = 4
 	growthstages = 3
 	production = 15 //5m to produce
-	maturation = 32 //10m 40s to mature
+	maturation = 33 //11m to mature
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "N"
 
@@ -825,11 +825,11 @@
 	harvest_icon = 1
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	product = /obj/item/food/grown/ms13/pinyon
-	lifespan = 128 //Good for roughly 3 harvests
+	lifespan = 150 //Good for roughly 3 harvests
 	endurance = 55
 	yield = 4 //12 nuts/seed
 	growthstages = 5
-	production = 12 //4m to produce
+	production = 18 //6m to produce
 	maturation = 90 //30m to mature
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "K"
@@ -837,7 +837,7 @@
 /obj/item/food/grown/ms13/pinyon
 	seed = /obj/item/seeds/ms13/pinyon
 	name = "pinyon nuts"
-	desc = "Small pinyon nuts. "
+	desc = "Small pinyon nuts."
 	bite_consumption_mod = 2
 	foodtypes = VEGETABLES
 	icon_state = "pinyon"
@@ -856,11 +856,11 @@
 	harvest_icon = 1
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	product = /obj/item/food/grown/ms13/mesquite
-	lifespan = 82 //Good for roughly 2 harvests
+	lifespan = 84 //Good for roughly 2 harvests
 	endurance = 40
-	yield = 4 //8 pods/seed
+	yield = 3 //6 pods/seed
 	growthstages = 4
-	production = 15 //5m to produce
+	production = 16 //5m 20s to produce
 	maturation = 50 //16m 40s to mature
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "K"
@@ -886,12 +886,12 @@
 	harvest_icon = 1
 	genes = list(/datum/plant_gene/trait/squash)
 	product = /obj/item/food/grown/ms13/buffalo
-	lifespan = 90
+	lifespan = 80
 	endurance = 45
-	yield = 8
+	yield = 5
 	growthstages = 3
 	production = 13 //4m 20s to produce
-	maturation = 56 //18m 40s to mature
+	maturation = 54 //18m to mature
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "N"
 
@@ -915,9 +915,9 @@
 	product = /obj/item/food/grown/ms13/maize
 	lifespan = 75
 	endurance = 50
-	yield = 6
+	yield = 4
 	growthstages = 3
-	production = 10 //3m 20s to produce
+	production = 12 //4m to produce
 	maturation = 44 //14m 40s to mature
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "K"
@@ -948,11 +948,11 @@
 	harvest_icon = 1
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	product = /obj/item/food/grown/ms13/ashrose
-	lifespan = 128 //Good for roughly 3 harvests
+	lifespan = 144 //Good for roughly 3 harvests
 	endurance = 25
-	yield = 4 //12 flowers/seed
+	yield = 3 //9 flowers/seed
 	growthstages = 3
-	production = 14 //4m 40s to produce
+	production = 18 //6m to produce
 	maturation = 84 //28m to mature
 	instability = 25
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
@@ -979,11 +979,11 @@
 	harvest_icon = 1
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	product = /obj/item/food/grown/ms13/radrose
-	lifespan = 106 //Good for roughly 3 harvests
-	endurance = 20
+	lifespan = 110 //Good for roughly 3 harvests
+	endurance = 18
 	yield = 3 //9 flowers/seed
 	growthstages = 3
-	production = 9 //3m to produce
+	production = 12 //4m to produce
 	maturation = 78 //26m to mature
 	instability = 90
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
@@ -1010,11 +1010,11 @@
 	harvest_icon = 1
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	product = /obj/item/food/grown/ms13/soot
-	lifespan = 134 //Good for roughly 4 harvests
+	lifespan = 140 //Good for roughly 4 harvests
 	endurance = 35
-	yield = 4 //16 flowers/seed
+	yield = 3 //12 flowers/seed
 	growthstages = 3
-	production = 10 //3m 20s to produce
+	production = 11 //3m 40s to produce
 	maturation = 90 //30m to mature
 	instability = 25
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
@@ -1041,12 +1041,12 @@
 	harvest_icon = 1
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	product = /obj/item/food/grown/ms13/toxicsoot
-	lifespan = 85 //Good for roughly 3 harvests
-	endurance = 45
+	lifespan = 125 //Good for roughly 3 harvests
+	endurance = 35
 	yield = 3 //9 flowers/seed
 	growthstages = 3
-	production = 9 //3m to produce
-	maturation = 57 //19m to mature
+	production = 18 //6m to produce
+	maturation = 66 //22m to mature
 	instability = 50
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "K"
@@ -1072,12 +1072,12 @@
 	harvest_icon = 1
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	product = /obj/item/food/grown/ms13/datura
-	lifespan = 105 //Good for roughly 3 harvests
+	lifespan = 115 //Good for roughly 3 harvests
 	endurance = 20
-	yield = 4 //12 flowers/seed
+	yield = 3 //9 flowers/seed
 	growthstages = 3
-	production = 11 //3m 40s to produce
-	maturation = 69 //23m to mature
+	production = 14 //4m 40s to produce
+	maturation = 70 //23m 20s to mature
 	instability = 25
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "P"
@@ -1103,12 +1103,12 @@
 	harvest_icon = 1
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	product = /obj/item/food/grown/ms13/radtura
-	lifespan = 80 //Good for roughly 3 harvests
-	endurance = 30
+	lifespan = 115 //Good for roughly 3 harvests
+	endurance = 25
 	yield = 3 //9 flowers/seed
 	growthstages = 3
-	production = 10 //3m 20s to produce
-	maturation = 48 //16m to mature
+	production = 17 //5m 40s to produce
+	maturation = 58 //19m 20m to mature
 	instability = 50
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "P"
@@ -1132,12 +1132,12 @@
 	plantname = "Coyote Tobacco"
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	product = /obj/item/food/grown/ms13/coyote
-	lifespan = 124 //Good for roughly 4 harvests
-	endurance = 20
-	yield = 4 //16 leaves/seed
+	lifespan = 150 //Good for roughly 5 harvests
+	endurance = 18
+	yield = 2 //10 leaves/seed
 	growthstages = 3
-	production = 13 //4m 20s to produce
-	maturation = 69 //23m to mature
+	production = 12 //4m to produce
+	maturation = 85 //28m 20s to mature
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "N"
 
@@ -1163,12 +1163,12 @@
 	harvest_icon = 1
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	product = /obj/item/food/grown/ms13/aster
-	lifespan = 136 //Good for roughly 3 harvests
-	endurance = 40
-	yield = 5 //15 flowers/seed
+	lifespan = 155 //Good for roughly 3 harvests
+	endurance = 35
+	yield = 4 //12 flowers/seed
 	growthstages = 3
-	production = 12 //4m to produce
-	maturation = 98 //32m 40s to mature
+	production = 18 //6m to produce
+	maturation = 96 //32m to mature
 	instability = 25
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "P"
@@ -1193,12 +1193,12 @@
 	harvest_icon = 1
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	product = /obj/item/food/grown/ms13/ashblossom
-	lifespan = 133 //Good for roughly 3 harvests
-	endurance = 45
-	yield = 5 //15 flowers/seed
+	lifespan = 140 //Good for roughly 3 harvests
+	endurance = 40
+	yield = 4 //12 flowers/seed
 	growthstages = 3
-	production = 14 //4m 40s to produce
-	maturation = 88 //29m 20s to mature
+	production = 15 //5m to produce
+	maturation = 90 //30m to mature
 	instability = 25
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "K"
@@ -1271,12 +1271,12 @@
 	harvest_icon = 1
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	product = /obj/item/food/grown/ms13/agave
-	lifespan = 164 //Good for roughly 4 harvests
-	endurance = 60
-	yield = 4 //16 spines/seed
+	lifespan = 168 //Good for roughly 4 harvests
+	endurance = 55
+	yield = 3 //12 spines/seed
 	growthstages = 4
-	production = 15 //5m to produce
-	maturation = 101 //33m 40s to mature
+	production = 16 //5m 20s to produce
+	maturation = 99 //33m to mature
 	instability = 25
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "N"
@@ -1302,11 +1302,11 @@
 	harvest_icon = 1
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	product = /obj/item/food/grown/ms13/brocflower
-	lifespan = 128 //Good for roughly 4 harvests
+	lifespan = 144 //Good for roughly 4 harvests
 	endurance = 30
-	maturation = 75 //25m to mature
-	production = 13 //4m 20s to produce
-	yield = 4 //16 flowers/seed
+	maturation = 84 //28m to mature
+	production = 14 //4m 40s to produce
+	yield = 2 //8 flowers/seed
 	growthstages = 3
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "P"
@@ -1341,7 +1341,7 @@
 	product = /obj/item/food/grown/ms13/cavefungus
 	lifespan = 60
 	endurance = 65
-	yield = 6
+	yield = 3
 	growthstages = 4
 	production = 9 //3m to produce
 	maturation = 38 //12m 40s to mature
@@ -1370,12 +1370,12 @@
 	plantname = "Glowfungus Mushrooms"
 	genes = list(/datum/plant_gene/trait/plant_type/fungal_metabolism, /datum/plant_gene/trait/glow/ms13green)
 	product = /obj/item/food/grown/ms13/cavefungus
-	lifespan = 40
+	lifespan = 45
 	endurance = 40
-	yield = 4
+	yield = 3
 	growthstages = 4
-	production = 7 //2m 20s to produce
-	maturation = 26 //8m 40s to mature
+	production = 12 //4m to produce
+	maturation = 30 //10m to mature
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "K"
 
@@ -1409,9 +1409,9 @@
 	product = /obj/item/food/grown/ms13/blight
 	lifespan = 75
 	endurance = 65
-	yield = 6
+	yield = 4
 	growthstages = 4
-	production = 9 //3m to produce
+	production = 11 //3m 40s to produce
 	maturation = 46 //15m 20s to mature
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "P"
@@ -1438,9 +1438,9 @@
 	product = /obj/item/food/grown/ms13/brainfung
 	lifespan = 48
 	endurance = 35
-	yield = 4
+	yield = 3
 	growthstages = 4
-	production = 8 //2m 40s to produce
+	production = 12 //4m to produce
 	maturation = 30 //10m to mature
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "P"
@@ -1483,10 +1483,10 @@
 	product = /obj/item/food/grown/ms13/firecap
 	lifespan = 48
 	endurance = 35
-	yield = 4
+	yield = 3
 	growthstages = 4
-	production = 8 //2m 40s to produce
-	maturation = 30 //10m to mature
+	production = 9 //3m to produce
+	maturation = 36 //12m to mature
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "N"
 
@@ -1531,9 +1531,9 @@
 	product = /obj/item/food/grown/ms13/gutshroom
 	lifespan = 60
 	endurance = 50
-	yield = 5
+	yield = 3
 	growthstages = 4
-	production = 7 //2m 20s to produce
+	production = 10 //3m 20s to produce
 	maturation = 38 //12m 40s to mature
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "P"
@@ -1576,7 +1576,7 @@
 	product = /obj/item/food/grown/ms13/lureweed
 	lifespan = 75
 	endurance = 55
-	yield = 7
+	yield = 4
 	growthstages = 4
 	production = 10 //3m 20s to produce
 	maturation = 50 //16m 40s to mature
@@ -1606,7 +1606,7 @@
 	product = /obj/item/food/grown/ms13/nara
 	lifespan = 60
 	endurance = 50
-	yield = 5
+	yield = 3
 	growthstages = 4
 	production = 7 //2m 20s to produce
 	maturation = 38 //12m 40s to mature

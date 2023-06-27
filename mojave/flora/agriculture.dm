@@ -12,10 +12,10 @@
 	obj_flags = CAN_BE_HIT | UNIQUE_RENAME
 	circuit = null
 	use_power = NO_POWER_USE
-	///The amount of water in the tray (max 100)
-	var/waterlevel = 150
+	///The amount of water in the tray
+	var/waterlevel = 160
 	///The maximum amount of water in the tray
-	var/maxwater = 150
+	var/maxwater = 160
 	///How much nitrogen is in the soil
 	var/nitrolevel
 	///How much phosphorus is in the soil
