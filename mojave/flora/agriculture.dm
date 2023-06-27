@@ -13,9 +13,9 @@
 	circuit = null
 	use_power = NO_POWER_USE
 	///The amount of water in the tray (max 100)
-	var/waterlevel = 100
+	var/waterlevel = 150
 	///The maximum amount of water in the tray
-	var/maxwater = 100
+	var/maxwater = 150
 	///How much nitrogen is in the soil
 	var/nitrolevel
 	///How much phosphorus is in the soil
@@ -221,7 +221,7 @@
 //Water//////////////////////////////////////////////////////////////////
 			// Drink random amount of water
 			if(plant_status != HYDROTRAY_PLANT_HARVESTABLE)
-				adjust_waterlevel(-rand(1,2) / rating)
+				adjust_waterlevel(-rand(0.5,2) / rating)
 
 			// If the plant is dry, it loses health pretty fast, unless mushroom
 				if(waterlevel <= 10 && !myseed.get_gene(/datum/plant_gene/trait/plant_type/fungal_metabolism))
