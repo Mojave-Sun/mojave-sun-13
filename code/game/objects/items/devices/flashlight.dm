@@ -38,7 +38,7 @@
 
 /obj/item/flashlight/attack_self(mob/user)
 	on = !on
-	playsound(user, on ? 'sound/weapons/magin.ogg' : 'sound/weapons/magout.ogg', 40, TRUE)
+	playsound(user, on ? 'sound/weapons/magin.ogg' : 'sound/weapons/magout.ogg', 30, TRUE)
 	update_brightness(user)
 	update_action_buttons()
 	return 1
@@ -333,6 +333,7 @@
 		force = on_damage
 		damtype = BURN
 		START_PROCESSING(SSobj, src)
+		playsound(src.loc, 'mojave/sound/ms13items/flare_start.ogg', 60, FALSE, -5, 4) //Mojave Edit - Flare start sound
 
 /obj/item/flashlight/flare/get_temperature()
 	return on * heat
