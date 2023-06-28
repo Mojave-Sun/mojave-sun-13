@@ -12,10 +12,10 @@
 	obj_flags = CAN_BE_HIT | UNIQUE_RENAME
 	circuit = null
 	use_power = NO_POWER_USE
-	///The amount of water in the tray (max 100)
-	var/waterlevel = 100
+	///The amount of water in the tray
+	var/waterlevel = 150
 	///The maximum amount of water in the tray
-	var/maxwater = 100
+	var/maxwater = 150
 	///How much nitrogen is in the soil
 	var/nitrolevel
 	///How much phosphorus is in the soil
@@ -23,7 +23,7 @@
 	///How much potassium (K) is in the soil
 	var/potlevel
 	///How many units of nutrients will be drained in the tray.
-	var/nutridrain = 100
+	var/nutridrain = 50
 	///The maximum nutrient reagent container size of the tray.
 	var/maxnutri = 5000
 	///Nutriment's effect on yield
@@ -42,7 +42,7 @@
 	var/lastproduce = 0
 	///Used for timing of cycles.
 	var/lastcycle = 0
-	///About 10 seconds / cycle
+	///About 20 seconds / cycle
 	var/cycledelay = 200
 	///The currently planted seed
 	var/obj/item/seeds/ms13/myseed
@@ -81,7 +81,7 @@
 		/obj/item/cultivator = list(
 			SCREENTIP_CONTEXT_LMB = "Remove weeds",
 		),
-		/obj/item/shovel = list(
+		/obj/item/shovel/ms13/spade = list(
 			SCREENTIP_CONTEXT_LMB = "Clear tray",
 		),
 	)
@@ -135,11 +135,6 @@
 			context[SCREENTIP_CONTEXT_LMB] = "Harvest plant"
 			return CONTEXTUAL_SCREENTIP_SET
 
-	// Edibles and pills can be composted.
-	if(IS_EDIBLE(held_item) || istype(held_item, /obj/item/reagent_containers/pill))
-		context[SCREENTIP_CONTEXT_LMB] = "Compost"
-		return CONTEXTUAL_SCREENTIP_SET
-
 	// Aand if a reagent container has water or plant fertilizer in it, we can use it on the plant.
 	if(is_reagent_container(held_item) && length(held_item.reagents.reagent_list))
 		var/datum/reagent/most_common_reagent = held_item.reagents.get_master_reagent()
@@ -172,9 +167,9 @@
 		lastcycle = world.time
 
 		// The soil slowly replenishes itself over time. Later on this'll be supplemented by fertilizers.
-		adjust_nitrolevel(rand(5, 15))
-		adjust_phoslevel(rand(5, 15))
-		adjust_potlevel(rand(5, 15))
+		adjust_nitrolevel(rand(8, 18))
+		adjust_phoslevel(rand(8, 18))
+		adjust_potlevel(rand(8, 18))
 
 		if(myseed && plant_status != HYDROTRAY_PLANT_DEAD)
 			// Advance age
@@ -202,41 +197,41 @@
 
 			// Soil consumes fertilizer and creates N, P or K in the soil.
 			if(n_fertilizer > 0)
-				adjust_nitrolevel(rand(40, 60))
+				adjust_nitrolevel(rand(45, 70))
 				n_fertilizer -= 1
 			if(p_fertilizer > 0)
-				adjust_phoslevel(rand(40, 60))
+				adjust_phoslevel(rand(45, 70))
 				p_fertilizer -= 1
 			if(k_fertilizer > 0)
-				adjust_potlevel(rand(40, 60))
+				adjust_potlevel(rand(45, 70))
 				k_fertilizer -= 1
 
 			// Lack of nutrients hurts non-weeds
 				if(drained_nutrient <= 0 && !myseed.get_gene(/datum/plant_gene/trait/plant_type/weed_hardy))
-					adjust_plant_health(-rand(1,3))
+					adjust_plant_health(-rand(3,6))
 //Photosynthesis/////////////////////////////////////////////////////////
 			// Lack of light hurts non-mushrooms
-			if(isturf(loc))
+			/*if(isturf(loc))
 				var/turf/currentTurf = loc
 				var/lightAmt = currentTurf.get_lumcount()
 				var/is_fungus = myseed.get_gene(/datum/plant_gene/trait/plant_type/fungal_metabolism)
 				if(lightAmt < (is_fungus ? 0.2 : 0.4))
-					adjust_plant_health((is_fungus ? -1 : -2) / rating)
+					adjust_plant_health((is_fungus ? -1 : -2) / rating)*/ //Commenting this out for now, I believe it is killing plants - Hekzder
 
 //Water//////////////////////////////////////////////////////////////////
 			// Drink random amount of water
 			if(plant_status != HYDROTRAY_PLANT_HARVESTABLE)
-				adjust_waterlevel(-rand(1,2) / rating)
+				adjust_waterlevel(-rand(0.5,1.5) / rating)
 
 			// If the plant is dry, it loses health pretty fast, unless mushroom
 				if(waterlevel <= 10 && !myseed.get_gene(/datum/plant_gene/trait/plant_type/fungal_metabolism))
-					adjust_plant_health(-rand(0,1) / rating)
+					adjust_plant_health(-rand(2,5) / rating)
 				if(waterlevel <= 0)
-					adjust_plant_health(-rand(0,2) / rating)
+					adjust_plant_health(-rand(4,7) / rating)
 
 			// Sufficient water level and nutrient level = plant healthy
 				else if(waterlevel > 10 && drained_nutrient > 0)
-					adjust_plant_health(rand(1,2) / rating)
+					adjust_plant_health(rand(2,3) / rating)
 
 //Toxins/////////////////////////////////////////////////////////////////
 
@@ -249,7 +244,7 @@
 				adjust_toxic(-rating * 3)
 
 //This is where stability mutations exist now.
-			
+
 			if(myseed.instability >= 60)
 				if(prob((myseed.instability)/2) && !self_sustaining && LAZYLEN(myseed.mutatelist)) //Minimum 30%, Maximum 50% chance of mutating every age tick when not on autogrow.
 					mutatespecie()
@@ -263,7 +258,7 @@
 
 			// If the plant is too old, lose health fast
 			if(age > myseed.lifespan)
-				adjust_plant_health(-rand(1,5) / rating)
+				adjust_plant_health(-rand(5,8) / rating)
 
 			// Harvest code
 			if(age > myseed.production && (age - lastproduce) > myseed.production && plant_status == HYDROTRAY_PLANT_GROWING)
@@ -488,7 +483,7 @@
  * Cleans up various stats for the plant upon death, including harvestability, and plant health.
  */
 /obj/machinery/ms13/agriculture/proc/plantdies()
-	set_plant_health(0, update_icon = FALSE, forced = TRUE)
+	set_plant_health(0, update_icon = TRUE, forced = TRUE)
 	set_plant_status(HYDROTRAY_PLANT_DEAD)
 	lastproduce = 0
 	update_appearance()
@@ -498,11 +493,11 @@
 	//Called when mob user "attacks" it with object O
 	if(istype(O, /obj/item/stack/ms13/fertilizer))
 		var/obj/item/stack/ms13/fertilizer/fertilizer = O
-		fertilizer.amount--
+		fertilizer.use(1)
 		if(fertilizer.nitro > 0)
 			n_fertilizer = clamp(n_fertilizer + fertilizer.nitro, 0.00, fertilizer_cap)
 		if(fertilizer.phos > 0)
-			p_fertilizer = clamp(n_fertilizer + fertilizer.phos, 0.00, fertilizer_cap)
+			p_fertilizer = clamp(p_fertilizer + fertilizer.phos, 0.00, fertilizer_cap)
 		if(fertilizer.pot > 0)
 			k_fertilizer = clamp(k_fertilizer + fertilizer.pot, 0.00, fertilizer_cap)
 		visible_message(span_notice("[user] spreads [O] through the soil."))
@@ -596,7 +591,7 @@
 			user.visible_message(span_notice("[user] digs out the plants in [src]!"), span_notice("You dig out all of [src]'s plants!"))
 			if(myseed)
 				age = 0
-				set_plant_health(0, update_icon = FALSE, forced = TRUE)
+				set_plant_health(0, update_icon = TRUE, forced = TRUE)
 				lastproduce = 0
 				set_seed(null)
 				name = initial(name)
@@ -617,7 +612,7 @@
 
 	return ..()
 
-/obj/machinery/ms13/agriculture/attack_hand(mob/user, list/modifiers)
+/obj/machinery/ms13/agriculture/attack_hand(mob/user, list/modifiers, update_icon = TRUE)
 	. = ..()
 	if(.)
 		return
@@ -775,16 +770,47 @@
 
 /// Fertilizers ///
 /obj/item/stack/ms13/fertilizer
-	name = "fertilizer bag"
-	desc = "The labels are worn and the bag in bad condition, but it appears to be garden fertilizer."
+	name = "fertilizer"
+	desc = "A bag of fertilizer. Treasured among the farmers of the post-apocalypse."
 	icon = 'mojave/icons/hydroponics/equipment.dmi'
 	icon_state = "daesack3"
 	amount = 3
 	max_amount = 3
+	singular_name = "use" //so it says X uses left in the fertilizer bag instead of X fertilizer bags left
+	gender = NEUTER //So examine text says "This is a fertilizer" instead of "These are some fertilizer bags"
 	grid_width = 96
 	grid_height = 128
+	w_class = WEIGHT_CLASS_BULKY
+	full_w_class = WEIGHT_CLASS_BULKY
 
 	// Value of 'N', 'P' or 'K' (potassium) added to the soil's fertilizer pool when added
 	var/nitro = 10
 	var/phos = 10
 	var/pot = 10
+
+/obj/item/stack/ms13/fertilizer/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/item_scaling, 0.7, 1)
+
+/obj/item/stack/ms13/fertilizer/update_weight()
+	return
+
+
+/obj/item/stack/ms13/fertilizer/is_zero_amount(delete_if_zero = TRUE)
+    if(amount < 1)
+        new /obj/item/ms13/fertilizer(get_turf(loc))
+    return ..()
+
+/obj/item/ms13/fertilizer
+	name = "empty fertilizer bag"
+	desc = "An empty fertilizer bag. You could probably use this to make some more fertilizer."
+	icon = 'mojave/icons/hydroponics/equipment.dmi'
+	icon_state = "daesack3"
+	grid_width = 96
+	grid_height = 128
+	w_class = WEIGHT_CLASS_BULKY
+
+/obj/item/ms13/fertilizer/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/item_scaling, 0.7, 1)
+

@@ -38,6 +38,7 @@
 	grid_height = 32
 	grid_width = 64
 	var/does_shrink = TRUE
+	breakouttime = 100 SECONDS //1M 40S
 
 /obj/item/restraints/handcuffs/ms13/Initialize(mapload)
 	. = ..()

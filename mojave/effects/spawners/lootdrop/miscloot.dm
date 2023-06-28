@@ -20,7 +20,7 @@
 	loot = list(
 			/obj/effect/spawner/random/ms13/tools/lights = 15,
 			/obj/effect/spawner/random/ms13/tools/tool = 50,
-			/obj/effect/spawner/random/ms13/tools/fishing = 5,
+			/obj/effect/spawner/random/ms13/tools/farming = 5,
 			/obj/effect/spawner/random/ms13/crafting/lowrandom = 30
 			)
 
@@ -41,7 +41,6 @@
 			/obj/item/shovel/ms13/snow,
 			/obj/item/shovel/ms13/rake,
 			/obj/item/ms13/brick,
-			/obj/item/restraints/handcuffs/ms13/rope,
 			/obj/item/knife/ms13/scissors,
 			/obj/item/lighter/ms13/zippo,
 			/obj/item/reagent_containers/ms13/lighterfluid,
@@ -83,6 +82,18 @@
 			/obj/item/ms13/tools/fishing_rod/telescopic = 20,
 			/obj/item/ms13/tools/fishing_rod/advanced = 10
 			)
+
+/obj/effect/spawner/random/ms13/tools/farming
+	name = "farming item spawner"
+	spawn_loot_chance = 70
+	loot = list(
+		/obj/item/stack/ms13/fertilizer = 10,
+		/obj/item/ms13/fertilizer = 10,
+		/obj/item/reagent_containers/glass/bucket/ms13 = 30,
+		/obj/item/shovel/ms13/spade = 30,
+		/obj/item/shovel/ms13/rake = 18,
+		/obj/item/storage/ms13/harvest_sack = 2
+	)
 
 //CRAFTING SPAWNERS BELOW//
 

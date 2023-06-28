@@ -110,6 +110,10 @@
 			if(needed_amount <= 0)
 				break
 
+			var/obj/item/reagent_containers/ms13/flask/flask
+			if(ispath(flask) && flask.list_reagents != null || flask.reagents.total_volume > 0) //Mojave Edit - Adds this as a very slight, specific case fix to prevent using full flasks for crafting. This, from my testing, only really works for flasks of the same kind. Still useful if you're bulk crafting a bunch of bitter drink or something. - Hekzder
+				return FALSE
+
 		if(needed_amount > 0)
 			return FALSE
 

@@ -329,3 +329,14 @@
 				/obj/item/stack/sheet/ms13/wood = 2)
 	category = CAT_SMELTER
 	crafting_interface = CRAFTING_BENCH_SMELTER
+
+//FARMING RECIPES
+
+/datum/crafting_recipe/fertilizer_ms13
+	name = "fertilizer"
+	result = /obj/item/stack/ms13/fertilizer
+	time = 8 SECONDS
+	reqs = list(/obj/item/ms13/fertilizer = 1,
+				/obj/item/food/badrecipe/moldy/ms13 = 8)
+	category = CAT_FARMING
+	crafting_interface = CRAFTING_BENCH_CAMPFIRE
