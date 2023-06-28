@@ -221,7 +221,7 @@
 //Water//////////////////////////////////////////////////////////////////
 			// Drink random amount of water
 			if(plant_status != HYDROTRAY_PLANT_HARVESTABLE)
-				adjust_waterlevel(-rand(0.5,2) / rating)
+				adjust_waterlevel(-rand(0.5,1.5) / rating)
 
 			// If the plant is dry, it loses health pretty fast, unless mushroom
 				if(waterlevel <= 10 && !myseed.get_gene(/datum/plant_gene/trait/plant_type/fungal_metabolism))
