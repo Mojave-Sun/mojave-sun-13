@@ -164,7 +164,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	var/attack_verb = "punch"
 	/// The visual effect of the attack.
 	var/attack_effect = ATTACK_EFFECT_PUNCH
-	var/sound/attack_sound = 'sound/weapons/punch1.ogg'
+	var/sound/attack_sound = 'mojave/sound/ms13weapons/meleesounds/punch_1.ogg' //Mojave Edit - Our punch sound
 	var/sound/miss_sound = 'sound/weapons/punchmiss.ogg'
 
 	///What gas does this species breathe? Used by suffocation screen alerts, most of actual gas breathing is handled by mutantlungs. See [life.dm][code/modules/mob/living/carbon/human/life.dm]

@@ -34,7 +34,7 @@
 	sharpness = SHARP_EDGED
 	tool_behaviour = TOOL_KNIFE
 	hitsound = list('mojave/sound/ms13weapons/meleesounds/blade_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/blade_hit2.ogg')
-	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/blade_pickup.ogg'
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/blade_pickup2.ogg'
 	toolspeed = 2
 	grid_width = 64
 	grid_height = 96
