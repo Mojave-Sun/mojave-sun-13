@@ -1,16 +1,18 @@
 //For open flames/children of TG bonfires (Campfires, fire barrels, etc.)
 
 /obj/structure/bonfire/ms13
-    name = "base class ms13 bonfire"
-    desc = "If you see this, that is not very lit."
-    icon = 'mojave/icons/structure/fires.dmi'
-    icon_state = "campfire"
-    burn_icon = "campfire_lit"
+	name = "base class ms13 bonfire"
+	desc = "If you see this, that is not very lit."
+	icon = 'mojave/icons/structure/fires.dmi'
+	icon_state = "campfire"
+	burn_icon = "campfire_lit"
+	var/datum/looping_sound/fire_soft/fire_loop
 
 /obj/structure/bonfire/ms13/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/personal_crafting, CRAFTING_BENCH_CAMPFIRE)
 	register_context()
+	fire_loop = new(src, FALSE)
 
 /obj/structure/bonfire/ms13/examine(mob/user)
 	. = ..()
@@ -33,6 +35,7 @@
 		set_light(0)
 		QDEL_NULL(particles)
 		STOP_PROCESSING(SSobj, src)
+		fire_loop.stop()
 
 /obj/structure/bonfire/ms13/campfire
     name = "campfire"
@@ -53,18 +56,21 @@
 	my_turf.VapourListTurf(list(/datum/vapours/smoke = 60, /datum/vapours/carbon_air_vapour = 20), VAPOUR_ACTIVE_EMITTER_CAP)
 
 /obj/structure/bonfire/ms13/campfire/attackby(obj/item/used_item, mob/living/user, params)
-	if(used_item.get_temperature())
+	if(used_item.get_temperature() && !burning)
 		start_burning()
+		fire_loop.start()
 
 /obj/structure/bonfire/ms13/campfire/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc, 2)
 	qdel(src)
+	fire_loop.stop()
 
 
 /obj/structure/bonfire/ms13/campfire/prelit/Initialize(mapload)
 	. = ..()
 	start_burning()
+	fire_loop.start()
 
 /obj/structure/bonfire/ms13/fire_barrel
     name = "fire barrel"
@@ -93,6 +99,7 @@
 	if(!(flags_1 & NODECONSTRUCT_1))
 		new /obj/item/stack/sheet/ms13/scrap(loc, 2)
 	qdel(src)
+	fire_loop.stop()
 
 /obj/structure/bonfire/ms13/fire_barrel/attackby(obj/item/used_item, mob/living/user, params)
 	if(istype(used_item, /obj/item/stack/sheet/ms13/scrap) && !grill)
@@ -106,6 +113,7 @@
 			return ..()
 	if(used_item.get_temperature())
 		start_burning()
+		fire_loop.start()
 	if(grill)
 		if(istype(used_item, /obj/item/melee/roastingstick))
 			return FALSE
@@ -125,6 +133,7 @@
 /obj/structure/bonfire/ms13/fire_barrel/prelit/Initialize(mapload)
 	. = ..()
 	start_burning()
+	fire_loop.start()
 
 /obj/structure/bonfire/ms13/fire_barrel/start_burning()
 	if(burning)
