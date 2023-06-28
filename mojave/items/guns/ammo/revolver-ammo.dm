@@ -37,8 +37,8 @@
 	max_ammo = 24
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 	w_class = WEIGHT_CLASS_NORMAL
-	grid_width = 64
-	grid_height = 64
+	grid_width = 32
+	grid_height = 32
 
 /obj/item/ammo_box/ms13/m44box/junk
 	name = "junk .44 ammo box"
@@ -77,6 +77,18 @@
 	ammo_type = /obj/item/ammo_casing/ms13/c4570
 	caliber = "4570"
 	max_ammo = 16
+	grid_width = 32
+	grid_height = 32
+
+/obj/item/ammo_box/ms13/c4570box/ap
+	name = "armor piercing .45-70 ammo box"
+	desc = "A box containing high quality armor piercing .45-70 ammo."
+	ammo_type = /obj/item/ammo_casing/ms13/c4570/ap
+
+/obj/item/ammo_box/ms13/c4570box/hv
+	name = "high velocity .45-70 ammo box"
+	desc = "A box containing high quality high velocity .45-70 ammo."
+	ammo_type = /obj/item/ammo_casing/ms13/c4570/hv
 
 //.357
 /obj/item/ammo_casing/ms13/a357
@@ -118,7 +130,7 @@
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 	w_class = WEIGHT_CLASS_NORMAL
 	grid_width = 32
-	grid_height = 64
+	grid_height = 32
 
 /obj/item/ammo_box/ms13/a357box/junk
 	name = "junk .357 ammo box"

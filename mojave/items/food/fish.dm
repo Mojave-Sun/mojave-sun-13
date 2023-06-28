@@ -5,7 +5,7 @@
 	desc = "You shouldn't be seeing this."
 	icon = 'mojave/icons/objects/food/fish/fish_world.dmi'
 	bite_consumption = 4
-	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 8)
+	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 6)
 	foodtypes = MEAT | RAW
 	w_class = WEIGHT_CLASS_NORMAL
 	grid_height = 64
@@ -15,6 +15,7 @@
 	//Determines what kind of fillet you get when cut
 	var/fillet_type = /obj/item/food/meat/rawcutlet/ms13/fish
 	var/fish_size = 1
+	decomp_type = /obj/item/food/badrecipe/moldy/ms13
 
 /obj/item/food/meat/slab/ms13/fish/MakeProcessable()
 	AddElement(/datum/element/processable, TOOL_KNIFE,  fillet_type, fish_size * 2, 15 SECONDS * toolspeed)
@@ -104,6 +105,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 3)
 	tastes = list("fish" = 8)
 	foodtypes = MEAT | RAW
+	decomp_type = /obj/item/food/badrecipe/moldy/ms13
 
 /obj/item/food/meat/rawcutlet/ms13/fish/MakeGrillable()
 	AddComponent(/datum/component/grillable, fish_cooked_type, rand(30 SECONDS, 60 SECONDS), TRUE, TRUE)
@@ -182,6 +184,7 @@
 	grid_height = 32
 	grid_width = 64
 	foodtypes = MEAT
+	decomp_type = /obj/item/food/badrecipe/moldy/ms13
 
 /obj/item/food/meat/cutlet/ms13/fish/Initialize()
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/food/fish/fish_inventory.dmi')

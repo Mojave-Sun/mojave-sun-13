@@ -19,7 +19,7 @@
 
 /obj/item/gun/ballistic/rifle/rack(mob/user = null)
 	if (bolt_locked == FALSE)
-		to_chat(user, span_notice("You open the bolt of \the [src]."))
+		to_chat(user, span_notice("You open the [bolt_wording] of \the [src].")) //MS13 EDIT - TG is freaking dumb and doesn't use bolt_wording var by default here
 		playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
 		process_chamber(FALSE, FALSE, FALSE)
 		bolt_locked = TRUE
@@ -34,7 +34,7 @@
 
 /obj/item/gun/ballistic/rifle/attackby(obj/item/A, mob/user, params)
 	if (!bolt_locked && !istype(A, /obj/item/stack/sheet/cloth))
-		to_chat(user, span_notice("The bolt is closed!"))
+		to_chat(user, span_notice("The [bolt_wording] is closed!")) //MS13 EDIT - TG is freaking dumb and doesn't use bolt_wording var by default here
 		return
 	return ..()
 
@@ -152,7 +152,7 @@
 	can_be_sawn_off = FALSE
 	projectile_damage_multiplier = 0.75
 
-/obj/item/gun/ballistic/rifle/boltaction/pipegun/handle_chamber()
+/obj/item/gun/ballistic/rifle/boltaction/pipegun/handle_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE, atom/shooter = null)
 	. = ..()
 	do_sparks(1, TRUE, src)
 

@@ -37,6 +37,8 @@ FLOOR SAFES
 	var/space = 0
 	/// Tough, but breakable if explosion counts reaches set value
 	var/explosion_count = 0
+	/// Lockpicking check for garbage code
+	var/has_been_lockpicked = FALSE //MOJAVE SUN EDIT - Lockpicking
 
 /obj/structure/safe/Initialize(mapload)
 	. = ..()
@@ -44,10 +46,22 @@ FLOOR SAFES
 	// Combination generation
 	for(var/iterating in 1 to number_of_tumblers)
 		tumblers.Add(rand(0, 99))
+	// MOJAVE SUN EDIT BEGIN
+	//if(!mapload)
+	//	return
 
-	if(!mapload)
-		return
+	/*// Put as many items on our turf inside as possible
+	for(var/obj/item/inserting_item in loc)
+		if(space >= maxspace)
+			return
+		if(inserting_item.w_class + space <= maxspace)
+			space += inserting_item.w_class
+			inserting_item.forceMove(src)*/
 
+	if(mapload)
+		return INITIALIZE_HINT_LATELOAD
+
+/obj/structure/safe/LateInitialize(mapload)
 	// Put as many items on our turf inside as possible
 	for(var/obj/item/inserting_item in loc)
 		if(space >= maxspace)
@@ -55,6 +69,8 @@ FLOOR SAFES
 		if(inserting_item.w_class + space <= maxspace)
 			space += inserting_item.w_class
 			inserting_item.forceMove(src)
+
+// MOJAVE SUN EDIT END
 
 /obj/structure/safe/update_icon_state()
 	icon_state = "[initial(icon_state)][open ? "-open" : null]"
@@ -71,13 +87,10 @@ FLOOR SAFES
 			to_chat(user, span_notice("You put [attacking_item] in [src]."))
 		else
 			to_chat(user, span_warning("[attacking_item] won't fit in [src]."))
-	else
-		if(istype(attacking_item, /obj/item/clothing/neck/stethoscope))
-			attack_hand(user)
-			return
-		else
-			to_chat(user, span_warning("You can't put [attacking_item] into the safe while it is closed!"))
-			return
+	if(istype(attacking_item, /obj/item/clothing/neck/stethoscope))
+		attack_hand(user)
+		return
+	. = ..() //MOJAVE SUN EDIT - Lockpicking
 
 /obj/structure/safe/blob_act(obj/structure/blob/B)
 	return
@@ -214,6 +227,12 @@ FLOOR SAFES
 /obj/structure/safe/proc/check_unlocked()
 	if(check_broken())
 		return TRUE
+	//MOJAVE SUN EDIT START - Lockpicking
+	if(has_been_lockpicked)
+		open = TRUE
+		locked = FALSE
+		return TRUE
+	//MOJAVE SUN EDIT END - Lockpicking
 	if(current_tumbler_index > number_of_tumblers)
 		locked = FALSE
 		visible_message(span_boldnotice("[pick("Spring", "Sprang", "Sproing", "Clunk", "Krunk")]!"))

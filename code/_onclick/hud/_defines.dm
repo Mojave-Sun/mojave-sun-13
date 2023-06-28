@@ -16,11 +16,15 @@
 	The size of the user's screen is defined by client.view (indirectly by world.view), in our case "15x15".
 	Therefore, the top right corner (except during admin shenanigans) is at "15,15"
 */
-
+/* MOJAVE EDIT REMOVAL
 /proc/ui_hand_position(i) //values based on old hand ui positions (CENTER:-/+16,SOUTH:5)
-	var/x_off = -(!(i % 2))
+*/
+//MOJAVE EDIT BEGIN
+/proc/ui_hand_position(i, pixel_x = 0, pixel_y = 0) //values based on old hand ui positions (CENTER:-/+16,SOUTH:5)
+//MOJAVE EDIT END
+	var/x_off = (i % 2)
 	var/y_off = round((i-1) / 2)
-	return"CENTER+[x_off]:-42,SOUTH+[y_off]" // MOJAVE EDIT - return"CENTER+[x_off]:16,SOUTH+[y_off]:5"
+	return "CENTER:[(42 * x_off) + pixel_x - 42],SOUTH+[y_off]:[pixel_y]" // MOJAVE EDIT - return"CENTER+[x_off]:16,SOUTH+[y_off]:5"
 
 /proc/ui_equip_position(mob/M)
 	var/y_off = round((M.held_items.len-1) / 2) //values based on old equip ui position (CENTER: +/-16,SOUTH+1:5)
@@ -54,6 +58,10 @@
 #define ui_movi "hud:EAST,SOUTH" // MOJAVE EDIT - #define ui_movi "EAST-2:26,SOUTH:5"
 #define ui_acti "EAST-3:24,SOUTH:5"
 #define ui_combat_toggle "hud:EAST,SOUTH+4.38" // MOJAVE EDIT - #define ui_combat_toggle "EAST-3:24,SOUTH:5"
+//MOJAVE EDIT BEGIN
+#define ui_resist "hud:EAST,SOUTH+4.38"
+#define ui_wield "hud:EAST,SOUTH+4.38"
+//MOJAVE EDIT END
 #define ui_zonesel "hud:EAST,SOUTH+6.2" // MOJAVE EDIT - #define ui_zonesel "EAST-1:28,SOUTH:5"
 #define ui_acti_alt "EAST-1:28,SOUTH:5" //alternative intent switcher for when the interface is hidden (F12)
 #define ui_crafting "EAST-4:22,SOUTH:5"

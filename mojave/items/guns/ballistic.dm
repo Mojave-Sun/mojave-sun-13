@@ -34,6 +34,7 @@
 	wound_bonus = 0
 	bare_wound_bonus = 0
 	log_pickup_and_drop = TRUE
+	wield_info = /datum/wield_info/default/inhands
 	var/has_scope = FALSE
 	var/scope_range = 0
 
@@ -57,6 +58,7 @@
 	bare_wound_bonus = 0
 	log_pickup_and_drop = TRUE
 	slowdown = 0.75 //A fall back in case someone forgets to define slowdown at the gun level
+	wield_info = /datum/wield_info/default/inhands
 	var/has_scope = FALSE
 	var/scope_range = 0
 
@@ -121,6 +123,7 @@
 	extra_penetration = 0
 	log_pickup_and_drop = TRUE
 	slowdown = 0.75 //A fall back in case someone forgets to define slowdown at the gun level
+	wield_info = /datum/wield_info/default/inhands
 	var/has_scope = FALSE
 	var/scope_range = 0
 
@@ -246,6 +249,7 @@
 	bare_wound_bonus = 0
 	log_pickup_and_drop = TRUE
 	slowdown = 0.75 //A fall back in case someone forgets to define slowdown at the gun level
+	wield_info = /datum/wield_info/default/inhands
 	var/jamming_chance = 20
 	var/unjam_chance = 10
 	var/jamming_increment = 5

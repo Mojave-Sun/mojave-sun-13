@@ -105,7 +105,7 @@
 	icon_state = "seedling_beam_indicator"
 	screen_loc = "CENTER:-16,CENTER:-16"
 
-/mob/living/simple_animal/hostile/jungle/seedling/Goto()
+/mob/living/simple_animal/hostile/jungle/seedling/Goto(target, delay, minimum_distance)
 	if(combatant_state != SEEDLING_STATE_NEUTRAL)
 		return
 	return ..()

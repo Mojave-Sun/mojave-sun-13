@@ -135,27 +135,34 @@
 /datum/component/fixeye/proc/before_dir_change(mob/living/source, dir, newdir)
 	SIGNAL_HANDLER
 
+	// You can change dir while holding alt, as a treat
+	if(!(fixeye_flags & FIXEYE_LOCKED) && source.client.keys_held["Alt"])
+		return
+
 	return COMPONENT_NO_DIR_CHANGE
 
-/// Handles dir change when clicking (yes this is hacky)
+/// Handles dir change when clicking, and only when clicking (yes this is hacky)
 /datum/component/fixeye/proc/on_clickon(mob/living/source, atom/A, params)
 	SIGNAL_HANDLER
 
-	/// This should never happen, but just to be sure
+	//This should never happen, but just to be sure
 	if(!(fixeye_flags & FIXEYE_ACTIVE))
 		return
 
+	//No dir change on shift click
 	var/list/modifiers = params2list(params)
 	if(LAZYACCESS(modifiers, SHIFT_CLICK))
 		return
 
+	//No dir change on hud elements
 	if(istype(A, /atom/movable/screen))
 		return
+	//No dir change on inventory items
 	else if(isitem(A))
 		var/obj/item/item_atom = A
-		// this is a dumb long check and could maybe be shortened
-		if((item_atom.item_flags & IN_INVENTORY) || (source.is_holding(item_atom)) || (item_atom in source.get_equipped_items(TRUE)))
+		if((item_atom.item_flags & IN_INVENTORY) || (item_atom.loc && SEND_SIGNAL(item_atom.loc, COMSIG_CONTAINS_STORAGE)))
 			return
+	//No dir change on self
 	else if(A == source)
 		return
 

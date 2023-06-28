@@ -26,7 +26,7 @@ GLOBAL_LIST_EMPTY(water_wells_in_world)
 	. = ..()
 	START_PROCESSING(SSobj, src)
 	GLOB.water_wells_in_world += src
-	create_reagents(2000000, OPENCONTAINER | REFILLABLE)
+	create_reagents(10000, OPENCONTAINER | REFILLABLE)
 
 /obj/structure/ms13/well/Destroy(force)
 	GLOB.water_wells_in_world -= src
@@ -44,7 +44,7 @@ GLOBAL_LIST_EMPTY(water_wells_in_world)
 
 	//Each human will consume about (1 / SECONDS_OF_LIFE_PER_WATER_U) per second, because this is process(), we need to * 2 the amount of water generated as process() here is per 2 seconds
 	//We'll also have a minimum amount of water for super low pop, don't need to go to different faction bases just to get enough water when there's too many wells
-	reagents.add_reagent(/datum/reagent/water, max(0.5, (((1 / SECONDS_OF_LIFE_PER_WATER_U) * 2 * water_ratio * alive_humans) / length(GLOB.water_wells_in_world))))
+	reagents.add_reagent(/datum/reagent/water, max((1 / SECONDS_OF_LIFE_PER_WATER_U) * 10, (((1 / SECONDS_OF_LIFE_PER_WATER_U) * 2 * water_ratio * alive_humans) / length(GLOB.water_wells_in_world))))
 
 /obj/structure/ms13/well/proc/UpdateAllWells()
 	for(var/obj/structure/ms13/well/well in GLOB.water_wells_in_world)

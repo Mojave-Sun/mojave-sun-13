@@ -165,3 +165,11 @@
 	title = "New Entry"
 	content = "The peopel are mutating oh godf theyre attacking everyone its like zombies man fuck i locked myself in my room. THey canyt get me in here right? saving opne bullet for myself God fuckikng dammit FUCKim so sorry I know they can't hear this but I'm so sorry.\
 		I didn't mean to fuck us all. I wanted to keep as many of us in here as I could and I fucked up in the process, this fucking piece of shit bunker was only meant for 20 people not 30. I'm goign to hell fucking shit man fuck"
+
+/datum/terminal/document/oopersuperbmed // The superB market :)
+	title = "Surge of drug addicts"
+	content = "Hey Martin! I'm leaving this for when you start your shift on the twenty-third. Hope you had a good vacation! You'll have to tell me about it when our schedules align again! Anyways, we had a tiny bit of a break-in! It's not too bad though, the overnight caught them.\
+		Anyways, we've been told to put a bunch of our stuff up on lockup, and I'm sure you noticed the new bars and heard about that new law passed. I'm sure you've read up on it already, but we're supposed to keep the grand majority of our supply locked up when we're not in business.\
+		Unfortunately, that entails we'll have to pull you back a shift and you'll do opening. Nothing too drastic should change, other than it being sun-up when you arrive. When we next see each other, I can give you the keys for lockup. There's a few of them, actually. That was also mandated...\
+		<br><br>\
+		So... Yeah. If you do end up coming in on the twenty-third and see this before I can snag you up or Rich got to you first, just hang around and work as usual, we'll get together to talk a bit more about the new protocol. -Rebecca."

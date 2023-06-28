@@ -21,11 +21,12 @@
 	embedding = null
 	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = ITEM_SLOT_BELT
-	sharpness = IS_SHARP_AXE
+	sharpness = SHARP_EDGED | SHARP_AXE
 	toolspeed = 1.25
 	log_pickup_and_drop = TRUE
 	grid_width = 64
 	grid_height = 96
+	mining_mult = -0.25
 
 /obj/item/hatchet/ms13/Initialize()
 	. = ..()
@@ -57,6 +58,7 @@
 	bare_wound_bonus = 5
 	sharpness = SHARP_IMPALING
 	tool_behaviour = TOOL_MINING
+	mining_mult = 2
 
 /obj/item/hatchet/ms13/tomahawk
 	name = "tomahawk"
@@ -74,3 +76,4 @@
 	embedding = list("embedded_pain_multiplier" = 2, "embed_chance" = 50, "embedded_fall_chance" = 25)
 	sharpness = SHARP_IMPALING
 	log_pickup_and_drop = TRUE
+	mining_mult = 0.75

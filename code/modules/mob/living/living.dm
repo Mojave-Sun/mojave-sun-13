@@ -49,13 +49,61 @@
 		message = FALSE
 	return ..()
 
+// MOJAVE SUN EDIT BEGIN
 /mob/living/proc/ZImpactDamage(turf/T, levels)
 	if(SEND_SIGNAL(src, COMSIG_LIVING_Z_IMPACT, levels, T) & NO_Z_IMPACT_DAMAGE)
 		return
+	var/mob/living/carbon/human/savage = src // Power armour landing interactions - Fall damage negation / general chaos creation
+	if(istype(savage.wear_suit, /obj/item/clothing/suit/space/hardsuit/ms13/power_armor)) // If they're wearing PA, it's time to go sicko mode and start doing some crazy shit.
+		visible_message("[src] lands harshly onto [T] with a loud bang!")
+		playsound(src, 'mojave/sound/ms13effects/power_armor_land.ogg', 55, TRUE)
+		shake_camera(savage, 5, 3)
+
+		var/list/all_turfs = RANGE_TURFS(3, savage.loc)
+		for(var/i = 0 to 12)
+			for(var/turf/collision_turf in all_turfs)
+				if(get_dist(savage.loc, collision_turf) > i)
+					continue
+				collision_turf.Shake(rand(-16, 16), rand(-16, 16), 3 SECONDS)
+				for (var/mob/living/L in collision_turf)
+					var/mob/living/carbon/human/poor_fucker = L // The ownee.
+					if(L.loc == savage.loc && L != savage)
+						L.adjustBruteLoss(rand(50,150))
+						L.emote("scream")
+						if(!istype(poor_fucker.wear_suit, /obj/item/clothing/suit/space/hardsuit/ms13/power_armor) && prob(25)) // This is for a check to make sure we're not gibbing an ENTIRE SUIT OF POWER ARMOUR with another.
+							L.gib()
+					if(get_dist(L, savage) < 3 && L != savage)
+						shake_camera(L, 3, 1.5)
+						L.adjustStaminaLoss(20 / max(1, get_dist(L, savage)))
+						L.Knockdown(2 SECONDS, ignore_canstun = TRUE)
+				all_turfs -= collision_turf
+		return
+
 	visible_message(span_danger("[src] crashes into [T] with a sickening noise!"), \
 					span_userdanger("You crash into [T] with a sickening noise!"))
-	adjustBruteLoss(levels * 20) // You'll probably think twice before flying off the side of a cliff
+	adjustBruteLoss(levels * 40) // You'll probably think twice before flying off the side of a cliff // MOJAVE SUN EDIT - ORIGINAL IS 	adjustBruteLoss((levels * 5) ** 1.5)
+	if(istype(src, /mob/living/carbon/human))
+		var/mob/living/carbon/human/human_yeetus = src
+		var/obj/item/bodypart/limb = pick(human_yeetus.bodyparts)
+		var/type_wound = pick(list(/datum/wound/blunt/severe, /datum/wound/blunt/severe))
+		limb.force_wound_upwards(type_wound)
+		playsound(src, 'mojave/sound/ms13effects/body_fall.ogg', 75, TRUE)
 	Knockdown(levels * 50)
+/*
+/mob/living/proc/ZImpactDamage(turf/T, levels)
+	if(SEND_SIGNAL(src, COMSIG_LIVING_Z_IMPACT, levels, T) & NO_Z_IMPACT_DAMAGE)
+		return
+
+	visible_message(span_danger("[src] crashes into [T] with a sickening noise!"), \
+					span_userdanger("You crash into [T] with a sickening noise!"))
+	adjustBruteLoss((levels * 5) ** 1.5)
+	if(istype(src, /mob/living/carbon/human))
+		var/mob/living/carbon/human/human_yeetus = src
+		var/obj/item/bodypart/limb = pick(human_yeetus.bodyparts)
+		var/type_wound = pick(list(/datum/wound/blunt/severe, /datum/wound/blunt/severe))
+		limb.force_wound_upwards(type_wound)
+	Knockdown(levels * 50)*/
+	// MOJAVE SUN EDIT END
 
 //Generic Bump(). Override MobBump() and ObjBump() instead of this.
 /mob/living/Bump(atom/A)
@@ -1396,7 +1444,7 @@
 
 //Mobs on Fire
 /mob/living/proc/IgniteMob()
-	if(fire_stacks > 0 && !on_fire)
+	if(fire_stacks > 0 && !on_fire && !HAS_TRAIT(src, TRAIT_NON_FLAMMABLE))
 		on_fire = TRUE
 		src.visible_message(span_warning("[src] catches fire!"), \
 						span_userdanger("You're set on fire!"))
@@ -1928,6 +1976,7 @@
 			if(. >= UNCONSCIOUS)
 				REMOVE_TRAIT(src, TRAIT_IMMOBILIZED, TRAIT_KNOCKEDOUT)
 			ADD_TRAIT(src, TRAIT_CRITICAL_CONDITION, STAT_TRAIT)
+			throw_alert_text(/atom/movable/screen/alert/text/sad, "You are too hurt to fight back!", override = FALSE) // MOJAVE SUN EDIT - FO text alert
 		if(UNCONSCIOUS)
 			if(. != HARD_CRIT)
 				become_blind(UNCONSCIOUS_TRAIT)
@@ -1938,8 +1987,10 @@
 		if(HARD_CRIT)
 			if(. != UNCONSCIOUS)
 				become_blind(UNCONSCIOUS_TRAIT)
+			throw_alert_text(/atom/movable/screen/alert/text/cry, "You can feel yourself fading away!", override = FALSE) // MOJAVE SUN EDIT - FO text alert
 			ADD_TRAIT(src, TRAIT_CRITICAL_CONDITION, STAT_TRAIT)
 		if(DEAD)
+			throw_alert_text(/atom/movable/screen/alert/text/dead, "You are no longer among the living.", override = FALSE) // MOJAVE SUN EDIT - FO text alert
 			REMOVE_TRAIT(src, TRAIT_CRITICAL_CONDITION, STAT_TRAIT)
 			remove_from_alive_mob_list()
 			add_to_dead_mob_list()

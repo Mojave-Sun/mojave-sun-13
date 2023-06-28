@@ -17,7 +17,7 @@
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
 	repairable_by = /obj/item/stack/sheet/ms13/cloth
 	limb_integrity = 100
-	max_integrity = 300
+	max_integrity = 350
 	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
 
@@ -262,6 +262,11 @@
 	icon_state = "mechanicalt"
 	inhand_icon_state = "g_suit"
 
+/obj/item/clothing/under/ms13/wasteland/baron
+	name = "\improper Chains of the Baron"
+	desc = "A menacing metal chain harness belonging to a very specific and very powerful individual."
+	icon_state = "baron"
+
 // suits//fancy //
 
 /obj/item/clothing/under/ms13/wasteland/heeledsuit
@@ -412,3 +417,10 @@
 	desc = "A plain white shirt and slacks."
 	icon_state = "shirt"
 	inhand_icon_state = "bar_suit"
+
+// Drylander //
+
+/obj/item/clothing/under/ms13/drylander
+	name = "\improper Drylander tunic"
+	desc = "Very light tunic and pants worn by the Drylander tribe. Meant to be worn under robes."
+	icon_state = "drylander"

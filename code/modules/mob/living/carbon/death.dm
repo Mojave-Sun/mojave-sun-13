@@ -12,9 +12,10 @@
 	add_memory_in_range(src, 7, MEMORY_DEATH, list(DETAIL_PROTAGONIST = src), memory_flags = MEMORY_FLAG_NOMOOD, story_value = STORY_VALUE_OKAY, memory_flags = MEMORY_CHECK_BLIND_AND_DEAF)
 
 	. = ..()
-
+/* MOJAVE SUN EDIT BEGIN
 	if(!gibbed)
 		attach_rot()
+MOJAVE SUN EDIT END */
 
 	for(var/T in get_traumas())
 		var/datum/brain_trauma/BT = T

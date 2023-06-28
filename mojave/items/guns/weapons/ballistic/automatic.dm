@@ -5,6 +5,7 @@
 	icon_state = "service"
 	inhand_icon_state = "service"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/service/service_3.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/service.ogg'
 	fire_delay = 0.45 SECONDS
 	slot_flags = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_HUGE
@@ -30,6 +31,7 @@
 	icon_state = "sniper"
 	inhand_icon_state = "sniper"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/sniper/sniper2.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/sniper.ogg'
 	fire_delay = 0.65 SECONDS
 	slot_flags = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_HUGE
@@ -50,6 +52,7 @@
 	fire_delay = 0.6 SECONDS
 	recoil = 1.15
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
+	far_fire_sound = null
 
 /obj/item/gun/ballistic/automatic/ms13/semi/marksman
 	name = "marksman carbine"
@@ -58,6 +61,7 @@
 	inhand_icon_state = "marksman"
 	mag_type = /obj/item/ammo_box/magazine/ms13/r20
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/marksman/marksman2.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/marksman.ogg'
 	can_suppress = FALSE
 	fire_delay = 0.5 SECONDS
 	slot_flags = ITEM_SLOT_BACK
@@ -83,6 +87,7 @@
 	icon_state = "battler"
 	inhand_icon_state = "battler"
 	fire_sound = 'mojave/sound/ms13weapons/battlerifle.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/battlerifle.ogg'
 	fire_delay = 0.6 SECONDS
 	slot_flags = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_HUGE
@@ -131,6 +136,7 @@
 	slot_flags = ITEM_SLOT_BACK
 	mag_type = /obj/item/ammo_box/magazine/ms13/smgm45
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/45/45auto3.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/45_pistol.ogg'
 	can_suppress = FALSE
 	fire_delay = 0.25 SECONDS
 	spread = 12
@@ -148,7 +154,8 @@
 	weapon_weight = WEAPON_HEAVY
 	slot_flags = ITEM_SLOT_BACK
 	mag_type = /obj/item/ammo_box/magazine/ms13/smgm22
-	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
+	fire_sound = 'mojave/sound/ms13weapons/gunsounds/22/22smg.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/22_smg.ogg'
 	fire_delay = 0.2 SECONDS
 	spread = 12
 	recoil = 0.2
@@ -165,6 +172,7 @@
 	weapon_weight = WEAPON_MEDIUM
 	mag_type = /obj/item/ammo_box/magazine/ms13/smgm10mm
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/10mmsmg/10mmsmg1.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/10mm_smg.ogg'
 	fire_delay = 0.2 SECONDS
 	spread = 15
 	recoil = 0.75
@@ -182,6 +190,7 @@
 	weapon_weight = WEAPON_MEDIUM
 	mag_type = /obj/item/ammo_box/magazine/ms13/smgm9mm
 	fire_sound = 'mojave/sound/ms13weapons/greasegun.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/greasegun.ogg'
 	can_suppress = FALSE
 	fire_delay = 0.2 SECONDS
 	spread = 15
@@ -200,6 +209,7 @@
 	weapon_weight = WEAPON_MEDIUM
 	mag_type = /obj/item/ammo_box/magazine/ms13/smg12mm
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/12mm/m12mm2.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/12mm_smg.ogg'
 	can_suppress = FALSE
 	fire_delay = 0.35 SECONDS
 	force = 10
@@ -217,6 +227,7 @@
 	slot_flags = ITEM_SLOT_BACK
 	mag_type = /obj/item/ammo_box/magazine/ms13/r20
 	fire_sound = 'mojave/sound/ms13weapons/arfire.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/arfire.ogg'
 	fire_delay = 0.25 SECONDS
 	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
@@ -232,6 +243,7 @@
 	icon_state = "protoservice"
 	inhand_icon_state = "protoservice"
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/service/service_2.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/service.ogg'
 	fire_delay = 0.3 SECONDS
 	recoil = 0.75
 
@@ -243,6 +255,7 @@
 	has_scope = TRUE
 	scope_range = 2.5
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
+	far_fire_sound = null
 	w_class = WEIGHT_CLASS_BULKY
 	spread = 4
 	recoil = 0.35
@@ -275,6 +288,7 @@
 	inhand_icon_state = "chinesear"
 	mag_type = /obj/item/ammo_box/magazine/ms13/ar762
 	fire_sound = 'mojave/sound/ms13weapons/chinesearfire.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/chinesearfire.ogg'
 	fire_delay = 0.35 SECONDS
 	spread = 8
 	recoil = 1

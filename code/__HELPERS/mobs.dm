@@ -116,6 +116,30 @@
 		if(!findname(.))
 			break
 
+// MOJAVE SUN EDIT BEGIN
+/proc/random_unique_legion_name(gender, attempts_to_find_unique_name=10)
+	for(var/i in 1 to attempts_to_find_unique_name)
+		. = capitalize(pick(GLOB.first_names_legion)) + " " + capitalize(pick(GLOB.last_names_legion))
+
+		if(!findname(.))
+			break
+
+/proc/random_unique_raider_name(gender, attempts_to_find_unique_name=10)
+	for(var/i in 1 to attempts_to_find_unique_name)
+		. = capitalize(pick(GLOB.raider_names))
+
+		if(!findname(.))
+			break
+
+/proc/random_unique_drylander_name(gender, attempts_to_find_unique_name=10)
+	for(var/i in 1 to attempts_to_find_unique_name)
+		. = capitalize(pick(GLOB.first_names_drylander)) + " " + capitalize(pick(GLOB.last_names_drylander))
+
+		if(!findname(.))
+			break
+
+// MOJAVE SUN EDIT END
+
 /proc/random_unique_lizard_name(gender, attempts_to_find_unique_name=10)
 	for(var/i in 1 to attempts_to_find_unique_name)
 		. = capitalize(lizard_name(gender))
@@ -177,6 +201,14 @@ GLOBAL_LIST_INIT(skin_tone_names, list(
 	"african2" = "Dark brown",
 ))
 //MOJAVE SUN EDIT END - Skin Colours
+
+// MOJAVE SUN EDIT BEGIN - Fatties
+GLOBAL_LIST_INIT(fatness_types, sort_list(list(
+	FATNESS_AVERAGE,
+	FATNESS_OBESE,
+	)))
+// MOJAVE SUN EDIT END - Fatties
+
 /// An assoc list of species IDs to type paths
 GLOBAL_LIST_EMPTY(species_list)
 
@@ -288,7 +320,7 @@ GLOBAL_LIST_EMPTY(species_list)
  * given `delay`. Returns `TRUE` on success or `FALSE` on failure.
  * Interaction_key is the assoc key under which the do_after is capped, with max_interact_count being the cap. Interaction key will default to target if not set.
  */
-/proc/do_after(mob/user, delay, atom/target, timed_action_flags = NONE, progress = TRUE, datum/callback/extra_checks, interaction_key, max_interact_count = 1)
+/proc/do_after(mob/user, delay, atom/target, timed_action_flags = NONE, progress = TRUE, datum/callback/extra_checks, interaction_key, max_interact_count = 1, sleeper = TRUE) //MOJAVE SUN EDIT - Stoplag toggle
 	if(!user)
 		return FALSE
 	var/atom/target_loc = null
@@ -322,7 +354,8 @@ GLOBAL_LIST_EMPTY(species_list)
 	var/starttime = world.time
 	. = TRUE
 	while (world.time < endtime)
-		stoplag(1)
+		if(sleeper)
+			stoplag(1)
 
 		if(!QDELETED(progbar))
 			progbar.update(world.time - starttime)

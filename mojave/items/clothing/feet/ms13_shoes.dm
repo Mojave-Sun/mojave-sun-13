@@ -11,13 +11,16 @@
 	. = ..()
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clothing/clothing_inventory/shoes_inventory.dmi')
 
-/obj/item/clothing/shoes/ms13
-	pocket_storage_component_path = /datum/component/storage/concrete/pockets/shoes
-
 /obj/item/clothing/shoes/ms13/rag
 	name = "footcloths"
 	desc = "Simple ragged cloth for your feet. Anything is better than nothing."
 	icon_state = "rag"
+	inhand_icon_state = "rag"
+
+/obj/item/clothing/shoes/ms13/drylander
+	name = "\improper Drylander footcloths"
+	desc = "Simple ragged cloth footwraps worn by the Drylander tribe to cross the sands."
+	icon_state = "drylander"
 	inhand_icon_state = "rag"
 
 /obj/item/clothing/shoes/ms13/crude
@@ -50,6 +53,7 @@
 	icon_state = "winterbootsbrown"
 	inhand_icon_state = "winterbootsbrown"
 	strip_delay = 40
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/shoes
 
 /obj/item/clothing/shoes/ms13/winter/black
 	name = "dark winter boots"
@@ -63,12 +67,14 @@
 	icon_state = "cowboy"
 	inhand_icon_state = "cowboy"
 	strip_delay = 40
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/shoes
 
 /obj/item/clothing/shoes/ms13/explorer
 	name = "explorer boots"
 	desc = "A rugged pair of boots great for explorers of the wastes. They can take you almost anywhere."
 	icon_state = "explorer"
 	strip_delay = 40
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/shoes
 
 /obj/item/clothing/shoes/ms13/military
 	name = "military boots"
@@ -77,6 +83,7 @@
 	inhand_icon_state = "military"
 	strip_delay = 40
 	resistance_flags = 0
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/shoes
 
 /obj/item/clothing/shoes/ms13/military/vault
 	name = "vault boots"

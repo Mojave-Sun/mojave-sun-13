@@ -172,7 +172,7 @@
 		if (TRANSMISSION_SUPERSPACE)
 			// Only radios which are independent
 			for(var/obj/item/radio/independent_radio in GLOB.all_radios["[frequency]"])
-				if(independent_radio.independent && independent_radio.can_receive(frequency, signal_reaches_every_z_level))
+				if((independent_radio.force_superspace ||independent_radio.independent) && independent_radio.can_receive(frequency, signal_reaches_every_z_level))
 					radios += independent_radio
 
 	// From the list of radios, find all mobs who can hear those.

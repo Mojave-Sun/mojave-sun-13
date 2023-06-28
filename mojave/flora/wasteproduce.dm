@@ -1,3 +1,49 @@
+/obj/item/seeds/ms13
+	growing_icon = 'mojave/icons/hydroponics/growing.dmi'
+	icon = 'mojave/icons/hydroponics/seeds.dmi'
+	icon_state = "seed"
+	potency = 50
+	growthstages = 5
+	w_class = WEIGHT_CLASS_TINY
+	grid_height = 32
+	grid_width = 32
+	//vars added here to stop compilation issues.  Removed from base botany and will need to be refactored.
+	var/growing_color = ""
+	var/harvest_icon = 1
+	var/wholeiconcolor = TRUE
+
+	//The type of nutrient the plant consumes, 'N' 'P' or 'K'.
+	var/nutrient_type
+
+/obj/item/seeds/ms13/examine(mob/user)
+	. = ..()
+	if(nutrient_type == "N")
+		. += span_info("Required Nutrient: N")
+	if(nutrient_type == "P")
+		. += span_info("Required Nutrient: P")
+	if(nutrient_type == "K")
+		. += span_info("Required Nutrient: K")
+
+/obj/item/food/grown/ms13
+	icon = 'mojave/icons/hydroponics/harvest/harvest_world.dmi'
+	inhand_icon_state = "plant"
+	lefthand_file = 'mojave/icons/mob/inhands/equipment/hydroponics_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/equipment/hydroponics_righthand.dmi'
+	can_distill = TRUE
+	w_class = WEIGHT_CLASS_TINY
+	grid_height = 32
+	grid_width = 32
+	distill_reagent = /datum/reagent/consumable/ethanol/ms13/brew_sludge
+	decomp_type = /obj/item/food/badrecipe/moldy/ms13
+	var/can_dry = FALSE //used for drying racks
+	var/dry_time = 600 // 10 Minutes
+	var/dried_type //the thing it dries into
+	var/time_drying = 0 //how long has this been drying
+
+/obj/item/food/grown/ms13/Initialize()
+	. = ..()
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/hydroponics/harvest/harvest_inventory.dmi')
+
 /////////////////////////////////////////////////////////////
 //////////////////////// FRUIT //////////////////////////////
 /////////////////////////////////////////////////////////////
@@ -21,6 +67,7 @@
 	production = 5
 	maturation = 5
 	reagents_add = list(/datum/reagent/toxin = 0.04, /datum/reagent/consumable/nutriment = 0.2)
+	nutrient_type = "K"
 
 /obj/item/food/grown/ms13/barrelcactus
 	seed = /obj/item/seeds/ms13/barrelcactus
@@ -52,7 +99,7 @@
 	production = 5
 	maturation = 5
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
-
+	nutrient_type = "P"
 
 /obj/item/food/grown/ms13/mutfruit
 	seed = /obj/item/seeds/ms13/mutfruit
@@ -83,6 +130,7 @@
 	production = 1
 	maturation = 6
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "P"
 
 /obj/item/food/grown/ms13/cmutfruit
 	seed = /obj/item/seeds/ms13/cmutfruit
@@ -113,6 +161,7 @@
 	production = 6
 	maturation = 10
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "N"
 
 /obj/item/food/grown/ms13/apple
 	seed = /obj/item/seeds/ms13/apple
@@ -144,6 +193,7 @@
 	production = 4
 	maturation = 5
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "N"
 
 /obj/item/food/grown/ms13/pricklypear
 	seed = /obj/item/seeds/ms13/pricklypear
@@ -191,6 +241,7 @@
 	yield = 3
 	growthstages = 4
 	reagents_add = list(/datum/reagent/toxin = 0.04, /datum/reagent/consumable/nutriment = 0.2)
+	nutrient_type = "P"
 
 /obj/item/food/grown/ms13/pungafruit
 	seed = /obj/item/seeds/ms13/punga
@@ -222,6 +273,7 @@
 	yield = 2
 	growthstages = 4
 	reagents_add = list(/datum/reagent/toxin = 0.08, /datum/reagent/consumable/nutriment = 0.2)
+	nutrient_type = "P"
 
 /obj/item/food/grown/ms13/geigpungafruit
 	seed = /obj/item/seeds/ms13/geigpunga
@@ -251,6 +303,7 @@
 	production = 2
 	maturation = 8
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1, /datum/reagent/consumable/sugar = 0.1)
+	nutrient_type = "K"
 
 /obj/item/food/grown/ms13/snaptail
 	seed = /obj/item/seeds/ms13/snaptail
@@ -283,6 +336,7 @@
 	production = 5
 	maturation = 2
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "N"
 
 /obj/item/food/grown/ms13/tarberry
 	seed = /obj/item/seeds/ms13/tarberry
@@ -315,6 +369,7 @@
 	production = 3
 	maturation = 4
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.02, /datum/reagent/consumable/nutriment = 0.08)
+	nutrient_type = "P"
 
 /obj/item/food/grown/ms13/blackberry
 	seed = /obj/item/seeds/ms13/blackberry
@@ -346,6 +401,7 @@
 	production = 1
 	maturation = 6
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.02, /datum/reagent/consumable/nutriment = 0.08)
+	nutrient_type = "P"
 
 /obj/item/food/grown/ms13/radberry
 	seed = /obj/item/seeds/ms13/radberry
@@ -374,6 +430,7 @@
 	maturation = 4
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.08, /datum/reagent/consumable/nutriment = 0.15)
+	nutrient_type = "K"
 
 /obj/item/food/grown/ms13/yucca
 	seed = /obj/item/seeds/ms13/yucca
@@ -405,6 +462,7 @@
 	production = 3
 	maturation = 3
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "N"
 
 /obj/item/food/grown/ms13/tomato
 	seed = /obj/item/seeds/ms13/tomato
@@ -440,6 +498,7 @@
 	production = 2
 	maturation = 4
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "P"
 
 /obj/item/food/grown/ms13/tato
 	seed = /obj/item/seeds/ms13/tato
@@ -468,6 +527,7 @@
 	production = 1
 	maturation = 6
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.25)
+	nutrient_type = "K"
 
 /obj/item/food/grown/ms13/potato
 	seed = /obj/item/seeds/ms13/potato
@@ -499,6 +559,7 @@
 	production = 2
 	maturation = 10
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.01, /datum/reagent/consumable/nutriment = 0.05, /datum/reagent/consumable/capsaicin = 0.025)
+	nutrient_type = "P"
 
 /obj/item/food/grown/ms13/jalepeno
 	seed = /obj/item/seeds/ms13/jalepeno
@@ -530,6 +591,7 @@
 	production = 1
 	maturation = 1
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.01, /datum/reagent/consumable/nutriment = 0.05, /datum/reagent/consumable/capsaicin = 0.25)
+	nutrient_type = "P"
 
 /obj/item/food/grown/ms13/radpepper
 	seed = /obj/item/seeds/ms13/radpepper
@@ -557,6 +619,7 @@
 	production = 5
 	maturation = 6
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "P"
 
 /obj/item/food/grown/ms13/onion
 	seed = /obj/item/seeds/ms13/onion
@@ -583,6 +646,7 @@
 	instability = 15
 	growthstages = 3
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "P"
 
 /obj/item/food/grown/ms13/garlic
 	seed = /obj/item/seeds/ms13/garlic
@@ -608,6 +672,7 @@
 	instability = 15
 	growthstages = 3
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "N"
 
 /obj/item/food/grown/ms13/xander
 	seed = /obj/item/seeds/ms13/xander
@@ -618,6 +683,17 @@
 	icon_state = "xander"
 	filling_color = "#2f2424"
 	tastes = list("bitterness"= 5)
+
+/obj/item/food/grown/ms13/xander/MakeProcessable()
+	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/grown/ms13/xander/cut, 1, 30)
+
+/obj/item/food/grown/ms13/xander/cut
+	name = "sliced xander root"
+	desc = "A xander root that has been cut into thinner parts, you think you could hang this to dry."
+	icon_state = "cut_xander"
+	can_dry = TRUE
+	dry_time = 900 // 15 Minutes
+	dried_type = /obj/item/ms13/dried/xander
 
 //////////////////////// CARROT /////////////////////////////
 
@@ -633,6 +709,7 @@
 	instability = 15
 	growthstages = 3
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "K"
 
 /obj/item/food/grown/ms13/carrot
 	seed = /obj/item/seeds/ms13/carrot
@@ -659,6 +736,7 @@
 	production = 1
 	maturation = 5
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "N"
 
 /obj/item/food/grown/ms13/razorgrain
 	seed = /obj/item/seeds/ms13/razorgrain
@@ -685,6 +763,7 @@
 	production = 1
 	maturation = 5
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "P"
 
 /obj/item/food/grown/ms13/baifan
 	seed = /obj/item/seeds/ms13/baifan
@@ -713,6 +792,7 @@
 	instability = 15
 	growthstages = 3
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "N"
 
 /obj/item/food/grown/ms13/cabbage
 	seed = /obj/item/seeds/ms13/cabbage
@@ -742,6 +822,7 @@
 	production = 5
 	maturation = 5
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "K"
 
 /obj/item/food/grown/ms13/pinyon
 	seed = /obj/item/seeds/ms13/pinyon
@@ -772,6 +853,7 @@
 	production = 1
 	maturation = 6
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "K"
 
 /obj/item/food/grown/ms13/mesquite
 	seed = /obj/item/seeds/ms13/mesquite
@@ -793,7 +875,7 @@
 	plantname = "Buffalo Vines"
 	harvest_icon = 1
 	genes = list(/datum/plant_gene/trait/squash)
-	product = (/obj/item/food/grown/ms13/)
+	product = /obj/item/food/grown/ms13/buffalo
 	lifespan = 60
 	endurance = 20
 	yield = 8
@@ -801,6 +883,7 @@
 	production = 10
 	maturation = 10
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "N"
 
 /obj/item/food/grown/ms13/buffalo
 	seed = /obj/item/seeds/ms13/buffalo
@@ -825,6 +908,7 @@
 	growthstages = 3
 	maturation = 5
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "K"
 
 /obj/item/food/grown/ms13/maize
 	seed = /obj/item/seeds/ms13/maize
@@ -860,6 +944,7 @@
 	instability = 25
 	growthstages = 3
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "N"
 
 /obj/item/food/grown/ms13/ashrose
 	seed = /obj/item/seeds/ms13/ashrose
@@ -890,6 +975,7 @@
 	instability = 100
 	growthstages = 3
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "N"
 
 /obj/item/food/grown/ms13/radrose
 	seed = /obj/item/seeds/ms13/radrose
@@ -920,6 +1006,7 @@
 	instability = 25
 	growthstages = 3
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "K"
 
 /obj/item/food/grown/ms13/soot
 	seed = /obj/item/seeds/ms13/soot
@@ -950,6 +1037,7 @@
 	instability = 25
 	growthstages = 3
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "K"
 
 /obj/item/food/grown/ms13/toxicsoot
 	seed = /obj/item/seeds/ms13/toxicsoot
@@ -980,6 +1068,7 @@
 	instability = 25
 	growthstages = 3
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "P"
 
 /obj/item/food/grown/ms13/datura
 	seed = /obj/item/seeds/ms13/datura
@@ -1010,6 +1099,7 @@
 	instability = 25
 	growthstages = 3
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "P"
 
 /obj/item/food/grown/ms13/radtura
 	seed = /obj/item/seeds/ms13/radtura
@@ -1020,37 +1110,6 @@
 	icon_state = "radtura"
 	filling_color = "#a2a36c"
 	tastes = list("bitterness"= 5, "warmth"= 5)
-
-////////////////////////// COTTON ///////////////////////////
-
-/obj/item/seeds/cotton/ms13
-	name = "cotton seeds"
-	desc = "Some seeds that'll grow into a cotton plant."
-	icon = 'mojave/icons/hydroponics/seeds.dmi'
-	icon_state = "seed"
-	growing_icon = 'icons/obj/hydroponics/growing.dmi' //placeholder
-	species = "cotton"
-	plantname = "Cotton Plant"
-	genes = list(/datum/plant_gene/trait/repeated_harvest)
-	product = /obj/item/grown/cotton/ms13
-	lifespan = 35
-	endurance = 25
-	maturation = 15
-	production = 1
-	potency = 50
-	yield = 2
-	potency = 50
-	instability = 15
-	growthstages = 3
-	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
-
-/obj/item/grown/cotton/ms13
-	seed = /obj/item/seeds/cotton/ms13
-	name = "cotton"
-	desc = "A fluffy bundle of cotton."
-	icon_state = "cotton"
-	cotton_type = /obj/item/stack/sheet/cotton/ms13
-	cotton_name = "raw cotton"
 
 ////////////////////////// COYOTE ///////////////////////////
 
@@ -1067,15 +1126,18 @@
 	yield = 10
 	growthstages = 3
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "N"
 
 /obj/item/food/grown/ms13/coyote
 	seed = /obj/item/seeds/ms13/coyote
-	name = "coyote"
+	name = "coyote tobacco"
 	desc = "A coyote tobacco leaf. Smells quite nice."
 	bite_consumption_mod = 1
 	foodtypes = GROSS
-	icon_state = "coyote"
+	icon_state = "tobacco"
 	filling_color = "#1d3821"
+	can_dry = TRUE
+	dried_type = /obj/item/ms13/dried/tobacco
 
 ////////////////////////// ASTER ////////////////////////////
 
@@ -1096,6 +1158,7 @@
 	instability = 25
 	growthstages = 3
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "P"
 
 /obj/item/food/grown/ms13/aster
 	seed = /obj/item/seeds/ms13/aster
@@ -1125,6 +1188,7 @@
 	instability = 25
 	growthstages = 3
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "K"
 
 /obj/item/food/grown/ms13/ashblossom
 	seed = /obj/item/seeds/ms13/ashblossom
@@ -1154,6 +1218,7 @@
 	instability = 25
 	growthstages = 3
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "N"
 
 /obj/item/food/grown/ms13/thistle
 	seed = /obj/item/seeds/ms13/thistle
@@ -1201,6 +1266,7 @@
 	instability = 25
 	growthstages = 4
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "N"
 
 /obj/item/food/grown/ms13/agave
 	seed = /obj/item/seeds/ms13/agave
@@ -1231,6 +1297,7 @@
 	instability = 25
 	growthstages = 3
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "P"
 
 /obj/item/food/grown/ms13/brocflower
 	seed = /obj/item/seeds/ms13/brocflower
@@ -1240,6 +1307,9 @@
 	icon_state = "brocflower"
 	filling_color = "#493d28"
 	tastes = list("broc"= 5)
+	can_dry = TRUE
+	dry_time = 480 //8 minutes
+	dried_type = /obj/item/ms13/dried/broc
 
 /////////////////////////////////////////////////////////////
 //////////////////////// FUNGUS /////////////////////////////
@@ -1264,6 +1334,7 @@
 	yield = 6
 	growthstages = 4
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "K"
 
 /obj/item/food/grown/ms13/cavefungus
 	seed = /obj/item/seeds/ms13/cavefungus
@@ -1271,6 +1342,7 @@
 	desc = "A rather plain looking mushroom. Nothing about it stands out in particular."
 	bite_consumption_mod = 1
 	icon_state = "cavefungus"
+	foodtypes = VEGETABLES
 	filling_color = "#64553b"
 	tastes = list("mushroom"= 5)
 
@@ -1293,6 +1365,7 @@
 	yield = 6
 	growthstages = 4
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "K"
 
 /obj/item/food/grown/ms13/glowfungus
 	seed = /obj/item/seeds/ms13/glowfungus
@@ -1329,6 +1402,7 @@
 	yield = 6
 	growthstages = 4
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "P"
 
 /obj/item/food/grown/ms13/blight
 	seed = /obj/item/seeds/ms13/blight
@@ -1357,6 +1431,7 @@
 	yield = 6
 	growthstages = 4
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "P"
 
 /obj/item/food/grown/ms13/brainfung
 	seed = /obj/item/seeds/ms13/brainfung
@@ -1401,6 +1476,7 @@
 	yield = 6
 	growthstages = 4
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "N"
 
 /obj/item/food/grown/ms13/firecap
 	seed = /obj/item/seeds/ms13/firecap
@@ -1448,6 +1524,7 @@
 	yield = 6
 	growthstages = 4
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "P"
 
 /obj/item/food/grown/ms13/gutshroom
 	seed = /obj/item/seeds/ms13/gutshroom
@@ -1492,6 +1569,7 @@
 	yield = 6
 	growthstages = 4
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "N"
 
 /obj/item/food/grown/ms13/lureweed
 	seed = /obj/item/seeds/ms13/lureweed
@@ -1521,6 +1599,7 @@
 	yield = 6
 	growthstages = 4
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "P"
 
 /obj/item/food/grown/ms13/nara
 	seed = /obj/item/seeds/ms13/nara

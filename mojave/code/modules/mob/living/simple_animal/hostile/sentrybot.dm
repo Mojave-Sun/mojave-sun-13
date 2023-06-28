@@ -117,7 +117,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	. = ..()
 	grenade = new /datum/action/cooldown/launch_grenade()
 	grenade.Grant(src)
-	RegisterSignal(src, COMSIG_MOVABLE_MOVED, .proc/play_move_sound)
+	RegisterSignal(src, COMSIG_MOVABLE_MOVED, .proc/play_move_sound, override = TRUE)
 	soundloop = new(src, FALSE)
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/proc/play_move_sound()
@@ -200,6 +200,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	QDEL_NULL(rocket)
 	QDEL_NULL(grenade)
 	QDEL_NULL(flamethrow)
+	QDEL_NULL(soundloop)
 	return ..()
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/OpenFire(atom/A, actually_fire = FALSE)
@@ -235,7 +236,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 		UnregisterSignal(target, COMSIG_MOVABLE_MOVED)
 	. = ..()
 	if(target)
-		RegisterSignal(target, COMSIG_MOVABLE_MOVED, .proc/checkLoS)
+		RegisterSignal(target, COMSIG_MOVABLE_MOVED, .proc/checkLoS, override = TRUE)
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/LoseTarget()
 	if(target)

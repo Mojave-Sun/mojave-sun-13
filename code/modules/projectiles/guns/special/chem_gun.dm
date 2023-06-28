@@ -30,7 +30,7 @@
 /obj/item/gun/chem/can_shoot()
 	return syringes_left
 
-/obj/item/gun/chem/handle_chamber()
+/obj/item/gun/chem/handle_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE, atom/shooter = null)
 	if(chambered && !chambered.loaded_projectile && syringes_left)
 		chambered.newshot()
 

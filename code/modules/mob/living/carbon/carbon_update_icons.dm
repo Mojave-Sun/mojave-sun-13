@@ -55,13 +55,7 @@
 	var/list/hands = list()
 	for(var/obj/item/I in held_items)
 		if(client && hud_used && hud_used.hud_version != HUD_STYLE_NOHUD)
-			//I.screen_loc = ui_hand_position(get_held_index_of_item(I))
-			// MOJAVE EDIT
-			if(get_held_index_of_item(I) == 1)
-				I.screen_loc = "CENTER:2,SOUTH"
-			else
-				I.screen_loc = "CENTER:-44,SOUTH"
-			// MOJAVE EDIT END
+			I.screen_loc = ui_hand_position(get_held_index_of_item(I))
 			client.screen += I
 			if(length(observers))
 				for(var/mob/dead/observe as anything in observers)
@@ -87,6 +81,12 @@
 
 	overlays_standing[HANDS_LAYER] = hands
 	apply_overlay(HANDS_LAYER)
+	//MOJAVE EDIT BEGIN
+	//SILLY MOMENTS WILL HAPPEN IF WE DON'T UPDATE UI WIELD HERE!!!
+	var/obj/item/active_item = get_active_held_item()
+	if(active_item)
+		wield_ui_update(SEND_SIGNAL(active_item, COMSIG_TWOHANDED_CHECK))
+	//MOJAVE EDIT END
 
 //MOJAVE EDIT ADDITION BEGIN: Adds special offsets for power armor
 /mob/living/carbon/proc/getItemPixelShiftY()
@@ -120,6 +120,9 @@
 			if(iter_part.burnstate)
 				damage_overlay.add_overlay("[iter_part.dmg_overlay_type]_[iter_part.body_zone]_0[iter_part.burnstate]")
 
+	// MOJAVE EDIT BEGIN - Fatties
+	damage_overlay = apply_fatness_filter(damage_overlay, TRUE)
+	// MOJAVE EDIT END - Fatties
 	apply_overlay(DAMAGE_LAYER)
 
 /mob/living/carbon/update_wound_overlays()
@@ -198,13 +201,15 @@
 /mob/living/carbon/update_inv_handcuffed()
 	remove_overlay(HANDCUFF_LAYER)
 	if(handcuffed)
-		var/mutable_appearance/handcuff_overlay = mutable_appearance('icons/mob/mob.dmi', "handcuff1", -HANDCUFF_LAYER)
+		//MOJAVE SUN EDIT START - Handcuffs
+		var/obj/item/restraints/handcuffs = get_item_by_slot(ITEM_SLOT_HANDCUFFED)
+		var/mutable_appearance/handcuff_overlay = mutable_appearance(handcuffs.handcuffed_icon, handcuffs.icon_state, -HANDCUFF_LAYER)
 		if(handcuffed.blocks_emissive)
 			handcuff_overlay.overlays += emissive_blocker(handcuff_overlay.icon, handcuff_overlay.icon_state, alpha = handcuff_overlay.alpha)
 
 		overlays_standing[HANDCUFF_LAYER] = handcuff_overlay
 		apply_overlay(HANDCUFF_LAYER)
-
+		//MOJAVE SUN EDIT END - Handcuffs
 
 //mob HUD updates for items in our inventory
 
@@ -278,10 +283,22 @@
 	var/draw_features = !HAS_TRAIT(src, TRAIT_INVISIBLE_MAN)
 	for(var/X in bodyparts)
 		var/obj/item/bodypart/BP = X
-		new_limbs += BP.get_limb_icon(draw_external_organs = draw_features)
+		var/list/bp_icons = BP.get_limb_icon(draw_external_organs = draw_features)
+		if(!LAZYLEN(bp_icons))
+			continue
+		new_limbs += bp_icons
 	if(new_limbs.len)
-		overlays_standing[BODYPARTS_LAYER] = new_limbs
+		// MOJAVE EDIT BEGIN - Fatties
+		// i know this kind of fucks with the entire concept of the limb cache but its the only way this could work afaik
 		limb_icon_cache[icon_render_key] = new_limbs
+		var/list/final_limbs = list()
+		var/image/copy
+		for(var/image/limb as anything in new_limbs)
+			copy = new(limb)
+			copy = apply_fatness_filter(copy, FALSE)
+			final_limbs += copy
+		overlays_standing[BODYPARTS_LAYER] = final_limbs
+		// MOJAVE EDIT END - Fatties
 
 	apply_overlay(BODYPARTS_LAYER)
 	update_damage_overlays()
@@ -326,7 +343,16 @@
 /mob/living/carbon/proc/load_limb_from_cache()
 	if(limb_icon_cache[icon_render_key])
 		remove_overlay(BODYPARTS_LAYER)
-		overlays_standing[BODYPARTS_LAYER] = limb_icon_cache[icon_render_key]
+		// MOJAVE EDIT BEGIN - Fatties
+		// i know this kind of fucks with the entire concept of the limb cache but its the only way this could work afaik
+		var/list/final_limbs = list()
+		var/image/copy
+		for(var/image/limb as anything in limb_icon_cache[icon_render_key])
+			copy = new(limb)
+			copy = apply_fatness_filter(copy, FALSE)
+			final_limbs += copy
+		overlays_standing[BODYPARTS_LAYER] = final_limbs
+		// MOJAVE EDIT END - Fatties
 		apply_overlay(BODYPARTS_LAYER)
 	update_damage_overlays()
 

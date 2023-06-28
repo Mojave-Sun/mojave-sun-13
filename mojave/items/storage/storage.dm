@@ -1,5 +1,8 @@
-// Storage code
+/obj/item/storage/ms13/Initialize()
+	. = ..()
+	reset_grid_inventory()
 
+// Storage code
 /obj/item/storage/firstaid/ms13
 	name = "first aid kit"
 	desc = "A first aid kit, can be used for easy storage and access of critical medical supplies."
@@ -14,6 +17,7 @@
 	component_type = /datum/component/storage/concrete/ms13/firstaid
 	grid_height = 64
 	grid_width = 64
+	ms13_flags_1 = LOCKABLE_1
 
 /obj/item/storage/firstaid/ms13/Initialize()
 	. = ..()
@@ -50,7 +54,6 @@
 	new /obj/item/stack/medical/gauze/ms13/military(src)
 	new /obj/item/stack/medical/suture/ms13(src)
 	new /obj/item/stack/medical/ointment/ms13/dressing(src)
-	new /obj/item/reagent_containers/hypospray/medipen/ms13/stimpak(src)
 	new /obj/item/reagent_containers/hypospray/medipen/ms13/stimpak/super(src)
 	new /obj/item/stack/medical/splint/ms13(src)
 	new /obj/item/stack/medical/splint/ms13(src)
@@ -63,6 +66,7 @@
 	component_type = /datum/component/storage/concrete/ms13/d_bag
 	grid_height = 64
 	grid_width = 96
+	ms13_flags_1 = LOCKABLE_1
 
 /obj/item/storage/firstaid/ms13/bag/ComponentInitialize()
 	. = ..()

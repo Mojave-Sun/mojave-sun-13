@@ -849,11 +849,17 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_HEALS_FROM_CULT_PYLONS "heals_from_cult_pylons"
 
 
-// MOJAVE JOB TRAITS START
+// MOJAVE TRAITS START
 
 
 #define TRAIT_MEDICAL_TRAINING "medical_training" //Trait for medical jobs that allows better crafting of medical items
 
 #define TRAIT_SCRIBE_TRAINING "scribe_training" //Trait for BoS Scribes that allows better electronics crafting
+
+#define TRAIT_LEGION_SMITHING "legion_smithing" //Trait for Legion Blacksmith to make Legion weapon recipes
+
+#define TRAIT_DRY_SHAMAN "drylander_shaman" //Trait for the Drylander Shaman to make ammo
+
+#define TRAIT_NON_FLAMMABLE "non_flammable" //An actual real fireproof trait
 
 // MOJAVE JOB TRAITS END

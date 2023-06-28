@@ -31,13 +31,13 @@
 /obj/structure/ms13/tv/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/scrap_wood(loc)
+			new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
 			new /obj/item/stack/sheet/ms13/glass(loc)
 			new /obj/item/stack/sheet/ms13/scrap_electronics/two(loc)
 			new /obj/item/stack/sheet/ms13/scrap_copper/two(loc)
 		else
-			new /obj/item/stack/sheet/ms13/scrap_wood(loc)
+			new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc)
 			new /obj/item/stack/sheet/ms13/glass(loc)
 			new /obj/item/stack/sheet/ms13/scrap_electronics(loc)
 			new /obj/item/stack/sheet/ms13/scrap_copper(loc)
@@ -86,7 +86,7 @@
 /obj/structure/ms13/tv/wooden/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/scrap_wood(loc, 3)
+			new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc, 3)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 2)
 			new /obj/item/stack/sheet/ms13/glass(loc, 3)
 			new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 3)
@@ -265,13 +265,19 @@
 	name = "store shelf"
 	desc = "A proud american consumerism displayer, seems commercialism wasn't fully wiped out as intended."
 	icon_state = "store_shelf"
-	materialtype = /obj/item/stack/sheet/ms13/scrap_wood
+	materialtype = /obj/item/stack/sheet/ms13/wood/scrap_wood
+	hitted_sound = 'mojave/sound/ms13effects/impact/metal/metal_generic_2.wav'
+
+/obj/structure/ms13/storage/store/metal
+	icon_state = "store_shelf_metal"
+	materialtype = /obj/item/stack/sheet/ms13/scrap
 
 /obj/structure/ms13/storage/bookshelf
 	name = "bookshelf"
 	desc = "Holder of knowledge, master of all."
 	icon_state = "bookshelf"
-	materialtype = /obj/item/stack/sheet/ms13/scrap_wood
+	materialtype = /obj/item/stack/sheet/ms13/wood/scrap_wood
+	hitted_sound = 'mojave/sound/ms13effects/impact/wood/wood_generic_1.wav'
 
 /obj/structure/ms13/storage/shelf
 	name = "metal shelf"
@@ -284,7 +290,7 @@
 	name = "wood shelf"
 	desc = "Used for storing just about anything you could think of."
 	icon_state = "wood_shelf"
-	materialtype = /obj/item/stack/sheet/ms13/scrap_wood
+	materialtype = /obj/item/stack/sheet/ms13/wood/scrap_wood
 
 /obj/structure/ms13/storage/shelf/wood/alt
 	icon_state = "wood_shelf-alt"
@@ -318,17 +324,41 @@
 	name = "wood shelf"
 	desc = "An extra large, wood shelf, used for storing just about anything you could think of while upkeeping your rustic tones."
 	icon_state = "wood_shelf"
-	materialtype = /obj/item/stack/sheet/ms13/scrap_wood
+	materialtype = /obj/item/stack/sheet/ms13/wood/scrap_wood
 
 /obj/structure/ms13/storage/large/shelf/wood/alt
 	icon_state = "wood_shelf-alt"
+
+/obj/structure/ms13/storage/large/shelf/wood/drawers
+	name = "wood shelf"
+	desc = "A large wooden shelf set. There are drawers below for additional storage."
+	icon_state = "wood_shelf_big"
+	materialtype = /obj/item/stack/sheet/ms13/wood/scrap_wood
 
 /obj/structure/ms13/storage/large/clothing
 	name = "clothing rack"
 	desc = "And they say fashion is dead."
 	icon_state = "clothing_rack"
-	materialtype = /obj/item/stack/sheet/ms13/scrap_wood
+	materialtype = /obj/item/stack/sheet/ms13/wood/scrap_wood
 	max_integrity = 250
+
+/obj/structure/ms13/storage/large/medical
+	name = "metal shelf"
+	desc = "A wheeled shelfing unit. It has wheels for easy mass transport of items- Too bad the wheels are all worn out considerably."
+	icon_state = "medshelves"
+	materialtype = /obj/item/stack/sheet/ms13/scrap_alu
+
+/obj/structure/ms13/storage/large/shop
+	name = "metal shelf"
+	desc = "Layered metal shelfs, exceptionally tall and wide, prime for loose item storage."
+	icon_state = "shelf_shop"
+	materialtype = /obj/item/stack/sheet/ms13/scrap
+
+/obj/structure/ms13/storage/large/showcase
+	name = "showcase shelf"
+	desc = "A pyramid of shelving units, ready to display wares to the eager world."
+	icon_state = "showcase"
+	materialtype = /obj/item/stack/sheet/ms13/wood/scrap_wood
 
 // Dresser Stuff //
 
@@ -338,6 +368,8 @@
 	icon = 'mojave/icons/structure/cabinets.dmi'
 	var/dresser_type = "circabinet_orange"
 	max_integrity = 225
+	projectile_passchance = 85
+	pixel_y = 12
 
 /obj/structure/dresser/ms13/attack_hand(mob/user)
 	icon_state = "[dresser_type]-open"
@@ -382,6 +414,8 @@
 	icon = 'mojave/icons/structure/cabinets.dmi'
 	icon_state = "filing_cabinet"
 	max_integrity = 150
+	projectile_passchance = 70
+	hitted_sound = 'mojave/sound/ms13effects/impact/metal/metal_sheet_2.wav'
 
 /obj/structure/filingcabinet/ms13/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
@@ -413,6 +447,8 @@
 	max_integrity = 350
 	density = TRUE
 	anchored = TRUE
+	projectile_passchance = 65
+	hitted_sound = 'mojave/sound/ms13effects/impact/wood/wood_generic_2.wav'
 
 /obj/structure/ms13/jukebox/Initialize()
 	. = ..()
@@ -468,8 +504,9 @@
 	icon = 'mojave/icons/structure/miscellaneous.dmi'
 	icon_state = "pot_1"
 	max_integrity = 50
-	density = TRUE
+	density = FALSE
 	anchored = TRUE
+	projectile_passchance = 100
 
 /obj/structure/ms13/pot/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
@@ -499,6 +536,7 @@
 	density = TRUE
 	anchored = TRUE
 	max_integrity = 200
+	projectile_passchance = 80
 
 /obj/structure/ms13/deli/Initialize()
 	. = ..()
@@ -544,13 +582,14 @@
 	density = TRUE
 	anchored = TRUE
 	max_integrity = 200
+	projectile_passchance = 80
 
 /obj/structure/ms13/fruit_empty/attackby(obj/item/W, mob/user, params)
-	if(W.sharpness == IS_SHARP_AXE)
+	if(W.sharpness & SHARP_AXE)
 		user.show_message(span_notice("You begin chopping \the [src] into scraps of wood!"), MSG_VISUAL)
 		if(do_after(user, 10 SECONDS * W.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_MAKEPLANKS))
 			user.show_message(span_notice("You make wood scraps out of \the [src]!"), MSG_VISUAL)
-			new /obj/item/stack/sheet/ms13/scrap_wood(loc, 4)
+			new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc, 4)
 			qdel(src)
 
 /obj/structure/ms13/fruit_empty/examine(mob/user)

@@ -5,6 +5,7 @@
 	item_chair = /obj/item/chair/ms13
 	layer = BELOW_OBJ_LAYER
 	max_integrity = 100
+	projectile_passchance = 100
 
 /obj/structure/chair/ms13/wrench_act_secondary(mob/living/user, obj/item/weapon)
 	return
@@ -83,7 +84,7 @@
 	desc = "An antique wooden chair with a small green cushion."
 	icon_state = "wood_chair"
 	item_chair = /obj/item/chair/ms13/wood
-	buildstacktype = /obj/item/stack/sheet/ms13/scrap_wood
+	buildstacktype = /obj/item/stack/sheet/ms13/wood/scrap_wood
 	buildstackamount = 1
 
 /obj/structure/chair/ms13/wood/padded
@@ -234,6 +235,7 @@
 	righthand_file = 'mojave/icons/mob/inhands/misc/chairs_righthand.dmi'
 	custom_materials = null
 	origin_type = /obj/structure/chair/ms13
+	break_chance = 0
 
 // Metal Chair Items //
 

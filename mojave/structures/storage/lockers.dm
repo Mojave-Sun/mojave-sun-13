@@ -5,6 +5,11 @@
 	can_weld_shut = FALSE
 	material_drop = /obj/item/stack/sheet/ms13/scrap
 	door_anim_time = 0
+	hitted_sound = 'mojave/sound/ms13effects/impact/metal/metal_sheet_4.wav'
+
+/obj/structure/closet/ms13/Initialize(mapload)
+	. = ..()
+	reset_grid_inventory()
 
 /obj/structure/closet/ms13/metal
 	name = "metal locker"

@@ -3,6 +3,13 @@
 	if(notransform)
 		return
 
+	//MOJAVE SUN EDIT START - Vapour
+	if(isopenturf(loc))
+		var/turf/open/my_our_turf = loc
+		if(my_our_turf.vapour)
+			my_our_turf.vapour.TouchAct(src)
+	//MOJAVE SUN EDIT END - Vapour
+
 	if(damageoverlaytemp)
 		damageoverlaytemp = 0
 		update_damage_hud()
@@ -108,11 +115,21 @@
 				breath = loc_as_obj.handle_internal_lifeform(src, BREATH_VOLUME)
 
 			else if(isturf(loc)) //Breathe from loc as turf
+				//MOJAVE SUN EDIT START - Vapour
+				var/turf/our_turf = loc
+				if(isopenturf(our_turf))
+					var/turf/open/open_turf = our_turf
+					if(open_turf.vapour)
+						if(next_smell <= world.time)
+							next_smell = world.time + 1 MINUTES //SMELL_COOLDOWN
+							open_turf.vapour.SmellAct(src)
+						open_turf.vapour.BreatheAct(src)
+				//MOJAVE SUN EDIT END - Vapour
 				var/breath_moles = 0
 				if(environment)
 					breath_moles = environment.total_moles()*BREATH_PERCENTAGE
 
-				breath = loc.remove_air(breath_moles)
+				breath = our_turf.remove_air(breath_moles) //MOJAVE SUN EDIT - Vapour
 		else //Breathe from loc as obj again
 			if(istype(loc, /obj/))
 				var/obj/loc_as_obj = loc

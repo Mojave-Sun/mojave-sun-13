@@ -76,6 +76,8 @@
 
 	var/radio_broadcast = 100 //MOJAVE EDIT: 100 means it cannot broadcast and if someone somehow manages a work around, the message comes out as complete static.
 
+	var/force_superspace = FALSE // MOJAVE EDIT: set true to ignore z levels and tcom machinery, we aren't in space
+
 /obj/item/radio/Initialize(mapload)
 	wires = new /datum/wires/radio(src)
 	if(prison_radio)
@@ -295,7 +297,8 @@
 	var/datum/signal/subspace/vocal/signal = new(src, freq, speaker, language, message, spans, message_mods)
 
 	// Independent radios, on the CentCom frequency, reach all independent radios
-	if (independent && (freq == FREQ_CENTCOM || freq == FREQ_CTF_RED || freq == FREQ_CTF_BLUE || freq == FREQ_CTF_GREEN || freq == FREQ_CTF_YELLOW))
+	// Or we are a mojave sun radio
+	if (force_superspace || (independent && (freq == FREQ_CENTCOM || freq == FREQ_CTF_RED || freq == FREQ_CTF_BLUE || freq == FREQ_CTF_GREEN || freq == FREQ_CTF_YELLOW)))
 		signal.data["compression"] = 0
 		signal.transmission_method = TRANSMISSION_SUPERSPACE
 		signal.levels = list(0)

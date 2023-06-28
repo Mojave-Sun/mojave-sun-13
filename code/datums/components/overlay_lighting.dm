@@ -86,12 +86,14 @@
 	visible_mask.plane = O_LIGHTING_VISUAL_PLANE
 	visible_mask.appearance_flags = RESET_COLOR | RESET_ALPHA | RESET_TRANSFORM
 	visible_mask.alpha = 0
+	visible_mask.layer = 2
 	if(is_directional)
 		directional = TRUE
 		cone = image('icons/effects/light_overlays/light_cone.dmi', icon_state = "light")
 		cone.plane = O_LIGHTING_VISUAL_PLANE
 		cone.appearance_flags = RESET_COLOR | RESET_ALPHA | RESET_TRANSFORM
 		cone.alpha = 110
+		cone.layer = 3
 		cone.transform = cone.transform.Translate(-32, -32)
 		set_direction(movable_parent.dir)
 	if(!isnull(_range))

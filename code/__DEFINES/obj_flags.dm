@@ -15,6 +15,7 @@
 #define BLOCK_Z_IN_DOWN (1<<11) // Should this object block z falling from above?
 #define BLOCK_Z_IN_UP (1<<12) // Should this object block z uprise from below?
 #define NO_BUILD (1<<13) // Can we build on this object?
+#define UNIQUE_RENAME_NO_DESCRIPTION (1<<14) // MOJAVE SUN EDIT - Descriptor Changes
 
 // If you add new ones, be sure to add them to /obj/Initialize as well for complete mapping support
 
@@ -41,6 +42,8 @@
 #define IGNORE_DIGITIGRADE (1<<18)
 /// Has contextual screentips when HOVERING OVER OTHER objects
 #define ITEM_HAS_CONTEXTUAL_SCREENTIPS (1 << 19)
+#define LOCKING_ITEM (1<<20) // MOJAVE CHANGE - Locks - For lock general interactions
+#define KEY_ITEM (1<<21) // MOJAVE CHANGE - Keys - For key general interactions
 
 // Flags for the clothing_flags var on /obj/item/clothing
 
@@ -89,3 +92,4 @@
 /// Flags for sharpness in obj/item
 #define SHARP_EDGED (1<<0)
 #define SHARP_POINTY (1<<1)
+#define SHARP_AXE (1<<2)

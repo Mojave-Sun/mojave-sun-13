@@ -49,6 +49,9 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	var/facial_hair_color
 	var/mutable_appearance/facial_hair_overlay
 
+	/// Appearance of the mob we supposedly come from, preferrably used instead of all the bullshit above // MOJAVE SUN EDIT
+	var/mutable_appearance/body_appearance // MOJAVE SUN EDIT
+
 	var/updatedir = 1 //Do we have to update our dir as the ghost moves around?
 	var/lastsetting = null //Stores the last setting that ghost_others was set to, for a little more efficiency when we update ghost images. Null means no update is necessary
 
@@ -113,6 +116,8 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 			if(FACEHAIR in body_human.dna.species.species_traits)
 				facial_hairstyle = body_human.facial_hairstyle
 				facial_hair_color = brighten_color(body_human.facial_hair_color)
+
+		body_appearance = copy_appearance(body) // MOJAVE SUN EDIT
 
 	update_appearance()
 
@@ -181,6 +186,39 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	QDEL_NULL(minigames_menu)
 	return ..()
 
+// MOJAVE SUN EDIT BEGIN
+
+/**
+ * This seems stupid, but it's the easiest way to avoid absolutely ridiculous shit from happening.
+ * Copying an appearance directly from a mob includes it's verb list, it's invisibility, it's alpha, and it's density!
+ * You might recognize these things as "fucking ridiculous to put in an appearance" - You'd be right, but that's fucking BYOND for you!
+ * Instead, we have to do this to copy only relevant information out of the original mob's appearance.
+ */
+/mob/dead/observer/proc/copy_appearance(atom/original)
+	var/mutable_appearance/final_appearance = new()
+
+	final_appearance.icon = original.icon
+	final_appearance.icon_state = original.icon_state
+	final_appearance.overlays = original.overlays
+	final_appearance.underlays = original.underlays
+	// Gibbing/dusting/melting removes the icon before ghostize()ing the mob - In that case, we use the old ghost system
+	if(!isicon(final_appearance.icon) && !LAZYLEN(final_appearance.overlays) && !LAZYLEN(final_appearance.underlays))
+		return
+	final_appearance.appearance_flags = original.appearance_flags
+	final_appearance.appearance_flags |= KEEP_TOGETHER
+	final_appearance.blend_mode = original.blend_mode
+	final_appearance.color = original.color
+	final_appearance.maptext = original.maptext
+	final_appearance.maptext_width = original.maptext_width
+	final_appearance.maptext_height = original.maptext_height
+	final_appearance.maptext_x = original.maptext_x
+	final_appearance.maptext_y = original.maptext_y
+	final_appearance.mouse_opacity = original.mouse_opacity
+	final_appearance.alpha = GHOST_COPY_ALPHA
+
+	return final_appearance
+// MOJAVE SUN EDIT END
+
 /*
  * This proc will update the icon of the ghost itself, with hair overlays, as well as the ghost image.
  * Please call update_icon(updates, icon_state) from now on when you want to update the icon_state of the ghost,
@@ -190,6 +228,17 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
  */
 /mob/dead/observer/update_icon(updates=ALL, new_form)
 	. = ..()
+
+	// We always prefer having an appearance similar to that of the original mob // MOJAVE SUN EDIT BEGIN
+	if(body_appearance)
+		updatedir = TRUE
+		icon = null
+		icon_state = null
+		ADD_TRAIT(src, TRAIT_NO_FLOATING_ANIM, INNATE_TRAIT)
+		cut_overlays()
+		add_overlay(body_appearance)
+		return
+	// MOJAVE SUN EDIT END
 
 	if(client) //We update our preferences in case they changed right before update_appearance was called.
 		ghost_accs = client.prefs.read_preference(/datum/preference/choiced/ghost_accessories)
@@ -290,6 +339,7 @@ Works together with spawning an observer, noted above.
 			ghost.can_reenter_corpse = can_reenter_corpse
 			ghost.key = key
 			ghost.client?.init_verbs()
+			ghost.respawn_timeofdeath = respawn_timeofdeath
 			if(!can_reenter_corpse)// Disassociates observer mind from the body mind
 				ghost.mind = null
 			return ghost
@@ -317,6 +367,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(response != "Ghost")
 		return FALSE//didn't want to ghost after-all
 	ghostize(FALSE) // FALSE parameter is so we can never re-enter our body. U ded.
+	respawn_timeofdeath = world.time
 	return TRUE
 
 /mob/camera/verb/ghost()

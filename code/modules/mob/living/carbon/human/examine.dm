@@ -358,7 +358,7 @@
 			if(ai_controller?.ai_status == AI_STATUS_ON)
 				msg += "[span_deadsay("[t_He] do[t_es]n't appear to be [t_him]self.")]\n"
 			else if(!key)
-				msg += "[span_deadsay("[t_He] [t_is] totally catatonic. The stresses of life in deep-space must have been too much for [t_him]. Any recovery is unlikely.")]\n"
+				msg += "[span_deadsay("[t_He] [t_has] a blank, absent-minded stare and appears completely unresponsive to anything.")]\n" //MOJAVE SUN EDIT - Unimmersive space sleep shit
 			else if(!client)
 				msg += "[t_He] [t_has] a blank, absent-minded stare and appears completely unresponsive to anything. [t_He] may snap out of it soon.\n"
 
@@ -465,7 +465,10 @@
 		if(101 to INFINITY)
 			age_text = "withering away"
 	. += list(span_notice("[p_they(TRUE)] appear[p_s()] to be [age_text]."))
-	// MOJAVE SUN EDIT BEGIN
+	// MOJAVE EDIT BEGIN
+	switch(fatness)
+		if(FATNESS_OBESE)
+			. += list(span_warning("[p_they(TRUE)] [p_are()] a bumbling tub of lard."))
 	if(on_examined_check(user, TRUE))
 		user.on_examine_atom(src, TRUE)
-	// MOJAVE SUN EDIT END
+	// MOJAVE EDIT END

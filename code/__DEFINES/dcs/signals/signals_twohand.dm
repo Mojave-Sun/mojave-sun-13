@@ -5,3 +5,6 @@
 	#define COMPONENT_TWOHANDED_BLOCK_WIELD (1<<0)
 ///from base of datum/component/two_handed/proc/unwield(mob/living/carbon/user): (/mob/user)
 #define COMSIG_TWOHANDED_UNWIELD "twohanded_unwield"
+
+///from base of datum/component/two_handed/proc/check_wielded()
+#define COMSIG_TWOHANDED_CHECK "twohanded_check"

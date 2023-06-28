@@ -182,6 +182,7 @@
 				return
 	..()
 
+/* MOJAVE SUN EDIT REMOVAL
 /obj/item/bodypart/attackby(obj/item/weapon, mob/user, params)
 	if(weapon.get_sharpness())
 		add_fingerprint(user)
@@ -195,6 +196,7 @@
 			drop_organs(user, TRUE)
 	else
 		return ..()
+*/
 
 /obj/item/bodypart/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	..()

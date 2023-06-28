@@ -310,7 +310,7 @@
 	status_effect_type = /datum/status_effect/wound/burn/critical
 	treatable_by = list(/obj/item/flashlight/pen/paramedic, /obj/item/stack/medical/ointment, /obj/item/stack/medical/mesh)
 	//MOJAVE EDIT CHANGE BEGIN
-	infestation_rate = 0.07 //Original TG value is 0.075
+	infestation_rate = 0.035 //Original TG value is 0.075
 	flesh_damage = 17.5 //Original TG value is 20
 	//MOJAVE EDIT CHANGE END
 	scar_keyword = "burncritical"

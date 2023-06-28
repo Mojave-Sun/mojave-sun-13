@@ -1,7 +1,7 @@
-//// These spawners are GUARENTEED spawns. If you are making changes to these pools, you should probably also make changes to the non-static spawns outside of the Guarenteed folder. ////
+//// These spawners are guaranteed spawns. If you are making changes to these pools, you should probably also make changes to the non-static spawns outside of the guaranteed folder. ////
 //// The idea of these spawners it to use these SPARINGLY. Emphasis on SPARINGLY... Examples of where to use these are: High tier dungeons / Faction bases ////
 
-/obj/effect/spawner/random/ms13/guarenteed
+/obj/effect/spawner/random/ms13/guaranteed
 	name = "DO NOT USE ME - Mojave Sun loot spawners"
 	icon = 'mojave/icons/effects/random_spawners.dmi'
 	icon_state = "loot-static"
@@ -9,21 +9,21 @@
 	spawn_loot_split = TRUE
 	spawn_loot_chance = 100 // HIGHLY experimental concept. Based around being able to place stuff absolutely everywhere, and have it procedurally place it all down, ideally destroying metarush. BOOM.
 
-/obj/effect/spawner/random/ms13/guarenteed/tools
+/obj/effect/spawner/random/ms13/guaranteed/tools
 	name = "DO NOT USE ME - Mojave Sun tool/hardware spawners"
 	spawn_loot_count = 1
 	spawn_loot_double = FALSE
 
-/obj/effect/spawner/random/ms13/guarenteed/tools/hardware
+/obj/effect/spawner/random/ms13/guaranteed/tools/hardware
 	name = "general hardware spawner"
 	loot = list(
-			/obj/effect/spawner/random/ms13/guarenteed/tools/lights = 15,
-			/obj/effect/spawner/random/ms13/guarenteed/tools/tool = 50,
-			/obj/effect/spawner/random/ms13/guarenteed/tools/fishing = 5,
-			/obj/effect/spawner/random/ms13/guarenteed/crafting/lowrandom = 30
+			/obj/effect/spawner/random/ms13/guaranteed/tools/lights = 15,
+			/obj/effect/spawner/random/ms13/guaranteed/tools/tool = 50,
+			/obj/effect/spawner/random/ms13/guaranteed/tools/fishing = 5,
+			/obj/effect/spawner/random/ms13/guaranteed/crafting/lowrandom = 30
 			)
 
-/obj/effect/spawner/random/ms13/guarenteed/tools/tool
+/obj/effect/spawner/random/ms13/guaranteed/tools/tool
 	name = "tool spawner"
 	loot = list(
 			/obj/item/ms13/hammer,
@@ -38,10 +38,16 @@
 			/obj/item/shovel/ms13/spade,
 			/obj/item/shovel/ms13/snow,
 			/obj/item/shovel/ms13/rake,
-			/obj/item/ms13/brick
+			/obj/item/ms13/brick,
+			/obj/item/restraints/handcuffs/ms13/rope,
+			/obj/item/knife/ms13/scissors,
+			/obj/item/lighter/ms13/zippo,
+			/obj/item/reagent_containers/ms13/lighterfluid,
+			/obj/item/storage/box/matches/ms13,
+			/obj/item/pickaxe/ms13
 			)
 
-/obj/effect/spawner/random/ms13/guarenteed/tools/lights
+/obj/effect/spawner/random/ms13/guaranteed/tools/lights
 	name = "lighting tool spawner"
 	loot = list(
 			/obj/item/flashlight/flare/ms13 = 40,
@@ -50,21 +56,21 @@
 			/obj/item/flashlight/ms13/crafted = 25
 			)
 
-/obj/effect/spawner/random/ms13/guarenteed/tools/radio
+/obj/effect/spawner/random/ms13/guaranteed/tools/radio
 	name = "low tier radio spawner"
 	loot = list(
 			/obj/item/radio/ms13 = 75,
 			/obj/item/radio/ms13/broadcast = 25
 			)
 
-/obj/effect/spawner/random/ms13/guarenteed/tools/radio/high
+/obj/effect/spawner/random/ms13/guaranteed/tools/radio/high
 	name = "high tier radio spawner"
 	loot = list(
 			/obj/item/radio/ms13/broadcast/advanced = 65,
 			/obj/item/radio/ms13/broadcast = 35
 			)
 
-/obj/effect/spawner/random/ms13/guarenteed/tools/fishing
+/obj/effect/spawner/random/ms13/guaranteed/tools/fishing
 	name = "fishing rod spawner"
 	loot = list(
 			/obj/item/ms13/tools/fishing_rod/basic = 70,
@@ -74,16 +80,16 @@
 
 //CRAFTING SPAWNERS BELOW//
 
-/obj/effect/spawner/random/ms13/guarenteed/crafting
+/obj/effect/spawner/random/ms13/guaranteed/crafting
 	name = "DO NOT USE ME - Mojave Sun crafting spawners"
 	spawn_loot_count = 2
 	spawn_loot_double = TRUE
 
-/obj/effect/spawner/random/ms13/guarenteed/crafting/lowrandom
+/obj/effect/spawner/random/ms13/guaranteed/crafting/lowrandom
 	name = "low tier random crafting spawner"
 	loot = list(
-			/obj/item/stack/sheet/ms13/scrap_wood/two,
-			/obj/item/stack/sheet/ms13/plank,
+			/obj/item/stack/sheet/ms13/wood/scrap_wood/two,
+			/obj/item/stack/sheet/ms13/wood/plank,
 			/obj/item/stack/sheet/ms13/leather/two,
 			/obj/item/stack/sheet/ms13/thread/two,
 			/obj/item/stack/sheet/ms13/scrap_electronics/two,
@@ -102,10 +108,11 @@
 			/obj/item/stack/sheet/ms13/plastic/two,
 			/obj/item/stack/sheet/ms13/rubber/two,
 			/obj/item/stack/sheet/ms13/scrap_parts/two,
-			/obj/item/stack/sheet/ms13/scrap/two
+			/obj/item/stack/sheet/ms13/scrap/two,
+			/obj/item/restraints/handcuffs/ms13/rope
 	)
 
-/obj/effect/spawner/random/ms13/guarenteed/crafting/highrandom
+/obj/effect/spawner/random/ms13/guaranteed/crafting/highrandom
 	name = "high tier random crafting spawner"
 	loot = list(
 			/obj/item/ms13/component/gunpowder,
@@ -123,7 +130,7 @@
 			/obj/item/ms13/component/vacuum_tube
 	)
 
-/obj/effect/spawner/random/ms13/guarenteed/crafting/household
+/obj/effect/spawner/random/ms13/guaranteed/crafting/household
 	name = "household random crafting spawner"
 	loot = list(
 			/obj/item/stack/sheet/ms13/thread/two,
@@ -137,7 +144,7 @@
 			/obj/item/stack/sheet/ms13/scrap_parts/two
 	)
 
-/obj/effect/spawner/random/ms13/guarenteed/crafting/electrical
+/obj/effect/spawner/random/ms13/guaranteed/crafting/electrical
 	name = "electrical random crafting spawner"
 	spawn_loot_count = 1
 	loot = list(
@@ -148,7 +155,7 @@
 			/obj/item/stack/sheet/ms13/scrap_copper/two = 25
 	)
 
-/obj/effect/spawner/random/ms13/guarenteed/crafting/precious
+/obj/effect/spawner/random/ms13/guaranteed/crafting/precious
 	name = "precious metals spawner"
 	loot = list(
 			/obj/item/stack/sheet/ms13/scrap_silver/five = 40,
@@ -157,7 +164,7 @@
 			/obj/item/stack/sheet/ms13/refined_gold/two = 10
 	)
 
-/obj/effect/spawner/random/ms13/guarenteed/crafting/refined
+/obj/effect/spawner/random/ms13/guaranteed/crafting/refined
 	name = "refined metals spawner"
 	loot = list(
 			/obj/item/stack/sheet/ms13/refined_silver/two,
@@ -168,3 +175,39 @@
 			/obj/item/stack/sheet/ms13/refined_steel/two,
 			/obj/item/stack/sheet/ms13/refined_copper/two
 	)
+
+// CIGARETTE SPAWNERS BELOW //
+
+/obj/effect/spawner/random/ms13/guaranteed/smokeable
+	name = "DO NOT USE ME - Mojave Sun smokeable spawners"
+	spawn_loot_count = 1
+
+/obj/effect/spawner/random/ms13/guaranteed/smokeable/general
+	name = "general guaranteed smokeables spawner"
+	loot = list(
+			/obj/effect/spawner/random/ms13/guaranteed/smokeable/highrandom = 30,
+			/obj/effect/spawner/random/ms13/guaranteed/smokeable/lowrandom = 70,
+			)
+
+/obj/effect/spawner/random/ms13/guaranteed/smokeable/highrandom
+	name = "high tier random smokeables spawner"
+	loot = list(
+			/obj/item/storage/fancy/ms13/cigarettes/marlboro = 20,
+			/obj/item/storage/fancy/ms13/cigarettes/winston = 20,
+			/obj/item/storage/fancy/ms13/cigarettes/salem = 40,
+			/obj/item/storage/fancy/ms13/cigarettes/kools = 30,
+			/obj/item/ms13/rolling_paper = 20,
+			/obj/item/storage/fancy/ms13/cigarettes/rollies = 2
+			)
+
+/obj/effect/spawner/random/ms13/guaranteed/smokeable/lowrandom
+	name = "low tier random smokeables spawner"
+	loot = list(
+			/obj/item/storage/fancy/ms13/cigarettes/marlboro/random = 40,
+			/obj/item/storage/fancy/ms13/cigarettes/winston/random = 40,
+			/obj/item/storage/fancy/ms13/cigarettes/salem/random = 30,
+			/obj/item/storage/fancy/ms13/cigarettes/kools/random = 10,
+			/obj/item/storage/fancy/ms13/cigarettes/rollies/republics/random = 20,
+			/obj/item/ms13/rolling_paper = 10,
+			/obj/item/storage/fancy/ms13/cigarettes/rollies/random = 1
+			)

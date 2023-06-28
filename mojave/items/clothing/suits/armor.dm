@@ -5,6 +5,7 @@
 	worn_icon = 'mojave/icons/mob/clothing/suit.dmi'
 	allowed = list(/obj/item/pen,/obj/item/paper,/obj/item/stamp,/obj/item/reagent_containers/food/drinks/flask,/obj/item/storage/box/matches,/obj/item/lighter,/obj/item/clothing/mask/cigarette,/obj/item/storage/fancy/cigarettes,/obj/item/flashlight,/obj/item/gun,/obj/item/ammo_box,/obj/item/ammo_casing)
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0, wound = 0)
+	max_integrity = 400
 	///Icon file for left hand inhand overlays
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	///Icon file for right inhand overlays
@@ -52,6 +53,7 @@
                 LASER = 0, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS2_FIRE)
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
 	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
 
@@ -71,6 +73,7 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS2_FIRE)
+	max_integrity = 400
 	equip_delay_self = 3.5 SECONDS
 	equip_delay_other = 5 SECONDS
 
@@ -92,6 +95,7 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
 	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
 
@@ -111,6 +115,7 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
 	equip_delay_self = 3.5 SECONDS
 	equip_delay_other = 5 SECONDS
 
@@ -129,6 +134,8 @@
                 LASER = CLASS3_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	max_integrity = 450
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 50, acid = 0, wound = 0)
 
 // Metal Armor //
 
@@ -148,6 +155,8 @@
                 LASER = 0, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	max_integrity = 500
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 60, acid = 0, wound = 0)
 	equip_delay_self = 4 SECONDS
 	equip_delay_other = 6 SECONDS
 
@@ -166,6 +175,7 @@
                 LASER = 0, \
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	max_integrity = 575
 
 /obj/item/clothing/suit/armor/ms13/metal/heavy
 	name = "heavy metal armor"
@@ -182,6 +192,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = CLASS3_PLASMA, \
                 FIRE = CLASS4_FIRE)
+	max_integrity = 575
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 75, acid = 0, wound = 0)
 
 /obj/item/clothing/suit/armor/ms13/vaultvan
 	name = "\improper Vault-tec van armor"
@@ -199,6 +211,7 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS2_FIRE)
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
 	equip_delay_self = 3.5 SECONDS
 	equip_delay_other = 5 SECONDS
 
@@ -221,8 +234,10 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
 	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
 
 /obj/item/clothing/suit/armor/ms13/vest/civilian
 	name = "civilian kevlar vest"
@@ -237,6 +252,8 @@
                 LASER = 0, \
                 ENERGY = 0, \
                 FIRE = CLASS1_FIRE)
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 10, acid = 0, wound = 0)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/small
 
 /obj/item/clothing/suit/armor/ms13/vest/military
 	name = "military kevlar vest"
@@ -253,6 +270,7 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS2_FIRE)
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
 
 /obj/item/clothing/suit/armor/ms13/vest/vault
 	name = "vault security vest"
@@ -268,6 +286,7 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS2_FIRE)
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
 
 // Raider Armor //
 
@@ -296,6 +315,7 @@
                 FIRE = 0)
 	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
 
 /obj/item/clothing/suit/ms13/raider
 	name = "raider reinforced jacket"
@@ -314,8 +334,11 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
+	max_integrity = 400
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
 	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/small
 
 /obj/item/clothing/suit/ms13/raider/plated
 	name = "raider plated jacket"
@@ -368,6 +391,8 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	max_integrity = 500
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 60, acid = 0, wound = 0)
 	equip_delay_self = 4 SECONDS
 	equip_delay_other = 6 SECONDS
 
@@ -385,6 +410,7 @@
                 LASER = CLASS3_LASER, \
                 ENERGY = CLASS3_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	max_integrity = 575
 
 // Special Armor //
 
@@ -404,6 +430,8 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS2_FIRE)
+	max_integrity = 400
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
 	clothing_traits = list(TRAIT_SILENT_FOOTSTEPS)
 	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
@@ -425,6 +453,8 @@
                 LASER = CLASS4_LASER, \
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	max_integrity = 500
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 60, acid = 0, wound = 0)
 	equip_delay_self = 3.5 SECONDS
 	equip_delay_other = 5 SECONDS
 
@@ -444,6 +474,8 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	max_integrity = 575
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 60, acid = 0, wound = 0)
 	equip_delay_self = 4 SECONDS
 	equip_delay_other = 6 SECONDS
 
@@ -452,6 +484,23 @@
 	desc = "A unique fur lined leather coat featuring thick ballistic weave fibers through it. Built to hold up to the worse while retaining protection against the elements."
 	icon_state = "bountyhunter"
 	inhand_icon_state = "armoredwinterblack"
+
+/obj/item/clothing/suit/armor/ms13/combat/enforcer
+	name = "surplus combat armor"
+	desc = "Cheap, surplus combat armor likely acquired from some kind of pre-war reserve armory. Still gets the job done."
+	icon_state = "enforcer"
+	body_parts_covered = CHEST|GROIN|LEGS
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = CLASS2_EDGE, \
+                CRUSHING = CLASS2_CRUSH, \
+                CUTTING = CLASS3_CUT, \
+                PIERCING = CLASS2_PIERCE, \
+                IMPALING = CLASS3_STAB, \
+                LASER = CLASS2_LASER, \
+                ENERGY = CLASS2_PLASMA, \
+                FIRE = CLASS3_FIRE)
+	max_integrity = 500
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 60, acid = 0, wound = 0)
 
 // Enviro Armor //
 
@@ -471,6 +520,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS5_FIRE)
+	max_integrity = 450
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 95, acid = 0, wound = 0)
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	resistance_flags = FIRE_PROOF
 	equip_delay_self = 3.5 SECONDS
@@ -492,6 +543,8 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS2_FIRE)
+	max_integrity = 450
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
 	equip_delay_self = 3.5 SECONDS
 	equip_delay_other = 5 SECONDS
 
@@ -535,8 +588,11 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
+	max_integrity = 400
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
 	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/small
 
 /obj/item/clothing/suit/armor/ms13/ncr/reinforced
 	name = "\improper NCR reinforced infantry vest"
@@ -585,6 +641,8 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	max_integrity = 500
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 50, acid = 0, wound = 0)
 	equip_delay_self = 3.5 SECONDS
 	equip_delay_other = 5 SECONDS
 
@@ -597,6 +655,8 @@
 	inhand_icon_state = "legarmor"
 	slowdown = 0.15
 	body_parts_covered = CHEST|GROIN|LEGS
+	max_integrity = 400
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
 
 /obj/item/clothing/suit/armor/ms13/legion/recruit
 	name = "\improper Legion recruit armor"
@@ -636,7 +696,6 @@
 	desc = "A full suit of Legion armor with plenty of hardened leather, padding, and metal reinforcements. Worn by feared Legion Veterans."
 	icon_state = "leg_vet"
 	slowdown = 0.3
-	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = CLASS1_EDGE, \
                 CRUSHING = CLASS3_CRUSH, \
@@ -646,6 +705,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	max_integrity = 500
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 50, acid = 0, wound = 0)
 	equip_delay_self = 3.5 SECONDS
 	equip_delay_other = 5 SECONDS
 
@@ -660,7 +721,6 @@
 	desc = "A light and agile suit of Legion armor worn by Explorers."
 	icon_state = "leg_exp"
 	slowdown = 0
-	body_parts_covered = CHEST|GROIN
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 0, \
                 CRUSHING = CLASS2_CRUSH, \
@@ -670,6 +730,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS1_FIRE)
+	max_integrity = 400
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 10, acid = 0, wound = 0)
 	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
 
@@ -681,8 +743,8 @@
 
 /obj/item/clothing/suit/armor/ms13/legion/vexillarius
 	name = "\improper Legion vexillarius armor"
-	desc = "Legion vexillarius armor with it's defining color."
-	icon_state = "leg_vex"
+	desc = "Legion vexillarius armor. Lighter than his typical Veteran counterparts."
+	icon_state = "leg_prime" //placeholder for now
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = CLASS1_EDGE, \
                 CRUSHING = CLASS3_CRUSH, \
@@ -692,6 +754,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS3_FIRE)
+	max_integrity = 500
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 50, acid = 0, wound = 0)
 	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
 
@@ -716,6 +780,8 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	max_integrity = 575
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 60, acid = 0, wound = 0)
 	equip_delay_self = 4 SECONDS
 	equip_delay_other = 6 SECONDS
 
@@ -738,6 +804,7 @@
                 FIRE = 0)
 	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
 
 /obj/item/clothing/suit/armor/ms13/scribe/head
 	name = "\improper Brotherhood head scribe's robe"
@@ -762,6 +829,7 @@
                 FIRE = 0)
 	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
 
 /obj/item/clothing/suit/armor/ms13/vest/bos
 	name = "\improper Brotherhood kevlar vest"
@@ -778,8 +846,11 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS2_FIRE)
+	max_integrity = 400
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
 	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/small
 
 /obj/item/clothing/suit/armor/ms13/combat/bos
 	name = "\improper Brotherhood combat armor"
@@ -796,6 +867,8 @@
                 LASER = CLASS3_LASER, \
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	max_integrity = 500
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 60, acid = 0, wound = 0)
 	equip_delay_self = 4 SECONDS
 	equip_delay_other = 6 SECONDS
 
@@ -817,8 +890,11 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	max_integrity = 500
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 50, acid = 0, wound = 0)
 	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/small
 
 /obj/item/clothing/suit/armor/ms13/eliteriot/ranger
 	name = "\improper Elite Desert Ranger armor"

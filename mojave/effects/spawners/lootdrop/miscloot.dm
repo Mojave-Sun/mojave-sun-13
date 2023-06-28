@@ -1,4 +1,4 @@
-//// These spawners are NON-STATIC spawns. If you are making changes to these pools, you should probably also make changes to the static spawns outside of the Guarenteed folder. ////
+//// These spawners are NON-STATIC spawns. If you are making changes to these pools, you should probably also make changes to the static spawns outside of the guaranteed folder. ////
 //// The idea of these spawners it to use these EVERYWHERE. Emphasis on EVERYWHERE!!! These are the spawners you should be slapping in every other building, so that there's variety in loot locations on a per-round basis. ////
 
 /obj/effect/spawner/random/ms13
@@ -40,7 +40,13 @@
 			/obj/item/shovel/ms13/spade,
 			/obj/item/shovel/ms13/snow,
 			/obj/item/shovel/ms13/rake,
-			/obj/item/ms13/brick
+			/obj/item/ms13/brick,
+			/obj/item/restraints/handcuffs/ms13/rope,
+			/obj/item/knife/ms13/scissors,
+			/obj/item/lighter/ms13/zippo,
+			/obj/item/reagent_containers/ms13/lighterfluid,
+			/obj/item/storage/box/matches/ms13,
+			/obj/item/pickaxe/ms13
 			)
 
 /obj/effect/spawner/random/ms13/tools/lights
@@ -89,8 +95,8 @@
 	name = "low tier random crafting spawner"
 	spawn_loot_chance = 65
 	loot = list(
-			/obj/item/stack/sheet/ms13/scrap_wood/two,
-			/obj/item/stack/sheet/ms13/plank,
+			/obj/item/stack/sheet/ms13/wood/scrap_wood/two,
+			/obj/item/stack/sheet/ms13/wood/plank,
 			/obj/item/stack/sheet/ms13/leather/two,
 			/obj/item/stack/sheet/ms13/thread/two,
 			/obj/item/stack/sheet/ms13/scrap_electronics/two,
@@ -109,7 +115,8 @@
 			/obj/item/stack/sheet/ms13/plastic/two,
 			/obj/item/stack/sheet/ms13/rubber/two,
 			/obj/item/stack/sheet/ms13/scrap_parts/two,
-			/obj/item/stack/sheet/ms13/scrap/two
+			/obj/item/stack/sheet/ms13/scrap/two,
+			/obj/item/restraints/handcuffs/ms13/rope
 	)
 
 /obj/effect/spawner/random/ms13/crafting/highrandom
@@ -180,3 +187,42 @@
 			/obj/item/stack/sheet/ms13/refined_steel/two,
 			/obj/item/stack/sheet/ms13/refined_copper/two
 	)
+
+// CIGARETTE SPAWNERS BELOW //
+
+/obj/effect/spawner/random/ms13/smokeable
+	name = "DO NOT USE ME - Mojave Sun smokeable spawners"
+	spawn_loot_count = 1
+
+/obj/effect/spawner/random/ms13/smokeable/general
+	name = "general smokeables spawner"
+	spawn_loot_chance = 80
+	loot = list(
+			/obj/effect/spawner/random/ms13/guaranteed/smokeable/highrandom = 30,
+			/obj/effect/spawner/random/ms13/guaranteed/smokeable/lowrandom = 70,
+			)
+
+/obj/effect/spawner/random/ms13/smokeable/highrandom
+	name = "high tier random smokeables spawner"
+	spawn_loot_chance = 60
+	loot = list(
+			/obj/item/storage/fancy/ms13/cigarettes/marlboro = 20,
+			/obj/item/storage/fancy/ms13/cigarettes/winston = 20,
+			/obj/item/storage/fancy/ms13/cigarettes/salem = 40,
+			/obj/item/storage/fancy/ms13/cigarettes/kools = 30,
+			/obj/item/ms13/rolling_paper = 20,
+			/obj/item/storage/fancy/ms13/cigarettes/rollies = 2
+			)
+
+/obj/effect/spawner/random/ms13/smokeable/lowrandom
+	name = "low tier random smokeables spawner"
+	spawn_loot_chance = 60
+	loot = list(
+			/obj/item/storage/fancy/ms13/cigarettes/marlboro/random = 40,
+			/obj/item/storage/fancy/ms13/cigarettes/winston/random = 40,
+			/obj/item/storage/fancy/ms13/cigarettes/salem/random = 30,
+			/obj/item/storage/fancy/ms13/cigarettes/kools/random = 10,
+			/obj/item/storage/fancy/ms13/cigarettes/rollies/republics/random = 20,
+			/obj/item/ms13/rolling_paper = 10,
+			/obj/item/storage/fancy/ms13/cigarettes/rollies/random = 1
+			)

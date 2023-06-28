@@ -37,6 +37,19 @@
 	minSpawning           = 10
 	wind                  = 2
 
+/particles/weather/snowstorm
+	icon_state             = list("cross"=2, "snow_1"=5, "snow_2"=2, "snow_3"=2,)
+	color                  = "#ffffff"
+	position               = generator("box", list(-500,-256,5), list(500,500,0))
+	spin                   = generator("num",-10,10)
+	gravity                = list(0, -2, 0.1)
+	drift                  = generator("circle", 0, 3.5) // Some random movement for variation
+	friction               = 0.3  // shed 30% of velocity and drift every 0.1s
+	//Weather effects, max values
+	maxSpawning           = 80
+	minSpawning           = 50
+	wind                  = 2.5
+
 
 //Dust - goes sideways and swirls
 /particles/weather/dust
@@ -50,9 +63,9 @@
 	drift                  = generator("circle", 0, 3) // Some random movement for variation
 	friction               = 0.3  // shed 30% of velocity and drift every 0.1s
 	//Weather effects, max values
-	maxSpawning           = 50
-	minSpawning           = 20
-	wind                  = 10
+	maxSpawning           = 75
+	minSpawning           = 35
+	wind                  = 8
 
 
 //Rads - goes fucking everywhere

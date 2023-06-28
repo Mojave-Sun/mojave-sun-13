@@ -133,7 +133,7 @@
 	glass_type = /obj/item/stack/sheet/ms13/glass
 	glass_amount = 1
 	break_sound = 'mojave/sound/ms13effects/glass_break.ogg'
-	hit_sound = 'mojave/sound/ms13effects/glass_hit.ogg'
+	hitted_sound = 'mojave/sound/ms13effects/glass_hit.ogg'
 	knock_sound = 'mojave/sound/ms13effects/glass_knock.ogg'
 	var/has_crack_overlay = TRUE
 	var/crack_overlay_type = "basic"

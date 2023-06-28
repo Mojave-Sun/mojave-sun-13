@@ -587,8 +587,8 @@
 	. = ..()
 	if(closeOtherId)
 		. += span_warning("This airlock cycles on ID: [sanitize(closeOtherId)].")
-	else if(!closeOtherId)
-		. += span_warning("This airlock does not cycle.")
+	else if(!closeOtherId) // MOJAVE SUN EDIT
+		. += span_warning("This airlock does not cycle.") // MOJAVE SUN EDIT
 	if(obj_flags & EMAGGED)
 		. += span_warning("Its access panel is smoking slightly.")
 	if(note)
@@ -1164,7 +1164,7 @@
 		if(obj_flags & EMAGGED)
 			return FALSE
 		use_power(50)
-		playsound(src, doorOpen, 30, TRUE)
+		playsound(src, doorOpen, 30, FALSE) //MOJAVE SUN EDIT - ORIGINAL IS playsound(src, doorOpen, 30, TRUE)
 	else
 		playsound(src, 'sound/machines/airlockforced.ogg', 30, TRUE)
 
@@ -1194,6 +1194,10 @@
 
 	SEND_SIGNAL(src, COMSIG_AIRLOCK_OPEN, forced)
 	operating = TRUE
+	open_animation()
+	return TRUE
+
+/obj/machinery/door/airlock/proc/open_animation()
 	update_icon(ALL, AIRLOCK_OPENING, TRUE)
 	sleep(1)
 	set_opacity(0)
@@ -1209,8 +1213,6 @@
 	if(delayed_close_requested)
 		delayed_close_requested = FALSE
 		addtimer(CALLBACK(src, .proc/close), 1)
-	return TRUE
-
 
 /obj/machinery/door/airlock/close(forced = FALSE, force_crush = FALSE)
 	if(operating || welded || locked || seal)
@@ -1231,7 +1233,7 @@
 		if(obj_flags & EMAGGED)
 			return
 		use_power(50)
-		playsound(src, doorClose, 30, TRUE)
+		playsound(src, doorClose, 30, FALSE) // MOJAVE SUN EDIT - ORIGINAL IS playsound(src, doorClose, 30, TRUE)
 
 	else
 		playsound(src, 'sound/machines/airlockforced.ogg', 30, TRUE)
@@ -1241,6 +1243,10 @@
 		SSexplosions.med_mov_atom += killthis
 	SEND_SIGNAL(src, COMSIG_AIRLOCK_CLOSE, forced)
 	operating = TRUE
+	close_animation(dangerous_close)
+	return TRUE
+
+/obj/machinery/door/airlock/proc/close_animation(dangerous_close = FALSE)
 	update_icon(ALL, AIRLOCK_CLOSING, 1)
 	layer = CLOSED_DOOR_LAYER
 	if(air_tight)
@@ -1264,7 +1270,6 @@
 	delayed_close_requested = FALSE
 	if(!dangerous_close)
 		CheckForMobs()
-	return TRUE
 
 /obj/machinery/door/airlock/proc/prison_open()
 	if(obj_flags & EMAGGED)

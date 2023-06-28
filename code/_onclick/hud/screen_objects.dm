@@ -210,14 +210,10 @@
 		if(held_index)
 			if(!C.has_hand_for_held_index(held_index))
 				. += blocked_overlay
-
+/* MOJAVE EDIT REMOVAL
 	if(held_index == hud.mymob.active_hand_index)
-		//MOJAVE EDIT - . += "hand_active"
-		if(hud.mymob.active_hand_index == 1)
-			. += "hand_l_on"
-		else
-			. += "hand_r_on"
-
+		. += "hand_active"
+*/
 
 /atom/movable/screen/inventory/hand/Click(location, control, params)
 	// At this point in client Click() code we have passed the 1/10 sec check and little else
@@ -442,16 +438,23 @@
 	return ..()
 
 /atom/movable/screen/storage
-	name = "storage"
+	name = "cubeyCube"
 	icon_state = "block"
 	screen_loc = "7,7 to 10,8"
 	plane = HUD_PLANE
+
+	// Store mouse properties so we can force call updateGrid when we rotate objects, swap, etc.
+	var/list/lastMouseProps
+
 
 /atom/movable/screen/storage/Initialize(mapload, new_master)
 	. = ..()
 	master = new_master
 
 /atom/movable/screen/storage/Click(location, control, params)
+
+	var/list/modifiers = params2list(params)
+
 	if(world.time <= usr.next_move)
 		return TRUE
 	if(usr.incapacitated())
@@ -461,6 +464,12 @@
 	if(master)
 		var/obj/item/I = usr.get_active_held_item()
 		if(I)
+			if(LAZYACCESS(modifiers, CTRL_CLICK))
+				I.inventory_flip(usr)
+				// force update grid
+				if(lastMouseProps.len == 3)
+					MouseMove(lastMouseProps[1], lastMouseProps[2], lastMouseProps[3])
+				return
 			master.attackby(src, I, usr, params, TRUE) //MOJAVE SUN EDIT - Grid Inventory
 	return TRUE
 
@@ -501,6 +510,7 @@
 	MouseMove(location, control, params)
 
 /atom/movable/screen/zone_sel/MouseMove(location, control, params)
+
 	if(isobserver(usr))
 		return
 

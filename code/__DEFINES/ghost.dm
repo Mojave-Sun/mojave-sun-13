@@ -21,7 +21,7 @@
 /// The default ghost display selection for the main player
 #define GHOST_ACCS_DEFAULT_OPTION GHOST_ACCS_FULL
 
-/// The other players ghosts will display as a simple white ghost 
+/// The other players ghosts will display as a simple white ghost
 #define GHOST_OTHERS_SIMPLE "White ghosts"
 /// The other players ghosts will display as transparent mobs
 #define GHOST_OTHERS_DEFAULT_SPRITE "Default sprites"
@@ -56,3 +56,9 @@
 #define CAMERA_SEE_GHOSTS_BASIC 1
 /// Pictures taken by a camera will display ghosts and their orbits
 #define CAMERA_SEE_GHOSTS_ORBIT 2 // this doesn't do anything right now as of Jan 2022
+
+// MOJAVE SUN EDIT BEGIN
+/// Alpha of ghost appearances copying the original mob
+#define GHOST_COPY_ALPHA 127
+/// Maximum motion blur a ghost can accumulate in the x or y axis
+// MOJAVE SUN EDIT END

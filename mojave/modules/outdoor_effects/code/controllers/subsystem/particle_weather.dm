@@ -17,6 +17,8 @@ SUBSYSTEM_DEF(ParticleWeather)
 			runningWeather.tick()
 			for(var/mob/act_on as anything in GLOB.mob_living_list)
 				runningWeather.try_weather_act(act_on)
+			for(var/obj/act_on as anything in GLOB.weather_act_upon_list)
+				runningWeather.weather_obj_act(act_on)
 	else
 		// start random weather
 		var/datum/particle_weather/our_event = pick_weight(elligble_weather) //possible_weather
@@ -78,5 +80,7 @@ SUBSYSTEM_DEF(ParticleWeather)
 	weatherEffect.particles = particleEffect
 
 /datum/controller/subsystem/ParticleWeather/proc/stopWeather()
+	for(var/obj/act_on as anything in GLOB.weather_act_upon_list)
+		act_on.weather = FALSE
 	QDEL_NULL(runningWeather)
 	QDEL_NULL(particleEffect)

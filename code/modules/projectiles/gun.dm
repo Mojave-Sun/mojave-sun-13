@@ -146,11 +146,11 @@
 		. += "It has a <b>bayonet</b> lug on it."
 
 //called after the gun has successfully fired its chambered ammo.
-/obj/item/gun/proc/process_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE)
-	handle_chamber(empty_chamber, from_firing, chamber_next_round)
+/obj/item/gun/proc/process_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE, atom/shooter = null)
+	handle_chamber(empty_chamber, from_firing, chamber_next_round, shooter = shooter)
 	SEND_SIGNAL(src, COMSIG_GUN_CHAMBER_PROCESSED)
 
-/obj/item/gun/proc/handle_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE)
+/obj/item/gun/proc/handle_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE, atom/shooter = null)
 	return
 
 //check if there's enough ammo/energy/whatever to shoot one time
@@ -159,25 +159,36 @@
 	return TRUE
 
 /obj/item/gun/proc/shoot_with_empty_chamber(mob/living/user as mob|obj)
-	to_chat(user, span_danger("*click*"))
-	playsound(src, dry_fire_sound, 30, TRUE)
+	to_chat(user, span_danger("[user] pulls the trigger of [src], but it doesn't go off!"))// MOJAVE SUN EDIT - Original is to_chat(user, span_danger("*click*"))
+	playsound(src, dry_fire_sound, 5, TRUE) // MOJAVE SUN EDIT - ORIGINAL SOUND VALUE IS 30
 
 
 /obj/item/gun/proc/shoot_live_shot(mob/living/user, pointblank = 0, atom/pbtarget = null, message = 1)
 	//MOJAVE EDIT CHANGE BEGIN - GUN_RECOIL
-	//if(recoil) - Original
-	//	shake_camera(user, recoil + 1, recoil) - Original
+	/* Original
+	if(recoil) - Original
+		shake_camera(user, recoil + 1, recoil)
+	*/
 	var/angle = get_angle(user, pbtarget)+rand(-recoil_deviation, recoil_deviation) + 180
-	if(angle > 360)
-		angle -= 360
+	angle = SIMPLIFY_DEGREES(angle)
 	if(recoil)
-		recoil_camera(user, recoil+1, (recoil*recoil_backtime_multiplier) + 1, recoil, angle)
+		var/mob/living/carbon/human/H = user
+		if(!istype(H.wear_suit, /obj/item/clothing/suit/space/hardsuit/ms13/power_armor)) // If they're wearing PA, cut that shid in half
+			recoil_camera(user, recoil+1, (recoil*recoil_backtime_multiplier) + 1, recoil, angle)
+		else
+			recoil_camera(user, recoil/2, (recoil*recoil_backtime_multiplier/2) + 1, recoil/2, angle)
+
 	//MOJAVE EDIT CHANGE END
 
 	if(suppressed)
 		playsound(user, suppressed_sound, suppressed_volume, vary_fire_sound, ignore_walls = FALSE, extrarange = SILENCED_SOUND_EXTRARANGE, falloff_distance = 0)
 	else
+		//MOJAVE EDIT BEGIN
+		/* Original
 		playsound(user, fire_sound, fire_sound_volume, vary_fire_sound)
+		*/
+		fire_sounds(user, pbtarget)
+		//MOJAVE EDIT END
 		if(message)
 			if(pointblank)
 				user.visible_message(span_danger("[user] fires [src] point blank at [pbtarget]!"), \
@@ -252,10 +263,18 @@
 	if(check_botched(user, target))
 		return
 
+	/* MOJAVE EDIT REMOVAL
 	var/obj/item/bodypart/other_hand = user.has_hand_for_held_index(user.get_inactive_hand_index()) //returns non-disabled inactive hands
 	if(weapon_weight == WEAPON_HEAVY && (user.get_inactive_held_item() || !other_hand))
 		to_chat(user, span_warning("You need two hands to fire [src]!"))
 		return
+	*/
+	// MOJAVE EDIT BEGIN
+	var/datum/component/two_handed/two_handed = GetComponent(/datum/component/two_handed)
+	if(weapon_weight == WEAPON_HEAVY && !(two_handed?.wielded))
+		to_chat(user, span_warning("You need to wield [src] with two hands!"))
+		return
+	// MOJAVE EDIT END
 	//DUAL (or more!) WIELDING
 	var/bonus_spread = 0
 	var/loop_counter = 0
@@ -340,7 +359,7 @@
 		shoot_with_empty_chamber(user)
 		firing_burst = FALSE
 		return FALSE
-	process_chamber()
+	process_chamber(shooter = user)
 	update_appearance()
 	return TRUE
 
@@ -378,7 +397,7 @@
 			addtimer(CALLBACK(src, .proc/process_burst, user, target, message, params, zone_override, sprd, randomized_gun_spread, randomized_bonus_spread, rand_spr, i), modified_delay * (i - 1))
 	else
 		if(chambered)
-			if(HAS_TRAIT(user, TRAIT_PACIFISM)) // If the user has the pacifist trait, then they won't be able to fire [src] if the round chambered inside of [src] is lethal.
+			if(user && HAS_TRAIT(user, TRAIT_PACIFISM)) // If the user has the pacifist trait, then they won't be able to fire [src] if the round chambered inside of [src] is lethal.
 				if(chambered.harmful) // Is the bullet chambered harmful?
 					to_chat(user, span_warning("[src] is lethally chambered! You don't want to risk harming anyone..."))
 					return
@@ -398,7 +417,7 @@
 		else
 			shoot_with_empty_chamber(user)
 			return
-		process_chamber()
+		process_chamber(shooter = user)
 		update_appearance()
 		semicd = TRUE
 		addtimer(CALLBACK(src, .proc/reset_semicd), modified_delay)

@@ -4,6 +4,7 @@
 	name = "junkfood"
 	desc = "LOOK AWAY, YOU'RE NOT SUPPOSED TO SEE THIS!"
 	icon = 'mojave/icons/objects/food/prewar_food.dmi'
+	decomp_type = /obj/item/food/badrecipe/moldy/ms13
 
 	var/emptiness = 0
 
@@ -91,9 +92,9 @@
 	icon_state = "porknbean"
 	foodtypes = MEAT | VEGETABLES | JUNKFOOD
 	tastes = list("meaty" = 3, "savory" = 2, "buttery" = 1)
-	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/protein = 15)
-	max_volume = 20
-	bite_consumption = 5 // Porknbeans has 4 states of "fullness", so it has to be consumed in 5 bites! 20/5 = 4!
+	food_reagents = list(/datum/reagent/consumable/nutriment = 10, /datum/reagent/consumable/nutriment/protein = 15)
+	max_volume = 25
+	bite_consumption = 5
 	trash_type = /obj/item/trash/ms13/cans/porknbeans
 
 /obj/item/food/ms13/prewar/canned/cajunrice
@@ -113,7 +114,7 @@
 	icon_state = "dogfood"
 	foodtypes = MEAT | VEGETABLES | GROSS | JUNKFOOD
 	tastes = list("meaty" = 3, "sour" = 1, "old" = 1)
-	food_reagents = list(/datum/reagent/consumable/nutriment = 10, /datum/reagent/consumable/nutriment/protein = 10)
+	food_reagents = list(/datum/reagent/consumable/nutriment = 12, /datum/reagent/consumable/nutriment/protein = 8)
 	max_volume = 20
 	bite_consumption = 5
 	trash_type = /obj/item/trash/ms13/cans/dogfood
@@ -161,7 +162,7 @@
 	icon_state = "macncheese"
 	foodtypes = JUNKFOOD | GRAIN | DAIRY
 	tastes = list("salty" = 1, "cheesy" = 3, "savory" = 1)
-	food_reagents = list(/datum/reagent/consumable/nutriment = 14, /datum/reagent/consumable/nutriment/protein = 6)
+	food_reagents = list(/datum/reagent/consumable/nutriment = 14, /datum/reagent/consumable/nutriment/protein = 2)
 	max_volume = 20
 	bite_consumption = 5
 	trash_type = /obj/item/trash/ms13/packaging/macncheese

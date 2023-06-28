@@ -15,8 +15,10 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 /mob/living/carbon/human/dummy/Life(delta_time = SSMOBS_DT, times_fired)
 	return
 
+/*MOJAVE SUN EDIT BEGIN
 /mob/living/carbon/human/dummy/attach_rot(mapload)
 	return
+MOJAVE SUN EDIT END */
 
 /mob/living/carbon/human/dummy/set_species(datum/species/mrace, icon_update = TRUE, pref_load = FALSE)
 	harvest_organs()

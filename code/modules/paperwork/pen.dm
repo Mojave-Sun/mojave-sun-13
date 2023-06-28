@@ -150,7 +150,14 @@
 	. = ..()
 	//Changing name/description of items. Only works if they have the UNIQUE_RENAME object flag set
 	if(isobj(O) && proximity && (O.obj_flags & UNIQUE_RENAME))
-		var/penchoice = tgui_input_list(user, "What would you like to edit?", "Pen Setting", list("Rename", "Description", "Reset"))
+		// MOJAVE SUN EDIT START - Descriptor Changes
+		var/penchoice_choice
+		if((O.obj_flags & UNIQUE_RENAME_NO_DESCRIPTION))
+			penchoice_choice = tgui_input_list(user, "What would you like to edit?", "Pen Setting", list("Rename", "Reset"))
+		else
+			penchoice_choice = tgui_input_list(user, "What would you like to edit?", "Pen Setting", list("Rename", "Description", "Reset"))
+		var/penchoice = penchoice_choice
+		// MOJAVE SUN EDIT END - Descriptor Changes
 		if(QDELETED(O) || !user.canUseTopic(O, BE_CLOSE))
 			return
 		if(penchoice == "Rename")
@@ -310,3 +317,21 @@
 	toolspeed = 10 //You will never willingly choose to use one of these over a shovel.
 	font = FOUNTAIN_PEN_FONT
 	colour = "blue"
+
+/obj/item/pen/ms13
+	icon = 'mojave/icons/objects/clutter/clutter_world.dmi'
+	icon_state = "pen"
+
+/obj/item/pen/ms13/attack_self(mob/living/carbon/user)
+	return
+
+/obj/item/pen/ms13/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clutter/clutter_inventory.dmi')
+
+/obj/item/pen/ms13/pencil
+	name = "pencil"
+	desc = "An orange pencil with a pink eraser"
+	icon_state = "pencil"
+	colour = "dimgray"
+	font = CHARCOAL_FONT

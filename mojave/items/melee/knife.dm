@@ -26,6 +26,7 @@
 	log_pickup_and_drop = TRUE
 	grid_width = 64
 	grid_height = 32
+	mining_mult = -0.75
 
 /obj/item/knife/ms13/Initialize()
 	. = ..()
@@ -98,7 +99,8 @@
 	throw_speed = 4
 	embedding = list("embedded_pain_multiplier" = 2, "embed_chance" = 35, "embedded_fall_chance" = 20)
 	sharpness = SHARP_IMPALING
-	tool_behaviour = null
+	tool_behaviour = TOOL_KNIFE
+	toolspeed = 3
 	wound_bonus = -5
 	bare_wound_bonus = 0
 
@@ -227,3 +229,18 @@
 	wound_bonus = 15
 	bare_wound_bonus = 15
 	toolspeed = 0.75
+
+/obj/item/knife/ms13/tribal
+	name = "improvised shiv"
+	desc = "A makeshift, dangerous looking shiv. No good for cutting someone, but excellent at getting a few stabs in in a pinch."
+	icon_state = "tribal_knife"
+	inhand_icon_state = "tribal_knife"
+	force = 25
+	throwforce = 15
+	subtractible_armour_penetration = 10
+	edge_protection_penetration = 5
+	wound_bonus = 6
+	bare_wound_bonus = 8
+	toolspeed = 1.75
+	sharpness = SHARP_IMPALING
+	tool_behaviour = TOOL_KNIFE

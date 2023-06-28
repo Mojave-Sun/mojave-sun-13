@@ -6,8 +6,10 @@
 	name = "postbox"
 	desc = "Last pickup, October 22nd, 2077."
 	icon = 'mojave/icons/structure/miscellaneous.dmi'
+	hitted_sound = 'mojave/sound/ms13effects/impact/metal/metal_hollow_2.wav'
 	icon_state = "mailbox"
 	pixel_y = 12
+	projectile_passchance = 50
 
 /obj/structure/filingcabinet/ms13/mail/old
 	icon_state = "mailbox_old"
@@ -20,6 +22,7 @@
 	anchored = FALSE
 	pixel_y = 10
 	materialtype = /obj/item/stack/sheet/ms13/scrap
+	projectile_passchance = 65
 
 /obj/structure/ms13/storage/trashcan/Initialize()
 	. = ..()
@@ -29,25 +32,28 @@
 
 //signs/flags//
 
-/obj/structure/fluff/ms13/
+/obj/structure/ms13
 	name = "fluff ms13 basetype"
 	desc = "CALL A CODER. CALL A CODER. But not for me. :reachforthesky:"
 	icon = 'mojave/icons/structure/64x64_misc.dmi'
 	icon_state = "base_class"
+	density = FALSE
+	anchored = TRUE
+	opacity = FALSE
 
-/obj/structure/fluff/ms13/mammoth_sign
+/obj/structure/ms13/mammoth_sign
 	name = "\improper Mammoth Lakes sign"
 	desc = "Welcome to Mammoth Lakes: the town where it's always winter!"
 	icon = 'mojave/icons/structure/64x64_misc.dmi'
 	icon_state = "mammoth_sign"
 
-/obj/structure/fluff/ms13/largencrbanner
+/obj/structure/ms13/largencrbanner
 	name = "\improper NCR Banner"
 	desc = "A large banner stretched along a somewhat sturdy metal pole. It bears the insignia of a bear, representative of the New California Republic."
 	icon = 'mojave/icons/objects/flags32x64.dmi'
 	icon_state = "ncrflag"
 
-/obj/structure/fluff/ms13/ncrflag
+/obj/structure/ms13/ncrflag
 	name = "\improper NCR flagpole"
 	desc = "A very tall flag pole, You can almost see the NCR's flag up there!"
 	icon = 'mojave/icons/structure/largeflags.dmi'
@@ -124,15 +130,15 @@
 //Turf Decor//
 
 /obj/structure/ms13/turfdecor
-	invisibility = INVISIBILITY_MAXIMUM
+	density = FALSE
 
-/obj/structure/ms13/turfdecor/drought
+/obj/structure/ms13/turfdecor/drought //this shit looks whack af right now
 	icon = 'mojave/icons/structure/turf_decor.dmi'
 	icon_state = "drought_1"
 
 /obj/structure/ms13/turfdecor/drought/Initialize()
 	. = ..()
-	icon_state = "drought_[rand(1,31)]"
+	icon_state = "drought_[rand(1,32)]"
 
 	switch(icon_state)
 		if("drought_31")
@@ -156,7 +162,8 @@
 	anchored = TRUE // If they're to be unanchored, you might as well make them toppleable. Go ahead, codersprite it...
 	pixel_y = 12
 	opacity = TRUE
-
+	density = TRUE
+	projectile_passchance = 95 // occasional dink off a pole or somethin...
 
 // Skeletons //
 
@@ -170,7 +177,7 @@
 
 // Barrels //
 
-/obj/structure/fluff/ms13/barrel
+/obj/structure/ms13/barrel
 	name = "barrel"
 	desc = "A sealed canister of mystery, closed to time."
 	icon = 'mojave/icons/structure/barrels.dmi'
@@ -180,350 +187,351 @@
 	var/icon_type = null
 	var/amount = 3 //used for icon randomisation amount
 	var/unique = FALSE //used to set if the icon is randomised or not
+	projectile_passchance = 65
 
-/obj/structure/fluff/ms13/barrel/deconstruct(disassembled = TRUE)
+/obj/structure/ms13/barrel/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		new /obj/item/stack/sheet/ms13/scrap(loc, 3)
 		new /obj/item/stack/sheet/ms13/scrap_steel(loc, 2)
 	qdel(src)
 
-/obj/structure/fluff/ms13/barrel/Initialize()
+/obj/structure/ms13/barrel/Initialize()
 	. = ..()
 	if(!unique)
 		icon_state = "[icon_type]_[rand(1, amount)]"
 
-/obj/structure/fluff/ms13/barrel/single
+/obj/structure/ms13/barrel/single
 
-/obj/structure/fluff/ms13/barrel/single/grey
+/obj/structure/ms13/barrel/single/grey
 	icon_state = "grey_1"
 	icon_type = "grey"
 
-/obj/structure/fluff/ms13/barrel/single/grey/one
+/obj/structure/ms13/barrel/single/grey/one
 	icon_state = "grey_1"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/single/grey/two
+/obj/structure/ms13/barrel/single/grey/two
 	icon_state = "grey_2"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/single/grey/three
+/obj/structure/ms13/barrel/single/grey/three
 	icon_state = "grey_3"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/single/red
+/obj/structure/ms13/barrel/single/red
 	icon_state = "red_1"
 	icon_type = "red"
 
-/obj/structure/fluff/ms13/barrel/single/red/one
+/obj/structure/ms13/barrel/single/red/one
 	icon_state = "red_1"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/single/red/two
+/obj/structure/ms13/barrel/single/red/two
 	icon_state = "red_2"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/single/red/three
+/obj/structure/ms13/barrel/single/red/three
 	icon_state = "red_3"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/single/yellow
+/obj/structure/ms13/barrel/single/yellow
 	icon_state = "yellow_1"
 	icon_type = "yellow"
 
-/obj/structure/fluff/ms13/barrel/single/yellow/one
+/obj/structure/ms13/barrel/single/yellow/one
 	icon_state = "yellow_1"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/single/yellow/two
+/obj/structure/ms13/barrel/single/yellow/two
 	icon_state = "yellow_2"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/single/yellow/three
+/obj/structure/ms13/barrel/single/yellow/three
 	icon_state = "yellow_3"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/single/label
+/obj/structure/ms13/barrel/single/label
 	icon_state = "label_1"
 	icon_type = "label"
 
-/obj/structure/fluff/ms13/barrel/single/label/one
+/obj/structure/ms13/barrel/single/label/one
 	icon_state = "label_1"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/single/label/two
+/obj/structure/ms13/barrel/single/label/two
 	icon_state = "label_2"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/single/label/three
+/obj/structure/ms13/barrel/single/label/three
 	icon_state = "label_3"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/single/hazard
+/obj/structure/ms13/barrel/single/hazard
 	icon_state = "hazard_1"
 	icon_type = "hazard"
 
-/obj/structure/fluff/ms13/barrel/single/hazard/one
+/obj/structure/ms13/barrel/single/hazard/one
 	icon_state = "hazard_1"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/single/hazard/two
+/obj/structure/ms13/barrel/single/hazard/two
 	icon_state = "hazard_2"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/single/hazard/three
+/obj/structure/ms13/barrel/single/hazard/three
 	icon_state = "hazard_3"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/single/redalt
+/obj/structure/ms13/barrel/single/redalt
 	icon_state = "red_alt_1"
 	icon_type = "red_alt"
 
-/obj/structure/fluff/ms13/barrel/single/redalt/one
+/obj/structure/ms13/barrel/single/redalt/one
 	icon_state = "red_alt_1"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/single/redalt/two
+/obj/structure/ms13/barrel/single/redalt/two
 	icon_state = "red_alt_2"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/single/redalt/three
+/obj/structure/ms13/barrel/single/redalt/three
 	icon_state = "red_alt_3"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/single/toxic
+/obj/structure/ms13/barrel/single/toxic
 	icon_state = "toxic_1"
 	icon_type = "toxic"
 	amount = 4
 
-/obj/structure/fluff/ms13/barrel/single/toxic/Initialize()
+/obj/structure/ms13/barrel/single/toxic/Initialize()
 	. = ..()
 	AddElement(/datum/element/radioactive)
 
-/obj/structure/fluff/ms13/barrel/single/toxic/one
+/obj/structure/ms13/barrel/single/toxic/one
 	icon_state = "toxic_1"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/single/toxic/two
+/obj/structure/ms13/barrel/single/toxic/two
 	icon_state = "toxic_2"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/single/toxic/three
+/obj/structure/ms13/barrel/single/toxic/three
 	icon_state = "toxic_3"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/single/toxic/four
+/obj/structure/ms13/barrel/single/toxic/four
 	icon_state = "toxic_4"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/single/waste
+/obj/structure/ms13/barrel/single/waste
 	icon_state = "waste_1"
 	icon_type = "waste"
 
-/obj/structure/fluff/ms13/barrel/single/waste/one
+/obj/structure/ms13/barrel/single/waste/one
 	icon_state = "waste_1"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/single/waste/two
+/obj/structure/ms13/barrel/single/waste/two
 	icon_state = "waste_2"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/single/waste/three
+/obj/structure/ms13/barrel/single/waste/three
 	icon_state = "waste_3"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/single/flammable
+/obj/structure/ms13/barrel/single/flammable
 	icon_state = "flammable_1"
 	icon_type = "flammable"
 
-/obj/structure/fluff/ms13/barrel/single/flammable/one
+/obj/structure/ms13/barrel/single/flammable/one
 	icon_state = "flammable_1"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/single/flammable/two
+/obj/structure/ms13/barrel/single/flammable/two
 	icon_state = "flammable_2"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/single/flammable/three
+/obj/structure/ms13/barrel/single/flammable/three
 	icon_state = "flammable_3"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/single/warning
+/obj/structure/ms13/barrel/single/warning
 	icon_state = "warning_1"
 	icon_type = "warning"
 
-/obj/structure/fluff/ms13/barrel/single/warning/one
+/obj/structure/ms13/barrel/single/warning/one
 	icon_state = "warning_1"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/single/warning/two
+/obj/structure/ms13/barrel/single/warning/two
 	icon_state = "warning_2"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/single/warning/three
+/obj/structure/ms13/barrel/single/warning/three
 	icon_state = "warning_3"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/double
+/obj/structure/ms13/barrel/double
 	name = "barrels"
 	desc = "Sealed canisters of mystery, closed to time."
 	amount = 2
 
-/obj/structure/fluff/ms13/barrel/double/grey
+/obj/structure/ms13/barrel/double/grey
 	icon_state = "double_grey_1"
 	icon_type = "double_grey"
 
-/obj/structure/fluff/ms13/barrel/double/grey/one
+/obj/structure/ms13/barrel/double/grey/one
 	icon_state = "double_grey_1"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/double/grey/two
+/obj/structure/ms13/barrel/double/grey/two
 	icon_state = "double_grey_2"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/double/red
+/obj/structure/ms13/barrel/double/red
 	icon_state = "double_red_1"
 	icon_type = "double_red"
 
-/obj/structure/fluff/ms13/barrel/double/red/one
+/obj/structure/ms13/barrel/double/red/one
 	icon_state = "double_red_1"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/double/red/two
+/obj/structure/ms13/barrel/double/red/two
 	icon_state = "double_red_2"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/double/yellow
+/obj/structure/ms13/barrel/double/yellow
 	icon_state = "double_yellow_1"
 	icon_type = "double_yellow"
 
-/obj/structure/fluff/ms13/barrel/double/yellow/one
+/obj/structure/ms13/barrel/double/yellow/one
 	icon_state = "double_yellow_1"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/double/yellow/two
+/obj/structure/ms13/barrel/double/yellow/two
 	icon_state = "double_yellow_2"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/double/waste
+/obj/structure/ms13/barrel/double/waste
 	icon_state = "double_waste_1"
 	icon_type = "double_waste"
 	amount = 1
 
-/obj/structure/fluff/ms13/barrel/triple
+/obj/structure/ms13/barrel/triple
 	name = "barrels"
 	desc = "Sealed canisters of mystery, closed to time."
 
-/obj/structure/fluff/ms13/barrel/triple/grey
+/obj/structure/ms13/barrel/triple/grey
 	icon_state = "triple_grey_1"
 	icon_type = "triple_grey"
 
-/obj/structure/fluff/ms13/barrel/triple/grey/one
+/obj/structure/ms13/barrel/triple/grey/one
 	icon_state = "triple_grey_1"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/triple/grey/two
+/obj/structure/ms13/barrel/triple/grey/two
 	icon_state = "triple_grey_2"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/triple/grey/three
+/obj/structure/ms13/barrel/triple/grey/three
 	icon_state = "triple_grey_3"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/triple/red
+/obj/structure/ms13/barrel/triple/red
 	icon_state = "triple_red_1"
 	icon_type = "triple_red"
 	amount = 2
 
-/obj/structure/fluff/ms13/barrel/triple/red/one
+/obj/structure/ms13/barrel/triple/red/one
 	icon_state = "triple_red_1"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/triple/red/two
+/obj/structure/ms13/barrel/triple/red/two
 	icon_state = "triple_red_2"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/triple/yellow
+/obj/structure/ms13/barrel/triple/yellow
 	icon_state = "triple_yellow_1"
 	icon_type = "triple_yellow"
 
-/obj/structure/fluff/ms13/barrel/triple/yellow/one
+/obj/structure/ms13/barrel/triple/yellow/one
 	icon_state = "triple_yellow_1"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/triple/yellow/two
+/obj/structure/ms13/barrel/triple/yellow/two
 	icon_state = "triple_yellow_2"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/triple/yellow/three
+/obj/structure/ms13/barrel/triple/yellow/three
 	icon_state = "triple_yellow_3"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/triple/waste
+/obj/structure/ms13/barrel/triple/waste
 	icon_state = "triple_waste_1"
 	icon_type = "triple_waste"
 	amount = 2
 
-/obj/structure/fluff/ms13/barrel/triple/waste/one
+/obj/structure/ms13/barrel/triple/waste/one
 	icon_state = "triple_waste_1"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/triple/waste/two
+/obj/structure/ms13/barrel/triple/waste/two
 	icon_state = "triple_waste_2"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/quadruple
+/obj/structure/ms13/barrel/quadruple
 	name = "barrels"
 	desc = "Sealed canisters of mystery, closed to time."
 	amount = 1
 
-/obj/structure/fluff/ms13/barrel/quadruple/grey
+/obj/structure/ms13/barrel/quadruple/grey
 	icon_state = "quad_grey_1"
 	icon_type = "quad_grey"
 
-/obj/structure/fluff/ms13/barrel/quadruple/grey/one
+/obj/structure/ms13/barrel/quadruple/grey/one
 	icon_state = "quad_grey_1"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/quadruple/red
+/obj/structure/ms13/barrel/quadruple/red
 	icon_state = "quad_red_1"
 	icon_type = "quad_red"
 	amount = 2
 
-/obj/structure/fluff/ms13/barrel/quadruple/red/one
+/obj/structure/ms13/barrel/quadruple/red/one
 	icon_state = "quad_red_1"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/quadruple/red/two
+/obj/structure/ms13/barrel/quadruple/red/two
 	icon_state = "quad_red_2"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/quadruple/yellow
+/obj/structure/ms13/barrel/quadruple/yellow
 	icon_state = "quad_yellow_1"
 	icon_type = "quad_yellow"
 
-/obj/structure/fluff/ms13/barrel/quadruple/yellow/one
+/obj/structure/ms13/barrel/quadruple/yellow/one
 	icon_state = "quad_yellow_1"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/barrel/quadruple/waste
+/obj/structure/ms13/barrel/quadruple/waste
 	icon_state = "quad_waste_1"
 	icon_type = "quad_waste"
 
-/obj/structure/fluff/ms13/barrel/quadruple/waste/one
+/obj/structure/ms13/barrel/quadruple/waste/one
 	icon_state = "quad_waste_1"
 	unique = TRUE
 
-/obj/structure/fluff/ms13/trash
+/obj/structure/ms13/trash
 	name = "Base type MS13 TRASH"
 	desc = "Who the hell littered this here? Call a mapper!"
 	icon = 'mojave/icons/structure/miscellaneous.dmi'
 
-/obj/structure/fluff/ms13/trash/papers
+/obj/structure/ms13/trash/papers
 	name = "scattered papers"
 	desc = "Some scattered papers. They look mostly ruined."
 	icon_state = "scattered_papers"
 
-/obj/structure/fluff/ms13/trash/papers/attack_hand(mob/living/user, list/modifiers)
+/obj/structure/ms13/trash/papers/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
 		return
@@ -545,6 +553,7 @@
 /obj/structure/ms13/cave_decor/stalagmite
 	name = "stalagmite"
 	desc = "A column of rock formed over many years by minerals in water solidifying."
+	icon_state = "stalagmite"
 	max_integrity = 120
 	anchored = TRUE
 	density = TRUE
@@ -572,9 +581,9 @@
 /obj/structure/ms13/cave_decor/sign_left/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/scrap_wood(loc, 2)
+			new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc, 2)
 		else
-			new /obj/item/stack/sheet/ms13/scrap_wood(loc)
+			new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc)
 	qdel(src)
 
 /obj/structure/ms13/cave_decor/sign_left/sign_right
@@ -595,9 +604,9 @@
 /obj/structure/ms13/cave_decor/sign_left/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/plank(loc)
+			new /obj/item/stack/sheet/ms13/wood/plank(loc)
 		else
-			new /obj/item/stack/sheet/ms13/scrap_wood(loc)
+			new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc)
 	qdel(src)
 
 /obj/structure/ms13/cave_decor/boards/Initialize(mapload)
@@ -658,9 +667,9 @@
 /obj/structure/ms13/cave_decor/support/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/plank(loc, 4)
+			new /obj/item/stack/sheet/ms13/wood/plank(loc, 4)
 		else
-			new /obj/item/stack/sheet/ms13/scrap_wood(loc, 3)
+			new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc, 3)
 	qdel(src)
 
 /obj/structure/ms13/cave_decor/support/beams

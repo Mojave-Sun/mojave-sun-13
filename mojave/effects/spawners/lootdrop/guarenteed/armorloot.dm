@@ -1,11 +1,11 @@
-//// These spawners are GUARENTEED spawns. If you are making changes to these pools, you should probably also make changes to the non-static spawns outside of the Guarenteed folder. ////
+//// These spawners are GUARANTEED spawns. If you are making changes to these pools, you should probably also make changes to the non-static spawns outside of the guaranteed folder. ////
 //// The idea of these spawners it to use these SPARINGLY. Emphasis on SPARINGLY... Examples of where to use these are: High tier dungeons / Faction bases ////
 
-/obj/effect/spawner/random/ms13/guarenteed/armor
+/obj/effect/spawner/random/ms13/guaranteed/armor
 	name = "DO NOT USE ME - Mojave Sun armor spawners"
 	icon_state = "ms13_suit-static"
 
-/obj/effect/spawner/random/ms13/guarenteed/armor/tier1
+/obj/effect/spawner/random/ms13/guaranteed/armor/tier1
 	name = "tier 1 armor spawner"
 	spawn_loot_count = 2
 
@@ -118,11 +118,11 @@
 				/obj/item/clothing/head/helmet/ms13/fedora
 				)
 
-/obj/effect/spawner/random/ms13/guarenteed/armor/tier1/Initialize() //on mapload, pick what to spawn
+/obj/effect/spawner/random/ms13/guaranteed/armor/tier1/Initialize(mapload) //on mapload, pick what to spawn
 	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11, loot12, loot13, loot14, loot15, loot16, loot17, loot18, loot19, loot20, loot21, loot22, loot23, loot24, loot25, loot26, loot27)
 	. = ..()
 
-/obj/effect/spawner/random/ms13/guarenteed/armor/tier2
+/obj/effect/spawner/random/ms13/guaranteed/armor/tier2
 	name = "tier 2 armor spawner"
 	spawn_loot_count = 2
 	var/loot1 = list(
@@ -182,11 +182,11 @@
 				/obj/item/clothing/head/helmet/ms13/radiationhood
 				)
 
-/obj/effect/spawner/random/ms13/guarenteed/armor/tier2/Initialize()
+/obj/effect/spawner/random/ms13/guaranteed/armor/tier2/Initialize(mapload)
 	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11, loot12, loot13, loot14)
 	. = ..()
 
-/obj/effect/spawner/random/ms13/guarenteed/armor/tier3
+/obj/effect/spawner/random/ms13/guaranteed/armor/tier3
 	name = "tier 3 armor spawner"
 	spawn_loot_count = 2
 	var/loot1 = list(
@@ -222,11 +222,11 @@
 				/obj/item/clothing/head/helmet/ms13/combat
 				)
 
-/obj/effect/spawner/random/ms13/guarenteed/armor/tier3/Initialize()
+/obj/effect/spawner/random/ms13/guaranteed/armor/tier3/Initialize(mapload)
 	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8)
 	. = ..()
 
-/obj/effect/spawner/random/ms13/guarenteed/armor/tier4
+/obj/effect/spawner/random/ms13/guaranteed/armor/tier4
 	name = "tier 4 armor spawner"
 	spawn_loot_count = 2
 	var/loot1 = list(
@@ -254,28 +254,28 @@
 				""
 				)
 
-/obj/effect/spawner/random/ms13/guarenteed/armor/tier4/Initialize()
+/obj/effect/spawner/random/ms13/guaranteed/armor/tier4/Initialize(mapload)
 	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6)
 	. = ..()
 
-/obj/effect/spawner/random/ms13/guarenteed/armor/lowrandom
+/obj/effect/spawner/random/ms13/guaranteed/armor/lowrandom
 	name = "low tier random armor spawner"
 	spawn_loot_count = 1
 	loot = list(
-			/obj/effect/spawner/random/ms13/guarenteed/armor/tier1 = 60,
-			/obj/effect/spawner/random/ms13/guarenteed/armor/tier2 = 40,
+			/obj/effect/spawner/random/ms13/guaranteed/armor/tier1 = 60,
+			/obj/effect/spawner/random/ms13/guaranteed/armor/tier2 = 40,
 			)
 
-/obj/effect/spawner/random/ms13/guarenteed/armor/highrandom
+/obj/effect/spawner/random/ms13/guaranteed/armor/highrandom
 	name = "high tier random armor spawner"
 	spawn_loot_count = 1
 	loot = list(
-			/obj/effect/spawner/random/ms13/guarenteed/armor/tier2 = 10,
-			/obj/effect/spawner/random/ms13/guarenteed/armor/tier3 = 60,
-			/obj/effect/spawner/random/ms13/guarenteed/armor/tier4 = 30,
+			/obj/effect/spawner/random/ms13/guaranteed/armor/tier2 = 10,
+			/obj/effect/spawner/random/ms13/guaranteed/armor/tier3 = 60,
+			/obj/effect/spawner/random/ms13/guaranteed/armor/tier4 = 30,
 			)
 
-/obj/effect/spawner/random/ms13/guarenteed/armor/headgear
+/obj/effect/spawner/random/ms13/guaranteed/armor/headgear
 	name = "miscellaneous armored headgear spawner"
 	spawn_loot_count = 1
 	icon_state = "ms13_helmet-static"
@@ -305,7 +305,7 @@
 			/obj/item/clothing/head/helmet/ms13/army/civildefence
 			)
 
-/obj/effect/spawner/random/ms13/guarenteed/armor/military
+/obj/effect/spawner/random/ms13/guaranteed/armor/military
 	name = "military armor spawner"
 	spawn_loot_count = 2
 
@@ -335,6 +335,6 @@
 				)
 
 
-/obj/effect/spawner/random/ms13/guarenteed/armor/military/Initialize() //on mapload, pick what to spawn
+/obj/effect/spawner/random/ms13/guaranteed/armor/military/Initialize(mapload) //on mapload, pick what to spawn
 	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6)
 	. = ..()

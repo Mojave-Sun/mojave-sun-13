@@ -6,8 +6,8 @@
 	icon_dead = "feralghoul_dead"
 	mob_biotypes = MOB_HUMANOID
 	gender = MALE
-	health = 110
-	maxHealth = 110
+	health = 100
+	maxHealth = 100
 	speed = 0.25
 	attack_verb_continuous = "tears"
 	attack_verb_simple = "claws"
@@ -62,8 +62,8 @@
 	desc = "A frozen feral ghoul that has decided to seek heat once more. It's a miracle they can walk with all that ice in them."
 	icon_state = "iceghoul"
 	icon_dead = "iceghoul_dead"
-	health = 145
-	maxHealth = 145
+	health = 140
+	maxHealth = 140
 	speed = 1.35
 	melee_damage_lower = 15
 	melee_damage_upper = 15
@@ -72,10 +72,10 @@
 /mob/living/basic/ms13/ghoul/radioactive
 	name = "glowing feral ghoul"
 	desc = "A glowing, calloused ghoul. It looks like it has spent is entire lifetime sitting in a radioactive lake, as the damn thing can probably power a building if you hooked it up."
-	icon_state = "glowinghoul"
-	icon_dead = "glowinghoul_dead"
-	health = 135
-	maxHealth = 135
+	icon_state = "glowingghoul"
+	icon_dead = "glowingghoul_dead"
+	health = 125
+	maxHealth = 125
 	melee_damage_lower = 20
 	melee_damage_upper = 20
 	subtractible_armour_penetration = 20

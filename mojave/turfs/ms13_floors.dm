@@ -75,11 +75,6 @@
 
 /obj/structure/ms13/foundation/Initialize(mapload)
 	. = ..()
-	for(var/obj/structure/ms13/foundation/LAT in loc)
-		if(LAT == src)
-			continue
-		stack_trace("multiple foundations found in ([loc.x], [loc.y], [loc.z])")
-		return INITIALIZE_HINT_QDEL
 	var/static/list/bad_initialize = list(INITIALIZE_HINT_QDEL, INITIALIZE_HINT_QDEL_FORCE)
 	if(!(. in bad_initialize))
 		AddComponent(/datum/component/footstep_changer, FOOTSTEP_WOOD)
@@ -497,7 +492,10 @@
 	if(!istype(M))
 		return
 
-	if(prob(30))
+	for(var/obj/structure/lattice/catwalk/C in get_turf(M))
+		return
+
+	if(prob(30) && M.m_intent == MOVE_INTENT_RUN && M.body_position != LYING_DOWN)
 		M.slip(5, M.loc, GALOSHES_DONT_HELP, 0, FALSE)
 		playsound(M, 'sound/effects/bang.ogg', 10, 1)
 		to_chat(usr, "<span class='warning'>You trip on the pipes!</span>")

@@ -24,6 +24,7 @@
 	H.facial_hair_color = H.hair_color
 	H.eye_color = sanitize_hexcolor(eyetone2hex(random_eye_color())) //MOJAVE SUN EDIT - Hair/Gendered/Colours
 	H.dna.blood_type = random_blood_type()
+	H.voice_type = random_voice_type(H.gender) // MOJAVE SUN EDIT - Voice!!
 
 	// Mutant randomizing, doesn't affect the mob appearance unless it's the specific mutant.
 	H.dna.features["mcolor"] = "#[random_color()]"

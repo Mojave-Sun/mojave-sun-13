@@ -182,7 +182,6 @@
 	name = "darkness plane master"
 	plane = BLACKNESS_PLANE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	color = list(null, null, null, "#0000", "#000f")
 	blend_mode = BLEND_MULTIPLY
 	appearance_flags = PLANE_MASTER | NO_CLIENT_COLOR | PIXEL_SCALE
 	//byond internal end
@@ -283,6 +282,21 @@
 	remove_filter("AO")
 	if(istype(mymob) && mymob.client?.prefs?.read_preference(/datum/preference/toggle/ambient_occlusion))
 		add_filter("AO", 1, drop_shadow_filter(x = 0, y = -2, size = 4, color = "#04080FAA"))
+
+// MOJAVE EDIT BEGIN - Fatties
+/**
+ * this exists to make displacement maps have no alpha, while still
+ * being considered "visible" by the displacement filter...
+ *
+ * yes this is jank!
+ */
+/atom/movable/screen/plane_master/displacement_maps
+	name = "displacement maps plane"
+	plane = DISPLACEMENT_MAP_PLANE
+	alpha = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	render_relay_plane = null
+// MOJAVE EDIT END - Fatties
 
 /atom/movable/screen/plane_master/gravpulse
 	name = "gravpulse plane"
