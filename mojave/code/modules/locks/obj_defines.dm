@@ -17,21 +17,6 @@
 		storage.locked = FALSE //unlocks the storage
 	return TRUE
 
-//for denying access/interaction with general locked items - mainly for stuff like PA
-/obj/AltClick(mob/user)
-	if(.)
-		return
-	if(ms13_flags_1 & LOCKABLE_1 && lock_locked)
-		if(lock && lock.item_lock_locked) //for manually locked things
-			to_chat(user, span_warning("The [name] is locked."))
-			playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
-			return
-		if(!lock) //for pre-spawn locked things
-			to_chat(user, span_warning("The [name] is locked."))
-			playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
-			return
-	. = ..()
-
 //for denying access/interaction with general locked items
 /obj/attack_hand(mob/user, list/modifiers)
 	if(.)
@@ -123,7 +108,7 @@
 		if(!potential_lock.item_lock_locked && potential_lock.lock_open)
 			if(!do_after(user, 0.5 SECONDS, src))
 				return
-			if(!user.transferItemToLoc(lock, src))
+			if(!user.transferItemToLoc(potential_lock, src))
 				return
 			lock = potential_lock
 			can_be_picked = TRUE

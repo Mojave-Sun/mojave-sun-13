@@ -345,7 +345,7 @@
 		if(!potential_lock.item_lock_locked && potential_lock.lock_open)
 			if(!do_after(user, 0.5 SECONDS, src))
 				return
-			if(!user.transferItemToLoc(lock, src))
+			if(!user.transferItemToLoc(potential_lock, src))
 				return
 			lock = potential_lock
 			can_be_picked = TRUE
@@ -597,7 +597,6 @@
 
 //Let's get into the power armor (or not)
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/AltClick(mob/living/carbon/human/user)
-	. = ..()
 	if(!istype(user))
 		return FALSE
 	else
@@ -607,6 +606,16 @@
 				GetOutside(user)
 				return TRUE
 			return FALSE
+
+	if(ms13_flags_1 & LOCKABLE_1 && lock_locked)
+		if(lock && lock.item_lock_locked) //putting this here cause this code is weird and shartoid
+			to_chat(user, span_warning("The [name] is locked."))
+			playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
+			return
+		if(!lock) //for pre-spawn locked things
+			to_chat(user, span_warning("The [name] is locked."))
+			playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
+			return
 
 	if(!CheckEquippedClothing(user) || get_dist(user, src) > 1 || link_to)
 		return FALSE
