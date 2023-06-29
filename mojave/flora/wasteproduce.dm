@@ -2,7 +2,7 @@
 	growing_icon = 'mojave/icons/hydroponics/growing.dmi'
 	icon = 'mojave/icons/hydroponics/seeds.dmi'
 	icon_state = "seed"
-	potency = 50
+	potency = 40
 	growthstages = 5
 	w_class = WEIGHT_CLASS_TINY
 	grid_height = 32

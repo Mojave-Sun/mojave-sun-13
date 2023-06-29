@@ -677,22 +677,14 @@
 /obj/machinery/ms13/agriculture/soil
 	name = "soil"
 	desc = "A patch of dirt."
-	icon = 'mojave/icons/hydroponics/dirt.dmi'
-	icon_state = "dirt-0"
+	icon = 'mojave/icons/hydroponics/dirt_placeholder.dmi'
+	icon_state = "dirt"
 	base_icon_state = "dirt"
-	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = list(SMOOTH_GROUP_SOIL)
-	canSmoothWith = list(SMOOTH_GROUP_SOIL)
 	density = FALSE
 	use_power = NO_POWER_USE
 	flags_1 = NODECONSTRUCT_1
 	unwrenchable = FALSE
 	maxnutri = 5000
-	var/border_icon = 'mojave/icons/hydroponics/dirt_border.dmi'
-
-/obj/machinery/ms13/agriculture/soil/update_icon()
-	. = ..()
-	add_overlay(image(border_icon, icon_state, SOIL_EDGE_LAYER, pixel_x = -8, pixel_y = -8))
 
 /obj/machinery/ms13/agriculture/soil/CtrlClick(mob/user)
 	return //Soil has no electricity.
@@ -710,8 +702,6 @@
 /obj/structure/rustic_extractor/proc/seedify(obj/item/O, t_max, obj/structure/rustic_extractor/extractor, mob/living/user)
 	var/t_amount = 0
 	var/list/seeds = list()
-	if(t_max == -1)
-		t_max = rand(1,2) //Slightly worse than the actual thing
 
 	var/seedloc = O.loc
 	if(extractor)
@@ -749,8 +739,8 @@
 	if(default_unfasten_wrench(user, O)) //So we can move them around
 		return
 
-	else if(seedify(O,-1, src, user))
-		to_chat(user, "<span class='notice'>You extract some seeds.</span>")
+	else if(seedify(O,1, src, user))
+		to_chat(user, "<span class='notice'>You extract some seeds from \the [O.name].</span>")
 		return
 	else if(!user.combat_mode)
 		to_chat(user, "<span class='warning'>You can't extract any seeds from \the [O.name]!</span>")
@@ -761,6 +751,7 @@
 /obj/structure/fermenting_barrel/ms13
 	icon = 'mojave/icons/hydroponics/equipment.dmi'
 	icon_state = "barrel"
+	speed_multiplier = 30 //Will take between 4-6m to distill
 
 /obj/structure/fermenting_barrel/ms13/Initialize()
 	. = ..()

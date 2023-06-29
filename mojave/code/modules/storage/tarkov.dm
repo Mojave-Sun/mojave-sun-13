@@ -204,7 +204,7 @@
 
 /datum/component/storage/concrete/ms13/suit/Initialize()
 	. = ..()
-	max_items = 4
+	max_items = 8
 
 /datum/component/storage
 	screen_max_columns = 8
