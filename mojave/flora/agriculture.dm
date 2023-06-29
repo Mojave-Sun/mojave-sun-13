@@ -702,8 +702,6 @@
 /obj/structure/rustic_extractor/proc/seedify(obj/item/O, t_max, obj/structure/rustic_extractor/extractor, mob/living/user)
 	var/t_amount = 0
 	var/list/seeds = list()
-	if(t_max == -1)
-		t_max = rand(0,1) //Slightly worse than the actual thing
 
 	var/seedloc = O.loc
 	if(extractor)
@@ -741,8 +739,8 @@
 	if(default_unfasten_wrench(user, O)) //So we can move them around
 		return
 
-	else if(seedify(O,-1, src, user))
-		to_chat(user, "<span class='notice'>You attempt to extract some seeds from \the [O.name].</span>")
+	else if(seedify(O,1, src, user))
+		to_chat(user, "<span class='notice'>You extract some seeds from \the [O.name].</span>")
 		return
 	else if(!user.combat_mode)
 		to_chat(user, "<span class='warning'>You can't extract any seeds from \the [O.name]!</span>")
