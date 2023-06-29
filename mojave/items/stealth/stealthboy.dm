@@ -12,45 +12,12 @@
 	slot_flags = ITEM_SLOT_BELT
 	w_class = WEIGHT_CLASS_NORMAL
 	equip_sound = 'sound/items/equip/toolbelt_equip.ogg'
-	var/stealthboy_on = FALSE
-	COOLDOWN_DECLARE(stealthboy_cooldown)
-	actions_types = list(/datum/action/item_action/toggle)
+	var/stealth_cooldown = 180
+	var/stealth_time = 30
+	var/visibility = 15
 
 /obj/item/clothing/ms13/stealthboy/Initialize(mapload)
 	. = ..()
+	AddComponent(/datum/component/stealth)
 	AddElement(/datum/element/item_scaling, 0.45, 1)
-
-/obj/item/clothing/ms13/stealthboy/dropped(mob/user)
-	..()
-	if(stealthboy_on)
-		disrupt(user)
-
-/obj/item/clothing/ms13/stealthboy/attack_self(mob/user)
-	toggle(user)
-
-/obj/item/clothing/ms13/stealthboy/proc/toggle(mob/user)
-	if(!ishuman(user))
-		return
-	if(!COOLDOWN_FINISHED(src, stealthboy_cooldown))
-		return
-	playsound(get_turf(src), 'mojave/items/stealth/stealthboy_sfx/stealthboy_activate.ogg', 20, 50, 0)
-	stealthboy_on = !stealthboy_on
-	if(stealthboy_on)
-		user.alpha = 25
-		to_chat(user, "<span class='notice'>You activate the [src].</span>")
-		addtimer(CALLBACK(src, .proc/disrupt, user), 20 SECONDS)
-		user.add_filter("stealthboy_ripple", 2, list("type" = "ripple", "flags" = WAVE_BOUNDED, "radius" = 0, "size" = 2))
-		var/filter = user.get_filter("stealthboy_ripple")
-		animate(filter, radius = 32, time = 15, size = 0, loop = 1)
-	else
-		user.alpha = initial(user.alpha)
-		to_chat(user, "<span class='notice'>You deactivate the [src].</span>")
-		COOLDOWN_START(src, stealthboy_cooldown, 180 SECONDS)
-
-/obj/item/clothing/ms13/stealthboy/proc/disrupt(mob/user)
-	if(stealthboy_on)
-		user.alpha = initial(user.alpha)
-		stealthboy_on = FALSE
-	COOLDOWN_START(src, stealthboy_cooldown, 180 SECONDS)
-	playsound(get_turf(src), 'mojave/items/stealth/stealthboy_sfx/stealthboy_deactivate.ogg', 20, 50, 0)
-	to_chat(user, "<span class='notice'>[src] deactivates.</span>")
+	actions_types = list(/datum/action/item_action/toggle)
