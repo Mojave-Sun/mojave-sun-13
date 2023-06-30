@@ -10,10 +10,8 @@
 	lefthand_file = 'mojave/icons/mob/inhands/misc/smokeables_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/misc/smokeables_righthand.dmi'
 	inhand_icon_state = "lucky"
-	worn_icon_state = null
 	w_class = WEIGHT_CLASS_SMALL
 	gender = PLURAL
-	slot_flags = ITEM_SLOT_BELT
 	spawn_type = /obj/item/ms13/cigarette
 	component_type = /datum/component/storage/concrete/ms13/cigarettes
 	contents_tag = "cigarette"
