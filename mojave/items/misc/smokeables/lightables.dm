@@ -14,6 +14,7 @@
 	righthand_file = 'mojave/icons/mob/inhands/misc/lightables_righthand.dmi'
 	inhand_icon_state = "matchbox"
 	w_class = WEIGHT_CLASS_SMALL
+	slot_flags = null
 	foldable = null
 	grid_width = 32
 	grid_height = 32
