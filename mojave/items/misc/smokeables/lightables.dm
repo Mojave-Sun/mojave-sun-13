@@ -293,6 +293,7 @@
 	lefthand_file = 'mojave/icons/mob/inhands/misc/lightables_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/misc/lightables_righthand.dmi'
 	inhand_icon_state = "zippo"
+	slot_flags = null
 	var/max_fuel = 50
 	overlay_list = null
 	var/is_open = FALSE
