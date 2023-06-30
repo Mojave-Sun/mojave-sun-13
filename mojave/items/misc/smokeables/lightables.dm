@@ -9,13 +9,12 @@
 	icon_state = "matchbox"
 	inventory_state = "matchbox"
 	world_state = "matchbox"
-	worn_icon_state = null
 	component_type = /datum/component/storage/concrete/ms13/matchbox
 	lefthand_file = 'mojave/icons/mob/inhands/misc/lightables_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/misc/lightables_righthand.dmi'
 	inhand_icon_state = "matchbox"
 	w_class = WEIGHT_CLASS_SMALL
-	slot_flags = ITEM_SLOT_BELT
+	slot_flags = null
 	foldable = null
 	grid_width = 32
 	grid_height = 32
@@ -295,6 +294,7 @@
 	lefthand_file = 'mojave/icons/mob/inhands/misc/lightables_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/misc/lightables_righthand.dmi'
 	inhand_icon_state = "zippo"
+	slot_flags = null
 	var/max_fuel = 50
 	overlay_list = null
 	var/is_open = FALSE
