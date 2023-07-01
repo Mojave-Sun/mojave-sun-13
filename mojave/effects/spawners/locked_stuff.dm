@@ -98,7 +98,7 @@
 
 /obj/effect/spawner/random/ms13/locked/random/lowchance
 	name = "random lock low chance spawner"
-	spawn_loot_chance = 30
+	spawn_loot_chance = 25
 	loot = list(
 		/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/beginner,
 		/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/novice,
