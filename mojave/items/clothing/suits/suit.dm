@@ -677,6 +677,13 @@
                 FIRE = 0)
 	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
 
+/obj/item/clothing/suit/ms13/duster/ranger/chief
+	name = "\improper Desert Ranger Deputy-Chief poncho"
+	desc = "A well made, padded poncho known for being specially made for certain high ranking members within the Desert Rangers."
+	icon_state = "deputy_chief"
+	body_parts_covered = CHEST|GROIN|ARMS
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/large
+
 // labcoats //
 
 /obj/item/clothing/suit/toggle/labcoat/ms13
