@@ -202,22 +202,21 @@
 /obj/effect/spawner/random/ms13/guaranteed/smokeable/highrandom
 	name = "high tier random smokeables spawner"
 	loot = list(
-			/obj/item/storage/fancy/ms13/cigarettes/marlboro = 20,
-			/obj/item/storage/fancy/ms13/cigarettes/winston = 20,
-			/obj/item/storage/fancy/ms13/cigarettes/salem = 40,
-			/obj/item/storage/fancy/ms13/cigarettes/kools = 30,
-			/obj/item/ms13/rolling_paper = 20,
+			/obj/item/storage/fancy/ms13/cigarettes/marlboro = 16,
+			/obj/item/storage/fancy/ms13/cigarettes/winston = 16,
+			/obj/item/storage/fancy/ms13/cigarettes/salem = 30,
+			/obj/item/storage/fancy/ms13/cigarettes/kools = 20,
+			/obj/item/ms13/rolling_paper = 16,
 			/obj/item/storage/fancy/ms13/cigarettes/rollies = 2
 			)
 
 /obj/effect/spawner/random/ms13/guaranteed/smokeable/lowrandom
 	name = "low tier random smokeables spawner"
 	loot = list(
-			/obj/item/storage/fancy/ms13/cigarettes/marlboro/random = 40,
-			/obj/item/storage/fancy/ms13/cigarettes/winston/random = 40,
-			/obj/item/storage/fancy/ms13/cigarettes/salem/random = 30,
+			/obj/item/storage/fancy/ms13/cigarettes/marlboro/random = 30,
+			/obj/item/storage/fancy/ms13/cigarettes/winston/random = 30,
+			/obj/item/storage/fancy/ms13/cigarettes/salem/random = 18,
 			/obj/item/storage/fancy/ms13/cigarettes/kools/random = 10,
-			/obj/item/storage/fancy/ms13/cigarettes/rollies/republics/random = 20,
 			/obj/item/ms13/rolling_paper = 10,
-			/obj/item/storage/fancy/ms13/cigarettes/rollies/random = 1
+			/obj/item/storage/fancy/ms13/cigarettes/rollies/random = 2
 			)
