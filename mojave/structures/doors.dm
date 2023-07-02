@@ -222,7 +222,7 @@
 	door_type = "metal"
 	assemblytype = /obj/item/stack/sheet/ms13/scrap
 	max_integrity = 2000 //its metal
-	armor = list(MELEE = 60, BULLET = 80, LASER = 75, ENERGY = 50, BOMB = 30, BIO = 100, FIRE = 60, ACID = 100)
+	armor = list(MELEE = 65, BULLET = 80, LASER = 75, ENERGY = 50, BOMB = 30, BIO = 100, FIRE = 60, ACID = 100)
 	damage_deflection = 25
 	hitted_sound = 'mojave/sound/ms13effects/metal_door_hit.ogg'
 
@@ -338,7 +338,7 @@
 	door_type = "metal_window"
 	passthrough_chance = 40 //Small window!
 	max_integrity = 1800 //its metal
-	armor = list(MELEE = 60, BULLET = 80, LASER = 75, ENERGY = 50, BOMB = 30, BIO = 100, FIRE = 60, ACID = 100)
+	armor = list(MELEE = 65, BULLET = 80, LASER = 75, ENERGY = 50, BOMB = 30, BIO = 100, FIRE = 60, ACID = 100)
 	damage_deflection = 25
 	hitted_sound = 'mojave/sound/ms13effects/metal_door_hit.ogg'
 
