@@ -20,12 +20,16 @@ GLOBAL_LIST_INIT(perks, list())
 
 /datum/stats_browser/ui_data(mob/user)
 	. = list()
+	.["perks"] = list()
+
 	for(var/id in GLOB.perks_type)
 		var/type = GLOB.perks_type[id]
 		if(type in activeperks)
 			continue
 		var/datum/perk/p = get_perk(type)
 		.["perks"] += list(list("name" = p.name, "desc" = p.desc, "id" = p.id, "type" = p.type_class, "filter" = p.filter, "level" = p.level, "ranks" = p.ranks))
+
+	.["activeperks"] = list()
 
 	for(var/type in activeperks)
 		var/datum/perk/p = get_perk(type)
@@ -38,6 +42,10 @@ GLOBAL_LIST_INIT(perks, list())
 	switch (action)
 		if("add_perk")
 			var/datum/perk/p = GLOB.perks_type[params["id"]]
+
+			if(p in activeperks)
+				return FALSE
+
 			activeperks.Add(p)
 			return TRUE
 

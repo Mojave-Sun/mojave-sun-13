@@ -1,4 +1,4 @@
-import { useBackend, useSharedState } from '../backend';
+import { useBackend, useSharedState, useLocalState } from '../backend';
 import { classes } from 'common/react';
 import { Window } from '../layouts';
 import { Button, Tabs } from '../components';
@@ -13,12 +13,12 @@ export const StatsBrowser = (props, context) => {
       <Window.Content scrollable>
         <div>
           <div class="flex flex-col items-center dt:flex-row dt:items-start dt:justify-around">
-            <Stat name="P" styleclass="p" level="5" freepoint="1" selectStat={() => { setSelectedStat("p"); }} />
-            <Stat name="E" styleclass="e" level="5" freepoint="1" selectStat={() => { setSelectedStat("e"); }} />
-            <Stat name="R" styleclass="r" level="5" freepoint="1" selectStat={() => { setSelectedStat("r"); }} />
-            <Stat name="S" styleclass="s" level="5" freepoint="1" selectStat={() => { setSelectedStat("s"); }} />
-            <Stat name="O" styleclass="o" level="5" freepoint="1" selectStat={() => { setSelectedStat("o"); }} />
-            <Stat name="N" styleclass="n" level="5" freepoint="1" selectStat={() => { setSelectedStat("n"); }} />
+            <Stat name="P" styleclass="p" level="3" freepoint="1" selectStat={() => { setSelectedStat("p"); }} />
+            <Stat name="E" styleclass="e" level="6" freepoint="0" selectStat={() => { setSelectedStat("e"); }} />
+            <Stat name="R" styleclass="r" level="6" freepoint="0" selectStat={() => { setSelectedStat("r"); }} />
+            <Stat name="S" styleclass="s" level="5" freepoint="0" selectStat={() => { setSelectedStat("s"); }} />
+            <Stat name="O" styleclass="o" level="9" freepoint="0" selectStat={() => { setSelectedStat("o"); }} />
+            <Stat name="N" styleclass="n" level="8" freepoint="0" selectStat={() => { setSelectedStat("n"); }} />
           </div>
           { selectedStat !== "none" && tabFilter && (
             <div class="u-mobile-anchored">
@@ -75,10 +75,10 @@ const Stat = (props, context) => {
   } = props;
   const [filteredPerks, setFilteredPerks] = useLocalState(
     context,
-    `selectedQuirks_${styleclass}`,
-    data.activeperks?.filter(perk => perk.type === styleclass)
-    || []);
-  const [selectedperk, setSelectedPerk] = useSharedState(context, 'selectedPerk', 'none');
+    `selectedPerks_${styleclass}`,
+    data.activeperks.filter(perk => perk.type === styleclass),
+  );
+  const [selectedperk, setSelectedPerk] = useSharedState(context, `selectedPerk_${styleclass}`, 'none');
   return (
     <div class="flex mb-4 dt:flex-col dt:items-center dt:mb-0 items-start gap-4">
       <table class="items-center place-content-center">
@@ -112,21 +112,23 @@ const Stat = (props, context) => {
         </tr>
       </table>
       <div class="flex flex-col">
-        {filteredperks.length !== 0 && (
+        {filteredPerks.length !== 0 && (
           <div class="u-stack extra-padding gap-2">
             {filteredPerks.map(perk => (
               <PerkActive key={perk.name} perk={perk}
-                last={filteredperks[filteredperks.length - 1] === perk}
-                below={selectedperk !== perk.name && selectedperk !== "none"}
-                remove_perk={() => { act('remove_perk', {
-                  id: perk.id,
-                }); }}
+                last={filteredPerks[filteredPerks.length - 1] === perk}
+                below={selectedperk < filteredPerks.indexOf(perk) && selectedperk !== "none"}
+                remove_perk={() => {
+                  act('remove_perk', { id: perk.id });
+                }}
                 perkactiveclick={() => {
-                  if (selectedperk === perk.name) {
-                    setSelectedPerk("none");
-                  }
-                  else {
-                    setSelectedPerk(perk.name);
+                  if (filteredPerks.length - 1 !== perk) {
+                    if (selectedperk === filteredPerks.indexOf(perk)) {
+                      setSelectedPerk("none");
+                    }
+                    else {
+                      setSelectedPerk(filteredPerks.indexOf(perk));
+                    }
                   }
                 }} />
             ))}
@@ -165,7 +167,7 @@ const PerkActive = props => {
     ranks,
   } = perk;
   return (
-    <div onClick={perkactiveclick} className="u-stack-item">
+    <div className="u-stack-item">
       <div className={classes(["container", last && "last", below && "below"])} style="z-index: 10;">
         <div>
           <div data-v-6b1720e3="" class="u-removable">
@@ -174,7 +176,7 @@ const PerkActive = props => {
                 <i class="fas fa-times" />
               </Button>
             </div>
-            <div data-v-fac1b534="" class="card damage">
+            <div onClick={perkactiveclick} data-v-fac1b534="" class="card damage">
               <div data-v-fac1b534="" className={classes(["header", "-ml-1", type])}>
                 <div data-v-fac1b534="" class="font-condensed font-bold text-xl rounded border-2 text-black bg-white w-8 h-8 u-center">
                   <span data-v-fac1b534="">{level}</span>
@@ -184,13 +186,13 @@ const PerkActive = props => {
               <div data-v-d44c1d41="" data-v-fac1b534="" class="u-adaptive-font leading-tight p-2 text-center" style="font-size: 18px;">{desc}</div>
               <div data-v-fac1b534="" class="ranks">
                 <div data-v-127279da="" data-v-fac1b534="" className={classes(["fss-perk-rank-selector", "content", type])}>
-                  <div data-v-8674d4b1="" data-v-127279da="" class="rank active text-white drop-shadow">
+                  <div data-v-8674d4b1="" data-v-127279da="" className={classes(["rank", ranks >= 1 && "active text-white drop-shadow"])}>
                     <i data-v-127279da="" class="fas fa-star" />
                   </div>
-                  <div data-v-8674d4b1="" data-v-127279da="" class="rank">
+                  <div data-v-8674d4b1="" data-v-127279da="" className={classes(["rank", ranks >= 2 && "active text-white drop-shadow"])}>
                     <i data-v-127279da="" class="fas fa-star" />
                   </div>
-                  <div data-v-8674d4b1="" data-v-127279da="" class="rank">
+                  <div data-v-8674d4b1="" data-v-127279da="" className={classes(["rank", ranks >= 3 && "active text-white drop-shadow"])}>
                     <i data-v-127279da="" class="fas fa-star" />
                   </div>
                 </div>
@@ -227,13 +229,13 @@ const Perk = props => {
         <div data-v-d44c1d41="" data-v-fac1b534="" class="u-adaptive-font leading-tight p-2 text-center" style="font-size: 18px;">{desc}</div>
         <div data-v-fac1b534="" class="ranks">
           <div data-v-127279da="" data-v-fac1b534="" className={classes(["fss-perk-rank-selector", "content", type])}>
-            <div data-v-8674d4b1="" data-v-127279da="" class=" rank active text-white drop-shadow">
+            <div data-v-8674d4b1="" data-v-127279da="" className={classes(["rank", ranks >= 1 && "active text-white drop-shadow"])}>
               <i data-v-127279da="" class="fas fa-star" />
             </div>
-            <div data-v-8674d4b1="" data-v-127279da="" class="rank">
+            <div data-v-8674d4b1="" data-v-127279da="" className={classes(["rank", ranks >= 2 && "active text-white drop-shadow"])}>
               <i data-v-127279da="" class="fas fa-star" />
             </div>
-            <div data-v-8674d4b1="" data-v-127279da="" class="rank">
+            <div data-v-8674d4b1="" data-v-127279da="" className={classes(["rank", ranks >= 3 && "active text-white drop-shadow"])}>
               <i data-v-127279da="" class="fas fa-star" />
             </div>
           </div>
