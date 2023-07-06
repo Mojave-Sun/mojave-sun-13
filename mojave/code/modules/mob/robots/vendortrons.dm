@@ -760,7 +760,8 @@
 		/obj/item/reagent_containers/food/drinks/bottle/ms13/vodka = list(75, rand(0,2)),
 		/obj/item/reagent_containers/food/drinks/bottle/ms13/gin = list(80, rand(0,2)),
 		/obj/item/reagent_containers/food/drinks/bottle/ms13/wine = list(90, rand(0,2)),
-		/obj/item/reagent_containers/food/drinks/bottle/ms13/moonshine = list(125, rand(0,2))
+		/obj/item/reagent_containers/food/drinks/bottle/ms13/moonshine = list(125, rand(0,2)),
+		/obj/item/storage/fancy/ms13/cigarettes/rollies/republics = list(65, rand(0,3))
 				)
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/drought/happy_trails/initial_wanteds()
