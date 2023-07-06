@@ -41,18 +41,21 @@
 	var/datum/action/cooldown/mob_cooldown/charge/deathclaw/charge
 	var/datum/action/cooldown/mob_cooldown/charge/deathclaw/combo/combo
 	var/datum/action/cooldown/mob_cooldown/deathclaw/slash/slash
+	var/datum/action/cooldown/mob_cooldown/charge/deathclaw/slash_dash
 	var/datum/action/cooldown/mob_cooldown/charge/deathclaw/leap/leap
 	var/datum/action/cooldown/mob_cooldown/deathclaw_roar/roar
 	var/datum/action/cooldown/mob_cooldown/projectile_attack/rapid_fire/pocket_sand/pocket_sand
 	var/aggro_roar_available = TRUE
 	var/second_wind_available = TRUE
 
+/*
 	///The ai_node we'll go back to with dead bodies and store them over there, extra flavor for roaming deathclaw
 	var/obj/effect/ai_node/nest_node = null
 	///Determine if we make it here and if we do, stop dragging a body
 	var/turf/dropoff_location = null
 	///OFF TO THE NEST!
 	var/pulled_victim = null
+*/
 
 /mob/living/simple_animal/hostile/megafauna/deathclaw/Initialize()
 	. = ..()
@@ -66,8 +69,12 @@
 	leap.Grant(src)
 	slash = new /datum/action/cooldown/mob_cooldown/deathclaw/slash()
 	slash.Grant(src)
+	slash_dash = new /datum/action/cooldown/mob_cooldown/charge/deathclaw/slash_dash()
+	slash_dash.Grant(src)
 	//pocket_sand = new /datum/action/cooldown/mob_cooldown/projectile_attack/rapid_fire/pocket_sand()
 	//pocket_sand.Grant(src)
+
+	/*
 	RegisterSignal(src, COMSIG_AI_NODE_REACHED, .proc/check_node)
 	AddComponent(/datum/component/generic_animal_patrol, _animal_node_weights = list(NODE_LAST_VISITED = -1), _animal_identifier = IDENTIFIER_GENERIC_SIMPLE, _patrol_move_delay = 3)
 	for(var/obj/effect/ai_node/node in range(7, src))
@@ -84,6 +91,7 @@
 			Goto(dropoff_location, move_to_delay, minimum_distance = 0)
 			break
 		prevent_goto_movement = TRUE
+	*/
 
 /mob/living/simple_animal/hostile/megafauna/deathclaw/Destroy()
 	QDEL_NULL(charge)
@@ -108,6 +116,7 @@
 		if(prob(20))
 			playsound(src, pick('mojave/sound/ms13npc/deathclaw/npc_deathclaw_idle_01.wav', 'mojave/sound/ms13npc/deathclaw/npc_deathclaw_idle_02.wav', 'mojave/sound/ms13npc/deathclaw/npc_deathclaw_idle_03.wav', 'mojave/sound/ms13npc/deathclaw/npc_deathclaw_idle_04.wav'), 75, FALSE)
 
+		/*
 		if(loc == dropoff_location)
 			stop_pulling()
 			dropoff_location = null
@@ -136,6 +145,7 @@
 		if(pulled_victim == pulling && (nest != patrol.target_node) && (nest != patrol.current_node))
 			SEND_SIGNAL(src, COMSIG_AI_SET_GOAL_NODE, nest_node)
 			prevent_goto_movement = FALSE
+		*/
 
 /mob/living/simple_animal/hostile/megafauna/deathclaw/adjustBruteLoss(amount, updating_health = TRUE, forced = FALSE)
 	. = ..()
@@ -161,20 +171,17 @@
 		else
 			leap.Trigger(target = target)
 	else
-		if(get_dist(target, src) == 1)
-			slash.Activate()
+		face_atom(target)
+		var/turf/actual_target = get_turf(target)
+		if(prob(50))
+			actual_target = get_ranged_target_turf(actual_target, turn(get_dir(src, actual_target), 90), 3)
+			//for(var/i = 0; i != 3; i++)
+			//actual_target = get_step(actual_target, turn(dir, 90))
 		else
-			face_atom(target)
-			var/turf/actual_target = get_turf(target)
-			if(prob(50))
-				actual_target = get_ranged_target_turf(actual_target, turn(get_dir(src, actual_target), 90), 3)
-				//for(var/i = 0; i != 3; i++)
-				//actual_target = get_step(actual_target, turn(dir, 90))
-			else
-				actual_target = get_ranged_target_turf(actual_target, turn(get_dir(src, actual_target), -90), 3)
-				//for(var/i = 0; i != 3; i++)
-				//actual_target = get_step(actual_target, turn(dir, -90))
-			combo.Trigger(target = actual_target)
+			actual_target = get_ranged_target_turf(actual_target, turn(get_dir(src, actual_target), -90), 3)
+			//for(var/i = 0; i != 3; i++)
+			//actual_target = get_step(actual_target, turn(dir, -90))
+		combo.Trigger(target = actual_target)
 
 /mob/living/simple_animal/hostile/megafauna/deathclaw/handle_automated_action()
 	. = ..()
@@ -182,6 +189,19 @@
 		adjustBruteLoss(-20) //Passive healing time
 		if(health == maxHealth)
 			second_wind_available = TRUE
+
+//We'll be using the unique melee attacks from the abilities instead
+/mob/living/simple_animal/hostile/megafauna/deathclaw/AttackingTarget(atom/attacked_target)
+	in_melee = TRUE
+	if(SEND_SIGNAL(src, COMSIG_HOSTILE_PRE_ATTACKINGTARGET, target) & COMPONENT_HOSTILE_NO_ATTACK)
+		return FALSE //but more importantly return before attack_animal called
+	if(prob(50))
+		slash.Activate(target)
+	else
+		slash_dash.Activate(target)
+	//var/result = target.attack_animal(src)
+	//SEND_SIGNAL(src, COMSIG_HOSTILE_POST_ATTACKINGTARGET, target, result)
+	//return result
 
 /mob/living/simple_animal/hostile/megafauna/deathclaw/devour(mob/living/L)
 	/*
@@ -360,6 +380,44 @@
 				var/mob/living/liver = A
 				liver.Knockdown(0.5 SECONDS, ignore_canstun = FALSE)
 	..()
+
+//Dash towards the target, slashing anything on the way, meant to be an alternative melee attack so it's a pretty short range
+/datum/action/cooldown/mob_cooldown/charge/deathclaw/slash_dash
+	charge_distance = 2
+	cooldown_time = 0 SECONDS
+	charge_delay = 0.5 SECONDS
+	charge_past = 2
+	charge_speed = 0.05 SECONDS
+
+/datum/action/cooldown/mob_cooldown/charge/deathclaw/slash_dash/do_charge_indicator(mob/charger, atom/charge_target)
+	var/turf/target_turf = get_turf(charge_target)
+	owner.icon_state = "deathclaw_danger"
+	if(!target_turf)
+		return
+	charger.face_atom(target_turf)
+	if(istype(owner, /mob/living/simple_animal))
+		var/mob/living/simple_animal/animal = owner
+		animal.prevent_goto_movement = TRUE
+		addtimer(CALLBACK(src, .proc/reset_goto, animal), 0.5 SECONDS)
+	if(!target_turf)
+		return
+	addtimer(CALLBACK(src, .proc/actually_slash), 0.5 SECONDS)
+	//3x2 block ahead of the owner
+	for(var/turf/t in block(get_step(get_turf(owner), turn(owner.dir, 45)), get_step(get_step(get_turf(owner), turn(owner.dir, -45)), owner.dir)))
+		new /obj/effect/temp_visual/ms13/target_indicator(t)
+
+/datum/action/cooldown/mob_cooldown/charge/deathclaw/slash_dash/proc/actually_slash()
+	var/list/atom/movable/atoms_to_slash = list()
+	for(var/turf/t in block(get_step(get_turf(owner), turn(owner.dir, 45)), get_step(get_step(get_turf(owner), turn(owner.dir, -45)), owner.dir)))
+		atoms_to_slash += t.contents
+	for(var/atom/movable/a in atoms_to_slash)
+		a.attack_animal(owner)
+		if(!a.anchored)
+			step_away(a, owner, 1, 2)
+	if(istype(owner, /mob/living/simple_animal))
+		var/mob/living/simple_animal/animal = owner
+		animal.prevent_goto_movement = FALSE
+	playsound(owner, pick('mojave/sound/ms13npc/deathclaw/npc_deathclawsm_clawatk_01.wav', 'mojave/sound/ms13npc/deathclaw/npc_deathclawsm_clawatk_02.wav', 'mojave/sound/ms13npc/deathclaw/npc_deathclawsm_clawatk_03.wav', 'mojave/sound/ms13npc/deathclaw/npc_deathclawsm_clawatk_04.wav'), 200, TRUE, 2, TRUE)
 
 //Standalone aoe slash attack
 /datum/action/cooldown/mob_cooldown/deathclaw/slash
