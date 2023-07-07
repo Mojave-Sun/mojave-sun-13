@@ -521,6 +521,80 @@
 	icon_state = "quad_waste_1"
 	unique = TRUE
 
+// Wooden Pallets //
+
+/obj/structure/ms13/pallet
+	name = "wooden pallet"
+	desc = "A wooden pallet. You could get some good wood off that, probably."
+	icon = 'mojave/icons/structure/miscellaneous.dmi'
+	icon_state = "pallet"
+	max_integrity = 100
+	anchored = TRUE
+	density = FALSE
+
+/obj/structure/ms13/pallet/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
+		else
+			new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc, 1)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
+	qdel(src)
+
+/obj/structure/ms13/pallet/crowbar_act_secondary(mob/living/user, obj/item/tool)
+	if(flags_1&NODECONSTRUCT_1)
+		return TRUE
+	..()
+	user.visible_message("<span class='notice'>[user] starts to break \the [src].</span>", \
+		"<span class='notice'>You start to break \the [src].</span>", \
+		"<span class='hear'>You hear splitting wood.</span>")
+	tool.play_tool_sound(src)
+	if(do_after(user, 4 SECONDS * tool.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+		playsound(src.loc, 'mojave/sound/ms13effects/wood_deconstruction.ogg', 50, TRUE)
+		user.visible_message("<span class='notice'>[user] pries \the [src] into pieces.</span>", \
+			"<span class='notice'>You pry \the [src] into pieces.</span>", \
+			"<span class='hear'>You hear splitting wood.</span>")
+		deconstruct(disassembled = TRUE)
+		return TRUE
+
+/obj/structure/ms13/pallet/stack
+	name = "pallet stack"
+	desc = "A stack of wooden pallets. Some good planks in there, still."
+	icon_state = "pallet_stack"
+	max_integrity = 250
+	density = TRUE
+	projectile_passchance = 65
+
+/obj/structure/ms13/pallet/stack/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/wood/plank(loc, 3)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 2)
+		else
+			new /obj/item/stack/sheet/ms13/wood/plank(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 1)
+	qdel(src)
+
+// brix.... //
+
+/obj/structure/ms13/brickstack
+	name = "brick stack"
+	desc = "A stack of bricks. They're all stuck together... Great."
+	icon = 'mojave/icons/structure/miscellaneous.dmi'
+	icon_state = "brickpile"
+	max_integrity = 600
+	density = TRUE
+	anchored = TRUE
+	projectile_passchance = 35
+
+/obj/structure/ms13/pallet/stack/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		new /obj/item/ms13/brick(loc, rand(1,3))
+	qdel(src)
+
+
+// TRASH.... //
 /obj/structure/ms13/trash
 	name = "Base type MS13 TRASH"
 	desc = "Who the hell littered this here? Call a mapper!"

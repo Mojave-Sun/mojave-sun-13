@@ -205,6 +205,7 @@
 		user.visible_message(span_notice("[user] shreds [src] into pieces."), \
 			span_notice("You tear [src] into shreds."), \
 			span_hear("You hear paper tearing."))
+		playsound(src.loc, 'sound/items/poster_ripped.ogg', 100, TRUE)
 		qdel(src)
 
 /obj/structure/ms13/wall_decor/poster/wanted
