@@ -527,8 +527,8 @@
 	icon = 'mojave/icons/structure/miscellaneous.dmi'
 
 /obj/structure/ms13/trash/papers
-	name = "scattered papers"
-	desc = "Some scattered papers. They look mostly ruined."
+	name = "scattered pages"
+	desc = "Some scattered paper pages. They look mostly ruined."
 	icon_state = "scattered_papers"
 
 /obj/structure/ms13/trash/papers/attack_hand(mob/living/user, list/modifiers)
@@ -538,11 +538,94 @@
 	to_chat(user, span_notice("You begin salvaging through the pile for a paper."))
 	if(do_after(user, 5 SECONDS, src))
 		if(prob(20))
-			to_chat(user, span_notice("You successfully recover a page from the stack. The rest all tear away into the void."))
-			new /obj/item/paper/ms13(src)
+			user.visible_message(span_notice("[user] successfully recovers paper from the [src]."), \
+				span_notice("You recover some paper from the [src]"))
+			new /obj/item/paper/ms13(loc, rand(1,3))
 			qdel(src)
 		else
-			to_chat(user, span_notice("You fail to find a paper that won't dissolve in your hands. Shame."))
+			user.visible_message(span_notice("[user] fails to find any usable paper"), \
+				span_notice("You fail to find any usable paper within the [src]."))
+			if(prob(75)) // SO YOU'RE TELLING ME THERE'S A CHANCE...
+				qdel(src)
+
+/obj/structure/ms13/trash/papers/one
+	name = "scattered papers"
+	desc = "Some scattered papers. All sorts of stuff, from pages to envelopes."
+	icon_state = "papers_1"
+
+/obj/structure/ms13/trash/papers/two
+	name = "scattered papers"
+	desc = "Some scattered papers. All sorts of stuff, from pages to envelopes."
+	icon_state = "papers_2"
+
+/obj/structure/ms13/trash/papers/three
+	name = "scattered papers"
+	desc = "Some scattered papers. All sorts of stuff, from pages to envelopes."
+	icon_state = "papers_3"
+
+/obj/structure/ms13/trash/cardboard
+	name = "scattered cardboard"
+	desc = "Old cardboard boxes... Thrown all over the place. What a mess."
+	icon_state = "cardboard"
+
+/obj/structure/ms13/trash/cardboard/attack_hand_secondary(mob/living/user, list/modifiers)
+	. = ..()
+	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
+		return
+	to_chat(user, span_notice("You begin salvaging through the [src]."))
+	if(do_after(user, 5 SECONDS, src))
+		if(prob(20))
+			user.visible_message(span_notice("[user] successfully recovers paper from the [src]."), \
+				span_notice("You recover some paper from the [src]"))
+			new /obj/item/paper/ms13(loc, rand(1,2))
+			qdel(src)
+		else
+			user.visible_message(span_notice("[user] fails to find any usable paper"), \
+				span_notice("You fail to find any usable paper within the [src]."))
+			qdel(src)
+
+/obj/structure/ms13/trash/bricks
+	name = "brick rubble"
+	desc = "A bunch of old bricks. Perhaps you can still find a few that will hold up."
+	icon_state = "brickrubble"
+
+/obj/structure/ms13/trash/bricks/attack_hand_secondary(mob/user, list/modifiers)
+	. = ..()
+	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
+		return
+	to_chat(user, span_notice("You begin salvaging through the rubble for some bricks."))
+	if(do_after(user, 5 SECONDS, src))
+		if(prob(20))
+			user.visible_message(span_notice("[user] begins to sift through the [src] for usable bricks."), \
+				span_notice("You begin to dig through the [src] for usable bricks."))
+			new /obj/item/ms13/brick(loc, rand(1,2))
+			qdel(src)
+		else
+			user.visible_message(span_notice("[user] fails to find a usable brick."), \
+				span_notice("You fail to find a usable brick from the [src]"))
+			if(prob(50)) // SO YOU'RE TELLING ME THERE'S A CHANCE...
+				qdel(src)
+
+/obj/structure/ms13/trash/wood
+	name = "scrap wood"
+	desc = "A bunch of scrap wood. You could probably get a few loose pieces."
+	icon_state = "woodscrap"
+
+/obj/structure/ms13/trash/wood/attack_hand_secondary(mob/living/user, list/modifiers)
+	. = ..()
+	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
+		return
+	user.visible_message(span_notice("[user] begins to sift through the [src] for usable pieces."), \
+		span_notice("You begin to dig through the [src] for some wood."))
+	if(do_after(user, 5 SECONDS, src))
+		if(prob(90)) // It's... scrap wood already.
+			user.visible_message(span_notice("[user] gathers up the [src]."), \
+				span_notice("You gather up all the [src]."))
+			new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc, rand(1,2))
+			qdel(src)
+		else
+			user.visible_message(span_notice("[user] somehow messes up gathering the [src]. It melts before their very eyes into nothingness."), \
+				span_notice("You somehow manage to mess up gathering the perfectly fine scrap wood. It melts away before your very eyes..."))
 			qdel(src)
 
 // Cave Decor
