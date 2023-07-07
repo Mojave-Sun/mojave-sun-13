@@ -77,7 +77,7 @@
 		if(user)
 			to_chat(user, span_warning("I can't stack empty casings."))
 		return
-	if((src.loc && SEND_SIGNAL(src.loc, COMSIG_CONTAINS_STORAGE)) || (other_casing.loc && SEND_SIGNAL(other_casing.loc, COMSIG_CONTAINS_STORAGE)))
+	if((item_flags & IN_STORAGE) || (other_casing.item_flags & IN_STORAGE))
 		if(user)
 			to_chat(user, span_warning("Can't stack while casings while they are inside storage."))
 		return
