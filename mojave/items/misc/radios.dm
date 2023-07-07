@@ -64,6 +64,8 @@
 	..()
 	weapon.play_tool_sound(src)
 	if(do_after(user, 30 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+		var/drop_location = user.drop_location()
+		forceMove(drop_location) //ensures our contents drop on user's drop_location
 		deconstruct(disassembled = TRUE)
 		return TRUE
 
