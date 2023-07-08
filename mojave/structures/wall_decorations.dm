@@ -172,6 +172,46 @@
 	name = "calendar"
 	desc = "A calendar turned to October 2077, there's some random circled dates on here."
 	icon_state = "calendar"
+	max_integrity = 40
+
+/obj/structure/ms13/wall_decor/calendar/blank
+	name = "calendar"
+	desc = "A calendar that doesn't have any particular year labeled on it. Makes more sense today than it did back then."
+	icon_state = "calendar_blank"
+
+/obj/structure/ms13/wall_decor/sign
+	name = "notice sign"
+	desc = "A sign with clear intentions. NOTICE... Notice what?"
+	icon_state = "notice_sign"
+	max_integrity = 100
+
+/obj/structure/ms13/wall_decor/sign/danger
+	name = "danger sign"
+	desc = "DANGER. The text is apparent. But surely it's not relevant to you right now."
+	icon_state = "danger_sign"
+
+/obj/structure/ms13/wall_decor/poster
+	name = "\improper NCR poster"
+	desc = "A fantastic piece of propaganda straight from the Republic. Don't you feel stronger just looking at it?"
+	icon_state = "NCR_sign"
+	max_integrity = 30
+
+/obj/structure/ms13/wall_decor/poster/attack_hand_secondary(mob/user, list/modifiers)
+	. = ..()
+	user.visible_message(span_notice("[user] begins tearing apart [src]"), \
+		span_notice("You tear begin to tear [src] into shreds."), \
+		span_hear("You hear paper crinkling."))
+	if(do_after(user, 1 SECONDS))
+		user.visible_message(span_notice("[user] shreds [src] into pieces."), \
+			span_notice("You tear [src] into shreds."), \
+			span_hear("You hear paper tearing."))
+		playsound(src.loc, 'sound/items/poster_ripped.ogg', 100, TRUE)
+		qdel(src)
+
+/obj/structure/ms13/wall_decor/poster/wanted
+	name = "wanted poster"
+	desc = "A posted detailing that someone's end should be coming soon. Financial compensation to those reponsible."
+	icon_state = "wanted_poster"
 
 /obj/structure/ms13/wall_decor/exit
 	name = "exit sign"
