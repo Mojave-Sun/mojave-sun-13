@@ -1,7 +1,7 @@
 /datum/job/ms13/wasteland/wastelander
 	title = "Wastelander"
-	total_positions = 200
-	spawn_positions = 200
+	total_positions = -1 //infinite
+	spawn_positions = -1 //infinite
 	supervisors = "No one"
 	description = "Survive. Work with your fellow man to accomplish this if you can, and stop them if they try and impede your survival."
 	forbid = ""

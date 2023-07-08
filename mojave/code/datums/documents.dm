@@ -14,7 +14,7 @@
 
 /datum/terminal/document/corrupted
 	title = "ERROR 0x07F6BAAC"
-	content = "	Bad data. Cannot read \
+	content = "Bad data. Cannot read \
 	<br><br>Contact Administrator for assistance or send a letter to your local RobCo facility and fill a repair request."
 
 /datum/terminal/document/joker //For rigged terminals
@@ -24,16 +24,6 @@
 
 // Mammoth specific notes //
 
-/datum/terminal/document/water_plant_notice // For the water plant terminal with sewer control
-	title = "Notice for Operator."
-	content = "Leaving this notice here as an official declaration of being over this shit. This is COMPLETELY unacceptable. \
-		<br><br>Consider this the final warning- The system can NOT take another closure like this, last week it got backed up to max capacity and nearly backwashed into the primary reservoir. \
-		We've recently came upon a list of the culprits involved in this matter, it will not be formally disclosed to you all. \
-		<br><br> I don't know what you think, but I've got a decent idea of what's REALLY going on here. I had a meeting with the local Sheriff and he's been alerted to this, so you should save yourself the bother and be on good behavior. \
-		In the meantime- DO. NOT. TOUCH. THE. CHOKES. \
-		<br><br>\
-		<br><br> I will be watching. -Director Norrison."
-
 /datum/terminal/document/vault_door_notice // Explaining to the libs why there's only one gate, and why they can't be shut-ins. BTFO.
 	title = "Dual-Loc Chamber Notice"
 	content = "Attention gatesman! \
@@ -41,6 +31,53 @@
 		<br><br>Do NOT attempt to link the terminal to it and move it. It can SERIOUSLY destroy it. We've got a scheduled order in coming in next week, after that- we can get it working again on time. \
 		<br><br>\
 		<br><br> Thank you for your cooperation."
+
+
+/// NCR TERMINALS ///
+/datum/terminal/document/ncr_disciplinary // Snowcrest NCR holding cell terminal rundown
+	title = "General Holding Cell Procedure"
+	content = "This holding cell is to house no more than five people as long as the situation allows it. \
+		<br><br>The purpose of this cell is to allow transparency to the inhabitants of Snowcrest that their fellow man will not be harmed under our law, even if held under scrutiny. \
+		<br> You are to hold them for their sentence in this general holding cell for as long as they are peaceful. If they become hostile, they may be sent to the individualized incapacitation cells downstairs. \
+		<br><br> If in the event, for whatever reason, you detain individuals NOT OF CITIZENSHIP of Snowcrest, they should be removed from the town's premises. If the crime is harsh enough, they are to be sent straight to the IIC's. \
+		<br> If a crime IS substantial enough, with fair trial and the blessing of the highest ranking, death by firing squad may be dealt. \
+		<br><br> This is all necessary in order to maintain peace. Do not act in your own interests."
+
+/datum/terminal/document/ncr_sergeant_breakdown // Snowcrest NCR sergeant's terminal
+	title = "To the Sergeant it may concern"
+	content = "Congratulations on being chosen for this position! \
+		<br><br>Snowcrest is a hell of a town. I don't know you, but I'm sure you'll protect it well. \
+		<br> There's some fine folk here. Not without fault of course. There's been a history of a bit of... dishevelment... in the past. The establishment of the Republic here wasn't a very easy process but we're just about set. \
+		<br> Most of the people here mean well. Even if they don't know it. Try not to ruin relations with them and get yourself kicked out, yeah? Hah, I kid. \
+		<br> Anyways. That Mayor is a character indeed. A bit pompous sometimes. Though you can never really know what they're going to give you on a day to day. The guards are real protective. Be careful of them. Some of them have yet to warm up to us. \
+		<br> Seriously though. Be careful. When our ambassador was here talking to them, there was some unruly individuals about. We nearly had a riot break out at one point as papers were just finished getting signed. \
+		<br><br>\
+		<br><br> Stay Vigilent. Signing off, Staff Sergeant Williams"
+
+/datum/terminal/document/ncr_front_gate // Snowcrest front "gate" terminal
+	title = "Shipment delay"
+	content = "Bad news. \
+		<br> The materials for the gate we requested has gotten backed up consideraby due to something happening with a supplier. The exact details aren't known to us, yet.\
+		<br> As you may or may not have known. The Engineers were SUPPOSED to be coming in with their little mile long caravan of scrap and components to get the gate up a month after you guys were stationed in Snowcrest. Alas, here we are.\
+		<br> That means YOU get the privilege of doing this the old fashioned way. As I type this we're setting up a bit of a temporary checkpoint. It's nothing special, but you guys can improve on it if you want. \
+		<br><br> Not like you have much else to do other than sit around anyways, huh? \
+		<br>Good luck, and don't forget... To have fun!"
+
+/// BROTHERHOOD TERMINALS //
+/datum/terminal/document/brotherhood_hint // BOS reminder to not ignore their loot
+	title = "Supply count"
+	content = "Before the departure of the last chapter splinter, they took the liberty of leaving behind some excess equipment.  \
+		A lot of our hardware should be in the generator room's crates. Look around for a crowbar and start busting them open- They can't stay there forever. \
+		According to one of them, they're actually kind enough to keep some medical supplies with us. Check the storage for them below the medical bay. \
+		<br><br>The supplies are fantastic and well appreciated- But we need to remember to keep an eye out when we're out on the field. Take what you can, the opportuntiy might not arise again."
+
+/datum/terminal/document/brotherhood_hint_two // BOS reminder to not fly out the rear entrance and get fragged by shellheads
+	title = "About the rear entrance"
+	content = "Attention! Heed caution exiting through the rear tunnels. Recently, mirelurks have taken to a liking of the pools out back.  \
+		It wouldn't be the first time a simple thing as a mirelurk has claimed one of our own... You all much exercise caution when going out through the back. Not like there's much point anyways. The tunnels probably don't lead anywhere. \
+		If you REALLY insist on going out there, bring at least on partner and log your exit with your nearest superior. Keep a flashlight handy and stay in the light. Good luck."
+
+// PREWAR MILITARY TERMINALS //
 
 /datum/terminal/document/military_base_lockdown // Tunnel outpost
 	title = "Emergency Lockdown Protocol"
@@ -56,18 +93,6 @@
 		Once prepared, the base will be required to evacuate sub-THIRTY minutes. Any stragglers must be arrested or shot. By this point, anyone could be an enemy. Keep this log out of sight.area \
 		A verti-bird will be dispatched to the base's pads and any soldiers that remain in our control will be sent off to the compound directly north-west of here. Further instructions pending once on site."
 
-/datum/terminal/document/brotherhood_hint // BOS reminder to not ignore their loot
-	title = "Supply count"
-	content = "Before the departure of the last chapter splinter, they took the liberty of leaving behind some excess equipment.  \
-		A lot of our hardware should be in the generator room's crates. Look around for a crowbar and start busting them open- They can't stay there forever. \
-		According to one of them, they're actually kind enough to keep some medical supplies with us. Check the storage for them below the medical bay. \
-		<br><br>The supplies are fantastic and well appreciated- But we need to remember to keep an eye out when we're out on the field. Take what you can, the opportuntiy might not arise again."
-
-/datum/terminal/document/brotherhood_hint_two // BOS reminder to not fly out the rear entrance and get fragged by shellheads
-	title = "About the rear entrance"
-	content = "Attention! Heed caution exiting through the rear tunnels. Recently, mirelurks have taken to a liking of the pools out back.  \
-		It wouldn't be the first time a simple thing as a mirelurk has claimed one of our own... You all much exercise caution when going out through the back. Not like there's much point anyways. The tunnels probably don't lead anywhere. \
-		If you REALLY insist on going out there, bring at least on partner and log your exit with your nearest superior. Keep a flashlight handy and stay in the light. Good luck."
 
 /datum/terminal/document/military_crypt_initial // Topright military bunker outpost - First log
 	title = "Downfall"
@@ -95,6 +120,18 @@
 		<br><br>Now that you're here, this is the part where I tell you to never unlock the armory! Why you may ask? Because it also unlocks the security bay for the sentry bot, who was programmed to be VERY adamant on the integrity of our storage.\
 		<br><br>I leave this note not for your personal integrity, but as a plead for you to avoid having him blow up our reserves before the rest get there. Trust me, there will be nothing left. \
 		<br><br>If I've got to clean your body off of anything that may have survived, I'll personally scoop your brains up and pour it into a robobrain tank. Consider that before you toy around with things above you."
+
+// RANDOM WORLD TERMINALS //
+
+/datum/terminal/document/water_plant_notice // For the water plant terminal with sewer control
+	title = "Notice for Operator."
+	content = "Leaving this notice here as an official declaration of being over this shit. This is COMPLETELY unacceptable. \
+		<br><br>Consider this the final warning- The system can NOT take another closure like this, last week it got backed up to max capacity and nearly backwashed into the primary reservoir. \
+		We've recently came upon a list of the culprits involved in this matter, it will not be formally disclosed to you all. \
+		<br><br> I don't know what you think, but I've got a decent idea of what's REALLY going on here. I had a meeting with the local Sheriff and he's been alerted to this, so you should save yourself the bother and be on good behavior. \
+		In the meantime- DO. NOT. TOUCH. THE. CHOKES. \
+		<br><br>\
+		<br><br> I will be watching. -Director Norrison."
 
 /datum/terminal/document/toystore_restocklist // if you say this is coding i'll kill you; the toy store in the south of the map
 	title = "STOCKING LIST"

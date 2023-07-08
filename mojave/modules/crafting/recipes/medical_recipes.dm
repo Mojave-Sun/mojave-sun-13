@@ -129,7 +129,7 @@
 	reqs = list(/obj/item/reagent_containers/ms13/flask = 1,
 			/obj/item/food/grown/ms13/jalepeno = 3,
 			/obj/item/food/grown/ms13/tato = 2,
-			/obj/item/food/grown/ms13/garlic = 3)
+			/obj/item/food/grown/ms13/garlic = 2)
 	category = CAT_MEDICAL
 	crafting_interface = CRAFTING_BENCH_CAMPFIRE
 
@@ -139,7 +139,7 @@
 	time = 12 SECONDS
 	tool_paths = list()
 	reqs = list(/obj/item/reagent_containers/ms13/flask = 1,
-			/obj/item/food/grown/ms13/barrelcactus = 3,
+			/obj/item/food/grown/ms13/barrelcactus = 2,
 			/obj/item/food/grown/ms13/mesquite = 2,
 			/obj/item/food/grown/ms13/blight = 2)
 	category = CAT_MEDICAL
@@ -152,7 +152,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/reagent_containers/ms13/flask = 1,
 			/obj/item/food/grown/ms13/datura = 2,
-			/obj/item/food/grown/ms13/toxicsoot = 3,
+			/obj/item/food/grown/ms13/toxicsoot = 2,
 			/obj/item/food/grown/ms13/xander = 2)
 	category = CAT_MEDICAL
 	crafting_interface = CRAFTING_BENCH_CAMPFIRE
@@ -163,7 +163,7 @@
 	time = 12 SECONDS
 	tool_paths = list()
 	reqs = list(/obj/item/reagent_containers/ms13/flask = 1,
-			/obj/item/food/grown/ms13/cmutfruit = 3,
+			/obj/item/food/grown/ms13/cmutfruit = 2,
 			/obj/item/food/grown/ms13/pinyon = 2,
 			/obj/item/food/grown/ms13/snaptail = 3)
 	category = CAT_MEDICAL
@@ -176,7 +176,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/reagent_containers/ms13/flask = 1,
 			/obj/item/food/grown/ms13/radtura = 3,
-			/obj/item/food/grown/ms13/brocflower = 4,
+			/obj/item/food/grown/ms13/brocflower = 3,
 			/obj/item/food/grown/ms13/razorgrain = 3)
 	category = CAT_MEDICAL
 	crafting_interface = CRAFTING_BENCH_CAMPFIRE
@@ -188,7 +188,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/reagent_containers/ms13/flask = 1,
 			/obj/item/food/grown/ms13/datura = 6,
-			/obj/item/food/grown/ms13/radrose = 4)
+			/obj/item/food/grown/ms13/radrose = 3)
 	category = CAT_MEDICAL
 	crafting_interface = CRAFTING_BENCH_CAMPFIRE
 
@@ -200,7 +200,7 @@
 	reqs = list(/obj/item/stack/sheet/ms13/glass = 3,
 			/obj/item/ms13/animalitem/molerat/teeth = 2,
 			/obj/item/food/grown/ms13/gutshroom = 2,
-			/obj/item/food/grown/ms13/cavefungus = 4
+			/obj/item/food/grown/ms13/cavefungus = 3
 			)
 	category = CAT_MEDICAL
 	crafting_interface = CRAFTING_BENCH_CAMPFIRE

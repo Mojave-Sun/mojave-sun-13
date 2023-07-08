@@ -134,3 +134,19 @@
 	info = {"I saw it in a blizzard. And it saw me. It haunts me for now, I know it. God, please, help...
 	"}
 
+/obj/item/paper/ms13/prewritten/ncr_intercom
+	name = "paper - 'Intercom connection'"
+	info = {"<i><B>Intercom functionality restored!</B>
+	<br>
+	<br>
+	It took quite a while. But the intercom system is all linked up again. You can thank me later, Sergeant.
+	<br>
+	Molerats do a lot of damage. Look out for them. I've had to swap them around to make the wiring actually work.
+	<br>
+	This time, The mayor's line is on the right. The NCR Garrison is on the left.
+	<br>
+	Try not to forget it. What we know, keep to ourselves. Careless talk costs lives.
+	<br>
+	<br>
+	Keep fighting the good fight. - Specialist Roberts.
+	</i>"}
