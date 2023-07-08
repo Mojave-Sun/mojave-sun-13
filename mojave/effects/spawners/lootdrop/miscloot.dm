@@ -209,8 +209,8 @@
 	name = "general smokeables spawner"
 	spawn_loot_chance = 100
 	loot = list(
-			/obj/effect/spawner/random/ms13/guaranteed/smokeable/highrandom = 30,
-			/obj/effect/spawner/random/ms13/guaranteed/smokeable/lowrandom = 70,
+			/obj/effect/spawner/random/ms13/smokeable/highrandom = 30,
+			/obj/effect/spawner/random/ms13/smokeable/lowrandom = 70,
 			)
 
 /obj/effect/spawner/random/ms13/smokeable/highrandom
@@ -235,4 +235,39 @@
 			/obj/item/storage/fancy/ms13/cigarettes/kools/random = 10,
 			/obj/item/ms13/rolling_paper = 10,
 			/obj/item/storage/fancy/ms13/cigarettes/rollies/random = 2
+			)
+
+
+/obj/effect/spawner/random/ms13/smokeable/mammoth/general
+	name = "Mammoth general smokeables spawner"
+	spawn_loot_chance = 100
+	loot = list(
+			/obj/effect/spawner/random/ms13/smokeable/mammoth/highrandom = 30,
+			/obj/effect/spawner/random/ms13/smokeable/mammoth/lowrandom = 70,
+			)
+
+/obj/effect/spawner/random/ms13/smokeable/mammoth/highrandom
+	name = "Mammoth high tier random smokeables spawner"
+	spawn_loot_chance = 45
+	loot = list(
+			/obj/item/storage/fancy/ms13/cigarettes/marlboro = 12,
+			/obj/item/storage/fancy/ms13/cigarettes/winston = 12,
+			/obj/item/storage/fancy/ms13/cigarettes/salem = 30,
+			/obj/item/storage/fancy/ms13/cigarettes/kools = 20,
+			/obj/item/storage/fancy/ms13/cigarettes/rollies/republics = 8,
+			/obj/item/ms13/rolling_paper = 16,
+			/obj/item/storage/fancy/ms13/cigarettes/rollies = 2
+			)
+
+/obj/effect/spawner/random/ms13/smokeable/mammoth/lowrandom
+	name = "Mammoth low tier random smokeables spawner"
+	spawn_loot_chance = 40
+	loot = list(
+			/obj/item/storage/fancy/ms13/cigarettes/marlboro/random = 28,
+			/obj/item/storage/fancy/ms13/cigarettes/winston/random = 28,
+			/obj/item/storage/fancy/ms13/cigarettes/salem/random = 15,
+			/obj/item/storage/fancy/ms13/cigarettes/kools/random = 8,
+			/obj/item/storage/fancy/ms13/cigarettes/rollies/republics/random = 10,
+			/obj/item/ms13/rolling_paper = 10,
+			/obj/item/storage/fancy/ms13/cigarettes/rollies/random = 1
 			)

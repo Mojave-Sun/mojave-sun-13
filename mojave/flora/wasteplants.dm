@@ -19,8 +19,8 @@
 	var/harvest_message_high = "You harvest and collect many berries from the wild plant."
 	var/harvested = FALSE
 	var/base_icon
-	var/regrowth_time_low = 12 MINUTES
-	var/regrowth_time_high = 20 MINUTES
+	var/regrowth_time_low = 16 MINUTES
+	var/regrowth_time_high = 24 MINUTES
 	var/stick_around = TRUE // If the plant comes back later on
 	var/variants = 3 // How many variants of the plant sprite there are
 
