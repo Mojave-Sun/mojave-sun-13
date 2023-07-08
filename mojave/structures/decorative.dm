@@ -59,6 +59,8 @@
 	icon = 'mojave/icons/structure/largeflags.dmi'
 	icon_state = "ncrflag"
 	pixel_x = -32
+	layer = 4.9
+	plane = ABOVE_GAME_PLANE
 
 //Decorative Cable, functional WYCI//
 
@@ -588,7 +590,7 @@
 	anchored = TRUE
 	projectile_passchance = 35
 
-/obj/structure/ms13/pallet/stack/deconstruct(disassembled = TRUE)
+/obj/structure/ms13/brickstack/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		new /obj/item/ms13/brick(loc, rand(1,3))
 	qdel(src)
