@@ -50,7 +50,7 @@
 	access = list(ACCESS_TOWN_MAYOR, ACCESS_TOWN_LAW, ACCESS_TOWN_DOCTOR, ACCESS_TOWN_WORKER, ACCESS_TOWN_ALL)
 
 /obj/item/card/id/ms13/town
-	name = "town passport"
+	name = "\improper Snowcrest passport"
 	desc = "A fancy looking passport proving residency and citizenship in Snowcrest. Stamped by the Mayor to prove it's authenticity."
 	assignment = "Town Settler"
 	icon_state = "passport"
@@ -67,7 +67,7 @@
 	return ..()
 
 /obj/item/card/id/ms13/visa
-	name = "town visa"
+	name = "\improper Snowcrest visa"
 	desc = "A passport allowing temporary residency in Swnocrest, but not quite full citizenship."
 	assignment = "Town Squatter"
 	icon_state = "passport_photo"

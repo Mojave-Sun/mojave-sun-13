@@ -637,7 +637,7 @@
                 CUTTING = CLASS5_CUT, \
                 PIERCING = CLASS4_PIERCE, \
                 IMPALING = CLASS5_STAB, \
-                LASER = CLASS5_LASER, \
+                LASER = CLASS4_LASER, \
                 ENERGY = CLASS4_PLASMA, \
                 FIRE = CLASS5_FIRE)
 
@@ -672,7 +672,7 @@
                 CUTTING = CLASS5_CUT, \
                 PIERCING = CLASS4_PIERCE, \
                 IMPALING = CLASS5_STAB, \
-                LASER = CLASS4_LASER, \
+                LASER = CLASS3_LASER, \
                 ENERGY = CLASS3_PLASMA, \
                 FIRE = CLASS5_FIRE)
 
