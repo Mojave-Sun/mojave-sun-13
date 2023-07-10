@@ -56,9 +56,10 @@
 /obj/item/ms13/fluff/typewriter/wrench_act_secondary(mob/living/user, obj/item/weapon)
 	user.show_message(span_notice("You begin disassembling \the [src]."), MSG_VISUAL)
 	if(do_after(user, 8 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+		var/drop_location = user.drop_location()
 		user.show_message(span_notice("You disassemble \the [src] into scrap."), MSG_VISUAL)
-		new /obj/item/stack/sheet/ms13/scrap(loc, 3)
-		new /obj/item/stack/sheet/ms13/scrap_parts(loc, 3)
+		new /obj/item/stack/sheet/ms13/scrap(drop_location, 3)
+		new /obj/item/stack/sheet/ms13/scrap_parts(drop_location, 3)
 		qdel(src)
 
 /obj/item/ms13/fluff/typewriter/examine(mob/user)
