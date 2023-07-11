@@ -375,6 +375,11 @@
 				/obj/item/ammo_box/magazine/ms13/m45,
 				/obj/item/ammo_box/magazine/ms13/m45
 				)
+	var/loot6 = list(
+				/obj/item/gun/energy/ms13/laser/pistol/wattz/magneto,
+				/obj/item/stock_parts/cell/ms13/ec,
+				/obj/item/stock_parts/cell/ms13/ec
+				)
 
 /obj/effect/spawner/random/ms13/gun/lowunique/Initialize(mapload)
 	loot = pick(loot1, loot2, loot3, loot4, loot5)
