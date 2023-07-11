@@ -22,7 +22,7 @@
 		if(face_name)
 			//if we have no guestbook, we just KNOW okay?
 			var/known_name = user.guestbook ? user.guestbook.get_known_name(face_name) : face_name
-			var/actually = (known_name != name) ? "actually " : ""
+			var/actually = (known_name != name) ? "actually " : "really "
 			. += "Oh, it's [actually]<EM>[known_name]</EM>!"
 		else
 			. += "You have no clue who they are."
