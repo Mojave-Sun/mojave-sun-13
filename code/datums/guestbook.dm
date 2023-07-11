@@ -5,3 +5,73 @@
  * to handle getting the correct names on examine and saycode.
  */
 /datum/guestbook
+	/// Associative list of known guests, real_name = known_name
+	var/list/known_names
+
+/datum/guestbook/Destroy(force)
+	known_names = null
+	return ..()
+
+/datum/guestbook/proc/try_add_guest(mob/user, mob/living/carbon/human/guest, silent = FALSE)
+	if(!visibility_checks(user, guest, silent))
+		return FALSE
+	var/given_name = tgui_input_text(user, "What name do you want to give to [guest]?", "Guestbook Name", "", max_length = 42)
+	if(!given_name)
+		if(!silent)
+			to_chat(user, span_warning("Nevermind."))
+		return FALSE
+	if(!visibility_checks(user, guest, silent))
+		return FALSE
+	var/face_name = guest.get_face_name("ForgetMeNot")
+	if(LAZYACCESS(known_names, face_name))
+		if(!rename_guest(user, guest, face_name, given_name, silent))
+			return FALSE
+	else
+		if(!add_guest(user, guest, face_name, given_name, silent))
+			return FALSE
+	return TRUE
+
+/datum/guestbook/proc/add_guest(mob/user, mob/living/carbon/guest, real_name, given_name, silent = TRUE)
+	//Already exists, should be handled by rename_guest()
+	var/existing_name = LAZYACCESS(known_names, real_name)
+	if(existing_name)
+		if(!silent)
+			to_chat(user, span_warning("You already know them as \"[existing_name]\"."))
+		return FALSE
+	LAZYADDASSOC(known_names, real_name, given_name)
+	if(!silent)
+		to_chat(user, span_notice("You memorize the face of [guest] as \"[given_name]\"."))
+	return TRUE
+
+/datum/guestbook/proc/rename_guest(mob/user, mob/living/carbon/guest, real_name, given_name, silent = TRUE)
+	var/old_name = LAZYACCESS(known_names, real_name)
+	if(!old_name)
+		return FALSE
+	known_names[real_name] = given_name
+	if(!silent)
+		to_chat(user, span_notice("You re-memorize the face of \"[old_name]\" as \"[given_name]\"."))
+	return TRUE
+
+/datum/guestbook/proc/get_known_name(mob/user, mob/living/carbon/guest, real_name)
+	return LAZYACCESS(known_names, real_name)
+
+/datum/guestbook/proc/visibility_checks(mob/user, mob/living/carbon/human/guest, silent = FALSE)
+	if(QDELETED(guest))
+		if(!silent)
+			to_chat(user, span_warning("What?"))
+		return FALSE
+	if(!user.can_see(guest))
+		if(!silent)
+			to_chat(user, span_warning("You can't see them!"))
+		return FALSE
+	var/visible_name = guest.get_visible_name("")
+	var/face_name = guest.get_face_name("")
+	if(!visible_name || !face_name)
+		if(!silent)
+			to_chat(user, span_warning("You can't see their very well!"))
+		return FALSE
+	if(get_dist(user, guest) > 4)
+		if(!silent)
+			to_chat(user, span_warning("You need to take a closer look at them!"))
+		return FALSE
+	return TRUE

@@ -17,17 +17,20 @@
 			obscure_name = TRUE
 
 	. = list("<span class='info'>*---------*\nThis is <EM>[obscure_name ? "Unknown" : name]</EM>!")
-	if(!obscure_name && !skipface)
-		var/face_name = get_face_name("")
-		if(face_name)
-			//if we have no guestbook, we just KNOW okay?
-			var/known_name = user.guestbook ? user.guestbook.get_known_name(face_name) : face_name
-			var/actually = (known_name != name) ? "actually " : "really "
-			. += "Oh, it's [actually]<EM>[known_name]</EM>!"
+	if(user != src)
+		if(!obscure_name && !skipface)
+			var/face_name = get_face_name("")
+			if(face_name)
+				//if we have no guestbook, we just KNOW okay?
+				var/known_name = user.mind?.guestbook ? user.mind.guestbook.get_known_name(face_name) : face_name
+				var/actually = (known_name != name) ? "actually " : "really "
+				. += "Oh, it's [actually]<EM>[known_name]</EM>!"
+			else
+				. += "You have no clue who they are."
 		else
 			. += "You have no clue who they are."
 	else
-		. += "You have no clue who they are."
+		. += "It's you, [real_name]."
 
 	//uniform
 	if(w_uniform && !(obscured & ITEM_SLOT_ICLOTHING) && !(w_uniform.item_flags & EXAMINE_SKIP))

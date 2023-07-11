@@ -988,6 +988,12 @@
 	if(mind.assigned_role.title in SSjob.name_occupations)
 		.[mind.assigned_role.title] = minutes
 
+/mob/living/carbon/human/CtrlShiftClick(mob/user)
+	. = ..()
+	if(!user.mind?.guestbook)
+		return
+	INVOKE_ASYNC(user.mind.guestbook, /datum/guestbook.proc/try_add_guest, user, src, FALSE)
+
 /mob/living/carbon/human/monkeybrain
 	ai_controller = /datum/ai_controller/monkey
 
