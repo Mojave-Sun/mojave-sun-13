@@ -38,10 +38,7 @@
 	var/id_name = get_id_name("")
 	if(id_name)
 		return id_name
-	var/face_name = get_face_name("")
-	if(face_name)
-		return face_name
-	return "Unknown"
+	return get_aged_gender()
 
 //Returns "Unknown" if facially disfigured and real_name if not. Useful for setting name when Fluacided or when updating a human's name variable
 /mob/living/carbon/human/proc/get_face_name(if_no_face="Unknown")
@@ -52,7 +49,7 @@
 	var/obj/item/bodypart/O = get_bodypart(BODY_ZONE_HEAD)
 	if( !O || (HAS_TRAIT(src, TRAIT_DISFIGURED)) || (O.brutestate+O.burnstate)>2 || cloneloss>50 || !real_name || HAS_TRAIT(src, TRAIT_INVISIBLE_MAN)) //disfigured. use id-name if possible
 		return if_no_face
-	return get_aged_gender()
+	return real_name
 
 //gets name from ID or PDA itself, ID inside PDA doesn't matter
 //Useful when player is being seen by other mobs

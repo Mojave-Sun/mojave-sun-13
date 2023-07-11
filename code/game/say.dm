@@ -57,9 +57,14 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	var/freqpart = radio_freq ? "\[[get_radio_name(radio_freq)]\] " : ""
 	//Speaker name
 	var/namepart = "[speaker.GetVoice()]"
-	if(face_name && ishuman(speaker))
-		var/mob/living/carbon/human/H = speaker
-		namepart = "[H.get_face_name()]" //So "fake" speaking like in hallucinations does not give the speaker away if disguised
+	if(ishuman(speaker))
+		//So "fake" speaking like in hallucinations does not give the speaker away if disguised
+		if(face_name)
+			var/mob/living/carbon/human/H = speaker
+			namepart = "[H.get_face_name()]"
+		//otherwise, do guestbook handling
+		else if((src != speaker) && guestbook)
+			namepart = "[guestbook.get_known_name(namepart)]"
 	//End name span.
 	var/endspanpart = "</span>"
 
