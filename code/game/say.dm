@@ -63,7 +63,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 			var/mob/living/carbon/human/H = speaker
 			namepart = "[H.get_face_name()]"
 		//otherwise, do guestbook handling
-		else if((src != speaker) && user.mind?.guestbook)
+		else if((src != speaker) && mind?.guestbook)
 			namepart = "[mind.guestbook.get_known_name(namepart)]"
 	//End name span.
 	var/endspanpart = "</span>"

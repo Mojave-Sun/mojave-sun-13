@@ -65,7 +65,7 @@
 			to_chat(user, span_warning("What?"))
 		return FALSE
 	var/mob/living/living_user = user
-	if(istype(living_user) && !user.in_fov(guest))
+	if(istype(living_user) && !living_user.in_fov(guest))
 		if(!silent)
 			to_chat(user, span_warning("You can't see them!"))
 		return FALSE
