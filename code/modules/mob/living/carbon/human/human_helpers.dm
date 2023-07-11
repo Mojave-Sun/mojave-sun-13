@@ -253,9 +253,9 @@
 			return "Elderly"
 		if(50 to 60)
 			return "Old"
-		if(35 to 50)
+		if(40 to 50)
 			return "Middle Aged"
-		if(24 to 35)
+		if(24 to 40)
 			return "Adult"
 		if(18 to 24)
 			return "Young Adult"
