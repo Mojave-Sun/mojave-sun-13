@@ -22,7 +22,7 @@
 	if(istype(wear_mask, /obj/item/clothing/mask/infiltrator))
 		var/obj/item/clothing/mask/infiltrator/V = wear_mask
 		if(V.voice_unknown)
-			return ("Unknown")
+			return "Unknown"
 		else
 			return real_name
 	if(mind)
@@ -31,7 +31,7 @@
 			return changeling.mimicing
 	if(GetSpecialVoice())
 		return GetSpecialVoice()
-	return real_name
+	return get_aged_gender()
 
 /mob/living/carbon/human/IsVocal()
 	// how do species that don't breathe talk? magic, that's what.

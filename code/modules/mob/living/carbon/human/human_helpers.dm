@@ -33,28 +33,26 @@
 
 //repurposed proc. Now it combines get_id_name() and get_face_name() to determine a mob's name variable. Made into a separate proc as it'll be useful elsewhere
 /mob/living/carbon/human/get_visible_name()
-	var/face_name = get_face_name("")
-	var/id_name = get_id_name("")
 	if(name_override)
 		return name_override
-	if(face_name)
-		if(id_name && (id_name != face_name))
-			return "[face_name] (as [id_name])"
-		return face_name
+	var/id_name = get_id_name("")
 	if(id_name)
 		return id_name
+	var/face_name = get_face_name("")
+	if(face_name)
+		return face_name
 	return "Unknown"
 
 //Returns "Unknown" if facially disfigured and real_name if not. Useful for setting name when Fluacided or when updating a human's name variable
 /mob/living/carbon/human/proc/get_face_name(if_no_face="Unknown")
-	if( wear_mask && (wear_mask.flags_inv&HIDEFACE) ) //Wearing a mask which hides our face, use id-name if possible
+	if( wear_mask && (wear_mask.flags_inv & HIDEFACE) ) //Wearing a mask which hides our face, use id-name if possible
 		return if_no_face
-	if( head && (head.flags_inv&HIDEFACE) )
+	if( head && (head.flags_inv & HIDEFACE) )
 		return if_no_face //Likewise for hats
 	var/obj/item/bodypart/O = get_bodypart(BODY_ZONE_HEAD)
 	if( !O || (HAS_TRAIT(src, TRAIT_DISFIGURED)) || (O.brutestate+O.burnstate)>2 || cloneloss>50 || !real_name || HAS_TRAIT(src, TRAIT_INVISIBLE_MAN)) //disfigured. use id-name if possible
 		return if_no_face
-	return real_name
+	return get_aged_gender()
 
 //gets name from ID or PDA itself, ID inside PDA doesn't matter
 //Useful when player is being seen by other mobs
@@ -236,3 +234,36 @@
 
 		if (preference.is_randomizable())
 			preference.apply_to_human(src, preference.create_random_value(preferences))
+
+/mob/living/carbon/human/proc/get_gender()
+	var/visible_gender = p_they()
+	switch(visible_gender)
+		if("he")
+			visible_gender = "Man"
+		if("she")
+			visible_gender = "Woman"
+		if("they")
+			visible_gender = "Creature"
+		else
+			visible_gender = "Thing"
+	return visible_gender
+
+/mob/living/carbon/human/proc/get_age()
+	switch(age)
+		if(80 to INFINITY)
+			return "Geriatric"
+		if(65 to 80)
+			return "Elderly"
+		if(50 to 65)
+			return "Old"
+		if(18 to 22)
+			return "Young Adult"
+		else
+			return ""
+
+/mob/living/carbon/human/proc/get_aged_gender(prefixed = FALSE, lowercase = FALSE)
+	var/visible_gender = get_gender()
+	var/visible_age = get_age()
+	var/final_string = "[visible_age ? "[visible_age] "][visible_gender]"
+	return lowercase ? lowertext("[prefixed ? "\a "][final_string]") : "[prefixed ? "\A "][final_string]"
+
