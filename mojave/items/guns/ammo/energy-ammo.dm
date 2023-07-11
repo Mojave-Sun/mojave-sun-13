@@ -14,10 +14,6 @@
 	projectile_type = /obj/projectile/beam/ms13/laser/wattz_pistol
 	e_cost = 15 //Combined with EC capacity this gives 20 shots
 
-/obj/item/ammo_casing/energy/ms13/laser/wattz_pistol/magneto
-	projectile_type = /obj/projectile/beam/ms13/laser/wattz_pistol/magneto
-	e_cost = 15 //Combined with EC capacity this gives 20 shots
-
 /obj/item/ammo_casing/energy/ms13/laser/stan_pistol
 	projectile_type = /obj/projectile/beam/ms13/laser/stan_pistol
 	e_cost = 15 //Combined with EC capacity this gives 20 shots

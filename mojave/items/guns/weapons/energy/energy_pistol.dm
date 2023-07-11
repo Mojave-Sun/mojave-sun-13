@@ -56,15 +56,6 @@
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_4.ogg'
 	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/wattz_pistol)
 
-/obj/item/gun/energy/ms13/laser/pistol/wattz/magneto
-	name = "\improper Wattz Magneto laser pistol"
-	desc = "This Wattz 1000 laser pistol has been upgraded with a magnetic field targeting system that tightens the laser emission, giving this pistol extra penetrating power."
-	icon_state = "wattz1000mag"
-	base_icon_state = "wattz1000mag"
-	inhand_icon_state = "wattz1000mag"
-	fire_sound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_4.ogg'
-	ammo_type = list(/obj/item/ammo_casing/energy/ms13/laser/wattz_pistol/magneto)
-
 /obj/item/gun/energy/ms13/laser/pistol/wattz_heavy
 	name = "\improper Wattz heavy laser pistol"
 	desc = "An experimental laser pistol developed by Wattz electronics, intended to try and push into the military laser weapon market. Fires slower than other laser pistols but packs a decent punch."
