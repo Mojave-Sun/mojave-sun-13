@@ -253,6 +253,10 @@
 			return "Elderly"
 		if(50 to 65)
 			return "Old"
+		if(35 to 50)
+			return "Middle Aged"
+		if(22 to 35)
+			return "Adult"
 		if(18 to 22)
 			return "Young Adult"
 		else
