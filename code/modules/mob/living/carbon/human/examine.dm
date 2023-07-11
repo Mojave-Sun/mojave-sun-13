@@ -22,13 +22,16 @@
 			var/face_name = get_face_name("")
 			if(face_name)
 				//if we have no guestbook, we just KNOW okay?
-				var/known_name = user.mind?.guestbook ? user.mind.guestbook.get_known_name(face_name) : face_name
-				var/actually = (known_name != name) ? "actually " : "really "
-				. += "Oh, it's [actually]<EM>[known_name]</EM>!"
+				var/known_name = user.mind?.guestbook ? user.mind.guestbook.get_known_name(user, src, face_name) : face_name
+				if(known_name)
+					var/actually = (known_name != name) ? "actually " : "really "
+					. += "Oh, it's [actually]<EM>[known_name]</EM>!"
+				else
+					. += "You don't recognize them."
 			else
-				. += "You have no clue who they are."
+				. += "You can't see their face very well."
 		else
-			. += "You have no clue who they are."
+			. += "You can't see their face very well."
 	else
 		. += "It's you, [real_name]."
 

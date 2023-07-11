@@ -38,7 +38,7 @@
 	var/id_name = get_id_name("")
 	if(id_name)
 		return id_name
-	return get_aged_gender(lowercase = TRUE)
+	return get_generic_name(lowercase = TRUE)
 
 //Returns "Unknown" if facially disfigured and real_name if not. Useful for setting name when Fluacided or when updating a human's name variable
 /mob/living/carbon/human/proc/get_face_name(if_no_face="Unknown")
@@ -262,9 +262,9 @@
 		else
 			return "Puzzling"
 
-/mob/living/carbon/human/proc/get_aged_gender(prefixed = FALSE, lowercase = FALSE)
+/mob/living/carbon/human/proc/get_generic_name(prefixed = FALSE, lowercase = FALSE)
 	var/visible_gender = get_gender()
 	var/visible_age = get_age()
-	var/final_string = "[visible_age ? "[visible_age] " : null][visible_gender]"
+	var/final_string = "[fatness == FATNESS_OBESE ? "Fat " : null][visible_age ? "[visible_age] " : null][visible_gender]"
 	return lowercase ? lowertext("[prefixed ? "\a " : null][final_string]") : "[prefixed ? "\A " : null][final_string]"
 
