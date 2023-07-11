@@ -1,8 +1,8 @@
 /datum/job/ms13/bos/knight
 	title = "BoS Knight"
 	department_head = list("Head Paladin")
-	total_positions = 3
-	spawn_positions = 3
+	total_positions = 2
+	spawn_positions = 2
 	supervisors = "The Paladin and Head Paladin"
 	description = "Follow the orders of your superiors and ensure weaponized technology in the wastes is kept contained and in check. You're currently at edge with the NCR, though not at war, yet."
 

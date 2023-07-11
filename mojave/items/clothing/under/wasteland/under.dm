@@ -162,11 +162,16 @@
 	icon_state = "bodyguard"
 	inhand_icon_state = "shirt"
 
-/obj/item/clothing/under/ms13/wasteland/mammoth
-	name = "mammoth clothes"
-	desc = "A unique pair of shirt and pants favoured by the residents of the mammoth region."
+/obj/item/clothing/under/ms13/wasteland/snowcrest
+	name = "snowcrest clothes"
+	desc = "A unique pair of shirt and pants favoured by the residents of Snowcrest."
 	icon_state = "mammoth"
 	inhand_icon_state = "shirt"
+
+/obj/item/clothing/under/ms13/wasteland/snowcrest/medical
+	name = "snowcrest medical uniform"
+	desc = "A distinctive white shirt and dark pants worn by medical personnel of Snowcrest to easily identify them."
+	icon_state = "followers"
 
 /obj/item/clothing/under/ms13/wasteland/wanderer
 	name = "wanderer clothes"

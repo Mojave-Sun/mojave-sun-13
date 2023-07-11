@@ -26,6 +26,9 @@
 /obj/effect/landmark/start/ms13/settler
 	name = "Town Settler"
 
+/obj/effect/landmark/start/ms13/squatter
+	name = "Town Squatter"
+
 /obj/effect/landmark/start/ms13/bartender
 	name = "Town Bartender"
 
