@@ -548,16 +548,6 @@
 	category = CAT_UNDER
 	crafting_interface = CRAFTING_BENCH_ARMTAILOR
 
-/datum/crafting_recipe/guard_clothes
-	name = "guard clothes"
-	result = /obj/item/clothing/under/ms13/wasteland/guard
-	time = 8 SECONDS
-	tool_paths = list()
-	reqs = list(/obj/item/stack/sheet/ms13/cloth = 3,
-				/obj/item/stack/sheet/ms13/thread = 1)
-	category = CAT_UNDER
-	crafting_interface = CRAFTING_BENCH_ARMTAILOR
-
 /datum/crafting_recipe/wanderer_clothes
 	name = "wanderer clothes"
 	result = /obj/item/clothing/under/ms13/wasteland/wanderer
@@ -575,16 +565,6 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/cloth = 2,
 				/obj/item/stack/sheet/ms13/leather = 1,
-				/obj/item/stack/sheet/ms13/thread = 1)
-	category = CAT_UNDER
-	crafting_interface = CRAFTING_BENCH_ARMTAILOR
-
-/datum/crafting_recipe/merchant_clothes
-	name = "merchants' clothes"
-	result = /obj/item/clothing/under/ms13/wasteland/merchant
-	time = 8 SECONDS
-	tool_paths = list()
-	reqs = list(/obj/item/stack/sheet/ms13/cloth = 3,
 				/obj/item/stack/sheet/ms13/thread = 1)
 	category = CAT_UNDER
 	crafting_interface = CRAFTING_BENCH_ARMTAILOR
@@ -626,6 +606,105 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/cloth = 3,
 				/obj/item/stack/sheet/ms13/thread = 1)
+	category = CAT_UNDER
+	crafting_interface = CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/snowcrest_clothes
+	name = "snowcrest clothes"
+	result = /obj/item/clothing/under/ms13/wasteland/snowcrest
+	time = 8 SECONDS
+	tool_paths = list()
+	trait = TRAIT_SNOWCREST_TAILOR
+	reqs = list(/obj/item/stack/sheet/ms13/cloth = 3,
+				/obj/item/stack/sheet/ms13/thread = 1)
+	category = CAT_UNDER
+	crafting_interface = CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/snowcrest_medical
+	name = "snowcrest medical uniform"
+	result = /obj/item/clothing/under/ms13/wasteland/snowcrest/medical
+	time = 8 SECONDS
+	tool_paths = list()
+	trait = TRAIT_SNOWCREST_TAILOR
+	reqs = list(/obj/item/stack/sheet/ms13/cloth = 3,
+				/obj/item/stack/sheet/ms13/thread = 1)
+	category = CAT_UNDER
+	crafting_interface = CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/guard_clothes
+	name = "guard clothes"
+	result = /obj/item/clothing/under/ms13/wasteland/guard
+	time = 8 SECONDS
+	tool_paths = list()
+	trait = TRAIT_SNOWCREST_TAILOR
+	reqs = list(/obj/item/stack/sheet/ms13/cloth = 3,
+				/obj/item/stack/sheet/ms13/thread = 1)
+	category = CAT_UNDER
+	crafting_interface = CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/merchant_clothes
+	name = "merchants' clothes"
+	result = /obj/item/clothing/under/ms13/wasteland/merchant
+	time = 8 SECONDS
+	tool_paths = list()
+	trait = TRAIT_SNOWCREST_TAILOR
+	reqs = list(/obj/item/stack/sheet/ms13/cloth = 3,
+				/obj/item/stack/sheet/ms13/thread = 1)
+	category = CAT_UNDER
+	crafting_interface = CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/vest_slacks
+	name = "vest and slacks"
+	result = /obj/item/clothing/under/ms13/wasteland/vestslacks
+	time = 8 SECONDS
+	tool_paths = list()
+	trait = TRAIT_SNOWCREST_TAILOR
+	reqs = list(/obj/item/stack/sheet/ms13/cloth = 3,
+				/obj/item/stack/sheet/ms13/thread = 1)
+	category = CAT_UNDER
+	crafting_interface = CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/white_shirt
+	name = "white shirt"
+	result = /obj/item/clothing/under/ms13/wasteland/whiteshirt
+	time = 8 SECONDS
+	tool_paths = list()
+	trait = TRAIT_SNOWCREST_TAILOR
+	reqs = list(/obj/item/stack/sheet/ms13/cloth = 3,
+				/obj/item/stack/sheet/ms13/thread = 1)
+	category = CAT_UNDER
+	crafting_interface = CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/gentle_suit
+	name = "gentleman's suit"
+	result = /obj/item/clothing/under/ms13/wasteland/gentlemansuit
+	time = 8 SECONDS
+	tool_paths = list()
+	trait = TRAIT_SNOWCREST_TAILOR
+	reqs = list(/obj/item/stack/sheet/ms13/cloth = 4,
+				/obj/item/stack/sheet/ms13/thread = 2)
+	category = CAT_UNDER
+	crafting_interface = CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/class_suit
+	name = "classy suit"
+	result = /obj/item/clothing/under/ms13/wasteland/gentlemansuit/classy
+	time = 8 SECONDS
+	tool_paths = list()
+	trait = TRAIT_SNOWCREST_TAILOR
+	reqs = list(/obj/item/stack/sheet/ms13/cloth = 4,
+				/obj/item/stack/sheet/ms13/thread = 2)
+	category = CAT_UNDER
+	crafting_interface = CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/bar_attire
+	name = "barman's attire"
+	result = /obj/item/clothing/under/ms13/wasteland/barmansuit
+	time = 8 SECONDS
+	tool_paths = list()
+	trait = TRAIT_SNOWCREST_TAILOR
+	reqs = list(/obj/item/stack/sheet/ms13/cloth = 4,
+				/obj/item/stack/sheet/ms13/thread = 2)
 	category = CAT_UNDER
 	crafting_interface = CRAFTING_BENCH_ARMTAILOR
 
@@ -787,6 +866,7 @@
 	result = /obj/item/clothing/shoes/ms13/cowboy
 	time = 6 SECONDS
 	tool_paths = list()
+	trait = TRAIT_SNOWCREST_TAILOR
 	reqs = list(/obj/item/stack/sheet/ms13/leather = 2,
 				/obj/item/stack/sheet/ms13/thread = 1,
 				/obj/item/stack/sheet/ms13/scrap = 1)
@@ -798,6 +878,7 @@
 	result = /obj/item/clothing/shoes/ms13/winter
 	time = 6 SECONDS
 	tool_paths = list()
+	trait = TRAIT_SNOWCREST_TAILOR
 	reqs = list(/obj/item/stack/sheet/ms13/leather = 2,
 				/obj/item/stack/sheet/ms13/thread = 1,
 				/obj/item/stack/sheet/ms13/cloth = 1)
@@ -809,6 +890,7 @@
 	result = /obj/item/clothing/shoes/ms13/winter/black
 	time = 6 SECONDS
 	tool_paths = list()
+	trait = TRAIT_SNOWCREST_TAILOR
 	reqs = list(/obj/item/stack/sheet/ms13/leather = 2,
 				/obj/item/stack/sheet/ms13/thread = 1,
 				/obj/item/stack/sheet/ms13/cloth = 1)
@@ -820,6 +902,7 @@
 	result = /obj/item/clothing/shoes/ms13/explorer
 	time = 6 SECONDS
 	tool_paths = list()
+	trait = TRAIT_SNOWCREST_TAILOR
 	reqs = list(/obj/item/stack/sheet/ms13/leather = 2,
 				/obj/item/stack/sheet/ms13/thread = 1,
 				/obj/item/stack/sheet/ms13/cloth = 1)
@@ -898,5 +981,31 @@
 				/obj/item/stack/sheet/ms13/cloth = 8,
 				/obj/item/restraints/handcuffs/ms13/rope = 1,
 				/obj/item/stack/sheet/ms13/thread = 3)
+	category = CAT_STORAGE
+	crafting_interface = CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/leather_backpack
+	name = "leather backpack"
+	result = /obj/item/storage/ms13/leather_backpack
+	time = 16 SECONDS
+	tool_behaviors = list(TOOL_KNIFE)
+	tool_paths = list()
+	trait = TRAIT_SNOWCREST_TAILOR
+	reqs = list(/obj/item/stack/sheet/ms13/leather = 8,
+				/obj/item/stack/sheet/ms13/cloth = 2,
+				/obj/item/stack/sheet/ms13/thread = 4)
+	category = CAT_STORAGE
+	crafting_interface = CRAFTING_BENCH_ARMTAILOR
+
+/datum/crafting_recipe/leather_satchel
+	name = "leather satchel"
+	result = /obj/item/storage/ms13/satchel
+	time = 16 SECONDS
+	tool_behaviors = list(TOOL_KNIFE)
+	tool_paths = list()
+	trait = TRAIT_SNOWCREST_TAILOR
+	reqs = list(/obj/item/stack/sheet/ms13/leather = 8,
+				/obj/item/stack/sheet/ms13/cloth = 2,
+				/obj/item/stack/sheet/ms13/thread = 4)
 	category = CAT_STORAGE
 	crafting_interface = CRAFTING_BENCH_ARMTAILOR
