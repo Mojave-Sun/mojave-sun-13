@@ -254,17 +254,22 @@
 		if(50 to 60)
 			return "Old"
 		if(40 to 50)
-			return "Middle Aged"
+			return "Middle-Aged"
 		if(24 to 40)
-			return "Adult"
+			return "" //not necessary because this is basically the most common age range
 		if(18 to 24)
-			return "Young Adult"
+			return "Young"
 		else
 			return "Puzzling"
 
 /mob/living/carbon/human/proc/get_generic_name(prefixed = FALSE, lowercase = FALSE)
+	var/visible_weight = "[fatness == FATNESS_OBESE ? "Fat " : null]"
+	var/visible_skin
+	if(dna.species.use_skintones)
+		visible_skin = GLOB.skin_tone_names[skin_tone] ? "[GLOB.skin_tone_names[skin_tone]] " : null
+	else
+		visible_skin = "[dna.species.name] "
 	var/visible_gender = get_gender()
 	var/visible_age = get_age()
-	var/final_string = "[fatness == FATNESS_OBESE ? "Fat " : null][visible_age ? "[visible_age] " : null][visible_gender]"
+	var/final_string = "[visible_weight][visible_age ? "[visible_age] " : null][visible_skin][visible_gender]"
 	return lowercase ? lowertext("[prefixed ? "\a " : null][final_string]") : "[prefixed ? "\A " : null][final_string]"
-
