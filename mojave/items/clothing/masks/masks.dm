@@ -44,6 +44,11 @@
 	desc = "A dark green bandana useful for keeping dust, snow, and prying eyes away from your face."
 	icon_state = "bandanagreen"
 
+/obj/item/clothing/mask/ms13/bandana/ranger
+	name = "brown bandana"
+	desc = "A comfortable, dark brown bandana."
+	icon_state = "bandana_chief"
+
 /obj/item/clothing/mask/ms13/bandana/patriot
 	name = "old world bandana"
 	desc = "A bandana bearing the flag of the old world. This probably used to make someone feel a sense of pride."

@@ -62,8 +62,11 @@
 /obj/item/stack/ms13/currency/prewar/hunnedtwenty
 	amount = 120
 
+/obj/item/stack/ms13/currency/prewar/hunnedfourty
+	amount = 140
+
 /obj/item/stack/ms13/currency/prewar/mayor
-	amount = 300
+	amount = 325
 
 /obj/item/stack/ms13/currency/ncr_dollar
 	name = "\improper NCR dollars"
@@ -78,6 +81,9 @@
 
 /obj/item/stack/ms13/currency/ncr_dollar/ten
 	amount = 10
+
+/obj/item/stack/ms13/currency/ncr_dollar/twelve
+	amount = 12
 
 /obj/item/stack/ms13/currency/ncr_dollar/twenty
 	amount = 25
@@ -116,11 +122,17 @@
 	pickup_sound = 'mojave/sound/ms13items/doubloon.ogg'
 	drop_sound = 'mojave/sound/ms13items/doubloon.ogg'
 
+/obj/item/stack/ms13/currency/ncr_coin/two
+	amount = 2
+
 /obj/item/stack/ms13/currency/ncr_coin/five
 	amount = 5
 
 /obj/item/stack/ms13/currency/ncr_coin/ten
 	amount = 10
+
+/obj/item/stack/ms13/currency/ncr_coin/fifteen
+	amount = 15
 
 /obj/item/stack/ms13/currency/ncr_coin/twenty
 	amount = 20

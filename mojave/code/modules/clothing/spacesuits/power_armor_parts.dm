@@ -196,7 +196,7 @@
 					CUTTING = CLASS5_CUT, \
 					PIERCING = CLASS4_PIERCE, \
 					IMPALING = CLASS5_STAB, \
-					LASER = CLASS5_LASER, \
+					LASER = CLASS4_LASER, \
 					ENERGY = CLASS4_PLASMA, \
 					FIRE = CLASS5_FIRE)
 	chance = 35
@@ -212,7 +212,7 @@
 					CUTTING = CLASS5_CUT, \
 					PIERCING = CLASS4_PIERCE, \
 					IMPALING = CLASS5_STAB, \
-					LASER = CLASS5_LASER, \
+					LASER = CLASS4_LASER, \
 					ENERGY = CLASS4_PLASMA, \
 					FIRE = CLASS5_FIRE)
 	chance = 35
@@ -228,7 +228,7 @@
 					CUTTING = CLASS5_CUT, \
 					PIERCING = CLASS4_PIERCE, \
 					IMPALING = CLASS5_STAB, \
-					LASER = CLASS5_LASER, \
+					LASER = CLASS4_LASER, \
 					ENERGY = CLASS4_PLASMA, \
 					FIRE = CLASS5_FIRE)
 	chance = 25
@@ -244,7 +244,7 @@
 					CUTTING = CLASS5_CUT, \
 					PIERCING = CLASS4_PIERCE, \
 					IMPALING = CLASS5_STAB, \
-					LASER = CLASS5_LASER, \
+					LASER = CLASS4_LASER, \
 					ENERGY = CLASS4_PLASMA, \
 					FIRE = CLASS5_FIRE)
 	chance = 35
@@ -260,7 +260,7 @@
 					CUTTING = CLASS5_CUT, \
 					PIERCING = CLASS4_PIERCE, \
 					IMPALING = CLASS5_STAB, \
-					LASER = CLASS5_LASER, \
+					LASER = CLASS4_LASER, \
 					ENERGY = CLASS4_PLASMA, \
 					FIRE = CLASS5_FIRE)
 	chance = 35
@@ -276,14 +276,14 @@
 	name = "T-45 Power Armor left leg"
 	icon_state = "t45_leftleg"
 	icon_state_pa = "t45_leftleg"
-	max_integrity = 225
+	max_integrity = 200
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = CLASS4_EDGE, \
                 CRUSHING = CLASS4_CRUSH, \
                 CUTTING = CLASS5_CUT, \
                 PIERCING = CLASS4_PIERCE, \
                 IMPALING = CLASS5_STAB, \
-                LASER = CLASS4_LASER, \
+                LASER = CLASS3_LASER, \
                 ENERGY = CLASS3_PLASMA, \
                 FIRE = CLASS5_FIRE)
 	chance = 65
@@ -292,14 +292,14 @@
 	name = "T-45 Power Armor right leg"
 	icon_state = "t45_rightleg"
 	icon_state_pa = "t45_rightleg"
-	max_integrity = 225
+	max_integrity = 200
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = CLASS4_EDGE, \
                 CRUSHING = CLASS4_CRUSH, \
                 CUTTING = CLASS5_CUT, \
                 PIERCING = CLASS4_PIERCE, \
                 IMPALING = CLASS5_STAB, \
-                LASER = CLASS4_LASER, \
+                LASER = CLASS3_LASER, \
                 ENERGY = CLASS3_PLASMA, \
                 FIRE = CLASS5_FIRE)
 	chance = 65
@@ -308,14 +308,14 @@
 	name = "T-45 Power Armor chest"
 	icon_state = "t45_chest"
 	icon_state_pa = "t45_chest"
-	max_integrity = 440
+	max_integrity = 400
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = CLASS4_EDGE, \
                 CRUSHING = CLASS4_CRUSH, \
                 CUTTING = CLASS5_CUT, \
                 PIERCING = CLASS4_PIERCE, \
                 IMPALING = CLASS5_STAB, \
-                LASER = CLASS4_LASER, \
+                LASER = CLASS3_LASER, \
                 ENERGY = CLASS3_PLASMA, \
                 FIRE = CLASS5_FIRE)
 	chance = 75
@@ -324,14 +324,14 @@
 	name = "T-45 Power Armor left arm"
 	icon_state = "t45_lefthand"
 	icon_state_pa = "t45_lefthand"
-	max_integrity = 225
+	max_integrity = 200
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = CLASS4_EDGE, \
                 CRUSHING = CLASS4_CRUSH, \
                 CUTTING = CLASS5_CUT, \
                 PIERCING = CLASS4_PIERCE, \
                 IMPALING = CLASS5_STAB, \
-                LASER = CLASS4_LASER, \
+                LASER = CLASS3_LASER, \
                 ENERGY = CLASS3_PLASMA, \
                 FIRE = CLASS5_FIRE)
 	chance = 65
@@ -340,14 +340,14 @@
 	name = "T-45 Power Armor right arm"
 	icon_state = "t45_righthand"
 	icon_state_pa = "t45_righthand"
-	max_integrity = 225
+	max_integrity = 200
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = CLASS4_EDGE, \
                 CRUSHING = CLASS4_CRUSH, \
                 CUTTING = CLASS5_CUT, \
                 PIERCING = CLASS4_PIERCE, \
                 IMPALING = CLASS5_STAB, \
-                LASER = CLASS4_LASER, \
+                LASER = CLASS3_LASER, \
                 ENERGY = CLASS3_PLASMA, \
                 FIRE = CLASS5_FIRE)
 	chance = 65

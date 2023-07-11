@@ -677,6 +677,13 @@
                 FIRE = 0)
 	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
 
+/obj/item/clothing/suit/ms13/duster/ranger/chief
+	name = "\improper Desert Ranger Deputy-Chief poncho"
+	desc = "A well made, padded poncho known for being specially made for certain high ranking members within the Desert Rangers."
+	icon_state = "deputy_chief"
+	body_parts_covered = CHEST|GROIN|ARMS
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/large
+
 // labcoats //
 
 /obj/item/clothing/suit/toggle/labcoat/ms13
@@ -686,9 +693,18 @@
 	worn_icon = 'mojave/icons/mob/clothing/suit.dmi'
 	icon_state = "followers"
 	inhand_icon_state = "shirt"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = 0, \
+                IMPALING = 0, \
+                LASER = CLASS1_LASER, \
+                ENERGY = 0, \
+                FIRE = 0)
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0, wound = 0)
 	body_parts_covered = CHEST|ARMS
-	allowed = list(/obj/item/pen,/obj/item/paper,/obj/item/stamp,/obj/item/reagent_containers/food/drinks/flask,/obj/item/storage/box/matches,/obj/item/lighter,/obj/item/clothing/mask/cigarette,/obj/item/storage/fancy/cigarettes,/obj/item/flashlight,/obj/item/ammo_box,/obj/item/ammo_casing,/obj/item/scalpel,/obj/item/surgical_drapes,/obj/item/cautery,/obj/item/hemostat,/obj/item/retractor,/obj/item/storage/dice,/obj/item/dice)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/large
 	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
 
@@ -697,9 +713,17 @@
 	desc = "A lab coat often worn by Vault doctors. Good for protecting your precious undersuit from rapid blood ejection from your patients."
 	icon_state = "vaultlabcoat"
 	inhand_icon_state = "shirt"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = 0, \
+                IMPALING = 0, \
+                LASER = CLASS1_LASER, \
+                ENERGY = 0, \
+                FIRE = 0)
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0, wound = 0)
 	body_parts_covered = CHEST|ARMS
-	allowed = list(/obj/item/pen,/obj/item/paper,/obj/item/stamp,/obj/item/reagent_containers/food/drinks/flask,/obj/item/storage/box/matches,/obj/item/lighter,/obj/item/clothing/mask/cigarette,/obj/item/storage/fancy/cigarettes,/obj/item/flashlight,/obj/item/ammo_box,/obj/item/ammo_casing,/obj/item/scalpel,/obj/item/surgical_drapes,/obj/item/cautery,/obj/item/hemostat,/obj/item/retractor,/obj/item/storage/dice,/obj/item/dice)
 	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
 

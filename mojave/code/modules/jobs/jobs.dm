@@ -6,6 +6,7 @@ GLOBAL_LIST_INIT(wasteland_positions, list(
 GLOBAL_LIST_INIT(town_positions, list(
 	"Town Mayor",
 	"Town Settler",
+	"Town Squatter",
 	"Town Worker",
 	"Town Bartender",
 	"Town Doctor",

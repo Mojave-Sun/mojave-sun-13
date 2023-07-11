@@ -60,7 +60,7 @@
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	product = /obj/item/food/grown/ms13/barrelcactus
 	mutatelist = list(/obj/item/seeds/ms13/pricklypear)
-	lifespan = 225 //Good for roughly 4 harvests
+	lifespan = 200 //Good for roughly 4 harvests
 	endurance = 45
 	yield = 3 //12 fruit/seed
 	growthstages = 4
@@ -92,7 +92,7 @@
 	genes = list(/datum/plant_gene/trait/repeated_harvest, /datum/plant_gene/trait/squash)
 	product = /obj/item/food/grown/ms13/mutfruit
 	mutatelist = list(/obj/item/seeds/ms13/cmutfruit)
-	lifespan = 165 //Good for roughly 4 harvests
+	lifespan = 164 //Good for roughly 4 harvests
 	endurance = 45
 	yield = 3 //12 fruit/seed
 	growthstages = 4
@@ -186,7 +186,7 @@
 	genes = list(/datum/plant_gene/trait/repeated_harvest,/datum/plant_gene/trait/stinging) //could be a bad idea idk
 	product = /obj/item/food/grown/ms13/pricklypear
 	mutatelist = list(/obj/item/seeds/ms13/barrelcactus)
-	lifespan = 120 //Good for roughly 3 harvests
+	lifespan = 118 //Good for roughly 3 harvests
 	endurance = 35
 	yield = 3 //9 fruit/seed
 	growthstages = 4
@@ -328,7 +328,7 @@
 	product = /obj/item/food/grown/ms13/tarberry
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	mutatelist = list(/obj/item/seeds/ms13/blackberry)
-	lifespan = 110 //Good for roughly 4 harvests
+	lifespan = 118 //Good for roughly 4 harvests
 	endurance = 35
 	yield = 2 //8 fruit/seed
 	growthstages = 3
@@ -361,7 +361,7 @@
 	product = /obj/item/food/grown/ms13/blackberry
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	mutatelist = list(/obj/item/seeds/ms13/radberry, /obj/item/seeds/ms13/tarberry)
-	lifespan = 95 //Good for roughly 4 harvests
+	lifespan = 96 //Good for roughly 4 harvests
 	endurance = 15
 	yield = 2 //8 fruit/seed
 	growthstages = 4
@@ -392,7 +392,7 @@
 	harvest_icon = 1
 	genes = list(/datum/plant_gene/trait/squash)
 	product = /obj/item/food/grown/ms13/radberry
-	lifespan = 30
+	lifespan = 36
 	endurance = 30
 	instability = 90
 	yield = 4
@@ -421,7 +421,7 @@
 	species = "yucca"
 	plantname = "yucca plant"
 	product = /obj/item/food/grown/ms13/yucca
-	lifespan = 104 //Good for roughly 3 harvests
+	lifespan = 105 //Good for roughly 3 harvests
 	endurance = 45
 	yield = 3 //9 fruit/seed
 	growthstages = 4
@@ -582,7 +582,7 @@
 	genes = list(/datum/plant_gene/trait/squash, /datum/plant_gene/trait/repeated_harvest)
 	product = /obj/item/food/grown/ms13/radpepper
 	mutatelist = list(/obj/item/seeds/ms13/jalepeno)
-	lifespan = 82 //Good for roughly 4 harvests
+	lifespan = 88 //Good for roughly 4 harvests
 	instability = 90
 	endurance = 30
 	yield = 3 //12 peppers/seed
@@ -639,7 +639,7 @@
 	plantname = "Garlic Plant"
 	product = /obj/item/food/grown/ms13/garlic
 	mutatelist = list(/obj/item/seeds/ms13/onion)
-	lifespan = 65
+	lifespan = 60
 	endurance = 50
 	maturation = 38 //12m 40s to mature
 	production = 9 //3m to produce
@@ -667,7 +667,7 @@
 	species = "root"
 	plantname = "Xander Roots"
 	product = /obj/item/food/grown/ms13/xander
-	lifespan = 76
+	lifespan = 75
 	endurance = 50
 	maturation = 48 //16m to mature
 	production = 12 //4m to produce
@@ -705,7 +705,7 @@
 	species = "root"
 	plantname = "Carrots"
 	product = /obj/item/food/grown/ms13/carrot
-	lifespan = 45
+	lifespan = 48
 	endurance = 40
 	yield = 4
 	growthstages = 3
@@ -856,7 +856,7 @@
 	harvest_icon = 1
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	product = /obj/item/food/grown/ms13/mesquite
-	lifespan = 84 //Good for roughly 2 harvests
+	lifespan = 85 //Good for roughly 2 harvests
 	endurance = 40
 	yield = 3 //6 pods/seed
 	growthstages = 4
@@ -913,7 +913,7 @@
 	species = "corn"
 	plantname = "Maize Stalks"
 	product = /obj/item/food/grown/ms13/maize
-	lifespan = 75
+	lifespan = 70
 	endurance = 50
 	yield = 4
 	growthstages = 3
@@ -979,7 +979,7 @@
 	harvest_icon = 1
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	product = /obj/item/food/grown/ms13/radrose
-	lifespan = 110 //Good for roughly 3 harvests
+	lifespan = 118 //Good for roughly 3 harvests
 	endurance = 18
 	yield = 3 //9 flowers/seed
 	growthstages = 3
@@ -1010,7 +1010,7 @@
 	harvest_icon = 1
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	product = /obj/item/food/grown/ms13/soot
-	lifespan = 140 //Good for roughly 4 harvests
+	lifespan = 142 //Good for roughly 4 harvests
 	endurance = 35
 	yield = 3 //12 flowers/seed
 	growthstages = 3
@@ -1041,7 +1041,7 @@
 	harvest_icon = 1
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	product = /obj/item/food/grown/ms13/toxicsoot
-	lifespan = 125 //Good for roughly 3 harvests
+	lifespan = 136 //Good for roughly 3 harvests
 	endurance = 35
 	yield = 3 //9 flowers/seed
 	growthstages = 3
@@ -1072,7 +1072,7 @@
 	harvest_icon = 1
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	product = /obj/item/food/grown/ms13/datura
-	lifespan = 115 //Good for roughly 3 harvests
+	lifespan = 118 //Good for roughly 3 harvests
 	endurance = 20
 	yield = 3 //9 flowers/seed
 	growthstages = 3
@@ -1103,7 +1103,7 @@
 	harvest_icon = 1
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	product = /obj/item/food/grown/ms13/radtura
-	lifespan = 115 //Good for roughly 3 harvests
+	lifespan = 114 //Good for roughly 3 harvests
 	endurance = 25
 	yield = 3 //9 flowers/seed
 	growthstages = 3
@@ -1132,7 +1132,7 @@
 	plantname = "Coyote Tobacco"
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	product = /obj/item/food/grown/ms13/coyote
-	lifespan = 150 //Good for roughly 5 harvests
+	lifespan = 152 //Good for roughly 5 harvests
 	endurance = 18
 	yield = 2 //10 leaves/seed
 	growthstages = 3
@@ -1163,7 +1163,7 @@
 	harvest_icon = 1
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	product = /obj/item/food/grown/ms13/aster
-	lifespan = 155 //Good for roughly 3 harvests
+	lifespan = 158 //Good for roughly 3 harvests
 	endurance = 35
 	yield = 4 //12 flowers/seed
 	growthstages = 3
@@ -1193,7 +1193,7 @@
 	harvest_icon = 1
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	product = /obj/item/food/grown/ms13/ashblossom
-	lifespan = 140 //Good for roughly 3 harvests
+	lifespan = 142 //Good for roughly 3 harvests
 	endurance = 40
 	yield = 4 //12 flowers/seed
 	growthstages = 3
@@ -1271,7 +1271,7 @@
 	harvest_icon = 1
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	product = /obj/item/food/grown/ms13/agave
-	lifespan = 168 //Good for roughly 4 harvests
+	lifespan = 170 //Good for roughly 4 harvests
 	endurance = 55
 	yield = 3 //12 spines/seed
 	growthstages = 4
@@ -1302,7 +1302,7 @@
 	harvest_icon = 1
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	product = /obj/item/food/grown/ms13/brocflower
-	lifespan = 144 //Good for roughly 4 harvests
+	lifespan = 148 //Good for roughly 4 harvests
 	endurance = 30
 	maturation = 84 //28m to mature
 	production = 14 //4m 40s to produce

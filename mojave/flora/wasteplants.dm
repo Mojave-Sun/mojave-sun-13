@@ -19,8 +19,8 @@
 	var/harvest_message_high = "You harvest and collect many berries from the wild plant."
 	var/harvested = FALSE
 	var/base_icon
-	var/regrowth_time_low = 12 MINUTES
-	var/regrowth_time_high = 20 MINUTES
+	var/regrowth_time_low = 16 MINUTES
+	var/regrowth_time_high = 24 MINUTES
 	var/stick_around = TRUE // If the plant comes back later on
 	var/variants = 3 // How many variants of the plant sprite there are
 
@@ -286,7 +286,7 @@
 	harvest_amount_high = 4
 
 /obj/structure/flora/ms13/forage/lure
-	icon_state = "lure weed"
+	icon_state = "lureweed"
 	name = "lure weed"
 	desc = "A patch of lure weed"
 	harvested_name = "lure weed"
@@ -298,7 +298,7 @@
 	harvest_amount_high = 4
 
 /obj/structure/flora/ms13/forage/nara
-	icon_state = "nara root"
+	icon_state = "narashroom"
 	name = "nara root"
 	desc = "A patch of nara root"
 	harvested_name = "nara root"

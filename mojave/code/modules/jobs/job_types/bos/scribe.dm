@@ -1,8 +1,8 @@
 /datum/job/ms13/bos/scribe
 	title = "BoS Scribe"
 	department_head = list("Head Scribe")
-	total_positions = 3
-	spawn_positions = 3
+	total_positions = 2
+	spawn_positions = 2
 	supervisors = "The Head Scribe"
 	description = "Ensure the bunker is up to standards, ensure everyone is in good health, and ensure the technology of the Brotherhood is well maintained. Obey orders from the Head Scribe. You're currently at edge with the NCR, though not at war, yet."
 
