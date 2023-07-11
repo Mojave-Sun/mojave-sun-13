@@ -247,20 +247,20 @@
 
 /mob/living/carbon/human/proc/get_age()
 	switch(age)
-		if(80 to INFINITY)
+		if(70 to INFINITY)
 			return "Geriatric"
-		if(65 to 80)
+		if(60 to 70)
 			return "Elderly"
-		if(50 to 65)
+		if(50 to 60)
 			return "Old"
 		if(35 to 50)
 			return "Middle Aged"
-		if(22 to 35)
+		if(24 to 35)
 			return "Adult"
-		if(18 to 22)
+		if(18 to 24)
 			return "Young Adult"
 		else
-			return ""
+			return "Puzzling"
 
 /mob/living/carbon/human/proc/get_aged_gender(prefixed = FALSE, lowercase = FALSE)
 	var/visible_gender = get_gender()
