@@ -13,6 +13,10 @@
 	return ..()
 
 /datum/guestbook/proc/try_add_guest(mob/user, mob/living/carbon/human/guest, silent = FALSE)
+	if(user == guest)
+		if(!silent)
+			to_chat(user, span_warning("That's you! You already know yourself plenty."))
+		return
 	if(!visibility_checks(user, guest, silent))
 		return FALSE
 	var/given_name = tgui_input_text(user, "What name do you want to give to [guest]?", "Guestbook Name", "", max_length = 42)
@@ -60,7 +64,8 @@
 		if(!silent)
 			to_chat(user, span_warning("What?"))
 		return FALSE
-	if(!user.can_see(guest))
+	var/mob/living/living_user = user
+	if(istype(living_user) && !user.in_fov(guest))
 		if(!silent)
 			to_chat(user, span_warning("You can't see them!"))
 		return FALSE
