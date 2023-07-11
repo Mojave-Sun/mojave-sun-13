@@ -31,7 +31,7 @@
 			return changeling.mimicing
 	if(GetSpecialVoice())
 		return GetSpecialVoice()
-	return get_aged_gender()
+	return real_name
 
 /mob/living/carbon/human/IsVocal()
 	// how do species that don't breathe talk? magic, that's what.
