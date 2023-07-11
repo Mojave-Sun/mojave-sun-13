@@ -69,6 +69,9 @@ GLOBAL_LIST_INIT(freqtospan, list(
 				var/known_name = mob_source.mind.guestbook.get_known_name(src, speaker, namepart)
 				if(known_name)
 					namepart = "[known_name]"
+	var/alt_name_part = "[speaker.get_alt_name()]"
+	if(alt_name_part)
+		namepart += alt_name_part
 	//End name span.
 	var/endspanpart = "</span>"
 
