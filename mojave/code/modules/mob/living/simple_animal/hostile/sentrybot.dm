@@ -75,8 +75,8 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	vision_range = 12
 	aggro_vision_range = 12
 	dodge_prob = 50
-	maxHealth = 1000
-	health = 1000
+	maxHealth = 1120
+	health = 1120
 	idlechance = 20
 	melee_damage_lower = 25
 	melee_damage_upper = 25
@@ -311,7 +311,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 //randomspread prerequisite
 /obj/item/ammo_casing/energy/ms13/laser/sentrybot
 	projectile_type = /obj/projectile/beam/ms13/laser/sentrybot
-	variance = 30
+	variance = 28
 	pellets = 1
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/lasrifle/laser_heavy.ogg'
 	randomspread = TRUE

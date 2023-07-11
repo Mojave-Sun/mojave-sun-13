@@ -164,7 +164,7 @@
 	item_flags = NO_PIXEL_RANDOM_DROP
 	ms13_flags_1 = LOCKABLE_1
 	clothing_flags = LARGE_WORN_ICON | STOPSPRESSUREDAMAGE | THICKMATERIAL | SNUG_FIT | BLOCKS_SHOVE_KNOCKDOWN
-	slowdown = 1.35
+	slowdown = 1.55
 	/// Literally just whether or not we allow fatties to wear this power armor
 	var/no_fatties = TRUE
 	var/mob/listeningTo
