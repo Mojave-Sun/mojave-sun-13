@@ -47,8 +47,6 @@
 	range = 25
 	damage = 15
 	subtractible_armour_penetration = 20
-	wound_bonus = 0
-	bare_wound_bonus = 5
 
 /obj/projectile/beam/ms13/laser/stan_pistol
 	name = "weak laser beam"
