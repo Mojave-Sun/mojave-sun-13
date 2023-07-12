@@ -353,3 +353,9 @@
 	desc = "A large bench with a power supply hooked up to it. There's a soldering iron and a few other tools scattered about to assist you in making electronics."
 	icon_state = "tinkerbench"
 	crafting_interface = CRAFTING_BENCH_ELECTRIC
+
+/obj/structure/table/ms13/crafting/chemistry
+	name = "chemistry set"
+	desc = "A set of chemistry equipment, heaters, beakers, and filters for synthesizing and brewing concoctions."
+	icon_state = "chemicalset"
+	crafting_interface = CRAFTING_BENCH_CHEM

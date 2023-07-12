@@ -862,6 +862,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 #define TRAIT_SNOWCREST_TAILOR "snowcrest_tailor" //Trait for Snowcrest workers to tailor stuff
 
+#define TRAIT_DRUGGIE "drug_crafting" //Trait for drug crafting
+
 #define TRAIT_NON_FLAMMABLE "non_flammable" //An actual real fireproof trait
 
 // MOJAVE JOB TRAITS END

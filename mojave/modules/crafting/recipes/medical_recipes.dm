@@ -203,4 +203,8 @@
 			/obj/item/food/grown/ms13/cavefungus = 3
 			)
 	category = CAT_MEDICAL
-	crafting_interface = CRAFTING_BENCH_CAMPFIRE
+	crafting_interface = CRAFTING_BENCH_CAMPFIRE | CRAFTING_BENCH_CHEM
+
+//CHEMISTRY CRAFTING
+
+
