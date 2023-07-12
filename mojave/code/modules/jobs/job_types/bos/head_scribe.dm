@@ -11,7 +11,7 @@
 
 	display_order = JOB_DISPLAY_ORDER_MS13_HEAD_SCRIBE
 
-	mind_traits = list(TRAIT_MEDICAL_TRAINING, TRAIT_SCRIBE_TRAINING)
+	mind_traits = list(TRAIT_MEDICAL_TRAINING, TRAIT_SCRIBE_TRAINING, TRAIT_DRUGGIE)
 
 /datum/outfit/job/ms13/bos/head_scribe
 	name = "_BoS Head Scribe"
