@@ -69,7 +69,7 @@
 	else
 		suit = null
 
-	if(prob(25))
+	if(prob(20))
 		head = pick(
 		/obj/item/clothing/head/helmet/ms13/baseball,\
 		/obj/item/clothing/head/helmet/ms13/cowboy,\

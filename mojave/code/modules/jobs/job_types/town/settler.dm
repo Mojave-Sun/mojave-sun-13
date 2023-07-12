@@ -37,7 +37,7 @@
 			/obj/item/clothing/shoes/ms13/tan,\
 			/obj/item/clothing/shoes/ms13/brownie)
 
-	if(prob(50))
+	if(prob(40))
 		belt = pick(
 			/obj/item/knife/ms13, \
 			/obj/item/knife/ms13/switchblade/razor, \
