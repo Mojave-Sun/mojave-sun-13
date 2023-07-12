@@ -150,3 +150,14 @@
 	<br>
 	Keep fighting the good fight. - Specialist Roberts.
 	</i>"}
+
+/obj/item/paper/ms13/prewritten/mammoth_milbase_warning
+	name = "paper - 'Danger ahead!'"
+	info = {"<i>
+	Danger! Wastelanders and alike beware!
+	<br><br>
+	<br>The courtyard of this abandoned military base is still patrolled by an active and relentless sentry unit.
+	<br>The temptation must be deafening, but heed this advice and escape with your life. No plasma pistol is worth the several thousand pounds of kickass roaming FREE within that base.
+	<br>Go outside. Listen closely... You might even be able to hear it in the distance. It's OUT. It's FREE. There will NOT be a warning. By the time you hear the guns spin, you're already <u>DEAD</u>.
+	<br>Opening the gate or venturing further will only lead to certain doom. Turn back now and live to tell the tale.
+	</i>"}
