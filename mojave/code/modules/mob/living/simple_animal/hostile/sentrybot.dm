@@ -75,8 +75,8 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	vision_range = 12
 	aggro_vision_range = 12
 	dodge_prob = 50
-	maxHealth = 1000
-	health = 1000
+	maxHealth = 1120
+	health = 1120
 	idlechance = 20
 	melee_damage_lower = 25
 	melee_damage_upper = 25
@@ -87,9 +87,9 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	ranged = TRUE
 	stat_attack = CONSCIOUS
 	casingtype = /obj/item/ammo_casing/energy/ms13/laser/sentrybot
-	ranged_cooldown = 5 SECONDS
-	rapid = 20
-	rapid_fire_delay = 0.05 SECONDS //20 shots over 1 second
+	ranged_cooldown = 4.5 SECONDS
+	rapid = 16
+	rapid_fire_delay = 0.05 SECONDS //16 shots over 1 second
 	pixel_x = -8
 	base_pixel_x = -8
 	bot_type = "Sentrybot"
@@ -311,7 +311,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 //randomspread prerequisite
 /obj/item/ammo_casing/energy/ms13/laser/sentrybot
 	projectile_type = /obj/projectile/beam/ms13/laser/sentrybot
-	variance = 30
+	variance = 28
 	pellets = 1
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/lasrifle/laser_heavy.ogg'
 	randomspread = TRUE
@@ -322,10 +322,10 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 		qdel(src)
 
 /obj/projectile/beam/ms13/laser/sentrybot
-	damage = 5
-	subtractible_armour_penetration = 25
-	wound_bonus = 24
-	bare_wound_bonus = 12
+	damage = 8
+	subtractible_armour_penetration = 36
+	wound_bonus = 20
+	bare_wound_bonus = 10
 
 //A special rocket for sentrybot; light explosion fixed with lots of fire
 

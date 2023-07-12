@@ -202,8 +202,11 @@
 //Deposit generation
 
 //currently not spawning in uranium deposits as there is no use for them
-#define DEPOSIT_SPAWN_LIST list(/obj/structure/ms13/ore_deposit/gold = 1, /obj/structure/ms13/ore_deposit/silver = 3, /obj/structure/ms13/ore_deposit/alu = 4, /obj/structure/ms13/ore_deposit/lead = 5, /obj/structure/ms13/ore_deposit/copper = 5, /obj/structure/ms13/ore_deposit/coal = 4, /obj/structure/ms13/ore_deposit/iron = 4, /obj/structure/ms13/ore_deposit/zinc = 4) //The total sum of this right now is 30, so finding prob is X/30. If you change these numbers please update this comment.
-#define DEPOSIT_SPAWN_CHANCE	2.5
+#define DEPOSIT_SPAWN_LIST_DROUGHT list(/obj/structure/ms13/ore_deposit/gold = 1, /obj/structure/ms13/ore_deposit/silver = 3, /obj/structure/ms13/ore_deposit/alu = 4, /obj/structure/ms13/ore_deposit/lead = 5, /obj/structure/ms13/ore_deposit/copper = 5, /obj/structure/ms13/ore_deposit/coal = 4, /obj/structure/ms13/ore_deposit/iron = 4, /obj/structure/ms13/ore_deposit/zinc = 4) //The total sum of this right now is 30, so finding prob is X/30. If you change these numbers please update this comment.
+#define DEPOSIT_SPAWN_CHANCE_DROUGHT	2.5
+
+#define DEPOSIT_SPAWN_LIST_MAMMOTH list(/obj/structure/ms13/ore_deposit/gold = 2, /obj/structure/ms13/ore_deposit/silver = 4, /obj/structure/ms13/ore_deposit/alu = 3, /obj/structure/ms13/ore_deposit/lead = 3, /obj/structure/ms13/ore_deposit/copper = 5, /obj/structure/ms13/ore_deposit/coal = 4, /obj/structure/ms13/ore_deposit/iron = 4, /obj/structure/ms13/ore_deposit/zinc = 5) //The total sum of this right now is 30, so finding prob is X/30. If you change these numbers please update this comment.
+#define DEPOSIT_SPAWN_CHANCE_MAMMOTH	2.35
 
 /turf/open/floor/plating/ms13/ground/mountain/Initialize()
 	. = ..()
@@ -211,8 +214,8 @@
 	//spontaneously spawn deposits
 	if( (locate(/obj/machinery) in src) || (locate(/obj/structure) in src) ) //can't put ores on a tile that has already has stuff
 		return
-	if(prob(DEPOSIT_SPAWN_CHANCE))
-		randDeposit = pick_weight(DEPOSIT_SPAWN_LIST) //Create a new deposit object at this location, and assign var
+	if(prob(DEPOSIT_SPAWN_CHANCE_MAMMOTH))
+		randDeposit = pick_weight(DEPOSIT_SPAWN_LIST_MAMMOTH) //Create a new deposit object at this location, and assign var
 		new randDeposit(src)
 		. = TRUE //in case we ever need this to return if we spawned
 		return .
@@ -222,8 +225,8 @@
 	var/randDeposit = null
 	if( (locate(/obj/machinery) in src) || (locate(/obj/structure) in src) )
 		return
-	if(prob(DEPOSIT_SPAWN_CHANCE))
-		randDeposit = pick_weight(DEPOSIT_SPAWN_LIST)
+	if(prob(DEPOSIT_SPAWN_CHANCE_DROUGHT))
+		randDeposit = pick_weight(DEPOSIT_SPAWN_LIST_DROUGHT)
 		new randDeposit(src)
 		. = TRUE
 		return .

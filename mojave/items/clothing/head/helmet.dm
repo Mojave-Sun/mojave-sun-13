@@ -751,7 +751,16 @@
 	desc = "This fanciful hat belongs to a leader or in a museum. The gold and navy silk embroidery is classy and regal, conferring to those who wear it a bearing far beyond what is usually seen in the post-war wastelands."
 	icon_state = "regal"
 	inhand_icon_state = "fedora"
-	armor = list(melee = 20, bullet = 15, laser = 15, energy = 10, bomb = 0, bio = 0,  fire = 10, acid = 10)
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = 0, \
+                IMPALING = CLASS1_STAB, \
+                LASER = 0, \
+                ENERGY = 0, \
+                FIRE = 0)
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0) //No wound armor
 
 /obj/item/clothing/head/helmet/ms13/tall/manny
 	name = "\improper Manny Mammoth head"
