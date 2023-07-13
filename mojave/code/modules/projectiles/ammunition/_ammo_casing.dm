@@ -77,6 +77,10 @@
 		if(user)
 			to_chat(user, span_warning("I can't stack empty casings."))
 		return
+	if((item_flags & IN_STORAGE) || (other_casing.item_flags & IN_STORAGE))
+		if(user)
+			to_chat(user, span_warning("Can't stack while casings while they are inside storage."))
+		return
 	var/obj/item/ammo_box/magazine/ammo_stack/ammo_stack = other_casing.stack_with(src)
 	if(user)
 		user.put_in_hands(ammo_stack)
