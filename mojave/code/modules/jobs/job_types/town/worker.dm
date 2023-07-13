@@ -11,7 +11,7 @@
 
 	display_order = JOB_DISPLAY_ORDER_MS13_WORKER
 
-mind_traits = list(TRAIT_SNOWCREST_TAILOR)
+	mind_traits = list(TRAIT_SNOWCREST_TAILOR)
 
 /datum/outfit/job/ms13/town/worker
 	name = "_Town Worker"

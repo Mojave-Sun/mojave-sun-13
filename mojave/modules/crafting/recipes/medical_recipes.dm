@@ -265,11 +265,11 @@
 	result = /obj/item/reagent_containers/pill/ms13/mentat
 	time = 6 SECONDS
 	tool_paths = list()
-	trait = TRAIT_DRUGGIE | TRAIT_MEDICAL_CRAFTING
+	trait = TRAIT_MEDICAL_TRAINING
 	reqs = list(/obj/item/food/grown/ms13/brainfung = 1,
 			/obj/item/food/grown/ms13/firecap = 1
 			)
-	category = CAT_DRUGS
+	category = CAT_MEDICAL
 	crafting_interface = CRAFTING_BENCH_CHEM
 
 /datum/crafting_recipe/cateye
@@ -277,7 +277,7 @@
 	result = /obj/item/reagent_containers/pill/ms13/cateye
 	time = 6 SECONDS
 	tool_paths = list()
-	trait = TRAIT_MEDICAL_CRAFTING
+	trait = TRAIT_MEDICAL_TRAINING
 	reqs = list(/obj/item/food/grown/ms13/baifan = 1,
 			/obj/item/food/grown/ms13/carrot = 1
 			)
@@ -289,7 +289,7 @@
 	result = /obj/item/reagent_containers/pill/ms13/cateye
 	time = 6 SECONDS
 	tool_paths = list()
-	trait = TRAIT_MEDICAL_CRAFTING
+	trait = TRAIT_MEDICAL_TRAINING
 	reqs = list(/obj/item/food/grown/ms13/glowfungus = 1,
 			/obj/item/food/grown/ms13/radpepper = 1
 			)
