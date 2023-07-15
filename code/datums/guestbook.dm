@@ -39,6 +39,11 @@
 		if("rename_guest")
 			var/real_name = params["real_name"]
 			var/new_name = params["new_name"]
+			new_name = reject_bad_name(new_name)
+			if(!new_name)
+				if(!silent)
+					to_chat(usr, span_warning("That's a pretty terrible name. <i>You can do better</i>."))
+				return FALSE
 			if(!rename_guest(usr, null, real_name, new_name, silent = FALSE))
 				return FALSE
 			return TRUE
