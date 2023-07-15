@@ -3,6 +3,7 @@
 	departments_list = list(
 		/datum/job_department/wasteland,
 	)
+	guestbook_flags = NONE //by default, wasteland jobs should not know each other
 
 /datum/outfit/job/ms13/wasteland
 	name = "Default"
