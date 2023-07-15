@@ -16,7 +16,7 @@
 	if(user == guest)
 		if(!silent)
 			to_chat(user, span_warning("That's you! You already know yourself plenty."))
-		return
+		return FALSE
 	if(!visibility_checks(user, guest, silent))
 		return FALSE
 	var/given_name = tgui_input_text(user, "What name do you want to give to [guest]?", "Guestbook Name", "", max_length = 42)
@@ -59,6 +59,30 @@
 	known_names[real_name] = given_name
 	if(!silent)
 		to_chat(user, span_notice("You re-memorize the face of \"[old_name]\" as \"[given_name]\"."))
+	return TRUE
+
+/datum/guestbook/proc/try_remove_guest(mob/user, mob/living/carbon/human/guest, silent = FALSE)
+	if(user == guest)
+		if(!silent)
+			to_chat(user, span_warning("That's you! You'll never forget yourself."))
+		return
+	if(!visibility_checks(user, guest, silent))
+		return FALSE
+	var/face_name = guest.get_face_name("ForgetMeNot")
+	if(!remove_guest(user, guest, silent))
+		return FALSE
+	return TRUE
+
+/datum/guestbook/proc/remove_guest(mob/user, mob/living/carbon/guest, real_name, silent = TRUE)
+	//Already exists, should be handled by rename_guest()
+	var/existing_name = LAZYACCESS(known_names, real_name)
+	if(!existing_name)
+		if(!silent)
+			to_chat(user, span_warning("You don't know them in the first place."))
+		return FALSE
+	LAZYREMOVE(known_names, real_name)
+	if(!silent)
+		to_chat(user, span_notice("You forget the face of \"[existing_name]\"."))
 	return TRUE
 
 /datum/guestbook/proc/get_known_name(mob/user, mob/living/carbon/guest, real_name)

@@ -994,6 +994,12 @@
 		return
 	INVOKE_ASYNC(user.mind.guestbook, /datum/guestbook.proc/try_add_guest, user, src, FALSE)
 
+/mob/living/carbon/human/CtrlShiftRightClick(mob/user)
+	. = ..()
+	if(!user.mind?.guestbook)
+		return
+	INVOKE_ASYNC(user.mind.guestbook, /datum/guestbook.proc/try_remove_guest, user, src, FALSE)
+
 /mob/living/carbon/human/get_screentip_name(client/hovering_client)
 	. = ..()
 	var/mob/hovering_mob = hovering_client?.mob
