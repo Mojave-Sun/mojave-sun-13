@@ -4,7 +4,6 @@
 	if(user.mind?.guestbook && (user != src) && face_name)
 		if(user.mind.guestbook.get_known_name(user, src, face_name))
 			context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = "Edit guestbook"
-			context[SCREENTIP_CONTEXT_CTRL_SHIFT_RMB] = "Remove from guestbook"
 		else
 			context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = "Add to guestbook"
 

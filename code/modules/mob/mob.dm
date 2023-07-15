@@ -1352,6 +1352,19 @@
 	clear_important_client_contents()
 	canon_client = null
 
+///Shows guestbook tgui window
+/mob/verb/guestbook()
+	set name = "Guestbook"
+	set category = "IC"
+	set desc = "View your character's Guestbook."
+	if(!mind)
+		var/fail_message = "You have no mind!"
+		if(isobserver(src))
+			fail_message += " You have to be in the current round at some point to have one."
+		to_chat(src, span_warning(fail_message))
+		return
+	mind.guestbook.ui_interact(usr)
+
 ///Shows a tgui window with memories
 /mob/verb/memory()
 	set name = "Memories"

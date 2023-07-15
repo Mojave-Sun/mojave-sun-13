@@ -85,10 +85,7 @@
 			ShiftMiddleClickOn(A)
 			return
 		if(LAZYACCESS(modifiers, CTRL_CLICK))
-			if(LAZYACCESS(modifiers, RIGHT_CLICK))
-				CtrlShiftRightClickOn(A)
-			else
-				CtrlShiftClickOn(A)
+			CtrlShiftClickOn(A)
 			return
 		ShiftClickOn(A)
 		return
@@ -448,13 +445,6 @@
 	A.CtrlShiftClick(src)
 	return
 
-/**
- * Control+Shift+Right-click
- */
-/mob/proc/CtrlShiftClickOn(atom/A)
-	A.CtrlShiftRightClick(src)
-	return
-
 /mob/proc/ShiftMiddleClickOn(atom/A)
 	src.pointed(A)
 	return
@@ -463,12 +453,6 @@
 	if(!can_interact(user))
 		return FALSE
 	SEND_SIGNAL(src, COMSIG_CLICK_CTRL_SHIFT, user)
-	return
-
-/atom/proc/CtrlShiftRightClick(mob/user)
-	if(!can_interact(user))
-		return FALSE
-	SEND_SIGNAL(src, COMSIG_CLICK_CTRL_SHIFT_RIGHT, user)
 	return
 
 /*

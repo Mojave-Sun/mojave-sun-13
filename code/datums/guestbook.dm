@@ -12,6 +12,42 @@
 	known_names = null
 	return ..()
 
+/datum/guestbook/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "Guestbook", "[user.real_name]'s Guestbook")
+		ui.set_autoupdate(FALSE)
+		ui.open()
+
+/datum/guestbook/ui_state(mob/user)
+	return GLOB.always_state
+
+/datum/guestbook/ui_data(mob/user)
+	var/list/data = list()
+	var/list/names = list()
+	for(var/real_name in known_names)
+		var/given_name = LAZYACCESS(known_names, real_name)
+		names += list(list("real_name" = real_name, "given_name" = given_name))
+	data["names"] = names
+	return data
+
+/datum/guestbook/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return .
+	switch(action)
+		if("rename_guest")
+			var/real_name = params["real_name"]
+			var/new_name = params["new_name"]
+			if(!rename_guest(usr, null, real_name, new_name, silent = FALSE))
+				return FALSE
+			return TRUE
+		if("delete_guest")
+			var/real_name = params["real_name"]
+			if(!remove_guest(usr, null, real_name, silent = FALSE))
+				return FALSE
+			return TRUE
+
 /datum/guestbook/proc/try_add_guest(mob/user, mob/living/carbon/human/guest, silent = FALSE)
 	if(user == guest)
 		if(!silent)
@@ -69,7 +105,7 @@
 	if(!visibility_checks(user, guest, silent))
 		return FALSE
 	var/face_name = guest.get_face_name("ForgetMeNot")
-	if(!remove_guest(user, guest, silent))
+	if(!remove_guest(user, guest, face_name, silent))
 		return FALSE
 	return TRUE
 

@@ -16,9 +16,6 @@
 /// Context applied to Ctrl-Shift-LMB actions
 #define SCREENTIP_CONTEXT_CTRL_SHIFT_LMB "Ctrl-Shift-LMB"
 
-/// Context applied to Ctrl-Shift-RMB actions
-#define SCREENTIP_CONTEXT_CTRL_SHIFT_RMB "Ctrl-Shift-RMB"
-
 /// Screentips are always disabled
 #define SCREENTIP_PREFERENCE_DISABLED "Disabled"
 
