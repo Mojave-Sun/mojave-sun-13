@@ -27,11 +27,11 @@
 					var/actually = (known_name != name) ? "actually " : "really "
 					. += "Oh, it's [actually]<EM>[known_name]</EM>!"
 				else
-					. += "You don't recognize them."
+					. += "You don't recognize [t_him]."
 			else
-				. += "You can't see their face very well."
+				. += "You can't see [t_his] face very well."
 		else
-			. += "You can't see their face very well."
+			. += "You can't see [t_his] face very well."
 	else
 		. += "It's you, [real_name]."
 

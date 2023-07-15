@@ -994,6 +994,17 @@
 		return
 	INVOKE_ASYNC(user.mind.guestbook, /datum/guestbook.proc/try_add_guest, user, src, FALSE)
 
+/mob/living/carbon/human/get_screentip_name(client/hovering_client)
+	. = ..()
+	var/mob/hovering_mob = hovering_client?.mob
+	if(!hovering_mob || !hovering_mob.mind?.guestbook)
+		return .
+	var/face_name = get_face_name("")
+	var/known_name = hovering_mob.mind.guestbook.get_known_name(hovering_mob, src, face_name)
+	if(known_name)
+		return known_name
+	return .
+
 /mob/living/carbon/human/monkeybrain
 	ai_controller = /datum/ai_controller/monkey
 

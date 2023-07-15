@@ -62,6 +62,8 @@
 	return TRUE
 
 /datum/guestbook/proc/get_known_name(mob/user, mob/living/carbon/guest, real_name)
+	if(user == guest)
+		return real_name
 	return LAZYACCESS(known_names, real_name)
 
 /datum/guestbook/proc/visibility_checks(mob/user, mob/living/carbon/human/guest, silent = FALSE)

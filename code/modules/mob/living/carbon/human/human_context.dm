@@ -1,5 +1,10 @@
 /mob/living/carbon/human/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
 	. = ..()
+	if(user.mind?.guestbook)
+		if(user.mind.guestbook.get_known_name(user, src, get_face_name("")))
+			context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = "Edit guestbook"
+		else
+			context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = "Add to guestbook"
 
 	if (!ishuman(user))
 		return .
