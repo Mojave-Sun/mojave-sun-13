@@ -61,7 +61,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 		//So "fake" speaking like in hallucinations does not give the speaker away if disguised
 		if(face_name)
 			var/mob/living/carbon/human/H = speaker
-			namepart = "[H.get_face_name()]"
+			namepart = "[H.get_visible_name()]"
 		//otherwise, do guestbook handling
 		else if((src != speaker) && ismob(src))
 			var/mob/mob_source = src
