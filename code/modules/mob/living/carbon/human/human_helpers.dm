@@ -272,4 +272,6 @@
 	var/visible_gender = get_gender()
 	var/visible_age = get_age()
 	var/final_string = "[visible_weight][visible_age ? "[visible_age] " : null][visible_skin][visible_gender]"
-	return lowercase ? lowertext("[prefixed ? "\a " : null][final_string]") : "[prefixed ? "\A " : null][final_string]"
+	if(prefixed)
+		final_string = "\A [final_string]"
+	return lowercase ? lowertext(final_string) : final_string
