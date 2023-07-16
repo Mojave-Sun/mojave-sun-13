@@ -16,22 +16,22 @@
 			if(istype(idcard))
 				return idcard.registered_name
 			else
-				return real_name
+				return get_generic_name()
 		else
-			return real_name
+			return get_generic_name()
 	if(istype(wear_mask, /obj/item/clothing/mask/infiltrator))
 		var/obj/item/clothing/mask/infiltrator/V = wear_mask
 		if(V.voice_unknown)
 			return "Unknown"
 		else
-			return real_name
+			return get_generic_name()
 	if(mind)
 		var/datum/antagonist/changeling/changeling = mind.has_antag_datum(/datum/antagonist/changeling)
 		if(changeling?.mimicing)
 			return changeling.mimicing
 	if(GetSpecialVoice())
 		return GetSpecialVoice()
-	return real_name
+	return get_generic_name()
 
 /mob/living/carbon/human/IsVocal()
 	// how do species that don't breathe talk? magic, that's what.
