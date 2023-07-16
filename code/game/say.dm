@@ -69,6 +69,9 @@ GLOBAL_LIST_INIT(freqtospan, list(
 				var/known_name = mob_source.mind.guestbook.get_known_name(src, speaker, namepart)
 				if(known_name)
 					namepart = "[known_name]"
+				else
+					var/mob/living/carbon/human/H = speaker
+					namepart = "[H.get_generic_name(prefixed = TRUE, lowercase = FALSE)]"
 	//End name span.
 	var/endspanpart = "</span>"
 
