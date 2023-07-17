@@ -33,7 +33,7 @@
 		else
 			. += "You can't see [t_his] face very well."
 	else
-		. += "It's you, [real_name]."
+		. += "It's you, <EM>[real_name]</EM>."
 
 	//uniform
 	if(w_uniform && !(obscured & ITEM_SLOT_ICLOTHING) && !(w_uniform.item_flags & EXAMINE_SKIP))
