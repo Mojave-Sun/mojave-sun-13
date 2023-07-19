@@ -3,6 +3,7 @@
 	desc = "A simple identification tag. This is a base class and you shouldn't be seeing it."
 	icon = 'mojave/icons/objects/identification/dogtags_inventory.dmi'
 	icon_state = "bos_holotag"
+	worn_icon_state = null
 	var/datum/bank_account = null
 
 /obj/item/card/id/ms13/Initialize()
@@ -49,11 +50,37 @@
 	access = list(ACCESS_TOWN_MAYOR, ACCESS_TOWN_LAW, ACCESS_TOWN_DOCTOR, ACCESS_TOWN_WORKER, ACCESS_TOWN_ALL)
 
 /obj/item/card/id/ms13/town
-	name = "town passport"
-	desc = "A fancy looking passport proving residency in the Town. Stamped by the Mayor to prove it's authenticity."
+	name = "\improper Snowcrest passport"
+	desc = "A fancy looking passport proving residency and citizenship in Snowcrest. Stamped by the Mayor to prove it's authenticity."
 	assignment = "Town Settler"
 	icon_state = "passport"
 	access = list(ACCESS_TOWN_ALL)
+
+/obj/item/card/id/ms13/town/citizen
+	assignment = "Town Citizen"
+
+/obj/item/card/id/ms13/town/citizen/attackby(obj/item/W, mob/user, params)
+	if(istype(W, /obj/item/card/id/ms13/mayor))
+		registered_name = stripped_input(user, "Who do you want to designate as a citizen of Snowcrest?", , "", MAX_NAME_LEN)
+		to_chat(user, "You scribble [registered_name] for the name on the passport.")
+		update_label()
+	return ..()
+
+/obj/item/card/id/ms13/visa
+	name = "\improper Snowcrest visa"
+	desc = "A passport allowing temporary residency in Swnocrest, but not quite full citizenship."
+	assignment = "Town Squatter"
+	icon_state = "passport_photo"
+
+/obj/item/card/id/ms13/visa/visitor
+	assignment = "Town Visitor"
+
+/obj/item/card/id/ms13/visa/visitor/attackby(obj/item/W, mob/user, params)
+	if(istype(W, /obj/item/card/id/ms13/mayor))
+		registered_name = stripped_input(user, "Who do you want to grant this visa to?", , "", MAX_NAME_LEN)
+		to_chat(user, "You scribble [registered_name] for the name on the visa.")
+		update_label()
+	return ..()
 
 /obj/item/card/id/ms13/town/worker
 	assignment = "Town Worker"
