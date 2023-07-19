@@ -54,6 +54,16 @@
 	category = CAT_UTILITY
 	crafting_interface = CRAFTING_BENCH_GENERAL
 
+/datum/crafting_recipe/ferti_bag
+	name = "empty fertilizer bag"
+	result = /obj/item/ms13/fertilizer
+	time = 8 SECONDS
+	tool_paths = list()
+	trait = TRAIT_SNOWCREST_TAILOR
+	reqs = list(/obj/item/stack/sheet/ms13/cloth = 8,
+				/obj/item/stack/sheet/ms13/thread = 5)
+	category = CAT_UTILITY
+	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
 
 
 //SMELTER CRAFTING

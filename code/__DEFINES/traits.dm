@@ -860,6 +860,10 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 #define TRAIT_DRY_SHAMAN "drylander_shaman" //Trait for the Drylander Shaman to make ammo
 
+#define TRAIT_SNOWCREST_TAILOR "snowcrest_tailor" //Trait for Snowcrest workers to tailor stuff
+
+#define TRAIT_DRUGGIE "drug_crafting" //Trait for drug crafting
+
 #define TRAIT_NON_FLAMMABLE "non_flammable" //An actual real fireproof trait
 
 // MOJAVE JOB TRAITS END
