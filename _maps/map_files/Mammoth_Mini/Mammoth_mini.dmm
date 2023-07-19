@@ -146,7 +146,8 @@
 	dir = 1
 	},
 /obj/machinery/button/ms13{
-	dir = 4
+	dir = 4;
+	id = "upper_mil_loadingbay"
 	},
 /turf/open/floor/ms13/concrete/industrial/walkway{
 	dir = 1
@@ -4028,7 +4029,8 @@
 /area/ms13/town)
 "eMS" = (
 /obj/machinery/button/ms13{
-	dir = 8
+	dir = 8;
+	id = "upper_mil_lt"
 	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/army_base/building)
@@ -6438,12 +6440,6 @@
 	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
-"gUc" = (
-/obj/structure/railing/ms13/sewer{
-	dir = 8
-	},
-/turf/open/floor/plating/ms13/ground/snow,
-/area/ms13/army_base)
 "gUh" = (
 /obj/machinery/door/unpowered/ms13/metal/mirrored{
 	dir = 1
@@ -7116,6 +7112,10 @@
 /obj/effect/mob_spawn/corpse/human/ms13/wastelander,
 /turf/open/floor/ms13/concrete,
 /area/ms13/supermarket)
+"hrP" = (
+/obj/structure/closet/crate/ms13/army,
+/turf/open/floor/ms13/metal,
+/area/ms13/army_base/building)
 "hrS" = (
 /obj/structure/closet/crate/ms13/woodcrate,
 /obj/effect/spawner/random/ms13/crafting/lowrandom,
@@ -8333,6 +8333,10 @@
 	},
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
+"iej" = (
+/obj/structure/ms13/pa_jack,
+/turf/open/floor/ms13/tile/full/green,
+/area/ms13/army_base/building)
 "ieR" = (
 /obj/structure/ms13/trash/papers{
 	dir = 10
@@ -9657,7 +9661,9 @@
 "iXP" = (
 /obj/structure/table/ms13/low_wall/concrete,
 /obj/structure/window/fulltile/ms13/glass,
-/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/solo,
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/solo{
+	id = "upper_mil_lt"
+	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/army_base/building)
 "iXU" = (
@@ -12421,12 +12427,6 @@
 /obj/effect/spawner/random/ms13/medical/highrandom,
 /turf/open/floor/ms13/tile/blue/long,
 /area/ms13/town)
-"kUB" = (
-/obj/item/radio/intercom/ms13{
-	frequency = 137
-	},
-/turf/open/floor/ms13/tile/full/green,
-/area/ms13/army_base/building)
 "kUV" = (
 /obj/effect/decal/cleanable/glass,
 /obj/item/stack/sheet/ms13/glass,
@@ -13127,7 +13127,9 @@
 /turf/open/openspace/ms13,
 /area/ms13/town)
 "lup" = (
-/obj/machinery/door/poddoor/shutters/ms13/vertical/red/mid,
+/obj/machinery/door/poddoor/shutters/ms13/vertical/red/mid{
+	id = "upper_mil_loadingbay"
+	},
 /turf/open/floor/plating/ms13/ground/road,
 /area/ms13/army_base/building)
 "lur" = (
@@ -14435,10 +14437,6 @@
 	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
-"mzk" = (
-/obj/structure/closet/crate/ms13/army,
-/turf/open/floor/ms13/tile/full/green,
-/area/ms13/army_base/building)
 "mzw" = (
 /obj/structure/table/ms13/no_smooth/counter/wood/crafted,
 /turf/open/floor/wood/ms13/wide,
@@ -16805,7 +16803,11 @@
 "owN" = (
 /obj/structure/table/ms13/metal,
 /obj/machinery/ms13/terminal/rusty{
-	dir = 4
+	dir = 4;
+	doc_title_1 = "corrupted";
+	doc_title_2 = "corrupted";
+	doc_title_3 = "readme";
+	doc_title_4 = "corrupted"
 	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/army_base/building)
@@ -17767,12 +17769,6 @@
 /obj/structure/ms13/barricade,
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
-"pFz" = (
-/obj/structure/railing/ms13/sewer{
-	dir = 1
-	},
-/turf/open/floor/plating/ms13/ground/snow,
-/area/ms13/army_base)
 "pFO" = (
 /obj/structure/ms13/barrel/single/toxic/two,
 /turf/open/floor/ms13/concrete/small,
@@ -18211,14 +18207,6 @@
 	},
 /turf/open/floor/ms13/tile/blue,
 /area/ms13/snowcrest/building)
-"qpq" = (
-/obj/structure/railing/ms13/solo{
-	dir = 4
-	},
-/turf/open/floor/ms13/metal/border{
-	dir = 8
-	},
-/area/ms13/army_base/building)
 "qpO" = (
 /obj/machinery/light/ms13{
 	dir = 1
@@ -18432,6 +18420,9 @@
 "qGq" = (
 /obj/structure/railing/ms13/solo{
 	dir = 4
+	},
+/obj/structure/railing/ms13/solo{
+	dir = 8
 	},
 /turf/open/floor/ms13/tile/full/green,
 /area/ms13/army_base/building)
@@ -21726,10 +21717,6 @@
 	},
 /turf/open/floor/ms13/tile/long,
 /area/ms13/town)
-"vyR" = (
-/obj/structure/railing/ms13/sewer,
-/turf/open/floor/plating/ms13/ground/snow,
-/area/ms13/army_base)
 "vyX" = (
 /obj/structure/chair/ms13/metal/broken{
 	dir = 8
@@ -22282,6 +22269,9 @@
 /area/ms13/town)
 "wwv" = (
 /obj/structure/closet/crate/ms13/woodcrate/compact/army,
+/obj/item/radio/intercom/ms13{
+	frequency = 137
+	},
 /turf/open/floor/ms13/metal/border{
 	dir = 4
 	},
@@ -33898,10 +33888,10 @@ khQ
 khQ
 khQ
 khQ
-khQ
-khQ
-khQ
-khQ
+hoL
+hoL
+hoL
+hoL
 khQ
 khQ
 hoL
@@ -33946,9 +33936,9 @@ qOJ
 gSi
 prp
 kDz
-qpq
-qpq
-qpq
+kDz
+kDz
+kDz
 kDz
 hoL
 gxL
@@ -34126,8 +34116,8 @@ khQ
 khQ
 khQ
 hoL
-hoL
-hoL
+hrP
+pOz
 hoL
 hoL
 hoL
@@ -34173,7 +34163,7 @@ hVu
 hVu
 hVu
 hVu
-bVb
+rKx
 qGq
 qGq
 hVu
@@ -34351,7 +34341,7 @@ khQ
 khQ
 khQ
 khQ
-khQ
+hoL
 hoL
 bsm
 kDz
@@ -34578,9 +34568,9 @@ khQ
 khQ
 khQ
 khQ
-khQ
 hoL
-mzk
+hVu
+hVu
 hVu
 hVu
 hVu
@@ -34805,8 +34795,8 @@ khQ
 khQ
 khQ
 khQ
-khQ
 hoL
+iej
 hVu
 hVu
 hVu
@@ -34834,6 +34824,7 @@ qkv
 pYf
 pYf
 gxL
+ydy
 gxL
 gxL
 gxL
@@ -34841,8 +34832,7 @@ gxL
 gxL
 gxL
 gxL
-gxL
-gxL
+ydy
 gxL
 pYf
 pYf
@@ -35032,9 +35022,9 @@ khQ
 khQ
 khQ
 khQ
-khQ
 hoL
-kUB
+hVu
+hVu
 hVu
 hVu
 xjI
@@ -35061,6 +35051,7 @@ pYf
 pYf
 pYf
 gxL
+ydy
 gxL
 gxL
 gxL
@@ -35068,8 +35059,7 @@ gxL
 gxL
 gxL
 gxL
-gxL
-gxL
+ydy
 gxL
 pYf
 gxL
@@ -35259,7 +35249,7 @@ khQ
 khQ
 khQ
 khQ
-khQ
+hoL
 hoL
 wwv
 aPO
@@ -35288,6 +35278,7 @@ pYf
 pYf
 pYf
 gxL
+ydy
 gxL
 gxL
 gxL
@@ -35295,8 +35286,7 @@ gxL
 gxL
 gxL
 gxL
-gxL
-gxL
+ydy
 gxL
 pYf
 gxL
@@ -35960,9 +35950,9 @@ pYf
 pYf
 pYf
 bQf
-gUc
 gxL
-gUc
+gxL
+gxL
 wxl
 pYf
 pYf
@@ -36186,11 +36176,11 @@ pYf
 pYf
 pYf
 pYf
-pFz
+gxL
 gxL
 gxL
 xLq
-vyR
+gxL
 pYf
 pYf
 oan
@@ -36413,11 +36403,11 @@ pYf
 dzI
 pYf
 pYf
-pFz
+gxL
 gxL
 gxL
 xLq
-vyR
+gxL
 pYf
 nwd
 oan
@@ -36640,11 +36630,11 @@ pYf
 pYf
 pYf
 pYf
-pFz
+gxL
 gxL
 xLq
 xLq
-vyR
+gxL
 pYf
 pYf
 oan
@@ -36868,9 +36858,9 @@ pYf
 pYf
 pYf
 xmW
-hbw
 gxL
-hbw
+gxL
+gxL
 iBz
 pYf
 pYf
