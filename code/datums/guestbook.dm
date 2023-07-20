@@ -144,7 +144,7 @@
 	var/face_name = guest.get_face_name("")
 	if(!visible_name || !face_name)
 		if(!silent)
-			to_chat(user, span_warning("You can't see their very well!"))
+			to_chat(user, span_warning("You can't see their face very well!"))
 		return FALSE
 	if(get_dist(user, guest) > 4)
 		if(!silent)
