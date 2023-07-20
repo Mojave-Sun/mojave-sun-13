@@ -12,10 +12,7 @@ type NameData = {
   given_name: string;
 };
 
-export const Guestbook = (props: {
-  handleUpdateName: (name: string) => void,
-  name: string,
-}, context) => {
+export const Guestbook = (props, context) => {
   const { act, data } = useBackend<Info>(context);
   const {
     names = [],
@@ -23,7 +20,6 @@ export const Guestbook = (props: {
 
   const [lastNameBeforeEdit, setLastNameBeforeEdit]
   = useLocalState<string | null>(context, "lastNameBeforeEdit", null);
-  const editing = lastNameBeforeEdit === props.name;
 
   return (
     <Window
@@ -49,21 +45,21 @@ export const Guestbook = (props: {
                   <Section fill width="100%">
                     <Button
                       width="80%"
-                      captureKeys={!editing}
+                      captureKeys={lastNameBeforeEdit !== name.real_name}
                       onClick={() => {
-                        setLastNameBeforeEdit(props.name);
+                        setLastNameBeforeEdit(name.real_name);
                       }}>
-                      {editing && (
+                      {(lastNameBeforeEdit === name.real_name) && (
                         <Input
                           onEnter={(e, value) => {
                             act("rename_guest", {
                               real_name: name.real_name,
                               new_name: value,
                             });
-                            setLastNameBeforeEdit(value);
+                            setLastNameBeforeEdit(null);
                           }}
                           onEscape={() => {
-                            setLastNameBeforeEdit(props.name);
+                            setLastNameBeforeEdit(null);
                           }}
                           value={name.given_name}
                         />
