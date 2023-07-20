@@ -14,6 +14,8 @@
 
 /obj/item/organ/lungs/on_life()
 	. = ..()
+	if(smoking && !(owner.wear_mask)) //no longer smoking
+		smoking = FALSE
 	if(!smoking && (nicotine) < (0)) //catch check
 		nicotine = 0
 	if(!smoking && (nicotine) >= (0))
