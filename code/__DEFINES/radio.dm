@@ -52,7 +52,7 @@
 #define RADIO_CHANNEL_CTF_YELLOW "Yellow Team"
 
 
-#define MIN_FREE_FREQ 1201 // -------------------------------------------------
+#define MIN_FREE_FREQ 1 // ------------------------------------------------- // MOJAVE SUN EDIT BEGIN - ORIGINAL VALUE IS 1201 - I dropped this to the floor so that we can do whatever we want with intercoms.
 // Frequencies are always odd numbers and range from 1201 to 1599.
 
 #define FREQ_SYNDICATE 1213  // Nuke op comms frequency, dark brown
