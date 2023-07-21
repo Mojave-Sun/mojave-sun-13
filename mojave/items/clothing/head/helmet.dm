@@ -1239,6 +1239,29 @@
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 
+/obj/item/clothing/head/helmet/ms13/snowguard
+	name = "visored helmet"
+	desc = "A hardy, visored helmet. Quite protective, even if a bit bulky."
+	icon_state = "snow_guard"
+	inhand_icon_state = "combathelmet"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = CLASS3_EDGE, \
+                CRUSHING = CLASS2_CRUSH, \
+                CUTTING = CLASS3_CUT, \
+                PIERCING = CLASS3_PIERCE, \
+                IMPALING = CLASS2_STAB, \
+                LASER = CLASS2_LASER, \
+                ENERGY = CLASS1_PLASMA, \
+                FIRE = CLASS2_FIRE)
+	max_integrity = 325
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 5)
+	flags_inv = HIDEEARS|HIDEHAIR
+	flags_cover = HEADCOVERSEYES // Built in protection from the dust. yippie.
+	has_fov = TRUE
+	fov_angle = 90
+	equip_delay_self = 1.5 SECONDS
+	equip_delay_other = 3 SECONDS
+
 // Enviro Helmets //
 
 /obj/item/clothing/head/helmet/ms13/firehood

@@ -173,6 +173,11 @@
 	desc = "A distinctive white shirt and dark pants worn by medical personnel of Snowcrest to easily identify them."
 	icon_state = "followers"
 
+/obj/item/clothing/under/ms13/wasteland/snowcrest/bodyguard
+	name = "snowcrest guard fatigues"
+	desc = "A set of fatigues worn by the guards and protectors of Snowcrest."
+	icon_state = "snow_guard"
+
 /obj/item/clothing/under/ms13/wasteland/wanderer
 	name = "wanderer clothes"
 	desc = "A grubby shirt and jeans, for the roamer not held back by life."

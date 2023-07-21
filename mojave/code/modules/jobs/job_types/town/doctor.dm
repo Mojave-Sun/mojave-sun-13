@@ -22,6 +22,7 @@
 	uniform = 	 /obj/item/clothing/under/ms13/wasteland/snowcrest/medical
 	belt = 		 /obj/item/storage/firstaid/ms13/regular
 	shoes = 	 /obj/item/clothing/shoes/ms13/fancy
+	gloves =	 /obj/item/clothing/gloves/ms13/nitrile
 	r_pocket =   /obj/item/stack/ms13/currency/prewar/hunnedfourty
 	back =       /obj/item/storage/ms13/satchel
 

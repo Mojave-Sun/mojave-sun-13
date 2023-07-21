@@ -49,6 +49,13 @@
 	icon_state = "sheriff"
 	access = list(ACCESS_TOWN_MAYOR, ACCESS_TOWN_LAW, ACCESS_TOWN_DOCTOR, ACCESS_TOWN_WORKER, ACCESS_TOWN_ALL)
 
+/obj/item/card/id/ms13/bodyguard
+	name = "\improper Snowcrest guard badge"
+	desc = "A dull silver badge given to guards of the town of Snowcrest."
+	assignment = "Town Bodyguard"
+	icon_state = "deputy"
+	access = list(ACCESS_TOWN_LAW, ACCESS_TOWN_DOCTOR, ACCESS_TOWN_WORKER, ACCESS_TOWN_ALL)
+
 /obj/item/card/id/ms13/town
 	name = "\improper Snowcrest passport"
 	desc = "A fancy looking passport proving residency and citizenship in Snowcrest. Stamped by the Mayor to prove it's authenticity."

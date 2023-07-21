@@ -288,6 +288,23 @@
                 FIRE = CLASS2_FIRE)
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
 
+/obj/item/clothing/suit/armor/ms13/vest/snowcrest
+	name = "heavy kevlar vest"
+	desc = "A heavy duty bulletproof kevlar vest. Not the easiest to maneuver in, but could certainly save your life."
+	icon_state = "snow_guard"
+	body_parts_covered = CHEST|GROIN
+	slowdown = 0.3
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = CLASS3_EDGE, \
+                CRUSHING = CLASS2_CRUSH, \
+                CUTTING = CLASS3_CUT, \
+                PIERCING = CLASS3_PIERCE, \
+                IMPALING = CLASS2_STAB, \
+                LASER = CLASS2_LASER, \
+                ENERGY = CLASS1_PLASMA, \
+                FIRE = CLASS2_FIRE)
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 5)
+
 // Raider Armor //
 
 /obj/item/clothing/suit/ms13/trench/black/armored/enforcer
