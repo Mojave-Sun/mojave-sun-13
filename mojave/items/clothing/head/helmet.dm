@@ -1359,6 +1359,11 @@
 	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
 
+/obj/item/clothing/head/helmet/ms13/ncr/mp
+	name = "\improper NCR military police helmet"
+	desc = "An NCR helmet issued to military police stationed at NCR military installations or frontier towns."
+	icon_state = "ncr_mp_helmet"
+
 /obj/item/clothing/head/helmet/ms13/ncr/medic
 	name = "\improper NCR medic helmet"
 	desc = "A standard NCR infantry helmet with the addition of a blue cross for identifying the soldier as a medic."
@@ -1421,6 +1426,10 @@
 	has_fov = FALSE
 	equip_delay_self = 1 SECONDS
 	equip_delay_other = 2 SECONDS
+
+/obj/item/clothing/head/helmet/ms13/ncr/beret/nco
+	icon_state = "ncr_nco_beret"
+	inhand_icon_state = "ncr_officer_brberet"
 
 /obj/item/clothing/head/helmet/ms13/ncr/beret/officer
 	name = "\improper NCR officer beret"

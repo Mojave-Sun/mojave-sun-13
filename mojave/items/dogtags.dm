@@ -102,13 +102,17 @@
 	icon_state = "ncrdogtag"
 	assignment = "NCR Trooper"
 
+/obj/item/card/id/ms13/ncr/mp
+	desc = "Standard NCR dog tags. The assignment listed on the tag is 'Military Police' and the rank is listed as 'Private First Class'."
+	assignment = "NCR Military Police"
+
 /obj/item/card/id/ms13/ncr/recruit
 	name = "\improper NCR recruit dog tags"
 	desc = "Standard NCR dog tags. The assignment listed on the tag is 'Recruit' and the rank is listed as 'Private'."
 	assignment = "NCR Recruit"
 
 /obj/item/card/id/ms13/ncr/recruit/attackby(obj/item/W, mob/user, params)
-	if(istype(W, /obj/item/card/id/ms13/ncr/lieutenant))
+	if(istype(W, /obj/item/card/id/ms13/ncr/sergeant/mp))
 		registered_name = stripped_input(user, "Who do you want to designate as a recruit?", , "", MAX_NAME_LEN)
 		to_chat(user, "You scribble [registered_name] for the name on the dogtag.")
 		update_label()
@@ -117,6 +121,10 @@
 /obj/item/card/id/ms13/ncr/medic
 	desc = "Standard NCR dog tags. The assignment listed on the tag is 'Medic' and the rank is listed as 'Specialist'."
 	assignment = "NCR Medic"
+
+/obj/item/card/id/ms13/ncr/medic/mp
+	desc = "Standard NCR dog tags. The assignment listed on the tag is 'Military Police Medic' and the rank is listed as 'Corporal'."
+	assignment = "NCR MP Medic"
 
 /obj/item/card/id/ms13/ncr/engineer
 	desc = "Standard NCR dog tags. The assignment listed on the tag is 'Engineer' and the rank is listed as 'Specialist'."
@@ -129,6 +137,10 @@
 /obj/item/card/id/ms13/ncr/sergeant
 	desc = "Standard NCR dog tags. The assignment listed on the tag is 'Squad Leader' and the rank is listed as 'Sergeant'."
 	assignment = "NCR Sergeant"
+
+/obj/item/card/id/ms13/ncr/sergeant/mp
+	desc = "Standard NCR dog tags. The assignment listed on the tag is 'Military Police NCO' and the rank is listed as 'Sergeant'."
+	assignment = "NCR MP Sergeant"
 
 /obj/item/card/id/ms13/ncr/staff_sergeant
 	desc = "Standard NCR dog tags. The assignment listed on the tag is 'Platoon Sergeant' and the rank is listed as 'Staff Sergeant'."

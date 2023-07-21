@@ -592,7 +592,7 @@
 /obj/item/clothing/suit/armor/ms13/ncr
 	name = "\improper NCR infantry vest"
 	desc = "A standard issue NCR infantry vest specialized for arctic environments."
-	icon_state = "ncr_infantry_vest"
+	icon_state = "ncr_vest"
 	inhand_icon_state = "ncr_infantry_vest"
 	slowdown = 0.15
 	body_parts_covered = CHEST
