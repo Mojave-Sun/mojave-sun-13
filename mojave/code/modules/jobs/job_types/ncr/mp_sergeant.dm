@@ -15,6 +15,7 @@
 	id = 		 /obj/item/card/id/ms13/ncr/sergeant/mp
 	uniform =    /obj/item/clothing/under/ms13/ncr/fatigues/nco
 	head = 	     /obj/item/clothing/head/helmet/ms13/ncr/beret/nco
+	glasses =	 /obj/item/clothing/glasses/ms13/sunglasses
 	suit =       /obj/item/clothing/suit/armor/ms13/ncr
 	suit_store = /obj/item/gun/ballistic/shotgun/ms13/huntingshot
 	belt = 		 /obj/item/gun/ballistic/automatic/pistol/ms13/pistol45
