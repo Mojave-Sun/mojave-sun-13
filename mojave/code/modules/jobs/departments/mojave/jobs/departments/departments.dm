@@ -77,6 +77,7 @@
 	department_bitflags = DEPARTMENT_BITFLAG_TOWN
 	department_head = /datum/job/ms13/town/mayor
 	department_experience_type = EXP_TYPE_TOWN
+	department_full_name = "Town of Snowcrest"
 	//display_order = 0
 	//label_class = "TOWN"
 	//latejoin_color = "#ffddf0"
@@ -121,8 +122,8 @@
 		"Rangers_flag.png" = 'mojave/icons/faction_flags/flag_rangers.png',
 		"BOS_flag.png" = 'mojave/icons/faction_flags/flag_brotherhood.png',
 		"Raiders_flag.png" = 'mojave/icons/faction_flags/flag_raiders.png',
-		"Town_flag.png" = 'mojave/icons/faction_flags/flag_towner.png',
+		"Town_flag.png" = 'mojave/icons/faction_flags/flag_wastelanders.png', //placeholder
 		"Wasteland_flag.png" = 'mojave/icons/faction_flags/flag_wastelanders.png',
-		"Barony_flag.png" = 'mojave/icons/faction_flags/flag_wastelanders.png',
+		"Barony_flag.png" = 'mojave/icons/faction_flags/flag_wastelanders.png', //placeholder
 		"Drylanders_flag.png" = 'mojave/icons/faction_flags/flag_wastelanders.png'
 	)
