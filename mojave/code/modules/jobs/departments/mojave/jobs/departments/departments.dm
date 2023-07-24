@@ -65,9 +65,8 @@
 /datum/job_department/raiders
 	department_name = DEPARTMENT_RAIDERS
 	department_bitflags = DEPARTMENT_BITFLAG_RAIDERS
-	department_head = /datum/job/ms13/raiders/boss
 	department_experience_type = EXP_TYPE_RAIDERS
-	department_full_name = "The Blizzard Bastards"
+	department_full_name = "Gangs of Mammoth"
 	//display_order = 0
 	//label_class = "RAIDERS"
 	//latejoin_color = "#ffddf0"

@@ -31,6 +31,13 @@
 	else
 		mask = null
 
+	if(prob(30))
+		glasses = pick(
+			/obj/item/clothing/glasses/ms13/leather,\
+			/obj/item/clothing/glasses/ms13/goggles)
+	else
+		glasses = null
+
 	suit_store = pick(
 			/obj/item/gun/ballistic/revolver/ms13/caravan,\
 			/obj/item/gun/ballistic/rifle/ms13/varmint)
