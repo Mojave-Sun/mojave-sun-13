@@ -6,12 +6,15 @@
 	icon_state = "brass"
 	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
+	inhand_icon_state = "brass_key"
 	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
 	worn_icon_state = "empty_placeholder"
 	w_class = WEIGHT_CLASS_SMALL
-	item_flags = KEY_ITEM
+	ms13_flags_1 = KEY_ITEM
 	grid_width = 32
 	grid_height = 32
+	drop_sound = 'mojave/sound/ms13effects/keydrop.ogg'
+	pickup_sound = 'mojave/sound/ms13effects/keygrab.ogg'
 	//Custom key shape for corresponding with the identical lock type pins
 	//Bitts seperated into sloppy seperates so players can edit them and interaction with keys
 	var/bitt_1

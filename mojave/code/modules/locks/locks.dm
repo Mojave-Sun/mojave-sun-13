@@ -6,12 +6,15 @@
 	icon_state = "brass"
 	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
+	inhand_icon_state = "brass_lock"
 	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
 	worn_icon_state = "empty_placeholder"
 	w_class = WEIGHT_CLASS_SMALL
-	item_flags = LOCKING_ITEM
+	ms13_flags_1 = LOCKING_ITEM
 	grid_width = 32
 	grid_height = 32
+	drop_sound = 'mojave/sound/ms13effects/lockdrop.ogg'
+	pickup_sound = 'mojave/sound/ms13effects/lockgrab.ogg'
 	//if the lock is item is open
 	var/lock_open = FALSE
 	//if the lock object is locked
@@ -26,11 +29,19 @@
 	var/pin_4
 	var/pin_5
 	var/pin_6
+	//is the lock pre_locked on spawn - randomise on init
+	var/pre_locked = TRUE
 
 /obj/item/ms13/lock/Initialize()
 	. = ..()
+	if(pre_locked)
+		item_lock_locked = TRUE
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/locks_inventory.dmi')
 	generate_pin_order()
+
+/obj/item/ms13/lock/examine(mob/user)
+	. = ..()
+	. += "<span class='notice'>Click in offhand to take one out. Use to open/close.</span>"
 
 /obj/item/ms13/lock/proc/generate_pin_order()
 	var/static/list/pin_lengths = list("A","B","C","D","E","F")
@@ -43,20 +54,85 @@
 
 /obj/item/ms13/lock/attack_self(mob/user, list/modifiers)
 	. = ..()
-	open_lock_item(user)
+	if(item_lock_locked)
+		to_chat(user, span_notice("The [name] is locked."))
+		playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
+		return
+	else
+		open_lock_item(user)
+
+/obj/item/ms13/lock/attack_self_secondary(mob/user, modifiers)
+	. = ..()
+	if(item_lock_locked)
+		return
+	if(!lock_open && do_after(user, 0.6 SECONDS, src))
+		icon_state = initial(icon_state)
+		lock_open = FALSE
+		item_lock_locked = TRUE
+		to_chat(user, span_notice("You clasp the [name] shut."))
+		playsound(src, 'mojave/sound/ms13effects/lock_clasp.ogg', 50, TRUE)
+		return
 
 /obj/item/ms13/lock/proc/open_lock_item(mob/user)
 	if(!lock_open && !item_lock_locked && do_after(user, 0.6 SECONDS, src))
 		icon_state = "[initial(icon_state)]_open"
 		lock_open = TRUE
-		item_lock_locked = FALSE //fixes bugs where its open but locked somehow
-		playsound(src, 'mojave/sound/ms13effects/lock_open.ogg', 20, TRUE)
+		item_lock_locked = FALSE
+		playsound(src, 'mojave/sound/ms13effects/lock_open.ogg', 30, TRUE)
 		return
 	if(lock_open && do_after(user, 0.6 SECONDS, src))
 		icon_state = initial(icon_state)
 		lock_open = FALSE
-		playsound(src, 'mojave/sound/ms13effects/lock_open.ogg', 20, TRUE)
+		to_chat(user, span_notice("You swing the [name] closed."))
+		playsound(src, 'mojave/sound/ms13effects/lock_open.ogg', 30, TRUE)
 		return
+
+/obj/item/ms13/lock/attackby(obj/item/I, mob/living/user, params)
+	. = ..()
+	if(!ismob(user))
+		return
+	if(!user.is_holding(src))
+		return . = ..()
+	if(!loc == user)
+		return . = ..()
+	if(I.ms13_flags_1 & KEY_ITEM)
+		var/obj/item/ms13/key/key = I
+		//alignment checks
+		if(lock_open)
+			to_chat(user, span_notice("The [name] is open, close it first."))
+			return
+		if(!item_lock_locked)
+			to_chat(user, span_notice("The [name] is not shut, clasp it closed to lock."))
+			return
+		if(key.bitt_1 != pin_1)
+			playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+			to_chat(user, span_notice("The key dosen't turn in [name]."))
+			return
+		if(key.bitt_2 != pin_2)
+			playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+			to_chat(user, span_notice("The key dosen't turn in [name]."))
+			return
+		if(key.bitt_3 != pin_3)
+			playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+			to_chat(user, span_notice("The key dosen't turn in [name]."))
+			return
+		if(key.bitt_4 != pin_4)
+			playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+			to_chat(user, span_notice("The key dosen't turn in [name]."))
+			return
+		if(key.bitt_5 != pin_5)
+			playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+			to_chat(user, span_notice("The key dosen't turn in [name]."))
+			return
+		if(key.bitt_6 != pin_6)
+			playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+			to_chat(user, span_notice("The key dosen't turn in [name]."))
+			return
+		if(item_lock_locked)
+			playsound(src, 'mojave/sound/ms13effects/key_unlock.ogg', 50, TRUE)
+			to_chat(user, span_notice("You unlock the [name]. It pops open."))
+			item_lock_locked = FALSE
+			return
 
 /obj/item/ms13/lock/test
 

@@ -12,7 +12,7 @@
 	locked = FALSE
 
 /obj/structure/safe/ms13/attackby(obj/item/I, mob/user, params)
-	if(I.item_flags & LOCKING_ITEM && ms13_flags_1 & LOCKABLE_1 && locked)
+	if(I.item_flags & LOCKING_ITEM || LOCKABLE_1 && locked)
 		to_chat(user, span_warning("You cannot attach the [I.name] to the [name] while its still got its original lock on it!"))
 		return
 	. = ..()

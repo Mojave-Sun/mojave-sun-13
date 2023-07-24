@@ -292,7 +292,7 @@
 	return TRUE
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/attackby(obj/item/I, mob/user, params)
-	if(I.item_flags & KEY_ITEM && lock) //gotta add it here cause clothing code is FUCKED on attackbys, never shouldve made this shit a hardsuit fellas
+	if(I.ms13_flags_1 & KEY_ITEM && lock) //gotta add it here cause clothing code is FUCKED on attackbys, never shouldve made this shit a hardsuit fellas
 		var/obj/item/ms13/key/key = I
 		//alignment checks
 		if(key.bitt_1 != lock.pin_1)
@@ -330,7 +330,7 @@
 			lock.item_lock_locked = FALSE
 			return
 	//lock interactions
-	if(I.item_flags & LOCKING_ITEM && ms13_flags_1 & LOCKABLE_1)
+	if(I.ms13_flags_1 & LOCKING_ITEM && ms13_flags_1 & LOCKABLE_1)
 		var/obj/item/ms13/lock/potential_lock = I
 		if(lock_locked)
 			to_chat(user, span_warning("The [name] already has a lock."))

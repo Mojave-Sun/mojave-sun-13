@@ -14,8 +14,10 @@
 	var/list/wedges = list(/obj/item/screwdriver/ms13)
 	///shows the lock difficulty level on examine, like fallout
 	var/shown_difficulty
+	///if the lock is a pre_spawn lock or not, used for overlays
+	var/pre_spawn = FALSE
 
-/datum/component/lockpickable/Initialize(lockpicks, wedges, difficulty, shown_difficulty)
+/datum/component/lockpickable/Initialize(lockpicks, wedges, difficulty, shown_difficulty, pre_spawn)
 	. = ..()
 	if(!isatom(parent))
 		return ELEMENT_INCOMPATIBLE
@@ -43,6 +45,7 @@
 		thing.lock_locked = TRUE
 		for(var/datum/component/storage/storage as anything in thing.GetComponents(/datum/component/storage))
 			storage.locked = TRUE //locks
+		thing.update_lock(pre_spawn)
 
 /datum/component/lockpickable/RegisterWithParent()
 	. = ..()

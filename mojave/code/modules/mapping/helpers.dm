@@ -23,7 +23,7 @@
 
 // TO Do - Custom Sprites for Pre-spawn locked objects here
 /obj/effect/mapping_helpers/atom_injector/component_injector/ms13/lockedpickable/inject(atom/target)
-	component_args = list(difficulty = rand(lowest_no, highest_no))
+	component_args = list(difficulty = rand(lowest_no, highest_no), pre_spawn = TRUE)
 	. = ..()
 	return
 
