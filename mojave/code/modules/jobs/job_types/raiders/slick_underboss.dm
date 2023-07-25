@@ -20,7 +20,6 @@
 	id =		 /obj/item/card/id/ms13/slick_underboss
 	head =		 /obj/item/clothing/head/helmet/ms13/tall/tophat
 	shoes =		 /obj/item/clothing/shoes/ms13/fancy
-	gloves =	 /obj/item/clothing/gloves/ms13/fingerless
 	glasses =	 /obj/item/clothing/glasses/ms13/cool
 	uniform =	 /obj/item/clothing/under/ms13/slickback/underboss
 	suit =		 /obj/item/clothing/suit/ms13/slickback/underboss

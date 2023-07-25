@@ -35,8 +35,8 @@
 
 	suit_store = pick(
 			/obj/item/gun/ballistic/shotgun/ms13/lever,\
-			/obj/item/gun/ballistic/shotgun/automatic/ms13/sks,\
-			/obj/item/gun/ballistic/automatic/ms13/full/smg9mm)
+			/obj/item/gun/ballistic/shotgun/ms13/lever/cowboy,\
+			/obj/item/gun/energy/ms13/laser/pistol)
 
 
 /datum/outfit/job/ms13/town/bodyguard/post_equip(mob/living/carbon/human/H, visualsOnly)
