@@ -434,3 +434,20 @@
 	name = "\improper Drylander tunic"
 	desc = "Very light tunic and pants worn by the Drylander tribe. Meant to be worn under robes."
 	icon_state = "drylander"
+
+// Slickback //
+
+/obj/item/clothing/under/ms13/slickback
+	name = "\improper Slickback outfit"
+	desc = "A characteristic green shirt and purple pants worn by members of the Slickback gang."
+	icon_state = "slick_1"
+
+/obj/item/clothing/under/ms13/slickback/highroller
+	name = "\improper Slickback high roller outfit"
+	desc = "A nice red shirt and brown pants with some gold chains attached. Quite the status symbol."
+	icon_state = "slick_2"
+
+/obj/item/clothing/under/ms13/slickback/underboss
+	name = "\improper Slickback underboss outfit"
+	desc = "A very comfortable and carefully tailored set of clothes made for and worn by respected individuals in the Slickback gang."
+	icon_state = "slick_underboss"

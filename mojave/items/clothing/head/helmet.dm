@@ -773,6 +773,16 @@
 	desc = "The truest statement of class one can get in this hell."
 	icon_state = "tophat"
 	inhand_icon_state = "that"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = 0, \
+                IMPALING = CLASS1_STAB, \
+                LASER = 0, \
+                ENERGY = 0, \
+                FIRE = 0)
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0) //No wound armor
 
 /obj/item/clothing/head/helmet/ms13/tall/cone
 	desc = "A once bright warning device, now a staple of wasteland fashion."
@@ -1282,6 +1292,7 @@
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 95, acid = 0, wound = 0) //No wound armor
 	heat_protection = HEAD
 	resistance_flags = FIRE_PROOF
+	flags_cover = HEADCOVERSEYES // Built in protection from the dust. yippie.
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
 	has_fov = TRUE
@@ -1306,6 +1317,7 @@
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0) //No wound armor
 	dynamic_hair_suffix = ""
 	dynamic_fhair_suffix = ""
+	flags_cover = HEADCOVERSEYES // Built in protection from the dust. yippie.
 	has_fov = TRUE
 	fov_angle = 90
 	equip_delay_self = 2 SECONDS
@@ -1320,8 +1332,19 @@
 	desc = "The hood to a hazmat suit. You'll want to keep this close if you want the suit to actually do anything for you."
 	icon_state = "hazmathood"
 	inhand_icon_state = "hazmat"
-	armor = list(melee = 10, bullet = 10, laser = 5, energy = 5, bomb = 5, bio = 75,  fire = 5, acid = 75, wound = 0)
+	dynamic_hair_suffix = ""
+	dynamic_fhair_suffix = ""
 	resistance_flags = ACID_PROOF
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = 0, \
+                LASER = CLASS1_LASER, \
+                ENERGY = 0, \
+                FIRE = 0)
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0) //No wound armor
 
 /obj/item/clothing/head/helmet/space/ms13
 	name = "space helmet"

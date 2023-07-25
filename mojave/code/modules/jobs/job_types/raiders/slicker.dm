@@ -15,12 +15,28 @@
 	name = "_Slickback"
 	jobtype = /datum/job/ms13/raiders/slicker
 
-	r_pocket = 	 /obj/item/stack/medical/gauze/ms13/three
-	l_pocket =	 /obj/item/stack/ms13/currency/prewar/fourty
+	l_pocket =	 /obj/item/stack/ms13/currency/prewar/sixty
+	shoes =		 /obj/item/clothing/shoes/ms13/fancy
+	backpack_contents = list(
+		/obj/item/stack/medical/gauze/ms13/three=1)
 
 
 /datum/outfit/job/ms13/raiders/slicker/pre_equip(mob/living/carbon/human/H)
 	..()
+
+	back = pick(
+		/obj/item/storage/ms13/satchel,\
+		/obj/item/storage/ms13/corvega_bag)
+
+	suit = pick(
+		/obj/item/clothing/suit/ms13/slickback/loose,\
+		/obj/item/clothing/suit/ms13/slickback/brown,\
+		/obj/item/clothing/suit/ms13/slickback/white,\
+		/obj/item/clothing/suit/ms13/slickback/dark)
+
+	uniform = pick(
+		/obj/item/clothing/under/ms13/slickback,\
+		/obj/item/clothing/under/ms13/slickback/highroller)
 
 	belt = pick(
 		/obj/item/knife/ms13/switchblade,\
@@ -33,10 +49,10 @@
 		/obj/item/gun/ballistic/revolver/ms13/caravan/sawed)
 
 	if(prob(70))
-		l_pocket = pick(
+		r_pocket = pick(
 			/obj/item/flashlight/ms13/crafted)
 	else
-		l_pocket = null
+		r_pocket = null
 
 /datum/outfit/job/ms13/raiders/slicker/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()

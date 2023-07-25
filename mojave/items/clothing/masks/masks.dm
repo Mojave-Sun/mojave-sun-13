@@ -137,13 +137,14 @@
 
 /obj/item/clothing/mask/gas/ms13
 	name = "gas mask"
-	desc = "An old gas mask. Hypothetically speaking, breathing through it is safer than breathing out of it. The filters are questionable at best."
+	desc = "An old gas mask. Hypothetically speaking, breathing through it is safer than breathing without it. The filters are questionable at best."
 	icon = 'mojave/icons/objects/clothing/clothing_world/masks_world.dmi'
 	worn_icon = 'mojave/icons/mob/clothing/mask.dmi'
 	icon_state = "gasmaskmodern"
 	inhand_icon_state = "gasmask"
 	var/adjusted = FALSE
 	var/adjustable = TRUE
+	has_fov = FALSE //placeholder for now until we make this more useful to justify a FOV
 	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
 
@@ -159,7 +160,6 @@
 	icon_state = "ranger_mask"
 	worn_icon_state = "ranger_mask"
 	adjustable = FALSE
-	has_fov = FALSE //placeholder for now until we make this more useful to justify a FOV
 
 /obj/item/clothing/mask/gas/ms13/Initialize()
 	. = ..()
@@ -177,11 +177,11 @@
 	if(adjusted)
 		alternate_worn_layer = ABOVE_BODY_FRONT_LAYER
 		to_chat(user, "<span class='notice'>You adjust the [src] to go over your headwear.</span>")
-		desc = "[initial(desc)] It will go over your headwear."
+		desc = "[initial(desc)] It will go over your headwear, you can adjust this by using while in hand."
 		adjusted = TRUE
 	else
 		alternate_worn_layer = UNDER_HEAD_LAYER
 		to_chat(user, "<span class='notice'>You adjust the [src] to go under your headwear.</span>")
-		desc = "[initial(desc)] It will go under your headwear."
+		desc = "[initial(desc)] It will go under your headwear, you can adjust this by using while in hand."
 		adjusted = FALSE
 	update_icon()

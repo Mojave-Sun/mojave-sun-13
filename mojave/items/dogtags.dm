@@ -330,6 +330,18 @@
 	desc = "A tiny, dull blade on a string. This is used to identify members of the Drylander tribe."
 	assignment = "Drylander Folk"
 
+/obj/item/card/id/ms13/slick_underboss
+	name = "\improper Slickback underboss necklace"
+	desc = "A shiny, small blade on a string to make a necklace. A somewhat intimidating status symbol, no doubt."
+	assignment = "Slickback Underboss"
+	icon_state = "sawbone" //placeholder
+
+/obj/item/card/id/ms13/slick_cook
+	name = "\improper Slickback cook necklace"
+	desc = "A live shotgun shell on a string to make a necklace. Meant to serve as a constant reminder of the punishment for disobedience."
+	assignment = "Slickback Cook"
+	icon_state = "enforcer" //placeholder
+
 // Brotherhood IDs //
 
 /obj/item/card/id/ms13/bos
