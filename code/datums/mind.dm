@@ -41,6 +41,9 @@
 	///reference to the memory panel tgui
 	var/datum/memory_panel/memory_panel
 
+	/// Guestbook datum, in case we actually make use of the guestbook mechanics
+	var/datum/guestbook/guestbook
+
 	/// Job datum indicating the mind's role. This should always exist after initialization, as a reference to a singleton.
 	var/datum/job/assigned_role
 	var/special_role
@@ -96,6 +99,7 @@
 /datum/mind/New(_key)
 	key = _key
 	martial_art = default_martial_art
+	guestbook = new()
 	init_known_skills()
 	set_assigned_role(SSjob.GetJobType(/datum/job/unassigned)) // Unassigned by default.
 
@@ -106,6 +110,7 @@
 	QDEL_NULL(memory_panel)
 	QDEL_LIST(antag_datums)
 	QDEL_NULL(language_holder)
+	QDEL_NULL(guestbook)
 	set_current(null)
 	return ..()
 

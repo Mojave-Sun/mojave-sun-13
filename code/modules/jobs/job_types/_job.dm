@@ -116,6 +116,9 @@
 	///RPG job names, for the memes
 	var/rpg_title
 
+	///Guestbook flags, to establish who knowns who etc
+	var/guestbook_flags = GUESTBOOK_DEPARTMENT | GUESTBOOK_JOB
+
 /datum/job/New()
 	. = ..()
 	var/list/jobs_changes = get_map_changes()
@@ -169,6 +172,22 @@
 		for(var/i in roundstart_experience)
 			experiencer.mind.adjust_experience(i, roundstart_experience[i], TRUE)
 
+	if(!(guestbook_flags & GUESTBOOK_FORGETMENOT))
+		for(var/mob/living/carbon/human/dude as anything in GLOB.human_list)
+			if((dude == spawned) || !dude.mind?.assigned_role)
+				continue
+			var/datum/job/dudes_job = dude.mind.assigned_role
+			var/list/common_departments = dudes_job.departments_list & departments_list //wonky
+			//if we satisfy at least one condition, add us to their guestbook
+			if(dudes_job.guestbook_flags & GUESTBOOK_OMNISCIENT || \
+				((dudes_job.guestbook_flags & GUESTBOOK_JOB) && (dudes_job.type == src.type)) || \
+				((dudes_job.guestbook_flags & GUESTBOOK_DEPARTMENT) && length(common_departments)))
+				dude.mind.guestbook.add_guest(dude, spawned, spawned.mind.name, spawned.mind.name, silent = TRUE)
+			//if we satisfy at least one condition, add them to our guestbook
+			if(guestbook_flags & GUESTBOOK_OMNISCIENT || \
+				((guestbook_flags & GUESTBOOK_JOB) && (src.type == dudes_job.type)) || \
+				((guestbook_flags & GUESTBOOK_DEPARTMENT) && length(common_departments)))
+				spawned.mind.guestbook.add_guest(spawned, dude, dude.mind.name, dude.mind.name, silent = TRUE)
 
 /datum/job/proc/announce_job(mob/living/joining_mob)
 	if(head_announce)
