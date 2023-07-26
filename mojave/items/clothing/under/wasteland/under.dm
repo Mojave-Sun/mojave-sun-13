@@ -438,14 +438,19 @@
 // Slickback //
 
 /obj/item/clothing/under/ms13/slickback
-	name = "\improper Slickback outfit"
-	desc = "A characteristic green shirt and purple pants worn by members of the Slickback gang."
+	name = "\improper Slickback classic outfit"
+	desc = "A characteristic white shirt and purple pants with suspenders worn by members of the Slickback gang."
 	icon_state = "slick_1"
 
 /obj/item/clothing/under/ms13/slickback/highroller
 	name = "\improper Slickback high roller outfit"
 	desc = "A nice red shirt and brown pants with some gold chains attached. Quite the status symbol."
 	icon_state = "slick_2"
+
+/obj/item/clothing/under/ms13/slickback/shotcaller
+	name = "\improper Slickback shot caller outfit"
+	desc = "A well kept green shirt and purple pants with some gold chains attached. Quite the status symbol."
+	icon_state = "slick_3"
 
 /obj/item/clothing/under/ms13/slickback/underboss
 	name = "\improper Slickback underboss outfit"

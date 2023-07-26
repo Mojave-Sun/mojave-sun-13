@@ -36,7 +36,8 @@
 
 	uniform = pick(
 		/obj/item/clothing/under/ms13/slickback,\
-		/obj/item/clothing/under/ms13/slickback/highroller)
+		/obj/item/clothing/under/ms13/slickback/highroller,\
+		/obj/item/clothing/under/ms13/slickback/shotcaller)
 
 	head = pick(
 		/obj/item/clothing/head/helmet/ms13/beret/slick,\
