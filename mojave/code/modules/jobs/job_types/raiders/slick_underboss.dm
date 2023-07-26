@@ -5,7 +5,7 @@
 	supervisors = "The Boss, if present"
 	description = "Expand the Slickbacks' operations in the region and coordinate your underlings to do so. Ensure your Cook is kept in line and working. Peddle, push, and profit!"
 	forbid = ""
-	enforce = "The Slickbacks' expect: Profitable operations, professional conduct and behavior, doing what is needed and best for the gang, but still within reason."
+	enforce = "The Slickbacks expect: Profitable operations, professional conduct and behavior, doing what is needed and best for the gang, but still within reason."
 
 	outfit = /datum/outfit/job/ms13/raiders/slick_underboss
 

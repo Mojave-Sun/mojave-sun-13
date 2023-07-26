@@ -1,11 +1,11 @@
 /datum/job/ms13/raiders/slicker
 	title = "Slickback"
-	total_positions = 4
-	spawn_positions = 4
+	total_positions = 5
+	spawn_positions = 5
 	supervisors = "The Underboss"
 	description = "Follow the Underboss' orders and work to expand the Slickbacks' operations in the region. Peddle, push, and profit!"
 	forbid = ""
-	enforce = "The Slickbacks' expect: Profitable operations, professional conduct and behavior, doing what is needed and best for the gang, but still within reason."
+	enforce = "The Slickbacks expect: Profitable operations, professional conduct and behavior, doing what is needed and best for the gang, but still within reason."
 
 	outfit = /datum/outfit/job/ms13/raiders/slicker
 
@@ -15,7 +15,7 @@
 	name = "_Slickback"
 	jobtype = /datum/job/ms13/raiders/slicker
 
-	l_pocket =	 /obj/item/stack/ms13/currency/prewar/sixty
+	l_pocket =	 /obj/item/stack/ms13/currency/prewar/fifty
 	shoes =		 /obj/item/clothing/shoes/ms13/fancy
 	backpack_contents = list(
 		/obj/item/stack/medical/gauze/ms13/three=1)
@@ -53,7 +53,7 @@
 		/obj/item/gun/ballistic/automatic/pistol/ms13/pistol45,\
 		/obj/item/gun/ballistic/revolver/ms13/caravan/sawed)
 
-	if(prob(70))
+	if(prob(65))
 		r_pocket = pick(
 			/obj/item/flashlight/ms13/crafted)
 	else
