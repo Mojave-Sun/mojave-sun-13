@@ -7,7 +7,7 @@
 
 	outfit = /datum/outfit/job/ms13/ncr/mp_medic
 
-	display_order = JOB_DISPLAY_ORDER_MS13_MEDIC
+	display_order = JOB_DISPLAY_ORDER_MS13_MPMEDIC
 
 	mind_traits = list(TRAIT_MEDICAL_TRAINING)
 

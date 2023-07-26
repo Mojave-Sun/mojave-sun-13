@@ -7,7 +7,7 @@
 
 	outfit = /datum/outfit/job/ms13/ncr/mp
 
-	display_order = JOB_DISPLAY_ORDER_MS13_TROOPER
+	display_order = JOB_DISPLAY_ORDER_MS13_MILPOLICE
 
 /datum/outfit/job/ms13/ncr/mp
 	name = "_NCR Military Police"

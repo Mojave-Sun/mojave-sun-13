@@ -9,7 +9,7 @@
 
 	outfit = /datum/outfit/job/ms13/raiders/slick_cook
 
-	display_order = JOB_DISPLAY_ORDER_MS13_RAIDER
+	display_order = JOB_DISPLAY_ORDER_MS13_SLICKBACKCOOK
 
 /datum/outfit/job/ms13/raiders/slick_cook
 	name = "_Slickback Cook"

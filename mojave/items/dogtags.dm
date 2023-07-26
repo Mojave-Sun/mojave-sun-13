@@ -54,7 +54,7 @@
 	desc = "A dull silver badge given to guards of the town of Snowcrest."
 	assignment = "Town Bodyguard"
 	icon_state = "deputy"
-	access = list(ACCESS_TOWN_LAW, ACCESS_TOWN_DOCTOR, ACCESS_TOWN_WORKER, ACCESS_TOWN_ALL)
+	access = list(ACCESS_TOWN_LAW, ACCESS_TOWN_DOCTOR, ACCESS_TOWN_WORKER, ACCESS_TOWN_ALL, ACCESS_TOWN_MAYOR)
 
 /obj/item/card/id/ms13/town
 	name = "\improper Snowcrest passport"
@@ -105,6 +105,7 @@
 /obj/item/card/id/ms13/ncr/mp
 	desc = "Standard NCR dog tags. The assignment listed on the tag is 'Military Police' and the rank is listed as 'Private First Class'."
 	assignment = "NCR Military Police"
+	access = list(ACCESS_TOWN_LAW)
 
 /obj/item/card/id/ms13/ncr/recruit
 	name = "\improper NCR recruit dog tags"
@@ -125,6 +126,7 @@
 /obj/item/card/id/ms13/ncr/medic/mp
 	desc = "Standard NCR dog tags. The assignment listed on the tag is 'Military Police Medic' and the rank is listed as 'Corporal'."
 	assignment = "NCR MP Medic"
+	access = list(ACCESS_TOWN_DOCTOR, ACCESS_TOWN_LAW)
 
 /obj/item/card/id/ms13/ncr/engineer
 	desc = "Standard NCR dog tags. The assignment listed on the tag is 'Engineer' and the rank is listed as 'Specialist'."
@@ -141,6 +143,7 @@
 /obj/item/card/id/ms13/ncr/sergeant/mp
 	desc = "Standard NCR dog tags. The assignment listed on the tag is 'Military Police NCO' and the rank is listed as 'Sergeant'."
 	assignment = "NCR MP Sergeant"
+	access = list(ACCESS_TOWN_LAW, ACCESS_TOWN_WORKER, ACCESS_TOWN_DOCTOR)
 
 /obj/item/card/id/ms13/ncr/staff_sergeant
 	desc = "Standard NCR dog tags. The assignment listed on the tag is 'Platoon Sergeant' and the rank is listed as 'Staff Sergeant'."
@@ -341,6 +344,12 @@
 	desc = "A live shotgun shell on a string to make a necklace. Meant to serve as a constant reminder of the punishment for disobedience."
 	assignment = "Slickback Cook"
 	icon_state = "enforcer" //placeholder
+
+/obj/item/card/id/ms13/mon_captain
+	name = "\improper Mon City Captain tags"
+	desc = "Various bullets of various calibers with a string connecting them. Used as an identifying tag for important members within the Mon City Mercs organization."
+	assignment = "Mon City Captain"
+	icon_state = "boss" //placeholder
 
 // Brotherhood IDs //
 

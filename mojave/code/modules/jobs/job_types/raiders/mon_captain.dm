@@ -9,7 +9,7 @@
 
 	outfit = /datum/outfit/job/ms13/raiders/mon_captain
 
-	display_order = JOB_DISPLAY_ORDER_MS13_RAIDER
+	display_order = JOB_DISPLAY_ORDER_MS13_MONCAPT
 
 /datum/outfit/job/ms13/raiders/mon_captain
 	name = "_Mon City Captain"

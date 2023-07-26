@@ -7,7 +7,7 @@
 
 	outfit = /datum/outfit/job/ms13/ncr/mp_sergeant
 
-	display_order = JOB_DISPLAY_ORDER_MS13_SERGEANT
+	display_order = JOB_DISPLAY_ORDER_MS13_MPSERGEANT
 
 /datum/outfit/job/ms13/ncr/mp_sergeant
 	name = "_NCR MP Sergeant"
