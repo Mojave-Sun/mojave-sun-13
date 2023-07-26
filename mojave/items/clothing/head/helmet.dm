@@ -784,6 +784,20 @@
                 FIRE = 0)
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0) //No wound armor
 
+/obj/item/clothing/head/helmet/ms13/tall/tophat/slick
+	name = "\improper Slickback top hat"
+	desc = "A stylish, lightly padded top hat almost exclusively seen on the heads of respected members of the Slickback gang."
+	icon_state = "slickback_tophat"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS1_LASER, \
+                ENERGY = 0, \
+                FIRE = 0)
+
 /obj/item/clothing/head/helmet/ms13/tall/cone
 	desc = "A once bright warning device, now a staple of wasteland fashion."
 	name = "warning cone"
@@ -1017,6 +1031,21 @@
                 ENERGY = 0, \
                 FIRE = 0)
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0) //No wound armor
+
+/obj/item/clothing/head/helmet/ms13/beret/slick
+	name = "light beret"
+	desc = "A lightly colored, well kept beret."
+	icon_state = "slick_beret"
+
+/obj/item/clothing/head/helmet/ms13/fedora/slick
+	name = "wide brim fedora"
+	desc = "A black, wide brim fedora. An impressive fashion statement."
+	icon_state = "slick_fedora"
+
+/obj/item/clothing/head/helmet/ms13/newsboy/slick
+	name = "dark brown flat cap"
+	desc = "A nice looking, dark brown flat cap."
+	icon_state = "slick_flatcap"
 
 // Misc Hats //
 

@@ -38,6 +38,11 @@
 		/obj/item/clothing/under/ms13/slickback,\
 		/obj/item/clothing/under/ms13/slickback/highroller)
 
+	head = pick(
+		/obj/item/clothing/head/helmet/ms13/beret/slick,\
+		/obj/item/clothing/head/helmet/ms13/fedora/slick,\
+		/obj/item/clothing/head/helmet/ms13/newsboy/slick)
+
 	belt = pick(
 		/obj/item/knife/ms13/switchblade,\
 		/obj/item/claymore/ms13/pipe/tireiron,\

@@ -18,7 +18,7 @@
 	l_pocket =	 /obj/item/stack/ms13/currency/prewar/hunnedtwenty
 	r_pocket =	 /obj/item/radio/ms13/broadcast
 	id =		 /obj/item/card/id/ms13/slick_underboss
-	head =		 /obj/item/clothing/head/helmet/ms13/tall/tophat
+	head =		 /obj/item/clothing/head/helmet/ms13/tall/tophat/slick
 	shoes =		 /obj/item/clothing/shoes/ms13/fancy
 	glasses =	 /obj/item/clothing/glasses/ms13/cool
 	uniform =	 /obj/item/clothing/under/ms13/slickback/underboss
@@ -32,7 +32,8 @@
 		/obj/item/ammo_box/magazine/ms13/deagle=2,\
 		/obj/item/flashlight/ms13=1,\
 		/obj/item/reagent_containers/ms13/inhaler/jet=1,\
-		/obj/item/storage/pill_bottle/ms13/daytripper=1)
+		/obj/item/storage/pill_bottle/ms13/daytripper=1,\
+		/obj/item/ms13/knuckles=1)
 
 /datum/outfit/job/ms13/raiders/slick_underboss/pre_equip(mob/living/carbon/human/H)
 	..()
