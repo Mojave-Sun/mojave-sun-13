@@ -950,6 +950,7 @@
 	desc = "A thick, lightly padded green winter hoodie. Warm and might just save your life!"
 	icon_state = "mon_marksman"
 	inhand_icon_state = "winter"
+	alternative_mode = TRUE
 	slowdown = 0
 	hoodtype = /obj/item/clothing/head/hooded/ms13/mon_city
 	body_parts_covered = CHEST|GROIN|ARMS
@@ -1011,3 +1012,4 @@
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 60, acid = 0, wound = 5)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/small
