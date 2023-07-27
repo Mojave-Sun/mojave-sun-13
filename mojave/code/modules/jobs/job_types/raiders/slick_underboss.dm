@@ -15,7 +15,7 @@
 	name = "_Slickback Underboss"
 	jobtype = /datum/job/ms13/raiders/slick_underboss
 
-	l_pocket =	 /obj/item/stack/ms13/currency/prewar/hunnedtwenty
+	l_pocket =	 /obj/item/stack/ms13/currency/prewar/underboss
 	r_pocket =	 /obj/item/radio/ms13/broadcast
 	id =		 /obj/item/card/id/ms13/slick_underboss
 	head =		 /obj/item/clothing/head/helmet/ms13/tall/tophat/slick

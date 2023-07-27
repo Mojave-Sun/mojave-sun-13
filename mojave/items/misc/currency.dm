@@ -65,6 +65,9 @@
 /obj/item/stack/ms13/currency/prewar/hunnedfourty
 	amount = 140
 
+/obj/item/stack/ms13/currency/prewar/underboss
+	amount = 240
+
 /obj/item/stack/ms13/currency/prewar/mayor
 	amount = 325
 
