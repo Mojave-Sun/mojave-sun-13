@@ -868,7 +868,62 @@
                 ENERGY = 0, \
                 FIRE = 0)
 	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/large
+	var/snatched = TRUE // For taking gold chains off the clothes n shit...
+	var/has_gold_states = FALSE // Can you even put gold on it
 
+/obj/item/clothing/suit/ms13/slickback/examine(mob/user)
+	. = ..()
+	if(snatched && has_gold_states)
+		. += span_danger("An obvious empty spot where chains should be. It's <b>RUINED!</b>. Time to order a new one to be custom tailored...")
+
+
+/obj/item/clothing/suit/ms13/slickback/attack_hand_secondary(mob/user, params)
+	. = ..()
+	if(snatched)
+		return
+	playsound(src, 'mojave/sound/ms13effects/jewelry_chain1.ogg', 15, TRUE)
+	user.visible_message( \
+		"[user] begins to tear the chains off of \the [src].", \
+		span_notice("You begin tearing the chains off \the [src]."),
+		span_hear("You hear cloth moving around with chains rattling."))
+	if(do_after(user, 2.5 SECONDS))
+		user.visible_message( \
+			"[user] finishes tearing the chains off of \the [src].", \
+			span_notice("You finish tearing the chains off \the [src]. Forever ruining the style."),
+			span_hear("You hear chains rattling with an abrupt stop."))
+		playsound(src, 'mojave/sound/ms13effects/jewelry_chain2.ogg', 15, TRUE)
+		icon_state = initial(icon_state)+"_snatched"
+		worn_icon_state = initial(icon_state)+"_snatched"
+		update_appearance(updates = UPDATE_ICON)
+		user.update_inv_wear_suit()
+		user.update_body()
+		snatched = TRUE
+		var/obj/item/stack/sheet/ms13/scrap_gold/G = new /obj/item/stack/sheet/ms13/scrap_gold
+		user.put_in_hands(G)
+
+/* Broken because of the pockets. Idk... it's here for now.
+/obj/item/clothing/suit/ms13/slickback/attackby(obj/item/W, mob/user, params)
+	. = ..()
+
+	if(istype(W, /obj/item/stack/sheet/ms13/scrap_gold && snatched))
+		if(!snatched && has_gold_states)
+			to_chat(user, span_yellowteamradio("This thing is already blinged out!"))
+			return
+		else if(snatched && has_gold_states)
+			user.visible_message( \
+				"[user] hangs some chains from \the [src].", \
+				span_notice("You hang some gains on \the [src]"),
+				span_hear("You hear cloth moving around with chains rattling."))
+			icon_state = initial(icon_state)
+			worn_icon_state = initial(icon_state)
+			update_appearance(updates = UPDATE_ICON)
+			user.update_inv_wear_suit()
+			user.update_body()
+			snatched = FALSE
+			qdel(W)
+			playsound(src, 'mojave/sound/ms13effects/jewelry_chain2.ogg', 15, TRUE)
+			return
+*/
 /obj/item/clothing/suit/ms13/slickback/loose
 	name = "loose padded fur coat"
 	desc = "A loose fitting, dark colored fur coat with some protective padding."
@@ -903,3 +958,5 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = 0)
+	snatched = FALSE // For taking gold chains off the clothes n shit...
+	has_gold_states = TRUE // Can you even put gold on it
