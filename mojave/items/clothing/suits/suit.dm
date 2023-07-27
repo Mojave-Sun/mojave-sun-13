@@ -873,6 +873,11 @@
 
 /obj/item/clothing/suit/ms13/slickback/examine(mob/user)
 	. = ..()
+
+	if(!snatched && has_gold_states)
+		. += span_yellowteamradio("Has some gold chains attached. Quite the status symbol.")
+		. += span_notice("You could snatch them off with <b>Right Mouse Click</b>")
+
 	if(snatched && has_gold_states)
 		. += span_danger("An obvious empty spot where chains should be. It's <b>RUINED!</b>. Time to order a new one to be custom tailored...")
 
