@@ -12,14 +12,18 @@ GLOBAL_LIST_INIT(town_positions, list(
 	"Town Doctor",
 	"Town Nurse",
 	"Town Deputy",
+	"Town Bodyguard",
 	"Town Sheriff"))
 
 GLOBAL_LIST_INIT(ncr_positions, list(
 	"NCR Trooper",
+	"NCR Military Police",
 	"NCR Radioman",
+	"NCR MP Medic",
 	"NCR Medic",
 	"NCR Engineer",
 	"NCR Sergeant",
+	"NCR MP Sergeant",
 	"NCR Staff Sergeant",
 	"NCR Lieutenant"))
 
@@ -35,7 +39,14 @@ GLOBAL_LIST_INIT(raiders_positions, list(
 	"Raider",
 	"Raider Enforcer",
 	"Raider Sawbone",
-	"Raider Boss"))
+	"Raider Boss",
+	"Slickback Cook",
+	"Slickback",
+	"Slickback Underboss",
+	"Mon City Grunt",
+	"Mon City Marksman",
+	"Mon City Pointman",
+	"Mon City Captain"))
 
 GLOBAL_LIST_INIT(legion_positions, list(
 	"Legion Praetorian",

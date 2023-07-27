@@ -137,6 +137,6 @@
 
 //Makes you a lot little chilly
 /datum/particle_weather/snow_storm/weather_act(mob/living/L)
-	if(ishuman(L))
-		L.blur_eyes(5)
+	if(ishuman(L) && !L.is_eyes_covered())
+		L.blur_eyes(5.5)
 
