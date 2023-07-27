@@ -758,6 +758,7 @@
 	name = "base type Drylander suit"
 	desc = "You shouldn't be seeing this."
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS
+	icon_state = "dry_simple"
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 0, \
                 CRUSHING = CLASS1_CRUSH, \
@@ -849,3 +850,56 @@
 	desc = "Well made robes worn by the shaman of the Drylander tribe."
 	icon_state = "shaman"
 
+// Slickbacks //
+
+/obj/item/clothing/suit/ms13/slickback
+	name = "base type Slickback suit"
+	desc = "You shouldn't be seeing this."
+	body_parts_covered = CHEST|GROIN|ARMS|LEGS
+	slowdown = 0.15
+	icon_state = "slick_1"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS2_CRUSH, \
+                CUTTING = CLASS2_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS1_LASER, \
+                ENERGY = 0, \
+                FIRE = 0)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/large
+
+/obj/item/clothing/suit/ms13/slickback/loose
+	name = "loose padded fur coat"
+	desc = "A loose fitting, dark colored fur coat with some protective padding."
+	icon_state = "slick_1"
+
+/obj/item/clothing/suit/ms13/slickback/brown
+	name = "brown padded fur coat"
+	desc = "A brown and tan, comfortable looking fur coat with some protective padding."
+	icon_state = "slick_2"
+
+/obj/item/clothing/suit/ms13/slickback/white
+	name = "white padded fur coat"
+	desc = "A bright white padded fur coat. Perfect for blending into the snow."
+	icon_state = "slick_3"
+
+/obj/item/clothing/suit/ms13/slickback/dark
+	name = "dark padded fur coat"
+	desc = "A dapper looking dark fur coat with some protective padding."
+	icon_state = "slick_4"
+
+/obj/item/clothing/suit/ms13/slickback/underboss
+	name = "\improper Slickback underboss fur coat"
+	desc = "A well made, very fancy looking fur coat tailor made for individuals with some real clout within the Slickback gang. Even has some extra protective padding that adds some bulk."
+	icon_state = "slick_underboss"
+	slowdown = 0.3
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS2_CRUSH, \
+                CUTTING = CLASS2_CUT, \
+                PIERCING = CLASS2_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS2_LASER, \
+                ENERGY = CLASS1_PLASMA, \
+                FIRE = 0)

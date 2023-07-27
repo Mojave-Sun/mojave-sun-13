@@ -173,6 +173,11 @@
 	desc = "A distinctive white shirt and dark pants worn by medical personnel of Snowcrest to easily identify them."
 	icon_state = "followers"
 
+/obj/item/clothing/under/ms13/wasteland/snowcrest/bodyguard
+	name = "snowcrest guard fatigues"
+	desc = "A set of fatigues worn by the guards and protectors of Snowcrest."
+	icon_state = "snow_guard"
+
 /obj/item/clothing/under/ms13/wasteland/wanderer
 	name = "wanderer clothes"
 	desc = "A grubby shirt and jeans, for the roamer not held back by life."
@@ -429,3 +434,37 @@
 	name = "\improper Drylander tunic"
 	desc = "Very light tunic and pants worn by the Drylander tribe. Meant to be worn under robes."
 	icon_state = "drylander"
+
+// Slickback //
+
+/obj/item/clothing/under/ms13/slickback
+	name = "\improper Slickback classic outfit"
+	desc = "A characteristic white shirt and purple pants with suspenders worn by members of the Slickback gang."
+	icon_state = "slick_1"
+
+/obj/item/clothing/under/ms13/slickback/highroller
+	name = "\improper Slickback high roller outfit"
+	desc = "A nice red shirt and brown pants with some gold chains attached. Quite the status symbol."
+	icon_state = "slick_2"
+
+/obj/item/clothing/under/ms13/slickback/shotcaller
+	name = "\improper Slickback shot caller outfit"
+	desc = "A well kept green shirt and purple pants with some gold chains attached. Quite the status symbol."
+	icon_state = "slick_3"
+
+/obj/item/clothing/under/ms13/slickback/underboss
+	name = "\improper Slickback underboss outfit"
+	desc = "A very comfortable and carefully tailored set of clothes made for and worn by respected individuals in the Slickback gang."
+	icon_state = "slick_underboss"
+
+// Mon City //
+
+/obj/item/clothing/under/ms13/mon_city
+	name = "\improper Mon City Mercs uniform"
+	desc = "Drab, but warm brown fatigues used by the Mon City Mercs."
+	icon_state = "mon_unif"
+
+/obj/item/clothing/under/ms13/mon_city/padded
+	name = "\improper Mon City Mercs padded uniform"
+	desc = "A set of Mon City Mercs fatigues with some very light, mostly decorative padding, and extra insulation."
+	icon_state = "mon_padunif"
