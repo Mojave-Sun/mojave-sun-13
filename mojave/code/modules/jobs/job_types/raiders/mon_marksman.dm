@@ -15,6 +15,11 @@
 	name = "_Mon City Marksman"
 	jobtype = /datum/job/ms13/raiders/mon_marksman
 
+	uniform =	 /obj/item/clothing/under/ms13/mon_city
+	suit =		 /obj/item/clothing/suit/hooded/ms13/mon_city
+	shoes =		 /obj/item/clothing/shoes/ms13/explorer
+	gloves =	 /obj/item/clothing/gloves/ms13/winter
+	mask =		 /obj/item/clothing/mask/ms13/facewrap/mon_city
 	belt =		 /obj/item/gun/ballistic/automatic/pistol/ms13/pistol22
 	suit_store = /obj/item/gun/ballistic/rifle/ms13/hunting/scoped
 	r_pocket =	 /obj/item/knife/ms13/hunting

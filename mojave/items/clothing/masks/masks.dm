@@ -23,6 +23,7 @@
 	icon_state = "bandana"
 	inhand_icon_state = "winterglovesbrown"
 	flags_inv = HIDEFACE
+	flags_cover = MASKCOVERSMOUTH
 
 /obj/item/clothing/mask/ms13/bandana/blue
 	name = "blue bandana"
@@ -88,6 +89,7 @@
 	desc = "A full, tan colored wrap for your face."
 	icon_state = "facewrap"
 	flags_inv = HIDEFACE
+	flags_cover = MASKCOVERSMOUTH
 
 /obj/item/clothing/mask/ms13/facewrap/halfwrap
 	name = "tan half facewrap"
@@ -109,11 +111,19 @@
 	desc = "A vibrant and lively blue facewrap."
 	icon_state = "facewrap_blu"
 
+/obj/item/clothing/mask/ms13/facewrap/mon_city
+	name = "red facewrap and goggles"
+	desc = "A thick red facewrap with a pair of goggles."
+	icon_state = "mon_marks"
+	flags_inv = HIDEFACE | HIDEHAIR
+	flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES
+
 /obj/item/clothing/mask/ms13/legion
 	name = "\improper Legion cloth mask"
 	desc = "A simple dark cloth mask often used by members of Caesar's Legion."
 	icon_state = "leg_mask"
 	flags_inv = HIDEFACE
+	flags_cover = MASKCOVERSMOUTH
 
 /obj/item/clothing/mask/ms13/legion/speculatore
 	name = "\improper Legion speculatore mask"
@@ -127,6 +137,7 @@
 	icon_state = "ncr_cowl"
 	inhand_icon_state = "ncr_standard_gloves"
 	flags_inv = HIDEFACE
+	flags_cover = MASKCOVERSMOUTH
 
 /obj/item/clothing/mask/ms13/bos
 	name = "\improper BoS hood"
@@ -160,6 +171,19 @@
 	icon_state = "ranger_mask"
 	worn_icon_state = "ranger_mask"
 	adjustable = FALSE
+
+/obj/item/clothing/mask/gas/ms13/mon_city
+	name = "antique gas mask"
+	desc = "This gas mask seems to be old even by pre-war standards. But it does still work, right?"
+	icon_state = "mon_gasmask"
+	worn_icon_state = "mon_gasmask"
+	adjustable = FALSE
+
+/obj/item/clothing/mask/gas/ms13/mon_city/pointer
+	name = "crude gas mask"
+	desc = "A makeshift gas mask that is no doubt a creation of the post-apocalypse. Looks a bit intimidating, and you're not sure who would really want to put this on their head."
+	icon_state = "mon_pointer"
+	worn_icon_state = "mon_pointer"
 
 /obj/item/clothing/mask/gas/ms13/Initialize()
 	. = ..()

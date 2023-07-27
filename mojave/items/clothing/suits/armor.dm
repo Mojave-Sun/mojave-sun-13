@@ -409,7 +409,7 @@
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
 	max_integrity = 500
-	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 60, acid = 0, wound = 0)
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 60, acid = 0, wound = 5)
 	equip_delay_self = 4 SECONDS
 	equip_delay_other = 6 SECONDS
 
@@ -942,3 +942,72 @@
                 FIRE = CLASS3_FIRE)
 	equip_delay_self = 4 SECONDS
 	equip_delay_other = 6 SECONDS
+
+//Mon City Armor //
+
+/obj/item/clothing/suit/hooded/ms13/mon_city
+	name = "padded green winter hoodie"
+	desc = "A thick, lightly padded green winter hoodie. Warm and might just save your life!"
+	icon_state = "mon_marksman"
+	inhand_icon_state = "winter"
+	slowdown = 0
+	hoodtype = /obj/item/clothing/head/hooded/ms13/mon_city
+	body_parts_covered = CHEST|GROIN|ARMS
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS1_LASER, \
+                ENERGY = 0, \
+                FIRE = 0)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/large
+
+/obj/item/clothing/suit/ms13/veteran_coat/reinf/mon_city
+	name = "reinforced winter apparel"
+	desc = "A set of winter clothes with the addition of some protective leather reinforcements and some kevlar padding."
+	icon_state = "mon_padded"
+	body_parts_covered = CHEST|GROIN|ARMS|LEGS
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS2_CRUSH, \
+                CUTTING = CLASS2_CUT, \
+                PIERCING = CLASS2_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS2_LASER, \
+                ENERGY = 0, \
+                FIRE = CLASS2_FIRE)
+
+/obj/item/clothing/suit/ms13/veteran_coat/reinf/mon_city/captain
+	name = "padded winter fur coat"
+	desc = "A bulky winter fur coat with lots of padding and kevlar on the inside. This will probably protect you just as well from the cold as it would any bullets coming your way."
+	icon_state = "mon_captain"
+	slowdown = 0.3
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = CLASS2_EDGE, \
+                CRUSHING = CLASS2_CRUSH, \
+                CUTTING = CLASS3_CUT, \
+                PIERCING = CLASS3_PIERCE, \
+                IMPALING = CLASS2_STAB, \
+                LASER = CLASS2_LASER, \
+                ENERGY = CLASS1_PLASMA, \
+                FIRE = CLASS3_FIRE)
+	max_integrity = 500
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 60, acid = 0, wound = 5)
+
+/obj/item/clothing/suit/ms13/veteran_coat/reinf/mon_city/pointman
+	name = "metal reinforced winter fur coat"
+	desc = "A heavy fur coat with lots of metal reinforcements and additions. Quite protective, but also very bulky, and the cold metal doesn't make it any warmer."
+	icon_state = "mon_pointer"
+	slowdown = 0.5
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = CLASS1_EDGE, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS4_CUT, \
+                PIERCING = CLASS3_PIERCE, \
+                IMPALING = CLASS3_STAB, \
+                LASER = CLASS1_LASER, \
+                ENERGY = CLASS2_PLASMA, \
+                FIRE = CLASS3_FIRE)
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 60, acid = 0, wound = 5)

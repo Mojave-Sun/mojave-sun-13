@@ -456,3 +456,15 @@
 	name = "\improper Slickback underboss outfit"
 	desc = "A very comfortable and carefully tailored set of clothes made for and worn by respected individuals in the Slickback gang."
 	icon_state = "slick_underboss"
+
+// Mon City //
+
+/obj/item/clothing/under/ms13/mon_city
+	name = "\improper Mon City Mercs uniform"
+	desc = "Drab, but warm brown fatigues used by the Mon City Mercs."
+	icon_state = "mon_unif"
+
+/obj/item/clothing/under/ms13/mon_city/padded
+	name = "\improper Mon City Mercs padded uniform"
+	desc = "A set of Mon City Mercs fatigues with some very light, mostly decorative padding, and extra insulation."
+	icon_state = "mon_padunif"

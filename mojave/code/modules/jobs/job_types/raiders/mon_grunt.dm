@@ -15,6 +15,12 @@
 	name = "_Mon City Grunt"
 	jobtype = /datum/job/ms13/raiders/mon_grunt
 
+	uniform =	 /obj/item/clothing/under/ms13/mon_city
+	suit =		 /obj/item/clothing/suit/ms13/veteran_coat/reinf/mon_city
+	shoes =		 /obj/item/clothing/shoes/ms13/military
+	gloves =	 /obj/item/clothing/gloves/ms13/winter/black
+	mask =		 /obj/item/clothing/mask/gas/ms13/mon_city
+	head =		 /obj/item/clothing/head/helmet/ms13/cowboy/mon_city
 	belt =		 /obj/item/gun/ballistic/revolver/ms13/rev10mm
 	suit_store = /obj/item/gun/ballistic/shotgun/automatic/ms13/sks
 	r_pocket =	 /obj/item/knife/ms13/combat

@@ -1862,3 +1862,63 @@
 	name = "\improper Drylander shemagh"
 	desc = "A shemagh worn by the Drylander tribe. Mysterious."
 	icon_state = "dry_shemagh"
+
+// Mon City Helmets //
+
+/obj/item/clothing/head/helmet/ms13/ushanka/mon_city
+	name = "padded ushanka hat"
+	desc = "Thick, padded, and warm ushanka hat. Almost as good at keeping you alive as it is at keeping you warm."
+	icon_state = "mon_ushanka"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS2_CRUSH, \
+                CUTTING = CLASS2_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS1_LASER, \
+                ENERGY = 0, \
+                FIRE = CLASS1_FIRE)
+	max_integrity = 200
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 10, acid = 0, wound = 5)
+	has_fov = TRUE
+	fov_angle = 60
+
+/obj/item/clothing/head/helmet/ms13/cowboy/mon_city
+	name = "padded wide brim winter hat"
+	desc = "A wide brim winter hat with the addition of some light protective padding."
+	icon_state = "mon_widehat"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS1_LASER, \
+                ENERGY = 0, \
+                FIRE = 0)
+
+/obj/item/clothing/head/helmet/ms13/combat/mon_city
+	name = "assault gas mask"
+	desc = "A heavy duty gas mask that doubles as a protective helmet. Likely used by the pre-war military for operations in hazardous areas."
+	icon_state = "mon_captain"
+	inhand_icon_state = "metalhelmet"
+	dynamic_hair_suffix = ""
+	dynamic_fhair_suffix = ""
+	fov_angle = 120 //So basically just a combat helmet with a worse FOV
+
+/obj/item/clothing/head/hooded/ms13/mon_city
+	name = "padded green winter hood"
+	desc = "The hood to a green winter hoodie. Has some light protective padding on the inside."
+	icon_state = "mon_marksmanhood"
+	inhand_icon_state = "fedora"
+	dynamic_hair_suffix = ""
+	dynamic_fhair_suffix = ""
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS1_LASER, \
+                ENERGY = 0, \
+                FIRE = 0)

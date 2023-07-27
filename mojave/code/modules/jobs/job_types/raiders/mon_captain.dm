@@ -15,6 +15,12 @@
 	name = "_Mon City Captain"
 	jobtype = /datum/job/ms13/raiders/mon_captain
 
+	uniform =	 /obj/item/clothing/under/ms13/mon_city/padded
+	suit =		 /obj/item/clothing/suit/ms13/veteran_coat/reinf/mon_city/captain
+	shoes =		 /obj/item/clothing/shoes/ms13/explorer
+	gloves =	 /obj/item/clothing/gloves/ms13/military
+	head =		 /obj/item/clothing/head/helmet/ms13/combat/mon_city
+	id =		 /obj/item/card/id/ms13/mon_captain
 	belt =		 /obj/item/gun/ballistic/automatic/pistol/ms13/m10mm/military
 	suit_store = /obj/item/gun/ballistic/automatic/ms13/full/assaultrifle
 	r_pocket =	 /obj/item/knife/ms13/combat

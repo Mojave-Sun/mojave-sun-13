@@ -120,8 +120,8 @@
 		"Legion_flag.png" = 'mojave/icons/faction_flags/flag_legion.png',
 		"Rangers_flag.png" = 'mojave/icons/faction_flags/flag_rangers.png',
 		"BOS_flag.png" = 'mojave/icons/faction_flags/flag_brotherhood.png',
-		"Raiders_flag.png" = 'mojave/icons/faction_flags/flag_raiders.png',
-		"Town_flag.png" = 'mojave/icons/faction_flags/flag_wastelanders.png', //placeholder
+		"Gangs_flag.png" = 'mojave/icons/faction_flags/flag_raiders.png',
+		"Snowcrest_flag.png" = 'mojave/icons/faction_flags/flag_wastelanders.png', //placeholder
 		"Wasteland_flag.png" = 'mojave/icons/faction_flags/flag_wastelanders.png',
 		"Barony_flag.png" = 'mojave/icons/faction_flags/flag_wastelanders.png', //placeholder
 		"Drylanders_flag.png" = 'mojave/icons/faction_flags/flag_wastelanders.png'

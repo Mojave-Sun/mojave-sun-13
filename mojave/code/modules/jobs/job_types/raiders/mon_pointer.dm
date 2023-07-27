@@ -15,6 +15,12 @@
 	name = "_Mon City Pointman"
 	jobtype = /datum/job/ms13/raiders/mon_pointer
 
+	uniform =	 /obj/item/clothing/under/ms13/mon_city/padded
+	suit =		 /obj/item/clothing/suit/ms13/veteran_coat/reinf/mon_city/pointman
+	shoes =		 /obj/item/clothing/shoes/ms13/military
+	gloves =	 /obj/item/clothing/gloves/ms13/winter
+	mask =		 /obj/item/clothing/mask/gas/ms13/mon_city/pointer
+	head =		 /obj/item/clothing/head/helmet/ms13/ushanka/mon_city
 	belt =		 /obj/item/gun/ballistic/revolver/ms13/caravan/sawed
 	suit_store = /obj/item/gun/ballistic/automatic/ms13/full/smg9mm
 	r_pocket =	 /obj/item/ms13/knuckles/weighted/spiked
