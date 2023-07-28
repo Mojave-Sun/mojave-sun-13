@@ -888,13 +888,13 @@
 		return
 	playsound(src, 'mojave/sound/ms13effects/jewelry_chain1.ogg', 15, TRUE)
 	user.visible_message( \
-		"[user] begins to tear the chains off of \the [src].", \
-		span_notice("You begin tearing the chains off \the [src]."),
+		"[user] begins to irreversibly ruin \the [src].", \
+		span_danger("You begin pillaging the chains off \the [src], forever stealing a part of it."),
 		span_hear("You hear cloth moving around with chains rattling."))
-	if(do_after(user, 2.5 SECONDS))
+	if(do_after(user, 5 SECONDS))
 		user.visible_message( \
 			"[user] finishes tearing the chains off of \the [src].", \
-			span_notice("You finish tearing the chains off \the [src]. Forever ruining the style."),
+			span_notice("You finish tearing the chains off \the [src]. Destroying the style."),
 			span_hear("You hear chains rattling with an abrupt stop."))
 		playsound(src, 'mojave/sound/ms13effects/jewelry_chain2.ogg', 15, TRUE)
 		icon_state = initial(icon_state)+"_snatched"
