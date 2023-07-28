@@ -179,6 +179,11 @@
 	worn_icon_state = "mon_gasmask"
 	adjustable = FALSE
 
+/obj/item/clothing/mask/gas/ms13/mon_city/full
+	desc = "A very old gas mask, seemingly even more uncommon. This one has a long snorkel like tube with a filter on the end."
+	icon_state = "mon_gasmaskfull"
+	worn_icon_state = "mon_gasmaskfull"
+
 /obj/item/clothing/mask/gas/ms13/mon_city/pointer
 	name = "crude gas mask"
 	desc = "A makeshift gas mask that is no doubt a creation of the post-apocalypse. Looks a bit intimidating, and you're not sure who would really want to put this on their head."

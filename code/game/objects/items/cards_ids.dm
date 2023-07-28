@@ -101,6 +101,8 @@
 	/// Boolean value. If TRUE, the [Intern] tag gets prepended to this ID card when the label is updated.
 	var/is_intern = FALSE
 
+	var/shows_age = TRUE // MOJAVE SUN EDIT - Does this 'ID' have information about age? Useful for stuff like "bullet IDs" that won't have more than initials carved into them.
+
 /obj/item/card/id/Initialize(mapload)
 	. = ..()
 
@@ -397,6 +399,8 @@
 
 		wildcard_access_list |= new_access
 
+/* // MOJAVE SUN EDIT BEGIN
+
 /obj/item/card/id/attack_self(mob/user)
 	if(Adjacent(user))
 		var/minor
@@ -404,7 +408,6 @@
 			minor = " <b>(MINOR)</b>"
 		user.visible_message(span_notice("[user] shows you: [icon2html(src, viewers(user))] [src.name][minor]."), span_notice("You show \the [src.name][minor]."))
 	add_fingerprint(user)
-/* // MOJAVE SUN EDIT BEGIN
 
 /obj/item/card/id/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
@@ -647,7 +650,6 @@
 	else
 		var/difference = amount_to_remove - registered_account.account_balance
 		registered_account.bank_card_talk(span_warning("ERROR: The linked account requires [difference] more credit\s to perform that withdrawal."), TRUE)
-*/ // MOJAVE SUN END
 
 /obj/item/card/id/examine(mob/user)
 	. = ..()
@@ -680,7 +682,19 @@
 	else
 		msg += span_info("There is no registered account linked to this card. Alt-Click to add one.")
 
-	return msg
+	return msg*/ // ORIGINAL SETUP
+
+/obj/item/card/id/attack_self(mob/user)
+	if(Adjacent(user))
+		user.visible_message(span_notice("[user] shows you: [icon2html(src, viewers(user))] [src.name]"), span_notice("You show \the [src.name]"))
+	add_fingerprint(user)
+
+/obj/item/card/id/examine(mob/user)
+	. = ..()
+	if(registered_age && shows_age)
+		. += "It indicates that the holder is [registered_age] years old."
+
+// MOJAVE SUN EDIT END
 
 /obj/item/card/id/GetAccess()
 	return access.Copy()
@@ -702,6 +716,7 @@
 			powergaming.update_appearance()
 
 /// Updates the name based on the card's vars and state.
+/* MOJAVE SUN EDIT BEGIN
 /obj/item/card/id/proc/update_label()
 	var/name_string = registered_name ? "[registered_name]'s ID Card" : initial(name)
 	var/assignment_string
@@ -715,6 +730,11 @@
 		assignment_string = assignment
 
 	name = "[name_string] ([assignment_string])"
+	*/
+
+/obj/item/card/id/proc/update_label()
+	name = "[initial(name)] ([registered_name])"
+	// MOJAVE SUN EDIT END -freaked
 
 /// Returns the trim assignment name.
 /obj/item/card/id/proc/get_trim_assignment()
