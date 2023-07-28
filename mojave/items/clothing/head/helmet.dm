@@ -1415,6 +1415,15 @@
 	name = "\improper NCR military police helmet"
 	desc = "An NCR helmet issued to military police stationed at NCR military installations or frontier towns."
 	icon_state = "ncr_mp_helmet"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = CLASS1_EDGE, \
+                CRUSHING = CLASS3_CRUSH, \
+                CUTTING = CLASS2_CUT, \
+                PIERCING = CLASS2_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS1_LASER, \
+                ENERGY = 0, \
+                FIRE = CLASS2_FIRE)
 
 /obj/item/clothing/head/helmet/ms13/ncr/medic
 	name = "\improper NCR medic helmet"
