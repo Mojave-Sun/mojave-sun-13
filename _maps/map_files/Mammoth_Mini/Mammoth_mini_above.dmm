@@ -2062,6 +2062,7 @@
 "amp" = (
 /obj/machinery/door/unpowered/ms13/wood,
 /obj/effect/spawner/random/ms13/locked/random/lowchance,
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "amu" = (
@@ -5077,10 +5078,10 @@
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/bos)
 "aFW" = (
-/obj/structure/table/ms13/low_wall/brick/alt,
-/obj/structure/window/fulltile/ms13/glass,
-/turf/open/floor/wood/ms13/common,
-/area/ms13/town)
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/turf_decal/ms13/covering/wallpaper/red,
+/turf/closed/wall/ms13/metal,
+/area/ms13/snowcrest/building)
 "aFX" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/table/ms13/low_wall/brick/alt,
@@ -6868,7 +6869,6 @@
 /area/ms13/town)
 "aRd" = (
 /obj/structure/table/ms13/wood,
-/obj/item/clipboard,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/item/ms13/fluff/ruined_book,
 /turf/open/floor/wood/ms13/carpet,
@@ -6947,9 +6947,6 @@
 /area/ms13/underground/tunnel/maintenance)
 "aRw" = (
 /obj/structure/table/ms13/metal,
-/obj/item/clipboard{
-	pixel_y = 6
-	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
 /obj/item/paper/ms13{
 	pixel_y = 7
@@ -7486,7 +7483,6 @@
 "aVg" = (
 /obj/structure/table/ms13/wood,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/item/clipboard,
 /obj/item/paper/ms13{
 	pixel_y = 7
 	},
@@ -9878,6 +9874,9 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/carpet,
 /area/ms13/town)
+"ePv" = (
+/turf/closed/wall/ms13/metal,
+/area/ms13/underground/mountain)
 "eQS" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/table/ms13/no_smooth/wood/low,
@@ -10332,6 +10331,11 @@
 	},
 /turf/open/floor/ms13/tile/long,
 /area/ms13/town)
+"fKg" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/effect/turf_decal/ms13/covering/paint/white,
+/turf/closed/wall/ms13/metal,
+/area/ms13/snowcrest/building)
 "fKO" = (
 /obj/structure/ms13/wall_decor/calendar/blank,
 /obj/effect/spawner/random/ms13/crafting/household,
@@ -15298,7 +15302,6 @@
 /area/ms13/town)
 "qUI" = (
 /obj/structure/lattice/catwalk/ms13,
-/obj/structure/railing/ms13/solo/industrial,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/openspace/ms13,
@@ -17035,9 +17038,6 @@
 	},
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
-"uVi" = (
-/turf/closed/wall/ms13/metal,
-/area/ms13/underground/mountain)
 "uWu" = (
 /obj/item/chair/ms13/metal/office/blue/broken,
 /obj/structure/ms13/rug/rubber,
@@ -25647,8 +25647,8 @@ jaB
 mFI
 aft
 aft
-aoo
-aoo
+aft
+aft
 aft
 aft
 mFI
@@ -25874,8 +25874,8 @@ jaB
 jaB
 jaB
 qUI
-afk
-afk
+jaB
+jaB
 jaB
 jaB
 jaB
@@ -42886,13 +42886,13 @@ aPY
 "}
 (109,1,1) = {"
 aPY
-aYD
+aFW
 aDP
 gtl
-aYD
+aFW
 hYn
 gtl
-aYD
+aFW
 baK
 gtl
 aYD
@@ -43113,13 +43113,13 @@ aPY
 "}
 (110,1,1) = {"
 aPY
-aYD
+aFW
 iOe
 qti
-aYD
+aFW
 tQJ
 qti
-aYD
+aFW
 gtl
 qti
 aYD
@@ -43340,13 +43340,13 @@ aPY
 "}
 (111,1,1) = {"
 aPY
-aYD
+aFW
 efQ
 gtl
-aYD
+aFW
 gLX
 eoN
-aYD
+aFW
 gLX
 gxv
 aYD
@@ -43568,12 +43568,12 @@ aPY
 (112,1,1) = {"
 aPY
 aYD
-aYD
+aFW
+kzt
+aFW
 kzt
 aYD
-kzt
-aYD
-aYD
+aFW
 kzt
 aYD
 aYD
@@ -43794,7 +43794,7 @@ aPY
 "}
 (113,1,1) = {"
 aPY
-aYD
+fKg
 bvf
 xep
 xep
@@ -44021,13 +44021,13 @@ aPY
 "}
 (114,1,1) = {"
 aPY
-aYD
+fKg
 lPe
 xep
 xep
 ews
 aYD
-aYD
+aFW
 eYo
 aYD
 aYD
@@ -44248,12 +44248,12 @@ aPY
 "}
 (115,1,1) = {"
 aPY
-aYD
+fKg
 xep
 xep
 xep
 xep
-aYD
+aFW
 ufB
 gtl
 gtl
@@ -44475,12 +44475,12 @@ aPY
 "}
 (116,1,1) = {"
 aPY
-aYD
+fKg
 uiY
 xep
 xep
 xep
-aYD
+aFW
 gPg
 fvF
 eoN
@@ -44702,7 +44702,7 @@ aPY
 "}
 (117,1,1) = {"
 aPY
-aYD
+fKg
 cZL
 xot
 xep
@@ -44929,12 +44929,12 @@ aPY
 "}
 (118,1,1) = {"
 aPY
-aYD
+fKg
 cZL
 pMe
 cMO
 xep
-aYD
+aFW
 gLX
 hCw
 gtl
@@ -45156,12 +45156,12 @@ aPY
 "}
 (119,1,1) = {"
 aPY
-aYD
+fKg
 cZL
 cZL
 cZL
 wOw
-aYD
+aFW
 rNv
 gtl
 lmw
@@ -45383,13 +45383,13 @@ aPY
 "}
 (120,1,1) = {"
 aPY
-aYD
+fKg
 raV
 caq
 caq
 ews
 aYD
-aYD
+aFW
 kzt
 aYD
 aYD
@@ -45610,7 +45610,7 @@ aPY
 "}
 (121,1,1) = {"
 aPY
-aYD
+fKg
 wZy
 xep
 xep
@@ -45838,12 +45838,12 @@ aPY
 (122,1,1) = {"
 aPY
 aYD
-aYD
+aFW
+eYo
+aFW
 eYo
 aYD
-eYo
-aYD
-aYD
+aFW
 eYo
 aYD
 aYD
@@ -46064,13 +46064,13 @@ aPY
 "}
 (123,1,1) = {"
 aPY
-aYD
+aFW
 tjV
 gtl
-aYD
+aFW
 gLX
 aGB
-aYD
+aFW
 gLX
 gtl
 aYD
@@ -46291,13 +46291,13 @@ aPY
 "}
 (124,1,1) = {"
 aPY
-aYD
+aFW
 wJf
 qti
-aYD
+aFW
 gtl
 gQi
-aYD
+aFW
 jnH
 qti
 aYD
@@ -46518,13 +46518,13 @@ aPY
 "}
 (125,1,1) = {"
 aPY
-aYD
+aFW
 oPD
 gtl
-aYD
+aFW
 jBN
 wVZ
-aYD
+aFW
 gxv
 gtl
 aYD
@@ -52590,7 +52590,7 @@ acU
 aoM
 ahd
 ahd
-aFW
+auy
 avN
 apW
 aRa
@@ -52817,7 +52817,7 @@ aKL
 dDy
 aXu
 ahd
-aax
+aCj
 aBf
 aEf
 aBg
@@ -53149,9 +53149,9 @@ aPY
 aPY
 aPY
 aPY
-uVi
+ePv
 aRK
-uVi
+ePv
 aLH
 aLH
 aLH
@@ -53271,7 +53271,7 @@ aou
 aPB
 aNV
 ahd
-aax
+aCj
 aDN
 aEf
 aJo
@@ -53376,9 +53376,9 @@ aPY
 aPY
 aPY
 aPY
-uVi
+ePv
 aRK
-uVi
+ePv
 aPY
 aPY
 aLH
@@ -53498,7 +53498,7 @@ rJw
 aIC
 aUW
 ahd
-aFW
+auy
 aSt
 apW
 aRa
@@ -53603,9 +53603,9 @@ aPY
 aPY
 aPY
 aPY
-uVi
+ePv
 aRK
-uVi
+ePv
 aPY
 aPY
 aLH
@@ -53832,7 +53832,7 @@ aPY
 aPY
 aRK
 aRK
-uVi
+ePv
 aPY
 aPY
 aLH
@@ -54057,9 +54057,9 @@ mka
 aPY
 aPY
 aPY
-uVi
-uVi
-uVi
+ePv
+ePv
+ePv
 aPY
 aPY
 aLH
