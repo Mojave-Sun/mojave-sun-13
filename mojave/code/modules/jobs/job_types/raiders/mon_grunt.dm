@@ -33,6 +33,15 @@
 /datum/outfit/job/ms13/raiders/mon_grunt/pre_equip(mob/living/carbon/human/H)
 	..()
 
+	head = pick(
+		/obj/item/clothing/head/helmet/ms13/cowboy/mon_city,\
+		/obj/item/clothing/head/helmet/ms13/ushanka/mon_city/basic)
+
+	if(prob(35))
+		mask = /obj/item/clothing/mask/gas/ms13/mon_city/full
+	else
+		mask = /obj/item/clothing/mask/gas/ms13/mon_city
+
 /datum/outfit/job/ms13/raiders/mon_grunt/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	var/obj/item/gun/ballistic/equipped_gun = H.get_item_by_slot(ITEM_SLOT_SUITSTORE)
