@@ -1415,6 +1415,15 @@
 	name = "\improper NCR military police helmet"
 	desc = "An NCR helmet issued to military police stationed at NCR military installations or frontier towns."
 	icon_state = "ncr_mp_helmet"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = CLASS1_EDGE, \
+                CRUSHING = CLASS3_CRUSH, \
+                CUTTING = CLASS2_CUT, \
+                PIERCING = CLASS2_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS1_LASER, \
+                ENERGY = 0, \
+                FIRE = CLASS2_FIRE)
 
 /obj/item/clothing/head/helmet/ms13/ncr/medic
 	name = "\improper NCR medic helmet"
@@ -1878,10 +1887,27 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS1_FIRE)
-	max_integrity = 200
+	max_integrity = 250
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 10, acid = 0, wound = 5)
 	has_fov = TRUE
 	fov_angle = 60
+
+/obj/item/clothing/head/helmet/ms13/ushanka/mon_city/basic
+	name = "lightly padded ushanka hat"
+	desc = "A warm ushanka hat with some light padding for protection."
+	icon_state = "mon_basicushanka"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS1_LASER, \
+                ENERGY = 0, \
+                FIRE = 0)
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 10, acid = 0, wound = 0) //no wound armor
+	has_fov = FALSE
+	fov_angle = null
 
 /obj/item/clothing/head/helmet/ms13/cowboy/mon_city
 	name = "padded wide brim winter hat"
