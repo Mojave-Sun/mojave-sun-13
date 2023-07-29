@@ -320,7 +320,10 @@
 	var/obj/item/card/id/C = H.wear_id
 	if(istype(C))
 		shuffle_inplace(C.access) // Shuffle access list to make NTNet passkeys less predictable
-		C.registered_name = H.real_name
+		if(C.just_initials)
+			C.registered_name = text_initials(H.real_name)
+		else
+			C.registered_name = H.real_name
 		if(H.age)
 			C.registered_age = H.age
 		C.update_label()
