@@ -21,8 +21,7 @@
 	backpack_contents = list(
 		/obj/item/stack/medical/gauze/ms13/three=1, \
 		/obj/item/claymore/ms13/baton=1, \
-		/obj/item/stack/ms13/currency/ncr_dollar/twelve=1,\
-		/obj/item/restraints/handcuffs/ms13=1)
+		/obj/item/stack/ms13/currency/ncr_dollar/twelve=1)
 
 /datum/outfit/job/ms13/ncr/mp/pre_equip(mob/living/carbon/human/H)
 	..()
