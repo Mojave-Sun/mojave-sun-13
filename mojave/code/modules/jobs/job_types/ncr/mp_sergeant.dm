@@ -28,7 +28,8 @@
 		/obj/item/stack/ms13/currency/ncr_dollar/sixty=1, \
 		/obj/item/claymore/ms13/baton=1, \
 		/obj/item/knife/ms13/hunting=1, \
-		/obj/item/stack/medical/ointment/ms13/half=1)
+		/obj/item/stack/medical/ointment/ms13/half=1, \
+		/obj/item/restraints/handcuffs/ms13=1)
 
 /datum/outfit/job/ms13/ncr/mp_sergeant/pre_equip(mob/living/carbon/human/H)
 	..()
