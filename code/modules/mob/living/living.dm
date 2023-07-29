@@ -469,8 +469,19 @@
 		return FALSE
 	if(!..())
 		return FALSE
-	visible_message("<span class='infoplain'>[span_name("[src]")] points at [A].</span>", span_notice("You point at [A]."))
-	log_message("points at [A]", LOG_EMOTE)
+	//visible_message("<span class='infoplain'>[span_name("[src]")] points at [A].</span>", span_notice("You point at [A].")) // MS13 Commented out
+	// MOJAVE SUN EDIT BEGIN
+	var/obj/item/held_thing = src.get_active_held_item()
+	if(held_thing && held_thing != A && held_thing != /obj/item/offhand) // If you're holding something, point it at them. But don't let them point the object at themselves. Also don't let them point the fucking offhand item...
+		visible_message("<span class='infoplain'>[span_name("[src]")] points [held_thing] at [A].", span_notice("You point at [A] with [held_thing]."))
+		balloon_alert_to_viewers("points [held_thing] at [A].") // MOJAVE SUN EDIT - Balloon alert...
+		log_message("points [held_thing] at [A]", LOG_EMOTE)
+	else
+		visible_message("<span class='infoplain'>[span_name("[src]")] points at [A].</span>", span_notice("You point at [A]."))
+		balloon_alert_to_viewers("points at [A].") // MOJAVE SUN EDIT - Balloon alert...
+		log_message("points at [A]", LOG_EMOTE)
+	// MOJAVE SUN EDIT END
+	//log_message("points at [A]", LOG_EMOTE) // MS13 Commented out
 	return TRUE
 
 

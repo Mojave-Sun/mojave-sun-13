@@ -603,9 +603,11 @@
 		return FALSE
 	if(istype(A, /obj/effect/temp_visual/point))
 		return FALSE
-
+	if(!COOLDOWN_FINISHED(src, pointing_cooldown)) // MOJAVE SUN EDIT - Cooldown for pointing because point spamming is dumb
+		return // MOJAVE SUN EDIT
 	point_at(A)
 
+	COOLDOWN_START(src, pointing_cooldown, 2.5 SECONDS) // MOJAVE SUN EDIT - Cooldown for pointing
 	SEND_SIGNAL(src, COMSIG_MOB_POINTED, A)
 	return TRUE
 
@@ -1351,6 +1353,19 @@
 
 	clear_important_client_contents()
 	canon_client = null
+
+///Shows guestbook tgui window
+/mob/verb/guestbook()
+	set name = "Guestbook"
+	set category = "IC"
+	set desc = "View your character's Guestbook."
+	if(!mind)
+		var/fail_message = "You have no mind!"
+		if(isobserver(src))
+			fail_message += " You have to be in the current round at some point to have one."
+		to_chat(src, span_warning(fail_message))
+		return
+	mind.guestbook.ui_interact(usr)
 
 ///Shows a tgui window with memories
 /mob/verb/memory()

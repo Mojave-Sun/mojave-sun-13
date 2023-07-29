@@ -487,7 +487,7 @@
 	speak_chance = 20
 	turns_per_move = 2
 	move_to_delay = 4
-	butcher_results = list(/obj/item/food/meat/slab/ms13/animal/rad_scorp = 2)
+	butcher_results = list(/obj/item/food/meat/slab/ms13/animal/rad_scorp = 2, /obj/item/ms13/animalitem/scorpion = 1)
 	attack_sound = list('mojave/sound/ms13npc/radscorp_attack1.ogg', 'mojave/sound/ms13npc/radscorp_attack2.ogg', 'mojave/sound/ms13npc/radscorp_attack3.ogg')
 	deathsound = list('mojave/sound/ms13npc/radscorp_death1.ogg', 'mojave/sound/ms13npc/radscorp_death2.ogg')
 	health = 135

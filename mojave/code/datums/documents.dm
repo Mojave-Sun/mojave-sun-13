@@ -121,6 +121,125 @@
 		<br><br>I leave this note not for your personal integrity, but as a plead for you to avoid having him blow up our reserves before the rest get there. Trust me, there will be nothing left. \
 		<br><br>If I've got to clean your body off of anything that may have survived, I'll personally scoop your brains up and pour it into a robobrain tank. Consider that before you toy around with things above you."
 
+//// MINI MAMMOTH SPECIFIC ////
+
+// Upper military
+
+/datum/terminal/document/upper_mil_morning // Mini mammoth military base gatehouse morning logs
+	title = "Entry Log - Morning Shift"
+	content ="Date: 10/22/2077 \
+		<br>07:30 AM Recorded the following personnel and vehicle entries during the morning shift: \
+		<br>07:32 AM: Private Hogg - Personnel Entry \
+		<br>07:45 AM: Supply Truck A-12 - Cargo Entry (Manifest ID: MT567) \
+		<br>08:05 AM: Sergeant Ramirez - Personnel Entry \
+		<br>08:11 AM: Supply Truck A-12 - Vehicle exit \
+		<br>08:20 AM: Civilian Contractor - Personnel Entry (Temporary Access Granted)\
+		<br>08:35 AM: Maintenance Vehicle M-6 - Cargo Entry (Manifest ID: MA987)\
+		<br><br>All entries properly logged and verified. Gatehouse secure and operational."
+
+/datum/terminal/document/upper_mil_afternoon // Mini mammoth military base gatehouse afternoon logs
+	title = "Entry Log - Afternoon Shift"
+	content ="Date: 10/22/2077 \
+		<br>Recorded the following personnel and vehicle exits during the afternoon shift:\
+		<br>13:20 PM: Lieutenant Thompson - Personnel Exit\
+		<br>13:35 PM: Medical Team - Vehicle Exit (Medical Supplies Dispatched)\
+		<br>13:50 PM: Researcher Anderson - Personnel Exit\
+		<br>14:10 PM: Supply Truck C-8 - Vehicle Exit (Manifest ID: CT459)\
+		<br>14:25 PM: Sergeant Martinez - Personnel Exit\
+		<br><br>All exits properly logged and verified. Gatehouse operations continue without issues."
+
+/datum/terminal/document/upper_mil_evening // Mini mammoth military base gatehouse evening logs
+	title = "Entry Log - Evening Shift"
+	content ="Date: 10/22/2077 \
+		<br>Recorded the following personnel and vehicle entries during the evening shift:\
+		<br>17:31 PM: Lieutenant Thompson - Personnel Entry\
+		<br>18:05 PM: Supply Truck D-9 - Cargo Entry (Manifest ID: MT234)\
+		<br>18:22 PM: Corporal Wilson - Personnel Entry\
+		<br>18:35 PM: Maintenance Vehicle M-14 - Cargo Entry (Manifest ID: MA789)\
+		<br>18:47 PM: Supply Truck D-9 - Cargo Exit\
+		<br><br>All exits properly logged and verified. Gatehouse operations remain optimal."
+
+/datum/terminal/document/upper_mil_thebig1 // Mini mammoth military base SUPER BADASS SHIPMENT... too late tho
+	title = "High-Priority Shipment Inbound #REQ361"
+	content ="Date: 10/18/2077 \
+		<br>Time: 12:23 PM\
+		<br><br>\
+		<br>Incoming Shipment - Energy Based Expansion\
+		<br><br>\
+		<br>Shipment Carrier -  S-Truck X-22 (Manifest ID: DT492)\
+		<br>Approximate Arrival -  10/26/2077 12:00 PM\
+		<br>Received an incoming shipment of advanced energy weapons at the gatehouse. Verified and logged the following items:\
+		<br><br>\
+		<br>Item 1: Gauss Rifle Mark IV\
+		<br><br>\
+		<br>Origin: Research Facility - GaussTech Industries\
+		<br>Quantity: 3\
+		<br>Serial Numbers: 58GR2010, 58GR2011, 58GR2012\
+		<br>Item 2: Plasma Caster\
+		<br><br>\
+		<br>Origin: Military Surplus - Fort Daggerwill Armory\
+		<br>Quantity: 2\
+		<br>Serial Numbers: PC-376502, PC-376503\
+		<br>Item 3: Pulse Grenades\
+		<br><br>\
+		<br>Origin: Prototype Production - Advanced Ordnance Department\
+		<br>Quantity: 5\
+		<br>Serial Numbers: XPG1749824, XPG1749825, XPG1749826, XPG1749827, XPG1749828\
+		<br>Upon Arrival of S-Truck X-22, Lieutenant Thompson is to be notified immediately and present for the boarding process.\
+		<br>All items properly secured and accounted for in the armory until further demonstration. Enhanced security protocols activated to ensure the safety of these cutting-edge weapons. \
+		<br>Warehouse personnel assigned to specialized training for handling and transporation."
+
+
+/datum/terminal/document/upper_mil_secproc // Mini mammoth military base gatehouse security procedure
+	title = "CRITICAL NOTICE - Security Procedure Update"
+	content ="Date: 10/22/2077 Time: 20:38 PM<br><br>\
+		<br>Security Notice - Heightened Security Measures\
+		<br>Effective immediately, all gatehouse personnel are hereby notified of the implementation of heightened security measures within the base premises. This decision comes as a result of recent security concerns and potential threats identified in the surrounding area. The following measures are to be strictly enforced:\
+		<br><br>Increased personnel presence: Additional security personnel have been assigned to patrol key areas and checkpoints, ensuring heightened vigilance and rapid response to any suspicious activities.\
+		<br>Access restrictions: All personnel entering or exiting the base must present valid identification as per usual as well as undergo additional thorough screening procedures. No exceptions will be made.\
+		<br>Restricted areas: Certain sections of the base have been designated as restricted zones. Unauthorized personnel are strictly prohibited from entering these areas without proper clearance.\
+		<br>Randomized security checks: Randomized security checks will be conducted on personnel and vehicles to deter unauthorized items from entering or leaving the base.\
+		<br><br>Furthermore, as part of these enhanced security measures, the previously stationed sentry bot designated as 'Sentry Unit Bravo' has been granted permission for free roaming within the base perimeter. This autonomous unit will serve as an additional deterrent and provide an extra layer of defense.\
+		<br><br>All gatehouse personnel are advised to familiarize themselves with the updated security protocols and report any suspicious activities immediately to their superiors. Your cooperation and adherence to these measures are vital to maintaining the safety and integrity of the base."
+
+/datum/terminal/document/upper_mil_req1 // Mini mammoth military base warehouse req
+	title = "Requision Req #REQ - Munitions"
+	content ="Requisition ID: REQ361\
+		<br>Date: 10/18/2077\
+		<br>Requester: Lieutenant Thompson\
+		<br>Priority: High\
+		<br><br>\
+		<br>Item(s) Requested: Ammunition\
+		<br>Quantity:\
+		<br><br>\
+		<br>5.56mm: 10,000 rounds\
+		<br>.308 caliber: 5,000 rounds\
+		<br>9mm: 2,500 rounds\
+		<br>Reason: Preparing for upcoming joint training exercises. Require sufficient ammunition for live-fire drills and weapons proficiency training.\
+		<br><br>\
+		<br>Status: Approved\
+		<br>Est. Delivery Date: 10/25/2077"
+
+/datum/terminal/document/upper_mil_req2 // Mini mammoth military base warehouse req
+	title = "Requision Req #REQ361 - Munitions"
+	content ="<br>Requisition ID: REQ365\
+		<br>Date: 10/18/2077\
+		<br>Requester: Corporal Wilson\
+		<br>Priority: Med\
+		<br><br>\
+		<br>Item Requested: Medical Supplies\
+		<br>Quantity:\
+		<br><br>\
+		<br>Bandages: 500\
+		<br>Antiseptic solution: 10 bottles\
+		<br>Painkillers: 100 doses\
+		<br>Stimulation Delivery Packages: 15\
+		<br>Reason: Replenishing medical supplies for field medic kits. Critical for providing immediate care and treatment to wounded personnel \
+		<br>during potential combat operations and general replenglishment of reserves to infirmary..\
+		<br><br>\
+		<br>Status: Approved\
+		<br>Delivery Date: 10/27/2077"
+
 // RANDOM WORLD TERMINALS //
 
 /datum/terminal/document/water_plant_notice // For the water plant terminal with sewer control

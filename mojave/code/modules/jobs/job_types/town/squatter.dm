@@ -11,6 +11,8 @@
 
 	display_order = JOB_DISPLAY_ORDER_MS13_SQUATTER
 
+	guestbook_flags = GUESTBOOK_FORGETMENOT //anonymity from the rest of town
+
 /datum/outfit/job/ms13/town/squatter
 	name = "_Town Squatter"
 	jobtype = /datum/job/ms13/town/squatter
@@ -69,7 +71,7 @@
 	else
 		suit = null
 
-	if(prob(25))
+	if(prob(20))
 		head = pick(
 		/obj/item/clothing/head/helmet/ms13/baseball,\
 		/obj/item/clothing/head/helmet/ms13/cowboy,\

@@ -6,8 +6,8 @@
 	desc = "Mechanical pre-war shutters, somewhat still functional."
 	icon = 'mojave/icons/structure/shutters.dmi'
 	plane = ABOVE_GAME_PLANE
-	layer = ABOVE_MOB_LAYER
-	closingLayer = ABOVE_MOB_LAYER
+	layer = 4.8
+	closingLayer = 4.8
 	hitted_sound = 'mojave/sound/ms13effects/impact/metal/metal_crunch_2.wav'
 	max_integrity = 800 // hardy bois
 	//Used for the icon planar (horizontal or vertical) as stated on the sprite in the dmi ie. opening-left-[HERE]-red

@@ -23,6 +23,7 @@
 	icon_state = "bandana"
 	inhand_icon_state = "winterglovesbrown"
 	flags_inv = HIDEFACE
+	flags_cover = MASKCOVERSMOUTH
 
 /obj/item/clothing/mask/ms13/bandana/blue
 	name = "blue bandana"
@@ -88,6 +89,7 @@
 	desc = "A full, tan colored wrap for your face."
 	icon_state = "facewrap"
 	flags_inv = HIDEFACE
+	flags_cover = MASKCOVERSMOUTH
 
 /obj/item/clothing/mask/ms13/facewrap/halfwrap
 	name = "tan half facewrap"
@@ -109,11 +111,19 @@
 	desc = "A vibrant and lively blue facewrap."
 	icon_state = "facewrap_blu"
 
+/obj/item/clothing/mask/ms13/facewrap/mon_city
+	name = "red facewrap and goggles"
+	desc = "A thick red facewrap with a pair of goggles."
+	icon_state = "mon_marks"
+	flags_inv = HIDEFACE | HIDEHAIR
+	flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES
+
 /obj/item/clothing/mask/ms13/legion
 	name = "\improper Legion cloth mask"
 	desc = "A simple dark cloth mask often used by members of Caesar's Legion."
 	icon_state = "leg_mask"
 	flags_inv = HIDEFACE
+	flags_cover = MASKCOVERSMOUTH
 
 /obj/item/clothing/mask/ms13/legion/speculatore
 	name = "\improper Legion speculatore mask"
@@ -127,6 +137,7 @@
 	icon_state = "ncr_cowl"
 	inhand_icon_state = "ncr_standard_gloves"
 	flags_inv = HIDEFACE
+	flags_cover = MASKCOVERSMOUTH
 
 /obj/item/clothing/mask/ms13/bos
 	name = "\improper BoS hood"
@@ -137,13 +148,14 @@
 
 /obj/item/clothing/mask/gas/ms13
 	name = "gas mask"
-	desc = "An old gas mask. Hypothetically speaking, breathing through it is safer than breathing out of it. The filters are questionable at best."
+	desc = "An old gas mask. Hypothetically speaking, breathing through it is safer than breathing without it. The filters are questionable at best."
 	icon = 'mojave/icons/objects/clothing/clothing_world/masks_world.dmi'
 	worn_icon = 'mojave/icons/mob/clothing/mask.dmi'
 	icon_state = "gasmaskmodern"
 	inhand_icon_state = "gasmask"
 	var/adjusted = FALSE
 	var/adjustable = TRUE
+	has_fov = FALSE //placeholder for now until we make this more useful to justify a FOV
 	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
 
@@ -159,7 +171,24 @@
 	icon_state = "ranger_mask"
 	worn_icon_state = "ranger_mask"
 	adjustable = FALSE
-	has_fov = FALSE //placeholder for now until we make this more useful to justify a FOV
+
+/obj/item/clothing/mask/gas/ms13/mon_city
+	name = "antique gas mask"
+	desc = "This gas mask seems to be old even by pre-war standards. But it does still work, right?"
+	icon_state = "mon_gasmask"
+	worn_icon_state = "mon_gasmask"
+	adjustable = FALSE
+
+/obj/item/clothing/mask/gas/ms13/mon_city/full
+	desc = "A very old gas mask, seemingly even more uncommon. This one has a long snorkel like tube with a filter on the end."
+	icon_state = "mon_gasmaskfull"
+	worn_icon_state = "mon_gasmaskfull"
+
+/obj/item/clothing/mask/gas/ms13/mon_city/pointer
+	name = "crude gas mask"
+	desc = "A makeshift gas mask that is no doubt a creation of the post-apocalypse. Looks a bit intimidating, and you're not sure who would really want to put this on their head."
+	icon_state = "mon_pointer"
+	worn_icon_state = "mon_pointer"
 
 /obj/item/clothing/mask/gas/ms13/Initialize()
 	. = ..()
@@ -177,11 +206,11 @@
 	if(adjusted)
 		alternate_worn_layer = ABOVE_BODY_FRONT_LAYER
 		to_chat(user, "<span class='notice'>You adjust the [src] to go over your headwear.</span>")
-		desc = "[initial(desc)] It will go over your headwear."
+		desc = "[initial(desc)] It will go over your headwear, you can adjust this by using while in hand."
 		adjusted = TRUE
 	else
 		alternate_worn_layer = UNDER_HEAD_LAYER
 		to_chat(user, "<span class='notice'>You adjust the [src] to go under your headwear.</span>")
-		desc = "[initial(desc)] It will go under your headwear."
+		desc = "[initial(desc)] It will go under your headwear, you can adjust this by using while in hand."
 		adjusted = FALSE
 	update_icon()
