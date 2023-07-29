@@ -3,7 +3,7 @@
 	var/just_initials = FALSE
 
 /obj/item/card/id/update_label()
-	name = "[initial(name)] ([just_initials ? text_initials(registered_name) : registered_name])"
+	name = "[initial(name)] ([registered_name)"
 
 /obj/item/card/id/ms13
 	name = "\improper ID tag"
