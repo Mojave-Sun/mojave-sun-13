@@ -34,4 +34,4 @@
 /obj/item/restraints/handcuffs/ms13/Initialize(mapload)
 	. = ..()
 	if(does_shrink)
-		AddElement(/datum/element/item_scaling, 0.55, 1)
+		AddElement(/datum/element/item_scaling, 0.45, 1)

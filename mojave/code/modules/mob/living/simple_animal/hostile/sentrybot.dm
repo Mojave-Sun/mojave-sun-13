@@ -316,7 +316,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 //randomspread prerequisite
 /obj/item/ammo_casing/energy/ms13/laser/sentrybot
 	projectile_type = /obj/projectile/beam/ms13/laser/sentrybot
-	variance = 32
+	variance = 30
 	pellets = 1
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/lasrifle/laser_heavy.ogg'
 	randomspread = TRUE
