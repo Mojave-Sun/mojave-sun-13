@@ -186,7 +186,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 		return "2"
 	return "0"
 
-/atom/movable/proc/GetVoice()
+/atom/movable/proc/GetVoice(if_no_voice = "Unknown")
 	return "[src]" //Returns the atom's name, prepended with 'The' if it's not a proper noun
 
 /atom/movable/proc/IsVocal()

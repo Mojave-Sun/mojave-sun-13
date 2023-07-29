@@ -1,9 +1,12 @@
+/obj/item/card/id
+	/// ID will use initials of the holder instead of full name when this is true
+	var/just_initials = FALSE
+
 /obj/item/card/id/ms13
 	name = "\improper ID tag"
 	desc = "A simple identification tag. This is a base class and you shouldn't be seeing it."
 	icon = 'mojave/icons/objects/identification/dogtags_inventory.dmi'
 	icon_state = "bos_holotag"
-	var/datum/bank_account = null
 
 /obj/item/card/id/ms13/Initialize()
 	. = ..()
@@ -185,12 +188,14 @@
 	desc = "A necklace consisting of a spent shotgun shell. An intimidating symbol of authority."
 	assignment = "Raider Enforcer"
 	icon_state = "enforcer"
+	just_initials = TRUE
 
 /obj/item/card/id/ms13/boss
 	name = "boss's necklace"
 	desc = "Various bullets of various calibers on a string. Worn by someone both important and intimidating."
 	assignment = "Raider Boss"
 	icon_state = "boss"
+	just_initials = TRUE
 
 /obj/item/card/id/ms13/ranger_recruit
 	name = "recruit ranger badge"
