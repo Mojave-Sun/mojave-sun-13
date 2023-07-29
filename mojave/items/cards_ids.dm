@@ -375,6 +375,7 @@
 	desc = "A shiny, small blade on a string to make a necklace. A somewhat intimidating status symbol, no doubt."
 	assignment = "Slickback Underboss"
 	icon_state = "sawbone" //placeholder
+	just_initials = TRUE
 	shows_age = FALSE
 
 /obj/item/card/id/ms13/slick_cook
@@ -401,6 +402,7 @@
 	desc = "Various bullets of various calibers with a string connecting them. Used as an identifying tag for important members within the Mon City Mercs organization."
 	assignment = "Mon City Captain"
 	icon_state = "boss" //placeholder
+	just_initials  = TRUE
 	shows_age = FALSE
 
 // Brotherhood IDs //
