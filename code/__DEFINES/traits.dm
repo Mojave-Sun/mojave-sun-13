@@ -866,4 +866,6 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 #define TRAIT_NON_FLAMMABLE "non_flammable" //An actual real fireproof trait
 
+#define TRAIT_IN_POWERARMOUR "in_powerarmour" //If this person is wearing power armour actively
+
 // MOJAVE JOB TRAITS END

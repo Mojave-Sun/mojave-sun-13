@@ -116,7 +116,9 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/Initialize()
 	. = ..()
 	grenade = new /datum/action/cooldown/launch_grenade()
+	rocket = new /datum/action/cooldown/launch_rocket()
 	grenade.Grant(src)
+	rocket.Grant(src)
 	RegisterSignal(src, COMSIG_MOVABLE_MOVED, .proc/play_move_sound, override = TRUE)
 	soundloop = new(src, FALSE)
 
@@ -253,6 +255,9 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	if(!client)
 		if(grenade.IsAvailable() && can_see(src, target, 10))
 			grenade.Trigger(target = target)
+			return
+		if(rocket.IsAvailable() && can_see(src, target, 10) && HAS_TRAIT(target, TRAIT_IN_POWERARMOUR))
+			rocket.Trigger(target = target)
 			return
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/AIShouldSleep(list/possible_targets)
