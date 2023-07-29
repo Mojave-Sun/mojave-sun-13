@@ -2,6 +2,9 @@
 	/// ID will use initials of the holder instead of full name when this is true
 	var/just_initials = FALSE
 
+/obj/item/card/id/update_label()
+	name = "[initial(name)] ([just_initials ? text_initials(registered_name) : registered_name])"
+
 /obj/item/card/id/ms13
 	name = "\improper ID tag"
 	desc = "A simple identification tag. This is a base class and you shouldn't be seeing it."
@@ -252,6 +255,7 @@
 	desc = "A necklace consisting of a spent shotgun shell. An intimidating symbol of authority."
 	assignment = "Raider Enforcer"
 	icon_state = "enforcer"
+	just_initials = TRUE
 	shows_age = FALSE
 
 /obj/item/card/id/ms13/boss
@@ -259,6 +263,7 @@
 	desc = "Various bullets of various calibers on a string. Worn by someone both important and intimidating."
 	assignment = "Raider Boss"
 	icon_state = "boss"
+	just_initials = TRUE
 	shows_age = FALSE
 
 /obj/item/card/id/ms13/ranger_recruit
@@ -377,6 +382,7 @@
 	desc = "A live shotgun shell on a string to make a necklace. Meant to serve as a constant reminder of the punishment for disobedience."
 	assignment = "Slickback Cook"
 	icon_state = "enforcer" //placeholder
+	just_initials = TRUE
 	shows_age = FALSE
 
 /obj/item/card/id/ms13/slick_cook/attack_hand_secondary(mob/user, params)
