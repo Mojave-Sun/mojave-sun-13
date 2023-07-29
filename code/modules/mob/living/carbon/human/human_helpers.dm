@@ -232,20 +232,11 @@
 		if (preference.is_randomizable())
 			preference.apply_to_human(src, preference.create_random_value(preferences))
 
-/mob/living/carbon/human/proc/get_gender()
-	var/visible_gender = p_they()
-	switch(visible_gender)
-		if("he")
-			visible_gender = "Man"
-		if("she")
-			visible_gender = "Woman"
-		if("they")
-			visible_gender = "Creature"
-		else
-			visible_gender = "Thing"
-	return visible_gender
-
 /mob/living/carbon/human/proc/get_age()
+	var/obscured = check_obscured_slots()
+	var/skipface = (wear_mask && (wear_mask.flags_inv & HIDEFACE)) || (head && (head.flags_inv & HIDEFACE))
+	if((obscured & ITEM_SLOT_ICLOTHING) && skipface)
+		return ""
 	switch(age)
 		if(70 to INFINITY)
 			return "Geriatric"
@@ -262,15 +253,35 @@
 		else
 			return "Puzzling"
 
+/mob/living/carbon/human/proc/get_gender()
+	var/visible_gender = p_they()
+	switch(visible_gender)
+		if("he")
+			visible_gender = "Man"
+		if("she")
+			visible_gender = "Woman"
+		if("they")
+			visible_gender = "Creature"
+		else
+			visible_gender = "Thing"
+	return visible_gender
+
 /mob/living/carbon/human/proc/get_generic_name(prefixed = FALSE, lowercase = FALSE)
+	var/obscured = check_obscured_slots()
+	var/skipface = (wear_mask && (wear_mask.flags_inv & HIDEFACE)) || (head && (head.flags_inv & HIDEFACE))
+	var/hide_features = (obscured & ITEM_SLOT_ICLOTHING) && skipface
+
 	var/visible_weight
-	if(fatness == FATNESS_OBESE)
+	if((fatness == FATNESS_OBESE) && !hide_features)
 		visible_weight = "[fatness_adjective || "Fat"] "
 	var/visible_adjective
-	if(generic_adjective && ((fatness != FATNESS_OBESE) || !(generic_adjective in GLOB.fatness_incompatible_adjectives)))
+	if(generic_adjective && !hide_features && ((fatness != FATNESS_OBESE) || !(generic_adjective in GLOB.fatness_incompatible_adjectives)))
 		visible_adjective = "[generic_adjective] "
-	var/visible_age = "[get_age()] "
+	var/visible_age = get_age()
+	if(visible_age)
+		visible_age = "[visible_age] "
 	var/visible_skin
+	//i am not quite sure how to implement a check for skin tone/species visibility so uhh, get fucked i guess?
 	if(dna.species.use_skintones)
 		visible_skin = GLOB.skin_tone_names[skin_tone] ? "[GLOB.skin_tone_names[skin_tone]] " : null
 	else
