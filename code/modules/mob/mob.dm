@@ -267,16 +267,16 @@
 
 		//emote handling
 		if(audible_message_flags & EMOTE_MESSAGE)
-			message = "<span class='emote'><b>[src]</b> [message]</span>"
+			msg = "<span class='emote'><b>[src]</b> [message]</span>"
 			if(M.mind?.guestbook && ishuman(src))
 				var/mob/living/carbon/human/human_source = src
 				var/known_name = M.mind.guestbook.get_known_name(M, src, human_source.GetVoice())
 				if(known_name)
-					message = "<span class='emote'><b>[known_name]</b> [raw_msg]</span>"
+					msg = "<span class='emote'><b>[known_name]</b> [raw_msg]</span>"
 			if(runechat_prefs_check(M, audible_message_flags) && M.can_hear())
 				M.create_chat_message(src, raw_message = raw_msg, runechat_flags = audible_message_flags)
 
-		M.show_message(message, MSG_AUDIBLE, deaf_message, MSG_VISUAL)
+		M.show_message(msg, MSG_AUDIBLE, deaf_message, MSG_VISUAL)
 
 /**
  * Show a message to all mobs in earshot of this one

@@ -142,7 +142,6 @@
 	update_icon_state()
 	if(ismob(loc))
 		var/mob/living/M = loc
-		var/obj/item/organ/lungs/L = M.getorganslot(ORGAN_SLOT_LUNGS)
 		to_chat(M, "<span class='notice'>The [name] goes out.</span>")
 		M.update_inv_wear_mask()
 		M.update_inv_hands()
