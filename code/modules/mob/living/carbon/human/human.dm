@@ -997,7 +997,7 @@
 /mob/living/carbon/human/get_screentip_name(client/hovering_client)
 	. = ..()
 	var/mob/hovering_mob = hovering_client?.mob
-	if(!hovering_mob || !hovering_mob.mind?.guestbook)
+	if(!hovering_mob?.mind?.guestbook)
 		return .
 	var/face_name = get_face_name("")
 	var/known_name = hovering_mob.mind.guestbook.get_known_name(hovering_mob, src, face_name)
