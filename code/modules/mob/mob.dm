@@ -225,12 +225,12 @@
 
 		//emote handling
 		if(visible_message_flags & EMOTE_MESSAGE)
-			message = "<span class='emote'><b>[src]</b> [raw_msg]</span>"
+			msg = "<span class='emote'><b>[src]</b> [raw_msg]</span>"
 			if(M.mind?.guestbook && ishuman(src))
 				var/mob/living/carbon/human/human_source = src
 				var/known_name = M.mind.guestbook.get_known_name(M, src, msg_type == MSG_VISUAL ? human_source.get_face_name() : human_source.GetVoice())
 				if(known_name)
-					message = "<span class='emote'><b>[known_name]</b> [raw_msg]</span>"
+					msg = "<span class='emote'><b>[known_name]</b> [raw_msg]</span>"
 
 		if(!msg)
 			continue
