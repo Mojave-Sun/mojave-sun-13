@@ -150,3 +150,33 @@
 	<br>
 	Keep fighting the good fight. - Specialist Roberts.
 	</i>"}
+
+/obj/item/paper/ms13/prewritten/mammoth_milbase_warning
+	name = "paper - 'Danger ahead!'"
+	info = {"<i>
+	Danger! Wastelanders and alike beware!
+	<br><br>
+	<br>The courtyard of this abandoned military base is still patrolled by an active and relentless sentry unit.
+	<br>The temptation must be deafening, but heed this advice and escape with your life. No plasma pistol is worth the several thousand pounds of kickass roaming FREE within that base.
+	<br>Go outside. Listen closely... You might even be able to hear it in the distance. It's OUT. It's FREE. There will NOT be a warning. By the time you hear the guns spin, you're already <u>DEAD</u>.
+	<br>Opening the gate or venturing further will only lead to certain doom. Turn back now and live to tell the tale.
+	</i>"}
+
+/obj/item/paper/ms13/prewritten/snowcrest_store
+	name = "paper- 'Goodbye, all'"
+	info = {"<i>
+	To the people of Snowcrest,
+	<br>
+	It is with a heavy heart that I write this note to bid you farewell. After years of serving this community as a store owner, I can no longer bear the weight of the NCR's oppressive laws and regulations on small businesses like mine. They claim to bring order and prosperity, but all I've witnessed is their iron grip suffocating the life out of our once thriving town.
+	<br>
+	The constant taxation, licensing fees, and bureaucratic red tape have made it impossible for me to sustain my livelihood and support my family. As much as it pains me to leave behind the place I called home, I have no choice but to seek a better future elsewhere, where my hard work and dedication are not hampered by overbearing regulations.
+	<br>
+	I will cherish the memories shared with each and every one of you. Snowcrest has been a community like no other, and it breaks my heart to see it slowly withering under the rule of the NCR. I hope that one day, the spirit of independence and self-reliance will return to this town, allowing it to flourish once more.
+	<br>
+	Remember, my friends, that resilience and unity can overcome any challenge. Stand together, support each other, and resist the oppression that threatens to consume your freedoms.
+	<br>
+	Wishing you all the strength and determination to weather these trying times. I hope our paths cross again someday, under a brighter sky.
+	<br>
+	Farewell and take care,
+	<br>
+	Matty H </i>"}

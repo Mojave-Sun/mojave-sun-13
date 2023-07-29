@@ -203,4 +203,95 @@
 			/obj/item/food/grown/ms13/cavefungus = 3
 			)
 	category = CAT_MEDICAL
-	crafting_interface = CRAFTING_BENCH_CAMPFIRE
+	crafting_interface = CRAFTING_BENCH_CAMPFIRE | CRAFTING_BENCH_CHEM
+
+//CHEMISTRY CRAFTING
+
+/datum/crafting_recipe/jet
+	name = "jet"
+	result = /obj/item/reagent_containers/ms13/inhaler/jet
+	time = 12 SECONDS
+	tool_paths = list()
+	trait = TRAIT_DRUGGIE
+	reqs = list(/obj/item/stack/sheet/ms13/plastic = 2,
+			/obj/item/stack/ms13/fertilizer = 1,
+			/obj/item/food/grown/ms13/nara = 3,
+			)
+	category = CAT_DRUGS
+	crafting_interface = CRAFTING_BENCH_CHEM
+
+/datum/crafting_recipe/turbo
+	name = "turbo"
+	result = /obj/item/reagent_containers/ms13/inhaler/turbo
+	time = 15 SECONDS
+	tool_paths = list()
+	trait = TRAIT_DRUGGIE
+	reqs = list(/obj/item/stack/sheet/ms13/plastic = 3,
+			/obj/item/stack/ms13/fertilizer = 2,
+			/obj/item/food/grown/ms13/brocflower = 2,
+			/obj/item/food/grown/ms13/pinyon = 2,
+			/obj/item/ms13/animalitem/scorpion = 1
+			)
+	category = CAT_DRUGS
+	crafting_interface = CRAFTING_BENCH_CHEM
+
+/datum/crafting_recipe/psycho
+	name = "psycho"
+	result = /obj/item/reagent_containers/hypospray/medipen/ms13/psycho
+	time = 12 SECONDS
+	tool_paths = list()
+	trait = TRAIT_DRUGGIE
+	reqs = list(/obj/item/stack/sheet/ms13/scrap = 2,
+			/obj/item/food/grown/ms13/radberry = 4,
+			/obj/item/food/grown/ms13/soot = 3
+			)
+	category = CAT_DRUGS
+	crafting_interface = CRAFTING_BENCH_CHEM
+
+/datum/crafting_recipe/daytripper
+	name = "daytripper pill"
+	result = /obj/item/reagent_containers/pill/ms13/day_tripper
+	time = 6 SECONDS
+	tool_paths = list()
+	trait = TRAIT_DRUGGIE
+	reqs = list(/obj/item/food/grown/ms13/snaptail = 1,
+			/obj/item/food/grown/ms13/agave = 1
+			)
+	category = CAT_DRUGS
+	crafting_interface = CRAFTING_BENCH_CHEM
+
+/datum/crafting_recipe/mentat
+	name = "mentat pill"
+	result = /obj/item/reagent_containers/pill/ms13/mentat
+	time = 6 SECONDS
+	tool_paths = list()
+	trait = TRAIT_MEDICAL_TRAINING
+	reqs = list(/obj/item/food/grown/ms13/brainfung = 1,
+			/obj/item/food/grown/ms13/firecap = 1
+			)
+	category = CAT_MEDICAL
+	crafting_interface = CRAFTING_BENCH_CHEM
+
+/datum/crafting_recipe/cateye
+	name = "cateye pill"
+	result = /obj/item/reagent_containers/pill/ms13/cateye
+	time = 6 SECONDS
+	tool_paths = list()
+	trait = TRAIT_MEDICAL_TRAINING
+	reqs = list(/obj/item/food/grown/ms13/baifan = 1,
+			/obj/item/food/grown/ms13/carrot = 1
+			)
+	category = CAT_DRUGS
+	crafting_interface = CRAFTING_BENCH_CHEM
+
+/datum/crafting_recipe/rad_x
+	name = "rad-x pill"
+	result = /obj/item/reagent_containers/pill/ms13/cateye
+	time = 6 SECONDS
+	tool_paths = list()
+	trait = TRAIT_MEDICAL_TRAINING
+	reqs = list(/obj/item/food/grown/ms13/glowfungus = 1,
+			/obj/item/food/grown/ms13/radpepper = 1
+			)
+	category = CAT_MEDICAL
+	crafting_interface = CRAFTING_BENCH_CHEM

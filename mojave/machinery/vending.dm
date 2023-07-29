@@ -108,9 +108,9 @@
 	loot_high = NUKA_VENDOR_DROP_HIGH
 	loot_medium = NUKA_VENDOR_DROP_MEDIUM
 	loot_low = NUKA_VENDOR_DROP_LOW
-	rare_chance = 10
-	high_chance = 25
-	medium_chance = 65
+	rare_chance = 16
+	high_chance = 28
+	medium_chance = 58
 
 /obj/machinery/vending/ms13/nuka/pristine
 	name = "Nuka Cola vending machine"

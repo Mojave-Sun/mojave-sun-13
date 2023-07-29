@@ -619,9 +619,11 @@
 		return FALSE
 	if(istype(A, /obj/effect/temp_visual/point))
 		return FALSE
-
+	if(!COOLDOWN_FINISHED(src, pointing_cooldown)) // MOJAVE SUN EDIT - Cooldown for pointing because point spamming is dumb
+		return // MOJAVE SUN EDIT
 	point_at(A)
 
+	COOLDOWN_START(src, pointing_cooldown, 2.5 SECONDS) // MOJAVE SUN EDIT - Cooldown for pointing
 	SEND_SIGNAL(src, COMSIG_MOB_POINTED, A)
 	return TRUE
 
