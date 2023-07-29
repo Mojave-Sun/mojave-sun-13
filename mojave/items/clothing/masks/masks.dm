@@ -158,6 +158,9 @@
 	has_fov = FALSE //placeholder for now until we make this more useful to justify a FOV
 	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
+	w_class = WEIGHT_CLASS_NORMAL
+	grid_width = 64
+	grid_height = 64
 
 /obj/item/clothing/mask/gas/ms13/Initialize()
 	. = ..()
