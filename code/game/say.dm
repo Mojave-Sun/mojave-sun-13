@@ -67,7 +67,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 			var/mob/living/carbon/human/human_narrator = reliable_narrator
 			namepart = human_narrator.name
 		//otherwise, do guestbook handling
-		else if((src != reliable_narrator) && ismob(src))
+		else if(ismob(src))
 			var/mob/mob_source = src
 			if(mob_source.mind?.guestbook)
 				var/known_name = mob_source.mind.guestbook.get_known_name(src, reliable_narrator, namepart)
@@ -186,7 +186,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 		return "2"
 	return "0"
 
-/atom/movable/proc/GetVoice()
+/atom/movable/proc/GetVoice(if_no_voice = "Unknown")
 	return "[src]" //Returns the atom's name, prepended with 'The' if it's not a proper noun
 
 /atom/movable/proc/IsVocal()

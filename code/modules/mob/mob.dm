@@ -204,15 +204,12 @@
 		hearers -= src
 
 	var/raw_msg = message
-	if(visible_message_flags & EMOTE_MESSAGE)
-		message = "<span class='emote'><b>[src]</b> [message]</span>"
-
 	for(var/mob/M in hearers)
 		if(!M.client)
 			continue
 
 		//This entire if/else chain could be in two lines but isn't for readibilties sake.
-		var/msg = message
+		var/msg = raw_msg
 		var/msg_type = MSG_VISUAL
 
 		if(M.see_invisible < invisibility)//if src is invisible to M
@@ -225,6 +222,16 @@
 		else if(M.lighting_alpha > LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE && T.is_softly_lit() && !in_range(T,M)) //if it is too dark, unless we're right next to them.
 			msg = blind_message
 			msg_type = MSG_AUDIBLE
+
+		//emote handling
+		if(visible_message_flags & EMOTE_MESSAGE)
+			msg = "<span class='emote'><b>[src]</b> [raw_msg]</span>"
+			if(M.mind?.guestbook && ishuman(src))
+				var/mob/living/carbon/human/human_source = src
+				var/known_name = M.mind.guestbook.get_known_name(M, src, msg_type == MSG_VISUAL ? human_source.get_face_name() : human_source.GetVoice())
+				if(known_name)
+					msg = "<span class='emote'><b>[known_name]</b> [raw_msg]</span>"
+
 		if(!msg)
 			continue
 
@@ -255,12 +262,21 @@
 	if(self_message)
 		hearers -= src
 	var/raw_msg = message
-	if(audible_message_flags & EMOTE_MESSAGE)
-		message = "<span class='emote'><b>[src]</b> [message]</span>"
 	for(var/mob/M in hearers)
-		if(audible_message_flags & EMOTE_MESSAGE && runechat_prefs_check(M, audible_message_flags) && M.can_hear())
-			M.create_chat_message(src, raw_message = raw_msg, runechat_flags = audible_message_flags)
-		M.show_message(message, MSG_AUDIBLE, deaf_message, MSG_VISUAL)
+		var/msg = raw_msg
+
+		//emote handling
+		if(audible_message_flags & EMOTE_MESSAGE)
+			msg = "<span class='emote'><b>[src]</b> [message]</span>"
+			if(M.mind?.guestbook && ishuman(src))
+				var/mob/living/carbon/human/human_source = src
+				var/known_name = M.mind.guestbook.get_known_name(M, src, human_source.GetVoice())
+				if(known_name)
+					msg = "<span class='emote'><b>[known_name]</b> [raw_msg]</span>"
+			if(runechat_prefs_check(M, audible_message_flags) && M.can_hear())
+				M.create_chat_message(src, raw_message = raw_msg, runechat_flags = audible_message_flags)
+
+		M.show_message(msg, MSG_AUDIBLE, deaf_message, MSG_VISUAL)
 
 /**
  * Show a message to all mobs in earshot of this one

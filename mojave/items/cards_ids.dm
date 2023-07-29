@@ -1,10 +1,16 @@
+/obj/item/card/id
+	/// ID will use initials of the holder instead of full name when this is true
+	var/just_initials = FALSE
+
+/obj/item/card/id/update_label()
+	name = "[initial(name)] ([registered_name])"
+
 /obj/item/card/id/ms13
 	name = "\improper ID tag"
 	desc = "A simple identification tag. This is a base class and you shouldn't be seeing it."
 	icon = 'mojave/icons/objects/identification/dogtags_inventory.dmi'
 	icon_state = "bos_holotag"
 	worn_icon_state = null
-	var/datum/bank_account = null
 
 /obj/item/card/id/ms13/Initialize()
 	. = ..()
@@ -249,6 +255,7 @@
 	desc = "A necklace consisting of a spent shotgun shell. An intimidating symbol of authority."
 	assignment = "Raider Enforcer"
 	icon_state = "enforcer"
+	just_initials = TRUE
 	shows_age = FALSE
 
 /obj/item/card/id/ms13/boss
@@ -256,6 +263,7 @@
 	desc = "Various bullets of various calibers on a string. Worn by someone both important and intimidating."
 	assignment = "Raider Boss"
 	icon_state = "boss"
+	just_initials = TRUE
 	shows_age = FALSE
 
 /obj/item/card/id/ms13/ranger_recruit
@@ -367,6 +375,7 @@
 	desc = "A shiny, small blade on a string to make a necklace. A somewhat intimidating status symbol, no doubt."
 	assignment = "Slickback Underboss"
 	icon_state = "sawbone" //placeholder
+	just_initials = TRUE
 	shows_age = FALSE
 
 /obj/item/card/id/ms13/slick_cook
@@ -374,6 +383,7 @@
 	desc = "A live shotgun shell on a string to make a necklace. Meant to serve as a constant reminder of the punishment for disobedience."
 	assignment = "Slickback Cook"
 	icon_state = "enforcer" //placeholder
+	just_initials = TRUE
 	shows_age = FALSE
 
 /obj/item/card/id/ms13/slick_cook/attack_hand_secondary(mob/user, params)
@@ -392,6 +402,7 @@
 	desc = "Various bullets of various calibers with a string connecting them. Used as an identifying tag for important members within the Mon City Mercs organization."
 	assignment = "Mon City Captain"
 	icon_state = "boss" //placeholder
+	just_initials  = TRUE
 	shows_age = FALSE
 
 // Brotherhood IDs //

@@ -716,7 +716,6 @@
 			powergaming.update_appearance()
 
 /// Updates the name based on the card's vars and state.
-/* MOJAVE SUN EDIT BEGIN
 /obj/item/card/id/proc/update_label()
 	var/name_string = registered_name ? "[registered_name]'s ID Card" : initial(name)
 	var/assignment_string
@@ -730,11 +729,6 @@
 		assignment_string = assignment
 
 	name = "[name_string] ([assignment_string])"
-	*/
-
-/obj/item/card/id/proc/update_label()
-	name = "[initial(name)] ([registered_name])"
-	// MOJAVE SUN EDIT END -freaked
 
 /// Returns the trim assignment name.
 /obj/item/card/id/proc/get_trim_assignment()
