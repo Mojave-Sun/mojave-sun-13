@@ -75,8 +75,8 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	vision_range = 12
 	aggro_vision_range = 12
 	dodge_prob = 50
-	maxHealth = 1120
-	health = 1120
+	maxHealth = 1200
+	health = 1200
 	idlechance = 20
 	melee_damage_lower = 25
 	melee_damage_upper = 25
@@ -116,7 +116,9 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/Initialize()
 	. = ..()
 	grenade = new /datum/action/cooldown/launch_grenade()
+	rocket = new /datum/action/cooldown/launch_rocket()
 	grenade.Grant(src)
+	rocket.Grant(src)
 	RegisterSignal(src, COMSIG_MOVABLE_MOVED, .proc/play_move_sound, override = TRUE)
 	soundloop = new(src, FALSE)
 
@@ -254,6 +256,9 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 		if(grenade.IsAvailable() && can_see(src, target, 10))
 			grenade.Trigger(target = target)
 			return
+		if(rocket.IsAvailable() && can_see(src, target, 10) && HAS_TRAIT(target, TRAIT_IN_POWERARMOUR))
+			rocket.Trigger(target = target)
+			return
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/AIShouldSleep(list/possible_targets)
 	. = ..()
@@ -311,7 +316,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 //randomspread prerequisite
 /obj/item/ammo_casing/energy/ms13/laser/sentrybot
 	projectile_type = /obj/projectile/beam/ms13/laser/sentrybot
-	variance = 28
+	variance = 30
 	pellets = 1
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/lasrifle/laser_heavy.ogg'
 	randomspread = TRUE
@@ -323,8 +328,8 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 
 /obj/projectile/beam/ms13/laser/sentrybot
 	damage = 8
-	subtractible_armour_penetration = 36
-	wound_bonus = 20
+	subtractible_armour_penetration = 35
+	wound_bonus = 18
 	bare_wound_bonus = 10
 
 //A special rocket for sentrybot; light explosion fixed with lots of fire

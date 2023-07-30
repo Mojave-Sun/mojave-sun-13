@@ -269,7 +269,7 @@
 	say(message, language, sanitize = FALSE)
 	return NOPASS
 
-/obj/item/bodypart/head/GetVoice()
+/obj/item/bodypart/head/GetVoice(if_no_voice = "Unknown")
 	return "The head of [real_name]"
 
 /obj/item/bodypart/head/monkey

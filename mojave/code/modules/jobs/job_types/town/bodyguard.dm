@@ -28,7 +28,8 @@
 		/obj/item/stack/medical/gauze/ms13/three=1, \
 		/obj/item/claymore/ms13/baton=1, \
 		/obj/item/ammo_box/ms13/a556/small=1, \
-		/obj/item/radio/ms13=1)
+		/obj/item/radio/ms13=1, \
+		/obj/item/restraints/handcuffs/ms13=1)
 
 /datum/outfit/job/ms13/town/bodyguard/pre_equip(mob/living/carbon/human/H)
 	..()
