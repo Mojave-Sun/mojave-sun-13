@@ -79,7 +79,7 @@
 	crafting_interface = CRAFTING_BENCH_SMELTER
 
 /datum/crafting_recipe/refined_alu
-	name = "refined steel from scrap"
+	name = "refined aluminum from scrap"
 	result = /obj/item/stack/sheet/ms13/refined_alu
 	time = 8 SECONDS
 	tool_paths = list(/obj/item/ms13/hammer)
