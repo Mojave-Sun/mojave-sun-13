@@ -119,6 +119,13 @@
 	screen_start_x = 8
 	rustle_sound = FALSE
 
+/datum/component/storage/concrete/ms13/washing //for washing machine
+	screen_max_columns = 10
+	screen_max_rows = 10
+	screen_start_y = 12
+	screen_start_x = 5
+	rustle_sound = FALSE
+
 /datum/component/storage/concrete/ms13/matchbox //for matchboxes
 	screen_max_columns = 5
 	screen_max_rows = 4

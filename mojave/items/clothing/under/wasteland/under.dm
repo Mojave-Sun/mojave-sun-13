@@ -196,6 +196,11 @@
 	icon_state = "vestandslacks"
 	inhand_icon_state = "ro_suit"
 
+/obj/item/clothing/under/ms13/wasteland/vestslacks/Initialize()
+	. = ..()
+	AddComponent(/datum/component/machine_washable,\
+	clean_sprite = "vestandslacks_c")
+
 /obj/item/clothing/under/ms13/wasteland/merchant
 	name = "merchants' clothes"
 	desc = "A set of clothes worn often by merchants in the wasteland."
