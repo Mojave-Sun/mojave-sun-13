@@ -121,6 +121,7 @@
 	name = "\improper NCR recruit dog tags"
 	desc = "Standard NCR dog tags. The assignment listed on the tag is 'Recruit' and the rank is listed as 'Private'."
 	assignment = "NCR Recruit"
+	access = list(ACCESS_TOWN_LAW)
 
 /obj/item/card/id/ms13/ncr/recruit/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/card/id/ms13/ncr/sergeant/mp))
