@@ -128,7 +128,7 @@
 /obj/structure/ms13/storage/washingmachine/attack_hand_secondary(mob/user, modifiers)
 	if(!working)
 		to_chat(user, span_warning("You press the on button and nothing happens."))
-		return
+		return SECONDARY_ATTACK_CONTINUE_CHAIN
 	if(busy)
 		to_chat(user, span_warning("[src] is currently in use."))
 		return SECONDARY_ATTACK_CONTINUE_CHAIN
