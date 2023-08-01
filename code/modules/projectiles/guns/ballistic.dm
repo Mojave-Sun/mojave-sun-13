@@ -11,19 +11,19 @@
 	///sound when inserting an empty magazine
 	var/load_empty_sound = 'sound/weapons/gun/general/magazine_insert_empty.ogg'
 	///volume of loading sound
-	var/load_sound_volume = 40
+	var/load_sound_volume = 30 //Mojave Edit - Brings down to 30 from 40
 	///whether loading sound should vary
 	var/load_sound_vary = TRUE
 	///sound of racking
 	var/rack_sound = 'sound/weapons/gun/general/bolt_rack.ogg'
 	///volume of racking
-	var/rack_sound_volume = 60
+	var/rack_sound_volume = 20 //Mojave Edit - Brings down to 20 from 60
 	///whether racking sound should vary
 	var/rack_sound_vary = TRUE
 	///sound of when the bolt is locked back manually
 	var/lock_back_sound = 'sound/weapons/gun/general/slide_lock_1.ogg'
 	///volume of lock back
-	var/lock_back_sound_volume = 60
+	var/lock_back_sound_volume = 20 //Mojave Edit - Brings down to 20 from 60
 	///whether lock back varies
 	var/lock_back_sound_vary = TRUE
 	///Sound of ejecting a magazine
@@ -31,13 +31,13 @@
 	///sound of ejecting an empty magazine
 	var/eject_empty_sound = 'sound/weapons/gun/general/magazine_remove_empty.ogg'
 	///volume of ejecting a magazine
-	var/eject_sound_volume = 40
+	var/eject_sound_volume = 30 //Mojave Edit - Brings down to 30 from 40
 	///whether eject sound should vary
 	var/eject_sound_vary = TRUE
 	///sound of dropping the bolt or releasing a slide
 	var/bolt_drop_sound = 'sound/weapons/gun/general/bolt_drop.ogg'
 	///volume of bolt drop/slide release
-	var/bolt_drop_sound_volume = 60
+	var/bolt_drop_sound_volume = 20 //Mojave Edit - Brings down to 20 from 40
 	///empty alarm sound (if enabled)
 	var/empty_alarm_sound = 'sound/weapons/gun/general/empty_alarm.ogg'
 	///empty alarm volume sound
@@ -302,9 +302,9 @@
 	if(bolt_type == BOLT_TYPE_OPEN)
 		chambered = null
 	if (magazine.ammo_count())
-		playsound(src, load_sound, load_sound_volume, load_sound_vary)
+		playsound(src, eject_sound, load_sound_volume, load_sound_vary) //MOJAVE EDIT - Original is load_sound, why? I don't know. I hate TGstation - Hekzder
 	else
-		playsound(src, load_empty_sound, load_sound_volume, load_sound_vary)
+		playsound(src, eject_empty_sound, load_sound_volume, load_sound_vary) //MOJAVE EDIT - Original is load_sound, why? I don't know. I hate TGstation - Hekzder
 	magazine.forceMove(drop_location())
 	var/obj/item/ammo_box/magazine/old_mag = magazine
 	if (tac_load)

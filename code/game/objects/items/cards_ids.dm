@@ -62,7 +62,6 @@
 	var/registered_name = null
 	/// Linked bank account.
 	var/datum/bank_account/registered_account
-
 	/// Linked holopay.
 	var/obj/structure/holopay/my_store
 	/// Cooldown between projecting holopays
@@ -102,6 +101,8 @@
 	/// Boolean value. If TRUE, the [Intern] tag gets prepended to this ID card when the label is updated.
 	var/is_intern = FALSE
 
+	var/shows_age = TRUE // MOJAVE SUN EDIT - Does this 'ID' have information about age? Useful for stuff like "bullet IDs" that won't have more than initials carved into them.
+
 /obj/item/card/id/Initialize(mapload)
 	. = ..()
 
@@ -117,8 +118,8 @@
 /obj/item/card/id/Destroy()
 	if (registered_account)
 		registered_account.bank_cards -= src
-	if (my_store)
-		QDEL_NULL(my_store)
+//	if (my_store) // MOJAVE SUN EDIT =FREAK OF
+//		QDEL_NULL(my_store) // MOJAVE SUN EDOT =FREAK OF
 	return ..()
 
 /obj/item/card/id/get_id_examine_strings(mob/user)
@@ -398,6 +399,8 @@
 
 		wildcard_access_list |= new_access
 
+/* // MOJAVE SUN EDIT BEGIN
+
 /obj/item/card/id/attack_self(mob/user)
 	if(Adjacent(user))
 		var/minor
@@ -620,7 +623,6 @@
 	registered_account = account
 	to_chat(user, span_notice("The provided account has been linked to this ID card."))
 	return TRUE
-
 /obj/item/card/id/AltClick(mob/living/user)
 	if(!alt_click_can_use_id(user))
 		return
@@ -680,7 +682,19 @@
 	else
 		msg += span_info("There is no registered account linked to this card. Alt-Click to add one.")
 
-	return msg
+	return msg*/ // ORIGINAL SETUP
+
+/obj/item/card/id/attack_self(mob/user)
+	if(Adjacent(user))
+		user.visible_message(span_notice("[user] shows you: [icon2html(src, viewers(user))] [src.name]"), span_notice("You show \the [src.name]"))
+	add_fingerprint(user)
+
+/obj/item/card/id/examine(mob/user)
+	. = ..()
+	if(registered_age && shows_age)
+		. += "It indicates that the holder is [registered_age] years old."
+
+// MOJAVE SUN EDIT END
 
 /obj/item/card/id/GetAccess()
 	return access.Copy()
@@ -1479,9 +1493,11 @@
 				forged = FALSE
 				to_chat(user, span_notice("You successfully reset the ID card."))
 				return
+		/* // MOJAVE SUN EDIT BEGIN
 		if (popup_input == "Change Account ID")
 			set_new_account(user)
 			return
+		*/ // MOJAVE SUN EDIT END
 	return ..()
 
 /// A special variant of the classic chameleon ID card which accepts all access.

@@ -11,24 +11,36 @@
 	name = "ruined book"
 	desc = "A book that's been rendered unreadable from decades of decay."
 	icon_state = "book"
+	drop_sound = 'sound/items/handling/book_drop.ogg'
+	pickup_sound = 'sound/items/handling/book_pickup.ogg'
 
 /obj/item/ms13/fluff/ruined_book/Initialize(mapload)
 	. = ..()
 	icon_state = pick("book2","book3","book4","book5","book6")
+	AddElement(/datum/element/craftable, /obj/item/knife/ms13, /obj/item/paper/ms13, rand(1,5), 30 SECONDS, crafting_sound_start = 'mojave/sound/ms13effects/book_open.ogg', crafting_focus_sound = list('mojave/sound/ms13effects/crafting/scissorsnip1.ogg' = 1, 'mojave/sound/ms13effects/crafting/scissorsnip2.ogg' = 1, 'mojave/sound/ms13effects/crafting/scissorsnip3.ogg' = 1))
 
 /obj/item/ms13/fluff/burnt_book
 	name = "burnt book"
 	desc = "A book that's been rendered unreadable due to severe burns."
 	icon_state = "book_burnt"
+	drop_sound = 'sound/items/handling/book_drop.ogg'
+	pickup_sound = 'sound/items/handling/book_pickup.ogg'
 
-/obj/item/ms13/fluff/burnt_book/Initialize(mapload)
+/obj/item/ms13/fluff/burnt_book/Initialize(mapload) //huge shoutout to techno for making all of these seperate
 	. = ..()
 	icon_state = pick("book_burnt2","book_burnt3")
+	AddElement(/datum/element/craftable, /obj/item/knife/ms13, /obj/item/paper/ms13, rand(1,3), 30 SECONDS, crafting_sound_start = 'mojave/sound/ms13effects/book_open.ogg', crafting_focus_sound = list('mojave/sound/ms13effects/crafting/scissorsnip1.ogg' = 1, 'mojave/sound/ms13effects/crafting/scissorsnip2.ogg' = 1, 'mojave/sound/ms13effects/crafting/scissorsnip3.ogg' = 1))
 
 /obj/item/ms13/fluff/bible
 	name = "bible"
 	desc = "A book that's seems to have a cross on it's front cover. It's filled with a bunch of verses."
 	icon_state = "bible"
+	drop_sound = 'sound/items/handling/book_drop.ogg'
+	pickup_sound = 'sound/items/handling/book_pickup.ogg'
+
+/obj/item/ms13/fluff/bible/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/craftable, /obj/item/knife/ms13, /obj/item/paper/ms13, rand(1,6), 30 SECONDS, crafting_sound_start = 'mojave/sound/ms13effects/book_open.ogg', crafting_focus_sound = list('mojave/sound/ms13effects/crafting/scissorsnip1.ogg' = 1, 'mojave/sound/ms13effects/crafting/scissorsnip2.ogg' = 1, 'mojave/sound/ms13effects/crafting/scissorsnip3.ogg' = 1))
 
 /obj/item/ms13/fluff/typewriter
 	name = "typewriter"
@@ -44,9 +56,10 @@
 /obj/item/ms13/fluff/typewriter/wrench_act_secondary(mob/living/user, obj/item/weapon)
 	user.show_message(span_notice("You begin disassembling \the [src]."), MSG_VISUAL)
 	if(do_after(user, 8 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+		var/drop_location = user.drop_location()
 		user.show_message(span_notice("You disassemble \the [src] into scrap."), MSG_VISUAL)
-		new /obj/item/stack/sheet/ms13/scrap(loc, 3)
-		new /obj/item/stack/sheet/ms13/scrap_parts(loc, 3)
+		new /obj/item/stack/sheet/ms13/scrap(drop_location, 3)
+		new /obj/item/stack/sheet/ms13/scrap_parts(drop_location, 3)
 		qdel(src)
 
 /obj/item/ms13/fluff/typewriter/examine(mob/user)
@@ -78,10 +91,11 @@
 /obj/item/ms13/fluff/microscope/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
 	user.show_message(span_notice("You begin disassembling \the [src] into scrap."), MSG_VISUAL)
 	if(do_after(user, 8 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+		var/drop_location = user.drop_location()
 		user.show_message(span_notice("You disassemble \the [src] into scrap and parts."), MSG_VISUAL)
-		new /obj/item/stack/sheet/ms13/glass(loc, 3)
-		new /obj/item/stack/sheet/ms13/scrap(loc, 2)
-		new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 2)
+		new /obj/item/stack/sheet/ms13/glass(drop_location, 3)
+		new /obj/item/stack/sheet/ms13/scrap(drop_location, 2)
+		new /obj/item/stack/sheet/ms13/scrap_electronics(drop_location, 2)
 		qdel(src)
 
 /obj/item/ms13/fluff/microscope/examine(mob/user)
@@ -109,6 +123,49 @@
 	desc = "An old plastic ashtray, still good to hold cigarette butts."
 	icon_state = "ashtray"
 
+/obj/item/ms13/fluff/ashtray/Initialize(mapload)
+	. = ..()
+	LoadComponent(/datum/component/storage/concrete/ms13/ashtray)
+	for(var/i = 0 to rand(0,6))
+		new /obj/item/ms13/cigarette/butt(src)
+	for(var/i = 0 to rand(0,10))
+		new /obj/item/ms13/ash(src)
+	reset_grid_inventory()
+
+/obj/item/ms13/fluff/ashtray/examine(mob/user)
+	. = ..()
+	. += "There are [contents.len] butts in it."
+
+/obj/item/ms13/fluff/ashtray/attackby(obj/item/attacking_item, mob/user, params) // some REAL soul
+	if(istype(attacking_item, /obj/item/ms13/cigarette))
+		var/obj/item/ms13/cigarette/fella = attacking_item
+		var/alright_butt
+		if(fella.smoketime <= 120 && fella.lit && !fella.butt_transform)
+			if(istype(fella, /obj/item/ms13/cigarette))
+				alright_butt = /obj/item/ms13/cigarette/butt
+			if(istype(fella, /obj/item/ms13/cigarette/rollie))
+				alright_butt = /obj/item/ms13/cigarette/butt/roach
+			new alright_butt(src)
+			new /obj/item/ms13/ash(src)
+			playsound(src, 'mojave/sound/ms13effects/smokeables/cigsnuff.ogg', 25, 1)
+			user.visible_message("<span class='notice'>[user] puts out \the [attacking_item], in the [name].</span>")
+			qdel(attacking_item)
+			return
+		if(fella.smoketime <= 60 && fella.lit && fella.butt_transform)
+			fella.extinguish()
+			user.visible_message("<span class='notice'>[user] puts out \the [attacking_item] in the [name].</span>")
+			fella.forceMove(src)
+			return
+		else if(fella.lit)
+			fella.smoketime -= 30
+			fella.update_overlays()
+			fella.update_icon_state()
+			fella.extinguish()
+			playsound(src, 'mojave/sound/ms13effects/smokeables/cigsnuff.ogg', 25, 1)
+			user.visible_message("<span class='notice'>[user] puts out \the end of [attacking_item] in the [name].</span>")
+			return
+	. = ..()
+
 /obj/item/ms13/fluff/alarmclock
 	name = "alarm clock"
 	desc = "An old electronic alarm clock. Not of much use now."
@@ -121,11 +178,12 @@
 /obj/item/ms13/fluff/alarmclock/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
 	user.show_message(span_notice("You begin disassembling \the [src] into scrap."), MSG_VISUAL)
 	if(do_after(user, 8 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+		var/drop_location = user.drop_location()
 		user.show_message(span_notice("You disassemble \the [src] into scrap and parts."), MSG_VISUAL)
-		new /obj/item/stack/sheet/ms13/glass(loc, 1)
-		new /obj/item/stack/sheet/ms13/scrap(loc, 2)
-		new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 1)
-		new /obj/item/stack/sheet/ms13/circuits(loc, 1)
+		new /obj/item/stack/sheet/ms13/glass(drop_location, 1)
+		new /obj/item/stack/sheet/ms13/scrap(drop_location, 2)
+		new /obj/item/stack/sheet/ms13/scrap_electronics(drop_location, 1)
+		new /obj/item/stack/sheet/ms13/circuits(drop_location, 1)
 		qdel(src)
 
 /obj/item/ms13/fluff/alarmclock/examine(mob/user)
@@ -159,9 +217,10 @@
 /obj/item/ms13/fluff/trifoldflag/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
 	user.show_message(span_notice("You begin disassembling \the [src] into scrap."), MSG_VISUAL)
 	if(do_after(user, 8 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+		var/drop_location = user.drop_location()
 		user.show_message(span_notice("You disassemble \the [src] into scrap and parts."), MSG_VISUAL)
-		new /obj/item/stack/sheet/ms13/cloth(loc, 3)
-		new /obj/item/stack/sheet/ms13/scrap_wood(loc, 2)
+		new /obj/item/stack/sheet/ms13/cloth(drop_location, 3)
+		new /obj/item/stack/sheet/ms13/wood/scrap_wood(drop_location, 2)
 		qdel(src)
 
 /obj/item/ms13/fluff/trifoldflag/examine(mob/user)

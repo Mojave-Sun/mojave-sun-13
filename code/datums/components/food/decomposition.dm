@@ -1,8 +1,8 @@
 //"Don't leave food on the floor, that's how we get ants"
 
-#define DECOMPOSITION_TIME 10 MINUTES
-#define DECOMPOSITION_TIME_RAW 5 MINUTES
-#define DECOMPOSITION_TIME_GROSS 7 MINUTES
+#define DECOMPOSITION_TIME 22 MINUTES
+#define DECOMPOSITION_TIME_RAW 12 MINUTES
+#define DECOMPOSITION_TIME_GROSS 12 MINUTES //Mojave Edit - Changed these decomp times to better match the fact we aren't hyper speed TG paced. Original values are 10-5-7 minutes
 
 #define DECOMP_EXAM_NORMAL 0
 #define DECOMP_EXAM_GROSS 1

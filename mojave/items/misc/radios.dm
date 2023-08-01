@@ -5,10 +5,12 @@
 	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
 	icon_state = "handradio"
 	inhand_icon_state = "handradio"
+	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
+	worn_icon_state = "empty_placeholder"
 	desc = "A basic handheld radio that recieves over a relatively long range, unfortunately this one can't broadcast."
 	canhear_range = 2
 	force = 0
-	freerange = TRUE
+	freerange = FALSE
 	w_class = WEIGHT_CLASS_SMALL
 	custom_materials = list(/datum/material/iron=75, /datum/material/glass=25)
 	radio_broadcast = 100 //Cannot broadcast. If someone manages to circumvent, it should be complete static.
@@ -26,7 +28,7 @@
 		return FALSE
 	if(!listening)
 		return FALSE
-	
+
 	return TRUE //MOHAVE SUN EDIT: Changed this so that it plays only when someone is listening, but otherwhise can recieve, even when not being held.
 
 /obj/item/radio/ms13/broadcast
@@ -156,13 +158,13 @@
 /obj/item/radio/ms13/ham/receiver/radioking/wood/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/scrap_wood(loc, 2)
+			new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc, 2)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 2)
 			new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 3)
 			new /obj/item/stack/sheet/ms13/scrap_copper(loc, 2)
 			new /obj/item/ms13/component/cell(loc)
 		else
-			new /obj/item/stack/sheet/ms13/scrap_wood(loc)
+			new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
 			new /obj/item/stack/sheet/ms13/scrap_electronics(loc)
 	qdel(src)

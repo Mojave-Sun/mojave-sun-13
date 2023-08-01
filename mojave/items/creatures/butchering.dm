@@ -142,6 +142,7 @@
 	drop_sound = 'mojave/sound/ms13items/ms13handling/meat_drop.ogg'
 	pickup_sound =  'mojave/sound/ms13items/ms13handling/meat_pickup.ogg'
 	var/meat_type = /obj/item/food/meat/slab/ms13/animal
+	decomp_type = /obj/item/food/badrecipe/moldy/ms13
 
 /obj/item/food/meat/slab/ms13/carcass/Initialize(mapload)
 	. = ..()
@@ -232,6 +233,7 @@
 /obj/item/food/meat/slab/ms13/carcass/large
 	w_class = WEIGHT_CLASS_HUGE
 	throw_range = 1
+	decomp_type = /obj/item/food/badrecipe/moldy/ms13
 
 /obj/item/food/meat/slab/ms13/carcass/large/ComponentInitialize()
 	. = ..()
@@ -396,7 +398,7 @@
 
 /obj/item/ms13/animalitem/pigrat/snout
 	name = "pigrat snout"
-	desc = "A pigrats snout, a laden fine delicacy."
+	desc = "A pigrats snout, someone might want this."
 	icon_state = "pigrat_snout"
 
 /obj/item/ms13/animalitem/molerat/teeth
@@ -406,6 +408,16 @@
 	w_class = WEIGHT_CLASS_SMALL
 	grid_height = 64
 	grid_width = 32
+
+/obj/item/ms13/animalitem/scorpion
+	name = "radscorpion poison gland"
+	desc = "A poison gland carefully extracted from a presumably dead radscorpion."
+	icon_state = "radscorp_poison"
+	w_class = WEIGHT_CLASS_SMALL
+	grid_height = 64
+	grid_width = 32
+
+
 /*
 /obj/item/ms13/animalitem/radroach/innards
 	name = ""
@@ -450,6 +462,7 @@
 	grid_width = 64
 	w_class = WEIGHT_CLASS_SMALL
 	var/steak_type = /obj/item/food/meat/steak/ms13/animal
+	decomp_type = /obj/item/food/badrecipe/moldy/ms13
 
 /obj/item/food/meat/slab/ms13/animal/MakeProcessable()
 	return
@@ -594,16 +607,16 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 9, /datum/reagent/consumable/nutriment/vitamin = 1)
 
 /obj/item/food/meat/slab/ms13/animal/rad_scorp
-	name = "rad scorpion meat"
-	desc = "Raw rad scorpion meat. Properly cooked and prepared, this can make a fine meal."
+	name = "radscorpion meat"
+	desc = "Raw radscorpion meat. Properly cooked and prepared, this can make a fine meal."
 	icon_state = "scorpiontail"
 	steak_type = /obj/item/food/meat/steak/ms13/animal/rad_scorp
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 8, /datum/reagent/toxin = 6)
 	foodtypes = MEAT | GROSS | TOXIC
 
 /obj/item/food/meat/steak/ms13/animal/rad_scorp
-	name = "grilled rad scorpion meat"
-	desc = "A finely cooked piece of rad scorpion tail. A delicious wasteland treat."
+	name = "grilled radscorpion meat"
+	desc = "A finely cooked piece of radscorpion tail. A delicious wasteland treat."
 	icon_state = "scorpiontail_roasted"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 12, /datum/reagent/consumable/nutriment/vitamin = 3)
 	tastes = list("succulent" = 3, "meat" = 2)

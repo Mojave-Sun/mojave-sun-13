@@ -151,10 +151,36 @@
 	. = ..()
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/food/liquids/drink_containers_inventory.dmi')
 
+/obj/item/reagent_containers/food/drinks/bottle/ms13/attackby(obj/item/W, mob/user, params)
+	if(!istype(W, /obj/item/stack/sheet/ms13/cloth))
+		return ..()
+
+	if(reagents)
+		for(var/datum/reagent/R in reagents.reagent_list)
+			if(istype(R, /datum/reagent/consumable/ethanol/ms13))
+				var/datum/reagent/consumable/ethanol/henny = R
+				if(henny.volume >= 50 && henny.boozepwr >= 40 && do_after(user, 1 SECONDS, user, interaction_key = DOAFTER_SOURCE_CRAFTING))
+					user.visible_message(span_notice("[user] inserts a piece of cloth into [src], creating a molotov cocktail."), span_notice("You insert a piece of cloth into [src], creating a molotov cocktail."))
+					var/obj/item/grenade/ms13/molotov/M = new /obj/item/grenade/ms13/molotov(loc)
+					M.extra_POWER = round(henny.boozepwr / 35)
+					if(istype(src, /obj/item/reagent_containers/food/drinks/bottle/ms13/nukashine))
+						M.name = "nukatov"
+						M.desc = "A molotov made out of nukashine, allegedly. If this is true, we're in for a hell of a party."
+						M.icon_state = "molotov_nuka"
+					user.put_in_hands(M)
+					W.use(1)
+					qdel(src)
+				else
+					to_chat(user, span_warning("There is not enough alcohol in [src] to make a molotov cocktail."))
+					return ..()
+
+	return ..()
+
 /obj/item/reagent_containers/food/drinks/bottle/ms13/plain
 	name = "bottle"
-	desc = "An unlabeled bottle. Doesn't look like it was ever used. Perfect to use for yourself."
+	desc = "An unlabeled bottle. Perfect to use for yourself."
 	icon_state = "bottle"
+	volume = 60
 	list_reagents = null
 	grid_height = 64
 	grid_width = 32

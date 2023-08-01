@@ -126,6 +126,9 @@
 #define CAT_UTILITY "Utility"
 #define CAT_SMELTER "Smelt"
 #define CAT_MELT "Melt down"
+#define CAT_FARMING "Farming"
+#define CAT_STORAGE "Storage"
+#define CAT_DRUGS "Drugs"
 
 #define CRAFTING_BENCH_HANDS      1<<0
 #define CRAFTING_BENCH_GENERAL    1<<1
@@ -135,6 +138,7 @@
 #define CRAFTING_BENCH_RELOADING  1<<5
 #define CRAFTING_BENCH_SMELTER    1<<6
 #define CRAFTING_BENCH_CAMPFIRE   1<<7
+#define CRAFTING_BENCH_CHEM		  1<<8
 
 // tablecrafting interface types - MOJAVE EDIT END
 

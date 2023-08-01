@@ -208,6 +208,12 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 //MOJAVE EDIT CHANGE BEGIN
 	var/log_pickup_and_drop = FALSE //For logging in the attack logs certain items (mostly weapons) being equipped, dropped, or taken into hand
+	var/mining_mult = 0 //For Mojave Sun custom mining code, intended to multiply the force of an object when mining deposit
+//for custom inventory and world states, yeah I know its jank but I hate components
+	var/inventory_state
+	var/world_state
+
+	var/place_slot = 0 //for use in slotted structures, drying racks, shelves, etc.
 //MOJAVE EDIT CHANGE END
 
 	/// Used in obj/item/examine to give additional notes on what the weapon does, separate from the predetermined output variables
@@ -339,7 +345,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	. = ..()
 
 	. += "[gender == PLURAL ? "They are" : "It is"] a [weight_class_to_text(w_class)] item."
-
+	// MOJAVE SUN EDIT BEGIN
+	/*
 	if(resistance_flags & INDESTRUCTIBLE)
 		. += "[src] seems extremely robust! It'll probably withstand anything that could happen to it!"
 	else
@@ -351,7 +358,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 			. += "[src] is made of cold-resistant materials."
 		if(resistance_flags & FIRE_PROOF)
 			. += "[src] is made of fire-retardant materials."
-
+	*/
+	// MOJAVE SUN EDIT END
 	if(!user.research_scanner)
 		return
 

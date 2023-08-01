@@ -132,7 +132,8 @@
 								span_notice("You butcher [meat]."))
 	butcher_callback?.Invoke(butcher, meat)
 	meat.harvest(butcher)
-	meat.gib(FALSE, FALSE, TRUE)
+	// meat.gib(FALSE, FALSE, TRUE) // MOJAVE SUN EDIT
+	qdel(meat) // MOJAVE SUN EDIT
 
 ///Special snowflake component only used for the recycler.
 /datum/component/butchering/recycler

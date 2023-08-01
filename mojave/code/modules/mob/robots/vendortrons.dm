@@ -42,6 +42,8 @@
 	name = "\improper Gun Runners vendortron"
 	desc = "A vendortron used by the Gun Runners for sale of firearms far and wide."
 	icon_state = "vendotron_green"
+	currency_name = "NCR dollars"
+	accepted_currency = /obj/item/stack/ms13/currency/ncr_dollar
 
 	say_phrases = list(
 		ITEM_REJECTED_PHRASE = list(
@@ -89,49 +91,51 @@
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/gunrunner/initial_products()
 	return list(
-		/obj/item/gun/ballistic/automatic/pistol/ms13/m9mm = list(80, rand(2,4)),
-		/obj/item/gun/ballistic/automatic/pistol/ms13/pistol22 = list(55, rand(2,4)),
-		/obj/item/gun/ballistic/revolver/ms13/rev10mm = list(80, rand(2,4)),
-		/obj/item/gun/ballistic/rifle/ms13/varmint = list(80, rand(2,4)),
-		/obj/item/gun/ballistic/revolver/ms13/single = list(45, rand(2,4)),
-		/obj/item/gun/ballistic/revolver/ms13/caravan = list(90, rand(2,3)),
-		/obj/item/gun/ballistic/automatic/pistol/ms13/pistol45 = list(150, rand(1,3)),
-		/obj/item/gun/ballistic/automatic/pistol/ms13/m10mm = list(150, rand(1,3)),
-		/obj/item/gun/ballistic/revolver/ms13/rev556 = list(150, rand(0,3)),
-		/obj/item/gun/ballistic/revolver/ms13/rev357/police = list(160, rand(0,3)),
-		/obj/item/gun/ballistic/revolver/ms13/rev357 = list(160, rand(0,3)),
-		/obj/item/gun/ballistic/automatic/ms13/semi/service = list(320, rand(0,3)),
-		/obj/item/gun/ballistic/automatic/ms13/full/smg9mm = list(330, rand(0,2)),
-		/obj/item/gun/ballistic/shotgun/ms13/lever = list(320, rand(0,2)),
-		/obj/item/gun/ballistic/shotgun/ms13/lever/cowboy = list(260, rand(0,3)),
-		/obj/item/gun/ballistic/shotgun/ms13/lever/trail = list(420, rand(0,1)),
-		/obj/item/gun/ballistic/revolver/ms13/rev44 = list(280, rand(0,2)),
-		/obj/item/gun/ballistic/rifle/ms13/hunting = list(440, rand(0,1)),
-		/obj/item/gun/ballistic/automatic/ms13/full/smg10mm = list(480, rand(0,1)),
-		/obj/item/gun/ballistic/automatic/ms13/full/smg22 = list(600, rand(0,1)),
-		/obj/item/ammo_box/ms13/c22box = list(240, rand(0,3)),
-		/obj/item/ammo_box/ms13/c9mm = list(240, rand(0,3)),
-		/obj/item/ammo_box/ms13/c10mm = list(220, rand(0,2)),
-		/obj/item/ammo_box/ms13/c45 = list(200, rand(0,2)),
-		/obj/item/ammo_box/ms13/a556 = list(365, rand(0,2)),
-		/obj/item/ammo_box/ms13/m44box = list(300, rand(0,2)),
-		/obj/item/ammo_box/ms13/a357box = list(240, rand(0,2)),
-		/obj/item/ammo_box/ms13/a308 = list(300, rand(0,2)),
-		/obj/item/ammo_box/ms13/a762 = list(300, rand(0,2)),
-		/obj/item/ammo_box/ms13/c4570box = list(280, rand(0,2)),
-		/obj/item/ammo_box/ms13/m12mmbox = list(340, rand(0,1)),
-		/obj/item/ammo_box/ms13/a50MG = list(420, rand(0,1)),
-		/obj/item/ammo_box/ms13/shotgun/buckshot = list(210, rand(0,4))
+		/obj/item/gun/ballistic/automatic/pistol/ms13/m9mm = list(50, rand(2,4)),
+		/obj/item/gun/ballistic/automatic/pistol/ms13/pistol22 = list(35, rand(2,4)),
+		/obj/item/gun/ballistic/revolver/ms13/rev10mm = list(50, rand(2,4)),
+		/obj/item/gun/ballistic/rifle/ms13/varmint = list(50, rand(2,4)),
+		/obj/item/gun/ballistic/revolver/ms13/single = list(25, rand(2,4)),
+		/obj/item/gun/ballistic/revolver/ms13/caravan = list(60, rand(2,3)),
+		/obj/item/gun/ballistic/automatic/pistol/ms13/pistol45 = list(95, rand(1,3)),
+		/obj/item/gun/ballistic/automatic/pistol/ms13/m10mm = list(95, rand(1,3)),
+		/obj/item/gun/ballistic/revolver/ms13/rev556 = list(100, rand(0,3)),
+		/obj/item/gun/ballistic/revolver/ms13/rev357/police = list(105, rand(0,3)),
+		/obj/item/gun/ballistic/revolver/ms13/rev357 = list(105, rand(0,3)),
+		/obj/item/gun/ballistic/automatic/ms13/semi/service = list(200, rand(0,3)),
+		/obj/item/gun/ballistic/automatic/ms13/full/smg9mm = list(205, rand(0,2)),
+		/obj/item/gun/ballistic/shotgun/ms13/lever = list(195, rand(0,2)),
+		/obj/item/gun/ballistic/shotgun/ms13/lever/cowboy = list(160, rand(0,3)),
+		/obj/item/gun/ballistic/shotgun/ms13/lever/trail = list(255, rand(0,1)),
+		/obj/item/gun/ballistic/revolver/ms13/rev44 = list(175, rand(0,2)),
+		/obj/item/gun/ballistic/rifle/ms13/hunting = list(275, rand(0,1)),
+		/obj/item/gun/ballistic/automatic/ms13/full/smg10mm = list(300, rand(0,1)),
+		/obj/item/gun/ballistic/automatic/ms13/full/smg22 = list(380, rand(0,1)),
+		/obj/item/ammo_box/ms13/c22box = list(140, rand(0,3)),
+		/obj/item/ammo_box/ms13/c9mm = list(140, rand(0,3)),
+		/obj/item/ammo_box/ms13/c10mm = list(135, rand(0,2)),
+		/obj/item/ammo_box/ms13/c45 = list(125, rand(0,2)),
+		/obj/item/ammo_box/ms13/a556 = list(225, rand(0,2)),
+		/obj/item/ammo_box/ms13/m44box = list(180, rand(0,2)),
+		/obj/item/ammo_box/ms13/a357box = list(140, rand(0,2)),
+		/obj/item/ammo_box/ms13/a308 = list(180, rand(0,2)),
+		/obj/item/ammo_box/ms13/a762 = list(180, rand(0,2)),
+		/obj/item/ammo_box/ms13/c4570box = list(175, rand(0,2)),
+		/obj/item/ammo_box/ms13/m12mmbox = list(210, rand(0,1)),
+		/obj/item/ammo_box/ms13/a50MG = list(260, rand(0,1)),
+		/obj/item/ammo_box/ms13/shotgun/buckshot = list(125, rand(0,4)),
+		/obj/item/stack/ms13/currency/prewar/five = list(3, rand(12, 50))
 				)
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/gunrunner/initial_wanteds()
 	return list(
-		/obj/item/ms13/component/gunpowder/lq = list(35, rand(0,6), ""),
-		/obj/item/ms13/component/gunpowder = list(85, rand(0,6), ""),
-		/obj/item/stack/sheet/ms13/scrap_lead = list(4, rand(5,30), ", per piece of lead"),
-		/obj/item/stack/sheet/ms13/scrap_brass = list(4, rand(5,30), ", per piece of brass"),
-		/obj/item/stack/sheet/ms13/refined_lead = list(30, rand(0,10), ", per ingot of lead"),
-		/obj/item/stack/sheet/ms13/refined_brass = list(30, rand(0,10), ", per ingot of brass")
+		/obj/item/ms13/component/gunpowder/lq = list(20, rand(0,6), ""),
+		/obj/item/ms13/component/gunpowder = list(50, rand(0,6), ""),
+		/obj/item/stack/sheet/ms13/scrap_lead = list(3, rand(5,30), ", per piece of lead"),
+		/obj/item/stack/sheet/ms13/scrap_brass = list(3, rand(5,30), ", per piece of brass"),
+		/obj/item/stack/sheet/ms13/refined_lead = list(22, rand(0,10), ", per ingot of lead"),
+		/obj/item/stack/sheet/ms13/refined_brass = list(22, rand(0,10), ", per ingot of brass"),
+		/obj/item/stack/ms13/currency/ncr_coin = list(4, rand(3, 20), ", per coin")
 				)
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/medtek
@@ -215,6 +219,8 @@
 	name = "\improper Arcata Armorers vendortron"
 	desc = "A vendortron used by a small armoring company for distribution and sale of their products."
 	icon_state = "vendotron_red"
+	currency_name = "NCR dollars"
+	accepted_currency = /obj/item/stack/ms13/currency/ncr_dollar
 
 	say_phrases = list(
 		ITEM_REJECTED_PHRASE = list(
@@ -261,50 +267,52 @@
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/armor/initial_products()
 	return list(
-		/obj/item/clothing/suit/ms13/ljacket = list(40, rand(1,4)),
-		/obj/item/clothing/suit/ms13/veteran_coat = list(40, rand(1,4)),
-		/obj/item/clothing/suit/ms13/ljacket/wanderer = list(40, rand(1,4)),
-		/obj/item/clothing/suit/ms13/ljacket/military = list(40, rand(1,4)),
-		/obj/item/clothing/suit/ms13/duster = list(40, rand(1,4)),
-		/obj/item/clothing/suit/ms13/trench/black = list(40, rand(1,4)),
-		/obj/item/clothing/suit/ms13/trench/black/bruiser = list(40, rand(1,4)),
-		/obj/item/clothing/suit/toggle/ms13/wjacket/orange = list(40, rand(1,4)),
-		/obj/item/clothing/suit/toggle/ms13/wjacket/brown = list(40, rand(1,4)),
-		/obj/item/clothing/suit/toggle/ms13/wjacket/blue = list(40, rand(1,4)),
-		/obj/item/clothing/suit/toggle/ms13/wjacket/black = list(40, rand(1,4)),
-		/obj/item/clothing/suit/armor/ms13/vest/civilian = list(60, rand(0,3)),
-		/obj/item/clothing/suit/ms13/ljacket/reinforced = list(140, rand(0,3)),
-		/obj/item/clothing/suit/ms13/veteran_coat/reinf = list(140, rand(0,3)),
-		/obj/item/clothing/suit/toggle/ms13/wjacket/orange/reinforced = list(140, rand(0,3)),
-		/obj/item/clothing/suit/toggle/ms13/wjacket/brown/reinforced = list(140, rand(0,3)),
-		/obj/item/clothing/suit/toggle/ms13/wjacket/blue/reinforced = list(140, rand(0,3)),
-		/obj/item/clothing/suit/toggle/ms13/wjacket/black/reinforced = list(140, rand(0,3)),
-		/obj/item/clothing/suit/ms13/duster/reinforced = list(140, rand(0,3)),
-		/obj/item/clothing/suit/armor/ms13/leatherarmor = list(140, rand(0,3)),
-		/obj/item/clothing/suit/armor/ms13/metal = list(160, rand(0,2)),
-		/obj/item/clothing/suit/armor/ms13/vest = list(160, rand(0,2)),
-		/obj/item/clothing/suit/armor/ms13/metal/reinforced = list(360, rand(0,1)),
-		/obj/item/clothing/suit/armor/ms13/combat = list(400, rand(0,1)),
-		/obj/item/clothing/suit/armor/ms13/leatherarmor/reinforced = list(360, rand(0,1)),
-		/obj/item/clothing/head/helmet/ms13/flight = list(60, rand(1,3)),
-		/obj/item/clothing/head/helmet/ms13/flight/yellow = list(60, rand(1,3)),
-		/obj/item/clothing/head/helmet/ms13/flight/red = list(60, rand(1,3)),
-		/obj/item/clothing/head/helmet/ms13/eyebot = list(60, rand(1,3)),
-		/obj/item/clothing/head/ms13/hood/plated = list(60, rand(1,3)),
-		/obj/item/clothing/head/helmet/ms13/army/civildefence = list(80, rand(0,2)),
-		/obj/item/clothing/head/helmet/ms13/assaultron = list(130, rand(0,1)),
-		/obj/item/clothing/head/helmet/ms13/combat = list(150, rand(0,1)),
-		/obj/item/stack/sheet/ms13/cloth/five = list(25, rand(4,6)),
-		/obj/item/stack/sheet/ms13/leather/five = list(25, rand(4,6)),
-		/obj/item/stack/sheet/ms13/thread/six = list(35, rand(2,5))
+		/obj/item/clothing/suit/ms13/ljacket = list(25, rand(1,4)),
+		/obj/item/clothing/suit/ms13/veteran_coat = list(25, rand(1,4)),
+		/obj/item/clothing/suit/ms13/ljacket/wanderer = list(25, rand(1,4)),
+		/obj/item/clothing/suit/ms13/ljacket/military = list(25, rand(1,4)),
+		/obj/item/clothing/suit/ms13/duster = list(25, rand(1,4)),
+		/obj/item/clothing/suit/ms13/trench/black = list(25, rand(1,4)),
+		/obj/item/clothing/suit/ms13/trench/black/bruiser = list(25, rand(1,4)),
+		/obj/item/clothing/suit/toggle/ms13/wjacket/orange = list(25, rand(1,4)),
+		/obj/item/clothing/suit/toggle/ms13/wjacket/brown = list(25, rand(1,4)),
+		/obj/item/clothing/suit/toggle/ms13/wjacket/blue = list(25, rand(1,4)),
+		/obj/item/clothing/suit/toggle/ms13/wjacket/black = list(25, rand(1,4)),
+		/obj/item/clothing/suit/armor/ms13/vest/civilian = list(35, rand(0,3)),
+		/obj/item/clothing/suit/ms13/ljacket/reinforced = list(85, rand(0,3)),
+		/obj/item/clothing/suit/ms13/veteran_coat/reinf = list(85, rand(0,3)),
+		/obj/item/clothing/suit/toggle/ms13/wjacket/orange/reinforced = list(85, rand(0,3)),
+		/obj/item/clothing/suit/toggle/ms13/wjacket/brown/reinforced = list(85, rand(0,3)),
+		/obj/item/clothing/suit/toggle/ms13/wjacket/blue/reinforced = list(85, rand(0,3)),
+		/obj/item/clothing/suit/toggle/ms13/wjacket/black/reinforced = list(85, rand(0,3)),
+		/obj/item/clothing/suit/ms13/duster/reinforced = list(85, rand(0,3)),
+		/obj/item/clothing/suit/armor/ms13/leatherarmor = list(85, rand(0,3)),
+		/obj/item/clothing/suit/armor/ms13/metal = list(100, rand(0,2)),
+		/obj/item/clothing/suit/armor/ms13/vest = list(100, rand(0,2)),
+		/obj/item/clothing/suit/armor/ms13/metal/reinforced = list(215, rand(0,1)),
+		/obj/item/clothing/suit/armor/ms13/combat = list(250, rand(0,1)),
+		/obj/item/clothing/suit/armor/ms13/leatherarmor/reinforced = list(215, rand(0,1)),
+		/obj/item/clothing/head/helmet/ms13/flight = list(35, rand(1,3)),
+		/obj/item/clothing/head/helmet/ms13/flight/yellow = list(35, rand(1,3)),
+		/obj/item/clothing/head/helmet/ms13/flight/red = list(35, rand(1,3)),
+		/obj/item/clothing/head/helmet/ms13/eyebot = list(35, rand(1,3)),
+		/obj/item/clothing/head/ms13/hood/plated = list(35, rand(1,3)),
+		/obj/item/clothing/head/helmet/ms13/army/civildefence = list(50, rand(0,2)),
+		/obj/item/clothing/head/helmet/ms13/assaultron = list(75, rand(0,1)),
+		/obj/item/clothing/head/helmet/ms13/combat = list(95, rand(0,1)),
+		/obj/item/stack/sheet/ms13/cloth/five = list(15, rand(4,6)),
+		/obj/item/stack/sheet/ms13/leather/five = list(15, rand(4,6)),
+		/obj/item/stack/sheet/ms13/thread/six = list(25, rand(2,5)),
+		/obj/item/stack/ms13/currency/prewar/five = list(3, rand(12, 50))
 				)
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/armor/initial_wanteds()
 	return list(
-		/obj/item/stack/sheet/ms13/cloth = list(4, rand(5,30), ", per piece of cloth"),
-		/obj/item/stack/sheet/ms13/leather = list(4, rand(5,30), ", per piece of leather"),
-		/obj/item/stack/sheet/ms13/thread = list(5, rand(4,20), ", per piece of thread"),
-		/obj/item/stack/sheet/ms13/mil_fiber = list(35, rand(0,10), ", per piece of fiber"),
+		/obj/item/stack/sheet/ms13/cloth = list(3, rand(5,30), ", per piece of cloth"),
+		/obj/item/stack/sheet/ms13/leather = list(3, rand(5,30), ", per piece of leather"),
+		/obj/item/stack/sheet/ms13/thread = list(4, rand(4,20), ", per piece of thread"),
+		/obj/item/stack/sheet/ms13/mil_fiber = list(22, rand(0,10), ", per piece of fiber"),
+		/obj/item/stack/ms13/currency/ncr_coin = list(4, rand(3, 20), ", per coin")
 				)
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/tools
@@ -383,7 +391,7 @@
 		/obj/item/stack/sheet/ms13/scrap_lead/five = list(25, rand(4,6)),
 		/obj/item/stack/sheet/ms13/scrap_brass/five = list(25, rand(4,6)),
 		/obj/item/stack/sheet/ms13/scrap_alu/five = list(25, rand(4,6)),
-		/obj/item/stack/sheet/ms13/plank/four = list(25, rand(3,5))
+		/obj/item/stack/sheet/ms13/wood/plank/four = list(25, rand(3,5))
 				)
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/tools/initial_wanteds()
@@ -392,7 +400,7 @@
 		/obj/item/stack/sheet/ms13/scrap = list(4, rand(5,30), ", per piece of scrap"),
 		/obj/item/stack/sheet/ms13/scrap_steel = list(4, rand(5,30), ", per piece of steel"),
 		/obj/item/stack/sheet/ms13/scrap_alu = list(4, rand(5,30), ", per piece of aluminum"),
-		/obj/item/stack/sheet/ms13/plank = list(5, rand(4,20), ", per plank"),
+		/obj/item/stack/sheet/ms13/wood/plank = list(5, rand(4,20), ", per plank"),
 		/obj/item/stack/sheet/ms13/scrap_copper = list(4, rand(5,30), ", per piece of copper wire"),
 		/obj/item/stack/sheet/ms13/scrap_gold = list(7, rand(5,25), ", per piece of gold"),
 		/obj/item/stack/sheet/ms13/scrap_silver = list(7, rand(5,25), ", per piece of silver"),
@@ -647,6 +655,7 @@
 		/obj/item/flashlight/ms13 = list(65, rand(1,3)),
 		/obj/item/flashlight/flare/ms13 = list(15, rand(2,4)),
 		/obj/item/radio/ms13 = list(75, rand(1,3)),
+		/obj/item/storage/box/matches/ms13 = list(40, rand(0,2)),
 		/obj/item/ms13/component/cell = list(30, rand(1,4)),
 		/obj/item/stock_parts/cell/ms13/ec = list(40, rand(0,3)),
 		/obj/item/stack/sheet/ms13/scrap_electronics/five = list(20, rand(3,6)),
@@ -657,7 +666,7 @@
 		/obj/item/stack/sheet/ms13/scrap_lead/five = list(20, rand(3,6)),
 		/obj/item/stack/sheet/ms13/scrap_brass/five = list(20, rand(3,6)),
 		/obj/item/stack/sheet/ms13/scrap_alu/five = list(20, rand(3,6)),
-		/obj/item/stack/sheet/ms13/plank/four = list(20, rand(3,6))
+		/obj/item/stack/sheet/ms13/wood/plank/four = list(20, rand(3,6))
 				)
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/drought/crimson/initial_wanteds()
@@ -666,7 +675,7 @@
 		/obj/item/stack/sheet/ms13/scrap = list(3, rand(4,20), ", per piece of scrap"),
 		/obj/item/stack/sheet/ms13/scrap_steel = list(3, rand(4,20), ", per piece of steel"),
 		/obj/item/stack/sheet/ms13/scrap_alu = list(3, rand(4,20), ", per piece of aluminum"),
-		/obj/item/stack/sheet/ms13/plank = list(4, rand(2,15), ", per plank"),
+		/obj/item/stack/sheet/ms13/wood/plank = list(4, rand(2,15), ", per plank"),
 		/obj/item/stack/sheet/ms13/scrap_copper = list(3, rand(4,20), ", per piece of copper wire"),
 		/obj/item/stack/sheet/ms13/scrap_gold = list(8, rand(3,15), ", per piece of gold"),
 		/obj/item/stack/sheet/ms13/scrap_silver = list(6, rand(3,15), ", per piece of silver"),
@@ -759,7 +768,8 @@
 		/obj/item/reagent_containers/food/drinks/bottle/ms13/vodka = list(75, rand(0,2)),
 		/obj/item/reagent_containers/food/drinks/bottle/ms13/gin = list(80, rand(0,2)),
 		/obj/item/reagent_containers/food/drinks/bottle/ms13/wine = list(90, rand(0,2)),
-		/obj/item/reagent_containers/food/drinks/bottle/ms13/moonshine = list(125, rand(0,2))
+		/obj/item/reagent_containers/food/drinks/bottle/ms13/moonshine = list(125, rand(0,2)),
+		/obj/item/storage/fancy/ms13/cigarettes/rollies/republics = list(65, rand(0,3))
 				)
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/drought/happy_trails/initial_wanteds()
@@ -836,12 +846,13 @@
 		/obj/item/food/ms13/prewar/boxed/snackcake = list(25, rand(1,3)),
 		/obj/item/stack/medical/ms13/healing_powder = list(35, rand(1,3)),
 		/obj/item/stack/sheet/ms13/scrap/five = list(20, rand(3,6)),
-		/obj/item/stack/sheet/ms13/scrap_wood/five = list(20, rand(3,6)),
+		/obj/item/stack/sheet/ms13/wood/scrap_wood/five = list(20, rand(3,6)),
 		/obj/item/stack/sheet/ms13/scrap_parts/five = list(20, rand(3,6)),
 		/obj/item/stack/sheet/ms13/cloth/five = list(20, rand(3,6)),
 		/obj/item/stack/sheet/ms13/leather/five = list(20, rand(3,6)),
 		/obj/item/stack/sheet/ms13/thread/six = list(30, rand(2,4)),
 		/obj/item/flashlight/flare/ms13 = list(15, rand(1,3)),
+		/obj/item/storage/box/matches/ms13 = list(40, rand(0,2)),
 		/obj/item/radio/ms13 = list(75, rand(0,2)),
 		/obj/item/knife/ms13/hunting = list(60, rand(0,2)),
 		/obj/item/knife/ms13 = list(30, rand(1,3)),
@@ -857,7 +868,9 @@
 		/obj/item/ammo_box/ms13/a357box = list(190, rand(0,2)),
 		/obj/item/ammo_box/ms13/a308 = list(240, rand(0,1)),
 		/obj/item/ammo_box/ms13/a762 = list(240, rand(0,2)),
-		/obj/item/ammo_box/ms13/shotgun/buckshot = list(175, rand(0,3))
+		/obj/item/ammo_box/ms13/shotgun/buckshot = list(175, rand(0,3)),
+		/obj/item/ms13/component/gunpowder = list(70, rand(0,3)),
+		/obj/item/ms13/component/gunpowder/lq = list(30, rand(1,4))
 				)
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/drought/general_goods/initial_wanteds()
@@ -870,10 +883,9 @@
 		/obj/item/stack/sheet/ms13/scrap_silver = list(6, rand(3,15), ", per piece of silver"),
 		/obj/item/stack/sheet/ms13/refined_gold = list(50, rand(1,5), ", per ingot of gold"),
 		/obj/item/stack/sheet/ms13/refined_silver = list(40, rand(1,5), ", per ingot of silver"),
-		/obj/item/ms13/component/gunpowder/lq = list(30, rand(0,4), ""),
-		/obj/item/ms13/component/gunpowder = list(75, rand(0,2), ""),
 		/obj/item/stack/sheet/ms13/scrap_lead = list(3, rand(3,15), ", per piece of lead"),
 		/obj/item/stack/sheet/ms13/scrap_brass = list(3, rand(3,15), ", per piece of brass"),
 		/obj/item/food/meat/slab/ms13/animal/gecko/golden = list(6, rand(1,6)),
-		/obj/item/food/meat/slab/ms13/animal/bark_scorp = list(10, rand(0,5))
+		/obj/item/food/meat/slab/ms13/animal/bark_scorp = list(10, rand(0,5)),
+		/obj/item/ms13/animalitem/pigrat/snout = list(10, rand(0,4))
 				)

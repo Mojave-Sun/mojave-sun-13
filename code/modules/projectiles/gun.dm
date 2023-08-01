@@ -172,7 +172,12 @@
 	var/angle = get_angle(user, pbtarget)+rand(-recoil_deviation, recoil_deviation) + 180
 	angle = SIMPLIFY_DEGREES(angle)
 	if(recoil)
-		recoil_camera(user, recoil+1, (recoil*recoil_backtime_multiplier) + 1, recoil, angle)
+		var/mob/living/carbon/human/H = user
+		if(HAS_TRAIT(H, TRAIT_IN_POWERARMOUR)) // If they're wearing PA, cut that shid in halF
+			recoil_camera(user, recoil+1, (recoil*recoil_backtime_multiplier) + 1, recoil, angle)
+		else
+			recoil_camera(user, recoil/2, (recoil*recoil_backtime_multiplier/2) + 1, recoil/2, angle)
+
 	//MOJAVE EDIT CHANGE END
 
 	if(suppressed)

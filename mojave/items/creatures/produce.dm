@@ -9,6 +9,7 @@
 	icon_state = "egg"
 	food_reagents = list(/datum/reagent/consumable/eggyolk = 2, /datum/reagent/consumable/eggwhite = 4)
 	foodtypes = GROSS | TOXIC
+	decomp_type = /obj/item/food/badrecipe/moldy/ms13
 
 /obj/item/food/ms13/egg/ms13/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	if(!..())

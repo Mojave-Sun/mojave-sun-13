@@ -62,7 +62,7 @@
 /datum/looping_sound/grill
 	mid_sounds = list('sound/machines/grill/grillsizzle.ogg' = 1)
 	mid_length = 18
-	volume = 50
+	volume = 40 //Mojave Edit - Turned this down a bit because it's kind of obnoxious otherwise
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

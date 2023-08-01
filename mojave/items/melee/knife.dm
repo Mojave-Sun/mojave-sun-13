@@ -11,7 +11,7 @@
 	icon_state = "knife_kitchen"
 	inhand_icon_state = "knife_kitchen"
 	hitsound = list('mojave/sound/ms13weapons/meleesounds/knife_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/knife_hit2.ogg')
-	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/knife_pickup.ogg'
+	pickup_sound = list('mojave/sound/ms13weapons/meleesounds/knife_pickup1.ogg', 'mojave/sound/ms13weapons/meleesounds/knife_pickup2.ogg')
 	force = 20
 	throwforce = 15
 	subtractible_armour_penetration = 5
@@ -26,6 +26,7 @@
 	log_pickup_and_drop = TRUE
 	grid_width = 64
 	grid_height = 32
+	mining_mult = -0.75
 
 /obj/item/knife/ms13/Initialize()
 	. = ..()
@@ -200,7 +201,7 @@
 	icon_state = "knife_cleaver"
 	inhand_icon_state = "knife_cleaver"
 	hitsound = list('mojave/sound/ms13weapons/meleesounds/blade_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/blade_hit2.ogg')
-	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/knife_pickup.ogg'
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/blade_pickup2.ogg'
 	force = 25
 	throwforce = 15
 	subtractible_armour_penetration = 10
@@ -228,3 +229,18 @@
 	wound_bonus = 15
 	bare_wound_bonus = 15
 	toolspeed = 0.75
+
+/obj/item/knife/ms13/tribal
+	name = "improvised shiv"
+	desc = "A makeshift, dangerous looking shiv. No good for cutting someone, but excellent at getting a few stabs in in a pinch."
+	icon_state = "tribal_knife"
+	inhand_icon_state = "tribal_knife"
+	force = 25
+	throwforce = 15
+	subtractible_armour_penetration = 10
+	edge_protection_penetration = 5
+	wound_bonus = 6
+	bare_wound_bonus = 8
+	toolspeed = 1.75
+	sharpness = SHARP_IMPALING
+	tool_behaviour = TOOL_KNIFE

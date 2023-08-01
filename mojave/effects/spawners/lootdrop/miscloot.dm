@@ -20,7 +20,7 @@
 	loot = list(
 			/obj/effect/spawner/random/ms13/tools/lights = 15,
 			/obj/effect/spawner/random/ms13/tools/tool = 50,
-			/obj/effect/spawner/random/ms13/tools/fishing = 5,
+			/obj/effect/spawner/random/ms13/tools/farming = 5,
 			/obj/effect/spawner/random/ms13/crafting/lowrandom = 30
 			)
 
@@ -40,7 +40,12 @@
 			/obj/item/shovel/ms13/spade,
 			/obj/item/shovel/ms13/snow,
 			/obj/item/shovel/ms13/rake,
-			/obj/item/ms13/brick
+			/obj/item/ms13/brick,
+			/obj/item/knife/ms13/scissors,
+			/obj/item/lighter/ms13/zippo,
+			/obj/item/reagent_containers/ms13/lighterfluid,
+			/obj/item/storage/box/matches/ms13,
+			/obj/item/pickaxe/ms13
 			)
 
 /obj/effect/spawner/random/ms13/tools/lights
@@ -78,6 +83,18 @@
 			/obj/item/ms13/tools/fishing_rod/advanced = 10
 			)
 
+/obj/effect/spawner/random/ms13/tools/farming
+	name = "farming item spawner"
+	spawn_loot_chance = 70
+	loot = list(
+		/obj/item/stack/ms13/fertilizer = 10,
+		/obj/item/ms13/fertilizer = 10,
+		/obj/item/reagent_containers/glass/bucket/ms13 = 30,
+		/obj/item/shovel/ms13/spade = 30,
+		/obj/item/shovel/ms13/rake = 18,
+		/obj/item/storage/ms13/harvest_sack = 2
+	)
+
 //CRAFTING SPAWNERS BELOW//
 
 /obj/effect/spawner/random/ms13/crafting
@@ -89,8 +106,8 @@
 	name = "low tier random crafting spawner"
 	spawn_loot_chance = 65
 	loot = list(
-			/obj/item/stack/sheet/ms13/scrap_wood/two,
-			/obj/item/stack/sheet/ms13/plank,
+			/obj/item/stack/sheet/ms13/wood/scrap_wood/two,
+			/obj/item/stack/sheet/ms13/wood/plank,
 			/obj/item/stack/sheet/ms13/leather/two,
 			/obj/item/stack/sheet/ms13/thread/two,
 			/obj/item/stack/sheet/ms13/scrap_electronics/two,
@@ -109,7 +126,8 @@
 			/obj/item/stack/sheet/ms13/plastic/two,
 			/obj/item/stack/sheet/ms13/rubber/two,
 			/obj/item/stack/sheet/ms13/scrap_parts/two,
-			/obj/item/stack/sheet/ms13/scrap/two
+			/obj/item/stack/sheet/ms13/scrap/two,
+			/obj/item/restraints/handcuffs/ms13/rope
 	)
 
 /obj/effect/spawner/random/ms13/crafting/highrandom
@@ -180,3 +198,76 @@
 			/obj/item/stack/sheet/ms13/refined_steel/two,
 			/obj/item/stack/sheet/ms13/refined_copper/two
 	)
+
+// CIGARETTE SPAWNERS BELOW //
+
+/obj/effect/spawner/random/ms13/smokeable
+	name = "DO NOT USE ME - Mojave Sun smokeable spawners"
+	spawn_loot_count = 1
+
+/obj/effect/spawner/random/ms13/smokeable/general
+	name = "general smokeables spawner"
+	spawn_loot_chance = 100
+	loot = list(
+			/obj/effect/spawner/random/ms13/smokeable/highrandom = 30,
+			/obj/effect/spawner/random/ms13/smokeable/lowrandom = 70,
+			)
+
+/obj/effect/spawner/random/ms13/smokeable/highrandom
+	name = "high tier random smokeables spawner"
+	spawn_loot_chance = 45
+	loot = list(
+			/obj/item/storage/fancy/ms13/cigarettes/marlboro = 16,
+			/obj/item/storage/fancy/ms13/cigarettes/winston = 16,
+			/obj/item/storage/fancy/ms13/cigarettes/salem = 30,
+			/obj/item/storage/fancy/ms13/cigarettes/kools = 20,
+			/obj/item/ms13/rolling_paper = 16,
+			/obj/item/storage/fancy/ms13/cigarettes/rollies = 2
+			)
+
+/obj/effect/spawner/random/ms13/smokeable/lowrandom
+	name = "low tier random smokeables spawner"
+	spawn_loot_chance = 40
+	loot = list(
+			/obj/item/storage/fancy/ms13/cigarettes/marlboro/random = 30,
+			/obj/item/storage/fancy/ms13/cigarettes/winston/random = 30,
+			/obj/item/storage/fancy/ms13/cigarettes/salem/random = 18,
+			/obj/item/storage/fancy/ms13/cigarettes/kools/random = 10,
+			/obj/item/ms13/rolling_paper = 10,
+			/obj/item/storage/fancy/ms13/cigarettes/rollies/random = 2
+			)
+
+
+/obj/effect/spawner/random/ms13/smokeable/mammoth/general
+	name = "Mammoth general smokeables spawner"
+	spawn_loot_chance = 100
+	loot = list(
+			/obj/effect/spawner/random/ms13/smokeable/mammoth/highrandom = 30,
+			/obj/effect/spawner/random/ms13/smokeable/mammoth/lowrandom = 70,
+			)
+
+/obj/effect/spawner/random/ms13/smokeable/mammoth/highrandom
+	name = "Mammoth high tier random smokeables spawner"
+	spawn_loot_chance = 45
+	loot = list(
+			/obj/item/storage/fancy/ms13/cigarettes/marlboro = 12,
+			/obj/item/storage/fancy/ms13/cigarettes/winston = 12,
+			/obj/item/storage/fancy/ms13/cigarettes/salem = 30,
+			/obj/item/storage/fancy/ms13/cigarettes/kools = 20,
+			/obj/item/storage/fancy/ms13/cigarettes/rollies/republics = 8,
+			/obj/item/ms13/rolling_paper = 16,
+			/obj/item/storage/fancy/ms13/cigarettes/rollies = 2
+			)
+
+/obj/effect/spawner/random/ms13/smokeable/mammoth/lowrandom
+	name = "Mammoth low tier random smokeables spawner"
+	spawn_loot_chance = 40
+	loot = list(
+			/obj/item/storage/fancy/ms13/cigarettes/marlboro/random = 28,
+			/obj/item/storage/fancy/ms13/cigarettes/winston/random = 28,
+			/obj/item/storage/fancy/ms13/cigarettes/salem/random = 15,
+			/obj/item/storage/fancy/ms13/cigarettes/kools/random = 8,
+			/obj/item/storage/fancy/ms13/cigarettes/rollies/republics/random = 10,
+			/obj/item/ms13/rolling_paper = 10,
+			/obj/item/storage/fancy/ms13/cigarettes/rollies/random = 1
+			)

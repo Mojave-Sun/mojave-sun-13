@@ -72,6 +72,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	grid_width = 96
 	grid_height = 64
+	mining_mult = 0.5
 
 
 /* Not sure about this, commenting it out for now

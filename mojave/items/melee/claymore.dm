@@ -23,6 +23,7 @@
 	desc = "A makeshift machete made from scrap."
 	icon_state = "machete_scrap"
 	inhand_icon_state = "machete_scrap"
+	worn_icon_state = "machete"
 	force = 30
 	throwforce = 15
 	subtractible_armour_penetration = 10
@@ -33,16 +34,18 @@
 	sharpness = SHARP_EDGED
 	tool_behaviour = TOOL_KNIFE
 	hitsound = list('mojave/sound/ms13weapons/meleesounds/blade_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/blade_hit2.ogg')
-	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/blade_pickup.ogg'
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/blade_pickup2.ogg'
 	toolspeed = 2
 	grid_width = 64
 	grid_height = 96
+	mining_mult = -0.65
 
 /obj/item/claymore/ms13/machete/gladius
 	name = "machete gladius"
 	desc = "A forged steel machete, the blade has been laborously sharpened and the weight has been evenly distributed for maximum killing power. An image of a bull is burned into the wooden handle."
 	icon_state = "machete_gladius"
 	inhand_icon_state = "machete_gladius"
+	worn_icon_state = "gladius"
 	force = 35
 	throwforce = 20
 	subtractible_armour_penetration = 20
@@ -55,6 +58,7 @@
 	desc = "A very sharp Japanese sword that is well made and has long stood the test of time."
 	icon_state = "katana_black"
 	inhand_icon_state = "katana_black"
+	worn_icon_state = "katana"
 	force = 35
 	throwforce = 15
 	subtractible_armour_penetration = 20
@@ -131,6 +135,7 @@
 	desc = "A slightly dull makeshift sword, rigged up to dispense hot injustice at the flip of a switch."
 	icon_state = "shishkebab_off"
 	inhand_icon_state = "shishkebab_off"
+	worn_icon_state = "shishkebab"
 	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/blade_pickup.ogg'
 	sharpness = SHARP_EDGED
 	w_class = WEIGHT_CLASS_BULKY
@@ -142,6 +147,7 @@
 	throwforce = 10
 	grid_width = 64
 	grid_height = 128
+	mining_mult = -0.65
 	var/on = FALSE
 
 /obj/item/claymore/ms13/machete/shishkebab/attack_self(mob/user)

@@ -84,7 +84,7 @@
 	desc = "An antique wooden chair with a small green cushion."
 	icon_state = "wood_chair"
 	item_chair = /obj/item/chair/ms13/wood
-	buildstacktype = /obj/item/stack/sheet/ms13/scrap_wood
+	buildstacktype = /obj/item/stack/sheet/ms13/wood/scrap_wood
 	buildstackamount = 1
 
 /obj/structure/chair/ms13/wood/padded
@@ -386,3 +386,10 @@
 	icon_state = "plastic_chair_toppled"
 	inhand_icon_state = "plastic_chair"
 	origin_type = /obj/structure/chair/ms13/overlaypickup/plastic
+
+/obj/structure/chair/comfy/ms13/diner
+	name = "diner seat"
+	desc = "A nice padded diner style seat. A fantastic place to rest your feet."
+	icon_state = "diner_chair"
+	buildstacktype = /obj/item/stack/sheet/ms13/scrap
+	buildstackamount = 1

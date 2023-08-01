@@ -7,6 +7,10 @@
 	door_anim_time = 0
 	hitted_sound = 'mojave/sound/ms13effects/impact/metal/metal_sheet_4.wav'
 
+/obj/structure/closet/ms13/Initialize(mapload)
+	. = ..()
+	reset_grid_inventory()
+
 /obj/structure/closet/ms13/metal
 	name = "metal locker"
 	desc = "A large metal locker for all of your stuff. Or "

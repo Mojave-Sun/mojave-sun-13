@@ -18,7 +18,7 @@
 	icon_state = "wood_crate"
 	density = TRUE
 	anchored = TRUE
-	material_drop = /obj/item/stack/sheet/ms13/scrap_wood
+	material_drop = /obj/item/stack/sheet/ms13/wood/scrap_wood
 	material_drop_amount = 2
 	delivery_icon = "deliverybox"
 	integrity_failure = 0 //Makes the crate break when integrity reaches 0, instead of opening and becoming an invisible sprite.
@@ -76,10 +76,10 @@
 /obj/structure/closet/crate/ms13/woodcrate/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/plank(loc, 2)
+			new /obj/item/stack/sheet/ms13/wood/plank(loc, 2)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 2)
 		else
-			new /obj/item/stack/sheet/ms13/scrap_wood(loc)
+			new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
 	var/turf/T = get_turf(src)
 	for(var/atom/movable/AM in contents)
@@ -165,7 +165,7 @@
 	name = "wooden footlocker"
 	desc = "The best way to store various supplies."
 	icon_state = "footlocker_wood"
-	material_drop = /obj/item/stack/sheet/ms13/scrap_wood
+	material_drop = /obj/item/stack/sheet/ms13/wood/scrap_wood
 	material_drop_amount = 2
 	projectile_passchance = 90
 	hitted_sound = 'mojave/sound/ms13effects/impact/wood/wood_generic_1.wav'

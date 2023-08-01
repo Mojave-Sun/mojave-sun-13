@@ -88,6 +88,15 @@
 /obj/effect/turf_decal/ms13/graffiti/fuckncr
 	icon_state = "fuckncr"
 
+/obj/effect/turf_decal/ms13/graffiti/gohome
+	icon_state = "gohome"
+
+/obj/effect/turf_decal/ms13/graffiti/arrow
+	icon_state = "arrow"
+
+/obj/effect/turf_decal/ms13/graffiti/danger
+	icon_state = "danger"
+
 /obj/effect/turf_decal/ms13/graffiti/fuckyou
 	icon_state = "fuckyou"
 

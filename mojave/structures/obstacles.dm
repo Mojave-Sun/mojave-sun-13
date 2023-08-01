@@ -14,6 +14,7 @@
 	density = TRUE
 	anchored = TRUE
 	layer = ABOVE_OBJ_LAYER
+	plane = ABOVE_GAME_PLANE
 	max_integrity = 650
 	damage_deflection = 21 //Basically meant to encompass 20 damage weapons and below
 	can_atmos_pass = ATMOS_PASS_YES
@@ -858,10 +859,10 @@
 /obj/structure/railing/ms13/wood/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/plank(loc, 3)
+			new /obj/item/stack/sheet/ms13/wood/plank(loc, 3)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 2)
 		else
-			new /obj/item/stack/sheet/ms13/scrap_wood(loc, 2)
+			new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc, 2)
 	qdel(src)
 
 /obj/structure/railing/ms13/wood/examine(mob/user)
@@ -929,10 +930,10 @@
 /obj/structure/ms13/barricade/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/plank(loc, 2)
+			new /obj/item/stack/sheet/ms13/wood/plank(loc, 2)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
 		else
-			new /obj/item/stack/sheet/ms13/scrap_wood(loc)
+			new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc)
 	qdel(src)
 
 /obj/structure/ms13/barricade/examine(mob/user)

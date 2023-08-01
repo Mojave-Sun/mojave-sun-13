@@ -10,6 +10,7 @@
 	faction = list("robots")
 	uses_stored = FALSE
 	mode = TURRET_LETHAL
+	turret_flags = TURRET_FLAG_SHOOT_ALL | TURRET_FLAG_SHOOT_ANOMALOUS
 	stun_projectile = /obj/projectile/bullet
 	lethal_projectile = /obj/projectile/bullet/ms13
 	lethal_projectile_sound = 'sound/weapons/gun/pistol/shot.ogg'

@@ -112,6 +112,33 @@
 	screen_start_y = 4
 	screen_start_x = 17
 
+/datum/component/storage/concrete/ms13/cigarettes //for cig packs
+	screen_max_columns = 4
+	screen_max_rows = 2
+	screen_start_y = 4
+	screen_start_x = 8
+	rustle_sound = FALSE
+
+/datum/component/storage/concrete/ms13/matchbox //for matchboxes
+	screen_max_columns = 5
+	screen_max_rows = 4
+	screen_start_y = 5
+	screen_start_x = 14
+	rustle_sound = FALSE
+
+/datum/component/storage/concrete/ms13/ashtray //for ashtrays
+	screen_max_columns = 4
+	screen_max_rows = 4
+	screen_start_y = 5
+	screen_start_x = 13
+	rustle_sounds = list('mojave/sound/ms13effects/genericplip.ogg')
+
+/datum/component/storage/concrete/ms13/ashtray/Initialize()
+	. = ..()
+	max_items = 16
+	max_combined_w_class = 1000
+	set_holdable(list(/obj/item/ms13/cigarette/butt, /obj/item/ms13/ash))
+
 /datum/component/storage/concrete/ms13/shoes
 	screen_max_columns = 1
 	screen_max_rows = 2
@@ -139,6 +166,46 @@
 		/obj/item/stack/ms13/currency/prewar,
 		/obj/item/stack/ms13/currency/ncr_dollar))
 
+/datum/component/storage/concrete/ms13/h_bag //harvesting bag
+	screen_max_columns = 4
+	screen_max_rows = 4
+	screen_start_y = 5
+	screen_start_x = 15
+
+/datum/component/storage/concrete/ms13/h_bag/Initialize()
+	. = ..()
+	set_holdable(list(
+		/obj/item/seeds/ms13,
+		/obj/item/food/grown/ms13))
+
+/datum/component/storage/concrete/ms13/suit //base type suit storage to avoid redundant defines
+	screen_max_columns = 1
+	screen_max_rows = 2
+	screen_start_y = 4
+	screen_start_x = 17
+	quickdraw = TRUE
+	silent = TRUE
+	attack_hand_interact = TRUE
+	rustle_sound = FALSE
+	max_w_class = WEIGHT_CLASS_NORMAL
+
+/datum/component/storage/concrete/ms13/suit/small //a 1x2 for minimal suit storage
+	screen_max_columns = 1
+	screen_max_rows = 2
+
+/datum/component/storage/concrete/ms13/suit/med //a 2x2 for decent suit storage
+	screen_max_columns = 2
+	screen_max_rows = 2
+
+/datum/component/storage/concrete/ms13/suit/large //a 4x2 meant almost exclusively for non-armor suits
+	screen_max_columns = 4
+	screen_max_rows = 2
+	screen_start_x = 15
+
+/datum/component/storage/concrete/ms13/suit/Initialize()
+	. = ..()
+	max_items = 8
+
 /datum/component/storage
 	screen_max_columns = 8
 	screen_max_rows = 3
@@ -146,7 +213,7 @@
 	screen_pixel_y = 0
 	screen_start_x = 6
 	screen_start_y = 5
-	rustle_sound = list(
+	var/rustle_sounds = list(
 		'sound/effects/rustle1.ogg',
 		'sound/effects/rustle2.ogg',
 		'sound/effects/rustle3.ogg',

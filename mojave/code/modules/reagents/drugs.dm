@@ -44,6 +44,10 @@
 	overdose_threshold = 30
 	metabolization_rate = 0.12 * REM
 
+/datum/reagent/ms13/calmex/on_mob_metabolize(mob/living/M)
+	M.throw_alert_text(/atom/movable/screen/alert/text, "You feel empty inside.", override = FALSE)
+	return ..()
+
 /datum/reagent/ms13/calmex/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(current_cycle >= 5)
 		SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "numb", /datum/mood_event/narcotic_medium, name)
@@ -201,7 +205,7 @@
 	name = "hydra"
 	description = "A curative agent that anaesthetises and restores crippled limbs. Causes heart damage from the overworking, and tends to make the user feel ill."
 	color = "#60A584"
-	overdose_threshold = 15
+	overdose_threshold = 18
 	metabolization_rate = 1 * REM
 
 /datum/reagent/ms13/hydra/on_mob_metabolize(mob/living/M, amount)
@@ -433,6 +437,7 @@
 	M.visible_message(span_danger("[M]'s eyes go empty, with their face quickly shifting to a scorn"), span_narsiesmall("Your mind suddenly begins to drift- you begin to feel ANGRY."))
 	ADD_TRAIT(M, TRAIT_SLEEPIMMUNE, type)
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "gone_psycho", /datum/mood_event/stimulant_heavy, name)
+	M.throw_alert_text(/atom/movable/screen/alert/text, "You feel a burning urge to harm.", override = FALSE)
 
 /datum/reagent/ms13/psycho/on_mob_life(mob/living/M)
 	if(prob(75))
@@ -452,6 +457,7 @@
 
 /datum/reagent/ms13/psycho/overdose_start(mob/living/M)
 	to_chat(M, span_narsiesmall("YOU FEEL AN INSATIABLE BLOODLUST!")) // pitbull
+	M.throw_alert_text(/atom/movable/screen/alert/text, "These people should all be dead!", override = FALSE)
 	return ..()
 
 /datum/reagent/ms13/psycho/overdose_process(mob/living/M)
@@ -492,6 +498,7 @@
 		rage = new()
 		C.gain_trauma(rage, TRAUMA_RESILIENCE_ABSOLUTE)
 	M.overlay_fullscreen("overdrive", /atom/movable/screen/fullscreen/color_vision/red)
+	M.throw_alert_text(/atom/movable/screen/alert/text, "You feel a burning urge to harm.", override = FALSE)
 
 /datum/reagent/ms13/overdrive/on_mob_end_metabolize(mob/living/M)
 	REMOVE_TRAIT(M, TRAIT_STUNIMMUNE, type)
@@ -511,8 +518,9 @@
 	M.visible_message(span_userdanger("[M]'s chest produces an audible pop. They look visibly stunned and in pain."), span_userdanger("A pop is heard coming from your chest and sudden pain appears- It's INTOLERABLE! What happened?"), span_hear("You hear a pop."))
 	REMOVE_TRAIT(M, TRAIT_STUNIMMUNE, type)
 	REMOVE_TRAIT(M, TRAIT_SLEEPIMMUNE, type)
-	M.Stun(25)
-	addtimer(CALLBACK(src, .proc/heartsplosion, M), rand(1, 5) SECONDS) // We want to delay the actual removal of the heart a tiny bit so people can get out a "Oh damn" or something. You go ZZZzzz mode the second you don't have one.
+	M.throw_alert_text(/atom/movable/screen/alert/text/sad, "Ohhh shit...", override = FALSE)
+	M.Stun(50)
+	addtimer(CALLBACK(src, .proc/heartsplosion, M), rand(3, 8) SECONDS) // We want to delay the actual removal of the heart a tiny bit so people can get out a "Oh damn" or something. You go ZZZzzz mode the second you don't have one.
 	return ..()
 
 /datum/reagent/ms13/overdrive/overdose_process(mob/living/carbon/M)
@@ -529,6 +537,7 @@
 	var/obj/item/organ/heart/our_heart = M.getorganslot(ORGAN_SLOT_HEART)
 	qdel(our_heart) // jhkljl;;....jlhlj;.
 	M.visible_message(span_notice("[M] looks faint and begins to close their eyes."), span_alert("This doesn't feel good at all..."))
+	M.throw_alert_text(/atom/movable/screen/alert/text/cry, "You feel the area where your heart should be get a lot sloshier.", override = FALSE)
 
 /datum/reagent/ms13/overdrive/on_mob_life(mob/living/M)
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "gone_OVERDRIVE", /datum/mood_event/stimulant_heavy, name)
@@ -594,6 +603,7 @@
 
 /datum/reagent/ms13/medicine/stimpak_fluid/on_mob_metabolize(mob/living/M)
 	ADD_TRAIT(M, TRAIT_COAGULATING, /datum/reagent/ms13/medicine/stimpak_fluid)
+	M.throw_alert_text(/atom/movable/screen/alert/text/brutal, "You feel your body start mending itself rapidly.", override = FALSE)
 	return ..()
 
 /datum/reagent/ms13/medicine/stimpak_fluid/on_mob_end_metabolize(mob/living/M)
@@ -685,13 +695,13 @@
 	reagent_state = LIQUID
 	color ="#aea447"
 	taste_description = "harsh bitterness"
-	metabolization_rate = 4.55 * REAGENTS_METABOLISM // 0.95 per second
+	metabolization_rate = 4.75 * REAGENTS_METABOLISM // 0.95 per second
 	overdose_threshold = 40
 
 /datum/reagent/medicine/bitter_drink/on_mob_life(mob/living/carbon/M)
 	if(!M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid/super))
-		M.adjustFireLoss(-2.5)
-		M.adjustBruteLoss(-2.5)
+		M.adjustFireLoss(-3.75)
+		M.adjustBruteLoss(-3.75)
 		. = TRUE
 	else
 		M.adjustFireLoss(-0.5)
@@ -705,10 +715,316 @@
 	..()
 	. = TRUE
 
+// Blood Remedy //
+
+/datum/reagent/medicine/blood_remedy
+	name = "Blood Remedy"
+	description = "An herbal remedy intended to cleanse one's blood of light toxins and heal minor bruises."
+	reagent_state = LIQUID
+	color ="#d85d47"
+	taste_description = "sour burning"
+	metabolization_rate = 4.75 * REAGENTS_METABOLISM // 0.95 per second
+	overdose_threshold = 22
+
+/datum/reagent/medicine/blood_remedy/on_mob_life(mob/living/carbon/M)
+	if(!M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid/super) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/radaway))
+		M.adjustToxLoss(-1.75)
+		M.adjustBruteLoss(-2.5)
+		. = TRUE
+	else
+		M.adjustToxLoss(-0.5)
+		M.adjustBruteLoss(-0.5)
+		M.adjustStaminaLoss(1)
+	..()
+
+/datum/reagent/medicine/blood_remedy/overdose_process(mob/living/M, delta_time, times_fired)
+	if(!M.blood_volume)
+		return
+
+	if(DT_PROB(7.5, delta_time))
+		M.losebreath += rand(2, 4)
+		M.adjustOxyLoss(rand(2, 5))
+		if(prob(30))
+			to_chat(M, span_danger("You can feel your blood clotting up in your veins!"))
+		else if(prob(10))
+			to_chat(M, span_userdanger("You feel like your blood has stopped moving!"))
+			M.adjustOxyLoss(rand(8, 12))
+
+		if(prob(50))
+			var/obj/item/organ/lungs/our_lungs = M.getorganslot(ORGAN_SLOT_LUNGS)
+			our_lungs.applyOrganDamage(1)
+		else
+			var/obj/item/organ/heart/our_heart = M.getorganslot(ORGAN_SLOT_HEART)
+			our_heart.applyOrganDamage(1)
+
+// Herbal Anti-toxin //
+
+/datum/reagent/medicine/herb_antitox
+	name = "Herbal anti-toxin"
+	description = "An herbal anti-toxin potent at cleansing unwanted poisons, venom, and other toxins."
+	reagent_state = LIQUID
+	color ="#7a7222"
+	taste_description = "sharp bitterness"
+	metabolization_rate = 5.8 * REAGENTS_METABOLISM // 1.16 per second
+	overdose_threshold = 40
+
+/datum/reagent/medicine/herb_antitox/on_mob_life(mob/living/carbon/M)
+	if(!M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid/super) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/radaway))
+		M.adjustToxLoss(-5)
+		. = TRUE
+	else
+		M.adjustToxLoss(-0.6)
+		M.adjustStaminaLoss(1)
+	..()
+
+/datum/reagent/medicine/herb_antitox/overdose_process(mob/living/M, delta_time, times_fired)
+	if(!iscarbon(M))
+		return
+	var/mob/living/carbon/carbie = M
+	//You will be vomiting so the damage is really for a few ticks before you flush it out of your system
+	carbie.adjustToxLoss(1.5 * REM * delta_time)
+	if(DT_PROB(5, delta_time))
+		carbie.adjustToxLoss(6)
+		carbie.vomit()
+
+// Burn Remedy //
+
+/datum/reagent/medicine/burn_remedy
+	name = "Burn Remedy"
+	description = "A potent herbal mixture for treating burn damage."
+	reagent_state = LIQUID
+	color ="#f18e7d"
+	taste_description = "overpowering spice"
+	metabolization_rate = 6 * REAGENTS_METABOLISM // 1.2 per second
+	overdose_threshold = 35
+
+/datum/reagent/medicine/burn_remedy/on_mob_life(mob/living/carbon/M)
+	if(!M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid/super))
+		M.adjustFireLoss(-6.5)
+		. = TRUE
+	else
+		M.adjustFireLoss(-0.75)
+		M.adjustStaminaLoss(1.5)
+		M.losebreath += rand(3, 4)
+	if(prob(5))
+		M.losebreath += rand(3, 5)
+		to_chat(M, span_userdanger("The spice from the remedy briefly overpowers you!"))
+		M.emote("gasp")
+
+	..()
+
+/datum/reagent/medicine/burn_remedy/overdose_process(mob/living/M, delta_time, times_fired)
+	if(current_cycle >= 10)
+		M.Stun(50 * REM * delta_time)
+		. = TRUE
+	if(DT_PROB(10, delta_time))
+		to_chat(M, span_userdanger("You struggle to breathe!"))
+		M.losebreath += 5
+
+// Trail Brew //
+
+/datum/reagent/medicine/trail_brew
+	name = "Trail Brew"
+	description = "A mixture lovingly dubbed 'Trail Brew' for it's use on long treks."
+	reagent_state = LIQUID
+	color ="#474311b9"
+	taste_description = "sour, then sweet"
+	metabolization_rate = 0.7 * REAGENTS_METABOLISM // 0.14 per second
+	overdose_threshold = 0
+
+/datum/reagent/medicine/trail_brew/on_mob_add(mob/living/carbon/human/M)
+	M.add_movespeed_modifier(/datum/movespeed_modifier/reagent/ms13/trail)
+	if(isliving(M))
+		to_chat(M, span_userdanger("Your legs feel energetic and alive! Though your mind does feel a bit cloudy..."))
+	return ..()
+
+/datum/reagent/medicine/trail_brew/on_mob_delete(mob/living/carbon/human/M)
+	M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/ms13/trail)
+	if(isliving(M))
+		to_chat(M, span_userdanger("You feel normal again, and your legs a bit sore."))
+	return ..()
+
+/datum/reagent/medicine/trail_brew/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
+	M.adjustStaminaLoss(-1.5, 0)
+	if(prob(4))
+		M.emote(pick("sniff", "sneeze"))
+		M.Jitter(2)
+		M.setOrganLoss(ORGAN_SLOT_BRAIN, rand(0.75, 2))
+	return ..()
+
+// Radtura Mix //
+
+/datum/reagent/medicine/radtura_mix
+	name = "Radtura Mix"
+	description = "A mix of Radtura, Razorgrain, and Broc Flower that is a potent burst of healing followed by a terrible time. Great for emergencies, not much else."
+	reagent_state = LIQUID
+	color ="#155205b9"
+	taste_description = "bitter warmth"
+	metabolization_rate = 6 * REAGENTS_METABOLISM // 1.2 per second
+	overdose_threshold = 18
+
+/datum/reagent/medicine/radtura_mix/on_mob_add(mob/living/carbon/human/M)
+	if(isliving(M))
+		to_chat(M, span_userdanger("You feel a strange sensation coursing through your body. You'll probably regret this later...."))
+	return ..()
+
+/datum/reagent/medicine/radtura_mix/on_mob_delete(mob/living/carbon/human/M)
+	if(isliving(M))
+		to_chat(M, span_userdanger("As you come down from your previous sensations, intense sickness sets in..."))
+		M.adjustToxLoss(rand(18,25))
+		M.vomit()
+		M.Stun(rand(120,200))
+		M.losebreath += 6
+		M.blind_eyes(rand(5,8))
+	return ..()
+
+/datum/reagent/medicine/radtura_mix/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
+	if(!M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid/super) ||  !M.reagents.has_reagent(/datum/reagent/ms13/medicine/radaway))
+		M.adjustFireLoss(-8.25)
+		M.adjustBruteLoss(-8.25)
+		. = TRUE
+	else
+		M.adjustFireLoss(-0.5)
+		M.adjustBruteLoss(-0.5)
+		M.adjustStaminaLoss(2)
+		M.vomit()
+	..()
+
+/datum/reagent/medicine/radtura_mix/overdose_process(mob/living/carbon/M, delta_time, times_fired)
+	if(DT_PROB(15, delta_time))
+		M.losebreath += rand(4, 6)
+		M.adjustOxyLoss(rand(4, 8))
+		if(prob(60))
+			var/obj/item/organ/lungs/our_lungs = M.getorganslot(ORGAN_SLOT_LUNGS)
+			our_lungs.applyOrganDamage(2)
+		else
+			var/obj/item/organ/heart/our_heart = M.getorganslot(ORGAN_SLOT_HEART)
+			our_heart.applyOrganDamage(2)
+
+	if(DT_PROB(10, delta_time))
+		to_chat(M, span_danger("You can feel your blood going toxic!"))
+		M.adjustToxLoss(8)
+		M.vomit()
+
+// Nicotine - NIC!!! //
+
+/datum/reagent/ms13/nicotine
+	name = "Nicotine"
+	description = "That good shit, enhances focus and relaxes."
+	reagent_state = LIQUID
+	color = "#3b2c1d" // rgb: 96, 165, 132
+	taste_description = "smoke"
+	metabolization_rate = 0.05 //lets keep this simple, 18 for 6 minutes of effects
+	overdose_threshold = 0
+
+/datum/reagent/ms13/nicotine/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
+	M.AdjustStun(-50  * REM * delta_time) //these are here because theyre balanced already
+	M.AdjustKnockdown(-50 * REM * delta_time)
+	M.AdjustUnconscious(-50 * REM * delta_time)
+	M.AdjustParalyzed(-50 * REM * delta_time)
+	M.AdjustImmobilized(-50 * REM * delta_time)
+	..()
+	. = TRUE
+
+/datum/reagent/ms13/nicotine/menthol
+	name = "Menthol/Nicotine"
+	description = "That good fresh shit, enhances focus and relaxes."
+	color = "#1d3b2f" // rgb: 96, 165, 132
+	taste_description = "cool minty smoke"
+
+// Rollie Reagents - Ghetto Smokeable Chems //
+
+/datum/reagent/ms13/medicine/bitter_mix
+	name = "Bitter mix"
+	description = "A herbal remedy known for its healing properies upon smoking, created from a mix of dried Xander and Broc."
+	reagent_state = SOLID
+	color ="#462d25"
+	taste_description = "bitter smoke"
+	metabolization_rate = REAGENTS_METABOLISM // 0.2 per second
+	overdose_threshold = 0
+
+/datum/reagent/ms13/medicine/bitter_mix/on_mob_life(mob/living/carbon/M) //minor healing over a threshhold
+	if(!M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid/super) || !M.reagents.has_reagent(/datum/reagent/medicine/bitter_drink))
+		if(M.getFireLoss() >= 60)
+			M.adjustFireLoss(-1.35)
+			. = TRUE
+		if(M.getBruteLoss() >= 60)
+			M.adjustBruteLoss(-1.35)
+			. = TRUE
+
+//xanderinos
+
+/datum/reagent/ms13/medicine/concentrated_xander
+	name = "Concentrated Xander"
+	description = "A highly dense amount of dried Xander root, compacted and heals upon smoking."
+	reagent_state = SOLID
+	color ="#524945"
+	taste_description = "acrid earthy smoke"
+	metabolization_rate = 3 * REAGENTS_METABOLISM // 0.6 per second
+	overdose_threshold = 0
+
+/datum/reagent/ms13/medicine/concentrated_xander/on_mob_life(mob/living/carbon/M) //minor healing over a threshhold
+	if(!M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid/super) || !M.reagents.has_reagent(/datum/reagent/medicine/bitter_drink) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/dried_xander))
+		if(M.getBruteLoss() >= 30)
+			M.adjustBruteLoss(-4)
+			M.adjustStaminaLoss(3)
+			. = TRUE
+
+/datum/reagent/ms13/medicine/dried_xander
+	name = "Dried Xander"
+	description = "A small amount of dried and crushed Xander root, heals upon smoking."
+	reagent_state = SOLID
+	color ="#7a6a63"
+	taste_description = "earthy smoke"
+	metabolization_rate = 3 * REAGENTS_METABOLISM // 0.6 per second
+	overdose_threshold = 0
+
+/datum/reagent/ms13/medicine/dried_xander/on_mob_life(mob/living/carbon/M) //minor healing over a threshhold
+	if(!M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid/super) || !M.reagents.has_reagent(/datum/reagent/medicine/bitter_drink) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/concentrated_xander))
+		if(M.getBruteLoss() >= 60)
+			M.adjustBruteLoss(-2)
+			M.adjustStaminaLoss(1)
+			. = TRUE
+
+//the brocmeister
+
+/datum/reagent/ms13/medicine/concentrated_broc
+	name = "Concentrated Broc"
+	description = "A highly dense amount of dried Broc Flowers, compacted and soothes burns upon smoking."
+	reagent_state = SOLID
+	color ="#524945"
+	taste_description = "sour floral smoke"
+	metabolization_rate = 3 * REAGENTS_METABOLISM // 0.6 per second
+	overdose_threshold = 0
+
+/datum/reagent/ms13/medicine/concentrated_broc/on_mob_life(mob/living/carbon/M) //minor healing over a threshhold
+	if(!M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid/super) || !M.reagents.has_reagent(/datum/reagent/medicine/bitter_drink) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/dried_broc))
+		if(M.getFireLoss() >= 30)
+			M.adjustFireLoss(-4)
+			M.adjustStaminaLoss(1)
+			. = TRUE
+
+/datum/reagent/ms13/medicine/dried_broc
+	name = "Dried Broc"
+	description = "A small amount of dried and crushed Broc root, soothes burns upon smoking."
+	reagent_state = SOLID
+	color ="#524945"
+	taste_description = "floral smoke"
+	metabolization_rate = 3 * REAGENTS_METABOLISM // 0.6 per second
+	overdose_threshold = 0
+
+/datum/reagent/ms13/medicine/dried_broc/on_mob_life(mob/living/carbon/M) //minor healing over a threshhold
+	if(!M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/stimpak_fluid/super) || !M.reagents.has_reagent(/datum/reagent/medicine/bitter_drink) || !M.reagents.has_reagent(/datum/reagent/ms13/medicine/concentrated_broc))
+		if(M.getFireLoss() >= 60)
+			M.adjustFireLoss(-2)
+			. = TRUE
 
 /////// Movespeed Modifiers ///////
 
 /datum/movespeed_modifier/reagent/ms13
+
+/datum/movespeed_modifier/reagent/ms13/trail
+	multiplicative_slowdown = -0.03
 
 /datum/movespeed_modifier/reagent/ms13/jet
 	multiplicative_slowdown = -0.1

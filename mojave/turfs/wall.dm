@@ -98,7 +98,7 @@
 
 /turf/closed/wall/ms13/siding/blue/Initialize()
 	. = ..()
-	var/state = rand(1,4)
+	var/state = rand(1,4) // it has to be like this instead of the usual return because otherwise it'll roll and do an uncoloured siding wall instead
 	switch(state)
 		if(1)
 			icon = 'mojave/icons/turf/walls/drought/siding_blue_1.dmi'
@@ -109,8 +109,9 @@
 		if(3)
 			icon = 'mojave/icons/turf/walls/drought/siding_blue_3.dmi'
 			frill_icon = 'mojave/icons/turf/walls/drought/siding_blue_3_frill.dmi'
-		else
-			return
+		if(4)
+			icon = 'mojave/icons/turf/walls/drought/siding_blue.dmi'
+			frill_icon = 'mojave/icons/turf/walls/drought/siding_blue_frill.dmi'
 
 /turf/closed/wall/ms13/siding/green
 	name = "sided wall"
@@ -120,7 +121,7 @@
 
 /turf/closed/wall/ms13/siding/green/Initialize()
 	. = ..()
-	var/state = rand(1,4)
+	var/state = rand(1,4) // it has to be like this instead of the usual return because otherwise it'll roll and do an uncoloured siding wall instead
 	switch(state)
 		if(1)
 			icon = 'mojave/icons/turf/walls/drought/siding_green_1.dmi'
@@ -131,18 +132,19 @@
 		if(3)
 			icon = 'mojave/icons/turf/walls/drought/siding_green_3.dmi'
 			frill_icon = 'mojave/icons/turf/walls/drought/siding_green_3_frill.dmi'
-		else
-			return
+		if(4)
+			icon = 'mojave/icons/turf/walls/drought/siding_green.dmi'
+			frill_icon = 'mojave/icons/turf/walls/drought/siding_green_frill.dmi'
 
 /turf/closed/wall/ms13/siding/red
 	name = "sided wall"
 	desc = ""
 	icon = 'mojave/icons/turf/walls/drought/siding_red.dmi'
-	frill_icon = 'mojave/icons/turf/walls/drought/siding_red.dmi'
+	frill_icon = 'mojave/icons/turf/walls/drought/siding_red_frill.dmi'
 
 /turf/closed/wall/ms13/siding/red/Initialize()
 	. = ..()
-	var/state = rand(1,4)
+	var/state = rand(1,4) // it has to be like this instead of the usual return because otherwise it'll roll and do an uncoloured siding wall instead
 	switch(state)
 		if(1)
 			icon = 'mojave/icons/turf/walls/drought/siding_red_1.dmi'
@@ -153,8 +155,9 @@
 		if(3)
 			icon = 'mojave/icons/turf/walls/drought/siding_red_3.dmi'
 			frill_icon = 'mojave/icons/turf/walls/drought/siding_red_3_frill.dmi'
-		else
-			return
+		if(4)
+			icon = 'mojave/icons/turf/walls/drought/siding_red.dmi'
+			frill_icon = 'mojave/icons/turf/walls/drought/siding_red_frill.dmi'
 
 /turf/closed/wall/ms13/prison
 	name = "prison wall"
@@ -372,7 +375,7 @@
 	icon = 'mojave/icons/turf/walls/woodfresh.dmi'
 	frill_icon = 'mojave/icons/turf/walls/woodfresh_frill.dmi'
 	girder_type = null
-	sheet_type = /obj/item/stack/sheet/ms13/log
+	sheet_type = /obj/item/stack/sheet/ms13/wood/log
 	sheet_amount = 2
 	slicing_duration = 30 SECONDS
 
