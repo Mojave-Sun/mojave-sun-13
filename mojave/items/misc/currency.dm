@@ -65,11 +65,14 @@
 /obj/item/stack/ms13/currency/prewar/hunnedfourty
 	amount = 140
 
+/obj/item/stack/ms13/currency/prewar/hunnedeighty
+	amount = 180
+
 /obj/item/stack/ms13/currency/prewar/underboss
-	amount = 240
+	amount = 300
 
 /obj/item/stack/ms13/currency/prewar/mayor
-	amount = 325
+	amount = 400
 
 /obj/item/stack/ms13/currency/ncr_dollar
 	name = "\improper NCR dollars"

@@ -11,7 +11,7 @@
 
 /datum/outfit/job/ms13/ncr/mp_sergeant
 	name = "_NCR MP Sergeant"
-	jobtype = /datum/job/ms13/ncr/mp_sergeant
+	jobtype = 	 /datum/job/ms13/ncr/mp_sergeant
 	id = 		 /obj/item/card/id/ms13/ncr/sergeant/mp
 	uniform =    /obj/item/clothing/under/ms13/ncr/fatigues/nco
 	head = 	     /obj/item/clothing/head/helmet/ms13/ncr/beret/nco
@@ -25,7 +25,7 @@
 		/obj/item/stack/medical/gauze/ms13/half=1, \
 		/obj/item/ammo_box/ms13/shotgun/buckshot=1, \
 		/obj/item/ammo_box/magazine/ms13/m45=2, \
-		/obj/item/stack/ms13/currency/ncr_dollar/sixty=1, \
+		/obj/item/stack/ms13/currency/ncr_dollar/eighty=1, \
 		/obj/item/claymore/ms13/baton=1, \
 		/obj/item/knife/ms13/hunting=1, \
 		/obj/item/stack/medical/ointment/ms13/half=1, \

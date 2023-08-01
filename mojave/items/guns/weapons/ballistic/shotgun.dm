@@ -158,7 +158,7 @@
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/sks/sks1.ogg'
 	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/sks.ogg'
 	bolt_wording = "bolt"
-	fire_delay = 0.6 SECONDS
+	fire_delay = 0.55 SECONDS
 	spread = 5
 	recoil = 1.25
 	slowdown = 0.75

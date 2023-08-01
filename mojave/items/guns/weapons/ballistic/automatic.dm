@@ -88,7 +88,7 @@
 	recoil = 0.6
 	slowdown = 0.75
 	has_scope = TRUE
-	scope_range = 3
+	scope_range = 2.5
 	grid_width = 192
 	grid_height = 64
 

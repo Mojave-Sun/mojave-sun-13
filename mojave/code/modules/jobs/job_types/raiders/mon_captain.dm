@@ -22,11 +22,11 @@
 	head =		 /obj/item/clothing/head/helmet/ms13/combat/mon_city
 	id =		 /obj/item/card/id/ms13/mon_captain
 	belt =		 /obj/item/gun/ballistic/automatic/pistol/ms13/m10mm/military
-	suit_store = /obj/item/gun/ballistic/automatic/ms13/full/assaultrifle
+	suit_store = /obj/item/gun/ballistic/automatic/ms13/semi/marksman
 	r_pocket =	 /obj/item/knife/ms13/combat
 	l_pocket =	 /obj/item/flashlight/ms13
 	backpack_contents = list(
-			/obj/item/stack/ms13/currency/prewar/seventy=1,\
+			/obj/item/stack/ms13/currency/prewar/eighty=1,\
 			/obj/item/stack/medical/gauze/ms13/half=1,\
 			/obj/item/ammo_box/magazine/ms13/m10mm=2,\
 			/obj/item/ammo_box/magazine/ms13/r20=1,\

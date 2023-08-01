@@ -20,7 +20,7 @@
 	id =		 /obj/item/card/id/ms13/doctor/nurse
 	belt = 		 /obj/item/storage/firstaid/ms13/regular
 	uniform = 	 /obj/item/clothing/under/ms13/wasteland/snowcrest/medical
-	r_pocket =   /obj/item/stack/ms13/currency/prewar/ninety
+	r_pocket =   /obj/item/stack/ms13/currency/prewar/hunned
 	shoes = 	 /obj/item/clothing/shoes/ms13/winter
 	back =       /obj/item/storage/ms13/satchel
 

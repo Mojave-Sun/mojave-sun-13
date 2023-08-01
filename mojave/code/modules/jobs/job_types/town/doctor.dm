@@ -23,7 +23,7 @@
 	belt = 		 /obj/item/storage/firstaid/ms13/regular
 	shoes = 	 /obj/item/clothing/shoes/ms13/fancy
 	gloves =	 /obj/item/clothing/gloves/ms13/nitrile
-	r_pocket =   /obj/item/stack/ms13/currency/prewar/hunnedfourty
+	r_pocket =   /obj/item/stack/ms13/currency/prewar/hunnedeighty
 	back =       /obj/item/storage/ms13/satchel
 
 /datum/outfit/job/ms13/town/doctor/pre_equip(mob/living/carbon/human/H)
