@@ -51,6 +51,18 @@
 	category = CAT_WEAPONS
 	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_WEAPONS
 
+/datum/crafting_recipe/throwing_knife
+	name = "throwing knife"
+	result = /obj/item/knife/ms13/throwingknife
+	time = 6 SECONDS
+	tool_behaviors = list(TOOL_SAW)
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/stack/sheet/ms13/wood/scrap_wood = 2,
+				/obj/item/stack/sheet/ms13/cloth = 2,
+				/obj/item/stack/sheet/ms13/scrap = 4)
+	category = CAT_WEAPONS
+	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_WEAPONS
+
 /datum/crafting_recipe/tomahawk
 	name = "tomahawk"
 	result = /obj/item/hatchet/ms13/tomahawk
