@@ -46,7 +46,6 @@
 	desc = "An old washing machine, before the war this did all the washing for you! But now it washes nothing."
 	icon = 'mojave/icons/structure/storage.dmi'
 	icon_state = "normwasher"
-	flags_1 = ACID_PROOF | FIRE_PROOF
 	density = TRUE
 	anchored = TRUE
 	pixel_y = 12
