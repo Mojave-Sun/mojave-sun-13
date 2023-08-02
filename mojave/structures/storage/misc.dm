@@ -109,6 +109,8 @@
 		add_overlay(image(icon, icon_state = "[initial(icon_state)]_on"))
 
 /obj/structure/ms13/storage/washingmachine/CtrlClick(mob/living/user)
+	if(user.stat == DEAD)
+		return
 	if(busy)
 		to_chat(user, span_warning("[src] is currently in use."))
 		return
@@ -126,6 +128,8 @@
 			closed = TRUE
 
 /obj/structure/ms13/storage/washingmachine/attack_hand_secondary(mob/user, modifiers)
+	if(user.stat == DEAD)
+		return
 	if(!working)
 		to_chat(user, span_warning("You press the on button and nothing happens."))
 		return SECONDARY_ATTACK_CONTINUE_CHAIN
