@@ -32,7 +32,7 @@
 			/obj/item/ammo_box/magazine/ms13/r20=1,\
 			/obj/item/radio/ms13/broadcast=1,\
 			/obj/item/reagent_containers/hypospray/medipen/ms13/stimpak=1, \
-			/obj/item/restraints/handcuffs/ms13=1)
+			/obj/item/restraints/handcuffs/ms13=2)
 
 /datum/outfit/job/ms13/raiders/mon_captain/pre_equip(mob/living/carbon/human/H)
 	..()

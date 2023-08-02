@@ -227,7 +227,7 @@
 
 /obj/effect/spawner/random/ms13/smokeable/lowrandom
 	name = "low tier random smokeables spawner"
-	spawn_loot_chance = 40
+	spawn_loot_chance = 35
 	loot = list(
 			/obj/item/storage/fancy/ms13/cigarettes/marlboro/random = 30,
 			/obj/item/storage/fancy/ms13/cigarettes/winston/random = 30,
