@@ -8,17 +8,18 @@ export const StatsBrowser = (props, context) => {
   const [selectedStat, setSelectedStat] = useSharedState(context, 'selectedStat', "none");
   const [tabFilter, setTabFilter] = useSharedState(context, 'tabFilter', "allbylevel");
   const perks = data.perks || [];
+  const stats = data.stats;
   return (
     <Window title="StatsBrowser" width={1200} height={800}>
       <Window.Content scrollable>
         <div>
           <div class="flex flex-col items-center dt:flex-row dt:items-start dt:justify-around">
-            <Stat name="P" styleclass="p" level="3" freepoint="1" selectStat={() => { setSelectedStat("p"); }} />
-            <Stat name="E" styleclass="e" level="6" freepoint="0" selectStat={() => { setSelectedStat("e"); }} />
-            <Stat name="R" styleclass="r" level="6" freepoint="0" selectStat={() => { setSelectedStat("r"); }} />
-            <Stat name="S" styleclass="s" level="5" freepoint="0" selectStat={() => { setSelectedStat("s"); }} />
-            <Stat name="O" styleclass="o" level="9" freepoint="0" selectStat={() => { setSelectedStat("o"); }} />
-            <Stat name="N" styleclass="n" level="8" freepoint="0" selectStat={() => { setSelectedStat("n"); }} />
+            <Stat name="P" styleclass="p" level={stats.perceptive} freepoint="0" selectStat={() => { setSelectedStat("p"); }} />
+            <Stat name="E" styleclass="e" level={stats.enduring} freepoint="0" selectStat={() => { setSelectedStat("e"); }} />
+            <Stat name="R" styleclass="r" level={stats.retaining} freepoint="0" selectStat={() => { setSelectedStat("r"); }} />
+            <Stat name="S" styleclass="s" level={stats.strong} freepoint="0" selectStat={() => { setSelectedStat("s"); }} />
+            <Stat name="O" styleclass="o" level={stats.outgoing} freepoint="0" selectStat={() => { setSelectedStat("o"); }} />
+            <Stat name="N" styleclass="n" level={stats.nimble} freepoint="0" selectStat={() => { setSelectedStat("n"); }} />
           </div>
           { selectedStat !== "none" && tabFilter && (
             <div class="u-mobile-anchored">

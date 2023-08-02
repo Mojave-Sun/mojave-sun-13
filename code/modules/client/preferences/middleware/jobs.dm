@@ -1,6 +1,7 @@
 /datum/preference_middleware/jobs
 	action_delegations = list(
 		"set_job_preference" = .proc/set_job_preference,
+		"stats" = .proc/open_stats,
 	)
 
 /datum/preference_middleware/jobs/proc/set_job_preference(list/params, mob/user)
@@ -116,10 +117,18 @@
 
 	return data
 
-/datum/preference_middleware/jobs/ui_act(action, params)
-	. = ..()
-	if(.)
-		return
+/datum/preference_middleware/jobs/proc/open_stats(list/params, mob/user)
+	var/job_title = params["job"]
+	var/datum/job/job = SSjob.GetJob(job_title)
 
-	switch(action)
-		if("special")
+	if (isnull(job))
+		return FALSE
+
+	if(!user.statsbrowser)
+		user.statsbrowser = new
+
+	QDEL_NULL(user.statsbrowser.temp_special)
+	user.statsbrowser.temp_special = new job.stats_type()
+	user.statsbrowser.ui_interact(user)
+
+	return TRUE

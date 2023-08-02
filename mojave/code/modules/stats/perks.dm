@@ -29,7 +29,7 @@ PERK_HUMAN_TORCH = /datum/perk/human_torch,
 	var/icon/display = null
 	var/icon_state = ""
 
-	//Value is 0 because you will modificited main special
+	//Value is 0 because you will modificited main stats
 	var/perceptive = 0
 	var/enduring = 0
 	var/retaining = 0
@@ -37,18 +37,74 @@ PERK_HUMAN_TORCH = /datum/perk/human_torch,
 	var/outgoing = 0
 	var/nimble = 0
 
-	//Attached special
-	var/datum/stats/special
+	//Attached stats
+	var/datum/stats/stats
 
 /datum/perk/New(special)
-	src.special = special
+	src.stats = stats
 
 /datum/perk/Destroy(force, ...)
-	special = null
+	stats = null
 	. = ..()
 
 /datum/perk/proc/added_effect()
-	special.modifyRating(perceptive, enduring, retaining, strong, outgoing, nimble)
+	stats.modifyRating(perceptive, enduring, retaining, strong, outgoing, nimble)
 
 /datum/perk/proc/remove_effect()
-	special.modifyRating(-perceptive, -enduring, -retaining, -strong, -outgoing, -nimble)
+	stats.modifyRating(-perceptive, -enduring, -retaining, -strong, -outgoing, -nimble)
+
+/datum/perk/proc/has_level(datum/stats/s)
+	switch(type_class)
+		if("p")
+			if(level > 5)
+				if(s.perceptive >= level)
+					return TRUE
+			else
+				if(s.perceptive <= level)
+					return TRUE
+			return FALSE
+		if("e")
+			if(level > 5)
+				if(s.enduring >= level)
+					return TRUE
+			else
+				if(s.enduring <= level)
+					return TRUE
+			return FALSE
+		if("r")
+			if(level > 5)
+				if(s.retaining >= level)
+					return TRUE
+			else
+				if(s.retaining <= level)
+					return TRUE
+			return FALSE
+		if("s")
+			if(level > 5)
+				if(s.strong >= level)
+					return TRUE
+			else
+				if(s.strong <= level)
+					return TRUE
+			return FALSE
+		if("o")
+			if(level > 5)
+				if(s.outgoing >= level)
+					return TRUE
+			else
+				if(s.outgoing <= level)
+					return TRUE
+			return FALSE
+		if("n")
+			if(level > 5)
+				if(s.nimble >= level)
+					return TRUE
+			else
+				if(s.nimble <= level)
+					return TRUE
+			return FALSE
+
+/datum/perk/proc/check_to_add(datum/stats/s)
+	if(!has_level(s))
+		return FALSE
+	return TRUE

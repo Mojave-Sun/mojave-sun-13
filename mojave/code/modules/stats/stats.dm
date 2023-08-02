@@ -1,8 +1,8 @@
 /mob/living
-	var/datum/stats/special
+	var/datum/stats/stats
 
 /mob/living/Destroy()
-	qdel(special)
+	qdel(stats)
 	. = ..()
 
 /datum/stats

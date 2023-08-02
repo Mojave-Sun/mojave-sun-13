@@ -9,8 +9,7 @@ GLOBAL_LIST_INIT(perks, list())
 		return p
 
 /mob
-	var/datum/stats_browser/stats
-
+	var/datum/stats_browser/statsbrowser
 /datum/stats_browser
 	var/datum/stats/temp_special
 	var/list/activeperks = list()
@@ -27,6 +26,8 @@ GLOBAL_LIST_INIT(perks, list())
 		if(type in activeperks)
 			continue
 		var/datum/perk/p = get_perk(type)
+		if(!p.check_to_add(temp_special))
+			continue
 		.["perks"] += list(list("name" = p.name, "desc" = p.desc, "id" = p.id, "type" = p.type_class, "filter" = p.filter, "level" = p.level, "ranks" = p.ranks))
 
 	.["activeperks"] = list()
@@ -34,6 +35,8 @@ GLOBAL_LIST_INIT(perks, list())
 	for(var/type in activeperks)
 		var/datum/perk/p = get_perk(type)
 		.["activeperks"] += list(list("name" = p.name, "desc" = p.desc, "id" = p.id, "type" = p.type_class, "filter" = p.filter, "level" = p.level, "ranks" = p.ranks))
+
+	.["stats"] = list("perceptive" = "[temp_special.perceptive]", "enduring" = "[temp_special.enduring]", "retaining" = "[temp_special.retaining]", "strong" = "[temp_special.strong]", "outgoing" = "[temp_special.outgoing]", "nimble" = "[temp_special.nimble]")
 
 /datum/stats_browser/ui_act(action, params, datum/tgui/ui)
 	. = ..()
@@ -55,6 +58,12 @@ GLOBAL_LIST_INIT(perks, list())
 			return TRUE
 
 /datum/stats_browser/ui_interact(mob/user, datum/tgui/ui)
+	if(isliving(user))
+		var/mob/living/u = user
+		temp_special = u.stats
+	else
+		temp_special = new
+
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "StatsBrowser")
@@ -64,7 +73,7 @@ GLOBAL_LIST_INIT(perks, list())
 	set category = "TEST"
 	set name = "TEST Stats"
 
-	if(!stats)
-		stats = new
+	if(!statsbrowser)
+		statsbrowser = new
 
-	stats.ui_interact(src)
+	statsbrowser.ui_interact(src)
