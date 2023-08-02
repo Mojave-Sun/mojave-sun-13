@@ -209,7 +209,7 @@
 	wound_bonus = 5
 	bare_wound_bonus = 10
 	embedding = list("embedded_pain_multiplier" = 1.5, "embed_chance" = 65, "embedded_fall_chance" = 35)
-	throw_speed = 3
+	throw_speed = 4
 	wield_info = /datum/wield_info/twohanded/throw_spear
 
 // TWO HANDS REQUIRED //
