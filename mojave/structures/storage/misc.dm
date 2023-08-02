@@ -59,6 +59,7 @@
 
 /obj/structure/ms13/storage/washingmachine/Initialize(mapload)
 	. = ..()
+	register_context()
 	AddComponent(/datum/component/storage/concrete/ms13/washing)
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_w_class = WEIGHT_CLASS_BULKY
@@ -73,6 +74,13 @@
 	if(working)
 		. += "<span class='notice'>Close the door and right click to wash the item inside. Ctrl-Click to open/close.</span>"
 
+/obj/structure/ms13/storage/washingmachine/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	if(isnull(held_item) && working)
+		context[SCREENTIP_CONTEXT_CTRL_LMB] = "Open/Close"
+		context[SCREENTIP_CONTEXT_RMB] = "Turn On"
+		return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/ms13/storage/washingmachine/attackby(obj/item/I, mob/living/user, params)
 	if(closed)
