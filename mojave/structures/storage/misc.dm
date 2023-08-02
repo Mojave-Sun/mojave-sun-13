@@ -114,13 +114,13 @@
 		return
 	if(closed)
 		if(do_after(user, 0.5 SECONDS, interaction_key = DOAFTER_SOURCE_DOORS))
-			to_chat(user, span_notice("You open the washing machine."))
+			to_chat(user, span_notice("You open [src]."))
 			playsound(src, 'mojave/sound/ms13effects/furniture/washer_open.ogg', 50)
 			icon_state = "[initial(icon_state)]_open"
 			closed = FALSE
 	else
 		if(do_after(user, 0.5 SECONDS, interaction_key = DOAFTER_SOURCE_DOORS))
-			to_chat(user, span_notice("You close the washing machine."))
+			to_chat(user, span_notice("You close [src]."))
 			playsound(src, 'mojave/sound/ms13effects/furniture/washer_close.ogg', 50)
 			icon_state = "[initial(icon_state)]"
 			closed = TRUE
@@ -136,7 +136,7 @@
 		to_chat(user, span_warning("Close the door first!"))
 		return SECONDARY_ATTACK_CONTINUE_CHAIN
 	busy = TRUE
-	to_chat(user, span_notice("You press the on button and the [src] kicks to life."))
+	to_chat(user, span_notice("You press the on button and [src] kicks to life."))
 	update_overlays()
 	addtimer(CALLBACK(src, .proc/washed), 20 SECONDS, TIMER_UNIQUE)
 	soundloop.start()
