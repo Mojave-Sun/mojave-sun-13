@@ -72,7 +72,7 @@
 /obj/structure/ms13/storage/washingmachine/examine(mob/user)
 	. = ..()
 	if(working)
-		. += "<span class='notice'>Close the door and right click to wash the item inside.</span>"
+		. += "<span class='notice'>Close the door and right click to wash the item inside. Ctrl-Click to open/close.</span>"
 
 
 /obj/structure/ms13/storage/washingmachine/attackby(obj/item/I, mob/living/user, params)
