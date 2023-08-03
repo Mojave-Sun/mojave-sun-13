@@ -68,12 +68,3 @@ GLOBAL_LIST_INIT(perks, list())
 	if(!ui)
 		ui = new(user, src, "StatsBrowser")
 		ui.open()
-
-/mob/verb/TestStats()
-	set category = "TEST"
-	set name = "TEST Stats"
-
-	if(!statsbrowser)
-		statsbrowser = new
-
-	statsbrowser.ui_interact(src)

@@ -1,7 +1,7 @@
 /datum/preference_middleware/jobs
 	action_delegations = list(
 		"set_job_preference" = .proc/set_job_preference,
-		"stats" = .proc/open_stats,
+//		"stats" = .proc/open_stats,
 	)
 
 /datum/preference_middleware/jobs/proc/set_job_preference(list/params, mob/user)
