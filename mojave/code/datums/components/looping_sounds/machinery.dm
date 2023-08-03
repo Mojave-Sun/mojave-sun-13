@@ -18,3 +18,13 @@
 	falloff_exponent = 3
 	extra_range = -12
 	falloff_distance = 1
+
+/datum/looping_sound/ms13/washing_machine
+	start_sound = 'mojave/sound/ms13machines/washing_start.ogg'
+	mid_sounds = list('mojave/sound/ms13machines/washing_cycle.ogg'=1)
+	start_length = 0.22 SECONDS
+	mid_length = 1.5 SECONDS
+	extra_range = 5
+	volume = 15
+	falloff_distance = 3
+	falloff_exponent = 5
