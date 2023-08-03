@@ -52,6 +52,7 @@
 	desc = "A large banner stretched along a somewhat sturdy metal pole. It bears the insignia of a bear, representative of the New California Republic."
 	icon = 'mojave/icons/objects/flags32x64.dmi'
 	icon_state = "ncrflag"
+	max_integrity = 600
 
 /obj/structure/ms13/ncrflag
 	name = "\improper NCR flagpole"

@@ -16,6 +16,7 @@
 	cuffsound = 'mojave/sound/ms13effects/hogtie.ogg'
 	cuff_time = 3 SECONDS
 	cuff_verb = "hogtie"
+	breakouttime = 60 SECONDS
 	does_shrink = FALSE
 
 /obj/item/restraints/handcuffs/ms13/rope/Initialize()
@@ -44,6 +45,7 @@
 	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
 	var/does_shrink = TRUE
 	breakouttime = 100 SECONDS //1M 40S
+	cuff_time = 4 SECONDS
 
 /obj/item/restraints/handcuffs/ms13/Initialize(mapload)
 	. = ..()
