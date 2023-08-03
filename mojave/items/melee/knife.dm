@@ -96,7 +96,7 @@
 	throwforce = 20
 	subtractible_armour_penetration = 5
 	edge_protection_penetration = 5
-	throw_speed = 4
+	throw_speed = 5
 	embedding = list("embedded_pain_multiplier" = 2, "embed_chance" = 35, "embedded_fall_chance" = 20)
 	sharpness = SHARP_IMPALING
 	tool_behaviour = TOOL_KNIFE
