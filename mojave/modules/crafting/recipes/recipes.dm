@@ -28,9 +28,9 @@
 	tool_behaviors = list(TOOL_KNIFE, TOOL_SAW, TOOL_SCREWDRIVER, TOOL_WRENCH)
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/wood/plank = 3,
-				/obj/item/stack/sheet/ms13/thread = 6,
-				/obj/item/stack/sheet/ms13/scrap_parts = 3,
-				/obj/item/stack/sheet/ms13/scrap = 3)
+				/obj/item/stack/sheet/ms13/thread = 5,
+				/obj/item/stack/sheet/ms13/scrap_parts = 2,
+				/obj/item/stack/sheet/ms13/scrap = 2)
 	category = CAT_UTILITY
 	crafting_interface = CRAFTING_BENCH_GENERAL
 
@@ -40,8 +40,8 @@
 	time = 8 SECONDS
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WRENCH)
 	tool_paths = list()
-	reqs = list(/obj/item/stack/sheet/ms13/scrap_parts = 4,
-				/obj/item/stack/sheet/ms13/scrap = 4)
+	reqs = list(/obj/item/stack/sheet/ms13/scrap_parts = 3,
+				/obj/item/stack/sheet/ms13/scrap = 3)
 	category = CAT_UTILITY
 	crafting_interface = CRAFTING_BENCH_GENERAL
 

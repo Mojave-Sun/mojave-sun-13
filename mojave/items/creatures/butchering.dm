@@ -153,7 +153,7 @@
 	return
 
 /obj/item/food/meat/slab/ms13/carcass/MakeProcessable()
-	AddElement(/datum/element/processable, TOOL_KNIFE,  meat_type, meat_amount, 40 SECONDS * toolspeed)
+	AddElement(/datum/element/processable, TOOL_KNIFE,  meat_type, meat_amount, 32 SECONDS * toolspeed)
 
 /obj/item/food/meat/slab/ms13/carcass/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
 	. = ..()
