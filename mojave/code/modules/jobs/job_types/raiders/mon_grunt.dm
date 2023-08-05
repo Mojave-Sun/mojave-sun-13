@@ -42,8 +42,8 @@
 		mask = /obj/item/clothing/mask/gas/ms13/mon_city
 
 	suit_store = pick(
-		/obj/item/gun/energy/ms13/laser/pistol/wattz_heavy,\
-		/obj/item/gun/ballistic/revolver/ms13/rev44)
+		/obj/item/gun/ballistic/shotgun/ms13/lever,\
+			/obj/item/gun/ballistic/shotgun/ms13/lever/cowboy,\)
 
 /datum/outfit/job/ms13/raiders/mon_grunt/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
