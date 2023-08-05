@@ -13,9 +13,19 @@
 	repeatable = TRUE
 	flags = HIGH_IMPACT_RULESET
 
+/datum/dynamic_ruleset/midround/from_ghosts/bounty_hunter/acceptable(population = 0, threat = 0)
+	if (required_candidates > GLOB.alive_player_list.len)
+		to_chat(world, "Cancelled; not enough players??")
+		return FALSE
+	return ..()
+
 /datum/dynamic_ruleset/midround/from_ghosts/bounty_hunter/ready(forced = FALSE)
 	if (required_candidates > (dead_players.len + list_observers.len))
+		to_chat(world, "Cancelled; not enough candidates")
 		return FALSE
+	return ..()
+
+/datum/dynamic_ruleset/midround/from_ghosts/bounty_hunter/execute()
 	if(GLOB.bountyhunterstart.len == 0)
 		log_admin("Cannot accept Bounty Hunter ruleset. Couldn't find any bounty hunter spawn points.")
 		message_admins("Cannot accept Bounty Hunter ruleset. Couldn't find any bounty hunter spawn points.")
@@ -26,14 +36,18 @@
 	for(var/datum/job/key in SSjob.joinable_occupations.Copy())
 		potential_job_targets[key] = 1 / key.total_positions //Meta-target the high rankers
 
-		while(length(potential_job_targets))
-			targetted_job = pick_weight(potential_job_targets)
-			potential_job_targets -= targetted_job
-			for(var/mob/potential_target in GLOB.human_list)
-				if((potential_target?.mind?.assigned_role == targetted_job) && (potential_target.stat != DEAD))
-					potential_enemies += potential_target
-					break
+	while(length(potential_job_targets))
+		targetted_job = pick_weight(potential_job_targets)
+		potential_job_targets -= targetted_job
+		to_chat(world, "randomly picked [targetted_job]")
+		for(var/mob/potential_target in GLOB.human_list)
+			to_chat(world, "looking at [potential_target]")
+			if((potential_target?.mind?.assigned_role == targetted_job) && (potential_target.stat != DEAD))
+				to_chat(world, "[potential_target] is valid")
+				potential_enemies += potential_target
+				break
 	if(potential_enemies.len)
+		to_chat(world, "potential enemies: [json_encode(potential_enemies)]")
 		return TRUE
 	return FALSE
 
