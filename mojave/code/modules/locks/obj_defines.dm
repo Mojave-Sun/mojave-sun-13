@@ -53,51 +53,71 @@
 /obj/attackby(obj/item/I, mob/living/user, params) //good lordy this is some bad code, didnt know much back in 2022 and I can confirm this is levels of slopitude that I didnt know possible from me, but hell it works
 	//key interactions
 	if(I.ms13_flags_1 & KEY_ITEM || LOCKING_ITEM && ms13_flags_1 & LOCKABLE_1) //lil more soul for yah
-		if(I.ms13_flags_1 & LOCKING_ITEM && lock)
-			if(I == src)
-				return //don't do an animation if attacking self
-			var/pixel_x_diff = 0
-			var/pixel_y_diff = 0
-
-			var/direction = get_dir(user, src)
-			if(direction & NORTH)
-				pixel_y_diff = 8
-			else if(direction & SOUTH)
-				pixel_y_diff = -8
-
-			if(direction & EAST)
-				pixel_x_diff = 8
-			else if(direction & WEST)
-				pixel_x_diff = -8
-			animate(user, pixel_x = user.pixel_x + pixel_x_diff, pixel_y = user.pixel_y + pixel_y_diff, time = 1, easing=BACK_EASING|EASE_IN, flags = ANIMATION_PARALLEL)
-			animate(user, pixel_x = user.pixel_x - pixel_x_diff, pixel_y = user.pixel_y - pixel_y_diff, time = 2, easing=SINE_EASING, flags = ANIMATION_PARALLEL)
 		if(I.ms13_flags_1 & KEY_ITEM && lock)
 			var/obj/item/ms13/key/key = I
+			if(lock_locked)
+				if(!do_after(user, 0.5 SECONDS, interaction_key = DOAFTER_SOURCE_LOCKS))
+					return
+				if(I == src)
+					return //don't do an animation if attacking self
+				var/pixel_x_diff = 0
+				var/pixel_y_diff = 0
+
+				var/direction = get_dir(user, src)
+				if(direction & NORTH)
+					pixel_y_diff = 8
+				else if(direction & SOUTH)
+					pixel_y_diff = -8
+
+				if(direction & EAST)
+					pixel_x_diff = 8
+				else if(direction & WEST)
+					pixel_x_diff = -8
+				animate(user, pixel_x = user.pixel_x + pixel_x_diff, pixel_y = user.pixel_y + pixel_y_diff, time = 1, easing=BACK_EASING|EASE_IN, flags = ANIMATION_PARALLEL)
+				animate(user, pixel_x = user.pixel_x - pixel_x_diff, pixel_y = user.pixel_y - pixel_y_diff, time = 2, easing=SINE_EASING, flags = ANIMATION_PARALLEL)
 			//alignment checks
-			if(key.bitt_1 != lock.pin_1)
-				playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
-				to_chat(user, span_notice("The key dosen't turn in [name]."))
-				return
-			if(key.bitt_2 != lock.pin_2)
-				playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
-				to_chat(user, span_notice("The key dosen't turn in [name]."))
-				return
-			if(key.bitt_3 != lock.pin_3)
-				playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
-				to_chat(user, span_notice("The key dosen't turn in [name]."))
-				return
-			if(key.bitt_4 != lock.pin_4)
-				playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
-				to_chat(user, span_notice("The key dosen't turn in [name]."))
-				return
-			if(key.bitt_5 != lock.pin_5)
-				playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
-				to_chat(user, span_notice("The key dosen't turn in [name]."))
-				return
-			if(key.bitt_6 != lock.pin_6)
-				playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
-				to_chat(user, span_notice("The key dosen't turn in [name]."))
-				return
+			if(lock.pin_amount == 6)
+				if(key.bitt_1 != lock.pin_1)
+					playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+					to_chat(user, span_notice("The key dosen't turn in [name]."))
+					return
+				if(key.bitt_2 != lock.pin_2)
+					playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+					to_chat(user, span_notice("The key dosen't turn in [name]."))
+					return
+				if(key.bitt_3 != lock.pin_3)
+					playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+					to_chat(user, span_notice("The key dosen't turn in [name]."))
+					return
+				if(key.bitt_4 != lock.pin_4)
+					playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+					to_chat(user, span_notice("The key dosen't turn in [name]."))
+					return
+				if(key.bitt_5 != lock.pin_5)
+					playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+					to_chat(user, span_notice("The key dosen't turn in [name]."))
+					return
+				if(key.bitt_6 != lock.pin_6)
+					playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+					to_chat(user, span_notice("The key dosen't turn in [name]."))
+					return
+			if(lock.pin_amount == 4)
+				if(key.bitt_1 != lock.pin_1)
+					playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+					to_chat(user, span_notice("The key dosen't turn in [name]."))
+					return
+				if(key.bitt_2 != lock.pin_2)
+					playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+					to_chat(user, span_notice("The key dosen't turn in [name]."))
+					return
+				if(key.bitt_3 != lock.pin_3)
+					playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+					to_chat(user, span_notice("The key dosen't turn in [name]."))
+					return
+				if(key.bitt_4 != lock.pin_4)
+					playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+					to_chat(user, span_notice("The key dosen't turn in [name]."))
+					return
 			if(!lock.item_lock_locked)
 				playsound(src, 'mojave/sound/ms13effects/key_lock.ogg', 50, TRUE)
 				to_chat(user, span_notice("You lock the [name]."))
@@ -143,10 +163,28 @@
 				to_chat(user, span_warning("The [name] is open, close it first."))
 				return
 		if(!potential_lock.item_lock_locked && potential_lock.lock_open)
-			if(!do_after(user, 0.5 SECONDS, src))
+			if(!do_after(user, 1 SECONDS, src))
 				return
 			if(!user.transferItemToLoc(potential_lock, src))
 				return
+			if(I == src)
+				return //don't do an animation if attacking self
+			var/pixel_x_diff = 0
+			var/pixel_y_diff = 0
+
+			var/direction = get_dir(user, src)
+			if(direction & NORTH)
+				pixel_y_diff = 8
+			else if(direction & SOUTH)
+				pixel_y_diff = -8
+
+			if(direction & EAST)
+				pixel_x_diff = 8
+			else if(direction & WEST)
+				pixel_x_diff = -8
+			animate(user, pixel_x = user.pixel_x + pixel_x_diff, pixel_y = user.pixel_y + pixel_y_diff, time = 1, easing=BACK_EASING|EASE_IN, flags = ANIMATION_PARALLEL)
+			animate(user, pixel_x = user.pixel_x - pixel_x_diff, pixel_y = user.pixel_y - pixel_y_diff, time = 2, easing=SINE_EASING, flags = ANIMATION_PARALLEL)
+
 			lock = potential_lock
 			can_be_picked = TRUE
 			lock.item_lock_locked = TRUE

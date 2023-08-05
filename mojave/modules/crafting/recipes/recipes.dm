@@ -17,9 +17,66 @@
 	time = 6 SECONDS
 	tool_behaviors = list()
 	tool_paths = list()
-	reqs = list(/obj/item/stack/sheet/ms13/scrap = 3)
+	reqs = list(/obj/item/stack/sheet/ms13/scrap_brass = 3)
 	category = CAT_UTILITY
 	crafting_interface = CRAFTING_BENCH_GENERAL
+
+/datum/crafting_recipe/key
+	name = "brass key"
+	result = /obj/item/ms13/key/brass
+	time = 20 SECONDS
+	tool_behaviors = list(TOOL_SAW, TOOL_DRILL, TOOL_RULER)
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/stack/sheet/ms13/refined_brass = 1)
+	category = CAT_UTILITY
+	crafting_interface = CRAFTING_BENCH_GENERAL
+
+/datum/crafting_recipe/scrapkey
+	name = "scrap key"
+	result = /obj/item/ms13/key/scrap
+	time = 12 SECONDS
+	tool_behaviors = list(TOOL_SAW)
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/stack/sheet/ms13/scrap = 4)
+	category = CAT_UTILITY
+	crafting_interface = CRAFTING_BENCH_GENERAL
+
+/datum/crafting_recipe/scraplock
+	name = "scrap lock"
+	result = /obj/item/ms13/lock/scrap/unlocked
+	time = 15 SECONDS
+	tool_behaviors = list(TOOL_SAW)
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/stack/sheet/ms13/scrap = 5,
+					/obj/item/stack/sheet/ms13/scrap_parts = 1,
+					/obj/item/stack/sheet/ms13/refined_lead = 1)
+	category = CAT_UTILITY
+	crafting_interface = CRAFTING_BENCH_GENERAL
+
+/datum/crafting_recipe/brasslock
+	name = "brass lock"
+	result = /obj/item/ms13/lock/brass/unlocked
+	time = 30 SECONDS
+	tool_behaviors = list(TOOL_SAW, TOOL_DRILL, TOOL_SCREWDRIVER)
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/stack/sheet/ms13/refined_brass = 2,
+					/obj/item/stack/sheet/ms13/scrap_parts = 3,
+					/obj/item/stack/sheet/ms13/refined_steel = 1,)
+	category = CAT_UTILITY
+	crafting_interface = CRAFTING_BENCH_GENERAL
+
+/datum/crafting_recipe/advancedlock
+	name = "advanced lock"
+	result = /obj/item/ms13/lock/advanced/unlocked
+	time = 25 SECONDS
+	tool_behaviors = list(TOOL_SAW, TOOL_PLIERS, TOOL_LENS, TOOL_SCREWDRIVER)
+	tool_paths = list()
+	reqs = list(/obj/item/ms13/lock/brass = 1,
+				/obj/item/stack/sheet/ms13/circuits = 3,
+				/obj/item/ms13/component/plasma_battery = 1,
+				/obj/item/stack/sheet/ms13/refined_alu = 2)
+	category = CAT_UTILITY
+	crafting_interface = CRAFTING_BENCH_ELECTRIC
 
 /datum/crafting_recipe/fishing_rod
 	name = "wooden fishing rod"

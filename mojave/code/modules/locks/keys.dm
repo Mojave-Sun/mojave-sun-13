@@ -11,12 +11,14 @@
 	worn_icon_state = "empty_placeholder"
 	w_class = WEIGHT_CLASS_SMALL
 	ms13_flags_1 = KEY_ITEM
+	obj_flags = UNIQUE_RENAME | UNIQUE_RENAME_NO_DESCRIPTION //so you can keep track of yo keys
 	grid_width = 32
 	grid_height = 32
 	drop_sound = 'mojave/sound/ms13effects/keydrop.ogg'
 	pickup_sound = 'mojave/sound/ms13effects/keygrab.ogg'
 	//Custom key shape for corresponding with the identical lock type pins
 	//Bitts seperated into sloppy seperates so players can edit them and interaction with keys
+	var/bitt_amount = 6
 	var/bitt_1
 	var/bitt_2
 	var/bitt_3
@@ -31,12 +33,18 @@
 
 /obj/item/ms13/key/proc/generate_key_order()
 	var/static/list/bitting_levels = list("A","B","C","D","E","F")
-	bitt_1 = pick(bitting_levels)
-	bitt_2 = pick(bitting_levels)
-	bitt_3 = pick(bitting_levels)
-	bitt_4 = pick(bitting_levels)
-	bitt_5 = pick(bitting_levels)
-	bitt_6 = pick(bitting_levels)
+	if(bitt_amount == 6)
+		bitt_1 = pick(bitting_levels)
+		bitt_2 = pick(bitting_levels)
+		bitt_3 = pick(bitting_levels)
+		bitt_4 = pick(bitting_levels)
+		bitt_5 = pick(bitting_levels)
+		bitt_6 = pick(bitting_levels)
+	if(bitt_amount == 4)
+		bitt_1 = pick(bitting_levels)
+		bitt_2 = pick(bitting_levels)
+		bitt_3 = pick(bitting_levels)
+		bitt_4 = pick(bitting_levels)
 
 /obj/item/ms13/key/test
 

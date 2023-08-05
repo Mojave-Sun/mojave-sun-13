@@ -23,6 +23,7 @@
 	var/lock_difficulty = 10
 	//Custom pin shapes for corresponding with the identical key type bitts
 	//Pins seperated into sloppy seperates so players can edit them and interaction with locks
+	var/pin_amount = 6
 	var/pin_1
 	var/pin_2
 	var/pin_3
@@ -31,11 +32,15 @@
 	var/pin_6
 	//is the lock pre_locked on spawn - randomise on init
 	var/pre_locked = TRUE
+	//if the lock can be lockpicked after being placed
+	var/can_be_lockpicked = TRUE
 
 /obj/item/ms13/lock/Initialize()
 	. = ..()
 	if(pre_locked)
 		item_lock_locked = TRUE
+	if(can_be_lockpicked & pre_locked)
+		AddComponent(/datum/component/lockpickable, difficulty = lock_difficulty)
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/locks_inventory.dmi')
 	generate_pin_order()
 
@@ -45,12 +50,18 @@
 
 /obj/item/ms13/lock/proc/generate_pin_order()
 	var/static/list/pin_lengths = list("A","B","C","D","E","F")
-	pin_1 = pick(pin_lengths)
-	pin_2 = pick(pin_lengths)
-	pin_3 = pick(pin_lengths)
-	pin_4 = pick(pin_lengths)
-	pin_5 = pick(pin_lengths)
-	pin_6 = pick(pin_lengths)
+	if(pin_amount == 6)
+		pin_1 = pick(pin_lengths)
+		pin_2 = pick(pin_lengths)
+		pin_3 = pick(pin_lengths)
+		pin_4 = pick(pin_lengths)
+		pin_5 = pick(pin_lengths)
+		pin_6 = pick(pin_lengths)
+	if(pin_amount == 4) // change to some sort of for thing in the future idc rn
+		pin_1 = pick(pin_lengths)
+		pin_2 = pick(pin_lengths)
+		pin_3 = pick(pin_lengths)
+		pin_4 = pick(pin_lengths)
 
 /obj/item/ms13/lock/attack_self(mob/user, list/modifiers)
 	. = ..()
@@ -69,6 +80,8 @@
 		icon_state = initial(icon_state)
 		lock_open = FALSE
 		item_lock_locked = TRUE
+		if(can_be_lockpicked & pre_locked)
+			AddComponent(/datum/component/lockpickable, difficulty = lock_difficulty)
 		to_chat(user, span_notice("You clasp the [name] shut."))
 		playsound(src, 'mojave/sound/ms13effects/lock_clasp.ogg', 50, TRUE)
 		return
@@ -104,31 +117,51 @@
 		if(!item_lock_locked)
 			to_chat(user, span_notice("The [name] is not shut, clasp it closed to lock."))
 			return
-		if(key.bitt_1 != pin_1)
-			playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
-			to_chat(user, span_notice("The key dosen't turn in [name]."))
-			return
-		if(key.bitt_2 != pin_2)
-			playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
-			to_chat(user, span_notice("The key dosen't turn in [name]."))
-			return
-		if(key.bitt_3 != pin_3)
-			playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
-			to_chat(user, span_notice("The key dosen't turn in [name]."))
-			return
-		if(key.bitt_4 != pin_4)
-			playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
-			to_chat(user, span_notice("The key dosen't turn in [name]."))
-			return
-		if(key.bitt_5 != pin_5)
-			playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
-			to_chat(user, span_notice("The key dosen't turn in [name]."))
-			return
-		if(key.bitt_6 != pin_6)
-			playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
-			to_chat(user, span_notice("The key dosen't turn in [name]."))
-			return
+		if(pin_amount == 6)
+			if(key.bitt_1 != pin_1)
+				playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+				to_chat(user, span_notice("The key dosen't turn in [name]."))
+				return
+			if(key.bitt_2 != pin_2)
+				playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+				to_chat(user, span_notice("The key dosen't turn in [name]."))
+				return
+			if(key.bitt_3 != pin_3)
+				playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+				to_chat(user, span_notice("The key dosen't turn in [name]."))
+				return
+			if(key.bitt_4 != pin_4)
+				playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+				to_chat(user, span_notice("The key dosen't turn in [name]."))
+				return
+			if(key.bitt_5 != pin_5)
+				playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+				to_chat(user, span_notice("The key dosen't turn in [name]."))
+				return
+			if(key.bitt_6 != pin_6)
+				playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+				to_chat(user, span_notice("The key dosen't turn in [name]."))
+				return
+		if(pin_amount == 4)
+			if(key.bitt_1 != pin_1)
+				playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+				to_chat(user, span_notice("The key dosen't turn in [name]."))
+				return
+			if(key.bitt_2 != pin_2)
+				playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+				to_chat(user, span_notice("The key dosen't turn in [name]."))
+				return
+			if(key.bitt_3 != pin_3)
+				playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+				to_chat(user, span_notice("The key dosen't turn in [name]."))
+				return
+			if(key.bitt_4 != pin_4)
+				playsound(src, 'mojave/sound/ms13effects/lockpicking/lockpick_tension_11.ogg', 50, TRUE)
+				to_chat(user, span_notice("The key dosen't turn in [name]."))
+				return
 		if(item_lock_locked)
+			var/datum/component/lockpickable/lockpickable = GetComponent(/datum/component/lockpickable)
+			qdel(lockpickable)
 			playsound(src, 'mojave/sound/ms13effects/key_unlock.ogg', 50, TRUE)
 			to_chat(user, span_notice("You unlock the [name]. It pops open."))
 			item_lock_locked = FALSE

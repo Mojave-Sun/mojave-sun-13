@@ -164,6 +164,25 @@
 				after_eat = CALLBACK(src, .proc/on_bite), \
 				volume = INFINITY)
 
+/obj/item/stack/sheet/ms13/lens
+	name = "lenses"
+	desc = "A a small stack of lenses, perfect for magnification."
+	singular_name = "lens"
+	icon_state = "lens"
+	merge_type = /obj/item/stack/sheet/ms13/lens
+	amount = 1
+	max_amount = 5
+	grid_width = 32
+	grid_height = 32
+	tool_behaviour = TOOL_LENS
+	w_class = WEIGHT_CLASS_TINY
+
+/obj/item/stack/sheet/ms13/thread/two
+	amount = 2
+
+/obj/item/stack/sheet/ms13/thread/six
+	amount = 6
+
 /// Called when someone bites this food, subtract one from our stack
 /obj/item/stack/sheet/ms13/glass/proc/on_bite(mob/eater)
 	use(1)
