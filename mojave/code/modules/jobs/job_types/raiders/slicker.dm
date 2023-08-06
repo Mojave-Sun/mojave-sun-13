@@ -15,7 +15,7 @@
 	name = "_Slickback"
 	jobtype = /datum/job/ms13/raiders/slicker
 
-	l_pocket =	 /obj/item/stack/ms13/currency/prewar/seventy
+	l_pocket =	 /obj/item/stack/ms13/currency/prewar/eighty
 	shoes =		 /obj/item/clothing/shoes/ms13/fancy
 	backpack_contents = list(
 		/obj/item/stack/medical/gauze/ms13/three=1)

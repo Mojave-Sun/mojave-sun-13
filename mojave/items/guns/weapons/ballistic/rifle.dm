@@ -52,8 +52,8 @@
 	eject_empty_sound = 'mojave/sound/ms13weapons/gunsounds/rifle/riflemag_unload.ogg'
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/varmint/varmint_rifle.ogg'
 	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/varmint_rifle.ogg'
-	fire_delay = 0.65 SECONDS
-	rack_delay = 0.65 SECONDS
+	fire_delay = 0.6 SECONDS
+	rack_delay = 0.6 SECONDS
 	spread = 2
 	recoil = 0.75
 	slowdown = 0.75
