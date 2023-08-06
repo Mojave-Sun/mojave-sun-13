@@ -135,7 +135,7 @@
 	anchored = TRUE
 	strip_delay = 15 SECONDS
 	integrity_failure = 0.5
-	max_integrity = 525
+	max_integrity = 500
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0,  FIRE = 0, ACID = 0, WOUND = 0)
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
@@ -164,7 +164,7 @@
 	item_flags = NO_PIXEL_RANDOM_DROP
 	ms13_flags_1 = LOCKABLE_1
 	clothing_flags = LARGE_WORN_ICON | STOPSPRESSUREDAMAGE | THICKMATERIAL | SNUG_FIT | BLOCKS_SHOVE_KNOCKDOWN
-	slowdown = 1.35
+	slowdown = 1.55
 	/// Literally just whether or not we allow fatties to wear this power armor
 	var/no_fatties = TRUE
 	var/mob/listeningTo
@@ -505,6 +505,7 @@
 	ADD_TRAIT(user, TRAIT_QUICKER_CARRY, "power_armor")
 	ADD_TRAIT(user, TRAIT_PUSHIMMUNE, "power_armor")
 	ADD_TRAIT(user, TRAIT_NON_FLAMMABLE, "power_armor")
+	ADD_TRAIT(user, TRAIT_IN_POWERARMOUR, "power_armor")
 	RegisterSignal(user, COMSIG_ATOM_CAN_BE_PULLED, .proc/reject_pulls)
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/dropped(mob/living/carbon/human/user)
@@ -525,6 +526,7 @@
 	REMOVE_TRAIT(user, TRAIT_QUICKER_CARRY, "power_armor")
 	REMOVE_TRAIT(user, TRAIT_PUSHIMMUNE, "power_armor")
 	REMOVE_TRAIT(user, TRAIT_NON_FLAMMABLE, "power_armor")
+	REMOVE_TRAIT(user, TRAIT_IN_POWERARMOUR, "power_armor")
 	UnregisterSignal(user, COMSIG_ATOM_CAN_BE_PULLED)
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/proc/reject_pulls(datum/source, mob/living/puller)
@@ -637,7 +639,7 @@
                 CUTTING = CLASS5_CUT, \
                 PIERCING = CLASS4_PIERCE, \
                 IMPALING = CLASS5_STAB, \
-                LASER = CLASS5_LASER, \
+                LASER = CLASS4_LASER, \
                 ENERGY = CLASS4_PLASMA, \
                 FIRE = CLASS5_FIRE)
 
@@ -664,7 +666,7 @@
 	light_range = 4
 	light_power = 0.8
 	light_color = "#dabc7c"
-	max_integrity = 300
+	max_integrity = 280
 	radiotype = /obj/item/radio/headset/ms13/powerarmor/t45
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = CLASS4_EDGE, \
@@ -672,7 +674,7 @@
                 CUTTING = CLASS5_CUT, \
                 PIERCING = CLASS4_PIERCE, \
                 IMPALING = CLASS5_STAB, \
-                LASER = CLASS4_LASER, \
+                LASER = CLASS3_LASER, \
                 ENERGY = CLASS3_PLASMA, \
                 FIRE = CLASS5_FIRE)
 

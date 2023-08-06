@@ -37,7 +37,15 @@
 /obj/item/restraints/handcuffs/ms13
 	grid_height = 32
 	grid_width = 64
+	icon_state = "handcuffs"
+	icon = 'mojave/icons/objects/tools/tools_inventory.dmi'
+	inhand_icon_state = "handcuffs"
+	handcuffed_icon = 'mojave/icons/mob/clothing/hands.dmi'
+	handcuffed_icon_state = "handcuffs"
+	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
 	var/does_shrink = TRUE
+	breakouttime = 100 SECONDS //1M 40S
 
 /obj/item/restraints/handcuffs/ms13/Initialize(mapload)
 	. = ..()

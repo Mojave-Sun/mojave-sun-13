@@ -55,6 +55,12 @@
 	icon_state = "vaultgloves"
 	inhand_icon_state = "vaultgloves"
 
+/obj/item/clothing/gloves/ms13/nitrile
+	name = "nitrile gloves"
+	desc = "Nitrile gloves that are probably, hopefully, mostly sterile."
+	icon_state = "nitrile"
+	inhand_icon_state = "winterglovesbrown" //placeholder LOL!
+
 /obj/item/clothing/gloves/ms13/bos
 	name = "\improper BoS combat gloves"
 	desc = "A pair of hardwearing combat gloves, issued to Brotherhood soldiers."

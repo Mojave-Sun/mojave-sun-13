@@ -189,16 +189,16 @@ GLOBAL_LIST_INIT(skin_tones, sort_list(list(
 GLOBAL_LIST_INIT(skin_tone_names, list(
 	"albino" = "Albino",
 	"caucasian1" = "Porcelain",
-	"caucasian2" = "Light peach",
+	"caucasian2" = "Light Peach",
 	"caucasian3" = "Peach",
-	"latino" = "Light beige",
+	"latino" = "Light Beige",
 	"asian1" = "Ivory",
 	"mediterranean" = "Olive",
 	"asian2" = "Beige",
-	"arab" = "Light brown",
+	"arab" = "Light Brown",
 	"indian" = "Brown",
-	"african1" = "Medium brown",
-	"african2" = "Dark brown",
+	"african1" = "Medium Brown",
+	"african2" = "Dark Brown",
 ))
 //MOJAVE SUN EDIT END - Skin Colours
 

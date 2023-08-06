@@ -48,6 +48,16 @@
 	atmosphere_sound = INDUSTRIAL_ATMOSPHERE
 	dissipation_rate = 0.1 //not much escapes enclosed rooms
 
+/area/ms13/army_base
+	name = "Army Base"
+	icon_state = "army_base"
+
+/area/ms13/army_base/building
+	name = "Army Base building"
+	icon_state = "army_base_building"
+	atmosphere_sound = BUILDING_ATMOSPHERE
+	dissipation_rate = 0.1 //not much escapes enclosed rooms
+
 /area/ms13/underground/vault_atrium_upper
 	name = "Vault atrium upper"
 	icon_state = "vault_atrium_upper"
@@ -90,8 +100,32 @@
 
 /area/ms13/underground/army_bunker
 	name = "Army Bunker"
-	icon_state = "army_base"
+	icon_state = "army_bunker"
 	atmosphere_sound = BUNKER_ATMOSPHERE
+
+// SnowCrest Town //
+
+/area/ms13/snowcrest
+	name = "Snowcrest"
+	icon_state = "snowcrest"
+	requires_power = FALSE
+	power_environ = TRUE
+	power_equip = TRUE
+	power_light = TRUE
+	ambientsounds = null
+	atmosphere_sound = COLD_WASTELAND_ATMOSPHERE
+
+/area/ms13/snowcrest/building
+	name = "Snowcrest Building"
+	icon_state = "snowcrest_building"
+	atmosphere_sound = BUILDING_ATMOSPHERE
+	dissipation_rate = 0.1
+
+/area/ms13/snowcrest/republic
+	name = "Snowcrest NCR building"
+	icon_state = "snowcrest_ncr"
+	atmosphere_sound = INDUSTRIAL_ATMOSPHERE
+	dissipation_rate = 0.1
 
 // Generic Underground Areas //
 

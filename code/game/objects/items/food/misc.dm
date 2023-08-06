@@ -189,17 +189,22 @@
 	. = ..()
 	AddElement(/datum/element/dunkable, 10)
 
-/obj/item/food/badrecipe
+/obj/item/food/badrecipe //Mojave Edit - Replaced this with our sprite as it's 10x easier than replacing every instance of burned food with ours.
 	name = "burned mess"
 	desc = "Someone should be demoted from cook for this."
-	icon_state = "badrecipe"
 	food_reagents = list(/datum/reagent/toxin/bad_food = 30)
 	foodtypes = GROSS
+	icon = 'mojave/icons/effects/gurps.dmi'
+	icon_state = "rot_1"
 	w_class = WEIGHT_CLASS_SMALL
+	grid_height = 32
+	grid_width = 32
 	preserved_food = TRUE //Can't decompose any more than this
 
-/obj/item/food/badrecipe/Initialize(mapload)
+/obj/item/food/badrecipe/Initialize()
 	. = ..()
+	icon_state = "rot_[rand(1,4)]"
+	AddElement(/datum/element/item_scaling, 0.65, 1)
 	RegisterSignal(src, COMSIG_ITEM_GRILLED, .proc/OnGrill)
 
 /obj/item/food/badrecipe/moldy
@@ -269,7 +274,7 @@
 	icon_state = "spidereggs"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 4)
 	tastes = list("cobwebs" = 1)
-	foodtypes = MEAT 
+	foodtypes = MEAT
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/food/spiderling

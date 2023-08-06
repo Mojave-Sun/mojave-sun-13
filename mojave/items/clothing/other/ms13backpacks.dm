@@ -120,3 +120,22 @@
 	STR.max_items = 35
 	STR.max_combined_w_class = 100
 
+//HARVESTING SACK
+
+/obj/item/storage/ms13/harvest_sack
+	name = "harvesting sack"
+	desc = "A crude sack intended for holding plants and seeds. Has some rope tightly attached for attaching on the hip."
+	icon_state = "sack"
+	storage_flags = 0
+	slot_flags = ITEM_SLOT_BELT
+	component_type = /datum/component/storage/concrete/ms13/h_bag
+	equip_delay_self = 0.65 SECONDS
+	equip_delay_other = 1.5 SECONDS
+
+/obj/item/storage/ms13/harvest_sack/ComponentInitialize()
+	. = ..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	STR.max_w_class = WEIGHT_CLASS_SMALL
+	STR.max_items = 16
+	STR.max_combined_w_class = 100
+

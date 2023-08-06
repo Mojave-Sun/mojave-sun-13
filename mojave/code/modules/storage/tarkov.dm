@@ -119,6 +119,13 @@
 	screen_start_x = 8
 	rustle_sound = FALSE
 
+/datum/component/storage/concrete/ms13/washing //for washing machine
+	screen_max_columns = 10
+	screen_max_rows = 10
+	screen_start_y = 12
+	screen_start_x = 5
+	rustle_sound = FALSE
+
 /datum/component/storage/concrete/ms13/matchbox //for matchboxes
 	screen_max_columns = 5
 	screen_max_rows = 4
@@ -166,6 +173,18 @@
 		/obj/item/stack/ms13/currency/prewar,
 		/obj/item/stack/ms13/currency/ncr_dollar))
 
+/datum/component/storage/concrete/ms13/h_bag //harvesting bag
+	screen_max_columns = 4
+	screen_max_rows = 4
+	screen_start_y = 5
+	screen_start_x = 15
+
+/datum/component/storage/concrete/ms13/h_bag/Initialize()
+	. = ..()
+	set_holdable(list(
+		/obj/item/seeds/ms13,
+		/obj/item/food/grown/ms13))
+
 /datum/component/storage/concrete/ms13/suit //base type suit storage to avoid redundant defines
 	screen_max_columns = 1
 	screen_max_rows = 2
@@ -192,65 +211,7 @@
 
 /datum/component/storage/concrete/ms13/suit/Initialize()
 	. = ..()
-	set_holdable(list(
-		/obj/item/knife,
-		/obj/item/switchblade,
-		/obj/item/pen,
-		/obj/item/scalpel,
-		/obj/item/reagent_containers/syringe,
-		/obj/item/reagent_containers/hypospray/medipen,
-		/obj/item/screwdriver,
-		/obj/item/ms13/lockpick/basic,
-		/obj/item/gun/ballistic/automatic/pistol/ms13/pistol22,
-		/obj/item/gun/ballistic/revolver/ms13/derringer,
-		/obj/item/gun/ballistic/revolver/ms13/rev357/police,
-		/obj/item/stack/ms13/currency,
-		/obj/item/flashlight/ms13,
-		/obj/item/flashlight/flare/ms13,
-		/obj/item/radio/ms13,
-		/obj/item/stack/medical/ms13,
-		/obj/item/food/ms13/prewar/canned,
-		/obj/item/stack/sheet/ms13/nugget,
-		/obj/item/stack/sheet/ms13/scrap_parts,
-		/obj/item/stack/sheet/ms13/rubber,
-		/obj/item/stack/sheet/ms13/plastic,
-		/obj/item/stack/sheet/ms13/ceramic,
-		/obj/item/stack/sheet/ms13/glass,
-		/obj/item/stack/sheet/ms13/scrap_electronics,
-		/obj/item/stack/sheet/ms13/circuits,
-		/obj/item/ms13/component,
-		/obj/item/reagent_containers/food/drinks/soda_cans/ms13,
-		/obj/item/ammo_box/magazine/ms13,
-		/obj/item/wirecutters/ms13,
-		/obj/item/wrench/ms13,
-		/obj/item/ms13/hammer,
-		/obj/item/restraints/handcuffs/ms13,
-		/obj/item/ms13/knuckles,
-		/obj/item/stock_parts/cell/ms13,
-		/obj/item/ammo_box/magazine/ammo_stack ,
-		/obj/item/clothing/glasses/ms13,
-		/obj/item/clothing/mask/ms13/bandana,
-		/obj/item/stack/medical/suture/ms13,
-		/obj/item/stack/medical/ointment/ms13,
-		/obj/item/stack/medical/gauze/ms13,
-		/obj/item/stack/sheet/ms13/cloth,
-		/obj/item/stack/sheet/ms13/leather,
-		/obj/item/stack/sheet/ms13/mil_fiber,
-		/obj/item/stack/sheet/ms13/thread,
-		/obj/item/card/id/ms13,
-		/obj/item/gun/ballistic/revolver/ms13/caravan/sawed,
-		/obj/item/gun/ballistic/revolver/ms13/rev44,
-		/obj/item/gun/ballistic/revolver/ms13/rev357,
-		/obj/item/gun/ballistic/revolver/ms13/rev10mm,
-		/obj/item/gun/ballistic/revolver/ms13/rev556,
-		/obj/item/gun/ballistic/automatic/pistol/ms13/m9mm,
-		/obj/item/gun/ballistic/automatic/pistol/ms13/m10mm,
-		/obj/item/gun/ballistic/automatic/pistol/ms13/pistol45,
-		/obj/item/gun/ballistic/automatic/ms13/full/smg10mm,
-		/obj/item/gun/ballistic/automatic/ms13/full/smg9mm,
-		/obj/item/reagent_containers/food/drinks/bottle/ms13,
-		/obj/item/grenade/ms13/molotov
-		))
+	max_items = 8
 
 /datum/component/storage
 	screen_max_columns = 8

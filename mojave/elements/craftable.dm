@@ -60,6 +60,9 @@
 /datum/element/craftable/proc/try_craft(datum/source, mob/living/user, obj/item/I, list/mutable_recipes)
 	SIGNAL_HANDLER
 
+	if(I.type != crafting_object)
+		return
+
 	mutable_recipes += list(list(CRAFTING_RESULT = result_atom_type, CRAFTING_AMOUNT = amount_created, CRAFTING_TIME = time_to_craft, CRAFTING_ITEM = source, CRAFTING_SOUND = c_sound, CRAFTING_SURFACE = surface_type, CRAFTING_FOCUS_SOUND = crafting_focus_sound, CRAFTING_FOCUS_TYPE = focus_type, CRAFTING_THING_USED = is_used))
 	return COMPONENT_BLOCK_CRAFTING_ATTACK
 

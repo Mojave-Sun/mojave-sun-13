@@ -5,10 +5,12 @@
 	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
 	icon_state = "handradio"
 	inhand_icon_state = "handradio"
+	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
+	worn_icon_state = "empty_placeholder"
 	desc = "A basic handheld radio that recieves over a relatively long range, unfortunately this one can't broadcast."
 	canhear_range = 2
 	force = 0
-	freerange = TRUE
+	freerange = FALSE
 	w_class = WEIGHT_CLASS_SMALL
 	custom_materials = list(/datum/material/iron=75, /datum/material/glass=25)
 	radio_broadcast = 100 //Cannot broadcast. If someone manages to circumvent, it should be complete static.

@@ -386,3 +386,10 @@
 	icon_state = "plastic_chair_toppled"
 	inhand_icon_state = "plastic_chair"
 	origin_type = /obj/structure/chair/ms13/overlaypickup/plastic
+
+/obj/structure/chair/comfy/ms13/diner
+	name = "diner seat"
+	desc = "A nice padded diner style seat. A fantastic place to rest your feet."
+	icon_state = "diner_chair"
+	buildstacktype = /obj/item/stack/sheet/ms13/scrap
+	buildstackamount = 1
