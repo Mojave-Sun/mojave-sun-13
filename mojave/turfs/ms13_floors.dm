@@ -46,8 +46,7 @@
 
 /turf/open/floor/wood/ms13/fancy
 	icon_state = "wood_fancy"
-	alternate_states = 6
-	has_base_states = FALSE
+	has_alternate_states = FALSE
 
 /turf/open/floor/wood/ms13/wide
 	icon_state = "wood_wide"
@@ -275,18 +274,15 @@
 
 /turf/open/floor/ms13/tile/blue/long
 	icon_state = "blue_long"
-	alternate_states = 6
+	alternate_states = 3
 
 /turf/open/floor/ms13/tile/navy
 	icon_state = "navy"
-	alternate_states = 7
+	alternate_states = 3
 
 /turf/open/floor/ms13/tile/brown
 	icon_state = "brown"
-
-/turf/open/floor/ms13/tile/brown/big
-	icon_state = "brown_big"
-	has_alternate_states = FALSE
+	alternate_states = 3
 
 /turf/open/floor/ms13/tile/fancy
 	icon_state = "fancy"
@@ -297,23 +293,27 @@
 
 /turf/open/floor/ms13/tile/large/navy
 	icon_state = "navy_large"
-	alternate_states = 3
+	alternate_states = 2
 
 /turf/open/floor/ms13/tile/large/cream
 	icon_state = "cream_large"
-	has_alternate_states = FALSE
+	alternate_states = 3
+
+/turf/open/floor/ms13/tile/long/cream
+	icon_state = "cream_long"
+	alternate_states = 3
 
 /turf/open/floor/ms13/tile/large/black
 	icon_state = "black_large"
-	alternate_states = 3
+	alternate_states = 2
 
 /turf/open/floor/ms13/tile/large/white
 	icon_state = "white_large"
-	alternate_states = 3
+	alternate_states = 2
 
 /turf/open/floor/ms13/tile/large/green
 	icon_state = "green_large"
-	alternate_states = 3
+	alternate_states = 2
 
 /turf/open/floor/ms13/tile/large/checkered
 	icon_state = "checker_large"
@@ -333,6 +333,9 @@
 /turf/open/floor/ms13/tile/full/green
 	icon_state = "green_full"
 
+/turf/open/floor/ms13/tile/full/black
+	icon_state = "black_full"
+
 ////Metal Floors////
 
 /turf/open/floor/ms13/metal
@@ -340,32 +343,15 @@
 	barefootstep = FOOTSTEP_HARD_BAREFOOT
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
-	icon_state = "steel_industrial"
+	icon_state = "steel_tiles"
 	desc = "Metal flooring."
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TILE)
 
 /turf/open/floor/ms13/metal/plate
 	icon_state = "steel_solid"
-	has_alternate_states = TRUE
-	alternate_states = 3
-
-/turf/open/floor/ms13/metal/border
-	icon_state = "steel_industrial_b"
-
-/turf/open/floor/ms13/metal/border/corner
-	icon_state = "steel_industrial_b_corner"
-
-/turf/open/floor/ms13/metal/border/sides
-	icon_state = "steel_industrial_b_sides"
-
-/turf/open/floor/ms13/metal/border/end
-	icon_state = "steel_industrial_b_end"
 
 /turf/open/floor/ms13/metal/grate
 	icon_state = "steel_grate"
-
-/turf/open/floor/ms13/metal/grate/alt
-	icon_state = "steel_grate_alt"
 
 /turf/open/floor/ms13/metal/grate/border
 	icon_state = "steel_grate_border"
@@ -373,27 +359,14 @@
 /turf/open/floor/ms13/metal/grate/border/warning
 	icon_state = "steel_grate_warning"
 
-/turf/open/floor/ms13/metal/warning
-	icon_state = "steel_warning"
-
-/turf/open/floor/ms13/metal/stayclear
-	icon_state = "steel_stayclear"
-
-/turf/open/floor/ms13/metal/walkway
-	icon_state = "steel_walkway"
-
-/turf/open/floor/ms13/metal/walkway/corner
-	icon_state = "steel_walkway_corner"
-
-/turf/open/floor/ms13/metal/walkway/end
-	icon_state = "steel_walkway_end"
-
 ////Concrete Floors////
 
 /turf/open/floor/ms13/concrete
 	icon_state = "concrete_big"
 	desc = "Concrete slabs."
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TILE)
+	has_alternate_states = TRUE
+	alternate_states = 1
 
 /turf/open/floor/ms13/concrete/small
 	icon_state = "concrete_small"
@@ -409,20 +382,11 @@
 	icon_state = "concrete_industrial"
 	desc = "Heavy duty concrete slabs." //DAS CONCRETE BABY
 
-/turf/open/floor/ms13/concrete/industrial/alt
-	icon_state = "concrete_industrial_alt"
+/turf/open/floor/ms13/concrete/industrial/rail
+	icon_state = "concrete_rail"
 
-/turf/open/floor/ms13/concrete/industrial/split
-	icon_state = "concrete_industrial_split"
-
-/turf/open/floor/ms13/concrete/industrial/walkway
-	icon_state = "concrete_walkway"
-
-/turf/open/floor/ms13/concrete/industrial/walkway/corner
-	icon_state = "concrete_walkway_corner"
-
-/turf/open/floor/ms13/concrete/industrial/walkway/end
-	icon_state = "concrete_walkway_end"
+/turf/open/floor/ms13/concrete/industrial/rail/corner
+	icon_state = "concrete_rail_corner"
 
 ////Hybrid Floors////
 
