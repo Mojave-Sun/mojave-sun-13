@@ -265,7 +265,7 @@
 	obj_damage = 10
 	footstep_type = FOOTSTEP_MOB_HEAVY
 	status_flags = CANSTUN
-	environment_smash = ENVIRONMENT_SMASH_NONE
+	environment_smash = ENVIRONMENT_SMASH_STRUCTURES
 	mob_size = MOB_SIZE_LARGE
 	stop_automated_movement_when_pulled = 1
 	wound_bonus = -5

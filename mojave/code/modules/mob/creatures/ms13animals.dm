@@ -748,9 +748,10 @@
 
 /mob/living/simple_animal/hostile/ms13/hellpig
 	name = "hellpig"
-	desc = "A massive mutated pig, wild, deadly start praying boy."
-	icon = 'mojave/icons/mob/64x64.dmi'
-	icon_state = "hellpig"
+	desc = "A massive mutated pig. Wild and deadly."
+	icon = 'mojave/icons/mob/80x80.dmi'
+	icon_state = "koban"
+	icon_dead = "koban_dead"
 	gender = MALE
 	speak = list("EEEEEEEEEEEE","RWOOIIIIIIIIIINK","SQUEEEEEEEEEEE")
 	speak_emote = list("honks")
@@ -760,20 +761,27 @@
 	attack_verb_simple = "chomp"
 	speak_chance = 40
 	turns_per_move = 3
-	attack_sound = 'mojave/sound/ms13weapons/meleesounds/slam.ogg'
-	health = 600
-	maxHealth = 600
-	obj_damage = 150
-	melee_damage_lower = 40
-	melee_damage_upper = 60
+	attack_sound = list('mojave/sound/ms13npc/hellpig_attack1.ogg', 'mojave/sound/ms13npc/hellpig_attack2.ogg', 'mojave/sound/ms13npc/hellpig_attack3.ogg')
+	deathsound = list('mojave/sound/ms13npc/hellpig_death1.ogg', 'mojave/sound/ms13npc/hellpig_death2.ogg') //Not in love with either of these death or attack sounds but they work for now. Just pulled them from Yaoguai files
+	health = 850
+	maxHealth = 850
+	obj_damage = 200
+	melee_damage_lower = 45
+	melee_damage_upper = 45
+	subtractible_armour_penetration = 20
+	environment_smash = ENVIRONMENT_SMASH_STRUCTURES
 	speed = 2
+	move_to_delay = 4
+	sharpness = NONE
+	wound_bonus = 10
+	bare_wound_bonus = 8
 	//Sorry, no taming
 	//food_type = list(/obj/item/food/meat/slab/human)
 	//tame_chance = 1
 	//bonus_tame_chance = 1
 	//rideable = TRUE
-	base_pixel_x = -16
-	pixel_x = -16
+	base_pixel_x = -20
+	pixel_x = -20
 	status_flags = null
 	ranged = TRUE //Charging time
 	var/datum/action/cooldown/mob_cooldown/charge/hellpig/charge
@@ -808,10 +816,10 @@
 	return FALSE
 
 /datum/action/cooldown/mob_cooldown/charge/hellpig
-	charge_delay = 0.5 SECONDS
-	charge_speed = 0.075 SECONDS
+	charge_delay = 0.75 SECONDS
+	charge_speed = 0.08 SECONDS
 	charge_past = 4
-	cooldown_time = 5 SECONDS
+	cooldown_time = 7.5 SECONDS
 
 /datum/action/cooldown/mob_cooldown/charge/hellpig/on_bump(atom/movable/source, atom/target)
 	SIGNAL_HANDLER
@@ -876,6 +884,35 @@
 	SIGNAL_HANDLER
 	playsound(source, pick('mojave/sound/ms13effects/footsteps/ms13heavyfootstep_1.wav', 'mojave/sound/ms13effects/footsteps/ms13heavyfootstep_2.wav'), 100, TRUE, 2, TRUE)
 	//INVOKE_ASYNC(src, .proc/DestroySurroundings, source)
+
+/mob/living/simple_animal/hostile/ms13/hellpig/FindTarget(list/possible_targets, HasTargetsList = 0, IgnoreRepetiveCall = FALSE)
+	. = ..()
+	//If we still don't have a target, we should try finding a target again but in critical condition
+	if(!target && !IgnoreRepetiveCall && (stat_attack != HARD_CRIT))
+		stat_attack = HARD_CRIT
+		FindTarget(possible_targets, HasTargetsList, IgnoreRepetiveCall = TRUE)
+		//We'll give a grace period for the KOBAN being able to attack crit'd targets for about 1 yinglet
+		addtimer(CALLBACK(src, .proc/reset_stat_attack), 2.5 SECONDS)
+
+/mob/living/simple_animal/hostile/ms13/hellpig/proc/reset_stat_attack()
+	stat_attack = initial(stat_attack)
+
+/mob/living/simple_animal/hostile/ms13/hellpig/ListTargets()
+	. = ..()
+	if(target && get_dist(target, src) < aggro_vision_range)
+		. += target
+
+/mob/living/simple_animal/hostile/ms13/hellpig/GiveTarget(new_target)
+	if(new_target && target && (new_target != target))
+		UnregisterSignal(target, COMSIG_MOVABLE_MOVED)
+	. = ..()
+	if(target)
+		RegisterSignal(target, COMSIG_MOVABLE_MOVED, override = TRUE)
+
+/mob/living/simple_animal/hostile/ms13/hellpig/LoseTarget()
+	if(target)
+		UnregisterSignal(target, COMSIG_MOVABLE_MOVED)
+	. = ..()
 
 /datum/action/cooldown/mob_cooldown/charge/hellpig/Activate(atom/target_atom)
 
