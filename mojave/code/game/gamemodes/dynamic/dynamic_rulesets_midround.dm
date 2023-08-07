@@ -12,6 +12,7 @@
 	requirements = list(10,10,10,10,10,10,10,10,10,10)
 	repeatable = TRUE
 	flags = HIGH_IMPACT_RULESET
+	restrict_ghost_roles = FALSE
 
 /datum/dynamic_ruleset/midround/from_ghosts/bounty_hunter/acceptable(population = 0, threat = 0)
 	if (required_candidates > GLOB.alive_player_list.len)
