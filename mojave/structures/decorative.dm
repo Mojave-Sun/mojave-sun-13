@@ -304,6 +304,8 @@
 	icon_state = "toxic_1"
 	icon_type = "toxic"
 	amount = 4
+	light_range = 1.5
+	light_color = "#4ba54f"
 
 /obj/structure/ms13/barrel/single/toxic/Initialize()
 	. = ..()
