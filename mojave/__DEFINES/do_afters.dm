@@ -14,3 +14,4 @@
 #define DOAFTER_SOURCE_WINDOWBASH "doafter_windowbash"
 #define DOAFTER_SOURCE_PAHOIST "doafter_pahoist"
 #define DOAFTER_SOURCE_CRAFTING "doafter_crafting"
+#define DOAFTER_SOURCE_FIREKICK "doafter_firekick"
