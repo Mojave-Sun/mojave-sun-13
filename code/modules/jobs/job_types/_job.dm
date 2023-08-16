@@ -188,7 +188,7 @@
 			if((guestbook_flags & GUESTBOOK_OMNISCIENT) || \
 				((guestbook_flags & GUESTBOOK_JOB) && (src.type == dudes_job.type)) || \
 				((guestbook_flags & GUESTBOOK_DEPARTMENT) && length(common_departments)))
-				spawned.mind.guestbook.add_guest(spawned, dude, spawned.real_name, spawned.real_name, silent = TRUE)
+				spawned.mind.guestbook.add_guest(spawned, dude, dude.real_name, dude.real_name, silent = TRUE)
 
 /datum/job/proc/announce_job(mob/living/joining_mob)
 	if(head_announce)
