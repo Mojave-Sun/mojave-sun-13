@@ -33,7 +33,10 @@
 		else
 			. += "You can't see [t_his] face very well."
 	else
-		. += "It's you, <EM>[real_name]</EM>."
+		var/self_message =  "It's you, <EM>[real_name]</EM>."
+		if(obscure_name || skipface || !get_face_name(""))
+			self_message += " Your face is hidden."
+		. += self_message
 
 	//uniform
 	if(w_uniform && !(obscured & ITEM_SLOT_ICLOTHING) && !(w_uniform.item_flags & EXAMINE_SKIP))
