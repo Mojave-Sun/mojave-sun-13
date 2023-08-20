@@ -771,7 +771,7 @@
 	subtractible_armour_penetration = 20
 	environment_smash = ENVIRONMENT_SMASH_STRUCTURES
 	speed = 2
-	move_to_delay = 4
+	move_to_delay = 3.75
 	sharpness = NONE
 	wound_bonus = 10
 	bare_wound_bonus = 8
@@ -816,10 +816,10 @@
 	return FALSE
 
 /datum/action/cooldown/mob_cooldown/charge/hellpig
-	charge_delay = 0.75 SECONDS
+	charge_delay = 0.65 SECONDS
 	charge_speed = 0.08 SECONDS
 	charge_past = 4
-	cooldown_time = 7.5 SECONDS
+	cooldown_time = 7 SECONDS
 
 /datum/action/cooldown/mob_cooldown/charge/hellpig/on_bump(atom/movable/source, atom/target)
 	SIGNAL_HANDLER
