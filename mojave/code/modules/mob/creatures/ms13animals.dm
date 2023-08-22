@@ -763,15 +763,15 @@
 	turns_per_move = 3
 	attack_sound = list('mojave/sound/ms13npc/hellpig_attack1.ogg', 'mojave/sound/ms13npc/hellpig_attack2.ogg', 'mojave/sound/ms13npc/hellpig_attack3.ogg')
 	deathsound = list('mojave/sound/ms13npc/hellpig_death1.ogg', 'mojave/sound/ms13npc/hellpig_death2.ogg') //Not in love with either of these death or attack sounds but they work for now. Just pulled them from Yaoguai files
-	health = 850
-	maxHealth = 850
-	obj_damage = 200
+	health = 900
+	maxHealth = 900
+	obj_damage = 300
 	melee_damage_lower = 45
 	melee_damage_upper = 45
 	subtractible_armour_penetration = 20
 	environment_smash = ENVIRONMENT_SMASH_STRUCTURES
 	speed = 2
-	move_to_delay = 3.75
+	move_to_delay = 3.5
 	sharpness = NONE
 	wound_bonus = 10
 	bare_wound_bonus = 8
@@ -789,6 +789,7 @@
 /mob/living/simple_animal/hostile/ms13/hellpig/Initialize(mapload)
 	. = ..()
 	charge = new /datum/action/cooldown/mob_cooldown/charge/hellpig()
+	RegisterSignal(src, COMSIG_MOVABLE_MOVED, override = TRUE)
 	charge.Grant(src)
 
 /mob/living/simple_animal/hostile/ms13/hellpig/death(gibbed)
@@ -819,7 +820,8 @@
 	charge_delay = 0.65 SECONDS
 	charge_speed = 0.08 SECONDS
 	charge_past = 4
-	cooldown_time = 7 SECONDS
+	charge_distance = 60
+	cooldown_time = 6 SECONDS
 
 /datum/action/cooldown/mob_cooldown/charge/hellpig/on_bump(atom/movable/source, atom/target)
 	SIGNAL_HANDLER
