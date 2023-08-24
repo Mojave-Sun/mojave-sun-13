@@ -763,11 +763,11 @@
 	turns_per_move = 3
 	attack_sound = list('mojave/sound/ms13npc/hellpig_attack1.ogg', 'mojave/sound/ms13npc/hellpig_attack2.ogg', 'mojave/sound/ms13npc/hellpig_attack3.ogg')
 	deathsound = list('mojave/sound/ms13npc/hellpig_death1.ogg', 'mojave/sound/ms13npc/hellpig_death2.ogg') //Not in love with either of these death or attack sounds but they work for now. Just pulled them from Yaoguai files
-	health = 1000
-	maxHealth = 1000
+	health = 950
+	maxHealth = 950
 	obj_damage = 300
-	melee_damage_lower = 45
-	melee_damage_upper = 45
+	melee_damage_lower = 50
+	melee_damage_upper = 50
 	subtractible_armour_penetration = 25
 	environment_smash = ENVIRONMENT_SMASH_STRUCTURES
 	speed = 2
