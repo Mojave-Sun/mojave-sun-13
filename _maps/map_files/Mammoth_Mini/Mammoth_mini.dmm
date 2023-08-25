@@ -134,6 +134,13 @@
 	},
 /turf/open/floor/plating/ms13/ground/road,
 /area/ms13/town)
+"aee" = (
+/obj/machinery/door/unpowered/ms13/metal{
+	dir = 8
+	},
+/obj/effect/spawner/random/ms13/locked/random/lowchance,
+/turf/open/floor/ms13/tile,
+/area/ms13/town)
 "aef" = (
 /obj/machinery/light/ms13{
 	dir = 1
@@ -199,6 +206,13 @@
 /obj/structure/ms13/mammoth_sign,
 /turf/open/floor/plating/ms13/ground/snow,
 /area/ms13/snow/lightforest)
+"ahT" = (
+/obj/machinery/door/unpowered/ms13/wood{
+	dir = 1
+	},
+/obj/effect/spawner/random/ms13/locked/random/lowchance,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/tribal_abandoned)
 "ahV" = (
 /obj/machinery/door/airlock/ms13/town/doctor,
 /turf/open/floor/ms13/tile/blue,
@@ -1826,6 +1840,7 @@
 	},
 /obj/effect/spawner/random/ms13/ammo/highrandom,
 /obj/effect/spawner/random/ms13/ammo/lowrandom,
+/obj/effect/spawner/random/ms13/gun/tier3,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/tribal_abandoned)
 "bSB" = (
@@ -1900,6 +1915,10 @@
 /obj/machinery/light/ms13/bulb,
 /turf/open/floor/ms13/tile/brown,
 /area/ms13/supermarket)
+"bWa" = (
+/obj/effect/mob_spawn/corpse/human/ms13/wastelander,
+/turf/open/floor/plating/ms13/ground/snow,
+/area/ms13/snow/lightforest)
 "bWl" = (
 /obj/structure/window/fulltile/ms13/glass,
 /obj/structure/table/ms13/low_wall/brick/alt,
@@ -2120,6 +2139,7 @@
 /obj/effect/decal/cleanable/blood/old,
 /obj/structure/bed/ms13/bedframe/cot,
 /obj/structure/bed/ms13/mattress/stained,
+/obj/effect/spawner/random/ms13/medical/dbag,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/tribal_abandoned)
 "cjg" = (
@@ -2353,10 +2373,6 @@
 /obj/machinery/light/ms13/bulb,
 /turf/open/floor/plating/ms13/ground/sidewalk,
 /area/ms13/snowcrest)
-"cvE" = (
-/mob/living/basic/ms13/hostile_animal/hellpig,
-/turf/open/floor/plating/ms13/ground/snow,
-/area/ms13/snow/lightforest)
 "cvU" = (
 /obj/structure/table/ms13/metal/alt,
 /obj/effect/spawner/random/ms13/crafting/highrandom,
@@ -2591,6 +2607,10 @@
 /obj/effect/spawner/random/ms13/tools/tool,
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
+"cKg" = (
+/obj/effect/spawner/random/ms13/melee/unique,
+/turf/open/floor/plating/ms13/ground/snow,
+/area/ms13/snow/lightforest)
 "cKm" = (
 /obj/structure/table/ms13/no_smooth/counter/metal,
 /turf/open/floor/ms13/tile/large/cream,
@@ -2650,7 +2670,7 @@
 /obj/machinery/door/unpowered/ms13/wood{
 	dir = 8
 	},
-/obj/effect/spawner/random/ms13/locked/random/lowchance,
+/obj/effect/spawner/random/ms13/locked/random/medchance,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/tribal_abandoned)
 "cOe" = (
@@ -3569,6 +3589,8 @@
 "dOg" = (
 /obj/structure/table/ms13/metal/grate,
 /obj/item/clothing/head/welding/ms13,
+/obj/effect/spawner/random/ms13/guaranteed/tools/tool,
+/obj/effect/spawner/random/ms13/guaranteed/tools/tool,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/tribal_abandoned)
 "dOy" = (
@@ -4258,6 +4280,10 @@
 	},
 /turf/open/floor/ms13/concrete/industrial/walkway,
 /area/ms13/snowcrest/republic)
+"ezW" = (
+/obj/effect/spawner/random/ms13/melee/tier3,
+/turf/open/floor/plating/ms13/ground/snow,
+/area/ms13/snow/lightforest)
 "eAE" = (
 /obj/structure/chair/comfy/ms13/ergo{
 	dir = 4
@@ -4373,6 +4399,11 @@
 /obj/structure/ms13/barrel/double/yellow,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
+"eFW" = (
+/obj/structure/flora/grass/jungle/b,
+/obj/machinery/ms13/agriculture/soil,
+/turf/open/floor/plating/ms13/ground/mountain,
+/area/ms13/underground/mountain)
 "eGf" = (
 /obj/structure/table/ms13/wood/bar,
 /obj/effect/decal/cleanable/glass,
@@ -5333,6 +5364,11 @@
 	},
 /turf/open/floor/wood/ms13/fancy,
 /area/ms13/town)
+"fGD" = (
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/effect/mob_spawn/corpse/human/ms13/wastelander,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/tribal_abandoned)
 "fGJ" = (
 /obj/structure/table/ms13/wood/constructed,
 /obj/effect/spawner/random/ms13/drink/alcohol_beer,
@@ -10785,6 +10821,7 @@
 /area/ms13/town)
 "jhd" = (
 /obj/machinery/iv_drip/ms13,
+/obj/effect/spawner/random/ms13/medical/bloodbag,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/tribal_abandoned)
 "jhg" = (
@@ -14380,6 +14417,7 @@
 /obj/structure/closet/crate/ms13/footlocker,
 /obj/effect/spawner/random/ms13/medical/tier2,
 /obj/effect/spawner/random/ms13/medical/herbal,
+/obj/effect/spawner/random/ms13/medical/highrandom,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/tribal_abandoned)
 "lyu" = (
@@ -15699,6 +15737,7 @@
 /area/ms13/town)
 "mzw" = (
 /obj/structure/table/ms13/no_smooth/counter/wood/crafted,
+/obj/effect/spawner/random/ms13/crafting/household,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/tribal_abandoned)
 "mzB" = (
@@ -18353,6 +18392,7 @@
 /obj/effect/spawner/random/ms13/crafting/lowrandom,
 /obj/effect/spawner/random/ms13/crafting/lowrandom,
 /obj/effect/spawner/random/ms13/crafting/highrandom,
+/obj/effect/spawner/random/ms13/guaranteed/crafting/highrandom,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/tribal_abandoned)
 "oBF" = (
@@ -19135,6 +19175,8 @@
 	dir = 1
 	},
 /obj/effect/spawner/random/ms13/tools/radio,
+/obj/effect/spawner/random/ms13/crafting/electrical,
+/obj/effect/spawner/random/ms13/crafting/electrical,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/tribal_abandoned)
 "pxz" = (
@@ -21144,6 +21186,7 @@
 /obj/machinery/light/ms13{
 	dir = 8
 	},
+/obj/effect/mob_spawn/corpse/human/ms13/wastelander,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/tribal_abandoned)
 "sij" = (
@@ -21513,6 +21556,10 @@
 /obj/effect/landmark/start/ms13/squatter,
 /turf/open/floor/plating/ms13/ground/road,
 /area/ms13/snowcrest)
+"sKA" = (
+/mob/living/simple_animal/hostile/ms13/radstag,
+/turf/open/floor/plating/ms13/ground/snow,
+/area/ms13/snow/lightforest)
 "sLa" = (
 /obj/structure/table/ms13/no_smooth/wood/low,
 /obj/effect/spawner/random/ms13/drugs/lowrandom,
@@ -23466,6 +23513,10 @@
 /obj/structure/ms13/storage/vent,
 /turf/open/floor/wood/ms13/carpet/shaggy,
 /area/ms13/town)
+"vlM" = (
+/mob/living/simple_animal/hostile/ms13/hellpig,
+/turf/open/floor/plating/ms13/ground/snow,
+/area/ms13/snow/lightforest)
 "vlS" = (
 /obj/structure/ms13/pipes/vent,
 /obj/effect/landmark/start/ms13/squatter,
@@ -23481,6 +23532,11 @@
 /obj/structure/window/reinforced/fulltile/ms13/glass,
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/underground/bos)
+"vnZ" = (
+/obj/structure/table/ms13/wood/constructed,
+/obj/effect/spawner/random/ms13/tools/farming,
+/turf/open/floor/plating/ms13/ground/mountain,
+/area/ms13/underground/mountain)
 "voz" = (
 /obj/structure/ms13/storage/store,
 /obj/effect/spawner/random/ms13/drink/alcohol,
@@ -28684,7 +28740,7 @@ xZD
 ylG
 ylG
 ylG
-ylG
+sKA
 ylG
 ylG
 ylG
@@ -37628,7 +37684,7 @@ ylG
 ylG
 ylG
 ylG
-ylG
+sKA
 ylG
 ylG
 ylG
@@ -41372,7 +41428,7 @@ fdI
 fdI
 ylG
 ylG
-ylG
+sKA
 ylG
 ylG
 ylG
@@ -66322,7 +66378,7 @@ ykZ
 gjv
 ykZ
 ykZ
-ecD
+aee
 ykZ
 khQ
 khQ
@@ -70831,7 +70887,7 @@ ylG
 ylG
 ylG
 ylG
-ylG
+bWa
 ylG
 ylG
 nKM
@@ -72219,7 +72275,7 @@ omM
 ofY
 omM
 omM
-ofY
+dwl
 wtg
 wtg
 xsE
@@ -72653,7 +72709,7 @@ ylG
 ylG
 ylG
 ylG
-ylG
+ezW
 ylG
 ylG
 ylG
@@ -73106,14 +73162,14 @@ ylG
 ylG
 ylG
 ylG
+cKg
 ylG
 ylG
 ylG
+vlM
 ylG
 ylG
 ylG
-ylG
-cvE
 ylG
 wtg
 wtg
@@ -73804,7 +73860,7 @@ omM
 omM
 eEy
 yif
-kLJ
+fGD
 ofY
 omM
 omM
@@ -74221,7 +74277,7 @@ ybZ
 xsE
 xsE
 xsE
-xsE
+oKv
 xsE
 xsE
 xsE
@@ -75822,7 +75878,7 @@ ybZ
 ybZ
 ybZ
 ybZ
-ylG
+bWa
 ylG
 ylG
 ylG
@@ -76532,8 +76588,8 @@ khQ
 khQ
 khQ
 khQ
-xmo
-xmo
+kaz
+kaz
 khQ
 khQ
 khQ
@@ -76758,9 +76814,9 @@ khQ
 khQ
 khQ
 khQ
+kaz
 xmo
-oiB
-xmo
+uMx
 usd
 khQ
 khQ
@@ -76984,8 +77040,8 @@ khQ
 khQ
 khQ
 khQ
-xmo
-xmo
+kaz
+uMx
 xmo
 xmo
 usd
@@ -77211,7 +77267,7 @@ khQ
 khQ
 khQ
 khQ
-pyY
+eFW
 xmo
 xmo
 usd
@@ -77438,8 +77494,8 @@ nKM
 nKM
 nKM
 nKM
-xmo
-xmo
+uMx
+nOL
 xmo
 usd
 usd
@@ -77665,7 +77721,7 @@ omM
 kKj
 mwX
 nKM
-xmo
+vnZ
 keL
 usd
 usd
@@ -78118,7 +78174,7 @@ omM
 omM
 omM
 omM
-xlF
+ahT
 xmo
 xmo
 usd
@@ -78346,7 +78402,7 @@ omM
 qAp
 ooY
 nKM
-xmo
+fpl
 jWu
 usd
 usd
