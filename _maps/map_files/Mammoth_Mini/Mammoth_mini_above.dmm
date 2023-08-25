@@ -819,13 +819,8 @@
 /turf/open/floor/wood/ms13/fancy,
 /area/ms13/town)
 "aeW" = (
-/obj/structure/table/ms13/metal,
-/obj/machinery/light/ms13{
-	dir = 8
-	},
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
-/turf/open/floor/ms13/metal,
-/area/ms13/underground/tunnel/maintenance)
+/turf/open/floor/plating/ms13/roof/metal,
+/area/ms13/snowcrest)
 "aeY" = (
 /obj/machinery/light/ms13{
 	dir = 8
@@ -1841,14 +1836,6 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
 /obj/machinery/door/airlock/ms13,
 /turf/open/floor/ms13/metal,
-/area/ms13/underground/tunnel/maintenance)
-"akV" = (
-/obj/structure/ms13/storage/large/shelf{
-	dir = 8
-	},
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
-/obj/effect/spawner/random/ms13/tools/radio,
-/turf/open/floor/ms13/metal/plate,
 /area/ms13/underground/tunnel/maintenance)
 "akY" = (
 /obj/structure/chair/office/ms13/green,
@@ -4362,12 +4349,9 @@
 /turf/open/openspace/ms13,
 /area/ms13/town)
 "aBy" = (
-/obj/machinery/light/ms13{
-	dir = 1
-	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
-/turf/open/floor/ms13/metal/plate,
-/area/ms13/underground/tunnel/maintenance)
+/turf/closed/wall/ms13/concrete,
+/area/ms13/underground/mountain)
 "aBz" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/effect/spawner/random/ms13/clothing/under,
@@ -6032,13 +6016,6 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
-"aLV" = (
-/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/mountain,
-/obj/structure/ms13/trash/papers{
-	dir = 4
-	},
-/turf/open/floor/ms13/metal,
-/area/ms13/underground/tunnel/maintenance)
 "aLW" = (
 /obj/structure/chair/comfy/ms13/armchair{
 	dir = 1
@@ -7493,6 +7470,14 @@
 	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
+"aVj" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/button/ms13{
+	dir = 4;
+	id = "ncr-gen-upstairs"
+	},
+/turf/open/floor/ms13/concrete/small,
+/area/ms13/snowcrest/republic)
 "aVm" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/structure/ms13/toilet{
@@ -12237,6 +12222,10 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/ms13/tile/large/white,
 /area/ms13/snowcrest/building)
+"jYR" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/turf/open/openspace/ms13,
+/area/ms13/snowcrest)
 "jZc" = (
 /obj/structure/ms13/rug/rubber{
 	dir = 4
@@ -15767,7 +15756,9 @@
 "rRf" = (
 /obj/structure/table/ms13/low_wall/metal,
 /obj/structure/window/fulltile/ms13/glass,
-/obj/machinery/door/poddoor/shutters/ms13/horizontal/red/solo/pre_open,
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/red/solo/pre_open{
+	id = "ncr-gen-upstairs"
+	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/ms13/concrete,
 /area/ms13/snowcrest/republic)
@@ -15813,6 +15804,9 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
+"rXF" = (
+/turf/closed/wall/ms13/metal,
+/area/ms13)
 "rZt" = (
 /obj/item/chair/ms13/metal/office/green/broken,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -44302,7 +44296,7 @@ tUq
 xAD
 hkf
 uci
-hkf
+aVj
 hkf
 tUq
 aLH
@@ -46347,7 +46341,7 @@ vlf
 vlf
 fAn
 tUq
-aLH
+abJ
 aLH
 aLH
 aLH
@@ -46574,7 +46568,7 @@ vlf
 vlf
 smn
 hVl
-aLH
+abJ
 aLH
 aLH
 aLH
@@ -46801,7 +46795,7 @@ vlf
 vlf
 vlf
 hVl
-aLH
+abJ
 aLH
 aLH
 aLH
@@ -47028,7 +47022,7 @@ aRt
 aRt
 aRt
 tUq
-aLH
+rXF
 aLH
 aLH
 aLH
@@ -47249,13 +47243,13 @@ sTN
 sTN
 sTN
 sTN
-sTN
-sTN
-sTN
-sTN
-sTN
-sTN
-aLH
+jYR
+jYR
+jYR
+jYR
+jYR
+jYR
+aLD
 aLH
 aLH
 aLH
@@ -47476,13 +47470,13 @@ sTN
 sTN
 sTN
 sTN
-sTN
-sTN
-sTN
-sTN
-sTN
-sTN
-aLH
+jYR
+jYR
+jYR
+jYR
+jYR
+jYR
+aLD
 aLH
 aLH
 aLH
@@ -47703,13 +47697,13 @@ sTN
 sTN
 sTN
 sTN
-sTN
-sTN
-sTN
-sTN
-sTN
-sTN
-aLH
+jYR
+jYR
+jYR
+jYR
+jYR
+jYR
+aLD
 aLH
 aLH
 aLH
@@ -47930,13 +47924,13 @@ sTN
 sTN
 sTN
 sTN
-sTN
-sTN
-sTN
-sTN
-sTN
-sTN
-aLH
+jYR
+jYR
+jYR
+jYR
+jYR
+jYR
+aLD
 aLH
 aLH
 aLH
@@ -48157,13 +48151,13 @@ sTN
 sTN
 sTN
 sTN
-sTN
-sTN
-sTN
-sTN
-sTN
-sTN
-aLH
+jYR
+jYR
+jYR
+jYR
+jYR
+jYR
+aLD
 aLH
 aLH
 aLH
@@ -48384,13 +48378,13 @@ sTN
 sTN
 sTN
 sTN
-sTN
-sTN
-sTN
-sTN
-sTN
-sTN
-aLH
+jYR
+jYR
+jYR
+jYR
+jYR
+jYR
+aLD
 aLH
 aLH
 aLH
@@ -48611,13 +48605,13 @@ sTN
 sTN
 sTN
 sTN
-sTN
-sTN
-sTN
-sTN
-sTN
-sTN
-aLH
+jYR
+jYR
+jYR
+jYR
+jYR
+jYR
+aLD
 aLH
 aLH
 aLH
@@ -48844,7 +48838,7 @@ aat
 aat
 aat
 aat
-aLH
+rXF
 aLH
 aLH
 aLH
@@ -49065,13 +49059,13 @@ sTN
 sTN
 sTN
 sTN
+sTN
+sTN
+sTN
 aat
 vDk
-vDk
-vDk
-vDk
 aat
-aLH
+abJ
 aLH
 aLH
 aLH
@@ -49292,11 +49286,11 @@ sTN
 sTN
 sTN
 sTN
-aat
-aat
+sTN
+sTN
+sTN
 aat
 vDk
-aat
 aat
 aat
 aat
@@ -49521,8 +49515,8 @@ sTN
 sTN
 sTN
 sTN
+sTN
 aat
-vDk
 vDk
 vDk
 vDk
@@ -49748,8 +49742,8 @@ sTN
 sTN
 sTN
 sTN
+sTN
 aat
-vDk
 aat
 aat
 aat
@@ -49975,8 +49969,8 @@ sTN
 sTN
 sTN
 sTN
-eSl
-eSl
+sTN
+sTN
 eSl
 eSl
 eSl
@@ -50202,8 +50196,8 @@ sTN
 sTN
 sTN
 sTN
-eSl
-eSl
+sTN
+sTN
 eSl
 eSl
 eSl
@@ -50429,8 +50423,8 @@ sTN
 sTN
 sTN
 sTN
-eSl
-eSl
+sTN
+sTN
 eSl
 eSl
 eSl
@@ -50656,8 +50650,8 @@ sTN
 sTN
 sTN
 sTN
-eSl
-eSl
+sTN
+sTN
 eSl
 eSl
 eSl
@@ -53350,14 +53344,14 @@ aPY
 sTN
 sTN
 sTN
-aPY
-aPY
-aPY
-aPY
-aPY
-aPY
-aPY
-aPY
+sTN
+sTN
+sTN
+aeW
+sTN
+sTN
+sTN
+sTN
 sTN
 sTN
 aPY
@@ -53575,14 +53569,14 @@ aPY
 aPY
 aPY
 aPY
-aPY
-aPY
-aPY
-aPY
-aPY
-aPY
-aPY
-aPY
+sTN
+sTN
+sTN
+sTN
+sTN
+aeW
+sTN
+sTN
 aPY
 aPY
 aPY
@@ -53802,16 +53796,16 @@ aPY
 aPY
 aPY
 aPY
-arH
-arH
-arH
-arH
-arH
-arH
-arH
-arH
-arH
-arH
+aPY
+aPY
+aPY
+aPY
+aPY
+aPY
+aPY
+aPY
+aPY
+aPY
 aPY
 aPY
 aPY
@@ -54029,16 +54023,16 @@ aPY
 aPY
 aPY
 aPY
-arH
-uqS
-ajq
-aeW
-awd
-ajq
-arH
-aSR
-akV
-arH
+aPY
+aPY
+aPY
+aPY
+aPY
+aPY
+aPY
+aPY
+aPY
+aPY
 aPY
 aPY
 aPY
@@ -54256,16 +54250,16 @@ aPY
 aPY
 aPY
 aPY
-arH
-uqS
-ajq
-ajq
-aHF
-ajq
-arH
+aPY
+aPY
+aPY
+aPY
+aPY
+aPY
 aBy
-aSR
-arH
+aBy
+aBy
+aBy
 aPY
 aPY
 aPY
@@ -54483,13 +54477,13 @@ aPY
 aPY
 aPY
 aPY
+aPY
+aPY
+aPY
+aPY
+aPY
+aPY
 arH
-aeF
-ajq
-aLV
-ajq
-ajq
-akU
 aAV
 ajq
 agd
@@ -54710,12 +54704,12 @@ aPY
 aPY
 aPY
 aPY
-arH
-aRm
-aRm
-aRm
-aRm
-aRm
+aPY
+aPY
+aPY
+aPY
+aPY
+aPY
 arH
 ajq
 ajq
@@ -54937,12 +54931,12 @@ aPY
 aPY
 aPY
 aPY
-arH
-arH
-arH
-arH
-arH
-arH
+aPY
+aBy
+aBy
+aBy
+aBy
+aBy
 arH
 ajq
 ajq
