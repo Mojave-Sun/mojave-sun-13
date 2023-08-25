@@ -9,22 +9,25 @@
 	var/id = 1 // For toggling states with buttons or terminals. Namely neon signs.
 	var/on = FALSE
 
-/obj/structure/ms13/sign/Initialize(mapload)
-	. = ..()
-	GLOB.signs += src
-
-/obj/structure/ms13/sign/proc/on()
-	. += mutable_appearance(icon, "[icon_state]_on")
-	. += emissive_appearance(icon, "[icon_state]_on")
-	set_light(0.5,0.2,"#9c476f")
-	on = TRUE
-	update_appearance()
-
-/obj/structure/ms13/sign/proc/off()
-	cut_overlays()
-	set_light(0,0,"#000000")
-	on = FALSE
-	update_appearance()
+// This code needs to die. They'll ALL be on FOREVER... until it's made otherwise :/
+// /obj/structure/ms13/sign/Initialize(mapload)
+// 	. = ..()
+// 	GLOB.signs += src
+//
+// /obj/structure/ms13/sign/proc/on()
+// 	set_light(2,2,"#9c476f")
+// 	update_overlays()
+// 	on = TRUE
+//
+// /obj/structure/ms13/sign/proc/off()
+// 	set_light(0,0,"#000000")
+// 	cut_overlays()
+// 	on = FALSE
+//
+// /obj/structure/ms13/sign/update_overlays()
+// 	. = ..()
+//
+//
 
 /obj/structure/ms13/sign/snowcrest
 	name = "snowcrest sign"
@@ -80,8 +83,25 @@
 	name = "open sign"
 	desc = "A neon sign, showing if the building is open for business or not! Incredible!"
 	icon_state = "open"
+	max_integrity = 75
+	integrity_failure = 35
+	layer = TURF_LAYER
 	pixel_y = 32
 	density = FALSE
+
+/obj/structure/ms13/sign/open/update_overlays()
+	. = ..()
+	. += mutable_appearance(icon, "[icon_state]_on")
+	. += emissive_appearance(icon, "[icon_state]_on")
+
+/obj/structure/ms13/sign/open/Initialize(mapload)
+	. = ..()
+	set_light(1,0.5,"#9c476f")
+
+/obj/structure/ms13/sign/open/atom_break(damage_flag)
+	. = ..()
+	cut_overlays()
+	set_light(0,0,"#000000")
 
 /obj/structure/ms13/sign/open/bar
 	icon_state = "open_bar"

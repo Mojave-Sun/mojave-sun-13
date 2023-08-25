@@ -448,12 +448,13 @@
 				openclose = M.density
 			INVOKE_ASYNC(M, openclose ? /obj/machinery/door/poddoor.proc/open : /obj/machinery/door/poddoor.proc/close)
 
-	var/onoff
-	for(var/obj/structure/ms13/sign/S in GLOB.signs)
-		if(S.id == src.id)
-			if(openclose == null)
-				openclose = S.on
-			INVOKE_ASYNC(S, onoff ? /obj/structure/ms13/sign.proc/on : /obj/structure/ms13/sign.proc/off)
+	// freak this code for now
+	//var/onoff
+	//for(var/obj/structure/ms13/sign/S in GLOB.signs)
+	//	if(S.id == src.id)
+	//		if(openclose == null)
+	//			openclose = S.on
+	//		INVOKE_ASYNC(S, onoff ? /obj/structure/ms13/sign.proc/on : /obj/structure/ms13/sign.proc/off)
 
 //// Extra variants ////
 /obj/machinery/ms13/terminal/pristine
