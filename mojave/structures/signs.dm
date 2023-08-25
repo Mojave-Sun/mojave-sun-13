@@ -85,7 +85,6 @@
 	icon_state = "open"
 	max_integrity = 75
 	integrity_failure = 35
-	layer = TURF_LAYER
 	pixel_y = 32
 	density = FALSE
 
@@ -96,7 +95,8 @@
 
 /obj/structure/ms13/sign/open/Initialize(mapload)
 	. = ..()
-	set_light(1,0.5,"#9c476f")
+	set_light(1.5,1,"#9c476f")
+	update_appearance()
 
 /obj/structure/ms13/sign/open/atom_break(damage_flag)
 	. = ..()
@@ -105,8 +105,6 @@
 
 /obj/structure/ms13/sign/open/bar
 	icon_state = "open_bar"
-	pixel_y = 32
-	density = FALSE
 
 /obj/structure/ms13/sign/hotel
 	name = "hotel sign"
