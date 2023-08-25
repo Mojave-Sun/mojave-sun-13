@@ -33,14 +33,37 @@
 	name = "snowcrest sign"
 	desc = "A sign with the name 'Snowcrest'. You're filled with a slightly dreadful feeling."
 	icon_state = "snowcrest"
-	projectile_passchance = 35
+	density = FALSE
 	bound_x = 64
+	pixel_y = 24
 
 /obj/structure/ms13/sign/bazaar
 	name = "bazaar sign"
 	desc = "A set of signs clearly directing you to the heart of the Town. Obviously there is many things to be gained in this particular direction."
 	icon_state = "bazaar"
 	projectile_passchance = 50
+	max_integrity = 750
+	integrity_failure = 500
+	var/datum/looping_sound/ms13/neonsign/soundloop
+
+/obj/structure/ms13/sign/bazaar/update_overlays()
+	. = ..()
+	. += mutable_appearance(icon, "[icon_state]_on")
+	. += emissive_appearance(icon, "[icon_state]_on")
+
+/obj/structure/ms13/sign/bazaar/Initialize(mapload)
+	. = ..()
+	set_light(1,1.5,"#da693c")
+	update_appearance()
+	soundloop = new(src)
+	soundloop.start()
+
+/obj/structure/ms13/sign/bazaar/atom_break(damage_flag)
+	. = ..()
+	cut_overlays()
+	set_light(0,0,"#000000")
+	do_sparks(1)
+	QDEL_NULL(soundloop)
 
 /obj/structure/ms13/sign/private
 	name = "sign"
@@ -55,7 +78,7 @@
 	desc = "A sign declaring a zone being off limits. Peculiar."
 	icon_state = "workers"
 	bound_x = 64
-	pixel_y = 32
+	pixel_y = 24
 	density = FALSE
 
 /obj/structure/ms13/sign/rent
@@ -78,6 +101,25 @@
 	icon_state = "bar"
 	pixel_y = 32
 	density = FALSE
+	max_integrity = 75
+	integrity_failure = 35
+	hitted_sound = 'sound/effects/glasshit.ogg'
+
+/obj/structure/ms13/sign/bar/update_overlays()
+	. = ..()
+	. += mutable_appearance(icon, "[icon_state]")
+	. += emissive_appearance(icon, "[icon_state]")
+
+/obj/structure/ms13/sign/bar/Initialize(mapload)
+	. = ..()
+	set_light(1,1.5,"#dce62a")
+	update_appearance()
+
+/obj/structure/ms13/sign/bar/atom_break(damage_flag)
+	. = ..()
+	cut_overlays()
+	set_light(0,0,"#000000")
+	do_sparks(1)
 
 /obj/structure/ms13/sign/open
 	name = "open sign"
@@ -87,6 +129,8 @@
 	integrity_failure = 35
 	pixel_y = 32
 	density = FALSE
+	hitted_sound = 'sound/effects/glasshit.ogg'
+	var/datum/looping_sound/ms13/neonsign/busted/soundloop
 
 /obj/structure/ms13/sign/open/update_overlays()
 	. = ..()
@@ -95,13 +139,17 @@
 
 /obj/structure/ms13/sign/open/Initialize(mapload)
 	. = ..()
-	set_light(1.5,1,"#9c476f")
+	set_light(2,2,"#9c476f")
 	update_appearance()
+	soundloop = new(src)
+	soundloop.start()
 
 /obj/structure/ms13/sign/open/atom_break(damage_flag)
 	. = ..()
 	cut_overlays()
 	set_light(0,0,"#000000")
+	do_sparks(1)
+	QDEL_NULL(soundloop)
 
 /obj/structure/ms13/sign/open/bar
 	icon_state = "open_bar"
@@ -110,6 +158,35 @@
 	name = "hotel sign"
 	desc = "A hotel at last! Time to rest those weary feet."
 	icon_state = "hotel"
+	max_integrity = 800
 	bound_x = 64
 	pixel_y = 32
 	density = FALSE
+
+/obj/structure/ms13/sign/weopen
+	name = "sign"
+	desc = "A sign. We're OPEN? Fantastic news!"
+	icon_state = "we_open"
+	anchored = TRUE
+	density = TRUE
+	max_integrity = 650 // Hardy but not immortal
+	integrity_failure = 500
+	var/datum/looping_sound/ms13/neonsign/busted/soundloop
+
+/obj/structure/ms13/sign/weopen/update_overlays()
+	. = ..()
+	. += mutable_appearance(icon, "[icon_state]_on")
+	. += emissive_appearance(icon, "[icon_state]_on")
+
+/obj/structure/ms13/sign/weopen/Initialize(mapload)
+	. = ..()
+	set_light(1.5,2,"#ab4775")
+	update_appearance()
+	soundloop = new(src)
+	soundloop.start()
+
+/obj/structure/ms13/sign/weopen/atom_break(damage_flag)
+	. = ..()
+	cut_overlays()
+	set_light(0,0,"#000000")
+	QDEL_NULL(soundloop)

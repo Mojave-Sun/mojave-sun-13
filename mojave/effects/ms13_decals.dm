@@ -232,6 +232,12 @@
 /obj/effect/turf_decal/ms13/graffiti/large/nofuture_black
 	icon_state = "nofuture_black"
 
+/obj/effect/turf_decal/ms13/graffiti/large/checkpoint_decal
+	icon_state = "checkpoint_decal"
+
+/obj/effect/turf_decal/ms13/graffiti/large/workers_decal
+	icon_state = "workers_decal"
+
 // Posters
 
 /obj/effect/turf_decal/ms13/poster
