@@ -141,6 +141,6 @@
 
 // Playtime is tracked in minutes
 /// The time needed to unlock hardcore random mode in preferences
-#define PLAYTIME_HARDCORE_RANDOM 120 // 2 hours
+#define PLAYTIME_HARDCORE_RANDOM 500000 // MS13 EDIT - Put these at absurd times as a stop-gap for now so I'm not fiddling with this stuff mid-test, also the timelocks are kind of hard to test on a local host since we don't have a DB on my personal PC lol! - Hekzder
 /// The time needed to unlock the gamer cloak in preferences
-#define PLAYTIME_VETERAN 300000 // 5,000 hours
+#define PLAYTIME_VETERAN 500000 // MS13 EDIT - Put these at absurd times as a stop-gap for now so I'm not fiddling with this stuff mid-test, also the timelocks are kind of hard to test on a local host since we don't have a DB on my personal PC lol! - Hekzder
