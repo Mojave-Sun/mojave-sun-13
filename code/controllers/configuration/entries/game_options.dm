@@ -307,7 +307,7 @@
 	min_val = -1
 
 /datum/config_entry/string/overflow_job
-	default = JOB_ASSISTANT
+	default = /datum/job/ms13/wasteland/wastelander //Mojave Edit - I hate this - Hekzder
 
 /datum/config_entry/flag/starlight
 /datum/config_entry/flag/grey_assistants

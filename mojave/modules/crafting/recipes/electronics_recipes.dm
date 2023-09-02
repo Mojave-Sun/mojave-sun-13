@@ -21,11 +21,11 @@
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	tool_paths = list(/obj/item/wirecutters/ms13)
 	reqs = list(/obj/item/ms13/component/cell = 2,
-				/obj/item/stack/sheet/ms13/scrap_copper = 5,
-				/obj/item/stack/sheet/ms13/scrap_electronics = 5,
+				/obj/item/stack/sheet/ms13/scrap_copper = 4,
+				/obj/item/stack/sheet/ms13/scrap_electronics = 4,
 				/obj/item/stack/sheet/ms13/refined_alu = 1,
-				/obj/item/stack/sheet/ms13/scrap_parts = 4,
-				/obj/item/stack/sheet/ms13/glass = 5,
+				/obj/item/stack/sheet/ms13/scrap_parts = 2,
+				/obj/item/stack/sheet/ms13/glass = 4,
 				/obj/item/stack/sheet/ms13/circuits = 1)
 	category = CAT_ELECTRONICS
 	crafting_interface = CRAFTING_BENCH_ELECTRIC
@@ -38,12 +38,12 @@
 	tool_paths = list(/obj/item/wirecutters/ms13)
 	trait = TRAIT_SCRIBE_TRAINING
 	reqs = list(/obj/item/ms13/component/cell = 2,
-				/obj/item/stack/sheet/ms13/scrap_copper = 8,
-				/obj/item/stack/sheet/ms13/scrap_electronics = 8,
-				/obj/item/stack/sheet/ms13/refined_alu = 3,
-				/obj/item/stack/sheet/ms13/scrap_parts = 8,
-				/obj/item/stack/sheet/ms13/glass = 8,
-				/obj/item/stack/sheet/ms13/circuits = 5)
+				/obj/item/stack/sheet/ms13/scrap_copper = 6,
+				/obj/item/stack/sheet/ms13/scrap_electronics = 6,
+				/obj/item/stack/sheet/ms13/refined_alu = 2,
+				/obj/item/stack/sheet/ms13/scrap_parts = 6,
+				/obj/item/stack/sheet/ms13/glass = 6,
+				/obj/item/stack/sheet/ms13/circuits = 4)
 	category = CAT_ELECTRONICS
 	crafting_interface = CRAFTING_BENCH_ELECTRIC
 
@@ -55,11 +55,11 @@
 	tool_paths = list(/obj/item/wirecutters/ms13)
 	reqs = list(/obj/item/ms13/component/cell = 1,
 				/obj/item/ms13/component/vacuum_tube = 1,
-				/obj/item/stack/sheet/ms13/scrap_copper = 5,
-				/obj/item/stack/sheet/ms13/scrap_electronics = 5,
-				/obj/item/stack/sheet/ms13/plastic = 6,
-				/obj/item/stack/sheet/ms13/scrap_parts = 4,
-				/obj/item/stack/sheet/ms13/circuits = 2)
+				/obj/item/stack/sheet/ms13/scrap_copper = 4,
+				/obj/item/stack/sheet/ms13/scrap_electronics = 4,
+				/obj/item/stack/sheet/ms13/plastic = 5,
+				/obj/item/stack/sheet/ms13/scrap_parts = 2,
+				/obj/item/stack/sheet/ms13/circuits = 1)
 	category = CAT_ELECTRONICS
 	crafting_interface = CRAFTING_BENCH_ELECTRIC
 
@@ -72,10 +72,10 @@
 	reqs = list(/obj/item/radio/ms13 = 1,
 				/obj/item/ms13/component/cell = 1,
 				/obj/item/ms13/component/vacuum_tube = 1,
-				/obj/item/stack/sheet/ms13/scrap_copper = 6,
-				/obj/item/stack/sheet/ms13/scrap_electronics = 6,
-				/obj/item/stack/sheet/ms13/scrap_parts = 4,
-				/obj/item/stack/sheet/ms13/circuits = 3)
+				/obj/item/stack/sheet/ms13/scrap_copper = 5,
+				/obj/item/stack/sheet/ms13/scrap_electronics = 5,
+				/obj/item/stack/sheet/ms13/scrap_parts = 2,
+				/obj/item/stack/sheet/ms13/circuits = 2)
 	category = CAT_ELECTRONICS
 	crafting_interface = CRAFTING_BENCH_ELECTRIC
 
@@ -87,12 +87,12 @@
 	tool_paths = list(/obj/item/wirecutters/ms13)
 	trait = TRAIT_SCRIBE_TRAINING
 	reqs = list(/obj/item/radio/ms13/broadcast = 1,
-				/obj/item/ms13/component/cell = 2,
+				/obj/item/ms13/component/cell = 1,
 				/obj/item/ms13/component/vacuum_tube = 2,
-				/obj/item/stack/sheet/ms13/scrap_copper = 8,
-				/obj/item/stack/sheet/ms13/scrap_electronics = 8,
-				/obj/item/stack/sheet/ms13/scrap_parts = 5,
-				/obj/item/stack/sheet/ms13/circuits = 5)
+				/obj/item/stack/sheet/ms13/scrap_copper = 6,
+				/obj/item/stack/sheet/ms13/scrap_electronics = 6,
+				/obj/item/stack/sheet/ms13/scrap_parts = 3,
+				/obj/item/stack/sheet/ms13/circuits = 4)
 	category = CAT_ELECTRONICS
 	crafting_interface = CRAFTING_BENCH_ELECTRIC
 
@@ -104,8 +104,8 @@
 	tool_paths = list(/obj/item/wirecutters/ms13)
 	reqs = list(/obj/item/ms13/component/cell = 1,
 				/obj/item/stack/sheet/ms13/refined_copper = 2,
-				/obj/item/stack/sheet/ms13/scrap_electronics = 5,
-				/obj/item/stack/sheet/ms13/plastic = 3)
+				/obj/item/stack/sheet/ms13/scrap_electronics = 3,
+				/obj/item/stack/sheet/ms13/plastic = 2)
 	category = CAT_ELECTRONICS
 	crafting_interface = CRAFTING_BENCH_ELECTRIC
 
@@ -118,9 +118,9 @@
 	trait = TRAIT_SCRIBE_TRAINING
 	reqs = list(/obj/item/ms13/component/cell = 2,
 				/obj/item/stack/sheet/ms13/refined_copper = 3,
-				/obj/item/stack/sheet/ms13/scrap_electronics = 8,
+				/obj/item/stack/sheet/ms13/scrap_electronics = 5,
 				/obj/item/stack/sheet/ms13/refined_lead = 1,
-				/obj/item/stack/sheet/ms13/plastic = 4)
+				/obj/item/stack/sheet/ms13/plastic = 3)
 	category = CAT_ELECTRONICS
 	crafting_interface = CRAFTING_BENCH_ELECTRIC
 
@@ -133,9 +133,9 @@
 	trait = TRAIT_SCRIBE_TRAINING
 	reqs = list(/obj/item/ms13/component/cell = 2,
 				/obj/item/stack/sheet/ms13/refined_copper = 4,
-				/obj/item/stack/sheet/ms13/scrap_electronics = 10,
+				/obj/item/stack/sheet/ms13/scrap_electronics = 6,
 				/obj/item/stack/sheet/ms13/refined_lead = 2,
-				/obj/item/stack/sheet/ms13/plastic = 5)
+				/obj/item/stack/sheet/ms13/plastic = 3)
 	category = CAT_ELECTRONICS
 	crafting_interface = CRAFTING_BENCH_ELECTRIC
 
@@ -147,9 +147,9 @@
 	tool_paths = list(/obj/item/wirecutters/ms13)
 	trait = TRAIT_SCRIBE_TRAINING
 	reqs = list(/obj/item/ms13/component/plasma_battery = 2,
-				/obj/item/stack/sheet/ms13/refined_copper = 5,
+				/obj/item/stack/sheet/ms13/refined_copper = 4,
 				/obj/item/stack/sheet/ms13/refined_lead = 2,
-				/obj/item/stack/sheet/ms13/plastic = 6)
+				/obj/item/stack/sheet/ms13/plastic = 4)
 	category = CAT_ELECTRONICS
 	crafting_interface = CRAFTING_BENCH_ELECTRIC
 

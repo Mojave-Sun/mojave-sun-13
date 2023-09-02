@@ -241,5 +241,6 @@
 		/obj/item/trash/ms13/packaging/poofs,
 		/obj/item/trash/ms13/packaging/sugarbombs,
 		/obj/item/trash/ms13/packaging/yumegg,
-		/obj/item/trash/ms13/packaging/instamash
+		/obj/item/trash/ms13/packaging/instamash,
+		/obj/item/reagent_containers/food/drinks/bottle/ms13/plain
 	)

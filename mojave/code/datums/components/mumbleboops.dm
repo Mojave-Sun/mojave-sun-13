@@ -133,7 +133,7 @@
 				current_delay -= 1
 
 		final_boop = "mojave/sound/voices/[chosen_boop]/s_[boop_letter].wav"
-		addtimer(CALLBACK(src, .proc/play_mumbleboop, hearers, mumblebooper, final_boop, volume, initial_mumbleboop_time), mumbleboop_delay_cumulative + current_delay, falloff_exponent)
+		addtimer(CALLBACK(src, .proc/play_mumbleboop, hearers, mumblebooper, final_boop, volume, initial_mumbleboop_time, falloff_exponent), mumbleboop_delay_cumulative + current_delay)
 		mumbleboop_delay_cumulative += current_delay
 
 /datum/component/mumbleboop/proc/play_mumbleboop(list/hearers, mob/mumblebooper, final_boop, volume, initial_mumbleboop_time, falloff_exponent)

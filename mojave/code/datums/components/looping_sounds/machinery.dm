@@ -18,3 +18,26 @@
 	falloff_exponent = 3
 	extra_range = -12
 	falloff_distance = 1
+
+/datum/looping_sound/ms13/washing_machine
+	start_sound = 'mojave/sound/ms13machines/washing_start.ogg'
+	mid_sounds = list('mojave/sound/ms13machines/washing_cycle.ogg'=1)
+	start_length = 0.22 SECONDS
+	mid_length = 1.5 SECONDS
+	extra_range = 5
+	volume = 15
+	falloff_distance = 3
+	falloff_exponent = 5
+
+/datum/looping_sound/ms13/neonsign
+	start_sound = 'sound/machines/click.ogg'
+	mid_sounds = list('mojave/sound/ms13machines/neonloop.ogg'=1)
+	end_sound = 'sound/machines/click.ogg'
+	mid_length = 8 SECONDS
+	extra_range = 1
+	volume = 15
+	falloff_distance = 1
+	falloff_exponent = 5
+
+/datum/looping_sound/ms13/neonsign/busted
+	mid_sounds = list('mojave/sound/ms13machines/neonloop.ogg'=1, 'mojave/sound/ms13machines/neonloopdysf.ogg'=0.5)

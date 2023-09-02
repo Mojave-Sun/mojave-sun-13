@@ -19,7 +19,7 @@
 	loot = list(
 			/obj/effect/spawner/random/ms13/guaranteed/tools/lights = 15,
 			/obj/effect/spawner/random/ms13/guaranteed/tools/tool = 50,
-			/obj/effect/spawner/random/ms13/guaranteed/tools/fishing = 5,
+			/obj/effect/spawner/random/ms13/guaranteed/tools/farming = 5,
 			/obj/effect/spawner/random/ms13/guaranteed/crafting/lowrandom = 30
 			)
 
@@ -39,7 +39,6 @@
 			/obj/item/shovel/ms13/snow,
 			/obj/item/shovel/ms13/rake,
 			/obj/item/ms13/brick,
-			/obj/item/restraints/handcuffs/ms13/rope,
 			/obj/item/knife/ms13/scissors,
 			/obj/item/lighter/ms13/zippo,
 			/obj/item/reagent_containers/ms13/lighterfluid,
@@ -78,6 +77,17 @@
 			/obj/item/ms13/tools/fishing_rod/advanced = 10
 			)
 
+/obj/effect/spawner/random/ms13/guaranteed/tools/farming
+	name = "farming item spawner"
+	loot = list(
+		/obj/item/stack/ms13/fertilizer = 10,
+		/obj/item/ms13/fertilizer = 10,
+		/obj/item/reagent_containers/glass/bucket/ms13 = 30,
+		/obj/item/shovel/ms13/spade = 30,
+		/obj/item/shovel/ms13/rake = 18,
+		/obj/item/storage/ms13/harvest_sack = 2
+	)
+
 //CRAFTING SPAWNERS BELOW//
 
 /obj/effect/spawner/random/ms13/guaranteed/crafting
@@ -108,7 +118,8 @@
 			/obj/item/stack/sheet/ms13/plastic/two,
 			/obj/item/stack/sheet/ms13/rubber/two,
 			/obj/item/stack/sheet/ms13/scrap_parts/two,
-			/obj/item/stack/sheet/ms13/scrap/two
+			/obj/item/stack/sheet/ms13/scrap/two,
+			/obj/item/restraints/handcuffs/ms13/rope
 	)
 
 /obj/effect/spawner/random/ms13/guaranteed/crafting/highrandom
@@ -191,22 +202,21 @@
 /obj/effect/spawner/random/ms13/guaranteed/smokeable/highrandom
 	name = "high tier random smokeables spawner"
 	loot = list(
-			/obj/item/storage/fancy/ms13/cigarettes/marlboro = 20,
-			/obj/item/storage/fancy/ms13/cigarettes/winston = 20,
-			/obj/item/storage/fancy/ms13/cigarettes/salem = 40,
-			/obj/item/storage/fancy/ms13/cigarettes/kools = 30,
-			/obj/item/ms13/rolling_paper = 20,
+			/obj/item/storage/fancy/ms13/cigarettes/marlboro = 16,
+			/obj/item/storage/fancy/ms13/cigarettes/winston = 16,
+			/obj/item/storage/fancy/ms13/cigarettes/salem = 30,
+			/obj/item/storage/fancy/ms13/cigarettes/kools = 20,
+			/obj/item/ms13/rolling_paper = 16,
 			/obj/item/storage/fancy/ms13/cigarettes/rollies = 2
 			)
 
 /obj/effect/spawner/random/ms13/guaranteed/smokeable/lowrandom
 	name = "low tier random smokeables spawner"
 	loot = list(
-			/obj/item/storage/fancy/ms13/cigarettes/marlboro/random = 40,
-			/obj/item/storage/fancy/ms13/cigarettes/winston/random = 40,
-			/obj/item/storage/fancy/ms13/cigarettes/salem/random = 30,
+			/obj/item/storage/fancy/ms13/cigarettes/marlboro/random = 30,
+			/obj/item/storage/fancy/ms13/cigarettes/winston/random = 30,
+			/obj/item/storage/fancy/ms13/cigarettes/salem/random = 18,
 			/obj/item/storage/fancy/ms13/cigarettes/kools/random = 10,
-			/obj/item/storage/fancy/ms13/cigarettes/rollies/republics/random = 20,
 			/obj/item/ms13/rolling_paper = 10,
-			/obj/item/storage/fancy/ms13/cigarettes/rollies/random = 1
+			/obj/item/storage/fancy/ms13/cigarettes/rollies/random = 2
 			)

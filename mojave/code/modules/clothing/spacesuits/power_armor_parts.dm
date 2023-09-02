@@ -5,7 +5,7 @@
 	icon = 'mojave/icons/objects/pa_items.dmi'
 	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/general_pickup.ogg'
 	drop_sound = 'mojave/sound/ms13effects/impact/metal/metal_hollow_2.wav'
-	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0,  FIRE = 0, ACID = 0, WOUND = 0)
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0,  FIRE = 100, ACID = 0, WOUND = 15)
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
 					EDGE_PROTECTION = 0, \
 					CRUSHING = 0, \
@@ -15,9 +15,11 @@
 					LASER = 0, \
 					ENERGY = 0, \
 					FIRE = 0)
+	resistance_flags = FIRE_PROOF | ACID_PROOF
 	uses_integrity = TRUE
 	max_integrity = 100
 	throw_range = 3 //heavy LOL!
+	throw_speed = 0.75
 	var/icon_state_pa
 	var/chance = 0 //Weight for pick
 	var/list/modules = list(MAIN_MODULE_PA = null, PASSIVE_MODULE_PA = null)
@@ -194,7 +196,7 @@
 					CUTTING = CLASS5_CUT, \
 					PIERCING = CLASS4_PIERCE, \
 					IMPALING = CLASS5_STAB, \
-					LASER = CLASS5_LASER, \
+					LASER = CLASS4_LASER, \
 					ENERGY = CLASS4_PLASMA, \
 					FIRE = CLASS5_FIRE)
 	chance = 35
@@ -210,7 +212,7 @@
 					CUTTING = CLASS5_CUT, \
 					PIERCING = CLASS4_PIERCE, \
 					IMPALING = CLASS5_STAB, \
-					LASER = CLASS5_LASER, \
+					LASER = CLASS4_LASER, \
 					ENERGY = CLASS4_PLASMA, \
 					FIRE = CLASS5_FIRE)
 	chance = 35
@@ -226,7 +228,7 @@
 					CUTTING = CLASS5_CUT, \
 					PIERCING = CLASS4_PIERCE, \
 					IMPALING = CLASS5_STAB, \
-					LASER = CLASS5_LASER, \
+					LASER = CLASS4_LASER, \
 					ENERGY = CLASS4_PLASMA, \
 					FIRE = CLASS5_FIRE)
 	chance = 25
@@ -242,7 +244,7 @@
 					CUTTING = CLASS5_CUT, \
 					PIERCING = CLASS4_PIERCE, \
 					IMPALING = CLASS5_STAB, \
-					LASER = CLASS5_LASER, \
+					LASER = CLASS4_LASER, \
 					ENERGY = CLASS4_PLASMA, \
 					FIRE = CLASS5_FIRE)
 	chance = 35
@@ -258,7 +260,7 @@
 					CUTTING = CLASS5_CUT, \
 					PIERCING = CLASS4_PIERCE, \
 					IMPALING = CLASS5_STAB, \
-					LASER = CLASS5_LASER, \
+					LASER = CLASS4_LASER, \
 					ENERGY = CLASS4_PLASMA, \
 					FIRE = CLASS5_FIRE)
 	chance = 35
@@ -274,14 +276,14 @@
 	name = "T-45 Power Armor left leg"
 	icon_state = "t45_leftleg"
 	icon_state_pa = "t45_leftleg"
-	max_integrity = 225
+	max_integrity = 200
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = CLASS4_EDGE, \
                 CRUSHING = CLASS4_CRUSH, \
                 CUTTING = CLASS5_CUT, \
                 PIERCING = CLASS4_PIERCE, \
                 IMPALING = CLASS5_STAB, \
-                LASER = CLASS4_LASER, \
+                LASER = CLASS3_LASER, \
                 ENERGY = CLASS3_PLASMA, \
                 FIRE = CLASS5_FIRE)
 	chance = 65
@@ -290,14 +292,14 @@
 	name = "T-45 Power Armor right leg"
 	icon_state = "t45_rightleg"
 	icon_state_pa = "t45_rightleg"
-	max_integrity = 225
+	max_integrity = 200
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = CLASS4_EDGE, \
                 CRUSHING = CLASS4_CRUSH, \
                 CUTTING = CLASS5_CUT, \
                 PIERCING = CLASS4_PIERCE, \
                 IMPALING = CLASS5_STAB, \
-                LASER = CLASS4_LASER, \
+                LASER = CLASS3_LASER, \
                 ENERGY = CLASS3_PLASMA, \
                 FIRE = CLASS5_FIRE)
 	chance = 65
@@ -306,14 +308,14 @@
 	name = "T-45 Power Armor chest"
 	icon_state = "t45_chest"
 	icon_state_pa = "t45_chest"
-	max_integrity = 440
+	max_integrity = 400
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = CLASS4_EDGE, \
                 CRUSHING = CLASS4_CRUSH, \
                 CUTTING = CLASS5_CUT, \
                 PIERCING = CLASS4_PIERCE, \
                 IMPALING = CLASS5_STAB, \
-                LASER = CLASS4_LASER, \
+                LASER = CLASS3_LASER, \
                 ENERGY = CLASS3_PLASMA, \
                 FIRE = CLASS5_FIRE)
 	chance = 75
@@ -322,14 +324,14 @@
 	name = "T-45 Power Armor left arm"
 	icon_state = "t45_lefthand"
 	icon_state_pa = "t45_lefthand"
-	max_integrity = 225
+	max_integrity = 200
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = CLASS4_EDGE, \
                 CRUSHING = CLASS4_CRUSH, \
                 CUTTING = CLASS5_CUT, \
                 PIERCING = CLASS4_PIERCE, \
                 IMPALING = CLASS5_STAB, \
-                LASER = CLASS4_LASER, \
+                LASER = CLASS3_LASER, \
                 ENERGY = CLASS3_PLASMA, \
                 FIRE = CLASS5_FIRE)
 	chance = 65
@@ -338,14 +340,14 @@
 	name = "T-45 Power Armor right arm"
 	icon_state = "t45_righthand"
 	icon_state_pa = "t45_righthand"
-	max_integrity = 225
+	max_integrity = 200
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = CLASS4_EDGE, \
                 CRUSHING = CLASS4_CRUSH, \
                 CUTTING = CLASS5_CUT, \
                 PIERCING = CLASS4_PIERCE, \
                 IMPALING = CLASS5_STAB, \
-                LASER = CLASS4_LASER, \
+                LASER = CLASS3_LASER, \
                 ENERGY = CLASS3_PLASMA, \
                 FIRE = CLASS5_FIRE)
 	chance = 65

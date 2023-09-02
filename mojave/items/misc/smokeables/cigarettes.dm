@@ -142,8 +142,6 @@
 	update_icon_state()
 	if(ismob(loc))
 		var/mob/living/M = loc
-		var/obj/item/organ/lungs/L = M.getorganslot(ORGAN_SLOT_LUNGS)
-		L.smoking = FALSE
 		to_chat(M, "<span class='notice'>The [name] goes out.</span>")
 		M.update_inv_wear_mask()
 		M.update_inv_hands()
@@ -272,8 +270,6 @@
 				L.chain_smokah += smoking_damage
 			if(L && !(L.organ_flags & ORGAN_SYNTHETIC) && L.nicotine < 162) //max 3 cigarette effects stacked
 				L.nicotine += nicotine_potency
-		if(!(src == C.wear_mask))
-			L.smoking = FALSE
 
 /obj/item/ms13/cigarette/update_overlays()
 	cut_overlays()

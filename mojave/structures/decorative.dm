@@ -52,6 +52,7 @@
 	desc = "A large banner stretched along a somewhat sturdy metal pole. It bears the insignia of a bear, representative of the New California Republic."
 	icon = 'mojave/icons/objects/flags32x64.dmi'
 	icon_state = "ncrflag"
+	max_integrity = 600
 
 /obj/structure/ms13/ncrflag
 	name = "\improper NCR flagpole"
@@ -59,6 +60,8 @@
 	icon = 'mojave/icons/structure/largeflags.dmi'
 	icon_state = "ncrflag"
 	pixel_x = -32
+	layer = 4.9
+	plane = ABOVE_GAME_PLANE
 
 //Decorative Cable, functional WYCI//
 
@@ -302,6 +305,8 @@
 	icon_state = "toxic_1"
 	icon_type = "toxic"
 	amount = 4
+	light_range = 1.5
+	light_color = "#4ba54f"
 
 /obj/structure/ms13/barrel/single/toxic/Initialize()
 	. = ..()
@@ -521,14 +526,88 @@
 	icon_state = "quad_waste_1"
 	unique = TRUE
 
+// Wooden Pallets //
+
+/obj/structure/ms13/pallet
+	name = "wooden pallet"
+	desc = "A wooden pallet. You could get some good wood off that, probably."
+	icon = 'mojave/icons/structure/miscellaneous.dmi'
+	icon_state = "pallet"
+	max_integrity = 100
+	anchored = TRUE
+	density = FALSE
+
+/obj/structure/ms13/pallet/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
+		else
+			new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc, 1)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
+	qdel(src)
+
+/obj/structure/ms13/pallet/crowbar_act_secondary(mob/living/user, obj/item/tool)
+	if(flags_1&NODECONSTRUCT_1)
+		return TRUE
+	..()
+	user.visible_message("<span class='notice'>[user] starts to break \the [src].</span>", \
+		"<span class='notice'>You start to break \the [src].</span>", \
+		"<span class='hear'>You hear splitting wood.</span>")
+	tool.play_tool_sound(src)
+	if(do_after(user, 4 SECONDS * tool.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_DECON))
+		playsound(src.loc, 'mojave/sound/ms13effects/wood_deconstruction.ogg', 50, TRUE)
+		user.visible_message("<span class='notice'>[user] pries \the [src] into pieces.</span>", \
+			"<span class='notice'>You pry \the [src] into pieces.</span>", \
+			"<span class='hear'>You hear splitting wood.</span>")
+		deconstruct(disassembled = TRUE)
+		return TRUE
+
+/obj/structure/ms13/pallet/stack
+	name = "pallet stack"
+	desc = "A stack of wooden pallets. Some good planks in there, still."
+	icon_state = "pallet_stack"
+	max_integrity = 250
+	density = TRUE
+	projectile_passchance = 65
+
+/obj/structure/ms13/pallet/stack/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/wood/plank(loc, 3)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 2)
+		else
+			new /obj/item/stack/sheet/ms13/wood/plank(loc, 2)
+			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 1)
+	qdel(src)
+
+// brix.... //
+
+/obj/structure/ms13/brickstack
+	name = "brick stack"
+	desc = "A stack of bricks. They're all stuck together... Great."
+	icon = 'mojave/icons/structure/miscellaneous.dmi'
+	icon_state = "brickpile"
+	max_integrity = 600
+	density = TRUE
+	anchored = TRUE
+	projectile_passchance = 35
+
+/obj/structure/ms13/brickstack/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		new /obj/item/ms13/brick(loc, rand(1,3))
+	qdel(src)
+
+
+// TRASH.... //
 /obj/structure/ms13/trash
 	name = "Base type MS13 TRASH"
 	desc = "Who the hell littered this here? Call a mapper!"
 	icon = 'mojave/icons/structure/miscellaneous.dmi'
 
 /obj/structure/ms13/trash/papers
-	name = "scattered papers"
-	desc = "Some scattered papers. They look mostly ruined."
+	name = "scattered pages"
+	desc = "Some scattered paper pages. They look mostly ruined."
 	icon_state = "scattered_papers"
 
 /obj/structure/ms13/trash/papers/attack_hand(mob/living/user, list/modifiers)
@@ -538,11 +617,94 @@
 	to_chat(user, span_notice("You begin salvaging through the pile for a paper."))
 	if(do_after(user, 5 SECONDS, src))
 		if(prob(20))
-			to_chat(user, span_notice("You successfully recover a page from the stack. The rest all tear away into the void."))
-			new /obj/item/paper/ms13(src)
+			user.visible_message(span_notice("[user] successfully recovers paper from the [src]."), \
+				span_notice("You recover some paper from the [src]"))
+			new /obj/item/paper/ms13(loc, rand(1,3))
 			qdel(src)
 		else
-			to_chat(user, span_notice("You fail to find a paper that won't dissolve in your hands. Shame."))
+			user.visible_message(span_notice("[user] fails to find any usable paper"), \
+				span_notice("You fail to find any usable paper within the [src]."))
+			if(prob(75)) // SO YOU'RE TELLING ME THERE'S A CHANCE...
+				qdel(src)
+
+/obj/structure/ms13/trash/papers/one
+	name = "scattered papers"
+	desc = "Some scattered papers. All sorts of stuff, from pages to envelopes."
+	icon_state = "papers_1"
+
+/obj/structure/ms13/trash/papers/two
+	name = "scattered papers"
+	desc = "Some scattered papers. All sorts of stuff, from pages to envelopes."
+	icon_state = "papers_2"
+
+/obj/structure/ms13/trash/papers/three
+	name = "scattered papers"
+	desc = "Some scattered papers. All sorts of stuff, from pages to envelopes."
+	icon_state = "papers_3"
+
+/obj/structure/ms13/trash/cardboard
+	name = "scattered cardboard"
+	desc = "Old cardboard boxes... Thrown all over the place. What a mess."
+	icon_state = "cardboard"
+
+/obj/structure/ms13/trash/cardboard/attack_hand_secondary(mob/living/user, list/modifiers)
+	. = ..()
+	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
+		return
+	to_chat(user, span_notice("You begin salvaging through the [src]."))
+	if(do_after(user, 5 SECONDS, src))
+		if(prob(20))
+			user.visible_message(span_notice("[user] successfully recovers paper from the [src]."), \
+				span_notice("You recover some paper from the [src]"))
+			new /obj/item/paper/ms13(loc, rand(1,2))
+			qdel(src)
+		else
+			user.visible_message(span_notice("[user] fails to find any usable paper"), \
+				span_notice("You fail to find any usable paper within the [src]."))
+			qdel(src)
+
+/obj/structure/ms13/trash/bricks
+	name = "brick rubble"
+	desc = "A bunch of old bricks. Perhaps you can still find a few that will hold up."
+	icon_state = "brickrubble"
+
+/obj/structure/ms13/trash/bricks/attack_hand_secondary(mob/user, list/modifiers)
+	. = ..()
+	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
+		return
+	to_chat(user, span_notice("You begin salvaging through the rubble for some bricks."))
+	if(do_after(user, 5 SECONDS, src))
+		if(prob(20))
+			user.visible_message(span_notice("[user] begins to sift through the [src] for usable bricks."), \
+				span_notice("You begin to dig through the [src] for usable bricks."))
+			new /obj/item/ms13/brick(loc, rand(1,2))
+			qdel(src)
+		else
+			user.visible_message(span_notice("[user] fails to find a usable brick."), \
+				span_notice("You fail to find a usable brick from the [src]"))
+			if(prob(50)) // SO YOU'RE TELLING ME THERE'S A CHANCE...
+				qdel(src)
+
+/obj/structure/ms13/trash/wood
+	name = "scrap wood"
+	desc = "A bunch of scrap wood. You could probably get a few loose pieces."
+	icon_state = "woodscrap"
+
+/obj/structure/ms13/trash/wood/attack_hand_secondary(mob/living/user, list/modifiers)
+	. = ..()
+	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
+		return
+	user.visible_message(span_notice("[user] begins to sift through the [src] for usable pieces."), \
+		span_notice("You begin to dig through the [src] for some wood."))
+	if(do_after(user, 5 SECONDS, src))
+		if(prob(90)) // It's... scrap wood already.
+			user.visible_message(span_notice("[user] gathers up the [src]."), \
+				span_notice("You gather up all the [src]."))
+			new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc, rand(1,2))
+			qdel(src)
+		else
+			user.visible_message(span_notice("[user] somehow messes up gathering the [src]. It melts before their very eyes into nothingness."), \
+				span_notice("You somehow manage to mess up gathering the perfectly fine scrap wood. It melts away before your very eyes..."))
 			qdel(src)
 
 // Cave Decor

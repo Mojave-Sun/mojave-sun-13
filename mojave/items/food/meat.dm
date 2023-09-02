@@ -48,11 +48,14 @@
 	desc = "A disgusting pile of moldy, rotten food. Some poor desperate wasteland soul would probably still eat this."
 	icon = 'mojave/icons/effects/gurps.dmi'
 	icon_state = "rot_1"
+	w_class = WEIGHT_CLASS_SMALL
+	grid_height = 32
+	grid_width = 32
 
 /obj/item/food/badrecipe/moldy/ms13/Initialize()
 	. = ..()
 	icon_state = "rot_[rand(1,4)]"
-	AddElement(/datum/element/item_scaling, 0.7, 1)
+	AddElement(/datum/element/item_scaling, 0.65, 1)
 
 //Pre-War Meats
 /* THIS SHIT IS BROKEN!

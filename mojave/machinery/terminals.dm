@@ -204,6 +204,9 @@
 		if ("APRICOT")
 			dat += "<center><b>APRICOT COMPUTING SYSTEM VERSION 4B</b><br>"
 			dat += "<b>COPYRIGHT 2069-2070 APRICOT COMPUTING INC.</b><br>"
+		if ("BOOTLEG")
+			dat += "<center><b>DLLLX00992 SYSTEM VERSION FFFFF23</b><br>"
+			dat += "<b>COPYRIGHT 223333-21065 DLLLX00992 C0MTTTT LLLL.</b><br>"
 
 	switch (mode) // Text at the top of the page
 		if (0) // If we're on the home page
@@ -445,6 +448,14 @@
 				openclose = M.density
 			INVOKE_ASYNC(M, openclose ? /obj/machinery/door/poddoor.proc/open : /obj/machinery/door/poddoor.proc/close)
 
+	// freak this code for now
+	//var/onoff
+	//for(var/obj/structure/ms13/sign/S in GLOB.signs)
+	//	if(S.id == src.id)
+	//		if(openclose == null)
+	//			openclose = S.on
+	//		INVOKE_ASYNC(S, onoff ? /obj/structure/ms13/sign.proc/on : /obj/structure/ms13/sign.proc/off)
+
 //// Extra variants ////
 /obj/machinery/ms13/terminal/pristine
 	icon_state = "terminal_new" // Shouldn't really even be used. But i'll add it anyways.
@@ -468,7 +479,10 @@
 	desc = "A miracle of man- A terminal that has been locally produced by a wastelander, as can be clearly seen by the quality."
 	icon_state = "terminal_handmade"
 	screen_icon = "terminal_handmade_screen"
+	termtag = "INVLD_Tt"
+	system = "BOOTLEG"
 	pixel_y = 12
+	doc_title_1 = "corrupted" // this shit bootleg
 
 //// Wall mounted terminals ////
 /obj/machinery/ms13/terminal/wall

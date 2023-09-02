@@ -29,6 +29,12 @@
 			air.react(src)
 			qdel(hotspot)
 
+/datum/reagent/consumable/ms13/water/expose_obj(obj/exposed_obj, reac_volume)
+	. = ..()
+	if(reac_volume >= 20)
+		exposed_obj.extinguish()
+		exposed_obj.wash(CLEAN_TYPE_ACID)
+
 /datum/reagent/consumable/ms13/water/unfiltered
 	name = "Unfiltered Water"
 	description = "Water... Questionable water. Should run it through some filtering or something."

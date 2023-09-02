@@ -10,7 +10,7 @@
 	framestackamount = 2
 
 /obj/structure/table/ms13/deconstruction_hints(mob/user)
-	return
+	return span_notice("You could use a <b>screwdriver</b> or a <b>wrench</b> to take apart [src].")
 
 /obj/structure/table/ms13/metal
 	name = "metal table"

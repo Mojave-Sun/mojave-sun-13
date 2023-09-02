@@ -9,13 +9,12 @@
 	icon_state = "matchbox"
 	inventory_state = "matchbox"
 	world_state = "matchbox"
-	worn_icon_state = null
 	component_type = /datum/component/storage/concrete/ms13/matchbox
 	lefthand_file = 'mojave/icons/mob/inhands/misc/lightables_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/misc/lightables_righthand.dmi'
 	inhand_icon_state = "matchbox"
 	w_class = WEIGHT_CLASS_SMALL
-	slot_flags = ITEM_SLOT_BELT
+	slot_flags = null
 	foldable = null
 	grid_width = 32
 	grid_height = 32
@@ -42,7 +41,26 @@
 		for(var/i = 0 to rand(0, max_amount))
 			new /obj/item/match/ms13(src)
 
-/obj/item/storage/box/matches/attackby_secondary(obj/item/match/W as obj, mob/user, params)
+/obj/item/storage/box/matches/ms13/attack_hand_secondary(mob/user, list/modifiers)
+	attack_hand(user, modifiers)
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
+/obj/item/storage/box/matches/ms13/alt_click_on_secondary(mob/user)
+	attack_hand(user)
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
+/obj/item/storage/box/matches/ms13/AltClick(mob/user)
+	attack_hand(user)
+	return
+
+/obj/item/storage/box/matches/ms13/attackby(obj/item/I, mob/living/user, params)
+	if(istype(I, /obj/item/match) && !is_open)
+		to_chat(user, "<span class='danger'>[src] is closed.</span>")
+		return
+	else
+		. = ..()
+
+/obj/item/storage/box/matches/ms13/attackby_secondary(obj/item/match/W as obj, mob/user, params)
 	if(istype(W, /obj/item/match))
 		W.matchignite(user)
 		W.update_appearance()
@@ -51,9 +69,7 @@
 		W.build_worn_icon()
 		user.update_inv_hands()
 		W.set_light_on(TRUE)
-		. = SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
-	else
-		. = ..()
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/item/storage/box/matches/ms13/update_icon_state()
 	. = ..()
@@ -166,6 +182,7 @@
 /obj/item/match/ms13/ComponentInitialize()
 	. = ..()
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/lightables_inventory.dmi', world_state, inventory_state)
+	AddElement(/datum/element/update_icon_updates_onmob)
 
 /obj/item/match/ms13/Initialize(mapload)
 	. = ..()
@@ -176,8 +193,16 @@
 	if(lit)
 		world_state = "match_lit"
 		inhand_icon_state = "match_lit"
+		update_appearance()
+		update_overlays()
+		update_icon()
 	if(smoketime <= 0)
-		matchburnout()
+		world_state = "match_burnt"
+		inhand_icon_state = "match_burnt"
+		update_appearance()
+		update_overlays()
+		update_icon()
+		matchburnout(src)
 	else
 		open_flame(heat)
 
@@ -197,8 +222,7 @@
 				inventory_state = "[initial(inventory_state)]_lit_2"
 			if(360 to 500)
 				inventory_state = "[initial(inventory_state)]_lit_1"
-	if(burnt)
-		icon_state = "match_burnt"
+	if(burnt || smoketime <= 0)
 		inventory_state = "match_burnt"
 		world_state = "match_burnt"
 		inhand_icon_state = "match_burnt"
@@ -213,7 +237,6 @@
 	set_light_on(TRUE)
 	damtype = BURN
 	force = 3
-	hitsound = 'sound/items/welder.ogg'
 	inventory_state = "[initial(inventory_state)]_lit_5"
 	world_state = "match_lit"
 	inhand_icon_state = "match_lit"
@@ -232,10 +255,13 @@
 
 	lit = FALSE
 	set_light_on(FALSE)
+	playsound(src, 'mojave/sound/ms13effects/smokeables/cigsnuff.ogg', 25, 1)
 	burnt = TRUE
 	damtype = BRUTE
 	force = initial(force)
-	icon_state = "match_burnt"
+	update_appearance()
+	update_overlays()
+	update_icon()
 	inventory_state = "match_burnt"
 	world_state = "match_burnt"
 	inhand_icon_state = "match_burnt"
@@ -244,9 +270,6 @@
 	attack_verb_continuous = string_list(list("flicks"))
 	attack_verb_simple = string_list(list("flick"))
 	STOP_PROCESSING(SSobj, src)
-	update_appearance()
-	update_overlays()
-	update_icon()
 
 /obj/item/match/ms13/attack_self(mob/user)
 	if(lit)
@@ -271,13 +294,14 @@
 	lefthand_file = 'mojave/icons/mob/inhands/misc/lightables_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/misc/lightables_righthand.dmi'
 	inhand_icon_state = "zippo"
-	var/max_fuel = 40
+	slot_flags = null
+	var/max_fuel = 50
 	overlay_list = null
 	var/is_open = FALSE
 
 /obj/item/lighter/ms13/zippo/Initialize(mapload)
 	. = ..()
-	var/fuel_start = rand(5, max_fuel)
+	var/fuel_start = rand(10, max_fuel)
 	create_reagents(fuel_start)
 	reagents.add_reagent(/datum/reagent/fuel, fuel_start)
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/lightables_inventory.dmi', world_state, inventory_state)

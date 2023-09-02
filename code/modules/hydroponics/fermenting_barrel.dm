@@ -13,7 +13,7 @@
 
 /obj/structure/fermenting_barrel/Initialize(mapload)
 	// Bluespace beakers, but without the portability or efficiency in circuits.
-	create_reagents(300, DRAINABLE)
+	create_reagents(600, DRAINABLE) //Mojave Edit - Doubled capacity
 	. = ..()
 
 /obj/structure/fermenting_barrel/examine(mob/user)
@@ -21,8 +21,8 @@
 	. += span_notice("It is currently [open?"open, letting you pour liquids in.":"closed, letting you draw liquids from the tap."]")
 
 /obj/structure/fermenting_barrel/proc/makeWine(obj/item/food/grown/fruit)
-	if(fruit.reagents)
-		fruit.reagents.trans_to(src, fruit.reagents.total_volume)
+	/*if(fruit.reagents)
+		fruit.reagents.trans_to(src, fruit.reagents.total_volume)*/ //Mojave Edit - Comments this out for now because it ends  up being kind of silly with how our stuff is set up for distilling - Hekzder
 	var/amount = fruit.seed.potency / 4
 	if(fruit.distill_reagent)
 		reagents.add_reagent(fruit.distill_reagent, amount)

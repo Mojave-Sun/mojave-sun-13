@@ -54,7 +54,7 @@
 	if(SEND_SIGNAL(src, COMSIG_LIVING_Z_IMPACT, levels, T) & NO_Z_IMPACT_DAMAGE)
 		return
 	var/mob/living/carbon/human/savage = src // Power armour landing interactions - Fall damage negation / general chaos creation
-	if(istype(savage.wear_suit, /obj/item/clothing/suit/space/hardsuit/ms13/power_armor)) // If they're wearing PA, it's time to go sicko mode and start doing some crazy shit.
+	if(HAS_TRAIT(savage, TRAIT_IN_POWERARMOUR)) // If they're wearing PA, it's time to go sicko mode and start doing some crazy shit.
 		visible_message("[src] lands harshly onto [T] with a loud bang!")
 		playsound(src, 'mojave/sound/ms13effects/power_armor_land.ogg', 55, TRUE)
 		shake_camera(savage, 5, 3)
@@ -70,7 +70,7 @@
 					if(L.loc == savage.loc && L != savage)
 						L.adjustBruteLoss(rand(50,150))
 						L.emote("scream")
-						if(!istype(poor_fucker.wear_suit, /obj/item/clothing/suit/space/hardsuit/ms13/power_armor) && prob(25)) // This is for a check to make sure we're not gibbing an ENTIRE SUIT OF POWER ARMOUR with another.
+						if(HAS_TRAIT(poor_fucker, TRAIT_IN_POWERARMOUR) && prob(25)) // This is for a check to make sure we're not gibbing an ENTIRE SUIT OF POWER ARMOUR with another.
 							L.gib()
 					if(get_dist(L, savage) < 3 && L != savage)
 						shake_camera(L, 3, 1.5)
@@ -469,8 +469,19 @@
 		return FALSE
 	if(!..())
 		return FALSE
-	visible_message("<span class='infoplain'>[span_name("[src]")] points at [A].</span>", span_notice("You point at [A]."))
-	log_message("points at [A]", LOG_EMOTE)
+	//visible_message("<span class='infoplain'>[span_name("[src]")] points at [A].</span>", span_notice("You point at [A].")) // MS13 Commented out
+	// MOJAVE SUN EDIT BEGIN
+	var/obj/item/held_thing = src.get_active_held_item()
+	if(held_thing && held_thing != A && held_thing != /obj/item/offhand) // If you're holding something, point it at them. But don't let them point the object at themselves. Also don't let them point the fucking offhand item...
+		visible_message("<span class='infoplain'>[span_name("[src]")] points [held_thing] at [A].", span_notice("You point at [A] with [held_thing]."))
+		balloon_alert_to_viewers("points [held_thing] at [A].") // MOJAVE SUN EDIT - Balloon alert...
+		log_message("points [held_thing] at [A]", LOG_EMOTE)
+	else
+		visible_message("<span class='infoplain'>[span_name("[src]")] points at [A].</span>", span_notice("You point at [A]."))
+		balloon_alert_to_viewers("points at [A].") // MOJAVE SUN EDIT - Balloon alert...
+		log_message("points at [A]", LOG_EMOTE)
+	// MOJAVE SUN EDIT END
+	//log_message("points at [A]", LOG_EMOTE) // MS13 Commented out
 	return TRUE
 
 
@@ -1444,7 +1455,7 @@
 
 //Mobs on Fire
 /mob/living/proc/IgniteMob()
-	if(fire_stacks > 0 && !on_fire)
+	if(fire_stacks > 0 && !on_fire && !HAS_TRAIT(src, TRAIT_NON_FLAMMABLE) && !isanimal_or_basicmob(src)) //Mojave Edit - Added a check for simple animals and basic mobs to not catch fire
 		on_fire = TRUE
 		src.visible_message(span_warning("[src] catches fire!"), \
 						span_userdanger("You're set on fire!"))

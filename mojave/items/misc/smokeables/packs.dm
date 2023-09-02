@@ -12,11 +12,12 @@
 	inhand_icon_state = "lucky"
 	w_class = WEIGHT_CLASS_SMALL
 	gender = PLURAL
-	slot_flags = ITEM_SLOT_BELT
 	spawn_type = /obj/item/ms13/cigarette
 	component_type = /datum/component/storage/concrete/ms13/cigarettes
 	contents_tag = "cigarette"
 	folds = FALSE
+	grid_width = 32
+	grid_height = 32
 	freshsound = 'mojave/sound/ms13effects/smokeables/freshpack.ogg'
 	drop_sound = 'mojave/sound/ms13effects/smokeables/packdrop.ogg'
 	pickup_sound = 'mojave/sound/ms13effects/smokeables/packgrab.ogg'
@@ -55,6 +56,13 @@
 		return COMPONENT_NO_MOUSEDROP
 	else
 		return . = ..()
+
+/obj/item/storage/fancy/ms13/cigarettes/attackby(obj/item/I, mob/living/user, params)
+	if(istype(I, /obj/item/ms13/cigarette) && !is_open)
+		to_chat(user, "<span class='danger'>[src] is closed.</span>")
+		return
+	else
+		. = ..()
 
 /obj/item/storage/fancy/ms13/cigarettes/update_icon_state()
 	if(is_open && !othertype)
@@ -95,6 +103,22 @@
 			playsound(user, 'mojave/sound/ms13effects/smokeables/packopen.ogg', 100)
 		if(is_open)
 			playsound(user, 'mojave/sound/ms13effects/smokeables/packclose.ogg', 100)
+
+/obj/item/storage/fancy/ms13/cigarettes/attack_hand_secondary(mob/user, list/modifiers)
+	attack_hand(user, modifiers)
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
+/obj/item/storage/fancy/ms13/cigarettes/attackby_secondary(obj/item/weapon, mob/user, params)
+	attackby(weapon, user)
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
+/obj/item/storage/fancy/ms13/cigarettes/alt_click_on_secondary(mob/user)
+	attack_hand(user)
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
+/obj/item/storage/fancy/ms13/cigarettes/AltClick(mob/user)
+	attack_hand(user)
+	return
 
 /obj/item/storage/fancy/ms13/cigarettes/attack_hand(mob/user, list/modifiers)
 	if(!ismob(user))

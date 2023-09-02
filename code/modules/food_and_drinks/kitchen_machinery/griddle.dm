@@ -16,6 +16,8 @@
 	var/list/griddled_objects = list()
 	///Looping sound for the grill
 	var/datum/looping_sound/grill/grill_loop
+	///Looping sound for stuff getting grilled - Mojave Sun edit
+	var/datum/looping_sound/grill_meat/meat_sound
 	///Whether or not the machine is turned on right now
 	var/on = FALSE
 	///What variant of griddle is this?
@@ -26,8 +28,7 @@
 /obj/machinery/griddle/Initialize(mapload)
 	. = ..()
 	grill_loop = new(src, FALSE)
-	if(isnum(variant))
-		variant = rand(1,3)
+	meat_sound = new(src, FALSE) //Mojave Sun edit - Removed variant code and also added our meat grilling sound loop
 	RegisterSignal(src, COMSIG_ATOM_EXPOSE_REAGENT, .proc/on_expose_reagent)
 
 /obj/machinery/griddle/Destroy()
@@ -81,13 +82,19 @@
 	else
 		return ..()
 
-/obj/machinery/griddle/attack_hand(mob/user, list/modifiers)
+/obj/machinery/griddle/attack_hand(mob/user, list/modifiers) //Mojave Edit - Editing this at the base level, trying to edit it at our level was a massive headache. Also should help in the future when we get other grill types
 	. = ..()
 	on = !on
 	if(on)
 		begin_processing()
+		to_chat(user, span_notice("You turn [src] on."))
+		grill_loop.start()
+		playsound(src.loc, 'mojave/sound/ms13machines/grill_on.ogg', 65, TRUE)
 	else
 		end_processing()
+		to_chat(user, span_notice("You turn [src] off."))
+		grill_loop.stop()
+		playsound(src.loc, 'mojave/sound/ms13machines/grill_off.ogg', 40, TRUE)
 	update_appearance()
 	update_grill_audio()
 

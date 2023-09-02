@@ -11,7 +11,7 @@
 	icon_state = "knife_kitchen"
 	inhand_icon_state = "knife_kitchen"
 	hitsound = list('mojave/sound/ms13weapons/meleesounds/knife_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/knife_hit2.ogg')
-	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/knife_pickup.ogg'
+	pickup_sound = list('mojave/sound/ms13weapons/meleesounds/knife_pickup1.ogg', 'mojave/sound/ms13weapons/meleesounds/knife_pickup2.ogg')
 	force = 20
 	throwforce = 15
 	subtractible_armour_penetration = 5
@@ -96,7 +96,7 @@
 	throwforce = 20
 	subtractible_armour_penetration = 5
 	edge_protection_penetration = 5
-	throw_speed = 4
+	throw_speed = 5
 	embedding = list("embedded_pain_multiplier" = 2, "embed_chance" = 35, "embedded_fall_chance" = 20)
 	sharpness = SHARP_IMPALING
 	tool_behaviour = TOOL_KNIFE
@@ -201,7 +201,7 @@
 	icon_state = "knife_cleaver"
 	inhand_icon_state = "knife_cleaver"
 	hitsound = list('mojave/sound/ms13weapons/meleesounds/blade_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/blade_hit2.ogg')
-	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/knife_pickup.ogg'
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/blade_pickup2.ogg'
 	force = 25
 	throwforce = 15
 	subtractible_armour_penetration = 10

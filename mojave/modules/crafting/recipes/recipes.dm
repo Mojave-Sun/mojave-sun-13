@@ -28,9 +28,9 @@
 	tool_behaviors = list(TOOL_KNIFE, TOOL_SAW, TOOL_SCREWDRIVER, TOOL_WRENCH)
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/wood/plank = 3,
-				/obj/item/stack/sheet/ms13/thread = 6,
-				/obj/item/stack/sheet/ms13/scrap_parts = 3,
-				/obj/item/stack/sheet/ms13/scrap = 3)
+				/obj/item/stack/sheet/ms13/thread = 5,
+				/obj/item/stack/sheet/ms13/scrap_parts = 2,
+				/obj/item/stack/sheet/ms13/scrap = 2)
 	category = CAT_UTILITY
 	crafting_interface = CRAFTING_BENCH_GENERAL
 
@@ -40,8 +40,8 @@
 	time = 8 SECONDS
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WRENCH)
 	tool_paths = list()
-	reqs = list(/obj/item/stack/sheet/ms13/scrap_parts = 4,
-				/obj/item/stack/sheet/ms13/scrap = 4)
+	reqs = list(/obj/item/stack/sheet/ms13/scrap_parts = 3,
+				/obj/item/stack/sheet/ms13/scrap = 3)
 	category = CAT_UTILITY
 	crafting_interface = CRAFTING_BENCH_GENERAL
 
@@ -54,6 +54,16 @@
 	category = CAT_UTILITY
 	crafting_interface = CRAFTING_BENCH_GENERAL
 
+/datum/crafting_recipe/ferti_bag
+	name = "empty fertilizer bag"
+	result = /obj/item/ms13/fertilizer
+	time = 8 SECONDS
+	tool_paths = list()
+	trait = TRAIT_SNOWCREST_TAILOR
+	reqs = list(/obj/item/stack/sheet/ms13/cloth = 8,
+				/obj/item/stack/sheet/ms13/thread = 5)
+	category = CAT_UTILITY
+	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
 
 
 //SMELTER CRAFTING
@@ -69,7 +79,7 @@
 	crafting_interface = CRAFTING_BENCH_SMELTER
 
 /datum/crafting_recipe/refined_alu
-	name = "refined steel from scrap"
+	name = "refined aluminum from scrap"
 	result = /obj/item/stack/sheet/ms13/refined_alu
 	time = 8 SECONDS
 	tool_paths = list(/obj/item/ms13/hammer)
@@ -329,3 +339,14 @@
 				/obj/item/stack/sheet/ms13/wood = 2)
 	category = CAT_SMELTER
 	crafting_interface = CRAFTING_BENCH_SMELTER
+
+//FARMING RECIPES
+
+/datum/crafting_recipe/fertilizer_ms13
+	name = "fertilizer"
+	result = /obj/item/stack/ms13/fertilizer
+	time = 8 SECONDS
+	reqs = list(/obj/item/ms13/fertilizer = 1,
+				/obj/item/food/badrecipe/moldy/ms13 = 8)
+	category = CAT_FARMING
+	crafting_interface = CRAFTING_BENCH_CAMPFIRE

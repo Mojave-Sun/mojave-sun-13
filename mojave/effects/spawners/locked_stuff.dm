@@ -98,7 +98,7 @@
 
 /obj/effect/spawner/random/ms13/locked/random/lowchance
 	name = "random lock low chance spawner"
-	spawn_loot_chance = 30
+	spawn_loot_chance = 25
 	loot = list(
 		/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/beginner,
 		/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/novice,
@@ -108,7 +108,7 @@
 
 /obj/effect/spawner/random/ms13/locked/random/medchance
 	name = "random lock medium chance spawner"
-	spawn_loot_chance = 45
+	spawn_loot_chance = 50
 	loot = list(
 		/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/beginner,
 		/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/novice,
@@ -118,7 +118,7 @@
 
 /obj/effect/spawner/random/ms13/locked/random/highchance
 	name = "random lock high chance spawner"
-	spawn_loot_chance = 65
+	spawn_loot_chance = 70
 	loot = list(
 		/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/beginner,
 		/obj/effect/mapping_helpers/atom_injector/element_injector/ms13/lockedpickable/novice,

@@ -11,7 +11,7 @@
 
 	display_order = JOB_DISPLAY_ORDER_MS13_HEAD_SCRIBE
 
-	mind_traits = list(TRAIT_MEDICAL_TRAINING, TRAIT_SCRIBE_TRAINING)
+	mind_traits = list(TRAIT_MEDICAL_TRAINING, TRAIT_SCRIBE_TRAINING, TRAIT_DRUGGIE)
 
 /datum/outfit/job/ms13/bos/head_scribe
 	name = "_BoS Head Scribe"
@@ -28,7 +28,7 @@
 	backpack_contents = list(
 		/obj/item/stack/medical/gauze/ms13/half=1, \
 		/obj/item/stack/medical/ointment/ms13/half=1, \
-		/obj/item/stack/ms13/currency/prewar/eighty=1, \
+		/obj/item/stack/ms13/currency/prewar/hunned=1, \
 		/obj/item/radio/ms13/broadcast/advanced=1)
 
 /datum/outfit/job/ms13/bos/head_scribe/pre_equip(mob/living/carbon/human/H)

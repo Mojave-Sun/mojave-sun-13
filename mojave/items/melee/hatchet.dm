@@ -73,6 +73,7 @@
 	edge_protection_penetration = 5
 	wound_bonus = 5
 	bare_wound_bonus = 5
+	throw_speed = 5
 	embedding = list("embedded_pain_multiplier" = 2, "embed_chance" = 50, "embedded_fall_chance" = 25)
 	sharpness = SHARP_IMPALING
 	log_pickup_and_drop = TRUE

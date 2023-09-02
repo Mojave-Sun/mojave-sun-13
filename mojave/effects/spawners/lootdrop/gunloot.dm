@@ -94,63 +94,58 @@
 				""
 				)
 	var/loot5 = list(
-				/obj/item/gun/ballistic/shotgun/automatic/ms13/sks,
-				/obj/item/ammo_box/ms13/stripper/r762,
-				/obj/item/ammo_box/ms13/stripper/r762
-				)
-	var/loot6 = list(
 				/obj/item/gun/ballistic/shotgun/ms13/lever/cowboy,
 				/obj/item/ammo_box/ms13/a357box,
 				""
 				)
-	var/loot7 = list(
+	var/loot6 = list(
 				/obj/item/gun/ballistic/revolver/ms13/rev357,
 				/obj/item/ammo_box/ms13/a357box,
 				""
 				)
-	var/loot8 = list(
+	var/loot7 = list(
 				/obj/item/gun/ballistic/revolver/ms13/rev357/police,
 				/obj/item/ammo_box/ms13/a357box,
 				""
 				)
-	var/loot9 = list(
+	var/loot8 = list(
 				/obj/item/gun/energy/ms13/laser/pistol,
 				/obj/item/stock_parts/cell/ms13/ec,
 				""
 				)
-	var/loot10 = list(
+	var/loot9 = list(
 				/obj/item/gun/energy/ms13/laser/pistol/wattz_heavy,
 				/obj/item/stock_parts/cell/ms13/mfc,
 				""
 				)
-	var/loot11 = list(
-				/obj/item/gun/ballistic/shotgun/automatic/ms13/sks/scoped,
-				/obj/item/ammo_box/ms13/stripper/r762,
-				/obj/item/ammo_box/ms13/stripper/r762
+	var/loot10 = list(
+				/obj/item/gun/ballistic/revolver/ms13/rev44,
+				/obj/item/ammo_box/ms13/m44box,
+				""
 				)
-	var/loot12 = list(
+	var/loot11 = list(
 				/obj/item/gun/ballistic/shotgun/ms13/lever,
 				/obj/item/ammo_box/ms13/shotgun/buckshot,
 				""
 				)
-	var/loot13 = list(
+	var/loot12 = list(
 				/obj/item/gun/ballistic/revolver/ms13/caravan/sawed,
 				/obj/item/ammo_box/ms13/shotgun/buckshot,
 				""
 				)
-	var/loot14 = list(
+	var/loot13 = list(
 				/obj/item/gun/ballistic/automatic/pistol/ms13/m10mm,
 				/obj/item/ammo_box/magazine/ms13/m10mm,
 				/obj/item/ammo_box/magazine/ms13/m10mm
 				)
-	var/loot15 = list(
+	var/loot14 = list(
 				/obj/item/gun/ballistic/automatic/ms13/full/smg9mm,
 				/obj/item/ammo_box/magazine/ms13/smgm9mm,
 				""
 				)
 
 /obj/effect/spawner/random/ms13/gun/tier2/Initialize(mapload)
-	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11, loot12, loot13, loot14, loot15)
+	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11, loot12, loot13, loot14)
 	. = ..()
 
 /obj/effect/spawner/random/ms13/gun/tier3
@@ -158,9 +153,9 @@
 	spawn_loot_count = 3
 	spawn_loot_chance = 60
 	var/loot1 = list(
-				/obj/item/gun/ballistic/revolver/ms13/rev44,
-				/obj/item/ammo_box/ms13/m44box,
-				""
+				/obj/item/gun/ballistic/shotgun/automatic/ms13/sks,
+				/obj/item/ammo_box/ms13/stripper/r762,
+				/obj/item/ammo_box/ms13/stripper/r762
 				)
 	var/loot2 = list(
 				/obj/item/gun/ballistic/revolver/ms13/mts,
@@ -242,9 +237,14 @@
 				/obj/item/ammo_box/ms13/shotgun/buckshot,
 				""
 				)
+	var/loot18 = list(
+				/obj/item/gun/ballistic/shotgun/automatic/ms13/sks/scoped,
+				/obj/item/ammo_box/ms13/stripper/r762,
+				/obj/item/ammo_box/ms13/stripper/r762
+				)
 
 /obj/effect/spawner/random/ms13/gun/tier3/Initialize(mapload)
-	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11, loot12, loot13, loot14, loot15, loot16, loot17)
+	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6, loot7, loot8, loot9, loot10, loot11, loot12, loot13, loot14, loot15, loot16, loot17, loot18)
 	. = ..()
 
 /obj/effect/spawner/random/ms13/gun/tier4
@@ -375,9 +375,13 @@
 				/obj/item/ammo_box/magazine/ms13/m45,
 				/obj/item/ammo_box/magazine/ms13/m45
 				)
+	var/loot6 = list(
+				/obj/item/gun/energy/ms13/laser/pistol/wattz/magneto,
+				/obj/item/stock_parts/cell/ms13/ec
+				)
 
 /obj/effect/spawner/random/ms13/gun/lowunique/Initialize(mapload)
-	loot = pick(loot1, loot2, loot3, loot4, loot5)
+	loot = pick(loot1, loot2, loot3, loot4, loot5, loot6)
 	. = ..()
 
 /obj/effect/spawner/random/ms13/gun/highunique

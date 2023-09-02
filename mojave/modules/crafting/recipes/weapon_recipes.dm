@@ -8,7 +8,7 @@
 	time = 8 SECONDS
 	tool_paths = list()
 	reqs = list(/obj/item/knife/ms13=1,
-				/obj/item/stack/sheet/ms13/cloth = 4,
+				/obj/item/stack/sheet/ms13/cloth = 3,
 				/obj/item/stack/sheet/ms13/scrap = 4)
 	category = CAT_WEAPONS
 	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_WEAPONS
@@ -19,9 +19,9 @@
 	time = 12 SECONDS
 	tool_behaviors = list(TOOL_SAW)
 	tool_paths = list(/obj/item/ms13/hammer)
-	reqs = list(/obj/item/stack/sheet/ms13/cloth = 3,
-				/obj/item/stack/sheet/ms13/scrap_steel = 6,
-				/obj/item/stack/sheet/ms13/scrap = 6,
+	reqs = list(/obj/item/stack/sheet/ms13/cloth = 2,
+				/obj/item/stack/sheet/ms13/scrap_steel = 4,
+				/obj/item/stack/sheet/ms13/scrap = 5,
 				/obj/item/stack/sheet/ms13/wood/plank = 2)
 	category = CAT_WEAPONS
 	crafting_interface = CRAFTING_BENCH_WEAPONS
@@ -32,9 +32,9 @@
 	time = 20 SECONDS
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WELDER)
 	tool_paths = list(/obj/item/ms13/hammer)
-	reqs = list(/obj/item/stack/sheet/ms13/cloth = 3,
+	reqs = list(/obj/item/stack/sheet/ms13/cloth = 2,
 				/obj/item/stack/sheet/ms13/refined_steel = 4,
-				/obj/item/stack/sheet/ms13/scrap_parts = 6)
+				/obj/item/stack/sheet/ms13/scrap_parts = 4)
 	category = CAT_WEAPONS
 	crafting_interface = CRAFTING_BENCH_WEAPONS
 
@@ -44,10 +44,22 @@
 	time = 12 SECONDS
 	tool_behaviors = list(TOOL_SAW)
 	tool_paths = list(/obj/item/ms13/hammer)
-	reqs = list(/obj/item/stack/sheet/ms13/wood/scrap_wood = 3,
-				/obj/item/stack/sheet/ms13/cloth = 3,
-				/obj/item/stack/sheet/ms13/scrap = 6,
-				/obj/item/stack/sheet/ms13/scrap_steel = 6)
+	reqs = list(/obj/item/stack/sheet/ms13/wood/scrap_wood = 4,
+				/obj/item/stack/sheet/ms13/cloth = 2,
+				/obj/item/stack/sheet/ms13/scrap = 5,
+				/obj/item/stack/sheet/ms13/scrap_steel = 4)
+	category = CAT_WEAPONS
+	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_WEAPONS
+
+/datum/crafting_recipe/throwing_knife
+	name = "throwing knife"
+	result = /obj/item/knife/ms13/throwingknife
+	time = 9 SECONDS
+	tool_behaviors = list(TOOL_SAW)
+	tool_paths = list(/obj/item/ms13/hammer)
+	reqs = list(/obj/item/stack/sheet/ms13/wood/scrap_wood = 2,
+				/obj/item/stack/sheet/ms13/cloth = 2,
+				/obj/item/stack/sheet/ms13/scrap = 4)
 	category = CAT_WEAPONS
 	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_WEAPONS
 
@@ -59,7 +71,7 @@
 	tool_paths = list(/obj/item/ms13/hammer)
 	reqs = list(/obj/item/claymore/ms13/pipe = 1,
 				/obj/item/stack/sheet/ms13/scrap_parts = 2,
-				/obj/item/stack/sheet/ms13/scrap_steel = 3,
+				/obj/item/stack/sheet/ms13/scrap_steel = 2,
 				/obj/item/stack/sheet/ms13/scrap = 2)
 	category = CAT_WEAPONS
 	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_WEAPONS
@@ -71,7 +83,7 @@
 	tool_behaviors = list(TOOL_WELDER)
 	tool_paths = list(/obj/item/ms13/hammer)
 	reqs = list(/obj/item/hatchet/ms13 = 1,
-				/obj/item/stack/sheet/ms13/refined_steel = 6)
+				/obj/item/stack/sheet/ms13/refined_steel = 5)
 	category = CAT_WEAPONS
 	crafting_interface = CRAFTING_BENCH_WEAPONS
 
@@ -81,7 +93,7 @@
 	time = 8 SECONDS
 	tool_behaviors = list()
 	tool_paths = list(/obj/item/ms13/hammer)
-	reqs = list(/obj/item/stack/sheet/ms13/scrap_brass = 8)
+	reqs = list(/obj/item/stack/sheet/ms13/scrap_brass = 6)
 	category = CAT_WEAPONS
 	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_WEAPONS
 
@@ -91,8 +103,8 @@
 	time = 12 SECONDS
 	tool_behaviors = list()
 	tool_paths = list(/obj/item/ms13/hammer)
-	reqs = list(/obj/item/stack/sheet/ms13/scrap_steel = 6,
-				/obj/item/stack/sheet/ms13/scrap = 6)
+	reqs = list(/obj/item/stack/sheet/ms13/scrap_steel = 5,
+				/obj/item/stack/sheet/ms13/scrap = 5)
 	category = CAT_WEAPONS
 	crafting_interface = CRAFTING_BENCH_WEAPONS
 
@@ -103,8 +115,8 @@
 	tool_behaviors = list(TOOL_WELDER)
 	tool_paths = list(/obj/item/ms13/hammer)
 	reqs = list(/obj/item/ms13/knuckles/weighted = 1,
-				/obj/item/stack/sheet/ms13/refined_steel = 3,
-				/obj/item/stack/sheet/ms13/scrap_parts = 5)
+				/obj/item/stack/sheet/ms13/refined_steel = 2,
+				/obj/item/stack/sheet/ms13/scrap_parts = 4)
 	category = CAT_WEAPONS
 	crafting_interface = CRAFTING_BENCH_WEAPONS
 
@@ -129,8 +141,8 @@
 	tool_paths = list(/obj/item/ms13/hammer)
 	trait = TRAIT_LEGION_SMITHING
 	reqs = list(/obj/item/stack/sheet/ms13/cloth = 2,
-				/obj/item/stack/sheet/ms13/scrap_steel = 5,
-				/obj/item/stack/sheet/ms13/scrap = 5,
+				/obj/item/stack/sheet/ms13/scrap_steel = 3,
+				/obj/item/stack/sheet/ms13/scrap = 3,
 				/obj/item/stack/sheet/ms13/wood/plank = 2)
 	category = CAT_WEAPONS
 	crafting_interface = CRAFTING_BENCH_WEAPONS
@@ -142,9 +154,9 @@
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WELDER)
 	tool_paths = list(/obj/item/ms13/hammer)
 	trait = TRAIT_LEGION_SMITHING
-	reqs = list(/obj/item/stack/sheet/ms13/cloth = 3,
+	reqs = list(/obj/item/stack/sheet/ms13/cloth = 2,
 				/obj/item/stack/sheet/ms13/refined_steel = 3,
-				/obj/item/stack/sheet/ms13/scrap_parts = 4)
+				/obj/item/stack/sheet/ms13/scrap_parts = 2)
 	category = CAT_WEAPONS
 	crafting_interface = CRAFTING_BENCH_WEAPONS
 
@@ -157,8 +169,8 @@
 	trait = TRAIT_LEGION_SMITHING
 	reqs = list(/obj/item/stack/sheet/ms13/wood/scrap_wood = 2,
 				/obj/item/stack/sheet/ms13/cloth = 2,
-				/obj/item/stack/sheet/ms13/scrap = 5,
-				/obj/item/stack/sheet/ms13/scrap_steel = 5)
+				/obj/item/stack/sheet/ms13/scrap = 4,
+				/obj/item/stack/sheet/ms13/scrap_steel = 4)
 	category = CAT_WEAPONS
 	crafting_interface = CRAFTING_BENCH_WEAPONS
 
@@ -183,7 +195,7 @@
 	trait = TRAIT_LEGION_SMITHING
 	reqs = list(/obj/item/claymore/ms13/pipe = 1,
 				/obj/item/stack/sheet/ms13/scrap_parts = 2,
-				/obj/item/stack/sheet/ms13/scrap_steel = 3)
+				/obj/item/stack/sheet/ms13/scrap_steel = 2)
 	category = CAT_WEAPONS
 	crafting_interface = CRAFTING_BENCH_WEAPONS
 
@@ -194,7 +206,7 @@
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WELDER, TOOL_DRILL, TOOL_KNIFE)
 	tool_paths = list(/obj/item/ms13/hammer)
 	trait = TRAIT_LEGION_SMITHING
-	reqs = list(/obj/item/stack/sheet/ms13/refined_steel = 9,
+	reqs = list(/obj/item/stack/sheet/ms13/refined_steel = 8,
 				/obj/item/stack/sheet/ms13/refined_alu = 3,
 				/obj/item/stack/sheet/ms13/scrap_parts = 4,
 				/obj/item/stack/sheet/ms13/leather = 3)

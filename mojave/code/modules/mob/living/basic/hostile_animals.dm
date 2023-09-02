@@ -337,7 +337,7 @@
 	melee_damage_lower = 25
 	melee_damage_upper = 25
 	subtractible_armour_penetration = 20
-	speed = 2.5
+	speed = 2.4
 	sharpness = SHARP_EDGED
 	wound_bonus = 8
 	bare_wound_bonus = 4
@@ -387,7 +387,7 @@
 	melee_damage_lower = 45
 	melee_damage_upper = 45
 	subtractible_armour_penetration = 15
-	speed = 1.65
+	speed = 1.5
 	sharpness = SHARP_EDGED
 	wound_bonus = 5
 	bare_wound_bonus = 10
@@ -420,7 +420,7 @@
 	melee_damage_lower = 45
 	melee_damage_upper = 45
 	subtractible_armour_penetration = 20
-	speed = 2
+	speed = 1.8
 	sharpness = NONE
 	wound_bonus = 10
 	bare_wound_bonus = 8

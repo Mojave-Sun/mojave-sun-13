@@ -14,8 +14,8 @@
 /obj/effect/spawner/random/ms13/guaranteed/currency/mammoth/lowrandom
 	name = "low tier random Mammoth currency spawner"
 	loot = list(
-		/obj/effect/spawner/random/ms13/guaranteed/currency/mammoth/tier1 = 50,
-		/obj/effect/spawner/random/ms13/guaranteed/currency/mammoth/tier2 = 35,
+		/obj/effect/spawner/random/ms13/guaranteed/currency/mammoth/tier1 = 55,
+		/obj/effect/spawner/random/ms13/guaranteed/currency/mammoth/tier2 = 30,
 		/obj/effect/spawner/random/ms13/guaranteed/currency/mammoth/tier3 = 15)
 
 /obj/effect/spawner/random/ms13/guaranteed/currency/mammoth/highrandom
@@ -28,30 +28,29 @@
 /obj/effect/spawner/random/ms13/guaranteed/currency/mammoth/tier1
 	name = "tier 1 Mammoth currency spawner"
 	loot = list(
-		/obj/item/stack/ms13/currency/prewar/ten = 60,
-		/obj/item/stack/ms13/currency/ncr_dollar/ten = 25,
-		/obj/item/stack/ms13/currency/ncr_coin = 10,
-		/obj/item/stack/ms13/currency/cap/ten = 5)
+		/obj/item/stack/ms13/currency/prewar/ten = 55,
+		/obj/item/stack/ms13/currency/ncr_dollar/five = 35,
+		/obj/item/stack/ms13/currency/ncr_coin/two = 10)
 
 /obj/effect/spawner/random/ms13/guaranteed/currency/mammoth/tier2
 	name = "tier 2 Mammoth currency spawner"
 	loot = list(
-		/obj/item/stack/ms13/currency/prewar/twenty = 60,
-		/obj/item/stack/ms13/currency/ncr_dollar/twenty = 25,
-		/obj/item/stack/ms13/currency/ncr_coin/five = 15)
+		/obj/item/stack/ms13/currency/prewar/twenty = 55,
+		/obj/item/stack/ms13/currency/ncr_dollar/twelve = 35,
+		/obj/item/stack/ms13/currency/ncr_coin/five = 10)
 
 /obj/effect/spawner/random/ms13/guaranteed/currency/mammoth/tier3
 	name = "tier 3 Mammoth currency spawner"
 	loot = list(
-		/obj/item/stack/ms13/currency/prewar/fifty = 60,
-		/obj/item/stack/ms13/currency/ncr_dollar/fifty = 25,
-		/obj/item/stack/ms13/currency/ncr_coin/ten = 15)
+		/obj/item/stack/ms13/currency/prewar/fifty = 55,
+		/obj/item/stack/ms13/currency/ncr_dollar/thirty = 35,
+		/obj/item/stack/ms13/currency/ncr_coin/ten = 10)
 
 /obj/effect/spawner/random/ms13/guaranteed/currency/mammoth/tier4
 	name = "tier 4 Mammoth currency spawner"
 	loot = list(
 		/obj/item/stack/ms13/currency/prewar/hunned = 60,
-		/obj/item/stack/ms13/currency/ncr_dollar/hunned = 25)
+		/obj/item/stack/ms13/currency/ncr_dollar/sixty = 40)
 
 // Prewar Currency spawner //
 
@@ -61,8 +60,8 @@
 /obj/effect/spawner/random/ms13/guaranteed/currency/mammoth/prewar/lowrandom
 	name = "low tier random Mammoth currency spawner"
 	loot = list(
-		/obj/effect/spawner/random/ms13/guaranteed/currency/mammoth/prewar/tier1 = 50,
-		/obj/effect/spawner/random/ms13/guaranteed/currency/mammoth/prewar/tier2 = 35,
+		/obj/effect/spawner/random/ms13/guaranteed/currency/mammoth/prewar/tier1 = 55,
+		/obj/effect/spawner/random/ms13/guaranteed/currency/mammoth/prewar/tier2 = 30,
 		/obj/effect/spawner/random/ms13/guaranteed/currency/mammoth/prewar/tier3 = 15)
 
 /obj/effect/spawner/random/ms13/guaranteed/currency/mammoth/prewar/highrandom
@@ -112,23 +111,23 @@
 	name = "DO NOT USE ME - NCR currency spawner"
 
 /obj/effect/spawner/random/ms13/guaranteed/currency/mammoth/ncr/low
-	name = "low budget NCR currency deficit spawner (MFW no gold reserves... CWINGE!)"
+	name = "low budget NCR currency deficit spawner"
 	loot = list(
-		/obj/item/stack/ms13/currency/ncr_dollar,
-		/obj/item/stack/ms13/currency/ncr_dollar/five,
-		/obj/item/stack/ms13/currency/ncr_dollar/ten,
-		/obj/item/stack/ms13/currency/ncr_dollar/twenty,
-		/obj/item/stack/ms13/currency/ncr_coin/five,
-		/obj/item/stack/ms13/currency/ncr_coin/ten)
+		/obj/item/stack/ms13/currency/ncr_dollar = 5,
+		/obj/item/stack/ms13/currency/ncr_dollar/five = 35,
+		/obj/item/stack/ms13/currency/ncr_dollar/ten = 20,
+		/obj/item/stack/ms13/currency/ncr_coin = 5,
+		/obj/item/stack/ms13/currency/ncr_coin/two = 25,
+		/obj/item/stack/ms13/currency/ncr_coin/five = 10)
 
 /obj/effect/spawner/random/ms13/guaranteed/currency/mammoth/ncr/high
 	name = "high dolla balla status NCR currency spawner"
 	loot = list(
-		/obj/item/stack/ms13/currency/ncr_dollar/thirty,
-		/obj/item/stack/ms13/currency/ncr_dollar/fourty,
-		/obj/item/stack/ms13/currency/ncr_dollar/fifty,
-		/obj/item/stack/ms13/currency/ncr_coin/ten,
-		/obj/item/stack/ms13/currency/ncr_coin/twenty)
+		/obj/item/stack/ms13/currency/ncr_dollar/thirty = 25,
+		/obj/item/stack/ms13/currency/ncr_dollar/fourty = 30,
+		/obj/item/stack/ms13/currency/ncr_dollar/fifty = 15,
+		/obj/item/stack/ms13/currency/ncr_coin/ten = 20,
+		/obj/item/stack/ms13/currency/ncr_coin/fifteen = 10)
 
 // Drought currency!!!!!
 
@@ -137,20 +136,19 @@
 /obj/effect/spawner/random/ms13/guaranteed/currency/drought/lowrandom
 	name = "low tier random Drought currency spawner"
 	loot = list(
-		/obj/effect/spawner/random/ms13/guaranteed/currency/drought/tier1 = 50,
-		/obj/effect/spawner/random/ms13/guaranteed/currency/drought/tier2 = 35,
+		/obj/effect/spawner/random/ms13/guaranteed/currency/drought/tier1 = 55,
+		/obj/effect/spawner/random/ms13/guaranteed/currency/drought/tier2 = 30,
 		/obj/effect/spawner/random/ms13/guaranteed/currency/drought/tier3 = 15)
 
 /obj/effect/spawner/random/ms13/guaranteed/currency/drought/highrandom
 	name = "high tier random Drought currency spawner"
 	loot = list(
-		/obj/effect/spawner/random/ms13/guaranteed/currency/drought/tier2 = 50,
-		/obj/effect/spawner/random/ms13/guaranteed/currency/drought/tier3 = 35,
+		/obj/effect/spawner/random/ms13/guaranteed/currency/drought/tier2 = 55,
+		/obj/effect/spawner/random/ms13/guaranteed/currency/drought/tier3 = 30,
 		/obj/effect/spawner/random/ms13/guaranteed/currency/drought/tier4 = 15)
 
 /obj/effect/spawner/random/ms13/guaranteed/currency/drought/tier1
 	name = "tier 1 Drought currency spawner"
-	spawn_loot_chance = 65
 	loot = list(
 		/obj/item/stack/ms13/currency/cap/four = 40,
 		/obj/item/stack/ms13/currency/cap/ten = 20,
@@ -161,7 +159,6 @@
 
 /obj/effect/spawner/random/ms13/guaranteed/currency/drought/tier2
 	name = "tier 2 Drought currency spawner"
-	spawn_loot_chance = 55
 	loot = list(
 		/obj/item/stack/ms13/currency/cap/twentyfive = 45,
 		/obj/item/stack/ms13/currency/cap/thirtyfive = 25,
@@ -172,7 +169,6 @@
 
 /obj/effect/spawner/random/ms13/guaranteed/currency/drought/tier3
 	name = "tier 3 Drought currency spawner"
-	spawn_loot_chance = 45
 	loot = list(
 		/obj/item/stack/ms13/currency/cap/fifty = 45,
 		/obj/item/stack/ms13/currency/cap/sixty = 25,
@@ -183,7 +179,6 @@
 
 /obj/effect/spawner/random/ms13/guaranteed/currency/drought/tier4
 	name = "tier 4 Drought currency spawner"
-	spawn_loot_chance = 35
 	loot = list(
 		/obj/item/stack/ms13/currency/cap/eighty = 50,
 		/obj/item/stack/ms13/currency/cap/hunned = 20,
@@ -212,7 +207,6 @@
 
 /obj/effect/spawner/random/ms13/guaranteed/currency/drought/legion/tier1
 	name = "tier 1 Legion currency spawner"
-	spawn_loot_chance = 65
 	loot = list(
 		/obj/item/stack/ms13/currency/denarius/two = 25,
 		/obj/item/stack/ms13/currency/denarius/five = 45,
@@ -221,7 +215,6 @@
 
 /obj/effect/spawner/random/ms13/guaranteed/currency/drought/legion/tier2
 	name = "tier 2 Legion currency spawner"
-	spawn_loot_chance = 55
 	loot = list(
 		/obj/item/stack/ms13/currency/denarius/twenty = 35,
 		/obj/item/stack/ms13/currency/denarius/twentyfive = 25,
@@ -230,7 +223,6 @@
 
 /obj/effect/spawner/random/ms13/guaranteed/currency/drought/legion/tier3
 	name = "tier 3 Legion currency spawner"
-	spawn_loot_chance = 45
 	loot = list(
 		/obj/item/stack/ms13/currency/denarius/thirty = 30,
 		/obj/item/stack/ms13/currency/aurelius/twenty = 45,
@@ -245,21 +237,20 @@
 	name = "low tier random Drought currency spawner"
 	spawn_loot_chance = 100
 	loot = list(
-		/obj/effect/spawner/random/ms13/guaranteed/currency/drought/prewar/tier1 = 50,
-		/obj/effect/spawner/random/ms13/guaranteed/currency/drought/prewar/tier2 = 35,
+		/obj/effect/spawner/random/ms13/guaranteed/currency/drought/prewar/tier1 = 55,
+		/obj/effect/spawner/random/ms13/guaranteed/currency/drought/prewar/tier2 = 30,
 		/obj/effect/spawner/random/ms13/guaranteed/currency/drought/prewar/tier3 = 15)
 
 /obj/effect/spawner/random/ms13/guaranteed/currency/drought/prewar/highrandom
 	name = "high tier random Drought currency spawner"
 	spawn_loot_chance = 100
 	loot = list(
-		/obj/effect/spawner/random/ms13/guaranteed/currency/drought/prewar/tier2 = 50,
-		/obj/effect/spawner/random/ms13/guaranteed/currency/drought/prewar/tier3 = 35,
+		/obj/effect/spawner/random/ms13/guaranteed/currency/drought/prewar/tier2 = 55,
+		/obj/effect/spawner/random/ms13/guaranteed/currency/drought/prewar/tier3 = 30,
 		/obj/effect/spawner/random/ms13/guaranteed/currency/drought/prewar/tier4 = 15)
 
 /obj/effect/spawner/random/ms13/guaranteed/currency/drought/prewar/tier1
 	name = "tier 1 prewar Drought currency spawner"
-	spawn_loot_chance = 65
 	loot = list(
 		/obj/item/stack/ms13/currency/prewar/five,
 		/obj/item/stack/ms13/currency/prewar/ten,
@@ -268,7 +259,6 @@
 
 /obj/effect/spawner/random/ms13/guaranteed/currency/drought/prewar/tier2
 	name = "tier 2 prewar Drought currency spawner"
-	spawn_loot_chance = 55
 	loot = list(
 		/obj/item/stack/ms13/currency/prewar/twenty,
 		/obj/item/stack/ms13/currency/prewar/thirty,
@@ -277,7 +267,6 @@
 
 /obj/effect/spawner/random/ms13/guaranteed/currency/drought/prewar/tier3
 	name = "tier 3 prewar Drought currency spawner"
-	spawn_loot_chance = 45
 	loot = list(
 		/obj/item/stack/ms13/currency/prewar/thirty,
 		/obj/item/stack/ms13/currency/prewar/fourty,
@@ -287,7 +276,6 @@
 
 /obj/effect/spawner/random/ms13/guaranteed/currency/drought/prewar/tier4
 	name = "tier 4 prewar Drought currency spawner"
-	spawn_loot_chance = 35
 	loot = list(
 		/obj/item/stack/ms13/currency/prewar/fifty,
 		/obj/item/stack/ms13/currency/prewar/sixty,
