@@ -219,7 +219,7 @@
 	time = 3 SECONDS
 	tool_behaviors = list()
 	tool_paths = list()
-	reqs = list(/obj/item/stack/sheet/ms13/scrap_parts = 3,
+	reqs = list(/obj/item/stack/sheet/ms13/scrap_parts = 5,
 				/obj/item/stack/sheet/ms13/cloth = 1)
 	category = CAT_WEAPONS
 	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_WEAPONS
