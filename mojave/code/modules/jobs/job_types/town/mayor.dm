@@ -20,6 +20,7 @@
 	head = 		 /obj/item/clothing/head/helmet/ms13/tall/regal
 	shoes =  	 /obj/item/clothing/shoes/ms13/fancy
 	belt = 		 /obj/item/ammo_box/ms13/a357box
+	r_hand =	 /obj/item/radio/ms13/broadcast/advanced
 	r_pocket =   /obj/item/gun/ballistic/revolver/ms13/derringer/trimmed
 	l_pocket =   /obj/item/stack/ms13/currency/prewar/mayor
 	back =       null

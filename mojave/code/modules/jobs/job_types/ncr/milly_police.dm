@@ -39,9 +39,15 @@
 	else
 		glasses = null
 
-	suit_store = pick(
+	if(prob(35))
+		suit_store = pick(
+			/obj/item/gun/ballistic/automatic/ms13/semi/service,\
+			/obj/item/gun/ballistic/automatic/ms13/full/smg9mm)
+	else
+		suit_store = pick(
 			/obj/item/gun/ballistic/revolver/ms13/caravan,\
-			/obj/item/gun/ballistic/rifle/ms13/varmint)
+			/obj/item/gun/ballistic/rifle/ms13/varmint, \
+			/obj/item/gun/ballistic/rifle/ms13/hunting/surplus)
 
 
 /datum/outfit/job/ms13/ncr/mp/post_equip(mob/living/carbon/human/H, visualsOnly)

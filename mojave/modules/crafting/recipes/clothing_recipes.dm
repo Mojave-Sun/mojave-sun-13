@@ -20,10 +20,10 @@
 	time = 15 SECONDS
 	tool_paths = list()
 	reqs = list(/obj/item/clothing/suit/armor/ms13/leatherarmor = 1,
-				/obj/item/stack/sheet/ms13/leather = 5,
+				/obj/item/stack/sheet/ms13/leather = 4,
 				/obj/item/stack/sheet/ms13/ceramic = 8,
-				/obj/item/stack/sheet/ms13/mil_fiber = 3,
-				/obj/item/stack/sheet/ms13/thread = 3)
+				/obj/item/stack/sheet/ms13/mil_fiber = 2,
+				/obj/item/stack/sheet/ms13/thread = 2)
 	category = CAT_ARMOR
 	crafting_interface = CRAFTING_BENCH_ARMTAILOR
 
@@ -56,7 +56,7 @@
 	time = 10 SECONDS
 	tool_behaviors = list(TOOL_KNIFE)
 	tool_paths = list()
-	reqs = list(/obj/item/stack/sheet/ms13/leather = 5,
+	reqs = list(/obj/item/stack/sheet/ms13/leather = 4,
 				/obj/item/stack/sheet/ms13/cloth = 2,
 				/obj/item/stack/sheet/ms13/thread = 1)
 	category = CAT_ARMOR
@@ -69,7 +69,7 @@
 	tool_paths = list(/obj/item/ms13/hammer)
 	reqs = list(/obj/item/stack/sheet/ms13/leather = 2,
 				/obj/item/stack/sheet/ms13/cloth = 2,
-				/obj/item/stack/sheet/ms13/scrap = 6)
+				/obj/item/stack/sheet/ms13/scrap = 5)
 	category = CAT_ARMOR
 	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
 
@@ -82,7 +82,7 @@
 	reqs = list(/obj/item/clothing/suit/armor/ms13/kit = 1,
 				/obj/item/stack/sheet/ms13/leather = 2,
 				/obj/item/stack/sheet/ms13/cloth = 2,
-				/obj/item/stack/sheet/ms13/scrap_steel = 4,
+				/obj/item/stack/sheet/ms13/scrap_steel = 3,
 				/obj/item/stack/sheet/ms13/scrap_parts = 2)
 	category = CAT_ARMOR
 	crafting_interface = CRAFTING_BENCH_ARMTAILOR
@@ -93,8 +93,8 @@
 	time = 12 SECONDS
 	tool_paths = list()
 	reqs = list(/obj/item/clothing/suit/ms13/ljacket = 1,
-				/obj/item/stack/sheet/ms13/leather = 5,
-				/obj/item/stack/sheet/ms13/cloth = 3,
+				/obj/item/stack/sheet/ms13/leather = 4,
+				/obj/item/stack/sheet/ms13/cloth = 2,
 				/obj/item/stack/sheet/ms13/thread = 2)
 	category = CAT_ARMOR
 	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
@@ -108,7 +108,7 @@
 	reqs = list(/obj/item/clothing/suit/ms13/trench/black = 1,
 				/obj/item/stack/sheet/ms13/leather = 2,
 				/obj/item/stack/sheet/ms13/cloth = 2,
-				/obj/item/stack/sheet/ms13/scrap_steel = 4,
+				/obj/item/stack/sheet/ms13/scrap_steel = 3,
 				/obj/item/stack/sheet/ms13/scrap_parts = 2)
 	category = CAT_ARMOR
 	crafting_interface = CRAFTING_BENCH_ARMTAILOR
@@ -121,10 +121,10 @@
 	tool_paths = list(/obj/item/ms13/hammer)
 	reqs = list(/obj/item/clothing/suit/ms13/trench/black/reinf = 1,
 				/obj/item/stack/sheet/ms13/refined_steel = 3,
-				/obj/item/stack/sheet/ms13/leather = 4,
-				/obj/item/stack/sheet/ms13/scrap_parts = 5,
+				/obj/item/stack/sheet/ms13/leather = 3,
+				/obj/item/stack/sheet/ms13/scrap_parts = 4,
 				/obj/item/stack/sheet/ms13/mil_fiber = 2,
-				/obj/item/stack/sheet/ms13/thread = 3)
+				/obj/item/stack/sheet/ms13/thread = 2)
 	category = CAT_ARMOR
 	crafting_interface = CRAFTING_BENCH_ARMTAILOR
 
@@ -147,7 +147,7 @@
 	time = 10 SECONDS
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/leather = 4,
-				/obj/item/stack/sheet/ms13/cloth = 4,
+				/obj/item/stack/sheet/ms13/cloth = 3,
 				/obj/item/stack/sheet/ms13/thread = 1)
 	category = CAT_ARMOR
 	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
@@ -158,8 +158,8 @@
 	time = 12 SECONDS
 	tool_paths = list()
 	reqs = list(/obj/item/clothing/suit/ms13/duster = 1,
-				/obj/item/stack/sheet/ms13/leather = 5,
-				/obj/item/stack/sheet/ms13/cloth = 3,
+				/obj/item/stack/sheet/ms13/leather = 4,
+				/obj/item/stack/sheet/ms13/cloth = 2,
 				/obj/item/stack/sheet/ms13/thread = 2)
 	category = CAT_ARMOR
 	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
@@ -170,8 +170,8 @@
 	time = 12 SECONDS
 	tool_paths = list()
 	reqs = list(/obj/item/clothing/suit/toggle/ms13/wjacket/orange = 1,
-				/obj/item/stack/sheet/ms13/leather = 5,
-				/obj/item/stack/sheet/ms13/cloth = 3,
+				/obj/item/stack/sheet/ms13/leather = 4,
+				/obj/item/stack/sheet/ms13/cloth = 2,
 				/obj/item/stack/sheet/ms13/thread = 2)
 	category = CAT_ARMOR
 	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
@@ -182,8 +182,8 @@
 	time = 12 SECONDS
 	tool_paths = list()
 	reqs = list(/obj/item/clothing/suit/toggle/ms13/wjacket/brown = 1,
-				/obj/item/stack/sheet/ms13/leather = 5,
-				/obj/item/stack/sheet/ms13/cloth = 3,
+				/obj/item/stack/sheet/ms13/leather = 4,
+				/obj/item/stack/sheet/ms13/cloth = 2,
 				/obj/item/stack/sheet/ms13/thread = 2)
 	category = CAT_ARMOR
 	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
@@ -194,8 +194,8 @@
 	time = 12 SECONDS
 	tool_paths = list()
 	reqs = list(/obj/item/clothing/suit/toggle/ms13/wjacket/blue = 1,
-				/obj/item/stack/sheet/ms13/leather = 5,
-				/obj/item/stack/sheet/ms13/cloth = 3,
+				/obj/item/stack/sheet/ms13/leather = 4,
+				/obj/item/stack/sheet/ms13/cloth = 2,
 				/obj/item/stack/sheet/ms13/thread = 2)
 	category = CAT_ARMOR
 	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
@@ -206,8 +206,8 @@
 	time = 12 SECONDS
 	tool_paths = list()
 	reqs = list(/obj/item/clothing/suit/toggle/ms13/wjacket/black = 1,
-				/obj/item/stack/sheet/ms13/leather = 5,
-				/obj/item/stack/sheet/ms13/cloth = 3,
+				/obj/item/stack/sheet/ms13/leather = 4,
+				/obj/item/stack/sheet/ms13/cloth = 2,
 				/obj/item/stack/sheet/ms13/thread = 2)
 	category = CAT_ARMOR
 	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_ARMTAILOR
@@ -220,10 +220,10 @@
 	tool_behaviors = list(TOOL_WELDER)
 	reqs = list(/obj/item/clothing/suit/toggle/ms13/wjacket/orange/reinforced = 1,
 				/obj/item/stack/sheet/ms13/refined_steel = 3,
-				/obj/item/stack/sheet/ms13/leather = 5,
-				/obj/item/stack/sheet/ms13/scrap_parts = 3,
+				/obj/item/stack/sheet/ms13/leather = 4,
+				/obj/item/stack/sheet/ms13/scrap_parts = 2,
 				/obj/item/stack/sheet/ms13/mil_fiber = 2,
-				/obj/item/stack/sheet/ms13/thread = 3)
+				/obj/item/stack/sheet/ms13/thread = 2)
 	category = CAT_ARMOR
 	crafting_interface = CRAFTING_BENCH_ARMTAILOR
 
@@ -234,9 +234,9 @@
 	tool_paths = list()
 	tool_behaviors = list(TOOL_KNIFE)
 	reqs = list(/obj/item/clothing/suit/toggle/ms13/wjacket/brown/reinforced = 1,
-				/obj/item/stack/sheet/ms13/leather = 6,
+				/obj/item/stack/sheet/ms13/leather = 5,
 				/obj/item/stack/sheet/ms13/mil_fiber = 4,
-				/obj/item/stack/sheet/ms13/thread = 4)
+				/obj/item/stack/sheet/ms13/thread = 3)
 	category = CAT_ARMOR
 	crafting_interface = CRAFTING_BENCH_ARMTAILOR
 
@@ -247,9 +247,9 @@
 	tool_paths = list()
 	tool_behaviors = list(TOOL_KNIFE)
 	reqs = list(/obj/item/clothing/suit/toggle/ms13/wjacket/blue/reinforced = 1,
-				/obj/item/stack/sheet/ms13/leather = 6,
+				/obj/item/stack/sheet/ms13/leather = 5,
 				/obj/item/stack/sheet/ms13/mil_fiber = 4,
-				/obj/item/stack/sheet/ms13/thread = 4)
+				/obj/item/stack/sheet/ms13/thread = 3)
 	category = CAT_ARMOR
 	crafting_interface = CRAFTING_BENCH_ARMTAILOR
 
@@ -260,9 +260,9 @@
 	tool_paths = list()
 	tool_behaviors = list(TOOL_KNIFE)
 	reqs = list(/obj/item/clothing/suit/toggle/ms13/wjacket/black/reinforced = 1,
-				/obj/item/stack/sheet/ms13/leather = 6,
+				/obj/item/stack/sheet/ms13/leather = 5,
 				/obj/item/stack/sheet/ms13/mil_fiber = 4,
-				/obj/item/stack/sheet/ms13/thread = 4)
+				/obj/item/stack/sheet/ms13/thread = 3)
 	category = CAT_ARMOR
 	crafting_interface = CRAFTING_BENCH_ARMTAILOR
 
@@ -358,8 +358,8 @@
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	tool_paths = list(/obj/item/ms13/hammer)
 	reqs = list(/obj/item/clothing/head/ms13/hood/cowl = 1,
-				/obj/item/stack/sheet/ms13/scrap = 4,
-				/obj/item/stack/sheet/ms13/scrap_parts = 3)
+				/obj/item/stack/sheet/ms13/scrap = 3,
+				/obj/item/stack/sheet/ms13/scrap_parts = 2)
 	category = CAT_HEADGEAR
 	crafting_interface = CRAFTING_BENCH_ARMTAILOR
 
@@ -380,7 +380,7 @@
 	time = 8 SECONDS
 	tool_paths = list()
 	reqs = list(/obj/item/clothing/head/ms13/hood/green = 1,
-				/obj/item/stack/sheet/ms13/leather = 4,
+				/obj/item/stack/sheet/ms13/leather = 3,
 				/obj/item/clothing/mask/ms13/bandana/red = 1,
 				/obj/item/stack/sheet/ms13/thread = 2)
 	category = CAT_HEADGEAR
@@ -415,7 +415,7 @@
 	tool_paths = list(/obj/item/ms13/hammer)
 	reqs = list(/obj/item/clothing/head/ms13/hood/sack = 1,
 				/obj/item/stack/sheet/ms13/cloth = 2,
-				/obj/item/stack/sheet/ms13/scrap = 5,
+				/obj/item/stack/sheet/ms13/scrap = 3,
 				/obj/item/stack/sheet/ms13/thread = 1)
 	category = CAT_HEADGEAR
 	crafting_interface = CRAFTING_BENCH_ARMTAILOR
@@ -438,7 +438,7 @@
 	tool_behaviors = list(TOOL_DRILL)
 	tool_paths = list(/obj/item/ms13/hammer)
 	reqs = list(/obj/item/clothing/head/ms13/hood/cowl = 1,
-				/obj/item/stack/sheet/ms13/scrap_steel = 3,
+				/obj/item/stack/sheet/ms13/scrap_steel = 2,
 				/obj/item/stack/sheet/ms13/scrap = 3)
 	category = CAT_HEADGEAR
 	crafting_interface = CRAFTING_BENCH_ARMTAILOR
@@ -450,8 +450,8 @@
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	tool_paths = list(/obj/item/ms13/hammer)
 	reqs = list(/obj/item/stack/sheet/ms13/cloth = 2,
-				/obj/item/stack/sheet/ms13/scrap = 5,
-				/obj/item/stack/sheet/ms13/scrap_parts = 4)
+				/obj/item/stack/sheet/ms13/scrap = 4,
+				/obj/item/stack/sheet/ms13/scrap_parts = 3)
 	category = CAT_HEADGEAR
 	crafting_interface = CRAFTING_BENCH_ARMTAILOR
 

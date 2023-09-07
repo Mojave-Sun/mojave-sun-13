@@ -26,7 +26,7 @@
 		return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/bonfire/ms13/attack_hand(mob/user, list/modifiers)
-    return
+	return
 
 /obj/structure/bonfire/ms13/extinguish()
 	if(burning)
@@ -38,11 +38,11 @@
 		fire_loop.stop()
 
 /obj/structure/bonfire/ms13/campfire
-    name = "campfire"
-    desc = "A nice and cozy campfire. Proven to keep you warm and lift your spirits."
-    icon_state = "campfire"
-    burn_icon = "campfire_lit"
-    max_integrity = 80
+	name = "campfire"
+	desc = "A nice and cozy campfire. Proven to keep you warm and lift your spirits."
+	icon_state = "campfire"
+	burn_icon = "campfire_lit"
+	max_integrity = 80
 
 /obj/structure/bonfire/ms13/campfire/process(delta_time)
 	. = ..()
@@ -60,6 +60,42 @@
 		start_burning()
 		fire_loop.start()
 
+/obj/structure/bonfire/ms13/campfire/attack_hand_secondary(mob/living/carbon/user, list/modifiers)
+	. = ..()
+	if(do_after(user, 0.5 SECONDS, interaction_key = DOAFTER_SOURCE_FIREKICK))
+		if(HAS_TRAIT(user, TRAIT_IN_POWERARMOUR))
+			user.visible_message( \
+				"[user] stomps on the [src].", \
+				span_notice("You stomp on the [src]."),
+				span_hear("You hear heavy armour impacting wood."))
+			src.take_damage(rand(10,35))
+			if(burning && prob(50))
+				extinguish()
+			return
+
+		if(!burning) //No reason for anyone else to be stomping it n shi
+			return
+
+		if((user.shoes?.body_parts_covered) & FEET)
+			user.visible_message( \
+				"[user] kicks at the [src], trying to put it out.", \
+				span_notice("You kick at the [src]. trying to extinguish it"),
+				span_hear("You hear wood shuffling about, with the sound of flames flickering."))
+			if(burning && prob(15))
+				extinguish()
+			return
+
+		else
+			user.visible_message( \
+				"[user] tries to extinguish [src] by kicking it with no shoes!", \
+				span_notice("You kick at the [src] without any shoes!"),
+				span_hear("You hear wood shuffling about, with the sound of flames flickering."))
+			var/picked_def_zone = pick(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
+			user.apply_damage(rand(5,10), BURN, picked_def_zone, wound_bonus = 5)
+			if(burning && prob(15))
+				extinguish()
+			return
+
 /obj/structure/bonfire/ms13/campfire/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc, 2)
@@ -73,12 +109,12 @@
 	fire_loop.start()
 
 /obj/structure/bonfire/ms13/fire_barrel
-    name = "fire barrel"
-    desc = "An open barrel with wood for starting a fire. A classic for keeping those going through hard times nice and warm."
-    icon_state = "fire_barrel"
-    burn_icon = "fire_barrel_lit"
-    density = TRUE
-    max_integrity = 150
+	name = "fire barrel"
+	desc = "An open barrel with wood for starting a fire. A classic for keeping those going through hard times nice and warm."
+	icon_state = "fire_barrel"
+	burn_icon = "fire_barrel_lit"
+	density = TRUE
+	max_integrity = 150
 
 /obj/structure/bonfire/ms13/fire_barrel/examine(mob/user)
 	. = ..()

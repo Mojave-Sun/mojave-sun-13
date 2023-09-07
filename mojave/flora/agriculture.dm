@@ -42,8 +42,8 @@
 	var/lastproduce = 0
 	///Used for timing of cycles.
 	var/lastcycle = 0
-	///About 20 seconds / cycle
-	var/cycledelay = 200
+	///About 18 seconds / cycle
+	var/cycledelay = 180
 	///The currently planted seed
 	var/obj/item/seeds/ms13/myseed
 	///Obtained from the quality of the parts used in the tray, determines nutrient drain rate.
@@ -765,8 +765,8 @@
 	desc = "A bag of fertilizer. Treasured among the farmers of the post-apocalypse."
 	icon = 'mojave/icons/hydroponics/equipment.dmi'
 	icon_state = "daesack3"
-	amount = 3
-	max_amount = 3
+	amount = 4
+	max_amount = 4
 	singular_name = "use" //so it says X uses left in the fertilizer bag instead of X fertilizer bags left
 	gender = NEUTER //So examine text says "This is a fertilizer" instead of "These are some fertilizer bags"
 	grid_width = 96

@@ -126,9 +126,9 @@
 	fire_sound = 'mojave/sound/ms13weapons/44mag.ogg'
 	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/44_revolver.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
-	fire_delay = 0.6 SECONDS
+	fire_delay = 0.65 SECONDS
 	spread = 6
-	recoil = 1.25
+	recoil = 1.5
 	slowdown = 0.5
 	grid_width = 64
 	grid_height = 64

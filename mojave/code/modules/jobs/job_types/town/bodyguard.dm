@@ -18,7 +18,7 @@
 	id =		 /obj/item/card/id/ms13/bodyguard
 	uniform =	 /obj/item/clothing/under/ms13/wasteland/snowcrest/bodyguard
 	head =		 /obj/item/clothing/head/helmet/ms13/snowguard
-	r_pocket =   /obj/item/stack/ms13/currency/prewar/eighty
+	r_pocket =   /obj/item/stack/ms13/currency/prewar/ninety
 	l_pocket =	 /obj/item/flashlight/ms13
 	belt =		 /obj/item/gun/ballistic/revolver/ms13/rev556
 	suit =		 /obj/item/clothing/suit/armor/ms13/vest/snowcrest

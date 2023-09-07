@@ -22,7 +22,6 @@
 	mask =		 /obj/item/clothing/mask/gas/ms13/mon_city
 	head =		 /obj/item/clothing/head/helmet/ms13/cowboy/mon_city
 	belt =		 /obj/item/gun/ballistic/revolver/ms13/rev10mm
-	suit_store = /obj/item/gun/ballistic/shotgun/automatic/ms13/sks
 	r_pocket =	 /obj/item/knife/ms13/combat
 	l_pocket =	 /obj/item/flashlight/flare/ms13
 	backpack_contents = list(
@@ -41,6 +40,10 @@
 		mask = /obj/item/clothing/mask/gas/ms13/mon_city/full
 	else
 		mask = /obj/item/clothing/mask/gas/ms13/mon_city
+
+	suit_store = pick(
+			/obj/item/gun/ballistic/shotgun/ms13/lever,\
+			/obj/item/gun/ballistic/shotgun/ms13/lever/cowboy)
 
 /datum/outfit/job/ms13/raiders/mon_grunt/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
