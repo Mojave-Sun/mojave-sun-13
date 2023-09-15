@@ -247,7 +247,7 @@
 	reqs = list(/obj/item/stack/sheet/ms13/refined_steel = 5,
 				/obj/item/stack/sheet/ms13/scrap_parts = 8,
 				/obj/item/stack/sheet/ms13/wood/plank = 2,
-				/obj/item/stack/sheet/ms13/cloth = 1)
+				/obj/item/stack/sheet/ms13/leather = 3)
 	category = CAT_WEAPONS
 	crafting_interface = CRAFTING_BENCH_WEAPONS
 
