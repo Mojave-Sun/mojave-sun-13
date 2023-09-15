@@ -231,9 +231,8 @@
 	tool_behaviors = list(TOOL_SAW)
 	tool_paths = list(/obj/item/ms13/hammer)
 	trait = TRAIT_DRY_SHAMAN
-	reqs = list(/obj/item/stack/sheet/ms13/refined_steel = 4,
-				/obj/item/stack/sheet/ms13/scrap_parts = 4,
-				/obj/item/stack/sheet/ms13/wood/plank = 2)
+	reqs = list(/obj/item/stack/sheet/ms13/refined_steel = 6,
+				/obj/item/stack/sheet/ms13/wood/plank = 3)
 	category = CAT_WEAPONS
 	crafting_interface = CRAFTING_BENCH_WEAPONS
 
