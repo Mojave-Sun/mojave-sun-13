@@ -244,7 +244,7 @@
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WELDER, TOOL_DRILL, TOOL_KNIFE)
 	tool_paths = list(/obj/item/ms13/hammer)
 	trait = TRAIT_DRY_SHAMAN
-	reqs = list(/obj/item/stack/sheet/ms13/refined_steel = 4,
+	reqs = list(/obj/item/stack/sheet/ms13/refined_steel = 5,
 				/obj/item/stack/sheet/ms13/scrap_parts = 8,
 				/obj/item/stack/sheet/ms13/wood/plank = 2,
 				/obj/item/stack/sheet/ms13/cloth = 1)
