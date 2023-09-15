@@ -216,7 +216,7 @@
 /datum/crafting_recipe/shiv
 	name = "Improvised shiv"
 	result = /obj/item/knife/ms13/tribal
-	time = 3 SECONDS
+	time = 5 SECONDS
 	tool_behaviors = list()
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/scrap = 5,
