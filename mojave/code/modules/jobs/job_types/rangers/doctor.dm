@@ -1,4 +1,4 @@
-/datum/job/ms13/ranger/doctor
+/datum/job/ms13/ranger/rdoctor
 	title = "Desert Ranger Doctor"
 	total_positions = 1
 	spawn_positions = 1
@@ -11,7 +11,7 @@
 
 /datum/outfit/job/ms13/ranger/doctor
 	name = "_Desert Ranger Doctor"
-	jobtype = 	 /datum/job/ms13/ranger/doctor
+	jobtype = 	 /datum/job/ms13/ranger/rdoctor
 	id = 		 /obj/item/card/id/ms13/ranger_doctor
 	belt = 	     /obj/item/storage/firstaid/ms13/regular
 	r_hand =     /obj/item/storage/firstaid/ms13/bag/filled
