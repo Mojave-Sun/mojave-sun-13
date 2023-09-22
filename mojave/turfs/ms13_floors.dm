@@ -173,16 +173,11 @@
 /turf/open/floor/wood/ms13/carpet
 	name = "carpet"
 	desc = "carpeted wooden flooring."
-	icon = 'mojave/icons/turf/carpet_red.dmi'
-	icon_state = "carpet-255"
-	base_icon_state = "carpet"
+	icon_state = "carpet_fancy_red"
 	footstep = FOOTSTEP_CARPET
 	barefootstep = FOOTSTEP_CARPET_BAREFOOT
 	clawfootstep = FOOTSTEP_CARPET_BAREFOOT
 	has_alternate_states = FALSE
-	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_MS13_CARPET_RED, SMOOTH_GROUP_MS13_TILE)
-	canSmoothWith = list(SMOOTH_GROUP_MS13_CARPET_RED)
 	flags_1 = NONE
 	bullet_bounce_sound = null
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
@@ -190,39 +185,29 @@
 	has_base_states = FALSE
 
 /turf/open/floor/wood/ms13/carpet/blue
-	icon = 'mojave/icons/turf/carpet_blue.dmi'
-	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_MS13_CARPET_BLUE)
-	canSmoothWith = list(SMOOTH_GROUP_MS13_CARPET_BLUE)
+	icon_state = "carpet_fancy_blue"
 
 /turf/open/floor/wood/ms13/carpet/green
-	icon = 'mojave/icons/turf/carpet_green.dmi'
-	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN,SMOOTH_GROUP_MS13_CARPET_GREEN)
-	canSmoothWith = list(SMOOTH_GROUP_MS13_CARPET_GREEN)
+	icon_state = "carpet_fancy_green"
 
 /turf/open/floor/wood/ms13/carpet/violet
-	icon = 'mojave/icons/turf/carpet_violet.dmi'
-	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN,SMOOTH_GROUP_MS13_CARPET_VIOLET)
-	canSmoothWith = list(SMOOTH_GROUP_MS13_CARPET_VIOLET)
+	icon_state = "carpet_fancy_violet"
 
 /turf/open/floor/wood/ms13/carpet/shaggy
-	icon = 'mojave/icons/turf/carpet_shaggy_red.dmi'
-	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN,SMOOTH_GROUP_MS13_CARPET_SHAGGY_RED)
-	canSmoothWith = list(SMOOTH_GROUP_MS13_CARPET_SHAGGY_RED)
+	icon_state = "carpet_red"
+
 
 /turf/open/floor/wood/ms13/carpet/shaggy/blue
-	icon = 'mojave/icons/turf/carpet_shaggy_blue.dmi'
-	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN,SMOOTH_GROUP_MS13_CARPET_SHAGGY_BLUE)
-	canSmoothWith = list(SMOOTH_GROUP_MS13_CARPET_SHAGGY_BLUE)
+	icon_state = "carpet_blue"
+
 
 /turf/open/floor/wood/ms13/carpet/shaggy/green
-	icon = 'mojave/icons/turf/carpet_shaggy_green.dmi'
-	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN,SMOOTH_GROUP_MS13_CARPET_SHAGGY_GREEN)
-	canSmoothWith = list(SMOOTH_GROUP_MS13_CARPET_SHAGGY_GREEN)
+	icon_state = "carpet_green"
+
 
 /turf/open/floor/wood/ms13/carpet/shaggy/violet
-	icon = 'mojave/icons/turf/carpet_shaggy_violet.dmi'
-	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN,SMOOTH_GROUP_MS13_CARPET_SHAGGY_VIOLET)
-	canSmoothWith = list(SMOOTH_GROUP_MS13_CARPET_SHAGGY_VIOLET)
+	icon_state = "carpet_violet"
+
 
 ////Tiled Floors////
 
@@ -269,10 +254,7 @@
 	icon_state = "grey_long"
 	alternate_states = 6
 
-/turf/open/floor/ms13/tile/blue
-	icon_state = "blue"
-
-/turf/open/floor/ms13/tile/blue/long
+/turf/open/floor/ms13/tile/long/blue
 	icon_state = "blue_long"
 	alternate_states = 3
 
@@ -294,14 +276,6 @@
 /turf/open/floor/ms13/tile/large/navy
 	icon_state = "navy_large"
 	alternate_states = 2
-
-/turf/open/floor/ms13/tile/large/cream
-	icon_state = "cream_large"
-	alternate_states = 3
-
-/turf/open/floor/ms13/tile/long/cream
-	icon_state = "cream_long"
-	alternate_states = 3
 
 /turf/open/floor/ms13/tile/large/black
 	icon_state = "black_large"
@@ -336,6 +310,9 @@
 /turf/open/floor/ms13/tile/full/black
 	icon_state = "black_full"
 
+/turf/open/floor/ms13/tile/full/white
+	icon_state = "white_full"
+
 ////Metal Floors////
 
 /turf/open/floor/ms13/metal
@@ -358,6 +335,15 @@
 
 /turf/open/floor/ms13/metal/grate/border/warning
 	icon_state = "steel_grate_warning"
+
+/turf/open/floor/ms13/metal/walkway
+	icon_state = "steel_walkway"
+
+/turf/open/floor/ms13/metal/walkway/corner
+	icon_state = "steel_walkway_corner"
+
+/turf/open/floor/ms13/metal/walkway/end
+	icon_state = "steel_walkway_end"
 
 ////Concrete Floors////
 
@@ -382,11 +368,11 @@
 	icon_state = "concrete_industrial"
 	desc = "Heavy duty concrete slabs." //DAS CONCRETE BABY
 
-/turf/open/floor/ms13/concrete/industrial/rail
-	icon_state = "concrete_rail"
+/turf/open/floor/ms13/concrete/industrial/walkway
+	icon_state = "concrete_walkway"
 
-/turf/open/floor/ms13/concrete/industrial/rail/corner
-	icon_state = "concrete_rail_corner"
+/turf/open/floor/ms13/concrete/industrial/walkway/corner
+	icon_state = "concrete_walkway_corner"
 
 ////Hybrid Floors////
 
