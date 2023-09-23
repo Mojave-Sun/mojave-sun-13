@@ -19,7 +19,7 @@
 	. = ..()
 	if(has_alternate_states)
 		if(prob(25))
-			icon_state = "[icon_state]_[rand(1,(alternate_states))]"
+			icon_state = "[icon_state][rand(1,(alternate_states))]"
 		else if(has_base_states && prob(80))
 			icon_state = "[icon_state][rand(1,(base_states))]"
 
@@ -42,19 +42,19 @@
 
 /turf/open/floor/wood/ms13/common
 	icon_state = "wood_common"
-	alternate_states = 6
+	alternate_states = 7
 
 /turf/open/floor/wood/ms13/fancy
 	icon_state = "wood_fancy"
-	has_alternate_states = FALSE
+	alternate_states = 7
 
 /turf/open/floor/wood/ms13/wide
 	icon_state = "wood_wide"
-	alternate_states = 6
+	alternate_states = 7
 
 /turf/open/floor/wood/ms13/mosaic
 	icon_state = "wood_mosaic"
-	alternate_states = 6
+	alternate_states = 7
 
 ////Broken Wood/Foundation floors////
 
