@@ -190,6 +190,18 @@
 	desc = "DANGER. The text is apparent. But surely it's not relevant to you right now."
 	icon_state = "danger_sign"
 
+
+/obj/structure/ms13/wall_decor/exit
+	name = "exit sign"
+	desc = "An exit sign in red, pointing you to the exit of the building incase of an emergency."
+	icon_state = "exit"
+
+/obj/structure/ms13/wall_decor/wallscreen
+	name = "wallscreens"
+	desc = "Three monitors stuck to the wall, in-case you needed more monitors."
+	icon_state = "wallscreen"
+
+/// POSTERS ///
 /obj/structure/ms13/wall_decor/poster
 	name = "\improper NCR poster"
 	desc = "A fantastic piece of propaganda straight from the Republic. Don't you feel stronger just looking at it?"
@@ -208,17 +220,34 @@
 		playsound(src.loc, 'sound/items/poster_ripped.ogg', 100, TRUE)
 		qdel(src)
 
+// NCR propaganad department mastercrafts //
+
+/obj/structure/ms13/wall_decor/poster/enlist
+	icon_state = "NCR_enlist"
+
+/obj/structure/ms13/wall_decor/poster/wrench
+	icon_state = "NCR_wrench"
+
+/obj/structure/ms13/wall_decor/poster/looselip
+	icon_state = "NCR_looselip"
+
+/obj/structure/ms13/wall_decor/poster/you
+	icon_state = "NCR_you"
+
+/obj/structure/ms13/wall_decor/poster/espionage
+	icon_state = "NCR_espionage"
+
+/obj/structure/ms13/wall_decor/poster/bombs
+	icon_state = "NCR_bombs"
+
+// Misc posters //
+
+/obj/structure/ms13/wall_decor/poster/fallout
+	icon_state = "poster_fallout"
+
+/obj/structure/ms13/wall_decor/poster/wecan
+	icon_state = "poster_wecan"
 /obj/structure/ms13/wall_decor/poster/wanted
 	name = "wanted poster"
 	desc = "A posted detailing that someone's end should be coming soon. Financial compensation to those reponsible."
 	icon_state = "wanted_poster"
-
-/obj/structure/ms13/wall_decor/exit
-	name = "exit sign"
-	desc = "An exit sign in red, pointing you to the exit of the building incase of an emergency."
-	icon_state = "exit"
-
-/obj/structure/ms13/wall_decor/wallscreen
-	name = "wallscreens"
-	desc = "Three monitors stuck to the wall, in-case you needed more monitors."
-	icon_state = "wallscreen"
