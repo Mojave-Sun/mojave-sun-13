@@ -1,5 +1,5 @@
 /datum/job/ms13/town/worker
-	title = "Town Worker"
+	title = "Snowcrest Worker"
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "The Mayor"
@@ -14,7 +14,7 @@
 	mind_traits = list(TRAIT_SNOWCREST_TAILOR)
 
 /datum/outfit/job/ms13/town/worker
-	name = "_Town Worker"
+	name = "_Snowcrest Worker"
 	jobtype = /datum/job/ms13/town/worker
 
 	id = 		 /obj/item/card/id/ms13/town/worker

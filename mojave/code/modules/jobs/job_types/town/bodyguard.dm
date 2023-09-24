@@ -1,5 +1,5 @@
 /datum/job/ms13/town/bodyguard
-	title = "Town Bodyguard"
+	title = "Snowcrest Bodyguard"
 	total_positions = 4
 	spawn_positions = 4
 	supervisors = "The Mayor"
@@ -12,7 +12,7 @@
 	display_order = JOB_DISPLAY_ORDER_MS13_TOWNBODYGUARD
 
 /datum/outfit/job/ms13/town/bodyguard
-	name = "_Town Bodyguard"
+	name = "_Snowcrest Bodyguard"
 	jobtype = /datum/job/ms13/town/bodyguard
 
 	id =		 /obj/item/card/id/ms13/bodyguard

@@ -1,5 +1,5 @@
 /datum/job/ms13/town/mayor
-	title = "Town Mayor"
+	title = "Snowcrest Mayor"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "The best interests of Snowcrest and it's citizens."
@@ -12,7 +12,7 @@
 	display_order = JOB_DISPLAY_ORDER_MS13_MAYOR
 
 /datum/outfit/job/ms13/town/mayor
-	name = "_Town Mayor"
+	name = "_Snowcrest Mayor"
 	jobtype = /datum/job/ms13/town/mayor
 
 	id = 		 /obj/item/card/id/ms13/mayor

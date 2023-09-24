@@ -2,7 +2,7 @@
 	title = "NCR MP Medic"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "The Sergeant primarily and firstly, the Town Doctor as needed and during medical operations."
+	supervisors = "The Sergeant primarily and firstly, the Snowcrest Doctor as needed and during medical operations."
 	description = "You are the sole medical personnel assigned to the NCR garrison at Snowcrest. Work with the town medical staff to ensure the health and wellbeing of the town of Snowcrest, and also ensure your comrades stay alive and well."
 
 	outfit = /datum/outfit/job/ms13/ncr/mp_medic
