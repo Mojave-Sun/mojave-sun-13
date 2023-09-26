@@ -6,6 +6,10 @@
 	icon_state = "pistol"
 	w_class = WEIGHT_CLASS_NORMAL
 
+	//MOJAVE EDIT ADDITION BEGIN: Ported TGMC gun smoke particles
+	var/barrel_smoke_on_shoot = TRUE
+	//MOJAVE EDIT ADDITION END
+
 	///sound when inserting magazine
 	var/load_sound = 'sound/weapons/gun/general/magazine_insert_full.ogg'
 	///sound when inserting an empty magazine
@@ -392,7 +396,6 @@
 	if(can_misfire)
 		misfire_probability += misfire_percentage_increment
 		misfire_probability = clamp(misfire_probability, 0, misfire_probability_cap)
-
 	. = ..()
 
 ///Installs a new suppressor, assumes that the suppressor is already in the contents of src

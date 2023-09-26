@@ -2,6 +2,24 @@
 #define DUALWIELD_PENALTY_EXTRA_MULTIPLIER 1.4
 #define FIRING_PIN_REMOVAL_DELAY 50
 
+	//MOJAVE EDIT ADDITION BEGIN: Ported TGMC gun smoke particles
+/particles/firing_smoke
+	icon = 'mojave/icons/effects/96x96.dmi'
+	icon_state = "smoke5"
+	width = 500
+	height = 500
+	count = 5
+	spawning = 15
+	lifespan = 0.5 SECONDS
+	fade = 2.4 SECONDS
+	grow = 0.12
+	drift = generator(GEN_CIRCLE, 8, 8)
+	scale = 0.1
+	spin = generator(GEN_NUM, -20, 20)
+	velocity = list(50, 0)
+	friction = generator(GEN_NUM, 0.3, 0.6)
+	//MOJAVE EDIT ADDITION END
+
 /obj/item/gun
 	name = "gun"
 	desc = "It's a gun. It's pretty terrible, though."
@@ -23,6 +41,10 @@
 	//MOJAVE EDIT CHANGE END
 	attack_verb_continuous = list("strikes", "hits", "bashes")
 	attack_verb_simple = list("strike", "hit", "bash")
+
+	//MOJAVE EDIT ADDITION BEGIN: Ported TGMC gun smoke particles
+	var/barrel_smoke_on_shoot = FALSE
+	//MOJAVE EDIT ADDITION END
 
 	var/gun_flags = NONE
 	var/fire_sound = 'sound/weapons/gun/pistol/shot.ogg'
@@ -203,6 +225,17 @@
 				user.visible_message(span_danger("[user] fires [src]!"), \
 								span_danger("You fire [src]!"), \
 								span_hear("You hear a gunshot!"), COMBAT_MESSAGE_RANGE)
+
+	//MOJAVE EDIT BEGIN
+	if(barrel_smoke_on_shoot)
+		var/x_component = sin(get_angle(user, pbtarget)) * 40
+		var/y_component = cos(get_angle(user, pbtarget)) * 40
+		var/obj/effect/abstract/particle_holder/gun_smoke = new(get_turf(src), /particles/firing_smoke)
+		gun_smoke.particles.velocity = list(x_component, y_component)
+		addtimer(VARSET_CALLBACK(gun_smoke.particles, count, 0), 5)
+		addtimer(VARSET_CALLBACK(gun_smoke.particles, drift, 0), 3)
+		QDEL_IN(gun_smoke, 0.6 SECONDS)
+	//MOJAVE EDIT CHANGE END
 
 /obj/item/gun/emp_act(severity)
 	. = ..()

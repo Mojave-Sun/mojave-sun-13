@@ -11,6 +11,10 @@
 	max_integrity = 200
 	rad_insulation = RAD_VERY_LIGHT_INSULATION
 
+//Mojave Edit
+/obj/structure/girder/add_debris_element()
+	AddElement(/datum/element/debris, DEBRIS_SPARKS, -15, 8, 1)
+
 /obj/structure/girder/examine(mob/user)
 	. = ..()
 	switch(state)
