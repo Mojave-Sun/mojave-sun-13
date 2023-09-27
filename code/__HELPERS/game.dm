@@ -209,13 +209,13 @@
 		var/mob/candidate_mob = candidate
 		if(!candidate_mob.key || !candidate_mob.client || (ignore_category && GLOB.poll_ignore[ignore_category] && (candidate_mob.ckey in GLOB.poll_ignore[ignore_category])))
 			continue
-		if(be_special_flag)
+		/*if(be_special_flag)
 			if(!(candidate_mob.client.prefs) || !(be_special_flag in candidate_mob.client.prefs.be_special))
 				continue
 
 			var/required_time = GLOB.special_roles[be_special_flag] || 0
 			if (candidate_mob.client && candidate_mob.client.get_remaining_days(required_time) > 0)
-				continue
+				continue*/ //MS13 Edit - So our antags work I think lol! - Hekzder
 		if(jobban_type)
 			if(is_banned_from(candidate_mob.ckey, list(jobban_type, ROLE_SYNDICATE)) || QDELETED(candidate_mob))
 				continue
