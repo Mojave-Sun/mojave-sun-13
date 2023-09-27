@@ -87,9 +87,9 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	ranged = TRUE
 	stat_attack = CONSCIOUS
 	casingtype = /obj/item/ammo_casing/energy/ms13/laser/sentrybot
-	ranged_cooldown = 4.5 SECONDS
-	rapid = 16
-	rapid_fire_delay = 0.05 SECONDS //16 shots over 1 second
+	ranged_cooldown = 5 SECONDS
+	rapid = 20
+	rapid_fire_delay = 0.05 SECONDS //20 shots over 1 second
 	pixel_x = -8
 	base_pixel_x = -8
 	bot_type = "Sentrybot"
@@ -213,15 +213,21 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 		FindTarget(possible_targets = null, HasTargetsList = FALSE)
 	if(actually_fire)
 		. = ..()
-		playsound(src, 'mojave/sound/ms13npc/sentrybot/laser_gatling.ogg', 50, FALSE)
+		gunfire_sound()
 		addtimer(CALLBACK(src, .proc/wind_down_gun), 1 SECONDS)
 	else
 		if(!already_firing)
 			addtimer(CALLBACK(src, .proc/trigger_abilities, A), rand(1.5 SECONDS, 3 SECONDS))
 			addtimer(CALLBACK(src, .proc/OpenFire, A, TRUE), 1 SECONDS)
-			playsound(src, 'mojave/sound/ms13npc/sentrybot/gatling_windup.ogg', 75, FALSE)
+			spinup_sound()
 			already_firing = TRUE
 	return
+
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/proc/gunfire_sound()
+	playsound(src, 'mojave/sound/ms13npc/sentrybot/laser_gatling.ogg', 50, FALSE)
+
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/proc/spinup_sound()
+	playsound(src, 'mojave/sound/ms13npc/sentrybot/gatling_windup.ogg', 75, FALSE)
 
 //Don't bother kiting if we lose sight of the target, we gotta rush them
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/proc/checkLoS()
@@ -461,3 +467,50 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 		P.impacted = list(owner = TRUE) // don't hit the target we hit already with the flak
 		P.preparePixelProjectile(target_turf, owner)
 		P.fire()
+
+//All hail the ballistic sentrybot, now with smoke particles and ejected casings!
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/ballistic
+	casingtype = /obj/item/ammo_casing/ms13/a308/sentrybot
+
+
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/ballistic/Shoot(atom/targeted_atom)
+	. = ..()
+	var/x_component = sin(get_angle(src, targeted_atom)) * 40
+	var/y_component = cos(get_angle(src, targeted_atom)) * 40
+	var/obj/effect/abstract/particle_holder/gun_smoke = new(get_turf(src), /particles/firing_smoke)
+	gun_smoke.particles.velocity = list(x_component, y_component)
+	addtimer(VARSET_CALLBACK(gun_smoke.particles, count, 0), 5)
+	addtimer(VARSET_CALLBACK(gun_smoke.particles, drift, 0), 3)
+	QDEL_IN(gun_smoke, 0.6 SECONDS)
+
+//Wind down is combined with windup sound
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/ballistic/wind_down_gun()
+	already_firing = FALSE
+
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/ballistic/gunfire_sound()
+	playsound(src, 'mojave/sound/ms13npc/sentrybot/ballistic_minigun_fire.ogg', 50, FALSE)
+
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/ballistic/spinup_sound()
+	playsound(src, 'mojave/sound/ms13npc/sentrybot/ballistic_minigun_spinup_down.ogg', 50, FALSE)
+
+
+//randomspread prerequisite
+/obj/item/ammo_casing/ms13/a308/sentrybot
+	projectile_type = /obj/projectile/bullet/ms13/a308/sentrybot
+	variance = 30
+	pellets = 1
+	fire_sound = 'mojave/sound/ms13weapons/gunsounds/sniper/sniper1.ogg'
+	randomspread = TRUE
+
+/obj/projectile/bullet/ms13/a308/sentrybot
+	damage = 8
+	subtractible_armour_penetration = 35
+	wound_bonus = 18
+	bare_wound_bonus = 10
+
+/obj/item/ammo_casing/ms13/a308/sentrybot/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from, extra_damage, extra_penetration)
+	. = ..()
+	pixel_z = 8 //bounce time
+	SpinAnimation(speed = 3 SECONDS, loops = 1)
+	var/angle_of_movement = !isnull(user) ? (rand(-3000, 3000) / 100) + dir2angle(turn(user.dir, 180)) : rand(-3000, 3000) / 100
+	AddComponent(/datum/component/movable_physics, _horizontal_velocity = rand(450, 550) / 100, _vertical_velocity = rand(400, 450) / 100, _horizontal_friction = rand(20, 24) / 100, _z_gravity = 9.80665, _z_floor = 0, _angle_of_movement = angle_of_movement)
