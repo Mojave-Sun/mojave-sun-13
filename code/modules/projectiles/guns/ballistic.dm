@@ -7,7 +7,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 
 	//MOJAVE EDIT ADDITION BEGIN: Ported TGMC gun smoke particles
-	var/barrel_smoke_on_shoot = TRUE
+	barrel_smoke_on_shoot = TRUE
 	//MOJAVE EDIT ADDITION END
 
 	///sound when inserting magazine
