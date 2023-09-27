@@ -2,7 +2,7 @@
 #define DUALWIELD_PENALTY_EXTRA_MULTIPLIER 1.4
 #define FIRING_PIN_REMOVAL_DELAY 50
 
-	//MOJAVE EDIT ADDITION BEGIN: Ported TGMC gun smoke particles
+//MOJAVE EDIT ADDITION BEGIN: Ported TGMC gun smoke particles
 /particles/firing_smoke
 	icon = 'mojave/icons/effects/96x96.dmi'
 	icon_state = "smoke5"

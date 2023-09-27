@@ -325,6 +325,8 @@
 	plane = ABOVE_GAME_PLANE
 	duration = 4
 
+//MOJAVE EDIT: Using TGMC explosion visual
+/*
 /obj/effect/temp_visual/explosion
 	name = "explosion"
 	icon = 'icons/effects/96x96.dmi'
@@ -336,6 +338,7 @@
 /obj/effect/temp_visual/explosion/fast
 	icon_state = "explosionfast"
 	duration = 4
+*/
 
 /obj/effect/temp_visual/blob
 	name = "blob"
