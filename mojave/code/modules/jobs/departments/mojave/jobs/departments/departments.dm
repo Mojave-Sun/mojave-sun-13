@@ -23,7 +23,6 @@
 /datum/job_department/ncr
 	department_name = DEPARTMENT_NCR
 	department_bitflags = DEPARTMENT_BITFLAG_NCR
-	department_head = /datum/job/ms13/ncr/lieutenant
 	department_experience_type = EXP_TYPE_NCR
 	department_full_name = "The New California Republic"
 	//display_order = 0

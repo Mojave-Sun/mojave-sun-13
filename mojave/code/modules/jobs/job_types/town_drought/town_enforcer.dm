@@ -1,5 +1,5 @@
 /datum/job/ms13/town_drought/enforcer
-	title = "Town Enforcer"
+	title = "Barony Enforcer"
 	total_positions = 5
 	spawn_positions = 5
 	supervisors = "The Great Baron"
@@ -12,7 +12,7 @@
 	display_order = JOB_DISPLAY_ORDER_MS13_TOWNENFORCER
 
 /datum/outfit/job/ms13/town_drought/enforcer
-	name = "_Town Enforcer"
+	name = "_Barony Enforcer"
 	jobtype = /datum/job/ms13/town_drought/enforcer
 
 	id = 		 /obj/item/card/id/ms13/drought_enforcer
@@ -27,7 +27,7 @@
 	backpack_contents = list(
 		/obj/item/stack/medical/gauze/ms13/three=1, \
 		/obj/item/ammo_box/ms13/m44box=1, \
-		/obj/item/stack/ms13/currency/cap/eighty=1, \
+		/obj/item/stack/ms13/currency/cap/ninety=1, \
 		/obj/item/restraints/handcuffs/ms13=1)
 
 /datum/outfit/job/ms13/town_drought/enforcer/pre_equip(mob/living/carbon/human/H)

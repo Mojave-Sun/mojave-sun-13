@@ -63,12 +63,10 @@
 	else
 		mask = null
 
-	if(prob(25))
+	if(prob(20))
 		gloves = pick(
 		/obj/item/clothing/gloves/ms13/leather, \
-		/obj/item/clothing/gloves/ms13/fingerless, \
-		/obj/item/clothing/gloves/ms13/winter, \
-		/obj/item/clothing/gloves/ms13/winter/black)
+		/obj/item/clothing/gloves/ms13/fingerless)
 	else
 		gloves = null
 
@@ -106,9 +104,7 @@
 		/obj/item/clothing/suit/ms13/ljacket/biker,\
 		/obj/item/clothing/suit/ms13/ljacket/bomber, \
 		/obj/item/clothing/suit/ms13/ljacket, \
-		/obj/item/clothing/suit/toggle/ms13/wjacket/orange, \
 		/obj/item/clothing/suit/toggle/ms13/wjacket/brown, \
-		/obj/item/clothing/suit/toggle/ms13/wjacket/blue, \
 		/obj/item/clothing/suit/toggle/ms13/wjacket/black, \
 		/obj/item/clothing/suit/ms13/vest/letterman)
 
@@ -118,7 +114,6 @@
 		/obj/item/gun/ballistic/automatic/pistol/ms13/pistol22, \
 		/obj/item/gun/ballistic/rifle/ms13/varmint, \
 		/obj/item/gun/ballistic/revolver/ms13/caravan, \
-		/obj/item/gun/ballistic/automatic/pistol/ms13/m10mm/chinese, \
 		/obj/item/gun/ballistic/revolver/ms13/rev10mm)
 
 
@@ -134,7 +129,6 @@
 	shoes = pick(
         /obj/item/clothing/shoes/ms13/tan, \
 		/obj/item/clothing/shoes/ms13/winter, \
-		/obj/item/clothing/shoes/ms13/winter/black, \
 		/obj/item/clothing/shoes/ms13/rag, \
 		/obj/item/clothing/shoes/ms13/brownie, \
 		/obj/item/clothing/shoes/ms13/crude)

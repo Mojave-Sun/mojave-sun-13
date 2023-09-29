@@ -1,5 +1,5 @@
 /datum/job/ms13/town/settler
-	title = "Town Settler"
+	title = "Snowcrest Citizen"
 	total_positions = 8
 	spawn_positions = 8
 	supervisors = "NCR law enforcement, the Mayor and his bodyguards"
@@ -12,7 +12,7 @@
 	display_order = JOB_DISPLAY_ORDER_MS13_SETTLER
 
 /datum/outfit/job/ms13/town/settler
-	name = "_Town Settler"
+	name = "_Snowcrest Citizen"
 	jobtype = /datum/job/ms13/town/settler
 
 	id =		 /obj/item/card/id/ms13/town
