@@ -367,6 +367,10 @@
 /obj/effect/spawner/random/ms13/tools/tool,
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
+"amR" = (
+/obj/structure/ms13/trash/glass/plate,
+/turf/open/floor/plating/ms13/ground/sidewalk,
+/area/ms13/snowcrest)
 "ano" = (
 /obj/structure/table/ms13/no_smooth/counter/metal{
 	dir = 1
@@ -436,10 +440,14 @@
 /turf/closed/wall/ms13/wood,
 /area/ms13)
 "aqv" = (
-/obj/structure/table/ms13/wood,
-/obj/item/ms13/fluff/bible,
-/turf/open/floor/wood/ms13/wide,
-/area/ms13/snowcrest/building)
+/obj/structure/table/ms13/no_smooth/large/pool{
+	dir = 4
+	},
+/obj/structure/ms13/rug/rubber{
+	dir = 4
+	},
+/turf/open/floor/plating/ms13/ground/sidewalk,
+/area/ms13/snowcrest)
 "aqI" = (
 /obj/structure/ms13/wall_decor/calendar/blank,
 /turf/open/floor/ms13/concrete/industrial,
@@ -506,7 +514,9 @@
 /obj/machinery/door/poddoor/shutters/ms13/horizontal/indestructible/red/right{
 	id = "post_shutters"
 	},
-/obj/machinery/button/ms13,
+/obj/machinery/button/ms13{
+	id = "snowcrest-genstore"
+	},
 /turf/open/floor/plating,
 /area/ms13/town)
 "atr" = (
@@ -2743,7 +2753,7 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "cvC" = (
-/obj/machinery/light/ms13/bulb,
+/obj/machinery/vending/ms13/cigarettes,
 /turf/open/floor/plating/ms13/ground/sidewalk,
 /area/ms13/snowcrest)
 "cvU" = (
@@ -3029,10 +3039,11 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/tribal_abandoned)
 "cJT" = (
-/obj/structure/table/ms13/wood,
-/obj/machinery/light/ms13,
-/turf/open/floor/wood/ms13/wide,
-/area/ms13/snowcrest/building)
+/obj/structure/ms13/storage/shelf{
+	dir = 1
+	},
+/turf/open/floor/plating/ms13/ground/sidewalk,
+/area/ms13/snowcrest)
 "cKc" = (
 /obj/structure/table/ms13/metal,
 /obj/effect/spawner/random/ms13/tools/tool,
@@ -3512,6 +3523,10 @@
 /obj/effect/ai_node/wait,
 /turf/open/floor/plating/ms13/ground/road,
 /area/ms13)
+"dgB" = (
+/obj/structure/bed/ms13/bedframe/wood,
+/turf/open/floor/plating/ms13/ground/sidewalk,
+/area/ms13/snowcrest)
 "dgH" = (
 /obj/structure/closet/ms13/metal,
 /turf/open/floor/ms13/concrete/industrial,
@@ -5919,6 +5934,14 @@
 /obj/effect/spawner/random/ms13/medical/dbag,
 /turf/open/floor/ms13/tile/long/blue,
 /area/ms13/town)
+"frW" = (
+/obj/structure/table/ms13/low_wall/metal,
+/obj/structure/window/fulltile/ms13/glass,
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/red/right{
+	id = "snowcrest-genstore-back"
+	},
+/turf/open/floor/plating/ms13/ground/sidewalk,
+/area/ms13/snowcrest/building)
 "frX" = (
 /obj/structure/ms13/trash/papers{
 	dir = 10
@@ -6396,6 +6419,10 @@
 	},
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
+"fNW" = (
+/obj/structure/ms13/pipes/horizontal/brown,
+/turf/open/floor/plating/ms13/ground/sidewalk,
+/area/ms13/snowcrest)
 "fOc" = (
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/tunnel/maintenance)
@@ -7056,7 +7083,9 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/ms13,
-/obj/machinery/button/ms13,
+/obj/machinery/button/ms13{
+	id = "snowcrest-genstore"
+	},
 /turf/open/openspace/ms13,
 /area/ms13/town)
 "gla" = (
@@ -7215,15 +7244,21 @@
 /turf/open/floor/ms13/tile/brown,
 /area/ms13/supermarket)
 "gpm" = (
-/obj/structure/ms13/rug/mat/rubber{
-	pixel_x = 14
+/obj/structure/table/ms13/wood,
+/obj/machinery/button/ms13{
+	id = "snowcrest-genstore-back";
+	dir = 8
 	},
-/turf/open/floor/ms13/concrete/bricks,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/snowcrest/building)
 "gpn" = (
 /obj/structure/ms13/storage/trashcan,
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
+"gpC" = (
+/obj/structure/ms13/pipes/horizontal/random_alt,
+/turf/open/floor/plating/ms13/ground/sidewalk,
+/area/ms13/snowcrest)
 "gpR" = (
 /obj/structure/table/ms13/wood,
 /obj/structure/ms13/pot/plant{
@@ -7273,7 +7308,6 @@
 /obj/structure/ms13/trash/cardboard{
 	dir = 4
 	},
-/obj/structure/ms13/wall_decor/poster/enlist,
 /turf/open/floor/plating/ms13/ground/sidewalk,
 /area/ms13/snowcrest)
 "grT" = (
@@ -7562,10 +7596,9 @@
 /turf/open/floor/ms13/metal/grate,
 /area/ms13/underground/bos)
 "gAq" = (
-/obj/structure/ms13/storage/washingmachine{
-	dir = 8
-	},
-/turf/open/floor/plating/ms13/ground/snow,
+/obj/structure/ms13/fence/wire,
+/obj/structure/ms13/barricade,
+/turf/open/floor/plating/ms13/ground/sidewalk,
 /area/ms13/snowcrest)
 "gAM" = (
 /obj/machinery/power/ms13/streetlamp{
@@ -7954,14 +7987,13 @@
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/bos)
 "gOi" = (
-/obj/structure/ms13/pallet/stack{
-	dir = 1
+/obj/effect/spawner/random/ms13/armor/headgear,
+/obj/structure/ms13/trash/books/pile_alt,
+/obj/structure/ms13/trash/papers{
+	dir = 9
 	},
-/obj/item/ms13/fluff/ruined_book{
-	pixel_y = 7
-	},
-/turf/open/floor/wood/ms13/common,
-/area/ms13/snowcrest/building)
+/turf/open/floor/plating/ms13/ground/snow,
+/area/ms13/snowcrest)
 "gOx" = (
 /obj/structure/closet/crate/ms13/vault_tec,
 /obj/effect/spawner/random/ms13/ammo/lowrandom,
@@ -8528,6 +8560,13 @@
 /obj/structure/chair/ms13/metal,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
+"hhd" = (
+/obj/structure/ms13/storage/trashcan,
+/obj/structure/ms13/pipes/horizontal/end{
+	dir = 1
+	},
+/turf/open/floor/plating/ms13/ground/sidewalk,
+/area/ms13/snowcrest)
 "hhh" = (
 /obj/structure/table/ms13/no_smooth/counter/metal,
 /obj/machinery/ms13/coffee{
@@ -10467,9 +10506,7 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "ipj" = (
-/obj/structure/ms13/pallet{
-	dir = 1
-	},
+/obj/structure/table/ms13/wood/constructed/cobbled,
 /turf/open/floor/plating/ms13/ground/sidewalk,
 /area/ms13/snowcrest)
 "ipo" = (
@@ -10518,16 +10555,10 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/snowcrest/building)
 "iqN" = (
-/obj/machinery/light/ms13,
-/obj/machinery/ms13/terminal{
-	dir = 1;
-	remote_capability = 1;
-	signal_id_1 = "snowcrest-genstore";
-	signal_title_1 = "Window Shutters";
-	termtag = "Snowcrest General Store"
-	},
-/turf/open/floor/wood/ms13/wide,
-/area/ms13/snowcrest/building)
+/obj/machinery/griddle/ms13,
+/obj/structure/ms13/pipes/horizontal/down/single,
+/turf/open/floor/plating/ms13/ground/sidewalk,
+/area/ms13/snowcrest)
 "irm" = (
 /obj/effect/spawner/random/ms13/drink/soda,
 /obj/structure/table/ms13/wood,
@@ -12247,6 +12278,10 @@
 /obj/structure/chair/office/ms13/red,
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
+"jsF" = (
+/obj/structure/chair/ms13/overlaypickup/plastic,
+/turf/open/floor/plating/ms13/ground/snow,
+/area/ms13/snowcrest)
 "jsQ" = (
 /obj/effect/decal/cleanable/blood/old{
 	pixel_x = -7
@@ -12642,12 +12677,13 @@
 /turf/open/floor/plating/ms13/ground/sidewalk,
 /area/ms13)
 "jCF" = (
-/obj/structure/table/ms13/wood/constructed/cobbled,
-/obj/structure/ms13/trash/papers{
-	dir = 1
+/obj/structure/table/ms13/low_wall/metal,
+/obj/structure/window/fulltile/ms13/glass,
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/red/left{
+	id = "snowcrest-genstore-north"
 	},
-/turf/open/floor/plating/ms13/ground/snow,
-/area/ms13/snowcrest)
+/turf/open/floor/plating/ms13/ground/sidewalk,
+/area/ms13/snowcrest/building)
 "jCP" = (
 /obj/structure/ms13/storage/store{
 	dir = 4
@@ -14864,10 +14900,12 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "kQh" = (
-/obj/structure/ms13/trash/wood{
-	dir = 1
+/obj/structure/table/ms13/low_wall/metal,
+/obj/structure/window/fulltile/ms13/glass,
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/red/left{
+	id = "snowcrest-genstore-back"
 	},
-/turf/open/floor/ms13/concrete/bricks,
+/turf/open/floor/plating/ms13/ground/sidewalk,
 /area/ms13/snowcrest/building)
 "kQn" = (
 /obj/structure/ms13/trash/papers/two{
@@ -15775,9 +15813,9 @@
 /turf/open/openspace/ms13,
 /area/ms13/town)
 "luu" = (
-/obj/structure/ms13/rug/rubber,
-/turf/open/floor/ms13/concrete/bricks,
-/area/ms13/snowcrest/building)
+/obj/structure/ms13/barrel/double/grey,
+/turf/open/floor/plating/ms13/ground/snow,
+/area/ms13/snowcrest)
 "luy" = (
 /obj/structure/ms13/storage/store{
 	dir = 8
@@ -16039,10 +16077,13 @@
 /turf/open/floor/ms13/tile/brown,
 /area/ms13/supermarket)
 "lCO" = (
-/obj/structure/table/ms13/wood/constructed/cobbled,
-/obj/effect/spawner/random/ms13/currency/mammoth/lowrandom,
-/turf/open/floor/plating/ms13/ground/snow,
-/area/ms13/snowcrest)
+/obj/structure/table/ms13/low_wall/metal,
+/obj/structure/window/fulltile/ms13/glass,
+/obj/machinery/door/poddoor/shutters/ms13/horizontal/red/right{
+	id = "snowcrest-genstore-north"
+	},
+/turf/open/floor/plating/ms13/ground/sidewalk,
+/area/ms13/snowcrest/building)
 "lDb" = (
 /obj/structure/table/ms13/no_smooth/metal,
 /turf/open/floor/plating/ms13/ground/sidewalk,
@@ -17013,9 +17054,9 @@
 /turf/open/floor/plating/ms13/ground/road,
 /area/ms13)
 "mlu" = (
-/obj/structure/ms13/storage/trashcan,
-/turf/open/floor/wood/ms13/wide,
-/area/ms13/snowcrest/building)
+/obj/structure/ms13/barrel/triple/red,
+/turf/open/floor/plating/ms13/ground/snow,
+/area/ms13/snowcrest)
 "mlz" = (
 /obj/structure/railing/ms13/sewer{
 	dir = 8
@@ -17213,8 +17254,9 @@
 /turf/open/floor/ms13/tile/brown,
 /area/ms13/town)
 "mth" = (
-/turf/open/floor/ms13/concrete/bricks,
-/area/ms13/snowcrest/building)
+/obj/structure/bonfire/ms13/fire_barrel,
+/turf/open/floor/plating/ms13/ground/snow,
+/area/ms13/snow/forest)
 "mtT" = (
 /obj/structure/filingcabinet/ms13/short{
 	dir = 4
@@ -17346,11 +17388,11 @@
 /turf/open/floor/plating/ms13/ground/snow,
 /area/ms13/snowcrest)
 "myf" = (
-/obj/machinery/light/ms13/bulb{
-	dir = 1
+/obj/structure/filingcabinet/ms13,
+/obj/machinery/button/ms13{
+	id = "snowcrest-genstore"
 	},
-/obj/machinery/vending/ms13/cigarettes,
-/turf/open/floor/ms13/concrete/bricks,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/snowcrest/building)
 "myt" = (
 /obj/effect/spawner/random/ms13/crafting/lowrandom,
@@ -17946,10 +17988,11 @@
 /turf/open/floor/ms13/tile/full/navy,
 /area/ms13/town)
 "mVo" = (
-/obj/structure/table/ms13/wood/constructed/cobbled,
-/obj/effect/spawner/random/ms13/smokeable/mammoth/lowrandom,
-/turf/open/floor/plating/ms13/ground/snow,
-/area/ms13/snowcrest)
+/obj/structure/table/ms13/wood,
+/obj/machinery/light/ms13,
+/obj/item/ms13/fluff/bible,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/snowcrest/building)
 "mVq" = (
 /obj/structure/closet/ms13/metal,
 /obj/item/clothing/under/ms13/wasteland/police,
@@ -18391,12 +18434,10 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "niJ" = (
-/obj/machinery/light/ms13/bulb{
-	dir = 1
-	},
-/obj/structure/ms13/storage/trashcan,
-/turf/open/floor/ms13/concrete/bricks,
-/area/ms13/snowcrest/building)
+/obj/structure/ms13/rug/yellow,
+/obj/effect/spawner/random/ms13/food/trash,
+/turf/open/floor/plating/ms13/ground/sidewalk,
+/area/ms13/snowcrest)
 "niS" = (
 /obj/machinery/light/ms13/bulb{
 	dir = 4
@@ -20267,6 +20308,11 @@
 /obj/effect/spawner/random/ms13/crafting/lowrandom,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
+"oxX" = (
+/obj/structure/ms13/storage/trashcan,
+/obj/structure/ms13/pipes/horizontal/end,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/snowcrest/building)
 "oye" = (
 /obj/effect/decal/cleanable/blood/gibs/old,
 /obj/effect/decal/cleanable/blood/splatter,
@@ -20489,10 +20535,14 @@
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
 "oIX" = (
-/obj/structure/ms13/sandbag,
-/obj/machinery/light/ms13/bulb,
-/turf/open/floor/plating/ms13/ground/sidewalk,
-/area/ms13/snowcrest)
+/obj/structure/railing/ms13/sewer{
+	dir = 1
+	},
+/obj/structure/railing/ms13/sewer{
+	dir = 8
+	},
+/turf/open/floor/plating/ms13/ground/snow,
+/area/ms13/snow/forest)
 "oJe" = (
 /obj/effect/decal/cleanable/blood/footprints,
 /turf/open/floor/plating/ms13/ground/mountain,
@@ -20558,6 +20608,13 @@
 /obj/structure/bed/ms13/mattress/yellowed,
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/tribal_abandoned)
+"oMu" = (
+/obj/structure/filingcabinet/ms13,
+/obj/machinery/button/ms13{
+	id = "snowcrest-genstore-north"
+	},
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/snowcrest/building)
 "oNI" = (
 /obj/structure/table/ms13/no_smooth/counter/metal{
 	dir = 8
@@ -20849,10 +20906,11 @@
 /turf/open/floor/wood/ms13/carpet/shaggy,
 /area/ms13/town)
 "pdq" = (
-/obj/structure/table/ms13/wood/constructed/cobbled,
-/obj/effect/spawner/random/ms13/drugs/lowrandom,
-/turf/open/floor/plating/ms13/ground/sidewalk,
-/area/ms13/snowcrest)
+/obj/structure/ms13/pallet/stack{
+	dir = 1
+	},
+/turf/open/floor/wood/ms13/common,
+/area/ms13/snowcrest/building)
 "pdx" = (
 /obj/structure/bed/ms13/bedframe/cot,
 /obj/structure/bed/ms13/mattress/old,
@@ -21687,9 +21745,8 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/snowcrest/republic)
 "qdT" = (
-/obj/structure/ms13/rug/red,
-/obj/structure/ms13/pallet{
-	dir = 1
+/obj/structure/ms13/rug/red{
+	dir = 4
 	},
 /turf/open/floor/plating/ms13/ground/sidewalk,
 /area/ms13/snowcrest)
@@ -23070,6 +23127,21 @@
 /obj/structure/bed/ms13/mattress/filthy,
 /turf/open/floor/plating/ms13/ground/mountain,
 /area/ms13/underground/mountain)
+"rzO" = (
+/obj/machinery/light/ms13,
+/obj/machinery/ms13/terminal{
+	dir = 1;
+	remote_capability = 1;
+	signal_id_1 = "snowcrest-genstore";
+	signal_title_1 = "Window Shutters";
+	termtag = "Snowcrest General Store";
+	signal_id_2 = "snowcrest-genstore-north";
+	signal_title_2 = "Alley Shutters";
+	signal_title_3 = "Front Alley Shutters";
+	signal_id_3 = "snowcrest-genstore-back"
+	},
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/snowcrest/building)
 "rzQ" = (
 /obj/structure/table/ms13/no_smooth/counter/metal,
 /obj/machinery/light/ms13{
@@ -23544,6 +23616,10 @@
 /obj/machinery/light/ms13,
 /turf/open/floor/wood/ms13/carpet/green,
 /area/ms13/town)
+"rXy" = (
+/obj/machinery/vending/ms13/nuka/pristine,
+/turf/open/floor/plating/ms13/ground/sidewalk,
+/area/ms13/snowcrest)
 "rXE" = (
 /obj/structure/chair/ms13/metal,
 /obj/machinery/light/ms13/broken{
@@ -24047,6 +24123,12 @@
 /obj/structure/table/ms13/no_smooth/counter/wood,
 /turf/open/floor/ms13/tile/large/cafeteria,
 /area/ms13/town)
+"syL" = (
+/obj/structure/ms13/pipes/horizontal/down/single{
+	dir = 1
+	},
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/snowcrest/building)
 "szk" = (
 /obj/structure/table/ms13/metal/alt,
 /obj/effect/spawner/random/ms13/guaranteed/medical/highrandom,
@@ -24412,6 +24494,10 @@
 	},
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
+"sTt" = (
+/obj/machinery/door/unpowered/ms13/seethrough/metal,
+/turf/open/floor/wood/ms13/common,
+/area/ms13/snowcrest/building)
 "sUu" = (
 /turf/open/floor/plating/ms13/ground/sidewalk,
 /area/ms13/town)
@@ -24648,7 +24734,10 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "thT" = (
-/obj/effect/spawner/random/ms13/armor/headgear,
+/obj/structure/ms13/trash/cardboard{
+	dir = 4;
+	pixel_y = 12
+	},
 /turf/open/floor/plating/ms13/ground/snow,
 /area/ms13/snowcrest)
 "thX" = (
@@ -25299,11 +25388,9 @@
 /turf/open/floor/plating/ms13/ground/road,
 /area/ms13/underground/tunnel)
 "tJn" = (
-/obj/machinery/door/unpowered/ms13/seethrough/mirrored/metal{
-	dir = 1
-	},
-/turf/open/floor/ms13/concrete/bricks,
-/area/ms13/snowcrest/building)
+/obj/structure/ms13/pallet/stack,
+/turf/open/floor/plating/ms13/ground/sidewalk,
+/area/ms13/snowcrest)
 "tJM" = (
 /obj/structure/filingcabinet/ms13/busted{
 	dir = 4
@@ -25546,13 +25633,9 @@
 /turf/open/floor/plating/ms13/ground/road,
 /area/ms13)
 "tXl" = (
-/obj/structure/table/ms13/low_wall/metal,
-/obj/structure/window/fulltile/ms13/glass,
-/obj/machinery/door/poddoor/shutters/ms13/horizontal/red/left{
-	id = "snowcrest-genstore"
-	},
+/obj/structure/ms13/rug/yellow,
 /turf/open/floor/plating/ms13/ground/sidewalk,
-/area/ms13/snowcrest/building)
+/area/ms13/snowcrest)
 "tYo" = (
 /mob/living/basic/ms13/ghoul,
 /obj/effect/decal/cleanable/blood/footprints,
@@ -26095,13 +26178,12 @@
 /turf/open/floor/plating/ms13/ground/sidewalk,
 /area/ms13)
 "uEH" = (
-/obj/structure/table/ms13/low_wall/metal,
-/obj/structure/window/fulltile/ms13/glass,
-/obj/machinery/door/poddoor/shutters/ms13/horizontal/red/right{
-	id = "snowcrest-genstore"
-	},
+/obj/structure/closet/ms13/fridge,
+/obj/effect/spawner/random/ms13/food/random,
+/obj/effect/spawner/random/ms13/food/random,
+/obj/effect/spawner/random/ms13/food/random,
 /turf/open/floor/plating/ms13/ground/sidewalk,
-/area/ms13/snowcrest/building)
+/area/ms13/snowcrest)
 "uFa" = (
 /obj/machinery/button/ms13{
 	id = "ore_wh2"
@@ -26735,6 +26817,12 @@
 	},
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
+"vpu" = (
+/obj/machinery/door/unpowered/ms13/seethrough/metal{
+	dir = 1
+	},
+/turf/open/floor/wood/ms13/common,
+/area/ms13/snowcrest/building)
 "vpI" = (
 /obj/structure/ms13/jukebox,
 /obj/structure/ms13/storage/vent,
@@ -26972,6 +27060,10 @@
 /obj/effect/spawner/random/ms13/food/trash,
 /turf/open/floor/wood/ms13/carpet/green,
 /area/ms13/town)
+"vBa" = (
+/obj/structure/table/ms13/no_smooth/wood/low,
+/turf/open/floor/plating/ms13/ground/sidewalk,
+/area/ms13/snowcrest)
 "vBb" = (
 /obj/structure/table/ms13/crafting/workbench,
 /turf/open/floor/wood/ms13/wide,
@@ -27852,6 +27944,10 @@
 	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/underground/tunnel/maintenance)
+"wDt" = (
+/obj/structure/ms13/trash/books/pile,
+/turf/open/floor/plating/ms13/ground/sidewalk,
+/area/ms13/snowcrest)
 "wDw" = (
 /obj/effect/decal/cleanable/vomit/old,
 /turf/open/floor/ms13/concrete/industrial,
@@ -28180,11 +28276,9 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "wWC" = (
-/obj/machinery/door/unpowered/ms13/seethrough/metal{
-	dir = 1
-	},
-/turf/open/floor/ms13/concrete/bricks,
-/area/ms13/snowcrest/building)
+/obj/structure/closet/crate/ms13/footlocker,
+/turf/open/floor/plating/ms13/ground/sidewalk,
+/area/ms13/snowcrest)
 "wWG" = (
 /obj/machinery/light/ms13/broken,
 /turf/open/floor/ms13/tile/full/navy,
@@ -28765,9 +28859,11 @@
 /turf/open/floor/plating/ms13/ground/road,
 /area/ms13/underground/tunnel)
 "xDV" = (
-/obj/structure/filingcabinet/ms13,
-/turf/open/floor/wood/ms13/wide,
-/area/ms13/snowcrest/building)
+/obj/structure/railing/ms13/sewer{
+	dir = 4
+	},
+/turf/open/floor/plating/ms13/ground/snow,
+/area/ms13/snow/forest)
 "xEi" = (
 /obj/effect/mob_spawn/corpse/human/ms13/wastelander,
 /obj/effect/decal/cleanable/blood,
@@ -29093,6 +29189,10 @@
 /obj/effect/spawner/random/ms13/clothing/hat,
 /turf/open/floor/ms13/tile/brown,
 /area/ms13/supermarket)
+"xUe" = (
+/obj/structure/bonfire/ms13/campfire/prelit,
+/turf/open/floor/plating/ms13/ground/snow,
+/area/ms13/snowcrest)
 "xUW" = (
 /obj/structure/table/ms13/low_wall/brick/alt,
 /obj/structure/ms13/barricade,
@@ -53944,8 +54044,8 @@ kyt
 nCu
 wyP
 tHb
-vQh
-vBh
+uhP
+anp
 gEz
 nlg
 kyt
@@ -54170,9 +54270,9 @@ kyt
 kyt
 bkT
 wyP
-cSG
-cSG
-wnv
+vQh
+vQh
+anp
 gEz
 lbU
 ivN
@@ -54851,9 +54951,9 @@ kyt
 wyP
 wyP
 wyP
+vyH
 anp
-anp
-anp
+vyH
 anp
 anp
 uuL
@@ -60101,7 +60201,7 @@ fKp
 anp
 voJ
 pSq
-anp
+wWC
 jNB
 nZX
 nUd
@@ -60338,12 +60438,12 @@ nZX
 nZX
 nZX
 nZX
-xsE
+nZX
 xsE
 xsE
 xsE
 xZD
-mfr
+fol
 xNi
 xNi
 fUm
@@ -60554,8 +60654,8 @@ lJG
 kME
 anp
 uYZ
+amR
 anp
-uBr
 qdT
 nZX
 nUd
@@ -60564,13 +60664,13 @@ nUd
 nUd
 nUd
 nUd
+nUd
 nZX
 xsE
 xsE
 xsE
-xsE
 xZD
-mfr
+fol
 gMg
 gMg
 gMg
@@ -60783,19 +60883,19 @@ anp
 vBh
 anp
 neF
-ipj
+uBr
 nZX
-wyP
-wyP
-wyP
-wyP
-wyP
+nZX
+nZX
+nZX
+nZX
+nZX
+nZX
 nUd
 nZX
-ybZ
-xsE
-xsE
-xsE
+nZX
+nZX
+nZX
 xZD
 fol
 aHT
@@ -61011,18 +61111,18 @@ anp
 bjS
 uyj
 anp
-cvC
-wyP
-myf
-mth
-kQh
-wyP
+iSr
+xDV
+nZX
+baY
+anp
+tJn
+nZX
+nUd
+nUd
+nUd
 nUd
 nZX
-ybZ
-xsE
-xsE
-xsE
 xZD
 jIO
 jIO
@@ -61237,19 +61337,19 @@ anp
 anp
 anp
 anp
+vBh
 anp
 anp
-tJn
-luu
-mth
-mth
-wyP
+anp
+anp
+anp
+hAD
+nZX
+nZX
+nZX
+nZX
 nUd
 nZX
-ybZ
-xsE
-xsE
-xsE
 xZD
 fol
 aLR
@@ -61466,17 +61566,17 @@ anp
 anp
 anp
 anp
-wWC
-mth
-mth
-mth
-wyP
+anp
+anp
+anp
+anp
+anp
+anp
+ipj
+ipj
+nZX
 nUd
 nZX
-ybZ
-xsE
-xsE
-xsE
 xZD
 fol
 aLR
@@ -61686,24 +61786,24 @@ gQg
 wyP
 xmP
 anp
-anp
-anp
 fKp
-anp
+nVR
 anp
 adt
+adt
+anp
 oIX
-wyP
-niJ
+ttM
+nZX
 mth
-mth
-wyP
+anp
+anp
+anp
+ipj
+tXl
+nZX
 nUd
 nZX
-ybZ
-xsE
-xsE
-xsE
 xZD
 fol
 aOr
@@ -61913,24 +62013,24 @@ cVj
 wyP
 anp
 gNk
-anp
-anp
 wyP
 wyP
 rAo
 rAo
 wyP
 wyP
+rAo
+rAo
 wyP
-gpm
 wyP
-wyP
+cvC
+vBh
+anp
+ipj
+anp
+nZX
 nUd
 nZX
-ybZ
-xsE
-xsE
-xsE
 xZD
 jIO
 jIO
@@ -62140,8 +62240,6 @@ gQg
 wyP
 anp
 anp
-anp
-anp
 wyP
 sXC
 jpz
@@ -62152,12 +62250,14 @@ ugC
 ugC
 ugC
 wyP
+rXy
+anp
+anp
+anp
+anp
+nZX
 nUd
 nZX
-ybZ
-xsE
-xsE
-xsE
 xZD
 xZD
 xZD
@@ -62367,24 +62467,24 @@ nGT
 wyP
 anp
 anp
-anp
-anp
-tXl
+jCF
 ugC
 ugC
 rgf
 xCH
 gaC
 lTw
+xIW
 ugC
-ugC
-wyP
+sTt
+anp
+anp
+anp
+anp
+vBh
+nZX
 nUd
 nZX
-ybZ
-xsE
-xsE
-xsE
 xZD
 jIO
 jIO
@@ -62594,9 +62694,7 @@ cVj
 idB
 anp
 vQh
-vQh
-anp
-uEH
+lCO
 azu
 ugC
 ugC
@@ -62604,14 +62702,16 @@ ugC
 ugC
 ugC
 ugC
-xIW
-wyP
+ugC
+vpu
+anp
+anp
+anp
+anp
+anp
+nZX
 nUd
 nZX
-ybZ
-xsE
-xsE
-xsE
 xZD
 jIO
 aUZ
@@ -62821,8 +62921,6 @@ wyP
 wyP
 anp
 vQh
-vQh
-anp
 wyP
 bOB
 wmV
@@ -62833,14 +62931,16 @@ ugC
 ugC
 yjv
 wyP
+hhd
+anp
+anp
+anp
+anp
+nZX
 nUd
 nZX
-ybZ
-xsE
-xsE
-xsE
 xZD
-mfr
+jIO
 oTM
 gMg
 gMg
@@ -63048,8 +63148,6 @@ emc
 wyP
 grn
 vQh
-gAq
-anp
 wyP
 wNZ
 ugC
@@ -63060,14 +63158,16 @@ jwn
 wZn
 wyP
 wyP
+fNW
+aqv
+qMX
+whY
+vQh
+nZX
 nUd
 nZX
-ybZ
-xsE
-xsE
-xsE
 xZD
-mfr
+jIO
 gMg
 gMg
 fZU
@@ -63276,8 +63376,6 @@ wyP
 anp
 vQh
 jCF
-anp
-tXl
 qWX
 ugC
 ugC
@@ -63287,12 +63385,14 @@ kyt
 vFq
 tWg
 wyP
+gpC
+anp
+gAq
+anp
+vQh
+nZX
 nUd
 nZX
-ybZ
-xsE
-xsE
-xsE
 xZD
 jIO
 hnQ
@@ -63503,8 +63603,6 @@ wyP
 pWr
 vQh
 lCO
-bjS
-uEH
 eEU
 ugC
 ugC
@@ -63512,14 +63610,16 @@ prl
 eBf
 kyt
 kyt
-iqN
+rzO
 wyP
+iqN
+anp
+dVh
+anp
+vQh
+nZX
 nUd
 nZX
-ybZ
-xsE
-xsE
-xsE
 xZD
 jIO
 gMg
@@ -63729,24 +63829,24 @@ anp
 anp
 anp
 vQh
-mVo
-pdq
 wyP
-gOi
+pdq
 kdD
 ugC
 wyP
-xDV
+myf
 qhe
 kyt
 mXW
-wyP
+kQh
+uEH
+anp
+voJ
+vBa
+thT
+nZX
 nUd
 nZX
-ybZ
-xsE
-xsE
-xsE
 xZD
 jIO
 jIO
@@ -63956,24 +64056,24 @@ vQh
 vQh
 vQh
 vQh
-vQh
-khQ
 wyP
 wyP
 wyP
 nsE
 wyP
-xDV
+oMu
 kyt
 kyt
 wFx
-wyP
+frW
+anp
+anp
+voJ
+jsF
+vQh
+nZX
 nUd
 nZX
-xsE
-xsE
-xsE
-xsE
 xZD
 jIO
 oRA
@@ -64179,28 +64279,28 @@ lfk
 mnJ
 voJ
 vQh
-qMX
-qMX
-oJw
-qMX
+vQh
+vQh
+vQh
 vQh
 khQ
 khQ
-khQ
 wyP
-kyt
+syL
 kyt
 kyt
 kyt
 qjW
-cJT
+mVo
 wyP
+cJT
+niJ
+gAq
+xUe
+vQh
+nZX
 nUd
 nZX
-xsE
-xsE
-xsE
-xsE
 xZD
 jIO
 kyp
@@ -64406,28 +64506,28 @@ xxU
 xxU
 nZX
 cID
-vQh
-vbN
-vQh
 qMX
-vQh
-khQ
+qMX
+oJw
+qMX
 khQ
 khQ
 wyP
-mlu
+oxX
 kyt
 kyt
 kyt
-aqv
+gpm
 bDj
 wyP
+dgB
+wDt
+gAq
+luu
+mlu
+nZX
 nUd
 nZX
-xsE
-xsE
-xsE
-xsE
 xZD
 jIO
 red
@@ -64634,11 +64734,9 @@ xxU
 lxu
 vQh
 vQh
-iFc
-thT
-qMX
+vbN
 vQh
-khQ
+qMX
 khQ
 wyP
 wyP
@@ -64649,12 +64747,14 @@ wyP
 wyP
 wyP
 wyP
+nZX
+nZX
+nZX
+nZX
+nZX
+nZX
 nUd
 nZX
-khQ
-xsE
-xsE
-xsE
 xZD
 jIO
 rmt
@@ -64860,12 +64960,10 @@ lxu
 lxu
 lxu
 khQ
-khQ
-khQ
-khQ
-khQ
-khQ
-khQ
+vQh
+iFc
+gOi
+qMX
 khQ
 kEl
 uUE
@@ -64877,11 +64975,13 @@ nUd
 nUd
 nUd
 nUd
+nUd
+nUd
+nUd
+nUd
+nUd
+nUd
 nZX
-khQ
-khQ
-xsE
-xsE
 xZD
 jIO
 jIO
@@ -65092,8 +65192,6 @@ khQ
 khQ
 khQ
 khQ
-khQ
-khQ
 kEl
 uuj
 lIP
@@ -65105,10 +65203,12 @@ nZX
 nZX
 nZX
 nZX
-khQ
-khQ
-ylG
-ylG
+nZX
+nZX
+nZX
+nZX
+nZX
+nZX
 ylG
 ylG
 ylG
@@ -65319,13 +65419,13 @@ khQ
 khQ
 khQ
 khQ
-khQ
-khQ
 kEl
 gMz
 rgJ
 brE
 wyP
+khQ
+khQ
 khQ
 khQ
 khQ
@@ -65546,13 +65646,13 @@ tkl
 khQ
 khQ
 khQ
+wyP
+wyP
+wyP
+wyP
+wyP
 khQ
 khQ
-wyP
-wyP
-wyP
-wyP
-wyP
 khQ
 khQ
 khQ
@@ -65768,7 +65868,7 @@ fOc
 fOc
 uvL
 eso
-eso
+vlA
 tkl
 khQ
 khQ
