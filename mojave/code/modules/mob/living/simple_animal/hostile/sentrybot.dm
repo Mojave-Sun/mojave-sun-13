@@ -394,6 +394,9 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	owner.density = original_density
 	thrown_grenade.arm_grenade(owner, 1.5 SECONDS, 2, 1, owner, TRUE)
 
+/datum/action/cooldown/launch_grenade/incend
+	name = "Launch a incendiary grenade"
+
 /obj/item/grenade/frag/sentrybot
 	name = "frag grenade"
 	desc = "An anti-personnel fragmentation grenade, this weapon excels at killing soft targets by shredding them with metal shrapnel."
