@@ -7253,8 +7253,8 @@
 "gpm" = (
 /obj/structure/table/ms13/wood,
 /obj/machinery/button/ms13{
-	id = "snowcrest-genstore-back";
-	dir = 8
+	dir = 8;
+	id = "snowcrest-genstore-back"
 	},
 /turf/open/floor/wood/ms13/common,
 /area/ms13/snowcrest/building)
@@ -7836,6 +7836,7 @@
 /area/ms13/town)
 "gKx" = (
 /obj/structure/table/ms13/metal/heavy,
+/obj/effect/spawner/random/ms13/power_armor/parts,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/bos)
 "gKz" = (
@@ -7988,9 +7989,9 @@
 /turf/open/floor/ms13/metal/grate/border,
 /area/ms13/town)
 "gOh" = (
-/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/t45/random,
 /obj/structure/ms13/pa_jack,
 /obj/structure/ms13/pipes/horizontal/single/cont,
+/obj/item/clothing/suit/space/hardsuit/ms13/power_armor,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/bos)
 "gOi" = (
@@ -12613,6 +12614,8 @@
 /obj/effect/spawner/random/ms13/tools/tool,
 /obj/effect/spawner/random/ms13/tools/tool,
 /obj/effect/spawner/random/ms13/tools/lights,
+/obj/effect/spawner/random/ms13/power_armor/parts,
+/obj/effect/spawner/random/ms13/power_armor/t45_parts,
 /turf/open/floor/ms13/metal,
 /area/ms13/underground/bos)
 "jAE" = (
@@ -23150,12 +23153,12 @@
 	dir = 1;
 	remote_capability = 1;
 	signal_id_1 = "snowcrest-genstore";
-	signal_title_1 = "Window Shutters";
-	termtag = "Snowcrest General Store";
 	signal_id_2 = "snowcrest-genstore-north";
+	signal_id_3 = "snowcrest-genstore-back";
+	signal_title_1 = "Window Shutters";
 	signal_title_2 = "Alley Shutters";
 	signal_title_3 = "Front Alley Shutters";
-	signal_id_3 = "snowcrest-genstore-back"
+	termtag = "Snowcrest General Store"
 	},
 /turf/open/floor/wood/ms13/common,
 /area/ms13/snowcrest/building)

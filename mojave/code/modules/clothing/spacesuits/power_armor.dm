@@ -135,7 +135,7 @@
 	anchored = TRUE
 	strip_delay = 15 SECONDS
 	integrity_failure = 0.5
-	max_integrity = 500
+	max_integrity = 450
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0,  FIRE = 0, ACID = 0, WOUND = 0)
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
@@ -631,7 +631,7 @@
 	light_range = 4.20
 	light_power = 0.9
 	light_color = "#d1c58d"
-	max_integrity = 380
+	max_integrity = 340
 	radiotype = /obj/item/radio/headset/ms13/powerarmor/t51
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = CLASS4_EDGE, \
@@ -666,7 +666,7 @@
 	light_range = 4
 	light_power = 0.8
 	light_color = "#dabc7c"
-	max_integrity = 280
+	max_integrity = 240
 	radiotype = /obj/item/radio/headset/ms13/powerarmor/t45
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = CLASS4_EDGE, \
