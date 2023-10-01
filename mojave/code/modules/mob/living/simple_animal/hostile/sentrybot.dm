@@ -75,8 +75,8 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	vision_range = 12
 	aggro_vision_range = 12
 	dodge_prob = 50
-	maxHealth = 1200
-	health = 1200
+	maxHealth = 1250
+	health = 1250
 	idlechance = 20
 	melee_damage_lower = 25
 	melee_damage_upper = 25
@@ -88,8 +88,8 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	stat_attack = CONSCIOUS
 	casingtype = /obj/item/ammo_casing/energy/ms13/laser/sentrybot
 	ranged_cooldown = 4.5 SECONDS
-	rapid = 16
-	rapid_fire_delay = 0.05 SECONDS //16 shots over 1 second
+	rapid = 20
+	rapid_fire_delay = 0.045 SECONDS //20 shots over 0.9 seconds
 	pixel_x = -8
 	base_pixel_x = -8
 	bot_type = "Sentrybot"
@@ -115,7 +115,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/Initialize()
 	. = ..()
-	grenade = new /datum/action/cooldown/launch_grenade()
+	grenade = new /datum/action/cooldown/launch_grenade/incend()
 	rocket = new /datum/action/cooldown/launch_rocket()
 	grenade.Grant(src)
 	rocket.Grant(src)
@@ -328,7 +328,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 
 /obj/projectile/beam/ms13/laser/sentrybot
 	damage = 8
-	subtractible_armour_penetration = 35
+	subtractible_armour_penetration = 32
 	wound_bonus = 18
 	bare_wound_bonus = 10
 
@@ -370,12 +370,12 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 /datum/action/cooldown/launch_grenade
 	name = "Launch a shrapnel grenade"
 	desc = "Launches a cool grenade at the enemy"
-	cooldown_time = 8 SECONDS
+	cooldown_time = 7.5 SECONDS
 	click_to_activate = TRUE
 	var/obj/item/grenade/grenade = /obj/item/grenade/frag/sentrybot
 
 /datum/action/cooldown/launch_grenade/Activate(atom/target_atom)
-	StartCooldown(8 SECONDS)
+	StartCooldown(7.5 SECONDS)
 	launch_grenade(target_atom)
 	StartCooldown()
 
@@ -396,6 +396,13 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 
 /datum/action/cooldown/launch_grenade/incend
 	name = "Launch a incendiary grenade"
+	cooldown_time = 9 SECONDS
+	grenade = /obj/item/grenade/ms13/incend_sentry
+
+/datum/action/cooldown/launch_grenade/incend/Activate(atom/target_atom)
+	StartCooldown(9 SECONDS)
+	launch_grenade(target_atom)
+	StartCooldown()
 
 /obj/item/grenade/frag/sentrybot
 	name = "frag grenade"
@@ -408,6 +415,21 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	ex_heavy = -1
 	ex_light = 1
 	ex_flame = 2
+
+/obj/item/grenade/ms13/incend_sentry
+	name = "incendiary grenade"
+	desc = "An anti-personnel incendiary grenade, this weapon excels at killing soft targets by lighting them aflame."
+	icon = 'mojave/icons/objects/throwables/ms_bomb_sentrybot.dmi'
+	icon_state = "bomb"
+	pass_flags = PASSMOB
+	ex_heavy = 0
+	ex_light = 0
+	ex_flame = 2
+
+/obj/item/grenade/ms13/incend_sentry/detonate(mob/living/lanced_by)
+	flame_radius(2, get_turf(src))
+	playsound(loc, 'mojave/sound/ms13effects/explosion_fire_grenade.ogg', 50, TRUE, 4)
+	qdel(src)
 
 /obj/item/shrapnel/ms13
 	name = "shrapnel shard"
@@ -464,3 +486,85 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 		P.impacted = list(owner = TRUE) // don't hit the target we hit already with the flak
 		P.preparePixelProjectile(target_turf, owner)
 		P.fire()
+
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/ballistic
+	icon_state = "ballisentry"
+	casingtype = /obj/item/ammo_casing/ms13/sentry
+	ranged_cooldown = 5 SECONDS
+	rapid = 50
+	rapid_fire_delay = 0.028 SECONDS //50 shots over 1.4 second
+
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/ballistic/Initialize()
+	. = ..()
+	grenade = new /datum/action/cooldown/launch_grenade()
+	rocket = new /datum/action/cooldown/railgun()
+	grenade.Grant(src)
+	rocket.Grant(src)
+	RegisterSignal(src, COMSIG_MOVABLE_MOVED, .proc/play_move_sound, override = TRUE)
+	soundloop = new(src, FALSE)
+
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/ballistic/OpenFire(atom/A, actually_fire = FALSE)
+	//Main gun time
+	//If we don't have LoS on our target, we should see if there's any other targets we could be killing
+	//Otherwise, we'll go chase the target by setting a lowered minimum distance
+	if(!can_see(src, target, length = 10))
+		FindTarget(possible_targets = null, HasTargetsList = FALSE)
+	if(actually_fire)
+		. = ..()
+		playsound(src, 'mojave/sound/ms13weapons/WPN_Minigun_Fire.ogg', 50, FALSE)
+		addtimer(CALLBACK(src, .proc/wind_down_minigun), 1 SECONDS)
+	else
+		if(!already_firing)
+			addtimer(CALLBACK(src, .proc/trigger_abilities, A), rand(1.5 SECONDS, 3 SECONDS))
+			addtimer(CALLBACK(src, .proc/OpenFire, A, TRUE), 1 SECONDS)
+			playsound(src, 'mojave/sound/ms13weapons/WPN_Minigun_FireSpin_Up.wav', 75, FALSE)
+			already_firing = TRUE
+	return
+
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/ballistic/proc/wind_down_minigun()
+	playsound(src, 'mojave/sound/ms13weapons/WPN_Minigun_FireSpin_Down.wav', 50, FALSE)
+	already_firing = FALSE
+
+/obj/item/ammo_casing/ms13/sentry
+	name = "5mm bullet casing"
+	projectile_type = /obj/projectile/bullet/ms13/sentry
+	icon_state = "556_casing"
+	variance = 40
+	pellets = 1
+	fire_sound = 'mojave/sound/ms13weapons/arfire.ogg'
+	randomspread = TRUE
+
+/obj/projectile/bullet/ms13/sentry
+	name = "5mm bullet"
+	icon_state = "medium_bullet"
+	damage = 6
+	subtractible_armour_penetration = 25
+	wound_bonus = 15
+	bare_wound_bonus = 15
+
+/datum/action/cooldown/railgun
+	name = "Fire a railgun"
+	desc = "Launches a cool railgun at the enemy"
+	cooldown_time = 3 SECONDS
+	click_to_activate = TRUE
+	var/obj/projectile/projectile = /obj/projectile/bullet/ms13/gauss/sentry
+
+/datum/action/cooldown/railgun/Activate(atom/target_atom)
+	StartCooldown(3 SECONDS)
+	launch_railgun(target_atom)
+	StartCooldown()
+
+/datum/action/cooldown/railgun/proc/launch_railgun(atom/target_atom)
+	playsound(owner, 'mojave/sound/ms13weapons/gunsounds/Gauss/gauss_fire_heavy.ogg', 60, TRUE, -1)
+	var/obj/projectile/projectile_obj = new projectile(get_turf(owner))
+	projectile_obj.firer = owner
+	projectile_obj.preparePixelProjectile(target_atom, owner)
+	projectile_obj.fire()
+
+/obj/projectile/bullet/ms13/gauss/sentry
+	name = "heavy gauss bullet"
+	damage = 45
+	subtractible_armour_penetration = 75
+	wound_bonus = 12
+	bare_wound_bonus = 0
+	speed = 0.3

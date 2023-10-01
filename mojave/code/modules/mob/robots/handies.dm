@@ -65,11 +65,11 @@
 	health = 165
 	maxHealth = 165
 	melee_damage_lower = 30
-    melee_damage_upper = 30
-    subtractible_armour_penetration = 15
-    sharpness = SHARP_EDGED
-    wound_bonus = 8
-    bare_wound_bonus = 10
+	melee_damage_upper = 30
+	subtractible_armour_penetration = 15
+	sharpness = SHARP_EDGED
+	wound_bonus = 8
+	bare_wound_bonus = 10
 	minimum_distance = 1
 	retreat_distance = 3
 	loot = list(/obj/item/stack/sheet/ms13/scrap_steel/two, /obj/effect/decal/cleanable/robot_debris, /obj/item/stack/sheet/ms13/scrap_electronics/two, /obj/item/stack/sheet/ms13/scrap_parts/two, /obj/item/ms13/component/plasma_battery, /obj/item/stack/sheet/ms13/circuits)
