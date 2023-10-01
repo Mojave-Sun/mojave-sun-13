@@ -75,8 +75,8 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	vision_range = 12
 	aggro_vision_range = 12
 	dodge_prob = 50
-	maxHealth = 1250
-	health = 1250
+	maxHealth = 1360
+	health = 1360
 	idlechance = 20
 	melee_damage_lower = 25
 	melee_damage_upper = 25
@@ -350,12 +350,12 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 /datum/action/cooldown/launch_rocket
 	name = "Launch a rocket"
 	desc = "Launches a cool rocket at the enemy"
-	cooldown_time = 14 SECONDS
+	cooldown_time = 13 SECONDS
 	click_to_activate = TRUE
 	var/obj/projectile/projectile = /obj/projectile/bullet/sentrybot_rocket
 
 /datum/action/cooldown/launch_rocket/Activate(atom/target_atom)
-	StartCooldown(14 SECONDS)
+	StartCooldown(13 SECONDS)
 	launch_rocket(target_atom)
 	StartCooldown()
 
@@ -396,11 +396,11 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 
 /datum/action/cooldown/launch_grenade/incend
 	name = "Launch a incendiary grenade"
-	cooldown_time = 9 SECONDS
+	cooldown_time = 8 SECONDS
 	grenade = /obj/item/grenade/ms13/incend_sentry
 
 /datum/action/cooldown/launch_grenade/incend/Activate(atom/target_atom)
-	StartCooldown(9 SECONDS)
+	StartCooldown(8 SECONDS)
 	launch_grenade(target_atom)
 	StartCooldown()
 
@@ -545,12 +545,12 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 /datum/action/cooldown/railgun
 	name = "Fire a railgun"
 	desc = "Launches a cool railgun at the enemy"
-	cooldown_time = 3 SECONDS
+	cooldown_time = 2.6 SECONDS
 	click_to_activate = TRUE
 	var/obj/projectile/projectile = /obj/projectile/bullet/ms13/gauss/sentry
 
 /datum/action/cooldown/railgun/Activate(atom/target_atom)
-	StartCooldown(3 SECONDS)
+	StartCooldown(2.6 SECONDS)
 	launch_railgun(target_atom)
 	StartCooldown()
 
@@ -563,7 +563,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 
 /obj/projectile/bullet/ms13/gauss/sentry
 	name = "heavy gauss bullet"
-	damage = 45
+	damage = 50
 	subtractible_armour_penetration = 75
 	wound_bonus = 12
 	bare_wound_bonus = 0
