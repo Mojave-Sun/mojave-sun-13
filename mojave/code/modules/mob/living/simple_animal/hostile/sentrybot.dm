@@ -88,8 +88,8 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	stat_attack = CONSCIOUS
 	casingtype = /obj/item/ammo_casing/energy/ms13/laser/sentrybot
 	ranged_cooldown = 4.5 SECONDS
-	rapid = 20
-	rapid_fire_delay = 0.045 SECONDS //20 shots over 0.9 seconds
+	rapid = 24
+	rapid_fire_delay = 0.045 SECONDS //24 shots over 1 second
 	pixel_x = -8
 	base_pixel_x = -8
 	bot_type = "Sentrybot"
@@ -492,7 +492,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	casingtype = /obj/item/ammo_casing/ms13/sentry
 	ranged_cooldown = 5 SECONDS
 	rapid = 50
-	rapid_fire_delay = 0.028 SECONDS //50 shots over 1.4 second
+	rapid_fire_delay = 0.025 SECONDS //50 shots over 1.25 seconds
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/ballistic/Initialize()
 	. = ..()
