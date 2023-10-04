@@ -1,5 +1,64 @@
-//Pre-War Meats
+//Base defines for meat
+/obj/item/food/meat/slab/ms13
+	icon = 'mojave/icons/objects/food/meat.dmi'
+	icon_state = "meat"
+	drop_sound = 'mojave/sound/ms13items/ms13handling/meat_drop.ogg'
+	pickup_sound =  'mojave/sound/ms13items/ms13handling/meat_pickup.ogg'
+	decomp_type = /obj/item/food/badrecipe/moldy/ms13
 
+/obj/item/food/meat/slab/ms13/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/item_scaling, 0.50, 1)
+
+/obj/item/food/meat/steak/plain/ms13
+	icon = 'mojave/icons/objects/food/meat.dmi'
+	icon_state = "meat_roasted"
+	drop_sound = 'mojave/sound/ms13items/ms13handling/meat_drop.ogg'
+	pickup_sound =  'mojave/sound/ms13items/ms13handling/meat_pickup.ogg'
+	decomp_type = /obj/item/food/badrecipe/moldy/ms13
+
+/obj/item/food/meat/steak/plain/ms13/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/item_scaling, 0.50, 1)
+
+/obj/item/food/meat/rawcutlet/plain/ms13
+	icon = 'mojave/icons/objects/food/meat.dmi'
+	icon_state = "meatcube"
+	drop_sound = 'mojave/sound/ms13items/ms13handling/meat_drop.ogg'
+	pickup_sound =  'mojave/sound/ms13items/ms13handling/meat_pickup.ogg'
+	decomp_type = /obj/item/food/badrecipe/moldy/ms13
+
+/obj/item/food/meat/rawcutlet/plain/ms13/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/item_scaling, 0.50, 1)
+
+/obj/item/food/meat/cutlet/plain/ms13
+	icon = 'mojave/icons/objects/food/meat.dmi'
+	icon_state = "meatcube_roasted"
+	drop_sound = 'mojave/sound/ms13items/ms13handling/meat_drop.ogg'
+	pickup_sound =  'mojave/sound/ms13items/ms13handling/meat_pickup.ogg'
+	decomp_type = /obj/item/food/badrecipe/moldy/ms13
+
+/obj/item/food/meat/cutlet/plain/ms13/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/item_scaling, 0.50, 1)
+
+/obj/item/food/badrecipe/moldy/ms13
+	name = "rotten mess"
+	desc = "A disgusting pile of moldy, rotten food. Some poor desperate wasteland soul would probably still eat this."
+	icon = 'mojave/icons/effects/gurps.dmi'
+	icon_state = "rot_1"
+	w_class = WEIGHT_CLASS_SMALL
+	grid_height = 32
+	grid_width = 32
+
+/obj/item/food/badrecipe/moldy/ms13/Initialize()
+	. = ..()
+	icon_state = "rot_[rand(1,4)]"
+	AddElement(/datum/element/item_scaling, 0.65, 1)
+
+//Pre-War Meats
+/* THIS SHIT IS BROKEN!
 /obj/item/food/ms13/ingredient/dogfood
 	name = "dog food"
 	desc = "A portion of century old beef, gravy and barely recognizable vegetables, made for mutts, are you really that desperate?"
@@ -73,3 +132,4 @@
 	min_cook = 40 SECONDS
 	min_cook = 80 SECONDS
 	overlay_state = "salisbury"
+*/

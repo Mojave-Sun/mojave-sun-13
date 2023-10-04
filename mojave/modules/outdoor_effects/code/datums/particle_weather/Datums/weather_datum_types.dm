@@ -6,23 +6,19 @@
 
 	scale_vol_with_severity = TRUE
 	weather_sounds = list(/datum/looping_sound/dust_storm)
-	weather_messages = list("The whipping sand stings your eyes!")
+	weather_messages = list("The whipping sand grates against you!", "The intense sandstorm makes it harder to see!")
 
-	minSeverity = 1
-	maxSeverity = 50
-	maxSeverityChange = 10
-	severitySteps = 20
+	minSeverity = 20
+	maxSeverity = 80
+	maxSeverityChange = 40
+	severitySteps = 8
 	immunity_type = TRAIT_DUSTSTORM_IMMUNE
 	probability = 1
 	target_trait = PARTICLEWEATHER_DUST
 
-//Makes you a little chilly
-/datum/particle_weather/dust_storm/weather_act(mob/living/L)
-	if ishuman(L)
-		var/mob/living/carbon/human/H = L
-		var/obj/item/organ/eyes/eyes = H.getorganslot(ORGAN_SLOT_EYES)
-		eyes?.applyOrganDamage(severityMod() * rand(1,3) - H.get_eye_protection())
-
+/datum/particle_weather/dust_storm/weather_act(mob/living/carbon/L)
+	if(ishuman(L) && !L.is_eyes_covered())
+		L.blur_eyes(6.5)
 
 /datum/particle_weather/radiation_storm
 	name = "Rain"
@@ -141,6 +137,6 @@
 
 //Makes you a lot little chilly
 /datum/particle_weather/snow_storm/weather_act(mob/living/L)
-	if(ishuman(L))
-		L.blur_eyes(5)
+	if(ishuman(L) && !L.is_eyes_covered())
+		L.blur_eyes(5.5)
 

@@ -13,6 +13,7 @@
 	anchored = TRUE
 	plane = ABOVE_GAME_PLANE
 	layer = ABOVE_MOB_LAYER
+	pixel_y = 32
 
 /obj/structure/ms13/pipes/attackby(obj/item/I, mob/living/user, params) //cant attack due to wall side handling
 	return
@@ -40,16 +41,8 @@
 /obj/structure/ms13/pipes/horizontal/random
 	icon_state = "rand"
 
-/obj/structure/ms13/pipes/horizontal/random/Initialize(mapload)
-	. = ..()
-	dir = rand(1,4)
-
 /obj/structure/ms13/pipes/horizontal/random_alt
 	icon_state = "cont"
-
-/obj/structure/ms13/pipes/horizontal/random_alt/Initialize(mapload)
-	. = ..()
-	dir = rand(1,8)
 
 /obj/structure/ms13/pipes/horizontal/box
 	icon_state = "box"
@@ -73,10 +66,6 @@
 	icon_state = "valve"
 	desc = "A hardy metal pipe, fitted with an old red valve."
 
-/obj/structure/ms13/pipes/horizontal/valve/Initialize(mapload)
-	. = ..()
-	dir = rand(1,4)
-
 /obj/structure/ms13/pipes/horizontal/end
 	icon_state = "inwall"
 
@@ -87,10 +76,6 @@
 
 /obj/structure/ms13/pipes/horizontal/single/random
 	icon_state = "rand_single"
-
-/obj/structure/ms13/pipes/horizontal/single/random/Initialize(mapload)
-	. = ..()
-	dir = rand(1,4)
 
 /obj/structure/ms13/pipes/horizontal/single/valve
 	icon_state = "valve_single"
@@ -116,10 +101,6 @@
 /obj/structure/ms13/pipes/vertical/east/random
 	icon_state = "upeastrand"
 
-/obj/structure/ms13/pipes/vertical/east/random/Initialize(mapload)
-	. = ..()
-	dir = rand(1,4)
-
 /obj/structure/ms13/pipes/vertical/east/valve
 	icon_state = "valve_upeast"
 	desc = "A hardy metal pipe, fitted with an old red valve."
@@ -141,10 +122,6 @@
 /obj/structure/ms13/pipes/vertical/west/random
 	icon_state = "upwestrand"
 
-/obj/structure/ms13/pipes/vertical/west/random/Initialize(mapload)
-	. = ..()
-	dir = rand(1,4)
-
 /obj/structure/ms13/pipes/vertical/west/valve
 	icon_state = "valve_upwest"
 	desc = "A hardy metal pipe, fitted with an old red valve."
@@ -164,3 +141,36 @@
 	name = "pipes"
 	icon_state = "top"
 	desc = "A hardy metal pipe, long empty of whatever it held."
+
+
+// For large pipes. Ground based, not on the wall... cool
+
+/obj/structure/ms13/large_pipe
+	name = "pipe"
+	desc = "A large pipe. There doesn't seem to be anything flowing through it currently."
+	icon = 'mojave/icons/structure/pipes.dmi'
+	icon_state = "large_pipe_straight"
+	max_integrity = 1000
+	density = TRUE
+	anchored = TRUE
+	plane = ABOVE_GAME_PLANE
+	layer = ABOVE_MOB_LAYER
+
+/* /obj/structure/ms13/large_pipe/Initialize(mapload) // Looks dumb rn... :(
+	. = ..()
+	AddElement(/datum/element/climbable, climb_time = 3 SECONDS, climb_stun = 0, no_stun = TRUE, jump_over = TRUE, jump_north = 12, jump_south = 17, jump_sides = 12) */
+
+/obj/structure/ms13/large_pipe/corner
+	icon_state = "large_pipe_corner"
+
+/obj/structure/ms13/large_pipe/pump
+	icon_state = "large_pipe_pump"
+
+/obj/structure/ms13/large_pipe/intersection
+	icon_state = "large_pipe_intersection"
+
+/obj/structure/ms13/large_pipe/intersection_t
+	icon_state = "large_pipe_intersection-t"
+
+/obj/structure/ms13/large_pipe/ground
+	icon_state = "large_pipe_ground"

@@ -24,6 +24,7 @@
 	icon_state = "prewar"
 	singular_name = "pre-war dollar"
 	merge_type = /obj/item/stack/ms13/currency/prewar
+	pickup_sound = 'mojave/sound/ms13items/dollabill.ogg'
 
 /obj/item/stack/ms13/currency/prewar/five
 	amount = 5
@@ -32,7 +33,7 @@
 	amount = 10
 
 /obj/item/stack/ms13/currency/prewar/twenty
-	amount = 25
+	amount = 20
 
 /obj/item/stack/ms13/currency/prewar/thirty
 	amount = 30
@@ -61,8 +62,17 @@
 /obj/item/stack/ms13/currency/prewar/hunnedtwenty
 	amount = 120
 
-/obj/item/stack/ms13/currency/prewar/mayor
+/obj/item/stack/ms13/currency/prewar/hunnedfourty
+	amount = 140
+
+/obj/item/stack/ms13/currency/prewar/hunnedeighty
+	amount = 180
+
+/obj/item/stack/ms13/currency/prewar/underboss
 	amount = 300
+
+/obj/item/stack/ms13/currency/prewar/mayor
+	amount = 400
 
 /obj/item/stack/ms13/currency/ncr_dollar
 	name = "\improper NCR dollars"
@@ -70,12 +80,16 @@
 	icon_state = "ncr"
 	singular_name = "NCR dollar"
 	merge_type = /obj/item/stack/ms13/currency/ncr_dollar
+	pickup_sound = 'mojave/sound/ms13items/dollabill.ogg'
 
 /obj/item/stack/ms13/currency/ncr_dollar/five
 	amount = 5
 
 /obj/item/stack/ms13/currency/ncr_dollar/ten
 	amount = 10
+
+/obj/item/stack/ms13/currency/ncr_dollar/twelve
+	amount = 12
 
 /obj/item/stack/ms13/currency/ncr_dollar/twenty
 	amount = 25
@@ -109,7 +123,13 @@
 	desc = "Recently stamped NCR coin. Seemingly made of solid gold."
 	icon_state = "ncr_gold"
 	singular_name = "NCR coin"
+	max_amount = 50
 	merge_type = /obj/item/stack/ms13/currency/ncr_coin
+	pickup_sound = 'mojave/sound/ms13items/doubloon.ogg'
+	drop_sound = 'mojave/sound/ms13items/doubloon.ogg'
+
+/obj/item/stack/ms13/currency/ncr_coin/two
+	amount = 2
 
 /obj/item/stack/ms13/currency/ncr_coin/five
 	amount = 5
@@ -117,15 +137,24 @@
 /obj/item/stack/ms13/currency/ncr_coin/ten
 	amount = 10
 
+/obj/item/stack/ms13/currency/ncr_coin/fifteen
+	amount = 15
+
 /obj/item/stack/ms13/currency/ncr_coin/twenty
 	amount = 20
 
 /obj/item/stack/ms13/currency/aurelius
-	name = "\improper aurelius"
+	name = "\improper Legion aurelii"
 	desc = "Golden coin. There is an image of a bull and a head."
 	icon_state = "aurelius"
 	singular_name = "Aurelius coin"
+	max_amount = 50
 	merge_type = /obj/item/stack/ms13/currency/aurelius
+	pickup_sound = 'mojave/sound/ms13items/doubloon.ogg'
+	drop_sound = 'mojave/sound/ms13items/doubloon.ogg'
+
+/obj/item/stack/ms13/currency/aurelius/two
+	amount = 2
 
 /obj/item/stack/ms13/currency/aurelius/five
 	amount = 5
@@ -133,15 +162,30 @@
 /obj/item/stack/ms13/currency/aurelius/ten
 	amount = 10
 
+/obj/item/stack/ms13/currency/aurelius/fifteen
+	amount = 15
+
 /obj/item/stack/ms13/currency/aurelius/twenty
 	amount = 20
 
+/obj/item/stack/ms13/currency/aurelius/twentyfive
+	amount = 25
+
+/obj/item/stack/ms13/currency/aurelius/thirty
+	amount = 30
+
 /obj/item/stack/ms13/currency/denarius
-	name = "\improper denarius"
+	name = "\improper Legion denarii"
 	desc = "Silver coin. There is an image of a bull and a head."
 	icon_state = "denarius"
 	singular_name = "Denarius coin"
+	max_amount = 50
 	merge_type = /obj/item/stack/ms13/currency/denarius
+	pickup_sound = 'mojave/sound/ms13items/doubloon.ogg'
+	drop_sound = 'mojave/sound/ms13items/doubloon.ogg'
+
+/obj/item/stack/ms13/currency/denarius/two
+	amount = 2
 
 /obj/item/stack/ms13/currency/denarius/five
 	amount = 5
@@ -149,23 +193,69 @@
 /obj/item/stack/ms13/currency/denarius/ten
 	amount = 10
 
+/obj/item/stack/ms13/currency/denarius/fifteen
+	amount = 15
+
 /obj/item/stack/ms13/currency/denarius/twenty
 	amount = 20
 
+/obj/item/stack/ms13/currency/denarius/twentyfive
+	amount = 25
+
+/obj/item/stack/ms13/currency/denarius/thirty
+	amount = 30
+
 /obj/item/stack/ms13/currency/cap
-	name = "\improper bottle cap"
+	name = "\improper bottle caps"
 	desc = "Standard nuka cola bottlecaps are found everywhere. Perhaps they're worth something to someone."
 	icon_state = "caps"
 	singular_name = "bottle cap"
+	max_amount = 450
 	merge_type = /obj/item/stack/ms13/currency/cap
+	pickup_sound = 'mojave/sound/ms13items/doubloon.ogg'
+	drop_sound = 'mojave/sound/ms13items/doubloon.ogg'
 
-/obj/item/stack/ms13/currency/cap/five
-	amount = 5
+/obj/item/stack/ms13/currency/cap/Initialize()
+	. = ..()
+	AddElement(/datum/element/item_scaling, 0.45, 1)
+
+/obj/item/stack/ms13/currency/cap/four
+	amount = 4
 
 /obj/item/stack/ms13/currency/cap/ten
 	amount = 10
 
-/obj/item/stack/ms13/currency/cap/twenty
-	amount = 20
+/obj/item/stack/ms13/currency/cap/fifteen
+	amount = 15
+
+/obj/item/stack/ms13/currency/cap/twentyfive
+	amount = 25
+
+/obj/item/stack/ms13/currency/cap/thirtyfive
+	amount = 35
+
+/obj/item/stack/ms13/currency/cap/fifty
+	amount = 50
+
+/obj/item/stack/ms13/currency/cap/sixty
+	amount = 60
+
+/obj/item/stack/ms13/currency/cap/seventy
+	amount = 70
+
+/obj/item/stack/ms13/currency/cap/eighty
+	amount = 80
+
+/obj/item/stack/ms13/currency/cap/ninety
+	amount = 90
+
+/obj/item/stack/ms13/currency/cap/hunned
+	amount = 100
+
+/obj/item/stack/ms13/currency/cap/hunnedtwentyfive
+	amount = 125
+
+/obj/item/stack/ms13/currency/cap/baron
+	amount = 300
 
 // Ideas- NCR dollar spawns 20% of the time.

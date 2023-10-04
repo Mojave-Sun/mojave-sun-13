@@ -242,6 +242,10 @@
 
 /datum/config_entry/flag/norespawn
 
+/datum/config_entry/number/respawn_time
+	default = null
+	min_val = 0
+
 /datum/config_entry/flag/usewhitelist
 
 /datum/config_entry/flag/use_age_restriction_for_jobs //Do jobs use account age restrictions? --requires database

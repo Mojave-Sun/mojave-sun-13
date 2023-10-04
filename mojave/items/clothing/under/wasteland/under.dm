@@ -17,7 +17,7 @@
 	righthand_file = 'mojave/icons/mob/inhands/clothing_righthand.dmi'
 	repairable_by = /obj/item/stack/sheet/ms13/cloth
 	limb_integrity = 100
-	max_integrity = 300
+	max_integrity = 350
 	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
 
@@ -162,11 +162,21 @@
 	icon_state = "bodyguard"
 	inhand_icon_state = "shirt"
 
-/obj/item/clothing/under/ms13/wasteland/mammoth
-	name = "mammoth clothes"
-	desc = "A unique pair of shirt and pants favoured by the residents of the mammoth region."
+/obj/item/clothing/under/ms13/wasteland/snowcrest
+	name = "snowcrest clothes"
+	desc = "A unique pair of shirt and pants favoured by the residents of Snowcrest."
 	icon_state = "mammoth"
 	inhand_icon_state = "shirt"
+
+/obj/item/clothing/under/ms13/wasteland/snowcrest/medical
+	name = "snowcrest medical uniform"
+	desc = "A distinctive white shirt and dark pants worn by medical personnel of Snowcrest to easily identify them."
+	icon_state = "followers"
+
+/obj/item/clothing/under/ms13/wasteland/snowcrest/bodyguard
+	name = "snowcrest guard fatigues"
+	desc = "A set of fatigues worn by the guards and protectors of Snowcrest."
+	icon_state = "snow_guard"
 
 /obj/item/clothing/under/ms13/wasteland/wanderer
 	name = "wanderer clothes"
@@ -185,6 +195,11 @@
 	desc = "A snazzy set of clothes with a stylish black vest."
 	icon_state = "vestandslacks"
 	inhand_icon_state = "ro_suit"
+
+/obj/item/clothing/under/ms13/wasteland/vestslacks/Initialize()
+	. = ..()
+	AddComponent(/datum/component/machine_washable,\
+	clean_sprite = "vestandslacks_c")
 
 /obj/item/clothing/under/ms13/wasteland/merchant
 	name = "merchants' clothes"
@@ -261,6 +276,11 @@
 	desc = "A green, adjustable mechanic jumpsuit. It smells of oil"
 	icon_state = "mechanicalt"
 	inhand_icon_state = "g_suit"
+
+/obj/item/clothing/under/ms13/wasteland/baron
+	name = "\improper Chains of the Baron"
+	desc = "A menacing metal chain harness belonging to a very specific and very powerful individual."
+	icon_state = "baron"
 
 // suits//fancy //
 
@@ -412,3 +432,108 @@
 	desc = "A plain white shirt and slacks."
 	icon_state = "shirt"
 	inhand_icon_state = "bar_suit"
+
+// Drylander //
+
+/obj/item/clothing/under/ms13/drylander
+	name = "\improper Drylander tunic"
+	desc = "Very light tunic and pants worn by the Drylander tribe. Meant to be worn under robes."
+	icon_state = "drylander"
+
+// Slickback //
+
+/obj/item/clothing/under/ms13/slickback
+	name = "\improper Slickback classic outfit"
+	desc = "A characteristic white shirt and purple pants with suspenders worn by members of the Slickback gang."
+	icon_state = "slick_1"
+	var/snatched = TRUE // For taking gold chains off the clothes n shit...
+	var/has_gold_states = FALSE // Can you even put gold on it
+
+/obj/item/clothing/under/ms13/slickback/examine(mob/user)
+	. = ..()
+	if(!snatched)
+		. += span_yellowteamradio("Has some gold chains attached. Quite the status symbol.")
+		. += span_notice("You could snatch them off with <b>Right Mouse Click</b>")
+
+	if(snatched && has_gold_states)
+		. += span_notice("It has potential... <b> Left Click </b> with <b> Scrap Gold </b> to attach chains to it..")
+
+/obj/item/clothing/under/ms13/slickback/attack_hand_secondary(mob/user, params)
+	. = ..()
+	if(snatched)
+		return
+	playsound(src, 'mojave/sound/ms13effects/jewelry_chain1.ogg', 15, TRUE)
+	user.visible_message( \
+		"[user] begins to tear the chains off of \the [src].", \
+		span_notice("You begin tearing the chains off \the [src]"),
+		span_hear("You hear cloth moving around with chains rattling."))
+	if(do_after(user, 2.5 SECONDS))
+		user.visible_message( \
+			"[user] finishes tearing the chains off of \the [src].", \
+			span_notice("You finish tearing the chains off \the [src]"),
+			span_hear("You hear chains rattling with an abrupt stop."))
+		playsound(src, 'mojave/sound/ms13effects/jewelry_chain2.ogg', 15, TRUE)
+		icon_state = initial(icon_state)+"_snatched"
+		worn_icon_state = initial(icon_state)+"_snatched"
+		update_appearance(updates = UPDATE_ICON)
+		user.update_inv_w_uniform()
+		user.update_body()
+		snatched = TRUE
+		var/obj/item/stack/sheet/ms13/scrap_gold/G = new /obj/item/stack/sheet/ms13/scrap_gold
+		user.put_in_hands(G)
+
+/obj/item/clothing/under/ms13/slickback/attackby(obj/item/W, mob/user, params)
+	. = ..()
+
+	if(istype(W, /obj/item/stack/sheet/ms13/scrap_gold))
+		if(!has_gold_states)
+			to_chat(user, span_notice("Looks dope enough. Not needed."))
+			return
+		if(!snatched)
+			to_chat(user, span_yellowteamradio("This thing is already blinged out!"))
+			return
+		if(snatched && has_gold_states)
+			user.visible_message( \
+				"[user] hangs some chains from \the [src].", \
+				span_notice("You hang some gains on \the [src]"),
+				span_hear("You hear cloth moving around with chains rattling."))
+			icon_state = initial(icon_state)
+			worn_icon_state = initial(icon_state)
+			update_appearance(updates = UPDATE_ICON)
+			user.update_inv_w_uniform()
+			user.update_body()
+			snatched = FALSE
+			W.use(1)
+			playsound(src, 'mojave/sound/ms13effects/jewelry_chain2.ogg', 15, TRUE)
+			return
+
+/obj/item/clothing/under/ms13/slickback/shotcaller
+	name = "\improper Slickback shot caller outfit"
+	desc = "A well kept green shirt and purple pants."
+	icon_state = "slick_3"
+	snatched = FALSE // This has chains...
+	has_gold_states = TRUE
+
+/obj/item/clothing/under/ms13/slickback/highroller
+	name = "\improper Slickback high roller outfit"
+	desc = "A nice red shirt and brown pants."
+	icon_state = "slick_2"
+	snatched = FALSE // This has chains...
+	has_gold_states = TRUE
+
+/obj/item/clothing/under/ms13/slickback/underboss
+	name = "\improper Slickback underboss outfit"
+	desc = "A very comfortable and carefully tailored set of clothes made for and worn by respected individuals in the Slickback gang."
+	icon_state = "slick_underboss"
+
+// Mon City //
+
+/obj/item/clothing/under/ms13/mon_city
+	name = "\improper Mon City Mercs uniform"
+	desc = "Drab, but warm brown fatigues used by the Mon City Mercs."
+	icon_state = "mon_unif"
+
+/obj/item/clothing/under/ms13/mon_city/padded
+	name = "\improper Mon City Mercs padded uniform"
+	desc = "A set of Mon City Mercs fatigues with some very light, mostly decorative padding, and extra insulation."
+	icon_state = "mon_padunif"

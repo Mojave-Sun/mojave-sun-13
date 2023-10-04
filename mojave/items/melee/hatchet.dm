@@ -26,6 +26,7 @@
 	log_pickup_and_drop = TRUE
 	grid_width = 64
 	grid_height = 96
+	mining_mult = -0.25
 
 /obj/item/hatchet/ms13/Initialize()
 	. = ..()
@@ -57,6 +58,7 @@
 	bare_wound_bonus = 5
 	sharpness = SHARP_IMPALING
 	tool_behaviour = TOOL_MINING
+	mining_mult = 2
 
 /obj/item/hatchet/ms13/tomahawk
 	name = "tomahawk"
@@ -71,6 +73,8 @@
 	edge_protection_penetration = 5
 	wound_bonus = 5
 	bare_wound_bonus = 5
+	throw_speed = 5
 	embedding = list("embedded_pain_multiplier" = 2, "embed_chance" = 50, "embedded_fall_chance" = 25)
 	sharpness = SHARP_IMPALING
 	log_pickup_and_drop = TRUE
+	mining_mult = 0.75

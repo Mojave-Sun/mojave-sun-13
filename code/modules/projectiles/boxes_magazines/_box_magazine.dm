@@ -121,7 +121,21 @@
 	var/num_loaded = 0
 	if(!can_load(user))
 		return
-	if(istype(A, /obj/item/ammo_box/magazine/ammo_stack) || (istype(A, /obj/item/ammo_box/ms13/stripper))) // MOJAVE SUN EDIT | INITIAL CODE : if(istype(A, /obj/item/ammo_box))
+	/* MOJAVE EDIT REMOVAL
+	if(istype(A, /obj/item/ammo_box))
+	*/
+	//MOJAVE EDIT BEGIN
+	//no gaming
+	if(item_flags & IN_STORAGE)
+		return
+	//THIS IS THE WORST FUCKING LINE OF CODE, EVER, OF ALL TIME
+	//UPDATE: IT HAS GOTTEN WORSE. THIS SINGLE FUCKING LINE OF CODE HAS ONCE AGAIN MANAGED TO TRIP ME UP.
+	//FUCKUPS CAUSED BY THIS CRAPSO FAR: 3
+	if(istype(A, /obj/item/ammo_box) \
+		&& ((!istype(A, /obj/item/ammo_box/magazine) || istype(A, /obj/item/ammo_box/magazine/ammo_stack)) \
+		|| (istype(src, /obj/item/ammo_box/magazine/ammo_stack) && istype(A, /obj/item/ammo_box/magazine))) \
+	)
+	//MOJAVE EDIT END
 		var/obj/item/ammo_box/AM = A
 		for(var/obj/item/ammo_casing/AC in AM.stored_ammo)
 			var/did_load = give_round(AC, replace_spent)
@@ -198,6 +212,7 @@
 	var/list/L = stored_ammo.Copy()
 	if(drop_list)
 		stored_ammo.Cut()
+		update_ammo_count()
 	return L
 
 ///drops the entire contents of the magazine on the floor
@@ -206,6 +221,7 @@
 	for(var/obj/item/ammo in stored_ammo)
 		ammo.forceMove(turf_mag)
 		stored_ammo -= ammo
+	update_ammo_count()
 
 /obj/item/ammo_box/magazine/handle_atom_del(atom/A)
 	stored_ammo -= A

@@ -9,7 +9,7 @@
 	var/cistern = 0 //if the cistern bit is open
 	var/w_items = 0 //the combined w_class of all the items in the cistern
 	var/mob/living/swirlie = null //the mob being given a swirlie
-	var/buildstacktype = /obj/item/stack/sheet/ms13/ceramic//they're iron now, shut up //MOJAVE EDIT - Drops our ceramic instead of TG iron. Revert after CAT
+	var/buildstacktype = /obj/item/stack/sheet/iron
 	var/buildstackamount = 1
 
 /obj/structure/toilet/Initialize(mapload)
@@ -401,7 +401,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/urinal, 32)
 			busy = FALSE
 			return 1
 		busy = FALSE
-		O.wash(CLEAN_WASH)
+		O.wash(CLEAN_WASH, user, src) //MOJAVE SUN EDIT - Who is the washer
 		reagents.expose(O, TOUCH, 5 / max(reagents.total_volume, 5))
 		user.visible_message(span_notice("[user] washes [O] using [src]."), \
 							span_notice("You wash [O] using [src]."))

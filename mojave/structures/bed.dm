@@ -2,6 +2,7 @@
 	name = "base class Mojave Sun bed"
 	desc = "Scream at the coders if you see this."
 	icon = 'mojave/icons/structure/beds.dmi'
+	bolts = FALSE // for real, TG?
 
 /obj/structure/bed/ms13/wrench_act_secondary(mob/living/user, obj/item/weapon)
 	return
@@ -34,7 +35,7 @@
 	name = "wood bed"
 	desc = "A panel bed made from wood."
 	icon_state = "wood_bed"
-	buildstacktype = /obj/item/stack/sheet/ms13/scrap_wood
+	buildstacktype = /obj/item/stack/sheet/ms13/wood/scrap_wood
 	buildstackamount = 1
 	hitted_sound = 'mojave/sound/ms13effects/impact/wood/wood_generic_3.wav'
 

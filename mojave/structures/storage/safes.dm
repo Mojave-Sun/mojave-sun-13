@@ -4,9 +4,13 @@
 	icon = 'mojave/icons/structure/storage.dmi'
 	icon_state = "safe_spinner"
 	ms13_flags_1 = LOCKABLE_1
-	maxspace = 2000
+	maxspace = 200
 	projectile_passchance = 80
 	hitted_sound = 'mojave/sound/ms13effects/impact/metal/metal_generic_1.wav'
+
+/obj/structure/safe/ms13/Initialize(mapload)
+	. = ..()
+	reset_grid_inventory()
 
 /obj/structure/safe/ms13/advanced
 	name = "safe"

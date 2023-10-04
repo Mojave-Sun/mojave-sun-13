@@ -7,17 +7,36 @@
 	var/t_has = p_have()
 	var/t_is = p_are()
 	var/t_es = p_es()
+	var/obscured = check_obscured_slots()
 	var/obscure_name
+	var/skipface = (wear_mask && (wear_mask.flags_inv & HIDEFACE)) || (head && (head.flags_inv & HIDEFACE))
 
 	if(isliving(user))
 		var/mob/living/L = user
 		if(HAS_TRAIT(L, TRAIT_PROSOPAGNOSIA) || HAS_TRAIT(L, TRAIT_INVISIBLE_MAN))
 			obscure_name = TRUE
 
-	. = list("<span class='info'>*---------*\nThis is <EM>[!obscure_name ? name : "Unknown"]</EM>!")
-
-	var/obscured = check_obscured_slots()
-	var/skipface = (wear_mask && (wear_mask.flags_inv & HIDEFACE)) || (head && (head.flags_inv & HIDEFACE))
+	. = list("<span class='info'>*---------*\nThis is <EM>[obscure_name ? "Unknown" : name]</EM>!")
+	if(user != src)
+		if(!obscure_name && !skipface)
+			var/face_name = get_face_name("")
+			if(face_name)
+				//if we have no guestbook, we just KNOW okay?
+				var/known_name = user.mind?.guestbook ? user.mind.guestbook.get_known_name(user, src, face_name) : face_name
+				if(known_name)
+					var/actually = (known_name != name) ? "actually " : "really "
+					. += "Oh, it's [actually]<EM>[known_name]</EM>!"
+				else
+					. += "You don't recognize [t_him]."
+			else
+				. += "You can't see [t_his] face very well."
+		else
+			. += "You can't see [t_his] face very well."
+	else
+		var/self_message =  "It's you, <EM>[real_name]</EM>."
+		if(obscure_name || skipface || !get_face_name(""))
+			self_message += " Your face is hidden."
+		. += self_message
 
 	//uniform
 	if(w_uniform && !(obscured & ITEM_SLOT_ICLOTHING) && !(w_uniform.item_flags & EXAMINE_SKIP))

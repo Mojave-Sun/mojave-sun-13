@@ -1,16 +1,18 @@
 //For open flames/children of TG bonfires (Campfires, fire barrels, etc.)
 
 /obj/structure/bonfire/ms13
-    name = "base class ms13 bonfire"
-    desc = "If you see this, that is not very lit."
-    icon = 'mojave/icons/structure/fires.dmi'
-    icon_state = "campfire"
-    burn_icon = "campfire_lit"
+	name = "base class ms13 bonfire"
+	desc = "If you see this, that is not very lit."
+	icon = 'mojave/icons/structure/fires.dmi'
+	icon_state = "campfire"
+	burn_icon = "campfire_lit"
+	var/datum/looping_sound/fire_soft/fire_loop
 
 /obj/structure/bonfire/ms13/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/personal_crafting, CRAFTING_BENCH_CAMPFIRE)
 	register_context()
+	fire_loop = new(src, FALSE)
 
 /obj/structure/bonfire/ms13/examine(mob/user)
 	. = ..()
@@ -24,7 +26,7 @@
 		return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/bonfire/ms13/attack_hand(mob/user, list/modifiers)
-    return
+	return
 
 /obj/structure/bonfire/ms13/extinguish()
 	if(burning)
@@ -33,45 +35,107 @@
 		set_light(0)
 		QDEL_NULL(particles)
 		STOP_PROCESSING(SSobj, src)
+		fire_loop.stop()
 
 /obj/structure/bonfire/ms13/campfire
-    name = "campfire"
-    desc = "A nice and cozy campfire. Proven to keep you warm and lift your spirits."
-    icon_state = "campfire"
-    burn_icon = "campfire_lit"
-    max_integrity = 80
+	name = "campfire"
+	desc = "A nice and cozy campfire. Proven to keep you warm and lift your spirits."
+	icon_state = "campfire"
+	burn_icon = "campfire_lit"
+	max_integrity = 80
+
+/obj/structure/bonfire/ms13/campfire/process(delta_time)
+	. = ..()
+	var/turf/open/my_turf = get_turf(src)
+	if(!istype(my_turf))
+		return
+	//Lets the vapour spread out
+	if(my_turf.vapour?.total_amount >= 160)
+		return
+	//a campfire emits 4x what a turf fire does (very gassy)
+	my_turf.VapourListTurf(list(/datum/vapours/smoke = 60, /datum/vapours/carbon_air_vapour = 20), VAPOUR_ACTIVE_EMITTER_CAP)
 
 /obj/structure/bonfire/ms13/campfire/attackby(obj/item/used_item, mob/living/user, params)
-	if(used_item.get_temperature())
+	if(used_item.get_temperature() && !burning)
 		start_burning()
+		fire_loop.start()
+
+/obj/structure/bonfire/ms13/campfire/attack_hand_secondary(mob/living/carbon/user, list/modifiers)
+	. = ..()
+	if(do_after(user, 0.5 SECONDS, interaction_key = DOAFTER_SOURCE_FIREKICK))
+		if(HAS_TRAIT(user, TRAIT_IN_POWERARMOUR))
+			user.visible_message( \
+				"[user] stomps on the [src].", \
+				span_notice("You stomp on the [src]."),
+				span_hear("You hear heavy armour impacting wood."))
+			src.take_damage(rand(10,35))
+			if(burning && prob(50))
+				extinguish()
+			return
+
+		if(!burning) //No reason for anyone else to be stomping it n shi
+			return
+
+		if((user.shoes?.body_parts_covered) & FEET)
+			user.visible_message( \
+				"[user] kicks at the [src], trying to put it out.", \
+				span_notice("You kick at the [src]. trying to extinguish it"),
+				span_hear("You hear wood shuffling about, with the sound of flames flickering."))
+			if(burning && prob(15))
+				extinguish()
+			return
+
+		else
+			user.visible_message( \
+				"[user] tries to extinguish [src] by kicking it with no shoes!", \
+				span_notice("You kick at the [src] without any shoes!"),
+				span_hear("You hear wood shuffling about, with the sound of flames flickering."))
+			var/picked_def_zone = pick(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
+			user.apply_damage(rand(5,10), BURN, picked_def_zone, wound_bonus = 5)
+			if(burning && prob(15))
+				extinguish()
+			return
 
 /obj/structure/bonfire/ms13/campfire/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
-		new /obj/item/stack/sheet/ms13/scrap_wood(loc, 2)
+		new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc, 2)
 	qdel(src)
+	fire_loop.stop()
 
 
 /obj/structure/bonfire/ms13/campfire/prelit/Initialize(mapload)
 	. = ..()
 	start_burning()
+	fire_loop.start()
 
 /obj/structure/bonfire/ms13/fire_barrel
-    name = "fire barrel"
-    desc = "An open barrel with wood for starting a fire. A classic for keeping those going through hard times nice and warm."
-    icon_state = "fire_barrel"
-    burn_icon = "fire_barrel_lit"
-    density = TRUE
-    max_integrity = 150
+	name = "fire barrel"
+	desc = "An open barrel with wood for starting a fire. A classic for keeping those going through hard times nice and warm."
+	icon_state = "fire_barrel"
+	burn_icon = "fire_barrel_lit"
+	density = TRUE
+	max_integrity = 150
 
 /obj/structure/bonfire/ms13/fire_barrel/examine(mob/user)
 	. = ..()
 	if(!grill)
 		. += span_notice("You could add a grill to [src] with some <b>scrap metal</b>.")
 
+/obj/structure/bonfire/ms13/fire_barrel/process(delta_time)
+	. = ..()
+	var/turf/open/my_turf = get_turf(src)
+	if(!istype(my_turf))
+		return
+	//Lets the vapour spread out
+	if(my_turf.vapour?.total_amount >= 90)
+		return
+	my_turf.VapourListTurf(list(/datum/vapours/smoke = 30, /datum/vapours/carbon_air_vapour = 5), VAPOUR_ACTIVE_EMITTER_CAP)
+
 /obj/structure/bonfire/ms13/fire_barrel/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		new /obj/item/stack/sheet/ms13/scrap(loc, 2)
 	qdel(src)
+	fire_loop.stop()
 
 /obj/structure/bonfire/ms13/fire_barrel/attackby(obj/item/used_item, mob/living/user, params)
 	if(istype(used_item, /obj/item/stack/sheet/ms13/scrap) && !grill)
@@ -85,6 +149,7 @@
 			return ..()
 	if(used_item.get_temperature())
 		start_burning()
+		fire_loop.start()
 	if(grill)
 		if(istype(used_item, /obj/item/melee/roastingstick))
 			return FALSE
@@ -104,6 +169,7 @@
 /obj/structure/bonfire/ms13/fire_barrel/prelit/Initialize(mapload)
 	. = ..()
 	start_burning()
+	fire_loop.start()
 
 /obj/structure/bonfire/ms13/fire_barrel/start_burning()
 	if(burning)

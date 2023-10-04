@@ -25,8 +25,8 @@
 	icon = 'mojave/icons/objects/tools/tools_world.dmi'
 	icon_state = "bucket"
 	inhand_icon_state = "bucket"
-	lefthand_file = 'icons/mob/inhands/equipment/custodial_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/custodial_righthand.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
 	custom_materials = list(/datum/material/iron=200)
 	w_class = WEIGHT_CLASS_NORMAL
 	grid_width = 96

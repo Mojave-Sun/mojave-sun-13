@@ -19,7 +19,7 @@
 	. = ..()
 	if(has_alternate_states)
 		if(prob(25))
-			icon_state = "[icon_state]_[rand(1,(alternate_states))]"
+			icon_state = "[icon_state][rand(1,(alternate_states))]"
 		else if(has_base_states && prob(80))
 			icon_state = "[icon_state][rand(1,(base_states))]"
 
@@ -42,20 +42,19 @@
 
 /turf/open/floor/wood/ms13/common
 	icon_state = "wood_common"
-	alternate_states = 6
+	alternate_states = 7
 
 /turf/open/floor/wood/ms13/fancy
 	icon_state = "wood_fancy"
-	alternate_states = 6
-	has_base_states = FALSE
+	alternate_states = 7
 
 /turf/open/floor/wood/ms13/wide
 	icon_state = "wood_wide"
-	alternate_states = 6
+	alternate_states = 7
 
 /turf/open/floor/wood/ms13/mosaic
 	icon_state = "wood_mosaic"
-	alternate_states = 6
+	alternate_states = 7
 
 ////Broken Wood/Foundation floors////
 
@@ -174,16 +173,11 @@
 /turf/open/floor/wood/ms13/carpet
 	name = "carpet"
 	desc = "carpeted wooden flooring."
-	icon = 'mojave/icons/turf/carpet_red.dmi'
-	icon_state = "carpet-255"
-	base_icon_state = "carpet"
+	icon_state = "carpet_fancy_red"
 	footstep = FOOTSTEP_CARPET
 	barefootstep = FOOTSTEP_CARPET_BAREFOOT
 	clawfootstep = FOOTSTEP_CARPET_BAREFOOT
 	has_alternate_states = FALSE
-	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_MS13_CARPET_RED, SMOOTH_GROUP_MS13_TILE)
-	canSmoothWith = list(SMOOTH_GROUP_MS13_CARPET_RED)
 	flags_1 = NONE
 	bullet_bounce_sound = null
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
@@ -191,39 +185,29 @@
 	has_base_states = FALSE
 
 /turf/open/floor/wood/ms13/carpet/blue
-	icon = 'mojave/icons/turf/carpet_blue.dmi'
-	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_MS13_CARPET_BLUE)
-	canSmoothWith = list(SMOOTH_GROUP_MS13_CARPET_BLUE)
+	icon_state = "carpet_fancy_blue"
 
 /turf/open/floor/wood/ms13/carpet/green
-	icon = 'mojave/icons/turf/carpet_green.dmi'
-	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN,SMOOTH_GROUP_MS13_CARPET_GREEN)
-	canSmoothWith = list(SMOOTH_GROUP_MS13_CARPET_GREEN)
+	icon_state = "carpet_fancy_green"
 
 /turf/open/floor/wood/ms13/carpet/violet
-	icon = 'mojave/icons/turf/carpet_violet.dmi'
-	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN,SMOOTH_GROUP_MS13_CARPET_VIOLET)
-	canSmoothWith = list(SMOOTH_GROUP_MS13_CARPET_VIOLET)
+	icon_state = "carpet_fancy_violet"
 
 /turf/open/floor/wood/ms13/carpet/shaggy
-	icon = 'mojave/icons/turf/carpet_shaggy_red.dmi'
-	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN,SMOOTH_GROUP_MS13_CARPET_SHAGGY_RED)
-	canSmoothWith = list(SMOOTH_GROUP_MS13_CARPET_SHAGGY_RED)
+	icon_state = "carpet_red"
+
 
 /turf/open/floor/wood/ms13/carpet/shaggy/blue
-	icon = 'mojave/icons/turf/carpet_shaggy_blue.dmi'
-	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN,SMOOTH_GROUP_MS13_CARPET_SHAGGY_BLUE)
-	canSmoothWith = list(SMOOTH_GROUP_MS13_CARPET_SHAGGY_BLUE)
+	icon_state = "carpet_blue"
+
 
 /turf/open/floor/wood/ms13/carpet/shaggy/green
-	icon = 'mojave/icons/turf/carpet_shaggy_green.dmi'
-	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN,SMOOTH_GROUP_MS13_CARPET_SHAGGY_GREEN)
-	canSmoothWith = list(SMOOTH_GROUP_MS13_CARPET_SHAGGY_GREEN)
+	icon_state = "carpet_green"
+
 
 /turf/open/floor/wood/ms13/carpet/shaggy/violet
-	icon = 'mojave/icons/turf/carpet_shaggy_violet.dmi'
-	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN,SMOOTH_GROUP_MS13_CARPET_SHAGGY_VIOLET)
-	canSmoothWith = list(SMOOTH_GROUP_MS13_CARPET_SHAGGY_VIOLET)
+	icon_state = "carpet_violet"
+
 
 ////Tiled Floors////
 
@@ -270,23 +254,17 @@
 	icon_state = "grey_long"
 	alternate_states = 6
 
-/turf/open/floor/ms13/tile/blue
-	icon_state = "blue"
-
-/turf/open/floor/ms13/tile/blue/long
+/turf/open/floor/ms13/tile/long/blue
 	icon_state = "blue_long"
-	alternate_states = 6
+	alternate_states = 3
 
 /turf/open/floor/ms13/tile/navy
 	icon_state = "navy"
-	alternate_states = 7
+	alternate_states = 3
 
 /turf/open/floor/ms13/tile/brown
 	icon_state = "brown"
-
-/turf/open/floor/ms13/tile/brown/big
-	icon_state = "brown_big"
-	has_alternate_states = FALSE
+	alternate_states = 3
 
 /turf/open/floor/ms13/tile/fancy
 	icon_state = "fancy"
@@ -297,23 +275,19 @@
 
 /turf/open/floor/ms13/tile/large/navy
 	icon_state = "navy_large"
-	alternate_states = 3
-
-/turf/open/floor/ms13/tile/large/cream
-	icon_state = "cream_large"
-	has_alternate_states = FALSE
+	alternate_states = 2
 
 /turf/open/floor/ms13/tile/large/black
 	icon_state = "black_large"
-	alternate_states = 3
+	alternate_states = 2
 
 /turf/open/floor/ms13/tile/large/white
 	icon_state = "white_large"
-	alternate_states = 3
+	alternate_states = 2
 
 /turf/open/floor/ms13/tile/large/green
 	icon_state = "green_large"
-	alternate_states = 3
+	alternate_states = 2
 
 /turf/open/floor/ms13/tile/large/checkered
 	icon_state = "checker_large"
@@ -333,6 +307,12 @@
 /turf/open/floor/ms13/tile/full/green
 	icon_state = "green_full"
 
+/turf/open/floor/ms13/tile/full/black
+	icon_state = "black_full"
+
+/turf/open/floor/ms13/tile/full/white
+	icon_state = "white_full"
+
 ////Metal Floors////
 
 /turf/open/floor/ms13/metal
@@ -340,44 +320,21 @@
 	barefootstep = FOOTSTEP_HARD_BAREFOOT
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
-	icon_state = "steel_industrial"
+	icon_state = "steel_tiles"
 	desc = "Metal flooring."
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TILE)
 
 /turf/open/floor/ms13/metal/plate
 	icon_state = "steel_solid"
-	has_alternate_states = TRUE
-	alternate_states = 3
-
-/turf/open/floor/ms13/metal/border
-	icon_state = "steel_industrial_b"
-
-/turf/open/floor/ms13/metal/border/corner
-	icon_state = "steel_industrial_b_corner"
-
-/turf/open/floor/ms13/metal/border/sides
-	icon_state = "steel_industrial_b_sides"
-
-/turf/open/floor/ms13/metal/border/end
-	icon_state = "steel_industrial_b_end"
 
 /turf/open/floor/ms13/metal/grate
 	icon_state = "steel_grate"
-
-/turf/open/floor/ms13/metal/grate/alt
-	icon_state = "steel_grate_alt"
 
 /turf/open/floor/ms13/metal/grate/border
 	icon_state = "steel_grate_border"
 
 /turf/open/floor/ms13/metal/grate/border/warning
 	icon_state = "steel_grate_warning"
-
-/turf/open/floor/ms13/metal/warning
-	icon_state = "steel_warning"
-
-/turf/open/floor/ms13/metal/stayclear
-	icon_state = "steel_stayclear"
 
 /turf/open/floor/ms13/metal/walkway
 	icon_state = "steel_walkway"
@@ -394,6 +351,8 @@
 	icon_state = "concrete_big"
 	desc = "Concrete slabs."
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TILE)
+	has_alternate_states = TRUE
+	alternate_states = 1
 
 /turf/open/floor/ms13/concrete/small
 	icon_state = "concrete_small"
@@ -409,20 +368,11 @@
 	icon_state = "concrete_industrial"
 	desc = "Heavy duty concrete slabs." //DAS CONCRETE BABY
 
-/turf/open/floor/ms13/concrete/industrial/alt
-	icon_state = "concrete_industrial_alt"
-
-/turf/open/floor/ms13/concrete/industrial/split
-	icon_state = "concrete_industrial_split"
-
 /turf/open/floor/ms13/concrete/industrial/walkway
 	icon_state = "concrete_walkway"
 
 /turf/open/floor/ms13/concrete/industrial/walkway/corner
 	icon_state = "concrete_walkway_corner"
-
-/turf/open/floor/ms13/concrete/industrial/walkway/end
-	icon_state = "concrete_walkway_end"
 
 ////Hybrid Floors////
 
@@ -492,7 +442,10 @@
 	if(!istype(M))
 		return
 
-	if(prob(30))
+	for(var/obj/structure/lattice/catwalk/C in get_turf(M))
+		return
+
+	if(prob(30) && M.m_intent == MOVE_INTENT_RUN && M.body_position != LYING_DOWN)
 		M.slip(5, M.loc, GALOSHES_DONT_HELP, 0, FALSE)
 		playsound(M, 'sound/effects/bang.ogg', 10, 1)
 		to_chat(usr, "<span class='warning'>You trip on the pipes!</span>")

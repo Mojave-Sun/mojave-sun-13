@@ -1,6 +1,8 @@
 /**
  * This is MOST LIKELY insane shitcode I am sorry.
  * Simply put, follower atoms help with standardizing hitboxes and such on large multi-tile atoms.
+ *
+ * REMIND ME TO TURN THIS INTO A COMPONENT IF WE CREATE EVEN A SINGLE ONE MORE MULTI-TILE OBJECT
  */
 /atom/movable/follower
 	name = "follower atom"

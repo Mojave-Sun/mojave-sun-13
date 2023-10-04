@@ -33,6 +33,8 @@
 	if(length(progressbars))
 		stack_trace("[src] destroyed with elements in its progressbars list")
 		progressbars = null
+	for (var/alert_text in stored_alert_text)
+		clear_alert_text(alert_text, TRUE)
 	for (var/alert in alerts)
 		clear_alert(alert, TRUE)
 	if(observers?.len)
@@ -202,15 +204,12 @@
 		hearers -= src
 
 	var/raw_msg = message
-	if(visible_message_flags & EMOTE_MESSAGE)
-		message = "<span class='emote'><b>[src]</b> [message]</span>"
-
 	for(var/mob/M in hearers)
 		if(!M.client)
 			continue
 
 		//This entire if/else chain could be in two lines but isn't for readibilties sake.
-		var/msg = message
+		var/msg = raw_msg
 		var/msg_type = MSG_VISUAL
 
 		if(M.see_invisible < invisibility)//if src is invisible to M
@@ -223,6 +222,16 @@
 		else if(M.lighting_alpha > LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE && T.is_softly_lit() && !in_range(T,M)) //if it is too dark, unless we're right next to them.
 			msg = blind_message
 			msg_type = MSG_AUDIBLE
+
+		//emote handling
+		if(visible_message_flags & EMOTE_MESSAGE)
+			msg = "<span class='emote'><b>[src]</b> [raw_msg]</span>"
+			if(M.mind?.guestbook && ishuman(src))
+				var/mob/living/carbon/human/human_source = src
+				var/known_name = M.mind.guestbook.get_known_name(M, src, msg_type == MSG_VISUAL ? human_source.get_face_name() : human_source.GetVoice())
+				if(known_name)
+					msg = "<span class='emote'><b>[known_name]</b> [raw_msg]</span>"
+
 		if(!msg)
 			continue
 
@@ -253,12 +262,21 @@
 	if(self_message)
 		hearers -= src
 	var/raw_msg = message
-	if(audible_message_flags & EMOTE_MESSAGE)
-		message = "<span class='emote'><b>[src]</b> [message]</span>"
 	for(var/mob/M in hearers)
-		if(audible_message_flags & EMOTE_MESSAGE && runechat_prefs_check(M, audible_message_flags) && M.can_hear())
-			M.create_chat_message(src, raw_message = raw_msg, runechat_flags = audible_message_flags)
-		M.show_message(message, MSG_AUDIBLE, deaf_message, MSG_VISUAL)
+		var/msg = raw_msg
+
+		//emote handling
+		if(audible_message_flags & EMOTE_MESSAGE)
+			msg = "<span class='emote'><b>[src]</b> [message]</span>"
+			if(M.mind?.guestbook && ishuman(src))
+				var/mob/living/carbon/human/human_source = src
+				var/known_name = M.mind.guestbook.get_known_name(M, src, human_source.GetVoice())
+				if(known_name)
+					msg = "<span class='emote'><b>[known_name]</b> [raw_msg]</span>"
+			if(runechat_prefs_check(M, audible_message_flags) && M.can_hear())
+				M.create_chat_message(src, raw_message = raw_msg, runechat_flags = audible_message_flags)
+
+		M.show_message(msg, MSG_AUDIBLE, deaf_message, MSG_VISUAL)
 
 /**
  * Show a message to all mobs in earshot of this one
@@ -601,9 +619,11 @@
 		return FALSE
 	if(istype(A, /obj/effect/temp_visual/point))
 		return FALSE
-
+	if(!COOLDOWN_FINISHED(src, pointing_cooldown)) // MOJAVE SUN EDIT - Cooldown for pointing because point spamming is dumb
+		return // MOJAVE SUN EDIT
 	point_at(A)
 
+	COOLDOWN_START(src, pointing_cooldown, 2.5 SECONDS) // MOJAVE SUN EDIT - Cooldown for pointing
 	SEND_SIGNAL(src, COMSIG_MOB_POINTED, A)
 	return TRUE
 
@@ -692,6 +712,10 @@
 
 	if ((stat != DEAD || !( SSticker )))
 		to_chat(usr, span_boldnotice("You must be dead to use this!"))
+		return
+
+	if(world.time - src.respawn_timeofdeath < CONFIG_GET(number/respawn_time) && !check_rights_for(usr.client, R_ADMIN))
+		to_chat(usr, span_boldnotice("Respawn timer: [round((CONFIG_GET(number/respawn_time) - (world.time - src.respawn_timeofdeath)) / 10)] seconds remaining."))
 		return
 
 	log_game("[key_name(usr)] used the respawn button.")
@@ -1127,7 +1151,7 @@
 /mob/proc/update_mouse_pointer()
 	if(!client)
 		return
-	client.mouse_pointer_icon = initial(client.mouse_pointer_icon)
+	client.mouse_pointer_icon = client.mojave_pointer_icon
 	if(examine_cursor_icon && client.keys_held["Shift"]) //mouse shit is hardcoded, make this non hard-coded once we make mouse modifiers bindable
 		client.mouse_pointer_icon = examine_cursor_icon
 	if(istype(loc, /obj/vehicle/sealed))
@@ -1345,6 +1369,19 @@
 
 	clear_important_client_contents()
 	canon_client = null
+
+///Shows guestbook tgui window
+/mob/verb/guestbook()
+	set name = "Guestbook"
+	set category = "IC"
+	set desc = "View your character's Guestbook."
+	if(!mind)
+		var/fail_message = "You have no mind!"
+		if(isobserver(src))
+			fail_message += " You have to be in the current round at some point to have one."
+		to_chat(src, span_warning(fail_message))
+		return
+	mind.guestbook.ui_interact(usr)
 
 ///Shows a tgui window with memories
 /mob/verb/memory()

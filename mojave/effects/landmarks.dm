@@ -15,28 +15,37 @@
 /obj/effect/landmark/start/ms13/hubologist
 	name = "Hubologist"
 
+/obj/effect/landmark/start/ms13/nomad
+	name = "Nomad"
+
 // Mammoth Town Spawns //
 
 /obj/effect/landmark/start/ms13/mayor
-	name = "Town Mayor"
+	name = "Snowcrest Mayor"
 
 /obj/effect/landmark/start/ms13/settler
-	name = "Town Settler"
+	name = "Snowcrest Citizen"
+
+/obj/effect/landmark/start/ms13/squatter
+	name = "Snowcrest Squatter"
 
 /obj/effect/landmark/start/ms13/bartender
-	name = "Town Bartender"
+	name = "Snowcrest Bartender"
 
 /obj/effect/landmark/start/ms13/worker
-	name = "Town Worker"
+	name = "Snowcrest Worker"
 
 /obj/effect/landmark/start/ms13/doctor
-	name = "Town Doctor"
+	name = "Snowcrest Doctor"
 
 /obj/effect/landmark/start/ms13/nurse
-	name = "Town Nurse"
+	name = "Snowcrest Nurse"
 
 /obj/effect/landmark/start/ms13/deputy
 	name = "Town Deputy"
+
+/obj/effect/landmark/start/ms13/bodyguard
+	name = "Snowcrest Bodyguard"
 
 /obj/effect/landmark/start/ms13/sheriff
 	name = "Town Sheriff"
@@ -46,6 +55,9 @@
 /obj/effect/landmark/start/ms13/trooper
 	name = "NCR Trooper"
 
+/obj/effect/landmark/start/ms13/milpolice
+	name = "NCR Military Police"
+
 /obj/effect/landmark/start/ms13/radioman
 	name = "NCR Radioman"
 
@@ -54,6 +66,12 @@
 
 /obj/effect/landmark/start/ms13/engineer
 	name = "NCR Engineer"
+
+/obj/effect/landmark/start/ms13/mp_medic
+	name = "NCR MP Medic"
+
+/obj/effect/landmark/start/ms13/mp_sergeant
+	name = "NCR MP Sergeant"
 
 /obj/effect/landmark/start/ms13/staffsergeant
 	name = "NCR Staff Sergeant"
@@ -136,6 +154,9 @@
 /obj/effect/landmark/start/ms13/legion_vexillarius
 	name = "Legion Vexillarius"
 
+/obj/effect/landmark/start/ms13/legion_smith
+	name = "Legion Blacksmith"
+
 // Desert Ranger Spawns //
 
 /obj/effect/landmark/start/ms13/ranger_deputy_chief
@@ -153,6 +174,43 @@
 /obj/effect/landmark/start/ms13/ranger_doctor
 	name = "Desert Ranger Doctor"
 
+// Drought Town Spawns //
+
+/obj/effect/landmark/start/ms13/baron
+	name = "The Baron"
+
+/obj/effect/landmark/start/ms13/denizen
+	name = "Barony Denizen"
+
+/obj/effect/landmark/start/ms13/barkeep
+	name = "Barony Barkeep"
+
+/obj/effect/landmark/start/ms13/laborer
+	name = "Barony Laborer"
+
+/obj/effect/landmark/start/ms13/clinician
+	name = "Barony Clinician"
+
+/obj/effect/landmark/start/ms13/town_enforcer
+	name = "Barony Enforcer"
+
+// Drylander Spawns //
+
+/obj/effect/landmark/start/ms13/dry_chief
+	name = "Drylander Chieftain"
+
+/obj/effect/landmark/start/ms13/dry_headtaker
+	name = "Drylander Headtaker"
+
+/obj/effect/landmark/start/ms13/dry_shaman
+	name = "Drylander Shaman"
+
+/obj/effect/landmark/start/ms13/dry_hunter
+	name = "Drylander Hunter"
+
+/obj/effect/landmark/start/ms13/dryfolk
+	name = "Drylander Folk"
+
 // Combat Test Spawns //
 
 /obj/effect/landmark/start/ms13/bluegang
@@ -160,3 +218,28 @@
 
 /obj/effect/landmark/start/ms13/redgang
 	name = "Red ganger"
+
+// Slickback Spawns //
+
+/obj/effect/landmark/start/ms13/slicker
+	name = "Slickback"
+
+/obj/effect/landmark/start/ms13/slick_cook
+	name = "Slickback Cook"
+
+/obj/effect/landmark/start/ms13/slick_underboss
+	name = "Slickback Underboss"
+
+// Mon City Spawns //
+
+/obj/effect/landmark/start/ms13/mon_grunt
+	name = "Mon City Grunt"
+
+/obj/effect/landmark/start/ms13/mon_marks
+	name = "Mon City Marksman"
+
+/obj/effect/landmark/start/ms13/mon_point
+	name = "Mon City Pointman"
+
+/obj/effect/landmark/start/ms13/mon_capt
+	name = "Mon City Captain"

@@ -1014,6 +1014,12 @@
 	var/reaction_message = equilibrium.reaction.mix_message
 	if(equilibrium.reaction.mix_sound)
 		playsound(get_turf(my_atom), equilibrium.reaction.mix_sound, 80, TRUE)
+	//MOJAVE SUN EDIT - Vapour
+	//If the reaction Vapours, Vapour it here if we have an atom
+	if(equilibrium.reaction.vapours_type && my_atom)
+		var/turf/my_turf = get_turf(my_atom)
+		my_turf.VapourTurf(equilibrium.reaction.vapours_type, equilibrium.reaction.vapours_amount * equilibrium.reacted_vol)
+	//MOJAVE SUN EDIT - Vapour
 	qdel(equilibrium)
 	update_total()
 	SEND_SIGNAL(src, COMSIG_REAGENTS_REACTED, .)
@@ -1170,6 +1176,12 @@
 				extract.name = "used slime extract"
 				extract.desc = "This extract has been used up."
 
+	//MOJAVE SUN EDIT - Vapour
+	//If the reaction Vapours, Vapour it here if we have an atom
+	if(selected_reaction.vapours_type && my_atom)
+		var/turf/my_turf = get_turf(my_atom)
+		my_turf.VapourTurf(selected_reaction.vapours_type, selected_reaction.vapours_amount * multiplier)
+	//MOJAVE SUN EDIT - Vapour
 	selected_reaction.on_reaction(src, null, multiplier)
 
 ///Possibly remove - see if multiple instant reactions is okay (Though, this "sorts" reactions by temp decending)

@@ -50,7 +50,9 @@
 	light_power = 0.3
 	light_on = FALSE
 	var/on = FALSE
+	var/broken = FALSE
 	var/datum/looping_sound/ms13/holotable/soundloop
+	max_integrity = 800
 
 /obj/machinery/ms13/wartable/Initialize()
 	. = ..()
@@ -69,10 +71,24 @@
 			soundloop.stop()
 		else
 			on = TRUE
-			icon_state = "wartable_on"
-			soundloop.start()
+			if(broken)
+				icon_state = "wartable_broken"
+			else
+				icon_state = "wartable_on"
+				soundloop.start()
 		set_light_on(on)
 		update_light()
+
+/obj/machinery/ms13/wartable/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration)
+	. = ..()
+	if(prob(35))
+		do_sparks(1, FALSE, src)
+	if(atom_integrity < 400)
+		broken = TRUE
+		desc = "[initial(desc)] It looks broken."
+		if(on)
+			icon_state = "wartable_broken"
+			soundloop.stop()
 
 // Intercoms //
 
@@ -256,3 +272,32 @@
 /obj/machinery/ms13/plant_machinery/broken
 	desc = "The label on this says something about fresh water- But what side do you take a sip from? It appears broken down, missing crucial parts."
 	icon_state = "watertreatment_broken"
+
+// Kitchen Machinery //
+
+/obj/machinery/griddle/ms13
+	name = "flat-top griddle"
+	desc = "A propane fueled flat-top griddle. Perfect for grilling. Lucky this seems to have a full tank of propane still."
+	icon = 'mojave/icons/structure/machinery.dmi'
+	icon_state = "griddle"
+	use_power = 0
+	idle_power_usage = 0
+	max_items = 6
+	circuit = null
+	variant = null
+
+/obj/machinery/griddle/ms13/crowbar_act(mob/living/user, obj/item/I)
+	return
+
+/obj/machinery/griddle/ms13/wrench_act(mob/living/user, obj/item/I)
+	return
+
+/obj/machinery/griddle/ms13/update_icon_state()
+	. = ..()
+	return
+
+/obj/machinery/griddle/ms13/update_grill_audio()
+	if(on && griddled_objects.len)
+		meat_sound.start()
+	else
+		meat_sound.stop()

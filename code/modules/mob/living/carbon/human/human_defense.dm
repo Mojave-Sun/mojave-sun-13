@@ -172,7 +172,7 @@
 	..()
 
 
-/mob/living/carbon/human/attacked_by(obj/item/I, mob/living/user)
+/mob/living/carbon/human/attacked_by(obj/item/I, mob/living/user, params)
 	if(!I || !user)
 		return FALSE
 
@@ -192,7 +192,7 @@
 	SSblackbox.record_feedback("tally", "zone_targeted", 1, target_area)
 
 	// the attacked_by code varies among species
-	return dna.species.spec_attacked_by(I, user, affecting, src)
+	return dna.species.spec_attacked_by(I, user, affecting, src, params)
 
 
 /mob/living/carbon/human/attack_hulk(mob/living/carbon/human/user)
@@ -361,7 +361,8 @@
 	var/subarmor = run_subarmor_check(affecting, MELEE, armour_penetration = user.subtractible_armour_penetration, sharpness = user.sharpness)
 	var/subarmor_flags = get_subarmor_flags(affecting)
 	var/edge_protection = get_edge_protection(affecting)
-	apply_damage(damage, user.melee_damage_type, affecting, armor, \
+	var/no_defended = damage_armor(damage, MELEE, user.melee_damage_type, def_zone = dam_zone)
+	apply_damage(no_defended, user.melee_damage_type, affecting, armor, \
 				wound_bonus = user.wound_bonus, bare_wound_bonus = user.bare_wound_bonus, \
 				sharpness = user.sharpness, attack_direction = attack_direction, \
 				subarmor_flags = subarmor_flags, edge_protection = edge_protection, \
@@ -390,7 +391,8 @@
 	var/subarmor = run_subarmor_check(affecting, MELEE, armour_penetration = user.subtractible_armour_penetration, sharpness = user.sharpness)
 	var/subarmor_flags = get_subarmor_flags(affecting)
 	var/edge_protection = get_edge_protection(affecting)
-	apply_damage(damage, user.melee_damage_type, affecting, armor, \
+	var/no_defended = damage_armor(damage, MELEE, user.melee_damage_type, def_zone = dam_zone)
+	apply_damage(no_defended, user.melee_damage_type, affecting, armor, \
 				wound_bonus = user.wound_bonus, bare_wound_bonus = user.bare_wound_bonus, \
 				sharpness = user.sharpness, attack_direction = attack_direction, \
 				subarmor_flags = subarmor_flags, edge_protection = edge_protection, \
@@ -451,6 +453,7 @@
 						if(EXPLODE_LIGHT)
 							SSexplosions.low_mov_atom += thing
 				gib()
+				throw_alert_text(/atom/movable/screen/alert/text/dead, "HOLY SHI-", override = FALSE) // MOJAVE SUN EDIT - FO text alert
 				return
 			else
 				brute_loss = 500
@@ -459,6 +462,7 @@
 				damage_clothes(400 - bomb_armor, BRUTE, BOMB)
 
 		if (EXPLODE_HEAVY)
+			throw_alert_text(/atom/movable/screen/alert/text/sad, "What the f-", override = FALSE) // MOJAVE SUN EDIT - FO text alert
 			brute_loss = 60
 			burn_loss = 60
 			if(bomb_armor)
@@ -471,6 +475,7 @@
 			Knockdown(200 - (bomb_armor * 1.6)) //between ~4 and ~20 seconds of knockdown depending on bomb armor
 
 		if(EXPLODE_LIGHT)
+			throw_alert_text(/atom/movable/screen/alert/text/nohappy, "That's not good!", override = FALSE) // MOJAVE SUN EDIT - FO text alert
 			brute_loss = 30
 			if(bomb_armor)
 				brute_loss = 15*(2 - round(bomb_armor*0.01, 0.05))

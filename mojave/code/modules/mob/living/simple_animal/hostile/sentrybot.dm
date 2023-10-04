@@ -75,8 +75,8 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	vision_range = 12
 	aggro_vision_range = 12
 	dodge_prob = 50
-	maxHealth = 1000
-	health = 1000
+	maxHealth = 1200
+	health = 1200
 	idlechance = 20
 	melee_damage_lower = 25
 	melee_damage_upper = 25
@@ -87,9 +87,9 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	ranged = TRUE
 	stat_attack = CONSCIOUS
 	casingtype = /obj/item/ammo_casing/energy/ms13/laser/sentrybot
-	ranged_cooldown = 5 SECONDS
-	rapid = 20
-	rapid_fire_delay = 0.05 SECONDS //20 shots over 1 second
+	ranged_cooldown = 4.5 SECONDS
+	rapid = 16
+	rapid_fire_delay = 0.05 SECONDS //16 shots over 1 second
 	pixel_x = -8
 	base_pixel_x = -8
 	bot_type = "Sentrybot"
@@ -116,7 +116,9 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/Initialize()
 	. = ..()
 	grenade = new /datum/action/cooldown/launch_grenade()
+	rocket = new /datum/action/cooldown/launch_rocket()
 	grenade.Grant(src)
+	rocket.Grant(src)
 	RegisterSignal(src, COMSIG_MOVABLE_MOVED, .proc/play_move_sound, override = TRUE)
 	soundloop = new(src, FALSE)
 
@@ -254,6 +256,9 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 		if(grenade.IsAvailable() && can_see(src, target, 10))
 			grenade.Trigger(target = target)
 			return
+		if(rocket.IsAvailable() && can_see(src, target, 10) && HAS_TRAIT(target, TRAIT_IN_POWERARMOUR))
+			rocket.Trigger(target = target)
+			return
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/AIShouldSleep(list/possible_targets)
 	. = ..()
@@ -322,10 +327,10 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 		qdel(src)
 
 /obj/projectile/beam/ms13/laser/sentrybot
-	damage = 5
-	subtractible_armour_penetration = 25
-	wound_bonus = 24
-	bare_wound_bonus = 12
+	damage = 8
+	subtractible_armour_penetration = 35
+	wound_bonus = 18
+	bare_wound_bonus = 10
 
 //A special rocket for sentrybot; light explosion fixed with lots of fire
 

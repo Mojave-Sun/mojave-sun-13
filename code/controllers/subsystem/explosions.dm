@@ -730,6 +730,7 @@ SUBSYSTEM_DEF(explosions)
 					var/atom_throw_range = rand(throw_range, max_range)
 					var/turf/throw_at = get_ranged_target_turf(A, throw_dir, atom_throw_range)
 					A.throw_at(throw_at, atom_throw_range, EXPLOSION_THROW_SPEED, quickstart = FALSE)
+
 		cost_throwturf = MC_AVERAGE(cost_throwturf, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
 
 	currentpart = SSEXPLOSIONS_TURFS

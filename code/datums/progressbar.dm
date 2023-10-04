@@ -52,7 +52,19 @@
 		add_prog_bar_image_to_client()
 	//MOJAVE SUN EDIT START - Interactive Progressbar
 	if(bonus_time)
-		booster = new type(get_turf(target), user, src, bonus_time, focus_sound)
+		if(isitem(target))
+			var/obj/item/T = target
+			if((T.item_flags & IN_INVENTORY) || (T.loc && SEND_SIGNAL(T.loc, COMSIG_CONTAINS_STORAGE)))
+				booster = new type(user.loc, user, src, bonus_time, focus_sound)
+			else
+				booster = new type(target.loc, user, src, bonus_time, focus_sound)
+			if(type == /obj/effect/hallucination/simple/progress_focus/skillcheck) //so spinnygame can be above the object its on
+				var/obj/effect/hallucination/simple/progress_focus/TA = booster
+				TA.build_extra_effect(target)
+				booster.pixel_x = target.pixel_x
+				booster.pixel_y = target.pixel_y + 40
+		else
+			booster = new type(get_turf(target), user, src, bonus_time, focus_sound)
 	//MOJAVE SUN EDIT END - Interactive Progressbar
 	RegisterSignal(user, COMSIG_PARENT_QDELETING, .proc/on_user_delete)
 	RegisterSignal(user, COMSIG_MOB_LOGOUT, .proc/clean_user_client)

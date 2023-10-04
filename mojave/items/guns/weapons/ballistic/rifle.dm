@@ -5,11 +5,20 @@
 	icon_state = "hunting"
 	inhand_icon_state = "hunting"
 	mag_type = /obj/item/ammo_box/magazine/ms13/r308
+	rack_sound = 'mojave/sound/ms13weapons/gunsounds/rifle/rifleback2.ogg'
+	lock_back_sound = 'mojave/sound/ms13weapons/gunsounds/rifle/rifleback2.ogg'
+	bolt_drop_sound = 'mojave/sound/ms13weapons/gunsounds/rifle/rifledrop2.ogg'
+	load_sound = 'mojave/sound/ms13weapons/gunsounds/rifle/riflemag_load.ogg'
+	load_empty_sound = 'mojave/sound/ms13weapons/gunsounds/rifle/riflemag_load.ogg'
+	eject_sound = 'mojave/sound/ms13weapons/gunsounds/rifle/riflemag_unload.ogg'
+	eject_empty_sound = 'mojave/sound/ms13weapons/gunsounds/rifle/riflemag_unload.ogg'
 	fire_sound = 'mojave/sound/ms13weapons/hunting_rifle.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/hunting_rifle.ogg'
 	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
 	slot_flags = ITEM_SLOT_BACK
 	fire_delay = 0.75 SECONDS
+	rack_delay = 0.75 SECONDS
 	spread = 2
 	recoil = 1.75
 	slowdown = 0.75
@@ -34,8 +43,17 @@
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
 	slot_flags = ITEM_SLOT_BACK
-	fire_sound = 'mojave/sound/ms13weapons/varmint_rifle.ogg'
-	fire_delay = 0.65 SECONDS
+	rack_sound = 'mojave/sound/ms13weapons/gunsounds/rifle/rifleback.ogg'
+	lock_back_sound = 'mojave/sound/ms13weapons/gunsounds/rifle/rifleback.ogg'
+	bolt_drop_sound = 'mojave/sound/ms13weapons/gunsounds/rifle/rifledrop.ogg'
+	load_sound = 'mojave/sound/ms13weapons/gunsounds/rifle/riflemag_load.ogg'
+	load_empty_sound = 'mojave/sound/ms13weapons/gunsounds/rifle/riflemag_load.ogg'
+	eject_sound = 'mojave/sound/ms13weapons/gunsounds/rifle/riflemag_unload.ogg'
+	eject_empty_sound = 'mojave/sound/ms13weapons/gunsounds/rifle/riflemag_unload.ogg'
+	fire_sound = 'mojave/sound/ms13weapons/gunsounds/varmint/varmint_rifle.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/varmint_rifle.ogg'
+	fire_delay = 0.6 SECONDS
+	rack_delay = 0.6 SECONDS
 	spread = 2
 	recoil = 0.75
 	slowdown = 0.75
@@ -81,6 +99,7 @@
 	recoil = 0.25
 	slowdown = 1
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
+	far_fire_sound = null
 	w_class = WEIGHT_CLASS_HUGE
 	has_scope = TRUE
 	scope_range = 2
@@ -93,8 +112,17 @@
 	icon_state = "amr"
 	inhand_icon_state = "amr"
 	mag_type = /obj/item/ammo_box/magazine/ms13/amr
-	fire_sound = 'mojave/sound/ms13weapons/amrfire.ogg'
+	rack_sound = 'mojave/sound/ms13weapons/gunsounds/amr/amrback.ogg'
+	lock_back_sound = 'mojave/sound/ms13weapons/gunsounds/amr/amrback.ogg'
+	bolt_drop_sound = 'mojave/sound/ms13weapons/gunsounds/amr/amrdrop.ogg'
+	load_sound = 'mojave/sound/ms13weapons/gunsounds/amr/amrload.ogg'
+	load_empty_sound = 'mojave/sound/ms13weapons/gunsounds/amr/amrload.ogg'
+	eject_sound = 'mojave/sound/ms13weapons/gunsounds/amr/amrunload.ogg'
+	eject_empty_sound = 'mojave/sound/ms13weapons/gunsounds/amr/amrunload.ogg'
+	fire_sound = 'mojave/sound/ms13weapons/gunsounds/amr/amrfire.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/amr.ogg'
 	fire_delay = 1 SECONDS
+	rack_delay = 1 SECONDS
 	spread = 2
 	recoil = 4
 	slowdown = 1.5
@@ -133,13 +161,68 @@
 /obj/item/gun/ballistic/rifle/ms13/hunting/surplus
 	name = "surplus hunting rifle"
 	desc = "A cheap bolt action hunting rifle, chambered in 7.62 with an internal magazine."
-	icon_state = "chinesehunting"
-	inhand_icon_state = "chinesehunting"
+	icon_state = "surplushunting"
+	inhand_icon_state = "surplushunting"
 	internal_magazine = TRUE
 	mag_type = /obj/item/ammo_box/magazine/internal/ms13/chinese_rifle
+	load_sound = 'mojave/sound/ms13weapons/gunsounds/rifle/rifle_load.ogg'
+	load_empty_sound = 'mojave/sound/ms13weapons/gunsounds/rifle/rifle_load.ogg'
 	fire_sound = 'mojave/sound/ms13weapons/hunting_rifle.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/hunting_rifle.ogg'
 	spread = 2
 	recoil = 1.25
+
+/obj/item/gun/ballistic/rifle/ms13/jezzail
+	name = "handmade jezzail"
+	desc = "A crude but effective and accurate handmade single shot rifle. It seems to be chambered in 7.62"
+	icon_state = "jezzail"
+	inhand_icon_state = "jezzail"
+	internal_magazine = TRUE
+	w_class = WEIGHT_CLASS_HUGE
+	weapon_weight = WEAPON_HEAVY
+	slot_flags = ITEM_SLOT_BACK
+	mag_type = /obj/item/ammo_box/magazine/internal/ms13/jezzail
+	bolt_wording = "chamber"
+	rack_sound = 'mojave/sound/ms13weapons/breakaction_open2.ogg'
+	lock_back_sound = 'mojave/sound/ms13weapons/breakaction_open2.ogg'
+	bolt_drop_sound = 'mojave/sound/ms13weapons/breakaction_close2.ogg'
+	fire_sound = 'mojave/sound/ms13weapons/hunting_rifle.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/hunting_rifle.ogg' //placeholder sounds for now
+	load_empty_sound = 'mojave/sound/ms13weapons/gunsounds/antique_sniper/antique_load.ogg'
+	load_sound = 'mojave/sound/ms13weapons/gunsounds/antique_sniper/antique_load.ogg'
+	fire_delay = 1 SECONDS
+	rack_delay = 1 SECONDS
+	spread = 0
+	recoil = 1.65
+	grid_height = 32
+	grid_width = 224
+
+/obj/item/gun/ballistic/rifle/ms13/antique_sniper
+	name = "antique sniper"
+	desc = "A very old single shot sniper rifle from long before the war. A prized possession, even now. It is chambered in the ever so hefty 45-70."
+	icon_state = "antique"
+	inhand_icon_state = "antique"
+	internal_magazine = TRUE
+	w_class = WEIGHT_CLASS_HUGE
+	weapon_weight = WEAPON_HEAVY
+	slot_flags = ITEM_SLOT_BACK
+	mag_type = /obj/item/ammo_box/magazine/internal/ms13/antique
+	bolt_wording = "trap"
+	rack_sound = 'mojave/sound/ms13weapons/gunsounds/antique_sniper/antique_open.ogg'
+	lock_back_sound = 'mojave/sound/ms13weapons/gunsounds/antique_sniper/antique_open.ogg'
+	bolt_drop_sound = 'mojave/sound/ms13weapons/gunsounds/antique_sniper/antique_close.ogg'
+	fire_sound = 'mojave/sound/ms13weapons/gunsounds/antique_sniper/antique_fire.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/antique.ogg'
+	load_empty_sound = 'mojave/sound/ms13weapons/gunsounds/antique_sniper/antique_load.ogg'
+	load_sound = 'mojave/sound/ms13weapons/gunsounds/antique_sniper/antique_load.ogg'
+	fire_delay = 1 SECONDS
+	rack_delay = 1 SECONDS
+	spread = 0
+	recoil = 2
+	has_scope = TRUE
+	scope_range = 4
+	grid_height = 64
+	grid_width = 224
 
 /* Weeb shit and an unbalanced M1 Garand for now
 /obj/item/gun/ballistic/rifle/ms13/hunting/japanese
@@ -239,6 +322,20 @@
 	caliber = "a308"
 	max_ammo = 5
 
+/obj/item/ammo_box/magazine/internal/ms13/jezzail
+	name = "jezzail internal magazine (7.62)"
+	icon_state = "r308"
+	ammo_type = /obj/item/ammo_casing/ms13/a762
+	caliber = "a762"
+	max_ammo = 1
+
+/obj/item/ammo_box/magazine/internal/ms13/antique
+	name = "antique sniper internal magazine (.45-70)"
+	icon_state = "r308"
+	ammo_type = /obj/item/ammo_casing/ms13/c4570
+	caliber = "4570"
+	max_ammo = 1
+
 //Loaders
 
 /obj/item/ammo_box/ms13/stripper
@@ -246,6 +343,7 @@
 	icon = 'mojave/icons/objects/ammo/ammo_world.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	multiple_sprites = AMMO_BOX_PER_BULLET
+	multiload = TRUE
 	grid_height = 32
 	grid_width = 32
 

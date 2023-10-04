@@ -31,13 +31,13 @@
 /obj/structure/ms13/tv/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/scrap_wood(loc)
+			new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
 			new /obj/item/stack/sheet/ms13/glass(loc)
 			new /obj/item/stack/sheet/ms13/scrap_electronics/two(loc)
 			new /obj/item/stack/sheet/ms13/scrap_copper/two(loc)
 		else
-			new /obj/item/stack/sheet/ms13/scrap_wood(loc)
+			new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc)
 			new /obj/item/stack/sheet/ms13/glass(loc)
 			new /obj/item/stack/sheet/ms13/scrap_electronics(loc)
 			new /obj/item/stack/sheet/ms13/scrap_copper(loc)
@@ -86,7 +86,7 @@
 /obj/structure/ms13/tv/wooden/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/scrap_wood(loc, 3)
+			new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc, 3)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 2)
 			new /obj/item/stack/sheet/ms13/glass(loc, 3)
 			new /obj/item/stack/sheet/ms13/scrap_electronics(loc, 3)
@@ -265,7 +265,7 @@
 	name = "store shelf"
 	desc = "A proud american consumerism displayer, seems commercialism wasn't fully wiped out as intended."
 	icon_state = "store_shelf"
-	materialtype = /obj/item/stack/sheet/ms13/scrap_wood
+	materialtype = /obj/item/stack/sheet/ms13/wood/scrap_wood
 	hitted_sound = 'mojave/sound/ms13effects/impact/metal/metal_generic_2.wav'
 
 /obj/structure/ms13/storage/store/metal
@@ -276,7 +276,7 @@
 	name = "bookshelf"
 	desc = "Holder of knowledge, master of all."
 	icon_state = "bookshelf"
-	materialtype = /obj/item/stack/sheet/ms13/scrap_wood
+	materialtype = /obj/item/stack/sheet/ms13/wood/scrap_wood
 	hitted_sound = 'mojave/sound/ms13effects/impact/wood/wood_generic_1.wav'
 
 /obj/structure/ms13/storage/shelf
@@ -290,7 +290,7 @@
 	name = "wood shelf"
 	desc = "Used for storing just about anything you could think of."
 	icon_state = "wood_shelf"
-	materialtype = /obj/item/stack/sheet/ms13/scrap_wood
+	materialtype = /obj/item/stack/sheet/ms13/wood/scrap_wood
 
 /obj/structure/ms13/storage/shelf/wood/alt
 	icon_state = "wood_shelf-alt"
@@ -324,7 +324,7 @@
 	name = "wood shelf"
 	desc = "An extra large, wood shelf, used for storing just about anything you could think of while upkeeping your rustic tones."
 	icon_state = "wood_shelf"
-	materialtype = /obj/item/stack/sheet/ms13/scrap_wood
+	materialtype = /obj/item/stack/sheet/ms13/wood/scrap_wood
 
 /obj/structure/ms13/storage/large/shelf/wood/alt
 	icon_state = "wood_shelf-alt"
@@ -333,13 +333,13 @@
 	name = "wood shelf"
 	desc = "A large wooden shelf set. There are drawers below for additional storage."
 	icon_state = "wood_shelf_big"
-	materialtype = /obj/item/stack/sheet/ms13/scrap_wood
+	materialtype = /obj/item/stack/sheet/ms13/wood/scrap_wood
 
 /obj/structure/ms13/storage/large/clothing
 	name = "clothing rack"
 	desc = "And they say fashion is dead."
 	icon_state = "clothing_rack"
-	materialtype = /obj/item/stack/sheet/ms13/scrap_wood
+	materialtype = /obj/item/stack/sheet/ms13/wood/scrap_wood
 	max_integrity = 250
 
 /obj/structure/ms13/storage/large/medical
@@ -358,7 +358,7 @@
 	name = "showcase shelf"
 	desc = "A pyramid of shelving units, ready to display wares to the eager world."
 	icon_state = "showcase"
-	materialtype = /obj/item/stack/sheet/ms13/scrap_wood
+	materialtype = /obj/item/stack/sheet/ms13/wood/scrap_wood
 
 // Dresser Stuff //
 
@@ -369,6 +369,7 @@
 	var/dresser_type = "circabinet_orange"
 	max_integrity = 225
 	projectile_passchance = 85
+	pixel_y = 12
 
 /obj/structure/dresser/ms13/attack_hand(mob/user)
 	icon_state = "[dresser_type]-open"
@@ -588,7 +589,7 @@
 		user.show_message(span_notice("You begin chopping \the [src] into scraps of wood!"), MSG_VISUAL)
 		if(do_after(user, 10 SECONDS * W.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_MAKEPLANKS))
 			user.show_message(span_notice("You make wood scraps out of \the [src]!"), MSG_VISUAL)
-			new /obj/item/stack/sheet/ms13/scrap_wood(loc, 4)
+			new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc, 4)
 			qdel(src)
 
 /obj/structure/ms13/fruit_empty/examine(mob/user)

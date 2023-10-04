@@ -6,4 +6,4 @@
 /// Has no attack self wielding
 #define WIELD_NO_ATTACK_SELF (1<<2)
 /// Has a cool inhands icon state when wielded
-#define WIELD_HAS_INHANDS (1<<2)
+#define WIELD_HAS_INHANDS (1<<3)

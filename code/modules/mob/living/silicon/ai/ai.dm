@@ -1055,8 +1055,7 @@
 	.[ai_job_ref.title] = minutes
 
 
-/mob/living/silicon/ai/GetVoice()
+/mob/living/silicon/ai/GetVoice(if_no_voice = "Unknown")
 	. = ..()
-	if(ai_voicechanger&&ai_voicechanger.changing_voice)
+	if(ai_voicechanger && ai_voicechanger.changing_voice)
 		return ai_voicechanger.say_name
-	return

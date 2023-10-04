@@ -76,6 +76,28 @@
 
 	return random_unique_name(gender)
 
+// MOJAVE SUN EDIT BEGIN
+/datum/preference/name/drylander_name
+	explanation = "Drylander name"
+	group = "_drylander_name"
+	savefile_key = "drylander_name"
+
+/datum/preference/name/drylander_name/create_informed_default_value(datum/preferences/preferences)
+	var/gender = preferences.read_preference(/datum/preference/choiced/gender)
+
+	return random_unique_drylander_name(gender)
+
+/datum/preference/name/legion_name
+	explanation = "Legion name"
+	group = "_legion_name"
+	savefile_key = "legion_name"
+
+/datum/preference/name/legion_name/create_informed_default_value(datum/preferences/preferences)
+	var/gender = preferences.read_preference(/datum/preference/choiced/gender)
+
+	return random_unique_legion_name(gender)
+
+// MOJAVE SUN EDIT END
 /datum/preference/name/clown
 	savefile_key = "clown_name"
 

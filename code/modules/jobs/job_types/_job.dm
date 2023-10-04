@@ -116,12 +116,9 @@
 	///RPG job names, for the memes
 	var/rpg_title
 
-	// MS13 EDIT BEGIN //
-	var/forbid = ""
+	///Guestbook flags, to establish who knowns who etc
+	var/guestbook_flags = GUESTBOOK_DEPARTMENT | GUESTBOOK_JOB
 
-	var/enforce = ""
-
-	// MS13 EDIT END //
 /datum/job/New()
 	. = ..()
 	var/list/jobs_changes = get_map_changes()
@@ -175,6 +172,23 @@
 		for(var/i in roundstart_experience)
 			experiencer.mind.adjust_experience(i, roundstart_experience[i], TRUE)
 
+	for(var/mob/living/carbon/human/dude as anything in GLOB.human_list)
+		if((dude == spawned) || !dude.mind?.assigned_role)
+			continue
+		var/datum/job/dudes_job = dude.mind.assigned_role
+		var/list/common_departments = dudes_job.departments_list & departments_list //wonky
+		//if we satisfy at least one condition, add us to their guestbook (if we are not a forgetmenot role)
+		if(!(guestbook_flags & GUESTBOOK_FORGETMENOT))
+			if((dudes_job.guestbook_flags & GUESTBOOK_OMNISCIENT) || \
+				((dudes_job.guestbook_flags & GUESTBOOK_JOB) && (dudes_job.type == src.type)) || \
+				((dudes_job.guestbook_flags & GUESTBOOK_DEPARTMENT) && length(common_departments)))
+				dude.mind.guestbook.add_guest(dude, spawned, spawned.real_name, spawned.real_name, silent = TRUE)
+		//if we satisfy at least one condition, add them to our guestbook (if they are not a forgetmenot role)
+		if(!(dudes_job.guestbook_flags & GUESTBOOK_FORGETMENOT))
+			if((guestbook_flags & GUESTBOOK_OMNISCIENT) || \
+				((guestbook_flags & GUESTBOOK_JOB) && (src.type == dudes_job.type)) || \
+				((guestbook_flags & GUESTBOOK_DEPARTMENT) && length(common_departments)))
+				spawned.mind.guestbook.add_guest(spawned, dude, dude.real_name, dude.real_name, silent = TRUE)
 
 /datum/job/proc/announce_job(mob/living/joining_mob)
 	if(head_announce)
@@ -306,7 +320,10 @@
 	var/obj/item/card/id/C = H.wear_id
 	if(istype(C))
 		shuffle_inplace(C.access) // Shuffle access list to make NTNet passkeys less predictable
-		C.registered_name = H.real_name
+		if(C.just_initials)
+			C.registered_name = text_initials(H.real_name)
+		else
+			C.registered_name = H.real_name
 		if(H.age)
 			C.registered_age = H.age
 		C.update_label()

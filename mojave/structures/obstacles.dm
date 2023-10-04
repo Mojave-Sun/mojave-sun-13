@@ -14,6 +14,7 @@
 	density = TRUE
 	anchored = TRUE
 	layer = ABOVE_OBJ_LAYER
+	plane = ABOVE_GAME_PLANE
 	max_integrity = 650
 	damage_deflection = 21 //Basically meant to encompass 20 damage weapons and below
 	can_atmos_pass = ATMOS_PASS_YES
@@ -526,6 +527,17 @@
 				return COMPONENT_ATOM_BLOCK_EXIT
 
 	if(cansqueeze)
+		if(istype(leaving, /obj/projectile) && prob(fencepasschance))
+			return
+
+		if(istype(leaving, /obj/projectile/bullet) && prob(fencepasschance))
+			return
+
+		if(istype(leaving, /obj/item))
+			var/obj/item/I = leaving
+			if(I.w_class == WEIGHT_CLASS_TINY && prob(fencepasschance))
+				return
+
 		if(leaving == src)
 			return // Let's not block ourselves.
 
@@ -847,10 +859,10 @@
 /obj/structure/railing/ms13/wood/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/plank(loc, 3)
+			new /obj/item/stack/sheet/ms13/wood/plank(loc, 3)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc, 2)
 		else
-			new /obj/item/stack/sheet/ms13/scrap_wood(loc, 2)
+			new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc, 2)
 	qdel(src)
 
 /obj/structure/railing/ms13/wood/examine(mob/user)
@@ -918,10 +930,10 @@
 /obj/structure/ms13/barricade/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(disassembled)
-			new /obj/item/stack/sheet/ms13/plank(loc, 2)
+			new /obj/item/stack/sheet/ms13/wood/plank(loc, 2)
 			new /obj/item/stack/sheet/ms13/scrap_parts(loc)
 		else
-			new /obj/item/stack/sheet/ms13/scrap_wood(loc)
+			new /obj/item/stack/sheet/ms13/wood/scrap_wood(loc)
 	qdel(src)
 
 /obj/structure/ms13/barricade/examine(mob/user)
@@ -1018,3 +1030,31 @@
 	if(direction == dir && density)
 		leaving.Bump(src)
 		return COMPONENT_ATOM_BLOCK_EXIT
+
+// Bone Piles //
+
+/obj/structure/ms13/bonepile
+	name = "pile of bones"
+	desc = "A seemingly never ending pile of bones... There's been a lot of death, here."
+	icon = 'mojave/icons/structure/smooth_structures/bone_pile.dmi'
+	icon_state = "icon-0"
+	base_icon_state = "icon"
+	density = FALSE
+	anchored = TRUE
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_MS13_BONEPILE)
+	canSmoothWith = list(SMOOTH_GROUP_MS13_BONEPILE, SMOOTH_GROUP_MS13_WALL, SMOOTH_GROUP_MS13_LOW_WALL)
+
+/obj/structure/ms13/bonepile/Initialize(mapload)
+	. = ..()
+
+	var/turf/my_turf = get_turf(loc)
+	if(my_turf)
+		ADD_TRAIT(my_turf, TRAIT_ADD_SLOWDOWN, STAIRS_ON_TURF)
+
+/obj/structure/ms13/bonepile/Destroy()
+	. = ..()
+
+	var/turf/my_turf = get_turf(loc)
+	if(my_turf)
+		REMOVE_TRAIT(my_turf, TRAIT_REMOVE_SLOWDOWN, STAIRS_ON_TURF)

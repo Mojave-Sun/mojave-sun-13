@@ -9,8 +9,8 @@
 	assemblytype = null
 	can_crush = FALSE
 	spark_system = null
-	max_integrity = 1000
-	armor = list(MELEE = 50, BULLET = 80, LASER = 90, ENERGY = 90, BOMB = 30, BIO = 100, FIRE = 80, ACID = 100)
+	max_integrity = 1150
+	armor = list(MELEE = 40, BULLET = 70, LASER = 90, ENERGY = 40, BOMB = 30, BIO = 100, FIRE = 50, ACID = 100)
 	damage_deflection = 15
 	sparks = FALSE
 	ms13_flags_1 = LOCKABLE_1
@@ -140,6 +140,7 @@
 	update_appearance()
 	set_opacity(0)
 	operating = FALSE
+	air_update_turf(TRUE, FALSE)
 	update_freelook_sight()
 	playsound(src, (opensound), 50, TRUE)
 	return TRUE
@@ -161,6 +162,7 @@
 	if(visible && !glass)
 		set_opacity(1)
 	operating = FALSE
+	air_update_turf(TRUE, FALSE)
 	update_freelook_sight()
 	playsound(src, (closesound), 50, TRUE)
 	return TRUE
@@ -220,7 +222,7 @@
 	door_type = "metal"
 	assemblytype = /obj/item/stack/sheet/ms13/scrap
 	max_integrity = 2000 //its metal
-	armor = list(MELEE = 80, BULLET = 90, LASER = 60, ENERGY = 90, BOMB = 30, BIO = 100, FIRE = 80, ACID = 100)
+	armor = list(MELEE = 65, BULLET = 80, LASER = 75, ENERGY = 50, BOMB = 30, BIO = 100, FIRE = 60, ACID = 100)
 	damage_deflection = 25
 	hitted_sound = 'mojave/sound/ms13effects/metal_door_hit.ogg'
 
@@ -259,13 +261,13 @@
 	icon_state = "wood_closed"
 	door_type = "wood"
 	frametype = "wood"
-	assemblytype = /obj/item/stack/sheet/ms13/scrap_wood
+	assemblytype = /obj/item/stack/sheet/ms13/wood/scrap_wood
 	hitted_sound = 'mojave/sound/ms13effects/wood_door_hit.ogg'
 
 /obj/machinery/door/unpowered/ms13/wood/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		playsound(src, 'mojave/sound/ms13effects/wood_door_break.ogg', 100, TRUE)
-		new /obj/item/stack/sheet/ms13/scrap_wood/two(loc)
+		new /obj/item/stack/sheet/ms13/wood/scrap_wood/two(loc)
 		for(var/obj/item/I in src)
 			I.forceMove(loc)
 	qdel(src)
@@ -335,8 +337,8 @@
 	icon_state = "metal_window_closed"
 	door_type = "metal_window"
 	passthrough_chance = 40 //Small window!
-	max_integrity = 1500 //its metal
-	armor = list(MELEE = 80, BULLET = 90, LASER = 60, ENERGY = 90, BOMB = 30, BIO = 100, FIRE = 80, ACID = 100)
+	max_integrity = 1800 //its metal
+	armor = list(MELEE = 65, BULLET = 80, LASER = 75, ENERGY = 50, BOMB = 30, BIO = 100, FIRE = 60, ACID = 100)
 	damage_deflection = 25
 	hitted_sound = 'mojave/sound/ms13effects/metal_door_hit.ogg'
 

@@ -11,19 +11,19 @@
 	///sound when inserting an empty magazine
 	var/load_empty_sound = 'sound/weapons/gun/general/magazine_insert_empty.ogg'
 	///volume of loading sound
-	var/load_sound_volume = 40
+	var/load_sound_volume = 30 //Mojave Edit - Brings down to 30 from 40
 	///whether loading sound should vary
 	var/load_sound_vary = TRUE
 	///sound of racking
 	var/rack_sound = 'sound/weapons/gun/general/bolt_rack.ogg'
 	///volume of racking
-	var/rack_sound_volume = 60
+	var/rack_sound_volume = 20 //Mojave Edit - Brings down to 20 from 60
 	///whether racking sound should vary
 	var/rack_sound_vary = TRUE
 	///sound of when the bolt is locked back manually
 	var/lock_back_sound = 'sound/weapons/gun/general/slide_lock_1.ogg'
 	///volume of lock back
-	var/lock_back_sound_volume = 60
+	var/lock_back_sound_volume = 20 //Mojave Edit - Brings down to 20 from 60
 	///whether lock back varies
 	var/lock_back_sound_vary = TRUE
 	///Sound of ejecting a magazine
@@ -31,13 +31,13 @@
 	///sound of ejecting an empty magazine
 	var/eject_empty_sound = 'sound/weapons/gun/general/magazine_remove_empty.ogg'
 	///volume of ejecting a magazine
-	var/eject_sound_volume = 40
+	var/eject_sound_volume = 30 //Mojave Edit - Brings down to 30 from 40
 	///whether eject sound should vary
 	var/eject_sound_vary = TRUE
 	///sound of dropping the bolt or releasing a slide
 	var/bolt_drop_sound = 'sound/weapons/gun/general/bolt_drop.ogg'
 	///volume of bolt drop/slide release
-	var/bolt_drop_sound_volume = 60
+	var/bolt_drop_sound_volume = 20 //Mojave Edit - Brings down to 20 from 40
 	///empty alarm sound (if enabled)
 	var/empty_alarm_sound = 'sound/weapons/gun/general/empty_alarm.ogg'
 	///empty alarm volume sound
@@ -215,7 +215,7 @@
 */ // Honestly screw all of this stuff.
 // MOJAVE EDIT REMOVAL END
 
-/obj/item/gun/ballistic/handle_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE)
+/obj/item/gun/ballistic/handle_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE, atom/shooter = null)
 	if(!semi_auto && from_firing)
 		return
 	var/obj/item/ammo_casing/casing = chambered //Find chambered round
@@ -225,7 +225,13 @@
 			chambered = null
 		else if(casing_ejector || !from_firing)
 			casing.forceMove(drop_location()) //Eject casing onto ground.
-			casing.bounce_away(TRUE)
+			pixel_x = rand(-4, 4)
+			pixel_y = rand(-4, 4)
+			if(ismob(shooter))
+				pixel_z = 8 //bounce time
+				casing.SpinAnimation(speed = 3 SECONDS, loops = 2)
+				var/angle_of_movement = !isnull(shooter) ? (rand(-3000, 3000) / 100) + dir2angle(turn(shooter.dir, 180)) : rand(-3000, 3000) / 100
+				casing.AddComponent(/datum/component/movable_physics, _horizontal_velocity = rand(450, 550) / 100, _vertical_velocity = rand(400, 450) / 100, _horizontal_friction = rand(20, 24) / 100, _z_gravity = 9.80665, _z_floor = 0, _angle_of_movement = angle_of_movement)
 			SEND_SIGNAL(casing, COMSIG_CASING_EJECTED)
 			chambered = null
 		else if(empty_chamber)
@@ -256,7 +262,7 @@
 		bolt_locked = FALSE
 	if (user)
 		to_chat(user, span_notice("You rack the [bolt_wording] of [src]."))
-	process_chamber(!chambered, FALSE)
+	process_chamber(!chambered, FALSE, shooter = user)
 	if (bolt_type == BOLT_TYPE_LOCKING && !chambered)
 		bolt_locked = TRUE
 		playsound(src, lock_back_sound, lock_back_sound_volume, lock_back_sound_vary)
@@ -296,9 +302,9 @@
 	if(bolt_type == BOLT_TYPE_OPEN)
 		chambered = null
 	if (magazine.ammo_count())
-		playsound(src, load_sound, load_sound_volume, load_sound_vary)
+		playsound(src, eject_sound, load_sound_volume, load_sound_vary) //MOJAVE EDIT - Original is load_sound, why? I don't know. I hate TGstation - Hekzder
 	else
-		playsound(src, load_empty_sound, load_sound_volume, load_sound_vary)
+		playsound(src, eject_empty_sound, load_sound_volume, load_sound_vary) //MOJAVE EDIT - Original is load_sound, why? I don't know. I hate TGstation - Hekzder
 	magazine.forceMove(drop_location())
 	var/obj/item/ammo_box/magazine/old_mag = magazine
 	if (tac_load)
@@ -469,7 +475,9 @@
 		var/num_unloaded = 0
 		for(var/obj/item/ammo_casing/CB in get_ammo_list(FALSE, TRUE))
 			CB.forceMove(drop_location())
-			CB.bounce_away(FALSE, NONE)
+			var/angle_of_movement =(rand(-3000, 3000) / 100) + dir2angle(turn(user.dir, 180))
+			CB.AddComponent(/datum/component/movable_physics, _horizontal_velocity = rand(450, 550) / 100, _vertical_velocity = rand(400, 450) / 100, _horizontal_friction = rand(20, 24) / 100, _z_gravity = 9.80665, _z_floor = 0, _angle_of_movement = angle_of_movement)
+
 			num_unloaded++
 			var/turf/T = get_turf(drop_location())
 			if(T && is_station_level(T.z))

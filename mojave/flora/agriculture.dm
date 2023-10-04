@@ -12,10 +12,10 @@
 	obj_flags = CAN_BE_HIT | UNIQUE_RENAME
 	circuit = null
 	use_power = NO_POWER_USE
-	///The amount of water in the tray (max 100)
-	var/waterlevel = 100
+	///The amount of water in the tray
+	var/waterlevel = 150
 	///The maximum amount of water in the tray
-	var/maxwater = 100
+	var/maxwater = 150
 	///How much nitrogen is in the soil
 	var/nitrolevel
 	///How much phosphorus is in the soil
@@ -23,9 +23,9 @@
 	///How much potassium (K) is in the soil
 	var/potlevel
 	///How many units of nutrients will be drained in the tray.
-	var/nutridrain = 100
+	var/nutridrain = 50
 	///The maximum nutrient reagent container size of the tray.
-	var/maxnutri = 20
+	var/maxnutri = 5000
 	///Nutriment's effect on yield
 	var/yieldmod = 1
 	///Nutriment's effect on mutations
@@ -42,8 +42,8 @@
 	var/lastproduce = 0
 	///Used for timing of cycles.
 	var/lastcycle = 0
-	///About 10 seconds / cycle
-	var/cycledelay = 200
+	///About 18 seconds / cycle
+	var/cycledelay = 180
 	///The currently planted seed
 	var/obj/item/seeds/ms13/myseed
 	///Obtained from the quality of the parts used in the tray, determines nutrient drain rate.
@@ -54,6 +54,14 @@
 	var/datum/weakref/lastuser
 	///If the tray generates nutrients and water on its own
 	var/self_sustaining = FALSE
+
+	// FERTILIZER VARS //
+	//How much fertilizer the soil can hold
+	var/fertilizer_cap = 100
+	//How much N, P or K fertilizer is in the soil
+	var/n_fertilizer = 0
+	var/p_fertilizer = 0
+	var/k_fertilizer = 0
 
 /obj/machinery/ms13/agriculture/Initialize(mapload)
 	// The soil needs a place to put reagents in order for water to work. Might change how water works later.
@@ -73,7 +81,7 @@
 		/obj/item/cultivator = list(
 			SCREENTIP_CONTEXT_LMB = "Remove weeds",
 		),
-		/obj/item/shovel = list(
+		/obj/item/shovel/ms13/spade = list(
 			SCREENTIP_CONTEXT_LMB = "Clear tray",
 		),
 	)
@@ -127,11 +135,6 @@
 			context[SCREENTIP_CONTEXT_LMB] = "Harvest plant"
 			return CONTEXTUAL_SCREENTIP_SET
 
-	// Edibles and pills can be composted.
-	if(IS_EDIBLE(held_item) || istype(held_item, /obj/item/reagent_containers/pill))
-		context[SCREENTIP_CONTEXT_LMB] = "Compost"
-		return CONTEXTUAL_SCREENTIP_SET
-
 	// Aand if a reagent container has water or plant fertilizer in it, we can use it on the plant.
 	if(is_reagent_container(held_item) && length(held_item.reagents.reagent_list))
 		var/datum/reagent/most_common_reagent = held_item.reagents.get_master_reagent()
@@ -164,9 +167,9 @@
 		lastcycle = world.time
 
 		// The soil slowly replenishes itself over time. Later on this'll be supplemented by fertilizers.
-		adjust_nitrolevel(rand(5, 15))
-		adjust_phoslevel(rand(5, 15))
-		adjust_potlevel(rand(5, 15))
+		adjust_nitrolevel(rand(8, 18))
+		adjust_phoslevel(rand(8, 18))
+		adjust_potlevel(rand(8, 18))
 
 		if(myseed && plant_status != HYDROTRAY_PLANT_DEAD)
 			// Advance age
@@ -192,32 +195,43 @@
 					adjust_potlevel(-nutridrain)
 					drained_nutrient = potlevel
 
+			// Soil consumes fertilizer and creates N, P or K in the soil.
+			if(n_fertilizer > 0)
+				adjust_nitrolevel(rand(45, 70))
+				n_fertilizer -= 1
+			if(p_fertilizer > 0)
+				adjust_phoslevel(rand(45, 70))
+				p_fertilizer -= 1
+			if(k_fertilizer > 0)
+				adjust_potlevel(rand(45, 70))
+				k_fertilizer -= 1
+
 			// Lack of nutrients hurts non-weeds
 				if(drained_nutrient <= 0 && !myseed.get_gene(/datum/plant_gene/trait/plant_type/weed_hardy))
-					adjust_plant_health(-rand(1,3))
+					adjust_plant_health(-rand(3,6))
 //Photosynthesis/////////////////////////////////////////////////////////
 			// Lack of light hurts non-mushrooms
-			if(isturf(loc))
+			/*if(isturf(loc))
 				var/turf/currentTurf = loc
 				var/lightAmt = currentTurf.get_lumcount()
 				var/is_fungus = myseed.get_gene(/datum/plant_gene/trait/plant_type/fungal_metabolism)
 				if(lightAmt < (is_fungus ? 0.2 : 0.4))
-					adjust_plant_health((is_fungus ? -1 : -2) / rating)
+					adjust_plant_health((is_fungus ? -1 : -2) / rating)*/ //Commenting this out for now, I believe it is killing plants - Hekzder
 
 //Water//////////////////////////////////////////////////////////////////
 			// Drink random amount of water
 			if(plant_status != HYDROTRAY_PLANT_HARVESTABLE)
-				adjust_waterlevel(-rand(1,6) / rating)
+				adjust_waterlevel(-rand(0.5,1.5) / rating)
 
 			// If the plant is dry, it loses health pretty fast, unless mushroom
 				if(waterlevel <= 10 && !myseed.get_gene(/datum/plant_gene/trait/plant_type/fungal_metabolism))
-					adjust_plant_health(-rand(0,1) / rating)
+					adjust_plant_health(-rand(2,5) / rating)
 				if(waterlevel <= 0)
-					adjust_plant_health(-rand(0,2) / rating)
+					adjust_plant_health(-rand(4,7) / rating)
 
 			// Sufficient water level and nutrient level = plant healthy
 				else if(waterlevel > 10 && drained_nutrient > 0)
-					adjust_plant_health(rand(1,2) / rating)
+					adjust_plant_health(rand(2,3) / rating)
 
 //Toxins/////////////////////////////////////////////////////////////////
 
@@ -230,16 +244,11 @@
 				adjust_toxic(-rating * 3)
 
 //This is where stability mutations exist now.
-			if(myseed.instability >= 80)
-				return
+
 			if(myseed.instability >= 60)
 				if(prob((myseed.instability)/2) && !self_sustaining && LAZYLEN(myseed.mutatelist)) //Minimum 30%, Maximum 50% chance of mutating every age tick when not on autogrow.
 					mutatespecie()
 					myseed.set_instability(myseed.instability/2)
-			if(myseed.instability >= 40)
-				return
-			if(myseed.instability >= 20 )
-				return
 
 //Health & Age///////////////////////////////////////////////////////////
 
@@ -249,7 +258,7 @@
 
 			// If the plant is too old, lose health fast
 			if(age > myseed.lifespan)
-				adjust_plant_health(-rand(1,5) / rating)
+				adjust_plant_health(-rand(5,8) / rating)
 
 			// Harvest code
 			if(age > myseed.production && (age - lastproduce) > myseed.production && plant_status == HYDROTRAY_PLANT_GROWING)
@@ -474,7 +483,7 @@
  * Cleans up various stats for the plant upon death, including harvestability, and plant health.
  */
 /obj/machinery/ms13/agriculture/proc/plantdies()
-	set_plant_health(0, update_icon = FALSE, forced = TRUE)
+	set_plant_health(0, update_icon = TRUE, forced = TRUE)
 	set_plant_status(HYDROTRAY_PLANT_DEAD)
 	lastproduce = 0
 	update_appearance()
@@ -482,6 +491,18 @@
 
 /obj/machinery/ms13/agriculture/attackby(obj/item/O, mob/user, params)
 	//Called when mob user "attacks" it with object O
+	if(istype(O, /obj/item/stack/ms13/fertilizer))
+		var/obj/item/stack/ms13/fertilizer/fertilizer = O
+		fertilizer.use(1)
+		if(fertilizer.nitro > 0)
+			n_fertilizer = clamp(n_fertilizer + fertilizer.nitro, 0.00, fertilizer_cap)
+		if(fertilizer.phos > 0)
+			p_fertilizer = clamp(p_fertilizer + fertilizer.phos, 0.00, fertilizer_cap)
+		if(fertilizer.pot > 0)
+			k_fertilizer = clamp(k_fertilizer + fertilizer.pot, 0.00, fertilizer_cap)
+		visible_message(span_notice("[user] spreads [O] through the soil."))
+		return
+
 	if(IS_EDIBLE(O) || istype(O, /obj/item/reagent_containers))  // Syringe stuff (and other reagent containers now too)
 		var/obj/item/reagent_containers/reagent_source = O
 
@@ -489,46 +510,39 @@
 			to_chat(user, span_warning("[reagent_source] is empty!"))
 			return 1
 
-		if(reagents.total_volume >= reagents.maximum_volume && (!reagent_source.reagents.has_reagent(/datum/reagent/consumable/ms13/water) || !reagent_source.reagents.has_reagent(/datum/reagent/consumable/ms13/unfiltered_water) || !reagent_source.reagents.has_reagent(/datum/reagent/consumable/ms13/dirty_water)))
+		if(reagents.total_volume >= reagents.maximum_volume && (!reagent_source.reagents.has_reagent(/datum/reagent/consumable/ms13/water) || !reagent_source.reagents.has_reagent(/datum/reagent/consumable/ms13/water/unfiltered) || !reagent_source.reagents.has_reagent(/datum/reagent/consumable/ms13/water/dirty)))
 			to_chat(user, span_notice("[src] is full."))
 			return
 
 		var/list/trays = list(src)//makes the list just this in cases of syringes and compost etc
 		var/target = myseed ? myseed.plantname : src
-		var/visi_msg = ""
 		var/transfer_amount
 
 		if(IS_EDIBLE(reagent_source) || istype(reagent_source, /obj/item/reagent_containers/pill))
-			visi_msg="[user] composts [reagent_source], spreading it through [target]"
-			transfer_amount = reagent_source.reagents.total_volume
-			SEND_SIGNAL(reagent_source, COMSIG_ITEM_ON_COMPOSTED, user)
+			return
 		else
 			transfer_amount = reagent_source.amount_per_transfer_from_this
 			if(istype(reagent_source, /obj/item/reagent_containers/syringe/))
 				var/obj/item/reagent_containers/syringe/syr = reagent_source
-				visi_msg="[user] injects [target] with [syr]"
+				visible_message(span_notice("[user] injects [target] with [syr]."))
 			// Beakers, bottles, buckets, etc.
 			if(reagent_source.is_drainable())
 				playsound(loc, 'sound/effects/slosh.ogg', 25, TRUE)
 
-		if(visi_msg)
-			visible_message(span_notice("[visi_msg]."))
-
 		for(var/obj/machinery/ms13/agriculture/H in trays)
-		//cause I don't want to feel like im juggling 15 tamagotchis and I can get to my real work of ripping flooring apart in hopes of validating my life choices of becoming a space-gardener
-			//This was originally in apply_chemicals, but due to apply_chemicals only holding nutrients, we handle it here now.
+			//This looks awful, a result of having 3 water types, all are applicable for watering crops
 			if(reagent_source.reagents.has_reagent(/datum/reagent/consumable/ms13/water, 1))
 				var/water_amt = reagent_source.reagents.get_reagent_amount(/datum/reagent/consumable/ms13/water) * transfer_amount / reagent_source.reagents.total_volume
 				H.adjust_waterlevel(round(water_amt))
 				reagent_source.reagents.remove_reagent(/datum/reagent/consumable/ms13/water, water_amt)
-			if(reagent_source.reagents.has_reagent(/datum/reagent/consumable/ms13/unfiltered_water, 1))
-				var/water_amt = reagent_source.reagents.get_reagent_amount(/datum/reagent/consumable/ms13/unfiltered_water) * transfer_amount / reagent_source.reagents.total_volume
+			if(reagent_source.reagents.has_reagent(/datum/reagent/consumable/ms13/water/unfiltered, 1))
+				var/water_amt = reagent_source.reagents.get_reagent_amount(/datum/reagent/consumable/ms13/water/unfiltered) * transfer_amount / reagent_source.reagents.total_volume
 				H.adjust_waterlevel(round(water_amt))
-				reagent_source.reagents.remove_reagent(/datum/reagent/consumable/ms13/unfiltered_water, water_amt)
-			if(reagent_source.reagents.has_reagent(/datum/reagent/consumable/ms13/dirty_water, 1))
-				var/water_amt = reagent_source.reagents.get_reagent_amount(/datum/reagent/consumable/ms13/dirty_water) * transfer_amount / reagent_source.reagents.total_volume
+				reagent_source.reagents.remove_reagent(/datum/reagent/consumable/ms13/water/unfiltered, water_amt)
+			if(reagent_source.reagents.has_reagent(/datum/reagent/consumable/ms13/water/dirty, 1))
+				var/water_amt = reagent_source.reagents.get_reagent_amount(/datum/reagent/consumable/ms13/water/dirty) * transfer_amount / reagent_source.reagents.total_volume
 				H.adjust_waterlevel(round(water_amt))
-				reagent_source.reagents.remove_reagent(/datum/reagent/consumable/ms13/dirty_water, water_amt)
+				reagent_source.reagents.remove_reagent(/datum/reagent/consumable/ms13/water/dirty, water_amt)
 			reagent_source.reagents.trans_to(H.reagents, transfer_amount, transfered_by = user)
 			lastuser = WEAKREF(user)
 			if(IS_EDIBLE(reagent_source) || istype(reagent_source, /obj/item/reagent_containers/pill))
@@ -577,7 +591,7 @@
 			user.visible_message(span_notice("[user] digs out the plants in [src]!"), span_notice("You dig out all of [src]'s plants!"))
 			if(myseed)
 				age = 0
-				set_plant_health(0, update_icon = FALSE, forced = TRUE)
+				set_plant_health(0, update_icon = TRUE, forced = TRUE)
 				lastproduce = 0
 				set_seed(null)
 				name = initial(name)
@@ -598,7 +612,7 @@
 
 	return ..()
 
-/obj/machinery/ms13/agriculture/attack_hand(mob/user, list/modifiers)
+/obj/machinery/ms13/agriculture/attack_hand(mob/user, list/modifiers, update_icon = TRUE)
 	. = ..()
 	if(.)
 		return
@@ -663,22 +677,14 @@
 /obj/machinery/ms13/agriculture/soil
 	name = "soil"
 	desc = "A patch of dirt."
-	icon = 'mojave/icons/hydroponics/dirt.dmi'
-	icon_state = "dirt-0"
+	icon = 'mojave/icons/hydroponics/dirt_placeholder.dmi'
+	icon_state = "dirt"
 	base_icon_state = "dirt"
-	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = list(SMOOTH_GROUP_SOIL)
-	canSmoothWith = list(SMOOTH_GROUP_SOIL)
 	density = FALSE
 	use_power = NO_POWER_USE
 	flags_1 = NODECONSTRUCT_1
 	unwrenchable = FALSE
 	maxnutri = 5000
-	var/border_icon = 'mojave/icons/hydroponics/dirt_border.dmi'
-
-/obj/machinery/ms13/agriculture/soil/update_icon()
-	. = ..()
-	add_overlay(image(border_icon, icon_state, SOIL_EDGE_LAYER, pixel_x = -8, pixel_y = -8))
 
 /obj/machinery/ms13/agriculture/soil/CtrlClick(mob/user)
 	return //Soil has no electricity.
@@ -696,8 +702,6 @@
 /obj/structure/rustic_extractor/proc/seedify(obj/item/O, t_max, obj/structure/rustic_extractor/extractor, mob/living/user)
 	var/t_amount = 0
 	var/list/seeds = list()
-	if(t_max == -1)
-		t_max = rand(1,2) //Slightly worse than the actual thing
 
 	var/seedloc = O.loc
 	if(extractor)
@@ -735,8 +739,8 @@
 	if(default_unfasten_wrench(user, O)) //So we can move them around
 		return
 
-	else if(seedify(O,-1, src, user))
-		to_chat(user, "<span class='notice'>You extract some seeds.</span>")
+	else if(seedify(O,1, src, user))
+		to_chat(user, "<span class='notice'>You extract some seeds from \the [O.name].</span>")
 		return
 	else if(!user.combat_mode)
 		to_chat(user, "<span class='warning'>You can't extract any seeds from \the [O.name]!</span>")
@@ -747,8 +751,57 @@
 /obj/structure/fermenting_barrel/ms13
 	icon = 'mojave/icons/hydroponics/equipment.dmi'
 	icon_state = "barrel"
+	speed_multiplier = 30 //Will take between 4-6m to distill
 
 /obj/structure/fermenting_barrel/ms13/Initialize()
 	. = ..()
 	pixel_x = rand(-5, 5)
 	pixel_y = rand(-5, 5)
+
+
+/// Fertilizers ///
+/obj/item/stack/ms13/fertilizer
+	name = "fertilizer"
+	desc = "A bag of fertilizer. Treasured among the farmers of the post-apocalypse."
+	icon = 'mojave/icons/hydroponics/equipment.dmi'
+	icon_state = "daesack3"
+	amount = 4
+	max_amount = 4
+	singular_name = "use" //so it says X uses left in the fertilizer bag instead of X fertilizer bags left
+	gender = NEUTER //So examine text says "This is a fertilizer" instead of "These are some fertilizer bags"
+	grid_width = 96
+	grid_height = 128
+	w_class = WEIGHT_CLASS_BULKY
+	full_w_class = WEIGHT_CLASS_BULKY
+
+	// Value of 'N', 'P' or 'K' (potassium) added to the soil's fertilizer pool when added
+	var/nitro = 10
+	var/phos = 10
+	var/pot = 10
+
+/obj/item/stack/ms13/fertilizer/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/item_scaling, 0.7, 1)
+
+/obj/item/stack/ms13/fertilizer/update_weight()
+	return
+
+
+/obj/item/stack/ms13/fertilizer/is_zero_amount(delete_if_zero = TRUE)
+    if(amount < 1)
+        new /obj/item/ms13/fertilizer(get_turf(loc))
+    return ..()
+
+/obj/item/ms13/fertilizer
+	name = "empty fertilizer bag"
+	desc = "An empty fertilizer bag. You could probably use this to make some more fertilizer."
+	icon = 'mojave/icons/hydroponics/equipment.dmi'
+	icon_state = "daesack3"
+	grid_width = 96
+	grid_height = 128
+	w_class = WEIGHT_CLASS_BULKY
+
+/obj/item/ms13/fertilizer/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/item_scaling, 0.7, 1)
+

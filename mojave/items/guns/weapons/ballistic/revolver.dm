@@ -11,11 +11,17 @@
 	recoil = 1.5
 	slowdown = 0.75
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/caravan
+	load_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravanload2.ogg'
+	load_empty_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravanload2.ogg'
+	eject_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravanunload2.ogg'
+	eject_empty_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravanunload2.ogg'
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravan.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/shotgun.ogg'
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
 	grid_width = 160
 	grid_height = 64
+	wield_info = /datum/wield_info/default/inhands
 
 /obj/item/gun/ballistic/revolver/ms13/caravan/sawed
 	name = "sawed-off shotgun"
@@ -44,7 +50,12 @@
 	recoil = 1.5
 	slowdown = 0.75
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/single
+	load_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravanload2.ogg'
+	load_empty_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravanload2.ogg'
+	eject_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravanunload2.ogg'
+	eject_empty_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravanunload2.ogg'
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravan2.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/shotgun.ogg'
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
 	grid_width = 192
@@ -59,7 +70,12 @@
 	weapon_weight = WEAPON_HEAVY
 	slot_flags = ITEM_SLOT_BACK
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/ms13/mts
+	load_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravanload3.ogg'
+	load_empty_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravanload3.ogg'
+	eject_sound = 'mojave/sound/ms13weapons/gunsounds/44/magnumeject.ogg' //placeholder
+	eject_empty_sound = 'mojave/sound/ms13weapons/gunsounds/44/magnumeject.ogg' //placeholder
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/levershot/levershot1.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/shotgun_lever.ogg'
 	force = 25
 	subtractible_armour_penetration = 5
 	fire_delay = 0.55 SECONDS
@@ -67,6 +83,7 @@
 	slowdown = 0.75
 	grid_width = 160
 	grid_height = 64
+	wield_info = /datum/wield_info/default/inhands
 
 ////////////////////////// revolvers////////////////
 /obj/item/gun/ballistic/revolver/ms13/derringer
@@ -76,7 +93,12 @@
 	inhand_icon_state = "derringer"
 	force = 5
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/derringer
+	load_sound = 'mojave/sound/ms13weapons/gunsounds/55.6/556revload2.ogg' //placeholder
+	load_empty_sound = 'mojave/sound/ms13weapons/gunsounds/55.6/556revload2.ogg' //placeholder
+	eject_sound = 'mojave/sound/ms13weapons/gunsounds/44/magnumeject.ogg' //placeholder
+	eject_empty_sound = 'mojave/sound/ms13weapons/gunsounds/44/magnumeject.ogg' //placeholder
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/357/357fire1.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/357_revolver.ogg'
 	w_class = WEIGHT_CLASS_SMALL
 	slowdown = 0.5
 	fire_delay = 0.4 SECONDS
@@ -97,11 +119,16 @@
 	icon_state = "44magnum"
 	inhand_icon_state = "44magnum"
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/ms13/rev44
+	load_sound = 'mojave/sound/ms13weapons/gunsounds/44/magnumload.ogg'
+	load_empty_sound = 'mojave/sound/ms13weapons/gunsounds/44/magnumload.ogg'
+	eject_sound = 'mojave/sound/ms13weapons/gunsounds/44/magnumeject.ogg'
+	eject_empty_sound = 'mojave/sound/ms13weapons/gunsounds/44/magnumeject.ogg'
 	fire_sound = 'mojave/sound/ms13weapons/44mag.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/44_revolver.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
-	fire_delay = 0.6 SECONDS
+	fire_delay = 0.65 SECONDS
 	spread = 6
-	recoil = 1.25
+	recoil = 1.5
 	slowdown = 0.5
 	grid_width = 64
 	grid_height = 64
@@ -118,7 +145,12 @@
 	desc = "A classic .357 Magnum revolver, packs a decent punch but fires a bit slower due to it's old mechanisms."
 	icon_state = "rev357"
 	inhand_icon_state = "rev357"
+	load_sound = 'mojave/sound/ms13weapons/gunsounds/357/357load.ogg'
+	load_empty_sound = 'mojave/sound/ms13weapons/gunsounds/357/357load.ogg'
+	eject_sound = 'mojave/sound/ms13weapons/gunsounds/44/magnum_eject2.ogg'
+	eject_empty_sound = 'mojave/sound/ms13weapons/gunsounds/44/magnum_eject2.ogg'
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/357/357fire3.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/357_revolver.ogg'
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/ms13/rev357
 	w_class = WEIGHT_CLASS_NORMAL
 	fire_delay = 0.6 SECONDS
@@ -141,6 +173,7 @@
 	icon_state = "policerev"
 	inhand_icon_state = "policerev"
 	fire_sound = 'mojave/sound/ms13weapons/policepistol.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/policepistol.ogg'
 	w_class = WEIGHT_CLASS_SMALL
 	fire_delay = 0.6 SECONDS
 	spread = 10
@@ -155,7 +188,12 @@
 	icon_state = "rev10mm"
 	inhand_icon_state = "rev10mm"
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/ms13/rev10mm
+	load_sound = 'mojave/sound/ms13weapons/gunsounds/55.6/556revload2.ogg' //placeholder
+	load_empty_sound = 'mojave/sound/ms13weapons/gunsounds/55.6/556revload2.ogg' //placeholder
+	eject_sound = 'mojave/sound/ms13weapons/gunsounds/55.6/556reveject.ogg' //placeholder
+	eject_empty_sound = 'mojave/sound/ms13weapons/gunsounds/55.6/556reveject.ogg' //placeholder
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/10mm/10mmfire2.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/10mm_pistol.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 	fire_delay = 0.45 SECONDS
 	spread = 6
@@ -170,7 +208,12 @@
 	icon_state = "huntingrev"
 	inhand_icon_state = "huntingrev"
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/ms13/rev4570
+	load_sound = 'mojave/sound/ms13weapons/gunsounds/44/magnumload.ogg' //placeholder
+	load_empty_sound = 'mojave/sound/ms13weapons/gunsounds/44/magnumload.ogg' //placeholder
+	eject_sound = 'mojave/sound/ms13weapons/gunsounds/44/magnum_eject2.ogg' //placeholder
+	eject_empty_sound = 'mojave/sound/ms13weapons/gunsounds/44/magnum_eject2.ogg' //placeholder
 	fire_sound = 'mojave/sound/ms13weapons/gunsounds/huntingrev/huntingrev5.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/huntingrev.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 	fire_delay = 0.65 SECONDS
 	spread = 6
@@ -193,7 +236,12 @@
 	icon_state = "556rev"
 	inhand_icon_state = "556rev"
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/ms13/rev556
+	load_sound = 'mojave/sound/ms13weapons/gunsounds/55.6/556revload2.ogg'
+	load_empty_sound = 'mojave/sound/ms13weapons/gunsounds/55.6/556revload2.ogg'
+	eject_sound = 'mojave/sound/ms13weapons/gunsounds/55.6/556reveject.ogg'
+	eject_empty_sound = 'mojave/sound/ms13weapons/gunsounds/55.6/556reveject.ogg'
 	fire_sound = 'mojave/sound/ms13weapons/that_gun.ogg'
+	far_fire_sound = 'mojave/sound/ms13weapons/distant_shots/that_gun.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 	fire_delay = 0.45 SECONDS
 	spread = 6

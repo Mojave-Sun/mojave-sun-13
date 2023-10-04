@@ -193,7 +193,7 @@
 	var/clicksound = pick('mojave/sound/ms13machines/terminals/ui_hacking_charenter_01.ogg','mojave/sound/ms13machines/terminals/ui_hacking_charenter_02.ogg', 'mojave/sound/ms13machines/terminals/ui_hacking_charenter_03.ogg',)
 	playsound(src, clicksound, 50, FALSE)
 	var/dat = ""
-	dat += "<head><style>body {padding: 0; margin: 15px; background-color: [main_color]; color: [secondary_color]; line-height: 170%;} a, button, a:link, a:visited, a:active, .linkOn, .linkOff {color: [secondary_color]; text-decoration: none; background: [main_color]; border: none; padding: 1px 4px 1px 4px; margin: 0 2px 0 0; cursor:default;} a:hover {color: [main_color]; background: [secondary_color]; border: 1px solid [secondary_color]} a.white, a.white:link, a.white:visited, a.white:active {color: [secondary_color]; text-decoration: none; background: [secondary_color]; border: 1px solid #161616; padding: 1px 4px 1px 4px; margin: 0 2px 0 0; cursor:default;} a.white:hover {color: [main_color]; background: [secondary_color];} .linkOn, a.linkOn:link, a.linkOn:visited, a.linkOn:active, a.linkOn:hover {color: [secondary_color]; background: [main_color]; border-color: [main_color];} .linkOff, a.linkOff:link, a.linkOff:visited, a.linkOff:active, a.linkOff:hover{color: [secondary_color]; background: [main_color]; border-color: [main_color];}</style></head><font face='courier'>"
+	dat += "<head><style>body {padding: 0; margin: 15px; background-color: [main_color]; color: [secondary_color]; line-height: 170%;} a, button, a:link, a:visited, a:active, .linkOn, .linkOff {color: [secondary_color]; text-decoration: none; background: [main_color]; border: none; padding: 1px 4px 1px 4px; margin: 0 2px 0 0; cursor: url('default_mousepointer.ico'), default;} a:hover {color: [main_color]; background: [secondary_color]; border: 1px solid [secondary_color]} a.white, a.white:link, a.white:visited, a.white:active {color: [secondary_color]; text-decoration: none; background: [secondary_color]; border: 1px solid #161616; padding: 1px 4px 1px 4px; margin: 0 2px 0 0; cursor: url('default_mousepointer.ico'), default;} a.white:hover {color: [main_color]; background: [secondary_color];} .linkOn, a.linkOn:link, a.linkOn:visited, a.linkOn:active, a.linkOn:hover {color: [secondary_color]; background: [main_color]; border-color: [main_color];} .linkOff, a.linkOff:link, a.linkOff:visited, a.linkOff:active, a.linkOff:hover{color: [secondary_color]; background: [main_color]; border-color: [main_color];}</style></head><font face='courier'>"
 	switch (system)
 		if ("ROBCO50")
 			dat += "<center><b>ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM V.5.0</b><br>"
@@ -204,6 +204,9 @@
 		if ("APRICOT")
 			dat += "<center><b>APRICOT COMPUTING SYSTEM VERSION 4B</b><br>"
 			dat += "<b>COPYRIGHT 2069-2070 APRICOT COMPUTING INC.</b><br>"
+		if ("BOOTLEG")
+			dat += "<center><b>DLLLX00992 SYSTEM VERSION FFFFF23</b><br>"
+			dat += "<b>COPYRIGHT 223333-21065 DLLLX00992 C0MTTTT LLLL.</b><br>"
 
 	switch (mode) // Text at the top of the page
 		if (0) // If we're on the home page
@@ -445,6 +448,14 @@
 				openclose = M.density
 			INVOKE_ASYNC(M, openclose ? /obj/machinery/door/poddoor.proc/open : /obj/machinery/door/poddoor.proc/close)
 
+	// freak this code for now
+	//var/onoff
+	//for(var/obj/structure/ms13/sign/S in GLOB.signs)
+	//	if(S.id == src.id)
+	//		if(openclose == null)
+	//			openclose = S.on
+	//		INVOKE_ASYNC(S, onoff ? /obj/structure/ms13/sign.proc/on : /obj/structure/ms13/sign.proc/off)
+
 //// Extra variants ////
 /obj/machinery/ms13/terminal/pristine
 	icon_state = "terminal_new" // Shouldn't really even be used. But i'll add it anyways.
@@ -468,6 +479,10 @@
 	desc = "A miracle of man- A terminal that has been locally produced by a wastelander, as can be clearly seen by the quality."
 	icon_state = "terminal_handmade"
 	screen_icon = "terminal_handmade_screen"
+	termtag = "INVLD_Tt"
+	system = "BOOTLEG"
+	pixel_y = 12
+	doc_title_1 = "corrupted" // this shit bootleg
 
 //// Wall mounted terminals ////
 /obj/machinery/ms13/terminal/wall

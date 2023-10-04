@@ -17,6 +17,12 @@
 	icon_state = "rag"
 	inhand_icon_state = "rag"
 
+/obj/item/clothing/shoes/ms13/drylander
+	name = "\improper Drylander footcloths"
+	desc = "Simple ragged cloth footwraps worn by the Drylander tribe to cross the sands."
+	icon_state = "drylander"
+	inhand_icon_state = "rag"
+
 /obj/item/clothing/shoes/ms13/crude
 	name = "crude treads"
 	desc = "A single dirty boot, with a sandal on the other foot. A slight step up from nothing but rags on your feet."

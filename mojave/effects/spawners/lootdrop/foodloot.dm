@@ -232,6 +232,7 @@
 
 /obj/effect/spawner/random/ms13/food/trash
 	name = "random pre-war food trash spawner"
+	spawn_loot_chance = 40
 	loot = list(
 		/obj/item/trash/ms13/cans/dogfood,
 		/obj/item/trash/ms13/cans/porknbeans,
@@ -245,5 +246,6 @@
 		/obj/item/trash/ms13/packaging/poofs,
 		/obj/item/trash/ms13/packaging/sugarbombs,
 		/obj/item/trash/ms13/packaging/yumegg,
-		/obj/item/trash/ms13/packaging/instamash
+		/obj/item/trash/ms13/packaging/instamash,
+		/obj/item/reagent_containers/food/drinks/bottle/ms13/plain
 		)

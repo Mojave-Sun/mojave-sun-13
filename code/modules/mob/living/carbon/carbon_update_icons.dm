@@ -201,13 +201,15 @@
 /mob/living/carbon/update_inv_handcuffed()
 	remove_overlay(HANDCUFF_LAYER)
 	if(handcuffed)
-		var/mutable_appearance/handcuff_overlay = mutable_appearance('icons/mob/mob.dmi', "handcuff1", -HANDCUFF_LAYER)
+		//MOJAVE SUN EDIT START - Handcuffs
+		var/obj/item/restraints/handcuffs = get_item_by_slot(ITEM_SLOT_HANDCUFFED)
+		var/mutable_appearance/handcuff_overlay = mutable_appearance(handcuffs.handcuffed_icon, handcuffs.icon_state, -HANDCUFF_LAYER)
 		if(handcuffed.blocks_emissive)
 			handcuff_overlay.overlays += emissive_blocker(handcuff_overlay.icon, handcuff_overlay.icon_state, alpha = handcuff_overlay.alpha)
 
 		overlays_standing[HANDCUFF_LAYER] = handcuff_overlay
 		apply_overlay(HANDCUFF_LAYER)
-
+		//MOJAVE SUN EDIT END - Handcuffs
 
 //mob HUD updates for items in our inventory
 

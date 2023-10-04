@@ -14,7 +14,7 @@
 
 /datum/terminal/document/corrupted
 	title = "ERROR 0x07F6BAAC"
-	content = "	Bad data. Cannot read \
+	content = "Bad data. Cannot read \
 	<br><br>Contact Administrator for assistance or send a letter to your local RobCo facility and fill a repair request."
 
 /datum/terminal/document/joker //For rigged terminals
@@ -24,16 +24,6 @@
 
 // Mammoth specific notes //
 
-/datum/terminal/document/water_plant_notice // For the water plant terminal with sewer control
-	title = "Notice for Operator."
-	content = "Leaving this notice here as an official declaration of being over this shit. This is COMPLETELY unacceptable. \
-		<br><br>Consider this the final warning- The system can NOT take another closure like this, last week it got backed up to max capacity and nearly backwashed into the primary reservoir. \
-		We've recently came upon a list of the culprits involved in this matter, it will not be formally disclosed to you all. \
-		<br><br> I don't know what you think, but I've got a decent idea of what's REALLY going on here. I had a meeting with the local Sheriff and he's been alerted to this, so you should save yourself the bother and be on good behavior. \
-		In the meantime- DO. NOT. TOUCH. THE. CHOKES. \
-		<br><br>\
-		<br><br> I will be watching. -Director Norrison."
-
 /datum/terminal/document/vault_door_notice // Explaining to the libs why there's only one gate, and why they can't be shut-ins. BTFO.
 	title = "Dual-Loc Chamber Notice"
 	content = "Attention gatesman! \
@@ -41,6 +31,53 @@
 		<br><br>Do NOT attempt to link the terminal to it and move it. It can SERIOUSLY destroy it. We've got a scheduled order in coming in next week, after that- we can get it working again on time. \
 		<br><br>\
 		<br><br> Thank you for your cooperation."
+
+
+/// NCR TERMINALS ///
+/datum/terminal/document/ncr_disciplinary // Snowcrest NCR holding cell terminal rundown
+	title = "General Holding Cell Procedure"
+	content = "This holding cell is to house no more than five people as long as the situation allows it. \
+		<br><br>The purpose of this cell is to allow transparency to the inhabitants of Snowcrest that their fellow man will not be harmed under our law, even if held under scrutiny. \
+		<br> You are to hold them for their sentence in this general holding cell for as long as they are peaceful. If they become hostile, they may be sent to the individualized incapacitation cells downstairs. \
+		<br><br> If in the event, for whatever reason, you detain individuals NOT OF CITIZENSHIP of Snowcrest, they should be removed from the town's premises. If the crime is harsh enough, they are to be sent straight to the IIC's. \
+		<br> If a crime IS substantial enough, with fair trial and the blessing of the highest ranking, death by firing squad may be dealt. \
+		<br><br> This is all necessary in order to maintain peace. Do not act in your own interests."
+
+/datum/terminal/document/ncr_sergeant_breakdown // Snowcrest NCR sergeant's terminal
+	title = "To the Sergeant it may concern"
+	content = "Congratulations on being chosen for this position! \
+		<br><br>Snowcrest is a hell of a town. I don't know you, but I'm sure you'll protect it well. \
+		<br> There's some fine folk here. Not without fault of course. There's been a history of a bit of... dishevelment... in the past. The establishment of the Republic here wasn't a very easy process but we're just about set. \
+		<br> Most of the people here mean well. Even if they don't know it. Try not to ruin relations with them and get yourself kicked out, yeah? Hah, I kid. \
+		<br> Anyways. That Mayor is a character indeed. A bit pompous sometimes. Though you can never really know what they're going to give you on a day to day. The guards are real protective. Be careful of them. Some of them have yet to warm up to us. \
+		<br> Seriously though. Be careful. When our ambassador was here talking to them, there was some unruly individuals about. We nearly had a riot break out at one point as papers were just finished getting signed. \
+		<br><br>\
+		<br><br> Stay Vigilent. Signing off, Staff Sergeant Williams"
+
+/datum/terminal/document/ncr_front_gate // Snowcrest front "gate" terminal
+	title = "Shipment delay"
+	content = "Bad news. \
+		<br> The materials for the gate we requested has gotten backed up consideraby due to something happening with a supplier. The exact details aren't known to us, yet.\
+		<br> As you may or may not have known. The Engineers were SUPPOSED to be coming in with their little mile long caravan of scrap and components to get the gate up a month after you guys were stationed in Snowcrest. Alas, here we are.\
+		<br> That means YOU get the privilege of doing this the old fashioned way. As I type this we're setting up a bit of a temporary checkpoint. It's nothing special, but you guys can improve on it if you want. \
+		<br><br> Not like you have much else to do other than sit around anyways, huh? \
+		<br>Good luck, and don't forget... To have fun!"
+
+/// BROTHERHOOD TERMINALS //
+/datum/terminal/document/brotherhood_hint // BOS reminder to not ignore their loot
+	title = "Supply count"
+	content = "Before the departure of the last chapter splinter, they took the liberty of leaving behind some excess equipment.  \
+		A lot of our hardware should be in the generator room's crates. Look around for a crowbar and start busting them open- They can't stay there forever. \
+		According to one of them, they're actually kind enough to keep some medical supplies with us. Check the storage for them below the medical bay. \
+		<br><br>The supplies are fantastic and well appreciated- But we need to remember to keep an eye out when we're out on the field. Take what you can, the opportuntiy might not arise again."
+
+/datum/terminal/document/brotherhood_hint_two // BOS reminder to not fly out the rear entrance and get fragged by shellheads
+	title = "About the rear entrance"
+	content = "Attention! Heed caution exiting through the rear tunnels. Recently, mirelurks have taken to a liking of the pools out back.  \
+		It wouldn't be the first time a simple thing as a mirelurk has claimed one of our own... You all much exercise caution when going out through the back. Not like there's much point anyways. The tunnels probably don't lead anywhere. \
+		If you REALLY insist on going out there, bring at least on partner and log your exit with your nearest superior. Keep a flashlight handy and stay in the light. Good luck."
+
+// PREWAR MILITARY TERMINALS //
 
 /datum/terminal/document/military_base_lockdown // Tunnel outpost
 	title = "Emergency Lockdown Protocol"
@@ -56,18 +93,6 @@
 		Once prepared, the base will be required to evacuate sub-THIRTY minutes. Any stragglers must be arrested or shot. By this point, anyone could be an enemy. Keep this log out of sight.area \
 		A verti-bird will be dispatched to the base's pads and any soldiers that remain in our control will be sent off to the compound directly north-west of here. Further instructions pending once on site."
 
-/datum/terminal/document/brotherhood_hint // BOS reminder to not ignore their loot
-	title = "Supply count"
-	content = "Before the departure of the last chapter splinter, they took the liberty of leaving behind some excess equipment.  \
-		A lot of our hardware should be in the generator room's crates. Look around for a crowbar and start busting them open- They can't stay there forever. \
-		According to one of them, they're actually kind enough to keep some medical supplies with us. Check the storage for them below the medical bay. \
-		<br><br>The supplies are fantastic and well appreciated- But we need to remember to keep an eye out when we're out on the field. Take what you can, the opportuntiy might not arise again."
-
-/datum/terminal/document/brotherhood_hint_two // BOS reminder to not fly out the rear entrance and get fragged by shellheads
-	title = "About the rear entrance"
-	content = "Attention! Heed caution exiting through the rear tunnels. Recently, mirelurks have taken to a liking of the pools out back.  \
-		It wouldn't be the first time a simple thing as a mirelurk has claimed one of our own... You all much exercise caution when going out through the back. Not like there's much point anyways. The tunnels probably don't lead anywhere. \
-		If you REALLY insist on going out there, bring at least on partner and log your exit with your nearest superior. Keep a flashlight handy and stay in the light. Good luck."
 
 /datum/terminal/document/military_crypt_initial // Topright military bunker outpost - First log
 	title = "Downfall"
@@ -95,6 +120,137 @@
 		<br><br>Now that you're here, this is the part where I tell you to never unlock the armory! Why you may ask? Because it also unlocks the security bay for the sentry bot, who was programmed to be VERY adamant on the integrity of our storage.\
 		<br><br>I leave this note not for your personal integrity, but as a plead for you to avoid having him blow up our reserves before the rest get there. Trust me, there will be nothing left. \
 		<br><br>If I've got to clean your body off of anything that may have survived, I'll personally scoop your brains up and pour it into a robobrain tank. Consider that before you toy around with things above you."
+
+//// MINI MAMMOTH SPECIFIC ////
+
+// Upper military
+
+/datum/terminal/document/upper_mil_morning // Mini mammoth military base gatehouse morning logs
+	title = "Entry Log - Morning Shift"
+	content ="Date: 10/22/2077 \
+		<br>07:30 AM Recorded the following personnel and vehicle entries during the morning shift: \
+		<br>07:32 AM: Private Hogg - Personnel Entry \
+		<br>07:45 AM: Supply Truck A-12 - Cargo Entry (Manifest ID: MT567) \
+		<br>08:05 AM: Sergeant Ramirez - Personnel Entry \
+		<br>08:11 AM: Supply Truck A-12 - Vehicle exit \
+		<br>08:20 AM: Civilian Contractor - Personnel Entry (Temporary Access Granted)\
+		<br>08:35 AM: Maintenance Vehicle M-6 - Cargo Entry (Manifest ID: MA987)\
+		<br><br>All entries properly logged and verified. Gatehouse secure and operational."
+
+/datum/terminal/document/upper_mil_afternoon // Mini mammoth military base gatehouse afternoon logs
+	title = "Entry Log - Afternoon Shift"
+	content ="Date: 10/22/2077 \
+		<br>Recorded the following personnel and vehicle exits during the afternoon shift:\
+		<br>13:20 PM: Lieutenant Thompson - Personnel Exit\
+		<br>13:35 PM: Medical Team - Vehicle Exit (Medical Supplies Dispatched)\
+		<br>13:50 PM: Researcher Anderson - Personnel Exit\
+		<br>14:10 PM: Supply Truck C-8 - Vehicle Exit (Manifest ID: CT459)\
+		<br>14:25 PM: Sergeant Martinez - Personnel Exit\
+		<br><br>All exits properly logged and verified. Gatehouse operations continue without issues."
+
+/datum/terminal/document/upper_mil_evening // Mini mammoth military base gatehouse evening logs
+	title = "Entry Log - Evening Shift"
+	content ="Date: 10/22/2077 \
+		<br>Recorded the following personnel and vehicle entries during the evening shift:\
+		<br>17:31 PM: Lieutenant Thompson - Personnel Entry\
+		<br>18:05 PM: Supply Truck D-9 - Cargo Entry (Manifest ID: MT234)\
+		<br>18:22 PM: Corporal Wilson - Personnel Entry\
+		<br>18:35 PM: Maintenance Vehicle M-14 - Cargo Entry (Manifest ID: MA789)\
+		<br>18:47 PM: Supply Truck D-9 - Cargo Exit\
+		<br><br>All exits properly logged and verified. Gatehouse operations remain optimal."
+
+/datum/terminal/document/upper_mil_thebig1 // Mini mammoth military base SUPER BADASS SHIPMENT... too late tho
+	title = "High-Priority Shipment Inbound #REQ361"
+	content ="Date: 10/18/2077 \
+		<br>Time: 12:23 PM\
+		<br><br>\
+		<br>Incoming Shipment - Energy Based Expansion\
+		<br><br>\
+		<br>Shipment Carrier -  S-Truck X-22 (Manifest ID: DT492)\
+		<br>Approximate Arrival -  10/26/2077 12:00 PM\
+		<br>Received an incoming shipment of advanced energy weapons at the gatehouse. Verified and logged the following items:\
+		<br><br>\
+		<br>Item 1: Gauss Rifle Mark IV\
+		<br><br>\
+		<br>Origin: Research Facility - GaussTech Industries\
+		<br>Quantity: 3\
+		<br>Serial Numbers: 58GR2010, 58GR2011, 58GR2012\
+		<br>Item 2: Plasma Caster\
+		<br><br>\
+		<br>Origin: Military Surplus - Fort Daggerwill Armory\
+		<br>Quantity: 2\
+		<br>Serial Numbers: PC-376502, PC-376503\
+		<br>Item 3: Pulse Grenades\
+		<br><br>\
+		<br>Origin: Prototype Production - Advanced Ordnance Department\
+		<br>Quantity: 5\
+		<br>Serial Numbers: XPG1749824, XPG1749825, XPG1749826, XPG1749827, XPG1749828\
+		<br>Upon Arrival of S-Truck X-22, Lieutenant Thompson is to be notified immediately and present for the boarding process.\
+		<br>All items properly secured and accounted for in the armory until further demonstration. Enhanced security protocols activated to ensure the safety of these cutting-edge weapons. \
+		<br>Warehouse personnel assigned to specialized training for handling and transporation."
+
+
+/datum/terminal/document/upper_mil_secproc // Mini mammoth military base gatehouse security procedure
+	title = "CRITICAL NOTICE - Security Procedure Update"
+	content ="Date: 10/22/2077 Time: 20:38 PM<br><br>\
+		<br>Security Notice - Heightened Security Measures\
+		<br>Effective immediately, all gatehouse personnel are hereby notified of the implementation of heightened security measures within the base premises. This decision comes as a result of recent security concerns and potential threats identified in the surrounding area. The following measures are to be strictly enforced:\
+		<br><br>Increased personnel presence: Additional security personnel have been assigned to patrol key areas and checkpoints, ensuring heightened vigilance and rapid response to any suspicious activities.\
+		<br>Access restrictions: All personnel entering or exiting the base must present valid identification as per usual as well as undergo additional thorough screening procedures. No exceptions will be made.\
+		<br>Restricted areas: Certain sections of the base have been designated as restricted zones. Unauthorized personnel are strictly prohibited from entering these areas without proper clearance.\
+		<br>Randomized security checks: Randomized security checks will be conducted on personnel and vehicles to deter unauthorized items from entering or leaving the base.\
+		<br><br>Furthermore, as part of these enhanced security measures, the previously stationed sentry bot designated as 'Sentry Unit Bravo' has been granted permission for free roaming within the base perimeter. This autonomous unit will serve as an additional deterrent and provide an extra layer of defense.\
+		<br><br>All gatehouse personnel are advised to familiarize themselves with the updated security protocols and report any suspicious activities immediately to their superiors. Your cooperation and adherence to these measures are vital to maintaining the safety and integrity of the base."
+
+/datum/terminal/document/upper_mil_req1 // Mini mammoth military base warehouse req
+	title = "Requision Req #REQ - Munitions"
+	content ="Requisition ID: REQ361\
+		<br>Date: 10/18/2077\
+		<br>Requester: Lieutenant Thompson\
+		<br>Priority: High\
+		<br><br>\
+		<br>Item(s) Requested: Ammunition\
+		<br>Quantity:\
+		<br><br>\
+		<br>5.56mm: 10,000 rounds\
+		<br>.308 caliber: 5,000 rounds\
+		<br>9mm: 2,500 rounds\
+		<br>Reason: Preparing for upcoming joint training exercises. Require sufficient ammunition for live-fire drills and weapons proficiency training.\
+		<br><br>\
+		<br>Status: Approved\
+		<br>Est. Delivery Date: 10/25/2077"
+
+/datum/terminal/document/upper_mil_req2 // Mini mammoth military base warehouse req
+	title = "Requision Req #REQ361 - Munitions"
+	content ="<br>Requisition ID: REQ365\
+		<br>Date: 10/18/2077\
+		<br>Requester: Corporal Wilson\
+		<br>Priority: Med\
+		<br><br>\
+		<br>Item Requested: Medical Supplies\
+		<br>Quantity:\
+		<br><br>\
+		<br>Bandages: 500\
+		<br>Antiseptic solution: 10 bottles\
+		<br>Painkillers: 100 doses\
+		<br>Stimulation Delivery Packages: 15\
+		<br>Reason: Replenishing medical supplies for field medic kits. Critical for providing immediate care and treatment to wounded personnel \
+		<br>during potential combat operations and general replenglishment of reserves to infirmary..\
+		<br><br>\
+		<br>Status: Approved\
+		<br>Delivery Date: 10/27/2077"
+
+// RANDOM WORLD TERMINALS //
+
+/datum/terminal/document/water_plant_notice // For the water plant terminal with sewer control
+	title = "Notice for Operator."
+	content = "Leaving this notice here as an official declaration of being over this shit. This is COMPLETELY unacceptable. \
+		<br><br>Consider this the final warning- The system can NOT take another closure like this, last week it got backed up to max capacity and nearly backwashed into the primary reservoir. \
+		We've recently came upon a list of the culprits involved in this matter, it will not be formally disclosed to you all. \
+		<br><br> I don't know what you think, but I've got a decent idea of what's REALLY going on here. I had a meeting with the local Sheriff and he's been alerted to this, so you should save yourself the bother and be on good behavior. \
+		In the meantime- DO. NOT. TOUCH. THE. CHOKES. \
+		<br><br>\
+		<br><br> I will be watching. -Director Norrison."
 
 /datum/terminal/document/toystore_restocklist // if you say this is coding i'll kill you; the toy store in the south of the map
 	title = "STOCKING LIST"

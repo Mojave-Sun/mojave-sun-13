@@ -1,13 +1,16 @@
 // Metal Smoothing Tables //
 
 /obj/structure/table/ms13
-	name = "base class Mojave Sun table"
+	name = "table"
 	desc = "Scream at the coders if you see this."
 	buildstack = null
 	custom_materials = null
 	frame = /obj/item/stack/sheet/ms13/scrap
 	framestack = /obj/item/stack/sheet/ms13/scrap
 	framestackamount = 2
+
+/obj/structure/table/ms13/deconstruction_hints(mob/user)
+	return span_notice("You could use a <b>screwdriver</b> or a <b>wrench</b> to take apart [src].")
 
 /obj/structure/table/ms13/metal
 	name = "metal table"
@@ -54,8 +57,8 @@
 	max_integrity = 150
 	smoothing_groups = list(SMOOTH_GROUP_MS13_TABLE_WOOD)
 	canSmoothWith = list(SMOOTH_GROUP_MS13_TABLE_WOOD)
-	frame = /obj/item/stack/sheet/ms13/scrap_wood
-	framestack = /obj/item/stack/sheet/ms13/scrap_wood
+	frame = /obj/item/stack/sheet/ms13/wood/scrap_wood
+	framestack = /obj/item/stack/sheet/ms13/wood/scrap_wood
 	framestackamount = 2
 
 /obj/structure/table/ms13/wood/bar
@@ -81,7 +84,7 @@
 	desc = "Four wooden legs with four framing wooden rods for a wooden table. You could easily pass through this."
 	icon_state = "tableframe_wood"
 	resistance_flags = FLAMMABLE
-	framestack = /obj/item/stack/sheet/ms13/scrap_wood
+	framestack = /obj/item/stack/sheet/ms13/wood/scrap_wood
 	framestackamount = 2
 
 // Player-Made tables //
@@ -181,7 +184,7 @@
 	desc = "A simple round wooden table. You wish you could make something this nice."
 	icon_state = "table_wood_round"
 	max_integrity = 150
-	frame = /obj/item/stack/sheet/ms13/scrap_wood
+	frame = /obj/item/stack/sheet/ms13/wood/scrap_wood
 
 /obj/structure/table/ms13/no_smooth/wood/square
 	name = "wood table"
@@ -210,7 +213,7 @@
 	desc = "A large oval shaped wood table. Perfect for displaying the 200 year old family photos you found."
 	icon_state = "table_wood_wide_oval"
 	max_integrity = 200
-	frame = /obj/item/stack/sheet/ms13/scrap_wood/two
+	frame = /obj/item/stack/sheet/ms13/wood/scrap_wood/two
 
 /obj/structure/table/ms13/no_smooth/large/wood/square
 	desc = "A large rectangular wood table. Very sturdy."
@@ -241,11 +244,17 @@
 	desc = "Shoot the dice with your friends. Preferably not literally."
 	icon_state = "dice_dirty"
 	max_integrity = 150
-	frame = /obj/item/stack/sheet/ms13/scrap_wood
+	frame = /obj/item/stack/sheet/ms13/wood/scrap_wood
 
 /obj/structure/table/ms13/no_smooth/dice/pristine
 	icon_state = "dice_clean"
 	max_integrity = 200
+
+/obj/structure/table/ms13/no_smooth/cable_reel
+	name = "cable reel"
+	desc = "An old cable reel for holding, you guessed it, cable. Now all it's good for though is holding your stuff."
+	icon_state = "cable_reel"
+	frame = /obj/item/stack/sheet/ms13/wood/scrap_wood
 
 // Misc Large tables //
 
@@ -254,7 +263,7 @@
 	desc = "A favourite of students and drunkards alike. Watch out for sharks!"
 	icon_state = "table_pool"
 	max_integrity = 200
-	frame = /obj/item/stack/sheet/ms13/scrap_wood/two
+	frame = /obj/item/stack/sheet/ms13/wood/scrap_wood/two
 
 /obj/structure/table/ms13/no_smooth/large/cards
 	name = "cards table"
@@ -268,10 +277,14 @@
 	icon_state = "table_rolling"
 	max_integrity = 200
 	buildstack = null
+	custom_materials = null
 	frame = /obj/item/stack/sheet/ms13/scrap
 	framestack = /obj/item/stack/sheet/ms13/scrap
 	framestackamount = 2
 	drag_slowdown = 1
+
+/obj/structure/table/rolling/ms13/deconstruction_hints(mob/user)
+	return
 
 ///// CRAFTING TABLES /////
 

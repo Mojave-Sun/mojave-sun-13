@@ -138,6 +138,7 @@
 	SEND_SIGNAL(victim, COMSIG_CARBON_GAIN_WOUND, src, limb)
 	if(!victim.alerts[ALERT_WOUNDED]) // only one alert is shared between all of the wounds
 		victim.throw_alert(ALERT_WOUNDED, /atom/movable/screen/alert/status_effect/wound)
+	victim.throw_alert_text(/atom/movable/screen/alert/text/cry, "Your [limb.name] really hurts!", override = FALSE) // MOJAVE SUN EDIT - FO text alert
 
 	var/demoted
 	if(old_wound)

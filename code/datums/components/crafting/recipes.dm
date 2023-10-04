@@ -44,6 +44,7 @@
 	return TRUE
 
 /datum/crafting_recipe/proc/on_craft_completion(mob/user, atom/result)
+	user.throw_alert_text(/atom/movable/screen/alert/text/smallhappy, "[result.name] has been crafted successfully.", override = FALSE) // MOJAVE SUN EDIT - FO text alert
 	return
 
 ///Check if the pipe used for atmospheric device crafting is the proper one

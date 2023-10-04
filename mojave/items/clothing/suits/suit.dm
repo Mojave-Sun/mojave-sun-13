@@ -6,6 +6,7 @@
 	allowed = list(/obj/item/pen,/obj/item/paper,/obj/item/stamp,/obj/item/reagent_containers/food/drinks/flask,/obj/item/storage/box/matches,/obj/item/lighter,/obj/item/clothing/mask/cigarette,/obj/item/storage/fancy/cigarettes,/obj/item/flashlight,/obj/item/gun,/obj/item/ammo_box,/obj/item/ammo_casing)
 	body_parts_covered = CHEST|ARMS|LEGS|GROIN
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0,  FIRE = 0, ACID = 0, WOUND = 0)
+	max_integrity = 325
 	///Icon file for left inhand overlays
 	lefthand_file = 'mojave/icons/mob/inhands/clothing_lefthand.dmi'
 	///Icon file for right inhand overlays
@@ -59,6 +60,7 @@
                 LASER = 0, \
                 ENERGY = 0, \
                 FIRE = 0)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/large
 
 /obj/item/clothing/suit/ms13/vest/brown
 	name = "brown vest"
@@ -105,6 +107,7 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = 0)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/large
 
 /obj/item/clothing/suit/ms13/veteran_coat
 	name = "merc veteran coat"
@@ -121,6 +124,7 @@
                 LASER = 0, \
                 ENERGY = 0, \
                 FIRE = 0)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/large
 
 /obj/item/clothing/suit/ms13/veteran_coat/black
 	name = "black veteran coat"
@@ -142,8 +146,11 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
+	max_integrity = 400
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
 	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
 
 /obj/item/clothing/suit/ms13/ljacket/reinforced
 	name = "reinforced leather jacket"
@@ -161,8 +168,11 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
+	max_integrity = 400
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 50, acid = 0, wound = 0)
 	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
 
 // winter jackets //
 
@@ -180,6 +190,7 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = 0)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/large
 
 /obj/item/clothing/suit/toggle/ms13/wjacket/orange
 	name = "orange winter jacket"
@@ -200,8 +211,11 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
+	max_integrity = 400
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
 	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
 
 /obj/item/clothing/suit/toggle/ms13/wjacket/orange/armored
 	name = "armored orange winter jacket"
@@ -217,8 +231,11 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	max_integrity = 450
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 50, acid = 0, wound = 0)
 	equip_delay_self = 3.5 SECONDS
 	equip_delay_other = 5 SECONDS
+	pocket_storage_component_path = null
 
 /obj/item/clothing/suit/toggle/ms13/wjacket/brown
 	name = "brown winter jacket"
@@ -239,8 +256,11 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
+	max_integrity = 400
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
 	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
 
 /obj/item/clothing/suit/toggle/ms13/wjacket/brown/armored
 	name = "armored brown jacket"
@@ -256,8 +276,11 @@
                 LASER = CLASS3_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	max_integrity = 450
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 50, acid = 0, wound = 0)
 	equip_delay_self = 3.5 SECONDS
 	equip_delay_other = 5 SECONDS
+	pocket_storage_component_path = null
 
 /obj/item/clothing/suit/toggle/ms13/wjacket/blue
 	name = "blue winter jacket"
@@ -278,8 +301,11 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
+	max_integrity = 400
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
 	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
 
 /obj/item/clothing/suit/toggle/ms13/wjacket/blue/armored
 	name = "armored blue winter jacket"
@@ -295,8 +321,11 @@
                 LASER = CLASS3_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	max_integrity = 450
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 50, acid = 0, wound = 0)
 	equip_delay_self = 3.5 SECONDS
 	equip_delay_other = 5 SECONDS
+	pocket_storage_component_path = null
 
 /obj/item/clothing/suit/toggle/ms13/wjacket/black
 	name = "black winter jacket"
@@ -317,8 +346,11 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
+	max_integrity = 400
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
 	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
 
 /obj/item/clothing/suit/toggle/ms13/wjacket/black/armored
 	name = "armored black winter jacket"
@@ -334,14 +366,17 @@
                 LASER = CLASS3_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	max_integrity = 450
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 50, acid = 0, wound = 0)
 	equip_delay_self = 3.5 SECONDS
 	equip_delay_other = 5 SECONDS
+	pocket_storage_component_path = null
 
 // jackets //
 
 /obj/item/clothing/suit/ms13/ljacket/moleskin
-	name = "moleskin jacket"
-	desc = "A durable moleskin jacket."
+	name = "ratskin jacket"
+	desc = "A durable jacket made from pigrat hide."
 	icon_state = "moleskinjacket"
 	inhand_icon_state = "duster"
 	body_parts_covered = CHEST|ARMS
@@ -402,6 +437,7 @@
                 LASER = 0, \
                 ENERGY = 0, \
                 FIRE = 0)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
 
 /obj/item/clothing/suit/ms13/ljacket/biker
 	name = "biker jacket"
@@ -467,6 +503,7 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = 0)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/large
 
 /obj/item/clothing/suit/ms13/trench/detective
 	name = "detective's trenchcoat"
@@ -558,8 +595,11 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = CLASS1_PLASMA, \
                 FIRE = CLASS2_FIRE)
+	max_integrity = 400
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
 	equip_delay_self = 3.5 SECONDS
 	equip_delay_other = 5 SECONDS
+	pocket_storage_component_path = null
 
 /obj/item/clothing/suit/ms13/trench/black/armored
 	name = "armored black trenchcoat"
@@ -576,8 +616,11 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = CLASS2_PLASMA, \
                 FIRE = CLASS3_FIRE)
+	max_integrity = 450
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 50, acid = 0, wound = 0)
 	equip_delay_self = 4 SECONDS
 	equip_delay_other = 6 SECONDS
+	pocket_storage_component_path = null
 
 // dusters //
 
@@ -596,6 +639,7 @@
                 LASER = 0, \
                 ENERGY = 0, \
                 FIRE = 0)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/large
 
 /obj/item/clothing/suit/ms13/duster/reinforced
 	name = "reinforced duster"
@@ -611,8 +655,11 @@
                 LASER = CLASS2_LASER, \
                 ENERGY = 0, \
                 FIRE = CLASS2_FIRE)
+	max_integrity = 400
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
 	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
 
 /obj/item/clothing/suit/ms13/duster/ranger
 	name = "\improper Desert Ranger duster"
@@ -628,6 +675,14 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = 0)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
+
+/obj/item/clothing/suit/ms13/duster/ranger/chief
+	name = "\improper Desert Ranger Deputy-Chief poncho"
+	desc = "A well made, padded poncho known for being specially made for certain high ranking members within the Desert Rangers."
+	icon_state = "deputy_chief"
+	body_parts_covered = CHEST|GROIN|ARMS
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/large
 
 // labcoats //
 
@@ -638,9 +693,18 @@
 	worn_icon = 'mojave/icons/mob/clothing/suit.dmi'
 	icon_state = "followers"
 	inhand_icon_state = "shirt"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = 0, \
+                IMPALING = 0, \
+                LASER = CLASS1_LASER, \
+                ENERGY = 0, \
+                FIRE = 0)
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0, wound = 0)
 	body_parts_covered = CHEST|ARMS
-	allowed = list(/obj/item/pen,/obj/item/paper,/obj/item/stamp,/obj/item/reagent_containers/food/drinks/flask,/obj/item/storage/box/matches,/obj/item/lighter,/obj/item/clothing/mask/cigarette,/obj/item/storage/fancy/cigarettes,/obj/item/flashlight,/obj/item/ammo_box,/obj/item/ammo_casing,/obj/item/scalpel,/obj/item/surgical_drapes,/obj/item/cautery,/obj/item/hemostat,/obj/item/retractor,/obj/item/storage/dice,/obj/item/dice)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/large
 	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
 
@@ -649,9 +713,17 @@
 	desc = "A lab coat often worn by Vault doctors. Good for protecting your precious undersuit from rapid blood ejection from your patients."
 	icon_state = "vaultlabcoat"
 	inhand_icon_state = "shirt"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = 0, \
+                IMPALING = 0, \
+                LASER = CLASS1_LASER, \
+                ENERGY = 0, \
+                FIRE = 0)
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 0, acid = 0, wound = 0)
 	body_parts_covered = CHEST|ARMS
-	allowed = list(/obj/item/pen,/obj/item/paper,/obj/item/stamp,/obj/item/reagent_containers/food/drinks/flask,/obj/item/storage/box/matches,/obj/item/lighter,/obj/item/clothing/mask/cigarette,/obj/item/storage/fancy/cigarettes,/obj/item/flashlight,/obj/item/ammo_box,/obj/item/ammo_casing,/obj/item/scalpel,/obj/item/surgical_drapes,/obj/item/cautery,/obj/item/hemostat,/obj/item/retractor,/obj/item/storage/dice,/obj/item/dice)
 	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
 
@@ -679,3 +751,217 @@
 	desc = "A perfectly preserved pre-war VINTAGE Manny Mammoth suit! It smells of crusty pizza."
 	icon_state = "mannybody"
 	inhand_icon_state = "mannyhead"
+
+// Drylanders //
+
+/obj/item/clothing/suit/ms13/drylander
+	name = "base type Drylander suit"
+	desc = "You shouldn't be seeing this."
+	body_parts_covered = CHEST|GROIN|ARMS|LEGS
+	icon_state = "dry_simple"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = 0, \
+                IMPALING = CLASS1_STAB, \
+                LASER = 0, \
+                ENERGY = 0, \
+                FIRE = 0)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/large
+
+/obj/item/clothing/suit/ms13/drylander/hunter
+	name = "\improper Drylander hunter padded robes"
+	desc = "Lightly padded robes worn by hunters of the Drylander tribe. Light, breathable, and still somewhat protective."
+	icon_state = "hunter"
+	body_parts_covered = CHEST|GROIN|LEGS
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = 0, \
+                ENERGY = 0, \
+                FIRE = 0)
+	max_integrity = 350
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 10, acid = 0, wound = 0)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
+
+/obj/item/clothing/suit/ms13/drylander/headtaker
+	name = "\improper Drylander Headtaker padded robes"
+	desc = "Padded robes worn by the notorious Headtakers of the Drylander tribe. A frightening sight."
+	body_parts_covered = CHEST|GROIN|LEGS|ARM_RIGHT
+	slowdown = 0.15
+	icon_state = "headtaker"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS2_CRUSH, \
+                CUTTING = CLASS2_CUT, \
+                PIERCING = CLASS2_PIERCE, \
+                IMPALING = CLASS2_STAB, \
+                LASER = CLASS2_LASER, \
+                ENERGY = 0, \
+                FIRE = CLASS2_FIRE)
+	max_integrity = 450
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 35, acid = 0, wound = 0)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
+
+/obj/item/clothing/suit/ms13/drylander/simple
+	name = "\improper Drylander simple robes"
+	desc = "Basic robes worn by Drylander tribals. Nothing too special about these."
+	icon_state = "dry_simple"
+
+/obj/item/clothing/suit/ms13/drylander/poncho
+	name = "\improper Drylander poncho"
+	desc = "A light, loose poncho worn by Drylander tribals."
+	icon_state = "dry_poncho"
+
+/obj/item/clothing/suit/ms13/drylander/forager
+	name = "\improper Drylander forager robes"
+	desc = "Robes worn by Drylander tribals. Mostly used for foraging and brief excursions."
+	icon_state = "dry_forager"
+
+/obj/item/clothing/suit/ms13/drylander/bando
+	name = "\improper Drylander bandolier robes"
+	desc = "Light robes with a bandolier strewn across to help with storage. Doesn't seem to be very effective though."
+	body_parts_covered = CHEST|GROIN|LEGS|ARM_RIGHT
+	icon_state = "dry_bando"
+
+/obj/item/clothing/suit/ms13/drylander/chief
+	name = "\improper Drylander chieftain robes"
+	desc = "An impressive set of robes worn by the chieftain of the Drylander tribe. This commands respect."
+	body_parts_covered = CHEST|GROIN|ARMS
+	icon_state = "chief"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS1_LASER, \
+                ENERGY = 0, \
+                FIRE = 0)
+	max_integrity = 350
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 10, acid = 0, wound = 0)
+
+/obj/item/clothing/suit/ms13/drylander/shaman
+	name = "\improper Drylander shaman robes"
+	desc = "Well made robes worn by the shaman of the Drylander tribe."
+	icon_state = "shaman"
+
+// Slickbacks //
+
+/obj/item/clothing/suit/ms13/slickback
+	name = "base type Slickback suit"
+	desc = "You shouldn't be seeing this."
+	body_parts_covered = CHEST|GROIN|ARMS|LEGS
+	slowdown = 0.15
+	icon_state = "slick_1"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS2_CRUSH, \
+                CUTTING = CLASS2_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS1_LASER, \
+                ENERGY = 0, \
+                FIRE = 0)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/large
+	var/snatched = TRUE // For taking gold chains off the clothes n shit...
+	var/has_gold_states = FALSE // Can you even put gold on it
+
+/obj/item/clothing/suit/ms13/slickback/examine(mob/user)
+	. = ..()
+
+	if(!snatched && has_gold_states)
+		. += span_yellowteamradio("Has some gold chains attached. Quite the status symbol.")
+		. += span_notice("You could snatch them off with <b>Right Mouse Click</b>")
+
+	if(snatched && has_gold_states)
+		. += span_danger("An obvious empty spot where chains should be. It's <b>RUINED!</b>. Time to order a new one to be custom tailored...")
+
+
+/obj/item/clothing/suit/ms13/slickback/attack_hand_secondary(mob/user, params)
+	. = ..()
+	if(snatched)
+		return
+	playsound(src, 'mojave/sound/ms13effects/jewelry_chain1.ogg', 15, TRUE)
+	user.visible_message( \
+		"[user] begins to irreversibly ruin \the [src].", \
+		span_danger("You begin pillaging the chains off \the [src], forever stealing a part of it."),
+		span_hear("You hear cloth moving around with chains rattling."))
+	if(do_after(user, 5 SECONDS))
+		user.visible_message( \
+			"[user] finishes tearing the chains off of \the [src].", \
+			span_notice("You finish tearing the chains off \the [src]. Destroying the style."),
+			span_hear("You hear chains rattling with an abrupt stop."))
+		playsound(src, 'mojave/sound/ms13effects/jewelry_chain2.ogg', 15, TRUE)
+		icon_state = initial(icon_state)+"_snatched"
+		worn_icon_state = initial(icon_state)+"_snatched"
+		update_appearance(updates = UPDATE_ICON)
+		user.update_inv_wear_suit()
+		user.update_body()
+		snatched = TRUE
+		var/obj/item/stack/sheet/ms13/scrap_gold/G = new /obj/item/stack/sheet/ms13/scrap_gold
+		user.put_in_hands(G)
+
+/* Broken because of the pockets. Idk... it's here for now.
+/obj/item/clothing/suit/ms13/slickback/attackby(obj/item/W, mob/user, params)
+	. = ..()
+
+	if(istype(W, /obj/item/stack/sheet/ms13/scrap_gold && snatched))
+		if(!snatched && has_gold_states)
+			to_chat(user, span_yellowteamradio("This thing is already blinged out!"))
+			return
+		else if(snatched && has_gold_states)
+			user.visible_message( \
+				"[user] hangs some chains from \the [src].", \
+				span_notice("You hang some gains on \the [src]"),
+				span_hear("You hear cloth moving around with chains rattling."))
+			icon_state = initial(icon_state)
+			worn_icon_state = initial(icon_state)
+			update_appearance(updates = UPDATE_ICON)
+			user.update_inv_wear_suit()
+			user.update_body()
+			snatched = FALSE
+			qdel(W)
+			playsound(src, 'mojave/sound/ms13effects/jewelry_chain2.ogg', 15, TRUE)
+			return
+*/
+/obj/item/clothing/suit/ms13/slickback/loose
+	name = "loose padded fur coat"
+	desc = "A loose fitting, dark colored fur coat with some protective padding."
+	icon_state = "slick_1"
+
+/obj/item/clothing/suit/ms13/slickback/brown
+	name = "brown padded fur coat"
+	desc = "A brown and tan, comfortable looking fur coat with some protective padding."
+	icon_state = "slick_2"
+
+/obj/item/clothing/suit/ms13/slickback/white
+	name = "white padded fur coat"
+	desc = "A bright white padded fur coat. Perfect for blending into the snow."
+	icon_state = "slick_3"
+
+/obj/item/clothing/suit/ms13/slickback/dark
+	name = "dark padded fur coat"
+	desc = "A dapper looking dark fur coat with some protective padding."
+	icon_state = "slick_4"
+
+/obj/item/clothing/suit/ms13/slickback/underboss
+	name = "\improper Slickback underboss fur coat"
+	desc = "A well made, very fancy looking fur coat tailor made for individuals with some real clout within the Slickback gang. Even has some extra protective padding that adds some bulk."
+	icon_state = "slick_underboss"
+	slowdown = 0.3
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS2_CRUSH, \
+                CUTTING = CLASS2_CUT, \
+                PIERCING = CLASS2_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS2_LASER, \
+                ENERGY = CLASS1_PLASMA, \
+                FIRE = 0)
+	snatched = FALSE // For taking gold chains off the clothes n shit...
+	has_gold_states = TRUE // Can you even put gold on it

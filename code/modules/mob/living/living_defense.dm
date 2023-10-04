@@ -68,12 +68,13 @@
 		apply_damage(P.damage, P.damage_type, def_zone, armor_check, wound_bonus=P.wound_bonus, bare_wound_bonus=P.bare_wound_bonus, sharpness = P.sharpness, attack_direction = attack_direction)
 		*/
 		//MOJAVE EDIT BEGIN
-		apply_damage(P.damage, P.damage_type, def_zone, \
+		var/no_defended = damage_armor(P.damage, P.flag, P.damage_type, P.sharpness, def_zone)
+		if(apply_damage(no_defended, P.damage_type, def_zone, \
 					armor, wound_bonus=P.wound_bonus, bare_wound_bonus=P.bare_wound_bonus, \
 					sharpness = P.sharpness, attack_direction = attack_direction, \
-					reduced = subarmor)
-		//MOJAVE EDIT END
-		apply_effects(P.stun, P.knockdown, P.unconscious, P.slur, P.stutter, P.eyeblur, P.drowsy, armor, P.stamina, P.jitter, P.paralyze, P.immobilize)
+					reduced = subarmor))
+			//MOJAVE EDIT END
+			apply_effects(P.stun, P.knockdown, P.unconscious, P.slur, P.stutter, P.eyeblur, P.drowsy, armor, P.stamina, P.jitter, P.paralyze, P.immobilize)
 		if(P.dismemberment)
 			check_projectile_dismemberment(P, def_zone)
 	return . ? BULLET_ACT_HIT : BULLET_ACT_BLOCK
