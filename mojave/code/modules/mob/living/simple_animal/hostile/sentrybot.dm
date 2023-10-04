@@ -555,7 +555,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	StartCooldown()
 
 /datum/action/cooldown/railgun/proc/launch_railgun(atom/target_atom)
-	playsound(owner, 'mojave/sound/ms13weapons/gunsounds/Gauss/gauss_fire_heavy.ogg', 60, TRUE, -1)
+	playsound(owner, 'mojave/sound/ms13weapons/gunsounds/Gauss/bigbore.ogg', 60, FALSE, -1)
 	var/obj/projectile/projectile_obj = new projectile(get_turf(owner))
 	projectile_obj.firer = owner
 	projectile_obj.preparePixelProjectile(target_atom, owner)
@@ -563,8 +563,8 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 
 /obj/projectile/bullet/ms13/gauss/sentry
 	name = "heavy gauss bullet"
-	damage = 50
-	subtractible_armour_penetration = 75
-	wound_bonus = 12
+	damage = 80
+	subtractible_armour_penetration = 80
+	wound_bonus = 5
 	bare_wound_bonus = 0
-	speed = 0.3
+	speed = 0.35
