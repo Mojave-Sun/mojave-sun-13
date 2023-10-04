@@ -95,6 +95,10 @@
 	},
 /turf/open/floor/wood/ms13/common,
 /area/ms13/town)
+"aft" = (
+/obj/effect/spawner/random/ms13/crafting/household,
+/turf/open/floor/plating/ms13/ground/mountain/drought,
+/area/ms13/town)
 "afB" = (
 /obj/structure/ms13/wall_decor/clock,
 /obj/machinery/griddle/ms13,
@@ -390,6 +394,7 @@
 /area/ms13/town)
 "auz" = (
 /obj/structure/table/ms13/metal/constructed,
+/obj/effect/spawner/random/ms13/medical/bloodbag,
 /obj/effect/spawner/random/ms13/medical/bloodbag,
 /turf/open/floor/ms13/tile/long,
 /area/ms13/town)
@@ -834,6 +839,7 @@
 	dir = 4;
 	pixel_y = 6
 	},
+/obj/effect/spawner/random/ms13/currency/drought/prewar/lowrandom,
 /turf/open/floor/ms13/tile/large/checkered,
 /area/ms13/town)
 "aUQ" = (
@@ -5562,7 +5568,7 @@
 /obj/structure/ms13/foundation/varianttwo{
 	dir = 1
 	},
-/obj/effect/spawner/random/ms13/currency/drought/highrandom,
+/obj/effect/spawner/random/ms13/currency/drought/lowrandom,
 /obj/effect/spawner/random/ms13/currency/drought/lowrandom,
 /turf/open/floor/plating/ms13/ground/desert,
 /area/ms13/town)
@@ -5631,11 +5637,6 @@
 	},
 /obj/effect/spawner/random/ms13/crafting/electrical,
 /turf/open/floor/ms13/concrete/industrial,
-/area/ms13/town)
-"gwq" = (
-/obj/structure/table/ms13/no_smooth/counter/wood,
-/obj/effect/spawner/random/ms13/currency/drought/prewar/lowrandom,
-/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "gxw" = (
 /obj/structure/ms13/storage/large/shelf,
@@ -7055,6 +7056,11 @@
 /obj/structure/window/reinforced/fulltile/ms13/glass,
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
+"iia" = (
+/obj/machinery/door/unpowered/ms13/metal/red,
+/obj/effect/spawner/random/ms13/locked/random/lowchance,
+/turf/open/floor/ms13/tile,
+/area/ms13/town)
 "iio" = (
 /obj/machinery/button/ms13{
 	dir = 4;
@@ -8027,6 +8033,18 @@
 	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/rangeroutpost/building)
+"jqH" = (
+/obj/structure/table/ms13/no_smooth/counter/wood{
+	dir = 1
+	},
+/obj/structure/closet/crate/ms13/cash_register{
+	dir = 1;
+	pixel_y = 7
+	},
+/obj/effect/spawner/random/ms13/currency/drought/lowrandom,
+/obj/effect/spawner/random/ms13/currency/drought/lowrandom,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
 "jqR" = (
 /obj/structure/ms13/storage/large/shelf{
 	dir = 4
@@ -9035,6 +9053,7 @@
 /area/ms13/factory)
 "kCs" = (
 /obj/effect/landmark/start/ms13/wastelander,
+/obj/effect/ai_node/restock,
 /turf/open/floor/plating/ms13/ground/road,
 /area/ms13/desert)
 "kCu" = (
@@ -9828,6 +9847,11 @@
 /obj/structure/table/ms13/metal/grate,
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
+"lpr" = (
+/obj/effect/turf_decal/ms13/road/horizontalline,
+/obj/effect/ai_node/wait,
+/turf/open/floor/plating/ms13/ground/road,
+/area/ms13/desert)
 "lpt" = (
 /obj/structure/window/fulltile/ms13/glass,
 /obj/structure/table/ms13/low_wall/siding,
@@ -13226,6 +13250,10 @@
 	},
 /obj/effect/spawner/random/ms13/drink/soda,
 /turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
+"pjZ" = (
+/obj/effect/landmark/start/ms13/wastelander,
+/turf/open/floor/ms13/tile/large/cafeteria,
 /area/ms13/town)
 "pkF" = (
 /obj/item/stack/sheet/ms13/wood/scrap_wood,
@@ -16756,6 +16784,11 @@
 	},
 /turf/open/floor/ms13/tile/long,
 /area/ms13/factory)
+"tgw" = (
+/obj/structure/ms13/trash/papers,
+/obj/effect/spawner/random/ms13/currency/drought/prewar/lowrandom,
+/turf/open/floor/wood/ms13/wide,
+/area/ms13/town)
 "tgy" = (
 /obj/structure/bed/ms13/bedframe/wood,
 /obj/structure/bed/ms13/mattress/stale,
@@ -18253,7 +18286,6 @@
 	},
 /obj/effect/spawner/random/ms13/currency/drought/lowrandom,
 /obj/effect/spawner/random/ms13/currency/drought/lowrandom,
-/obj/effect/spawner/random/ms13/currency/drought/lowrandom,
 /turf/open/floor/wood/ms13/carpet/shaggy,
 /area/ms13/town)
 "uOU" = (
@@ -18654,13 +18686,6 @@
 	},
 /turf/open/floor/ms13/concrete/small,
 /area/ms13/water_baron/interior)
-"viq" = (
-/obj/structure/ms13/trash/papers{
-	dir = 4
-	},
-/obj/effect/spawner/random/ms13/currency/drought/lowrandom,
-/turf/open/floor/wood/ms13/wide,
-/area/ms13/town)
 "vjw" = (
 /obj/structure/table/ms13/no_smooth/counter/wood{
 	dir = 1
@@ -18906,7 +18931,6 @@
 	dir = 4
 	},
 /obj/structure/noticeboard/ms13/cork,
-/obj/effect/spawner/random/ms13/currency/drought/lowrandom,
 /obj/effect/spawner/random/ms13/currency/drought/lowrandom,
 /obj/effect/spawner/random/ms13/currency/drought/lowrandom,
 /turf/open/floor/ms13/tile/large/cafeteria,
@@ -24058,7 +24082,7 @@ hPD
 oSs
 oSs
 xop
-gwq
+gAC
 crx
 crx
 iNr
@@ -27514,7 +27538,7 @@ tdG
 crx
 crx
 crx
-ehO
+tgw
 mwW
 qTW
 blm
@@ -34314,7 +34338,7 @@ pOP
 oSs
 jJD
 hQa
-wHx
+loz
 hQa
 jJD
 jJD
@@ -34718,7 +34742,7 @@ hgp
 oSs
 jJD
 hQa
-loz
+wHx
 hQa
 jJD
 jJD
@@ -35370,7 +35394,7 @@ hPD
 oSs
 oSs
 tdG
-gwq
+gAC
 crx
 crx
 crx
@@ -35526,7 +35550,7 @@ bAV
 hQa
 bAV
 hQa
-wHx
+lpr
 hQa
 jJD
 jJD
@@ -40008,7 +40032,7 @@ hQa
 bAV
 hQa
 hQa
-klW
+xqp
 hQa
 hQa
 oSs
@@ -49603,7 +49627,7 @@ oSs
 oSs
 oSs
 jVU
-viq
+ovd
 mkf
 oEf
 crx
@@ -50244,7 +50268,7 @@ hgp
 kqA
 jFW
 gov
-uED
+jqH
 crx
 crx
 crx
@@ -51311,7 +51335,7 @@ fYk
 mRK
 cKM
 cKM
-cKM
+pjZ
 cKM
 hiD
 cXR
@@ -52542,7 +52566,7 @@ hQa
 bAV
 hQa
 bAV
-hQa
+klW
 bAV
 hQa
 bAV
@@ -52552,7 +52576,7 @@ hQa
 bAV
 hQa
 bAV
-hQa
+klW
 bAV
 hQa
 bAV
@@ -52562,7 +52586,7 @@ hQa
 bAV
 hQa
 bAV
-hQa
+klW
 bAV
 hQa
 bAV
@@ -57292,7 +57316,7 @@ tDJ
 wTp
 wTp
 wTp
-qFU
+iia
 jJD
 jJD
 hQa
@@ -59746,7 +59770,7 @@ hQa
 bAV
 wBK
 hQa
-loz
+lpr
 hQa
 jJD
 hgp
@@ -64226,8 +64250,8 @@ oSs
 vBv
 vBv
 ruv
-mTp
-iZk
+aft
+vgV
 iNr
 vBv
 oSs
@@ -64429,7 +64453,7 @@ vBv
 iZk
 mTp
 mTp
-mTp
+pqn
 xGe
 vBv
 iNr
