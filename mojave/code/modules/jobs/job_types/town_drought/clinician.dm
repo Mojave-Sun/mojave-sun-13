@@ -1,9 +1,9 @@
 /datum/job/ms13/town_drought/clinician
-	title = "Town Clinician"
+	title = "Barony Clinician"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "The Baron and his Enforcers"
-	description = "Aid any patients that come in and ensure the residents of the Town are well cared for."
+	description = "Aid any patients that come in and ensure the residents of the Barony are well cared for."
 	forbid = ""
 	enforce = ""
 
@@ -14,7 +14,7 @@
 	mind_traits = list(TRAIT_MEDICAL_TRAINING)
 
 /datum/outfit/job/ms13/town_drought/clinician
-	name = "_Town Clinician"
+	name = "_Barony Clinician"
 	jobtype = /datum/job/ms13/town_drought/clinician
 
 	id = 		 /obj/item/card/id/ms13/drought_doctor
@@ -23,7 +23,7 @@
 	shoes =  	 /obj/item/clothing/shoes/ms13/tan
 	belt = 		 /obj/item/storage/firstaid/ms13/regular
 	r_hand =     /obj/item/storage/firstaid/ms13/bag/filled
-	r_pocket =   /obj/item/stack/ms13/currency/cap/hunned
+	r_pocket =   /obj/item/stack/ms13/currency/cap/hunnedtwentyfive
 	back =       /obj/item/storage/ms13/satchel
 
 /datum/outfit/job/ms13/town_drought/clinician/pre_equip(mob/living/carbon/human/H)

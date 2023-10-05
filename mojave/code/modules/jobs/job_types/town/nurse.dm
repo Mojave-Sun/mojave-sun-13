@@ -1,5 +1,5 @@
 /datum/job/ms13/town/nurse
-	title = "Town Nurse"
+	title = "Snowcrest Nurse"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "The Doctor and the Mayor"
@@ -14,7 +14,7 @@
 	mind_traits = list(TRAIT_MEDICAL_TRAINING)
 
 /datum/outfit/job/ms13/town/nurse
-	name = "_Town Nurse"
+	name = "_Snowcrest Nurse"
 	jobtype = /datum/job/ms13/town/nurse
 
 	id =		 /obj/item/card/id/ms13/doctor/nurse
