@@ -472,17 +472,6 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/ballistic
 	casingtype = /obj/item/ammo_casing/ms13/a308/sentrybot
 
-
-/mob/living/simple_animal/hostile/ms13/robot/sentrybot/ballistic/Shoot(atom/targeted_atom)
-	. = ..()
-	var/x_component = sin(get_angle(src, targeted_atom)) * 40
-	var/y_component = cos(get_angle(src, targeted_atom)) * 40
-	var/obj/effect/abstract/particle_holder/gun_smoke = new(get_turf(src), /particles/firing_smoke)
-	gun_smoke.particles.velocity = list(x_component, y_component)
-	addtimer(VARSET_CALLBACK(gun_smoke.particles, count, 0), 5)
-	addtimer(VARSET_CALLBACK(gun_smoke.particles, drift, 0), 3)
-	QDEL_IN(gun_smoke, 0.6 SECONDS)
-
 //Wind down is combined with windup sound
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/ballistic/wind_down_gun()
 	already_firing = FALSE
@@ -511,6 +500,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 /obj/item/ammo_casing/ms13/a308/sentrybot/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from, extra_damage, extra_penetration)
 	. = ..()
 	pixel_z = 8 //bounce time
-	SpinAnimation(speed = 3 SECONDS, loops = 1)
+	var/rand_spin = (rand(1, 3) * 10 ) //* SECONDS
+	SpinAnimation(speed = rand_spin, loops = 1)
 	var/angle_of_movement = !isnull(user) ? (rand(-3000, 3000) / 100) + dir2angle(turn(user.dir, 180)) : rand(-3000, 3000) / 100
 	AddComponent(/datum/component/movable_physics, _horizontal_velocity = rand(450, 550) / 100, _vertical_velocity = rand(400, 450) / 100, _horizontal_friction = rand(20, 24) / 100, _z_gravity = 9.80665, _z_floor = 0, _angle_of_movement = angle_of_movement)

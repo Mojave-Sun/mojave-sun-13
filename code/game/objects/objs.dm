@@ -77,8 +77,6 @@
 		AddComponent(/datum/component/ntnet_interface, network_id, id_tag)
 		/// Needs to run before as ComponentInitialize runs after this statement...why do we have ComponentInitialize again?
 
-	//Mojave Edit
-	add_debris_element()
 
 /obj/Destroy(force)
 	if(!ismachinery(src))

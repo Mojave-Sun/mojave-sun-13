@@ -14,8 +14,6 @@
 	. = ..()
 	if(frill_icon)
 		AddElement(/datum/element/frill, frill_icon) //MOJAVE SUN EDIT - Wallening Testmerge
-	add_debris_element()
-
 
 /turf/closed/AfterChange()
 	. = ..()

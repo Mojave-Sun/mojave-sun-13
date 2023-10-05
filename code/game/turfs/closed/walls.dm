@@ -33,10 +33,6 @@
 
 	var/list/dent_decals
 
-//Mojave Edit
-/turf/closed/wall/add_debris_element()
-	AddElement(/datum/element/debris, DEBRIS_SPARKS, -15, 8, 1)
-
 /turf/closed/wall/Initialize(mapload)
 	. = ..()
 	if(!can_engrave)
