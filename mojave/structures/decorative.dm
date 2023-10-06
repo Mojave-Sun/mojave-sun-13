@@ -844,7 +844,7 @@
 /obj/structure/ms13/trash/glass/cans
 	name = "empty bottles and cans"
 	desc = "Some empty glass bottles and aluminum cans. You just might be able to make something out of this."
-	icon_state = "foodstuff_1"
+	icon_state = "glass_1"
 
 /obj/structure/ms13/trash/glass/cans/Initialize(mapload)
 	. = ..()
