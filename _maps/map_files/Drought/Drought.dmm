@@ -3089,6 +3089,7 @@
 /area/ms13/town)
 "dqZ" = (
 /obj/structure/table/ms13/no_smooth/counter/metal,
+/obj/effect/spawner/random/ms13/gun/lowunique,
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "drc" = (
@@ -8958,9 +8959,9 @@
 "kes" = (
 /obj/structure/table/ms13/metal/alt,
 /obj/machinery/ms13/terminal{
+	remote_capability = 1;
 	signal_id_1 = "junkyard-gate";
-	signal_title_1 = "Front Gate";
-	remote_capability = 1
+	signal_title_1 = "Front Gate"
 	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/desert)
@@ -11786,6 +11787,10 @@
 	},
 /turf/open/floor/plating/ms13/ground/road,
 /area/ms13/desert)
+"nhD" = (
+/obj/effect/spawner/random/ms13/ammo/lowrandom,
+/turf/open/floor/ms13/concrete,
+/area/ms13/town)
 "nin" = (
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 10
@@ -13140,12 +13145,12 @@
 /area/ms13/town)
 "oID" = (
 /obj/machinery/ms13/terminal/wall/rust{
+	doc_title_1 = "drought_junkyard_warn";
 	remote_capability = 1;
 	signal_id_1 = "car_junk_storage-bay1";
 	signal_id_2 = "car_junk_storage-bay2";
 	signal_title_1 = "Left Bay";
-	signal_title_2 = "Right Bay";
-	doc_title_1 = "drought_junkyard_warn"
+	signal_title_2 = "Right Bay"
 	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/desert)
@@ -51836,7 +51841,7 @@ jae
 wIP
 dqZ
 ylS
-ylS
+nhD
 sqo
 wIP
 fuf
