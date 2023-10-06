@@ -229,6 +229,24 @@
 /obj/effect/turf_decal/ms13/graffiti/ncr
 	icon_state = "ncr"
 
+/obj/effect/turf_decal/ms13/graffiti/do_not
+	icon_state = "donot"
+
+/obj/effect/turf_decal/ms13/graffiti/death
+	icon_state = "death"
+
+/obj/effect/turf_decal/ms13/graffiti/die_young
+	icon_state = "dieyoung"
+
+/obj/effect/turf_decal/ms13/graffiti/reaper
+	icon_state = "reaper"
+
+/obj/effect/turf_decal/ms13/graffiti/mark
+	icon_state = "mark"
+
+/obj/effect/turf_decal/ms13/graffiti/slumbers
+	icon_state = "slumbers"
+
 /obj/effect/turf_decal/ms13/graffiti/large
 	icon = 'mojave/icons/decals/graffiti64x64.dmi'
 
