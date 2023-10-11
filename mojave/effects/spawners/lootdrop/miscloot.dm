@@ -85,7 +85,7 @@
 
 /obj/effect/spawner/random/ms13/tools/farming
 	name = "farming item spawner"
-	spawn_loot_chance = 70
+	spawn_loot_chance = 75
 	loot = list(
 		/obj/item/stack/ms13/fertilizer = 10,
 		/obj/item/ms13/fertilizer = 10,
