@@ -77,3 +77,4 @@
 	ranged_cooldown = 2 SECONDS
 	casingtype = /obj/item/ammo_casing/energy/ms13/plasma/gutsy
 	projectilesound = 'mojave/sound/ms13weapons/gunsounds/plasrifle/plasma_3.ogg'
+	attack_sound = list('mojave/sound/ms13weapons/meleesounds/ripper_hit1.ogg', 'mojave/sound/ms13weapons/meleesounds/ripper_hit2.ogg')

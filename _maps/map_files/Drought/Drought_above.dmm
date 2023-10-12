@@ -1175,6 +1175,11 @@
 /obj/effect/spawner/random/ms13/food/packaged,
 /turf/open/floor/ms13/concrete/small,
 /area/ms13/water_baron/interior)
+"dY" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/ms13/trash/food/misc,
+/turf/open/floor/wood/ms13/mosaic,
+/area/ms13/town)
 "dZ" = (
 /obj/structure/table/ms13/no_smooth/wood,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -4011,8 +4016,18 @@
 /turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "nK" = (
-/obj/machinery/ms13/agriculture,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/closet/crate/ms13/footlocker,
+/obj/item/card/id/ms13/drought_visa,
+/obj/item/card/id/ms13/drought_visa,
+/obj/item/card/id/ms13/drought_visa,
+/obj/item/card/id/ms13/drought_visa,
+/obj/item/card/id/ms13/drought_visa,
+/obj/item/card/id/ms13/drought_visa,
+/obj/item/card/id/ms13/drought_medical,
+/obj/item/card/id/ms13/drought_medical,
+/obj/item/card/id/ms13/drought_visa,
+/obj/item/card/id/ms13/drought_visa,
 /turf/open/floor/ms13/concrete,
 /area/ms13/water_baron)
 "nL" = (
@@ -4108,7 +4123,7 @@
 /area/ms13/town)
 "ob" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/machinery/shower{
+/obj/machinery/shower/ms13{
 	dir = 4
 	},
 /obj/effect/turf_decal/ms13/showerdrains/small,
@@ -4704,7 +4719,7 @@
 /area/ms13/town)
 "qd" = (
 /obj/effect/turf_decal/ms13/showerdrains/small,
-/obj/machinery/shower{
+/obj/machinery/shower/ms13{
 	dir = 8
 	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -4845,13 +4860,10 @@
 /obj/structure/table/ms13/no_smooth/large/metal/desk{
 	dir = 1
 	},
-/obj/machinery/ms13/terminal{
-	dir = 1;
-	remote_capability = 1;
-	signal_id_1 = "car_junk_storage";
-	signal_title_1 = "Storage Shutters"
-	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/machinery/ms13/terminal{
+	dir = 1
+	},
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "qK" = (
@@ -5506,7 +5518,7 @@
 /area/ms13/water_baron/interior)
 "sW" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/machinery/shower{
+/obj/machinery/shower/ms13{
 	dir = 4
 	},
 /obj/effect/turf_decal/ms13/showerdrains/small,
@@ -5600,6 +5612,8 @@
 	pixel_y = 26
 	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/table/ms13/metal/constructed,
+/obj/structure/ms13/chem_set,
 /turf/open/floor/wood/ms13/mosaic,
 /area/ms13/town)
 "to" = (
@@ -5815,7 +5829,7 @@
 "uc" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/machinery/shower{
+/obj/machinery/shower/ms13{
 	dir = 4
 	},
 /obj/effect/turf_decal/ms13/showerdrains/small,
@@ -6007,6 +6021,7 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/effect/spawner/random/ms13/medical/lowrandom,
 /obj/effect/spawner/random/ms13/medical/lowrandom,
+/obj/effect/spawner/random/ms13/guaranteed/medical/lowrandom,
 /turf/open/floor/ms13/tile/long,
 /area/ms13/rangeroutpost/building)
 "uL" = (
@@ -6066,6 +6081,7 @@
 /obj/structure/table/ms13/metal/grate,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/effect/spawner/random/ms13/medical/lowrandom,
+/obj/effect/spawner/random/ms13/guaranteed/medical/lowrandom,
 /turf/open/floor/ms13/tile/long,
 /area/ms13/rangeroutpost/building)
 "uW" = (
@@ -6327,7 +6343,7 @@
 /turf/open/floor/wood/ms13/carpet/shaggy,
 /area/ms13/town)
 "vJ" = (
-/obj/machinery/shower{
+/obj/machinery/shower/ms13{
 	dir = 4
 	},
 /obj/effect/turf_decal/ms13/showerdrains/square,
@@ -6449,6 +6465,10 @@
 /obj/effect/spawner/random/ms13/medical/lowrandom,
 /turf/open/floor/plating/ms13/roof/metal,
 /area/ms13/town)
+"wc" = (
+/obj/structure/ms13/trash/food/dinner,
+/turf/open/floor/plating/ms13/roof/metal,
+/area/ms13/desert)
 "wd" = (
 /turf/open/floor/plating/ms13/roof/wood,
 /area/ms13/desert)
@@ -6914,6 +6934,7 @@
 "xP" = (
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/ms13/trash/food/glass,
 /turf/open/floor/ms13/tile/full/black,
 /area/ms13/town)
 "xQ" = (
@@ -7638,11 +7659,16 @@
 /area/ms13/town)
 "Au" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/machinery/shower{
+/obj/machinery/shower/ms13{
 	dir = 8
 	},
 /obj/effect/turf_decal/ms13/showerdrains/small,
 /turf/open/floor/ms13/tile,
+/area/ms13/town)
+"Av" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/ms13/trash/glass/plate,
+/turf/open/floor/plating/ms13/roof/metal/rusty,
 /area/ms13/town)
 "Aw" = (
 /obj/structure/ms13/storage/bookshelf{
@@ -7668,6 +7694,11 @@
 /obj/effect/turf_decal/ms13/covering/paint/white,
 /obj/effect/turf_decal/ms13/covering/paint/green,
 /turf/closed/wall/ms13/siding,
+/area/ms13/town)
+"Az" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/ms13/trash/food/glass,
+/turf/open/floor/wood/ms13/wide,
 /area/ms13/town)
 "AC" = (
 /obj/structure/table/ms13/metal/grate,
@@ -7853,7 +7884,7 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/water_baron/interior)
 "Bh" = (
-/obj/machinery/shower{
+/obj/machinery/shower/ms13{
 	dir = 8
 	},
 /obj/effect/turf_decal/ms13/showerdrains/square,
@@ -8369,7 +8400,7 @@
 /turf/open/floor/plating/ms13/ground/desert,
 /area/ms13/drylanders)
 "CX" = (
-/obj/machinery/shower{
+/obj/machinery/shower/ms13{
 	dir = 8
 	},
 /obj/effect/turf_decal/ms13/showerdrains/small,
@@ -8384,6 +8415,11 @@
 /obj/machinery/light/ms13,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/ms13/concrete/industrial,
+/area/ms13/town)
+"Da" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/ms13/trash/glass/cans,
+/turf/open/floor/ms13/tile/large/checkered,
 /area/ms13/town)
 "Db" = (
 /obj/structure/lattice/catwalk/ms13,
@@ -9777,6 +9813,10 @@
 	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
+"HY" = (
+/obj/structure/ms13/trash/glass/basic,
+/turf/open/floor/plating/ms13/roof/metal,
+/area/ms13/desert)
 "HZ" = (
 /obj/structure/railing/ms13/solo{
 	dir = 4
@@ -10680,7 +10720,7 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "KU" = (
-/obj/machinery/shower{
+/obj/machinery/shower/ms13{
 	dir = 8
 	},
 /obj/effect/turf_decal/ms13/showerdrains/square,
@@ -11192,6 +11232,11 @@
 	},
 /turf/open/floor/plating/ms13/ground/desert,
 /area/ms13/water_baron)
+"MI" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/ms13/trash/glass/basic,
+/turf/open/floor/ms13/concrete/small,
+/area/ms13/water_baron/interior)
 "MJ" = (
 /obj/structure/railing/ms13/wood{
 	dir = 1
@@ -11678,6 +11723,11 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /obj/effect/spawner/random/ms13/locked/random/lowchance,
 /turf/open/floor/wood/ms13/common,
+/area/ms13/town)
+"Ot" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/ms13/trash/food/glass,
+/turf/open/floor/plating/ms13/roof/metal,
 /area/ms13/town)
 "Ou" = (
 /obj/structure/table/ms13/wood/constructed,
@@ -12438,7 +12488,7 @@
 /area/ms13/town)
 "QV" = (
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/machinery/shower{
+/obj/machinery/shower/ms13{
 	dir = 8
 	},
 /obj/effect/turf_decal/ms13/showerdrains/small,
@@ -12497,7 +12547,7 @@
 /turf/open/openspace/ms13,
 /area/ms13/town)
 "Re" = (
-/obj/machinery/shower{
+/obj/machinery/shower/ms13{
 	dir = 8
 	},
 /obj/effect/turf_decal/ms13/showerdrains/small,
@@ -12775,7 +12825,7 @@
 /turf/open/openspace/ms13,
 /area/ms13/water_baron)
 "Se" = (
-/obj/machinery/shower{
+/obj/machinery/shower/ms13{
 	dir = 8
 	},
 /obj/effect/turf_decal/ms13/showerdrains/small,
@@ -12962,6 +13012,11 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/closed/wall/ms13/siding,
 /area/ms13/town)
+"SP" = (
+/obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
+/obj/structure/ms13/trash/food/glass,
+/turf/open/floor/wood/ms13/mosaic,
+/area/ms13/rangeroutpost/building)
 "SQ" = (
 /obj/structure/ms13/storage/large/shelf/wood/drawers,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -13230,7 +13285,7 @@
 /turf/open/floor/ms13/concrete,
 /area/ms13/water_baron/interior)
 "TJ" = (
-/obj/machinery/shower{
+/obj/machinery/shower/ms13{
 	pixel_y = 17
 	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -13389,7 +13444,7 @@
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "Uk" = (
-/obj/machinery/shower{
+/obj/machinery/shower/ms13{
 	dir = 4
 	},
 /obj/effect/turf_decal/ms13/showerdrains/small,
@@ -13676,8 +13731,7 @@
 "Vi" = (
 /obj/structure/table/ms13/metal/grate,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
-/obj/effect/spawner/random/ms13/guaranteed/medical/lowrandom,
-/obj/effect/spawner/random/ms13/guaranteed/medical/lowrandom,
+/obj/structure/ms13/chem_set,
 /turf/open/floor/ms13/tile/long,
 /area/ms13/rangeroutpost/building)
 "Vj" = (
@@ -20866,7 +20920,7 @@ qi
 qi
 qu
 OP
-GJ
+Av
 GJ
 GJ
 ua
@@ -21290,7 +21344,7 @@ qi
 qi
 qi
 qi
-cF
+HY
 cF
 dD
 vF
@@ -23699,7 +23753,7 @@ cF
 cF
 OY
 OY
-OY
+Ot
 OY
 OY
 cF
@@ -24159,7 +24213,7 @@ Sg
 qt
 qt
 qt
-qt
+SP
 OF
 AE
 ip
@@ -30382,7 +30436,7 @@ qi
 qi
 qi
 jk
-cF
+wc
 cF
 cF
 cF
@@ -33317,7 +33371,7 @@ sa
 sa
 si
 Vc
-pe
+MI
 lB
 pb
 uY
@@ -35961,7 +36015,7 @@ qi
 ip
 ip
 RD
-AZ
+dY
 AZ
 cr
 XK
@@ -37379,7 +37433,7 @@ pZ
 ba
 lt
 bp
-ZZ
+Da
 FV
 XF
 ip
@@ -44305,13 +44359,13 @@ ip
 qi
 qi
 qi
-qi
-qi
-qi
-qi
-qi
-qi
-qi
+ip
+ip
+ip
+ip
+ip
+ip
+ip
 qi
 qi
 qi
@@ -44507,16 +44561,16 @@ ip
 qi
 qi
 qi
-qi
-qi
-qi
-qi
-qi
-qi
-qi
-qi
-qi
-qi
+ip
+ip
+ip
+ip
+ip
+ip
+ip
+ip
+ip
+ip
 qi
 qi
 qi
@@ -44709,16 +44763,16 @@ ip
 qi
 qi
 qi
-qi
-qi
-qi
-qi
-qi
-qi
-qi
-qi
-qi
-qi
+ip
+ip
+ip
+ip
+ip
+ip
+ip
+ip
+ip
+ip
 qi
 qi
 qi
@@ -44913,14 +44967,14 @@ ip
 ip
 ip
 ip
-qi
-qi
-qi
-qi
-qi
-qi
-qi
-qi
+ip
+ip
+ip
+ip
+ip
+ip
+ip
+ip
 qi
 qi
 qi
@@ -45115,14 +45169,14 @@ ip
 uE
 ip
 ip
-qi
-qi
-qi
-qi
-qi
-qi
-qi
-qi
+ip
+ip
+ip
+ip
+ip
+ip
+ip
+ip
 qi
 qi
 qi
@@ -45317,14 +45371,14 @@ ip
 ip
 ip
 ip
-qi
-qi
-qi
-qi
-qi
-qi
-qi
-qi
+ip
+ip
+ip
+ip
+ip
+ip
+ip
+ip
 qi
 qi
 qi
@@ -45519,14 +45573,14 @@ ip
 uE
 ip
 Za
-qi
-qi
-qi
-qi
-qi
-qi
-qi
-qi
+ip
+ip
+ip
+ip
+ip
+ip
+ip
+ip
 qi
 qi
 qi
@@ -45721,14 +45775,14 @@ uE
 ip
 ar
 Za
-qi
-qi
-qi
-qi
-qi
-qi
-qi
-qi
+ip
+ip
+ip
+ip
+ip
+ip
+ip
+ip
 qi
 qi
 qi
@@ -45923,11 +45977,11 @@ ip
 Za
 Za
 Za
-qi
-qi
-qi
-qi
-qi
+ip
+ip
+ip
+ip
+ip
 qi
 qi
 qi
@@ -56627,7 +56681,7 @@ QT
 BK
 Vz
 Fo
-SC
+Az
 SC
 Wo
 BB
