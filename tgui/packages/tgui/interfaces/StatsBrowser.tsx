@@ -3,12 +3,34 @@ import { classes } from 'common/react';
 import { Window } from '../layouts';
 import { Button, Tabs } from '../components';
 
+type PerksInfo = {
+  name: string,
+  desc: string,
+  id: string,
+  type: string,
+  filter: string,
+  level: string,
+  ranks: string
+}
+
+type StatsInfo = {
+  perceptive: string,
+  enduring: string,
+  retaining: string,
+  strong: string,
+  outgoing: string,
+  nimble: string
+}
+
+type StatsData = {
+  perks?: PerksInfo[],
+  stats: StatsInfo,
+}
 export const StatsBrowser = (props, context) => {
-  const { act, data } = useBackend(context);
+  const { act, data } = useBackend<StatsData>(context);
   const [selectedStat, setSelectedStat] = useSharedState(context, 'selectedStat', "none");
   const [tabFilter, setTabFilter] = useSharedState(context, 'tabFilter', "allbylevel");
-  const perks = data.perks || [];
-  const stats = data.stats;
+  const { perks, stats } = data;
   return (
     <Window title="StatsBrowser" width={1200} height={800}>
       <Window.Content scrollable>
