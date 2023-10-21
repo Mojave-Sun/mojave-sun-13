@@ -68,7 +68,7 @@ export const StatsBrowser = (props, context) => {
                 </div>
                 <div data-v-7614e9e1="" class="u-mobile-slider">
                   <div class="flex p-4 flex-wrap dt:justify-center">
-                    {perks.map(perk => perk.type === selectedStat && (perk.filter === tabFilter || tabFilter === "allbylevel") && (
+                    {perks && perks.map(perk => perk.type === selectedStat && (perk.filter === tabFilter || tabFilter === "allbylevel") && (
                       <Perk
                         key={perk.id}
                         perk={perk}
@@ -87,8 +87,12 @@ export const StatsBrowser = (props, context) => {
   );
 };
 
+type ActivePerks = {
+  activeperks?: PerksInfo[]
+}
 const Stat = (props, context) => {
-  const { act, data } = useBackend(context);
+  const { act, data } = useBackend<ActivePerks>(context);
+  const { activeperks } = data;
   const {
     name,
     styleclass,
@@ -99,7 +103,7 @@ const Stat = (props, context) => {
   const [filteredPerks, setFilteredPerks] = useLocalState(
     context,
     `selectedPerks_${styleclass}`,
-    data.activeperks.filter(perk => perk.type === styleclass),
+    activeperks?.filter(perk => perk.type === styleclass),
   );
   const [selectedperk, setSelectedPerk] = useSharedState(context, `selectedPerk_${styleclass}`, 'none');
   return (
