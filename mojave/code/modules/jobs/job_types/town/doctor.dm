@@ -1,5 +1,5 @@
 /datum/job/ms13/town/doctor
-	title = "Town Doctor"
+	title = "Snowcrest Doctor"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "The Mayor"
@@ -14,7 +14,7 @@
 	mind_traits = list(TRAIT_MEDICAL_TRAINING, TRAIT_DRUGGIE)
 
 /datum/outfit/job/ms13/town/doctor
-	name = "_Town Doctor"
+	name = "_Snowcrest Doctor"
 	jobtype = /datum/job/ms13/town/doctor
 
 	id = 		 /obj/item/card/id/ms13/doctor

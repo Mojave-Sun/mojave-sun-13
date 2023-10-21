@@ -42,8 +42,8 @@
 	var/lastproduce = 0
 	///Used for timing of cycles.
 	var/lastcycle = 0
-	///About 18 seconds / cycle
-	var/cycledelay = 180
+	///About 17 seconds / cycle
+	var/cycledelay = 170
 	///The currently planted seed
 	var/obj/item/seeds/ms13/myseed
 	///Obtained from the quality of the parts used in the tray, determines nutrient drain rate.

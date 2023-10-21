@@ -1,9 +1,9 @@
 /datum/job/ms13/town_drought/denizen
-	title = "Town Denizen"
-	total_positions = 8
-	spawn_positions = 8
+	title = "Barony Denizen"
+	total_positions = 10
+	spawn_positions = 10
 	supervisors = "The Baron and his Enforcers"
-	description = "You're a resident of the Town and a humble servant of the Baron! You live a better life here than out in the wastes, under the protection and supervision of the Baron and his Enforcers. Try to make yourself useful in some way, there's work to be done everywhere."
+	description = "You're a resident of the Barony and a humble servant of the Baron! You live a better life here than out in the wastes, under the protection and supervision of the Baron and his Enforcers. Try to make yourself useful in some way, there's work to be done everywhere."
 	forbid = ""
 	enforce = ""
 
@@ -12,11 +12,11 @@
 	display_order = JOB_DISPLAY_ORDER_MS13_DENIZEN
 
 /datum/outfit/job/ms13/town_drought/denizen
-	name = "_Town Denizen"
+	name = "_Barony Denizen"
 	jobtype = /datum/job/ms13/town_drought/denizen
 
 	id =		 /obj/item/card/id/ms13/drought_denizen
-	r_pocket =   /obj/item/stack/ms13/currency/cap/twentyfive
+	r_pocket =   /obj/item/stack/ms13/currency/cap/thirtyfive
 	back =       null
 
 /datum/outfit/job/ms13/town_drought/denizen/pre_equip(mob/living/carbon/human/H)
@@ -38,7 +38,24 @@
 			/obj/item/clothing/shoes/ms13/tan,\
 			/obj/item/clothing/shoes/ms13/brownie)
 
-	if(prob(25))
+	if(prob(35))
+		belt = pick(
+			/obj/item/knife/ms13, \
+			/obj/item/knife/ms13/switchblade/razor, \
+			/obj/item/ms13/hammer, \
+			/obj/item/ms13/knuckles, \
+			/obj/item/crowbar/ms13)
+	else
+		belt = null
+
+	if(prob(20))
+		glasses = pick(/obj/item/clothing/glasses/ms13/leather,\
+		/obj/item/clothing/glasses/ms13/old,\
+		/obj/item/clothing/glasses/ms13/goggles)
+	else
+		glasses = null
+
+	if(prob(40))
 		suit = pick(
 			/obj/item/clothing/suit/ms13/ljacket/moleskin,\
 			/obj/item/clothing/suit/ms13/ljacket/wanderer,\

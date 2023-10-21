@@ -19,18 +19,18 @@
 /obj/item/card/id/ms13/doctor
 	name = "doctor's ID badge"
 	desc = "A very crisp and clean medical identification badge. Even has a clip. By Wasteland standards, this is incredibly professional."
-	assignment = "Town Doctor"
+	assignment = "Snowcrest Doctor"
 	icon_state = "doctor"
 	access = list(ACCESS_TOWN_DOCTOR, ACCESS_TOWN_ALL)
 
 /obj/item/card/id/ms13/doctor/nurse
 	name = "nurse's ID badge"
-	assignment = "Town Nurse"
+	assignment = "Snowcrest Nurse"
 
 /obj/item/card/id/ms13/mayor
 	name = "mayor's badge"
 	desc = "A gold star badge with a blue stamp in the middle, indicating this badge belongs to the Mayor."
-	assignment = "Town Mayor"
+	assignment = "Snowcrest Mayor"
 	icon_state = "mayor"
 	access = list(ACCESS_TOWN_MAYOR, ACCESS_TOWN_LAW, ACCESS_TOWN_DOCTOR, ACCESS_TOWN_WORKER, ACCESS_TOWN_ALL)
 	shows_age = FALSE
@@ -61,7 +61,7 @@
 /obj/item/card/id/ms13/bodyguard
 	name = "\improper Snowcrest guard badge"
 	desc = "A dull silver badge given to guards of the town of Snowcrest."
-	assignment = "Town Bodyguard"
+	assignment = "Snowcrest Bodyguard"
 	icon_state = "deputy"
 	access = list(ACCESS_TOWN_LAW, ACCESS_TOWN_DOCTOR, ACCESS_TOWN_WORKER, ACCESS_TOWN_ALL, ACCESS_TOWN_MAYOR)
 	shows_age = FALSE
@@ -69,12 +69,11 @@
 /obj/item/card/id/ms13/town
 	name = "\improper Snowcrest passport"
 	desc = "A fancy looking passport proving residency and citizenship in Snowcrest. Stamped by the Mayor to prove it's authenticity."
-	assignment = "Town Settler"
+	assignment = "Snowcrest Citizen"
 	icon_state = "passport"
 	access = list(ACCESS_TOWN_ALL)
 
 /obj/item/card/id/ms13/town/citizen
-	assignment = "Town Citizen"
 
 /obj/item/card/id/ms13/town/citizen/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/card/id/ms13/mayor))
@@ -86,11 +85,11 @@
 /obj/item/card/id/ms13/visa
 	name = "\improper Snowcrest visa"
 	desc = "A passport allowing temporary residency in Swnocrest, but not quite full citizenship."
-	assignment = "Town Squatter"
+	assignment = "Snowcrest Squatter"
 	icon_state = "passport_photo"
 
 /obj/item/card/id/ms13/visa/visitor
-	assignment = "Town Visitor"
+	assignment = "Snowcrest Visitor"
 
 /obj/item/card/id/ms13/visa/visitor/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/card/id/ms13/mayor))
@@ -100,11 +99,11 @@
 	return ..()
 
 /obj/item/card/id/ms13/town/worker
-	assignment = "Town Worker"
+	assignment = "Snowcrest Worker"
 	access = list(ACCESS_TOWN_WORKER, ACCESS_TOWN_ALL)
 
 /obj/item/card/id/ms13/town/bartender
-	assignment = "Town Bartender"
+	assignment = "Snowcrest Bartender"
 
 /obj/item/card/id/ms13/ncr
 	name = "\improper NCR dog tags"
@@ -305,37 +304,68 @@
 	name = "\improper Barony identification papers"
 	desc = "Stamped identification papers for a citizen of the Barony. This has no special assignment on it and likely belongs to a typical Denizen."
 	icon_state = "drought_town"
-	assignment = "Town Denizen"
+	assignment = "Barony Denizen"
+
+/obj/item/card/id/ms13/drought_visa
+	name = "\improper Barony identification papers"
+	desc = "Freshly stamped identification papers for a new citizen of the Barony. The freshness of these papers likely indicate these are for a recent arrival to the Barony."
+	icon_state = "drought_town"
+	assignment = "Barony Migrant"
+
+/obj/item/card/id/ms13/drought_visa/attackby(obj/item/W, mob/user, params)
+	if(istype(W, /obj/item/card/id/ms13/drought_baron))
+		registered_name = stripped_input(user, "Who do you want to grant these papers to?", , "", MAX_NAME_LEN)
+		to_chat(user, "You scribble [registered_name] for the name on the papers.")
+		update_label()
+	return ..()
 
 /obj/item/card/id/ms13/drought_slave
+	name = "\improper Barony identification papers"
 	desc = "Stamped identification papers for a citizen of the Barony. This has special clearance for labor and maintenance duties included."
-	assignment = "Town Laborer"
+	assignment = "Barony Laborer"
 	icon_state = "drought_town"
 
 /obj/item/card/id/ms13/drought_barkeep
+	name = "\improper Barony identification papers"
 	desc = "Stamped identification papers for a citizen of the Barony. This has special clearance for operation of a dining and drinking establishment within the Barony."
-	assignment = "Town Barkeep"
+	assignment = "Barony Barkeep"
 	icon_state = "drought_town"
 
 /obj/item/card/id/ms13/drought_doctor
+	name = "\improper Barony identification papers"
 	desc = "Stamped identification papers for a citizen of the Barony. This has special clearance for operation of a clinic and medical duties within the Barony."
-	assignment = "Town Clinician"
+	assignment = "Barony Clinician"
 	icon_state = "drought_town"
 	access = list(ACCESS_BARONY_DOCTOR)
+
+/obj/item/card/id/ms13/drought_medical
+	name = "\improper Barony identification papers"
+	desc = "Freshly stamped identification papers for a citizen of the Barony. This is specifically designated for individuals assisting the operation of the Barony's clinic."
+	assignment = "Barony Medical Support"
+	icon_state = "drought_town"
+	access = list(ACCESS_BARONY_DOCTOR)
+
+/obj/item/card/id/ms13/drought_medical/attackby(obj/item/W, mob/user, params)
+	if(istype(W, /obj/item/card/id/ms13/drought_doctor))
+		registered_name = stripped_input(user, "Who do you want to grant these papers to?", , "", MAX_NAME_LEN)
+		to_chat(user, "You scribble [registered_name] for the name on the papers.")
+		update_label()
+	return ..()
 
 /obj/item/card/id/ms13/drought_enforcer
 	name = "enforcer's golden pin"
 	desc = "A gold talon pin, worn by Enforcers of the Baron. An intimidating sight."
-	assignment = "Town Enforcer"
+	assignment = "Barony Enforcer"
 	icon_state = "drought_enforcer"
 	access = list(ACCESS_BARONY_RESTRICTED, ACCESS_BARONY_DOCTOR)
 	shows_age = FALSE
+	just_initials = TRUE
 
 /obj/item/card/id/ms13/drought_baron
 	name = "\improper Baron's golden pin"
 	desc = "A golden pin with a skull belonging to the Baron himself."
 	icon_state = "baron"
-	assignment = "Town Baron"
+	assignment = "The Baron"
 	access = list(ACCESS_BARONY_RESTRICTED, ACCESS_BARON_QUARTERS, ACCESS_BARONY_DOCTOR)
 	shows_age = FALSE
 

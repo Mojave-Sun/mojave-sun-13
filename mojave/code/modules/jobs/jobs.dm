@@ -4,15 +4,15 @@ GLOBAL_LIST_INIT(wasteland_positions, list(
 	"Hubologist"))
 
 GLOBAL_LIST_INIT(town_positions, list(
-	"Town Mayor",
-	"Town Settler",
-	"Town Squatter",
-	"Town Worker",
-	"Town Bartender",
-	"Town Doctor",
-	"Town Nurse",
+	"Snowcrest Mayor",
+	"Snowcrest Citizen",
+	"Snowcrest Squatter",
+	"Snowcrest Worker",
+	"Snowcrest Bartender",
+	"Snowcrest Doctor",
+	"Snowcrest Nurse",
 	"Town Deputy",
-	"Town Bodyguard",
+	"Snowcrest Bodyguard",
 	"Town Sheriff"))
 
 GLOBAL_LIST_INIT(ncr_positions, list(
@@ -71,12 +71,12 @@ GLOBAL_LIST_INIT(ranger_positions, list(
 	"Ranger Doctor",))
 
 GLOBAL_LIST_INIT(drought_town_positions, list(
-	"Town Baron",
-	"Town Denizen",
-	"Town Laborer",
-	"Town Barkeep",
-	"Town Clinician",
-	"Town Enforcer"))
+	"The Baron",
+	"Barony Denizen",
+	"Barony Laborer",
+	"Barony Barkeep",
+	"Barony Clinician",
+	"Barony Enforcer"))
 
 GLOBAL_LIST_INIT(drylander_positions, list(
 	"Drylander Chieftain",

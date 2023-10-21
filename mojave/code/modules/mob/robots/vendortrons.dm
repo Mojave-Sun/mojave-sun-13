@@ -135,7 +135,9 @@
 		/obj/item/stack/sheet/ms13/scrap_brass = list(3, rand(5,30), ", per piece of brass"),
 		/obj/item/stack/sheet/ms13/refined_lead = list(22, rand(0,10), ", per ingot of lead"),
 		/obj/item/stack/sheet/ms13/refined_brass = list(22, rand(0,10), ", per ingot of brass"),
-		/obj/item/stack/ms13/currency/ncr_coin = list(4, rand(3, 20), ", per coin")
+		/obj/item/stack/ms13/currency/ncr_coin = list(4, rand(3, 20), ", per coin"),
+		/obj/item/stack/sheet/ms13/scrap_gold = list(6, rand(4,18), ", per piece of gold"),
+		/obj/item/stack/sheet/ms13/refined_gold = list(32, rand(1,5), ", per ingot of gold")
 				)
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/medtek
@@ -213,6 +215,7 @@
 		/obj/item/stack/sheet/ms13/glass = list(3, rand(5,30), ", per piece of glass"),
 		/obj/item/stack/sheet/ms13/ceramic = list(4, rand(5,30), ", per piece of ceramic"),
 		/obj/item/stack/sheet/ms13/plastic = list(4, rand(5,30), ", per piece of plastic"),
+		/obj/item/stack/sheet/ms13/cloth = list(4, rand(5,30), ", per piece of cloth")
 				)
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/armor
@@ -312,7 +315,9 @@
 		/obj/item/stack/sheet/ms13/leather = list(3, rand(5,30), ", per piece of leather"),
 		/obj/item/stack/sheet/ms13/thread = list(4, rand(4,20), ", per piece of thread"),
 		/obj/item/stack/sheet/ms13/mil_fiber = list(22, rand(0,10), ", per piece of fiber"),
-		/obj/item/stack/ms13/currency/ncr_coin = list(4, rand(3, 20), ", per coin")
+		/obj/item/stack/ms13/currency/ncr_coin = list(4, rand(3, 20), ", per coin"),
+		/obj/item/stack/sheet/ms13/scrap_gold = list(6, rand(4,18), ", per piece of gold"),
+		/obj/item/stack/sheet/ms13/refined_gold = list(32, rand(1,5), ", per ingot of gold")
 				)
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/tools

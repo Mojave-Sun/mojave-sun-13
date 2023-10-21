@@ -213,6 +213,43 @@
 	category = CAT_WEAPONS
 	crafting_interface = CRAFTING_BENCH_WEAPONS
 
+/datum/crafting_recipe/shiv
+	name = "Improvised shiv"
+	result = /obj/item/knife/ms13/tribal
+	time = 5 SECONDS
+	tool_behaviors = list()
+	tool_paths = list()
+	reqs = list(/obj/item/stack/sheet/ms13/scrap = 5,
+				/obj/item/stack/sheet/ms13/cloth = 1)
+	category = CAT_WEAPONS
+	crafting_interface = CRAFTING_BENCH_GENERAL | CRAFTING_BENCH_WEAPONS
+
+/datum/crafting_recipe/drylander_axe
+	name = "Drylander axe"
+	result = /obj/item/ms13/twohanded/fireaxe/drylander
+	time = 15 SECONDS
+	tool_behaviors = list(TOOL_SAW)
+	tool_paths = list(/obj/item/ms13/hammer)
+	trait = TRAIT_DRY_SHAMAN
+	reqs = list(/obj/item/stack/sheet/ms13/refined_steel = 6,
+				/obj/item/stack/sheet/ms13/wood/plank = 3)
+	category = CAT_WEAPONS
+	crafting_interface = CRAFTING_BENCH_WEAPONS
+
+/datum/crafting_recipe/jezzail
+	name = "Handmade jezzail"
+	result = /obj/item/gun/ballistic/rifle/ms13/jezzail
+	time = 20 SECONDS
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WELDER, TOOL_DRILL, TOOL_KNIFE)
+	tool_paths = list(/obj/item/ms13/hammer)
+	trait = TRAIT_DRY_SHAMAN
+	reqs = list(/obj/item/stack/sheet/ms13/refined_steel = 5,
+				/obj/item/stack/sheet/ms13/scrap_parts = 8,
+				/obj/item/stack/sheet/ms13/wood/plank = 2,
+				/obj/item/stack/sheet/ms13/leather = 3)
+	category = CAT_WEAPONS
+	crafting_interface = CRAFTING_BENCH_WEAPONS
+
 //GUN CRAFTING
 /* I don't feel like deleting all of this so I'm just going to comment it - Hekzder
 /datum/crafting_recipe/pistol_9mm

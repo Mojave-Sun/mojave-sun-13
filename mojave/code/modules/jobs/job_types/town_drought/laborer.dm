@@ -1,9 +1,9 @@
 /datum/job/ms13/town_drought/laborer
-	title = "Town Laborer"
+	title = "Barony Laborer"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "The Baron and his Enforcers."
-	description = "Provide vital labor for the Town in the form of production, construction, engineering, maintenance. You name it!"
+	description = "Provide vital labor for the Barony in the form of production, construction, engineering, maintenance. You name it!"
 	forbid = ""
 	enforce = ""
 
@@ -12,14 +12,14 @@
 	display_order = JOB_DISPLAY_ORDER_MS13_LABORER
 
 /datum/outfit/job/ms13/town_drought/laborer
-	name = "_Town Laborer"
+	name = "_Barony Laborer"
 	jobtype = /datum/job/ms13/town_drought/laborer
 
 	id = 		 /obj/item/card/id/ms13/drought_slave
 	shoes =  	 /obj/item/clothing/shoes/ms13/explorer
 	belt =		 /obj/item/weldingtool/ms13
 	r_pocket =   /obj/item/wirecutters/ms13
-	l_pocket =	 /obj/item/stack/ms13/currency/cap/sixty
+	l_pocket =	 /obj/item/stack/ms13/currency/cap/eighty
 	backpack_contents = list(
 		/obj/item/clothing/glasses/ms13/welding=1, \
 		/obj/item/wrench/ms13=1, \

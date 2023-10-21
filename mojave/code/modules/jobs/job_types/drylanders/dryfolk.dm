@@ -13,7 +13,7 @@
 	name = "_Drylander Folk"
 	jobtype = /datum/job/ms13/drylander/dryfolk
 
-	id =         /obj/item/card/id/ms13/drylander/dryfolk
+	id =         null
 	belt =		 /obj/item/knife/ms13/tribal
 	back =       null
 
