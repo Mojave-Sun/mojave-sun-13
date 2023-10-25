@@ -945,6 +945,8 @@
 		combined_msg += span_notice("You have these quirks: [get_quirk_string(FALSE, CAT_QUIRK_ALL)].")
 
 	to_chat(src, combined_msg.Join("\n"))
+	SEND_SIGNAL(src, WATER_CHECK)
+	to_chat(world, "949")
 
 /mob/living/carbon/human/damage_clothes(damage_amount, damage_type = BRUTE, damage_flag = 0, def_zone)
 	if(damage_type != BRUTE && damage_type != BURN)
