@@ -1,1 +1,1 @@
-#define WATER_CHECK "Water_text"
+#define COMSIG_CHECK_SELF "Check_self"

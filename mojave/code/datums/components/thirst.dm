@@ -7,10 +7,10 @@
 #define SECONDS_OF_LIFE_PER_WATER_U 60
 
 //List of stage of dehydration => examine/warning text
-GLOBAL_LIST_INIT(dehydration_stage_examine, list("You feel full of life and turgid",
-												 "<font color='yellow'>You could use some water",
-												 "<font color='yellow'>Your mouth feels dry",
-												 "<font color='yellow'>Your tongue is cracking and dry",
+GLOBAL_LIST_INIT(dehydration_stage_examine, list("You feel full of life and turgid.",
+												 "<font color='yellow'>You could use some water.",
+												 "<font color='yellow'>Your mouth feels dry.",
+												 "<font color='yellow'>Your tongue is cracking and dry.",
 												 "<font color='red'>You can barely focus from how thirsty you are."
 												))
 
@@ -42,22 +42,19 @@ GLOBAL_LIST_INIT(dehydration_stage_alerts, list(
 	stage_of_dehydration = 1
 	var/mob/living/the_parent = parent
 	modify_thirst(modify_by = start_thirst)
-	RegisterSignal(parent, WATER_CHECK, .proc/on_examine)
+	RegisterSignal(the_parent, COMSIG_CHECK_SELF, .proc/on_examine)
 	START_PROCESSING(SSdcs, src)
 	if(stage_of_dehydration == 1) //Still the same after modifying thirst? throw the alert
 		the_parent.throw_alert("thirst", GLOB.dehydration_stage_alerts[stage_of_dehydration])
 
 //Examines the state of dehydration parent is in
-/datum/component/thirst/proc/on_examine()
-	var/mob/living/the_parent = parent
+/datum/component/thirst/proc/on_examine(datum/source, list/combined_msg)
 	SIGNAL_HANDLER
-	to_chat(the_parent, span_notice ("[stage_to_text[stage_of_dehydration]]."))
-	to_chat(world, "55 triggered")
-	return
+	combined_msg += span_info("[GLOB.dehydration_stage_examine[stage_of_dehydration]]")
 
 /datum/element/thirst/Detach(datum/target)
 	. = ..()
-	UnregisterSignal(target, WATER_CHECK)
+	UnregisterSignal(target, COMSIG_CHECK_SELF)
 	var/mob/living/carbon/the_target = target
 	the_target.clear_alert("thirst")
 
