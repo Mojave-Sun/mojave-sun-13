@@ -1,5 +1,5 @@
 /datum/job/ms13/town/squatter
-	title = "Town Squatter"
+	title = "Snowcrest Squatter"
 	total_positions = -1
 	spawn_positions = -1
 	supervisors = "NCR law enforcement, the Mayor and his bodyguards"
@@ -14,7 +14,7 @@
 	guestbook_flags = GUESTBOOK_FORGETMENOT //anonymity from the rest of town
 
 /datum/outfit/job/ms13/town/squatter
-	name = "_Town Squatter"
+	name = "_Snowcrest Squatter"
 	jobtype = /datum/job/ms13/town/squatter
 
 	back =       null

@@ -189,7 +189,7 @@
 	name = "T-51 Power Armor left leg"
 	icon_state = "t51_leftleg"
 	icon_state_pa = "t51_leftleg"
-	max_integrity = 280
+	max_integrity = 250
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
 					EDGE_PROTECTION = CLASS4_EDGE, \
 					CRUSHING = CLASS5_CRUSH, \
@@ -205,7 +205,7 @@
 	name = "T-51 Power Armor right leg"
 	icon_state = "t51_rightleg"
 	icon_state_pa = "t51_rightleg"
-	max_integrity = 280
+	max_integrity = 250
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
 					EDGE_PROTECTION = CLASS4_EDGE, \
 					CRUSHING = CLASS5_CRUSH, \
@@ -221,7 +221,7 @@
 	name = "T-51 Power Armor chest"
 	icon_state = "t51_chest"
 	icon_state_pa = "t51_chest"
-	max_integrity = 550
+	max_integrity = 480
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
 					EDGE_PROTECTION = CLASS4_EDGE, \
 					CRUSHING = CLASS5_CRUSH, \
@@ -237,7 +237,7 @@
 	name = "T-51 Power Armor left arm"
 	icon_state = "t51_lefthand"
 	icon_state_pa = "t51_lefthand"
-	max_integrity = 280
+	max_integrity = 250
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
 					EDGE_PROTECTION = CLASS4_EDGE, \
 					CRUSHING = CLASS5_CRUSH, \
@@ -253,7 +253,7 @@
 	name = "T-51 Power Armor right arm"
 	icon_state = "t51_righthand"
 	icon_state_pa = "t51_righthand"
-	max_integrity = 280
+	max_integrity = 250
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
 					EDGE_PROTECTION = CLASS4_EDGE, \
 					CRUSHING = CLASS5_CRUSH, \
@@ -276,7 +276,7 @@
 	name = "T-45 Power Armor left leg"
 	icon_state = "t45_leftleg"
 	icon_state_pa = "t45_leftleg"
-	max_integrity = 200
+	max_integrity = 175
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = CLASS4_EDGE, \
                 CRUSHING = CLASS4_CRUSH, \
@@ -292,7 +292,7 @@
 	name = "T-45 Power Armor right leg"
 	icon_state = "t45_rightleg"
 	icon_state_pa = "t45_rightleg"
-	max_integrity = 200
+	max_integrity = 175
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = CLASS4_EDGE, \
                 CRUSHING = CLASS4_CRUSH, \
@@ -308,7 +308,7 @@
 	name = "T-45 Power Armor chest"
 	icon_state = "t45_chest"
 	icon_state_pa = "t45_chest"
-	max_integrity = 400
+	max_integrity = 360
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = CLASS4_EDGE, \
                 CRUSHING = CLASS4_CRUSH, \
@@ -324,7 +324,7 @@
 	name = "T-45 Power Armor left arm"
 	icon_state = "t45_lefthand"
 	icon_state_pa = "t45_lefthand"
-	max_integrity = 200
+	max_integrity = 175
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = CLASS4_EDGE, \
                 CRUSHING = CLASS4_CRUSH, \
@@ -340,7 +340,7 @@
 	name = "T-45 Power Armor right arm"
 	icon_state = "t45_righthand"
 	icon_state_pa = "t45_righthand"
-	max_integrity = 200
+	max_integrity = 175
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = CLASS4_EDGE, \
                 CRUSHING = CLASS4_CRUSH, \

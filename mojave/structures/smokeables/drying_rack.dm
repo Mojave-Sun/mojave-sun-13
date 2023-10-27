@@ -12,6 +12,7 @@
 	bound_width = 64
 	var/has_rope = FALSE
 	//Having a mental breakdown so this is how its gonna be, if anyone knows something better please do tell me
+	var/indoors = FALSE //hard indoor check
 	var/is_processing = FALSE
 	var/obj/slot_1
 	var/mutable_appearance/slot_1m
@@ -30,8 +31,32 @@
 	var/obj/slot_8
 	var/mutable_appearance/slot_8m
 
-/obj/structure/ms13/drying_rack/Initialize(mapload)
+/obj/structure/ms13/drying_rack/Initialize()
 	. = ..()
+	var/turf/turfcheck = get_turf(src)
+	var/turf/above_turf = get_step_multiz(turfcheck, UP) // z level above, if there is none this is the highest level and so therefore cannot be checked if its indoors or not
+	var/area/ms13/area_check = get_area(turfcheck) //check for area as theres no way to pick up on roof setters (very cool)
+	var/roofStat = turfcheck.get_ceiling_status()
+	if(!roofStat["SKYVISIBLE"]) //lower Z indoor check
+		indoors = TRUE
+		return
+	if(!above_turf)
+		var/static/list/area_outdoorslist = list(
+			/area/ms13 = TRUE,
+			/area/ms13/desert = TRUE,
+			/area/ms13/legioncamp = TRUE,
+			/area/ms13/drylanders = TRUE,
+			/area/ms13/rangeroutpost = TRUE,
+			/area/ms13/water_baron = TRUE,
+			/area/ms13/snow = TRUE,
+			/area/ms13/snow/forest = TRUE,
+			/area/ms13/snow/lightforest = TRUE,
+			/area/ms13/snow/deepforest = TRUE,
+		)
+		if(!area_outdoorslist[area_check.type]) //indoors and not outside and on the top Z
+			indoors = TRUE
+			return
+	//oh my god why did riddler put the drying rack indoors AND on the upper Z this shit is diabolical
 	GLOB.weather_act_upon_list += src
 	GLOB.sunlight_act_upon_list += get_turf(src)
 
@@ -92,6 +117,8 @@
 
 /obj/structure/ms13/drying_rack/proc/drying_check(obj/item/I)
 	var/obj/item/food/grown/ms13/place_dry = I
+	if(indoors)
+		return
 	if(contents.len && place_dry.can_dry)
 		if(!is_processing)
 			is_processing = TRUE
@@ -106,6 +133,9 @@
 
 /obj/structure/ms13/drying_rack/process()
 	var/turf/dry_turf = get_turf(src)
+	if(indoors)
+		STOP_PROCESSING(SSobj,src)
+		return
 	if(dry_turf.outdoor_effect.state == SKY_BLOCKED) //so it has to be outside
 		return
 	if(dry_turf.outdoor_effect.time_of_day <= 5 HOURS || dry_turf.outdoor_effect.time_of_day >= 19 HOURS) //so it cannot be night

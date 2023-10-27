@@ -47,3 +47,9 @@
 	icon_state = "sink"
 	desc = "A sink. This one seems to function well, but there's a gross buildup around the faucet end."
 	dispensedreagent = /datum/reagent/consumable/ms13/water/unfiltered
+
+/obj/machinery/shower/ms13
+	name = "shower"
+	desc = "An old shower, there must still be some water in the tank since it works, but you probably shouldn't leave your mouth open whilst using it."
+	icon = 'mojave/icons/structure/miscellaneous.dmi'
+	icon_state = "shower"

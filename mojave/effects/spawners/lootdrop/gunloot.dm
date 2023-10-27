@@ -8,7 +8,7 @@
 /obj/effect/spawner/random/ms13/gun/tier1
 	name = "tier 1 gun spawner"
 	spawn_loot_count = 3
-	spawn_loot_chance = 50
+	spawn_loot_chance = 45
 	var/loot1 = list(
 				/obj/item/gun/ballistic/automatic/pistol/ms13/m9mm,
 				/obj/item/ammo_box/magazine/ms13/m9mm,
@@ -72,7 +72,7 @@
 /obj/effect/spawner/random/ms13/gun/tier2
 	name = "tier 2 gun spawner"
 	spawn_loot_count = 3
-	spawn_loot_chance = 55
+	spawn_loot_chance = 50
 	var/loot1 = list(
 				/obj/item/gun/ballistic/automatic/pistol/ms13/m10mm/military,
 				/obj/item/ammo_box/magazine/ms13/m10mm,
@@ -450,7 +450,7 @@
 /obj/effect/spawner/random/ms13/gun/military
 	name = "military gun spawner"
 	spawn_loot_count = 3
-	spawn_loot_chance = 50
+	spawn_loot_chance = 55
 	var/loot1 = list(
 				/obj/item/gun/ballistic/rifle/ms13/hunting/scoped/amr,
 				/obj/item/ammo_box/magazine/ms13/amr,

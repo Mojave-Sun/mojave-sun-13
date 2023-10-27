@@ -1,5 +1,5 @@
 /datum/job/ms13/town/bartender
-	title = "Town Bartender"
+	title = "Snowcrest Bartender"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "The Mayor"
@@ -12,7 +12,7 @@
 	display_order = JOB_DISPLAY_ORDER_MS13_BARTENDER
 
 /datum/outfit/job/ms13/town/bartender
-	name = "_Town Bartender"
+	name = "_Snowcrest Bartender"
 	jobtype = /datum/job/ms13/town/bartender
 
 	id =		 /obj/item/card/id/ms13/town/bartender
