@@ -43,11 +43,16 @@ GLOBAL_LIST_INIT(dehydration_stage_alerts, list(
 	var/mob/living/the_parent = parent
 	modify_thirst(modify_by = start_thirst)
 	RegisterSignal(the_parent, COMSIG_CHECK_SELF, .proc/on_examine)
+	RegisterSignal(the_parent, DEHYDRATION_STAGE_CHECK, .proc/return_dehydration_stage)
 	START_PROCESSING(SSdcs, src)
 	if(stage_of_dehydration == 1) //Still the same after modifying thirst? throw the alert
 		the_parent.throw_alert("thirst", GLOB.dehydration_stage_alerts[stage_of_dehydration])
 
-//Examines the state of dehydration parent is in
+
+/datum/component/thirst/proc/return_dehydration_stage()
+	SIGNAL_HANDLER
+	return stage_of_dehydration
+
 /datum/component/thirst/proc/on_examine(datum/source, list/combined_msg)
 	SIGNAL_HANDLER
 	combined_msg += span_info("[GLOB.dehydration_stage_examine[stage_of_dehydration]]")
@@ -55,6 +60,7 @@ GLOBAL_LIST_INIT(dehydration_stage_alerts, list(
 /datum/element/thirst/Detach(datum/target)
 	. = ..()
 	UnregisterSignal(target, COMSIG_CHECK_SELF)
+	UnregisterSignal(target, DEHYDRATION_STAGE_CHECK)
 	var/mob/living/carbon/the_target = target
 	the_target.clear_alert("thirst")
 
@@ -103,5 +109,3 @@ GLOBAL_LIST_INIT(dehydration_stage_alerts, list(
 		the_parent.throw_alert("thirst", GLOB.dehydration_stage_alerts[stage_of_dehydration])
 	if (stage_of_dehydration == 5)
 		the_parent.throw_alert("thirst", GLOB.dehydration_stage_alerts[stage_of_dehydration])
-
-
