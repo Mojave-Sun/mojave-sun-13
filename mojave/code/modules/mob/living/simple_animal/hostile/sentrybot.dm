@@ -493,9 +493,21 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 		P.preparePixelProjectile(target_turf, owner)
 		P.fire()
 
-//All hail the ballistic sentrybot, now with smoke particles and ejected casings!
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/ballistic
-	casingtype = /obj/item/ammo_casing/ms13/a308/sentrybot
+	icon_state = "ballisentry"
+	casingtype = /obj/item/ammo_casing/ms13/sentry
+	ranged_cooldown = 5 SECONDS
+	rapid = 40
+	rapid_fire_delay = 0.025 SECONDS //40 shots over 1 seconds
+
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/ballistic/Initialize()
+	. = ..()
+	grenade = new /datum/action/cooldown/launch_grenade()
+	rocket = new /datum/action/cooldown/railgun()
+	grenade.Grant(src)
+	rocket.Grant(src)
+	RegisterSignal(src, COMSIG_MOVABLE_MOVED, .proc/play_move_sound, override = TRUE)
+	soundloop = new(src, FALSE)
 
 //Wind down is combined with windup sound
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/ballistic/wind_down_gun()
@@ -507,67 +519,6 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/ballistic/spinup_sound()
 	playsound(src, 'mojave/sound/ms13npc/sentrybot/ballistic_minigun_spinup_down.ogg', 50, FALSE)
 
-
-//randomspread prerequisite
-/obj/item/ammo_casing/ms13/a308/sentrybot
-	projectile_type = /obj/projectile/bullet/ms13/a308/sentrybot
-	variance = 30
-	pellets = 1
-	fire_sound = 'mojave/sound/ms13weapons/gunsounds/sniper/sniper1.ogg'
-	randomspread = TRUE
-
-/obj/projectile/bullet/ms13/a308/sentrybot
-	damage = 8
-	subtractible_armour_penetration = 35
-	wound_bonus = 18
-	bare_wound_bonus = 10
-
-/obj/item/ammo_casing/ms13/a308/sentrybot/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from, extra_damage, extra_penetration)
-	. = ..()
-	pixel_z = 8 //bounce time
-	var/rand_spin = (rand(1, 3) * 10 ) //* SECONDS
-	SpinAnimation(speed = rand_spin, loops = 1)
-	var/angle_of_movement = !isnull(user) ? (rand(-3000, 3000) / 100) + dir2angle(turn(user.dir, 180)) : rand(-3000, 3000) / 100
-	AddComponent(/datum/component/movable_physics, _horizontal_velocity = rand(450, 550) / 100, _vertical_velocity = rand(400, 450) / 100, _horizontal_friction = rand(20, 24) / 100, _z_gravity = 9.80665, _z_floor = 0, _angle_of_movement = angle_of_movement)
-
-/mob/living/simple_animal/hostile/ms13/robot/sentrybot/ballistic
-	icon_state = "ballisentry"
-	casingtype = /obj/item/ammo_casing/ms13/sentry
-	ranged_cooldown = 5 SECONDS
-	rapid = 50
-	rapid_fire_delay = 0.025 SECONDS //50 shots over 1.25 seconds
-
-/mob/living/simple_animal/hostile/ms13/robot/sentrybot/ballistic/Initialize()
-	. = ..()
-	grenade = new /datum/action/cooldown/launch_grenade()
-	rocket = new /datum/action/cooldown/railgun()
-	grenade.Grant(src)
-	rocket.Grant(src)
-	RegisterSignal(src, COMSIG_MOVABLE_MOVED, .proc/play_move_sound, override = TRUE)
-	soundloop = new(src, FALSE)
-
-/mob/living/simple_animal/hostile/ms13/robot/sentrybot/ballistic/OpenFire(atom/A, actually_fire = FALSE)
-	//Main gun time
-	//If we don't have LoS on our target, we should see if there's any other targets we could be killing
-	//Otherwise, we'll go chase the target by setting a lowered minimum distance
-	if(!can_see(src, target, length = 10))
-		FindTarget(possible_targets = null, HasTargetsList = FALSE)
-	if(actually_fire)
-		. = ..()
-		playsound(src, 'mojave/sound/ms13weapons/WPN_Minigun_Fire.ogg', 50, FALSE)
-		addtimer(CALLBACK(src, .proc/wind_down_minigun), 1 SECONDS)
-	else
-		if(!already_firing)
-			addtimer(CALLBACK(src, .proc/trigger_abilities, A), rand(1.5 SECONDS, 3 SECONDS))
-			addtimer(CALLBACK(src, .proc/OpenFire, A, TRUE), 1 SECONDS)
-			playsound(src, 'mojave/sound/ms13weapons/WPN_Minigun_FireSpin_Up.wav', 75, FALSE)
-			already_firing = TRUE
-	return
-
-/mob/living/simple_animal/hostile/ms13/robot/sentrybot/ballistic/proc/wind_down_minigun()
-	playsound(src, 'mojave/sound/ms13weapons/WPN_Minigun_FireSpin_Down.wav', 50, FALSE)
-	already_firing = FALSE
-
 /obj/item/ammo_casing/ms13/sentry
 	name = "5mm bullet casing"
 	projectile_type = /obj/projectile/bullet/ms13/sentry
@@ -576,6 +527,14 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	pellets = 1
 	fire_sound = 'mojave/sound/ms13weapons/arfire.ogg'
 	randomspread = TRUE
+
+/obj/item/ammo_casing/ms13/sentry/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from, extra_damage, extra_penetration)
+	. = ..()
+	pixel_z = 8 //bounce time
+	var/rand_spin = (rand(1, 3) * 10 ) //* SECONDS
+	SpinAnimation(speed = rand_spin, loops = 1)
+	var/angle_of_movement = !isnull(user) ? (rand(-3000, 3000) / 100) + dir2angle(turn(user.dir, 180)) : rand(-3000, 3000) / 100
+	AddComponent(/datum/component/movable_physics, _horizontal_velocity = rand(450, 550) / 100, _vertical_velocity = rand(400, 450) / 100, _horizontal_friction = rand(20, 24) / 100, _z_gravity = 9.80665, _z_floor = 0, _angle_of_movement = angle_of_movement)
 
 /obj/projectile/bullet/ms13/sentry
 	name = "5mm bullet"
