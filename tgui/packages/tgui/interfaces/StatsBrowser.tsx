@@ -133,7 +133,7 @@ const Stat = (props, context) => {
           </td>
         </tr>
         <tr>
-          <td colspan="2">
+          <td colSpan="2">
             <div class="m-2 col-span-2 h-6 u-center">{freepoint} unused pt</div>
           </td>
         </tr>
@@ -144,17 +144,17 @@ const Stat = (props, context) => {
             {filteredPerks?.map(perk => (
               <PerkActive key={perk.name} perk={perk}
                 last={filteredPerks[filteredPerks.length - 1] === perk}
-                below={selectedperk < filteredPerks.indexOf(perk) && selectedperk !== "none"}
+                below={selectedperk !== "none" && Number(selectedperk) < filteredPerks.indexOf(perk)}
                 remove_perk={() => {
                   act('remove_perk', { id: perk.id });
                 }}
                 perkactiveclick={() => {
-                  if (filteredPerks.length - 1 !== perk) {
-                    if (selectedperk === filteredPerks.indexOf(perk)) {
+                  if (filteredPerks.length - 1 !== Number(selectedperk)) {
+                    if (Number(selectedperk) === filteredPerks.indexOf(perk)) {
                       setSelectedPerk("none");
                     }
                     else {
-                      setSelectedPerk(filteredPerks.indexOf(perk));
+                      setSelectedPerk(String(filteredPerks.indexOf(perk)));
                     }
                   }
                 }} />
@@ -164,12 +164,12 @@ const Stat = (props, context) => {
         <Button color="rgba(0, 0, 0, 0)"
           onClick={selectStat}
           className={classes(["u-center w-[160px]", "border-dashed", "border-2", "border-white/50", "hover:border-white/75", "addperk", "gap-2",
-            filteredPerks.length === 0 && "h-[228px]",
-            filteredPerks.length !== 0 && "h-[28px]"])}>
-          { filteredPerks.length === 0 && (
+            filteredPerks?.length === 0 && "h-[228px]",
+            filteredPerks?.length !== 0 && "h-[28px]"])}>
+          { filteredPerks?.length === 0 && (
             "Add perk card"
           )}
-          { filteredPerks.length !== 0 && (
+          { filteredPerks?.length !== 0 && (
             <i class="fas fa-plus text-white/25" />
           )}
         </Button>
@@ -195,7 +195,7 @@ const PerkActive = props => {
   } = perk;
   return (
     <div className="u-stack-item">
-      <div className={classes(["container", last && "last", below && "below"])} style="z-index: 10;">
+      <div className={classes(["container", "z-10", last && "last", below && "below"])}>
         <div>
           <div data-v-6b1720e3="" class="u-removable">
             <div>
@@ -208,9 +208,9 @@ const PerkActive = props => {
                 <div data-v-fac1b534="" class="font-condensed font-bold text-xl rounded border-2 text-black bg-white w-8 h-8 u-center">
                   <span data-v-fac1b534="">{level}</span>
                 </div>
-                <div data-v-d44c1d41="" data-v-fac1b534="" class="u-adaptive-font title" style="font-size: 18px;">{name}</div>
+                <div data-v-d44c1d41="" data-v-fac1b534="" class="u-adaptive-font title font-18px">{name}</div>
               </div>
-              <div data-v-d44c1d41="" data-v-fac1b534="" class="u-adaptive-font leading-tight p-2 text-center" style="font-size: 18px;">{desc}</div>
+              <div data-v-d44c1d41="" data-v-fac1b534="" class="u-adaptive-font leading-tight p-2 text-center font-18px">{desc}</div>
               <div data-v-fac1b534="" class="ranks">
                 <div data-v-127279da="" data-v-fac1b534="" className={classes(["fss-perk-rank-selector", "content", type])}>
                   <div data-v-8674d4b1="" data-v-127279da="" className={classes(["rank", ranks >= 1 && "active text-white drop-shadow"])}>
@@ -251,9 +251,9 @@ const Perk = props => {
           <div data-v-fac1b534="" class="font-condensed font-bold text-xl rounded border-2 text-black bg-white w-8 h-8 u-center">
             <span data-v-fac1b534="">{level}</span>
           </div>
-          <div data-v-d44c1d41="" data-v-fac1b534="" class="u-adaptive-font title" style="font-size: 18px;">{name}</div>
+          <div data-v-d44c1d41="" data-v-fac1b534="" class="u-adaptive-font title font-18px">{name}</div>
         </div>
-        <div data-v-d44c1d41="" data-v-fac1b534="" class="u-adaptive-font leading-tight p-2 text-center" style="font-size: 18px;">{desc}</div>
+        <div data-v-d44c1d41="" data-v-fac1b534="" class="u-adaptive-font leading-tight p-2 text-center font-18px">{desc}</div>
         <div data-v-fac1b534="" class="ranks">
           <div data-v-127279da="" data-v-fac1b534="" className={classes(["fss-perk-rank-selector", "content", type])}>
             <div data-v-8674d4b1="" data-v-127279da="" className={classes(["rank", ranks >= 1 && "active text-white drop-shadow"])}>
