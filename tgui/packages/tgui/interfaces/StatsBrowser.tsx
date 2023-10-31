@@ -139,9 +139,9 @@ const Stat = (props, context) => {
         </tr>
       </table>
       <div class="flex flex-col">
-        {filteredPerks.length !== 0 && (
+        {filteredPerks?.length !== 0 && (
           <div class="u-stack extra-padding gap-2">
-            {filteredPerks.map(perk => (
+            {filteredPerks?.map(perk => (
               <PerkActive key={perk.name} perk={perk}
                 last={filteredPerks[filteredPerks.length - 1] === perk}
                 below={selectedperk < filteredPerks.indexOf(perk) && selectedperk !== "none"}
