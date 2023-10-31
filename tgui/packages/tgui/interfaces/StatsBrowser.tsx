@@ -133,7 +133,7 @@ const Stat = (props, context) => {
           </td>
         </tr>
         <tr>
-          <td colSpan="2">
+          <td colSpan={2}>
             <div class="m-2 col-span-2 h-6 u-center">{freepoint} unused pt</div>
           </td>
         </tr>
