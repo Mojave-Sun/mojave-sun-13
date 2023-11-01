@@ -18,9 +18,10 @@
 	name = "general hardware spawner"
 	loot = list(
 			/obj/effect/spawner/random/ms13/guaranteed/tools/lights = 15,
-			/obj/effect/spawner/random/ms13/guaranteed/tools/tool = 50,
-			/obj/effect/spawner/random/ms13/guaranteed/tools/farming = 5,
-			/obj/effect/spawner/random/ms13/guaranteed/crafting/lowrandom = 30
+			/obj/effect/spawner/random/ms13/guaranteed/tools/tool = 48,
+			/obj/effect/spawner/random/ms13/guaranteed/tools/farming = 4,
+			/obj/effect/spawner/random/ms13/guaranteed/crafting/lowrandom = 30,
+			/obj/item/storage/ms13/toolbox = 3
 			)
 
 /obj/effect/spawner/random/ms13/guaranteed/tools/tool

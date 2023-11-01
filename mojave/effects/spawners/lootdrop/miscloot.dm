@@ -19,9 +19,10 @@
 	spawn_loot_chance = 65
 	loot = list(
 			/obj/effect/spawner/random/ms13/tools/lights = 15,
-			/obj/effect/spawner/random/ms13/tools/tool = 50,
-			/obj/effect/spawner/random/ms13/tools/farming = 5,
-			/obj/effect/spawner/random/ms13/crafting/lowrandom = 30
+			/obj/effect/spawner/random/ms13/tools/tool = 48,
+			/obj/effect/spawner/random/ms13/tools/farming = 4,
+			/obj/effect/spawner/random/ms13/crafting/lowrandom = 30,
+			/obj/item/storage/ms13/toolbox = 3
 			)
 
 /obj/effect/spawner/random/ms13/tools/tool

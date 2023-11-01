@@ -102,3 +102,70 @@
 	new /obj/item/stack/medical/ointment/ms13/half(src)
 	new /obj/item/stack/medical/bone_gel/ms13(src)
 	new /obj/item/stack/sticky_tape/surgical/ms13(src)
+
+
+/obj/item/storage/ms13/toolbox
+	name = "toolbox"
+	desc = "A lightly worn red toolbox. A working man's best friend."
+	w_class = WEIGHT_CLASS_BULKY
+	slot_flags = null
+	icon = 'mojave/icons/objects/tools/tools_world.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
+	worn_icon = 'mojave/icons/mob/worn_misc.dmi'
+	worn_icon_state = "empty_placeholder"
+	icon_state = "toolbox"
+	component_type = /datum/component/storage/concrete/ms13/toolbox
+	force = 15 //funny toolbox
+	wound_bonus = 0
+	bare_wound_bonus = 0
+	sharpness = NONE
+	hitsound = 'mojave/sound/ms13weapons/meleesounds/genericblunt_hit.ogg'
+	grid_height = 64
+	grid_width = 160
+	ms13_flags_1 = LOCKABLE_1
+
+/obj/item/storage/ms13/toolbox/Initialize()
+	. = ..()
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
+
+/obj/item/storage/ms13/toolbox/ComponentInitialize()
+	. = ..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	STR.max_w_class = WEIGHT_CLASS_NORMAL
+	STR.max_items = 24
+	STR.max_combined_w_class = 100
+	STR.set_holdable(list(
+		/obj/item/ms13/hammer,
+		/obj/item/ms13/handsaw,
+		/obj/item/ms13/handdrill,
+		/obj/item/crowbar/ms13,
+		/obj/item/weldingtool/ms13,
+		/obj/item/wrench/ms13,
+		/obj/item/wirecutters/ms13,
+		/obj/item/screwdriver/ms13,
+		/obj/item/shovel/ms13/spade,
+		/obj/item/knife/ms13/scissors,
+		/obj/item/flashlight/flare/ms13,
+		/obj/item/flashlight/ms13,
+		/obj/item/radio/ms13,
+		/obj/item/lighter/ms13/zippo,
+		/obj/item/stack/sheet/ms13/scrap_parts,
+		/obj/item/clothing/glasses/ms13/welding,
+		/obj/item/clothing/head/welding/ms13,
+		/obj/item/hatchet/ms13
+		))
+
+/obj/item/storage/ms13/toolbox/filled
+
+/obj/item/storage/ms13/toolbox/filled/PopulateContents()
+		new /obj/item/ms13/hammer(src)
+		new /obj/item/ms13/handsaw(src)
+		new /obj/item/ms13/handdrill(src)
+		new /obj/item/crowbar/ms13(src)
+		new /obj/item/weldingtool/ms13(src)
+		new /obj/item/wrench/ms13(src)
+		new /obj/item/wirecutters/ms13(src)
+		new /obj/item/screwdriver/ms13(src)
+		new /obj/item/clothing/glasses/ms13/welding(src)
+		new /obj/item/stack/sheet/ms13/scrap_parts/five(src)
