@@ -65,22 +65,15 @@ GLOBAL_LIST_INIT(dehydration_stage_alerts, list(
 	the_target.clear_alert("thirst")
 
 /datum/component/thirst/process()
-	var/list/acceptable_drinks = list(
-	/datum/reagent/consumable/ms13/water,
-	/datum/reagent/consumable/ms13/water/unfiltered,
-	/datum/reagent/consumable/ms13/water/dirty,
-	/datum/reagent/water,)
-	modify_thirst(modify_by = rate_of_thirst)
-	//Nice and hardcoded for now, probably
-	var/mob/living/the_parent = parent
-	for(var/_reagent in acceptable_drinks)
-		var/datum/reagent/liquid = _reagent
-		if(the_parent.has_reagent(liquid) && the_parent.reagents.get_reagent(liquid))
-			var/datum/reagent/water/water = the_parent.reagents.get_reagent(liquid) //Modify metabolism rate here so don't need to edit base files
-			water.metabolization_rate = 0 // Stop water metabolization, we'll take it from here
-			modify_thirst(modify_by = min(the_parent.reagents.get_reagent_amount(liquid) * SECONDS_OF_LIFE_PER_WATER_U, SECONDS_OF_LIFE_PER_WATER_U * 5)) //NO MICRODOSING, "metabolizes" 5 units of water per 1 second for +25 thirst
-			the_parent.reagents.remove_reagent(liquid, 5)
-
+    modify_thirst(modify_by = rate_of_thirst)
+    var/mob/living/the_parent = parent
+    for(var/datum/reagent/i in the_parent.reagents.reagent_list)
+        if(ispath(i, /datum/reagent/consumable))
+            if(the_parent.has_reagent(i))
+                var/datum/reagent/consumable/water = the_parent.reagents.get_reagent(i) //Modify metabolism rate here so don't need to edit base files
+                water.metabolization_rate = 0 // Stop water metabolization, we'll take it from here
+                modify_thirst(modify_by = min(the_parent.reagents.get_reagent_amount(water) * SECONDS_OF_LIFE_PER_WATER_U, SECONDS_OF_LIFE_PER_WATER_U * 5)) //NO MICRODOSING, "metabolizes" 5 units of water per 1 second for +25 thirst
+                the_parent.reagents.remove_reagent(water, 5)
 	//Last stage of dehydration, you're basically going to die now
 	if(stage_of_dehydration == length(GLOB.dehydration_stage_alerts))
 		var/fov_angle = 180
