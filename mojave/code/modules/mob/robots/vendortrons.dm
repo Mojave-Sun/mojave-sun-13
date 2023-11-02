@@ -138,7 +138,7 @@
 		/obj/item/stack/ms13/currency/ncr_coin = list(4, rand(3, 20), ", per coin"),
 		/obj/item/stack/sheet/ms13/scrap_gold = list(6, rand(4,18), ", per piece of gold"),
 		/obj/item/stack/sheet/ms13/refined_gold = list(32, rand(1,5), ", per ingot of gold"),
-		/obj/item/stack/sheet/ms13/nugget/nugget_coal = list(4, rand(4,16) ", per chunk of coal")
+		/obj/item/stack/sheet/ms13/nugget/nugget_coal = list(4, rand(4,16), ", per chunk of coal")
 				)
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/medtek
@@ -412,7 +412,7 @@
 		/obj/item/stack/sheet/ms13/scrap_silver = list(7, rand(5,25), ", per piece of silver"),
 		/obj/item/stack/sheet/ms13/refined_gold = list(45, rand(1,6), ", per ingot of gold"),
 		/obj/item/stack/sheet/ms13/refined_silver = list(45, rand(1,6), ", per ingot of silver"),
-		/obj/item/stack/sheet/ms13/nugget/nugget_coal = list(5, rand(4,16) ", per chunk of coal")
+		/obj/item/stack/sheet/ms13/nugget/nugget_coal = list(5, rand(4,16), ", per chunk of coal")
 				)
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/robco
@@ -595,7 +595,7 @@
 		/obj/item/stack/sheet/ms13/mil_fiber = list(30, rand(0,5), ", per piece of fiber"),
 		/obj/item/stack/ms13/currency/prewar = list(2, rand(25,120), ", per dollar"),
 		/obj/item/stack/sheet/ms13/nugget/sulfur = list(6, rand(4,16), ", per chunk of sulfur"),
-		/obj/item/stack/sheet/ms13/nugget/nugget_coal = list(5, rand(4,16) ", per chunk of coal")
+		/obj/item/stack/sheet/ms13/nugget/nugget_coal = list(5, rand(4,16), ", per chunk of coal")
 				)
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/drought/crimson
@@ -698,7 +698,7 @@
 		/obj/item/radio/ms13 = list(55, rand(0,3), ""),
 		/obj/item/radio/ms13/broadcast = list(105, rand(0,2), ""),
 		/obj/item/radio/ms13/broadcast/advanced = list(170, rand(0,2), ""),
-		/obj/item/stack/sheet/ms13/nugget/nugget_coal = list(5, rand(4,16) ", per chunk of coal")
+		/obj/item/stack/sheet/ms13/nugget/nugget_coal = list(5, rand(4,16), ", per chunk of coal")
 				)
 
 
@@ -898,5 +898,5 @@
 		/obj/item/food/meat/slab/ms13/animal/gecko/golden = list(6, rand(1,6)),
 		/obj/item/food/meat/slab/ms13/animal/bark_scorp = list(10, rand(0,5)),
 		/obj/item/ms13/animalitem/pigrat/snout = list(10, rand(0,4)),
-		/obj/item/stack/sheet/ms13/nugget/nugget_coal = list(5, rand(4,16) ", per chunk of coal")
+		/obj/item/stack/sheet/ms13/nugget/nugget_coal = list(5, rand(4,16), ", per chunk of coal")
 				)
