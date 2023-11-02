@@ -1,9 +1,11 @@
 /datum/job
 	var/forbid = ""
 	var/enforce = ""
+	var/stats_type = /datum/stats
 
 /datum/job/after_spawn(mob/living/spawned, client/player_client)
 	. = ..()
+	spawned.stats = new stats_type(spawned)
 	if(ishuman(spawned))
 		try_open_job_info(spawned, player_client)
 
