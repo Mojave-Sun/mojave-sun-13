@@ -109,7 +109,7 @@
 	desc = "A lightly worn red toolbox. A working man's best friend."
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = null
-	icon = 'mojave/icons/objects/tools/tools_world.dmi'
+	icon = 'mojave/icons/objects/tools/tools_inventory.dmi'
 	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
 	worn_icon = 'mojave/icons/mob/worn_misc.dmi'
@@ -126,8 +126,7 @@
 	ms13_flags_1 = LOCKABLE_1
 
 /obj/item/storage/ms13/toolbox/Initialize()
-	. = ..()
-	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
+	AddElement(/datum/element/world_icon, null, 'mojave/icons/objects/tools/tools_world.dmi', icon)
 
 /obj/item/storage/ms13/toolbox/ComponentInitialize()
 	. = ..()

@@ -93,6 +93,12 @@
 	icon_state = "brass-deposit"
 	deposit_type = /obj/item/stack/sheet/ms13/nugget/nugget_zinc
 
+/obj/structure/ms13/ore_deposit/sulfur
+	name = "sulfur deposit"
+	desc = "A stinking deposit full of sulfur."
+	icon_state = "sulfur-deposit"
+	deposit_type = /obj/item/stack/sheet/ms13/nugget/sulfur
+
 //Nuggets
 
 /obj/item/stack/sheet/ms13/nugget
@@ -199,14 +205,24 @@
 /obj/item/stack/sheet/ms13/nugget/nugget_gold/two
 	amount = 2
 
+/obj/item/stack/sheet/ms13/nugget/sulfur
+	name = "sulfur ore"
+	desc = "Yellow rocks full of valuable sulfur."
+	singular name = "sulfure ore chunk"
+	icon_state = "sulfur"
+	merge_type = /obj/item/stack/sheet/ms13/nugget/sulfur
+
+/obj/item/stack/sheet/ms13/nugget/sulfur/two
+	amount = 2
+
 //Deposit generation
 
 //currently not spawning in uranium deposits as there is no use for them
-#define DEPOSIT_SPAWN_LIST_DROUGHT list(/obj/structure/ms13/ore_deposit/gold = 1, /obj/structure/ms13/ore_deposit/silver = 3, /obj/structure/ms13/ore_deposit/alu = 4, /obj/structure/ms13/ore_deposit/lead = 5, /obj/structure/ms13/ore_deposit/copper = 5, /obj/structure/ms13/ore_deposit/coal = 4, /obj/structure/ms13/ore_deposit/iron = 4, /obj/structure/ms13/ore_deposit/zinc = 4) //The total sum of this right now is 30, so finding prob is X/30. If you change these numbers please update this comment.
-#define DEPOSIT_SPAWN_CHANCE_DROUGHT	2.5
+#define DEPOSIT_SPAWN_LIST_DROUGHT list(/obj/structure/ms13/ore_deposit/gold = 1, /obj/structure/ms13/ore_deposit/silver = 3, /obj/structure/ms13/ore_deposit/alu = 4, /obj/structure/ms13/ore_deposit/lead = 5, /obj/structure/ms13/ore_deposit/copper = 5, /obj/structure/ms13/ore_deposit/coal = 4, /obj/structure/ms13/ore_deposit/iron = 4, /obj/structure/ms13/ore_deposit/zinc = 4, /obj/structure/ms13/ore_deposit/sulfur = 3) //The total sum of this right now is 33, so finding prob is X/33. If you change these numbers please update this comment.
+#define DEPOSIT_SPAWN_CHANCE_DROUGHT	2.75
 
-#define DEPOSIT_SPAWN_LIST_MAMMOTH list(/obj/structure/ms13/ore_deposit/gold = 2, /obj/structure/ms13/ore_deposit/silver = 4, /obj/structure/ms13/ore_deposit/alu = 3, /obj/structure/ms13/ore_deposit/lead = 3, /obj/structure/ms13/ore_deposit/copper = 5, /obj/structure/ms13/ore_deposit/coal = 4, /obj/structure/ms13/ore_deposit/iron = 4, /obj/structure/ms13/ore_deposit/zinc = 5) //The total sum of this right now is 30, so finding prob is X/30. If you change these numbers please update this comment.
-#define DEPOSIT_SPAWN_CHANCE_MAMMOTH	2.35
+#define DEPOSIT_SPAWN_LIST_MAMMOTH list(/obj/structure/ms13/ore_deposit/gold = 2, /obj/structure/ms13/ore_deposit/silver = 4, /obj/structure/ms13/ore_deposit/alu = 3, /obj/structure/ms13/ore_deposit/lead = 3, /obj/structure/ms13/ore_deposit/copper = 5, /obj/structure/ms13/ore_deposit/coal = 4, /obj/structure/ms13/ore_deposit/iron = 4, /obj/structure/ms13/ore_deposit/zinc = 5, /obj/structure/ms13/ore_deposit/sulfur = 3) //The total sum of this right now is 33, so finding prob is X/33. If you change these numbers please update this comment.
+#define DEPOSIT_SPAWN_CHANCE_MAMMOTH	2.5
 
 /turf/open/floor/plating/ms13/ground/mountain/Initialize()
 	. = ..()
