@@ -129,15 +129,16 @@
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/gunrunner/initial_wanteds()
 	return list(
-		/obj/item/ms13/component/gunpowder/lq = list(20, rand(0,6), ""),
-		/obj/item/ms13/component/gunpowder = list(50, rand(0,6), ""),
+		/obj/item/ms13/component/gunpowder/lq = list(30, rand(0,6), ""),
+		/obj/item/ms13/component/gunpowder = list(65, rand(0,6), ""),
 		/obj/item/stack/sheet/ms13/scrap_lead = list(3, rand(5,30), ", per piece of lead"),
 		/obj/item/stack/sheet/ms13/scrap_brass = list(3, rand(5,30), ", per piece of brass"),
 		/obj/item/stack/sheet/ms13/refined_lead = list(22, rand(0,10), ", per ingot of lead"),
 		/obj/item/stack/sheet/ms13/refined_brass = list(22, rand(0,10), ", per ingot of brass"),
 		/obj/item/stack/ms13/currency/ncr_coin = list(4, rand(3, 20), ", per coin"),
 		/obj/item/stack/sheet/ms13/scrap_gold = list(6, rand(4,18), ", per piece of gold"),
-		/obj/item/stack/sheet/ms13/refined_gold = list(32, rand(1,5), ", per ingot of gold")
+		/obj/item/stack/sheet/ms13/refined_gold = list(32, rand(1,5), ", per ingot of gold"),
+		/obj/item/stack/sheet/ms13/nugget/nugget_coal = list(4, rand(4,16) ", per chunk of coal")
 				)
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/medtek
@@ -410,7 +411,8 @@
 		/obj/item/stack/sheet/ms13/scrap_gold = list(7, rand(5,25), ", per piece of gold"),
 		/obj/item/stack/sheet/ms13/scrap_silver = list(7, rand(5,25), ", per piece of silver"),
 		/obj/item/stack/sheet/ms13/refined_gold = list(45, rand(1,6), ", per ingot of gold"),
-		/obj/item/stack/sheet/ms13/refined_silver = list(45, rand(1,6), ", per ingot of silver")
+		/obj/item/stack/sheet/ms13/refined_silver = list(45, rand(1,6), ", per ingot of silver"),
+		/obj/item/stack/sheet/ms13/nugget/nugget_coal = list(5, rand(4,16) ", per chunk of coal")
 				)
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/robco
@@ -592,6 +594,8 @@
 		/obj/item/stack/sheet/ms13/thread = list(4, rand(2,15), ", per piece of thread"),
 		/obj/item/stack/sheet/ms13/mil_fiber = list(30, rand(0,5), ", per piece of fiber"),
 		/obj/item/stack/ms13/currency/prewar = list(2, rand(25,120), ", per dollar"),
+		/obj/item/stack/sheet/ms13/nugget/sulfur = list(6, rand(4,16), ", per chunk of sulfur"),
+		/obj/item/stack/sheet/ms13/nugget/nugget_coal = list(5, rand(4,16) ", per chunk of coal")
 				)
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/drought/crimson
@@ -694,6 +698,7 @@
 		/obj/item/radio/ms13 = list(55, rand(0,3), ""),
 		/obj/item/radio/ms13/broadcast = list(105, rand(0,2), ""),
 		/obj/item/radio/ms13/broadcast/advanced = list(170, rand(0,2), ""),
+		/obj/item/stack/sheet/ms13/nugget/nugget_coal = list(5, rand(4,16) ", per chunk of coal")
 				)
 
 
@@ -874,8 +879,8 @@
 		/obj/item/ammo_box/ms13/a308 = list(240, rand(0,1)),
 		/obj/item/ammo_box/ms13/a762 = list(240, rand(0,2)),
 		/obj/item/ammo_box/ms13/shotgun/buckshot = list(175, rand(0,3)),
-		/obj/item/ms13/component/gunpowder = list(70, rand(0,3)),
-		/obj/item/ms13/component/gunpowder/lq = list(30, rand(1,4))
+		/obj/item/ms13/component/gunpowder = list(80, rand(0,3)),
+		/obj/item/ms13/component/gunpowder/lq = list(40, rand(1,4))
 				)
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/drought/general_goods/initial_wanteds()
@@ -892,5 +897,6 @@
 		/obj/item/stack/sheet/ms13/scrap_brass = list(3, rand(3,15), ", per piece of brass"),
 		/obj/item/food/meat/slab/ms13/animal/gecko/golden = list(6, rand(1,6)),
 		/obj/item/food/meat/slab/ms13/animal/bark_scorp = list(10, rand(0,5)),
-		/obj/item/ms13/animalitem/pigrat/snout = list(10, rand(0,4))
+		/obj/item/ms13/animalitem/pigrat/snout = list(10, rand(0,4)),
+		/obj/item/stack/sheet/ms13/nugget/nugget_coal = list(5, rand(4,16) ", per chunk of coal")
 				)

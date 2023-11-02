@@ -126,6 +126,7 @@
 	ms13_flags_1 = LOCKABLE_1
 
 /obj/item/storage/ms13/toolbox/Initialize()
+	. = ..()
 	AddElement(/datum/element/world_icon, null, 'mojave/icons/objects/tools/tools_world.dmi', icon)
 
 /obj/item/storage/ms13/toolbox/ComponentInitialize()

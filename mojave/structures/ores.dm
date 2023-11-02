@@ -219,10 +219,10 @@
 
 //currently not spawning in uranium deposits as there is no use for them
 #define DEPOSIT_SPAWN_LIST_DROUGHT list(/obj/structure/ms13/ore_deposit/gold = 1, /obj/structure/ms13/ore_deposit/silver = 3, /obj/structure/ms13/ore_deposit/alu = 4, /obj/structure/ms13/ore_deposit/lead = 5, /obj/structure/ms13/ore_deposit/copper = 5, /obj/structure/ms13/ore_deposit/coal = 4, /obj/structure/ms13/ore_deposit/iron = 4, /obj/structure/ms13/ore_deposit/zinc = 4, /obj/structure/ms13/ore_deposit/sulfur = 3) //The total sum of this right now is 33, so finding prob is X/33. If you change these numbers please update this comment.
-#define DEPOSIT_SPAWN_CHANCE_DROUGHT	2.75
+#define DEPOSIT_SPAWN_CHANCE_DROUGHT	2.8
 
 #define DEPOSIT_SPAWN_LIST_MAMMOTH list(/obj/structure/ms13/ore_deposit/gold = 2, /obj/structure/ms13/ore_deposit/silver = 4, /obj/structure/ms13/ore_deposit/alu = 3, /obj/structure/ms13/ore_deposit/lead = 3, /obj/structure/ms13/ore_deposit/copper = 5, /obj/structure/ms13/ore_deposit/coal = 4, /obj/structure/ms13/ore_deposit/iron = 4, /obj/structure/ms13/ore_deposit/zinc = 5, /obj/structure/ms13/ore_deposit/sulfur = 3) //The total sum of this right now is 33, so finding prob is X/33. If you change these numbers please update this comment.
-#define DEPOSIT_SPAWN_CHANCE_MAMMOTH	2.5
+#define DEPOSIT_SPAWN_CHANCE_MAMMOTH	2.6
 
 /turf/open/floor/plating/ms13/ground/mountain/Initialize()
 	. = ..()
