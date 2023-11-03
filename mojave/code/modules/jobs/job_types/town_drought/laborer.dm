@@ -17,16 +17,9 @@
 
 	id = 		 /obj/item/card/id/ms13/drought_slave
 	shoes =  	 /obj/item/clothing/shoes/ms13/explorer
-	belt =		 /obj/item/weldingtool/ms13
-	r_pocket =   /obj/item/wirecutters/ms13
+	r_pocket =   /obj/item/flashlight/flare/ms13
 	l_pocket =	 /obj/item/stack/ms13/currency/cap/eighty
-	backpack_contents = list(
-		/obj/item/clothing/glasses/ms13/welding=1, \
-		/obj/item/wrench/ms13=1, \
-		/obj/item/ms13/handsaw=1, \
-		/obj/item/ms13/hammer=1, \
-		/obj/item/screwdriver/ms13=1, \
-		/obj/item/flashlight/flare/ms13=1)
+	r_hand =	 /obj/item/storage/ms13/toolbox/filled
 
 
 /datum/outfit/job/ms13/town_drought/laborer/pre_equip(mob/living/carbon/human/H)

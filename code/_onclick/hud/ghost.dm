@@ -1,9 +1,9 @@
 /atom/movable/screen/ghost
-	icon = 'icons/hud/screen_ghost.dmi'
+	icon = 'mojave/icons/hud/ghost_icons.dmi' //MS13 edit - Our file
 
-/atom/movable/screen/ghost/MouseEntered(location, control, params)
+/*/atom/movable/screen/ghost/MouseEntered(location, control, params)
 	. = ..()
-	flick(icon_state + "_anim", src)
+	flick(icon_state + "_anim", src)*/ //MS13 Edit - We don't have animated ghost icons yet - Hekzder
 
 /atom/movable/screen/ghost/spawners_menu
 	name = "Spawners menu"
@@ -48,7 +48,7 @@
 /atom/movable/screen/ghost/minigames_menu
 	name ="Minigames"
 	icon_state = "minigames"
-	
+
 /atom/movable/screen/ghost/minigames_menu/Click()
 	var/mob/dead/observer/observer = usr
 	observer.open_minigames_menu()

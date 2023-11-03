@@ -496,9 +496,9 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/ballistic
 	icon_state = "ballisentry"
 	casingtype = /obj/item/ammo_casing/ms13/sentry
-	ranged_cooldown = 5 SECONDS
-	rapid = 40
-	rapid_fire_delay = 0.025 SECONDS //40 shots over 1 seconds
+	ranged_cooldown = 5.5 SECONDS
+	rapid = 50
+	rapid_fire_delay = 0.022 SECONDS //50 shots over 1.1 seconds
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/ballistic/Initialize()
 	. = ..()

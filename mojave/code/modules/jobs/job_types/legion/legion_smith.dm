@@ -27,9 +27,9 @@
 	backpack_contents = list(
 		/obj/item/ammo_box/ms13/shotgun/junkshot=1,\
 		/obj/item/ms13/handsaw=1,\
-		/obj/item/stack/ms13/currency/denarius/five=1,
-		/obj/item/ms13/handdrill=1,
-		/obj/item/weldingtool/ms13=1,
+		/obj/item/stack/ms13/currency/denarius/five=1,\
+		/obj/item/ms13/handdrill=1,\
+		/obj/item/weldingtool/ms13=1,\
 		/obj/item/clothing/glasses/ms13/welding=1)
 
 /datum/outfit/job/ms13/legion/legion_smith/pre_equip(mob/living/carbon/human/H)
