@@ -437,3 +437,37 @@
 /mob/living/basic/ms13/hostile_animal/hellpig/death()
 	. = ..()
 	playsound(src, 'mojave/sound/ms13npc/hellpig_death2.ogg', 60, TRUE)
+
+/mob/living/basic/ms13/hostile_animal/boar
+	name = "boar"
+	desc = "An aggressive, mildly irradiated boar."
+	icon_state = "boar"
+	icon_dead = "boar_dead"
+	gender = MALE
+	speak_emote = list("honks")
+	attack_verb_continuous = "mauls"
+	attack_verb_simple = "maul"
+	attack_sound = list('mojave/sound/ms13npc/hellpig_attack1.ogg', 'mojave/sound/ms13npc/hellpig_attack2.ogg', 'mojave/sound/ms13npc/hellpig_attack3.ogg')
+	deathsound = list('mojave/sound/ms13npc/hellpig_death1.ogg', 'mojave/sound/ms13npc/hellpig_death2.ogg') //Not in love with either of these death or attack sounds but they work for now. Just pulled them from Yaoguai files
+	health = 85
+	maxHealth = 85
+	melee_damage_lower = 20
+	melee_damage_upper = 20
+	subtractible_armour_penetration = 10
+	speed = 0.5
+	sharpness = NONE
+	wound_bonus = 5
+	bare_wound_bonus = 5
+	butcher_results = list(/obj/item/ms13/hide/boar = 1, /obj/item/food/meat/slab/ms13/carcass/large/boar = 1)
+	faction = list("pig")
+	/*food_type = list(/obj/item/food/meat/slab/human)
+	tame_chance = 1
+	bonus_tame_chance = 1
+	rideable = TRUE*/
+	status_flags = null
+
+/mob/living/basic/ms13/hostile_animal/boar/death()
+	. = ..()
+	playsound(src, 'mojave/sound/ms13npc/hellpig_death1.ogg', 45, TRUE)
+
+
