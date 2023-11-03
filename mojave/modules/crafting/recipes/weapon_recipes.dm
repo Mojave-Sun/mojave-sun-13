@@ -132,7 +132,7 @@
 	category = CAT_WEAPONS
 	crafting_interface = CRAFTING_BENCH_WEAPONS
 
-/datum/crafting_recipe/shishkebab
+/datum/crafting_recipe/thunder_stick
 	name = "thunder stick"
 	result = /obj/item/spear/explosive/ms13
 	time = 21 SECONDS
