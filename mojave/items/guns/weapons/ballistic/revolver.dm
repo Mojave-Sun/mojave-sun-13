@@ -60,6 +60,7 @@
 	weapon_weight = WEAPON_HEAVY
 	grid_width = 192
 	grid_height = 32
+	wield_info = /datum/wield_info/default/inhands
 
 /obj/item/gun/ballistic/revolver/ms13/mts
 	name = "revolver shotgun"

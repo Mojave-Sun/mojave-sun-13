@@ -22,6 +22,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	grid_height = 32
 	grid_width = 32
+	isGlass = FALSE
 
 /obj/item/reagent_containers/food/drinks/mug/ms13/Initialize()
 	. = ..()
