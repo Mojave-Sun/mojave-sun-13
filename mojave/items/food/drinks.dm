@@ -59,7 +59,7 @@
 	name = "Nuka cola bottle"
 	desc = "A Nuka cola bottle. Made to sell off delicious soda to the masses."
 	icon_state = "nuka_cola"
-	list_reagents = list(/datum/reagent/consumable/ms13/nuka_cola = 40)
+	list_reagents = list(/datum/reagent/consumable/ms13/cola/nuka_cola = 40)
 
 /obj/item/reagent_containers/food/drinks/soda_cans/ms13/nuka_dark
 	name = "Nuka dark bottle"
@@ -72,55 +72,55 @@
 	name = "Nuka victory bottle"
 	desc = "A Nuka victory bottle. Made to sell off delicious soda to the masses."
 	icon_state = "nuka_victory"
-	list_reagents = list(/datum/reagent/consumable/ms13/nuka_victory = 40)
+	list_reagents = list(/datum/reagent/consumable/ms13/cola/nuka_victory = 40)
 
 /obj/item/reagent_containers/food/drinks/soda_cans/ms13/nuka_quantum
 	name = "Nuka quantum bottle"
 	desc = "A Nuka victory bottle. Made to sell off delicious soda to the masses."
 	icon_state = "nuka_quantum"
-	list_reagents = list(/datum/reagent/consumable/ms13/nuka_quantum = 40)
+	list_reagents = list(/datum/reagent/consumable/ms13/cola/nuka_quantum = 40)
 
 /obj/item/reagent_containers/food/drinks/soda_cans/ms13/nuka_quartz
 	name = "Nuka quartz bottle"
 	desc = "A Nuka quarz bottle. Made to sell off delicious soda to the masses."
 	icon_state = "nuka_quartz"
-	list_reagents = list(/datum/reagent/consumable/ms13/nuka_quartz = 40)
+	list_reagents = list(/datum/reagent/consumable/ms13/cola/nuka_quartz = 40)
 
 /obj/item/reagent_containers/food/drinks/soda_cans/ms13/nuka_cherry
 	name = "Nuka cherry bottle"
 	desc = "A Nuka cherry bottle. Made to sell off delicious soda to the masses."
 	icon_state = "nuka_cherry"
-	list_reagents = list(/datum/reagent/consumable/ms13/nuka_cherry = 40)
+	list_reagents = list(/datum/reagent/consumable/ms13/cola/nuka_cherry = 40)
 
 /obj/item/reagent_containers/food/drinks/soda_cans/ms13/nuka_grape
 	name = "Nuka grape bottle"
 	desc = "A Nuka grape bottle. Made to sell off delicious soda to the masses."
 	icon_state = "nuka_grape"
-	list_reagents = list(/datum/reagent/consumable/ms13/nuka_grape = 40)
+	list_reagents = list(/datum/reagent/consumable/ms13/cola/nuka_grape = 40)
 
 /obj/item/reagent_containers/food/drinks/soda_cans/ms13/nuka_orange
 	name = "Nuka orange bottle"
 	desc = "A Nuka orange bottle. Made to sell off delicious soda to the masses."
 	icon_state = "nuka_orange"
-	list_reagents = list(/datum/reagent/consumable/ms13/nuka_orange = 40)
+	list_reagents = list(/datum/reagent/consumable/ms13/cola/nuka_orange = 40)
 
 /obj/item/reagent_containers/food/drinks/soda_cans/ms13/nuka_cranberry // Want a nuka cranberry?
 	name = "Nuka cranberry bottle"
 	desc = "A Nuka cranberry bottle. Made to sell off delicious soda to the masses."
 	icon_state = "nuka_cranberry"
-	list_reagents = list(/datum/reagent/consumable/ms13/nuka_cranberry = 40)
+	list_reagents = list(/datum/reagent/consumable/ms13/cola/nuka_cranberry = 40)
 
 /obj/item/reagent_containers/food/drinks/soda_cans/ms13/nuka_wild
 	name = "Nuka wild bottle"
 	desc = "A Nuka wild bottle. Made to sell off delicious soda to the masses."
 	icon_state = "nuka_wild"
-	list_reagents = list(/datum/reagent/consumable/ms13/nuka_wild = 40)
+	list_reagents = list(/datum/reagent/consumable/ms13/cola/nuka_wild = 40)
 
 /obj/item/reagent_containers/food/drinks/soda_cans/ms13/nuka_lime
 	name = "Nuka lime bottle"
 	desc = "A Nuka lime bottle. Made to sell off delicious soda to the masses."
 	icon_state = "nuka_lime"
-	list_reagents = list(/datum/reagent/consumable/ms13/nuka_lime = 40)
+	list_reagents = list(/datum/reagent/consumable/ms13/cola/nuka_lime = 40)
 
 /obj/item/reagent_containers/food/drinks/soda_cans/ms13/nuka_custom
 	name = "Nuka custom bottle"
@@ -134,7 +134,7 @@
 	desc = "A sunset sarsaparilla bottle. Once a prized drink of the west, always a prized drink of the west."
 	icon_state = "sarsaparilla"
 	volume = 40
-	list_reagents = list(/datum/reagent/consumable/ms13/sunset_sarsaparilla = 35)
+	list_reagents = list(/datum/reagent/consumable/ms13/cola/sunset_sarsaparilla = 35)
 
 //// Alcohol bottles ////
 

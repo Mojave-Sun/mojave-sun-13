@@ -17,6 +17,9 @@
 	failed_chem = /datum/reagent/consumable/nutriment
 	/// How much nutrition this reagent supplies
 	var/nutriment_factor = 1 * REAGENTS_METABOLISM
+	// MOJAVE SUN EDIT BEGIN
+	var/hydration_amount = 0
+	// MOJAVE SUN EDIT END
 	var/quality = 0 //affects mood, typically higher for mixed drinks with more complex recipes'
 
 /datum/reagent/consumable/on_mob_life(mob/living/carbon/M, delta_time, times_fired)

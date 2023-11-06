@@ -5,6 +5,7 @@
 	nutriment_factor = 0
 	taste_description = "pure, burning, absolute alcohol"
 	boozepwr = 95
+	hydration_amount = 40 //if you wanna be hydrated get water
 	glass_name = "glass of clear liquid"
 	glass_desc = "A completely clear liquid, spare for the occasional bubble rising to the top. A sniff of this nearly burns your nose hairs clean off."
 
