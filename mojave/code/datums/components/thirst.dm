@@ -76,8 +76,9 @@ GLOBAL_LIST_INIT(dehydration_stage_alerts, list(
 				to_chat(world, span_notice("75"))
 				var/datum/reagent/consumable/ms13/water = the_parent.reagents.get_reagent(_reagent) //Modify metabolism rate here so don't need to edit base files
 				water.metabolization_rate = 0 // Stop water metabolization, we'll take it from here
-				modify_thirst(modify_by = min(the_parent.reagents.get_reagent_amount(_reagent)) * SECONDS_OF_LIFE_PER_WATER_U, SECONDS_OF_LIFE_PER_WATER_U * 5) //NO MICRODOSING, "metabolizes" 5 units of water per 1 second for +25 thirst
-				the_parent.reagents.remove_reagent(_reagent, 5)
+				var/amount = min((the_parent.reagents.get_reagent_amount(water)) * SECONDS_OF_LIFE_PER_WATER_U), (SECONDS_OF_LIFE_PER_WATER_U * 5)
+				modify_thirst(modify_by = amount) //NO MICRODOSING, "metabolizes" 5 units of water per 1 second for +25 thirst
+				the_parent.reagents.remove_reagent(water, 5)
 
 	//Last stage of dehydration, you're basically going to die now
 	if(stage_of_dehydration == length(GLOB.dehydration_stage_alerts))
