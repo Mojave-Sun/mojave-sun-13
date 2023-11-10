@@ -97,6 +97,9 @@
 	icon_state = "spear_thunder"
 	icon_prefix = "spear_thunder"
 	sharpness = NONE // the end is a god damn explosive charge
+	slot_flags = null //it has no back sprite, we don't need bums stowing invisible suicide spears on their back
+	wield_info = /datum/wield_info/twohanded/thunderstick
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/general_pickup.ogg'
 
 /obj/item/spear/explosive/ms13/Initialize(mapload)
 	. = ..()
@@ -109,14 +112,15 @@
 	icon_state = "spear_thunder"
 	inhand_icon_state = "spear_thunder"
 
-/obj/item/spear/explosive/ms13/attack_self(mob/user)
-	. = ..()
-	if(wielded)
-		icon_state = "spear_thunder"
-		inhand_icon_state = "spear_thunder_wielded"
-		wielded = TRUE
+// triggered on wielding of a two handed item.
+/obj/item/spear/explosive/ms13/on_wield(obj/item/source, mob/user)
+	SIGNAL_HANDLER
+	playsound(src.loc, 'mojave/sound/ms13weapons/meleesounds/general_grip.ogg', 50, TRUE)
+	inhand_icon_state = "spear_thunder_wielded"
+	wielded = TRUE
 
-	else
-		icon_state = "spear_thunder"
-		inhand_icon_state = "spear_thunder"
-		wielded = FALSE
+// triggered on unwielding of two handed item.
+/obj/item/spear/explosive/ms13/on_unwield(obj/item/source, mob/user)
+	SIGNAL_HANDLER
+	playsound(src.loc, 'mojave/sound/ms13weapons/meleesounds/general_grip.ogg', 35, TRUE)
+	wielded = FALSE
