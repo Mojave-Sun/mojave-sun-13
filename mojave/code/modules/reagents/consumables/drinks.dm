@@ -4,12 +4,12 @@
 	name = "water"
 	description = "Water. The base of all life. Don't run out."
 	color = "#f1eeeca1"
-	hydration_amount = 70 //the 100% PURE H2O
 	quality = DRINK_VERYGOOD
-	taste_description = "water"
+	taste_description = "pure refreshment"
 	glass_name = "glass of clear liquid"
 	glass_desc = "A clear liquid with no smell. Nothing out of the ordinary."
 	var/clean_types = CLEAN_WASH
+	hydration_amount = 60
 
 /datum/reagent/consumable/ms13/water/expose_turf(turf/open/exposed_turf, reac_volume) // easiest paste of my life
 	. = ..()
@@ -41,7 +41,6 @@
 	description = "Water... Questionable water. Should run it through some filtering or something."
 	color = "#d8d3cfa1"
 	taste_description = "water with an off taste"
-	hydration_amount = 60
 	glass_name = "glass of clear liquid"
 	glass_desc = "A clear liquid with some stray particles seen floating around peacefully inside."
 
@@ -50,7 +49,6 @@
 	description = "An ubiquitous chemical substance that is composed of hydrogen and oxygen, this one is impure and toxic to drink."
 	color = "#4439288c"
 	taste_description = "vile water"
-	hydration_amount = 50
 	glass_name = "glass of murky liquid"
 	glass_desc = "A murky green liquid with a pungeant vile smell. Not so sure about this one."
 

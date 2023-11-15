@@ -30,6 +30,7 @@ GLOBAL_LIST_INIT(dehydration_stage_alerts, list(
 	var/stage_of_dehydration //Current stage of dehydration; goes from 1-5 where 1 is the non-thirsty stage
 	var/list/stage_to_text //A list of messages to show on examine and when entering a new stage
 	var/list/stage_to_alert //What alert to pop up when reaching a certain stage, data stored as typepaths
+	var/the_liquid
 
 //3000 being 50 minutes/3000 seconds of starting water, thirst limit being the same thing
 /datum/component/thirst/Initialize(thirst_rate = -1, start_thirst = 3000, thirst_limit = 3000, list/dehydration_stage_examine, list/dehydration_stage_alerts)
@@ -41,9 +42,10 @@ GLOBAL_LIST_INIT(dehydration_stage_alerts, list(
 	stage_to_alert = dehydration_stage_alerts
 	stage_of_dehydration = 1
 	var/mob/living/the_parent = parent
-	modify_thirst(modify_by = start_thirst)
+	modify_thirst(modify_by = 1000)
 	RegisterSignal(the_parent, COMSIG_CHECK_SELF, .proc/on_examine)
 	RegisterSignal(the_parent, DEHYDRATION_STAGE_CHECK, .proc/return_dehydration_stage)
+	RegisterSignal(the_parent, THIRST_METABOLISE, .proc/on_water)
 	START_PROCESSING(SSdcs, src)
 	if(stage_of_dehydration == 1) //Still the same after modifying thirst? throw the alert
 		the_parent.throw_alert("thirst", GLOB.dehydration_stage_alerts[stage_of_dehydration])
@@ -64,21 +66,16 @@ GLOBAL_LIST_INIT(dehydration_stage_alerts, list(
 	var/mob/living/carbon/the_target = target
 	the_target.clear_alert("thirst")
 
+/datum/component/thirst/proc/on_water(datum/source, adjust_amount)
+	SIGNAL_HANDLER
+
+	to_chat(src, span_notice("on_water"))
+	the_liquid = adjust_amount
+	modify_thirst(modify_by = adjust_amount)
+
 /datum/component/thirst/process()
 	modify_thirst(modify_by = rate_of_thirst)
 	var/mob/living/the_parent = parent
-	for(var/_reagent in the_parent.reagents.reagent_list)
-		to_chat(world, span_notice("71"))
-		if(istype(_reagent, /datum/reagent/consumable))
-			to_chat(world, span_notice("73"))
-			var/datum/reagent/consumable/liquid = _reagent
-			if(the_parent.has_reagent(liquid.type))
-				to_chat(world, span_notice("75"))
-				var/datum/reagent/consumable/ms13/water = the_parent.reagents.get_reagent(_reagent) //Modify metabolism rate here so don't need to edit base files
-				water.metabolization_rate = 0 // Stop water metabolization, we'll take it from here
-				var/amount = min((the_parent.reagents.get_reagent_amount(water)) * SECONDS_OF_LIFE_PER_WATER_U), (SECONDS_OF_LIFE_PER_WATER_U * 5)
-				modify_thirst(modify_by = amount) //NO MICRODOSING, "metabolizes" 5 units of water per 1 second for +25 thirst
-				the_parent.reagents.remove_reagent(water, 5)
 
 	//Last stage of dehydration, you're basically going to die now
 	if(stage_of_dehydration == length(GLOB.dehydration_stage_alerts))
@@ -89,7 +86,7 @@ GLOBAL_LIST_INIT(dehydration_stage_alerts, list(
 			return
 		if(istype(the_carbon))
 			the_parent.add_fov_trait(src, fov_angle)
-			if(DT_PROB(10, 30))
+			if(DT_PROB(1, 15))
 				the_parent.emote("cough")
 				the_parent.dropItemToGround(I)
 
