@@ -74,6 +74,16 @@
 	grid_height = 96
 	grid_width = 128
 
+/obj/item/ms13/hide/boar
+	name = "boar hide"
+	desc = "A skinned boar hide."
+	icon_state = "brahmiluff_hide" //placeholder
+	inhand_icon_state = "brahmiluff_hide" //placeholder
+	throw_range = 2
+	leather_amount = 7
+	grid_height = 96
+	grid_width = 96
+
 /obj/item/ms13/hide/brahmiluff
 	name = "brahmiluff hide"
 	desc = "A skinned brahmiluff hide."
@@ -238,6 +248,16 @@
 /obj/item/food/meat/slab/ms13/carcass/large/ComponentInitialize()
 	. = ..()
 	AddComponent(/datum/component/two_handed, require_twohands=TRUE)
+
+/obj/item/food/meat/slab/ms13/carcass/large/boar
+	name = "boar carcass"
+	desc = "A skinned body of a boar."
+	icon_state = "brahmiluff_carcass" //placeholder
+	inhand_icon_state = "brahmiluff_carcass" //placeholder
+	meat_amount = 4
+	meat_type = /obj/item/food/meat/slab/ms13/animal/pork
+	grid_height = 96
+	grid_width = 128
 
 /obj/item/food/meat/slab/ms13/carcass/large/radstag
 	name = "radstag carcass"
@@ -621,7 +641,16 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 12, /datum/reagent/consumable/nutriment/vitamin = 3)
 	tastes = list("succulent" = 3, "meat" = 2)
 
+/obj/item/food/meat/slab/ms13/animal/pork
+	name = "raw porkchop"
+	desc = "Raw pork likely from an irradiated pig or boar."
+	icon_state = "porkchop"
+	steak_type = /obj/item/food/meat/steak/ms13/animal/pork
 
+/obj/item/food/meat/steak/ms13/animal/pork
+	name = "grilled porkchop"
+	desc = "A piece of grilled gecko meat."
+	icon_state = "porkchop_roasted"
 
 /*
 /obj/item/ms13/animalitem/tunneler/spike

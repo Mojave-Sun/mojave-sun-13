@@ -418,3 +418,23 @@
 	category = CAT_STAN_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
 
+// GUNPOWDER
+
+/datum/crafting_recipe/lq_gp
+	name = "low quality gunpowder"
+	result = /obj/item/ms13/component/gunpowder/lq
+	time = 10 SECONDS
+	reqs = list(/obj/item/stack/sheet/ms13/nugget/nugget_coal = 3,
+				/obj/item/stack/sheet/ms13/nugget/sulfur = 4)
+	category = CAT_JUNK_AMMO
+	crafting_interface = CRAFTING_BENCH_CHEM
+
+/datum/crafting_recipe/lq_gp_shaman
+	name = "conjure gunpowder"
+	result = /obj/item/ms13/component/gunpowder/lq
+	time = 16 SECONDS
+	trait = TRAIT_DRY_SHAMAN
+	reqs = list(/obj/item/stack/sheet/ms13/nugget/nugget_coal = 3,
+				/obj/item/stack/sheet/ms13/nugget/sulfur = 4)
+	category = CAT_JUNK_AMMO
+	crafting_interface = CRAFTING_BENCH_CAMPFIRE
