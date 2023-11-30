@@ -63,6 +63,7 @@ GLOBAL_LIST_INIT(dehydration_stage_alerts, list(
 	. = ..()
 	UnregisterSignal(target, COMSIG_CHECK_SELF)
 	UnregisterSignal(target, DEHYDRATION_STAGE_CHECK)
+	UnregisterSignal(target, THIRST_METABOLISE)
 	var/mob/living/carbon/the_target = target
 	the_target.clear_alert("thirst")
 

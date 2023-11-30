@@ -21,13 +21,13 @@
 		var/hydration_ratio
 		switch(dehydration_stage)
 			if(5)
-				hydration_ratio = 0.1
+				hydration_ratio = 0.4
 			if(4)
-				hydration_ratio = 0.3
+				hydration_ratio = 0.8
 			if(3)
-				hydration_ratio = 0.5
-			if(2)
 				hydration_ratio = 1
+			if(2)
+				hydration_ratio = 1.5
 			if(1)
 				hydration_ratio = 2
 			else

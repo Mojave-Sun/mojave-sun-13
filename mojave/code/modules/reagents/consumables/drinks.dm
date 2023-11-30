@@ -9,7 +9,7 @@
 	glass_name = "glass of clear liquid"
 	glass_desc = "A clear liquid with no smell. Nothing out of the ordinary."
 	var/clean_types = CLEAN_WASH
-	hydration_amount = 60
+	hydration_amount = 15
 
 /datum/reagent/consumable/ms13/water/expose_turf(turf/open/exposed_turf, reac_volume) // easiest paste of my life
 	. = ..()
