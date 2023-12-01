@@ -134,7 +134,7 @@
 
 /datum/crafting_recipe/thunder_stick
 	name = "thunder stick"
-	result = /obj/item/spear/explosive/ms13
+	result = /obj/item/ms13/twohanded/thunderstick
 	time = 21 SECONDS
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WRENCH, TOOL_SAW)
 	tool_paths = list(/obj/item/wirecutters/ms13)
