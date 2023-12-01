@@ -44,16 +44,16 @@
 	grid_height = 64
 
 /obj/item/ms13/component/gunpowder
-	name = "high quality gunpowder"
-	desc = "High quality, refined gunpowder. Can be used to make standard quality ammunition."
+	name = "low quality gunpowder"
+	desc = "Low quality, impure, and probably dangerous gunpowder. Can be used to make junk ammunition."
 	icon_state = "gunpowder"
 	grid_width = 32
 	grid_height = 32
 
 
-/obj/item/ms13/component/gunpowder/lq
-	name = "low quality gunpowder"
-	desc = "Low quality, impure, and probably dangerous gunpowder. Can be used to make junk ammunition."
+/obj/item/ms13/component/gunpowder/hq
+	name = "high quality gunpowder"
+	desc = "High quality, refined gunpowder. Can be used to make standard quality ammunition."
 
 // Light items (bulbs and stuff) //
 
