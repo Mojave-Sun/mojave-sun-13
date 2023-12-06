@@ -39,7 +39,7 @@
 
 //STOLEN
 /datum/particle_weather/radiation_storm/weather_act(mob/living/L)
-	var/resist = L.getsubarmor(null)
+	var/resist = L.getsubarmor()
 	if(prob(40))
 		if(ishuman(L))
 			var/mob/living/carbon/human/H = L

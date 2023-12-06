@@ -435,7 +435,7 @@
 		return
 	var/brute_loss = 0
 	var/burn_loss = 0
-	var/bomb_armor = getsubarmor(null, CUTTING)
+	var/bomb_armor = getallsubarmor(CUTTING)
 
 //200 max knockdown for EXPLODE_HEAVY
 //160 max knockdown for EXPLODE_LIGHT
@@ -459,7 +459,7 @@
 				brute_loss = 500
 				var/atom/throw_target = get_edge_target_turf(src, get_dir(src, get_step_away(src, src)))
 				throw_at(throw_target, 200, 4)
-				damage_clothes(400 - bomb_armor, BRUTE, BOMB)
+				damage_clothes(400 - bomb_armor, BRUTE, CUTTING)
 
 		if (EXPLODE_HEAVY)
 			throw_alert_text(/atom/movable/screen/alert/text/sad, "What the f-", override = FALSE) // MOJAVE SUN EDIT - FO text alert
@@ -468,7 +468,7 @@
 			if(bomb_armor)
 				brute_loss = 30*(2 - round(bomb_armor*0.01, 0.05))
 				burn_loss = brute_loss //damage gets reduced from 120 to up to 60 combined brute+burn
-			damage_clothes(200 - bomb_armor, BRUTE, BOMB)
+			damage_clothes(200 - bomb_armor, BRUTE, CUTTING)
 			if (ears && !HAS_TRAIT_FROM(src, TRAIT_DEAF, CLOTHING_TRAIT))
 				ears.adjustEarDamage(30, 120)
 			Unconscious(20) //short amount of time for follow up attacks against elusive enemies like wizards
@@ -479,7 +479,7 @@
 			brute_loss = 30
 			if(bomb_armor)
 				brute_loss = 15*(2 - round(bomb_armor*0.01, 0.05))
-			damage_clothes(max(50 - bomb_armor, 0), BRUTE, BOMB)
+			damage_clothes(max(50 - bomb_armor, 0), BRUTE, CUTTING)
 			if (ears && !HAS_TRAIT_FROM(src, TRAIT_DEAF, CLOTHING_TRAIT))
 				ears.adjustEarDamage(15,60)
 			Knockdown(160 - (bomb_armor * 1.6)) //100 bomb armor will prevent knockdown altogether
@@ -505,7 +505,7 @@
 				probability = 50
 		for(var/X in bodyparts)
 			var/obj/item/bodypart/BP = X
-			if(prob(probability) && !prob(getarmor(BP, BOMB)) && BP.body_zone != BODY_ZONE_HEAD && BP.body_zone != BODY_ZONE_CHEST)
+			if(prob(probability) && !prob(getsubarmor(BP, CUTTING)) && BP.body_zone != BODY_ZONE_HEAD && BP.body_zone != BODY_ZONE_CHEST && !istype(BP.owner:wear_suit, /obj/item/clothing/suit/space/hardsuit/ms13/power_armor))
 				BP.brute_dam = BP.max_damage
 				BP.dismember()
 				max_limb_loss--
@@ -1002,5 +1002,22 @@
 		if(leg_clothes)
 			torn_items |= leg_clothes
 
+	var/power_armor_safe = FALSE
 	for(var/obj/item/I in torn_items)
-		I.take_damage(damage_amount, damage_type, damage_flag, 0)
+		if(istype(I, /obj/item/clothing/suit/space/hardsuit/ms13/power_armor))
+			var/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/pa = I
+			I.take_damage(damage_amount, damage_type, damage_flag, 0)
+			for(var/part_zone as anything in pa.module_armor)
+				if(part_zone == BODY_ZONE_HEAD)
+					continue
+				var/obj/item/ms13/power_armor/PA_part = pa.module_armor[part_zone]
+				if(PA_part != null)
+					PA_part.take_damage(damage_amount, damage_type, damage_flag, 0)
+			power_armor_safe = TRUE
+
+	//POWER_ARMOR SAFE ITEMS ON YOUR SLOTS
+	if(power_armor_safe)
+		return
+
+	for(var/obj/item/I in torn_items)
+			I.take_damage(damage_amount, damage_type, damage_flag, 0)

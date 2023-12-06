@@ -142,7 +142,7 @@
 	. = ..()
 	if(QDELETED(src))
 		return
-	var/bomb_armor = getsubarmor(null, CUTTING)
+	var/bomb_armor = getarmor(null, BOMB)
 	switch (severity)
 		if (EXPLODE_DEVASTATE)
 			if(prob(bomb_armor))
