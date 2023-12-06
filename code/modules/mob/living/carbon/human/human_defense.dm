@@ -1020,4 +1020,4 @@
 		return
 
 	for(var/obj/item/I in torn_items)
-			I.take_damage(damage_amount, damage_type, damage_flag, 0)
+		I.take_damage(damage_amount, damage_type, damage_flag, 0)
