@@ -69,3 +69,10 @@
 	triggered = TRUE
 	SEND_SIGNAL(src, COMSIG_MINE_TRIGGERED, triggerer)
 	qdel(src)
+
+/obj/effect/spawner/random/ms13/explosive_mines
+	name = "Explosive mines"
+	spawn_loot_chance = 50
+	loot = list(
+		/obj/effect/mine/ms13/explosive
+	)
