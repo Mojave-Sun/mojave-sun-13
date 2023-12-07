@@ -459,7 +459,7 @@
 				brute_loss = 500
 				var/atom/throw_target = get_edge_target_turf(src, get_dir(src, get_step_away(src, src)))
 				throw_at(throw_target, 200, 4)
-				damage_clothes(400 - bomb_armor, BRUTE, CUTTING)
+				damage_clothes(max(400 - bomb_armor, round(bomb_armor * 0.05, 1)), BRUTE, CUTTING)
 
 		if (EXPLODE_HEAVY)
 			throw_alert_text(/atom/movable/screen/alert/text/sad, "What the f-", override = FALSE) // MOJAVE SUN EDIT - FO text alert
@@ -468,11 +468,11 @@
 			if(bomb_armor)
 				brute_loss = 30*(2 - round(bomb_armor*0.01, 0.05))
 				burn_loss = brute_loss //damage gets reduced from 120 to up to 60 combined brute+burn
-			damage_clothes(200 - bomb_armor, BRUTE, CUTTING)
+			damage_clothes(max(200 - bomb_armor, round(bomb_armor * 0.05, 1)), BRUTE, CUTTING)
 			if (ears && !HAS_TRAIT_FROM(src, TRAIT_DEAF, CLOTHING_TRAIT))
 				ears.adjustEarDamage(30, 120)
 			Unconscious(20) //short amount of time for follow up attacks against elusive enemies like wizards
-			Knockdown(200 - (bomb_armor * 1.6)) //between ~4 and ~20 seconds of knockdown depending on bomb armor
+			Knockdown(max(200 - (bomb_armor * 1.6), round(bomb_armor * 0.05, 1))) //between ~4 and ~20 seconds of knockdown depending on bomb armor
 
 		if(EXPLODE_LIGHT)
 			throw_alert_text(/atom/movable/screen/alert/text/nohappy, "That's not good!", override = FALSE) // MOJAVE SUN EDIT - FO text alert
@@ -482,7 +482,7 @@
 			damage_clothes(max(50 - bomb_armor, 0), BRUTE, CUTTING)
 			if (ears && !HAS_TRAIT_FROM(src, TRAIT_DEAF, CLOTHING_TRAIT))
 				ears.adjustEarDamage(15,60)
-			Knockdown(160 - (bomb_armor * 1.6)) //100 bomb armor will prevent knockdown altogether
+			Knockdown(max(160 - (bomb_armor * 1.6), round(bomb_armor * 0.05, 1))) //100 bomb armor will prevent knockdown altogether
 
 	take_overall_damage(brute_loss,burn_loss)
 
