@@ -84,7 +84,7 @@
 
 /obj/item/card/id/ms13/visa
 	name = "\improper Snowcrest visa"
-	desc = "A passport allowing temporary residency in Swnocrest, but not quite full citizenship."
+	desc = "A passport allowing temporary residency in Snowcrest, but not quite full citizenship."
 	assignment = "Snowcrest Squatter"
 	icon_state = "passport_photo"
 
