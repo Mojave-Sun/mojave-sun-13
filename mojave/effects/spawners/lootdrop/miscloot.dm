@@ -114,7 +114,7 @@
 			/obj/item/stack/sheet/ms13/scrap_electronics/two,
 			/obj/item/stack/sheet/ms13/scrap_copper/two,
 			/obj/item/stack/sheet/ms13/cloth/two,
-			/obj/item/ms13/component/gunpowder/lq,
+			/obj/item/ms13/component/gunpowder,
 			/obj/item/ms13/component/cell,
 			/obj/item/stack/sheet/ms13/scrap_lead/two,
 			/obj/item/stack/sheet/ms13/scrap_silver/two,
@@ -135,7 +135,7 @@
 	name = "high tier random crafting spawner"
 	spawn_loot_chance = 75
 	loot = list(
-			/obj/item/ms13/component/gunpowder,
+			/obj/item/ms13/component/gunpowder/hq,
 			/obj/item/stack/sheet/ms13/refined_lead/two,
 			/obj/item/stack/sheet/ms13/refined_silver/two,
 			/obj/item/stack/sheet/ms13/refined_gold/two,
