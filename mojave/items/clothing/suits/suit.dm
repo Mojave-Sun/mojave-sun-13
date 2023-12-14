@@ -965,3 +965,109 @@
                 FIRE = 0)
 	snatched = FALSE // For taking gold chains off the clothes n shit...
 	has_gold_states = TRUE // Can you even put gold on it
+
+// Highwaymen //
+
+/obj/item/clothing/suit/ms13/highwaymen
+	name = "base type Highwaymen suit"
+	desc = "You shouldn't be seeing this."
+	body_parts_covered = CHEST|GROIN|ARMS|LEGS
+	icon_state = "highwaymen_duster"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = 0, \
+                LASER = CLASS1_LASER, \
+                ENERGY = 0, \
+                FIRE = 0)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/large
+	max_integrity = 350
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 10, acid = 0, wound = 0)
+
+/obj/item/clothing/suit/ms13/highwaymen/leader
+	name = "\improper Highwaymen leader trenchcoat"
+	desc = "A thick and carefully padded trenchcoat with a gold star embroidered on the back. A status symbol among the Highwaymen and usually a sign of leadership."
+	icon_state = "highwaymen_leader"
+	slowdown = 0.15
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS2_CRUSH, \
+                CUTTING = CLASS2_CUT, \
+                PIERCING = CLASS2_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS2_LASER, \
+                ENERGY = 0, \
+                FIRE = CLASS1_FIRE)
+
+/obj/item/clothing/suit/ms13/highwaymen/quartermas
+	name = "\improper Highwaymen padded suit"
+	desc = "A fancy suit with the addition of a small poncho draped over the shoulders and some light protective padding. Commonly seen adorning respected individuals within the Highwaymen."
+	icon_state = "highwaymen_qm"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS1_LASER, \
+                ENERGY = 0, \
+                FIRE = 0)
+
+/obj/item/clothing/suit/ms13/highwaymen/poncho
+	name = "dark brown poncho"
+	desc = "A dark brown poncho perfect for braving the desert in comfort and style."
+	body_parts_covered = CHEST|ARM_LEFT
+	icon_state = "highwaymen_poncho"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS1_LASER, \
+                ENERGY = 0, \
+                FIRE = 0)
+
+/obj/item/clothing/suit/ms13/highwaymen/duster
+	name = "lined duster"
+	desc = "A basic duster with an addition of some interior lining for comfort and mild protection."
+	icon_state = "highwaymen_duster"
+
+/obj/item/clothing/suit/ms13/highwaymen/duster_padded
+	name = "\improper Highwaymen padded duster"
+	desc = "A duster that has seen the addition of protective padding and gold symbols added to the back. This likely belongs to a member of the Highwaymen."
+	icon_state = "highwaymen_reinfduster"
+	slowdown = 0.15
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS2_CRUSH, \
+                CUTTING = CLASS2_CUT, \
+                PIERCING = CLASS2_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS2_LASER, \
+                ENERGY = 0, \
+                FIRE = CLASS2_FIRE)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
+
+/obj/item/clothing/suit/ms13/highwaymen/duster_padded/covered
+	name = "\improper Highwaymen covered duster"
+	desc = "A thick, padded duster with an adorned poncho added for extra flair. Commonly associated with members of the Highwaymen."
+	icon_state = "highwaymen_coveredduster"
+
+/obj/item/clothing/suit/ms13/highwaymen/poncho_padded
+	name = "\improper Highwaymen embroidered poncho"
+	desc = "A poncho that has seen many modifications. From the addition of protective padding to embroidered gold symbols and stars. This is no doubt property of the Highwaymen."
+	body_parts_covered = CHEST|ARMS
+	icon_state = "highwaymen_thickponcho"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS2_CRUSH, \
+                CUTTING = CLASS2_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS2_LASER, \
+                ENERGY = 0, \
+                FIRE = CLASS1_FIRE)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
