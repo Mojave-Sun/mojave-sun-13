@@ -36,7 +36,7 @@
 		/obj/item/gun/ballistic/revolver/ms13/mts,\
 		/obj/item/gun/ballistic/rifle/ms13/hunting)
 
-	if(prob(35))
+	if(prob(40))
 		glasses = /obj/item/clothing/glasses/ms13/leather/highwaymen
 	else
 		glasses = null

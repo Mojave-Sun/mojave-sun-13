@@ -26,7 +26,7 @@
 	suit = pick(/obj/item/clothing/suit/ms13/highwaymen/poncho,\
 		/obj/item/clothing/suit/ms13/highwaymen/duster)
 
-	suit_store = pick(/obj/item/gun/ballistic/revolver/ms13/rev44,\
+	suit_store = pick(/obj/item/gun/ballistic/automatic/pistol/ms13/m10mm,\
 		/obj/item/gun/ballistic/shotgun/ms13/lever/cowboy,\
 		/obj/item/gun/ballistic/revolver/ms13/rev357/police)
 

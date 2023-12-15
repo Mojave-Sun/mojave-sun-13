@@ -663,7 +663,7 @@
 
 /obj/item/clothing/suit/ms13/duster/ranger
 	name = "\improper Desert Ranger duster"
-	desc = "A closed, padded duster used by the Desert Rangers. Commonly worn by fresh recruits and off-duty Rangers."
+	desc = "A closed, padded duster used by the Desert Rangers. Commonly worn by Rangers preferring maximum mobility and discretion."
 	icon_state = "closed_duster"
 	body_parts_covered = CHEST|GROIN
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
@@ -675,7 +675,7 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = 0)
-	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/large
 
 /obj/item/clothing/suit/ms13/duster/ranger/chief
 	name = "\improper Desert Ranger Deputy-Chief poncho"

@@ -64,11 +64,11 @@ GLOBAL_LIST_INIT(legion_positions, list(
 	"Legion Blacksmith",))
 
 GLOBAL_LIST_INIT(ranger_positions, list(
-	"Ranger Deputy-Chief",
-	"Ranger Elite",
-	"Ranger",
-	"Ranger Recruit",
-	"Ranger Doctor",))
+	"Desert Ranger Deputy-Chief",
+	"Desert Ranger Elite",
+	"Desert Ranger",
+	"Desert Ranger Sharpshooter",
+	"Desert Ranger Doctor",))
 
 GLOBAL_LIST_INIT(drought_town_positions, list(
 	"The Baron",

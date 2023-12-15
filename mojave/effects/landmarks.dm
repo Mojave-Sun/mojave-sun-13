@@ -168,8 +168,8 @@
 /obj/effect/landmark/start/ms13/ranger
 	name = "Desert Ranger"
 
-/obj/effect/landmark/start/ms13/ranger_recruit
-	name = "Desert Ranger Recruit"
+/obj/effect/landmark/start/ms13/ranger_sharps
+	name = "Desert Ranger Sharpshooter"
 
 /obj/effect/landmark/start/ms13/ranger_doctor
 	name = "Desert Ranger Doctor"
