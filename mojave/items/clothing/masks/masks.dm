@@ -82,15 +82,15 @@
 	desc = "A mask used by doctors to keep blood out of their mouth and nose."
 	icon_state = "surgical"
 
-/obj/item/clothing/mask/ms13/bandana/highwaymen
+/obj/item/clothing/mask/ms13/bandana/goldman
 	name = "dark brown bandana"
 	desc = "A comfortable, dark brown bandana."
-	icon_state = "highwaymen_bandana"
+	icon_state = "goldman_bandana"
 
-/obj/item/clothing/mask/ms13/bandana/highwaymen/alt
+/obj/item/clothing/mask/ms13/bandana/goldman/alt
 	name = "embroidered bandana"
 	desc = "A dark brown bandana with gold embroidery."
-	icon_state = "highwaymen_bandana_alt"
+	icon_state = "goldman_bandana_alt"
 
 // Generic Wasteland Facemasks //
 
@@ -128,10 +128,10 @@
 	flags_inv = HIDEFACE | HIDEHAIR
 	flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES
 
-/obj/item/clothing/mask/ms13/facewrap/highwaymen
+/obj/item/clothing/mask/ms13/facewrap/goldman
 	name = "dark brown facewrap"
 	desc = "A dark brown facewrap and bandana. It oozes mystery."
-	icon_state = "highwaymen_facewrap"
+	icon_state = "goldman_facewrap"
 	flags_inv = HIDEFACE | HIDEHAIR
 	flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES
 

@@ -244,19 +244,19 @@
 /obj/effect/landmark/start/ms13/mon_capt
 	name = "Mon City Captain"
 
-// Highwaymen Spawns //
+// goldman Spawns //
 
-/obj/effect/landmark/start/ms13/highwaymen_unprov
-	name = "Highwaymen Unproven"
+/obj/effect/landmark/start/ms13/goldman_unprov
+	name = "Goldman Unproven"
 
-/obj/effect/landmark/start/ms13/highwayman
-	name = "Highwayman"
+/obj/effect/landmark/start/ms13/goldman
+	name = "Goldman"
 
-/obj/effect/landmark/start/ms13/highway_roadrun
-	name = "Highwaymen Road Runner"
+/obj/effect/landmark/start/ms13/goldman_roadrun
+	name = "Goldman Road Runner"
 
-/obj/effect/landmark/start/ms13/highway_qm
-	name = "Highwaymen Quartermaster"
+/obj/effect/landmark/start/ms13/goldman_keeper
+	name = "Goldman Keeper"
 
-/obj/effect/landmark/start/ms13/highway_overseer
-	name = "Highwaymen Overseer"
+/obj/effect/landmark/start/ms13/goldman_ringleader
+	name = "Goldman Ringleader"

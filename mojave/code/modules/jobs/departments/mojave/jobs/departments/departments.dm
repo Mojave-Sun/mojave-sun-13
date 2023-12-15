@@ -16,8 +16,8 @@
 #define DEPARTMENT_DROUGHTTOWN "Barony"
 #define DEPARTMENT_BITFLAG_DRYLANDER (1<<18)
 #define DEPARTMENT_DRYLANDER "Drylanders"
-#define DEPARTMENT_BITFLAG_HIGHWAYMEN (1<<19)
-#define DEPARTMENT_HIGHWAYMEN "Highwaymen"
+#define DEPARTMENT_BITFLAG_GOLDMAN (1<<19)
+#define DEPARTMENT_GOLDMAN "Goldman"
 
 // Fancy name for fancy boys
 /datum/job_department/var/department_full_name = null
@@ -110,12 +110,12 @@
 	//label_class = "TOWN"
 	//latejoin_color = "#ffddf0"
 
-/datum/job_department/highwaymen
-	department_name = DEPARTMENT_HIGHWAYMEN
-	department_bitflags = DEPARTMENT_BITFLAG_HIGHWAYMEN
-	department_head = /datum/job/ms13/highwaymen/overseer
-	department_experience_type = EXP_TYPE_HIGHWAYMEN
-	department_full_name = "The Highwaymen"
+/datum/job_department/goldman
+	department_name = DEPARTMENT_GOLDMAN
+	department_bitflags = DEPARTMENT_BITFLAG_GOLDMAN
+	department_head = /datum/job/ms13/goldman/ringleader
+	department_experience_type = EXP_TYPE_GOLDMAN
+	department_full_name = "The Goldman Posse"
 
 // FLAG DEFINES
 
@@ -130,5 +130,5 @@
 		"Wasteland_flag.png" = 'mojave/icons/faction_flags/flag_wastelanders.png',
 		"Barony_flag.png" = 'mojave/icons/faction_flags/flag_wastelanders.png', //placeholder
 		"Drylanders_flag.png" = 'mojave/icons/faction_flags/flag_wastelanders.png',
-		"Highwaymen_flag.png" = 'mojave/icons/faction_flags/flag_raiders.png'
+		"Goldman_flag.png" = 'mojave/icons/faction_flags/flag_goldman.png'
 	)

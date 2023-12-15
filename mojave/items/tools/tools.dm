@@ -266,6 +266,32 @@
 	. = ..()
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
 
+
+/obj/item/screwdriver/ms13/scrap
+	name = "screwdriver"
+	desc = "A thin screwdriver. Keep it close, you'll never know when you need to remove someone's eye- or a screw."
+	icon = 'mojave/icons/objects/tools/tools_world.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
+	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
+	worn_icon_state = "empty_placeholder"
+	icon_state = "screwdriver"
+	inhand_icon_state = "screwdriver"
+	flags_1 = CONDUCT_1
+	force = 15
+	sharpness = SHARP_IMPALING
+	wound_bonus = 0
+	bare_wound_bonus = 0
+	throwforce = 10
+	random_color = FALSE
+	log_pickup_and_drop = TRUE
+	grid_width = 32
+	grid_height = 32
+
+/obj/item/screwdriver/ms13/scrap/use_tool(atom/target, mob/living/user, delay, amount, volume, datum/callback/extra_checks)
+	. = ..()
+
+
 /obj/item/shovel/ms13
 	name = "shovel"
 	desc = "A shovel for digging up the ground, commonly used for farming or gravedigging."

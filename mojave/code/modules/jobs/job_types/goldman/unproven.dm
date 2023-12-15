@@ -1,36 +1,36 @@
-/datum/job/ms13/highwaymen/unproven
-	title = "Highwaymen Unproven"
+/datum/job/ms13/goldman/unproven
+	title = "Goldman Unproven"
 	total_positions = 4
 	spawn_positions = 4
-	supervisors = "Proper Highwaymen, the Overseer and the Quartermaster."
-	description = "Stay in line and listen to your superiors. Prove yourself to the Highwaymen. Make yourself useful to the group. Make a name for yourself, somewhat literally."
+	supervisors = "Proper Goldman, the Ringleader and the Kepper."
+	description = "Stay in line and listen to your superiors. Prove yourself to the goldman. Make yourself useful to the group. Make a name for yourself, somewhat literally."
 
-	outfit = /datum/outfit/job/ms13/highwaymen/unproven
+	outfit = /datum/outfit/job/ms13/goldman/unproven
 
-	display_order = JOB_DISPLAY_ORDER_MS13_HWYMNUNPROVEN
+	display_order = JOB_DISPLAY_ORDER_MS13_GLDMNUNPROVEN
 
-/datum/outfit/job/ms13/highwaymen/unproven
-	name = "_Highwaymen Unproven"
-	jobtype = 	 /datum/job/ms13/highwaymen/unproven
-	head = 		 /obj/item/clothing/head/helmet/ms13/cowboy/highwaymen
-	uniform =	 /obj/item/clothing/under/ms13/highwaymen/unproven
+/datum/outfit/job/ms13/goldman/unproven
+	name = "_Goldman Unproven"
+	jobtype = 	 /datum/job/ms13/goldman/unproven
+	head = 		 /obj/item/clothing/head/helmet/ms13/cowboy/goldman
+	uniform =	 /obj/item/clothing/under/ms13/goldman/unproven
 	belt =		 /obj/item/claymore/ms13/pipe/tireiron
 	r_pocket = 	 /obj/item/stack/ms13/currency/cap/fifteen
 	shoes =		 /obj/item/clothing/shoes/ms13/brownie
 	backpack_contents = list(
 		/obj/item/stack/medical/gauze/ms13/three=1)
 
-/datum/outfit/job/ms13/highwaymen/unproven/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/ms13/goldman/unproven/pre_equip(mob/living/carbon/human/H)
 	..()
 
-	suit = pick(/obj/item/clothing/suit/ms13/highwaymen/poncho,\
-		/obj/item/clothing/suit/ms13/highwaymen/duster)
+	suit = pick(/obj/item/clothing/suit/ms13/goldman/poncho,\
+		/obj/item/clothing/suit/ms13/goldman/duster)
 
 	suit_store = pick(/obj/item/gun/ballistic/automatic/pistol/ms13/m10mm,\
 		/obj/item/gun/ballistic/shotgun/ms13/lever/cowboy,\
 		/obj/item/gun/ballistic/revolver/ms13/rev357/police)
 
-/datum/outfit/job/ms13/highwaymen/unproven/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/job/ms13/goldman/unproven/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	var/obj/item/gun/ballistic/equipped_gun = H.get_item_by_slot(ITEM_SLOT_SUITSTORE)
 	if(!istype(equipped_gun))

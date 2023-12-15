@@ -864,7 +864,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 #define TRAIT_DRUGGIE "drug_crafting" //Trait for drug crafting
 
-#define TRAIT_HIGHQM "highwaymen_quartermaster" //Trait for Highwaymen QM to make ammo
+#define TRAIT_GOLDQM "goldman_quartermaster" //Trait for goldman QM to make ammo
 
 #define TRAIT_NON_FLAMMABLE "non_flammable" //An actual real fireproof trait
 

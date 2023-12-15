@@ -966,13 +966,13 @@
 	snatched = FALSE // For taking gold chains off the clothes n shit...
 	has_gold_states = TRUE // Can you even put gold on it
 
-// Highwaymen //
+// goldman //
 
-/obj/item/clothing/suit/ms13/highwaymen
-	name = "base type Highwaymen suit"
+/obj/item/clothing/suit/ms13/goldman
+	name = "base type goldman suit"
 	desc = "You shouldn't be seeing this."
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS
-	icon_state = "highwaymen_duster"
+	icon_state = "goldman_duster"
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 0, \
                 CRUSHING = CLASS1_CRUSH, \
@@ -986,10 +986,10 @@
 	max_integrity = 350
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 10, acid = 0, wound = 0)
 
-/obj/item/clothing/suit/ms13/highwaymen/leader
-	name = "\improper Highwaymen Overseer trenchcoat"
-	desc = "A thick and carefully padded trenchcoat with a gold star embroidered on the back. A status symbol among the Highwaymen and usually a sign of leadership."
-	icon_state = "highwaymen_leader"
+/obj/item/clothing/suit/ms13/goldman/leader
+	name = "\improper goldman Ringleader trenchcoat"
+	desc = "A thick and carefully padded trenchcoat with a gold star embroidered on the back. A status symbol among the Goldman Posse and usually a sign of leadership."
+	icon_state = "goldman_leader"
 	slowdown = 0.15
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 0, \
@@ -1001,10 +1001,10 @@
                 ENERGY = 0, \
                 FIRE = CLASS1_FIRE)
 
-/obj/item/clothing/suit/ms13/highwaymen/quartermas
-	name = "\improper Highwaymen padded suit"
-	desc = "A fancy suit with the addition of a small poncho draped over the shoulders and some light protective padding. Commonly seen adorning respected individuals within the Highwaymen."
-	icon_state = "highwaymen_qm"
+/obj/item/clothing/suit/ms13/goldman/keeper
+	name = "\improper goldman padded suit"
+	desc = "A fancy suit with the addition of a small poncho draped over the shoulders and some light protective padding. Commonly seen adorning respected individuals within the Goldman Posse."
+	icon_state = "goldman_keeper"
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 0, \
                 CRUSHING = CLASS1_CRUSH, \
@@ -1015,11 +1015,11 @@
                 ENERGY = 0, \
                 FIRE = 0)
 
-/obj/item/clothing/suit/ms13/highwaymen/poncho
+/obj/item/clothing/suit/ms13/goldman/poncho
 	name = "dark brown poncho"
 	desc = "A dark brown poncho with gold embroidery on the back, perfect for braving the desert in comfort and style."
 	body_parts_covered = CHEST|ARM_LEFT
-	icon_state = "highwaymen_poncho"
+	icon_state = "goldman_poncho"
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 0, \
                 CRUSHING = CLASS1_CRUSH, \
@@ -1030,15 +1030,15 @@
                 ENERGY = 0, \
                 FIRE = 0)
 
-/obj/item/clothing/suit/ms13/highwaymen/duster
+/obj/item/clothing/suit/ms13/goldman/duster
 	name = "lined duster"
 	desc = "A basic duster with an addition of some interior lining for comfort and mild protection, and some gold embroidery for style."
-	icon_state = "highwaymen_duster"
+	icon_state = "goldman_duster"
 
-/obj/item/clothing/suit/ms13/highwaymen/duster_reinf
-	name = "\improper Highwaymen reinforced duster"
-	desc = "A duster that has seen the addition of armoring and protective padding. This likely belongs to a member of the Highwaymen."
-	icon_state = "highwaymen_reinfduster"
+/obj/item/clothing/suit/ms13/goldman/duster_reinf
+	name = "\improper goldman reinforced duster"
+	desc = "A duster that has seen the addition of armoring and protective padding. This likely belongs to a member of the Goldman Posse."
+	icon_state = "goldman_reinfduster"
 	slowdown = 0.3
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 0, \
@@ -1051,10 +1051,10 @@
                 FIRE = CLASS2_FIRE)
 	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
 
-/obj/item/clothing/suit/ms13/highwaymen/duster_covered
-	name = "\improper Highwaymen covered duster"
-	desc = "A thick, padded duster with an adorned poncho added for extra flair. Commonly associated with members of the Highwaymen."
-	icon_state = "highwaymen_coveredduster"
+/obj/item/clothing/suit/ms13/goldman/duster_covered
+	name = "\improper goldman covered duster"
+	desc = "A thick, padded duster with an adorned poncho added for extra flair. Commonly associated with members of the Goldman Posse."
+	icon_state = "goldman_coveredduster"
 	slowdown = 0.15
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 0, \
@@ -1067,11 +1067,11 @@
                 FIRE = CLASS2_FIRE)
 	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
 
-/obj/item/clothing/suit/ms13/highwaymen/poncho_padded
-	name = "\improper Highwaymen embroidered poncho"
-	desc = "A poncho that has seen many modifications. From the addition of protective padding to embroidered gold symbols and stars. This is no doubt property of the Highwaymen."
+/obj/item/clothing/suit/ms13/goldman/poncho_padded
+	name = "\improper goldman embroidered poncho"
+	desc = "A poncho that has seen many modifications. From the addition of protective padding to embroidered gold symbols and stars. This is no doubt property of the Goldman Posse."
 	body_parts_covered = CHEST|ARMS
-	icon_state = "highwaymen_thickponcho"
+	icon_state = "goldman_thickponcho"
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 0, \
                 CRUSHING = CLASS2_CRUSH, \
