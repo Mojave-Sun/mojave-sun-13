@@ -16,6 +16,8 @@
 #define DEPARTMENT_DROUGHTTOWN "Barony"
 #define DEPARTMENT_BITFLAG_DRYLANDER (1<<18)
 #define DEPARTMENT_DRYLANDER "Drylanders"
+#define DEPARTMENT_BITFLAG_HIGHWAYMEN (1<<19)
+#define DEPARTMENT_HIGHWAYMEN "Highwaymen"
 
 // Fancy name for fancy boys
 /datum/job_department/var/department_full_name = null
@@ -43,7 +45,6 @@
 /datum/job_department/rangers
 	department_name = DEPARTMENT_RANGERS
 	department_bitflags = DEPARTMENT_BITFLAG_RANGERS
-	department_head = /datum/job/ms13/ranger/deputychief
 	department_experience_type = EXP_TYPE_RANGERS
 	department_full_name = "Desert Rangers"
  	//display_order = 0
@@ -109,7 +110,12 @@
 	//label_class = "TOWN"
 	//latejoin_color = "#ffddf0"
 
-
+/datum/job_department/highwaymen
+	department_name = DEPARTMENT_HIGHWAYMEN
+	department_bitflags = DEPARTMENT_BITFLAG_HIGHWAYMEN
+	department_head = /datum/job/ms13/highwaymen/overseer
+	department_experience_type = EXP_TYPE_HIGHWAYMEN
+	department_full_name = "The Highwaymen"
 
 // FLAG DEFINES
 
@@ -123,5 +129,6 @@
 		"Snowcrest_flag.png" = 'mojave/icons/faction_flags/flag_wastelanders.png', //placeholder
 		"Wasteland_flag.png" = 'mojave/icons/faction_flags/flag_wastelanders.png',
 		"Barony_flag.png" = 'mojave/icons/faction_flags/flag_wastelanders.png', //placeholder
-		"Drylanders_flag.png" = 'mojave/icons/faction_flags/flag_wastelanders.png'
+		"Drylanders_flag.png" = 'mojave/icons/faction_flags/flag_wastelanders.png',
+		"Highwaymen_flag.png" = 'mojave/icons/faction_flags/flag_raiders.png'
 	)

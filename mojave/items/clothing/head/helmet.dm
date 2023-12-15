@@ -1951,3 +1951,29 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = 0)
+
+// Highwaymen Hats //
+
+/obj/item/clothing/head/helmet/ms13/cowboy/highwaymen
+	name = "padded wide brim brown hat"
+	desc = "A wide brim dark brown hat with the addition of some light protective padding."
+	icon_state = "highwaymen_basic"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS1_LASER, \
+                ENERGY = 0, \
+                FIRE = 0)
+
+/obj/item/clothing/head/helmet/ms13/cowboy/highwaymen/veteran
+	name = "padded wide brim fedora"
+	desc = "A wide brim fedora with the addition of some light protective padding."
+	icon_state = "highwaymen_vet"
+
+/obj/item/clothing/head/helmet/ms13/cowboy/highwaymen/leader
+	name = "\improper Highwaymen Overseer's hat"
+	desc = "A distinctive hat with the addition of a gold symbol, worn by high up members within the Highwaymen."
+	icon_state = "highwaymen_lead"

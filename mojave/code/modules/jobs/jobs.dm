@@ -85,6 +85,13 @@ GLOBAL_LIST_INIT(drylander_positions, list(
 	"Drylander Hunter",
 	"Drylander Folk"))
 
+GLOBAL_LIST_INIT(highwaymen_positions, list(
+	"Highwaymen Overseer",
+	"Highwaymen Quartermaster",
+	"Highwaymen Road Runner",
+	"Highwayman",
+	"Highwaymen Unproven"))
+
 GLOBAL_LIST_INIT(combattest_positions, list(
 	"Blue ganger",
 	"Red ganger",))
@@ -97,9 +104,10 @@ GLOBAL_LIST_INIT(ms13_position_categories, list(
 	EXP_TYPE_BOS = list("jobs" = bos_positions, "color" = "#737592"),
 	EXP_TYPE_RAIDERS = list("jobs" = raiders_positions, "color" = "#30389c"),
 	EXP_TYPE_RANGERS = list("jobs" = ranger_positions, "color" = "#bdbc76"),
-	EXP_TYPE_DROUGHTTOWN = list("jobs" = drought_town_positions, "color " = "#12491a"),
+	EXP_TYPE_DROUGHTTOWN = list("jobs" = drought_town_positions, "color" = "#12491a"),
 	EXP_TYPE_DRYLANDERS = list("jobs" = drylander_positions, "color" = "#4e2e04"),
-	EXP_TYPE_COMBATTEST = list("jobs" = combattest_positions, "color" = "#4e2e04")
+	EXP_TYPE_COMBATTEST = list("jobs" = combattest_positions, "color" = "#4e2e04"),
+	EXP_TYPE_HIGHWAYMEN = list("jobs" = highwaymen_positions, "color" = "#4e2e04")
 ))
 
 GLOBAL_LIST_INIT(ms13_exp_jobsmap, list(
@@ -111,7 +119,8 @@ GLOBAL_LIST_INIT(ms13_exp_jobsmap, list(
 	EXP_TYPE_RANGERS = list("titles" = ranger_positions),
 	EXP_TYPE_DROUGHTTOWN = list("titles" = drought_town_positions),
 	EXP_TYPE_DRYLANDERS = list("titles" = drylander_positions),
-	EXP_TYPE_COMBATTEST = list("titles" = combattest_positions)
+	EXP_TYPE_COMBATTEST = list("titles" = combattest_positions),
+	EXP_TYPE_HIGHWAYMEN = list("titles" = highwaymen_positions)
 ))
 
 GLOBAL_PROTECT(ms13_exp_jobsmap)

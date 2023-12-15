@@ -537,3 +537,20 @@
 	name = "\improper Mon City Mercs padded uniform"
 	desc = "A set of Mon City Mercs fatigues with some very light, mostly decorative padding, and extra insulation."
 	icon_state = "mon_padunif"
+
+// Highwaymen //
+
+/obj/item/clothing/under/ms13/highwaymen
+	name = "\improper Highwaymen uniform"
+	desc = "A lightly weathered dark brown shirt with some small gold adornments and a pair of jeans. Typical uniform of a seasoned Highwayman."
+	icon_state = "highwaymen"
+
+/obj/item/clothing/under/ms13/highwaymen/unproven
+	name = "clean white shirt and suspenders"
+	desc = "A very clean white shirt, suspenders, and brown pants. Surely not as clean as it's owner, but that's the whole point. To dirty the uniform in proving oneself and making it their own."
+	icon_state = "highwaymen_rookie"
+
+/obj/item/clothing/under/ms13/highwaymen/leader
+	name = "\improper Highwaymen suit"
+	desc = "A well put together dark suit commonly associated with well respected and highly regarded members of the Highwaymen."
+	icon_state = "highwaymen_lead"

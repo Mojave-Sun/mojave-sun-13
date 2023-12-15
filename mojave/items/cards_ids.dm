@@ -436,6 +436,23 @@
 	just_initials  = TRUE
 	shows_age = FALSE
 
+/obj/item/card/id/ms13/highwayman
+	name = "\improper Highwaymen bullet necklace"
+	desc = "A necklace composed of small caliber rounds. Usually used to identify members of the Highwaymen."
+	assignment = "Highwayman"
+	icon_state = "raider" //placeholder
+	just_initials  = TRUE
+	shows_age = FALSE
+
+/obj/item/card/id/ms13/highwayman/qm
+	assignment = "Highwayman Quartermaster"
+
+/obj/item/card/id/ms13/highwayman/overseer
+	assignment = "Highwayman Overseer"
+
+/obj/item/card/id/ms13/highwayman/road
+	assignment = "Highwayman Road Runner"
+
 // Brotherhood IDs //
 
 /obj/item/card/id/ms13/bos

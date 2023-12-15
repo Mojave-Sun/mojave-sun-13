@@ -55,6 +55,11 @@
 	icon_state = "leather"
 	flags_cover = GLASSESCOVERSEYES
 
+/obj/item/clothing/glasses/ms13/leather/highwaymen
+	name = "sand goggles"
+	desc = "Thick goggles made specifically for keeping sand and dust out of the eyes. A staple of the post-apocalyptic desert."
+	icon_state = "sand_goggles"
+
 /obj/item/clothing/glasses/ms13/metal
 	name = "metal goggles"
 	desc = "Tinted metal goggles for weathering the wastes, cold to the touch."

@@ -87,6 +87,11 @@
 	desc = "A comfortable, dark brown bandana."
 	icon_state = "highwaymen_bandana"
 
+/obj/item/clothing/mask/ms13/bandana/highwaymen/alt
+	name = "embroidered bandana"
+	desc = "A dark brown bandana with gold embroidery."
+	icon_state = "highwaymen_bandana_alt"
+
 // Generic Wasteland Facemasks //
 
 /obj/item/clothing/mask/ms13/facewrap

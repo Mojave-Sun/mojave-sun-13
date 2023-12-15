@@ -3,15 +3,14 @@
 	departments_list = list(
 		/datum/job_department/highwaymen,
 	)
-	exp_granted_type = EXP_TYPE_HWYMN
-	exp_required_type = EXP_TYPE_HWYMN
+	exp_granted_type = EXP_TYPE_HIGHWAYMEN
+	exp_required_type = EXP_TYPE_HIGHWAYMEN
 	forbid = "The Highwaymen forbid betrayal of one's own, a close ally, or of a previous agreement. Hostility towards protected individiuals, as determined by Highwaymen leadership."
 	enforce = "The Highwaymen expect obeying your superiors, keeping a cool head, and adhering to agreements and obligations expected of the group. Money and power is important, but so is the word of the Highwaymen and not backing down from it."
 
 /datum/outfit/job/ms13/highwaymen
 	name = "HighwaymenDatums"
 	jobtype = /datum/job/ms13/highwaymen
-	shoes = /obj/item/clothing/shoes/ms13/explorer
 
 /datum/outfit/job/ms13/highwaymen/pre_equip(mob/living/carbon/human/H)
 	..()
