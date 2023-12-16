@@ -22,12 +22,11 @@
 	shoes =		 /obj/item/clothing/shoes/ms13/military
 	suit_store = /obj/item/gun/ballistic/revolver/ms13/huntingrev
 	back =		 /obj/item/storage/ms13/satchel
-	mask =		 /obj/item/clothing/mask/ms13/bandana/goldman
-	glasses =	 /obj/item/clothing/glasses/ms13/sunglasses
 	gloves =	 /obj/item/clothing/gloves/ms13/military
 	backpack_contents = list(
 		/obj/item/stack/medical/gauze/ms13/half=1,\
 		/obj/item/stack/medical/ointment/ms13/half=1,\
+		/obj/item/clothing/mask/ms13/bandana/goldman=1,\
 		/obj/item/stack/medical/ms13/healing_powder=1,\
 		/obj/item/stack/ms13/currency/cap/hunned=1,\
 		/obj/item/ammo_box/ms13/c4570box=1)
