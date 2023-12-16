@@ -16,3 +16,5 @@
 			stack_trace("[src.name] found inside a wall at ([loc.x], [loc.y], [loc.z])")
 			return INITIALIZE_HINT_QDEL
 	. = ..()
+	if(hidden)
+		icon_state = null

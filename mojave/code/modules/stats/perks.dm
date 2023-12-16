@@ -56,7 +56,7 @@ PERK_HUMAN_TORCH = /datum/perk/human_torch,
 /datum/perk/proc/has_level(datum/stats/s)
 	switch(type_class)
 		if("p")
-			if(level > 5)
+			if(level > 15)
 				if(s.perceptive >= level)
 					return TRUE
 			else
@@ -72,7 +72,7 @@ PERK_HUMAN_TORCH = /datum/perk/human_torch,
 					return TRUE
 			return FALSE
 		if("r")
-			if(level > 5)
+			if(level > 15)
 				if(s.retaining >= level)
 					return TRUE
 			else
@@ -80,7 +80,7 @@ PERK_HUMAN_TORCH = /datum/perk/human_torch,
 					return TRUE
 			return FALSE
 		if("s")
-			if(level > 5)
+			if(level > 15)
 				if(s.strong >= level)
 					return TRUE
 			else
@@ -88,7 +88,7 @@ PERK_HUMAN_TORCH = /datum/perk/human_torch,
 					return TRUE
 			return FALSE
 		if("o")
-			if(level > 5)
+			if(level > 15)
 				if(s.outgoing >= level)
 					return TRUE
 			else
@@ -96,7 +96,7 @@ PERK_HUMAN_TORCH = /datum/perk/human_torch,
 					return TRUE
 			return FALSE
 		if("n")
-			if(level > 5)
+			if(level > 15)
 				if(s.nimble >= level)
 					return TRUE
 			else

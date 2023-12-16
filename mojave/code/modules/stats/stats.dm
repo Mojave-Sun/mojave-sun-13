@@ -6,20 +6,20 @@
 	. = ..()
 
 /datum/stats
-	//5 value no give buffs and debuffs
-	var/perceptive = 5
-	var/enduring = 5
-	var/retaining = 5
-	var/strong = 5
-	var/outgoing = 5
-	var/nimble = 5
+	//15 value no give buffs and debuffs
+	var/perceptive = 15
+	var/enduring = 15
+	var/retaining = 15
+	var/strong = 15
+	var/outgoing = 15
+	var/nimble = 15
 
 	var/list/perks = list()
 
 	//Mob or Player
 	var/mob/living/owner
 
-/datum/stats/New(owner, perceptive = 5, enduring = 5, retaining = 5, strong = 5, outgoing = 5, nimble = 5)
+/datum/stats/New(owner, perceptive = 15, enduring = 15, retaining = 15, strong = 15, outgoing = 15, nimble = 15)
 	src.owner = owner
 	src.perceptive = perceptive
 	src.enduring = enduring

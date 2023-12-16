@@ -36,7 +36,7 @@ GLOBAL_LIST_INIT(perks, list())
 		var/datum/perk/p = get_perk(type)
 		.["activeperks"] += list(list("name" = p.name, "desc" = p.desc, "id" = p.id, "type" = p.type_class, "filter" = p.filter, "level" = p.level, "ranks" = p.ranks))
 
-	.["stats"] = list("perceptive" = "[temp_special.perceptive]", "enduring" = "[temp_special.enduring]", "retaining" = "[temp_special.retaining]", "strong" = "[temp_special.strong]", "outgoing" = "[temp_special.outgoing]", "nimble" = "[temp_special.nimble]")
+	.["stats"] = list("perceptive" = "[temp_special.perceptive - 10]", "enduring" = "[temp_special.enduring - 10]", "retaining" = "[temp_special.retaining - 10]", "strong" = "[temp_special.strong - 10]", "outgoing" = "[temp_special.outgoing - 10]", "nimble" = "[temp_special.nimble - 10]")
 
 /datum/stats_browser/ui_act(action, params, datum/tgui/ui)
 	. = ..()
