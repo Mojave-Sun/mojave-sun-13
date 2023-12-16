@@ -129,8 +129,8 @@
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/gunrunner/initial_wanteds()
 	return list(
-		/obj/item/ms13/component/gunpowder/lq = list(30, rand(0,6), ""),
-		/obj/item/ms13/component/gunpowder = list(65, rand(0,6), ""),
+		/obj/item/ms13/component/gunpowder = list(30, rand(0,6), ""),
+		/obj/item/ms13/component/gunpowder/hq = list(65, rand(0,6), ""),
 		/obj/item/stack/sheet/ms13/scrap_lead = list(3, rand(5,30), ", per piece of lead"),
 		/obj/item/stack/sheet/ms13/scrap_brass = list(3, rand(5,30), ", per piece of brass"),
 		/obj/item/stack/sheet/ms13/refined_lead = list(22, rand(0,10), ", per ingot of lead"),
@@ -879,8 +879,8 @@
 		/obj/item/ammo_box/ms13/a308 = list(240, rand(0,1)),
 		/obj/item/ammo_box/ms13/a762 = list(240, rand(0,2)),
 		/obj/item/ammo_box/ms13/shotgun/buckshot = list(175, rand(0,3)),
-		/obj/item/ms13/component/gunpowder = list(80, rand(0,3)),
-		/obj/item/ms13/component/gunpowder/lq = list(40, rand(1,4))
+		/obj/item/ms13/component/gunpowder/hq = list(80, rand(0,3)),
+		/obj/item/ms13/component/gunpowder = list(40, rand(1,4))
 				)
 
 /mob/living/simple_animal/hostile/retaliate/trader/ms13/drought/general_goods/initial_wanteds()

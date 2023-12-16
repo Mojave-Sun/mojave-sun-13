@@ -132,14 +132,14 @@
 	category = CAT_WEAPONS
 	crafting_interface = CRAFTING_BENCH_WEAPONS
 
-/datum/crafting_recipe/shishkebab
+/datum/crafting_recipe/thunder_stick
 	name = "thunder stick"
-	result = /obj/item/spear/explosive/ms13
+	result = /obj/item/ms13/twohanded/thunderstick
 	time = 21 SECONDS
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WRENCH, TOOL_SAW)
 	tool_paths = list(/obj/item/wirecutters/ms13)
 	reqs = list(/obj/item/stack/sheet/ms13/wood/plank = 2,
-				/obj/item/stack/sheet/ms13/nugget/sulfur = 10,
+				/obj/item/ms13/component/gunpowder = 3,
 				/obj/item/stack/sheet/ms13/scrap_parts = 6,
 				/obj/item/stack/sheet/ms13/scrap = 4)
 	category = CAT_WEAPONS
