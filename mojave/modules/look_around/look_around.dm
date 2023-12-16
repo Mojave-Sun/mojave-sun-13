@@ -6,7 +6,7 @@
 	var/list/obj/objs_no_look = list()
 
 /obj
-	var/hidden = FALSE
+	var/hidden_for_look = FALSE
 	var/range_place = 0
 	var/unknown_state = FALSE
 	var/reduce_outgoing = 0
@@ -22,7 +22,7 @@
 	var/atom/Uloc = loc
 	var/list/whining_in_view = list()
 	for(var/obj/A in view())
-		if(!A.hidden)
+		if(!A.hidden_for_look)
 			continue
 		whining_in_view += A
 
@@ -45,8 +45,6 @@
 				last_spotted = world.time
 				var/obj/A = pick(whining_in_view)
 				var/blowout_effect = 0
-				if(ishuman(src))
-					var/mob/living/carbon/human/H = src
 				var/roll = 0
 				if(!(A in objs_in_look) && !(A in objs_no_look))
 					roll = rolld(dice6(3), stats.outgoing - A.reduce_outgoing + blowout_effect, FALSE)
