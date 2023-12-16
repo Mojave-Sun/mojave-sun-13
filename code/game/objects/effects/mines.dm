@@ -15,7 +15,7 @@
 	. = ..()
 	if(arm_delay)
 		armed = FALSE
-		if(!hidden)
+		if(!hidden_for_look)
 			icon_state = "uglymine-inactive"
 		addtimer(CALLBACK(src, .proc/now_armed), arm_delay)
 	var/static/list/loc_connections = list(
