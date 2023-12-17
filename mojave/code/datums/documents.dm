@@ -329,3 +329,15 @@
 		Unfortunately, that entails we'll have to pull you back a shift and you'll do opening. Nothing too drastic should change, other than it being sun-up when you arrive. When we next see each other, I can give you the keys for lockup. There's a few of them, actually. That was also mandated...\
 		<br><br>\
 		So... Yeah. If you do end up coming in on the twenty-third and see this before I can snag you up or Rich got to you first, just hang around and work as usual, we'll get together to talk a bit more about the new protocol. -Rebecca."
+
+//// DROUGHT SPECIFIC ////
+
+/datum/terminal/document/drought_junkyard_warn //Drought junkyard sentry warning
+	title = "DO NOT ENTER"
+	content = "Jacobsen fucked it up big time. That giant hunk of prewar kickass was hardly on the hoist for all of five fucking minutes before the moron pressed on the wrong part of it. I didn't even get to see him before he disappeared into a cloud of red mist.\
+		<br>\
+		I managed to contain it, but Nick took some shots and I don't think he's going to make it. The sentry bot is active in there- If you end up making it back, I pray to god you read this message. We can't stay here.\
+		<br>\
+		We'll be meeting up in the old Sheriff's station. You need to come over with us, take a right when you exit the junkyard, hang a left at the first road and keep walking. We'll probably be out front waiting once we've cleared it out a bit. It's just us two, now.\
+		<br>\
+		Moral of the story is... Don't play around with military tech. It's not worth it."

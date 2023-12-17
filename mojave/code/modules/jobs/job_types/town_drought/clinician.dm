@@ -11,7 +11,7 @@
 
 	display_order = JOB_DISPLAY_ORDER_MS13_CLINICIAN
 
-	mind_traits = list(TRAIT_MEDICAL_TRAINING)
+	mind_traits = list(TRAIT_MEDICAL_TRAINING, TRAIT_DRUGGIE)
 
 /datum/outfit/job/ms13/town_drought/clinician
 	name = "_Barony Clinician"
@@ -25,6 +25,8 @@
 	r_hand =     /obj/item/storage/firstaid/ms13/bag/filled
 	r_pocket =   /obj/item/stack/ms13/currency/cap/hunnedtwentyfive
 	back =       /obj/item/storage/ms13/satchel
+	backpack_contents = list(
+		/obj/item/card/id/ms13/drought_medical=1)
 
 /datum/outfit/job/ms13/town_drought/clinician/pre_equip(mob/living/carbon/human/H)
 	..()

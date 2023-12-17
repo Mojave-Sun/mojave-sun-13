@@ -157,30 +157,23 @@
 
 // Mr Handy Projectiles //
 
-/obj/item/ammo_casing/energy/ms13/laser/handy
-	projectile_type = /obj/projectile/beam/ms13/laser/handy
-	variance = 18
+/obj/item/ammo_casing/ms13/a762/junk/handy
+	projectile_type = /obj/projectile/bullet/ms13/a762/junk/handy
+	variance = 20
 	pellets = 1
-	fire_sound = 'mojave/sound/ms13weapons/gunsounds/laspistol/las_pistol_2.ogg'
+	fire_sound = 'mojave/sound/ms13weapons/chinesearfire.ogg'
 	randomspread = TRUE
 
-/obj/item/ammo_casing/energy/ms13/laser/handy/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from, extra_damage, extra_penetration)
+/obj/item/ammo_casing/ms13/a762/junk/handy/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from, extra_damage, extra_penetration)
 	. = ..()
 	if(. && !QDELETED(src))
 		qdel(src)
 
-/obj/projectile/beam/ms13/laser/handy
-	name = "laser beam"
-	damage = 25
-	subtractible_armour_penetration = 15
-	wound_bonus = 5
-	bare_wound_bonus = 5
-	hitscan_light_intensity = 2
-	hitscan_light_range = 0.50
-	muzzle_flash_intensity = 4
-	muzzle_flash_range = 1
-	impact_light_intensity = 5
-	impact_light_range = 1.25
+/obj/projectile/bullet/ms13/a762/junk/handy
+	name = "junk 7.62 bullet"
+	damage = 30
+	subtractible_armour_penetration = 25
+	bare_wound_bonus = 4
 
 /obj/item/ammo_casing/energy/ms13/plasma/gutsy
 	projectile_type = /obj/projectile/bullet/ms13/plasma/gutsy

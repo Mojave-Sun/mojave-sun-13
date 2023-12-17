@@ -364,6 +364,9 @@
                 ENERGY = 0, \
                 FIRE = CLASS4_FIRE)
 	max_integrity = 325
+	w_class = WEIGHT_CLASS_NORMAL
+	grid_width = 64
+	grid_height = 64
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 75, acid = 0, wound = 0)
 	equip_delay_self = 2 SECONDS
 	equip_delay_other = 4 SECONDS

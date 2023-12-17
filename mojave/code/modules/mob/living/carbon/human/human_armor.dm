@@ -46,6 +46,22 @@
 		return clothing.subarmor.getRating(SUBARMOR_FLAGS)
 	return physiology.subarmor.getRating(SUBARMOR_FLAGS)
 
+/mob/living/carbon/human/proc/getallsubarmor(d_type)
+	if(!d_type)
+		return 0
+
+	var/static/list/converstion_table = list(MELEE, BULLET)
+	if(d_type in converstion_table)
+		d_type = CRUSHING
+		stack_trace("Called checksubarmor with invalid d_type ([d_type])!")
+
+	var/protection = 0
+	for(var/X in bodyparts)
+		var/obj/item/bodypart/BP = X
+		protection += checksubarmor(BP, d_type)
+
+	return protection
+
 /mob/living/carbon/human/proc/checksubarmor(obj/item/bodypart/def_zone, d_type)
 	if(!d_type)
 		return 0
@@ -69,6 +85,11 @@
 	var/protection = 0
 	var/list/clothings = clothingonpart(affecting)
 	for(var/obj/item/clothing as anything in clothings)
+		if(istype(clothing, /obj/item/clothing/suit/space/hardsuit/ms13/power_armor))
+			var/obj/item/clothing/suit/space/hardsuit/ms13/power_armor/pa = clothing
+			var/obj/item/ms13/power_armor/PA_part = pa.module_armor[def_zone.body_zone]
+			if(PA_part != null)
+				protection += PA_part.subarmor.getRating(d_type)
 		protection += clothing.subarmor.getRating(d_type)
 	protection += physiology.subarmor.getRating(d_type)
 	return protection

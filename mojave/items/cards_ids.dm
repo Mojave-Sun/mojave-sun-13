@@ -84,7 +84,7 @@
 
 /obj/item/card/id/ms13/visa
 	name = "\improper Snowcrest visa"
-	desc = "A passport allowing temporary residency in Swnocrest, but not quite full citizenship."
+	desc = "A passport allowing temporary residency in Snowcrest, but not quite full citizenship."
 	assignment = "Snowcrest Squatter"
 	icon_state = "passport_photo"
 
@@ -306,21 +306,51 @@
 	icon_state = "drought_town"
 	assignment = "Barony Denizen"
 
+/obj/item/card/id/ms13/drought_visa
+	name = "\improper Barony identification papers"
+	desc = "Freshly stamped identification papers for a new citizen of the Barony. The freshness of these papers likely indicate these are for a recent arrival to the Barony."
+	icon_state = "drought_town"
+	assignment = "Barony Migrant"
+
+/obj/item/card/id/ms13/drought_visa/attackby(obj/item/W, mob/user, params)
+	if(istype(W, /obj/item/card/id/ms13/drought_baron))
+		registered_name = stripped_input(user, "Who do you want to grant these papers to?", , "", MAX_NAME_LEN)
+		to_chat(user, "You scribble [registered_name] for the name on the papers.")
+		update_label()
+	return ..()
+
 /obj/item/card/id/ms13/drought_slave
+	name = "\improper Barony identification papers"
 	desc = "Stamped identification papers for a citizen of the Barony. This has special clearance for labor and maintenance duties included."
 	assignment = "Barony Laborer"
 	icon_state = "drought_town"
 
 /obj/item/card/id/ms13/drought_barkeep
+	name = "\improper Barony identification papers"
 	desc = "Stamped identification papers for a citizen of the Barony. This has special clearance for operation of a dining and drinking establishment within the Barony."
 	assignment = "Barony Barkeep"
 	icon_state = "drought_town"
 
 /obj/item/card/id/ms13/drought_doctor
+	name = "\improper Barony identification papers"
 	desc = "Stamped identification papers for a citizen of the Barony. This has special clearance for operation of a clinic and medical duties within the Barony."
 	assignment = "Barony Clinician"
 	icon_state = "drought_town"
 	access = list(ACCESS_BARONY_DOCTOR)
+
+/obj/item/card/id/ms13/drought_medical
+	name = "\improper Barony identification papers"
+	desc = "Freshly stamped identification papers for a citizen of the Barony. This is specifically designated for individuals assisting the operation of the Barony's clinic."
+	assignment = "Barony Medical Support"
+	icon_state = "drought_town"
+	access = list(ACCESS_BARONY_DOCTOR)
+
+/obj/item/card/id/ms13/drought_medical/attackby(obj/item/W, mob/user, params)
+	if(istype(W, /obj/item/card/id/ms13/drought_doctor))
+		registered_name = stripped_input(user, "Who do you want to grant these papers to?", , "", MAX_NAME_LEN)
+		to_chat(user, "You scribble [registered_name] for the name on the papers.")
+		update_label()
+	return ..()
 
 /obj/item/card/id/ms13/drought_enforcer
 	name = "enforcer's golden pin"

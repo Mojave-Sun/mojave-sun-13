@@ -265,8 +265,9 @@
 
 /mob/living/attacked_by(obj/item/I, mob/living/user)
 	send_item_attack_message(I, user)
-	if(I.force)
-		apply_damage(I.force, I.damtype)
+	var/no_defended = damage_armor(I.force, MELEE, I.damtype)
+	if(no_defended)
+		apply_damage(no_defended, I.damtype)
 		if(I.damtype == BRUTE)
 			if(prob(33))
 				I.add_mob_blood(src)

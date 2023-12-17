@@ -75,8 +75,8 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	vision_range = 12
 	aggro_vision_range = 12
 	dodge_prob = 50
-	maxHealth = 1200
-	health = 1200
+	maxHealth = 1360
+	health = 1360
 	idlechance = 20
 	melee_damage_lower = 25
 	melee_damage_upper = 25
@@ -88,8 +88,8 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	stat_attack = CONSCIOUS
 	casingtype = /obj/item/ammo_casing/energy/ms13/laser/sentrybot
 	ranged_cooldown = 4.5 SECONDS
-	rapid = 16
-	rapid_fire_delay = 0.05 SECONDS //16 shots over 1 second
+	rapid = 24
+	rapid_fire_delay = 0.045 SECONDS //24 shots over 1 second
 	pixel_x = -8
 	base_pixel_x = -8
 	bot_type = "Sentrybot"
@@ -115,7 +115,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/Initialize()
 	. = ..()
-	grenade = new /datum/action/cooldown/launch_grenade()
+	grenade = new /datum/action/cooldown/launch_grenade/incend()
 	rocket = new /datum/action/cooldown/launch_rocket()
 	grenade.Grant(src)
 	rocket.Grant(src)
@@ -213,15 +213,21 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 		FindTarget(possible_targets = null, HasTargetsList = FALSE)
 	if(actually_fire)
 		. = ..()
-		playsound(src, 'mojave/sound/ms13npc/sentrybot/laser_gatling.ogg', 50, FALSE)
+		gunfire_sound()
 		addtimer(CALLBACK(src, .proc/wind_down_gun), 1 SECONDS)
 	else
 		if(!already_firing)
 			addtimer(CALLBACK(src, .proc/trigger_abilities, A), rand(1.5 SECONDS, 3 SECONDS))
 			addtimer(CALLBACK(src, .proc/OpenFire, A, TRUE), 1 SECONDS)
-			playsound(src, 'mojave/sound/ms13npc/sentrybot/gatling_windup.ogg', 75, FALSE)
+			spinup_sound()
 			already_firing = TRUE
 	return
+
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/proc/gunfire_sound()
+	playsound(src, 'mojave/sound/ms13npc/sentrybot/laser_gatling.ogg', 50, FALSE)
+
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/proc/spinup_sound()
+	playsound(src, 'mojave/sound/ms13npc/sentrybot/gatling_windup.ogg', 75, FALSE)
 
 //Don't bother kiting if we lose sight of the target, we gotta rush them
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/proc/checkLoS()
@@ -328,7 +334,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 
 /obj/projectile/beam/ms13/laser/sentrybot
 	damage = 8
-	subtractible_armour_penetration = 35
+	subtractible_armour_penetration = 32
 	wound_bonus = 18
 	bare_wound_bonus = 10
 
@@ -350,12 +356,12 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 /datum/action/cooldown/launch_rocket
 	name = "Launch a rocket"
 	desc = "Launches a cool rocket at the enemy"
-	cooldown_time = 14 SECONDS
+	cooldown_time = 13 SECONDS
 	click_to_activate = TRUE
 	var/obj/projectile/projectile = /obj/projectile/bullet/sentrybot_rocket
 
 /datum/action/cooldown/launch_rocket/Activate(atom/target_atom)
-	StartCooldown(14 SECONDS)
+	StartCooldown(13 SECONDS)
 	launch_rocket(target_atom)
 	StartCooldown()
 
@@ -370,12 +376,12 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 /datum/action/cooldown/launch_grenade
 	name = "Launch a shrapnel grenade"
 	desc = "Launches a cool grenade at the enemy"
-	cooldown_time = 8 SECONDS
+	cooldown_time = 7.5 SECONDS
 	click_to_activate = TRUE
 	var/obj/item/grenade/grenade = /obj/item/grenade/frag/sentrybot
 
 /datum/action/cooldown/launch_grenade/Activate(atom/target_atom)
-	StartCooldown(8 SECONDS)
+	StartCooldown(7.5 SECONDS)
 	launch_grenade(target_atom)
 	StartCooldown()
 
@@ -394,6 +400,16 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	owner.density = original_density
 	thrown_grenade.arm_grenade(owner, 1.5 SECONDS, 2, 1, owner, TRUE)
 
+/datum/action/cooldown/launch_grenade/incend
+	name = "Launch a incendiary grenade"
+	cooldown_time = 8 SECONDS
+	grenade = /obj/item/grenade/ms13/incend_sentry
+
+/datum/action/cooldown/launch_grenade/incend/Activate(atom/target_atom)
+	StartCooldown(8 SECONDS)
+	launch_grenade(target_atom)
+	StartCooldown()
+
 /obj/item/grenade/frag/sentrybot
 	name = "frag grenade"
 	desc = "An anti-personnel fragmentation grenade, this weapon excels at killing soft targets by shredding them with metal shrapnel."
@@ -405,6 +421,21 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	ex_heavy = -1
 	ex_light = 1
 	ex_flame = 2
+
+/obj/item/grenade/ms13/incend_sentry
+	name = "incendiary grenade"
+	desc = "An anti-personnel incendiary grenade, this weapon excels at killing soft targets by lighting them aflame."
+	icon = 'mojave/icons/objects/throwables/ms_bomb_sentrybot.dmi'
+	icon_state = "bomb"
+	pass_flags = PASSMOB
+	ex_heavy = 0
+	ex_light = 0
+	ex_flame = 2
+
+/obj/item/grenade/ms13/incend_sentry/detonate(mob/living/lanced_by)
+	flame_radius(2, get_turf(src))
+	playsound(loc, 'mojave/sound/ms13effects/explosion_fire_grenade.ogg', 50, TRUE, 4)
+	qdel(src)
 
 /obj/item/shrapnel/ms13
 	name = "shrapnel shard"
@@ -461,3 +492,81 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 		P.impacted = list(owner = TRUE) // don't hit the target we hit already with the flak
 		P.preparePixelProjectile(target_turf, owner)
 		P.fire()
+
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/ballistic
+	icon_state = "ballisentry"
+	casingtype = /obj/item/ammo_casing/ms13/sentry
+	ranged_cooldown = 5.5 SECONDS
+	rapid = 50
+	rapid_fire_delay = 0.022 SECONDS //50 shots over 1.1 seconds
+
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/ballistic/Initialize()
+	. = ..()
+	grenade = new /datum/action/cooldown/launch_grenade()
+	rocket = new /datum/action/cooldown/railgun()
+	grenade.Grant(src)
+	rocket.Grant(src)
+	RegisterSignal(src, COMSIG_MOVABLE_MOVED, .proc/play_move_sound, override = TRUE)
+	soundloop = new(src, FALSE)
+
+//Wind down is combined with windup sound
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/ballistic/wind_down_gun()
+	already_firing = FALSE
+
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/ballistic/gunfire_sound()
+	playsound(src, 'mojave/sound/ms13npc/sentrybot/ballistic_minigun_fire.ogg', 50, FALSE)
+
+/mob/living/simple_animal/hostile/ms13/robot/sentrybot/ballistic/spinup_sound()
+	playsound(src, 'mojave/sound/ms13npc/sentrybot/ballistic_minigun_spinup_down.ogg', 50, FALSE)
+
+/obj/item/ammo_casing/ms13/sentry
+	name = "5mm bullet casing"
+	projectile_type = /obj/projectile/bullet/ms13/sentry
+	icon_state = "556_casing"
+	variance = 40
+	pellets = 1
+	fire_sound = 'mojave/sound/ms13weapons/arfire.ogg'
+	randomspread = TRUE
+
+/obj/item/ammo_casing/ms13/sentry/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from, extra_damage, extra_penetration)
+	. = ..()
+	pixel_z = 8 //bounce time
+	var/rand_spin = (rand(1, 3) * 10 ) //* SECONDS
+	SpinAnimation(speed = rand_spin, loops = 1)
+	var/angle_of_movement = !isnull(user) ? (rand(-3000, 3000) / 100) + dir2angle(turn(user.dir, 180)) : rand(-3000, 3000) / 100
+	AddComponent(/datum/component/movable_physics, _horizontal_velocity = rand(450, 550) / 100, _vertical_velocity = rand(400, 450) / 100, _horizontal_friction = rand(20, 24) / 100, _z_gravity = 9.80665, _z_floor = 0, _angle_of_movement = angle_of_movement)
+
+/obj/projectile/bullet/ms13/sentry
+	name = "5mm bullet"
+	icon_state = "medium_bullet"
+	damage = 6
+	subtractible_armour_penetration = 25
+	wound_bonus = 15
+	bare_wound_bonus = 15
+
+/datum/action/cooldown/railgun
+	name = "Fire a railgun"
+	desc = "Launches a cool railgun at the enemy"
+	cooldown_time = 2.6 SECONDS
+	click_to_activate = TRUE
+	var/obj/projectile/projectile = /obj/projectile/bullet/ms13/gauss/sentry
+
+/datum/action/cooldown/railgun/Activate(atom/target_atom)
+	StartCooldown(2.6 SECONDS)
+	launch_railgun(target_atom)
+	StartCooldown()
+
+/datum/action/cooldown/railgun/proc/launch_railgun(atom/target_atom)
+	playsound(owner, 'mojave/sound/ms13weapons/gunsounds/Gauss/bigbore.ogg', 60, FALSE, -1)
+	var/obj/projectile/projectile_obj = new projectile(get_turf(owner))
+	projectile_obj.firer = owner
+	projectile_obj.preparePixelProjectile(target_atom, owner)
+	projectile_obj.fire()
+
+/obj/projectile/bullet/ms13/gauss/sentry
+	name = "heavy gauss bullet"
+	damage = 80
+	subtractible_armour_penetration = 80
+	wound_bonus = 5
+	bare_wound_bonus = 0
+	speed = 0.35
