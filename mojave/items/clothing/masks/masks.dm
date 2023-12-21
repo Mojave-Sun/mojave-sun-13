@@ -82,6 +82,16 @@
 	desc = "A mask used by doctors to keep blood out of their mouth and nose."
 	icon_state = "surgical"
 
+/obj/item/clothing/mask/ms13/bandana/goldman
+	name = "dark brown bandana"
+	desc = "A comfortable, dark brown bandana."
+	icon_state = "goldman_bandana"
+
+/obj/item/clothing/mask/ms13/bandana/goldman/alt
+	name = "embroidered bandana"
+	desc = "A dark brown bandana with gold embroidery."
+	icon_state = "goldman_bandana_alt"
+
 // Generic Wasteland Facemasks //
 
 /obj/item/clothing/mask/ms13/facewrap
@@ -115,6 +125,13 @@
 	name = "red facewrap and goggles"
 	desc = "A thick red facewrap with a pair of goggles."
 	icon_state = "mon_marks"
+	flags_inv = HIDEFACE | HIDEHAIR
+	flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES
+
+/obj/item/clothing/mask/ms13/facewrap/goldman
+	name = "dark brown facewrap"
+	desc = "A dark brown facewrap and bandana. It oozes mystery."
+	icon_state = "goldman_facewrap"
 	flags_inv = HIDEFACE | HIDEHAIR
 	flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES
 
@@ -217,3 +234,5 @@
 		desc = "[initial(desc)] It will go under your headwear, you can adjust this by using while in hand."
 		adjusted = FALSE
 	update_icon()
+
+

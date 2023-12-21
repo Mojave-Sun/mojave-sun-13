@@ -418,6 +418,10 @@
 	category = CAT_STAN_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
 
+//goldman QM RECIPES
+
+
+
 // GUNPOWDER
 
 /datum/crafting_recipe/lq_gp

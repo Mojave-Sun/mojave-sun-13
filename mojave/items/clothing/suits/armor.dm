@@ -922,7 +922,7 @@
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 50, acid = 0, wound = 0)
 	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
-	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/small
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
 
 /obj/item/clothing/suit/armor/ms13/eliteriot/ranger
 	name = "\improper Elite Desert Ranger armor"

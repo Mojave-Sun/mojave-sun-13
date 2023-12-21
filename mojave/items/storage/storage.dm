@@ -107,7 +107,7 @@
 /obj/item/storage/ms13/toolbox
 	name = "toolbox"
 	desc = "A lightly worn red toolbox. A working man's best friend."
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = null
 	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'

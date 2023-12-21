@@ -1951,3 +1951,29 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = 0)
+
+// goldman Hats //
+
+/obj/item/clothing/head/helmet/ms13/cowboy/goldman
+	name = "padded wide brim brown hat"
+	desc = "A wide brim dark brown hat with the addition of some light protective padding."
+	icon_state = "goldman_basic"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS1_LASER, \
+                ENERGY = 0, \
+                FIRE = 0)
+
+/obj/item/clothing/head/helmet/ms13/cowboy/goldman/veteran
+	name = "padded wide brim fedora"
+	desc = "A wide brim fedora with the addition of some light protective padding."
+	icon_state = "goldman_vet"
+
+/obj/item/clothing/head/helmet/ms13/cowboy/goldman/leader
+	name = "\improper goldman Ringleader's hat"
+	desc = "A distinctive hat with the addition of a gold symbol, worn by high up members within the Goldman Posse."
+	icon_state = "goldman_lead"
