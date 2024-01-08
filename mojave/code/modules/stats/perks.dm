@@ -40,6 +40,9 @@ PERK_HUMAN_TORCH = /datum/perk/human_torch,
 	//Attached stats
 	var/datum/stats/stats
 
+	//DEV THING
+	var/is_ready = FALSE
+
 /datum/perk/New(special)
 	src.stats = stats
 

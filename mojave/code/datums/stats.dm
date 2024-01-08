@@ -25,6 +25,8 @@ GLOBAL_LIST_INIT(perks, list())
 		var/type = GLOB.perks_type[id]
 		if(type in activeperks)
 			continue
+		if(!perk.is_ready)
+			continue
 		var/datum/perk/p = get_perk(type)
 		if(!p.check_to_add(temp_special))
 			continue
