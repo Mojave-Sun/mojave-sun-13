@@ -240,7 +240,7 @@ const JobRow = (props: {
           content={job.description}
           position="bottom-start"
         >
-          <Stack.Item className="job-name" width="50%" onClick={() => act('stats', { ref: job })} style={{
+          <Stack.Item className="job-name" width="50%" onClick={() => act('stats', { job: name })} style={{
             "padding-left": "0.3em",
           }}>
 

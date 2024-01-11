@@ -26,6 +26,8 @@ GLOBAL_LIST_INIT(perks, list())
 		if(type in activeperks)
 			continue
 		var/datum/perk/p = get_perk(type)
+		if(!p.is_ready)
+			continue
 		if(!p.check_to_add(temp_special))
 			continue
 		.["perks"] += list(list("name" = p.name, "desc" = p.desc, "id" = p.id, "type" = p.type_class, "filter" = p.filter, "level" = p.level, "ranks" = p.ranks))
