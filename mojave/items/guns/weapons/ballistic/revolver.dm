@@ -10,6 +10,7 @@
 	slot_flags = ITEM_SLOT_BACK
 	recoil = 1.5
 	slowdown = 0.75
+	spread_reduction = CHOKE_MODERATE
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/caravan
 	load_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravanload2.ogg'
 	load_empty_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravanload2.ogg'
@@ -30,6 +31,7 @@
 	inhand_icon_state = "sawedoff"
 	force = 15
 	subtractible_armour_penetration = 0
+	spread_reduction = CHOKE_WIDE
 	fire_delay = 0.5 SECONDS
 	slot_flags = ITEM_SLOT_SUITSTORE | ITEM_SLOT_BELT
 	slowdown = 0.5
@@ -49,6 +51,7 @@
 	slot_flags = ITEM_SLOT_BACK
 	recoil = 1.5
 	slowdown = 0.75
+	spread_reduction = CHOKE_TIGHT
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/ms13/single
 	load_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravanload2.ogg'
 	load_empty_sound = 'mojave/sound/ms13weapons/gunsounds/caravan/caravanload2.ogg'

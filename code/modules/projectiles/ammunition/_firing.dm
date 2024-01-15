@@ -1,12 +1,15 @@
 //MOJAVE EDIT CHANGE BEGIN - FIRE_CASING
 //obj/item/ammo_casing/proc/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from) - Mojave EDIT - ORIGINAL
-/obj/item/ammo_casing/proc/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from, extra_damage, extra_penetration)
+/obj/item/ammo_casing/proc/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from, extra_damage, extra_penetration, spread_reduction)
+	if(isgun(fired_from))
+		var/obj/item/gun/G = fired_from
+		spread_reduction = G.spread_reduction
+	distro += (variance - spread_reduction)
 	//MOJAVE EDIT CHANGE END
-	distro += variance
 	var/targloc = get_turf(target)
 	//MOJAVE EDIT CHANGE BEGIN - FIRE_CASING
 	//ready_proj(target, user, quiet, zone_override, fired_from) - Mojave EDIT - ORIGINAL
-	ready_proj(target, user, quiet, zone_override, fired_from, extra_damage, extra_penetration)
+	ready_proj(target, user, quiet, zone_override, fired_from, extra_damage, extra_penetration, spread_reduction)
 	//MOJAVE EDIT CHANGE END
 	if(pellets == 1)
 		if(distro) //We have to spread a pixel-precision bullet. throw_proj was called before so angles should exist by now...
