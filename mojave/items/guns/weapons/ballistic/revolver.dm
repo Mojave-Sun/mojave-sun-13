@@ -1,7 +1,7 @@
 //Guns
 /obj/item/gun/ballistic/revolver/ms13/caravan
 	name = "caravan shotgun"
-	desc = "A well worn but reliable double barrel shotgun."
+	desc = "A well worn but reliable double barrel shotgun with a tighter spread than other shotguns."
 	icon_state = "caravan"
 	inhand_icon_state = "caravan"
 	force = 20
@@ -42,7 +42,7 @@
 
 /obj/item/gun/ballistic/revolver/ms13/single
 	name = "single shotgun"
-	desc = "A very cheap and very common lightweight shotgun with only a single round, better make it count."
+	desc = "A very cheap and very common lightweight shotgun with only a single round, better make it count. It has a very tight choke that enhances its effective range."
 	icon_state = "singleshot"
 	inhand_icon_state = "singleshot"
 	force = 20
