@@ -1353,6 +1353,12 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 		var/damage = rand(user.dna.species.punchdamagelow, user.dna.species.punchdamagehigh)
 
+		//MOJAVE EDIT BEGIN
+		if(HAS_TRAIT(user, TRAIT_IN_POWERARMOUR))
+			damage += 15
+			attack_sound = 'mojave/sound/ms13weapons/meleesounds/heavyblunt_hit1.ogg'
+		//MOJAVE EDIT END
+
 		var/obj/item/bodypart/affecting = target.get_bodypart(ran_zone(user.zone_selected))
 
 		var/miss_chance = 100//calculate the odds that a punch misses entirely. considers stamina and brute damage of the puncher. punches miss by default to prevent weird cases

@@ -261,6 +261,14 @@
 	var/shove_blocked = FALSE //Used to check if a shove is blocked so that if it is knockdown logic can be applied
 	var/turf/target_old_turf = target.loc
 
+	//MOJAVE EDIT BEGIN
+	if(HAS_TRAIT(target, TRAIT_SHOVEIMMUNE))
+		target.visible_message(span_danger("[name] tries to shove [target.name], but [target.name] won't budge! "),
+				span_userdanger("[name] tries to shove you, but you stand your ground!"), span_hear("You hear aggressive shuffling followed by a loud thud!"), COMBAT_MESSAGE_RANGE, src)
+		to_chat(src, span_danger("You try to shove [target.name], but they won't budge!"))
+		return
+	//MOJAVE EDIT END
+
 	//Are we hitting anything? or
 	if(SEND_SIGNAL(target_shove_turf, COMSIG_CARBON_DISARM_PRESHOVE) & COMSIG_CARBON_ACT_SOLID)
 		shove_blocked = TRUE
