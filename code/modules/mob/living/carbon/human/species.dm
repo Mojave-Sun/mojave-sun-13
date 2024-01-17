@@ -108,8 +108,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	///Highest possible punch damage this species can give.
 	var/punchdamagehigh = 10
 	///Damage at which punches from this race will stun
-	//var/punchstunthreshold = 10 //yes it should be to the attacked race but it's not useful that way even if it's logical
-	var/punchstunthreshold = 100 //MOJAVE SUN EDIT - ORIGINAL ABOVE
+	var/punchstunthreshold = 10 //yes it should be to the attacked race but it's not useful that way even if it's logical
 	///Base electrocution coefficient.  Basically a multiplier for damage from electrocutions.
 	var/siemens_coeff = 1
 	///What kind of damage overlays (if any) appear on our species when wounded? If this is "", does not add an overlay.
@@ -1359,6 +1358,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		if(HAS_TRAIT(user, TRAIT_IN_POWERARMOUR))
 			damage += 15
 			user.dna.species.attack_sound = 'mojave/sound/ms13weapons/meleesounds/heavyblunt_hit1.ogg'
+			user.dna.species.punchstunthreshold = 24 //slightly higher knockdown chance
 		//MOJAVE EDIT END
 
 		var/obj/item/bodypart/affecting = target.get_bodypart(ran_zone(user.zone_selected))
@@ -1430,7 +1430,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 								edge_protection = edge_protection, \
 								subarmor_flags = subarmor_flags)
 			//MOJAVE EDIT END
-			target.apply_damage(no_defended*1.5, STAMINA, affecting, armor_block)
+			//target.apply_damage(no_defended*1.5, STAMINA, affecting, armor_block) MOJAVE EDIT - Removes stamina damage on punches
 			log_combat(user, target, "punched")
 
 		if((target.stat != DEAD) && damage >= user.dna.species.punchstunthreshold)
