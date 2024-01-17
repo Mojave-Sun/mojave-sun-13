@@ -103,7 +103,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	///Type of damage attack does. Ethereals attack with burn damage for example.
 	var/attack_type = BRUTE
 	///Lowest possible punch damage this species can give. If this is set to 0, punches will always miss.
-	var/punchdamagelow = 1
+	//var/punchdamagelow = 1
+	var/punchdamagelow = 5 //MOJAVE SUN EDIT - ORIGINAL ABOVE
 	///Highest possible punch damage this species can give.
 	var/punchdamagehigh = 10
 	///Damage at which punches from this race will stun
