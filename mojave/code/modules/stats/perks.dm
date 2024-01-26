@@ -40,6 +40,9 @@ PERK_HUMAN_TORCH = /datum/perk/human_torch,
 	//Attached stats
 	var/datum/stats/stats
 
+	//DEV THING
+	var/is_ready = FALSE
+
 /datum/perk/New(special)
 	src.stats = stats
 
@@ -60,15 +63,15 @@ PERK_HUMAN_TORCH = /datum/perk/human_torch,
 				if(s.perceptive >= level)
 					return TRUE
 			else
-				if(s.perceptive <= level)
+				if(s.perceptive - 10 <= level)
 					return TRUE
 			return FALSE
 		if("e")
 			if(level > 5)
-				if(s.enduring >= level)
+				if(s.enduring - 10 >= level)
 					return TRUE
 			else
-				if(s.enduring <= level)
+				if(s.enduring - 10 <= level)
 					return TRUE
 			return FALSE
 		if("r")
@@ -76,7 +79,7 @@ PERK_HUMAN_TORCH = /datum/perk/human_torch,
 				if(s.retaining >= level)
 					return TRUE
 			else
-				if(s.retaining <= level)
+				if(s.retaining - 10 <= level)
 					return TRUE
 			return FALSE
 		if("s")
@@ -84,7 +87,7 @@ PERK_HUMAN_TORCH = /datum/perk/human_torch,
 				if(s.strong >= level)
 					return TRUE
 			else
-				if(s.strong <= level)
+				if(s.strong - 10 <= level)
 					return TRUE
 			return FALSE
 		if("o")
@@ -92,7 +95,7 @@ PERK_HUMAN_TORCH = /datum/perk/human_torch,
 				if(s.outgoing >= level)
 					return TRUE
 			else
-				if(s.outgoing <= level)
+				if(s.outgoing - 10 <= level)
 					return TRUE
 			return FALSE
 		if("n")
@@ -100,7 +103,7 @@ PERK_HUMAN_TORCH = /datum/perk/human_torch,
 				if(s.nimble >= level)
 					return TRUE
 			else
-				if(s.nimble <= level)
+				if(s.nimble - 10 <= level)
 					return TRUE
 			return FALSE
 

@@ -111,24 +111,24 @@ const Stat = (props, context) => {
       <table class="items-center place-content-center">
         <tr>
           <td>
-            <div class="u-anchor" data-v-843b7e64="">
-              <div className={classes(["fss-special-card", "u-center", "font-condensed", "font-bold", "rounded-xl", "border-2", "border-black", "text-8xl", "h-36", "w-20", styleclass])} data-v-b3f85a52="">
-                <div class="label" data-v-b3f85a52="">{name}</div>
+            <div class="u-anchor">
+              <div className={classes(["fss-special-card", "u-center", "font-condensed", "font-bold", "rounded-xl", "border-2", "border-black", "text-8xl", "h-36", "w-20", styleclass])}>
+                <div class="label">{name}</div>
               </div>
             </div>
           </td>
           <td>
-            <div class="u-anchor" data-v-843b7e64="">
-              <div class="flex flex-col items-center w-[56px]" data-v-641fc2c1="">
-                <div class="u-action text-4xl leading-none text-white/25 active" data-v-641fc2c1="">
-                  <i class="fas fa-angle-up" data-v-641fc2c1="" />
+            <div class="u-anchor">
+              <div class="flex flex-col items-center w-[56px]">
+                <div class="u-action text-4xl leading-none text-white/25 active">
+                  <i class="fas fa-angle-up" />
                 </div>
-                <div class="font-condensed font-bold text-5xl leading-none" data-v-641fc2c1="">{level}</div>
-                <div class="u-action text-4xl leading-none text-white/25 disabled" data-v-641fc2c1="">
-                  <i class="fas fa-angle-down" data-v-641fc2c1="" />
+                <div class="font-condensed font-bold text-5xl leading-none">{level - 10}</div>
+                <div class="u-action text-4xl leading-none text-white/25 disabled">
+                  <i class="fas fa-angle-down" />
                 </div>
               </div>
-              <div class="right spot" data-v-843b7e64="" />
+              <div class="right spot" />
             </div>
           </td>
         </tr>
@@ -197,30 +197,30 @@ const PerkActive = props => {
     <div className="u-stack-item">
       <div className={classes(["container", "z-10", last && "last", below && "below"])}>
         <div>
-          <div data-v-6b1720e3="" class="u-removable">
+          <div class="u-removable">
             <div>
               <Button color="rgba(0,0,0,0)" onClick={remove_perk} className="u-button remove">
                 <i class="fas fa-times" />
               </Button>
             </div>
-            <div onClick={perkactiveclick} data-v-fac1b534="" class="card damage">
-              <div data-v-fac1b534="" className={classes(["header", "-ml-1", type])}>
-                <div data-v-fac1b534="" class="font-condensed font-bold text-xl rounded border-2 text-black bg-white w-8 h-8 u-center">
-                  <span data-v-fac1b534="">{level}</span>
+            <div onClick={perkactiveclick} class="card damage">
+              <div className={classes(["header", "-ml-1", type])}>
+                <div class="font-condensed font-bold text-xl rounded border-2 text-black bg-white w-8 h-8 u-center">
+                  <span>{level}</span>
                 </div>
-                <div data-v-d44c1d41="" data-v-fac1b534="" class="u-adaptive-font title font-18px">{name}</div>
+                <div class="u-adaptive-font title font-18px">{name}</div>
               </div>
-              <div data-v-d44c1d41="" data-v-fac1b534="" class="u-adaptive-font leading-tight p-2 text-center font-18px">{desc}</div>
-              <div data-v-fac1b534="" class="ranks">
-                <div data-v-127279da="" data-v-fac1b534="" className={classes(["fss-perk-rank-selector", "content", type])}>
-                  <div data-v-8674d4b1="" data-v-127279da="" className={classes(["rank", ranks >= 1 && "active text-white drop-shadow"])}>
-                    <i data-v-127279da="" class="fas fa-star" />
+              <div class="u-adaptive-font leading-tight p-2 text-center font-18px">{desc}</div>
+              <div class="ranks">
+                <div className={classes(["fss-perk-rank-selector", "content", type])}>
+                  <div className={classes(["rank", ranks >= 1 && "active text-white drop-shadow"])}>
+                    <i class="fas fa-star" />
                   </div>
-                  <div data-v-8674d4b1="" data-v-127279da="" className={classes(["rank", ranks >= 2 && "active text-white drop-shadow"])}>
-                    <i data-v-127279da="" class="fas fa-star" />
+                  <div className={classes(["rank", ranks >= 2 && "active text-white drop-shadow"])}>
+                    <i class="fas fa-star" />
                   </div>
-                  <div data-v-8674d4b1="" data-v-127279da="" className={classes(["rank", ranks >= 3 && "active text-white drop-shadow"])}>
-                    <i data-v-127279da="" class="fas fa-star" />
+                  <div className={classes(["rank", ranks >= 3 && "active text-white drop-shadow"])}>
+                    <i class="fas fa-star" />
                   </div>
                 </div>
               </div>
@@ -245,25 +245,25 @@ const Perk = props => {
     ranks,
   } = perk;
   return (
-    <Button onClick={addperk} color="rgba(0, 0, 0, 0)" data-v-8674d4b1="" class="u-transition dt:hover:scale-105 gap-4">
-      <div data-v-fac1b534="" class="card damage">
-        <div data-v-fac1b534="" className={classes(["header", "-ml-1", type])}>
-          <div data-v-fac1b534="" class="font-condensed font-bold text-xl rounded border-2 text-black bg-white w-8 h-8 u-center">
-            <span data-v-fac1b534="">{level}</span>
+    <Button onClick={addperk} color="rgba(0, 0, 0, 0)" class="u-transition dt:hover:scale-105 gap-4">
+      <div class="card damage">
+        <div className={classes(["header", "-ml-1", type])}>
+          <div class="font-condensed font-bold text-xl rounded border-2 text-black bg-white w-8 h-8 u-center">
+            <span >{level}</span>
           </div>
-          <div data-v-d44c1d41="" data-v-fac1b534="" class="u-adaptive-font title font-18px">{name}</div>
+          <div class="u-adaptive-font title font-18px">{name}</div>
         </div>
-        <div data-v-d44c1d41="" data-v-fac1b534="" class="u-adaptive-font leading-tight p-2 text-center font-18px">{desc}</div>
-        <div data-v-fac1b534="" class="ranks">
-          <div data-v-127279da="" data-v-fac1b534="" className={classes(["fss-perk-rank-selector", "content", type])}>
-            <div data-v-8674d4b1="" data-v-127279da="" className={classes(["rank", ranks >= 1 && "active text-white drop-shadow"])}>
-              <i data-v-127279da="" class="fas fa-star" />
+        <div class="u-adaptive-font leading-tight p-2 text-center font-18px">{desc}</div>
+        <div class="ranks">
+          <div className={classes(["fss-perk-rank-selector", "content", type])}>
+            <div className={classes(["rank", ranks >= 1 && "active text-white drop-shadow"])}>
+              <i class="fas fa-star" />
             </div>
-            <div data-v-8674d4b1="" data-v-127279da="" className={classes(["rank", ranks >= 2 && "active text-white drop-shadow"])}>
-              <i data-v-127279da="" class="fas fa-star" />
+            <div className={classes(["rank", ranks >= 2 && "active text-white drop-shadow"])}>
+              <i class="fas fa-star" />
             </div>
-            <div data-v-8674d4b1="" data-v-127279da="" className={classes(["rank", ranks >= 3 && "active text-white drop-shadow"])}>
-              <i data-v-127279da="" class="fas fa-star" />
+            <div className={classes(["rank", ranks >= 3 && "active text-white drop-shadow"])}>
+              <i class="fas fa-star" />
             </div>
           </div>
         </div>
