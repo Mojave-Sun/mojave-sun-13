@@ -2,6 +2,12 @@
 #define DUALWIELD_PENALTY_EXTRA_MULTIPLIER 1.4
 #define FIRING_PIN_REMOVAL_DELAY 50
 
+//MS13 EDIT BEGIN
+#define CHOKE_WIDE 0
+#define CHOKE_MODERATE 7
+#define CHOKE_TIGHT 11
+//MS13 EDIT END
+
 /obj/item/gun
 	name = "gun"
 	desc = "It's a gun. It's pretty terrible, though."
@@ -53,6 +59,7 @@
 	//MOJAVE EDIT ADDITION BEGIN - /OBJ/ITEM/GUN
 	var/extra_damage = 0				//Number of damage to add to individual bullets.
 	var/extra_penetration = 0			//Number to add to armor penetration of individual bullets.
+	var/spread_reduction = CHOKE_WIDE //Mostly for shotguns, increases or decreases the variance of buckshot
 	//MOJAVE EDIT ADDITION END
 
 	var/spread = 0 //Spread induced by the gun itself.
