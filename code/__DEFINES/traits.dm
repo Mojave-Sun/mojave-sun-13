@@ -870,4 +870,6 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 #define TRAIT_IN_POWERARMOUR "in_powerarmour" //If this person is wearing power armour actively
 
+#define TRAIT_SHOVEIMMUNE "shove_immune"//Makes the user completely immune to shoving
+
 // MOJAVE JOB TRAITS END

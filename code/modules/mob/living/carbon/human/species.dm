@@ -103,7 +103,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	///Type of damage attack does. Ethereals attack with burn damage for example.
 	var/attack_type = BRUTE
 	///Lowest possible punch damage this species can give. If this is set to 0, punches will always miss.
-	var/punchdamagelow = 1
+	//var/punchdamagelow = 1
+	var/punchdamagelow = 5 //MOJAVE SUN EDIT - ORIGINAL ABOVE
 	///Highest possible punch damage this species can give.
 	var/punchdamagehigh = 10
 	///Damage at which punches from this race will stun
@@ -1353,6 +1354,13 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 		var/damage = rand(user.dna.species.punchdamagelow, user.dna.species.punchdamagehigh)
 
+		//MOJAVE EDIT BEGIN
+		if(HAS_TRAIT(user, TRAIT_IN_POWERARMOUR))
+			damage += 15
+			user.dna.species.attack_sound = 'mojave/sound/ms13weapons/meleesounds/heavyblunt_hit1.ogg'
+			user.dna.species.punchstunthreshold = 24 //slightly higher knockdown chance
+		//MOJAVE EDIT END
+
 		var/obj/item/bodypart/affecting = target.get_bodypart(ran_zone(user.zone_selected))
 
 		var/miss_chance = 100//calculate the odds that a punch misses entirely. considers stamina and brute damage of the puncher. punches miss by default to prevent weird cases
@@ -1422,7 +1430,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 								edge_protection = edge_protection, \
 								subarmor_flags = subarmor_flags)
 			//MOJAVE EDIT END
-			target.apply_damage(no_defended*1.5, STAMINA, affecting, armor_block)
+			//target.apply_damage(no_defended*1.5, STAMINA, affecting, armor_block) MOJAVE EDIT - Removes stamina damage on punches
 			log_combat(user, target, "punched")
 
 		if((target.stat != DEAD) && damage >= user.dna.species.punchstunthreshold)
