@@ -1,7 +1,7 @@
 /datum/job/ms13/goldman/roadrunner
 	title = "Goldman Road Runner"
-	total_positions = 3
-	spawn_positions = 3
+	total_positions = 2
+	spawn_positions = 2
 	supervisors = "The Ringleader and the Keeper."
 	description = "Stay in line and listen to your superiors. Ensure messages are delivered as needed and the nearby region is well travelled and scouted. Abide by established agreements and patrol the highways."
 
@@ -23,13 +23,13 @@
 	gloves =	 /obj/item/clothing/gloves/ms13/fingerless
 	glasses = 	 /obj/item/clothing/glasses/ms13/leather/goldman
 	mask =		 /obj/item/clothing/mask/ms13/facewrap/goldman
-	suit_store = /obj/item/gun/ballistic/revolver/ms13/derringer
+	suit_store = /obj/item/gun/ballistic/automatic/ms13/full/smg9mm
 	back =		 /obj/item/storage/ms13/satchel
 	backpack_contents = list(
 		/obj/item/stack/medical/gauze/ms13/half=1,\
 		/obj/item/stack/medical/ms13/healing_powder=1,\
 		/obj/item/stack/medical/splint/ms13/wooden=1,\
-		/obj/item/gun/ballistic/automatic/ms13/full/smg9mm=1,\
+		/obj/item/gun/ballistic/revolver/ms13/rev357/police=1,\
 		/obj/item/ammo_box/magazine/ms13/smgm9mm=1, \
 		/obj/item/stack/ms13/currency/cap/sixty=1)
 

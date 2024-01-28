@@ -15,7 +15,7 @@
 	id =		 /obj/item/card/id/ms13/goldman
 	head = 		 /obj/item/clothing/head/helmet/ms13/cowboy/goldman
 	uniform =	 /obj/item/clothing/under/ms13/goldman
-	belt =		 /obj/item/gun/ballistic/revolver/ms13/rev357
+	belt =		 /obj/item/gun/ballistic/revolver/ms13/rev10mm
 	r_pocket = 	 /obj/item/stack/ms13/currency/cap/thirtyfive
 	l_pocket = 	 /obj/item/flashlight/flare/ms13
 	shoes =		 /obj/item/clothing/shoes/ms13/explorer
@@ -23,8 +23,8 @@
 	mask =		 /obj/item/clothing/mask/ms13/bandana/goldman/alt
 	backpack_contents = list(
 		/obj/item/stack/medical/gauze/ms13/three=1,\
-		/obj/item/hatchet/ms13/tomahawk=1,\
-		/obj/item/ammo_box/ms13/a357box=1)
+		/obj/item/knife/ms13/hunting=1,\
+		/obj/item/ammo_box/ms13/c10mm=1)
 
 /datum/outfit/job/ms13/goldman/standard/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -32,9 +32,9 @@
 	suit = pick(/obj/item/clothing/suit/ms13/goldman/duster_covered,\
 		/obj/item/clothing/suit/ms13/goldman/duster_reinf)
 
-	suit_store = pick(/obj/item/gun/ballistic/shotgun/ms13/lever/trail,\
-		/obj/item/gun/ballistic/revolver/ms13/mts,\
-		/obj/item/gun/ballistic/rifle/ms13/hunting)
+	suit_store = pick(/obj/item/gun/ballistic/shotgun/ms13/lever/cowboy,\
+		/obj/item/gun/ballistic/revolver/ms13/caravan,\
+		/obj/item/gun/ballistic/rifle/ms13/hunting/surplus)
 
 	if(prob(40))
 		glasses = /obj/item/clothing/glasses/ms13/leather/goldman

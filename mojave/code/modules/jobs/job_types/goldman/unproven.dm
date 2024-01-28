@@ -1,7 +1,7 @@
 /datum/job/ms13/goldman/unproven
 	title = "Goldman Unproven"
-	total_positions = 4
-	spawn_positions = 4
+	total_positions = 3
+	spawn_positions = 3
 	supervisors = "Proper Goldman, the Ringleader and the Kepper."
 	description = "Stay in line and listen to your superiors. Prove yourself to the goldman. Make yourself useful to the group. Make a name for yourself, somewhat literally."
 
@@ -14,7 +14,7 @@
 	jobtype = 	 /datum/job/ms13/goldman/unproven
 	head = 		 /obj/item/clothing/head/helmet/ms13/cowboy/goldman
 	uniform =	 /obj/item/clothing/under/ms13/goldman/unproven
-	belt =		 /obj/item/claymore/ms13/pipe/tireiron
+	belt =		 /obj/item/hatchet/ms13/tomahawk
 	r_pocket = 	 /obj/item/stack/ms13/currency/cap/fifteen
 	shoes =		 /obj/item/clothing/shoes/ms13/brownie
 	backpack_contents = list(
@@ -26,9 +26,9 @@
 	suit = pick(/obj/item/clothing/suit/ms13/goldman/poncho,\
 		/obj/item/clothing/suit/ms13/goldman/duster)
 
-	suit_store = pick(/obj/item/gun/ballistic/automatic/pistol/ms13/m10mm,\
-		/obj/item/gun/ballistic/shotgun/ms13/lever/cowboy,\
-		/obj/item/gun/ballistic/revolver/ms13/rev357/police)
+	suit_store = pick(/obj/item/gun/ballistic/revolver/ms13/derringer,\
+		/obj/item/gun/ballistic/revolver/ms13/single,\
+		/obj/item/gun/ballistic/rifle/ms13/varmint)
 
 /datum/outfit/job/ms13/goldman/unproven/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
