@@ -22,7 +22,7 @@
 	r_pocket = 	 /obj/item/radio/ms13/broadcast
 	l_pocket = 	 /obj/item/flashlight/ms13
 	shoes =		 /obj/item/clothing/shoes/ms13/fancy
-	suit_store = /obj/item/gun/ballistic/shotgun/ms13/lever
+	suit_store = /obj/item/gun/ballistic/revolver/ms13/mts/shorty
 	back =		 /obj/item/storage/ms13/satchel
 	backpack_contents = list(
 		/obj/item/stack/medical/gauze/ms13/half=1,\
