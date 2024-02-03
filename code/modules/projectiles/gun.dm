@@ -60,6 +60,7 @@
 	var/extra_damage = 0				//Number of damage to add to individual bullets.
 	var/extra_penetration = 0			//Number to add to armor penetration of individual bullets.
 	var/spread_reduction = CHOKE_WIDE //Mostly for shotguns, increases or decreases the variance of buckshot
+	var/double_tap = FALSE 				//meant to be used for double barrel shotguns, makes the weapon fire two rounds at once
 	//MOJAVE EDIT ADDITION END
 
 	var/spread = 0 //Spread induced by the gun itself.
@@ -503,7 +504,7 @@
 
 	else if(bayonet && can_bayonet) //if it has a bayonet, and the bayonet can be removed
 		return remove_gun_attachment(user, I, bayonet, "unfix")
-
+/* MOJAVE EDIT BEGIN
 	else if(pin && user.is_holding(src))
 		user.visible_message(span_warning("[user] attempts to remove [pin] from [src] with [I]."),
 		span_notice("You attempt to remove [pin] from [src]. (It will take [DisplayTimeText(FIRING_PIN_REMOVAL_DELAY)].)"), null, 3)
@@ -514,6 +515,7 @@
 								span_warning("You pry [pin] out with [I], destroying the pin in the process."), null, 3)
 			QDEL_NULL(pin)
 			return TRUE
+*/ //MOJAVE EDIT END
 
 /obj/item/gun/welder_act(mob/living/user, obj/item/I)
 	. = ..()
