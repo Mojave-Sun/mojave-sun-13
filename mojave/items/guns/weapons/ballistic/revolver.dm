@@ -31,7 +31,7 @@
 	inhand_icon_state = "sawedoff"
 	force = 15
 	subtractible_armour_penetration = 0
-	spread_reduction = CHOKE_WIDE
+	spread_reduction = CHOKE_LOOSE
 	fire_delay = 0.5 SECONDS
 	slot_flags = ITEM_SLOT_SUITSTORE | ITEM_SLOT_BELT
 	slowdown = 0.5
@@ -102,7 +102,7 @@
 	subtractible_armour_penetration = 5
 	fire_delay = 0.55 SECONDS
 	recoil = 1.8
-	spread_reduction = -17
+	spread_reduction = CHOKE_LOOSE
 	slowdown = 0.6
 	grid_width = 128
 	grid_height = 64
