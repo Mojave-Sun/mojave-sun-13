@@ -3,7 +3,7 @@
 	name = "Frag"
 	icon_state = "frag_primed"
 	hidden_for_look = TRUE
-	var/inactive_state = "frag_armed"
+	inactive_state = "frag_armed"
 	/// The devastation range of the resulting explosion.
 	var/range_devastation = 0
 	/// The heavy impact range of the resulting explosion.

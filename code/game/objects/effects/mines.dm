@@ -4,6 +4,7 @@
 	density = FALSE
 	anchored = TRUE
 	icon = 'icons/obj/items_and_weapons.dmi'
+	var/inactive_state = "uglymine-inactive"
 	/// We manually check to see if we've been triggered in case multiple atoms cross us in the time between the mine being triggered and it actually deleting, to avoid a race condition with multiple detonations
 	var/triggered = FALSE
 	/// Can be set to FALSE if we want a short 'coming online' delay, then set to TRUE. Can still be set off by damage
@@ -16,7 +17,7 @@
 	if(arm_delay)
 		armed = FALSE
 		if(!hidden_for_look)
-			icon_state = "uglymine-inactive"
+			icon_state = inactive_state
 		addtimer(CALLBACK(src, .proc/now_armed), arm_delay)
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_ENTERED = .proc/on_entered,
