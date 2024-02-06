@@ -41,7 +41,7 @@
 	playsound(src, 'mojave/sound/ms13machines/frag_mine_arm.ogg', 40, FALSE, -2)
 	visible_message(span_danger("\The [src] beeps softly, indicating it is now active."), vision_distance = COMBAT_MESSAGE_RANGE)
 
-	addtimer(CALLBACK(src, .proc/alert_effect), sounds_delay + rand(10 SECONDS, sounds_delay))
+	addtimer(CALLBACK(src, .proc/alert_effect), sounds_delay + rand(5 SECONDS, sounds_delay))
 
 /obj/effect/mine/ms13/explosive/proc/alert_effect()
 	if(QDELETED(src))
