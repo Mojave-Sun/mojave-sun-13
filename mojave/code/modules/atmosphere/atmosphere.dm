@@ -45,7 +45,7 @@ SUBSYSTEM_DEF(atmosphere)
 	var/atmosphere_vary = 0
 	var/atmosphere_repeat = TRUE
 	var/atmosphere_wait = 0
-	var/atmosphere_volume = 300
+	var/atmosphere_volume = 50
 	var/atmosphere_channel = CHANNEL_BUZZ
 	var/atmosphere_frequency = 0
 
@@ -97,14 +97,19 @@ SUBSYSTEM_DEF(atmosphere)
 	if(!atmosphere_files)
 		var/list/atmospheric = list()
 		atmospheric |= COLD_WASTELAND_ATMOSPHERE
+		atmospheric |= DESERT_ATMOSPHERE
 		atmospheric |= BUILDING_ATMOSPHERE
 		atmospheric |= BUNKER_ATMOSPHERE
 		atmospheric |= FOREST_ATMOSPHERE
 		atmospheric |= INDUSTRIAL_ATMOSPHERE
-		atmospheric |= MILLITARY_ATMOSPHERE
+		atmospheric |= NCR_ATMOSPHERE
 		atmospheric |= CAVE_ATMOSPHERE
 		atmospheric |= SEWER_ATMOSPHERE
 		atmospheric |= VAULT_ATMOSPHERE
+		atmospheric |= BARONY_ATMOSPHERE
+		atmospheric |= DRYLANDER_ATMOSPHERE
+		atmospheric |= GOLDMAN_ATMOSPHERE
+		atmospheric |= SNOWCREST_ATMOSPHERE
 		atmosphere_files = atmospheric
 
 /datum/asset/simple/atmosphere/send(client)

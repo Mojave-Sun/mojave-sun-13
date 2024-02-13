@@ -11,7 +11,8 @@
 	outdoors = TRUE
 	has_gravity = STANDARD_GRAVITY
 	static_lighting = TRUE
-	ambientsounds = GENERIC_AMBIENCE // To Do, Make actual Ambience and Seperate Music Component - Scar 2022
+	ambientsounds = GENERIC_AMBIENCE // To Do, Make actual Ambience and Seperate Music Component - Scar 2022 (Original 2024 says lmfao. Pack it all into one.)
+	atmosphere_sound = COLD_WASTELAND_ATMOSPHERE
 	flags_1 = NONE
 	var/dissipation_rate = 1 // higher numbers = quicker dissipation, 0.05 is neutral //default indoor rate 2 is outdoors//generic
 
@@ -62,19 +63,19 @@
 	name = "Vault atrium upper"
 	icon_state = "vault_atrium_upper"
 	atmosphere_sound = VAULT_ATMOSPHERE
-	atmosphere_volume = 150
+	atmosphere_volume = 100
 
 /area/ms13/underground/vault_atrium_middle
 	name = "Vault atrium middle"
 	icon_state = "vault_atrium_middle"
 	atmosphere_sound = VAULT_ATMOSPHERE
-	atmosphere_volume = 150
+	atmosphere_volume = 100
 
 /area/ms13/underground/vault_atrium_lower
 	name = "Vault atrium lower"
 	icon_state = "vault_atrium_lower"
 	atmosphere_sound = VAULT_ATMOSPHERE
-	atmosphere_volume = 150
+	atmosphere_volume = 100
 
 /area/ms13/underground/vault_outer
 	name = "Vault Outer"
@@ -113,18 +114,16 @@
 	power_equip = TRUE
 	power_light = TRUE
 	ambientsounds = null
-	atmosphere_sound = COLD_WASTELAND_ATMOSPHERE
+	atmosphere_sound = SNOWCREST_ATMOSPHERE
 
 /area/ms13/snowcrest/building
 	name = "Snowcrest Building"
 	icon_state = "snowcrest_building"
-	atmosphere_sound = BUILDING_ATMOSPHERE
 	dissipation_rate = 0.18
 
 /area/ms13/snowcrest/republic
 	name = "Snowcrest NCR building"
 	icon_state = "snowcrest_ncr"
-	atmosphere_sound = INDUSTRIAL_ATMOSPHERE
 	dissipation_rate = 0.18
 
 // Generic Underground Areas //
@@ -208,7 +207,7 @@
 	name = "NCR Mainbase"
 	icon_state = "NCR"
 	requires_power = FALSE
-	atmosphere_sound = MILLITARY_ATMOSPHERE
+	atmosphere_sound = NCR_ATMOSPHERE
 	atmosphere_volume = 150
 
 /area/ms13/ncr/building
@@ -253,6 +252,8 @@
 	power_light = FALSE
 	outdoors = TRUE
 	flags_1 = NONE
+	ambientsounds = GENERIC_AMBIENCE
+	atmosphere_sound = DESERT_ATMOSPHERE
 
 /area/ms13/legioncamp
 	name = "Legion Camp"
@@ -269,12 +270,12 @@
 /area/ms13/drylanders
 	name = "Drylander Camp"
 	icon_state = "drylanders"
+	atmosphere_sound = DRYLANDER_ATMOSPHERE
 
 /area/ms13/drylanders/building
 	name = "Drylander Building"
 	icon_state = "drylander_building"
 	outdoors = FALSE
-	atmosphere_sound = BUILDING_ATMOSPHERE
 	dissipation_rate = 0.18 //not much escapes enclosed rooms
 
 /area/ms13/goldman
@@ -285,7 +286,8 @@
 	power_equip = FALSE
 	power_light = TRUE
 	outdoors = TRUE
-	atmosphere_volume = 150
+	atmosphere_sound = GOLDMAN_ATMOSPHERE
+	atmosphere_volume = 80
 
 /area/ms13/goldman/building
 	name = "Goldman Outpost building"
@@ -296,8 +298,8 @@
 /area/ms13/water_baron
 	name = "The Barony"
 	icon_state = "barony"
-	ambientsounds = GENERIC_AMBIENCE
-	atmosphere_volume = 150
+	atmosphere_sound = BARONY_ATMOSPHERE
+	atmosphere_volume = 80
 
 /area/ms13/water_baron/interior
 	name = "The Barony building"
