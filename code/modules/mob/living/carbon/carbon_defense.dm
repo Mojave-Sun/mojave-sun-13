@@ -267,6 +267,42 @@
 				span_userdanger("[name] tries to shove you, but you stand your ground!"), span_hear("You hear aggressive shuffling followed by a loud thud!"), COMBAT_MESSAGE_RANGE, src)
 		to_chat(src, span_danger("You try to shove [target.name], but they won't budge!"))
 		return
+
+	if(target.IsKnockdown() || target.body_position == LYING_DOWN)
+		if(prob(20) && !istype(target.head, /obj/item/clothing/head))
+			target.SetSleeping(15)
+		target.drop_all_held_items()
+		var/obj/item/bodypart/affecting = target.get_bodypart(ran_zone(src.zone_selected))
+
+		// ARMOR shit I barely understand that doesn't work
+		var/armor_reduce = target.run_subarmor_check(affecting, MELEE)
+		var/subarmor_flags = target.get_subarmor_flags(affecting)
+		var/edge_protection = target.get_edge_protection(affecting)
+		var/armor_block = target.run_armor_check(affecting, MELEE)
+		var/attack_direction = get_dir(src, target)
+		var/damage = rand(15,20)
+		var/no_defended = target.damage_armor(damage, MELEE, def_zone = src.zone_selected)
+		// F u k save me
+
+		do_attack_animation(target, ATTACK_EFFECT_PUNCH)
+		playsound(target, 'mojave/sound/ms13weapons/meleesounds/punch_1.ogg', 50, TRUE, -1)
+		//target.apply_damage(rand(15,20), src.get_attack_type(), affecting)
+
+		//wtf am I casting help
+		target.apply_damage(no_defended, \
+							affecting, \
+							armor_block, \
+							attack_direction = attack_direction, \
+							reduced = armor_reduce, \
+							edge_protection = edge_protection, \
+							subarmor_flags = subarmor_flags)
+		//the cirus is back, they want their clown
+
+		target.visible_message(span_danger("[name] curbstomps [target.name]!"),
+						span_userdanger("You're curbstomped by [name]!"), span_hear("You hear aggressive shuffling followed by a loud thud!"), COMBAT_MESSAGE_RANGE, src)
+		to_chat(src, span_danger("You curbstomp [target.name]!"))
+		log_combat(src, target, "curbstomped", "injuring them")
+		return
 	//MOJAVE EDIT END
 
 	//Are we hitting anything? or
@@ -277,6 +313,8 @@
 		if(get_turf(target) == target_old_turf)
 			shove_blocked = TRUE
 
+
+/*	MOJAVE REMOVAL
 	if(target.IsKnockdown() && !target.IsParalyzed()) //KICK HIM IN THE NUTS
 		target.Paralyze(SHOVE_CHAIN_PARALYZE)
 		target.visible_message(span_danger("[name] kicks [target.name] onto [target.p_their()] side!"),
@@ -284,6 +322,8 @@
 		to_chat(src, span_danger("You kick [target.name] onto [target.p_their()] side!"))
 		addtimer(CALLBACK(target, /mob/living/proc/SetKnockdown, 0), SHOVE_CHAIN_PARALYZE)
 		log_combat(src, target, "kicks", "onto their side (paralyzing)")
+*/
+
 
 	var/directional_blocked = FALSE
 	var/can_hit_something = (!target.is_shove_knockdown_blocked() && !target.buckled)
