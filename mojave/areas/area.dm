@@ -252,7 +252,7 @@
 	power_light = FALSE
 	outdoors = TRUE
 	flags_1 = NONE
-	ambientsounds = GENERIC_AMBIENCE
+	ambientsounds = GENERIC_STINGERS
 	atmosphere_sound = DESERT_ATMOSPHERE
 
 /area/ms13/legioncamp
