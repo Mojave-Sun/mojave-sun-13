@@ -544,7 +544,7 @@
 	equip_delay_self = 3.5 SECONDS
 	equip_delay_other = 5 SECONDS
 
-/obj/item/clothing/suit/armor/ms13/firesuit/equipped(mob/living/carbon/human/user, slot)
+/obj/item/clothing/suit/armor/ms13/firesuit/equipped(mob/living/user, slot)
 	if(slot_flags & slot)
 		var/mob/living/carbon/human/H = user
 		if(istype(H.head, /obj/item/clothing/head/helmet/ms13/firehood))
