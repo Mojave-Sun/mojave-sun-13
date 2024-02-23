@@ -26,7 +26,7 @@
 
 /obj/item/gun/ballistic/revolver/ms13/caravan/sawed
 	name = "sawed-off shotgun"
-	desc = "A double barrel sawed-off shotgun. Can be used and fired with only one hand, making it a deadly weapon in a pinch."
+	desc = "A double barrel sawed-off shotgun. Can be used and fired with only one hand, making it a deadly weapon in a pinch. It can be modified to fire both barrels at once."
 	icon_state = "sawedoff"
 	inhand_icon_state = "sawedoff"
 	force = 15
@@ -39,6 +39,7 @@
 	weapon_weight = WEAPON_MEDIUM
 	grid_width = 96
 	grid_height = 64
+	can_be_made_double_tap = TRUE
 
 /obj/item/gun/ballistic/revolver/ms13/single
 	name = "single shotgun"
@@ -92,7 +93,7 @@
 ////////////////////////// revolvers////////////////
 /obj/item/gun/ballistic/revolver/ms13/derringer
 	name = "derringer"
-	desc = "A small and sneaky 2 shot pistol that is often concealed. Chambered for .357."
+	desc = "A small and sneaky 2 shot pistol that is often concealed. Chambered for .357, and can be modified to fire both barrels at once."
 	icon_state = "derringer"
 	inhand_icon_state = "derringer"
 	force = 5
@@ -110,12 +111,14 @@
 	spread = 6
 	grid_width = 64
 	grid_height = 32
+	can_be_made_double_tap = TRUE
 
 /obj/item/gun/ballistic/revolver/ms13/derringer/trimmed
 	name = "gold trimmed derringer"
-	desc = "A small and sneaky 2 shot pistol that is often concealed. This one has some gold trim."
+	desc = "A small and sneaky 2 shot pistol that is often concealed. This one has some gold trim and has been pre-modified to fire both barrels at once."
 	icon_state = "derringer_t"
 	inhand_icon_state = "derringer_t"
+	double_tap = TRUE
 
 /obj/item/gun/ballistic/revolver/ms13/rev44
 	name = ".44 magnum revolver"
