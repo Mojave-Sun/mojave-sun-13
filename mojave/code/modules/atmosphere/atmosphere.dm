@@ -9,6 +9,9 @@ SUBSYSTEM_DEF(atmosphere)
 /datum/controller/subsystem/atmosphere/proc/area_entered(area/area_entered, client/entering)
 	if(!area_entered || !entering)
 		return
+	if(!entering.prefs.read_preference(/datum/preference/toggle/enable_atmosphere_music))
+		kill_atmosphere(entering)
+		return
 	var/list/last_atmosphere = list()
 	last_atmosphere |= entering.last_atmosphere_sound
 	var/list/new_atmosphere = list()
@@ -19,7 +22,7 @@ SUBSYSTEM_DEF(atmosphere)
 	play_area_sound(area_entered, entering)
 
 /datum/controller/subsystem/atmosphere/proc/play_area_sound(area/area_player, client/listener)
-	if(!area_player || !listener)
+	if(!listener.prefs.read_preference(/datum/preference/toggle/enable_atmosphere_music))
 		return
 	if(LAZYLEN(area_player.atmosphere_sound))
 		//kill the previous atmosphere sound

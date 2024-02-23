@@ -11,7 +11,7 @@
 	outdoors = TRUE
 	has_gravity = STANDARD_GRAVITY
 	static_lighting = TRUE
-	ambientsounds = GENERIC_AMBIENCE // To Do, Make actual Ambience and Seperate Music Component - Scar 2022 (Original 2024 says lmfao. Pack it all into one.)
+	ambientsounds = GENERIC_STINGERS // To Do, Make actual Ambience and Seperate Music Component - Scar 2022 (Original 2024 says lmfao. Pack it all into one.)
 	atmosphere_sound = COLD_WASTELAND_ATMOSPHERE
 	flags_1 = NONE
 	var/dissipation_rate = 1 // higher numbers = quicker dissipation, 0.05 is neutral //default indoor rate 2 is outdoors//generic
