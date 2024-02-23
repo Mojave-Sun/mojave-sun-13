@@ -44,7 +44,7 @@ SUBSYSTEM_DEF(atmosphere)
 //MS13 Base Area Tweaks for Atmosphere
 
 /area
-	var/atmosphere_sound
+	var/list/atmosphere_sound
 	var/atmosphere_vary = 0
 	var/atmosphere_repeat = TRUE
 	var/atmosphere_wait = 0
