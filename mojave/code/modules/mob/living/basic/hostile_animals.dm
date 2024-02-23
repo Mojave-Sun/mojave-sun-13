@@ -382,12 +382,12 @@
 	attack_verb_simple = "maul"
 	attack_sound = list('mojave/sound/ms13npc/yaoguai_attack1.ogg', 'mojave/sound/ms13npc/yaoguai_attack2.ogg', 'mojave/sound/ms13npc/yaoguai_attack3.ogg')
 	deathsound = list('mojave/sound/ms13npc/yaoguai_death1.ogg', 'mojave/sound/ms13npc/yaoguai_death2.ogg')
-	health = 425
-	maxHealth = 425
+	health = 450
+	maxHealth = 450
 	melee_damage_lower = 45
 	melee_damage_upper = 45
 	subtractible_armour_penetration = 15
-	speed = 1.5
+	speed = 1.35
 	sharpness = SHARP_EDGED
 	wound_bonus = 5
 	bare_wound_bonus = 10

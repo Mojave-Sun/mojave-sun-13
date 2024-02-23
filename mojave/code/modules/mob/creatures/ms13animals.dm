@@ -748,9 +748,10 @@
 
 /mob/living/simple_animal/hostile/ms13/hellpig
 	name = "hellpig"
-	desc = "A massive mutated pig, wild, deadly start praying boy."
-	icon = 'mojave/icons/mob/64x64.dmi'
-	icon_state = "hellpig"
+	desc = "A massive mutated pig. Wild and deadly."
+	icon = 'mojave/icons/mob/80x80.dmi'
+	icon_state = "koban"
+	icon_dead = "koban_dead"
 	gender = MALE
 	speak = list("EEEEEEEEEEEE","RWOOIIIIIIIIIINK","SQUEEEEEEEEEEE")
 	speak_emote = list("honks")
@@ -760,17 +761,133 @@
 	attack_verb_simple = "chomp"
 	speak_chance = 40
 	turns_per_move = 3
-	attack_sound = 'mojave/sound/ms13weapons/meleesounds/slam.ogg'
-	health = 600
-	maxHealth = 600
-	melee_damage_lower = 40
-	melee_damage_upper = 60
+	attack_sound = list('mojave/sound/ms13npc/hellpig_attack1.ogg', 'mojave/sound/ms13npc/hellpig_attack2.ogg', 'mojave/sound/ms13npc/hellpig_attack3.ogg')
+	deathsound = list('mojave/sound/ms13npc/hellpig_death1.ogg', 'mojave/sound/ms13npc/hellpig_death2.ogg') //Not in love with either of these death or attack sounds but they work for now. Just pulled them from Yaoguai files
+	health = 1040
+	maxHealth = 1040
+	obj_damage = 300
+	melee_damage_lower = 50
+	melee_damage_upper = 50
+	subtractible_armour_penetration = 25
+	vision_range = 11
+	aggro_vision_range = 11
+	environment_smash = ENVIRONMENT_SMASH_STRUCTURES
 	speed = 2
-	food_type = list(/obj/item/food/meat/slab/human)
-	tame_chance = 1
-	bonus_tame_chance = 1
-	rideable = TRUE
-	base_pixel_x = -64
+	move_to_delay = 3.35
+	sharpness = NONE
+	wound_bonus = 10
+	bare_wound_bonus = 8
+	butcher_results = list(/obj/item/ms13/hide/large/hellpig = 2, /obj/item/food/meat/slab/ms13/carcass/large/hellpig/front = 1, /obj/item/food/meat/slab/ms13/carcass/large/hellpig/back = 1, /obj/item/food/meat/slab/ms13/carcass/large/hellpig/leg = 4)
+	//Sorry, no taming
+	//food_type = list(/obj/item/food/meat/slab/human)
+	//tame_chance = 1
+	//bonus_tame_chance = 1
+	//rideable = TRUE
+	base_pixel_x = -20
+	pixel_x = -20
 	status_flags = null
-	offsetx = 6
-	offsety = 32
+	ranged = TRUE //Charging time
+	var/datum/action/cooldown/mob_cooldown/charge/hellpig/charge
+
+/mob/living/simple_animal/hostile/ms13/hellpig/Initialize(mapload)
+	. = ..()
+	charge = new /datum/action/cooldown/mob_cooldown/charge/hellpig()
+	charge.Grant(src)
+
+/mob/living/simple_animal/hostile/ms13/hellpig/death(gibbed)
+	playsound(loc, pick('mojave/sound/ms13npc/hellpig_death1.ogg', 'mojave/sound/ms13npc/hellpig_death1.ogg'), 50, TRUE, -1)
+	..(gibbed)
+
+/mob/living/simple_animal/hostile/ms13/hellpig/OpenFire()
+	if(client)
+		return
+	if(get_dist(src, target) < 3)
+		return
+	prevent_goto_movement = TRUE
+	Goto(target = src, delay = move_to_delay, minimum_distance = 0)
+	var/datum/cb = CALLBACK(src,.proc/reset_goto_movement)
+	addtimer(cb,2 SECONDS)
+	charge.Trigger(target = target)
+
+/mob/living/simple_animal/hostile/ms13/hellpig/proc/reset_goto_movement()
+	prevent_goto_movement = FALSE
+	if(client || !target)
+		return
+	Goto(target = target, delay = move_to_delay, minimum_distance = 0)
+
+/mob/living/simple_animal/hostile/ms13/hellpig/CanSmashTurfs(turf/T)
+	return FALSE
+
+/datum/action/cooldown/mob_cooldown/charge/hellpig
+	charge_delay = 0.65 SECONDS
+	charge_speed = 0.08 SECONDS
+	charge_past = 4
+	charge_distance = 60
+	cooldown_time = 4.5 SECONDS
+	charge_damage = 35
+
+/datum/action/cooldown/mob_cooldown/charge/hellpig/on_bump(atom/movable/source, atom/target)
+	if(owner == target)
+		return
+	hit_target(source, target, charge_damage)
+
+//Doesn't destroy turfs
+/datum/action/cooldown/mob_cooldown/charge/hellpig/DestroySurroundings(atom/movable/charger)
+	if(!destroy_objects)
+		return
+	if(!isanimal(charger))
+		return
+	for(var/dir in GLOB.cardinals)
+		var/turf/next_turf = get_step(charger, dir)
+		if(!next_turf)
+			continue
+		for(var/obj/object in next_turf.contents)
+			if(!object.Adjacent(charger))
+				continue
+			if(!ismachinery(object) && !isstructure(object))
+				continue
+			if(!object.density || object.IsObscured())
+				continue
+			if(!isanimal(charger))
+				SSexplosions.med_mov_atom += target
+				break
+			object.attack_animal(charger)
+			break
+
+/datum/action/cooldown/mob_cooldown/charge/hellpig/do_charge_indicator(atom/charger, atom/charge_target)
+	var/turf/target_turf = get_turf(charge_target)
+	if(!target_turf)
+		return
+	for(var/turf/t in RANGE_TURFS(1, charge_target))
+		new /obj/effect/temp_visual/ms13/target_indicator(t)
+
+//No fading decoy
+/datum/action/cooldown/mob_cooldown/charge/hellpig/on_move(atom/source, atom/new_loc)
+	if(!actively_moving)
+		return COMPONENT_MOVABLE_BLOCK_PRE_MOVE
+	for(var/turf/t in RANGE_TURFS(1, source))
+		t.Shake(pixelshiftx = rand(-4, 4), pixelshifty = rand(-4, 4), duration = 0.6 SECONDS)
+		for(var/atom/movable/A in t)
+			if(A == owner)
+				continue
+			if(A.anchored)
+				continue
+			if(get_dir(owner, A) == owner.dir) //Don't knock back anyone in front of us so we can actually ram them instead of harmlessly throwing them
+				continue
+			var/target_angle = get_angle(owner, A)
+			var/move_target = get_ranged_target_turf(A, angle2dir(target_angle), 2)
+			A.throw_at(move_target, 3, 3)
+			A.visible_message(span_warning("[A] gets thrown back by the force of the shockwave !"), span_warning("The shockwave sends you flying!"))
+			if(isliving(A))
+				var/mob/living/liver = A
+				liver.Knockdown(3 SECONDS, ignore_canstun = FALSE)
+
+//Different sound effect, no destruction
+/datum/action/cooldown/mob_cooldown/charge/hellpig/on_moved(atom/source)
+	playsound(source, pick('mojave/sound/ms13effects/footsteps/ms13heavyfootstep_1.wav', 'mojave/sound/ms13effects/footsteps/ms13heavyfootstep_2.wav'), 100, TRUE, 2, TRUE)
+	//INVOKE_ASYNC(src, .proc/DestroySurroundings, source)
+
+/datum/action/cooldown/mob_cooldown/charge/hellpig/Activate(atom/target_atom)
+
+	playsound(get_turf(owner), pick('mojave/sound/ms13npc/hellpig_attack1.ogg', 'mojave/sound/ms13npc/hellpig_attack2.ogg', 'mojave/sound/ms13npc/hellpig_attack3.ogg'), 100, TRUE, 2, TRUE)
+	..()
