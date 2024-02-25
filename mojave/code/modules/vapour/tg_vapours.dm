@@ -36,7 +36,9 @@
 ///Sulphur coming from igniting matches
 /datum/vapours/sulphur
 	name = "Sulphur"
-	vapours_flags = VAPOUR_SMELL
+	vapours_flags = VAPOUR_SMELL | VAPOUR_APPEARANCE
+	color = COLOR_YELLOW
+	alpha = 115
 	smell_intensity = 5 //Very pronounced smell (and good too, sniff sniff)
 	descriptor = SCENT_DESC_SMELL
 	scent = "sulphur"

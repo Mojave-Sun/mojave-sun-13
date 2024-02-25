@@ -75,6 +75,11 @@
 	icon_state = "coal-deposit"
 	deposit_type = /obj/item/stack/sheet/ms13/nugget/nugget_coal
 
+/obj/structure/ms13/ore_deposit/coal/attackby(obj/item/W, mob/user)
+	. = ..()
+	var/turf/my_turf = get_turf(src)
+	my_turf.VapourTurf(/datum/vapours/carbon_air_vapour, 10)
+
 /obj/structure/ms13/ore_deposit/uranium
 	name = "uranium deposit"
 	desc = "Full of uranium, warm!"
@@ -95,20 +100,64 @@
 
 /obj/structure/ms13/ore_deposit/sulfur
 	name = "sulfur deposit"
-	desc = "A stinking deposit full of sulfur."
+	desc = "A sulfur vent in recovery! Break this apart if you wish to sully your income!"
 	icon_state = "sulfur-deposit"
 	deposit_type = /obj/item/stack/sheet/ms13/nugget/sulfur
+	var/sulfur_rate // Restock rate for sulfur. Transfers to new spawns, so the vent will always be just as reliable or shart as it always was
 
-/obj/structure/ms13/ore_deposit/sulfur/process(delta_time)
+/obj/structure/ms13/ore_deposit/sulfur/Initialize()
 	. = ..()
-	var/turf/open/my_turf = get_turf(src)
-	if(!istype(my_turf))
-		return
-	//Lets the vapour spread out
-	if(my_turf.vapour?.total_amount >= 160)
-		return
-	//a campfire emits 4x what a turf fire does (very gassy)
-	my_turf.VapourListTurf(list(/datum/vapours/sulphur = 60), VAPOUR_ACTIVE_EMITTER_CAP)
+	sulfur_rate = rand(1,5) // Anywhere from a 1 to 5 multiplier on regrow time / fumes
+	addtimer(CALLBACK(src, .proc/growup), 300 SECONDS * sulfur_rate)
+
+/obj/structure/ms13/ore_deposit/sulfur/examine(mob/user)
+	. = ..()
+	switch(sulfur_rate)
+		if(1)
+			. += span_nicegreen("She's flowin' good! Won't take long to build up at all.")
+		if(2)
+			. += span_green("Flow could be better.")
+		if(3)
+			. += span_notice("This vent is completely average.")
+		if(4)
+			. += span_alert("Sputtering and inconsistent.")
+		if(5)
+			. += span_red("Barely makin' a toot. Ain't worth a god damn dollar.")
+
+
+/obj/structure/ms13/ore_deposit/sulfur/proc/growup()
+	var/obj/structure/ms13/ore_deposit/sulfur/growth/GU = new /obj/structure/ms13/ore_deposit/sulfur/growth(loc, 1)
+	GU.sulfur_rate = src.sulfur_rate
+	qdel(src)
+
+/obj/structure/ms13/ore_deposit/sulfur/attackby(obj/item/W, mob/user)
+	. = ..()
+	var/turf/my_turf = get_turf(src)
+	my_turf.VapourTurf(/datum/vapours/sulphur, 15) // Kick a bit more in the air per hit for good measure
+
+//	if(W.mining_mult > 0)
+//		to_chat(user, span_notice("You break away the excess sulfur from the [src.name]!"))
+//		new /obj/structure/ms13/ore_deposit/sulfur/growth(loc, 1)
+//		qdel(src)
+
+/obj/structure/ms13/ore_deposit/sulfur/growth
+	name = "sulfur growth"
+	desc = "A sulfur vent that actively bellows fumes. Try not to collapse the tunnel. Don't breathe too deep!"
+	icon_state = "sulfur-growth"
+	deposit_type = /obj/item/stack/sheet/ms13/nugget/sulfur
+
+/obj/structure/ms13/ore_deposit/sulfur/growth/Initialize()
+	. = ..()
+	AddElement(/datum/element/vapour_emitter, /datum/vapours/sulphur, 100 / sulfur_rate) // Kind of game logic but w/e. Grown up sulfur nodes with fart out stuff actively. How fun. Sharts out the more "active" it is
+
+/obj/structure/ms13/ore_deposit/sulfur/growth/deconstruct(disassembled = TRUE)
+	var/obj/structure/ms13/ore_deposit/sulfur/G = new /obj/structure/ms13/ore_deposit/sulfur(loc, 1)
+	G.sulfur_rate = src.sulfur_rate
+	return ..()
+
+/obj/structure/ms13/ore_deposit/sulfur/growth/examine(mob/user)
+	. = ..()
+	. += span_yellowteamradio("Payday! Time to mine!")
 
 //Nuggets
 
