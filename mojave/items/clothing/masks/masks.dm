@@ -178,10 +178,28 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	grid_width = 64
 	grid_height = 64
+	slowdown = 0.05 // Will they even notice..?
 
 /obj/item/clothing/mask/gas/ms13/Initialize()
 	. = ..()
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clothing/clothing_inventory/masks_inventory.dmi')
+
+/obj/item/clothing/mask/gas/ms13/equipped(mob/M, slot)
+	. = ..()
+	ADD_TRAIT(M, TRAIT_WEARING_GAS_MASK, "gas_mask")
+
+/obj/item/clothing/mask/gas/ms13/dropped(mob/M)
+	. = ..()
+	REMOVE_TRAIT(M, TRAIT_WEARING_GAS_MASK, "gas_mask")
+
+/obj/item/clothing/mask/gas/ms13/examine(mob/user)
+	return
+
+/obj/item/clothing/mask/gas/ms13/attackby(obj/item/tool, mob/user)
+	return
+
+/obj/item/clothing/mask/gas/ms13/attack_hand_secondary(mob/user, list/modifiers)
+	return
 
 /obj/item/clothing/mask/gas/ms13/modern
 	icon_state = "gasmask"
@@ -198,6 +216,7 @@
 	icon_state = "mon_gasmask"
 	worn_icon_state = "mon_gasmask"
 	adjustable = FALSE
+	flags_inv = HIDEHAIR
 
 /obj/item/clothing/mask/gas/ms13/mon_city/full
 	desc = "A very old gas mask, seemingly even more uncommon. This one has a long snorkel like tube with a filter on the end."
@@ -209,6 +228,7 @@
 	desc = "A makeshift gas mask that is no doubt a creation of the post-apocalypse. Looks a bit intimidating, and you're not sure who would really want to put this on their head."
 	icon_state = "mon_pointer"
 	worn_icon_state = "mon_pointer"
+	flags_inv = null
 
 /obj/item/clothing/mask/gas/ms13/Initialize()
 	. = ..()

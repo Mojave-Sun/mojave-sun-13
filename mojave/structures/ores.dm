@@ -99,6 +99,17 @@
 	icon_state = "sulfur-deposit"
 	deposit_type = /obj/item/stack/sheet/ms13/nugget/sulfur
 
+/obj/structure/ms13/ore_deposit/sulfur/process(delta_time)
+	. = ..()
+	var/turf/open/my_turf = get_turf(src)
+	if(!istype(my_turf))
+		return
+	//Lets the vapour spread out
+	if(my_turf.vapour?.total_amount >= 160)
+		return
+	//a campfire emits 4x what a turf fire does (very gassy)
+	my_turf.VapourListTurf(list(/datum/vapours/sulphur = 60), VAPOUR_ACTIVE_EMITTER_CAP)
+
 //Nuggets
 
 /obj/item/stack/sheet/ms13/nugget

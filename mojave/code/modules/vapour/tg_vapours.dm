@@ -11,6 +11,8 @@
 	scent = "smoke"
 
 /datum/vapours/smoke/BreatheAct(mob/living/carbon/victim, amount)
+	if(HAS_TRAIT(victim, TRAIT_WEARING_GAS_MASK))
+		return
 	if(amount <= 60)
 		return
 	victim.emote("cough")
@@ -23,6 +25,8 @@
 	color = "#ffed9c"
 
 /datum/vapours/dust/BreatheAct(mob/living/carbon/victim, amount)
+	if(HAS_TRAIT(victim, TRAIT_WEARING_GAS_MASK))
+		return
 	if(amount <= 10)
 		return
 	if(prob(40))
@@ -67,6 +71,9 @@
 	vapours_flags = VAPOUR_BREATHE_ACT
 
 /datum/vapours/carbon_air_vapour/BreatheAct(mob/living/carbon/victim, amount)
+	if(HAS_TRAIT(victim, TRAIT_WEARING_GAS_MASK))
+		return
+
 	if(victim.body_position == LYING_DOWN)
 		amount *= 0.35 //The victim is inhaling roughly a third when laying down
 	if(amount <= 20)

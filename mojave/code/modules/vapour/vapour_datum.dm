@@ -40,6 +40,9 @@
 
 /// When a user smells this vapour
 /datum/vapour/proc/SmellAct(mob/living/sniffer)
+	if(HAS_TRAIT(sniffer, TRAIT_WEARING_GAS_MASK))
+		return
+
 	var/list/singleton_cache = SSvapour.singletons
 	var/datum/vapours/dominant_vapours
 	var/dominant_smell_power
