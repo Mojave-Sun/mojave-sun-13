@@ -1405,6 +1405,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			*/
 			//MOJAVE EDIT BEGIN
 			var/no_defended = target.damage_armor(damage, MELEE, user.dna.species.attack_type, def_zone = user.zone_selected)
+			if((no_defended * 1.5) >= 9)
+				target.force_say()
 			target.apply_damage(no_defended*1.5, \
 								user.dna.species.attack_type, \
 								affecting, \
@@ -1464,32 +1466,32 @@ GLOBAL_LIST_EMPTY(features_by_species)
 /datum/species/proc/spec_hitby(atom/movable/AM, mob/living/carbon/human/H)
 	return
 
-/datum/species/proc/spec_attack_hand(mob/living/carbon/human/M, mob/living/carbon/human/H, datum/martial_art/attacker_style, modifiers)
-	if(!istype(M))
+/datum/species/proc/spec_attack_hand(mob/living/carbon/human/owner, mob/living/carbon/human/target, datum/martial_art/attacker_style, modifiers)
+	if(!istype(owner))
 		return
-	CHECK_DNA_AND_SPECIES(M)
-	CHECK_DNA_AND_SPECIES(H)
+	CHECK_DNA_AND_SPECIES(owner)
+	CHECK_DNA_AND_SPECIES(target)
 
-	if(!istype(M)) //sanity check for drones.
+	if(!istype(owner)) //sanity check for drones.
 		return
-	if(M.mind)
-		attacker_style = M.mind.martial_art
-	if((M != H) && M.combat_mode && H.check_shields(M, 0, M.name, attack_type = UNARMED_ATTACK))
-		log_combat(M, H, "attempted to touch")
-		H.visible_message(span_warning("[M] attempts to touch [H]!"), \
-						span_danger("[M] attempts to touch you!"), span_hear("You hear a swoosh!"), COMBAT_MESSAGE_RANGE, M)
-		to_chat(M, span_warning("You attempt to touch [H]!"))
+	if(owner.mind)
+		attacker_style = owner.mind.martial_art
+	if((owner != target) && owner.combat_mode && target.check_shields(owner, 0, owner.name, attack_type = UNARMED_ATTACK))
+		log_combat(owner, target, "attempted to touch")
+		target.visible_message(span_warning("[owner] attempts to touch [target]!"), \
+						span_danger("[owner] attempts to touch you!"), span_hear("You hear a swoosh!"), COMBAT_MESSAGE_RANGE, owner)
+		to_chat(owner, span_warning("You attempt to touch [target]!"))
 		return
 
-	SEND_SIGNAL(M, COMSIG_MOB_ATTACK_HAND, M, H, attacker_style)
+	SEND_SIGNAL(owner, COMSIG_MOB_ATTACK_HAND, owner, target, attacker_style)
 
 	if(LAZYACCESS(modifiers, RIGHT_CLICK))
-		disarm(M, H, attacker_style)
+		disarm(owner, target, attacker_style)
 		return // dont attack after
-	if(M.combat_mode)
-		harm(M, H, attacker_style)
+	if(owner.combat_mode)
+		harm(owner, target, attacker_style)
 	else
-		help(M, H, attacker_style)
+		help(owner, target, attacker_style)
 
 /datum/species/proc/spec_attacked_by(obj/item/I, mob/living/user, obj/item/bodypart/affecting, mob/living/carbon/human/H, params)
 	// Allows you to put in item-specific reactions based on species

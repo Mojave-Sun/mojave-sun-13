@@ -14,12 +14,6 @@ $department_map: (
   'Science': colors.fg(colors.$purple),
   'Service': colors.$green,
   'Silicon': colors.$pink,
-  /*MOJAVE EDIT ADDITION BEGIN - COLORS */
-  'Town': colors.$green,
-  'NCR': colors.$olive,
-  'BOS': colors.$light-grey,
-  'Raiders': colors.$red,
-  'Wasteland': colors.$brown,
 );
 
 .PreferencesMenu {
@@ -129,57 +123,6 @@ $department_map: (
       flex: 1;
     }
 
-    @mixin animate-hover {
-      .factopm-icon-parent .faction-icon {
-        &:hover {
-          transform: scale(1.3);
-          transition: transform 1s ease-out;
-        }
-      }
-    }
-    &__faction{
-      padding-bottom: 20px;
-      padding-right: 20px;
-
-      .faction-icon-parent {
-        border-style: solid;
-        border-radius: 50%;
-        border-width: 4px;
-        box-sizing: content-box;
-        overflow: hidden;
-        position: relative;
-
-        height: 120px;
-        width: 120px;
-
-        .faction-icon {
-          @include animate-hover;
-          border-radius: 50%;
-          -ms-interpolation-mode: nearest-neighbor;
-          overflow: hidden;
-          transition: transform 0.1s ease-in;
-        }
-      }
-      &--off {
-        .faction-icon-parent {
-          border-color: colors.$red;
-
-          .faction-icon {
-            opacity: 0.5;
-
-            &:hover {
-              opacity: 1;
-            }
-          }
-        }
-      }
-      &--on {
-        .faction-icon-parent {
-          border-color: colors.$green;
-        }
-      }
-    }
-
     &__departments {
       @each $department-name, $color-value in $department_map {
         &--#{$department-name} {
@@ -229,7 +172,7 @@ $department_map: (
         border: 1px solid rgba(0, 0, 0, 0.3);
 
         &--off::after {
-          content: "";
+          content: '';
 
           background: rgba(0, 0, 0, 0.2);
           display: block;
@@ -245,10 +188,7 @@ $department_map: (
 
     &__PriorityHeader {
       font-weight: bold;
-      transform:
-        translateX(-4px)
-        translateY(-8px)
-        rotate(315deg);
+      transform: translateX(-4px) translateY(-8px) rotate(315deg);
       white-space: nowrap;
       width: 19px;
     }
@@ -268,9 +208,9 @@ $department_map: (
         transition: background-color 0.1s ease-in;
 
         $quality_map: (
-          "positive": colors.$green,
-          "neutral": colors.$white,
-          "negative": colors.$red,
+          'positive': colors.$green,
+          'neutral': colors.$white,
+          'negative': colors.$red,
         );
 
         @each $quality, $color-value in $quality_map {

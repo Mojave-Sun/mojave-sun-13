@@ -254,3 +254,6 @@
 
 	/// Whether or not this client has the combo HUD enabled
 	var/combo_hud_enabled = FALSE
+
+	/// Does this client have typing indicators enabled?
+	var/typing_indicators = FALSE
