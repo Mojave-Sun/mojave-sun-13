@@ -242,7 +242,7 @@
 	grid_height = 64
 
 GLOBAL_LIST_INIT(log_recipes, list ( \
-	new/datum/stack_recipe("crude log wall", /turf/closed/wall/ms13/craftable/wood, 4, time = 40 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("crude log wall", /obj/structure/ms13/craftable/wood, 4, time = 40 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 ))
 
 /obj/item/stack/sheet/ms13/wood/log/get_main_recipes()

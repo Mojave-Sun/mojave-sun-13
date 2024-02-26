@@ -22,7 +22,7 @@
 	amount = 5
 
 GLOBAL_LIST_INIT(scrap_recipes, list ( \
-	new/datum/stack_recipe("crude scrap wall", /turf/closed/wall/ms13/craftable/scrap, 8, time = 40 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("crude scrap wall", /obj/structure/ms13/craftable/scrap, 8, time = 40 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("makeshift smelter", /obj/structure/ms13/smelter, 6, time = 30 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("fire barrel", /obj/structure/bonfire/ms13/fire_barrel, 4, time = 20 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 ))
@@ -65,7 +65,7 @@ GLOBAL_LIST_INIT(scrap_recipes, list ( \
 	amount = 10
 
 GLOBAL_LIST_INIT(scrap_steel_recipes, list ( \
-	new/datum/stack_recipe("crude scrap wall", /turf/closed/wall/ms13/craftable/scrap, 6, time = 40 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("crude scrap wall", /obj/structure/ms13/craftable/scrap, 6, time = 40 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("makeshift smelter", /obj/structure/ms13/smelter, 4, time = 30 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("crude scrap metal table", /obj/structure/table/ms13/metal/constructed/cobbled, 4, time = 20 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("fire barrel", /obj/structure/bonfire/ms13/fire_barrel, 3, time = 20 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
