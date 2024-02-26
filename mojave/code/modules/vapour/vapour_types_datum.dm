@@ -17,6 +17,8 @@
 	var/descriptor
 	/// Scent of the smell
 	var/scent
+	/// Use this to avoid spamming screens with messages!
+	COOLDOWN_DECLARE(agony_announcement)
 
 ///When a vapour touches an unprotected carbon mob
 /datum/vapours/proc/TouchAct(mob/living/carbon/victim, amount)

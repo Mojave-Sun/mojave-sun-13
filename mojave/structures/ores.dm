@@ -78,7 +78,7 @@
 /obj/structure/ms13/ore_deposit/coal/attackby(obj/item/W, mob/user)
 	. = ..()
 	var/turf/my_turf = get_turf(src)
-	my_turf.VapourTurf(/datum/vapours/carbon_air_vapour, 10)
+	my_turf.VapourTurf(/datum/vapours/carbon_air_vapour, 50)
 
 /obj/structure/ms13/ore_deposit/uranium
 	name = "uranium deposit"
@@ -104,24 +104,26 @@
 	icon_state = "sulfur-deposit"
 	deposit_type = /obj/item/stack/sheet/ms13/nugget/sulfur
 	var/sulfur_rate // Restock rate for sulfur. Transfers to new spawns, so the vent will always be just as reliable or shart as it always was
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF // Think of this thing as being part of the floor below it. It's a vent- breaking it outright would be dumb.
 
 /obj/structure/ms13/ore_deposit/sulfur/Initialize()
 	. = ..()
 	sulfur_rate = rand(1,5) // Anywhere from a 1 to 5 multiplier on regrow time / fumes
-	addtimer(CALLBACK(src, .proc/growup), 300 SECONDS * sulfur_rate)
+	addtimer(CALLBACK(src, .proc/growup), 20 MINUTES / sulfur_rate) // Shart tier takes 20 minutes to regen. top dawgs come back in 4.
+	AddElement(/datum/element/vapour_emitter, /datum/vapours/sulfur_concentrate, 50 * sulfur_rate) // Less it built up make this thing really shart yellow. Be wary of these fellas.
 
 /obj/structure/ms13/ore_deposit/sulfur/examine(mob/user)
 	. = ..()
 	switch(sulfur_rate)
-		if(1)
-			. += span_nicegreen("She's flowin' good! Won't take long to build up at all.")
-		if(2)
-			. += span_green("Flow could be better.")
+		if(5)
+			. += span_nicegreen("She's flowin' great! Won't take long to build up at all.")
+		if(4)
+			. += span_green("Flow's pretty alright...")
 		if(3)
 			. += span_notice("This vent is completely average.")
-		if(4)
+		if(2)
 			. += span_alert("Sputtering and inconsistent.")
-		if(5)
+		if(1)
 			. += span_red("Barely makin' a toot. Ain't worth a god damn dollar.")
 
 
@@ -130,25 +132,21 @@
 	GU.sulfur_rate = src.sulfur_rate
 	qdel(src)
 
-/obj/structure/ms13/ore_deposit/sulfur/attackby(obj/item/W, mob/user)
+/obj/structure/ms13/ore_deposit/sulfur/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration, def_zone)
 	. = ..()
 	var/turf/my_turf = get_turf(src)
-	my_turf.VapourTurf(/datum/vapours/sulphur, 15) // Kick a bit more in the air per hit for good measure
-
-//	if(W.mining_mult > 0)
-//		to_chat(user, span_notice("You break away the excess sulfur from the [src.name]!"))
-//		new /obj/structure/ms13/ore_deposit/sulfur/growth(loc, 1)
-//		qdel(src)
+	my_turf.VapourTurf(/datum/vapours/sulfur_concentrate, 25) // Kick a bit more in the air per hit for good measure
 
 /obj/structure/ms13/ore_deposit/sulfur/growth
 	name = "sulfur growth"
 	desc = "A sulfur vent that actively bellows fumes. Try not to collapse the tunnel. Don't breathe too deep!"
 	icon_state = "sulfur-growth"
 	deposit_type = /obj/item/stack/sheet/ms13/nugget/sulfur
+	resistance_flags = null
 
 /obj/structure/ms13/ore_deposit/sulfur/growth/Initialize()
 	. = ..()
-	AddElement(/datum/element/vapour_emitter, /datum/vapours/sulphur, 100 / sulfur_rate) // Kind of game logic but w/e. Grown up sulfur nodes with fart out stuff actively. How fun. Sharts out the more "active" it is
+	AddElement(/datum/element/vapour_emitter, /datum/vapours/sulfur_concentrate, 35 * sulfur_rate)
 
 /obj/structure/ms13/ore_deposit/sulfur/growth/deconstruct(disassembled = TRUE)
 	var/obj/structure/ms13/ore_deposit/sulfur/G = new /obj/structure/ms13/ore_deposit/sulfur(loc, 1)
@@ -278,10 +276,10 @@
 //Deposit generation
 
 //currently not spawning in uranium deposits as there is no use for them
-#define DEPOSIT_SPAWN_LIST_DROUGHT list(/obj/structure/ms13/ore_deposit/gold = 1, /obj/structure/ms13/ore_deposit/silver = 3, /obj/structure/ms13/ore_deposit/alu = 4, /obj/structure/ms13/ore_deposit/lead = 5, /obj/structure/ms13/ore_deposit/copper = 5, /obj/structure/ms13/ore_deposit/coal = 4, /obj/structure/ms13/ore_deposit/iron = 4, /obj/structure/ms13/ore_deposit/zinc = 4, /obj/structure/ms13/ore_deposit/sulfur = 3) //The total sum of this right now is 33, so finding prob is X/33. If you change these numbers please update this comment.
+#define DEPOSIT_SPAWN_LIST_DROUGHT list(/obj/structure/ms13/ore_deposit/gold = 1, /obj/structure/ms13/ore_deposit/silver = 3, /obj/structure/ms13/ore_deposit/alu = 4, /obj/structure/ms13/ore_deposit/lead = 5, /obj/structure/ms13/ore_deposit/copper = 5, /obj/structure/ms13/ore_deposit/coal = 4, /obj/structure/ms13/ore_deposit/iron = 4, /obj/structure/ms13/ore_deposit/zinc = 4, /obj/structure/ms13/ore_deposit/sulfur/growth = 3) //The total sum of this right now is 33, so finding prob is X/33. If you change these numbers please update this comment.
 #define DEPOSIT_SPAWN_CHANCE_DROUGHT	2.8
 
-#define DEPOSIT_SPAWN_LIST_MAMMOTH list(/obj/structure/ms13/ore_deposit/gold = 2, /obj/structure/ms13/ore_deposit/silver = 4, /obj/structure/ms13/ore_deposit/alu = 3, /obj/structure/ms13/ore_deposit/lead = 3, /obj/structure/ms13/ore_deposit/copper = 5, /obj/structure/ms13/ore_deposit/coal = 4, /obj/structure/ms13/ore_deposit/iron = 4, /obj/structure/ms13/ore_deposit/zinc = 5, /obj/structure/ms13/ore_deposit/sulfur = 3) //The total sum of this right now is 33, so finding prob is X/33. If you change these numbers please update this comment.
+#define DEPOSIT_SPAWN_LIST_MAMMOTH list(/obj/structure/ms13/ore_deposit/gold = 2, /obj/structure/ms13/ore_deposit/silver = 4, /obj/structure/ms13/ore_deposit/alu = 3, /obj/structure/ms13/ore_deposit/lead = 3, /obj/structure/ms13/ore_deposit/copper = 5, /obj/structure/ms13/ore_deposit/coal = 4, /obj/structure/ms13/ore_deposit/iron = 4, /obj/structure/ms13/ore_deposit/zinc = 5, /obj/structure/ms13/ore_deposit/sulfur/growth = 3) //The total sum of this right now is 33, so finding prob is X/33. If you change these numbers please update this comment.
 #define DEPOSIT_SPAWN_CHANCE_MAMMOTH	2.5
 
 /turf/open/floor/plating/ms13/ground/mountain/Initialize()

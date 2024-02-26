@@ -176,6 +176,7 @@
 	equip_delay_self = 1.5 SECONDS
 	equip_delay_other = 3 SECONDS
 	w_class = WEIGHT_CLASS_NORMAL
+	clothing_traits = list(TRAIT_WEARING_GAS_MASK)
 	grid_width = 64
 	grid_height = 64
 	slowdown = 0.05 // Will they even notice..?
@@ -183,14 +184,6 @@
 /obj/item/clothing/mask/gas/ms13/Initialize()
 	. = ..()
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/clothing/clothing_inventory/masks_inventory.dmi')
-
-/obj/item/clothing/mask/gas/ms13/equipped(mob/M, slot)
-	. = ..()
-	ADD_TRAIT(M, TRAIT_WEARING_GAS_MASK, "gas_mask")
-
-/obj/item/clothing/mask/gas/ms13/dropped(mob/M)
-	. = ..()
-	REMOVE_TRAIT(M, TRAIT_WEARING_GAS_MASK, "gas_mask")
 
 /obj/item/clothing/mask/gas/ms13/examine(mob/user)
 	return

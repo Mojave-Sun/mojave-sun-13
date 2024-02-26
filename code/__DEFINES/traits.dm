@@ -872,6 +872,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 #define TRAIT_WEARING_GAS_MASK "wearing_gasmask" //If this person is wearing a gas mask
 
+#define TRAIT_PROTECTIVE_SUIT "wearing_protection" //If this person is wearing a suit that would render them immune from... CHEMICAL WARFARE
+
 #define TRAIT_SHOVEIMMUNE "shove_immune"//Makes the user completely immune to shoving
 
 // MOJAVE JOB TRAITS END
