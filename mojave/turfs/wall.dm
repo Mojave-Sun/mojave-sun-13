@@ -346,34 +346,17 @@
 /turf/closed/wall/ms13/craftable/deconstruction_hints(mob/user)
 	return span_notice("You could use a <b>welder</b> to cut through this wall.")
 
-/obj/structure/ms13/craftable
-	name = "structure class craftable wall"
-	desc = "God has abandoned us, with functionality"
-	density = TRUE
-	opacity = TRUE
-	anchored = TRUE
-	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = list(SMOOTH_GROUP_MS13_WALL)
-	canSmoothWith= list(SMOOTH_GROUP_MS13_WALL)
-	icon_state = "wall-0"
-	base_icon_state = "wall"
-
-/obj/structure/ms13/craftable/scrap
+/turf/closed/wall/ms13/craftable/scrap
 	name = "crude scrap wall"
 	desc = "A crude wall made of scrap metal. This looks very recently constructed."
 	icon = 'mojave/icons/turf/walls/roughscrap.dmi'
 	frill_icon = 'mojave/icons/turf/walls/roughscrap_1_frill.dmi'
-	max_integrity = 450
+	girder_type = null
+	sheet_type = /obj/item/stack/sheet/ms13/scrap
+	sheet_amount = 6
+	slicing_duration = 30 SECONDS
 
-/obj/structure/ms13/craftable/scrap/deconstruct(disassembled = TRUE)
-	if(!(flags_1 & NODECONSTRUCT_1))
-		if(disassembled)
-			new /obj/item/stack/sheet/ms13/scrap(loc, 6)
-		else
-			new /obj/item/stack/sheet/ms13/scrap(loc, 6)
-	qdel(src)
-
-/obj/structure/ms13/craftable/scrap/Initialize()
+/turf/closed/wall/ms13/craftable/scrap/Initialize()
 	. = ..()
 	var/state = rand(1,3)
 	switch(state)
@@ -386,20 +369,15 @@
 		else
 			return
 
-/obj/structure/ms13/craftable/wood
+/turf/closed/wall/ms13/craftable/wood
 	name = "crude log wall"
 	desc = "A freshly made, crude log wall. This looks very recently constructed."
 	icon = 'mojave/icons/turf/walls/woodfresh.dmi'
 	frill_icon = 'mojave/icons/turf/walls/woodfresh_frill.dmi'
-	max_integrity = 400
-
-/obj/structure/ms13/craftable/wood/deconstruct(disassembled = TRUE)
-	if(!(flags_1 & NODECONSTRUCT_1))
-		if(disassembled)
-			new /obj/item/stack/sheet/ms13/wood/log(loc, 2)
-		else
-			new /obj/item/stack/sheet/ms13/wood/log(loc, 2)
-	qdel(src)
+	girder_type = null
+	sheet_type = /obj/item/stack/sheet/ms13/wood/log
+	sheet_amount = 2
+	slicing_duration = 30 SECONDS
 
 //Wall Supports
 
@@ -418,7 +396,7 @@
 	icon_state = "rebar"
 	max_integrity = 200
 	material_used = list(/obj/item/stack/sheet/ms13/scrap)
-//	wall_type = list(/turf/closed/wall/ms13/craftable/scrap, /turf/closed/wall/ms13/craftable/wood) - idk wtf this does but I rewrote craftable walls as structures so I don't think this will do anything.
+	wall_type = list(/turf/closed/wall/ms13/craftable/scrap, /turf/closed/wall/ms13/craftable/wood)
 
 /obj/structure/girder/ms13/bars/Initialize()
 	. = ..()
