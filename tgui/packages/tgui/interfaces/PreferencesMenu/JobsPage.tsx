@@ -3,8 +3,10 @@ import { classes } from 'common/react';
 import { PropsWithChildren, ReactNode } from 'react';
 import { useLocalState } from 'tgui/backend';
 
+import { resolveAsset } from '../../assets';
 import { useBackend } from '../../backend';
-import { Box, Button, Dropdown, Stack, Tooltip } from '../../components';
+import { Box, Button, Dropdown, Flex, Stack, Tooltip } from '../../components';
+import { logger } from '../../logging';
 import {
   createSetPreference,
   Job,
@@ -249,8 +251,14 @@ const JobRow = (props: { className?: string; job: Job; name: string }) => {
   );
 };
 
-const Department = (props: { department: string } & PropsWithChildren) => {
-  const { children, department: name } = props;
+const Department = (
+  props: {
+    department: string;
+    nextFaction: () => any;
+    previousFaction: () => any;
+  } & PropsWithChildren,
+) => {
+  const { children, department: name, nextFaction, previousFaction } = props;
   const className = `PreferencesMenu__Jobs__departments--${name}`;
 
   return (
@@ -385,14 +393,13 @@ const JoblessRoleDropdown = (props) => {
   );
 };
 
-
 export const JobsPage = (props) => {
-  const [
-    currentFaction,
-    setCurrentFaction,
-  ] = useLocalState<any | null>('jobsPage', 0);
+  const [currentFaction, setCurrentFaction] = useLocalState<any | null>(
+    'jobsPage',
+    0,
+  );
 
-  const className = "PreferencesMenu__Jobs";
+  const className = 'PreferencesMenu__Jobs';
   // TODO This should loop over a list of /ms13 departments
   return (
     <ServerPreferencesFetcher
@@ -405,7 +412,6 @@ export const JobsPage = (props) => {
         const currentFactionName = Object.keys(departments)[currentFaction];
         const numFactions = Object.keys(departments).length;
         const nextFaction = () => {
-
           const nextFaction = (currentFaction + 1) % numFactions;
           logger.log(`${nextFaction}/${numFactions}`);
           setCurrentFaction(nextFaction);
@@ -415,8 +421,7 @@ export const JobsPage = (props) => {
           if (previousFaction < 0) {
             logger.log(`${previousFaction}/${numFactions}`);
             setCurrentFaction(numFactions - 1);
-          }
-          else {
+          } else {
             logger.log(`${previousFaction}/${numFactions}`);
             setCurrentFaction(previousFaction);
           }
@@ -499,7 +504,8 @@ export const JobsPage = (props) => {
                       <Department
                         department={currentFactionName}
                         nextFaction={nextFaction}
-                        previousFaction={previousFaction}>
+                        previousFaction={previousFaction}
+                      >
                         <Gap amount={6} />
                       </Department>
                     </Stack.Item>

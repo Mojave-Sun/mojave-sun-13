@@ -38,6 +38,6 @@ export class ServerPreferencesFetcher extends Component<
   }
 
   render() {
-    return this.props.render(this.state.serverData);
+    return this.props?.render?.(this.state.serverData);
   }
 }
