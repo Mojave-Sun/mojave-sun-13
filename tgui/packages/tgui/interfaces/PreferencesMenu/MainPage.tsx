@@ -39,7 +39,6 @@ const CLOTHING_SELECTION_MULTIPLIER = 5.2;
 
 const CharacterControls = (props: {
   handleRotate: () => void;
-  handleOpenSpecies: () => void;
   gender: Gender;
   setGender: (gender: Gender) => void;
   showGender: boolean;
@@ -55,17 +54,6 @@ const CharacterControls = (props: {
           tooltipPosition="top"
         />
       </Stack.Item>
-
-      <Stack.Item>
-        <Button
-          onClick={props.handleOpenSpecies}
-          fontSize="22px"
-          icon="paw"
-          tooltip="Species"
-          tooltipPosition="top"
-        />
-      </Stack.Item>
-
       {props.showGender && (
         <Stack.Item>
           <GenderButton
@@ -199,25 +187,23 @@ const GenderButton = (props: {
       placement="right-end"
       content={
         <Stack backgroundColor="white" ml={0.5} p={0.3}>
-          {[Gender.Male, Gender.Female, Gender.Other, Gender.Other2].map(
-            (gender) => {
-              return (
-                <Stack.Item key={gender}>
-                  <Button
-                    selected={gender === props.gender}
-                    onClick={() => {
-                      props.handleSetGender(gender);
-                      setGenderMenuOpen(false);
-                    }}
-                    fontSize="22px"
-                    icon={GENDERS[gender].icon}
-                    tooltip={GENDERS[gender].text}
-                    tooltipPosition="top"
-                  />
-                </Stack.Item>
-              );
-            },
-          )}
+          {[Gender.Male, Gender.Female].map((gender) => {
+            return (
+              <Stack.Item key={gender}>
+                <Button
+                  selected={gender === props.gender}
+                  onClick={() => {
+                    props.handleSetGender(gender);
+                    setGenderMenuOpen(false);
+                  }}
+                  fontSize="22px"
+                  icon={GENDERS[gender].icon}
+                  tooltip={GENDERS[gender].text}
+                  tooltipPosition="top"
+                />
+              </Stack.Item>
+            );
+          })}
         </Stack>
       }
     >
@@ -450,7 +436,7 @@ export const getRandomization = (
   );
 };
 
-export const MainPage = (props: { openSpecies: () => void }) => {
+export const MainPage = () => {
   const { act, data } = useBackend<PreferencesMenuData>();
   const [currentClothingMenu, setCurrentClothingMenu] = useState<string | null>(
     null,
@@ -527,12 +513,12 @@ export const MainPage = (props: { openSpecies: () => void }) => {
             )}
 
             <Stack height={`${CLOTHING_SIDEBAR_ROWS * CLOTHING_CELL_SIZE}px`}>
-              <Stack.Item>
+              <Stack.Item fill>
                 <Stack vertical fill>
                   <Stack.Item>
                     <CharacterControls
                       gender={data.character_preferences.misc.gender}
-                      handleOpenSpecies={props.openSpecies}
+                      // handleOpenSpecies={props.openSpecies} MOJAVE SUN EDIT
                       handleRotate={() => {
                         act('rotate');
                       }}
@@ -565,7 +551,7 @@ export const MainPage = (props: { openSpecies: () => void }) => {
                 </Stack>
               </Stack.Item>
 
-              <Stack.Item width={`${CLOTHING_CELL_SIZE * 2 + 15}px`}>
+              <Stack.Item fill width={`${CLOTHING_CELL_SIZE * 2 + 15}px`}>
                 <Stack height="100%" vertical wrap>
                   {mainFeatures.map(([clothingKey, clothing]) => {
                     const catalog =
@@ -588,13 +574,6 @@ export const MainPage = (props: { openSpecies: () => void }) => {
                               setCurrentClothingMenu(clothingKey);
                             }}
                             handleSelect={createSetPreference(act, clothingKey)}
-                            randomization={
-                              randomizationOfMainFeatures[clothingKey]
-                            }
-                            setRandomization={createSetRandomization(
-                              act,
-                              clothingKey,
-                            )}
                           />
                         </Stack.Item>
                       )
