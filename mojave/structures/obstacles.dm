@@ -1078,7 +1078,7 @@
 
 /obj/structure/ms13/turnstile/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/climbable, climb_time = 1 SECOND, climb_stun = 0, no_stun = TRUE, jump_over = TRUE /* jump_north = 12, jump_south = 17, jump_sides = 12 */)
+	AddElement(/datum/element/climbable, climb_time = 1 SECOND, climb_stun = 0, no_stun = TRUE, jump_over = TRUE)
 
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_EXIT = .proc/on_exit,
