@@ -1076,9 +1076,9 @@
 	max_integrity = 400
 	integrity_failure = 0.85
 
-/obj/structure/ms13/turnstile/Initialize(mapload)
+/obj/structure/ms13/turnstile/Initialize()
 	. = ..()
-	AddElement(/datum/element/climbable, climb_time = 1 SECOND, climb_stun = 0, no_stun = TRUE, jump_over = TRUE)
+	AddElement(/datum/element/climbable, climb_time = 1 SECONDS, climb_stun = 0, no_stun = TRUE, jump_over = TRUE)
 
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_EXIT = .proc/on_exit,
