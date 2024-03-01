@@ -9,6 +9,7 @@
 	cure_text = "Incurable"
 	form = "Sulfur"
 	agent = "decay nodes"
+	sicktext = "Your chest begins to ache and burn horribly."
 	viable_mobtypes = list(/mob/living/carbon/human)
 	required_organs = list(/obj/item/organ/lungs)
 	bypasses_immunity = TRUE
@@ -23,7 +24,7 @@
 		if(1)
 			if(DT_PROB(1, delta_time))
 				affected_mob.emote("cough")
-				affected_mob.Jitter(0.2 SECONDS)
+				affected_mob.Jitter(0.1 SECONDS)
 				affected_mob.adjustOrganLoss(ORGAN_SLOT_LUNGS, 1, 100)
 		if(2)
 			if(DT_PROB(1, delta_time))

@@ -38,13 +38,14 @@
 ///Sulphur coming from SULFUR growths :D
 /datum/vapours/sulfur_concentrate
 	name = "Sulfur concentrate"
-	vapours_flags = VAPOUR_SMELL | VAPOUR_APPEARANCE | VAPOUR_BREATHE_ACT // TouchAct intentionally excluded
+	vapours_flags = VAPOUR_SMELL | VAPOUR_APPEARANCE | VAPOUR_BREATHE_ACT // TouchAct intentionally excluded until not shart code
 	color = COLOR_YELLOW
 	alpha = 115
 	smell_intensity = 5
 	descriptor = SCENT_DESC_SMELL
 	scent = "sulfur"
 
+/*
 /datum/vapours/sulfur_concentrate/TouchAct(mob/living/carbon/victim, amount) // Disabled for now. Keep it to yo lungs.
 	. = ..()
 
@@ -82,7 +83,7 @@
 			if(COOLDOWN_FINISHED(src, agony_announcement))
 				victim.throw_alert_text(/atom/movable/screen/alert/text/cry, "AAAAAAAGGGHHHHHH!!!", override = FALSE)
 				victim.emote("agony")
-				COOLDOWN_START(src, agony_announcement, 1 SECONDS)
+				COOLDOWN_START(src, agony_announcement, 1 SECONDS) */
 
 /datum/vapours/sulfur_concentrate/BreatheAct(mob/living/carbon/victim, amount)
 	if(HAS_TRAIT(victim, TRAIT_WEARING_GAS_MASK) || amount <= 10)
@@ -93,7 +94,7 @@
 	COOLDOWN_START(src, agony_announcement, 10 SECONDS)
 
 	if(prob(amount))
-		victim.adjustToxLoss(0.1 * amount)
+		victim.adjustToxLoss(0.1 * amount / 2)
 		victim.losebreath += 1
 		victim.emote("cough")
 	if(prob(amount / 10)) // Yo longs fuct
@@ -102,7 +103,7 @@
 ///CS gas for NCR warcrimes!!
 /datum/vapours/cs_gas
 	name = "CS Gas"
-	vapours_flags = VAPOUR_SMELL | VAPOUR_APPEARANCE | VAPOUR_BREATHE_ACT // TouchAct intentionally excluded
+	vapours_flags = VAPOUR_SMELL | VAPOUR_APPEARANCE | VAPOUR_BREATHE_ACT
 	color = COLOR_WHITE
 	alpha = 255
 	smell_intensity = 5
@@ -121,5 +122,3 @@
 		victim.adjustToxLoss(0.1 * amount)
 		victim.losebreath += 1
 		victim.emote("cough")
-	if(prob(amount / 10)) // Yo longs fuct
-		victim.ForceContractDisease(new /datum/disease/pocklung)

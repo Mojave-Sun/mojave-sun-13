@@ -11,7 +11,8 @@
 	var/agent = "some microbes"
 	var/spread_text = ""
 	var/cure_text = ""
-
+	/// MOJAVE SUN EDIT- Text displayed for text pushes
+	var/sicktext = "You're not feeling so hot" // MOJAVE SUN EDIT
 	//Stages
 	var/stage = 1
 	var/max_stages = 0
@@ -60,7 +61,7 @@
 
 	var/turf/source_turf = get_turf(infectee)
 	log_virus("[key_name(infectee)] was infected by virus: [src.admin_details()] at [loc_name(source_turf)]")
-	infectee.throw_alert_text(/atom/movable/screen/alert/text/nohappy, "You're not feeling so hot.", override = FALSE) // MOJAVE SUN EDIT - FO text alert
+	infectee.throw_alert_text(/atom/movable/screen/alert/text/nohappy, sicktext, override = FALSE) // MOJAVE SUN EDIT - FO text alert
 
 //Return a string for admin logging uses, should describe the disease in detail
 /datum/disease/proc/admin_details()
