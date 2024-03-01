@@ -1105,7 +1105,7 @@
 	leaving.Bump(src)
 	return COMPONENT_ATOM_BLOCK_EXIT
 
-/// Checks whether the incoming /mob/living should be knocked down (as well as flick the turnstile rotation animation).
+/// Handles flicking the rotation animation.
 /obj/structure/ms13/turnstile/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	SIGNAL_HANDLER
 
@@ -1119,22 +1119,8 @@
 	if(!density)
 		return
 
-	var/in_dir = get_dir(old_loc, src)
-
-	if(isliving(arrived))
-		if((in_dir & dir) && !broken)
-			if(arrived.move_force >= MOVE_FORCE_STRONG)
-				// 20 damage at FORCE_STRONG, +10 for every step above that
-				take_damage(10 * arrived.move_force / MOVE_FORCE_DEFAULT)
-
-			// taking damage could have broken the bars
-			if(!broken)
-				var/mob/living/victim = arrived
-				victim.Stun(7)
-				victim.Knockdown(10)
-
-		if((in_dir & turn(dir, 180)) && !broken)
-			flick("rotating", src)
+	if(!broken)
+		flick("rotating", src)
 
 /obj/structure/ms13/turnstile/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
@@ -1149,7 +1135,16 @@
 
 	if(ismob(mover))
 		if((border_dir == turn(dir, 90)) || (border_dir == turn(dir, -90)))
-			return // FALSE
+			return
+
+	if((border_dir & turn(dir, 180)) && !broken)
+		if(mover.move_force >= MOVE_FORCE_STRONG)
+			// 20 damage at FORCE_STRONG, +10 for every step above that
+			take_damage(10 * mover.move_force / MOVE_FORCE_DEFAULT)
+
+		// taking damage could have broken the bars
+		if(!broken)
+			return
 
 	return TRUE
 
