@@ -1078,7 +1078,7 @@
 
 /obj/structure/ms13/turnstile/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/climbable, climb_time = 2 SECONDS, climb_stun = 0, no_stun = TRUE, jump_over = TRUE /* jump_north = 12, jump_south = 17, jump_sides = 12 */)
+	AddElement(/datum/element/climbable, climb_time = 1 SECOND, climb_stun = 0, no_stun = TRUE, jump_over = TRUE /* jump_north = 12, jump_south = 17, jump_sides = 12 */)
 
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_EXIT = .proc/on_exit,
@@ -1130,8 +1130,8 @@
 			// taking damage could have broken the bars
 			if(!broken)
 				var/mob/living/victim = arrived
-				victim.Stun(6)
-				victim.Knockdown(8)
+				victim.Stun(7)
+				victim.Knockdown(10)
 
 		if((in_dir & turn(dir, 180)) && !broken)
 			flick("rotating", src)
