@@ -97,6 +97,7 @@
 		victim.adjustToxLoss(0.1 * amount / 2)
 		victim.losebreath += 1
 		victim.emote("cough")
+
 	if(prob(amount / 10)) // Yo longs fuct
 		victim.ForceContractDisease(new /datum/disease/pocklung)
 
@@ -115,10 +116,21 @@
 		return
 
 	if(COOLDOWN_FINISHED(src, agony_announcement))
-		victim.throw_alert_text(/atom/movable/screen/alert/text/dead, "Each breath your take hurts!", override = FALSE)
+		victim.throw_alert_text(/atom/movable/screen/alert/text/cry, "Holy shit! It HURTS!", override = FALSE)
 	COOLDOWN_START(src, agony_announcement, 10 SECONDS)
 
 	if(prob(amount))
-		victim.adjustToxLoss(0.1 * amount)
-		victim.losebreath += 1
 		victim.emote("cough")
+		victim.blur_eyes(10)
+		victim.Jitter(5)
+
+	if(prob(amount))
+		victim.emote("gag")
+
+	if(prob(amount / 20)) // Small chance for a bit of puke action :D At least one person in a crowd should get this maybe.
+		victim.vomit(10, FALSE, TRUE, 1)
+
+	if(amount <= 10 || prob(amount * 2)) // In the thick of it, it's gonna be too much to handle
+		victim.Knockdown(10)
+		victim.blur_eyes(20)
+		victim.Jitter(10)

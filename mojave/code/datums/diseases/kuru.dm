@@ -3,7 +3,7 @@
 	desc = "A disease that slowly corrodes the brain into uselessness."
 	disease_flags = CAN_CARRY
 	max_stages = 4
-	stage_prob = 0.1
+	stage_prob = 0.15 // This is that slow burn roleplay experience we're talking about. The chance for this to advance is real low. You get to play for longer! YIPPIE!
 	spread_text = "Non-contagious"
 	spread_flags = NONE
 	cure_text = "Incurable"
