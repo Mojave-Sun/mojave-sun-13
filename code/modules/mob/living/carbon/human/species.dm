@@ -1354,12 +1354,10 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 		var/damage = rand(user.dna.species.punchdamagelow, user.dna.species.punchdamagehigh)
 
-		//MOJAVE EDIT BEGIN
 		if(HAS_TRAIT(user, TRAIT_IN_POWERARMOUR))
 			damage += 15
 			user.dna.species.attack_sound = 'mojave/sound/ms13weapons/meleesounds/heavyblunt_hit1.ogg'
 			user.dna.species.punchstunthreshold = 24 //slightly higher knockdown chance
-		//MOJAVE EDIT END
 
 		var/obj/item/bodypart/affecting = target.get_bodypart(ran_zone(user.zone_selected))
 
@@ -1379,11 +1377,9 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			return FALSE
 
 		var/armor_block = target.run_armor_check(affecting, MELEE)
-		//MOJAVE EDIT BEGIN
 		var/armor_reduce = target.run_subarmor_check(affecting, MELEE)
 		var/subarmor_flags = target.get_subarmor_flags(affecting)
 		var/edge_protection = target.get_edge_protection(affecting)
-		//MOJAVE EDIT END
 
 		playsound(target.loc, user.dna.species.attack_sound, 25, TRUE, -1)
 
@@ -1400,11 +1396,9 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 		var/attack_direction = get_dir(user, target)
 		if(atk_effect == ATTACK_EFFECT_KICK)//kicks deal 1.5x raw damage
-			/* MOJAVE EDIT REMOVAL
-			target.apply_damage(damage*1.5, user.dna.species.attack_type, affecting, armor_block, attack_direction = attack_direction)
-			*/
-			//MOJAVE EDIT BEGIN
 			var/no_defended = target.damage_armor(damage, MELEE, user.dna.species.attack_type, def_zone = user.zone_selected)
+			if((no_defended * 1.5) >= 9)
+				target.force_say()
 			target.apply_damage(no_defended*1.5, \
 								user.dna.species.attack_type, \
 								affecting, \
@@ -1413,13 +1407,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 								reduced = armor_reduce, \
 								edge_protection = edge_protection, \
 								subarmor_flags = subarmor_flags)
-			//MOJAVE EDIT END
 			log_combat(user, target, "kicked")
 		else//other attacks deal full raw damage + 1.5x in stamina damage
-			/* MOJAVE EDIT REMOVAL
-			target.apply_damage(damage, user.dna.species.attack_type, affecting, armor_block, attack_direction = attack_direction)
-			*/
-			//MOJAVE EDIT BEGIN
 			var/no_defended = target.damage_armor(damage, MELEE, user.dna.species.attack_type, def_zone = user.zone_selected)
 			target.apply_damage(no_defended, \
 								user.dna.species.attack_type, \
@@ -1429,8 +1418,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 								reduced = armor_reduce, \
 								edge_protection = edge_protection, \
 								subarmor_flags = subarmor_flags)
-			//MOJAVE EDIT END
-			//target.apply_damage(no_defended*1.5, STAMINA, affecting, armor_block) MOJAVE EDIT - Removes stamina damage on punches
+			if(no_defended >= 9)
+				target.force_say()
 			log_combat(user, target, "punched")
 
 		if((target.stat != DEAD) && damage >= user.dna.species.punchstunthreshold)
@@ -1464,32 +1453,32 @@ GLOBAL_LIST_EMPTY(features_by_species)
 /datum/species/proc/spec_hitby(atom/movable/AM, mob/living/carbon/human/H)
 	return
 
-/datum/species/proc/spec_attack_hand(mob/living/carbon/human/M, mob/living/carbon/human/H, datum/martial_art/attacker_style, modifiers)
-	if(!istype(M))
+/datum/species/proc/spec_attack_hand(mob/living/carbon/human/owner, mob/living/carbon/human/target, datum/martial_art/attacker_style, modifiers)
+	if(!istype(owner))
 		return
-	CHECK_DNA_AND_SPECIES(M)
-	CHECK_DNA_AND_SPECIES(H)
+	CHECK_DNA_AND_SPECIES(owner)
+	CHECK_DNA_AND_SPECIES(target)
 
-	if(!istype(M)) //sanity check for drones.
+	if(!istype(owner)) //sanity check for drones.
 		return
-	if(M.mind)
-		attacker_style = M.mind.martial_art
-	if((M != H) && M.combat_mode && H.check_shields(M, 0, M.name, attack_type = UNARMED_ATTACK))
-		log_combat(M, H, "attempted to touch")
-		H.visible_message(span_warning("[M] attempts to touch [H]!"), \
-						span_danger("[M] attempts to touch you!"), span_hear("You hear a swoosh!"), COMBAT_MESSAGE_RANGE, M)
-		to_chat(M, span_warning("You attempt to touch [H]!"))
+	if(owner.mind)
+		attacker_style = owner.mind.martial_art
+	if((owner != target) && owner.combat_mode && target.check_shields(owner, 0, owner.name, attack_type = UNARMED_ATTACK))
+		log_combat(owner, target, "attempted to touch")
+		target.visible_message(span_warning("[owner] attempts to touch [target]!"), \
+						span_danger("[owner] attempts to touch you!"), span_hear("You hear a swoosh!"), COMBAT_MESSAGE_RANGE, owner)
+		to_chat(owner, span_warning("You attempt to touch [target]!"))
 		return
 
-	SEND_SIGNAL(M, COMSIG_MOB_ATTACK_HAND, M, H, attacker_style)
+	SEND_SIGNAL(owner, COMSIG_MOB_ATTACK_HAND, owner, target, attacker_style)
 
 	if(LAZYACCESS(modifiers, RIGHT_CLICK))
-		disarm(M, H, attacker_style)
+		disarm(owner, target, attacker_style)
 		return // dont attack after
-	if(M.combat_mode)
-		harm(M, H, attacker_style)
+	if(owner.combat_mode)
+		harm(owner, target, attacker_style)
 	else
-		help(M, H, attacker_style)
+		help(owner, target, attacker_style)
 
 /datum/species/proc/spec_attacked_by(obj/item/I, mob/living/user, obj/item/bodypart/affecting, mob/living/carbon/human/H, params)
 	// Allows you to put in item-specific reactions based on species
@@ -1508,19 +1497,13 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	hit_area = affecting.name
 	var/def_zone = affecting.body_zone
 
-	/* MOJAVE EDIT REMOVAL
-	var/armor_block = H.run_armor_check(affecting, MELEE, span_notice("Your armor has protected your [hit_area]!"), span_warning("Your armor has softened a hit to your [hit_area]!"),I.armour_penetration, weak_against_armour = I.weak_against_armour)
-	armor_block = min(90,armor_block) //cap damage reduction at 90%
-	*/
 	var/Iwound_bonus = I.wound_bonus
-	//MOJAVE EDIT BEGIN
 	var/armor_block = H.run_armor_check(affecting, MELEE, armour_penetration = I.armour_penetration, weak_against_armour = I.weak_against_armour)
 	armor_block = min(90,armor_block) //cap damage reduction at 90%
 	var/armor_reduce = H.run_subarmor_check(affecting, MELEE, armour_penetration = I.subtractible_armour_penetration, weak_against_armour = I.weak_against_subtractible_armour, sharpness = I.get_sharpness())
 	var/edge_protection = H.get_edge_protection(affecting)
 	edge_protection = max(0, edge_protection - I.edge_protection_penetration)
 	var/subarmor_flags = H.get_subarmor_flags(affecting)
-	//MOJAVE EDIT END
 
 	// this way, you can't wound with a surgical tool on help intent if they have a surgery active and are lying down, so a misclick with a circular saw on the wrong limb doesn't bleed them dry (they still get hit tho)
 	if((I.item_flags & SURGICAL_TOOL) && !user.combat_mode && H.body_position == LYING_DOWN && (LAZYLEN(H.surgeries) > 0))
@@ -1532,10 +1515,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 
 	var/attack_direction = get_dir(user, H)
-	/* MOJAVE EDIT REMOVAL
-	apply_damage(I.force * weakness, I.damtype, def_zone, armor_block, H, wound_bonus = Iwound_bonus, bare_wound_bonus = I.bare_wound_bonus, sharpness = I.get_sharpness(), attack_direction = attack_direction)
-	*/
-	//MOJAVE EDIT BEGIN
 	var/no_defended = H.damage_armor(I.force * weakness, MELEE, I.damtype, def_zone = def_zone)
 	apply_damage(no_defended, \
 				I.damtype, \
@@ -1578,25 +1557,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 		switch(hit_area)
 			if(BODY_ZONE_HEAD)
-				/* MOJAVE EDIT REMOVAL - Likely will remove this code once we're synced back upstream.
-				if(!I.get_sharpness() && armor_block < 50)
-					if(prob(I.force))
-						H.adjustOrganLoss(ORGAN_SLOT_BRAIN, 20)
-						if(H.stat == CONSCIOUS)
-							H.visible_message(span_danger("[H] is knocked senseless!"), \
-											span_userdanger("You're knocked senseless!"))
-							H.set_confusion(max(H.get_confusion(), 20))
-							H.adjust_blurriness(10)
-						if(prob(10))
-							H.gain_trauma(/datum/brain_trauma/mild/concussion)
-					else
-						H.adjustOrganLoss(ORGAN_SLOT_BRAIN, I.force * 0.2)
-
-					if(H.mind && H.stat == CONSCIOUS && H != user && prob(I.force + ((100 - H.health) * 0.5))) // rev deconversion through blunt trauma.
-						var/datum/antagonist/rev/rev = H.mind.has_antag_datum(/datum/antagonist/rev)
-						if(rev)
-							rev.remove_revolutionary(FALSE, user)
-				*/
 				if(bloody) //Apply blood
 					if(H.wear_mask)
 						H.wear_mask.add_mob_blood(H)
@@ -1609,13 +1569,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 						H.update_inv_glasses()
 
 			if(BODY_ZONE_CHEST)
-				/* MOJAVE EDIT REMOVAL - Likely will remove this code once we're synced back upstream.
-				if(H.stat == CONSCIOUS && !I.get_sharpness() && armor_block < 50)
-					if(prob(I.force))
-						H.visible_message(span_danger("[H] is knocked down!"), \
-									span_userdanger("You're knocked down!"))
-						H.apply_effect(60, EFFECT_KNOCKDOWN, armor_block)
-				*/
 				if(bloody)
 					if(H.wear_suit)
 						H.wear_suit.add_mob_blood(H)
@@ -1623,6 +1576,10 @@ GLOBAL_LIST_EMPTY(features_by_species)
 					if(H.w_uniform)
 						H.w_uniform.add_mob_blood(H)
 						H.update_inv_w_uniform()
+
+	/// Triggers force say events
+	if(I.force > 10 || I.force >= 5 && prob(33))
+		H.force_say(user)
 
 	return TRUE
 

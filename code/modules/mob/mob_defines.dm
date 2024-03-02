@@ -246,3 +246,8 @@
 
 	/// Keeps track of time of death for respawn purposes on the base mob
 	var/respawn_timeofdeath = 0
+
+	///the icon currently used for the typing indicator's bubble
+	var/active_typing_indicator
+	///the icon currently used for the thinking indicator's bubble
+	var/active_thinking_indicator
