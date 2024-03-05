@@ -1621,3 +1621,165 @@
 	icon_state = "nara"
 	filling_color = "#770d0d"
 	tastes = list("blood"= 5)
+
+////////////////////// FLY AMANITA //////////////////////////
+
+/obj/item/seeds/ms13/flyamanita
+	name = "fly amanita spores"
+	desc = "These spores grow into the poisonous fly amanita."
+	species = "flyamanita"
+	icon_harvest = "flyamanita-grow4"
+	growing_color =  "#672d13"
+	wholeiconcolor = TRUE
+	plantname = "Fly Amanita"
+	genes = list(/datum/plant_gene/trait/plant_type/fungal_metabolism)
+	product = /obj/item/food/grown/ms13/flyamanita
+	lifespan = 48
+	endurance = 35
+	yield = 3
+	growthstages = 4
+	production = 12 //4m to produce
+	maturation = 30 //10m to mature
+	reagents_add = list(/datum/reagent/toxin = 0.08, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "P"
+
+/obj/item/food/grown/ms13/flyamanita
+	seed = /obj/item/seeds/ms13/flyamanita
+	name = "fly amanita"
+	desc = "A dark red mushroom with white spots looking like nib sugar."
+	bite_consumption_mod = 1
+	foodtypes = TOXIC
+	icon_state = "flyamanita"
+	filling_color = "#c87070"
+	tastes = list("illness"= 5, "bitterness"= 5)
+
+/////////////////////// PENNY BUN ///////////////////////////
+
+/obj/item/seeds/ms13/pennybun
+	name = "penny bun spores"
+	desc = "These spores grow into the tasty penny bun."
+	species = "pennybun"
+	icon_harvest = "pennybun-grow4"
+	growing_color =  "#672d13"
+	wholeiconcolor = TRUE
+	plantname = "Penny Bun"
+	genes = list(/datum/plant_gene/trait/plant_type/fungal_metabolism)
+	product = /obj/item/food/grown/ms13/pennybun
+	lifespan = 30
+	endurance = 25
+	yield = 3
+	growthstages = 4
+	production = 14 //4m 40s to produce
+	maturation = 38 //12m 40s to mature
+	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "K"
+
+/obj/item/food/grown/ms13/pennybun
+	seed = /obj/item/seeds/ms13/pennybun
+	name = "penny bun"
+	desc = "A fungus with a large brown cap and prized as an ingredient in various culinary dishes."
+	bite_consumption_mod = 1
+	foodtypes = VEGETABLES
+	icon_state = "pennybun"
+	filling_color = "#c87070"
+	tastes = list("succulent"= 5, "mushroom"= 5)
+
+////////////////////// CHANTERELLE //////////////////////////
+
+/obj/item/seeds/ms13/chanterelle
+	name = "chanterelle spores"
+	desc = "These spores grow into the tasty penny bun."
+	species = "chanterelle"
+	icon_harvest = "chanterelle-grow4"
+	growing_color =  "#672d13"
+	wholeiconcolor = TRUE
+	plantname = "Chanterelle"
+	genes = list(/datum/plant_gene/trait/plant_type/fungal_metabolism)
+	product = /obj/item/food/grown/ms13/chanterelle
+	lifespan = 48
+	endurance = 35
+	yield = 4
+	growthstages = 4
+	production = 12 //4m to produce
+	maturation = 38 //12m 40s to mature
+	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "K"
+
+/obj/item/food/grown/ms13/chanterelle
+	seed = /obj/item/seeds/ms13/chanterelle
+	name = "chanterelle"
+	desc = "A funnel-shaped yellowish mushroom which emits a fruity aroma."
+	bite_consumption_mod = 1
+	foodtypes = VEGETABLES
+	icon_state = "chanterelle"
+	filling_color = "#c87070"
+	tastes = list("savory"= 5, "fruity"= 5)
+
+/////////////////////// MINDSHROOM //////////////////////////
+
+/obj/item/seeds/ms13/mindshroom
+	name = "mindshroom spores"
+	desc = "These spores grow into the glowing mindshroom."
+	species = "mindshroom"
+	icon_harvest = "mindshroom-grow4"
+	growing_color =  "#672d13"
+	wholeiconcolor = TRUE
+	plantname = "Mindshroom"
+	genes = list(/datum/plant_gene/trait/plant_type/fungal_metabolism, /datum/plant_gene/trait/glow/ms13blue)
+	product = /obj/item/food/grown/ms13/mindshroom
+	lifespan = 40
+	endurance = 30
+	yield = 3
+	growthstages = 4
+	production = 18 //6m to produce
+	maturation = 45 //15m to mature
+	reagents_add = list(/datum/reagent/drug/mushroomhallucinogen = 0.1, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "N"
+
+/obj/item/food/grown/ms13/mindshroom
+	seed = /obj/item/seeds/ms13/mindshroom
+	name = "mindshroom"
+	desc = "A glowing mushroom. You feel something at the back of your mind just looking at it."
+	bite_consumption_mod = 1
+	foodtypes = TOXIC
+	icon_state = "mindshroom"
+	filling_color = "#c87070"
+	tastes = list("spicy"= 5, "mint"= 5)
+	light_range = 2
+	light_power = 0.25
+
+/datum/plant_gene/trait/glow/ms13blue
+	name = "Psionic Bioluminescence"
+	rate = 0.01
+	glow_color = "#50e650"
+
+///////////////////// GREMLIN STOOL /////////////////////////
+
+/obj/item/seeds/ms13/gremlinstool
+	name = "gremlinstool spores"
+	desc = "These spores grow into the invigorating gremling stool."
+	species = "gremlinstool"
+	icon_harvest = "gremlinstool-grow4"
+	growing_color =  "#672d13"
+	wholeiconcolor = TRUE
+	plantname = "gremlinstool"
+	genes = list(/datum/plant_gene/trait/plant_type/fungal_metabolism)
+	product = /obj/item/food/grown/ms13/gremlinstool
+	lifespan = 48
+	endurance = 35
+	yield = 3
+	growthstages = 4
+	production = 15 //5m to produce
+	maturation = 30 //10m to mature
+	reagents_add = list(/datum/reagent/drug/methamphetamine = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	nutrient_type = "P"
+
+/obj/item/food/grown/ms13/gremlinstool
+	seed = /obj/item/seeds/ms13/gremlinstool
+	name = "gremlinstool"
+	desc = "A yellow-doted mushroom that oozes a clear liquid."
+	bite_consumption_mod = 1
+	foodtypes = TOXIC
+	icon_state = "gremlinstool"
+	filling_color = "#c87070"
+	tastes = list("creamy"= 5, "fire"= 5)
