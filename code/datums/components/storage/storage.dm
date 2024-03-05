@@ -249,7 +249,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		return
 	var/datum/progressbar/progress = new(pre_attack_mob, len, attack_item.loc)
 	var/list/rejections = list()
-	while(do_after(pre_attack_mob, 1 SECONDS, parent, NONE, FALSE, CALLBACK(src, .proc/handle_mass_pickup, things, attack_item.loc, rejections, progress)))
+	while(do_after(pre_attack_mob, 1 SECONDS, parent, NONE, FALSE, CALLBACK(src, PROC_REF(handle_mass_pickup), things, attack_item.loc, rejections, progress)))
 		stoplag(1)
 	progress.end_progress()
 	to_chat(pre_attack_mob, span_notice("You put everything you could [insert_preposition] [parent]."))

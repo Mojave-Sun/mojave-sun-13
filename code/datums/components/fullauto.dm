@@ -278,7 +278,7 @@
 	if(!can_shoot())
 		shoot_with_empty_chamber(shooter)
 		return NONE
-	INVOKE_ASYNC(src, .proc/do_autofire_shot, source, target, shooter, params)
+	INVOKE_ASYNC(src, PROC_REF(do_autofire_shot), source, target, shooter, params)
 	return COMPONENT_AUTOFIRE_SHOT_SUCCESS //All is well, we can continue shooting.
 
 

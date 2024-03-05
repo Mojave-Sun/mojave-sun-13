@@ -225,7 +225,7 @@
 		the_hulk.visible_message(span_danger("[the_hulk] loses [the_hulk.p_their()] momentum on [yeeted_person]!"), span_warning("You lose your momentum on swinging [yeeted_person]!"), ignored_mobs = yeeted_person)
 		to_chat(yeeted_person, span_userdanger("[the_hulk] loses [the_hulk.p_their()] momentum and lets go of you!"))
 	else
-		addtimer(CALLBACK(src, .proc/swing_loop, the_hulk, yeeted_person, step, original_dir), delay)
+		addtimer(CALLBACK(src, PROC_REF(swing_loop), the_hulk, yeeted_person, step, original_dir), delay)
 
 /// Time to toss the victim at high speed
 /datum/mutation/human/hulk/proc/finish_swing(mob/living/carbon/human/the_hulk, mob/living/carbon/yeeted_person, original_dir)

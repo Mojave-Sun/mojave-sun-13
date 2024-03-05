@@ -191,7 +191,7 @@
 		return
 	var/mob/living/carbon/victim = parent
 	var/time_taken = rip_time * weapon.w_class
-	INVOKE_ASYNC(src, .proc/complete_rip_out, victim, I, limb, time_taken)
+	INVOKE_ASYNC(src, PROC_REF(complete_rip_out), victim, I, limb, time_taken)
 
 /// everything async that ripOut used to do
 /datum/component/embedded/proc/complete_rip_out(mob/living/carbon/victim, obj/item/I, obj/item/bodypart/limb, time_taken)

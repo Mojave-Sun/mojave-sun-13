@@ -60,7 +60,7 @@
  */
 /datum/component/subtype_picker/proc/pick_subtype(datum/target, mob/picker)
 
-	var/name_of_type = show_radial_menu(picker, target, built_radial_list, custom_check = CALLBACK(src, .proc/check_menu, target, picker), radius = 42, require_near = TRUE)
+	var/name_of_type = show_radial_menu(picker, target, built_radial_list, custom_check = CALLBACK(src, PROC_REF(check_menu), target, picker), radius = 42, require_near = TRUE)
 	if(!name_of_type || !check_menu(target, picker))
 		return
 

@@ -281,11 +281,11 @@
 		var/mob/living/simple_animal/pet/gondola/gondolapod/benis = new(turf_underneath, src)
 		benis.contents |= contents //Move the contents of this supplypod into the gondolapod mob.
 		moveToNullspace()
-		addtimer(CALLBACK(src, .proc/open_pod, benis), delays[POD_OPENING]) //After the opening delay passes, we use the open proc from this supplyprod while referencing the contents of the "holder", in this case the gondolapod mob
+		addtimer(CALLBACK(src, PROC_REF(open_pod), benis), delays[POD_OPENING]) //After the opening delay passes, we use the open proc from this supplyprod while referencing the contents of the "holder", in this case the gondolapod mob
 	else if (style == STYLE_SEETHROUGH)
 		open_pod(src)
 	else
-		addtimer(CALLBACK(src, .proc/open_pod, src), delays[POD_OPENING]) //After the opening delay passes, we use the open proc from this supplypod, while referencing this supplypod's contents
+		addtimer(CALLBACK(src, PROC_REF(open_pod), src), delays[POD_OPENING]) //After the opening delay passes, we use the open proc from this supplypod, while referencing this supplypod's contents
 
 /obj/structure/closet/supplypod/proc/open_pod(atom/movable/holder, broken = FALSE, forced = FALSE) //The holder var represents an atom whose contents we will be working with
 	if (!holder)

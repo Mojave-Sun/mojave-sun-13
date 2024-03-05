@@ -193,7 +193,7 @@
 		for(var/t in RANGE_TURFS(1, source))
 			new /obj/effect/temp_visual/hierophant/blast/visual(t, user, TRUE)
 		for(var/mob/living/L in range(1, source))
-			INVOKE_ASYNC(src, .proc/teleport_mob, source, L, T, user)
+			INVOKE_ASYNC(src, PROC_REF(teleport_mob), source, L, T, user)
 		sleep(6) //at this point the blasts detonate
 		if(beacon)
 			beacon.icon_state = "hierophant_tele_off"

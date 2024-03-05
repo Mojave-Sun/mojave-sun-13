@@ -74,7 +74,7 @@
 		stack_trace("/datum/chatmessage created with [isnull(owner) ? "null" : "invalid"] mob owner")
 		qdel(src)
 		return
-	INVOKE_ASYNC(src, .proc/generate_image, text, target, owner, language, extra_classes, lifespan)
+	INVOKE_ASYNC(src, PROC_REF(generate_image), text, target, owner, language, extra_classes, lifespan)
 
 /datum/chatmessage/Destroy()
 	if (owned_by)
@@ -227,7 +227,7 @@
 /datum/chatmessage/proc/end_of_life(fadetime = CHAT_MESSAGE_EOL_FADE)
 	isFading = TRUE
 	animate(message, alpha = 0, time = fadetime, flags = ANIMATION_PARALLEL)
-	addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, src), fadetime, TIMER_DELETE_ME, SSrunechat)
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), src), fadetime, TIMER_DELETE_ME, SSrunechat)
 
 /**
  * Creates a message overlay at a defined location for a given speaker

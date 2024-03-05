@@ -40,7 +40,7 @@
 
 /datum/component/deployable/proc/on_attack_hand(datum/source, mob/user, location, direction)
 	SIGNAL_HANDLER
-	INVOKE_ASYNC(src, .proc/deploy, source, user, location, direction)
+	INVOKE_ASYNC(src, PROC_REF(deploy), source, user, location, direction)
 
 /datum/component/deployable/proc/deploy(obj/source, mob/user, location, direction) //If there's no user, location and direction are used
 	var/obj/deployed_object //Used for spawning the deployed object

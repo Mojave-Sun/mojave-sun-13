@@ -396,7 +396,7 @@ GLOBAL_LIST_INIT(voice_of_god_commands, init_voice_of_god_commands())
 	trigger = "ho+nk"
 
 /datum/voice_of_god_command/honk/execute(list/listeners, mob/living/user, power_multiplier = 1, message)
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/playsound, get_turf(user), 'sound/items/bikehorn.ogg', 300, 1), 2.5 SECONDS)
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(playsound), get_turf(user), 'sound/items/bikehorn.ogg', 300, 1), 2.5 SECONDS)
 	if(is_clown_job(user.mind?.assigned_role))
 		. = COOLDOWN_STUN //it slips.
 		for(var/mob/living/carbon/target in listeners)

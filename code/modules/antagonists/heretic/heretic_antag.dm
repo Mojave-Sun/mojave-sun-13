@@ -278,7 +278,7 @@
 		target_turf.balloon_alert(user, "already drawing a rune!")
 		return
 
-	INVOKE_ASYNC(src, .proc/draw_rune, user, target_turf, drawing_time, additional_checks)
+	INVOKE_ASYNC(src, PROC_REF(draw_rune), user, target_turf, drawing_time, additional_checks)
 
 /**
  * The actual process of drawing a rune.

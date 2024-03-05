@@ -372,7 +372,7 @@
 			continue
 		playsound(L, 'sound/magic/fireball.ogg', 20, TRUE)
 		new /obj/effect/temp_visual/fire(L.loc)
-		addtimer(CALLBACK(src, .proc/pushback, L, user), 1) //no free backstabs, we push AFTER module stuff is done
+		addtimer(CALLBACK(src, PROC_REF(pushback), L, user), 1) //no free backstabs, we push AFTER module stuff is done
 		L.adjustFireLoss(bonus_value, forced = TRUE)
 
 /obj/item/crusher_trophy/tail_spike/proc/pushback(mob/living/target, mob/living/user)

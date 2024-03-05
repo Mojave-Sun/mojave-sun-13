@@ -120,7 +120,7 @@
 	game.food = rand(10,80) / rand(1,2)
 	game.fuel = rand(10,60) / rand(1,2)
 	if(game.electronics)
-		addtimer(CALLBACK(game, .proc/revert_random, game, oldfood, oldfuel), 1 SECONDS)
+		addtimer(CALLBACK(game, PROC_REF(revert_random), game, oldfood, oldfuel), 1 SECONDS)
 
 /datum/orion_event/electronic_part/proc/revert_random(obj/machinery/computer/arcade/orion_trail/game, oldfood, oldfuel)
 	if(oldfuel > game.fuel && oldfood > game.food)

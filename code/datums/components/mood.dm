@@ -279,7 +279,7 @@
 			clear_event(null, category)
 		else
 			if(the_event.timeout)
-				addtimer(CALLBACK(src, .proc/clear_event, null, category), the_event.timeout, TIMER_UNIQUE|TIMER_OVERRIDE)
+				addtimer(CALLBACK(src, PROC_REF(clear_event), null, category), the_event.timeout, TIMER_UNIQUE|TIMER_OVERRIDE)
 			return //Don't have to update the event.
 	var/list/params = args.Copy(4)
 	params.Insert(1, parent)
@@ -290,7 +290,7 @@
 	update_mood()
 
 	if(the_event.timeout)
-		addtimer(CALLBACK(src, .proc/clear_event, null, category), the_event.timeout, TIMER_UNIQUE|TIMER_OVERRIDE)
+		addtimer(CALLBACK(src, PROC_REF(clear_event), null, category), the_event.timeout, TIMER_UNIQUE|TIMER_OVERRIDE)
 
 /datum/component/mood/proc/clear_event(datum/source, category)
 	SIGNAL_HANDLER

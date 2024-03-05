@@ -67,7 +67,7 @@
 
 	. = COMPONENT_SECONDARY_CANCEL_ATTACK_CHAIN
 
-	INVOKE_ASYNC(src, .proc/do_kneecap_target, source, leg, target, attacker)
+	INVOKE_ASYNC(src, PROC_REF(do_kneecap_target), source, leg, target, attacker)
 
 /**
  * After a short do_mob, attacker applies damage to the given leg with a significant wounding bonus, applying the weapon's force as damage.

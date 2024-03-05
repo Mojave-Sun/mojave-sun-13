@@ -126,7 +126,7 @@
 			return
 		battlecruiser_called = TRUE
 		caller_card.use_charge(user)
-		addtimer(CALLBACK(GLOBAL_PROC, /proc/summon_battlecruiser, caller_card.team), rand(20 SECONDS, 1 MINUTES))
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(summon_battlecruiser), caller_card.team), rand(20 SECONDS, 1 MINUTES))
 		playsound(src, 'sound/machines/terminal_alert.ogg', 50, FALSE)
 		return
 
@@ -340,7 +340,7 @@
 				)
 			)
 
-			send_cross_comms_message_timer = addtimer(CALLBACK(src, .proc/send_cross_comms_message, usr, destination, message), CROSS_SECTOR_CANCEL_TIME, TIMER_STOPPABLE)
+			send_cross_comms_message_timer = addtimer(CALLBACK(src, PROC_REF(send_cross_comms_message), usr, destination, message), CROSS_SECTOR_CANCEL_TIME, TIMER_STOPPABLE)
 
 			COOLDOWN_START(src, important_action_cooldown, IMPORTANT_ACTION_COOLDOWN)
 		if ("setState")

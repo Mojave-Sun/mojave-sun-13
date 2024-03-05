@@ -97,7 +97,7 @@
 /datum/action/cooldown/mob_cooldown/projectile_attack/rapid_fire/shrapnel/attack_sequence(mob/living/firer, atom/target)
 	for(var/i in 1 to shot_count)
 		var/obj/projectile/to_explode = shoot_projectile(firer, target, null, firer, rand(-default_projectile_spread, default_projectile_spread), null)
-		addtimer(CALLBACK(src, .proc/explode_into_shrapnel, firer, target, to_explode), break_time)
+		addtimer(CALLBACK(src, PROC_REF(explode_into_shrapnel), firer, target, to_explode), break_time)
 		SLEEP_CHECK_DEATH(shot_delay, src)
 
 /datum/action/cooldown/mob_cooldown/projectile_attack/rapid_fire/shrapnel/proc/explode_into_shrapnel(mob/living/firer, atom/target, obj/projectile/to_explode)

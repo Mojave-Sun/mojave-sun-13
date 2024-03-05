@@ -619,7 +619,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 				A = image(image_file,H,"arm_blade", layer=ABOVE_MOB_LAYER)
 		if(target.client)
 			target.client.images |= A
-			addtimer(CALLBACK(src, .proc/cleanup, item, A, H), rand(15 SECONDS, 25 SECONDS))
+			addtimer(CALLBACK(src, PROC_REF(cleanup), item, A, H), rand(15 SECONDS, 25 SECONDS))
 			return
 	qdel(src)
 
@@ -867,7 +867,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	// Display message
 	if (!is_radio && !target.client?.prefs.read_preference(/datum/preference/toggle/enable_runechat))
 		var/image/speech_overlay = image('icons/mob/talk.dmi', person, "default0", layer = ABOVE_MOB_LAYER)
-		INVOKE_ASYNC(GLOBAL_PROC, /proc/flick_overlay, speech_overlay, list(target.client), 30)
+		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(flick_overlay), speech_overlay, list(target.client), 30)
 	if (target.client?.prefs.read_preference(/datum/preference/toggle/enable_runechat))
 		target.create_chat_message(person, understood_language, chosen, spans)
 	to_chat(target, message)

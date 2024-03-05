@@ -190,7 +190,7 @@ GLOBAL_LIST_EMPTY(lifts)
 	if(!(potential_rider in lift_load))
 		return
 	if(isliving(potential_rider) && HAS_TRAIT(potential_rider, TRAIT_CANNOT_BE_UNBUCKLED))
-		REMOVE_TRAIT(potential_rider, TRAIT_CANNOT_BE_UNBUCKLED, BUCKLED_TRAIT)		
+		REMOVE_TRAIT(potential_rider, TRAIT_CANNOT_BE_UNBUCKLED, BUCKLED_TRAIT)
 	LAZYREMOVE(lift_load, potential_rider)
 	UnregisterSignal(potential_rider, COMSIG_PARENT_QDELETING)
 
@@ -201,7 +201,7 @@ GLOBAL_LIST_EMPTY(lifts)
 	if(AM in lift_load)
 		return
 	if(isliving(AM) && !HAS_TRAIT(AM, TRAIT_CANNOT_BE_UNBUCKLED))
-		ADD_TRAIT(AM, TRAIT_CANNOT_BE_UNBUCKLED, BUCKLED_TRAIT)		
+		ADD_TRAIT(AM, TRAIT_CANNOT_BE_UNBUCKLED, BUCKLED_TRAIT)
 	LAZYADD(lift_load, AM)
 	RegisterSignal(AM, COMSIG_PARENT_QDELETING, .proc/RemoveItemFromLift)
 
@@ -240,7 +240,7 @@ GLOBAL_LIST_EMPTY(lifts)
 		destination = get_step_multiz(src, going)
 	else
 		destination = going
-	///handles any special interactions objects could have with the lift/tram, handled on the item itself	
+	///handles any special interactions objects could have with the lift/tram, handled on the item itself
 	SEND_SIGNAL(destination, COMSIG_TURF_INDUSTRIAL_LIFT_ENTER, things_to_move)
 
 	if(istype(destination, /turf/closed/wall))
@@ -328,7 +328,7 @@ GLOBAL_LIST_EMPTY(lifts)
 		to_chat(user, span_warning("[src] has its controls locked! It must already be trying to do something!"))
 		add_fingerprint(user)
 		return
-	var/result = show_radial_menu(user, src, tool_list, custom_check = CALLBACK(src, .proc/check_menu, user, src.loc), require_near = TRUE, tooltips = TRUE)
+	var/result = show_radial_menu(user, src, tool_list, custom_check = CALLBACK(src, PROC_REF(check_menu), user, src.loc), require_near = TRUE, tooltips = TRUE)
 	if(!isliving(user) || !in_range(src, user) || user.combat_mode)
 		return //nice try
 	switch(result)

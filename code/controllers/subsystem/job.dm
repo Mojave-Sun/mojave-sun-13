@@ -660,7 +660,7 @@ SUBSYSTEM_DEF(job)
 	var/oldjobs = SSjob.all_occupations
 	sleep(20)
 	for (var/datum/job/job as anything in oldjobs)
-		INVOKE_ASYNC(src, .proc/RecoverJob, job)
+		INVOKE_ASYNC(src, PROC_REF(RecoverJob), job)
 
 /datum/controller/subsystem/job/proc/RecoverJob(datum/job/J)
 	var/datum/job/newjob = GetJob(J.title)

@@ -36,7 +36,7 @@
 
 /datum/martial_art/plasma_fist/proc/Tornado(mob/living/A, mob/living/D)
 	A.say("TORNADO SWEEP!", forced="plasma fist")
-	dance_rotate(A, CALLBACK(GLOBAL_PROC, .proc/playsound, A.loc, 'sound/weapons/punch1.ogg', 15, TRUE, -1))
+	dance_rotate(A, CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(playsound), A.loc, 'sound/weapons/punch1.ogg', 15, TRUE, -1))
 	var/obj/effect/proc_holder/spell/aoe_turf/repulse/R = new(null)
 	R.cast(RANGE_TURFS(1,A))
 	log_combat(A, D, "tornado sweeped(Plasma Fist)")

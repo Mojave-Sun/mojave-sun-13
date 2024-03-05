@@ -92,7 +92,7 @@
 	SIGNAL_HANDLER
 	if (!should_run_handheld_experiment(source, target, user, params))
 		return
-	INVOKE_ASYNC(src, .proc/try_run_handheld_experiment_async, source, target, user, params)
+	INVOKE_ASYNC(src, PROC_REF(try_run_handheld_experiment_async), source, target, user, params)
 	return COMPONENT_CANCEL_ATTACK_CHAIN
 
 /**
