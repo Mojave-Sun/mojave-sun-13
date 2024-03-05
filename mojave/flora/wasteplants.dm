@@ -309,6 +309,66 @@
 	harvest_message_high = "You collect a hearty harvest from the root patch."
 	harvest_amount_high = 4
 
+/obj/structure/flora/ms13/forage/flyamanita
+	icon_state = "flyamanita"
+	name = "fly amanita fungus"
+	desc = "A patch of fly amanita fungus"
+	harvested_name = "fly amanita fungus"
+	harvested_desc = "A fly amanita fungus"
+	harvest = /obj/item/food/grown/ms13/flyamanita
+	harvest_message_low = "You gather a small amount of mushrooms from the cluster."
+	harvest_message_med = "You collect a decent amount of mushrooms from the cluster."
+	harvest_message_high = "You collect a hearty harvest from the mushroom cluster."
+	harvest_amount_high = 3
+
+/obj/structure/flora/ms13/forage/pennybun
+	icon_state = "pennybun"
+	name = "penny bun fungus"
+	desc = "A patch of penny bun fungus"
+	harvested_name = "penny bun fungus"
+	harvested_desc = "A penny bun fungus"
+	harvest = /obj/item/food/grown/ms13/pennybun
+	harvest_message_low = "You gather a small amount of mushrooms from the cluster."
+	harvest_message_med = "You collect a decent amount of mushrooms from the cluster."
+	harvest_message_high = "You collect a hearty harvest from the mushroom cluster."
+	harvest_amount_high = 3
+
+/obj/structure/flora/ms13/forage/chanterelle
+	icon_state = "chanterelle"
+	name = "chanterelle fungus"
+	desc = "A patch of chanterelle fungus"
+	harvested_name = "chanterelle fungus"
+	harvested_desc = "A chanterelle fungus"
+	harvest = /obj/item/food/grown/ms13/chanterelle
+	harvest_message_low = "You gather a small amount of mushrooms from the cluster."
+	harvest_message_med = "You collect a decent amount of mushrooms from the cluster."
+	harvest_message_high = "You collect a hearty harvest from the mushroom cluster."
+	harvest_amount_high = 4
+
+/obj/structure/flora/ms13/forage/mindshroom
+	icon_state = "mindshroom"
+	name = "mindshroom fungus"
+	desc = "A patch of mindshroom fungus"
+	harvested_name = "mindshroom fungus"
+	harvested_desc = "A mindshroom fungus"
+	harvest = /obj/item/food/grown/ms13/mindshroom
+	harvest_message_low = "You gather a small amount of mushrooms from the cluster."
+	harvest_message_med = "You collect a decent amount of mushrooms from the cluster."
+	harvest_message_high = "You collect a hearty harvest from the mushroom cluster."
+	harvest_amount_high = 3
+
+/obj/structure/flora/ms13/forage/gremlinstool
+	icon_state = "gremlinstool"
+	name = "gremlin stool fungus"
+	desc = "A patch of gremlin stool fungus"
+	harvested_name = "gremlin stool fungus"
+	harvested_desc = "A gremlin stool fungus"
+	harvest = /obj/item/food/grown/ms13/gremlinstool
+	harvest_message_low = "You gather a small amount of mushrooms from the cluster."
+	harvest_message_med = "You collect a decent amount of mushrooms from the cluster."
+	harvest_message_high = "You collect a hearty harvest from the mushroom cluster."
+	harvest_amount_high = 3
+
 //Grasses
 
 /obj/structure/flora/grass/wasteland
