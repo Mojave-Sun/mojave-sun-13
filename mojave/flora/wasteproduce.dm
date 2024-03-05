@@ -1660,7 +1660,7 @@
 	desc = "These spores grow into the tasty penny bun."
 	species = "pennybun"
 	icon_harvest = "pennybun-grow4"
-	growing_color =  "#672d13"
+	growing_color =  "#695433"
 	wholeiconcolor = TRUE
 	plantname = "Penny Bun"
 	genes = list(/datum/plant_gene/trait/plant_type/fungal_metabolism)
@@ -1681,7 +1681,7 @@
 	bite_consumption_mod = 1
 	foodtypes = VEGETABLES
 	icon_state = "pennybun"
-	filling_color = "#c87070"
+	filling_color = "#695433"
 	tastes = list("succulent"= 5, "mushroom"= 5)
 
 ////////////////////// CHANTERELLE //////////////////////////
@@ -1691,7 +1691,7 @@
 	desc = "These spores grow into the tasty penny bun."
 	species = "chanterelle"
 	icon_harvest = "chanterelle-grow4"
-	growing_color =  "#672d13"
+	growing_color =  "#875a25"
 	wholeiconcolor = TRUE
 	plantname = "Chanterelle"
 	genes = list(/datum/plant_gene/trait/plant_type/fungal_metabolism)
@@ -1712,7 +1712,7 @@
 	bite_consumption_mod = 1
 	foodtypes = VEGETABLES
 	icon_state = "chanterelle"
-	filling_color = "#c87070"
+	filling_color = "#875a25"
 	tastes = list("savory"= 5, "fruity"= 5)
 
 /////////////////////// MINDSHROOM //////////////////////////
@@ -1722,7 +1722,7 @@
 	desc = "These spores grow into the glowing mindshroom."
 	species = "mindshroom"
 	icon_harvest = "mindshroom-grow4"
-	growing_color =  "#672d13"
+	growing_color =  "#4468b2"
 	wholeiconcolor = TRUE
 	plantname = "Mindshroom"
 	genes = list(/datum/plant_gene/trait/plant_type/fungal_metabolism, /datum/plant_gene/trait/glow/ms13blue)
@@ -1743,7 +1743,7 @@
 	bite_consumption_mod = 1
 	foodtypes = TOXIC
 	icon_state = "mindshroom"
-	filling_color = "#c87070"
+	filling_color = "#4468b2"
 	tastes = list("spicy"= 5, "mint"= 5)
 	light_range = 2
 	light_power = 0.25
@@ -1751,7 +1751,7 @@
 /datum/plant_gene/trait/glow/ms13blue
 	name = "Psionic Bioluminescence"
 	rate = 0.01
-	glow_color = "#50e650"
+	glow_color = "#4468b2"
 
 ///////////////////// GREMLIN STOOL /////////////////////////
 
@@ -1760,7 +1760,7 @@
 	desc = "These spores grow into the invigorating gremling stool."
 	species = "gremlinstool"
 	icon_harvest = "gremlinstool-grow4"
-	growing_color =  "#672d13"
+	growing_color =  "#7b704c"
 	wholeiconcolor = TRUE
 	plantname = "gremlinstool"
 	genes = list(/datum/plant_gene/trait/plant_type/fungal_metabolism)
@@ -1781,5 +1781,5 @@
 	bite_consumption_mod = 1
 	foodtypes = TOXIC
 	icon_state = "gremlinstool"
-	filling_color = "#c87070"
+	filling_color = "#7b704c"
 	tastes = list("creamy"= 5, "fire"= 5)
