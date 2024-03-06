@@ -269,35 +269,14 @@
 		return
 
 	if(target.IsKnockdown() || target.body_position == LYING_DOWN)
-		if(prob(20) && !istype(target.head, /obj/item/clothing/head))
-			target.SetSleeping(15)
+	//	if(prob(20) && !istype(target.head, /obj/item/clothing/head))
+	//		target.SetSleeping(15)
+	//		target.visible_message(span_danger("[target.name] is knocked unconscious!")
 		target.drop_all_held_items()
 		var/obj/item/bodypart/affecting = target.get_bodypart(ran_zone(src.zone_selected))
-
-		// ARMOR shit I barely understand that doesn't work
-		var/armor_reduce = target.run_subarmor_check(affecting, MELEE)
-		var/subarmor_flags = target.get_subarmor_flags(affecting)
-		var/edge_protection = target.get_edge_protection(affecting)
-		var/armor_block = target.run_armor_check(affecting, MELEE)
-		var/attack_direction = get_dir(src, target)
-		var/damage = rand(15,20)
-		var/no_defended = target.damage_armor(damage, MELEE, def_zone = src.zone_selected)
-		// F u k save me
-
 		do_attack_animation(target, ATTACK_EFFECT_PUNCH)
 		playsound(target, 'mojave/sound/ms13weapons/meleesounds/punch_1.ogg', 50, TRUE, -1)
-		//target.apply_damage(rand(15,20), src.get_attack_type(), affecting)
-
-		//wtf am I casting help
-		target.apply_damage(no_defended, \
-							affecting, \
-							armor_block, \
-							attack_direction = attack_direction, \
-							reduced = armor_reduce, \
-							edge_protection = edge_protection, \
-							subarmor_flags = subarmor_flags)
-		//the cirus is back, they want their clown
-
+		target.apply_damage(rand(15,20), MELEE, affecting)
 		target.visible_message(span_danger("[name] curbstomps [target.name]!"),
 						span_userdanger("You're curbstomped by [name]!"), span_hear("You hear aggressive shuffling followed by a loud thud!"), COMBAT_MESSAGE_RANGE, src)
 		to_chat(src, span_danger("You curbstomp [target.name]!"))
