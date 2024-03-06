@@ -1640,7 +1640,7 @@
 	growthstages = 4
 	production = 12 //4m to produce
 	maturation = 30 //10m to mature
-	reagents_add = list(/datum/reagent/toxin = 0.08, /datum/reagent/consumable/nutriment = 0.1)
+	reagents_add = list(/datum/reagent/toxin/ms13/flyamanita = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "P"
 
 /obj/item/food/grown/ms13/flyamanita
@@ -1733,7 +1733,7 @@
 	growthstages = 4
 	production = 18 //6m to produce
 	maturation = 45 //15m to mature
-	reagents_add = list(/datum/reagent/drug/mushroomhallucinogen = 0.1, /datum/reagent/consumable/nutriment = 0.1)
+	reagents_add = list(/datum/reagent/ms13/day_tripper = 0.03, /datum/reagent/ms13/mentats = 0.03, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "N"
 
 /obj/item/food/grown/ms13/mindshroom
@@ -1771,13 +1771,13 @@
 	growthstages = 4
 	production = 15 //5m to produce
 	maturation = 30 //10m to mature
-	reagents_add = list(/datum/reagent/drug/methamphetamine = 0.04, /datum/reagent/consumable/nutriment = 0.1)
+	reagents_add = list(/datum/reagent/ms13/gunpowder = 0.05, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "P"
 
 /obj/item/food/grown/ms13/gremlinstool
 	seed = /obj/item/seeds/ms13/gremlinstool
 	name = "gremlinstool"
-	desc = "A yellow-doted mushroom that oozes a clear liquid."
+	desc = "A yellow-doted mushroom that oozes a grey liquid."
 	bite_consumption_mod = 1
 	foodtypes = TOXIC
 	icon_state = "gremlinstool"

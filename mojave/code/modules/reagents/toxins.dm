@@ -54,3 +54,23 @@
 		M.Stun(40)
 		M.adjustToxLoss(rand(7,11))
 	return ..()
+
+// From fly amanita fungus
+/datum/reagent/toxin/ms13/flyamanita
+	name = "fly amanita toxin"
+	description = "A potent poison extracted from the iconic fly amanita fungus."
+	reagent_state = LIQUID
+	color = "#fecfcf"
+	taste_description = "sharp bitterness"
+	metabolization_rate = 1.0 * REAGENTS_METABOLISM // 0.2 per second
+	toxpwr = 1.5
+
+// Liquid gunpowder from Gremlin Stool shrooms, can be dried out into gunpowder for ammo
+/datum/reagent/ms13/gunpowder
+	name = "liquid gunpowder"
+	description = "Gunpowder diluted in a nondescript solvent."
+	reagent_state = LIQUID
+	color = "#a3aab0"
+	taste_description = "sharp chemical taste"
+	metabolization_rate = 3 * REAGENTS_METABOLISM // 0.6 per second
+	toxpwr = 0.5

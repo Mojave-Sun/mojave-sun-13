@@ -442,3 +442,11 @@
 				/obj/item/stack/sheet/ms13/nugget/sulfur = 4)
 	category = CAT_JUNK_AMMO
 	crafting_interface = CRAFTING_BENCH_CAMPFIRE
+
+/datum/crafting_recipe/lq_gp_liquid
+	name = "dry out liquid gunpowder"
+	result = /obj/item/ms13/component/gunpowder
+	time = 20 SECONDS
+	reqs = list(/datum/reagent/ms13/gunpowder = 10)
+	category = CAT_JUNK_AMMO
+	crafting_interface = CRAFTING_BENCH_CHEM
