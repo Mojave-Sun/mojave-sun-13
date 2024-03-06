@@ -420,7 +420,7 @@
 	icon_state = "ruler"
 	inhand_icon_state = "ruler"
 	hitsound = 'mojave/sound/ms13weapons/meleesounds/ruler_slap.ogg'
-	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/knife_pickup.ogg'
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/knife_pickup2.ogg'
 	attack_verb_continuous = list("smacks", "hits", "thwaps")
 	attack_verb_simple = list("smack", "hits", "thwap")
 	force = 5
