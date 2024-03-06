@@ -1058,3 +1058,107 @@
 	var/turf/my_turf = get_turf(loc)
 	if(my_turf)
 		REMOVE_TRAIT(my_turf, TRAIT_REMOVE_SLOWDOWN, STAIRS_ON_TURF)
+
+// Turnstiles //
+
+/**
+ * Turnstiles. They block movement in two directions (the two walls of the turnstile) and knock down people coming from another. Dir+180 is the intended entry direction.
+ * NOTE: we only have sprites for NORTH and SOUTH turnstiles.
+ *
+*/
+/obj/structure/ms13/turnstile
+	name = "turnstile"
+	desc = "You can only go one way... assuming you don't hop over."
+	icon = 'mojave/icons/obstacles/turnstile.dmi'
+	icon_state = "tourniquet"
+	density = TRUE
+	anchored = TRUE
+	max_integrity = 400
+	integrity_failure = 0.85
+
+/obj/structure/ms13/turnstile/Initialize()
+	. = ..()
+	AddElement(/datum/element/climbable, climb_time = 1 SECONDS, climb_stun = 0, no_stun = TRUE, jump_over = TRUE)
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_EXIT = .proc/on_exit,
+		COMSIG_ATOM_ENTERED = .proc/on_entered,
+	)
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/// Stop people from just walking out the side
+/obj/structure/ms13/turnstile/proc/on_exit(datum/source, atom/movable/leaving, direction)
+	SIGNAL_HANDLER
+
+	if(leaving == src)
+		return // Let's not block ourselves.
+
+	if((direction & dir) || (direction & turn(dir, 180)))
+		return
+
+	if (leaving.throwing)
+		return
+
+	if (leaving.movement_type & (PHASING | FLYING | FLOATING))
+		return
+
+	leaving.Bump(src)
+	return COMPONENT_ATOM_BLOCK_EXIT
+
+/// Handles flicking the rotation animation.
+/obj/structure/ms13/turnstile/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(arrived.throwing)
+		return
+
+	if(arrived.movement_type & (PHASING | FLYING | FLOATING))
+		return
+
+	// ghetto check for if we're being climbed over (which sets our density to FALSE during the step)
+	if(!density)
+		return
+
+	if(!broken)
+		flick("rotating", src)
+
+/obj/structure/ms13/turnstile/CanAllowThrough(atom/movable/mover, border_dir)
+	. = ..()
+
+	if(istype(mover, /obj/projectile))
+		return
+
+	if(istype(mover, /obj/item))
+		var/obj/item/I = mover
+		if(I.w_class <= WEIGHT_CLASS_NORMAL)
+			return TRUE
+
+	if(ismob(mover))
+		if((border_dir == turn(dir, 90)) || (border_dir == turn(dir, -90)))
+			return
+
+	if((border_dir & turn(dir, 180)) && !broken)
+		if(mover.move_force >= MOVE_FORCE_STRONG)
+			// 20 damage at FORCE_STRONG, +10 for every step above that
+			take_damage(10 * mover.move_force / MOVE_FORCE_DEFAULT)
+
+		// taking damage could have broken the bars
+		if(!broken)
+			return
+
+	return TRUE
+
+/obj/structure/ms13/turnstile/CanAStarPass(obj/item/card/id/ID, to_dir, atom/movable/caller)
+	if ((to_dir == turn(dir, 90)) || (to_dir == turn(dir, -90)))
+		return FALSE
+	return ..()
+
+/obj/structure/ms13/turnstile/atom_break()
+	. = ..()
+	broken = TRUE
+	icon_state = "bent"
+
+/obj/structure/ms13/turnstile/atom_fix()
+	. = ..()
+	broken = FALSE
+	icon_state = "tourniquet"
