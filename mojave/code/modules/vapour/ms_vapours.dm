@@ -119,18 +119,28 @@
 		victim.throw_alert_text(/atom/movable/screen/alert/text/cry, "Holy shit! It HURTS!", override = FALSE)
 	COOLDOWN_START(src, agony_announcement, 10 SECONDS)
 
-	if(prob(amount))
-		victim.emote("cough")
-		victim.blur_eyes(10)
-		victim.Jitter(5)
+	switch(amount)
+		if(-INFINITY to 5)
+			return
 
-	if(prob(amount))
-		victim.emote("gag")
+		if(6 to 20)
+			victim.emote("cough")
+			victim.blur_eyes(1 * (amount))
+			victim.Jitter(5)
 
-	if(prob(amount / 20)) // Small chance for a bit of puke action :D At least one person in a crowd should get this maybe.
-		victim.vomit(10, FALSE, TRUE, 1)
+		if(21 to 60)
+			victim.emote("cough")
+			victim.blur_eyes(1 * (amount))
+			victim.Jitter(10)
+			victim.Stun(25)
+			victim.Knockdown(25)
 
-	if(amount <= 10 || prob(amount * 2)) // In the thick of it, it's gonna be too much to handle
-		victim.Knockdown(10)
-		victim.blur_eyes(20)
-		victim.Jitter(10)
+		if(61 to INFINITY)
+			victim.Knockdown(10)
+			victim.blur_eyes(1 * (amount))
+			victim.Jitter(10)
+			victim.Stun(50)
+			victim.Knockdown(50)
+			if(prob(amount / 20)) // Small chance for a bit of puke action :D At least one person in a crowd should get this maybe.
+				victim.vomit(10, FALSE, TRUE, 1)
+

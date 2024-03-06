@@ -50,10 +50,16 @@
 	grid_width = 32
 	grid_height = 32
 
-
 /obj/item/ms13/component/gunpowder/hq
 	name = "high quality gunpowder"
 	desc = "High quality, refined gunpowder. Can be used to make standard quality ammunition."
+
+/obj/item/ms13/component/sulfurpearl
+	name = "sulfur pearl"
+	desc = "A pearl... made of sulfur? Potentially a potent ingredient in certain recipes."
+	icon_state = "sulfur_pearl"
+	grid_width = 32
+	grid_height = 32
 
 // Light items (bulbs and stuff) //
 
