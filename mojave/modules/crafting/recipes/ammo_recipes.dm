@@ -447,6 +447,6 @@
 	name = "dry out liquid gunpowder"
 	result = /obj/item/ms13/component/gunpowder
 	time = 20 SECONDS
-	reqs = list(/datum/reagent/ms13/gunpowder = 10)
+	reqs = list(/datum/reagent/toxin/ms13/gunpowder = 10)
 	category = CAT_JUNK_AMMO
 	crafting_interface = CRAFTING_BENCH_CHEM

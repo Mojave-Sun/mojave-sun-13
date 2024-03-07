@@ -1771,7 +1771,7 @@
 	growthstages = 4
 	production = 15 //5m to produce
 	maturation = 30 //10m to mature
-	reagents_add = list(/datum/reagent/ms13/gunpowder = 0.05, /datum/reagent/consumable/nutriment = 0.1)
+	reagents_add = list(/datum/reagent/toxin/ms13/gunpowder = 0.05, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "P"
 
 /obj/item/food/grown/ms13/gremlinstool

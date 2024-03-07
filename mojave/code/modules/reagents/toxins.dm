@@ -66,7 +66,7 @@
 	toxpwr = 1.5
 
 // Liquid gunpowder from Gremlin Stool shrooms, can be dried out into gunpowder for ammo
-/datum/reagent/ms13/gunpowder
+/datum/reagent/toxin/ms13/gunpowder
 	name = "liquid gunpowder"
 	description = "Gunpowder diluted in a nondescript solvent."
 	reagent_state = LIQUID
