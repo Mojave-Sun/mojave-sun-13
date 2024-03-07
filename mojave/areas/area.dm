@@ -11,7 +11,9 @@
 	outdoors = TRUE
 	has_gravity = STANDARD_GRAVITY
 	static_lighting = TRUE
-	ambientsounds = GENERIC_AMBIENCE // To Do, Make actual Ambience and Seperate Music Component - Scar 2022
+	ambientsounds = GENERIC_STINGERS // To Do, Make actual Ambience and Seperate Music Component - Scar 2022 (Original 2024 says lmfao. Pack it all into one.)
+	atmosphere_track = COLD_WASTELAND_ATMOSPHERE
+	//atmosphere_sound = COLD_WASTELAND_AMBIENCE
 	flags_1 = NONE
 	var/dissipation_rate = 1 // higher numbers = quicker dissipation, 0.05 is neutral //default indoor rate 2 is outdoors//generic
 
@@ -27,81 +29,93 @@
 	power_equip = TRUE
 	power_light = TRUE
 	ambientsounds = null
-	atmosphere_sound = BUILDING_ATMOSPHERE
+	atmosphere_track = BUILDING_ATMOSPHERE
+	//atmosphere_sound = BUILDING_AMBIENCE
 	dissipation_rate = 0.18 //not much escapes enclosed rooms
 
 /area/ms13/farmhouse
 	name = "Farmhouse"
 	icon_state = "farmhouse"
-	atmosphere_sound = BUILDING_ATMOSPHERE
+	atmosphere_track = BUILDING_ATMOSPHERE
+	//atmosphere_sound = BUILDING_AMBIENCE
 	dissipation_rate = 0.18 //not much escapes enclosed rooms
 
 /area/ms13/powerplant
 	name = "Power Plant"
 	icon_state = "powerplant"
-	atmosphere_sound = INDUSTRIAL_ATMOSPHERE
+	atmosphere_track = INDUSTRIAL_ATMOSPHERE
+	//atmosphere_sound = INDUSTRIAL_AMBIENCE
 	dissipation_rate = 0.18 //not much escapes enclosed rooms
 
 /area/ms13/factory
 	name = "Factory"
 	icon_state = "factory"
-	atmosphere_sound = INDUSTRIAL_ATMOSPHERE
+	atmosphere_track = INDUSTRIAL_ATMOSPHERE
+	//atmosphere_sound = INDUSTRIAL_AMBIENCE
 	dissipation_rate = 0.18 //not much escapes enclosed rooms
 
 /area/ms13/army_base
 	name = "Army Base"
 	icon_state = "army_base"
+	atmosphere_track = BUNKER_ATMOSPHERE
+	//atmosphere_sound = BUILDING_AMBIENCE
 
 /area/ms13/army_base/building
 	name = "Army Base building"
 	icon_state = "army_base_building"
-	atmosphere_sound = BUILDING_ATMOSPHERE
+	atmosphere_track = BUNKER_ATMOSPHERE
+	//atmosphere_sound = BUILDING_AMBIENCE
 	dissipation_rate = 0.18 //not much escapes enclosed rooms
 
 /area/ms13/underground/vault_atrium_upper
 	name = "Vault atrium upper"
 	icon_state = "vault_atrium_upper"
-	atmosphere_sound = VAULT_ATMOSPHERE
-	atmosphere_volume = 150
+	atmosphere_track = VAULT_ATMOSPHERE
+	atmosphere_volume = 100
 
 /area/ms13/underground/vault_atrium_middle
 	name = "Vault atrium middle"
 	icon_state = "vault_atrium_middle"
-	atmosphere_sound = VAULT_ATMOSPHERE
-	atmosphere_volume = 150
+	atmosphere_track = VAULT_ATMOSPHERE
+	atmosphere_volume = 100
 
 /area/ms13/underground/vault_atrium_lower
 	name = "Vault atrium lower"
 	icon_state = "vault_atrium_lower"
-	atmosphere_sound = VAULT_ATMOSPHERE
-	atmosphere_volume = 150
+	atmosphere_track = VAULT_ATMOSPHERE
+	atmosphere_volume = 100
 
 /area/ms13/underground/vault_outer
 	name = "Vault Outer"
 	icon_state = "vault_outer"
-	atmosphere_sound = CAVE_ATMOSPHERE
+	atmosphere_track = CAVE_ATMOSPHERE
+	//atmosphere_sound = CAVE_AMBIENCE
 	dissipation_rate = 3 //them gotdang firebarrels
 
 /area/ms13/supermarket
 	name = "Supermarket"
 	icon_state = "supermarket"
-	atmosphere_sound = BUILDING_ATMOSPHERE
+	atmosphere_track = BUILDING_ATMOSPHERE
+	//atmosphere_sound = BUILDING_AMBIENCE
 	dissipation_rate = 0.18 //not much escapes enclosed rooms
 
 /area/ms13/supermarket/basement
 	name = "Supermarket Basement"
 	icon_state = "supermarket_basement"
-	atmosphere_sound = BUNKER_ATMOSPHERE
+	atmosphere_track = BUILDING_ATMOSPHERE
+	//atmosphere_sound = BUILDING_AMBIENCE
 
 /area/ms13/underground/enclave_base
 	name = "Enclave Base"
 	icon_state = "enclave"
-	atmosphere_sound = BUNKER_ATMOSPHERE
+	atmosphere_track = BUNKER_ATMOSPHERE
+	//atmosphere_sound = BUNKER_AMBIENCE
 
 /area/ms13/underground/army_bunker
 	name = "Army Bunker"
 	icon_state = "army_bunker"
-	atmosphere_sound = BUNKER_ATMOSPHERE
+	atmosphere_track = BUNKER_ATMOSPHERE
+	//atmosphere_sound = BUNKER_AMBIENCE
 
 // SnowCrest Town //
 
@@ -113,18 +127,18 @@
 	power_equip = TRUE
 	power_light = TRUE
 	ambientsounds = null
-	atmosphere_sound = COLD_WASTELAND_ATMOSPHERE
+	atmosphere_track = SNOWCREST_ATMOSPHERE
+	//atmosphere_sound = COLD_WASTELAND_AMBIENCE
 
 /area/ms13/snowcrest/building
 	name = "Snowcrest Building"
 	icon_state = "snowcrest_building"
-	atmosphere_sound = BUILDING_ATMOSPHERE
 	dissipation_rate = 0.18
+	//atmosphere_sound = BUILDING_AMBIENCE
 
 /area/ms13/snowcrest/republic
 	name = "Snowcrest NCR building"
 	icon_state = "snowcrest_ncr"
-	atmosphere_sound = INDUSTRIAL_ATMOSPHERE
 	dissipation_rate = 0.18
 
 // Generic Underground Areas //
@@ -132,7 +146,8 @@
 /area/ms13/underground
 	requires_power = FALSE
 	outdoors = FALSE
-	atmosphere_sound = CAVE_ATMOSPHERE
+	atmosphere_track = CAVE_ATMOSPHERE
+	//atmosphere_sound = CAVE_AMBIENCE
 	dissipation_rate = 2 //them gotdang firebarrels
 
 /area/ms13/underground/mountain
@@ -150,14 +165,16 @@
 	icon_state = "sewer"
 	outdoors = FALSE
 	sound_environment = SOUND_ENVIRONMENT_SEWER_PIPE
-	atmosphere_sound = SEWER_ATMOSPHERE
+	atmosphere_track = SEWER_ATMOSPHERE
+	//atmosphere_sound = SEWER_AMBIENCE
 
 /area/ms13/underground/subway
 	name = "Subway"
 	outdoors = FALSE
 	icon_state = "subway"
 	sound_environment = SOUND_ENVIRONMENT_HALLWAY
-	atmosphere_sound = SEWER_ATMOSPHERE
+	atmosphere_track = SEWER_ATMOSPHERE
+	//atmosphere_sound = SEWER_AMBIENCE
 
 /area/ms13/underground/underground_town
 	name = "Lower Town"
@@ -169,12 +186,14 @@
 	outdoors = FALSE
 	icon_state = "tunnels"
 	sound_environment = SOUND_ENVIRONMENT_HALLWAY
-	atmosphere_sound = SEWER_ATMOSPHERE
+	atmosphere_track = SEWER_ATMOSPHERE
+	//atmosphere_sound = SEWER_AMBIENCE
 
 /area/ms13/underground/tunnel/maintenance
 	name = "Maintenance Passages"
 	icon_state = "maintenance"
-	atmosphere_sound = SEWER_ATMOSPHERE
+	atmosphere_track = SEWER_ATMOSPHERE
+	//atmosphere_sound = SEWER_AMBIENCE
 	atmosphere_volume = 200
 
 // Forest Areas //
@@ -191,12 +210,14 @@
 /area/ms13/snow/deepforest
 	name = "Deep Forest"
 	icon_state = "deepforest"
-	atmosphere_sound = FOREST_ATMOSPHERE
+	atmosphere_track = FOREST_ATMOSPHERE
+	//atmosphere_sound = FOREST_AMBIENCE
 
 /area/ms13/snow/forest
 	name = "Forest"
 	icon_state = "forest"
-	atmosphere_sound = FOREST_ATMOSPHERE
+	atmosphere_track = FOREST_ATMOSPHERE
+	//atmosphere_sound = FOREST_AMBIENCE
 
 /area/ms13/snow/lightforest
 	name = "Light Forest"
@@ -208,7 +229,7 @@
 	name = "NCR Mainbase"
 	icon_state = "NCR"
 	requires_power = FALSE
-	atmosphere_sound = MILLITARY_ATMOSPHERE
+	atmosphere_track = NCR_ATMOSPHERE
 	atmosphere_volume = 150
 
 /area/ms13/ncr/building
@@ -224,7 +245,8 @@
 	name = "Raider stronghold"
 	icon_state = "raiders"
 	requires_power = FALSE
-	atmosphere_sound = BUILDING_ATMOSPHERE
+	atmosphere_track = BUILDING_ATMOSPHERE
+	//atmosphere_sound = BUILDING_AMBIENCE
 
 /area/ms13/raiders/building
 	name = "Raider building"
@@ -234,13 +256,15 @@
 /area/ms13/tribal_abandoned
 	name = "abandoned Tribal building"
 	icon_state = "town"
-	atmosphere_sound = BUILDING_ATMOSPHERE
+	atmosphere_track = BUILDING_ATMOSPHERE
+	//atmosphere_sound = BUILDING_AMBIENCE
 	dissipation_rate = 0.18 //not much escapes enclosed rooms
 
 /area/ms13/underground/military_crypt
 	name = "Abandoned Outpost Bunker"
 	icon_state = "military_crypt"
-	atmosphere_sound = BUNKER_ATMOSPHERE
+	atmosphere_track = BUNKER_ATMOSPHERE
+	//atmosphere_sound = BUNKER_AMBIENCE
 
 // Drought Areas //
 
@@ -253,28 +277,34 @@
 	power_light = FALSE
 	outdoors = TRUE
 	flags_1 = NONE
+	ambientsounds = GENERIC_STINGERS
+	atmosphere_track = DESERT_ATMOSPHERE
+	//atmosphere_sound = DESERT_AMBIENCE
 
 /area/ms13/legioncamp
 	name = "Legion Camp"
 	icon_state = "legioncamp"
+	atmosphere_track = DRYLANDER_ATMOSPHERE
 
 /area/ms13/legioncamp/building
 	name = "Legion Building"
 	icon_state = "legion_building"
 	outdoors = FALSE
-	atmosphere_sound = BUILDING_ATMOSPHERE
+	atmosphere_track = DRYLANDER_ATMOSPHERE
+
 	dissipation_rate = 0.18 //not much escapes enclosed rooms
 
 
 /area/ms13/drylanders
 	name = "Drylander Camp"
 	icon_state = "drylanders"
+	atmosphere_track = DRYLANDER_ATMOSPHERE
+	//atmosphere_sound = DESERT_AMBIENCE
 
 /area/ms13/drylanders/building
 	name = "Drylander Building"
 	icon_state = "drylander_building"
 	outdoors = FALSE
-	atmosphere_sound = BUILDING_ATMOSPHERE
 	dissipation_rate = 0.18 //not much escapes enclosed rooms
 
 /area/ms13/goldman
@@ -285,23 +315,27 @@
 	power_equip = FALSE
 	power_light = TRUE
 	outdoors = TRUE
-	atmosphere_volume = 150
+	atmosphere_track = GOLDMAN_ATMOSPHERE
+	//atmosphere_sound = GOLDMAN_AMBIENCE
+	atmosphere_volume = 80
 
 /area/ms13/goldman/building
 	name = "Goldman Outpost building"
 	icon_state = "goldmanbase"
 	outdoors = FALSE
+	//atmosphere_sound = BUILDING_AMBIENCE
 	dissipation_rate = 0.18 //not much escapes enclosed rooms
 
 /area/ms13/water_baron
 	name = "The Barony"
 	icon_state = "barony"
-	ambientsounds = GENERIC_AMBIENCE
-	atmosphere_volume = 150
+	atmosphere_track = BARONY_ATMOSPHERE
+	atmosphere_volume = 80
 
 /area/ms13/water_baron/interior
 	name = "The Barony building"
 	icon_state = "baronyinterior"
+	//atmosphere_sound = BUILDING_AMBIENCE
 	dissipation_rate = 0.18 //not much escapes enclosed rooms
 
 // Mall/Eagle Lakes Areas //
@@ -309,7 +343,7 @@
 /area/ms13/mall
 	name = "Mall"
 	icon_state = "mall"
-	atmosphere_sound = BUILDING_ATMOSPHERE
+	atmosphere_track = BUILDING_ATMOSPHERE
 
 /area/ms13/mall/convenience
 	name = "Convenience Store"
@@ -379,10 +413,10 @@
 	name = "combat arena building"
 	icon_state = "combatarena_building"
 	outdoors = FALSE
-	atmosphere_sound = BUILDING_ATMOSPHERE
+	atmosphere_track = BUILDING_ATMOSPHERE
 
 /area/ms13/combattest/tunnels
 	name = "combat arena tunnel"
 	icon_state = "combatarena_tunnels"
 	outdoors = FALSE
-	atmosphere_sound = CAVE_ATMOSPHERE
+	atmosphere_track = CAVE_ATMOSPHERE
