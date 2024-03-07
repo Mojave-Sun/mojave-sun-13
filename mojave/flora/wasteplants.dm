@@ -311,6 +311,7 @@
 
 /obj/structure/flora/ms13/forage/flyamanita
 	icon_state = "flyamanita"
+	variants = 1
 	name = "fly amanita fungus"
 	desc = "A patch of fly amanita fungus"
 	harvested_name = "fly amanita fungus"
@@ -323,6 +324,7 @@
 
 /obj/structure/flora/ms13/forage/pennybun
 	icon_state = "pennybun"
+	variants = 1
 	name = "penny bun fungus"
 	desc = "A patch of penny bun fungus"
 	harvested_name = "penny bun fungus"
@@ -335,6 +337,7 @@
 
 /obj/structure/flora/ms13/forage/chanterelle
 	icon_state = "chanterelle"
+	variants = 1
 	name = "chanterelle fungus"
 	desc = "A patch of chanterelle fungus"
 	harvested_name = "chanterelle fungus"
@@ -347,6 +350,7 @@
 
 /obj/structure/flora/ms13/forage/mindshroom
 	icon_state = "mindshroom"
+	variants = 1
 	name = "mindshroom fungus"
 	desc = "A patch of mindshroom fungus"
 	harvested_name = "mindshroom fungus"
@@ -356,9 +360,13 @@
 	harvest_message_med = "You collect a decent amount of mushrooms from the cluster."
 	harvest_message_high = "You collect a hearty harvest from the mushroom cluster."
 	harvest_amount_high = 3
+	light_range = 2
+	light_power = 0.25
+	light_color = "#4468b2"
 
 /obj/structure/flora/ms13/forage/gremlinstool
 	icon_state = "gremlinstool"
+	variants = 1
 	name = "gremlin stool fungus"
 	desc = "A patch of gremlin stool fungus"
 	harvested_name = "gremlin stool fungus"

@@ -1627,8 +1627,8 @@
 /obj/item/seeds/ms13/flyamanita
 	name = "fly amanita spores"
 	desc = "These spores grow into the poisonous fly amanita."
-	species = "flyamanita"
-	icon_harvest = "flyamanita-grow4"
+	species = "mushroom"
+	icon_harvest = "mushroom-grow4"
 	growing_color =  "#672d13"
 	wholeiconcolor = TRUE
 	plantname = "Fly Amanita"
@@ -1638,8 +1638,8 @@
 	endurance = 35
 	yield = 3
 	growthstages = 4
-	production = 12 //4m to produce
-	maturation = 30 //10m to mature
+	production = 1 //4m to produce
+	maturation = 1 //10m to mature
 	reagents_add = list(/datum/reagent/toxin/ms13/flyamanita = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "P"
 
@@ -1658,8 +1658,8 @@
 /obj/item/seeds/ms13/pennybun
 	name = "penny bun spores"
 	desc = "These spores grow into the tasty penny bun."
-	species = "pennybun"
-	icon_harvest = "pennybun-grow4"
+	species = "mushroom"
+	icon_harvest = "mushroom-grow4"
 	growing_color =  "#695433"
 	wholeiconcolor = TRUE
 	plantname = "Penny Bun"
@@ -1669,8 +1669,8 @@
 	endurance = 25
 	yield = 3
 	growthstages = 4
-	production = 14 //4m 40s to produce
-	maturation = 38 //12m 40s to mature
+	production = 1 //4m 40s to produce
+	maturation = 1 //12m 40s to mature
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "K"
 
@@ -1689,8 +1689,8 @@
 /obj/item/seeds/ms13/chanterelle
 	name = "chanterelle spores"
 	desc = "These spores grow into the tasty penny bun."
-	species = "chanterelle"
-	icon_harvest = "chanterelle-grow4"
+	species = "mushroom"
+	icon_harvest = "mushroom-grow4"
 	growing_color =  "#875a25"
 	wholeiconcolor = TRUE
 	plantname = "Chanterelle"
@@ -1700,8 +1700,8 @@
 	endurance = 35
 	yield = 4
 	growthstages = 4
-	production = 12 //4m to produce
-	maturation = 38 //12m 40s to mature
+	production = 1 //4m to produce
+	maturation = 1 //12m 40s to mature
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "K"
 
@@ -1720,8 +1720,8 @@
 /obj/item/seeds/ms13/mindshroom
 	name = "mindshroom spores"
 	desc = "These spores grow into the glowing mindshroom."
-	species = "mindshroom"
-	icon_harvest = "mindshroom-grow4"
+	species = "mushroom"
+	icon_harvest = "mushroom-grow4"
 	growing_color =  "#4468b2"
 	wholeiconcolor = TRUE
 	plantname = "Mindshroom"
@@ -1731,8 +1731,8 @@
 	endurance = 30
 	yield = 3
 	growthstages = 4
-	production = 18 //6m to produce
-	maturation = 45 //15m to mature
+	production = 1 //6m to produce
+	maturation = 1 //15m to mature
 	reagents_add = list(/datum/reagent/ms13/day_tripper = 0.03, /datum/reagent/ms13/mentats = 0.03, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "N"
 
@@ -1758,8 +1758,8 @@
 /obj/item/seeds/ms13/gremlinstool
 	name = "gremlinstool spores"
 	desc = "These spores grow into the invigorating gremling stool."
-	species = "gremlinstool"
-	icon_harvest = "gremlinstool-grow4"
+	species = "mushroom"
+	icon_harvest = "mushroom-grow4"
 	growing_color =  "#7b704c"
 	wholeiconcolor = TRUE
 	plantname = "gremlinstool"
@@ -1769,8 +1769,8 @@
 	endurance = 35
 	yield = 3
 	growthstages = 4
-	production = 15 //5m to produce
-	maturation = 30 //10m to mature
+	production = 1 //5m to produce
+	maturation = 1 //10m to mature
 	reagents_add = list(/datum/reagent/toxin/ms13/gunpowder = 0.05, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "P"
 
