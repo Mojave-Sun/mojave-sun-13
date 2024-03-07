@@ -1638,8 +1638,8 @@
 	endurance = 35
 	yield = 3
 	growthstages = 4
-	production = 1 //4m to produce
-	maturation = 1 //10m to mature
+	production = 12 //4m to produce
+	maturation = 30 //10m to mature
 	reagents_add = list(/datum/reagent/toxin/ms13/flyamanita = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "P"
 
@@ -1669,8 +1669,8 @@
 	endurance = 25
 	yield = 3
 	growthstages = 4
-	production = 1 //4m 40s to produce
-	maturation = 1 //12m 40s to mature
+	production = 14 //4m 40s to produce
+	maturation = 38 //12m 40s to mature
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "K"
 
@@ -1700,8 +1700,8 @@
 	endurance = 35
 	yield = 4
 	growthstages = 4
-	production = 1 //4m to produce
-	maturation = 1 //12m 40s to mature
+	production = 12 //4m to produce
+	maturation = 38 //12m 40s to mature
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "K"
 
@@ -1731,8 +1731,8 @@
 	endurance = 30
 	yield = 3
 	growthstages = 4
-	production = 1 //6m to produce
-	maturation = 1 //15m to mature
+	production = 18 //6m to produce
+	maturation = 45 //15m to mature
 	reagents_add = list(/datum/reagent/ms13/day_tripper = 0.03, /datum/reagent/ms13/mentats = 0.03, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "N"
 
@@ -1769,8 +1769,8 @@
 	endurance = 35
 	yield = 3
 	growthstages = 4
-	production = 1 //5m to produce
-	maturation = 1 //10m to mature
+	production = 15 //5m to produce
+	maturation = 30 //10m to mature
 	reagents_add = list(/datum/reagent/toxin/ms13/gunpowder = 0.05, /datum/reagent/consumable/nutriment = 0.1)
 	nutrient_type = "P"
 
