@@ -178,6 +178,7 @@
 
 ////////////////////////// ROPE /////////////////////////////
 
+/// A simple rope, take a bit more time to climb up than go down.
 /obj/structure/ladder/ms13/rope
 	name = "rope"
 	icon_state = "rope"
@@ -195,6 +196,7 @@
 
 /////////////////////// DAS BUNKER //////////////////////////
 
+/// A simple hatch than can be locked from above.
 /obj/structure/ladder/ms13/hatch
 	name = "bunker hatch"
 	desc = "A bunker ladder, you could probably push the hatch open from here, or try closing it."
@@ -208,6 +210,9 @@
 	if(down)
 		. += "<span class='notice'>Use <b>ALT-CLICK</b> on [src] to lock or unlock it.</span>"
 
+/// Open or close the hatch.
+/// Hatch can be opened/closed from both side.
+/// Hatch must be unlocked before begin opened.
 /obj/structure/ladder/ms13/hatch/attack_hand_secondary(mob/living/user, list/modifiers)
 	. = ..()
 	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
@@ -217,7 +222,7 @@
 
 	if(!down)
 		if(up.locked)
-			// TODO
+			to_chat(user, span_notice("The [src] is locked from above!"))
 		else
 			to_chat(user, span_warning("You start to slowly [up.obstructed ? "open" : "close"] the [src] from below."))
 			if(do_after(user, 12 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS))
@@ -227,7 +232,7 @@
 				to_chat(user, span_notice("You [up.obstructed ? "closed" : "opened"] the [src] from below."))
 	else
 		if(locked)
-			// TODO
+			to_chat(user, span_notice("The [src] must be unlocked first."))
 		else
 			to_chat(user, span_warning("You start to slowly [up.obstructed ? "open" : "close"] the [src]."))
 			if(do_after(user, 10 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS))
@@ -235,18 +240,24 @@
 				icon_state = obstructed ? "hatch_closed" : "hatch_open"
 				to_chat(user, span_notice("You [up.obstructed ? "closed" : "opened"] the [src]."))
 
+/// Lock or unlock the hatch.
+/// Hatch can only be locked/unlocked from above.
+/// Hatch must be closed before begin locked.
 /obj/structure/ladder/ms13/hatch/AltClick(mob/user)
 	. = ..()
-	// TODO LOCKING
 	if(!down)
-		to_chat(user, span_notice("You cannot [up.obstructed ? "open" : "close"] the [src] from this side!"))
+		to_chat(user, span_notice("You cannot [locked ? "unlock" : "lock"] the [src] from this side!"))
 		return
 	else
-		to_chat(user, span_warning("You start spinning the metal hand-wheel to [up.obstructed ? "open" : "close"] the [src]."))
-		if(do_after(user, 10 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS))
-			up.obstructed = !up.obstructed
-			icon_state = up.obstructed ? "hatch_closed" : "hatch_open"
-			to_chat(user, span_notice("You [up.obstructed ? "closed" : "opened"] the [src]."))
+		if(obstructed)
+			to_chat(user, span_warning("You start spinning the metal hand-wheel to [locked ? "unlock" : "lock"] the [src]."))
+			if(do_after(user, 10 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS))
+				locked = !locked
+				to_chat(user, span_notice("You [locked ? "locked" : "unlocked"] the [src]."))
+			return
+		else
+			to_chat(user, span_notice("The [src] must be brought down before you can lock it."))
+
 
 /obj/structure/ladder/ms13/hatch/update_icon_state()
 	. = ..()
@@ -262,6 +273,7 @@
 
 ///////////////////// ENCLAVE BUNKER ////////////////////////
 
+/// An Enclave hatch than cannot be locked.
 /obj/structure/ladder/ms13/enclave
 	name = "Enclave bunker ladder"
 	desc = "A bunker ladder adorned with Enclave heraldic, you could probably push the hatch open from here, or try closing it."
@@ -272,6 +284,8 @@
 	. = ..()
 	. += "<span class='notice'>Use <b>RIGHT-CLICK</b> on [src] to open or close it.</span>"
 
+/// Open or close the hatch.
+/// Hatch can be opened/closed from both side.
 /obj/structure/ladder/ms13/enclave/attack_hand_secondary(mob/living/user, list/modifiers)
 	. = ..()
 	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
