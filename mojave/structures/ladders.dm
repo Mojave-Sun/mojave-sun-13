@@ -69,7 +69,7 @@
 	desc = "A manhole ladder, you could probably push the cover off from here, or try dragging it back on."
 	travel_time = 2 SECONDS
 	pixel_y = 7
-	icon_state = "manhole_closed"
+	icon_state = "ladder10"
 
 /obj/structure/ladder/ms13/manhole/examine(mob/user)
 	. = ..()
@@ -106,6 +106,7 @@
 			to_chat(user, span_warning("It's so heavy! Surely there's a better way of doing this."))
 			if(do_after(user, 10 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS))
 				obstructed = FALSE
+				down.obstructed = FALSE
 				icon_state = "manhole_open"
 				desc = "An open manhole, it still stinks even after all these years. You could use a crowbar or your hands to slide the cover back on."
 				to_chat(user, span_notice("With a lot of effort, you manage to finally get the cover off."))
@@ -116,6 +117,7 @@
 		else
 			if(do_after(user, 10 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS))
 				obstructed = TRUE
+				down.obstructed = TRUE
 				icon_state = "manhole_closed"
 				desc = "A heavy stamped manhole. You could probably pry it up with a crowbar to access the lower town systems. Or, try using your hands..."
 				to_chat(user, span_notice("You carefully slide the cover back on the manhole."))
@@ -125,6 +127,7 @@
 	if(down && obstructed)
 		if(do_after(user, 4 SECONDS * tool.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS))
 			obstructed = FALSE
+			down.obstructed = FALSE
 			icon_state = "manhole_open"
 			desc = "An open manhole, it still stinks even after all these years. You could use a crowbar or your hands to slide the cover back on."
 			to_chat(user, span_notice("You wedge the crowbar in and pull the cover off the manhole."))
@@ -133,6 +136,7 @@
 	if(down && !obstructed)
 		if(do_after(user, 4 SECONDS * tool.toolspeed, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS))
 			obstructed = TRUE
+			down.obstructed = TRUE
 			icon_state = "manhole_closed"
 			desc = "A heavy stamped manhole. You could probably pry it up with a crowbar to access the lower town systems. Or, try using your hands..."
 			to_chat(user, span_notice("You hook the edge of the manhole cover with your crowbar and slide it back on."))
@@ -144,6 +148,7 @@
 		name = "manhole entry"
 		desc = "A heavy stamped manhole. You could probably pry it up with a crowbar to access the lower town systems."
 		icon_state = "manhole_closed"
+		pixel_y = 7
 		obstructed = TRUE
 	else
 		icon_state = "ladder10"
@@ -161,6 +166,7 @@
 			return TRUE
 		if(I.use_tool(src, user, 15 SECONDS, volume=80))
 			obstructed = FALSE
+			down.obstructed = FALSE
 			icon_state = "bunker_open"
 			desc = "Looks like the entrance to some bunker. The bars on the grate have been cut off, allowing entry."
 			to_chat(user, span_notice("You cut-weld the bars off the grate, letting you slip past."))
@@ -173,6 +179,7 @@
 		desc = "It looks like a grate, leading to some sort of bunker. You could probably weld the bars off."
 		icon_state = "bunker_closed"
 		obstructed = TRUE
+		down.obstructed = TRUE
 	else
 		icon_state = "ladder10"
 
@@ -201,14 +208,13 @@
 	name = "bunker hatch"
 	desc = "A bunker ladder, you could probably push the hatch open from here, or try closing it."
 	travel_time = 2 SECONDS
-	pixel_y = 7
-	var/locked = TRUE
+	locked = TRUE
 
 /obj/structure/ladder/ms13/hatch/examine(mob/user)
 	. = ..()
 	. += "<span class='notice'>Use <b>RIGHT-CLICK</b> on [src] to open or close it.</span>"
 	if(down)
-		. += "<span class='notice'>Use <b>ALT-CLICK</b> on [src] to lock or unlock it.</span>"
+		. += "<span class='notice'>Use <b>CTRL-CLICK</b> on [src] to lock or unlock it.</span>"
 
 /// Open or close the hatch.
 /// Hatch can be opened/closed from both side.
@@ -222,41 +228,43 @@
 
 	if(!down)
 		if(up.locked)
-			to_chat(user, span_notice("The [src] is locked from above!"))
+			to_chat(user, span_notice("The bunker hatch is locked from above!"))
 		else
-			to_chat(user, span_warning("You start to slowly [up.obstructed ? "open" : "close"] the [src] from below."))
+			to_chat(user, span_warning("You start to slowly [up.obstructed ? "open" : "close"] the bunker hatch from below."))
 			if(do_after(user, 12 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS))
 				obstructed = !obstructed
-				up.obstructed = !up.obstructed
+				up.obstructed = obstructed
 				up.icon_state = up.obstructed ? "hatch_closed" : "hatch_open"
-				to_chat(user, span_notice("You [up.obstructed ? "closed" : "opened"] the [src] from below."))
+				to_chat(user, span_notice("You [up.obstructed ? "closed" : "opened"] the bunker hatch from below."))
 	else
 		if(locked)
-			to_chat(user, span_notice("The [src] must be unlocked first."))
+			to_chat(user, span_notice("[src] must be unlocked first."))
 		else
-			to_chat(user, span_warning("You start to slowly [up.obstructed ? "open" : "close"] the [src]."))
+			to_chat(user, span_warning("You start to slowly [obstructed ? "open" : "close"] [src]."))
 			if(do_after(user, 10 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS))
 				obstructed = !obstructed
+				down.obstructed = obstructed
 				icon_state = obstructed ? "hatch_closed" : "hatch_open"
-				to_chat(user, span_notice("You [up.obstructed ? "closed" : "opened"] the [src]."))
+				to_chat(user, span_notice("You [obstructed ? "closed" : "opened"] [src]."))
 
 /// Lock or unlock the hatch.
 /// Hatch can only be locked/unlocked from above.
 /// Hatch must be closed before begin locked.
-/obj/structure/ladder/ms13/hatch/AltClick(mob/user)
+/obj/structure/ladder/ms13/hatch/CtrlClick(mob/user)
 	. = ..()
 	if(!down)
-		to_chat(user, span_notice("You cannot [locked ? "unlock" : "lock"] the [src] from this side!"))
+		to_chat(user, span_notice("You cannot [locked ? "unlock" : "lock"] the bunker hatch from this side!"))
 		return
 	else
 		if(obstructed)
-			to_chat(user, span_warning("You start spinning the metal hand-wheel to [locked ? "unlock" : "lock"] the [src]."))
+			to_chat(user, span_warning("You start spinning the metal hand-wheel to [locked ? "unlock" : "lock"] [src]."))
 			if(do_after(user, 10 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS))
 				locked = !locked
-				to_chat(user, span_notice("You [locked ? "locked" : "unlocked"] the [src]."))
+				down.locked = locked
+				to_chat(user, span_notice("You [locked ? "locked" : "unlocked"] [src]."))
 			return
 		else
-			to_chat(user, span_notice("The [src] must be brought down before you can lock it."))
+			to_chat(user, span_notice("[src] must be brought down before you can lock it."))
 
 
 /obj/structure/ladder/ms13/hatch/update_icon_state()
@@ -266,10 +274,24 @@
 		icon_state = "hatch_closed"
 		desc = "A bunker hatch that can be firmly closed or opened from above using a metal hand-wheel."
 		obstructed = TRUE
+		down.obstructed = TRUE
 		locked = TRUE
+		down.locked = TRUE
 	else
 		name = "bunker ladder"
 		icon_state = "ladder10"
+
+/obj/structure/ladder/ms13/hatch/Initialize(mapload)
+	. = ..()
+	register_context()
+
+/obj/structure/ladder/ms13/hatch/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	if (isnull(held_item))
+		context[SCREENTIP_CONTEXT_RMB] = "Open/Close"
+		context[SCREENTIP_CONTEXT_CTRL_LMB] = "Lock/Unlock"
+		return CONTEXTUAL_SCREENTIP_SET
 
 ///////////////////// ENCLAVE BUNKER ////////////////////////
 
@@ -278,7 +300,6 @@
 	name = "Enclave bunker ladder"
 	desc = "A bunker ladder adorned with Enclave heraldic, you could probably push the hatch open from here, or try closing it."
 	travel_time = 2 SECONDS
-	pixel_y = 7
 
 /obj/structure/ladder/ms13/enclave/examine(mob/user)
 	. = ..()
@@ -294,18 +315,19 @@
 	. = SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 	if(!down)
-		to_chat(user, span_warning("You start to slowly [up.obstructed ? "open" : "close"] the [src] from below."))
+		to_chat(user, span_warning("You start to slowly [up.obstructed ? "open" : "close"] the Enclave bunker hatch from below."))
 		if(do_after(user, 12 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS))
 			obstructed = !obstructed
-			up.obstructed = !up.obstructed
+			up.obstructed = obstructed
 			up.icon_state = up.obstructed ? "enclave_closed" : "enclave_open"
-			to_chat(user, span_notice("You [up.obstructed ? "closed" : "opened"] the [src] from below."))
+			to_chat(user, span_notice("You [up.obstructed ? "closed" : "opened"] the Enclave bunker hatch from below."))
 	else
-		to_chat(user, span_warning("You start to slowly [up.obstructed ? "open" : "close"] the [src]."))
+		to_chat(user, span_warning("You start to slowly [obstructed ? "open" : "close"] [src]."))
 		if(do_after(user, 10 SECONDS, target = src, interaction_key = DOAFTER_SOURCE_LADDERBLOCKERS))
 			obstructed = !obstructed
+			down.obstructed = obstructed
 			icon_state = obstructed ? "enclave_closed" : "enclave_open"
-			to_chat(user, span_notice("You [up.obstructed ? "closed" : "opened"] the [src]."))
+			to_chat(user, span_notice("You [up.obstructed ? "closed" : "opened"] [src]."))
 
 /obj/structure/ladder/ms13/enclave/update_icon_state()
 	. = ..()
@@ -314,6 +336,18 @@
 		desc = "A thick bunker hatch adorned with a half-faded Enclave roundel."
 		icon_state = "enclave_closed"
 		obstructed = TRUE
+		down.obstructed = TRUE
 	else
 		name = "Enclave bunker ladder"
 		icon_state = "ladder10"
+
+/obj/structure/ladder/ms13/enclave/Initialize(mapload)
+	. = ..()
+	register_context()
+
+/obj/structure/ladder/ms13/enclave/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	if (isnull(held_item))
+		context[SCREENTIP_CONTEXT_RMB] = "Open/Close"
+		return CONTEXTUAL_SCREENTIP_SET
