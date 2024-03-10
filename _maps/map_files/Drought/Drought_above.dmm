@@ -1396,6 +1396,9 @@
 /area/ms13/town)
 "eE" = (
 /obj/structure/ms13/storage/vent,
+/obj/machinery/button/ms13{
+	id = "robco_wshop_1"
+	},
 /turf/open/floor/ms13/metal/grate/border/warning,
 /area/ms13/town)
 "eF" = (
@@ -1778,12 +1781,6 @@
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/floor/ms13/concrete/small,
 /area/ms13/water_baron/interior)
-"fW" = (
-/obj/machinery/door/poddoor/shutters/ms13/vertical/red/mid/pre_open{
-	id = "robco_wshop_1"s"
-	},
-/turf/open/floor/ms13/metal/plate,
-/area/ms13/town)
 "fX" = (
 /obj/effect/turf_decal/ms13/covering/wallpaper/green,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -2590,10 +2587,6 @@
 "ip" = (
 /turf/open/floor/plating/ms13/roof,
 /area/ms13/desert)
-"iq" = (
-/obj/structure/stairs/north,
-/turf/open/floor/plating/ms13/ground/desertalt,
-/area/ms13/desert)
 "ir" = (
 /obj/effect/turf_decal/ms13/graffiti/moyai,
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
@@ -2760,10 +2753,6 @@
 	},
 /obj/effect/mapping_helpers/sunlight/pseudo_roof_setter/wood,
 /turf/open/openspace/ms13,
-/area/ms13/town)
-"iQ" = (
-/obj/machinery/light/ms13,
-/turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "iR" = (
 /obj/structure/closet/ms13/fridge,
@@ -11217,6 +11206,9 @@
 "Kq" = (
 /obj/effect/spawner/random/ms13/crafting/lowrandom,
 /obj/effect/spawner/random/ms13/crafting/lowrandom,
+/obj/machinery/light/ms13{
+	dir = 4
+	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "Ks" = (
@@ -12671,9 +12663,6 @@
 /obj/structure/ms13/rug/rubber{
 	dir = 8
 	},
-/obj/machinery/light/ms13{
-	dir = 8
-	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "OX" = (
@@ -13147,9 +13136,8 @@
 /turf/closed/wall/ms13/concrete,
 /area/ms13/water_baron/interior)
 "QC" = (
-/obj/machinery/button/ms13{
-	dir = 8;
-	id = "robco_wshop_1"
+/obj/machinery/light/ms13{
+	dir = 4
 	},
 /turf/open/floor/ms13/metal,
 /area/ms13/town)
@@ -13833,8 +13821,8 @@
 "Tb" = (
 /obj/structure/ms13/pallet/stack,
 /obj/item/radio/ms13/ham/receiver/radioking{
-	pixel_y = 14;
-	pixel_x = 2
+	pixel_x = 2;
+	pixel_y = 14
 	},
 /turf/open/floor/ms13/concrete/bricks,
 /area/ms13/town)
@@ -44711,8 +44699,8 @@ Eh
 DD
 lw
 uH
-iq
-iq
+qi
+qi
 qi
 qi
 qi
@@ -44913,8 +44901,8 @@ Eh
 oZ
 lw
 lw
-iq
-iq
+qi
+qi
 qi
 qi
 qi
@@ -46329,9 +46317,9 @@ lw
 dZ
 tG
 lw
-iQ
+lw
 fU
-fW
+KT
 rC
 KT
 Qz

@@ -1512,8 +1512,8 @@
 	dir = 1
 	},
 /obj/structure/ms13/lamp/makeshift{
-	pixel_y = 10;
-	pixel_x = -2
+	pixel_x = -2;
+	pixel_y = 10
 	},
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
@@ -1538,8 +1538,8 @@
 /area/ms13/town)
 "kf" = (
 /obj/structure/ms13/pa_jack,
-/obj/effect/spawner/random/ms13/power_armor/parts,
 /obj/structure/ms13/rug/mat/rubber/single,
+/obj/effect/spawner/random/ms13/power_armor/highrandom,
 /turf/open/floor/ms13/metal/grate,
 /area/ms13/town)
 "kg" = (
@@ -1593,9 +1593,11 @@
 "ku" = (
 /obj/structure/closet/crate/ms13/woodcrate,
 /obj/effect/spawner/random/ms13/armor/highrandom,
-/obj/effect/spawner/random/ms13/armor/tier3,
 /obj/effect/spawner/random/ms13/guaranteed/armor/headgear,
 /obj/effect/spawner/random/ms13/armor/headgear,
+/obj/effect/spawner/random/ms13/armor/highrandom,
+/obj/effect/spawner/random/ms13/armor/lowrandom,
+/obj/effect/spawner/random/ms13/armor/lowrandom,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "kw" = (
@@ -2780,6 +2782,13 @@
 	dir = 6
 	},
 /turf/open/floor/plating/ms13/ground/mountain/drought,
+/area/ms13/town)
+"sJ" = (
+/obj/machinery/button/ms13{
+	dir = 4;
+	id = "car_junk_storage1"
+	},
+/turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "sL" = (
 /obj/structure/closet/crate/ms13/footlocker{
@@ -4566,6 +4575,10 @@
 /area/ms13/town)
 "EL" = (
 /obj/structure/ms13/barrel/quadruple/grey,
+/obj/machinery/button/ms13{
+	dir = 8;
+	id = "car_junk_storage1"
+	},
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "EM" = (
@@ -4633,6 +4646,9 @@
 /obj/structure/table/ms13/metal/grate,
 /obj/effect/spawner/random/ms13/crafting/electrical,
 /obj/effect/spawner/random/ms13/crafting/lowrandom,
+/obj/effect/spawner/random/ms13/crafting/lowrandom,
+/obj/effect/spawner/random/ms13/crafting/lowrandom,
+/obj/effect/spawner/random/ms13/crafting/household,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "Ft" = (
@@ -5033,8 +5049,8 @@
 "Il" = (
 /obj/structure/closet/crate/ms13/woodcrate,
 /obj/effect/spawner/random/ms13/melee/highrandom,
-/obj/effect/spawner/random/ms13/melee/highrandom,
-/obj/effect/spawner/random/ms13/melee/tier3,
+/obj/effect/spawner/random/ms13/melee/lowrandom,
+/obj/effect/spawner/random/ms13/melee/lowrandom,
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "Im" = (
@@ -5247,6 +5263,7 @@
 /obj/structure/table/ms13/metal/grate,
 /obj/effect/spawner/random/ms13/crafting/electrical,
 /obj/effect/spawner/random/ms13/crafting/highrandom,
+/obj/effect/spawner/random/ms13/crafting/lowrandom,
 /turf/open/floor/ms13/concrete/industrial,
 /area/ms13/town)
 "JH" = (
@@ -6264,10 +6281,10 @@
 /turf/open/floor/plating/ms13/ground/desertalt,
 /area/ms13/town)
 "QA" = (
-/obj/effect/spawner/random/ms13/locked/random/lowchance,
 /obj/machinery/door/airlock/ms13/barony{
 	dir = 4
 	},
+/obj/effect/spawner/random/ms13/locked/random/medchance,
 /turf/open/floor/ms13/concrete,
 /area/ms13/town)
 "QB" = (
@@ -37295,7 +37312,7 @@ rC
 Fa
 GN
 GN
-kL
+GN
 XB
 GN
 kL
@@ -37496,7 +37513,7 @@ xj
 rC
 NI
 GN
-GN
+kL
 GN
 VU
 GN
@@ -38104,7 +38121,7 @@ GN
 Zc
 GN
 Zf
-GN
+sJ
 sp
 Wd
 GN
