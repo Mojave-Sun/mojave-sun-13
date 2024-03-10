@@ -10,10 +10,32 @@
 	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
 	projectile_passchance = 90
 
+	// Color of the soil
+	var/soil_type = "light"
+	/// Dirt level for icon purpose
+	var/dirt_level = 0
+	/// Level for which the grave is fully dug
+	var/dug_level = 4
+	/// Maximum dirt_level
+	var/max_level = 9
+
 	/// Set up variables from closet type that we will use
-	breakout_time = 2 MINUTES
+	breakout_time = 1 MINUTES
 	allow_objects = TRUE
 	mob_storage_capacity = 1 // how many human sized mob/living can fit together inside a closet.
+
+/obj/structure/closet/ms13/grave/Initialize()
+	. = ..()
+	register_context()
+
+/obj/structure/closet/ms13/grave/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	. = ..()
+
+	switch (held_item?.tool_behaviour)
+		if (TOOL_SHOVEL)
+			context[SCREENTIP_CONTEXT_LMB] = "Dig"
+			context[SCREENTIP_CONTEXT_RMB] = "Fill"
+			return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/closet/ms13/grave/closet_update_overlays(list/new_overlays)
 	. = new_overlays
@@ -23,23 +45,11 @@
 		// If we don't do this the door doesn't block emissives and it looks weird.
 		door_overlay.overlays += emissive_blocker(door_overlay.icon, door_overlay.icon_state, alpha = door_overlay.alpha)
 
-/obj/structure/closet/ms13/grave/examine(mob/user)
+/obj/structure/closet/ms13/grave/update_icon_state()
 	. = ..()
-	if(welded)
-		. += span_notice("It's welded shut.")
-	/* // MOJAVE SUN EDIT BEGIN
-	if(anchored)
-		. += span_notice("It is <b>bolted</b> to the ground.")
-	*/ // MOJAVE SUN EDIT END - No false reports, kids.
-	if(opened && cutting_tool == /obj/item/weldingtool)
-		. += span_notice("The parts are <b>welded</b> together.")
-	else if(secure && !opened)
-		. += span_notice("Right-click to [locked ? "unlock" : "lock"].")
+	icon_state = "[initial(icon_state)]_[soil_type]_[dirt_level]"
 
-	if(HAS_TRAIT(user, TRAIT_SKITTISH) && divable)
-		. += span_notice("If you bump into [p_them()] while running, you will jump inside.")
-
-/obj/structure/closet/ms13/grave/proc/can_close(mob/living/user)
+/obj/structure/closet/ms13/grave/can_close(mob/living/user)
 	var/turf/T = get_turf(src)
 	for(var/mob/living/L in T)
 		if(L.anchored || horizontal && L.mob_size > MOB_SIZE_TINY && L.density)
@@ -48,35 +58,23 @@
 			return FALSE
 	return TRUE
 
-/obj/structure/closet/ms13/grave/proc/open(mob/living/user, force = FALSE)
-	if(!can_open(user, force))
-		return
+/obj/structure/closet/ms13/grave/open(mob/living/user, force = FALSE)
 	if(opened)
 		return
 	if(SEND_SIGNAL(src, COMSIG_CLOSET_PRE_OPEN, user, force) & BLOCK_OPEN)
 		return
-	welded = FALSE
-	locked = FALSE
-	playsound(loc, open_sound, open_sound_volume, TRUE, -3)
 	opened = TRUE
-	if(!dense_when_open)
-		set_density(FALSE)
 	dump_contents()
-	animate_door(FALSE)
 	update_appearance()
-
 	after_open(user, force)
 	SEND_SIGNAL(src, COMSIG_CLOSET_POST_OPEN, force)
 	return TRUE
 
-/obj/structure/closet/ms13/grave/proc/close(mob/living/user)
+/obj/structure/closet/ms13/grave/close(mob/living/user)
 	if(!opened || !can_close(user))
 		return FALSE
 	take_contents()
-	playsound(loc, close_sound, close_sound_volume, TRUE, -3)
 	opened = FALSE
-	set_density(TRUE)
-	animate_door(TRUE)
 	update_appearance()
 	after_close(user)
 	return TRUE
@@ -88,101 +86,44 @@
 	dump_contents()
 	qdel(src)
 
-/obj/structure/closet/ms13/grave/proc/tool_interact(obj/item/W, mob/living/user)//returns TRUE if attackBy call shouldn't be continued (because tool was used/closet/ms13/grave was of wrong type), FALSE if otherwise
-	// TODO: TOOL_SHOVEL
+/// Returns TRUE if attackBy call shouldn't be continued (because shovel was used), FALSE otherwise
+/obj/structure/closet/ms13/grave/tool_interact(obj/item/W, mob/living/user)
 
 	. = TRUE
-	if(opened)
-		if(istype(W, cutting_tool))
-			if(W.tool_behaviour == TOOL_WELDER)
-				if(!W.tool_start_check(user, amount=0))
-					return
+	if(W.tool_behaviour == TOOL_SHOVEL)
+		if(dirt_level == dug_level)
+			to_chat(user, span_notice("[src] is already completely dug out."))
+		else
+			to_chat(user, span_notice("You start digging with \the [W]."))
+			if(do_after(user, 4 SECONDS * W.toolspeed, target = src))
+				user.visible_message(span_notice("[user] removes some soil with \the [W] and set it aside."),
+											span_notice("You remove some soil with \the [W] and set it aside."),
+											span_hear("You hear soil crumbling."))
+				dirt_level += dirt_level < dug_level ? 1 : -1
+				if(dirt_level == dug_level)
+					open(user)
 
-				to_chat(user, span_notice("You begin cutting \the [src] apart..."))
-				if(W.use_tool(src, user, 40, volume=50))
-					if(!opened)
-						return
-					user.visible_message(span_notice("[user] slices apart \the [src]."),
-									span_notice("You cut \the [src] apart with \the [W]."),
-									span_hear("You hear welding."))
-					deconstruct(TRUE)
-				return
-			else // for example cardboard box is cut with wirecutters
-				user.visible_message(span_notice("[user] cut apart \the [src]."), \
-									span_notice("You cut \the [src] apart with \the [W]."))
+/obj/structure/closet/ms13/grave/shovel_act_secondary(mob/living/user, obj/item/tool)
+	. = TRUE
+	if(tool.tool_behaviour == TOOL_SHOVEL)
+		if(dirt_level == 0)
+			to_chat(user, span_notice("You start leveling the ground with \the [tool]."))
+			if(do_after(user, 3 SECONDS * tool.toolspeed, target = src))
+				user.visible_message(span_notice("[user] levels the ground with \the [tool]."),
+											span_notice("You levels the ground with \the [tool]."))
 				deconstruct(TRUE)
 				return
-		if (user.combat_mode)
-			return FALSE
-		if(user.transferItemToLoc(W, drop_location())) // so we put in unlit welder too
-			return
-	else if(W.tool_behaviour == TOOL_WELDER && can_weld_shut)
-		if(!W.tool_start_check(user, amount=0))
-			return
-
-		to_chat(user, span_notice("You begin [welded ? "unwelding":"welding"] \the [src]..."))
-		if(W.use_tool(src, user, 40, volume=50))
-			if(opened)
-				return
-			welded = !welded
-			after_weld(welded)
-			user.visible_message(span_notice("[user] [welded ? "welds shut" : "unwelded"] \the [src]."),
-							span_notice("You [welded ? "weld" : "unwelded"] \the [src] with \the [W]."),
-							span_hear("You hear welding."))
-			log_game("[key_name(user)] [welded ? "welded":"unwelded"] closet [src] with [W] at [AREACOORD(src)]")
-			update_appearance()
-	else if (can_install_electronics && istype(W, /obj/item/electronics/airlock)\
-			&& !secure && !electronics && !locked && (welded || !can_weld_shut) && !broken)
-		user.visible_message(span_notice("[user] installs the electronics into the [src]."),\
-			span_notice("You start to install electronics into the [src]..."))
-		if (!do_after(user, 4 SECONDS, target = src))
-			return FALSE
-		if (electronics || secure)
-			return FALSE
-		if (!user.transferItemToLoc(W, src))
-			return FALSE
-		W.moveToNullspace()
-		to_chat(user, span_notice("You install the electronics."))
-		electronics = W
-		if (electronics.one_access)
-			req_one_access = electronics.accesses
+		else if(dirt_level == max_level)
+			to_chat(user, span_notice("The grave is already completely filled."))
 		else
-			req_access = electronics.accesses
-		secure = TRUE
-		update_appearance()
-	else if (can_install_electronics && W.tool_behaviour == TOOL_SCREWDRIVER\
-			&& (secure || electronics) && !locked && (welded || !can_weld_shut))
-		user.visible_message(span_notice("[user] begins to remove the electronics from the [src]."),\
-			span_notice("You begin to remove the electronics from the [src]..."))
-		var/had_electronics = !!electronics
-		var/was_secure = secure
-		if (!do_after(user, 4 SECONDS, target = src))
-			return FALSE
-		if ((had_electronics && !electronics) || (was_secure && !secure))
-			return FALSE
-		var/obj/item/electronics/airlock/electronics_ref
-		if (!electronics)
-			electronics_ref = new /obj/item/electronics/airlock(loc)
-			gen_access()
-			if (req_one_access.len)
-				electronics_ref.one_access = 1
-				electronics_ref.accesses = req_one_access
-			else
-				electronics_ref.accesses = req_access
-		else
-			electronics_ref = electronics
-			electronics = null
-			electronics_ref.forceMove(drop_location())
-		secure = FALSE
-		update_appearance()
-	else if(!user.combat_mode)
-		var/item_is_id = W.GetID()
-		if(!item_is_id)
-			return FALSE
-		if(item_is_id || !toggle(user))
-			togglelock(user)
-	else
-		return FALSE
+			to_chat(user, span_notice("You start filling [src] with \the [tool]."))
+			if(do_after(user, 3 SECONDS * tool.toolspeed, target = src))
+				user.visible_message(span_notice("[user] fills [src] with some soil using \the [tool]."),
+											span_notice("You fill [src] with some soil using \the [tool]."),
+											span_hear("You hear soil crumbling."))
+				if(dirt_level == dug_level)
+					close(user)
+				dirt_level += length(contents) ? -1 : 1
 
 /obj/structure/closet/ms13/grave/wrench_act_secondary(mob/living/user, obj/item/tool)
 	return TRUE
@@ -201,9 +142,9 @@
 	if(!isturf(O.loc))
 		return
 
-	var/actuallyismob = 0
+	var/actuallyismob = FALSE
 	if(isliving(O))
-		actuallyismob = 1
+		actuallyismob = TRUE
 	else if(!isitem(O))
 		return
 	var/turf/T = get_turf(src)
@@ -211,23 +152,19 @@
 	add_fingerprint(user)
 	user.visible_message(span_warning("[user] [actuallyismob ? "tries to ":""]stuff [O] into [src]."), \
 		span_warning("You [actuallyismob ? "try to ":""]stuff [O] into [src]."), \
-		span_hear("You hear clanging."))
+		span_hear("You hear dirt crumbling."))
 	if(actuallyismob)
 		if(do_after_mob(user, targets, 40))
 			user.visible_message(span_notice("[user] stuffs [O] into [src]."), \
 				span_notice("You stuff [O] into [src]."), \
-				span_hear("You hear a loud metal bang."))
+				span_hear("You hear dirt crumbling."))
 			var/mob/living/L = O
 			if(!issilicon(L))
 				L.Paralyze(40)
-			if(istype(src, /obj/structure/closet/ms13/grave/supplypod/extractionpod))
-				O.forceMove(src)
-			else
-				O.forceMove(T)
-				close()
+			O.forceMove(T)
 	else
 		O.forceMove(T)
-	return 1
+	return TRUE
 
 /// Disabled Toggle Open (will not show to anyone)
 /obj/structure/closet/ms13/grave/verb/verb_toggleopen()
@@ -240,32 +177,26 @@
 		relay_container_resist_act(user, loc)
 	if(opened)
 		return
-	if(ismovable(loc))
+
+	if(abs(dirt_level - dug_level) > 2)
+		to_chat(user, span_warning("You struggle in vain under the weight of the soil above you!"))
+	else
+		// You can try to get out if there is not too much soil on you
 		user.changeNext_move(CLICK_CD_BREAKOUT)
 		user.last_special = world.time + CLICK_CD_BREAKOUT
-		var/atom/movable/AM = loc
-		AM.relay_container_resist_act(user, src)
-		return
-	if(!welded && !locked)
-		open()
-		return
-
-	//okay, so the closet is either welded or locked... resist!!!
-	user.changeNext_move(CLICK_CD_BREAKOUT)
-	user.last_special = world.time + CLICK_CD_BREAKOUT
-	user.visible_message(span_warning("[src] begins to shake violently!"), \
-		span_notice("You lean on the back of [src] and start pushing the door open... (this will take about [DisplayTimeText(breakout_time)].)"), \
-		span_hear("You hear banging from [src]."))
-	if(do_after(user,(breakout_time), target = src))
-		if(!user || user.stat != CONSCIOUS || user.loc != src || opened || (!locked && !welded) )
-			return
-		//we check after a while whether there is a point of resisting anymore and whether the user is capable of resisting
-		user.visible_message(span_danger("[user] successfully broke out of [src]!"),
-							span_notice("You successfully break out of [src]!"))
-		bust_open()
-	else
-		if(user.loc == src) //so we don't get the message if we resisted multiple times and succeeded.
-			to_chat(user, span_warning("You fail to break out of [src]!"))
+		user.visible_message(span_warning("The soil of [src] begins to rumble!"), \
+			span_notice("You struggle and start digging your way out upwards... (this will take about [DisplayTimeText(abs(dirt_level - dug_level) * breakout_time)].)"), \
+			span_hear("You hear soil rumbling."))
+		if(do_after(user,(abs(dirt_level - dug_level) * breakout_time), target = src))
+			// Checking after a while whether there is a point of resisting anymore and whether the user is capable of resisting
+			if(!user || user.stat != CONSCIOUS || user.loc != src || opened)
+				return
+			user.visible_message(span_danger("[user] successfully break out of [src]!"),
+								span_notice("You successfully break out of [src]!"))
+			bust_open()
+		else
+			if(user.loc == src) // so we do not get the message if we resisted multiple times and succeeded.
+				to_chat(user, span_warning("You fail to dig your way out of [src]!"))
 
 ////////////// TOMBSTONES /////////////////
 
