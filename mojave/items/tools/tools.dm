@@ -213,10 +213,20 @@
 	log_pickup_and_drop = TRUE
 	grid_width = 32
 	grid_height = 64
+	var/obj/structure/buffer = null
+
+/obj/item/wrench/ms13/examine(mob/user)
+	. = ..()
+	. += span_notice("Its buffer [buffer ? "contains [buffer]." : "is empty."]")
 
 /obj/item/wrench/ms13/Initialize()
 	. = ..()
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
+
+/obj/item/wrench/ms13/attack_self(mob/user)
+	to_chat(user, span_info("You forget what you were doing with [src]"))
+	buffer = null
+
 
 /obj/item/wirecutters/ms13
 	name = "pliers"

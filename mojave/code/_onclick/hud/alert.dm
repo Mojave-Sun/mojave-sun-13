@@ -64,7 +64,7 @@
 /atom/movable/screen/alert/hudbar/thirst/not_thirsty
 	name = "Not Thirsty"
 	desc = "A rarity in the wasteland, not being thirstful is a sign of a good life so far."
-	icon_state = "status_thirst"
+	icon_state = ""
 
 /atom/movable/screen/alert/hudbar/thirst/slight_thirst
 	name = "Slightly Thirsty"
@@ -84,4 +84,4 @@
 /atom/movable/screen/alert/hudbar/thirst/dehydrated
 	name = "Substantially Dehydrated"
 	desc = "You're already on deaths door, get that water, now!"
-	icon_state = "status_thirst"
+	icon_state = "status_thirst_bad"
