@@ -6,7 +6,7 @@
 	icon_state = "grave"
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	anchored = TRUE
-	density = TRUE
+	density = FALSE
 	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
 	projectile_passchance = 90
 
@@ -167,10 +167,8 @@
 	return TRUE
 
 /// Disabled Toggle Open (will not show to anyone)
-/obj/structure/closet/ms13/grave/verb/verb_toggleopen()
-	set src in list()
-	set category = "Object"
-	set name = "Toggle Open"
+/obj/structure/closet/ms13/grave/verb_toggleopen()
+	return
 
 /obj/structure/closet/ms13/grave/container_resist_act(mob/living/user)
 	if(isstructure(loc))
@@ -197,6 +195,8 @@
 		else
 			if(user.loc == src) // so we do not get the message if we resisted multiple times and succeeded.
 				to_chat(user, span_warning("You fail to dig your way out of [src]!"))
+
+// TODO Use signal for falling into grave
 
 ////////////// TOMBSTONES /////////////////
 
@@ -249,7 +249,7 @@
 			context[SCREENTIP_CONTEXT_LMB] = "Engrave message"
 			return CONTEXTUAL_SCREENTIP_SET
 
-/obj/structure/ms13/tombstone/slab/attackby(obj/item/W, mob/user, params)
+/obj/structure/ms13/tombstone/slab/attackby(obj/item/W, mob/living/user, params)
 	if(!user.combat_mode && W.tool_behaviour == TOOL_KNIFE)
 		var/input = tgui_input_text(user, "What do you want to engrave?", "Inscription", max_length = 200, multiline = TRUE)
 		if(user.canUseTopic(src, BE_CLOSE) && input)

@@ -1431,6 +1431,8 @@
 				act_result = welder_act_secondary(user, tool)
 			if(TOOL_ANALYZER)
 				act_result = analyzer_act_secondary(user, tool)
+			if(TOOL_SHOVEL)
+				act_result = shovel_act_secondary(user, tool)
 	if(act_result) // A tooltype_act has completed successfully
 		log_tool("[key_name(user)] used [tool] on [src][is_right_clicking ? "(right click)" : ""] at [AREACOORD(src)]")
 		return TOOL_ACT_TOOLTYPE_SUCCESS
@@ -1555,6 +1557,10 @@
 
 /// Called on an object when a tool with analyzer capabilities is used to right click an object
 /atom/proc/analyzer_act_secondary(mob/living/user, obj/item/tool)
+	return
+
+/// Called on an object when a tool with shovel capabilities is used to right click an object
+/atom/proc/shovel_act_secondary(mob/living/user, obj/item/tool)
 	return
 
 ///Generate a tag for this atom
