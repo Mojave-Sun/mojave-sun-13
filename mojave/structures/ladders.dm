@@ -2,9 +2,12 @@
 	name = "ladder"
 	desc = "A questionable metal ladder. There's got to be stairs around, right?"
 	icon = 'mojave/icons/structure/ladders.dmi'
-	icon_state = "ladder10"
+	icon_state = "ladder01"
 	resistance_flags = INDESTRUCTIBLE
 	travel_time = 2 SECONDS
+
+/obj/structure/ladder/ms13/upwards
+	icon_state = "ladder10"
 
 // TG code edited for SFX //
 
@@ -69,6 +72,9 @@
 	desc = "A manhole ladder, you could probably push the cover off from here, or try dragging it back on."
 	travel_time = 2 SECONDS
 	pixel_y = 7
+	icon_state = "manhole_closed"
+
+/obj/structure/ladder/ms13/manhole/upwards
 	icon_state = "ladder10"
 
 /obj/structure/ladder/ms13/manhole/examine(mob/user)
@@ -157,8 +163,11 @@
 
 /obj/structure/ladder/ms13/bunker
 	name = "bunker"
-	icon_state = "ladder10"
+	icon_state = "bunker_closed"
 	travel_time = 2 SECONDS
+
+/obj/structure/ladder/ms13/bunker/upwards
+	icon_state = "ladder10"
 
 /obj/structure/ladder/ms13/bunker/welder_act_secondary(mob/living/user, obj/item/I)
 	if(down && obstructed)
@@ -192,6 +201,9 @@
 	desc = "A thick rope made of natural fibres and tied to a rusted rod firmly planted in the ground."
 	travel_time = 3 SECONDS
 
+/obj/structure/ladder/ms13/rope/upwards
+	icon_state = "rope_down"
+
 /obj/structure/ladder/ms13/rope/update_icon_state()
 	. = ..()
 	if(down)
@@ -207,8 +219,12 @@
 /obj/structure/ladder/ms13/hatch
 	name = "bunker hatch"
 	desc = "A bunker ladder, you could probably push the hatch open from here, or try closing it."
+	icon_state = "hatch_closed"
 	travel_time = 2 SECONDS
 	locked = TRUE
+
+/obj/structure/ladder/ms13/hatch/upwards
+	icon_state = "ladder10"
 
 /obj/structure/ladder/ms13/hatch/examine(mob/user)
 	. = ..()
@@ -299,7 +315,11 @@
 /obj/structure/ladder/ms13/enclave
 	name = "Enclave bunker ladder"
 	desc = "A bunker ladder adorned with Enclave heraldic, you could probably push the hatch open from here, or try closing it."
+	icon_state = "enclave_closed"
 	travel_time = 2 SECONDS
+
+/obj/structure/ladder/ms13/enclave/upwards
+	icon_state = "ladder10"
 
 /obj/structure/ladder/ms13/enclave/examine(mob/user)
 	. = ..()
