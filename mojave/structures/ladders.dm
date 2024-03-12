@@ -197,12 +197,14 @@
 /// A simple rope, take a bit more time to climb up than go down.
 /obj/structure/ladder/ms13/rope
 	name = "rope"
-	icon_state = "rope"
 	desc = "A thick rope made of natural fibres and tied to a rusted rod firmly planted in the ground."
+	icon_state = "rope"
+	pixel_y = 15
 	travel_time = 3 SECONDS
 
 /obj/structure/ladder/ms13/rope/upwards
 	icon_state = "rope_down"
+	pixel_y = -10
 
 /obj/structure/ladder/ms13/rope/update_icon_state()
 	. = ..()
