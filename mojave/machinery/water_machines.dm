@@ -9,7 +9,7 @@
 	pixel_x = -16
 	flags_1 = INDESTRUCTIBLE
 	var/internal_volume = 3000
-	var/regen_rate = 3
+	var/regen_rate = 10
 
 /obj/machinery/ms13/plant_machinery/Initialize()
 	create_reagents(internal_volume, DRAINABLE | AMOUNT_VISIBLE)
@@ -32,39 +32,51 @@
 		return ..()
 	return
 
+/obj/structure/ms13/tank/pipe/test/wrench_act_secondary(mob/living/user, obj/item/wrench/ms13/W)
+	if(W.buffer == null)
+		W.buffer = src
+
 /obj/machinery/ms13/plant_machinery/broken
 	desc = "The label on this says something about fresh water- But what side do you take a sip from? It appears broken down, missing crucial parts."
 	icon_state = "watertreatment_broken"
+
+//////////////////////////////////////////////////////////////////////////
 
 /obj/structure/ms13/tank/pipe/test
 	name = "Functional piped storage tank"
 	desc = "A large chemical storage tank with pipes running from it. They seem to be attached."
 	icon_state = "largetank_pipe"
 	var/tank_capacity = 1000
-	var/list/linked_items = list()
+	var/obj/machinery/ms13/plant_machinery = null
 
 /obj/structure/ms13/tank/pipe/test/Initialize()
+	. = ..()
 	create_reagents(tank_capacity, AMOUNT_VISIBLE)
 	reagents.add_reagent(/datum/reagent/consumable/ms13/water, 200)
-	. = ..()
 
 /obj/structure/ms13/tank/pipe/test/wrench_act_secondary(mob/living/user, obj/item/wrench/ms13/W)
 	if(W.buffer == null)
 		W.buffer = src
 		to_chat(user, span_info("You prepare to link the [W.buffer] to something."))
 	if(W.buffer == /obj/structure/sink/ms13/test)
-		to_chat(user, span_info("You don't remember what you were going to link to the [src]"))
+		to_chat(user, span_info("You need to pipe the tank to the sink. Not the other way around."))
+	if(W.buffer == /obj/machinery/ms13/plant_machinery)
+		to_chat(user, span_info("You link the [W.buffer] to the [src]"))
+		plant_machinery = W.buffer
 
-/obj/structure/ms13/tank/pipe/test/proc/process_request(request)
+/obj/structure/ms13/tank/pipe/test/proc/process_request(request, requesting_item)
 	if(request)
-		if(request >= reagents.total_volume) //first come first serve
-			transfer_to(src, request)
-//		if(request <= reagents.total_volume)
-
+		if(request <= reagents.total_volume) //first come first serve
+			transfer_to(requesting_item, request)
+			to_chat(world, span_notice("I've heard the request"))
+//		if(request <= reagents.total_volume)	
 
 /obj/structure/ms13/tank/pipe/test/proc/transfer_to(obj/structure/sink/ms13/test/target,amount)
 	if(target && target.reagents)
-		reagents.trans_to(target, amount, round_robin = TRUE)
+		reagents.copy_to(target, amount, round_robin = TRUE)
+		to_chat(world, span_notice("I've given the water."))
+
+////////////////////////////////////////////////////////////////////////////
 
 /obj/structure/sink/ms13/test
 	name = "sink"
@@ -75,8 +87,22 @@
 	buildstacktype = /obj/item/stack/sheet/ms13/ceramic
 	has_water_reclaimer = FALSE
 	var/obj/structure/ms13/tank/pipe/test/linked_tank
+	var/forcetest = FALSE
 
-/obj/structure/sink/ms13/attackby(obj/item/O, mob/living/user, params)
+/obj/structure/sink/ms13/test/Initialize()
+	. = ..()
+	create_reagents(100, AMOUNT_VISIBLE)
+	reagents.add_reagent(/datum/reagent/consumable/ms13/water, rand(0,5))
+
+/obj/structure/sink/ms13/test/process()
+	if(reagents.total_volume <= reagents.maximum_volume || forcetest == TRUE)
+		to_chat(world, span_notice("126"))
+		if(linked_tank)
+			var/request = reagents.maximum_volume - reagents.total_volume
+			linked_tank.process_request(request, src)
+			to_chat(world, span_notice("I've asked nicely."))
+
+/obj/structure/sink/ms13/test/attackby(obj/item/O, mob/living/user, params)
 	if(busy)
 		to_chat(user, span_warning("Someone's already washing here!"))
 		return
@@ -100,25 +126,14 @@
 			to_chat(user, span_notice("\The [src] is dry."))
 			return FALSE
 		reagents.trans_to(O, 5, transfered_by = user)
-		begin_reclamation()
-		to_chat(user, span_notice("You wet [O] in [src]."))
-		playsound(loc, 'sound/effects/slosh.ogg', 25, TRUE)
-		return
-
-/obj/structure/sink/ms13/test/process()
-	if(reagents.total_volume < reagents.maximum_volume)
-		if(linked_tank)
-			var/request = reagents.maximum_volume - reagents.total_volume
-			linked_tank.process_request(request)
 
 /obj/structure/sink/ms13/test/wrench_act_secondary(mob/living/user, obj/item/wrench/ms13/W)
+	. = ..()
+	to_chat(user, span_notice("Wrench on"))
+	if(istype(W.buffer, /obj/structure/ms13/tank/pipe/test))	
+		to_chat(user, span_info("You link the [W.buffer] to the [src]"))
+		linked_tank = W.buffer
+		return TRUE
 	if(W.buffer == null)
 		to_chat(user, span_info("You need to use the wrench on a water tank first"))
-	if(W.buffer == /obj/structure/ms13/tank/pipe/test)
-		linked_tank = W.buffer
-		link_items(W.buffer, src)
-		to_chat(user, span_info("You link the [W.buffer] to the [src]"))
-		//link_plumbing(linked_tank)
-
-/obj/structure/sink/ms13/test/proc/link_items(tank,sink)
-	tank.linked_items.Add(sink)
+		return

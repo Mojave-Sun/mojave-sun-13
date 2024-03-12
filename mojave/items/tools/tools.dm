@@ -213,7 +213,7 @@
 	log_pickup_and_drop = TRUE
 	grid_width = 32
 	grid_height = 64
-	var/obj/structure/buffer = null
+	var/obj/buffer = null
 
 /obj/item/wrench/ms13/examine(mob/user)
 	. = ..()
