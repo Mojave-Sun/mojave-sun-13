@@ -60,7 +60,12 @@
 		/obj/item/food/grown/ms13/firecap,
 		/obj/item/food/grown/ms13/gutshroom,
 		/obj/item/food/grown/ms13/lureweed,
-		/obj/item/food/grown/ms13/nara
+		/obj/item/food/grown/ms13/nara,
+		/obj/item/food/grown/ms13/flyamanita,
+		/obj/item/food/grown/ms13/pennybun,
+		/obj/item/food/grown/ms13/chanterelle,
+		/obj/item/food/grown/ms13/mindshroom,
+		/obj/item/food/grown/ms13/gremlinstool
 		)
 
 /obj/effect/spawner/random/ms13/food/produce_safe
@@ -110,7 +115,12 @@
 		/obj/item/food/grown/ms13/firecap,
 		/obj/item/food/grown/ms13/gutshroom,
 		/obj/item/food/grown/ms13/lureweed,
-		/obj/item/food/grown/ms13/nara
+		/obj/item/food/grown/ms13/nara,
+		/obj/item/food/grown/ms13/flyamanita,
+		/obj/item/food/grown/ms13/pennybun,
+		/obj/item/food/grown/ms13/chanterelle,
+		/obj/item/food/grown/ms13/mindshroom,
+		/obj/item/food/grown/ms13/gremlinstool
 		)
 
 // Pre-War Junkfoods //
@@ -192,7 +202,12 @@
 		/obj/item/seeds/ms13/firecap,
 		/obj/item/seeds/ms13/gutshroom,
 		/obj/item/seeds/ms13/lureweed,
-		/obj/item/seeds/ms13/nara
+		/obj/item/seeds/ms13/nara,
+		/obj/item/seeds/ms13/flyamanita,
+		/obj/item/seeds/ms13/pennybun,
+		/obj/item/seeds/ms13/chanterelle,
+		/obj/item/seeds/ms13/mindshroom,
+		/obj/item/seeds/ms13/gremlinstool
 		)
 
 // THE TIER FIVE PRODUCE. //
