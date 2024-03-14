@@ -4,6 +4,7 @@
 	desc = "A man-sized hole in the ground, usually used to bury junk, treasures, corpses or your gagged and bound victim."
 	icon = 'mojave/icons/structure/grave.dmi'
 	icon_state = "grave"
+	plane = FLOOR_PLANE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	anchored = TRUE
 	density = FALSE
@@ -22,11 +23,39 @@
 	/// Set up variables from closet type that we will use
 	breakout_time = 1 MINUTES
 	allow_objects = TRUE
+	horizontal = TRUE // if there is a human in the grave, it has to be resting to be buried
 	mob_storage_capacity = 1 // how many human sized mob/living can fit together inside a closet.
 
 /obj/structure/closet/ms13/grave/Initialize()
 	. = ..()
 	register_context()
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = .proc/on_entered,
+	)
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/// Triggered when an atom gets on top of the grave
+/obj/structure/closet/ms13/grave/proc/on_entered(datum/source, atom/movable/AM, atom/old_loc)
+	SIGNAL_HANDLER
+
+	message_admins("[AM.name] entered from [old_loc]")
+
+	if((abs(dirt_level - dug_level) > 2) || !isturf(loc) || (AM.movement_type & FLYING) || !isliving(AM) || old_loc == src)
+		return
+
+	var/mob/living/victim = AM
+
+	// Inspired by /mob/living/proc/ZImpactDamage
+	victim.visible_message(span_danger("[victim] falls into [src] with a sickening noise!"), \
+					       span_userdanger("You fall into [src] with a sickening noise!"))
+	victim.adjustBruteLoss(30) // Ouch
+	if(istype(src, /mob/living/carbon/human))
+		var/mob/living/carbon/human/human_yeetus = src
+		var/obj/item/bodypart/limb = pick(human_yeetus.bodyparts)
+		var/type_wound = pick(list(/datum/wound/blunt/moderate, /datum/wound/blunt/severe))
+		limb.force_wound_upwards(type_wound)
+		playsound(src, 'mojave/sound/ms13effects/body_fall.ogg', 75, TRUE)
+	victim.Knockdown(3 SECONDS)
 
 /obj/structure/closet/ms13/grave/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
 	. = ..()
@@ -59,9 +88,8 @@
 	return TRUE
 
 /obj/structure/closet/ms13/grave/open(mob/living/user, force = FALSE)
+	message_admins("PASS OPEN")
 	if(opened)
-		return
-	if(SEND_SIGNAL(src, COMSIG_CLOSET_PRE_OPEN, user, force) & BLOCK_OPEN)
 		return
 	opened = TRUE
 	dump_contents()
@@ -71,6 +99,7 @@
 	return TRUE
 
 /obj/structure/closet/ms13/grave/close(mob/living/user)
+	message_admins("PASS CLOSE")
 	if(!opened || !can_close(user))
 		return FALSE
 	take_contents()
@@ -86,11 +115,23 @@
 	dump_contents()
 	qdel(src)
 
+// Like /obj/structure/closet/attackby but we pass params to tool_interact
+/obj/structure/closet/ms13/grave/attackby(obj/item/W, mob/user, params)
+	if(user in src)
+		return
+	if(src.tool_interact(W, user, params))
+		return 1 // No afterattack
+	else
+		return ..()
+
 /// Returns TRUE if attackBy call shouldn't be continued (because shovel was used), FALSE otherwise
-/obj/structure/closet/ms13/grave/tool_interact(obj/item/W, mob/living/user)
+/obj/structure/closet/ms13/grave/tool_interact(obj/item/W, mob/living/user, params)
 
 	. = TRUE
+	if(user.combat_mode)
+		return FALSE
 	if(W.tool_behaviour == TOOL_SHOVEL)
+		message_admins("Start digging with level [dirt_level]")
 		if(dirt_level == dug_level)
 			to_chat(user, span_notice("[src] is already completely dug out."))
 		else
@@ -99,13 +140,31 @@
 				user.visible_message(span_notice("[user] removes some soil with \the [W] and set it aside."),
 											span_notice("You remove some soil with \the [W] and set it aside."),
 											span_hear("You hear soil crumbling."))
-				dirt_level += dirt_level < dug_level ? 1 : -1
+				// Digging toward "dug_level"
+				dirt_level += (dirt_level < dug_level) ? 1 : -1
 				if(dirt_level == dug_level)
-					open(user)
+					open(user) // update_appearance already in open()
+				else
+					update_appearance()
+		message_admins("Dirt level is now [dirt_level]")
+		return
+	if(opened && !(W.item_flags & ABSTRACT))
+		if(user.transferItemToLoc(W, drop_location(), silent = FALSE))
+			var/list/modifiers = params2list(params)
+			//Center the icon where the user clicked.
+			if(!LAZYACCESS(modifiers, ICON_X) || !LAZYACCESS(modifiers, ICON_Y))
+				return
+			// Clamp it so that the icon is properly placed in the grave
+			W.pixel_x = clamp(text2num(LAZYACCESS(modifiers, ICON_X)) - 16, -(world.icon_size/2), world.icon_size/2)
+			W.pixel_y = clamp(text2num(LAZYACCESS(modifiers, ICON_Y)) - 16, -(world.icon_size/2), world.icon_size/2)
+			return
+	else
+		to_chat(user, span_notice("[src] needs to be fully dug before burying items."))
 
 /obj/structure/closet/ms13/grave/shovel_act_secondary(mob/living/user, obj/item/tool)
 	. = TRUE
 	if(tool.tool_behaviour == TOOL_SHOVEL)
+		message_admins("Start filling with level [dirt_level]")
 		if(dirt_level == 0)
 			to_chat(user, span_notice("You start leveling the ground with \the [tool]."))
 			if(do_after(user, 3 SECONDS * tool.toolspeed, target = src))
@@ -116,14 +175,22 @@
 		else if(dirt_level == max_level)
 			to_chat(user, span_notice("The grave is already completely filled."))
 		else
+			if(dirt_level == dug_level && !can_close(user))
+				return  // Stop here if there is something in the way
 			to_chat(user, span_notice("You start filling [src] with \the [tool]."))
 			if(do_after(user, 3 SECONDS * tool.toolspeed, target = src))
 				user.visible_message(span_notice("[user] fills [src] with some soil using \the [tool]."),
 											span_notice("You fill [src] with some soil using \the [tool]."),
 											span_hear("You hear soil crumbling."))
 				if(dirt_level == dug_level)
-					close(user)
-				dirt_level += length(contents) ? -1 : 1
+					if(!close(user))
+						return  // Stop here if there is something in the way
+				// Empty grave between 0 - dug_level
+				// Filled grave between dug_level - max_level
+				dirt_level += length(contents) ? 1 : -1
+				update_appearance()
+
+		message_admins("Dirt level is now [dirt_level]")
 
 /obj/structure/closet/ms13/grave/wrench_act_secondary(mob/living/user, obj/item/tool)
 	return TRUE
@@ -214,7 +281,7 @@
 /// A pile of rocks, cannot be engraved
 /obj/structure/ms13/tombstone/cairn
 	name = "cairn"
-	desc = "A human-made pile of stones raised as a burial mound."
+	desc = "A pile of stones raised as a burial mound."
 	icon_state = "cairn"
 
 /obj/structure/ms13/tombstone/cairn/deconstruct(disassembled = TRUE)
@@ -270,7 +337,7 @@
 /obj/structure/ms13/tombstone/slab/cross/Initialize()
 	. = ..()
 	style = rand(0, 3)
-	icon_state = "[icon_state]_[style]"
+	icon_state = "[initial(icon_state)][style]"
 	register_context()
 
 /obj/structure/ms13/tombstone/slab/cross/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
@@ -289,7 +356,7 @@
 
 	// Rotate the cross
 	style = (style + 1) % 4
-	icon_state = "[icon_state]_[style]"
+	icon_state = "[initial(icon_state)][style]"
 
 /obj/structure/ms13/tombstone/slab/cross/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
@@ -315,7 +382,7 @@
 
 /obj/structure/ms13/tombstone/slab/stone/Initialize()
 	. = ..()
-	icon_state = "[icon_state]_[rand(0, 2)]"
+	icon_state = "[icon_state][rand(0, 2)]"
 
 /obj/structure/ms13/tombstone/slab/stone/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
