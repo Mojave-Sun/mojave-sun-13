@@ -190,6 +190,10 @@
 	desc = "DANGER. The text is apparent. But surely it's not relevant to you right now."
 	icon_state = "danger_sign"
 
+/obj/structure/ms13/wall_decor/sign/notice_robot
+	name = "notice sign"
+	desc = "A sign indicating the presence of robots in the vicinity."
+	icon_state = "notice_robot"
 
 /obj/structure/ms13/wall_decor/exit
 	name = "exit sign"
