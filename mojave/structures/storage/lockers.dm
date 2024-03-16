@@ -39,7 +39,14 @@
 /obj/structure/closet/ms13/fridge/ter
 	icon_state = "fridge3"
 
+/obj/structure/closet/ms13/fridge/qua
+	icon_state = "fridge4"
+	pixel_x = 2
+
 /obj/structure/closet/ms13/fridge/random/Initialize()
 	. = ..()
-	icon_state = "fridge[rand(1, 3)]"
+	icon_state = "fridge[rand(1, 4)]"
+	// Fridge 4 sprite has a 2 pixel offset to fit in 32x32
+	if(icon_state == "fridge4")
+		pixel_x = 2
 	update_icon(UPDATE_OVERLAYS)
