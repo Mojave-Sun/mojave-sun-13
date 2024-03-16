@@ -28,12 +28,18 @@
 /obj/structure/closet/ms13/fridge
 	name = "refrigerator"
 	desc = "A once powered refrigerator unit. Useful for keeping your food in one place."
-	icon_state = "fridge"
+	icon_state = "fridge1"
 	material_drop = /obj/item/stack/sheet/ms13/scrap
 	material_drop_amount = 1
 	max_integrity = 250
 
-/obj/structure/closet/ms13/fridge/Initialize()
+/obj/structure/closet/ms13/fridge/bis
+	icon_state = "fridge2"
+
+/obj/structure/closet/ms13/fridge/ter
+	icon_state = "fridge3"
+
+/obj/structure/closet/ms13/fridge/random/Initialize()
 	. = ..()
-	icon_state = "[icon_state][rand(1, 3)]"
+	icon_state = "fridge[rand(1, 3)]"
 	update_icon(UPDATE_OVERLAYS)
