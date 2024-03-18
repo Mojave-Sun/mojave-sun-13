@@ -215,6 +215,16 @@
 	if(!((locate(/obj/structure) in src) || (locate(/obj/machinery) in src)))
 		plantGrass()
 
+/turf/open/floor/plating/ms13/ground/desertalt/attackby(obj/item/W, mob/user, params)
+	. = ..()
+	if(!.)
+		if(W.tool_behaviour == TOOL_SHOVEL)
+			to_chat(user, span_notice("You start digging the outlines of a grave."))
+			if(do_after(user, 4 SECONDS * W.toolspeed, target = src))
+				user.visible_message(span_notice("[user] dug out the outlines of a grave."),
+										span_notice("You dug out the outlines of a grave."))
+				new /obj/structure/closet/ms13/grave(src)
+
 /turf/open/floor/plating/ms13/ground/snow
 	name = "snow"
 	desc = "Fresh powder."
