@@ -92,6 +92,10 @@
 	/// Check if you are able to see if a weapon has a bullet loaded in or not.
 	var/hidden_chambered = FALSE
 
+	//MOJAVE EDIT BEGIN
+	var/can_be_made_double_tap = FALSE
+	//MOJAVE EDIT END
+
 	///Gun internal magazine modification and misfiring
 
 	///Can we modify our ammo type in this gun's internal magazine?
@@ -370,6 +374,11 @@
 	if (can_be_sawn_off)
 		if (sawoff(user, A))
 			return
+	//MOJAVE EDIT BEGIN
+	if(can_be_made_double_tap)
+		if(doubletap(user, A))
+			return
+	//MOJAVE EDIT END
 
 	if(can_misfire && istype(A, /obj/item/stack/sheet/cloth))
 		if(guncleaning(user, A))
@@ -512,6 +521,10 @@
 		. += "The [bolt_wording] is locked back and needs to be released before firing or de-fouling."
 	if (suppressed)
 		. += "It has a suppressor attached that can be removed with <b>alt+click</b>."
+	//MOJAVE SUN EDIT BEGIN
+	if (double_tap)
+		. += "It has been modified to fire both barrels at once."
+	//MOJAVE SUN EDIT END
 	if(can_misfire)
 		. += span_danger("You get the feeling this might explode if you fire it....")
 		if(misfire_probability > 0)
@@ -608,6 +621,44 @@ GLOBAL_LIST_INIT(gun_saw_types, typecacheof(list(
 		sawn_off = TRUE
 		update_appearance()
 		return TRUE
+
+//MOJAVE EDIT BEGIN
+/obj/item/gun/ballistic/proc/doubletap(mob/user, obj/item/I)
+
+	if(!istype(I, /obj/item/wrench))
+		return FALSE
+
+	user.changeNext_move(CLICK_CD_MELEE)
+	user.visible_message(span_notice("[user] begins to modify [src]."), span_notice("You begin to modify [src]..."))
+
+	if(blow_up(user))
+		user.visible_message(span_danger("[src] goes off!"), span_danger("[src] goes off in your face!"))
+		return FALSE
+
+	if(do_after(user, 30, target = src))
+		user.visible_message(span_notice("[user] modifies [src]!"), span_notice("You modifies [src]."))
+		if(!double_tap)
+			burst_size = 2
+			fire_delay = 1
+		if(double_tap)
+			burst_size = 1
+			fire_delay = 0
+		double_tap = !double_tap
+	return TRUE
+/*
+	//if there's any live ammo inside the gun, makes it go off
+	if(blow_up(user))
+		user.visible_message(span_danger("[src] goes off!"), span_danger("[src] goes off in your face!"))
+		return
+
+	if(do_after(user, 30, target = src))
+		burst_size = 2
+		fire_delay = 1
+		return TRUE
+		if(double_tap == TRUE)
+			return FALSE
+		*/
+//MOJAVE EDIT END
 
 /obj/item/gun/ballistic/proc/guncleaning(mob/user, obj/item/A)
 	if(misfire_probability == 0)
