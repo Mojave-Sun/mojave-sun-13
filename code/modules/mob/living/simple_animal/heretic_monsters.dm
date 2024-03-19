@@ -82,7 +82,7 @@
 		linker_action_path = /datum/action/cooldown/manse_link, \
 		link_message = on_link_message, \
 		unlink_message = on_unlink_message, \
-		post_unlink_callback = CALLBACK(src, .proc/after_unlink), \
+		post_unlink_callback = CALLBACK(src, PROC_REF(after_unlink)), \
 		speech_action_background_icon_state = "bg_ecult", \
 	)
 
@@ -183,7 +183,7 @@
 		worm_length = 3 //code breaks below 3, let's just not allow it.
 
 	oldloc = loc
-	RegisterSignal(src, COMSIG_MOVABLE_MOVED, .proc/update_chain_links)
+	RegisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(update_chain_links))
 	if(!spawn_bodyparts)
 		return
 

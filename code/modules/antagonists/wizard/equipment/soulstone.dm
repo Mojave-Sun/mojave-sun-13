@@ -20,12 +20,12 @@
 /obj/item/soulstone/Initialize(mapload)
 	. = ..()
 	if(theme != THEME_HOLY)
-		RegisterSignal(src, COMSIG_BIBLE_SMACKED, .proc/on_bible_smacked)
+		RegisterSignal(src, COMSIG_BIBLE_SMACKED, PROC_REF(on_bible_smacked))
 
 ///signal called whenever a soulstone is smacked by a bible
 /obj/item/soulstone/proc/on_bible_smacked(datum/source, mob/living/user, direction)
 	SIGNAL_HANDLER
-	INVOKE_ASYNC(src, .proc/attempt_exorcism, user)
+	INVOKE_ASYNC(src, PROC_REF(attempt_exorcism), user)
 
 /**
  * attempt_exorcism: called from on_bible_smacked, takes time and if successful
@@ -295,7 +295,7 @@
 		return TRUE
 	else
 		to_chat(user, "[span_userdanger("Capture failed!")]: The soul has already fled its mortal frame. You attempt to bring it back...")
-		INVOKE_ASYNC(src, .proc/getCultGhost, victim, user)
+		INVOKE_ASYNC(src, PROC_REF(getCultGhost), victim, user)
 		return TRUE //it'll probably get someone ;)
 
 ///captures a shade that was previously released from a soulstone.

@@ -9,7 +9,7 @@
 	. = ..()
 	if(!isitem(target))
 		return ELEMENT_INCOMPATIBLE
-	RegisterSignal(target, COMSIG_ITEM_AFTERATTACK, .proc/on_afterattack)
+	RegisterSignal(target, COMSIG_ITEM_AFTERATTACK, PROC_REF(on_afterattack))
 
 /datum/element/openspace_item_click_handler/Detach(datum/source)
 	UnregisterSignal(source, COMSIG_ITEM_AFTERATTACK)

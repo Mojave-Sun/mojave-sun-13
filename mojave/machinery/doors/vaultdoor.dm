@@ -69,7 +69,7 @@
 	operating = FALSE
 	if(delayed_close_requested)
 		delayed_close_requested = FALSE
-		addtimer(CALLBACK(src, .proc/close), 1)
+		addtimer(CALLBACK(src, PROC_REF(close)), 1)
 	playsound(src, 'mojave/sound/ms13machines/vault_door/vault_steam_1.ogg', 30, TRUE)
 
 /obj/machinery/door/airlock/ms13/vault_door/close_animation(dangerous_close = FALSE)

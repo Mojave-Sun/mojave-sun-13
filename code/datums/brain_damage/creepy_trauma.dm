@@ -29,12 +29,12 @@
 	owner.mind.add_antag_datum(/datum/antagonist/obsessed)
 	antagonist = owner.mind.has_antag_datum(/datum/antagonist/obsessed)
 	antagonist.trauma = src
-	RegisterSignal(obsession, COMSIG_MOB_EYECONTACT, .proc/stare)
+	RegisterSignal(obsession, COMSIG_MOB_EYECONTACT, PROC_REF(stare))
 	..()
 	//antag stuff//
 	antagonist.forge_objectives(obsession.mind)
 	antagonist.greet()
-	RegisterSignal(owner, COMSIG_CARBON_HUG, .proc/on_hug)
+	RegisterSignal(owner, COMSIG_CARBON_HUG, PROC_REF(on_hug))
 
 /datum/brain_trauma/special/obsessed/on_life(delta_time, times_fired)
 	if(!obsession || obsession.stat == DEAD)

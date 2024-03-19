@@ -138,7 +138,7 @@
 	SIGNAL_HANDLER
 	if(!ismob(AM))
 		return
-	INVOKE_ASYNC(src, .proc/put_in_crossers_hands, AM)
+	INVOKE_ASYNC(src, PROC_REF(put_in_crossers_hands), AM)
 
 /obj/item/rupee/proc/put_in_crossers_hands(mob/crosser)
 	if(crosser.put_in_hands(src))

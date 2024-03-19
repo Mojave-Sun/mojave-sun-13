@@ -62,8 +62,8 @@
 	return ..()
 
 /obj/item/circuit_component/printer/register_shell(atom/movable/shell)
-	RegisterSignal(shell, COMSIG_PARENT_ATTACKBY_SECONDARY, .proc/handle_secondary_attackby)
-	RegisterSignal(shell, COMSIG_PARENT_EXAMINE, .proc/on_examine)
+	RegisterSignal(shell, COMSIG_PARENT_ATTACKBY_SECONDARY, PROC_REF(handle_secondary_attackby))
+	RegisterSignal(shell, COMSIG_PARENT_EXAMINE, PROC_REF(on_examine))
 
 /obj/item/circuit_component/printer/unregister_shell(atom/movable/shell)
 	UnregisterSignal(shell, list(COMSIG_PARENT_ATTACKBY_SECONDARY, COMSIG_PARENT_EXAMINE))

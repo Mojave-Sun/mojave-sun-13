@@ -203,7 +203,7 @@
 
 	var/delay = 2
 	var/datum/move_loop/our_loop = water.move_at(pick(targets), delay, 4)
-	RegisterSignal(our_loop, COMSIG_PARENT_QDELETING, .proc/water_finished_moving)
+	RegisterSignal(our_loop, COMSIG_PARENT_QDELETING, PROC_REF(water_finished_moving))
 
 /obj/item/mecha_parts/mecha_equipment/extinguisher/proc/water_finished_moving(datum/move_loop/has_target/source)
 	SIGNAL_HANDLER

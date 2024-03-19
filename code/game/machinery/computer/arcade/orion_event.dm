@@ -166,7 +166,7 @@
 		smashed.ScrapeAway()
 	game.say("Something slams into the floor around [src], exposing it to space!")
 	if(game.hull)
-		addtimer(CALLBACK(game, .proc/fix_floor, game), 1 SECONDS)
+		addtimer(CALLBACK(game, PROC_REF(fix_floor), game), 1 SECONDS)
 
 /datum/orion_event/hull_part/proc/fix_floor(obj/machinery/computer/arcade/orion_trail/game)
 	game.say("A new floor suddenly appears around [src]. What the hell?")

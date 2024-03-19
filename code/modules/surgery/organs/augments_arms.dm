@@ -90,7 +90,7 @@
 
 /obj/item/organ/cyberimp/arm/proc/on_item_attack_self()
 	SIGNAL_HANDLER
-	INVOKE_ASYNC(src, .proc/ui_action_click)
+	INVOKE_ASYNC(src, PROC_REF(ui_action_click))
 
 /obj/item/organ/cyberimp/arm/emp_act(severity)
 	. = ..()

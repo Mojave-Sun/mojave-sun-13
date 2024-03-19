@@ -38,7 +38,7 @@
 	if(!ant_attracting)
 		produce_ants = FALSE
 
-	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, .proc/handle_movement)
+	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(handle_movement))
 	RegisterSignal(parent, list(
 		COMSIG_ITEM_PICKUP, //person picks up an item
 		COMSIG_STORAGE_ENTERED), //Object enters a storage object (boxes, etc.)
@@ -47,7 +47,7 @@
 		COMSIG_ITEM_DROPPED, //Object is dropped anywhere
 		COMSIG_STORAGE_EXITED), //Object exits a storage object (boxes, etc)
 		.proc/dropped)
-	RegisterSignal(parent, COMSIG_PARENT_EXAMINE, .proc/examine)
+	RegisterSignal(parent, COMSIG_PARENT_EXAMINE, PROC_REF(examine))
 
 	if(decomp_flags & RAW) // Raw food overrides gross
 		time_remaining = DECOMPOSITION_TIME_RAW
@@ -86,7 +86,7 @@
 			return
 
 	// If all other checks fail, then begin decomposition.
-	timerid = addtimer(CALLBACK(src, .proc/decompose), time_remaining, TIMER_STOPPABLE | TIMER_UNIQUE)
+	timerid = addtimer(CALLBACK(src, PROC_REF(decompose)), time_remaining, TIMER_STOPPABLE | TIMER_UNIQUE)
 
 /datum/component/decomposition/Destroy()
 	remove_timer()

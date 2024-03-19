@@ -28,7 +28,7 @@ GLOBAL_DATUM_INIT(steal_item_handler, /datum/objective_item_handler, new())
 	objectives_by_path = list()
 	for(var/datum/objective_item/item as anything in subtypesof(/datum/objective_item))
 		objectives_by_path[initial(item.targetitem)] = list()
-	RegisterSignal(SSatoms, COMSIG_SUBSYSTEM_POST_INITIALIZE, .proc/save_items)
+	RegisterSignal(SSatoms, COMSIG_SUBSYSTEM_POST_INITIALIZE, PROC_REF(save_items))
 
 // Very inefficient proc, only gets called when the map finishes loading.
 /datum/objective_item_handler/proc/save_items()
@@ -38,7 +38,7 @@ GLOBAL_DATUM_INIT(steal_item_handler, /datum/objective_item_handler, new())
 			if(!place || !is_station_level(place.z))
 				objectives_by_path[typepath] -= object
 				continue
-			RegisterSignal(object, COMSIG_PARENT_QDELETING, .proc/remove_item)
+			RegisterSignal(object, COMSIG_PARENT_QDELETING, PROC_REF(remove_item))
 
 /datum/objective_item_handler/proc/remove_item(atom/source)
 	SIGNAL_HANDLER
@@ -209,8 +209,8 @@ GLOBAL_DATUM_INIT(steal_item_handler, /datum/objective_item_handler, new())
 			AddComponent(/datum/component/traitor_objective_register, bug, \
 				fail_signals = COMSIG_PARENT_QDELETING, \
 				penalty = telecrystal_penalty)
-			RegisterSignal(bug, COMSIG_TRAITOR_BUG_PLANTED_OBJECT, .proc/on_bug_planted)
-			RegisterSignal(bug, COMSIG_TRAITOR_BUG_PRE_PLANTED_OBJECT, .proc/handle_special_case)
+			RegisterSignal(bug, COMSIG_TRAITOR_BUG_PLANTED_OBJECT, PROC_REF(on_bug_planted))
+			RegisterSignal(bug, COMSIG_TRAITOR_BUG_PRE_PLANTED_OBJECT, PROC_REF(handle_special_case))
 		if("summon_gear")
 			if(!special_equipment)
 				return

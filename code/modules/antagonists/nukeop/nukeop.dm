@@ -262,7 +262,7 @@
 			H.put_in_hands(dukinuki, TRUE)
 		nuke_team.war_button_ref = WEAKREF(dukinuki)
 
-	addtimer(CALLBACK(src, .proc/nuketeam_name_assign), 1)
+	addtimer(CALLBACK(src, PROC_REF(nuketeam_name_assign)), 1)
 
 /datum/antagonist/nukeop/leader/proc/nuketeam_name_assign()
 	if(!nuke_team)

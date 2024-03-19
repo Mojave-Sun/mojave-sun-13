@@ -241,7 +241,7 @@
 	. = ..()
 	if(istype(shell, /obj/machinery/atmospherics/components/binary/pump))
 		connected_pump = shell
-		RegisterSignal(connected_pump, COMSIG_PUMP_SET_ON, .proc/handle_pump_activation)
+		RegisterSignal(connected_pump, COMSIG_PUMP_SET_ON, PROC_REF(handle_pump_activation))
 
 /obj/item/circuit_component/atmos_pump/unregister_usb_parent(atom/movable/shell)
 	UnregisterSignal(connected_pump, COMSIG_PUMP_SET_ON)

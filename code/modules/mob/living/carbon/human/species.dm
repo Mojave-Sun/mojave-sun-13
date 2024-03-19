@@ -1278,7 +1278,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	if(time_since_irradiated > RAD_MOB_HAIRLOSS && DT_PROB(RAD_MOB_HAIRLOSS_PROB, delta_time))
 		if(!(source.hairstyle == "Bald") && (HAIR in species_traits))
 			to_chat(source, span_danger("Your hair starts to fall out in clumps..."))
-			addtimer(CALLBACK(src, .proc/go_bald, source), 5 SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(go_bald), source), 5 SECONDS)
 
 /**
  * Makes the target human bald.
@@ -1535,7 +1535,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		!length(H.internal_organs) && (length(H.bodyparts) <= 1))
 		var/obj/item/bodypart/chest = H.get_bodypart(BODY_ZONE_CHEST)
 		if(chest?.get_damage() >= 100)
-			INVOKE_ASYNC(src, .proc/try_to_mcrib, user, I, H)
+			INVOKE_ASYNC(src, PROC_REF(try_to_mcrib), user, I, H)
 			return TRUE
 
 	//MOJAVE EDIT END

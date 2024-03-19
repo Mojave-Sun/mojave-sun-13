@@ -885,7 +885,7 @@
 //Different sound effect, no destruction
 /datum/action/cooldown/mob_cooldown/charge/hellpig/on_moved(atom/source)
 	playsound(source, pick('mojave/sound/ms13effects/footsteps/ms13heavyfootstep_1.wav', 'mojave/sound/ms13effects/footsteps/ms13heavyfootstep_2.wav'), 100, TRUE, 2, TRUE)
-	//INVOKE_ASYNC(src, .proc/DestroySurroundings, source)
+	//INVOKE_ASYNC(src, PROC_REF(DestroySurroundings), source)
 
 /datum/action/cooldown/mob_cooldown/charge/hellpig/Activate(atom/target_atom)
 

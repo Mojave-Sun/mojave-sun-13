@@ -386,7 +386,7 @@
 	button_icon_state = "emp"
 	owner.update_action_buttons_icon()
 	C.cult_team.blood_target_reset_timer = addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(reset_blood_target), C.cult_team), base_cooldown, TIMER_STOPPABLE)
-	addtimer(CALLBACK(src, .proc/reset_button), base_cooldown)
+	addtimer(CALLBACK(src, PROC_REF(reset_button)), base_cooldown)
 
 
 //////// ELDRITCH PULSE /////////

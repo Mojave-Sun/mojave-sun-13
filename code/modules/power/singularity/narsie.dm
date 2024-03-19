@@ -44,7 +44,7 @@
 	singularity = WEAKREF(AddComponent(
 		/datum/component/singularity, \
 		bsa_targetable = FALSE, \
-		consume_callback = CALLBACK(src, .proc/consume), \
+		consume_callback = CALLBACK(src, PROC_REF(consume)), \
 		consume_range = NARSIE_CONSUME_RANGE, \
 		disregard_failed_movements = TRUE, \
 		grav_pull = NARSIE_GRAV_PULL, \
@@ -87,7 +87,7 @@
 			souls_needed[player] = TRUE
 
 	soul_goal = round(1 + LAZYLEN(souls_needed) * 0.75)
-	INVOKE_ASYNC(GLOBAL_PROC, .proc/begin_the_end)
+	INVOKE_ASYNC(GLOBAL_PROC, PROC_REF(begin_the_end))
 
 /obj/narsie/Destroy()
 	send_to_playing_players(span_narsie("\"<b>[pick("Nooooo...", "Not die. How-", "Die. Mort-", "Sas tyen re-")]\"</b>"))
@@ -194,7 +194,7 @@
 /obj/narsie/proc/narsie_spawn_animation()
 	setDir(SOUTH)
 	flick("narsie_spawn_anim", src)
-	addtimer(CALLBACK(src, .proc/narsie_spawn_animation_end), 3.5 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(narsie_spawn_animation_end)), 3.5 SECONDS)
 
 /obj/narsie/proc/narsie_spawn_animation_end()
 	var/datum/component/singularity/singularity_component = singularity.resolve()
@@ -257,7 +257,7 @@
 /proc/narsie_last_second_win()
 	set_security_level("red")
 	SSshuttle.lockdown = FALSE
-	INVOKE_ASYNC(GLOBAL_PROC, .proc/cult_ending_helper, 2)
+	INVOKE_ASYNC(GLOBAL_PROC, PROC_REF(cult_ending_helper), 2)
 
 ///Helper to set the round to end asap. Current usage Cult round end code
 /proc/ending_helper()

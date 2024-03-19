@@ -53,7 +53,7 @@
 		return
 	owner = new_owner
 	LAZYSET(owner.displacement_maps, type, src)
-	RegisterSignal(owner, COMSIG_PARENT_QDELETING, .proc/owner_qdeleted)
+	RegisterSignal(owner, COMSIG_PARENT_QDELETING, PROC_REF(owner_qdeleted))
 	/// We need to be inside owner's vis_contents due to the way render_source and render_target work
 	/// (they only work if the render_source is in view)
 	owner.vis_contents += src

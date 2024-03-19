@@ -44,9 +44,9 @@
 	if(!new_master)
 		return
 	if(ismovable(new_master))
-		RegisterSignal(new_master, COMSIG_MOVABLE_MOVED, .proc/master_moved)
-	RegisterSignal(new_master, COMSIG_ATOM_DIR_CHANGE, .proc/master_dir_change)
-	RegisterSignal(new_master, COMSIG_PARENT_QDELETING, .proc/no_gods_no_masters)
+		RegisterSignal(new_master, COMSIG_MOVABLE_MOVED, PROC_REF(master_moved))
+	RegisterSignal(new_master, COMSIG_ATOM_DIR_CHANGE, PROC_REF(master_dir_change))
+	RegisterSignal(new_master, COMSIG_PARENT_QDELETING, PROC_REF(no_gods_no_masters))
 	return TRUE
 
 /atom/movable/follower/proc/unregister_master()

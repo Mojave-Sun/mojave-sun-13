@@ -174,7 +174,7 @@
 		gain_knowledge(starting_knowledge)
 
 	GLOB.reality_smash_track.add_tracked_mind(owner)
-	addtimer(CALLBACK(src, .proc/passive_influence_gain), passive_gain_timer) // Gain +1 knowledge every 20 minutes.
+	addtimer(CALLBACK(src, PROC_REF(passive_influence_gain)), passive_gain_timer) // Gain +1 knowledge every 20 minutes.
 	return ..()
 
 /datum/antagonist/heretic/on_removal()
@@ -191,9 +191,9 @@
 	var/mob/living/our_mob = mob_override || owner.current
 	handle_clown_mutation(our_mob, "Ancient knowledge described to you has allowed you to overcome your clownish nature, allowing you to wield weapons without harming yourself.")
 	our_mob.faction |= FACTION_HERETIC
-	RegisterSignal(our_mob, COMSIG_MOB_PRE_CAST_SPELL, .proc/on_spell_cast)
-	RegisterSignal(our_mob, COMSIG_MOB_ITEM_AFTERATTACK, .proc/on_item_afterattack)
-	RegisterSignal(our_mob, COMSIG_MOB_LOGIN, .proc/fix_influence_network)
+	RegisterSignal(our_mob, COMSIG_MOB_PRE_CAST_SPELL, PROC_REF(on_spell_cast))
+	RegisterSignal(our_mob, COMSIG_MOB_ITEM_AFTERATTACK, PROC_REF(on_item_afterattack))
+	RegisterSignal(our_mob, COMSIG_MOB_LOGIN, PROC_REF(fix_influence_network))
 
 /datum/antagonist/heretic/remove_innate_effects(mob/living/mob_override)
 	var/mob/living/our_mob = mob_override || owner.current
@@ -252,7 +252,7 @@
 	if(QDELETED(offhand) || !istype(offhand, /obj/item/melee/touch_attack/mansus_fist))
 		return
 
-	try_draw_rune(source, target, additional_checks = CALLBACK(src, .proc/check_mansus_grasp_offhand, source))
+	try_draw_rune(source, target, additional_checks = CALLBACK(src, PROC_REF(check_mansus_grasp_offhand), source))
 	return COMPONENT_CANCEL_ATTACK_CHAIN
 
 /**
@@ -368,7 +368,7 @@
 	knowledge_points++
 	if(owner.current.stat <= SOFT_CRIT)
 		to_chat(owner.current, "[span_hear("You hear a whisper...")] [span_hypnophrase(pick(strings(HERETIC_INFLUENCE_FILE, "drain_message")))]")
-	addtimer(CALLBACK(src, .proc/passive_influence_gain), passive_gain_timer)
+	addtimer(CALLBACK(src, PROC_REF(passive_influence_gain)), passive_gain_timer)
 
 /datum/antagonist/heretic/roundend_report()
 	var/list/parts = list()
@@ -415,12 +415,12 @@
 	var/obj/item/organ/our_living_heart = owner.current?.getorganslot(living_heart_organ_slot)
 	if(our_living_heart)
 		if(HAS_TRAIT(our_living_heart, TRAIT_LIVING_HEART))
-			.["Add Heart Target (Marked Mob)"] = CALLBACK(src, .proc/add_marked_as_target)
-			.["Remove Heart Target"] = CALLBACK(src, .proc/remove_target)
+			.["Add Heart Target (Marked Mob)"] = CALLBACK(src, PROC_REF(add_marked_as_target))
+			.["Remove Heart Target"] = CALLBACK(src, PROC_REF(remove_target))
 		else
-			.["Give Living Heart"] = CALLBACK(src, .proc/give_living_heart)
+			.["Give Living Heart"] = CALLBACK(src, PROC_REF(give_living_heart))
 
-	.["Adjust Knowledge Points"] = CALLBACK(src, .proc/admin_change_points)
+	.["Adjust Knowledge Points"] = CALLBACK(src, PROC_REF(admin_change_points))
 
 /*
  * Admin proc for giving a heretic a Living Heart easily.

@@ -21,7 +21,7 @@
 	if(arm_delay)
 		armed = FALSE
 		icon_state = inactive_state
-		addtimer(CALLBACK(src, .proc/now_armed), arm_delay)
+		addtimer(CALLBACK(src, PROC_REF(now_armed)), arm_delay)
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_ENTERED = .proc/on_entered,
 	)

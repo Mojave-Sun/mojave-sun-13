@@ -73,7 +73,7 @@
 		if(!ai_action)
 			background_icon_state = "bg_tech"
 		UpdateButtonIcon()
-		addtimer(CALLBACK(src, .proc/reset_ready), 3 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(reset_ready)), 3 SECONDS)
 		return
 	var/obj/item/mod/control/mod = target
 	reset_ready()
@@ -138,9 +138,9 @@
 	desc = "Quickly activate [linked_module]."
 	icon_icon = linked_module.icon
 	button_icon_state = linked_module.icon_state
-	RegisterSignal(linked_module, COMSIG_MODULE_ACTIVATED, .proc/on_module_activate)
-	RegisterSignal(linked_module, COMSIG_MODULE_DEACTIVATED, .proc/on_module_deactivate)
-	RegisterSignal(linked_module, COMSIG_MODULE_USED, .proc/on_module_use)
+	RegisterSignal(linked_module, COMSIG_MODULE_ACTIVATED, PROC_REF(on_module_activate))
+	RegisterSignal(linked_module, COMSIG_MODULE_DEACTIVATED, PROC_REF(on_module_deactivate))
+	RegisterSignal(linked_module, COMSIG_MODULE_USED, PROC_REF(on_module_use))
 
 /datum/action/item_action/mod/pinned_module/Destroy()
 	module.pinned_to -= pinner_ref

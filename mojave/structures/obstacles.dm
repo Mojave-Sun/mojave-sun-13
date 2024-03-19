@@ -348,7 +348,7 @@
 	isSwitchingStates = FALSE
 
 	if(close_delay != -1)
-		addtimer(CALLBACK(src, .proc/Close), close_delay)
+		addtimer(CALLBACK(src, PROC_REF(Close)), close_delay)
 
 /obj/structure/ms13/celldoor/proc/Close()
 	if(isSwitchingStates || !door_opened)

@@ -33,10 +33,10 @@
 /datum/component/deadchat_control/Initialize(_deadchat_mode, _inputs, _input_cooldown = 12 SECONDS, _on_removal)
 	if(!isatom(parent))
 		return COMPONENT_INCOMPATIBLE
-	RegisterSignal(parent, COMSIG_ATOM_ORBIT_BEGIN, .proc/orbit_begin)
-	RegisterSignal(parent, COMSIG_ATOM_ORBIT_STOP, .proc/orbit_stop)
-	RegisterSignal(parent, COMSIG_VV_TOPIC, .proc/handle_vv_topic)
-	RegisterSignal(parent, COMSIG_PARENT_EXAMINE, .proc/on_examine)
+	RegisterSignal(parent, COMSIG_ATOM_ORBIT_BEGIN, PROC_REF(orbit_begin))
+	RegisterSignal(parent, COMSIG_ATOM_ORBIT_STOP, PROC_REF(orbit_stop))
+	RegisterSignal(parent, COMSIG_VV_TOPIC, PROC_REF(handle_vv_topic))
+	RegisterSignal(parent, COMSIG_PARENT_EXAMINE, PROC_REF(on_examine))
 	deadchat_mode = _deadchat_mode
 	inputs = _inputs
 	input_cooldown = _input_cooldown
@@ -44,7 +44,7 @@
 	if(deadchat_mode & DEMOCRACY_MODE)
 		if(deadchat_mode & ANARCHY_MODE) // Choose one, please.
 			stack_trace("deadchat_control component added to [parent.type] with both democracy and anarchy modes enabled.")
-		timerid = addtimer(CALLBACK(src, .proc/democracy_loop), input_cooldown, TIMER_STOPPABLE | TIMER_LOOP)
+		timerid = addtimer(CALLBACK(src, PROC_REF(democracy_loop)), input_cooldown, TIMER_STOPPABLE | TIMER_LOOP)
 	notify_ghosts("[parent] is now deadchat controllable!", source = parent, action = NOTIFY_ORBIT, header="Something Interesting!")
 
 /datum/component/deadchat_control/Destroy(force, silent)
@@ -122,14 +122,14 @@
 		return
 	ckey_to_cooldown = list()
 	if(var_value == DEMOCRACY_MODE)
-		timerid = addtimer(CALLBACK(src, .proc/democracy_loop), input_cooldown, TIMER_STOPPABLE | TIMER_LOOP)
+		timerid = addtimer(CALLBACK(src, PROC_REF(democracy_loop)), input_cooldown, TIMER_STOPPABLE | TIMER_LOOP)
 	else
 		deltimer(timerid)
 
 /datum/component/deadchat_control/proc/orbit_begin(atom/source, atom/orbiter)
 	SIGNAL_HANDLER
 
-	RegisterSignal(orbiter, COMSIG_MOB_DEADSAY, .proc/deadchat_react)
+	RegisterSignal(orbiter, COMSIG_MOB_DEADSAY, PROC_REF(deadchat_react))
 	orbiters |= orbiter
 
 /datum/component/deadchat_control/proc/orbit_stop(atom/source, atom/orbiter)
@@ -145,7 +145,7 @@
 	if(!href_list[VV_HK_DEADCHAT_PLAYS] || !check_rights(R_FUN))
 		return
 	. = COMPONENT_VV_HANDLED
-	INVOKE_ASYNC(src, .proc/async_handle_vv_topic, user, href_list)
+	INVOKE_ASYNC(src, PROC_REF(async_handle_vv_topic), user, href_list)
 
 /// Async proc handling the alert input and associated logic for an admin removing this component via the VV dropdown.
 /datum/component/deadchat_control/proc/async_handle_vv_topic(mob/user, list/href_list)

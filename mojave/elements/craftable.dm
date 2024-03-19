@@ -50,8 +50,8 @@
 	src.crafting_focus_sound = crafting_focus_sound
 	src.c_sound = crafting_sound
 
-	RegisterSignal(target, COMSIG_CRAFTING_ATTACKBY, .proc/try_craft)
-	RegisterSignal(target, COMSIG_PARENT_EXAMINE, .proc/examine)
+	RegisterSignal(target, COMSIG_CRAFTING_ATTACKBY, PROC_REF(try_craft))
+	RegisterSignal(target, COMSIG_PARENT_EXAMINE, PROC_REF(examine))
 
 /datum/element/craftable/Detach(datum/target)
 	. = ..()

@@ -394,7 +394,7 @@
 				loaded_title = J.title
 				loaded_content = J.content
 				mode = 2
-				addtimer(CALLBACK(src, .proc/Boom), 2 SECONDS)
+				addtimer(CALLBACK(src, PROC_REF(Boom)), 2 SECONDS)
 				message_admins("A rigged terminal has been triggered. [ADMIN_JMP(src)].")
 
 // Return

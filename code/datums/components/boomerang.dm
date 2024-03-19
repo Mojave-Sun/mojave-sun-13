@@ -24,9 +24,9 @@
 		src.thrower_easy_catch_enabled = thrower_easy_catch_enabled
 
 /datum/component/boomerang/RegisterWithParent()
-	RegisterSignal(parent, COMSIG_MOVABLE_POST_THROW, .proc/prepare_throw) //Collect data on current thrower and the throwing datum
-	RegisterSignal(parent, COMSIG_MOVABLE_THROW_LANDED, .proc/return_missed_throw)
-	RegisterSignal(parent, COMSIG_MOVABLE_IMPACT, .proc/return_hit_throw)
+	RegisterSignal(parent, COMSIG_MOVABLE_POST_THROW, PROC_REF(prepare_throw)) //Collect data on current thrower and the throwing datum
+	RegisterSignal(parent, COMSIG_MOVABLE_THROW_LANDED, PROC_REF(return_missed_throw))
+	RegisterSignal(parent, COMSIG_MOVABLE_IMPACT, PROC_REF(return_hit_throw))
 
 /datum/component/boomerang/UnregisterFromParent()
 	UnregisterSignal(parent, list(COMSIG_MOVABLE_POST_THROW, COMSIG_MOVABLE_THROW_LANDED, COMSIG_MOVABLE_IMPACT))

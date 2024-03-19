@@ -287,7 +287,7 @@
 	var/obj/item/cash = new coin_to_drop(drop_loc)
 	playsound(cash, pick(list('sound/machines/coindrop.ogg', 'sound/machines/coindrop2.ogg')), 40, TRUE)
 
-	addtimer(CALLBACK(src, .proc/drop_coin), 3) //Recursion time
+	addtimer(CALLBACK(src, PROC_REF(drop_coin)), 3) //Recursion time
 
 
 ///Fills a list of coins that should be dropped.
@@ -430,7 +430,7 @@
 		return
 	loc.visible_message(span_warning("\The [src] begins to beep loudly!"))
 	used = TRUE
-	addtimer(CALLBACK(src, .proc/launch_payload), 40)
+	addtimer(CALLBACK(src, PROC_REF(launch_payload)), 40)
 
 /obj/item/roulette_wheel_beacon/proc/launch_payload()
 	var/obj/structure/closet/supplypod/centcompod/toLaunch = new()

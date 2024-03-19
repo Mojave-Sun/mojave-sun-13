@@ -32,8 +32,8 @@
 /obj/item/instrument/piano_synth/headphones/ComponentInitialize()
 	. = ..()
 	AddElement(/datum/element/update_icon_updates_onmob)
-	RegisterSignal(src, COMSIG_SONG_START, .proc/start_playing)
-	RegisterSignal(src, COMSIG_SONG_END, .proc/stop_playing)
+	RegisterSignal(src, COMSIG_SONG_START, PROC_REF(start_playing))
+	RegisterSignal(src, COMSIG_SONG_END, PROC_REF(stop_playing))
 
 /**
  * Called by a component signal when our song starts playing.
@@ -120,9 +120,9 @@
 /obj/item/circuit_component/synth/register_shell(atom/movable/shell)
 	. = ..()
 	synth = shell
-	RegisterSignal(synth, COMSIG_SONG_START, .proc/on_song_start)
-	RegisterSignal(synth, COMSIG_SONG_END, .proc/on_song_end)
-	RegisterSignal(synth, COMSIG_SONG_SHOULD_STOP_PLAYING, .proc/continue_if_autoplaying)
+	RegisterSignal(synth, COMSIG_SONG_START, PROC_REF(on_song_start))
+	RegisterSignal(synth, COMSIG_SONG_END, PROC_REF(on_song_end))
+	RegisterSignal(synth, COMSIG_SONG_SHOULD_STOP_PLAYING, PROC_REF(continue_if_autoplaying))
 
 /obj/item/circuit_component/synth/unregister_shell(atom/movable/shell)
 	if(synth.song.music_player == src)

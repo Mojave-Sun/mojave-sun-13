@@ -40,10 +40,10 @@
 	add_connect_loc_behalf_to_parent()
 	if(ismovable(parent))
 		if(isitem(parent))
-			RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, .proc/on_equip)
-			RegisterSignal(parent, COMSIG_ITEM_DROPPED, .proc/on_drop)
+			RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, PROC_REF(on_equip))
+			RegisterSignal(parent, COMSIG_ITEM_DROPPED, PROC_REF(on_drop))
 	else
-		RegisterSignal(parent, COMSIG_ATOM_ENTERED, .proc/Slip)
+		RegisterSignal(parent, COMSIG_ATOM_ENTERED, PROC_REF(Slip))
 
 /datum/component/slippery/proc/add_connect_loc_behalf_to_parent()
 	if(ismovable(parent))
@@ -95,7 +95,7 @@
 		holder = equipper
 		qdel(GetComponent(/datum/component/connect_loc_behalf))
 		AddComponent(/datum/component/connect_loc_behalf, holder, holder_connections)
-		RegisterSignal(holder, COMSIG_PARENT_PREQDELETED, .proc/holder_deleted)
+		RegisterSignal(holder, COMSIG_PARENT_PREQDELETED, PROC_REF(holder_deleted))
 
 /*
  * Detects if the holder mob is deleted.

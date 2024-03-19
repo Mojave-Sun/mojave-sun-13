@@ -22,7 +22,7 @@
 	AddComponent(/datum/component/experiment_handler, \
 		allowed_experiments = list(/datum/experiment/scanning),\
 		config_mode = EXPERIMENT_CONFIG_CLICK, \
-		start_experiment_callback = CALLBACK(src, .proc/activate))
+		start_experiment_callback = CALLBACK(src, PROC_REF(activate)))
 
 ///Activates the machine; checks if it can actually scan, then starts.
 /obj/machinery/destructive_scanner/proc/activate()
@@ -47,7 +47,7 @@
 	scanning = TRUE
 	update_icon()
 	playsound(src, 'sound/machines/destructive_scanner/TubeDown.ogg', 100)
-	addtimer(CALLBACK(src, .proc/start_scanning, aggressive), 1.2 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(start_scanning), aggressive), 1.2 SECONDS)
 
 ///Starts scanning the fancy scanning effects
 /obj/machinery/destructive_scanner/proc/start_scanning(aggressive)
@@ -55,7 +55,7 @@
 		playsound(src, 'sound/machines/destructive_scanner/ScanDangerous.ogg', 100, extrarange = 5)
 	else
 		playsound(src, 'sound/machines/destructive_scanner/ScanSafe.ogg', 100)
-	addtimer(CALLBACK(src, .proc/finish_scanning, aggressive), 6 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(finish_scanning), aggressive), 6 SECONDS)
 
 
 ///Performs the actual scan, happens once the tube effects are done
@@ -64,7 +64,7 @@
 	scanning = FALSE
 	update_icon()
 	playsound(src, 'sound/machines/destructive_scanner/TubeUp.ogg', 100)
-	addtimer(CALLBACK(src, .proc/open, aggressive), 1.2 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(open), aggressive), 1.2 SECONDS)
 
 ///Opens the machine to let out any contents. If the scan had mobs it'll gib them.
 /obj/machinery/destructive_scanner/proc/open(aggressive)

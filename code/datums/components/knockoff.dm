@@ -61,8 +61,8 @@
 		UnregisterSignal(H, COMSIG_HUMAN_DISARM_HIT)
 		UnregisterSignal(H, COMSIG_LIVING_STATUS_KNOCKDOWN)
 		return
-	RegisterSignal(H, COMSIG_HUMAN_DISARM_HIT, .proc/Knockoff, TRUE)
-	RegisterSignal(H, COMSIG_LIVING_STATUS_KNOCKDOWN, .proc/Knockoff_knockdown, TRUE)
+	RegisterSignal(H, COMSIG_HUMAN_DISARM_HIT, PROC_REF(Knockoff), TRUE)
+	RegisterSignal(H, COMSIG_LIVING_STATUS_KNOCKDOWN, PROC_REF(Knockoff_knockdown), TRUE)
 
 /datum/component/knockoff/proc/OnDropped(datum/source, mob/living/M)
 	SIGNAL_HANDLER

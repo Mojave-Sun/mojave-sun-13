@@ -172,7 +172,7 @@ GLOBAL_LIST_INIT(scan_conditions,init_scan_conditions())
 /obj/machinery/computer/exoscanner_control/proc/create_scan(scan_type,target)
 	var/datum/exoscan/scan = GLOB.exoscanner_controller.create_scan(scan_type,target)
 	if(scan)
-		RegisterSignal(scan, COMSIG_EXOSCAN_INTERRUPTED, .proc/scan_failed)
+		RegisterSignal(scan, COMSIG_EXOSCAN_INTERRUPTED, PROC_REF(scan_failed))
 
 /obj/machinery/computer/exoscanner_control/proc/scan_failed()
 	SIGNAL_HANDLER
