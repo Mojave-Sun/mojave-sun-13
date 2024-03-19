@@ -434,7 +434,7 @@
 
 			SSjob.safe_code_request_loc = pod_location
 			SSjob.safe_code_requested = TRUE
-			SSjob.safe_code_timer_id = addtimer(CALLBACK(SSjob, /datum/controller/subsystem/job.proc/send_spare_id_safe_code, pod_location), 120 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE)
+			SSjob.safe_code_timer_id = addtimer(CALLBACK(SSjob, TYPE_PROC_REF(/datum/controller/subsystem/job, send_spare_id_safe_code), pod_location), 120 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE)
 			minor_announce("Due to staff shortages, your station has been approved for delivery of access codes to secure the Captain's Spare ID. Delivery via drop pod at [get_area(pod_location)]. ETA 120 seconds.")
 
 /obj/machinery/computer/communications/proc/emergency_access_cooldown(mob/user)
@@ -816,7 +816,7 @@
 			var/datum/round_event_control/pirates/pirate_event = locate() in SSevents.control
 			if(!pirate_event)
 				CRASH("hack_console() attempted to run pirates, but could not find an event controller!")
-			addtimer(CALLBACK(pirate_event, /datum/round_event_control.proc/runEvent), rand(20 SECONDS, 1 MINUTES))
+			addtimer(CALLBACK(pirate_event, TYPE_PROC_REF(/datum/round_event_control, runEvent)), rand(20 SECONDS, 1 MINUTES))
 
 		if(HACK_FUGITIVES) // Triggers fugitives, which can cause confusion / chaos as the crew decides which side help
 			priority_announce(
@@ -827,7 +827,7 @@
 			var/datum/round_event_control/fugitives/fugitive_event = locate() in SSevents.control
 			if(!fugitive_event)
 				CRASH("hack_console() attempted to run fugitives, but could not find an event controller!")
-			addtimer(CALLBACK(fugitive_event, /datum/round_event_control.proc/runEvent), rand(20 SECONDS, 1 MINUTES))
+			addtimer(CALLBACK(fugitive_event, TYPE_PROC_REF(/datum/round_event_control, runEvent)), rand(20 SECONDS, 1 MINUTES))
 
 		if(HACK_THREAT) // Adds a flat amount of threat to buy a (probably) more dangerous antag later
 			priority_announce(
