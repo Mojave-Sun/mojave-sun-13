@@ -156,7 +156,7 @@
 	. = ..()
 	if(istype(shell, /obj/machinery/door/airlock))
 		attached_airlock = shell
-		RegisterSignal(shell, COMSIG_AIRLOCK_SHELL_ALLOWED , .proc/handle_allowed)
+		RegisterSignal(shell, COMSIG_AIRLOCK_SHELL_ALLOWED, PROC_REF(handle_allowed))
 
 /obj/item/circuit_component/airlock_access_event/unregister_shell(atom/movable/shell)
 	attached_airlock = null

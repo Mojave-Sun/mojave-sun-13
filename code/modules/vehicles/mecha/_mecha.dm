@@ -177,7 +177,7 @@
 	. = ..()
 	if(enclosed)
 		internal_tank = new (src)
-		RegisterSignal(src, COMSIG_MOVABLE_PRE_MOVE , .proc/disconnect_air)
+		RegisterSignal(src, COMSIG_MOVABLE_PRE_MOVE, PROC_REF(disconnect_air))
 	RegisterSignal(src, COMSIG_MOVABLE_MOVED, .proc/play_stepsound)
 	RegisterSignal(src, COMSIG_LIGHT_EATER_ACT, .proc/on_light_eater)
 

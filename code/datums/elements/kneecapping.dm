@@ -33,7 +33,7 @@
 	if(. == ELEMENT_INCOMPATIBLE)
 		return
 
-	RegisterSignal(target, COMSIG_ITEM_ATTACK_SECONDARY , .proc/try_kneecap_target)
+	RegisterSignal(target, COMSIG_ITEM_ATTACK_SECONDARY, PROC_REF(try_kneecap_target))
 
 /datum/element/kneecapping/Detach(datum/target)
 	UnregisterSignal(target, COMSIG_ITEM_ATTACK_SECONDARY)
