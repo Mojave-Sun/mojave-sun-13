@@ -55,7 +55,7 @@
 	if(inhabited_turf.turf_fire)
 		return INITIALIZE_HINT_QDEL
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 	RegisterSignal(inhabited_turf, COMSIG_TURF_CHANGE, PROC_REF(turf_changed_pre))

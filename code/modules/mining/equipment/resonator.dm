@@ -68,7 +68,7 @@
 		name = "resonance matrix"
 		RegisterSignal(src, COMSIG_ATOM_ENTERED, PROC_REF(burst))
 		var/static/list/loc_connections = list(
-			COMSIG_ATOM_ENTERED = .proc/burst,
+			COMSIG_ATOM_ENTERED = PROC_REF(burst),
 		)
 		AddElement(/datum/element/connect_loc, loc_connections)
 	. = ..()

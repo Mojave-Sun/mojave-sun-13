@@ -88,7 +88,7 @@
 /mob/living/simple_animal/hostile/handle_automated_movement()
 	. = ..()
 	if(dodging && target && in_melee && isturf(loc) && isturf(target.loc))
-		var/datum/cb = CALLBACK(src,.proc/sidestep)
+		var/datum/cb = CALLBACK(src, PROC_REF(sidestep))
 		if(sidestep_per_cycle > 1) //For more than one just spread them equally - this could changed to some sensible distribution later
 			var/sidestep_delay = SSnpcpool.wait / sidestep_per_cycle
 			for(var/i in 1 to sidestep_per_cycle)

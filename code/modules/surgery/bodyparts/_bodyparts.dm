@@ -640,7 +640,7 @@
 			last_maxed = FALSE
 		else
 			if(!last_maxed && owner.stat < UNCONSCIOUS)
-				INVOKE_ASYNC(owner, /mob.proc/emote, "scream")
+				INVOKE_ASYNC(owner, TYPE_PROC_REF(/mob, emote), "scream")
 			last_maxed = TRUE
 		set_disabled(FALSE) // we only care about the paralysis trait
 		return
@@ -649,7 +649,7 @@
 	if(total_damage >= max_damage * disable_threshold)
 		if(!last_maxed)
 			if(owner.stat < UNCONSCIOUS)
-				INVOKE_ASYNC(owner, /mob.proc/emote, "scream")
+				INVOKE_ASYNC(owner, TYPE_PROC_REF(/mob, emote), "scream")
 			last_maxed = TRUE
 		set_disabled(TRUE)
 		return

@@ -11,13 +11,13 @@
 
 	///if we are attached to an assembly holder, we attach a connect_loc element to ourselves that listens to this from the holder
 	var/static/list/holder_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 
 /obj/item/assembly/mousetrap/Initialize(mapload)
 	. = ..()
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 

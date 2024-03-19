@@ -74,7 +74,7 @@ Behavior that's still missing from this component that original food items had t
 
 	if(!isturf(parent))
 		var/static/list/loc_connections = list(
-			COMSIG_ATOM_ENTERED = .proc/on_entered,
+			COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 		)
 		AddComponent(/datum/component/connect_loc_behalf, parent, loc_connections)
 	else

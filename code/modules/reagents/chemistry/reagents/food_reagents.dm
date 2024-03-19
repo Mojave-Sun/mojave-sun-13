@@ -367,7 +367,7 @@
 			victim.set_confusion(max(exposed_mob.get_confusion(), 5)) // 10 seconds
 			victim.Knockdown(3 SECONDS)
 			victim.add_movespeed_modifier(/datum/movespeed_modifier/reagent/pepperspray)
-			addtimer(CALLBACK(victim, /mob.proc/remove_movespeed_modifier, /datum/movespeed_modifier/reagent/pepperspray), 10 SECONDS)
+			addtimer(CALLBACK(victim, TYPE_PROC_REF(/mob, remove_movespeed_modifier), /datum/movespeed_modifier/reagent/pepperspray), 10 SECONDS)
 		victim.update_damage_hud()
 	if(methods & INGEST)
 		if(!holder.has_reagent(/datum/reagent/consumable/milk))

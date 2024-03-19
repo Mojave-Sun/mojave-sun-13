@@ -188,7 +188,7 @@
 
 /obj/item/circuit_component/vendor_component/populate_ports()
 	item_to_vend = add_input_port("Item", PORT_TYPE_ATOM, trigger = null)
-	vend_item = add_input_port("Vend Item", PORT_TYPE_SIGNAL, trigger = .proc/vend_item)
+	vend_item = add_input_port("Vend Item", PORT_TYPE_SIGNAL, trigger = PROC_REF(vend_item))
 
 /obj/item/circuit_component/vendor_component/proc/vend_item(datum/port/input/port, list/return_values)
 	CIRCUIT_TRIGGER

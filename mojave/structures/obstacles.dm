@@ -68,7 +68,7 @@
 /obj/structure/ms13/bars/Initialize()
 	. = ..()
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_EXIT = .proc/on_exit,
+		COMSIG_ATOM_EXIT = PROC_REF(on_exit),
 	)
 
 	if (flags_1 & ON_BORDER_1)
@@ -217,7 +217,7 @@
 	. = ..()
 	air_update_turf(TRUE)
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_EXIT = .proc/on_exit,
+		COMSIG_ATOM_EXIT = PROC_REF(on_exit),
 	)
 
 	if (flags_1 & ON_BORDER_1)
@@ -431,7 +431,7 @@
 /obj/structure/ms13/fence/Initialize()
 	. = ..()
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_EXIT = .proc/on_exit,
+		COMSIG_ATOM_EXIT = PROC_REF(on_exit),
 	)
 
 	if (flags_1 & ON_BORDER_1)
@@ -955,7 +955,7 @@
 	. = ..()
 	register_context()
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_EXIT = .proc/on_exit,
+		COMSIG_ATOM_EXIT = PROC_REF(on_exit),
 	)
 
 	if (flags_1 & ON_BORDER_1)

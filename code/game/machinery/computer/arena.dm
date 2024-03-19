@@ -221,7 +221,7 @@
 	for(var/mob/M in all_contestants())
 		to_chat(M,span_userdanger("The gates will open in [timetext]!"))
 	start_time = world.time + start_delay
-	addtimer(CALLBACK(src,.proc/begin),start_delay)
+	addtimer(CALLBACK(src, PROC_REF(begin),start_delay))
 	for(var/team in teams)
 		var/obj/machinery/arena_spawn/team_spawn = get_spawn(team)
 		var/obj/effect/countdown/arena/A = new(team_spawn)

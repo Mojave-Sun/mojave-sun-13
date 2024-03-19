@@ -805,7 +805,7 @@
 		return
 	prevent_goto_movement = TRUE
 	Goto(target = src, delay = move_to_delay, minimum_distance = 0)
-	var/datum/cb = CALLBACK(src,.proc/reset_goto_movement)
+	var/datum/cb = CALLBACK(src, PROC_REF(reset_goto_movement))
 	addtimer(cb,2 SECONDS)
 	charge.Trigger(target = target)
 

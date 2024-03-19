@@ -267,7 +267,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	RegisterSignal(src, COMSIG_ATOM_BSA_BEAM, PROC_REF(call_explode))
 
 	var/static/list/loc_connections = list(
-		COMSIG_TURF_INDUSTRIAL_LIFT_ENTER = .proc/tram_contents_consume,
+		COMSIG_TURF_INDUSTRIAL_LIFT_ENTER = PROC_REF(tram_contents_consume),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)	//Speficially for the tram, hacky
 

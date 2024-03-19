@@ -118,7 +118,7 @@
 /obj/effect/anomaly/grav/Initialize(mapload, new_lifespan, drops_core)
 	. = ..()
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 
@@ -201,7 +201,7 @@
 	. = ..()
 	explosive = _explosive
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 
@@ -305,7 +305,7 @@
 
 /obj/effect/anomaly/bluespace/proc/blue_effect(mob/make_sparkle)
 	make_sparkle.overlay_fullscreen("bluespace_flash", /atom/movable/screen/fullscreen/bluespace_sparkle, 1)
-	addtimer(CALLBACK(make_sparkle, /mob/.proc/clear_fullscreen, "bluespace_flash"), 2 SECONDS)
+	addtimer(CALLBACK(make_sparkle, TYPE_PROC_REF(/mob, clear_fullscreen), "bluespace_flash"), 2 SECONDS)
 
 /////////////////////
 

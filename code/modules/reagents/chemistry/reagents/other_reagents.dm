@@ -2112,7 +2112,7 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/hair_dye/New()
-	SSticker.OnRoundstart(CALLBACK(src,.proc/UpdateColor))
+	SSticker.OnRoundstart(CALLBACK(src, PROC_REF(UpdateColor)))
 	return ..()
 
 /datum/reagent/hair_dye/proc/UpdateColor()

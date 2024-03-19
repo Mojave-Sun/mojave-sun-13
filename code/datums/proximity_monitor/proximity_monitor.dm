@@ -9,8 +9,8 @@
 	var/ignore_if_not_on_turf
 	///The signals of the connect range component, needed to monitor the turfs in range.
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
-		COMSIG_ATOM_EXITED =.proc/on_uncrossed,
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+		COMSIG_ATOM_EXITED = PROC_REF(on_uncrossed),
 	)
 
 /datum/proximity_monitor/New(atom/_host, range, _ignore_if_not_on_turf = TRUE)
@@ -33,7 +33,7 @@
 		hasprox_receiver = new_host
 	host = new_host
 	RegisterSignal(new_host, COMSIG_PARENT_QDELETING, PROC_REF(on_host_or_receiver_del))
-	var/static/list/containers_connections = list(COMSIG_MOVABLE_MOVED = .proc/on_moved)
+	var/static/list/containers_connections = list(COMSIG_MOVABLE_MOVED = PROC_REF(on_moved))
 	AddComponent(/datum/component/connect_containers, host, containers_connections)
 	RegisterSignal(host, COMSIG_MOVABLE_MOVED, PROC_REF(on_moved))
 	set_range(current_range, TRUE)

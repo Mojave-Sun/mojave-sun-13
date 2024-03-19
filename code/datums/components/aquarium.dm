@@ -71,7 +71,7 @@
 	current_aquarium = aquarium
 	RegisterSignal(current_aquarium, COMSIG_ATOM_EXITED, PROC_REF(on_removed))
 	RegisterSignal(current_aquarium, COMSIG_AQUARIUM_SURFACE_CHANGED, PROC_REF(on_surface_changed))
-	RegisterSignal(current_aquarium, COMSIG_AQUARIUM_FLUID_CHANGED,.proc/on_fluid_changed)
+	RegisterSignal(current_aquarium, COMSIG_AQUARIUM_FLUID_CHANGED, PROC_REF(on_fluid_changed))
 	RegisterSignal(current_aquarium, COMSIG_PARENT_ATTACKBY, PROC_REF(attack_reaction))
 	properties.on_inserted()
 

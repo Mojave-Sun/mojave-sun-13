@@ -23,7 +23,7 @@
 	. = ..()
 	RegisterSignal(parent, COMSIG_PARENT_QDELETING, PROC_REF(parent_deleted))
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 	connect_loc_behalf = AddComponent(/datum/component/connect_loc_behalf, parent, loc_connections)
 

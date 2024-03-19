@@ -91,7 +91,7 @@
 /datum/component/explodable/proc/on_equip(datum/source, mob/equipper, slot)
 	SIGNAL_HANDLER
 
-	RegisterSignal(equipper, COMSIG_MOB_APPLY_DAMAGE,  .proc/explodable_attack_zone, TRUE)
+	RegisterSignal(equipper, COMSIG_MOB_APPLY_DAMAGE,  PROC_REF(explodable_attack_zone), TRUE)
 
 /datum/component/explodable/proc/on_drop(datum/source, mob/user)
 	SIGNAL_HANDLER

@@ -450,7 +450,7 @@
 
 /obj/item/clothing/accessory/allergy_dogtag/on_uniform_equip(obj/item/clothing/under/U, user)
 	. = ..()
-	RegisterSignal(U,COMSIG_PARENT_EXAMINE,.proc/on_examine)
+	RegisterSignal(U,COMSIG_PARENT_EXAMINE, PROC_REF(on_examine))
 
 /obj/item/clothing/accessory/allergy_dogtag/on_uniform_dropped(obj/item/clothing/under/U, user)
 	. = ..()

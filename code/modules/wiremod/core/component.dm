@@ -69,7 +69,7 @@
 	return
 
 /// Extension of add_input_port. Simplifies the code to make an option port to reduce boilerplate
-/obj/item/circuit_component/proc/add_option_port(name, list/list_to_use, order = 0, trigger = .proc/input_received)
+/obj/item/circuit_component/proc/add_option_port(name, list/list_to_use, order = 0, trigger = PROC_REF(input_received))
 	return add_input_port(name, PORT_TYPE_OPTION, order = order, trigger = trigger, port_type = /datum/port/input/option, extra_args = list("possible_options" = list_to_use))
 
 /obj/item/circuit_component/Initialize(mapload)
@@ -151,7 +151,7 @@
  * * type - The datatype it handles
  * * trigger - Whether this input port triggers an update on the component when updated.
  */
-/obj/item/circuit_component/proc/add_input_port(name, type, order = 1, trigger = .proc/input_received, default = null, port_type = /datum/port/input, extra_args = null)
+/obj/item/circuit_component/proc/add_input_port(name, type, order = 1, trigger = PROC_REF(input_received), default = null, port_type = /datum/port/input, extra_args = null)
 	var/list/arguments = list(src)
 	arguments += args
 	if(extra_args)
@@ -268,7 +268,7 @@
 			if(!cell?.use(power_usage_per_input))
 				return FALSE
 
-	if((!port || port.trigger == .proc/input_received) && (circuit_flags & CIRCUIT_FLAG_INPUT_SIGNAL) && !COMPONENT_TRIGGERED_BY(trigger_input, port))
+	if((!port || port.trigger == PROC_REF(input_received)) && (circuit_flags & CIRCUIT_FLAG_INPUT_SIGNAL) && !COMPONENT_TRIGGERED_BY(trigger_input, port))
 		return FALSE
 
 	return TRUE

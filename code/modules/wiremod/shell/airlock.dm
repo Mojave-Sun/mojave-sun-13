@@ -167,7 +167,7 @@
 
 
 /obj/item/circuit_component/airlock_access_event/populate_ports()
-	open_airlock = add_input_port("Should Open Airlock", PORT_TYPE_RESPONSE_SIGNAL, trigger = .proc/should_open_airlock)
+	open_airlock = add_input_port("Should Open Airlock", PORT_TYPE_RESPONSE_SIGNAL, trigger = PROC_REF(should_open_airlock))
 	accessing_entity = add_output_port("Accessing Entity", PORT_TYPE_ATOM)
 	event_triggered = add_output_port("Event Triggered", PORT_TYPE_INSTANT_SIGNAL)
 

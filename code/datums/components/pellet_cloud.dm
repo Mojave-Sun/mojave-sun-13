@@ -128,7 +128,7 @@
 		var/turf/current_loc = get_turf(user)
 		if (!istype(target_loc) || !istype(current_loc) || !(shell.loaded_projectile))
 			return
-		INVOKE_ASYNC(shell, /obj/item/ammo_casing.proc/throw_proj, target, target_loc, shooter, params, spread)
+		INVOKE_ASYNC(shell, TYPE_PROC_REF(/obj/item/ammo_casing, throw_proj), target, target_loc, shooter, params, spread)
 
 		if(i != num_pellets)
 			shell.newshot()
@@ -334,7 +334,7 @@
 	RegisterSignal(parent, COMSIG_ITEM_DROPPED, PROC_REF(grenade_dropped))
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(grenade_moved))
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_EXITED =.proc/grenade_uncrossed,
+		COMSIG_ATOM_EXITED = PROC_REF(grenade_uncrossed),
 	)
 	AddComponent(/datum/component/connect_loc_behalf, parent, loc_connections)
 

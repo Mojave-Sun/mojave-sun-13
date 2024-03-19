@@ -45,7 +45,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 		tgui_alert(usr,"Wait until the game starts")
 		return
 	log_admin("[key_name(src)] has robotized [M.key].")
-	INVOKE_ASYNC(M, /mob.proc/Robotize)
+	INVOKE_ASYNC(M, TYPE_PROC_REF(/mob, Robotize))
 
 /client/proc/makepAI(turf/T in GLOB.mob_list)
 	set category = "Admin.Fun"

@@ -90,7 +90,7 @@
 	update_weight()
 	update_appearance()
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_movable_entered_occupied_turf,
+		COMSIG_ATOM_ENTERED = PROC_REF(on_movable_entered_occupied_turf),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 

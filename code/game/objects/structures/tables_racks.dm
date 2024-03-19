@@ -43,7 +43,7 @@
 	AddElement(/datum/element/climbable)
 
 	var/static/list/loc_connections = list(
-		COMSIG_CARBON_DISARM_COLLIDE = .proc/table_carbon,
+		COMSIG_CARBON_DISARM_COLLIDE = PROC_REF(table_carbon),
 	)
 
 	AddElement(/datum/element/connect_loc, loc_connections)
@@ -361,7 +361,7 @@
 	else
 		debris += new /obj/item/shard
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 

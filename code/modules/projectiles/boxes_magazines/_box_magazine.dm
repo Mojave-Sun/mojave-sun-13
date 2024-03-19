@@ -43,7 +43,7 @@
 		top_off(starting=TRUE)
 
 /*/obj/item/ammo_box/add_weapon_description()
-	AddElement(/datum/element/weapon_description, attached_proc = .proc/add_notes_box) //MOJAVE EDIT - Comments out this proc because weapon_description in general is commented out.
+	AddElement(/datum/element/weapon_description, attached_proc = PROC_REF(add_notes_box) //MOJAVE EDIT - Comments out this proc because weapon_description in general is commented out.)
 
 /obj/item/ammo_box/proc/add_notes_box()
 	var/list/readout = list()

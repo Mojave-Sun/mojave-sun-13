@@ -10,8 +10,8 @@
 /datum/component/knockoff/Initialize(knockoff_chance,zone_override,slots_knockoffable)
 	if(!isitem(parent))
 		return COMPONENT_INCOMPATIBLE
-	RegisterSignal(parent, COMSIG_ITEM_EQUIPPED,.proc/OnEquipped)
-	RegisterSignal(parent, COMSIG_ITEM_DROPPED,.proc/OnDropped)
+	RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, PROC_REF(OnEquipped))
+	RegisterSignal(parent, COMSIG_ITEM_DROPPED, PROC_REF(OnDropped))
 
 	src.knockoff_chance = knockoff_chance
 

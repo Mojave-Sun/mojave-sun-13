@@ -29,12 +29,12 @@
 	var/max_paper_capacity = 10
 
 /obj/item/circuit_component/printer/populate_ports()
-	print = add_input_port("Print", PORT_TYPE_STRING, trigger = .proc/print_on_paper)
+	print = add_input_port("Print", PORT_TYPE_STRING, trigger = PROC_REF(print_on_paper))
 	text_color_red = add_input_port("Color (Red)", PORT_TYPE_NUMBER, trigger = null, default = 0)
 	text_color_green = add_input_port("Color (Green)", PORT_TYPE_NUMBER, trigger = null, default = 0)
 	text_color_blue = add_input_port("Color (Blue)", PORT_TYPE_NUMBER, trigger = null, default = 0)
 	signature = add_input_port("Signature", PORT_TYPE_STRING, trigger = null, default = "signature")
-	eject = add_input_port("Eject", PORT_TYPE_SIGNAL, trigger = .proc/eject_paper, order = 2)
+	eject = add_input_port("Eject", PORT_TYPE_SIGNAL, trigger = PROC_REF(eject_paper), order = 2)
 
 /obj/item/circuit_component/printer/populate_options()
 	var/static/typeface_options = list(

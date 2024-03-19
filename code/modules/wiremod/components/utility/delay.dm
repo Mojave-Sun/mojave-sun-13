@@ -25,8 +25,8 @@
 
 /obj/item/circuit_component/delay/populate_ports()
 	delay_amount = add_input_port("Delay", PORT_TYPE_NUMBER, trigger = null)
-	trigger = add_input_port("Trigger", PORT_TYPE_SIGNAL, trigger = .proc/trigger_delay)
-	interrupt = add_input_port("Interrupt", PORT_TYPE_SIGNAL, trigger = .proc/interrupt_timer)
+	trigger = add_input_port("Trigger", PORT_TYPE_SIGNAL, trigger = PROC_REF(trigger_delay))
+	interrupt = add_input_port("Interrupt", PORT_TYPE_SIGNAL, trigger = PROC_REF(interrupt_timer))
 
 	output = add_output_port("Result", PORT_TYPE_SIGNAL)
 

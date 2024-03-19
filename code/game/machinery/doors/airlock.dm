@@ -169,7 +169,7 @@
 
 	// Click on the floor to close airlocks
 	var/static/list/connections = list(
-		COMSIG_ATOM_ATTACK_HAND = .proc/on_attack_hand
+		COMSIG_ATOM_ATTACK_HAND = PROC_REF(on_attack_hand)
 	)
 	AddElement(/datum/element/connect_loc, connections)
 
@@ -1151,7 +1151,7 @@
 			if(axe && !axe.wielded)
 				to_chat(user, span_warning("You need to be wielding \the [axe] to do that!"))
 				return
-		INVOKE_ASYNC(src, (density ? .proc/open : .proc/close), 2)
+		INVOKE_ASYNC(src, (density ? PROC_REF(open) : PROC_REF(close)), 2)
 
 
 /obj/machinery/door/airlock/open(forced=0)

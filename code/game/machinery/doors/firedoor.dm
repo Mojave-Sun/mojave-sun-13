@@ -65,7 +65,7 @@
 	CalculateAffectingAreas()
 	my_area = get_area(src)
 	var/static/list/loc_connections = list(
-		COMSIG_TURF_EXPOSE = .proc/check_atmos,
+		COMSIG_TURF_EXPOSE = PROC_REF(check_atmos),
 	)
 
 	AddElement(/datum/element/connect_loc, loc_connections)
@@ -536,7 +536,7 @@
 	. = ..()
 
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_EXIT = .proc/on_exit,
+		COMSIG_ATOM_EXIT = PROC_REF(on_exit),
 	)
 
 	AddElement(/datum/element/connect_loc, loc_connections)

@@ -70,10 +70,10 @@
 	flags_1 |= ALLOW_DARK_PAINTS_1
 	RegisterSignal(src, COMSIG_OBJ_PAINTED, PROC_REF(on_painted))
 	AddElement(/datum/element/atmos_sensitive, mapload)
-	AddComponent(/datum/component/simple_rotation, ROTATION_NEEDS_ROOM, AfterRotation = CALLBACK(src,.proc/AfterRotation))
+	AddComponent(/datum/component/simple_rotation, ROTATION_NEEDS_ROOM, AfterRotation = CALLBACK(src, PROC_REF(AfterRotation)))
 
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_EXIT = .proc/on_exit,
+		COMSIG_ATOM_EXIT = PROC_REF(on_exit),
 	)
 
 	if (flags_1 & ON_BORDER_1)

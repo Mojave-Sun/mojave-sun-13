@@ -89,7 +89,7 @@
 	. = ..()
 	QDEL_IN(src, 100)
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_LEAPER, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 5)

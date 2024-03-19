@@ -441,7 +441,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 			process = FALSE
 			target.playsound_local(source, 'sound/weapons/egloves.ogg', 40, 1)
 			target.playsound_local(source, get_sfx("bodyfall"), 25, 1)
-			addtimer(CALLBACK(target, /mob/.proc/playsound_local, source, 'sound/weapons/cablecuff.ogg', 15, 1), 20)
+			addtimer(CALLBACK(target, TYPE_PROC_REF(/mob, playsound_local), source, 'sound/weapons/cablecuff.ogg', 15, 1), 20)
 		if("harmbaton") //zap n slap
 			iterations_left = rand(5, 12)
 			target.playsound_local(source, 'sound/weapons/egloves.ogg', 40, 1)
@@ -492,15 +492,15 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 			target.playsound_local(source, fire_sound, 25, 1)
 
 			if(prob(50))
-				addtimer(CALLBACK(target, /mob/.proc/playsound_local, source, hit_person_sound, 25, 1), rand(5,10))
+				addtimer(CALLBACK(target, TYPE_PROC_REF(/mob, playsound_local), source, hit_person_sound, 25, 1), rand(5,10))
 				hits += 1
 			else
-				addtimer(CALLBACK(target, /mob/.proc/playsound_local, source, hit_wall_sound, 25, 1), rand(5,10))
+				addtimer(CALLBACK(target, TYPE_PROC_REF(/mob, playsound_local), source, hit_wall_sound, 25, 1), rand(5,10))
 
 			next_action = rand(CLICK_CD_RANGE, CLICK_CD_RANGE + 6)
 
 			if(hits >= number_of_hits && prob(chance_to_fall))
-				addtimer(CALLBACK(target, /mob/.proc/playsound_local, source, get_sfx("bodyfall"), 25, 1), next_action)
+				addtimer(CALLBACK(target, TYPE_PROC_REF(/mob, playsound_local), source, get_sfx("bodyfall"), 25, 1), next_action)
 				qdel(src)
 				return
 		if ("esword")
@@ -943,7 +943,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 			target.playsound_local(source,'sound/machines/airlock.ogg', 30, 1)
 		if("airlock pry")
 			target.playsound_local(source,'sound/machines/airlock_alien_prying.ogg', 100, 1)
-			addtimer(CALLBACK(target, /mob/.proc/playsound_local, source, 'sound/machines/airlockforced.ogg', 30, 1), 50)
+			addtimer(CALLBACK(target, TYPE_PROC_REF(/mob, playsound_local), source, 'sound/machines/airlockforced.ogg', 30, 1), 50)
 		if("console")
 			target.playsound_local(source,'sound/machines/terminal_prompt.ogg', 25, 1)
 		if("explosion")
@@ -964,12 +964,12 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 		//Deconstructing a wall
 		if("wall decon")
 			target.playsound_local(source, 'sound/items/welder.ogg', 50, 1)
-			addtimer(CALLBACK(target, /mob/.proc/playsound_local, source, 'sound/items/welder2.ogg', 50, 1), 105)
-			addtimer(CALLBACK(target, /mob/.proc/playsound_local, source, 'sound/items/ratchet.ogg', 50, 1), 120)
+			addtimer(CALLBACK(target, TYPE_PROC_REF(/mob, playsound_local), source, 'sound/items/welder2.ogg', 50, 1), 105)
+			addtimer(CALLBACK(target, TYPE_PROC_REF(/mob, playsound_local), source, 'sound/items/ratchet.ogg', 50, 1), 120)
 		//Hacking a door
 		if("door hack")
 			target.playsound_local(source, 'sound/items/screwdriver.ogg', 50, 1)
-			addtimer(CALLBACK(target, /mob/.proc/playsound_local, source, 'sound/machines/airlockforced.ogg', 30, 1), rand(40, 80))
+			addtimer(CALLBACK(target, TYPE_PROC_REF(/mob, playsound_local), source, 'sound/machines/airlockforced.ogg', 30, 1), rand(40, 80))
 	qdel(src)
 
 /datum/hallucination/mech_sounds
@@ -1021,7 +1021,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 		if("phone")
 			target.playsound_local(source, 'sound/weapons/ring.ogg', 15)
 			for (var/next_rings in 1 to 3)
-				addtimer(CALLBACK(target, /mob/.proc/playsound_local, source, 'sound/weapons/ring.ogg', 15), 25 * next_rings)
+				addtimer(CALLBACK(target, TYPE_PROC_REF(/mob, playsound_local), source, 'sound/weapons/ring.ogg', 15), 25 * next_rings)
 		if("hyperspace")
 			target.playsound_local(null, 'sound/runtime/hyperspace/hyperspace_begin.ogg', 50)
 		if("hallelujah")
@@ -1040,8 +1040,8 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 			target.playsound_local(source, pick(GLOB.creepy_ambience), 50, 1)
 		if("tesla") //Tesla loose!
 			target.playsound_local(source, 'sound/magic/lightningbolt.ogg', 35, 1)
-			addtimer(CALLBACK(target, /mob/.proc/playsound_local, source, 'sound/magic/lightningbolt.ogg', 65, 1), 30)
-			addtimer(CALLBACK(target, /mob/.proc/playsound_local, source, 'sound/magic/lightningbolt.ogg', 100, 1), 60)
+			addtimer(CALLBACK(target, TYPE_PROC_REF(/mob, playsound_local), source, 'sound/magic/lightningbolt.ogg', 65, 1), 30)
+			addtimer(CALLBACK(target, TYPE_PROC_REF(/mob, playsound_local), source, 'sound/magic/lightningbolt.ogg', 100, 1), 60)
 
 	qdel(src)
 
@@ -1063,7 +1063,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 			target.playsound_local(target, 'sound/effects/clockcult_gateway_disrupted.ogg', 50, FALSE, pressure_affected = FALSE)
 			addtimer(CALLBACK(
 				target,
-				/mob/.proc/playsound_local,
+				TYPE_PROC_REF(/mob, playsound_local),
 				target,
 				'sound/effects/explosion_distant.ogg',
 				50,
@@ -1351,7 +1351,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 /obj/effect/hallucination/danger/lava/Initialize(mapload, _target)
 	. = ..()
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 
@@ -1373,7 +1373,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 /obj/effect/hallucination/danger/chasm/Initialize(mapload, _target)
 	. = ..()
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 
@@ -1400,7 +1400,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	. = ..()
 	START_PROCESSING(SSobj, src)
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 

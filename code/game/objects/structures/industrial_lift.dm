@@ -170,9 +170,9 @@ GLOBAL_LIST_EMPTY(lifts)
 	. = ..()
 	GLOB.lifts.Add(src)
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_EXITED =.proc/UncrossedRemoveItemFromLift,
-		COMSIG_ATOM_ENTERED = .proc/AddItemOnLift,
-		COMSIG_ATOM_CREATED = .proc/AddItemOnLift,
+		COMSIG_ATOM_EXITED = PROC_REF(UncrossedRemoveItemFromLift),
+		COMSIG_ATOM_ENTERED = PROC_REF(AddItemOnLift),
+		COMSIG_ATOM_CREATED = PROC_REF(AddItemOnLift),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 	RegisterSignal(src, COMSIG_MOVABLE_BUMP, PROC_REF(GracefullyBreak))

@@ -61,7 +61,7 @@
 
 /datum/chemical_reaction/New()
 	. = ..()
-	SSticker.OnRoundstart(CALLBACK(src,.proc/update_info))
+	SSticker.OnRoundstart(CALLBACK(src, PROC_REF(update_info)))
 
 /**
  * Updates information during the roundstart

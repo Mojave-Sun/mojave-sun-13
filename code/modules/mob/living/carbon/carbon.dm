@@ -10,8 +10,8 @@
 
 	GLOB.carbon_list += src
 	var/static/list/loc_connections = list(
-		COMSIG_CARBON_DISARM_PRESHOVE = .proc/disarm_precollide,
-		COMSIG_CARBON_DISARM_COLLIDE = .proc/disarm_collision,
+		COMSIG_CARBON_DISARM_PRESHOVE = PROC_REF(disarm_precollide),
+		COMSIG_CARBON_DISARM_COLLIDE = PROC_REF(disarm_collision),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 

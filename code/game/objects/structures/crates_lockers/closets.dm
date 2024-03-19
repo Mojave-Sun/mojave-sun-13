@@ -78,7 +78,7 @@
 	if(QDELETED(src)) //It turns out populate contents has a 1 in 100 chance of qdeling src on /obj/structure/closet/emcloset
 		return //Why
 	/*var/static/list/loc_connections = list( // MOJAVE SUN EDIT BEGIN - Commented out!
-		COMSIG_CARBON_DISARM_COLLIDE = .proc/locker_carbon,
+		COMSIG_CARBON_DISARM_COLLIDE = PROC_REF(locker_carbon),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)*/ // MOJAVE SUN EDIT END
 

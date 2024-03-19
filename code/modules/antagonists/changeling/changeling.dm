@@ -608,7 +608,7 @@
 /datum/antagonist/changeling/get_admin_commands()
 	. = ..()
 	if(stored_profiles.len && (owner.current.real_name != first_profile.name))
-		.["Transform to initial appearance."] = CALLBACK(src,.proc/admin_restore_appearance)
+		.["Transform to initial appearance."] = CALLBACK(src, PROC_REF(admin_restore_appearance))
 
 /*
  * Restores the appearance of the changeling to the original DNA.

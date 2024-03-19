@@ -102,7 +102,7 @@
 			assembly.stored_decals.Cut()
 			assembly = null
 		return
-	post_change_callbacks += CALLBACK(assembly, /obj/item/assembly/trapdoor.proc/carry_over_trapdoor, trapdoor_turf_path)
+	post_change_callbacks += CALLBACK(assembly, TYPE_PROC_REF(/obj/item/assembly/trapdoor, carry_over_trapdoor), trapdoor_turf_path)
 
 /**
  * ## carry_over_trapdoor
