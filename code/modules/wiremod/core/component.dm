@@ -158,7 +158,7 @@
 		arguments += extra_args
 	var/datum/port/input/input_port = new port_type(arglist(arguments))
 	input_ports += input_port
-	sortTim(input_ports, /proc/cmp_port_order_asc)
+	sortTim(input_ports, GLOBAL_PROC_REF(cmp_port_order_asc))
 	if(parent)
 		SStgui.update_uis(parent)
 	return input_port
@@ -187,7 +187,7 @@
 	arguments += args
 	var/datum/port/output/output_port = new(arglist(arguments))
 	output_ports += output_port
-	sortTim(output_ports, /proc/cmp_port_order_asc)
+	sortTim(output_ports, GLOBAL_PROC_REF(cmp_port_order_asc))
 	return output_port
 
 /**

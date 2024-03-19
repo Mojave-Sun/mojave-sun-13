@@ -415,7 +415,7 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 	banned += generateMapList("spaceruinblacklist.txt")
 	banned += generateMapList("iceruinblacklist.txt")
 
-	for(var/item in sort_list(subtypesof(/datum/map_template/ruin), /proc/cmp_ruincost_priority))
+	for(var/item in sort_list(subtypesof(/datum/map_template/ruin), GLOBAL_PROC_REF(cmp_ruincost_priority)))
 		var/datum/map_template/ruin/ruin_type = item
 		// screen out the abstract subtypes
 		if(!initial(ruin_type.id))
