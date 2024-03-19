@@ -38,8 +38,6 @@
 /obj/structure/closet/ms13/grave/proc/on_entered(datum/source, atom/movable/AM, atom/old_loc)
 	SIGNAL_HANDLER
 
-	message_admins("[AM.name] entered from [old_loc]")
-
 	if((abs(dirt_level - dug_level) > 2) || !isturf(loc) || (AM.movement_type & FLYING) || !isliving(AM) || old_loc == src)
 		return
 
@@ -93,7 +91,6 @@
 	return TRUE
 
 /obj/structure/closet/ms13/grave/open(mob/living/user, force = FALSE)
-	message_admins("PASS OPEN")
 	if(opened)
 		return
 	opened = TRUE
@@ -123,7 +120,6 @@
 	. = ..()
 
 /obj/structure/closet/ms13/grave/close(mob/living/user)
-	message_admins("PASS CLOSE")
 	if(!opened || !can_close(user))
 		return FALSE
 	take_contents()
@@ -156,7 +152,6 @@
 		// Cannot dig if incapacitated or on the grave turf
 		return
 	if(W.tool_behaviour == TOOL_SHOVEL)
-		message_admins("Start digging with level [dirt_level]")
 		if(dirt_level == dug_level)
 			to_chat(user, span_notice("[src] is already completely dug out."))
 		else
@@ -171,7 +166,6 @@
 					open(user) // update_appearance already in open()
 				else
 					update_appearance()
-		message_admins("Dirt level is now [dirt_level]")
 		return
 	if(opened && !(W.item_flags & ABSTRACT))
 		if(user.transferItemToLoc(W, drop_location(), silent = FALSE))
@@ -192,7 +186,6 @@
 		// Cannot dig if incapacitated or on the grave turf
 		return
 	if(tool.tool_behaviour == TOOL_SHOVEL)
-		message_admins("Start filling with level [dirt_level]")
 		if(dirt_level == 0)
 			to_chat(user, span_notice("You start leveling the ground with \the [tool]."))
 			if(do_after(user, 3 SECONDS * tool.toolspeed, target = src))
@@ -217,8 +210,6 @@
 				// Filled grave between dug_level - max_level
 				dirt_level += length(contents) ? 1 : -1
 				update_appearance()
-
-		message_admins("Dirt level is now [dirt_level]")
 
 /obj/structure/closet/ms13/grave/wrench_act_secondary(mob/living/user, obj/item/tool)
 	return TRUE
