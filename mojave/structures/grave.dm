@@ -78,6 +78,11 @@
 	. = ..()
 	icon_state = "[initial(icon_state)]_[soil_type]_[dirt_level]"
 
+/obj/structure/closet/ms13/grave/examine(mob/user)
+	. = ..()
+	if(length(contents))
+		. += span_notice("There is something buried here!")
+
 /obj/structure/closet/ms13/grave/can_close(mob/living/user)
 	var/turf/T = get_turf(src)
 	for(var/mob/living/L in T)
@@ -92,11 +97,30 @@
 	if(opened)
 		return
 	opened = TRUE
+	dirt_level = dug_level  // In case it is bust open directly from a filled state
 	dump_contents()
 	update_appearance()
 	after_open(user, force)
 	SEND_SIGNAL(src, COMSIG_CLOSET_POST_OPEN, force)
 	return TRUE
+
+/obj/structure/closet/ms13/grave/insert(atom/movable/inserted, mapload = FALSE)
+	. = ..()
+	if(. && isliving(inserted))
+		ADD_TRAIT(inserted, TRAIT_MAGIC_CHOKE, STATUS_EFFECT_TRAIT)
+		var/mob/living/living_target = inserted
+		living_target.RegisterSignal(living_target, COMSIG_MOB_SAY, /mob/living/.proc/handle_buried_speech)
+		to_chat(living_target, span_danger("You have trouble breathing under the weight of the dirt!"))
+
+/obj/structure/closet/ms13/grave/dump_contents()
+	var/atom/L = drop_location()
+	for(var/atom/movable/AM in src)
+		AM.forceMove(L)
+		if(isliving(AM))
+			REMOVE_TRAIT(AM, TRAIT_MAGIC_CHOKE, STATUS_EFFECT_TRAIT)
+			var/mob/living/living_target = AM
+			living_target.UnregisterSignal(living_target, COMSIG_MOB_SAY)
+	. = ..()
 
 /obj/structure/closet/ms13/grave/close(mob/living/user)
 	message_admins("PASS CLOSE")
@@ -128,8 +152,9 @@
 /obj/structure/closet/ms13/grave/tool_interact(obj/item/W, mob/living/user, params)
 
 	. = TRUE
-	if(user.combat_mode)
-		return FALSE
+	if(IS_DEAD_OR_INCAP(user) || user.resting || get_turf(user) == loc)
+		// Cannot dig if incapacitated or on the grave turf
+		return
 	if(W.tool_behaviour == TOOL_SHOVEL)
 		message_admins("Start digging with level [dirt_level]")
 		if(dirt_level == dug_level)
@@ -163,6 +188,9 @@
 
 /obj/structure/closet/ms13/grave/shovel_act_secondary(mob/living/user, obj/item/tool)
 	. = TRUE
+	if(IS_DEAD_OR_INCAP(user) || user.resting || get_turf(user) == loc)
+		// Cannot dig if incapacitated or on the grave turf
+		return
 	if(tool.tool_behaviour == TOOL_SHOVEL)
 		message_admins("Start filling with level [dirt_level]")
 		if(dirt_level == 0)
