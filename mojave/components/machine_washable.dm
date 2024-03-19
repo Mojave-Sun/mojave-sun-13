@@ -27,7 +27,7 @@
 
 /datum/component/machine_washable/RegisterWithParent()
 	. = ..()
-	RegisterSignal(parent, COMSIG_COMPONENT_CLEAN_ACT, .proc/check_wash)
+	RegisterSignal(parent, COMSIG_COMPONENT_CLEAN_ACT, PROC_REF(check_wash))
 
 /datum/component/machine_washable/UnregisterFromParent()
 	. = ..()

@@ -19,7 +19,7 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 /obj/item/hilbertshotel/Initialize(mapload)
 	. = ..()
 	//Load templates
-	INVOKE_ASYNC(src, .proc/prepare_rooms)
+	INVOKE_ASYNC(src, PROC_REF(prepare_rooms))
 
 /obj/item/hilbertshotel/proc/prepare_rooms()
 	hotelRoomTemp = new()

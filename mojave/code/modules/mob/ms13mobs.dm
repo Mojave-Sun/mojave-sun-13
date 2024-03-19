@@ -98,7 +98,7 @@
 
 /mob/living/simple_animal/ms13/Initialize()
 	. = ..()
-	AddComponent(/datum/component/tameable, tame_chance = 25, bonus_tame_chance = 15, after_tame = CALLBACK(src, .proc/tamed))
+	AddComponent(/datum/component/tameable, tame_chance = 25, bonus_tame_chance = 15, after_tame = CALLBACK(src, PROC_REF(tamed)))
 	icon_dead = "[icon_state]_dead"
 	var/matrix/bambinoscale = matrix()
 	if(is_young == TRUE)
@@ -297,7 +297,7 @@
 
 /mob/living/simple_animal/hostile/ms13/Initialize()
 	. = ..()
-	AddComponent(/datum/component/tameable, tame_chance = 10, bonus_tame_chance = 15, after_tame = CALLBACK(src, .proc/tamed))
+	AddComponent(/datum/component/tameable, tame_chance = 10, bonus_tame_chance = 15, after_tame = CALLBACK(src, PROC_REF(tamed)))
 	icon_dead = "[icon_state]_dead"
 	var/matrix/bambinoscale = matrix()
 	if(is_young == TRUE)
@@ -503,7 +503,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/ms13/Initialize()
 	. = ..()
-	AddComponent(/datum/component/tameable, tame_chance = 10, bonus_tame_chance = 15, after_tame = CALLBACK(src, .proc/tamed))
+	AddComponent(/datum/component/tameable, tame_chance = 10, bonus_tame_chance = 15, after_tame = CALLBACK(src, PROC_REF(tamed)))
 	icon_dead = "[icon_state]_dead"
 	var/matrix/bambinoscale = matrix()
 	if(is_young == TRUE)

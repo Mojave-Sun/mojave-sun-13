@@ -49,8 +49,8 @@
 	if(ispath(device))
 		device = new device(src)
 		ADD_TRAIT(device, TRAIT_NODROP, MOD_TRAIT)
-		RegisterSignal(device, COMSIG_PARENT_PREQDELETED, .proc/on_device_deletion)
-		RegisterSignal(src, COMSIG_ATOM_EXITED, .proc/on_exit)
+		RegisterSignal(device, COMSIG_PARENT_PREQDELETED, PROC_REF(on_device_deletion))
+		RegisterSignal(src, COMSIG_ATOM_EXITED, PROC_REF(on_exit))
 
 /obj/item/mod/module/Destroy()
 	mod?.uninstall(src)
@@ -124,8 +124,8 @@
 		if(device)
 			if(mod.wearer.put_in_hands(device))
 				balloon_alert(mod.wearer, "[device] extended")
-				RegisterSignal(mod.wearer, COMSIG_ATOM_EXITED, .proc/on_exit)
-				RegisterSignal(mod.wearer, COMSIG_KB_MOB_DROPITEM_DOWN, .proc/dropkey)
+				RegisterSignal(mod.wearer, COMSIG_ATOM_EXITED, PROC_REF(on_exit))
+				RegisterSignal(mod.wearer, COMSIG_KB_MOB_DROPITEM_DOWN, PROC_REF(dropkey))
 			else
 				balloon_alert(mod.wearer, "can't extend [device]!")
 				mod.wearer.transferItemToLoc(device, src, force = TRUE)
@@ -173,7 +173,7 @@
 	if(SEND_SIGNAL(src, COMSIG_MODULE_TRIGGERED) & MOD_ABORT_USE)
 		return FALSE
 	COOLDOWN_START(src, cooldown_timer, cooldown_time)
-	addtimer(CALLBACK(mod.wearer, /mob.proc/update_inv_back), cooldown_time)
+	addtimer(CALLBACK(mod.wearer, TYPE_PROC_REF(/mob, update_inv_back)), cooldown_time)
 	mod.wearer.update_inv_back()
 	SEND_SIGNAL(src, COMSIG_MODULE_USED)
 	return TRUE

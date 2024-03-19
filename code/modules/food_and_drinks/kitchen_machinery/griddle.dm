@@ -29,7 +29,7 @@
 	. = ..()
 	grill_loop = new(src, FALSE)
 	meat_sound = new(src, FALSE) //Mojave Sun edit - Removed variant code and also added our meat grilling sound loop
-	RegisterSignal(src, COMSIG_ATOM_EXPOSE_REAGENT, .proc/on_expose_reagent)
+	RegisterSignal(src, COMSIG_ATOM_EXPOSE_REAGENT, PROC_REF(on_expose_reagent))
 
 /obj/machinery/griddle/Destroy()
 	QDEL_NULL(grill_loop)
@@ -103,9 +103,9 @@
 	vis_contents += item_to_grill
 	griddled_objects += item_to_grill
 	item_to_grill.flags_1 |= IS_ONTOP_1
-	RegisterSignal(item_to_grill, COMSIG_MOVABLE_MOVED, .proc/ItemMoved)
-	RegisterSignal(item_to_grill, COMSIG_GRILL_COMPLETED, .proc/GrillCompleted)
-	RegisterSignal(item_to_grill, COMSIG_PARENT_QDELETING, .proc/ItemRemovedFromGrill)
+	RegisterSignal(item_to_grill, COMSIG_MOVABLE_MOVED, PROC_REF(ItemMoved))
+	RegisterSignal(item_to_grill, COMSIG_GRILL_COMPLETED, PROC_REF(GrillCompleted))
+	RegisterSignal(item_to_grill, COMSIG_PARENT_QDELETING, PROC_REF(ItemRemovedFromGrill))
 	update_grill_audio()
 
 /obj/machinery/griddle/proc/ItemRemovedFromGrill(obj/item/I)

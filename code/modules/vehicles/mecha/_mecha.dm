@@ -177,9 +177,9 @@
 	. = ..()
 	if(enclosed)
 		internal_tank = new (src)
-		RegisterSignal(src, COMSIG_MOVABLE_PRE_MOVE , .proc/disconnect_air)
-	RegisterSignal(src, COMSIG_MOVABLE_MOVED, .proc/play_stepsound)
-	RegisterSignal(src, COMSIG_LIGHT_EATER_ACT, .proc/on_light_eater)
+		RegisterSignal(src, COMSIG_MOVABLE_PRE_MOVE, PROC_REF(disconnect_air))
+	RegisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(play_stepsound))
+	RegisterSignal(src, COMSIG_LIGHT_EATER_ACT, PROC_REF(on_light_eater))
 
 	spark_system.set_up(2, 0, src)
 	spark_system.attach(src)
@@ -513,7 +513,7 @@
 	for(var/mob/M in speech_bubble_recipients)
 		if(M.client)
 			speech_bubble_recipients.Add(M.client)
-	INVOKE_ASYNC(GLOBAL_PROC, /proc/flick_overlay, image('icons/mob/talk.dmi', src, "machine[say_test(speech_args[SPEECH_MESSAGE])]",MOB_LAYER+1), speech_bubble_recipients, 30)
+	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(flick_overlay), image('icons/mob/talk.dmi', src, "machine[say_test(speech_args[SPEECH_MESSAGE])]",MOB_LAYER+1), speech_bubble_recipients, 30)
 
 ////////////////////////////
 ///// Action processing ////
@@ -1100,10 +1100,10 @@
 
 
 /obj/vehicle/sealed/mecha/add_occupant(mob/M, control_flags)
-	RegisterSignal(M, COMSIG_LIVING_DEATH, .proc/mob_exit)
-	RegisterSignal(M, COMSIG_MOB_CLICKON, .proc/on_mouseclick)
-	RegisterSignal(M, COMSIG_MOB_MIDDLECLICKON, .proc/on_middlemouseclick) //For AIs
-	RegisterSignal(M, COMSIG_MOB_SAY, .proc/display_speech_bubble)
+	RegisterSignal(M, COMSIG_LIVING_DEATH, PROC_REF(mob_exit))
+	RegisterSignal(M, COMSIG_MOB_CLICKON, PROC_REF(on_mouseclick))
+	RegisterSignal(M, COMSIG_MOB_MIDDLECLICKON, PROC_REF(on_middlemouseclick)) //For AIs
+	RegisterSignal(M, COMSIG_MOB_SAY, PROC_REF(display_speech_bubble))
 	. = ..()
 	update_appearance()
 

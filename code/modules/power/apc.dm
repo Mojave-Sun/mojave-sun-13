@@ -215,7 +215,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/power/apc/auto_name, APC_PIXEL_OFFSET
 		name = "\improper [get_area_name(area, TRUE)] APC"
 		set_machine_stat(machine_stat | MAINT)
 		update_appearance()
-		addtimer(CALLBACK(src, .proc/update), 5)
+		addtimer(CALLBACK(src, PROC_REF(update)), 5)
 		dir = ndir
 
 	// offset APC_PIXEL_OFFSET pixels in direction of dir
@@ -308,7 +308,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/power/apc/auto_name, APC_PIXEL_OFFSET
 
 	make_terminal()
 
-	addtimer(CALLBACK(src, .proc/update), 5)
+	addtimer(CALLBACK(src, PROC_REF(update)), 5)
 
 /obj/machinery/power/apc/should_atmos_process(datum/gas_mixture/air, exposed_temperature)
 	return (exposed_temperature > 2000)
@@ -1473,7 +1473,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/power/apc/auto_name, APC_PIXEL_OFFSET
 	environ = APC_CHANNEL_OFF
 	update_appearance()
 	update()
-	addtimer(CALLBACK(src, .proc/reset, APC_RESET_EMP), 600)
+	addtimer(CALLBACK(src, PROC_REF(reset), APC_RESET_EMP), 600)
 
 /obj/machinery/power/apc/blob_act(obj/structure/blob/B)
 	set_broken()
@@ -1499,7 +1499,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/power/apc/auto_name, APC_PIXEL_OFFSET
 		return
 	if( cell && cell.charge>=20)
 		cell.use(20)
-		INVOKE_ASYNC(src, .proc/break_lights)
+		INVOKE_ASYNC(src, PROC_REF(break_lights))
 
 /obj/machinery/power/apc/proc/break_lights()
 	for(var/obj/machinery/light/L in area)

@@ -123,8 +123,8 @@
 
 	var/mob/living/living_mob = mob_to_tweak
 	handle_clown_mutation(living_mob, "You have evolved beyond your clownish nature, allowing you to wield weapons without harming yourself.")
-	RegisterSignal(living_mob, COMSIG_MOB_LOGIN, .proc/on_login)
-	RegisterSignal(living_mob, COMSIG_LIVING_LIFE, .proc/on_life)
+	RegisterSignal(living_mob, COMSIG_MOB_LOGIN, PROC_REF(on_login))
+	RegisterSignal(living_mob, COMSIG_LIVING_LIFE, PROC_REF(on_life))
 	living_mob.hud_used?.lingchemdisplay.invisibility = 0
 	living_mob.hud_used?.lingchemdisplay.maptext = FORMAT_CHEM_CHARGES_TEXT(chem_charges)
 
@@ -132,7 +132,7 @@
 		return
 
 	var/mob/living/carbon/carbon_mob = mob_to_tweak
-	RegisterSignal(carbon_mob, list(COMSIG_MOB_MIDDLECLICKON, COMSIG_MOB_ALTCLICKON), .proc/on_click_sting)
+	RegisterSignal(carbon_mob, list(COMSIG_MOB_MIDDLECLICKON, COMSIG_MOB_ALTCLICKON), PROC_REF(on_click_sting))
 
 	// Brains are optional for lings.
 	var/obj/item/organ/brain/our_ling_brain = carbon_mob.getorganslot(ORGAN_SLOT_BRAIN)
@@ -608,7 +608,7 @@
 /datum/antagonist/changeling/get_admin_commands()
 	. = ..()
 	if(stored_profiles.len && (owner.current.real_name != first_profile.name))
-		.["Transform to initial appearance."] = CALLBACK(src,.proc/admin_restore_appearance)
+		.["Transform to initial appearance."] = CALLBACK(src, PROC_REF(admin_restore_appearance))
 
 /*
  * Restores the appearance of the changeling to the original DNA.

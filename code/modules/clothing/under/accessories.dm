@@ -80,7 +80,7 @@
 		UnregisterSignal(detached_pockets, COMSIG_PARENT_QDELETING)
 	detached_pockets = new_pocket
 	if(detached_pockets)
-		RegisterSignal(detached_pockets, COMSIG_PARENT_QDELETING, .proc/handle_pockets_del)
+		RegisterSignal(detached_pockets, COMSIG_PARENT_QDELETING, PROC_REF(handle_pockets_del))
 
 /obj/item/clothing/accessory/proc/handle_pockets_del(datum/source)
 	SIGNAL_HANDLER
@@ -338,7 +338,7 @@
 	user.visible_message(span_notice("[user] shows [user.p_their()] attorney's badge."), span_notice("You show your attorney's badge."))
 
 /obj/item/clothing/accessory/lawyers_badge/on_uniform_equip(obj/item/clothing/under/U, mob/living/user)
-	RegisterSignal(user, COMSIG_LIVING_SLAM_TABLE, .proc/table_slam)
+	RegisterSignal(user, COMSIG_LIVING_SLAM_TABLE, PROC_REF(table_slam))
 	user.bubble_icon = "lawyer"
 
 /obj/item/clothing/accessory/lawyers_badge/on_uniform_dropped(obj/item/clothing/under/U, mob/living/user)
@@ -347,7 +347,7 @@
 
 /obj/item/clothing/accessory/lawyers_badge/proc/table_slam(mob/living/source, obj/structure/table/the_table)
 	SIGNAL_HANDLER
-	INVOKE_ASYNC(src, .proc/handle_table_slam, source)
+	INVOKE_ASYNC(src, PROC_REF(handle_table_slam), source)
 
 /obj/item/clothing/accessory/lawyers_badge/proc/handle_table_slam(mob/living/user)
 	user.say("Objection!!", spans = list(SPAN_YELL), forced=TRUE)
@@ -450,7 +450,7 @@
 
 /obj/item/clothing/accessory/allergy_dogtag/on_uniform_equip(obj/item/clothing/under/U, user)
 	. = ..()
-	RegisterSignal(U,COMSIG_PARENT_EXAMINE,.proc/on_examine)
+	RegisterSignal(U,COMSIG_PARENT_EXAMINE, PROC_REF(on_examine))
 
 /obj/item/clothing/accessory/allergy_dogtag/on_uniform_dropped(obj/item/clothing/under/U, user)
 	. = ..()

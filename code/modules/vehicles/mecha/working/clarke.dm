@@ -84,7 +84,7 @@
 	UpdateButtonIcon()
 	COOLDOWN_START(src, search_cooldown, SEARCH_COOLDOWN)
 	addtimer(VARSET_CALLBACK(src, button_icon_state, "mech_search_ruins"), SEARCH_COOLDOWN)
-	addtimer(CALLBACK(src, .proc/UpdateButtonIcon), SEARCH_COOLDOWN)
+	addtimer(CALLBACK(src, PROC_REF(UpdateButtonIcon)), SEARCH_COOLDOWN)
 	var/obj/pinpointed_ruin
 	for(var/obj/effect/landmark/ruin/ruin_landmark as anything in GLOB.ruin_landmarks)
 		if(ruin_landmark.z != chassis.z)

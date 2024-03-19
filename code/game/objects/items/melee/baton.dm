@@ -308,7 +308,7 @@
 		clumsy_check = FALSE, \
 		attack_verb_continuous_on = list("smacks", "strikes", "cracks", "beats"), \
 		attack_verb_simple_on = list("smack", "strike", "crack", "beat"))
-	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, .proc/on_transform)
+	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, PROC_REF(on_transform))
 
 /obj/item/melee/baton/telescopic/suicide_act(mob/user)
 	var/mob/living/carbon/human/human_user = user
@@ -413,7 +413,7 @@
 			log_mapping("[src] at [AREACOORD(src)] had an invalid preload_cell_type: [preload_cell_type].")
 		else
 			cell = new preload_cell_type(src)
-	RegisterSignal(src, COMSIG_PARENT_ATTACKBY, .proc/convert)
+	RegisterSignal(src, COMSIG_PARENT_ATTACKBY, PROC_REF(convert))
 	update_appearance()
 
 /obj/item/melee/baton/security/get_cell()
@@ -567,7 +567,7 @@
 	target.stuttering = max(8, target.stuttering)
 
 	SEND_SIGNAL(target, COMSIG_LIVING_MINOR_SHOCK)
-	addtimer(CALLBACK(src, .proc/apply_stun_effect_end, target), 2 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(apply_stun_effect_end), target), 2 SECONDS)
 
 /// After the initial stun period, we check to see if the target needs to have the stun applied.
 /obj/item/melee/baton/security/proc/apply_stun_effect_end(mob/living/target)
@@ -606,7 +606,7 @@
 		scramble_mode()
 		for(var/loops in 1 to rand(6, 12))
 			scramble_time = rand(5, 15) / (1 SECONDS)
-			addtimer(CALLBACK(src, .proc/scramble_mode), scramble_time*loops * (1 SECONDS))
+			addtimer(CALLBACK(src, PROC_REF(scramble_mode)), scramble_time*loops * (1 SECONDS))
 
 /obj/item/melee/baton/security/proc/scramble_mode()
 	active = !active

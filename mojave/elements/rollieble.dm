@@ -20,10 +20,10 @@
 	src.rollie_type_name = rollie_type_name
 	src.rolling_time = rolling_time
 
-	RegisterSignal(target, COMSIG_PARENT_ATTACKBY, .proc/start_filling_papers)
-	RegisterSignal(target, COMSIG_ITEM_ATTACK_SELF, .proc/start_rolling_that_shit)
-	RegisterSignal(target, COMSIG_ITEM_ATTACK_SELF_SECONDARY, .proc/start_removing_that_shit)
-	RegisterSignal(target, list(COMSIG_ITEM_EQUIPPED, COMSIG_STORAGE_ENTERED, COMSIG_ITEM_DROPPED, COMSIG_STORAGE_EXITED), .proc/update_overlays)
+	RegisterSignal(target, COMSIG_PARENT_ATTACKBY, PROC_REF(start_filling_papers))
+	RegisterSignal(target, COMSIG_ITEM_ATTACK_SELF, PROC_REF(start_rolling_that_shit))
+	RegisterSignal(target, COMSIG_ITEM_ATTACK_SELF_SECONDARY, PROC_REF(start_removing_that_shit))
+	RegisterSignal(target, list(COMSIG_ITEM_EQUIPPED, COMSIG_STORAGE_ENTERED, COMSIG_ITEM_DROPPED, COMSIG_STORAGE_EXITED), PROC_REF(update_overlays))
 
 /datum/element/rollable/Detach(datum/target)
 	. = ..()
@@ -31,7 +31,7 @@
 
 /datum/element/rollable/proc/start_filling_papers(atom/target, obj/item/filling, mob/living/user)
 	SIGNAL_HANDLER
-	INVOKE_ASYNC(src, .proc/fill_papers, target, filling, user)
+	INVOKE_ASYNC(src, PROC_REF(fill_papers), target, filling, user)
 
 /datum/element/rollable/proc/fill_papers(atom/target, obj/item/filling, mob/living/user)
 	if(!isrollable(target))
@@ -80,7 +80,7 @@
 
 /datum/element/rollable/proc/start_removing_that_shit(atom/target, mob/user, list/modifiers)
 	SIGNAL_HANDLER
-	INVOKE_ASYNC(src, .proc/remove_that_shit, target, user)
+	INVOKE_ASYNC(src, PROC_REF(remove_that_shit), target, user)
 
 /datum/element/rollable/proc/remove_that_shit(atom/target, mob/user)
 	if(!isrollable(target))
@@ -102,7 +102,7 @@
 
 /datum/element/rollable/proc/start_rolling_that_shit(atom/target, mob/user)
 	SIGNAL_HANDLER
-	INVOKE_ASYNC(src, .proc/roll_that_shit, target, user)
+	INVOKE_ASYNC(src, PROC_REF(roll_that_shit), target, user)
 
 /datum/element/rollable/proc/roll_that_shit(atom/target, mob/user)
 	if(!isrollable(target))

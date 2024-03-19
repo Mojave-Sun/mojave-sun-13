@@ -83,7 +83,7 @@
 	if(start_with_cell && !no_emergency)
 		cell = new/obj/item/stock_parts/cell/emergency_light(src)
 
-	RegisterSignal(src, COMSIG_LIGHT_EATER_ACT, .proc/on_light_eater)
+	RegisterSignal(src, COMSIG_LIGHT_EATER_ACT, PROC_REF(on_light_eater))
 	AddElement(/datum/element/atmos_sensitive, mapload)
 	return INITIALIZE_HINT_LATELOAD
 
@@ -96,7 +96,7 @@
 		if("bulb")
 			if(prob(5))
 				break_light_tube(TRUE)
-	addtimer(CALLBACK(src, .proc/update, FALSE), 0.1 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(update), FALSE), 0.1 SECONDS)
 
 /obj/machinery/light/Destroy()
 	var/area/local_area = get_area(src)
@@ -200,7 +200,7 @@
 		if(!start_only)
 			do_sparks(3, TRUE, src)
 		var/delay = rand(BROKEN_SPARKS_MIN, BROKEN_SPARKS_MAX)
-		addtimer(CALLBACK(src, .proc/broken_sparks), delay, TIMER_UNIQUE | TIMER_NO_HASH_WAIT)
+		addtimer(CALLBACK(src, PROC_REF(broken_sparks)), delay, TIMER_UNIQUE | TIMER_NO_HASH_WAIT)
 
 /obj/machinery/light/process()
 	if (!cell)

@@ -104,7 +104,7 @@
 		return
 
 	var/old_len = authorized.len
-	addtimer(CALLBACK(src, .proc/clear_recent_action, user), SHUTTLE_CONSOLE_ACTION_DELAY)
+	addtimer(CALLBACK(src, PROC_REF(clear_recent_action), user), SHUTTLE_CONSOLE_ACTION_DELAY)
 
 	switch(action)
 		if("authorize")
@@ -590,7 +590,7 @@
 
 /obj/machinery/computer/shuttle/pod/Initialize(mapload)
 	. = ..()
-	RegisterSignal(SSsecurity_level, COMSIG_SECURITY_LEVEL_CHANGED, .proc/check_lock)
+	RegisterSignal(SSsecurity_level, COMSIG_SECURITY_LEVEL_CHANGED, PROC_REF(check_lock))
 
 /obj/machinery/computer/shuttle/pod/ComponentInitialize()
 	. = ..()

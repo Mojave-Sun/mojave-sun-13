@@ -35,16 +35,16 @@
 	src.world_icon_state = world_icon_state
 	src.inventory_icon = inventory_icon
 	src.inventory_icon_state = inventory_icon_state
-	RegisterSignal(target, COMSIG_ATOM_UPDATE_ICON, .proc/update_icon)
-	RegisterSignal(target, COMSIG_ATOM_UPDATE_ICON_STATE, .proc/update_icon_state)
-	RegisterSignal(target, list(COMSIG_ITEM_EQUIPPED, COMSIG_STORAGE_ENTERED, COMSIG_ITEM_DROPPED, COMSIG_STORAGE_EXITED), .proc/inventory_updated)
+	RegisterSignal(target, COMSIG_ATOM_UPDATE_ICON, PROC_REF(update_icon))
+	RegisterSignal(target, COMSIG_ATOM_UPDATE_ICON_STATE, PROC_REF(update_icon_state))
+	RegisterSignal(target, list(COMSIG_ITEM_EQUIPPED, COMSIG_STORAGE_ENTERED, COMSIG_ITEM_DROPPED, COMSIG_STORAGE_EXITED), PROC_REF(inventory_updated))
 	target.update_appearance(UPDATE_ICON)
 	target.update_appearance(UPDATE_ICON_STATE)
 
 /datum/element/world_icon/Detach(obj/item/source)
 	. = ..()
 	UnregisterSignal(source, COMSIG_ATOM_UPDATE_ICON)
-	UnregisterSignal(source, COMSIG_ATOM_UPDATE_ICON_STATE, .proc/update_icon_state)
+	UnregisterSignal(source, COMSIG_ATOM_UPDATE_ICON_STATE, PROC_REF(update_icon_state))
 	UnregisterSignal(source, list(COMSIG_ITEM_EQUIPPED, COMSIG_STORAGE_ENTERED, COMSIG_ITEM_DROPPED, COMSIG_STORAGE_EXITED))
 	source.update_appearance(UPDATE_ICON)
 	source.update_appearance(UPDATE_ICON_STATE)
@@ -98,7 +98,7 @@
 		source.icon_state = source.icon_state
 		return
 
-	INVOKE_ASYNC(src, .proc/check_inventory_state, source)
+	INVOKE_ASYNC(src, PROC_REF(check_inventory_state), source)
 
 /datum/element/world_icon/proc/default_world_icon_state(obj/item/source)
 	SIGNAL_HANDLER
@@ -107,7 +107,7 @@
 		source.icon_state = source.icon_state
 		return
 
-	INVOKE_ASYNC(src, .proc/check_world_icon_state, source)
+	INVOKE_ASYNC(src, PROC_REF(check_world_icon_state), source)
 
 /datum/element/world_icon/proc/check_inventory_state(obj/item/source)
 	SIGNAL_HANDLER

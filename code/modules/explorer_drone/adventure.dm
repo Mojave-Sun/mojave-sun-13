@@ -319,9 +319,9 @@ GLOBAL_LIST_EMPTY(explorer_drone_adventure_db_entries)
 		var/delay_time = choice_data[CHOICE_DELAY_FIELD]
 		if(!isnum(delay_time))
 			CRASH("Invalid delay in adventure [name]")
-		SEND_SIGNAL(src,COMSIG_ADVENTURE_DELAY_START,delay_time,delay_message)
+		SEND_SIGNAL(src, COMSIG_ADVENTURE_DELAY_START, delay_time, delay_message)
 		delayed_action = list(delay_time,delay_message)
-		addtimer(CALLBACK(src,.proc/finish_delay,exit_id),delay_time)
+		addtimer(CALLBACK(src, PROC_REF(finish_delay), exit_id), delay_time)
 		return
 	navigate_to_node(exit_id)
 

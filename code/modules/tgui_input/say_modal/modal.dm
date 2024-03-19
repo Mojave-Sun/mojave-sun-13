@@ -37,7 +37,7 @@
 	src.client = client
 	window = new(client, id)
 	winset(client, "tgui_say", "size=1,1;is-visible=0;")
-	window.subscribe(src, .proc/on_message)
+	window.subscribe(src, PROC_REF(on_message))
 	window.is_browser = TRUE
 
 /**

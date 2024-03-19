@@ -21,7 +21,7 @@
 	animate(thealert, transform = matrix(), time = 2.5, easing = CUBIC_EASING)
 
 	if(thealert.timeout)
-		addtimer(CALLBACK(src, .proc/alert_text_timeout, thealert), thealert.timeout)
+		addtimer(CALLBACK(src, PROC_REF(alert_text_timeout), thealert), thealert.timeout)
 	return thealert
 
 /mob/proc/alert_text_timeout(atom/movable/screen/alert/text/alert)

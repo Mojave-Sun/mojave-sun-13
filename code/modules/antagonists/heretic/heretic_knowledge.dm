@@ -219,7 +219,7 @@
 		loc.balloon_alert(user, "ritual failed, no fingerprints!")
 		return FALSE
 
-	var/chosen_mob = tgui_input_list(user, "Select the person you wish to curse", "Eldritch Curse", sort_list(compiled_list, /proc/cmp_mob_realname_dsc))
+	var/chosen_mob = tgui_input_list(user, "Select the person you wish to curse", "Eldritch Curse", sort_list(compiled_list, GLOBAL_PROC_REF(cmp_mob_realname_dsc)))
 	if(isnull(chosen_mob))
 		return FALSE
 
@@ -230,7 +230,7 @@
 
 	log_combat(user, to_curse, "cursed via heretic ritual", addition = "([name])")
 	curse(to_curse)
-	addtimer(CALLBACK(src, .proc/uncurse, to_curse), duration)
+	addtimer(CALLBACK(src, PROC_REF(uncurse), to_curse), duration)
 	return TRUE
 
 /**

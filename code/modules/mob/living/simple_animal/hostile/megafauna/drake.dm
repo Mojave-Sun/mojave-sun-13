@@ -93,10 +93,10 @@
 	meteors.Grant(src)
 	mass_fire.Grant(src)
 	lava_swoop.Grant(src)
-	RegisterSignal(src, COMSIG_ABILITY_STARTED, .proc/start_attack)
-	RegisterSignal(src, COMSIG_ABILITY_FINISHED, .proc/finished_attack)
-	RegisterSignal(src, COMSIG_SWOOP_INVULNERABILITY_STARTED, .proc/swoop_invulnerability_started)
-	RegisterSignal(src, COMSIG_LAVA_ARENA_FAILED, .proc/on_arena_fail)
+	RegisterSignal(src, COMSIG_ABILITY_STARTED, PROC_REF(start_attack))
+	RegisterSignal(src, COMSIG_ABILITY_FINISHED, PROC_REF(finished_attack))
+	RegisterSignal(src, COMSIG_SWOOP_INVULNERABILITY_STARTED, PROC_REF(swoop_invulnerability_started))
+	RegisterSignal(src, COMSIG_LAVA_ARENA_FAILED, PROC_REF(on_arena_fail))
 
 /mob/living/simple_animal/hostile/megafauna/dragon/Destroy()
 	QDEL_NULL(fire_cone)
@@ -151,7 +151,7 @@
 
 /mob/living/simple_animal/hostile/megafauna/dragon/proc/on_arena_fail()
 	SIGNAL_HANDLER
-	INVOKE_ASYNC(src, .proc/arena_escape_enrage)
+	INVOKE_ASYNC(src, PROC_REF(arena_escape_enrage))
 
 /mob/living/simple_animal/hostile/megafauna/dragon/proc/arena_escape_enrage() // you ran somehow / teleported away from my arena attack now i'm mad fucker
 	SLEEP_CHECK_DEATH(0, src)
@@ -240,7 +240,7 @@
 
 /obj/effect/temp_visual/lava_warning/Initialize(mapload, reset_time = 10)
 	. = ..()
-	INVOKE_ASYNC(src, .proc/fall, reset_time)
+	INVOKE_ASYNC(src, PROC_REF(fall), reset_time)
 	src.alpha = 63.75
 	animate(src, alpha = 255, time = duration)
 
@@ -311,7 +311,7 @@
 
 /obj/effect/temp_visual/target/Initialize(mapload, list/flame_hit)
 	. = ..()
-	INVOKE_ASYNC(src, .proc/fall, flame_hit)
+	INVOKE_ASYNC(src, PROC_REF(fall), flame_hit)
 
 /obj/effect/temp_visual/target/proc/fall(list/flame_hit)
 	var/turf/T = get_turf(src)

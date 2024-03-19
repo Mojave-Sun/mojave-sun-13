@@ -43,7 +43,7 @@
 
 /obj/effect/particle_effect/smoke/proc/kill_smoke()
 	STOP_PROCESSING(SSobj, src)
-	INVOKE_ASYNC(src, .proc/fade_out)
+	INVOKE_ASYNC(src, PROC_REF(fade_out))
 	QDEL_IN(src, 10)
 
 /obj/effect/particle_effect/smoke/process()
@@ -65,7 +65,7 @@
 	if(C.smoke_delay)
 		return FALSE
 	C.smoke_delay++
-	addtimer(CALLBACK(src, .proc/remove_smoke_delay, C), 10)
+	addtimer(CALLBACK(src, PROC_REF(remove_smoke_delay), C), 10)
 	return TRUE
 
 /obj/effect/particle_effect/smoke/proc/remove_smoke_delay(mob/living/carbon/C)
@@ -129,7 +129,7 @@
 /obj/effect/particle_effect/smoke/bad/Initialize(mapload)
 	. = ..()
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 

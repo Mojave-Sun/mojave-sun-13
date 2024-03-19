@@ -58,10 +58,10 @@
 	if(selfcharge)
 		START_PROCESSING(SSobj, src)
 	update_appearance()
-	RegisterSignal(src, COMSIG_ITEM_RECHARGED, .proc/instant_recharge)
+	RegisterSignal(src, COMSIG_ITEM_RECHARGED, PROC_REF(instant_recharge))
 
 /* /obj/item/gun/energy/add_weapon_description()
-	AddElement(/datum/element/weapon_description, attached_proc = .proc/add_notes_energy) //MOJAVE EDIT - Comments out this proc because weapon_description in general is commented out.
+	AddElement(/datum/element/weapon_description, attached_proc = PROC_REF(add_notes_energy) //MOJAVE EDIT - Comments out this proc because weapon_description in general is commented out.)
 
 /**
  *

@@ -142,11 +142,11 @@
 		return
 
 	on = FALSE
-	addtimer(CALLBACK(src, .proc/cooldown), cooldown)
+	addtimer(CALLBACK(src, PROC_REF(cooldown)), cooldown)
 
 	icon_state = state_off
 
-	INVOKE_ASYNC(src, .proc/captureimage, target, user, picture_size_x - 1, picture_size_y - 1)
+	INVOKE_ASYNC(src, PROC_REF(captureimage), target, user, picture_size_x - 1, picture_size_y - 1)
 
 
 /obj/item/camera/proc/cooldown()
@@ -163,7 +163,7 @@
 /obj/item/camera/proc/captureimage(atom/target, mob/user, size_x = 1, size_y = 1)
 	if(flash_enabled)
 		set_light_on(TRUE)
-		addtimer(CALLBACK(src, .proc/flash_end), FLASH_LIGHT_DURATION, TIMER_OVERRIDE|TIMER_UNIQUE)
+		addtimer(CALLBACK(src, PROC_REF(flash_end)), FLASH_LIGHT_DURATION, TIMER_OVERRIDE|TIMER_UNIQUE)
 	blending = TRUE
 	var/turf/target_turf = get_turf(target)
 	if(!isturf(target_turf))
@@ -280,13 +280,13 @@
 	picture_target = add_input_port("Picture Target", PORT_TYPE_ATOM)
 	picture_coord_x = add_input_port("Picture Coordinate X", PORT_TYPE_NUMBER)
 	picture_coord_y = add_input_port("Picture Coordinate Y", PORT_TYPE_NUMBER)
-	adjust_size_x = add_input_port("Picture Size X", PORT_TYPE_NUMBER, trigger = .proc/sanitize_picture_size)
-	adjust_size_y = add_input_port("Picture Size Y", PORT_TYPE_NUMBER, trigger = .proc/sanitize_picture_size)
+	adjust_size_x = add_input_port("Picture Size X", PORT_TYPE_NUMBER, trigger = PROC_REF(sanitize_picture_size))
+	adjust_size_y = add_input_port("Picture Size Y", PORT_TYPE_NUMBER, trigger = PROC_REF(sanitize_picture_size))
 
 /obj/item/circuit_component/camera/register_shell(atom/movable/shell)
 	. = ..()
 	camera = shell
-	RegisterSignal(shell, COMSIG_CAMERA_IMAGE_CAPTURED, .proc/on_image_captured)
+	RegisterSignal(shell, COMSIG_CAMERA_IMAGE_CAPTURED, PROC_REF(on_image_captured))
 
 /obj/item/circuit_component/camera/unregister_shell(atom/movable/shell)
 	UnregisterSignal(shell, COMSIG_CAMERA_IMAGE_CAPTURED)
