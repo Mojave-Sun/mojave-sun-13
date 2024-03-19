@@ -366,8 +366,8 @@ GLOBAL_LIST_EMPTY(bloody_footprints_cache)
 /obj/effect/decal/cleanable/blood/hitsplatter/proc/fly_towards(turf/target_turf, range)
 	var/delay = 2
 	var/datum/move_loop/loop = SSmove_manager.move_towards(src, target_turf, delay, timeout = delay * range, priority = MOVEMENT_ABOVE_SPACE_PRIORITY, flags = MOVEMENT_LOOP_START_FAST)
-	RegisterSignal(loop, COMSIG_MOVELOOP_PREPROCESS_CHECK, .proc/pre_move)
-	RegisterSignal(loop, COMSIG_MOVELOOP_POSTPROCESS, .proc/post_move)
+	RegisterSignal(loop, COMSIG_MOVELOOP_PREPROCESS_CHECK, PROC_REF(pre_move))
+	RegisterSignal(loop, COMSIG_MOVELOOP_POSTPROCESS, PROC_REF(post_move))
 	RegisterSignal(loop, COMSIG_PARENT_QDELETING, .proc/loop_done)
 
 /obj/effect/decal/cleanable/blood/hitsplatter/proc/pre_move(datum/move_loop/source)

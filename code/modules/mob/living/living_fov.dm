@@ -13,10 +13,10 @@
 	if(fov_view)
 		if(rel_x >= -1 && rel_x <= 1 && rel_y >= -1 && rel_y <= 1) //Cheap way to check inside that 3x3 box around you
 			return TRUE //Also checks if both are 0 to stop division by zero
-	
+
 		// Get the vector length so we can create a good directional vector
 		var/vector_len = sqrt(abs(rel_x) ** 2 + abs(rel_y) ** 2)
-	
+
 		/// Getting a direction vector
 		var/dir_x
 		var/dir_y
@@ -33,10 +33,10 @@
 			if(WEST)
 				dir_x = -vector_len
 				dir_y = 0
-	
+
 		///Calculate angle
 		var/angle = arccos((dir_x * rel_x + dir_y * rel_y) / (sqrt(dir_x**2 + dir_y**2) * sqrt(rel_x**2 + rel_y**2)))
-	
+
 		/// Calculate vision angle and compare
 		var/vision_angle = (360 - fov_view) / 2
 		if(angle < vision_angle)
@@ -119,7 +119,7 @@
 				fov_image.transform = matrix
 			fov_image.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 		mob_client.images += fov_image
-		addtimer(CALLBACK(GLOBAL_PROC, .proc/remove_image_from_client, fov_image, mob_client), 30)
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(remove_image_from_client), fov_image, mob_client), 30)
 
 /atom/movable/screen/fov_blocker
 	icon = 'mojave/icons/effects/ms_fov.dmi' //MOJAVE EDIT - Original path is icons/effects/fov/field_of_view.dmi

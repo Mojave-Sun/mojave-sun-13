@@ -300,7 +300,7 @@
 				B.current.client.images += C.cult_team.blood_target_image
 		attached_action.owner.update_action_buttons_icon()
 		remove_ranged_ability(span_cult("The marking rite is complete! It will last for 90 seconds."))
-		C.cult_team.blood_target_reset_timer = addtimer(CALLBACK(GLOBAL_PROC, .proc/reset_blood_target,C.cult_team), 900, TIMER_STOPPABLE)
+		C.cult_team.blood_target_reset_timer = addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(reset_blood_target), C.cult_team), 900, TIMER_STOPPABLE)
 		return TRUE
 	return FALSE
 
@@ -385,7 +385,7 @@
 	desc = "Remove the Blood Mark you previously set."
 	button_icon_state = "emp"
 	owner.update_action_buttons_icon()
-	C.cult_team.blood_target_reset_timer = addtimer(CALLBACK(GLOBAL_PROC, .proc/reset_blood_target,C.cult_team), base_cooldown, TIMER_STOPPABLE)
+	C.cult_team.blood_target_reset_timer = addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(reset_blood_target), C.cult_team), base_cooldown, TIMER_STOPPABLE)
 	addtimer(CALLBACK(src, .proc/reset_button), base_cooldown)
 
 

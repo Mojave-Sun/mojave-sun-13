@@ -122,7 +122,7 @@
 /datum/action/cooldown/mob_cooldown/projectile_attack/spiral_shots/attack_sequence(mob/living/firer, atom/target)
 	if(enraged)
 		SLEEP_CHECK_DEATH(1 SECONDS, firer)
-		INVOKE_ASYNC(src, .proc/create_spiral_attack, firer, target, TRUE)
+		INVOKE_ASYNC(src, PROC_REF(create_spiral_attack), firer, target, TRUE)
 		create_spiral_attack(firer, target, FALSE)
 		return
 	create_spiral_attack(firer, target)

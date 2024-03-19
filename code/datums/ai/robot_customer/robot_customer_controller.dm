@@ -45,7 +45,7 @@
 	SIGNAL_HANDLER
 
 
-	INVOKE_ASYNC(src, .proc/async_on_get_pulled, source, puller)
+	INVOKE_ASYNC(src, PROC_REF(async_on_get_pulled), source, puller)
 
 /datum/ai_controller/robot_customer/proc/async_on_get_pulled(datum/source, mob/living/puller)
 	var/mob/living/simple_animal/robot_customer/customer = pawn

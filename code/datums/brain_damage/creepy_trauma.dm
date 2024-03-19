@@ -75,7 +75,7 @@
 		return
 	if(prob(25)) // 25% chances to be nervous and stutter.
 		if(prob(50)) // 12.5% chance (previous check taken into account) of doing something suspicious.
-			addtimer(CALLBACK(src, .proc/on_failed_social_interaction), rand(1, 3) SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(on_failed_social_interaction)), rand(1, 3) SECONDS)
 		else if(owner.stuttering == 0)
 			to_chat(owner, span_warning("Being near [obsession] makes you nervous and you begin to stutter..."))
 		owner.stuttering = max(3, owner.stuttering)
@@ -114,7 +114,7 @@
 	if(examining_mob != owner || !triggering_examiner || prob(50))
 		return
 
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, obsession, span_warning("You catch [examining_mob] staring at you..."), 3))
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), obsession, span_warning("You catch [examining_mob] staring at you..."), 3))
 	return COMSIG_BLOCK_EYECONTACT
 
 /datum/brain_trauma/special/obsessed/proc/find_obsession()

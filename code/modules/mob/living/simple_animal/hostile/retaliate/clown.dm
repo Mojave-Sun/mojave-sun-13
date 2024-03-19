@@ -97,7 +97,7 @@
 	banana_rustle.Grant(src)
 	banana_bunch = new()
 	banana_bunch.Grant(src)
-	
+
 /mob/living/simple_animal/hostile/retaliate/clown/banana/Destroy()
 	. = ..()
 	QDEL_NULL(banana_rustle)
@@ -168,7 +168,7 @@
 	. = ..()
 	new /obj/item/food/grown/banana/bunch(get_step(owner.loc, owner.dir))
 	playsound(owner, 'sound/items/bikehorn.ogg', 60)
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/playsound, owner, 'sound/creatures/clown/hohoho.ogg', 100, 1), 1 SECONDS)
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(playsound), owner, 'sound/creatures/clown/hohoho.ogg', 100, 1), 1 SECONDS)
 	StartCooldown()
 
 /mob/living/simple_animal/hostile/retaliate/clown/honkling
