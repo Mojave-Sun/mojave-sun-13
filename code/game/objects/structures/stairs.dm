@@ -11,6 +11,7 @@
 	icon = 'icons/obj/stairs.dmi'
 	icon_state = "stairs"
 	anchored = TRUE
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF //MOJAVE EDIT - our society is not yet ready for destroyable stairs
 
 	var/force_open_above = FALSE // replaces the turf above this stair obj with /turf/open/openspace
 	var/terminator_mode = STAIR_TERMINATOR_AUTOMATIC
