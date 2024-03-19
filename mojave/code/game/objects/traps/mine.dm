@@ -2,7 +2,8 @@
 /obj/effect/mine/ms13/explosive
 	name = "Frag"
 	icon_state = "frag_primed"
-	var/inactive_state = "frag_armed"
+	hidden_for_look = TRUE
+	inactive_state = "frag_armed"
 	/// The devastation range of the resulting explosion.
 	var/range_devastation = 0
 	/// The heavy impact range of the resulting explosion.
@@ -15,17 +16,13 @@
 	var/range_flash = 3
 
 	arm_delay = 5 SECONDS
+	var/sounds_delay = 30 SECONDS
 
 /obj/effect/mine/ms13/explosive/Initialize(mapload)
-	. = ..()
-	if(arm_delay)
+	if(arm_delay && armed)
 		armed = FALSE
-		icon_state = inactive_state
 		addtimer(CALLBACK(src, .proc/now_armed), arm_delay)
-	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
-	)
-	AddElement(/datum/element/connect_loc, loc_connections)
+	. = ..()
 
 /obj/effect/mine/ms13/explosive/examine(mob/user)
 	. = ..()
@@ -39,16 +36,24 @@
 /// If the landmine was previously inactive, this beeps and displays a message marking it active
 /obj/effect/mine/ms13/explosive/now_armed()
 	armed = TRUE
-	icon_state = initial(icon_state)
+	if(!hidden_for_look)
+		icon_state = "frag_primed"
 	playsound(src, 'mojave/sound/ms13machines/frag_mine_arm.ogg', 40, FALSE, -2)
 	visible_message(span_danger("\The [src] beeps softly, indicating it is now active."), vision_distance = COMBAT_MESSAGE_RANGE)
+
+	addtimer(CALLBACK(src, .proc/alert_effect), sounds_delay + rand(5 SECONDS, sounds_delay))
+
+/obj/effect/mine/ms13/explosive/proc/alert_effect()
+	if(QDELETED(src))
+		return
+	playsound(src, 'mojave/sound/ms13machines/frag_mine_tick.ogg', 40, FALSE, -2)
+	addtimer(CALLBACK(src, .proc/alert_effect), sounds_delay)
 
 /obj/effect/mine/ms13/explosive/on_entered(datum/source, atom/movable/AM)
 	. = ..()
 
 /obj/effect/mine/ms13/explosive/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir)
 	. = ..()
-	triggermine()
 
 /// When something sets off a mine
 /obj/effect/mine/ms13/explosive/triggermine(atom/movable/triggerer)
