@@ -167,7 +167,8 @@
 /obj/item/clothing/suit/space/AltClick(mob/living/user)
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
 		return ..()
-	toggle_spacesuit_cell(user)
+	. = ..()
+	//toggle_spacesuit_cell(user) MOJAVE SUN EDIT - No I dont think so
 
 /// Remove the cell whent he cover is open on CTRL+Click
 /obj/item/clothing/suit/space/CtrlClick(mob/living/user)

@@ -232,6 +232,7 @@
 	sharpness = SHARP_POINTY
 	wound_bonus = CANT_WOUND
 	w_class = WEIGHT_CLASS_TINY
+	tool_behaviour = TOOL_PLIERS
 	random_color = FALSE
 	log_pickup_and_drop = TRUE
 	grid_width = 32
@@ -405,6 +406,37 @@
 	toolspeed = 2
 
 /obj/item/knife/ms13/scissors/Initialize()
+	. = ..()
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
+
+/obj/item/ms13/ruler
+	name = "ruler"
+	desc = "A basic ruler, allows for precise measurements on a small scale."
+	icon = 'mojave/icons/objects/tools/tools_world.dmi'
+	lefthand_file = 'mojave/icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'mojave/icons/mob/inhands/items_righthand.dmi'
+	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
+	worn_icon_state = "empty_placeholder"
+	icon_state = "ruler"
+	inhand_icon_state = "ruler"
+	hitsound = 'mojave/sound/ms13weapons/meleesounds/ruler_slap.ogg'
+	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/knife_pickup2.ogg'
+	attack_verb_continuous = list("smacks", "hits", "thwaps")
+	attack_verb_simple = list("smack", "hits", "thwap")
+	force = 5
+	throwforce = 2
+	wound_bonus = 0
+	sharpness = NONE
+	w_class = WEIGHT_CLASS_SMALL
+	max_integrity = 200
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0,  FIRE = 100, ACID = 50)
+	resistance_flags = FIRE_PROOF
+	tool_behaviour = TOOL_RULER
+	slot_flags = ITEM_SLOT_BELT
+	grid_width = 64
+	grid_height = 32
+
+/obj/item/ms13/ruler/Initialize()
 	. = ..()
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/tools/tools_inventory.dmi')
 

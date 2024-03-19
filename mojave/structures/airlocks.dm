@@ -15,6 +15,8 @@
 	assemblytype = /obj/item/stack/sheet/ms13/scrap/two
 	resistance_flags = INDESTRUCTIBLE
 	hitted_sound = 'mojave/sound/ms13effects/impact/metal/metal_generic_2.wav'
+	//For Checks
+	var/open = FALSE
 
 /obj/machinery/door/airlock/ms13/Bumped(atom/movable/AM)
 	return
@@ -28,16 +30,18 @@
 		return
 
 /obj/machinery/door/airlock/ms13/attack_hand(mob/living/M)
+	. = ..()
 	if(locked)
 		to_chat(M, "<span class='warning'> The [name] is locked.</span>")
 		playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
 		return
-	if(.)
-		return
-	if(flags_1 & LOCKABLE_1 && lock_locked)
-		to_chat(M, span_warning("The [name] is locked."))
-		playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
-		return
+
+/obj/machinery/door/airlock/ms13/open()
+	open = TRUE
+	. = ..()
+
+/obj/machinery/door/airlock/ms13/close()
+	open = FALSE
 	. = ..()
 
 /obj/machinery/door/airlock/ms13/screwdriver_act(mob/living/user, obj/item/tool)

@@ -25,6 +25,12 @@
 	var/has_damage_overlay = TRUE
 	//used for mirrored overlays
 	var/mirrored = FALSE
+	//used for lock overlays
+	var/lock_pixel_x = 0
+	var/lock_pixel_y = 0
+	//used for mirrored lock overlays
+	var/lock_pixel_x_mir = 0
+	var/lock_pixel_y_mir = 0
 
 /obj/machinery/door/unpowered/ms13/Initialize()
 	. = ..()
@@ -126,6 +132,39 @@
 							cut_overlays()
 							add_overlay(image(icon, icon_state = "damage_closed_1", layer = FLOAT_LAYER))
 
+	if(lock_locked)
+		switch(open)
+			if(FALSE)
+				switch(built_in_lock)
+					if(TRUE) //pre_spawn lock
+						switch(mirrored)
+							if(TRUE)
+								switch(dir)
+									if(NORTH)
+										add_overlay(image(icon, icon_state = "pre_lock_mirrored", layer = WALL_OBJ_LAYER, pixel_x = lock_pixel_x_mir , pixel_y = lock_pixel_y_mir))
+									if(SOUTH)
+										add_overlay(image(icon, icon_state = "pre_lock_mirrored", layer = WALL_OBJ_LAYER, pixel_x = -(lock_pixel_x_mir) , pixel_y = -(lock_pixel_y_mir),  dir = SOUTH))
+							if(FALSE)
+								switch(dir)
+									if(NORTH)
+										add_overlay(image(icon, icon_state = "pre_lock", layer = WALL_OBJ_LAYER, pixel_x = lock_pixel_x , pixel_y = lock_pixel_y))
+									if(SOUTH)
+										add_overlay(image(icon, icon_state = "pre_lock", layer = WALL_OBJ_LAYER, pixel_x = -(lock_pixel_x) , pixel_y = lock_pixel_y,  dir = SOUTH))
+					if(FALSE) //player lock
+						switch(mirrored)
+							if(TRUE)
+								switch(dir)
+									if(NORTH)
+										add_overlay(image(icon, icon_state = "[initial(lock.icon_state)]_mirrored", layer = WALL_OBJ_LAYER, pixel_x = lock_pixel_x_mir , pixel_y = lock_pixel_y_mir))
+									if(SOUTH)
+										add_overlay(image(icon, icon_state = "[initial(lock.icon_state)]_mirrored", layer = WALL_OBJ_LAYER, pixel_x = -(lock_pixel_x_mir) , pixel_y = -(lock_pixel_y_mir),  dir = SOUTH))
+							if(FALSE)
+								switch(dir)
+									if(NORTH)
+										add_overlay(image(icon, icon_state = "[initial(lock.icon_state)]", layer = WALL_OBJ_LAYER, pixel_x = lock_pixel_x , pixel_y = lock_pixel_y)) //align locks on doors
+									if(SOUTH)
+										add_overlay(image(icon, icon_state = "[initial(lock.icon_state)]", layer = WALL_OBJ_LAYER, pixel_x = -(lock_pixel_x) , pixel_y = -(lock_pixel_y),  dir = SOUTH))
+
 
 /obj/machinery/door/unpowered/ms13/open()
 	if(!density)
@@ -183,31 +222,28 @@
 	return TRUE
 
 /obj/machinery/door/unpowered/ms13/attack_hand(mob/living/M)
-	if(locked)
-		to_chat(M, "<span class='warning'> The [name] is locked.</span>")
-		playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
-		return
-	if(.)
-		return
 	if(ms13_flags_1 & LOCKABLE_1 && lock_locked)
-		to_chat(M, span_warning("The [name] is locked."))
-		playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
-		return
+		if(lock && lock.item_lock_locked) //for manually locked things
+			return . = ..()
+	if(locked)
+		return . = ..()
 	if(do_after(M, 0.5 SECONDS, interaction_key = DOAFTER_SOURCE_DOORS))
 		try_to_activate_door(M)
 
 /obj/machinery/door/unpowered/ms13/attackby(obj/item/I, mob/living/M, params)
 	. = ..()
+	update_appearance()
+	if(I.ms13_flags_1 & LOCKING_ITEM || KEY_ITEM)
+		return
 	if(locked && !(M.combat_mode))
 		to_chat(M, "<span class='warning'> The [name] is locked.</span>")
 		playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
 		return
-	if(!(I.item_flags & NOBLUDGEON || LOCKING_ITEM) && !(M.combat_mode) && do_after(M, 1.5 SECONDS, interaction_key = DOAFTER_SOURCE_DOORS))
+	if(!(I.item_flags & NOBLUDGEON) && !(M.combat_mode) && do_after(M, 1.5 SECONDS, interaction_key = DOAFTER_SOURCE_DOORS))
 		open = TRUE
 		try_to_activate_door(M)
 		return TRUE
 	if(!open)
-		update_appearance()
 		return ((obj_flags & CAN_BE_HIT) && I.attack_atom(src, M, params))
 
 /obj/machinery/door/unpowered/ms13/do_animate(animation)
@@ -263,6 +299,10 @@
 	frametype = "wood"
 	assemblytype = /obj/item/stack/sheet/ms13/wood/scrap_wood
 	hitted_sound = 'mojave/sound/ms13effects/wood_door_hit.ogg'
+	lock_pixel_x = -2
+	lock_pixel_y = 3
+	lock_pixel_x_mir = 2
+	lock_pixel_y_mir = 3
 
 /obj/machinery/door/unpowered/ms13/wood/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
@@ -355,27 +395,47 @@
 	icon_state = "metal_window_mirrored_closed"
 	door_type = "metal_window_mirrored"
 	mirrored = TRUE
+	lock_pixel_x = -2
+	lock_pixel_y = 4
+	lock_pixel_x_mir = 2
+	lock_pixel_y_mir = 4
 
 /obj/machinery/door/unpowered/ms13/seethrough/bar
 	name = "barred door"
 	icon_state = "metal_bar_closed"
 	door_type = "metal_bar"
 	has_damage_overlay = FALSE
+	lock_pixel_x = -2
+	lock_pixel_y = 2
+	lock_pixel_x_mir = 2
+	lock_pixel_y_mir = 2
 
 /obj/machinery/door/unpowered/ms13/seethrough/mirrored/bar
 	name = "barred door"
 	icon_state = "metal_bar_mirrored_closed"
 	door_type = "metal_bar_mirrored"
 	has_damage_overlay = FALSE
+	lock_pixel_x = -2
+	lock_pixel_y = 2
+	lock_pixel_x_mir = 2
+	lock_pixel_y_mir = 2
 
 /obj/machinery/door/unpowered/ms13/seethrough/grate
 	name = "grated door"
 	icon_state = "metal_grate_closed"
 	door_type = "metal_grate"
 	has_damage_overlay = FALSE
+	lock_pixel_x = -2
+	lock_pixel_y = 2
+	lock_pixel_x_mir = 2
+	lock_pixel_y_mir = 2
 
 /obj/machinery/door/unpowered/ms13/seethrough/mirrored/grate
 	name = "grated door"
 	icon_state = "metal_grate_mirrored_closed"
 	door_type = "metal_grate_mirrored"
 	has_damage_overlay = FALSE
+	lock_pixel_x = -2
+	lock_pixel_y = 2
+	lock_pixel_x_mir = 2
+	lock_pixel_y_mir = 2

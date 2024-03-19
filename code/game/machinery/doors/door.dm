@@ -208,7 +208,7 @@
 		return
 	if(try_safety_unlock(user))
 		return
-	return try_to_activate_door(user)
+	//return try_to_activate_door(user) MOJAVE SUN EDIT - Door Tweaks
 
 
 /obj/machinery/door/attack_tk(mob/user)
@@ -271,7 +271,7 @@
 	else if((!(I.item_flags & NOBLUDGEON) && !user.combat_mode) && try_to_activate_door(user))
 		return TRUE
 	*/// MOJAVE SUN EDIT END - Bad Door Code
-	return ..()
+	return . = ..()
 
 /obj/machinery/door/attackby_secondary(obj/item/weapon, mob/user, params)
 	if (weapon.tool_behaviour == TOOL_WELDER)

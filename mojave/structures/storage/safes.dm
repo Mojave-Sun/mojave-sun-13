@@ -8,6 +8,15 @@
 	projectile_passchance = 80
 	hitted_sound = 'mojave/sound/ms13effects/impact/metal/metal_generic_1.wav'
 
+/obj/structure/safe/ms13/unlocked
+	locked = FALSE
+
+/obj/structure/safe/ms13/attackby(obj/item/I, mob/user, params)
+	if(I.item_flags & LOCKING_ITEM || LOCKABLE_1 && locked)
+		to_chat(user, span_warning("You cannot attach the [I.name] to the [name] while its still got its original lock on it!"))
+		return
+	. = ..()
+
 /obj/structure/safe/ms13/Initialize(mapload)
 	. = ..()
 	reset_grid_inventory()
@@ -17,6 +26,9 @@
 	desc = "A bulky and secure safe. This one features an advanced locking method."
 	icon_state = "safe"
 
+/obj/structure/safe/ms13/advanced/unlocked
+	locked = FALSE
+
 /obj/structure/safe/ms13/wall
 	name = "wall safe"
 	desc = "A safe that's been cemended into the wall. Good luck ever getting this thing out. The only option is to figure out a way to open it."
@@ -24,6 +36,9 @@
 	pixel_y = 32
 	density = FALSE
 	projectile_passchance = 100
+
+/obj/structure/safe/ms13/wall/locked
+	locked = FALSE
 
 /obj/structure/safe/ms13/wall/Initialize(mapload)
 	. = ..()

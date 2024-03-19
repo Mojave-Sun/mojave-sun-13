@@ -234,13 +234,11 @@
 	return attack_hand(user)
 
 /obj/structure/ms13/celldoor/attack_hand(mob/user)
-	. = ..()
-	if(.)
-		return
 	if(ms13_flags_1 & LOCKABLE_1 && lock_locked)
-		to_chat(user, span_warning("The [name] is locked."))
-		playsound(src, 'mojave/sound/ms13effects/door_locked.ogg', 50, TRUE)
-		return
+		if(lock && lock.item_lock_locked)
+			return . = ..()
+	if(locked)
+		return . = ..()
 	return TryToSwitchState(user)
 
 /obj/structure/ms13/celldoor/CanAllowThrough(atom/movable/mover, border_dir)

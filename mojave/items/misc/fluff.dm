@@ -84,6 +84,7 @@
 		new /obj/item/stack/sheet/ms13/glass(drop_location, 3)
 		new /obj/item/stack/sheet/ms13/scrap(drop_location, 2)
 		new /obj/item/stack/sheet/ms13/scrap_electronics(drop_location, 2)
+		new /obj/item/stack/sheet/ms13/lens(drop_location, 1)
 		qdel(src)
 
 /obj/item/ms13/fluff/microscope/examine(mob/user)
