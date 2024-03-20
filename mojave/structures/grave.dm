@@ -99,7 +99,7 @@
 	if(. && isliving(inserted))
 		ADD_TRAIT(inserted, TRAIT_MAGIC_CHOKE, STATUS_EFFECT_TRAIT)
 		var/mob/living/living_target = inserted
-		living_target.RegisterSignal(living_target, COMSIG_MOB_SAY, /mob/living/.proc/handle_buried_speech)
+		living_target.RegisterSignal(living_target, COMSIG_MOB_SAY, TYPE_PROC_REF(/mob/living, handle_buried_speech))
 		to_chat(living_target, span_danger("You have trouble breathing under the weight of the dirt!"))
 
 /obj/structure/closet/ms13/grave/dump_contents()
@@ -203,6 +203,8 @@
 				// Filled grave between dug_level - max_level
 				dirt_level += length(contents) ? 1 : -1
 				update_appearance()
+
+// Test item dropping
 
 /obj/structure/closet/ms13/grave/wrench_act_secondary(mob/living/user, obj/item/tool)
 	return TRUE
