@@ -302,7 +302,7 @@ GLOBAL_LIST_EMPTY(lifts)
 
 			collided.throw_at()
 			//if going EAST, will turn to the NORTHEAST or SOUTHEAST and throw the ran over guy away
-			var/datum/callback/land_slam = new(collided, /mob/living/.proc/tram_slam_land)
+			var/datum/callback/land_slam = new(collided, TYPE_PROC_REF(/mob/living, tram_slam_land))
 			collided.throw_at(throw_target, 200, 4, callback = land_slam)
 
 	set_glide_size(gliding_amount)

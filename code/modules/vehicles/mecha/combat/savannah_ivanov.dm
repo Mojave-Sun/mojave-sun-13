@@ -115,7 +115,7 @@
 	S_TIMER_COOLDOWN_START(chassis, COOLDOWN_MECHA_SKYFALL, skyfall_cooldown_time)
 	button_icon_state = "mech_savannah_cooldown"
 	UpdateButtonIcon()
-	addtimer(CALLBACK(src, /datum/action/vehicle/sealed/mecha/skyfall.proc/reset_button_icon), skyfall_cooldown_time)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/datum/action/vehicle/sealed/mecha/skyfall, reset_button_icon)), skyfall_cooldown_time)
 	for(var/mob/living/shaken in range(7, chassis))
 		shake_camera(shaken, 3, 3)
 
@@ -320,7 +320,7 @@
 	))
 	button_icon_state = "mech_ivanov_cooldown"
 	UpdateButtonIcon()
-	addtimer(CALLBACK(src, /datum/action/vehicle/sealed/mecha/ivanov_strike.proc/reset_button_icon), strike_cooldown_time)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/datum/action/vehicle/sealed/mecha/ivanov_strike, reset_button_icon)), strike_cooldown_time)
 
 //misc effects
 

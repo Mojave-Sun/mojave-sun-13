@@ -487,7 +487,7 @@
 	playsound(src, 'sound/items/modsuit/ballout.ogg', 100)
 	mod.wearer.base_pixel_y = 0
 	animate(mod.wearer, animate_time, pixel_y = mod.wearer.base_pixel_y)
-	addtimer(CALLBACK(mod.wearer, /atom.proc/remove_filter, list("mod_ball", "mod_blur", "mod_outline")), animate_time)
+	addtimer(CALLBACK(mod.wearer, TYPE_PROC_REF(/atom, remove_filter), list("mod_ball", "mod_blur", "mod_outline")), animate_time)
 	REMOVE_TRAIT(mod.wearer, TRAIT_LAVA_IMMUNE, MOD_TRAIT)
 	REMOVE_TRAIT(mod.wearer, TRAIT_HANDS_BLOCKED, MOD_TRAIT)
 	REMOVE_TRAIT(mod.wearer, TRAIT_FORCED_STANDING, MOD_TRAIT)
@@ -513,7 +513,7 @@
 	bomb.preparePixelProjectile(target, mod.wearer)
 	bomb.firer = mod.wearer
 	playsound(src, 'sound/weapons/gun/general/grenade_launch.ogg', 75, TRUE)
-	INVOKE_ASYNC(bomb, /obj/projectile.proc/fire)
+	INVOKE_ASYNC(bomb, TYPE_PROC_REF(/obj/projectile, fire))
 	drain_power(use_power_cost)
 
 /obj/item/mod/module/sphere_transform/on_active_process(delta_time)

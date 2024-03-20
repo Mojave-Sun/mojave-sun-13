@@ -101,7 +101,7 @@
 
 /turf/open/floor/plating/ms13/ground/desert/Initialize()
 	. = ..()
-	addtimer(CALLBACK(src, /atom/.proc/update_icon), 1)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 1)
 	//If no fences, machines (soil patches are machines), etc. try to plant grass
 	if(!((locate(/obj/structure) in src) || (locate(/obj/machinery) in src)))
 		plantGrass()
@@ -223,7 +223,7 @@
 
 /turf/open/floor/plating/ms13/ground/snow/Initialize()
 	. = ..()
-	addtimer(CALLBACK(src, /atom/.proc/update_icon), 1)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 1)
 	curr_area = get_area(src)
 	if(!((locate(/obj/structure) in src) || (locate(/obj/machinery) in src) || (locate(/obj/structure/flora) in src)))
 		plant_grass()
@@ -404,7 +404,7 @@
 
 /turf/open/floor/plating/ms13/ground/road/Initialize()
 	. = ..()
-	addtimer(CALLBACK(src, /atom/.proc/update_icon), 1)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 1)
 
 /turf/open/floor/plating/ms13/ground/road/update_icon()
 	. = ..() //Inheritance required for road decals
@@ -445,7 +445,7 @@
 
 /turf/open/floor/plating/ms13/ground/sidewalk/Initialize()
 	. = ..()
-	addtimer(CALLBACK(src, /atom/.proc/update_icon), 1)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 1)
 
 /*
 /turf/open/floor/plating/ms13/ground/sidewalk/update_icon()
@@ -552,7 +552,7 @@
 
 /turf/open/floor/plating/ms13/ground/ice/Initialize()
 	. = ..()
-	addtimer(CALLBACK(src, /atom/.proc/update_icon), 1)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 1)
 	MakeSlippery(TURF_WET_WATER, INFINITY, 0, INFINITY, TRUE, overlay = FALSE)
 
 /turf/open/floor/plating/ms13/ground/ice/MakeSlippery(wet_setting, min_wet_time, wet_time_to_add, max_wet_time, permanent, overlay)

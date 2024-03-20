@@ -107,7 +107,7 @@
 	if(!ai)
 		return
 	ai.apply_damage(150, BURN)
-	INVOKE_ASYNC(ai, /mob/living/silicon/ai.proc/death)
+	INVOKE_ASYNC(ai, TYPE_PROC_REF(/mob/living/silicon/ai, death))
 	ai.forceMove(src)
 	stored_ai = WEAKREF(ai)
 	icon_state = "minicard-filled"

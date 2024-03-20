@@ -23,7 +23,7 @@
 	AddElement(/datum/element/footstep, FOOTSTEP_MOB_HUMAN, 1, -6)
 	AddComponent(/datum/component/bloodysoles/feet)
 	AddElement(/datum/element/ridable, /datum/component/riding/creature/human)
-	AddElement(/datum/element/strippable, GLOB.strippable_human_items, /mob/living/carbon/human/.proc/should_strip)
+	AddElement(/datum/element/strippable, GLOB.strippable_human_items, TYPE_PROC_REF(/mob/living/carbon/human, should_strip))
 	GLOB.human_list += src
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
@@ -992,7 +992,7 @@
 	. = ..()
 	if(!user.mind?.guestbook)
 		return
-	INVOKE_ASYNC(user.mind.guestbook, /datum/guestbook.proc/try_add_guest, user, src, FALSE)
+	INVOKE_ASYNC(user.mind.guestbook, TYPE_PROC_REF(/datum/guestbook, try_add_guest), user, src, FALSE)
 
 /mob/living/carbon/human/get_screentip_name(client/hovering_client)
 	. = ..()

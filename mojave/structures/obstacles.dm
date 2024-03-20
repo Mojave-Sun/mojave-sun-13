@@ -1081,8 +1081,8 @@
 	AddElement(/datum/element/climbable, climb_time = 1 SECONDS, climb_stun = 0, no_stun = TRUE, jump_over = TRUE)
 
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_EXIT = .proc/on_exit,
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
+		COMSIG_ATOM_EXIT = PROC_REF(on_exit),
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 

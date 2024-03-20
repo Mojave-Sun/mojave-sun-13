@@ -446,7 +446,7 @@
 		if(M.id == src.id)
 			if(openclose == null)
 				openclose = M.density
-			INVOKE_ASYNC(M, openclose ? /obj/machinery/door/poddoor.proc/open : /obj/machinery/door/poddoor.proc/close)
+			INVOKE_ASYNC(M, openclose ? TYPE_PROC_REF(/obj/machinery/door/poddoor, open) : TYPE_PROC_REF(/obj/machinery/door/poddoor, close))
 
 	// freak this code for now
 	//var/onoff

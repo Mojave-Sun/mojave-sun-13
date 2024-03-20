@@ -132,7 +132,7 @@
 				wings.close_wings()
 			else
 				wings.open_wings()
-			addtimer(CALLBACK(wings, open ? /obj/item/organ/external/wings/functional.proc/open_wings : /obj/item/organ/external/wings/functional.proc/close_wings), wing_time)
+			addtimer(CALLBACK(wings, open ? TYPE_PROC_REF(/obj/item/organ/external/wings/functional, open_wings) : TYPE_PROC_REF(/obj/item/organ/external/wings/functional, close_wings)), wing_time)
 
 /datum/emote/living/flap/aflap
 	key = "aflap"

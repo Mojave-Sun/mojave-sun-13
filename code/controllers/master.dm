@@ -109,7 +109,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 			for(var/global_var in global.vars)
 				if (istype(global.vars[global_var], /datum/controller/subsystem))
 					existing_subsystems += global.vars[global_var]
-					
+
 			//Either init a new SS or if an existing one was found use that
 			for(var/I in subsystem_types)
 				var/ss_idx = existing_subsystems.Find(I)
@@ -322,7 +322,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 	//(higher subsystems will be sooner in the queue, adding them later in the loop means we don't have to loop thru them next queue add)
 	sortTim(tickersubsystems, GLOBAL_PROC_REF(cmp_subsystem_priority))
 	for(var/I in runlevel_sorted_subsystems)
-		sortTim(runlevel_sorted_subsystems, GLOBAL_PROC_REF(cmp_subsystem_priority))
+		sortTim(I, GLOBAL_PROC_REF(cmp_subsystem_priority))
 		I += tickersubsystems
 
 	var/cached_runlevel = current_runlevel

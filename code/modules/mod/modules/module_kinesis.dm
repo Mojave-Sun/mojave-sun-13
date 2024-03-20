@@ -63,7 +63,7 @@
 	kinesis_beam = mod.wearer.Beam(grabbed_atom, "kinesis")
 	kinesis_catcher = mod.wearer.overlay_fullscreen("kinesis", /atom/movable/screen/fullscreen/kinesis, 0)
 	kinesis_catcher.kinesis_user = mod.wearer
-	kinesis_catcher.RegisterSignal(mod.wearer, COMSIG_MOVABLE_MOVED, /atom/movable/screen/fullscreen/kinesis.proc/on_move)
+	kinesis_catcher.RegisterSignal(mod.wearer, COMSIG_MOVABLE_MOVED, TYPE_PROC_REF(/atom/movable/screen/fullscreen/kinesis, on_move))
 	soundloop.start()
 
 /obj/item/mod/module/anomaly_locked/kinesis/on_deactivation(display_message = TRUE)

@@ -292,7 +292,7 @@
 
 	if(prob(50))
 		to_chat(user, "<span class='danger'>[our_plant] slips out of your hand!</span>")
-		INVOKE_ASYNC(our_plant, /obj/item/.proc/attack_self, user)
+		INVOKE_ASYNC(our_plant, TYPE_PROC_REF(/obj/item, attack_self), user)
 
 /// Traits for plants that can be activated to turn into a mob.
 /datum/plant_gene/trait/mob_transformation

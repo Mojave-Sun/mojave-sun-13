@@ -152,7 +152,7 @@
 
 	. = R
 	if(R.ckey && is_banned_from(R.ckey, JOB_CYBORG))
-		INVOKE_ASYNC(R, /mob/living/silicon/robot.proc/replace_banned_cyborg)
+		INVOKE_ASYNC(R, TYPE_PROC_REF(/mob/living/silicon/robot, replace_banned_cyborg))
 	qdel(src)
 
 /mob/living/Robotize(delete_items = 0, transfer_after = TRUE)
