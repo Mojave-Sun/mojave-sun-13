@@ -23,6 +23,7 @@
 	/// Set up variables from closet type that we will use
 	breakout_time = 1 MINUTES
 	allow_objects = TRUE
+	enable_door_overlay = FALSE
 	horizontal = TRUE // if there is a human in the grave, it has to be resting to be buried
 	mob_storage_capacity = 1 // how many human sized mob/living can fit together inside a closet.
 
@@ -63,14 +64,6 @@
 			context[SCREENTIP_CONTEXT_LMB] = "Dig"
 			context[SCREENTIP_CONTEXT_RMB] = "Fill"
 			return CONTEXTUAL_SCREENTIP_SET
-
-/obj/structure/closet/ms13/grave/closet_update_overlays(list/new_overlays)
-	. = new_overlays
-	if(opened)
-		var/mutable_appearance/door_overlay = mutable_appearance(icon, "[icon_state]_open", alpha = src.alpha)
-		. += door_overlay
-		// If we don't do this the door doesn't block emissives and it looks weird.
-		door_overlay.overlays += emissive_blocker(door_overlay.icon, door_overlay.icon_state, alpha = door_overlay.alpha)
 
 /obj/structure/closet/ms13/grave/update_icon_state()
 	. = ..()
@@ -190,7 +183,7 @@
 			to_chat(user, span_notice("You start leveling the ground with \the [tool]."))
 			if(do_after(user, 3 SECONDS * tool.toolspeed, target = src))
 				user.visible_message(span_notice("[user] levels the ground with \the [tool]."),
-											span_notice("You levels the ground with \the [tool]."))
+											span_notice("You level the ground with \the [tool]."))
 				deconstruct(TRUE)
 				return
 		else if(dirt_level == max_level)
