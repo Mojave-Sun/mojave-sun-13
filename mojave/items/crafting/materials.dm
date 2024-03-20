@@ -129,6 +129,15 @@
 /obj/item/stack/sheet/ms13/ceramic/two
 	amount = 2
 
+GLOBAL_LIST_INIT(ceramic_recipes, list ( \
+	new/datum/stack_recipe("cairn", /obj/structure/ms13/tombstone/cairn, 1, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("tombstone", /obj/structure/ms13/tombstone/slab/stone, 2, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+))
+
+/obj/item/stack/sheet/ms13/ceramic/get_main_recipes()
+	. = ..()
+	. += GLOB.ceramic_recipes
+
 /datum/material/ms13/ceramic
 	name = "ceramic shards"
 	desc = "Sharp pieces of ceramic."
@@ -316,6 +325,8 @@ GLOBAL_LIST_INIT(plank_recipes, list ( \
 	new/datum/stack_recipe("campfire", /obj/structure/bonfire/ms13/campfire, 3, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("drying rack", /obj/structure/ms13/drying_rack, 4, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("fermentation barrel", /obj/structure/fermenting_barrel/ms13, 4, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("wooden slab", /obj/structure/ms13/tombstone/slab/plank, 1, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("wooden cross", /obj/structure/ms13/tombstone/slab/cross, 2, time = 15 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 ))
 
 /obj/item/stack/sheet/ms13/wood/plank/get_main_recipes()
