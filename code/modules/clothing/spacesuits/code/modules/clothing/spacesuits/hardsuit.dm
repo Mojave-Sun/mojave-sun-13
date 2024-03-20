@@ -272,7 +272,7 @@
 /obj/item/clothing/head/helmet/space/hardsuit/mining/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/armor_plate)
-	RegisterSignal(src, COMSIG_ARMOR_PLATED, .proc/upgrade_icon)
+	RegisterSignal(src, COMSIG_ARMOR_PLATED, PROC_REF(upgrade_icon))
 
 /obj/item/clothing/head/helmet/space/hardsuit/mining/proc/upgrade_icon(datum/source, amount, maxamount)
 	SIGNAL_HANDLER
@@ -314,7 +314,7 @@
 /obj/item/clothing/suit/space/hardsuit/mining/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/armor_plate)
-	RegisterSignal(src, COMSIG_ARMOR_PLATED, .proc/upgrade_icon)
+	RegisterSignal(src, COMSIG_ARMOR_PLATED, PROC_REF(upgrade_icon))
 
 /obj/item/clothing/suit/space/hardsuit/mining/proc/upgrade_icon(datum/source, amount, maxamount)
 	SIGNAL_HANDLER
@@ -553,7 +553,7 @@
 
 /obj/item/clothing/head/helmet/space/hardsuit/rd/Initialize(mapload)
 	. = ..()
-	RegisterSignal(SSdcs, COMSIG_GLOB_EXPLOSION, .proc/sense_explosion)
+	RegisterSignal(SSdcs, COMSIG_GLOB_EXPLOSION, PROC_REF(sense_explosion))
 
 /obj/item/clothing/head/helmet/space/hardsuit/rd/equipped(mob/living/carbon/human/user, slot)
 	..()
@@ -745,7 +745,7 @@
 		return
 	if(listeningTo)
 		UnregisterSignal(listeningTo, COMSIG_MOVABLE_MOVED)
-	RegisterSignal(user, COMSIG_MOVABLE_MOVED, .proc/on_mob_move)
+	RegisterSignal(user, COMSIG_MOVABLE_MOVED, PROC_REF(on_mob_move))
 	listeningTo = user
 
 /obj/item/clothing/suit/space/hardsuit/ancient/dropped()

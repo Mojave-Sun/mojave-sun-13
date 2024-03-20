@@ -59,7 +59,7 @@
 	return ..()
 
 /datum/component/largetransparency/RegisterWithParent()
-	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, .proc/OnMove)
+	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(OnMove))
 	RegisterWithTurfs()
 
 /datum/component/largetransparency/UnregisterFromParent()
@@ -77,9 +77,9 @@
 	for(var/regist_tu in registered_turfs)
 		if(!regist_tu)
 			continue
-		RegisterSignal(regist_tu, list(COMSIG_ATOM_ENTERED, COMSIG_ATOM_CREATED), .proc/objectEnter)
-		RegisterSignal(regist_tu, COMSIG_ATOM_EXITED, .proc/objectLeave)
-		RegisterSignal(regist_tu, COMSIG_TURF_CHANGE, .proc/OnTurfChange)
+		RegisterSignal(regist_tu, list(COMSIG_ATOM_ENTERED, COMSIG_ATOM_CREATED), PROC_REF(objectEnter))
+		RegisterSignal(regist_tu, COMSIG_ATOM_EXITED, PROC_REF(objectLeave))
+		RegisterSignal(regist_tu, COMSIG_TURF_CHANGE, PROC_REF(OnTurfChange))
 		for(var/thing in regist_tu)
 			var/atom/check_atom = thing
 			if(!(check_atom.flags_1 & CRITICAL_ATOM_1))
@@ -103,7 +103,7 @@
 
 /datum/component/largetransparency/proc/OnTurfChange()
 	SIGNAL_HANDLER
-	addtimer(CALLBACK(src, .proc/OnMove), 1, TIMER_UNIQUE|TIMER_OVERRIDE) //*pain
+	addtimer(CALLBACK(src, PROC_REF(OnMove)), 1, TIMER_UNIQUE|TIMER_OVERRIDE) //*pain
 
 /datum/component/largetransparency/proc/objectEnter(datum/source, atom/enterer)
 	SIGNAL_HANDLER

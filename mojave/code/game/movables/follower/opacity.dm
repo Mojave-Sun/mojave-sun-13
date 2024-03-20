@@ -5,7 +5,7 @@
 	. = ..()
 	if(!.)
 		return
-	RegisterSignal(new_master, COMSIG_ATOM_SET_OPACITY, .proc/master_opacity_change)
+	RegisterSignal(new_master, COMSIG_ATOM_SET_OPACITY, PROC_REF(master_opacity_change))
 	master_opacity_change(new_master, new_master.opacity)
 
 /atom/movable/follower/opacity/unregister_master()

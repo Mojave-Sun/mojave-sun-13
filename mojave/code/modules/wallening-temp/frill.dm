@@ -31,7 +31,7 @@ GLOBAL_LIST_EMPTY(frill_objects)
 	var/atom/atom_target = target
 
 	on_junction_change(atom_target, atom_target.smoothing_junction)
-	RegisterSignal(target, COMSIG_ATOM_SET_SMOOTHED_ICON_STATE, .proc/on_junction_change)
+	RegisterSignal(target, COMSIG_ATOM_SET_SMOOTHED_ICON_STATE, PROC_REF(on_junction_change))
 
 /datum/element/frill/Detach(turf/target)
 

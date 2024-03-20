@@ -4,7 +4,7 @@
 
 /datum/component/two_handed/RegisterWithParent()
 	. = ..()
-	RegisterSignal(parent, COMSIG_TWOHANDED_CHECK, .proc/check_wielded)
+	RegisterSignal(parent, COMSIG_TWOHANDED_CHECK, PROC_REF(check_wielded))
 
 /datum/component/two_handed/UnregisterFromParent()
 	. = ..()

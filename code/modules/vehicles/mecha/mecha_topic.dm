@@ -415,7 +415,7 @@
 	if(href_list["repair_int_control_lost"])
 		to_chat(occupants, "[icon2html(src, occupants)][span_notice("Recalibrating coordination system...")]")
 		log_message("Recalibration of coordination system started.", LOG_MECHA)
-		addtimer(CALLBACK(src, .proc/stationary_repair, loc), 100, TIMER_UNIQUE)
+		addtimer(CALLBACK(src, PROC_REF(stationary_repair), loc), 100, TIMER_UNIQUE)
 
 ///Repairs internal damage if the mech hasn't moved.
 /obj/vehicle/sealed/mecha/proc/stationary_repair(location)

@@ -176,7 +176,7 @@
 	interaction_flags_item &= ~INTERACT_ITEM_ATTACK_HAND_PICKUP
 	ADD_TRAIT(src, TRAIT_NODROP, STICKY_NODROP) //Somehow it's stuck to your body, no questioning.
 	AddElement(/datum/element/radiation_protected_clothing)
-	RegisterSignal(src, COMSIG_ATOM_CAN_BE_PULLED, .proc/reject_pulls)
+	RegisterSignal(src, COMSIG_ATOM_CAN_BE_PULLED, PROC_REF(reject_pulls))
 
 	for(var/i in module_armor)
 		if(isnull(module_armor[i]))
@@ -507,7 +507,7 @@
 	ADD_TRAIT(user, TRAIT_NON_FLAMMABLE, "power_armor")
 	ADD_TRAIT(user, TRAIT_IN_POWERARMOUR, "power_armor")
 	ADD_TRAIT(user, TRAIT_SHOVEIMMUNE, "power_armor")
-	RegisterSignal(user, COMSIG_ATOM_CAN_BE_PULLED, .proc/reject_pulls)
+	RegisterSignal(user, COMSIG_ATOM_CAN_BE_PULLED, PROC_REF(reject_pulls))
 
 /obj/item/clothing/suit/space/hardsuit/ms13/power_armor/dropped(mob/living/carbon/human/user)
 	. = ..()

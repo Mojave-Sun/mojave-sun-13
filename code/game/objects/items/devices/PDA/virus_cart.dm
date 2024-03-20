@@ -15,7 +15,7 @@
 
 /obj/item/cartridge/virus/special(mob/living/user, list/params)
 	var/obj/item/pda/P = locate(params["target"]) in GLOB.PDAs  //Leaving it alone in case it may do something useful, I guess.
-	INVOKE_ASYNC(src, .proc/send_virus, P, user)
+	INVOKE_ASYNC(src, PROC_REF(send_virus), P, user)
 
 /obj/item/cartridge/virus/clown
 	name = "\improper Honkworks 5.0 cartridge"

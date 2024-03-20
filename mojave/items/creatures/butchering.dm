@@ -693,7 +693,7 @@
 	if(_butcher_sound)
 		butcher_sound = _butcher_sound
 	if(isitem(parent))
-		RegisterSignal(parent, COMSIG_ITEM_ATTACK_OBJ, .proc/onItemAttack)
+		RegisterSignal(parent, COMSIG_ITEM_ATTACK_OBJ, PROC_REF(onItemAttack))
 
 /datum/component/itembutchering/proc/onItemAttack(obj/item/source, atom/movable/target, mob/living/user)
 	SIGNAL_HANDLER
@@ -702,7 +702,7 @@
 		return
 	if(istype(target, /obj/item/ms13/carcass))
 		if(source.get_sharpness())
-			INVOKE_ASYNC(src, .proc/startCutting, source, target, user)
+			INVOKE_ASYNC(src, PROC_REF(startCutting), source, target, user)
 			return COMPONENT_CANCEL_ATTACK_CHAIN
 
 /datum/component/itembutchering/proc/startCutting(obj/item/source, obj/item/ms13/carcass/M, mob/living/user)

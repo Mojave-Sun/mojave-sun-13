@@ -45,7 +45,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 		tgui_alert(usr,"Wait until the game starts")
 		return
 	log_admin("[key_name(src)] has robotized [M.key].")
-	INVOKE_ASYNC(M, /mob.proc/Robotize)
+	INVOKE_ASYNC(M, TYPE_PROC_REF(/mob, Robotize))
 
 /client/proc/makepAI(turf/T in GLOB.mob_list)
 	set category = "Admin.Fun"
@@ -559,7 +559,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	set desc = "Display del's log of everything that's passed through it."
 
 	var/list/dellog = list("<B>List of things that have gone through qdel this round</B><BR><BR><ol>")
-	sortTim(SSgarbage.items, cmp=/proc/cmp_qdel_item_time, associative = TRUE)
+	sortTim(SSgarbage.items, cmp = GLOBAL_PROC_REF(cmp_qdel_item_time), associative = TRUE)
 	for(var/path in SSgarbage.items)
 		var/datum/qdel_item/I = SSgarbage.items[path]
 		dellog += "<li><u>[path]</u><ul>"
@@ -699,7 +699,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	var/list/queries = list()
 	for(var/i in 1 to val)
 		var/datum/db_query/query = SSdbcore.NewQuery("NULL")
-		INVOKE_ASYNC(query, /datum/db_query.proc/Execute)
+		INVOKE_ASYNC(query, TYPE_PROC_REF(/datum/db_query, Execute))
 		queries += query
 
 	for(var/datum/db_query/query as anything in queries)
@@ -788,9 +788,9 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	set desc = "Shows tracked profiling info from code lines that support it"
 
 	var/sortlist = list(
-		"Avg time" = /proc/cmp_profile_avg_time_dsc,
-		"Total Time" = /proc/cmp_profile_time_dsc,
-		"Call Count" = /proc/cmp_profile_count_dsc
+		"Avg time" = GLOBAL_PROC_REF(cmp_profile_avg_time_dsc),
+		"Total Time" = GLOBAL_PROC_REF(cmp_profile_time_dsc),
+		"Call Count" = GLOBAL_PROC_REF(cmp_profile_count_dsc)
 	)
 	var/sort = input(src, "Sort type?", "Sort Type", "Avg time") as null|anything in sortlist
 	if (!sort)
@@ -848,7 +848,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	var/list/sorted = list()
 	for (var/source in per_source)
 		sorted += list(list("source" = source, "count" = per_source[source]))
-	sorted = sortTim(sorted, .proc/cmp_timer_data)
+	sorted = sortTim(sorted, GLOBAL_PROC_REF(cmp_timer_data))
 
 	// Now that everything is sorted, compile them into an HTML output
 	var/output = "<table border='1'>"

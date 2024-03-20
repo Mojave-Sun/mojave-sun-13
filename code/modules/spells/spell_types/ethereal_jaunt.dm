@@ -37,7 +37,7 @@
 /obj/effect/proc_holder/spell/targeted/ethereal_jaunt/cast(list/targets,mob/user = usr) //magnets, so mostly hardcoded
 	play_sound("enter",user)
 	for(var/mob/living/target in targets)
-		INVOKE_ASYNC(src, .proc/do_jaunt, target)
+		INVOKE_ASYNC(src, PROC_REF(do_jaunt), target)
 
 /obj/effect/proc_holder/spell/targeted/ethereal_jaunt/proc/do_jaunt(mob/living/target)
 	target.notransform = 1
@@ -55,7 +55,7 @@
 		REMOVE_TRAIT(target, TRAIT_IMMOBILIZED, type)
 	var/turf/exit_point = get_turf(holder) //Hopefully this gets updated, otherwise this is our fallback
 	LAZYINITLIST(exit_point_list)
-	RegisterSignal(holder, COMSIG_MOVABLE_MOVED, .proc/update_exit_point, target)
+	RegisterSignal(holder, COMSIG_MOVABLE_MOVED, PROC_REF(update_exit_point), target)
 	sleep(jaunt_duration)
 
 	UnregisterSignal(holder, COMSIG_MOVABLE_MOVED)

@@ -28,7 +28,7 @@
 	src.sound_played = sound_played
 	src.sound_volume = sound_volume
 	src.blood_spawn_chance = blood_spawn_chance
-	RegisterSignal(target, COMSIG_MOVABLE_MOVED, .proc/spread_blood)
+	RegisterSignal(target, COMSIG_MOVABLE_MOVED, PROC_REF(spread_blood))
 
 /datum/element/blood_walk/Detach(datum/target)
 	. = ..()

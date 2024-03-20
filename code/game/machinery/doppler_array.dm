@@ -20,12 +20,12 @@
 
 /obj/machinery/doppler_array/Initialize(mapload)
 	. = ..()
-	RegisterSignal(SSdcs, COMSIG_GLOB_EXPLOSION, .proc/sense_explosion)
-	RegisterSignal(src, COMSIG_MOVABLE_SET_ANCHORED, .proc/power_change)
+	RegisterSignal(SSdcs, COMSIG_GLOB_EXPLOSION, PROC_REF(sense_explosion))
+	RegisterSignal(src, COMSIG_MOVABLE_SET_ANCHORED, PROC_REF(power_change))
 	printer_ready = world.time + PRINTER_TIMEOUT
 	// Alt clicking when unwrenched does not rotate. (likely from UI not returning the mouse click)
 	// Also there is no sprite change for rotation dir, this shouldn't even have a rotate component tbh
-	AddComponent(/datum/component/simple_rotation, AfterRotation = CALLBACK(src, .proc/RotationMessage))
+	AddComponent(/datum/component/simple_rotation, AfterRotation = CALLBACK(src, PROC_REF(RotationMessage)))
 
 /datum/data/tachyon_record
 	name = "Log Recording"

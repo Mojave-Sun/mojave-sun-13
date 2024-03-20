@@ -43,7 +43,7 @@ The simple animal this is attached to should also be able to destroy obstacles s
 	patrol_move_delay[animal] = _patrol_move_delay
 	var/obj/effect/ai_node/linted_current_node = animal_current_node[animal]
 	animal_target_node[animal] = linted_current_node.get_best_adj_node(animal_node_weights[animal], animal_identifier[animal])
-	RegisterSignal(animal, COMSIG_AI_SET_GOAL_NODE, .proc/set_goal_node)
+	RegisterSignal(animal, COMSIG_AI_SET_GOAL_NODE, PROC_REF(set_goal_node))
 
 /datum/element/generic_patrol_animal/Detach(mob/living/simple_animal/animal)
 	attached_animals -= animal

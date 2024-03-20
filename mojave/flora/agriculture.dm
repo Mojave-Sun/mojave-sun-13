@@ -469,7 +469,7 @@
 	lastcycle = world.time
 
 	var/message = span_warning("[oldPlantName] suddenly mutates into [myseed.plantname]!")
-	addtimer(CALLBACK(src, .proc/after_mutation, message), 0.5 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(after_mutation), message), 0.5 SECONDS)
 
 /**
  * Called after plant mutation, update the appearance of the tray content and send a visible_message()

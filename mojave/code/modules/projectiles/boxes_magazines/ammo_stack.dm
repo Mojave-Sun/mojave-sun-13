@@ -25,7 +25,7 @@
 /obj/item/ammo_box/magazine/ammo_stack/Initialize(mapload)
 	. = ..()
 	if(world_icon)
-		AddElement(/datum/element/world_icon, .proc/update_icon_world)
+		AddElement(/datum/element/world_icon, PROC_REF(update_icon_world))
 
 /obj/item/ammo_box/magazine/ammo_stack/update_icon(updates)
 	icon = initial(icon)

@@ -31,7 +31,7 @@
 	move_delay = _patrol_move_delay
 	var/obj/effect/ai_node/linted_current_node = current_node //For linter
 	target_node = linted_current_node.get_best_adj_node(node_weights, identifier)
-	RegisterSignal(parent, COMSIG_AI_SET_GOAL_NODE, .proc/set_goal_node)
+	RegisterSignal(parent, COMSIG_AI_SET_GOAL_NODE, PROC_REF(set_goal_node))
 
 /datum/component/generic_animal_patrol/Destroy(force, silent)
 	UnregisterSignal(parent, COMSIG_AI_SET_GOAL_NODE)

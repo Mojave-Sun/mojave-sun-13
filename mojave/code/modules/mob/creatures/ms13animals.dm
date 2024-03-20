@@ -805,7 +805,7 @@
 		return
 	prevent_goto_movement = TRUE
 	Goto(target = src, delay = move_to_delay, minimum_distance = 0)
-	var/datum/cb = CALLBACK(src,.proc/reset_goto_movement)
+	var/datum/cb = CALLBACK(src, PROC_REF(reset_goto_movement))
 	addtimer(cb,2 SECONDS)
 	charge.Trigger(target = target)
 
@@ -885,7 +885,7 @@
 //Different sound effect, no destruction
 /datum/action/cooldown/mob_cooldown/charge/hellpig/on_moved(atom/source)
 	playsound(source, pick('mojave/sound/ms13effects/footsteps/ms13heavyfootstep_1.wav', 'mojave/sound/ms13effects/footsteps/ms13heavyfootstep_2.wav'), 100, TRUE, 2, TRUE)
-	//INVOKE_ASYNC(src, .proc/DestroySurroundings, source)
+	//INVOKE_ASYNC(src, PROC_REF(DestroySurroundings), source)
 
 /datum/action/cooldown/mob_cooldown/charge/hellpig/Activate(atom/target_atom)
 

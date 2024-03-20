@@ -173,10 +173,10 @@
 	set_light(2)
 	visible_message(span_notice("A holographic pay stand appears."))
 	/// Start checking if the source projection is in range
-	RegisterSignal(card, COMSIG_MOVABLE_MOVED, .proc/check_operation)
+	RegisterSignal(card, COMSIG_MOVABLE_MOVED, PROC_REF(check_operation))
 	if(card.loc)
 		holder = WEAKREF(card.loc)
-		RegisterSignal(card.loc, COMSIG_MOVABLE_MOVED, .proc/check_operation)
+		RegisterSignal(card.loc, COMSIG_MOVABLE_MOVED, PROC_REF(check_operation))
 	return TRUE
 
 /**
@@ -190,7 +190,7 @@
 		if(card_holder)
 			UnregisterSignal(card_holder, COMSIG_MOVABLE_MOVED)
 		holder = WEAKREF(linked_card.loc)
-		RegisterSignal(linked_card.loc, COMSIG_MOVABLE_MOVED, .proc/check_operation)
+		RegisterSignal(linked_card.loc, COMSIG_MOVABLE_MOVED, PROC_REF(check_operation))
 	if(!IN_GIVEN_RANGE(src, linked_card, max_holo_range) || !IN_GIVEN_RANGE(src, linked_card.loc, max_holo_range))
 		dissapate()
 

@@ -51,7 +51,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 			initial_reagents = food_reagents,\
 			foodtypes = RAW | MEAT | GROSS,\
 			volume = reagent_vol,\
-			after_eat = CALLBACK(src, .proc/OnEatFrom))
+			after_eat = CALLBACK(src, PROC_REF(OnEatFrom)))
 /*
  * Insert the organ into the select mob.
  *
@@ -78,7 +78,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	reciever.internal_organs |= src
 	reciever.internal_organs_slot[slot] = src
 	moveToNullspace()
-	RegisterSignal(owner, COMSIG_PARENT_EXAMINE, .proc/on_owner_examine)
+	RegisterSignal(owner, COMSIG_PARENT_EXAMINE, PROC_REF(on_owner_examine))
 	for(var/datum/action/action as anything in actions)
 		action.Grant(reciever)
 	STOP_PROCESSING(SSobj, src)

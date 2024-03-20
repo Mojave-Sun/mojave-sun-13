@@ -100,7 +100,7 @@
 	var/area/current_area = get_area(src)
 	if(!current_area)
 		return
-	RegisterSignal(current_area, COMSIG_AREA_POWER_CHANGE, .proc/AreaPowerCheck)
+	RegisterSignal(current_area, COMSIG_AREA_POWER_CHANGE, PROC_REF(AreaPowerCheck))
 	register_context()
 
 /obj/item/radio/ms13/ham/broadcast

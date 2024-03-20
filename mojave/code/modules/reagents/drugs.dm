@@ -520,7 +520,7 @@
 	REMOVE_TRAIT(M, TRAIT_SLEEPIMMUNE, type)
 	M.throw_alert_text(/atom/movable/screen/alert/text/sad, "Ohhh shit...", override = FALSE)
 	M.Stun(50)
-	addtimer(CALLBACK(src, .proc/heartsplosion, M), rand(3, 8) SECONDS) // We want to delay the actual removal of the heart a tiny bit so people can get out a "Oh damn" or something. You go ZZZzzz mode the second you don't have one.
+	addtimer(CALLBACK(src, PROC_REF(heartsplosion), M), rand(3, 8) SECONDS) // We want to delay the actual removal of the heart a tiny bit so people can get out a "Oh damn" or something. You go ZZZzzz mode the second you don't have one.
 	return ..()
 
 /datum/reagent/ms13/overdrive/overdose_process(mob/living/carbon/M)

@@ -34,12 +34,12 @@
 		return COMPONENT_INCOMPATIBLE
 
 	src.rotation_flags = rotation_flags
-	src.AfterRotation = AfterRotation || CALLBACK(src, .proc/DefaultAfterRotation)
+	src.AfterRotation = AfterRotation || CALLBACK(src, PROC_REF(DefaultAfterRotation))
 
 /datum/component/simple_rotation/proc/AddSignals()
-	RegisterSignal(parent, COMSIG_CLICK_ALT, .proc/RotateLeft)
-	RegisterSignal(parent, COMSIG_CLICK_ALT_SECONDARY, .proc/RotateRight)
-	RegisterSignal(parent, COMSIG_PARENT_EXAMINE, .proc/ExamineMessage)
+	RegisterSignal(parent, COMSIG_CLICK_ALT, PROC_REF(RotateLeft))
+	RegisterSignal(parent, COMSIG_CLICK_ALT_SECONDARY, PROC_REF(RotateRight))
+	RegisterSignal(parent, COMSIG_PARENT_EXAMINE, PROC_REF(ExamineMessage))
 
 /datum/component/simple_rotation/proc/AddVerbs()
 	var/obj/rotated_obj = parent

@@ -244,7 +244,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 		viewmob.hud_used.plane_masters_update()
 
 	// MOJAVE SUN EDIT START - changes for HUD
-	INVOKE_ASYNC(screenmob.client, /client/.proc/setHudBarVisible )
+	INVOKE_ASYNC(screenmob.client, TYPE_PROC_REF(/client, setHudBarVisible))
 	// MOJAVE SUN EDIT END - changes for HUD
 
 	return TRUE

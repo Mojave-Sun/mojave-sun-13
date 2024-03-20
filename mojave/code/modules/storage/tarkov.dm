@@ -251,7 +251,7 @@
 	. = ..()
 	if(.)
 		return
-	RegisterSignal(parent, COMSIG_STORAGE_BLOCK_USER_TAKE, .proc/should_block_user_take)
+	RegisterSignal(parent, COMSIG_STORAGE_BLOCK_USER_TAKE, PROC_REF(should_block_user_take))
 	if(grid)
 		var/atom/atom_parent = parent
 		atom_parent.reset_grid_inventory()

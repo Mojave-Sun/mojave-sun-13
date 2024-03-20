@@ -119,14 +119,14 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	rocket = new /datum/action/cooldown/launch_rocket()
 	grenade.Grant(src)
 	rocket.Grant(src)
-	RegisterSignal(src, COMSIG_MOVABLE_MOVED, .proc/play_move_sound, override = TRUE)
+	RegisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(play_move_sound), override = TRUE)
 	soundloop = new(src, FALSE)
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/proc/play_move_sound()
 	SIGNAL_HANDLER
 	//playsound(src, 'sound/mecha/mechstep.ogg', 40, TRUE)
 	last_move_done_at = world.time
-	addtimer(CALLBACK(src, .proc/check_if_loop_should_continue, world.time), move_to_delay + 0.5 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(check_if_loop_should_continue), world.time), move_to_delay + 0.5 SECONDS)
 	/*
 	if(drift_cooldown > world.time) //Special move cooldown + drifting shouldn't restart the tread sounds
 		return
@@ -162,7 +162,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	var/turf_move_towards = get_step(src, src.dir)
 	for(var/i = 1, i < 7, i++)
 		time_til_next_move += (i * 0.1)
-		addtimer(CALLBACK(src, .proc/wrapped_move, turf_move_towards, src.dir), (10 * time_til_next_move))
+		addtimer(CALLBACK(src, PROC_REF(wrapped_move), turf_move_towards, src.dir), (10 * time_til_next_move))
 		turf_move_towards = get_step(turf_move_towards, src.dir)
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/proc/wrapped_move(_newLoc, _Dir)
@@ -184,7 +184,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	SSmove_manager.move_to(src, src, min_dist = 0, delay = 0)
 	var/the_sound = pick(GLOB.sentrybot_dying_sound)
 	playsound(src, the_sound, 50, FALSE)
-	addtimer(CALLBACK(src, .proc/self_destruct), GLOB.sentrybot_dying_sound[the_sound])
+	addtimer(CALLBACK(src, PROC_REF(self_destruct)), GLOB.sentrybot_dying_sound[the_sound])
 	..(gibbed)
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/proc/self_destruct()
@@ -214,11 +214,11 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	if(actually_fire)
 		. = ..()
 		gunfire_sound()
-		addtimer(CALLBACK(src, .proc/wind_down_gun), 1 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(wind_down_gun)), 1 SECONDS)
 	else
 		if(!already_firing)
-			addtimer(CALLBACK(src, .proc/trigger_abilities, A), rand(1.5 SECONDS, 3 SECONDS))
-			addtimer(CALLBACK(src, .proc/OpenFire, A, TRUE), 1 SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(trigger_abilities), A), rand(1.5 SECONDS, 3 SECONDS))
+			addtimer(CALLBACK(src, PROC_REF(OpenFire), A, TRUE), 1 SECONDS)
 			spinup_sound()
 			already_firing = TRUE
 	return
@@ -244,7 +244,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 		UnregisterSignal(target, COMSIG_MOVABLE_MOVED)
 	. = ..()
 	if(target)
-		RegisterSignal(target, COMSIG_MOVABLE_MOVED, .proc/checkLoS, override = TRUE)
+		RegisterSignal(target, COMSIG_MOVABLE_MOVED, PROC_REF(checkLoS), override = TRUE)
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/LoseTarget()
 	if(target)
@@ -314,7 +314,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 		stat_attack = HARD_CRIT
 		FindTarget(possible_targets, HasTargetsList, IgnoreRepetiveCall = TRUE)
 		//We'll give a grace period for the sentry bot being able to attack crit'd targets for about 1 volley
-		addtimer(CALLBACK(src, .proc/reset_stat_attack), 3 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(reset_stat_attack)), 3 SECONDS)
 
 /mob/living/simple_animal/hostile/ms13/robot/sentrybot/proc/reset_stat_attack()
 	stat_attack = initial(stat_attack)
@@ -506,7 +506,7 @@ GLOBAL_LIST_INIT(sentrybot_dying_sound, list(
 	rocket = new /datum/action/cooldown/railgun()
 	grenade.Grant(src)
 	rocket.Grant(src)
-	RegisterSignal(src, COMSIG_MOVABLE_MOVED, .proc/play_move_sound, override = TRUE)
+	RegisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(play_move_sound), override = TRUE)
 	soundloop = new(src, FALSE)
 
 //Wind down is combined with windup sound

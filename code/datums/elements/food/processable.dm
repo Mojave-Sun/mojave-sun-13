@@ -21,8 +21,8 @@
 	src.time_to_process = time_to_process
 	src.result_atom_type = result_atom_type
 
-	RegisterSignal(target, COMSIG_ATOM_TOOL_ACT(tool_behaviour), .proc/try_process)
-	RegisterSignal(target, COMSIG_PARENT_EXAMINE, .proc/OnExamine)
+	RegisterSignal(target, COMSIG_ATOM_TOOL_ACT(tool_behaviour), PROC_REF(try_process))
+	RegisterSignal(target, COMSIG_PARENT_EXAMINE, PROC_REF(OnExamine))
 
 /datum/element/processable/Detach(datum/target)
 	. = ..()

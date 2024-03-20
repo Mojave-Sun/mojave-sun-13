@@ -28,8 +28,8 @@
 
 /datum/action/proc/link_to(Target)
 	target = Target
-	RegisterSignal(target, COMSIG_ATOM_UPDATED_ICON, .proc/OnUpdatedIcon)
-	RegisterSignal(target, COMSIG_PARENT_QDELETING, .proc/clear_ref, override = TRUE)
+	RegisterSignal(target, COMSIG_ATOM_UPDATED_ICON, PROC_REF(OnUpdatedIcon))
+	RegisterSignal(target, COMSIG_PARENT_QDELETING, PROC_REF(clear_ref), override = TRUE)
 
 /datum/action/Destroy()
 	if(owner)
@@ -45,7 +45,7 @@
 				return
 			Remove(owner)
 		owner = M
-		RegisterSignal(owner, COMSIG_PARENT_QDELETING, .proc/clear_ref, override = TRUE)
+		RegisterSignal(owner, COMSIG_PARENT_QDELETING, PROC_REF(clear_ref), override = TRUE)
 
 		//button id generation
 		var/counter = 0
@@ -93,7 +93,7 @@
 	if(owner)
 		UnregisterSignal(owner, COMSIG_PARENT_QDELETING)
 		if(target == owner)
-			RegisterSignal(target, COMSIG_PARENT_QDELETING, .proc/clear_ref)
+			RegisterSignal(target, COMSIG_PARENT_QDELETING, PROC_REF(clear_ref))
 		owner = null
 	if(button)
 		button.moved = FALSE //so the button appears in its normal position when given to another owner.
@@ -314,7 +314,7 @@
 
 /datum/action/item_action/toggle_spacesuit/New(Target)
 	. = ..()
-	RegisterSignal(target, COMSIG_SUIT_SPACE_TOGGLE, .proc/toggle)
+	RegisterSignal(target, COMSIG_SUIT_SPACE_TOGGLE, PROC_REF(toggle))
 
 /datum/action/item_action/toggle_spacesuit/Destroy()
 	UnregisterSignal(target, COMSIG_SUIT_SPACE_TOGGLE)
@@ -581,7 +581,7 @@
 /datum/action/item_action/agent_box/Grant(mob/M)
 	. = ..()
 	if(owner)
-		RegisterSignal(owner, COMSIG_HUMAN_SUICIDE_ACT, .proc/suicide_act)
+		RegisterSignal(owner, COMSIG_HUMAN_SUICIDE_ACT, PROC_REF(suicide_act))
 
 /datum/action/item_action/agent_box/Remove(mob/M)
 	if(owner)

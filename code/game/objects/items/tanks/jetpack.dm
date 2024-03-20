@@ -77,9 +77,9 @@
 	on = TRUE
 	icon_state = "[initial(icon_state)]-on"
 	ion_trail.start()
-	RegisterSignal(user, COMSIG_MOVABLE_MOVED, .proc/move_react)
-	RegisterSignal(user, COMSIG_MOVABLE_PRE_MOVE, .proc/pre_move_react)
-	RegisterSignal(user, COMSIG_MOVABLE_SPACEMOVE, .proc/spacemove_react)
+	RegisterSignal(user, COMSIG_MOVABLE_MOVED, PROC_REF(move_react))
+	RegisterSignal(user, COMSIG_MOVABLE_PRE_MOVE, PROC_REF(pre_move_react))
+	RegisterSignal(user, COMSIG_MOVABLE_SPACEMOVE, PROC_REF(spacemove_react))
 	if(full_speed)
 		user.add_movespeed_modifier(/datum/movespeed_modifier/jetpack/fullspeed)
 	return TRUE
@@ -273,9 +273,9 @@
 		air_contents = null
 		return
 	active_hardsuit = loc
-	RegisterSignal(active_hardsuit, COMSIG_MOVABLE_MOVED, .proc/on_hardsuit_moved)
-	RegisterSignal(src, COMSIG_MOVABLE_MOVED, .proc/on_moved)
-	RegisterSignal(active_user, COMSIG_PARENT_QDELETING, .proc/on_user_del)
+	RegisterSignal(active_hardsuit, COMSIG_MOVABLE_MOVED, PROC_REF(on_hardsuit_moved))
+	RegisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(on_moved))
+	RegisterSignal(active_user, COMSIG_PARENT_QDELETING, PROC_REF(on_user_del))
 	START_PROCESSING(SSobj, src)
 
 
@@ -308,7 +308,7 @@
 	if(istype(loc, /obj/item/clothing/suit/space/hardsuit) && ishuman(loc.loc) && loc.loc == active_user)
 		UnregisterSignal(active_hardsuit, COMSIG_MOVABLE_MOVED)
 		active_hardsuit = loc
-		RegisterSignal(loc, COMSIG_MOVABLE_MOVED, .proc/on_hardsuit_moved)
+		RegisterSignal(loc, COMSIG_MOVABLE_MOVED, PROC_REF(on_hardsuit_moved))
 		return
 	turn_off(active_user)
 

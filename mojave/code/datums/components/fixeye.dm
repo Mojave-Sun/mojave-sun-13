@@ -19,14 +19,14 @@
 /datum/component/fixeye/RegisterWithParent()
 	var/mob/living/living_parent = parent
 	// this shit uses a fuckton of signals because i wanted it to be very feature complete
-	RegisterSignal(living_parent, COMSIG_FIXEYE_TOGGLE, .proc/user_toggle_fixeye)
-	RegisterSignal(living_parent, COMSIG_FIXEYE_DISABLE, .proc/safe_disable_fixeye)
-	RegisterSignal(living_parent, COMSIG_FIXEYE_ENABLE, .proc/safe_enable_fixeye)
-	RegisterSignal(living_parent, COMSIG_FIXEYE_LOCK, .proc/lock_fixeye)
-	RegisterSignal(living_parent, COMSIG_FIXEYE_UNLOCK, .proc/unlock_fixeye)
-	RegisterSignal(living_parent, COMSIG_LIVING_DEATH, .proc/on_death)
-	RegisterSignal(living_parent, COMSIG_MOB_LOGOUT, .proc/on_logout)
-	RegisterSignal(living_parent, COMSIG_FIXEYE_CHECK, .proc/check_flags)
+	RegisterSignal(living_parent, COMSIG_FIXEYE_TOGGLE, PROC_REF(user_toggle_fixeye))
+	RegisterSignal(living_parent, COMSIG_FIXEYE_DISABLE, PROC_REF(safe_disable_fixeye))
+	RegisterSignal(living_parent, COMSIG_FIXEYE_ENABLE, PROC_REF(safe_enable_fixeye))
+	RegisterSignal(living_parent, COMSIG_FIXEYE_LOCK, PROC_REF(lock_fixeye))
+	RegisterSignal(living_parent, COMSIG_FIXEYE_UNLOCK, PROC_REF(unlock_fixeye))
+	RegisterSignal(living_parent, COMSIG_LIVING_DEATH, PROC_REF(on_death))
+	RegisterSignal(living_parent, COMSIG_MOB_LOGOUT, PROC_REF(on_logout))
+	RegisterSignal(living_parent, COMSIG_FIXEYE_CHECK, PROC_REF(check_flags))
 
 /datum/component/fixeye/UnregisterFromParent()
 	var/mob/living/living_source = parent
@@ -78,9 +78,9 @@
 	if(!silent)
 		source.playsound_local(source, 'mojave/sound/ms13interface/fixeye_on.ogg', 25, FALSE, pressure_affected = FALSE)
 	faced_dir = source.dir
-	RegisterSignal(source, COMSIG_ATOM_PRE_DIR_CHANGE, .proc/before_dir_change)
-	RegisterSignal(source, COMSIG_MOB_CLIENT_MOVED, .proc/on_client_move)
-	RegisterSignal(source, COMSIG_MOB_CLICKON, .proc/on_clickon)
+	RegisterSignal(source, COMSIG_ATOM_PRE_DIR_CHANGE, PROC_REF(before_dir_change))
+	RegisterSignal(source, COMSIG_MOB_CLIENT_MOVED, PROC_REF(on_client_move))
+	RegisterSignal(source, COMSIG_MOB_CLICKON, PROC_REF(on_clickon))
 
 /// Safely (as in respecting requirements and toggle flag) calls disable_fixeye
 /datum/component/fixeye/proc/safe_disable_fixeye(mob/living/source, silent = FALSE, forced = FALSE)
@@ -183,4 +183,4 @@
 			else
 				new_dir = NORTH
 	source.setDir(new_dir)
-	RegisterSignal(source, COMSIG_ATOM_PRE_DIR_CHANGE, .proc/before_dir_change)
+	RegisterSignal(source, COMSIG_ATOM_PRE_DIR_CHANGE, PROC_REF(before_dir_change))
