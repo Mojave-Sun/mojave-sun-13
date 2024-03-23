@@ -49,4 +49,4 @@
 	// Fridge 4 sprite has a 2 pixel offset to fit in 32x32
 	if(icon_state == "fridge4")
 		pixel_x = 2
-	update_icon(UPDATE_OVERLAYS)
+	update_icon()
