@@ -2,7 +2,7 @@
 	name = "makeshift bridge"
 	desc = "A durable catwalk used mainly in industrial areas"
 	icon = 'mojave/icons/structure/catwalk.dmi'
-	icon_state = "bridge"
+	icon_state = "planks_1"
 	density = FALSE
 	anchored = TRUE
 	armor = list(MELEE = 50, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 80, ACID = 50)
@@ -11,16 +11,34 @@
 	plane = FLOOR_PLANE
 	obj_flags = CAN_BE_HIT | BLOCK_Z_OUT_DOWN | BLOCK_Z_IN_UP
 
+	var/base_icon  /// Remember initial sprite
+
+/obj/structure/ms13/bridge/Initialize(mapload)
+	. = ..()
+	base_icon = "planks_[rand(1, 5)]"
+	icon_state = base_icon
+
+/obj/structure/ms13/bridge/update_icon_state()
+	if(broken)
+		icon_state = "planks_broken"
+	else
+		icon_state = base_icon
+	return ..()
+
+/obj/structure/ms13/bridge/update_overlays()
+	. = ..()
+	. += mutable_appearance(icon, "id_overlay", layer=TODO)
+
 /obj/structure/ms13/bridge/atom_break(damage_flag)
 	. = ..()
 	if(!broken && !(flags_1 & NODECONSTRUCT_1))
 		broken = TRUE
 		obj_flags = CAN_BE_HIT // You will go through if you walk over a broken bridge
-		update_appearance(UPDATE_OVERLAYS)
+		update_icon(UPDATE_ICON_STATE)
 
 /obj/structure/ms13/bridge/proc/repair_bridge()
 	atom_integrity = max_integrity
 	if(broken)
 		broken = FALSE
 		obj_flags = initial(obj_flags)
-		update_appearance(UPDATE_OVERLAYS)
+		update_icon(UPDATE_ICON_STATE)
