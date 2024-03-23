@@ -73,7 +73,7 @@
 
 /obj/structure/ms13/tank/pipe/test/proc/transfer_to(obj/structure/sink/ms13/test/target,amount)
 	if(target && target.reagents)
-		reagents.copy_to(target, amount, round_robin = TRUE)
+		reagents.trans_to(target, amount)
 		to_chat(world, span_notice("I've given the water."))
 
 ////////////////////////////////////////////////////////////////////////////
@@ -95,12 +95,14 @@
 	reagents.add_reagent(/datum/reagent/consumable/ms13/water, rand(0,5))
 
 /obj/structure/sink/ms13/test/process()
+	. = ..()
+	to_chat(world, span_notice("98"))
 	if(reagents.total_volume <= reagents.maximum_volume || forcetest == TRUE)
-		to_chat(world, span_notice("126"))
+		to_chat(world, span_notice("100"))
 		if(linked_tank)
 			var/request = reagents.maximum_volume - reagents.total_volume
 			linked_tank.process_request(request, src)
-			to_chat(world, span_notice("I've asked nicely."))
+			to_chat(world, span_notice("104"))
 
 /obj/structure/sink/ms13/test/attackby(obj/item/O, mob/living/user, params)
 	if(busy)
