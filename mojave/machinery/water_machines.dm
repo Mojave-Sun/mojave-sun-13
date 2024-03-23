@@ -89,7 +89,7 @@
 	var/obj/structure/ms13/tank/pipe/test/linked_tank
 	var/forcetest = FALSE
 
-/obj/structure/sink/ms13/test/Initialize()
+/obj/structure/sink/ms13/test/Initialize(mapload)
 	. = ..()
 	create_reagents(100, AMOUNT_VISIBLE)
 	reagents.add_reagent(/datum/reagent/consumable/ms13/water, rand(0,5))
@@ -135,7 +135,8 @@
 	if(istype(W.buffer, /obj/structure/ms13/tank/pipe/test))	
 		to_chat(user, span_info("You link the [W.buffer] to the [src]"))
 		linked_tank = W.buffer
-		return TRUE
+		process()
+		return
 	if(W.buffer == null)
 		to_chat(user, span_info("You need to use the wrench on a water tank first"))
 		return
