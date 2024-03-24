@@ -12,7 +12,7 @@
 	var/regen_rate = 10
 
 /obj/machinery/ms13/plant_machinery/Initialize()
-	create_reagents(internal_volume, DRAINABLE | AMOUNT_VISIBLE)
+	create_reagents(internal_volume, AMOUNT_VISIBLE)
 	reagents.add_reagent(/datum/reagent/consumable/ms13/water, 1500)
 	. = ..()
 
@@ -54,10 +54,15 @@
 	create_reagents(tank_capacity, AMOUNT_VISIBLE)
 	reagents.add_reagent(/datum/reagent/consumable/ms13/water, 200)
 
+/obj/structure/ms13/tank/pipe/test/attackby(obj/item/w, mob/living/user, params)
+	if(istype(w, /obj/item/wrench/ms13))
+		return FALSE
+
 /obj/structure/ms13/tank/pipe/test/wrench_act_secondary(mob/living/user, obj/item/wrench/ms13/W)
 	if(W.buffer == null)
 		W.buffer = src
 		to_chat(user, span_info("You prepare to link the [W.buffer] to something."))
+		return
 	if(W.buffer == /obj/structure/sink/ms13/test)
 		to_chat(user, span_info("You need to pipe the tank to the sink. Not the other way around."))
 	if(W.buffer == /obj/machinery/ms13/plant_machinery)
@@ -69,7 +74,6 @@
 		if(request <= reagents.total_volume) //first come first serve
 			transfer_to(requesting_item, request)
 			to_chat(world, span_notice("I've heard the request"))
-//		if(request <= reagents.total_volume)	
 
 /obj/structure/ms13/tank/pipe/test/proc/transfer_to(obj/structure/sink/ms13/test/target,amount)
 	if(target && target.reagents)
@@ -94,7 +98,7 @@
 	create_reagents(100, AMOUNT_VISIBLE)
 	reagents.add_reagent(/datum/reagent/consumable/ms13/water, rand(0,5))
 
-/obj/structure/sink/ms13/test/process()
+/obj/structure/sink/ms13/test/process(delta_time)
 	. = ..()
 	to_chat(world, span_notice("98"))
 	if(reagents.total_volume <= reagents.maximum_volume || forcetest == TRUE)
@@ -135,7 +139,7 @@
 	if(istype(W.buffer, /obj/structure/ms13/tank/pipe/test))	
 		to_chat(user, span_info("You link the [W.buffer] to the [src]"))
 		linked_tank = W.buffer
-		process()
+		// process()
 		return
 	if(W.buffer == null)
 		to_chat(user, span_info("You need to use the wrench on a water tank first"))
