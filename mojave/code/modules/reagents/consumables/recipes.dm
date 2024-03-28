@@ -12,6 +12,14 @@
 	reaction_tags = REACTION_TAG_DRINK | REACTION_TAG_EASY
 
 //// Drink Mix Zone!! ////
+// Survival recipes //
+
+/datum/chemical_reaction/drink/ms13/melt_snow
+	results = list(/datum/reagent/consumable/ms13/water/unfiltered = 1)
+	required_reagents = list(/datum/reagent/consumable/ms13/snow = 1)
+	mix_message = "The snow softens to water."
+	required_temp = 500
+	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_DRINK
 
 // Fun for all //
 

@@ -228,6 +228,12 @@
 	if(!((locate(/obj/structure) in src) || (locate(/obj/machinery) in src) || (locate(/obj/structure/flora) in src)))
 		plant_grass()
 
+/turf/open/floor/plating/ms13/ground/snow/attack_hand_secondary(mob/living/user, list/params)
+	. = ..()
+	var/hand_check = user.get_active_held_item()
+	if(!hand_check && user.combat_mode)
+		user.put_in_hands(new /obj/item/ms13/snowball)
+
 /turf/open/floor/plating/ms13/ground/snow/update_icon()
 	. = ..()
 	var/rand_icon = rand(1,3)

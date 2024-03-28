@@ -61,6 +61,14 @@
 		M.vomit(lost_nutrition = 25, distance = 1, purge_ratio = 0.2)
 	return ..()
 
+/datum/reagent/consumable/ms13/snow
+	name = "Snow"
+	description = "Small crystals of water formed due to low temperature."
+	color = "#f0eee9"
+	taste_description = "crunchy cold nothing"
+	glass_name = "glass of snow"
+	glass_desc = "Ideal for any cold reception."
+
 //// E for Everyone drinks - Soda/Beverages ////
 
 /datum/reagent/consumable/ms13/cola/nuka_cola
