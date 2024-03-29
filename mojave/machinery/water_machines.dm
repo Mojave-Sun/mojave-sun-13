@@ -136,11 +136,13 @@
 /obj/structure/sink/ms13/test/wrench_act_secondary(mob/living/user, obj/item/wrench/ms13/W)
 	. = ..()
 	to_chat(user, span_notice("Wrench on"))
-	if(istype(W.buffer, /obj/structure/ms13/tank/pipe/test))	
-		to_chat(user, span_info("You link the [W.buffer] to the [src]"))
-		linked_tank = W.buffer
-		// process()
-		return
+	if(istype(W.buffer, /obj/structure/ms13/tank/pipe/test))
+		if(get_dist(src, W.buffer) <= 50)
+			to_chat(user, span_info("You link the [W.buffer] to the [src]"))
+			linked_tank = W.buffer
+			process()
+			return
+		to_chat(user, span_info("The [W.buffer] is too far from the [src]"))
 	if(W.buffer == null)
 		to_chat(user, span_info("You need to use the wrench on a water tank first"))
 		return
