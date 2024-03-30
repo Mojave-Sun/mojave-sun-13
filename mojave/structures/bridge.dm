@@ -12,7 +12,6 @@
 	obj_flags = CAN_BE_HIT | BLOCK_Z_OUT_DOWN | BLOCK_Z_IN_UP
 
 	var/base_icon  /// Remember initial sprite
-	var/is_end = FALSE  /// If this bridge turf is one of the two ends
 
 /obj/structure/ms13/bridge/Initialize(mapload)
 	. = ..()
@@ -20,7 +19,6 @@
 		pixel_y = -7
 	base_icon = "planks_[rand(1, 5)]"
 	icon_state = base_icon
-	check_bridge_end()
 	update_icon()
 
 /obj/structure/ms13/bridge/update_icon_state()
@@ -30,57 +28,13 @@
 		icon_state = base_icon
 	return ..()
 
-
-	// #define NORTH 1
-// #define SOUTH 2
-// #define EAST 4
-// #define WEST 8
-
 /obj/structure/ms13/bridge/update_overlays()
 	. = ..()
-	// Have to use image instead of mutable_appearance as it does not support dir
-	var/dx_end = 0
-	var/dy_end = 0
-	var/dy_main = 0
-
-
-
-	// Add additional sprites if this is the end of the bridge (stakes and ropes)
-	if(is_end)
-		if(dir == SOUTH)
-			dy_end = -32
-		else if(dir == NORTH)
-			dy_end = 32
-		else if(dir == EAST)
-			dx_end = 32
-			dy_end = 0
-		else if(dir == WEST)
-			dx_end = -32
-			dy_end = 0
-		// Ropes and planks sprites (end of bridge)
-		. += image(icon, "rope_underplanks_end", layer=TURF_DECAL_LAYER, dir=REVERSE_DIR(dir), pixel_x=dx_end, pixel_y=dy_end)
-		. += image(icon, "rope_underchar_end", layer=BELOW_MOB_LAYER, dir=REVERSE_DIR(dir), pixel_x=dx_end, pixel_y=dy_end)
-		. += image(icon, "rope_overchar_end", layer=ABOVE_MOB_LAYER, dir=REVERSE_DIR(dir), pixel_x=dx_end, pixel_y=dy_end)
-
 
 	// Ropes and planks sprites
-	if(dir == EAST || dir == WEST)
-		dy_main = 0
-	. += image(icon, "rope_underplanks", layer=TURF_DECAL_LAYER, dir=dir)
-	. += image(icon, "rope_underchar", layer=BELOW_MOB_LAYER, dir=dir)
-	. += image(icon, "rope_overchar", plane = GAME_PLANE_UPPER, layer=ABOVE_MOB_LAYER, dir=dir)
-
-/obj/structure/ms13/bridge/proc/check_bridge_end()
-
-	var/turf/T1 = get_step(src, dir)
-	var/turf/T2 = get_step(src, REVERSE_DIR(dir))
-	var/end1 = locate(/obj/structure/ms13/bridge) in T1
-	var/end2 = locate(/obj/structure/ms13/bridge) in T2
-	if(!end2)
-		// Reverse direction to point towards missing end (for sprites)
-		dir = REVERSE_DIR(dir)
-	if(!end1 || !end2)
-		is_end = TRUE
+	. += mutable_appearance(icon, "rope_underplanks_[dir]", layer=TURF_DECAL_LAYER)
+	. += mutable_appearance(icon, "rope_underchar_[dir]", layer=BELOW_MOB_LAYER)
+	. += mutable_appearance(icon, "rope_overchar_[dir]", plane = GAME_PLANE_UPPER, layer=ABOVE_MOB_LAYER)
 
 /obj/structure/ms13/bridge/atom_break(damage_flag)
 	. = ..()
@@ -110,22 +64,26 @@
 	plane = GAME_PLANE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
-/obj/structure/ms13/bridge/Initialize(mapload)
+/obj/structure/ms13/bridge_stakes/Initialize(mapload)
 	. = ..()
 	// The default sprite is just for mappers
 	// Stakes will be displayed with overlays to handle the layering
 	icon_state = ""
+	if(dir == EAST || dir == WEST)
+		pixel_y = -7
 	update_icon()
 
 /obj/structure/ms13/bridge_stakes/update_overlays()
 	. = ..()
 
+	// Mutable appearances do not support dir so we have to use one sprite for each dir
+
 	// Ropes and planks sprites (end of bridge)
-	. += mutable_appearance("mojave/icons/structure/bridge.dmi", "rope_underplanks_end", layer=TURF_DECAL_LAYER, dir=REVERSE_DIR(dir))
-	. += mutable_appearance("mojave/icons/structure/bridge.dmi", "rope_underchar_end", layer=BELOW_MOB_LAYER, dir=REVERSE_DIR(dir))
-	. += mutable_appearance("mojave/icons/structure/bridge.dmi", "rope_overchar_end", plane = GAME_PLANE_UPPER, layer=ABOVE_MOB_LAYER, dir=REVERSE_DIR(dir))
+	. += mutable_appearance('mojave/icons/structure/bridge.dmi', "rope_underplanks_end_[dir]", layer=TURF_DECAL_LAYER)
+	. += mutable_appearance('mojave/icons/structure/bridge.dmi', "rope_underchar_end_[dir]", layer=BELOW_MOB_LAYER)
+	. += mutable_appearance('mojave/icons/structure/bridge.dmi', "rope_overchar_end_[dir]", plane = GAME_PLANE_UPPER, layer=ABOVE_MOB_LAYER)
 
 	// Stakes sprites
-	. += mutable_appearance(icon, "stake_subjective", layer=BELOW_MOB_LAYER, dir=REVERSE_DIR(dir))
-	. += mutable_appearance(icon, "stake_underchar", layer=BELOW_MOB_LAYER, dir=REVERSE_DIR(dir))
-	. += mutable_appearance(icon, "stake_overchar", plane = GAME_PLANE_UPPER, layer=ABOVE_MOB_LAYER, dir=REVERSE_DIR(dir))
+	. += mutable_appearance(icon, "stake_subjective_[dir]", layer=BELOW_MOB_LAYER)
+	. += mutable_appearance(icon, "stake_underchar_[dir]", layer=BELOW_MOB_LAYER)
+	. += mutable_appearance(icon, "stake_overchar_[dir]", plane = GAME_PLANE_UPPER, layer=ABOVE_MOB_LAYER)
