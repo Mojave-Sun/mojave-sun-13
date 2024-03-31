@@ -3,10 +3,10 @@
 	desc = "Throwing these is always fun way to start a fight."
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "snowball"
-	hitsound = 'mojave/sound/ms13weapons/meleesounds/genericblunt_hit.ogg'
+	hitsound = 'sound/weapons/genhit.ogg'
 	pickup_sound = 'mojave/sound/ms13weapons/meleesounds/general_grip.ogg'
-	attack_verb_continuous = list("clonks", "smacks", "clocks", "nails", "bludgeons", "whacks", "bonks", "bricks")
-	attack_verb_simple = list("clonk", "smack", "clock", "nail", "bludgeon", "whack", "bonk", "brick")
+	attack_verb_continuous = list("powders", "snows", "ices", "nails", "whacks")
+	attack_verb_simple = list("powder", "snow", "ice", "nail", "whack")
 	force = 0
 	throwforce = 0 //snowball
 	subtractible_armour_penetration = 0
