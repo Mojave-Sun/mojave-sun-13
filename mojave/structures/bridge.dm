@@ -40,7 +40,17 @@
 	// Ropes and planks sprites
 	. += mutable_appearance(icon, "rope_underplanks_[dir]", layer=TURF_DECAL_LAYER)
 	. += mutable_appearance(icon, "rope_underchar_[dir]", layer=BELOW_MOB_LAYER)
-	. += mutable_appearance(icon, "rope_overchar_[dir]", plane = GAME_PLANE_UPPER, layer=ABOVE_MOB_LAYER)
+
+	// Because of the layering, we need to use a special sprite when there are bridge stakes on the next turf south
+	if (dir == WEST || dir == EAST)
+		. += mutable_appearance(icon, "rope_overchar_[dir]", plane = GAME_PLANE_UPPER, layer=ABOVE_MOB_LAYER)
+	else
+		var/turf/turf_south = get_step(src, SOUTH)
+		var/end = locate(/obj/structure/ms13/bridge_stakes) in turf_south
+		if(end)
+			. += mutable_appearance(icon, "rope_overchar_special", plane = GAME_PLANE_UPPER, layer=ABOVE_MOB_LAYER)
+		else
+			. += mutable_appearance(icon, "rope_overchar_[dir]", plane = GAME_PLANE_UPPER, layer=ABOVE_MOB_LAYER)
 
 /// What happens when the bridge integrity reaches zero.
 /obj/structure/ms13/bridge/atom_destruction(damage_flag)
