@@ -42,13 +42,18 @@
 	. += mutable_appearance(icon, "rope_underchar_[dir]", layer=BELOW_MOB_LAYER)
 	. += mutable_appearance(icon, "rope_overchar_[dir]", plane = GAME_PLANE_UPPER, layer=ABOVE_MOB_LAYER)
 
-/// Atom break after taking too much damage (integrity at 0)
-/obj/structure/ms13/bridge/atom_break(damage_flag)
-	. = ..()
-	if(!broken && !(flags_1 & NODECONSTRUCT_1))
+/// What happens when the bridge integrity reaches zero.
+/obj/structure/ms13/bridge/atom_destruction(damage_flag)
+	if(!broken)
 		broken = TRUE
-		obj_flags = CAN_BE_HIT // You will go through if you walk over a broken bridge
+		obj_flags = 0 // You will go through if you walk over a broken bridge
 		update_icon(UPDATE_ICON_STATE)  // No need to update overlays
+
+/obj/structure/ms13/bridge/take_damage(damage_amount, damage_type = BRUTE, damage_flag = 0, sound_effect = TRUE, attack_dir)
+	// Avoid taking damage when integrity is already at 0
+	if(broken)
+		return
+	. = ..()
 
 /// Repairing a damaged bridge section back to full health
 /obj/structure/ms13/bridge/proc/repair_bridge()
@@ -61,22 +66,27 @@
 /// Possibility to repair damaged bridge sections using wood planks or wood scrap
 /obj/structure/ms13/bridge/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/stack/sheet/ms13/wood/plank) || istype(I, /obj/item/stack/sheet/ms13/wood/scrap_wood))
-			var/obj/item/stack/S = I
-			var/stackamount = S.get_amount()
-			if(istype(I, /obj/item/stack/sheet/ms13/wood/plank))
-				if(stackamount < 2)
-					to_chat(user, span_notice("You do not have enough [I] to repair [src]!"))
-				else
-					S.use(2)
-					to_chat(user, span_notice("You use 2 [I] to repair [src]."))  // for "wood planks"
+		var/obj/item/stack/S = I
+		var/stackamount = S.get_amount()
+		if(istype(I, /obj/item/stack/sheet/ms13/wood/plank))
+			if(stackamount < 2)
+				to_chat(user, span_notice("You do not have enough [I] to repair [src]!"))
 			else
-				if(stackamount < 4)
-					to_chat(user, span_notice("You do not have enough [I] to repair [src]!"))
-				else
+				if(do_after(user, 3 SECONDS, target = src))
+					user.visible_message(span_warning("[user] repairs [src]."),\
+							span_notice("You use 2 [I] to repair [src].")) // for "wood planks"
+					S.use(2)
+					repair_bridge()
+		else
+			if(stackamount < 4)
+				to_chat(user, span_notice("You do not have enough [I] to repair [src]!"))
+			else
+				if(do_after(user, 3 SECONDS, target = src))
+					user.visible_message(span_warning("[user] repairs [src]."),\
+							span_notice("You use 4 pieces of [I] to repair [src]."))  // for "scrap wood"
 					S.use(4)
-					to_chat(user, span_notice("You use 4 pieces of [I] to repair [src]."))  // for "scrap wood"
-			repair_bridge()
-			return
+					repair_bridge()
+		return
 	. = ..()
 
 /// Stakes at the end of a makeshift bridge
