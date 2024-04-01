@@ -54,6 +54,65 @@
 	playsound(src, "can_open", 50, TRUE)
 	spillable = TRUE
 
+//// Water containers ////
+
+/obj/item/reagent_containers/ms13/flask/waterskin
+	name = "waterskin"
+	desc = "Drink from this shit mang"
+	icon = 'mojave/icons/objects/food/liquids/drink_containers_world.dmi'
+	icon_state = "waterskin"
+	amount_per_transfer_from_this = 10
+	possible_transfer_amounts = list(10, 15, 20, 25, 30, 50)
+	volume = 50
+	resistance_flags = ACID_PROOF
+	w_class = WEIGHT_CLASS_SMALL
+	grid_height = 64
+	grid_width = 32
+
+/obj/item/reagent_containers/ms13/flask/waterskin/Initialize()
+	. = ..()
+	AddElement(/datum/element/item_scaling, 1, 1)
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/food/liquids/drink_containers_inventory.dmi')
+	create_reagents(volume, AMOUNT_VISIBLE)
+
+/obj/item/reagent_containers/ms13/flask/waterskin/small
+	name = "small waterskin"
+	desc = "Drink from this shit mang"
+	icon = 'mojave/icons/objects/food/liquids/drink_containers_world.dmi'
+	icon_state = "waterskin_small"
+	amount_per_transfer_from_this = 10
+	possible_transfer_amounts = list(10, 15, 20, 25, 30)
+	volume = 30
+	resistance_flags = ACID_PROOF
+	w_class = WEIGHT_CLASS_SMALL
+	grid_height = 64
+	grid_width = 32
+
+/obj/item/reagent_containers/ms13/flask/waterskin/small/Initialize()
+	. = ..()
+	AddElement(/datum/element/item_scaling, 1, 1)
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/food/liquids/drink_containers_inventory.dmi')
+	create_reagents(volume, AMOUNT_VISIBLE)
+
+/obj/item/reagent_containers/ms13/flask/canteen
+	name = "canteen"
+	desc = "Drink from this shit mang"
+	icon = 'mojave/icons/objects/food/liquids/drink_containers_world.dmi'
+	icon_state = "canteen"
+	amount_per_transfer_from_this = 10
+	possible_transfer_amounts = list(10, 15, 20, 25, 30, 50, 80)
+	volume = 80
+	resistance_flags = ACID_PROOF
+	w_class = WEIGHT_CLASS_SMALL
+	grid_height = 64
+	grid_width = 32
+
+/obj/item/reagent_containers/ms13/flask/canteen/Initialize()
+	. = ..()
+	AddElement(/datum/element/item_scaling, 1, 1)
+	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/food/liquids/drink_containers_inventory.dmi')
+	create_reagents(volume, AMOUNT_VISIBLE)
+
 //// Soda! ////
 
 /obj/item/reagent_containers/food/drinks/soda_cans/ms13/nuka_cola

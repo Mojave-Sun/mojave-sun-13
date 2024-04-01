@@ -44,12 +44,10 @@
 	if(request)
 		if(request <= reagents.total_volume) //first come first serve
 			transfer_to(requesting_item, request)
-			to_chat(world, span_info("request processed"))
 
 /obj/machinery/ms13/plant_machinery/plumbed/proc/transfer_to(obj/structure/ms13/tank/pipe/plumbed/target,amount)
 	if(target && target.reagents)
 		reagents.trans_to(target, amount)
-		to_chat(world, span_info("reagents processed"))
 
 //////////////////////////////////////////////////////////////////////////
 
@@ -81,7 +79,6 @@
 		if(plant_machinery)
 			var/plant_request = reagents.maximum_volume - reagents.total_volume
 			plant_machinery.process_request(plant_request, src)
-			to_chat(world, span_info("reagents asked for"))
 
 /obj/structure/ms13/tank/pipe/plumbed/proc/lookforpurifier()
 	var/purifier = locate(/obj/machinery/ms13/plant_machinery/plumbed)
