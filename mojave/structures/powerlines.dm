@@ -10,6 +10,7 @@
 	layer = LATTICE_LAYER
 	plane = FLOOR_PLANE
 	obj_flags = CAN_BE_HIT | BLOCK_Z_OUT_DOWN | BLOCK_Z_IN_UP
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	var/number_of_mats = 3
 	var/build_material = /obj/item/stack/sheet/ms13/scrap_copper
 
