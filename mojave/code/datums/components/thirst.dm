@@ -42,7 +42,7 @@ GLOBAL_LIST_INIT(dehydration_stage_alerts, list(
 	stage_to_alert = dehydration_stage_alerts
 	stage_of_dehydration = 1
 	var/mob/living/the_parent = parent
-	modify_thirst(modify_by = 1000)
+	modify_thirst(modify_by = start_thirst)
 	RegisterSignal(the_parent, COMSIG_CHECK_SELF, .proc/on_examine)
 	RegisterSignal(the_parent, DEHYDRATION_STAGE_CHECK, .proc/return_dehydration_stage)
 	RegisterSignal(the_parent, THIRST_METABOLISE, .proc/on_water)
