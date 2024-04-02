@@ -1,5 +1,3 @@
-//NOTE: KEEPING THIS DISABLED FOR NOW
-
 //Makes you request water or die, this could be made more generic with support of more reagents but that's going into "refactor addiction" territory
 
 //Amount of seconds a unit of water will provide life for, modify this for balancing purposes
@@ -7,10 +5,10 @@
 #define SECONDS_OF_LIFE_PER_WATER_U 60
 
 //List of stage of dehydration => examine/warning text
-GLOBAL_LIST_INIT(dehydration_stage_examine, list("You feel full of life and turgid.",
+GLOBAL_LIST_INIT(dehydration_stage_examine, list("<font color='green'>You feel full of life and turgid.",
 												 "<font color='yellow'>You could use some water.",
 												 "<font color='yellow'>Your mouth feels dry.",
-												 "<font color='yellow'>Your tongue is cracking and dry.",
+												 "<font color='orange'>Your tongue is cracking and dry.",
 												 "<font color='red'>You can barely focus from how thirsty you are."
 												))
 
