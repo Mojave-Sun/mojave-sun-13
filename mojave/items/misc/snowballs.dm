@@ -20,7 +20,6 @@
 	log_pickup_and_drop = TRUE
 	grid_width = 64
 	grid_height = 32
-	mining_mult = 0.75 //funny brick utility
 
 /obj/item/ms13/snowball/afterattack(atom/target, mob/user, proximity, params)
 	if(target.is_refillable())
