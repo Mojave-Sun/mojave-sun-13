@@ -87,7 +87,7 @@
 			souls_needed[player] = TRUE
 
 	soul_goal = round(1 + LAZYLEN(souls_needed) * 0.75)
-	INVOKE_ASYNC(GLOBAL_PROC, PROC_REF(begin_the_end))
+	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(begin_the_end))
 
 /obj/narsie/Destroy()
 	send_to_playing_players(span_narsie("\"<b>[pick("Nooooo...", "Not die. How-", "Die. Mort-", "Sas tyen re-")]\"</b>"))
