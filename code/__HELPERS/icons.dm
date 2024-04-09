@@ -1252,7 +1252,7 @@ GLOBAL_LIST_EMPTY(transformation_animation_objects)
 	for(var/A in transformation_objects)
 		vis_contents += A
 	if(reset_after)
-		addtimer(CALLBACK(src,.proc/_reset_transformation_animation,filter_index),time)
+		addtimer(CALLBACK(src, PROC_REF(_reset_transformation_animation), filter_index),time)
 
 /*
  * Resets filters and removes transformation animations helper objects from vis contents.
@@ -1329,7 +1329,7 @@ GLOBAL_LIST_EMPTY(transformation_animation_objects)
 	animate(transform = transforms[2], time=0.2)
 	animate(transform = transforms[3], time=0.4)
 	animate(transform = transforms[4], time=0.6)
-	addtimer(CALLBACK(src, .proc/Stop_Shaking), duration)
+	addtimer(CALLBACK(src, PROC_REF(Stop_Shaking)), duration)
 
 /atom/proc/Stop_Shaking()
 	update_appearance()

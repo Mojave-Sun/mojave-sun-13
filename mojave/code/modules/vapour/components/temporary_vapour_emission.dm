@@ -13,7 +13,7 @@
 	src.vapours_type = vapours_type
 	src.vapours_amount = vapours_amount
 	src.expiry_time = world.time + expiry_time
-	RegisterSignal(parent, COMSIG_COMPONENT_CLEAN_ACT, .proc/wash_off)
+	RegisterSignal(parent, COMSIG_COMPONENT_CLEAN_ACT, PROC_REF(wash_off))
 	START_PROCESSING(SSobj, src)
 
 /datum/component/temporary_vapour_emission/Destroy()

@@ -107,7 +107,7 @@
 		return //some cheeky git has started you early
 	weather_duration = rand(weather_duration_lower, weather_duration_upper)
 	running = TRUE
-	addtimer(CALLBACK(src, .proc/wind_down), weather_duration)
+	addtimer(CALLBACK(src, PROC_REF(wind_down)), weather_duration)
 
 	if(particleEffectType)
 		SSParticleWeather.SetparticleEffect(new particleEffectType);
@@ -138,7 +138,7 @@
 
 	//Tick on
 	if(severityStepsTaken < severitySteps)
-		addtimer(CALLBACK(src, .proc/ChangeSeverity), weather_duration / severitySteps)
+		addtimer(CALLBACK(src, PROC_REF(ChangeSeverity)), weather_duration / severitySteps)
 
 
 /**
@@ -154,7 +154,7 @@
 		SSParticleWeather.particleEffect.animateSeverity(severityMod())
 
 		//Wait for the last particle to fade, then qdel yourself
-		addtimer(CALLBACK(src, .proc/end), SSParticleWeather.particleEffect.lifespan + SSParticleWeather.particleEffect.fade)
+		addtimer(CALLBACK(src, PROC_REF(end)), SSParticleWeather.particleEffect.lifespan + SSParticleWeather.particleEffect.fade)
 
 
 

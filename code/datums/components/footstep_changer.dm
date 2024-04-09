@@ -21,9 +21,9 @@
 
 /datum/component/footstep_changer/RegisterWithParent()
 	. = ..()
-	RegisterSignal(parent, COMSIG_PARENT_QDELETING, .proc/parent_deleted)
+	RegisterSignal(parent, COMSIG_PARENT_QDELETING, PROC_REF(parent_deleted))
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 	connect_loc_behalf = AddComponent(/datum/component/connect_loc_behalf, parent, loc_connections)
 
@@ -68,8 +68,8 @@
 	old_barefootstep = source.barefootstep
 	source.footstep = footstep
 	source.barefootstep = barefootstep
-	RegisterSignal(source, COMSIG_FOOTSTEP_CHANGER_IS_FOOTSTEP_CHANGED, .proc/is_footstep_changed)
-	RegisterSignal(source, COMSIG_FOOTSTEP_CHANGER_CLEAR_FOOTSTEP, .proc/clear_footstep)
+	RegisterSignal(source, COMSIG_FOOTSTEP_CHANGER_IS_FOOTSTEP_CHANGED, PROC_REF(is_footstep_changed))
+	RegisterSignal(source, COMSIG_FOOTSTEP_CHANGER_CLEAR_FOOTSTEP, PROC_REF(clear_footstep))
 
 /datum/component/footstep_changer/proc/clear_footstep(turf/open/source)
 	SIGNAL_HANDLER

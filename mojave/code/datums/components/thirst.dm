@@ -42,7 +42,7 @@ GLOBAL_LIST_INIT(dehydration_stage_alerts, list(
 	stage_of_dehydration = 1
 	var/mob/the_parent = parent
 	modify_thirst(modify_by = start_thirst)
-	RegisterSignal(parent, COMSIG_PARENT_EXAMINE, .proc/on_examine)
+	RegisterSignal(parent, COMSIG_PARENT_EXAMINE, PROC_REF(on_examine))
 	START_PROCESSING(SSdcs, src)
 	if(stage_of_dehydration == 1) //Still the same after modifying thirst? throw the alert
 		the_parent.throw_alert("thirst", stage_to_alert[stage_of_dehydration])

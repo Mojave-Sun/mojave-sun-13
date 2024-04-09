@@ -10,7 +10,7 @@
 		src.requires_sight = requires_sight
 
 /datum/component/atmospheric_scanner/RegisterWithParent()
-	RegisterSignal(parent, COMSIG_ITEM_ATTACK_SELF, .proc/analyzer_scan)
+	RegisterSignal(parent, COMSIG_ITEM_ATTACK_SELF, PROC_REF(analyzer_scan))
 
 /datum/component/atmospheric_scanner/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_ITEM_ATTACK_SELF)

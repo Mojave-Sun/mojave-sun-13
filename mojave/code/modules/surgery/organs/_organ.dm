@@ -10,7 +10,7 @@
 	. = ..()
 	if((organ_flags & ORGAN_EDIBLE) && grilled_type)
 		AddComponent(/datum/component/grillable, grilled_type, rand(30 SECONDS, 90 SECONDS), TRUE, TRUE)
-		RegisterSignal(src, COMSIG_GRILL_COMPLETED, .proc/on_grill_completed)
+		RegisterSignal(src, COMSIG_GRILL_COMPLETED, PROC_REF(on_grill_completed))
 
 /obj/item/organ/proc/on_grill_completed(datum/source, obj/item/grill_result)
 	SIGNAL_HANDLER

@@ -46,9 +46,9 @@
 		for(var/datum/component/storage/storage as anything in thing.GetComponents(/datum/component/storage))
 			storage.locked = TRUE //locks
 
-	RegisterSignal(target, COMSIG_PARENT_ATTACKBY, .proc/check_pick)
-	RegisterSignal(target, COMSIG_LOCKPICK_ATTACKBY, .proc/pick_info)
-	RegisterSignal(target, COMSIG_PARENT_EXAMINE, .proc/examine)
+	RegisterSignal(target, COMSIG_PARENT_ATTACKBY, PROC_REF(check_pick))
+	RegisterSignal(target, COMSIG_LOCKPICK_ATTACKBY, PROC_REF(pick_info))
+	RegisterSignal(target, COMSIG_PARENT_EXAMINE, PROC_REF(examine))
 
 
 /datum/element/lockpickable/Detach(datum/target)
@@ -246,10 +246,10 @@
 	SIGNAL_HANDLER
 
 	clicker = usercli
-	RegisterSignal(clicker, COMSIG_CLIENT_MOUSEDOWN, .proc/on_mouse_down)
-	RegisterSignal(clicker, COMSIG_CLIENT_MOUSEUP, .proc/on_mouse_up)
-	RegisterSignal(picker,COMSIG_MOVABLE_MOVED, .proc/close_lockpick)
-	RegisterSignal(picker, COMSIG_PARENT_EXAMINE_MORE, .proc/mob_detection)
+	RegisterSignal(clicker, COMSIG_CLIENT_MOUSEDOWN, PROC_REF(on_mouse_down))
+	RegisterSignal(clicker, COMSIG_CLIENT_MOUSEUP, PROC_REF(on_mouse_up))
+	RegisterSignal(picker,COMSIG_MOVABLE_MOVED, PROC_REF(close_lockpick))
+	RegisterSignal(picker, COMSIG_PARENT_EXAMINE_MORE, PROC_REF(mob_detection))
 
 	//checks both for each just incase they switch hands for no reason mid lockpick
 	var/obj/item/held_lockmain = picker.get_active_held_item()
@@ -259,13 +259,13 @@
 	var/obj/item/held_wedgeother = picker.get_inactive_held_item()
 
 	if(istype(held_lockmain, the_lockpick))
-		RegisterSignal(the_lockpick, COMSIG_ITEM_DROPPED, .proc/close_lockpick)
+		RegisterSignal(the_lockpick, COMSIG_ITEM_DROPPED, PROC_REF(close_lockpick))
 	if(istype(held_lockother, the_lockpick))
-		RegisterSignal(the_lockpick, COMSIG_ITEM_DROPPED, .proc/close_lockpick)
+		RegisterSignal(the_lockpick, COMSIG_ITEM_DROPPED, PROC_REF(close_lockpick))
 	if(istype(held_wedgemain, the_wedge))
-		RegisterSignal(the_wedge, COMSIG_ITEM_DROPPED, .proc/close_lockpick)
+		RegisterSignal(the_wedge, COMSIG_ITEM_DROPPED, PROC_REF(close_lockpick))
 	if(istype(held_wedgeother, the_wedge))
-		RegisterSignal(the_wedge, COMSIG_ITEM_DROPPED, .proc/close_lockpick)
+		RegisterSignal(the_wedge, COMSIG_ITEM_DROPPED, PROC_REF(close_lockpick))
 
 	START_PROCESSING(SSfastprocess, src)
 
@@ -290,7 +290,7 @@
 
 	source.click_intercept_time = world.time //From this point onwards Click() will no longer be triggered.
 
-	INVOKE_ASYNC(src, .proc/move_pick_forward)
+	INVOKE_ASYNC(src, PROC_REF(move_pick_forward))
 
 /atom/movable/screen/movable/snap/ms13/lockpicking/proc/mob_detection(atom/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
@@ -378,7 +378,7 @@
 
 /atom/movable/screen/movable/snap/ms13/lockpicking/proc/play_turn_sound(timerd)
 	playsound(picker.loc, pick(LOCKPICKING_TURN_SOUNDS), 50)
-	addtimer(CALLBACK(src, .proc/turn_sound_reset), 0.7 SECONDS) //stops the spam
+	addtimer(CALLBACK(src, PROC_REF(turn_sound_reset)), 0.7 SECONDS) //stops the spam
 
 /atom/movable/screen/movable/snap/ms13/lockpicking/proc/turn_sound_reset()
 	playing_lock_sound = FALSE
