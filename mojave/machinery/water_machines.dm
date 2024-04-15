@@ -199,19 +199,23 @@
 /////////////////////////Area specific sinks////////////////////////
 
 /obj/structure/sink/ms13/plumbed/mammoth
+	autolinking = TRUE
+	autolinking_tank = /obj/structure/ms13/tank/pipe/plumbed/mammoth
 
 /obj/structure/sink/ms13/plumbed/barony
 	autolinking = TRUE
 	autolinking_tank = /obj/structure/ms13/tank/pipe/plumbed/barony
 
 /obj/structure/sink/ms13/plumbed/goldmen
-
+	autolinking = TRUE
+	autolinking_tank = /obj/structure/ms13/tank/pipe/plumbed/goldmen
 /////////////////////////Map specific tanks////////////////////////
 
 /obj/structure/ms13/tank/pipe/plumbed/mammoth
+	autolinking_purifier = TRUE
 
 /obj/structure/ms13/tank/pipe/plumbed/barony
 	autolinking_purifier = TRUE
 
 /obj/structure/ms13/tank/pipe/plumbed/goldmen
-
+	autolinking_purifier = TRUE
