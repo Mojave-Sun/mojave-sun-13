@@ -205,6 +205,11 @@
 	desc = "Three monitors stuck to the wall, in-case you needed more monitors."
 	icon_state = "wallscreen"
 
+/obj/structure/ms13/wall_decor/noisefoam
+	name = "noise absorbing foam"
+	desc = "A specialized material designed to control and improve the acoustics of a space by absorbing sound waves."
+	icon_state = "noisefoam"
+
 /// POSTERS ///
 /obj/structure/ms13/wall_decor/poster
 	name = "\improper NCR poster"
