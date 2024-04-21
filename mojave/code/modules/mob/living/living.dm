@@ -1,6 +1,6 @@
 /mob/living
 	var/voice_type
-  
+
 /mob/living/Initialize(mapload)
 	. = ..()
 	update_nv()
@@ -30,3 +30,11 @@
 		var/wield_pixel_x = !active ? 0 : (!(hud_used.mymob.active_hand_index % RIGHT_HANDS) ? wield_info.pixel_x_wielded : -wield_info.pixel_x_wielded)
 		active_item.screen_loc = ui_hand_position(hud_used.mymob.active_hand_index, wield_pixel_x)
 	return TRUE
+
+/// Alter speech when a mob is buried in a grave
+/mob/living/proc/handle_buried_speech(mob/living/carbon/speaker, list/speech_args)
+	SIGNAL_HANDLER
+
+	var/message = speech_args[SPEECH_MESSAGE]
+	if(message[1] != "*")
+		speech_args[SPEECH_MESSAGE] = stars(message, 40)

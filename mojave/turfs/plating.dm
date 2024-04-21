@@ -121,6 +121,17 @@
 			border_icon = 'mojave/icons/turf/64x/drought_3_border.dmi'
 
 	add_overlay(image(border_icon, icon_state, TURF_LAYER_DESERT_BORDER, pixel_x = -16, pixel_y = -16))
+
+/turf/open/floor/plating/ms13/ground/desert/attackby(obj/item/W, mob/user, params)
+	. = ..()
+	if(!.)
+		if(W.tool_behaviour == TOOL_SHOVEL)
+			to_chat(user, span_notice("You start digging the outlines of a grave."))
+			if(do_after(user, 4 SECONDS * W.toolspeed, target = src))
+				user.visible_message(span_notice("[user] dug out the outlines of a grave."),
+										span_notice("You dug out the outlines of a grave."))
+				new /obj/structure/closet/ms13/grave(src)
+
 /*
 /turf/open/floor/plating/ms13/ground/desert/attackby(obj/item/W, mob/user, params)
 	. = ..()
@@ -203,6 +214,16 @@
 
 	if(!((locate(/obj/structure) in src) || (locate(/obj/machinery) in src)))
 		plantGrass()
+
+/turf/open/floor/plating/ms13/ground/desertalt/attackby(obj/item/W, mob/user, params)
+	. = ..()
+	if(!.)
+		if(W.tool_behaviour == TOOL_SHOVEL)
+			to_chat(user, span_notice("You start digging the outlines of a grave."))
+			if(do_after(user, 4 SECONDS * W.toolspeed, target = src))
+				user.visible_message(span_notice("[user] dug out the outlines of a grave."),
+										span_notice("You dug out the outlines of a grave."))
+				new /obj/structure/closet/ms13/grave(src)
 
 /turf/open/floor/plating/ms13/ground/snow
 	name = "snow"
