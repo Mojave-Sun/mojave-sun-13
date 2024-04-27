@@ -28,4 +28,4 @@
 	icon_state = "40mm_rubber"
 	ammo_type = /obj/item/ammo_casing/ms13/a40mm
 	caliber = "40mm"
-	max_ammo = 5
+	max_ammo = 1
