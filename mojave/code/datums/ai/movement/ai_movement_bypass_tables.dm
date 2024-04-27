@@ -39,7 +39,7 @@
 				thing.set_density(FALSE)
 				step(the_pawn, get_dir(the_pawn.loc, thing.loc))
 				thing.set_density(preserved_density)
-				addtimer(CALLBACK(src, .proc/enable_movement, controller), 20)
+				addtimer(CALLBACK(src, PROC_REF(enable_movement), controller), 20)
 				controller.ai_traits |= STOP_MOVING
 				return MOVELOOP_SKIP_STEP
 			if(istype(thing, /obj/structure/ms13/frame))
@@ -69,8 +69,8 @@
 					jump_height = 15
 				animate(the_pawn, pixel_y = jump_height, time = 1, easing = SINE_EASING)
 				thing.set_density(preserved_density)
-				addtimer(CALLBACK(src, .proc/end_jump, the_pawn), 2)
-				addtimer(CALLBACK(src, .proc/enable_movement, controller), 20)
+				addtimer(CALLBACK(src, PROC_REF(end_jump), the_pawn), 2)
+				addtimer(CALLBACK(src, PROC_REF(enable_movement), controller), 20)
 				controller.ai_traits |= STOP_MOVING
 				return MOVELOOP_SKIP_STEP
 

@@ -5,7 +5,7 @@
 	. = ..()
 	if(!.)
 		return
-	RegisterSignal(new_master, COMSIG_ATOM_SET_DENSITY, .proc/master_density_change)
+	RegisterSignal(new_master, COMSIG_ATOM_SET_DENSITY, PROC_REF(master_density_change))
 	master_density_change(new_master, new_master.opacity)
 
 /atom/movable/follower/density/unregister_master()

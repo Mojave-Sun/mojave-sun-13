@@ -101,7 +101,7 @@
 
 /turf/open/floor/plating/ms13/ground/desert/Initialize()
 	. = ..()
-	addtimer(CALLBACK(src, /atom/.proc/update_icon), 1)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 1)
 	//If no fences, machines (soil patches are machines), etc. try to plant grass
 	if(!((locate(/obj/structure) in src) || (locate(/obj/machinery) in src)))
 		plantGrass()
@@ -121,6 +121,17 @@
 			border_icon = 'mojave/icons/turf/64x/drought_3_border.dmi'
 
 	add_overlay(image(border_icon, icon_state, TURF_LAYER_DESERT_BORDER, pixel_x = -16, pixel_y = -16))
+
+/turf/open/floor/plating/ms13/ground/desert/attackby(obj/item/W, mob/user, params)
+	. = ..()
+	if(!.)
+		if(W.tool_behaviour == TOOL_SHOVEL)
+			to_chat(user, span_notice("You start digging the outlines of a grave."))
+			if(do_after(user, 4 SECONDS * W.toolspeed, target = src))
+				user.visible_message(span_notice("[user] dug out the outlines of a grave."),
+										span_notice("You dug out the outlines of a grave."))
+				new /obj/structure/closet/ms13/grave(src)
+
 /*
 /turf/open/floor/plating/ms13/ground/desert/attackby(obj/item/W, mob/user, params)
 	. = ..()
@@ -204,6 +215,16 @@
 	if(!((locate(/obj/structure) in src) || (locate(/obj/machinery) in src)))
 		plantGrass()
 
+/turf/open/floor/plating/ms13/ground/desertalt/attackby(obj/item/W, mob/user, params)
+	. = ..()
+	if(!.)
+		if(W.tool_behaviour == TOOL_SHOVEL)
+			to_chat(user, span_notice("You start digging the outlines of a grave."))
+			if(do_after(user, 4 SECONDS * W.toolspeed, target = src))
+				user.visible_message(span_notice("[user] dug out the outlines of a grave."),
+										span_notice("You dug out the outlines of a grave."))
+				new /obj/structure/closet/ms13/grave(src)
+
 /turf/open/floor/plating/ms13/ground/snow
 	name = "snow"
 	desc = "Fresh powder."
@@ -223,7 +244,7 @@
 
 /turf/open/floor/plating/ms13/ground/snow/Initialize()
 	. = ..()
-	addtimer(CALLBACK(src, /atom/.proc/update_icon), 1)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 1)
 	curr_area = get_area(src)
 	if(!((locate(/obj/structure) in src) || (locate(/obj/machinery) in src) || (locate(/obj/structure/flora) in src)))
 		plant_grass()
@@ -404,7 +425,7 @@
 
 /turf/open/floor/plating/ms13/ground/road/Initialize()
 	. = ..()
-	addtimer(CALLBACK(src, /atom/.proc/update_icon), 1)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 1)
 
 /turf/open/floor/plating/ms13/ground/road/update_icon()
 	. = ..() //Inheritance required for road decals
@@ -445,7 +466,7 @@
 
 /turf/open/floor/plating/ms13/ground/sidewalk/Initialize()
 	. = ..()
-	addtimer(CALLBACK(src, /atom/.proc/update_icon), 1)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 1)
 
 /*
 /turf/open/floor/plating/ms13/ground/sidewalk/update_icon()
@@ -552,7 +573,7 @@
 
 /turf/open/floor/plating/ms13/ground/ice/Initialize()
 	. = ..()
-	addtimer(CALLBACK(src, /atom/.proc/update_icon), 1)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 1)
 	MakeSlippery(TURF_WET_WATER, INFINITY, 0, INFINITY, TRUE, overlay = FALSE)
 
 /turf/open/floor/plating/ms13/ground/ice/MakeSlippery(wet_setting, min_wet_time, wet_time_to_add, max_wet_time, permanent, overlay)
@@ -780,7 +801,7 @@ GLOBAL_VAR(FishPopNextCalc)
 									"<span class='notice'>You start lowering yourself in the deep water.</span>")
 					if(do_mob(user, M, 20))
 						M.swimming = TRUE
-						addtimer(CALLBACK(src, .proc/transfer_mob_layer, M), 0.2 SECONDS)
+						addtimer(CALLBACK(src, PROC_REF(transfer_mob_layer), M), 0.2 SECONDS)
 						M.forceMove(src)
 						to_chat(user, "<span class='notice'>You lower yourself in the deep water.</span>")
 						//M.adjust_bodytemperature(coldness)
@@ -790,7 +811,7 @@ GLOBAL_VAR(FishPopNextCalc)
 									"<span class='notice'>You start lowering [M] in the deep water.")
 					if(do_mob(user, M, 20))
 						M.swimming = TRUE
-						addtimer(CALLBACK(src, .proc/transfer_mob_layer, M), 0.2 SECONDS)
+						addtimer(CALLBACK(src, PROC_REF(transfer_mob_layer), M), 0.2 SECONDS)
 						M.forceMove(src)
 						to_chat(user, "<span class='notice'>You lower [M] in the deep water.</span>")
 						//M.adjust_bodytemperature(coldness)
@@ -816,7 +837,7 @@ GLOBAL_VAR(FishPopNextCalc)
 	if(isliving(A))
 		var/mob/living/M = A
 		var/mob/living/carbon/H = M
-		addtimer(CALLBACK(src, .proc/transfer_mob_layer, M), 0.2 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(transfer_mob_layer), M), 0.2 SECONDS)
 		if(!(M.swimming))
 			switch(depth)
 				if(3)

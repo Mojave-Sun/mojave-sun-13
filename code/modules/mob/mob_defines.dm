@@ -104,6 +104,8 @@
 
 	/// Default body temperature
 	var/bodytemperature = BODYTEMP_NORMAL //310.15K / 98.6F
+	/// Our body temperatue as of the last process, prevents pointless work when handling alerts
+	var/old_bodytemperature = 0
 	/// Drowsyness level of the mob
 	var/drowsyness = 0//Carbon
 	/// Dizziness level of the mob
@@ -246,3 +248,8 @@
 
 	/// Keeps track of time of death for respawn purposes on the base mob
 	var/respawn_timeofdeath = 0
+
+	///the icon currently used for the typing indicator's bubble
+	var/active_typing_indicator
+	///the icon currently used for the thinking indicator's bubble
+	var/active_thinking_indicator

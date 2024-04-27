@@ -26,7 +26,7 @@
 	. = ..()
 	if(!ismovable(parent))
 		return COMPONENT_INCOMPATIBLE
-	RegisterSignal(parent, COMSIG_MOVABLE_IMPACT, .proc/throw_impact_ricochet, override = TRUE)
+	RegisterSignal(parent, COMSIG_MOVABLE_IMPACT, PROC_REF(throw_impact_ricochet), override = TRUE)
 	horizontal_velocity = _horizontal_velocity
 	vertical_velocity = _vertical_velocity
 	horizontal_friction = _horizontal_friction

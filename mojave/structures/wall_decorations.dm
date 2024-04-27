@@ -190,6 +190,10 @@
 	desc = "DANGER. The text is apparent. But surely it's not relevant to you right now."
 	icon_state = "danger_sign"
 
+/obj/structure/ms13/wall_decor/sign/notice_robot
+	name = "notice sign"
+	desc = "A sign indicating the presence of robots in the vicinity."
+	icon_state = "notice_robot"
 
 /obj/structure/ms13/wall_decor/exit
 	name = "exit sign"
@@ -200,6 +204,11 @@
 	name = "wallscreens"
 	desc = "Three monitors stuck to the wall, in-case you needed more monitors."
 	icon_state = "wallscreen"
+
+/obj/structure/ms13/wall_decor/noisefoam
+	name = "noise absorbing foam"
+	desc = "A specialized material designed to control and improve the acoustics of a space by absorbing sound waves."
+	icon_state = "noisefoam"
 
 /// POSTERS ///
 /obj/structure/ms13/wall_decor/poster

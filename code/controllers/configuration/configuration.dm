@@ -379,13 +379,13 @@ Example config:
 		return
 
 	log_config("Loading config file word_filter.toml...")
-
-	var/list/word_filter = rustg_read_toml_file("[directory]/word_filter.toml")
-	if (!islist(word_filter))
-		var/message = "The word filter configuration did not output a list, contact someone with configuration access to make sure it's setup properly."
+	var/list/result = rustg_raw_read_toml_file("[directory]/word_filter.toml")
+	if(!result["success"])
+		var/message = "The word filter is not configured correctly! [result["content"]]"
 		log_config(message)
 		DelayedMessageAdmins(message)
 		return
+	var/list/word_filter = json_decode(result["content"])
 
 	ic_filter_reasons = try_extract_from_word_filter(word_filter, "ic")
 	ic_outside_pda_filter_reasons = try_extract_from_word_filter(word_filter, "ic_outside_pda")
@@ -470,4 +470,4 @@ Example config:
 
 //Message admins when you can.
 /datum/controller/configuration/proc/DelayedMessageAdmins(text)
-	addtimer(CALLBACK(GLOBAL_PROC, /proc/message_admins, text), 0)
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(message_admins), text), 0)

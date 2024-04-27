@@ -850,7 +850,7 @@
 /atom/proc/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	SEND_SIGNAL(src, COMSIG_ATOM_HITBY, hitting_atom, skipcatch, hitpush, blocked, throwingdatum)
 	if(density && !has_gravity(hitting_atom)) //thrown stuff bounces off dense stuff in no grav, unless the thrown stuff ends up inside what it hit(embedding, bola, etc...).
-		addtimer(CALLBACK(src, .proc/hitby_react, hitting_atom), 2)
+		addtimer(CALLBACK(src, PROC_REF(hitby_react), hitting_atom), 2)
 
 /**
  * We have have actually hit the passed in atom
@@ -1006,7 +1006,7 @@
 	var/list/things = src_object.contents()
 	var/datum/progressbar/progress = new(user, things.len, src)
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	while (do_after(user, 1 SECONDS, src, NONE, FALSE, CALLBACK(STR, /datum/component/storage.proc/handle_mass_item_insertion, things, src_object, user, progress)))
+	while (do_after(user, 1 SECONDS, src, NONE, FALSE, CALLBACK(STR, TYPE_PROC_REF(/datum/component/storage, handle_mass_item_insertion), things, src_object, user, progress)))
 		stoplag(1)
 	progress.end_progress()
 	to_chat(user, span_notice("You dump as much of [src_object.parent]'s contents [STR.insert_preposition]to [src] as you can."))
@@ -1259,7 +1259,7 @@
 						if(!valid_id)
 							to_chat(usr, span_warning("A reagent with that ID doesn't exist!"))
 				if("Choose from a list")
-					chosen_id = input(usr, "Choose a reagent to add.", "Choose a reagent.") as null|anything in sort_list(subtypesof(/datum/reagent), /proc/cmp_typepaths_asc)
+					chosen_id = input(usr, "Choose a reagent to add.", "Choose a reagent.") as null|anything in sort_list(subtypesof(/datum/reagent), GLOBAL_PROC_REF(cmp_typepaths_asc))
 				if("I'm feeling lucky")
 					chosen_id = pick(subtypesof(/datum/reagent))
 			if(chosen_id)
@@ -1431,6 +1431,8 @@
 				act_result = welder_act_secondary(user, tool)
 			if(TOOL_ANALYZER)
 				act_result = analyzer_act_secondary(user, tool)
+			if(TOOL_SHOVEL)
+				act_result = shovel_act_secondary(user, tool)
 	if(act_result) // A tooltype_act has completed successfully
 		log_tool("[key_name(user)] used [tool] on [src][is_right_clicking ? "(right click)" : ""] at [AREACOORD(src)]")
 		return TOOL_ACT_TOOLTYPE_SUCCESS
@@ -1557,6 +1559,10 @@
 /atom/proc/analyzer_act_secondary(mob/living/user, obj/item/tool)
 	return
 
+/// Called on an object when a tool with shovel capabilities is used to right click an object
+/atom/proc/shovel_act_secondary(mob/living/user, obj/item/tool)
+	return
+
 ///Generate a tag for this atom
 /atom/proc/GenerateTag()
 	return
@@ -1621,6 +1627,8 @@
 			log_mecha(log_text)
 		if(LOG_SHUTTLE)
 			log_shuttle(log_text)
+		if(LOG_SPEECH_INDICATORS)
+			log_speech_indicators(log_text)
 		else
 			stack_trace("Invalid individual logging type: [message_type]. Defaulting to [LOG_GAME] (LOG_GAME).")
 			log_game(log_text)
@@ -1728,7 +1736,7 @@
 
 /atom/proc/update_filters()
 	filters = null
-	filter_data = sortTim(filter_data, /proc/cmp_filter_data_priority, TRUE)
+	filter_data = sortTim(filter_data, GLOBAL_PROC_REF(cmp_filter_data_priority), TRUE)
 	for(var/f in filter_data)
 		var/list/data = filter_data[f]
 		var/list/arguments = data.Copy()

@@ -17,4 +17,5 @@
 /obj/item/ms13_small_flag/ncr
 	name = "\improper New California Republic flag"
 	desc = "A little New California Republic flag. Don't tread on the bear."
+	icon = 'mojave/icons/objects/flags32x64.dmi'
 	icon_state = "flagpole_ncr"

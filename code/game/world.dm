@@ -100,11 +100,11 @@ GLOBAL_VAR(restart_counter)
 	CONFIG_SET(number/round_end_countdown, 0)
 	var/datum/callback/cb
 #ifdef UNIT_TESTS
-	cb = CALLBACK(GLOBAL_PROC, /proc/RunUnitTests)
+	cb = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(RunUnitTests))
 #else
 	cb = VARSET_CALLBACK(SSticker, force_ending, TRUE)
 #endif
-	SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, /proc/_addtimer, cb, 10 SECONDS))
+	SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(_addtimer), cb, 10 SECONDS))
 
 
 /world/proc/SetupLogs()
@@ -142,6 +142,7 @@ GLOBAL_VAR(restart_counter)
 	GLOB.world_pda_log = "[GLOB.log_directory]/pda.log"
 	GLOB.world_uplink_log = "[GLOB.log_directory]/uplink.log"
 	GLOB.world_telecomms_log = "[GLOB.log_directory]/telecomms.log"
+	GLOB.world_speech_indicators_log = "[GLOB.log_directory]/speech_indicators.log"
 	GLOB.world_manifest_log = "[GLOB.log_directory]/manifest.log"
 	GLOB.world_href_log = "[GLOB.log_directory]/hrefs.log"
 	GLOB.world_mob_tag_log = "[GLOB.log_directory]/mob_tags.log"

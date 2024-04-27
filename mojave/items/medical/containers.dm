@@ -70,7 +70,7 @@
 		else
 			to_chat(user, span_notice("You swallow a gulp of [src]."))
 		SEND_SIGNAL(src, COMSIG_GLASS_DRANK, M, user)
-		addtimer(CALLBACK(reagents, /datum/reagents.proc/trans_to, M, 5, TRUE, TRUE, FALSE, user, FALSE, INGEST), 5)
+		addtimer(CALLBACK(reagents, TYPE_PROC_REF(/datum/reagents, trans_to), M, 5, TRUE, TRUE, FALSE, user, FALSE, INGEST), 5)
 		playsound(src, "mojave/sound/ms13effects/drinking_redux.ogg", 45, TRUE, 2)
 
 /obj/item/reagent_containers/ms13/flask/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)

@@ -12,6 +12,7 @@
 	/// Optional travel time for ladder in deciseconds
 	var/travel_time = 0
 	var/obstructed = FALSE // MOJAVE SUN BASE EDIT
+	var/locked = FALSE // MOJAVE SUN BASE EDIT
 
 /obj/structure/ladder/Initialize(mapload, obj/structure/ladder/up, obj/structure/ladder/down)
 	..()
@@ -95,7 +96,7 @@
 		to_chat(user, span_warning("[src] doesn't seem to lead anywhere!"))
 		return
 
-	var/result = show_radial_menu(user, src, tool_list, custom_check = CALLBACK(src, .proc/check_menu, user, is_ghost), require_near = !is_ghost, tooltips = TRUE)
+	var/result = show_radial_menu(user, src, tool_list, custom_check = CALLBACK(src, PROC_REF(check_menu), user, is_ghost), require_near = !is_ghost, tooltips = TRUE)
 	if (!is_ghost && !in_range(src, user))
 		return  // nice try
 	switch(result)

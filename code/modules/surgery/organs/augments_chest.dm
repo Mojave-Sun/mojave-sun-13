@@ -23,7 +23,7 @@
 		synthesizing = TRUE
 		to_chat(owner, span_notice("You feel less hungry..."))
 		owner.adjust_nutrition(25 * delta_time)
-		addtimer(CALLBACK(src, .proc/synth_cool), 50)
+		addtimer(CALLBACK(src, PROC_REF(synth_cool)), 50)
 
 /obj/item/organ/cyberimp/chest/nutriment/proc/synth_cool()
 	synthesizing = FALSE
@@ -59,7 +59,7 @@
 	if(reviving)
 		switch(owner.stat)
 			if(UNCONSCIOUS, HARD_CRIT)
-				addtimer(CALLBACK(src, .proc/heal), 3 SECONDS)
+				addtimer(CALLBACK(src, PROC_REF(heal)), 3 SECONDS)
 			else
 				COOLDOWN_START(src, reviver_cooldown, revive_cost)
 				reviving = FALSE
@@ -105,7 +105,7 @@
 		if(human_owner.stat != DEAD && prob(50 / severity) && human_owner.can_heartattack())
 			human_owner.set_heartattack(TRUE)
 			to_chat(human_owner, span_userdanger("You feel a horrible agony in your chest!"))
-			addtimer(CALLBACK(src, .proc/undo_heart_attack), 600 / severity)
+			addtimer(CALLBACK(src, PROC_REF(undo_heart_attack)), 600 / severity)
 
 /obj/item/organ/cyberimp/chest/reviver/proc/undo_heart_attack()
 	var/mob/living/carbon/human/human_owner = owner
@@ -154,9 +154,9 @@
 		if(allow_thrust(0.01))
 			on = TRUE
 			ion_trail.start()
-			RegisterSignal(owner, COMSIG_MOVABLE_MOVED, .proc/move_react)
-			RegisterSignal(owner, COMSIG_MOVABLE_PRE_MOVE, .proc/pre_move_react)
-			RegisterSignal(owner, COMSIG_MOVABLE_SPACEMOVE, .proc/spacemove_react)
+			RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(move_react))
+			RegisterSignal(owner, COMSIG_MOVABLE_PRE_MOVE, PROC_REF(pre_move_react))
+			RegisterSignal(owner, COMSIG_MOVABLE_SPACEMOVE, PROC_REF(spacemove_react))
 			owner.add_movespeed_modifier(/datum/movespeed_modifier/jetpack/cybernetic)
 			if(!silent)
 				to_chat(owner, span_notice("You turn your thrusters set on."))
