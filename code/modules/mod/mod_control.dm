@@ -140,8 +140,8 @@
 	for(var/obj/item/mod/module/module as anything in initial_modules)
 		module = new module(src)
 		install(module)
-	RegisterSignal(src, COMSIG_ATOM_EXITED, .proc/on_exit)
-	RegisterSignal(src, COMSIG_SPEED_POTION_APPLIED, .proc/on_potion)
+	RegisterSignal(src, COMSIG_ATOM_EXITED, PROC_REF(on_exit))
+	RegisterSignal(src, COMSIG_SPEED_POTION_APPLIED, PROC_REF(on_potion))
 	movedelay = CONFIG_GET(number/movedelay/run_delay)
 
 /obj/item/mod/control/Destroy()
@@ -440,8 +440,8 @@
 /obj/item/mod/control/proc/set_wearer(mob/user)
 	wearer = user
 	SEND_SIGNAL(src, COMSIG_MOD_WEARER_SET, wearer)
-	RegisterSignal(wearer, COMSIG_ATOM_EXITED, .proc/on_exit)
-	RegisterSignal(src, COMSIG_ITEM_PRE_UNEQUIP, .proc/on_unequip)
+	RegisterSignal(wearer, COMSIG_ATOM_EXITED, PROC_REF(on_exit))
+	RegisterSignal(src, COMSIG_ITEM_PRE_UNEQUIP, PROC_REF(on_unequip))
 	update_charge_alert()
 	for(var/obj/item/mod/module/module as anything in modules)
 		module.on_equip()
@@ -650,7 +650,7 @@
 	if(mod_parts.Find(part))
 		conceal(wearer, part)
 		if(active)
-			INVOKE_ASYNC(src, .proc/toggle_activate, wearer, TRUE)
+			INVOKE_ASYNC(src, PROC_REF(toggle_activate), wearer, TRUE)
 		return
 
 /obj/item/mod/control/proc/on_potion(atom/movable/source, obj/item/slimepotion/speed/speed_potion, mob/living/user)

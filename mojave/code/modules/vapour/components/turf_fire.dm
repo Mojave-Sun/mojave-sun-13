@@ -55,10 +55,10 @@
 	if(inhabited_turf.turf_fire)
 		return INITIALIZE_HINT_QDEL
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
-	RegisterSignal(inhabited_turf, COMSIG_TURF_CHANGE, .proc/turf_changed_pre)
+	RegisterSignal(inhabited_turf, COMSIG_TURF_CHANGE, PROC_REF(turf_changed_pre))
 	inhabited_turf.turf_fire = src
 	SSturf_fire.fires[src] = TRUE
 	if(power)
@@ -77,13 +77,13 @@
 	SIGNAL_HANDLER
 	//forget our old turf
 	UnregisterSignal(inhabited_turf, COMSIG_TURF_CHANGE)
-	post_change_callbacks += CALLBACK(src, .proc/turf_changed_post)
+	post_change_callbacks += CALLBACK(src, PROC_REF(turf_changed_post))
 
 ///sets new location
 /obj/effect/abstract/turf_fire/proc/turf_changed_post(turf/new_turf)
 	inhabited_turf = new_turf
 	//remember our new turf
-	RegisterSignal(inhabited_turf, COMSIG_TURF_CHANGE, .proc/turf_changed_pre)
+	RegisterSignal(inhabited_turf, COMSIG_TURF_CHANGE, PROC_REF(turf_changed_pre))
 
 /obj/effect/abstract/turf_fire/proc/process_waste()
 	inhabited_turf.VapourListTurf(list(/datum/vapours/smoke = 15, /datum/vapours/carbon_air_vapour = 5), VAPOUR_ACTIVE_EMITTER_CAP)

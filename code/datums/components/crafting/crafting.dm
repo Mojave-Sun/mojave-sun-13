@@ -3,9 +3,9 @@
 	src.crafting_interface = crafting_interface // MOJAVE EDIT - CRAFTING BENCHES
 	if(ismob(parent))
 		return // no hand crafting
-		// RegisterSignal(parent, COMSIG_MOB_CLIENT_LOGIN, .proc/create_mob_button)
+		// RegisterSignal(parent, COMSIG_MOB_CLIENT_LOGIN, PROC_REF(create_mob_button))
 	else // Alt click because workbenches are tables, so putting items on them triggers a click
-		RegisterSignal(parent, COMSIG_CLICK_CTRL, .proc/component_ui_interact_workbench)
+		RegisterSignal(parent, COMSIG_CLICK_CTRL, PROC_REF(component_ui_interact_workbench))
 // MOJAVE EDIT - CRAFTING BENCHES END
 
 /datum/component/personal_crafting/proc/create_mob_button(mob/user, client/CL)
@@ -16,7 +16,7 @@
 	C.icon = H.ui_style
 	H.static_inventory += C
 	CL.screen += C
-	RegisterSignal(C, COMSIG_CLICK, .proc/component_ui_interact)
+	RegisterSignal(C, COMSIG_CLICK, PROC_REF(component_ui_interact))
 
 /datum/component/personal_crafting
 	var/busy
@@ -389,13 +389,13 @@
 
 	//MOJAVE EDIT - Only require user to be the component owner, for hand crafting
 	if(source == parent)
-		INVOKE_ASYNC(src, .proc/ui_interact, user)
+		INVOKE_ASYNC(src, PROC_REF(ui_interact), user)
 
 /datum/component/personal_crafting/proc/component_ui_interact(atom/movable/screen/craft/image, location, control, params, user)
 	SIGNAL_HANDLER
 
 	if(user == parent)
-		INVOKE_ASYNC(src, .proc/ui_interact, user)
+		INVOKE_ASYNC(src, PROC_REF(ui_interact), user)
 
 // MOJAVE SUN EDIT BEGIN
 /datum/component/personal_crafting/ui_state(mob/user)

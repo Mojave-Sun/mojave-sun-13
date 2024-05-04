@@ -1321,7 +1321,7 @@
                 ENERGY = 0, \
                 FIRE = CLASS5_FIRE)
 	max_integrity = 260
-	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 95, acid = 0, wound = 0) //No wound armor
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 100, acid = 0, wound = 0) //No wound armor
 	heat_protection = HEAD
 	resistance_flags = FIRE_PROOF
 	flags_cover = HEADCOVERSEYES // Built in protection from the dust. yippie.
@@ -1331,6 +1331,18 @@
 	fov_angle = 90
 	equip_delay_self = 2 SECONDS
 	equip_delay_other = 4 SECONDS
+
+/obj/item/clothing/head/helmet/ms13/firehood/equipped(mob/living/user, slot)
+	..()
+	if(slot_flags & slot)
+		var/mob/living/carbon/human/H = user
+		if(istype(H.wear_suit, /obj/item/clothing/suit/armor/ms13/firesuit))
+			ADD_TRAIT(user, TRAIT_NON_FLAMMABLE, "fire_suit")
+
+/obj/item/clothing/head/helmet/ms13/firehood/dropped(mob/living/user)
+	..()
+	if(istype(user))
+		REMOVE_TRAIT(user, TRAIT_NON_FLAMMABLE, "fire_suit")
 
 /obj/item/clothing/head/helmet/ms13/radiationhood
 	name = "radiation suit hood"
@@ -1951,3 +1963,29 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = 0)
+
+// goldman Hats //
+
+/obj/item/clothing/head/helmet/ms13/cowboy/goldman
+	name = "padded wide brim brown hat"
+	desc = "A wide brim dark brown hat with the addition of some light protective padding."
+	icon_state = "goldman_basic"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS1_LASER, \
+                ENERGY = 0, \
+                FIRE = 0)
+
+/obj/item/clothing/head/helmet/ms13/cowboy/goldman/veteran
+	name = "padded wide brim fedora"
+	desc = "A wide brim fedora with the addition of some light protective padding."
+	icon_state = "goldman_vet"
+
+/obj/item/clothing/head/helmet/ms13/cowboy/goldman/leader
+	name = "\improper goldman Ringleader's hat"
+	desc = "A distinctive hat with the addition of a gold symbol, worn by high up members within the Goldman Posse."
+	icon_state = "goldman_lead"

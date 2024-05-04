@@ -41,3 +41,6 @@
 	force_multiplier = null
 	force_unwielded = 15
 	force_wielded = 30
+
+/datum/wield_info/twohanded/thunderstick
+	force_multiplier = null

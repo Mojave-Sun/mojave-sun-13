@@ -84,7 +84,7 @@
 
 /obj/item/card/id/ms13/visa
 	name = "\improper Snowcrest visa"
-	desc = "A passport allowing temporary residency in Swnocrest, but not quite full citizenship."
+	desc = "A passport allowing temporary residency in Snowcrest, but not quite full citizenship."
 	assignment = "Snowcrest Squatter"
 	icon_state = "passport_photo"
 
@@ -435,6 +435,27 @@
 	icon_state = "boss" //placeholder
 	just_initials  = TRUE
 	shows_age = FALSE
+
+/obj/item/card/id/ms13/goldman
+	name = "\improper goldman bullet necklace"
+	desc = "A necklace composed of small caliber rounds. Usually used to identify members of the Goldman Posse."
+	assignment = "Goldman"
+	icon_state = "raider" //placeholder
+	just_initials  = TRUE
+	shows_age = FALSE
+
+/obj/item/card/id/ms13/goldman/keeper
+	name = "\improper Goldman Keeper necklace"
+	assignment = "Goldman Keeper"
+
+/obj/item/card/id/ms13/goldman/ringleader
+	name = "\improper Goldman Ringleader necklace"
+	icon_state = "boss" //placeholder
+	assignment = "Goldman Ringleader"
+
+/obj/item/card/id/ms13/goldman/road
+	name = "\improper Goldman Road Runner necklace"
+	assignment = "Goldman Road Runner"
 
 // Brotherhood IDs //
 

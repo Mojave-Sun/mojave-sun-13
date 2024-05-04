@@ -28,7 +28,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/junk_bullets = 32,
 				/obj/item/stack/sheet/ms13/junk_casings = 32,
-				/obj/item/ms13/component/gunpowder/lq = 1
+				/obj/item/ms13/component/gunpowder = 1
 				)
 	category = CAT_JUNK_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
@@ -41,7 +41,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/junk_bullets = 30,
 				/obj/item/stack/sheet/ms13/junk_casings = 30,
-				/obj/item/ms13/component/gunpowder/lq = 1
+				/obj/item/ms13/component/gunpowder = 1
 				)
 	category = CAT_JUNK_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
@@ -54,7 +54,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/junk_bullets = 24,
 				/obj/item/stack/sheet/ms13/junk_casings = 24,
-				/obj/item/ms13/component/gunpowder/lq = 1
+				/obj/item/ms13/component/gunpowder = 1
 				)
 	category = CAT_JUNK_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
@@ -67,7 +67,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/junk_bullets = 21,
 				/obj/item/stack/sheet/ms13/junk_casings = 21,
-				/obj/item/ms13/component/gunpowder/lq = 1
+				/obj/item/ms13/component/gunpowder = 1
 				)
 	category = CAT_JUNK_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
@@ -80,7 +80,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/junk_bullets = 40,
 				/obj/item/stack/sheet/ms13/junk_casings = 40,
-				/obj/item/ms13/component/gunpowder/lq = 2
+				/obj/item/ms13/component/gunpowder = 2
 				)
 	category = CAT_JUNK_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
@@ -93,7 +93,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/junk_bullets = 24,
 				/obj/item/stack/sheet/ms13/junk_casings = 24,
-				/obj/item/ms13/component/gunpowder/lq = 2
+				/obj/item/ms13/component/gunpowder = 2
 				)
 	category = CAT_JUNK_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
@@ -106,7 +106,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/junk_bullets = 18,
 				/obj/item/stack/sheet/ms13/junk_casings = 18,
-				/obj/item/ms13/component/gunpowder/lq = 1
+				/obj/item/ms13/component/gunpowder = 1
 				)
 	category = CAT_JUNK_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
@@ -119,7 +119,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/junk_bullets = 20,
 				/obj/item/stack/sheet/ms13/junk_casings = 20,
-				/obj/item/ms13/component/gunpowder/lq = 2
+				/obj/item/ms13/component/gunpowder = 2
 				)
 	category = CAT_JUNK_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
@@ -132,7 +132,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/junk_bullets = 24,
 				/obj/item/stack/sheet/ms13/junk_casings = 24,
-				/obj/item/ms13/component/gunpowder/lq = 2
+				/obj/item/ms13/component/gunpowder = 2
 				)
 	category = CAT_JUNK_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
@@ -145,7 +145,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/plastic = 10,
 				/obj/item/stack/sheet/ms13/scrap_lead = 8,
-				/obj/item/ms13/component/gunpowder/lq = 1
+				/obj/item/ms13/component/gunpowder = 1
 				)
 	category = CAT_JUNK_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
@@ -176,7 +176,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/hq_bullets = 32,
 				/obj/item/stack/sheet/ms13/hq_casings = 32,
-				/obj/item/ms13/component/gunpowder = 1
+				/obj/item/ms13/component/gunpowder/hq = 1
 				)
 	category = CAT_STAN_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
@@ -189,7 +189,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/hq_bullets = 30,
 				/obj/item/stack/sheet/ms13/hq_casings = 30,
-				/obj/item/ms13/component/gunpowder = 1
+				/obj/item/ms13/component/gunpowder/hq = 1
 				)
 	category = CAT_STAN_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
@@ -202,7 +202,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/hq_bullets = 24,
 				/obj/item/stack/sheet/ms13/hq_casings = 24,
-				/obj/item/ms13/component/gunpowder = 1
+				/obj/item/ms13/component/gunpowder/hq = 1
 				)
 	category = CAT_STAN_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
@@ -215,7 +215,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/hq_bullets = 21,
 				/obj/item/stack/sheet/ms13/hq_casings = 21,
-				/obj/item/ms13/component/gunpowder = 1
+				/obj/item/ms13/component/gunpowder/hq = 1
 				)
 	category = CAT_STAN_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
@@ -228,7 +228,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/hq_bullets = 40,
 				/obj/item/stack/sheet/ms13/hq_casings = 40,
-				/obj/item/ms13/component/gunpowder = 2
+				/obj/item/ms13/component/gunpowder/hq = 2
 				)
 	category = CAT_STAN_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
@@ -241,7 +241,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/hq_bullets = 24,
 				/obj/item/stack/sheet/ms13/hq_casings = 24,
-				/obj/item/ms13/component/gunpowder = 2
+				/obj/item/ms13/component/gunpowder/hq = 2
 				)
 	category = CAT_STAN_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
@@ -254,7 +254,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/hq_bullets = 18,
 				/obj/item/stack/sheet/ms13/hq_casings = 18,
-				/obj/item/ms13/component/gunpowder = 1
+				/obj/item/ms13/component/gunpowder/hq = 1
 				)
 	category = CAT_STAN_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
@@ -267,7 +267,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/hq_bullets = 20,
 				/obj/item/stack/sheet/ms13/hq_casings = 20,
-				/obj/item/ms13/component/gunpowder = 2
+				/obj/item/ms13/component/gunpowder/hq = 2
 				)
 	category = CAT_STAN_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
@@ -280,7 +280,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/hq_bullets = 24,
 				/obj/item/stack/sheet/ms13/hq_casings = 24,
-				/obj/item/ms13/component/gunpowder = 2
+				/obj/item/ms13/component/gunpowder/hq = 2
 				)
 	category = CAT_STAN_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
@@ -293,7 +293,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/plastic = 8,
 				/obj/item/stack/sheet/ms13/refined_lead = 2,
-				/obj/item/ms13/component/gunpowder = 1
+				/obj/item/ms13/component/gunpowder/hq = 1
 				)
 	category = CAT_STAN_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
@@ -329,7 +329,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/junk_bullets = 24,
 				/obj/item/stack/sheet/ms13/junk_casings = 24,
-				/obj/item/ms13/component/gunpowder/lq = 2
+				/obj/item/ms13/component/gunpowder = 2
 				)
 	category = CAT_JUNK_AMMO
 	crafting_interface = CRAFTING_BENCH_CAMPFIRE
@@ -343,7 +343,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/hq_bullets = 24,
 				/obj/item/stack/sheet/ms13/hq_casings = 24,
-				/obj/item/ms13/component/gunpowder = 4
+				/obj/item/ms13/component/gunpowder/hq = 4
 				)
 	category = CAT_STAN_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
@@ -357,7 +357,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/hq_bullets = 24,
 				/obj/item/stack/sheet/ms13/hq_casings = 24,
-				/obj/item/ms13/component/gunpowder = 4
+				/obj/item/ms13/component/gunpowder/hq = 4
 				)
 	category = CAT_STAN_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
@@ -371,7 +371,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/hq_bullets = 16,
 				/obj/item/stack/sheet/ms13/hq_casings = 16,
-				/obj/item/ms13/component/gunpowder = 2
+				/obj/item/ms13/component/gunpowder/hq = 2
 				)
 	category = CAT_STAN_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
@@ -385,7 +385,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/hq_bullets = 16,
 				/obj/item/stack/sheet/ms13/hq_casings = 16,
-				/obj/item/ms13/component/gunpowder = 4
+				/obj/item/ms13/component/gunpowder/hq = 4
 				)
 	category = CAT_STAN_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
@@ -399,7 +399,7 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/hq_bullets = 16,
 				/obj/item/stack/sheet/ms13/hq_casings = 16,
-				/obj/item/ms13/component/gunpowder = 4
+				/obj/item/ms13/component/gunpowder/hq = 4
 				)
 	category = CAT_STAN_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
@@ -413,16 +413,20 @@
 	tool_paths = list()
 	reqs = list(/obj/item/stack/sheet/ms13/plastic = 8,
 				/obj/item/stack/sheet/ms13/refined_lead = 4,
-				/obj/item/ms13/component/gunpowder = 1
+				/obj/item/ms13/component/gunpowder/hq = 1
 				)
 	category = CAT_STAN_AMMO
 	crafting_interface = CRAFTING_BENCH_RELOADING
+
+//goldman QM RECIPES
+
+
 
 // GUNPOWDER
 
 /datum/crafting_recipe/lq_gp
 	name = "low quality gunpowder"
-	result = /obj/item/ms13/component/gunpowder/lq
+	result = /obj/item/ms13/component/gunpowder
 	time = 10 SECONDS
 	reqs = list(/obj/item/stack/sheet/ms13/nugget/nugget_coal = 3,
 				/obj/item/stack/sheet/ms13/nugget/sulfur = 4)
@@ -431,10 +435,18 @@
 
 /datum/crafting_recipe/lq_gp_shaman
 	name = "conjure gunpowder"
-	result = /obj/item/ms13/component/gunpowder/lq
+	result = /obj/item/ms13/component/gunpowder
 	time = 16 SECONDS
 	trait = TRAIT_DRY_SHAMAN
 	reqs = list(/obj/item/stack/sheet/ms13/nugget/nugget_coal = 3,
 				/obj/item/stack/sheet/ms13/nugget/sulfur = 4)
 	category = CAT_JUNK_AMMO
 	crafting_interface = CRAFTING_BENCH_CAMPFIRE
+
+/datum/crafting_recipe/lq_gp_liquid
+	name = "dry out liquid gunpowder"
+	result = /obj/item/ms13/component/gunpowder
+	time = 20 SECONDS
+	reqs = list(/datum/reagent/toxin/ms13/gunpowder = 10)
+	category = CAT_JUNK_AMMO
+	crafting_interface = CRAFTING_BENCH_CHEM

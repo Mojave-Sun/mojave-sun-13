@@ -168,8 +168,8 @@
 /obj/effect/landmark/start/ms13/ranger
 	name = "Desert Ranger"
 
-/obj/effect/landmark/start/ms13/ranger_recruit
-	name = "Desert Ranger Recruit"
+/obj/effect/landmark/start/ms13/ranger_sharps
+	name = "Desert Ranger Sharpshooter"
 
 /obj/effect/landmark/start/ms13/ranger_doctor
 	name = "Desert Ranger Doctor"
@@ -243,3 +243,20 @@
 
 /obj/effect/landmark/start/ms13/mon_capt
 	name = "Mon City Captain"
+
+// goldman Spawns //
+
+/obj/effect/landmark/start/ms13/goldman_unprov
+	name = "Goldman Unproven"
+
+/obj/effect/landmark/start/ms13/goldman
+	name = "Goldman"
+
+/obj/effect/landmark/start/ms13/goldman_roadrun
+	name = "Goldman Road Runner"
+
+/obj/effect/landmark/start/ms13/goldman_keeper
+	name = "Goldman Keeper"
+
+/obj/effect/landmark/start/ms13/goldman_ringleader
+	name = "Goldman Ringleader"

@@ -24,8 +24,8 @@
 
 /obj/item/ms13/twohanded/Initialize()
 	. = ..()
-	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, .proc/on_wield)
-	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, .proc/on_unwield)
+	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, PROC_REF(on_wield))
+	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, PROC_REF(on_unwield))
 	AddElement(/datum/element/world_icon, null, icon, 'mojave/icons/objects/melee/melee_inventory.dmi')
 
 // triggered on wielding of a two handed item.
@@ -338,3 +338,74 @@
 	for(var/X in actions)
 		var/datum/action/A = X
 		A.UpdateButtonIcon()
+
+//THUNDER STICK//
+
+/obj/item/ms13/twohanded/thunderstick
+	name = "thunder stick"
+	desc = "A long stick, with an explosive charge stuck on the end. Point towards enemy!"
+	force = 15
+	icon_state = "spear_thunder"
+	inhand_icon_state = "spear_thunder"
+	worn_icon = 'mojave/icons/mob/worn_melee.dmi'
+	worn_icon_state = "empty_placeholder"
+	attack_verb_continuous = list("whacks", "jabs", "smacks", "pokes")
+	attack_verb_simple = list("whack", "jab", "smack", "poke")
+	sharpness = NONE // the end is a god damn explosive charge
+	wield_info = /datum/wield_info/twohanded/thunderstick
+	slot_flags = null //it has no back sprite, we don't need bums stowing invisible suicide spears on their back
+	stowable = FALSE //this isn't your every day carry weapon
+	var/obj/item/grenade/explosive = /obj/item/grenade/frag/ms13/charge
+
+/obj/item/ms13/twohanded/thunderstick/Initialize(mapload)
+	. = ..()
+	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, PROC_REF(on_wield))
+	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, PROC_REF(on_unwield))
+	set_explosive(new /obj/item/grenade/frag/ms13/charge()) //For admin-spawned explosive lances
+
+/obj/item/ms13/twohanded/thunderstick/proc/set_explosive(obj/item/grenade/G)
+	if(explosive)
+		QDEL_NULL(explosive)
+	G.forceMove(src)
+	explosive = G
+	desc = "A makeshift spear with [G] attached to it"
+
+/obj/item/ms13/twohanded/thunderstick/CheckParts(list/parts_list)
+	var/obj/item/grenade/G = locate() in parts_list
+	if(G)
+		var/obj/item/spear/lancePart = locate() in parts_list
+		var/datum/component/two_handed/comp_twohand = lancePart.GetComponent(/datum/component/two_handed)
+		if(comp_twohand)
+			var/lance_wielded = comp_twohand.force_wielded
+			var/lance_unwielded = comp_twohand.force_unwielded
+			AddComponent(/datum/component/two_handed, force_unwielded=lance_unwielded, force_wielded=lance_wielded)
+		throwforce = lancePart.throwforce
+		parts_list -= G
+		parts_list -= lancePart
+		set_explosive(G)
+		qdel(lancePart)
+	..()
+
+/obj/item/ms13/twohanded/thunderstick/suicide_act(mob/living/carbon/user)
+	user.visible_message(span_suicide("[user] begins to sword-swallow \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	explosive.forceMove(user)
+	explosive.detonate()
+	user.gib()
+	qdel(src)
+	return BRUTELOSS
+
+/obj/item/ms13/twohanded/thunderstick/afterattack(atom/movable/AM, mob/user, proximity)
+	. = ..()
+	if(!proximity || !wielded || !istype(AM))
+		return
+	if(AM.resistance_flags & INDESTRUCTIBLE) //due to the lich incident of 2021, embedding grenades inside of indestructible structures is forbidden
+		return
+	if(ismob(AM))
+		var/mob/mob_target = AM
+		if(mob_target.status_flags & GODMODE) //no embedding grenade phylacteries inside of ghost poly either
+			return
+	if(iseffect(AM)) //and no accidentally wasting your moment of glory on graffiti
+		return
+	explosive.forceMove(AM)
+	explosive.detonate(lanced_by=user)
+	qdel(src)

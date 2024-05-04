@@ -134,7 +134,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 		cartridge.host_pda = src
 	if(insert_type)
 		inserted_item = SSwardrobe.provide_type(insert_type, src)
-	RegisterSignal(src, COMSIG_LIGHT_EATER_ACT, .proc/on_light_eater)
+	RegisterSignal(src, COMSIG_LIGHT_EATER_ACT, PROC_REF(on_light_eater))
 
 	update_appearance()
 
@@ -541,7 +541,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 				update_label()
 				if(!silent)
 					playsound(src, 'sound/machines/terminal_processing.ogg', 15, TRUE)
-					addtimer(CALLBACK(GLOBAL_PROC, .proc/playsound, src, 'sound/machines/terminal_success.ogg', 15, TRUE), 1.3 SECONDS)
+					addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(playsound), src, 'sound/machines/terminal_success.ogg', 15, TRUE), 1.3 SECONDS)
 			if("Eject")//Ejects the cart, only done from hub.
 				eject_cart(U)
 				if(!silent)
@@ -1292,7 +1292,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 			A.emp_act(severity)
 	if (!(. & EMP_PROTECT_SELF))
 		emped++
-		addtimer(CALLBACK(src, .proc/emp_end), 200 * severity)
+		addtimer(CALLBACK(src, PROC_REF(emp_end)), 200 * severity)
 
 /obj/item/pda/proc/emp_end()
 	emped--
@@ -1302,9 +1302,9 @@ GLOBAL_LIST_EMPTY(PDAs)
 	// Returns a list of PDAs which can be viewed from another PDA/message monitor.,
 	var/sortmode
 	if(sort_by_job)
-		sortmode = /proc/cmp_pdajob_asc
+		sortmode = GLOBAL_PROC_REF(cmp_pdajob_asc)
 	else
-		sortmode = /proc/cmp_pdaname_asc
+		sortmode = GLOBAL_PROC_REF(cmp_pdaname_asc)
 
 	for(var/obj/item/pda/P in sort_list(GLOB.PDAs, sortmode))
 		if(!P.owner || P.toff || P.hidden)

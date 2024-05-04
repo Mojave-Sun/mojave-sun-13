@@ -277,9 +277,9 @@
 	atmosphere_sound = BUILDING_ATMOSPHERE
 	dissipation_rate = 0.18 //not much escapes enclosed rooms
 
-/area/ms13/rangeroutpost
-	name = "Desert Ranger Outpost"
-	icon_state = "ranger_outpost"
+/area/ms13/goldman
+	name = "Goldman Outpost"
+	icon_state = "goldman_outpost"
 	requires_power = FALSE
 	power_environ = FALSE
 	power_equip = FALSE
@@ -287,9 +287,9 @@
 	outdoors = TRUE
 	atmosphere_volume = 150
 
-/area/ms13/rangeroutpost/building
-	name = "Desert Ranger Outpost building"
-	icon_state = "rangerbase"
+/area/ms13/goldman/building
+	name = "Goldman Outpost building"
+	icon_state = "goldmanbase"
 	outdoors = FALSE
 	dissipation_rate = 0.18 //not much escapes enclosed rooms
 

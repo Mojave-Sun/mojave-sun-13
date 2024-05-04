@@ -38,7 +38,7 @@
 	if(stealthboy_on)
 		user.alpha = 25
 		to_chat(user, "<span class='notice'>You activate the [src].</span>")
-		addtimer(CALLBACK(src, .proc/disrupt, user), 20 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(disrupt), user), 20 SECONDS)
 		user.add_filter("stealthboy_ripple", 2, list("type" = "ripple", "flags" = WAVE_BOUNDED, "radius" = 0, "size" = 2))
 		var/filter = user.get_filter("stealthboy_ripple")
 		animate(filter, radius = 32, time = 15, size = 0, loop = 1)

@@ -663,7 +663,7 @@
 
 /obj/item/clothing/suit/ms13/duster/ranger
 	name = "\improper Desert Ranger duster"
-	desc = "A closed, padded duster used by the Desert Rangers. Commonly worn by fresh recruits and off-duty Rangers."
+	desc = "A closed, padded duster used by the Desert Rangers. Commonly worn by Rangers preferring maximum mobility and discretion."
 	icon_state = "closed_duster"
 	body_parts_covered = CHEST|GROIN
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
@@ -675,7 +675,7 @@
                 LASER = CLASS1_LASER, \
                 ENERGY = 0, \
                 FIRE = 0)
-	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/large
 
 /obj/item/clothing/suit/ms13/duster/ranger/chief
 	name = "\improper Desert Ranger Deputy-Chief poncho"
@@ -965,3 +965,120 @@
                 FIRE = 0)
 	snatched = FALSE // For taking gold chains off the clothes n shit...
 	has_gold_states = TRUE // Can you even put gold on it
+
+// goldman //
+
+/obj/item/clothing/suit/ms13/goldman
+	name = "base type goldman suit"
+	desc = "You shouldn't be seeing this."
+	body_parts_covered = CHEST|GROIN|ARMS|LEGS
+	icon_state = "goldman_duster"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = 0, \
+                LASER = CLASS1_LASER, \
+                ENERGY = 0, \
+                FIRE = 0)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/large
+	max_integrity = 350
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 10, acid = 0, wound = 0)
+
+/obj/item/clothing/suit/ms13/goldman/leader
+	name = "\improper goldman Ringleader trenchcoat"
+	desc = "A thick and carefully padded trenchcoat with a gold star embroidered on the back. A status symbol among the Goldman Posse and usually a sign of leadership."
+	icon_state = "goldman_leader"
+	slowdown = 0.15
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS2_CRUSH, \
+                CUTTING = CLASS2_CUT, \
+                PIERCING = CLASS2_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS2_LASER, \
+                ENERGY = 0, \
+                FIRE = CLASS1_FIRE)
+
+/obj/item/clothing/suit/ms13/goldman/keeper
+	name = "\improper goldman padded suit"
+	desc = "A fancy suit with the addition of a small poncho draped over the shoulders and some light protective padding. Commonly seen adorning respected individuals within the Goldman Posse."
+	icon_state = "goldman_keeper"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS1_LASER, \
+                ENERGY = 0, \
+                FIRE = 0)
+
+/obj/item/clothing/suit/ms13/goldman/poncho
+	name = "dark brown poncho"
+	desc = "A dark brown poncho with gold embroidery on the back, perfect for braving the desert in comfort and style."
+	body_parts_covered = CHEST|ARM_LEFT
+	icon_state = "goldman_poncho"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS1_CRUSH, \
+                CUTTING = CLASS1_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS1_LASER, \
+                ENERGY = 0, \
+                FIRE = 0)
+
+/obj/item/clothing/suit/ms13/goldman/duster
+	name = "lined duster"
+	desc = "A basic duster with an addition of some interior lining for comfort and mild protection, and some gold embroidery for style."
+	icon_state = "goldman_duster"
+
+/obj/item/clothing/suit/ms13/goldman/duster_reinf
+	name = "\improper goldman reinforced duster"
+	desc = "A duster that has seen the addition of armoring and protective padding. This likely belongs to a member of the Goldman Posse."
+	icon_state = "goldman_reinfduster"
+	slowdown = 0.3
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS2_CRUSH, \
+                CUTTING = CLASS3_CUT, \
+                PIERCING = CLASS2_PIERCE, \
+                IMPALING = CLASS2_STAB, \
+                LASER = CLASS2_LASER, \
+                ENERGY = CLASS2_PLASMA, \
+                FIRE = CLASS2_FIRE)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
+
+/obj/item/clothing/suit/ms13/goldman/duster_covered
+	name = "\improper goldman covered duster"
+	desc = "A thick, padded duster with an adorned poncho added for extra flair. Commonly associated with members of the Goldman Posse."
+	icon_state = "goldman_coveredduster"
+	slowdown = 0.15
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS2_CRUSH, \
+                CUTTING = CLASS2_CUT, \
+                PIERCING = CLASS2_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS2_LASER, \
+                ENERGY = 0, \
+                FIRE = CLASS2_FIRE)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
+
+/obj/item/clothing/suit/ms13/goldman/poncho_padded
+	name = "\improper goldman embroidered poncho"
+	desc = "A poncho that has seen many modifications. From the addition of protective padding to embroidered gold symbols and stars. This is no doubt property of the Goldman Posse."
+	body_parts_covered = CHEST|ARMS
+	icon_state = "goldman_thickponcho"
+	subarmor = list(SUBARMOR_FLAGS = NONE, \
+                EDGE_PROTECTION = 0, \
+                CRUSHING = CLASS2_CRUSH, \
+                CUTTING = CLASS2_CUT, \
+                PIERCING = CLASS1_PIERCE, \
+                IMPALING = CLASS1_STAB, \
+                LASER = CLASS2_LASER, \
+                ENERGY = 0, \
+                FIRE = CLASS1_FIRE)
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med

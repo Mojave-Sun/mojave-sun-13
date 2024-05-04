@@ -38,10 +38,10 @@
 	if(jump_sides) //MOJAVE SUN EDIT: Animation jump height
 		src.jump_sides = jump_sides //MOJAVE SUN EDIT: Animation jump height
 
-	RegisterSignal(target, COMSIG_ATOM_ATTACK_HAND, .proc/attack_hand)
-	RegisterSignal(target, COMSIG_PARENT_EXAMINE, .proc/on_examine)
-	RegisterSignal(target, COMSIG_MOUSEDROPPED_ONTO, .proc/mousedrop_receive)
-	RegisterSignal(target, COMSIG_ATOM_BUMPED, .proc/try_speedrun)
+	RegisterSignal(target, COMSIG_ATOM_ATTACK_HAND, PROC_REF(attack_hand))
+	RegisterSignal(target, COMSIG_PARENT_EXAMINE, PROC_REF(on_examine))
+	RegisterSignal(target, COMSIG_MOUSEDROPPED_ONTO, PROC_REF(mousedrop_receive))
+	RegisterSignal(target, COMSIG_ATOM_BUMPED, PROC_REF(try_speedrun))
 	ADD_TRAIT(target, TRAIT_CLIMBABLE, ELEMENT_TRAIT(type))
 
 /datum/element/climbable/Detach(datum/target)
@@ -109,7 +109,7 @@
 						jump_height = jump_sides
 				playsound(user.loc, 'mojave/sound/ms13effects/vaulted.ogg', 80, TRUE)
 				animate(user, pixel_y = jump_height, time = 1, easing = SINE_EASING)
-				addtimer(CALLBACK(src, .proc/climb_shift_reset, user), 2)
+				addtimer(CALLBACK(src, PROC_REF(climb_shift_reset), user), 2)
 			user.visible_message(span_warning("[user] climbs onto [climbed_thing]."), \
 								span_notice("You climb onto [climbed_thing]."))
 			log_combat(user, climbed_thing, "climbed onto")
@@ -161,7 +161,7 @@
 			if (!animal.dextrous)
 				return
 		if(living_target.mobility_flags & MOBILITY_MOVE)
-			INVOKE_ASYNC(src, .proc/climb_structure, climbed_thing, living_target, params)
+			INVOKE_ASYNC(src, PROC_REF(climb_structure), climbed_thing, living_target, params)
 			return
 
 ///Tries to climb onto the target if the forced movement of the mob allows it

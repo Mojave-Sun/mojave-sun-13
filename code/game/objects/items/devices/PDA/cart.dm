@@ -619,7 +619,7 @@
 				active1 = null
 
 		if("Send Signal")
-			INVOKE_ASYNC(radio, /obj/item/integrated_signaler.proc/send_activation)
+			INVOKE_ASYNC(radio, TYPE_PROC_REF(/obj/item/integrated_signaler, send_activation))
 
 		if("Signal Frequency")
 			var/new_frequency = sanitize_frequency(radio.frequency + text2num(href_list["sfreq"]))
@@ -760,7 +760,7 @@
 		menu += "Keep an ID inserted to upload access codes upon summoning."
 
 	menu += "<HR><A href='byond://?src=[REF(src)];op=botlist'>[PDAIMG(back)]Return to bot list</A>"
-		
+
 	return menu
 
 //If the cartridge adds a special line to the top of the messaging app

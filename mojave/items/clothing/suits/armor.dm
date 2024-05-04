@@ -538,11 +538,23 @@
                 ENERGY = 0, \
                 FIRE = CLASS5_FIRE)
 	max_integrity = 450
-	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 95, acid = 0, wound = 0)
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 100, acid = 0, wound = 0)
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	resistance_flags = FIRE_PROOF
 	equip_delay_self = 3.5 SECONDS
 	equip_delay_other = 5 SECONDS
+
+/obj/item/clothing/suit/armor/ms13/firesuit/equipped(mob/living/carbon/human/user, slot)
+	..()
+	if(slot_flags & slot)
+		var/mob/living/carbon/human/H = user
+		if(istype(H.head, /obj/item/clothing/head/helmet/ms13/firehood))
+			ADD_TRAIT(user, TRAIT_NON_FLAMMABLE, "fire_suit")
+
+/obj/item/clothing/suit/armor/ms13/firesuit/dropped(mob/living/carbon/human/user)
+	..()
+	if(istype(user))
+		REMOVE_TRAIT(user, TRAIT_NON_FLAMMABLE, "fire_suit")
 
 /obj/item/clothing/suit/armor/ms13/radsuit
 	name = "radiation suit"
@@ -922,7 +934,7 @@
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0,  fire = 50, acid = 0, wound = 0)
 	equip_delay_self = 2.5 SECONDS
 	equip_delay_other = 4 SECONDS
-	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/small
+	pocket_storage_component_path = /datum/component/storage/concrete/ms13/suit/med
 
 /obj/item/clothing/suit/armor/ms13/eliteriot/ranger
 	name = "\improper Elite Desert Ranger armor"

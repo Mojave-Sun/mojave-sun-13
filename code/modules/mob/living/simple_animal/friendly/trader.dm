@@ -147,7 +147,7 @@ GLOBAL_LIST_EMPTY(nodes_trader_destination)
 	. = ..()
 	restock_products()
 	renew_item_demands()
-	RegisterSignal(src, COMSIG_AI_NODE_REACHED, .proc/reached_next_node)
+	RegisterSignal(src, COMSIG_AI_NODE_REACHED, PROC_REF(reached_next_node))
 	AddComponent(/datum/component/generic_animal_patrol, _animal_node_weights = list(), _animal_identifier = IDENTIFIER_GENERIC_SIMPLE, _patrol_move_delay = 8)
 	if(!restock_node_going_towards && length(GLOB.nodes_trader_destination))
 		restock_node_going_towards = pick(GLOB.nodes_trader_destination)
@@ -216,7 +216,7 @@ GLOBAL_LIST_EMPTY(nodes_trader_destination)
 		npc_options["Sell"] = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_sell")
 	if(!npc_options.len)
 		return FALSE
-	var/npc_result = show_radial_menu(user, src, npc_options, custom_check = CALLBACK(src, .proc/check_menu, user), require_near = TRUE, tooltips = TRUE)
+	var/npc_result = show_radial_menu(user, src, npc_options, custom_check = CALLBACK(src, PROC_REF(check_menu), user), require_near = TRUE, tooltips = TRUE)
 	face_atom(user)
 	switch(npc_result)
 		if("Buy")
@@ -250,7 +250,7 @@ GLOBAL_LIST_EMPTY(nodes_trader_destination)
 		"Selling?" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_selling"),
 		"Buying?" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_buying"),
 	)
-	var/pick = show_radial_menu(user, src, npc_options, custom_check = CALLBACK(src, .proc/check_menu, user), require_near = TRUE, tooltips = TRUE)
+	var/pick = show_radial_menu(user, src, npc_options, custom_check = CALLBACK(src, PROC_REF(check_menu), user), require_near = TRUE, tooltips = TRUE)
 	switch(pick)
 		if("Lore")
 			say(return_trader_phrase(TRADER_LORE_PHRASE))
@@ -307,7 +307,7 @@ GLOBAL_LIST_EMPTY(nodes_trader_destination)
 		if(product_info[TRADER_PRODUCT_INFO_QUANTITY] <= 0) //out of stock
 			item_image.overlays += image(icon = 'icons/hud/radial.dmi', icon_state = "radial_center")
 		items += list("[initial(thing.name)]" = item_image)
-	var/pick = show_radial_menu(user, src, items, custom_check = CALLBACK(src, .proc/check_menu, user), require_near = TRUE, tooltips = TRUE)
+	var/pick = show_radial_menu(user, src, items, custom_check = CALLBACK(src, PROC_REF(check_menu), user), require_near = TRUE, tooltips = TRUE)
 	if(!pick)
 		return
 	var/obj/item/item_to_buy = display_names[pick]
@@ -321,7 +321,7 @@ GLOBAL_LIST_EMPTY(nodes_trader_destination)
 		"Yes" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_yes"),
 		"No" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_no")
 	)
-	var/buyer_will_buy = show_radial_menu(user, src, npc_options, custom_check = CALLBACK(src, .proc/check_menu, user), require_near = TRUE, tooltips = TRUE)
+	var/buyer_will_buy = show_radial_menu(user, src, npc_options, custom_check = CALLBACK(src, PROC_REF(check_menu), user), require_near = TRUE, tooltips = TRUE)
 	if(buyer_will_buy != "Yes")
 		return
 	face_atom(user)
@@ -399,7 +399,7 @@ GLOBAL_LIST_EMPTY(nodes_trader_destination)
 		"No" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_no"),
 	)
 	face_atom(user)
-	var/npc_result = show_radial_menu(user, src, npc_options, custom_check = CALLBACK(src, .proc/check_menu, user), require_near = TRUE, tooltips = TRUE)
+	var/npc_result = show_radial_menu(user, src, npc_options, custom_check = CALLBACK(src, PROC_REF(check_menu), user), require_near = TRUE, tooltips = TRUE)
 	if(npc_result != "Yes")
 		say(return_trader_phrase(ITEM_SELLING_CANCELED_PHRASE))
 		return TRUE

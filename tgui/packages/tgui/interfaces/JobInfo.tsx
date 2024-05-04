@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Section, Stack, BlockQuote } from '../components';
+import { BlockQuote, Section, Stack } from '../components';
 import { Window } from '../layouts';
 
 type Info = {
@@ -10,19 +10,11 @@ type Info = {
   enforce: string;
 };
 
-export const JobInfo = (props, context) => {
-  const { data } = useBackend<Info>(context);
-  const {
-    title,
-    description,
-  } = data;
+export const JobInfo = (props) => {
+  const { data } = useBackend<Info>();
+  const { title, description } = data;
   return (
-    <Window
-      width={620}
-      height={350}
-      title={title}
-      theme="mojavesun"
-    >
+    <Window width={620} height={350} title={title} theme="mojavesun">
       <Window.Content>
         <Stack fill>
           <Stack.Item width="65%">
@@ -37,22 +29,19 @@ export const JobInfo = (props, context) => {
   );
 };
 
-const DescSection = (props, context) => {
-  const { data } = useBackend<Info>(context);
-  const {
-    description,
-    supervisors,
-  } = data;
+const DescSection = (props) => {
+  const { data } = useBackend<Info>();
+  const { description, supervisors } = data;
   return (
     <Stack vertical fill>
       <Stack.Item grow>
         <Section fill scrollable title="Description">
-          {description ? description : "Nothingburger."}
+          {description ? description : 'Nothingburger.'}
         </Section>
       </Stack.Item>
       <Stack.Item>
         <Section title="Supervisors">
-          {supervisors ? supervisors : "No gods, no masters."}
+          {supervisors ? supervisors : 'No gods, no masters.'}
         </Section>
       </Stack.Item>
     </Stack>
@@ -69,37 +58,28 @@ const restrictionsstyle = {
   color: '#FFCCCB',
 };
 
-const GuidelinesSection = (props, context) => {
-  const { data } = useBackend<Info>(context);
-  const {
-    enforce,
-    forbid,
-  } = data;
+const GuidelinesSection = (props) => {
+  const { data } = useBackend<Info>();
+  const { enforce, forbid } = data;
   return (
-    <Section
-      fill
-      scrollable
-      title="Guidelines"
-    >
+    <Section fill scrollable title="Guidelines">
       <Stack vertical fill>
         <Stack.Item grow>
           <Stack vertical>
             <Stack.Item>
               <span style={directivesstyle}>
-                Directives:<br />
+                Directives:
+                <br />
               </span>
-              <BlockQuote>
-                {enforce ? enforce : "None!"}
-              </BlockQuote>
+              <BlockQuote>{enforce ? enforce : 'None!'}</BlockQuote>
             </Stack.Item>
             <Stack.Divider />
             <Stack.Item>
               <span style={restrictionsstyle}>
-                Restrictions:<br />
+                Restrictions:
+                <br />
               </span>
-              <BlockQuote>
-                {forbid ? forbid : "None!"}
-              </BlockQuote>
+              <BlockQuote>{forbid ? forbid : 'None!'}</BlockQuote>
             </Stack.Item>
           </Stack>
         </Stack.Item>

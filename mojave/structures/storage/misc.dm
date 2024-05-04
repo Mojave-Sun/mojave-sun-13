@@ -149,7 +149,7 @@
 	busy = TRUE
 	to_chat(user, span_notice("You press the on button and [src] kicks to life."))
 	update_overlays()
-	addtimer(CALLBACK(src, .proc/washed), 20 SECONDS, TIMER_UNIQUE)
+	addtimer(CALLBACK(src, PROC_REF(washed)), 20 SECONDS, TIMER_UNIQUE)
 	soundloop.start()
 	START_PROCESSING(SSfastprocess, src)
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN

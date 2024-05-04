@@ -268,6 +268,9 @@
 /obj/effect/turf_decal/ms13/graffiti/large/workers_decal
 	icon_state = "workers_decal"
 
+/obj/effect/turf_decal/ms13/graffiti/large/seal_president
+	icon_state = "seal_president"
+
 // Posters
 
 /obj/effect/turf_decal/ms13/poster

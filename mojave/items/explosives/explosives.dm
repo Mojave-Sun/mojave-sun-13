@@ -104,7 +104,7 @@
 	icon_state = icon_state + "_active"
 	inhand_icon_state = icon_state
 	SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time, delayoverride)
-	addtimer(CALLBACK(src, .proc/detonate), isnull(delayoverride)? det_time : delayoverride)
+	addtimer(CALLBACK(src, PROC_REF(detonate)), isnull(delayoverride)? det_time : delayoverride)
 	update_icon()
 
 /obj/item/grenade/ms13/molotov/detonate(mob/living/lanced_by)

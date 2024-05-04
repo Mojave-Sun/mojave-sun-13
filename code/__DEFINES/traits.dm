@@ -589,6 +589,9 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 /// Hearing trait that is from the hearing component
 #define CIRCUIT_HEAR_TRAIT "circuit_hear"
 
+/// This trait comes from when a mob is currently typing.
+#define CURRENTLY_TYPING_TRAIT "currently_typing"
+
 /// PDA Traits. This one makes PDAs explode if the user opens the messages menu
 #define TRAIT_PDA_MESSAGE_MENU_RIGGED "pda_message_menu_rigged"
 /// This one denotes a PDA has received a rigged message and will explode when the user tries to reply to a rigged PDA message
@@ -848,6 +851,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 /// This mob heals from cult pylons.
 #define TRAIT_HEALS_FROM_CULT_PYLONS "heals_from_cult_pylons"
 
+/// Trait given to a mob that is currently thinking (giving off the "thinking" icon), used in an IC context
+#define TRAIT_THINKING_IN_CHARACTER "currently_thinking_IC"
 
 // MOJAVE TRAITS START
 
@@ -864,8 +869,12 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 #define TRAIT_DRUGGIE "drug_crafting" //Trait for drug crafting
 
+#define TRAIT_GOLDQM "goldman_quartermaster" //Trait for goldman QM to make ammo
+
 #define TRAIT_NON_FLAMMABLE "non_flammable" //An actual real fireproof trait
 
 #define TRAIT_IN_POWERARMOUR "in_powerarmour" //If this person is wearing power armour actively
+
+#define TRAIT_SHOVEIMMUNE "shove_immune"//Makes the user completely immune to shoving
 
 // MOJAVE JOB TRAITS END

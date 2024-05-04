@@ -239,7 +239,7 @@ SUBSYSTEM_DEF(vote)
 		voting += user.client?.ckey
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "Vote")
+		ui = new(user, src, "VotePanel")
 		ui.open()
 
 /datum/controller/subsystem/vote/ui_data(mob/user)
