@@ -42,7 +42,7 @@ GLOBAL_LIST_INIT(dehydration_stage_alerts, list(
 	var/mob/living/the_parent = parent
 	modify_thirst(modify_by = start_thirst)
 	RegisterSignal(the_parent, COMSIG_CHECK_SELF, PROC_REF(on_examine))
-	RegisterSignal(the_parent, DEHYDRATION_STAGE_CHECK, PROC_REFreturn_dehydration_stage))
+	RegisterSignal(the_parent, DEHYDRATION_STAGE_CHECK, PROC_REF(return_dehydration_stage))
 	RegisterSignal(the_parent, THIRST_METABOLISE, PROC_REF(on_water))
 	START_PROCESSING(SSdcs, src)
 	if(stage_of_dehydration == 1) //Still the same after modifying thirst? throw the alert
