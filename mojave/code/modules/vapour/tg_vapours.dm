@@ -11,6 +11,8 @@
 	scent = "smoke"
 
 /datum/vapours/smoke/BreatheAct(mob/living/carbon/victim, amount)
+	if(HAS_TRAIT(victim, TRAIT_WEARING_GAS_MASK))
+		return
 	if(amount <= 60)
 		return
 	victim.emote("cough")
@@ -23,6 +25,8 @@
 	color = "#ffed9c"
 
 /datum/vapours/dust/BreatheAct(mob/living/carbon/victim, amount)
+	if(HAS_TRAIT(victim, TRAIT_WEARING_GAS_MASK))
+		return
 	if(amount <= 10)
 		return
 	if(prob(40))
@@ -30,12 +34,12 @@
 		victim.emote("cough")
 
 ///Sulphur coming from igniting matches
-/datum/vapours/sulphur
-	name = "Sulphur"
-	vapours_flags = VAPOUR_SMELL
+/datum/vapours/sulfur
+	name = "Sulfur"
+	vapours_flags = VAPOUR_SMELL | VAPOUR_APPEARANCE
 	smell_intensity = 5 //Very pronounced smell (and good too, sniff sniff)
 	descriptor = SCENT_DESC_SMELL
-	scent = "sulphur"
+	scent = "sulfur"
 
 ///Organic waste and garbage makes this
 /datum/vapours/decaying_waste
@@ -67,11 +71,16 @@
 	vapours_flags = VAPOUR_BREATHE_ACT
 
 /datum/vapours/carbon_air_vapour/BreatheAct(mob/living/carbon/victim, amount)
+	if(HAS_TRAIT(victim, TRAIT_WEARING_GAS_MASK))
+		return
+
 	if(victim.body_position == LYING_DOWN)
 		amount *= 0.35 //The victim is inhaling roughly a third when laying down
 	if(amount <= 20)
 		return
-	victim.throw_alert_text(/atom/movable/screen/alert/text/dead, "You can barely breathe! Get out of here!", override = FALSE)
+	if(COOLDOWN_FINISHED(src, agony_announcement))
+		victim.throw_alert_text(/atom/movable/screen/alert/text/dead, "You can barely breathe! Get out of here!", override = FALSE)
+	COOLDOWN_START(src, agony_announcement, 10 SECONDS)
 	victim.adjustOxyLoss(rand(10,30))
 	victim.adjustToxLoss(1)
 	if(prob(amount))

@@ -141,6 +141,12 @@
 	icon_state = "mountain"
 	sound_environment = SOUND_ENVIRONMENT_CAVE
 
+/area/ms13/underground/mountain/cave
+	name = "enclosed cave"
+	dissipation_rate = 1 //Prime for sulfur cloud buildup! Keep your mask close!
+	icon_state = "cave"
+	sound_environment = SOUND_ENVIRONMENT_CAVE
+
 /area/ms13/underground/mountain_bunker
 	name = "Mountain Bunker"
 	icon_state = "mountain_bunker"

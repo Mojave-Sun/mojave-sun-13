@@ -3,7 +3,7 @@
 	desc = "A disease that slowly corrodes the brain into uselessness."
 	disease_flags = CAN_CARRY
 	max_stages = 4
-	stage_prob = 3
+	stage_prob = 0.15 // This is that slow burn roleplay experience we're talking about. The chance for this to advance is real low. You get to play for longer! YIPPIE!
 	spread_text = "Non-contagious"
 	spread_flags = NONE
 	cure_text = "Incurable"
@@ -14,7 +14,7 @@
 	bypasses_immunity = TRUE
 	severity = DISEASE_SEVERITY_BIOHAZARD
 
-/datum/disease/kuru/stage_act(delta_time, times_fired) //Removed toxloss because damaging diseases are pretty horrible. Last round it killed the entire station because the cure didn't work -- Urist -ACTUALLY Removed rather than commented out, I don't see it returning - RR
+/datum/disease/kuru/stage_act(delta_time, times_fired)
 	. = ..()
 	if(!.)
 		return
@@ -72,6 +72,6 @@
 				affected_mob.stuttering += 6
 
 			if(DT_PROB(5, delta_time))
-				affected_mob.adjustOrganLoss(ORGAN_SLOT_BRAIN, 3, 150)
+				affected_mob.adjustOrganLoss(ORGAN_SLOT_BRAIN, 3, 200)
 			if(DT_PROB(1, delta_time))
 				affected_mob.gain_trauma_type(pick(BRAIN_TRAUMA_MILD, BRAIN_TRAUMA_SEVERE), TRAUMA_RESILIENCE_LOBOTOMY)

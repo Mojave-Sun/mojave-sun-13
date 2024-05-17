@@ -17,6 +17,10 @@
 	var/descriptor
 	/// Scent of the smell
 	var/scent
+	/// Use this to avoid spamming screens with messages!
+	COOLDOWN_DECLARE(agony_announcement)
+	/// Used to ensure that deliberately harmful stuff outside sticks around a little longer
+	var/dissipation_resistance
 
 ///When a vapour touches an unprotected carbon mob
 /datum/vapours/proc/TouchAct(mob/living/carbon/victim, amount)

@@ -589,7 +589,7 @@
 	slowdown = 0.15
 	hoodtype = /obj/item/clothing/head/hooded/ms13/hazmat
 	resistance_flags = ACID_PROOF
-	body_parts_covered = CHEST|LEGS|GROIN|ARMS
+	body_parts_covered = CHEST|LEGS|GROIN|ARMS|HANDS
 	subarmor = list(SUBARMOR_FLAGS = NONE, \
                 EDGE_PROTECTION = 0, \
                 CRUSHING = CLASS1_CRUSH, \

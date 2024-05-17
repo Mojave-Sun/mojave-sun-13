@@ -6,9 +6,7 @@
 
 /datum/reagent/consumable/nutriment/protein/prions/on_mob_metabolize(mob/living/carbon/M)
 	. = ..()
-	M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 2)
-	M.ForceContractDisease(new /datum/disease/kuru)
+	addtimer(CALLBACK(src, .proc/mrelectrickillthisguy, M), rand(5,10) MINUTES)
 
-/datum/reagent/consumable/nutriment/protein/prions/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
-	. = ..()
-	M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 2)
+/datum/reagent/consumable/nutriment/protein/prions/proc/mrelectrickillthisguy(mob/living/carbon/M) // Delay the kuru... it's funnier this way prolly
+	M.ForceContractDisease(new /datum/disease/kuru)
