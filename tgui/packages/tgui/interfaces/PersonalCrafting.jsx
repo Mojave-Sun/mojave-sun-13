@@ -1,9 +1,17 @@
 import { useBackend, useLocalState } from '../backend';
-import { Button, Dimmer, Icon, LabeledList, Section, Stack, Tabs } from '../components';
+import {
+  Button,
+  Dimmer,
+  Icon,
+  LabeledList,
+  Section,
+  Stack,
+  Tabs,
+} from '../components';
 import { Window } from '../layouts';
 
-export const PersonalCrafting = (props, context) => {
-  const { act, data } = useBackend(context);
+export const PersonalCrafting = (props) => {
+  const { act, data } = useBackend();
   const { busy, display_craftable_only, display_compact, category } = data;
   const crafting_recipes = data.crafting_recipes || {};
   // Sort everything into flat categories
@@ -48,12 +56,14 @@ export const PersonalCrafting = (props, context) => {
     }
   }
   // Sort out the tab state
-  const [tab, setTab] = useLocalState(context, 'tab', categories[0]?.name);
+  const [tab, setTab] = useLocalState('tab', categories[0]?.name);
 
   // if our current category is not in our available list (i.e no recipes)
   // then default to first available category
-  if (categories.filter(cat => cat.name === category).length === 0
-      && categories[0]) {
+  if (
+    categories.filter((cat) => cat.name === category).length === 0 &&
+    categories[0]
+  ) {
     act('set_category', {
       category: categories[0].category,
       subcategory: categories[0].subcategory,
@@ -78,7 +88,8 @@ export const PersonalCrafting = (props, context) => {
                         category: category.category,
                         subcategory: category.subcategory,
                       });
-                    }}>
+                    }}
+                  >
                     {category.name}
                   </Tabs.Tab>
                 ))}
@@ -102,7 +113,8 @@ export const PersonalCrafting = (props, context) => {
                     onClick={() => act('toggle_recipes')}
                   />
                 </>
-              }>
+              }
+            >
               <Section fill scrollable>
                 {busy ? (
                   <Dimmer fontSize="32px">
@@ -121,9 +133,9 @@ export const PersonalCrafting = (props, context) => {
   );
 };
 
-const CraftingList = (props, context) => {
+const CraftingList = (props) => {
   const { craftables = [] } = props;
-  const { act, data } = useBackend(context);
+  const { act, data } = useBackend();
   const { craftability = {}, display_compact, display_craftable_only } = data;
   return craftables.map((craftable) => {
     if (display_craftable_only && !craftability[craftable.ref]) {
@@ -148,9 +160,11 @@ const CraftingList = (props, context) => {
               onClick={() =>
                 act('make', {
                   recipe: craftable.ref,
-                })}
+                })
+              }
             />
-          }>
+          }
+        >
           {craftable.req_text}
         </LabeledList.Item>
       );
@@ -169,9 +183,11 @@ const CraftingList = (props, context) => {
             onClick={() =>
               act('make', {
                 recipe: craftable.ref,
-              })}
+              })
+            }
           />
-        }>
+        }
+      >
         <LabeledList>
           {!!craftable.req_text && (
             <LabeledList.Item label="Required">
