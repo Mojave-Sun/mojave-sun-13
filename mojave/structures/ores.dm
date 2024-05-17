@@ -266,7 +266,7 @@
 /obj/item/stack/sheet/ms13/nugget/sulfur
 	name = "sulfur ore"
 	desc = "Yellow rocks full of valuable sulfur."
-	singular name = "sulfure ore chunk"
+	singular_name = "sulfure ore chunk"
 	icon_state = "sulfur"
 	merge_type = /obj/item/stack/sheet/ms13/nugget/sulfur
 
