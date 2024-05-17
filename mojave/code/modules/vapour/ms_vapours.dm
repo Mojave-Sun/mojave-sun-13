@@ -49,14 +49,6 @@
 /datum/vapours/sulfur_concentrate/TouchAct(mob/living/carbon/victim, amount) // Disabled for now. Keep it to yo lungs.
 	. = ..()
 
- //if(iscarbon(burn_living))
- //       var/mob/living/carbon/burn_carbon = burn_living
- //       var/obj/item/clothing/burn_suit = burn_carbon.get_item_by_slot(ITEM_SLOT_OCLOTHING)
- //       var/obj/item/clothing/burn_helmet = burn_carbon.get_item_by_slot(ITEM_SLOT_HEAD)
- //       var/obj/item/clothing/burn_helmet = burn_carbon.get_item_by_slot(ITEM_SLOT_HEAD)
- //       if(burn_suit?.clothing_flags & LAVAPROTECT && burn_helmet?.clothing_flags & LAVAPROTECT)
- //           return LAVA_BE_PROCESSING
-
 	for(var/obj/item/clothing/C in victim.get_equipped_items())
 		if(((C.body_parts_covered & HANDS) && (C.body_parts_covered & ARMS) && (C.body_parts_covered & LEGS) && (C.body_parts_covered & LEGS) && (C.body_parts_covered & HEAD))) //Cover up head to toe!
 			return

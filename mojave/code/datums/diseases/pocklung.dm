@@ -1,3 +1,10 @@
+/// POCKLUNG DISEASE ///
+/* This is highly schizophrenic. The in-world reason this exists? Something about mutant bacteria that lives within the sulfur vents below. Cope about it... Wear a mask
+
+Has quirky effects with no cure. Wear a mask.
+
+Occasionally, a chosen one is born... They will adapt to it and "recover" Benefits? not really. Though they'll cough up a little 'pearl' occasionally (kind of often depending on the person tbh) */
+
 /datum/disease/pocklung
 	name = "Pocklung"
 	desc = "A bacterial/chemically induced condition in which the victim's lungs are degraded by a mixture of sulfur concentrate and the bacteria that has found a home within it."
@@ -8,7 +15,7 @@
 	spread_flags = NONE
 	cure_text = "Incurable"
 	form = "Condition"
-	agent = "decay nodes"
+	agent = "bacteria"
 	sicktext = "Your chest begins to ache and burn horribly."
 	viable_mobtypes = list(/mob/living/carbon/human)
 	required_organs = list(/obj/item/organ/lungs)
@@ -50,8 +57,10 @@
 					affected_mob.vomit(25, TRUE, TRUE, 1)
 					affected_mob.visible_message(span_alert("[affected_mob] vomits something up amidst their coughing!"),
 						span_userdanger("Through the coughs, you gag up a prize!"),
-						span_hear("You hear something drop to the floor quietly."), 4)
-					new /obj/item/ms13/component/sulfurpearl (affected_mob.loc, rand(1, (infection_purity)))
+						span_hear("You hear vomiting, followed by spitting- then, something dropping to the floor quietly."), 4)
+					var/obj/item/ms13/component/sulfurpearl/P = new /obj/item/ms13/component/sulfurpearl (affected_mob.loc, rand(1, (infection_purity)))
+					P.pixel_x = P.base_pixel_x + rand(-12, 12)
+					P.pixel_y = P.base_pixel_y + rand(-12, 12)
 				my_turf.VapourTurf(/datum/vapours/sulfur_concentrate, 10)
 			if(DT_PROB(1, delta_time))
 				affected_mob.adjustOrganLoss(ORGAN_SLOT_LUNGS, (0.25 / infection_purity), 100)
@@ -64,8 +73,10 @@
 					affected_mob.vomit(25, TRUE, TRUE, 1)
 					affected_mob.visible_message(span_alert("[affected_mob] vomits something up amidst their coughing!"),
 						span_userdanger("Through the coughs, you puke up a prize!"),
-						span_hear("You hear something drop to the floor quietly."), 4)
-					new /obj/item/ms13/component/sulfurpearl (affected_mob.loc, rand(1, (infection_purity)))
+						span_hear("You hear vomiting, followed by spitting- then, something dropping to the floor quietly."), 4)
+					var/obj/item/ms13/component/sulfurpearl/P = new /obj/item/ms13/component/sulfurpearl (affected_mob.loc, rand(1, (infection_purity)))
+					P.pixel_x = P.base_pixel_x + rand(-12, 12)
+					P.pixel_y = P.base_pixel_y + rand(-12, 12)
 				my_turf.VapourTurf(/datum/vapours/sulfur_concentrate, 15)
 
 /datum/disease/pocklung/update_stage(new_stage)

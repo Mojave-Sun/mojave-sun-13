@@ -6,7 +6,7 @@
 	internal_magazine = TRUE
 	w_class = WEIGHT_CLASS_HUGE
 	weapon_weight = WEAPON_HEAVY
-	slot_flags = ITEM_SLOT_BACK
+	slot_flags = null
 	mag_type = /obj/item/ammo_box/magazine/internal/ms13/m79
 	bolt_wording = "chamber"
 	rack_sound = 'mojave/sound/ms13weapons/breakaction_open2.ogg'

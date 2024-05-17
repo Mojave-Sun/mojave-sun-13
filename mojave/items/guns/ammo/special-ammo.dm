@@ -7,7 +7,7 @@
 
 /obj/item/ammo_casing/ms13/a40mm/scrap
 	name = "40mm scrap shell"
-	desc = "A makeshift high-caliber shotgun shell, designed to go in... grenade launchers! Quality control is obviosuly dubious. Good luck."
+	desc = "A makeshift high-caliber shotgun shell, designed to go in... grenade launchers! Quality control is obviously dubious. Good luck."
 	icon_state = "40mm_scrap"
 	projectile_type = /obj/projectile/bullet/ms13/a40mm/scrap
 
