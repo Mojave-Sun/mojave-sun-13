@@ -71,6 +71,17 @@
 /obj/effect/turf_decal/ms13/sheltersigns/shelteryellow_circle
 	icon_state = "shelteryellow_circle"
 
+//Explosive Marks
+
+/obj/effect/turf_decal/ms13/boommark
+	icon = 'mojave/icons/decals/ground_decals.dmi'
+	icon_state = "boom"
+
+/obj/effect/turf_decal/ms13/boommark/Initialize(mapload)
+	. = ..()
+	if(prob(90))
+		icon_state = "[initial(icon_state)]-[rand(1,8)]"
+
 // Graffiti
 
 /obj/effect/turf_decal/ms13/graffiti
@@ -244,6 +255,21 @@
 /obj/effect/turf_decal/ms13/graffiti/mark
 	icon_state = "mark"
 
+/obj/effect/turf_decal/ms13/graffiti/skullbones
+	icon_state = "skullbones"
+
+/obj/effect/turf_decal/ms13/graffiti/boomboom
+	icon_state = "boombooms"
+	
+/obj/effect/turf_decal/ms13/graffiti/truedeath
+	icon_state = "death2"
+
+/obj/effect/turf_decal/ms13/graffiti/deadman
+	icon_state = "deadman"
+
+/obj/effect/turf_decal/ms13/graffiti/mines
+	icon_state = "mines"
+	
 /obj/effect/turf_decal/ms13/graffiti/slumbers
 	icon_state = "slumbers"
 

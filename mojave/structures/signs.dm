@@ -190,3 +190,16 @@
 	cut_overlays()
 	set_light(0,0,"#000000")
 	QDEL_NULL(soundloop)
+
+// Wilderness // 
+
+/obj/structure/ms13/sign/mine
+	name = "mine sign"
+	desc = "Mines? Like with ore and valuables?"
+	icon = 'mojave/icons/structure/miscellaneous.dmi'
+	icon_state = "mine_sign"
+	anchored = TRUE
+	density = TRUE
+	layer = ABOVE_MOB_LAYER
+	max_integrity = 250 // Hardy but not immortal
+	pixel_y = 15
