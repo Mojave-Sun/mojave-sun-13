@@ -45,3 +45,4 @@
 	name = "massive storage tank"
 	desc = "A massive empty storage tank. It appears that it's contents have exploded it inside out."
 	icon_state = "big_tank_broken"
+

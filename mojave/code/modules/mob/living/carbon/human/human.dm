@@ -6,6 +6,7 @@
 	. = ..()
 	AddComponent(/datum/component/fixeye)
 	AddComponent(/datum/component/mumbleboop)
+	AddComponent(/datum/component/thirst)
 
 /mob/living/carbon/human/verb/open_job_info()
 	set category = "IC"

@@ -7,6 +7,7 @@
 	boozepwr = 95
 	glass_name = "glass of clear liquid"
 	glass_desc = "A completely clear liquid, spare for the occasional bubble rising to the top. A sniff of this nearly burns your nose hairs clean off."
+	hydration_amount = 10
 
 //// Basic pre-war alcohols ////
 
