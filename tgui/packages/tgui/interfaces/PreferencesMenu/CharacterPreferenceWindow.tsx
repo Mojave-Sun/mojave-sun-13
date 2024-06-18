@@ -62,7 +62,7 @@ export const CharacterPreferenceWindow = (props) => {
       break;
     case Page.Main:
       pageContents = (
-        <MainPage openSpecies={() => setCurrentPage(Page.Species)} />
+        <MainPage />
       );
 
       break;
