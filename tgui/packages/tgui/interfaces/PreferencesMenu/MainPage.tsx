@@ -1,5 +1,6 @@
-import { filterMap, sortBy } from 'common/collections';
+import { filter, map, sortBy } from 'common/collections';
 import { classes } from 'common/react';
+import { createSearch } from 'common/string';
 import { useState } from 'react';
 
 import { sendAct, useBackend } from '../../backend';
@@ -78,6 +79,7 @@ const ChoicedSelection = (props: {
   const { act } = useBackend<PreferencesMenuData>();
 
   const { catalog, supplementalFeature, supplementalValue } = props;
+  const [getSearchText, searchTextSet] = useState('');
 
   if (!catalog.icons) {
     return <Box color="red">Provided catalog had no icons!</Box>;
@@ -172,6 +174,17 @@ const ChoicedSelection = (props: {
       </Stack>
     </Box>
   );
+};
+
+const searchInCatalog = (searchText = '', catalog: Record<string, string>) => {
+  let items = Object.entries(catalog);
+  if (searchText) {
+    items = filter(
+      items,
+      createSearch(searchText, ([name, _icon]) => name),
+    );
+  }
+  return items;
 };
 
 const GenderButton = (props: {
@@ -334,10 +347,11 @@ const createSetRandomization =
     });
   };
 
-const sortPreferences = sortBy<[string, unknown]>(([featureId, _]) => {
-  const feature = features[featureId];
-  return feature?.name;
-});
+const sortPreferences = (array: [string, unknown][]) =>
+  sortBy(array, ([featureId, _]) => {
+    const feature = features[featureId];
+    return feature?.name;
+  });
 
 export const PreferenceList = (props: {
   act: typeof sendAct;
@@ -417,22 +431,20 @@ export const getRandomization = (
 
   const { data } = useBackend<PreferencesMenuData>();
 
+  if (!randomBodyEnabled) {
+    return {};
+  }
+
   return Object.fromEntries(
-    filterMap(Object.keys(preferences), (preferenceKey) => {
-      if (serverData.random.randomizable.indexOf(preferenceKey) === -1) {
-        return undefined;
-      }
-
-      if (!randomBodyEnabled) {
-        return undefined;
-      }
-
-      return [
-        preferenceKey,
-        data.character_preferences.randomization[preferenceKey] ||
-          RandomSetting.Disabled,
-      ];
-    }),
+    map(
+      filter(Object.keys(preferences), (key) =>
+        serverData.random.randomizable.includes(key),
+      ),
+      (key) => [
+        key,
+        data.character_preferences.randomization[key] || RandomSetting.Disabled,
+      ],
+    ),
   );
 };
 
@@ -513,7 +525,7 @@ export const MainPage = () => {
             )}
 
             <Stack height={`${CLOTHING_SIDEBAR_ROWS * CLOTHING_CELL_SIZE}px`}>
-              <Stack.Item fill>
+              <Stack.Item>
                 <Stack vertical fill>
                   <Stack.Item>
                     <CharacterControls
@@ -551,7 +563,7 @@ export const MainPage = () => {
                 </Stack>
               </Stack.Item>
 
-              <Stack.Item fill width={`${CLOTHING_CELL_SIZE * 2 + 15}px`}>
+              <Stack.Item width={`${CLOTHING_CELL_SIZE * 2 + 15}px`}>
                 <Stack height="100%" vertical wrap>
                   {mainFeatures.map(([clothingKey, clothing]) => {
                     const catalog =
@@ -574,6 +586,13 @@ export const MainPage = () => {
                               setCurrentClothingMenu(clothingKey);
                             }}
                             handleSelect={createSetPreference(act, clothingKey)}
+                            randomization={
+                              randomizationOfMainFeatures[clothingKey]
+                            }
+                            setRandomization={createSetRandomization(
+                              act,
+                              clothingKey,
+                            )}
                           />
                         </Stack.Item>
                       )
