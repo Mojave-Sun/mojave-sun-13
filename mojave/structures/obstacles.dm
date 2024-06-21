@@ -754,6 +754,35 @@
 			new /obj/item/stack/sheet/ms13/cloth(loc, 3)
 	qdel(src)
 
+
+/obj/structure/ms13/metal_barricade
+	name = "metal barricade"
+	desc = "A solid iron barricade, designed to keep bullets and people out."
+	icon = 'mojave/icons/structure/smooth_structures/sandbags.dmi'
+	icon_state = "metal_barricade"
+	density = TRUE
+	anchored = TRUE
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_MS13_SANDBAGS)
+	canSmoothWith = list(SMOOTH_GROUP_MS13_SANDBAGS)
+	max_integrity = 300
+	projectile_passchance = 40
+
+/obj/structure/ms13/metal_barricade/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/climbable)
+
+/obj/structure/ms13/metal_barricade/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			new /obj/item/stack/sheet/ms13/scrap(loc, 3)
+		else
+			new /obj/item/stack/sheet/ms13/scrap(loc, 3)
+	qdel(src)
+
+/obj/structure/ms13/metal_barricade/alt
+	icon_state = "metal_barricade_alt"
+
 /obj/structure/ms13/road_barrier
 	name = "road barrier"
 	desc = "A light and portable road barrier, used to direct traffic and stop people from going to dead ends."
