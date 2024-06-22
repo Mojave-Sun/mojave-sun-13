@@ -130,26 +130,6 @@
 	STR.max_w_class = WEIGHT_CLASS_NORMAL
 	STR.max_items = 24
 	STR.max_combined_w_class = 100
-	STR.set_holdable(list(
-		/obj/item/ms13/hammer,
-		/obj/item/ms13/handsaw,
-		/obj/item/ms13/handdrill,
-		/obj/item/crowbar/ms13,
-		/obj/item/weldingtool/ms13,
-		/obj/item/wrench/ms13,
-		/obj/item/wirecutters/ms13,
-		/obj/item/screwdriver/ms13,
-		/obj/item/shovel/ms13/spade,
-		/obj/item/knife/ms13/scissors,
-		/obj/item/flashlight/flare/ms13,
-		/obj/item/flashlight/ms13,
-		/obj/item/radio/ms13,
-		/obj/item/lighter/ms13/zippo,
-		/obj/item/stack/sheet/ms13/scrap_parts,
-		/obj/item/clothing/glasses/ms13/welding,
-		/obj/item/clothing/head/welding/ms13,
-		/obj/item/hatchet/ms13
-		))
 
 /obj/item/storage/ms13/toolbox/filled
 
