@@ -6,7 +6,7 @@
 	icon = 'mojave/icons/structure/ms_devs.dmi'
 	var/cause_of_death
 	var/known_for
-	
+
 /obj/structure/ms13/developer_credit/examine(mob/user)
 	. = ..()
 	. += span_notice("Known for: [known_for]")
@@ -17,7 +17,7 @@
 	icon_state = "INFRARED_BARON"
 	desc = "A master artist, responsible for 95% of the assets seen within the MS13's staggering roster of sprites."
 	cause_of_death = "Overspriting"
-	known_for = "Over over-spriting"
+	known_for = "Over-over-spriting"
 
 /obj/structure/ms13/developer_credit/bobjoga
 	name = "Bob Joga"
@@ -236,9 +236,8 @@
 	desc = "The terror of the streets. This beast shook Snowcrest countless times- and it never got old. Not once."
 
 /obj/item/toy/plush/ms13/koban/use(used)
-	. = ..()
 	to_chat(usr, span_notice("You squeeze the [src]"))
-	playsound(src, 'mojave/sound/ms13effects/hogtie.ogg', 90)
+	playsound(src, 'mojave/sound/ms13npc/hellpig_attack1.ogg', 90, TRUE)
 
 /obj/item/ms13/nonsense
 	desc = "Random bullshit dev references."
@@ -257,7 +256,7 @@
 
 /obj/item/ms13/nonsense/hammer
 	name = "Atlas' Hammer"
-	icon_state = "hammer"
+	icon_state = "atlas_hammer"
 	desc = "A mighty sledge used to destroy the most unefficient workers of Atlas Ironworks"
 
 /obj/item/ms13/nonsense/nuke
