@@ -65,7 +65,7 @@
 	name = "Hyperio"
 	icon_state = "Hyperio"
 	desc = "Atlas personified. A noble coder who held up our github during the beginning of the end. Added numerous soulful features with lots of character. Many thanks for all he did in such a short time."
-	cause_of_death = "Fell into a grave building his bridge"
+	cause_of_death = "Fell into a grave and landed on their internal organs, mortally wounding them after building their bridge"
 	known_for = "Digging graves and building bridges"
 
 /obj/structure/ms13/developer_credit/thatguythere
