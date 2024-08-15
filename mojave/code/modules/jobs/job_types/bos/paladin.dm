@@ -1,8 +1,8 @@
 /datum/job/ms13/bos/paladin
 	title = "BoS Paladin"
 	department_head = list("Head Paladin")
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 	supervisors = "The Head Paladin"
 	req_admin_notify = 1
 	description = "Lead and coordinate the Knights while following and relaying the orders of the Head Paladin. Cooperate with the Scribes to ensure smooth operations in the region and the safety of your bunker. You're currently at edge with the NCR, though not at war, yet."

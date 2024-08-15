@@ -73,7 +73,7 @@
 // Power line junctions
 
 /obj/structure/ms13/powerlines/junction/Initialize(mapload)
-
+	. = ..()
 	// Adjacent connections will be spawned as overlays
 	icon_state = "plinejunction"
 
