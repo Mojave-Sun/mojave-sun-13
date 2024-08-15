@@ -22,7 +22,7 @@
 /obj/structure/ms13/developer_credit/bobjoga
 	name = "Bob Joga"
 	icon_state = "Bobjoga"
-	desc = "A high octane coder, the creator of many of our beloved systems. Namely- Tetris inventory and DT armour."
+	desc = "A high octane coder, the creator of many of our beloved systems. Namely- Tetris inventory and DT armour. Also revolutionized Roleplay via the Guestbook system, ensuring people can't meta-know names. A brave individual with brave takes- and incredible capabilities."
 	cause_of_death = "Mental rot"
 	known_for = "Epic coding"
 
@@ -288,7 +288,7 @@
 /area/ms13/start_area/museum 
 	name = "Museum of the Fallen"
 	icon_state = "mojavemuseum"
-	outdoors = TRUE
+	outdoors = FALSE
 	atmosphere_sound = FATTY_ATMOSPHERE
 
 #undef FATTY_ATMOSPHERE
