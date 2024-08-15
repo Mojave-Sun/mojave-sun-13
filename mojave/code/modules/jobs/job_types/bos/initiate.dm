@@ -1,7 +1,7 @@
 /datum/job/ms13/bos/initiate
 	title = "BoS Initiate"
-	total_positions = 3
-	spawn_positions = 3
+	total_positions = 0
+	spawn_positions = 0
 	supervisors = "Knights, Scribes, and above"
 	description = "You are an inexperienced Brotherhood recruit. Learn what it means to be a member of the Brotherhood and execute orders given to you by anyone that is not a fellow Initiate. You're currently at edge with the NCR, though not at war, yet."
 

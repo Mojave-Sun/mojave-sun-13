@@ -1,4 +1,4 @@
-/datum/job/ms13/bos
+/datum/job/ms13/bos // File is unticked. Tick it to re-enable a major reason why Fallout servers are mid lol.
 	selection_color = "#737592"
 	departments_list = list(
 		/datum/job_department/bos,

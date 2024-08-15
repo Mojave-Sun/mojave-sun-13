@@ -1,8 +1,8 @@
 /datum/job/ms13/bos/head_paladin
 	title = "BoS Head Paladin"
 	department_head = list("Brotherhood High Command")
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 	supervisors = "The Elder (if present) and Brotherhood High Command"
 	req_admin_notify = 1
 	description = "Give orders to your Paladin and ensure the Knights are working properly in the region. Work with the Head Scribe to coordinate efforts for the Brotherhood's mission in the region. You're currently at edge with the NCR, though not at war, yet."
