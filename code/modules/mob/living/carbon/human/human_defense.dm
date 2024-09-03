@@ -898,6 +898,10 @@
 			if(0 to NUTRITION_LEVEL_STARVING)
 				combined_msg += span_danger("You're starving!")
 
+	// MOJAVE SUN EDIT BEGIN
+	SEND_SIGNAL(src, COMSIG_CHECK_SELF, combined_msg) 
+	// MOJAVE SUN EDIT END
+
 	//Compiles then shows the list of damaged organs and broken organs
 	var/list/broken = list()
 	var/list/damaged = list()
@@ -943,7 +947,7 @@
 
 	if(quirks.len)
 		combined_msg += span_notice("You have these quirks: [get_quirk_string(FALSE, CAT_QUIRK_ALL)].")
-
+	
 	to_chat(src, combined_msg.Join("\n"))
 
 /mob/living/carbon/human/damage_clothes(damage_amount, damage_type = BRUTE, damage_flag = 0, def_zone)
