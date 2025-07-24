@@ -61,8 +61,8 @@
 	icon = 'mojave/icons/structure/street_signs.dmi'
 	anchored = TRUE
 	density = TRUE
-	layer = ABOVE_ALL_MOB_LAYER
 	plane = ABOVE_GAME_PLANE // Added to prevent layering issues with street lamps 
+	layer = ABOVE_ALL_MOB_LAYER
 	max_integrity = 500 // Hardy but not immortal
 	projectile_passchance = 95
 
