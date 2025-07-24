@@ -5,7 +5,7 @@
 	icon_state = "streetlight"
 	anchored = TRUE
 	density = TRUE
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_MOB_LAYER
 	plane = ABOVE_GAME_PLANE
 	max_integrity = 2000
 	pixel_x = -32
@@ -45,31 +45,12 @@
 	desc = "A pre-war street lamp, what more is there to say?"
 	icon_state = "streetlightduo"
 
-/obj/machinery/power/ms13/trafficlight
+/obj/machinery/power/ms13/streetlamp/trafficlight
 	name = "\improper traffic light"
 	desc = "A relic of a more civilized time, where people for some reason weren't alright with plowing over a family while going ninety down a road."
-	icon = 'mojave/icons/structure/streetpoles.dmi'
-	anchored = TRUE
-	max_integrity = 2000
-	pixel_x = -32
 	icon_state = "trafficlightright"
-	resistance_flags = INDESTRUCTIBLE
 
-/obj/machinery/power/ms13/trafficlight/CanAllowThrough(atom/movable/mover, turf/target)
-	. = ..()
-	if(locate(/obj/machinery/power/ms13/trafficlight) in get_turf(mover))
-		return TRUE
-	else if(istype(mover, /obj/projectile))
-		if(!anchored)
-			return TRUE
-		var/obj/projectile/proj = mover
-		if(proj.firer && Adjacent(proj.firer))
-			return TRUE
-		if(prob(75)) // These things are pretty thin
-			return TRUE
-		return FALSE
-
-/obj/machinery/power/ms13/trafficlight/alt
+/obj/machinery/power/ms13/streetlamp/trafficlight/alt
 	icon_state = "trafficlightleft"
 
 // Street Signs //
@@ -80,7 +61,8 @@
 	icon = 'mojave/icons/structure/street_signs.dmi'
 	anchored = TRUE
 	density = TRUE
-	layer = ABOVE_MOB_LAYER
+	layer = ABOVE_ALL_MOB_LAYER
+	plane = ABOVE_GAME_PLANE // Added to prevent layering issues with street lamps 
 	max_integrity = 500 // Hardy but not immortal
 	projectile_passchance = 95
 
